@@ -1,14 +1,3 @@
-# Azure SDK
-
-The Azure SDK delivers a platform for developers to leverage the wide variety of Azure services in their language of choice.
-
-# Services
-
-| Service Name | .NET | Java | Python | TypeScript |
-| ------------ | ------ | ----- | ------ | ------- |
-| Azure Storage | Yes <br> [code](https://github.com/Azure/azure-storage-net) | | | |
-| CosmosDB | | | | |
-
 
 # Contributing
 
