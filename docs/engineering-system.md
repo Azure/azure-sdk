@@ -48,3 +48,7 @@
     1. Test frameworks
     1. Dependencies
     1. Versioning
+
+## Infrastructure
+1. Azure DevOps
+1. Travis
