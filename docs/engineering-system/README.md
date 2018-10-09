@@ -52,3 +52,10 @@
 ## Infrastructure
 - Azure DevOps
 - Travis
+
+## Support Policy
+> Microsoft Azure Cloud Services will support no fewer than the latest two SDK versions for deploying new Cloud Services. Microsoft will provide notification 12 months before retiring a SDK in order to smooth the transition to a supported version.
+
+The Microsoft Azure SDK policy covers Microsoft Azure SDK authoring tools, REST APIs, client libraries, command-line utilities, compute & storage emulators, and Azure Tools for Microsoft Visual Studio.
+
+https://support.microsoft.com/en-gb/help/18486/lifecycle-faq-azure
