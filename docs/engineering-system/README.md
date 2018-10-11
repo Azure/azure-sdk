@@ -18,6 +18,7 @@
   - All tests can be run without connecting to Azure (or in a private fork)
   - Distributed runner to decrease test time
   - Test multiple SDK versions agains latest version of service
+  - Integrate with other engineering systems (CDP/CDPx/healthstore)
   - Detect if service deployments break SDK
     - Run tests frequently against live services (prod, canary, deployment pipeline)
     - Automatically open ICM incidents
@@ -36,14 +37,16 @@
 - Documentation
   - Build and publish
   - Changelog generation
+  - Installers(?) for global package installs (e.g. apt-get)
 - Issue Management
   - Report issues not getting traction
   - Route issues from client to service teams
 - Dependency management
   - Between components we own
   - Third-party libraries (e.g. JSON.NET)
+  - New (e.g. Python 3.8, Java9) or out-of-support runtimes (Python 2.7)
   - Notification when newer third-party library is available
-  - Notification for issues and securiity vulnerabilities in third-party libraries
+  - Notification for issues and security vulnerabilities in third-party libraries
 - Standardization
   - Test frameworks
   - Dependencies
