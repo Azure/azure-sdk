@@ -11,6 +11,9 @@
   - Nightly / per-checkin builds to publicly-available pre-release package stores
   - Official builds to package stores on-demand
   - Fast and easy to publish a subset of packages (down to a single package)
+- Servicing
+  - Branching
+  - Toolset management
 - Testing
   - Unit, Functional, Scenario
   - Performance
