@@ -28,18 +28,25 @@ The SDKs will be used in applications that might be using ther logging, DI, and 
 
 1.1.1 :white_check_mark: **DO** send telemetry information in the User-Agent header, with the header value in the the following format: 
 
-[<application_id>\<SPACE\>]<sdk_name>/<sdk_version>\<SPACE\><platfrom_info>
+[<application_id>/<SPACE\>]<sdk_name>/<sdk_version>/<SPACE\><platform_information>
 
-* <application_id> ::= application specific string. The string is supplied by the user of the SDK, e.g. "AzCopy/10.0.4-Preview"
+* <application_id> ::= optional application-specific string. The string is supplied by the user of the SDK, e.g. "AzCopy/10.0.4-Preview"
 * <sdk_name> ::= name of the SDK, e.g. "Azure-Storage-Blob"
 * <sdk_version> ::= the version of the SDK. Note: this is not the version of the service
-* <platfrom_info> ::= information about the currently executing OS and runtime, e.g. "(NODE-VERSION v4.5.0; Windows_NT 10.0.14393)"
+* <platform_information> ::= information about the currently-executing OS and runtime, e.g. "(NODE-VERSION v4.5.0; Windows_NT 10.0.14393)"
+
+For example, the following two are fully formatter User-Agent header values:
+
+* "Azure-Storage/1.4.0 (NODE-VERSION v4.5.0; Windows_NT 10.0.14393)"
+* "AzCopy/10.0.4-Preview Azure-Storage/1.4.0 (NODE-VERSION v4.5.0; Windows_NT 10.0.14393)"
+
+For details on the User-Agent header, see https://tools.ietf.org/html/rfc7231#section-5.5.3
 
 NOTE: today, the <sdk_name> for all storage SDKs/packages (Blob, File, etc.) is simply "Azure-Storage". The guideline above proposes that we standardize on full SDK names, e.g. "Azure-Storage-Blob". 
 
 TODO: provide the full list of SDK names.
 
-TODO: provide language specific guidelines (and possibly shared library) for generating <platfrom_info> 
+TODO: provide language-specific guidelines (and possibly shared library) for generating <platform_information> 
 
 TODO: provide shared library API for injecting telemetry information
 
