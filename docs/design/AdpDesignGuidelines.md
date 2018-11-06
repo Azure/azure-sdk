@@ -25,6 +25,7 @@ Currently, the document id mainly as a list of topics that we want to cover in m
 The SDKs will be used in applications that might be using ther logging, DI, and configuration technologies of their choice. 
 
 ## 1.1.0 Telemetry
+Telemetry is used by service teams (not customers) to monitor what SDK a client is using to call into their service. Specifically, the service team can detect client OS, language, language version, and service SDK version. Some clients can prepend additional information indicating the name and version of the client application.
 
 1.1.1 :white_check_mark: **DO** send telemetry information in the User-Agent header, with the header value in the the following format: 
 
