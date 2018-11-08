@@ -8,6 +8,12 @@ The following is a list of Azure services and links to their open source code:
 
 ## Client Libraries
 
+Many of the Azure SDK libraries are together in language specific repositories:
+
+| [.NET](https://github.com/Azure/azure-sdk-for-net) | [Java](https://github.com/Azure/azure-sdk-for-java) | [Python](https://github.com/Azure/azure-sdk-for-python) | [JavaScript](https://github.com/Azure/azure-sdk-for-js) | [Go](https://github.com/Azure/azure-sdk-for-go) |
+
+For some libraries, they are located in their own repsitories:
+
 | Service Name | .NET | Java | Python | JavaScript | Go |
 | ------------ | ------ | ----- | ------ | ------- | -------- |
 | Azure Storage | [code](https://github.com/Azure/azure-storage-net) | [code](https://github.com/Azure/azure-storage-java) | [code](https://github.com/Azure/azure-storage-python) | [code](https://github.com/Azure/azure-storage-node) | [code](https://github.com/Azure/azure-storage-go) |
