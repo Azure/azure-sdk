@@ -1,18 +1,14 @@
 # Azure SDK
 
-The Azure SDK delivers a platform for developers to leverage the wide variety of Azure services in their language of choice.
+The Azure SDK delivers a platform for developers to leverage the wide variety of Azure services in their language of choice. The source for the libraries exists for the most part in repositories for each language. This repository is meant to be a jumping off point into those language specific repositories. Issues related to a specific language should be opened in the corresponding repository but cross cutting issues can be opened in this repository.
+
+| [.NET](https://github.com/Azure/azure-sdk-for-net) | [Java](https://github.com/Azure/azure-sdk-for-java) | [Python](https://github.com/Azure/azure-sdk-for-python) | [JavaScript](https://github.com/Azure/azure-sdk-for-js) | [Go](https://github.com/Azure/azure-sdk-for-go) |
 
 # Azure Service Libraries
 
 The following is a list of Azure services and links to their open source code:
 
 ## Client Libraries
-
-Many of the Azure SDK libraries are together in language specific repositories:
-
-| [.NET](https://github.com/Azure/azure-sdk-for-net) | [Java](https://github.com/Azure/azure-sdk-for-java) | [Python](https://github.com/Azure/azure-sdk-for-python) | [JavaScript](https://github.com/Azure/azure-sdk-for-js) | [Go](https://github.com/Azure/azure-sdk-for-go) |
-
-For some libraries, they are located in their own repsitories:
 
 | Service Name | .NET | Java | Python | JavaScript | Go |
 | ------------ | ------ | ----- | ------ | ------- | -------- |
