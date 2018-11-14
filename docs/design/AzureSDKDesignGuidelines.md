@@ -64,7 +64,7 @@ TODO: provide shared library API for injecting telemetry information
 
 1.2.6 :white_check_mark: **DO** log an Error message, if a response comes back with a status codes between 400-599. 
 
-Some services use status codes in this range in normal course of operation, e.g. implement an "exists" check by returning 404 (not fount). In such situations, the particular service might opt out from logging such status code as error. 
+Some services use status codes in this range in normal course of operation, e.g. implement an "exists" check by returning 404 (not found). In such situations, the particular service might opt out from logging such status code as error. 
 
 1.2.7 :white_check_mark: **DO** log a Warning message, if a service call needs to be retried.
 
