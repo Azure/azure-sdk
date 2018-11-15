@@ -50,6 +50,32 @@ TODO: provide the full list of SDK names.
 TODO: provide language-specific guidelines (and possibly shared library) for generating <platform_information> 
 
 TODO: provide shared library API for injecting telemetry information
+## 1.2.0 Logging
+
+1.2.1 :white_check_mark: **DO** support pluggable loggers.
+
+1.2.2 :white_check_mark: **DO** emit the following log levels: Verbose (i.e. details), Informational (things happened), Warning (might be a problem or not), and Error. 
+
+1.2.3 :no_entry: **DO NOT** send sensitive information to the logs, e.g. remove account keys when logging headers.
+
+1.2.4 :white_check_mark: **DO** log a Warning message, if a request takes longer than some specified threshold. The default threshold is 3 seconds.
+
+1.2.5 :white_check_mark: **DO** log request line, response line, and headers, as Informational message.
+
+1.2.6 :white_check_mark: **DO** log an Error message, if a response comes back with a status codes between 400-599. 
+
+Some services use status codes in this range in normal course of operation, e.g. implement an "exists" check by returning 404 (not found). In such situations, the particular service might opt out from logging such status code as error. 
+
+1.2.7 :white_check_mark: **DO** log a Warning message, if a service call needs to be retried.
+
+1.2.7 :white_check_mark: **DO** log an Informational message, if a service call is cancelled.
+
+1.2.7 :white_check_mark: **DO** log exceptions thrown as an Error message. If the log level set to Verbose, append stack trace information to the message.
+
+1.2.7 :white_check_mark: **DO** DO log failures (exceptions and error status codes), regardless logging level, to the event log on Windows and the syslog on Linux, i.e. this cannot be turned off by the SDK user unless they replace the pipeline.
+
+TODO: describe format/syntax of the log messages.
+TODO: provide and describe pipeline APIs for logging.
 
 ## 2.0 C# Specific Guidelines
 
