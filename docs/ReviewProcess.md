@@ -13,7 +13,8 @@ To conduct a review, we need the following things from the owners of the SDK:
 2. Link to the sericce's REST APIs, if aplicable/avaliable
 3. Several code samples showing how the SDK is meant to be used by the customers. An example of a good set of usage samples can be found [here](https://github.com/dotnet/corefx/issues/32588).
 4. Listing of the APIs. See below for example and tools to generate it.
-5. If the SDK is already prototyped, dlls/packages/etc with the prototype implementation
+5. If the SDK is already prototyped, dlls/packages/etc with the prototype implementation.
+6. If the SDK already GAed in the past, and this review is for additional APIs, old dlls/packages (to help us understand the changes).
 
 ## API Listings
 During API reviews, we look at API usage samples (as discussed above) and at detailed API lisiting. 
