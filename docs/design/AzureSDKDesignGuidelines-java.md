@@ -21,6 +21,8 @@ The Azure Java SDK Specification (AJSS) contains guidelines for writing high-qua
     - [6.0 Operating Systems](#60-operating-systems)
     - [6.1 Supported Java Versions](#61-supported-java-versions)
   - [7 Versioning](#7-versioning)
+    - [7.0 Snapshot Releases](#70-snapshot-releases)
+    - [7.1 GA Releases](#71-ga-releases)
   - [8 Naming](#8-naming)
     - [8.0 Determing Group and Service Name](#80-determing-group-and-service-name)
     - [8.1 Java Package Naming](#81-java-package-naming)
@@ -43,16 +45,20 @@ The Azure Java SDK Specification (AJSS) contains guidelines for writing high-qua
     - [11.1 Async](#111-async)
     - [11.2 Pipelines](#112-pipelines)
     - [11.3 Logging](#113-logging)
+    - [11.4 Tooling](#114-tooling)
+      - [11.4.0 SpotBugs](#1140-spotbugs)
+      - [11.4.1 CheckStyle](#1141-checkstyle)
     - [11.4 Testing](#114-testing)
       - [11.4.0 Unit Tests](#1140-unit-tests)
   - [12 Documentation](#12-documentation)
-    - [12.0 Quickstarts & Tutorials](#120-quickstarts--tutorials)
-    - [12.1 Code Samples](#121-code-samples)
-    - [12.2 API Documentation](#122-api-documentation)
-      - [12.2.0 JavaDoc](#1220-javadoc)
-      - [12.2.1 JavaDoc for Behavioral Contracts](#1221-javadoc-for-behavioral-contracts)
-      - [12.2.2 JavaDoc Tags](#1222-javadoc-tags)
-    - [12.3 Reference Overview](#123-reference-overview)
+    - [12.0 General Advice](#120-general-advice)
+    - [12.1 Quickstarts & Tutorials](#121-quickstarts--tutorials)
+    - [12.2 Code Samples](#122-code-samples)
+    - [12.3 API Documentation](#123-api-documentation)
+      - [12.3.0 JavaDoc](#1230-javadoc)
+      - [12.3.1 JavaDoc for Behavioral Contracts](#1231-javadoc-for-behavioral-contracts)
+      - [12.3.2 JavaDoc Tags](#1232-javadoc-tags)
+    - [12.4 Reference Overview](#124-reference-overview)
 
 ## 1 Contributing to this Specification
 
@@ -98,15 +104,25 @@ Support for versions prior to Java 8 is not required, whereas support for LTS ve
 
 Maven releases must be versioned with [semver](https://semver.org/).
 
-When a feature is to be removed in a future release, use the `@Deprecated` annotation and the `@deprecated` JavaDoc tag to clearly explain what is being removed, and how developers should transition to new API.
-
-SDKs in GA must not have a `SNAPSHOT` tag, or any additional versioning metadata.
-
-SDKs under preview must have a pre-release version of the format `1.0.0-SNAPSHOT`, and must be pushed to the Maven Central snapshots repository. Snapshot releases should not have additional build metadata.
-
 SDKs must not use a major version of 0, even for preview SDKs.
 
 For some types of libraries and applications, semantic versioning is more of a lofty ideal than a practical specification. Also, [one person's bug might be another person's key feature](https://xkcd.com/1172/). Nonetheless, SDK authors are required to do the best they can to comply with semver in a way that is useful for their consumers.
+
+### 7.0 Snapshot Releases
+
+SDKs under preview must have a snapshot version of the format `1.0.0-SNAPSHOT`, and must be pushed to the Maven Central snapshots repository. Snapshot releases should not have additional build metadata.
+
+Features that are under development within a snapshot release, and which may change before GA, should be annotated with the `@Deprecated` annotation and the `@deprecated` JavaDoc tag to clearly explain that the API is experimental and may change before the next GA release. Before GA occurs, all such deprecated annotations should be removed.
+
+### 7.1 GA Releases
+
+When a feature is to be removed in a future major release, use the `@Deprecated` annotation and the `@deprecated` JavaDoc tag to clearly explain what is being removed, and how developers should transition to new API.
+
+API should never be removed or changed in any release that is not a major version change.
+
+When a major version is GA'd, it is expected that there will be no API that is marked as deprecated.
+
+SDKs in GA must not have a `SNAPSHOT` tag, or any additional versioning metadata.
 
 ## 8 Naming
 
@@ -305,6 +321,20 @@ Other streaming operations are fine, but they should be built with functionality
 
 > TODO talk about slf4j, etc. Refer back to general guidelines doc.
 
+### 11.4 Tooling
+
+#### 11.4.0 SpotBugs
+
+All projects must be running SpotBugs using the centralised Azure Java SDK SpotBugs rule set. Maven pom.xml files that specify the centrali Azure Java SDK parent pom as their parent will have this configured automatically, and the tooling should execute simply by calling `mvn spotbugs:spotbugs`.
+
+The generated HTML report should be reviewed throughout the development process, with the expectation that at each GA release there are zero SpotBugs issues being reported.
+
+> TODO SpotBugs may be configured to run on each build, and fail the build if it detects issues - so this may become a non-issue
+
+#### 11.4.1 CheckStyle
+
+>> TODO
+
 ### 11.4 Testing
 
 #### 11.4.0 Unit Tests
@@ -317,65 +347,73 @@ Quality documentation is often the difference between a productive user experien
 
 Documentation, depending on its form and its target audience, can live in many places, but we must strive to keep these locations consistent across all services. These will be detailed in the following sections.
 
-### 12.0 Quickstarts & Tutorials
+### 12.0 General Advice
 
-The SDK must have content contributed to at least one [Quickstart](https://review.docs.microsoft.com/help/contribute/contribute-how-to-mvc-quickstart?branch=master) or [tutorial](https://review.docs.microsoft.com/help/contribute/contribute-how-to-mvc-tutorial?branch=master) (or a brand new document if necessary). This content must be discoverable from the Table of Contents of [docs.microsoft.com](http://docs.microsoft.com) for [Java](http://docs.microsoft.com/azure/java).
+Maven dependency statements, when displayed as part of documentation, should be versionless, and should always link the reader back to a central document detailing how to make use of the Azure Maven BOM for dependency versioning management.
 
-Maven dependency statements for the SDK should be versionless, and should always link back to the central document detailing how to make use of the Azure Maven BOM for dependency versioning management.
+> TODO link to central document detailing Azure SDK BOM
 
-### 12.1 Code Samples
+### 12.1 Quickstarts & Tutorials
+
+The SDK must have content contributed to at least one [quickstart](https://review.docs.microsoft.com/help/contribute/contribute-how-to-mvc-quickstart?branch=master) or [tutorial](https://review.docs.microsoft.com/help/contribute/contribute-how-to-mvc-tutorial?branch=master) (or a brand new document if necessary). This content must be discoverable from the table of contents of [docs.microsoft.com](http://docs.microsoft.com) for [Java](http://docs.microsoft.com/azure/java), but it does not need to be directly linked to from the table of contents.
+
+### 12.2 Code Samples
+
+> TODO determine where samples should live. Options include: the Azure Samples Gallery, a single repo per language for all samples, within the azure-sdk-for-<language> repo (in a single 'samples' directory or under each specific data plane SDK).
 
 Your SDKs GitHub documentation must link to "Code Samples" under the "Samples" section of the ToC that links to the [Azure Samples Gallery](https://azure.microsoft.com/resources/samples/) or to a curated page in your documentation set that lists the samples available for your service.
+
+Code samples displayed in the GitHub README<span></span>.md file should be kept to a minimum, with preference being to link people to appropriate resources rather than to overwhelm the readme file. A minimal set of critical code samples can however be included as part of the readme file.
 
 Samples must use the latest coding conventions. It is recommended to make liberal use of modern Java syntax and API such as diamond operators, etc as they remove boilerplate from your samples and let your library's API shine through better. Do not use any language feature or API of Java beyond the current Java baseline versioned employed by the SDK, currently this is JDK 8.
 
 At all times we should consciously ensure that we link back to docs.microsoft.com whenever relevant. Sample repos provided by the service and docs team must link back to the service on docs.microsoft.com and the reference overview page for the library.
 
-Sample code should be maintained and must use the latest major release of the library. Sample code repos should be reviewed for freshness and at least one commit should be made to a sample repo every semester.
+Sample code should be maintained and must use the latest major release of the library. Sample code repos should be reviewed for freshness and at least one commit should be made to a sample repo every semester - at least to update dependencies to the latest release and to ensure that the code continues to function as expected.
 
 Sample code snippets in quickstarts and tutorials should be easily grafted from the documentation into a users own application and not tied to variable declarations not covered in previous snippets in the content.
 
 Code snippets should be optimized for ease of reading and comprehension over code compactness and efficiency unless the article context demands otherwise.
 
-Samples must be runnable on macOS and Linux development environments and not tied to our developer toolchain.
+Samples must be runnable on Windows, macOS, and Linux development environments and not tied to our developer toolchain.
 
 Sample code repos should have clear names, descriptions and README files per the [samples guidance](https://review.docs.microsoft.com/help/contribute/contribute-get-started-azure-samples?branch=master) so that they make sense if accessed outside the context of docs.microsoft.com or the [Azure samples portal](https://azure.microsoft.com/resources/samples).
 
-> TODO Samples can be run using "$ mvn clean compile exec:java" or "$ mvn clean package" (as appropriate) without any additional requirements for setup
+Wherever possible, samples must be runnable using `mvn clean compile exec:java` without any additional requirements for setup. If there are additional requirements (e.g. starting a separate Jetty server), then these must be clearly documented in the readme.md file associated with the code sample.
 
 > TODO Library samples must be discoverable from azure.microsoft.com/resources/samples/?v=17.28&platform=java
 
-### 12.2 API Documentation
+### 12.3 API Documentation
 
-API documentation must be auto-generated from source code annotations.
+API documentation must be able to be auto-generated from source code annotations.
 
 It should be possible for anybody to clone the repo containing the SDK and execute `mvn javadoc:javadoc` to generate the full and complete JavaDoc output for the code, without any need for additional processing steps.
 
 > TODO The Microsoft docs team must be notified and informed about the existence of the code repository to ensure that it reliably ingests the reference documentation...
 
-#### 12.2.0 JavaDoc
+#### 12.3.0 JavaDoc
 
 You must annotate your source code with JavaDoc declarations.
 
-JavaDoc should act as the specification of the API. Engineers responsible for writing API should consider it part of their job to ensure that a JavaDoc is complete, with class-level and method-level overviews, specifying the expected inputs, outputs, exceptional circumstances, and any other detail. Whilst this documentation acts as the specification, it is important that it does not become an overly detailed guide to the programmer, or discuss how the implementation works.
+JavaDoc should act as the specification of the API. Engineers responsible for writing API should consider it part of their job to ensure that a JavaDoc is complete, with class-level and method-level overviews, specifying the expected inputs, outputs, exceptional circumstances, and any other detail.
 
-In an ideal world, the effort to create high quality JavaDoc would go a step further, to also include code snippets that users can copy/paste into their own software to kick start their own development. These code snippets need not be long screeds of code - it is best if they are constrained to no more than five to ten lines of code. These code snippets can be added to the JavaDoc of the relevant class or method over time, as users start to ask questions on the API.
+The JavaDoc output must include code snippets that users can copy/paste into their own software to kick start their own development. These code snippets need not be long screeds of code - it is best if they are constrained to no more than five to ten lines of code. These code snippets can be added to the JavaDoc of the relevant class or method over time, as users start to ask questions on the API.
 
 The value of JavaDoc extends beyond offering it to other developers - it can also help us. This is because JavaDoc gives us a filtered view of our SDK by only showing API that is intended for public use. If we establish a routine of regularly generating JavaDoc we can review our API for issues such as missing JavaDoc, leaking implementation classes or external dependencies, and other things that aren't what we expect.
 
 > TODO Must exclude Java classes and interfaces that are not part of the Java API – using the “Excluding Packages” feature in Maven Javadoc plugin
 
-#### 12.2.1 JavaDoc for Behavioral Contracts
+#### 12.3.1 JavaDoc for Behavioral Contracts
 
 One underutilised aspect of JavaDoc is to use it to specify behavioral contracts. An example of a behavioral contract is the `Arrays.sort()` method, which guarantees it is 'stable' (that is, equal elements are not reordered). There is no way to easily specify this guarantee as part of the API itself (aside from making our API unwieldy, e.g. `Arrays.stableSort()`), but JavaDoc is an ideal location for this.
 
 However, if we add behavioral contracts as part of our JavaDoc, this then becomes as much a part of our API as the API itself. We can not change this behavioral contract with the same level of consideration, as it will potentially cause downstream issues for your users.
 
-#### 12.2.2 JavaDoc Tags
+#### 12.3.2 JavaDoc Tags
 
 JavaDoc ships with a [number of tags](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/javadoc.html#CHDJFCCC) such as `@link`, `@param`, and `@return`, which provide more context to the JavaDoc tooling, and which therefore enables a richer experience when HTML output is generated. It is extremely useful when writing JavaDoc content to keep these in the back of your mind, to ensure that they are all used when relevant. To understand when to use each of these tags, refer to the ['Tag Comments' section](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/javadoc.html#CHDJFCCC) of the Java Platform, Standard Edition Tools Reference documentation.
 
-### 12.3 Reference Overview
+### 12.4 Reference Overview
 
 You must have a Java [reference overview page](https://review.docs.microsoft.com/help/contribute/contribute-reference-overviews?branch=master) for the client library under the Reference node in your content's ToC with a specific Java entry in that ToC. This reference overview must live in either the Java Azure SDK reference repo or in your own content set alongside the rest of your docs.
 
