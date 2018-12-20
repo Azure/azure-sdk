@@ -141,6 +141,29 @@ Many programming languages do not allow a customer to load multiple versions of 
 
 1.6.2 :no_entry: **DO NOT** allow any customer configuration or customization via a shared resource like a file or environment variable as this prevents different configurations to exist at the same time.
 
+## Other topics to be covered
+-   Tracing
+-   Versioning
+-	Authorization (credentials)
+-	Error/Exception handling
+-	Packaging (Brian)
+-	Namespaces (Krzysztof)
+-	High level structure of APIs (Krzysztof)
+-	Docs (reference, Samples, Quick Starts) (Jonathan Giles)
+-	UX Study
+
+-   Engineering TOC:
+    -	Linter
+    - Packaging
+    - Signing
+    - Project Structure
+    - Repos
+    - License
+    - Testing (unit & E2E)
+    - Supported versions
+    - Platform Support
+    - Stress
+    - Performance
 
 
 ## 2.0 C# Specific Guidelines
