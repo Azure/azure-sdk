@@ -12,7 +12,7 @@ For example, you can substitute "my friends!" (or even the whole greeting) with 
 
 :no_entry: **DO NOT** try to sneak in without the greeting, even if your corowkers are "in the zone" glued to their computers.
 Studies have shown that the small lost of productivity from interrupting your coworkers 
-is ofset by an increase of prodsuctivity due to better team cohesion.
+is offset by an increase of productivity due to better team cohesion.
 
 ## Responding to a Greeting
 
