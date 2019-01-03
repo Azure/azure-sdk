@@ -12,7 +12,7 @@
 
 TODO:
 This scection describes the basic shape of a typical Azure SDK:
-- basic shape of the clinet types
+- basic shape of the client types
 - basic shape of service call methods
 - cancellations
 - return type (Response<T>) of service methods
@@ -41,7 +41,7 @@ i.e. send email about your proposed namespaces to this address to start a discus
 - Azure.Storage (e.g. Azure.Storage.Blobs)
 
 ## 3.1.0 Type Naming
-TODO: XxxClient, XxxResopurce, etc. 
+TODO: XxxClient, XxxResource, etc. 
 
 ## 4.0 Packaging and Versioning
 TODO
@@ -57,7 +57,7 @@ TODO:
 - source code
 - tests
 - documentation
-- spamples
+- samples
 
 ## 8.0 Common Type Usage
 TODO:
@@ -66,7 +66,7 @@ TODO:
 - System.Uri
   
 ## Appendix A: Commonly Overlooked .NET API Design Guidelines
-Some .NET Design Guiudelines have been notoriously overlooked in exisitng Azure SDKs. This section serves as a way to highlight these guidelines.
+Some .NET Design Guiudelines have been notoriously overlooked in existing Azure SDKs. This section serves as a way to highlight these guidelines.
 
 :no_entry: **DO NOT** have abstractions (interfaces of abstract classes) unless types both implement and consume them (i.e. you have parameters typed as the abstraction).
 
