@@ -168,11 +168,7 @@ Many programming languages do not allow a customer to load multiple versions of 
 
 ## 2.0 C# Specific Guidelines
 
-2.0.1 :white_check_mark: **DO** follow the official [Framework Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/)
-
-2.0.2 :warning: **NOTE** additional gudelines in this section overrule the Framework Design Guidelines  
-
-<font size="2" color="gray">TODO: describe guidance for logging, configuration, and dependency injection</font>
+For C# specific Azure SDK guidelines see https://github.com/Azure/azure-sdk/blob/master/docs/design/dotnet/DesignGuidelines.md 
 
 ## 3.0 Java Specific Guidelines
 
