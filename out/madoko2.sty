@@ -1,0 +1,1311 @@
+%---------------------------------------------------------------------------
+%  Copyright 2013-2015 Microsoft Corporation.
+% 
+%  This is free software; you can redistribute it and/or modify it under the
+%  terms of the Apache License, Version 2.0. A copy of the License can be
+%  found in the file "license.txt" at the root of this distribution.
+%---------------------------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}[1995/12/01]
+
+\RequirePackage{colortbl} % instead of passing the [table] option to xcolor, load colortbl ourselves to prevent option clashes
+\RequirePackage{xcolor}
+\RequirePackage{options}
+\RequirePackage{iftex}
+
+%-------------------------------------------------------------
+% Process options 
+%-------------------------------------------------------------
+\options{%
+  /madoko/.new family,
+  /madoko/heading-base/.new num=1,
+  /madoko/section-num/.new toggle,
+  /madoko/bib-label/.new value=true,
+  /madoko/math/.new toggle,
+  /madoko/beamer/.new toggle,
+  /madoko/fontspec/.new toggle=true,% is expensive.. but default true is more user friendly
+  /madoko/version/.new value=2.0,
+}
+
+\@ifclassloaded{beamer}{\options{/madoko/beamer=true}}{}
+\ifdef\mathmode{\options{/madoko/math=true}}{}
+\ifdef\mdmathmode{\options{/madoko/math=true}}{}
+\options@ProcessOptions{/madoko}
+
+
+%-------------------------------------------------------------
+% Packages
+%-------------------------------------------------------------
+
+\RequirePackage{iftex}
+\RequirePackage{graphicx}
+\RequirePackage{longfbox}
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{amssymb}
+\RequirePackage{stmaryrd}
+\RequirePackage{textcomp}
+\RequirePackage{pifont}
+
+%\RequirePackage{pdfcomment}
+\RequirePackage{hyperref} % loaded by pdfcomment
+\RequirePackage{bookmark}
+
+% package only loaded outside snippets
+\iftoggle{/madoko/math}{}{%
+  \RequirePackage{booktabs}
+  \RequirePackage{array}
+  \RequirePackage{longtable}
+  \RequirePackage{anyfontsize}
+  \RequirePackage{enumitem}
+  \RequirePackage{wrapfig}
+
+  % fontspec is expensive to load but we need it...
+  \iftoggle{/madoko/fontspec}{%
+    % font selection
+    \ifXeTeX\RequirePackage{fontspec}\else
+    \ifLuaTeX\RequirePackage{fontspec}\else
+    %\RequirePackage{lmodern}% don't load lmodern since it overrides any earlier default font...
+    \RequirePackage[T1]{fontenc}%
+    \RequirePackage[utf8]{inputenc}
+    \providecommand{\fontspec}[2][]{\toggletrue{md@fontsubstituted}}
+    \fi\fi
+  }{%
+    \RequirePackage[T1]{fontenc}%
+  }
+}%
+
+
+%-------------------------------------------------------------
+% Setup packages 
+%-------------------------------------------------------------
+
+% hyperref
+\hypersetup{
+  colorlinks=true,linkcolor=navy,urlcolor=blue,filecolor=maroon,
+  %already set: pdfpagelabels=false,bookmarks=true,
+  bookmarksdepth=3,bookmarksopenlevel=1
+}
+
+% booktabs
+\ifdefined\aboverulesep
+\setlength{\aboverulesep}{0pt}
+\setlength{\belowrulesep}{0pt}
+\setlength{\doublerulesep}{\heavyrulewidth}
+\fi
+
+% enumitem
+\AtBeginDocument{%
+  \ifdef\@enhook{%
+    \PackageWarning{madoko2}{You cannot use the package "enumerate" in madoko;\MessageBreak 
+                            use the "enumitem" package instead\MessageBreak (which is available by default)}{}%
+  }{}%
+}
+
+%-------------------------------------------------------------
+% Util
+%-------------------------------------------------------------
+\protected\edef\\{\unexpanded\expandafter{\\}}% make this a robust command (needed for the beamer package)
+\providecommand\ulp@afterend{}
+
+\providecommand\defcommand{\@ifstar\md@defcommand@S\md@defcommand@N}
+\newcommand\md@defcommand@S[1]{\let#1\outer\renewcommand*#1}
+\newcommand\md@defcommand@N[1]{\let#1\outer\renewcommand#1} 
+
+\providecommand\provideenvironment{\@star@or@long\md@provide@environment}
+\newcommand\md@provide@environment[1]{%
+  \@ifundefined{#1}%
+    {\def\reserved@a{\newenvironment{#1}}}%
+    {\def\reserved@a{\renewenvironment{md@dummy@environ}}}%
+  \reserved@a
+}
+\newcommand\md@dummy@environ{}
+
+\def\providecsgdef#1{\ifcsdef{#1}{\providecommand\@foo}{\csgdef{#1}}}
+\newcommand\expandnextii[3]{\expandnext{\expandnext{#1}{#2}}{#3}}
+\newcommand\expandnextiii[4]{\expandnext{\expandnextii{#1}{#2}{#3}}{#4}}
+
+% keep a command after ending a group
+\newcommand\@egroupkeep[2]{\expandafter\egroup\def#1{#2}}
+\newcommand\egroupkeep[1]{%
+  \expandnext{\@egroupkeep{#1}}{#1}%
+}
+
+
+\newcommand\leavehmode{\ifhmode\par\fi}
+\newlength{\px}\setlength{\px}{0.4pt}% assume 180 dpi
+
+% Suppress the indentation on the following paragraph
+\providecommand\nofirstindent{\@afterindentfalse\@afterheading}
+
+% addvskip is not suppressed in a minipage (and raises no error in hmode)
+\defcommand\addvskip[1]{%
+  \ifdim #1=\z@\else
+    \ifvmode
+      \ifdim \lastskip=\z@
+        \vskip #1\relax
+      \else
+        \@tempskipb#1\relax\@xaddvskip
+      \fi
+    \else
+      %\@noitemerr
+    \fi
+  \fi
+}
+
+% Suppress the paragraph skip on the following paragraph
+\providecommand\nofirstparskip{\addvskip{-\parskip}}
+
+% We need to call \mdlabeltarget for any structure that can set label
+\newcounter{md@targetcount}
+\newcommand{\mdlabeltarget}{\refstepcounter{md@targetcount}}
+
+\newlength\mdcompactskip
+\setlength\mdcompactskip{0.5\abovedisplayskip}
+
+% for lists
+\newlength\mdcompacttopsep
+\setlength\mdcompacttopsep{\mdcompactskip}
+
+% ------------------------------------------------------------------------------
+%  \eifstrequal    test string equality but first expands the first argument
+%  \cseifstrequal  test string equality but first expands the first csname argument
+%  \eifblank       test if a string is empty but first expand the argument
+%  \onnotblank     test if a string is not blank but has only a then branch
+
+\providecommand\eifstrequal[1]{\expandafter\ifstrequal\expandafter{#1}}
+\providecommand\cseifstrequal[1]{\protected@edef\md@strtmp{#1}\eifstrequal{\md@strtmp}}
+
+\providecommand\eifblank[1]{\expandafter\ifblank\expandafter{#1}}
+\providecommand\onnotblank[2]{\ifblank{#1}{}{#2}}
+
+%-------------------------------------------------------------
+% Colors
+%-------------------------------------------------------------
+
+% Define a color name: either in terms a color specification or as a HTML color "\#XXXXXX"
+% 
+% \mddefinecolor[<default>]{<colorname>}{<colorspec|htmlcolor>}
+
+\def\md@colorhtml#1\relax#2\relax{\definecolor{#2}{HTML}{#1}}
+\def\md@colorlet#1\relax#2\relax{\eifstrequal{#1}{currentcolor}{\colorlet{#2}{.}}{\colorlet{#2}{#1}}}
+\def\md@definecolorx{\@ifnextchar \#{\@firstoftwo{\md@colorhtml}}{\md@colorlet}}
+\newcommand\mddefinecolor[3][black]{%
+  \ifblank{#3}%
+    {\colorlet{#2}{#1}}%
+    {\expandafter\md@definecolorx #3\relax{#2}\relax}%
+}
+
+% Define basic CSS colors
+\definecolor{red}{HTML}{FF0000}
+\definecolor{lime}{HTML}{00FF00}
+\definecolor{blue}{HTML}{0000FF}
+
+\definecolor{yellow}{HTML}{FFFF00}
+\definecolor{cyan}{HTML}{00FFFF}
+\definecolor{magenta}{HTML}{FF00FF}
+
+\definecolor{navy}{HTML}{000080}
+\definecolor{maroon}{HTML}{800000}
+\definecolor{green}{HTML}{008000}
+\definecolor{darkgreen}{HTML}{006400}
+
+\definecolor{teal}{HTML}{008080}
+\definecolor{purple}{HTML}{800080}
+\definecolor{olive}{HTML}{808000}
+
+\definecolor{black}{HTML}{000000}
+\definecolor{dimgray}{HTML}{696969}
+\definecolor{gray}{HTML}{808080}
+\definecolor{darkgray}{HTML}{A9A9A9}
+\definecolor{silver}{HTML}{C0C0C0}
+\definecolor{lightgray}{HTML}{D3D3D3}
+\definecolor{gainsboro}{HTML}{DCDCDC}
+\definecolor{floralwhite}{HTML}{FFFAF0}
+\definecolor{ivory}{HTML}{FFFFF0}
+\definecolor{white}{HTML}{FFFFFF}
+
+\definecolor{orange}{HTML}{FFA500}
+\definecolor{aqua}{HTML}{00FFFF}
+\definecolor{fuchsia}{HTML}{FF00FF}
+
+% Define basic CSS colors with capital letters for compatability
+\definecolor{Red}{HTML}{FF0000}
+\definecolor{Lime}{HTML}{00FF00}
+\definecolor{Blue}{HTML}{0000FF}
+
+\definecolor{Yellow}{HTML}{FFFF00}
+\definecolor{Cyan}{HTML}{00FFFF}
+\definecolor{Magenta}{HTML}{FF00FF}
+
+\definecolor{Navy}{HTML}{000080}
+\definecolor{Maroon}{HTML}{800000}
+\definecolor{Green}{HTML}{008000}
+\definecolor{DarkGreen}{HTML}{006400}
+
+\definecolor{Teal}{HTML}{008080}
+\definecolor{Purple}{HTML}{800080}
+\definecolor{Olive}{HTML}{808000}
+
+\definecolor{Black}{HTML}{000000}
+\definecolor{DimGray}{HTML}{696969}
+\definecolor{Gray}{HTML}{808080}
+\definecolor{DarkGray}{HTML}{A9A9A9}
+\definecolor{Silver}{HTML}{C0C0C0}
+\definecolor{LightGray}{HTML}{D3D3D3}
+\definecolor{Gainsboro}{HTML}{DCDCDC}
+\definecolor{Floralwhite}{HTML}{FFFAF0}
+\definecolor{Ivory}{HTML}{FFFFF0}
+\definecolor{White}{HTML}{FFFFFF}
+
+\definecolor{Orange}{HTML}{FFA500}
+\definecolor{Aqua}{HTML}{00FFFF}
+\definecolor{Fuchsia}{HTML}{FF00FF}
+
+% define these keywords as colors but need to be handled specially
+\colorlet{currentcolor}{black}
+\colorlet{transparent}{white}
+\colorlet{backgroundcolor}{white}
+
+\newcommand*\eiftransparent[3]{%
+  \ifblank{#1}{#2}{\eifstrequal{#1}{transparent}{#2}{#3}}%
+}
+
+\newrobustcmd\mdcolor[1]{%
+  \eiftransparent{#1}{}{%
+    \mddefinecolor{currentcolor}{#1}% allow direct HTML color spec
+    \color{currentcolor}%
+  }%
+}
+
+\newrobustcmd\mdbgcolor[2]{%
+  \eiftransparent{#1}{#2}{%
+    \mddefinecolor{bgcolor}{#1}%
+    \colorbox{bgcolor}{#2}%
+  }%
+}
+
+\def\md@cellcolorhtml#1\relax{\cellcolor[HTML]{#1}}
+\def\md@cellcolorname#1\relax{\cellcolor{#1}}
+\def\md@cellcolorx{\@ifnextchar \#{\@firstoftwo{\md@cellcolorhtml}}{\md@cellcolorname}}
+\newcommand\mdcellcolor[1]{%
+  \expandafter\md@cellcolorx #1\relax%
+}
+
+% ---------------------------------------------------
+% Line info
+% ---------------------------------------------------
+\newcommand*\mdline[1]{} %ignore
+
+% ---------------------------------------------------
+% Dimensions as strings
+% ---------------------------------------------------
+
+% expressions for various css units
+\newcommand*\dimeval[1]{\dimexpr #1\relax}
+\newcommand*\dimpx[1]{#1\px}
+\newcommand*\dimrem[1]{#1\dim@rem}
+\newcommand*\dimch[1]{#1\dim@ch}
+\newcommand*\dimvh[1]{#1\textheight}
+\newcommand*\dimvw[1]{#1\textwidth}
+\newcommand*\dimvmin[1]{\dimeval{\dimmin\textwidth\textheight * #1}}
+\newcommand*\dimvmax[1]{\dimeval{\dimmax\textwidth\textheight * #1}}
+
+\newlength\dim@rem
+\newlength\dim@ch
+\newlength\md@height
+\AtBeginDocument{%
+  \setlength\dim@rem{1em}%
+  \settowidth\dim@ch{0}%
+  \setlength{\md@height}{\textheight}%
+}
+
+% expressions for widht/height percentages
+\providecommand\f@size{10}
+\newcommand\mdcurrentfontsize{\f@size}
+
+\newcommand\dimheight[1]{#1\md@height}
+\newcommand\dimwidth[1]{#1\linewidth}
+\newcommand\dimfont[1]{\mdcurrentfontsize\dimexpr #1 pt\relax}
+\newcommand\dimavailable{\linewidth}
+
+% dimdefault{arg}{default}  use default if arg is empty
+\newcommand\dimdefault[2]{\ifblank{#1}{#2}{#1}}
+
+% dimmin/dimmax return minimum or maximum dimension
+\newcommand\dimmin[2]{%
+  \ifblank{#2}{#1}{\ifblank{#1}{#2}{\ifdim #1>#2\relax #2\else #1\fi}}%
+}
+\newcommand\dimmax[2]{%
+  \ifblank{#2}{#1}{\ifblank{#1}{#2}{\ifdim #1>#2\relax #1\else #2\fi}}%
+}
+
+% ifzero, ifbothzero  test for a blank string or 0 dimension
+\providecommand\ifzero[1]{%
+  \ifblank{#1}{\@firstoftwo}{\ifdim #1=0pt\relax\expandafter\@firstoftwo\else\expandafter\@secondoftwo\fi}%
+}
+\providecommand\ifbothzero[2]{%
+  \ifzero{#1}{\ifzero{#2}{\@firstoftwo}{\@secondoftwo}}{\@secondoftwo}%
+}
+
+% onnotzero takes only a then branch
+\providecommand\onnotzero[1]{\ifzero{#1}{}}
+
+% provide justify command
+\providecommand\justify{%
+  \leftskip\z@
+  \@rightskip\z@
+  \rightskip\@rightskip
+  \parfillskip\@flushglue
+}
+
+% provide cleartoleftpage
+\providecommand\cleartoleftpage{%
+  \clearpage%
+  \if@twoside\ifodd\c@page
+    \hbox{}\newpage
+    \if@twocolumn\hbox{}\newpage\fi
+  \fi\fi
+}
+
+
+% ---------------------------------------------------
+% Margins
+% ---------------------------------------------------
+
+% calculate the auto margin based on the (border-box) width of the block and the width of 
+% the other margin; use an empty other margin width if the other margin is also auto
+%  
+% \dimauto{<width>}{<other-margin>}
+\newcommand\dimauto[2]{%
+  \ifblank{#2}{\dimeval{(\linewidth-#1)/2}}{\dimeval{\linewidth-#1-#2}}%
+}
+
+\newenvironment{mdmarginlr}[2]{%
+  \topsep\z@
+  \partopsep\z@
+  \trivlist
+  \rightmargin=\dimdefault{#2}{\z@}%
+  \leftmargin=\dimdefault{#1}{\z@}%  
+  \advance\linewidth -\rightmargin
+  \advance\linewidth -\leftmargin
+  \advance\@totalleftmargin \leftmargin
+  \parshape \@ne \@totalleftmargin \linewidth
+  \item[]%
+}%
+{\endtrivlist} 
+%\AfterEndEnvironment{mdmarginlr}{\leavehmode}
+
+\newcommand*\mdmargintop[1]{\onnotzero{#1}{\par\addvskip{#1}}}
+\newcommand*\mdmarginbottom[1]{\onnotzero{#1}{\vspace{#1}}}
+
+\newlength{\dim@marginbottom}
+\newenvironment{mdbmargin}[1]{\begin{mdbmarginx}{#1}{#1}{#1}{#1}}{\end{mdbmarginx}}
+\newenvironment{mdbmarginx}[4]{%
+  \dim@marginbottom=\dimdefault{#3}{0pt}%  
+  \mdmargintop{#1}%
+  \begin{mdmarginlr}{#4}{#2}%  
+}{%
+  \end{mdmarginlr}%
+  \mdmarginbottom{\dim@marginbottom}%  
+}
+\newenvironment{mdbmargintb}[2]{%
+  \dim@marginbottom=\dimdefault{#2}{0pt}%  
+  \mdmargintop{#1}%
+}{%
+  \mdmarginbottom{\dim@marginbottom}%  
+}
+\newcommand*\mdpaddingtop[1]{\ifzero{#1}{}{\vspace*{#1}}}
+\newcommand*\mdpaddingbottom[1]{\ifzero{#1}{}{\vspace*{#1}}}
+
+\newlength{\dim@paddingbottom}
+\newenvironment{mdbpadding}[1]{\begin{mdbpaddingx}{#1}{#1}{#1}{#1}}{\end{mdbpaddingx}}
+\newenvironment{mdbpaddingx}[4]{%
+  \dim@paddingbottom=\dimdefault{#3}{0pt}%
+  \mdpaddingtop{#1}%
+  \begin{mdmarginlr}{#4}{#2}%
+}{%
+  \end{mdmarginlr}%
+  \mdpaddingbottom{\dim@paddingbottom}%
+}
+
+\newrobustcmd\mdmargintb[3]{%
+   \setbox0=\hbox{\color@begingroup #3\color@endgroup}%
+   \onnotblank{#1}{\rule{0pt}{\dimexpr \ht0 + #1\relax}}%
+   \onnotblank{#2}{\rule[\dimexpr -\dp0 - #2\relax]{0pt}{0pt}}%
+   \usebox0\relax%
+}
+\let\mdpaddingtb\mdmargintb
+
+
+% ---------------------------------------------------
+% Css box model
+% ---------------------------------------------------
+
+\newenvironment{mdblock}[1]{%
+  \begin{longfbox}[tight,border-style=none,#1]%
+}{\end{longfbox}}
+
+\newcommand\mdinline[1]{\lfbox[tight,border-style=none,#1]}
+
+% ---------------------------------------------------
+% Sections
+% ---------------------------------------------------
+
+\iftoggle{/madoko/section-num}{}{% else
+  \setcounter{secnumdepth}{0}%
+  \renewcommand\@seccntformat[1]{}%
+  \ifdef\chapterformat{\renewcommand\chapterformat{}}{}%
+  \ifdef\chaptermarkformat{\renewcommand\chaptermarkformat{}}{}%
+  \ifdef\sectionmarkformat{\renewcommand\sectionmarkformat{}}{}%
+}
+
+
+% ---------------------------------------------------
+% Fonts
+% ---------------------------------------------------
+
+%\providecommand\fontspec[1]{\PackageWarning{madoko}{Please use meta-key "package: fontspec" in order to \MessageBreak use font-family: #1\MessageBreak}}
+\newcommand*\mdselectfont{\selectfont\mdsetprespace}
+
+\providecommand\lfseries{\mdseries}
+\newcommand*\mdfontsize[1]{\fontsize{#1}{1.2\dimexpr#1\relax}\mdselectfont}
+\newcommand*\mdsetfontscale[2]{%
+  \csdef{#1@Scale}{#2}%
+  \csdef{#1@scale}{#2}% 
+  \eifstrequal{#1}{fi4}% inconsolata
+    {\def\fifour@scaled{s*[#2]}}%
+  {\eifstrequal{#1}{DejaVuSansMono-TLF}%
+    {\def\DejaVuSansMono@scale{#2}}%    
+  {\eifstrequal{#1}{pcrs}%
+    {\def\Cr@scale{#2}}%
+  {}}}%
+}% some fonts use '@scale' and others `@Scale`.
+
+\newrobustcmd*\mdusefont[5][]{%
+  \onnotblank{#1}{\mdsetfontscale{#3}{#1}}%
+  \onnotblank{#2}{\fontencoding{#2}}%
+  \onnotblank{#3}{\fontfamily{#3}}%
+  \onnotblank{#4}{\fontseries{#4}}%
+  \onnotblank{#5}{\fontshape{#5}}%
+  \mdselectfont
+}
+
+\AtBeginDocument{%
+  \ifdef\cursive{}{% frcursive defines \cursive as an environment so \providecommand does not work :-(
+    \providecommand\cursive[1]{%
+      \PackageWarning{madoko}{No cursive font available. Please use meta-key "Package: frcursive" in order to \MessageBreak use cursive fonts\MessageBreak}%
+      \textit{#1}%
+    }%
+}
+}%
+
+\providecommand\fantasy[1]{%
+  \ifdef\aunclfamily
+    {\aunclfamily}%
+    {\PackageWarning{madoko}{No fantasy font available. Please use meta-key "Package: auncial" in order to \MessageBreak use fantasy fonts (or define a "\fantasy" command)\MessageBreak}%
+     \textit{#1}%
+    }%
+}
+
+% Provide a generic \mdfontfamily command that picks the first font that is available
+
+\newtoggle{md@fontsubstituted}
+\def\md@usefamily@#1/#2/#3/#4/#5/#6\relax{%
+  \def\md@fontselect{\mdusefont[#5]{#1}{#2}{#3}{#4}}%
+  \md@fontselect
+  % figure out which font was actually set -- we need to split the fontname
+  \bgroup
+    \expandafter\expandafter\expandafter\split@name\expandafter\string\font@name\@nil
+    \let\md@selectedfamily\f@family
+  \egroupkeep\md@selectedfamily    
+  % and test if the selected family is matching
+  \eifstrequal{\md@selectedfamily}{#2}{}{%
+    \toggletrue{md@fontsubstituted}%
+  }%
+}
+
+\def\md@fontspec@#1[#2]#3\relax{
+  \def\md@fontselect{\fontspec{#1}[#2]}%
+  \md@fontselect
+}
+
+\def\md@usefontfamily@#1#2\relax{%
+  \togglefalse{md@fontsubstituted}%         
+  \if#1@\relax\relax
+    \md@usefamily@#2/////\relax%
+  \else\if#1!\relax\relax
+    \def\md@fontselect{\csuse{#2}}%
+    \ifcsdef{#2}%
+      {\md@fontselect}%
+      {\toggletrue{md@fontsubstituted}\PackageWarning{madoko2}{Font command '#2' is not defined}}%
+  \else
+    \md@fontspec@#1#2[]\relax%
+  \fi\fi
+}
+\newcommand\md@usefontfamily[1]{%
+  \expandafter\md@usefontfamily@#1\relax
+}
+
+\newcount\md@interaction
+
+% select a font from a given family stack; the stack is saved and a search is only performed the first time.
+% the stack is comma seperated fonts:
+%  latex font family: @[enc]/<family>/[series]/[shape]/[scale]
+%  command          : !<cmd>
+%  fontspec font    : <font name>[<font options>]
+\newrobustcmd\mdfontfamily[1]{%
+  \ifcsdef{md@fontselect@#1}{}{\md@fontfamily@{#1}}%
+  \csuse{md@fontselect@#1}%
+}
+
+% define a new command that selects the font from the given family stack
+\newrobustcmd\mdnewfontselect[2]{%
+  \ifcsdef{md@fontselect@#2}{}{\md@fontfamily@{#2}}%
+  \letcs#1{md@fontselect@#2}%
+}
+
+\newrobustcmd\md@fontfamily@[1]{%
+  \wlog{resolve font stack: #1}%
+  \md@interaction=\interactionmode
+  \batchmode
+  \let\md@fontselect\relax
+  \let\md@fontitem\relax
+  \let\md@fontsubst\relax
+  \let\md@fontitemsubst\relax
+  \def\do##1{%
+    \ifcsdef{md@fontnotfound@##1}{}{%
+      \bgroup
+      \ifcsdef{md@fontsubst@##1}%
+        {\toggletrue{md@fontsubstituted}\letcs\md@fontselect{md@fontsubst@##1}}%
+        {\ifdef\suppressfontnotfounderror{\suppressfontnotfounderror=1}{}%
+         \md@usefontfamily{##1}%
+        }%
+      \iftoggle{md@fontsubstituted}%
+       {\global\cslet{md@fontsubst@##1}\md@fontselect% remember this font gets substituted
+        \ifx\md@fontsubst\relax\relax
+          \let\md@fontsubst\md@fontselect% use as backup in case no other font can be found..
+          \egroupkeep\md@fontsubst
+          \def\md@fontitemsubst{##1}%
+        \else
+          \egroup
+        \fi%
+       }%
+       {\iffontchar\font32\relax% assume all fonts define a space character...
+          \egroupkeep\md@fontselect
+          \def\md@fontitem{##1}%    
+          \expandafter\listbreak
+        \else
+          \egroup
+          \csgdef{md@fontnotfound@##1}{}% remember we did not find the font
+        \fi
+       }%
+    }%
+  }%
+  \docsvlist{#1}%
+  \interactionmode=\md@interaction
+  \ifx\md@fontselect\relax\relax%
+    \ifx\md@fontsubst\relax\relax%
+      \PackageWarning{madoko2}{Could not find any font for font-family:'#1'}%      
+    \else
+      \PackageWarning{madoko2}{Using substituted font for font-family: '\md@fontitemsubst'}%
+      \let\md@fontselect\md@fontsubst
+      \let\md@fontitem\md@fontitemsubst
+    \fi
+  \fi
+  \expandnext{\csgdef{md@fontselect@#1}}{\md@fontselect}%
+  \wlog{resolved font stack '#1' to: \md@fontitem}%
+}
+
+% definition from `setspace` package
+\AtBeginDocument{%
+  \providecommand\setstretch[1]{%
+    \def\baselinestretch{#1}%
+    \@currsize
+  }%
+}
+
+\newcommand\mdlineheight[1]{% argument is a length, but setstretch needs a factor
+  \expandafter\setstretch\expandafter{\strip@pt\dimexpr#1/\mdcurrentfontsize\relax}%
+}%
+
+
+% ---------------------------------------------------
+% Inline elements
+% ---------------------------------------------------
+
+\newcommand\mdsup[1]{\ensuremath{^\mathrm{#1}}}
+\newcommand\mdsub[1]{\ensuremath{_\mathrm{#1}}}
+\newcommand\mddel[1]{{\mdcolor{gray}#1}}
+
+\newcommand\mdbr{\mdBr}
+\newcommand\mdhr{\noindent\rule{\linewidth}{\dimpx{1}}}
+% code
+% precode
+% br
+
+\newcommand\mdfootnote[2]{%
+  \protected@xdef\@thefnmark{#1}\@footnotemark\@footnotetext{#2}%
+}
+
+\newcommand\mdhyperref[2]{% {label}{text}
+  \hyperref[#1]{#2}%
+}
+
+\newcommand\mdcite[2]{% {label}{text}
+  \mdhyperref{#1}{#2}%
+}
+
+\newcommand\mdref[2]{% {label}{text}
+  \mdhyperref{#1}{#2}%
+}
+
+\AtBeginDocument{%
+  \providecommand\pdfmarkupcomment[3][]{}%
+  \providecommand\pdfbookmark[3][]{}%
+}
+
+\newcommand\mdtooltip[1]{%
+  \hbox to 0pt{\raisebox{1ex}{\tiny\pdfmarkupcomment[color=White,author=Title]{}{#1}}}%
+}
+
+\newcommand\mdbookmark[3]{%
+  \pdfbookmark[#1]{#2}{#3}%
+}
+
+\newlength\mddefinitionsskip
+\setlength\mddefinitionsskip{\mdcompactskip}
+\newenvironment{mddefinitions}%
+  {\begin{mdparblock}[\mddefinitionsskip]\parskip\z@\relax}{\end{mdparblock}}
+
+\newcommand\mddefterm{}
+\newenvironment{mddefdata}{}{}
+
+\newlength\md@captionlen
+\newcommand\mdcaption[1]{%
+  \settowidth\md@captionlen{#1}%
+  \ifdim\md@captionlen<\linewidth%
+    \centering
+  \else
+    \justify
+  \fi
+  \noindent\strut #1%
+}
+
+% participate in listoffigures and listoftables
+\newcommand\mdcaptionlabel[1]{%
+  \global\gdef\md@captionlabel{#1}%
+  #1%
+}
+
+\newcommand\mdcaptiontext[1]{%
+  \ifdef\@captype
+    {\addcontentsline{\csname ext@\@captype\endcsname}{\@captype}%
+      {\protect\numberline{\md@captionlabel}{\protecting{\ignorespaces #1}}{}}}%
+    {}%
+  #1%   
+}
+
+\newcommand\mdfloatleft[1]{#1\hfill}
+\newcommand\mdfloatright[1]{\hfill #1}
+\newcommand\mdfloatcenter[1]{\hfill #1\hfill}
+
+
+\newenvironment{mdcenter}%
+  {\centering}{\leavehmode}
+
+\newenvironment{mdflushleft}%
+  {\raggedright}{\leavehmode}
+
+\newenvironment{mdflushright}%
+  {\raggedleft}{\leavehmode}
+
+\newenvironment{mdjustify}%
+  {\justify}{\leavehmode}
+
+%-------------------------------------------------------------
+% Table of contents
+%-------------------------------------------------------------
+\ifdef\@tocrmarg{}{% 
+  % these are not always defined (for example in beamer)
+  \def\@tocrmarg{2.55em}%
+  \def\@pnumwidth{1.55em}%
+  \def\@dotsep{4.5}%
+}%
+
+\newcount\mdtoclevel
+\newcounter{mdtoclevelbold}\setcounter{mdtoclevelbold}{1}
+\newcounter{mdtocleveldots}\setcounter{mdtocleveldots}{1}
+
+\newlength\mdtocskip
+\setlength\mdtocskip{\mdcompactskip}
+\newenvironment{mdtoc}%
+  {\begin{mdparblock}[\mdtocskip]%
+   \mdtoclevel\z@
+   \parskip\z@
+  }{\end{mdparblock}}
+
+
+\newcommand\md@boldtocline[5]{%
+  \ifnum #1>\c@tocdepth \else
+  \vskip \z@ \@plus 0.2\p@
+    {\leftskip #2\relax \rightskip \@tocrmarg \parfillskip -\rightskip
+    \parindent #2\relax\@afterindenttrue
+    \interlinepenalty\@M
+    \leavevmode
+    \@tempdima #3\relax
+    \advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
+    {\bfseries #4}\nobreak\hfill\nobreak
+    \hb@xt@\@pnumwidth{\hss\normalfont\normalcolor #5}%
+    \par}%
+  \fi
+}
+\newenvironment{mdtocblock}{%
+  \ifnum\mdtoclevel=0\c@tocdepth=10\relax\fi% madoko determines toc depth
+  \advance\mdtoclevel by 1\relax
+}{}
+
+\newcommand\mdtocitemx[2]{%
+ \edef\md@toctarget{#1}%
+ \ifnum\mdtoclevel>\value{mdtoclevelbold}%
+    \expandafter\@dottedtocline
+ \else
+    \expandafter\md@boldtocline
+ \fi
+ {\mdtoclevel}{\dimexpr 1.5em * (\mdtoclevel-1)\relax}%
+ {\dimexpr 1em + (1em * (\mdtoclevel-1))\relax}%
+ {#2}{\pageref{\md@toctarget}}%
+}
+
+% legacy: tocitem as environment
+\newenvironment{mdtocitem}[1]{%
+ \def\md@toctarget@{#1}%
+ \setbox\@tempboxa\hbox\bgroup
+ \ifnum\mdtoclevel>\value{mdtoclevelbold}\relax\else\bfseries\fi
+}{%
+  \egroup%
+  \mdtocitemx{\md@toctarget@}{\unhbox\@tempboxa}%
+}
+
+%-------------------------------------------------------------
+% Code
+%-------------------------------------------------------------
+
+\newcommand\mdnohyphens{\hyphenchar\font=-1\relax}
+
+\newcommand\mdcode[1]{\texttt{\mdnohyphens #1}}
+\newcommand\mdprecode{}
+\newlength\mdpreskip
+\setlength\mdpreskip{\mdcompactskip}
+
+\newlength\presp
+\settowidth\presp{\texttt{ }}
+\newcommand*\mdsetprespace{\settowidth\presp{ }}
+
+\newcommand\prespace{\hspace*{\presp}}
+\newcommand\preindent[1]{\hspace*{#1\presp}}
+\newcommand\prebr{\strut\newline\strut\ignorespaces}
+
+\newenvironment{mdpre}%
+  {\begin{mdparblock}[\mdpreskip]\ttfamily\raggedright\mdnohyphens
+   \mdsetprespace
+   \let\\\prebr
+   \let\nobreakspace\prespace
+  }%
+  {\end{mdparblock}}
+
+\newlength\md@postskip
+\newenvironment{mdparblock}[1][\mdcompactskip]%
+  {\setlength\md@postskip{#1}\par\addvskip{#1}\noindent}%
+  {\par\addvskip{\md@postskip}}%
+
+
+
+%-------------------------------------------------------------
+% Pretty code
+%-------------------------------------------------------------
+
+\newcommand{\ppreop}[1]{\,{#1}\,}
+\newlength{\ppresp}
+\setlength{\ppresp}{0.5ex}
+\newcommand{\ppreindent}[1]{\hspace*{3\ppresp}}%{\hspace*{#1\ppresp}}
+\newcommand{\pprespace}{\hspace*{\ppresp}}
+\newcommand{\pprebr}{ }
+
+\newenvironment{mdprepretty}%
+  {\begin{mdparblock}[\mdpreskip]%
+   \setlength{\tabcolsep}{0pt}%
+   \let\nobreakspace\pprespace%
+  }%
+  {\end{mdparblock}}
+
+
+%-------------------------------------------------------------
+% Math
+%-------------------------------------------------------------
+\defcommand{\smallstrut}{\mbox{\rule{0ex}{1ex}}}
+
+\providecommand\mathspace{\mskip 4mu plus 0.5mu minus 0.5mu\smallstrut}
+\providecommand\mathbr{\\}
+\providecommand\mathindent[1]{\mdmathindent{#1}}% legacy; clashes with fleqn
+\newcommand{\mdmathindent}[1]{\mskip \numexpr6*#1\relax mu\relax\smallstrut}
+
+\newcommand\mathpre{\def\nobreakspace{\mathspace}}
+
+\newcommand\mdmathprefill{\hspace*{\linewidth minus \linewidth}} % flush left
+    
+\newenvironment{mdmathpre}%
+  {\setlength{\arraycolsep}{0pt}%
+   \mathpre
+   \begin{array}{llllllll}}%
+  {\end{array}\mdmathprefill} % flush left
+
+\newenvironment{mdmathprecenter}{\def\mdmathprefill{}}{}
+
+
+\defcommand{\mathkw}[1]{\mathsf{{#1}}}
+\defcommand{\mathid}[1]{\mathit{#1}}
+
+% customizable tags in equations
+\newcommand\md@mathtag{}
+\newcommand\mdmathtag[1]{\def\md@mathtag{\tag*{#1}\mdlabeltarget\gdef\md@mathtag{}}}
+\preto{\]}{\md@mathtag}
+
+%-------------------------------------------------------------
+% Helper to allow use of standard math environments
+%-------------------------------------------------------------
+
+\newsavebox{\md@thmcaption}
+\newenvironment{mdthmcaption}
+  {\global\setbox\md@thmcaption\hbox\bgroup}
+  {\egroup}
+\newenvironment{mdthm}[1][theorem]%
+  {\def\md@thmname{#1}%
+   \begin{\md@thmname}[\usebox\md@thmcaption]%
+   \global\setbox\md@thmcaption\hbox{}}%
+  {\end{\md@thmname}}
+
+
+%-------------------------------------------------------------
+% Tables 
+%-------------------------------------------------------------
+\newlength{\md@defaultcolwidth}
+\newcommand{\md@columncount}[3][0pt]{%
+  \setlength{\tabcolsep}{#3}%
+  \def\md@columns{#2}%
+  \setlength{\linewidth}{\dimexpr\linewidth-(\tabcolsep*2*#2)-\tabcolsep\relax}% the line length minus table spacing
+  \ifdim#1=0pt\relax
+    \setlength{\md@defaultcolwidth}{\dimexpr\linewidth/#2\relax}%
+  \else
+    \setlength{\md@defaultcolwidth}{#1}%
+  \fi
+  \def\dimavailable{\md@defaultcolwidth}%
+}
+
+\newlength\mdtabularskip
+\setlength\mdtabularskip{\mdcompactskip}
+
+\newenvironment{mdtabular}[3]%
+  {\md@columncount[#2]{#1}{#3}\begin{mdparblock}[\mdtabularskip]}%
+  {\end{mdparblock}}%
+
+\newenvironment{mdcolumn}%
+  {}%\begin{minipage}{\md@defaultcolwidth}}%
+  {}%\end{minipage}}
+
+\newenvironment{mdcodetabular}[1]%
+  {\md@columncount{#1}{0pt}}%
+  {}%
+
+
+
+%-------------------------------------------------------------
+% Bibliography
+%-------------------------------------------------------------
+\newlength\mdbibindentunit
+\setlength{\mdbibindentunit}{1ex}
+
+\newcommand\mdbibindent[1]{%
+  \ifblank{#1}{}{%
+    \ifdim\dimexpr#1\mdbibindentunit\relax>0pt\relax
+      \let\md@old@biblabel\@biblabel
+      \renewcommand\@biblabel[1]{\md@old@biblabel{##1}\hspace*{#1\mdbibindentunit}}%
+      \let\md@old@bibitem\bibitem
+      \renewcommand\bibitem[2][]{%
+        \ifblank{##1}{\md@old@bibitem{##2}}{\md@old@bibitem[##1]{##2}}\hspace*{-#1\mdbibindentunit}%
+      }%
+    \fi
+  }%
+}
+
+\providecommand\etalchar[1]{\ensuremath{^{#1}}}
+
+\newcommand\mdbibitemlabel[1]{%
+  \ifblank{#1}{}{%
+    \hspace*{\dimexpr-\labelsep-\labelwidth\relax}%
+    \makebox[\labelwidth][r]{#1}%
+    \hspace*{\labelsep}%
+  }%
+}
+
+\newcommand\mdsupressbiblabel{%
+  \def\@biblabel##1{\hskip-\labelsep}%
+}
+\newcommand\mdforcebiblabel{%
+  \def\@biblabel##1{[##1]}%
+}
+\newcommand\mdkeepbiblabel{%
+  \def\@biblabel##1{##1}%
+}
+\newcommand\mdhidebiblabel{%
+  \let\md@hide@biblabel\@biblabel
+  \def\@biblabel##1{\setbox\@tempboxa\hbox{\md@hide@biblabel{##1}}\hspace*{\wd\@tempboxa}}%
+}
+\newcommand\mdjustbiblabel{%
+  \def\mdbibitemlabel##1{}% suppress CSL generated label
+}
+
+\ifoptionequal{/madoko/bib-label}{true}{\mdjustbiblabel}{%
+\ifoptionequal{/madoko/bib-label}{True}{\mdjustbiblabel}{%
+\ifoptionequal{/madoko/bib-label}{false}{\mdsupressbiblabel}{%
+\ifoptionequal{/madoko/bib-label}{False}{\mdsupressbiblabel}{%
+\ifoptionequal{/madoko/bib-label}{force}{\mdforcebiblabel}{%
+\ifoptionequal{/madoko/bib-label}{Force}{\mdforcebiblabel}{%
+\ifoptionequal{/madoko/bib-label}{keep}{\mdkeepbiblabel}{%
+\ifoptionequal{/madoko/bib-label}{Keep}{\mdkeepbiblabel}{%
+\ifoptionequal{/madoko/bib-label}{hide}{\mdhidebiblabel}{%
+\ifoptionequal{/madoko/bib-label}{Hide}{\mdhidebiblabel}{%
+}}}}}}}}}}
+
+\newcommand\mdsetrefname[1]{%
+  \ifdef\bibname{\def\bibname{#1}}{\def\refname{#1}}%
+}
+
+
+%-------------------------------------------------------------
+% Beamer slide decks
+%-------------------------------------------------------------
+\newif\ifbeamer % legacy
+\beamerfalse
+
+\ontoggle{/madoko/beamer}{%
+  \beamertrue
+  \renewcommand\mdhyperref[2]{\hyperlink{#1}{#2}}%
+  \renewcommand\lb@savefootnotes{}%
+  \renewcommand\lb@restorefootnotes{}%
+  \setitemize{label={\textbullet}}%
+  \setenumerate{label={\arabic*.}}%
+}
+
+\newenvironment{mdframe}%
+  {\begin{frame}\stepcounter{beamerpauses}}%
+  {\end{frame}}
+
+\newcommand\mdpause[1]{\pause #1}  
+
+\let\md@item\item% save original item command
+\newenvironment{mdfragmented}%
+  {\def\md@enditem{\def\md@enditem{\end{onlyenv}}}% redefines itself at first use
+   \def\item{\md@enditem\begin{onlyenv}<+->\md@item}%   
+  }
+  {\end{onlyenv}}
+
+%-------------------------------------------------------------
+% Make Title
+% This is somewhat troublesome since almost all styles use
+% different commands and command orders. This code tries to 
+% adapt to the most common styles.
+% Defines the sigplan "authorinfo" command for all other styles.
+%-------------------------------------------------------------
+
+\providecommand{\@doi}{?}
+
+\ifdef\titlerunning%
+  {\newcommand{\mdtitlerunning}[1]{\titlerunning{#1} % needs a space for easychair
+  }}% llncs
+  {\newcommand{\mdtitlerunning}[1]{\global\def\titlerunning{#1}}}% eptcs
+
+\ifdef\authorrunning%
+  {\typeout{llncs}\newcommand\mdauthorrunning[1]{\authorrunning{#1} %needs a space for easychair..
+  }}% llncs
+  {\newcommand{\mdauthorrunning}[1]{\global\def\authorrunning{#1}}}% eptcs
+
+
+% LLNCS: \author{ \and ...}, \institute{ \email \and ...}
+% EPTCS: \author{ \institute \email \and ... }
+% LATEX: \author{ ... } \date
+
+\ifdef\date{\date{}}{}
+\providecommand{\email}[1]{\normalsize\textsf{#1}}%
+\providecommand{\affaddr}[1]{\normalsize{#1}}%
+\providecommand{\alignauthor}{\\[2ex]}
+\providecommand{\aufnt}[1]{{\large #1}}
+\providecommand{\numberofauthors}[1]{}
+
+\iftoggle{/madoko/beamer}{\providecommand{\inst}[1]{$^{\mbox{#1}}$}}{}%
+\newif\ifinstemail
+
+% If there is no \authorinfo, we provide a simple one that works
+% with some other common styles
+\newcounter{md@authorcount}
+\newcommand{\md@authors}{}   % fancy list of authors
+\newcommand{\md@insts}{}
+\providerobustcmd{\@and}{\and}
+\providerobustcmd{\authorinfo}[3]{%
+  \stepcounter{md@authorcount}%
+  \ifdef{\institute}{%  
+    \protected@edef\md@more{#2#3}%
+    \expandafter\ifx\md@more\relax\relax\instemailfalse\else\instemailtrue\fi%
+    \ifnum\value{md@authorcount}>1%
+     \gappto\md@authors{\@and}%
+     \ifinstemail\gappto\md@insts{\@and}\fi%
+    \fi%
+    \ifdef{\inst}%
+    {%LLNCS, Beamer
+      \gappto\md@authors{#1}%
+      \ifinstemail%
+        \gappto\md@insts{\mdBrSep{#2}{\email{#3}}}%        
+      \fi%
+    }%
+    {% EPTCS
+      \gappto\md@authors{#1%
+      \ifinstemail%
+        \ifx\relax#2\relax\else\protect\institute{#2}\fi%
+        \ifx\relax#3\relax\else\protect\email{#3}\fi%
+      \fi}%
+    }%
+  }%
+  {% Our own simple style (similar to sigplanconf)
+   \ifnum\value{md@authorcount}>1%
+     \gappto\md@authors{\alignauthor}%
+   \fi%
+   \gappto\md@authors{\aufnt{#1}}%
+   \protected@edef\@more{#2#3}%
+   \expandafter\ifx\@more\relax\relax \else
+     \gappto\md@authors{\\[0.25ex]\mdBrSep{#2}{#3}}%
+   \fi   
+  }%
+  \ifnum\value{md@authorcount}>1%
+    \gappto\md@authorsx{, #1}%
+  \else
+    \global\def\md@authorsx{#1}%
+  \fi
+}
+
+% support \inst
+\newcommand{\mdinst}[1]{%
+  \ifdef{\inst}{\inst{#1}}{\ensuremath{^{\mbox{#1}}}}%
+}
+
+\newcommand\md@title{}
+\newcommand\md@titlex{}
+\newcommand{\mdtitle}[1]{\gdef\md@title{#1}\gdef\md@titlex{#1}\title{\md@title}}
+\newcommand{\mdsubtitle}[1]{\gappto\md@title{\\{\Large #1}}\title{\md@title}}
+
+% legacy
+\newcommand{\mdAuthor}[4]{%
+  \authorinfo{#1}{\mdBrSep{#2}{#4}}{#3}%
+}
+
+% set these just before mdmaketitle
+\newcommand\mdtitleauthorrunning[2]{%
+  \onnotblank{#1}{\gdef\md@titlex{#1}}%
+  \onnotblank{#2}{\gdef\md@authorsx{#2}}%
+}
+
+% and finally maketitle
+\newcommand{\mdmaketitle}[1]{%  
+  \onnotblank{\md@titlex}{\mdtitlerunning{\md@titlex}}%
+  \ifnum\value{md@authorcount}>0%
+    \expandnext{\numberofauthors}{\arabic{md@authorcount}}%
+    \author{\md@authors}%
+    \onnotblank{\mdauthorsx}{\mdauthorrunning{\md@authorsx}}%
+    \ifdef\inst{\ifdef\institute{\institute{\md@insts}}{}}{}%
+  \fi
+  \ifx#1\relax\else%
+    %\ifdef\titlenote% some styles disregard the date command...
+    {%\gappto\md@Title{\titlenote{#1}}\title{\md@Title}}
+     \mdsubtitle{\normalfont\normalsize #1}}%
+     % {\date{#1}}%
+  \fi%  
+  \maketitle
+}
+
+% and define it if not yet defined
+\ifdef{\abstract}{}{
+  \newenvironment{abstract}%
+    {\list{}{\small
+      \leftmargin=2.65em%
+      \labelwidth=0em%
+      \listparindent=0em%
+      \itemindent\listparindent
+      \rightmargin\leftmargin}\item[\hskip\labelsep\bfseries Abstract.]}
+    {\endlist}
+}
+
+
+%-------------------------------------------------------------
+% Hooks to use maketitle from standard title blocks
+%-------------------------------------------------------------
+
+\newcommand\mdx@titlenote{}
+\newcounter{mdx@authorcount} 
+\newcommand\mdxtitle{\mdtitle}
+\newcommand{\mdxtitlenote}[1]{\gdef\mdx@titlenote{#1}}
+\newcommand{\mdxtitlefooter}[1]{\gappto{\md@authors}{\\[1ex]#1}}
+\newcommand{\mdxsubtitle}[1]{\mdsubtitle{#1}}    
+\newcommand{\mdxauthorname}[1]{\csgdef{@mdauthorname\the\value{mdx@authorcount}}{#1}}
+\newcommand{\mdxauthoraddress}[1]{\csgdef{@mdauthoraff\the\value{mdx@authorcount}}{#1}}
+\newcommand{\mdxauthoremail}[1]{\csgdef{@mdauthoremail\the\value{mdx@authorcount}}{#1}}
+\newcommand{\mdxauthornote}[1]{%
+  \ifcsdef{@mdauthoraff\the\value{mdx@authorcount}}%
+    {\csgappto{@mdauthoraff\the\value{mdx@authorcount}}{\mdbr #1}}
+    {\csgdef{@mdauthoraff\the\value{mdx@authorcount}}{#1}}
+}
+
+\newcommand\mdxtitleblockstart{%
+  \setcounter{mdx@authorcount}{0}%
+  \gdef\mdx@titlenote{}%
+  \gdef\md@authors{}%
+}
+
+\newcommand\mdxauthorstart{%
+  \global\stepcounter{mdx@authorcount}%
+}
+
+\newcommand\mdxauthorend{%
+  \providecsgdef{@mdauthorname\the\value{mdx@authorcount}}{}%
+  \providecsgdef{@mdauthoraff\the\value{mdx@authorcount}}{}%
+  \providecsgdef{@mdauthoremail\the\value{mdx@authorcount}}{}%
+  \expandnextiii{\authorinfo}%
+      {\csname @mdauthorname\the\value{mdx@authorcount}\endcsname}%
+      {\csname @mdauthoraff\the\value{mdx@authorcount}\endcsname}%
+      {\csname @mdauthoremail\the\value{mdx@authorcount}\endcsname}%
+}
+
+\newcommand\mdxtitleblockend{%
+  \mdmaketitle{\mdx@titlenote}%
+}
+
+%-------------------------------------------------------------
+% The following commands still use capital letters due to legacy...
+%-------------------------------------------------------------
+
+%-------------------------------------------------------------
+% Character commands 
+%-------------------------------------------------------------
+
+\providecommand{\lsquot}{`}
+\providecommand{\lt}{\ensuremath{<}}
+\providecommand{\gt}{\ensuremath{>}}
+\providecommand{\abs}[1]{\ensuremath{\left\vert #1\right\vert}}
+\providecommand{\qedsymbol}{\ensuremath{\Box}}
+\providecommand{\qed}{\hfill\qedsymbol}
+\providecommand{\nbdash}{\nobreakdash-\hspace{0pt}}
+\providecommand{\nbendash}{\nobreakdash--\hspace{0pt}}
+\providecommand{\nbemdash}{\nobreakdash---\hspace{0pt}}
+
+% inserted for unknown html entities
+\newcommand{\mdUnknownEntity}[1]{\&#1;}
+\newcommand{\mdEntity}[1]{\protect\mdUnknownEntity{#1}}
+
+% allow the definition of new entities: \mdDefineEntity{bar}{\|}
+\newcommand{\mdDefineEntity}[2]{%
+  \protected@edef\mdEntity##1{\protect\eifstrequal{##1}{#1}{#2}{\mdEntity{##1}}}%
+}
+
+% inserted for unknown unicode entities
+\newcommand{\mdUnicodeUnknown}[1]{%
+  \ifXeTeX\mdUnicodeChar{#1}\else%
+  \ifLuaTeX\mdUnicodeChar{#1}\else%
+  \textsf{\&\##1;}\fi\fi
+}
+\newcommand{\mdUnicodeChar}[1]{\char#1} % directly insert the unicode glyph
+\newcommand{\mdUnicode}[1]{\protect\mdUnicodeUnknown{#1}}
+
+% allow the definition of new unicode entities: \mdDefineUnicode{10214}{\ensuremath{\llbracket}}
+\newcommand{\mdDefineUnicode}[2]{%
+  \protected@edef\mdUnicode##1{\protect\ifnum##1=#1{#2}\protect\else{\mdUnicode{##1}}\protect\fi}%
+}
+
+% ballot boxes
+\newcommand\mdballotc{\rlap{$\square$}\protect\raisebox{.15ex}{\kern 0.1em\ding{51}}}
+\mdDefineUnicode{9745}{\mdballotc}
+\newcommand\mdballotx{\rlap{$\square$}{\kern 0.1em\ding{55}}}
+\mdDefineUnicode{9746}{\mdballotx}
+% magnifying glass
+\newcommand\mdmagglass{\kern -0.75ex\protect\raisebox{-0.25ex}{$\arrownot$}\kern 1.05ex\protect\raisebox{0.5ex}{$\circ$}\hspace{-0.25ex}}
+\mdDefineUnicode{128270}{\mdmagglass}
+% short underscore
+\newcommand\mdlowline{\leavevmode\kern 0.06em\vbox{\hrule width 0.3em}}
+\mdDefineUnicode{818}{\mdlowline}
+
+
+% break and nbsp
+\newcommand{\mdBr}{\ifvmode\leavevmode\fi\\{}}
+\newcommand{\mdNbsp}{\nobreak\rule{0pt}{0pt}~}
+
+\newcommand{\mdBrSep}[2]{%
+  \expandafter\ifx#1\relax\relax #2\else
+  \expandafter\ifx#2\relax\relax #1\else
+  #1\mdBr #2\fi\fi
+}
+
+% fix nobreakspace in case the user loads a T1 encoding in LaTeX
+\DeclareTextCommandDefault{\nobreakspace}{\leavevmode\nobreak\ }
+
+% ---------------------------------------------------
+% Labels and references
+% ---------------------------------------------------
+
+% We need to call \mdLabeltarget for any structure that can set label
+\newcounter{@mdTargetCount}
+\newcommand{\mdLabeltarget}{\refstepcounter{@mdTargetCount}}
+
+
+% ---------------------------------------------------
+% Math snippets for static image generation
+% ---------------------------------------------------
+
+% re-define some symbols
+\renewcommand{\notin}{\not\in}  %turns out the baseline for 'notin' is wrong
+
+% boxes and lengths
+\newsavebox{\@snippetBox}
+\newlength{\@snippetWidth}
+\newlength{\@snippetHeight}
+\newlength{\@snippetDepth}
+
+\newcounter{snippets}
+
+% insert an invisible bounding-box marker at the front and end of inline math
+\newcommand\md@bboxmarker{\special{dvisvgm:bbox 0.01 0.01}}
+
+\newcommand{\@savedepth}{%
+  \setlength{\@snippetWidth}{\wd\@snippetBox}%
+  \setlength{\@snippetHeight}{\ht\@snippetBox}%
+  \setlength{\@snippetDepth}{\dp\@snippetBox}%
+  \addtolength{\@snippetHeight}{\@snippetDepth}%
+  \immediate\write\md@dimfile{\arabic{snippets},\@snippetName,\the\@snippetWidth,\the\@snippetHeight,\the\@snippetDepth}%
+  \noindent\usebox\@snippetBox%
+}
+
+\newenvironment{mdDisplaySnippet}[1][\arabic{snippets}]%
+  {\stepcounter{snippets}\edef\@snippetName{#1}%
+   \begin{lrbox}{\@snippetBox}\vbox\bgroup}%
+  {\egroup\end{lrbox}\@savedepth\newpage}
+
+\newenvironment{mdInlineSnippet}[1][\arabic{snippets}]%
+  {\stepcounter{snippets}\def\@snippetName{#1}%
+   \begin{lrbox}{\@snippetBox}\md@bboxmarker}%
+  {\md@bboxmarker\end{lrbox}\@savedepth\newpage}
+
+\newenvironment{mdSnippets}%
+    {\pagestyle{empty}%
+     \abovedisplayskip=0pt%
+     \belowdisplayskip=0pt%
+     \abovedisplayshortskip=0pt%
+     \belowdisplayshortskip=0pt%
+     \newwrite\md@dimfile\immediate\openout\md@dimfile=\jobname.dim%
+     \immediate\write\md@dimfile{\%ordinal,(hash)name,width,(total) height,depth,image width,image height,bbox padding,size,mime,data-url}%
+    }%
+    {\closeout\md@dimfile}
