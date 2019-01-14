@@ -138,16 +138,16 @@
 * DO provide a way to serialize the operations objects
 
 * DO prefer the use of the following terms for CRUD operations:
-  - upsert	_<noun>
-  - create_<noun>
-  - update_<noun>
-  - replace_<noun>
-  - delete_<noun>
-  - add_<noun>
-  - remove_<noun>
+  - upsert_\<noun>
+  - create_\<noun>
+  - update_\<noun>
+  - replace_\<noun>
+  - delete_\<noun>
+  - add_\<noun>
+  - remove_\<noun>
 
 * DO prefer the use of the following terms for long running operations:
-  - start_<verb>_<noun> for methods returning an operation object
+  - start_\<verb>_\<noun> for methods returning an operation object
 
 * DO provide iterators over paged results which handle subsequent calls transparently. 
 
