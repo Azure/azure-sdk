@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="generator" content="Madoko, version 1.1.4" />
+  <meta name="viewport" content="initial-scale=1.0" />
+  <meta name="author" content="Krzysztof Cwalina" />
+  <title>Azure SDK Design Guidelines</title>
+  <link rel="stylesheet" type="text/css" href="madoko.css"  class="link">
+  <link rel="stylesheet" type="text/css" href="../custom.css"  class="link">
+  
+  </head>
+<body class="madoko">
+
+<div class="body madoko" style="line-adjust:0">
+<div class="titleblock align-center para-block" data-line="24" style="text-align:center;line-adjust:0">
+<div class="titleheader align-center" data-line="24" style="text-align:center;line-adjust:0">
+<div class="title para-block" data-line="24" style="font-size:xx-large;font-weight:bold;margin-bottom:0.5ex;line-adjust:0"><span data-line="24"></span>Azure SDK Design Guidelines</div>
+<div class="titlenote para-block" data-line="27" style="line-adjust:0"><span data-line="27"></span>Version 1.0.0-preview2</div></div>
+<div class="authors align-center" data-line="32" style="text-align:center;width:80%;line-adjust:0"><table class="authorrow columns block" data-line="32" style="margin-top:2ex;width:100%;line-adjust:0">
+<tbody><tr><td class="author column" data-line="32" style="text-align:center;line-adjust:0">
+<div class="authorname" data-line="32" style="font-size:large;line-adjust:0"><span data-line="32"></span>Brian Terlson</div>
+<div class="authoraddress" data-line="35" style="line-adjust:0"><span data-line="35"></span>ADP / JS &#38; TS</div>
+<div class="authoremail email" data-line="38" style="line-adjust:0"><span data-line="38"></span>brian.terlson@microsoft.com</div></td><td class="author column" data-line="43" style="text-align:center;line-adjust:0">
+<div class="authorname" data-line="43" style="font-size:large;line-adjust:0"><span data-line="43"></span>Jeff Richter</div>
+<div class="authoraddress" data-line="46" style="line-adjust:0"><span data-line="46"></span>ADP / .NET</div>
+<div class="authoremail email" data-line="49" style="line-adjust:0"><span data-line="49"></span>jeffreyr@microsoft.com</div></td><td class="author column" data-line="54" style="text-align:center;line-adjust:0">
+<div class="authorname" data-line="54" style="font-size:large;line-adjust:0"><span data-line="54"></span>Johan Stenberg</div>
+<div class="authoraddress" data-line="57" style="line-adjust:0"><span data-line="57"></span>ADP / Python</div>
+<div class="authoremail email" data-line="60" style="line-adjust:0"><span data-line="60"></span>johan.stenberg@microsoft.com</div></td></tr></tbody></table><table class="authorrow columns block" data-line="67" style="margin-top:2ex;width:100%;line-adjust:0">
+<tbody><tr><td class="author column" data-line="67" style="text-align:center;line-adjust:0">
+<div class="authorname" data-line="67" style="font-size:large;line-adjust:0"><span data-line="67"></span>Jonathan Giles</div>
+<div class="authoraddress" data-line="70" style="line-adjust:0"><span data-line="70"></span>ADP / Java</div>
+<div class="authoremail email" data-line="73" style="line-adjust:0"><span data-line="73"></span>jonathan.giles@microsoft.com</div></td><td class="author column" data-line="78" style="text-align:center;line-adjust:0">
+<div class="authorname" data-line="78" style="font-size:large;line-adjust:0"><span data-line="78"></span>Krzysztof Cwalina</div>
+<div class="authoraddress" data-line="81" style="line-adjust:0"><span data-line="81"></span>ADP / .NET</div>
+<div class="authoremail email" data-line="84" style="line-adjust:0"><span data-line="84"></span>kcwalina@microsoft.com</div></td></tr></tbody></table></div></div>
+<p class="p noindent para-continued" data-line="27"><span data-line="27"></span>This document will describe architectural and API design guidelines for Azure SDKs.
+</p>
+<p class="p indent" data-line="29"><span data-line="29"></span>Currently, the document id mainly as a list of topics that we want to cover in more detail, i.e. there is not much useful inforamtion in it yet.
+</p><span data-line="31"></span>
+<nav class="toc toc-contents"><h2 id="sec-contents" class="clearnum h1 heading-contents" data-heading-depth="1" style="display:block">Contents</h2>
+<div class="tocblock tocblock1">
+<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="sec-language-independent-guidelines" data-toc-depth="1" data-toc-line="[1]{.heading-label}.&#8194;Language Independent Guidelines" style="toctarget:sec-language-independent-guidelines"><a href="#sec-language-independent-guidelines" class="localref"><span class="heading-label">1</span>.&#8194;Language Independent Guidelines</a></div>
+<div class="tocblock tocblock2">
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="common-general" data-toc-depth="2" data-toc-line="[1.1]{.heading-label}.&#8194;General Guidelines" style="toctarget:common-general"><a href="#common-general" class="localref"><span class="heading-label">1.1</span>.&#8194;General Guidelines</a></div>
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="general-telemetry" data-toc-depth="2" data-toc-line="[1.2]{.heading-label}.&#8194;Telemetry" style="toctarget:general-telemetry"><a href="#general-telemetry" class="localref"><span class="heading-label">1.2</span>.&#8194;Telemetry</a></div>
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="general-logging" data-toc-depth="2" data-toc-line="[1.3]{.heading-label}.&#8194;Logging" style="toctarget:general-logging"><a href="#general-logging" class="localref"><span class="heading-label">1.3</span>.&#8194;Logging</a></div>
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="general-retry" data-toc-depth="2" data-toc-line="[1.4]{.heading-label}.&#8194;Retry" style="toctarget:general-retry"><a href="#general-retry" class="localref"><span class="heading-label">1.4</span>.&#8194;Retry</a></div>
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="sec-cancellation-timeouts" data-toc-depth="2" data-toc-line="[1.5]{.heading-label}.&#8194;Cancellation &amp; Timeouts" style="toctarget:sec-cancellation-timeouts"><a href="#sec-cancellation-timeouts" class="localref"><span class="heading-label">1.5</span>.&#8194;Cancellation &amp; Timeouts</a></div>
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="sec-dependencies" data-toc-depth="2" data-toc-line="[1.6]{.heading-label}.&#8194;Dependencies" style="toctarget:sec-dependencies"><a href="#sec-dependencies" class="localref"><span class="heading-label">1.6</span>.&#8194;Dependencies</a></div>
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="sec-configuration" data-toc-depth="2" data-toc-line="[1.7]{.heading-label}.&#8194;Configuration" style="toctarget:sec-configuration"><a href="#sec-configuration" class="localref"><span class="heading-label">1.7</span>.&#8194;Configuration</a></div>
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="sec-other-topics-to-be-covered" data-toc-depth="2" data-toc-line="[1.8]{.heading-label}.&#8194;Other topics to be covered" style="toctarget:sec-other-topics-to-be-covered"><a href="#sec-other-topics-to-be-covered" class="localref"><span class="heading-label">1.8</span>.&#8194;Other topics to be covered</a></div></div>
+<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="sec-c-specific-guidelines" data-toc-depth="1" data-toc-line="[2]{.heading-label}.&#8194;C# Specific Guidelines" style="toctarget:sec-c-specific-guidelines"><a href="#sec-c-specific-guidelines" class="localref"><span class="heading-label">2</span>.&#8194;C# Specific Guidelines</a></div>
+<div class="tocblock tocblock2">
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="sec-general-net-api-design" data-toc-depth="2" data-toc-line="[2.1]{.heading-label}.&#8194;General .NET API Design" style="toctarget:sec-general-net-api-design"><a href="#sec-general-net-api-design" class="localref"><span class="heading-label">2.1</span>.&#8194;General .NET API Design</a></div>
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="sec-basic-azure-sdk-design-pattern" data-toc-depth="2" data-toc-line="[2.2]{.heading-label}.&#8194;Basic Azure SDK Design Pattern" style="toctarget:sec-basic-azure-sdk-design-pattern"><a href="#sec-basic-azure-sdk-design-pattern" class="localref"><span class="heading-label">2.2</span>.&#8194;Basic Azure SDK Design Pattern</a></div>
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="sec-naming-gudelines" data-toc-depth="2" data-toc-line="[2.3]{.heading-label}.&#8194;Naming Gudelines" style="toctarget:sec-naming-gudelines"><a href="#sec-naming-gudelines" class="localref"><span class="heading-label">2.3</span>.&#8194;Naming Gudelines</a></div>
+<div class="tocblock tocblock3">
+<div class="tocitem tocitem3" data-toc-target-elem="h3" data-toc-target="sec-namespace-naming" data-toc-depth="3" data-toc-line="[2.3.1]{.heading-label}.&#8194;Namespace Naming" style="toctarget:sec-namespace-naming"><a href="#sec-namespace-naming" class="localref"><span class="heading-label">2.3.1</span>.&#8194;Namespace Naming</a></div>
+<div class="tocitem tocitem3" data-toc-target-elem="h3" data-toc-target="sec-type-naming" data-toc-depth="3" data-toc-line="[2.3.2]{.heading-label}.&#8194;Type Naming" style="toctarget:sec-type-naming"><a href="#sec-type-naming" class="localref"><span class="heading-label">2.3.2</span>.&#8194;Type Naming</a></div></div>
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="sec-packaging-and-versioning" data-toc-depth="2" data-toc-line="[2.4]{.heading-label}.&#8194;Packaging and Versioning" style="toctarget:sec-packaging-and-versioning"><a href="#sec-packaging-and-versioning" class="localref"><span class="heading-label">2.4</span>.&#8194;Packaging and Versioning</a></div>
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="sec-error-reporting" data-toc-depth="2" data-toc-line="[2.5]{.heading-label}.&#8194;Error Reporting" style="toctarget:sec-error-reporting"><a href="#sec-error-reporting" class="localref"><span class="heading-label">2.5</span>.&#8194;Error Reporting</a></div>
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="sec-authentication" data-toc-depth="2" data-toc-line="[2.6]{.heading-label}.&#8194;Authentication" style="toctarget:sec-authentication"><a href="#sec-authentication" class="localref"><span class="heading-label">2.6</span>.&#8194;Authentication</a></div>
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="sec-repository-guidelines" data-toc-depth="2" data-toc-line="[2.7]{.heading-label}.&#8194;Repository Guidelines" style="toctarget:sec-repository-guidelines"><a href="#sec-repository-guidelines" class="localref"><span class="heading-label">2.7</span>.&#8194;Repository Guidelines</a></div>
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="sec-common-type-usage" data-toc-depth="2" data-toc-line="[2.8]{.heading-label}.&#8194;Common Type Usage" style="toctarget:sec-common-type-usage"><a href="#sec-common-type-usage" class="localref"><span class="heading-label">2.8</span>.&#8194;Common Type Usage</a></div>
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="sec-commonly-overlooked-net-api-design-guidelines" data-toc-depth="2" data-toc-line="[2.A]{.heading-label}.&#8194;Commonly Overlooked .NET API Design Guidelines" style="toctarget:sec-commonly-overlooked-net-api-design-guidelines"><a href="#sec-commonly-overlooked-net-api-design-guidelines" class="localref"><span class="heading-label">2.A</span>.&#8194;Commonly Overlooked .NET API Design Guidelines</a></div>
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="sec-azure-http-pipeline" data-toc-depth="2" data-toc-line="[2.B]{.heading-label}.&#8194;Azure Http Pipeline" style="toctarget:sec-azure-http-pipeline"><a href="#sec-azure-http-pipeline" class="localref"><span class="heading-label">2.B</span>.&#8194;Azure Http Pipeline</a></div>
+<div class="tocitem tocitem2" data-toc-target-elem="h2" data-toc-target="sec-appendix-z--todo" data-toc-depth="2" data-toc-line="[2.C]{.heading-label}.&#8194;Appendix Z: TODO" style="toctarget:sec-appendix-z--todo"><a href="#sec-appendix-z--todo" class="localref"><span class="heading-label">2.C</span>.&#8194;Appendix Z: TODO</a></div></div>
+<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="sec-java-specific-guidelines" data-toc-depth="1" data-toc-line="[3]{.heading-label}.&#8194;Java Specific Guidelines" style="toctarget:sec-java-specific-guidelines"><a href="#sec-java-specific-guidelines" class="localref"><span class="heading-label">3</span>.&#8194;Java Specific Guidelines</a></div>
+<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="sec-python-specific-guidelines" data-toc-depth="1" data-toc-line="[4]{.heading-label}.&#8194;Python Specific Guidelines" style="toctarget:sec-python-specific-guidelines"><a href="#sec-python-specific-guidelines" class="localref"><span class="heading-label">4</span>.&#8194;Python Specific Guidelines</a></div>
+<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="sec-javascript-specific-guidelines" data-toc-depth="1" data-toc-line="[5]{.heading-label}.&#8194;JavaScript Specific Guidelines" style="toctarget:sec-javascript-specific-guidelines"><a href="#sec-javascript-specific-guidelines" class="localref"><span class="heading-label">5</span>.&#8194;JavaScript Specific Guidelines</a></div>
+<div class="tocitem tocitem1" data-toc-target-elem="h1" data-toc-target="sec-go-specific-guidelines" data-toc-depth="1" data-toc-line="[6]{.heading-label}.&#8194;Go Specific Guidelines" style="toctarget:sec-go-specific-guidelines"><a href="#sec-go-specific-guidelines" class="localref"><span class="heading-label">6</span>.&#8194;Go Specific Guidelines</a></div></div></nav><h2 id="sec-language-independent-guidelines" class="h1" data-line="33" data-heading-depth="1" style="display:block"><span data-line="33"></span><span class="heading-before"><span class="heading-label">1</span>.&#8194;</span><span data-line="33"></span>Language Independent Guidelines</h2><h3 id="common-general" class="h2" data-line="35" data-heading-depth="2" style="display:block"><span data-line="35"></span><span class="heading-before"><span class="heading-label">1.1</span>.&#8194;</span><span data-line="35"></span>General Guidelines</h3>
+<p class="p noindent" data-line="37"><span data-line="37"></span>These language-specific gudelines overrule language independent guidelines.
+</p>
+<div id="general-follow-language-guidelines" class="must" data-line="39">
+<p class="p noindent" data-line="40"><span data-line="40"></span><a class='req-label' href='#general-follow-language-guidelines'><span data-line="40"></span>✅<span data-line="40"></span></a><span data-line="40"></span> <span data-line="40"></span><strong class="strong-star2">DO</strong><span data-line="40"></span> provide SDKs for the following languages: C<span data-line="40"></span>#<span data-line="40"></span>, Java, Python, JavaScript.</p></div>
+<div id="general-ship-other-langs" class="may" data-line="43">
+<p class="p noindent" data-line="44"><span data-line="44"></span><a class='req-label' href='#general-ship-other-langs'><span data-line="44"></span>☑️<span data-line="44"></span></a><span data-line="44"></span> <span data-line="44"></span><strong class="strong-star2">YOU MAY</strong><span data-line="44"></span> provide SDKs for the following languages: Go, C++</p></div>
+<div class="todo note" data-line="47" style="display:block">
+<p class="p noindent" data-line="48"><span data-line="48"></span><a class='req-label' href='#'><span data-line="48"></span>✏️<span data-line="48"></span></a><span data-line="48"></span><span class="note-before"><strong class="strong-star2"><span class="note-caption">Todo</span></strong>.
+</span><span data-line="49"></span>This will result in partial coverage for optional languages. Is that OK?</p></div>
+<div id="general-support-cancellation" class="must" data-line="51">
+<p class="p noindent" data-line="52"><span data-line="52"></span><a class='req-label' href='#general-support-cancellation'><span data-line="52"></span>✅<span data-line="52"></span></a><span data-line="52"></span> <span data-line="52"></span><strong class="strong-star2">DO</strong><span data-line="52"></span> support cancellations.</p></div>
+<div id="general-support-retries" class="must" data-line="55">
+<p class="p noindent" data-line="56"><span data-line="56"></span><a class='req-label' href='#general-support-retries'><span data-line="56"></span>✅<span data-line="56"></span></a><span data-line="56"></span> <span data-line="56"></span><strong class="strong-star2">DO</strong><span data-line="56"></span> support retries</p></div>
+<div id="general-no-concrete-logging" class="mustnot" data-line="59">
+<p class="p noindent" data-line="60"><span data-line="60"></span><a class='req-label' href='#general-no-concrete-logging'><span data-line="60"></span>⛔️<span data-line="60"></span></a><span data-line="60"></span> <span data-line="60"></span><strong class="strong-star2">DO NOT</strong><span data-line="60"></span> depend on concrete logging, dependency injection, or configuration technologies.</p></div>
+<p class="p noindent" data-line="63"><span data-line="63"></span>The SDKs will be used in applications that might be using ther logging, DI, and configuration technologies of their choice.
+</p><h3 id="general-telemetry" class="h2" data-line="65" data-heading-depth="2" style="display:block"><span data-line="65"></span><span class="heading-before"><span class="heading-label">1.2</span>.&#8194;</span><span data-line="65"></span>Telemetry</h3>
+<p class="p noindent" data-line="67"><span data-line="67"></span>Telemetry is used by service teams (not customers) to monitor what SDK a client is using to call into their service. Specifically, the service team can detect client OS, language, language version, and service SDK version. Some clients can prepend additional information indicating the name and version of the client application.
+</p>
+<div class="must" data-line="69">
+<p class="p noindent" data-line="70"><span data-line="70"></span><a class='req-label' href='#'><span data-line="70"></span>✅<span data-line="70"></span></a><span data-line="70"></span> <span data-line="70"></span><strong class="strong-star2">DO</strong><span data-line="70"></span> send telemetry information in the User-Agent header, with the header value in the the following format:
+</p>
+<pre class="para-block pre-fenced pre-fenced3" data-line="72" data-line-first="73" style="display:block"><code data-line="73">[&lt;application_id&gt;/&lt;SPACE\&gt;]&lt;sdk_name&gt;/&lt;sdk_version&gt;/&lt;SPACE\&gt;&lt;platform_information&gt;</code></pre>
+<ul class="ul list-dash compact" data-line="76">
+<li class="li ul-li list-dash-li compact-li" data-line="76"><span data-line="76"></span><code class="code code1">&lt;application_id&gt; ::=</code><span data-line="76"></span> optional application-specific string. The string is supplied by the user of the SDK, e.g. <span data-line="76"></span>&#8220;AzCopy/10.0.4-Preview&#8221;<span data-line="76"></span>
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="77"><span data-line="77"></span><code class="code code1">&lt;sdk_name&gt; ::=</code><span data-line="77"></span> name of the SDK, e.g. <span data-line="77"></span>&#8220;Azure-Storage-Blob&#8221;<span data-line="77"></span>
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="78"><span data-line="78"></span><code class="code code1">&lt;sdk_version&gt; ::=</code><span data-line="78"></span> the version of the SDK. Note: this is not the version of the service
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="79"><span data-line="79"></span><code class="code code1">&lt;platform_information&gt; ::=</code><span data-line="79"></span> information about the currently-executing OS and runtime, e.g. <span data-line="79"></span>&#8220;(NODE-VERSION v4.5.0; Windows_NT 10.0.14393)&#8221;</li></ul></div>
+<div id="general-example-user-agent-strings" class="example" data-line="82" style="display:block;margin:1ex 0pt">
+<p class="p noindent" data-line="83"><span data-line="83"></span><a class='req-label' href='#general-example-user-agent-strings'><span data-line="83"></span>Ex<span data-line="83"></span></a><span data-line="83"></span><span class="example-before"><strong class="strong-star2">Example&#160;<span class="example-label">1</span>.</strong> <span class="theorem-caption">(<span style="font-style:italic">Example User-Agent header values</span>)</span><br>
+</span><span data-line="83"></span>
+</p>
+<ul class="ul list-dash compact" data-line="85">
+<li class="li ul-li list-dash-li compact-li" data-line="85"><span data-line="85"></span>&#8220;Azure-Storage/1.4.0 (NODE-VERSION v4.5.0; Windows_NT 10.0.14393)&#8221;<span data-line="85"></span>
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="86"><span data-line="86"></span>&#8220;AzCopy/10.0.4-Preview Azure-Storage/1.4.0 (NODE-VERSION v4.5.0; Windows_NT 10.0.14393)&#8221;</li></ul></div>
+<p class="p noindent" data-line="89"><span data-line="89"></span>For details on the User-Agent header, see https://tools.ietf.org/html/rfc7231<span data-line="89"></span>#<span data-line="89"></span>section-5.5.3
+</p>
+<div class="note" data-line="91" style="display:block">
+<p class="p noindent" data-line="92"><span data-line="92"></span><span class="note-before"><strong class="strong-star2"><span class="note-caption">Note</span></strong>.
+</span><span data-line="93"></span><a class='req-label' href='#'><span data-line="93"></span>⚠️<span data-line="93"></span></a><span data-line="93"></span> <span data-line="93"></span><strong class="strong-star2">NOTE</strong><span data-line="93"></span> Today, the <span data-line="93"></span><sdk_name><span data-line="93"></span> for all storage SDKs/packages (Blob, File, etc.) is simply <span data-line="93"></span>&#8220;Azure-Storage&#8221;<span data-line="93"></span>. The guideline above proposes that we standardize on full SDK names, e.g. <span data-line="93"></span>&#8220;Azure-Storage-Blob&#8221;<span data-line="93"></span>.</p></div>
+<div class="todo note" data-line="95" style="display:block">
+<p class="p noindent" data-line="96"><span data-line="96"></span><a class='req-label' href='#'><span data-line="96"></span>✏️<span data-line="96"></span></a><span data-line="96"></span><span class="note-before"><strong class="strong-star2"><span class="note-caption">Todo</span></strong>.
+</span><span data-line="97"></span>Provide the full list of SDK names.</p></div>
+<div class="todo note" data-line="99" style="display:block">
+<p class="p noindent" data-line="100"><span data-line="100"></span><a class='req-label' href='#'><span data-line="100"></span>✏️<span data-line="100"></span></a><span data-line="100"></span><span class="note-before"><strong class="strong-star2"><span class="note-caption">Todo</span></strong>.
+</span><span data-line="101"></span>Provide language-specific guidelines (and possibly shared library) for generating <span data-line="101"></span><platform_information></p></div>
+<div class="todo note" data-line="103" style="display:block">
+<p class="p noindent" data-line="104"><span data-line="104"></span><a class='req-label' href='#'><span data-line="104"></span>✏️<span data-line="104"></span></a><span data-line="104"></span><span class="note-before"><strong class="strong-star2"><span class="note-caption">Todo</span></strong>.
+</span><span data-line="105"></span>Provide shared library API for injecting telemetry information</p></div><h3 id="general-logging" class="h2" data-line="107" data-heading-depth="2" style="display:block"><span data-line="107"></span><span class="heading-before"><span class="heading-label">1.3</span>.&#8194;</span><span data-line="107"></span>Logging</h3>
+<div id="general-logging-pluggable" class="must" data-line="109">
+<p class="p noindent" data-line="110"><span data-line="110"></span><a class='req-label' href='#general-logging-pluggable'><span data-line="110"></span>✅<span data-line="110"></span></a><span data-line="110"></span> <span data-line="110"></span><strong class="strong-star2">DO</strong><span data-line="110"></span> support pluggable loggers.</p></div>
+<div id="general-logging-levels" class="must" data-line="113">
+<p class="p noindent" data-line="114"><span data-line="114"></span><a class='req-label' href='#general-logging-levels'><span data-line="114"></span>✅<span data-line="114"></span></a><span data-line="114"></span> <span data-line="114"></span><strong class="strong-star2">DO</strong><span data-line="114"></span> emit the following log levels: Verbose (i.e. details), Informational (things happened), Warning (might be a problem or not), and Error.</p></div>
+<div id="general-logging-no-sensitive-info" class="mustnot" data-line="117">
+<p class="p noindent" data-line="118"><span data-line="118"></span><a class='req-label' href='#general-logging-no-sensitive-info'><span data-line="118"></span>⛔️<span data-line="118"></span></a><span data-line="118"></span> <span data-line="118"></span><strong class="strong-star2">DO NOT</strong><span data-line="118"></span> send sensitive information to the logs, e.g. remove account keys when logging headers.</p></div>
+<div id="general-logging-warn-if-slow-request" class="must" data-line="121">
+<p class="p noindent" data-line="122"><span data-line="122"></span><a class='req-label' href='#general-logging-warn-if-slow-request'><span data-line="122"></span>✅<span data-line="122"></span></a><span data-line="122"></span> <span data-line="122"></span><strong class="strong-star2">DO</strong><span data-line="122"></span> log a Warning message, if a request takes longer than some specified threshold. The default threshold is 3 seconds.</p></div>
+<div id="general-logging-requests-in-info" class="must" data-line="125">
+<p class="p noindent" data-line="126"><span data-line="126"></span><a class='req-label' href='#general-logging-requests-in-info'><span data-line="126"></span>✅<span data-line="126"></span></a><span data-line="126"></span> <span data-line="126"></span><strong class="strong-star2">DO</strong><span data-line="126"></span> log request line, response line, and headers, as Informational message.</p></div>
+<div id="general-logging-error-for-bad-status" class="must" data-line="129">
+<p class="p noindent" data-line="130"><span data-line="130"></span><a class='req-label' href='#general-logging-error-for-bad-status'><span data-line="130"></span>✅<span data-line="130"></span></a><span data-line="130"></span> <span data-line="130"></span><strong class="strong-star2">DO</strong><span data-line="130"></span> log an Error message, if a response comes back with a status codes between 400-599.</p></div>
+<p class="p noindent" data-line="133"><span data-line="133"></span>Some services use status codes in this range in normal course of operation, e.g. implement an <span data-line="133"></span>&#8220;exists&#8221;<span data-line="133"></span> check by returning 404 (not found). In such situations, the particular service might opt out from logging such status code as error.
+</p>
+<div id="general-logging-warning-if-retry" class="must" data-line="135">
+<p class="p noindent" data-line="136"><span data-line="136"></span><a class='req-label' href='#general-logging-warning-if-retry'><span data-line="136"></span>✅<span data-line="136"></span></a><span data-line="136"></span> <span data-line="136"></span><strong class="strong-star2">DO</strong><span data-line="136"></span> log a Warning message, if a service call needs to be retried.</p></div>
+<div id="general-logging-info-if-cancelled" class="must" data-line="139">
+<p class="p noindent" data-line="140"><span data-line="140"></span><a class='req-label' href='#general-logging-info-if-cancelled'><span data-line="140"></span>✅<span data-line="140"></span></a><span data-line="140"></span> <span data-line="140"></span><strong class="strong-star2">DO</strong><span data-line="140"></span> log an Informational message, if a service call is cancelled.</p></div>
+<div id="general-logging-error-if-exceptions" class="must" data-line="143">
+<p class="p noindent" data-line="144"><span data-line="144"></span><a class='req-label' href='#general-logging-error-if-exceptions'><span data-line="144"></span>✅<span data-line="144"></span></a><span data-line="144"></span> <span data-line="144"></span><strong class="strong-star2">DO</strong><span data-line="144"></span> log exceptions thrown as an Error message. If the log level set to Verbose, append stack trace information to the message.</p></div>
+<div id="general-logging-use-syslog" class="must" data-line="147">
+<p class="p noindent" data-line="148"><span data-line="148"></span><a class='req-label' href='#general-logging-use-syslog'><span data-line="148"></span>✅<span data-line="148"></span></a><span data-line="148"></span> <span data-line="148"></span><strong class="strong-star2">DO</strong><span data-line="148"></span> log failures (exceptions and error status codes), regardless logging level, to the event log on Windows and the syslog on Linux, i.e. this cannot be turned off by the SDK user unless they replace the pipeline.</p></div>
+<div class="todo note" data-line="151" style="display:block">
+<p class="p noindent" data-line="152"><span data-line="152"></span><a class='req-label' href='#'><span data-line="152"></span>✏️<span data-line="152"></span></a><span data-line="152"></span><span class="note-before"><strong class="strong-star2"><span class="note-caption">Todo</span></strong>.
+</span><span data-line="153"></span>describe format/syntax of the log messages.</p></div>
+<div class="todo note" data-line="155" style="display:block">
+<p class="p noindent" data-line="156"><span data-line="156"></span><a class='req-label' href='#'><span data-line="156"></span>✏️<span data-line="156"></span></a><span data-line="156"></span><span class="note-before"><strong class="strong-star2"><span class="note-caption">Todo</span></strong>.
+</span><span data-line="157"></span>provide and describe pipeline APIs for logging.</p></div><h3 id="general-retry" class="h2" data-line="159" data-heading-depth="2" style="display:block"><span data-line="159"></span><span class="heading-before"><span class="heading-label">1.4</span>.&#8194;</span><span data-line="159"></span>Retry</h3>
+<p class="p noindent" data-line="161"><span data-line="161"></span>There are many reasons why failure can occur when a client application attempts to send a network request to a service. Some examples are timeout, network infrastructure failures, service rejecting the request due to throttle/busy, service instance terminating due to service scale down, service instance going down to be replaced with another version, service crashing due to an unhandled exception, etc. By offering a built-in retry mechanism (with a default configuration overridable by the customer), our SDKs and the customer’s application become resilient to these kinds of failures. Note that some services charge real money for each try and so customers should be able to disable retries entirely if they prefer to save money over resiliency.
+</p>
+<div id="general-retry-configuration" class="must" data-line="163">
+<p class="p noindent" data-line="164"><span data-line="164"></span><a class='req-label' href='#general-retry-configuration'><span data-line="164"></span>✅<span data-line="164"></span></a><span data-line="164"></span> <span data-line="164"></span><strong class="strong-star2">DO</strong><span data-line="164"></span> offer the following configuration settings:
+</p>
+<ul class="ul list-dash compact" data-line="166">
+<li class="li ul-li list-dash-li compact-li" data-line="166"><span data-line="166"></span>Retry policy (exponential or fixed)
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="167"><span data-line="167"></span>Maximum number of tries (32-bit integer; 0=default, 1=1 try <span data-line="167"></span>&amp;<span data-line="167"></span> no retries, 2=1 try <span data-line="167"></span>&amp;<span data-line="167"></span> 1 retry, etc.)
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="168"><span data-line="168"></span>Per-try timeout (timespan/duration; default=worst anticipated bandwidth times largest single request and response payloads)
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="169"><span data-line="169"></span>Retry delay (timespan/duration; this is the delay for fixed policy, the delay is increased exponentially by this amount for the exponential policy)
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="170"><span data-line="170"></span>Max retry delay (timespan/duration; the delay will never go over this amount)</li></ul></div>
+<div id="general-retry-available-if-supported" class="must" data-line="173">
+<p class="p noindent" data-line="174"><span data-line="174"></span><a class='req-label' href='#general-retry-available-if-supported'><span data-line="174"></span>✅<span data-line="174"></span></a><span data-line="174"></span> <span data-line="174"></span><strong class="strong-star2">DO</strong><span data-line="174"></span> offer additional retry mechanism if supported by the service</p></div>
+<ul class="ul list-dash compact" data-line="177">
+<li class="li ul-li list-dash-li compact-li" data-line="177"><span data-line="177"></span>For example, the Azure Storage Blob service supports retrying read operations against a secondary datacenter
+</li></ul>
+
+<div id="general-retry-reset-on-retry" class="must" data-line="179">
+<p class="p noindent" data-line="180"><span data-line="180"></span><a class='req-label' href='#general-retry-reset-on-retry'><span data-line="180"></span>✅<span data-line="180"></span></a><span data-line="180"></span> <span data-line="180"></span><strong class="strong-star2">DO</strong><span data-line="180"></span> reset (or seek back to position 0) any request data stream before retrying a request</p></div>
+<div id="general-retry-honor-caller-cancellation" class="must" data-line="183">
+<p class="p noindent" data-line="184"><span data-line="184"></span><a class='req-label' href='#general-retry-honor-caller-cancellation'><span data-line="184"></span>✅<span data-line="184"></span></a><span data-line="184"></span> <span data-line="184"></span><strong class="strong-star2">DO</strong><span data-line="184"></span> honor any cancellation mechanism passed-in be the caller which can terminate the request before retried have been attempted.</p></div>
+<div id="general-retry-update-time-to-live" class="must" data-line="187">
+<p class="p noindent" data-line="188"><span data-line="188"></span><a class='req-label' href='#general-retry-update-time-to-live'><span data-line="188"></span>✅<span data-line="188"></span></a><span data-line="188"></span> <span data-line="188"></span><strong class="strong-star2">DO</strong><span data-line="188"></span> update any query parameter or request header that gets sent to the service telling it how much time the service has to process the individual request attempt.</p></div>
+<div id="general-retry-on-hardware-network-failure" class="must" data-line="191">
+<p class="p noindent" data-line="192"><span data-line="192"></span><a class='req-label' href='#general-retry-on-hardware-network-failure'><span data-line="192"></span>✅<span data-line="192"></span></a><span data-line="192"></span> <span data-line="192"></span><strong class="strong-star2">DO</strong><span data-line="192"></span> retry in the case of a hardware network failure as it may self-correct</p></div>
+<div id="general-retry-on-service-not-found" class="must" data-line="195">
+<p class="p noindent" data-line="196"><span data-line="196"></span><a class='req-label' href='#general-retry-on-service-not-found'><span data-line="196"></span>✅<span data-line="196"></span></a><span data-line="196"></span> <span data-line="196"></span><strong class="strong-star2">DO</strong><span data-line="196"></span> retry in the case of a service not found error as the service may be coming back online or a load balancer may be reconfiguring itself.</p></div>
+<div id="general-retry-on-per-try-timeout" class="must" data-line="199">
+<p class="p noindent" data-line="200"><span data-line="200"></span><a class='req-label' href='#general-retry-on-per-try-timeout'><span data-line="200"></span>✅<span data-line="200"></span></a><span data-line="200"></span> <span data-line="200"></span><strong class="strong-star2">DO</strong><span data-line="200"></span> retry in the case of a per-try timeout</p></div>
+<div id="general-retry-if-throttled" class="must" data-line="203">
+<p class="p noindent" data-line="204"><span data-line="204"></span><a class='req-label' href='#general-retry-if-throttled'><span data-line="204"></span>✅<span data-line="204"></span></a><span data-line="204"></span> <span data-line="204"></span><strong class="strong-star2">DO</strong><span data-line="204"></span> retry if the service successfully responds indicating that it is throttle requests.</p></div>
+<div id="general-retry-no-retry-if-successfully-failed" class="mustnot" data-line="207">
+<p class="p noindent" data-line="208"><span data-line="208"></span><a class='req-label' href='#general-retry-no-retry-if-successfully-failed'><span data-line="208"></span>⛔️<span data-line="208"></span></a><span data-line="208"></span> <span data-line="208"></span><strong class="strong-star2">DO NOT</strong><span data-line="208"></span> retry if the service successfully responds indicating that the requested operation failed.</p></div><h3 id="sec-cancellation-timeouts" class="h2" data-line="211" data-heading-depth="2" style="display:block"><span data-line="211"></span><span class="heading-before"><span class="heading-label">1.5</span>.&#8194;</span><span data-line="211"></span>Cancellation <span data-line="211"></span>&amp;<span data-line="211"></span> Timeouts</h3>
+<p class="p noindent" data-line="213"><span data-line="213"></span>When an application makes a network request, the network infrastrucutre(like routers) and the called service may take a long time to respond and, in fact, may never respond. A well-written application SHOULD NEVER give up its control to the network infrasture or service. To ensure that users of our SDKs can keep control of their application, SDK methods that perform I/O operations MUST accept some kind of cancellation <span data-line="213"></span>&amp;<span data-line="213"></span> timeout mechanism specific to the programming language.
+</p>
+<p class="p indent" data-line="215"><span data-line="215"></span>Here are some examples as to why this is so important:
+</p>
+<ul class="ul list-dash compact" data-line="217">
+<li class="li ul-li list-dash-li compact-li" data-line="217"><span data-line="217"></span>When an orchestrator needs to terminate a service (due to scale in, reconfiguration, or upgrading to a new version), the orchestrator typically notifies a running service stance by simulating a Ctrl+C or SIGINT. When the service recieves this, it should terminate as quickly <span data-line="217"></span>&amp;<span data-line="217"></span> gracefully as possible by setting a cancelation mechanism which should be honored by ALL functions that are currently in-flight.
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="218"><span data-line="218"></span>When a customer<span data-line="218"></span>&#39;<span data-line="218"></span>s webserver receives a request, it may set a time-limit indicating how much time it is allowing before it must give a response to the customer.
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="219"><span data-line="219"></span>When a customer<span data-line="219"></span>&#39;<span data-line="219"></span>s GUI appication makes a request to an Azure service via our SDK, the GUI might offer a cancel button so that the end-user can indicate that they are no longer in waiting for an operation or operations to complete.
+</li></ul>
+
+<p class="p noindent" data-line="221"><span data-line="221"></span>The best way for customers to work with cancellation is to think of cancellation objects as forming a tree. For example:
+</p>
+<ul class="ul list-dash compact" data-line="223">
+<li class="li ul-li list-dash-li compact-li" data-line="223"><span data-line="223"></span>Cancelling a parent automatically cancels it’s children.
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="224"><span data-line="224"></span>Children can timeout sooner than their parent but cannot extend the time.
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="225"><span data-line="225"></span>Cancellation can happen due to timeout or due to a manual/explicit cancel.
+</li></ul>
+
+<p class="p noindent" data-line="227"><span data-line="227"></span>Here is an example of how an application would use the tree of cancellations:
+</p>
+<ul class="ul list-dash compact" data-line="229">
+<li class="li ul-li list-dash-li compact-li" data-line="229"><span data-line="229"></span>When an application starts, it should create a cancellation object that represents the entire application; this object is explicitly terminated in response to the application receiving a Ctrl+C or SIGINT notification.
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="230"><span data-line="230"></span>When a webserver receives an incoming request, it would create a new cancellation node that is a child of the application node. The new node would specify a maximum time that the webserver is allowing beforeto operate on the incoming request.
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="231"><span data-line="231"></span>As part of operating on the incoming request, the webserver might need to make multiple requests to other services (like a database). If these requests can be made serially or in parallel, then they might share the previously-created cancellation node<span data-line="231"></span>&#39;<span data-line="231"></span>s timeout. However, if the webserver wants to limit the time spent on 1 or more the requests, it can create a new cancellation node (with the desired timeout value) and make this node a child of the incoming request<span data-line="231"></span>&#39;<span data-line="231"></span>s node; this way, the individual request timesout either when the overall request timesout or when the max time for this operation timeout<span data-line="231"></span> <span data-line="231"></span>- whichever happens first.
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="232"><span data-line="232"></span>Note that if multiple request are made in parallel, it is common for the customer to want to cancel all of them if any one of them fails. This should be a supported scenario.
+</li></ul>
+<h3 id="sec-dependencies" class="h2" data-line="234" data-heading-depth="2" style="display:block"><span data-line="234"></span><span class="heading-before"><span class="heading-label">1.6</span>.&#8194;</span><span data-line="234"></span>Dependencies</h3>
+<p class="p noindent" data-line="236"><span data-line="236"></span>Many programming languages do not allow a customer to load multiple versions of the same package. So, if we have an SDK that requires v3 of package Foo and the customer wants to use v5 of package Foo, then the customer cannot build their application. This means that our SDKs should not dependend on any additional packages. In addition, customer applications must be able to deploy as fast as possible onto datacetner virtual machines. Removing additional code (like dependencies) improves deployment performance.
+</p>
+<div class="mustnot" data-line="238">
+<p class="p noindent" data-line="239"><span data-line="239"></span><a class='req-label' href='#'><span data-line="239"></span>⛔️<span data-line="239"></span></a><span data-line="239"></span> <span data-line="239"></span><strong class="strong-star2">DO NOT</strong><span data-line="239"></span> be dependent on any other packages</p></div>
+<div class="must" data-line="242">
+<p class="p noindent" data-line="243"><span data-line="243"></span><a class='req-label' href='#'><span data-line="243"></span>✅<span data-line="243"></span></a><span data-line="243"></span> <span data-line="243"></span><strong class="strong-star2">DO</strong><span data-line="243"></span> copy <span data-line="243"></span>&amp;<span data-line="243"></span> paste other required code into the SDK package in order to avoid taking a dependency on another package. Make sure that you are not violating any licensing agreements.</p></div>
+<p class="p noindent" data-line="246"><span data-line="246"></span>1.5.3 :warning: <span data-line="246"></span><strong class="strong-star2">NOTE</strong><span data-line="246"></span> For some languages (most notably Java) you will have no choice but to take dependency on other packages. You must only do this if you truely have no other way to avoid taking the dependency.
+</p><h3 id="sec-configuration" class="h2" data-line="248" data-heading-depth="2" style="display:block"><span data-line="248"></span><span class="heading-before"><span class="heading-label">1.7</span>.&#8194;</span><span data-line="248"></span>Configuration</h3>
+<div class="must" data-line="250">
+<p class="p noindent" data-line="251"><span data-line="251"></span><a class='req-label' href='#'><span data-line="251"></span>✅<span data-line="251"></span></a><span data-line="251"></span> <span data-line="251"></span><strong class="strong-star2">DO</strong><span data-line="251"></span> allow any customer configuration or customization via SDK functions or properties as this allos the cusomter code to determine how to configure SDK options and also how to expose those SDK options to the customer<span data-line="251"></span>&#39;<span data-line="251"></span>s users.</p></div>
+<div class="mustnot" data-line="254">
+<p class="p noindent" data-line="255"><span data-line="255"></span><a class='req-label' href='#'><span data-line="255"></span>⛔️<span data-line="255"></span></a><span data-line="255"></span> <span data-line="255"></span><strong class="strong-star2">DO NOT</strong><span data-line="255"></span> allow any customer configuration or customization via a shared resource like a file or environment variable as this prevents different configurations to exist at the same time.</p></div><h3 id="sec-other-topics-to-be-covered" class="h2" data-line="258" data-heading-depth="2" style="display:block"><span data-line="258"></span><span class="heading-before"><span class="heading-label">1.8</span>.&#8194;</span><span data-line="258"></span>Other topics to be covered</h3>
+<ul class="ul list-dash loose" data-line="260">
+<li class="li ul-li list-dash-li loose-li" data-line="260">
+<p data-line="260"><span data-line="260"></span>Tracing
+</p></li>
+<li class="li ul-li list-dash-li loose-li" data-line="261">
+<p data-line="261"><span data-line="261"></span>Versioning
+</p></li>
+<li class="li ul-li list-dash-li loose-li" data-line="262">
+<p data-line="262"><span data-line="262"></span>Authorization (credentials)
+</p></li>
+<li class="li ul-li list-dash-li loose-li" data-line="263">
+<p data-line="263"><span data-line="263"></span>Error/Exception handling
+</p></li>
+<li class="li ul-li list-dash-li loose-li" data-line="264">
+<p data-line="264"><span data-line="264"></span>Packaging (Brian)
+</p></li>
+<li class="li ul-li list-dash-li loose-li" data-line="265">
+<p data-line="265"><span data-line="265"></span>Namespaces (Krzysztof)
+</p></li>
+<li class="li ul-li list-dash-li loose-li" data-line="266">
+<p data-line="266"><span data-line="266"></span>High level structure of APIs (Krzysztof)
+</p></li>
+<li class="li ul-li list-dash-li loose-li" data-line="267">
+<p data-line="267"><span data-line="267"></span>Docs (reference, Samples, Quick Starts) (Jonathan Giles)
+</p></li>
+<li class="li ul-li list-dash-li loose-li" data-line="268">
+<p data-line="268"><span data-line="268"></span>UX Study
+</p></li>
+<li class="li ul-li list-dash-li loose-li" data-line="270">
+<p data-line="270"><span data-line="270"></span>Engineering TOC:
+</p>
+<ul class="ul list-dash compact" data-line="271">
+<li class="li ul-li list-dash-li compact-li" data-line="271"><span data-line="271"></span>Linter
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="272"><span data-line="272"></span>Packaging
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="273"><span data-line="273"></span>Signing
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="274"><span data-line="274"></span>Project Structure
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="275"><span data-line="275"></span>Repos
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="276"><span data-line="276"></span>License
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="277"><span data-line="277"></span>Testing (unit <span data-line="277"></span>&amp;<span data-line="277"></span> E2E)
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="278"><span data-line="278"></span>Supported versions
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="279"><span data-line="279"></span>Platform Support
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="280"><span data-line="280"></span>Stress
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="281"><span data-line="281"></span>Performance
+</li></ul>
+</li></ul>
+<h2 id="sec-c-specific-guidelines" class="h1" data-line="283" data-heading-depth="1" style="display:block"><span data-line="283"></span><span class="heading-before"><span class="heading-label">2</span>.&#8194;</span><span data-line="283"></span>C<span data-line="283"></span>#<span data-line="283"></span> Specific Guidelines</h2><h3 id="sec-general-net-api-design" class="h2" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:1" data-heading-depth="2" style="display:block"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:1"></span><span class="heading-before"><span class="heading-label">2.1</span>.&#8194;</span><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:1"></span>General .NET API Design</h3>
+<div id="dotnet-follow-official-framework-guidelines" class="must" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:3">
+<p class="p noindent" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:4"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:4"></span><a class='req-label' href='#dotnet-follow-official-framework-guidelines'><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:4"></span>✅<span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:4"></span></a><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:4"></span> <span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:4"></span><strong class="strong-star2">DO</strong><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:4"></span> Follow the official<span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:4"></span>&nbsp;<a href="https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/">Framework Design Guidelines</a><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:4"></span>. See Appendix A (at the end of this document) for design guidelines that are commonly overlooked in existing Azure SDKs.
+</p>
+<p class="p indent" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:6"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:6"></span><strong class="strong-star2">NOTE</strong><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:6"></span> additional guidelines in this section overrule the Framework Design Guidelines</p></div>
+<div id="dotnet-use-azure-pipeline" class="must" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:9">
+<p class="p noindent" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:10"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:10"></span><a class='req-label' href='#dotnet-use-azure-pipeline'><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:10"></span>✅<span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:10"></span></a><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:10"></span> <span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:10"></span><strong class="strong-star2">DO</strong><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:10"></span> Use the Azure HTTP Pipeline to implement all methods that call Azure services. The pipeline takes care of many<span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:10"></span>&nbsp;<a href="#common-general" class="localref">General Azure SDK Guidelines</a><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:10"></span>, e.g. telemetry, logging, retries, mockability. Details of the pipeline design and usage are described in Appendix B below.</p></div><h3 id="sec-basic-azure-sdk-design-pattern" class="h2" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:13" data-heading-depth="2" style="display:block"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:13"></span><span class="heading-before"><span class="heading-label">2.2</span>.&#8194;</span><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:13"></span>Basic Azure SDK Design Pattern</h3>
+<p class="p noindent" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:15"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:15"></span>TODO:
+This scection describes the basic shape of a typical Azure SDK:
+</p>
+<ul class="ul list-dash compact" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:18">
+<li class="li ul-li list-dash-li compact-li" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:18"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:18"></span>basic shape of the client types
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:19"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:19"></span>basic shape of service call methods
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:20"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:20"></span>cancellations
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:21"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:21"></span>return type (Response<span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:21"></span><T><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:21"></span>) of service methods
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:22"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:22"></span>pipeline
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:23"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:23"></span>customizing service client and service method calls
+</li></ul>
+<h3 id="sec-naming-gudelines" class="h2" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:25" data-heading-depth="2" style="display:block"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:25"></span><span class="heading-before"><span class="heading-label">2.3</span>.&#8194;</span><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:25"></span>Naming Gudelines</h3><h4 id="sec-namespace-naming" class="h3" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:27" data-heading-depth="3" style="display:block"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:27"></span><span class="heading-before"><span class="heading-label">2.3.1</span>.&#8194;</span><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:27"></span>Namespace Naming</h4>
+<div id="dotnet-namespace-registration" class="must" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:29">
+<p class="p noindent" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:30"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:30"></span><a class='req-label' href='#dotnet-namespace-registration'><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:30"></span>✅<span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:30"></span></a><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:30"></span> <span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:30"></span><strong class="strong-star2">DO</strong><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:30"></span> register all namespaces with adparch<span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:30"></span>@microsoft.com<span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:30"></span>,
+i.e. send email about your proposed namespaces to this address to start a discussion.</p></div>
+<div id="dotnet-namespace-format" class="must" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:35">
+<p class="p noindent" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:36"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:36"></span><a class='req-label' href='#dotnet-namespace-format'><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:36"></span>✅<span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:36"></span></a><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:36"></span> <span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:36"></span><strong class="strong-star2">DO</strong><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:36"></span> adhere to the following scheme when choosing a namespace: <span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:36"></span><code class="code code1">Azure.&lt;group&gt;.&lt;service&gt;[.&lt;feature&gt;]</code><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:36"></span>. For example, <span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:36"></span><code class="code code1">Azure.Storage.Blobs</code><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:36"></span>, <span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:36"></span><code class="code code1">Azure.CognitiveServices.Speech.Recognition</code></p></div>
+<div id="dotnet-namespace-format-service-name" class="mustnot" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:39">
+<p class="p noindent" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:40"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:40"></span><a class='req-label' href='#dotnet-namespace-format-service-name'><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:40"></span>⛔️<span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:40"></span></a><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:40"></span> <span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:40"></span><strong class="strong-star2">DO NOT</strong><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:40"></span> place service API in second level namespace, e.g. <span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:40"></span><code class="code code1">Azure.KeyVault</code></p></div>
+<div id="dotnet-namespace-format-pre-approved" class="should" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:43">
+<p class="p noindent" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:44"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:44"></span><a class='req-label' href='#dotnet-namespace-format-pre-approved'><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:44"></span>☑️<span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:44"></span></a><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:44"></span> <span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:44"></span><strong class="strong-star2">YOU SHOULD</strong><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:44"></span> use one of the following pre-approved namespace groups:
+</p>
+<ul class="ul list-dash compact" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:46">
+<li class="li ul-li list-dash-li compact-li" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:46"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:46"></span>Azure.Diagnostics (e.g. Azure.Diagnostics.OperationalInsights)
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:47"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:47"></span>Azure.Cognitive (e.g. Azure.Cognitive.FaceRecognition)
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:48"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:48"></span>Azure.Iot (e.g. Azure.Iot.Hub)
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:49"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:49"></span>Azure.Networking (e.g. Azure.Networking.EventHub)
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:50"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:50"></span>Azure.Runtime (e.g. Azure.Runtime.VirtualMachines)
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:51"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:51"></span>Azure.Security (e.g. Azure.Security.KeyVault)
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:52"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:52"></span>Azure.Storage (e.g. Azure.Storage.Blobs)</li></ul></div><h4 id="sec-type-naming" class="h3" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:55" data-heading-depth="3" style="display:block"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:55"></span><span class="heading-before"><span class="heading-label">2.3.2</span>.&#8194;</span><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:55"></span>Type Naming</h4>
+<p class="p noindent" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:57"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:57"></span>TODO: XxxClient, XxxResource, etc.
+</p><h3 id="sec-packaging-and-versioning" class="h2" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:59" data-heading-depth="2" style="display:block"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:59"></span><span class="heading-before"><span class="heading-label">2.4</span>.&#8194;</span><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:59"></span>Packaging and Versioning</h3>
+<p class="p noindent" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:61"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:61"></span>TODO
+</p><h3 id="sec-error-reporting" class="h2" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:63" data-heading-depth="2" style="display:block"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:63"></span><span class="heading-before"><span class="heading-label">2.5</span>.&#8194;</span><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:63"></span>Error Reporting</h3>
+<p class="p noindent" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:65"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:65"></span>TODO
+</p><h3 id="sec-authentication" class="h2" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:67" data-heading-depth="2" style="display:block"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:67"></span><span class="heading-before"><span class="heading-label">2.6</span>.&#8194;</span><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:67"></span>Authentication</h3>
+<p class="p noindent" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:69"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:69"></span>TODO
+</p><h3 id="sec-repository-guidelines" class="h2" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:71" data-heading-depth="2" style="display:block"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:71"></span><span class="heading-before"><span class="heading-label">2.7</span>.&#8194;</span><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:71"></span>Repository Guidelines</h3>
+<p class="p noindent" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:73"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:73"></span>TODO:
+</p>
+<ul class="ul list-dash compact" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:75">
+<li class="li ul-li list-dash-li compact-li" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:75"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:75"></span>source code
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:76"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:76"></span>tests
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:77"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:77"></span>documentation
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:78"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:78"></span>samples
+</li></ul>
+<h3 id="sec-common-type-usage" class="h2" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:80" data-heading-depth="2" style="display:block"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:80"></span><span class="heading-before"><span class="heading-label">2.8</span>.&#8194;</span><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:80"></span>Common Type Usage</h3>
+<p class="p noindent" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:82"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:82"></span>TODO:
+</p>
+<ul class="ul list-dash compact" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:84">
+<li class="li ul-li list-dash-li compact-li" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:84"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:84"></span>Etag
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:85"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:85"></span>Response<span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:85"></span><<span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:85"></span>T<span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:85"></span>><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:85"></span>
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:86"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:86"></span>System.Uri
+</li></ul>
+<h3 id="sec-commonly-overlooked-net-api-design-guidelines" class="h2" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:88" data-heading-depth="2" style="display:block"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:88"></span><span class="heading-before"><span class="heading-label">2.A</span>.&#8194;</span><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:88"></span>Commonly Overlooked .NET API Design Guidelines</h3>
+<p class="p noindent" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:90"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:90"></span>Some .NET Design Guidelines have been notoriously overlooked in existing Azure SDKs. This section serves as a way to highlight these guidelines.
+</p>
+<div id="dotnet-no-abstractions" class="mustnot" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:92">
+<p class="p noindent" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:93"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:93"></span><a class='req-label' href='#dotnet-no-abstractions'><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:93"></span>⛔️<span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:93"></span></a><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:93"></span> <span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:93"></span><strong class="strong-star2">DO NOT</strong><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:93"></span> have abstractions (interfaces of abstract classes) unless types both implement and consume them (i.e. you have parameters typed as the abstraction).</p></div>
+<div id="dotnet-no-interfaces-for-abstract-classes" class="mustnot" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:96">
+<p class="p noindent" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:97"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:97"></span><a class='req-label' href='#dotnet-no-interfaces-for-abstract-classes'><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:97"></span>⛔️<span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:97"></span></a><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:97"></span> <span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:97"></span><strong class="strong-star2">DO NOT</strong><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:97"></span> use interfaces if you can use abstract classes. The only reasons to use an interface are: a) you need to “multiple-inherit”, b) you want structs to implement and abstraction.</p></div>
+<div id="dotnet-no-generic-terms" class="mustnot" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:100">
+<p class="p noindent" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:101"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:101"></span><a class='req-label' href='#dotnet-no-generic-terms'><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:101"></span>⛔️<span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:101"></span></a><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:101"></span> <span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:101"></span><strong class="strong-star2">DO NOT</strong><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:101"></span> use very generic words and terms for type names, e.g. do not use names like “OperationResponse”, “DataCollection” etc.</p></div>
+<div id="dotnet-no-unclear-parameter-types" class="shouldnot" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:104">
+<p class="p noindent" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:105"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:105"></span><a class='req-label' href='#dotnet-no-unclear-parameter-types'><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:105"></span>⚠️<span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:105"></span></a><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:105"></span> <span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:105"></span><strong class="strong-star2">YOU SHOULD NOT</strong><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:105"></span> use parameters types where it’s not clear what valid values are supported, e.g. string parameters are often like that.</p></div>
+<div id="dotnet-no-empty-types" class="mustnot" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:108">
+<p class="p noindent" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:109"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:109"></span><a class='req-label' href='#dotnet-no-empty-types'><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:109"></span>⛔️<span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:109"></span></a><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:109"></span> <span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:109"></span><strong class="strong-star2">DO NOT</strong><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:109"></span> have empty types (types with no members)</p></div><h3 id="sec-azure-http-pipeline" class="h2" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:112" data-heading-depth="2" style="display:block"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:112"></span><span class="heading-before"><span class="heading-label">2.B</span>.&#8194;</span><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:112"></span>Azure Http Pipeline</h3>
+<p class="p noindent" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:114"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:114"></span>TODO:
+For now just link to sources: https://github.com/Azure/azure-sdk-for-net-lab/tree/master/Core/Azure.Core
+Once we publish Nuget package, this will be updated.
+</p><h3 id="sec-appendix-z--todo" class="h2" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:118" data-heading-depth="2" style="display:block"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:118"></span><span class="heading-before"><span class="heading-label">2.C</span>.&#8194;</span><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:118"></span>Appendix Z: TODO</h3>
+<ul class="ul list-dash compact" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:120">
+<li class="li ul-li list-dash-li compact-li" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:120"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:120"></span>integration with ASP.NET application model
+</li>
+<li class="li ul-li list-dash-li compact-li" data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:121"><span data-line="285;./docs/design/common\../dotnet/DesignGuidelines.mdk:121"></span>performance
+</li></ul>
+<h2 id="sec-java-specific-guidelines" class="h1" data-line="287" data-heading-depth="1" style="display:block"><span data-line="287"></span><span class="heading-before"><span class="heading-label">3</span>.&#8194;</span><span data-line="287"></span>Java Specific Guidelines</h2><h2 id="sec-python-specific-guidelines" class="h1" data-line="289" data-heading-depth="1" style="display:block"><span data-line="289"></span><span class="heading-before"><span class="heading-label">4</span>.&#8194;</span><span data-line="289"></span>Python Specific Guidelines</h2><h2 id="sec-javascript-specific-guidelines" class="h1" data-line="291" data-heading-depth="1" style="display:block"><span data-line="291"></span><span class="heading-before"><span class="heading-label">5</span>.&#8194;</span><span data-line="291"></span>JavaScript Specific Guidelines</h2><h2 id="sec-go-specific-guidelines" class="h1" data-line="293" data-heading-depth="1" style="display:block"><span data-line="293"></span><span class="heading-before"><span class="heading-label">6</span>.&#8194;</span><span data-line="293"></span>Go Specific Guidelines</h2><span data-line=""></span></div>
+</body>
+
+</html>
