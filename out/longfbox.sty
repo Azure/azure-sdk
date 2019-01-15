@@ -1,0 +1,1344 @@
+%---------------------------------------------------------------------------
+%  Copyright 2015 Daan Leijen, Microsoft Corporation.
+%
+%  This work may be distributed and/or modified under the
+%  conditions of the LaTeX Project Public License, either version 1.3
+%  of this license or (at your option) any later version.
+%  The latest version of this license is in
+%    http://www.latex-project.org/lppl.txt
+%  and version 1.3 or later is part of all distributions of LaTeX
+%  version 2005/12/01 or later.  
+%---------------------------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}[1995/12/01]
+
+\ProvidesPackage{longfbox}[2015/12/01, Daan Leijen, Provides long fbox that can break over pages]
+
+\RequirePackage{options}
+\RequirePackage{longbox}
+\RequirePackage{pict2e}
+\RequirePackage{ellipse}
+
+% --------------------------------------------------------
+% Dimension calulations
+% --------------------------------------------------------
+
+% dimmin/dimmax return minimum or maximum dimension
+\providecommand\dim@min[2]{\ifdim#1>#2#2\else #1\fi}
+\providecommand\dim@max[2]{\ifdim#1>#2#1\else #2\fi}
+
+\newcommand*\option@dimmin[2]{\dim@min{\option{#1}}{\option{#2}}}
+\newcommand*\option@dimmax[2]{\dim@max{\option{#1}}{\option{#2}}}
+
+
+% --------------------------------------------------------
+% Add a new 'sides' option type
+% --------------------------------------------------------
+
+\options{
+  /handlers/new sides/.new handler = []{
+    \ifblank{#2}%
+      {\option@def{#1/@cmd@sides}##1##2##3##4{\optionsalso{#1-top={##1}, #1-right={##2}, #1-bottom={##3}, #1-left={##4}}}}%
+      {\option@def{#1/@cmd@sides}##1##2##3##4{\optionsalso{#2}}}%
+    \optionsalso{
+      #1/.new cmdx = {##1,##2,##3,##4,##5\relax}{,,,,\relax}{%
+        \ifblank{##2##3##4}{\option{#1/@cmd@sides}{##1}{##1}{##1}{##1}}%
+          {\ifblank{##3##4}{\option{#1/@cmd@sides}{##1}{##2}{##1}{##2}}%
+            {\ifblank{##4}{\option{#1/@cmd@sides}{##1}{##2}{##3}{##2}}%
+              {\option{#1/@cmd@sides}{##1}{##2}{##3}{##4}}%
+            }%
+          }%
+      },
+      #1/.type = sides,
+    }%
+  },%
+}
+
+\newcommand*\optionlengthlimit[3]{% len, min, max
+  \letoption{#1}\opt@temp
+  \ifdim\opt@temp<\dimexpr#2\relax
+    \option@invoke{#1}{#2}%
+  \else\ifdim\opt@temp>\dimexpr#3\relax
+    \option@invoke{#1}{#3}%
+  \fi\fi
+}
+
+\newcommand*\optionradiuslimit[4]{% r1, r2, min, max
+  \letoption{#1}\opt@tempa
+  \letoption{#2}\opt@tempb
+  \ifdim\opt@tempa<\dimexpr#3\relax\option@invoke{#1}{#3}\fi
+  \ifdim\opt@tempb<\dimexpr#3\relax\option@invoke{#2}{#3}\fi
+  \ifdim\dimexpr\opt@tempa + \opt@tempb\relax=\z@\relax\else
+    \ifdim\dimexpr\opt@tempa+\opt@tempb\relax>\dimexpr#4\relax
+      \edef\opt@perc{\the\numexpr(\number\dimexpr#4\relax)/%
+                        (\number\dimexpr(\opt@tempa+\opt@tempb)/100\relax)}%
+      %\typeout{scale:\the\opt@tempa,\the\opt@tempb, by \opt@perc percent to make \the\dimexpr#4\relax}%
+      \edef\opt@temp{\dimexpr\opt@perc\dimexpr\the\opt@tempa\relax / 100\relax}%
+      \option@einvoke{#1}{\opt@temp}%
+      \option@einvoke{#2}{\dimexpr#4 - \opt@temp\relax}%
+      %\typeout{ scaled to: \the\opt@temp,\the\dimexpr#4 - \opt@temp\relax}%
+    \fi
+  \fi
+}
+
+
+% \begin{macro}{\trig@atantan}
+% \marg{a}\marg{b}\marg{$\alpha$}{dimen$_\mathit{reg}$}\\
+% Assigns $\atan_2(\frac{\sin(\alpha)}{b},\frac{\cos(\alpha)}{a})$ to dimension register \textit{dimen$_\mathit{reg}$},
+% where $a$ and $b$ are dimensions.
+% Returns $\alpha$ when $a = b$, or when $a=0$ or $b=0$.
+%    \begin{macrocode}
+\newcommand*\trig@atantan[4]{%
+  %\typeout{ atantan:(\the#1,\the#2,\the#3, #4)}%
+  \@tempdima\dimexpr#1\relax
+  \@tempdimb\dimexpr#2\relax  
+%    \end{macrocode}
+% If $a = b$, we have a circle and the result is $\alpha$.
+%    \begin{macrocode}  
+  \ifdim\@tempdima=\@tempdimb
+    #4\dimexpr#3\relax
+  \else\ifdim\@tempdima=\z@
+    #4\dimexpr#3\relax
+  \else\ifdim\@tempdimb=\z@
+    #4\dimexpr#3\relax
+  \else
+    \edef\trig@temp{\strip@pt\dimexpr#3\relax}%
+    \CalculateSin{\trig@temp}\CalculateCos{\trig@temp}%
+    \@tempdimc\dimexpr1\p@ * \dimexpr\UseSin{\trig@temp}\p@\relax/\@tempdimb\relax
+    \@tempdimd\dimexpr1\p@ * \dimexpr\UseCos{\trig@temp}\p@\relax/\@tempdima\relax
+    \pIIe@atantwo{\@tempdimc}{\@tempdimd}\dimen@
+    \ifdim\dimen@<\z@
+      \ifdim\dimexpr#3\relax<\z@\else\advance\dimen@360\p@\fi
+    \fi
+    \@tempdima\dimexpr#3 - \dimen@\relax
+    \ifdim\@tempdima<\z@\@tempdima-\@tempdima\fi
+    \ifdim\@tempdima<360\p@\else\advance\dimen@360\p@\fi
+    %\typeout{atan: \the\dimexpr#3\relax versus. \the\dimen@ }%
+    #4\dimen@
+  \fi\fi\fi
+}
+%    \end{macrocode}
+% \end{macro}
+
+% rough approximation of the perimeter; 
+% if |radius-x == radius-y| = 0 (a circle), the approximation is precise. 
+% otherwise, works best when |angle2-angle1| <= 45 and gets worse from there on.
+\newcommand*\ellip@letarcperimeter[5]{% 'radius-x', 'radius-y', 'angle-1', 'angle-2', '\result'
+  \@tempdima\dimexpr#3\relax
+  \@tempdimb\dimexpr#4\relax
+  \@tempdimc\dimexpr\@tempdima - \@tempdimb\relax
+  \ifdim\@tempdimc<\z@\@tempdimc-\@tempdimc\fi
+  \ifdim#1=#2\relax% circle?
+    \edef\@tempa{\strip@pt\@tempdimc}% angle difference delta as factor
+    \dimen@\@tempa\dimexpr#1\relax% r*delta
+    \dimen@0.017453\dimen@% (2*pi/360) * r * delta = 2*pi*r * (delta/360)
+  \else% ellipse: take the distance between the points on the ellipse, works pretty good if delta <= 45, and ok'ish for delta <= 90
+    \@ovro\dimexpr#1\relax
+    \@ovri\dimexpr#2\relax
+    \edef\fbox@tempa{\strip@pt\@tempdima}%
+    \edef\fbox@tempb{\strip@pt\@tempdimb}%
+    \pIIe@ellip@sincost{\fbox@tempa}{\fbox@tempb}%
+    \@tempdima\@ellipcosone\@ovro
+    \@tempdimb\@ellipsinone\@ovri
+    \@tempdimc\@ellipcostwo\@ovro
+    \@tempdimd\@ellipsintwo\@ovri
+    \advance\@tempdimc by -\@tempdima%
+    \advance\@tempdimd by -\@tempdimb%
+    \pIIe@ellip@csqrt{\@tempdimc}{\@tempdimd}{\dimen@}%
+    %\typeout{ distance: \the\dimen@, from (x,y)=(\the\@tempdimc,\the\@tempdimd), radii=(\the#1,\the#2), angles=(\the#3,\the#4)}%
+  \fi
+  \edef#5{\the\dimen@}%
+}
+
+
+% ------------------------------------------------------------------------------
+% Borders using the picture environment
+% ------------------------------------------------------------------------------
+
+\newcommand*\fbox@border@pict{%
+  \ifnum\option{/fbox/render/@ord}=2\relax%
+    \begingroup
+    \hbox{%
+      \unitlength\p@
+      \begin{picture}(0,0)(0,\optionunit{/fbox/@border-box-height})% bottom-left is origin
+        % markers
+        \ontoggle{/fbox/show-markers}{%
+          \linethickness{\option{/fbox/marker-width}}%
+          \optioncolor{/fbox/marker-color}%
+          \fbox@rect{0pt}{0pt}{\option{/fbox/@border-box-width}}{\option{/fbox/@border-box-height}}%
+          \fbox@rect{\option{/fbox/border-left-width}}{\option{/fbox/border-\fbox@bottom-width}}%
+                      {\option{/fbox/@border-box-width}-\option{/fbox/border-right-width}}%
+                      {\option{/fbox/@border-box-height}-\option{/fbox/border-\fbox@top-width}}%S                                    
+        }%
+        %compute corner coordinates
+        \fbox@border@calccorners 
+        %put down the background color
+        \fbox@border@colorbackground
+        \option{/fbox/picture-insert-before}%
+        %put down the sides
+        \fbox@border@side{3}{-2}{0}%top
+        \fbox@border@side{5}{-4}{3}%left
+        \fbox@border@side{-6}{7}{2}%bottom
+        \fbox@border@side{-8}{1}{1}%right
+      \end{picture}%
+    }%
+    \endgroup
+  \fi
+}
+
+\newcommand*\fbox@border@pict@after{%
+  \ifnum\option{/fbox/render/@ord}=2\relax%
+    \letoption{/fbox/picture-insert-after}\fbox@insertafter
+    \eifblank{\fbox@insertafter}{}{%
+      \begingroup
+      \hbox{%
+        \begin{picture}(0,0)(0,0)% bottom-left is origin
+           \fbox@insertafter
+        \end{picture}%
+      }%
+      \endgroup
+    }% 
+  \fi
+}
+
+\newcommand*\fbox@border@side[3]{%
+  \fbox@setoct@angles{#1}%
+  \edef\fbox@style{\option{/fbox/border-\fbox@side-style}}%
+  \optioncolor{/fbox/border-\fbox@side-color}%
+  \option{/fbox/picture-side-insert-before}%
+  \ifcsdef{fbox@border@pict@\fbox@style}%
+    {\csuse{fbox@border@pict@\fbox@style}{#1}{#2}{#3}}%
+    {\PackageWarning{longfbox}{Unknown style "\fbox@style". Using "solid" instead.}%
+     \fbox@border@pict@solid{#1}{#2}{#3}}%
+  \option{/fbox/picture-side-insert-after}%       
+}
+
+% ------------------------------------------------------------------------------
+% Define standard border styles for the picture environment
+%
+% a style has the form \fbox@border@pict@<style>{<octant1>}{<octant2>}{<side no>} 
+% where <side> is the border side no: top=0, right=1, bottom=2, left=3
+
+
+\newcommand*\fbox@border@pict@none[3]{%
+  % do nothing
+}
+\newcommand*\fbox@border@pict@hidden[3]{%
+  % do nothing
+}
+
+% --------------------------------------------------------
+% Background color
+% --------------------------------------------------------
+
+% Lay down background color
+\newcommand*\fbox@border@colorbackground{%
+ \ifcase\option{/fbox/background-clip/@ord}\relax
+    \fbox@border@colorbackground@border
+    \edefoption{/fbox/background-border-color}\@tempa
+    \edefoption{/fbox/background-padding-color}\@tempb
+    \ifx\@tempa\@tempb\relax\else
+      \fbox@border@colorbackground@padding
+    \fi
+  \or
+    \fbox@border@colorbackground@padding
+  \or 
+    \fbox@border@colorbackground@content
+  \fi
+}
+
+\newcommand*\fbox@border@colorbackground@padding{%
+  \ifoptionblank{/fbox/background-padding-color}{}{%
+    \optioncolor{/fbox/background-padding-color}%
+    \moveto(\optionunit{/fbox/@border-bottom-left-ix},\optionunit{/fbox/border-\fbox@bottom-width})%
+    \fbox@cornerarc{bottom-left}{i}{270}{180}%
+    \fbox@cornerarc{top-left}{i}{180}{90}%
+    \fbox@cornerarc{top-right}{i}{90}{0}%
+    \fbox@cornerarc{bottom-right}{i}{0}{-90}%
+    \closepath
+    \fillpath
+    \edefoption{/fbox/background-padding-color}\@tempa
+    \edefoption{/fbox/background-color}\@tempb
+    \ifx\@tempa\@tempb\relax\else
+      \fbox@border@colorbackground@content
+    \fi
+  }%
+}
+
+\newcommand*\fbox@border@colorbackground@content{%
+  \ifoptionblank{/fbox/background-color}{}{%
+    \optioncolor{/fbox/background-color}%
+    \@ovxx=\dimexpr\option{/fbox/border-left-width} + \option{/fbox/padding-left}\relax
+    \@ovyy=\dimexpr\option{/fbox/border-\fbox@bottom-width} + \option{/fbox/padding-\fbox@bottom}\relax
+    \fbox@rect*{\@ovxx}{\@ovyy}%
+               {\@ovxx + \option{/fbox/@content-box-width}}%
+               {\@ovyy + \option{/fbox/@content-box-height}}%
+  }%
+}
+
+\newcommand*\fbox@border@colorbackground@border{%
+  \ifoptionblank{/fbox/background-border-color}{}{%
+    \optioncolor{/fbox/background-border-color}%
+    \moveto(0,0)%
+    \fbox@cornerarc{bottom-left}{}{270}{180}%
+    \fbox@cornerarc{top-left}{}{180}{90}%
+    \fbox@cornerarc{top-right}{}{90}{0}%
+    \fbox@cornerarc{bottom-right}{}{0}{-90}%
+    \closepath
+    \fillpath
+  }%
+}
+
+\newcommand*\fbox@cornerarc[4]{% {'top-left'}{'i'?}{'start angle'}{'end angle'}
+  \elliparc{\optionunit{/fbox/@border-#1-#2x}}%
+            {\optionunit{/fbox/@border-#1-#2y}}%
+            {\optionunit{/fbox/@border-#1-#2radius-x}}%
+            {\optionunit{/fbox/@border-#1-#2radius-y}}{#3}{#4}%
+}
+
+
+
+% --------------------------------------------------------
+% Compute corner coordinates
+% --------------------------------------------------------
+
+% Calculate all corner coordinates
+\newcommand*\fbox@border@calccorners{% 
+  \fbox@border@calccorner{top}{left}{\fbox@top}%
+  \fbox@border@calccorner{top}{right}{\fbox@top}%
+  \fbox@border@calccorner{bottom}{left}{\fbox@bottom}%
+  \fbox@border@calccorner{bottom}{right}{\fbox@bottom}%
+}
+
+% calculate for each corner
+% the /fbox/@border-#1-#2-
+% -iradius-x/y: inner corner radius
+% -ix/iy: inner corner center point
+\newcommand*\fbox@border@calccorner[3]{% {'top'}{'left'}{'break-top'}
+  \option@invoke{/fbox/@border-#1-#2-iradius-x}{\dimexpr0pt\relax}%  
+  \option@invoke{/fbox/@border-#1-#2-iradius-y}{\dimexpr0pt\relax}%  
+  % only give positive inner radius if the center lays outside the border
+  \ifdim\dimexpr\option{/fbox/@border-#1-#2-radius-x} - \option{/fbox/border-#2-width}\relax>0pt\relax
+   \ifdim\dimexpr\option{/fbox/@border-#1-#2-radius-y} - \option{/fbox/border-#3-width}\relax>0pt\relax
+     \option@invoke{/fbox/@border-#1-#2-iradius-x}%
+      {\option{/fbox/@border-#1-#2-radius-x} - \option{/fbox/border-#2-width}}%
+     \option@invoke{/fbox/@border-#1-#2-iradius-y}%
+      {\option{/fbox/@border-#1-#2-radius-y} - \option{/fbox/border-#3-width}}%
+    \fi
+  \fi
+  % assign inner (ix,iy) and outer (x,y)
+  \option@invoke{/fbox/@border-#1-#2-ix}{\option{/fbox/border-#2-width} + \option{/fbox/@border-#1-#2-iradius-x}}%
+  \option@invoke{/fbox/@border-#1-#2-iy}{\option{/fbox/border-#3-width} + \option{/fbox/@border-#1-#2-iradius-y}}%
+  \ifstrequal{#2}{left}{}{%
+    \option@invoke{/fbox/@border-#1-#2-ix}{\option{/fbox/@border-box-width} - \option{/fbox/@border-#1-#2-ix}}%
+  }%
+  \ifstrequal{#1}{bottom}{}{%
+    \option@invoke{/fbox/@border-#1-#2-iy}{\option{/fbox/@border-box-height} - \option{/fbox/@border-#1-#2-iy}}%
+  }%
+  % assign dividing angle based on the width ratio 90 * (b / (a+b))
+  \ifdim\option{/fbox/border-#3-width}=\z@\relax
+    \@tempdima=90pt\relax
+  \else
+    \@tempdima90\dimexpr1pt * \option{/fbox/border-#2-width}/(\option{/fbox/border-#3-width} + \option{/fbox/border-#2-width})\relax
+  \fi
+  %\trig@atantwo{\option{/fbox/border-#2-width}}{\option{/fbox/border-#1-width}}\@tempdima
+  \ifstrequal{#2}{left}{\@tempdima\dimexpr180\p@-\@tempdima\relax}{}%
+  \ifstrequal{#1}{bottom}{\@tempdima\dimexpr360\p@-\@tempdima\relax}{}%
+  \option@invoke{/fbox/@border-#1-#2-phi}{\@tempdima}%
+  %\typeout{ corner angle #1-#2: \the\option{/fbox/@border-#1-#2-phi}}%
+}
+
+% --------------------------------------------------------
+% Helper coordinates
+% There are all just definitions of 'dimexpr's
+% --------------------------------------------------------
+
+\options{
+  /fbox/@border-top-left-x/.new dim     = \option{/fbox/@border-top-left-radius-x},
+  /fbox/@border-top-left-y/.new dim     = \option{/fbox/@border-box-height} - \option{/fbox/@border-top-left-radius-y},
+  /fbox/@border-top-right-x/.new dim    = \option{/fbox/@border-box-width} - \option{/fbox/@border-top-right-radius-x},
+  /fbox/@border-top-right-y/.new dim    = \option{/fbox/@border-box-height} - \option{/fbox/@border-top-right-radius-y},
+  /fbox/@border-bottom-left-x/.new dim  = \option{/fbox/@border-bottom-left-radius-x},
+  /fbox/@border-bottom-left-y/.new dim  = \option{/fbox/@border-bottom-left-radius-y},
+  /fbox/@border-bottom-right-x/.new dim = \option{/fbox/@border-box-width} - \option{/fbox/@border-bottom-right-radius-x},
+  /fbox/@border-bottom-right-y/.new dim = \option{/fbox/@border-bottom-right-radius-y},
+  % the following ones are only used for sharp corner filling; perhaps we can optimize this better?
+  /fbox/@border-top-y/.new dim          = \option{/fbox/@border-box-height},
+  /fbox/@border-top-iy/.new dim         = \option{/fbox/@border-box-height} - \option{/fbox/border-\fbox@top-width},
+  /fbox/@border-bottom-y/.new dim       = 0pt,
+  /fbox/@border-bottom-iy/.new dim      = \option{/fbox/border-\fbox@bottom-width},
+  /fbox/@border-right-x/.new dim        = \option{/fbox/@border-box-width},
+  /fbox/@border-right-ix/.new dim       = \option{/fbox/@border-box-width} - \option{/fbox/border-right-width},
+  /fbox/@border-left-x/.new dim         = 0pt,
+  /fbox/@border-left-ix/.new dim        = \option{/fbox/border-left-width},
+  /fbox/@border-top-left-ox/.new dim    = \option@dimmax{/fbox/@border-top-left-x}{/fbox/@border-top-left-ix},
+  /fbox/@border-top-left-oy/.new dim    = \option@dimmin{/fbox/@border-top-left-y}{/fbox/@border-top-left-iy},
+  /fbox/@border-top-right-ox/.new dim   = \option@dimmin{/fbox/@border-top-right-x}{/fbox/@border-top-right-ix},
+  /fbox/@border-top-right-oy/.new dim   = \option@dimmin{/fbox/@border-top-right-y}{/fbox/@border-top-right-iy},
+  /fbox/@border-bottom-left-ox/.new dim = \option@dimmax{/fbox/@border-bottom-left-x}{/fbox/@border-bottom-left-ix},
+  /fbox/@border-bottom-left-oy/.new dim = \option@dimmax{/fbox/@border-bottom-left-y}{/fbox/@border-bottom-left-iy},
+  /fbox/@border-bottom-right-ox/.new dim= \option@dimmin{/fbox/@border-bottom-right-x}{/fbox/@border-bottom-right-ix},
+  /fbox/@border-bottom-right-oy/.new dim= \option@dimmax{/fbox/@border-bottom-right-y}{/fbox/@border-bottom-right-iy},
+}
+
+
+% --------------------------------------------------------
+% setoct: Set various macros based on the octant
+% --------------------------------------------------------
+
+
+\newcount\fbox@oct
+\newcount\fbox@quad
+\newcount\fbox@diaq
+\newcount\fbox@sign
+
+%fbox@corner
+\newcommand*\fbox@setoct[2][]{% [i (inner)]{octant}}
+  \fbox@sign1\relax
+  \fbox@oct#2\relax
+  \ifnum\fbox@oct<\z@\fbox@oct-\fbox@oct\fbox@sign-\fbox@sign\fi
+  \fbox@quad\fbox@oct
+  \advance\fbox@quad by 1\relax
+  \divide\fbox@quad by 2\relax% quadrant 1-4
+  \ifcase\fbox@quad\relax%\@tempa\relax
+  \or\def\fbox@corner{top-right}%
+  \or\def\fbox@corner{top-left}%
+  \or\def\fbox@corner{bottom-left}%
+  \or\def\fbox@corner{bottom-right}%
+  \fi
+  \letcs\fbox@adjustx{fbox@adjustx@\fbox@corner}%
+  \letcs\fbox@adjusty{fbox@adjusty@\fbox@corner}%
+  \fbox@diaq\fbox@oct
+  \divide\fbox@diaq by 2\relax% 'diamond quadrant' 0 -4
+  \ifodd\fbox@diaq\toggletrue{/fbox/@side-horizontal}\def\fbox@axis{x}\else\togglefalse{/fbox/@side-horizontal}\def\fbox@axis{y}\fi
+  \ifcase\fbox@diaq\relax
+     \def\fbox@side{right}%
+  \or\iftoggle{/longbox/@part-needtop}{\def\fbox@side{top}}{\def\fbox@side{break-top}}%
+  \or\def\fbox@side{left}%
+  \or\iftoggle{/longbox/@part-needbottom}{\def\fbox@side{bottom}}{\def\fbox@side{break-bottom}}%
+  \or\def\fbox@side{right}%
+  \fi
+  \option@invoke{/fbox/@side}{\fbox@side}%
+  %\typeout{setoct(#1,#2): \fbox@corner: \iftoggle{/fbox/@side-horizontal}{hor}{ver} diaq=\the\fbox@diaq, quad=\the\fbox@quad, oct=\the\fbox@oct, direction=\the\fbox@sign}%
+}
+
+\newcommand*\fbox@setotherside{%
+  \ifcase\fbox@diaq\relax
+     \def\fbox@otherside{top}%
+  \or\ifodd\fbox@oct\relax\def\fbox@otherside{left}\else\def\fbox@otherside{right}\fi%
+  \or\ifodd\fbox@oct\relax\def\fbox@otherside{bottom}\else\def\fbox@otherside{top}\fi
+  \or\ifodd\fbox@oct\relax\def\fbox@otherside{right}\else\def\fbox@otherside{left}\fi
+  \or\def\fbox@otherside{bottom}%
+  \fi
+}
+
+\csdef{fbox@adjustx@top-right}#1{\dimexpr\option{/fbox/@border-box-width} - #1\relax}%
+\csdef{fbox@adjusty@top-right}#1{\dimexpr\option{/fbox/@border-box-height} - #1\relax}%
+
+\csdef{fbox@adjustx@top-left}#1{#1}%
+\csdef{fbox@adjusty@top-left}#1{\dimexpr\option{/fbox/@border-box-height} - #1\relax}%
+
+\csdef{fbox@adjustx@bottom-left}#1{#1}%
+\csdef{fbox@adjusty@bottom-left}#1{#1}%
+
+\csdef{fbox@adjustx@bottom-right}#1{\dimexpr\option{/fbox/@border-box-width} - #1\relax}%
+\csdef{fbox@adjusty@bottom-right}#1{#1}%
+
+
+\newlength\fbox@anglestart
+\newlength\fbox@angleend
+\newcommand*\fbox@setoct@angles[2][]{%
+  \fbox@setoct[#1]{#2}%
+  \fbox@anglestart\dimexpr90\p@ * \fbox@diaq\relax
+  \fbox@angleend\option{/fbox/@border-\fbox@corner-phi}%  
+  \ifnum\fbox@sign<\z@
+    \ifodd\fbox@oct\relax\else
+      \@tempdima\fbox@anglestart
+      \fbox@anglestart\fbox@angleend
+      \fbox@angleend\@tempdima
+    \fi
+  \else
+    \ifodd\fbox@oct\relax
+      \@tempdima\fbox@anglestart
+      \fbox@anglestart\fbox@angleend
+      \fbox@angleend\@tempdima
+    \fi
+  \fi
+  %\typeout{ angles=\the\fbox@anglestart, to \the\fbox@angleend}%  
+}
+
+
+% --------------------------------------------------------
+% Solid border 
+% --------------------------------------------------------
+
+\newcommand*\fbox@border@pict@solid[3]{% octant1, octant2, side no.
+  %\fbox@setoct@angles[]{#1}%
+  %\optioncolor{/fbox/border-\fbox@side-color}%
+  \fbox@border@hcornerarc[1]{}{#1}%
+  \fbox@setoct@angles{-#2}%  
+  \fbox@border@hcornerarc{}{-#2}%
+  \fbox@setoct@angles[i]{#2}%  
+  \fbox@border@hcornerarc{i}{#2}%
+  \fbox@setoct@angles[i]{-#1}%
+  \fbox@border@hcornerarc{i}{-#1}%
+  \closepath
+  \fillpath
+}
+
+% a half corner arc; assumes zero radius will just draw a line to the center point
+\newcommand*\fbox@border@hcornerarc[3][0]{% [lmn], i(nner), octant
+  \elliparc[#1]{\optionunit{/fbox/@border-\fbox@corner-#2x}}%
+                  {\optionunit{/fbox/@border-\fbox@corner-#2y}}%
+                  {\optionunit{/fbox/@border-\fbox@corner-#2radius-x}}%
+                  {\optionunit{/fbox/@border-\fbox@corner-#2radius-y}}{\strip@pt\fbox@anglestart}{\strip@pt\fbox@angleend}%
+}
+
+% --------------------------------------------------------
+% Double border
+% --------------------------------------------------------
+
+\newcommand*\fbox@border@pict@double[3]{% octant1, octant2, side no
+  \fbox@setoct@angles{#1}% 
+  \fbox@border@hcornerarc@[1]{}{#1}{0}%
+  \fbox@setoct@angles{-#2}%  
+  \fbox@border@hcornerarc@{}{-#2}{0}%
+  \fbox@setoct@angles[i]{#2}%  
+  \fbox@border@hcornerarc@{}{#2}{0.33}%
+  \fbox@setoct@angles[i]{-#1}%
+  \fbox@border@hcornerarc@{}{-#1}{0.33}%
+  \closepath
+  \fillpath
+  %
+  \fbox@setoct@angles{#1}% 
+  \fbox@border@hcornerarc@[1]{}{#1}{0.66}%
+  \fbox@setoct@angles{-#2}%  
+  \fbox@border@hcornerarc@{}{-#2}{0.66}%
+  \fbox@setoct@angles[i]{#2}%  
+  \fbox@border@hcornerarc@{}{#2}{1}%
+  \fbox@setoct@angles[i]{-#1}%
+  \fbox@border@hcornerarc@{}{-#1}{1}%
+  \closepath
+  \fillpath
+}
+
+% a half corner arc; but only over 'fraction' of the border width
+% assumes zero radius will just draw a line to the center point
+\newcommand*\fbox@border@hcornerarc@[4][0]{% [lmn], i(nner), octant, width fraction
+  % determine radius and center point for the width fraction
+  \fbox@setotherside
+  \iftoggle{/fbox/@side-horizontal}%
+    {\@tempdima#4\option{/fbox/border-\fbox@otherside-width}%
+     \@tempdimb#4\option{/fbox/border-\fbox@side-width}}%
+    {\@tempdimb#4\option{/fbox/border-\fbox@otherside-width}%
+     \@tempdima#4\option{/fbox/border-\fbox@side-width}}%
+  \@tempdimc\fbox@adjustx{\@tempdima}%
+  \@tempdima\dimexpr\option{/fbox/@border-\fbox@corner-radius-x} - \@tempdima\relax
+  \ifdim\@tempdima<\z@
+    \@tempdima\z@
+  \else
+    \@tempdimc\option{/fbox/@border-\fbox@corner-x}%
+  \fi
+  \@tempdimd\fbox@adjusty{\@tempdimb}%
+  \@tempdimb\dimexpr\option{/fbox/@border-\fbox@corner-radius-y} - \@tempdimb\relax
+  \ifdim\@tempdimb<\z@
+    \@tempdimb\z@
+  \else
+    \@tempdimd\option{/fbox/@border-\fbox@corner-y}%
+  \fi
+  \edef\fbox@radiusx{\strip@pt\@tempdima}%
+  \edef\fbox@radiusy{\strip@pt\@tempdimb}%
+  \edef\fbox@x{\strip@pt\@tempdimc}%
+  \edef\fbox@y{\strip@pt\@tempdimd}%
+  %\typeout{radius:\fbox@radiusx,\fbox@radiusy}%
+  \elliparc[#1]{\fbox@x}{\fbox@y}%
+                  {\fbox@radiusx}{\fbox@radiusy}%
+                  {\strip@pt\fbox@anglestart}{\strip@pt\fbox@angleend}%
+}
+
+% --------------------------------------------------------
+% Groove and Ridge border
+% --------------------------------------------------------
+
+% draw a side border
+\newtoggle{fbox@innerdark}%
+\newcommand*\fbox@border@pict@groove{% octant1, octant2, side no
+  \ifnum\fbox@oct>5\toggletrue{fbox@innerdark}\else\togglefalse{fbox@innerdark}\fi
+  \fbox@border@pict@grooved%
+}
+\newcommand*\fbox@border@pict@ridge{% octant1, octant2, side no
+  \ifnum\fbox@oct<6\toggletrue{fbox@innerdark}\else\togglefalse{fbox@innerdark}\fi
+  \fbox@border@pict@grooved%
+}
+
+\newcommand*\fbox@border@pict@grooved[3]{% octant, octant, side no
+  \iftoggle{fbox@innerdark}{}%
+    {\color{\option{/fbox/border-\fbox@side-color}\option{/fbox/border-dark-mix}}}%
+  \fbox@setoct@angles{#1}% 
+  \fbox@border@hcornerarc@[1]{}{#1}{0}%
+  \fbox@setoct@angles{-#2}%  
+  \fbox@border@hcornerarc@{}{-#2}{0}%
+  \fbox@setoct@angles[i]{#2}%  
+  \fbox@border@hcornerarc@{}{#2}{0.5}%
+  \fbox@setoct@angles[i]{-#1}%
+  \fbox@border@hcornerarc@{}{-#1}{0.5}%
+  \closepath
+  \fillpath
+  %
+  \iftoggle{fbox@innerdark}%
+    {\color{\option{/fbox/border-\fbox@side-color}\option{/fbox/border-dark-mix}}}%
+    {\optioncolor{/fbox/border-\fbox@side-color}}%
+  \fbox@setoct@angles{#1}% 
+  \fbox@border@hcornerarc@[1]{}{#1}{0.5}%
+  \fbox@setoct@angles{-#2}%  
+  \fbox@border@hcornerarc@{}{-#2}{0.5}%
+  \fbox@setoct@angles[i]{#2}%  
+  \fbox@border@hcornerarc@{}{#2}{1}%
+  \fbox@setoct@angles[i]{-#1}%
+  \fbox@border@hcornerarc@{}{-#1}{1}%
+  \closepath
+  \fillpath
+}
+
+% --------------------------------------------------------
+% Inset and outset border 
+% --------------------------------------------------------
+
+\newcommand*\fbox@border@pict@inset{% octant1, octant2, side no
+  \ifnum\fbox@oct<6\relax\color{\option{/fbox/border-\fbox@side-color}\option{/fbox/border-dark-mix}}\fi
+  \fbox@border@pict@inoutset
+}
+\newcommand*\fbox@border@pict@outset{% octant1, octant2, side no
+  \ifnum\fbox@oct>5\relax\color{\option{/fbox/border-\fbox@side-color}\option{/fbox/border-dark-mix}}\fi
+  \fbox@border@pict@inoutset
+}
+\newcommand*\fbox@border@pict@inoutset[3]{% octant1, octant2, side no
+  \fbox@border@hcornerarc[1]{}{#1}%
+  \fbox@setoct@angles{-#2}%  
+  \fbox@border@hcornerarc{}{-#2}%
+  \fbox@setoct@angles[i]{#2}%  
+  \fbox@border@hcornerarc{i}{#2}%
+  \fbox@setoct@angles[i]{-#1}%
+  \fbox@border@hcornerarc{i}{-#1}%
+  \closepath
+  \fillpath
+}
+
+
+
+% --------------------------------------------------------
+% Dashed & Dotted
+% --------------------------------------------------------
+\newtoggle{fbox@dotted}
+\newlength\fbox@dash
+\newlength\fbox@dashskip
+
+
+\newcommand*\fbox@border@pict@dotted{%  octant1, octant2, side no
+  \toggletrue{fbox@dotted}% 
+  \fbox@border@pict@dashed@%
+}
+
+\newcommand*\fbox@border@pict@dashed{%  octant1, octant2, side no
+  \togglefalse{fbox@dotted}%
+  \fbox@border@pict@dashed@%
+}
+
+\newcommand*\fbox@border@pict@dashed@[3]{%  octant1, octant2; side no; (shared between dotted and dashed
+  % calculate corner lengths
+  \fbox@setoct@angles{#2}%
+  \edef\fbox@cornerb{\fbox@corner}%%
+  \iftoggle{fbox@dotted}
+   {\fbox@dash\option{/fbox/border-\fbox@side-width}%
+    \fbox@dashskip\option{/fbox/border-\fbox@side-dotskip}}%
+   {\fbox@dash\option{/fbox/border-\fbox@side-dash}%
+    \fbox@dashskip\option{/fbox/border-\fbox@side-dashskip}}%
+  \fbox@let@cornerlen\fbox@blen%
+  %
+  \fbox@setoct@angles{#1}%
+  \edef\fbox@cornera{\fbox@corner}%
+  \fbox@let@cornerlen\fbox@alen%  
+  %\typeout{dashed \fbox@side: alen:\fbox@alen, blen:\fbox@blen }%
+  % 
+  % calculate dash skip 
+  \dimen@\dimexpr\option{/fbox/@border-\fbox@cornera-o\fbox@axis} - \option{/fbox/@border-\fbox@cornerb-o\fbox@axis}\relax
+  \ifdim\dimen@<0pt\relax\dimen@-\dimen@\fi
+  \advance\dimen@ by \dimexpr\fbox@alen + \fbox@blen\relax% total outer border length
+  \@tempdima\dimexpr\fbox@dash + \fbox@dashskip\relax% initial estimate of full dash
+  \@tempcnta\number\dimen@
+  \divide\@tempcnta by \number\@tempdima% full dashes that fit in the total
+  \@tempdimb\dimexpr\dimen@ - \the\@tempcnta\fbox@dash\relax% total skip space
+  \fbox@dashskip\dimexpr\@tempdimb/\the\@tempcnta\relax% final dashskip such that it fits nicely
+  \edef\fbox@dashfull{\the\dimexpr \fbox@dash + \fbox@dashskip\relax}%
+  %\typeout{ dash \fbox@side: \the\dimexpr\fbox@dash\relax, skip:\fbox@dashskip}%
+  %
+  \optioncolor{/fbox/border-\fbox@side-color}%
+  \fbox@dashcorner{\fbox@alen}%
+  \dimen@\dimexpr\fbox@alen - (\fbox@dashskip/2)\relax
+  \@tempcnta\number\dimen@
+  \divide\@tempcnta by \number\dimexpr\fbox@dashfull\relax
+  \advance\dimen@ by -\dimexpr\fbox@dashfull * \@tempcnta\relax
+  %\typeout{ delta \fbox@side - \fbox@corner: \the\fbox@delta, versus \the\dimen@}%
+  \fbox@delta\dimen@
+  \fbox@dashside%
+  \fbox@setoct@angles{#2}% again :(
+  \fbox@dashcorner{\fbox@blen}%
+}
+
+\newcommand*\fbox@dashside{% ', 
+  %\typeout{** dash: \iftoggle{/fbox/@side-horizontal}{hor}{ver}, \fbox@side, diaq=\the\fbox@diaq}%
+  \dimen@\dimexpr\option@dimmax{/fbox/@border-\fbox@cornera-o\fbox@axis}{/fbox/@border-\fbox@cornera-i\fbox@axis}\relax%
+  \@tempdima\dimexpr\option@dimmin{/fbox/@border-\fbox@cornerb-o\fbox@axis}{/fbox/@border-\fbox@cornerb-i\fbox@axis}\relax%
+  \ifdim\fbox@delta>\z@\relax
+    \ifdim\fbox@delta<\fbox@dash\relax
+      %\rule{\dimexpr\fbox@dash - #2}{#3}%
+      \fbox@dashdraw{\dimexpr\dimen@\relax}{\dimexpr\fbox@dash - \fbox@delta\relax}%
+      %\typeout{- add small rule and skip: \the\dimexpr\fbox@dash - \fbox@delta\relax, \fbox@dashskip}%
+    \else
+      %\typeout{- add just skip: \the\dimexpr\fbox@dashfull - \fbox@delta}%
+    \fi
+    \advance\dimen@ by \dimexpr\fbox@dashfull - \fbox@delta\relax%
+  \fi
+  \@whiledim\dimen@<\@tempdima\do{%
+    \advance\dimen@\fbox@dash\relax%
+    \ifdim\dimen@>\@tempdima\relax%
+      %\typeout{final dash: \the\dimen@, \fbox@dash, \the\dimexpr\fbox@dash + \@tempdima - \dimen@\relax}%
+      \fbox@dashdraw{\dimexpr\dimen@ - \fbox@dash\relax}{\dimexpr\fbox@dash + \@tempdima - \dimen@ + 0.1\p@\relax}%
+    \else
+      \fbox@dashdraw{\dimen@}{-\fbox@dash}%
+    \fi
+    \advance\dimen@\fbox@dashskip\relax%
+  }%
+}
+
+\newcommand*\fbox@dashdraw[2]{% x/y dash-len
+  \iftoggle{fbox@dotted}%
+   {\fbox@from\option{/fbox/border-\fbox@side-width}%%
+    \@tempdimb\dimexpr#2\relax%
+    \ifdim\@tempdimb=-\fbox@dash\relax
+      \iftoggle{/fbox/@side-horizontal}%
+        {\put(\strip@pt\dimexpr#1 + #2/2\relax,\strip@pt\dimexpr\fbox@adjusty{0.5\fbox@from}\relax){\circle*{\strip@pt\fbox@from}}}%
+        {\put(\strip@pt\dimexpr\fbox@adjustx{0.5\fbox@from}\relax,\strip@pt\dimexpr#1 + #2/2\relax){\circle*{\strip@pt\fbox@from}}}%
+    \fi
+   }%
+   {\iftoggle{/fbox/@side-horizontal}%
+      {\fbox@rect*{#1}{\fbox@adjusty{0pt}}{\dimexpr#1 + #2\relax}{\fbox@adjusty{\option{/fbox/border-\fbox@side-width}}}}%
+      {\fbox@rect*{\fbox@adjustx{0pt}}{#1}{\fbox@adjustx{\option{/fbox/border-\fbox@side-width}}}{\dimexpr #1 + #2}}%
+   }%
+}
+
+\newcommand*\fbox@rect{\@ifstar{\@tempswatrue\fbox@rect@}{\@tempswafalse\fbox@rect@}}%
+\newcommand*\fbox@rect@[4]{%
+  %\typeout{rect: #1,#2 - #3,#4}%
+  \edef\fbox@tempa{\opt@unit{#1}}%
+  \edef\fbox@tempb{\opt@unit{#2}}%
+  \edef\fbox@tempc{\opt@unit{#3}}%
+  \edef\fbox@tempd{\opt@unit{#4}}%
+  \moveto(\fbox@tempa,\fbox@tempb)%
+  \lineto(\fbox@tempa,\fbox@tempd)%
+  \lineto(\fbox@tempc,\fbox@tempd)%
+  \lineto(\fbox@tempc,\fbox@tempb)%
+  \closepath
+  \if@tempswa\fillpath\else\strokepath\fi
+}
+
+% --------------------------------------------------------
+% dashed corner
+% --------------------------------------------------------
+
+\newcommand*\fbox@let@cornerlen[1]{% \resultlen
+  \ellip@letarcperimeter{\option{/fbox/@border-\fbox@corner-radius-x}}{\option{/fbox/@border-\fbox@corner-radius-y}}%
+                        {\fbox@anglestart}{\fbox@angleend}#1%
+  \ifdim\option{/fbox/@border-\fbox@corner-iradius-\fbox@axis}>\z@\relax\else
+    % add abs|ix-x| to the calculated alen
+    %\typeout{ sharp corner \fbox@corner: adjust}%
+    \iftoggle{fbox@dotted}%
+     {\dimen@\dimexpr\fbox@dash\relax}%
+     {\dimen@\dimexpr\option{/fbox/@border-\fbox@corner-i\fbox@axis}-\option{/fbox/@border-\fbox@corner-\fbox@axis}\relax%
+      \ifdim\dimen@<\z@\relax \dimen@-\dimen@\fi
+      \advance\dimen@ by \dimexpr#1\relax
+      %\typeout{ unadjust len: \the\dimen@}%
+      % now adjust to look good later on since we will always fill a sharp corner
+      \ifdim\dimen@>\fbox@dash\relax\dimen@\fbox@dash\fi
+     }%
+    \edef#1{\the\dimexpr\dimen@ + (\fbox@dashskip/2)\relax}% 
+  \fi
+  %\typeout{ corner length: \fbox@side - \fbox@corner: #1}%
+}%
+
+\newcommand*\fbox@dashcorner[1]{%'\corner length  ''
+  \ifdim\option{/fbox/@border-\fbox@corner-iradius-x}>\z@%\fbox@dashfull\relax
+    % draw rounded dashes
+    \fbox@dash@roundedcorner{#1}%
+  \else
+    \iftoggle{fbox@dotted}%
+     {% get mininum width
+      \@tempdima\dimexpr\option{/fbox/@border-\fbox@corner-ix}-\option{/fbox/@border-\fbox@corner-x}\relax
+      \ifdim\@tempdima<\z@\@tempdima-\@tempdima\fi
+      \@tempdimb\dimexpr\option{/fbox/@border-\fbox@corner-iy}-\option{/fbox/@border-\fbox@corner-y}\relax
+      \ifdim\@tempdimb<\z@\@tempdimb-\@tempdimb\fi
+      \ifdim\@tempdimb<\@tempdima\@tempdima\@tempdimb\fi
+      % radius of corner circle is half
+      \@tempdima0.5\@tempdima
+      \edef\fbox@radius{\strip@pt\@tempdima}%
+      % determine center
+      \ifnum\fbox@quad>2
+        \@tempdimb\dimexpr\option{/fbox/@border-\fbox@corner-iy} - \@tempdima\relax
+      \else
+        \@tempdimb\dimexpr\option{/fbox/@border-\fbox@corner-iy} + \@tempdima\relax
+      \fi
+      \ifnum\fbox@quad=2
+        \@tempdima\dimexpr\option{/fbox/@border-\fbox@corner-ix} - \@tempdima\relax
+      \else\ifnum\fbox@quad=3
+        \@tempdima\dimexpr\option{/fbox/@border-\fbox@corner-ix} - \@tempdima\relax
+      \else
+        \@tempdima\dimexpr\option{/fbox/@border-\fbox@corner-ix} + \@tempdima\relax
+      \fi\fi
+      % determine angles
+      \@tempdimc\numexpr(\fbox@quad - 1) * 90 + 45\relax\p@
+      \@tempdimd\dimexpr\@tempdimc + 180\p@\relax
+      \edef\fbox@temp{\number\fbox@oct}%
+      \ifodd\fbox@temp
+        \advance\@tempdimc by -180\p@
+        \advance\@tempdimd by -180\p@
+      \fi
+      %\typeout{ half circle: \fbox@side - \fbox@corner, \the\@tempdimc -> \the\@tempdimd}%
+      \edef\fbox@anglea{\strip@pt\@tempdimc}%
+      \edef\fbox@angleb{\strip@pt\@tempdimd}%
+      \put(\strip@pt\@tempdima,\strip@pt\@tempdimb){\arc*[\fbox@anglea,\fbox@angleb]{\fbox@radius}}%
+    }%
+    {\ifdim\option{/fbox/@border-\fbox@corner-radius-x}>\z@%
+        % an inside sharp corner, fill.
+        %\typeout{draw sharp }%
+        \moveto(\optionunit{/fbox/@border-\fbox@corner-ix},\optionunit{/fbox/@border-\fbox@corner-iy})% inner corner
+        \iftoggle{/fbox/@side-horizontal}%
+          {\lineto(\optionunit{/fbox/@border-\fbox@corner-ox},\optionunit{/fbox/@border-\fbox@side-iy})
+           \lineto(\optionunit{/fbox/@border-\fbox@corner-ox},\optionunit{/fbox/@border-\fbox@side-y})}
+          {\lineto(\optionunit{/fbox/@border-\fbox@side-ix},\optionunit{/fbox/@border-\fbox@corner-oy})
+           \lineto(\optionunit{/fbox/@border-\fbox@side-x},\optionunit{/fbox/@border-\fbox@corner-oy})}
+        %\fbox@border@hcornerarc{}{}{#3}{}%
+        \elliparc{\optionunit{/fbox/@border-\fbox@corner-x}}%
+                  {\optionunit{/fbox/@border-\fbox@corner-y}}%
+                  {\optionunit{/fbox/@border-\fbox@corner-radius-x}}%
+                  {\optionunit{/fbox/@border-\fbox@corner-radius-y}}{\strip@pt\fbox@angleend}{\strip@pt\fbox@anglestart}%
+        \closepath\fillpath
+      \else
+        % a non-rounded corner, draw a triangle
+        %\typeout{draw sharp  - \fbox@corner, axis=\fbox@axis}
+        \moveto(\optionunit{/fbox/@border-\fbox@corner-ix},\optionunit{/fbox/@border-\fbox@corner-iy})% inner corner
+        \lineto(\optionunit{/fbox/@border-\fbox@corner-x},\optionunit{/fbox/@border-\fbox@corner-y})% outer corner
+        \iftoggle{/fbox/@side-horizontal}%
+          {\lineto(\optionunit{/fbox/@border-\fbox@corner-ix},\optionunit{/fbox/@border-\fbox@corner-y})}% outside opposite inner corner
+          {\lineto(\optionunit{/fbox/@border-\fbox@corner-x},\optionunit{/fbox/@border-\fbox@corner-iy})}% outside opposite inner corner
+        \closepath
+        \fillpath
+      \fi
+     }%
+  \fi
+}
+
+% --------------------------------------------------------
+% Dashed rounded corner
+% --------------------------------------------------------
+
+\newlength\fbox@anglecur
+%\newlength\fbox@angleend
+\newlength\fbox@dashangle
+\newlength\fbox@dashskipangle
+\newlength\fbox@delta
+\newlength\fbox@from
+\newlength\fbox@to
+
+\newcommand*\fbox@dash@roundedcorner[1]{%  'corner len'
+  %\typeout{ dash corner: \fbox@side - \fbox@corner, len=#1, start,end=\the\fbox@anglestart,\the\fbox@angleend}%
+  \trig@atantan{\option{/fbox/@border-\fbox@corner-radius-x}}{\option{/fbox/@border-\fbox@corner-radius-y}}{\fbox@anglestart}\fbox@anglestart%
+  \trig@atantan{\option{/fbox/@border-\fbox@corner-radius-x}}{\option{/fbox/@border-\fbox@corner-radius-y}}{\fbox@angleend}\fbox@angleend%
+  %
+  \fbox@delta\dimexpr\fbox@angleend - \fbox@anglestart\relax%
+  \fbox@dashangle\dimexpr \fbox@delta * \dimexpr\fbox@dash\relax / \dimexpr#1\relax%
+  \fbox@dashskipangle\dimexpr \fbox@delta * \dimexpr\fbox@dashskip\relax / \dimexpr#1\relax%
+  %\typeout{ delta=\the\fbox@delta, dash angle=\the\fbox@dashangle, skip angle=\the\fbox@dashskipangle}%
+  \advance\fbox@anglestart by 0.5\fbox@dashskipangle% start with skip
+  \ifdim\fbox@dashangle<\z@\relax\edef\fbox@cmp{>}\else\edef\fbox@cmp{<}\fi
+  \@whiledim\fbox@anglestart\fbox@cmp\fbox@angleend\do\fbox@dash@roundedcornerdash%
+}
+
+\newcommand*\fbox@dash@roundedcornerdash{%  
+  \fbox@from\fbox@anglestart
+  \advance\fbox@anglestart by \fbox@dashangle
+  \ifdim\fbox@angleend\fbox@cmp\fbox@anglestart\relax
+    %\typeout{too much? \the\fbox@anglestart, and \the\fbox@angleend}%
+    \fbox@to\fbox@angleend
+  \else
+    \fbox@to\fbox@anglestart
+  \fi
+  \iftoggle{fbox@dotted}%
+   {% take mid angle
+    \fbox@to\fbox@anglestart
+    \advance\fbox@to\fbox@from
+    \divide\fbox@to by 2
+    \edef\fbox@angle{\strip@pt\fbox@to}%
+    \CalculateSin{\fbox@angle}\CalculateCos{\fbox@angle}%
+    % calculate inner and middle point on the ellipse
+    \fbox@from\UseCos{\fbox@angle}\option{/fbox/@border-\fbox@corner-iradius-x}%
+    \fbox@to\UseSin{\fbox@angle}\option{/fbox/@border-\fbox@corner-iradius-y}%
+    \@tempdima0.5\dimexpr\option{/fbox/@border-\fbox@corner-radius-x} + \option{/fbox/@border-\fbox@corner-iradius-x}\relax
+    \@tempdimb0.5\dimexpr\option{/fbox/@border-\fbox@corner-radius-y} + \option{/fbox/@border-\fbox@corner-iradius-y}\relax
+    \@tempdima\UseCos{\fbox@angle}\@tempdima
+    \@tempdimb\UseSin{\fbox@angle}\@tempdimb
+    % use circle radius of distance between inner and middle point
+    \advance\fbox@from by -\@tempdima
+    \advance\fbox@to by -\@tempdimb
+    \pIIe@ellip@csqrt{\fbox@from}{\fbox@to}\dimen@% cache csqrt since for fixed width this is always the same
+    \edef\fbox@temp{\strip@pt\dimexpr2\dimen@\relax}%
+    %\typeout{ (a,b)=(\the\@tempdima,\the\@tempdimb), (c,d)=(\the\fbox@from,\the\fbox@to), distance=\the\dimen@}%
+    % move to center and draw
+    \advance\@tempdima by \dimexpr\option{/fbox/@border-\fbox@corner-x}\relax%
+    \advance\@tempdimb by \dimexpr\option{/fbox/@border-\fbox@corner-y}\relax%
+    \put(\strip@pt\@tempdima,\strip@pt\@tempdimb){\circle*{\fbox@temp}}%
+   }%
+   {\edef\fbox@from@{\strip@pt\fbox@from}%
+    \edef\fbox@to@{\strip@pt\fbox@to}%
+    % draw a rounded dash
+    \@ovro\option{/fbox/@border-\fbox@corner-radius-x}%
+    \@ovri\option{/fbox/@border-\fbox@corner-radius-y}%
+    \pIIe@elliparc@t{1}{\option{/fbox/@border-\fbox@corner-x}}{\option{/fbox/@border-\fbox@corner-y}}%
+                {\fbox@from@}{\fbox@to@}%
+    % and for the inner circle              
+    \@ovro\option{/fbox/@border-\fbox@corner-iradius-x}%
+    \@ovri\option{/fbox/@border-\fbox@corner-iradius-y}%
+    \pIIe@elliparc@t{0}{\option{/fbox/@border-\fbox@corner-ix}}{\option{/fbox/@border-\fbox@corner-iy}}%
+                {\fbox@to@}{\fbox@from@}%
+
+    \closepath
+    \fillpath
+   }%
+  \advance\fbox@anglestart by \fbox@dashskipangle%
+}
+
+
+
+% ------------------------------------------------------------------------------
+% Define standard border styles
+%
+% a style has the form \fbox@border@plain@<style>{<side-name>}{<border-width>}{<total length>}
+% where <side> is the border side
+%       <direction> is either "h" or "v" (horizontal or vertical)
+%       <borderwidth> the width of the rule
+%
+% predefined styles: none, hidden, solid, transparent, and dashed
+
+\newcommand*\fbox@border@plain@none[3]{}
+\newcommand*\fbox@border@plain@hidden[3]{}
+
+\newcommand*\fbox@border@plain@transparent[3]{%
+  \iftoggle{/fbox/@side-horizontal}%
+    {\hrule width #3 height \z@\relax}%
+    {\vrule width \z@ height #3\relax}%
+}
+
+\newcommand*\fbox@border@plain@solid[3]{%
+  \iftoggle{/fbox/@side-horizontal}%
+    {\hrule width #3 height #2\relax}%
+    {\vrule width #2 height #3\relax}%
+}
+
+\newcommand*\fbox@border@plain@dashed[3]{%
+  \iftoggle{/fbox/@side-horizontal}%
+   {\edef\fbox@dash{\vrule width \option{/fbox/border-#1-dash} height #2}%
+    \edef\fbox@dashskip{\hskip \option{/fbox/border-#1-dashskip} plus 0.25ex minus 0.25ex}%
+    \hbox to #3{\fbox@dash\fbox@dashskip\xleaders\hbox{\fbox@dash\fbox@dashskip}\hfill\fbox@dash}}%
+   {\edef\fbox@dash{\hrule height \option{/fbox/border-#1-dash} width #2}%
+    \edef\fbox@dashskip{\vskip \option{/fbox/border-#1-dashskip} plus 0.25ex minus 0.25ex}%
+    \vbox to #3{\offinterlineskip\fbox@dash\fbox@dashskip\xleaders\vbox{\fbox@dash\fbox@dashskip}\vfill\fbox@dash}}%
+}
+
+\newcommand*\fbox@border@plain@dotted[3]{%
+  \iftoggle{/fbox/@side-horizontal}%
+   {\edef\fbox@dot{\vrule width #2 height #2}%
+    \edef\fbox@dotskip{\hskip \option{/fbox/border-#1-dotskip} plus 0.5ex minus 0.1ex}%
+    \hbox to #3{\xleaders\hbox{\fbox@dot\fbox@dotskip}\hfill\hbox{\fbox@dot}}}%
+   {\edef\fbox@dot{\hrule height #2 width #2}%
+    \edef\fbox@dotskip{\vskip \option{/fbox/border-#1-dotskip} plus 0.5ex minus 0.1ex}%
+    \vbox to #3{\fbox@dotskip\offinterlineskip\cleaders\vbox{\fbox@dot\fbox@dotskip}\vfill}}%
+}
+
+% --------------------------------------------------------
+%
+% --------------------------------------------------------
+\newcommand\fbox@setdim{%
+  %\typeout{ set dim}%
+  \iftoggle{/longbox/@part-needtop}{\def\fbox@top{top}}{\def\fbox@top{break-top}}%
+  \iftoggle{/longbox/@part-needbottom}{\def\fbox@bottom{bottom}}{\def\fbox@bottom{break-bottom}}%
+  \options{%
+    /fbox/@padding-box-height=\option{/fbox/@content-box-height}% full height (including depth)
+      +\option{/fbox/padding-\fbox@top} +\option{/fbox/padding-\fbox@bottom},%
+    /fbox/@padding-box-depth=\option{/fbox/@content-box-depth} + \option{/fbox/padding-\fbox@bottom},%
+    /fbox/@padding-box-width=\option{/fbox/@content-box-width}%
+      +\option{/fbox/padding-left}+\option{/fbox/padding-right},
+    /fbox/@border-box-width=\option{/fbox/@padding-box-width}%
+      +\option{/fbox/border-left-width}+\option{/fbox/border-right-width},%
+    /fbox/@border-box-height=\option{/fbox/@padding-box-height}% full height
+      +\option{/fbox/border-\fbox@top-width}%
+      +\option{/fbox/border-\fbox@bottom-width},%
+    /fbox/@border-box-depth=\option{/fbox/@padding-box-depth}%
+      +\option{/fbox/border-\fbox@bottom-width},%
+  }%
+  % lower/raise for break boxes
+  %\@tempdima=\z@\relax
+  %\advance\@tempdima by \dimexpr\option{/fbox/padding-\fbox@bottom} + \option{/fbox/margin-\fbox@bottom} + \option{/fbox/border-\fbox@bottom-width}\relax%
+  %\advance\@tempdima by -\dimexpr\option{/fbox/padding-\fbox@top} + \option{/fbox/margin-\fbox@top} + \option{/fbox/border-\fbox@top-width}\relax%
+  %\option@invoke{/fbox/@lower}{\@tempdima}%
+  % limit radius
+  \optionradiuslimit{/fbox/@border-top-left-radius-y}{/fbox/@border-bottom-left-radius-y}%
+                    {0pt}{\option{/fbox/@border-box-height}}%
+  \optionradiuslimit{/fbox/@border-top-right-radius-y}{/fbox/@border-bottom-right-radius-y}%
+                    {0pt}{\option{/fbox/@border-box-height}}%
+  \optionradiuslimit{/fbox/@border-top-left-radius-x}{/fbox/@border-top-right-radius-x}%
+                    {0pt}{\option{/fbox/@border-box-width}}%
+  \optionradiuslimit{/fbox/@border-bottom-left-radius-x}{/fbox/@border-bottom-right-radius-x}%
+                    {0pt}{\option{/fbox/@border-box-width}}%\
+  % switch to plain mode if this is a simple box; todo: is it worth to do this test? 
+  \ifnum\option{/fbox/render/@ord}=0\relax
+    \option@invoke{/fbox/render}{plain}%
+    \def\fbox@stylex{}%
+    \def\fbox@colorx{}%
+    \def\do##1{%
+      \letoption{/fbox/border-##1-style}\fbox@style
+      \eifstrequal{\fbox@style}{none}{}{%
+        \option@ifanyof{\fbox@style}{solid,dashed}{%
+          \eifblank{\fbox@stylex}{\let\fbox@stylex\fbox@style}{%
+            \ifx\fbox@style\fbox@stylex\else\option@invoke{/fbox/render}{picture}\expandafter\listbreak\fi
+          }%
+        }{\option@invoke{/fbox/render}{picture}\listbreak}%
+      }%
+      \letoption{/fbox/border-##1-color}\fbox@color
+      \eifblank{\fbox@colorx}{\let\fbox@colorx\fbox@color}{%
+        \ifx\fbox@color\fbox@colorx\else\option@invoke{/fbox/render}{picture}\expandafter\listbreak\fi
+      }%
+    }%
+    \docsvlist{top,left,bottom,right,break-top,break-bottom}%
+    \ifnum\option{/fbox/render/@ord}=1\relax
+      \def\do##1{%
+         \ifdim\option{/fbox/@border-##1-radius-x}=\z@\relax\else\option@invoke{/fbox/render}{picture}\expandafter\listbreak\fi
+         \ifdim\option{/fbox/@border-##1-radius-y}=\z@\relax\else\option@invoke{/fbox/render}{picture}\expandafter\listbreak\fi
+      }%
+      \docsvlist{top-left,top-right,bottom-left,bottom-right}%
+    \fi
+    \ifnum\option{/fbox/render/@ord}=1\relax
+      \def\do##1{%
+         \letoption{/fbox/picture-##1}\fbox@temp
+         \eifblank{\fbox@temp}{}{\option@invoke{/fbox/render}{picture}\listbreak}%
+      }%
+      \docsvlist{insert-before,insert-after,side-insert-before,side-insert-after}%
+    \fi
+  \fi
+}
+
+\newrobustcmd*\fbox@border@plain[2]{%
+  \ifnum\option{/fbox/render/@ord}<2\relax
+    \begingroup
+      \option@invoke{/fbox/@side}{#1}%
+      \ifx#2h\relax
+        \toggletrue{/fbox/@side-horizontal}%
+        \def\fbox@length{\option{/fbox/@border-box-width}}%
+      \else
+        \togglefalse{/fbox/@side-horizontal}%
+        \def\fbox@length{\option{/fbox/@padding-box-height}}%
+      \fi%
+      \edef\fbox@rendername{fbox@border@plain@\option{/fbox/border-#1-style}}%
+      \optioncolor{/fbox/border-#1-color}% set color already
+      \option{/fbox/plain-side-insert-before}%
+      \ifcsdef{\fbox@rendername}%
+        {\csuse{\fbox@rendername}{#1}{\option{/fbox/border-#1-width}}{\fbox@length}}%
+        {\PackageWarning{longfbox}{Unknown (plain) border style "\option{/fbox/border-#1-style}": using "solid" instead}{}%
+         \fbox@border@plain@solid{#1}{\option{/fbox/border-#1-width}}{\fbox@length}}%
+      \option{/fbox/plain-side-insert-after}%
+    \endgroup
+  \else
+    \kern\option{/fbox/border-#1-width}%
+  \fi    
+}
+
+\newrobustcmd*\fbox@kern[3][]{%
+  \iftoggle{/fbox/show-markers}{%
+    \begingroup
+    \optioncolor{/fbox/marker-color}%
+    \ifx#2v\relax
+      \def\fbox@marker{\vrule width \option{/fbox/marker-width} height \option{#3}}%
+      \eifblank{#1}{\hbox{\fbox@marker}}{\vbox{\hbox to \option{#1}{\fbox@marker\hfill\hfill\fbox@marker}}}%
+    \else
+      \def\fbox@marker{\vrule height \option{/fbox/marker-width} width \option{#3}}%
+      \setlength\dimen@{\option{/fbox/marker-width}}%
+      \eifblank{#1}{}{\advance\dimen@ \dimexpr -\option{#1}\relax\relax}%
+      \lower \dimen@\hbox{\fbox@marker}%
+    \fi
+    \endgroup
+  }%
+  {\kern\option{#3}}%
+}
+
+\newrobustcmd*\fbox@plain@bgcolor[1]{%
+  \ifnum\option{/fbox/render/@ord}<2\relax
+    \ifoptionblank{/fbox/background-#1-color}{}{%
+      \vtop to 0pt{%
+        \hbox to 0pt{%
+          \optioncolor{/fbox/background-#1-color}%
+          \rule{\option{/fbox/@#1-box-width}}{\option{/fbox/@#1-box-height}}%
+          \hss
+        }%
+        \vss
+      }%
+    }%
+  \fi 
+}
+
+\newrobustcmd*\fbox@render{%
+  \begingroup
+  \fbox@setdim
+  %\typeout{render: height:\the\dimexpr\option{/fbox/@content-box-height}, lower=\the\dimexpr\option{/fbox/@lower}}%
+  \hbox{%
+    \fbox@kern{h}{/fbox/margin-left}%
+    \option{/fbox/render-insert-before}%  
+    \lower \option{/fbox/@lower}%
+    \vbox{\offinterlineskip
+      \fbox@kern{v}{/fbox/margin-\fbox@top}%    
+      \ifnum\option{/fbox/background-clip/@ord}=0\relax\fbox@plain@bgcolor{border}\fi      
+      \fbox@border@pict%
+      \fbox@border@plain{\fbox@top}{h}%
+      \hbox{%
+        \fbox@border@plain{left}{v}%
+        \ifnum\option{/fbox/background-clip/@ord}=1\relax\fbox@plain@bgcolor{padding}\fi      
+        \fbox@kern[/fbox/@padding-box-depth]{h}{/fbox/padding-left}%
+        \vbox{\offinterlineskip
+          \fbox@kern[/fbox/@content-box-width]{v}{/fbox/padding-\fbox@top}%
+          \ifnum\option{/fbox/background-clip/@ord}=2\relax\fbox@plain@bgcolor{content}\fi
+          \kern \option{/fbox/@content-box-height}%
+          \hrule height \z@ width \option{/fbox/@content-box-width}\relax
+          \fbox@kern[/fbox/@content-box-width]{v}{/fbox/padding-\fbox@bottom}%
+        }%
+        \fbox@kern[/fbox/@padding-box-depth]{h}{/fbox/padding-right}%
+        \fbox@border@plain{right}{v}%
+      }%
+      \fbox@border@plain{\fbox@bottom}{h}%
+      \fbox@border@pict@after%      
+      \fbox@kern{v}{/fbox/margin-\fbox@bottom}%
+    }%
+    \option{/fbox/render-insert-after}%    
+    \fbox@kern{h}{/fbox/margin-right}%
+  }%
+  \endgroup
+}
+
+\options{%
+  /fbox/.new family = {/longbox},
+}
+\options{/fbox,
+  % compatability
+  sep/.new style      = {/fbox/padding=#1},
+  rule/.new style     = {/fbox/border-width=#1},
+  % styles
+  margin/.new sides,
+  padding/.new sides,
+  border-width/.new sides   = {/fbox/border-top-width=#1,/fbox/border-right-width=#2,%
+                               /fbox/border-bottom-width=#3,/fbox/border-left-width=#4,%
+                               /fbox/border-break-top-width=#1,/fbox/border-break-bottom-width=#3},
+  border-color/.new sides   = {/fbox/border-top-color=#1,/fbox/border-right-color=#2,%
+                               /fbox/border-bottom-color=#3,/fbox/border-left-color=#4,%
+                               /fbox/border-break-top-color=#1,/fbox/border-break-bottom-color=#3},
+  border-style/.new sides   = {/fbox/border-top-style=#1,/fbox/border-right-style=#2,%
+                               /fbox/border-bottom-style=#3,/fbox/border-left-style=#4},
+  border-break-style/.new style = {/fbox/border-break-top-style=#1,/fbox/border-break-bottom-style=#1},
+  border-break-width/.new style = {/fbox/border-break-top-width=#1,/fbox/border-break-bottom-width=#1},
+  border-break-color/.new style = {/fbox/border-break-top-color=#1,/fbox/border-break-bottom-color=#1},
+  padding-break/.new style  = {/fbox/padding-break-top=#1,/fbox/padding-break-bottom=#1},
+  margin-break/.new style  = {/fbox/margin-break-top=#1,/fbox/margin-break-bottom=#1},
+  % background
+  background-clip/.new choice={border-box,padding-box,content-box},
+  background-color/.new color = {},
+  background-padding-color/.new color expr = \option{/fbox/background-color},
+  background-border-color/.new color expr  = \option{/fbox/background-color}, 
+  background-content-color/.new color expr = \option{/fbox/background-color},
+  % various
+  show-markers/.new toggle,
+  marker-color/.new color = gray,
+  marker-width/.new dim = 0.1pt,   
+  render/.new choice = {default, plain, picture},
+  render-insert-before/.new value,
+  render-insert-after/.new value,
+  plain-side-insert-before/.new value,
+  plain-side-insert-after/.new value,
+  picture-insert-before/.new value,
+  picture-insert-after/.new value,
+  picture-side-insert-before/.new value,
+  picture-side-insert-after/.new value,
+  % scoped (init) keys; these are reinitialized for nested scopes.
+  padding-top/.new length = {\fboxsep},
+  padding-right/.new length = {\fboxsep},
+  padding-bottom/.new length = {\fboxsep},
+  padding-left/.new length = {\fboxsep},
+  padding-break-top/.new length = {2pt},
+  padding-break-bottom/.new length = {2pt},
+  margin-top/.new length,
+  margin-right/.new length,
+  margin-bottom/.new length,
+  margin-left/.new length,
+  margin-break-top/.new length,
+  margin-break-bottom/.new length,
+  % borders: width
+  border-top-width/.new length = {\fboxrule},
+  border-right-width/.new length = {\fboxrule},
+  border-bottom-width/.new length = {\fboxrule},
+  border-left-width/.new length = {\fboxrule},
+  border-break-top-width/.new length = {\fboxrule},
+  border-break-bottom-width/.new length = {\fboxrule},    
+  % borders: color
+  border-top-color/.new color = {.},
+  border-right-color/.new color = {.},
+  border-bottom-color/.new color = {.},
+  border-break-top-color/.new color = {.},
+  border-break-bottom-color/.new color = {.},
+  border-left-color/.new color = {.},
+  border-dark-mix/.new value = {!70!black}, 
+  % borders: style
+  border-top-style/.new value=solid,
+  border-right-style/.new value=solid,
+  border-bottom-style/.new value=solid,
+  border-left-style/.new value=solid,    
+  border-break-top-style/.new value=none,
+  border-break-bottom-style/.new value=none,
+  % corner radius
+  border-radius/.new cmd tuple = \optionsalso{
+    /fbox/border-top-left-radius={#1,#2},/fbox/border-top-right-radius={#1,#2},
+    /fbox/border-bottom-left-radius={#1,#2}, /fbox/border-bottom-right-radius={#1,#2}},
+  border-top-left-radius/.new cmd tuple
+    = \optionsalso{/fbox/@border-top-left-radius-x=#1,/fbox/@border-top-left-radius-y=#2},
+  border-top-right-radius/.new cmd tuple
+    = \optionsalso{/fbox/@border-top-right-radius-x=#1,/fbox/@border-top-right-radius-y=#2},
+  border-bottom-left-radius/.new cmd tuple
+    = \optionsalso{/fbox/@border-bottom-left-radius-x=#1,/fbox/@border-bottom-left-radius-y=#2},
+  border-bottom-right-radius/.new cmd tuple
+    = \optionsalso{/fbox/@border-bottom-right-radius-x=#1,/fbox/@border-bottom-right-radius-y=#2},
+  % dashes and dots
+  border-dash/.new sides   = {/fbox/border-top-dash=#1,/fbox/border-right-dash=#2,%
+                               /fbox/border-bottom-dash=#3,/fbox/border-left-dash=#4,%
+                               /fbox/border-break-top-dash=#1,/fbox/border-break-bottom-dash=#3},
+  border-dashskip/.new sides= {/fbox/border-top-dashskip=#1,/fbox/border-right-dashskip=#2,%
+                               /fbox/border-bottom-dashskip=#3,/fbox/border-left-dashskip=#4,%
+                               /fbox/border-break-top-dashskip=#1,/fbox/border-break-bottom-dashskip=#3},
+  border-dotskip/.new sides= {/fbox/border-top-dotskip=#1,/fbox/border-right-dotskip=#2,%
+                               /fbox/border-bottom-dotskip=#3,/fbox/border-left-dotskip=#4,%
+                               /fbox/border-break-top-dotskip=#1,/fbox/border-break-bottom-dotskip=#3},
+  border-top-dash/.new dim = 0.6ex,%3\option{/fbox/border-top-width},
+  border-bottom-dash/.new dim = 0.6ex,%3\option{/fbox/border-bottom-width},
+  border-left-dash/.new dim = 0.6ex,%3\option{/fbox/border-left-width},
+  border-right-dash/.new dim = 0.6ex,%3\option{/fbox/border-right-width},
+  border-break-top-dash/.new dim = \option{/fbox/border-top-dash},
+  border-break-bottom-dash/.new dim = \option{/fbox/border-bottom-dash},
+  border-top-dashskip/.new dim = 0.7\option{/fbox/border-top-dash},
+  border-bottom-dashskip/.new dim = 0.7\option{/fbox/border-bottom-dash},
+  border-left-dashskip/.new dim = 0.7\option{/fbox/border-left-dash},
+  border-right-dashskip/.new dim = 0.7\option{/fbox/border-right-dash},
+  border-break-top-dashskip/.new dim = \option{/fbox/border-top-dashskip},
+  border-break-bottom-dashskip/.new dim = \option{/fbox/border-bottom-dashskip},
+  border-top-dotskip/.new dim = 2\option{/fbox/border-top-width},
+  border-bottom-dotskip/.new dim = 2\option{/fbox/border-bottom-width},
+  border-left-dotskip/.new dim = 2\option{/fbox/border-left-width},
+  border-right-dotskip/.new dim = 2\option{/fbox/border-right-width},
+  border-break-top-dotskip/.new dim = \option{/fbox/border-top-dotskip},
+  border-break-bottom-dotskip/.new dim = \option{/fbox/border-bottom-dotskip},
+  % computed
+  @lower/.new length,
+  @content-box-width/.new dim = \option{/longbox/@content-box-width},
+  @content-box-height/.new dim = \option{/longbox/@content-box-height},
+  @content-box-depth/.new dim = \option{/longbox/@content-box-depth},
+  @padding-box-height/.new length,
+  @padding-box-depth/.new length,
+  @padding-box-width/.new length,
+  @border-box-width/.new length,
+  @border-box-height/.new length,
+  @border-box-depth/.new length,
+  % computed: not for the user
+  @border-top-left-radius-x/.new length,
+  @border-top-right-radius-x/.new length,
+  @border-bottom-left-radius-x/.new length,
+  @border-bottom-right-radius-x/.new length,
+  @border-top-left-radius-y/.new length,
+  @border-top-right-radius-y/.new length,
+  @border-bottom-left-radius-y/.new length,
+  @border-bottom-right-radius-y/.new length,
+  % computed inner radius; zero if border radius center is inside the borders
+  @border-top-left-iradius-x/.new dim,
+  @border-top-right-iradius-x/.new dim,
+  @border-bottom-left-iradius-x/.new dim,
+  @border-bottom-right-iradius-x/.new dim,
+  @border-top-left-iradius-y/.new dim,
+  @border-top-right-iradius-y/.new dim,
+  @border-bottom-left-iradius-y/.new dim,
+  @border-bottom-right-iradius-y/.new dim,
+  % computed inner corner coordinates (center of inner-radius) (where 0,0 is bottom-left)
+  @border-top-left-ix/.new length,
+  @border-top-left-iy/.new length,
+  @border-top-right-ix/.new length,
+  @border-top-right-iy/.new length,
+  @border-bottom-left-ix/.new length,
+  @border-bottom-left-iy/.new length,
+  @border-bottom-right-ix/.new length,
+  @border-bottom-right-iy/.new length,
+  % computed corner division angle
+  @border-top-left-phi/.new length,
+  @border-top-right-phi/.new length,
+  @border-bottom-left-phi/.new length,
+  @border-bottom-right-phi/.new length,
+  % computed various
+  @side/.new choice = {top,right,bottom,left,break-bottom,break-top},
+  @side-horizontal/.new toggle,
+}
+
+\newcommand\fbox@adjustoptions{%
+  %\typeout{ regular fbox adjustoptions}%
+  % set width of borders with style none to 0
+  \def\do##1{%
+    \ifoptionequal{/fbox/border-##1-style}{hidden}{\option@invoke{/fbox/border-##1-style}{none}}{}%
+    \ifoptionequal{/fbox/border-##1-style}{none}{%
+      \options{/fbox/border-##1-width=0pt}%
+    }{}%
+  }%
+  \docsvlist{top,right,bottom,left,break-bottom,break-top}%
+  \options{%
+    /longbox/skip-left=
+      \option{/fbox/border-left-width} + \option{/fbox/padding-left} + \option{/fbox/margin-left},
+    /longbox/skip-right=
+      \option{/fbox/border-right-width} + \option{/fbox/padding-right} + \option{/fbox/margin-right},
+    /longbox/skip-top=
+      \option{/fbox/border-top-width} + \option{/fbox/padding-top} + \option{/fbox/margin-top},
+    /longbox/skip-bottom=
+      \option{/fbox/border-bottom-width}+\option{/fbox/padding-bottom}+\option{/fbox/margin-bottom},
+    /longbox/skip-break-top=
+      \option{/fbox/border-break-top-width} + \option{/fbox/padding-break-top} + \option{/fbox/margin-break-top},
+    /longbox/skip-break-bottom=
+      \option{/fbox/border-break-bottom-width}+\option{/fbox/padding-break-bottom}+\option{/fbox/margin-break-bottom},
+  }%
+  \longbox@adjustoptions%
+}
+
+\newenvironment{longfbox}[1][]{%
+  \begin{longbox@env}{/fbox}{/longbox/render={\protect\fbox@render},/longbox/adjust-options={\protect\fbox@adjustoptions},#1}%
+}{\end{longbox@env}}
+
+\newcommand\lfbox[2][]{%
+  \begingroup
+    \longbox@cmd{/fbox}{/longbox/render={\protect\fbox@render},/longbox/adjust-options={\protect\fbox@adjustoptions},#1}{#2}%
+  \endgroup
+}
+
+\newcommand*\newfboxstyle[2]{%
+  \options{/fbox,#1/.new style* = {#2}}%
+}
+
+\newfboxstyle{rounded}{border-radius=1ex}
+\newfboxstyle{tight}{padding=0pt,margin=0pt,baseline-skip=false}
+\newfboxstyle{dotted}{border-width=0.8pt,border-style=dotted}
+
+\newcommand*\fboxset[1]{%
+  \options{/fbox,#1}%  
+}
