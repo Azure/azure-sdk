@@ -5,7 +5,7 @@ If you have never not participated in Azure SDK API review,
 we recommend that you schedule a pre-review (consulting session) before you start working on the APIs. 
 
 Note: Azure SDK Reviews are not REST API (nor swagger) reviews. We review language-specific SDK APIs.
-In particular, we review .NET, Python, Java, and JavaScript APIs.
+In particular, we review .NET, Python, Java, and JavaScript APIs, and in rare cases C++, Go, and other language SDKs.
 
 ## What to Prepare for a Review
 To conduct a review, we need the following things from the owners of the SDK:
@@ -26,8 +26,14 @@ If you have a prototype of your APIs, depending on the language the APIs are for
 - If the API is a Python API, use TBD
 - If the API is a JavaScript API, use TBD
 - If the API is a Java API, use your preferred build tool to generate a JavaDoc output (e.g. `mvn javadoc:javadoc` with Maven), and zip up the output.
+- For all other languages, send email to kcwalina to discuss the best format on individual basis.
 
 If you don't have a prototype, you surely have the design spec on paper :-)
+
+## API Review Lifecycle
+1. The team submitting APIs for review files a git hub issue (this repo). The issue should link to all documents discussed above.
+2. The review team will schedule one or more review sessions (depending on the size of the API).
+3. After reviews are completed, the review team will publish a report with recommendations.
 
 ## See Also
 1. [CoreFx API Review Process](https://github.com/dotnet/corefx/blob/master/Documentation/project-docs/api-review-process.md)
