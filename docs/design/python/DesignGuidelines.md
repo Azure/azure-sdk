@@ -52,6 +52,8 @@
 
 * DO prefer structural subtyping and protocols over explicit type checks
 
+  *It is [Easier to ask for forgiveness than permission](https://docs.python.org/3/glossary.html#term-eafp)*
+
 * DO provide type hints [PEP484](https://www.python.org/dev/peps/pep-0484/)
   - See the [suggested syntax for Python2.7 and straddling code](https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code) for guidance for Python 2.7 compatible code. 
 
@@ -101,7 +103,7 @@
   foo(1, 2, 3)
   ```
 
-* DO specify the parameter name for optional parameters 
+* DO specify the parameter name for optional parameters when calling functions
 
   ```python
   def foo(a, b=1, c=None):
@@ -135,6 +137,8 @@
 
 * DO provide a way to manually poll on long running operations by returning an operations object
 
+  *A pattern of starting operation in process 1, handing off the info needed to poll to process 2 is a relatively common pattern in distributed computing.*
+
 * DO provide a way to serialize the operations objects
 
 * DO prefer the use of the following terms for CRUD operations:
@@ -145,6 +149,8 @@
   - delete_\<noun>
   - add_\<noun>
   - remove_\<noun>
+  - get_\<noun>
+  - list_\<noun>
 
 * DO prefer the use of the following terms for long running operations:
   - start_\<verb>_\<noun> for methods returning an operation object
@@ -172,6 +178,8 @@
 
 * DO require explicit opt-in for any scenario where user-provided code will run in a different thread.
 
+  > TODO - We need to provide more specific guidance for the use of threads in SDKs. This includes scenarios with native callback libraries as well as parallell workloads.
+
 ## Dependencies
 
 * DO consider using the following packages for shared functionality:
@@ -179,34 +187,39 @@
   - msrest
   - requests (synchronous HTTP)
   - aiohttp (asynchronous HTTP)
-  - certifi
-  - ToDo : fill in more
+  > ToDo : fill in more
 
 * DON'T use external dependencies outside the list of "well known dependencis". To get a new dependency added, contact @adparch. ToDo : how to specify. 
 
 * DON'T vendor dependencies unless approved by @adparch
 
+  *Vendoring dependencies in Python means including the source from another package as if it was part of our your package*
+
 ## Packaging
 
 * DO provide wheels for all supported Python versions and architectures
 
-* DO publish your packages to PyPi
+* DO publish your packages to PyPI
 
 * DO name your package after the namespace of your main client class
 
-* DO use all lowercase in your package name
+* DO use all lowercase in your package name with a dash (-) as a separator.
+
+* DON'T use underscore (_) or period (.) in your package name. 
 
 * DO use semantic versioning for your package
 
-* DO use pkgutil style namespace packages
+* DO follow the specific package guidance from packaging.md]
 
-* DO depend on azure-nspkg for Python 2.x
+  > TODO: Consolidate packaging wiki, python notes and this document
 
-* DO follow PEP420 for Python 3.0
+  * DO use pkgutil style namespace packages
 
-* DO include __init__.py in sdists
+  * DO depend on azure-nspkg for Python 2.x
 
-[More detailed instructions can be found in packaging.md]
+  * DO follow PEP420 for Python 3.0
+
+  * DO include __init__.py in sdists
 
 ## Packaging - Binary extensions
 
@@ -218,7 +231,11 @@
 
 ## Async support
 
-* DO use the async/await keywords when targeting Python 3.5.3+
+* DO require  Pyhon 3.5.3 for async support.
+
+* DO use the async/await keywords.
+
+* DON'T use the [yield from coroutine/@asyncio.coroutine](https://docs.python.org/3.4/library/asyncio-task.html) syntax in order to support Python 3.4.
 
 * DON'T prevent async frameworks other than asyncio (i.e. Trio) to be used
 
@@ -233,6 +250,8 @@
 ## Testing
 
 * DO use pytest as the test framework
+
+* DO consider using pytest-asyncio for testing of async code. 
 
 * DO make your scenario tests runnable against live services
 
@@ -252,11 +271,11 @@
 
 ## Documenting your code
 
-* DO use the Azure DO cstring guidelines to document your code
+* DO use the Azure docstring guidelines to document your code
 
 * DO provide code snippets for each non-trivial method
 
-* DO DO cument exceptions that may be raised
+* DO document exceptions that may be raised
 
 [More detailed instructions can be found in docstrings.md]
 

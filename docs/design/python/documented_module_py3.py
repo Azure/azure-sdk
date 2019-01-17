@@ -1,7 +1,9 @@
 """The example_documentation module shows how a module in an Azure SDK component should look.
+
+This particular module is using Python3 specific syntax.
 """
 
-class ClassWithExample(object):
+class ClassWithExample:
   """ A collection of mathematical functions
 
   The methods of this class are only for show. They don't acutally have a method body. But they
@@ -16,7 +18,7 @@ class ClassWithExample(object):
 
   def calculate_factorial(self, value: "int", fail_if_bigger_than: "int"=None) -> "int":
     """ Calculate the factorial of `value`
-    :param value: The value for which the factorial is to compted.
+    :param value: The value for which the factorial is to computed.
     :param fail_if_bigger_than: Raise a `ValueError` if the value is greater than the provided value.
     :raise ValueError: If result is greater than fail_if_bigger_than.
 
