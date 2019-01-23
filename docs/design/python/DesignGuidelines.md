@@ -36,26 +36,29 @@
   Namespaces are one honking great idea -- let's do more of those!
   ```
 
-* DO follow the general guidelines in PEP8 unless explicitly overridden in this document.
+* DO follow the general guidelines in [PEP8](https://www.python.org/dev/peps/pep-0008/t) unless explicitly overridden in this document.
 
 * DON'T "borrow" coding paradigms from other languages.
   
   *For example, regardless of how common Reactive programming is in the Java community, it is still unfamiliar for most Python devalepers.*
 
-* DO favor consistence with other Python components over other libraries for the same service
+* DO favor consistency with other Python components over other libraries for the same service
 
   *It is significantly more likely that a developer will use many different libraries using the same languages than that a developer will use the same service from many different languages*
   
-* DO use a single underscore to indicate that a class/module/function/attribute is internal/not intended to be used outside the package.
+* DO use a single underscore to indicate that a name is not part of the public API and is not guaranteed stable.
 
-* DON'T use leading double underscore prefixed method names unless name clashes are likely.
+* DON'T use leading double underscore prefixed method names unless name clashes in inheritence hierarchy are likely. This is rare. 
 
 * DO prefer structural subtyping and protocols over explicit type checks
 
   *It is [Easier to ask for forgiveness than permission](https://docs.python.org/3/glossary.html#term-eafp)*
 
-* DO provide type hints [PEP484](https://www.python.org/dev/peps/pep-0484/)
-  - See the [suggested syntax for Python2.7 and straddling code](https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code) for guidance for Python 2.7 compatible code. 
+* DO extend `collections.abc` (or `collections`) when appropriate
+
+* DO provide type hints [PEP484](https://www.python.org/dev/peps/pep-0484/) wherever you are providing class or function documentation.
+
+  - See the [suggested syntax for Python 2.7 and straddling code](https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code) for guidance for Python 2.7 compatible code. 
 
 
 ## Coding - naming
@@ -139,7 +142,7 @@
 
   *A pattern of starting operation in process 1, handing off the info needed to poll to process 2 is a relatively common pattern in distributed computing.*
 
-* DO provide a way to serialize the operations objects
+* DO make sure that operations objects can be [pickled](https://docs.python.org/3.7/library/pickle.html). 
 
 * DO prefer the use of the following terms for CRUD operations:
   - upsert_\<noun>
@@ -153,7 +156,7 @@
   - list_\<noun>
 
 * DO prefer the use of the following terms for long running operations:
-  - start_\<verb>_\<noun> for methods returning an operation object
+  - begin_\<verb>_\<noun> for methods returning an operation object
 
 * DO provide iterators over paged results which handle subsequent calls transparently. 
 
@@ -176,7 +179,7 @@
 
 ## Coding - threads
 
-* DO require explicit opt-in for any scenario where user-provided code will run in a different thread.
+* DO Ensure user-provided code maintains thread affinity unless explicitly documented.
 
   > TODO - We need to provide more specific guidance for the use of threads in SDKs. This includes scenarios with native callback libraries as well as parallell workloads.
 
@@ -231,7 +234,7 @@
 
 ## Async support
 
-* DO require  Pyhon 3.5.3 for async support.
+* DO require  Python 3.5.3 for async support.
 
 * DO use the async/await keywords.
 
