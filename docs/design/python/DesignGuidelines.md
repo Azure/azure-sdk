@@ -1,3 +1,11 @@
+# Design guidelines for Azure python libraries
+
+### Revision history
+
+|Version|Date|Comments|
+|-|-|-|
+0.0.1|2019-01-17|Initial draft.
+
 ## Supported Python versions
 
 * DO provide packages supporting Python 2.7 and Python 3.4+
@@ -54,11 +62,11 @@
 
   *It is [Easier to ask for forgiveness than permission](https://docs.python.org/3/glossary.html#term-eafp)*
 
-* DO extend `collections.abc` (or `collections`) when appropriate
+* DO derive from the abstract collections base classes `collections.abc` (or `collections` for Python 2.7) when appropriate.
 
 * DO provide type hints [PEP484](https://www.python.org/dev/peps/pep-0484/) wherever you are providing class or function documentation.
 
-  - See the [suggested syntax for Python 2.7 and straddling code](https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code) for guidance for Python 2.7 compatible code. 
+  - See the [suggested syntax for Python2.7 and straddling code](https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code) for guidance for Python 2.7 compatible code. 
 
 
 ## Coding - naming
@@ -106,6 +114,13 @@
   foo(1, 2, 3)
   ```
 
+* DO use keyword-only arguments for modules that only need to support Python 3.
+
+  ```python
+  # Yes
+  def foo(a, *, b=1, c=None)
+  ```
+  
 * DO specify the parameter name for optional parameters when calling functions
 
   ```python
@@ -120,16 +135,19 @@
   ```
 ## Coding - shared functionality
 
-* DO use the base classes in [msrest](https://github.com/azure/msrest-for-python) whenever possible:
-
-  - `msrest.SDKClient`
-  - `msrest.authentication.Authentication` (and subclasses)
-  - `msrest.configuration.Configuration`
-  - `msrest.paging.Paged`
-  - `msrest.serialization.Model`
-  
 * DO use the suffix "Client" for types accessing the service (Ex. CosmosClient)
 
+* DO use the base classes in [msrest](https://github.com/azure/msrest-for-python) whenever possible:
+
+  |Type|Usage|
+  |-|-|
+  |`msrest.SDKClient`|Service specific client.|
+  |`msrest.configuration.Configuration`|Pass configuration information to `msres.SDKClient` derived classes.
+  |`msrest.authentication.Authentication`|Make use an existing class of or derive from in order to provide support for additional authentication schemes.|
+  |`msrest.serialization.Model`|Base class for models returned by service methods.
+  |`msrest.paging.Paged`|Base class for return values for service methods that return lists of object. Also supports server driven paging|
+  |`msrest.polling.PollingMethod`|Base class for return values for service methods that are long running.|
+  
 * DO provide pipeline policies for shared behavior
 
   > TODO: Provide common policies
@@ -145,15 +163,20 @@
 * DO make sure that operations objects can be [pickled](https://docs.python.org/3.7/library/pickle.html). 
 
 * DO prefer the use of the following terms for CRUD operations:
-  - upsert_\<noun>
-  - create_\<noun>
-  - update_\<noun>
-  - replace_\<noun>
-  - delete_\<noun>
-  - add_\<noun>
-  - remove_\<noun>
-  - get_\<noun>
-  - list_\<noun>
+
+  |Verb|Parameters|Returns|Comments|
+  |-|-|-|-|
+  upsert_\<noun>|key, item|Updated or created item|Create new item or update existing item.
+  create_\<noun>|key, item|Created item|Create new item. Fails if item already exists.
+  update_\<noun>|key, partial item|Updated item|Fails if item does not exist.
+  replace_\<noun>|key, item|Replace existing item|Completely replaces an existing item. Fails if the item does not exist.
+  delete_\<noun>|key|None|Delete an existing item. Will succeed even if item did not exist.
+  append_\<noun>|item|Appended item|Add item to a collection. Item will be added last.
+  add_\<noun>|index, item|Added item|Add item to a collection. Item will be added last.
+  remove_\<noun>|key|None or removed item|Remove item from a collection.
+  get_\<noun>|key|Item|Will return None if item does not exist
+  list_\<noun>||`msrest.Pageable[Item]`|Return list of items. Returns empty list if no items exist
+  \<noun>\_exists|key|`bool`|Return True if the item exists.
 
 * DO prefer the use of the following terms for long running operations:
   - begin_\<verb>_\<noun> for methods returning an operation object
@@ -192,11 +215,11 @@
   - aiohttp (asynchronous HTTP)
   > ToDo : fill in more
 
-* DON'T use external dependencies outside the list of "well known dependencis". To get a new dependency added, contact @adparch. ToDo : how to specify. 
+* DON'T use external dependencies outside the list of "well known dependencies". To get a new dependency added, contact @adparch. ToDo : how to specify. 
 
 * DON'T vendor dependencies unless approved by @adparch
 
-  *Vendoring dependencies in Python means including the source from another package as if it was part of our your package*
+  *Vendoring dependencies in Python means including the source from another package as if it was part of your package*
 
 ## Packaging
 
@@ -266,9 +289,13 @@
 
 ## Tooling
 
-* DO use pylint for your code
+* DO use pylint for your code.
 
-* DO use Black for formatting your code
+  - > TODO: Shared .pylintrc? Probably one per version of Python that is to be supported (e.g. unnescessary `object` inheritence should be avoided for Python3-only code, but is required for code straddling 2.7 and 3.x)
+
+* DO use [flake8-docstrings](https://gitlab.com/pycqa/flake8-docstrings) to verify doccomments. 
+
+* DO use Black for formatting your code.
 
 * DO consider using MyPy to statically check your code
 
