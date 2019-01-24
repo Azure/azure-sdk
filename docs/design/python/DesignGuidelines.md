@@ -87,9 +87,11 @@
   class ThisIsCorrect(object):
       pass
 
+
   # No:
   class this_is_not_correct(object):
       pass
+
 
   # No:
   class camelCasedTypeName(object):
@@ -100,10 +102,12 @@
 
   ```python
   def foo(a, b, c):
-    pass
+      pass
+
 
   def bar(d, e):
-    pass
+      pass
+
 
   # Yes:
   foo(a=1, b=2, c=3)
@@ -118,14 +122,16 @@
 
   ```python
   # Yes
-  def foo(a, *, b=1, c=None)
+  def foo(a, *, b=1, c=None):
+      ...
   ```
   
 * DO specify the parameter name for optional parameters when calling functions
 
   ```python
   def foo(a, b=1, c=None):
-    pass
+      pass
+
 
   # Yes:
   foo(1, b=2, c=3)
@@ -202,7 +208,7 @@
 
 ## Coding - threads
 
-* DO Ensure user-provided code maintains thread affinity unless explicitly documented.
+* DO maintain thread affinity for user-provided code unless explicitly documented to not do so.
 
   > TODO - We need to provide more specific guidance for the use of threads in SDKs. This includes scenarios with native callback libraries as well as parallell workloads.
 
@@ -245,7 +251,7 @@
 
   * DO follow PEP420 for Python 3.0
 
-  * DO include __init__.py in sdists
+  * DO include __init__.py for the namespace(s) in sdists
 
 ## Packaging - Binary extensions
 
@@ -301,13 +307,13 @@
 
 ## Documenting your code
 
+* DO follow the guidelines in https://aka.ms/pydocs unless explicitly overridden in this document.
+
 * DO use the Azure docstring guidelines to document your code
 
 * DO provide code snippets for each non-trivial method
 
 * DO document exceptions that may be raised
-
-[More detailed instructions can be found in docstrings.md]
 
 ## Samples
 
