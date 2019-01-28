@@ -1,0 +1,853 @@
+%---------------------------------------------------------------------------
+%  Copyright 2015 Daan Leijen, Microsoft Corporation.
+%
+%  This work may be distributed and/or modified under the
+%  conditions of the LaTeX Project Public License, either version 1.3
+%  of this license or (at your option) any later version.
+%  The latest version of this license is in
+%    http://www.latex-project.org/lppl.txt
+%  and version 1.3 or later is part of all distributions of LaTeX
+%  version 2005/12/01 or later.  
+%---------------------------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}[1995/12/01]
+
+\ProvidesPackage{longbox}[2015/12/01, Daan Leijen, Provides basic longbox that can break over pages]
+\RequirePackage{options}
+
+\@ifclassloaded{beamer}{%
+ \newcommand\lb@savefootnotes{}%
+ \newcommand\lb@restorefootnotes{}%
+}%
+{\RequirePackage{footnote}%
+ \newcommand\lb@savefootnotes{\savenotes}%
+ \newcommand\lb@restorefootnotes{\spewnotes}%
+}
+
+
+% --------------------------------------------------------
+% Debugging
+% --------------------------------------------------------
+
+\newcommand*\lb@debug[1]{%
+  \ontoggle{lb@debug}{\typeout{longbox debug: #1}}%
+}
+\newcommand*\lb@typeout[1]{%
+  \ontoggle{lb@verbose}{\typeout{longbox: #1}}%
+}
+\newcommand*\lb@warncannotsplit{%
+  \PackageWarning{longbox}{Cannot split box; it seems you are using a non-splittable contents}%
+}
+\newcommand*\lb@warnbadsplit[1]{%
+  \PackageWarning{longbox}{Bad split (underful vbox by \the#1)}%
+}
+
+
+% --------------------------------------------------------
+% Utilities for LaTeX internals
+% --------------------------------------------------------
+
+% Suppress the indentation on the following paragraph
+\providecommand\nofirstindent{\@afterindentfalse\@afterheading}
+
+% Suppress the paragraph skip on the following paragraph
+\providecommand\nofirstparskip{\addvskip{-\parskip}}
+
+% In contrast to addvspace, addvskip is not suppressed in a minipage
+\providecommand\addvskip[1]{%
+  \ifvmode
+    \ifdim\lastskip=\z@
+      \vskip #1\relax
+    \else
+      \@tempskipb#1\relax\@xaddvskip
+    \fi
+  \else\@noitemerr\fi
+}
+
+
+% Skip to 0.3\baselineskip multiple taking prevdepth into account.
+\newskip\lb@prevdepth
+\newcommand\lb@skiptobaseline{%
+  \global\lb@prevdepth=-\@m\p@\relax
+  \ifvmode
+    \ifdim\lastskip=\z@\relax
+      \ifdim\prevdepth=-\@m\p@\else
+        \dimen@\prevdepth
+        % Calculate the modulus of the previous depth with 0.3|\baselineskip| in |\dimen@|.
+        \@tempcnta\prevdepth
+        \@tempskipa=0.3\baselineskip\relax
+        \@tempcntb=\@tempskipa\relax
+        \divide \@tempcnta by \@tempcntb
+        \dimen@\prevdepth
+        \advance\dimen@ -\@tempcnta\@tempskipa
+        % Skip back by that amount, and then skip by 0.3|\baselineskip|.
+        \vskip -\dimen@
+        \vskip \@tempskipa\relax
+        \global\lb@prevdepth=\@tempskipa\relax        
+      \fi
+    \fi
+  \fi
+}
+
+% unvbox a box, and return a vbox with a given background color
+% \unvcolorbox{<colorspec>}{<vboxname>}
+\newcommand\unvcolorbox[2]{%
+  \ifoptionblank{#1}{\vbox{\unvbox#2}}{%
+    \lb@debug{vcolorbox: #1}%
+    \vbox{\offinterlineskip
+      \hbox to \z@{\vbox to \z@{\optioncolor{#1}\hrule\@width\wd#2\@height\ht#2\@depth\dp#2\vss}\hss}%
+      \unvbox#2%  
+    }%
+  }%
+}
+
+% create a vbox with a given background color 
+\newcommand\vcolorbox[2]{%
+  \eifblank{#1}{\vbox{#2}}{%
+    \setbox\z@=\vbox{#2}\relax
+    \unvcolorbox{#1}{\z@}%
+  }%
+}%
+
+% --------------------------------------------------------
+% The following macros come from mdframed
+% --------------------------------------------------------
+
+% Determine the amount of free space left on the current page
+\newlength\lb@freevspace
+\newcommand*\lb@setfreevspace@page{%
+  \lb@debug{ determine free space}%
+  \bgroup\@nobreakfalse\addpenalty\z@\egroup%
+  \penalty\@M\relax\vskip 2\baselineskip\relax%
+  \penalty9999\relax\vskip -2\baselineskip\relax%
+  \penalty9999%
+  \ifdim\pagegoal=\maxdimen\relax%
+    \lb@freevspace=\vsize%
+  \else
+    \lb@freevspace=\dimexpr\pagegoal-\pagetotal-\parskip\relax%
+  \fi
+  \lb@debug{free space: \the\lb@freevspace, in page: \the\textheight, vsize=\the\vsize}%
+}
+
+\newcommand*\lb@shiftdim[2]{%
+  %\letoption{#1}\lb@list
+  \expandafter\lb@setheadtail@#1,\relax
+  \eifblank{\lb@head}{}{\option@invoke{/longbox/@breakat-previous}{\lb@head}}%
+  #2\option{/longbox/@breakat-previous}%
+  \eifblank{\lb@tail}{}{\let#1\lb@tail}% push back tail
+}
+\def\lb@comma{,}%
+\def\lb@setheadtail@#1,#2\relax{%
+  \def\lb@head{#1}%
+  \def\lb@tail{#2}% adds commas!
+}
+
+\newcommand*\lb@setfreevspace{%
+  \eifblank{\lb@breakat}{\lb@setfreevspace@page}{%
+    \def\lb@eject{\par}%no eject
+    \lb@extrasplit=\z@\relax%
+    \lb@shiftdim{\lb@breakat}\lb@freevspace
+    \ifdim\lb@freevspace>\z@\else\lb@setfreevspace@page\fi
+  }%
+}
+
+
+% Suppress overfull-underfull vbox messages
+\newcommand*\lb@ignorevbadness{%
+   \edef\lb@currentvbadness{\the\vbadness}%
+   \edef\lb@currentvfuzz{\the\vfuzz}%
+   \vbadness=\@M\relax%
+   \vfuzz=\maxdimen\relax%
+   \afterassignment\lb@restorevbadness
+}
+\newcommand*\lb@restorevbadness{%
+  \vbadness=\lb@currentvbadness\relax
+  \vfuzz=\lb@currentvfuzz\relax
+}
+
+
+% --------------------------------------------------------
+% The 'long vbox' (lvbox) environment collects long material 
+% into a long \vbox, instead of a \hbox like a lrbox in latex.
+% The collected box can contain any box, minipage, lrbox, fbox etc,
+% but not outer-par material like a figure. Footnotes can be
+% dealt with useing lb@savefootnotes.
+%
+% The material is typeset in a \vbox according to a given width.
+% inside the environment, the boolean 'inlvbox' is true.
+%
+% \begin{lvbox}{<boxname>}{<width>}
+% --------------------------------------------------------
+
+\newif\ifinlvbox
+\newcommand\lvbox[4]{%
+ \setbox#1\vbox\bgroup
+   \begingroup
+   \inlvboxtrue
+   % reset defaults
+   \let\if@nobreak\iffalse
+   \let\if@noskipsec\iffalse
+   \let\par\@@par
+   \let\-\@dischyph
+   \let\'\@acci\let\`\@accii\let\=\@acciii
+   % set margin and linewidth
+   \leftmargin=#2\relax\rightmargin=#4\relax
+   \@totalleftmargin=\leftmargin%
+   %\leftskip=#2\relax\rightskip=#4\relax\@rightskip=#4\relax
+   \linewidth=#3\relax
+   % set primitive tex margins
+   \leftskip=\@totalleftmargin%
+   \rightskip=\rightmargin%
+   \@rightskip=\rightmargin%
+   \hsize=\dimexpr\@totalleftmargin+\linewidth+\rightmargin\relax
+   \columnwidth\hsize
+   \textwidth\hsize
+   \nofirstindent
+   %\nofirstparskip
+}
+\def\endlvbox{\endgroup\egroup}
+
+
+
+% --------------------------------------------------------
+%
+% --------------------------------------------------------
+
+
+\newsavebox\lb@headbox
+\newsavebox\lb@savebox
+\newsavebox\lb@mainbox
+
+% --------------------------------------------------------
+%
+% --------------------------------------------------------
+
+\newcommand\lb@setbaseline[1]{%
+  %\typeout{ set baseline, \the\dp#1,\the\ht#1}%
+  \ifcase\lb@baseline%
+    \relax%bottom
+  \or%middle
+    \setbox#1=\vbox{\hbox{\lower \dimexpr(\dp#1 + \ht#1)/2 - \dp#1\relax\vbox{\unvbox#1}}}%
+  \or%top
+    \setbox#1=\vtop{\unvbox#1}%
+  \fi  
+  %\typeout{ .new dim: \the\dp#1, \the\ht#1}%
+}
+
+
+\@ifundefined{define@key}{}%
+ {\define@key{longbox}{options}{\options{#1}\option{/longbox/adjust-options}}}%
+  
+\newcommand*\lb@render@breakbox{%
+  %\typeout{render breakbox entry (in output routine), height=\the\bb@height}%
+  \bb@restorekeys{longbox}%
+  \lb@skiptop=\ifbb@isfirst\option{/longbox/skip-top}\else\option{/longbox/skip-break-top}\fi\relax
+  \lb@skipbottom=\ifbb@islast\option{/longbox/skip-bottom}\else\option{/longbox/skip-break-bottom}\fi\relax
+  \lb@skipbreaktop=\ifbb@isfirst 0pt\else\option{/longbox/skip-break-top}\fi
+  \lb@skipbreakbottom=\ifbb@islast 0pt\else\option{/longbox/skip-break-bottom}\fi
+  %\typeout{ render: skip top=\the\lb@skiptop, bottom=\the\lb@skipbottom, break-top=\the\dimexpr\option{/longbox/skip-bottom}}%
+  \options{%
+    /longbox/@part-height=\bb@height + \lb@skipbreaktop + \lb@skipbreakbottom,
+    /longbox/@part-width=\option{/longbox/width} + \option{/longbox/skip-left} + \option{/longbox/skip-right},%\bb@width,
+    /longbox/@part-depth=0pt,
+    /longbox/@part-needtop=\ifbb@isfirst true\else false\fi,
+    /longbox/@part-needbottom=\ifbb@islast true\else false\fi,
+    /longbox/@content-box-height=\option{/longbox/@part-height} - \lb@skiptop - \lb@skipbottom,
+    /longbox/@content-box-width=\option{/longbox/width},
+    /longbox/@content-box-depth=\option{/longbox/@part-depth},
+  }%
+  %\typeout{breakbox: width=\expandafter\the\option{/longbox/width}, \the\bb@width, \the\dimexpr\option{/longbox/@part-width}}%
+  \vbox{%
+    \kern -\lb@skipbreaktop% todo: move to breakbox?
+    \option{/longbox/render}%
+    \kern -\lb@skipbreakbottom
+  }%
+}
+
+\newcommand*\lb@render@vbox[1]{%
+  \lb@debug{render vbox entry}%
+  \lb@restoreoptions    
+  \lb@skiptop=\dimexpr\iftoggle{/longbox/@part-needtop}{\option{/longbox/skip-top}}{\option{/longbox/skip-break-top}}\relax
+  \lb@skipbottom=\dimexpr\iftoggle{/longbox/@part-needbottom}{\option{/longbox/skip-bottom}}{\option{/longbox/skip-break-bottom}}\relax
+  %\typeout{ skip top=\the\lb@skiptop, bottom=\the\lb@skipbottom}%
+  % add top skip while maintaining the baseline.
+  \ifdim\lb@skiptop=\z@\relax\else
+    \setbox\z@=\vtop{\unvcopy#1}%
+    \dimen@=\ht\z@
+    \setbox#1=\vbox{\offinterlineskip
+      \hrule width \z@ height \dimexpr\dimen@ + \lb@skiptop\relax depth -\dimen@
+      \unvbox#1%
+    }%
+  \fi
+  % add bottom skip while maintaining the baseline. 
+  \ifdim\lb@skipbottom=\z@\relax\else
+    \dimen@=\dp#1%
+    \setbox#1=\vbox{\offinterlineskip\unvbox#1\hrule width \z@ height -\dimen@ depth \dimexpr\dimen@ + \lb@skipbottom\relax}%
+  \fi
+  \lb@setbaseline{#1}%
+  \options{%
+    /longbox/@part-height=\dimexpr\ht#1 + \dp#1\relax,
+    /longbox/@part-width=\dimexpr\wd#1 + \option{/longbox/skip-left} + \option{/longbox/skip-right}\relax,
+    /longbox/@part-depth=\dp#1,
+    /longbox/@content-box-width=\option{/longbox/width},
+    /longbox/@content-box-height=\option{/longbox/@part-height} - \lb@skiptop - \lb@skipbottom,
+    /longbox/@content-box-depth=\option{/longbox/@part-depth} - \lb@skipbottom,   
+  }%
+  %\typeout{ longbox: height=\the\dimexpr\option{/longbox/@content-box-height}, outer height=\the\dimexpr\option{/longbox/@part-height}\relax}%
+   % lower the box depending on vertical alignment
+  \ifcase\option{/longbox/vertical-align/@ord}\relax
+    \@tempdima\z@
+  \or
+    %bottom
+    \@tempdima\dimexpr0.3\baselineskip - \option{/longbox/@part-depth}\relax
+  \or%middle
+    \@tempdima\dimexpr0.5\option{/longbox/@part-height} - \option{/longbox/@part-depth}\relax
+  \or%top
+    \@tempdima\dimexpr\option{/longbox/@part-height}-\option{/longbox/@part-depth}-0.7\baselineskip\relax
+  \or%text-bottom
+    \@tempdima\dimexpr0.3\baselineskip - \option{/longbox/@part-depth}\relax
+  \or%text-top
+    \@tempdima\dimexpr\option{/longbox/@part-height}-\option{/longbox/@part-depth}-0.7\baselineskip\relax
+  \or%super
+    \@tempdima=-0.9ex%
+  \or%sub
+    \@tempdima=0.7ex%
+  \else
+    \@tempdima\z@
+  \fi
+  \advance\@tempdima by -\option{/longbox/raise}%
+  \option@invoke{/longbox/@lower}{\@tempdima}%  
+  \noindent\hbox{\lower \@tempdima\vbox{\offinterlineskip
+    \hbox to \z@{%
+      \vbox to \z@{%
+        \hbox{\lower \option{/longbox/@part-height}\vbox{\offinterlineskip{\option{/longbox/render}}}}%
+        \vss}%
+      \hss
+    }%
+    \hbox{%
+      \ifdim\option{/longbox/skip-left}=\z@\else\hskip\option{/longbox/skip-left}\fi
+      \box#1%
+      \ifdim\option{/longbox/skip-right}=\z@\else\hskip\option{/longbox/skip-right}\fi
+      %$\box#1%
+    }%    
+  }}%
+}
+
+\newcommand*\lb@single@[1]{%
+  \begingroup
+    \toggletrue{/longbox/@part-needtop}%
+    \toggletrue{/longbox/@part-needbottom}%
+    \lb@render@vbox{#1}%
+  \endgroup
+}
+\newcommand*\lb@first@[1]{%
+  \begingroup
+    \toggletrue{/longbox/@part-needtop}%
+    \togglefalse{/longbox/@part-needbottom}%
+    \lb@render@vbox{#1}%
+    \lb@eject
+  \endgroup
+}
+\newcommand*\lb@middle@[1]{%
+  \begingroup
+    \togglefalse{/longbox/@part-needtop}%
+    \togglefalse{/longbox/@part-needbottom}%
+    \lb@render@vbox{#1}%
+    \lb@eject
+  \endgroup
+}
+\newcommand*\lb@last@[1]{%
+  \begingroup
+    \togglefalse{/longbox/@part-needtop}%
+    \toggletrue{/longbox/@part-needbottom}%
+    \lb@render@vbox{#1}%
+  \endgroup
+}
+
+% --------------------------------------------------------
+%
+% --------------------------------------------------------
+
+\newcommand*\lb@env@start{%
+  \ifcase\lb@textalign\relax
+     %default
+  \or\raggedright
+  \or\centering
+  \or\raggedleft
+  \else\relax% justify=default
+  \fi
+  \lb@insertbefore
+}
+
+\newcount\lb@usevbox
+\newlength\lb@width
+\newlength\lb@height
+\newlength\lb@skiptop
+\newlength\lb@skipright
+\newlength\lb@skipbottom
+\newlength\lb@skipleft
+\newlength\lb@skipbreaktop
+\newlength\lb@skipbreakbottom
+\newlength\lb@outerwidth
+\newlength\lb@extrasplit
+\newcount\lb@textalign
+\newcount\lb@baseline
+\newtoggle{lb@baselineskip}%
+\newtoggle{lb@breakable}%
+\newtoggle{lb@debug}%
+\newtoggle{lb@verbose}%
+\def\lb@breakat{}%
+\def\lb@halign{}%
+\def\lb@eject{}%
+\def\lb@insertafter{}
+\def\lb@insertbefore{}
+
+\newcommand*\lb@peekoptions[1]{%
+  % process options inside a group and just set necessary parameters
+  % this way, nested boxes don't influence each other's parameters
+  \begingroup
+    \options{#1}%
+    \option{/longbox/adjust-options}%    
+    \protected@edef\lb@temp{\endgroup
+      \lb@width=\the\dimexpr\option{/longbox/width}\relax
+      \lb@height=\the\dimexpr\option{/longbox/height}\relax
+      \lb@textalign=\the\numexpr\option{/longbox/text-align/@ord}\relax
+      \lb@baseline=\the\numexpr\option{/longbox/baseline/@ord}\relax
+      \lb@skiptop=\the\dimexpr\option{/longbox/skip-top}\relax
+      \lb@skipright=\the\dimexpr\option{/longbox/skip-right}\relax
+      \lb@skipbottom=\the\dimexpr\option{/longbox/skip-bottom}\relax
+      \lb@skipleft=\the\dimexpr\option{/longbox/skip-left}\relax
+      \lb@skipbreaktop=\the\dimexpr\option{/longbox/skip-break-top}\relax
+      \lb@skipbreakbottom=\the\dimexpr\option{/longbox/skip-break-bottom}\relax      
+      \lb@usevbox=\iftoggle{/longbox/use-vbox}{1}{0}\relax
+      \lb@outerwidth=\the\dimexpr\option{/longbox/outer-width}\relax
+      \lb@extrasplit=\the\dimexpr\option{/longbox/split-minimum}\relax
+      \def\noexpand\lb@insertafter{\option{/longbox/insert-after}}%
+      \def\noexpand\lb@insertbefore{\option{/longbox/insert-before}}%
+      \def\noexpand\lb@breakat{\option{/longbox/breakat}}%
+      \def\noexpand\lb@halign{\option{/longbox/height-align}}%
+      \def\noexpand\lb@eject{\option{/longbox/eject}}%
+      \noexpand\csname toggle\iftoggle{/longbox/baseline-skip}{true}{false}\endcsname{lb@baselineskip}%
+      \noexpand\csname toggle\iftoggle{/longbox/breakable}{true}{false}\endcsname{lb@breakable}%
+      \noexpand\csname toggle\iftoggle{/longbox/debug}{true}{false}\endcsname{lb@debug}%
+      \noexpand\csname toggle\iftoggle{/longbox/verbose}{true}{false}\endcsname{lb@verbose}%
+    }%
+  \lb@temp
+}
+
+\newenvironment{longbox@env}[2]{%
+  % save options
+  \lb@peekoptions{#1,#2}%
+  %
+  \ifnum\lb@usevbox=0\relax
+    \lb@debug{start breakbox}%
+    \let\bb@render\lb@render@breakbox
+    \bb@savekeys{longbox}{options={#1,#2,outer-width=\the\lb@outerwidth}}%
+    \iftoggle{lb@baselineskip}{\typeout{**insert bskip}}{\typeout{**suppress bskip}\vskip 1pt}%
+    \begin{breakbox}%
+    \ifdim\lb@skiptop=\z@\relax\else\vspace{\lb@skiptop}\fi%
+    \dimen@=\dimexpr\linewidth-\lb@skipleft-\lb@width\relax
+    \begin{bb@margins}{\lb@skipleft}{\dimen@}%    
+  \else
+    \lb@debug{start vbox}%
+    \def\lb@restoreoptions{\options{#1,#2}\option{/longbox/adjust-options}}%
+    \lb@savefootnotes
+    \dimen@=\dimexpr\linewidth-\lb@skipleft-\lb@width\relax
+    \lb@debug{ width=\the\lb@width, linewidth=\the\linewidth, skipleft=\the\lb@skipleft, right=\the\lb@skipright, total right=\the\dimen@}%
+    \iftoggle{lb@baselineskip}{\lb@skiptobaseline}{\lb@prevdepth=-\@m pt}%
+    \lvbox{\lb@mainbox}{0pt}{\lb@width}{0pt}%{\lb@skipleft}{\lb@width}{\lb@skipright}%
+    \prevdepth=\lb@prevdepth
+  \fi
+    \ifcase\lb@textalign\relax
+     %default
+    \or\raggedright
+    \or\centering
+    \or\raggedleft
+    \else\relax% justify=default
+    \fi
+    \lb@insertbefore
+    \begingroup
+}{%
+    \par\unskip
+    \endgroup
+    \lb@insertafter
+    %\ifdim\lb@skipbottom=\z@\relax\else\vskip\lb@skipbottom\fi%
+  \ifnum\lb@usevbox=0\relax
+    \end{bb@margins}%
+    \ifdim\lb@skipbottom=\z@\relax\else\hrule width \z@ height \lb@skipbottom\fi%\vspace{\lb@skipbottom}\fi%
+    \iftoggle{lb@baselineskip}{}{\vskip 1sp}%
+    \end{breakbox}%
+    \lb@debug{end breakbox}%
+  \else
+    \ontoggle{lb@baselineskip}{\lb@skiptobaseline}%
+    \endlvbox%  
+    \lb@debug{initial lvbox: \the\dp\lb@mainbox, \the\ht\lb@mainbox, \the\wd\lb@mainbox}%
+    \lb@processbox
+    %\setbox\lb@mainbox=\hbox{\lower \lb@skipbottom\vbox{\offinterlineskip\unvbox\lb@mainbox}}%
+    \lb@restorefootnotes
+    \lb@debug{end vbox}%
+  \fi
+}
+
+\newcommand\longbox@cmd[3]{%  
+  \begingroup
+  %\options{/options/collectunknown,/longbox/scoped,#2}% set scoped options first
+  %\option{/longbox/scoped/@adjust-options}%
+  \lb@peekoptions{#1,#2}%
+  \leavevmode
+  %\setbox\lb@mainbox=\hbox{%
+  %  \begingroup
+  %  #3%
+  %  \endgroup
+  %}%
+  \setbox\lb@mainbox=\hbox{%
+    \begingroup
+      \ifcase\lb@textalign\relax
+        %default=left
+      \or%left
+      \or\hss%center
+      \or\hss%right
+      \else%justify
+      \fi
+      \lb@insertbefore
+      #3%
+      \lb@insertafter
+      \ifnum\lb@textalign<3\relax\hss\fi% default,left,center
+    \endgroup
+  }%
+  \options{#1,#2}%
+  \ifdim\option{/longbox/width}=-1sp\relax
+    \options{/longbox/width=\wd\lb@mainbox}%set to natural width
+  \fi
+  \option{/longbox/adjust-options}%
+  % make it a vbox 
+  \setbox\lb@mainbox=\vbox{\offinterlineskip%
+    \hbox to \option{/longbox/width}{%
+      \unhbox\lb@mainbox
+    }%
+  }%
+  \def\lb@restoreoptions{}%
+  \letoption{/longbox/height-align}\lb@halign
+  \lb@height=\option{/longbox/height}\relax
+  \lb@baseline=\option{/longbox/baseline/@ord}\relax
+  \lb@processbox
+  \endgroup
+}
+
+\newcommand\lb@processbox{%
+  \ifdim\lb@height<0pt\relax
+    \lb@setbaseline{\lb@mainbox}%
+  \else
+    \lb@restrictheight
+  \fi
+  \lb@typesetbox
+}
+
+\newcommand\lb@typesetbox{%  
+  \ifinlvbox
+    \iftoggle{lb@breakable}{%
+      %\lb@debug{disable breakable due to nesting of long-boxes}%
+      \togglefalse{lb@breakable}%
+    }{}%
+  \fi
+  \ifhmode\lb@single@{\lb@mainbox}\else\lb@typeset\fi  
+}
+
+% --------------------------------------------------------
+%
+% --------------------------------------------------------
+
+\newcommand\lb@restrictheight{%
+  \lb@typeout{restrict height to \the\lb@height}%
+  \lb@splitheight=\lb@height%
+  %lb@debug{before height split: \the\dp\lb@mainbox, \the\ht\lb@mainbox, \the\wd\lb@mainbox}%
+  \lb@splitbox
+  \ifdim\ht\lb@headbox=0pt\relax
+    %split failed.. do nothing
+    \lb@debug{could not restrict height}%
+  \else
+    % store splitted off content in the mainbox (and discard the rest)
+    \setbox\lb@mainbox\vbox{\unvbox\lb@headbox}%
+    \lb@debug{restricted height to \the\ht\lb@mainbox}%
+  \fi
+  % set baseline
+  \lb@setbaseline{\lb@mainbox}%
+  % height align
+  %\letoption{/longbox/height-align}\lb@halign
+  \eifstrequal{\lb@halign}{bottom}%
+    {\setbox\lb@mainbox=\vbox{\hbox{\vbox to \lb@splitheight{\vss\unvbox\lb@mainbox}}}}%
+  {\eifstrequal{\lb@halign}{middle}%
+    {\dimen@=\dimexpr\lb@splitheight-\ht\lb@mainbox-\dp\lb@mainbox\relax
+     \setbox\lb@mainbox=\vbox{\hbox{%
+            \lower \dimexpr0.5\dimen@ + \dp\lb@mainbox\relax%
+            \vbox to \lb@splitheight{\vss\unvbox\lb@mainbox\vss}}}}%
+    {% default is top
+     \dimen@=\dimexpr\lb@splitheight-\ht\lb@mainbox-\dp\lb@mainbox\relax
+     \setbox\lb@mainbox=\vbox{\vtop to \lb@splitheight{\box\lb@mainbox\vss}}%
+    }%
+  }%
+}
+
+% --------------------------------------------------------
+%
+% --------------------------------------------------------
+
+\newlength\lb@neededvspace
+\newcommand\lb@typeset[1][0pt]{%
+  \iftoggle{lb@breakable}{%
+    \lb@setfreevspace
+    \setlength\lb@neededvspace{\dimexpr\ht\lb@mainbox+\dp\lb@mainbox+\lb@skiptop+\lb@skipbottom\relax}%
+    \lb@debug{needed: \the\lb@neededvspace, available: \the\lb@freevspace}%
+    \ifdim\lb@neededvspace<\lb@freevspace\relax
+      \lb@single@{\lb@mainbox}%
+    \else
+      \lb@typeout{longbox needs splitting}%
+      \setlength\lb@splitheight{\dimexpr\lb@freevspace-\lb@skiptop-\lb@skipbreakbottom\relax}%
+      \lb@splitbox
+      \ifdim\ht\lb@headbox=0pt\relax
+        % failed to split
+        \ifdim\dimexpr\lb@freevspace + #1\relax<\textheight\relax % test if we were at a fresh page.. (and prevent infinite recursion)
+          \lb@debug{failed to split the box, inserting a page break}%
+          \hrule \@height\z@ \@width\hsize
+          \lb@eject%
+          \lb@typeset[\textheight]% try again, but pass \textheight to guard against infinite recursion
+        \else
+          % on a fresh page we should not fail anymore.. just output as is..
+          % lb@warncannotsplit
+          \lb@single@{\lb@mainbox}%
+        \fi
+      \else
+        % first part success
+        \lb@typeout{first part splitted}%
+        \lb@first@{\lb@headbox}%
+        \expandafter\expandafter\expandafter\lb@typesetrest
+      \fi
+    \fi
+  }{%\else
+    \lb@debug{unbreakable box}%
+    \lb@single@{\lb@mainbox}% always directly output an unbreakable box
+  }%
+}
+
+\newcommand\lb@typesetrest{%
+  \lb@setfreevspace%
+  \setlength\lb@neededvspace{\dimexpr\ht\lb@mainbox+\dp\lb@mainbox+\lb@skipbottom+\lb@skipbreaktop\relax}%
+  \ifdim\lb@neededvspace<\lb@freevspace\relax
+    \lb@typeout{output last part of box}%
+    \lb@last@{\lb@mainbox}%
+  \else
+    \lb@debug{split box further}%
+    \setlength\lb@splitheight{\dimexpr\lb@freevspace-\lb@skipbreaktop-\lb@skipbreakbottom\relax}%
+    \lb@splitbox
+    \ifdim\ht\lb@headbox=0pt\relax
+      % failed to split
+      \lb@typeout{failed to split box!}%
+      \lb@last@{\lb@mainbox}%
+    \else
+      % middle part success
+      \lb@typeout{output middle part of box}%
+      \lb@middle@{\lb@headbox}%
+      \expandafter\expandafter\expandafter\lb@typesetrest% continue the iteration...
+    \fi
+  \fi
+}
+
+% --------------------------------------------------------
+% Split a long vbox over multiple pages.
+% This code is based on similar code in the mdframed package
+% --------------------------------------------------------
+
+\newlength\lb@splitheight
+\newlength\lb@insurance     % tiny extra space to ensure our box will really fit
+\setlength\lb@insurance{1pt}
+
+% expects split target height in lb@splitheight, and splits off the start of lb@mainbox to lb@headbox
+\newcommand\lb@splitbox{%
+  \ifdim\dimexpr\ht\lb@mainbox + \dp\lb@mainbox\relax>\lb@splitheight\relax
+    % the main box is larger than our target split height..
+    \ifdim\lb@extrasplit>\lb@splitheight\relax
+      % not enough space to bother
+      \lb@typeout{not enough space on page for a split}%
+      \setbox\lb@headbox=\vbox{}% empty head
+    \else
+      % try a split; lower the split height a bit so we are sure to fit
+      \advance\lb@splitheight -\lb@insurance\relax
+      \lb@debug{split: \the\lb@splitheight, from \the\dimexpr\ht\lb@mainbox + \dp\lb@mainbox\relax}%
+      \setbox\lb@savebox=\vbox{\unvcopy\lb@mainbox}% save original
+      \lb@trysplit{\lb@splitheight}%
+      \ifdim\dimexpr\ht\lb@headbox + \dp\lb@headbox>\lb@splitheight\relax
+        % too big, bad split. Try other splits.. iterate N times with 1 or 5pt less before giving up
+        \dimen@=\lb@splitheight\relax
+        \@tempcnta=\z@\relax
+        \loop
+        \ifdim\dimexpr\ht\lb@headbox+\dp\lb@headbox\relax>\lb@splitheight\relax
+          \ifnum\@tempcnta<50%
+            \advance\dimen@ by -\p@\relax% try a slightly smaller height..
+          \else
+            \advance\dimen@ by -5\p@\relax% try larger increase after 50pt..
+          \fi
+          \advance\@tempcnta by \@ne\relax
+          \lb@ignorevbadness
+          \setbox\lb@mainbox=\vbox{\unvcopy\lb@savebox}% restore
+          \lb@trysplit{\dimen@}%
+          \ifdim\lb@extrasplit<\dimen@\relax\else\lb@splitstop\fi % don't try to split too small
+          \ifnum\@tempcnta<100\relax\else\lb@splitstop\fi % and not more than N attempts
+        \repeat%
+        \ifnum\@tempcnta<100\relax
+          \dimen@=\dimexpr\lb@splitheight - \ht\lb@headbox - \dp\lb@headbox\relax
+          \ifdim\dimen@>\option{/longbox/split-badness}\relax
+            \lb@warnbadsplit{\dimen@}%
+          \fi
+        \fi
+      \fi
+    \fi
+  \else
+    % mainbox fits in our target lb@splitheight
+    \setbox\lb@headbox=\vbox{\unvbox\lb@mainbox}%    
+    \setbox\lb@mainbox=\vbox{}%
+  \fi
+}
+
+\newcommand\lb@splitstop{%
+  \lb@typeout{cannot find a good split}%
+  \let\iterate\relax
+  \lb@warncannotsplit
+  \setbox\lb@mainbox=\vbox{\unvcopy\lb@savebox}% restore      
+  \setbox\lb@headbox=\vbox{}% empty head 
+  \@tempcnta=\@M\relax   
+}
+
+\newcommand\lb@trysplit[1]{% try to split at given height
+  \lb@typeout{try to split at: \the\dimexpr #1\relax}%
+  \lb@ignorevbadness  
+  \setbox\lb@headbox=\vsplit\lb@mainbox to #1\relax%
+  \setbox\lb@headbox=\vbox{\unvbox\lb@headbox}%
+  \setbox\lb@mainbox=\vbox{\unvbox\lb@mainbox}%  
+}
+
+% --------------------------------------------------------
+% The longbox environment uses options to set its options
+% --------------------------------------------------------
+
+
+% keys and styles that can be set once globally
+\options{%
+  /longbox/.new family,
+}%
+
+\options{/longbox,%
+  % computed
+  @part-needtop/.new toggle,
+  @part-needbottom/.new toggle,
+  @part-height/.new length,
+  @part-width/.new length,
+  @part-depth/.new length,
+  @content-box-height/.new length,
+  @content-box-width/.new length,
+  @content-box-depth/.new length,
+  @breakat-previous/.new length,
+  @lower/.new length,
+  %
+  debug/.new toggle,
+  verbose/.new toggle,
+  render/.new value         =\lb@render@fbox,
+  adjust-options/.new value = {\longbox@adjustoptions},
+  eject/.new value          = {\protect\vfill\protect\eject},
+  use-vbox/.new toggle      = true,
+  split-minimum/.new length = {1.5\baselineskip},
+  split-badness/.new length = \baselineskip,
+  %
+  height-align/.new choice= {top,middle,bottom},
+  baseline/.new choice    = {bottom,middle,top},
+  text-align/.new choice  = {default,left,center,right,justify},
+  vertical-align/.new choice  = {baseline,bottom,middle,top,text-bottom,text-top,super,sub},
+  raise/.new length       = {0pt},
+  baseline-skip/.new toggle =true,  
+  % 
+  height/.new length      = -1sp,
+  width/.new length       = -1sp,
+  outer-height/.new length= -1sp,
+  outer-width/.new length = -1sp,
+  insert-before/.new value= {},
+  insert-after/.new value = {},
+  breakat/.new value      = {},
+  breakable/.new toggle   = false,
+  skip/.new style         = {skip-top=#1,skip-right=#1,skip-bottom=#1,skip-left=#1},
+  skip-top/.new length,
+  skip-right/.new length,
+  skip-bottom/.new length,
+  skip-left/.new length,
+  skip-break-bottom/.new length,
+  skip-break-top/.new length,
+}
+
+\newcommand\longbox@adjustoptions{%
+  %\typeout{  standard longbox adjustoptions}%
+  \lb@debug{    current width=\the\dimexpr\option{/longbox/width}, outer=\the\dimexpr\option{/longbox/outer-width}, linewidth=\the\linewidth}%
+  \ontoggle{/longbox/debug}{\option@invoke{/longbox/verbose}{true}}%
+  % adjust height
+  \ifdim\option{/longbox/height}=-1sp\relax
+    \ifdim\option{/longbox/outer-height}=-1sp\else
+      \option@invoke{/longbox/height}%
+        {\option{/longbox/outer-height}-\option{/longbox/skip-top}-\option{/longbox/skip-bottom}}%
+    \fi
+  \fi
+  % set width 
+  \ifdim\option{/longbox/width}=-1sp\relax
+    \ifdim\option{/longbox/outer-width}=-1sp\relax
+      \option@invoke{/longbox/outer-width}{\linewidth}%
+    \fi
+    \dimen@=\dimexpr\option{/longbox/outer-width}-\option{/longbox/skip-left}-\option{/longbox/skip-right}\relax
+    \ifdim\dimen@<\z@\relax\dimen@=\z@\fi
+    \option@invoke{/longbox/width}{\dimen@}%
+  \fi  
+  % use a breakbox whenever we are in external vertical mode and not width or height restricted.
+  \iftoggle{/longbox/use-vbox}{}{%
+    \ifinner\toggletrue{/longbox/use-vbox}\else
+      \ifhmode\toggletrue{/longbox/use-vbox}\else
+        \ifdim\option{/longbox/height}>-1sp\toggletrue{/longbox/use-vbox}\else
+          \iftoggle{/longbox/breakable}{}{\toggletrue{/longbox/use-vbox}}%
+          \ifoptionblank{/longbox/breakat}{}{\toggletrue{/longbox/use-vbox}}%
+    \fi\fi\fi
+  }%
+}
+
+\newenvironment{longbox}[1][]{%
+  %\bb@savekeys{bfbox}{fboxrule=\the\fboxrule,fboxsep=\the\fboxsep,bgcolor={\bb@bgcolor},rulecolor={\bb@rulecolor},stickout={\bb@stickout}}%
+  \begin{longbox@env}{/longbox}{#1}%
+}{\end{longbox@env}}
+
+\newcommand\lbox[1][]{%
+  %\bb@savekeys{bfbox}{fboxrule=\the\fboxrule,fboxsep=\the\fboxsep,bgcolor={\bb@bgcolor},rulecolor={\bb@rulecolor},stickout={\bb@stickout}}%
+  \longbox@cmd{/longbox}{#1}%
+}
+
+\newcommand*\lb@render@fbox{%
+  %\typeout{render defaultbox: bgcolor=\bb@bgcolor, needtop=\iftoggle{/longbox/@part-needtop}{true}{false}}%
+  \@ovdx=\dimexpr\option{/longbox/@part-width} - 2\fboxrule\relax%
+  \@ovdy=\dimexpr\option{/longbox/@part-height}\relax%
+  \iftoggle{/longbox/@part-needbottom}%
+    {\@tempdima=0pt\relax\advance\@ovdy by -\fboxrule}%
+    {\@tempdima=\dimexpr\fboxrule + \bb@stickout\relax
+     \advance\bb@height by \@tempdima
+     \advance\@ovdy by \@tempdima}%
+  \iftoggle{/longbox/@part-needtop}%
+    {\@tempdimb=0pt\relax\advance\@ovdy by -\fboxrule}%
+    {\@tempdimb=\dimexpr\bb@stickout\relax
+     \advance\bb@height by \@tempdimb
+     \advance\@ovdy by \@tempdimb}%
+  %
+  \hbox{\lower \@tempdima\vbox{%
+    \vskip -\@tempdimb
+    \ontoggle{/longbox/@part-needtop}{\lb@debug{toprule wd=\expandafter\the\option{/longbox/width}}\hrule width \option{/longbox/@part-width} height \fboxrule}%
+    \hbox{%
+      \vrule width \fboxrule height \@ovdy%
+      \ifx\bb@bgcolor\@empty
+        \vrule width \@ovdx height \z@\relax
+      \else
+        {\color{\bb@bgcolor}\vrule width \@ovdx height \@ovdy}%
+      \fi
+      \vrule width \fboxrule height \@ovdy%
+    }%
+    \ontoggle{/longbox/@part-needbottom}{\hrule width \option{/longbox/@part-width} height \fboxrule}%
+  }}%
+}

@@ -1,0 +1,36 @@
+Logo        : False
+Embed       : False
+
+Must {
+  before:"<a class='req-label' href='#&id;'>✅</a> **DO** ";
+  toc: requirements;
+  toc-line: "<tr><td>&id;</td><td>blah</td></tr>";
+}
+
+Should {
+  before:"<a class='req-label' href='#&id;'>☑️</a> **YOU SHOULD** ";
+}
+
+ShouldNot {
+  before:"<a class='req-label' href='#&id;'>⚠️</a> **YOU SHOULD NOT** ";
+}
+
+May {
+  before:"<a class='req-label' href='#&id;'>☑️</a> **YOU MAY** ";
+}
+
+MustNot {
+  before:"<a class='req-label' href='#&id;'>⛔️</a> **DO NOT** ";
+}
+
+Note {
+  before:"<a class='req-label' href='#&id;'>⚠️</a> **NOTE** ";
+}
+
+Todo {
+  before:"<a class='req-label' href='#&id;'>✏️</a>";
+}
+
+Example {
+  before:"<a class='req-label' href='#&id;'>Ex</a>";
+}
