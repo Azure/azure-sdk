@@ -269,7 +269,7 @@
 
 * DON'T use the [yield from coroutine/@asyncio.coroutine](https://docs.python.org/3.4/library/asyncio-task.html) syntax in order to support Python 3.4.
 
-* DO provide a separate package for async support if the async version requires additional dependencies.
+* DO consider shipping a separate package for async support if the async version requires additional dependencies.
 
 * DO use the same namespace as the synchronous version of the package with .aio appended.
 
