@@ -4,9 +4,9 @@ This folder contains design guidelines for all Azure client libraries. The [comm
 
 | Document | Description  |
 |---|---|
-| [Common](common/DesignGuidelines.md) | Common design guidelines that, unless specifically overridden in the language specific guidelines apply for all languages |
+| [Common](common/DesignGuidelines.md) | Common design guidelines that, unless specifically overridden in the language specific guidelines, apply for all languages |
 | [.NET specific design guidelines](dotnet/DesignGuidelines.md) | |
 | [Java specific design guidelines](java/DesignGuidelines.md) | |
-| TODO: Python specific guidelines | |
-| TODO: Typescript specific guidelines ||
+| [Python specific design guidelines](python/DesignGuidelines.md) | |
+| [TypeScript specific design guidelines](typescript/DesignGuidelines.md) | |
 
