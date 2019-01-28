@@ -193,11 +193,11 @@
 
 ## Coding - namespaces
 
-* DO add your code to the 'azure' namespace
+* DO add your code to the 'azure' namespace.
 
-* DO add async code to the 'azure.aio' namespace
+* DO add use the .aio suffix to the namespace for  clients.
 
-[See packaging guidelines and async programming guidelnies for more related guidance]
+[See packaging guidelines for more related guidance]
 
 ## Coding - exceptions
 
@@ -263,21 +263,29 @@
 
 ## Async support
 
-* DO require  Python 3.5.3 for async support.
+* DO consider providing both sync and async versions of your APIs
 
-* DO use the async/await keywords.
+* DO use the async/await keywords (requires Python 3.5+)
 
 * DON'T use the [yield from coroutine/@asyncio.coroutine](https://docs.python.org/3.4/library/asyncio-task.html) syntax in order to support Python 3.4.
 
-* DON'T prevent async frameworks other than asyncio (i.e. Trio) to be used
+* DO provide a separate package for async support if the async version requires additional dependencies.
 
-* DO provide a separate package for async support
+* DO use the same namespace as the synchronous version of the package with .aio appended.
 
-* DO use the name azure-aio-\<service name> for the async version of the package
+* DO use the same name of the package as the synchronous version of the package with -aio appended.
 
-* DO use the namespace azure.aio.\<service_name> for your asynchronous package
+* DO use the same client name for sync and async packages
 
-[More detailed instructions can be found in async_design_guidelines.md]
+    Example:
+    |Sync/async|Namespace|Package name|Client name|
+    |-|-|-|-|
+    |Sync|azure.sampleservice|azure-sampleservice|azure.sampleservice.SampleServiceClient
+    |Async|azure.sampleservice.aio|azure-sampleservice-aio|azure.sampleservice.aio.SampleServiceClient
+
+* DO use aiohttp as the HTTP stack for async operations
+
+* DO consider supporting async frameworks other than asyncio (i.e. Trio)
 
 ## Testing
 
