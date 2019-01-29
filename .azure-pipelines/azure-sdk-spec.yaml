@@ -12,7 +12,7 @@ jobs:
 
   steps:
   - task: NodeTool@0
-    displayName: 'Build and Package'
+    displayName: 'Build the packages'
     inputs:
       versionSpec: '$(node.version)'
 
@@ -27,7 +27,3 @@ jobs:
       command: 'custom'
       customCommand: 'npm run build'
     displayName: 'npm run build'
-
-    
-
- 
