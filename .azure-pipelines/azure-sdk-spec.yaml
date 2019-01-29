@@ -18,12 +18,12 @@ jobs:
 
   - task: Npm@1
     inputs:
-      command: 'custom'
-      customCommand: 'npm install'
+      verbose: false
     displayName: 'npm install'
 
   - task: Npm@1
     inputs:
       command: 'custom'
-      customCommand: 'npm run build'
+      customCommand: 'run build'
     displayName: 'npm run build'
+
