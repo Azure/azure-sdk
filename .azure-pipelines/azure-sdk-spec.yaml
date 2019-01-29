@@ -2,7 +2,7 @@ trigger:
 - master
 
 variables:
-  node.version: '11.x'
+  node.version: '10.x'
 
 jobs:
 - job: 'Build'
