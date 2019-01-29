@@ -1,0 +1,33 @@
+trigger:
+- master
+
+variables:
+  node.version: '11.x'
+
+jobs:
+- job: 'Build'
+
+  pool:
+    vmImage: 'vs2017-win2016'
+
+  steps:
+  - task: NodeTool@0
+    displayName: 'Build and Package'
+    inputs:
+      versionSpec: '$(node.version)'
+
+  - task: Npm@1
+    inputs:
+      command: 'custom'
+      customCommand: 'npm install'
+    displayName: 'npm install'
+
+  - task: Npm@1
+    inputs:
+      command: 'custom'
+      customCommand: 'npm run build'
+    displayName: 'npm run build'
+
+    
+
+ 
