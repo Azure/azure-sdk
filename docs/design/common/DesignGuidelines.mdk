@@ -19,7 +19,7 @@ Affiliation : ADP / .NET
 Email       : kcwalina@microsoft.com
 Logo        : False
 Embed       : False
-css         : ../custom.css
+css         : custom.css
 
 [INCLUDE=../components.mdk]
 
@@ -40,7 +40,7 @@ the language-specific guideline should be followed.
 exist to support a single Azure service. Each Azure SDK component is published separately to the appropriate language-specific locations. These releases are performed exclusively by the Azure SDK 
 engineering systems team. Developers consume and use each component separately as necessary to solve their use case.
 
-- **Client Library**. This refers to a library that cusotmer-developers use to ease working with a specific Azure service. There is one client library per service and per programming language. 
+- **Client Library**. This refers to a library that customer-developers use to ease working with a specific Azure service. There is one client library per service and per programming language. 
 
 - **Package**. This refers to a client library after it has been packaged for distribution for customer-developers to consume. Examples are:
    - A Nuget package for a .NET client library
