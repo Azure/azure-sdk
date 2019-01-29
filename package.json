@@ -1,0 +1,28 @@
+{
+  "name": "azure-sdk",
+  "version": "1.0.0",
+  "description": "The Azure SDK delivers a platform for developers to leverage the wide variety of Azure services in their language of choice. The source for the libraries exists for the most part in repositories for each language. This repository is meant to be a jumping off point into those language specific repositories. Issues related to a specific language should be opened in the corresponding repository but cross cutting issues can be opened in this repository.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "madoko ./docs/design/common/DesignGuidelines.mdk"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Azure/azure-sdk.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Azure/azure-sdk/issues"
+  },
+  "homepage": "https://github.com/Azure/azure-sdk#readme",
+  "devDependencies": {
+    "@types/node": "^10.12.18",
+    "madoko": "^1.1.4"
+  }
+}
