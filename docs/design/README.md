@@ -1,8 +1,8 @@
 ## Azure SDK design guidelines documents
 
-This folder contains design guidelines for all Azure client libraries. Specifications are written using [Madoko](http://madoko.org), a Markdown super-set. These specifications are compiled into a single-page [Azure SDK Design Guidelines](https://github.com/Azure/azure-sdk/tree/master/docs/design) document, and this is updated whenever these files change.
+This folder contains design guidelines for all Azure client libraries. Specifications are written using [Madoko](http://madoko.org), a Markdown super-set. These specifications are compiled into a single-page [Azure SDK Design Guidelines](https://azuresdkspecs.z5.web.core.windows.net/DesignGuidelines.html) document, and this is updated whenever these files change.
 
-It is recommended that all contributors familiarize themselves with the [language-independent guidelines](https://github.com/Azure/azure-sdk/tree/master/docs/design) first, before reading the specification for their language of choice. The language-independent guidelines may be overridden on a per-language basis by more specific guidance for a specific language. 
+It is recommended that all contributors familiarize themselves with the [language-independent guidelines](https://azuresdkspecs.z5.web.core.windows.net/DesignGuidelines.html) first, before reading the specification for their language of choice. The language-independent guidelines may be overridden on a per-language basis by more specific guidance for a specific language. 
 
 The language-specific guidelines are available from the following links:
 
