@@ -1,0 +1,556 @@
+## Scopes {#ts-scope; @h1-h2: decimal; }
+
+~ Must {#ts-azure-scope}
+follow these conventions if you publish under the @azure scope in npm.
+~
+
+~ Should {#ts-azure-scope-optional}
+follow these guidelines even if you're not publishing an Azure library under the @azure scope.
+~
+
+## Terminology {#ts-terminology}
+
+- **AMD Modules**: A module format often used in the browser, e.g. as implemented by RequireJS.
+- **CommonJS** / **CJS**: The module format of Node.js (require, module.exports).
+- **ESM** / **ES Module**: ECMAScript Module, the standard import/export syntax defined by ECMAScript 6.
+- **GA** / **Generally Available**: The stage when a service or product has been completed and is available for use.
+- **Library**: refers specifically to your package's API and related functionality (as opposed to the package's physical contents).
+- **Package**: refers to the NPM package itself, and often its documentation and github presence as well. This is sometimes (controversially) referred to as an SDK.
+- **UMD**: Universal Module Definition, a superset of both CommonJS and AMD modules.
+
+## Service {#ts-service}
+
+~ Must {#ts-service-requirements}
+meet the following service criteria to advance from preview to GA:
+
+1. Stable (not preview) npm package must be available on npmjs.org
+1. Underlying service must be in GA
+1. Protocol head must be stable
+1. If the protocol is REST API, then a stable Swagger (not preview) must be available
+1. Samples for core end-to-end scenarios must be available
+1. Robust test coverage for core end-to-end scenarios must be available – unit testing, mock testing for every pull requests and daily live testing against Azure
+1. must have gone through 3-4 months or 2-3 cycles of testing with developers, received feedback and addressed them
+~
+
+~ Todo
+I think this section could be deleted.
+~
+## NPM Package {#ts-npm-package}
+
+The following sections specify versioning, the contents of package.json and the various source distributions included in the NPM package.
+
+~ Must {#ts-npm-package-ownership}
+have NPM package ownership set to either the Azure or Microsoft orgs. (TODO: how to)
+~
+
+### Functionality {#ts-functionality}
+
+~ Must {#ts-feature-support}
+support 100% of the features supported by the backing services. Gaps in functionality cause confusion and frustration among developers.
+~
+
+### Supported Node Versions {#ts-supported-node-versions}
+
+~ Must {#ts-node-support}
+support [all LTS versions of Node](https://github.com/nodejs/Release#release-schedule) as well as newer versions up to and including the latest release. At time of writing, this means Node 6.x through Node 11.x.
+~
+
+### Versioning {#ts-versioning}
+
+~ Must {#ts-versioning-semver}
+version with [semver](https://semver.org/). Deprecated features and flags must offer an alternate stable or beta path for developers.
+~
+
+~ MustNot {#ts-versioning-no-ga-prerelease}
+have a pre-release version or any additional build metadata.
+~
+
+~ Must {#ts-versioning-preview; }
+have a pre-release version of the format `1.0.0-Preview-XX` where XX is an integer. Pre-release package versions should not have additional build metadata.
+~
+
+~ MustNot {#ts-versioning-no-version-0}
+use a major version of 0, even for preview packages.
+~
+
+For some types of libraries and applications, semantic versioning is more of a lofty ideal than a practical specification. Also, [one person's bug might be another person's key feature](https://xkcd.com/1172/). Nonetheless, package authors are required to do the best they can to comply with semver in a way that is useful for their consumers.
+
+### File Layout {#ts-package-file-layout}
+
+The following is the canonical file structure of your npm package:
+
+~ Figure {#ts-figure-package-layout; caption: "Canonical file structure of an NPM package"}
+
+
+```
+azure-library
+├─ README.md
+├─ LICENSE.md
+├─ CONTRIBUTING.md
+├─ dist
+|  ├─ index.js
+|  └─ ... *.js
+|
+├─ dist-esm
+|  ├─ index.js
+|  ├─ ... *.js
+|  └─ index.d.ts
+|
+├─ src
+|  ├─ index.ts
+|  └─ ... *.ts
+|
+├─ test
+|  └─ ... *.ts
+|
+├─ package.json
+├─ package-lock.json
+└─ tsconfig.json
+```
+~
+
+At a high level: original source goes in `./src`, main entrypoint goes in `./dist`, and additional source distributions go under `./dist-xxx`.
+
+~ Must {#ts-file-layout-conventions}
+follow these conventions where applicable.
+~
+
+~ May {#ts-can-have-other-files}
+include other files.
+~
+
+### Package.json{#ts-package-json}
+
+The following sections describe the package.json file that must be included with every NPM package. A compliant package.json file looks like Figure [#ts-figure-package-json]:
+
+~ Figure {#ts-figure-package-json; caption: "An example package.json" }
+```javascript
+{
+  "name": "@azure/package",
+  "description": "A pithy but accurate description",
+  "keywords": [
+    "azure",
+    "cloud",
+    "..."
+  ],
+  "version": "1.0.0",
+  "author": "Microsoft Corporation",
+  "main": "./dist/index.js",
+  "module": "./dist-esm/index.js",
+  "types": "./dist-esm/index.d.ts",
+  "engine": {
+    "node": ">=6.0.0"
+  },
+  "scripts": {
+    "build": "...",
+    "test": "...",
+    "prepack": "npm install && npm run build"
+  },
+  "devDependencies": { /* ... */ },,
+  "dependencies": { /* ... */ },
+  "repository": "github:Azure/azure-cosmos-js",
+  "license": "MIT",
+  "sideEffects": false
+}
+```
+~
+
+#### name
+
+~ Must {#ts-package-json-name}
+have a `name` field of `@azure/<name>`, where `<name>` is the name of the service.
+~
+
+#### repository
+
+~ Must {#ts-package-json-repo}
+point to your GitHub repository. Use of the `github:user/repo` short-hand is recommended.
+~
+
+#### description
+
+~ Must {#ts-package-json-description}
+write a useful but terse description of your library.
+~
+
+The description is used and shown when searching for packages on npmjs.org, so it's important to be maximally descriptive white being as terse as possible.
+
+#### keywords
+
+~ Must {#ts-package-json-keywords}
+include at least the entries "Azure" and "cloud". It must also contain at least the name of your service. It should contain other entries relevant to your SDK.
+~
+
+#### author
+
+~ Must {#ts-package-json-author}
+use the string `"Microsoft Corporation"`.
+~
+
+#### sideEffects
+
+~ Must {#ts-package-json-sideeffects}
+set to `false` if there are no side effects.
+~
+
+The sideEffects field is used by Webpack and potentially other tools as an indicator of how aggressively the package can be optimized.
+
+Side effects refer to modifications to the runtime environment of the program as a result of including a module. For example, including a polyfill library is a sideEffect as it mutates the global environment and later code depends on its presence. Side effects make it harder for tools to optimize your build and should be avoided.
+
+#### main
+
+Main is the entry point of your application for Node users.
+
+~ Must {#ts-package-json-main-is-cjs}
+point to either a CommonJS or a UMD module.
+~
+
+~ MustNot {#ts-package-json-main-is-not-es6}
+include any ES6+ syntax per clause [#ts-source-distros].
+~
+
+See also clause [#ts-source-distros-cjs].
+
+#### module
+
+~ Must
+set to the ES6 module entrypoint of your application.
+~
+
+Tools such as Webpack use this key to discover the static module graph of your application for optimization purposes. See [#ts-source-distros-esm] for more information.
+
+#### engine
+
+~ Must {#ts-package-json-engine-is-present}
+set to the versions of Node your library supports.
+~
+
+See [#ts-supported-node-versions] for Node support requirements.
+
+#### scripts {#ts-package-json-scripts}
+
+~ Must {#ts-package-json-required-scripts}
+have the following scripts:
+
+- `"build"`: generates the main export of the application.
+- `"test"`: runs your package's functional test suite.
+~
+
+~ Must {#ts-package-json-required-scripts-for-development}
+Any tasks required for developing your package must have corresponding npm scripts. Packages should not depend on shell scripts to build or test their application as shell scripts often need to be platform-specific.
+~
+
+#### types
+
+~ Must {#ts-package-json-types}
+point to the TypeScript type declarations for your library's public surface area, usually `"./dist-esm/index.d.ts"`.
+~
+
+#### license
+
+~ Must {#ts-package-json-license}
+set to "MIT".
+~
+
+### Source Distributions{#ts-source-distros}
+
+Modern NPM packages often ship multiple source distributions targeting different usage scenarios. Packages must include the original source, a CJS or UMD build, and an ESM build (see below). Packages may include other source distributions as necessary for their particular usage scenarios.
+
+The main downside of including additional source distributions is the increased package size (larger packages mean CIs take longer). However, performance, compatibility, and developer experience goals are often more important.
+
+#### Original Source {#ts-source-distros-original}
+
+Including the original source in your package helps developers debug in and around your package. Go-to-definition can be a quick way to confirm how to use a function (especially if its implemented in TypeScript), and seeing useful names and readable source code in call stacks can help with debugging.
+
+Including the original source also means we can aggressively optimize the build artefacts since users will not need to puzzle through the mangled code.
+
+#### CommonJS/UMD {#ts-source-distros-cjs}
+
+This is the distribution that all Node and Browser users will consume.
+
+If your library supports the Web platform, this distribution must be UMD modules. If your library is not intended for the browser, it is recommended to be UMD modules because the overhead over CJS is slight and it may make an eventual move to the Web platform easier later.
+
+The CommonJS/UMD build's library name must be under the namespace `Microsoft.Azure`. For example, a hypothetical library Foo should configure its UMD global name as `Microsoft.Azure.Foo`. For Webpack, this entails configuring `output.library` to `['Microsoft', 'Azure', 'Foo']`. For Rollup, set `name` to `"Microsoft.Azure.Foo"`. This guideline ensures all Azure packages are accessed in a consistent manner when script-included into a browser.
+
+This distribution must not contain any ES6 syntax. While ES6 is supported in most browsers and all supported versions of Node, many tools in the ecosystem do not support ES6 syntax and shipping ES6 syntax in your package will cause some consumers significant friction. Older versions of Uglify are the primary culprits, and they have dependencies across the ecosystem including for example the currently latest stable version of create-react-app.
+
+The CommonJS/UMD build must be flattened. Rollup.js is the ecosystem best practice for producing a flattened CommonJS module.
+
+TODO: include a roll-up config.
+
+Flattening is the process of packing multiple modules into a single file. This process results in a significant reduction in load times for typical libraries, and can make a measurable impact on cold start for services like Azure Functions and App Service. While performance-sensitive developers will likely package their applications themselves, faster start-up of un-packaged applications is still important especially during development.
+
+#### ESM {#ts-source-distros-esm}
+
+This distribution is mostly consumed by tools such as Webpack that need to understand your library's module graph in order to do optimizations like tree-shaking. Other than using es6 modules, this distribution should be "transpiled" to support the versions of Node and the browser you are targeting. This ensures users won't have to re-compile your library before it is usable in their host of choice.
+
+The esm build should not be flattened.
+
+Versions of Webpack prior to 4.0 would produce better optimized bundles if libraries' ESM builds were flattened. However, because flattening doesn't play so well with tree-shaking (the idea is to flatten modules together that would tree-shake out together), and because Webpack 4 can theoretically do a better job with unflattened ESM, it is not recommend to flatten the ESM module build.
+
+### README<span></span>.md {#ts-readme.md}
+ 
+Your package must include a README.md file that describes at a minimum:
+
+- The service &amp; library.
+- How to aquire the library, even if as simple as `npm install @azure/<library>`
+- Pre-requisites for running the library, including Azure account requirements
+- A "hello world" sample - something users can copy/paste to get started using the service
+- Links to sample code on https://docs.microsoft.com/en-us/javascript/azure/?view=azure-node-latest
+- Links to the documentation on docs.microsoft.com
+- Link to [CONTRIBUTING.md][#ts-contributing.md]
+
+Additionally, your project must include a reference to the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct) and a link to the CONTRIBUTING.md file.
+
+### CONTRIBUTING<span></span>.md {#ts-contributing.md}
+
+This file must be present in your package and must describe the process by which contributors can make contributions to the project. Any relevant processes and procedures must be documented, including but not limited to:
+
+- How to contribute code, and any relevant coding conventions and policies.
+- How to build and run tests
+- How to leverage CI runs and other CI-related information
+
+An example CONTRIBUTING.md is provided by the [Microsoft Open Source Guidelines](https://docs.opensource.microsoft.com/releasing/overview.html):
+
+```markdown
+## Contributing
+
+This project welcomes contributions and suggestions. Most contributions require you to
+agree to a Contributor License Agreement (CLA) declaring that you have the right to,
+and actually do, grant us the rights to use your contribution. For details, visit
+https://cla.microsoft.com.
+
+When you submit a pull request, a CLA-bot will automatically determine whether you need
+to provide a CLA and decorate the PR appropriately (e.g., label, comment). Simply follow the
+instructions provided by the bot. You will only need to do this once across all repositories using our CLA.
+
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
+For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/)
+or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+```
+
+### LICENSE<span></span>.md {#ts-license.md}
+
+This file must be present and must contain your license text. See section 6.1 for more details.
+
+### Modules {#ts-modules}
+
+Your package's surface area must be ES6 modules. Additionally, your package must not have a default export and may only have named exports.
+
+Azure packages authored using TypeScript export standard ES6 modules. As Node does not yet support ES6 modules natively, authoring ES6 modules for consumption in Node has a bit of friction. Most notable, a commonJS package can only import a single value. The difference between this model and ES6 modules where you can export many different things is the primary source of friction.
+
+Packages which have compatibility reasons to continue supporting default exports may choose to do so. These packages must export only a default export using TypeScript's `export =` syntax. Packages may not choose to go this route for reasons other than backwards compatibility with previous versions.
+
+## License, Copyright &amp; IP {#ts-ip}
+
+Packages must comply with the [Microsoft Open Source guidelines](https://docs.opensource.microsoft.com/using/overview.html). In some cases, the ANPS may be more explicit, in which cases ANPS requirements are normative. In case of conflicts, however, the Microsoft Open Source guidelines are normative.
+
+In general this section does not attempt to re-state everything in the Microsoft Open Source guidelines. An effort has been made to extract the most relevant information here, but package authors must read the Microsoft Open Source guidelines to ensure their packages are compliant.
+
+### License {#ts-license}
+
+Packages must be licensed with an [OSI-approved](https://opensource.org/licenses) license. MIT seems to be the most popular across most Azure packages, and thus is recommended. The Apache license is recommended if its patent licensing is important for your consumers, though this is unlikely.
+
+The chosen license must be present as a comment at the top of every source file. An example copyright header follows:
+
+```
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License.
+```
+
+### CLA {#ts-cla}
+
+Packages must use the [Microsoft CLA](https://cla.opensource.microsoft.com/). Microsoft makes significant contributions to [cla-assistant](https://cla-assistant.io/) and as a result is the easiest way to ensure the CLA is signed by all contributors.
+
+## Dependencies {#ts-dependencies}
+
+Packages should avoid taking dependencies on tiny libraries as the cost of many small libraries adds up over time. Packages are recommended to include dependencies on larger libraries where necessary. Dependencies are subject to
+
+Packages should not depend directly on polyfills or other libraries that modify global scope. If developers using older runtimes need to polyfill some capability, the package's install and usage instructions should indicate this dependency.
+
+## Coding Conventions
+
+Library APIs must be idiomatic and mst follow best practices.
+
+### Modern & Idiomatic JavaScript
+
+Library APIs should make use of modern syntax and leverage TypeScript or other "transpilers" do compile the modern syntax down to code that can run across supported runtimes. Modern syntax like arrow functions, rest parameters, spread operator, default parameters, classes, and more make JavaScript a better language to develop in and maintain.
+
+Library APIs must provide Promise-based asynchrony. Promises are a part of JavaScript as of ES6, and ES2016 and later editions added async functions and other features that make working with promises easier. Node-style callbacks must not be the only async mechanism provided by your library. Third party promise libraries such as Q, When, or RSVP must not be included in your package.
+
+Library APIs should make use of async functions. Async functions drastically improve the readability of async code and thus improves library quality and makes maintenance and contributions easier.
+
+Libraries must not re-invent protocols for synchronous or asynchronous iteration. Both of these protocols are built into the language (Iterators as of ES6, Async Iterators as of ES2018). Libraries should use generators to create iterators. Libraries should use async generators to create async iterators.
+
+Other "streaming" interfaces may be used where appropriate as long as they are idiomatic. Node streams may be used in node, but should not be polyfilled in the browser. Observables ala rx.js may be used if async generators aren't appropriate for your use case.
+
+### TypeScript
+
+Libraries should be developed in TypeScript. Developing in TypeScript ensures that your consumers have the best possible tooling experience regardless of whether they program in JavaScript or TypeScript. Whether your consumers are using JavaScript or TypeScript, they will have a richer tooling experience when your SDK is implemented in TypeScript.
+
+Whether or not you choose to use TypeScript, your package must include type declarations per 5.4.11.
+
+#### tsconfig.json
+
+This section covers the contents of your tsconfig.json. After implementing this section, your tsconfig.json should look similar to the following example:
+
+```javascript
+{
+  "compilerOptions": {
+    "declaration": true,
+    "module": "es6",
+    "moduleResolution": "node",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "outDir": "./dist-esm",
+    "target": "es6",
+    "sourceMap": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "importHelpers": true
+  },
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules"]
+}
+```
+
+##### exclude
+
+Exclude must include at least "node_modules".
+
+This ensures TypeScript isn't needlessly type checking your dependencies.
+
+##### lib
+
+Lib should not be set.  Built in typescript libraries (e.g. esnext.asynciterable) should be included via reference directives. See https://github.com/Microsoft/TypeScript/issues/27416.
+
+##### compilerOptions.strict
+
+The strict flag must be set to true.
+
+The strict flag serves two purposes: it’s a best practice for developers as it provides the best TypeScript experience, and also, strict ensures that your type definitions are maximally pedantic so strict TypeScript consumers get their best experience as well.
+
+##### compilerOptions.esModuleInterop
+
+This field must be set to true.
+
+##### compilerOptions.allowSyntheticDefaultImports
+
+This field should be set to true.
+
+##### compilerOptions.target
+
+This field must be present but can be set to any target so long as the final source distributions are compatible with the runtimes your library targets. See 5.5 Source Distributions for more.
+
+##### compilerOptions.isolatedModules
+
+This field should be set to true.
+
+Isolated modules prevent usage of features that prevent compiling TypeScript code on a file-by-file basis. This ensures your code remains maximally interoperable with compilers in the ecosystem (i.e. the Babel plugin).
+
+##### compilerOptions.forceConsistentCasingInFileNames
+
+This field should be set to true.
+
+forceConsistentCasingInFileNames forces TypeScript to treat files as case sensitive. This ensures you don't get surprised by build failures when moving between platforms.
+
+##### compilerOptions.module
+
+This field must be set to "es6".
+
+Bundlers such as Rollup or Webpack should be used to produce the CommonJS/UMD build. The TypeScript compiler can also produce both source distributions using separate tsconfig files. When using this configuration, use the tsconfig.json's extends field to override module to "commonjs". This configuration is not recommended for large libraries. It is more resource intensive due to type checking your library twice.
+
+##### compilerOptions.moduleResolution
+
+This field must be set to "node" if your library targets Node. Otherwise, it should be absent.
+
+##### compilerOptions.declaration
+
+The `--declaration` option tells TypeScript to emit a `d.ts` file that contains the public surface area of your library. TypeScript and editors use this file to provide intellisense and type checking capabilities. Ensure you reference this type declaration file from the `types` field of your package.json.
+
+##### compilerOptions.experimentalDecorators
+
+This field must not be present.
+
+The experimentalDecorators flag adds support for "v1 decorators" to TypeScript. Unfortunately, the standards process has moved on to a somewhat incompatible second version that is not yet implemented by TypeScript. Taking a dependency on decorators now means signing up your users for potential breakage later. Until decorators become a standard feature, projects must not use decorators.
+
+##### compilerOptions.sourceMaps and compilerOptions.declarationMap
+
+Shipping source maps in your package ensures clients can easily debug into your library code. `--sourceMaps` maps your emitted JS source to the declaration file and `--declarationMap` maps the declaration file back to the TypeScript source that generated it. Be sure to include your original TypeScript sources in the package!
+
+##### compilerOptions.importHelpers
+
+This field must be set to true.
+
+Using external helpers keeps your package size down. Without this flag, TypeScript will add a helper block to each file that needs it. This results in duplication if multiple files are using the same language features. The file size savings using this option can be huge when using for example async functions in a number of different files.
+
+#### TypeScript Coding Guidelines
+
+TypeScript Namespaces should not be used. Namespaces either use the `namespace` keyword explicitly, or the `module` keyword with a module name, e.g. `module Microsoft.ApplicationInsights { ... }`. Use top-level imports/exports with ECMAScript modules instead. Namespaces are a non-standard feature that makes your TypeScript code less compatible with standard ECMAScript and creates significant friction with the rest of the ecosystem.
+
+Avoid using const enums. Const enums require global understanding of your program to compile properly. As a result, const enums can't be used with Babel 7 which otherwise supports TypeScript. Avoiding const enums will make sure your code can be compiled by any tool. Use regular enums instead.
+
+### Typedoc
+
+You must annotate your source code with Typedoc declarations.
+
+Typedoc comments give your users a pleasant tooling experience by pulling in your documentation in parameter help and in other tooling scenarios. [Typedoc tags](http://typedoc.org/guides/doccomments/) are very much inline with [jsdoc tags](http://usejsdoc.org/).
+
+There is a work in progress tool called [tsdoc](https://github.com/Microsoft/tsdoc/) that aims to be the standard way to document TypeScript code. ANPS will migrate to this new documentation format, but in the meantime, the Docs team is set up to ingest only Typedoc, and thus Typedoc is the way to go for now.
+
+## GitHub Repo
+
+Library code must be public and open source on GitHub. Library code must be either in the Azure GitHub organization or a module in the [Azure SDK for Node](https://github.com/Azure/azure-sdk-for-node) repo. If an independent repo is used then the repository name must be "azure-[service-name]-node" or "azure-[service-name]-js".
+
+Package authors are encouraged to develop in the open on GitHub. It is recommended to have your GitHub repo be set up and active at least a month prior to your initial release.
+
+Your package's GitHub repo is your primary touch point with the developer community so it's important to keep up with the activity there. Issues and pull requests on GitHub must have an authoritative comment within 1 week of filing.
+
+See the Microsoft Open Source Guidelines' [community section](https://docs.opensource.microsoft.com/releasing/foster-your-community.html) for more information on fostering a healthy open-source community.
+
+## Documentation
+
+Your package's documentation must consist of at least one quickstarts or tutorial in addition to samples, API documentation, and a reference overview. Some content, such as samples, must be included in-repo. Other content may be written externally for example on docs.microsoft.com. The following sections cover this content in more detail.
+
+### Quickstarts &amp; Tutorials
+
+Your package should have at least one [Quickstart](https://review.docs.microsoft.com/en-us/help/contribute/contribute-how-to-mvc-quickstart?branch=master) or [tutorial](https://review.docs.microsoft.com/en-us/help/contribute/contribute-how-to-mvc-tutorial?branch=master). This content must be discoverable from the Table of Contents of docs.microsoft.com for JavaScript or Node.js.
+
+TODO: clarify which (node, js, or both?)
+
+NPM install statements for the package should be versionless.
+
+### Code Samples
+
+Your package's documentation must link to "Code Samples" under the "Samples" section of the ToC that links to the [Azure Samples Gallery](https://azure.microsoft.com/en-us/resources/samples/) or to a curated page in your documentation set that lists the samples available for your service.
+
+Samples must use the latest coding conventions. It is recommended to make liberal use of modern JavaScript syntax like arrow functions and async functions as they remove boilerplate from your samples and let your library's API shine through better.
+
+TODO: Should code samples be all TypeScript? Or have at least one TypeScript sample?
+
+Sample repos provided by the service and docs team must link back to the service on docs.microsoft.com and the reference overview page for the library.
+
+Sample code should be maintained and must use the latest major release of the library. Sample code repos should be reviewed for freshness and at least one commit should be made to a sample repo every semester.
+
+Sample code snippets in quickstarts and tutorials should be easily grafted from the documentation into a users own application and not tied to variable declarations not covered in previous snippets in the content.
+
+Code snippets should be optimized for ease of reading and comprehension over code compactness and efficiency unless the article context demands otherwise.
+
+Samples must be runnable on macOS and Linux development environments and not tied to our developer toolchain.
+
+Sample code repos should have clear names, descriptions and README files per the [samples guidance](https://review.docs.microsoft.com/help/contribute/contribute-get-started-azure-samples?branch=master) so that they make sense if accessed outside the context of docs.microsoft.com or the [Azure samples portal](https://azure.microsoft.com/en-us/resources/samples).
+
+### API Documentation
+
+API documentation must be auto-generated from source code annotations (see 8.3 Typedoc).
+
+### Reference Overview
+
+You must have a JavaScript or Node.js [reference overview page](https://review.docs.microsoft.com/en-us/help/contribute/contribute-reference-overviews?branch=master) for the client library under the Reference node in your content's ToC with a specific JavaScript or Node.js entry in that ToC. This reference overview must live in either the JavaScript Azure SDK reference repo or in your own content set alongside the rest of your docs.
+
+The reference overview page must have a link to the quickstart and available samples for the JavaScript audience.
