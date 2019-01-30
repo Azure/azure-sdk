@@ -12,23 +12,23 @@ jobs:
 
   steps:
   - task: NodeTool@0
-    displayName: 'Build the packages'
+    displayName: 'Build the Packages'
     inputs:
       versionSpec: '$(node.version)'
 
   - task: Npm@1
     inputs:
       verbose: false
-    displayName: 'npm install'
+    displayName: 'Install Dependencies'
 
   - task: Npm@1
     inputs:
       command: 'custom'
       customCommand: 'run build -- --odir=artifactOutput'
-    displayName: 'npm run build -- --odir=artifactOutput'
+    displayName: 'Build Artifacts'
 
   - task: PublishPipelineArtifact@0
-    displayName: 'Publish Pipeline Artifact'
+    displayName: 'Publish Pipeline Artifacts'
     inputs:
       artifactName: 'artifacts-repo'
       targetPath: '$(build.repository.localpath)/artifactOutput'
