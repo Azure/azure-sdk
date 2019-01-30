@@ -2,7 +2,7 @@ trigger:
 - master
 
 variables:
-  node.version: '10.x'
+  node.version: '11.x'
 
 jobs:
 - job: 'Build'
@@ -24,6 +24,11 @@ jobs:
   - task: Npm@1
     inputs:
       command: 'custom'
-      customCommand: 'run build'
-    displayName: 'npm run build'
+      customCommand: 'run build -- --odir=artifactOutput'
+    displayName: 'npm run build -- --odir=artifactOutput'
 
+  - task: PublishPipelineArtifact@0
+    displayName: 'Publish Pipeline Artifact'
+    inputs:
+      artifactName: 'artifacts-repo'
+      targetPath: ' $(build.repository.localpath)/artifactOutput'
