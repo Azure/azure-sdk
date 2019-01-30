@@ -288,24 +288,29 @@ The esm build should not be flattened.
 
 Versions of Webpack prior to 4.0 would produce better optimized bundles if libraries' ESM builds were flattened. However, because flattening doesn't play so well with tree-shaking (the idea is to flatten modules together that would tree-shake out together), and because Webpack 4 can theoretically do a better job with unflattened ESM, it is not recommend to flatten the ESM module build.
 
-#### README<span></span>.md
-
+### README<span></span>.md {#ts-readme.md}
+ 
 Your package must include a README.md file that describes at a minimum:
 
-- The library
-- Pre-requisites
-- How to build
-- How to run tests
-- How to contribute code
-- The code of conduct
+- The service &amp; library.
+- How to aquire the library, even if as simple as `npm install @azure/<library>`
+- Pre-requisites for running the library, including Azure account requirements
+- A "hello world" sample - something users can copy/paste to get started using the service
 - Links to sample code on https://docs.microsoft.com/en-us/javascript/azure/?view=azure-node-latest
 - Links to the documentation on docs.microsoft.com
+- Link to [CONTRIBUTING.md][#ts-contributing.md]
 
 Additionally, your project must include a reference to the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct) and a link to the CONTRIBUTING.md file.
 
-#### CONTRIBUTING<span></span>.md
+### CONTRIBUTING<span></span>.md {#ts-contributing.md}
 
-This file must be present in your package and must describe the process by which contributors can make contributions to the project. Any relevant processes and procedures must be documented. An example CONTRIBUTING.md is provided by the [Microsoft Open Source Guidelines](https://docs.opensource.microsoft.com/releasing/overview.html):
+This file must be present in your package and must describe the process by which contributors can make contributions to the project. Any relevant processes and procedures must be documented, including but not limited to:
+
+- How to contribute code, and any relevant coding conventions and policies.
+- How to build and run tests
+- How to leverage CI runs and other CI-related information
+
+An example CONTRIBUTING.md is provided by the [Microsoft Open Source Guidelines](https://docs.opensource.microsoft.com/releasing/overview.html):
 
 ```markdown
 ## Contributing
@@ -324,11 +329,11 @@ For more information see the [Code of Conduct FAQ](https://opensource.microsoft.
 or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 ```
 
-#### LICENSE<span></span>.md
+### LICENSE<span></span>.md {#ts-license.md}
 
 This file must be present and must contain your license text. See section 6.1 for more details.
 
-#### Modules
+### Modules {#ts-modules}
 
 Your package's surface area must be ES6 modules. Additionally, your package must not have a default export and may only have named exports.
 
@@ -336,13 +341,13 @@ Azure packages authored using TypeScript export standard ES6 modules. As Node do
 
 Packages which have compatibility reasons to continue supporting default exports may choose to do so. These packages must export only a default export using TypeScript's `export =` syntax. Packages may not choose to go this route for reasons other than backwards compatibility with previous versions.
 
-## License, Copyright &amp; IP
+## License, Copyright &amp; IP {#ts-ip}
 
 Packages must comply with the [Microsoft Open Source guidelines](https://docs.opensource.microsoft.com/using/overview.html). In some cases, the ANPS may be more explicit, in which cases ANPS requirements are normative. In case of conflicts, however, the Microsoft Open Source guidelines are normative.
 
 In general this section does not attempt to re-state everything in the Microsoft Open Source guidelines. An effort has been made to extract the most relevant information here, but package authors must read the Microsoft Open Source guidelines to ensure their packages are compliant.
 
-### License
+### License {#ts-license}
 
 Packages must be licensed with an [OSI-approved](https://opensource.org/licenses) license. MIT seems to be the most popular across most Azure packages, and thus is recommended. The Apache license is recommended if its patent licensing is important for your consumers, though this is unlikely.
 
@@ -353,11 +358,11 @@ The chosen license must be present as a comment at the top of every source file.
 // Licensed under the MIT License.
 ```
 
-### CLA
+### CLA {#ts-cla}
 
 Packages must use the [Microsoft CLA](https://cla.opensource.microsoft.com/). Microsoft makes significant contributions to [cla-assistant](https://cla-assistant.io/) and as a result is the easiest way to ensure the CLA is signed by all contributors.
 
-## Dependencies
+## Dependencies {#ts-dependencies}
 
 Packages should avoid taking dependencies on tiny libraries as the cost of many small libraries adds up over time. Packages are recommended to include dependencies on larger libraries where necessary. Dependencies are subject to
 
