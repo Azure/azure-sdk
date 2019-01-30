@@ -31,4 +31,4 @@ jobs:
     displayName: 'Publish Pipeline Artifact'
     inputs:
       artifactName: 'artifacts-repo'
-      targetPath: ' $(build.repository.localpath)/artifactOutput'
+      targetPath: '$(build.repository.localpath)/artifactOutput'
