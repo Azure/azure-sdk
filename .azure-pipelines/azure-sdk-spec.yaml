@@ -1,0 +1,34 @@
+trigger:
+- master
+
+variables:
+  node.version: '11.x'
+
+jobs:
+- job: 'Build'
+
+  pool:
+    vmImage: 'vs2017-win2016'
+
+  steps:
+  - task: NodeTool@0
+    displayName: 'Build the Packages'
+    inputs:
+      versionSpec: '$(node.version)'
+
+  - task: Npm@1
+    inputs:
+      verbose: false
+    displayName: 'Install Dependencies'
+
+  - task: Npm@1
+    inputs:
+      command: 'custom'
+      customCommand: 'run build -- --odir=$(Build.ArtifactStagingDirectory)'
+    displayName: 'Build Artifacts'
+
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifacts'
+    inputs:
+      artifactName: 'artifacts-repo'
+      targetPath: '$(Build.ArtifactStagingDirectory)'
