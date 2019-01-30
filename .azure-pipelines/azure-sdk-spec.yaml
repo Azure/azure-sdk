@@ -27,7 +27,7 @@ jobs:
       customCommand: 'run build -- --odir=$(Build.ArtifactStagingDirectory)'
     displayName: 'Build Artifacts'
 
-  - task: PublishBuildArtifact@1
+  - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifacts'
     inputs:
       artifactName: 'artifacts-repo'
