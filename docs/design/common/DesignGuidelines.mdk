@@ -25,6 +25,7 @@ css         : custom.css
 
 [TITLE]
 
+# Azure SDK Design Guidelines { -;  toc-line: '' }
 
 This document describes architectural and API design guidelines for Azure dataplane client libraries. These guidelines apply to all programming languages.
 There are also language-specific guidelines for C#, Java, Python, and JavaScript. If any language-specific guideline conflicts with anything in this guideline,
@@ -428,4 +429,7 @@ allow any customer configuration or customization via a shared resource like a f
 
 [INCLUDE=../python/DesignGuidelines.mdk]
 
+
 # JavaScript Specific Guidelines
+=======
+[INCLUDE=../typescript/DesignGuidelines.mdk]
