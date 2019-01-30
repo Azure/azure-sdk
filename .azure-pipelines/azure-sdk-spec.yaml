@@ -24,11 +24,11 @@ jobs:
   - task: Npm@1
     inputs:
       command: 'custom'
-      customCommand: 'run build -- --odir=artifactOutput'
+      customCommand: 'run build -- --odir=$(Build.ArtifactStagingDirectory)'
     displayName: 'Build Artifacts'
 
-  - task: PublishPipelineArtifact@0
-    displayName: 'Publish Pipeline Artifacts'
+  - task: PublishBuildArtifact@1
+    displayName: 'Publish Artifacts'
     inputs:
       artifactName: 'artifacts-repo'
-      targetPath: '$(build.repository.localpath)/artifactOutput'
+      targetPath: '$(Build.ArtifactStagingDirectory)'
