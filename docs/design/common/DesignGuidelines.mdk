@@ -18,7 +18,7 @@ Author      : Krzysztof Cwalina
 Affiliation : Azure SDK Team / .NET
 Email       : kcwalina@microsoft.com
 Author      : Peter Marcu
-Affiliation : Azure SDK Team / Leadership
+Affiliation : Azure SDK Team / Mgmt
 Email       : peter.marcu@microsoft.com
 Logo        : False
 Embed       : False
@@ -55,7 +55,7 @@ engineering systems team. Costomers/Developers consume and use each component se
 # Pre-requisites
 
 Releasing an SDK component that provides a more convenient means of connecting to a service requires that the service itself be in a state where it has stabilized. 
-An SDK components might be built and availble in in a preview form whilst a service stabilizes, but should never be distributed as a GA release until the service and the client library are both stable.
+An SDK components might be built and available in a preview form whilst a service stabilizes, but should never be distributed as a GA release until the service and the client library are both stable.
 
 ~ MustNot {#stable-service}
 make a GA release of a SDK component until the underlying service is also in GA, with a stable protocol. 
