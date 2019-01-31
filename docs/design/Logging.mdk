@@ -1,0 +1,51 @@
+## Logging {#general-logging}
+
+~ Must {#general-logging-pluggable}
+support pluggable loggers.
+~
+
+~ Must {#general-logging-levels}
+emit the following log levels: Verbose (i.e. details), Informational (things happened), Warning (might be a problem or not), and Error.
+~
+
+~ MustNot {#general-logging-no-sensitive-info}
+send sensitive information to the logs, e.g. remove account keys when logging headers.
+~
+
+~ Must {#general-logging-warn-if-slow-request}
+log a Warning message, if a request takes longer than some specified threshold. The default threshold is 3 seconds.
+~
+
+~ Must {#general-logging-requests-in-info}
+log request line, response line, and headers, as Informational message.
+~
+
+~ Must {#general-logging-error-for-bad-status}
+log an Error message, if a response comes back with a status codes between 400-599.
+~
+
+Some services use status codes in this range in normal course of operation, e.g. implement an "exists" check by returning 404 (not found). In such situations, the particular service might opt out from logging such status code as error.
+
+~ Must {#general-logging-warning-if-retry}
+log a Warning message, if a service call needs to be retried.
+~
+
+~ Must {#general-logging-info-if-cancelled}
+log an Informational message, if a service call is cancelled.
+~
+
+~ Must {#general-logging-error-if-exceptions}
+log exceptions thrown as an Error message. If the log level set to Verbose, append stack trace information to the message.
+~
+
+~ Must {#general-logging-use-syslog}
+log failures (exceptions and error status codes), regardless logging level, to the event log on Windows and the syslog on Linux, i.e. this cannot be turned off by the SDK user unless they replace the pipeline.
+~
+
+~ Todo
+describe format/syntax of the log messages.
+~
+
+~ Todo
+provide and describe pipeline APIs for logging.
+~
