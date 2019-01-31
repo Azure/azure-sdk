@@ -2,33 +2,30 @@ trigger:
 - master
 
 variables:
-  node.version: '11.x'
+  node.version: '10.x'
 
 jobs:
 - job: 'Build'
 
   pool:
-    vmImage: 'vs2017-win2016'
+    vmImage: 'ubuntu-16.04'
 
   steps:
   - task: NodeTool@0
-    displayName: 'Build the Packages'
     inputs:
       versionSpec: '$(node.version)'
+    displayName: 'Install Node.js $(node.version)'
 
   - task: Npm@1
     inputs:
-      verbose: false
-    displayName: 'Install Dependencies'
+      command: 'install'
+    displayName: 'npm install'
 
   - task: Npm@1
     inputs:
       command: 'custom'
       customCommand: 'run build -- --odir=$(Build.ArtifactStagingDirectory)'
-    displayName: 'Build Artifacts'
+    displayName: 'npm run build'
 
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifacts'
-    inputs:
-      artifactName: 'artifacts-repo'
-      targetPath: '$(Build.ArtifactStagingDirectory)'
