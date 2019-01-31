@@ -19,12 +19,13 @@ Affiliation : ADP / .NET
 Email       : kcwalina@microsoft.com
 Logo        : False
 Embed       : False
-css         : ../custom.css
+css         : custom.css
 
 [INCLUDE=../components.mdk]
 
 [TITLE]
 
+# Azure SDK Design Guidelines { -;  toc-line: '' }
 
 This document describes architectural and API design guidelines for Azure dataplane client libraries. These guidelines apply to all programming languages.
 There are also language-specific guidelines for C#, Java, Python, and JavaScript. If any language-specific guideline conflicts with anything in this guideline,
@@ -426,6 +427,9 @@ allow any customer configuration or customization via a shared resource like a f
 
 # Python Specific Guidelines
 
-# JavaScript Specific Guidelines
+[INCLUDE=../python/DesignGuidelines.mdk]
 
-# Go Specific Guidelines
+
+# JavaScript Specific Guidelines
+=======
+[INCLUDE=../typescript/DesignGuidelines.mdk]
