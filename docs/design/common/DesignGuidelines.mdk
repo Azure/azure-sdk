@@ -74,7 +74,7 @@ support 100% of the features provided by the Azure service the SDK component rep
 # Operating Systems
 
 ~ ShouldNot {#no-native-code}
-write platform-specific / native code. If any such code is required for proper functioning of the SDK component, it should be specifically called out as part of the review process and appropriate justification provided.
+write platform-specific / native code. If any such code is required for proper functioning of the SDK component, it should be specifically called out as part of the review process and appropriate justification provided. Use of platform specific or native code requires an exception from the review board.
 ~
 
 ~ Must {#test-sample-apps-on-all-operating-systems}
@@ -84,17 +84,15 @@ test that sample apps execute as expected on Linux, Windows, and macOS.
 # GitHub Requirements
 
 ~ Must {#github-open-source}
-ensure that all library code is public and open source on GitHub. Library code must be either in the [Azure GitHub organization](https://github.com/Azure/) 
-or a module in the language-specific SDK 'mono-repo' (e.g. [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java)). 
-If an independent repo is used then the repository name must be `azure-[service-name]-[language]`.
+ensure that all library code is public and open source on GitHub. Library code must be in Azure SDK 'mono-repo' for its language (e.g. [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java)).
 ~
 
 ~ Should {#github-be-open} 
-develop in the open on GitHub. It is recommended to have your GitHub repo be set up and active at least a month prior to your initial release.
+develop in the open on GitHub. Seek feedback from the community on design choices and be active in conversations with the community.
 ~
 
 ~ Must {#github-active}
-remain active in GitHub. Your SDK component's GitHub repo is your primary touch point with the developer community so it's important to keep up with the activity there. 
+remain active in GitHub. Your SDK component's is your primary touch point with the developer community so it's important to keep up with the activity there. 
 Issues and pull requests on GitHub must have an authoritative comment within one week of filing.
 ~
 
@@ -105,7 +103,7 @@ review the Microsoft Open Source Guidelines' [community section](https://docs.op
 ## README<span></span>.md
 
 ~ Must {#github-readme}
-include in your GitHub repo a README<span></span>.md file that has the sections shown below. Rather than produce this from scratch, refer to the template readme<span></span>.md file and take that as a starting point.
+include in your SDK component's folder in the repo a README<span></span>.md file that has the sections shown below. Rather than produce this from scratch, refer to the template readme<span></span>.md file and take that as a starting point.
 
 - Short introduction of the service
 - Maven
