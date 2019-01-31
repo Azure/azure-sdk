@@ -13,9 +13,9 @@ See Appendix A (at the end of this document) for design guidelines that are comm
 ~
 
 ~ Must {#dotnet-follow-official-general-azure-sdk-guidelines}
-follow the general [Azure SDK Design Guidelines](https://github.com/Azure/azure-sdk/blob/master/docs/design/common/DesignGuidelines.md).
+follow the general Azure SDK Design Guidelines.
 
-The guidelines prescribe many requirements related to telemetry, logging, retry semantics, extensibility, etc. The easiest way to ensure that your component follows these guidelines is to use the Azure.Core package to implement all methods that call Azure services. The package contains many helper APIs that ensure compliance with telemetry, logging, and retry requirements automatically. Details of the design of these helper APIs and their usage are described in Appendix B below.
+The guidelines prescribe many requirements related to telemetry, logging, retry semantics, extensibility, etc. The easiest way to ensure that your component follows these guidelines is to use the Azure.Core package to implement all methods that call Azure services. The package contains many helper APIs that ensure compliance with telemetry, logging, and retry requirements automatically. Details of the design of these helper APIs and their usage are described in _Using HttpPipeline_ section below.
 ~
 
 ~ Must {#dotnet-use-azure-pipeline}
@@ -132,7 +132,7 @@ use ```Azure.Core.HttpPipeline``` to implement all service call methods.
 
 As mentioned above, service methods should return ```Task<Response<T>>``` (or equivalent). The ```T``` can be ```System.IO.Stream``` in case of untyped results (e.g. content of a storage blob) or a custom type representing deserialized response content. This section describes how such custom type and all its transitive closure dependencies (return type graph) should be designed.
 
-~ Must {#dotnet-}
+~ Must {#dotnet-model-types}
 ensure all types of the return type graph are:
 
 1. immutable if they are not intended to be mutated by the caller.
@@ -140,7 +140,7 @@ ensure all types of the return type graph are:
 3. implement basic data type guidelines, per .NET Framework Design Guidelines, e.g. implement ```IEquatable<T>```.
 ~
 
-~ Should {#dotnet-}
+~ Should {#dotnet-model-type-serialization}
 consider deserializing the return type lazily if the type is a large graph containing reference types. 
 This allows callers to avoid large number of GC heap allocations. ```Response<T>``` allows for such lazy deserialization. See ```Response<T>``` documentation for how to do it.
 ~
@@ -241,7 +241,7 @@ introduce a new package, with new assembly names, new namespace names, and new t
 ~
 
 ~ Must {#dotnet-tester-doer}
-use tester-doer .NET pattern or Nullable<T>, if some API is not supported based on proxy configuration, e.g. service API version.
+use tester-doer .NET pattern or ```Nullable<T>```, if some API is not supported based on proxy configuration, e.g. service API version.
 
 For example, 
 ```csharp
@@ -263,17 +263,17 @@ else {
 have samples, readme, and prescribed folder structure. The README.md file must be in the component's root folder. 
 ~
 
-~ Must {#dotnet-repository}
+~ Must {#dotnet-samples-hello_world}
 have a sample file called ```S1_HelloWorld.cs```. All other samples are ordered from simplest to most complex using ```S<number>_``` prefix.
 ~
 
 ## Common Type Usage
 
-~ Must {#dotnet-namespace-format}
+~ Must {#dotnet-usage-etag}
 use ```Azure.Core.ETag``` to represent ETags.
 ~
 
-~ Must {#dotnet-namespace-format}
+~ Must {#dotnet-usage-uri}
 use ```System.Uri``` to represent URIs.
 ~
 
