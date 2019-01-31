@@ -1,63 +1,91 @@
-﻿# .NET Azure SDk Design Guidelines
-
-This document describes .NET specific design guidelines for Azure SDK APIs. The document complements the general .NET Framework Design Guidelines with guidelines specific to building Azure SDK components. It also expands on, and simplifies, the general Azure SDK guidelines. Note that the guidelines in this document take precedence over the more general guidelines.
+﻿The following sections describe .NET specific design guidelines for Azure SDK APIs. These guidelines complement the general [.NET Framework Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/) with design considerations specific to building Azure SDK components. Also, these guidelines expand on, and simplify, the general Azure SDK guidelines. Note that these more specific guidelines take precedence over the more general guidelines.
 
 Currently, the document describes guidelines for .NET APIs exposing HTTP/REST services. It might be expanded in the future to cover other, non-REST, services. 
 
-Throughout the document we will be using the Azure Application Configuration service in many examples. You can find sources for this component at https://github.com/Azure/azure-sdk-for-net-lab/tree/master/Configuration. The component can serve as an illustration of what we expect a great Azure SDK component for .NET to look like.
+To illustrate various design concepts, we will be using Azure Application Configuration service in code examples. You can find sources for this component [here](https://github.com/Azure/azure-sdk-for-net-lab/tree/master/Configuration). The Azure.ApplicationModel.Configuration component can serve as an illustration of what we expect a great Azure SDK component for .NET to look like.
 
 ## General .NET API Design
 
 ~ Must {#dotnet-follow-official-framework-guidelines}
-Follow the official [Framework Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/). See Appendix A (at the end of this document) for design guidelines that are commonly overlooked in existing Azure SDKs.
+follow the official [Framework Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/). 
+
+See Appendix A (at the end of this document) for design guidelines that are commonly overlooked in existing Azure SDKs.
+~
 
 ~ Must {#dotnet-follow-official-general-azure-sdk-guidelines}
-Follow the general [Azure SDK Design Guidelines](https://github.com/Azure/azure-sdk/blob/master/docs/design/common/DesignGuidelines.md).
-The guidelines prescribe many requirements related to telemetry, logging, retry semantics, extensibility, etc. The easiest way to ensure that your component follows these guidelines is to use the Azure.Core package (a.k.a. “the Azure HTTP Pipeline”) to implement all methods that call Azure services. The package contains many helper APIs that ensure compliance with telemetry, logging, and retry requirements automatically. Details of the design of these helper APIs and their usage are described in Appendix B below.
+follow the general [Azure SDK Design Guidelines](https://github.com/Azure/azure-sdk/blob/master/docs/design/common/DesignGuidelines.md).
+
+The guidelines prescribe many requirements related to telemetry, logging, retry semantics, extensibility, etc. The easiest way to ensure that your component follows these guidelines is to use the Azure.Core package to implement all methods that call Azure services. The package contains many helper APIs that ensure compliance with telemetry, logging, and retry requirements automatically. Details of the design of these helper APIs and their usage are described in Appendix B below.
+~
 
 ~ Must {#dotnet-use-azure-pipeline}
-Use the Azure HTTP Pipeline to implement all methods that call Azure services. The pipeline takes care of many [General Azure SDK Guidelines](#common-general), e.g. telemetry, logging, retries, mockability. Details of the pipeline design and usage are described in Appendix B below.
+use Azure.Core.Http.HttpPipeline to implement all methods that call Azure services. 
+
+The pipeline can be found in the Azure.Core package, and it takes care of many [General Azure SDK Guidelines](#common-general), e.g. telemetry, logging, retries, mockability. Details of the pipeline design and usage are described in Appendix B below.
 ~
 
 ## Service Client Design
 
 Azure REST services typically fall into two distinct groups:
-- Services operating on hierarchical resources, e.g. Storage.Files. We will call these hierarchical resource services.
-- Services implementing primarily stateless (utility) operations or managing non-hierarchical resources, e.g. Azure Configuration service. We will call these utility services.
+
+- Services operating on hierarchical resources, e.g. Azure Storage. We will call these hierarchical resource services.
+
+- Services implementing primarily stateless (utility) operations or managing non-hierarchical resources, e.g. Application Configuration service. We will call these utility services.
+
 Utility services will be exposed to .NET developers as a single proxy type per service plus a set of supporting types. Hierarchical resource services will be exposed as a set of proxy types in a single package. We will refer to such proxy types as Service Clients.
 
-The guidelines in this section describe requirements for the design of a service clients and their members.
+The guidelines in this section describe patterns for the design of a service clients and their members.
 
 The basic shape of a service client has the following elements:
-public class <service_name>Client {
 
-    public service_name>Client(<binding_parameters>);
-    public service_name>Client(<binding_parameters>, <options>, HttpPipeline pipeline = default);
+```csharp
+namespace Azure.<group>.<service_name> {
 
-    public Task<Response<<content>> <service_operation>Async(<parameters>, CancellationToken cancellation=null);
-    …
+    // main service client class
+    public class <service_name>Client {
+
+        // constructors
+        public service_name>Client(<binding_parameters>);
+        public service_name>Client(<binding_parameters>, <options>, HttpPipeline pipeline = default);
+
+        // service methods
+        public Task<Response<<content>> <service_operation>Async(<parameters>, CancellationToken cancellation=null);
+    
+        // other members
+        …
+    }
 }
-
+```
 ~ Must {#dotnet-proxy-client-name}
-Name service client types with the "Client" suffix, e.g. ConfigurationClient.
+name service client types with the _Client_ suffix, e.g. ```ConfigurationClient```.
+~
 
 ~ Must {#dotnet-proxy-client-namespace}
-Place service client[s] in the root namespace of the component.
+place service clients in the root namespace of their corresponsing component.
+~
 
 ~ Must {#dotnet-proxy-class}
-Make service clients classes (reference types), not structs (value types).
+make service clients classes (reference types), not structs (value types).
+~
+
+~ Must {#dotnet-proxy-client-name}
+see namespace design guidelines (below) for how to choose the namespace for the client types.
+~
 
 ### Service Client Constructors
 
 ~ Must {#dotnet-proxy-class-ctor}
-Provide a constructor that takes just the parameters required to bind to and authenticate with the service, e.g. endpoint and authentication information. See the Authentication section (below) for more details.
+provide a constructor that takes just the parameters required to bind to and authenticate with the service, e.g. endpoint and authentication information. See the Authentication section (below) for more details.
+~
 
 ~ Must {#dotnet-proxy-class-ctor-overloads}
-Provide constructor overloads that allow to specify a custom pipeline and optionally other service specific options, e.g. service API version.
-The pipeline is a helper library that wraps System.Net.Http.HttpClient to ensure that all service calls do proper logging, telemetry, and retries. Custom pipeline allows the caller to alter default retry semantics and other aspects
+provide constructor overloads that allow to specify a custom pipeline and optionally other service specific options, e.g. service API version.
 
-For example, the ConfigurationClient proxy and its constructors look as follows:
+The pipeline is a helper library that wraps ```System.Net.Http.HttpClient``` to ensure that all service calls do proper logging, telemetry, and retries. Custom pipeline allows the caller to alter default retry semantics and other aspects
 
+For example, the ```ConfigurationClient``` type and its constructors look as follows:
+
+```csharp
 namespace Azure.ApplicationModel.Configuration {
     
     public class ConfigurationClient {
@@ -65,58 +93,67 @@ namespace Azure.ApplicationModel.Configuration {
         public ConfigurationClient(string connectionString, HttpPipeline pipeline);    
     }
 }
+```
+~
 
 ### Service Methods
 This section describes guidelines for designing service client methods that call service endpoints. 
-As a quick illustrationm, here are the main service call methods in the ConfigurationClient, and further below detailed guidelines codyfining various elements of the design.
+As a quick illustration, here are the main service call methods in the ConfigurationClient, and further below detailed guidelines codyfining various elements of the design.
 
+```csharp
 public class ConfigurationClient {
 
     public Task<Response<ConfigurationSetting>> AddAsync(ConfigurationSetting setting, CancellationToken cancellation = default);
     public Task<Response<ConfigurationSetting>> SetAsync(ConfigurationSetting setting, CancellationToken cancellation = default);
     public Task<Response<ConfigurationSetting>> UpdateAsync(ConfigurationSetting setting, CancellationToken cancellation = default);
 
-    
     public Task<Response<ConfigurationSetting>> GetAsync(string key, SettingFilter filter = null, CancellationToken cancellation = default);
-    
     public Task<Response<ConfigurationSetting>> DeleteAsync(string key, SettingFilter filter = null, CancellationToken cancellation = default);
 }
+```
 
 ~ Must {#dotnet-method-async}
-Make all methods that can result in network I/O async, i.e. return Task or ValueTask and suffix the method name with “Async”.
+make all methods that can result in network I/O async, i.e. return ```Task``` or ```ValueTask``` and suffix the method name with “Async”.
+~
 
 ~ Must {#dotnet-method-cancellation}
-Ensure all async methods take an optional CancellationToken parameter called “cancellation”.
+ensure all async methods take an optional ```CancellationToken``` parameter called “cancellation”.
+~
 
 ~ Must {#dotnet-method-return}
-Return Task<Response<T>> or ValueTask<Response<T>> from service methods, where T represents the content of the response and we will refer to it as the service call return type. See more below on the details for how to design service return types.
+return ```Task<Response<T>>``` or ```ValueTask<Response<T>>``` from service methods, where T represents the content of the response and we will refer to it as the service call return type. See more below on the details for how to design service return types.
+~
 
 ~ Must {#dotnet-method-impl}
-Use Azure.Core.HttpPipeline to implement all service call methods.
+use ```Azure.Core.HttpPipeline``` to implement all service call methods.
+~
 
 ### Service Method Return Types
 
-As mentioned above, service methods should return Task<Response<T>> (or equivalent). The T can be System.IO.Stream in case of untyped results (e.g. content of a storage blob) or a custom type representing deserialized response content. This section describes how such custom type and all its transitive closure dependencies (return type graph) should be designed.
+As mentioned above, service methods should return ```Task<Response<T>>``` (or equivalent). The ```T``` can be ```System.IO.Stream``` in case of untyped results (e.g. content of a storage blob) or a custom type representing deserialized response content. This section describes how such custom type and all its transitive closure dependencies (return type graph) should be designed.
 
 ~ Must {#dotnet-}
-Ensure all types of the return type graph are:
-a) immutable if they are not intended to be mutated by the caller.
-b) are structs if they are small and classes if they are large, per .NET Framework Design Guidelines.
-c) implement basic data type guidelines, per .NET Framework Design Guidelines, e.g. implement IEquatable<T>.
+ensure all types of the return type graph are:
+
+1. immutable if they are not intended to be mutated by the caller.
+2. structs if they are small and classes if they are large, per .NET Framework Design Guidelines.
+3. implement basic data type guidelines, per .NET Framework Design Guidelines, e.g. implement ```IEquatable<T>```.
+~
 
 ~ Should {#dotnet-}
-CONSIDER deserializing the return type lazily if the type is a large graph containing reference types. 
-This allows callers to avoid large number of GC heap allocations. Response<T> allows for such lazy deserialization. See Response<T> documentation for how to do it.
+consider deserializing the return type lazily if the type is a large graph containing reference types. 
+This allows callers to avoid large number of GC heap allocations. ```Response<T>``` allows for such lazy deserialization. See ```Response<T>``` documentation for how to do it.
+~
 
 ### Namespace Naming
 
 ~ Must {#dotnet-namespace-registration}
-register all namespaces with adparch@microsoft.com,
+register all namespaces with *adparch@microsoft.com*,
 i.e. send email about your proposed namespaces to this address to start a discussion.
 ~
 
 ~ Must {#dotnet-namespace-format}
-adhere to the following scheme when choosing a namespace: `Azure.<group>.<service>[.<feature>]`. For example, `Azure.Storage.Blobs`, `Azure.CognitiveServices.Speech.Recognition`
+adhere to the following scheme when choosing a namespace: `Azure.<group>.<service>[.<feature>]`. For example, `Azure.Storage.Blobs`, or `Azure.CognitiveServices.Speech.Recognition`
 ~
 
 ~ MustNot {#dotnet-namespace-format-service-name}
@@ -126,13 +163,13 @@ place service API in second level namespace, e.g. `Azure.KeyVault`
 ~ Should {#dotnet-namespace-format-pre-approved}
 use one of the following pre-approved namespace groups:
 
-- Azure.Diagnostics (e.g. Azure.Diagnostics.OperationalInsights)
-- Azure.Cognitive (e.g. Azure.Cognitive.FaceRecognition)
-- Azure.Iot (e.g. Azure.Iot.Hub)
-- Azure.Networking (e.g. Azure.Networking.EventHub)
-- Azure.Runtime (e.g. Azure.Runtime.VirtualMachines)
-- Azure.Security (e.g. Azure.Security.KeyVault)
-- Azure.Storage (e.g. Azure.Storage.Blobs)
+- ```Azure.Diagnostics``` (e.g. ```Azure.Diagnostics.OperationalInsights```)
+- ```Azure.Cognitive``` (e.g. Azure.Cognitive.FaceRecognition```)
+- ```Azure.Iot``` (e.g. Azure.Iot.Hub```)
+- ```Azure.Networking``` (e.g. ```Azure.Networking.EventHub```)
+- ```Azure.Runtime``` (e.g. ```Azure.Runtime.VirtualMachines```)
+- ```Azure.Security``` (e.g. ```Azure.Security.KeyVault```)
+- ```Azure.Storage``` (e.g. ```Azure.Storage.Blobs```)
 ~
 
 ## Authentication
@@ -142,54 +179,72 @@ Service proxy constructors should take all parameters required to create a funct
 ## Error Reporting
 
 ~ Must {#dotnet-error-exception}
-Throw ResponseFailedException or its subtype when a service method fails with non-success status code. 
+throw ```Azure.Core.ResponseFailedException``` or its subtype when a service method fails with non-success status code. 
 
-The exception is avaliable in Azure.Core package. For example, 
+The exception is avaliable in ```Azure.Core``` package. For example, 
+```csharp
 if (response.Status != 200) {
     else throw new ResponseFailedException(response);
 }
-
-## Packaging and Versioning
+```
+~
+## Packaging
 
 ~ Must {#dotnet-packaging-nuget}
-Package all components as nuget packages. Follow the .NET packaging guidelines.
+package all components as NuGet packages. Follow the .NET packaging guidelines.
+~
 
 ~ Must {#dotnet-packaging-nuget-granularity}
-Name the package similar to the name of the main namespace of the component.
-For example, if the component is in Azure.AppModel.Configuration namespaces, the component dll should be called Azure.AppModel.Configuration.dll, and the NuGet package should be called Azure.AppModel.Configuration.
+name the package similar to the name of the main namespace of the component.
+For example, if the component is in ```Azure.Storage.Blob``` namespaces, the component dll should be called ```Azure.Storage.Blob.dll```, and the NuGet package should be called ```Azure.Storage.Blob```.
+~
 
 ~ Should {#dotnet-packaging-nuget-granularity}
-Place small related components in similar lifecycle stages (i.e. evolving together) into a single NuGet package.
+place small related components in similar lifecycle stages (i.e. evolving together) into a single NuGet package.
+~
 
 ~ Must {#dotnet-packaging-ns}
-Build all components for .NET Standard 2.0 and .NET 4.6.
+build all components for .NET Standard 2.0 and .NET 4.6.
 This can be acomplished by the following target setting in the csproj file:
-TODO
+```
+<TargetFramework>netstandard2.0;net46</TargetFramework>
+```
+~
 
 ## Dependendencies
 
 ~ MustNot {#dotnet-packaging-ns}
-Have dependencies on any Nuget packages besides: a) those produced from CoreFx, b) those produced by the Azure Developer Platfrom team, c) own components.
+have dependencies on any NuGet packages besides:
+
+1. The .NET Standard, 
+2. packages produced by the Azure Developer Platfrom team, 
+3. packages produced by your team.
+~
 
 ## Versioning
 
 ~ Must {#dotnet-compatibility}
-Follow same backward compatibility rules as .NET Core, i.e. be 100% backward compatible between versions of packages.
+follow same backward compatibility rules as .NET Core, i.e. be 100% backward compatible between versions of packages.
 See TBD for detailed .NET breaking change rules.
+~
 
 ~ Must {#dotnet-service-version-default}
-Call a highest supported service API version by default.
+call a highest supported service API version by default.
+~
 
 ~ Must {#dotnet-service-version-option}
-Allow changing to an older supported service API versions when instantiating service proxy types. 
+allow changing to an older supported service API versions when instantiating service client types. 
+~
 
 ~ Must {#dotnet-package-sxs}
-Introduce a new package, with new assembly names, new namespace names, and new type names if you must do a breaking change. This should happen very rarely, if ever. 
+introduce a new package, with new assembly names, new namespace names, and new type names if you must do a breaking change. This should happen very rarely, if ever. 
+~
 
 ~ Must {#dotnet-tester-doer}
-Use tester-doer .NET pattern or Nullable<T>, if some API is not supported based on proxy configuration, e.g. service API version.
+use tester-doer .NET pattern or Nullable<T>, if some API is not supported based on proxy configuration, e.g. service API version.
 
 For example, 
+```csharp
 if (client.CanBatch) {
     Response<SettingBatch> response = await client.GetBatch("some_key*");
     Guid? Guid = response.Result.Guid;
@@ -200,22 +255,30 @@ else {
     Response<ConfigurationSetting> response3 = await client.GetAsync("some_key3");
     …
 }
-
+```
+~
 ## Repository Guidelines
 
 ~ Must {#dotnet-repository}
-Have samples, readme, and prescribed folder structure. README.md file must be in the component's root folder. 
+have samples, readme, and prescribed folder structure. The README.md file must be in the component's root folder. 
+~
 
 ~ Must {#dotnet-repository}
-Have a sample file called S1_HelloWorld.cs. All other samples are ordered from simplest to most complex using S#_ prefix.
+have a sample file called ```S1_HelloWorld.cs```. All other samples are ordered from simplest to most complex using ```S<number>_``` prefix.
+~
 
 ## Common Type Usage
 
 ~ Must {#dotnet-namespace-format}
-Use Azure.Core.ETag to represent ETags.
+use ```Azure.Core.ETag``` to represent ETags.
+~
 
 ~ Must {#dotnet-namespace-format}
-Use System.Uri to represent URIs.
+use ```System.Uri``` to represent URIs.
+~
+
+### Using HttpPipeline
+TBD
 
 ## Commonly Overlooked .NET API Design Guidelines { @h1-h2: "A" }
 
@@ -240,14 +303,3 @@ use parameters types where it’s not clear what valid values are supported, e.g
 ~ MustNot {#dotnet-no-empty-types}
 have empty types (types with no members)
 ~
-
-## Azure Http Pipeline
-
-TODO:
-For now just link to sources: https://github.com/Azure/azure-sdk-for-net-lab/tree/master/Core/Azure.Core
-Once we publish Nuget package, this will be updated.
-
-## Appendix Z: TODO
-
-- integration with ASP.NET application model
-- performance
