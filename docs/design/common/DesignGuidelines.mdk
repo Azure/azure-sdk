@@ -3,20 +3,23 @@ Madoko documentation: http://madoko.org/reference.html
 Title       : Azure SDK Design Guidelines
 Title Note  : Version 1.0.0-preview2
 Author      : Brian Terlson
-Affiliation : ADP / JS &amp; TS
+Affiliation : Azure SDK Team / JS &amp; TS
 Email       : brian.terlson@microsoft.com
 Author      : Jeffrey Richter
-Affiliation : ADP / .NET
+Affiliation : Azure SDK Team / .NET
 Email       : jeffreyr@microsoft.com
 Author      : Johan Stenberg
-Affiliation : ADP / Python
+Affiliation : Azure SDK Team / Python
 Email       : johan.stenberg@microsoft.com
 Author      : Jonathan Giles
-Affiliation : ADP / Java
+Affiliation : Azure SDK Team / Java
 Email       : jonathan.giles@microsoft.com
 Author      : Krzysztof Cwalina
-Affiliation : ADP / .NET
+Affiliation : Azure SDK Team / .NET
 Email       : kcwalina@microsoft.com
+Author      : Peter Marcu
+Affiliation : Azure SDK Team / Mgmt
+Email       : peter.marcu@microsoft.com
 Logo        : False
 Embed       : False
 css         : custom.css
@@ -27,9 +30,8 @@ css         : custom.css
 
 # Azure SDK Design Guidelines { -;  toc-line: '' }
 
-This document describes architectural and API design guidelines for Azure dataplane client libraries. These guidelines apply to all programming languages.
-There are also language-specific guidelines for C#, Java, Python, and JavaScript. If any language-specific guideline conflicts with anything in this guideline,
-the language-specific guideline should be followed.
+This document describes architectural and API design guidelines for the Azure SDK libraries. These guidelines apply to all programming languages.
+There are language-specific guidelines for C#, Java, Python, and JavaScript today and more will be added in the future. Language-specific guidelines should be followed when the conflict with the generic guidelines.
 
 [TOC]
 
@@ -39,9 +41,9 @@ the language-specific guideline should be followed.
 
 - **Azure SDK Component**: An Azure SDK component (also referred to as 'SDK component', or simply 'component') represents the software (and associated tools, documentation, samples, etc.) that
 exist to support a single Azure service. Each Azure SDK component is published separately to the appropriate language-specific locations. These releases are performed exclusively by the Azure SDK 
-engineering systems team. Developers consume and use each component separately as necessary to solve their use case.
+engineering systems team. Customers/Developers consume and use each component separately as necessary to solve their use case.
 
-- **Client Library**. This refers to a library that cusotmer-developers use to ease working with a specific Azure service. There is one client library per service and per programming language. 
+- **Client Library**. This refers to a library that customers/developers use to ease working with an Azure service. There is often one client library per service and per programming language. Sometimes a single client library will contain the ability to connect to multiple services. 
 
 - **Package**. This refers to a client library after it has been packaged for distribution for customer-developers to consume. Examples are:
    - A Nuget package for a .NET client library
@@ -52,8 +54,8 @@ engineering systems team. Developers consume and use each component separately a
 
 # Pre-requisites
 
-Releasing an SDK component that provides a more convenient means of connecting to a service requires that the service itself be in a state where it has stablised. 
-We can build SDK components whilst a service stablises, but we should never distribute a GA release until the service and the client library is stable.
+Releasing an SDK component that provides a more convenient means of connecting to a service requires that the service itself be in a state where it has stabilized. 
+An SDK components might be built and available in a preview form whilst a service stabilizes, but should never be distributed as a GA release until the service and the client library are both stable.
 
 ~ MustNot {#stable-service}
 make a GA release of a SDK component until the underlying service is also in GA, with a stable protocol. 
