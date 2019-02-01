@@ -1,4 +1,4 @@
-The following sections describe .NET specific design guidelines for Azure SDK APIs. These guidelines complement the general [.NET Framework Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/) with design considerations specific to building Azure SDK components. Also, these guidelines expand on, and simplify, the general Azure SDK guidelines. Note that these more specific guidelines take precedence over the more general guidelines.
+﻿The following sections describe .NET specific design guidelines for Azure SDK APIs. These guidelines complement the general [.NET Framework Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/) with design considerations specific to building Azure SDK components. Also, these guidelines expand on, and simplify, the language-independent Azure SDK guidelines. Note that these more specific guidelines take precedence over the more general guidelines.
 
 Currently, the document describes guidelines for .NET APIs exposing HTTP/REST services. It might be expanded in the future to cover other, non-REST, services. 
 
@@ -15,26 +15,18 @@ See Appendix A (at the end of this document) for design guidelines that are comm
 ~ Must {#dotnet-follow-official-general-azure-sdk-guidelines}
 follow the general Azure SDK Design Guidelines.
 
-The guidelines prescribe many requirements related to telemetry, logging, retry semantics, extensibility, etc. The easiest way to ensure that your component follows these guidelines is to use the Azure.Core package to implement all methods that call Azure services. The package contains many helper APIs that ensure compliance with telemetry, logging, and retry requirements automatically. Details of the design of these helper APIs and their usage are described in _Using HttpPipeline_ section below.
+The guidelines prescribe many requirements related to telemetry, logging, retry semantics, extensibility, etc. The easiest way to ensure that your component follows these guidelines is to use the Azure.Core package to implement all methods that call Azure services. The package contains many helper APIs that ensure compliance with telemetry, logging, and retry requirements automatically. Details of the design of these helper APIs and their usage are described in [Using HttpPipeline](#dotnet-usage-httppipeline) below.
 ~
 
 ~ Must {#dotnet-use-azure-pipeline}
 use Azure.Core.Http.HttpPipeline to implement all methods that call Azure services. 
 
-The pipeline can be found in the Azure.Core package, and it takes care of many [General Azure SDK Guidelines](#common-general), e.g. telemetry, logging, retries, mockability. Details of the pipeline design and usage are described in Appendix B below.
+The pipeline can be found in the Azure.Core package, and it takes care of many [General Azure SDK Guidelines](#common-general), e.g. telemetry, logging, retries, mockability. Details of the pipeline design and usage are described in [Using HttpPipeline](#dotnet-usage-httppipeline) below.
 ~
 
 ## Service Client Design
 
-Azure REST services typically fall into two distinct groups:
-
-- Services operating on hierarchical resources, e.g. Azure Storage. We will call these hierarchical resource services.
-
-- Services implementing primarily stateless (utility) operations or managing non-hierarchical resources, e.g. Application Configuration service. We will call these utility services.
-
-Utility services will be exposed to .NET developers as a single proxy type per service plus a set of supporting types. Hierarchical resource services will be exposed as a set of proxy types in a single package. We will refer to such proxy types as Service Clients.
-
-The guidelines in this section describe patterns for the design of a service clients and their members.
+Azure services will be exposed to .NET developers as one or more _service client_ types plus a set of _supporting types_. The guidelines in this section describe patterns for the design of a service clients and their members.
 
 The basic shape of a service client has the following elements:
 
@@ -69,13 +61,15 @@ make service clients classes (reference types), not structs (value types).
 ~
 
 ~ Must {#dotnet-proxy-client-name}
-see namespace design guidelines (below) for how to choose the namespace for the client types.
+see [Namespace Naming](#dotnet-namespace-naming) guidelines for how to choose the namespace for the client types.
 ~
 
 ### Service Client Constructors
 
 ~ Must {#dotnet-proxy-class-ctor}
-provide a constructor that takes just the parameters required to bind to and authenticate with the service, e.g. endpoint and authentication information. See the Authentication section (below) for more details.
+provide a constructor that takes just the parameters required to bind to and authenticate with the service, e.g. endpoint and authentication information. 
+
+The idea is that it should be very easy to start using the client without extensive customization. See the [Authentication](#dotnet-authentication) section for more details.
 ~
 
 ~ Must {#dotnet-proxy-class-ctor-overloads}
@@ -113,72 +107,154 @@ public class ConfigurationClient {
 ```
 
 ~ Must {#dotnet-method-async}
-make all methods that can result in network I/O async, i.e. return ```Task``` or ```ValueTask``` and suffix the method name with “Async”.
+make all methods that can result in network I/O async, i.e. return ```Task<T>``` or ```ValueTask<T>``` and suffix the method name with _Async_.
 ~
 
 ~ Must {#dotnet-method-cancellation}
-ensure all async methods take an optional ```CancellationToken``` parameter called “cancellation”.
+ensure all async methods take an optional ```CancellationToken``` parameter called _cancellation_.
 ~
 
 ~ Must {#dotnet-method-return}
-return ```Task<Response<T>>``` or ```ValueTask<Response<T>>``` from service methods, where T represents the content of the response and we will refer to it as the service call return type. See more below on the details for how to design service return types.
+return ```Task<Response<T>>``` or ```ValueTask<Response<T>>``` from service methods, where T represents the content of the response and we will refer to it as the service call return type. See [Service Method Return Types](#dotnet-method-return) below on the details for how to design service return types.
 ~
 
 ~ Must {#dotnet-method-impl}
 use ```Azure.Core.HttpPipeline``` to implement all service call methods.
+
+See [Using HttpPipeline](#dotnet-usage-httppipeline) for details.
 ~
 
-### Service Method Return Types
+### Service Method Return Types {#dotnet-method-return}
 
-As mentioned above, service methods should return ```Task<Response<T>>``` (or equivalent). The ```T``` can be ```System.IO.Stream``` in case of untyped results (e.g. content of a storage blob) or a custom type representing deserialized response content. This section describes how such custom type and all its transitive closure dependencies (return type graph) should be designed.
+As mentioned above, service methods should return ```Task<Response<T>>``` (or equivalent). The ```T``` can be ```System.IO.Stream``` in case of untyped results (e.g. content of a storage blob) or a _model type_ representing deserialized response content. This section describes how such _model type_ and all its transitive closure dependencies (return type graph) should be designed.
 
-~ Must {#dotnet-model-types}
-ensure all types of the return type graph are:
+~ Must {#dotnet-return-type}
+return ```Task<Response<Stream>>``` if the response contnent is just a stream of bytes, and ```Task<Response<T>>```, where it ```T``` is a _model type_ if the content has a schema and can be deserialized.
 
-1. immutable if they are not intended to be mutated by the caller.
-2. structs if they are small and classes if they are large, per .NET Framework Design Guidelines.
-3. implement basic data type guidelines, per .NET Framework Design Guidelines, e.g. implement ```IEquatable<T>```.
+For example, the configuration service _model type_ looks like the following:
+```csharp
+    public sealed class ConfigurationSetting : IEquatable<ConfigurationSetting> {
+
+        public ConfigurationSetting(string key, string value, string label = null);
+        
+        public string ContentType { get; set; }
+        public string ETag { get; internal set; }
+        public string Key { get; set; }
+        public string Label { get; set; }
+        public DateTimeOffset LastModified { get; internal set; }
+        public bool Locked { get; internal set; }
+        public IDictionary<string, string> Tags { get; }
+        public string Value { get; set; }
+
+        public bool Equals(ConfigurationSetting other);
+        
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object obj);
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode();
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override string ToString();
+    }
+```
+... and is used in the service method returns as follows:
+```csharp
+public class ConfigurationClient {
+    public Task<Response<ConfigurationSetting>> SetAsync(ConfigurationSetting setting, CancellationToken cancellation = default);
+    public Task<Response<ConfigurationSetting>> GetAsync(string key, SettingFilter filter = null, CancellationToken cancellation = default);
+    ...
+}
+```
 ~
 
-~ Should {#dotnet-model-type-serialization}
-consider deserializing the return type lazily if the type is a large graph containing reference types. 
-This allows callers to avoid large number of GC heap allocations. ```Response<T>``` allows for such lazy deserialization. See ```Response<T>``` documentation for how to do it.
+~ Must {#dotnet-model-types_immutable}
+ensure model public properties are get-only if they are not intended to be changed by the user.
+
+For example, the _Locked_ property of _ConfigurationSetting_ is not intended to be changed by the user and so its setter should be internal,
+whereas the _ContentType_ property needs is designed tyo be modified and so it has a public setter.
+```csharp
+    public sealed class ConfigurationSetting : IEquatable<ConfigurationSetting> {
+
+        public string ContentType { get; set; }
+
+        public bool Locked { get; internal set; }
+    }
+```
+Note: the intenral setter for these get-only properties is there to allow the component to deserialize the model types. 
+See more on this in [Serialization](#dotnet-usage-serialization) section below.
 ~
 
-### Namespace Naming
-
-~ Must {#dotnet-namespace-registration}
-register all namespaces with *adparch@microsoft.com*,
-i.e. send email about your proposed namespaces to this address to start a discussion.
+~ Must {#dotnet-model-types_struct_or_class}
+ensure model types are structs, if they are small, and classes, if they are large, per .NET Framework Design Guidelines.
 ~
+
+~ Must {#dotnet-model-types_struct_or_class}
+implement basic data type interfaces on model types, per .NET Framework Design Guidelines. 
+For example, implement ```IEquatable<T>```, ```IComparable<T>```, ```IEnumerable<T>```, etc. if applicable.
+~
+
+~ Should {#dotnet-model-types_struct_or_class}
+apply ```[EditorBrowsable(EditorBrowsableState.Never)]``` attribute to ```Equals(object)``` and ```GetHashCode()``` to hide these methods from intellisense,
+if they are not intended to be called directly by the user.
+
+For example, ```GetHashCode()``` is almost never called directly, and ```Equals(object)``` is almost never called if a type implements ```IEquatable<T>```.
+
+```csharp
+    public sealed class ConfigurationSetting : IEquatable<ConfigurationSetting> {
+       
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object obj);
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode();
+    }
+```
+~
+
+### Namespace Naming {#dotnet-namespace-naming}
 
 ~ Must {#dotnet-namespace-format}
-adhere to the following scheme when choosing a namespace: `Azure.<group>.<service>[.<feature>]`. For example, `Azure.Storage.Blobs`, or `Azure.CognitiveServices.Speech.Recognition`
-~
+adhere to the following scheme when choosing a namespace: 
 
-~ MustNot {#dotnet-namespace-format-service-name}
-place service API in second level namespace, e.g. `Azure.KeyVault`
+`Azure.<group>.<service>[.<feature>]`. 
+
+For example, `Azure.Storage.Blobs`, or `Azure.CognitiveServices.Speech.Recognition`.
 ~
 
 ~ Should {#dotnet-namespace-format-pre-approved}
 use one of the following pre-approved namespace groups:
 
 - ```Azure.Diagnostics``` (e.g. ```Azure.Diagnostics.OperationalInsights```)
-- ```Azure.Cognitive``` (e.g. Azure.Cognitive.FaceRecognition```)
-- ```Azure.Iot``` (e.g. Azure.Iot.Hub```)
+- ```Azure.Cognitive``` (e.g. ```Azure.Cognitive.FaceRecognition```)
+- ```Azure.Iot``` (e.g. ```Azure.Iot.Hub```)
 - ```Azure.Networking``` (e.g. ```Azure.Networking.EventHub```)
 - ```Azure.Runtime``` (e.g. ```Azure.Runtime.VirtualMachines```)
 - ```Azure.Security``` (e.g. ```Azure.Security.KeyVault```)
 - ```Azure.Storage``` (e.g. ```Azure.Storage.Blobs```)
 ~
 
-## Authentication
+~ Must {#dotnet-namespace-registration}
+register all namespaces with *adparch@microsoft.com*,
+i.e. send email about your proposed namespaces to this address to start a discussion.
+~
 
-Service proxy constructors should take all parameters required to create a functioning proxy, i.e. after the constructor is called service methods can be called successfully. Typically such parameters will include service endpoint information and everything needed to authenticate with the service.
+~ MustNot {#dotnet-namespace-format-service-name}
+place service API in second level namespace, e.g. `Azure.KeyVault`
+~
+
+~ Should {#dotnet-namespace-modeltypes}
+consider placing model types in a ```.Models``` subnamespaces of the client types, if the model schema is very large.
+~
+
+## Authentication {#dotnet-authentication}
+~ Draft
+Service client constructors should take all parameters required to create a functioning client, i.e. after the constructor is called service methods can be called successfully. 
+Typically such parameters will include service endpoint information and everything needed to authenticate with the service.
+This section describes details of the authentication related APIs.
+~
 
 ## Error Reporting
+~ Draft
 
-~ Must {#dotnet-error-exception}
+~~ Must {#dotnet-error-exception}
 throw ```Azure.Core.ResponseFailedException``` or its subtype when a service method fails with non-success status code. 
 
 The exception is avaliable in ```Azure.Core``` package. For example, 
@@ -187,15 +263,20 @@ if (response.Status != 200) {
     else throw new ResponseFailedException(response);
 }
 ```
+~~
+
 ~
+
 ## Packaging
 
 ~ Must {#dotnet-packaging-nuget}
-package all components as NuGet packages. Follow the .NET packaging guidelines.
+package all components as NuGet packages. Follow the [.NET packaging guidelines](https://docs.microsoft.com/en-us/dotnet/standard/library-guidance/nuget).
+
+If your component builds in the Azure SDK team's main repo, majority of the packaging requirements will be provided automatically.
 ~
 
 ~ Must {#dotnet-packaging-nuget-granularity}
-name the package similar to the name of the main namespace of the component.
+name the package using a name of the main namespace of the component.
 For example, if the component is in ```Azure.Storage.Blob``` namespaces, the component dll should be called ```Azure.Storage.Blob.dll```, and the NuGet package should be called ```Azure.Storage.Blob```.
 ~
 
@@ -213,19 +294,32 @@ This can be acomplished by the following target setting in the csproj file:
 
 ## Dependendencies
 
+~ Should {#dotnet-packaging-nuget-granularity}
+minimize dependencies outside of the .NET Standard and Azure.Core package.
+~
+
 ~ MustNot {#dotnet-packaging-ns}
 have dependencies on any NuGet packages besides:
 
-1. The .NET Standard, 
-2. packages produced by the Azure Developer Platfrom team, 
-3. packages produced by your team.
+* The .NET Standard, 
+* Azure.* packages from the [azure/azure-sdk-for-net](https://github.com/Azure/azure-sdk-for-net) repo 
+* packages produced by your oun team.
+
+In the past, a very common external dependency was JSON.NET package. To avoid this dependency, 
+we recommend [System.Text.Json](https://github.com/dotnet/corefx/tree/master/src/System.Text.Json/source_package) 
+package that is now a part of the .NET platfrom. 
+In particular, the source version of the package which allows for maximum reach.
+~
+
+~ MustNot {#dotnet-packaging-ns}
+publicly expose types from dependencies, unless these types follow guidelines described in this document.
 ~
 
 ## Versioning
 
 ~ Must {#dotnet-compatibility}
 follow same backward compatibility rules as .NET Core, i.e. be 100% backward compatible between versions of packages.
-See TBD for detailed .NET breaking change rules.
+See [.NET Breaking Changes](https://github.com/dotnet/corefx/blob/master/Documentation/coding-guidelines/breaking-change-rules.md) for detailed rules.
 ~
 
 ~ Must {#dotnet-service-version-default}
@@ -265,6 +359,17 @@ have samples, readme, and prescribed folder structure. The README.md file must b
 
 ~ Must {#dotnet-samples-hello_world}
 have a sample file called ```S1_HelloWorld.cs```. All other samples are ordered from simplest to most complex using ```S<number>_``` prefix.
+
+See [Configuration Service Hello World](https://github.com/Azure/azure-sdk-for-net-lab/blob/master/Configuration/Azure.Configuration.Test/samples/Sample1_HelloWorld.cs#L16) sample.
+~
+
+~ Must {#dotnet-samples}
+make sure all the samples build and run as part of the CI process. 
+
+~~ Draft
+This can be acomplished by making the samples into tests, as in the example above.
+~~ 
+
 ~
 
 ## Common Type Usage
@@ -277,8 +382,107 @@ use ```Azure.Core.ETag``` to represent ETags.
 use ```System.Uri``` to represent URIs.
 ~
 
-### Using HttpPipeline
-TBD
+### Using HttpPipeline {#dotnet-usage-httppipeline}
+The following example shows a typical way of using HttpPipeline to implement service call method.
+The HttpPipeline will take care of telemetry, logging, retries, and extensibility required by language-independent Azure SDK Guidelines.
+
+```csharp
+public async Task<Response<ConfigurationSetting>> AddAsync(ConfigurationSetting setting, CancellationToken cancellation = default)
+{
+    if (setting == null) throw new ArgumentNullException(nameof(setting));
+    ... // validate other preconditions
+
+    // build the URI
+    Uri uri = BuildUriForKvRoute(setting);
+
+    // Use HttpPipeline _pipeline filed of the client type to create new HTTP request
+    using (HttpMessage message = _pipeline.CreateMessage(_options, cancellation)) {
+    
+        // specify HTTP request line
+        message.SetRequestLine(PipelineMethod.Put, uri);
+
+        // add headers
+        message.AddHeader("Host", uri.Host);
+        message.AddHeader(IfNoneMatchWildcard);
+        message.AddHeader(MediaTypeKeyValueApplicationHeader);
+        message.AddHeader(HttpHeader.Common.JsonContentType);
+        message.AddHeader(HttpHeader.Common.CreateContentLength(content.Length));
+
+        // serialize contnet, sign it (service specific), and add the content to the request
+        ReadOnlyMemory<byte> content = Serialize(setting);
+        AddAuthenticationHeaders(message, uri, PipelineMethod.Put, content, _secret, _credential);
+        message.SetContent(PipelineContent.Create(content));
+
+        // send the request
+        await Pipeline.ProcessAsync(message).ConfigureAwait(false);
+
+        // get response
+        Response response = message.Response;
+        if (response.Status == 200) {
+            // deserialize content
+            Response<ConfigurationSetting> result = await CreateResponse(response, cancellation);
+        }
+        else throw new ResponseFailedException(response);
+    }
+}
+```
+
+### Serialization {#dotnet-usage-serialization}
+We recommend that you use S[System.Text.Json](https://github.com/dotnet/corefx/tree/master/src/System.Text.Json/source_package) package to write and read JSON content.
+
+~ Should
+use Utf8JsonWriter to write JSON payloads
+
+```csharp
+var json = new Utf8JsonWriter(writer);
+json.WriteStartObject();
+json.WriteString("value", setting.Value);
+json.WriteString("content_type", setting.ContentType);
+json.WriteEndObject();
+json.Flush();
+written = (int)json.BytesWritten;
+```
+~
+
+~ Should
+use JsonDocument to read JSON payloads
+```csharp
+using (JsonDocument json = await JsonDocument.ParseAsync(content, default, cancellation).ConfigureAwait(false))
+{
+    JsonElement root = json.RootElement;
+
+    var setting = new ConfigurationSetting();
+    setting.Key = root.GetProperty("key").GetString();
+    setting.Value = root.GetProperty("value").GetString();
+    setting.Label = root.GetProperty("label").GetString();
+    setting.ContentType = root.GetProperty("content_type").GetString();
+    setting.Locked = root.GetProperty("locked").GetBoolean();
+    setting.ETag = root.GetProperty("etag").GetString();
+    setting.LastModified = DateTimeOffset.Parse(root.GetProperty("last_modified").GetString());
+
+    return setting;
+}
+```
+~
+
+~ Should
+consider using Utf8JsonReader to read JSON payloads
+
+Utf8JsonReader is significantly faster than JsonDocument, but much less convinient.
+~
+
+~ Draft
+
+~~ Must
+make your serialization and deserialization code version resilient.
+~~
+
+~
+
+~ Should {#dotnet-model-type-serialization}
+consider deserializing the return type lazily if the type is a large graph containing reference types. 
+This allows callers to avoid large number of GC heap allocations. ```Response<T>``` allows for such lazy deserialization. See ```Response<T>``` documentation for how to do it.
+~
 
 ## Commonly Overlooked .NET API Design Guidelines { @h1-h2: "A" }
 
