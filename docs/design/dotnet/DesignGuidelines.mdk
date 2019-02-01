@@ -211,21 +211,12 @@ For example, ```GetHashCode()``` is almost never called directly, and ```Equals(
 
 ### Namespace Naming {#dotnet-namespace-naming}
 
-~ Must {#dotnet-namespace-registration}
-register all namespaces with *adparch@microsoft.com*,
-i.e. send email about your proposed namespaces to this address to start a discussion.
-~
-
 ~ Must {#dotnet-namespace-format}
 adhere to the following scheme when choosing a namespace: 
 
 `Azure.<group>.<service>[.<feature>]`. 
 
 For example, `Azure.Storage.Blobs`, or `Azure.CognitiveServices.Speech.Recognition`.
-~
-
-~ MustNot {#dotnet-namespace-format-service-name}
-place service API in second level namespace, e.g. `Azure.KeyVault`
 ~
 
 ~ Should {#dotnet-namespace-format-pre-approved}
@@ -240,19 +231,30 @@ use one of the following pre-approved namespace groups:
 - ```Azure.Storage``` (e.g. ```Azure.Storage.Blobs```)
 ~
 
-## Authentication {#dotnet-authentication}
+~ Must {#dotnet-namespace-registration}
+register all namespaces with *adparch@microsoft.com*,
+i.e. send email about your proposed namespaces to this address to start a discussion.
+~
 
+~ MustNot {#dotnet-namespace-format-service-name}
+place service API in second level namespace, e.g. `Azure.KeyVault`
+~
+
+~ Should {#dotnet-namespace-modeltypes}
+consider placing model types in a ```.Models``` subnamespaces of the client types, if the model schema is very large.
+~
+
+## Authentication {#dotnet-authentication}
+~ Draft
 Service client constructors should take all parameters required to create a functioning client, i.e. after the constructor is called service methods can be called successfully. 
 Typically such parameters will include service endpoint information and everything needed to authenticate with the service.
 This section describes details of the authentication related APIs.
-
-TBD
+~
 
 ## Error Reporting
+~ Draft
 
-Note: this section is in development/draft.
-
-~ Must {#dotnet-error-exception}
+~~ Must {#dotnet-error-exception}
 throw ```Azure.Core.ResponseFailedException``` or its subtype when a service method fails with non-success status code. 
 
 The exception is avaliable in ```Azure.Core``` package. For example, 
@@ -261,18 +263,20 @@ if (response.Status != 200) {
     else throw new ResponseFailedException(response);
 }
 ```
+~~
+
 ~
+
 ## Packaging
 
 ~ Must {#dotnet-packaging-nuget}
 package all components as NuGet packages. Follow the .NET packaging guidelines.
-TODO: add link
 
 If your component builds in the Azure SDK team's main repo, majority of the packaging requirements will be provided automatically.
 ~
 
 ~ Must {#dotnet-packaging-nuget-granularity}
-name the package similar to the name of the main namespace of the component.
+name the package using a name of the main namespace of the component.
 For example, if the component is in ```Azure.Storage.Blob``` namespaces, the component dll should be called ```Azure.Storage.Blob.dll```, and the NuGet package should be called ```Azure.Storage.Blob```.
 ~
 
@@ -290,19 +294,32 @@ This can be acomplished by the following target setting in the csproj file:
 
 ## Dependendencies
 
+~ Should {#dotnet-packaging-nuget-granularity}
+minimize dependencies outside of the .NET Standard and Azure.Core package.
+~
+
 ~ MustNot {#dotnet-packaging-ns}
 have dependencies on any NuGet packages besides:
 
-1. The .NET Standard, 
-2. packages produced by the Azure Developer Platfrom team, 
-3. packages produced by your team.
+* The .NET Standard, 
+* Azure.* packages from the [azure/azure-sdk-for-net](https://github.com/Azure/azure-sdk-for-net) repo 
+* packages produced by your oun team.
+
+In the past, a very common external dependency was JSON.NET package. To avoid this dependency, 
+we recommend [System.Text.Json](https://github.com/dotnet/corefx/tree/master/src/System.Text.Json/source_package) 
+package that is now a part of the .NET platfrom. 
+In particular, the source version of the package which allows for maximum reach.
+~
+
+~ MustNot {#dotnet-packaging-ns}
+publicly expose types from dependencies, unless these types follow guidelines described in this document.
 ~
 
 ## Versioning
 
 ~ Must {#dotnet-compatibility}
 follow same backward compatibility rules as .NET Core, i.e. be 100% backward compatible between versions of packages.
-See [.NET Breaking Changes](https://github.com/dotnet/corefx/blob/master/Documentation/coding-guidelines/breaking-changes.md) for detailed rules.
+See [.NET Breaking Changes](https://github.com/dotnet/corefx/blob/master/Documentation/coding-guidelines/breaking-change-rules.md) for detailed rules.
 ~
 
 ~ Must {#dotnet-service-version-default}
@@ -357,10 +374,101 @@ use ```System.Uri``` to represent URIs.
 ~
 
 ### Using HttpPipeline {#dotnet-usage-httppipeline}
-TBD
+The following example shows a typical way of using HttpPipeline to implement service call method.
+The HttpPipeline will take care of telemetry, logging, retries, and extensibility required by language-independent Azure SDK Guidelines.
+
+```csharp
+public async Task<Response<ConfigurationSetting>> AddAsync(ConfigurationSetting setting, CancellationToken cancellation = default)
+{
+    if (setting == null) throw new ArgumentNullException(nameof(setting));
+    ... // validate other preconditions
+
+    // build the URI
+    Uri uri = BuildUriForKvRoute(setting);
+
+    // Use HttpPipeline _pipeline filed of the client type to create new HTTP request
+    using (HttpMessage message = _pipeline.CreateMessage(_options, cancellation)) {
+    
+        // specify HTTP request line
+        message.SetRequestLine(PipelineMethod.Put, uri);
+
+        // add headers
+        message.AddHeader("Host", uri.Host);
+        message.AddHeader(IfNoneMatchWildcard);
+        message.AddHeader(MediaTypeKeyValueApplicationHeader);
+        message.AddHeader(HttpHeader.Common.JsonContentType);
+        message.AddHeader(HttpHeader.Common.CreateContentLength(content.Length));
+
+        // serialize contnet, sign it (service specific), and add the content to the request
+        ReadOnlyMemory<byte> content = Serialize(setting);
+        AddAuthenticationHeaders(message, uri, PipelineMethod.Put, content, _secret, _credential);
+        message.SetContent(PipelineContent.Create(content));
+
+        // send the request
+        await Pipeline.ProcessAsync(message).ConfigureAwait(false);
+
+        // get response
+        Response response = message.Response;
+        if (response.Status == 200) {
+            // deserialize content
+            Response<ConfigurationSetting> result = await CreateResponse(response, cancellation);
+        }
+        else throw new ResponseFailedException(response);
+    }
+}
+```
 
 ### Serialization {#dotnet-usage-serialization}
-TBD
+We recommend that you use S[System.Text.Json](https://github.com/dotnet/corefx/tree/master/src/System.Text.Json/source_package) package to write and read JSON content.
+
+~ Should
+use Utf8JsonWriter to write JSON payloads
+
+```csharp
+var json = new Utf8JsonWriter(writer);
+json.WriteStartObject();
+json.WriteString("value", setting.Value);
+json.WriteString("content_type", setting.ContentType);
+json.WriteEndObject();
+json.Flush();
+written = (int)json.BytesWritten;
+```
+~
+
+~ Should
+use JsonDocument to read JSON payloads
+```csharp
+using (JsonDocument json = await JsonDocument.ParseAsync(content, default, cancellation).ConfigureAwait(false))
+{
+    JsonElement root = json.RootElement;
+
+    var setting = new ConfigurationSetting();
+    setting.Key = root.GetProperty("key").GetString();
+    setting.Value = root.GetProperty("value").GetString();
+    setting.Label = root.GetProperty("label").GetString();
+    setting.ContentType = root.GetProperty("content_type").GetString();
+    setting.Locked = root.GetProperty("locked").GetBoolean();
+    setting.ETag = root.GetProperty("etag").GetString();
+    setting.LastModified = DateTimeOffset.Parse(root.GetProperty("last_modified").GetString());
+
+    return setting;
+}
+```
+~
+
+~ Should
+consider using Utf8JsonReader to read JSON payloads
+
+Utf8JsonReader is significantly faster than JsonDocument, but much less convinient.
+~
+
+~ Draft
+
+~~ Must
+make your serialization and deserialization code version resilient.
+~~
+
+~
 
 ~ Should {#dotnet-model-type-serialization}
 consider deserializing the return type lazily if the type is a large graph containing reference types. 
