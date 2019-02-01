@@ -1,0 +1,13 @@
+## Dependencies
+
+Many programming languages do not allow a customer to load multiple versions of the same package. So, if we have an SDK that requires v3 of package Foo and the customer wants to use v5 of package Foo, then the customer cannot build their application. This means that our SDKs should not dependend on any additional packages. In addition, customer applications must be able to deploy as fast as possible onto datacetner virtual machines. Removing additional code (like dependencies) improves deployment performance.
+
+~ MustNot
+be dependent on any other packages
+~
+
+~ Must
+copy & paste other required code into the SDK package in order to avoid taking a dependency on another package. Make sure that you are not violating any licensing agreements.
+~
+
+1.5.3 :warning: **NOTE** For some languages (most notably Java) you will have no choice but to take dependency on other packages. You must only do this if you truely have no other way to avoid taking the dependency.

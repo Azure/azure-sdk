@@ -1,0 +1,29 @@
+## General Guidelines { #common-general }
+
+These language-specific gudelines overrule language independent guidelines.
+
+~ Must {#general-follow-language-guidelines}
+provide SDKs for the following languages: C#, Java, Python, JavaScript.
+~
+
+~ May {#general-ship-other-langs}
+provide SDKs for the following languages: Go, C++
+~
+
+~ Todo
+This will result in partial coverage for optional languages. Is that OK?
+~
+
+~ Must {#general-support-cancellation}
+support cancellations.
+~
+
+~ Must {#general-support-retries}
+support retries
+~
+
+~ MustNot {#general-no-concrete-logging}
+depend on concrete logging, dependency injection, or configuration technologies.
+~
+
+The SDKs will be used in applications that might be using ther logging, DI, and configuration technologies of their choice.
