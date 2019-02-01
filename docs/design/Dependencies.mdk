@@ -11,6 +11,6 @@ Dependencies bring in many considerations that are often easily avoided by avoid
 be dependent on any other packages. Dependencies are by exception and need a thorough vetting through architecture review.
 ~
 
-~Should
+~ Should
 consider copying or linking required code into the SDK component in order to avoid taking a dependency on another package that could conflict with the ecosystem. Make sure that you are not violating any licensing agreements and consider the maintenance that will be required of the duplicated code. ["A little copying is better than a little dependency"](https://www.youtube.com/watch?v=PAAkCSZUG1c&t=9m28s).
 ~
