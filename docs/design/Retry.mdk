@@ -1,0 +1,51 @@
+## Retry {#general-retry}
+
+There are many reasons why failure can occur when a client application attempts to send a network request to a service. Some examples are timeout, network infrastructure failures, service rejecting the request due to throttle/busy, service instance terminating due to service scale down, service instance going down to be replaced with another version, service crashing due to an unhandled exception, etc. By offering a built-in retry mechanism (with a default configuration overridable by the customer), our SDKs and the customer’s application become resilient to these kinds of failures. Note that some services charge real money for each try and so customers should be able to disable retries entirely if they prefer to save money over resiliency.
+
+~ Must {#general-retry-configuration}
+offer the following configuration settings:
+
+- Retry policy (exponential or fixed)
+- Maximum number of tries (32-bit integer; 0=default, 1=1 try & no retries, 2=1 try & 1 retry, etc.)
+- Per-try timeout (timespan/duration; default=worst anticipated bandwidth times largest single request and response payloads)
+- Retry delay (timespan/duration; this is the delay for fixed policy, the delay is increased exponentially by this amount for the exponential policy)
+- Max retry delay (timespan/duration; the delay will never go over this amount)
+~
+
+~ Must {#general-retry-available-if-supported}
+offer additional retry mechanism if supported by the service
+~
+
+- For example, the Azure Storage Blob service supports retrying read operations against a secondary datacenter
+
+~ Must {#general-retry-reset-on-retry}
+reset (or seek back to position 0) any request data stream before retrying a request
+~
+
+~ Must {#general-retry-honor-caller-cancellation}
+honor any cancellation mechanism passed-in be the caller which can terminate the request before retried have been attempted.
+~
+
+~ Must {#general-retry-update-time-to-live}
+update any query parameter or request header that gets sent to the service telling it how much time the service has to process the individual request attempt.
+~
+
+~ Must {#general-retry-on-hardware-network-failure}
+retry in the case of a hardware network failure as it may self-correct
+~
+
+~ Must {#general-retry-on-service-not-found}
+retry in the case of a service not found error as the service may be coming back online or a load balancer may be reconfiguring itself.
+~
+
+~ Must {#general-retry-on-per-try-timeout}
+retry in the case of a per-try timeout
+~
+
+~ Must {#general-retry-if-throttled}
+retry if the service successfully responds indicating that it is throttle requests.
+~
+
+~ MustNot {#general-retry-no-retry-if-successfully-failed}
+retry if the service successfully responds indicating that the requested operation failed.
+~

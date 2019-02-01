@@ -1,0 +1,46 @@
+Madoko documentation: http://madoko.org/reference.html
+
+Title       : Azure SDK Design Guidelines for Java
+Title Note  : Version 1.0.0-preview2
+Author      : Jonathan Giles
+Affiliation : ADP / Java
+Email       : jonathan.giles@microsoft.com
+Logo        : False
+Embed       : False
+css         : custom.css
+
+[INCLUDE=../components.mdk]
+
+[TITLE]
+
+This document describes architectural and API design guidelines for Azure client libraries, specifically for Java. It includes a number of general specifications as well, but the Java-specific guidance later in the specification overrules any general guidance.
+
+[TOC]
+
+# Introduction
+
+This section covers Java-specific requirements to successfully implement and release a Java SDK component for Azure, that must be followed in addition to the common guidelines presented above.
+
+[INCLUDE=../Requirements.mdk]
+
+[INCLUDE=../OpenSource.mdk]
+
+# Language-Independent Guidelines
+
+[INCLUDE=../GeneralGuidelines.mdk]
+
+[INCLUDE=../Telemetry.mdk]
+
+[INCLUDE=../Logging.mdk]
+
+[INCLUDE=../Retry.mdk]
+
+[INCLUDE=../Cancellations.mdk]
+
+[INCLUDE=../Dependencies.mdk]
+
+[INCLUDE=../Configuration.mdk]
+
+# Java-Specific Guidelines
+
+[INCLUDE=DesignGuidelines.mdk]
