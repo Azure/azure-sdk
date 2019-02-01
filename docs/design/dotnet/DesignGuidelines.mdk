@@ -363,6 +363,15 @@ have a sample file called ```S1_HelloWorld.cs```. All other samples are ordered 
 See [Configuration Service Hello World](https://github.com/Azure/azure-sdk-for-net-lab/blob/master/Configuration/Azure.Configuration.Test/samples/Sample1_HelloWorld.cs#L16) sample.
 ~
 
+~ Must {#dotnet-samples}
+make sure all the samples build and run as part of the CI process. 
+
+~~ Draft
+This can be acomplished by making the samples into tests, as in the example above.
+~~ 
+
+~
+
 ## Common Type Usage
 
 ~ Must {#dotnet-usage-etag}
