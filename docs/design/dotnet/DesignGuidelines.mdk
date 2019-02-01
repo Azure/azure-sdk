@@ -270,7 +270,7 @@ if (response.Status != 200) {
 ## Packaging
 
 ~ Must {#dotnet-packaging-nuget}
-package all components as NuGet packages. Follow the .NET packaging guidelines.
+package all components as NuGet packages. Follow the [.NET packaging guidelines](https://docs.microsoft.com/en-us/dotnet/standard/library-guidance/nuget).
 
 If your component builds in the Azure SDK team's main repo, majority of the packaging requirements will be provided automatically.
 ~
