@@ -15,7 +15,7 @@ The following is a list of Azure services and links to their open source code:
 | Azure Storage | [code](https://github.com/Azure/azure-storage-net) | [code](https://github.com/Azure/azure-storage-java) | [code](https://github.com/Azure/azure-storage-python) | [code](https://github.com/Azure/azure-storage-node) | [code](https://github.com/Azure/azure-storage-go) |
 | CosmosDB | | [code](https://github.com/Azure/azure-cosmosdb-java) | [code](https://github.com/Azure/azure-cosmos-python) | [code](https://github.com/Azure/azure-cosmos-js) |
 | Keyvault | [code](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/KeyVault/dataPlane)  | [code](https://github.com/Azure/azure-keyvault-java) | [code](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-keyvault) | [code](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/keyVault)|
-| Service Bus | [code](https://github.com/Azure/azure-service-bus-dotnet) | [code](https://github.com/Azure/azure-service-bus-java) | [code](https://github.com/Azure/azure-service-bus-python) | [code](https://github.com/Azure/azure-service-bus-node) |
+| Service Bus | [code](https://github.com/Azure/azure-service-bus-dotnet) | [code](https://github.com/Azure/azure-service-bus-java) | [code](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-servicebus) | [code](https://github.com/Azure/azure-sdk-for-js/tree/master/packages/%40azure/servicebus/data-plane) |
 | Event Hubs | [code](https://github.com/Azure/azure-event-hubs-dotnet) | [code](https://github.com/Azure/azure-event-hubs-java) | [code](https://github.com/Azure/azure-event-hubs-python) | [code](https://github.com/Azure/azure-event-hubs-node) |
 | IotHub, Iot Devices, IotHub Provisioning Service, IotHub Provisioning Device | [code](https://github.com/Azure/azure-iot-sdk-csharp) | [code](https://github.com/Azure/azure-iot-sdk-java) | [code](https://github.com/Azure/azure-iot-sdk-python) | [code](https://github.com/Azure/azure-iot-sdk-node) |
 | Event Grid | [code](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/EventGrid/DataPlane) | [code](https://github.com/Azure/azure-sdk-for-java/tree/master/eventgrid/data-plane) | [code](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-eventgrid) | [code](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/eventgrid) |
@@ -50,3 +50,5 @@ provided by the bot. You will only need to do this once across all repos using o
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
 For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
 contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+
+[Internal azure-sdk DevOps Wiki](https://aka.ms/azure-sdk-devops-wiki)

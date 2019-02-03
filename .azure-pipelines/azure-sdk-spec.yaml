@@ -1,0 +1,31 @@
+trigger:
+- master
+
+variables:
+  node.version: '10.x'
+
+jobs:
+- job: 'Build'
+
+  pool:
+    vmImage: 'ubuntu-16.04'
+
+  steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '$(node.version)'
+    displayName: 'Install Node.js $(node.version)'
+
+  - task: Npm@1
+    inputs:
+      command: 'install'
+    displayName: 'npm install'
+
+  - task: Npm@1
+    inputs:
+      command: 'custom'
+      customCommand: 'run build -- --odir=$(Build.ArtifactStagingDirectory)'
+    displayName: 'npm run build'
+
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifacts'

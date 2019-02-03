@@ -1,0 +1,41 @@
+## Telemetry { #general-telemetry }
+
+Telemetry is used by service teams (not customers) to monitor what SDK a client is using to call into their service. Specifically, the service team can detect client OS, language, language version, and service SDK version. Some clients can prepend additional information indicating the name and version of the client application.
+
+~ Must
+send telemetry information in the User-Agent header, with the header value in the the following format:
+
+```
+[<application_id>/<SPACE\>]<sdk_name>/<sdk_version>/<SPACE\><platform_information>
+```
+
+- `<application_id> ::=` optional application-specific string. The string is supplied by the user of the SDK, e.g. "AzCopy/10.0.4-Preview"
+- `<sdk_name> ::=` name of the SDK, e.g. "Azure-Storage-Blob"
+- `<sdk_version> ::=` the version of the SDK. Note: this is not the version of the service
+- `<platform_information> ::=` information about the currently-executing OS and runtime, e.g. "(NODE-VERSION v4.5.0; Windows_NT 10.0.14393)"
+~
+
+~ Example {#general-example-user-agent-strings; caption: "Example User-Agent header values"}
+
+
+- "Azure-Storage/1.4.0 (NODE-VERSION v4.5.0; Windows_NT 10.0.14393)"
+- "AzCopy/10.0.4-Preview Azure-Storage/1.4.0 (NODE-VERSION v4.5.0; Windows_NT 10.0.14393)"
+~ 
+
+For details on the User-Agent header, see https://tools.ietf.org/html/rfc7231#section-5.5.3
+
+~ Note
+Today, the <sdk_name> for all storage SDKs/packages (Blob, File, etc.) is simply "Azure-Storage". The guideline above proposes that we standardize on full SDK names, e.g. "Azure-Storage-Blob".
+~
+
+~ TODO
+Provide the full list of SDK names.
+~
+
+~ TODO
+Provide language-specific guidelines (and possibly shared library) for generating <platform_information>
+~
+
+~ TODO
+Provide shared library API for injecting telemetry information
+~

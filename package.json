@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "madoko ./docs/design/common/DesignGuidelines.mdk"
+    "build": "madoko ./docs/design/DesignGuidelines.mdk ./docs/design/java/JavaSpec.mdk ./docs/design/dotnet/DotNetSpec.mdk ./docs/design/python/PythonSpec.mdk ./docs/design/typescript/TypeScriptSpec.mdk"
   },
   "repository": {
     "type": "git",
