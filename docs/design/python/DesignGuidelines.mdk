@@ -7,7 +7,7 @@ provide packages supporting Python 2.7 and Python 3.4+
 ## Supported Python interpreters
 
 ~ Must {#python-interpreters}
-consider supporting PyPy, Jython
+support PyPy and Jython in addition to CPython
 ~
 
 ## Supported Operating systems
@@ -70,9 +70,7 @@ use leading double underscore prefixed method names unless name clashes in inher
 ~
 
 ~ Must {#python-structural-subtyping}
-prefer structural subtyping and protocols over explicit type checks
-
-  *It is [Easier to ask for forgiveness than permission](https://docs.python.org/3/glossary.html#term-eafp)*
+prefer structural subtyping and protocols over explicit type checks.
 ~
 
 ~ Must {#python-derive-appropriately}
@@ -214,7 +212,8 @@ prefer the use of the following terms for CRUD operations:
 
 |Verb|Parameters|Returns|Comments|
 |-|-|-|-|
-| upsert_\<noun>|key, item|Updated or created item|Create new item or update existing item. |
+| upsert_\<noun>|key, item|Updated or created item|Create new item or update existing item. Verb is primarily used in database-like services |
+| set_\<noun>|key, item|Updated or created item|Create new item or update existing item. Verb is primarily used for dictionary-like properties of a service |
 | create_\<noun>|key, item|Created item|Create new item. Fails if item already exists. |
 | update_\<noun>|key, partial item|Updated item|Fails if item does not exist. |
 | replace_\<noun>|key, item|Replace existing item|Completely replaces an existing item. Fails if the item does not exist. |
@@ -358,15 +357,19 @@ include __init__.py for the namespace(s) in sdists
 ### Binary extensions
 
 ~ Must {#python-support-operating-systems}
+be approved by @adparch
+~
+
+~ Must {#python-support-operating-systems}
 support Windows, Linux (manylinux - see PEP513), macOS
 ~
 
 ~ Must {#python-support-platforms}
-support x86, x64 and ARM
+support x86, x64
 ~
 
 ~ Must {#python-support-unicode-ascii}
-support unicode and ascii versions of CPython
+support unicode and ascii versions of CPython 2.7
 ~
 
 ## Async support
