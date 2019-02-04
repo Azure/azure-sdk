@@ -4,7 +4,7 @@ Currently, the document describes guidelines for .NET APIs exposing HTTP/REST se
 
 To illustrate various design concepts, we will be using Azure Application Configuration service in code examples. You can find sources for this component [here](https://github.com/Azure/azure-sdk-for-net-lab/tree/master/Configuration). The Azure.ApplicationModel.Configuration component can serve as an illustration of what we expect a great Azure SDK component for .NET to look like.
 
-## General .NET API Design
+## General Guidelines
 
 ~ Must {#dotnet-follow-official-framework-guidelines}
 follow the official [Framework Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/). 
@@ -53,7 +53,7 @@ name service client types with the _Client_ suffix, e.g. ```ConfigurationClient`
 ~
 
 ~ Must {#dotnet-proxy-client-namespace}
-place service clients in the root namespace of their corresponsing component.
+place service clients in the root namespace of their corresponding component.
 ~
 
 ~ Must {#dotnet-proxy-class}
@@ -92,7 +92,7 @@ namespace Azure.ApplicationModel.Configuration {
 
 ### Service Methods
 This section describes guidelines for designing service client methods that call service endpoints. 
-As a quick illustration, here are the main service call methods in the ConfigurationClient, and further below detailed guidelines codyfining various elements of the design.
+As a quick illustration, here are the main service call methods in the ConfigurationClient, and further below detailed guidelines codifying various elements of the design.
 
 ```csharp
 public class ConfigurationClient {
@@ -112,6 +112,8 @@ make all methods that can result in network I/O async, i.e. return ```Task<T>```
 
 ~ Must {#dotnet-method-cancellation}
 ensure all async methods take an optional ```CancellationToken``` parameter called _cancellation_.
+
+For more contenxt see language-independent [Cancellation Guidelines](#general-cancellations).
 ~
 
 ~ Must {#dotnet-method-return}
@@ -129,7 +131,7 @@ See [Using HttpPipeline](#dotnet-usage-httppipeline) for details.
 As mentioned above, service methods should return ```Task<Response<T>>``` (or equivalent). The ```T``` can be ```System.IO.Stream``` in case of untyped results (e.g. content of a storage blob) or a _model type_ representing deserialized response content. This section describes how such _model type_ and all its transitive closure dependencies (return type graph) should be designed.
 
 ~ Must {#dotnet-return-type}
-return ```Task<Response<Stream>>``` if the response contnent is just a stream of bytes, and ```Task<Response<T>>```, where it ```T``` is a _model type_ if the content has a schema and can be deserialized.
+return ```Task<Response<Stream>>``` if the response content is just a stream of bytes, and ```Task<Response<T>>```, where it ```T``` is a _model type_ if the content has a schema and can be deserialized.
 
 For example, the configuration service _model type_ looks like the following:
 ```csharp
@@ -170,7 +172,7 @@ public class ConfigurationClient {
 ensure model public properties are get-only if they are not intended to be changed by the user.
 
 For example, the _Locked_ property of _ConfigurationSetting_ is not intended to be changed by the user and so its setter should be internal,
-whereas the _ContentType_ property needs is designed tyo be modified and so it has a public setter.
+whereas the _ContentType_ property needs is designed to be modified and so it has a public setter.
 ```csharp
     public sealed class ConfigurationSetting : IEquatable<ConfigurationSetting> {
 
@@ -179,7 +181,7 @@ whereas the _ContentType_ property needs is designed tyo be modified and so it h
         public bool Locked { get; internal set; }
     }
 ```
-Note: the intenral setter for these get-only properties is there to allow the component to deserialize the model types. 
+Note: the internal setter for these get-only properties is there to allow the component to deserialize the model types. 
 See more on this in [Serialization](#dotnet-usage-serialization) section below.
 ~
 
@@ -303,11 +305,11 @@ have dependencies on any NuGet packages besides:
 
 * The .NET Standard, 
 * Azure.* packages from the [azure/azure-sdk-for-net](https://github.com/Azure/azure-sdk-for-net) repo 
-* packages produced by your oun team.
+* packages produced by your on team.
 
 In the past, a very common external dependency was JSON.NET package. To avoid this dependency, 
 we recommend [System.Text.Json](https://github.com/dotnet/corefx/tree/master/src/System.Text.Json/source_package) 
-package that is now a part of the .NET platfrom. 
+package that is now a part of the .NET platform. 
 In particular, the source version of the package which allows for maximum reach.
 ~
 
@@ -353,6 +355,9 @@ else {
 ~
 ## Repository Guidelines
 
+~ Must 
+follow general [Azure SDK open source guidelines](#general-oss).
+
 ~ Must {#dotnet-repository}
 have samples, readme, and prescribed folder structure. The README.md file must be in the component's root folder. 
 ~
@@ -367,10 +372,11 @@ See [Configuration Service Hello World](https://github.com/Azure/azure-sdk-for-n
 make sure all the samples build and run as part of the CI process. 
 
 ~~ Draft
-This can be acomplished by making the samples into tests, as in the example above.
+This can be accomplished by making the samples into tests, as in the example above.
 ~~ 
 
 ~
+
 
 ## Common Type Usage
 
@@ -484,7 +490,7 @@ consider deserializing the return type lazily if the type is a large graph conta
 This allows callers to avoid large number of GC heap allocations. ```Response<T>``` allows for such lazy deserialization. See ```Response<T>``` documentation for how to do it.
 ~
 
-## Commonly Overlooked .NET API Design Guidelines { @h1-h2: "A" }
+## Commonly Overlooked .NET API Design Guidelines
 
 Some .NET Design Guidelines have been notoriously overlooked in existing Azure SDKs. This section serves as a way to highlight these guidelines.
 

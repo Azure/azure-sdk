@@ -1,4 +1,4 @@
-# Requirements
+# Release Requirements
 
 Releasing an SDK component that provides a more convenient means of connecting to a service requires that the service itself be in a state where it has stabilized. 
 An SDK components might be built and available in a preview form whilst a service stabilizes, but should never be distributed as a GA release until the service and the client library are both stable.
@@ -11,7 +11,7 @@ make a GA release of a SDK component until the underlying service is also in GA,
 make a GA release of a SDK component for a service whose protocol is based on a REST API until there is a stable GA Swagger specification available.
 ~
 
-## Functionality
+## Service Freature Parity
 
 ~ Must {#support-all-service-features}
 support 100% of the features provided by the Azure service the SDK component represents. Gaps in functionality cause confusion and frustration among developers.
