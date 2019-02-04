@@ -1,7 +1,7 @@
 Madoko documentation: http://madoko.org/reference.html
 
 Title       : Azure SDK Design Guidelines for Java
-Title Note  : Version 1.0.0-preview2
+Title Note  : Version 1.0.0-preview3
 Author      : Jonathan Giles
 Affiliation : ADP / Java
 Email       : jonathan.giles@microsoft.com
@@ -13,21 +13,25 @@ css         : custom.css
 
 [TITLE]
 
-This document describes architectural and API design guidelines for Azure client libraries, specifically for Java. It includes a number of general specifications as well, but the Java-specific guidance later in the specification overrules any general guidance.
+This document describes architectural and API design guidelines for Java Azure SDK components.
 
 [TOC]
 
 # Introduction
 
-This section covers Java-specific requirements to successfully implement and release a Java SDK component for Azure, that must be followed in addition to the common guidelines presented below.
+[INCLUDE=DesignGuidelines.mdk]
 
 [INCLUDE=../Requirements.mdk]
 
 [INCLUDE=../OpenSource.mdk]
 
-# Language-Independent Guidelines
+# Requirements Implemented by HTTP Pipeline
 
-[INCLUDE=../GeneralGuidelines.mdk]
+This section describes requirements that are automatically satisfied by components that use the HTTP pipeline API to implement their service method calls. 
+
+For example, the pipeline automatically takes care of [logging](#general-logging), [retry](#general-retry), and [telemetry](#general-telemetry) requirements described in detail in this section. 
+
+If for some reason you cannot use the HTTP pipeline, you will have to manually support the requirements described in this section.
 
 [INCLUDE=../Telemetry.mdk]
 
@@ -35,12 +39,10 @@ This section covers Java-specific requirements to successfully implement and rel
 
 [INCLUDE=../Retry.mdk]
 
+# Context and Rationale
+
+Language-specific guidelines, described above, stem from language-independent requirements described in this section. If you follow the language-specific guidelines, you don't have to worry about these language-independent guidelines, but they do provide context and rationale for many of the language specific guidelines.
+
 [INCLUDE=../Cancellations.mdk]
 
 [INCLUDE=../Dependencies.mdk]
-
-[INCLUDE=../Configuration.mdk]
-
-# Java-Specific Guidelines
-
-[INCLUDE=DesignGuidelines.mdk]
