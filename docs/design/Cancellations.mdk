@@ -1,4 +1,4 @@
-## Cancellation & Timeouts
+## Cancellation & Timeouts {#general-cancellations}
 
 When an application makes a network request, the network infrastrucutre(like routers) and the called service may take a long time to respond and, in fact, may never respond. A well-written application SHOULD NEVER give up its control to the network infrasture or service. To ensure that users of our SDKs can keep control of their application, SDK methods that perform I/O operations MUST accept some kind of cancellation & timeout mechanism specific to the programming language.
 
