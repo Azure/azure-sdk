@@ -4,7 +4,7 @@ Currently, the document describes guidelines for .NET APIs exposing HTTP/REST se
 
 To illustrate various design concepts, we will be using Azure Application Configuration service in code examples. You can find sources for this component [here](https://github.com/Azure/azure-sdk-for-net-lab/tree/master/Configuration). The Azure.ApplicationModel.Configuration component can serve as an illustration of what we expect a great Azure SDK component for .NET to look like.
 
-## General .NET API Design
+## General Guidelines
 
 ~ Must {#dotnet-follow-official-framework-guidelines}
 follow the official [Framework Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/). 
@@ -112,6 +112,8 @@ make all methods that can result in network I/O async, i.e. return ```Task<T>```
 
 ~ Must {#dotnet-method-cancellation}
 ensure all async methods take an optional ```CancellationToken``` parameter called _cancellation_.
+
+For more contenxt see language-independent [Cancellation Guidelines](#general-cancellations).
 ~
 
 ~ Must {#dotnet-method-return}
@@ -353,6 +355,9 @@ else {
 ~
 ## Repository Guidelines
 
+~ Must 
+follow general [Azure SDK open source guidelines](#general-oss).
+
 ~ Must {#dotnet-repository}
 have samples, readme, and prescribed folder structure. The README.md file must be in the component's root folder. 
 ~
@@ -371,6 +376,7 @@ This can be acomplished by making the samples into tests, as in the example abov
 ~~ 
 
 ~
+
 
 ## Common Type Usage
 
@@ -484,7 +490,7 @@ consider deserializing the return type lazily if the type is a large graph conta
 This allows callers to avoid large number of GC heap allocations. ```Response<T>``` allows for such lazy deserialization. See ```Response<T>``` documentation for how to do it.
 ~
 
-## Commonly Overlooked .NET API Design Guidelines { @h1-h2: "A" }
+## Commonly Overlooked .NET API Design Guidelines
 
 Some .NET Design Guidelines have been notoriously overlooked in existing Azure SDKs. This section serves as a way to highlight these guidelines.
 
