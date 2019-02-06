@@ -15,23 +15,6 @@ follow these guidelines even if you're not publishing an Azure library under the
 - **ESM** / **ES Module**: ECMAScript Module, the standard import/export syntax defined by ECMAScript 6.
 - **UMD**: Universal Module Definition, a superset of both CommonJS and AMD modules.
 
-## Service {#ts-service}
-
-~ Must {#ts-service-requirements}
-meet the following service criteria to advance from preview to GA:
-
-1. Stable (not preview) npm package must be available on npmjs.org
-1. Underlying service must be in GA
-1. Protocol head must be stable
-1. If the protocol is REST API, then a stable Swagger (not preview) must be available
-1. Samples for core end-to-end scenarios must be available
-1. Robust test coverage for core end-to-end scenarios must be available – unit testing, mock testing for every pull requests and daily live testing against Azure
-1. must have gone through 3-4 months or 2-3 cycles of testing with developers, received feedback and addressed them
-~
-
-~ Todo
-I think this section could be deleted.
-~
 ## NPM Package {#ts-npm-package}
 
 The following sections specify versioning, the contents of package.json and the various source distributions included in the NPM package.
