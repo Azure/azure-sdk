@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "madoko ./docs/design/DesignGuidelines.mdk ./docs/design/java/JavaSpec.mdk ./docs/design/dotnet/DotNetSpec.mdk ./docs/design/python/PythonSpec.mdk ./docs/design/typescript/TypeScriptSpec.mdk"
+    "build": "madoko ./docs/design/DesignGuidelines.mdk ./docs/design/java/JavaSpec.mdk ./docs/design/dotnet/DotNetSpec.mdk ./docs/design/python/PythonSpec.mdk ./docs/design/typescript/TypeScriptSpec.mdk",
+    "watch": "chokidar ./docs/**/*.mdk -c \"npm run build\""
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   "homepage": "https://github.com/Azure/azure-sdk#readme",
   "devDependencies": {
     "@types/node": "^10.12.18",
+    "chokidar-cli": "^1.2.1",
     "madoko": "^1.1.4"
   }
 }
