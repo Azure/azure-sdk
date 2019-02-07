@@ -7,6 +7,10 @@ we recommend that you schedule a pre-review (consulting session) before you star
 Note: Azure SDK Reviews are not REST API (nor swagger) reviews. We review language-specific SDK APIs.
 In particular, we review .NET, Python, Java, and JavaScript APIs, and in rare cases C++, Go, and other language SDKs.
 
+## How to Design Great Azure APIs
+
+Make sure your components follow [Azure SDK Design Guidelines](https://github.com/Azure/azure-sdk/blob/master/docs/design/README.md).
+
 ## What to Prepare for a Review
 
 To conduct a review, we need the following things from the owners of the SDK:
