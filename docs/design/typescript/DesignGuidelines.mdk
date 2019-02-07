@@ -240,13 +240,25 @@ The main downside of including additional source distributions is the increased 
 
 #### Original Source {#ts-source-distros-original}
 
+~ Must {#ts-include-original-source}
+  include original source in your package.
+~
+
 Including the original source in your package helps developers debug in and around your package. Go-to-definition can be a quick way to confirm how to use a function (especially if its implemented in TypeScript), and seeing useful names and readable source code in call stacks can help with debugging.
 
 Including the original source also means we can aggressively optimize the build artefacts since users will not need to puzzle through the mangled code.
 
-#### CommonJS/UMD {#ts-source-distros-cjs}
+#### CommonJS {#ts-source-distros-cjs}
 
-This is the distribution that all Node and Browser users will consume.
+~ Must {#ts-include-cjs}
+  include a CJS build in your package if you intend to support Node.
+~
+
+~ Todo
+ Factor out browser requirements into a separate clause.
+~
+
+This is the distribution that Node users will consume.
 
 If your library supports the Web platform, this distribution must be UMD modules. If your library is not intended for the browser, it is recommended to be UMD modules because the overhead over CJS is slight and it may make an eventual move to the Web platform easier later.
 
@@ -262,14 +274,23 @@ Flattening is the process of packing multiple modules into a single file. This p
 
 #### ESM {#ts-source-distros-esm}
 
-This distribution is mostly consumed by tools such as Webpack that need to understand your library's module graph in order to do optimizations like tree-shaking. Other than using es6 modules, this distribution should be "transpiled" to support the versions of Node and the browser you are targeting. This ensures users won't have to re-compile your library before it is usable in their host of choice.
+~ Must {#ts-include-esm}
+  include an ESM build in your package.
+~
 
-The esm build should not be flattened.
+~ MustNot {#ts-include-esm-not-flattened}
+  flatten the ESM build.
+~
+
+This distribution is mostly consumed by tools such as Webpack that need to understand your library's module graph in order to do optimizations like tree-shaking. Other than using es6 modules, this distribution should be "transpiled" to support the versions of Node and the browser you are targeting. This ensures users won't have to re-compile your library before it is usable in their host of choice.
 
 Versions of Webpack prior to 4.0 would produce better optimized bundles if libraries' ESM builds were flattened. However, because flattening doesn't play so well with tree-shaking (the idea is to flatten modules together that would tree-shake out together), and because Webpack 4 can theoretically do a better job with unflattened ESM, it is not recommend to flatten the ESM module build.
 
 ### README<span></span>.md {#ts-readme.md}
- 
+~ Todo
+  unify in main readme doc
+~
+
 Your package must include a README.md file that describes at a minimum:
 
 - The service &amp; library.
@@ -283,6 +304,10 @@ Your package must include a README.md file that describes at a minimum:
 Additionally, your project must include a reference to the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct) and a link to the CONTRIBUTING.md file.
 
 ### CONTRIBUTING<span></span>.md {#ts-contributing.md}
+
+~ Todo
+Unify with common contributing.md requirements
+~
 
 This file must be present in your package and must describe the process by which contributors can make contributions to the project. Any relevant processes and procedures must be documented, including but not limited to:
 
@@ -310,20 +335,29 @@ or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any addi
 ```
 
 ### LICENSE<span></span>.md {#ts-license.md}
-
+~ Todo
+Unify with common license.md requirements
+~
 This file must be present and must contain your license text. See section 6.1 for more details.
 
 ### Modules {#ts-modules}
 
-Your package's surface area must be ES6 modules. Additionally, your package must not have a default export and may only have named exports.
+~ Must {#ts-modules-only-named}
+  have named exports at the top level
+~
+
+~ MustNot {#ts-modules-no-default}
+  have a default export at the top level
+~
 
 Azure packages authored using TypeScript export standard ES6 modules. As Node does not yet support ES6 modules natively, authoring ES6 modules for consumption in Node has a bit of friction. Most notable, a commonJS package can only import a single value. The difference between this model and ES6 modules where you can export many different things is the primary source of friction.
 
-Packages which have compatibility reasons to continue supporting default exports may choose to do so. These packages must export only a default export using TypeScript's `export =` syntax. Packages may not choose to go this route for reasons other than backwards compatibility with previous versions.
-
 ## License, Copyright &amp; IP {#ts-ip}
+~ Todo
+Fold into common sections
+~
 
-Packages must comply with the [Microsoft Open Source guidelines](https://docs.opensource.microsoft.com/using/overview.html). In some cases, the ANPS may be more explicit, in which cases ANPS requirements are normative. In case of conflicts, however, the Microsoft Open Source guidelines are normative.
+Packages must comply with the [Microsoft Open Source guidelines](https://docs.opensource.microsoft.com/using/overview.html). In some cases, this document may be more explicit, in which case these requirements are normative. In case of conflicts, however, the Microsoft Open Source guidelines are normative.
 
 In general this section does not attempt to re-state everything in the Microsoft Open Source guidelines. An effort has been made to extract the most relevant information here, but package authors must read the Microsoft Open Source guidelines to ensure their packages are compliant.
 
@@ -366,9 +400,15 @@ Other "streaming" interfaces may be used where appropriate as long as they are i
 
 ### TypeScript
 
-Libraries should be developed in TypeScript. Developing in TypeScript ensures that your consumers have the best possible tooling experience regardless of whether they program in JavaScript or TypeScript. Whether your consumers are using JavaScript or TypeScript, they will have a richer tooling experience when your SDK is implemented in TypeScript.
+~ Should
+  implement your library in TypeScript.
+~
 
-Whether or not you choose to use TypeScript, your package must include type declarations per 5.4.11.
+~ Must
+  include type declarations for your library.
+~
+
+Libraries should be developed in TypeScript. Developing in TypeScript ensures that your consumers have the best possible tooling experience regardless of whether they program in JavaScript or TypeScript.
 
 #### tsconfig.json
 
