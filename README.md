@@ -4,6 +4,13 @@ The Azure SDK delivers a platform for developers to leverage the wide variety of
 
 | [.NET](https://github.com/Azure/azure-sdk-for-net) | [Java](https://github.com/Azure/azure-sdk-for-java) | [Python](https://github.com/Azure/azure-sdk-for-python) | [JavaScript](https://github.com/Azure/azure-sdk-for-js) | [Go](https://github.com/Azure/azure-sdk-for-go) |
 
+## Azure SDK Design Guidelines
+
+- [C#](https://azuresdkspecs.z5.web.core.windows.net/DotNetSpec.html)
+- [Java](https://azuresdkspecs.z5.web.core.windows.net/JavaSpec.html)
+- [Python](https://azuresdkspecs.z5.web.core.windows.net/PythonSpec.html)
+- [TypeScript](https://azuresdkspecs.z5.web.core.windows.net/TypeScriptSpec.html)
+
 # Azure Service Libraries
 
 The following is a list of Azure services and links to their open source code:
