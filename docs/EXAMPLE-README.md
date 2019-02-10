@@ -1,4 +1,4 @@
-REPLACE WITH AZURE LOGO AND THE SERVICE LOGO IF IT EXISTS
+TODO: REPLACE WITH AZURE LOGO AND THE SERVICE LOGO IF IT EXISTS
 
 # Client Library for Azure (Name of Service)
 
@@ -10,31 +10,13 @@ You can use this library to:
 * TODO: Example of a common task that people would use this library to accomplish with a link to the sample that shows how to do it.
 * TODO: Example of a common task that people would use this library to accomplish with a link to the sample that shows how to do it.
 
-[Source Code][source-code] | [Reference Documentation][reference-docs]
+[Getting Started][getting-started-docs] | [API Reference Documentation][api-reference-docs] | [Source Code][source-code]
 
-## Prerequisites
+# Getting Started
 
-(TODO: List everything people will need in order to get started with this library as far as accounts and installs with links (DELETE THIS LINE))
-* Azure subscription - [Create a free account][azure_sub]
-* Install the required developer tooling and runtimes for example [Python 3.6+][add_link] or [.NET Core 2.1 SDK][add_link].
+(TODO: This section should include everything needed to create your first client connection to the service very quickly with the first thing being the command on how to get the package installed.)
 
-(TODO: If there are concrete commands that can be run to create accounts or install a pre-req, provide a 1 or 2 liner here)
-
-## Installation
-
-(TODO: Provide instructions for the platform package manager. The following is an example for python)
-Install the Azure SDK Cosmos DB Python package with  with [pip][pip], optionally within a [virtual environment][venv].
-
-### Configure a virtual environment (optional)
-
-Although not required, you can keep your your base system and Azure SDK environments isolated from one another if you use a virtual environment. Execute the following commands to configure and then enter a virtual environment with [venv][venv]:
-
-```Bash
-python3 -m venv azure-cosmosdb-sdk-environment
-source azure-cosmosdb-sdk-environment/bin/activate
-```
-
-### Install the package
+## Install the package
 
 Install the Azure SDK Cosmos DB package for Python with [pip][pip]:
 
@@ -42,11 +24,36 @@ Install the Azure SDK Cosmos DB package for Python with [pip][pip]:
 pip install (package name)
 ```
 
+For details on how to configure your developement environment see the [prerequisites](#prerequisites).
+
 ## Authentication
 
-### Get credentials
+Interaction with Cosmos DB starts with an instance of the [CosmosClient][TODO link to CosmosClient docs] class. You need an **account**, its **URI**, and one of its **account keys** to instantiate the client object.
 
-### Create a Client Connection
+## Get Credentials
+
+Use the Azure CLI snippet below to populate two environment variables with the database account URI and its primary master key (you can also find these values in the Azure portal). The snippet is formatted for the Bash shell.
+
+```Bash
+RES_GROUP=<resource-group-name>
+ACCT_NAME=<cosmos-db-account-name>
+
+export ACCOUNT_URI=$(az cosmosdb show --resource-group $RES_GROUP --name $ACCT_NAME --query documentEndpoint --output tsv)
+export ACCOUNT_KEY=$(az cosmosdb list-keys --resource-group $RES_GROUP --name $ACCT_NAME --query primaryMasterKey --output tsv)
+```
+
+## Create a Client Connection
+
+Once you've populated the `ACCOUNT_URI` and `ACCOUNT_KEY` environment variables, you can create the [CosmosClient][TODO link to CosmosClient docs].
+
+```Python
+from azure.cosmos import HTTPFailure, CosmosClient, Container, Database, PartitionKey
+
+import os
+url = os.environ['ACCOUNT_URI']
+key = os.environ['ACCOUNT_KEY']
+client = CosmosClient(url, key)
+```
 
 ## Key Concepts
 
@@ -56,7 +63,7 @@ pip install (package name)
 
 ## Examples
 
-(TODO: Create a list of simple helloworld style code snippets that can be easily copied and pasted into an application. These should cover the basic scenarios outlined in the first section of this readme. This should not be an exhaustive but should cover the most common operations that will be used. The following are some examples from Cosmos for Python)
+(TODO: Have a list of simple helloworld style code snippets that can be easily copied and pasted into an application that has already instantiated their connection. These should cover the basic scenarios outlined in the first section of this readme. This should not be an exhaustive but should cover the most common operations that will be used. The following are some examples from Cosmos for Python)
 * [Create a database](#create-a-database)
 * [Create a container](#create-a-container)
 * [Insert data](#insert-data)
@@ -129,13 +136,30 @@ for item in container.query_items(
     print(json.dumps(item, indent=True))
 ```
 
+## Prerequisites
+
+(TODO: List everything people will need in order to get started with this library as far as accounts and installs with links (DELETE THIS LINE))
+* Azure subscription - [Create a free account][azure_sub]
+* Install the required developer tooling, package manager and runtimes for example [Python 3.6+][add_link] or [.NET Core 2.1 SDK][add_link].
+
+(TODO: If there are concrete commands that can be run to create accounts or install a pre-req, provide a 1 or 2 liner here)
+
+### Configure a virtual environment (optional)
+
+Although not required, you can keep your your base system and Azure SDK environments isolated from one another if you use a virtual environment. Execute the following commands to configure and then enter a virtual environment with [venv][venv]:
+
+```Bash
+python3 -m venv azure-cosmosdb-sdk-environment
+source azure-cosmosdb-sdk-environment/bin/activate
+```
+
 ## Troubleshooting
 
 (TODO: provide troubleshooting instructions for common issues as well as links to any known issues in the library that are being commonly hit.)
 
-## Next steps
-
 ### More sample code
+
+There are more samples for how to use this library in the [samples][samples-folder] folder.
 
 ### Additional Documentation
 
@@ -170,8 +194,15 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
 contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
+# License
+
+This project is licensed under the MIT License. See the [License][license] in the root of the repo.
+
 <!-- LINKS -->
 [source-code]: https://github.com/azure/azure-sdk/sdk/name-of-package
-[reference-docs]: https://github.com/azure/azure-sdk/sdk/name-of-package
+[api-reference-docs]: ???
+[getting-started-docs]: ???
+[samples-folder]: https://github.com/azure/azure-sdk/sdk/name-of-package/samples
 [service-docs]: https://docs.microsoft.com/azure/page-for-service
 [azure_sub]: https://azure.microsoft.com/free/
+[license]: https://github.com/azure/azure-sdk/LICENSE.md
