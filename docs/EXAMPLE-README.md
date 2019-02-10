@@ -144,7 +144,7 @@ for item in container.query_items(
 
 (TODO: If there are concrete commands that can be run to create accounts or install a pre-req, provide a 1 or 2 liner here)
 
-### Configure a virtual environment (optional)
+### Configure a virtual environment (optional) TODO: This is python specific so not needed in other languages.
 
 Although not required, you can keep your your base system and Azure SDK environments isolated from one another if you use a virtual environment. Execute the following commands to configure and then enter a virtual environment with [venv][venv]:
 
