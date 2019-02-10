@@ -1,5 +1,3 @@
-TODO: REPLACE WITH AZURE LOGO AND THE SERVICE LOGO IF IT EXISTS
-
 # Client Library for Azure (Name of Service)
 
 TODO: place a full description here matching the marketing description that is on the services main documentation site.
