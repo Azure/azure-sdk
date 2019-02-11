@@ -6,7 +6,7 @@ The Azure SDK delivers a platform for developers to leverage the wide variety of
 
 ## Azure SDK Design Guidelines
 
-- [C#](https://azuresdkspecs.z5.web.core.windows.net/DotNetSpec.html)
+- [.NET](https://azuresdkspecs.z5.web.core.windows.net/DotNetSpec.html)
 - [Java](https://azuresdkspecs.z5.web.core.windows.net/JavaSpec.html)
 - [Python](https://azuresdkspecs.z5.web.core.windows.net/PythonSpec.html)
 - [TypeScript](https://azuresdkspecs.z5.web.core.windows.net/TypeScriptSpec.html)
