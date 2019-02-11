@@ -25,7 +25,7 @@ To conduct a review, we need the following things from the owners of the SDK:
 ## API Listings
 
 During API reviews, we look at API usage samples (as discussed above) and at detailed API lisiting.
-You can see an example of such listing [here](https://github.com/Azure/azure-sdk/blob/master/docs/design/APIListingExampleDotNet.md).
+You can see an example of such listing [here](https://github.com/Azure/azure-sdk/blob/master/docs/design/dotnet/APIListingExample.md).
 
 If you have a prototype of your APIs, depending on the language the APIs are for, you can possibly generate the API listing.
 
