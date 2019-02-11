@@ -23,7 +23,7 @@ reset (or seek back to position 0) any request data stream before retrying a req
 ~
 
 ~ Must {#general-retry-honor-caller-cancellation}
-honor any cancellation mechanism passed-in be the caller which can terminate the request before retried have been attempted.
+honor any cancellation mechanism passed-in be the caller which can terminate the request before retries have been attempted.
 ~
 
 ~ Must {#general-retry-update-time-to-live}
@@ -43,7 +43,7 @@ retry in the case of a per-try timeout
 ~
 
 ~ Must {#general-retry-if-throttled}
-retry if the service successfully responds indicating that it is throttle requests.
+retry if the service successfully responds indicating that it is throttling requests.
 ~
 
 ~ MustNot {#general-retry-no-retry-if-successfully-failed}

@@ -31,7 +31,7 @@ This section describes requirements that are automatically satisfied by componen
 
 For example, the pipeline automatically takes care of [logging](#general-logging), [retry](#general-retry), and [telemetry](#general-telemetry) requirements described in detail in this section. 
 
-If for some reason you cannot use the _HttpPipeline_, you will have to manually support the requirements described in this section.
+If for some reason you cannot use the _HttpPipeline_ for a REST service, you will have to manually support the requirements described in this section.
 
 [INCLUDE=../Logging.mdk]
 
