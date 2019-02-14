@@ -2,7 +2,7 @@
 
 Currently, the document describes guidelines for .NET APIs exposing HTTP/REST services. It might be expanded in the future to cover other, non-REST, services. 
 
-To illustrate various design concepts, we will be using Azure Application Configuration service in code examples. You can find sources for this component [here](https://github.com/Azure/azure-sdk-for-net-lab/tree/master/Configuration). The Azure.ApplicationModel.Configuration component can serve as an illustration of what we expect a great Azure SDK component for .NET to look like.
+To illustrate various design concepts, we will be using Azure Application Configuration service in code examples. You can find sources for this component [here](https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/Azure.ApplicationModel.Configuration/data-plane). The Azure.ApplicationModel.Configuration component can serve as an illustration of what we expect a great Azure SDK component for .NET to look like.
 
 ## General Guidelines
 
@@ -368,7 +368,7 @@ have samples, readme, and prescribed folder structure. The README.md file must b
 ~ Must {#dotnet-samples-hello_world}
 have a sample file called ```S1_HelloWorld.cs```. All other samples are ordered from simplest to most complex using ```S<number>_``` prefix.
 
-See [Configuration Service Hello World](https://github.com/Azure/azure-sdk-for-net-lab/blob/master/Configuration/Azure.Configuration.Test/samples/Sample1_HelloWorld.cs#L16) sample.
+See [Configuration Service Hello World](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Azure.ApplicationModel.Configuration/data-plane/Azure.Configuration.Tests/samples/Sample1_HelloWorld.cs#L16) sample.
 ~
 
 ~ Must {#dotnet-samples}
