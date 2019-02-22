@@ -286,60 +286,6 @@ This distribution is mostly consumed by tools such as Webpack that need to under
 
 Versions of Webpack prior to 4.0 would produce better optimized bundles if libraries' ESM builds were flattened. However, because flattening doesn't play so well with tree-shaking (the idea is to flatten modules together that would tree-shake out together), and because Webpack 4 can theoretically do a better job with unflattened ESM, it is not recommend to flatten the ESM module build.
 
-### README<span></span>.md {#ts-readme.md}
-~ Todo
-  unify in main readme doc
-~
-
-Your package must include a README.md file that describes at a minimum:
-
-- The service &amp; library.
-- How to aquire the library, even if as simple as `npm install @azure/<library>`
-- Pre-requisites for running the library, including Azure account requirements
-- A "hello world" sample - something users can copy/paste to get started using the service
-- Links to sample code on https://docs.microsoft.com/en-us/javascript/azure/?view=azure-node-latest
-- Links to the documentation on docs.microsoft.com
-- Link to [CONTRIBUTING.md][#ts-contributing.md]
-
-Additionally, your project must include a reference to the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct) and a link to the CONTRIBUTING.md file.
-
-### CONTRIBUTING<span></span>.md {#ts-contributing.md}
-
-~ Todo
-Unify with common contributing.md requirements
-~
-
-This file must be present in your package and must describe the process by which contributors can make contributions to the project. Any relevant processes and procedures must be documented, including but not limited to:
-
-- How to contribute code, and any relevant coding conventions and policies.
-- How to build and run tests
-- How to leverage CI runs and other CI-related information
-
-An example CONTRIBUTING.md is provided by the [Microsoft Open Source Guidelines](https://docs.opensource.microsoft.com/releasing/overview.html):
-
-```markdown
-## Contributing
-
-This project welcomes contributions and suggestions. Most contributions require you to
-agree to a Contributor License Agreement (CLA) declaring that you have the right to,
-and actually do, grant us the rights to use your contribution. For details, visit
-https://cla.microsoft.com.
-
-When you submit a pull request, a CLA-bot will automatically determine whether you need
-to provide a CLA and decorate the PR appropriately (e.g., label, comment). Simply follow the
-instructions provided by the bot. You will only need to do this once across all repositories using our CLA.
-
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/)
-or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
-```
-
-### LICENSE<span></span>.md {#ts-license.md}
-~ Todo
-Unify with common license.md requirements
-~
-This file must be present and must contain your license text. See section 6.1 for more details.
-
 ### Modules {#ts-modules}
 
 ~ Must {#ts-modules-only-named}
