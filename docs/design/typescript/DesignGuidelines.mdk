@@ -347,15 +347,23 @@ Library APIs must be idiomatic and mst follow best practices.
 
 ### Modern & Idiomatic JavaScript
 
-Library APIs should make use of modern syntax and leverage TypeScript or other "transpilers" do compile the modern syntax down to code that can run across supported runtimes. Modern syntax like arrow functions, rest parameters, spread operator, default parameters, classes, and more make JavaScript a better language to develop in and maintain.
+~ Must {#ts-use-promises}
+  use built-in promises for asynchronous operations. You may provide overloads which take callback. Do not import any promise polyfills or libraries.
+~
 
-Library APIs must provide Promise-based asynchrony. Promises are a part of JavaScript as of ES6, and ES2016 and later editions added async functions and other features that make working with promises easier. Node-style callbacks must not be the only async mechanism provided by your library. Third party promise libraries such as Q, When, or RSVP must not be included in your package.
+Promises are a part of JavaScript as of ES6, and ES2016 and later editions added async functions and other features that make working with promises easier. Promises are broadly supported in the ecosystem and in Node since 0.12.
 
-Library APIs should make use of async functions. Async functions drastically improve the readability of async code and thus improves library quality and makes maintenance and contributions easier.
+~ Should {#ts-use-async-functions}
+  use async functions for implementing asynchronous library APIs.
+~
 
-Libraries must not re-invent protocols for synchronous or asynchronous iteration. Both of these protocols are built into the language (Iterators as of ES6, Async Iterators as of ES2018). Libraries should use generators to create iterators. Libraries should use async generators to create async iterators.
+Because async function transpilation is fairly heavy, there are cases where the added code size is undesirable. This is especially true for projects which must support ES5 runtimes without generators as the code to implement generators in ES5 is quite large. That said, async functions drastically improve the readability of complex async code. A middle ground is to use the Promise APIs directly for simple things and use async functions when you need to call async APIs along with control flow constructs like `if` and loops.
 
-Other "streaming" interfaces may be used where appropriate as long as they are idiomatic. Node streams may be used in node, but should not be polyfilled in the browser. Observables ala rx.js may be used if async generators aren't appropriate for your use case.
+~ Must {#ts-use-iterators}
+  use Iterators and Async Iterators for sequences and streams of all sorts.
+~
+
+Both of these protocols are built into the language (Iterators as of ES6, Async Iterators as of ES2018) and are easy to consume using for-of and for-await-of loops. Libraries should use generators to create iterators and async generators to create async iterators (subject to the same qualifications as async functions). Other "streaming" interfaces may be used where appropriate as long as they are idiomatic. Node streams may be used in node, but should not be polyfilled in the browser.
 
 ### TypeScript
 
@@ -367,7 +375,7 @@ Other "streaming" interfaces may be used where appropriate as long as they are i
   include type declarations for your library.
 ~
 
-Libraries should be developed in TypeScript. Developing in TypeScript ensures that your consumers have the best possible tooling experience regardless of whether they program in JavaScript or TypeScript.
+TypeScript is very popular in the ecosystem and its static types provide significant benefit for both the library authors and consumers. TypeScript also compiles modern JavaScript language features down to code compatible with much older runtimes.
 
 #### tsconfig.json
 
