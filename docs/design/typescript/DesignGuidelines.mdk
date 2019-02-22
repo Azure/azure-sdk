@@ -15,12 +15,12 @@ follow these guidelines even if you're not publishing an Azure library under the
 - **ESM** / **ES Module**: ECMAScript Module, the standard import/export syntax defined by ECMAScript 6.
 - **UMD**: Universal Module Definition, a superset of both CommonJS and AMD modules.
 
-## NPM Package {#ts-npm-package}
+## npm Package {#ts-npm-package}
 
-The following sections specify versioning, the contents of package.json and the various source distributions included in the NPM package.
+The following sections specify versioning, the contents of package.json and the various source distributions included in the npm package.
 
 ~ Must {#ts-npm-package-ownership}
-have NPM package ownership set to either the Azure or Microsoft orgs. (TODO: how to)
+have npm package ownership set to either the Azure or Microsoft orgs. (TODO: how to)
 ~
 
 ### Functionality {#ts-functionality}
@@ -59,7 +59,7 @@ For some types of libraries and applications, semantic versioning is more of a l
 
 The following is the canonical file structure of your npm package:
 
-~ Figure {#ts-figure-package-layout; caption: "Canonical file structure of an NPM package"}
+~ Figure {#ts-figure-package-layout; caption: "Canonical file structure of an npm package"}
 
 
 ```
@@ -101,7 +101,7 @@ include other files.
 
 ### Package.json{#ts-package-json}
 
-The following sections describe the package.json file that must be included with every NPM package. A compliant package.json file looks like Figure [#ts-figure-package-json]:
+The following sections describe the package.json file that must be included with every npm package. A compliant package.json file looks like Figure [#ts-figure-package-json]:
 
 ~ Figure {#ts-figure-package-json; caption: "An example package.json" }
 ```javascript
@@ -247,7 +247,7 @@ set to "MIT".
 
 ### Source Distributions{#ts-source-distros}
 
-Modern NPM packages often ship multiple source distributions targeting different usage scenarios. Packages must include the original source, a CJS or UMD build, and an ESM build (see below). Packages may include other source distributions as necessary for their particular usage scenarios.
+Modern npm packages often ship multiple source distributions targeting different usage scenarios. Packages must include the original source, a CJS or UMD build, and an ESM build (see below). Packages may include other source distributions as necessary for their particular usage scenarios.
 
 The main downside of including additional source distributions is the increased package size (larger packages mean CIs take longer). However, performance, compatibility, and developer experience goals are often more important.
 
@@ -502,7 +502,7 @@ Your package should have at least one [Quickstart](https://review.docs.microsoft
 
 TODO: clarify which (node, js, or both?)
 
-NPM install statements for the package should be versionless.
+npm install statements for the package should be versionless.
 
 ### Code Samples
 
