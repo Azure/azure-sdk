@@ -126,6 +126,11 @@ The following sections describe the package.json file that must be included with
     "test": "...",
     "prepack": "npm install && npm run build"
   },
+  "files": [
+    "dist",
+    "dist-esm",
+    "browser"
+  ],
   "devDependencies": { /* ... */ },,
   "dependencies": { /* ... */ },
   "repository": "github:Azure/azure-cosmos-js",
@@ -219,6 +224,14 @@ have the following scripts:
 ~ Must {#ts-package-json-required-scripts-for-development}
 Any tasks required for developing your package must have corresponding npm scripts. Packages should not depend on shell scripts to build or test their application as shell scripts often need to be platform-specific.
 ~
+
+#### files {#ts-package-json-files}
+
+~ Must {#ts-package-json-files-required}
+explicitly add package contents using this field.
+~
+
+Setting this field prevents extraneous files from ending up in your package by being explicit about which files you ship to npm. 
 
 #### types
 
