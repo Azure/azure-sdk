@@ -331,10 +331,6 @@ The chosen license must be present as a comment at the top of every source file.
 // Licensed under the MIT License.
 ```
 
-### CLA {#ts-cla}
-
-Packages must use the [Microsoft CLA](https://cla.opensource.microsoft.com/). Microsoft makes significant contributions to [cla-assistant](https://cla-assistant.io/) and as a result is the easiest way to ensure the CLA is signed by all contributors.
-
 ## Dependencies {#ts-dependencies}
 
 Packages should avoid taking dependencies on tiny libraries as the cost of many small libraries adds up over time. Packages are recommended to include dependencies on larger libraries where necessary. Dependencies are subject to
