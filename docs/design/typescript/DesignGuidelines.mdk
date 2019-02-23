@@ -68,21 +68,23 @@ azure-library
 ├─ LICENSE.md
 ├─ CONTRIBUTING.md
 ├─ dist
-|  ├─ index.js
-|  └─ ... *.js
-|
+│  ├─ index.js
+│  └─ ... *.js
+│
 ├─ dist-esm
-|  ├─ index.js
-|  ├─ ... *.js
-|  └─ index.d.ts
-|
+│  ├─ lib
+│  │ ├─ index.js
+│  │ └─ ... *.js
+│  │
+│  └─ test
+│
 ├─ src
-|  ├─ index.ts
-|  └─ ... *.ts
-|
+│  ├─ index.ts
+│  └─ ... *.ts
+│
 ├─ test
-|  └─ ... *.ts
-|
+│  └─ ... *.ts
+│
 ├─ package.json
 ├─ package-lock.json
 └─ tsconfig.json
