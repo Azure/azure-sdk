@@ -367,17 +367,17 @@ Both of these protocols are built into the language (Iterators as of ES6, Async 
 
 ### TypeScript
 
-~ Should
+~ Should {#ts-use-typescript}
   implement your library in TypeScript.
 ~
 
-~ Must
+~ Must {#ts-ship-type-declarations}
   include type declarations for your library.
 ~
 
 TypeScript is very popular in the ecosystem and its static types provide significant benefit for both the library authors and consumers. TypeScript also compiles modern JavaScript language features down to code compatible with much older runtimes.
 
-#### tsconfig.json
+#### tsconfig.json {#ts-tsconfig.json}
 
 This section covers the contents of your tsconfig.json. After implementing this section, your tsconfig.json should look similar to the following example:
 
@@ -406,75 +406,61 @@ This section covers the contents of your tsconfig.json. After implementing this 
 }
 ```
 
-##### exclude
+~ Must {#ts-config-exclude}
+  have at least "node_modules" in the `exclude` array. This ensures TypeScript isn't needlessly type checking your dependencies.
+~
 
-Exclude must include at least "node_modules".
+~ MustNot {#ts-config-lib}
+  use the `compilerOptions.lib` field. Built in typescript libraries (e.g. esnext.asynciterable) should be included via reference directives. See also [Microsoft/TypeScript#27416](https://github.com/Microsoft/TypeScript/issues/27416).
+~
 
-This ensures TypeScript isn't needlessly type checking your dependencies.
+~ Must {#ts-config-strict}
+  set `compilerOptions.strict` to true. The strict flag serves two purposes: it’s a best practice for developers as it provides the best TypeScript experience, and also, strict ensures that your type definitions are maximally pedantic so strict TypeScript consumers get their best experience as well.
+~
 
-##### lib
+~ Must {#ts-config-esModuleInterop}
+  set `compilerOptions.esModuleInterop` to true.
+~
 
-Lib should not be set.  Built in typescript libraries (e.g. esnext.asynciterable) should be included via reference directives. See https://github.com/Microsoft/TypeScript/issues/27416.
+~ Must {#ts-config-allowSyntheticDefaultImports}
+  set `compilerOptions.allowSyntheticDefaultImports` to true
+~
 
-##### compilerOptions.strict
+~ Must {#ts-config-target}
+  set `compilerOptions.target`, but it can be any valid value so long as the final source distributions are compatible with the runtimes your library targets. See also [#ts-source-distros].
+~
 
-The strict flag must be set to true.
+~ Should {#ts-config-isolatedModules}
+  set `compilerOptions.isolatedModules` to true. Isolated modules prevent usage of features that prevent compiling TypeScript code on a file-by-file basis. This ensures your code remains maximally interoperable with compilers in the ecosystem (i.e. the Babel plugin).
+~
 
-The strict flag serves two purposes: it’s a best practice for developers as it provides the best TypeScript experience, and also, strict ensures that your type definitions are maximally pedantic so strict TypeScript consumers get their best experience as well.
+~ Must {#ts-config-forceConsistentCasingInFileNames}
+  set `compilerOptions.forceConsistentCasingInFileNames` to true. `forceConsistentCasingInFileNames` forces TypeScript to treat files as case sensitive. This ensures you don't get surprised by build failures when moving between platforms.
+~
 
-##### compilerOptions.esModuleInterop
+~ Must {#ts-config-module}
+  set `compilerOptions.module` to "es6". Bundlers such as Rollup or Webpack should be used to produce the CommonJS/UMD build. The TypeScript compiler can also produce both source distributions using separate tsconfig files. When using this configuration, use the tsconfig.json's extends field to override module to "commonjs". This configuration is not recommended for large libraries. It is more resource intensive due to type checking your library twice.
+~
 
-This field must be set to true.
+~ Must {#ts-config-moduleResolution}
+ set `compilerOptions.moduleResolution` to "node" if your library targets Node. Otherwise, it should be absent.
+~
 
-##### compilerOptions.allowSyntheticDefaultImports
+~ Must {#ts-config-declaration}
+  set `compilerOptions.declaration` to true. The `--declaration` option tells TypeScript to emit a `d.ts` file that contains the public surface area of your library. TypeScript and editors use this file to provide intellisense and type checking capabilities. Ensure you reference this type declaration file from the `types` field of your package.json.
+~
 
-This field should be set to true.
+~ MustNot {#ts-config-no-experimentalDecorators}
+  set `compilerOptions.experimentalDecorators` to `true`. The experimentalDecorators flag adds support for "v1 decorators" to TypeScript. Unfortunately the standards process has moved on to a somewhat incompatible second version that is not yet implemented by TypeScript. Taking a dependency on decorators now means signing up your users for potential breakage later. Until decorators become a standard feature, projects must not use decorators.
+~
 
-##### compilerOptions.target
+~ Must {#ts-config-sourceMaps}
+  set `compilerOptions.sourceMaps` and `compilerOptions.declarationMap` to true. Shipping source maps in your package ensures clients can easily debug into your library code. `sourceMaps` maps your emitted JS source to the declaration file and `declarationMap` maps the declaration file back to the TypeScript source that generated it. Be sure to include your original TypeScript sources in the package.
+~
 
-This field must be present but can be set to any target so long as the final source distributions are compatible with the runtimes your library targets. See 5.5 Source Distributions for more.
-
-##### compilerOptions.isolatedModules
-
-This field should be set to true.
-
-Isolated modules prevent usage of features that prevent compiling TypeScript code on a file-by-file basis. This ensures your code remains maximally interoperable with compilers in the ecosystem (i.e. the Babel plugin).
-
-##### compilerOptions.forceConsistentCasingInFileNames
-
-This field should be set to true.
-
-forceConsistentCasingInFileNames forces TypeScript to treat files as case sensitive. This ensures you don't get surprised by build failures when moving between platforms.
-
-##### compilerOptions.module
-
-This field must be set to "es6".
-
-Bundlers such as Rollup or Webpack should be used to produce the CommonJS/UMD build. The TypeScript compiler can also produce both source distributions using separate tsconfig files. When using this configuration, use the tsconfig.json's extends field to override module to "commonjs". This configuration is not recommended for large libraries. It is more resource intensive due to type checking your library twice.
-
-##### compilerOptions.moduleResolution
-
-This field must be set to "node" if your library targets Node. Otherwise, it should be absent.
-
-##### compilerOptions.declaration
-
-The `--declaration` option tells TypeScript to emit a `d.ts` file that contains the public surface area of your library. TypeScript and editors use this file to provide intellisense and type checking capabilities. Ensure you reference this type declaration file from the `types` field of your package.json.
-
-##### compilerOptions.experimentalDecorators
-
-This field must not be present.
-
-The experimentalDecorators flag adds support for "v1 decorators" to TypeScript. Unfortunately, the standards process has moved on to a somewhat incompatible second version that is not yet implemented by TypeScript. Taking a dependency on decorators now means signing up your users for potential breakage later. Until decorators become a standard feature, projects must not use decorators.
-
-##### compilerOptions.sourceMaps and compilerOptions.declarationMap
-
-Shipping source maps in your package ensures clients can easily debug into your library code. `--sourceMaps` maps your emitted JS source to the declaration file and `--declarationMap` maps the declaration file back to the TypeScript source that generated it. Be sure to include your original TypeScript sources in the package!
-
-##### compilerOptions.importHelpers
-
-This field must be set to true.
-
-Using external helpers keeps your package size down. Without this flag, TypeScript will add a helper block to each file that needs it. This results in duplication if multiple files are using the same language features. The file size savings using this option can be huge when using for example async functions in a number of different files.
+~ Must {#ts-config-importHelpers}
+  set `compilerOptions.importHelpers` to true. Using external helpers keeps your package size down. Without this flag, TypeScript will add a helper block to each file that needs it. This results in duplication if multiple files are using the same language features. The file size savings using this option can be huge when using for example async functions in a number of different files.
+~
 
 #### TypeScript Coding Guidelines
 
