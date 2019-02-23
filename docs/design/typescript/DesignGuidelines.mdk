@@ -311,30 +311,6 @@ Versions of Webpack prior to 4.0 would produce better optimized bundles if libra
 
 Azure packages authored using TypeScript export standard ES6 modules. As Node does not yet support ES6 modules natively, authoring ES6 modules for consumption in Node has a bit of friction. Most notable, a commonJS package can only import a single value. The difference between this model and ES6 modules where you can export many different things is the primary source of friction.
 
-## License, Copyright &amp; IP {#ts-ip}
-~ Todo
-Fold into common sections
-~
-
-Packages must comply with the [Microsoft Open Source guidelines](https://docs.opensource.microsoft.com/using/overview.html). In some cases, this document may be more explicit, in which case these requirements are normative. In case of conflicts, however, the Microsoft Open Source guidelines are normative.
-
-In general this section does not attempt to re-state everything in the Microsoft Open Source guidelines. An effort has been made to extract the most relevant information here, but package authors must read the Microsoft Open Source guidelines to ensure their packages are compliant.
-
-### License {#ts-license}
-
-Packages must be licensed with an [OSI-approved](https://opensource.org/licenses) license. MIT seems to be the most popular across most Azure packages, and thus is recommended. The Apache license is recommended if its patent licensing is important for your consumers, though this is unlikely.
-
-The chosen license must be present as a comment at the top of every source file. An example copyright header follows:
-
-```
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License.
-```
-
-### CLA {#ts-cla}
-
-Packages must use the [Microsoft CLA](https://cla.opensource.microsoft.com/). Microsoft makes significant contributions to [cla-assistant](https://cla-assistant.io/) and as a result is the easiest way to ensure the CLA is signed by all contributors.
-
 ## Dependencies {#ts-dependencies}
 
 Packages should avoid taking dependencies on tiny libraries as the cost of many small libraries adds up over time. Packages are recommended to include dependencies on larger libraries where necessary. Dependencies are subject to
@@ -475,16 +451,6 @@ You must annotate your source code with Typedoc declarations.
 Typedoc comments give your users a pleasant tooling experience by pulling in your documentation in parameter help and in other tooling scenarios. [Typedoc tags](http://typedoc.org/guides/doccomments/) are very much inline with [jsdoc tags](http://usejsdoc.org/).
 
 There is a work in progress tool called [tsdoc](https://github.com/Microsoft/tsdoc/) that aims to be the standard way to document TypeScript code. ANPS will migrate to this new documentation format, but in the meantime, the Docs team is set up to ingest only Typedoc, and thus Typedoc is the way to go for now.
-
-## GitHub Repo
-
-Library code must be public and open source on GitHub. Library code must be either in the Azure GitHub organization or a module in the [Azure SDK for Node](https://github.com/Azure/azure-sdk-for-node) repo. If an independent repo is used then the repository name must be "azure-[service-name]-node" or "azure-[service-name]-js".
-
-Package authors are encouraged to develop in the open on GitHub. It is recommended to have your GitHub repo be set up and active at least a month prior to your initial release.
-
-Your package's GitHub repo is your primary touch point with the developer community so it's important to keep up with the activity there. Issues and pull requests on GitHub must have an authoritative comment within 1 week of filing.
-
-See the Microsoft Open Source Guidelines' [community section](https://docs.opensource.microsoft.com/releasing/foster-your-community.html) for more information on fostering a healthy open-source community.
 
 ## Documentation
 
