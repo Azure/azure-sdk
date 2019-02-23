@@ -311,26 +311,6 @@ Versions of Webpack prior to 4.0 would produce better optimized bundles if libra
 
 Azure packages authored using TypeScript export standard ES6 modules. As Node does not yet support ES6 modules natively, authoring ES6 modules for consumption in Node has a bit of friction. Most notable, a commonJS package can only import a single value. The difference between this model and ES6 modules where you can export many different things is the primary source of friction.
 
-## License, Copyright &amp; IP {#ts-ip}
-~ Todo
-Fold into common sections
-~
-
-Packages must comply with the [Microsoft Open Source guidelines](https://docs.opensource.microsoft.com/using/overview.html). In some cases, this document may be more explicit, in which case these requirements are normative. In case of conflicts, however, the Microsoft Open Source guidelines are normative.
-
-In general this section does not attempt to re-state everything in the Microsoft Open Source guidelines. An effort has been made to extract the most relevant information here, but package authors must read the Microsoft Open Source guidelines to ensure their packages are compliant.
-
-### License {#ts-license}
-
-Packages must be licensed with an [OSI-approved](https://opensource.org/licenses) license. MIT seems to be the most popular across most Azure packages, and thus is recommended. The Apache license is recommended if its patent licensing is important for your consumers, though this is unlikely.
-
-The chosen license must be present as a comment at the top of every source file. An example copyright header follows:
-
-```
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License.
-```
-
 ## Dependencies {#ts-dependencies}
 
 Packages should avoid taking dependencies on tiny libraries as the cost of many small libraries adds up over time. Packages are recommended to include dependencies on larger libraries where necessary. Dependencies are subject to
