@@ -476,16 +476,6 @@ Typedoc comments give your users a pleasant tooling experience by pulling in you
 
 There is a work in progress tool called [tsdoc](https://github.com/Microsoft/tsdoc/) that aims to be the standard way to document TypeScript code. ANPS will migrate to this new documentation format, but in the meantime, the Docs team is set up to ingest only Typedoc, and thus Typedoc is the way to go for now.
 
-## GitHub Repo
-
-Library code must be public and open source on GitHub. Library code must be either in the Azure GitHub organization or a module in the [Azure SDK for Node](https://github.com/Azure/azure-sdk-for-node) repo. If an independent repo is used then the repository name must be "azure-[service-name]-node" or "azure-[service-name]-js".
-
-Package authors are encouraged to develop in the open on GitHub. It is recommended to have your GitHub repo be set up and active at least a month prior to your initial release.
-
-Your package's GitHub repo is your primary touch point with the developer community so it's important to keep up with the activity there. Issues and pull requests on GitHub must have an authoritative comment within 1 week of filing.
-
-See the Microsoft Open Source Guidelines' [community section](https://docs.opensource.microsoft.com/releasing/foster-your-community.html) for more information on fostering a healthy open-source community.
-
 ## Documentation
 
 Your package's documentation must consist of at least one quickstarts or tutorial in addition to samples, API documentation, and a reference overview. Some content, such as samples, must be included in-repo. Other content may be written externally for example on docs.microsoft.com. The following sections cover this content in more detail.
