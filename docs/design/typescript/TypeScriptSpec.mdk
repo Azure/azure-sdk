@@ -13,34 +13,30 @@ css         : custom.css
 
 [TITLE]
 
-This document describes architectural and API design guidelines for Azure client libraries, specifically for TypeScript. It includes a number of general specifications as well, but the TypeScript-specific guidance later in the specification overrules any general guidance.
+This document describes architectural and API design guidelines for Azure client libraries targeting Node and the web platform and authored in TypeScript. It begins with general guidelines applicable to all Azure client libraries regardless of target platform followed by TypeScript-specific guidance.
+
+~ Must {#ts-azure-scope}
+follow these conventions if you publish under the @azure scope in npm.
+~
+
+~ Should {#ts-azure-scope-optional}
+follow these guidelines even if you're not publishing an Azure library under the @azure scope.
+~
 
 [TOC]
 
-# Introduction
-
-This section covers TypeScript-specific requirements to successfully implement and release a TypeScript SDK component for Azure, that must be followed in addition to the common guidelines presented below.
-
 [INCLUDE=../Requirements.mdk]
-
 [INCLUDE=../OpenSource.mdk]
-
-# Language-Independent Guidelines
+# Language-independent Guidelines
 
 [INCLUDE=../GeneralGuidelines.mdk]
-
 [INCLUDE=../Telemetry.mdk]
-
 [INCLUDE=../Logging.mdk]
-
 [INCLUDE=../Retry.mdk]
-
 [INCLUDE=../Cancellations.mdk]
-
 [INCLUDE=../Dependencies.mdk]
-
 [INCLUDE=../Configuration.mdk]
 
 # TypeScript-Specific Guidelines
-
 [INCLUDE=DesignGuidelines.mdk]
+
