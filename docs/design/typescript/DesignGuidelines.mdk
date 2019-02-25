@@ -453,10 +453,12 @@ Sample code repos should have clear names, descriptions and README files per the
 
 ### API Documentation
 
-API documentation must be auto-generated from source code annotations (see 8.3 Typedoc).
+API documentation must be auto-generated from source code annotations.
 
 ### Reference Overview
 
 You must have a JavaScript or Node.js [reference overview page](https://review.docs.microsoft.com/en-us/help/contribute/contribute-reference-overviews?branch=master) for the client library under the Reference node in your content's ToC with a specific JavaScript or Node.js entry in that ToC. This reference overview must live in either the JavaScript Azure SDK reference repo or in your own content set alongside the rest of your docs.
 
 The reference overview page must have a link to the quickstart and available samples for the JavaScript audience.
+
+Use [this form](https://aka.ms/publish-on-docs) to on-board new library documentation. See [here](https://review.docs.microsoft.com/en-us/help/onboard/admin/reference/js-ts/road-to-docs?branch=master) for detailed instructions.
