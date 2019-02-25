@@ -33,19 +33,7 @@ review the Microsoft Open Source Guidelines' [community section](https://docs.op
 ## README<span></span>.md
 
 ~ Must {#github-readme}
-include in your SDK component's folder in the repo a README<span></span>.md file that has the sections shown below. Rather than produce this from scratch, refer to the template readme<span></span>.md file and take that as a starting point.
-
-- Short introduction of the service
-- Maven
-  - Maven dependency fragment for latest GA release (with no version - link to central document for details on how to depend on Azure SDK BOM)
-  - Maven dependency fragment for latest snapshot release
-- Documentation
-  - Link to reference documentation
-  - Link to relevant quick starts and tutorials
-  - Samples table
-- Contributing
-  - Must include a reference to the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct) and a link to the CONTRIBUTING.md file
-  - Should encourage developers to seek support on Stack Overflow
+include in your SDK component's folder in the repo a README<span></span>.md file that follows the [readme template](https://review.docs.microsoft.com/en-us/help/contribute-ref/template-sdk-readme-v2?branch=pr-en-us-1752).
 ~
 
 ## CONTRIBUTING<span></span>.md
