@@ -32,11 +32,11 @@ version with [semver](https://semver.org/). Deprecated features and flags must o
 ~
 
 ~ MustNot {#ts-versioning-no-ga-prerelease}
-have a pre-release version or any additional build metadata.
+have a pre-release version or any additional build metadata for GA packages.
 ~
 
 ~ Must {#ts-versioning-preview; }
-have a pre-release version of the format `1.0.0-Preview-XX` where XX is an integer. Pre-release package versions should not have additional build metadata.
+give preview packages a pre-release version of the format `1.0.0-Preview-XX` where XX is an integer. Pre-release package versions should not have additional build metadata.
 ~
 
 ~ MustNot {#ts-versioning-no-version-0}
@@ -305,9 +305,11 @@ Azure packages authored using TypeScript export standard ES6 modules. As Node do
 
 ## Dependencies {#ts-dependencies}
 
-Packages should avoid taking dependencies on tiny libraries as the cost of many small libraries adds up over time. Packages are recommended to include dependencies on larger libraries where necessary. Dependencies are subject to
+Packages should avoid taking dependencies on tiny libraries as the cost of many small libraries adds up over time. Larger dependencies are subject to approval.
 
 Packages should not depend directly on polyfills or other libraries that modify global scope. If developers using older runtimes need to polyfill some capability, the package's install and usage instructions should indicate this dependency.
+
+See also [#general-dependencies].
 
 ## Coding Conventions
 
