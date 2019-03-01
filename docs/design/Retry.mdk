@@ -23,7 +23,7 @@ reset (or seek back to position 0) any request data stream before retrying a req
 ~
 
 ~ Must {#general-retry-honor-caller-cancellation}
-honor any cancellation mechanism passed-in be the caller which can terminate the request before retries have been attempted.
+honor any cancellation mechanism passed-in to the caller which can terminate the request before retries have been attempted.
 ~
 
 ~ Must {#general-retry-update-time-to-live}
@@ -35,7 +35,7 @@ retry in the case of a hardware network failure as it may self-correct
 ~
 
 ~ Must {#general-retry-on-service-not-found}
-retry in the case of a service not found error as the service may be coming back online or a load balancer may be reconfiguring itself.
+retry in the case of a "service not found" error as the service may be coming back online or a load balancer may be reconfiguring itself.
 ~
 
 ~ Must {#general-retry-on-per-try-timeout}
@@ -48,4 +48,9 @@ retry if the service successfully responds indicating that it is throttling requ
 
 ~ MustNot {#general-retry-no-retry-if-successfully-failed}
 retry if the service successfully responds indicating that the requested operation failed.
+~
+
+~ MustNot {#general-retry-no-change-request-id}
+change any client-side generated request-id as this represents the logical operation and should be the same across all physical retries of this operation.
+When looking at server logs, multiple entries with the same client request-id show each retry and this is useful information to help diagnose issues.
 ~
