@@ -134,6 +134,7 @@ The following sections describe the package.json file that must be included with
   "sideEffects": false
 }
 ```
+~
 
 ~ Must {#ts-package-json-name}
 set `name` to `@azure/<name>`, where `<name>` is the name of the service. Package names are kebab-case: all lowercase with words joined by dashes.
@@ -324,6 +325,7 @@ TypeScript is very popular in the ecosystem and its static types provide signifi
 
 This section covers the contents of your tsconfig.json. After implementing this section, your tsconfig.json should look similar to the following example:
 
+~ Figure {#ts-figure-tsconfig-json; caption: "An example tsconfig.json" }
 ```javascript
 {
   "compilerOptions": {
@@ -348,6 +350,7 @@ This section covers the contents of your tsconfig.json. After implementing this 
   "exclude": ["node_modules"]
 }
 ```
+~
 
 ~ Must {#ts-config-exclude}
   have at least "node_modules" in the `exclude` array. This ensures TypeScript isn't needlessly type checking your dependencies.
