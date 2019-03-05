@@ -8,7 +8,7 @@
 ## README<span></span>.md
 
 ~Must {#ts-readme-ts-config}
-document any required tsconfig settings and type dependencies to use your library. Common examples include enabling `compilerOptions.allowSyntheticDefaultImport` and installing an appropriate version of the `@types/node` package.
+document any required tsconfig settings and type dependencies in README.md under "Getting started". The section must be titled "Configure TypeScript" and come after the "Install the Package" sub-section. Common examples of required user configuration include enabling `compilerOptions.allowSyntheticDefaultImport` and installing an appropriate version of the `@types/node` package.
 ~
 
 These guidelines are in addition to the [general README guidelines](#general-readme).
