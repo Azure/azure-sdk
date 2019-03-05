@@ -307,23 +307,17 @@ namespace Azure.KeyVault
         // constructors
         public SecretClient(Uri vaultUri, ITokenCredentialProvider credentialProvider, PipelineOptions options = default);
         public SecretClient(Uri vaultUri, ITokenCredential credentials, PipelineOptions options = default);
-
+        
         // methods
-        public async Task<Response<Secret>> SetAsync(string name, string value, string contentType = default, VaultEntityAttributes attributes = default, IDictionary<string, string> tags = default, CancellationToken cancellation = default);
-        public async Task<Response<Secret>> GetAsync(Uri secretUri, CancellationToken cancellation = default);
+        public async Task<Response<Secret>> SetAsync(Secret secret, CancellationToken cancellation = default);
+        public async Task<Response<Secret>> SetAsync(string name, string value, CancellationToken cancellation = default);
         public async Task<Response<Secret>> GetAsync(string name, string version = default, CancellationToken cancellation = default);
-        public async Task<Response<Secret>> UpdateAsync(Uri secretUri, string contentType = default, VaultEntityAttributes attributes = default, IDictionary<string, string> tags = default, CancellationToken cancellation = default);
-        public async Task<Response<Secret>> UpdateAsync(string name, string version, string contentType = default, VaultEntityAttributes attributes = default, IDictionary<string, string> tags = default, CancellationToken cancellation = default);
+        public async Task<Response<Secret>> UpdateAsync(Secret secret, CancellationToken cancellation = default);
         public async Task<Response<DeletedSecret>> DeleteAsync(string name, CancellationToken cancellation = default);
-        public async Task<Response<DeletedSecret>> GetDeletedAsync(Uri recoveryId, CancellationToken cancellation = default);
         public async Task<Response<DeletedSecret>> GetDeletedAsync(string name, CancellationToken cancellation = default);
-        public Page<Secret>.AsyncItemEnumerator ListAsync(int? maxPageSize = default, CancellationToken cancellation = default);
-        public Page<Secret>.AsyncItemEnumerator ListVersionsAsync(string name, int? maxPageSize = default, CancellationToken cancellation = default);
-        public Page<Secret>.AsyncItemEnumerator ListDeletedAsync(int? maxPageSize = default, CancellationToken cancellation = default);
-        public Page<Secret>.AsyncEnumerator ListByPageAsync(int? maxPageSize = default, CancellationToken cancellation = default);
-        public Page<Secret>.AsyncEnumerator ListVersionsByPageAsync(string name, int? maxPageSize = default, CancellationToken cancellation = default);
-        public Page<Secret>.AsyncEnumerator ListDeletedByPageAsync(int? maxPageSize = default, CancellationToken cancellation = default);
-        public async Task<Response<Secret>> RecoverAsync(Uri recoveryId, CancellationToken cancellation = default);
+        public AsyncEnumerator<Secret> GetAllAsync(int? maxPageSize = default, CancellationToken cancellation = default);
+        public AsyncEnumerator<Secret> GetAllVersionsAsync(string name, int? maxPageSize = default, CancellationToken cancellation = default);
+        public AsyncEnumerator<DeletedSecret> GetAllDeletedAsync(int? maxPageSize = default, CancellationToken cancellation = default);
         public async Task<Response<Secret>> RecoverAsync(string name, CancellationToken cancellation = default);
         public async Task<Response<byte[]>> BackupAsync(string name, CancellationToken cancellation = default);
         public async Task<Response<Secret>> RestoreAsync(byte[] backup, CancellationToken cancellation = default);
@@ -334,19 +328,25 @@ namespace Azure.KeyVault
 ### SecretClient.Set
 
 ~~~ csharp
-public async Task<Response<Secret>> SetAsync(string name, string value, string contentType = default, VaultEntityAttributes attributes = default, IDictionary<string, string> tags = default, CancellationToken cancellation = default);
+public async Task<Response<Secret>> SetAsync(string name, string value, CancellationToken cancellation = default);
+public async Task<Response<Secret>> SetAsync(Secret secret, CancellationToken cancellation = default);
 ~~~
 #### Usage:
 ~~~ csharp
 var secrets = new SecretClient(new Uri("https://myvault.vaults.azure.net/"), new MsalCredentialProvider());
 
 // set a simple secret such as password
-var password = await secrets.SetAsync("user1pass", "password");
+Secret passwordSecret = await secrets.SetAsync("user1pass", "password");
 
 // set a symmetric key secret with nbf and exp
-var attr = new VaultEntityAttributes() { NotBefore = DateTime.UtcNow, Expires = DateTime.UtcNow + TimeSpan.FromDays(90) };
+Secret keySecret = new Secret("secretkey",  Base64Url.Encode(keyMaterial))
+{
+    ContentType = "application/octet-stream",
+    NotBefore = DateTime.UtcNow, 
+    Expires = DateTime.UtcNow + TimeSpan.FromDays(90)
+};
 
-Secret keyv1 = await secrets.SetAsync("secretkey", Base64Url.Encode(keyMaterial), contentType: "application/octect-stream", attributes: attr);
+Secret keySecret = await secrets.SetAsync(secret);
 ~~~
 
 
@@ -374,7 +374,6 @@ var keyv1 = await client.SetSecretWithHttpMessageAsync("https://myvault.vaults.a
 
 ### SecretClient.Get
 ~~~ csharp
-public async Task<Response<Secret>> GetAsync(Uri secretUri, CancellationToken cancellation = default);
 public async Task<Response<Secret>> GetAsync(string name, string version = default, CancellationToken cancellation = default);
 ~~~
 
@@ -384,13 +383,8 @@ public async Task<Response<Secret>> GetAsync(string name, string version = defau
 var secret = await secrets.GetAsync("user1pass");
 
 // get a specific version of a secret
-var secret = await secrets.GetAsync(new Uri("https://myvault.vaults.azure.net/secrets/user1pass/6A385B124DEF4096AF1361A85B16C204"));
-//or
 var secret = await secrets.GetAsync("user1pass", version: "6A385B124DEF4096AF1361A85B16C204");
 ~~~
-
-__Open Questions:__
-- do we need the defaulted parameter for version in the second overload, or should that overload drop version and be renamed GetLatest?
 
 ### Replaces:
 ~~~ csharp
@@ -419,19 +413,16 @@ var secret = await secrets.GetSecrtWithHttpMessageAsync("https://myvault.vaults.
 
 ### SecetClient.Update
 ~~~ csharp
-public async Task<Response<Secret>> UpdateAsync(Uri secretUri, string contentType = default, VaultEntityAttributes attributes = default, IDictionary<string, string> tags = default, CancellationToken cancellation = default);
-public async Task<Response<Secret>> UpdateAsync(string name, string version, string contentType = default, VaultEntityAttributes attributes = default, IDictionary<string, string> tags = default, CancellationToken cancellation = default);
+public async Task<Response<Secret>> UpdateAsync(Secret secret, CancellationToken cancellation = default);
 ~~~
 #### Usage:
 ~~~ csharp
 // extend the expiration of a secret
 var secret = await secrets.GetAsync("secretkey");
 
-secret.Attributes.NotBefore = secret.Attributes.NotBefore + Timespan.FromDays(90);
+secret.NotBefore = secret.NotBefore + Timespan.FromDays(90);
 
-secret = secrets.UpdateAsync(secret.Id, attributes: secret.Attributes);
-// or
-secret = secrets.UpdateAsync(secret.Name, secret.Version, attributes: secret.Attributes);
+secret = secrets.UpdateAsync(secret);
 ~~~
 ### Replaces:
 ~~~ csharp
@@ -453,25 +444,22 @@ secret = secrets.UpdateSecretAsync("https://myvault.vaults.azure.net/", secret.N
 
 ## List Operations
 
-### SecetClient.List
+### SecetClient.Li
 ~~~ csharp
-public Page<Secret>.AsyncItemEnumerator ListAsync(int? maxPageSize = default, CancellationToken cancellation = default);
-public Page<Secret>.AsyncItemEnumerator ListVersionsAsync(string name, int? maxPageSize = default, CancellationToken cancellation = default);
-public Page<Secret>.AsyncItemEnumerator ListDeletedAsync(int? maxPageSize = default, CancellationToken cancellation = default);
-public Page<Secret>.AsyncEnumerator ListByPageAsync(int? maxPageSize = default, CancellationToken cancellation = default);
-public Page<Secret>.AsyncEnumerator ListVersionsByPageAsync(string name, int? maxPageSize = default, CancellationToken cancellation = default);
-public Page<Secret>.AsyncEnumerator ListDeletedByPageAsync(int? maxPageSize = default, CancellationToken cancellation = default);
+public AsyncEnumerator<Secret> GetAllAsync(int? maxPageSize = default, CancellationToken cancellation = default);
+public AsyncEnumerator<Secret> GetAllVersionsAsync(string name, int? maxPageSize = default, CancellationToken cancellation = default);
+public AsyncEnumerator<DeletedSecret> GetAllDeletedAsync(int? maxPageSize = default, CancellationToken cancellation = default);
 ~~~
 #### Usage:
 ~~~ csharp
-// list all the secrets in the vault using await foreach
-await foreach(var s in secrets.ListAsync())
+// enumerate all secrets in the vault using await foreach
+await foreach(var s in secrets.GetAllAsync())
 {
     Console.WriteLine(s.Id);
 }
 
-// list all secrets by page
-await foreach(Page<Secret> sPage in secrets.ListByPageAsync(maxPageSize: 5))
+// enumerate all secrets by page
+await foreach(Page<Secret> sPage in secrets.GetAllAsync(maxPageSize: 5).ByPage())
 {
     for(int i = 0; i < sPage.Items.Length; i++)
     {
@@ -480,17 +468,13 @@ await foreach(Page<Secret> sPage in secrets.ListByPageAsync(maxPageSize: 5))
 }
 
 // NOTE: async iteration still works if the user doesn't have c# 8 await foreach
-var secretEnumerator = secrets.ListAsync();
+var secretEnumerator = secrets.GetAllAsync();
 
 while(await secretEnumerator.MoveNextAsync())
 {
     Console.WriteLine(secretEnumerator.Current.Id);
 }
 ~~~
-__Open Questions__: 
-- Should we expose both List and ListByPage? If not which is prefered?
-- Currently List enumerator returns T, but ListByPage enumerator returns Response<Page<T>>. So in the later case the user must cast the items to T or call Result.
-Is this differentce in functionality acceptable?
 
 ### Replaces:
 ~~~ csharp
