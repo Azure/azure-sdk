@@ -5,6 +5,14 @@
 - **ESM** / **ES Module**: ECMAScript Module, the standard import/export syntax defined by ECMAScript 6.
 - **UMD**: Universal Module Definition, a superset of both CommonJS and AMD modules.
 
+## README<span></span>.md
+
+~Must {#ts-readme-ts-config}
+document any required tsconfig settings and type dependencies to use your library. Common examples include enabling `compilerOptions.allowSyntheticDefaultImport` and installing an appropriate version of the `@types/node` package.
+~
+
+These guidelines are in addition to the [general README guidelines](#general-readme).
+
 ## npm Package {#ts-npm-package}
 
 The following sections specify versioning, the contents of package.json and the various source distributions included in the npm package.
