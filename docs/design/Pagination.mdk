@@ -1,0 +1,38 @@
+## Pagination {#general-pagination}
+
+~ Must {#general-pagination-must-use-async-iterators}
+expose paginated collections using language-canonical async iterators over pages and items within pages. The APIs used to expose the async iterators are language-dependent but should align with any existing common practices in your ecosystem.
+~
+
+~ Must {#general-pagination-must-use-iterators}
+expose paginated collections using an iterator or cursor pattern if async iterators aren't a built-in feature of your language.
+~
+
+~ Must {#general-pagination-distinct-types}
+use distinct types for entities in a list endpoint and an entity returned from a get endpoint if these are different types, and otherwise you must use the same types in these situations.
+~
+
+~ Note
+Services should refrain having a difference between the type of a particular entity as it exists in a list versus the result of a GET request for that individual item as it makes the client library's surface area simpler.
+~
+
+~ MustNot {#general-pagination-no-item-iterators}
+expose an iterator over each individual item if getting each item requires a corresponding GET request to the service. One GET per item is often too expensive and so not an action we want to take on behalf of users.
+~
+
+~ Draft
+The following requirements are controversial and are not yet normative.
+
+~~ Must {#general-pagination-must-be-used-for-lists}
+expose paginated collections for any conceptual list from a service endpoint, even if the service does not yet support pagination. This will allow the client library to absorb endpoint changes in non-breaking ways.
+~~
+
+~~ Must {#general-pagination-support-toArray}
+expose an API to get a paginated collection into an array without having to implement iteration.
+~~
+
+~~ Must {#general-pagination-low-level-APIs}
+expose low-level APIs to interact with the paged endpoint directly. These low-level APIs provide more fine-grained control over the pagination process while also providing users without access to (or understanding of) async iterators to use your library.
+~~
+
+~
