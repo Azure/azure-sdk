@@ -300,28 +300,26 @@ var key = await client.Keys.GetAsync("key1");
 
 ## __SecretClient__
 ~~~ csharp
-namespace Azure.KeyVault
+public class SecretClient : KeyVaultClientBase
 {
-    public class SecretClient : KeyVaultClientBase
-    {
-        // constructors
-        public SecretClient(Uri vaultUri, ITokenCredentialProvider credentialProvider, PipelineOptions options = default);
-        public SecretClient(Uri vaultUri, ITokenCredential credentials, PipelineOptions options = default);
-        
-        // methods
-        public async Task<Response<Secret>> SetAsync(Secret secret, CancellationToken cancellation = default);
-        public async Task<Response<Secret>> SetAsync(string name, string value, CancellationToken cancellation = default);
-        public async Task<Response<Secret>> GetAsync(string name, string version = default, CancellationToken cancellation = default);
-        public async Task<Response<Secret>> UpdateAsync(Secret secret, CancellationToken cancellation = default);
-        public async Task<Response<DeletedSecret>> DeleteAsync(string name, CancellationToken cancellation = default);
-        public async Task<Response<DeletedSecret>> GetDeletedAsync(string name, CancellationToken cancellation = default);
-        public AsyncEnumerator<Secret> GetAllAsync(int? maxPageSize = default, CancellationToken cancellation = default);
-        public AsyncEnumerator<Secret> GetAllVersionsAsync(string name, int? maxPageSize = default, CancellationToken cancellation = default);
-        public AsyncEnumerator<DeletedSecret> GetAllDeletedAsync(int? maxPageSize = default, CancellationToken cancellation = default);
-        public async Task<Response<Secret>> RecoverAsync(string name, CancellationToken cancellation = default);
-        public async Task<Response<byte[]>> BackupAsync(string name, CancellationToken cancellation = default);
-        public async Task<Response<Secret>> RestoreAsync(byte[] backup, CancellationToken cancellation = default);
-    }
+    // constructors
+    public SecretClient(Uri vaultUri, ITokenCredentialProvider credentialProvider, PipelineOptions options = default);
+    public SecretClient(Uri vaultUri, ITokenCredential credentials, PipelineOptions options = default);
+    
+    // methods
+    public async Task<Response<Secret>> GetAsync(string name, string version = default, CancellationToken cancellation = default);
+    public AsyncEnumerator<SecretAttributes> GetAllVersionsAsync(string name, int? maxPageSize = default, CancellationToken cancellation = default);
+    public AsyncEnumerator<SecretAttributes> GetAllAsync(int? maxPageSize = default, CancellationToken cancellation = default);
+    public async Task<Response<SecretAttributes>> UpdateAsync(SecretAttributes secret, CancellationToken cancellation = default);
+    public async Task<Response<Secret>> SetAsync(Secret secret, CancellationToken cancellation = default);
+    public async Task<Response<Secret>> SetAsync(string name, string value, CancellationToken cancellation = default);
+    public async Task<Response<DeletedSecret>> DeleteAsync(string name, CancellationToken cancellation = default);
+    public async Task<Response<DeletedSecret>> GetDeletedAsync(string name, CancellationToken cancellation = default);
+    public AsyncEnumerator<DeletedSecret> GetAllDeletedAsync(int? maxPageSize = default, CancellationToken cancellation = default);
+    public async Task<Response<Secret>> RecoverDeletedAsync(string name, CancellationToken cancellation = default);
+    public async Task<Response> PurgeDeletedAsync(string name, CancellationToken cancellation = default);
+    public async Task<Response<byte[]>> BackupAsync(string name, CancellationToken cancellation = default);
+    public async Task<Response<Secret>> RestoreAsync(byte[] backup, CancellationToken cancellation = default);
 }
 ~~~
 ## Get / Set Operations
@@ -413,16 +411,16 @@ var secret = await secrets.GetSecrtWithHttpMessageAsync("https://myvault.vaults.
 
 ### SecetClient.Update
 ~~~ csharp
-public async Task<Response<Secret>> UpdateAsync(Secret secret, CancellationToken cancellation = default);
+public async Task<Response<SecretAttributes>> UpdateAsync(SecretAttributes secret, CancellationToken cancellation = default);
 ~~~
 #### Usage:
 ~~~ csharp
 // extend the expiration of a secret
-var secret = await secrets.GetAsync("secretkey");
+Secret secret = await secrets.GetAsync("secretkey");
 
 secret.NotBefore = secret.NotBefore + Timespan.FromDays(90);
 
-secret = secrets.UpdateAsync(secret);
+SecretAttributes updated = secrets.UpdateAsync(secret);
 ~~~
 ### Replaces:
 ~~~ csharp
@@ -444,11 +442,10 @@ secret = secrets.UpdateSecretAsync("https://myvault.vaults.azure.net/", secret.N
 
 ## List Operations
 
-### SecetClient.Li
+### GetAllAsync, GetAllVersions
 ~~~ csharp
-public AsyncEnumerator<Secret> GetAllAsync(int? maxPageSize = default, CancellationToken cancellation = default);
-public AsyncEnumerator<Secret> GetAllVersionsAsync(string name, int? maxPageSize = default, CancellationToken cancellation = default);
-public AsyncEnumerator<DeletedSecret> GetAllDeletedAsync(int? maxPageSize = default, CancellationToken cancellation = default);
+public AsyncEnumerator<SecretAttributes> GetAllAsync(int? maxPageSize = default, CancellationToken cancellation = default);
+public AsyncEnumerator<SecretAttributes> GetAllVersionsAsync(string name, int? maxPageSize = default, CancellationToken cancellation = default);
 ~~~
 #### Usage:
 ~~~ csharp
@@ -459,7 +456,7 @@ await foreach(var s in secrets.GetAllAsync())
 }
 
 // enumerate all secrets by page
-await foreach(Page<Secret> sPage in secrets.GetAllAsync(maxPageSize: 5).ByPage())
+await foreach(Page<SecretAttribute> sPage in secrets.GetAllAsync(maxPageSize: 5).ByPage())
 {
     for(int i = 0; i < sPage.Items.Length; i++)
     {
@@ -495,6 +492,8 @@ public virtual async Task<AzureOperationResponse<IPage<DeletedSecretItem>>> GetD
 ~~~ csharp
 // currently the only way to list for the existing APIs are by page
 var currentPage = await client.GetSecretsAsync("https://myvault.vaults.azure.net/");
+// or
+var currentPage = await client.GetSecretsWithHttpMessagesAsync("https://myvault.vaults.azure.net/");
 
 while (currentPage?.NextLink != null)
 {
@@ -504,40 +503,171 @@ while (currentPage?.NextLink != null)
     }
 
     currentPage = await client.GetSecretsNextAsync(currentPage.NextLink);
+    // or
+    currentPage = await client.GetSecretsNextWithHttpMessagesAsync(currentPage.NextLink).Body;
 }
 ~~~
 
-## Delete Operations
+## Deleted Secret Operations
 
-### SecetClient.Delete
+### DeleteAsync, GetDeletedAsync, GetAllDeletedAsync, RecoverDeletedAsync, PurgeDeletedAsync
 ~~~ csharp
 public async Task<Response<DeletedSecret>> DeleteAsync(string name, CancellationToken cancellation = default);
+public async Task<Response<DeletedSecret>> GetDeletedAsync(string name, CancellationToken cancellation = default);
+public AsyncEnumerator<DeletedSecret> GetAllDeletedAsync(int? maxPageSize = default, CancellationToken cancellation = default);
+public async Task<Response<Secret>> RecoverDeletedAsync(string name, CancellationToken cancellation = default);
+public async Task<Response> PurgeDeletedAsync(string name, CancellationToken cancellation = default);
 ~~~
 #### Usage:
 ~~~ csharp
-var deletedSecret = secrets.Delete("user1pass");
+// delete a secret
+DeletedSecret deletedSecret = await secrets.DeleteAsync("user1pass");
+
+// get the details of a deleted secret
+deletedSecret = await secrets.GetDeletedAsync("user1pass");
+
+// list all the deleted secrets
+await foreach(DeletedSecret s in secrets.GetAllDeletedAsync())
+{
+    Console.WriteLine(s.Name);
+}
+
+// recover a deleted secret
+Secret secret = await secrets.RecoverDeletedAsync("userpass1");
+
+// purge a deleted secret
+await secrets.PurgeDeletedAsync("userpass1");
 ~~~
 ### Replaces:
 ~~~ csharp
 public async Task<DeletedSecretBundle> DeleteSecretAsync(string vaultBaseUrl, string secretName, CancellationToken cancellationToken = default);
+public static async Task<DeletedSecretBundle> GetDeletedSecretAsync(string vaultBaseUrl, string secretName, CancellationToken cancellationToken = default);
+public static async Task<IPage<DeletedSecretItem>> GetDeletedSecretsAsync(string vaultBaseUrl, int? maxresults = default, CancellationToken cancellationToken = default);
+public static async Task<IPage<DeletedSecretItem>> GetDeletedSecretsNextAsync(string nextPageLink, CancellationToken cancellationToken = default);
+public static async Task<SecretBundle> RecoverDeletedSecretAsync(string vaultBaseUrl, string secretName, CancellationToken cancellationToken = default);
+public static Task PurgeDeletedSecretAsync(string vaultBaseUrl, string secretName, CancellationToken cancellationToken = default);
 public virtual async Task<AzureOperationResponse<DeletedSecretBundle>> DeleteSecretWithHttpMessagesAsync(string vaultBaseUrl, string secretName, Dictionary<string, List<string>> customHeaders = default, CancellationToken cancellationToken = default);
+public virtual async Task<AzureOperationResponse<DeletedSecretBundle>> GetDeletedSecretWithHttpMessagesAsync(string vaultBaseUrl, string secretName, Dictionary<string, List<string>> customHeaders = default, CancellationToken cancellationToken = default);
+public virtual async Task<AzureOperationResponse<IPage<DeletedSecretItem>>> GetDeletedSecretsWithHttpMessagesAsync(string vaultBaseUrl, int? maxresults = default, Dictionary<string, List<string>> customHeaders = default, CancellationToken cancellationToken = default);
+public virtual async Task<AzureOperationResponse<IPage<DeletedSecretItem>>> GetDeletedSecretsNextWithHttpMessagesAsync(string nextPageLink, Dictionary<string, List<string>> customHeaders = default, CancellationToken cancellationToken = default);
+public virtual async Task<AzureOperationResponse> PurgeDeletedSecretWithHttpMessagesAsync(string vaultBaseUrl, string secretName, Dictionary<string, List<string>> customHeaders = default, CancellationToken cancellationToken = default);
+public virtual async Task<AzureOperationResponse<SecretBundle>> RecoverDeletedSecretWithHttpMessagesAsync(string vaultBaseUrl, string secretName, Dictionary<string, List<string>> customHeaders = default, CancellationToken cancellationToken = default);
 ~~~
 #### Usage:
 ~~~ csharp
-var deletedSecret = secrets.DeleteSecretAsync("https://myvault.vaults.azure.net/", "user1pass");
+// delete a secret
+DeletedSecretBundle deletedSecret = await client.DeleteSecretAsync("https://myvault.vaults.azure.net/", "user1pass");
 // or
-var deletedSecret = secrets.DeleteSecretAsync("https://myvault.vaults.azure.net/", "user1pass").Body;
+DeletedSecretBundle deletedSecret = await client.DeleteSecretWithHttpMessagesAsync("https://myvault.vaults.azure.net/", "user1pass").Body;
+
+// get the details of a deleted secret
+deletedSecret = await client.GetDeletedSecretAsync("https://myvault.vaults.azure.net/", "user1pass");
+// or 
+deletedSecret = await client.GetDeletedSecretWithHttpMessagesAsync("https://myvault.vaults.azure.net/", "user1pass").Body;
+
+// list all the deleted secrets
+IPage<DeletedSecretItem> currentPage = await client.GetDeletedSecretsAsync("https://myvault.vaults.azure.net/");
+// or
+IPage<DeletedSecretItem> currentPage = await client.GetDeletedSecretsWithHttpMessagesAsync("https://myvault.vaults.azure.net/");
+
+while (currentPage?.NextLink != null)
+{
+    for(int i = 0; i < current.Items.Length; i++)
+    {
+        Console.WriteLine(currentPage.Items[i].Result.Id);
+    }
+
+    currentPage = await client.GetDeletedSecretsNextAsync("https://myvault.vaults.azure.net/", currentPage.NextLink);
+    // or
+    currentPage = await client.GetDeletedSecretsNextWithHttpMessagesAsync("https://myvault.vaults.azure.net/", currentPage.NextLink).Body;
+}
+
+// recover a deleted secret
+SecretBundle secret = await client.RecoverDeletedAsync("https://myvault.vaults.azure.net/", "userpass1");
+// or
+SecretBundle secret = await client.RecoverDeletedWithHttpMessagesAsync("https://myvault.vaults.azure.net/", "userpass1").Body;
+
+// purge a deleted secret
+await client.PurgeDeletedSecretAsync("https://myvault.vaults.azure.net/", "userpass1");
+// or 
+await client.PurgeDeletedSecretWithHttpMessagesAsync("https://myvault.vaults.azure.net/", "userpass1").Body;
 ~~~
 
-### SecetClient.
+
+## Backup and Retore Operations
+
+### BackupAsync, RestoreAsync
 ~~~ csharp
+public async Task<Response<byte[]>> BackupAsync(string name, CancellationToken cancellation = default);
+public async Task<Response<Secret>> RestoreAsync(byte[] backup, CancellationToken cancellation = default);
 ~~~
 #### Usage:
 ~~~ csharp
+// backup the secret and write the backup to a file
+await File.WriteAllBytesAsync("secretkey.bak", await secrets.BackupAsync("secretkey"));
+
+// restore the secret from backup
+Secret restored = await secrets.RestoreAsync(await File.ReadAllBytesAsync("secretkey.bak"));
 ~~~
 ### Replaces:
 ~~~ csharp
+public static async Task<BackupSecretResult> BackupSecretAsync(string vaultBaseUrl, string secretName, CancellationToken cancellationToken = default);
+public static async Task<SecretBundle> RestoreSecretAsync(string vaultBaseUrl, byte[] secretBundleBackup, CancellationToken cancellationToken = default);
+public virtual async Task<AzureOperationResponse<BackupSecretResult>> BackupSecretWithHttpMessagesAsync(string vaultBaseUrl, string secretName, Dictionary<string, List<string>> customHeaders = default, CancellationToken cancellationToken = default);
+public virtual async Task<AzureOperationResponse<SecretBundle>> RestoreSecretWithHttpMessagesAsync(string vaultBaseUrl, byte[] secretBundleBackup, Dictionary<string, List<string>> customHeaders = default, CancellationToken cancellationToken = default);
 ~~~
 #### Usage:
 ~~~ csharp
+// backup the secret and write await 
+File.WriteAllBytesAsync("secretkey.bak", (await client.BackupSecretAsync("https://myvault.vaults.azure.net/", "secretkey")).Value);
+// or
+File.WriteAllBytesAsync("secretkey.bak", (await client.BackupSecretWithHttpMessagesAsync("https://myvault.vaults.azure.net/", "secretkey")).Body.Value);
+
+// restore the secret from backup
+SecretBundle restored = await secrets.RestoreSecretAsync("https://myvault.vaults.azure.net/", await File.ReadAllBytesAsync("secretkey.bak"));
+// or
+SecretBundle restored = await secrets.RestoreSecretWithHttpMessagesAsync("https://myvault.vaults.azure.net/", await File.ReadAllBytesAsync("secretkey.bak")).Body;
 ~~~
+
+## __Data Structures__
+
+~~~ csharp
+public class SecretAttributes : Model
+{
+    public SecretAttributes();
+    public SecretAttributes(string name);
+
+    public Uri Id { get; }
+    public Uri Vault { get; }
+    public string Name { get; }
+    public string Version { get; }
+    public string ContentType { get; set; }
+    public bool? Managed { get; }
+    public string KeyId { get; }
+    public bool? Enabled { get; set; }
+    public DateTime? NotBefore { get; set; }
+    public DateTime? Expires { get; set; }
+    public DateTime? Created { get; }
+    public DateTime? Updated { get; }
+    public string RecoveryLevel { get; }
+    public IDictionary<string, string> Tags { get; set; }
+}
+
+public class Secret : SecretAttributes
+{
+    public Secret();
+    public Secret(string name, string value);
+
+    public string Value { get; }
+}
+
+public class DeletedSecret : SecretAttributes
+{
+    public DeletedSecret();
+
+    public string RecoveryId { get; }
+    public DateTime? DeletedDate { get; }
+    public DateTime? ScheduledPurgeDate { get; }
+}
+~~~
+## Replaces
