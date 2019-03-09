@@ -409,7 +409,7 @@ var secret = await secrets.GetSecrtAsync("https://myvault.vaults.azure.net/", "u
 var secret = await secrets.GetSecrtWithHttpMessageAsync("https://myvault.vaults.azure.net/", "user1pass", version: "6A385B124DEF4096AF1361A85B16C204").Body;
 ~~~
 
-### SecetClient.Update
+### Update
 ~~~ csharp
 public async Task<Response<SecretAttributes>> UpdateAsync(SecretAttributes secret, CancellationToken cancellation = default);
 ~~~
@@ -630,7 +630,7 @@ SecretBundle restored = await secrets.RestoreSecretWithHttpMessagesAsync("https:
 ~~~
 
 ## __Data Structures__
-
+The Secrets API surface area introduces 3 datastructures represent secrets.  First is the SecretAttribute class.  This represents all the attributes a secret apart from the actual secret value itself.  This abstraction is necissary as many SecretClient APIs such as Update, GetAll, and GetAllVersions do not return the secret value due to permission issues
 ~~~ csharp
 public class SecretAttributes : Model
 {
@@ -671,3 +671,58 @@ public class DeletedSecret : SecretAttributes
 }
 ~~~
 ## Replaces
+~~~ csharp
+public class SecretBundle
+{
+    public SecretBundle();
+    public SecretBundle(string value = default, string id = default, string contentType = default, SecretAttributes attributes = default, IDictionary<string, string> tags = default, string kid = default, bool? managed = default);
+
+    public SecretIdentifier SecretIdentifier { get; }
+    public string Value { get; set; }
+    public string Id { get; set; }
+    public string ContentType { get; set; }
+    public SecretAttributes Attributes { get; set; }
+    public IDictionary<string, string> Tags { get; set; }
+    public string Kid { get; }
+    public bool? Managed { get; }
+}
+
+public class SecretItem
+{
+    public SecretItem();
+    public SecretItem(string id = default, SecretAttributes attributes = default, IDictionary<string, string> tags = default, string contentType = default, bool? managed = default);
+
+    public SecretIdentifier Identifier { get; }
+    public string Id { get; set; }
+    public SecretAttributes Attributes { get; set; }
+    public IDictionary<string, string> Tags { get; set; }
+    public string ContentType { get; set; }
+    public bool? Managed { get; }
+}
+
+public class SecretAttributes : Attributes
+{
+    public SecretAttributes();
+    public SecretAttributes(bool? enabled = default, DateTime? notBefore = default, DateTime? expires = default, DateTime? created = default, DateTime? updated = default, string recoveryLevel = default);
+
+    public string RecoveryLevel { get; }
+    public bool? Enabled { get; set; }
+    public DateTime? NotBefore { get; set; }
+    public DateTime? Expires { get; set; }
+    public DateTime? Created { get; }
+    public DateTime? Updated { get; }
+}
+
+public class SecretIdentifier : ObjectIdentifier
+{
+    public SecretIdentifier(string vaultBaseUrl, string name, string version = default);
+    public SecretIdentifier(string identifier);
+
+    public string BaseIdentifier { get; }
+    public string Identifier { get; }
+    public string Name { get; }
+    public string Vault { get; }
+    public string VaultWithoutScheme { get; }
+    public string Version { get; }
+}
+~~~
