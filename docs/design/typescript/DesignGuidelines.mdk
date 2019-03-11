@@ -5,6 +5,14 @@
 - **ESM** / **ES Module**: ECMAScript Module, the standard import/export syntax defined by ECMAScript 6.
 - **UMD**: Universal Module Definition, a superset of both CommonJS and AMD modules.
 
+## README<span></span>.md {#ts-readme}
+
+~Must {#ts-readme-ts-config}
+document any required tsconfig settings and type dependencies in README.md under "Getting started". The section must be titled "Configure TypeScript" and come after the "Install the Package" sub-section. Common examples of required user configuration include enabling `compilerOptions.allowSyntheticDefaultImport` and installing an appropriate version of the `@types/node` package.
+~
+
+These guidelines are in addition to the [general README guidelines](#general-readme).
+
 ## npm Package {#ts-npm-package}
 
 The following sections specify versioning, the contents of package.json and the various source distributions included in the npm package.
@@ -134,6 +142,7 @@ The following sections describe the package.json file that must be included with
   "sideEffects": false
 }
 ```
+~
 
 ~ Must {#ts-package-json-name}
 set `name` to `@azure/<name>`, where `<name>` is the name of the service. Package names are kebab-case: all lowercase with words joined by dashes.
@@ -324,6 +333,7 @@ TypeScript is very popular in the ecosystem and its static types provide signifi
 
 This section covers the contents of your tsconfig.json. After implementing this section, your tsconfig.json should look similar to the following example:
 
+~ Figure {#ts-figure-tsconfig-json; caption: "An example tsconfig.json" }
 ```javascript
 {
   "compilerOptions": {
@@ -348,6 +358,7 @@ This section covers the contents of your tsconfig.json. After implementing this 
   "exclude": ["node_modules"]
 }
 ```
+~
 
 ~ Must {#ts-config-exclude}
   have at least "node_modules" in the `exclude` array. This ensures TypeScript isn't needlessly type checking your dependencies.
