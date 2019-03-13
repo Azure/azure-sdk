@@ -6,15 +6,15 @@ The git branching and workflow strategy we will be using is mostly in line with 
 
 Note that while master will always be in a buildable state it will not necessarily always represent the state of the latest published packages. To figure out the state of the code for a given released package you need to use the tag for that released package.
 
-### Work should happen in Forks
+## Work should happen in Forks
 
 In order to help reduce the clutter of branches in the main repo as well as to enable a common workflow for both contributors and community members with different permissions people should create forks of the main repository and work in them (see https://help.github.com/en/articles/working-with-forks). Once work is ready in the fork then a pull request can be submitted back to the main repository.
 
 ## Feature branches
 
-Branches should be created off of master and in general should remain in your local or forked repository and when ready pull requests should be submitted to the main repository. Changes going into the master branch should generally be rebased on top of master.
+For isolated work people should create branches off master and keep them in their local or forked repostory. The name for these branches is up to the individual working on the changes as these names will not show up anywhere (except perhaps a merge commit message) in the main repository. Once the work is ready the changes should be rebased on top of master and a pull request should be submitted to the main repository.
 
-If there are a set of people that need to collaborate on the same set of changes before they can go into master then a feature branch can be pushed to the main repository for sharing. Collaborators can either work together to push changes to that branch or submit pull requests against it until it is ready to go to master. Once the feature work is done it should be rebased on top of master and then the feature branch should be deleted from the main repository.
+If there are a set of people that need to collaborate on the same set of changes before they can go into master then a feature branch can be pushed to the main repository for sharing. Collaborators can either work together to push changes to that branch or submit pull requests against it until it is ready to go to master. Once the feature work is ready the changes should be rebased on top of master and a pull request submitted to the master branch in the main repository. Once the feature work pull request is complete then the branch should be deleted from the main repository.
 
 The feature branches pushed to the main repo should be named like `feature/<feature name>`
 
@@ -27,15 +27,15 @@ Format of the tag should be `<package-name>_<package-version>`
 Example of how to create a 1.0.0 release tag for the azure-keyvault package:
 
 ```
-> git tag -a -m "1.0.0 release of azure-keyvault" azure-keyvault_1.0.0 HEAD
+> git tag --annotate --message "1.0.0 release of azure-keyvault" azure-keyvault_1.0.0 HEAD
 ```
 
 ## Release branches
 
 There are potentially 3 different types of release branches in the order of preference:
-    - `master`
-    - `release/<release name>`
-    - `feature/<feature name>`
+ - `master`
+ - `release/<release name>`
+ - `feature/<feature name>`
 
 In general there should not be a need for release branches because most releases will happen directly from master. In some cases there may be a need to lock down the branch to stabilize a package and in these cases we should create a release branch named `release/<release name>` and push it to the main repository. We do this to avoid ever locking down the master branch from taking other work. After any changes have been made and the release build produced the branch should be merged (not rebased) back into master, including the tagged release commit, and then the release branch should be deleted.
 
@@ -45,6 +45,6 @@ When doing any releases outside of master extra caution needs to be taken to ens
 
 ## Hotfix branches
 
-Under some circumstances we may need to service a specific version of the code with a hotfix and in these cases we should create a branch from the git tag that points at the specific version we want to hotfix with a name of `hotfix/<hotfix name/version>` and push it to the main repository. Once the branch is created the changes should be made and the version numbers for the package with the fix should be updated accordingly and then a build should be produced and verified. Once the package is released then the branch should be merged (not rebased) back into master, including the newly tagged release commit, and then the hotfix branch should be deleted.
+Under some circumstances we may need to service a specific version of the code with a hotfix and in these cases we should create a branch from the git tag that points at the specific version we want to hotfix with a name of `hotfix/<appropriate name for what is being hotfixed>` and push it to the main repository. Once the branch is created the changes should be made and the version numbers for the package with the fix should be updated accordingly and then a build should be produced and verified. Once the package is released then the branch should be merged (not rebased) back into master, including the newly tagged release commit, and then the hotfix branch should be deleted.
 
 Whenever we release a package that we need to support long term we need to ensure we have enough versioning space to release hotfixes at any point in the history of the package. To help ensure that we always need to bump at least the minor version (i.e. 2nd part) of the package because we will increment the patch (i.e. 3rd part) version each time we release a hotfix.
