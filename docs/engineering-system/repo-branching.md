@@ -4,7 +4,7 @@ The git branching and workflow strategy we will be using is mostly in line with 
 
 `master` is the main default branch that lives forever and should never be force pushed to. The master branch must always be in a working state where CI builds succeed (e.g. build, analyze, and tests passing).  All other branches are intentionally short lived and should be removed once they are no longer needed.
 
-Note that while master will always be in a buildable state it will not necessarily always represent the state of the latest published packages. To figure out the state of the code for a given released package you need to use the tag for that released package.
+While master will always be in a buildable state it will not necessarily always represent the state of the latest official published packages. To figure out the state of the code for a given released package you need to use the tag for that released package. This rule might vary between the different language repos as some languages that allow direct references to source code (i.e. python, js) like to keep the master branch matching the latest published official package and so you may need to refer to specific instructions in the language repos for the rules.
 
 ## Work should happen in Forks
 
@@ -12,7 +12,7 @@ In order to help reduce the clutter of branches in the main repo as well as to e
 
 ## Feature branches
 
-For isolated work people should create branches off master and keep them in their local or forked repostory. The name for these branches is up to the individual working on the changes as these names will not show up anywhere (except perhaps a merge commit message) in the main repository. Once the work is ready the changes should be rebased on top of master and a pull request should be submitted to the main repository.
+For isolated work people should create branches off master and keep them in their local or forked repostory. The name for these branches is up to the individual working on the changes and doesn't need to match the `feature` naming scheme but instead should match what the set of changes people are making. Once the work is ready the changes should be rebased on top of master and a pull request should be submitted to the main repository.
 
 If there are a set of people that need to collaborate on the same set of changes before they can go into master then a feature branch can be pushed to the main repository for sharing. Collaborators can either work together to push changes to that branch or submit pull requests against it until it is ready to go to master. Once the feature work is ready the changes should be rebased on top of master and a pull request submitted to the master branch in the main repository. Once the feature work pull request is complete then the branch should be deleted from the main repository.
 
