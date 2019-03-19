@@ -32,11 +32,11 @@ update any query parameter or request header that gets sent to the service telli
 ~
 
 ~ Must {#general-retry-on-hardware-network-failure}
-retry in the case of a hardware network failure as it may self-correct
+retry in the case of a hardware network failure as it may self-correct [DISCUSS: there are pros & cons to this]
 ~
 
 ~ Must {#general-retry-on-service-not-found}
-retry in the case of a "service not found" error as the service may be coming back online or a load balancer may be reconfiguring itself.
+retry in the case of a "service not found" error as the service may be coming back online or a load balancer may be reconfiguring itself. [DISCUSS]
 ~
 
 ~ Must {#general-retry-on-per-try-timeout}
