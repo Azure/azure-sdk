@@ -40,6 +40,8 @@ In this model, we have a response data type that ties status line, headers, resp
 ### Methods return T
 In this model, we model T independently of how information was received (header or body). Headers related to the returned entity are modeled on T itself. Headers related to the *request* (e.g. request id, request processing cost) are assumed to primarily be of interest to logging and telemetry and thus consumed/"exposed" by logging and tracing policies. The full response is available in failures as a property in the raised exception.
 
+In addition, we allow for a per-call callback that allows for transformation of the response before it is returned to the caller.
+
 ##### Pros
 * No confusion about which response headers belong to for library methods that makes multiple requests.
 * Elevates the abstraction level from the raw HTTP response structure (header/body/status code)
