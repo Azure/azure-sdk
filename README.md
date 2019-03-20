@@ -6,10 +6,10 @@ The Azure SDK delivers a platform for developers to leverage the wide variety of
 
 ## Azure SDK Design Guidelines
 
-- [.NET](https://azuresdkspecs.z5.web.core.windows.net/DotNetSpec.html) ([template](https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/Template/data-plane))
-- [Java](https://azuresdkspecs.z5.web.core.windows.net/JavaSpec.html) ([template](https://github.com/Azure/azure-sdk-for-java/tree/master/template/client))
-- [Python](https://azuresdkspecs.z5.web.core.windows.net/PythonSpec.html) ([template](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-template))
-- [TypeScript](https://azuresdkspecs.z5.web.core.windows.net/TypeScriptSpec.html) ([template](https://github.com/Azure/azure-sdk-for-js/tree/master/packages/%40azure/template))
+- [.NET](https://azuresdkspecs.z5.web.core.windows.net/DotNetSpec.html)
+- [Java](https://azuresdkspecs.z5.web.core.windows.net/JavaSpec.html)
+- [Python](https://azuresdkspecs.z5.web.core.windows.net/PythonSpec.html)
+- [TypeScript](https://azuresdkspecs.z5.web.core.windows.net/TypeScriptSpec.html)
 
 # Azure Service Libraries
 
