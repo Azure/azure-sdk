@@ -1,10 +1,10 @@
-We expect all Azure SDKs to go through rigorous APIs reviews similar to those conducted for all .NET APIs.
+We expect all Azure SDK components to go through rigorous APIs reviews similar to those conducted for all .NET APIs.
 It's critical that the review is conducted early enough to allow time for fixes,
 and sometimes significant API redesign based on the review feedback.
-If you have never not participated in Azure SDK API review,
+If you have never not participated in Azure SDK component API review,
 we recommend that you schedule a pre-review (consulting session) before you start working on the APIs.
 
-Note: Azure SDK Reviews are not REST API (nor swagger) reviews. We review language-specific SDK APIs.
+Note: Azure SDK component reviews are not REST API (nor swagger) reviews. We review language-specific SDK component APIs.
 In particular, we review .NET, Python, Java, and JavaScript APIs, and in rare cases C++, Go, and other language SDKs.
 
 ## How to Design Great Azure APIs
@@ -13,14 +13,15 @@ Make sure your components follow [Azure SDK Design Guidelines](https://github.co
 
 ## What to Prepare for a Review
 
-To conduct a review, we need the following things from the owners of the SDK:
+To conduct a review, we need the following things from the owners of the SDK component:
 
 1. Link to the service documentation/specification.
-2. Link to the service REST APIs, if applicable/avaliable
-3. Several code samples showing how the SDK is meant to be used by customers. An example of a good set of usage samples can be found [here](https://github.com/dotnet/corefx/issues/32588).
-4. Listing of the APIs. See below for example and tools to generate it.
-5. If the SDK is already prototyped, dlls/packages/etc with the prototype implementation.
-6. If the SDK already GAed in the past, and this review is for additional APIs, old dlls/packages (to help us understand the changes).
+2. Link to the service REST APIs, if applicable/avaliable.
+3. A listing of 3-5 champion code paths relevant to the SDK component (e.g. upload blob, download blob, list all blobs in a container for blob storage). These identify the critical code pathways that the majority of developers will experience. For each champion code path, a link to a code sample in the repo must be provided. It is expected that these champion code paths are optimized for, ensuring succinct, intuitive, and productive developer experiences are possible for each.
+4. Several code samples showing how the SDK is meant to be used by customers. An example of a good set of usage samples can be found [here](https://github.com/dotnet/corefx/issues/32588).
+5. Listing of the APIs. See below for example and tools to generate it.
+6. If the SDK is already prototyped, dlls/packages/etc with the prototype implementation.
+7. If the SDK already GAed in the past, and this review is for additional APIs, old dlls/packages (to help us understand the changes).
 
 ## API Listings
 
