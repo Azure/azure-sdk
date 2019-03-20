@@ -80,7 +80,7 @@ derive from the abstract collections base classes `collections.abc` (or `collect
 ~ Must {#python-type-hints}
 provide type hints [PEP484](https://www.python.org/dev/peps/pep-0484/) wherever you are providing class or function documentation.
 
-  - See the [suggested syntax for Python2.7 and straddling code](https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code) for guidance for Python 2.7 compatible code. 
+  - See the [suggested syntax for Python2.7 and straddling code](https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code) for guidance for Python 2.7 compatible code.
 ~
 
 ### Naming
@@ -347,7 +347,7 @@ depend on azure-nspkg for Python 2.x
 ~
 
 ~ Must {#python-follow-pep420}
-follow PEP420 for Python 3.0
+follow [PEP420](https://www.python.org/dev/peps/pep-0420/) for Python 3.0
 ~
 
 ~ Must {#python-include-init}
@@ -410,21 +410,21 @@ Example:
 ~
 
 ~ Must {#python-use-aiohttp}
-use aiohttp as the HTTP stack for async operations
+use [aiohttp](https://aiohttp.readthedocs.io/en/stable/) as the HTTP stack for async operations
 ~
 
 ~ Must {#python-support-other-async}
-consider supporting async frameworks other than asyncio (i.e. Trio)
+consider supporting async frameworks other than asyncio (i.e. [Trio](https://trio.readthedocs.io/en/latest/))
 ~
 
 ## Testing
 
 ~ Must {#python-use-pytest}
-use pytest as the test framework
+use [pytest](https://docs.pytest.org/en/latest/) as the test framework
 ~
 
 ~ Must {#python-use-pytest-asyncio}
-consider using pytest-asyncio for testing of async code. 
+consider using [pytest-asyncio](https://github.com/pytest-dev/pytest-asyncio) for testing of async code.
 ~
 
 ~ Must {#python-test-live-service}
@@ -446,7 +446,7 @@ make each test case independent of other tests
 ## Tooling
 
 ~ Must {#python-use-pylint}
-use pylint for your code.
+use [pylint](https://www.pylint.org/) for your code.
 ~
 
 ~ Todo 
@@ -458,11 +458,11 @@ use [flake8-docstrings](https://gitlab.com/pycqa/flake8-docstrings) to verify do
 ~
 
 ~ Must {#python-use-black}
-use Black for formatting your code.
+use [Black](https://black.readthedocs.io/en/stable/) for formatting your code.
 ~
 
 ~ Must {#python-use-mypy}
-consider using MyPy to statically check your code
+consider using [MyPy](https://mypy.readthedocs.io/en/latest/) to statically check your code
 ~
 
 ## Documenting your code
