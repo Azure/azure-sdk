@@ -62,7 +62,7 @@ favor consistency with other Python components over other libraries for the same
 ~
 
 ~ Must {#python-single-underscore}
-use a single underscore to indicate that a name is not part of the public API and is not guaranteed stable.
+use a single leading underscore to indicate that a name is not part of the public API and is not guaranteed stable.
 ~
 
 ~ MustNot {#python-no-leading-underscore}
