@@ -1,0 +1,73 @@
+The release process for the Azure SDK accommodates the need to release different SDK packages based on the ship cycle of the underlying service. 
+
+## Terms
+
+SDK - The entire SDK for all Azure services
+Service - An Azure service like storage, event hub, or key vault
+Library - The SDK code for a given service and language, i.e. "Python Library for Storage"
+Package - an individual package consumed by a package manager. A library may have many packages. For example, the key vault library for .NET contains:
+
++ Microsoft.Azure.KeyVault
++ Microsoft.Azure.KeyVault.Core
++ Microsoft.Azure.Management.KeyVault
++ Microsoft.Azure.Management.KeyVault.Fluent
++ Microsoft.Azure.KeyVault.Extensions
++ Microsoft.Azure.KeyVault.Cryptography
+
+## Supported Package Managers
+We release libraries to the following package managers:
++ NuGet (.NET)
++ PyPi (Python)
++ npm (JavaScript)
++ Maven (Java)
+
+Package managers are the recommended way to consume the Azure SDK.
+
+## Git Tagging
+
+Because each language repository contains multiple packages inside of it, releases for each package are tagged in the format `<package-name>_<package-version>`.
+
+
+## GitHub Releases
+
+We use GitHub releases for archival and note purposes, but recommend consuming the code using one of our preferred package managers - not the release archive on GitHub. The change log for a release is available with the GitHub release. Developers not using a package manager may also find the released libraries here.
+
+## Release Cycle
+
+The release cycle of each library may vary based on the needs of the underlying service. The Azure SDK team recommends a release cycle around quarterly for most services. It is best practice to include a "Next Release Target Date" in the README file for each library.
+
+## Package Versioning
+The team makes every effort to follow [SemVer](https://semver.org/) for versioning. Because different languages have slightly different conventions for numbering, the way that preview releases are designated varies. In a nutshell, SemVer is defined as `Major.Minor.Patch`, where
++ Changes to the major digit (1.X.Y to 2.X.Y) indicate that breaking changes have been introduced. 
++ Increments to the minor digit (1.1.X to 1.2.X) indicate the addition of new features. 
++ Increments to the patch number (1.1.1 to 1.1.2) indicate bug fixes
+
+In addition to standard SemVer, the team occasionally releases a preview of a package that is not yet considered fully done to allow the community to dogfood and give feedback on new features. A preview may be released as one or all of of:
++ Daily: a build containing daily changes for dogfooding purposes. Expect frequent breakage.
++ Beta: beta's rev less frequently than dailies (weekly or so), but expect to find bugs and incomplete features.
++ Release Candidate (RC): nearly complete and expected to change very little besides small tweaks. Not expected to rev, except to graduate to being the primary release.
+
+### Python
+Python version numbers follow the guidance in [PEP 440](https://www.python.org/dev/peps/pep-0440/) for versioning Python packages. This means that regular releases follow the above specified SemVer format. Preview releases follow the PEP 440 specification:
++ `X.YaYYYYMMDD` (daily using alpha convention)
++ `X.YbZ` (beta)
++ `X.YrcZ` (release candidate)
+
+### JavaScript
+The JavaScript community generally follows SemVer. For preview releases, we will release with an [NPM distribution tag](https://docs.npmjs.com/cli/dist-tag) in the formats:
++ `X.Y.Z-daily.YYYYMMDD`
++ `X.Y.Z-betaN`
++ `X.Y.Z-rcN`
+
+### .NET
+NuGet supports designating a package as 'pre-release'. In this ecosystem, pre-release packages will have daily build numbers in the format:
++ `X.Y.Z.DailyComputedTag`
+
+### Java
+Maven supports the [convention](https://cwiki.apache.org/confluence/display/MAVENOLD/Versioning) `MAJOR.MINOR.PATCH-QUALIFIER`. As such, for Java distributions, the preferred format for version numbers is:
++ `X.Y.Z-SNAPSHOT` (Daily build qualifier used in Maven. Snapshots overwrite with new versions on re-publish.)
++ `X.Y.Z-betaN`
++ `X.Y.Z-rcN`
+
+## Deprecation
+Deprecation cycle for released versions is TBD.
