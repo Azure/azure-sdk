@@ -15,10 +15,10 @@ Make sure your components follow [Azure SDK Design Guidelines](https://github.co
 
 To conduct a review, we need the following things from the owners of the SDK component:
 
-1. Link to the service documentation/specification.
-2. Link to the service REST APIs, if applicable/avaliable.
-3. A listing of 3-5 champion code paths relevant to the SDK component (e.g. upload blob, download blob, list all blobs in a container for blob storage). These identify the critical code pathways that the majority of developers will experience. For each champion code path, a link to a code sample in the repo must be provided. It is expected that these champion code paths are optimized for, ensuring succinct, intuitive, and productive developer experiences are possible for each.
-4. Several code samples showing how the SDK is meant to be used by customers. An example of a good set of usage samples can be found [here](https://github.com/dotnet/corefx/issues/32588).
+1. Several code samples showing how the SDK is meant to be used by customers. An example of a good set of usage samples can be found [here](https://github.com/dotnet/corefx/issues/32588).
+2. A listing of 3-5 champion scenarios relevant to the developer. These must identify the critical scenarios that the majority of developers will experience. For each champion scenario, a link to a code sample in the repo must be provided. It is expected that these champion scenarios are optimized for, ensuring succinct, intuitive, and productive developer experiences are possible for each.
+3. Link to the service documentation/specification.
+4. Link to the service REST APIs, if applicable/avaliable.
 5. Listing of the APIs. See below for example and tools to generate it.
 6. If the SDK is already prototyped, dlls/packages/etc with the prototype implementation.
 7. If the SDK already GAed in the past, and this review is for additional APIs, old dlls/packages (to help us understand the changes).
