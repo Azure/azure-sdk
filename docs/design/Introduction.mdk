@@ -1,6 +1,47 @@
 # Introduction
 
-TODO
+## Design Principles
+
+The Azure SDK should be designed to enhance the productivity of developers connecting to Azure for services.  Other qualities (such as completeness, extensibility, and performance) are important by secondary.
+
+We believe productivity is more easily achieved by adhering to the principles described below:
+
+### Idiomatic
+
+* The SDK should follow the general design guidelines and conventions for the target language.  It should feel natural to a developer in the target language.
+* We are not trying to fix bad parts of the language ecosystem; we embrace the ecosystem with its strengths and its flaws.
+
+### Consistent
+
+* The developer should be able to learn core Azure concepts once, then apply those learnings to all target languages.
+* All differences must have a good (articulated) reason for existing, rooted in idiomatic usage rather than whim.
+* The combined set of SDKs across all languages feels like a single product developed by a single team.
+* There should be feature parity across target languages.  This is more important than feature parity with the service.
+
+### Approachable
+
+* We are experts in the supported technologies so our customers, the developers, don't have to be.
+* Learning a service should be natural with the SDK, with a great documentation set (hero tutorial, how to articles, samples, and API documentation).
+* Getting off the ground should be easy through the use of predictable defaults that implement best practices.
+* The SDK should be easily acquired through the most normal mechanisms in the target language and ecosystem.
+
+### Diagnosable
+
+* The developer should be able to understand what is going on.
+* Logging, tracing, and exception handling are fundamental and should be thoughtful.
+* Error messages should be concise, correlated with the service, and human readable.
+* Integrating with the preferred debugger for the target language should be easy.
+
+### Transparent
+
+* It should be clear when and under what circumstances a network call is made.
+* It is always clear what the defaults are and what their intent is.
+* There is a well-documented error model when things fail, with correlation to the service.
+
+### Compatible
+
+* 99.99% of features and improvements are not worth the time customers would have to spend reacting to breaking changes.
+* No dependencies that can force our hand on compatibility.
 
 ## Terminology
 
