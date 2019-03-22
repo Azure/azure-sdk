@@ -2,7 +2,7 @@ We expect all Azure SDKs to go through rigorous APIs reviews similar to those co
 It's critical that the review is conducted early enough to allow time for fixes,
 and sometimes significant API redesign based on the review feedback.
 If you have never participated in Azure SDK API review,
-we recommend that you schedule a pre-review (consulting session) before you start working on the APIs.
+we recommend that you schedule a pre-review (consulting session) before you start working on the APIs. Open an issue on <https://github.com/Azure/azure-sdk> to start a discussion.
 
 Note: Azure SDK Reviews are not REST API (nor swagger) reviews. We review language-specific SDK APIs.
 In particular, we review .NET, Python, Java, and JavaScript APIs, and in rare cases C++, Go, and other language SDKs.
