@@ -14,14 +14,14 @@ Package - an individual package consumed by a package manager. A library may hav
 + Microsoft.Azure.KeyVault.Extensions
 + Microsoft.Azure.KeyVault.Cryptography
 
-## Supported Package Managers
-We release libraries to the following package managers:
+## Supported Registries
+We release libraries to the following registries:
 + NuGet (.NET)
 + PyPi (Python)
 + npm (JavaScript)
 + Maven (Java)
 
-Package managers are the recommended way to consume the Azure SDK.
+Package managers that support these registries are the recommended way to consume the Azure SDK.
 
 ## Git Tagging
 
