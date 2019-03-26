@@ -1,21 +1,10 @@
 The release process for the Azure SDK accommodates the need to release different SDK packages based on the ship cycle of the underlying service. 
 
 ## Terms
-
-SDK - The entire SDK for all Azure services
-Service - An Azure service like storage, event hub, or key vault
-Library - The SDK code for a given service and language, i.e. "Python Library for Storage"
-Package - an individual package consumed by a package manager. A library may have many packages. For example, the key vault library for .NET contains:
-
-+ Microsoft.Azure.KeyVault
-+ Microsoft.Azure.KeyVault.Core
-+ Microsoft.Azure.Management.KeyVault
-+ Microsoft.Azure.Management.KeyVault.Fluent
-+ Microsoft.Azure.KeyVault.Extensions
-+ Microsoft.Azure.KeyVault.Cryptography
+The terms "SDK", "SDK Component", "library" and "package" are used throughout this doc. Definitions can be found [here](/azure-sdk/docs/design/Introduction.mdk).
 
 ## Supported Registries
-We release libraries to the following registries:
+We release client libraries to the following registries:
 + NuGet (.NET)
 + PyPi (Python)
 + npm (JavaScript)
@@ -34,7 +23,7 @@ We use GitHub releases for archival and note purposes, but recommend consuming t
 
 ## Release Cycle
 
-The release cycle of each library may vary based on the needs of the underlying service. The Azure SDK team recommends a release cycle around quarterly for most services. It is best practice to include a "Next Release Target Date" in the README file for each library.
+The release cycle of each SDK Component may vary based on the needs of the underlying service. The Azure SDK team recommends a release cycle around quarterly for most services. It is best practice to include a "Next Release Target Date" in the README file for each library.
 
 ## Package Versioning
 The team makes every effort to follow [SemVer](https://semver.org/) for versioning. Because different languages have slightly different conventions for numbering, the way that preview releases are designated varies. In a nutshell, SemVer is defined as `Major.Minor.Patch`, where
