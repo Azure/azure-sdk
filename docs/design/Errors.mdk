@@ -5,15 +5,31 @@ return an error value or throw an exception object when any HTTP request fails w
 ~
 
 ~ Must
-ensure that the error value/exception object contain the HTTP response (including status code and headers) and originating request (including
-URL, query parameters, & headers).
+ensure that the error value/exception object contain the HTTP response (including status code and headers) and originating request (including URL, query parameters, & headers).
 ~
 
 ~ Must
-ensure that if the service returns rich error information (via the response headers or body), the rich information must be available via the
-error value/exception object. [TODO] in service-specific properties/fields?
+ensure that if the service returns rich error information (via the response headers or body), the rich information must be available via the error value/exception object. [TODO] in service-specific properties/fields?
 ~
 
 ~ MustNot
-make available the response body stream via the error value/excewption object.
+make available the response body stream via the error value/exception object.
 ~
+
+TODO: Exception Hierarchy? What about languages that don't use exceptions?
+> +# Logical exception hierarchy: https://github.com/Azure/azure-sdk/pull/195#discussion_r268713298
+
++# AzureError
++#   |- AzureLibraryError
++#       |- AzureLibraryRequestError
++#       |- AzureLibraryResponseError
++#   |- ServiceRequestError
++#       |- ConnectionTimeoutError
++#       |- ServiceHttpRequestError
++#           |- ClientRequestError
++#               |- ResourceExistsError
++#               |- ClientAuthenticationError
++#               |- ResourceModifiedError
++#           |- ServerError
++#           |- TooManyRedirectsError
++#           |- TooManyRetriesError (removed)
