@@ -9,7 +9,7 @@ The HTTP Pipeline provides this functionality.
 ~ Must {#general-retry-configuration}
 offer the following configuration settings:
 
-- Retry policy (exponential or fixed)
+- Retry policy type (exponential or fixed)
 - Maximum number of retries
 - Delay between retries (timespan/duration; this is the delay for fixed policy, the delay is increased exponentially by this amount for the exponential policy)
 - List of HTTP status codes that would cause a retry (default is "all service errors that are retryable")
