@@ -19,7 +19,7 @@ Because each language repository contains multiple packages inside of it, releas
 
 ## GitHub Releases
 
-We use GitHub releases for archival and note purposes, but recommend consuming the code using one of our preferred package managers - not the release archive on GitHub. The change log for a release is available with the GitHub release. Developers not using a package manager may also find the released libraries here.
+We use GitHub releases as a convenient place to put release notes. The change log and any additional notes will be available here. No artifacts are published to the github release. Instead, use a supported package registry.
 
 ## Release Cycle
 
