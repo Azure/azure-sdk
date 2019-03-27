@@ -12,20 +12,20 @@ produce an error when any HTTP request fails with an HTTP status code that is no
 
 ~ Must
 ensure that the error produced contains the HTTP response (including status code and headers) and originating request (including URL, query parameters, & headers).  
-~
 
 - In the case of a higher-level method that produces multiple HTTP requests, either the last exception or an aggregate exception of all failures should be produced.
+~
 
 ~ Must
 ensure that if the service returns rich error information (via the response headers or body), the rich information must be available via the error produced in service-specific properties/fields.
 ~
 
 ~ ShouldNot
-create a new error unless the developer can perform an alternate action to remediate the error.  Specialized errors should be based on existing errors present in the azure common or base packages.
+create a new error type unless the developer can perform an alternate action to remediate the error.  Specialized errors should be based on existing errors present in the azure common or base packages.
 ~
 
 ~ MustNot
-create a new error when a system error will suffice.  Use system-provided errors for validation
+create a new error type when a language-specific error type will suffice.  Use system-provided error types for validation
 ~
 
 ~ Must
