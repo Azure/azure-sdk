@@ -12,6 +12,7 @@ offer the following configuration settings:
 - Retry policy type (exponential or fixed)
 - Maximum number of retries
 - Delay between retries (timespan/duration; this is the delay for fixed policy, the delay is increased exponentially by this amount for the exponential policy)
+- Maximum retry delay (timespan/duration)
 - List of HTTP status codes that would cause a retry (default is "all service errors that are retryable")
 ~
 
@@ -19,8 +20,6 @@ offer the following configuration settings:
 offer additional retry mechanism if supported by the service
 - For example, the Azure Storage Blob service supports retrying read operations against a secondary datacenter, or recommends the use of a per-try timeout for resilience.
 ~
-
-
 
 ~ Must {#general-retry-reset-on-retry}
 reset (or seek back to position 0) any request data stream before retrying a request
