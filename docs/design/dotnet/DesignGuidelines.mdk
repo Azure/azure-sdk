@@ -260,6 +260,10 @@ consider placing model types in a ```.Models``` subnamespaces of the client type
 be thread-safe.
 ~
 
+~ Note {#dotnet-policy-request-response-message-threadsafe}
+`HttpPipelineRequest`, `HttpPipelineResponse` and `HttpPipelineMessage` types are not thread-safe
+~
+
 ## Authentication {#dotnet-authentication}
 ~ Draft
 Service client constructors should take all parameters required to create a functioning client, i.e. after the constructor is called service methods can be called successfully. 
