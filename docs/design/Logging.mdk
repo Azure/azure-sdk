@@ -17,35 +17,59 @@ log a Warning message, if a request takes longer than some specified threshold. 
 ~
 
 ~ Must {#general-logging-requests-in-info}
-log request line, response line, and headers, as Informational message.
+log request URL, query parameters and headers as Informational.
 ~
 
 ~ Must {#general-logging-error-for-bad-status}
-log an Error message, if a response comes back with a status codes between 400-599.
+log as an Error any HTTP response considered as an error (see the Error guideline). Typically response status codes between 400-599 are considered errors.
+[Do we really want to say this?: Some services use status codes in this range in normal course of operation, e.g. implement an "exists" check by returning 404 (not found). In such situations, the particular service might opt out from logging such status code as error.]
+[TODO: Do we want to also log the stack trace?]
+
+Here's an example of a log entry:
+2018/10/30 00:25:35 ==> REQUEST/RESPONSE (Try=1/170.9971ms, OpTime=171.9979ms) -- RESPONSE SUCCESSFULLY RECEIVED
+   GET https://vstsimages.blob.core.windows.net/vhds/MMS.M141.VS2017.1.vhd?se=2018-11-07t21%3A58%3A08z&sig=REDACTED&sp=r&spr=https&sr=b&st=2018-10-24t12%3A58%3A08z&sv=2017-11-09&timeout=901
+   User-Agent: [AzCopy/10.0.3-Preview Azure-Storage/0.1 (go1.10.3; Windows_NT)]
+   X-Ms-Client-Request-Id: [4a0ed94c-2559-4935-7e11-7c36987b1a61]
+   X-Ms-Range: [bytes=327155712-335544319]
+   X-Ms-Version: [2018-03-28]
+   --------------------------------------------------------------------------------
+   RESPONSE Status: 206 Partial Content
+   Accept-Ranges: [bytes]
+   Content-Length: [8388608]
+   Content-Range: [bytes 327155712-335544319/136367309312]
+   Content-Type: [application/octet-stream]
+   Date: [Tue, 30 Oct 2018 00:25:35 GMT]
+   Etag: ["0x8D62305BCB84262"]
+   Last-Modified: [Tue, 25 Sep 2018 16:41:26 GMT]
+   Server: [Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0]
+   X-Ms-Blob-Content-Md5: [MWiFW1ohsRTvZuvIwPU1yw==]
+   X-Ms-Blob-Sequence-Number: [7]
+   X-Ms-Blob-Type: [PageBlob]
+   X-Ms-Copy-Completion-Time: [Tue, 25 Sep 2018 16:41:26 GMT]
+   X-Ms-Copy-Id: [58235dcc-3519-4050-9fef-3c331cf03a20]
+   X-Ms-Copy-Progress: [136367309312/136367309312]
+   X-Ms-Copy-Source: [https://packaerimagestorage.blob.core.windows.net/system/Microsoft.Compute/Images/images/packer-osDisk.350932ae-0659-429e-b555-3ea7a22b41f5.vhd?sv=2017-07-29&sr=b&sig=REDACTED&se=2018-10-02T14%3A09%3A28Z&sp=r]
+   X-Ms-Copy-Status: [success]
+   X-Ms-Creation-Time: [Tue, 25 Sep 2018 14:09:30 GMT]
+   X-Ms-Lease-State: [available]
+   X-Ms-Lease-Status: [unlocked]
+   X-Ms-Meta-Microsoftazurecompute_capturedvmkey: [/Subscriptions/3f56da7f-5953-4018-8ca8-e20dbfa0a7e2/ResourceGroups/PACKER-RESOURCE-GROUP-8WN8K10PFS/VMs/PKRVM8WN8K10PFS]
+   X-Ms-Meta-Microsoftazurecompute_imagetype: [OSDisk]
+   X-Ms-Meta-Microsoftazurecompute_osstate: [Generalized]
+   X-Ms-Meta-Microsoftazurecompute_ostype: [Windows]
+   X-Ms-Request-Id: [209c9202-501e-0013-1ee7-6f83f7000000]
+   X-Ms-Server-Encrypted: [true]
+   X-Ms-Version: [2018-03-28]
 ~
 
-Some services use status codes in this range in normal course of operation, e.g. implement an "exists" check by returning 404 (not found). In such situations, the particular service might opt out from logging such status code as error.
-
 ~ Must {#general-logging-warning-if-retry}
-log a Warning message, if a service call needs to be retried.
+log a Warning message, if a service call needs to be retried. [TODO: This will probably happen naturally (as error) when the 1st try fails]
 ~
 
 ~ Must {#general-logging-info-if-cancelled}
-log an Informational message, if a service call is cancelled.
-~
-
-~ Must {#general-logging-error-if-exceptions}
-log exceptions thrown as an Error message. If the log level set to Verbose, append stack trace information to the message.
+[Do we really want this?: log an Informational message, if a service call is cancelled.]
 ~
 
 ~ Must {#general-logging-use-syslog}
 log failures (exceptions and error status codes), regardless logging level, to the event log on Windows and the syslog on Linux, i.e. this cannot be turned off by the SDK user unless they replace the pipeline.
-~
-
-~ Todo
-describe format/syntax of the log messages.
-~
-
-~ Todo
-provide and describe pipeline APIs for logging.
 ~

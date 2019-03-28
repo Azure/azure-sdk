@@ -1,7 +1,12 @@
 # Open Source {#general-oss}
 
 ~ Must {#github-open-source}
-ensure that all library code is public and open source on GitHub. Library code must be in Azure SDK 'mono-repo' for its language (e.g. [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java)).
+ensure that all library code is public and open source on GitHub. Library code must be in Azure SDK 'mono-repo' for its language:
+
+* [Azure SDK for .NET](https://github.com/Azure/azure-sdk-for-net)
+* [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java)
+* [Azure SDK for JavaScript](https://github.com/Azure/azure-sdk-for-js)
+* [Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python)
 ~
 
 ~ Should {#github-be-open} 
@@ -25,22 +30,10 @@ review the Microsoft Open Source Guidelines' [community section](https://docs.op
  include a copyright header at the top of every source file. See the [Microsoft Open Source Guidelines](https://docs.opensource.microsoft.com/releasing/copyright-headers.html) for example headers in various languages.
 ~
 
-## README<span></span>.md
+## README<span></span>.md {#general-readme}
 
 ~ Must {#github-readme}
-include in your SDK component's folder in the repo a README<span></span>.md file that has the sections shown below. Rather than produce this from scratch, refer to the template readme<span></span>.md file and take that as a starting point.
-
-- Short introduction of the service
-- Maven
-  - Maven dependency fragment for latest GA release (with no version - link to central document for details on how to depend on Azure SDK BOM)
-  - Maven dependency fragment for latest snapshot release
-- Documentation
-  - Link to reference documentation
-  - Link to relevant quick starts and tutorials
-  - Samples table
-- Contributing
-  - Must include a reference to the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct) and a link to the CONTRIBUTING.md file
-  - Should encourage developers to seek support on Stack Overflow
+include in your SDK component's folder in the repo a README<span></span>.md file that follows the [readme template](https://github.com/Azure/azure-sdk/blob/master/docs/README-TEMPLATE.md).
 ~
 
 ## CONTRIBUTING<span></span>.md
@@ -78,7 +71,7 @@ include any relevant processes and procedures must be documented, such as:
 ## LICENSE<span></span>.md
 
 ~ Must {#github-license}
-include a LICENSE<span></span>.md file containing your license text (which by default should be the standard MIT license).
+include a LICENSE<span></span>.md file containing your license text (which by default should be [the standard MIT license](https://docs.opensource.microsoft.com/releasing/overview.html#license-files)).
 ~
 
 ## CODEOWNERS

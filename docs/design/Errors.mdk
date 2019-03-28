@@ -1,0 +1,19 @@
+## Error Handling
+
+~ Must
+return an error value or throw an exception object when any HTTP request fails with an HTTP status code that is defined by the service/Swagger as a successful status code. NOTE: These errors should also be logged as errors.
+~
+
+~ Must
+ensure that the error value/exception object contain the HTTP response (including status code and headers) and originating request (including
+URL, query parameters, & headers).
+~
+
+~ Must
+ensure that if the service returns rich error information (via the response headers or body), the rich information must be available via the
+error value/exception object. [TODO] in service-specific properties/fields?
+~
+
+~ MustNot
+make available the response body stream via the error value/excewption object.
+~

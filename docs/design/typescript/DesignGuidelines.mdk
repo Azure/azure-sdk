@@ -1,19 +1,17 @@
-## Scopes {#ts-scope; @h1-h2: decimal; }
-
-~ Must {#ts-azure-scope}
-follow these conventions if you publish under the @azure scope in npm.
-~
-
-~ Should {#ts-azure-scope-optional}
-follow these guidelines even if you're not publishing an Azure library under the @azure scope.
-~
-
-## Terminology {#ts-terminology}
+## Terminology {#ts-terminology; @h1-h2: decimal;}
 
 - **AMD Modules**: A module format often used in the browser, e.g. as implemented by RequireJS.
 - **CommonJS** / **CJS**: The module format of Node.js (require, module.exports).
 - **ESM** / **ES Module**: ECMAScript Module, the standard import/export syntax defined by ECMAScript 6.
 - **UMD**: Universal Module Definition, a superset of both CommonJS and AMD modules.
+
+## README<span></span>.md {#ts-readme}
+
+~Must {#ts-readme-ts-config}
+document any required tsconfig settings and type dependencies in README.md under "Getting started". The section must be titled "Configure TypeScript" and come after the "Install the Package" sub-section. Common examples of required user configuration include enabling `compilerOptions.allowSyntheticDefaultImport` and installing an appropriate version of the `@types/node` package.
+~
+
+These guidelines are in addition to the [general README guidelines](#general-readme).
 
 ## npm Package {#ts-npm-package}
 
@@ -42,11 +40,11 @@ version with [semver](https://semver.org/). Deprecated features and flags must o
 ~
 
 ~ MustNot {#ts-versioning-no-ga-prerelease}
-have a pre-release version or any additional build metadata.
+have a pre-release version or any additional build metadata for GA packages.
 ~
 
 ~ Must {#ts-versioning-preview; }
-have a pre-release version of the format `1.0.0-Preview-XX` where XX is an integer. Pre-release package versions should not have additional build metadata.
+give preview packages a pre-release version of the format `1.0.0-Preview-XX` where XX is an integer. Pre-release package versions should not have additional build metadata.
 ~
 
 ~ MustNot {#ts-versioning-no-version-0}
@@ -135,116 +133,90 @@ The following sections describe the package.json file that must be included with
   ],
   "devDependencies": { /* ... */ },,
   "dependencies": { /* ... */ },
-  "repository": "github:Azure/azure-cosmos-js",
+  "repository": "github:Azure/azure-sdk",
+  "homepage": "https://github.com/Azure/azure-sdk-for-js/tree/master/packages/%40azure/servicebus/data-plane",
+  "bugs": {
+    "url": "https://github.com/Azure/azure-sdk-for-js/issues"
+  },
   "license": "MIT",
   "sideEffects": false
 }
 ```
 ~
 
-#### name
-
 ~ Must {#ts-package-json-name}
-have a `name` field of `@azure/<name>`, where `<name>` is the name of the service.
+set `name` to `@azure/<name>`, where `<name>` is the name of the service. Package names are kebab-case: all lowercase with words joined by dashes.
 ~
 
-#### repository
+~ Must {#ts-package-json-homepage}
+set `homepage` to a URL pointing to your library's readme inside the git repo. Since the repository link goes to the monorepo, this link exists to serve as an easier way to reach the actual package's source.  
+~
+
+~ Must {#ts-package-json-bugs}
+set `bugs` to an object with a `url` key pointing to your library's issue tracker: https://github.com/Azure/azure-sdk-for-js/issues.
+~
 
 ~ Must {#ts-package-json-repo}
-point to your GitHub repository. Use of the `github:user/repo` short-hand is recommended.
+set `repository` to the JS SDK monorepo - `github:azure/azure-sdk`. Use of the `github:user/repo` short-hand is recommended.
 ~
-
-#### description
 
 ~ Must {#ts-package-json-description}
-write a useful but terse description of your library.
+set `description` to a useful but terse description of your library. The description is used and shown when searching for packages on npmjs.org, so it's important to be maximally descriptive white being as terse as possible.
 ~
-
-The description is used and shown when searching for packages on npmjs.org, so it's important to be maximally descriptive white being as terse as possible.
-
-#### keywords
 
 ~ Must {#ts-package-json-keywords}
-include at least the entries "Azure" and "cloud". It must also contain at least the name of your service. It should contain other entries relevant to your SDK.
+set `keywords` to an array that includes at least the entries "Azure" and "cloud". It must also contain at least the name of your service. It should contain other entries relevant to your SDK.
 ~
-
-#### author
 
 ~ Must {#ts-package-json-author}
-use the string `"Microsoft Corporation"`.
+set `author` to `"Microsoft Corporation"`.
 ~
-
-#### sideEffects
 
 ~ Must {#ts-package-json-sideeffects}
-set to `false` if there are no side effects.
-~
-
-The sideEffects field is used by Webpack and potentially other tools as an indicator of how aggressively the package can be optimized.
+set `sideEffects` to `false`. Side effecting libraries must be explicitly approved during design review. The sideEffects field is used by Webpack and potentially other tools as an indicator of how aggressively the package can be optimized. 
 
 Side effects refer to modifications to the runtime environment of the program as a result of including a module. For example, including a polyfill library is a sideEffect as it mutates the global environment and later code depends on its presence. Side effects make it harder for tools to optimize your build and should be avoided.
+~
 
-#### main
-
-Main is the entry point of your application for Node users.
 
 ~ Must {#ts-package-json-main-is-cjs}
-point to either a CommonJS or a UMD module.
+set `main` to point to either a CommonJS or a UMD module. Main is the entry point of your application for Node users. See [#ts-source-distros-cjs] for more information.
 ~
 
 ~ MustNot {#ts-package-json-main-is-not-es6}
-include any ES6+ syntax per clause [#ts-source-distros].
+set `main` to include any ES6+ syntax.
 ~
-
-See also clause [#ts-source-distros-cjs].
-
-#### module
 
 ~ Must
-set to the ES6 module entrypoint of your application.
-~
-
+set `module` to the ES6 module entrypoint of your application. 
 Tools such as Webpack use this key to discover the static module graph of your application for optimization purposes. See [#ts-source-distros-esm] for more information.
-
-#### engine
+~
 
 ~ Must {#ts-package-json-engine-is-present}
-set to the versions of Node your library supports.
+set `engine` to the versions of Node your library supports. See [#ts-supported-node-versions] for Node support requirements.
 ~
 
-See [#ts-supported-node-versions] for Node support requirements.
-
-#### scripts {#ts-package-json-scripts}
-
 ~ Must {#ts-package-json-required-scripts}
-have the following scripts:
+set `scripts` to an object with the following scripts:
 
 - `"build"`: generates the main export of the application.
-- `"test"`: runs your package's functional test suite.
+- `"test"`: runs your package's functional test suite for inner-loop development. Additional test tasks (e.g. for CI) are allowed but `test` must be how developers test your package during development.
 ~
 
 ~ Must {#ts-package-json-required-scripts-for-development}
-Any tasks required for developing your package must have corresponding npm scripts. Packages should not depend on shell scripts to build or test their application as shell scripts often need to be platform-specific.
+include in `scripts` any tasks required for developing your package must have corresponding npm scripts. Packages should not depend on shell scripts to build or test their application as shell scripts often need to be platform-specific.
 ~
-
-#### files {#ts-package-json-files}
 
 ~ Must {#ts-package-json-files-required}
-explicitly add package contents using this field.
+set `files` to an array containing paths of your package contents. Setting this field prevents extraneous files from ending up in your package by being explicit about which files you ship to npm. 
 ~
-
-Setting this field prevents extraneous files from ending up in your package by being explicit about which files you ship to npm. 
-
-#### types
 
 ~ Must {#ts-package-json-types}
-point to the TypeScript type declarations for your library's public surface area, usually `"./dist-esm/index.d.ts"`.
+set `types` to point to the TypeScript type declarations for your library's public surface area, usually `"./types/index.d.ts"`.
 ~
 
-#### license
-
 ~ Must {#ts-package-json-license}
-set to "MIT".
+set `license` to "MIT".
 ~
 
 ### Source Distributions{#ts-source-distros}
@@ -315,9 +287,11 @@ Azure packages authored using TypeScript export standard ES6 modules. As Node do
 
 ## Dependencies {#ts-dependencies}
 
-Packages should avoid taking dependencies on tiny libraries as the cost of many small libraries adds up over time. Packages are recommended to include dependencies on larger libraries where necessary. Dependencies are subject to
+Packages should avoid taking dependencies on tiny libraries as the cost of many small libraries adds up over time. Larger dependencies are subject to approval.
 
 Packages should not depend directly on polyfills or other libraries that modify global scope. If developers using older runtimes need to polyfill some capability, the package's install and usage instructions should indicate this dependency.
+
+See also [#general-dependencies].
 
 ## Coding Conventions
 
@@ -359,6 +333,7 @@ TypeScript is very popular in the ecosystem and its static types provide signifi
 
 This section covers the contents of your tsconfig.json. After implementing this section, your tsconfig.json should look similar to the following example:
 
+~ Figure {#ts-figure-tsconfig-json; caption: "An example tsconfig.json" }
 ```javascript
 {
   "compilerOptions": {
@@ -383,6 +358,7 @@ This section covers the contents of your tsconfig.json. After implementing this 
   "exclude": ["node_modules"]
 }
 ```
+~
 
 ~ Must {#ts-config-exclude}
   have at least "node_modules" in the `exclude` array. This ensures TypeScript isn't needlessly type checking your dependencies.
@@ -488,10 +464,12 @@ Sample code repos should have clear names, descriptions and README files per the
 
 ### API Documentation
 
-API documentation must be auto-generated from source code annotations (see 8.3 Typedoc).
+API documentation must be auto-generated from source code annotations.
 
 ### Reference Overview
 
 You must have a JavaScript or Node.js [reference overview page](https://review.docs.microsoft.com/en-us/help/contribute/contribute-reference-overviews?branch=master) for the client library under the Reference node in your content's ToC with a specific JavaScript or Node.js entry in that ToC. This reference overview must live in either the JavaScript Azure SDK reference repo or in your own content set alongside the rest of your docs.
 
 The reference overview page must have a link to the quickstart and available samples for the JavaScript audience.
+
+Use [this form](https://aka.ms/publish-on-docs) to on-board new library documentation. See [here](https://review.docs.microsoft.com/en-us/help/onboard/admin/reference/js-ts/road-to-docs?branch=master) for detailed instructions.

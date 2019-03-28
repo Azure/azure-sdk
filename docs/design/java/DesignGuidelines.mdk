@@ -1,13 +1,9 @@
-This section covers Java-specific requirements to successfully implement and release a Java SDK component for Azure, that must be followed in addition to the common guidelines presented above. There exists a separate document for [Java best practices](https://github.com/Azure/azure-sdk/blob/master/docs/design/java/BestPractices.md) that teams should also endeavour to follow.
+This section covers Java-specific requirements to successfully implement and release a Java client library for Azure, that must be followed in addition to the common guidelines presented above. There exists a separate document for [Java best practices](https://github.com/Azure/azure-sdk/blob/master/docs/design/java/BestPractices.md) that teams should also endeavour to follow.
 
 ## Scope {#java-scope; @h1-h2: decimal; }
 
 ~ Must {#java-scope-inclusion}
-use the Maven group ID of `com.azure`, and the Java package name of `com.azure.*`, for all Java Azure SDK components. All SDK components in this namespace must follow the requirements outlined in this specification document.
-~
-
-~ May {#java-scope-outside-components}
-follow the requirements outlined in this specification even if your namespace is not `com.azure` - most of these requirements exist to ensure best practices are followed.
+use the Maven group ID of `com.azure`, and the Java package name of `com.azure.*`, for all Java Azure client libraries. All client libraries in this namespace must follow the requirements outlined in this specification document.
 ~
 
 ## Platform Support
@@ -20,7 +16,7 @@ test against Android to ensure compatibility.
 
 ### Supported Java Versions
 
-All Azure SDK components are baselined on Java 8. Developers are encouraged to make use of the benefits offered in Java 8, such as streams, lambda expressions, new date/time API, etc.
+All Azure client libraries are baselined on Java 8. Developers are encouraged to make use of the benefits offered in Java 8, such as streams, lambda expressions, new date/time API, etc.
 
 ~ MustNot {#java-do-not-exceed-jdk-baseline-features}
 use any language or API feature from a release of Java beyond Java 8. 
@@ -39,7 +35,7 @@ compile against the latest Java long-term support release, to ensure that code c
 ~
 
 ~ Must {#java-jdk-build-target}
-build and test SDK components against a freely-available, open source, non-commercial build of OpenJDK (e.g. [AdoptOpenJDK](http://adoptopenjdk.net) or [Azule Zulu](https://www.azul.com/downloads/zulu/)), rather than Oracle JDK or any other commercial JDK build.
+build and test client libraries against a freely-available, open source, non-commercial build of OpenJDK (e.g. [AdoptOpenJDK](http://adoptopenjdk.net) or [Azule Zulu](https://www.azul.com/downloads/zulu/)), rather than Oracle JDK or any other commercial JDK build.
 ~
 
 ## Versioning
@@ -49,7 +45,7 @@ ensure that all Maven releases are versioned using [semantic versioning](https:/
 ~
 
 ~ MustNot {#java-no-0-majors}
-have releases of SDK components with a major version of 0, even for early preview releases.
+have releases of client libraries with a major version of 0, even for early preview releases.
 ~
 
 ~ Todo
@@ -121,17 +117,17 @@ remove or change API until there has been at least one GA release that contains 
 ~
 
 ~ MustNot {#java-no-qualifier-in-GA}
-release any SDK component as GA with a snapshot or preview release qualifier.
+release any client library as GA with a snapshot or preview release qualifier.
 ~
 
 ## Naming
 
-To make understanding our Azure SDK simpler, it is important that we apply a consistent naming policy across all SDK components. There are a few aspects to this: Java package names, as well as our `groupId` and `artifactId` names for use in our Maven pom.xml file.
+To make understanding our Azure SDK simpler, it is important that we apply a consistent naming policy across all client libraries. There are a few aspects to this: Java package names, as well as our `groupId` and `artifactId` names for use in our Maven pom.xml file.
 
 ### Determing Group and Service Name
 
 ~ Todo
-Refer reader to external document that details how to determine which group and service name an SDK component should use.
+Refer reader to external document that details how to determine which group and service name an client library should use.
 ~
 
 ### Java Package Naming
@@ -141,7 +137,7 @@ use the package naming pattern of all lowercase letters (no camel case is allowe
 ~
 
 ~ Must {#java-consistent-package-structure}
-ensure that all code for an SDK component resides in a package which takes the form `com.azure.<group>.<service>[.<feature>]`. Sub-packages for various features of the SDK component are fine, and can be named as appropriate.
+ensure that all code for a client library resides in a package which takes the form `com.azure.<group>.<service>[.<feature>]`. Sub-packages for various features of the client library are fine, and can be named as appropriate.
 ~
 
 ~ MustNot {#java-do-not-leak-impl}
@@ -154,7 +150,7 @@ allow implementation code (i.e. code that does not form part of the public API) 
 ## Maven
 
 ~ Must {#java-maven-use-parent-pom}
-explicitly specify the Azure Java SDK parent POM file for all SDK components. This enables centralized dependency and build tool management.
+explicitly specify the Azure Java SDK parent POM file for all client libraries. This enables centralized dependency and build tool management.
 ~
 
 ~ Must {#java-maven-groupid}
@@ -162,15 +158,15 @@ specify the `groupId` as `com.azure`.
 ~
 
 ~ Must {#java-maven-artifactid}
-specify the `artifactId` to be of the form `azure-<group>-<service>`, for example, `azure-storage-blob`. In cases where the SDK component has multiple children modules, it is acceptable for the root pom.xml `artifactId` to be of the form `azure-<group>-<service>-parent`.
+specify the `artifactId` to be of the form `azure-<group>-<service>`, for example, `azure-storage-blob`. In cases where the client library has multiple children modules, it is acceptable for the root pom.xml `artifactId` to be of the form `azure-<group>-<service>-parent`.
 ~
 
 ~ Must {#java-maven-name}
-specify the `name` element to take the form `Microsoft Azure SDK component for <service name>`.
+specify the `name` element to take the form `Microsoft Azure client library for <service name>`.
 ~
 
 ~ Must {#java-maven-description}
-specify the `description` element to be a slightly longer statement along the lines of `This package contains the Microsoft Azure <service> SDK component`.
+specify the `description` element to be a slightly longer statement along the lines of `This package contains the Microsoft Azure <service> client library`.
 ~
 
 ~ Must {#java-maven-url}
@@ -178,7 +174,7 @@ specify the `url` element to point to the root of the GitHub repository containi
 ~
 
 ~ Must {#java-maven-scm}
-specify the source code management section, to specify where the source code resides for the SDK component. If the source code is located in the https://github.com/Azure/azure-sdk-for-java repository, then the following form must be used:
+specify the source code management section, to specify where the source code resides for the client library. If the source code is located in the https://github.com/Azure/azure-sdk-for-java repository, then the following form must be used:
 
 ```
 <scm>
@@ -188,7 +184,7 @@ specify the source code management section, to specify where the source code res
 </scm>
 ```
 
-In cases where the repository storing the code for the SDK component is different, substitute as necessary to ensure the correct details are provided.
+In cases where the repository storing the code for the client library is different, substitute as necessary to ensure the correct details are provided.
 ~
 
 ~ MustNot {#java-maven-developers}
@@ -208,7 +204,7 @@ introduce new dependencies on third party libraries that are already referenced 
 ~
 
 ~ MustNot {#java-no-dependency-version-overrides}
-specify or change dependency versions in your SDK component pom.xml file. All dependency versioning must be centralized through the common parent POM (refer to the [dependencies document](https://github.com/Azure/azure-sdk/blob/master/docs/design/java/Dependencies.md) for more details).
+specify or change dependency versions in your client library pom.xml file. All dependency versioning must be centralized through the common parent POM (refer to the [dependencies document](https://github.com/Azure/azure-sdk/blob/master/docs/design/java/Dependencies.md) for more details).
 ~
 
 ## Coding Conventions
@@ -217,7 +213,68 @@ specify or change dependency versions in your SDK component pom.xml file. All de
 ensure that all APIs are idiomatic for Java developers and follow best practices.
 ~
 
-### Async
+### Service Client
+
+Azure services will be exposed to Java developers as one or more service client types plus a set of supporting types. The guidelines in this section describe patterns for the design of a service clients and their members.
+
+~ Must {#java-client-suffix}
+name service client types with the Client suffix, e.g. `ConfigurationClient`.
+~
+
+~ Must {#java-client-root-package}
+place service clients in the root package of their corresponding component, e.g. `com.azure.storage.blob.BlobClient`, as `com.azure.storage.blob` is considered the root package in this example.
+~
+
+~ Must {#java-client-extend-serviceclient}
+extend from the `ServiceClient` super class.
+~
+
+~ Must {#java-client-immutable}
+ensure that all service client classes are immutable upon instantiation.
+~
+
+~ Must {#java-client-fluent-builders}
+provide a fluent builder API that starts with a public static `builder()` method and concludes with a `build()` method that returns the instance of the fully-initialised, immutable service client.
+~
+
+~ MustNot {#java-client-no-ctor}
+provide any `public` or `protected` constructors.
+~
+
+#### Common Service Client Patterns
+
+~ Must {#java-crud-naming}
+prefer the use of the following terms for CRUD operations:
+
+|Verb             |Parameters        |Returns                 |Comments                                                                                                                |
+|-----------------|------------------|------------------------|------------------------------------------------------------------------------------------------------------------------|
+| upsert\<noun>   |key, item         |Updated or created item |Create new item or update existing item. Verb is primarily used in database-like services.                              |
+| set\<noun>      |key, item         |Updated or created item |Create new item or update existing item. Verb is primarily used for dictionary-like properties of a service.            |
+| create\<noun>   |key, item         |Created item            |Create new item. Fails if item already exists.                                                                          |
+| update\<noun>   |key, partial item |Updated item            |Fails if item does not exist.                                                                                           |
+| replace\<noun>  |key, item         |Replace existing item   |Completely replaces an existing item. Fails if the item does not exist.                                                 |
+| delete\<noun>   |key               |Deleted item, or `null` |Delete an existing item. Will succeed even if item did not exist. Deleted item may be returned, if service supports it. |
+| add\<noun>      |index, item       |Added item              |Add item to a collection. Item will be added last, or into the index position specified.                                |
+| get\<noun>      |key               |Item                    |Will return null if item does not exist.                                                                                |
+| list\<noun>     |                  |Items                   |Return list of items. Returns empty list if no items exist.                                                             |
+| \<noun>Exists   |key               |`boolean`               |Return `true` if the item exists.                                                                                       |
+~
+
+### Model classes
+
+~ Must {#java-model-class-use-ctor}
+provide public constructors for all model classes.
+~
+
+~ MustNot {#java-model-class-no-builders}
+offer a builder class for model classes.
+~
+
+~ Must {#java-model-class-fluent}
+provide a fluent API for configuration. Name setter methods simply after the property being set, e.g. `proxy(Proxy p)`, and have all setter methods return `this`.
+~
+
+### Async API
 
 Due to the nature of internet-based communication, asynchronous APIs are a must to ensure efficient use of system resources (threads and their stacks).
 
@@ -226,11 +283,7 @@ use [Project Reactor](http://projectreactor.io) to provide end-users with a high
 ~
 
 ~ MustNot {#java-async-no-other-libs}
-use any other approaches, such as `CompletableFuture` and [RxJava](https://github.com/ReactiveX/RxJava).
-~
-
-~ MustNot {#java-async-no-sync-methods}
-provide synchronous methods in addition to async methods - instead follow the policy that developers may choose to block on an asynchronous calls.
+use any other async APIs, such as `CompletableFuture` and [RxJava](https://github.com/ReactiveX/RxJava).
 ~
 
 ~ MustNot {#java-no-async-naming-pattern}
@@ -242,7 +295,7 @@ provide multiple asynchronous methods for a single REST endpoint, unless to prov
 ~
 
 ~ Must {#java-async-useful-return-type}
-ensure that all Async methods return a type that contains all information to enable a developer to inspect the metadata related to the service call (e.g. for HTTP endpoints, the async method call must return a type that enables the developer to read the headers, status code, and all other useful information).
+ensure that all async methods return a type that contains all information to enable a developer to inspect the metadata related to the service call (e.g. for HTTP endpoints, the async method call must return a type that enables the developer to read the headers, status code, and all other useful information).
 ~
 
 ~ MustNot {#java-async-no-custom-API}
@@ -250,7 +303,19 @@ write custom APIs for streaming or async operations - make use of the existing f
 ~
 
 ~ MustNot {#java-async-no-blocking}
-include blocking calls inside SDK component code. Code must be async throughout entire codebase. Use [BlockHound](https://github.com/reactor/BlockHound) to detect blocking calls in async APIs.
+include blocking calls inside client library code. Code must be async throughout entire codebase. Use [BlockHound](https://github.com/reactor/BlockHound) to detect blocking calls in async APIs.
+~
+
+### Pagination
+
+~ Todo
+Details about Pagination
+~
+
+### Sync API
+
+~ MustNot {#java-no-sync-methods}
+provide synchronous methods in addition to async methods - instead follow the policy that developers may choose to block on an asynchronous calls.
 ~
 
 ### Pipelines
@@ -259,16 +324,49 @@ include blocking calls inside SDK component code. Code must be async throughout 
 use the existing pipelines APIs for all requests to Azure services, including any requirements for authentication, telemetry, logging, tracing, retries, cancellations, etc. Do not use other HTTP clients or means of connecting to Azure services.
 ~
 
-~ Todo
-Refer back to general guidelines doc.
-~
-
 ### Logging
 
-Logging is critical to provide developers insight into why things are operating the way they are, and to help diagnose issues that are preventing their successful use of our SDK.
+Logging is critical to provide developers insight into why things are operating the way they are, and to help diagnose issues that are preventing their successful use of our SDK. This section details Java-specific logging requirements. There are more general logging requirements in the [general logging section](#general-logging).
 
 ~ Must {#java-logging-use-slf4j}
-use the APIs provided by the [SLF4J](https://www.slf4j.org/) project, as this is the only logging API to be used in all Azure Java SDK components. Refer to the [SLF4J user manual](https://www.slf4j.org/manual.html) for additional guidance.
+use the APIs provided by the [SLF4J](https://www.slf4j.org/) project, as this is the only logging API to be used in all Azure Java client libraries. Refer to the [SLF4J user manual](https://www.slf4j.org/manual.html) for additional guidance.
+~
+
+~ MustNot {#java-logging-no-static-logger}
+create static logger instances, as these will be shared among all client library instances running in a JVM instance.
+~
+
+### Exceptions
+
+Java offers checked and unchecked exceptions, where checked exceptions force the user to introduce verbose `try .. catch` code blocks and handle each specified exception. The position we take in the Azure SDK for Java is to primarily use unchecked exceptions, to avoid this verbosity, and to improve scalability issues inherent with checked exceptions in large applications.
+
+~ Must {#java-exceptions-unchecked-only}
+use unchecked exceptions for CRUD operation calls.
+~
+
+~ Must {#java-exceptions-javadoc}
+specify all checked and unchecked exceptions thrown in a method within the JavaDoc documentation on the method as `@throws` statements.
+~
+
+~ Must {#java-exceptions-use-existing-azure-types}
+use the existing exception types present in azure-common whenever an exception arises due to a failure to complete a cloud request. Avoid creating new types unless absolutely necessary.
+~
+
+~ Must {#java-exceptions-use-existing-jdk-types}
+favour the use of a few standard Java exceptions for pre-condition checking:
+
+| Exception                       | When to use                                                    |
+|---------------------------------|----------------------------------------------------------------|
+| `IllegalArgumentException`      | When a method argument is non-null, but inappropriate          |
+| `IllegalStateException`         | When the object state means method invocation cannot proceed   |
+| `NullPointerException`          | When a method argument is required to be non-null, but is null |
+| `UnsupportedOperationException` | When an object does not support method invocation              |
+~
+
+~ Todo
+Provide links to the relevant Azure exception classes. Ensure these classes offer clarity around status code, error messages from service, any correlation IDs, whether the error was a result of the caller or service, etc.
+
+Consider the possibility of introducing separate exception types for the service, and for issues that happen within the client (i.e. when the user input cannot be properly parsed).
 ~
 
 ### Tooling
@@ -283,18 +381,10 @@ run SpotBugs using the centralised Azure SDK SpotBugs rule set. As all projects 
 push code to a repo that breaks SpotBugs. Because the build is set to fail if any SpotBugs issue is found, it should always be a case that the build can complete successfully before any code is committed and pushed. If a build fails, a SpotBugs HTML report can be generated by calling `mvn spotbugs:spotbugs` on the command line. This report will provide context about the failure and point the developer towards fixing it.
 ~
 
-~ Todo
-Provide details on configuring IDEs to use the Microsoft-specified SpotBugs rule set.
-~
-
 #### CheckStyle
 
 ~ Must {#java-tooling-code-style}
 run CheckStyle, in a similar fashion to SpotBugs above. All relevant rules will be run on each build. Whilst CheckStyle failures are less critical, all failures must be resolved prior to a GA release. If a build fails, a CheckStyle HTML report can be generated by calling `mvn checkstyle:checkstyle` on the command line. This report will provide context about the failure and point the developer towards fixing it.
-~
-
-~ Todo
-Provide details on configuring IDEs to use the Microsoft-specified CheckStyle rule set.
 ~
 
 #### JaCoCo
@@ -316,7 +406,7 @@ have a mock test suite testing functionality at a higher level, in addition to u
 ~
 
 ~ Must {#java-testing-commit-mocks-to-repo}
-provide all necessary mock and live tests as part of the SDK component repository.
+provide all necessary mock and live tests as part of the client library repository.
 ~
 
 ~ Must {#java-testing-mocks-run-fast}
@@ -339,10 +429,10 @@ Link to central document detailing Azure SDK BOM.
 
 ### Code Samples
 
-Code samples are small applications that demonstrate a certain feature that is relevant to the SDK component, allowing developers to more quickly understand the full usage requirements of a particular set of API. Code samples should not be any more complex than they need to be to demonstrate this feature - they should not become full applications. At all times code samples should have a very high signal:noise ratio between useful code and boilerplate code for non-related reasons.
+Code samples are small applications that demonstrate a certain feature that is relevant to the client library, allowing developers to more quickly understand the full usage requirements of a particular set of API. Code samples should not be any more complex than they need to be to demonstrate this feature - they should not become full applications. At all times code samples should have a very high signal:noise ratio between useful code and boilerplate code for non-related reasons.
 
 ~ Must {#java-samples-location}
-place code samples within the `/src/samples/java` directory within the SDK component root directory. This ensures that the code will be compiled, but not packaged into the resulting jar.
+place code samples within the `/src/samples/java` directory within the client library root directory. This ensures that the code will be compiled, but not packaged into the resulting jar.
 ~
 
 ~ Must {#java-samples-execution}
@@ -372,5 +462,5 @@ ensure that samples can run in Windows, macOS, and Linux development environment
 ### JavaDoc
 
 ~ Must {#java-javadoc-easy-generation}
-ensure that anybody can clone the repo containing the SDK component and execute `mvn javadoc:javadoc` to generate the full and complete JavaDoc output for the code, without any need for additional processing steps.
+ensure that anybody can clone the repo containing the client library and execute `mvn javadoc:javadoc` to generate the full and complete JavaDoc output for the code, without any need for additional processing steps.
 ~
