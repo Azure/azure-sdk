@@ -126,6 +126,10 @@ use ```Azure.Core.HttpPipeline``` to implement all service call methods.
 See [Using HttpPipeline](#dotnet-usage-httppipeline) for details.
 ~
 
+~ Must {#dotnet-method-threadsafe}
+be thread-safe
+~
+
 ### Service Method Return Types {#dotnet-method-return}
 
 As mentioned above, service methods should return ```Task<Response<T>>``` (or equivalent). The ```T``` can be ```System.IO.Stream``` in case of untyped results (e.g. content of a storage blob) or a _model type_ representing deserialized response content. This section describes how such _model type_ and all its transitive closure dependencies (return type graph) should be designed.
@@ -209,6 +213,17 @@ For example, ```GetHashCode()``` is almost never called directly, and ```Equals(
         public override int GetHashCode();
     }
 ```
+~
+
+~ Note {#dotnet-model-types-threadsafe}
+Model types are not required to be thread-safe.
+~
+
+### Policy implementation
+
+
+~ Must {#dotnet-policy-threadsafe}
+be thread-safe.
 ~
 
 ### Namespace Naming {#dotnet-namespace-naming}
