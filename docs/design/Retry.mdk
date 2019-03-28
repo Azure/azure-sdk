@@ -17,9 +17,10 @@ offer the following configuration settings:
 
 ~ May {#general-retry-available-if-supported}
 offer additional retry mechanism if supported by the service
+- For example, the Azure Storage Blob service supports retrying read operations against a secondary datacenter, or recommends the use of a per-try timeout for resilience.
 ~
 
-- For example, the Azure Storage Blob service supports retrying read operations against a secondary datacenter, or recommends the use of a per-try timeout for resilience.
+
 
 ~ Must {#general-retry-reset-on-retry}
 reset (or seek back to position 0) any request data stream before retrying a request
