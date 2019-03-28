@@ -219,13 +219,6 @@ For example, ```GetHashCode()``` is almost never called directly, and ```Equals(
 Model types are not required to be thread-safe.
 ~
 
-### Policy implementation
-
-
-~ Must {#dotnet-policy-threadsafe}
-be thread-safe.
-~
-
 ### Namespace Naming {#dotnet-namespace-naming}
 
 ~ Must {#dotnet-namespace-format}
@@ -259,6 +252,12 @@ place service API in second level namespace, e.g. `Azure.KeyVault`
 
 ~ Should {#dotnet-namespace-modeltypes}
 consider placing model types in a ```.Models``` subnamespaces of the client types, if the model schema is very large.
+~
+
+## Policy implementation
+
+~ Must {#dotnet-policy-threadsafe}
+be thread-safe.
 ~
 
 ## Authentication {#dotnet-authentication}
