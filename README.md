@@ -11,6 +11,8 @@ The Azure SDK delivers a platform for developers to leverage the wide variety of
 - [Python](https://azuresdkspecs.z5.web.core.windows.net/PythonSpec.html) ([template](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/template/azure-template))
 - [TypeScript](https://azuresdkspecs.z5.web.core.windows.net/TypeScriptSpec.html) ([template](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/template/template))
 
+Service teams should schedule reviews of their client libraries with the ADP Review Board.  See the [Review Process](docs/ReviewProcess.md) for more information.
+
 # Azure Service Libraries
 
 The following is a list of Azure services and links to their open source code:
