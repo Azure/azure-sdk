@@ -46,6 +46,7 @@ To request a review:
 3. If needed, a review with the entire review board will be scheduled. The cases where this is necessary include:
     - This is a completely new SDK.
     - The reviewing language architect feels there are cross-cutting concerns.
+    - Exceptions are being sought (such as additional dependencies or exemption from specific guidelines)
 4. After reviews are completed, the review team will publish recommendations.
 
 It is normal to have multiple API reviews as the development of the SDK progresses.
