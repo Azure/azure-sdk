@@ -1,0 +1,66 @@
+## Authentication
+Services across Azure use a variety of different authentication schemes to authenticate clients.  These generally fall into one of three categories.  
+
+  * Unauthenticated / Anonymous access
+  * Key based authentication
+  * AAD OAuth Token authentication
+
+### Credentials and Authentication Policies
+Credential interfaces and classes provide confidential credential data needed to authenticate service client requests.  Authentication policies use credential classes to authenticate pipeline requests to the service. It is essential that credential data can be updated as needed across the lifetime of the process, and authentication policies always use the most current credential data. 
+
+#### Language SDKs
+~ Must
+expose credential interfaces for all authentication schemes supported by the SDK client libraries. These interfaces provide a method for authentication policies to retrieve the data necessary to authenticate requests.
+~
+
+~ Should
+provide common credential implementations for well known credential types. 
+~
+
+~ Should
+provide common authentication policy implementations for authentication schemes which can be applied commonly across service clients. 
+~
+
+~ MustNot
+log or unnecessarily persist confidential credential data.
+~
+
+~ Must
+publish a common azure identity library which provides configurable implementations of AAD OAuth credential interfaces.
+~ 
+
+#### Client Libraries
+~ Must
+provide service client constructors which accept a common credential type for each authentication schemes the service supports, and apply the appropriate authentication policy to the pipeline to authenticate requests.
+~ 
+
+~ Must
+provide a service client constructor which does not require a credential for services which support unauthenticated or anonymous requests.
+~ 
+
+~ Must
+accept the most general credential definitions which can supply the data needed to authenticate request.  I.E. prefer interfaces or abstract classes over specific implementation, and shared interfaces and classes over client library specific ones.
+~ 
+
+~ Should
+use shared library authentication policy implementations where ever possible.
+~
+
+~ MustNot
+persist or reuse data returned from credential classes as this limits the ability to rotate credential data.
+~
+
+### Connection Strings
+Client libraries __MAY__ support providing credential data via a connection string __ONLY IF__ the service provides a connection string to users via the portal or command line tooling.  In this case the following guidelines apply.
+
+~ Must
+provide a class capable of parsing credential data from service specific connection strings.
+~ 
+
+~ Must
+support updating connection strings across the lifetime of the process. 
+~
+
+~ Should
+derive connection string classes from shared credential interfaces so they can be used with common authentication policies where possible.
+~
