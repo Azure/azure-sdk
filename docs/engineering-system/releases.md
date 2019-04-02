@@ -48,7 +48,8 @@ The JavaScript community generally follows SemVer. For preview releases, we will
 
 ### .NET
 NuGet supports designating a package as 'pre-release'. In this ecosystem, pre-release packages will have daily build numbers in the format:
-+ `X.Y.Z-DailyComputedTag`
++ `X.Y.Z-daily.SHORTDATE`
+    + SHORTDATE is set to `yy` * 1000 + 50 * `mm` + `dd`. In year 2018 the value is in range [18051, 18631]
 + `X.Y.Z-previewN`
 
 ### Java
