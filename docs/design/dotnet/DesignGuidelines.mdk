@@ -127,7 +127,7 @@ See [Using HttpPipeline](#dotnet-usage-httppipeline) for details.
 ~
 
 ~ Must {#dotnet-method-threadsafe}
-be thread-safe
+be thread-safe. All public methods (including constructors) of client type must be safe to call from multiple threads concurrently. Multiple instances of client type must be safe to use from multiple threads concurrently.
 ~
 
 ### Service Method Return Types {#dotnet-method-return}
@@ -252,16 +252,6 @@ place service API in second level namespace, e.g. `Azure.KeyVault`
 
 ~ Should {#dotnet-namespace-modeltypes}
 consider placing model types in a ```.Models``` subnamespaces of the client types, if the model schema is very large.
-~
-
-## Policy implementation
-
-~ Must {#dotnet-policy-threadsafe}
-be thread-safe.
-~
-
-~ Note {#dotnet-policy-request-response-message-threadsafe}
-`HttpPipelineRequest`, `HttpPipelineResponse` and `HttpPipelineMessage` types are not thread-safe
 ~
 
 ## Authentication {#dotnet-authentication}
@@ -510,6 +500,16 @@ make your serialization and deserialization code version resilient.
 ~ Should {#dotnet-model-type-serialization}
 consider deserializing the return type lazily if the type is a large graph containing reference types. 
 This allows callers to avoid large number of GC heap allocations. ```Response<T>``` allows for such lazy deserialization. See ```Response<T>``` documentation for how to do it.
+~
+
+## Policy implementation
+
+~ Must {#dotnet-policy-threadsafe}
+be thread-safe. The `ProcessAsync` method must be safe to invoke from multiple threads cuncurrently.
+~
+
+~ Note {#dotnet-policy-request-response-message-threadsafe}
+`HttpPipelineRequest`, `HttpPipelineResponse` and `HttpPipelineMessage` types are not thread-safe
 ~
 
 ## Commonly Overlooked .NET API Design Guidelines
