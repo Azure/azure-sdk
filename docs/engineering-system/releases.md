@@ -37,26 +37,24 @@ In addition to standard SemVer, the team occasionally releases a preview of a pa
 + Release Candidate (RC): nearly complete and expected to change very little besides small tweaks. Not expected to rev, except to graduate to being the primary release.
 
 ### Python
-Python version numbers follow the guidance in [PEP 440](https://www.python.org/dev/peps/pep-0440/) for versioning Python packages. This means that regular releases follow the above specified SemVer format. Preview releases follow the PEP 440 specification:
+Python version numbers follow the guidance in [PEP 440](https://www.python.org/dev/peps/pep-0440/) for versioning Python packages. This means that regular releases follow the above specified SemVer format. Preview releases follow the [PEP 440 specification for pre-releases](https://www.python.org/dev/peps/pep-0440/#pre-releases):
 + `X.YaYYYYMMDD` (daily using alpha convention)
-+ `X.YbZ` (beta)
-+ `X.YrcZ` (release candidate)
++ `X.YrcZ` (preview release using release candidate convention)
 
 ### JavaScript
 The JavaScript community generally follows SemVer. For preview releases, we will release with an [NPM distribution tag](https://docs.npmjs.com/cli/dist-tag) in the formats:
 + `X.Y.Z-daily.YYYYMMDD`
-+ `X.Y.Z-betaN`
-+ `X.Y.Z-rcN`
++ `X.Y.Z-previewN`
 
 ### .NET
 NuGet supports designating a package as 'pre-release'. In this ecosystem, pre-release packages will have daily build numbers in the format:
-+ `X.Y.Z.DailyComputedTag`
++ `X.Y.Z-DailyComputedTag`
++ `X.Y.Z-previewN`
 
 ### Java
 Maven supports the [convention](https://cwiki.apache.org/confluence/display/MAVENOLD/Versioning) `MAJOR.MINOR.PATCH-QUALIFIER`. As such, for Java distributions, the preferred format for version numbers is:
 + `X.Y.Z-SNAPSHOT` (Daily build qualifier used in Maven. Snapshots overwrite with new versions on re-publish.)
-+ `X.Y.Z-betaN`
-+ `X.Y.Z-rcN`
++ `X.Y.Z-previewN`
 
 ## Deprecation
 Deprecation cycle for released versions is TBD.
