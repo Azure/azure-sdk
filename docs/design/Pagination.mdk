@@ -1,11 +1,19 @@
 ## Pagination {#general-pagination}
 
 ~ Must {#general-pagination-must-use-async-iterators}
-expose paginated collections using language-canonical async iterators over pages and items within pages. The APIs used to expose the async iterators are language-dependent but should align with any existing common practices in your ecosystem.
+expose paginated collections using language-canonical async iterators over items within pages. The APIs used to expose the async iterators are language-dependent but should align with any existing common practices in your ecosystem.
 ~
 
 ~ Must {#general-pagination-must-use-iterators}
 expose paginated collections using an iterator or cursor pattern if async iterators aren't a built-in feature of your language.
+~
+
+~ Must {#general-pagination-paginate-lists}
+expose non-paginated list endpoints identically to paginated list endpoints. Users shouldn't need to appreciate the difference.
+~
+
+~ MustNot {#general-pagination-no-page-iterators}
+expose an iterator over pages (i.e. an async iterator over `Page<Response<T>>`). Services which have a use case for this iterator should reach out to the Arch board for approval.
 ~
 
 ~ Must {#general-pagination-distinct-types}
@@ -21,19 +29,12 @@ expose an iterator over each individual item if getting each item requires a cor
 ~
 
 
-~~ MustNot {#general-pagination-support-toArray}
+~ MustNot {#general-pagination-support-toArray}
 expose an API to get a paginated collection into an array. This is a dangerous capability for services which may return many many pages.
-~~
-
-~ Draft
-The following requirements are controversial and are not yet normative.
-
-~~ Must {#general-pagination-must-be-used-for-lists}
-expose paginated collections for any conceptual list from a service endpoint, even if the service does not yet support pagination. This will allow the client library to absorb endpoint changes in non-breaking ways.
-~~
-
-~~ Must {#general-pagination-low-level-APIs}
-expose low-level APIs to interact with the paged endpoint directly. These low-level APIs provide more fine-grained control over the pagination process while also providing users without access to (or understanding of) async iterators to use your library.
-~~
-
 ~
+
+~ May {#general-pagination-low-level-APIs}
+expose low-level APIs to interact with the paged endpoint directly. These low-level APIs provide more fine-grained control over the pagination process while also providing users without access to (or understanding of) async iterators to use your library.
+~
+
+The guidelines in this section eschew low-level pagination APIs in favor of high-level abstractions. High-level APIs are easy for developers to use for the majority use case but can be more confusing when finer grained control is required (e.g. over quota/throttling) and debugging when things go wrong. Other guidelines in this document work to (or intend to) mitigate this limitation e.g. by providing robust logging and tracing and by providing per-operation request/response hooks.
