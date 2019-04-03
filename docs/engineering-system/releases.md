@@ -31,10 +31,9 @@ The team makes every effort to follow [SemVer](https://semver.org/) for versioni
 + Increments to the minor digit (1.1.X to 1.2.X) indicate the addition of new features. 
 + Increments to the patch number (1.1.1 to 1.1.2) indicate bug fixes
 
-In addition to standard SemVer, the team occasionally releases a preview of a package that is not yet considered fully done to allow the community to dogfood and give feedback on new features. A preview may be released as one or all of of:
+In addition to standard SemVer, the team occasionally releases a preview of a package that is not yet considered fully done to allow the community to dogfood and give feedback on new features. These packages may be released as one or both of:
 + Daily: a build containing daily changes for dogfooding purposes. Expect frequent breakage.
-+ Beta: beta's rev less frequently than dailies (weekly or so), but expect to find bugs and incomplete features.
-+ Release Candidate (RC): nearly complete and expected to change very little besides small tweaks. Not expected to rev, except to graduate to being the primary release.
++ Preview: nearly complete and expected to change minimally with small tweaks. Not expected to rev often, except to graduate to being the primary release.
 
 ### Python
 Python version numbers follow the guidance in [PEP 440](https://www.python.org/dev/peps/pep-0440/) for versioning Python packages. This means that regular releases follow the above specified SemVer format. Preview releases follow the [PEP 440 specification for pre-releases](https://www.python.org/dev/peps/pep-0440/#pre-releases):
