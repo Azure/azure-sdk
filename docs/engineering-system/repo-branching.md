@@ -24,12 +24,6 @@ For each package we release there will be a unique git tag created that contains
 
 Format of the tag should be `<package-name>_<package-version>`
 
-Example of how to create a 1.0.0 release tag for the azure-keyvault package:
-
-```
-> git tag --annotate --message "1.0.0 release of azure-keyvault" azure-keyvault_1.0.0 HEAD
-```
-
 ## Release branches
 
 There are potentially 3 different types of release branches in the order of preference:
