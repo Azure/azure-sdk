@@ -23,7 +23,7 @@ We use GitHub releases as a convenient place to put release notes. The change lo
 
 ## Release Cycle
 
-The release cycle of each SDK Component may vary based on the needs of the underlying service. The Azure SDK team recommends a release cycle around quarterly for most services. It is best practice to include a "Next Release Target Date" in the README file for each library.
+The release cycle of each SDK Component may vary based on the needs of the underlying service. The Azure SDK team recommends a release cycle around quarterly for most services.
 
 ## Package Versioning
 The team makes every effort to follow [SemVer](https://semver.org/) for versioning. Because different languages have slightly different conventions for numbering, the way that preview releases are designated varies. In a nutshell, SemVer is defined as `Major.Minor.Patch`, where
@@ -55,6 +55,7 @@ NuGet supports designating a package as 'pre-release'. In this ecosystem, pre-re
 Maven supports the [convention](https://cwiki.apache.org/confluence/display/MAVENOLD/Versioning) `MAJOR.MINOR.PATCH-QUALIFIER`. As such, for Java distributions, the preferred format for version numbers is:
 + `X.Y.Z-SNAPSHOT` (Daily build qualifier used in Maven. Snapshots overwrite with new versions on re-publish.)
 + `X.Y.Z-previewN`
+
 
 ## Deprecation
 Deprecation cycle for released versions is TBD.
