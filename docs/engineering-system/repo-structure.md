@@ -66,11 +66,11 @@ sdk\keyvault\azure-keyvault\src\samples
 #### JS Repo
 ```
 sdk\keyvault\arm-keyvault\README.md
-sdk\keyvault\arm-keyvault\lib
+sdk\keyvault\arm-keyvault\src
 sdk\keyvault\arm-keyvault\test
 sdk\keyvault\arm-keyvault\samples
 sdk\keyvault\keyvault\README.md
-sdk\keyvault\keyvault\lib
+sdk\keyvault\keyvault\src
 sdk\keyvault\keyvault\test
 sdk\keyvault\keyvault\samples
 ```

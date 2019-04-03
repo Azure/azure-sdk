@@ -1,29 +1,32 @@
 ## Retry {#general-retry}
 
-There are many reasons why failure can occur when a client application attempts to send a network request to a service. Some examples are timeout, network infrastructure failures, service rejecting the request due to throttle/busy, service instance terminating due to service scale down, service instance going down to be replaced with another version, service crashing due to an unhandled exception, etc. By offering a built-in retry mechanism (with a default configuration overridable by the customer), our SDKs and the customer’s application become resilient to these kinds of failures. Note that some services charge real money for each try and so customers should be able to disable retries entirely if they prefer to save money over resiliency.
+There are many reasons why failure can occur when a client application attempts to send a network request to a service. Some examples are timeout, network infrastructure failures, service rejecting the request due to throttle/busy, service instance terminating due to service scale down, service instance going down to be replaced with another version, service crashing due to an unhandled exception, etc. By offering a built-in retry mechanism (with a default configuration overridable by the customer), our SDKs and the customers' application become resilient to these kinds of failures. Note that some services charge real money for each try and so customers should be able to disable retries entirely if they prefer to save money over resiliency.
+
+For more information, see ["Transient fault handling"](https://docs.microsoft.com/en-us/azure/architecture/best-practices/transient-faults).
+
+The HTTP Pipeline provides this functionality.
 
 ~ Must {#general-retry-configuration}
 offer the following configuration settings:
 
-- Retry policy (exponential or fixed)
-- Maximum number of tries (32-bit integer; 0=default, 1=1 try & no retries, 2=1 try & 1 retry, etc.)
-- Per-try timeout (timespan/duration; default=worst anticipated bandwidth times largest single request and response payloads)
-- Retry delay (timespan/duration; this is the delay for fixed policy, the delay is increased exponentially by this amount for the exponential policy)
-- Max retry delay (timespan/duration; the delay will never go over this amount)
+- Retry policy type (exponential or fixed)
+- Maximum number of retries
+- Delay between retries (timespan/duration; this is the delay for fixed policy, the delay is increased exponentially by this amount for the exponential policy)
+- Maximum retry delay (timespan/duration)
+- List of HTTP status codes that would cause a retry (default is "all service errors that are retryable")
 ~
 
-~ Must {#general-retry-available-if-supported}
+~ May {#general-retry-available-if-supported}
 offer additional retry mechanism if supported by the service
+- For example, the Azure Storage Blob service supports retrying read operations against a secondary datacenter, or recommends the use of a per-try timeout for resilience.
 ~
-
-- For example, the Azure Storage Blob service supports retrying read operations against a secondary datacenter
 
 ~ Must {#general-retry-reset-on-retry}
 reset (or seek back to position 0) any request data stream before retrying a request
 ~
 
 ~ Must {#general-retry-honor-caller-cancellation}
-honor any cancellation mechanism passed-in be the caller which can terminate the request before retries have been attempted.
+honor any cancellation mechanism passed-in to the caller which can terminate the request before retries have been attempted.
 ~
 
 ~ Must {#general-retry-update-time-to-live}
@@ -35,17 +38,21 @@ retry in the case of a hardware network failure as it may self-correct
 ~
 
 ~ Must {#general-retry-on-service-not-found}
-retry in the case of a service not found error as the service may be coming back online or a load balancer may be reconfiguring itself.
-~
-
-~ Must {#general-retry-on-per-try-timeout}
-retry in the case of a per-try timeout
+retry in the case of a "service not found" error as the service may be coming back online or a load balancer may be reconfiguring itself
 ~
 
 ~ Must {#general-retry-if-throttled}
-retry if the service successfully responds indicating that it is throttling requests.
+retry if the service successfully responds indicating that it is throttling requests (for example, with a "x-ms-delay-until" header or similar metadata).
 ~
 
 ~ MustNot {#general-retry-no-retry-if-successfully-failed}
-retry if the service successfully responds indicating that the requested operation failed.
+retry if the service responds with a 400-level response code unless a retry-after header is also returned
+~
+
+~ MustNot {#general-retry-no-change-request-id}
+change any client-side generated request-id as this represents the logical operation and should be the same across all physical retries of this operation.  When looking at server logs, multiple entries with the same client request-id show each retry and this is useful information to help diagnose issues.
+~
+
+~ Should {#general-retry-default-policy}
+implement a default policy that starts at 3 retries with a 0.8s delay with exponential (plus jitter) backoff
 ~

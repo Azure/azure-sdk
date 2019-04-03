@@ -1,0 +1,33 @@
+## Error Handling
+
+In this section we refer to "producing an error" to mean returning an error value or throwing an exception, and "an error" to be the error value or exception object.
+
+~ Should
+prefer the use of exceptions to error values when producing an error.
+~
+
+~ Must
+produce an error when any HTTP request fails with an HTTP status code that is not defined by the service/Swagger as a successful status code. These errors should also be logged as errors.
+~
+
+~ Must
+ensure that the error produced contains the HTTP response (including status code and headers) and originating request (including URL, query parameters, & headers).  
+
+- In the case of a higher-level method that produces multiple HTTP requests, either the last exception or an aggregate exception of all failures should be produced.
+~
+
+~ Must
+ensure that if the service returns rich error information (via the response headers or body), the rich information must be available via the error produced in service-specific properties/fields.
+~
+
+~ ShouldNot
+create a new error type unless the developer can perform an alternate action to remediate the error.  Specialized error types should be based on existing error typess present in the azure common or base packages.
+~
+
+~ MustNot
+create a new error type when a language-specific error type will suffice.  Use system-provided error types for validation
+~
+
+~ Must
+document the errors that are produced by each method (with the exception of commonly thrown errors that are generally not documented in the target language).
+~

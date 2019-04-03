@@ -6,10 +6,12 @@ The Azure SDK delivers a platform for developers to leverage the wide variety of
 
 ## Azure SDK Design Guidelines
 
-- [.NET](https://azuresdkspecs.z5.web.core.windows.net/DotNetSpec.html) ([template](https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/Template/data-plane))
-- [Java](https://azuresdkspecs.z5.web.core.windows.net/JavaSpec.html) ([template](https://github.com/Azure/azure-sdk-for-java/tree/master/template/client))
-- [Python](https://azuresdkspecs.z5.web.core.windows.net/PythonSpec.html) ([template](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-template))
-- [TypeScript](https://azuresdkspecs.z5.web.core.windows.net/TypeScriptSpec.html) ([template](https://github.com/Azure/azure-sdk-for-js/tree/master/packages/%40azure/template))
+- [.NET](https://azuresdkspecs.z5.web.core.windows.net/DotNetSpec.html) ([template](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/template/Azure.Template))
+- [Java](https://azuresdkspecs.z5.web.core.windows.net/JavaSpec.html) ([template](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/template/azure-sdk-template))
+- [Python](https://azuresdkspecs.z5.web.core.windows.net/PythonSpec.html) ([template](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/template/azure-template))
+- [TypeScript](https://azuresdkspecs.z5.web.core.windows.net/TypeScriptSpec.html) ([template](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/template/template))
+
+Service teams should schedule reviews of their client libraries with the ADP Review Board.  See the [Review Process](docs/ReviewProcess.md) for more information.
 
 # Azure Service Libraries
 
@@ -22,7 +24,7 @@ The following is a list of Azure services and links to their open source code:
 | Azure Storage | [code](https://github.com/Azure/azure-storage-net) | [code](https://github.com/Azure/azure-storage-java) | [code](https://github.com/Azure/azure-storage-python) | [code](https://github.com/Azure/azure-storage-node) | [code](https://github.com/Azure/azure-storage-go) |
 | CosmosDB | | [code](https://github.com/Azure/azure-cosmosdb-java) | [code](https://github.com/Azure/azure-cosmos-python) | [code](https://github.com/Azure/azure-cosmos-js) |
 | Keyvault | [code](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/KeyVault/dataPlane)  | [code](https://github.com/Azure/azure-keyvault-java) | [code](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-keyvault) | [code](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/keyVault)|
-| Service Bus | [code](https://github.com/Azure/azure-service-bus-dotnet) | [code](https://github.com/Azure/azure-service-bus-java) | [code](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-servicebus) | [code](https://github.com/Azure/azure-sdk-for-js/tree/master/packages/%40azure/servicebus/data-plane) |
+| Service Bus | [code](https://github.com/Azure/azure-service-bus-dotnet) | [code](https://github.com/Azure/azure-service-bus-java) | [code](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-servicebus) | [code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus) |
 | Event Hubs | [code](https://github.com/Azure/azure-event-hubs-dotnet) | [code](https://github.com/Azure/azure-event-hubs-java) | [code](https://github.com/Azure/azure-event-hubs-python) | [code](https://github.com/Azure/azure-sdk-for-js/tree/master/packages/%40azure/eventhubs/) |
 | IotHub, Iot Devices, IotHub Provisioning Service, IotHub Provisioning Device | [code](https://github.com/Azure/azure-iot-sdk-csharp) | [code](https://github.com/Azure/azure-iot-sdk-java) | [code](https://github.com/Azure/azure-iot-sdk-python) | [code](https://github.com/Azure/azure-iot-sdk-node) |
 | Event Grid | [code](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/EventGrid/DataPlane) | [code](https://github.com/Azure/azure-sdk-for-java/tree/master/eventgrid/data-plane) | [code](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-eventgrid) | [code](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/eventgrid) |
