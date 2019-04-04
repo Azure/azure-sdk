@@ -17,7 +17,7 @@ log a Warning message, if a request takes longer than some specified threshold. 
 ~
 
 ~ Must {#general-logging-requests-in-info}
-log request URL, query parameters and headers as Informational.
+log request URL, query parameters, and headers as Informational.
 ~
 
 ~ Must {#general-logging-error-for-bad-status}
@@ -26,6 +26,7 @@ log as an Error any HTTP response considered as an error (see the Error guidelin
 [TODO: Do we want to also log the stack trace?]
 
 Here's an example of a log entry:
+```
 2018/10/30 00:25:35 ==> REQUEST/RESPONSE (Try=1/170.9971ms, OpTime=171.9979ms) -- RESPONSE SUCCESSFULLY RECEIVED
    GET https://vstsimages.blob.core.windows.net/vhds/MMS.M141.VS2017.1.vhd?se=2018-11-07t21%3A58%3A08z&sig=REDACTED&sp=r&spr=https&sr=b&st=2018-10-24t12%3A58%3A08z&sv=2017-11-09&timeout=901
    User-Agent: [AzCopy/10.0.3-Preview Azure-Storage/0.1 (go1.10.3; Windows_NT)]
@@ -60,6 +61,7 @@ Here's an example of a log entry:
    X-Ms-Request-Id: [209c9202-501e-0013-1ee7-6f83f7000000]
    X-Ms-Server-Encrypted: [true]
    X-Ms-Version: [2018-03-28]
+```
 ~
 
 ~ Must {#general-logging-warning-if-retry}
@@ -71,5 +73,5 @@ log a Warning message, if a service call needs to be retried. [TODO: This will p
 ~
 
 ~ Must {#general-logging-use-syslog}
-log failures (exceptions and error status codes), regardless logging level, to the event log on Windows and the syslog on Linux, i.e. this cannot be turned off by the SDK user unless they replace the pipeline.
+log failures (exceptions and error status codes), regardless of logging level, to the event log on Windows and the syslog on Linux, i.e. this cannot be turned off by the SDK user unless they replace the pipeline.
 ~
