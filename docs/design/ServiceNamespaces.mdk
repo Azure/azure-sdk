@@ -1,0 +1,50 @@
+## Namespaces and Grouping
+
+Some languages have namespace concerns.  Grouping services is common, aids discoverability, and provides hints and structure to reference documentation.  
+
+~ Must {#general-namespace-startswith}
+start the namespace with "Azure" or "com.azure" or similar to indicate an Azure client library.
+~
+
+~ Must {#general-namespace-serviceclient}
+use the service name as the terminal package name.
+~
+
+~ Must {#general-namespace-split-management-api}
+place the management (ARM) API in the "management" group.  Use the grouping `<Azure>.management.<ServiceName>` for the namespace.
+~
+
+~ MustNot {#general-namespace-avoid-ambiguity}
+choose similar names for clients that do different things.
+~
+
+~ Should {#general-namespace-names}
+use the following list as the group of services:
+- `analytics` for client libraries that gather data
+- `data` for client libraries that handle databases or structured data stores
+- `identity` for client libraries that manage user identities
+- `iot` for client libraries dealing with the Internet of Things
+- `management` for client libraries accessing the control plane (ARM)
+- `media` for client libraries that deal with audio, video, or mixed reality
+- `security` for client libraries dealing with security
+- `storage` for client libraries that handle unstructured data
+- `mobile` for client libraries that specifically target mobile use cases
+~
+
+In cases where namespaces are supported, the namespace should be named `<AZURE>.<group>.<service>`.  All consumer-facing APIs that are commonly used should exist within this namespace.  Here:
+- `<AZURE>` indicates the prefix (`Azure` or `com.azure` or similar, depending on the language)
+- `<group>` is the group for the service
+- `<service>` is the service name represented as a single word
+
+Here are some examples of good selections (from the .NET world):
+- `Azure.Data.CosmosDB`
+- `Azure.Identity.AzureActiveDirectory`
+- `Azure.IoT.IoTHub`
+- `Azure.Storage.BlobStorage`
+- `Azure.Mobile.NotificationHubs` (the data plan client for Notification Hubs)
+- `Azure.Management.NotificationHubs` (the management client for Notification Hubs)
+
+Here are some bad examples:
+- `Microsoft.Azure.CosmosDB` (not in the Azure namespace, no grouping)
+- `Azure.MixedReality.Kinect` (invalid group)
+- `Azure.IoT.IoTHub.DeviceProvisioning` (too many levels)
