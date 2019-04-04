@@ -1,3 +1,5 @@
+# Review Process
+
 We expect all Azure client libraries to go through rigorous APIs reviews similar to those conducted for any other API produced by Microsoft (for example, the .NET APIs).  It's critical that the review is conducted early enough to allow time for fixes, and sometimes significant API redesign based on the review feedback. If you have never participated in an Azure client library API review, we recommend that you schedule a pre-review (consulting session) before you start working on the APIs.
 
 Note: Azure client library reviews are not REST API (nor swagger) reviews. We review language-specific client library APIs. In particular, we review .NET, Python, Java, and JavaScript APIs, and in rare cases C/C++, Go, and other language client library.
@@ -6,10 +8,10 @@ Note: Azure client library reviews are not REST API (nor swagger) reviews. We re
 
 Make sure your client libraries follow [Azure SDK Design Guidelines](https://github.com/Azure/azure-sdk/blob/master/docs/design/README.md).  You can find language-specific guidance as follows:
 
-- [.NET](https://azuresdkspecs.z5.web.core.windows.net/DotNetSpec.html) 
+- [.NET](https://azuresdkspecs.z5.web.core.windows.net/DotNetSpec.html)
 - [Java](https://azuresdkspecs.z5.web.core.windows.net/JavaSpec.html)
-- [Python](https://azuresdkspecs.z5.web.core.windows.net/PythonSpec.html) 
-- [TypeScript](https://azuresdkspecs.z5.web.core.windows.net/TypeScriptSpec.html) 
+- [Python](https://azuresdkspecs.z5.web.core.windows.net/PythonSpec.html)
+- [TypeScript](https://azuresdkspecs.z5.web.core.windows.net/TypeScriptSpec.html)
 
 ## What to Prepare for a Review
 
