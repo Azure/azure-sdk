@@ -1,7 +1,7 @@
 # Open Source {#general-oss}
 
 ~ Must {#github-open-source}
-ensure that all library code is public and open source on GitHub. Library code must be in Azure SDK 'mono-repo' for its language:
+ensure that all library code is public and open-source on GitHub. Library code must be in the Azure SDK 'mono-repo' for its language:
 
 * [Azure SDK for .NET](https://github.com/Azure/azure-sdk-for-net)
 * [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java)
@@ -9,12 +9,12 @@ ensure that all library code is public and open source on GitHub. Library code m
 * [Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python)
 ~
 
-~ Should {#github-be-open} 
+~ Should {#github-be-open}
 develop in the open on GitHub. Seek feedback from the community on design choices and be active in conversations with the community.
 ~
 
 ~ Must {#github-active}
-remain active in GitHub. Your SDK component's is your primary touch point with the developer community so it's important to keep up with the activity there. 
+remain active in GitHub. Your SDK component is your primary touch point with the developer community, so it's important to keep up with the activity there.
 Issues and pull requests on GitHub must have an authoritative comment within one week of filing.
 ~
 
@@ -39,7 +39,7 @@ include in your SDK component's folder in the repo a README<span></span>.md file
 ## CONTRIBUTING<span></span>.md
 
 ~ Must {#github-contributing}
-include CONTRIBUTING<span></span>.md file in your GitHub repo, using it to describe the process by which contributors can make contributions to the project. 
+include CONTRIBUTING<span></span>.md file in your GitHub repo, using it to describe the process by which contributors can make contributions to the project.
 An example CONTRIBUTING.md is provided by the [Microsoft Open Source Guidelines](https://docs.opensource.microsoft.com/releasing/overview.html):
 
 ```
@@ -63,20 +63,20 @@ or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any addi
 ~ Must {#github-contributing-extra}
 include any relevant processes and procedures must be documented, such as:
 
-- Pre-requisites for successfully building and testing
+- Prerequisites for successfully building and testing
 - How to run builds and tests
-- Generating reference documentation and other reports (linters, code coverage, etc)
+- Generating reference documentation and other reports (linters, code coverage, etc.)
 ~
 
 ## LICENSE<span></span>.md
 
 ~ Must {#github-license}
-include a LICENSE<span></span>.md file containing your license text (which by default should be [the standard MIT license](https://docs.opensource.microsoft.com/releasing/overview.html#license-files)).
+include a LICENSE<span></span>.md file containing your license text (which by default should be the [standard MIT license](https://docs.opensource.microsoft.com/releasing/overview.html#license-files)).
 ~
 
 ## CODEOWNERS
 
-CODEOWNERS is a GitHub standard to specify who is automatically assigned pull requests to review. This helps to prevent pull requests from languishing without review. GitHub can also be configured to require review from code owners before a pull request can be merged. Further reading is available from the following two URLs:
+CODEOWNERS is a GitHub standard to specify who is automatically assigned pull requests to review. This helps prevent pull requests from languishing without review. GitHub can also be configured to require review from code owners before a pull request can be merged. Further reading is available from the following two URLs:
 
 - [https://blog.github.com/2017-07-06-introducing-code-owners/](https://blog.github.com/2017-07-06-introducing-code-owners/)
 - [https://help.github.com/articles/about-codeowners/](https://help.github.com/articles/about-codeowners/)

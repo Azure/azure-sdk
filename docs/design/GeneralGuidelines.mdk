@@ -1,6 +1,6 @@
 ## General Guidelines { #common-general }
 
-These language-specific gudelines overrule language independent guidelines.
+Language-specific guidelines overrule these language-independent guidelines.
 
 ~ Must {#general-follow-language-guidelines}
 provide SDKs for the following languages: C#, Java, Python, JavaScript.
@@ -26,4 +26,4 @@ support retries
 depend on concrete logging, dependency injection, or configuration technologies.
 ~
 
-The SDKs will be used in applications that might be using ther logging, DI, and configuration technologies of their choice.
+The SDKs will be used in applications that might be using the logging, DI, and configuration technologies of their choice.
