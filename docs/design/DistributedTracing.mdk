@@ -1,0 +1,40 @@
+## Distributed Tracing {#general-distributed-tracing}
+
+To help developers understand the actions their distributed applications are taking on behalf of a user request, we support ["OpenCensus"](https://opencensus.io/). When initiating a user request, a root span is created and initialized with a TraceId, SpanId, and other optional values. When a client calls a server, the client places the most-recent span in a "context" and sends the context to the server as part of the HTTP request. When a server receives this request a child span is created (sharing the parent's TraceId but with a new SpanId) and this span now becomes the server's "context". This "context" is passed throughout the server's application code (implicity or explicitly depending on the language) and is ultimately passed to the next server. In addition, an application can create child spans internally to represent logical groupings of work.
+
+~ Must {#general-distributed-tracing}
+For outgoing HTTP requests, the client library MUST use the current context (or create a parent context if no context already exists) to add a child span. The span's Name should indicate the service operation being invoked, SpanKind should be Client, and StartTime should be set to the current UTC time.
+~
+
+~ Must {#general-distributed-tracing}
+For incoming responses, set the span's EndTime and Status fields.
+~
+
+~ MustNot {#general-distributed-tracing}
+send sensitive information to the logs, e.g. remove account keys when logging headers.
+~
+
+~ Must {#general-distributed-tracing}
+log a Warning message, if a request takes longer than some specified threshold. The default threshold is 3 seconds.
+~
+
+~ Must {#general-distributed-tracing}
+log request URL, query parameters and headers as Informational.
+~
+
+
+////////////////
+type Span struct {
+	SpanId       [8]byte                         // Required; Guid; https://opencensus.io/tracing/span/spanid/
+	TraceId      [16]byte                        // Required; Guid; https://opencensus.io/tracing/span/traceid/
+	ParentSpanId [8]byte                         // Empty for root span; https://opencensus.io/tracing/span/parentspanid/
+	Name         string                          // https://opencensus.io/tracing/span/name/
+	StartTime    time.Time                       // https://opencensus.io/tracing/span/time/
+	EndTime      time.Time                       // https://opencensus.io/tracing/span/time/
+	Status       int32                           // https://opencensus.io/tracing/span/status/
+	SpanKind     int                             // 0=Unknown, 1=Server [received on], 2=Client [sent from]
+	TraceOptions byte                            // 0x00=Span is NOT sampled, 0x01=Span is sampled
+	TraceState   [32]struct{ key, value string } // <=32 entries of arbitrary state
+	TimeEvents   struct {
+	}
+}

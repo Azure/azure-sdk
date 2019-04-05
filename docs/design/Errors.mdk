@@ -31,21 +31,3 @@ create a new error type when a language-specific error type will suffice.  Use s
 ~ Must
 document the errors that are produced by each method (with the exception of commonly thrown errors that are generally not documented in the target language).
 ~
-
-TODO: Exception Hierarchy? What about languages that don't use exceptions?
-> +# Logical exception hierarchy: https://github.com/Azure/azure-sdk/pull/195#discussion_r268713298
-
-+# AzureError
-+#   |- AzureLibraryError
-+#       |- AzureLibraryRequestError
-+#       |- AzureLibraryResponseError
-+#   |- ServiceRequestError
-+#       |- ConnectionTimeoutError
-+#       |- ServiceHttpRequestError
-+#           |- ClientRequestError
-+#               |- ResourceExistsError
-+#               |- ClientAuthenticationError
-+#               |- ResourceModifiedError
-+#           |- ServerError
-+#           |- TooManyRedirectsError
-+#           |- TooManyRetriesError (removed)
