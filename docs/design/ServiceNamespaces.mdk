@@ -18,8 +18,9 @@ place the management (ARM) API in the "management" group.  Use the grouping `<Az
 choose similar names for clients that do different things.
 ~
 
-~ Should {#general-namespace-names}
-use the following list as the group of services:
+~ Must {#general-namespace-names}
+use the following list as the group of services (if the target language supports namespaces):
+- `ai` for client libraries dealing with artificial intelligence or machine learning
 - `analytics` for client libraries that gather data
 - `data` for client libraries that handle databases or structured data stores
 - `identity` for client libraries that manage user identities
@@ -41,10 +42,12 @@ Here are some examples of good selections (from the .NET world):
 - `Azure.Identity.AzureActiveDirectory`
 - `Azure.IoT.IoTHub`
 - `Azure.Storage.BlobStorage`
-- `Azure.Mobile.NotificationHubs` (the data plan client for Notification Hubs)
+- `Azure.Mobile.NotificationHubs` (the client library for Notification Hubs)
 - `Azure.Management.NotificationHubs` (the management client for Notification Hubs)
 
 Here are some bad examples:
 - `Microsoft.Azure.CosmosDB` (not in the Azure namespace, no grouping)
 - `Azure.MixedReality.Kinect` (invalid group)
 - `Azure.IoT.IoTHub.DeviceProvisioning` (too many levels)
+
+If the client library does not seem to fit into the group list, contact the [Architectural Board](https://github.com/azure/azure-sdk-private/issues) for advice on the most appropriate group.
