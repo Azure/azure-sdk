@@ -1,8 +1,20 @@
 # Azure SDK
 
-The Azure SDK delivers a platform for developers to leverage the wide variety of Azure services in their language of choice. The source for the libraries exists for the most part in repositories for each language. This repository is meant to be a jumping off point into those language specific repositories. Issues related to a specific language should be opened in the corresponding repository but cross cutting issues can be opened in this repository.
+The Azure SDK delivers a platform for developers to leverage the wide variety of Azure services in their language of choice. The source for the client libraries exists for the most part in repositories for each language. This repository is meant to be a jumping off point into those language specific repositories. Issues related to a specific language should be opened in the corresponding repository but cross cutting issues can be opened in this repository.
 
 | [.NET](https://github.com/Azure/azure-sdk-for-net) | [Java](https://github.com/Azure/azure-sdk-for-java) | [Python](https://github.com/Azure/azure-sdk-for-python) | [JavaScript](https://github.com/Azure/azure-sdk-for-js) | [Go](https://github.com/Azure/azure-sdk-for-go) |
+
+## Terminology
+
+- **SDK**: Software Development Kit. This refers to the entire Azure SDK for a single language, itself broken up into numerous Azure SDK _Client Libraries_ (as defined below).
+
+- **Client Library**. This refers to a library (and associated tools, documentation, and samples) that customers/developers use to ease working with an Azure service. There is often one client library per service and per programming language. Sometimes a single client library will contain the ability to connect to multiple services. Each client library is published separately to the appropriate language-specific package repository.  These releases are performed exclusively by the Azure SDK engineering systems team. Customers/Developers consume and use each client library separately as necessary to solve their use case.
+
+- **Package**. This refers to a client library after it has been packaged for distribution for customer-developers to consume. Examples are:
+   - A Nuget package for a .NET client library
+   - A Maven package for a Java library
+   - An NPM package for a JavaScript library
+   - A Python wheel for a Python library
 
 ## Azure SDK Design Guidelines
 
@@ -23,7 +35,7 @@ The following is a list of Azure services and links to their open source code:
 | ------------ | ------ | ----- | ------ | ------- | -------- |
 | Azure Storage | [code](https://github.com/Azure/azure-storage-net) | [code](https://github.com/Azure/azure-storage-java) | [code](https://github.com/Azure/azure-storage-python) | [code](https://github.com/Azure/azure-storage-node) | [code](https://github.com/Azure/azure-storage-go) |
 | CosmosDB | | [code](https://github.com/Azure/azure-cosmosdb-java) | [code](https://github.com/Azure/azure-cosmos-python) | [code](https://github.com/Azure/azure-cosmos-js) |
-| Keyvault | [code](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/KeyVault/dataPlane)  | [code](https://github.com/Azure/azure-keyvault-java) | [code](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-keyvault) | [code](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/keyVault)|
+| Key Vault | [code](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/KeyVault/data-plane)  | [code](https://github.com/Azure/azure-keyvault-java) | [code](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-keyvault) | [code](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/keyVault)|
 | Service Bus | [code](https://github.com/Azure/azure-service-bus-dotnet) | [code](https://github.com/Azure/azure-service-bus-java) | [code](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-servicebus) | [code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus) |
 | Event Hubs | [code](https://github.com/Azure/azure-event-hubs-dotnet) | [code](https://github.com/Azure/azure-event-hubs-java) | [code](https://github.com/Azure/azure-event-hubs-python) | [code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/) |
 | IotHub, Iot Devices, IotHub Provisioning Service, IotHub Provisioning Device | [code](https://github.com/Azure/azure-iot-sdk-csharp) | [code](https://github.com/Azure/azure-iot-sdk-java) | [code](https://github.com/Azure/azure-iot-sdk-python) | [code](https://github.com/Azure/azure-iot-sdk-node) |
@@ -36,8 +48,8 @@ The following is a list of Azure services and links to their open source code:
 | Log Analytics Ingestion | | | | |
 | Log Analytics Query | [code](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/OperationalInsights/DataPlane) | [code](https://github.com/Azure/azure-sdk-for-java/tree/master/loganalytics/data-plane) | [code](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-loganalytics) | [code](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/loganalytics) |
 | Service Fabric | | | | |
-| DataLake Analytics | [code](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/DataLake.Analytics)| [code](https://github.com/Azure/azure-libraries-for-java/tree/master/azure-mgmt-datalake-analytics) | [code](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-mgmt-datalake-analytics)| [code](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/dataLake.Analytics)|
-| Datalake Store | [code](https://github.com/Azure/azure-data-lake-store-net) | [code](https://github.com/Azure/azure-data-lake-store-java) | [code](https://github.com/Azure/azure-data-lake-store-python) | |
+| Data Lake Analytics | [code](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/DataLake.Analytics)| [code](https://github.com/Azure/azure-libraries-for-java/tree/master/azure-mgmt-datalake-analytics) | [code](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-mgmt-datalake-analytics)| [code](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/dataLake.Analytics)|
+| Data Lake Store | [code](https://github.com/Azure/azure-data-lake-store-net) | [code](https://github.com/Azure/azure-data-lake-store-java) | [code](https://github.com/Azure/azure-data-lake-store-python) | |
 | Azure Search | [code](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Search) | | | |
 | Relay | [code](https://github.com/Azure/azure-relay-dotnet) | | | [code](https://github.com/Azure/azure-relay-node)|
 | Cognitive Services | [code](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane) | [code](https://github.com/Azure/azure-sdk-for-java/tree/master/cognitiveservices/data-plane) | [code](https://github.com/Azure/azure-sdk-for-python) | [code](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services) |
