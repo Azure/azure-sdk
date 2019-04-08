@@ -8,19 +8,19 @@ An example of a *deterministic sequence of requests* is a paged operation.
 
 The *logical entity* is a protocol neutral representation of a response. For HTTP, the logical entity may combine data from headers, body and the status line. A common example is exposing an ETag header as a property on the logical entity in addition to any deserialized content from the body.
 
-~ Must {general-return-logical-entities}
+~ Must {#general-return-logical-entities}
 optimize for returning the logical entity for a given request. The logical entity MUST represent the information needed in the 99%+ case.
 ~
 
-~ Must {general-return-expose-raw}
+~ Must {#general-return-expose-raw}
 *make it possible* for a developer to get access to the complete response, including the status line, headers and body. The client library MUST follow the language specific guidance for accomplishing this.
 ~
 
-~ Must {general-return-document-raw-stream}
+~ Must {#general-return-document-raw-stream}
 document and provide examples on how to access the raw and streamed response for a given request.
 ~
 
-~ Must {general-return-pageable-iterate-items}
+~ Must {#general-return-pageable-iterate-items}
 provide a language idiomatic way to enumerate all logical entities for a paged operation, automatically fetching new pages as needed.
 
 ```python
@@ -39,17 +39,13 @@ while not done:
 ```
 ~
 
-~ Should {general-return-pageable-iterate-items-know-when-calling-service}
-provide a way for a client application to detect when a new page is about to be faulted in for a pageable operation.
-~
-
 For methods that combine multiple requests into a single call:
 
-~ MustNot {general-return-no-headers-if-confusing}
+~ MustNot {#general-return-no-headers-if-confusing}
 return headers and other per-request metadata unless it is obvious as to which specific HTTP request the methods return value corresponds to.
 ~
 
-~ Must {general-expose-data-for-composite-failures}
+~ Must {#general-expose-data-for-composite-failures}
 provide enough information in failure cases for an application to take appropriate corrective action.
 ~
 
