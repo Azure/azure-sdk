@@ -1,0 +1,21 @@
+## Proxies
+
+~ Must {#general-proxies-must-be-supported}
+support proxies. Proxy support is critical across a number of common cloud scenarios.
+~
+
+~ Must {#general-proxies-websockets}
+support proxies via WebSocket support for Non-HTTP services. Services which don't use HTTP can make use of a SOCKS proxy, but SOCKS proxies are less widely deployed in practice. Web Sockets will just work with existing http proxy infrastructure and so is the preferred mechanism to provide proxy support for non-HTTP services.
+~ 
+
+~ Must {#general-proxies-configuration-env-vars}
+support configuration of proxies using the environment variables HTTP_PROXY, HTTPS_PROXY, and NO_PROXY. See also [#general-env-vars].
+~
+
+~ Must {#general-proxies-configuration-api}
+support configuration of proxies by providing  pipeline options. Completely disabling the proxy must be supported as well.
+~
+
+~ Must {#general-proxies-pipeline}
+support proxies via a pipeline policy that can be completely replaced by the user if desired.
+~

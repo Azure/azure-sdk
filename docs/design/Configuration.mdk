@@ -1,9 +1,23 @@
 ## Configuration
 
-~ Must
+~ Must {#general-configuration-via-api}
 allow any customer configuration or customization via SDK functions or properties as this allows the customer code to determine how to configure SDK options and also how to expose those SDK options to the customer's users.
 ~
 
-~ MustNot
-allow any customer configuration or customization via a shared resource like a file or environment variable as this prevents different configurations to exist at the same time.
+~ Must {#general-configuration-sources}
+support the following configuration stack, where subsequent configurations override previous configuration:
+
+1. Environment variables
+2. Idiomatic/canonical application-level configuration files e.g. appsettings.json, .env files, etc.
+3. Options passed into the library (e.g. pipeline configuration)
 ~
+
+### Well-known Environment Variables {#general-env-vars}
+
+The following are well-known environment variables for the Azure SDK.
+
+| Variable        | Purpose                                     | 
+|-----------------|---------------------------------------------|
+| HTTP_PROXY      | Proxy to use for non-TLS HTTP endpoints     |
+| HTTPS_PROXY     | Proxy to use for TLS HTTP endpoints         |
+| NO_PROXY        | HTTP endpoints which should not use proxies |
