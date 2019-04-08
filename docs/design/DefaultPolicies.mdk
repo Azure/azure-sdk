@@ -3,7 +3,7 @@
 Most client libraries will use the HTTP pipeline for their request/response transport to the service.
 
 ~ Must
-Implement the following policies in the HTTP pipline:
+Implement the following policies in the HTTP pipeline:
 - [Telemetry](#general-telemetry)
 - Unique Request ID
 - [Retry](#general-retry)
