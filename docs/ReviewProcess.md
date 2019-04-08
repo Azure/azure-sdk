@@ -41,15 +41,15 @@ If you have a prototype of your APIs, depending on the language the APIs are for
 
 To request a review:
 
-1. [Submit an issue](https://github.com/azure/azure-sdk/issues).  If the service is pre-release, use a private repository.  For escalations, email the [review board](mailto:adparch@microsoft.com) only after submitting the issue.
+1. [Submit an issue](https://github.com/azure/azure-sdk/issues).  If the service is pre-release, use the private repository.  For escalations, email the [review board](mailto:adparch@microsoft.com) only after submitting the issue.
     - Ensure you provide all information (or direct links to the information) for ease of review.
 2. The ADP Review Board PM will schedule a 1:1 with a language architect to provide initial guidance.  It is important that this initial review happen **BEFORE** any major development happens.
     - Get the ADP Reviews happening in concert with your design process for best results.
 3. If needed, a review with the entire review board will be scheduled. The cases where this is necessary include:
-    - This is a completely new SDK.
+    - This is a completely new client library.
     - The reviewing language architect feels there are cross-cutting concerns.
     - Exceptions from the guidelines are being sought (such as additional dependencies)
 4. After reviews are completed, the review team will publish recommendations.
 
-It is normal to have multiple API reviews as the development of the SDK progresses.
+It is normal to have multiple API reviews as the development of the client library progresses.
 
