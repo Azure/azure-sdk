@@ -68,5 +68,33 @@ Maven supports the [convention](https://cwiki.apache.org/confluence/display/MAVE
 
 Dev and preview Java packages are published direct to the Maven registry.
 
+## Preview Releases and GA Graduation
+
+The Azure SDK team may choose to create a preview release for several reasons:
++ Service itself has features in preview and SDK must be updated accordingly
++ Testing and receiving feedback on new API designs
++ Stress and performance testing for new SDK features is incomplete
+
+To create a preview, the release must:
++ Have initial API documentation
++ Have a clear README file with guidelines for how the community can submit feedback
++ Receive an initial design review from the architecure board (../ReviewProcess.md)
++ Receive an initial design review from the service team (may be combined with architecure)
++ Ratify shipping dependencies with the service team
+    + If the service must ship before the SDK can ship, establish timeline for preview and GA in the service
+    + If the SDK contains customer-critical features, establish which features these are and what customer expectations exist
+
+To graduate to GA, a preview release must:
++ Have final API documentation
++ Bake for at least one month to allow for community feedback
++ Show evidence of active consumption/usage
++ Have no known critical bugs
++ Have less than 10 other outstanding issues
++ Have an underlying service that is GA
++ Pass stress and performance testing and meet required benchmarks (TBD what benchmarks - we should make benchmarks guidance :-))
++ Receive a final design review from architecture team (../ReviewProcess.md)
++ Receive final design sign-off from service team
+
+
 ## Deprecation
 Deprecation cycle for released versions is TBD.
