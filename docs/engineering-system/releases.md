@@ -29,6 +29,7 @@ How?
 
 * **.NET:** extend nuspec to include `changelog.md` in the `.nupkg.` 
 * **Java:** add `changelog.md` to the existing artifact list.
+    * Note that the convention here is `<packageIdentifier>.md`. This mirrors the four existing artifacts per package.
 * **JS:** ensure `changelog.md` is included in the package tarball.
 * **Python:** ensure `changelog.md` is present in the `sdist` artifact.
 
