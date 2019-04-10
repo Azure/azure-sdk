@@ -23,7 +23,7 @@ We use GitHub releases as a convenient place to put release notes. The change lo
 
 ## ChangeLog Guidance
 
-We recommend that every package maintain a changelog just a matter of course. However, there is an additional benefit. Ensuring that a `changelog.md` file is both available and formatted appropriately will result in automatically formatted release notes on each GitHub release. 
+We recommend that every package maintain a changelog just as a matter of course. However, there is an additional benefit. Ensuring that a `changelog.md` file is both available and formatted appropriately will result in automatically formatted release notes on each GitHub release. 
 
 How?
 
@@ -37,14 +37,18 @@ A given `changelog.md` file must follow the below form:
 
 ```
 # <release date in YYYY-MM-DD> - <versionSpecifier>
-
 <content. as long as it doesn't introduce another header that looks like the one above>
 
-...additional changelog entries
+...
+
+# <an older release date> - <older versionSpecifier>
+<content/changes for the older release>
+
+... older release details trail off into history below
 
 ```
 
-During release, if there exists a changelog entry with a version specifier _matching_ that of the currently releasing package, that changelog entry will be added as the body of the GitHub release.
+For clarity, a `change log entry` is simply the header + content up to the next release header OR EOF. During release, if there exists a changelog entry with a version specifier _matching_ that of the currently releasing package, that changelog entry will be added as the body of the GitHub release.
 
 The [JS ServiceBus SDK](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/changelog.md) maintains a great changelog example. Given that changelog, this is what a [release](https://github.com/Azure/azure-sdk-for-js/releases/tag/%40azure%2Fservice-bus_1.0.0-preview.2) looks like.
 
