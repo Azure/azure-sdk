@@ -19,7 +19,7 @@ Because each language repository contains multiple packages inside of it, releas
 
 ## GitHub Releases
 
-We use GitHub releases as a convenient place to put release notes. The change log and any additional notes will be available here. ES Systems will automatically publish release notes to a GitHub release if the changelog guidance below is followed. No artifacts are published to the GitHub release. Instead, use a supported package registry.
+We use GitHub releases as a convenient place to put release notes. The change log and any additional notes will be available here. ES automation will automatically publish release notes to a GitHub release if the changelog guidance below is followed. No artifacts are published to the GitHub release. Instead, use a supported package registry.
 
 ## ChangeLog Guidance
 
