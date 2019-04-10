@@ -76,7 +76,9 @@ The Azure SDK team may choose to create a preview release for several reasons:
 + Stress and performance testing for new SDK features is incomplete
 
 To create a preview, the release must:
-+ Have initial API documentation
++ Have initial documentation
+    + A quick start guide for using the SDK
+    + How to guides for critical path scenarios
 + Have a clear README file with guidelines for how the community can submit feedback
 + Receive an initial [design review](../ReviewProcess.md) from the architecure board
 + Receive an initial design review from the service team (may be combined with architecure)
@@ -85,7 +87,10 @@ To create a preview, the release must:
     + If the SDK contains customer-critical features, establish which features these are and what customer expectations exist
 
 To graduate to GA, a preview release must:
-+ Have final API documentation
++ Have final documentation
+    + Full API documentation
+    + Conceptual documentation for how the service works
+    + Samples of common uses cases for the service
 + Bake for at least one month to allow for community feedback
 + Show evidence of active consumption/usage
 + Have no known critical bugs
