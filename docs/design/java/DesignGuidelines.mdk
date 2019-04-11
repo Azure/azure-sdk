@@ -82,14 +82,10 @@ have the version number represent the version intended for the next GA release. 
 
 ### Preview Releases
 
-Preview releases are made when code hits certain milestones and wider community adoption and testing is warranted. Preview releases replace the `-SNAPSHOT` qualifier with either an `-alpha`, `-beta`, or `-rc` (release candidate) qualifier, depending on the maturity of the code being released. Preview releases must be made through the engineering systems pipeline.
+Preview releases are made when code hits certain milestones and wider community adoption and testing is warranted. Preview releases replace the `-SNAPSHOT` qualifier with a `-preview.N` qualifier, where the N value increments for each preview release for a given version. Preview releases must be made through the engineering systems pipeline.
 
 ~ Must {#java-preview-qualifer-required}
-have a qualifier of `-alpha`, `-beta`, or `-rc` for all preview releases.
-~
-
-~ Must {#java-preview-qualifier-numbering}
-have an incrementing number appended directly to the end of the preview qualifier. For example, `-beta1`, `-beta2`, etc.
+have a qualifier of `-preview.N` for all preview releases.
 ~
 
 ~ Must {#java-preview-version-next-GA}
@@ -222,7 +218,7 @@ name service client types with the Client suffix, e.g. `ConfigurationClient`.
 ~
 
 ~ Must {#java-client-root-package}
-place service clients in the root package of their corresponding component, e.g. `com.azure.storage.blob.BlobClient`, as `com.azure.storage.blob` is considered the root package in this example.
+place service clients in the root package of their corresponding client library, e.g. `com.azure.storage.blob.BlobClient`, as `com.azure.storage.blob` is considered the root package in this example.
 ~
 
 ~ Must {#java-client-extend-serviceclient}
@@ -278,6 +274,14 @@ provide a fluent API for configuration. Name setter methods simply after the pro
 
 Due to the nature of internet-based communication, asynchronous APIs are a must to ensure efficient use of system resources (threads and their stacks).
 
+~ Must {#java-async-methods}
+provide asynchronous API.
+~
+
+~ Must {#java-async-client}
+offer an async service client named `<ServiceName>AsyncClient`, as well as a builder named `<ServiceName>AsyncClientBuilder`. More than one service client may be offered for a single service.
+~
+
 ~ Must {#java-async-use-project-reactor}
 use [Project Reactor](http://projectreactor.io) to provide end-users with a high-quality async API.
 ~
@@ -287,7 +291,7 @@ use any other async APIs, such as `CompletableFuture` and [RxJava](https://githu
 ~
 
 ~ MustNot {#java-no-async-naming-pattern}
-use the suffix `Async` in methods that perform operations asynchronously. Instead, simply drop the suffix entirely (as all APIs should be async by default, it is a redundant piece of information).
+use the suffix `Async` in methods that perform operations asynchronously. Let the fact the user has an instance of an 'async client' provide this context.
 ~
 
 ~ MustNot {#java-async-no-overloads}
@@ -306,22 +310,28 @@ write custom APIs for streaming or async operations - make use of the existing f
 include blocking calls inside client library code. Code must be async throughout entire codebase. Use [BlockHound](https://github.com/reactor/BlockHound) to detect blocking calls in async APIs.
 ~
 
-### Pagination
-
-~ Todo
-Details about Pagination
-~
-
 ### Sync API
 
-~ MustNot {#java-no-sync-methods}
-provide synchronous methods in addition to async methods - instead follow the policy that developers may choose to block on an asynchronous calls.
+~ Must {#java-sync-methods}
+provide synchronous API.
+~
+
+~ Must {#java-sync-client}
+offer a sync service client named `<ServiceName>Client`, as well as a builder named `<ServiceName>ClientBuilder`. More than one service client may be offered for a single service.
+~
+
+~ MustNot {#java-sync-cancellations}
+provide API that accepts a `CancellationToken` parameter. Cancellation is not a common pattern in Java, and developers who want to be able to cancel requests will be encouraged to use the async API instead.
 ~
 
 ### Pipelines
 
 ~ Must {#java-pipelines-use-existing-api}
 use the existing pipelines APIs for all requests to Azure services, including any requirements for authentication, telemetry, logging, tracing, retries, cancellations, etc. Do not use other HTTP clients or means of connecting to Azure services.
+~
+
+~ Must {#java-pipelines-expose-policies}
+expose any custom policies required to connect to the service. This allows developers who create a completely new HTTP pipeline instance to include the provided policies in their instance, enabling easier connectivity to the service.
 ~
 
 ### Logging
