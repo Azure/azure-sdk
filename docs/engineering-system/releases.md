@@ -85,6 +85,7 @@ To create a preview, the release must:
 + Ratify shipping dependencies with the service team
     + If the service must ship before the SDK can ship, establish timeline for preview and GA in the service
     + If the SDK contains customer-critical features, establish which features these are and what customer expectations exist
++ If changes are substantial, refer to internal documentation for starting a release notification process in support
 
 To graduate to GA, a preview release must:
 + Have final documentation
