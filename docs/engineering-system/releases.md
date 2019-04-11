@@ -36,12 +36,12 @@ How?
 A given `changelog.md` file must follow the below form:
 
 ```
-# <release date in YYYY-MM-DD> - <versionSpecifier>
+# <versionSpecifier>
 <content. as long as it doesn't introduce another header that looks like the one above>
 
 ...
 
-# <an older release date> - <older versionSpecifier>
+# <older versionSpecifier>
 <content/changes for the older release>
 
 ... older release details trail off into history below
