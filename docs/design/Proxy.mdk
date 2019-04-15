@@ -1,6 +1,6 @@
 ## Proxy {#general-proxy}
 
-Apps that integrate the Azure SDK need to operate in common enterprises.  It is a common practice to implement HTTP proxies for control and caching purposes.  Proxies are generally configured at the machine level and, as such, are part of the environment.  However, there are reasons to adjust proxies (for example, testing to rewrite URLs to a test environment).  The Azure SDK and all client libraries must be able to operate in those environments.
+Apps that integrate the Azure SDK need to operate in common enterprises.  It is a common practice to implement HTTP proxies for control and caching purposes.  Proxies are generally configured at the machine level and, as such, are part of the environment.  However, there are reasons to adjust proxies (for example, testing may use a proxy to rewrite URLs to a test environment instead of a production environment).  The Azure SDK and all client libraries should operate in those environments.
 
 ### Supported proxy configurations {#general-proxy-support}
 
@@ -15,23 +15,24 @@ For inline/no-auth proxy, nothing needs to be done.  The Azure SDK will work wit
 
 For an out-of-band/no-auth proxy, the client will send the entire request URL to the proxy instead of the service.  For example, if the client is communicating to `https://foo.blog.storage.azure.net/path/to/blob`, it will connect to the `HTTPS_PROXY` and send a `GET https://foo.blog.storage.azure.net/path/to/blob HTTP/1.1`.   For an out-of-band/auth proxy, the client will send the entire request URL just as in the out-of-band/no-auth proxy version, but it may send back a `407 Proxy Authentication Required` status code (as with the inline/auth proxy).
 
-WebSockets can normally be tunneled through a HTTP proxy, in which case the proxy authentication happens during the CONNECT call.  There are other types of proxy.  The most notable for SDK usage is the SOCKS proxy is used for non-HTTP traffic (such as AMQP or MQTT).
+WebSockets can normally be tunneled through a HTTP proxy, in which case the proxy authentication happens during the CONNECT call.  This is the preferred mechanism for tunneling non-HTTP traffic to the Azure service.  However, there are other types of proxy.  The most notable is the SOCKS proxy is used for non-HTTP traffic (such as AMQP or MQTT).  We make no recommendation (for or against) support of SOCKS.  It is explicitly not a requirement to support SOCKS proxy within the client library.
 
 Most proxy configuration will be done by adopting the HTTP pipeline that is common to all Azure service client libraries.
 
 ~ Must
-Support proxy configuration via common global configuration directives.
+Support proxy configuration via common global configuration directives configured on a platform or runtime basis.
 
-- Linux and Mac environments use the HTTPS_PROXY (and associated) environment variables.
-- Windows environments use the WinHTTP proxy configuration.
+- Linux and Mac generally use the HTTPS_PROXY (and associated) environment variables to configure proxies.
+- Windows environments generally use the WinHTTP proxy configuration to configure proxies.
+- Other options (such as loading from configuration files) may exist on a platform and runtime basis.
 ~
 
 ~ Must
-Support Azure SDK-wide configuration directives for proxy configuration.
+Support Azure SDK-wide configuration directives for proxy configuration, including disabling the proxy functionality.
 ~
 
 ~ Must
-Support client-library specific configuration directives for proxy configuration.
+Support client-library specific configuration directives for proxy configuration, including disabling the proxy functionality.
 ~
 
 ~ Must
