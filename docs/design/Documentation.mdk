@@ -15,11 +15,23 @@ include your service's content developer by @mentioning them in the PR for the R
 ### API reference
 
 ~ Must
-include complete documentation for all types and their members within your component's code.
+completely document every type and their members within your component's code.
+~
+
+~ Must
+include [code snippets](#code-snippets) for all commonly used operations within your library.
 ~
 
 ~ MustNot
 simply restate the type or member name as its documentation. For example, do not write "A Thing." for the description of the `Thing` interface, or "Gets a Thing." for the `GetThing()` method. Instead, help a developer new to your library, service, or Azure learn what that type or member is, how to use it, and how to recover from errors simply by reading your API reference documentation.
+~
+
+~ Must
+include information about constructor and function parameters beyond just their type names. For example, how should a developer create or otherwise obtain an instance of the parameter type that the method requires?
+~
+
+~ Must
+include usage information for return types, not just the type name! What exactly is returned *within* the instance of that type, and how should it be interacted with? For example, how should a developer "unpack" and use the data structure that a method returns? Is there another function or method in the library that can help process the data?
 ~
 
 ~ Must
@@ -44,7 +56,7 @@ include example code snippets alongside your component's code within the reposit
 build and test your the example code snippets using the repository's continuous integration (CI) to ensure they remain functional.
 
 ~ Must
-include the example code snippets in your library's API reference, its README, and the Quickstart. If the language and its tools support it, ingest these snippets directly into your API reference in your component's source code. For example, use the `.. literalinclude::` directive in Python docstrings to instruct [Sphinx to ingest the snippets automatically](http://www.sphinx-doc.org/en/1.5/markup/code.html#includes).
+include the example code snippets in your library's API reference, its README, and the Quickstart. If the language and its tools support it, ingest these snippets directly into your API reference in your component's source code. For example, use the `.. literalinclude::` directive in Python docstrings to instruct Sphinx to [ingest the snippets automatically](http://www.sphinx-doc.org/en/1.5/markup/code.html#includes).
 ~
 
 ~ MustNot
