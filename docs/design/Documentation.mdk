@@ -1,0 +1,58 @@
+## Documentation
+
+There are several documentation deliverables that must be included in or as a companion to your SDK component. Beyond complete and helpful API documentation within the code itself (the "docstrings"), you need a great README and other supporting documentation.
+
+### README<span></span>.md
+
+~ Must
+author a [README](https://github.com/Azure/azure-sdk/blob/master/docs/README-TEMPLATE.md) and include it in your SDK component's folder within the repository. See the [example README](https://github.com/Azure/azure-sdk/blob/master/docs/README-EXAMPLE.md) for Cosmos DB to get an idea for what this should look like.
+~
+
+~ Must
+include your service's content developer by @mentioning them in the PR for the README (if your service has an assigned content developer).
+~
+
+### API reference
+
+~ Must
+include complete documentation for all types and their members within your component's code.
+~
+
+~ MustNot
+simply restate the type or member name as its documentation. For example, do not write "A Thing." for the description of the `Thing` interface, or "Gets a Thing." for the `GetThing()` method. Instead, help a developer new to your library, service, or Azure learn what that type or member is, how to use it, and how to recover from errors simply by reading your API reference documentation.
+~
+
+~ Must
+include cross-reference hyperlinks from the documentation in your code to articles on docs.microsoft.com when they're available.
+~
+
+~ MustNot
+use hyperlinks to docs.microsoft.com articles as a substitute for completely documenting a type or member.
+~
+
+~ Must
+use automated tools to verify documentation coverage and format in your code. Most languages have at least one linter for verifying in-code documetation. For example, [flake8-docstrings](https://gitlab.com/pycqa/flake8-docstrings) for Python and [DocLint](http://openjdk.java.net/jeps/172) for Java.
+~
+
+### Code snippets
+
+~ Must
+include example code snippets alongside your component's code within the repository. The snippets should clearly and succinctly demonstrate the operations most developers need to perform with your library. Include snippets for every common operation, and especially those that are complex or might otherwise difficult for new users of your component.
+~
+
+~ Must
+build and test your the example code snippets using the repository's continuous integration (CI) to ensure they remain functional.
+
+~ Must
+include the example code snippets in your library's API reference, its README, and the Quickstart. If the language and its tools support it, ingest these snippets directly into your API reference in your component's source code. For example, use the `.. literalinclude::` directive in Python docstrings to instruct [Sphinx to ingest the snippets automatically](http://www.sphinx-doc.org/en/1.5/markup/code.html#includes).
+~
+
+~ MustNot
+combine more than one operation in a code snippet unless it's required for demonstrating the API component or concept, or it's *in addition to* existing snippets that demonstrate atomic operations. For example, a Comsos DB code snippet should not include both account and container creation operations--create two different snippets, one for account creation, and one for container creation.
+~
+
+### Quickstart
+
+~ Must
+ensure a Quickstart is published on docs.microsoft.com that helps developers get started with the library. If your service has an assigned content developer, let them know when your README is complete so they can base the Quickstart on your README. If your service doesn't have an assigned content developer, write your Quickstart by following [How to write an Azure client library Quickstart](https://review.docs.microsoft.com/en-us/help/contribute/contribute-how-to-write-library-quickstart?branch=pr-en-us-1752) (currently in *preview*).
+~
