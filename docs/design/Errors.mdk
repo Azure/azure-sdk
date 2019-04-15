@@ -1,4 +1,4 @@
-## Error Handling
+## Error Handling {#general-error-handling}
 
 In this section we refer to "producing an error" to mean returning an error value or throwing an exception, and "an error" to be the error value or exception object.
 
@@ -21,11 +21,11 @@ ensure that if the service returns rich error information (via the response head
 ~
 
 ~ ShouldNot
-create a new error type unless the developer can perform an alternate action to remediate the error.  Specialized error types should be based on existing error typess present in the azure common or base packages.
+create a new error type unless the developer can perform an alternate action to remediate the error.  Specialized error types should be based on existing error types present in the azure common or base packages.
 ~
 
-~ MustNot
-create a new error type when a language-specific error type will suffice.  Use system-provided error types for validation
+~ MustNot {#general-errors-no-new-errors}
+create a new error type when a language-specific error type will suffice.  Use system-provided error types for validation.
 ~
 
 ~ Must

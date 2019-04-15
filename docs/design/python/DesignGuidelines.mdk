@@ -7,7 +7,7 @@ provide packages supporting Python 2.7 and Python 3.4+
 ## Supported Python interpreters
 
 ~ Must {#python-interpreters}
-support PyPy and Jython in addition to CPython
+support PyPy in addition to CPython
 ~
 
 ## Supported Operating systems
@@ -62,7 +62,7 @@ favor consistency with other Python components over other libraries for the same
 ~
 
 ~ Must {#python-single-underscore}
-use a single underscore to indicate that a name is not part of the public API and is not guaranteed stable.
+use a single leading underscore to indicate that a name is not part of the public API and is not guaranteed stable.
 ~
 
 ~ MustNot {#python-no-leading-underscore}
@@ -80,7 +80,7 @@ derive from the abstract collections base classes `collections.abc` (or `collect
 ~ Must {#python-type-hints}
 provide type hints [PEP484](https://www.python.org/dev/peps/pep-0484/) wherever you are providing class or function documentation.
 
-  - See the [suggested syntax for Python2.7 and straddling code](https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code) for guidance for Python 2.7 compatible code. 
+  - See the [suggested syntax for Python2.7 and straddling code](https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code) for guidance for Python 2.7 compatible code.
 ~
 
 ### Naming
@@ -171,16 +171,12 @@ use the suffix "Client" for types accessing the service (Ex. CosmosClient)
 ~
 
 ~ Must {#python-use-base-classes}
-use the base classes in [msrest](https://github.com/azure/msrest-for-python) whenever possible:
+use the base classes in [azure-core](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-core) whenever possible:
 
   |Type|Usage|
   |-|-|
-  |`msrest.SDKClient`|Service specific client.|
-  |`msrest.configuration.Configuration`|Pass configuration information to `msres.SDKClient` derived classes.
-  |`msrest.authentication.Authentication`|Make use an existing class of or derive from in order to provide support for additional authentication schemes.|
-  |`msrest.serialization.Model`|Base class for models returned by service methods.
-  |`msrest.paging.Paged`|Base class for return values for service methods that return lists of object. Also supports server driven paging|
-  |`msrest.polling.PollingMethod`|Base class for return values for service methods that are long running.|
+  |`azure.core.Paged`|Base class for return values for service methods that return lists of object. Also supports server driven paging|
+  |`azure.core.PollingMethod`|Base class for return values for service methods that are long running.|
 ~
 
 ~ Must {#python-pipeline-policies}
@@ -219,10 +215,10 @@ prefer the use of the following terms for CRUD operations:
 | replace_\<noun>|key, item|Replace existing item|Completely replaces an existing item. Fails if the item does not exist. |
 | delete_\<noun>|key|None|Delete an existing item. Will succeed even if item did not exist. |
 | append_\<noun>|item|Appended item|Add item to a collection. Item will be added last. |
-| add_\<noun>|index, item|Added item|Add item to a collection. Item will be added last. |
+| add_\<noun>|index, item|Added item|Add item to a collection. Item will be added on the given position. |
 | remove_\<noun>|key|None or removed item|Remove item from a collection. |
 | get_\<noun>|key|Item|Will return None if item does not exist |
-| list_\<noun>||`msrest.Pageable[Item]`|Return list of items. Returns empty list if no items exist |
+| list_\<noun>||`azure.core.Pageable[Item]`|Return list of items. Returns empty list if no items exist |
 | \<noun>\_exists|key|`bool`|Return True if the item exists. |
 ~
 
@@ -235,7 +231,7 @@ prefer the use of the following terms for long running operations:
 ~ Must {#python-iterators}
 provide iterators over paged results which handle subsequent calls transparently. 
 
-*`msrest.paging.Paged` is the preferred base class to provide this functionality.*
+*`azure.core.Paged` is the preferred base class to provide this functionality.*
 ~
 
 ### Namespaces
@@ -246,10 +242,6 @@ add your code to the 'azure' namespace.
 
 ~ Must {#python-aio-suffix}
 add use the .aio suffix to the namespace for  clients.
-~
-
-~ Todo
-[See packaging guidelines for more related guidance]
 ~
 
 ### Exceptions
@@ -272,46 +264,44 @@ prefer different derived exception types over only differentiating between types
 maintain thread affinity for user-provided code unless explicitly documented to not do so.
 ~
 
-~ ToDo
-We need to provide more specific guidance for the use of threads in SDKs. This includes scenarios with native callback libraries as well as parallell workloads.
+~ Must {#python-thread-safe-document}
+document any code that is not thread safe as not being thread safe.
 ~
 
 ## Dependencies
 
-~ Must {#python-dependencies}
-consider using the following packages for shared functionality:
+~ Should {#python-dependency-compat}
+use the following packages for shared functionality:
 
-  - msrest
+  - six (python 2 and 3 compatibility)
   - requests (synchronous HTTP)
   - aiohttp (asynchronous HTTP)
-~
-
-~ Todo
-Fill in more dependencies above
 ~
 
 ~ MustNot {#python-no-ext-deps}
 use external dependencies outside the list of "well known dependencies". To get a new dependency added, contact @adparch. 
 ~
 
-~ Todo
-how to specify?
-~
-
 ~ MustNot {#python-no-vendor-deps}
-vendor dependencies unless approved by @adparch
+vendor dependencies unless approved by @adparch. Vendoring can sometimes be preferred over taking a dependency of an external package. @adparch can help determine if this is appropriate.
 
 *Vendoring dependencies in Python means including the source from another package as if it was part of your package*
+~
+
+## Project structure
+
+~ Must {#python-project-structure}
+use the [canonical project structure](https://github.com/Azure/azure-sdk/blob/master/docs/engineering-system/repo-structure.md) for azure python libraries.
 ~
 
 ## Packaging
 
 ~ Must {#python-wheels}
-provide wheels for all supported Python versions and architectures
+provide wheels for all supported Python versions and architectures.
 ~
 
 ~ Must {#python-publish-pypi}
-publish your packages to PyPI
+publish your packages to PyPI.
 ~
 
 ~ Must {#python-package-naming}
@@ -331,11 +321,7 @@ use semantic versioning for your package
 ~
 
 ~ Must {#python-follow-packaging-guidance}
-follow the specific package guidance from packaging.md
-~
-
-~ Todo
-Consolidate packaging wiki, python notes and this document
+follow the specific package guidance from the (azure-sdk-packaging wiki)[https://github.com/Azure/azure-sdk-for-python/wiki/Azure-packaging]
 ~
 
 ~ Must {#python-use-pkgutil}
@@ -347,7 +333,7 @@ depend on azure-nspkg for Python 2.x
 ~
 
 ~ Must {#python-follow-pep420}
-follow PEP420 for Python 3.0
+follow [PEP420](https://www.python.org/dev/peps/pep-0420/) for Python 3.0
 ~
 
 ~ Must {#python-include-init}
@@ -374,8 +360,8 @@ support unicode and ascii versions of CPython 2.7
 
 ## Async support
 
-~ Must {#python-sync-and-async}
-consider providing both sync and async versions of your APIs
+~ Should {#python-sync-and-async}
+provide both sync and async versions of your APIs
 ~
 
 ~ Must {#python-use-async-await}
@@ -386,8 +372,8 @@ use the async/await keywords (requires Python 3.5+)
 use the [yield from coroutine/@asyncio.coroutine](https://docs.python.org/3.4/library/asyncio-task.html) syntax in order to support Python 3.4.
 ~
 
-~ Must {#python-async-package}
-consider shipping a separate package for async support if the async version requires additional dependencies.
+~ Should {#python-async-package}
+ship a separate package for async support if the async version requires additional dependencies.
 ~
 
 ~ Must {#python-async-namespace}
@@ -410,25 +396,25 @@ Example:
 ~
 
 ~ Must {#python-use-aiohttp}
-use aiohttp as the HTTP stack for async operations
+use [aiohttp](https://aiohttp.readthedocs.io/en/stable/) as the default HTTP stack for async operations.
 ~
 
-~ Must {#python-support-other-async}
-consider supporting async frameworks other than asyncio (i.e. Trio)
+~ Should {#python-support-other-async}
+support async frameworks other than asyncio (i.e. [Trio](https://trio.readthedocs.io/en/latest/))
 ~
 
 ## Testing
 
 ~ Must {#python-use-pytest}
-use pytest as the test framework
+use [pytest](https://docs.pytest.org/en/latest/) as the test framework.
 ~
 
-~ Must {#python-use-pytest-asyncio}
-consider using pytest-asyncio for testing of async code. 
+~ Should {#python-use-pytest-asyncio}
+use [pytest-asyncio](https://github.com/pytest-dev/pytest-asyncio) for testing of async code. 
 ~
 
 ~ Must {#python-test-live-service}
-make your scenario tests runnable against live services
+make your scenario tests runnable against live services. Strongly consider using the (Python Azure-DevTools)[https://github.com/Azure/azure-python-devtools] package for scenario tests.
 ~
 
 ~ Must {#python-test-recordings}
@@ -446,11 +432,7 @@ make each test case independent of other tests
 ## Tooling
 
 ~ Must {#python-use-pylint}
-use pylint for your code.
-~
-
-~ Todo 
-Shared .pylintrc? Probably one per version of Python that is to be supported (e.g. unnescessary `object` inheritence should be avoided for Python3-only code, but is required for code straddling 2.7 and 3.x)
+use [pylint](https://www.pylint.org/) for your code. Use the pylintrc file in the [root of the repository](https://github.com/Azure/azure-sdk-for-python/blob/master/pylintrc).
 ~
 
 ~ Must {#python-use-flake8}
@@ -458,11 +440,11 @@ use [flake8-docstrings](https://gitlab.com/pycqa/flake8-docstrings) to verify do
 ~
 
 ~ Must {#python-use-black}
-use Black for formatting your code.
+use [Black](https://black.readthedocs.io/en/stable/) for formatting your code.
 ~
 
-~ Must {#python-use-mypy}
-consider using MyPy to statically check your code
+~ Should {#python-use-mypy}
+use [MyPy](https://mypy.readthedocs.io/en/latest/) to statically check your code
 ~
 
 ## Documenting your code
