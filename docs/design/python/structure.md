@@ -10,6 +10,11 @@ Getting properties for an individual resource is exposed on the corresponding cl
 
 The most common convenience methods MAY be exposed as module level methods. 
 
+## Client constructors
+
+All clients should take a base url or name, a credentials object and an options object. For any create patterns that cannot easily be expressed this way (i.e. a connection string generally includes both base url and credentials), it should be exposed as a static or class methods named `from_<argument type>` (i.e. `from_connection_string` in the example of a connection string)
+
+
 ### Example structure
 
 ```
@@ -32,6 +37,10 @@ class ExampleServiceClent:
     """
 
     def __init__(self, base_url, credentials, options):
+        ...
+
+    @staticmethod
+    def from_connection_string() -> ExampleServiceClient:
         ...
 
     def get_child_client(self, name) -> ChildClient:
