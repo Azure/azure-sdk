@@ -94,7 +94,6 @@ To graduate to GA, a preview release must:
     + Conceptual documentation for how the service works
     + Samples of common uses cases for the service
 + Bake for at least one month to allow for community feedback
-+ Show evidence of active consumption/usage
 + Have no known critical bugs
 + Have three reference customers external to the Azure organization who have given feedback on the library
 + Rely on non-preview API versions
