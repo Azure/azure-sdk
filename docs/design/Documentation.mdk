@@ -54,9 +54,14 @@ include example code snippets alongside your library's code within the repositor
 
 ~ Must
 build and test your example code snippets using the repository's continuous integration (CI) to ensure they remain functional.
+~
 
 ~ Must
-include the example code snippets in your library's API reference, its README, and the Quickstart. If the language and its tools support it, ingest these snippets directly into your API reference in your library's source code. For example, use the `.. literalinclude::` directive in Python docstrings to instruct Sphinx to [ingest the snippets automatically](http://www.sphinx-doc.org/en/1.5/markup/code.html#includes).
+include the example code snippets in your library's API reference. If the language and its tools support it, ingest these snippets directly into your API reference in your library's source code. For example, use the `.. literalinclude::` directive in Python docstrings to instruct Sphinx to [ingest the snippets automatically](http://www.sphinx-doc.org/en/1.5/markup/code.html#includes).
+~
+
+~ Must
+include example code snippets in the README and Quickstart for the "champion" scenarios defined for your library.
 ~
 
 ~ MustNot
