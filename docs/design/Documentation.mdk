@@ -1,11 +1,11 @@
 ## Documentation
 
-There are several documentation deliverables that must be included in or as a companion to your SDK component. Beyond complete and helpful API documentation within the code itself (the "docstrings"), you need a great README and other supporting documentation.
+There are several documentation deliverables that must be included in or as a companion to your client library. Beyond complete and helpful API documentation within the code itself (the "docstrings"), you need a great README and other supporting documentation.
 
 ### README<span></span>.md
 
 ~ Must
-author a [README](https://github.com/Azure/azure-sdk/blob/master/docs/README-TEMPLATE.md) and include it in your SDK component's folder within the repository. See the [example README](https://github.com/Azure/azure-sdk/blob/master/docs/README-EXAMPLE.md) for Cosmos DB to get an idea for what this should look like.
+author a [README](https://github.com/Azure/azure-sdk/blob/master/docs/README-TEMPLATE.md) and include it in your client library's folder within the repository. See the [example README](https://github.com/Azure/azure-sdk/blob/master/docs/README-EXAMPLE.md) for Cosmos DB to get an idea for what this should look like.
 ~
 
 ~ Must
@@ -15,7 +15,7 @@ include your service's content developer by @mentioning them in the PR for the R
 ### API reference
 
 ~ Must
-completely document every type and their members within your component's code.
+completely document every type and their members within your library's code.
 ~
 
 ~ Must
@@ -43,24 +43,24 @@ use hyperlinks to docs.microsoft.com articles as a substitute for completely doc
 ~
 
 ~ Must
-use automated tools to verify documentation coverage and format in your code. Most languages have at least one linter for verifying in-code documetation. For example, [flake8-docstrings](https://gitlab.com/pycqa/flake8-docstrings) for Python and [DocLint](http://openjdk.java.net/jeps/172) for Java.
+use automated tools to verify documentation coverage and format in your code. Most languages have at least one linter for verifying in-code documentation. For example, [flake8-docstrings](https://gitlab.com/pycqa/flake8-docstrings) for Python and [DocLint](http://openjdk.java.net/jeps/172) for Java.
 ~
 
 ### Code snippets
 
 ~ Must
-include example code snippets alongside your component's code within the repository. The snippets should clearly and succinctly demonstrate the operations most developers need to perform with your library. Include snippets for every common operation, and especially those that are complex or might otherwise difficult for new users of your component.
+include example code snippets alongside your library's code within the repository. The snippets should clearly and succinctly demonstrate the operations most developers need to perform with your library. Include snippets for every common operation, and especially for those that are complex or might otherwise be difficult for new users of your library.
 ~
 
 ~ Must
-build and test your the example code snippets using the repository's continuous integration (CI) to ensure they remain functional.
+build and test your example code snippets using the repository's continuous integration (CI) to ensure they remain functional.
 
 ~ Must
-include the example code snippets in your library's API reference, its README, and the Quickstart. If the language and its tools support it, ingest these snippets directly into your API reference in your component's source code. For example, use the `.. literalinclude::` directive in Python docstrings to instruct Sphinx to [ingest the snippets automatically](http://www.sphinx-doc.org/en/1.5/markup/code.html#includes).
+include the example code snippets in your library's API reference, its README, and the Quickstart. If the language and its tools support it, ingest these snippets directly into your API reference in your library's source code. For example, use the `.. literalinclude::` directive in Python docstrings to instruct Sphinx to [ingest the snippets automatically](http://www.sphinx-doc.org/en/1.5/markup/code.html#includes).
 ~
 
 ~ MustNot
-combine more than one operation in a code snippet unless it's required for demonstrating the API component or concept, or it's *in addition to* existing snippets that demonstrate atomic operations. For example, a Comsos DB code snippet should not include both account and container creation operations--create two different snippets, one for account creation, and one for container creation.
+combine more than one operation in a code snippet unless it's required for demonstrating the type or member, or it's *in addition to* existing snippets that demonstrate atomic operations. For example, a Comsos DB code snippet should not include both account and container creation operations--create two different snippets, one for account creation, and one for container creation.
 ~
 
 ### Quickstart
