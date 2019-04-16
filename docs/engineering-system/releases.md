@@ -99,5 +99,39 @@ Maven supports the [convention](https://cwiki.apache.org/confluence/display/MAVE
 
 Dev and preview Java packages are published direct to the Maven registry.
 
+## Preview Releases and GA Graduation
+
+The Azure SDK team may choose to create a preview release for several reasons:
++ Service itself has features in preview and client library must be updated accordingly
++ Testing and receiving feedback on new API designs
++ Stress and performance testing for new SDK features is incomplete
+
+To create a preview, the release must:
++ Have initial documentation
+    + Full API documentation
+    + A quick start guide for using the SDK
+    + How to guides for champion scenarios
++ Have a clear README file with guidelines for how the community can submit feedback
++ Receive an initial [design review](../ReviewProcess.md) from the architecure board
++ Receive an initial design review from the service team (may be combined with architecure)
++ Ratify shipping dependencies with the service team
+    + If the service must ship before the SDK can ship, establish timeline for preview and GA in the service
+    + If the SDK contains customer-critical features, establish which features these are and what customer expectations exist
++ If changes are substantial, refer to internal documentation for starting a release notification process in support
++ All service features supported by the SDK must be publicly available
+
+To graduate to GA, a preview release must:
++ Have final documentation
+    + Conceptual documentation for how the service works
+    + Samples of common uses cases for the service
++ Bake for at least one month to allow for community feedback
++ Have no known critical bugs
++ Have three reference customers external to the Azure organization who have given feedback on the library
++ Rely on non-preview API versions
++ Pass stress and performance testing and have unit, functional, performance and stress tests meeting maturity stage 1 or higher
++ Receive a [final design review](../ReviewProcess.md) from architecture team
++ Receive final design sign-off from service team
+
+
 ## Deprecation
 Deprecation cycle for released versions is TBD.
