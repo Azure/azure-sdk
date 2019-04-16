@@ -2,15 +2,15 @@
 
 Dependencies bring in many considerations that are often easily avoided by avoiding the dependency. 
 
-- Versioning - Many programming languages do not allow a customer to load multiple versions of the same package. So, if we have an SDK component that requires v3 of package Foo and the customer wants to use v5 of package Foo, then the customer cannot build their application. This means that our SDK components should not have dependencies by default. 
+- Versioning - Many programming languages do not allow a customer to load multiple versions of the same package. So, if we have an client library that requires v3 of package Foo and the customer wants to use v5 of package Foo, then the customer cannot build their application. This means that our client libraries should not have dependencies by default. 
 - Size - Customer applications must be able to deploy as fast as possible onto datacenter virtual machines and move in various other ways across networks. Removing additional code (like dependencies) improves deployment performance.
 - Licensing - You must be conscious of the licensing restrictions of a dependency and often provide proper attribution and notices when using them.
 - Compatibility - Often times, you do not control a dependency and it may choose to evolve in a direction that is incompatible with your original use.
 
-~ ShouldNot
+~ MustNot
 be dependent on any other packages. Dependencies are by exception and need a thorough vetting through architecture review.
 ~
 
 ~ Should
-consider copying or linking required code into the SDK component in order to avoid taking a dependency on another package that could conflict with the ecosystem. Make sure that you are not violating any licensing agreements and consider the maintenance that will be required of the duplicated code. ["A little copying is better than a little dependency"](https://www.youtube.com/watch?v=PAAkCSZUG1c&t=9m28s).
+consider copying or linking required code into the client library in order to avoid taking a dependency on another package that could conflict with the ecosystem. Make sure that you are not violating any licensing agreements and consider the maintenance that will be required of the duplicated code. ["A little copying is better than a little dependency"](https://www.youtube.com/watch?v=PAAkCSZUG1c&t=9m28s).
 ~
