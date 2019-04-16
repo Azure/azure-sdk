@@ -1,44 +1,55 @@
 ## Authentication
-Services across Azure use a variety of different authentication schemes to authenticate clients.  These generally fall into one of three categories.  
+Services across Azure use a variety of different authentication schemes to authenticate clients.  These include but are not limited to:  
 
-  * Unauthenticated / Anonymous access
+  * OAuth token authentication
   * Key based authentication
-  * AAD OAuth Token authentication
+  * Sas token authentication
+  * Unauthenticated / Anonymous access
 
-### Credentials and Authentication Policies
-Credential interfaces and classes provide confidential authentication data needed to authenticate service client requests.  Authentication policies use credential classes to authenticate pipeline requests to the service. It is essential that credential data can be updated as needed across the lifetime of the process, and authentication policies always use the most current credential data. 
+
+Conceptually there are two entities responsible for authenticating service client requests, a credential and an authentication policy.  Credentials provide confidential authentication data needed to authenticate requests.  Authentication policies use the data provided by a credential to authenticate pipeline requests to the service. It is essential that credential data can be updated as needed across the lifetime of a client, and authentication policies must always use the most current credential data. 
+
+### OAuth Token Authentication
+OAuth token authentication via Azure Identity is the prefered mechanism of authenticating service requests.  For services which support OAuth token authentication the following guidelines apply.
 
 ~ Must
-provide service client constructors which accept a common credential type for each authentication schemes the service supports, and apply the appropriate authentication policy to the pipeline to authenticate requests.
+provide service client constructors or factories which accept the token credential type provided in the azure core library.
 ~ 
 
 ~ Must
-provide a service client constructor which does not require a credential for services which support unauthenticated or anonymous requests.
-~ 
-
-~ Must
-accept the most general credential types which can supply the data needed to authenticate request.  I.E. prefer interfaces or abstract classes over specific implementation, and shared interfaces and classes over client library specific ones.
-~ 
-
-~ Should
-use shared library authentication policy implementations where ever possible.
+use token authentication policy implementations provided in the azure core library.
 ~
 
 ~ MustNot
-persist, cache, or reuse data returned from credential classes as this limits the ability to rotate credential data.
+persist, cache, or reuse tokens returned from the token credential.  This is __CRITICAL__ as access tokens have a short validity period and the token credential is responsible refreshing these.
+~
+
+### Alternative Authentication Schemes
+Client libraries __MAY__ support alternative authentication schemes which the service supports.  In this case the following guidelines apply.
+
+~ Must
+provide credential types which can be used to fetch all data needed to authenticate a request to the serivce in a non-blocking atomic manner for each supported alternative authentication scheme.
+~ 
+
+~ Must
+provide service client constructors or factories which accept any credential types provided by the client library which can be used to authenticate calls to the service.
+~ 
+
+~ Must
+provide authentication pipeline policy implementations which can authenticate requests given alternative credential types provided by the client libary.  
+~
+
+~ MustNot
+persist, cache, or reuse data returned from credential .  Any caching or refresh logic should __ONLY__ be implemented by credential types or mechanisms it uses to obtain authentication data. This is __CRITICAL__ to the ability to rotate credential data.
 ~
 
 ### Connection Strings
 Client libraries __MAY__ support providing credential data via a connection string __ONLY IF__ the service provides a connection string to users via the portal or command line tooling.  In this case the following guidelines apply.
 
 ~ Must
-provide a class capable of parsing credential data from service specific connection strings.
-~ 
-
-~ Must
-support updating connection strings across the lifetime of the process. 
+provide service client constructors or factories which accept a connection string.
 ~
 
-~ Should
-derive connection string classes from shared credential interfaces so they can be used with common authentication policies where possible.
+~ Must
+provide authentication pipeline policy implementations which can authenticate requests given the provided connection string.  
 ~
