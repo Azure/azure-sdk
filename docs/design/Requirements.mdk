@@ -1,7 +1,7 @@
 # Release Requirements
 
 Releasing a client library that provides a more convenient means of connecting to a service requires that the service itself be in a state where it has stabilized.
-An client library might be built and available in a preview form whilst a service stabilizes, but should never be distributed as a GA release until the service and the client library are both stable.
+A client library might be built and available in a preview form whilst a service stabilizes, but should never be distributed as a GA release until the service and the client library are both stable.
 
 ~ MustNot {#stable-service}
 make a GA release of an client library until the underlying service is also in GA, with a stable protocol.
