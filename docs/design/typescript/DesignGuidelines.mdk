@@ -100,6 +100,10 @@ follow these conventions where applicable.
 include other files.
 ~
 
+~ MustNot {#ts-no-npmignore}
+use .npmignore files to control which files are included in the package. All files must be added to the package explicitly using the [package.json files key](#ts-package-json-files-required). 
+~
+
 ### Package.json{#ts-package-json}
 
 The following sections describe the package.json file that must be included with every npm package. A compliant package.json file looks like Figure [#ts-figure-package-json]:
