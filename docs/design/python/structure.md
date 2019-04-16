@@ -2,7 +2,8 @@
 
 For services that expose a hierarchy of items, each level above the leaf levels SHOULD have their own corresponding client. The leaf node MAY have an associated client if there is a large number of operations associated with any given instance. Any intermediate levels MAY be omitted by promoting all associated methods to the parent client if the number of methods on the client is low, or if common scenarios require clients to manipulate properties of both the resource and its parent.
 
-Each parent client has a `get_<child>_client` method. The `get_<child>_client` method MUST NOT make a network call. Additionally, child client MUST BE created by providing the path (i.e. URL or list of [grandparent name, parent name, child name]) to the client requested.
+Each parent client has a `get_<child>_client(self, name)` method. The `get_<child>_client(self, name)` method MUST NOT make a network call. 
+Additionally, in addition to getting the client from its parent, it MUST be possible to create a child client created by providing the path (i.e. URL or list of [grandparent name, parent name, child name]) to the client requested.
 
 Creation and deletion of a child resource is exposed on the parent client, as are listing properties for all children.
 
