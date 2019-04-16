@@ -28,7 +28,7 @@ We recommend that every package maintain a changelog just as a matter of course.
 How?
 
 * **.NET:** extend nuspec to include `changelog.md` in the `.nupkg.` 
-* **Java:** add `changelog.md` to the existing artifact list.
+* **Java:** add `<packageid>-changelog.md` to the existing artifact list.
     * Note that the convention here is `<packageIdentifier>.md`. This mirrors the four existing artifacts per package.
 * **JS:** ensure `changelog.md` is included in the package tarball.
 * **Python:** ensure `changelog.md` is present in the `sdist` artifact.
@@ -48,7 +48,7 @@ A given `changelog.md` file must follow the below form:
 
 ```
 
-For clarity, a `change log entry` is simply the header + content up to the next release header OR EOF. During release, if there exists a changelog entry with a version specifier _matching_ that of the currently releasing package, that changelog entry will be added as the body of the GitHub release.
+For clarity, a `change log entry` is simply the header + content up to the next release header OR EOF. During release, if there exists a changelog entry with a version specifier _matching_ that of the currently releasing package, that changelog entry will be added as the body of the GitHub release. 
 
 The [JS ServiceBus SDK](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/changelog.md) maintains a great changelog example. Given that changelog, this is what a [release](https://github.com/Azure/azure-sdk-for-js/releases/tag/%40azure%2Fservice-bus_1.0.0-preview.2) looks like.
 
