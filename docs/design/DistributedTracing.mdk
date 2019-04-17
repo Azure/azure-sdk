@@ -1,6 +1,34 @@
 ## Distributed Tracing {#general-distributed-tracing}
 
-To help developers understand the actions their distributed applications are taking on behalf of a user request, we support distributed tracing paradigms like ["OpenCensus"](https://opencensus.io/). When initiating a user request, a client app creates a root span and initializes it with a TraceId, SpanId, and other optional values. This span information is then added as HTTP headers to the outgoing request. When an incoming HTTP request is received by a service, the incoming HTTP headers (identifying the span) are placed in a "context" object. This context object is passed throughout the server's code (either explicitly or implicitly) that is processing the incoming request. If the service makes an outgoing request on behalf of the user request processing, then it creates a child span (sharing the parent span's TraceId [obtained from the "context"] but with a new SpanId), the new span's information is then added to the outgoing HTTP request's headers when calling the next service following [W3C Trace Context format]( https://w3c.github.io/trace-context/). In addition, an application can create child spans internally to represent a logical operation consisting of multiple operations. For example, a logical span can represent "upload a file" which is accomplished by making multiple service calls to upload the file in blocks to a storage service; each block upload call is a child span of the "upload a file" logical span.
+To help developers understand the actions their distributed applications are taking on behalf of a user request, we support distributed tracing paradigms like ["OpenCensus"](https://opencensus.io/). To understand how this works, see the diagram and text below:
+
+`              HOW A SERVICE MANAGES CONTEXTS FOR DISTRIBUTED TRACING
++----------------------------------------------------------------------------------+
+| INCOMING REQUEST-> | START PROCESSING-> | PROCESSING->  | OUTGOING REQUEST->     |
+|                    |                    |               | (Azure client library) |
+|                    |                    |               |                        |
+| From headers,      | From Context1,     | Flow Context2 | From Context2, create  |
+| create Context1    | create Context2    | through code  | Context3 with child-   |
+|                    | with child-span    |               | span & put Context3    |
+|                    |                    |               | in headers             |
++----------------------------------------------------------------------------------+`
+
+The first 3 boxes (INCOMING REQUEST, START PROCESSING, & PROCESSING) represent code written by the developer. When the developer's service receives an incoming request, it is the developer’s responsibility to create _Context1_ and child-span _Context2_ using whatever tracing technology they like. The customer must then flow _Context2_ through their code using any mechanism that they like.
+
+The last box (OUTGOING REQUEST) represents code inside an Azure client library. The client library defines how the most-recently-created context is passed to it (explicitly or implicitly); this is programming language specific but is consistent for all client libraries within a language SDK. The developer MUST follow this adhere to whatever practice the SDK prescribes.
+
+To enable distributed tracing for client library operations, the developer must initialize the client library with an object implementing an interface of 3 methods (StartSpan, Inject, & EndSpan) and the Azure client library invokes the interface methods as follows:
+
+1. StartSpan: The client library obtains the most-recently-created context and invokes the StartSpan method passing it the context and information about the Azure service operation being performed. StartSpan creates a new context with a new child span about the Azure service operation and returns this new context.
+
+2. Inject: A client library pipeline policy invokes the Inject method passing it the context returned from #1 and an HTTP request object. Inject adds the desired distributed tracing headers to the HTTP request and the pipeline's Transport policy sends this request to the appropriate Azure service.
+
+3. EndSpan: When the Azure service replies, the client library code that called StartSpan now calls EndSpan passing it the context created in #1 and the HTTP response (or exception) that occurred. EndSpan sets the status/exception and ends the span.
+
+******************** IGNORE EVERYTHING BELOW HERE ******************************************
+----------------------------------------------------------------------------------------------------
+
+When initiating a user request, a client app creates a root span and initializes it with a TraceId, SpanId, and other optional values. This span information is then added as HTTP headers to the outgoing request. When an incoming HTTP request is received by a service, the incoming HTTP headers (identifying the span) are placed in a "context" object. This context object is passed throughout the server's code (either explicitly or implicitly) that is processing the incoming request. If the service makes an outgoing request on behalf of the user request processing, then it creates a child span (sharing the parent span's TraceId [obtained from the "context"] but with a new SpanId), the new span's information is then added to the outgoing HTTP request's headers when calling the next service following [W3C Trace Context format]( https://w3c.github.io/trace-context/). In addition, an application can create child spans internally to represent a logical operation consisting of multiple operations. For example, a logical span can represent "upload a file" which is accomplished by making multiple service calls to upload the file in blocks to a storage service; each block upload call is a child span of the "upload a file" logical span.
 
 ~ Must {#general-distributed-tracing}
 For outgoing HTTP requests, the client library MUST use the current context (or create a parent context if no context already exists) to add a child span. The span's Name should indicate the service operation being invoked, SpanKind should be Client, and StartTime should be set to the current UTC time.
