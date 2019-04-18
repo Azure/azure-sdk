@@ -1,0 +1,23 @@
+## Versioning {#general-versioning}
+
+~ MustNot {#general-versioning-compat}
+introduce breaking changes between versions of a client library that cannot be loaded side-by-side.
+
+Breaking change is defined as existing source code or binary, written using a version of a library, does not compile or run when upgraded to a newer verion of the same library.
+~
+
+~ MustNot {#general-versioning-sxs}
+introduce side-by-side loadable alternatives to existing libraries, except when explicitly approved by the Azure SDK team.
+
+Side-by-side loadable libraries seem like a good option for library designers who want to make breaking changes while giving customers an option to not have to change their code, but this approach is also riddled with very sevre problems.
+~
+
+~ Must {#general-versioning-apiversion}
+provide the ability to call a specific supported version of the service API from a single client library. 
+
+A particular verion of a library can choose what service APIs versions it supports, but we recommend the support window to be no less than two service versions (if avaliable) and no less than what specified in [Fixed Lifecycle Policy for Microsoft business, developer and desktop operating systems](https://support.microsoft.com/en-us/help/14085)
+ ~
+
+~ Must {#general-versioning-apiversion-drop}
+Change major library verion when dropping support for a service API version.
+~
