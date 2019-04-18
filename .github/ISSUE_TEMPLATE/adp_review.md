@@ -22,7 +22,7 @@ Thank you for starting the process for approval of the client library for your A
 
 * Name of the client library:
 * Target language for this review:
-* Other languages that are to be targetted:
+* Other languages that are to be targeted:
     * **NOTE** You should submit additional requests for each additional language.
 * Link to the service REST APIs:
 * Link to the reference documentation:
