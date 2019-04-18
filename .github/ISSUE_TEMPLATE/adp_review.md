@@ -12,7 +12,7 @@ Thank you for starting the process for approval of the client library for your A
 
 ## The Basics
 
-* Service team is responsible for the client library:
+* Service team responsible for the client library:
 * Link to documentation describing the service:
 * Contact email (if service team, provide PM and Dev Lead):
 * Expected code complete date:
