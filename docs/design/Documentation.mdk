@@ -1,27 +1,48 @@
-## Documentation
+## Documentation {#general-documentation}
 
-There are several documentation deliverables that must be included in or as a companion to your client library. Beyond complete and helpful API documentation within the code itself (the "docstrings"), you need a great README and other supporting documentation.
+There are several documentation deliverables that must be included in or as a companion to your client library. Beyond complete and helpful API documentation within the code itself (docstrings), you need a great README and other supporting documentation.
 
-### README<span></span>.md
+* [README.md](#general-documentation-readme) - Resides in the root of your library's directory within the SDK repository; includes package installation and library usage information (code snippets). [[example](https://github.com/Azure/azure-sdk/blob/master/docs/README-EXAMPLE.md)]
+* [API reference](#general-documentation-api-reference) - Generated from the docstrings in your code; published on docs.microsoft.com. [[example](https://docs.microsoft.com/python/api/azure-batch/azure.batch?view=azure-python)]
+* [Code snippets](#general-documentation-code-snippets) - Short code examples that demonstrate single (atomic) operations for the champion scenarios you've identified for your library; included in your README, docstrings, and Quickstart. [[example](https://github.com/binderjoe/cosmos-python-prototype/blob/master/examples/examples.py)]
+* [Quickstart](#general-documentation-quickstart) - Article on docs.microsoft.com that is similar to but expands on the README content; typically written by your service's content developer. [[example](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-python)]
+* **Conceptual** - Long-form documentation like Quickstarts, Tutorials, How-to guides, and other content on docs.microsoft.com; typically written by your service's content developer. [[example](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)]
+
+### General guidelines  {#general-documentation-guidelines}
 
 ~ Must
-author a [README](https://github.com/Azure/azure-sdk/blob/master/docs/README-TEMPLATE.md) and include it in your client library's folder within the repository. See the [example README](https://github.com/Azure/azure-sdk/blob/master/docs/README-EXAMPLE.md) for Cosmos DB to get an idea for what this should look like.
+adhere to the specifications set forth in the Microsoft style guides when you write public-facing documentation. This applies to both long-form documentation like a README and the docstrings in your code.
+
+* [Microsoft Writing Style Guide](https://worldready.cloudapp.net/StyleGuide/Read?id=2700)
+* [Microsoft Cloud Style Guide](https://worldready.cloudapp.net/Styleguide/Read?id=2696)
+~
+
+~ Should
+attempt to document your library into silence. Preempt developers' usage questions and minimize GitHub issues by clearly explaining your API in the docstrings. Include information on service limits and errors they might hit, and how to avoid and recover from those errors.
+
+As you write your code, *doc it so you never hear about it again.* The less questions you have to answer about your library, the more time you have to build things.
+~
+
+### README<span></span>.md  {#general-documentation-readme}
+
+~ Must
+author a [README](https://github.com/Azure/azure-sdk/blob/master/docs/README-TEMPLATE.md) and include it in your client library's folder within the repository. See the [example README](https://github.com/Azure/azure-sdk/blob/master/docs/README-EXAMPLE.md) for Cosmos DB to get an idea for what it should look like.
 ~
 
 ~ Must
-include your service's content developer by @mentioning them in the PR for the README (if your service has an assigned content developer).
+include your service's content developer by @mentioning them in the PR for the README. To find the content developer you should work with, check with your team's Program Manager.
 ~
 
-### API reference
+### API reference  {#general-documentation-api-reference}
 
-*"Doc it so you never hear about it again."*
+Your library's API reference documentation on docs.microsoft.com is generated from the docstrings in your code using standard tools for each language, for example Sphinx for Python and TypeDoc for TypeScript. It's critical that you dedicate time to documenting your API well so that consumers of your library can use it.
 
 ~ Must
 document every public-facing member within your library's code.
 ~
 
 ~ Must
-include [code snippets](#code-snippets) for commonly used operations within your library.
+include [code snippets](#general-documentation-code-snippets) for commonly used operations within your library.
 ~
 
 ~ MustNot
@@ -41,25 +62,29 @@ document the errors returned by the library. Indicate which errors should be ha
 ~
 
 ~ Should
-include hyperlinks from the reference documentation to conceptual articles on docs.microsoft.com when they're available.
+include hyperlinks in your docstrings to conceptual articles on docs.microsoft.com when available and appropriate. Link to Quickstarts, Tutorials, How-to guides, and Concepts that augment the docstrings in your code. For example, link to [Partitioning in Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview) in the docstring for a class or method that works with Cosmos DB partition keys.
 ~
 
 ~ MustNot
 use hyperlinks to docs.microsoft.com articles as a substitute for completely documenting a type or member.
 ~
 
+~ MustNot
+include a locale identifier (for example, `en-us`) in docs.microsoft.com hyperlinks. Remove the locale identifier portion of the URL to allow browsers to redirect to the correct localized version of the content.
+~
+
 ~ ShouldNot
-link to non-Microsoft properties unless you've obtained approval for the link. We have less control over content on non-Microsoft sites which can lead to higher frequency of 404s and stale or mismatched content, with no other recourse than modifying the hyperlink in source code.
+link to content on non-Microsoft properties. Because we have less control over such content, doing so can lead to higher frequency of 404s and stale or mismatched content, with no other recourse than modifying the hyperlink in source code.
 ~
 
 ~ Must
-use automated tools to verify documentation coverage and format in your code. Most languages have at least one linter for verifying in-code documentation. For example, [flake8-docstrings](https://gitlab.com/pycqa/flake8-docstrings) for Python.
+use automated tools to verify documentation coverage and formatting in your code. Most languages have at least one linter for verifying in-code documentation. For example, [flake8-docstrings](https://gitlab.com/pycqa/flake8-docstrings) for Python.
 ~
 
-### Code snippets
+### Code snippets {#general-documentation-code-snippets}
 
 ~ Must
-include example code snippets alongside your library's code within the repository. The snippets should clearly and succinctly demonstrate the operations most developers need to perform with your library. Include snippets for every common operation, and especially for those that are complex or might otherwise be difficult for new users of your library.
+include example code snippets alongside your library's code within the repository. The snippets should clearly and succinctly demonstrate the operations most developers need to perform with your library. Include snippets for every common operation, and especially for those that are complex or might otherwise be difficult for new users of your library. At a bare minimum, include snippets for the champion scenarios you've identified for the library.
 ~
 
 ~ Must
@@ -67,38 +92,25 @@ build and test your example code snippets using the repository's continuous inte
 ~
 
 ~ Must
-include the example code snippets in your library's API reference. If the language and its tools support it, ingest these snippets directly into your API reference in your library's source code. For example, use the `.. literalinclude::` directive in Python docstrings to instruct Sphinx to [ingest the snippets automatically](http://www.sphinx-doc.org/en/1.5/markup/code.html#includes).
+include the example code snippets in your library's docstrings so they appear in its API reference. If the language and its tools support it, ingest these snippets directly into the API reference from within the docstrings. For example, use the `.. literalinclude::` directive in Python docstrings to instruct Sphinx to [ingest the snippets automatically](http://www.sphinx-doc.org/en/1.5/markup/code.html#includes).
 ~
 
 ~ Must
-include example code snippets in the README and Quickstart for the "champion" scenarios defined for your library.
+include example code snippets in the README and Quickstart for the champion scenarios defined for your library.
 ~
 
 ~ MustNot
 combine more than one operation in a code snippet unless it's required for demonstrating the type or member, or it's *in addition to* existing snippets that demonstrate atomic operations. For example, a Comsos DB code snippet should not include both account and container creation operations--create two different snippets, one for account creation, and one for container creation.
 
-Combined operations cause unnecessary friction for a library consumer by requiring knowledge of the operations outside the their current focus. It requires them to first understand the tangential code surrounding the operation they're working on, then carefully extract just code they need for their task. The developer can no longer simply copy and paste the code snippet into their solution.
+Combined operations cause unnecessary friction for a library consumer by requiring knowledge of additional operations which might be outside their current focus. It requires them to first understand the tangential code surrounding the operation they're working on, then carefully extract just the code they need for their task. The developer can no longer simply copy and paste the code snippet into their project.
 ~
 
-### Quickstart
+### Quickstart  {#general-documentation-quickstart}
 
 ~ Must
-ensure a Quickstart is published on docs.microsoft.com that helps developers get started with the library. If your service has an assigned content developer, let them know when your README is complete so they can base the Quickstart on your README. If your service doesn't have an assigned content developer, write your Quickstart by following [How to write an Azure client library Quickstart](https://review.docs.microsoft.com/en-us/help/contribute/contribute-how-to-write-library-quickstart?branch=pr-en-us-1752) (currently in *preview*).
-~
+ensure a Quickstart is published on docs.microsoft.com that helps developers get started with the library.
 
-### General guidelines
+If your service has an assigned content developer, let them know when your README is complete so they can base the Quickstart on your README. If your service doesn't have an assigned content developer, write your Quickstart by following [How to write an Azure client library Quickstart](https://review.docs.microsoft.com/en-us/help/contribute/contribute-how-to-write-library-quickstart?branch=pr-en-us-1752) (currently in preview).
 
-*"Doc it so you never hear about it again."*
-
-~ Must
-document your library into silence. Preempt developers' usage questions before they ask. Minimize GitHub issues you have to respond to by clearly explaining your API in the docstrings. Providing information on service limits and errors they might encounter, and how to avoid and recover from those errors.
-
-The less questions you have to answer about your library, the more time you have to build things.
-~
-
-~ Must
-adhere to the specifications set forth in the Microsoft style guides for public-facing documentation. This applies to both long-form documentation like a README and the docstrings in your code.
-
-* [Microsoft Writing Style Guide](https://worldready.cloudapp.net/StyleGuide/Read?id=2700)
-* [Microsoft Cloud Style Guide](https://worldready.cloudapp.net/Styleguide/Read?id=2696)
+To find the content developer you should work with, check with your team's Program Manager.
 ~
