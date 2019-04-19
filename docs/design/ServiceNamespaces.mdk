@@ -1,17 +1,17 @@
 ## Namespaces and Grouping
 
-Some languages have namespace concerns.  Grouping services is common, aids discoverability, and provides hints and structure to reference documentation.  
+Some languages have a concept of namespaces to group related types.  Grouping services within a cloud infrastructure is common since it aids discoverability and provides structure to the reference documentation.
 
 ~ Must {#general-namespace-startswith}
 start the namespace with "Azure" or "com.azure" or similar to indicate an Azure client library.
 ~
 
 ~ Must {#general-namespace-serviceclient}
-use the service name as the terminal package name.
+pick a terminal package name that allows the consumer to tie the namespace to the service being used.  As a default, use the service name.  The namespace does **NOT** change when the branding of the product changes.
 ~
 
 ~ Must {#general-namespace-split-management-api}
-place the management (ARM) API in the "management" group.  Use the grouping `<Azure>.management.<ServiceName>` for the namespace.
+place the management (ARM) API in the "management" group.  Use the grouping `<Azure>.management.<Group>.<ServiceName>` for the namespace.
 ~
 
 ~ MustNot {#general-namespace-avoid-ambiguity}
@@ -20,16 +20,15 @@ choose similar names for clients that do different things.
 
 ~ Must {#general-namespace-names}
 use the following list as the group of services (if the target language supports namespaces):
-- `ai` for client libraries dealing with artificial intelligence or machine learning
+- `ml` for client libraries dealing with machine learning
 - `analytics` for client libraries that gather data
 - `data` for client libraries that handle databases or structured data stores
-- `identity` for client libraries that manage user identities
 - `iot` for client libraries dealing with the Internet of Things
 - `management` for client libraries accessing the control plane (ARM)
 - `media` for client libraries that deal with audio, video, or mixed reality
-- `security` for client libraries dealing with security
+- `security` for client libraries dealing with security (including authentication and authorization)
 - `storage` for client libraries that handle unstructured data
-- `mobile` for client libraries that specifically target mobile use cases
+- `messaging` for client libraries that provide messaging services, such as push notifications or pub-sub.
 ~
 
 In cases where namespaces are supported, the namespace should be named `<AZURE>.<group>.<service>`.  All consumer-facing APIs that are commonly used should exist within this namespace.  Here:
@@ -38,12 +37,12 @@ In cases where namespaces are supported, the namespace should be named `<AZURE>.
 - `<service>` is the service name represented as a single word
 
 Here are some examples of good selections (from the .NET world):
-- `Azure.Data.CosmosDB`
-- `Azure.Identity.AzureActiveDirectory`
-- `Azure.IoT.IoTHub`
-- `Azure.Storage.BlobStorage`
-- `Azure.Mobile.NotificationHubs` (the client library for Notification Hubs)
-- `Azure.Management.NotificationHubs` (the management client for Notification Hubs)
+- `Azure.Data.Cosmos`
+- `Azure.Identity.ActiveDirectory`
+- `Azure.IoT.DeviceProvisioning`
+- `Azure.Storage.Blob`
+- `Azure.Messaging.NotificationHubs` (the client library for Notification Hubs)
+- `Azure.Management.Messaging.NotificationHubs` (the management client for Notification Hubs)
 
 Here are some bad examples:
 - `Microsoft.Azure.CosmosDB` (not in the Azure namespace, no grouping)
