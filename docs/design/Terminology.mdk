@@ -1,0 +1,44 @@
+## Terminology {#general-terminology}
+
+Throughout these documents, the following terms should be understood:
+
+Azure SDK
+  ~ The collection of _client libraries_ for a single target language, used for accessing Azure services.
+Azure Core
+  ~ A dependency of many client libraries.  The Azure Core library provides access to the HTTP pipeline, common credential types, and other types that are appropriate to the Azure SDK as a whole.
+Client Library
+  ~ A library (and associated tools, documentation, and samples) that _consumers_ use to ease working with an Azure service.  There is generally a client library per Azure service and per target language.  Sometimes a single client library will contain the ability to connect to multiple services.
+Consumer
+  ~ Where appropriate to disambiguate between the various types of developers, we use the term _consumer_ to indicate the developer who is using a client library in an app to connect to an Azure service.
+Docstrings
+  ~ The comments embedded within the code that describe the API surface being implemented.  The _docstrings_ are extracted and post-processed during the build to generate API reference documentation.
+Library Developer
+  ~ Where appropriate to disambiguate between the various types of developers, we use the term _library developer_ to indicate the developer who is writing a client library.
+Package
+  ~ A client library after it has been packaged for distribution to consumers.  Packages are generally installed using a package manager from a package repository.
+Package Repository
+  ~ Each client library is published separately to the appropriate language-specific package repository.  For example, we distribute JavaScript libraries to npmjs.org (also known as the NPM Registry), and Python libraries to PyPI.  These releases are performed exclusively by the Azure SDK engineering systems team.  Consumers install packages using a package manager.  For example, a JavaScript consumer might use yarn, npm, or similar, whereas a Python consumer will use pip to install packages into their project.
+
+## Requirements {#general-requirements-definitions}
+
+Note the following definitions for requirements:
+
+~ Must
+adopt this requirement for the client library.  Exception is by prior approval of the ADP Architecture Board only.
+~
+
+~ MustNot
+adopt this requirement for the client library.  Exception is by prior approval of the ADP Architecture Board only.
+~
+
+~ Should
+strongly consider this requirement for the client library.  If varying from this advice, note the fact during the client library board review.
+~
+
+~ ShouldNot
+be considering this requirement for the client library.  If varying from this advice, note the fact during the client library board review.
+~
+
+~ May
+consider this advice if appropriate.  No notification to the architecture board is required.
+~
