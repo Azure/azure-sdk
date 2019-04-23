@@ -1,0 +1,33 @@
+## Versioning
+
+Consistent versioning allows consumers to determine what to expect from a new version of the library.  However, versioning rules tend to be very idiomatic to the language.  The engineering system release guidelines require the use of _MAJOR_._MINOR_._PATCH_ format for the version.
+
+~ Must {#general-versioning-bump}
+change the version number of the client library when **ANYTHING** changes in the client library.
+~
+
+~ Must {#general-versioning-patch}
+increment the patch version when fixing a bug.
+~
+
+~ MustNot {#general-versioning-no-features-in-patch}
+include new features in a patch release.
+~
+
+~ Must {#general-versioning-adding-features}
+increment the major or minor version when adding support for a service API version, or add a backwards-compatible feature.
+~
+
+~ MustNot {#general-versioning-no-breaking-changes}
+make breaking changes.  If a breaking change is absolutely required, then you **MUST** engage with the ADP Architecture Board prior to making the change.
+~
+
+~ Should {#general-versioning-major-bump}
+increment the major version when making large feature changes.
+~
+
+~ Must {#general-versioning-serviceapi-support}
+provide the ability to call a specific supported version of the service API.
+~
+
+A particular (major.minor) version of a library can choose what service APIs it supports.  We recommend the support window be no less than two service versions (if available) and no less than what is specified in the [Fixed Lifecycle Policy for Microsoft business, developer, and desktop systems](https://support.microsoft.com/en-us/help/14085).
