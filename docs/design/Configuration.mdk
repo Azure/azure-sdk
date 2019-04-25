@@ -81,11 +81,10 @@ support the following AAD-related environment variables if the servive supports 
 | AZURE_SUBSCRIPTION_ID| Azure subscription |
 | AZURE_USERNAME       | Azure username for U/P Auth |
 | AZURE_PASSWORD       | Azure password for U/P Auth |
-| CLIENT_ID            | AAD Item |
-| DOMAIN               | AAD Item |
-| APPLICATION_SECRET   | AAD Item |
+| CLIENT_ID            | AAD |
+| DOMAIN               | AAD |
+| APPLICATION_SECRET   | AAD |
 | AZURE_RESOURCE_GROUP | Azure RG |
-| AZURE_SUBSCRIPTION   | Used by Como, different from SUBSCRIPTION_ID? |
 ~~
 ~
 
@@ -230,3 +229,7 @@ use the `@azure/core-configuration` package which implements the above guideline
 2. Do we support environment variables for versions (e.g. AZURE_SDK_PROFILE or somesuch)
 3. How does ASPNet configuration integration work in practice?
 4. Do we need to opt out of environment entirely with an environment variable? (E.g. AZURE_NO_ENVIRONMENT)
+5. Configuration for tracing?
+6. Support for all global configuration keys in a service-specific part of the configuration hierarchy?
+7. Hierarchical environment variables with double-underscore?
+8. Default protocol?
