@@ -98,7 +98,7 @@ support configuration of the HTTP Pipeline via the following environment variabl
 | AZURE_HTTP_RETRY_STRATEGY | Exponential or Linear |
 | AZURE_HTTP_BASE_DELAY | Base delay for exponential retry |
 | AZURE_HTTP_MAX_DELAY | Max delay for exponential retry |
-| AZURE_DISABLE_TELEMETRY | Disables telemetry |
+| AZURE_TELEMETRY_DISABLE | Disables telemetry |
 | AZURE_LOG_LEVEL | Enable logging by setting a log level. |
 ~~
 ~
@@ -112,7 +112,7 @@ use this syntax for environment variables specific to a particular Azure service
 
 `AZURE_<ServiceName>_<ConfigurationKey>`
 
-ServiceName is the Azure namespace (see naming) with spaces removed (not replaced by underscores).
+ServiceName is the canonical shortname without spaces (see note below).
 
 ConfigurationKey refers to an un-nested configuration key for that library.
 ~
@@ -120,7 +120,6 @@ ConfigurationKey refers to an un-nested configuration key for that library.
 ~ Note
 The service name component should be standardized across libraries. A mapping of all service names to a canonical shortname will be provided, and that canonical shortname should be used as the service name. All Azure SDKs must process environment variables in a similar way.
 ~
-
 
 ~ Draft
 Another alternative is double-underscores as a path separator in environment variables. This convention seems somewhat common (and is common in ASPNET environments) and means we can map any nested configuration key to an environment variable without any ambiguity. Unfortunately it makes environment variables more verbose. 
@@ -199,7 +198,7 @@ allow different clients of the same type to use different configurations.
 ~
 
 ~ Must
-allow clients to opt out of all global configuration settings at once
+allow clients to opt out of all global configuration settings at once.
 ~
 
 ~ Must
@@ -207,7 +206,11 @@ allow all global configuration settings to be overridden by client-provided opti
 ~
 
 ~ MustNot
-change behavior based on configuration changes that occur after the client is constructed. The only exceptions to this are the logging and HTTP Agent singletons.
+change behavior based on configuration changes that occur after the client is constructed.
+~
+
+~ Note
+Logging and http agent are perhaps exceptions to the above - would users be surprised if they try to "enable" logging by swapping out the core logger implementation after clients have already been constructed?
 ~
 
 ~ Note
@@ -219,8 +222,36 @@ Parameterless constructors that depend on implicit global configuration are desi
 
 ### JS-Specific Configuration Requirements
 
+~ Todo
+Move this to the JS section.
+~
+
 ~ Must
 use the `@azure/core-configuration` package which implements the above guidelines for the JS SDK.
+~
+
+~ Example {caption: "Example JSON configuration file"}
+
+```json
+{
+    "telemetry": {
+        "disable": true
+    },
+    "http": {
+        "maxRetries": 3
+        "proxy": "http://..." 
+    },
+    "cosmos": {
+        connectionString: "..."
+    },
+    "storageCloud": {
+        connectionString: "..."
+    },
+    "storageStack": {
+        connectionString: "..."
+    },
+}
+```
 ~
 
 ### Open Questions
