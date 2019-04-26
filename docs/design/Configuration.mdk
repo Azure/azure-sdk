@@ -1,9 +1,44 @@
 ## Configuration
 
-~ Must
-allow any customer configuration or customization via SDK functions or properties as this allows the customer code to determine how to configure SDK options and also how to expose those SDK options to the customer's users.
+Each client library uses a HTTP pipeline to communicate with the Azure service.  There are certain settings that must be set globally.
+
+~ Must {#general-configuration-allow-global-setting}
+allow the consumer to set the following settings globally (across an entire Azure SDK):
+
+* Proxy
+* Identity / Authentication
+* Telemetry 
+* Logging
+* Distributed Tracing
 ~
 
-~ MustNot
-allow any customer configuration or customization via a shared resource like a file or environment variable as this prevents different configurations to exist at the same time.
+~ Must {#general-configuration-allow-override}
+allow the consumer to override global settings (in code) on a per-client library basis.
 ~
+
+~ Must {#general-configuration-allow-environment-variables}
+pick up defaults from the following environment variables:
+
+| Setting Group | Environment Variable | Usage                                  |
+|:--------------|:---------------------|:---------------------------------------|
+| Proxy         | HTTP_PROXY           | URI of the proxy for HTTP connections  |
+| Proxy         | HTTPS_PROXY          | URI of the proxy for HTTPS connections |
+| Proxy         | NO_PROXY             | List of hosts or CIDR to not proxy     |
+| Identity      | MSI_SECRET           | Automatically generated secret for MSI |
+| Telemetry     | AZURE_USER_AGENT     | User agent to use for HTTP requests    |
+| Logging       | AZURE_LOG_LEVEL      | Minimum log level to log               |
+| Logging       | AZURE_LOG_LOCATION   | Log location (e.g. console)            |
+| Dist. Tracing | AZURE_NO_TRACING     | If set, disables distributed tracing   |
+~
+
+~ Must {#general-configuration-allow-user-override}
+allow the consumer to override the global configuration established by environment variables in code.
+~
+
+The default configuration bundle (including the implementation of environment variables) is done within the Azure Core package for supported languages.  The Azure Core package will provide suitable defaults:
+
+* No proxy is configured.
+* Identity is configured for either MSI (if MSI_SECRET is available) or anonymous credentials.
+* User agent provides detailed telemetry.
+* No logging is enabled.
+* Distributed tracing is enabled.
