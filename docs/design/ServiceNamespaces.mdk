@@ -7,7 +7,7 @@ start the namespace with "Azure" or "com.azure" or similar to indicate an Azure 
 ~
 
 ~ Must {#general-namespace-serviceclient}
-pick a terminal package name that allows the consumer to tie the namespace to the service being used.  As a default, use the service name.  The namespace does **NOT** change when the branding of the product changes.
+pick a package name that allows the consumer to tie the namespace to the service being used.  As a default, use the service name at the end of the namespace.  The namespace does **NOT** change when the branding of the product changes, so avoid the use of marketing names that may change.  (See below for examples)
 ~
 
 ~ Must {#general-namespace-split-management-api}
@@ -29,6 +29,11 @@ use the following list as the group of services (if the target language supports
 - `security` for client libraries dealing with security (including authentication and authorization)
 - `storage` for client libraries that handle unstructured data
 - `messaging` for client libraries that provide messaging services, such as push notifications or pub-sub.
+~
+
+
+~ Must {#general-namespace-register}
+register the chosen namespace with the ADP board.  To do this, open an issue in the [azure-sdk](https://github.com/azure/azure-sdk/issues) repository on GitHub.
 ~
 
 In cases where namespaces are supported, the namespace should be named `<AZURE>.<group>.<service>`.  All consumer-facing APIs that are commonly used should exist within this namespace.  Here:
