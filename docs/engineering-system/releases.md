@@ -19,7 +19,38 @@ Because each language repository contains multiple packages inside of it, releas
 
 ## GitHub Releases
 
-We use GitHub releases as a convenient place to put release notes. The change log and any additional notes will be available here. No artifacts are published to the github release. Instead, use a supported package registry.
+We use GitHub releases as a convenient place to put release notes. The change log and any additional notes will be available here. ES automation will automatically publish release notes to a GitHub release if the changelog guidance below is followed. No artifacts are published to the GitHub release. Instead, use a supported package registry.
+
+## ChangeLog Guidance
+
+We recommend that every package maintain a changelog just as a matter of course. However, there is an additional benefit. Ensuring that a `changelog.md` file is both available and formatted appropriately will result in automatically formatted release notes on each GitHub release. 
+
+How?
+
+* **.NET:** extend nuspec to include `changelog.md` in the `.nupkg.` 
+* **Java:** add `<packageid>-changelog.md` to the existing artifact list.
+    * Note that the convention here is `<packageIdentifier>.md`. This mirrors the four existing artifacts per package.
+* **JS:** ensure `changelog.md` is included in the package tarball.
+* **Python:** ensure `changelog.md` is present in the `sdist` artifact.
+
+A given `changelog.md` file must follow the below form:
+
+```
+# <versionSpecifier>
+<content. as long as it doesn't introduce another header that looks like the one above>
+
+...
+
+# <older versionSpecifier>
+<content/changes for the older release>
+
+... older release details trail off into history below
+
+```
+
+For clarity, a `change log entry` is simply the header + content up to the next release header OR EOF. During release, if there exists a changelog entry with a version specifier _matching_ that of the currently releasing package, that changelog entry will be added as the body of the GitHub release. 
+
+The [JS ServiceBus SDK](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/changelog.md) maintains a great changelog example. Given that changelog, this is what a [release](https://github.com/Azure/azure-sdk-for-js/releases/tag/%40azure%2Fservice-bus_1.0.0-preview.2) looks like.
 
 ## Release Cycle
 
@@ -67,6 +98,40 @@ Maven supports the [convention](https://cwiki.apache.org/confluence/display/MAVE
 + `X.Y.Z-preview.N`
 
 Dev and preview Java packages are published direct to the Maven registry.
+
+## Preview Releases and GA Graduation
+
+The Azure SDK team may choose to create a preview release for several reasons:
++ Service itself has features in preview and client library must be updated accordingly
++ Testing and receiving feedback on new API designs
++ Stress and performance testing for new SDK features is incomplete
+
+To create a preview, the release must:
++ Have initial documentation
+    + Full API documentation
+    + A quick start guide for using the SDK
+    + How to guides for champion scenarios
++ Have a clear README file with guidelines for how the community can submit feedback
++ Receive an initial [design review](../ReviewProcess.md) from the architecure board
++ Receive an initial design review from the service team (may be combined with architecure)
++ Ratify shipping dependencies with the service team
+    + If the service must ship before the SDK can ship, establish timeline for preview and GA in the service
+    + If the SDK contains customer-critical features, establish which features these are and what customer expectations exist
++ If changes are substantial, refer to internal documentation for starting a release notification process in support
++ All service features supported by the SDK must be publicly available
+
+To graduate to GA, a preview release must:
++ Have final documentation
+    + Conceptual documentation for how the service works
+    + Samples of common uses cases for the service
++ Bake for at least one month to allow for community feedback
++ Have no known critical bugs
++ Have three reference customers external to the Azure organization who have given feedback on the library
++ Rely on non-preview API versions
++ Pass stress and performance testing and have unit, functional, performance and stress tests meeting maturity stage 1 or higher
++ Receive a [final design review](../ReviewProcess.md) from architecture team
++ Receive final design sign-off from service team
+
 
 ## Deprecation
 Deprecation cycle for released versions is TBD.
