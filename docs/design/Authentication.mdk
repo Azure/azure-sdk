@@ -1,19 +1,11 @@
 ## Authentication
-Services across Azure use a variety of different authentication schemes to authenticate clients.  These include but are not limited to:  
-
-  * OAuth token authentication
-  * Key based authentication
-  * Sas token authentication
-  * Unauthenticated / Anonymous access
-
-
-Conceptually there are two entities responsible for authenticating service client requests, a credential and an authentication policy.  Credentials provide confidential authentication data needed to authenticate requests.  Authentication policies use the data provided by a credential to authenticate pipeline requests to the service. It is essential that credential data can be updated as needed across the lifetime of a client, and authentication policies must always use the most current credential data. 
+Services across Azure use a variety of different authentication schemes to authenticate clients. Conceptually there are two entities responsible for authenticating service client requests, a credential and an authentication policy.  Credentials provide confidential authentication data needed to authenticate requests.  Authentication policies use the data provided by a credential to authenticate requests to the service. It is essential that credential data can be updated as needed across the lifetime of a client, and authentication policies must always use the most current credential data. 
 
 ### OAuth Token Authentication
 OAuth token authentication via Azure Identity is the prefered mechanism of authenticating service requests.  For services which support OAuth token authentication the following guidelines apply.
 
 ~ Must
-provide service client constructors or factories which accept the token credential type provided in the azure core library.
+provide the ability to provide specify a token credential during service client construction.
 ~ 
 
 ~ Must
@@ -21,7 +13,7 @@ use token authentication policy implementations provided in the azure core libra
 ~
 
 ~ MustNot
-persist, cache, or reuse tokens returned from the token credential.  This is __CRITICAL__ as access tokens have a short validity period and the token credential is responsible refreshing these.
+persist, cache, or reuse tokens returned from the token credential.  This is __CRITICAL__ as access tokens have a short validity period and the token credential is responsible for refreshing these.
 ~
 
 ### Alternative Authentication Schemes
