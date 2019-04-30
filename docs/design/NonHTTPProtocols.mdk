@@ -1,0 +1,23 @@
+## Non-HTTP Protocols {#general-Non-HTTP-Protocols}
+
+Most Azure services expose their functionality via an HTTP protocol interface. However, a few services use AMQP (Service Bus, Event Hubs) and MQTT (IoT). This topic discusses how to consider the client library's "pipeline" for these non-HTTP protocols. 
+
+It is important to note that the Azure SDK team is using off-the-shelf, public, open-source AMQP & MQTT libraries and therefor, we do not have complete control over the code that actually performs the network operations. 
+
+It is also important to understand that the non-HTTP protocols create connections between the client & the service and re-use the existing connection. This is unlike HTTP where each request can establish a new connection. For HTTP, the "pipeline" executes per-operation (which is also per-connection). For non-HTTP protocols, the "pipeline" must be split into 2 parts: a per-connection part and a per-operation part.
+
+~ MustNot {#general-Non-HTTP-Protocols}
+expose any of the underlying off-the-shelf protocol libary; it should be treated as an internal implementation detail.
+~
+
+~ Must {#general-Non-HTTP-Protocols}
+for a connection, the client library must support credentials and proxy over WebSockets.
+~
+
+~ Must {#general-Non-HTTP-Protocols}
+for protocols supporting "headers" (like AMQP), support the following per-operation pipeline policies: UniqueRequestID, Telemetry, Retry, Logging, Distributed Tracing, and Transport. NOTE: the client library can expose options for these policies and then pass them on to the underlying off-the-shelf protocol library if it supports things like retry.
+~
+
+~ Must {#general-Non-HTTP-Protocols}
+for protocols that do not support "headers" (like MQTT), support the following per-operation pipeline policies that affect behavior (not state) only: Retry, Logging, and Transport. NOTE: the client library can expose options for these policies and then pass them on to the underlying off-the-shelf protocol library if it supports things like retry. If the service supports a known extensible schema (like JSON), then that client library can introduce policies that injects "headers" enabling like UniqueRequestID, Telemetry, and Distributed Tracing.
+~
