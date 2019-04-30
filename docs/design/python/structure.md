@@ -2,10 +2,10 @@
 
 For services that expose a hierarchy of items, each level above the leaf levels SHOULD have their own corresponding client. The leaf node MAY have an associated client if there is a large number of operations associated with any given instance. Any intermediate levels MAY be omitted by promoting all associated methods to the parent client if the number of methods on the client is low, or if common scenarios require clients to manipulate properties of both the resource and its parent.
 
-Each parent client has a `get_<child>_client(self, name)` method. The `get_<child>_client(self, name)` method MUST NOT make a network call. 
+Each parent client has a `get_<child>_client(self, name)` method. The `get_<child>_client(self, name)` method MUST return a child client even if the corresponding child resource does not yet exist.
 Additionally, in addition to getting the client from its parent, it MUST be possible to create a child client created by providing the path (i.e. URL or list of [grandparent name, parent name, child name]) to the client requested.
 
-Creation and deletion of a child resource is exposed on the parent client, as are listing properties for all children.
+Creation and deletion of a resource is exposed on the corresponding client. Bulk operations such as properties for all children are exposed on the parent client.
 
 Getting properties for an individual resource is exposed on the corresponding client. If there is no client for the level (e.g. leaf nodes or omitted client levels), the get properties method is on the parent.
 
@@ -50,15 +50,15 @@ class ExampleServiceClent:
     def list_child_properties(self) -> Iteratable[ChildProperties]:
         ...
 
+class ChildClient:
+
+    def __init__(self, base_url, name, credentials, options):
+        ...
+
     def create_child(self, name, properties) -> ChildProperties:
         pass
 
     def delete_child(self, name):
-        ...
-
-class ChildClient:
-
-    def __init__(self, base_url, name, credentials, options):
         ...
 
     def get_properties(self, name) -> ChildProperties:
