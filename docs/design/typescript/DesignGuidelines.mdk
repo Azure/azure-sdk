@@ -13,6 +13,24 @@ document any required tsconfig settings and type dependencies in README.md under
 
 These guidelines are in addition to the [general README guidelines](#general-readme).
 
+### Platform Support {#ts-platform-support}
+
+~ Must {#ts-node-support}
+support [all LTS versions of Node](https://github.com/nodejs/Release#release-schedule) as well as newer versions up to and including the latest release. At time of writing, this means Node 8.x through Node 12.x.
+~
+
+~ Must {#ts-browser-support}
+support all supported versions of Microsoft Edge and the latest two versions of Chrome, Firefox, and Safari. At time of writing, this includes Edge 12-18, Chrome 72-74, Safari 11-12 (as shipped with OS10.3 and OS10.4), and Firefox 65 and 66. 
+~
+
+~ MayNot {#ts-browser-support-not-required}
+support browsers at all if Node is required for using your service. However, if you support browsers, you must support [all required versions](#ts-browser-support).
+~
+
+~ MayNot {#ts-ie11-support}
+support the IE11 browser as it will be end-of-lifed soon and it is rarely used to access new web applications.
+~
+
 
 ## npm Package {#ts-npm-package}
 
@@ -28,11 +46,6 @@ have npm package ownership set to either the Azure or Microsoft orgs. (TODO: how
 support 100% of the features supported by the backing services. Gaps in functionality cause confusion and frustration among developers.
 ~
 
-### Supported Node Versions {#ts-supported-node-versions}
-
-~ Must {#ts-node-support}
-support [all LTS versions of Node](https://github.com/nodejs/Release#release-schedule) as well as newer versions up to and including the latest release. At time of writing, this means Node 6.x through Node 11.x.
-~
 
 ### Versioning {#ts-versioning}
 
