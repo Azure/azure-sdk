@@ -2,9 +2,9 @@
 
 The Azure SDK can be configured by a variety of sources, some of which are necessarily language-dependent:
 
-1. System settings (dotnet, python, java?)
+1. System settings
 2. Environment variables
-3. Global configuration store (dotnet, python, java?)
+3. Global configuration store
 4. Runtime parameters
 
 ~ Must
@@ -15,7 +15,6 @@ apply configuration in the order above by default, such that subsequent items in
 support configuration systems that users opt in to that do not follow the above ordering. 
 ~
 
-
 ~ Must
 be consistent with naming between environment variables and configuration keys.
 ~
@@ -24,8 +23,8 @@ be consistent with naming between environment variables and configuration keys.
 log when a configuration setting is found somewhere in the environment or global configuration store
 ~
 
-~ Must
-log when a configuration setting is overridden from a configuration setting previously provided.
+~ May
+ignore configuration settings that are irrelevant for your client library.
 ~
 
 ### System Settings
@@ -41,68 +40,22 @@ In general, our SDK can be configured via a set of well-known environment variab
 #### Well-known Environment Variables
 
 ~ Must
-prefix Azure-specific environment variables with `AZURE_`.
+load relevant configuration settings from the environment variables listed in Table [#general-configuration-envvars].
 ~
 
+[INCLUDE=../EnvironmentVariables.mdk]
+
 ~ Must
-support proxy-related environment variables:
-
-~~ TableFigure {#general-configuration-proxy-envvars, caption: "Well-known environment variables"}
-
-| Environment Variable | Purpose                                |
-|----------------------|----------------------------------------|
-| HTTP_PROXY           | Proxy for HTTP connections             |
-| HTTPS_PROXY          | Proxy for HTTPS connections            |
-| NO_PROXY             | Hosts which must not use a proxy       |
-~~
+prefix Azure-specific environment variables with `AZURE_`.
 ~
 
 ~ Must
 support CIDR notation for NO_PROXY
 ~
 
-~ Draft
-
-~~ May
-support the DEFAULT_PROTOCOL environment variable for toggling between HTTP and HTTPS. The default must be HTTPS.
-~~
-
-~
-
 ~ Must
 support the following AAD-related environment variables if the servive supports AAD authentication.
-
-~~ TableFigure {#general-aad-envvars, caption: "AAD-related environment variables"}
-| Environment Variable | Purpose                                |
-|----------------------|----------------------------------------|
-| MSI_ENDPOINT         | AAD MSI Credentials         |
-| MSI_SECRET           | AAD MSI Credentials          |
-| **Additional Authentication Env Variables (not presently used)** ||
-| AZURE_SUBSCRIPTION_ID| Azure subscription |
-| AZURE_USERNAME       | Azure username for U/P Auth |
-| AZURE_PASSWORD       | Azure password for U/P Auth |
-| CLIENT_ID            | AAD |
-| DOMAIN               | AAD |
-| APPLICATION_SECRET   | AAD |
-| AZURE_RESOURCE_GROUP | Azure RG |
-~~
 ~
-
-~ Must
-support configuration of the HTTP Pipeline via the following environment variables:
-
-~~ TableFigure {#general-aad-envvars, caption: "HTTP Pipeline-related environment variables"}
-| Environment Variable | Purpose                                |
-|----------------------|----------------------------------------|
-| AZURE_HTTP_MAX_RETRIES | Maximum retry attempts before giving up |
-| AZURE_HTTP_RETRY_STRATEGY | Exponential or Linear |
-| AZURE_HTTP_BASE_DELAY | Base delay for exponential retry |
-| AZURE_HTTP_MAX_DELAY | Max delay for exponential retry |
-| AZURE_TELEMETRY_DISABLE | Disables telemetry |
-| AZURE_LOG_LEVEL | Enable logging by setting a log level. |
-~~
-~
-
 
 #### Client-library Specific Environment Variables
 
@@ -117,12 +70,12 @@ ServiceName is the canonical shortname without spaces (see note below).
 ConfigurationKey refers to an un-nested configuration key for that library.
 ~
 
-~ Note
-The service name component should be standardized across libraries. A mapping of all service names to a canonical shortname will be provided, and that canonical shortname should be used as the service name. All Azure SDKs must process environment variables in a similar way.
+~ Must
+get approval for every new environment variable.
 ~
 
-~ Draft
-Another alternative is double-underscores as a path separator in environment variables. This convention seems somewhat common (and is common in ASPNET environments) and means we can map any nested configuration key to an environment variable without any ambiguity. Unfortunately it makes environment variables more verbose. 
+~ Note
+The service name component should be standardized across libraries. A mapping of all service names to a canonical shortname will be provided, and that canonical shortname should be used as the service name. All Azure SDKs must process environment variables in a similar way.
 ~
 
 ~ Must
@@ -141,13 +94,8 @@ Storage should support:
 * AZURE_STORAGE_CONNECTION_STRING
 ~
 
-
 ~ MustNot
 use non-alpha-numeric characters in your environment variable names with the exception of underscore. This ensures broad interoperability.
-~
-
-~ May
-provide samples that use environment variables if appropriate for your ecosystem. Ecosystems which don't have a strong practice of using environment variables can leave them for an advanced topic.
 ~
 
 ### Global Configuration
@@ -155,12 +103,12 @@ provide samples that use environment variables if appropriate for your ecosystem
 Global configuration refers to configuration settings that are applied to all applicable client constructors in some manner. 
 
 ~ Must
-support global configuration of shared pipeline policies including, at a minimum:
+support global configuration of shared pipeline policies including:
 
 * Logging: Log level, swapping out logger implementation
 * HTTP: Proxy settings, max retries, timeout, swapping out Agent implementation
 * Telemetry: enabled/disabled
-* Tracing: ???
+* Tracing: enabled/disabled
 ~
 
 ~ Must
@@ -172,7 +120,7 @@ support hierarchical configuration so users group common settings together and r
 ~
 
 ~ Must
-support overriding of every configuration setting inherited from the system or environment variables.
+support overriding every configuration setting inherited from the system or environment variables.
 ~
 
 ~ Should
@@ -180,7 +128,7 @@ support getting and setting configuration keys that map to hierarchical configur
 ~
 
 ~ MustNot
-support direct modification of a shared configuration object as it's hard to determine all the places configuration is changed when things go wrong?
+support direct modification of a shared configuration object as it's hard to determine all the places configuration is changed when things go wrong.
 ~
 
 ~ Draft
@@ -238,7 +186,6 @@ use the `@azure/core-configuration` package which implements the above guideline
         "disable": true
     },
     "http": {
-        "maxRetries": 3
         "proxy": "http://...",
         "noProxy": "..."
     },
@@ -257,12 +204,22 @@ use the `@azure/core-configuration` package which implements the above guideline
 
 ### Open Questions
 
-1. Do we support NODE_ENV/ASPNET_ENVIRONMENT/Env
-2. Do we support environment variables for versions (e.g. AZURE_SDK_PROFILE or somesuch)
-3. How does ASPNet configuration integration work in practice?
-4. Do we need to opt out of environment entirely with an environment variable? (E.g. AZURE_NO_ENVIRONMENT)
-5. Configuration for tracing?
-6. Support for all global configuration keys in a service-specific part of the configuration hierarchy?
-7. Hierarchical environment variables with double-underscore?
-8. Default protocol?
-9. Format of NO_PROXY (CIDR support?)
+1. Do we need to opt out of environment entirely with an environment variable? (E.g. AZURE_NO_ENVIRONMENT)
+2. Global configuration for tracing?
+
+
+### Adrian/Brian Unification Points
+
+* Do we require support for configuration files that work across all languages (options: json, .env, yaml??)
+* Is just setting environment variables sufficient to meet the guidelines? Can I override global settings in code not on a per-client basis?
+* Default settings missing:
+  - AD-related environment variables AZURE_CLIENT_ID, AZURE_APPLICATION_SECRET, AZURE_USERNAME, AZURE_PASSWORD (these are used by the management SDK and I think we should document them - note that irrelevant configuration settings are ignored - and will become super relevant once we are all on the AD train)
+* consistency between configuration keys and environment variable names
+* requirements around logging where configurations come from - these should be present.
+* "no proxy is configured" - it will be configured for dotnet if system settings are respected. This should be allowed.
+* per-client environment variables - do we want to ban them? If not, we need to address how they should be specified (this is the double-underscore pattern).
+    * Guidelines around things configured via portal should have environment variables
+* Pipeline configuration via environment variables - may/must? Key things to consider: log level, disabling telemetry.
+    - specifically, configuring retry policy? (deleted from my guidelines)
+* Trusted certificate store - do we need to support this? (Scott)
+
