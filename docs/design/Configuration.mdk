@@ -1,10 +1,10 @@
-## Configuration
+## Configuration {#general-configuration}
 
 The Azure SDK can be configured by a variety of sources, some of which are necessarily language-dependent:
 
 1. System settings
 2. Environment variables
-3. Global configuration store
+3. Global configuration store (code)
 4. Runtime parameters
 
 ~ Must
@@ -35,8 +35,6 @@ respect system settings for proxies.
 
 ### Environment variables
 
-In general, our SDK can be configured via a set of well-known environment variables that configure global Azure SDK settings and client library specific settings. Global SDK settings generally involve configuration of the core pipeline including authentication and connection strings. Client library specific settings are used to configure settings users might find in the portal.
-
 #### Well-known Environment Variables
 
 ~ Must
@@ -53,12 +51,27 @@ prefix Azure-specific environment variables with `AZURE_`.
 support CIDR notation for NO_PROXY
 ~
 
-~ Must
-support the following AAD-related environment variables if the servive supports AAD authentication.
-~
-
 #### Client-library Specific Environment Variables
 
+~ May
+use client-libary-specific environment variables for portal-configured settings which are provided as parameters to your SDK. This generally includes credentials and connection details. For example, Service Bus could support the following environment variables:
+
+* AZURE_SERVICEBUS_CONNECTION_STRING
+* AZURE_SERVICEBUS_NAMESPACE
+* AZURE_SERVICEBUS_ISSUER
+* AZURE_SERVICEBUS_ACCESS_KEY
+
+Storage could support:
+
+* AZURE_STORAGE_ACCOUNT
+* AZURE_STORAGE_ACCESS_KEY
+* AZURE_STORAGE_DNS_SUFFIX
+* AZURE_STORAGE_CONNECTION_STRING
+~
+
+~ Must
+get approval for every new environment variable. 
+~
 
 ~ Must
 use this syntax for environment variables specific to a particular Azure service:
@@ -68,30 +81,6 @@ use this syntax for environment variables specific to a particular Azure service
 ServiceName is the canonical shortname without spaces (see note below).
 
 ConfigurationKey refers to an un-nested configuration key for that library.
-~
-
-~ Must
-get approval for every new environment variable.
-~
-
-~ Note
-The service name component should be standardized across libraries. A mapping of all service names to a canonical shortname will be provided, and that canonical shortname should be used as the service name. All Azure SDKs must process environment variables in a similar way.
-~
-
-~ Must
-provide environment variables for portal-configured settings which are provided as parameters to your SDK. This generally includes any credentials and connection details. For example, Service Bus should support the following environment variables:
-
-* AZURE_SERVICEBUS_CONNECTION_STRING
-* AZURE_SERVICEBUS_NAMESPACE
-* AZURE_SERVICEBUS_ISSUER
-* AZURE_SERVICEBUS_ACCESS_KEY
-
-Storage should support:
-
-* AZURE_STORAGE_ACCOUNT
-* AZURE_STORAGE_ACCESS_KEY
-* AZURE_STORAGE_DNS_SUFFIX
-* AZURE_STORAGE_CONNECTION_STRING
 ~
 
 ~ MustNot
@@ -112,27 +101,7 @@ support global configuration of shared pipeline policies including:
 ~
 
 ~ Must
-support loading configuration data from a file or multiple files provided by the user.
-~
-
-~ Must
-support hierarchical configuration so users group common settings together and refer to those settings when creating clients.
-~
-
-~ Must
-support overriding every configuration setting inherited from the system or environment variables.
-~
-
-~ Should
-support getting and setting configuration keys that map to hierarchical configuration settings. Path component separators must be either `.` (FULL_STOP) or `:` (COLON).
-~
-
-~ MustNot
-support direct modification of a shared configuration object as it's hard to determine all the places configuration is changed when things go wrong.
-~
-
-~ Draft
-MUST support all relevant global configuration keys as service-specific keys. E.g. given a global configuration for Proxies (AZURE_HTTP_MAX_RETRIES, "http:maxRetries", or "http.maxRetries"), a client library named Foo should also support AZURE_FOO_HTTP_MAX_RETRIES.
+provide configuration keys for setting or overriding every configuration setting inherited from the system or environment variables.
 ~
 
 ### Client Configuration
@@ -146,80 +115,16 @@ allow different clients of the same type to use different configurations.
 ~
 
 ~ Must
-allow clients to opt out of all global configuration settings at once.
+allow consumers of service clients to opt out of all global configuration settings at once, both via global "off switch" and a per-client opt-out.
 ~
 
 ~ Must
-allow all global configuration settings to be overridden by client-provided options.
+allow all global configuration settings to be overridden by client-provided options. The names of these options should align with any user-facing global configuration keys.
 ~
 
 ~ MustNot
-change behavior based on configuration changes that occur after the client is constructed.
+change behavior based on configuration changes that occur after the client is constructed. Hierarchies of clients inherit parent client configuration unless explicitly changed or overridden. Exceptions to this requirement are as follows:
+
+1. Log level, which must take effect immediately across the SDK.
+2. Tracing on/off, which must take effect immediately across the SDK.
 ~
-
-~ Note
-Logging and http agent are perhaps exceptions to the above - would users be surprised if they try to "enable" logging by swapping out the core logger implementation after clients have already been constructed?
-~
-
-~ Note
-In practice, implementing these guidelines will entail creating single-parameter factory methods or constructors that consume configuration from a centralized configuration store.
-
-Parameterless constructors that depend on implicit global configuration are desirable, but they make it hard to have configuration from multiple sources active in the same application and may make it surprising when a shared configuration is used. Taking a reference to shared configuration is therefore required. If that's available, it's hard to argue for the inclusion of the parameterless constructor without more data. Further study on user preferences between parameterless constructors and factories might be worthwhile.
-~
-
-
-### JS-Specific Configuration Requirements
-
-~ Todo
-Move this to the JS section.
-~
-
-~ Must
-use the `@azure/core-configuration` package which implements the above guidelines for the JS SDK.
-~
-
-~ Example {caption: "Example JSON configuration file"}
-
-```json
-{
-    "telemetry": {
-        "disable": true
-    },
-    "http": {
-        "proxy": "http://...",
-        "noProxy": "..."
-    },
-    "cosmos": {
-        connectionString: "..."
-    },
-    "storageCloud": {
-        connectionString: "..."
-    },
-    "storageStack": {
-        connectionString: "..."
-    },
-}
-```
-~
-
-### Open Questions
-
-1. Do we need to opt out of environment entirely with an environment variable? (E.g. AZURE_NO_ENVIRONMENT)
-2. Global configuration for tracing?
-
-
-### Adrian/Brian Unification Points
-
-* Do we require support for configuration files that work across all languages (options: json, .env, yaml??)
-* Is just setting environment variables sufficient to meet the guidelines? Can I override global settings in code not on a per-client basis?
-* Default settings missing:
-  - AD-related environment variables AZURE_CLIENT_ID, AZURE_APPLICATION_SECRET, AZURE_USERNAME, AZURE_PASSWORD (these are used by the management SDK and I think we should document them - note that irrelevant configuration settings are ignored - and will become super relevant once we are all on the AD train)
-* consistency between configuration keys and environment variable names
-* requirements around logging where configurations come from - these should be present.
-* "no proxy is configured" - it will be configured for dotnet if system settings are respected. This should be allowed.
-* per-client environment variables - do we want to ban them? If not, we need to address how they should be specified (this is the double-underscore pattern).
-    * Guidelines around things configured via portal should have environment variables
-* Pipeline configuration via environment variables - may/must? Key things to consider: log level, disabling telemetry.
-    - specifically, configuring retry policy? (deleted from my guidelines)
-* Trusted certificate store - do we need to support this? (Scott)
-

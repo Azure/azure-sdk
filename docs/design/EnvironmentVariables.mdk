@@ -12,12 +12,12 @@
 | AZURE_USERNAME             | Azure username for U/P Auth            |
 | AZURE_PASSWORD             | Azure password for U/P Auth            |
 | AZURE_CLIENT_ID            | AAD                                    |
-| AZURE_APPLICATION_SECRET   | AAD                                    |
+| AZURE_CLIENT_SECRET        | AAD                                    |
 | AZURE_TENANT_ID            | AAD                                    |
 | AZURE_RESOURCE_GROUP       | Azure RG                               |
-| AZURE_CLOUD_DEFAULT        | mooncake, govcloud, etc.               |
+| AZURE_CLOUD                | mooncake, govcloud, etc.               |
 | **Pipeline Configuration**                                         ||
-| AZURE_TELEMETRY_DISABLE    | Disables telemetry                     |
-| AZURE_LOG_LEVEL            | Enable logging by setting a log level. |
-| AZURE_TRACING_DISABLE      | Disables tracing                       |
+| AZURE_TELEMETRY_DISABLED   | Disables telemetry                     |
+| AZURE_LOG_LEVEL            | Enable console logging by setting a log level. |
+| AZURE_TRACING_DISABLED     | Disables tracing                       |
 ~

@@ -28,6 +28,14 @@ have npm package ownership set to either the Azure or Microsoft orgs. (TODO: how
 support 100% of the features supported by the backing services. Gaps in functionality cause confusion and frustration among developers.
 ~
 
+### Configuration
+
+These guidelines are in addition to the [general guidelines for configuration](#general-configuration).
+
+~ Must
+use the `@azure/core-configuration` package which implements the above guidelines for the JS SDK.
+~
+
 ### Supported Node Versions {#ts-supported-node-versions}
 
 ~ Must {#ts-node-support}
