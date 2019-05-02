@@ -1,0 +1,239 @@
+## The HTTP Pipeline {#azurecore-http-pipeline}
+
+The HTTP pipeline consists of a HTTP transport that is wrapped by multiple policies.  Each policy is a control point during which the pipeline can modify either the request or response (or both).  To standardize the way that client libraries interact with Azure services, we prescribe a default set of policies.  
+
+- [Telemetry](#azurecore-telemetry)
+- [Unique Request ID](#azurecore-requestid)
+- [Retry](#azurecore-retry)
+- [Credentials](#azurecore-credentials)
+- [Response downloader](#azurecore-response)
+- [Distributed tracing](#azurecore-distributed-tracing)
+- [Logging](#azurecore-logging)
+- [Proxy](#azurecore-proxy)
+
+In general, the client library will only need to configure these policies.  However, if you are producing a new Azure Core library (for a new language), you will need to understand the requirements for each policy.
+
+### Telemetry Policy {#azurecore-telemetry}
+
+Client library usage telemetry is used by service teams (not customers) to monitor what SDK language, client library version, and language/platform info a client is using to call into their service. Clients can prepend additional information indicating the name and version of the client application.
+
+~ Must {#azurecore-telemetry-use-useragent}
+send telemetry information in the [User-Agent header](https://tools.ietf.org/html/rfc7231#section-5.5.3) using the following format:
+
+```
+[<application_id> ]azsdk-<sdk_language>-<client_lib>/<sdk_version> <platform_info>
+```
+
+- `<application_id> ::=` optional application-specific string. May contain a slash, but must not contain a space. The string is supplied by the user of the client library, e.g. "AzCopy/10.0.4-Preview"
+- `<sdk_language> ::=` SDK's language name (all lowercase): "net", "python", "java", or "js"
+- `<client_lib> ::=` client library name (all lowercase), e.g. "blobstorage", "keyvault"
+- `<sdk_version> ::=` the version of the SDK. Note: this is not the version of the service
+- `<platform_info> ::=` information about the currently-executing language runtime and OS, e.g. "(NODE-VERSION v4.5.0; Windows_NT 10.0.14393)"
+~
+
+~ Example {#azurecore-example-user-agent-strings; caption: "Example User-Agent header values"}
+- "AzCopy/10.0.4-Preview azsdk-js-blobstorage/1.4.0 (NODE-VERSION v4.5.0; Windows_NT 10.0.14393)"
+~
+
+### Unique Request ID Policy {#azurecore-requestid}
+
+~ Todo
+Unique Request ID Policy requirements
+~
+
+### Retry Policy {#azurecore-retry}
+
+There are many reasons why failure can occur when a client application attempts to send a network request to a service. Some examples are timeout, network infrastructure failures, service rejecting the request due to throttle/busy, service instance terminating due to service scale-down, service instance going down to be replaced with another version, service crashing due to an unhandled exception, etc. By offering a built-in retry mechanism (with a default configuration overridable by the customer), our SDKs and the customers' application become resilient to these kinds of failures. Note that some services charge real money for each try and so customers should be able to disable retries entirely if they prefer to save money over resiliency.
+
+For more information, see ["Transient fault handling"](https://docs.microsoft.com/en-us/azure/architecture/best-practices/transient-faults).
+
+The HTTP Pipeline provides this functionality.
+
+~ Must {#azurecore-retry-configuration}
+offer the following configuration settings:
+
+- Retry policy type (exponential or fixed)
+- Maximum number of retries
+- Delay between retries (timespan/duration; this is the delay for fixed policy, the delay is increased exponentially by this amount for the exponential policy)
+- Maximum retry delay (timespan/duration)
+- List of HTTP status codes that would cause a retry (default is "all service errors that are retryable")
+~
+
+~ May {#azurecore-retry-available-if-supported}
+offer additional retry mechanisms if supported by the service
+- For example, the Azure Storage Blob service supports retrying read operations against a secondary datacenter, or recommends the use of a per-try timeout for resilience.
+~
+
+~ Must {#azurecore-retry-reset-on-retry}
+reset (or seek back to position 0) any request data stream before retrying a request
+~
+
+~ Must {#azurecore-retry-honor-caller-cancellation}
+honor any cancellation mechanism passed-in to the caller which can terminate the request before retries have been attempted.
+~
+
+~ Must {#azurecore-retry-update-time-to-live}
+update any query parameter or request header that gets sent to the service telling it how much time the service has to process the individual request attempt.
+~
+
+~ Must {#azurecore-retry-on-hardware-network-failure}
+retry in the case of a hardware network failure as it may self-correct
+~
+
+~ Must {#azurecore-retry-on-service-not-found}
+retry in the case of a "service not found" error as the service may be coming back online or a load balancer may be reconfiguring itself
+~
+
+~ Must {#azurecore-retry-if-throttled}
+retry if the service successfully responds indicating that it is throttling requests (for example, with a "x-ms-delay-until" header or similar metadata).
+~
+
+~ MustNot {#azurecore-retry-no-retry-if-successfully-failed}
+retry if the service responds with a 400-level response code unless a retry-after header is also returned
+~
+
+~ MustNot {#azurecore-retry-no-change-request-id}
+change any client-side generated request-id as this represents the logical operation and should be the same across all physical retries of this operation.  When looking at server logs, multiple entries with the same client request-id show each retry and this is useful information to help diagnose issues.
+~
+
+~ Should {#azurecore-retry-default-policy}
+implement a default policy that starts at 3 retries with a 0.8s delay with exponential (plus jitter) backoff
+~
+
+### Credentials Policy {#azurecore-credentials}
+
+~ Todo
+integrate scotts credentials policy requirements
+~
+
+### Response Downloader Policy {#azurecore-response}
+
+~ Todo
+work on response downloader policy requirements
+~
+
+### Distributed Tracing Policy {#azurecore-distributed-tracing}
+
+As mentioned earlier, distributed tracing mechanisms allow the consumer to trace their code from frontend to backend.  To do this, the distributed tracing library creates spans - units of unique work.  Each span is in a parent-child relationship.  As you go deeper into the hierarchy of code, you create more spans.  These spans can then be exported to a suitable receiver as needed.  To keep track of the spans, a _distributed tracing context_ (called a context within the rest of this section) is passed into each successive layer.  For more information on this topic, visit the [OpenCensus](https://opencensus.io/tracing/) topic on tracing.
+
+The Distributed Tracing policy is responsible for:
+
+* Creating a SPAN per REST call.
+* Passing the context to the backend service.
+
+~ Must {#azurecore-dist-tracing-opencensus}
+support [OpenCensus](https://opencensus.io) for distributed tracing.
+~
+
+~ Must {#azurecore-dist-tracing-accept-context}
+accept a context from calling code to establish a parent span.  
+~
+
+~ Must {#azurecore-dist-tracing-forward-context}
+pass the context to the backend service through the appropriate headers (`traceparent`, `tracestate`, etc.) to support [Azure Monitor](https://azure.microsoft.com/en-us/services/monitor/).  
+~
+
+~ Must {#azurecore-dist-tracing-create-span-for-user-methods}
+create a new span for each method that user code calls.  New spans must be children of the context that was passed in.  If no context was passed in, a new root span must be created.
+~
+
+~ Must {#azurecore-dist-tracing-create-span-for-rest-calls}
+create a new span (which must be a child of the per-method span) for each REST call that the client library makes.
+~
+
+### Logging Policy {#azurecore-logging}
+
+Many logging requirements within Azure Core mirror the same requirements for logging within the client library.  
+
+~ Must {#azurecore-logging-import-from-client-library}
+allow the client library to set the log handler and log settings.
+~
+
+~ Must {#azurecore-logging-levels}
+use one of the following log levels when emitting logs: Verbose (i.e. details), Informational (things happened), Warning (might be a problem or not), and Error.
+~
+~ Must {#azurecore-logging-levels-error}
+use the Error logging level for failures that it is unlikely that the application will recover from (out of memory etc.)
+~
+
+~ Must {#azurecore-logging-levels-warning}
+use the Warning logging level when a function fails to perform its intended task. This generally means that the function will raise an exception.
+It does not include occurances of self-healing events (e.g. when a request will be automatically retried)
+~
+
+~ Must {#azurecore-logging-levels-informational}
+use the Informational logging level when a function operates normally.
+~
+
+~ Must {#azurecore-logging-levels-informational}
+use the Verbose logging level for detailed trouble shooting scenarios. This is primarily intended for developers or system administrators to diagnose specific failures.
+~
+
+~ MustNot {#azurecore-logging-no-sensitive-info}
+send sensitive information in log levels other than Verbose, e.g. remove account keys when logging headers.
+~
+
+~ Must {#azurecore-logging-requests-in-info}
+log request line, response line, and headers, as Informational message.
+~
+
+~ Must {#azurecore-logging-info-if-cancelled}
+log an Informational message, if a service call is cancelled.
+~
+
+~ Must {#azurecore-logging-error-if-exceptions}
+log exceptions thrown as a Warning level message. If the log level set to Verbose, append stack trace information to the message.
+~
+
+### Proxy {#azurecore-proxy}
+
+Apps that integrate the Azure SDK need to operate in common enterprises.  It is a common practice to implement HTTP proxies for control and caching purposes.  Proxies are generally configured at the machine level and, as such, are part of the environment.  However, there are reasons to adjust proxies (for example, testing may use a proxy to rewrite URLs to a test environment instead of a production environment).  The Azure SDK and all client libraries should operate in those environments.
+
+There are a number of common methods for proxy configuration.  However, they fall into four groups:
+
+1. Inline, no authentication (filtering only)
+2. Inline, with authentication
+3. Out of band, no authentication
+4. Out of band, with authentication
+
+For inline/no-auth proxy, nothing needs to be done.  The Azure SDK will work without any proxy configuration.  For inline/auth proxy, the connection may receive a `407 Proxy Authentication Required` status code.  This will include a scheme, realm, and potentially other information (such as a `nonce` for digest authentication).  The client library must resubmit the request with a `Proxy-Authorization` header that provides authentication information suitably encoded for the scheme.  The most common schemes are Basic, Digest, and NTLM.
+
+For an out-of-band/no-auth proxy, the client will send the entire request URL to the proxy instead of the service.  For example, if the client is communicating to `https://foo.blog.storage.azure.net/path/to/blob`, it will connect to the `HTTPS_PROXY` and send a `GET https://foo.blog.storage.azure.net/path/to/blob HTTP/1.1`.   For an out-of-band/auth proxy, the client will send the entire request URL just as in the out-of-band/no-auth proxy version, but it may send back a `407 Proxy Authentication Required` status code (as with the inline/auth proxy).
+
+WebSockets can normally be tunneled through a HTTP proxy, in which case the proxy authentication happens during the CONNECT call.  This is the preferred mechanism for tunneling non-HTTP traffic to the Azure service.  However, there are other types of proxy.  The most notable is the SOCKS proxy is used for non-HTTP traffic (such as AMQP or MQTT).  We make no recommendation (for or against) support of SOCKS.  It is explicitly not a requirement to support SOCKS proxy within the client library.
+
+Most proxy configuration will be done by adopting the HTTP pipeline that is common to all Azure service client libraries.
+
+~ Must {#azurecore-proxy-support-platform-config}
+Support proxy configuration via common global configuration directives configured on a platform or runtime basis.
+
+- Linux and Mac generally use the HTTPS_PROXY (and associated) environment variables to configure proxies.
+- Windows environments generally use the WinHTTP proxy configuration to configure proxies.
+- Other options (such as loading from configuration files) may exist on a platform and runtime basis.
+~
+
+~ Must {#azurecore-proxy-support-global-config}
+Support Azure SDK-wide configuration directives for proxy configuration, including disabling the proxy functionality.
+~
+
+~ Must {#azurecore-proxy-support-client-config}
+Support client-library specific configuration directives for proxy configuration, including disabling the proxy functionality.
+~
+
+~ Must {#azurecore-proxy-support-logit}
+Log `407 Proxy Authentication Required` requests and responses.
+~
+
+~ Must {#azurecore-proxy-support-log-via-proxy}
+Indicate in logging if the request is being sent to the service via a proxy, even if proxy authentication is not required.
+~
+
+~ Must {#azurecore-proxy-support-auth-support}
+Support Basic and Digest authentication schemes.
+~
+
+~ Should {#azurecore-proxy-support-ntlm-auth}
+Support the NTLM authentication scheme.
+~
+
+There is no requirement to support SOCKS at this time.  We recommend services adopt a WebSocket connectivity option (for example, AMQP or MQTT over WebSockets) to ensure compatibility with proxies.
