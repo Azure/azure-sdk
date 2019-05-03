@@ -5,7 +5,7 @@ The HTTP pipeline consists of a HTTP transport that is wrapped by multiple polic
 - [Telemetry](#azurecore-telemetry)
 - [Unique Request ID](#azurecore-requestid)
 - [Retry](#azurecore-retry)
-- [Credentials](#azurecore-credentials)
+- [Authentication](#azurecore-auth-policy)
 - [Response downloader](#azurecore-response)
 - [Distributed tracing](#azurecore-distributed-tracing)
 - [Logging](#azurecore-logging)
@@ -100,10 +100,16 @@ change any client-side generated request-id as this represents the logical opera
 implement a default policy that starts at 3 retries with a 0.8s delay with exponential (plus jitter) backoff
 ~
 
-### Credentials Policy {#azurecore-credentials}
+### Authentication Policy {#azurecore-auth-policy}
 
-~ Todo
-integrate scotts credentials policy requirements
+Services across Azure use a variety of different authentication schemes to authenticate clients. Conceptually there are two entities responsible for authenticating service client requests, a credential and an authentication policy.  Credentials provide confidential authentication data needed to authenticate requests.  Authentication policies use the data provided by a credential to authenticate requests to the service. It is essential that credential data can be updated as needed across the lifetime of a client, and authentication policies must always use the most current credential data. 
+
+~ MustNot
+persist, cache, or reuse tokens returned from the token credential.  This is __CRITICAL__ as credentials generally have a short validity period and the token credential is responsible for refreshing these.
+~
+
+~ Must
+implement Bearer authorization policy (which accepts a token credential and scope).
 ~
 
 ### Response Downloader Policy {#azurecore-response}
