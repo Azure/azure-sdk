@@ -82,11 +82,13 @@ The API surface of your client library must have the most thought, as it is the 
 [INCLUDE=../general/APIShape.mdk]
 [INCLUDE=../general/ResponseFormats.mdk]
 [INCLUDE=../general/Pagination.mdk]
+[INCLUDE=../general/OtherProtocols.mdk]
 
 ## Implementing the API {#general-implementing}
 
 Once you have worked through an acceptable API surface, you can start implementing the service clients.
 
+[INCLUDE=../general/Configuration.mdk]
 [INCLUDE=../general/ParameterValidation.mdk]
 [INCLUDE=../general/PipelineUsage.mdk]
 [INCLUDE=../general/APIGeneral.mdk]

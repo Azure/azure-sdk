@@ -18,7 +18,9 @@ allow the consumer to construct a service client with the minimal information.
 support 100% of the features provided by the Azure service the client library represents. Gaps in functionality cause confusion and frustration among developers.
 ~
 
-Since the client library eventually wraps one or more HTTP requests, it is important to support standard network capabilities.
+### Network Requests
+
+Since the client library generally wraps one or more HTTP requests, it is important to support standard network capabilities.
 
 ~ Must {#general-apisurface-syncandasync}
 support both synchronous and asynchronous method calls, except where the language (or default runtime) does not support one or the other.
@@ -53,4 +55,34 @@ accept platform-native cancellation tokens (that implement a timeout) on all asy
 
 ~ Should {#general-apisurface-check-cancel-on-io-calls}
 only check cancellation tokens on I/O calls (such as network requests and file loads).  Do not check cancellation tokens within the client library (for example, when processing data between I/O calls).
+~
+
+~ MustNot {#general-apisurface-no-leaking-implementation}
+leak the underlying protocol transport implementation details to the consumer.  All types from the protocol transport implementation must be appropriately abstracted.
+~
+
+### Authentication
+
+Azure services use a variety of different authentication schemes to allow clients to access the service.  Conceptually, there are two entities responsbile in this process: a credential and an authentication policy.  Credentials provide confidential authentication data.  Authentication policies use the data provided by a credential to authenticate requests to the service.  
+
+~ Must {#general-apisurface-support-all-auth-techniques}
+support all authentication techniques that the service supports.
+~
+
+~ Must {#general-apisurface-use-azure-core}
+use credential and authentication policy implementations from the Azure Core library where available.
+~
+
+~ Must {#general-apisurface-prefer-token-auth}
+provide credential types that can be used to fetch all data needed to authenticate a request to the service in a non-blocking atomic manner for each authentication scheme that does not have an implementation in Azure Core.
+~
+
+~ Must {#general-apisurface-auth-in-constructors}
+provide service client constructors or factories that accept any supported authentication credentials.
+~
+
+Client libraries may support providing credential data via a connection string __ONLY IF__ the service provides a connection string to users via the portal or other tooling.   Connection strings are considered a lesser form of authentication because the credentials cannot be rotated within a running process.
+
+~ MustNot {#general-apisurface-no-connection-strings}
+support constructing a service client with a connection string unless such connection string is available within tooling (for copy/paste operations).
 ~

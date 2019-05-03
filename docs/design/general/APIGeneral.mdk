@@ -1,3 +1,18 @@
 ~ MustNot {#general-implementing-nonativecode}
 write platform-specific / native code. 
 ~
+
+### Authentication {#general-implementing-auth}
+
+When implementing authentication, care must be taken to ensure that you don't open up the consumer to security holes.
+
+~ MustNot {#general-implementing-no-persistence-auth}
+persist, cache, or reuse security credentials.  Security credentials should be considered short lived to cover both security concerns and credential refresh situations.
+~
+
+If your service implements a non-standard credential system (i.e. one that is not supported by Azure Core), then you will need to produce an authentication policy for the HTTP pipeline that can authenticate requests given the alternative credential types provided by the client library.
+
+~ Must {#general-implementing-auth-policy}
+provide a suitable authentication policy that authenticates the HTTP request in the HTTP pipeline when using non-standard credentials.  This includes custom connection strings, if supported.
+~
+
