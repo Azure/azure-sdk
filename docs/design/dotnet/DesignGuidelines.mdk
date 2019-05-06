@@ -295,10 +295,10 @@ place small related components in similar lifecycle stages (i.e. evolving togeth
 ~
 
 ~ Must {#dotnet-packaging-ns}
-build all components for .NET Standard 2.0 and .NET 4.6.1.
+build all components for .NET Standard 2.0.
 This can be acomplished by the following target setting in the csproj file:
 ```
-<TargetFramework>netstandard2.0;net461</TargetFramework>
+<TargetFramework>netstandard2.0</TargetFramework>
 ```
 ~
 
