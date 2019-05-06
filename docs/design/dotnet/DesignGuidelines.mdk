@@ -41,7 +41,7 @@ namespace Azure.<group>.<service_name> {
         public service_name>Client(<binding_parameters>, <options>, HttpPipeline pipeline = default);
 
         // service methods
-        public Task<Response<<content>> <service_operation>Async(<parameters>, CancellationToken cancellation=null);
+        public Task<Response<<content>> <service_operation>Async(<parameters>, CancellationToken cancellationToken = default);
     
         // other members
         …
@@ -97,12 +97,12 @@ As a quick illustration, here are the main service call methods in the Configura
 ```csharp
 public class ConfigurationClient {
 
-    public Task<Response<ConfigurationSetting>> AddAsync(ConfigurationSetting setting, CancellationToken cancellation = default);
-    public Task<Response<ConfigurationSetting>> SetAsync(ConfigurationSetting setting, CancellationToken cancellation = default);
-    public Task<Response<ConfigurationSetting>> UpdateAsync(ConfigurationSetting setting, CancellationToken cancellation = default);
+    public Task<Response<ConfigurationSetting>> AddAsync(ConfigurationSetting setting, CancellationToken cancellationToken = default);
+    public Task<Response<ConfigurationSetting>> SetAsync(ConfigurationSetting setting, CancellationToken cancellationToken = default);
+    public Task<Response<ConfigurationSetting>> UpdateAsync(ConfigurationSetting setting, CancellationToken cancellationToken = default);
 
-    public Task<Response<ConfigurationSetting>> GetAsync(string key, SettingFilter filter = null, CancellationToken cancellation = default);
-    public Task<Response<ConfigurationSetting>> DeleteAsync(string key, SettingFilter filter = null, CancellationToken cancellation = default);
+    public Task<Response<ConfigurationSetting>> GetAsync(string key, SettingFilter filter = null, CancellationToken cancellationToken = default);
+    public Task<Response<ConfigurationSetting>> DeleteAsync(string key, SettingFilter filter = null, CancellationToken cancellationToken = default);
 }
 ```
 
@@ -165,8 +165,8 @@ For example, the configuration service _model type_ looks like the following:
 ... and is used in the service method returns as follows:
 ```csharp
 public class ConfigurationClient {
-    public Task<Response<ConfigurationSetting>> SetAsync(ConfigurationSetting setting, CancellationToken cancellation = default);
-    public Task<Response<ConfigurationSetting>> GetAsync(string key, SettingFilter filter = null, CancellationToken cancellation = default);
+    public Task<Response<ConfigurationSetting>> SetAsync(ConfigurationSetting setting, CancellationToken cancellationToken = default);
+    public Task<Response<ConfigurationSetting>> GetAsync(string key, SettingFilter filter = null, CancellationToken cancellationToken = default);
     ...
 }
 ```
@@ -405,7 +405,7 @@ The following example shows a typical way of using HttpPipeline to implement ser
 The HttpPipeline will take care of telemetry, logging, retries, and extensibility required by language-independent Azure SDK Guidelines.
 
 ```csharp
-public async Task<Response<ConfigurationSetting>> AddAsync(ConfigurationSetting setting, CancellationToken cancellation = default)
+public async Task<Response<ConfigurationSetting>> AddAsync(ConfigurationSetting setting, CancellationToken cancellationToken = default)
 {
     if (setting == null) throw new ArgumentNullException(nameof(setting));
     ... // validate other preconditions
@@ -414,7 +414,7 @@ public async Task<Response<ConfigurationSetting>> AddAsync(ConfigurationSetting 
     Uri uri = BuildUriForKvRoute(setting);
 
     // Use HttpPipeline _pipeline filed of the client type to create new HTTP request
-    using (HttpMessage message = _pipeline.CreateMessage(_options, cancellation)) {
+    using (HttpMessage message = _pipeline.CreateMessage(_options, cancellationToken)) {
     
         // specify HTTP request line
         message.SetRequestLine(PipelineMethod.Put, uri);
@@ -438,7 +438,7 @@ public async Task<Response<ConfigurationSetting>> AddAsync(ConfigurationSetting 
         Response response = message.Response;
         if (response.Status == 200) {
             // deserialize content
-            Response<ConfigurationSetting> result = await CreateResponse(response, cancellation);
+            Response<ConfigurationSetting> result = await CreateResponse(response, cancellationToken);
         }
         else throw new ResponseFailedException(response);
     }
@@ -465,7 +465,7 @@ written = (int)json.BytesWritten;
 ~ Should
 use JsonDocument to read JSON payloads
 ```csharp
-using (JsonDocument json = await JsonDocument.ParseAsync(content, default, cancellation).ConfigureAwait(false))
+using (JsonDocument json = await JsonDocument.ParseAsync(content, default, cancellationToken).ConfigureAwait(false))
 {
     JsonElement root = json.RootElement;
 
