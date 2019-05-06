@@ -18,10 +18,10 @@ The Azure SDK delivers a platform for developers to leverage the wide variety of
 
 ## Azure SDK Design Guidelines
 
-- [.NET](https://azuresdkspecs.z5.web.core.windows.net/DotNetSpec.html) ([template](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/template/Azure.Template))
-- [Java](https://azuresdkspecs.z5.web.core.windows.net/JavaSpec.html) ([template](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/template/azure-sdk-template))
-- [Python](https://azuresdkspecs.z5.web.core.windows.net/PythonSpec.html) ([template](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/template/azure-template))
-- [TypeScript](https://azuresdkspecs.z5.web.core.windows.net/TypeScriptSpec.html) ([template](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/template/template))
+- [.NET](https://azuresdkspecs.z5.web.core.windows.net/DotNetSpec.html)
+- [Java](https://azuresdkspecs.z5.web.core.windows.net/JavaSpec.html)
+- [Python](https://azuresdkspecs.z5.web.core.windows.net/PythonSpec.html)
+- [TypeScript](https://azuresdkspecs.z5.web.core.windows.net/TypeScriptSpec.html)
 
 Service teams should schedule reviews of their client libraries with the ADP Review Board.  See the [Review Process](docs/ReviewProcess.md) for more information.
 
