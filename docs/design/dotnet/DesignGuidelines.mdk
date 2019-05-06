@@ -254,6 +254,8 @@ public class ConfigurationClient {
 
 ~ Must {#dotnet-paging-returntypes}
 use ```IEnumerable<Response<T>>``` and ```IAsyncEnumerable<Response<T>>``` as the return type of service methods returning batches or pages of items.
+
+The ```IAsyncEnumerable<T>``` interface is avaliable in TBD NuGet package. 
 ~
 
 ~ MustNot {#dotnet-paging-raw}
@@ -261,6 +263,10 @@ expose raw paging APIs directly on service clients.
 
 If you desire to expose raw pacing APIs in the Azure SDK for .NET, expose such APIs in a specialized low level type, not directly on the main service client type. The low level type should be in an advanced namespace, not in the main namespace of the component.
 ~
+
+### Long Running Operations {#dotnet-long}
+
+TODO
 
 ### Namespace Naming {#dotnet-namespace-naming}
 
@@ -304,10 +310,9 @@ Typically such parameters will include service endpoint information and everythi
 This section describes details of the authentication related APIs.
 ~
 
-## Error Reporting
-~ Draft
+## Error Reporting {#dotnet-errors}
 
-~~ Must {#dotnet-error-exception}
+~~ Must {#dotnet-errors-exception}
 throw ```Azure.Core.ResponseFailedException``` or its subtype when a service method fails with non-success status code. 
 
 The exception is avaliable in ```Azure.Core``` package. For example, 
@@ -318,7 +323,13 @@ if (response.Status != 200) {
 ```
 ~~
 
-~
+~~ Must {#dotnet-errors-message}
+specify a clear and deatiled exception message when when throwing exceptions.
+~~
+
+~~ MustNot {#dotnet-errors-newexceptions}
+introduce new exception types, unless there is a programmatic scenario for handling this new exception differently than the base '''ResponseFailedException''' or one of its existing subtypes.
+~~
 
 ## Supporting Mocking {#dotnet-mocking}
 
