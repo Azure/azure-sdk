@@ -33,7 +33,12 @@ review the Microsoft Open Source Guidelines' [community section](https://docs.op
 ## README.md {#general-readme}
 
 ~ Must {#github-readme}
-include a `README.md` in the client library folder within the repository. The `README.md` should follow the [readme template](https://github.com/Azure/azure-sdk/blob/master/docs/README-TEMPLATE.md).
+include a `README.md` in the client library folder within the repository. The `README.md` should follow the readme template that matches the language based off of the [general template](https://github.com/Azure/azure-sdk/blob/master/docs/README-TEMPLATE.md):
+
+* [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/template/Azure.Template)
+* [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/template/azure-sdk-template)
+* [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/template/azure-template)
+* [TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/template/template)
 ~
 
 ## CONTRIBUTING.md
