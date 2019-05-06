@@ -33,7 +33,7 @@ The following is a list of Azure services and links to their open source code:
 
 | Service Name | .NET | Java | Python | JavaScript | Go |
 | ------------ | ------ | ----- | ------ | ------- | -------- |
-| Azure Storage | [code](https://github.com/Azure/azure-storage-net) | [code](https://github.com/Azure/azure-storage-java) | [code](https://github.com/Azure/azure-storage-python) | [code](https://github.com/Azure/azure-storage-node) | [code](https://github.com/Azure/azure-storage-go) |
+| Azure Storage | [code](https://github.com/Azure/azure-storage-net) | [code](https://github.com/Azure/azure-storage-java) | [code](https://github.com/Azure/azure-storage-python) | [code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage) | [code](https://github.com/Azure/azure-storage-go) |
 | CosmosDB | | [code](https://github.com/Azure/azure-cosmosdb-java) | [code](https://github.com/Azure/azure-cosmos-python) | [code](https://github.com/Azure/azure-cosmos-js) |
 | Key Vault | [code](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/KeyVault/data-plane)  | [code](https://github.com/Azure/azure-keyvault-java) | [code](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-keyvault) | [code](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/keyVault)|
 | Service Bus | [code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus) | [code](https://github.com/Azure/azure-service-bus-java) | [code](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-servicebus) | [code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus) |
