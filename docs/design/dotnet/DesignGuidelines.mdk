@@ -236,6 +236,32 @@ For example, ```GetHashCode()``` is almost never called directly, and ```Equals(
 Model types are not required to be thread-safe.
 ~
 
+### Paging {#dotnet-paging}
+Many Azure REST APIs return data in batches or pages. In the Azure SDK for .NET, we will expose such APIs as methods return ```IEnumerable<T>``` and ```IAsyncEnumerable<T>```.
+For example, the configuration service returns collections of items as follows:
+
+```csharp
+public class ConfigurationClient {
+
+    // asynchronous API returning a collection of items
+    public virtual IAsyncEnumerable<Response<ConfigurationSetting>> GetAllAsync(SettingSelector selector, CancellationToken cancellationToken = default);
+
+    // synchronous variant of the method above
+    public virtual IEnumerable<Response<ConfigurationSetting>> GetAll(SettingSelector selector, CancellationToken cancellationToken = default);
+    ...
+}
+```
+
+~ Must {#dotnet-paging-returntypes}
+use ```IEnumerable<Response<T>>``` and ```IAsyncEnumerable<Response<T>>``` as the return type of service methods returning batches or pages of items.
+~
+
+~ MustNot {#dotnet-paging-raw}
+expose raw paging APIs directly on service clients. 
+
+If you desire to expose raw pacing APIs in the Azure SDK for .NET, expose such APIs in a specialized low level type, not directly on the main service client type. The low level type should be in an advanced namespace, not in the main namespace of the component.
+~
+
 ### Namespace Naming {#dotnet-namespace-naming}
 
 ~ Must {#dotnet-namespace-format}
