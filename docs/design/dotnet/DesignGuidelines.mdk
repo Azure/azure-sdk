@@ -40,9 +40,10 @@ namespace Azure.<group>.<service_name> {
         public service_name>Client(<binding_parameters>);
         public service_name>Client(<binding_parameters>, <options>, HttpPipeline pipeline = default);
 
-        // service methods
-        public Task<Response<<content>> <service_operation>Async(<parameters>, CancellationToken cancellationToken = default);
-    
+        // service methods (synchronous and asynchronous)
+        public virtual Task<Response<<content>> <service_operation>Async(<parameters>, CancellationToken cancellationToken = default);
+        public virtual Response<content> <service_operation>(<parameters>, CancellationToken cancellationToken = default);
+
         // other members
         …
     }
@@ -97,27 +98,43 @@ As a quick illustration, here are the main service call methods in the Configura
 ```csharp
 public class ConfigurationClient {
 
-    public Task<Response<ConfigurationSetting>> AddAsync(ConfigurationSetting setting, CancellationToken cancellationToken = default);
-    public Task<Response<ConfigurationSetting>> SetAsync(ConfigurationSetting setting, CancellationToken cancellationToken = default);
-    public Task<Response<ConfigurationSetting>> UpdateAsync(ConfigurationSetting setting, CancellationToken cancellationToken = default);
+    public virtual Task<Response<ConfigurationSetting>> AddAsync(ConfigurationSetting setting, CancellationToken cancellationToken = default);
+    public virtual Response<ConfigurationSetting> Add(ConfigurationSetting setting, CancellationToken cancellationToken = default);
 
-    public Task<Response<ConfigurationSetting>> GetAsync(string key, SettingFilter filter = null, CancellationToken cancellationToken = default);
-    public Task<Response<ConfigurationSetting>> DeleteAsync(string key, SettingFilter filter = null, CancellationToken cancellationToken = default);
+    public virtual Task<Response<ConfigurationSetting>> SetAsync(ConfigurationSetting setting, CancellationToken cancellationToken = default);
+    public virtual Response<ConfigurationSetting> Set(ConfigurationSetting setting, CancellationToken cancellationToken = default);
+
+    public virtual Task<Response<ConfigurationSetting>> GetAsync(string key, SettingFilter filter = null, CancellationToken cancellationToken = default);
+    public virtual Response<ConfigurationSetting> Get(string key, SettingFilter filter = null, CancellationToken cancellationToken = default);
+
+    public virtual Task<Response<ConfigurationSetting>> DeleteAsync(string key, SettingFilter filter = null, CancellationToken cancellationToken = default);
+    public virtual Response<ConfigurationSetting> Delete(string key, SettingFilter filter = null, CancellationToken cancellationToken = default);
 }
 ```
 
-~ Must {#dotnet-method-async}
-make all methods that can result in network I/O async, i.e. return ```Task<T>``` or ```ValueTask<T>``` and suffix the method name with _Async_.
+~ Must {#dotnet-method-async-and-sync}
+add both asynchronous and synchronous variants for all service methods.
+~
+
+~ Must {#dotnet-method-async-and-sync}
+ensure that the names of the synchronous and the asynchronous variants differ only by the _Async_ suffix.
 ~
 
 ~ Must {#dotnet-method-cancellation}
-ensure all async methods take an optional ```CancellationToken``` parameter called _cancellation_.
+ensure all service methods, both asynchronous and synchronous, take an optional ```CancellationToken``` parameter called _cancellationToken_.
 
 For more contenxt see language-independent [Cancellation Guidelines](#general-cancellations).
+Also, please note that it might be difficult to implement cancellations in the synchronous variants due to the lack of canellation support in many synchronous .NET APIs that you will be using. Do your best when implementing the methods; we are working with the .NET team to add more cancelltation support, and so you will be able to improve your implementation in the future.
 ~
 
 ~ Must {#dotnet-method-return}
-return ```Task<Response<T>>``` or ```ValueTask<Response<T>>``` from service methods, where T represents the content of the response and we will refer to it as the service call return type. See [Service Method Return Types](#dotnet-method-return) below on the details for how to design service return types.
+return ```Task<Response<T>>``` or ```ValueTask<Response<T>>``` from asynchronous service methods, and Response<T> from the synchronous variants. The T represents the content of the response and we will refer to it as the service call return type. See [Service Method Return Types](#dotnet-method-return) below on the details for how to design service return types.
+~
+
+~ Must {#dotnet-method-threadsafe}
+make service methods virtual.
+
+This is to support mocking. See [Supporting Mocking](#dotnet-mocking) for details. 
 ~
 
 ~ Must {#dotnet-method-impl}
@@ -277,7 +294,11 @@ if (response.Status != 200) {
 
 ~
 
-## Packaging
+## Supporting Mocking {#dotnet-mocking}
+
+TODO
+
+## Packaging {#dotnet-packaging}
 
 ~ Must {#dotnet-packaging-nuget}
 package all components as NuGet packages. Follow the [.NET packaging guidelines](https://docs.microsoft.com/en-us/dotnet/standard/library-guidance/nuget).
@@ -302,13 +323,13 @@ This can be acomplished by the following target setting in the csproj file:
 ```
 ~
 
-## Dependendencies
+## Dependendencies {#dotnet-dependencies}
 
-~ Should {#dotnet-packaging-nuget-granularity}
+~ Should {#dotnet-dependencies-minimize}
 minimize dependencies outside of the .NET Standard and Azure.Core package.
 ~
 
-~ MustNot {#dotnet-packaging-ns}
+~ MustNot {#dotnet-dependencies-list}
 have dependencies on any NuGet packages besides:
 
 * The .NET Standard, 
@@ -321,11 +342,11 @@ package that is now a part of the .NET platform.
 In particular, the source version of the package which allows for maximum reach, i.e. will run on many olders versions of .NET Framework and .NET Core.
 ~
 
-~ MustNot {#dotnet-packaging-ns}
+~ MustNot {#dotnet-dependencies-public}
 publicly expose types from dependencies, unless these types follow guidelines described in this document.
 ~
 
-## Versioning
+## Versioning {#dotnet-versioning}
 
 ~ Must {#dotnet-compatibility}
 follow same backward compatibility rules as .NET Core, i.e. be 100% backward compatible between versions of packages.
@@ -364,7 +385,7 @@ else {
 }
 ```
 ~
-## Repository Guidelines
+## Repository Guidelines {#dotnet-repository}
 
 ~ Must {#dotnet-follow-oss-guidelines}
 follow general [Azure SDK open source guidelines](#general-oss).
@@ -390,7 +411,7 @@ This can be accomplished by making the samples into tests, as in the example abo
 ~
 
 
-## Common Type Usage
+## Common Type Usage {#dotnet-commontypes}
 
 ~ Must {#dotnet-usage-etag}
 use ```Azure.Core.ETag``` to represent ETags.
