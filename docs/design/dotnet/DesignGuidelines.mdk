@@ -2,45 +2,45 @@
 
 Currently, the document describes guidelines for .NET APIs exposing HTTP/REST services. It might be expanded in the future to cover other, non-REST, services. 
 
-To illustrate various design concepts, we will be using Azure Application Configuration service in code examples. You can find sources for this component [here](https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/Azure.ApplicationModel.Configuration/data-plane). The Azure.ApplicationModel.Configuration component can serve as an illustration of what we expect a great Azure SDK component for .NET to look like.
+To illustrate various design concepts, we will be using Azure Application Configuration service in code examples. You can find sources for this component [here](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/appconfiguration/Azure.ApplicationModel.Configuration). The Azure.ApplicationModel.Configuration component can serve as an illustration of what we expect a great Azure SDK component for .NET to look like.
 
-## Design Principles
+## Design Principles {#dotnet-principles}
 
 Productivity is the main value proposition of the Azure SDK. 
 Other qualities, such as completeness, extensibility, performance, and others are important, but secondary. 
 We will ensure our customers can be productive by making our libraries:
 
-**Idiomatic** 
+**Idiomatic** {#dotnet-principles-idiomatic}
 
-*	Feel like designed by the designers of the .NET base class libraries.
+* Feel like designed by the designers of the .NET base class libraries.
 * Follow general .NET Framework design guidelines.
 * Implement the .NET Standard.
 * Version just like the .NET Standard libraries. 
 
-> We are not trying to fix bad parts of the language ecosystem; we embrace the ecosystem with its strengths and its flaws
+> We are not trying to fix bad parts of the language ecosystem; we embrace the ecosystem with its strengths and its flaws.
 
-**Consistent** 
+**Consistent** {#dotnet-principles-consistent}
 
-*	All differences must have a good reason
-*	Users can learn common concepts once; apply the knowledge everywhere
-*	The SDK feels like a single product designed by a single team
-*	Individual components might be worse, so the whole SDK is better
+* All differences must have a good reason
+* Users can learn common concepts once; apply the knowledge everywhere
+* The SDK feels like a single product designed by a single team
+* Individual components might be worse, so the whole SDK is better
 
-**Approachable**
+**Approachable** {#dotnet-principles-approachable}
 
-*	Approachable by our users, not by us (experts of technologies we work on)
-*	Small number of concepts; small number of types
-*	Small number of steps to get off the ground; power knobs for advanced users
-*	Easy to acquire
-*	Great _getting started_ samples
+* Approachable by our users, not by us (engineers working on the SDK)
+* Small number of concepts; small number of types
+* Small number of steps to get off the ground; power knobs for advanced users
+* Easy to acquire
+* Great _getting started_ samples
 
-**Dependable**
+**Dependable** {#dotnet-principles-dependable}
 
-*	100% backward compatible
-*	great logging, tracing, and error messages
-*	predictable support lifecycle
+* 100% backward compatible
+* Great logging, tracing, and error messages
+* Predictable support lifecycle
 
-## General Guidelines
+## General Guidelines {#dotnet-general}
 
 ~ Must {#dotnet-follow-official-framework-guidelines}
 follow the official [Framework Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/). 
@@ -60,7 +60,7 @@ use Azure.Core.Http.HttpPipeline to implement all methods that call Azure servic
 The pipeline can be found in the Azure.Core package, and it takes care of many [General Azure SDK Guidelines](#common-general), e.g. telemetry, logging, retries, mockability. Details of the pipeline design and usage are described in [Using HttpPipeline](#dotnet-usage-httppipeline) below.
 ~
 
-## Service Client Design
+## Service Client Design {#dotnet-client}
 
 Azure services will be exposed to .NET developers as one or more _service client_ types plus a set of _supporting types_. The guidelines in this section describe patterns for the design of a service clients and their members.
 
@@ -85,31 +85,31 @@ namespace Azure.<group>.<service_name> {
     }
 }
 ```
-~ Must {#dotnet-proxy-client-name}
+~ Must {#dotnet-client-name}
 name service client types with the _Client_ suffix, e.g. ```ConfigurationClient```.
 ~
 
-~ Must {#dotnet-proxy-client-namespace}
+~ Must {#dotnet-client-namespace}
 place service clients in the root namespace of their corresponding component.
 ~
 
-~ Must {#dotnet-proxy-class}
+~ Must {#dotnet-client-class}
 make service clients classes (reference types), not structs (value types).
 ~
 
-~ Must {#dotnet-proxy-client-name}
+~ Must {#dotnet-client-namespace}
 see [Namespace Naming](#dotnet-namespace-naming) guidelines for how to choose the namespace for the client types.
 ~
 
-### Service Client Constructors
+### Service Client Constructors {#dotnet-client-ctor}
 
-~ Must {#dotnet-proxy-class-ctor}
+~ Must {#dotnet-client-ctor-simple}
 provide a constructor that takes just the parameters required to bind to and authenticate with the service, e.g. endpoint and authentication information. 
 
 The idea is that it should be very easy to start using the client without extensive customization. See the [Authentication](#dotnet-authentication) section for more details.
 ~
 
-~ Must {#dotnet-proxy-class-ctor-overloads}
+~ Must {#dotnet-client-ctor-overloads}
 provide constructor overloads that allow to specify a custom pipeline and optionally other service specific options, e.g. service API version.
 
 The pipeline is a helper library that wraps ```System.Net.Http.HttpClient``` to ensure that all service calls do proper logging, telemetry, and retries. Custom pipeline allows the caller to alter default retry semantics and other aspects
@@ -127,7 +127,7 @@ namespace Azure.ApplicationModel.Configuration {
 ```
 ~
 
-### Service Methods
+### Service Methods {#dotnet-client-methods}
 This section describes guidelines for designing service client methods that call service endpoints. 
 As a quick illustration, here are the main service call methods in the ConfigurationClient, and further below detailed guidelines codifying various elements of the design.
 
@@ -152,7 +152,7 @@ public class ConfigurationClient {
 add both asynchronous and synchronous variants for all service methods.
 ~
 
-~ Must {#dotnet-method-async-and-sync}
+~ Must {#dotnet-method-suffix}
 ensure that the names of the synchronous and the asynchronous variants differ only by the _Async_ suffix.
 ~
 
@@ -167,13 +167,13 @@ Also, please note that it might be difficult to implement cancellations in the s
 return ```Task<Response<T>>``` or ```ValueTask<Response<T>>``` from asynchronous service methods, and Response<T> from the synchronous variants. The T represents the content of the response and we will refer to it as the service call return type. See [Service Method Return Types](#dotnet-method-return) below on the details for how to design service return types.
 ~
 
-~ Must {#dotnet-method-threadsafe}
+~ Must {#dotnet-method-virtual}
 make service methods virtual.
 
 This is to support mocking. See [Supporting Mocking](#dotnet-mocking) for details. 
 ~
 
-~ Must {#dotnet-method-impl}
+~ Must {#dotnet-method-implementation}
 use ```Azure.Core.HttpPipeline``` to implement all service call methods.
 
 See [Using HttpPipeline](#dotnet-usage-httppipeline) for details.
@@ -242,16 +242,16 @@ Note: the internal setter for these get-only properties is there to allow the co
 See more on this in [Serialization](#dotnet-usage-serialization) section below.
 ~
 
-~ Must {#dotnet-model-types_struct_or_class}
+~ Must {#dotnet-model-struct-class}
 ensure model types are structs, if they are small, and classes, if they are large, per .NET Framework Design Guidelines.
 ~
 
-~ Must {#dotnet-model-types_struct_or_class}
+~ Must {#dotnet-model-interfaces}
 implement basic data type interfaces on model types, per .NET Framework Design Guidelines. 
 For example, implement ```IEquatable<T>```, ```IComparable<T>```, ```IEnumerable<T>```, etc. if applicable.
 ~
 
-~ Should {#dotnet-model-types_struct_or_class}
+~ Should {#dotnet-model-editorborwsable}
 apply ```[EditorBrowsable(EditorBrowsableState.Never)]``` attribute to ```Equals(object)``` and ```GetHashCode()``` to hide these methods from intellisense,
 if they are not intended to be called directly by the user.
 
@@ -306,7 +306,7 @@ expose raw paging APIs directly on service clients.
 If you desire to expose raw pacing APIs in the Azure SDK for .NET, expose such APIs in a specialized low level type, not directly on the main service client type. The low level type should be in an advanced namespace, not in the main namespace of the component.
 ~
 
-### Long Running Operations {#dotnet-long}
+### Long Running Operations {#dotnet-longrunning}
 
 TODO
 
@@ -342,7 +342,7 @@ place service API in second level namespace, e.g. `Azure.KeyVault`
 ~
 
 ~ Should {#dotnet-namespace-modeltypes}
-consider placing model types in a ```.Models``` subnamespaces of the client types, if the model schema is very large.
+consider placing model types in a ```.Models``` subnamespaces of the client types, if number of model types is large.
 ~
 
 ## Authentication {#dotnet-authentication}
@@ -392,11 +392,13 @@ ConfigurationSetting setting = client.Get("Key");
 Assert.AreEqual("Value", setting.Value);
 ```
 
-~~ Must {#dotnet-mocking- virtual}
+The full sample is located [here](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/appconfiguration/Azure.ApplicationModel.Configuration/samples/Sample8_MockClient.cs)
+
+~~ Must {#dotnet-mocking-virtual}
 make all service methods virtaul.
 ~~
 
-~~ Must {#dotnet-mocking- virtual}
+~~ Must {#dotnet-mocking-modelfactory}
 provide factory methods for all model types returned from virtual service methods. The methods should be in public static type called ```<service>ModelFactory```.
 
 In general, model types should not have public constructors, as instances of the type are typically returned from SDK, as opposed to being constructed by the SDK user. Having said that, mock implementations need to create instances of the model types, and so you should provide factory methods for mocking scenarios.
@@ -417,7 +419,7 @@ package all components as NuGet packages. Follow the [.NET packaging guidelines]
 If your component builds in the Azure SDK team's main repo, majority of the packaging requirements will be provided automatically.
 ~
 
-~ Must {#dotnet-packaging-nuget-granularity}
+~ Must {#dotnet-packaging-nuget-name}
 name the package using a name of the main namespace of the component.
 For example, if the component is in ```Azure.Storage.Blob``` namespaces, the component dll should be called ```Azure.Storage.Blob.dll```, and the NuGet package should be called ```Azure.Storage.Blob```.
 ~
@@ -427,17 +429,17 @@ place small related components in similar lifecycle stages (i.e. evolving togeth
 ~
 
 ~ Must {#dotnet-packaging-ns}
-build all components for .NET Standard 2.0 and .NET 4.6.1.
+build all libraries for .NET Standard 2.0.
 This can be acomplished by the following target setting in the csproj file:
 ```
-<TargetFramework>netstandard2.0;net461</TargetFramework>
+<TargetFramework>netstandard2.0</TargetFramework>
 ```
 ~
 
 ## Dependendencies {#dotnet-dependencies}
 
 ~ Should {#dotnet-dependencies-minimize}
-minimize dependencies outside of the .NET Standard and Azure.Core package.
+minimize dependencies outside of the .NET Standard and Azure.Core packages.
 ~
 
 ~ MustNot {#dotnet-dependencies-list}
@@ -502,8 +504,18 @@ else {
 follow general [Azure SDK open source guidelines](#general-oss).
 ~
 
+~ Must {#dotnet-repository-elements}
+have samples, readme, and use prescribed folder structure for your client library.
+
+TODO: link to details.
+~
+
+### README {#dotnet-repository-readme}
+
 ~ Must {#dotnet-repository}
-have samples, readme, and prescribed folder structure. The README.md file must be in the component's root folder. 
+have a README.md file in the component's root folder. 
+
+An example of a good library README.md file can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/appconfiguration/Azure.ApplicationModel.Configuration/README.md).
 ~
 
 ~ Must {#dotnet-repository-readme}
@@ -514,16 +526,24 @@ The contributor guide (CONTRIBUTING.md) should be a separate file linked to from
 
 ### Samples {#dotnet-samples}
 
+It is very importnat that each Azure SDK library has a quick-start guide with code samples avaliable. Developers like to start learning how to use reusable libraries by looking at sample code, not by reading in-debth technology papers.  
+
+~ Must {#dotnet-samples-other}
+have usage samples in _samples_ subdirectory of main library directory.
+
+See [Configuration Service Hello World](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/appconfiguration/Azure.ApplicationModel.Configuration/samples).
+~
+
 ~ Must {#dotnet-samples-hello_world}
 have a sample file called ```S1_HelloWorld.cs```. All other samples are ordered from simplest to most complex using ```S<number>_``` prefix.
 
-See [Configuration Service Hello World](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Azure.ApplicationModel.Configuration/data-plane/Azure.Configuration.Tests/samples/Sample1_HelloWorld.cs#L16) sample.
+See [Configuration Service Hello World](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/appconfiguration/Azure.ApplicationModel.Configuration/samples/Sample1_HelloWorld.cs) sample.
 ~
 
 ~ Must {#dotnet-samples-hello_world-sync}
 use synchronous APIs in the Hello World sample.
 
-YOu might want to also add ```S2_HelloWorldAsync.cs``` sample.
+You might want to also add ```S2_HelloWorldAsync.cs``` sample.
 ~
 
 ~ Must {#dotnet-samples}
@@ -641,16 +661,20 @@ This allows callers to avoid large number of GC heap allocations. ```Response<T>
 ## Policy implementation
 
 ~ Must {#dotnet-policy-threadsafe}
-be thread-safe. The `ProcessAsync` method must be safe to invoke from multiple threads cuncurrently.
+be thread-safe. The `ProcessAsync` and `Process` methods must be safe to invoke from multiple threads cuncurrently.
 ~
 
 ~ Note {#dotnet-policy-request-response-message-threadsafe}
-`HttpPipelineRequest`, `HttpPipelineResponse` and `HttpPipelineMessage` types are not thread-safe
+ `HttpPipelineMessage`, `Request`, and `Response` do not have to be thread-safe.
 ~
 
 ## Commonly Overlooked .NET API Design Guidelines
 
 Some .NET Design Guidelines have been notoriously overlooked in existing Azure SDKs. This section serves as a way to highlight these guidelines.
+
+~ Should {#dotnet-numberoftypes}
+not have many types in the main namespace. Number of types is directly proportional to the perceived complexity of a library.
+~
 
 ~ MustNot {#dotnet-no-abstractions}
 have abstractions (interfaces or abstract classes) unless types both implement and consume them (i.e. you have parameters typed as the abstraction).
