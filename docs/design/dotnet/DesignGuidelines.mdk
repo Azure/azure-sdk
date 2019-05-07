@@ -145,14 +145,14 @@ The idea is that it should be very easy to start using the client without extens
 ~ Must {#dotnet-client-ctor-overloads}
 provide constructor overloads that allows specifying advanced credentials, a custom pipeline, and optionally other service specific configuration, e.g. service API version. The constructor should take just one parameter 
 
-For example, the ```ConfigurationClient``` type and its constructors look as follows:
+For example, the ```ConfigurationClient``` type and its public constructors look as follows:
 
 ```csharp
 namespace Azure.ApplicationModel.Configuration {
     
     public class ConfigurationClient {
         public ConfigurationClient(string connectionString);
-        public ConfigurationClient(ConfigurationClientOptions options = default);    
+        public ConfigurationClient(ConfigurationClientOptions options = default);   
     }
 }
 ```
