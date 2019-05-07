@@ -1,8 +1,8 @@
-﻿The following sections describe .NET specific design guidelines for Azure SDK APIs. These guidelines complement the general [.NET Framework Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/) with design considerations specific to building Azure SDK components. Also, these guidelines expand on, and simplify, the language-independent Azure SDK guidelines. Note that these more specific guidelines take precedence over the more general guidelines.
+﻿The following document describes .NET specific guidelines for designing Azure SDK libraries. These guidelines complement general [.NET Framework Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/) with design considerations specific to the Azure SDK. Also, these guidelines expand on, and simplify, language-independent [General Azure SDK Guidelines](https://azuresdkspecs.z5.web.core.windows.net). Note that these more specific guidelines take precedence over more general guidelines.
 
-Currently, the document describes guidelines for .NET APIs exposing HTTP/REST services. It might be expanded in the future to cover other, non-REST, services. 
+Currently, the document describes guidelines for libraries exposing HTTP/REST services. It might be expanded in the future to cover other, non-REST, services. 
 
-To illustrate various design concepts, we will be using Azure Application Configuration service in code examples. You can find sources for this component [here](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/appconfiguration/Azure.ApplicationModel.Configuration). The Azure.ApplicationModel.Configuration component can serve as an illustration of what we expect a great Azure SDK component for .NET to look like.
+To illustrate various design concepts, we will be using our showcase component: the client library for the Azure Application Configuration service. You can find this component [here](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/appconfiguration/Azure.ApplicationModel.Configuration). The library can serve as an illustration of what we expect a great Azure SDK component to look like.
 
 ## Design Principles {#dotnet-principles}
 
@@ -10,31 +10,29 @@ Productivity is the main value proposition of the Azure SDK.
 Other qualities, such as completeness, extensibility, performance, and others are important, but secondary. 
 We will ensure our customers can be productive by making our libraries:
 
-**Idiomatic** {#dotnet-principles-idiomatic}
+**Idiomatic**
 
-* Feel like designed by the designers of the .NET base class libraries.
-* Follow general .NET Framework design guidelines.
-* Implement the .NET Standard.
-* Version just like the .NET Standard libraries. 
+* Azure SDK libraries follow .NET Framework Design Guidelines.
+* Azure SDK libraries feel like designed by the designers of the .NET Standard libraries.
+* Azure SDK libraries version just like the .NET Standard libraries. 
 
 > We are not trying to fix bad parts of the language ecosystem; we embrace the ecosystem with its strengths and its flaws.
 
-**Consistent** {#dotnet-principles-consistent}
+**Consistent** 
 
-* All differences must have good reasons
-* Users can learn common concepts once; apply the knowledge everywhere
-* The SDK feels like a single product designed by a single team
-* Individual components might be worse, so the whole SDK is better
+* The Azure SDK feels like a single product of a single team, not a set of NuGet packages.
+* All differences must have a good reason.
+* Users learn common concepts once; apply the knowledge to any SDK component.
 
-**Approachable** {#dotnet-principles-approachable}
+**Approachable** 
 
-* Approachable by our users, not by us (engineers working on the SDK)
-* Small number of concepts; small number of types
 * Small number of steps to get off the ground; power knobs for advanced users
+* Small number of concepts; small number of types
+* Approachable by our users, not by us (engineers working on the SDK)
 * Easy to acquire
 * Great _getting started_ samples
 
-**Dependable** {#dotnet-principles-dependable}
+**Dependable**
 
 * 100% backward compatible
 * Great logging, tracing, and error messages
@@ -328,6 +326,10 @@ If you desire to expose raw pacing APIs in the Azure SDK for .NET, expose such A
 
 TODO
 
+### Distributed Tracing {#dotnet-distributedtracing}
+
+TODO
+
 ### Namespace Naming {#dotnet-namespace-naming}
 
 ~ Must {#dotnet-namespace-format}
@@ -618,6 +620,9 @@ use ```Azure.Core.ETag``` to represent ETags.
 ~ Must {#dotnet-usage-uri}
 use ```System.Uri``` to represent URIs.
 ~
+
+### Using Response<T>
+
 
 ### Using HttpPipeline {#dotnet-usage-httppipeline}
 The following example shows a typical way of using HttpPipeline to implement service call method.
