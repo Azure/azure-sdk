@@ -516,6 +516,35 @@ else {
 }
 ```
 ~
+
+### Version Numbers {#dotnet-versionnumbers}
+
+Consistent version number scheme allows consumers to determine what to expect from a new version of the library. 
+
+~ Must {#dotnet-versionnumbers-scheme}
+use _MAJOR_._MINOR_._PATCH_ format for the version of the library dll and the NuGet package.
+~
+
+~ Must {#dotnet-versionnumbers-bump}
+change the version number of the client library when **ANYTHING** changes in the client library.
+~
+
+~ Must {#dotnet-versionnumbers-patch}
+increment the patch version when fixing a bug.
+~
+
+~ MustNot {#dotnet-versionnumbers-no-features-in-patch}
+include new APIs in a patch release.
+~
+
+~ Must {#dotnet-versionnumbers-adding-features}
+increment the major or minor version when adding support for a service API version, or add a new API.
+~
+
+~ Should {#dotnet-versionnumbers-major-bump}
+increment the major version when making large feature changes.
+~
+
 ## Repository Guidelines {#dotnet-repository}
 
 ~ Must {#dotnet-follow-oss-guidelines}
