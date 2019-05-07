@@ -6,7 +6,39 @@ To illustrate various design concepts, we will be using Azure Application Config
 
 ## Design Principles
 
-TODO
+Productivity is the main value proposition of the Azure SDK. 
+Other qualities, such as completeness, extensibility, performance, and others are important, but secondary. 
+We will ensure our customers can be productive by making our libraries:
+
+**Idiomatic** 
+
+*	Feel like designed by the designers of the .NET base class libraries.
+* Follow general .NET Framework design guidelines.
+* Implement the .NET Standard.
+* Version just like the .NET Standard libraries. 
+
+> We are not trying to fix bad parts of the language ecosystem; we embrace the ecosystem with its strengths and its flaws
+
+**Consistent** 
+
+*	All differences must have a good reason
+*	Users can learn common concepts once; apply the knowledge everywhere
+*	The SDK feels like a single product designed by a single team
+*	Individual components might be worse, so the whole SDK is better
+
+**Approachable**
+
+*	Approachable by our users, not by us (experts of technologies we work on)
+*	Small number of concepts; small number of types
+*	Small number of steps to get off the ground; power knobs for advanced users
+*	Easy to acquire
+*	Great _getting started_ samples
+
+**Dependable**
+
+*	100% backward compatible
+*	great logging, tracing, and error messages
+*	predictable support lifecycle
 
 ## General Guidelines
 
