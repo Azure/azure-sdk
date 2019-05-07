@@ -43,21 +43,21 @@ We will ensure our customers can be productive by making our libraries:
 ~ Must {#dotnet-follow-official-framework-guidelines}
 follow the official [Framework Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/). 
 
-See Appendix A (at the end of this document) for design guidelines that are commonly overlooked in existing Azure SDKs.
+At the end of this document, you can find a section with [the most commonly overlooked guidelines](#dotnet-appendix-overlookedguidelines) in existing Azure SDK libraries.
 ~
 
 ~ Must {#dotnet-follow-official-general-azure-sdk-guidelines}
-follow the general Azure SDK Design Guidelines.
+follow the general [Azure SDK Design Guidelines](https://azuresdkspecs.z5.web.core.windows.net/).
 
-The guidelines prescribe many requirements related to telemetry, logging, retry semantics, configurarion, proxy settings, extensibility, and others. The easiest way to ensure that your component follows these guidelines is to use the Azure.Core package to implement all methods that call Azure services. The package contains many helper APIs that ensure compliance with these general requirements automatically. Details of these helper APIs and their usage are described in [Using HttpPipeline](#dotnet-usage-httppipeline) below.
+These guidelines prescribe many requirements related to telemetry, logging, retry semantics, configurarion, proxy settings, extensibility, and others. The easiest way to ensure that your component meets these requirements is to use the [Azure.Core](https://www.nuget.org/packages/Azure.Core/) package to implement all methods that call Azure services. The package contains helper APIs that ensure compliance with these general requirements automatically. Details of these helper APIs and their usage are described in the [Using HttpPipeline](#dotnet-usage-httppipeline) section.
 ~
 
 ~ Should {#dotnet-use-azure-pipeline}
-use Azure.Core.Http.HttpPipeline to implement all methods that call Azure services. 
+use `HttpPipeline` to implement all methods that call Azure services. 
 
-The pipeline can be found in the Azure.Core package, and it takes care of many [General Azure SDK Guidelines](#common-general), e.g. telemetry, logging, retries, mockability. Details of the pipeline design and usage are described in [Using HttpPipeline](#dotnet-usage-httppipeline) below.
+The pipeline can be found in the Azure.Core package, and it takes care of many general [Azure SDK Design Guidelines](#common-general), e.g. telemetry, logging, retries, mockability. Details of the pipeline design and usage are described in section [Using HttpPipeline](#dotnet-usage-httppipeline) below.
 
-If for some reason you cannot use the pipeline, you must implement all the general requirements of Azure SDK manually. YOu can find the requirements described [here](https://azuresdkspecs.z5.web.core.windows.net/)
+If for some reason you cannot use the pipeline, you must implement all the general requirements of Azure SDK manually. You can find the requirements described [here](https://azuresdkspecs.z5.web.core.windows.net/)
 ~
 
 ## Service Client Design {#dotnet-client}
@@ -73,18 +73,51 @@ namespace Azure.<group>.<service_name> {
     public class <service_name>Client {
 
         // constructors
-        public service_name>Client(<binding_parameters>);
-        public service_name>Client(<binding_parameters>, <options>, HttpPipeline pipeline = default);
+        public <service_name>Client(<simple_binding_parameters>);
+        public <service_name>Client(<service_name>ClientOptions options = default);
+        protected <service_name>Client();
 
         // service methods (synchronous and asynchronous)
-        public virtual Task<Response<<content>> <service_operation>Async(<parameters>, CancellationToken cancellationToken = default);
-        public virtual Response<content> <service_operation>(<parameters>, CancellationToken cancellationToken = default);
+        public virtual Task<Response<<model>> <service_operation>Async(<parameters>, CancellationToken cancellationToken = default);
+        public virtual Response<model> <service_operation>(<parameters>, CancellationToken cancellationToken = default);
 
         // other members
         …
     }
+
+    // options for configuring the client
+    public class <service_name>ClientOptions : HttpPipelineOptions {
+
+    }
 }
 ```
+
+For example, the Application Configuration Service client looks like the following:
+
+```csharp
+namespace Azure.Data.Configuration {
+
+    public class ConfigurationClient {
+
+        public ConfigurationClient(string connectionString);
+        public ConfigurationClient(ConfigurationClientOptions options = default);
+        protected ConfigurationClient(); // for mocking
+
+        public virtual Task<Response<<ConfigurationSetting>> GetAsync(string key, CancellationToken cancellationToken = default);
+        public virtual Response<ConfigurationSetting> Get(string key, CancellationToken cancellationToken = default);
+
+        // other members
+        …
+    }
+
+    // options for configuring the client
+    public class ConfigurationClientOptions : HttpPipelineOptions {
+        // 
+        ...
+    }
+}
+```
+
 ~ Must {#dotnet-client-name}
 name service client types with the _Client_ suffix, e.g. ```ConfigurationClient```.
 ~
@@ -110,9 +143,7 @@ The idea is that it should be very easy to start using the client without extens
 ~
 
 ~ Must {#dotnet-client-ctor-overloads}
-provide constructor overloads that allow to specify a custom pipeline and optionally other service specific options, e.g. service API version.
-
-The pipeline is a helper library that wraps ```System.Net.Http.HttpClient``` to ensure that all service calls do proper logging, telemetry, and retries. Custom pipeline allows the caller to alter default retry semantics and other aspects
+provide constructor overloads that allows specifying advanced credentials, a custom pipeline, and optionally other service specific configuration, e.g. service API version. The constructor should take just one parameter 
 
 For example, the ```ConfigurationClient``` type and its constructors look as follows:
 
@@ -121,10 +152,16 @@ namespace Azure.ApplicationModel.Configuration {
     
     public class ConfigurationClient {
         public ConfigurationClient(string connectionString);
-        public ConfigurationClient(string connectionString, HttpPipeline pipeline);    
+        public ConfigurationClient(ConfigurationClientOptions options = default);    
     }
 }
 ```
+~
+
+~ Must {#dotnet-client-ctor-mocking}
+provide protected parameterized constructor for mocking.
+
+See [Supporting Mocking](#dotnet-mocking) for details. 
 ~
 
 ### Service Methods {#dotnet-client-methods}
@@ -732,7 +769,7 @@ be thread-safe. The `ProcessAsync` and `Process` methods must be safe to invoke 
  `HttpPipelineMessage`, `Request`, and `Response` do not have to be thread-safe.
 ~
 
-## Commonly Overlooked .NET API Design Guidelines
+## Commonly Overlooked .NET API Design Guidelines {#dotnet-appendix-overlookedguidelines}
 
 Some .NET Design Guidelines have been notoriously overlooked in existing Azure SDKs. This section serves as a way to highlight these guidelines.
 
