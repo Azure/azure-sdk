@@ -137,29 +137,33 @@ see [Namespace Naming](#dotnet-namespace-naming) guidelines for how to choose th
 ### Service Client Constructors {#dotnet-client-ctor}
 
 ~ Must {#dotnet-client-ctor-simple}
-provide a constructor that takes just the parameters required to bind to and authenticate with the service, e.g. endpoint and authentication information. 
+provide a _hello world_ constructor that takes just the parameters required to bind to and authenticate with the service, e.g. a connection string. 
 
 The idea is that it should be very easy to start using the client without extensive customization. See the [Authentication](#dotnet-authentication) section for more details.
+
+```csharp
+public class ConfigurationClient {
+    public ConfigurationClient(string connectionString); 
+}
+```
 ~
 
 ~ Must {#dotnet-client-ctor-overloads}
-provide constructor overloads that allows specifying advanced credentials, a custom pipeline, and optionally other service specific configuration, e.g. service API version. The constructor should take just one parameter 
+provide constructor overloads that allows specifying advanced credentials, a custom pipeline, and optionally other service specific configuration, e.g. service API version.
 
 For example, the ```ConfigurationClient``` type and its public constructors look as follows:
 
-```csharp
-namespace Azure.ApplicationModel.Configuration {
-    
-    public class ConfigurationClient {
-        public ConfigurationClient(string connectionString);
-        public ConfigurationClient(ConfigurationClientOptions options = default);   
-    }
+```csharp   
+public class ConfigurationClient {
+    public ConfigurationClient(string connectionString);
+    public ConfigurationClient(string connectionString, ConfigurationClientOptions options);   
+    public ConfigurationClient(Uri uri, TokenCredentials credentails, ConfigurationClientOptions options = default);   
 }
 ```
 ~
 
 ~ Must {#dotnet-client-ctor-mocking}
-provide protected parameterized constructor for mocking.
+provide protected parameterless constructor for mocking.
 
 See [Supporting Mocking](#dotnet-mocking) for details. 
 ~
