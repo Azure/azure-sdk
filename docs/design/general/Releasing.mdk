@@ -1,6 +1,4 @@
-# Release Requirements
-
-Releasing a client library involves the coordination of the service, public facing API, and client library to the same level of stability.
+## Release Requirements
 
 ~ MustNot {#stable-service}
 make a GA release of a client library until the underlying service is also in GA, with a stable protocol.
