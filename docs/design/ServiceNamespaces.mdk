@@ -11,7 +11,14 @@ pick a package name that allows the consumer to tie the namespace to the service
 ~
 
 ~ Must {#general-namespace-split-management-api}
-place the management (ARM) API in the "management" group.  Use the grouping `<Azure>.management.<Group>.<ServiceName>` for the namespace.
+place the management (ARM) API in the "management" group.  Use the grouping `<Azure>.management.<Group>.<ServiceName>` for the namespace.   Since more services require control plane APIs than data plane APIs, other namespaces may be used explicitly for control plane only. Data plane usage is by exception only. Additional namespaces that can be used for control plane SDKs include:
+
+- `appmodel` for application models (for example, Azure Functions or App Frameworks)
+- `compute`
+- `integration`
+- `networking`
+
+Use `azure.management` for specifically Azure Management tasks (e.g. cost optimization or deployment).
 ~
 
 ~ MustNot {#general-namespace-avoid-ambiguity}
@@ -20,16 +27,22 @@ choose similar names for clients that do different things.
 
 ~ Must {#general-namespace-names}
 use the following list as the group of services (if the target language supports namespaces):
-- `ml` for client libraries dealing with machine learning
-- `analytics` for client libraries that gather data
+
+- `ai` for artificial intelligence, including machine learning
+- `analytics` for client libraries that gather or process analytics data
 - `data` for client libraries that handle databases or structured data stores
+- `diagnostics` for client libraries that gather data for diagnostics, including logging
+- `identity` for authentication and authorization client libraries
 - `iot` for client libraries dealing with the Internet of Things
 - `management` for client libraries accessing the control plane (ARM)
 - `media` for client libraries that deal with audio, video, or mixed reality
-- `security` for client libraries dealing with security (including authentication and authorization)
-- `storage` for client libraries that handle unstructured data
 - `messaging` for client libraries that provide messaging services, such as push notifications or pub-sub.
+- `search` for search technologies
+- `security` for client libraries dealing with security
+- `storage` for client libraries that handle unstructured data
 ~
+
+~ Must {#general-namespace-management}
 
 
 ~ Must {#general-namespace-register}
