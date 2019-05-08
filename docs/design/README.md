@@ -1,6 +1,6 @@
 ## Azure SDK design guidelines documents
 
-This folder contains content of design guidelines for all Azure SDK components.
+This folder contains content of design guidelines for all Azure client libraries.
 
 - [C#](https://azuresdkspecs.z5.web.core.windows.net/DotNetSpec.html)
 - [Java](https://azuresdkspecs.z5.web.core.windows.net/JavaSpec.html)

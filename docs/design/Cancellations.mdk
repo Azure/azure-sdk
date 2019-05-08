@@ -1,6 +1,10 @@
 ## Cancellation & Timeouts {#general-cancellations}
 
-When an application makes a network request, the network infrastrucutre(like routers) and the called service may take a long time to respond and, in fact, may never respond. A well-written application SHOULD NEVER give up its control to the network infrasture or service. To ensure that users of our SDKs can keep control of their application, SDK methods that perform I/O operations MUST accept some kind of cancellation & timeout mechanism specific to the programming language.
+When an application makes a network request, the network infrastructure (like routers) and the called service may take a long time to respond and, in fact, may never respond. A well-written application SHOULD NEVER give up its control to the network infrastucture or service. 
+
+~ Must {#general-cancellation-token}
+accept a cancellation token (that provides a timeout mechanism) to all methods that would result in an asynchronous network call.
+~
 
 Here are some examples as to why this is so important:
 
@@ -17,6 +21,6 @@ The best way for customers to work with cancellation is to think of cancellation
 Here is an example of how an application would use the tree of cancellations:
 
 - When an application starts, it should create a cancellation object that represents the entire application; this object is explicitly terminated in response to the application receiving a Ctrl+C or SIGINT notification.
-- When a webserver receives an incoming request, it would create a new cancellation node that is a child of the application node. The new node would specify a maximum time that the webserver is allowing beforeto operate on the incoming request.
-- As part of operating on the incoming request, the webserver might need to make multiple requests to other services (like a database). If these requests can be made serially or in parallel, then they might share the previously-created cancellation node's timeout. However, if the webserver wants to limit the time spent on 1 or more the requests, it can create a new cancellation node (with the desired timeout value) and make this node a child of the incoming request's node; this way, the individual request timesout either when the overall request timesout or when the max time for this operation timeout - whichever happens first.
+- When a web server receives an incoming request, it would create a new cancellation object that is a child of the application node. The new cancellation object would specify a maximum time that the web server is allowed to operate on the request.
+- As part of operating on the incoming request, the web server might need to make multiple requests to other services (like a database). If these requests can be made serially or in parallel, then they might share the previously-created cancellation object. However, if the web server wants to limit the time spent on 1 or more the requests, it can create a new cancellation object (with the desired timeout value) and make this object a child of the incoming request's node; this way, the individual request times out either when the overall request times out or when the maximum time for this operation is exceeded - whichever happens first.
 - Note that if multiple request are made in parallel, it is common for the customer to want to cancel all of them if any one of them fails. This should be a supported scenario.

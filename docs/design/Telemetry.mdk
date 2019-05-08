@@ -9,9 +9,9 @@ send telemetry information in the [User-Agent header](https://tools.ietf.org/htm
 [<application_id> ]azsdk-<sdk_language>-<client_lib>/<sdk_version> <platform_info>
 ```
 
-- `<application_id> ::=` optional application-specific string. Which may contain a slash; but must not contain a space. The string is supplied by the user of the client library, e.g. "AzCopy/10.0.4-Preview"
+- `<application_id> ::=` optional application-specific string. May contain a slash, but must not contain a space. The string is supplied by the user of the client library, e.g. "AzCopy/10.0.4-Preview"
 - `<sdk_language> ::=` SDK's language name (all lowercase): "net", "python", "java", or "js"
-- `<client_lib> ::=` client library name (all lowercase). E.g. "blobstorage", "keyvault"
+- `<client_lib> ::=` client library name (all lowercase), e.g. "blobstorage", "keyvault"
 - `<sdk_version> ::=` the version of the SDK. Note: this is not the version of the service
 - `<platform_info> ::=` information about the currently-executing language runtime and OS, e.g. "(NODE-VERSION v4.5.0; Windows_NT 10.0.14393)"
 ~
@@ -20,4 +20,4 @@ send telemetry information in the [User-Agent header](https://tools.ietf.org/htm
 
 
 - "AzCopy/10.0.4-Preview azsdk-js-blobstorage/1.4.0 (NODE-VERSION v4.5.0; Windows_NT 10.0.14393)"
-~ 
+~

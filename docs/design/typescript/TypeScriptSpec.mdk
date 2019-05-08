@@ -30,12 +30,17 @@ follow these guidelines even if you're not publishing an Azure library under the
 # Language-independent Guidelines
 
 [INCLUDE=../GeneralGuidelines.mdk]
-[INCLUDE=../Telemetry.mdk]
+[INCLUDE=../Credentials.mdk]
 [INCLUDE=../Logging.mdk]
+[INCLUDE=../Telemetry.mdk]
 [INCLUDE=../Retry.mdk]
 [INCLUDE=../Cancellations.mdk]
+[INCLUDE=../ResponseFormats.mdk]
 [INCLUDE=../Dependencies.mdk]
 [INCLUDE=../Configuration.mdk]
+[INCLUDE=../ParameterValidation.mdk]
+[INCLUDE=../Pagination.mdk]
+[INCLUDE=../Errors.mdk]
 
 # TypeScript-Specific Guidelines
 [INCLUDE=DesignGuidelines.mdk]
