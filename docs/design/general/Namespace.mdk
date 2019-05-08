@@ -14,25 +14,33 @@ A compressed service name is the service name without spaces.  It may further be
 
 ~ Must {#general-namespace-names}
 use the following list as the group of services (if the target language supports namespaces):
-- `ml` for client libraries dealing with machine learning.
-- `analytics` for client libraries that gather data.
-- `data` for client libraries that handle databases or structured data stores.
-- `identity` for client libraries dealing with authentication and authorization.
-- `iot` for client libraries dealing with the Internet of Things.
-- `management` for client libraries accessing the control plane (ARM).
-- `media` for client libraries that deal with audio, video, or mixed reality.
-- `security` for client libraries dealing with security (including authentication and authorization).
-- `storage` for client libraries that handle unstructured data.
-- `messaging` for client libraries that provide messaging services, such as push notifications or pub-sub.
-~
 
-~ Todo 
-- Open question on using `azure.ml` vs. `azure.ai`
-- Open question on including `azure.diagnostics` vs. `azure.analytics`
+| Namespace Group  | Functional Area                                        |
+|:-----------------|:-------------------------------------------------------|
+| `ai`             | Artificial intelligence, including machine learning    |
+| `analytics`      | Gathering data for metrics or usage                    |
+| `data`           | Dealing with structured data stores like databases     |
+| `diagnostics`    | Gathering data for diagnosing issues                   |
+| `identity`       | Authentication and authorization                       |
+| `iot`            | Internet of things                                     |
+| `management`     | Control Plane (ARM)                                    |
+| `media`          | Audio, video, or mixed reality                         |
+| `messaging`      | Messaging services, like push notifications or pub-sub |
+| `search`         | Search technologies                                    |
+| `security`       | Security and cryptography                              |
+| `storage`        | Storage of unstructured data                           |
 ~
 
 ~ Must {#general-namespace-split-management-api}
-place the management (ARM) API in the "management" group.  Use the grouping `<Azure>.management.<Group>.<ServiceName>` for the namespace.
+place the management (ARM) API in the "management" group.  Use the grouping `<Azure>.management.<Group>.<ServiceName>` for the namespace.  Since more services require control plane APIs than data plane APIs, other namespaces may be used explicitly for control plane only.  Data plane usage is by exception only.  Additional namespaces that can be used for control plane SDKs include:
+
+| Namespace Group  | Functional Area                                          |
+|:-----------------|:---------------------------------------------------------|
+| `appmodel`       | Application models, such as Functions or App Frameworks  |
+| `compute`        | Virtual machines, containers, and other compute services |
+| `integration`    | Integration services (such as Logic Apps)                |
+| `management`     | Management services (such as Cost Analytics)             |
+| `networking`     | Services such as VPN, WAN, and Networking                |
 ~
 
 ~ MustNot {#general-namespace-avoid-ambiguity}
