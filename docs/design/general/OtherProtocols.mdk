@@ -1,4 +1,4 @@
-## Supporting non-HTTP Protocols {#general-other-protocols}
+### Supporting non-HTTP Protocols {#general-other-protocols}
 
 Most Azure services expose a RESTful API over HTTPS.  However, a few services use other protocols, such as [AMQP](https://www.amqp.org/), [MQTT](http://mqtt.org/), or [WebRTC](https://webrtc.org/).  In these cases, the
 operation of the protocol can be split into two phases:

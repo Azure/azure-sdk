@@ -1,10 +1,6 @@
-## Response formats {#general-responses}
+### Response formats {#general-responses}
 
-For methods that makes a single logical request, or a deterministic sequence of requests:
-
-An example of a *single logical request* is a request that may be retried inside the operation.
-
-An example of a *deterministic sequence of requests* is a paged operation.
+Requests to the service fall into two basic groups - methods that make a single logical request, or a deterministic sequence of requests.  An example of a *single logical request* is a request that may be retried inside the operation.  An example of a *deterministic sequence of requests* is a paged operation.
 
 The *logical entity* is a protocol neutral representation of a response. For HTTP, the logical entity may combine data from headers, body and the status line. A common example is exposing an ETag header as a property on the logical entity in addition to any deserialized content from the body.
 
@@ -21,7 +17,7 @@ document and provide examples on how to access the raw and streamed response for
 ~
 
 ~ Must {#general-return-pageable-iterate-items}
-provide a language idiomatic way to enumerate all logical entities for a paged operation, automatically fetching new pages as needed.
+provide a language idiomatic way to enumerate all logical entities for a paged operation, automatically fetching new pages as needed.  For example, in Python:
 
 ```python
 # Yes:
@@ -48,5 +44,3 @@ return headers and other per-request metadata unless it is obvious as to which s
 ~ Must {#general-expose-data-for-composite-failures}
 provide enough information in failure cases for an application to take appropriate corrective action.
 ~
-
-See the language specific guidelines for more detailed information. 

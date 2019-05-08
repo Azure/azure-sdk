@@ -1,4 +1,4 @@
-## Namespaces {#general-namespace}
+### Namespaces {#general-namespace}
 
 Some languages have a concept of namespaces to group related types.  Grouping services within a cloud infrastructure is common since it aids discoverability and provides structure to the reference documentation.
 
@@ -53,11 +53,13 @@ register the chosen namespace with [adparch](https://github.com/Azure/azure-sdk-
 ~
 
 In cases where namespaces are supported, the namespace should be named `<AZURE>.<group>.<service>`.  All consumer-facing APIs that are commonly used should exist within this namespace.  Here:
+
 - `<AZURE>` indicates the prefix (`Azure` or `com.azure` or similar, depending on the language)
 - `<group>` is the group for the service (see the list above)
 - `<service>` is the service name represented as a single word
 
 Here are some examples of good selections (from the .NET world):
+
 - `Azure.Data.Cosmos`
 - `Azure.Identity.ActiveDirectory`
 - `Azure.IoT.DeviceProvisioning`
@@ -66,6 +68,7 @@ Here are some examples of good selections (from the .NET world):
 - `Azure.Management.Messaging.NotificationHubs` (the management client for Notification Hubs)
 
 Here are some bad examples:
+
 - `Microsoft.Azure.CosmosDB` (not in the Azure namespace, no grouping)
 - `Azure.MixedReality.Kinect` (invalid group)
 - `Azure.IoT.IoTHub.DeviceProvisioning` (too many levels)

@@ -1,3 +1,5 @@
+### Parameter Validation {#general-parameter-validation}
+
 The service client will have several methods that perform requests on the service.  _Service parameters_ are directly passed across the wire to an Azure service.  _Client parameters_ are not passed directly to the service, but used within the client library to fulfill the request.  Examples of client parameters include values that are used to construct a URI, or a file that needs to be uploaded to storage.
 
 ~ Must {#general-parameter-validation-client} 

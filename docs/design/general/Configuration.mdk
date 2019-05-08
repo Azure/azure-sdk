@@ -2,7 +2,7 @@
 
 When configuring your client library, particular care must be used to ensure that the consumer of your client library can properly configure the connectivity to your Azure service both globally (along with other client libraries the consumer is using) and specifically with your client library.
 
-### Client Configuration
+#### Client Configuration
 
 ~ Must
 use relevant global configuration settings either by default or when explicitly requested to by the user e.g. by passing in a configuration object to a client constructor.
