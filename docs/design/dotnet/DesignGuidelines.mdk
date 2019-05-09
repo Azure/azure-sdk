@@ -428,7 +428,7 @@ This is to enuse that the types needed to create clents and to call service meth
 ## Error Reporting {#dotnet-errors}
 
 ~~ Must {#dotnet-errors-exception}
-throw ```Azure.Core.ResponseFailedException``` or its subtype when a service method fails with non-success status code. 
+throw ```ResponseFailedException``` or its subtype when a service method fails with non-success status code. 
 
 The exception is avaliable in ```Azure.Core``` package:
 ```csharp
@@ -454,7 +454,7 @@ specify a clear exception message and details of the response when throwing exce
 ~~
 
 ~~ MustNot {#dotnet-errors-newexceptions}
-introduce new exception types, unless there is a programmatic scenario for handling this new exception differently than the base '''ResponseFailedException''' or one of its existing subtypes.
+introduce new exception types, unless there is a programmatic scenario for handling this new exception differently than the base ```ResponseFailedException``` or one of its existing subtypes.
 ~~
 
 ## Supporting Mocking {#dotnet-mocking}
