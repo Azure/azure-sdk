@@ -165,12 +165,18 @@ public class ConfigurationClient {
 ~ Must {#dotnet-client-ctor-mocking}
 provide protected parameterless constructor for mocking.
 
+```csharp
+public class ConfigurationClient {
+    protected ConfigurationClient(); 
+}
+```
+
 See [Supporting Mocking](#dotnet-mocking) for details. 
 ~
 
 ### Service Methods {#dotnet-client-methods}
-This section describes guidelines for designing service client methods that call service endpoints. 
-As a quick illustration, here are the main service call methods in the ConfigurationClient, and further below detailed guidelines codifying various elements of the design.
+This section describes guidelines for designing client methods that call service endpoints. 
+As a quick illustration, here are the main service call methods in the ConfigurationClient, and farther below detailed guidelines for various elements of the design.
 
 ```csharp
 public class ConfigurationClient {
@@ -201,11 +207,11 @@ ensure that the names of the synchronous and the asynchronous variants differ on
 ensure all service methods, both asynchronous and synchronous, take an optional ```CancellationToken``` parameter called _cancellationToken_.
 
 For more contenxt see language-independent [Cancellation Guidelines](#general-cancellations).
-Also, please note that it might be difficult to implement cancellations in the synchronous variants due to the lack of canellation support in many synchronous .NET APIs that you will be using. Do your best when implementing the methods; we are working with the .NET team to add more cancelltation support, and so you will be able to improve your implementation in the future.
+Also, please note that it might be difficult to implement cancellations in the synchronous variants due to the lack of canellation support in many synchronous .NET APIs that you will be calling in the implementation. Do your best when implementing the methods; we are working with the .NET team to add more cancelltation support, and so you will be able to improve your implementation in the future.
 ~
 
 ~ Must {#dotnet-method-return}
-return ```Task<Response<T>>``` or ```ValueTask<Response<T>>``` from asynchronous service methods, and Response<T> from the synchronous variants. The T represents the content of the response and we will refer to it as the service call return type. See [Service Method Return Types](#dotnet-method-return) below on the details for how to design service return types.
+return ```Task<Response<T>>``` or ```ValueTask<Response<T>>``` from asynchronous service methods, and ```Response<T>``` from the synchronous variants. The `T` represents the content of the response and we will refer to it as the service call return type. See [Service Method Return Types](#dotnet-method-return) below on the details for how to design service return types.
 ~
 
 ~ Must {#dotnet-method-virtual}
@@ -215,52 +221,60 @@ This is to support mocking. See [Supporting Mocking](#dotnet-mocking) for detail
 ~
 
 ~ Must {#dotnet-method-implementation}
-use ```Azure.Core.HttpPipeline``` to implement all service call methods.
+use ```HttpPipeline``` to implement all service call methods.
 
 See [Using HttpPipeline](#dotnet-usage-httppipeline) for details.
 ~
 
 ~ Must {#dotnet-method-threadsafe}
-be thread-safe. All public methods (including constructors) of client type must be safe to call from multiple threads concurrently. Multiple instances of client type must be safe to use from multiple threads concurrently.
+be thread-safe. All public members of the client type must be safe to call from multiple threads concurrently.
 ~
 
 ### Service Method Return Types {#dotnet-method-return}
 
-As mentioned above, service methods should return ```Task<Response<T>>``` (or equivalent). The ```T``` can be ```System.IO.Stream``` in case of untyped results (e.g. content of a storage blob) or a _model type_ representing deserialized response content. This section describes how such _model type_ and all its transitive closure dependencies (return type graph) should be designed.
+As mentioned above, service methods should return ```Task<Response<T>>``` or ```ValueTask<Response<T>>```. The ```T``` can be either an unstructured payload (bytes of a storage blob) or a _model type_ representing deserialized response content. This section describes guidelines for the design of unstructured return types, _model types_, and all their transitive closure of dependencies (the _model graph_).
 
 ~ Must {#dotnet-return-type}
-return ```Task<Response<Stream>>``` if the response content is just a stream of bytes, and ```Task<Response<T>>```, where it ```T``` is a _model type_ if the content has a schema and can be deserialized.
+use one of the following return types to represent an unstructured payload:
+
+* ```System.IO.Stream``` - for large payloads
+* ```byte[]``` - for small payloads
+* ```ReadOnlyMemory<byte>``` - for slices of small payloads
+~
+
+~ Must {#dotnet-return-type}
+return a _model type_ if the content has a schema and can be deserialized.
 
 For example, the configuration service _model type_ looks like the following:
 ```csharp
-    public sealed class ConfigurationSetting : IEquatable<ConfigurationSetting> {
+public sealed class ConfigurationSetting : IEquatable<ConfigurationSetting> {
 
-        public ConfigurationSetting(string key, string value, string label = null);
-        
-        public string ContentType { get; set; }
-        public string ETag { get; internal set; }
-        public string Key { get; set; }
-        public string Label { get; set; }
-        public DateTimeOffset LastModified { get; internal set; }
-        public bool Locked { get; internal set; }
-        public IDictionary<string, string> Tags { get; }
-        public string Value { get; set; }
+    public ConfigurationSetting(string key, string value, string label = null);
+    
+    public string ContentType { get; set; }
+    public string ETag { get; internal set; }
+    public string Key { get; set; }
+    public string Label { get; set; }
+    public DateTimeOffset LastModified { get; internal set; }
+    public bool Locked { get; internal set; }
+    public IDictionary<string, string> Tags { get; }
+    public string Value { get; set; }
 
-        public bool Equals(ConfigurationSetting other);
-        
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object obj);
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode();
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override string ToString();
-    }
+    public bool Equals(ConfigurationSetting other);
+    
+    [EditorBrowsable(EditorBrowsableState.Never)]
+    public override bool Equals(object obj);
+    [EditorBrowsable(EditorBrowsableState.Never)]
+    public override int GetHashCode();
+    [EditorBrowsable(EditorBrowsableState.Never)]
+    public override string ToString();
+}
 ```
-... and is used in the service method returns as follows:
+... and is returned form service methods as follows:
 ```csharp
 public class ConfigurationClient {
-    public Task<Response<ConfigurationSetting>> SetAsync(ConfigurationSetting setting, CancellationToken cancellationToken = default);
-    public Task<Response<ConfigurationSetting>> GetAsync(string key, SettingFilter filter = null, CancellationToken cancellationToken = default);
+    public virtual Task<Response<ConfigurationSetting>> GetAsync(...);
+    public virtual Response<ConfigurationSetting> Get(...);
     ...
 }
 ```
@@ -269,15 +283,15 @@ public class ConfigurationClient {
 ~ Must {#dotnet-model-types_immutable}
 ensure model public properties are get-only if they are not intended to be changed by the user.
 
-For example, the _Locked_ property of _ConfigurationSetting_ is not intended to be changed by the user and so its setter should be internal,
-whereas the _ContentType_ property needs is designed to be modified and so it has a public setter.
+For example, the ```Locked``` property of ```ConfigurationSetting``` is not intended to be changed by the user and so its setter should be internal,
+whereas the ```ContentType``` property is designed to be modified and so it has a public setter.
 ```csharp
-    public sealed class ConfigurationSetting : IEquatable<ConfigurationSetting> {
+public sealed class ConfigurationSetting : IEquatable<ConfigurationSetting> {
 
-        public string ContentType { get; set; }
+    public string ContentType { get; set; }
 
-        public bool Locked { get; internal set; }
-    }
+    public bool Locked { get; internal set; }
+}
 ```
 Note: the internal setter for these get-only properties is there to allow the component to deserialize the model types. 
 See more on this in [Serialization](#dotnet-usage-serialization) section below.
@@ -299,13 +313,13 @@ if they are not intended to be called directly by the user.
 For example, ```GetHashCode()``` is almost never called directly, and ```Equals(object)``` is almost never called if a type implements ```IEquatable<T>```.
 
 ```csharp
-    public sealed class ConfigurationSetting : IEquatable<ConfigurationSetting> {
-       
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object obj);
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode();
-    }
+public sealed class ConfigurationSetting : IEquatable<ConfigurationSetting> {
+    
+    [EditorBrowsable(EditorBrowsableState.Never)]
+    public override bool Equals(object obj);
+    [EditorBrowsable(EditorBrowsableState.Never)]
+    public override int GetHashCode();
+}
 ```
 ~
 
@@ -316,23 +330,26 @@ Model types are not required to be thread-safe.
 ~ Must {#dotnet-model-types_mockable}
 Ensure that all model types can be used in mocks. 
 
-See [Supporting Mocking](#dotnet-mocking) for details. 
+In practice, means that you need to provide public APIs to construct _model graphs_. See [Supporting Mocking](#dotnet-mocking) for details. 
 ~
 
-### Parameter Validation
+### Service Method Parameters {#dotnet-parameters} 
 
-The client library will have a client object with several methods that call methods on the service.  _Service parameters_ are directly passed across the wire to an Azure service.  _Client parameters_ are not passed directly to the service, but used within the SDK to fulfill the request.  Examples of client parameters include values that are used to construct a URI, or a file that needs to be uploaded to storage.
+#### Parameter Validation
+Service methods take two kinds of parameters: _service parameters_ and _client parameters_. _Service parameters_ are directly passed across the wire to the service.  _Client parameters_ are not passed directly to the service, but used within the client library. Examples of client parameters include values that are used to construct a URI, or a file that needs to be uploaded to storage.
 
-~ Must {#general-parameter-validation-client} 
+~ Must {#dotnet-parameters-validation-client} 
 validate client parameters.
 ~
 
-~ MustNot {#general-parameter-validation-service}
-validate service parameters.  This includes null checks, empty strings, and other common validating conditions. Let the service validate any request parameters.
+~ MustNot {#dotnet-parameters-validation-service}
+validate service parameters.  
+
+This includes null checks, empty strings, and other common validating conditions. Let the service validate its parameters.
 ~
 
-~ Must {#general-parameter-validation-errors}
-validate the developer experience when the service parameters are invalid to ensure appropriate error messages are generated by the service.  If the developer experience is compromised due to service-side error messages, work with the service team to correct prior to release.
+~ Must {#dotnet-parameters-validation-errors}
+test the developer experience when invalid service parameters are passed in. Ensure clear error messages are generated by the client. If the developer experience is inadequate, work with the service team to correct the problem.
 ~
 
 ### Paging {#dotnet-paging}
