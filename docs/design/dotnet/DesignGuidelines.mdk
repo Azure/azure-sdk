@@ -507,16 +507,16 @@ This section describes details of the authentication related APIs.
 ~ Must {#dotnet-packaging-nuget}
 package all components as NuGet packages. Follow the [.NET packaging guidelines](https://docs.microsoft.com/en-us/dotnet/standard/library-guidance/nuget).
 
-If your component builds in the Azure SDK team's main repo, majority of the packaging requirements will be provided automatically.
+If your component builds in the Azure SDK team's main repo, majority of the packaging requirements will be met automatically.
 ~
 
 ~ Must {#dotnet-packaging-nuget-name}
-name the package using a name of the main namespace of the component.
-For example, if the component is in ```Azure.Storage.Blob``` namespaces, the component dll should be called ```Azure.Storage.Blob.dll```, and the NuGet package should be called ```Azure.Storage.Blob```.
+name the package based on the name of the main namespace of the component.
+For example, if the component is in ```Azure.Storage.Blobs``` namespaces, the component dll should be called ```Azure.Storage.Blobs.dll```, and the NuGet package should be called ```Azure.Storage.Blobs```.
 ~
 
 ~ Should {#dotnet-packaging-nuget-granularity}
-place small related components in similar lifecycle stages (i.e. evolving together) into a single NuGet package.
+place small related components in similar lifecycle stages (i.e. evolving together) in a single NuGet package.
 ~
 
 ~ Must {#dotnet-packaging-ns}
@@ -536,14 +536,14 @@ minimize dependencies outside of the .NET Standard and Azure.Core packages.
 ~ MustNot {#dotnet-dependencies-list}
 have dependencies on any NuGet packages besides:
 
-* The .NET Standard, 
-* Azure.* packages from the [azure/azure-sdk-for-net](https://github.com/Azure/azure-sdk-for-net) repo 
-* packages produced by your on team.
+* Azure.* packages from the [azure/azure-sdk-for-net](https://github.com/Azure/azure-sdk-for-net) repo
+* System.Text.Json
+* Microsoft.BCL.AsyncInterfaces 
+* packages produced by your own team.
 
 In the past, a very common external dependency was JSON.NET package. To avoid this dependency, 
 we recommend [System.Text.Json](https://github.com/dotnet/corefx/tree/master/src/System.Text.Json/source_package) 
 package that is now a part of the .NET platform. 
-In particular, the source version of the package which allows for maximum reach, i.e. will run on many olders versions of .NET Framework and .NET Core.
 ~
 
 ~ MustNot {#dotnet-dependencies-public}
