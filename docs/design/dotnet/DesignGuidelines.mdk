@@ -562,11 +562,37 @@ call the highest supported service API version by default.
 ~
 
 ~ Must {#dotnet-service-version-option}
-allow changing to an older supported service API versions when instantiating service client types. 
+allow explicitly selecting a supported service API versions when instantiating service client types. 
+
+This should be done using a constructor parameter on the client options type. 
+
+* The parameter must be the first parameter to all constructor overloads.
+* The parameter must not be optional, i.e. all constructor overloads must have it.
+* The parameter should be defaulted to the latest supported service version.
+* The parameter type must be an enum nested in the options type called ServiceVersion
+* The version enaum must have explicity specified value, e.g. ```V2019_05_09 = 0```
+
+```csharp
+public class ConfigurationClientOptions : HttpPipelineOptions {
+    
+    public ConfigurationClientOptions(ServiceVersion version = ServiceVersion.V2019_05_09)
+
+    public enum ServiceVersion {
+        V2019_05_09 = 0,
+    }
+    ...
+}
+```
+~
+
+~ Must {#dotnet-service-version-option}
+not use client constructors without the options parameter when instantiating client types in reusable libraries.
+
+This ensures that the library does not change behavior (service version numbers) without the developer of the library making an explicit decision to do that. Note that this is not a guideline for implementing client libraries (like all the other in this document), but rather a guideline for how to safely use client libraries given the versioning rules specified here. 
 ~
 
 ~ Must {#dotnet-package-sxs}
-introduce a new package, with new assembly names, new namespace names, and new type names if you must do a breaking change. This should happen very rarely, if ever. 
+introduce a new package, with new assembly names, new namespace names, and new type names if you must do an API breaking change. This should happen very rarely, if ever. 
 
 Register all such new packages with *adparch@microsoft.com*,
 i.e. send email about your proposed package to this address to start a discussion.
