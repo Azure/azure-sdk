@@ -360,10 +360,10 @@ For example, the configuration service returns collections of items as follows:
 public class ConfigurationClient {
 
     // asynchronous API returning a collection of items
-    public virtual IAsyncEnumerable<Response<ConfigurationSetting>> GetAllAsync(SettingSelector selector, CancellationToken cancellationToken = default);
+    public virtual IAsyncEnumerable<Response<ConfigurationSetting>> GetAllAsync(...);
 
     // synchronous variant of the method above
-    public virtual IEnumerable<Response<ConfigurationSetting>> GetAll(SettingSelector selector, CancellationToken cancellationToken = default);
+    public virtual IEnumerable<Response<ConfigurationSetting>> GetAll(...);
     ...
 }
 ```
@@ -382,11 +382,11 @@ If you desire to expose raw pacing APIs in the Azure SDK for .NET, expose such A
 
 ### Long Running Operations {#dotnet-longrunning}
 
-TODO
+Guidance comming soon ...
 
 ### Distributed Tracing {#dotnet-distributedtracing}
 
-TODO
+Guidance comming soon ...
 
 ### Namespace Naming {#dotnet-namespace-naming}
 
@@ -395,19 +395,19 @@ adhere to the following scheme when choosing a namespace:
 
 `Azure.<group>.<service>[.<feature>]`. 
 
-For example, `Azure.Storage.Blobs`, or `Azure.CognitiveServices.Speech.Recognition`.
+For example, `Azure.Storage.Blobs`.
 ~
 
-~ Should {#dotnet-namespace-format-pre-approved}
+~ Must {#dotnet-namespace-format-pre-approved}
 use one of the following pre-approved namespace groups:
 
-- ```Azure.Diagnostics``` (e.g. ```Azure.Diagnostics.OperationalInsights```)
-- ```Azure.Cognitive``` (e.g. ```Azure.Cognitive.FaceRecognition```)
-- ```Azure.Iot``` (e.g. ```Azure.Iot.Hub```)
-- ```Azure.Networking``` (e.g. ```Azure.Networking.EventHub```)
-- ```Azure.Runtime``` (e.g. ```Azure.Runtime.VirtualMachines```)
-- ```Azure.Security``` (e.g. ```Azure.Security.KeyVault```)
+- ```Azure.AI``` (e.g. ```Azure.AI.FaceRecognition```)
+- ```Azure.Iot``` (e.g. ```Azure.Iot.IotHubs```)
+- ```Azure.Messaging``` (e.g. ```Azure.Messaging.EventHubs```)
 - ```Azure.Storage``` (e.g. ```Azure.Storage.Blobs```)
+- others comming soon ...
+
+If you think a new group should be added to the list, email *adparch@microsoft.com*.
 ~
 
 ~ Must {#dotnet-namespace-registration}
@@ -416,11 +416,13 @@ i.e. send email about your proposed namespaces to this address to start a discus
 ~
 
 ~ MustNot {#dotnet-namespace-format-service-name}
-place service API in second level namespace, e.g. `Azure.KeyVault`
+place APIs in the second level namespace, i.e. in the ```<group>``` namespace.
 ~
 
 ~ Should {#dotnet-namespace-modeltypes}
-consider placing model types in a ```.Models``` subnamespaces of the client types, if number of model types is large.
+consider placing model types in a ```.Models``` subnamespaces, if number of model types is or might be large (5+).
+
+This is to enuse that the types needed to create clents and to call service methods are easy to find in the main namespace. 
 ~
 
 ## Authentication {#dotnet-authentication}
