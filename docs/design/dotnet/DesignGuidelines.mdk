@@ -425,28 +425,32 @@ consider placing model types in a ```.Models``` subnamespaces, if number of mode
 This is to enuse that the types needed to create clents and to call service methods are easy to find in the main namespace. 
 ~
 
-## Authentication {#dotnet-authentication}
-~ Draft
-Service client constructors should take all parameters required to create a functioning client, i.e. after the constructor is called service methods can be called successfully. 
-Typically such parameters will include service endpoint information and everything needed to authenticate with the service.
-This section describes details of the authentication related APIs.
-~
-
 ## Error Reporting {#dotnet-errors}
 
 ~~ Must {#dotnet-errors-exception}
 throw ```Azure.Core.ResponseFailedException``` or its subtype when a service method fails with non-success status code. 
 
-The exception is avaliable in ```Azure.Core``` package. For example, 
+The exception is avaliable in ```Azure.Core``` package:
+```csharp
+public class RequestFailedException : Exception {
+
+    public RequestFailedException(int status, string message, string responseDetails);
+    public RequestFailedException(int status, string message, string responseDetails, Exception innerException);
+
+    public string ResponseDetails { get; }
+    public int Status { get; }
+}
+``` 
+For example, 
 ```csharp
 if (response.Status != 200) {
-    else throw new ResponseFailedException(response);
+    else throw new ResponseFailedException(response.status, response.Reason, response.ToString());
 }
 ```
 ~~
 
 ~~ Must {#dotnet-errors-message}
-specify a clear and deatiled exception message when when throwing exceptions.
+specify a clear exception message and details of the response when throwing exceptions.
 ~~
 
 ~~ MustNot {#dotnet-errors-newexceptions}
@@ -457,7 +461,7 @@ introduce new exception types, unless there is a programmatic scenario for handl
 
 Azure SDK APIs must support mocking. Here is an example of how the ```ConfugurationClient``` can be mocked using [Moq](https://github.com/moq/moq4) (a popular .NET mocking library):
 
-```c#
+```csharp
 // Create a mock response
 var mockResponse = new Mock<Response>();
 // Create a client mock
@@ -490,6 +494,13 @@ public static class ConfigurationModelFactory {
 }
 ```
 ~~
+
+## Authentication {#dotnet-authentication}
+~ Draft
+Service client constructors should take all parameters required to create a functioning client, i.e. after the constructor is called service methods can be called successfully. 
+Typically such parameters will include service endpoint information and everything needed to authenticate with the service.
+This section describes details of the authentication related APIs.
+~
 
 ## Packaging {#dotnet-packaging}
 
