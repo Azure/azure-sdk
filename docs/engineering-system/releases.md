@@ -86,7 +86,7 @@ JavaScript dev and preview releases are published to npm with the `@dev` and `@p
 
 ### .NET
 NuGet supports designating a package as 'pre-release'. In this ecosystem, pre-release packages will have daily build numbers in the format:
-+ `X.Y.Z-dev.YYYMMDD.r`
++ `X.Y.Z-dev.YYYYMMDD.r`
     + r is the number of builds done in a given day. 
 + `X.Y.Z-preview.N`
 
