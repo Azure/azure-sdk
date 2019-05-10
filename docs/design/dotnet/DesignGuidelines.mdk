@@ -64,7 +64,7 @@ If for some reason you cannot use the pipeline, you must implement all the gener
 
 ## Service Client Design {#dotnet-client}
 
-Azure services will be exposed to .NET developers as one or more _service client_ types plus a set of _supporting types_. The guidelines in this section describe patterns for the design of a service clients and their members.
+Azure services will be exposed to .NET developers as one or more _service client_ types, and a set of _supporting types_. The guidelines in this section describe patterns for the design of a service clients and their members.
 
 The basic shape of a service client has the following elements:
 
@@ -119,7 +119,6 @@ namespace Azure.Data.Configuration {
 
     // options for configuring the client
     public class ConfigurationClientOptions : HttpPipelineOptions {
-        // 
         ...
     }
 }
@@ -155,8 +154,14 @@ public class ConfigurationClient {
 ```
 ~
 
+~ MustNot {#dotnet-client-ctor-simple-nodefaults}
+use default parameters in the _hello world_ constructor.
+~
+
 ~ Must {#dotnet-client-ctor-overloads}
-provide constructor overloads that allows specifying advanced credentials, a custom pipeline, and optionally other service specific configuration, e.g. service API version.
+provide constructor overloads that allows specifying advanced credentials, a custom pipeline, and other service specific configuration, e.g. service API version.
+
+Custom pipeline and client specific configuration are represented by ```options``` parameter. Guidelines for subclassing and using ```HttpPipelineOptions``` can be found in [Extending and Using HttpPipelineOptions](#dotnet-usage-options) section below.
 
 For example, the ```ConfigurationClient``` type and its public constructors look as follows:
 
@@ -203,17 +208,15 @@ public class ConfigurationClient {
 ```
 
 ~ Must {#dotnet-method-async-and-sync}
-add both asynchronous and synchronous variants for all service methods.
+provide both asynchronous and synchronous variants for all service methods.
 ~
 
 ~ Must {#dotnet-method-suffix}
-ensure that the names of the synchronous and the asynchronous variants differ only by the _Async_ suffix.
+ensure that the names of the asynchronous and the synchronous variants differ only by the _Async_ suffix.
 ~
 
 ~ Must {#dotnet-method-cancellation}
 ensure all service methods, both asynchronous and synchronous, take an optional ```CancellationToken``` parameter called _cancellationToken_.
-
-For more contenxt see language-independent [Cancellation Guidelines](#general-cancellations).
 ~
 
 ~ Must {#dotnet-method-virtual}
@@ -223,7 +226,15 @@ This is to support mocking. See [Supporting Mocking](#dotnet-mocking) for detail
 ~
 
 ~ Must {#dotnet-method-returntype}
-return ```Task<Response<T>>``` or ```ValueTask<Response<T>>``` from asynchronous service methods, and ```Response<T>``` from the synchronous variants. The `T` represents the content of the response and we will refer to it as the service call return type. See [Service Method Return Types](#dotnet-method-return) below on the details for how to design service return types.
+return ```Task<Response<T>>``` or ```ValueTask<Response<T>>``` from asynchronous service methods, and ```Response<T>``` from the synchronous variants, if the method returns some value or content. 
+
+The `T` represents the content of the response and we will refer to it as the service call return type. See [Service Method Return Types](#dotnet-method-return) below on the details for how to design service return types.
+
+Use standard .NET Framework Design Guidelines to choose between ```Task``` and ```ValueTask```.
+~
+
+~ Must {#dotnet-method-returntype}
+return ```Task<Response>``` or ```ValueTask<Response>``` from asynchronous service methods, and ```Response``` from the synchronous variants, if the service method does not return anything.
 
 Use standard .NET Framework Design Guidelines to choose between ```Task``` and ```ValueTask```.
 ~
@@ -240,7 +251,7 @@ be thread-safe. All public members of the client type must be safe to call from 
 
 ### Service Method Return Types {#dotnet-method-return}
 
-As mentioned above, service methods should return ```Task<Response<T>>``` or ```ValueTask<Response<T>>```. The ```T``` can be either an unstructured payload (bytes of a storage blob) or a _model type_ representing deserialized response content. This section describes guidelines for the design of unstructured return types, _model types_, and all their transitive closure of dependencies (the _model graph_).
+As mentioned above, service methods will often return ```Response<T>```. The ```T``` can be either an unstructured payload (bytes of a storage blob) or a _model type_ representing deserialized response content. This section describes guidelines for the design of unstructured return types, _model types_, and all their transitive closure of dependencies (the _model graph_).
 
 ~ Must {#dotnet-return-type}
 use one of the following return types to represent an unstructured payload:
@@ -332,7 +343,7 @@ public sealed class ConfigurationSetting : IEquatable<ConfigurationSetting> {
 ~
 
 ~ Note {#dotnet-model-types-threadsafe}
-Model types are not required to be thread-safe.
+Unlike client APIs, model type APIs are not required to be thread-safe, as they are rarely shared between threads.
 ~
 
 ~ Must {#dotnet-model-types_mockable}
@@ -356,15 +367,16 @@ public class ConfigurationClient {
     ...
 }
 ```
+
 ~ Must {#dotnet-paging-returntypes}
 use ```IEnumerable<Response<T>>``` and ```IAsyncEnumerable<Response<T>>``` as the return type of service methods returning batches or pages of items.
 
-The ```IAsyncEnumerable<T>``` interface is available in TBD NuGet package. 
+The ```IAsyncEnumerable<T>``` interface is available in [Microsoft.BCL.AsyncInterfaces](https://www.nuget.org/packages/Microsoft.Bcl.AsyncInterfaces) package. 
 
-The ```Response<T>.Raw``` will most probably contain response related to several individual items. this is OK.
+The ```Response<T>.Raw``` will most probably contain response content related to several individual items, and it's ok.
 ~
 
-~ MustNot {#dotnet-paging-raw}
+~ ShouldNot {#dotnet-paging-raw}
 expose raw paging APIs directly on service clients. 
 
 If you desire to expose raw pacing APIs in the Azure SDK for .NET, expose such APIs in a specialized low level type, not directly on the main service client type. The low level type should be in an advanced namespace, not in the main namespace of the component.
@@ -419,12 +431,14 @@ make all service methods virtual.
 ~~
 
 ~~ Must {#dotnet-mocking-modelfactory}
-provide factory methods for all model types returned from virtual service methods. The methods should be in public static type called ```<service>ModelFactory```.
+provide factory or builder for constructing model graphs returned from virtual service methods. 
 
-In general, model types should not have public constructors, as instances of the type are typically returned from SDK, as opposed to being constructed by the SDK user. Having said that, mock implementations need to create instances of the model types, and so you should provide factory methods for mocking scenarios.
+In general, model types should not have public constructors, as instances of the type are typically returned from SDK, as opposed to being constructed by the SDK user, yet mock implementations need to create instances of the model types.
+
+A simple factory should be a static class called ```<service>ModelFactory```.
 
 ```csharp
-public static class ConfigurationModelFactory {
+public static class ConfigurationModelBFactory {
     public static ConfigurationSetting ConfigurationSetting(string key, string value, string label=default, string contentType=default, ETag eTag=default, Nullable<DateTimeOffset> lastModified=default, Nullable<bool> locked=default);
     public static SettingBatch SettingBatch(ConfigurationSetting[] settings, string link, SettingSelector selector);
 }
@@ -485,12 +499,9 @@ contact the *adparch@microsoft.com* if you want to add a new credential type.
 offer a way to create credentials from a connection string only if the service  offers a connection string via the Azure portal.
 
 In other words, don't ask users to compose connection strings manually, if they are not available through the Azure Portal. An additional limitation of connection strings is that they are immutable and so it's impossible for a client object to pick up new connection strings when they are rolled over.
+~
 
 ## General Azure SDK Library Design
-
-#### Distributed Tracing {#dotnet-distributedtracing}
-
-Guidance coming soon ...
 
 ### Namespace Naming {#dotnet-namespace-naming}
 
@@ -531,36 +542,37 @@ This is to ensure that the types needed to create clients and to call service me
 
 ### Error Reporting {#dotnet-errors}
 
-~~ Must {#dotnet-errors-exception}
+~ Must {#dotnet-errors-exception}
 throw ```ResponseFailedException``` or its subtype when a service method fails with non-success status code. 
 
 The exception is available in ```Azure.Core``` package:
 ```csharp
 public class RequestFailedException : Exception {
 
-    public RequestFailedException(int status, string message, string responseDetails);
-    public RequestFailedException(int status, string message, string responseDetails, Exception innerException);
+    public RequestFailedException(int status, string message);
+    public RequestFailedException(int status, string message, Exception innerException);
 
-    public string ResponseDetails { get; }
     public int Status { get; }
 }
 ``` 
+~
+
+~ Should {#dotnet-errors-exception}
+use ResponseExceptionExtensionsExtensions to create RequestFailedException instances.
+
+This ensures that the exception's message contains detailed response information.
+
 For example, 
 ```csharp
 if (response.Status != 200) {
-    else throw new ResponseFailedException(response.status, response.Reason, response.ToString());
+    ResponseFailedException e = await response.CreateRequestFailedExceptionAsync(message);
+    else throw e;
 }
 ```
-~~
+~
 
-~~ Must {#dotnet-errors-message}
-specify a clear exception message and details of the response when throwing exceptions.
-~~
-
-~~ MustNot {#dotnet-errors-newexceptions}
+~ MustNot {#dotnet-errors-newexceptions}
 introduce new exception types, unless there is a programmatic scenario for handling this new exception differently than the base ```ResponseFailedException``` or one of its existing subtypes.
-~~
-
 ~
 
 ### Logging
@@ -569,6 +581,10 @@ Request logging will be done automatically by the ```HttpPipeline```. If a clien
 ~ Must {#dotnet-logging}
 follow [general logging guidelines](https://azuresdkspecs.z5.web.core.windows.net/#general-logging), if logging directly, as opposed to through the HttpPipeline.
 ~ 
+
+#### Distributed Tracing {#dotnet-distributedtracing}
+
+Guidance coming soon ...
 
 ### Packaging {#dotnet-packaging}
 
@@ -637,8 +653,9 @@ This should be done using a constructor parameter on the client options type.
 * The parameter must be the first parameter to all constructor overloads.
 * The parameter must not be optional, i.e. all constructor overloads must have it.
 * The parameter should be defaulted to the latest supported service version.
-* The parameter type must be an enum nested in the options type called ServiceVersion
-* The version enaum must have explicity specified value, e.g. ```V2019_05_09 = 0```
+* The parameter type must be an enum nested in the options type.
+* The parameter type must be called ServiceVersion.
+* The version enum must have explicity specified values, e.g. ```V2019_05_09 = 0```.
 
 ```csharp
 public class ConfigurationClientOptions : HttpPipelineOptions {
@@ -726,21 +743,34 @@ See [documentation guidelines](https://azuresdkspecs.z5.web.core.windows.net/#ge
 
 ## Common Type Usage {#dotnet-commontypes}
 
-~ Must {#dotnet-usage-etag}
-use ```Azure.ETag``` to represent ETags.
+### HttpPipelineOptions {#dotnet-usage-options}
 
-The type is located in ```Azure.Core``` package.
+~ Must {#dotnet-usage-options-name}
+name subclasses of ```HttpPipelineOptions``` by adding _Client_ suffix to the name of the client type the options subclass is configuraing.
+
+```csharp
+// options for configuring ConfigurationClient
+public class ConfigurationClientOptions : HttpPipelineOptions {
+    ...
+}
+
+public class ConfigurationClient {
+
+    public ConfigurationClient(string connectionString, ConfigurationClientOptions options);
+    ...   
+}
+```
+
+Note, if the options type can be shared by multiople client types, name it with a plural and more general name, e.g. ```BlobClientsOptions``` can be used by ```BlobClient```, ```BlobContainerClient```, and ```BlobAccountClient```.
 ~
 
-~ Must {#dotnet-usage-uri}
-use ```System.Uri``` to represent URIs.
+~ MustNot{#dotnet-usage-options-nodefaultctor}
+have a default constructor on the options type. 
+
+Each overload constructor should take at least service verions parameter. See [Versioning](#dotnet-service-version-option) guidelines for details.
 ~
 
-### Using Response<T>
-
-comming soon ...
-
-### Using HttpPipeline {#dotnet-usage-httppipeline}
+### HttpPipeline {#dotnet-usage-httppipeline}
 The following example shows a typical way of using HttpPipeline to implement service call method.
 The HttpPipeline will take care of telemetry, logging, retries, and extensibility required by language-independent Azure SDK Guidelines.
 
@@ -781,8 +811,19 @@ public virtaul async Task<Response<ConfigurationSetting>> AddAsync(Configuration
 }
 ```
 
-### Serialization {#dotnet-usage-serialization}
-We recommend that you use [System.Text.Json](https://github.com/dotnet/corefx/tree/master/src/System.Text.Json/source_package) package to write and read JSON content.
+### HttpPipelinePolicy
+
+~ Must {#dotnet-policy-threadsafe}
+be thread-safe. The `ProcessAsync` and `Process` methods must be safe to invoke from multiple threads cuncurrently.
+~
+
+~ Note {#dotnet-policy-request-response-message-threadsafe}
+ `HttpPipelineMessage`, `Request`, and `Response` do not have to be thread-safe.
+~
+
+### JSON {#dotnet-usage-json}
+
+We recommend that you use [System.Text.Json](https://www.nuget.org/packages/System.Text.Json) package to write and read JSON content.
 
 ~ Should {#dotnet-usage-json-writer}
 use Utf8JsonWriter to write JSON payloads
@@ -843,21 +884,19 @@ consider deserializing the return type lazily if the type is a large graph conta
 This allows callers to avoid large number of GC heap allocations. ```Response<T>``` allows for such lazy deserialization. See ```Response<T>``` documentation for how to do it.
 ~
 
-### HttpPipelinePolicy
+### Primitive Types
 
-~ Must {#dotnet-policy-threadsafe}
-be thread-safe. The `ProcessAsync` and `Process` methods must be safe to invoke from multiple threads cuncurrently.
+~ Must {#dotnet-usage-etag}
+use ```Azure.ETag``` to represent ETags.
+
+The type is located in ```Azure.Core``` package.
 ~
 
-~ Note {#dotnet-policy-request-response-message-threadsafe}
- `HttpPipelineMessage`, `Request`, and `Response` do not have to be thread-safe.
+~ Must {#dotnet-usage-uri}
+use ```System.Uri``` to represent URIs.
 ~
 
 # Repository Guidelines {#dotnet-repository}
-
-~ Must {#dotnet-follow-oss-guidelines}
-follow general [Azure SDK open source guidelines](#general-oss).
-~
 
 ~ Must {#dotnet-repository-elements}
 have samples, readme, and use prescribed folder structure for your client library.
