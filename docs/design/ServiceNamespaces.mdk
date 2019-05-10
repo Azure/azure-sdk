@@ -1,0 +1,70 @@
+## Namespaces and Grouping
+
+Some languages have a concept of namespaces to group related types.  Grouping services within a cloud infrastructure is common since it aids discoverability and provides structure to the reference documentation.
+
+~ Must {#general-namespace-startswith}
+start the namespace with "Azure" or "com.azure" or similar to indicate an Azure client library.
+~
+
+~ Must {#general-namespace-serviceclient}
+pick a package name that allows the consumer to tie the namespace to the service being used.  As a default, use the service name at the end of the namespace.  The namespace does **NOT** change when the branding of the product changes, so avoid the use of marketing names that may change.  (See below for examples)
+~
+
+~ Must {#general-namespace-split-management-api}
+place the management (ARM) API in the "management" group.  Use the grouping `<Azure>.management.<Group>.<ServiceName>` for the namespace.   Since more services require control plane APIs than data plane APIs, other namespaces may be used explicitly for control plane only. Data plane usage is by exception only. Additional namespaces that can be used for control plane SDKs include:
+
+- `appmodel` for application models (for example, Azure Functions or App Frameworks)
+- `compute`
+- `integration`
+- `networking`
+
+Use `azure.management` for specifically Azure Management tasks (e.g. cost optimization or deployment).
+~
+
+~ MustNot {#general-namespace-avoid-ambiguity}
+choose similar names for clients that do different things.
+~
+
+~ Must {#general-namespace-names}
+use the following list as the group of services (if the target language supports namespaces):
+
+- `ai` for artificial intelligence, including machine learning
+- `analytics` for client libraries that gather or process analytics data
+- `data` for client libraries that handle databases or structured data stores
+- `diagnostics` for client libraries that gather data for diagnostics, including logging
+- `identity` for authentication and authorization client libraries
+- `iot` for client libraries dealing with the Internet of Things
+- `management` for client libraries accessing the control plane (ARM)
+- `media` for client libraries that deal with audio, video, or mixed reality
+- `messaging` for client libraries that provide messaging services, such as push notifications or pub-sub.
+- `search` for search technologies
+- `security` for client libraries dealing with security
+- `storage` for client libraries that handle unstructured data
+~
+
+~ Must {#general-namespace-management}
+
+
+~ Must {#general-namespace-register}
+register the chosen namespace with the ADP board.  To do this, open an issue in the [azure-sdk](https://github.com/azure/azure-sdk/issues) repository on GitHub.
+~
+
+In cases where namespaces are supported, the namespace should be named `<AZURE>.<group>.<service>`.  All consumer-facing APIs that are commonly used should exist within this namespace.  Here:
+- `<AZURE>` indicates the prefix (`Azure` or `com.azure` or similar, depending on the language)
+- `<group>` is the group for the service
+- `<service>` is the service name represented as a single word
+
+Here are some examples of good selections (from the .NET world):
+- `Azure.Data.Cosmos`
+- `Azure.Identity.ActiveDirectory`
+- `Azure.IoT.DeviceProvisioning`
+- `Azure.Storage.Blob`
+- `Azure.Messaging.NotificationHubs` (the client library for Notification Hubs)
+- `Azure.Management.Messaging.NotificationHubs` (the management client for Notification Hubs)
+
+Here are some bad examples:
+- `Microsoft.Azure.CosmosDB` (not in the Azure namespace, no grouping)
+- `Azure.MixedReality.Kinect` (invalid group)
+- `Azure.IoT.IoTHub.DeviceProvisioning` (too many levels)
+
+If the client library does not seem to fit into the group list, contact the [Architectural Board](https://github.com/azure/azure-sdk-private/issues) for advice on the most appropriate group.
