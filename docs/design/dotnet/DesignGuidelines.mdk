@@ -8,7 +8,7 @@ To illustrate various design concepts, we will be using our showcase component: 
 
 Productivity is the main value proposition of the Azure SDK. 
 Other qualities, such as completeness, extensibility, performance, and others are important, but secondary. 
-We will ensure our customers can be productive by making our libraries:
+We will ensure our customers can be highly productive when using our libraries by ensuring these libraries are:
 
 **Idiomatic**
 
@@ -21,22 +21,22 @@ We will ensure our customers can be productive by making our libraries:
 **Consistent** 
 
 * The Azure SDK feels like a single product of a single team, not a set of NuGet packages.
-* All differences must have a good reason.
-* Users learn common concepts once; apply the knowledge to any SDK component.
+* Users learn common concepts once; apply the knowledge across all SDK components.
+* All differences from the usual must have very good reasons.
 
 **Approachable** 
 
 * Small number of steps to get off the ground; power knobs for advanced users
-* Small number of concepts; small number of types
-* Approachable by our users, not by us (engineers working on the SDK)
+* Small number of concepts; small number of types; small number of members
+* Approachable by our users, not by engineers designing the SDK components
+* Easy to find great _getting started_ guides and samples
 * Easy to acquire
-* Great _getting started_ samples
 
 **Dependable**
 
 * 100% backward compatible
 * Great logging, tracing, and error messages
-* Predictable support lifecycle
+* Predictable support lifecycle, feature coverage, and quality
 
 ## General Guidelines {#dotnet-general}
 
@@ -49,13 +49,13 @@ At the end of this document, you can find a section with [the most commonly over
 ~ Must {#dotnet-follow-official-general-azure-sdk-guidelines}
 follow the general [Azure SDK Design Guidelines](https://azuresdkspecs.z5.web.core.windows.net/).
 
-These guidelines prescribe many requirements related to telemetry, logging, retry semantics, configurarion, proxy settings, extensibility, and others. The easiest way to ensure that your component meets these requirements is to use the [Azure.Core](https://www.nuget.org/packages/Azure.Core/) package to implement all methods that call Azure services. The package contains helper APIs that ensure compliance with these general requirements automatically. Details of these helper APIs and their usage are described in the [Using HttpPipeline](#dotnet-usage-httppipeline) section.
+These guidelines prescribe many requirements related to telemetry, logging, retry semantics, configuration, proxy settings, extensibility, and others. The easiest way to ensure that your component meets these requirements is to use the [Azure.Core](https://www.nuget.org/packages/Azure.Core/) package to implement all methods that call Azure services. The package contains helper APIs that ensure compliance with these general requirements automatically. Details of these helper APIs and their usage are described in the [Using HttpPipeline](#dotnet-usage-httppipeline) section.
 ~
 
 ~ Should {#dotnet-use-azure-pipeline}
 use `HttpPipeline` to implement all methods that call Azure services. 
 
-The pipeline can be found in the Azure.Core package, and it takes care of many general [Azure SDK Design Guidelines](#common-general), e.g. telemetry, logging, retries, mockability. Details of the pipeline design and usage are described in section [Using HttpPipeline](#dotnet-usage-httppipeline) below.
+The pipeline can be found in the [Azure.Core](https://www.nuget.org/packages/Azure.Core/) package, and it takes care of many general [Azure SDK Design Guidelines](#common-general), e.g. telemetry, logging, retries, mockability. Details of the pipeline design and usage are described in section [Using HttpPipeline](#dotnet-usage-httppipeline) below.
 
 If for some reason you cannot use the pipeline, you must implement all the general requirements of Azure SDK manually. You can find the requirements described [here](https://azuresdkspecs.z5.web.core.windows.net/)
 ~
@@ -359,7 +359,7 @@ public class ConfigurationClient {
 ~ Must {#dotnet-paging-returntypes}
 use ```IEnumerable<Response<T>>``` and ```IAsyncEnumerable<Response<T>>``` as the return type of service methods returning batches or pages of items.
 
-The ```IAsyncEnumerable<T>``` interface is avaliable in TBD NuGet package. 
+The ```IAsyncEnumerable<T>``` interface is available in TBD NuGet package. 
 
 The ```Response<T>.Raw``` will most probably contain response related to several individual items. this is OK.
 ~
@@ -415,7 +415,7 @@ Assert.AreEqual("Value", setting.Value);
 The full sample is located [here](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/appconfiguration/Azure.ApplicationModel.Configuration/samples/Sample8_MockClient.cs)
 
 ~~ Must {#dotnet-mocking-virtual}
-make all service methods virtaul.
+make all service methods virtual.
 ~~
 
 ~~ Must {#dotnet-mocking-modelfactory}
@@ -433,7 +433,7 @@ public static class ConfigurationModelFactory {
 
 ### Authentication {#dotnet-authentication}
 
-Service client constructors should take all parameters required to create a functioning client, i.e. after the constructor is called service methods can be called successfully. Typically such parameters will include service endpoint information and everything needed to authenticate with the service. General guidelinesfor all constructors are described in the section [Service Client Constructors](#dotnet-client-ctor). This section talks about constructor parameters required for authentication.
+Service client constructors should take all parameters required to create a functioning client, i.e. after the constructor is called service methods can be called successfully. Typically such parameters will include service endpoint information and everything needed to authenticate with the service. General guidelines for all constructors are described in the section [Service Client Constructors](#dotnet-client-ctor). This section talks about constructor parameters required for authentication.
 
 The general constructor pattern talks about _binding parameters_. 
 
@@ -450,7 +450,7 @@ Typically, _binding parameters_ would include a URI to the service endpoint and 
 
 ```csharp
 // hello world constructors using the main authentication method on the service's Azure Portal (typically a connection string)
-// we don't want to use default parameters here; all other overlods can use default parameters
+// we don't want to use default parameters here; all other overloads can use default parameters
 public BlobServiceClient(string connectionString) 
 public BlobServiceClient(string connectionString, BlobClientOptions options)
 
@@ -463,12 +463,12 @@ public BlobServiceClient(Uri uri, TokenCredentials credentials, BlobClientOption
 ```
 
 ~ Should {#dotnet-authentication-credentialtypes}
-use credentail types provided in the ```Azure.Core``` package.
+use credential types provided in the ```Azure.Core``` package.
 
 Currently, Azure.Core has the following reusable credential types:
 
 - TokenCredentials
-- more comming soon ...
+- more coming soon ...
 ~
 
 ~ Must {#dotnet-authentication-rolling}
@@ -484,13 +484,13 @@ contact the *adparch@microsoft.com* if you want to add a new credential type.
 ~ May
 offer a way to create credentials from a connection string only if the service  offers a connection string via the Azure portal.
 
-In other words, don't ask users to compose connection strings manually, if they are not avaliable throug the Azure Portal. An additional limitation of connection strings is that they are immutable and so it's impossible for a client object to pick up new connection strings when they are rolled over.
+In other words, don't ask users to compose connection strings manually, if they are not available through the Azure Portal. An additional limitation of connection strings is that they are immutable and so it's impossible for a client object to pick up new connection strings when they are rolled over.
 
-## Client Library Design
+## General Azure SDK Library Design
 
 #### Distributed Tracing {#dotnet-distributedtracing}
 
-Guidance comming soon ...
+Guidance coming soon ...
 
 ### Namespace Naming {#dotnet-namespace-naming}
 
@@ -526,7 +526,7 @@ place APIs in the second level namespace, i.e. in the ```<group>``` namespace.
 ~ Should {#dotnet-namespace-modeltypes}
 consider placing model types in a ```.Models``` subnamespaces, if number of model types is or might be large (5+).
 
-This is to enuse that the types needed to create clents and to call service methods are easy to find in the main namespace. 
+This is to ensure that the types needed to create clients and to call service methods are easy to find in the main namespace. 
 ~
 
 ### Error Reporting {#dotnet-errors}
@@ -534,7 +534,7 @@ This is to enuse that the types needed to create clents and to call service meth
 ~~ Must {#dotnet-errors-exception}
 throw ```ResponseFailedException``` or its subtype when a service method fails with non-success status code. 
 
-The exception is avaliable in ```Azure.Core``` package:
+The exception is available in ```Azure.Core``` package:
 ```csharp
 public class RequestFailedException : Exception {
 
@@ -564,7 +564,7 @@ introduce new exception types, unless there is a programmatic scenario for handl
 ~
 
 ### Logging
-Request logging will be done automatically by the ```HttpPipeline```. If a client library wants to do custom logging, the designer of the library must ensure that the logging mechanis is pluggable, just like the pipeline logging mechanism is.
+Request logging will be done automatically by the ```HttpPipeline```. If a client library wants to do custom logging, the designer of the library must ensure that the logging mechanism is pluggable, just like the pipeline logging mechanism is.
 
 ~ Must {#dotnet-logging}
 follow [general logging guidelines](https://azuresdkspecs.z5.web.core.windows.net/#general-logging), if logging directly, as opposed to through the HttpPipeline.
@@ -589,7 +589,7 @@ place small related components in similar lifecycle stages (i.e. evolving togeth
 
 ~ Must {#dotnet-packaging-ns}
 build all libraries for .NET Standard 2.0.
-This can be acomplished by the following target setting in the csproj file:
+This can be accomplished by the following target setting in the csproj file:
 ```
 <TargetFramework>netstandard2.0</TargetFramework>
 ```
@@ -829,7 +829,7 @@ using (JsonDocument json = await JsonDocument.ParseAsync(content, default, cance
 ~ Should {#dotnet-usage-json-reader}
 consider using Utf8JsonReader to read JSON payloads
 
-Utf8JsonReader is significantly faster than JsonDocument, but much less convinient.
+Utf8JsonReader is significantly faster than JsonDocument, but much less convenient.
 ~
 
 ~~ Must {#dotnet-usage-serialization-versions}
@@ -881,7 +881,7 @@ The contributor guide (CONTRIBUTING.md) should be a separate file linked to from
 
 ## Samples {#dotnet-samples}
 
-It is very importnat that each Azure SDK library has a quick-start guide with code samples avaliable. Developers like to start learning how to use reusable libraries by looking at sample code, not by reading in-debth technology papers.  
+It is very important that each Azure SDK library has a quick-start guide with code samples available. Developers like to start learning how to use reusable libraries by looking at sample code, not by reading in-depth technology papers.  
 
 ~ Must {#dotnet-samples-other}
 have usage samples in _samples_ subdirectory of main library directory.
