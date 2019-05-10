@@ -853,7 +853,7 @@ be thread-safe. The `ProcessAsync` and `Process` methods must be safe to invoke 
  `HttpPipelineMessage`, `Request`, and `Response` do not have to be thread-safe.
 ~
 
-## Repository Guidelines {#dotnet-repository}
+# Repository Guidelines {#dotnet-repository}
 
 ~ Must {#dotnet-follow-oss-guidelines}
 follow general [Azure SDK open source guidelines](#general-oss).
@@ -865,7 +865,7 @@ have samples, readme, and use prescribed folder structure for your client librar
 TODO: link to details.
 ~
 
-### README {#dotnet-repository-readme}
+## README {#dotnet-repository-readme}
 
 ~ Must {#dotnet-repository}
 have a README.md file in the component's root folder. 
@@ -879,7 +879,7 @@ optimize the main README.md for the users of the client library, not the contrib
 The contributor guide (CONTRIBUTING.md) should be a separate file linked to from the main component README.md. The main README.md should start with a simple overview of the component, followed by a link to the component's NuGet page, followed by the Hello World sample, and finally a list of links to other samples.
 ~
 
-### Samples {#dotnet-samples}
+## Samples {#dotnet-samples}
 
 It is very importnat that each Azure SDK library has a quick-start guide with code samples avaliable. Developers like to start learning how to use reusable libraries by looking at sample code, not by reading in-debth technology papers.  
 
@@ -905,7 +905,7 @@ You might want to also add ```S2_HelloWorldAsync.cs``` sample.
 make sure all the samples build and run as part of the CI process. 
 ~
 
-## Commonly Overlooked .NET API Design Guidelines {#dotnet-appendix-overlookedguidelines}
+# Commonly Overlooked .NET API Design Guidelines {#dotnet-appendix-overlookedguidelines}
 
 Some .NET Design Guidelines have been notoriously overlooked in existing Azure SDKs. This section serves as a way to highlight these guidelines.
 
