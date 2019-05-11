@@ -1,6 +1,6 @@
-﻿The following document describes .NET specific guidelines for designing Azure SDK libraries. These guidelines complement general [.NET Framework Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/) with design considerations specific to the Azure SDK. Also, these guidelines expand on, and simplify, language-independent [General Azure SDK Guidelines](https://azuresdkspecs.z5.web.core.windows.net). Note that these more specific guidelines take precedence over more general guidelines.
+﻿The following document describes .NET specific guidelines for designing Azure SDK client libraries. These guidelines complement general [.NET Framework Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/) with design considerations specific to the Azure SDK. Also, these guidelines expand on, and simplify, language-independent [General Azure SDK Guidelines](https://azuresdkspecs.z5.web.core.windows.net). Note that these more specific guidelines take precedence over more general guidelines.
 
-Currently, the document describes guidelines for libraries exposing HTTP/REST services. It might be expanded in the future to cover other, non-REST, services. 
+Currently, the document describes guidelines for client libraries exposing HTTP/REST services. It might be expanded in the future to cover other, non-REST, services. 
 
 To illustrate various design concepts, we will be using our showcase component: the client library for the Azure Application Configuration service. You can find this component [here](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/appconfiguration/Azure.ApplicationModel.Configuration). The library can serve as an illustration of what we expect a great Azure SDK component to look like.
 
@@ -41,7 +41,7 @@ We will ensure our customers can be highly productive when using our libraries b
 ## General Guidelines {#dotnet-general}
 
 ~ Must {#dotnet-follow-official-framework-guidelines}
-follow the official [Framework Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/). 
+follow the official .NET [Framework Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/). 
 
 At the end of this document, you can find a section with [the most commonly overlooked guidelines](#dotnet-appendix-overlookedguidelines) in existing Azure SDK libraries.
 ~
@@ -948,8 +948,8 @@ make sure all the samples build and run as part of the CI process.
 
 Some .NET Design Guidelines have been notoriously overlooked in existing Azure SDKs. This section serves as a way to highlight these guidelines.
 
-~ Should {#dotnet-numberoftypes}
-not have many types in the main namespace. Number of types is directly proportional to the perceived complexity of a library.
+~ ShouldNot {#dotnet-numberoftypes}
+have many types in the main namespace. Number of types is directly proportional to the perceived complexity of a library.
 ~
 
 ~ MustNot {#dotnet-no-abstractions}
