@@ -1,23 +1,18 @@
-## Supported Python versions {#python-scope; @h1-h2: decimal; }
+## Platform support {#python-scope; @h1-h2: decimal; }
 
 ~ Must {#python-version-support}
-provide packages supporting Python 2.7 and Python 3.4+
+provide packages supporting Python 2.7.6+ and Python 3.4+
 ~
-
-## Supported Python interpreters
 
 ~ Must {#python-interpreters}
 support PyPy in addition to CPython
 ~
 
-## Supported Operating systems
-
 ~ ToDo
 fill in
 ~
 
-## Coding
-### General
+## General Python Guidelines
 
 ~ Must {#python-zen}
 adhere to the [Zen of Python](https://www.python.org/dev/peps/pep-0020/)
@@ -45,6 +40,10 @@ adhere to the [Zen of Python](https://www.python.org/dev/peps/pep-0020/)
   ```
 ~
 
+~ Must {#python-follow-official-general-azure-sdk-guidelines}
+follow the general [Azure SDK Design Guidelines](https://azuresdkspecs.z5.web.core.windows.net/) unless explicitly overridden in this document.
+~
+
 ~ Must {#python-guidelines}
 follow the general guidelines in [PEP8](https://www.python.org/dev/peps/pep-0008/t) unless explicitly overridden in this document.
 ~
@@ -52,35 +51,45 @@ follow the general guidelines in [PEP8](https://www.python.org/dev/peps/pep-0008
 ~ MustNot {#python-no-borrowing}
 "borrow" coding paradigms from other languages.
 
-  *For example, regardless of how common Reactive programming is in the Java community, it is still unfamiliar for most Python devalepers.*
+  *For example, regardless of how common Reactive programming is in the Java community, it is still unfamiliar for most Python developers.*
 ~
 
 ~ Must {#python-consistency}
-favor consistency with other Python components over other libraries for the same service
+favor consistency with other Azure Python libraries over other libraries for the same service
 
-  *It is significantly more likely that a developer will use many different libraries using the same languages than that a developer will use the same service from many different languages*
-~
-
-~ Must {#python-single-underscore}
-use a single leading underscore to indicate that a name is not part of the public API and is not guaranteed stable.
-~
-
-~ MustNot {#python-no-leading-underscore}
-use leading double underscore prefixed method names unless name clashes in inheritence hierarchy are likely. This is rare. 
+  *It is more likely that a developer will use many different libraries using the same language than that a developer will use the same service from many different languages*
 ~
 
 ~ Must {#python-structural-subtyping}
 prefer structural subtyping and protocols over explicit type checks.
+
+```python
+# Do
+def do_something(thing):
+    try:
+        something = thing.something()
+        ...
+    except AttributeError:
+        ...
+
+# Don't
+def do_something(thing):
+    if isinstance(thing, Thing):
+        something = thing.something()
+        ...
+    else:
+        ...
+```
 ~
 
-~ Must {#python-derive-appropriately}
-derive from the abstract collections base classes `collections.abc` (or `collections` for Python 2.7) when appropriate.
+~ Should {#python-derive-appropriately}
+derive from the abstract collections base classes `collections.abc` (or `collections` for Python 2.7).
 ~
 
 ~ Must {#python-type-hints}
 provide type hints [PEP484](https://www.python.org/dev/peps/pep-0484/) wherever you are providing class or function documentation.
 
-  - See the [suggested syntax for Python2.7 and straddling code](https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code) for guidance for Python 2.7 compatible code.
+  - See the [suggested syntax for Python 2.7 and 2.7-3.x straddling code](https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code) for guidance for Python 2.7 compatible code.
 ~
 
 ### Naming
@@ -116,6 +125,34 @@ use Pascal case for Types
   ```
 ~
 
+~ Must {#python-single-underscore}
+use a single leading underscore for class, attribute and method names to indicate that a name is not part of the public API and is not guaranteed stable.
+~
+
+~ MustNot {#python-no-leading-underscore}
+use leading double underscore prefixed method names unless name clashes in inheritence hierarchy are likely. This is rare. 
+~
+
+~ Must {#python-use-keyword-parameters-for-flags}
+use [keyword arguments](https://docs.python.org/2/tutorial/controlflow.html#keyword-arguments) for optional parameters for code that needs to support Python 2.7 and 3+.
+~
+
+
+~ Must {#python-keyword-args}
+use [keyword-only arguments](https://www.python.org/dev/peps/pep-3102/) for modules that only need to support Python 3+.
+
+  ```python
+  # Yes
+  def foo(a, *, b=1, c=None):
+      ...
+
+  # No
+  def foo(a, **kwargs):
+      ...
+  ```
+~
+
+
 ~ Must {#python-parameter-name}
 specify the parameter name when calling methods with more than two required positional parameters
 
@@ -138,36 +175,133 @@ specify the parameter name when calling methods with more than two required posi
   ```
 ~
 
-~ Must {#python-keyword-args}
-use keyword-only arguments for modules that only need to support Python 3.
+### Namespaces
 
-  ```python
-  # Yes
-  def foo(a, *, b=1, c=None):
-      ...
-  ```
+~ Must {#python-azure-namespace}
+add your code to the 'azure' namespace.
 ~
 
-~ Must {#python-parameter-name}
-specify the parameter name for optional parameters when calling functions
-
-  ```python
-  def foo(a, b=1, c=None):
-      pass
-
-
-  # Yes:
-  foo(1, b=2, c=3)
-
-  # No:
-  foo(1, 2, 3)
-  ```
+~ Must {#python-aio-suffix}
+add use the .aio suffix to the namespace for async clients.
 ~
 
-### Shared functionality
+### Exceptions
 
-~ Must {#python-client-suffix}
-use the suffix "Client" for types accessing the service (Ex. CosmosClient)
+~ Must {#python-common-exceptions}
+Use the exception types defined in azure-core for HTTP based services whenever appropriate.
+~
+
+~ May
+Derive additional exception types from the exceptions defined in azure-core.
+~
+
+~ Must {#python-exceptions}
+use different derived exception types if the caller is expected to differentiate between failure reasons.
+
+Bad:
+```python
+try:
+    client.do_something_that_will_fail()
+except SomeAzureException as e:
+    if e.status_code == 409:
+        # Handle some errors here
+    elif e.status_code == 412:
+        # Handle other error code here...
+``` else:
+        raise
+
+Good:
+```python
+try:
+    client.do_something_that_will_fail()
+except ResourceConflictError as e:
+    # Handle some errors here
+except ResourceModifiedError as e:
+    # Handle other errors here
+```
+~
+
+~ Must {#python-document-specific-exceptions}
+document exceptions explicitly raised by a method.
+~
+
+### Cancellations and timeouts
+
+~ Must {#python-timeout-sync-methods}
+provide a `timeout` parameter for long-running methods. The unit of measure for the value **should** be seconds. If external constraints prevent the use of seconds, the name of the parameter **must** use a suffix to indicate what the unit of measure is. 
+
+```python
+# Yes
+def do_something_long_running(timeout):
+    """
+    :param timeout: Raise TimeoutException is operation is not finished within `timeout`s.
+    """
+    ...
+
+# If required, but avoid if possible
+def do_something_even_longer(timeout_millseconds):
+    """
+    :param timeout: Raise TimeoutException is operation is not finished within `timeout`ms.
+    """
+    ...
+
+# No
+def do_something_else(timeout):
+    """
+    :param timeout: Raise TimeoutException is operation is not finished within `timeout`ms.
+    """
+    ...
+```
+~
+
+
+~ Must {#python-timeout-cancel-async-operations}
+cancel any child tasks if asyncio.CancelledError is raised.
+
+ToDo: How to interact with cancellation for Trio and friends
+~
+
+### Logging
+
+~ Must {#python-use-logging-module}
+use the standard Python [logging module](https://docs.python.org/3.7/library/logging.html).
+~
+
+~ Must {#python-provide-logger}
+provide a named logger for all packages. The name of the logger **should** use the module name as the name. Sub-packages **should** provide their own logger.
+~
+
+~ Must {#python-follow-general-guidelines}
+follow the [general logging guidelines](#general-logging) regarding log levels, what to include in a log etc. The terminology used in the general guidelines map to the following log levels 
+
+|Generic name|Python specific name|
+|-|-|
+|Verbose|Debug
+|Informational|Info|
+|Warning|Warning|
+|Error|Error|
+~
+
+### Threading
+
+~ Must {#python-thread-affinity}
+maintain thread affinity for user-provided code unless explicitly documented to not do so.
+~
+
+~ Must {#python-thread-safe-document}
+document any code that is intended to be thread safe.
+~
+
+~ MustNot {#python-background-threads}
+start threads that prevent an application from being shut down gracefully.
+
+*Note: if ambient background threads are absolutely required, they can be marked as [`daemon`](https://docs.python.org/3.7/library/threading.html#threading.Thread.daemon) threads to allow the process to be terminated even if they are still running.*
+~
+
+### Use Azure-Core
+
+~ Must {#pyton-use-http-pipeline}
+use the HTTP pipeline defined in azure-core for services calling HTTP endpoints.
 ~
 
 ~ Must {#python-use-base-classes}
@@ -176,56 +310,99 @@ use the base classes in [azure-core](https://github.com/Azure/azure-sdk-for-pyth
   |Type|Usage|
   |-|-|
   |`azure.core.Paged`|Base class for return values for service methods that return lists of object. Also supports server driven paging|
-  |`azure.core.PollingMethod`|Base class for return values for service methods that are long running.|
+  |`azure.core.polling.LROPoller`|Base class for return values for service methods that are long running.|
 ~
 
-~ Must {#python-pipeline-policies}
-provide pipeline policies for shared behavior
+~ Should {#python-pipeline-provide-policies}
+provide pipeline policies and corresponding configuration settings allowing application developers to 
 ~
 
 ~ Todo
 Provide common policies in previous statement
 ~
 
-### Common service patterns
+## Service clients
 
-~ Must {#python-auto-poll}
-provide a way to automatically poll on long running operations
+### Client construction {#python-client-construction; @h1-h2-h3-h4: decimal; }
+
+~ Must {#python-client-suffix}
+use the suffix "Client" for types accessing the service (Ex. CosmosClient)
+
+```python
+class ExampleServiceClient(object):
+    pass
+```
 ~
 
-~ Must {#python-manual-poll}
-provide a way to manually poll on long running operations by returning an operations object
+~ Must {#python-client-constructor}
+provide a constructor that, in addition to keyword arguments, takes a `credentials` and [`configuration`](#python-service-configuration-object) parameter along with any other arguments needed to construct the client.
 
-  *A pattern of starting operation in process 1, handing off the info needed to poll to process 2 is a relatively common pattern in distributed computing.*
+The configuration object **must** be optional, and it **must** accept the value provided by the [create_config](#python-client-constructor-get-configuration) method.
 ~
 
-~ Must {#python-pickled}
-make sure that operations objects can be [pickled](https://docs.python.org/3.7/library/pickle.html).
+
+~ Must {#python-client-constructor-connectionstring-factory}
+use a static factory method `from_connection_string` to construct a client instance from a connection string if the service provides connection strings.
+
+
+The set of accepted `**kwargs` **must** be the same as for the constructor minus any settings provided in the connection string itself.
 ~
 
-~ Must {#python-crud-naming}
+~ Must {#python-client-constructor-get-configuration}
+provide a `create_config` method that, given `**kwargs` constructs a [`configuration`](#python-service-configuration-object) object. The set of `**kwargs` accepted **must** be the same as the set accepted by the `__init__` method.
+~
+
+-----
+Canonical service client implementation:
+```python
+class ExampleServiceClient(object):
+    
+    def __init__(self, endpoint=None, credentials=None, configuration=None, **kwargs):
+        # type: (str, Credentials, ExampleServiceClientConfiguration, Dict[str, Any])
+        pass
+
+
+    @staticmethod
+    def from_connection_string(connection_string, **kwargs):
+        # type: (str) -> ExampleServiceClient
+        pass
+
+
+    def get_configuration(self, **kwargs):
+        # type: (Dict[str, Any]) -> ExampleServiceClientConfiguration
+```
+-----
+### Configuration object {#python-service-configuration-object}
+
+### Service operations {#python-service-operations}
+
+~ Should {#python-crud-naming}
 prefer the use of the following terms for CRUD operations:
 
 |Verb|Parameters|Returns|Comments|
 |-|-|-|-|
-| upsert_\<noun>|key, item|Updated or created item|Create new item or update existing item. Verb is primarily used in database-like services |
-| set_\<noun>|key, item|Updated or created item|Create new item or update existing item. Verb is primarily used for dictionary-like properties of a service |
+| upsert_\<noun>|key, item|Updated or created item|Create new item or update existing item. Verb is primarily used in database-like services. |
+| set_\<noun>|key, item|Updated or created item|Create new item or update existing item. Verb is primarily used for dictionary-like properties of a service. |
 | create_\<noun>|key, item|Created item|Create new item. Fails if item already exists. |
 | update_\<noun>|key, partial item|Updated item|Fails if item does not exist. |
 | replace_\<noun>|key, item|Replace existing item|Completely replaces an existing item. Fails if the item does not exist. |
 | delete_\<noun>|key|None|Delete an existing item. Will succeed even if item did not exist. |
 | append_\<noun>|item|Appended item|Add item to a collection. Item will be added last. |
-| add_\<noun>|index, item|Added item|Add item to a collection. Item will be added on the given position. |
+| add_\<noun>|index, item|Added item|Add item to a collection. Item will be added on the given index. |
 | remove_\<noun>|key|None or removed item|Remove item from a collection. |
 | get_\<noun>|key|Item|Will return None if item does not exist |
 | list_\<noun>||`azure.core.Pageable[Item]`|Return list of items. Returns empty list if no items exist |
 | \<noun>\_exists|key|`bool`|Return True if the item exists. |
 ~
 
-~ Must {#python-long-op-naming}
-prefer the use of the following terms for long running operations:
+~ Must {#python-response-format}
+return a value corresponding to the logical value the caller requested rather than a raw HTTP response.
 
-  - `begin_<verb>_<noun>` for methods returning an operation object
+*If the library method is get_thing, the response should be a Thing, not a response that has HTTP status, headers and body properties.*
+~
+
+~ Must {#python-response-request-handler-callable}
+take a `callable` parameter named `raw_response_hook` that will get called with the raw (non-deserialized) HTTP response value for each outgoing request.
 ~
 
 ~ Must {#python-iterators}
@@ -234,39 +411,65 @@ provide iterators over paged results which handle subsequent calls transparently
 *`azure.core.Paged` is the preferred base class to provide this functionality.*
 ~
 
-### Namespaces
+~ Must {#python-follow-azure-python-polling-protocol-arguments}
+accept an optional argument `polling` that takes a `azure.core.polling.PollingMethod`-like object.
 
-~ Must {#python-azure-namespace}
-add your code to the 'azure' namespace.
+If a `azure.core.polling.PollingMethod`-like object is provided, it **must** be used by the returned `azure.core.polling.LROPoller`-like object to handle the actual polling.
 ~
 
-~ Must {#python-aio-suffix}
-add use the .aio suffix to the namespace for  clients.
+~ Must {#python-follow-azure-python-polling-protocol-return-value}
+return a `azure.core.polling.LROPoller`-like object for long running operations.
 ~
 
-### Exceptions
-
-~ Must {#python-common-exceptions}
-provide a common exception base class deriving from:
+~ Must {#python-auto-poll}
+provide a way to automatically poll on long running operations. If the `LROPoller` contract is followed, this is accomplished by calling `result()` on the instance.
 ~
 
-~ Todo
-common exception types for previous statement
+~ Must {#python-manual-poll}
+provide a way to manually poll on long running operations by returning an operations object. The `LROPoller` allows a caller to check the value of `done()` to determine if the polling operation is completed.
+
+  *Starting operation in process 1, handing off the info needed to poll to process 2 is a common pattern in distributed computing.*
 ~
 
-~ Must {#python-exceptions}
-prefer different derived exception types over only differentiating between types of errors using an exception code
+~ Must {#python-long-op-naming}
+prefer the use of the following terms for long running operations:
+
+  - `begin_<verb>_<noun>` for methods returning an operation object
 ~
 
-### Threads
+~ MustNot {#python-parameter-validation}
+indiscrimenately validate type and value for each method or function parameter. Parameter validation **should** be used where raised errors or behavior would otherwise be confusing.
 
-~ Must {#python-thread-affinity}
-maintain thread affinity for user-provided code unless explicitly documented to not do so.
+```python
+# No:
+def overly_paranoid_method(name, price, quantity=1):
+    if not isinstance(name, str):
+        raise TypeError('name must be a string')
+    if not name:
+        raise ValueError('name must not be empty')
+    if not isinstance(price, numbers.Number):
+        raise TypeError('price must be a Number')
+    if price <= 0:
+        raise ValueError('price must be greter than zero')
+    if not isinstance(quantity, int):
+        raise TypeError('quantity must be an integer')
+    if quantity <= 0:
+        raise ValueError('price must be greter than zero')
+    return Order(name, price * quantity)
+
+
+# Yes:
+def normal_method(name, price, quantity=1):
+    if price <= 0 or quantity <= 0:
+        raise ValueError('Price and quantity both have to be positive numbers')
+    return Order(name, price * quantity)
+```
 ~
 
-~ Must {#python-thread-safe-document}
-document any code that is not thread safe as not being thread safe.
+~ Must {#python-azure-client-per-request-property-override}
+provide keyword or keyword-only arguments to override request options such as request timeout on a per-call basis. The name of the argument should match the name of the option set when creating the client.
 ~
+
 
 ## Dependencies
 
@@ -294,6 +497,12 @@ vendor dependencies unless approved by @adparch. Vendoring can sometimes be pref
 use the [canonical project structure](https://github.com/Azure/azure-sdk/blob/master/docs/engineering-system/repo-structure.md) for azure python libraries.
 ~
 
+## Modules and packages
+
+~ Must {#python-modules-dunderall}
+Specify which APIs are intended to be publicly accessible from the package by adding them to `__all__` in the packages `__init__.py` file. APIs **may** be added to the `__all__` of subpackages if . 
+~
+
 ## Packaging
 
 ~ Must {#python-wheels}
@@ -317,11 +526,11 @@ use underscore (_) or period (.) in your package name.
 ~
 
 ~ Must {#python-semver}
-use semantic versioning for your package
+use semantic versioning for distribution packages.
 ~
 
 ~ Must {#python-follow-packaging-guidance}
-follow the specific package guidance from the (azure-sdk-packaging wiki)[https://github.com/Azure/azure-sdk-for-python/wiki/Azure-packaging]
+follow the specific package guidance from the [azure-sdk-packaging wiki](https://github.com/Azure/azure-sdk-for-python/wiki/Azure-packaging)
 ~
 
 ~ Must {#python-use-pkgutil}
@@ -360,8 +569,12 @@ support unicode and ascii versions of CPython 2.7
 
 ## Async support
 
+~ Must {#python-sync-apis}
+provide sync versions of your APIs. 
+~
+
 ~ Should {#python-sync-and-async}
-provide both sync and async versions of your APIs
+provide async versions of your APIs. 
 ~
 
 ~ Must {#python-use-async-await}
@@ -463,6 +676,10 @@ provide code snippets for each non-trivial method
 
 ~ Must {#python-document-exceptions}
 document exceptions that may be raised
+~
+
+~ Must {#python-document-loggers}
+document any named loggers provided by the package.
 ~
 
 ## Samples
