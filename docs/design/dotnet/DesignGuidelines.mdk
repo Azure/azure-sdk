@@ -47,7 +47,7 @@ At the end of this document, you can find a section with [the most commonly over
 ~
 
 ~ Must {#dotnet-follow-official-general-azure-sdk-guidelines}
-follow the general [Azure SDK Design Guidelines](https://azuresdkspecs.z5.web.core.windows.net/).
+follow the general [Azure SDK Design Guidelines](https://azuresdkspecs.z5.web.core.windows.net).
 
 These guidelines prescribe many requirements related to telemetry, logging, retry semantics, configuration, proxy settings, extensibility, and others. The easiest way to ensure that your component meets these requirements is to use the [Azure.Core](https://www.nuget.org/packages/Azure.Core/) package to implement all methods that call Azure services. The package contains helper APIs that ensure compliance with these general requirements automatically. Details of these helper APIs and their usage are described in the [Using HttpPipeline](#dotnet-usage-httppipeline) section.
 ~
@@ -379,7 +379,7 @@ The ```Response<T>.Raw``` will most probably contain response content related to
 ~ ShouldNot {#dotnet-paging-raw}
 expose raw paging APIs directly on service clients. 
 
-If you desire to expose raw pacing APIs in the Azure SDK for .NET, expose such APIs in a specialized low level type, not directly on the main service client type. The low level type should be in an advanced namespace, not in the main namespace of the component.
+If you desire to expose raw paging APIs in the Azure SDK for .NET, expose such APIs in a specialized low level type, not directly on the main service client type. The low level type should be in an advanced namespace, not in the main namespace of the component.
 ~
 
 ### Service Method Parameters {#dotnet-parameters} 
@@ -492,7 +492,7 @@ In practice this means that the credentials passed to the constructors must be r
 ~
 
 ~ Must {#dotnet-authentication-custom}
-contact the *adparch@microsoft.com* if you want to add a new credential type.
+contact *adparch@microsoft.com* if you want to add a new credential type.
 ~
 
 ~ May
@@ -566,7 +566,7 @@ For example,
 ```csharp
 if (response.Status != 200) {
     ResponseFailedException e = await response.CreateRequestFailedExceptionAsync(message);
-    else throw e;
+    throw e;
 }
 ```
 ~
@@ -707,6 +707,8 @@ Consistent version number scheme allows consumers to determine what to expect fr
 
 ~ Must {#dotnet-versionnumbers-scheme}
 use _MAJOR_._MINOR_._PATCH_ format for the version of the library dll and the NuGet package.
+
+Use _-preview_._N_ suffix for preview package versions. For example, _1.0.0-preview.2_.
 ~
 
 ~ Must {#dotnet-versionnumbers-bump}
@@ -775,7 +777,7 @@ The following example shows a typical way of using HttpPipeline to implement ser
 The HttpPipeline will take care of telemetry, logging, retries, and extensibility required by language-independent Azure SDK Guidelines.
 
 ```csharp
-public virtaul async Task<Response<ConfigurationSetting>> AddAsync(ConfigurationSetting setting, CancellationToken cancellationToken = default)
+public virtual async Task<Response<ConfigurationSetting>> AddAsync(ConfigurationSetting setting, CancellationToken cancellationToken = default)
 {
     if (setting == null) throw new ArgumentNullException(nameof(setting));
     ... // validate other preconditions
@@ -811,7 +813,22 @@ public virtaul async Task<Response<ConfigurationSetting>> AddAsync(Configuration
 }
 ```
 
+Note, that the example above is illustrating basic pipeline usage. In a real client implementation, you would probably endup with more complete and refactored code. See [configuration client](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/appconfiguration/Azure.ApplicationModel.Configuration/src/ConfigurationClient.cs#L93) implementation for details.
+
 ### HttpPipelinePolicy
+_HttpPipelinePolicy_ is the base type of all nodes (plugins) of the _HttpPipeline_. This section describes guidelines for designing such custom policies.
+
+~ Must {#dotnet-policy-threadsafe}
+inherit from _HttpPipelinePolicy_, if the policy implementation calls asynchronous APIs.
+
+See an example [here](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/src/Pipeline/Policies/BearerTokenAuthenticationPolicy.cs).
+~
+
+~ Must {#dotnet-policy-threadsafe}
+inherit from _SynchronousHttpPipelinePolicy_, if the policy implementation calls only synchronous APIs.
+
+See an example [here](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/src/Pipeline/Policies/ClientRequestIdPolicy.cs).
+~
 
 ~ Must {#dotnet-policy-threadsafe}
 be thread-safe. The `ProcessAsync` and `Process` methods must be safe to invoke from multiple threads cuncurrently.
