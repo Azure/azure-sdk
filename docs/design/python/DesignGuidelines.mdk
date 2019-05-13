@@ -64,7 +64,7 @@ favor consistency with other Azure Python libraries over other libraries for the
 prefer structural subtyping and protocols over explicit type checks.
 
 ```python
-# Do
+# Yes
 def do_something(thing):
     try:
         something = thing.something()
@@ -72,7 +72,8 @@ def do_something(thing):
     except AttributeError:
         ...
 
-# Don't
+
+# No
 def do_something(thing):
     if isinstance(thing, Thing):
         something = thing.something()
@@ -97,10 +98,11 @@ provide type hints [PEP484](https://www.python.org/dev/peps/pep-0484/) wherever 
 ~ Must {#python-snake-case}
 use snake_case for variables and method names
   ```python
-  # Yes:
+  # Yes
   service_client = ServiceClient()
 
-  # No:
+
+  # No
   serviceClient = ServiceClient()
   ```
 ~
@@ -109,17 +111,17 @@ use snake_case for variables and method names
 use Pascal case for Types
 
   ```python
-  # Yes:
+  # Yes
   class ThisIsCorrect(object):
       pass
 
 
-  # No:
+  # No
   class this_is_not_correct(object):
       pass
 
 
-  # No:
+  # No
   class camelCasedTypeName(object):
       pass
   ```
@@ -139,16 +141,23 @@ use [keyword arguments](https://docs.python.org/2/tutorial/controlflow.html#keyw
 
 
 ~ Must {#python-keyword-args}
-use [keyword-only arguments](https://www.python.org/dev/peps/pep-3102/) for modules that only need to support Python 3+.
+use [keyword-only arguments](https://www.python.org/dev/peps/pep-3102/) for known arguments for modules that only need to support Python 3+. You **may** use `**kwargs` to pass through arbitrary arguments to other methods.
 
   ```python
   # Yes
   def foo(a, *, b=1, c=None):
-      ...
+      pass
+
+
+  # Yes
+  def foo(a, *, b=1, c=None, **kwargs):
+      # We don't know the full set of parameters that something_else takes. This is an appropriate use of **kwargs.
+      something_else(**kwargs)
+
 
   # No
   def foo(a, **kwargs):
-      ...
+      pass
   ```
 ~
 
@@ -165,12 +174,13 @@ specify the parameter name when calling methods with more than two required posi
       pass
 
 
-  # Yes:
+  # Yes
   foo(a=1, b=2, c=3)
   bar(1, 2)
   bar(e=3, d=4)
 
-  # No:
+
+  # No
   foo(1, 2, 3)
   ```
 ~
@@ -188,7 +198,7 @@ add use the .aio suffix to the namespace for async clients.
 ### Exceptions
 
 ~ Must {#python-common-exceptions}
-Use the exception types defined in azure-core for HTTP based services whenever appropriate.
+Use the exception types defined in `azure.core.exceptions` for HTTP based services whenever appropriate.
 ~
 
 ~ May
@@ -198,8 +208,17 @@ Derive additional exception types from the exceptions defined in azure-core.
 ~ Must {#python-exceptions}
 use different derived exception types if the caller is expected to differentiate between failure reasons.
 
-Bad:
 ```python
+# Yes
+try:
+    client.do_something_that_will_fail()
+except ResourceConflictError as e:
+    # Handle some errors here
+except ResourceModifiedError as e:
+    # Handle other errors here
+
+
+# No
 try:
     client.do_something_that_will_fail()
 except SomeAzureException as e:
@@ -207,50 +226,44 @@ except SomeAzureException as e:
         # Handle some errors here
     elif e.status_code == 412:
         # Handle other error code here...
-``` else:
+    else:
         raise
-
-Good:
-```python
-try:
-    client.do_something_that_will_fail()
-except ResourceConflictError as e:
-    # Handle some errors here
-except ResourceModifiedError as e:
-    # Handle other errors here
 ```
+
 ~
 
 ~ Must {#python-document-specific-exceptions}
-document exceptions explicitly raised by a method.
+document exceptions explicitly raised by a method. You **should** document other exceptions that may be raised by methods you call.
 ~
 
 ### Cancellations and timeouts
 
 ~ Must {#python-timeout-sync-methods}
-provide a `timeout` parameter for long-running methods. The unit of measure for the value **should** be seconds. If external constraints prevent the use of seconds, the name of the parameter **must** use a suffix to indicate what the unit of measure is. 
+provide an optional `timeout` parameter for long-running methods. The unit of measure for the value **should** be seconds. If external constraints prevent the use of seconds, the name of the parameter **must** use a suffix to indicate what the unit of measure is. 
 
 ```python
 # Yes
-def do_something_long_running(timeout):
+def do_something_long_running(timeout=-1):
     """
     :param timeout: Raise TimeoutException is operation is not finished within `timeout`s.
     """
-    ...
+    pass
 
-# If required, but avoid if possible
-def do_something_even_longer(timeout_millseconds):
+
+# Yes if required, but avoid if possible
+def do_something_even_longer(timeout_milliseconds=-1):
     """
     :param timeout: Raise TimeoutException is operation is not finished within `timeout`ms.
     """
-    ...
+    pass
 
-# No
-def do_something_else(timeout):
+
+# No - the unit of measure is incorrect.
+def do_something_else(timeout=-1):
     """
     :param timeout: Raise TimeoutException is operation is not finished within `timeout`ms.
     """
-    ...
+    pass
 ```
 ~
 
@@ -438,11 +451,18 @@ prefer the use of the following terms for long running operations:
 ~
 
 ~ MustNot {#python-parameter-validation}
-indiscrimenately validate type and value for each method or function parameter. Parameter validation **should** be used where raised errors or behavior would otherwise be confusing.
+Unnecessarily validate type and value for each method or function parameter. Parameter validation **should** be used where raised errors or behavior would otherwise be confusing.
 
 ```python
-# No:
-def overly_paranoid_method(name, price, quantity=1):
+# Yes
+def normal_method(name, price):
+    if price <= 0:
+        raise ValueError('Price must be a positive number')
+    return Order(name, price * quantity)
+
+
+# No
+def overly_paranoid_method(name, price):
     if not isinstance(name, str):
         raise TypeError('name must be a string')
     if not name:
@@ -451,17 +471,6 @@ def overly_paranoid_method(name, price, quantity=1):
         raise TypeError('price must be a Number')
     if price <= 0:
         raise ValueError('price must be greter than zero')
-    if not isinstance(quantity, int):
-        raise TypeError('quantity must be an integer')
-    if quantity <= 0:
-        raise ValueError('price must be greter than zero')
-    return Order(name, price * quantity)
-
-
-# Yes:
-def normal_method(name, price, quantity=1):
-    if price <= 0 or quantity <= 0:
-        raise ValueError('Price and quantity both have to be positive numbers')
     return Order(name, price * quantity)
 ```
 ~
@@ -500,7 +509,7 @@ use the [canonical project structure](https://github.com/Azure/azure-sdk/blob/ma
 ## Modules and packages
 
 ~ Must {#python-modules-dunderall}
-Specify which APIs are intended to be publicly accessible from the package by adding them to `__all__` in the packages `__init__.py` file. APIs **may** be added to the `__all__` of subpackages if . 
+Specify which APIs are intended to be publicly accessible from the package by adding them to `__all__` in the packages `__init__.py` file. APIs **may** be added to the `__all__` of subpackages if such a grouping makes conceptual sense.
 ~
 
 ## Packaging
