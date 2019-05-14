@@ -1,7 +1,7 @@
 Madoko documentation: http://madoko.org/reference.html
 
 Title       : Azure SDK Design Guidelines for .NET
-Title Note  : Version 1.0.0-preview2
+Title Note  : Version 1.0.0-preview3
 Author      : Krzysztof Cwalina
 Affiliation : Azure SDK Team / .NET
 Email       : kcwalina@microsoft.com
@@ -23,24 +23,3 @@ This document describes architectural and API design guidelines for .NET Azure S
 
 [INCLUDE=../Requirements.mdk]
 
-[INCLUDE=../OpenSource.mdk]
-
-# Requirements Implemented by HttpPipeline 
-
-This section describes requirements that are automatically satisfied by components that use the [HttpPipeline](#dotnet-usage-httppipeline) to implement their service method calls. 
-
-For example, the pipeline automatically takes care of [logging](#general-logging), [retry](#general-retry), and [telemetry](#general-telemetry) requirements described in detail in this section. 
-
-If for some reason you cannot use the _HttpPipeline_ for a REST service, you will have to manually support the requirements described in this section.
-
-[INCLUDE=../Logging.mdk]
-
-[INCLUDE=../Retry.mdk]
-
-[INCLUDE=../Telemetry.mdk]
-
-# Context and Rationale
-
-Language-specific guidelines, described above, stem from language-independent requirements described in this section. If you follow the language-specific guidelines, you don't have to worry about these language-independent guidelines, but they do provide context and rationale for many of the language specific guidelines.
-
-[INCLUDE=../Cancellations.mdk]
