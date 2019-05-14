@@ -52,8 +52,8 @@ follow the general [Azure SDK Design Guidelines](https://azuresdkspecs.z5.web.co
 These guidelines prescribe many requirements related to telemetry, logging, retry semantics, configuration, proxy settings, extensibility, and others. The easiest way to ensure that your component meets these requirements is to use the [Azure.Core](https://www.nuget.org/packages/Azure.Core/) package to implement all methods that call Azure services. The package contains helper APIs that ensure compliance with these general requirements automatically. Details of these helper APIs and their usage are described in the [Using HttpPipeline](#dotnet-usage-httppipeline) section.
 ~
 
-~ Should {#dotnet-use-azure-pipeline}
-use `HttpPipeline` to implement all methods that call Azure services. 
+~ Must {#dotnet-use-azure-pipeline}
+use `HttpPipeline` to implement all methods that call Azure REST services. 
 
 The pipeline can be found in the [Azure.Core](https://www.nuget.org/packages/Azure.Core/) package, and it takes care of many general [Azure SDK Design Guidelines](#common-general), e.g. telemetry, logging, retries, mockability. Details of the pipeline design and usage are described in section [Using HttpPipeline](#dotnet-usage-httppipeline) below.
 
@@ -239,12 +239,6 @@ return ```Task<Response>``` or ```ValueTask<Response>``` from asynchronous servi
 Use standard .NET Framework Design Guidelines to choose between ```Task``` and ```ValueTask```.
 ~
 
-~ Must {#dotnet-method-implementation}
-use ```HttpPipeline``` to implement all service call methods.
-
-See [Using HttpPipeline](#dotnet-usage-httppipeline) for details.
-~
-
 ~ Must {#dotnet-method-threadsafe}
 be thread-safe. All public members of the client type must be safe to call from multiple threads concurrently.
 ~
@@ -325,7 +319,7 @@ implement basic data type interfaces on model types, per .NET Framework Design G
 For example, implement ```IEquatable<T>```, ```IComparable<T>```, ```IEnumerable<T>```, etc. if applicable.
 ~
 
-~ Should {#dotnet-model-editorborwsable}
+~ Should {#dotnet-model-editorbrowsable}
 apply ```[EditorBrowsable(EditorBrowsableState.Never)]``` attribute to ```Equals(object)``` and ```GetHashCode()``` to hide these methods from intellisense,
 if they are not intended to be called directly by the user.
 
@@ -407,7 +401,7 @@ Guidance comming soon ...
 
 ### Supporting Mocking {#dotnet-mocking}
 
-Azure SDK APIs must support mocking. Here is an example of how the ```ConfugurationClient``` can be mocked using [Moq](https://github.com/moq/moq4) (a popular .NET mocking library):
+Azure SDK APIs must support mocking. Here is an example of how the ```ConfigurationClient``` can be mocked using [Moq](https://github.com/moq/moq4) (a popular .NET mocking library):
 
 ```csharp
 // Create a mock response
