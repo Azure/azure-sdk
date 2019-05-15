@@ -31,11 +31,11 @@ The Azure SDK should be designed to enhance the productivity of developers conne
 * It should be discoverable when and under what circumstances a network call is made.
 * It is discoverable what the defaults are and what their intent is.
 * Logging, tracing, and exception handling are fundamental and should be thoughtful.
-* Error messages should be concise, correlated with the service, actionable, and human readable. Ideally, the error message should lead the customer to a useful action that they can take.
+* Error messages should be concise, correlated with the service, actionable, and human readable. Ideally, the error message should lead the consumer to a useful action that they can take.
 * Integrating with the preferred debugger for the target language should be easy.
 
 ### Compatible
 
-* 99.99% of features and improvements are not worth the time customers would have to spend reacting to breaking changes.
+* 99.99% of features and improvements are not worth the time consumers would have to spend reacting to breaking changes.
 * Do not rely on dependencies that can force our hand on compatibility.
 
