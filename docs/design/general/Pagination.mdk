@@ -19,7 +19,7 @@ use distinct types for entities in a list endpoint and an entity returned from a
 ~
 
 ~ Note
-Services should refrain having a difference between the type of a particular entity as it exists in a list versus the result of a GET request for that individual item as it makes the client library's surface area simpler.
+Services should refrain from having a difference between the type of a particular entity as it exists in a list versus the result of a GET request for that individual item as it makes the client library's surface area simpler.
 ~
 
 ~ MustNot {#general-pagination-no-item-iterators}

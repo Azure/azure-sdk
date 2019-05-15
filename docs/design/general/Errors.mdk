@@ -1,6 +1,6 @@
 ### Error Handling {#general-error-handling}
 
-Error handling is an important aspect of implementing a client library.  It is the primary method by which problems are communicated to the cosnumer.  In this section we refer to "producing an error" to mean returning an error value or throwing an exception, and "an error" to be the error value or exception object.
+Error handling is an important aspect of implementing a client library.  It is the primary method by which problems are communicated to the consumer.  In this section we refer to "producing an error" to mean returning an error value or throwing an exception, and "an error" to be the error value or exception object.
 
 ~ Should
 prefer the use of exceptions to error values when producing an error.
@@ -13,7 +13,7 @@ produce an error when any HTTP request fails with an HTTP status code that is no
 ~ Must
 ensure that the error produced contains the HTTP response (including status code and headers) and originating request (including URL, query parameters, & headers).  
 
-- In the case of a higher-level method that produces multiple HTTP requests, either the last exception or an aggregate exception of all failures should be produced.
+In the case of a higher-level method that produces multiple HTTP requests, either the last exception or an aggregate exception of all failures should be produced.
 ~
 
 ~ Must
