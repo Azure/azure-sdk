@@ -11,7 +11,7 @@ place service client types that the consumer is most likely to interact with in 
 ~
 
 ~ Must {#general-apisurface-serviceclientconstructor}
-allow the consumer to construct a service client with the minimal information.
+allow the consumer to construct a service client with the minimal information needed to connect and authenticate to the service.
 ~
 
 ~ Must {#general-apisurface-supportallfeatures}
@@ -20,7 +20,7 @@ support 100% of the features provided by the Azure service the client library re
 
 ### Network Requests
 
-Since the client library generally wraps one or more HTTP requests, it is important to support standard network capabilities.
+Since the client library generally wraps one or more HTTP requests, it is important to support standard network capabilities.  Asynchronous programming techniques are not widely understood, although such techniques are essential in developing scalable web services and required in certain environments (such as mobile or Node environments).  Many developers prefer synchronous method calls for their easy semantics when learning how to use a technology.  In addition, consumers have come to expect certain capabilities in a network stack - capabilities such as call cancellation, automatic retry, and logging. 
 
 ~ Must {#general-apisurface-syncandasync}
 support both synchronous and asynchronous method calls, except where the language (or default runtime) does not support one or the other.

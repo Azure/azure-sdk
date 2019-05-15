@@ -2,6 +2,12 @@
 
 Some languages have a concept of namespaces to group related types.  Grouping services within a cloud infrastructure is common since it aids discoverability and provides structure to the reference documentation.
 
+In cases where namespaces are supported, the namespace should be named `<AZURE>.<group>.<service>`.  All consumer-facing APIs that are commonly used should exist within this namespace.  Here:
+
+- `<AZURE>` indicates the prefix (`Azure` or `com.azure` or similar, depending on the language)
+- `<group>` is the group for the service (see the list above)
+- `<service>` is the service name represented as a single word
+
 ~ Must {#general-namespace-startswith}
 start the namespace with "Azure" or "com.azure" or similar to indicate an Azure client library.
 ~
@@ -41,6 +47,8 @@ place the management (ARM) API in the "management" group.  Use the grouping `<Az
 | `integration`    | Integration services (such as Logic Apps)                |
 | `management`     | Management services (such as Cost Analytics)             |
 | `networking`     | Services such as VPN, WAN, and Networking                |
+
+Many `management` APIs do not have a data plane.  For these, it's reasonable to place the client library in the `<AZURE>.management` namespace.  (i.e. use `azure.management.cost-analysis`, not `azure.management.management.cost-analysis`).
 ~
 
 ~ MustNot {#general-namespace-avoid-ambiguity}
@@ -51,12 +59,6 @@ choose similar names for clients that do different things.
 ~ Must {#general-namespace-register}
 register the chosen namespace with [adparch](https://github.com/Azure/azure-sdk-pr/issues/new/choose).
 ~
-
-In cases where namespaces are supported, the namespace should be named `<AZURE>.<group>.<service>`.  All consumer-facing APIs that are commonly used should exist within this namespace.  Here:
-
-- `<AZURE>` indicates the prefix (`Azure` or `com.azure` or similar, depending on the language)
-- `<group>` is the group for the service (see the list above)
-- `<service>` is the service name represented as a single word
 
 Here are some examples of good selections (from the .NET world):
 
