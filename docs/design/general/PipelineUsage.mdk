@@ -8,6 +8,7 @@ The HTTP pipeline consists of a HTTP transport that is wrapped by multiple polic
 
 ~ Must
 Implement the following policies in the HTTP pipeline:
+
 - [Telemetry](#general-telemetry)
 - Unique Request ID
 - [Retry](#general-retry)
@@ -21,4 +22,3 @@ Implement the following policies in the HTTP pipeline:
 Use the policy implementations in Azure Core whenever possible.  Do not try to "write your own" policy unless it is doing something unique to your service.  If you need another option to an existing policy, engage the Azure SDK development team to add the option.
 ~
 
-Some languages support the development of platform-specific native code plugins.  These cause compatibility issues and require additional scrutiny.
