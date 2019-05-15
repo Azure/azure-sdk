@@ -44,3 +44,12 @@ return headers and other per-request metadata unless it is obvious as to which s
 ~ Must {#general-expose-data-for-composite-failures}
 provide enough information in failure cases for an application to take appropriate corrective action.
 ~
+
+~ ShouldNot {#general-dont-use-value}
+use the following as a property name within the models returned within the logical entity.
+
+- `object`
+- `value`
+
+Such usage can cause confusion and will inevitably have to be changed on a per-language basis, which can cause consistency problems.
+~
