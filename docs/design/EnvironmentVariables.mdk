@@ -1,0 +1,23 @@
+~ TableFigure {#general-configuration-envvars, caption: "Well-known environment variables"}
+| Environment Variable       | Purpose                                |
+|----------------------------|----------------------------------------|
+| **Proxy Settings**                                                 ||
+| HTTP_PROXY                 | Proxy for HTTP connections             |
+| HTTPS_PROXY                | Proxy for HTTPS connections            |
+| NO_PROXY                   | Hosts which must not use a proxy       |
+| **Identity**                                                       ||
+| MSI_ENDPOINT               | AAD MSI Credentials                    |
+| MSI_SECRET                 | AAD MSI Credentials                    |
+| AZURE_SUBSCRIPTION_ID      | Azure subscription                     |
+| AZURE_USERNAME             | Azure username for U/P Auth            |
+| AZURE_PASSWORD             | Azure password for U/P Auth            |
+| AZURE_CLIENT_ID            | AAD                                    |
+| AZURE_CLIENT_SECRET        | AAD                                    |
+| AZURE_TENANT_ID            | AAD                                    |
+| AZURE_RESOURCE_GROUP       | Azure RG                               |
+| AZURE_CLOUD                | mooncake, govcloud, etc.               |
+| **Pipeline Configuration**                                         ||
+| AZURE_TELEMETRY_DISABLED   | Disables telemetry                     |
+| AZURE_LOG_LEVEL            | Enable console logging by setting a log level. |
+| AZURE_TRACING_DISABLED     | Disables tracing                       |
+~
