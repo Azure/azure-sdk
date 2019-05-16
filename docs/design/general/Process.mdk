@@ -1,6 +1,19 @@
 ## Process
 
-Building a new client library is a multi-month effort requiring careful design, review, and testing.  
+Building a new client library is a multi-month effort requiring careful design, review, and testing.  When developing a set of client libraries for your service, note the following requirements:
+
+~ Must {#general-tier1-guidelines}
+provide SDKs for the following languages: 
+
+* C#.
+* Java.
+* Python.
+* TypeScript (JavaScript).
+~
+
+~ May {#general-additional-languages}
+provide client libraries for other languages based on use case.  Consult adparch if you need assistance in following design guidelines for other languages.
+~
 
 ### Starting the Client Library Design Process
 
@@ -10,7 +23,7 @@ Once you have a solid [REST API Design](https://github.com/Microsoft/api-guideli
 
 ### Review Process
 
-Your first step in building the client library should be designing the API surface that the consumer will utilize to access your service.  Like all design processes, this involves identifying the champion scenarios - a set of key use cases that you expect the majority of your users to use to access your service.  Once the champion scenarios are identified, you will write the same code that the consumer of your client library will write to fulfill the champion scenarios, complete with integration with other services, error handling, and debugging points.  This exercise informs the design of the API surface.
+Your first step in building the client library should be designing the API surface that the consumer will use to access your service.  Like all design processes, this involves identifying the champion scenarios - a set of key use cases that you expect the majority of your users to use to access your service.  Once the champion scenarios are identified, you will write the same code that the consumer of your client library will write to fulfill the champion scenarios, complete with integration with error handling, diagnostics, and other client libraries.  This exercise informs the design of the API surface.
 
 Once you have an initial design for the API surface, engage [adparch](https://github.com/Azure/azure-sdk-pr/issues/new/choose) again to schedule a full architectural review of your API surface.  You should schedule this before major development starts on your client library as changes can be requested during the adparch review.
 

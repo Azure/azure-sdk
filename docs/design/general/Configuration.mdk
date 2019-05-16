@@ -58,9 +58,7 @@ use this syntax for environment variables specific to a particular Azure service
 
 `AZURE_<ServiceName>_<ConfigurationKey>`
 
-ServiceName is the canonical shortname without spaces (see note below).
-
-ConfigurationKey refers to an un-nested configuration key for that client library.
+where _ServiceName_ is the canonical shortname without spaces, and _ConfigurationKey_ refers to an un-nested configuration key for that client library.
 ~
 
 ~ MustNot

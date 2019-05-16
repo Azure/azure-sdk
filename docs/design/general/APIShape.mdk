@@ -81,7 +81,7 @@ provide credential types that can be used to fetch all data needed to authentica
 provide service client constructors or factories that accept any supported authentication credentials.
 ~
 
-Client libraries may support providing credential data via a connection string __ONLY IF__ the service provides a connection string to users via the portal or other tooling.   Connection strings are considered a lesser form of authentication because the credentials cannot be rotated within a running process.
+Client libraries may support providing credential data via a connection string __ONLY IF__ the service provides a connection string to users via the portal or other tooling.   Connection strings are generally good for getting started as they are easily integrated into an application by copy/paste from the portal.  However, connection strings are considered a lesser form of authentication because the credentials cannot be rotated within a running process.
 
 ~ MustNot {#general-apisurface-no-connection-strings}
 support constructing a service client with a connection string unless such connection string is available within tooling (for copy/paste operations).

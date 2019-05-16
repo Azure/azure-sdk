@@ -60,7 +60,7 @@ choose similar names for clients that do different things.
 register the chosen namespace with [adparch](https://github.com/Azure/azure-sdk-pr/issues/new/choose).
 ~
 
-Here are some examples of good selections (from the .NET world):
+Here are some examples of selections that meet the guidelines (from the .NET world):
 
 - `Azure.Data.Cosmos`
 - `Azure.Identity.ActiveDirectory`
@@ -69,7 +69,7 @@ Here are some examples of good selections (from the .NET world):
 - `Azure.Messaging.NotificationHubs` (the client library for Notification Hubs)
 - `Azure.Management.Messaging.NotificationHubs` (the management client for Notification Hubs)
 
-Here are some bad examples:
+Here are some examples that do not meet the guidelines:
 
 - `Microsoft.Azure.CosmosDB` (not in the Azure namespace, no grouping)
 - `Azure.MixedReality.Kinect` (invalid group)

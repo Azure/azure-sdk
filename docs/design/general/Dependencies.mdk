@@ -20,7 +20,7 @@ consider copying or linking required code into the client library in order to av
 ~
 
 ~ MustNot {#general-no-concrete-logging}
-depend on concrete logging, dependency injection, or configuration technologies.  The client library will be used in applications that might be using the logging, DI, and configuration technologies of their choice.
+depend on concrete logging, dependency injection, or configuration technologies (except as implemented in the Azure Core library).  The client library will be used in applications that might be using the logging, DI, and configuration technologies of their choice.
 ~
 
 Language specific guidelines will maintain a list of approved dependencies.

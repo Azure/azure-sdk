@@ -17,14 +17,10 @@ For an out-of-band/no-auth proxy, the client will send the entire request URL to
 
 WebSockets can normally be tunneled through a HTTP proxy, in which case the proxy authentication happens during the CONNECT call.  This is the preferred mechanism for tunneling non-HTTP traffic to the Azure service.  However, there are other types of proxy.  The most notable is the SOCKS proxy is used for non-HTTP traffic (such as AMQP or MQTT).  We make no recommendation (for or against) support of SOCKS.  It is explicitly not a requirement to support SOCKS proxy within the client library.
 
-Most proxy configuration will be done by adopting the HTTP pipeline that is common to all Azure service client libraries.
+Most proxy configuration will be done by adopting the HTTP pipeline that is common to all Azure service client libraries.  Linux and Mac generally use the HTTPS_PROXY (and associated) environment variables to configure proxies, while Windows environments generally use the WinHTTP proxy configuration to configure proxies.  Other options (such as loading from configuration files) may exist on a platform and runtime basis.
 
 ~ Must
 Support proxy configuration via common global configuration directives configured on a platform or runtime basis.
-
-- Linux and Mac generally use the HTTPS_PROXY (and associated) environment variables to configure proxies.
-- Windows environments generally use the WinHTTP proxy configuration to configure proxies.
-- Other options (such as loading from configuration files) may exist on a platform and runtime basis.
 ~
 
 ~ Must
@@ -48,7 +44,7 @@ Support Basic and Digest authentication schemes.
 ~
 
 ~ Should
-Support the NTLM authentication scheme.
+Support the NTLM authentication scheme if the platform or runtime supports NTLM authentication.
 ~
 
 There is no requirement to support SOCKS at this time.  We recommend services adopt a WebSocket connectivity option (for example, AMQP or MQTT over WebSockets) to ensure compatibility with proxies.
