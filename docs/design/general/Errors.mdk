@@ -1,9 +1,9 @@
 ### Error Handling {#general-error-handling}
 
-Error handling is an important aspect of implementing a client library.  It is the primary method by which problems are communicated to the consumer.  In this section we refer to "producing an error" to mean returning an error value or throwing an exception, and "an error" to be the error value or exception object.
+Error handling is an important aspect of implementing a client library.  It is the primary method by which problems are communicated to the consumer.  There are two methods by which errors are reported to the consumer.  Either the method throws an exception, or the method returns an error code (or value) as its return value, which the consumer must then check.  In this section we refer to "producing an error" to mean returning an error value or throwing an exception, and "an error" to be the error value or exception object.  
 
 ~ Should
-prefer the use of exceptions to error values when producing an error.
+prefer the use of exceptions over returning an error value when producing an error.
 ~
 
 ~ Must

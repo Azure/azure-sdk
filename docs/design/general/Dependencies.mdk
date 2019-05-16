@@ -12,7 +12,7 @@ depend on the Azure Core library for functionality that is common across all cli
 ~
 
 ~ MustNot
-be dependent on any other packages. Dependencies are by exception and need a thorough vetting through architecture review.
+be dependent on any other packages within the client library distribution package. Dependencies are by exception and need a thorough vetting through architecture review.  This does not apply to build dependencies, which are acceptable and commonly used.
 ~
 
 ~ Should

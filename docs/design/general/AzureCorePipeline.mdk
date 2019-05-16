@@ -127,6 +127,8 @@ The Distributed Tracing policy is responsible for:
 * Creating a SPAN per REST call.
 * Passing the context to the backend service.
 
+See also [Distributed Tracing](#general-distributed-tracing) with the client library implementation.
+
 ~ Must {#azurecore-dist-tracing-opencensus}
 support [OpenCensus](https://opencensus.io) for distributed tracing.
 ~
@@ -137,10 +139,6 @@ accept a context from calling code to establish a parent span.
 
 ~ Must {#azurecore-dist-tracing-forward-context}
 pass the context to the backend service through the appropriate headers (`traceparent`, `tracestate`, etc.) to support [Azure Monitor](https://azure.microsoft.com/en-us/services/monitor/).  
-~
-
-~ Must {#azurecore-dist-tracing-create-span-for-user-methods}
-create a new span for each method that user code calls.  New spans must be children of the context that was passed in.  If no context was passed in, a new root span must be created.
 ~
 
 ~ Must {#azurecore-dist-tracing-create-span-for-rest-calls}
