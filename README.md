@@ -2,7 +2,15 @@
 
 The Azure SDK delivers a platform for developers to leverage the wide variety of Azure services in their language of choice. The source for the client libraries exists for the most part in repositories for each language. This repository is meant to be a jumping off point into those language specific repositories. Issues related to a specific language should be opened in the corresponding repository but cross cutting issues can be opened in this repository.
 
-| [.NET](https://github.com/Azure/azure-sdk-for-net) | [Java](https://github.com/Azure/azure-sdk-for-java) | [Python](https://github.com/Azure/azure-sdk-for-python) | [JavaScript](https://github.com/Azure/azure-sdk-for-js) | [Go](https://github.com/Azure/azure-sdk-for-go) |
+| Language    | Guidelines                                                              | Repo                                                                |
+|:------------|:-----------------------------------------------------------------------:|:-------------------------------------------------------------------:|
+| C#  /.NET   |[Link](https://azuresdkspecs.z5.web.core.windows.net/DotNetSpec.html)    |[azure-sdk-for-net](https://github.com/Azure/azure-sdk-for-net)      |
+| Java        |[Link](https://azuresdkspecs.z5.web.core.windows.net/JavaSpec.html)      |[azure-sdk-for-java](https://github.com/Azure/azure-sdk-for-java)    |
+| JavaScript  |[Link](https://azuresdkspecs.z5.web.core.windows.net/TypeScriptSpec.html)|[azure-sdk-for-js](https://github.com/Azure/azure-sdk-for-js)        |
+| Python      |[Link](https://azuresdkspecs.z5.web.core.windows.net/PythonSpec.html)    |[azure-sdk-for-python](https://github.com/Azure/azure-sdk-for-python)|
+| Go          |                                                                         |[azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go)        |
+
+Service teams should schedule reviews of their client libraries with the ADP Review Board.  See the [Review Process](docs/ReviewProcess.md) for more information.
 
 ## Terminology
 
@@ -15,15 +23,6 @@ The Azure SDK delivers a platform for developers to leverage the wide variety of
    - A Maven package for a Java library
    - An NPM package for a JavaScript library
    - A Python wheel for a Python library
-
-## Azure SDK Design Guidelines
-
-- [.NET](https://azuresdkspecs.z5.web.core.windows.net/DotNetSpec.html)
-- [Java](https://azuresdkspecs.z5.web.core.windows.net/JavaSpec.html)
-- [Python](https://azuresdkspecs.z5.web.core.windows.net/PythonSpec.html)
-- [TypeScript](https://azuresdkspecs.z5.web.core.windows.net/TypeScriptSpec.html)
-
-Service teams should schedule reviews of their client libraries with the ADP Review Board.  See the [Review Process](docs/ReviewProcess.md) for more information.
 
 # Azure Service Libraries
 
