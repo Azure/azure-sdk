@@ -114,8 +114,10 @@ implement Bearer authorization policy (which accepts a token credential and scop
 
 ### Response Downloader Policy {#azurecore-response}
 
-~ Todo
-work on response downloader policy requirements
+The response downloader is required for most (but not all) operations to change whatever is returned by the service into a model that the consumer code can use.  An example of a method that does not deserialize the response payload is a method that downloads a raw blob within the Blob Storage client library.  In this case, the raw data bytes are required.  This pipeline policy must implement the following requirements:
+
+~ Must
+deserialize the entire response body and pass the deserialized form up to the operation method for methods that deserialize the response payload.  If a network connection fails while reading the body, the retry policy must automatically retry the operation.
 ~
 
 ### Distributed Tracing Policy {#azurecore-distributed-tracing}

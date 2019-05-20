@@ -32,7 +32,7 @@ ensure that the consumer can identify which methods are async and which are sync
 
 When an application makes a network request, the network infrastructure (like routers) and the called service may take a long time to respond and, in fact, may never respond. A well-written application SHOULD NEVER give up its control to the network infrastucture or service. Here are some examples as to why this is so important:
 
-- When an orchestrator needs to terminate a service (due to scale in, reconfiguration, or upgrading to a new version), the orchestrator typically notifies a running service stance by sending the Posix SIGINT. When the service recieves this signal, it should terminate as quickly & gracefully as possible by setting a cancellation mechanism which is honored by all network operations that are currently in progress.
+- When an orchestrator needs to terminate a service (due to scale in, reconfiguration, or upgrading to a new version), the orchestrator typically notifies a running service instance by sending the Posix SIGINT. When the service recieves this signal, it should terminate as quickly & gracefully as possible by setting a cancellation mechanism which is honored by all network operations that are currently in progress.
 - When a consumers webserver receives a request, it may set a time limit indicating how much time it is allowing before it must give a response to the user.
 - When a consumers GUI appication makes a request to an Azure service via our SDK, the GUI might offer a cancel button so that the end-user can indicate that they are no longer in waiting for an operation or operations to complete.
 
