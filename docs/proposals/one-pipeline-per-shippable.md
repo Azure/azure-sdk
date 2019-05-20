@@ -119,7 +119,7 @@ Once fully automated this means that developers just wouldn't need to think abou
 
 ## Ring-based model
 
-I propose we use _Ring_ terminology to describe the stage that a _shippable_ is in. Each stage in the pipeline will correspond to a ring and have one or more jobs to perform various actions.
+I propose we use _Ring_ terminology to describe the stage that a _shippable_ is in. Each stage in the pipeline will correspond to a ring and have one or more jobs to perform various actions. The following table outlines a possible structure for a shippable's pipeline. 
 
 | Ring/Stage | Run Type | Approvers | Job | Notes |
 | - | - | - | - | - |
@@ -136,24 +136,34 @@ I propose we use _Ring_ terminology to describe the stage that a _shippable_ is 
 | | | | Automated Smoke Testing (Round 2) | See above. |
 | | | | Promote Preview Package | Promote package to @Approved view. |
 | Ring 4 / Preview Go-Live! | CI | Architect or Eng. Sys | Publish Package to Public Registry | Now installable without special settings. |
-| Ring 5 / Bake | CI | (auto) | 
+| Ring 5 / Bake | CI | (auto) | Wait for Signals | Wait for signals that the preview is being used and is functioning correctly. |
+| | | | Automated Stress/Perf Testing | Any long running perf and stress tests that we need to run. |
+| Ring 6 / Release Prep | CI | PM | Code Sign package (non-prefixed) | This is the final package getting code-signed.
+| | | | Publish Final Package to AZ Artifacts | Publish package to @Local view. |
+| | | | Automated Smoke Testing (Round 3) | See above. |
+| | | | Tag source commit with version tag. |
+| | | | Create PR and submit with patch revision number. | 
+| | | | Promote Final Package | Promote package to @Approved view. |
+| Ring 7 / Release Go-Live! | CI | PM | Publish Package to Public Registry | Now installabel without special settings. |
 
 ## Benefits
 
-I believe that this approach has a 
+I believe that this approach has several benefits in terms of simplication, transparency, and cost control.
 
 ### Simplification
 
-TODO:
+Now when working on a shippable component developers will only need to consider a single pipeline (assuming their change doesn't span multiple shippables). The pipeline that runs PR validation is the same pipleine that runs the end-to-end delivery process for the shippable to cusomters, just with additional stages and validations.
 
 ### Being Transparent
 
-TODO:
+Having a single pipeline per shippable makes it easy for us to point to a single place for both internal and external stakeholders to look to see where updates are in terms of release. With the exception of pipeline jobs which we explicitly call out to side car processes for security reasons the entire process is visible end-to-end.
 
 ### Cost Control
 
-TODO:
+By running as much of our pipeline as possible in public projects we maximise the benfits of free pipeline minutes/concurrency that we get from the Azure DevOps team. Private pipelines are charged back internally and with the breadth of our test suites and under the internal cost structures this can be fairly costly.
 
-## Risks
+In addition, expensive test execution is behind an approval gate and would only run after a developer has approved it to go through to this round of testing. This would stop agents being consumed which would improve our overall throughput on PR validation.
 
-### Protecting Secrets
+## Q&A
+
+Got questions, concerns? Raise them and we can start to explore the issues.
