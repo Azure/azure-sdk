@@ -2,13 +2,13 @@
 
 The Azure SDK delivers a platform for developers to leverage the wide variety of Azure services in their language of choice. The source for the client libraries exists for the most part in repositories for each language. This repository is meant to be a jumping off point into those language specific repositories. Issues related to a specific language should be opened in the corresponding repository but cross cutting issues can be opened in this repository.
 
-| Language    | Guidelines                                                              | Repo                                                                |
+| Language    | Design Guidelines                                                       | Repo                                                                |
 |:------------|:-----------------------------------------------------------------------:|:-------------------------------------------------------------------:|
 | C#  /.NET   |[Design Guidelines for .NET](https://azuresdkspecs.z5.web.core.windows.net/DotNetSpec.html)    |[azure-sdk-for-net Repository](https://github.com/Azure/azure-sdk-for-net)      |
+| Go          |                                                                         |[azure-sdk-for-go Repository](https://github.com/Azure/azure-sdk-for-go)        |
 | Java        |[Design Guidelines for Java](https://azuresdkspecs.z5.web.core.windows.net/JavaSpec.html)      |[azure-sdk-for-java Repository](https://github.com/Azure/azure-sdk-for-java)    |
 | JavaScript  |[Design Guidelines for JavaScript and TypeScript](https://azuresdkspecs.z5.web.core.windows.net/TypeScriptSpec.html)|[azure-sdk-for-js Repository](https://github.com/Azure/azure-sdk-for-js)        |
 | Python      |[Design Guidelines for Python](https://azuresdkspecs.z5.web.core.windows.net/PythonSpec.html)    |[azure-sdk-for-python Repository](https://github.com/Azure/azure-sdk-for-python)|
-| Go          |                                                                         |[azure-sdk-for-go Repository](https://github.com/Azure/azure-sdk-for-go)        |
 
 Service teams should schedule reviews of their client libraries with the ADP Review Board.  See the [Review Process](docs/ReviewProcess.md) for more information.
 
