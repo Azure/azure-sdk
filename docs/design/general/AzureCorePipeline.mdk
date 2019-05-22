@@ -122,7 +122,7 @@ download the entire response body and pass the complete downloaded body up to th
 
 ### Distributed tracing policy {#azurecore-distributed-tracing}
 
-As mentioned earlier, distributed tracing mechanisms allow the consumer to trace their code from frontend to backend.  To do this, the distributed tracing library creates spans - units of unique work.  Each span is in a parent-child relationship.  As you go deeper into the hierarchy of code, you create more spans.  These spans can then be exported to a suitable receiver as needed.  To keep track of the spans, a _distributed tracing context_ (called a context within the rest of this section) is passed into each successive layer.  For more information on this topic, visit the [OpenCensus](https://opencensus.io/tracing/) topic on tracing.
+As mentioned earlier, distributed tracing mechanisms allow the consumer to trace their code from frontend to backend.  To do this, the distributed tracing library creates spans - units of unique work.  Each span is in a parent-child relationship.  As you go deeper into the hierarchy of code, you create more spans.  These spans can then be exported to a suitable receiver as needed.  To keep track of the spans, a _distributed tracing context_ (called a context within the rest of this section) is passed into each successive layer.  For more information on this topic, visit the [OpenTelemetry](https://opentelemetry.io/tracing/) topic on tracing.
 
 The Distributed Tracing policy is responsible for:
 
@@ -132,7 +132,7 @@ The Distributed Tracing policy is responsible for:
 See also [Distributed Tracing](#general-distributed-tracing) with the client library implementation.
 
 ~ Must {#azurecore-dist-tracing-opencensus}
-support [OpenCensus](https://opencensus.io) for distributed tracing.
+support [OpenTelemetry](https://opentelemetry.io) for distributed tracing.
 ~
 
 ~ Must {#azurecore-dist-tracing-accept-context}
