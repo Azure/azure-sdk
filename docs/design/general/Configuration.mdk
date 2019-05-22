@@ -1,0 +1,66 @@
+### Configuration {#general-implementing-configuration}
+
+When configuring your client library, particular care must be taken to ensure that the consumer of your client library can properly configure the connectivity to your Azure service both globally (along with other client libraries the consumer is using) and specifically with your client library.
+
+#### Client configuration
+
+~ Must
+use relevant global configuration settings either by default or when explicitly requested to by the user, for example by passing in a configuration object to a client constructor.
+~
+
+~ Must
+allow different clients of the same type to use different configurations.
+~
+
+~ Must
+allow consumers of your service clients to opt out of all global configuration settings at once.
+~
+
+~ Must
+allow all global configuration settings to be overridden by client-provided options. The names of these options should align with any user-facing global configuration keys.
+~
+
+~ MustNot
+change behavior based on configuration changes that occur after the client is constructed. Hierarchies of clients inherit parent client configuration unless explicitly changed or overridden. Exceptions to this requirement are as follows:
+
+1. Log level, which must take effect immediately across the Azure SDK.
+2. Tracing on/off, which must take effect immediately across the Azure SDK.
+~
+
+#### Client library-specific environment variables
+
+~ Must
+prefix Azure-specific environment variables with `AZURE_`.
+~
+
+~ May
+use client library-specific environment variables for portal-configured settings which are provided as parameters to your client library. This generally includes credentials and connection details. For example, Service Bus could support the following environment variables:
+
+* `AZURE_SERVICEBUS_CONNECTION_STRING`
+* `AZURE_SERVICEBUS_NAMESPACE`
+* `AZURE_SERVICEBUS_ISSUER`
+* `AZURE_SERVICEBUS_ACCESS_KEY`
+
+Storage could support:
+
+* `AZURE_STORAGE_ACCOUNT`
+* `AZURE_STORAGE_ACCESS_KEY`
+* `AZURE_STORAGE_DNS_SUFFIX`
+* `AZURE_STORAGE_CONNECTION_STRING`
+~
+
+~ Must
+get approval from adparch for every new environment variable. 
+~
+
+~ Must
+use this syntax for environment variables specific to a particular Azure service:
+
+`AZURE_<ServiceName>_<ConfigurationKey>`
+
+where _ServiceName_ is the canonical shortname without spaces, and _ConfigurationKey_ refers to an unnested configuration key for that client library.
+~
+
+~ MustNot
+use non-alpha-numeric characters in your environment variable names with the exception of underscore. This ensures broad interoperability.
+~
