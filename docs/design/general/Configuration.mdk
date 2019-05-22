@@ -2,7 +2,7 @@
 
 When configuring your client library, particular care must be taken to ensure that the consumer of your client library can properly configure the connectivity to your Azure service both globally (along with other client libraries the consumer is using) and specifically with your client library.
 
-#### Client Configuration
+#### Client configuration
 
 ~ Must
 use relevant global configuration settings either by default or when explicitly requested to by the user, for example by passing in a configuration object to a client constructor.
@@ -27,7 +27,7 @@ change behavior based on configuration changes that occur after the client is co
 2. Tracing on/off, which must take effect immediately across the Azure SDK.
 ~
 
-#### Client library-specific Environment Variables
+#### Client library-specific environment variables
 
 ~ Must
 prefix Azure-specific environment variables with `AZURE_`.
