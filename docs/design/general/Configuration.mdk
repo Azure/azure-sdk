@@ -1,11 +1,11 @@
 ### Configuration {#general-implementing-configuration}
 
-When configuring your client library, particular care must be used to ensure that the consumer of your client library can properly configure the connectivity to your Azure service both globally (along with other client libraries the consumer is using) and specifically with your client library.
+When configuring your client library, particular care must be taken to ensure that the consumer of your client library can properly configure the connectivity to your Azure service both globally (along with other client libraries the consumer is using) and specifically with your client library.
 
 #### Client Configuration
 
 ~ Must
-use relevant global configuration settings either by default or when explicitly requested to by the user e.g. by passing in a configuration object to a client constructor.
+use relevant global configuration settings either by default or when explicitly requested to by the user, for example by passing in a configuration object to a client constructor.
 ~
 
 ~ Must
@@ -27,14 +27,14 @@ change behavior based on configuration changes that occur after the client is co
 2. Tracing on/off, which must take effect immediately across the Azure SDK.
 ~
 
-#### Client-library Specific Environment Variables
+#### Client library-specific Environment Variables
 
 ~ Must
 prefix Azure-specific environment variables with `AZURE_`.
 ~
 
 ~ May
-use client-libary specific environment variables for portal-configured settings which are provided as parameters to your client library. This generally includes credentials and connection details. For example, Service Bus could support the following environment variables:
+use client library-specific environment variables for portal-configured settings which are provided as parameters to your client library. This generally includes credentials and connection details. For example, Service Bus could support the following environment variables:
 
 * `AZURE_SERVICEBUS_CONNECTION_STRING`
 * `AZURE_SERVICEBUS_NAMESPACE`
@@ -58,7 +58,7 @@ use this syntax for environment variables specific to a particular Azure service
 
 `AZURE_<ServiceName>_<ConfigurationKey>`
 
-where _ServiceName_ is the canonical shortname without spaces, and _ConfigurationKey_ refers to an un-nested configuration key for that client library.
+where _ServiceName_ is the canonical shortname without spaces, and _ConfigurationKey_ refers to an unnested configuration key for that client library.
 ~
 
 ~ MustNot

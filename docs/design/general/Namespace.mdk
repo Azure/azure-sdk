@@ -48,7 +48,7 @@ place the management (ARM) API in the "management" group.  Use the grouping `<Az
 | `management`     | Management services (such as Cost Analytics)             |
 | `networking`     | Services such as VPN, WAN, and Networking                |
 
-Many `management` APIs do not have a data plane.  For these, it's reasonable to place the client library in the `<AZURE>.management` namespace.  (i.e. use `azure.management.cost-analysis`, not `azure.management.management.cost-analysis`).
+Many `management` APIs do not have a data plane.  For these, it's reasonable to place the client library in the `<AZURE>.management` namespace.  For example, use `azure.management.cost-analysis`, not `azure.management.management.cost-analysis`.
 ~
 
 ~ MustNot {#general-namespace-avoid-ambiguity}

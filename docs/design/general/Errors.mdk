@@ -11,7 +11,7 @@ produce an error when any HTTP request fails with an HTTP status code that is no
 ~
 
 ~ Must
-ensure that the error produced contains the HTTP response (including status code and headers) and originating request (including URL, query parameters, & headers).  
+ensure that the error produced contains the HTTP response (including status code and headers) and originating request (including URL, query parameters, and headers).  
 
 In the case of a higher-level method that produces multiple HTTP requests, either the last exception or an aggregate exception of all failures should be produced.
 ~
@@ -21,7 +21,7 @@ ensure that if the service returns rich error information (via the response head
 ~
 
 ~ ShouldNot
-create a new error type unless the developer can perform an alternate action to remediate the error.  Specialized error types should be based on existing error types present in the azure core package.
+create a new error type unless the developer can perform an alternate action to remediate the error.  Specialized error types should be based on existing error types present in the Azure Core package.
 ~
 
 ~ MustNot {#general-errors-no-new-errors}

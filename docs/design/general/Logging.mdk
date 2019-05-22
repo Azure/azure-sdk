@@ -11,16 +11,16 @@ make it easy for a consumer to enable logging output to the console. The specifi
 ~
 
 ~ Must {#general-logging-levels}
-use one of the following log levels when emitting logs: Verbose (i.e. details), Informational (things happened), Warning (might be a problem or not), and Error.
+use one of the following log levels when emitting logs: Verbose (details), Informational (things happened), Warning (might be a problem or not), and Error.
 ~
 
 ~ Must {#general-logging-levels-error}
-use the Error logging level for failures that it is unlikely that the application will recover from (out of memory etc.)
+use the Error logging level for failures that the application is unlikely to recover from (out of memory, etc.).
 ~
 
 ~ Must {#general-logging-levels-warning}
 use the Warning logging level when a function fails to perform its intended task. This generally means that the function will raise an exception.
-It does not include occurances of self-healing events (e.g. when a request will be automatically retried)
+It does not include occurrences of self-healing events (for example, when a request will be automatically retried).
 ~
 
 ~ Must {#general-logging-levels-informational}
@@ -28,11 +28,11 @@ use the Informational logging level when a function operates normally.
 ~
 
 ~ Must {#general-logging-levels-informational}
-use the Verbose logging level for detailed trouble shooting scenarios. This is primarily intended for developers or system administrators to diagnose specific failures.
+use the Verbose logging level for detailed troubleshooting scenarios. This is primarily intended for developers or system administrators to diagnose specific failures.
 ~
 
 ~ MustNot {#general-logging-no-sensitive-info}
-send sensitive information in log levels other than Verbose, e.g. remove account keys when logging headers.
+send sensitive information in log levels other than Verbose. For example, remove account keys when logging headers.
 ~
 
 ~ Must {#general-logging-requests-in-info}
@@ -40,7 +40,7 @@ log request line, response line, and headers, as Informational message.
 ~
 
 ~ Must {#general-logging-info-if-cancelled}
-log an Informational message, if a service call is cancelled.
+log an Informational message if a service call is cancelled.
 ~
 
 ~ Must {#general-logging-error-if-exceptions}

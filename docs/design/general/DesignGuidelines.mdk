@@ -64,7 +64,7 @@ In the latter case, please work with the [Azure Developer Platform Architectural
 
 ## The API Surface {#general-apisurface}
 
-The API surface of your client library must have the most thought, as it is the primary interaction that the consumer has with your service.  
+The API surface of your client library must have the most thought as it is the primary interaction that the consumer has with your service.  
 
 [INCLUDE=../general/Namespace.mdk]
 [INCLUDE=../general/APIShape.mdk]
@@ -102,7 +102,7 @@ Azure Core is a library that provides common services to other client libraries.
 * [Global configuration](#azurecore-configuration)
 * [Credentials](#azurecore-credentials)
 
-The following sections define the requirements for the Azure Core library.  If you are implementing a client library in a language that already has an Azure Core library, you do not need to read this section.  It is primarily targetted at developers who work on the Azure Core library.
+The following sections define the requirements for the Azure Core library.  If you are implementing a client library in a language that already has an Azure Core library, you do not need to read this section.  It is primarily targeted at developers who work on the Azure Core library.
 
 [INCLUDE=../general/AzureCorePipeline.mdk]
 [INCLUDE=../general/AzureCoreConfiguration.mdk]

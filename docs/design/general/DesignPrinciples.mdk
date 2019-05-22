@@ -11,7 +11,7 @@ The Azure SDK should be designed to enhance the productivity of developers conne
 ### Consistent
 
 * Client libraries should be consistent within the language, consistent between all target languages, and consistent with the service. In cases of conflict, consistency within the language is the highest priority and consistency with the service is the lowest priority.
-* Service-agnostic concepts, such as logging, HTTP communication, and error handling, should be consistent. The developer should not have to relearn service-agnostic concepts as they move between client libraries.
+* Service-agnostic concepts such as logging, HTTP communication, and error handling should be consistent. The developer should not have to relearn service-agnostic concepts as they move between client libraries.
 * Consistency of terminology between the client library and the service is a good thing that aids in diagnosability.
 * All differences (between target languages, or between the service and client library) must have a good (articulated) reason for existing, rooted in idiomatic usage rather than whim.
 * The Azure SDK for each target language feels like a single product developed by a single team.
@@ -29,7 +29,7 @@ The Azure SDK should be designed to enhance the productivity of developers conne
 
 * The developer should be able to understand what is going on.
 * It should be discoverable when and under what circumstances a network call is made.
-* It is discoverable what the defaults are and what their intent is.
+* Defaults are discoverable and their intent is clear.
 * Logging, tracing, and exception handling are fundamental and should be thoughtful.
 * Error messages should be concise, correlated with the service, actionable, and human readable. Ideally, the error message should lead the consumer to a useful action that they can take.
 * Integrating with the preferred debugger for the target language should be easy.

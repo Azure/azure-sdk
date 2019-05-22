@@ -8,16 +8,16 @@ There are a number of common methods for proxy configuration.  However, they fal
 
 1. Inline, no authentication (filtering only)
 2. Inline, with authentication
-3. Out of band, no authentication
-4. Out of band, with authentication
+3. Out-of-band, no authentication
+4. Out-of-band, with authentication
 
 For inline/no-auth proxy, nothing needs to be done.  The Azure SDK will work without any proxy configuration.  For inline/auth proxy, the connection may receive a `407 Proxy Authentication Required` status code.  This will include a scheme, realm, and potentially other information (such as a `nonce` for digest authentication).  The client library must resubmit the request with a `Proxy-Authorization` header that provides authentication information suitably encoded for the scheme.  The most common schemes are Basic, Digest, and NTLM.
 
-For an out-of-band/no-auth proxy, the client will send the entire request URL to the proxy instead of the service.  For example, if the client is communicating to `https://foo.blog.storage.azure.net/path/to/blob`, it will connect to the `HTTPS_PROXY` and send a `GET https://foo.blog.storage.azure.net/path/to/blob HTTP/1.1`.   For an out-of-band/auth proxy, the client will send the entire request URL just as in the out-of-band/no-auth proxy version, but it may send back a `407 Proxy Authentication Required` status code (as with the inline/auth proxy).
+For an out-of-band/no-auth proxy, the client will send the entire request URL to the proxy instead of the service.  For example, if the client is communicating to `https://foo.blob.storage.azure.net/path/to/blob`, it will connect to the `HTTPS_PROXY` and send a `GET https://foo.blob.storage.azure.net/path/to/blob HTTP/1.1`.   For an out-of-band/auth proxy, the client will send the entire request URL just as in the out-of-band/no-auth proxy version, but it may send back a `407 Proxy Authentication Required` status code (as with the inline/auth proxy).
 
-WebSockets can normally be tunneled through a HTTP proxy, in which case the proxy authentication happens during the CONNECT call.  This is the preferred mechanism for tunneling non-HTTP traffic to the Azure service.  However, there are other types of proxy.  The most notable is the SOCKS proxy is used for non-HTTP traffic (such as AMQP or MQTT).  We make no recommendation (for or against) support of SOCKS.  It is explicitly not a requirement to support SOCKS proxy within the client library.
+WebSockets can normally be tunneled through an HTTP proxy, in which case the proxy authentication happens during the CONNECT call.  This is the preferred mechanism for tunneling non-HTTP traffic to the Azure service.  However, there are other types of proxies.  The most notable is the SOCKS proxy used for non-HTTP traffic (such as AMQP or MQTT).  We make no recommendation (for or against) support of SOCKS.  It is explicitly not a requirement to support SOCKS proxy within the client library.
 
-Most proxy configuration will be done by adopting the HTTP pipeline that is common to all Azure service client libraries.  Linux and Mac generally use the HTTPS_PROXY (and associated) environment variables to configure proxies, while Windows environments generally use the WinHTTP proxy configuration to configure proxies.  Other options (such as loading from configuration files) may exist on a platform and runtime basis.
+Most proxy configuration will be done by adopting the HTTP pipeline that is common to all Azure service client libraries.  Linux and macOS generally use the HTTPS_PROXY (and associated) environment variables to configure proxies, while Windows environments generally use the WinHTTP proxy configuration to configure proxies.  Other options (such as loading from configuration files) may exist on a platform and runtime basis.
 
 ~ Must
 Support proxy configuration via common global configuration directives configured on a platform or runtime basis.
@@ -28,7 +28,7 @@ Support Azure SDK-wide configuration directives for proxy configuration, includi
 ~
 
 ~ Must
-Support client-library specific configuration directives for proxy configuration, including disabling the proxy functionality.
+Support client library-specific configuration directives for proxy configuration, including disabling the proxy functionality.
 ~
 
 ~ Must

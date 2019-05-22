@@ -1,6 +1,6 @@
 ### Pagination {#general-pagination}
 
-These guidelines eschew low-level pagination APIs in favor of high-level abstractions. High-level APIs are easy for developers to use for the majority use case but can be more confusing when finer grained control is required (e.g. over quota/throttling) and debugging when things go wrong. Other guidelines in this document work to mitigate this limitation e.g. by providing robust logging, tracing, and pipeline customization options.
+These guidelines eschew low-level pagination APIs in favor of high-level abstractions. High-level APIs are easy for developers to use for the majority of use cases but can be more confusing when finer-grained control is required (for example, over-quota/throttling) and debugging when things go wrong. Other guidelines in this document work to mitigate this limitation, for example by providing robust logging, tracing, and pipeline customization options.
 
 ~ Must {#general-pagination-must-use-iterators}
 expose paginated collections using language-canonical iterators over items within pages. The APIs used to expose the async iterators are language-dependent but should align with any existing common practices in your ecosystem.
@@ -27,13 +27,13 @@ expose an iterator over each individual item if getting each item requires a cor
 ~
 
 ~ MustNot {#general-pagination-support-toArray}
-expose an API to get a paginated collection into an array. This is a dangerous capability for services which may return many many pages.
+expose an API to get a paginated collection into an array. This is a dangerous capability for services which may return many, many pages.
 ~
 
 The following restrictions may be lifted in the future based on user feedback and experience in the field. Projects which want to expose such APIs should reach out to the Arch board for approval.
 
 ~ MustNot {#general-pagination-no-page-iterators}
-expose an iterator over pages (i.e. an async iterator over `Response<Page<T>>`). Services which have a use case for this iterator should reach out to the Arch board for approval.
+expose an iterator over pages (such as an async iterator over `Response<Page<T>>`). Services which have a use case for this iterator should reach out to the Arch board for approval.
 ~
 
 ~ MustNot {#general-pagination-low-level-APIs}
