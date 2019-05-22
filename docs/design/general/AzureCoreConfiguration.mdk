@@ -1,0 +1,75 @@
+## Global configuration {#azurecore-configuration}
+
+The Azure SDK can be configured by a variety of sources, some of which are necessarily language-dependent.  This will generally be codified in the Azure Core library.  The configuration sources include:
+
+1. System settings
+2. Environment variables
+3. Global configuration store (code)
+4. Runtime parameters
+
+~ Must
+apply configuration in the order above by default, such that subsequent items in the list override settings from previous items in the list.
+~
+
+~ May
+support configuration systems that users opt in to that do not follow the above ordering. 
+~
+
+~ Must
+be consistent with naming between environment variables and configuration keys.
+~
+
+~ Must
+log when a configuration setting is found somewhere in the environment or global configuration store.
+~
+
+~ May
+ignore configuration settings that are irrelevant for your client library.
+~
+
+### System settings
+
+~ Should
+respect system settings for proxies.
+~
+
+### Environment variables
+
+Environment variables are a well-known method for IT administrators to configure basic settings when running code in the cloud.
+
+#### Well-known environment variables
+
+~ Must
+load relevant configuration settings from the environment variables listed in Table [#general-configuration-envvars].
+~
+
+[INCLUDE=../general/EnvironmentVariables.mdk]
+
+~ Must
+prefix Azure-specific environment variables with `AZURE_`.
+~
+
+~ Must
+support CIDR notation for NO_PROXY.
+~
+
+### Global configuration
+
+Global configuration refers to configuration settings that are applied to all applicable client constructors in some manner. 
+
+~ Must
+support global configuration of shared pipeline policies including:
+
+* Logging: Log level, swapping out logger implementation
+* HTTP: Proxy settings, max retries, timeout, swapping out transport implementation
+* Telemetry: enabled/disabled
+* Tracing: enabled/disabled
+~
+
+~ Must
+provide configuration keys for setting or overriding every configuration setting inherited from the system or environment variables.
+~
+
+~ Must
+provide a method of opting out from importing system settings and environment variables into the configuration.
+~

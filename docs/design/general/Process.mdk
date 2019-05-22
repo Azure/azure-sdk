@@ -1,0 +1,30 @@
+## Process
+
+Building a new client library is a multi-month effort requiring careful design, review, and testing.  When developing a set of client libraries for your service, note the following requirements:
+
+~ Must {#general-tier1-guidelines}
+provide SDKs for the following languages: 
+
+* C#.
+* Java.
+* Python.
+* TypeScript (JavaScript).
+~
+
+~ May {#general-additional-languages}
+provide client libraries for other languages based on use case.  Consult adparch if you need assistance in following design guidelines for other languages.
+~
+
+### Starting the client library design process
+
+You should start the client library design process at **the same time that you start thinking about the public-facing interfaces** for your Azure service.  At this point in time, you can [engage with an API Design Architect with an initial design meeting](https://github.com/Azure/azure-sdk-pr/issues/new/choose).  During this meeting, you will discuss the service offering and a proposed REST API design with the architect who will offer advice on the proposed REST API design and suggestions on client library experience.
+
+Once you have a solid [REST API Design](https://github.com/Microsoft/api-guidelines), you should build the appropriate [Swagger](https://github.com/Azure/adx-documentation-pr/wiki) file and get it approved through the [Azure OpenAPI Hub](https://portal.azure-devex-tools.com/app).  Alongside this effort, you can start building client libraries for each language, integrate the library into the appropriate monorepo for the language, and onboard to the [Azure SDK Engineering Systems](https://aka.ms/jointhesdk).
+
+### The review process
+
+Your first step in building the client library should be designing the API surface that the consumer will use to access your service.  Like all design processes, this involves identifying the champion scenarios - a set of key use cases that you expect the majority of your users to use to access your service.  Once the champion scenarios are identified, you will write the same code that the consumer of your client library will write to fulfill the champion scenarios, complete with integration with error handling, diagnostics, and other client libraries.  This exercise informs the design of the API surface.
+
+Once you have an initial design for the API surface, engage [adparch](https://github.com/Azure/azure-sdk-pr/issues/new/choose) again to schedule a full architectural review of your API surface.  You should schedule this before major development starts on your client library as changes can be requested during the adparch review.
+
+Approval of your API design indicates that you can work with the [Azure SDK Engineering Systems](https://aka.ms/jointhesdk) group on releasing your client libraries to the various language-specific repositories.

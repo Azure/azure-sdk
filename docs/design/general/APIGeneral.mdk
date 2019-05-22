@@ -1,0 +1,22 @@
+### Native code
+
+Some languages support the development of platform-specific native code plugins.  These cause compatibility issues and require additional scrutiny.  Certain languages compile to a machine-native format (for example, C or C++), whereas most modern languages opt to compile to an intermediary format to aid in cross-platform support.
+
+~ MustNot {#general-implementing-nonativecode}
+write platform-specific / native code unless the language compiles to a machine-native format.
+~
+
+### Authentication {#general-implementing-auth}
+
+When implementing authentication, don't open up the consumer to security holes like PII (personally identifiable information) leakage or credential leakage.  Credentials are generally issued with a time limit, and must be refreshed periodically to ensure that the service connection continues to function as expected.  Ensure your client library follows all current security recommendations and consider an independent security review of the client library to ensure you're not introducing potential security problems for the consumer.
+
+~ MustNot {#general-implementing-no-persistence-auth}
+persist, cache, or reuse security credentials.  Security credentials should be considered short lived to cover both security concerns and credential refresh situations.  
+~
+
+If your service implements a non-standard credential system (one that is not supported by Azure Core), then you need to produce an authentication policy for the HTTP pipeline that can authenticate requests given the alternative credential types provided by the client library.
+
+~ Must {#general-implementing-auth-policy}
+provide a suitable authentication policy that authenticates the HTTP request in the HTTP pipeline when using non-standard credentials.  This includes custom connection strings, if supported.
+~
+

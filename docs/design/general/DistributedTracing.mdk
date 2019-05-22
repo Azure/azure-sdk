@@ -1,0 +1,25 @@
+### Distributed tracing {#general-distributed-tracing}
+
+Distributed tracing mechanisms allow the consumer to trace their code from frontend to backend.  To do this, the distributed tracing library creates spans - units of unique work.  Each span is in a parent-child relationship.  As you go deeper into the hierarchy of code, you create more spans.  These spans can then be exported to a suitable receiver as needed.  To keep track of the spans, a _distributed tracing context_ (called a context in the remainder of this section) is passed into each successive layer.  For more information on this topic, visit the [OpenTelemetry](https://opentelemetry.io/) topic on tracing.
+
+~ Must 
+support [OpenTelemetry](https://opentelemetry.io) for distributed tracing.
+~
+
+~ Must
+accept a context from calling code to establish a parent span.
+~
+
+~ Must
+pass the context to the backend service through the appropriate headers (`traceparent`, `tracestate`, etc.) to support [Azure Monitor](https://azure.microsoft.com/services/monitor/).  This is generally done with the HTTP pipeline.
+~
+
+~ Must
+create a new span for each method that user code calls.  New spans must be children of the context that was passed in.  If no context was passed in, a new root span must be created.
+~
+
+~ Must
+create a new span (which must be a child of the per-method span) for each REST call that the client library makes.  This is generally done with the HTTP pipeline.
+~
+
+For more client library implementations, some of these requirements will be handled by the HTTP pipeline.  However, as a client library writer, you must handle the incoming context appropriately.
