@@ -14,6 +14,10 @@ place service client types that the consumer is most likely to interact with in 
 allow the consumer to construct a service client with the minimal information needed to connect and authenticate to the service.
 ~
 
+~ Must {#general-apisurface-standardized-verbs}
+standardize verb prefixes within a set of client libraries for a service.  The service must be able to speak about a specific operation in a cross-language manner within outbound materials (such as documentation, blogs, and public speaking).  They cannot do this if the same operation is referred to by different verbs in different languages.
+~
+
 ~ Must {#general-apisurface-supportallfeatures}
 support 100% of the features provided by the Azure service the client library represents. Gaps in functionality cause confusion and frustration among developers.
 ~
