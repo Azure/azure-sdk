@@ -9,7 +9,7 @@ Use the Cosmos DB client library for Python to manage databases and the JSON doc
 * Create, read, update, and delete the items (JSON documents) in your containers
 * Query the documents in your database using SQL-like syntax
 
-[Source code][source_code] | [Package (PyPi)][pypi] | [API reference documentation][ref_cosmos_sdk] | [Product documentation][cosmos_docs]
+[Source code][source_code] | [Package (PyPi)][pypi] | [API reference documentation][ref_cosmos_sdk] | [Product documentation][cosmos_docs] | [Samples][samples]
 
 ## Getting started
 
@@ -269,6 +269,7 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 [ref_database]: http://cosmosproto.westus.azurecontainer.io/#azure.cosmos.Database
 [ref_httpfailure]: https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.errors.httpfailure
 [ref_item]: http://cosmosproto.westus.azurecontainer.io/#azure.cosmos.Item
+[samples]: https://github.com/binderjoe/cosmos-python-prototype/blob/master/examples
 [sample_database_mgmt]: https://github.com/binderjoe/cosmos-python-prototype/blob/master/examples/databasemanagementsample.py
 [sample_document_mgmt]: https://github.com/binderjoe/cosmos-python-prototype/blob/master/examples/documentmanagementsample.py
 [sample_examples_misc]: https://github.com/binderjoe/cosmos-python-prototype/blob/master/examples/examples.py
