@@ -15,8 +15,6 @@ Thank you for starting the process for approval of the client library for your A
 * Service team responsible for the client library:
 * Link to documentation describing the service:
 * Contact email (if service team, provide PM and Dev Lead):
-* Expected code complete date:
-* Expected release date:
 
 ## About this client library
 
