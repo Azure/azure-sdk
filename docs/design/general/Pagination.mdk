@@ -30,12 +30,6 @@ expose an iterator over each individual item if getting each item requires a cor
 expose an API to get a paginated collection into an array. This is a dangerous capability for services which may return many, many pages.
 ~
 
-The following restrictions may be lifted in the future based on user feedback and experience in the field. Projects which want to expose such APIs should reach out to the Arch board for approval.
-
-~ MustNot {#general-pagination-no-page-iterators}
-expose an iterator over pages (such as an async iterator over `Response<Page<T>>`). Services which have a use case for this iterator should reach out to the Arch board for approval.
-~
-
 ~ Must {#general-pagination-low-level-APIs}
 expose paging APIs when iterating over a collection. Paging APIs must accept a continuation token (from a prior run) and a maximum number of items to return, and must return a continuation token as part of the response so that the iterator may continue, potentially on a different machine.
 ~
