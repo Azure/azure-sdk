@@ -36,6 +36,8 @@ The following restrictions may be lifted in the future based on user feedback an
 expose an iterator over pages (such as an async iterator over `Response<Page<T>>`). Services which have a use case for this iterator should reach out to the Arch board for approval.
 ~
 
-~ MustNot {#general-pagination-low-level-APIs}
-expose low-level APIs to interact with the paged endpoint directly. These low-level APIs provide more fine-grained control over the pagination process while also providing users without access to (or understanding of) async iterators to use your library.
+~ Must {#general-pagination-low-level-APIs}
+expose paging APIs when iterating over a collection. Paging APIs must accept a continuation token (from a prior run) and a maximum number of items to return, and must return a continuation token as part of the response so that the iterator may continue, potentially on a different machine.
 ~
+
+
