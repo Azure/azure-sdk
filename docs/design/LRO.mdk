@@ -1,0 +1,36 @@
+## Long-Running Operations
+
+Long-running operations are operations which consist of an initial request to start the operation followed by polling to determine when the operation has completed or failed. Long-running operations in Azure tend to follow the [REST API guidelines for Long-running Operations](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#13-long-running-operations), but there are exceptions.
+
+~ Must
+represent long-running operations with some object that encapsulates the polling and the operation status. This object, called a "poller", must provide APIs for:
+
+1. querying the current operation state (either asynchronously, which may consult the service, or synchronously which must not)
+2. requesting an asynchronous notification when the operation has completed
+3. cancelling the operation if cancellation is supported by the service
+4. registering disinterest in the operation so polling stops
+5. triggering a poll operation manually (automatic polling must be disabled)
+~
+
+~ Must
+support the following polling configuration options. Polling configuration may be used only in the absence of relevant retry-after headers from service, and otherwise should be ignored.
+
+* pollInterval
+~
+
+~ Must
+prefix method names which return a poller with either `begin` or `start`.
+~
+
+~ Must
+provide a way to instantiate a poller with the serialized state of another poller to begin where it left off, for example by passing the state as a parameter to the same method which started the operation, or by directly instantiating a poller with that state.
+~
+
+~ MustNot
+cancel the long-running operation when cancellation is requested via a cancellation token. The cancellation token is cancelling the polling operation and should not have any effect on the service.
+~
+
+~ Must
+log polling status as info (including time-to-next-retry)
+~
+
