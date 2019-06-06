@@ -169,7 +169,7 @@ For example, the ```ConfigurationClient``` type and its public constructors look
 public class ConfigurationClient {
     public ConfigurationClient(string connectionString);
     public ConfigurationClient(string connectionString, ConfigurationClientOptions options);   
-    public ConfigurationClient(Uri uri, TokenCredentials credentails, ConfigurationClientOptions options = default);   
+    public ConfigurationClient(Uri uri, TokenCredential credentail, ConfigurationClientOptions options = default);   
 }
 ```
 ~
@@ -323,6 +323,8 @@ For example, implement ```IEquatable<T>```, ```IComparable<T>```, ```IEnumerable
 apply ```[EditorBrowsable(EditorBrowsableState.Never)]``` attribute to ```Equals(object)``` and ```GetHashCode()``` to hide these methods from intellisense,
 if they are not intended to be called directly by the user.
 
+A good rule of thumb for ToString is that if it's not overriden and has the default implementation (which returns the type name), it should be hidden.
+
 For example, ```GetHashCode()``` is almost never called directly, and ```Equals(object)``` is almost never called if a type implements ```IEquatable<T>```.
 
 ```csharp
@@ -370,10 +372,36 @@ The ```IAsyncEnumerable<T>``` interface is available in [Microsoft.BCL.AsyncInte
 The ```Response<T>.Raw``` will most probably contain response content related to several individual items, and it's ok.
 ~
 
-~ ShouldNot {#dotnet-paging-raw}
-expose raw paging APIs directly on service clients. 
+~ Should {#dotnet-paging-raw}
+consider exposing raw paging APIs through custom enumerable types with ```ByPage``` method. 
 
-If you desire to expose raw paging APIs in the Azure SDK for .NET, expose such APIs in a specialized low level type, not directly on the main service client type. The low level type should be in an advanced namespace, not in the main namespace of the component.
+These APIs should be async only. Synchronous collection APIs should not support paging as it adds complexity to APIs optimized for simplicity.
+
+```csharp
+public class <Service>Client {
+
+    public AsyncEnumerator<Item> GetItemsAsync(...);
+
+    public class AsyncEnumerator : IAsyncEnumerator<T> {
+        public PageAsyncEnumerator<T> ByPage(string continuationToken = default);
+    }
+}
+
+// Azure.Core Package
+namespace Azure.Core {
+    public class  PageAsyncEnumerator : IAsyncEnumerator<Page<T>> {
+        public int PageSizeHint { get; set; }
+        ... // interface implementations
+    }
+
+    public struct Page<T> {
+        public string ContinuationToken { get; }
+        public T[] Values { get; }
+        public Response GetRawResponse();
+    }
+}
+```
+
 ~
 
 ### Service Method Parameters {#dotnet-parameters} 
@@ -397,7 +425,85 @@ test the developer experience when invalid service parameters are passed in. Ens
 
 ### Long Running Operations {#dotnet-longrunning}
 
-Guidance comming soon ...
+Some service operations take a very long time, up to days. Such operations are initiated with one REST call, and their progress can be monitored with one or more separate calls. 
+We will refer to such service operations as `Long Running Operations`` (LRO). This section describes how to expose LRO on service clients.
+
+The basic LRO pattern looks like the following:
+
+```csharp
+public class <Service>Client {
+
+    // Operation<T> is a type in Azure.Core
+    // Note that LROs are exposed as asynchronous methods only
+    public Task<Operation<Model>> Start<OperationName>Async(..., string operationId = default);
+}
+
+// the following types are in Azure.Core package
+public abstract class Operation<T>
+{
+    public async ValueTask<Response<T>> WaitAsync(CancellationToken cancellationToken = default);
+    public async ValueTask<Status> GetStatusAsync(CancellationToken cancellationToken = default);
+
+    public bool HasCompleted { get; }
+    public Response GetRawResponse(); // throws if HasCompleted is false
+    public T Value; // throws if HasCompleted is false
+     
+    public string Id { get; }
+    public TimeSpan PollingInterval { get; set; }
+}
+
+public enum OperationStatus
+{
+    Started,
+    Completed,
+    Cancelled,
+    Error,
+}
+```
+
+Which then can be called as follows
+
+```csharp
+var client = new ServiceClient();
+
+// automatic polling
+{
+    Model value = await client.StartOperationAsync().WaitAsync();
+    Console.WriteLine(value);
+}
+
+// manual polling
+{
+    Operation<Model> operation = await client.StartOperationAsync();
+    while ((await operation.GetStatusAsync(cancel.Token)) != Status.Completed)
+    {
+        await Task.Delay(1000); // play some elevator music
+    }
+    Console.WriteLine(operation.Value);
+}
+
+// saving operation ID
+{
+    Operation<Model> operation1 = await client.StartOperationAsync();
+    string operationId = operation.Id;
+
+    // two days later
+    Operation<Model> operation2 = await client.StartOperationAsync(operationId);
+    Model value = await operation2.WaitAsync();
+}
+```
+
+~~ Must {#dotnet-lro-naming}
+name all LRO methods with the `Start` prefix.
+~~
+
+~~ MustNot {#dotnet-lro-naming}
+provide synchronous LRO APIs. 
+~~
+
+~~ Should {#dotnet-lro-naming}
+provide operationId parameter to LRO methods.
+~~
 
 ### Supporting Mocking {#dotnet-mocking}
 
@@ -424,15 +530,18 @@ The full sample is located [here](https://github.com/Azure/azure-sdk-for-net/blo
 make all service methods virtual.
 ~~
 
+~ Must {#dotnet-mocking-ctor}
+provide protected parameterless constructor for mocking.
+
 ~~ Must {#dotnet-mocking-modelfactory}
 provide factory or builder for constructing model graphs returned from virtual service methods. 
 
 In general, model types should not have public constructors, as instances of the type are typically returned from SDK, as opposed to being constructed by the SDK user, yet mock implementations need to create instances of the model types.
 
-A simple factory should be a static class called ```<service>ModelFactory```.
+A simple factory should be a static class called ```<service>ModelFactory``` in the same namespace as the model types.
 
 ```csharp
-public static class ConfigurationModelBFactory {
+public static class ConfigurationModelFactory {
     public static ConfigurationSetting ConfigurationSetting(string key, string value, string label=default, string contentType=default, ETag eTag=default, Nullable<DateTimeOffset> lastModified=default, Nullable<bool> locked=default);
     public static SettingBatch SettingBatch(ConfigurationSetting[] settings, string link, SettingSelector selector);
 }
@@ -466,8 +575,8 @@ public BlobServiceClient(string connectionString, BlobClientOptions options)
 public BlobServiceClient(Uri uri, BlobClientOptions options = default)
 
 // using credential types
-public BlobServiceClient(Uri uri, SharedKeyCredentials credentials, BlobClientOptions options = default)
-public BlobServiceClient(Uri uri, TokenCredentials credentials, BlobClientOptions options = default)
+public BlobServiceClient(Uri uri, SharedKeyCredential credential, BlobClientOptions options = default)
+public BlobServiceClient(Uri uri, TokenCredential credential, BlobClientOptions options = default)
 ```
 
 ~ Should {#dotnet-authentication-credentialtypes}
@@ -475,8 +584,7 @@ use credential types provided in the ```Azure.Core``` package.
 
 Currently, Azure.Core has the following reusable credential types:
 
-- TokenCredentials
-- more coming soon ...
+- TokenCredential
 ~
 
 ~ Must {#dotnet-authentication-rolling}
@@ -757,7 +865,7 @@ public class ConfigurationClient {
 }
 ```
 
-Note, if the options type can be shared by multiople client types, name it with a plural and more general name, e.g. ```BlobClientsOptions``` can be used by ```BlobClient```, ```BlobContainerClient```, and ```BlobAccountClient```.
+Note, if the options type can be shared by multiople client types, consider naming it with a plural or otherwise more general name, e.g. ```BlobClientsOptions``` can be used by ```BlobClient```, ```BlobContainerClient```, and ```BlobAccountClient```.
 ~
 
 ~ MustNot{#dotnet-usage-options-nodefaultctor}
