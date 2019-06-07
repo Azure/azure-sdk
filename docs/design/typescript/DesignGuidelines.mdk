@@ -437,8 +437,8 @@ This section covers the contents of your tsconfig.json. After implementing this 
   set `compilerOptions.experimentalDecorators` to `true`. The experimentalDecorators flag adds support for "v1 decorators" to TypeScript. Unfortunately the standards process has moved on to a somewhat incompatible second version that is not yet implemented by TypeScript. Taking a dependency on decorators now means signing up your users for potential breakage later. Until decorators become a standard feature, projects must not use decorators.
 ~
 
-~ Must {#ts-config-sourceMaps}
-  set `compilerOptions.sourceMaps` and `compilerOptions.declarationMap` to true. Shipping source maps in your package ensures clients can easily debug into your library code. `sourceMaps` maps your emitted JS source to the declaration file and `declarationMap` maps the declaration file back to the TypeScript source that generated it. Be sure to include your original TypeScript sources in the package.
+~ Must {#ts-config-sourceMap}
+  set `compilerOptions.sourceMap` and `compilerOptions.declarationMap` to true. Shipping source maps in your package ensures clients can easily debug into your library code. `sourceMap` maps your emitted JS source to the declaration file and `declarationMap` maps the declaration file back to the TypeScript source that generated it. Be sure to include your original TypeScript sources in the package.
 ~
 
 ~ Must {#ts-config-importHelpers}
