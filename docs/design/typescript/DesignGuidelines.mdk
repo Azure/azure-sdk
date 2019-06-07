@@ -200,7 +200,7 @@ set `main` to point to either a CommonJS or a UMD module. Main is the entry poin
 set `main` to include any ES6+ syntax.
 ~
 
-~ Must
+~ Must {#ts-package-json-module}
 set `module` to the ES6 module entrypoint of your application. 
 Tools such as Webpack use this key to discover the static module graph of your application for optimization purposes. See [#ts-source-distros-esm] for more information.
 ~
@@ -314,7 +314,7 @@ Library APIs must be idiomatic and must follow best practices.
 
 In addition to the guidelines in [#general-error-handling], the following guidelines apply to JavaScript libraries.
 
-~ Must {}
+~ Must {#ts-error-handling}
 use ECMAScript built-in error types for validation failures when appropriate. Specifically,
 
 * Use `TypeError` for errors relating to passing in an incorrect type, such as an Object when a string is expected.
