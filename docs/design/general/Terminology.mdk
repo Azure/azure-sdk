@@ -20,27 +20,3 @@ Package
   ~ A client library after it has been packaged for distribution to consumers.  Packages are generally installed using a package manager from a package repository.
 Package Repository
   ~ Each client library is published separately to the appropriate language-specific package repository.  For example, we distribute JavaScript libraries to npmjs.org (also known as the NPM Registry), and Python libraries to PyPI.  These releases are performed exclusively by the Azure SDK engineering systems team.  Consumers install packages using a package manager.  For example, a JavaScript consumer might use yarn, npm, or similar, whereas a Python consumer will use pip to install packages into their project.
-
-## Definitions {#general-requirements-definitions}
-
-Each requirement in this document is labelled and color-coded to show the relative importance.
-
-~ Must
-adopt this requirement for the client library.  Exception is by [prior approval of adparch only](https://github.com/Azure/azure-sdk-pr/issues/new/choose).
-~
-
-~ MustNot
-adopt this requirement for the client library.  Exception is by [prior approval of adparch only](https://github.com/Azure/azure-sdk-pr/issues/new/choose).
-~
-
-~ Should
-strongly consider this requirement for the client library.  If varying from this advice, note the fact during the client library board review.
-~
-
-~ ShouldNot
-be considering this requirement for the client library.  If varying from this advice, note the fact during the client library board review.
-~
-
-~ May
-consider this advice if appropriate.  No notification to the architecture board is required.
-~
