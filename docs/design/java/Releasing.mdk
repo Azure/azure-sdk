@@ -1,0 +1,25 @@
+[INCLUDE=../general/Releasing.mdk]
+ 
+### Supported Java Versions {#java-supported-versions}
+
+All Azure client libraries are baselined on Java 8. Developers are encouraged to make use of the benefits offered in Java 8, such as streams, lambda expressions, new date/time API, etc. The requirements outlined in this section are automatically enforced if the client library is built with the ADP build system, but for client libraries built outside of this system, following these requirements is critically important.
+
+~ MustNot {#java-do-not-exceed-jdk-baseline-features}
+use any language or API feature from a release of Java beyond Java 8. 
+~
+
+~ Must {#java-ensure-jdk-baseline-compilation}
+test to ensure that all code compiles and runs as expected on Java 8.
+~
+
+~ MustNot {#java-avoid-private-impl}
+use any private implementation API, such as those in the `com.sun.*` namespace, as these classes are unavailable from JDK 9 onwards.
+~
+
+~ Must {#java-ensure-jdk-lts-compilation}
+compile against the latest Java long-term support release, to ensure that code continues to compile, and unit tests continue to run and pass. It is critical that when this is performed, that the Maven build configuration is temporarily adjusted to use the Java LTS APIs only by running Maven with the command-line flag `-Djava-lts`. 
+~
+
+~ Must {#java-jdk-build-target}
+build and test client libraries against a freely-available, open source, non-commercial build of OpenJDK (e.g. [AdoptOpenJDK](http://adoptopenjdk.net) or [Azule Zulu](https://www.azul.com/downloads/zulu/)), rather than Oracle JDK or any other commercial JDK build.
+~

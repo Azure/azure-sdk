@@ -1,0 +1,53 @@
+[INCLUDE=../general/Documentation.mdk]
+ 
+### Java specific guidelines {#java-documentation}
+
+~ MustNot {#java-maven-no-dependency-versions-in-docs}
+include version details when specifying Maven dependency statements. Always refer the user back to a central document detailing how to use the Azure SDK for Java BOM.
+~
+
+~ Todo
+Link to central document detailing Azure SDK BOM.
+~
+
+#### Code Samples
+
+Code samples are small applications that demonstrate a certain feature that is relevant to the client library, allowing developers to more quickly understand the full usage requirements of a particular set of API. Code samples should not be any more complex than they need to be to demonstrate this feature - they should not become full applications. At all times code samples should have a very high signal:noise ratio between useful code and boilerplate code for non-related reasons.
+
+~ Must {#java-samples-location}
+place code samples within the `/src/samples/java` directory within the client library root directory. This ensures that the code will be compiled, but not packaged into the resulting jar.
+~
+
+~ Must {#java-samples-execution}
+ensure that each sample file is executable by including a `public static void main(String[] args)` method.
+~
+
+~ Must {#java-samples-use-latest-conventions}
+use the latest coding conventions when creating samples. It is recommended to make liberal use of modern Java syntax and API such as diamond operators, etc as they remove boilerplate from your samples and let your library's API shine through better. Do not use any language feature or API of Java beyond the current Java baseline versioned employed by the SDK, currently this is JDK 8.
+~
+
+~ Must {#java-samples-maintained}
+keep sample code maintained and using the latest major release of the library. Sample code repos must be reviewed for freshness and at least one commit must be made to a sample repo every semester - at least to update dependencies to the latest release and to ensure that the code continues to function as expected.
+~
+
+~ Must {#java-samples-easy-grafting}
+ensure that sample code snippets can be easily grafted from the documentation into a users own application and not tied to variable declarations not covered in previous snippets in the content.
+~
+
+~ Must {#java-samples-keep-simple}
+ensure that code snippets are optimized for ease of reading and comprehension over code compactness and efficiency unless the article context demands otherwise.
+~
+
+~ Must {#java-samples-cross-platform}
+ensure that samples can run in Windows, macOS, and Linux development environments, and are not tied to a non-standard developer toolchain.
+~
+
+#### JavaDoc
+
+~ Must {#java-javadoc-easy-generation}
+ensure that anybody can clone the repo containing the client library and execute `mvn javadoc:javadoc` to generate the full and complete JavaDoc output for the code, without any need for additional processing steps.
+~
+
+~ Must {#java-javadoc-code-samples}
+include code samples in all class-level JavaDoc, as well as code samples in relevant method-level JavaDoc. Include these code samples dynamically using the existing tooling to ingest the code at build time, rather than hard-code it within the JavaDoc (where it may become stale).
+~

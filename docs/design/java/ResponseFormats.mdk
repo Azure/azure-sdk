@@ -1,0 +1,19 @@
+[INCLUDE=../general/ResponseFormats.mdk]
+ 
+#### Java specific guidelines {#java-response-formats}
+
+~ Must {#java-response-type}
+use the `com.azure.core.http.Response` type for all methods that return a single response value consisting of header information and / or a deserialized body. When exposed in an async API, this must become `Mono<Response<T>>`.
+~
+
+~ MustNot {#java-no-T-type}
+offer methods that return a T type representing the deserialized body.
+~
+
+~ Must {#java-iterable-response-type}
+use `Iterable` or `Flux` as the return type for methods that return multiple values, for sync and async API respectively. In both cases, the generic type of `Iterable` or `Flux` should be `T`.
+~
+
+~ MustNot {#java-no-list-type}
+use `List`, `Stream`, `Iterator` or other collection types for sync APIs that return multiple values.
+~

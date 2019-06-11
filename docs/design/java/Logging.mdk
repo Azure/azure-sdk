@@ -1,0 +1,15 @@
+[INCLUDE=../general/Logging.mdk]
+ 
+#### Java specific guidelines {#java-logging}
+
+// TODO talk about service logger API
+
+Logging is critical to provide developers insight into why things are operating the way they are, and to help diagnose issues that are preventing their successful use of our SDK. This section details Java-specific logging requirements. There are more general logging requirements in the [general logging section](#general-logging).
+
+~ Must {#java-logging-use-slf4j}
+use the APIs provided by the [SLF4J](https://www.slf4j.org/) project, as this is the only logging API to be used in all Azure Java client libraries. Refer to the [SLF4J user manual](https://www.slf4j.org/manual.html) for additional guidance.
+~
+
+~ MustNot {#java-logging-no-static-logger}
+create static logger instances, as these will be shared among all client library instances running in a JVM instance.
+~

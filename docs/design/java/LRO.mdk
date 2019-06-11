@@ -1,0 +1,11 @@
+[INCLUDE=../general/LRO.mdk]
+ 
+#### Java specific guidelines {#java-lro}
+
+~ Todo
+Include full discussion about how LRO works under Java with code samples.
+~
+
+~ Must
+use the `com.azure.core.polling` classes, most notably the `Poller` class, to represent long-running operations.
+~

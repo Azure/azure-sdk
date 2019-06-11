@@ -1,0 +1,152 @@
+## Java API specifics {#java-api-shape}
+
+There exists three types of classes in a Java client library: client classes, model classes, and all other classes. Each of these types follow different design patterns, outlined in the sections below.
+
+~ Must {#java-be-idiomatic}
+ensure that all APIs are idiomatic for Java developers and follow best practices.
+~
+
+### Service Clients
+
+Azure services will be exposed to Java developers as one or more service client types, plus a set of model classes and other supporting types. The guidelines in this section describe patterns for the design of a service clients and their members.
+
+~ Must {#java-client-suffix}
+name service client types with the Client suffix, e.g. `ConfigurationClient`.
+~
+
+~ Must {#java-client-root-package}
+place service clients in the root package of their corresponding client library, e.g. `com.azure.storage.blob.BlobClient`, as `com.azure.storage.blob` is considered the root package in this example.
+~
+
+~ Must {#java-client-extend-serviceclient}
+extend from the `ServiceClient` super class.
+~
+
+~ Must {#java-client-immutable}
+ensure that all service client classes are immutable upon instantiation.
+~
+
+~ Must {#java-client-fluent-builders}
+provide a fluent builder API that starts with a public static `builder()` method and concludes with a `build()` method that returns the instance of the fully-initialised, immutable service client.
+~
+
+~ MustNot {#java-client-no-ctor}
+provide any `public` or `protected` constructors.
+~
+
+### Common Service Client Patterns
+
+~ Must {#java-crud-naming}
+prefer the use of the following terms for CRUD operations:
+
+|Verb             |Parameters        |Returns                 |Comments                                                                                                                |
+|-----------------|------------------|------------------------|------------------------------------------------------------------------------------------------------------------------|
+| upsert\<noun>   |key, item         |Updated or created item |Create new item or update existing item. Verb is primarily used in database-like services.                              |
+| set\<noun>      |key, item         |Updated or created item |Create new item or update existing item. Verb is primarily used for dictionary-like properties of a service.            |
+| create\<noun>   |key, item         |Created item            |Create new item. Fails if item already exists.                                                                          |
+| update\<noun>   |key, partial item |Updated item            |Fails if item does not exist.                                                                                           |
+| replace\<noun>  |key, item         |Replace existing item   |Completely replaces an existing item. Fails if the item does not exist.                                                 |
+| delete\<noun>   |key               |Deleted item, or `null` |Delete an existing item. Will succeed even if item did not exist. Deleted item may be returned, if service supports it. |
+| add\<noun>      |index, item       |Added item              |Add item to a collection. Item will be added last, or into the index position specified.                                |
+| get\<noun>      |key               |Item                    |Will return null if item does not exist.                                                                                |
+| list\<noun>     |                  |Items                   |Return list of items. Returns empty list if no items exist.                                                             |
+| \<noun>Exists   |key               |`boolean`               |Return `true` if the item exists.                                                                                       |
+~
+
+### Model classes
+
+Model classes are classes that consumers use to provide required information into client library methods. These typically represent the domain model, or represent options classes that must be configured before the request can be made.
+
+~ Must {#java-model-class-use-ctor}
+provide public constructors for all model classes.
+~
+
+~ MustNot {#java-model-class-no-builders}
+offer a builder class for model classes.
+~
+
+~ Must {#java-model-class-fluent}
+provide a fluent API for configuration. Name setter methods simply after the property being set, e.g. `proxy(Proxy p)`, and have all setter methods return `this`.
+~
+
+~ Must {#java-model-class-not-immutable}
+ensure that fluent setter API return the same instance of the type. Classes using the fluent pattern should not be immutable types.
+~
+
+~ MustNot {#java-model-class-no-javabean}
+use the JavaBean naming convention of `get*`, `set*`, and `is*`.
+~
+
+### Other support classes
+
+For classes that are not client classes or model classes, we choose to not offer builder or fluent APIs. Classes that fall into this category include custom exception types, http policies, credential types, etc.
+
+~ Must {#java-other-class-use-javabean}
+use the JavaBean naming convention of `get*`, `set*`, and `is*` for all API.
+~
+
+~ MustNot {#java-other-class-no-fluent}
+use the fluent API naming convention outlined above for model classes.
+~
+
+~ MustNot {#java-other-class-no-builder}
+provide a builder class.
+~
+
+### Async API
+
+Due to the nature of internet-based communication, asynchronous APIs are a must to ensure efficient use of system resources (threads and their stacks).
+
+~ Must {#java-async-methods}
+provide asynchronous API.
+~
+
+~ Must {#java-async-client}
+offer an async service client named `<ServiceName>AsyncClient`, as well as a builder named `<ServiceName>AsyncClientBuilder`. More than one service client may be offered for a single service.
+~
+
+~ Must {#java-async-use-project-reactor}
+use [Project Reactor](http://projectreactor.io) to provide end-users with a high-quality async API.
+~
+
+~ MustNot {#java-async-no-other-libs}
+use any other async APIs, such as `CompletableFuture` and [RxJava](https://github.com/ReactiveX/RxJava).
+~
+
+~ MustNot {#java-no-async-naming-pattern}
+use the suffix `Async` in methods that perform operations asynchronously. Let the fact the user has an instance of an 'async client' provide this context.
+~
+
+~ MustNot {#java-async-no-overloads}
+provide multiple asynchronous methods for a single REST endpoint, unless to provide overloaded methods to enable alternative or optional method parameters.
+~
+
+~ MustNot {#java-async-cancellations}
+provide API that accepts a cancellation token. Cancellation is not a common pattern in Java, and developers who want to be able to cancel requests will be encouraged to use the ability to unsubscribe from a publisher to effect this request.
+~
+
+~ Must {#java-async-useful-return-type}
+ensure that all async methods return a type that contains all information to enable a developer to inspect the metadata related to the service call (e.g. for HTTP endpoints, the async method call must return a type that enables the developer to read the headers, status code, and all other useful information).
+~
+
+~ MustNot {#java-async-no-custom-API}
+write custom APIs for streaming or async operations - make use of the existing functionality offered in the Azure Java SDK base class library. Where necessary, additional functionality should be introduced into the Azure Java SDK base class library after discussions with the [Java architect](mailto:adparch@microsoft.com).
+~
+
+~ MustNot {#java-async-no-blocking}
+include blocking calls inside client library code. Code must be async throughout entire codebase. Use [BlockHound](https://github.com/reactor/BlockHound) to detect blocking calls in async APIs.
+~
+
+### Sync API
+
+~ Must {#java-sync-methods}
+provide synchronous API.
+~
+
+~ Must {#java-sync-client}
+offer a sync service client named `<ServiceName>Client`, as well as a builder named `<ServiceName>ClientBuilder`. More than one service client may be offered for a single service.
+~
+
+~ MustNot {#java-sync-cancellations}
+provide API that accepts a cancellation token. Cancellation is not a common pattern in Java, and developers who want to be able to cancel requests will be encouraged to use the async API instead.
+~

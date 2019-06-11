@@ -1,0 +1,21 @@
+[INCLUDE=../general/Dependencies.mdk]
+ 
+~ Must {#java-allowed-dependencies}
+only make use of libraries that are listed in the table below. Transitive dependencies of the libraries below, or dependencies that are part of a family of dependencies, such as reactor-netty being a child project of reactor, are transitively permitted.
+
+| Name                                            | Role              | Allowed in public API | Notes |
+|-------------------------------------------------|------------------ |:---------------------:|-------|
+| [Reactor](http://projectreactor.io)             | Reactive library  | Yes                   |       |
+| [Netty](http://netty.io)                        | HTTP client       | Yes                   |       |
+| [slf4j](http://slf4j.org)                       | Logging framework | No                    | Use the azure core `ServiceLogger` API rather than slf4j directly. |
+| [Jackson](https://github.com/FasterXML/jackson) | JSON parser       | No                    |       |
+| [OpenTelemetry](https://opentelemetry.io/)      | Telemetry library | No                    | Enabled through the [tracing plugin](https://github.com/Azure/azure-sdk-for-java/tree/master/tracing) |
+~
+
+~ MustNot {#java-no-new-dependencies}
+introduce new dependencies on third party libraries that are already referenced from the parent POM, without first discussing with the [Java architect](mailto:adparch@microsoft.com).
+~
+
+~ MustNot {#java-no-dependency-version-overrides}
+specify or change dependency versions in your client library POM file. All dependency versioning must be centralized through the common parent POM.
+~
