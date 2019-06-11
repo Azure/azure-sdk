@@ -1,0 +1,19 @@
+## Release requirements
+
+Releasing a client library involves integrating with the appropriate mono-repo.  Release is performed by the Azure SDK release engineering team and only happens on successful build and test processes, in conjunction with the service team (in the case of a release that is coordinated with a service release).
+
+~ Must {#general-release-integrate-with-build}
+integrate with the Azure SDK Engineering Services build, test, and release processes.
+~
+
+~ Must {#general-release-use-a-linter}
+use a language-specific linter to enforce the design guidelines and required coding style.
+~
+
+~ MustNot {#general-release-stable-service}
+make a GA release of a client library until the underlying service is also in GA, with a stable protocol.
+~
+
+~ MustNot {#general-release-stable-swagger}
+make a GA release of a client library for a service whose protocol is based on a REST API until there is a stable (and approved) GA Swagger specification available.
+~

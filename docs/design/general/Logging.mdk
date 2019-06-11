@@ -1,0 +1,48 @@
+### Logging {#general-logging}
+
+Client libraries must support robust logging mechanisms so that the consumer can adequately diagnose issues with the method calls and quickly determine whether the issue is in the consumer code, client library code, or service.
+
+~ Must {#general-logging-pluggable}
+support pluggable log handlers.
+~
+
+~ Must {#general-logging-pluggable}
+make it easy for a consumer to enable logging output to the console. The specific steps required to enable logging to the console must be documented. 
+~
+
+~ Must {#general-logging-levels}
+use one of the following log levels when emitting logs: Verbose (details), Informational (things happened), Warning (might be a problem or not), and Error.
+~
+
+~ Must {#general-logging-levels-error}
+use the Error logging level for failures that the application is unlikely to recover from (out of memory, etc.).
+~
+
+~ Must {#general-logging-levels-warning}
+use the Warning logging level when a function fails to perform its intended task. This generally means that the function will raise an exception.
+It does not include occurrences of self-healing events (for example, when a request will be automatically retried).
+~
+
+~ Must {#general-logging-levels-informational}
+use the Informational logging level when a function operates normally.
+~
+
+~ Must {#general-logging-levels-informational}
+use the Verbose logging level for detailed troubleshooting scenarios. This is primarily intended for developers or system administrators to diagnose specific failures.
+~
+
+~ MustNot {#general-logging-no-sensitive-info}
+send sensitive information in log levels other than Verbose. For example, remove account keys when logging headers.
+~
+
+~ Must {#general-logging-requests-in-info}
+log request line, response line, and headers, as Informational message.
+~
+
+~ Must {#general-logging-info-if-cancelled}
+log an Informational message if a service call is cancelled.
+~
+
+~ Must {#general-logging-error-if-exceptions}
+log exceptions thrown as a Warning level message. If the log level set to Verbose, append stack trace information to the message.
+~

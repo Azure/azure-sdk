@@ -7,6 +7,10 @@ Must {
   toc-line: "<tr><td>&id;</td><td>blah</td></tr>";
 }
 
+MustNot {
+  before:"<a class='req-label' href='#&id;'>⛔️</a> **DO NOT** ";
+}
+
 Should {
   before:"<a class='req-label' href='#&id;'>☑️</a> **YOU SHOULD** ";
 }
@@ -19,8 +23,8 @@ May {
   before:"<a class='req-label' href='#&id;'>☑️</a> **YOU MAY** ";
 }
 
-MustNot {
-  before:"<a class='req-label' href='#&id;'>⛔️</a> **DO NOT** ";
+MayNot {
+  before:"<a class='req-label' href='#&id;'>⚠️</a> **YOU MAY NOT** ";
 }
 
 Note {

@@ -1,0 +1,24 @@
+### Network requests {#general-network-requests}
+
+~ Must {#general-implementing-httppipeline}
+use the HTTP pipeline component for communicating to service REST endpoints.
+~
+
+The HTTP pipeline consists of a HTTP transport that is wrapped by multiple policies.  Each policy is a control point during which the pipeline can modify either the request or response (or both).  To standardize the way that client libraries interact with Azure services, we prescribe a default set of policies.  The order in the list is the most sensible order for implementation.
+
+~ Must
+implement the following policies in the HTTP pipeline:
+
+- [Telemetry](#general-telemetry)
+- Unique Request ID
+- [Retry](#general-retry)
+- Credentials
+- Response downloader
+- [Distributed tracing](#general-distributed-tracing)
+- [Logging](#general-logging)
+~
+
+~ Should
+use the policy implementations in Azure Core whenever possible.  Do not try to "write your own" policy unless it is doing something unique to your service.  If you need another option to an existing policy, engage the Azure SDK development team to add the option.
+~
+
