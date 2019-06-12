@@ -129,7 +129,7 @@ name service client types with the _Client_ suffix, e.g. ```ConfigurationClient`
 ~
 
 ~ Must {#dotnet-client-namespace}
-place service clients in the root namespace of their corresponding component.
+place at least one service client in the root namespace of their corresponding component.
 ~
 
 ~ Must {#dotnet-client-class}
@@ -169,7 +169,7 @@ For example, the ```ConfigurationClient``` type and its public constructors look
 public class ConfigurationClient {
     public ConfigurationClient(string connectionString);
     public ConfigurationClient(string connectionString, ConfigurationClientOptions options);   
-    public ConfigurationClient(Uri uri, TokenCredential credentail, ConfigurationClientOptions options = default);   
+    public ConfigurationClient(Uri uri, TokenCredential credential, ConfigurationClientOptions options = default);   
 }
 ```
 ~
@@ -217,6 +217,8 @@ ensure that the names of the asynchronous and the synchronous variants differ on
 
 ~ Must {#dotnet-method-cancellation}
 ensure all service methods, both asynchronous and synchronous, take an optional ```CancellationToken``` parameter called _cancellationToken_.
+
+The implementation should pass the token to all I/O calls. It should not check the token manually when no I/O is happening.
 ~
 
 ~ Must {#dotnet-method-virtual}
@@ -425,8 +427,8 @@ test the developer experience when invalid service parameters are passed in. Ens
 
 ### Long Running Operations {#dotnet-longrunning}
 
-Some service operations take a very long time, up to days. Such operations are initiated with one REST call, and their progress can be monitored with one or more separate calls. 
-We will refer to such service operations as `Long Running Operations`` (LRO). This section describes how to expose LRO on service clients.
+Some service operations take a very long time, up to days. Such operations are initiated with one service call, and their progress can be monitored with one or more separate calls. 
+We will refer to such service operations as `Long Running Operations` (LRO). This section describes how to expose LRO on service clients.
 
 The basic LRO pattern looks like the following:
 
@@ -435,17 +437,20 @@ public class <Service>Client {
 
     // Operation<T> is a type in Azure.Core
     // Note that LROs are exposed as asynchronous methods only
-    public Task<Operation<Model>> Start<OperationName>Async(..., string operationId = default);
+    public Task<Operation<Model>> Start<OperationName>Async(...);
+
+    // this overload lets users access an existing operation
+    public Task<Operation<Model>> Start<OperationName>Async(string operationId);
 }
 
 // the following types are in Azure.Core package
 public abstract class Operation<T>
 {
     public async ValueTask<Response<T>> WaitAsync(CancellationToken cancellationToken = default);
-    public async ValueTask<Status> GetStatusAsync(CancellationToken cancellationToken = default);
+    public async ValueTask<Response<Status>> GetStatusAsync(CancellationToken cancellationToken = default);
 
     public bool HasCompleted { get; }
-    public Response GetRawResponse(); // throws if HasCompleted is false
+    public Response GetRawResponse(); 
     public T Value; // throws if HasCompleted is false
      
     public string Id { get; }
@@ -454,10 +459,10 @@ public abstract class Operation<T>
 
 public enum OperationStatus
 {
-    Started,
+    Running,
     Completed,
     Cancelled,
-    Error,
+    Failed,
 }
 ```
 
@@ -475,7 +480,7 @@ var client = new ServiceClient();
 // manual polling
 {
     Operation<Model> operation = await client.StartOperationAsync();
-    while ((await operation.GetStatusAsync(cancel.Token)) != Status.Completed)
+    while ((await operation.GetStatusAsync(cancel.Token)) == Status.Running)
     {
         await Task.Delay(1000); // play some elevator music
     }
@@ -502,7 +507,9 @@ provide synchronous LRO APIs.
 ~~
 
 ~~ Should {#dotnet-lro-naming}
-provide operationId parameter to LRO methods.
+provide an overload of the LRO taking operationId parameter.
+
+This overload is user to access an in-progress LRO.
 ~~
 
 ### Supporting Mocking {#dotnet-mocking}
@@ -618,11 +625,22 @@ For example, `Azure.Storage.Blobs`.
 ~ Must {#dotnet-namespace-format-pre-approved}
 use one of the following pre-approved namespace groups:
 
-- ```Azure.AI``` (e.g. ```Azure.AI.FaceRecognition```)
-- ```Azure.Iot``` (e.g. ```Azure.Iot.IotHubs```)
-- ```Azure.Messaging``` (e.g. ```Azure.Messaging.EventHubs```)
-- ```Azure.Storage``` (e.g. ```Azure.Storage.Blobs```)
-- others comming soon ...
+~ Must {#general-namespace-names}
+use the following list as the group of services (if the target language supports namespaces):
+
+- `Azure.AI` for artificial intelligence, including machine learning
+- `Azure.Analytics` for client libraries that gather or process analytics data
+- `Azure.Core` for general purpose libraries, i.e. not service specific
+- `Azure.Data` for client libraries that handle databases or structured data stores
+- `Azure.Diagnostics` for client libraries that gather data for diagnostics, including logging
+- `Azure.Identity` for authentication and authorization client libraries
+- `Azure.Iot` for client libraries dealing with the Internet of Things
+- `Azure.Management` for client libraries accessing the control plane (ARM)
+- `Azure.Media` for client libraries that deal with audio, video, or mixed reality
+- `Azure.Messaging` for client libraries that provide messaging services, such as push notifications or pub-sub.
+- `Azure.Search` for search technologies
+- `Azure.Security` for client libraries dealing with security
+- `Azure.Storage` for client libraries that handle unstructured data
 
 If you think a new group should be added to the list, email *adparch@microsoft.com*.
 ~
@@ -660,7 +678,7 @@ public class RequestFailedException : Exception {
 ~
 
 ~ Should {#dotnet-errors-exception}
-use ResponseExceptionExtensionsExtensions to create RequestFailedException instances.
+use ResponseExceptionExtensions to create RequestFailedException instances.
 
 This ensures that the exception's message contains detailed response information.
 
@@ -865,7 +883,7 @@ public class ConfigurationClient {
 }
 ```
 
-Note, if the options type can be shared by multiople client types, consider naming it with a plural or otherwise more general name, e.g. ```BlobClientsOptions``` can be used by ```BlobClient```, ```BlobContainerClient```, and ```BlobAccountClient```.
+Note, if the options type can be shared by multiple client types, consider naming it with a plural or otherwise more general name, e.g. ```BlobClientsOptions``` can be used by ```BlobClient```, ```BlobContainerClient```, and ```BlobAccountClient```.
 ~
 
 ~ MustNot{#dotnet-usage-options-nodefaultctor}
