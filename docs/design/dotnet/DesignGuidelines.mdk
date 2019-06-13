@@ -441,18 +441,25 @@ public class <Service>Client {
 
     // this overload lets users access an existing operation
     public Task<Operation<Model>> Start<OperationName>Async(string operationId);
+
+    // synchronous versions
+    public Operation<Model> Start<OperationName>(...);
+    public Operation<Model> Start<OperationName>(string operationId);
 }
 
 // the following types are in Azure.Core package
 public abstract class Operation<T>
 {
-    public async ValueTask<Response<T>> WaitAsync(CancellationToken cancellationToken = default);
-    public async ValueTask<Response<Status>> GetStatusAsync(CancellationToken cancellationToken = default);
+    // will use cached value withing polling interval
+    public ValueTask<Response<OperationStatus>> GetStatusAsync(CancellationToken cancellationToken = default);
+    public Response<OperationStatus> GetStatus(CancellationToken cancellationToken = default);
 
-    public bool HasCompleted { get; }
+    public ValueTask<Response<T>> WaitAsync(CancellationToken cancellationToken = default);
+
     public Response GetRawResponse(); 
-    public T Value; // throws if HasCompleted is false
-     
+    public T Value; // throws if CachedStatus != Succeeded
+    public OperationStatus CachedStatus;
+
     public string Id { get; }
     public TimeSpan PollingInterval { get; set; }
 }
@@ -460,7 +467,7 @@ public abstract class Operation<T>
 public enum OperationStatus
 {
     Running,
-    Completed,
+    Succeeded,
     Cancelled,
     Failed,
 }
@@ -502,11 +509,7 @@ var client = new ServiceClient();
 name all LRO methods with the `Start` prefix.
 ~~
 
-~~ MustNot {#dotnet-lro-naming}
-provide synchronous LRO APIs. 
-~~
-
-~~ Should {#dotnet-lro-naming}
+~~ Should {#dotnet-lro-getagain}
 provide an overload of the LRO taking operationId parameter.
 
 This overload is user to access an in-progress LRO.
@@ -582,7 +585,7 @@ public BlobServiceClient(string connectionString, BlobClientOptions options)
 public BlobServiceClient(Uri uri, BlobClientOptions options = default)
 
 // using credential types
-public BlobServiceClient(Uri uri, SharedKeyCredential credential, BlobClientOptions options = default)
+public BlobServiceClient(Uri uri, StorageSharedKeyCredential credential, BlobClientOptions options = default)
 public BlobServiceClient(Uri uri, TokenCredential credential, BlobClientOptions options = default)
 ```
 
