@@ -26,7 +26,8 @@ send telemetry information in the [User-Agent header](https://tools.ietf.org/htm
 
 - `<application_id> ::=` optional application-specific string. May contain a slash, but must not contain a space. The string is supplied by the user of the client library, e.g. "AzCopy/10.0.4-Preview"
 - `<sdk_language> ::=` SDK's language name (all lowercase): "net", "python", "java", or "js"
-- `<package_name> ::=` client library package name as it appears to the developer, replacing slashes with dashes, e.g. "Azure.Security.KeyVault", "@azure-keyvault" (instead of @azure/keyvault)
+- `<package_name> ::=` client library package name as it appears to the developer, replacing slashes with dashes and removing the Azure indicator
+    - e.g. "Security.KeyVault" (.NET), "security.keyvault" (Java), "keyvault" (JavaScript & Python)
 - `<package_version> ::=` the version of the package. Note: this is not the version of the service
 - `<platform_info> ::=` information about the currently executing language runtime and OS, e.g. "(NODE-VERSION v4.5.0; Windows_NT 10.0.14393)"
 ~
@@ -34,10 +35,10 @@ send telemetry information in the [User-Agent header](https://tools.ietf.org/htm
 ~ Example {#azurecore-example-user-agent-strings; caption: "Example User-Agent header values"}
 For example, if we re-wrote AzCopy in each language using the Azure Blob Storage client library, we may end up with the following user-agent strings:
 
-- (.NET) "AzCopy/10.0.4-Preview azsdk-net-Azure.Storage.Blobs/11.0.0 (.NET Standard 2.0; Windows_NT 10.0.14393)"
-- (JavaScript) "AzCopy/10.0.4-Preview azsdk-js-@azure-storage-blob/11.0.0 (Node 10.16.0; Ubuntu; Linux x86_64; rv:34.0)"
-- (Java) "AzCopy/10.0.4-Preview azsdk-java-com.azure.storage.blobs/11.0.0 (Java/1.8.0_45; Macintosh; Intel Mac OS X 10_10; rv:33.0)"
-- (Python) "AzCopy/10.0.4-Preview azsdk-python-azure-storage/4.0.0 Python/3.7.3 (Ubuntu; Linux x86_64; rv:34.0)"
+- (.NET) "AzCopy/10.0.4-Preview azsdk-net-Storage.Blobs/11.0.0 (.NET Standard 2.0; Windows_NT 10.0.14393)"
+- (JavaScript) "AzCopy/10.0.4-Preview azsdk-js-storage-blob/11.0.0 (Node 10.16.0; Ubuntu; Linux x86_64; rv:34.0)"
+- (Java) "AzCopy/10.0.4-Preview azsdk-java-storage.blobs/11.0.0 (Java/1.8.0_45; Macintosh; Intel Mac OS X 10_10; rv:33.0)"
+- (Python) "AzCopy/10.0.4-Preview azsdk-python-storage/4.0.0 Python/3.7.3 (Ubuntu; Linux x86_64; rv:34.0)"
 ~
 
 ### Unique request ID policy {#azurecore-requestid}
