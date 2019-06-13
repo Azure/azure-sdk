@@ -1,31 +1,9 @@
-## Terminology {#ts-terminology; @h1-h2: decimal;}
-
-- **AMD Modules**: A module format often used in the browser, e.g. as implemented by RequireJS.
-- **CommonJS** / **CJS**: The module format of Node.js (require, module.exports).
-- **ESM** / **ES Module**: ECMAScript Module, the standard import/export syntax defined by ECMAScript 6.
-- **UMD**: Universal Module Definition, a superset of both CommonJS and AMD modules.
-
-## README<span></span>.md {#ts-readme}
-
-~Must {#ts-readme-ts-config}
-document any required tsconfig settings and type dependencies in README.md under "Getting started". The section must be titled "Configure TypeScript" and come after the "Install the Package" sub-section. Common examples of required user configuration include enabling `compilerOptions.allowSyntheticDefaultImport` and installing an appropriate version of the `@types/node` package.
-~
-
-These guidelines are in addition to the [general README guidelines](#general-readme).
 
 
 ## npm Package {#ts-npm-package}
 
-The following sections specify versioning, the contents of package.json and the various source distributions included in the npm package.
-
 ~ Must {#ts-npm-package-ownership}
-have npm package ownership set to either the Azure or Microsoft orgs. (TODO: how to)
-~
-
-### Functionality {#ts-functionality}
-
-~ Must {#ts-feature-support}
-support 100% of the features supported by the backing services. Gaps in functionality cause confusion and frustration among developers.
+have npm package ownership set to either the Azure or Microsoft orgs.
 ~
 
 ### Configuration
