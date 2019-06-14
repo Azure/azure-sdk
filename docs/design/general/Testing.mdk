@@ -1,0 +1,7 @@
+## Testing Support {#general-implement-mocking}
+
+One of the key things we want to support is to allow consumers of the library to easily write repeatable unit-tests for their applications without activating a service.  This allows them to reliable and quickly test their code without worrying about the vagaries of the underlying service implementation (including, for example, network conditions or service outages).  Mocking is also helpful to simulate failures, edge cases, and hard to reproduce situations (for example: does code work on February 29th).
+
+~ Must {#general-support-mocking}
+support mocking of network operations.
+~
