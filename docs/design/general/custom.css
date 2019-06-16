@@ -29,6 +29,15 @@ body.madoko {
   padding-right: 10px;
 }
 
+a,
+a:visited {
+  color: blue;
+  text-decoration: none !important;
+}
+a:hover {
+  text-decoration: underline !important;
+}
+
 a.req-label {
   text-decoration: none;
 }

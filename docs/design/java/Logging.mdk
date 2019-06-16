@@ -1,15 +1,24 @@
 [INCLUDE=../general/Logging.mdk]
- 
-#### Java specific guidelines {#java-logging}
 
-// TODO talk about service logger API
-
-Logging is critical to provide developers insight into why things are operating the way they are, and to help diagnose issues that are preventing their successful use of our SDK. This section details Java-specific logging requirements. There are more general logging requirements in the [general logging section](#general-logging).
-
-~ Must {#java-logging-use-slf4j}
-use the APIs provided by the [SLF4J](https://www.slf4j.org/) project, as this is the only logging API to be used in all Azure Java client libraries. Refer to the [SLF4J user manual](https://www.slf4j.org/manual.html) for additional guidance.
+~ Must {#java-logging-use-servicelogger}
+use the `ServiceLogger` API provided within Azure Core as the sole logging API throughout all client libraries. Internally, `ServiceLogger` wraps [SLF4J](https://www.slf4j.org/), so all external configuration that is offered through SLF4J is valid, and this is encouraged to be exposed to end users to configure their logging. Refer to the [SLF4J user manual](https://www.slf4j.org/manual.html) for additional guidance.
 ~
 
 ~ MustNot {#java-logging-no-static-logger}
-create static logger instances, as these will be shared among all client library instances running in a JVM instance.
+create static logger instances, as these will be shared among all client library instances running in a JVM instance. Instead, create a new instance of a `ServiceLogger` per instance of all relevant classes. For example, the code below will create a `ServiceLogger` instance for the `ConfigurationAsyncClient`, such that each instance of this class will have a unique instance of the `ServiceLogger`.
+
+```java
+public final class ConfigurationAsyncClient extends ServiceClient {
+    private final ServiceLogger logger = new ServiceLogger(ConfigurationAsyncClient.class);
+    
+    // example async call to a service that uses the Project Reactor APIs to log request, success, and error
+    // information out to the service logger instance
+    public Mono<Response<ConfigurationSetting>> setSetting(ConfigurationSetting setting) {
+        return service.setKey(serviceEndpoint, setting.key(), setting.label(), setting, getETagValue(setting.etag()), null)
+            .doOnRequest(ignoredValue -> logger.asInfo().log("Setting ConfigurationSetting - {}", setting))
+            .doOnSuccess(response -> logger.asInfo().log("Set ConfigurationSetting - {}", response.value()))
+            .doOnError(error -> logger.asWarning().log("Failed to set ConfigurationSetting - {}", setting, error));
+    }
+}
+```
 ~

@@ -2,15 +2,15 @@
  
 #### Java specific guidelines {#java-namespace}
 
-~ Must {#java-consistent-package-naming; .important}
+~ Must {#java-consistent-package-naming}
 use the package naming pattern of all lowercase letters (no camel case is allowed), without spaces, hyphens, or underscores. For example, Azure Key Vault would be in `com.azure.<group>.keyvault` - note that the two words 'Key' and 'Vault' are brought together to `keyvault`, instead of `keyVault`, `key_vault`, or `key-vault`.
 ~
 
-~ Must {#java-consistent-package-structure; .important}
+~ Must {#java-consistent-package-structure}
 ensure that all code for a client library resides in a package which takes the form `com.azure.<group>.<service>[.<feature>]`. Sub-packages for various features of the client library are fine, and can be named as appropriate.
 ~
 
-~ MustNot {#java-do-not-leak-impl; .important}
+~ MustNot {#java-do-not-leak-impl}
 allow implementation code (i.e. code that does not form part of the public API) to be mistaken as public API. There are two valid arrangements for implementation code, one (or both) of which must be followed:
 
 1. Implementation classes can be placed within a subpackage named `implementation`.
