@@ -1,0 +1,58 @@
+## Azure core {#python-azure-core}
+
+The `azure-core` package provides common functionality for client libraries. Documentation and usage examples can be found in the [azure-sdk-for-python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/core/azure-core) repository.
+
+#### Custom Policies
+
+Some services may require custom policies to be implemented. This may be because of custom retry logic (e.g. falling back to secondary endpoints) or specialized authentication (e.g. signing of part or all of the request).
+
+~ Must
+document any custom policies in your package.
+~
+
+~ Must
+add the policies to the `azure.`<package name>`.pipeline.policies` namespace.
+
+> TODO: reconcile this (and individual policy names) with `.aio` namespace suffix recommendation.
+~
+
+#### Transports
+
+#### Configuration
+
+### Protocols
+#### LROPoller {#python-core-protocol-lro-poller}
+
+```python
+T = TypeVar[T]
+class LROPoller(Protocol):
+
+    def result(self, timeout=None) -> T ...
+    def wait(self, timeout=None) -> None ...
+```
+
+`azure.core.LROPoller` implements the `LROPoller` protocol.
+
+#### Paged {#python-core-protocol-paged}
+
+```python
+T = TypeVar[T]
+class ByPagePaged(Protocol, Iterable[Iterable[T]]):
+    continuation_token: "str"
+
+class Paged(Protocol, Iterable[T]):
+    continuation_token: "str"
+
+    def by_page(self) -> ByPagePaged[T] ...
+```
+
+`azure.core.Paged` implements the `Paged` protocol.
+
+#### DiagnosticsResponseHook
+
+```python
+class ResponseHook(Protocol):
+    
+    __call__(self, headers, deserialized_response): -> None ...
+
+```

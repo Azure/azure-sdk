@@ -1,0 +1,77 @@
+## Async support
+
+While the `asyncio` library has been available in one form or another since Python 3.4, and the `async`/`await` keywords were introduced in Python 3.5 back in 2015, many Python developers are not yet familiar with or comfortable using libraries that only provide asynchronous methods.
+
+~ Should {#python-sync-and-async}
+provide both sync and async versions of your APIs
+~
+
+~ Must {#python-use-async-await}
+use the async/await keywords (requires Python 3.5+). You ***must not** use the [yield from coroutine/@asyncio.coroutine](https://docs.python.org/3.4/library/asyncio-task.html) syntax.
+~
+
+~ MustNot
+use the same client type for synchronous and asynchronous operations. You **must** provide two separate classes.
+
+```python
+# Yes
+
+# In module azure.example
+class ExampleClient(object):
+    def some_service_operation(self, name, size) ...
+
+# In module azure.example.aio
+class ExampleClient:
+    # Same method name as sync, different client
+    async def some_service_operation(self, name, size) ... 
+
+# No
+# In module azure.example
+class ExampleClient(object):
+    def some_service_operation(self, name, size) ...
+
+class AsyncExampleClient: # No async/async pre/postfix.
+    async def some_service_operation(self, name, size) ...
+
+# No
+# In module azure.example
+class ExampleClient(object): # Don't mix'n match with different method names
+    def some_service_operation(self, name, size) ...
+    async def some_service_operation_async(self, name, size) ...
+
+
+```
+~
+
+~ Must {#python-async-namespace}
+use the same namespace for the synchronous client as the synchronous version of the package with .aio appended.
+~
+
+~ Must {#python-use-same-client-async}
+use the same client name for sync and async packages
+
+Example:
+
+|Sync/async|Namespace|Package name|Client name|
+|-|-|-|-|
+|Sync|azure.sampleservice|azure-sampleservice|azure.sampleservice.SampleServiceClient|
+|Async|azure.sampleservice.aio|azure-sampleservice-aio|azure.sampleservice.aio.SampleServiceClient|
+~
+
+~ Should {#python-async-package}
+ship a separate package for async support if the async version requires additional dependencies.
+~
+
+~ Must {#python-async-naming}
+use the same name for the asynchronous version of the package as the synchronous version of the package with -aio appended.
+~
+
+~ Must {#python-use-aiohttp}
+use [aiohttp](https://aiohttp.readthedocs.io/en/stable/) as the default HTTP stack for async operations. This is normally done by the `azure-core` HTTP pipeline.
+~
+
+~ Should {#python-support-other-async}
+support async frameworks other than asyncio (i.e. [Trio](https://trio.readthedocs.io/en/latest/))
+~
+
+

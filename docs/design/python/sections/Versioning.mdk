@@ -1,0 +1,41 @@
+
+## Versioning
+
+~ Must
+use semantic versioning for your package. 
+~
+
+~ Must
+change the version number if *anything* changes in the library. The only exception is for documentation-only changes, which **may** use a [post release](https://www.python.org/dev/peps/pep-0440/#post-releases). This is rare.
+~
+
+~ Must
+increment the patch version if only bug fixes are added to the package.
+~
+
+~ Must
+increment the minor version if any new functionality is added to the package.
+~
+
+~ Must
+increment the minor version if the default REST api version is changed to a later version. This is required even if there is no public API change to the library as a result of using the new REST API version.
+
+~ MustNot
+increment the major version only for a new REST API version unless it requires breaking API changes in the python library itself.
+~
+
+~ Must
+increment the major version if there are breaking changes in the package. This requires prior approval from @adparch.
+
+*Note: for non-preview packages, the bar for getting an exception to make a breaking change is extremely high and we may chose to create a new package with a different name in order to avoid diamond dependency issues.*
+~
+
+### REST API method versioning
+
+~ Must
+use the latest known version of the service protocol when making requests. This is generally specified using a `ApiVersion` query parameter.
+~
+
+~ Must
+allow a client application to specify an earlier version of the service protocol. See TODO: insert link to client constructor for details.
+~

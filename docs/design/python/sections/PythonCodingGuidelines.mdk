@@ -1,0 +1,245 @@
+# Code Style Guidelines
+
+~ Must {#python-zen}
+adhere to the [Zen of Python](https://www.python.org/dev/peps/pep-0020/)
+
+  ```
+  Beautiful is better than ugly.
+  Explicit is better than implicit.
+  Simple is better than complex.
+  Complex is better than complicated.
+  Flat is better than nested.
+  Sparse is better than dense.
+  Readability counts.
+  Special cases aren't special enough to break the rules.
+  Although practicality beats purity.
+  Errors should never pass silently.
+  Unless explicitly silenced.
+  In the face of ambiguity, refuse the temptation to guess.
+  There should be one-- and preferably only one --obvious way to do it.
+  Although that way may not be obvious at first unless you're Dutch.
+  Now is better than never.
+  Although never is often better than *right* now.
+  If the implementation is hard to explain, it's a bad idea.
+  If the implementation is easy to explain, it may be a good idea.
+  Namespaces are one honking great idea -- let's do more of those!
+  ```
+~
+
+~ Must {#python-guidelines}
+follow the general guidelines in [PEP8](https://www.python.org/dev/peps/pep-0008/t) unless explicitly overridden in this document.
+~
+
+~ MustNot {#python-no-borrowing}
+"borrow" coding paradigms from other languages.
+
+  *For example, regardless of how common Reactive programming is in the Java community, it is still unfamiliar for most Python devalepers.*
+~
+
+~ Must {#python-consistency}
+favor consistency with other Python components over other libraries for the same service
+
+  *It is significantly more likely that a developer will use many different libraries using the same languages than that a developer will use the same service from many different languages*
+~
+
+~ Must {#python-use-black}
+use [Black](https://black.readthedocs.io/en/stable/) to format your code.
+~
+
+## Naming conventions {#python-naming-convention}
+
+~ Must {#python-snake-case}
+use snake_case for variables and method names
+
+  ```python
+  # Yes:
+  service_client = ServiceClient()
+
+  # No:
+  serviceClient = ServiceClient()
+  ```
+~
+
+~ Must {#python-pascal-case}
+use Pascal case for Types
+
+  ```python
+  # Yes:
+  class ThisIsCorrect(object):
+      pass
+
+
+  # No:
+  class this_is_not_correct(object):
+      pass
+
+
+  # No:
+  class camelCasedTypeName(object):
+      pass
+  ```
+~
+
+## Method signatures
+
+~ MustNot
+use static methods unless absolutely required. Prefer module level functions instead. This is rare and usually forced by other libraries.
+~
+
+~ MustNot
+use simple getter and setter functions. Use properties instead.
+
+```python
+# Yes
+class GoodThing(object):
+
+    @property
+    def something(self):
+        """ Example of a good read-only property."""
+        return self._something
+
+# No
+class BadThing(object):
+
+    def get_something(self):
+        """ Example of a bad 'getter' style method."""
+        return self._something
+```
+~
+
+~ ShouldNot
+have methods that accept more than five positional parameters. Optional/flag parameters can be accepted using [keyword-only arguments](#python-keyword-args) or `**kwargs`.
+~
+
+~ Must {#python-keyword-args}
+use keyword-only arguments for optional or less-often-used arguments for modules that only need to support Python 3.
+
+  ```python
+  # Yes
+  def foo(a, b, *, c, d=None):
+      # Note that I can even have required keyword-only arguments...
+      ...
+  ```
+~
+
+~ Must {#python-parameter-name}
+specify the parameter name when calling methods with more than two required positional parameters.
+
+  ```python
+  def foo(a, b, c):
+      pass
+
+
+  def bar(d, e):
+      pass
+
+
+  # Yes:
+  foo(a=1, b=2, c=3)
+  bar(1, 2)
+  bar(e=3, d=4)
+
+  # No:
+  foo(1, 2, 3)
+  ```
+~
+
+~ Must {#python-parameter-name}
+specify the parameter name for optional parameters when calling functions.
+
+  ```python
+  def foo(a, b=1, c=None):
+      pass
+
+
+  # Yes:
+  foo(1, b=2, c=3)
+
+  # No:
+  foo(1, 2, 3)
+  ```
+~
+
+## Public vs "private"
+
+~ Must {#python-single-underscore}
+use a single leading underscore to indicate that a name is not part of the public API and is not guaranteed stable.
+~
+
+~ MustNot {#python-no-leading-underscore}
+use leading double underscore prefixed method names unless name clashes in inheritence hierarchy are likely. This is rare. 
+~
+
+~ Must {#python-add-public-methods-to-all}
+add public methods and types to the module's `__all__` attribute.
+~
+
+## Types (or not)
+
+~ Must {#python-structural-subtyping}
+prefer structural subtyping and protocols over explicit type checks.
+~
+
+~ Must {#python-derive-appropriately}
+derive from the abstract collections base classes `collections.abc` (or `collections` for Python 2.7) to provide custom mapping types.
+~
+
+~ Must {#python-type-hints}
+provide type hints [PEP484](https://www.python.org/dev/peps/pep-0484/) wherever you are providing class or function documentation.
+
+  - See the [suggested syntax for Python 2.7 and 2.7-3.x straddling code](https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code) for guidance for Python 2.7 compatible code.
+~
+
+## Threading
+
+~ Must {#python-thread-affinity}
+maintain thread affinity for user-provided code unless explicitly documented to not do so.
+~
+
+~ Must {#python-thread-safe-document}
+document any code that is not thread safe as not being thread safe.
+~
+
+~ Should
+allow callers to pass in an [`Executor`](https://docs.python.org/3/library/concurrent.futures.html#threadpoolexecutor) instance to run multiple tasks concurrently. 
+
+An exception to this rule is if your library completely owns the thread, and it is not exposed to the caller in any way. An example of this is the background poller thread for the default `LROPoller` implementation.
+~
+
+## Docstrings
+
+~ Must 
+follow the [documentation guidelines](http://aka.ms/pydocs) unless explicitly overridden in this document.
+~
+
+~ Must
+provide docstrings for all public modules, types and methods.
+~
+
+~ Must
+document any `**kwarg` directly consumed by a method. You **may** refer to the signature of a called method if the `**kwargs` are simply passed through.
+
+Example:
+```python
+def some_method(arg1: "str", **kwargs) -> "str":
+    """" This is some method.
+
+    :param arg1: A string to be printed before we call `some_other_method`.
+    :param **kwargs: Arbitrary key=value arguments to be passed to `some_other_method`.
+    """
+    print(arg1)
+    return some_other_method(**kwargs)
+```
+~
+
+~ Must
+provide inline. code examples for each non-trivial method.
+
+you **may** use the `.. literalinclude::` directive to pull code examples from a separate file. The separate files **should** be a valid `pytest`. This allows for continous verification of the code examples.
+~
+
+> TODO: should we allow for google or numpy style docstrings?
+
+~ Must {#python-document-exceptions}
+document exceptions that may be raised explicitly in the method in addition to any exceptions raised by called method.
+~

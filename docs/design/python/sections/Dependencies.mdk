@@ -1,0 +1,30 @@
+## Dependencies
+
+~ May {#python-dependency-well-known}
+use the following well known packages for shared functionality:
+
+  - enum34
+  - msal
+  - six (python 2 and 3 compatibility)
+  - requests (synchronous HTTP)
+  - aiohttp (asynchronous HTTP)
+  - aiodns (dns resolved for asyncio)
+  - cryptography
+  - certifi (Mozilla's CA Bundle)
+~
+
+~ MustNot {#python-no-ext-deps}
+use external dependencies outside the list of [well known dependencies]#python-dependency-well-known). To get a new dependency added, contact @adparch. 
+~
+
+~ MustNot {#python-no-vendor-deps}
+vendor dependencies unless approved by @adparch. Vendoring can sometimes be preferred over taking a dependency of an external package. @adparch can help determine if this is appropriate.
+
+*Vendoring dependencies in Python means including the source from another package as if it was part of your package*
+~
+
+~ MustNot {#python-no-explicit-version-lock}
+pin a specific version of a dependency unless that is the only way to work-around a bug in said dependencys versioning scheme. A library should use a [compatible release](https://www.python.org/dev/peps/pep-0440/#compatible-release) identifier for the dependency.
+
+*Applications are expected to pin exact dependencies. Libraries are not.*.
+~

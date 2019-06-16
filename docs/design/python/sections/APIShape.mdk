@@ -1,0 +1,169 @@
+## Clients
+
+### Naming
+
+In general, your API surface will consist of one or more _service clients_ that the consumer will instantiate to connect to your service, plus a set of supporting types.     
+
+~ Must {#python-apisurface-serviceclientnaming}
+name service client types with a **Client** suffix.
+
+```python
+# Yes
+class CosmosClient(object) ... 
+
+# No
+class CosmosProxy(object) ... 
+
+# No
+class CosmosUrl(object) ... 
+
+```
+~
+
+~ Must
+expose the service clients the user is more likely to interact with from the root namespace of your package.
+~
+
+### Constructors/factory methods
+
+~ Must
+provide a constructor that takes binding parameters (e.g. the name of, or a url pointing to the service instance), a `credentials` parameter, a `transport` parameter and `**kwargs` for passing through settings to individual HTTP pipeline policies.
+
+Only the minimal information needed to connect and interact with the service should be required. All additional information should be optional.
+
+The default constructor **must not** take a connection string. Instead, use a [separate factory method](#python-apishape-connectionstring-factory).
+~
+
+~ Must {#python-apishape-connectionstring-factory}
+use a separate factory method `ExampleServiceClient.from_connection_string` to create a client from a connection string (if the client supports connection strings). The method **should** parse the connection string and call the default constructor.
+~
+
+### Service operations
+
+Since the client library generally wraps one or more HTTP requests, it is important to support standard network capabilities. Asynchronous programming techniques are not widely understood, although such techniques are essential in developing scalable web services and required in certain environments (such as mobile or Node environments). Many developers prefer synchronous method calls for their easy semantics when learning how to use a technology. In addition, consumers have come to expect certain capabilities in a network stack - capabilities such as call cancellation, automatic retry, and logging. 
+
+~ Should
+prefer the usage one of the preferred verbs for method names.
+
+|Verb|Parameters|Returns|Comments|
+|-|-|-|-|
+| create_\<noun>|key, item|Created item|Create new item. Fails if item already exists.|
+| upsert_\<noun>|key, item|Updated or created item|Create new item or update existing item. Verb is primarily used in database-like services |
+| set_\<noun>|key, item|Updated or created item|Create new item or update existing item. Verb is primarily used for dictionary-like properties of a service |
+| update_\<noun>|key, partial item|Updated item|Fails if item does not exist. |
+| replace_\<noun>|key, item|Replace existing item|Completely replaces an existing item. Fails if the item does not exist. |
+| append_\<noun>|item|Appended item|Add item to a collection. Item will be added last. |
+| add_\<noun>|index, item|Added item|Add item to a collection. Item will be added at the given index. |
+| get_\<noun>|key|Item|Will return None if item does not exist |
+| list_\<noun>||`azure.core.Pageable[Item]`|Return list of items. Returns empty list if no items exist |
+| \<noun>\_exists|key|`bool`|Return True if the item exists. |
+| delete_\<noun>|key|None|Delete an existing item. Will succeed even if item did not exist.|
+| remove_\<noun>|key|None or removed item|Remove item from a collection. |
+~
+
+~ Must
+standardize verb prefixes outside the list of preferred verbs for a given service across language SDKs. If a verb is called `dowload` in one language, we should avoid naming it `fetch` in another.
+~
+
+~ Must {#python-long-op-naming}
+prefix methods with `begin_` for long running operations. Long running operations *must* return a [Poller](#python-core-protocol-lro-poller) object. 
+~
+
+~ Must
+support the common arguments for service operations:
+
+|Name|Description|Applies to|Notes|
+|-|-|-|-|
+|`timeout`|Timeout in seconds|All service methods|
+|`headers`|Custom headers to include in the service request|All requests|Headers are added to all requests made (directly or indirectly) by the method.|
+|`continuation_token`|Opaque token indicating the first page to retrieve. Generally retreived from a previous `Paged` return value.|`list` operations.|
+|`client_request_id`|Caller specified identification of the request.|Service operations for services that allow the client to send a client generated correlation id.|Examples of this include `x-ms-client-request-id` headers.|The client library **must** use this value if provided, or generate a unique value for each request when not specified.|
+|`response_hook`|`callable` that is called with (response, headers) for each operation.|All service methods|
+~
+
+~ Must {#python-operations-accept-mappings}
+accept a Mapping (`dict`-like) object in the same shape as a serialized model object for parameters.
+
+```python
+    # Yes:
+    class Model(object):
+
+        def __init__(self, name, size):
+            self.name = name
+            self.size = size
+
+    def do_something(model: "Model"):
+        ...
+
+    do_something(Model(name='a', size=17)) # Works
+    do_something({'name': 'a', 'size', '17'}) # Does the same thing...
+    ```
+~
+
+~ Must
+use "flattened" named arguments for `update_` methods. **May** additionally take the whole model instance as a named parameter. If the caller passes both a model instance and individual key=value parameters, the explicit key=value parameters override whatever was specified in the model instance.
+
+```python
+class Model(object):
+
+    def __init__(self, name, size, description):
+        self.name = name
+        self.size = size
+        self.description = description
+
+class Client(object):
+
+    def update_model(self, name=None, size=None, model=None): ...
+
+model = Model(name='hello', size=4711, 'This is a description...')
+
+client.update_model(model=model, size=4712) # Will send a request to the service to update the model's size to 4712
+model.description = 'Updated'
+model.size = -1
+# Will send a request to the service to update the model's size to 4713 and description to 'Updated'
+client.update_model(name='hello', size=4713, model=model)  
+```
+~
+
+#### Parameter validation
+
+The service client will have several methods that perform requests on the service. Service parameters are directly passed across the wire to an Azure service. Client parameters are not passed directly to the service, but used within the client library to fulfill the request. Examples of client parameters include values that are used to construct a URI, or a file that needs to be uploaded to storage.
+
+
+~ Must 
+validate client parameters.
+~
+
+~ MustNot
+validate service parameters. This includes null checks, empty strings, and other common validating conditions. Let the service validate any request parameters.
+~
+
+~ Must
+validate the developer experience when the service parameters are invalid to ensure appropriate error messages are generated by the service. If the developer experience is compromised due to service-side error messages, work with the service team to correct prior to release.
+~
+
+#### Response formats
+
+Requests to the service fall into two basic groups - methods that make a single logical request, or a deterministic sequence of requests. An example of a single logical request is a request that may be retried inside the operation. An example of a deterministic sequence of requests is a paged operation.
+
+The logical entity is a protocol neutral representation of a response. For HTTP, the logical entity may combine data from headers, body and the status line. A common example is exposing an ETag header as a property on the logical entity in addition to any deserialized content from the body.
+
+~ Must
+optimize for returning the logical entity for a given request. The logical entity MUST represent the information needed in the 99%+ case.
+~
+
+~ Must {#python-list-operations-return-paged}
+return a value that implements the [Paged protocol](#python-core-protocol-paged) for operations that return collections. The [Paged protocol](#python-core-protocol-paged) allows for a user to easily enumerate all items in a returned collection in addition to providing a method that gives access to individual pages.
+~
+
+~ Must {#python-longrunning-operations-return-poller}
+return a value that implements the [Poller protocol](#python-core-protocol-lro-poller) for long running operations. 
+~
+
+
+## Models
+
+~ Must
+implement `__repr__` and `__str__` for model types.
+~
+

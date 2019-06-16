@@ -1,0 +1,41 @@
+## Namespaces
+
+~ Must {#python-azure-namespace}
+implement your library as a subpackage in the 'azure' root namespace.
+~
+
+~ Must
+pick a package name that allows the consumer to tie the namespace to the service being used. As a default, use the compressed service name at the end of the namespace. The namespace does NOT change when the branding of the product changes, so avoid the use of marketing names that may change. (See below for examples).
+
+A compressed service name is the service name without spaces. It may further be shortened if the shortened version is well known in the community. For example, “Azure Media Analytics” would have a compressed service name of `mediaanalytics`, whereas “Azure Service Bus” would become `servicebus`.
+
+You **may** separate words using an underscore if required. If used, `mediaanalytics` would become `media_analytics`
+~
+
+~ Must
+place management (ARM) APIs in the `mgmt` group. Use the grouping azure.mgmt.<ServiceName> for the namespace. Since more services require control plane APIs than data plane APIs, other namespaces may be used explicitly for control plane only.
+~
+
+~ Must 
+register the chosen namespace with @adparch.
+~
+
+~ Must {#python-aio-suffix}
+use an .aio suffix added to the namespace of the sync client for async clients.
+
+Example:
+```python
+# Yes:
+
+async def do_something():
+    # Same name, different namespace:
+    client = azure.exampleservice.aio.ExampleServiceClient('name', ...)
+    return await client.some_method()
+
+# No
+async def do_something():
+    # Using Async prefix of client in the same namespace
+    client = azure.exampleservice.AsyncExampleServiceClient('name', ...)
+    return await client.some_method()
+```
+~

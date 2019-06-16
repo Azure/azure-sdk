@@ -1,0 +1,53 @@
+## Engineering systems and tools
+
+
+### Project structure
+
+~ Must {#python-project-structure}
+use the [canonical project structure](https://github.com/Azure/azure-sdk/blob/master/docs/engineering-system/repo-structure.md) for azure python libraries.
+~
+
+
+### Testing
+
+~ Must {#python-use-pytest}
+use [pytest](https://docs.pytest.org/en/latest/) as the test framework.
+~
+
+~ Should {#python-use-pytest-asyncio}
+use [pytest-asyncio](https://github.com/pytest-dev/pytest-asyncio) for testing of async code. 
+~
+
+~ Must {#python-test-live-service}
+make your scenario tests runnable against live services. Strongly consider using the (Python Azure-DevTools)[https://github.com/Azure/azure-python-devtools] package for scenario tests.
+~
+
+~ Must {#python-test-recordings}
+provide recordings to allow running tests offline/without an Azure subscription
+~
+
+~ Must {#python-simultanous-tests}
+support multiple simultanous test runs in the same subscription
+~
+
+~ Must {#python-independent-tests}
+make each test case independent of other tests
+~
+
+### Tooling
+
+~ Must {#python-use-pylint}
+use [pylint](https://www.pylint.org/) for your code. Use the pylintrc file in the [root of the repository](https://github.com/Azure/azure-sdk-for-python/blob/master/pylintrc).
+~
+
+~ Must {#python-use-flake8}
+use [flake8-docstrings](https://gitlab.com/pycqa/flake8-docstrings) to verify doccomments. 
+~
+
+~ Must {#python-use-black}
+use [Black](https://black.readthedocs.io/en/stable/) for formatting your code.
+~
+
+~ Should {#python-use-mypy}
+use [MyPy](https://mypy.readthedocs.io/en/latest/) to statically check your code
+~

@@ -1,0 +1,56 @@
+## Packaging {#python-packaging}
+
+~ Must {#python-package-naming}
+name your package after the namespace of your main client class.
+~
+
+~ Must {#python-lowercase-packages}
+use all lowercase in your package name with a dash (-) as a separator.
+~
+
+~ MustNot {#python-no-underscore-or-period}
+use underscore (_) or period (.) in your package name. If your namespace includes underscores, replace them with dash (-) in the distribution package name.
+~
+
+~ Must {#python-semver}
+use semantic versioning for your package.
+~
+
+~ Must {#python-follow-packaging-guidance}
+follow the specific package guidance from the (azure-sdk-packaging wiki)[https://github.com/Azure/azure-sdk-for-python/wiki/Azure-packaging]
+~
+
+~ Must {#python-azure-namespace}
+use [`pkgutil`style](https://packaging.python.org/guides/packaging-namespace-packages/#pkgutil-style-namespace-packages) namespace packages.
+~
+
+~ Must {#python-follow-pep420}
+follow [PEP420](https://www.python.org/dev/peps/pep-0420/) for Python 3.0
+~
+
+~ Must {#python-use-azure-nspkg}
+depend on azure-nspkg for Python 2.x
+~
+
+~ Must {#python-include-init}
+include __init__.py for the namespace(s) in sdists
+~
+
+### Binary extensions
+
+~ Must {#python-support-operating-systems}
+be approved by @adparch
+~
+
+~ Must {#python-support-operating-systems}
+support Windows, Linux (manylinux - see PEP513), macOS
+~
+
+~ Must {#python-support-platforms}
+support x86, x64
+~
+
+~ Must {#python-support-unicode-ascii}
+support unicode and ascii versions of CPython 2.7
+~
+

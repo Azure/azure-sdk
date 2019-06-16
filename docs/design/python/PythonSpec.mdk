@@ -13,34 +13,43 @@ css         : custom.css
 
 [TITLE]
 
-This document describes architectural and API design guidelines for Azure client libraries, specifically for Python. It includes a number of general specifications as well, but the Python-specific guidance later in the specification overrules any general guidance.
+This document describes architectural and API design guidelines for Azure client libraries, specifically for Python. It includes a number of general specifications as well, but the Python-specific guidance in the specification overrules any general guidance.
 
 [TOC]
 
 # Introduction
 
-This section covers Python-specific requirements to successfully implement and release a Python SDK component for Azure, that must be followed in addition to the common guidelines presented below.
+[INCLUDE=../general/DesignPrinciples.mdk]
+[INCLUDE=../general/Terminology.mdk]
+[INCLUDE=../general/Process.mdk]
+[INCLUDE=../general/OpenSource.mdk]
 
-[INCLUDE=../Requirements.mdk]
+# General requirements
 
-[INCLUDE=../OpenSource.mdk]
+[INCLUDE=./sections/SupportedVersions.mdk]
+[INCLUDE=./sections/PythonCodingGuidelines.mdk]
+[INCLUDE=./sections/Versioning.mdk]
 
-# Language-Independent Guidelines
+# Azure Client library API Design
 
-[INCLUDE=../GeneralGuidelines.mdk]
+~ Must
+support 100% of the features provided by the Azure service the client library represents. Gaps in functionality cause confusion and frustration among developers.
+~
 
-[INCLUDE=../Telemetry.mdk]
+[INCLUDE=./sections/Namespaces.mdk]
+[INCLUDE=./sections/APIShape.mdk]
+[INCLUDE=./sections/Authentication.mdk]
+[INCLUDE=./sections/Dependencies.mdk]
+[INCLUDE=./sections/ErrorHandling.mdk]
+[INCLUDE=./sections/Logging.mdk]
+[INCLUDE=./sections/DistributedTracing.mdk]
+[INCLUDE=./sections/Async.mdk]
+## > TODO: Configuration
+[INCLUDE=./sections/AzureCore.mdk]
+[INCLUDE=./sections/Packaging.mdk]
+# General 
 
-[INCLUDE=../Logging.mdk]
-
-[INCLUDE=../Retry.mdk]
-
-[INCLUDE=../Cancellations.mdk]
-
-[INCLUDE=../Dependencies.mdk]
-
-[INCLUDE=../Configuration.mdk]
-
-# Python-Specific Guidelines
-
-[INCLUDE=DesignGuidelines.mdk]
+[INCLUDE=../general/CommonLibrary.mdk]
+[INCLUDE=../general/Documentation.mdk]
+[INCLUDE=../general/Releasing.mdk]
+[INCLUDE=./sections/RecommendedTools.mdk]

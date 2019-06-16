@@ -1,0 +1,57 @@
+## Logging
+~ Must {#python-logging-pluggable}
+use Pythons standard [logging module](https://docs.python.org/3.7/library/logging.html).
+~
+
+~ Must {#python-specific-logging-named-loggers}
+provide a named logger for you library. The logger for your package **must** use the name of the module. The library **may** provide additional child loggers. If provided, additional child loggers *must* be documented.
+
+Ex.
+
+    Package name: azure-someservice
+    Module name: azure.someservice
+    Logger name: azure.someservice
+    Child logger: azure.someservice.achild
+
+By following the logger name rules, you allow developers to enable logging for all azure libraries used in their application, for a specific library or for a specific subset of a specific library.
+~
+
+~ Must {#python-logging-levels-error}
+use the `ERROR` logging level for failures that it is unlikely that the application will recover from (out of memory etc.)
+~
+
+~ Must {#python-logging-levels-warning}
+use the `WARNING` logging level when a function fails to perform its intended task. This generally means that the function will raise an exception.
+It does not include occurances of self-healing events (e.g. when a request will be automatically retried)
+~
+
+~ Must {#python-logging-levels-informational}
+use the `INFO` logging level when a function operates normally.
+~
+
+~ Must {#python-logging-levels-debug}
+use the `DEBUG` logging level for detailed trouble shooting scenarios. This is primarily intended for developers or system administrators to diagnose specific failures.
+~
+
+~ MustNot {#python-logging-no-sensitive-info}
+send sensitive information in log levels other than `DEBUG`, e.g. remove account keys when logging headers.
+~
+
+~ Must {#python-logging-requests-in-info}
+log request line, response line, and headers for outgoing requests as `INFO` message.
+~
+
+~ Must {#python-logging-info-if-cancelled}
+log an `INFO` message, if a service call is cancelled.
+~
+
+~ Must {#python-logging-error-if-exceptions}
+log exceptions thrown as a `WARNING` level message. If the log level set to `DEBUG`, append stack trace information to the message. 
+
+You can determine the logging level for a given logger by calling [`logging.Logger.isEnabledFor`](https://docs.python.org/3.7/library/logging.html#logging.Logger.isEnabledFor)
+~
+
+
+~ Todo
+describe format/syntax of the log messages.
+~

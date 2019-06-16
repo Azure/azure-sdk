@@ -1,0 +1,15 @@
+## Supported Python versions
+
+~ Must
+support Python 2.7.10+ and 3.5.3+. You **may** provide a single [universal](https://packaging.python.org/guides/distributing-packages-using-setuptools/#id75) package that works on all versions, or you **may** provide separate version specific packages.
+~
+
+~ Must
+provide both source distributions and python wheels. The source distributions and python wheels **must** be published to PyPi.
+~
+
+~ Must
+test correct behavior for both CPython and PyPy for [pure](https://packaging.python.org/guides/distributing-packages-using-setuptools/#id75) and [universal](https://packaging.python.org/guides/distributing-packages-using-setuptools/#universal-wheels) Python wheels. 
+~
+
+See the [Packaging](#python-packaging) section for more information on package naming and requirements.

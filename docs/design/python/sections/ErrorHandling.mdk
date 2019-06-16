@@ -1,0 +1,46 @@
+## Error handling
+
+~ Must
+raise exceptions if a method fails to perform its intended function. Returning `None` or a `boolean` is to be avoided unless the method naturally returns a bool.
+
+*An example of a method that naturally returns a `boolean` would be an `exists` method.*
+
+```python
+# Yes
+try:
+    resource = client.create_resource(name)
+except azure.core.errors.ResourceExistsException:
+    print('Failed - we need to fix this!')
+
+# No
+resource = client.create_resource(name):
+if not resource:
+    print('Failed - we need to fix this!')
+```
+~
+
+~ ShouldNot
+create a new error type unless the developer can perform an alternate action to remediate the error.  Specialized error types should be based on existing error types present in the Azure Core package.
+~
+
+~ Must
+produce an error when any HTTP request fails with an HTTP status code that is not defined by the service/Swagger as a successful status code. These errors should also be logged as errors.
+~
+
+~ Must
+ensure that the error produced contains the HTTP response (including status code and headers) and originating request (including URL, query parameters, and headers).  
+
+In the case of a higher-level method that produces multiple HTTP requests, either the last exception or an aggregate exception of all failures should be produced.
+~
+
+~ Must
+ensure that if the service returns rich error information (via the response headers or body), the rich information must be available via the error produced in service-specific properties/fields.
+~
+
+~ Must
+document the errors that are produced by each method (with the exception of commonly thrown errors that are generally not documented in the target language).
+~
+
+~ MustNot
+create new exception types when a [built-in exception type](https://docs.python.org/3/library/exceptions.html) will suffice.
+~
