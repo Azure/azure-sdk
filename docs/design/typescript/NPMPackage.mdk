@@ -16,6 +16,10 @@ azure-library
 ├─ README.md
 ├─ LICENSE.md
 ├─ CONTRIBUTING.md
+├─ browser
+│  ├─ service.js
+│  └─ service.min.js
+│
 ├─ dist
 │  ├─ index.js
 │  └─ ... *.js
@@ -72,6 +76,9 @@ The following sections describe the package.json file that must be included with
   "author": "Microsoft Corporation",
   "main": "./dist/index.js",
   "module": "./dist-esm/index.js",
+  "browser": {
+    "./dist-esm/src/index.js": "./browser/index.js"
+  },
   "types": "./dist-esm/index.d.ts",
   "engine": {
     "node": ">=6.0.0"
@@ -147,6 +154,10 @@ set `module` to the ES6 module entrypoint of your application.
 Tools such as Webpack use this key to discover the static module graph of your application for optimization purposes. See [#ts-source-distros-esm] for more information.
 ~
 
+~ Must {#ts-package-json-browser}
+set `browser` to an object mapping, at a minimum, the file pointed to by `main` to the corresponding unminified browser code i.e. `./browser/service.js` if your library supports the browser.
+~
+
 ~ Must {#ts-package-json-engine-is-present}
 set `engine` to the versions of Node your library supports. See [#ts-supported-node-versions] for Node support requirements.
 ~
@@ -173,6 +184,7 @@ set `types` to point to the TypeScript type declarations for your library's publ
 ~ Must {#ts-package-json-license}
 set `license` to "MIT".
 ~
+
 
 ### Source Distributions{#ts-source-distros}
 
@@ -227,6 +239,25 @@ Flattening is the process of packing multiple modules into a single file. This p
 This distribution is mostly consumed by tools such as Webpack that need to understand your library's module graph in order to do optimizations like tree-shaking. Other than using es6 modules, this distribution should be "transpiled" to support the versions of Node and the browser you are targeting. This ensures users won't have to re-compile your library before it is usable in their host of choice.
 
 Versions of Webpack prior to 4.0 would produce better optimized bundles if libraries' ESM builds were flattened. However, because flattening doesn't play so well with tree-shaking (the idea is to flatten modules together that would tree-shake out together), and because Webpack 4 can theoretically do a better job with unflattened ESM, it is not recommend to flatten the ESM module build.
+
+
+#### Browser Builds {#ts-source-distros-browser}
+
+~ Should
+provide a browser build for your library.
+~
+
+~ Must
+be in UMD module format.
+~
+
+~ Must
+set the UMD global in accordance with the [namespace guidelines](#general-namespace-names).
+~
+
+~ Must
+provide both minified and non-minified versions, both with source mapping.
+~
 
 ### Modules {#ts-modules}
 
