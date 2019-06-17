@@ -44,10 +44,14 @@ follow these guidelines even if you're not publishing an Azure library under the
 The API surface of your client library must have the most thought as it is the primary interaction that the consumer has with your service.  
 
 [INCLUDE=../general/Namespace.mdk]
+[INCLUDE=../typescript/Namespace.mdk]
 [INCLUDE=../general/APIShape.mdk]
+[INCLUDE=../typescript/APIShape.mdk]
 [INCLUDE=../general/ResponseFormats.mdk]
 [INCLUDE=../general/Pagination.mdk]
+[INCLUDE=../typescript/Pagination.mdk]
 [INCLUDE=../general/OtherProtocols.mdk]
+[INCLUDE=../typescript/LRO.mdk]
 
 ## Implementing the API {#general-implementing}
 
@@ -68,6 +72,7 @@ Once you have worked through an acceptable API surface, you can start implementi
 [INCLUDE=../typescript/Documentation.mdk]
 
 [INCLUDE=../typescript/NPMPackage.mdk]
+[INCLUDE=../typescript/Testing.mdk]
 
 # Releasing your Client library
 

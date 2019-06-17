@@ -1,4 +1,35 @@
+### Approved Verbs
 
+~ Should
+use one of the approved verbs in Table [#ts-approved-verbs] when referring to service operations
+~
+
+~ TableFigure {#ts-approved-verbs}
+|Verb|Parameters|Returns|Comments|
+|-|-|-|-|
+| create\<Noun>|key, item|Created item|Create new item. Fails if item already exists.|
+| upsert\<Noun>|key, item|Updated or created item|Create new item or update existing item. Verb is primarily used in database-like services |
+| set\<Noun>|key, item|Updated or created item|Create new item or update existing item. Verb is primarily used for dictionary-like properties of a service |
+| update\<Noun>|key, partial item|Updated item|Fails if item does not exist. |
+| replace\<Noun>|key, item|Replace existing item|Completely replaces an existing item. Fails if the item does not exist. |
+| append\<Noun>|item|Appended item|Add item to a collection. Item will be added last. |
+| add\<Noun>|index, item|Added item|Add item to a collection. Item will be added at the given index. |
+| get\<Noun>|key|Item|Will return null if item does not exist |
+| list\<Noun>||`PagedAsyncIterableIterator<TItem, TPage>`|Return list of items. Returns empty list if no items exist |
+| \<noun>Exists|key|`bool`|Return true if the item exists. |
+| delete\<Noun>|key|None|Delete an existing item. Will succeed even if item did not exist.|
+| remove\<Noun>|key|None or removed item|Remove item from a collection. |
+~
+
+### JavaScript Client Naming Conventions
+
+~ Must {#ts-naming-subclients}
+prefix methods which create sub-clients with `create` and suffix with `client`, e.g. `container.createBlobClient()`.
+~
+
+~ Must {#ts-naming-options}
+suffix options bag parameters names with `Options`.
+~
 ### Modern & Idiomatic JavaScript
 
 ~ Must {#ts-use-promises}
