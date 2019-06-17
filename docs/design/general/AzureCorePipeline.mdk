@@ -41,6 +41,25 @@ For example, if we re-wrote AzCopy in each language using the Azure Blob Storage
 - (Python) "AzCopy/10.0.4-Preview azsdk-python-storage/4.0.0 Python/3.7.3 (Ubuntu; Linux x86_64; rv:34.0)"
 ~
 
+~ Should {#azurecore-telemetry-use-x-ms-useragent}
+send telemetry information that is normally sent in the `User-Agent` header in the `X-MS-UserAgent` header when the platform does not support change the `User-Agent` header.  Note that services will need to configure log gathering to capture the `X-MS-UserAgent` header in such a way that it can be queried through normal analytics systems.
+~
+
+~ May {#azurecore-telemetry-use-x-ms-sdk-telemetry}
+send additional (dynamic) telemetry information as a semi-colon separated set of key-value types in the `X-MS-SDK-Telemetry` header.  For example:
+
+    ```http
+    X-MS-SDK-Telemetry: class=BlobClient;method=DownloadFile;blobType=Block
+    ```
+
+Use the following keys as specific meaning:
+
+* `class` is the name of the type within the client library that the consumer called to trigger the network operation.
+* `method` is the name of the method within the client library type that the consumer called to trigger the network operation.
+
+Any other keys that are used should be common across all client libraries for a specific service.   Note that services will need to configure log gathering to capture the `X-MS-SDK-Telemetry` header in such a way that it can be queried through normal analytics systems.
+~
+
 ### Unique request ID policy {#azurecore-requestid}
 
 ~ Todo
