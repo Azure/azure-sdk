@@ -8,8 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "madoko ./docs/design/general/DesignGuidelines.mdk ./docs/design/java/JavaSpec.mdk ./docs/design/dotnet/DotNetSpec.mdk ./docs/design/python/PythonSpec.mdk ./docs/design/typescript/DesignGuidelinesNew.mdk",
-    "build-ts": "madoko ./docs/design/typescript/DesignGuidelinesNew.mdk",
+    "build": "madoko ./docs/design/general/DesignGuidelines.mdk ./docs/design/java/JavaSpec.mdk ./docs/design/dotnet/DotNetSpec.mdk ./docs/design/python/PythonSpec.mdk ./docs/design/typescript/DesignGuidelines.mdk",
     "build-pdf": "madoko --pdf -v ./docs/design/general/DesignGuidelines.mdk ./docs/design/java/JavaSpec.mdk ./docs/design/dotnet/DotNetSpec.mdk ./docs/design/python/PythonSpec.mdk ./docs/design/typescript/TypeScriptSpecNew.mdk",
     "watch": "chokidar ./docs/**/*.mdk -c \"npm run build\""
   },
