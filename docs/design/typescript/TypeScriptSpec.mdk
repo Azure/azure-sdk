@@ -1,0 +1,47 @@
+Madoko documentation: http://madoko.org/reference.html
+
+Title       : Azure SDK Design Guidelines for TypeScript
+Title Note  : Version 1.0.0-preview2
+Author      : Brian Terlson
+Affiliation : Azure SDK Team / JS &amp; TS
+Email       : brian.terlson@microsoft.com
+Logo        : False
+Embed       : False
+css         : custom.css
+
+[INCLUDE=../components.mdk]
+
+[TITLE]
+
+This document describes architectural and API design guidelines for Azure client libraries targeting Node and the web platform and authored in TypeScript. It begins with general guidelines applicable to all Azure client libraries regardless of target platform followed by TypeScript-specific guidance.
+
+~ Must {#ts-azure-scope}
+follow these conventions if you publish under the @azure scope in npm.
+~
+
+~ Should {#ts-azure-scope-optional}
+follow these guidelines even if you're not publishing an Azure library under the @azure scope.
+~
+
+[TOC]
+
+[INCLUDE=../Requirements.mdk]
+[INCLUDE=../OpenSource.mdk]
+# Language-independent Guidelines
+
+[INCLUDE=../GeneralGuidelines.mdk]
+[INCLUDE=../Credentials.mdk]
+[INCLUDE=../Logging.mdk]
+[INCLUDE=../Telemetry.mdk]
+[INCLUDE=../Retry.mdk]
+[INCLUDE=../Cancellations.mdk]
+[INCLUDE=../ResponseFormats.mdk]
+[INCLUDE=../Dependencies.mdk]
+[INCLUDE=../Configuration.mdk]
+[INCLUDE=../ParameterValidation.mdk]
+[INCLUDE=../Pagination.mdk]
+[INCLUDE=../Errors.mdk]
+
+# TypeScript-Specific Guidelines
+[INCLUDE=DesignGuidelines.mdk]
+

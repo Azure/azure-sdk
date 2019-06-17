@@ -1,0 +1,9 @@
+#### JavaScript Library Dependencies {#ts-dependencies}
+
+~ ShouldNot
+take dependencies on tiny libraries as the cost of many small libraries adds up over time. Larger dependencies are subject to approval.
+~
+
+~ ShouldNot 
+depend directly on polyfills or other libraries that modify global scope. If developers using older runtimes need to polyfill some capability, the package's install and usage instructions should indicate this dependency.
+~
