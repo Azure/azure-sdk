@@ -6,6 +6,16 @@ In general, your API surface will consist of one or more _service clients_ that 
 name service client types with the _Client_ suffix.
 ~
 
+There are times when operations require the addition of optional data, provided in what is colloquially known as an "options bag".  Libraries should strive for consistent naming.
+
+~ Should {#general-apisurface-clientoptionsnaming}
+name the type for service client option bags with the _ClientOptions_ suffix.
+~
+
+~ Should {#general-apisurface-operationoptionsnaming}
+name operation option bag types with the _Options_ suffix.  For example, if the operation is `GetSecret`, then the type of the options bag would be called `GetSecretOptions`.
+~
+
 ~ Must {#general-apisurface-serviceclientnamespace}
 place service client types that the consumer is most likely to interact with in the root namespace of the client library (assuming namespaces are supported in the target language).  Specialized service clients may be placed in sub-namespaces.
 ~
