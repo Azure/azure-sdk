@@ -2,6 +2,38 @@
  
 #### Java specific guidelines {#java-pagination}
 
-~ Todo
-Include discussion about how pagination will work under Java, in sync and async case.
+~ Draft
+This API is still in-development and may change.
+~
+
+In the Azure SDK for Java we take the position that the sync API is intended for easier consumption, and therefore can (and should) be lesser-featured, in cases where offering a feature will increase the complexity of the API. For this reason, pagination in Java will differ between synchronous and asynchronous APIs:
+
+~ Must {#java-sync-pagination-api}
+return `Iterable<T>` for **synchronous** APIs. Users will not be able to receive any paging information, or indeed, any information whatsoever about the request headers. For example, the configuration service sync client will offer API in the following form:
+
+```java
+public final class ConfigurationClient {
+    // synchronous API returning an Iterable of ConfigurationSetting instances
+    public Iterable<ConfigurationSetting> listSettings(...) {
+        ...
+    }
+}
+```
+~
+
+~ MustNot {#java-pagination-illegal-types}
+use `List`, `Stream`, `Iterator` or other collection types for sync APIs that return multiple values.
+~
+
+~ Must {#java-async-pagination-api}
+return `PagedFlux<T>` for **asynchronous** APIs, if the service offers paging (if it does not, a `Flux<T>` return type is recommended):
+
+```java
+public final class ConfigurationAsyncClient {
+    // asynchronous API returning a PagedFlux of ConfigurationSetting instances
+    public PagedFlux<ConfigurationSetting> listSettings(...) {
+        ...
+    }
+}
+```
 ~

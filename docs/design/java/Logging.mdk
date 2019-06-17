@@ -1,15 +1,15 @@
 [INCLUDE=../general/Logging.mdk]
 
-~ Must {#java-logging-use-servicelogger}
-use the `ServiceLogger` API provided within Azure Core as the sole logging API throughout all client libraries. Internally, `ServiceLogger` wraps [SLF4J](https://www.slf4j.org/), so all external configuration that is offered through SLF4J is valid, and this is encouraged to be exposed to end users to configure their logging. Refer to the [SLF4J user manual](https://www.slf4j.org/manual.html) for additional guidance.
+~ Must {#java-logging-use-clientlogger}
+use the `ClientLogger` API provided within Azure Core as the sole logging API throughout all client libraries. Internally, `ClientLogger` wraps [SLF4J](https://www.slf4j.org/), so all external configuration that is offered through SLF4J is valid, and this is encouraged to be exposed to end users to configure their logging. Refer to the [SLF4J user manual](https://www.slf4j.org/manual.html) for additional guidance.
 ~
 
 ~ MustNot {#java-logging-no-static-logger}
-create static logger instances, as these will be shared among all client library instances running in a JVM instance. Instead, create a new instance of a `ServiceLogger` per instance of all relevant classes. For example, the code below will create a `ServiceLogger` instance for the `ConfigurationAsyncClient`, such that each instance of this class will have a unique instance of the `ServiceLogger`.
+create static logger instances, as these will be shared among all client library instances running in a JVM instance. Instead, create a new instance of a `ClientLogger` per instance of all relevant classes. For example, the code below will create a `ClientLogger` instance for the `ConfigurationAsyncClient`, such that each instance of this class will have a unique instance of the `ClientLogger`.
 
 ```java
 public final class ConfigurationAsyncClient extends ServiceClient {
-    private final ServiceLogger logger = new ServiceLogger(ConfigurationAsyncClient.class);
+    private final ClientLogger logger = new ClientLogger(ConfigurationAsyncClient.class);
     
     // example async call to a service that uses the Project Reactor APIs to log request, success, and error
     // information out to the service logger instance
@@ -21,4 +21,8 @@ public final class ConfigurationAsyncClient extends ServiceClient {
     }
 }
 ```
+~
+
+~ Todo
+Detail how to log exceptions that were created by the client library, such that they are logged out to the ClientLogger, and returned to the user.
 ~

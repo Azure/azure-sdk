@@ -32,8 +32,8 @@ run CheckStyle, in a similar fashion to SpotBugs above. There must be no failure
 
 ### JaCoCo
 
-Unit tests, as covered in the next section, are an important means of ensuring that our code does what we expect it to, and that it continues to do what we expect as the codebase is developed in future releases. Having a sense of how well our codebase is covered in tests is therefore a useful goal, and this is where [JaCoCo](https://www.eclemma.org/jacoco/) can be useful - it generates HTML reports stating the coverage our unit tests have on the codebase.
+Unit tests are an important means of ensuring that our code does what we expect it to, and that it continues to do what we expect as the codebase is developed in future releases. Having a sense of how well our codebase is covered in tests is therefore a useful goal, and this is where [JaCoCo](https://www.eclemma.org/jacoco/) can be useful - it generates HTML reports stating the coverage our unit tests have on the codebase.
 
 ~ Must {#java-test-coverage}
-ensure that code test coverage is satisfactory by producing a JaCoCo report using `mvn jacoco:report`.
+ensure that code test coverage is satisfactory by producing a JaCoCo report.
 ~
