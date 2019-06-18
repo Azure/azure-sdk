@@ -21,18 +21,43 @@ Client library usage telemetry is used by service teams (not consumers) to monit
 send telemetry information in the [User-Agent header](https://tools.ietf.org/html/rfc7231#section-5.5.3) using the following format:
 
 ```
-[<application_id> ]azsdk-<sdk_language>-<client_lib>/<sdk_version> <platform_info>
+[<application_id> ]azsdk-<sdk_language>-<package_name>/<package_version> <platform_info>
 ```
 
 - `<application_id> ::=` optional application-specific string. May contain a slash, but must not contain a space. The string is supplied by the user of the client library, e.g. "AzCopy/10.0.4-Preview"
 - `<sdk_language> ::=` SDK's language name (all lowercase): "net", "python", "java", or "js"
-- `<client_lib> ::=` client library name (all lowercase), e.g. "blobstorage", "keyvault"
-- `<sdk_version> ::=` the version of the SDK. Note: this is not the version of the service
+- `<package_name> ::=` client library package name as it appears to the developer, replacing slashes with dashes and removing the Azure indicator
+    - e.g. "Security.KeyVault" (.NET), "security.keyvault" (Java), "keyvault" (JavaScript & Python)
+- `<package_version> ::=` the version of the package. Note: this is not the version of the service
 - `<platform_info> ::=` information about the currently executing language runtime and OS, e.g. "(NODE-VERSION v4.5.0; Windows_NT 10.0.14393)"
 ~
 
 ~ Example {#azurecore-example-user-agent-strings; caption: "Example User-Agent header values"}
-- "AzCopy/10.0.4-Preview azsdk-js-blobstorage/1.4.0 (NODE-VERSION v4.5.0; Windows_NT 10.0.14393)"
+For example, if we re-wrote AzCopy in each language using the Azure Blob Storage client library, we may end up with the following user-agent strings:
+
+- (.NET) "AzCopy/10.0.4-Preview azsdk-net-Storage.Blobs/11.0.0 (.NET Standard 2.0; Windows_NT 10.0.14393)"
+- (JavaScript) "AzCopy/10.0.4-Preview azsdk-js-storage-blob/11.0.0 (Node 10.16.0; Ubuntu; Linux x86_64; rv:34.0)"
+- (Java) "AzCopy/10.0.4-Preview azsdk-java-storage.blobs/11.0.0 (Java/1.8.0_45; Macintosh; Intel Mac OS X 10_10; rv:33.0)"
+- (Python) "AzCopy/10.0.4-Preview azsdk-python-storage/4.0.0 Python/3.7.3 (Ubuntu; Linux x86_64; rv:34.0)"
+~
+
+~ Should {#azurecore-telemetry-use-x-ms-useragent}
+send telemetry information that is normally sent in the `User-Agent` header in the `X-MS-UserAgent` header when the platform does not support change the `User-Agent` header.  Note that services will need to configure log gathering to capture the `X-MS-UserAgent` header in such a way that it can be queried through normal analytics systems.
+~
+
+~ Should {#azurecore-telemetry-use-x-ms-azsdk-telemetry}
+send additional (dynamic) telemetry information as a semi-colon separated set of key-value types in the `X-MS-AZSDK-Telemetry` header.  For example:
+
+    ```http
+    X-MS-AZSDK-Telemetry: class=BlobClient;method=DownloadFile;blobType=Block
+    ```
+
+Use the following keys as specific meaning:
+
+* `class` is the name of the type within the client library that the consumer called to trigger the network operation.
+* `method` is the name of the method within the client library type that the consumer called to trigger the network operation.
+
+Any other keys that are used should be common across all client libraries for a specific service.  **DO NOT** include personally identifiable information (even encoded) in this header.  Note that services will need to configure log gathering to capture the `X-MS-SDK-Telemetry` header in such a way that it can be queried through normal analytics systems.
 ~
 
 ### Unique request ID policy {#azurecore-requestid}
