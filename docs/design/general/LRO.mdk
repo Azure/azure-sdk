@@ -10,6 +10,7 @@ represent long-running operations with some object that encapsulates the polling
 3. cancelling the operation if cancellation is supported by the service
 4. registering disinterest in the operation so polling stops
 5. triggering a poll operation manually (automatic polling must be disabled)
+6. progress reporting (if supported by the service)
 ~
 
 ~ Must
@@ -32,5 +33,9 @@ cancel the long-running operation when cancellation is requested via a cancellat
 
 ~ Must
 log polling status as info (including time-to-next-retry)
+~
+
+~ Must
+expose a progress reporting mechanism to the consumer if the service reports progress as part of the polling operation.  Language-dependent guidelines will present additional guidance on how to expose progress reporting in this case.
 ~
 
