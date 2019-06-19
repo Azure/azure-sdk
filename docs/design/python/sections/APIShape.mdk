@@ -115,7 +115,7 @@ class Client(object):
 
     def update_model(self, name=None, size=None, model=None): ...
 
-model = Model(name='hello', size=4711, 'This is a description...')
+model = Model(name='hello', size=4711, description='This is a description...')
 
 client.update_model(model=model, size=4712) # Will send a request to the service to update the model's size to 4712
 model.description = 'Updated'
@@ -167,3 +167,10 @@ return a value that implements the [Poller protocol](#python-core-protocol-lro-p
 implement `__repr__` and `__str__` for model types.
 ~
 
+~ Must
+truncate the output of `__str__` after 1024 characters.
+~
+
+~ Should
+return data formatted as closely to the network format as possible for model types that are sent/received from the service.
+~

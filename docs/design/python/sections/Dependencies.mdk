@@ -3,9 +3,9 @@
 ~ May {#python-dependency-well-known}
 use the following well known packages for shared functionality:
 
-  - enum34
   - msal
   - six (python 2 and 3 compatibility)
+  - enum34 (backport of Enum for Python2)
   - requests (synchronous HTTP)
   - aiohttp (asynchronous HTTP)
   - aiodns (dns resolved for asyncio)
@@ -14,7 +14,7 @@ use the following well known packages for shared functionality:
 ~
 
 ~ MustNot {#python-no-ext-deps}
-use external dependencies outside the list of [well known dependencies]#python-dependency-well-known). To get a new dependency added, contact @adparch. 
+use external dependencies outside the list of [well known dependencies](#python-dependency-well-known). To get a new dependency added, contact @adparch. 
 ~
 
 ~ MustNot {#python-no-vendor-deps}

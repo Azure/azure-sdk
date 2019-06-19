@@ -7,7 +7,7 @@ provide both sync and async versions of your APIs
 ~
 
 ~ Must {#python-use-async-await}
-use the async/await keywords (requires Python 3.5+). You ***must not** use the [yield from coroutine/@asyncio.coroutine](https://docs.python.org/3.4/library/asyncio-task.html) syntax.
+use the async/await keywords (requires Python 3.5+). You **must not** use the [yield from coroutine/@asyncio.coroutine](https://docs.python.org/3.4/library/asyncio-task.html) syntax.
 ~
 
 ~ MustNot
@@ -15,7 +15,6 @@ use the same client type for synchronous and asynchronous operations. You **must
 
 ```python
 # Yes
-
 # In module azure.example
 class ExampleClient(object):
     def some_service_operation(self, name, size) ...

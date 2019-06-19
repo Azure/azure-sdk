@@ -2,7 +2,7 @@
 ## Versioning
 
 ~ Must
-use semantic versioning for your package. 
+use [semantic versioning](https://semver.org) for your package. 
 ~
 
 ~ Must
@@ -19,6 +19,7 @@ increment the minor version if any new functionality is added to the package.
 
 ~ Must
 increment the minor version if the default REST api version is changed to a later version. This is required even if there is no public API change to the library as a result of using the new REST API version.
+~
 
 ~ MustNot
 increment the major version only for a new REST API version unless it requires breaking API changes in the python library itself.

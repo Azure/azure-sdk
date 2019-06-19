@@ -1,5 +1,13 @@
 ## Authentication
 
 ~ Must
-use the credentials classes `in azure-core`.
+use the credentials classes in `azure-core` whenever possible.
+~
+
+~ May
+add additional credential types if required by the service. Contact @adparch for guidance if you believe you have need to do so.
+~
+
+~ Must
+support 
 ~

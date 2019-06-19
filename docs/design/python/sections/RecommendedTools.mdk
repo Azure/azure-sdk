@@ -19,7 +19,7 @@ use [pytest-asyncio](https://github.com/pytest-dev/pytest-asyncio) for testing o
 ~
 
 ~ Must {#python-test-live-service}
-make your scenario tests runnable against live services. Strongly consider using the (Python Azure-DevTools)[https://github.com/Azure/azure-python-devtools] package for scenario tests.
+make your scenario tests runnable against live services. Strongly consider using the [Python Azure-DevTools](https://github.com/Azure/azure-python-devtools) package for scenario tests.
 ~
 
 ~ Must {#python-test-recordings}
@@ -27,11 +27,11 @@ provide recordings to allow running tests offline/without an Azure subscription
 ~
 
 ~ Must {#python-simultanous-tests}
-support multiple simultanous test runs in the same subscription
+support multiple simultanous test runs in the same subscription.
 ~
 
 ~ Must {#python-independent-tests}
-make each test case independent of other tests
+make each test case independent of other tests.
 ~
 
 ### Tooling
