@@ -24,11 +24,33 @@ add the policies to the `azure.<package name>.pipeline.policies` namespace.
 #### LROPoller {#python-core-protocol-lro-poller}
 
 ```python
-T = TypeVar[T]
+T = TypeVar["T"]
 class LROPoller(Protocol):
 
-    def result(self, timeout=None) -> T ...
-    def wait(self, timeout=None) -> None ...
+    def result(self, timeout=None) -> T:
+        """ Retreive the final result of the long running operation.
+
+        :param timeout: How long to wait for operation to complete (in seconds). If not specified, there is no timeout.
+        :raises TimeoutException: If the operation has not completed before it timed out.
+        """
+        ...
+
+    def wait(self, timeout=None) -> None:
+        """ Wait for the operation to complete.
+
+        :param timeout: How long to wait for operation to complete (in seconds). If not specified, there is no timeout.
+        """
+    
+    def done(self) -> boolean:
+        """ Check if long running operation has completed. 
+        """
+
+    def add_done_callback(self, func) -> None:
+        """ Register callback to be invoked when operation completes.
+
+        :param func: Callable that will be called with the eventual result ('T') of the operation.
+        """
+        ...
 ```
 
 `azure.core.LROPoller` implements the `LROPoller` protocol.
@@ -36,7 +58,7 @@ class LROPoller(Protocol):
 #### Paged {#python-core-protocol-paged}
 
 ```python
-T = TypeVar[T]
+T = TypeVar["T"]
 class ByPagePaged(Protocol, Iterable[Iterable[T]]):
     continuation_token: "str"
 

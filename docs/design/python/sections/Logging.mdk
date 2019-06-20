@@ -1,6 +1,6 @@
 ## Logging
 ~ Must {#python-logging-pluggable}
-use Pythons standard [logging module](https://docs.python.org/3.7/library/logging.html).
+use Pythons standard [logging module](https://docs.python.org/3/library/logging.html).
 ~
 
 ~ Must {#python-specific-logging-named-loggers}
@@ -48,7 +48,7 @@ log an `INFO` message, if a service call is cancelled.
 ~ Must {#python-logging-error-if-exceptions}
 log exceptions thrown as a `WARNING` level message. If the log level set to `DEBUG`, append stack trace information to the message. 
 
-You can determine the logging level for a given logger by calling [`logging.Logger.isEnabledFor`](https://docs.python.org/3.7/library/logging.html#logging.Logger.isEnabledFor)
+You can determine the logging level for a given logger by calling [`logging.Logger.isEnabledFor`](https://docs.python.org/3/library/logging.html#logging.Logger.isEnabledFor)
 ~
 
 

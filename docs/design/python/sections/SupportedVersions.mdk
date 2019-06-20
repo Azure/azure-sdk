@@ -1,7 +1,11 @@
 ## Supported Python versions
 
 ~ Must
-support Python 2.7.10+ and 3.5.3+. You **may** provide a single [universal](https://packaging.python.org/guides/distributing-packages-using-setuptools/#id75) package that works on all versions, or you **may** provide separate version specific packages.
+support Python 2.7 and 3.5.3+. You **may** provide a single [universal](https://packaging.python.org/guides/distributing-packages-using-setuptools/#id75) package that works on all versions.
+~
+
+~ May
+provide separate version specific packages (e.g. one for Python2 and one for Python3).
 ~
 
 ~ Must

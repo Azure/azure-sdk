@@ -20,12 +20,8 @@ use semantic versioning for your package.
 follow the specific package guidance from the [azure-sdk-packaging wiki](https://github.com/Azure/azure-sdk-for-python/wiki/Azure-packaging)
 ~
 
-~ Must {#python-azure-namespace}
-use [`pkgutil`style](https://packaging.python.org/guides/packaging-namespace-packages/#pkgutil-style-namespace-packages) namespace packages.
-~
-
-~ Must {#python-follow-pep420}
-follow [PEP420](https://www.python.org/dev/peps/pep-0420/) for Python 3.0
+~ Must {#python-namespace-packages-py3}
+follow the [namespace package recommendations for Python 3.x](https://docs.python.org/3/reference/import.html#namespace-packages) for packages that only need to target 3.x.
 ~
 
 ~ Must {#python-use-azure-nspkg}
@@ -43,7 +39,7 @@ be approved by @adparch
 ~
 
 ~ Must {#python-support-operating-systems}
-support Windows, Linux (manylinux - see PEP513), macOS
+support Windows, Linux (manylinux - see PEP513), macOS. You **should** support the earliest possible manylinux as this will maximize your reach.
 ~
 
 ~ Must {#python-support-platforms}

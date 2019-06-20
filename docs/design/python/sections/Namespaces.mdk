@@ -26,15 +26,9 @@ use an .aio suffix added to the namespace of the sync client for async clients.
 Example:
 ```python
 # Yes:
-async def do_something():
-    # Same name, different namespace:
-    client = azure.exampleservice.aio.ExampleServiceClient('name', ...)
-    return await client.some_method()
+from azure.exampleservice.aio import ExampleServiceClient
 
-# No
-async def do_something():
-    # Using Async prefix of client in the same namespace
-    client = azure.exampleservice.AsyncExampleServiceClient('name', ...)
-    return await client.some_method()
+# No: Wrong namespace, wrong client name...
+from azure.exampleservice import AsyncExampleServiceClient
 ```
 ~
