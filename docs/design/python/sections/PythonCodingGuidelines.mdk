@@ -49,7 +49,7 @@ use [Black](https://black.readthedocs.io/en/stable/) to format your code.
 ## Naming conventions {#python-naming-convention}
 
 ~ Must {#python-snake-case}
-use snake_case for variables and method names
+use snake_case for variable, function and method names
 
   ```python
   # Yes:
@@ -61,7 +61,7 @@ use snake_case for variables and method names
 ~
 
 ~ Must {#python-pascal-case}
-use Pascal case for Types
+use Pascal case for types
 
   ```python
   # Yes:
@@ -185,7 +185,7 @@ derive from the abstract collections base classes `collections.abc` (or `collect
 ~
 
 ~ Must {#python-type-hints}
-provide type hints [PEP484](https://www.python.org/dev/peps/pep-0484/) wherever you are providing class or function documentation.
+provide type hints [PEP484](https://www.python.org/dev/peps/pep-0484/) for any publicly documented classes and functions.
 
   - See the [suggested syntax for Python 2.7 and 2.7-3.x straddling code](https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code) for guidance for Python 2.7 compatible code.
 ~
@@ -193,7 +193,7 @@ provide type hints [PEP484](https://www.python.org/dev/peps/pep-0484/) wherever 
 ## Threading
 
 ~ Must {#python-thread-affinity}
-maintain thread affinity for user-provided code unless explicitly documented to not do so.
+maintain thread affinity for user-provided callbacks unless explicitly documented to not do so.
 ~
 
 ~ Must {#python-thread-safe-document}
