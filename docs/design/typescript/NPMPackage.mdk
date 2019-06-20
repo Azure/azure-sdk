@@ -195,7 +195,7 @@ The main downside of including additional source distributions is the increased 
 #### Original Source {#ts-source-distros-original}
 
 ~ Must {#ts-include-original-source}
-  include original source in your package.
+  include original source in your package (i.e. `./src` should be included in the `files` array in your package.json).
 ~
 
 Including the original source in your package helps developers debug in and around your package. Go-to-definition can be a quick way to confirm how to use a function (especially if its implemented in TypeScript), and seeing useful names and readable source code in call stacks can help with debugging.
@@ -208,21 +208,13 @@ Including the original source also means we can aggressively optimize the build 
   include a CJS build in your package if you intend to support Node.
 ~
 
-~ Todo
- Factor out browser requirements into a separate clause.
-~
-
 This is the distribution that Node users will consume.
 
 If your library supports the Web platform, this distribution must be UMD modules. If your library is not intended for the browser, it is recommended to be UMD modules because the overhead over CJS is slight and it may make an eventual move to the Web platform easier later.
 
 The CommonJS/UMD build's library name must be under the namespace `Microsoft.Azure`. For example, a hypothetical library Foo should configure its UMD global name as `Microsoft.Azure.Foo`. For Webpack, this entails configuring `output.library` to `['Microsoft', 'Azure', 'Foo']`. For Rollup, set `name` to `"Microsoft.Azure.Foo"`. This guideline ensures all Azure packages are accessed in a consistent manner when script-included into a browser.
 
-This distribution must not contain any ES6 syntax. While ES6 is supported in most browsers and all supported versions of Node, many tools in the ecosystem do not support ES6 syntax and shipping ES6 syntax in your package will cause some consumers significant friction. Older versions of Uglify are the primary culprits, and they have dependencies across the ecosystem including for example the currently latest stable version of create-react-app.
-
 The CommonJS/UMD build must be flattened. Rollup.js is the ecosystem best practice for producing a flattened CommonJS module.
-
-TODO: include a roll-up config.
 
 Flattening is the process of packing multiple modules into a single file. This process results in a significant reduction in load times for typical libraries, and can make a measurable impact on cold start for services like Azure Functions and App Service. While performance-sensitive developers will likely package their applications themselves, faster start-up of un-packaged applications is still important especially during development.
 

@@ -1,12 +1,8 @@
 ## Platform Support {#ts-platform-support}
 
-### Supported Node Versions {#ts-supported-node-versions}
-
 ~ Must {#ts-node-support}
 support [all LTS versions of Node](https://github.com/nodejs/Release#release-schedule) as well as newer versions up to and including the latest release. At time of writing, this means Node 8.x through Node 11.x.
 ~
-
-### Supported Browser Versions
 
 ~ Must {#ts-browser-support}
 support the following browsers and versions:
@@ -17,6 +13,6 @@ support the following browsers and versions:
 * Apple Safari: latest two versions
 ~
 
-~ MayNot {#ts-no-ie11-support}
+~ Optional {#ts-no-ie11-support}
 support IE11.
 ~

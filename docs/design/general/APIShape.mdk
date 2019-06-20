@@ -22,6 +22,7 @@ standardize verb prefixes within a set of client libraries for a service.  The s
 support 100% of the features provided by the Azure service the client library represents. Gaps in functionality cause confusion and frustration among developers.
 ~
 
+#### 
 ### Network requests
 
 Since the client library generally wraps one or more HTTP requests, it is important to support standard network capabilities.  Asynchronous programming techniques are not widely understood, although such techniques are essential in developing scalable web services and required in certain environments (such as mobile or Node environments).  Many developers prefer synchronous method calls for their easy semantics when learning how to use a technology.  In addition, consumers have come to expect certain capabilities in a network stack - capabilities such as call cancellation, automatic retry, and logging. 
