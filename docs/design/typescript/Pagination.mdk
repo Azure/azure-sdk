@@ -1,4 +1,4 @@
-### Pagination {#general-pagination}
+### Pagination {#ts-pagination}
 
 These guidelines eschew low-level pagination APIs in favor of high-level abstractions. High-level APIs are easy for developers to use for the majority of use cases but can be more confusing when finer-grained control is required (for example, over-quota/throttling) and debugging when things go wrong. Other guidelines in this document work to mitigate this limitation, for example by providing robust logging, tracing, and pipeline customization options.
 

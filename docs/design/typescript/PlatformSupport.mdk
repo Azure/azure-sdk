@@ -16,3 +16,14 @@ support the following browsers and versions:
 ~ Optional {#ts-no-ie11-support}
 support IE11.
 ~
+
+~ Must {#ts-support-ts}
+compile without errors on all versions of TypeScript greater than 3.1.
+~
+
+While TypeScript users are generally very fast at updating versions, version 3.1 is used by Angular 7 which is still very common in the ecosystem.
+
+Supporting older versions of TypeScript can be a challenge. There are two general approaches:
+
+1. Don't use new features.
+2. Use [`typesVersions`](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-1.html#version-selection-with-typesversions), which might require manual effort to produce typings compatible with older versions based on the new typings.
