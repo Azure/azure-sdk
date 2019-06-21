@@ -1,9 +1,9 @@
 # Code Style Guidelines
 
-~ Must {#python-zen}
-adhere to the [Zen of Python](https://www.python.org/dev/peps/pep-0020/)
+~ Should {#python-zen}
+use the guiding principles in the Zen of Python [Zen of Python](https://www.python.org/dev/peps/pep-0020/) when making design trade-offs:
 
-  ```
+```
   Beautiful is better than ugly.
   Explicit is better than implicit.
   Simple is better than complex.
@@ -23,7 +23,7 @@ adhere to the [Zen of Python](https://www.python.org/dev/peps/pep-0020/)
   If the implementation is hard to explain, it's a bad idea.
   If the implementation is easy to explain, it may be a good idea.
   Namespaces are one honking great idea -- let's do more of those!
-  ```
+```
 ~
 
 ~ Must {#python-guidelines}
@@ -49,41 +49,68 @@ use [Black](https://black.readthedocs.io/en/stable/) to format your code.
 ## Naming conventions {#python-naming-convention}
 
 ~ Must {#python-snake-case}
-use snake_case for variable, function and method names
+use snake_case for variable, function and method names:
 
-  ```python
-  # Yes:
-  service_client = ServiceClient()
+```python
+# Yes:
+service_client = ServiceClient()
 
-  # No:
-  serviceClient = ServiceClient()
-  ```
+service_client.list_things()
+
+def do_something():
+    ...
+
+# No:
+serviceClient = ServiceClient()
+
+service_client.listThings()
+
+def DoSomething():
+    ...
+```
 ~
 
 ~ Must {#python-pascal-case}
-use Pascal case for types
+use Pascal case for types:
 
-  ```python
-  # Yes:
-  class ThisIsCorrect(object):
-      pass
+```python
+# Yes:
+class ThisIsCorrect(object):
+    pass
 
+# No:
+class this_is_not_correct(object):
+    pass
 
-  # No:
-  class this_is_not_correct(object):
-      pass
+# No:
+class camelCasedTypeName(object):
+    pass
+```
+~
 
+~ Must
+use ALL CAPS for constants:
 
-  # No:
-  class camelCasedTypeName(object):
-      pass
-  ```
+```python
+# Yes:
+MAX_SIZE = 4711
+
+# No:
+max_size = 4711
+
+# No:
+MaxSize = 4711
+```
+~
+
+~ Must
+use snake_case for module names.
 ~
 
 ## Method signatures
 
 ~ MustNot
-use static methods unless absolutely required. Prefer module level functions instead. This is rare and usually forced by other libraries.
+use static methods ([`staticmethod`](https://docs.python.org/3/library/functions.html#staticmethod)) unless absolutely required. Prefer module level functions instead. This is rare and usually forced by other libraries.
 ~
 
 ~ MustNot
@@ -108,56 +135,69 @@ class BadThing(object):
 ~
 
 ~ ShouldNot
-have methods that accept more than five positional parameters. Optional/flag parameters can be accepted using [keyword-only arguments](#python-keyword-args) or `**kwargs`.
+have methods that require more than five positional parameters. Optional/flag parameters can be accepted using [keyword-only arguments](#python-keyword-args) or `**kwargs`.
 ~
 
 ~ Must {#python-keyword-args}
 use keyword-only arguments for optional or less-often-used arguments for modules that only need to support Python 3.
 
-  ```python
-  # Yes
-  def foo(a, b, *, c, d=None):
-      # Note that I can even have required keyword-only arguments...
-      ...
-  ```
+```python
+# Yes
+def foo(a, b, *, c, d=None):
+    # Note that I can even have required keyword-only arguments...
+    ...
+```
+~
+
+~ Must
+use keyword-only arguments for arguments that have no obvious ordering.
+
+```python
+# Yes - `source` and `dest` have logical order, `recurse` and `overwrite` do not.
+def copy(source, dest, *, recurse=False, overwrite=False) ...
+
+
+# No
+def copy(source, dest, recurse=False, overwrite=False) ...
+```
 ~
 
 ~ Must {#python-parameter-name}
 specify the parameter name when calling methods with more than two required positional parameters.
 
-  ```python
-  def foo(a, b, c):
-      pass
+```python
+def foo(a, b, c):
+    pass
 
 
-  def bar(d, e):
-      pass
+def bar(d, e):
+    pass
 
 
-  # Yes:
-  foo(a=1, b=2, c=3)
-  bar(1, 2)
-  bar(e=3, d=4)
+# Yes:
+foo(a=1, b=2, c=3)
+bar(1, 2)
+bar(e=3, d=4)
 
-  # No:
-  foo(1, 2, 3)
-  ```
+# No:
+foo(1, 2, 3)
+```
 ~
 
 ~ Must {#python-parameter-name}
 specify the parameter name for optional parameters when calling functions.
 
-  ```python
-  def foo(a, b=1, c=None):
-      pass
+```python
+def foo(a, b=1, c=None):
+    pass
 
 
-  # Yes:
-  foo(1, b=2, c=3)
+# Yes:
+foo(1, b=2, c=3)
 
-  # No:
-  foo(1, 2, 3)
-  ```
+# No:
+foo(1, 2, 3)
+```
 ~
 
 ## Public vs "private"
@@ -172,6 +212,21 @@ use leading double underscore prefixed method names unless name clashes in inher
 
 ~ Must {#python-add-public-methods-to-all}
 add public methods and types to the module's `__all__` attribute.
+~
+
+~ Must {#python-add-single-underscore-modules}
+use a leading underscore for internal modules. You **may** omit a leading underscore if the module is a submodule of an internal module.
+
+```python
+# Yes:
+azure.exampleservice._some_internal_module
+
+# Yes - some_internal_module is still considered internal since it is a submodule of an internal module:
+azure.exampleservice._internal.some_internal_module
+
+# No - some_internal_module is considered public:
+azure.exampleservice.some_internal_module
+```
 ~
 
 ## Types (or not)
@@ -197,13 +252,15 @@ maintain thread affinity for user-provided callbacks unless explicitly documente
 ~
 
 ~ Must {#python-thread-safe-document}
-document any code that is not thread safe as not being thread safe.
+explicitly include the fact that a method (function/class) is thread safe in its documentation.
+
+Examples: [`asyncio.loop.call_soon_threadsafe`](https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.loop.call_soon_threadsafe), [`queue`](https://docs.python.org/3/library/queue.html)
 ~
 
 ~ Should
-allow callers to pass in an [`Executor`](https://docs.python.org/3/library/concurrent.futures.html#threadpoolexecutor) instance to run multiple tasks concurrently. 
+allow callers to pass in an [`Executor`](https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.Executor) instance rather than defining your own thread or process management for parallelism. 
 
-An exception to this rule is if your library completely owns the thread, and it is not exposed to the caller in any way. An example of this is the background poller thread for the default `LROPoller` implementation.
+An exception to this rule is if your library is using a background thread to wait on blocking I/O with only occasional processing, and it is not exposed to the caller in any way. An example of this is the background poller thread for the default `LROPoller` implementation.
 ~
 
 ## Docstrings
@@ -221,14 +278,11 @@ document any `**kwarg` directly consumed by a method. You **may** refer to the s
 
 Example:
 ```python
-def some_method(arg1: "str", **kwargs) -> "str":
-    """" This is some method.
+def request(method, url, headers, **kwargs): ...
 
-    :param arg1: A string to be printed before we call `some_other_method`.
-    :param **kwargs: Arbitrary key=value arguments to be passed to `some_other_method`.
-    """
-    print(arg1)
-    return some_other_method(**kwargs)
+def get(*args, **kwargs):
+    "Calls `request` with the method "GET" and forwards all other arguments."
+    return request("GET", *args, **kwargs)
 ```
 ~
 

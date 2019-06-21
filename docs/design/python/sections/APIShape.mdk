@@ -127,15 +127,39 @@ client.update_model(name='hello', size=4713, model=model)
 
 #### Parameter validation
 
-The service client will have several methods that perform requests on the service. Service parameters are directly passed across the wire to an Azure service. Client parameters are not passed directly to the service, but used within the client library to fulfill the request. Examples of client parameters include values that are used to construct a URI, or a file that needs to be uploaded to storage.
+The service client will have several methods that perform requests on the service. **Service parameters** are directly passed across the wire to an Azure service. **Client parameters** are not passed directly to the service, but used within the client library to fulfill the request. Examples of client parameters include values that are used to construct a URI, or a file that needs to be uploaded to storage.
 
 
 ~ Must 
-validate client parameters.
+validate Client parameters. This is especially important for parameters used to build up the URL since a malformed URL means that the client library will end up calling an incorrect endpoint. 
+
+```python
+# No:
+def get_thing(name: "string") -> "string":
+    url = f'https://<host>/things/{name}'
+    return requests.get(url).json()
+
+try:
+    thing = get_thing('') # Ooops - we will end up calling '/things/' which usually lists 'things'. We wanted a specific 'thing'.
+except ValueError:
+    print('We called with some invalid parameters. We should fix that.')
+
+# Yes:
+def get_thing(name: "string") -> "string":
+    if not name:
+        raise ValueError('name must be a non-empty string')
+    url = f'https://<host>/things/{name}'
+    return requests.get(url).json()
+
+try:
+    thing = get_thing('')
+except ValueError:
+    print('We called with some invalid parameters. We should fix that.')
+```
 ~
 
 ~ MustNot
-validate service parameters. This includes null checks, empty strings, and other common validating conditions. Let the service validate any request parameters.
+validate Service parameters. This includes null checks, empty strings, and other common validating conditions. Let the service validate any request parameters.
 ~
 
 ~ Must
@@ -164,13 +188,10 @@ return a value that implements the [Poller protocol](#python-core-protocol-lro-p
 ## Models
 
 ~ Must
-implement `__repr__` and `__str__` for model types.
+implement `__str__` for model types. The representation **must** at a minimum include include the type name and any key properties (i.e. properties that help identify the model instance).
 ~
 
 ~ Must
 truncate the output of `__str__` after 1024 characters.
 ~
 
-~ Should
-return data formatted as closely to the network format as possible for model types that are sent/received from the service.
-~

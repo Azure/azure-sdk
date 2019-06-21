@@ -66,7 +66,7 @@ use the same name for the asynchronous version of the package as the synchronous
 ~
 
 ~ Must {#python-use-aiohttp}
-use [aiohttp](https://aiohttp.readthedocs.io/en/stable/) as the default HTTP stack for async operations. This is normally done by the `azure-core` HTTP pipeline.
+use [aiohttp](https://aiohttp.readthedocs.io/en/stable/) as the default HTTP stack for async operations. This **should** be done by making `azure.core.pipeline.transport.AioHttpTransport` the default `transport` type for the async client.
 ~
 
 ~ Should {#python-support-other-async}

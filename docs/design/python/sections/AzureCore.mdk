@@ -24,7 +24,7 @@ add the policies to the `azure.<package name>.pipeline.policies` namespace.
 #### LROPoller {#python-core-protocol-lro-poller}
 
 ```python
-T = TypeVar["T"]
+T = TypeVar("T")
 class LROPoller(Protocol):
 
     def result(self, timeout=None) -> T:
@@ -58,7 +58,7 @@ class LROPoller(Protocol):
 #### Paged {#python-core-protocol-paged}
 
 ```python
-T = TypeVar["T"]
+T = TypeVar("T")
 class ByPagePaged(Protocol, Iterable[Iterable[T]]):
     continuation_token: "str"
 

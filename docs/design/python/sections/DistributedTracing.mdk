@@ -1,19 +1,20 @@
 ## Distributed Tracing
 ~ Draft
+~
 
-~ Must
+~~ Must
 create a new trace span for each library method invocation. The easiest way to do so is by adding the TODO: specific name of decorator decorator from `azure.core.tracing`.
-~
+~~
 
-~ Must
+~~ Must
 use <package name>/<method name> as the name of the span.
-~
+~~
 
-~ Must
+~~ Must
 create a new span for each outgoing network call. This is typically done by the HTTP Pipeline.
-~
+~~
 
-~ Must
+~~ Must
 propagate tracing context on each outgoing service request. If you are using the TODO: add the right policy policy in your pipeline, this will be done automatically.
-~
+~~
 

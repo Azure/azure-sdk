@@ -1,7 +1,7 @@
 ## Error handling
 
 ~ Must
-raise exceptions if a method fails to perform its intended function. 
+raise exceptions if a method fails to perform its intended functionality. Returning `None` or a `boolean` to indicate errors is to be avoided. 
 
 ```python
 # Yes
@@ -17,27 +17,25 @@ if not resource:
 ```
 ~
 
-~ MustNot
-return `None` or a `boolean` is to be avoided unless the method naturally returns a bool.
+~ Must
+consider what logical operation a function is supposed to fill when determining when determining if you should throw an exception.
 
-*An example of a method that naturally returns a `boolean` would be an `exists` method.*
+Consider an `exists` method - the method **must** distinguish between the service returned a client error 404/NotFound and a failure to even make a request:
+
 
 ```python
 # Yes
-exists = client.resource_exists(name):
-if not resource:
-    print("The resource doesn't exist...")
-
-# Yes
 try:
-    client.resource_exists(name)
+    exists = client.resource_exists(name):
+    if not resource:
+        print("The resource doesn't exist...")
 except azure.core.errors.ServiceRequestError:
     print("We don't know if the resource exists - so it was appropriate to throw an exception!")
 
 # No
 try:
     client.resource_exists(name)
-except azure.core.errors.ResourceExistsException:
+except azure.core.errors.ResourceNotFoundException:
     print("The resource doesn't exist... but that shouldn't be an exceptional case for an 'exists' method")
 ```
 ~
@@ -68,6 +66,31 @@ document the errors that are produced by each method (with the exception of comm
 create new exception types when a [built-in exception type](https://docs.python.org/3/library/exceptions.html) will suffice.
 ~
 
-~ MustNot
-suppress exceptions with `raise … from None` - always allow exception chaining to include the original source of the error.
+~ Must
+allow exception chaining to include the original source of the error.
+
+```python
+# Yes:
+try:
+    # do something
+except:
+    raise MyOwnErrorWithNoContext()
+
+# No:
+success = True
+try:
+    # do something
+except:
+    success = False
+if not success:
+    raise MyOwnErrorWithNoContext()
+
+# No:
+success = True
+try:
+    # do something
+except:
+    raise MyOwnErrorWithNoContext() from None
+```
 ~
+
