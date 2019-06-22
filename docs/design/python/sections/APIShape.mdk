@@ -38,6 +38,42 @@ The default constructor **must not** take a connection string. Instead, use a [s
 use a separate factory method `ExampleServiceClient.from_connection_string` to create a client from a connection string (if the client supports connection strings). The method **should** parse the connection string and call the default constructor.
 ~
 
+### Hierarchical services
+
+Many services have resources with nexted child (or sub) resources. This includes Azure Storage's account, container and blob resources, where an account contains zero or more containers, which in turn contains zero or more blobs.
+
+~ Must
+create a client type corresponding to each level in the hierarchy except for leaf resource types. You **May** omit creating a client type for leaf node resources.
+~
+
+~ Must
+make it possible to directly create clients for each level. The constructor **should** take a set of ancestor names and child name or a Url identifying the full "path" to the client.
+
+```python
+class ChildClient:
+    # Yes:
+    __init__(self, parent, name, credentials, **kwargs) ...
+
+class ChildClient:
+    # Yes:
+    __init__(self, url, credentials, **kwargs) ...
+
+```
+~
+
+~ Must
+provide a `get_<child>_client(self, name, **kwargs)` method to retrieve a client for the named child. The method must not make a network call to verify the existence of the child.
+~
+
+~ Must
+provide method `create_<child>(...)` that creates a child resource. The method **should** return a client for the newly created child resource.
+~
+
+~ Should
+provide method `delete_<child>(...)` that deletes a child resource.
+~
+
+
 ### Service operations
 
 Since the client library generally wraps one or more HTTP requests, it is important to support standard network capabilities. Asynchronous programming techniques are not widely understood, although such techniques are essential in developing scalable web services and required in certain environments (such as mobile or Node environments). Many developers prefer synchronous method calls for their easy semantics when learning how to use a technology. In addition, consumers have come to expect certain capabilities in a network stack - capabilities such as call cancellation, automatic retry, and logging. 
@@ -47,7 +83,7 @@ prefer the usage one of the preferred verbs for method names.
 
 |Verb|Parameters|Returns|Comments|
 |-|-|-|-|
-| create_\<noun>|key, item|Created item|Create new item. Fails if item already exists.|
+| create_\<noun>|key, item, [allow_overwrite=True]|Created item|Create new item. Fails if item already exist.|
 | upsert_\<noun>|key, item|Updated or created item|Create new item or update existing item. Verb is primarily used in database-like services |
 | set_\<noun>|key, item|Updated or created item|Create new item or update existing item. Verb is primarily used for dictionary-like properties of a service |
 | update_\<noun>|key, partial item|Updated item|Fails if item does not exist. |
@@ -55,9 +91,9 @@ prefer the usage one of the preferred verbs for method names.
 | append_\<noun>|item|Appended item|Add item to a collection. Item will be added last. |
 | add_\<noun>|index, item|Added item|Add item to a collection. Item will be added at the given index. |
 | get_\<noun>|key|Item|Will return None if item does not exist |
-| list_\<noun>||`azure.core.Pageable[Item]`|Return list of items. Returns empty list if no items exist |
-| \<noun>\_exists|key|`bool`|Return True if the item exists. |
-| delete_\<noun>|key|None|Delete an existing item. Will succeed even if item did not exist.|
+| list_\<noun>||`azure.core.Pageable[Item]`|Return an iterable of items. Returns iterable with no items if no items exist (does not return None or throw)|
+| \<noun>\_exists|key|`bool`|Return True if the item exists. Must raise an exception if the method failed to determine if the item exists (e.g. the service returned a Http 503 response)|
+| delete_\<noun>|key|None|Delete an existing item. Must succeed even if item did not exist.|
 | remove_\<noun>|key|None or removed item|Remove item from a collection. |
 ~
 
@@ -194,4 +230,3 @@ implement `__str__` for model types. The representation **must** at a minimum in
 ~ Must
 truncate the output of `__str__` after 1024 characters.
 ~
-
