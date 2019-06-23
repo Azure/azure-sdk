@@ -78,6 +78,22 @@ provide method `delete_<child>(...)` that deletes a child resource.
 
 Since the client library generally wraps one or more HTTP requests, it is important to support standard network capabilities. Asynchronous programming techniques are not widely understood, although such techniques are essential in developing scalable web services and required in certain environments (such as mobile or Node environments). Many developers prefer synchronous method calls for their easy semantics when learning how to use a technology. In addition, consumers have come to expect certain capabilities in a network stack - capabilities such as call cancellation, automatic retry, and logging. 
 
+~ Must
+use the [HTTP pipeline](#python-core-http-pipeline) to send requests to service REST endpoints.
+~
+
+~ Should
+include the following policies in the HTTP pipeline:
+
+- Telemetry (`azure.core.pipeline.policies.UserAgentPolicy`)
+- Unique Request ID
+- Retry (`azure.core.pipeline.policies.RetryPolicy`/`azure.core.pipeline.policies.AsyncRetryPolicy`)
+- Credentials
+- Response downloader
+- Distributed tracing
+- Logging (`azure.core.pipeline.policies.NetworkTraceLoggingPolicy`)
+~
+
 ~ Should
 prefer the usage one of the preferred verbs for method names.
 
@@ -94,7 +110,7 @@ prefer the usage one of the preferred verbs for method names.
 | list_\<noun>||`azure.core.Pageable[Item]`|Return an iterable of items. Returns iterable with no items if no items exist (does not return None or throw)|
 | \<noun>\_exists|key|`bool`|Return True if the item exists. Must raise an exception if the method failed to determine if the item exists (e.g. the service returned a Http 503 response)|
 | delete_\<noun>|key|None|Delete an existing item. Must succeed even if item did not exist.|
-| remove_\<noun>|key|None or removed item|Remove item from a collection. |
+| remove_\<noun>|key|None or removed item|Remove item from a collection.|
 ~
 
 ~ Must
@@ -224,9 +240,9 @@ return a value that implements the [Poller protocol](#python-core-protocol-lro-p
 ## Models
 
 ~ Must
-implement `__str__` for model types. The representation **must** at a minimum include include the type name and any key properties (i.e. properties that help identify the model instance).
+implement `__repr__` for model types. The representation **must** at a minimum include include the type name and any key properties (i.e. properties that help identify the model instance).
 ~
 
 ~ Must
-truncate the output of `__str__` after 1024 characters.
+truncate the output of `__repr__` after 1024 characters.
 ~

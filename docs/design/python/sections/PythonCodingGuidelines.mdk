@@ -292,8 +292,6 @@ provide inline. code examples for each non-trivial method.
 you **may** use the `.. literalinclude::` directive to pull code examples from a separate file. The separate files **should** be a valid `pytest`. This allows for continous verification of the code examples.
 ~
 
-> TODO: should we allow for google or numpy style docstrings?
-
 ~ Must {#python-document-exceptions}
 document exceptions that may be raised explicitly in the method in addition to any exceptions raised by called method.
 ~

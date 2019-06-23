@@ -5,7 +5,7 @@ implement your library as a subpackage in the 'azure' root namespace.
 ~
 
 ~ Must
-pick a package name that allows the consumer to tie the namespace to the service being used. As a default, use the compressed service name at the end of the namespace. The namespace does NOT change when the branding of the product changes, so avoid the use of marketing names that may change. (See below for examples).
+pick a package name that allows the consumer to tie the namespace to the service being used. As a default, use the compressed service name at the end of the namespace. The namespace does NOT change when the branding of the product changes, so avoid the use of marketing names that may change.
 
 A compressed service name is the service name without spaces. It may further be shortened if the shortened version is well known in the community. For example, “Azure Media Analytics” would have a compressed service name of `mediaanalytics`, whereas “Azure Service Bus” would become `servicebus`.
 
