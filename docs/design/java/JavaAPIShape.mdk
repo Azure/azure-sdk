@@ -1,16 +1,6 @@
 ## Java API specifics {#java-api-shape}
 
-There exists three types of classes in a Java client library: client classes, model classes, and all other classes. Each of these types follow different design patterns, outlined in the sections below.
-
-~ Must {#java-be-idiomatic}
-ensure that all APIs are idiomatic for Java developers and follow best practices.
-~
-
 ### Async API
-
-~ Must {#java-async-methods}
-provide asynchronous API.
-~
 
 ~ Must {#java-async-client}
 offer an async service client named `<ServiceName>AsyncClient`. More than one service client may be offered for a single service.
@@ -36,10 +26,6 @@ provide multiple asynchronous methods for a single REST endpoint, unless to prov
 provide API that accepts a cancellation token. Cancellation is not a common pattern in Java, and developers who want to be able to cancel requests will be encouraged to use the ability to unsubscribe from a publisher to effect this request.
 ~
 
-~ Must {#java-async-useful-return-type}
-ensure that all async methods return a type that contains all information to enable a developer to inspect the metadata related to the service call (e.g. for HTTP endpoints, the async method call must return a type that enables the developer to read the headers, status code, and all other useful information).
-~
-
 ~ MustNot {#java-async-no-custom-API}
 write custom APIs for streaming or async operations - make use of the existing functionality offered in the Azure Java SDK base class library. Where necessary, additional functionality should be introduced into the Azure Java SDK base class library after discussions with the [Java architect](mailto:adparch@microsoft.com).
 ~
@@ -49,10 +35,6 @@ include blocking calls inside client library code. Code must be async throughout
 ~
 
 ### Sync API
-
-~ Must {#java-sync-methods}
-provide synchronous API.
-~
 
 ~ Must {#java-sync-client}
 offer a sync service client named `<ServiceName>Client`. More than one service client may be offered for a single service.
@@ -74,16 +56,12 @@ name service client types with the Client suffix, e.g. `ConfigurationClient`.
 place service clients in the root package of their corresponding client library, e.g. `com.azure.storage.blob.BlobClient`, as `com.azure.storage.blob` is considered the root package in this example.
 ~
 
-~ Must {#java-client-extend-serviceclient}
-extend from the `ServiceClient` super class.
-~
-
 ~ Must {#java-client-immutable}
 ensure that all service client classes are immutable upon instantiation.
 ~
 
 ~ MustNot {#java-client-no-ctor}
-provide any `public` or `protected` constructors in the service client.
+provide any `public` or `protected` constructors in the service client, except where necessary to support mock testing. Keep visibility to a minimum.
 ~
 
 ~ Must {#java-sync-client-structure}
@@ -123,6 +101,8 @@ public final class <service_name>Client {
     …
 }
 ```
+
+Refer to the [ConfigurationClient class](https://github.com/Azure/azure-sdk-for-java/blob/master/appconfiguration/client/src/main/java/com/azure/data/appconfiguration/ConfigurationClient.java) for a fully built-out example of how a sync client should be constructed.
 ~
 
 ~ Must {#java-async-client-structure}
@@ -157,10 +137,12 @@ public final class <service_name>AsyncClient extends ServiceClient {
     ...
 }
 ```
+
+Refer to the [ConfigurationAsyncClient class](https://github.com/Azure/azure-sdk-for-java/blob/master/appconfiguration/client/src/main/java/com/azure/data/appconfiguration/ConfigurationAsyncClient.java) for a fully built-out example of how an async client should be constructed.
 ~
 
 ~ Must {#java-service-client-builder}
-offer a fluent builder API for constructing service clients named `<service_name>ClientBuilder`, which must support building a sync service client instance and an async service client instance. It must offer `buildClient()` and `buildAsyncClient()` API to create a synchronous and asynchronous service client instance, respectively:
+offer a fluent builder API for constructing service clients named `<service_name>ClientBuilder`, which must support building a sync service client instance and an async service client instance (where appropriate). It must offer `buildClient()` and `buildAsyncClient()` API to create a synchronous and asynchronous service client instance, respectively:
 
 ```java
 // Copyright (c) Microsoft Corporation. All rights reserved.
@@ -203,7 +185,7 @@ public final class <service_name>ClientBuilder {
 ~
 
 ~ Must {#java-builder-api-consistency}
-ensure consistency across all client libraries, by using the following names for client builder API:
+ensure consistency across all client libraries, by using the following names for client builder fluent API:
 
 | Name                 | Intent                                                                               |
 |----------------------|--------------------------------------------------------------------------------------|
@@ -212,6 +194,7 @@ ensure consistency across all client libraries, by using the following names for
 | `buildClient`        | Creates a new **sync** client on each call.                                          |
 | `configuration`      | Sets the configuration store that is used during construction of the service client. |
 | `credential`         | Sets the credential to use when authenticating HTTP requests.                        |
+| `connectionString`   | Sets the connection string to use for. This is less-preferred c.f. a `credential`.   |
 | `endpoint`           | URL to send HTTP requests to.                                                        |
 | `httpClient`         | Sets the HTTP client to use.                                                         |
 | `httpLogDetailLevel` | Sets the logging level for HTTP requests and responses.                              |
@@ -222,55 +205,13 @@ The one exception for consistency is that `endpoint` may be renamed if a more us
 ~
 
 ~ Must {#java-builder-build-consistency}
-ensure consistency across all client libraries by having the same order of precedence for builder arguments, if there are scenarios where different configurations are possible. The following rules outline the currently-known precedence requirements:
+ensure consistency across all client libraries by having the same order of precedence for builder arguments, if there are scenarios where different configurations are possible. The following list outlines required precedence rules:
 
-1. If the user sets a `pipeline`, all other settings related to construction and configuration of a pipeline are ignored. The provided pipeline is used as-is.
+1. If the user sets a non-null `pipeline`, all other settings related to construction and configuration of a pipeline are ignored. The provided pipeline is used as-is.
 ~
 
 ~ Must {#java-build-async-validation} 
-perform all necessary checks to ensure that the builder will instantiate a service client into a valid state as part of the `build()` call, if not earlier as part of each fluent property call. An example of the `buildAsyncClient()` method of `ConfigurationClientBuilder` is shown below:
-
-```java
-public ConfigurationAsyncClient buildAsyncClient() {
-    Configuration buildConfiguration = (configuration == null) ? ConfigurationManager.getConfiguration().clone() : configuration;
-    ConfigurationClientCredentials configurationCredentials = getConfigurationCredentials(buildConfiguration);
-    URL buildServiceEndpoint = getBuildServiceEndpoint(configurationCredentials);
-
-    Objects.requireNonNull(buildServiceEndpoint);
-
-    if (pipeline != null) {
-        return new ConfigurationAsyncClient(buildServiceEndpoint, pipeline);
-    }
-
-    ConfigurationClientCredentials buildCredentials = (credentials == null) ? configurationCredentials : credentials;
-    if (buildCredentials == null) {
-        throw new IllegalStateException("'credentials' is required.");
-    }
-
-    // Closest to API goes first, closest to wire goes last.
-    final List<HttpPipelinePolicy> policies = new ArrayList<>();
-
-    policies.add(new UserAgentPolicy(AzureConfiguration.NAME, AzureConfiguration.VERSION, buildConfiguration));
-    policies.add(new RequestIdPolicy());
-    policies.add(new AddHeadersPolicy(headers));
-    policies.add(new AddDatePolicy());
-    policies.add(new ConfigurationCredentialsPolicy(buildCredentials));
-    HttpPolicyProviders.addBeforeRetryPolicies(policies);
-
-    policies.add(retryPolicy);
-
-    policies.addAll(this.policies);
-    HttpPolicyProviders.addAfterRetryPolicies(policies);
-    policies.add(new HttpLoggingPolicy(httpLogDetailLevel));
-
-    HttpPipeline pipeline = HttpPipeline.builder()
-        .policies(policies.toArray(new HttpPipelinePolicy[0]))
-        .httpClient(httpClient)
-        .build();
-
-    return new ConfigurationAsyncClient(buildServiceEndpoint, pipeline);
-}
-```
+perform all necessary checks to ensure that the builder will instantiate a service client into a valid state as part of the `build*()` calls, if not earlier as part of each fluent property call. Throw relevant exceptions at this point, rather than later, after the client has been instantiated.
 ~
 
 ~ MustNot {#general-apisurface-no-leaking-implementation}
@@ -354,18 +295,38 @@ List all annotations
 include spaces in annotation String values, unless the description below states it is allowed.
 ~
 
-~ Todo
-Write CheckStyle rules that check these requirements (including no spaces as above).
-~
+#### Service Proxies
+The first place that a lot of annotations are used is when defining a service proxy. A service proxy is a Java interface that defines all REST endpoints for a service, but is not part of the public API, as it is hidden behind the service client class itself. For example, here is the service proxy interface for one method within the `ConfigurationService`:
 
-#### @ServiceProxy
-The `@ServiceProxy` annotation is ...
+```java
+@Host("{url}")
+@ServiceProxy("AppConfig")
+interface ConfigurationService {
+    @GET("kv/{key}")
+    @ExpectedResponses({200})
+    @UnexpectedResponseExceptionType(code = {404}, value = ResourceNotFoundException.class)
+    @UnexpectedResponseExceptionType(HttpResponseException.class)
+    Mono<Response<ConfigurationSetting>> getKeyValue(
+            @HostParam("url") String url, @PathParam("key") String key, @QueryParam("label") String label,
+            @QueryParam("$select") String fields, @HeaderParam("Accept-Datetime") String acceptDatetime,
+            @HeaderParam("If-Match") String ifMatch, @HeaderParam("If-None-Match") String ifNoneMatch,
+            Context context);
+    ...
+}
+```
 
-#### @ServiceClient
-The `@ServiceClient` annotation is ...
+There are many annotations to unpack here:
 
-#### @Tracing
-The `@Tracing` annotation is ...
+* `@ServiceProxy` specifies that this interface performs the role of representing a REST endpoint for a particular srevice. This string will be used in places such as telemetry and tracing, and therefore must be fit for public consumption. It must be short, alphanumeric only, and without spaces.
+* `@Host` is an annotation for parameterizing the host name of a REST service. The `{url}` shown in the annotation above maps with the `@HostParam` annotation on the first argument into the `getKeyValue(..)` method. In other words, when the call is made to `getKeyValue(..)`, the caller provides the url, which is then mapped dynamically into the outgoing call.
+* `@GET`, `@DELETE`, `@HEAD`, `@PATCH`, `@POST`, and `@PUT` all specify the type of HTTP request to perform for a specific method on the interface, as well as the path to the endpoint.
+* `@ExpectedResponses` specifies the HTTP status code that this method expects to receive back. There may be more than one valid status code.
+* `@UnexpectedResponseExceptionType` enables for different exceptions to be thrown based on the status code returned in the response, as well as a single fall-back exception if no status codes match.
+* There are many valid annotation types for method parameters:
+   * `@BodyParam` puts the argument into the body of the outgoing HTTP request.
+   * `@HeaderParam` puts the argument into the header of the outgoing HTTP request.
+   * `@PathParam` puts the argument into the path of the outgoing HTTP request, at the point where the value of the annotation matches the same value in the HTTP request type annotation (i.e. `@GET`, `@DELETE`, `@HEAD`, `@PATCH`, `@POST`, or `@PUT`).
+   * `@QueryParam` puts the argument into the query string of the outgoing HTTP request.
 
 ### Versioning {#java-service-versioning}
 

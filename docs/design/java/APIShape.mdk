@@ -7,7 +7,7 @@ name service client types with the _Client_ suffix.
 ~
 
 ~ Must {#general-apisurface-serviceclientnamespace}
-place service client types that the consumer is most likely to interact with in the root namespace of the client library (assuming namespaces are supported in the target language).  Specialized service clients may be placed in sub-namespaces.
+place service client types that the consumer is most likely to interact with in the root package of the client library (e.g. `com.azure.<group>.servicebus`).  Specialized service clients may be placed in sub-packages.
 ~
 
 ~ Must {#general-apisurface-serviceclientconstructor}
@@ -51,7 +51,7 @@ provide credential types that can be used to fetch all data needed to authentica
 ~
 
 ~ Must {#general-apisurface-auth-in-constructors}
-provide service client constructors or factories that accept any supported authentication credentials.
+provide service client fluent builder APIs that accept all supported authentication credentials.
 ~
 
 Client libraries may support providing credential data via a connection string __ONLY IF__ the service provides a connection string to users via the portal or other tooling.   Connection strings are generally good for getting started as they are easily integrated into an application by copy/paste from the portal.  However, connection strings are considered a lesser form of authentication because the credentials cannot be rotated within a running process.
