@@ -13,6 +13,8 @@ support the following browsers and versions:
 * Apple Safari: latest two versions
 ~
 
+You can use [caniuse.com](https://caniuse.com) to determine whether you can use a given platform feature in the browsers and node versions you intend to support. Note that syntax support is generally provided by TypeScript.
+
 ~ ShouldNot {#ts-no-ie11-support}
 support IE11. If you have a business justification for IE11 support, [contact adparch](https://github.com/Azure/azure-sdk-pr/issues/new/choose).
 ~
