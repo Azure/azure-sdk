@@ -47,6 +47,34 @@ support 100% of the features provided by the Azure service the client library re
 provide overloaded constructors for all client construction scenarios, and should not use statics. You may use statics if the overloads would be ambiguous, in which case you MUST prefix the static method with `from`.
 ~
 
+~ Should {#ts-use-overloads-over-unions}
+prefer overloads over unions when either of the following is true:
+
+1. Users want to see documentation (e.g. signature help) tailored specifically to the parameters they're passing in, or
+2. Multiple parameters are correlated.
+
+If neither of these is true, unions may be used instead.
+~
+
+~ Example {#ts-example-overloads-v-unions}
+
+Let's say we have an API which takes either two numbers or two strings but not both. In this case, the parameters are correlated. If we implemented the types using unions like the following:
+
+```javascript
+function foo(a: string | number, b: string | number): void {}
+```
+
+we have mistakenly allowed invalid arguments, i.e. `foo(number, string)` and `foo(string, number)`. On the other hand, overloads naturally express this correlation:
+
+```javascript
+function foo(a: string, b: string): void;
+function foo(a: number, b: number): void;
+function foo(a: string | number, b: string | number): void {}
+```
+
+The overload approach also lets us attach documentation to each overload individually.
+~
+
 ~ Example {#ts-bad-client-constructor-overloads; caption="Conflicting constructor overloads"}
 
 ```javascript
