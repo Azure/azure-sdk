@@ -423,10 +423,6 @@ This section covers the contents of your tsconfig.json. After implementing this 
   set `compilerOptions.target`, but it can be any valid value so long as the final source distributions are compatible with the runtimes your library targets. See also [#ts-source-distros].
 ~
 
-~ Should {#ts-config-isolatedModules}
-  set `compilerOptions.isolatedModules` to true. Isolated modules prevent usage of features that prevent compiling TypeScript code on a file-by-file basis. This ensures your code remains maximally interoperable with compilers in the ecosystem (i.e. the Babel plugin).
-~
-
 ~ Must {#ts-config-forceConsistentCasingInFileNames}
   set `compilerOptions.forceConsistentCasingInFileNames` to true. `forceConsistentCasingInFileNames` forces TypeScript to treat files as case sensitive. This ensures you don't get surprised by build failures when moving between platforms.
 ~
