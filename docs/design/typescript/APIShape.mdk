@@ -19,9 +19,10 @@ export class ServiceClient {
   async deleteItem(options: DeleteItemOptions): DeleteItemResponse; 
 
   // Simple paginated API
-  listItems(): PagedAsyncIterableIterator<Item, ItemPage> {
+  listItems(): PagedAsyncIterableIterator<Item, ItemPage> { }
 
-  }
+  // Clients for sub-resources
+  getItemClient(itemName: string) { }
 }
 ```
 ~
@@ -183,7 +184,7 @@ not include the Noun when the operation is operating on the resource itself (e.g
 ~
 
 ~ Must {#ts-naming-subclients}
-prefix methods which create sub-clients with `create` and suffix with `client`, e.g. `container.createBlobClient()`.
+prefix methods which create or vend sub-clients with `get` and suffix with `client`, e.g. `container.getBlobClient()`.
 ~
 
 ~ Must {#ts-naming-options}
@@ -205,6 +206,7 @@ The following are bad examples:
 containerClient.deleteContainer(); // don't include noun for direct manipulation
 containerClient.newBlob(); // use create instead of new
 containerClient.createOrUpdate(); // use upsert
+containerClient.createBlobClient(); // should be `getBlobClient`.
 ```
 ~
 ### Network requests
