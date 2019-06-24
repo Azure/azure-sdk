@@ -205,8 +205,8 @@ use one of the approved verbs in Table [#ts-approved-verbs] when referring to se
 | remove\<Noun>|key|None or removed item|Remove item from a collection. |
 ~
 
-~ Should {#ts-naming-drop-noun}
-not include the Noun when the operation is operating on the resource itself (e.g. if you have an ItemClient with a delete method, it should be called `delete` rather than `deleteItem`).
+~ MustNot {#ts-naming-drop-noun}
+include the Noun when the operation is operating on the resource itself (e.g. if you have an ItemClient with a delete method, it should be called `delete` rather than `deleteItem`). The noun is implicitly `this`.
 ~
 
 ~ Must {#ts-naming-subclients}
@@ -313,6 +313,10 @@ Because async function transpilation is fairly heavy, there are cases where the 
 ~
 
 Both of these protocols are built into the language (Iterators as of ES6, Async Iterators as of ES2018) and are easy to consume using for-of and for-await-of loops. Libraries should use generators to create iterators and async generators to create async iterators (subject to the same qualifications as async functions). Other "streaming" interfaces may be used where appropriate as long as they are idiomatic. Node streams may be used in node, but should not be polyfilled in the browser.
+
+~ Should {#ts-use-interface-parameters}
+prefer interface types to class types. JavaScript is fundamentally a duck-typed language, and so alternative classes that implement the same interface should be allowed. In practice, this guideline can be implemented by preferentially declaring parameters as interface types over class types whenever possible.
+~
 
 ~ Example {#ts-example-iterators; caption="Good and bad examples for returning lists"}
 
