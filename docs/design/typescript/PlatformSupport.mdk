@@ -13,8 +13,8 @@ support the following browsers and versions:
 * Apple Safari: latest two versions
 ~
 
-~ Optional {#ts-no-ie11-support}
-support IE11.
+~ ShouldNot {#ts-no-ie11-support}
+support IE11. If you have a business justification for IE11 support, [contact adparch](https://github.com/Azure/azure-sdk-pr/issues/new/choose).
 ~
 
 ~ Must {#ts-support-ts}
@@ -27,3 +27,7 @@ Supporting older versions of TypeScript can be a challenge. There are two genera
 
 1. Don't use new features.
 2. Use [`typesVersions`](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-1.html#version-selection-with-typesversions), which might require manual effort to produce typings compatible with older versions based on the new typings.
+
+~ Must {#ts-register-dropped-platforms}
+get approval from adparch to drop support for any platform even if support isn't required from above. Note: dropping support for IE11 and Node 6 are already approved.
+~
