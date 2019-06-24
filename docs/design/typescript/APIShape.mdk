@@ -38,7 +38,7 @@ standardize verb prefixes within a set of client libraries for a service (see [a
 ~
 
 ~ Must {#ts-apisurface-supportallfeatures}
-support 100% of the features provided by the Azure service the client library represents. Gaps in functionality cause confusion and frustration among developers.
+support 100% of the features provided by the Azure service the client library represents. Gaps in functionality cause confusion and frustration among developers. If a feature simply cannot be implemented in one platform or another because the platform is lacking support, it may be omitted. For example, a library that depends on local file system access may not work in a browser.
 ~
 
 ~ Should {#ts-use-constructor-overloads}
