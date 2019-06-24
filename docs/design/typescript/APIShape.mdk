@@ -8,15 +8,13 @@ In general, your API surface will consist of one or more _service clients_ that 
 export class ServiceClient {
   // client constructors have overloads for handling different
   // authentication schemes.
-  constructor(..., options: ServiceClientOptions);
-  constructor(..., options: ServiceClientOptions);
-  constructor(...) {
-    
-  }
+  constructor(connectionString: string, options?: ServiceClientOptions);
+  constructor(host: string, credential: TokenCredential, options?: ServiceClientOptions);
+  constructor(...) { }
 
   // Service methods. Options take at least an abortSignal.
-  async createItem(options: CreateItemOptions): CreateItemResponse;
-  async deleteItem(options: DeleteItemOptions): DeleteItemResponse; 
+  async createItem(options?: CreateItemOptions): CreateItemResponse;
+  async deleteItem(options?: DeleteItemOptions): DeleteItemResponse; 
 
   // Simple paginated API
   listItems(): PagedAsyncIterableIterator<Item, ItemPage> { }
@@ -56,7 +54,7 @@ prefer overloads over unions when either of the following is true:
 If neither of these is true, unions may be used instead.
 ~
 
-~ Example {#ts-example-overloads-v-unions}
+~ Example {#ts-example-overloads-v-unions; caption="Overloads vs. Unions"}
 
 Let's say we have an API which takes either two numbers or two strings but not both. In this case, the parameters are correlated. If we implemented the types using unions like the following:
 
