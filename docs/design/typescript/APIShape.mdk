@@ -458,5 +458,5 @@ use TypeScript namespaces. Namespaces either use the `namespace` keyword explici
 ~
 
 ~ ShouldNot {#ts-no-const-enums}
-Avoid using const enums. Const enums require global understanding of your program to compile properly. As a result, const enums can't be used with Babel 7 which otherwise supports TypeScript. Avoiding const enums will make sure your code can be compiled by any tool. Use regular enums instead.
+ use const enums. Const enums require global understanding of your program to compile properly. As a result, const enums can't be used with Babel 7 which otherwise supports TypeScript. Avoiding const enums will make sure your code can be compiled by any tool. Use regular enums instead.
 ~
