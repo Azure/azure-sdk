@@ -10,6 +10,8 @@ only make use of libraries that are listed in the table below. Transitive depend
 | [slf4j](http://slf4j.org)                       | Logging framework | No                    | Use the azure core `ClientLogger` API rather than slf4j directly. |
 | [Jackson](https://github.com/FasterXML/jackson) | JSON parser       | No                    |       |
 | [OpenTelemetry](https://opentelemetry.io/)      | Telemetry library | No                    | Enabled through the [tracing plugin](https://github.com/Azure/azure-sdk-for-java/tree/master/tracing) |
+
+Dependency versions are purposefully not specified in this table. The definitive source for the dependency versions being used in all client libraries is the [azure-sdk-for-java/parent/pom.xml](https://github.com/Azure/azure-sdk-for-java/blob/master/parent/pom.xml) file.
 ~
 
 ~ MustNot {#java-no-new-dependencies}

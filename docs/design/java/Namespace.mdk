@@ -84,5 +84,5 @@ allow implementation code (i.e. code that does not form part of the public API) 
 1. Implementation classes can be placed within a subpackage named `implementation`.
 2. Implementation classes can be made package-private and placed within the same package as the consuming class.
 
-There exists CheckStyle checks that enforce that classes within an `implementation` package are not exposed through public API (that is, all API that is not in an `implementation` package should not return or accept arguments that are types (or subtypes) of a class within an `implementation` package).
+A number of CheckStyle checks exist to enforce that classes within an `implementation` package are not exposed through public API (that is, all API that is not in an `implementation` package should not return or accept arguments that are types (or subtypes) of a class within an `implementation` package).
 ~
