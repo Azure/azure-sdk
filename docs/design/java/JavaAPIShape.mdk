@@ -218,6 +218,10 @@ perform all necessary checks to ensure that the builder will instantiate a servi
 leak the underlying protocol transport implementation details to the consumer.  All types from the protocol transport implementation must be appropriately abstracted.
 ~
 
+~ Must {#java-naming-subclients}
+prefix methods which create or vend sub-clients with `get` and suffix with `Client` or `asyncClient`, for sync and async sub-clients, respectively, e.g. `container.getBlobClient()` or `container.getBlobAsyncClient()`.
+~
+
 ### Common Service Client Patterns
 
 ~ Must {#java-crud-naming}
