@@ -17,13 +17,11 @@ use the policy implementations in Azure Core whenever possible. If you need anot
 ~
 
 ~ Must
-document any custom policies in your package.
+document any custom policies in your package. The documentation should make it clear how a user of your library is supposed to use the policy.
 ~
 
 ~ Must
 add the policies to the `azure.<package name>.pipeline.policies` namespace.
-
-> TODO: reconcile this (and individual policy names) with `.aio` namespace suffix recommendation.
 ~
 
 #### Transports

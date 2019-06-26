@@ -31,16 +31,16 @@ provide a constructor that takes binding parameters (e.g. the name of, or a url 
 
 Only the minimal information needed to connect and interact with the service should be required. All additional information should be optional.
 
-The default constructor **must not** take a connection string. Instead, use a [separate factory method](#python-apishape-connectionstring-factory).
+The constructor **must not** take a connection string. Instead, use a [separate factory method](#python-apishape-connectionstring-factory).
 ~
 
 ~ Must {#python-apishape-connectionstring-factory}
-use a separate factory method `ExampleServiceClient.from_connection_string` to create a client from a connection string (if the client supports connection strings). The method **should** parse the connection string and call the default constructor.
+use a separate factory method `ExampleServiceClient.from_connection_string` to create a client from a connection string (if the client supports connection strings). The method **should** parse the connection string and pass the values to the constructor.
 ~
 
 ### Hierarchical services
 
-Many services have resources with nexted child (or sub) resources. This includes Azure Storage's account, container and blob resources, where an account contains zero or more containers, which in turn contains zero or more blobs.
+Many services have resources with nested child (or sub) resources. This includes Azure Storage's account, container and blob resources, where an account contains zero or more containers, which in turn contains zero or more blobs.
 
 ~ Must
 create a client type corresponding to each level in the hierarchy except for leaf resource types. You **May** omit creating a client type for leaf node resources.

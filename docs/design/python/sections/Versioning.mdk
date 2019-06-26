@@ -22,11 +22,11 @@ increment the minor version if the default REST api version is changed to a late
 ~
 
 ~ MustNot
-increment the major version only for a new REST API version unless it requires breaking API changes in the python library itself.
+increment the major version for a new REST API version unless it requires breaking API changes in the python library itself.
 ~
 
 ~ Must
-increment the major version if there are breaking changes in the package. This requires prior approval from @adparch.
+increment the major version if there are breaking changes in the package. Breaking changes require prior approval from @adparch.
 
 *Note: for non-preview packages, the bar for getting an exception to make a breaking change is extremely high and we may chose to create a new package with a different name in order to avoid diamond dependency issues.*
 ~
