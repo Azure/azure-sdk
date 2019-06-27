@@ -1,0 +1,35 @@
+## Platform Support {#ts-platform-support}
+
+~ Must {#ts-node-support}
+support [all LTS versions of Node](https://github.com/nodejs/Release#release-schedule) as well as newer versions up to and including the latest release. At time of writing, this means Node 8.x through Node 11.x.
+~
+
+~ Must {#ts-browser-support}
+support the following browsers and versions:
+
+* Apple Safari: latest two versions
+* Google Chrome: latest two versions
+* Microsoft Edge: all supported versions (Edge version 20, 25, 38, and 40+)
+* Mozilla FireFox: latest two versions
+~
+
+You can use [caniuse.com](https://caniuse.com) to determine whether you can use a given platform feature in the browsers and node versions you intend to support. Note that syntax support is generally provided by TypeScript.
+
+~ ShouldNot {#ts-no-ie11-support}
+support IE11. If you have a business justification for IE11 support, [contact adparch](https://github.com/Azure/azure-sdk-pr/issues/new/choose).
+~
+
+~ Must {#ts-support-ts}
+compile without errors on all versions of TypeScript greater than 3.1.
+~
+
+While TypeScript users are generally very fast at updating versions, version 3.1 is used by Angular 7 which is still very common in the ecosystem.
+
+Supporting older versions of TypeScript can be a challenge. There are two general approaches:
+
+1. Don't use new features.
+2. Use [`typesVersions`](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-1.html#version-selection-with-typesversions), which might require manual effort to produce typings compatible with older versions based on the new typings.
+
+~ Must {#ts-register-dropped-platforms}
+get approval from adparch to drop support for any platform even if support isn't required from above. Note: dropping support for IE11 and Node 6 are already approved.
+~

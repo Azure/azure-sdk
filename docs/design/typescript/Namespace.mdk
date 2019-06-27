@@ -1,0 +1,83 @@
+### Namespaces & NPM Scopes {#ts-namespace}
+
+~ Must {#ts-azure-scope}
+publish your library to the `@azure` npm scope.
+~
+
+~ Must {#ts-namespace-serviceclient}
+pick a package name that allows the consumer to tie the namespace to the service being used.  As a default, use the compressed service name at the end of the namespace.  The namespace does **NOT** change when the branding of the product changes, so avoid the use of marketing names that may change.  (See below for examples).
+~
+
+~ Must {#ts-namespace-in-browsers}
+use [one of the appropriate namespaces](#general-namespace-names) for browser globals i.e. when producing UMD builds.
+~
+
+In cases where namespaces are supported, the namespace should be named `<AZURE>.<group>.<service>`.  All consumer-facing APIs that are commonly used should exist within this namespace.  Here:
+
+- `<AZURE>` indicates the prefix (`Azure` or `com.azure` or similar, depending on the language)
+- `<group>` is the group for the service (see the list above)
+- `<service>` is the service name represented as a single word
+
+~ Must {#ts-namespace-startswith}
+start the namespace with "Azure".
+~
+
+A compressed service name is the service name without spaces.  It may further be shortened if the shortened version is well known in the community.  For example, "Azure Media Analytics" would have a compressed service name of "MediaAnalytics", whereas "Azure Service Bus" would become "ServiceBus".
+
+~ Must {#ts-namespace-names}
+use the following list as the group of services (if the target language supports namespaces):
+
+| Namespace Group  | Functional Area                                        |
+|:-----------------|:-------------------------------------------------------|
+| `ai`             | Artificial intelligence, including machine learning    |
+| `analytics`      | Gathering data for metrics or usage                    |
+| `data`           | Dealing with structured data stores like databases     |
+| `diagnostics`    | Gathering data for diagnosing issues                   |
+| `identity`       | Authentication and authorization                       |
+| `iot`            | Internet of things                                     |
+| `management`     | Control Plane (ARM)                                    |
+| `media`          | Audio, video, or mixed reality                         |
+| `messaging`      | Messaging services, like push notifications or pub-sub |
+| `search`         | Search technologies                                    |
+| `security`       | Security and cryptography                              |
+| `storage`        | Storage of unstructured data                           |
+~
+
+~ Must {#ts-namespace-split-management-api}
+place the management (ARM) API in the "management" group.  Use the grouping `<Azure>.management.<Group>.<ServiceName>` for the namespace.  Since more services require control plane APIs than data plane APIs, other namespaces may be used explicitly for control plane only.  Data plane usage is by exception only.  Additional namespaces that can be used for control plane SDKs include:
+
+| Namespace Group  | Functional Area                                          |
+|:-----------------|:---------------------------------------------------------|
+| `appmodel`       | Application models, such as Functions or App Frameworks  |
+| `compute`        | Virtual machines, containers, and other compute services |
+| `integration`    | Integration services (such as Logic Apps)                |
+| `management`     | Management services (such as Cost Analytics)             |
+| `networking`     | Services such as VPN, WAN, and Networking                |
+
+Many `management` APIs do not have a data plane.  For these, it's reasonable to place the client library in the `<AZURE>.management` namespace.  For example, use `azure.management.cost-analysis`, not `azure.management.management.cost-analysis`.
+~
+
+~ MustNot {#ts-namespace-avoid-ambiguity}
+choose similar names for clients that do different things.
+~
+
+~ Must {#ts-namespace-register}
+register the chosen namespace with [adparch](https://github.com/Azure/azure-sdk-pr/issues/new/choose).
+~
+
+Here are some examples of selections that meet the guidelines:
+
+- `Azure.Data.Cosmos`
+- `Azure.Identity.ActiveDirectory`
+- `Azure.IoT.DeviceProvisioning`
+- `Azure.Storage.Blob`
+- `Azure.Messaging.NotificationHubs` (the client library for Notification Hubs)
+- `Azure.Management.Messaging.NotificationHubs` (the management client for Notification Hubs)
+
+Here are some examples that do not meet the guidelines:
+
+- `Microsoft.Azure.CosmosDB` (not in the Azure namespace, no grouping)
+- `Azure.MixedReality.Kinect` (invalid group)
+- `Azure.IoT.IoTHub.DeviceProvisioning` (too many levels)
+
+If the client library does not seem to fit into the group list, contact [adparch](https://github.com/Azure/azure-sdk-pr/issues/new/choose) for advice on the most appropriate group.  If you feel your service requires a new group, then open a "Design Guidelines Change" request.

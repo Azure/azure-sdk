@@ -1,0 +1,19 @@
+### TypeScript & JavaScript Package Versioning {#ts-versioning}
+
+~ Must {#ts-versioning-semver}
+version with [semver](https://semver.org/). Deprecated features and flags must offer an alternate stable or beta path for developers.
+~
+
+~ MustNot {#ts-versioning-no-ga-prerelease}
+have a pre-release version or any additional build metadata for GA packages.
+~
+
+~ Must {#ts-versioning-preview; }
+give preview packages a pre-release version of the format `1.0.0-Preview-XX` where XX is an integer. Pre-release package versions should not have additional build metadata.
+~
+
+~ MustNot {#ts-versioning-no-version-0}
+use a major version of 0, even for preview packages.
+~
+
+For some types of libraries and applications, semantic versioning is more of a lofty ideal than a practical specification. Also, [one person's bug might be another person's key feature](https://xkcd.com/1172/). Nonetheless, package authors are required to do the best they can to comply with semver in a way that is useful for their consumers.

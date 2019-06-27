@@ -1,0 +1,52 @@
+### Dependencies {#ts-dependencies}
+
+Dependencies bring in many considerations that are often easily avoided by avoiding the dependency. 
+
+- Versioning - Many programming languages do not allow a consumer to load multiple versions of the same package. So, if we have an client library that requires v3 of package Foo and the consumer wants to use v5 of package Foo, then the consumer cannot build their application. This means that client libraries should not have dependencies by default. 
+- Size - Consumer applications must be able to deploy as fast as possible into the cloud and move in various ways across networks. Removing additional code (like dependencies) improves deployment performance.
+- Licensing - You must be conscious of the licensing restrictions of a dependency and often provide proper attribution and notices when using them.
+- Compatibility - Often times you do not control a dependency and it may choose to evolve in a direction that is incompatible with your original use.
+- Security - If a security vulnerability is discovered in a dependency, it may be difficult or time consuming to get the vulnerability corrected if Microsoft does not control the dependency's code base.
+
+~ Must
+depend on the Azure Core library for functionality that is common across all client libraries.  This library includes APIs for HTTP connectivity, global configuration, and credential handling.
+~
+
+~ MustNot
+be dependent on any other packages within the client library distribution package. Dependencies are by-exception and need a thorough vetting through architecture review.  This does not apply to build dependencies, which are acceptable and commonly used.
+~
+
+~ Should
+consider copying or linking required code into the client library in order to avoid taking a dependency on another package that could conflict with the ecosystem. Make sure that you are not violating any licensing agreements and consider the maintenance that will be required of the duplicated code. ["A little copying is better than a little dependency"](https://www.youtube.com/watch?v=PAAkCSZUG1c&t=9m28s) (YouTube).
+~
+
+~ MustNot {#general-no-concrete-logging}
+depend on concrete logging, dependency injection, or configuration technologies (except as implemented in the Azure Core library).  The client library will be used in applications that might be using the logging, DI, and configuration technologies of their choice.
+~
+
+~ ShouldNot
+take dependencies on tiny libraries as the cost of many small libraries adds up over time. Larger dependencies are subject to approval.
+~
+
+~ ShouldNot 
+depend directly on polyfills or other libraries that modify global scope. If developers using older runtimes need to polyfill some capability, the package's install and usage instructions should indicate this dependency.
+~
+
+The following table lists the well-known and already-blessed dependencies outside of Azure core that may be used in production (non-test) code.
+
+~ TableFigure {#ts-known-deps; caption="Well-known JS Dependencies"}
+
+| Library Name | Description |
+|--------------|-------------|
+| axios | HTTP client abstraction with browser and node support |
+| debug | Logging library |
+| events | Node EventEmitter polyfill |
+| stream-browserify | Node Stream polyfill for browsers |
+| process | Node Process polyfill (though you should prefer to use small stubs) |
+| rhea | Library for talking over AMQP. |
+| rhea-promise | Promisified version of above |
+| tough-cookie | Support cookies, even in Node |
+| url | Node Url polyfill |
+| util | Node Util polyfill |
+| uuid | UUIDs |
+~

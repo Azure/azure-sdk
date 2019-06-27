@@ -1,0 +1,462 @@
+### Client Constructors & Factories {#ts-apisurface-serviceclient}
+
+In general, your API surface will consist of one or more _service clients_ that the consumer will instantiate to connect to your service, plus a set of supporting types. The basic shape of JavaScript service clients is shown in the following example:
+
+~ Example {#ts-example-service-client; caption="An example service client"}
+
+```javascript
+export class ServiceClient {
+  // client constructors have overloads for handling different
+  // authentication schemes.
+  constructor(connectionString: string, options?: ServiceClientOptions);
+  constructor(host: string, credential: TokenCredential, options?: ServiceClientOptions);
+  constructor(...) { }
+
+  // Service methods. Options take at least an abortSignal.
+  async createItem(options?: CreateItemOptions): CreateItemResponse;
+  async deleteItem(options?: DeleteItemOptions): DeleteItemResponse; 
+
+  // Simple paginated API
+  listItems(): PagedAsyncIterableIterator<Item, ItemPage> { }
+
+  // Clients for sub-resources
+  getItemClient(itemName: string) { }
+}
+```
+~
+
+~ Must {#ts-apisurface-serviceclientnamespace}
+place service client types that the consumer is most likely to interact as a top-level export from your library (i.e. as something that can be imported directly by the consumer).
+~
+
+~ Must {#ts-apisurface-serviceclientconstructor}
+allow the consumer to construct a service client with the minimal information needed to connect and authenticate to the service.
+~
+
+~ Must {#ts-apisurface-standardized-verbs}
+standardize verb prefixes within a set of client libraries for a service (see [approved verbs](#ts-approved-verbs)).  The service must be able to speak about a specific operation in a cross-language manner within outbound materials (such as documentation, blogs, and public speaking).  They cannot do this if the same operation is referred to by different verbs in different languages.
+~
+
+~ Must {#ts-apisurface-supportallfeatures}
+support 100% of the features provided by the Azure service the client library represents. Gaps in functionality cause confusion and frustration among developers. If a feature simply cannot be implemented in one platform or another because the platform is lacking support, it may be omitted. For example, a library that depends on local file system access may not work in a browser.
+~
+
+~ Should {#ts-use-constructor-overloads}
+provide overloaded constructors for all client construction scenarios, and should not use statics. You may use statics if the overloads would be ambiguous, in which case you MUST prefix the static method with `from`.
+~
+
+~ Should {#ts-use-overloads-over-unions}
+prefer overloads over unions when either of the following is true:
+
+1. Users want to see documentation (e.g. signature help) tailored specifically to the parameters they're passing in, or
+2. Multiple parameters are correlated.
+
+If neither of these is true, unions may be used instead.
+~
+
+~ Example {#ts-example-overloads-v-unions; caption="Overloads vs. Unions"}
+
+Let's say we have an API which takes either two numbers or two strings but not both. In this case, the parameters are correlated. If we implemented the types using unions like the following:
+
+```javascript
+function foo(a: string | number, b: string | number): void {}
+```
+
+we have mistakenly allowed invalid arguments, i.e. `foo(number, string)` and `foo(string, number)`. On the other hand, overloads naturally express this correlation:
+
+```javascript
+function foo(a: string, b: string): void;
+function foo(a: number, b: number): void;
+function foo(a: string | number, b: string | number): void {}
+```
+
+The overload approach also lets us attach documentation to each overload individually.
+~
+
+~ Example {#ts-bad-client-constructor-overloads; caption="Conflicting constructor overloads"}
+
+```javascript
+// bad example
+class ExampleClient {
+  constructor (connectionString: string, options: ExampleClientOptions);
+  constructor (url: string, options: ExampleClientOptions);
+  constructor (urlOrCS: string, options: ExampleClientOptions) {
+    // have to dig into the first parameter to see whether its
+    // a url or a connection string. Not ideal.
+  }
+}
+
+// better example
+class ExampleClient {
+  constructor (url: string, options: ExampleClientOptions) {
+
+  }
+
+  static fromConnectionString(connectionString: string, options: ExampleClientOptions) {
+
+  }
+}
+```
+~
+
+### Response formats {#ts-responses}
+
+Requests to the service fall into two basic groups - methods that make a single logical request, or a deterministic sequence of requests.  An example of a *single logical request* is a request that may be retried inside the operation.  An example of a *deterministic sequence of requests* is a paged operation.
+
+The *logical entity* is a protocol neutral representation of a response. For HTTP, the logical entity may combine data from headers, body and the status line. A common example is exposing an ETag header as a property on the logical entity in addition to any deserialized content from the body.
+
+~ Must {#ts-return-logical-entities}
+optimize for returning the logical entity for a given request. The logical entity MUST represent the information needed in the 99%+ case.
+~
+
+~ Must {#ts-return-expose-raw}
+*make it possible* for a developer to get access to the complete response, including the status line, headers and body. The client library MUST follow the language specific guidance for accomplishing this.
+~
+
+~ Must {#ts-return-document-raw-stream}
+document and provide examples on how to access the raw and streamed response for a given request, where exposed by the client library.  We do not expect all methods to expose a streamed response.
+~
+
+For methods that combine multiple requests into a single call:
+
+~ MustNot {#general-return-no-headers-if-confusing}
+return headers and other per-request metadata unless it is obvious as to which specific HTTP request the methods return value corresponds to.
+~
+
+~ Must {#general-expose-data-for-composite-failures}
+provide enough information in failure cases for an application to take appropriate corrective action.
+~
+
+~ ShouldNot {#general-dont-use-value}
+use the following as a property name within the models returned within the logical entity.
+
+- `object`
+- `value`
+
+Such usage can cause confusion and will inevitably have to be changed on a per-language basis, which can cause consistency problems.
+~
+
+~ Example {#ts-example-return-types; caption="Response formats in TypeScript"}
+
+```javascript
+// Service operation method on a service client
+  public async getProperties(
+    options: ContainerGetPropertiesOptions = {}
+  ): Promise<Models.ContainerGetPropertiesResponse> {
+    // ...
+  }
+
+// Response type, in this case for a service which returns the
+// relevant info in headers. Note how the headers are represented
+// in first-class properties with intellisense etc.
+export type ContainerGetPropertiesResponse = ContainerGetPropertiesHeaders & {
+  /**
+   * The underlying HTTP response.
+   */
+  _response: msRest.HttpResponse & {
+      /**
+       * The parsed HTTP response headers.
+       */
+      parsedHeaders: ContainerGetPropertiesHeaders;
+    };
+};
+
+export interface ContainerGetPropertiesHeaders {
+  // ...
+  /**
+   * @member {PublicAccessType} [blobPublicAccess] Indicated whether data in
+   * the container may be accessed publicly and the level of access. Possible
+   * values include: 'container', 'blob'
+   */
+  blobPublicAccess?: PublicAccessType;
+  /**
+   * @member {boolean} [hasImmutabilityPolicy] Indicates whether the container
+   * has an immutability policy set on it.
+   */
+  hasImmutabilityPolicy?: boolean;
+}
+```
+~
+
+### Client Naming Conventions
+
+~ Must {#ts-apisurface-serviceclientnaming}
+name service client types with the _Client_ suffix.
+~
+
+~ Should
+use one of the approved verbs in Table [#ts-approved-verbs] when referring to service operations
+~
+
+~ TableFigure {#ts-approved-verbs}
+|Verb|Parameters|Returns|Comments|
+|-|-|-|-|
+| create\<Noun>|key, item|Created item|Create new item. Fails if item already exists.|
+| upsert\<Noun>|key, item|Updated or created item|Create new item or update existing item. Verb is primarily used in database-like services |
+| set\<Noun>|key, item|Updated or created item|Create new item or update existing item. Verb is primarily used for dictionary-like properties of a service |
+| update\<Noun>|key, partial item|Updated item|Fails if item does not exist. |
+| replace\<Noun>|key, item|Replace existing item|Completely replaces an existing item. Fails if the item does not exist. |
+| append\<Noun>|item|Appended item|Add item to a collection. Item will be added last. |
+| add\<Noun>|index, item|Added item|Add item to a collection. Item will be added at the given index. |
+| get\<Noun>|key|Item|Will return null if item does not exist |
+| list\<Noun>||`PagedAsyncIterableIterator<TItem, TPage>`|Return list of items. Returns empty list if no items exist |
+| \<noun>Exists|key|`bool`|Return true if the item exists. |
+| delete\<Noun>|key|None|Delete an existing item. Will succeed even if item did not exist.|
+| remove\<Noun>|key|None or removed item|Remove item from a collection. |
+~
+
+~ MustNot {#ts-naming-drop-noun}
+include the Noun when the operation is operating on the resource itself (e.g. if you have an ItemClient with a delete method, it should be called `delete` rather than `deleteItem`). The noun is implicitly `this`.
+~
+
+~ Must {#ts-naming-subclients}
+prefix methods which create or vend sub-clients with `get` and suffix with `client`, e.g. `container.getBlobClient()`.
+~
+
+~ Must {#ts-naming-options}
+suffix options bag parameters names with `Options`, and prefix with the name of the operation. For example, if an operation is called createItem, its options type must be called `CreateItemOptions`.
+~
+
+~ Example {#ts-example-naming; caption="Operation naming examples"}
+
+The following are good examples of names for operations in a TypeScript client library:
+
+```javascript
+containerClient.listBlobs();
+containerClient.delete();
+```
+
+The following are bad examples:
+
+```javascript
+containerClient.deleteContainer(); // don't include noun for direct manipulation
+containerClient.newBlob(); // use create instead of new
+containerClient.createOrUpdate(); // use upsert
+containerClient.createBlobClient(); // should be `getBlobClient`.
+```
+~
+### Network requests
+
+When an application makes a network request, the network infrastructure (like routers) and the called service may take a long time to respond and, in fact, may never respond. A well-written application SHOULD NEVER give up its control to the network infrastucture or service. Here are some examples as to why this is so important:
+
+- When an orchestrator needs to terminate a service (due to scale in, reconfiguration, or upgrading to a new version), the orchestrator typically notifies a running service instance by sending the Posix SIGINT. When the service receives this signal, it should terminate as quickly and gracefully as possible by setting a cancellation mechanism which is honored by all network operations that are currently in progress.
+- When a consumer's web server receives a request, it may set a time limit indicating how much time it is allowing before it must give a response to the user.
+- When a consumer's GUI application makes a request to an Azure service via our SDK, the GUI might offer a cancel button so that the end user can indicate that they are no longer in waiting for an operation or operations to complete.
+
+The best way for consumers to work with cancellation is to think of cancellation objects as forming a tree. For example:
+
+- Cancelling a parent automatically cancels its children.
+- Children can time out sooner than their parent but cannot extend the total time.
+- Cancellation can happen due to timeout or due to a manual/explicit cancel.
+
+Here is an example of how an application would use the tree of cancellations:
+
+- When an application starts, it should create a cancellation object that represents the entire application; this object is explicitly terminated in response to the application receiving a SIGINT notification.
+- When a web server receives an incoming request, it would create a new cancellation object that is a child of the application node. The new cancellation object would specify a maximum time that the web server is allowed to operate on the request.
+- As part of operating on the incoming request, the web server might need to make multiple requests to other services (like a database). If these requests can be made serially or in parallel, then they might share the previously created cancellation object. However, if the web server wants to limit the time spent on 1 or more of the requests, it can create a new cancellation object (with the desired timeout value) and make this object a child of the incoming node; this way, the individual request times out either when the overall request times out or when the maximum time for this operation is exceeded - whichever happens first.
+- Note that if multiple requests are made in parallel, it is common for the consumer to want to cancel all of them if any one of them fails. This should be a supported scenario.
+
+~ Must {#ts-apisurface-supportcancellation}
+accept an `AbortSignalLike` parameter on all asynchronous calls. This type is provided by `@azure/abort-controller`.
+~
+
+~ Should {#ts-apisurface-check-cancel-on-io-calls}
+only check cancellation tokens on I/O calls (such as network requests and file loads).  Do not check cancellation tokens in between I/O calls within the client library (for example, when processing data between I/O calls).
+~
+
+~ MustNot {#general-apisurface-no-leaking-implementation}
+leak the underlying protocol transport implementation details to the consumer.  All types from the protocol transport implementation must be appropriately abstracted.
+~
+
+### Authentication
+
+Azure services use a variety of different authentication schemes to allow clients to access the service.  Conceptually, there are two entities responsible in this process: a credential and an authentication policy.  Credentials provide confidential authentication data.  Authentication policies use the data provided by a credential to authenticate requests to the service.  
+
+~ Must {#general-apisurface-support-all-auth-techniques}
+support all authentication techniques that the service supports.
+~
+
+~ Must {#general-apisurface-use-azure-core}
+use credential and authentication policy implementations from the Azure Core library where available.
+~
+
+~ Must {#general-apisurface-prefer-token-auth}
+provide credential types that can be used to fetch all data needed to authenticate a request to the service in a non-blocking atomic manner for each authentication scheme that does not have an implementation in Azure Core.
+~
+
+~ Must {#general-apisurface-auth-in-constructors}
+provide service client constructors or factories that accept any supported authentication credentials.
+~
+
+Client libraries may support providing credential data via a connection string __ONLY IF__ the service provides a connection string to users via the portal or other tooling.   Connection strings are generally good for getting started as they are easily integrated into an application by copy/paste from the portal.  However, connection strings are considered a lesser form of authentication because the credentials cannot be rotated within a running process.
+
+~ MustNot {#general-apisurface-no-connection-strings}
+support constructing a service client with a connection string unless such connection string is available within tooling (for copy/paste operations).
+~
+
+### Modern & Idiomatic JavaScript
+
+~ Must {#ts-use-promises}
+  use built-in promises for asynchronous operations. You may provide overloads which take callback. Do not import any promise polyfills or libraries.
+~
+
+Promises are a part of JavaScript as of ES6, and ES2016 and later editions added async functions and other features that make working with promises easier. Promises are broadly supported in the ecosystem and in Node since 0.12.
+
+~ Should {#ts-use-async-functions}
+  use async functions for implementing asynchronous library APIs.
+~
+
+Because async function transpilation is fairly heavy, there are cases where the added code size is undesirable. This is especially true for projects which must support ES5 runtimes without generators as the code to implement generators in ES5 is quite large. That said, async functions drastically improve the readability of complex async code. A middle ground is to use the Promise APIs directly for simple things and use async functions when you need to call async APIs along with control flow constructs like `if` and loops.
+
+~ Must {#ts-use-iterators}
+  use Iterators and Async Iterators for sequences and streams of all sorts.
+~
+
+Both of these protocols are built into the language (Iterators as of ES6, Async Iterators as of ES2018) and are easy to consume using for-of and for-await-of loops. Libraries should use generators to create iterators and async generators to create async iterators (subject to the same qualifications as async functions). Other "streaming" interfaces may be used where appropriate as long as they are idiomatic. Node streams may be used in node, but should not be polyfilled in the browser.
+
+~ Should {#ts-use-interface-parameters}
+prefer interface types to class types. JavaScript is fundamentally a duck-typed language, and so alternative classes that implement the same interface should be allowed. In practice, this guideline can be implemented by preferentially declaring parameters as interface types over class types whenever possible.
+~
+
+~ Example {#ts-example-iterators; caption="Good and bad examples for returning lists"}
+
+```javascript
+// bad synchronous example
+function listItems() {
+  return {
+    nextItem() { /*...*/ }
+  }
+}
+
+// better synchronous example
+function* listItems() {
+  /* ... */
+}
+
+// bad asynchronous examples
+function listItems() {
+  return Rx.Observable.of(/* ... */)
+}
+
+function listItems(callback) {
+  // fetch items
+  for (const item of items) {
+    callback (item)
+    }
+}
+
+// better asynchronous example
+async function* listItems() {
+  for (const item of items) {
+    yield item;
+  }
+}
+```
+~
+
+### Modern & Idiomatic TypeScript
+
+~ Must {#ts-use-typescript}
+  implement your library in TypeScript.
+~
+
+~ Must {#ts-ship-type-declarations}
+  include type declarations for your library.
+~
+
+TypeScript is very popular in the ecosystem and its static types provide significant benefit for both the library authors and consumers. TypeScript also compiles modern JavaScript language features down to code compatible with much older runtimes.
+
+This section describes settings and practices that ensures a good user experience across a number of consumption scenarios (editors, tooling, etc.) and ensures consistency across our SDK.
+
+#### tsconfig.json {#ts-tsconfig.json}
+
+This section covers the contents of your tsconfig.json. After implementing this section, your tsconfig.json should look similar to the following example:
+
+~ Figure {#ts-figure-tsconfig-json; caption: "An example tsconfig.json" }
+```javascript
+{
+  "compilerOptions": {
+    "declaration": true,
+    "module": "es6",
+    "moduleResolution": "node",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "outDir": "./dist-esm",
+    "target": "es6",
+    "sourceMap": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "importHelpers": true
+  },
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules"]
+}
+```
+~
+
+~ Must {#ts-config-exclude}
+  have at least "node_modules" in the `exclude` array. This ensures TypeScript isn't needlessly type checking your dependencies.
+~
+
+~ MustNot {#ts-config-lib}
+  use the `compilerOptions.lib` field. Built in typescript libraries (e.g. esnext.asynciterable) should be included via reference directives. See also [Microsoft/TypeScript#27416](https://github.com/Microsoft/TypeScript/issues/27416).
+~
+
+~ Must {#ts-config-strict}
+  set `compilerOptions.strict` to true. The strict flag serves two purposes: it’s a best practice for developers as it provides the best TypeScript experience, and also, strict ensures that your type definitions are maximally pedantic so strict TypeScript consumers get their best experience as well.
+~
+
+~ Must {#ts-config-esModuleInterop}
+  set `compilerOptions.esModuleInterop` to true.
+~
+
+~ Must {#ts-config-allowSyntheticDefaultImports}
+  set `compilerOptions.allowSyntheticDefaultImports` to true
+~
+
+~ Must {#ts-config-target}
+  set `compilerOptions.target`, but it can be any valid value so long as the final source distributions are compatible with the runtimes your library targets. See also [#ts-source-distros].
+~
+
+~ Must {#ts-config-forceConsistentCasingInFileNames}
+  set `compilerOptions.forceConsistentCasingInFileNames` to true. `forceConsistentCasingInFileNames` forces TypeScript to treat files as case sensitive. This ensures you don't get surprised by build failures when moving between platforms.
+~
+
+~ Must {#ts-config-module}
+  set `compilerOptions.module` to "es6". Bundlers such as Rollup or Webpack should be used to produce the CommonJS/UMD build. The TypeScript compiler can also produce both source distributions using separate tsconfig files. When using this configuration, use the tsconfig.json's extends field to override module to "commonjs". This configuration is not recommended for large libraries. It is more resource intensive due to type checking your library twice.
+~
+
+~ Must {#ts-config-moduleResolution}
+ set `compilerOptions.moduleResolution` to "node" if your library targets Node. Otherwise, it should be absent.
+~
+
+~ Must {#ts-config-declaration}
+  set `compilerOptions.declaration` to true. The `--declaration` option tells TypeScript to emit a `d.ts` file that contains the public surface area of your library. TypeScript and editors use this file to provide intellisense and type checking capabilities. Ensure you reference this type declaration file from the `types` field of your package.json.
+~
+
+~ MustNot {#ts-config-no-experimentalDecorators}
+  set `compilerOptions.experimentalDecorators` to `true`. The experimentalDecorators flag adds support for "v1 decorators" to TypeScript. Unfortunately the standards process has moved on to a somewhat incompatible second version that is not yet implemented by TypeScript. Taking a dependency on decorators now means signing up your users for potential breakage later. Until decorators become a standard feature, projects must not use decorators.
+~
+
+~ Must {#ts-config-sourceMap}
+  set `compilerOptions.sourceMap` and `compilerOptions.declarationMap` to true. Shipping source maps in your package ensures clients can easily debug into your library code. `sourceMap` maps your emitted JS source to the declaration file and `declarationMap` maps the declaration file back to the TypeScript source that generated it. Be sure to include your original TypeScript sources in the package.
+~
+
+~ Must {#ts-config-importHelpers}
+  set `compilerOptions.importHelpers` to true. Using external helpers keeps your package size down. Without this flag, TypeScript will add a helper block to each file that needs it. This results in duplication if multiple files are using the same language features. The file size savings using this option can be huge when using for example async functions in a number of different files.
+~
+
+#### TypeScript Coding Guidelines
+
+~ ShouldNot {#ts-no-namespaces}
+use TypeScript namespaces. Namespaces either use the `namespace` keyword explicitly, or the `module` keyword with a module name, e.g. `module Microsoft.ApplicationInsights { ... }`. Use top-level imports/exports with ECMAScript modules instead. Namespaces are a non-standard feature that makes your TypeScript code less compatible with standard ECMAScript and creates significant friction with the rest of the ecosystem.
+~
+
+~ ShouldNot {#ts-no-const-enums}
+ use const enums. Const enums require global understanding of your program to compile properly. As a result, const enums can't be used with Babel 7 which otherwise supports TypeScript. Avoiding const enums will make sure your code can be compiled by any tool. Use regular enums instead.
+~
