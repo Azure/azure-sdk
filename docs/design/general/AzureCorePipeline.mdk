@@ -117,6 +117,10 @@ retry if the service successfully responds indicating that it is throttling requ
 retry if the service responds with a 400-level response code unless a retry-after header is also returned.
 ~
 
+~ Must {#azurecore-retry-clear-errors}
+indicate when errors are thrown as a result of a retry policy's per-try timeout being exceeded, and include a note about how it should be configured by the user.
+~
+
 ~ MustNot {#azurecore-retry-no-change-request-id}
 change any client-side generated request-id as this represents the logical operation and should be the same across all physical retries of this operation.  When looking at server logs, multiple entries with the same client request-id show each retry and this is useful information to help diagnose issues.
 ~
