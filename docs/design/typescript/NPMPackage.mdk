@@ -251,6 +251,10 @@ set the UMD global in accordance with the [namespace guidelines](#general-namesp
 provide both minified and non-minified versions, both with source mapping.
 ~
 
+~ Must
+place browser builds in a top-level `browser` folder. The name of the file should be the service name. Append `.min` to the name of minified files. For example, Storage Blob should have `storage-blob.min.js` and `storage-blob.js` under `./browser`.
+~
+
 ### Modules {#ts-modules}
 
 ~ Must {#ts-modules-only-named}
