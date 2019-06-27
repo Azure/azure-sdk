@@ -22,6 +22,6 @@ The Azure SDK For TypeScript and JavaScript provides a number of core modules th
 | identity | Common authentication classes |
 ~
 
-~ Must
+~ Must {#ts-core-library-prefix}
 prefix core libaries appropriately. Core libraries which should not be used by developers directly should be prefixed with `core`. Core libraries which developers will not use directly should not be prefixed.
 ~
