@@ -1,0 +1,13 @@
+#### JavaScript Specific Guidelines {#ts-error-handling}
+
+~ Must {#ts-error-handling}
+use ECMAScript built-in error types for validation failures when appropriate. Specifically,
+
+* Use `TypeError` for errors relating to passing in an incorrect type, such as an Object when a string is expected.
+* Use `RangeError` for errors relating to values that are outside an allowable range, such as passing 0 for a number that must be greater than 0.
+* Use `Error` for all other validation failures.
+~
+
+~ Should {#ts-error-handling-coersion}
+coerce incorrect types into an appropriate type, if possible. JavaScript users expect some amount of fuzziness with parameters as the standard library tends to coerce types if possible. TypeScript users should get pedantic types as they have opted in to types and expect errors.
+~

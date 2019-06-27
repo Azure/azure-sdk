@@ -1,0 +1,27 @@
+
+## Azure Core Libraries for TypeScript {#ts-azure-core}
+
+The Azure SDK For TypeScript and JavaScript provides a number of core modules that provide the core functionality defined in the [general core guidelines](#general-azure-core). Unlike other language SDKs, TypeScript's core modules are factored into a number of different packages in line with community practices. The current list of core packages is provided in table [#ts-core-components-list].
+
+<style>
+#ts-core-components-list td:nth-child(1) {
+    white-space: nowrap;
+}
+</style>
+
+~ TableFigure {#ts-core-components-list, caption: "Core components of the Azure SDK for TS & JS"}
+
+| Package | Purpose |
+|---------|---------|
+| core-http | Implements the HTTP pipeline.<br>Previously called ms-rest-js. |
+| core-amqp | Implements the AMQP pipeline and shared functionality.<br> Previously called amqp-common. |
+| core-lro | Abstraction and types for implementing long-running operations. |
+| core-paging | Types for implementing paginated APIs. |
+| abort-controller | Implementation of AbortSignal/AbortController for cancelling async operations. |
+| sdk-configuration | Common configuration singleton for the Azure SDK (not yet implemented). |
+| identity | Common authentication classes |
+~
+
+~ Must
+prefix core libaries appropriately. Core libraries which should not be used by developers directly should be prefixed with `core`. Core libraries which developers will not use directly should not be prefixed.
+~

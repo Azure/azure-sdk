@@ -25,23 +25,78 @@ follow these guidelines even if you're not publishing an Azure library under the
 
 [TOC]
 
-[INCLUDE=../Requirements.mdk]
-[INCLUDE=../OpenSource.mdk]
-# Language-independent Guidelines
 
-[INCLUDE=../GeneralGuidelines.mdk]
-[INCLUDE=../Credentials.mdk]
-[INCLUDE=../Logging.mdk]
-[INCLUDE=../Telemetry.mdk]
-[INCLUDE=../Retry.mdk]
-[INCLUDE=../Cancellations.mdk]
-[INCLUDE=../ResponseFormats.mdk]
-[INCLUDE=../Dependencies.mdk]
-[INCLUDE=../Configuration.mdk]
-[INCLUDE=../ParameterValidation.mdk]
-[INCLUDE=../Pagination.mdk]
-[INCLUDE=../Errors.mdk]
+# Introduction
 
-# TypeScript-Specific Guidelines
-[INCLUDE=DesignGuidelines.mdk]
+[INCLUDE=../general/DesignPrinciples.mdk]
+[INCLUDE=../general/Terminology.mdk]
+[INCLUDE=../typescript/Terminology.mdk]
+[INCLUDE=../general/Definitions.mdk]
+[INCLUDE=../general/Process.mdk]
+[INCLUDE=../general/OpenSource.mdk]
+
+# The Client library
+
+[INCLUDE=../typescript/PlatformSupport.mdk]
+
+## The API surface {#general-apisurface}
+
+The API surface of your client library must have the most thought as it is the primary interaction that the consumer has with your service.  
+
+[INCLUDE=../typescript/Namespace.mdk]
+[INCLUDE=../typescript/APIShape.mdk]
+[INCLUDE=../typescript/Pagination.mdk]
+[INCLUDE=../general/LRO.mdk]
+[INCLUDE=../typescript/LRO.mdk]
+[INCLUDE=../general/OtherProtocols.mdk]
+
+## Implementing the API {#general-implementing}
+
+Once you have worked through an acceptable API surface, you can start implementing the service clients.
+
+~ Should {#ts-should-use-template}
+Use the [TypeScript Client Library Template](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/template/template).
+~
+
+[INCLUDE=../general/Configuration.mdk]
+[INCLUDE=../typescript/Configuration.mdk]
+[INCLUDE=../general/ParameterValidation.mdk]
+[INCLUDE=../general/PipelineUsage.mdk]
+[INCLUDE=../general/APIGeneral.mdk]
+[INCLUDE=../general/Errors.mdk]
+[INCLUDE=../typescript/Errors.mdk]
+[INCLUDE=../general/Logging.mdk]
+[INCLUDE=../typescript/Logging.mdk]
+[INCLUDE=../general/DistributedTracing.mdk]
+[INCLUDE=../typescript/DistributedTracing.mdk]
+[INCLUDE=../typescript/Dependencies.mdk]
+[INCLUDE=../general/CommonLibrary.mdk]
+[INCLUDE=../general/Documentation.mdk]
+[INCLUDE=../typescript/Documentation.mdk]
+
+[INCLUDE=../typescript/NPMPackage.mdk]
+[INCLUDE=../typescript/Testing.mdk]
+
+# Releasing your Client library
+
+Releasing your client library requires coordination between several groups, including the Azure SDK engineering systems, service, support, and documentation teams.  
+
+[INCLUDE=../general/Releasing.mdk]
+[INCLUDE=../general/Versioning.mdk]
+[INCLUDE=../typescript/Versioning.mdk]
+
+# Appendix: Azure Core {#general-azure-core}
+
+Azure Core is a library that provides common services to other client libraries.  These services include:
+
+* [The HTTP pipeline](#azurecore-http-pipeline)
+* [Global configuration](#azurecore-configuration)
+* [Credentials](#azurecore-credentials)
+
+The following sections define the requirements for the Azure Core library.  If you are implementing a client library in a language that already has an Azure Core library, you do not need to read this section.  It is primarily targeted at developers who work on the Azure Core library.
+
+[INCLUDE=../typescript/AzureCore.mdk]
+[INCLUDE=../general/AzureCorePipeline.mdk]
+[INCLUDE=../general/AzureCoreConfiguration.mdk]
+[INCLUDE=../general/AzureCoreCredentials.mdk]
 

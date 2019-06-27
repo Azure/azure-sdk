@@ -1,0 +1,264 @@
+## NPM Package {#ts-npm-package}
+
+~ Must {#ts-npm-package-ownership}
+have npm package ownership set to either the Azure or Microsoft orgs.
+~
+
+### File Layout {#ts-package-file-layout}
+
+The following is the canonical file structure of your npm package:
+
+~ Figure {#ts-figure-package-layout; caption: "Canonical file structure of an npm package"}
+
+
+```
+azure-library
+├─ README.md
+├─ LICENSE.md
+├─ CONTRIBUTING.md
+├─ browser
+│  ├─ service.js
+│  └─ service.min.js
+│
+├─ dist
+│  ├─ index.js
+│  └─ ... *.js
+│
+├─ dist-esm
+│  ├─ lib
+│  │ ├─ index.js
+│  │ └─ ... *.js
+│  │
+│  └─ test
+│
+├─ src
+│  ├─ index.ts
+│  └─ ... *.ts
+│
+├─ test
+│  └─ ... *.ts
+│
+├─ package.json
+├─ package-lock.json
+└─ tsconfig.json
+```
+~
+
+At a high level: original source goes in `./src`, main entrypoint goes in `./dist`, and additional source distributions go under `./dist-xxx`.
+
+~ Must {#ts-file-layout-conventions}
+follow these conventions where applicable.
+~
+
+~ May {#ts-can-have-other-files}
+include other files.
+~
+
+~ MustNot {#ts-no-npmignore}
+use .npmignore files to control which files are included in the package. All files must be added to the package explicitly using the [package.json files key](#ts-package-json-files-required). 
+~
+
+### Package.json{#ts-package-json}
+
+The following sections describe the package.json file that must be included with every npm package. A compliant package.json file looks like Figure [#ts-figure-package-json]:
+
+~ Figure {#ts-figure-package-json; caption: "An example package.json" }
+```javascript
+{
+  "name": "@azure/package",
+  "description": "A pithy but accurate description",
+  "keywords": [
+    "azure",
+    "cloud",
+    "..."
+  ],
+  "version": "1.0.0",
+  "author": "Microsoft Corporation",
+  "main": "./dist/index.js",
+  "module": "./dist-esm/index.js",
+  "browser": {
+    "./dist-esm/src/index.js": "./browser/index.js"
+  },
+  "types": "./dist-esm/index.d.ts",
+  "engine": {
+    "node": ">=6.0.0"
+  },
+  "scripts": {
+    "build": "...",
+    "test": "...",
+    "prepack": "npm install && npm run build"
+  },
+  "files": [
+    "dist",
+    "dist-esm",
+    "browser"
+  ],
+  "devDependencies": { /* ... */ },,
+  "dependencies": { /* ... */ },
+  "repository": "github:Azure/azure-sdk",
+  "homepage": "https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus",
+  "bugs": {
+    "url": "https://github.com/Azure/azure-sdk-for-js/issues"
+  },
+  "license": "MIT",
+  "sideEffects": false
+}
+```
+~
+
+~ Must {#ts-package-json-name}
+set `name` to `@azure/<name>`, where `<name>` is the name of the service. Package names are kebab-case: all lowercase with words joined by dashes.
+~
+
+~ Must {#ts-package-json-homepage}
+set `homepage` to a URL pointing to your library's readme inside the git repo. Since the repository link goes to the monorepo, this link exists to serve as an easier way to reach the actual package's source.  
+~
+
+~ Must {#ts-package-json-bugs}
+set `bugs` to an object with a `url` key pointing to your library's issue tracker: https://github.com/Azure/azure-sdk-for-js/issues.
+~
+
+~ Must {#ts-package-json-repo}
+set `repository` to the JS SDK monorepo - `github:Azure/azure-sdk-for-js`. Use of the `github:user/repo` short-hand is recommended.
+~
+
+~ Must {#ts-package-json-description}
+set `description` to a useful but terse description of your library. The description is used and shown when searching for packages on npmjs.org, so it's important to be maximally descriptive white being as terse as possible.
+~
+
+~ Must {#ts-package-json-keywords}
+set `keywords` to an array that includes at least the entries "Azure" and "cloud". It must also contain at least the name of your service. It should contain other entries relevant to your SDK.
+~
+
+~ Must {#ts-package-json-author}
+set `author` to `"Microsoft Corporation"`.
+~
+
+~ Must {#ts-package-json-sideeffects}
+set `sideEffects` to `false`. Side effecting libraries must be explicitly approved during design review. The sideEffects field is used by Webpack and potentially other tools as an indicator of how aggressively the package can be optimized. 
+
+Side effects refer to modifications to the runtime environment of the program as a result of including a module. For example, including a polyfill library is a sideEffect as it mutates the global environment and later code depends on its presence. Side effects make it harder for tools to optimize your build and should be avoided.
+~
+
+
+~ Must {#ts-package-json-main-is-cjs}
+set `main` to point to either a CommonJS or a UMD module. Main is the entry point of your application for Node users. See [#ts-source-distros-cjs] for more information.
+~
+
+~ MustNot {#ts-package-json-main-is-not-es6}
+set `main` to include any ES6+ syntax.
+~
+
+~ Must {#ts-package-json-module}
+set `module` to the ES6 module entrypoint of your application. 
+Tools such as Webpack use this key to discover the static module graph of your application for optimization purposes. See [#ts-source-distros-esm] for more information.
+~
+
+~ Must {#ts-package-json-browser}
+set `browser` to an object mapping, at a minimum, the file pointed to by `main` to the corresponding unminified browser code i.e. `./browser/service.js` if your library supports the browser.
+~
+
+~ Must {#ts-package-json-engine-is-present}
+set `engine` to the versions of Node your library supports. See [#ts-supported-node-versions] for Node support requirements.
+~
+
+~ Must {#ts-package-json-required-scripts}
+set `scripts` to an object with the following scripts:
+
+- `"build"`: generates the main export of the application.
+- `"test"`: runs your package's functional test suite for inner-loop development. Additional test tasks (e.g. for CI) are allowed but `test` must be how developers test your package during development.
+~
+
+~ Must {#ts-package-json-required-scripts-for-development}
+include in `scripts` any tasks required for developing your package must have corresponding npm scripts. Packages should not depend on shell scripts to build or test their application as shell scripts often need to be platform-specific.
+~
+
+~ Must {#ts-package-json-files-required}
+set `files` to an array containing paths of your package contents. Setting this field prevents extraneous files from ending up in your package by being explicit about which files you ship to npm. 
+~
+
+~ Must {#ts-package-json-types}
+set `types` to point to the TypeScript type declarations for your library's public surface area, usually `"./types/index.d.ts"`.
+~
+
+~ Must {#ts-package-json-license}
+set `license` to "MIT".
+~
+
+
+### Source Distributions{#ts-source-distros}
+
+Modern npm packages often ship multiple source distributions targeting different usage scenarios. Packages must include the original source, a CJS or UMD build, and an ESM build (see below). Packages may include other source distributions as necessary for their particular usage scenarios.
+
+The main downside of including additional source distributions is the increased package size (larger packages mean CIs take longer). However, performance, compatibility, and developer experience goals are often more important.
+
+#### Original Source {#ts-source-distros-original}
+
+~ Must {#ts-include-original-source}
+  include original source in your package (i.e. `./src` should be included in the `files` array in your package.json).
+~
+
+Including the original source in your package helps developers debug in and around your package. Go-to-definition can be a quick way to confirm how to use a function (especially if its implemented in TypeScript), and seeing useful names and readable source code in call stacks can help with debugging.
+
+Including the original source also means we can aggressively optimize the build artefacts since users will not need to puzzle through the mangled code.
+
+#### CommonJS {#ts-source-distros-cjs}
+
+~ Must {#ts-include-cjs}
+  include a CJS build in your package if you intend to support Node.
+~
+
+This is the distribution that Node users will consume.
+
+If your library supports the Web platform, this distribution must be UMD modules. If your library is not intended for the browser, it is recommended to be UMD modules because the overhead over CJS is slight and it may make an eventual move to the Web platform easier later.
+
+The CommonJS/UMD build's library name must be under the namespace `Microsoft.Azure`. For example, a hypothetical library Foo should configure its UMD global name as `Microsoft.Azure.Foo`. For Webpack, this entails configuring `output.library` to `['Microsoft', 'Azure', 'Foo']`. For Rollup, set `name` to `"Microsoft.Azure.Foo"`. This guideline ensures all Azure packages are accessed in a consistent manner when script-included into a browser.
+
+The CommonJS/UMD build must be flattened. Rollup.js is the ecosystem best practice for producing a flattened CommonJS module.
+
+Flattening is the process of packing multiple modules into a single file. This process results in a significant reduction in load times for typical libraries, and can make a measurable impact on cold start for services like Azure Functions and App Service. While performance-sensitive developers will likely package their applications themselves, faster start-up of un-packaged applications is still important especially during development.
+
+#### ESM {#ts-source-distros-esm}
+
+~ Must {#ts-include-esm}
+  include an ESM build in your package.
+~
+
+~ MustNot {#ts-include-esm-not-flattened}
+  flatten the ESM build.
+~
+
+This distribution is mostly consumed by tools such as Webpack that need to understand your library's module graph in order to do optimizations like tree-shaking. Other than using es6 modules, this distribution should be "transpiled" to support the versions of Node and the browser you are targeting. This ensures users won't have to re-compile your library before it is usable in their host of choice.
+
+Versions of Webpack prior to 4.0 would produce better optimized bundles if libraries' ESM builds were flattened. However, because flattening doesn't play so well with tree-shaking (the idea is to flatten modules together that would tree-shake out together), and because Webpack 4 can theoretically do a better job with unflattened ESM, it is not recommend to flatten the ESM module build.
+
+
+#### Browser Builds {#ts-source-distros-browser}
+
+~ Should
+provide a browser build for your library.
+~
+
+~ Must
+be in UMD module format.
+~
+
+~ Must
+set the UMD global in accordance with the [namespace guidelines](#general-namespace-names).
+~
+
+~ Must
+provide both minified and non-minified versions, both with source mapping.
+~
+
+### Modules {#ts-modules}
+
+~ Must {#ts-modules-only-named}
+  have named exports at the top level
+~
+
+~ MustNot {#ts-modules-no-default}
+  have a default export at the top level
+~
+
+Azure packages authored using TypeScript export standard ES6 modules. As Node does not yet support ES6 modules natively, authoring ES6 modules for consumption in Node has a bit of friction. Most notable, a commonJS package can only import a single value. The difference between this model and ES6 modules where you can export many different things is the primary source of friction.

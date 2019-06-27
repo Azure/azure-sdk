@@ -1,0 +1,95 @@
+### Pagination {#ts-pagination}
+
+These guidelines eschew low-level pagination APIs in favor of high-level abstractions. High-level APIs are easy for developers to use for the majority of use cases but can be more confusing when finer-grained control is required (for example, over-quota/throttling) and debugging when things go wrong. Other guidelines in this document work to mitigate this limitation, for example by providing robust logging, tracing, and pipeline customization options.
+
+~ Must
+provide a `list` method which returns a PagedAsyncIterableIterator from the module `@azure/core-paging`.
+~
+
+~ Must
+provide page-related settings to the byPage iterator and not the per-item iterator.
+~
+
+~ Must
+take a `continuationToken` option in the byPage method. You must rename other similarly named parameters, e.g. nextMarker. If your page type has a continuation token, it must be named continuationToken.
+~
+
+~ Must
+take a `maxPageSize` option in the byPage method.
+~
+
+~ Example {#ts-example-pagination; caption="Example of a paginating client"}
+
+```javascript
+// usage
+const client = new ServiceClient()
+for await (const item of client.listItems()) {
+    console.log(item);
+}
+
+for await (const page of client.listItems().byPage({ maxPageSize: 50 })) {
+    console.log(page);
+}
+
+// implementation
+interface Item {
+    name: string;
+}
+
+interface Page {
+    continuationToken: string;
+    items: Item[];
+}
+
+class ServiceClient {
+    /* ... */
+    listItems(): PagedAsyncIterableIterator<Item, Page> {
+        async function* pages () { /* ... */ }
+        async function* items () {
+            for (const page of pages()) {
+                for (const item of page.items) {
+                    yield item;
+                }
+            }
+        }
+
+        const itemIter = items();
+        
+        return {
+            next() {
+                return itemIter.next();
+                /* ... */
+            },
+            byPage() {
+                return pages();
+            },
+            [Symbol.asyncIterator]() { return this }
+        }
+    }
+}
+```
+~
+
+~ Must {#general-pagination-paginate-lists}
+expose non-paginated list endpoints identically to paginated list endpoints. Users shouldn't need to appreciate the difference.
+~
+
+~ Must {#general-pagination-distinct-types}
+use distinct types for entities in a list endpoint and an entity returned from a get endpoint if these are different types, and otherwise you must use the same types in these situations.
+~
+
+~ Note
+Services should refrain from having a difference between the type of a particular entity as it exists in a list versus the result of a GET request for that individual item as it makes the client library's surface area simpler.
+~
+
+~ MustNot {#general-pagination-no-item-iterators}
+expose an iterator over each individual item if getting each item requires a corresponding GET request to the service. One GET per item is often too expensive and so not an action we want to take on behalf of users.
+~
+
+~ MustNot {#general-pagination-support-toArray}
+expose an API to get a paginated collection into an array. This is a dangerous capability for services which may return many, many pages.
+~
+
+~ Must {#general-pagination-low-level-APIs}
+expose paging APIs when iterating over a collection. Paging APIs must accept a continuation token (from a prior run) and a maximum number of items to return, and must return a continuation token as part of the response so that the iterator may continue, potentially on a different machine.
+~

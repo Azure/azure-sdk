@@ -1,0 +1,14 @@
+
+#### Additional TypeScript Documentation Guidelines {#ts-documentation}
+
+~Must {#ts-readme-ts-config}
+document any required tsconfig settings and type dependencies in README.md under "Getting started". The section must be titled "Configure TypeScript" and come after the "Install the Package" sub-section. Common examples of required user configuration include enabling `compilerOptions.allowSyntheticDefaultImport` and installing an appropriate version of the `@types/node` package.
+~
+
+~ Must {#ts-need-js-samples}
+have samples available for JavaScript. TypeScript samples are a nice-to-have. Where possible provide samples in both languages.
+~
+
+~ Should {#ts-need-browser-samples}
+have browser samples tailored for browser scenarios. You need not duplicate all samples for browsers.
+~

@@ -1,0 +1,35 @@
+#### Logging in JavaScript
+
+~ Must
+use the `debug` module to log to stderr or the browser console.
+~
+
+~ Must
+prefix channel names with `azure:<service-name>`.
+~
+
+~ Must
+create log channels for the following log levels with the following channel name suffixes:
+
+* Error: `:error`
+* Warning: `:warning`
+* Info: `:info`
+~
+
+~ May
+have additional log channels for example to log from separate components. However, these channels MUST still provide the three log levels from above for each sub-channel.
+~
+
+~ Must
+expose all log channels as top-level exports of your package. This allows users to configure how the logging happens and integrate with 3rd-party loggers.
+~
+
+~ Example {#ts-example-loggin-integration}
+
+```javascript
+// example integrating with Winston
+import { ErrorLog } from "@azure/service-bus";
+
+ErrorLog.log = (... args) => logger.log({ level: 'error', message: args })
+```
+~
