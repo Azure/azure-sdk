@@ -15,7 +15,7 @@ To install them individually
     $> SomeOackMain install
 
 ## Feedback
-If you have a bug or feature request for one of the libraries, please post an issue to TODO [GitHub](https://github.com/auzre/azure-sdk-for-XXX/issues) and add the labels Preview and Bug or Feature
+If you have a bug or feature request for one of the libraries, please post an issue to TODO [GitHub](https://github.com/azure/azure-sdk-for-XXX/issues) and add the labels Preview and Bug or Feature
 
 If you have a question, please post a question to Stack Overflow with the following Tags:
 > [azure-sdk] [beta] [ TODO_ONE_OF [python], [java], [javascript], [.net]]
