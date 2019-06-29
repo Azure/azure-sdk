@@ -1,15 +1,32 @@
 [INCLUDE=../general/DistributedTracing.mdk]
 
-~ Draft
-**Note:** The remaining text in this distributed tracing section is currently in draft form only!
-~
-
-The azure core library in the Java SDK provides a service provider interface (SPI) for plugging in additional pipeline policies at runtime. This is used to enable tracing on consumer deployments. To enable this in all client libraries, support, as outlined below, must be included for pluggable pipeline policies in each client library. Additionally, to provide a richer tracing experience for consumers, additional metadata must be specified per service method.
+The azure core library in the Java SDK provides a service provider interface (SPI) for plugging in additional pipeline policies at runtime. This is used to enable tracing on consumer deployments. To enable this in all client libraries, support, as outlined below, must be included for pluggable pipeline policies in each client library. Additionally, to provide a richer tracing experience for consumers, additional metadata can be specified per service method.
  
 ~ Must {#java-tracing-pluggable-policies}
-support pluggable pipeline policies as part of the http pipeline instantiation. This was demonstrated in the [builder API discussion](#java-build-async-validation), where two lines are responsible for injecting external http policies into the pipeline, namely `HttpPolicyProviders.addBeforeRetryPolicies(policies)` and `HttpPolicyProviders.addAfterRetryPolicies(policies)`.
+support pluggable pipeline policies as part of the http pipeline instantiation. This is demonstrated in the code sample below, in which a client library has a service client builder build method that creates an `HttpPipeline` from its set of policies, and at the same time allows plugins to added 'before retry' and 'after retry' policies with the lines `HttpPolicyProviders.addBeforeRetryPolicies(policies)` and `HttpPolicyProviders.addAfterRetryPolicies(policies)`:
+
+```java
+public ConfigurationAsyncClient build() {
+    ...
+
+    // Closest to API goes first, closest to wire goes last.
+    final List<HttpPipelinePolicy> policies = new ArrayList<>();
+    policies.add(new UserAgentPolicy(AzureConfiguration.NAME, AzureConfiguration.VERSION, buildConfiguration));
+    policies.add(new RequestIdPolicy());
+    policies.add(new AddHeadersPolicy(headers));
+    policies.add(new AddDatePolicy());
+    policies.add(new ConfigurationCredentialsPolicy(buildCredentials));
+    HttpPolicyProviders.addBeforeRetryPolicies(policies);
+    policies.add(retryPolicy);
+    policies.addAll(this.policies);
+    HttpPolicyProviders.addAfterRetryPolicies(policies);
+    policies.add(new HttpLoggingPolicy(httpLogDetailLevel));
+
+    ...
+}
+```
 ~
 
-~ Must {#java-tracing-annotation} 
-add the `@Tracing` annotation to every service method (that is, every method defined with an `@ServiceMethod` annotation) to specify the tracing operation name.
+~ Should {#java-tracing-metadata} 
+use the azure-core `TracerProxy` API to set additional metadata that should be supplied along with the tracing span. In particular, use the `setAttribute(String key, String value, Context context)` method to set a new key/value pair on the tracing context.
 ~
