@@ -30,10 +30,42 @@ return `PagedFlux<T>` for **asynchronous** APIs, if the service offers paging (i
 
 ```java
 public final class ConfigurationAsyncClient {
+
     // asynchronous API returning a PagedFlux of ConfigurationSetting instances
-    public PagedFlux<ConfigurationSetting> listSettings(...) {
-        ...
+    public PagedFlux<ConfigurationSetting> listSettings(SettingSelector options, Context context) {
+        // The first lambda is a Supplier<PagedResponse<T>> returning the first page of results 
+        // as a Mono<PagedResponse<T>>.
+        // The second lambda is a Function<String, Mono<PagedResponse<T>>>, returning a 
+        // Mono<PagedResponse<T>> representing a page based on the provided continuationToken.
+        return new PagedFlux<>(
+            () -> listFirstPageSettings(options, context),
+            continuationToken -> listNextPageSettings(contextWithSpanName, continuationToken));
     }
 }
 ```
+
+Consumers of this API can then operate on a stream of `T`, or else they may convert this to a stream of `PagedResponse<T>`. For example, operating on a stream of `T` will happen by default when subscribing to the `PagedFlux`:
+
+```java
+client.listSettings(..)
+      .subscribe(item -> System.out.println("Processing item " + item));
+```
+
+To instead process page-by-page, a user would do the following:
+
+```java
+client.listSettings(..)
+      .byPage()
+      .subscribe(page -> {
+        // page is a PagedResponse, which implements Page and Response, so there exists: 
+        //  * List<T> of items,
+        //  * 'nextPage' URL (can be used for the continuation token),
+        //  * Status code,
+        //  * HTTP headers,
+        //  * HTTP request
+        System.out.println("Processing page " + page)
+});
+```
+
+The `byPage()` method on `PagedFlux` offers an overload to accept a `continuationToken` string, which will begin the returned Flux at the page specified by this token.
 ~
