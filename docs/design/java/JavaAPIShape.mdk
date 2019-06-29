@@ -287,26 +287,26 @@ provide a builder class.
 
 ### Annotations
 
-~ Draft
-A number of annotation exist in azure-core, with more being identified and added as necessary. Applying all appropriate annotations enables the richest static code analysis, and also the best runtime experience.
-~
+There are a number of annotations defined in azure-core. Whilst a few of them are used to enable runtime functionality, the bulk of them are used only as part of the [Azure Java SDK code linting tools](#java-tooling) to validate conformance to this spec, and good Java coding practice.
 
-~ Todo
-List all annotations
+~ Must {#java-use-core-annotations} 
+use the azure-core annotations outlined below in all applicable places. Do this eagerly as part of the initial code design, and the code linters will ensure continued conformance to some of the rules outlined in this specification.
 ~
 
 ~ MustNot {#java-annotation-no-string-spacing}
-include spaces in annotation String values, unless the description below states it is allowed.
+include spaces in annotation string values, unless the description below states it is allowed.
 ~
 
-#### Service Proxies
-The first place that a lot of annotations are used is when defining a service proxy. A service proxy is a Java interface that defines all REST endpoints for a service, but is not part of the public API, as it is hidden behind the service client class itself. For example, here is the service proxy interface for one method within the `ConfigurationService`:
+The remainder of this section outlines many of the critical annotations that must be used throughout a client library.
+
+#### Service Interface
+The first place that a lot of annotations are used is when defining a service interface. A service interface is a Java interface that defines all REST endpoints for a service, but is not part of the public API, as it is hidden behind the service client class itself. For example, here is the service interface for one method within the `ConfigurationService`:
 
 ```java
 @Host("{url}")
-@ServiceProxy("AppConfig")
+@ServiceInterface("AppConfig")
 interface ConfigurationService {
-    @GET("kv/{key}")
+    @Get("kv/{key}")
     @ExpectedResponses({200})
     @UnexpectedResponseExceptionType(code = {404}, value = ResourceNotFoundException.class)
     @UnexpectedResponseExceptionType(HttpResponseException.class)
@@ -321,16 +321,49 @@ interface ConfigurationService {
 
 There are many annotations to unpack here:
 
-* `@ServiceProxy` specifies that this interface performs the role of representing a REST endpoint for a particular srevice. This string will be used in places such as telemetry and tracing, and therefore must be fit for public consumption. It must be short, alphanumeric only, and without spaces.
+* `@ServiceInterface` specifies that this interface performs the role of representing a REST endpoint for a particular srevice. This string will be used in places such as telemetry and tracing, and therefore must be fit for public consumption. It must be short, alphanumeric only, and without spaces.
 * `@Host` is an annotation for parameterizing the host name of a REST service. The `{url}` shown in the annotation above maps with the `@HostParam` annotation on the first argument into the `getKeyValue(..)` method. In other words, when the call is made to `getKeyValue(..)`, the caller provides the url, which is then mapped dynamically into the outgoing call.
-* `@GET`, `@DELETE`, `@HEAD`, `@PATCH`, `@POST`, and `@PUT` all specify the type of HTTP request to perform for a specific method on the interface, as well as the path to the endpoint.
+* `@Get`, `@Delete`, `@Head`, `@Patch`, `@Post`, and `@Put` all specify the type of HTTP request to perform for a specific method on the interface, as well as the path to the endpoint.
 * `@ExpectedResponses` specifies the HTTP status code that this method expects to receive back. There may be more than one valid status code.
 * `@UnexpectedResponseExceptionType` enables for different exceptions to be thrown based on the status code returned in the response, as well as a single fall-back exception if no status codes match.
 * There are many valid annotation types for method parameters:
    * `@BodyParam` puts the argument into the body of the outgoing HTTP request.
    * `@HeaderParam` puts the argument into the header of the outgoing HTTP request.
-   * `@PathParam` puts the argument into the path of the outgoing HTTP request, at the point where the value of the annotation matches the same value in the HTTP request type annotation (i.e. `@GET`, `@DELETE`, `@HEAD`, `@PATCH`, `@POST`, or `@PUT`).
+   * `@PathParam` puts the argument into the path of the outgoing HTTP request, at the point where the value of the annotation matches the same value in the HTTP request type annotation (i.e. `@Get`, `@Delete`, `@Head`, `@Patch`, `@Post`, or `@Put`).
    * `@QueryParam` puts the argument into the query string of the outgoing HTTP request.
+
+#### Service Client
+The next place to include annotations is the service client class itself. In here we make use of the `@ServiceClient` and `@ServiceMethod` annotatations, on the service client class and each service client method that does network IO, respectively. Here is a sample class demonstrating the use of these two annotations:
+
+```java
+@ServiceClient(builder = ConfigurationAsyncClientBuilder.class, isAsync = true, service = ConfigurationService.class)
+public final class ConfigurationAsyncClient {
+
+    @ServiceMethod
+    public Mono<Response<ConfigurationSetting>> addSetting(String key, String value) { 
+        ... 
+    }
+}    
+```
+
+* `@ServiceClient` is placed on all classes that provide API to communicate with an Azure service. The annotation supports specifying the builder responsible for instantiating the service client, whether or not the API is asynchronous, and a reference back to the service interface (the interface annotated with `@ServiceInterface`).
+* `@ServiceMethod` is placed on all service client methods that perform network operations.
+
+#### Service Client Builder
+The `@ServiceClientBuilder` annotation should be placed on any class that is responsible for instantiating service clients (that is, instantiating classes annotated with `@ServiceClient`). For example:
+
+```java
+@ServiceClientBuilder(serviceClients = {ConfigurationClient.class, ConfigurationAsyncClient.class})
+public final class ConfigurationClientBuilder { ... }
+```
+
+As can be seen above, this builder states that it is able to build instances of `ConfigurationClient` and `ConfigurationAsyncClient`.
+
+#### Model Classes
+There are two annotations of note that should be applied on model classes, when applicable:
+
+* The `@Fluent` annotation is given to all model classes that are expected to provide a fluent API to end users. If a class has this annotation, checks can be made to ensure all API meets this expectation. Similarly, classes that are not annotated with this annotation should not have fluent APIs.
+* The `@Immutable` annotation is given to all immutable classes. If a class has this annotation, checks can be made to ensure all fields in this class are final.
 
 ### Versioning {#java-service-versioning}
 
