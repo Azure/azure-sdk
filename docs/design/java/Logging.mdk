@@ -23,6 +23,20 @@ public final class ConfigurationAsyncClient extends ServiceClient {
 ```
 ~
 
-~ Todo
-Detail how to log exceptions that were created by the client library, such that they are logged out to the ClientLogger, and returned to the user.
+~ Must {#java-logging-thrown-exceptions}
+throw all exceptions created within the client library code through the `ClientLogger` `logAndThrow` API. This ensures that all exceptions are properly logged. For example, rather than writing code such as shown below:
+
+```java
+if (priority != null && priority < 0) {
+    throw new IllegalArgumentException("'priority' cannot be a negative value. Please specify a zero or positive long value.");
+}
+```
+
+It is instead required to write the following equivalent code:
+
+```java
+if (priority != null && priority < 0) {
+    logger.logAndThrow(new IllegalArgumentException("'priority' cannot be a negative value. Please specify a zero or positive long value."));
+}
+```
 ~
