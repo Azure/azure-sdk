@@ -92,9 +92,9 @@ public final class <service_name>Client {
     }
 
     // A non-paginated sync list API (refer to pagination section for more details)
-    public Iterable<<model>> list<service_operation>(<parameters>) {
+    public Stream<<model>> list<service_operation>(<parameters>) {
         // deferring to async client internally
-        return client.list<service_operation>(<parameters>).toIterable();
+        return client.list<service_operation>(<parameters>).toStream();
     }
 
     // other members
