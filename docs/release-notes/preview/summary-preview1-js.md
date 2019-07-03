@@ -5,7 +5,7 @@ TODO High level info about the release what goals, what libraries are coming wit
 ## Installation Instructions
 To install all the of the packages, copy and paste the below into a terminal.
 
-TODO Update code below
+TODO Consider replacing the preview version numbers with "@next", only catch is that it will always point to latest preview, but we might want this readme to be a point in time snapshot
     
     npm install @azure/event-hubs@5.0.0-preview.1 @azure/keyvault-keys @azure/keyvault-secrets @azure/storage-queue@12.0.0-preview.1  npm install @azure/storage-file@12.0.0-preview.1 npm install @azure/storage-blob@12.0.0-preview.1
 
