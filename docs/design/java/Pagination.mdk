@@ -2,10 +2,6 @@
  
 #### Java specific guidelines {#java-pagination}
 
-~ Draft
-This API is still in-development and may change.
-~
-
 In the Azure SDK for Java we take the position that the sync API is intended for easier consumption, and therefore can (and should) be lesser-featured, in cases where offering a feature will increase the complexity of the API. For this reason, pagination in Java will differ between synchronous and asynchronous APIs:
 
 ~ Must {#java-sync-pagination-api}

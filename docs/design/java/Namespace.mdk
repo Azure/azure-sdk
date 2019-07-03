@@ -68,13 +68,12 @@ Here are some examples of selections that meet the guidelines (from the Java wor
 - `com.azure.iot.deviceprovisioning`
 - `com.azure.storage.blob`
 - `com.azure.messaging.notificationhubs` (the client library for Notification Hubs)
-- `com.azure.management.mssaging.notificationhubs` (the management client for Notification Hubs)
+- `com.azure.management.messaging.notificationhubs` (the management client for Notification Hubs)
 
 Here are some examples that do not meet the guidelines:
 
-- `com.microsoft.azure.cosmosdb` (not in the Azure namespace, no grouping)
+- `com.microsoft.azure.cosmosdb` (not in the `com.azure` namespace, no grouping)
 - `com.azure.mixedreality.kinect` (invalid group)
-- `com.azure.iot.iothub.deviceprovisioning` (too many levels)
 
 If the client library does not seem to fit into the group list, contact [adparch](https://github.com/Azure/azure-sdk-pr/issues/new/choose) for advice on the most appropriate group.  If you feel your service requires a new group, then open a "Design Guidelines Change" request.
 

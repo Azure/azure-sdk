@@ -8,7 +8,7 @@ use the `ClientLogger` API provided within Azure Core as the sole logging API th
 create static logger instances, as these will be shared among all client library instances running in a JVM instance. Instead, create a new instance of a `ClientLogger` per instance of all relevant classes. For example, the code below will create a `ClientLogger` instance for the `ConfigurationAsyncClient`, such that each instance of this class will have a unique instance of the `ClientLogger`.
 
 ```java
-public final class ConfigurationAsyncClient extends ServiceClient {
+public final class ConfigurationAsyncClient {
     private final ClientLogger logger = new ClientLogger(ConfigurationAsyncClient.class);
     
     // example async call to a service that uses the Project Reactor APIs to log request, success, and error

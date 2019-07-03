@@ -27,11 +27,11 @@ support 100% of the features provided by the Azure service the client library re
 Since the client library generally wraps one or more HTTP requests, it is important to support standard network capabilities.  Asynchronous programming techniques are not widely understood, although such techniques are essential in developing scalable web services and required in certain environments (such as mobile or Node environments).  Many developers prefer synchronous method calls for their easy semantics when learning how to use a technology.  In addition, consumers have come to expect certain capabilities in a network stack - capabilities such as call cancellation, automatic retry, and logging. 
 
 ~ Must {#general-apisurface-syncandasync}
-support both synchronous and asynchronous method calls, except where the language (or default runtime) does not support one or the other.
+support both synchronous and asynchronous method calls.
 ~
 
 ~ Must {#general-apisurface-identifyasync}
-ensure that the consumer can identify which methods are async and which are synchronous.
+ensure that the consumer can identify which methods are asynchronous and which are synchronous.
 ~
 
 ### Authentication

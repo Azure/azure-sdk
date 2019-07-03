@@ -15,7 +15,7 @@ optimize for returning the logical entity for a given request. The logical entit
 ~
 
 ~ Must {#general-return-expose-raw}
-*make it possible* for a developer to get access to the complete response, including the status line, headers and body. The client library MUST follow the language specific guidance for accomplishing this.
+*make it possible* for a developer to get access to the complete response, including the status line, headers and body.
 ~
 
 ~ Must {#general-return-document-raw-stream}
@@ -23,13 +23,11 @@ document and provide examples on how to access the raw and streamed response for
 ~
 
 ~ Must {#general-return-pageable-iterate-items}
-provide a language idiomatic way to enumerate all logical entities for a paged operation, automatically fetching new pages as needed.  For example:
+provide a Java-idiomatic way to enumerate all logical entities for a paged operation, automatically fetching new pages as needed. For example:
 
 ```java
 // Yes:
-for (ConfigurationSetting setting : client.listSettings()) {
-    print(setting);
-}
+client.listSettings().forEach(this::print);
 
 // No - don't force the caller of the library to do paging:
 String nextPage = null;

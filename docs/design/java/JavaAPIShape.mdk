@@ -73,6 +73,9 @@ follow the basic shape outlined below for all synchronous service clients:
 
 package com.azure.<group>.<service_name>;
 
+@ServiceClient(
+    builder = <service_name>ClientBuilder.class, 
+    serviceInterfaces = <service_name>Service.class)
 public final class <service_name>Client {
 
     // internally, sync API can defer to async API with sync-over-async
@@ -114,7 +117,11 @@ follow the basic shape outlined below for all asynchronous service clients:
 
 package com.azure.<group>.<service_name>;
 
-public final class <service_name>AsyncClient extends ServiceClient {
+@ServiceClient(
+    builder = <service_name>ClientBuilder.class, 
+    serviceInterfaces = <service_name>Service.class,
+    isAsync = true)
+public final class <service_name>AsyncClient {
         
     // package-private constructors only - all instantiation is done with builders
     <service_name>Client(<parameters>, HttpPipeline pipeline) {
