@@ -1,14 +1,27 @@
-# Azure SDK for Java Preview 1 Release Notes
+# Azure SDK for Java (July 2019 Preview) Release Notes
 
-TODO High level info about the release what goals, what libraries are coming with this release, key new features.
+The Azure SDK team is pleased to make available the July 2019 client library preview release. This represents the first release of the ground-up rewrite of the client libraries to ensure consistency, idiomatic design, and excellent developer experience and productivity. This preview release includes new client libraries for Azure App Configuration, Key Vault (keys and secrets), Event Hubs, and Storage (blob).
 
 ## Installation Instructions
-To install all the of the packages, copy and paste the below into your project's pom file.
+To use the preview libraries, refer to the Maven dependency information below, which may be copied into your projects Maven pom.xml file as appropriate. If you are using a different build tool, refer to its documentation on how to specify dependencies.
+
 ```xml
 <dependency>
-  <groupId>com.azure.security</groupId>
-  <artifactId>azure-keyvault-secrets</artifactId>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-app-configuration</artifactId>
   <version>1.0.0-preview.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-keyvault-keys</artifactId>
+  <version>4.0.0-preview.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-keyvault-secrets</artifactId>
+  <version>4.0.0-preview.1</version>
 </dependency>
 
 <dependency>
@@ -17,21 +30,36 @@ To install all the of the packages, copy and paste the below into your project's
   <version>5.0.0-preview.1</version>
 </dependency>
 
-<!-- TODO add the rest -->
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-blob</artifactId>
+  <version>12.0.0-preview.1</version>
+</dependency>
 ```
 
 ## Feedback
-If you have a bug or feature request for one of the libraries, please post an issue to TODO [GitHub](https://github.com/azure/azure-sdk-for-java/issues) and add the labels Preview and Bug or Feature
-
+If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/azure/azure-sdk-for-java/issues) and add the labels 'Preview', as well as either 'Bug' or 'Feature'.
 
 ## Changelog
 Detailed change logs are linked to in the Quick Links below. Here are some critical call outs.
 
-TODO: Replace with the top 5 to 10 Features, Known Issues, or Migration pointers.
+* Designed based on the [Azure SDK Design Guidelines for Java](https://azuresdkspecs.z5.web.core.windows.net/JavaSpec.html), resulting in a consistent API design and common feature set such as HTTP retries, logging, transport protocols, authentication protocols, etc.
+* Modernized API making use of Java 8 features such as streams, new date / time, functional interfaces, etc, to offer an improved and more productive developer experience.
+* Synchronous and asynchronous APIs offer developers simplicity for simple cases, and full asynchronousity when performance and scalability matters. Reactive streams are offered using [Project Reactor](http://projectreactor.io).
+
+## Need help?
+* For reference documentation visit the [Azure SDK for Java documentation](http://aka.ms/java-docs).
+* For tutorials, samples, quick starts and other documentation, visit [Azure for Java Developers](https://docs.microsoft.com/java/azure/).
+* For build reports on code quality, test coverage, etc, visit [Azure Java SDK](https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-java/index.html).
+* File an issue via [Github Issues](https://github.com/Azure/azure-sdk-for-java/issues/new/choose).
+* Check [previous questions](https://stackoverflow.com/questions/tagged/azure-java-sdk) or ask new ones on StackOverflow using `azure-java-sdk` tag.
 
 ## Quick Links
-TODO: fill out table and update links
-| Service  | Install | Quickstart |  API Reference | Changelog |
-| -- | -- | -- | -- | -- |
-| Storage Blobs | TODO [package](https://crates.io/crates/azure_sdk_for_rust) | TODO [Readme.md](github.com) | TODO [Preview Documentation](azure.github.io) | TODO [Changelog.md](github.com) |
-| Event Hubs | [package](https://mvnrepository.com/artifact/com.azure/azure-messaging-eventhubs/5.0.0-preview.1) | [README.md](https://github.com/Azure/azure-sdk-for-java/blob/master/eventhubs/client/README.md) | TODO [Preview Documentation](azure.github.io) | [CHANGELOG.md](https://github.com/Azure/azure-sdk-for-java/blob/master/eventhubs/client/CHANGELOG.md) |
+
+| Service  | Readme | Changelog | Samples
+| -- | -- | -- | -- |
+| App Configuration | [Readme](https://github.com/Azure/azure-sdk-for-java/blob/master/appconfiguration/client/README.md) | - | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/appconfiguration/client/src/samples/java) |
+| Key Vault - Keys | [Readme](https://github.com/Azure/azure-sdk-for-java/blob/master/keyvault/client/keys/README.md) | [Changelog]([github.com](https://github.com/Azure/azure-sdk-for-java/blob/master/keyvault/client/keys/CHANGELOG.md)) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/keyvault/client/keys/src/samples/java) |
+| Key Vault - Secrets | [Readme](https://github.com/Azure/azure-sdk-for-java/blob/master/keyvault/client/secrets/README.md) | [Changelog]([github.com](https://github.com/Azure/azure-sdk-for-java/blob/master/keyvault/client/secrets/CHANGELOG.md)) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/keyvault/client/secrets/src/samples/java) |
+| Event Hubs | [Readme](https://github.com/Azure/azure-sdk-for-java/blob/master/eventhubs/client/README.md) | [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/eventhubs/client/CHANGELOG.md) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/eventhubs/client/azure-eventhubs/src/samples/java) |
+| Storage - Blob | [Readme](https://github.com/Azure/azure-sdk-for-java/blob/master/storage/client/README.md) | - | - |
