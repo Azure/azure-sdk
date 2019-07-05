@@ -8,7 +8,7 @@ To use the preview libraries, refer to the Maven dependency information below, w
 ```xml
 <dependency>
   <groupId>com.azure</groupId>
-  <artifactId>azure-app-configuration</artifactId>
+  <artifactId>azure-data-appconfiguration</artifactId>
   <version>1.0.0-preview.1</version>
 </dependency>
 
