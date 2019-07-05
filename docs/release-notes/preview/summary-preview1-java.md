@@ -1,6 +1,6 @@
 # Azure SDK for Java (July 2019 Preview) Release Notes
 
-The Azure SDK team is pleased to make available the July 2019 client library preview release. This represents the first release of the ground-up rewrite of the client libraries to ensure consistency, idiomatic design, and excellent developer experience and productivity. This preview release includes new client libraries for Azure App Configuration, Key Vault (keys and secrets), Event Hubs, and Storage (blob).
+The Azure SDK team is pleased to make available the July 2019 client library preview release. This represents the first release of the ground-up rewrite of the client libraries to ensure consistency, idiomatic design, and excellent developer experience and productivity. This preview release includes new client libraries for Azure App Configuration, Cosmos, Identity, Key Vault (keys and secrets), Event Hubs, and Storage (blob).
 
 ## Installation Instructions
 To use the preview libraries, refer to the Maven dependency information below, which may be copied into your projects Maven pom.xml file as appropriate. If you are using a different build tool, refer to its documentation on how to specify dependencies.
@@ -9,6 +9,18 @@ To use the preview libraries, refer to the Maven dependency information below, w
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-data-appconfiguration</artifactId>
+  <version>1.0.0-preview.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>azure-cosmos</artifactId>
+  <version>3.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-identity</artifactId>
   <version>1.0.0-preview.1</version>
 </dependency>
 
@@ -38,7 +50,7 @@ To use the preview libraries, refer to the Maven dependency information below, w
 ```
 
 ## Feedback
-If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/azure/azure-sdk-for-java/issues) and add the labels 'Preview', as well as either 'Bug' or 'Feature'.
+If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/azure/azure-sdk-for-java/issues).
 
 ## Changelog
 Detailed change logs are linked to in the Quick Links below. Here are some critical call outs.
@@ -48,7 +60,7 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 * Synchronous and asynchronous APIs offer developers simplicity for simple cases, and full asynchronousity when performance and scalability matters. Reactive streams are offered using [Project Reactor](http://projectreactor.io).
 
 ## Need help?
-* For reference documentation visit the [Azure SDK for Java documentation](http://aka.ms/java-docs).
+* For reference documentation visit the [Azure SDK for Java documentation](https://azure.github.io/azure-sdk-for-java/track2reports/index.html).
 * For tutorials, samples, quick starts and other documentation, visit [Azure for Java Developers](https://docs.microsoft.com/java/azure/).
 * For build reports on code quality, test coverage, etc, visit [Azure Java SDK](https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-java/index.html).
 * File an issue via [Github Issues](https://github.com/Azure/azure-sdk-for-java/issues/new/choose).
@@ -59,6 +71,7 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 | Service  | Readme | Changelog | Samples
 | -- | -- | -- | -- |
 | App Configuration | [Readme](https://github.com/Azure/azure-sdk-for-java/blob/master/appconfiguration/client/README.md) | - | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/appconfiguration/client/src/samples/java) |
+| Cosmos | [Readme](https://github.com/Azure/azure-cosmosdb-java/tree/v3/README.md) | - | [Samples](https://github.com/Azure/azure-cosmosdb-java/tree/v3/examples) |
 | Key Vault - Keys | [Readme](https://github.com/Azure/azure-sdk-for-java/blob/master/keyvault/client/keys/README.md) | [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/keyvault/client/keys/CHANGELOG.md) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/keyvault/client/keys/src/samples/java) |
 | Key Vault - Secrets | [Readme](https://github.com/Azure/azure-sdk-for-java/blob/master/keyvault/client/secrets/README.md) | [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/keyvault/client/secrets/CHANGELOG.md) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/keyvault/client/secrets/src/samples/java) |
 | Event Hubs | [Readme](https://github.com/Azure/azure-sdk-for-java/blob/master/eventhubs/client/README.md) | [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/eventhubs/client/CHANGELOG.md) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/eventhubs/client/azure-eventhubs/src/samples/java) |
