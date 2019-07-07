@@ -31,7 +31,7 @@ support both synchronous and asynchronous method calls.
 ~
 
 ~ Must {#general-apisurface-identifyasync}
-ensure that the consumer can identify which methods are asynchronous and which are synchronous.
+ensure that the consumer can identify which methods are asynchronous and which are synchronous. In Java this is achieved by having [separate service clients](#java-api-shape) for sync and async APIs.
 ~
 
 ### Authentication

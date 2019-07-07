@@ -52,6 +52,10 @@ Azure services will be exposed to Java developers as one or more service client 
 name service client types with the Client suffix, e.g. `ConfigurationClient`.
 ~
 
+~ Must {#java-client-annotate}
+annotate all service clients with the `@ServiceClient` annotation, with all fields appropriately set.
+~
+
 ~ Must {#java-client-root-package}
 place service clients in the root package of their corresponding client library, e.g. `com.azure.storage.blob.BlobClient`, as `com.azure.storage.blob` is considered the root package in this example.
 ~
@@ -157,6 +161,7 @@ offer a fluent builder API for constructing service clients named `<service_name
 
 package com.azure.<group>.<service_name>;
 
+@ServiceClientBuilder(serviceClients = {<service_name>Client.class, <service_name>AsyncClient.class})
 public final class <service_name>ClientBuilder {
 
     // private fields for all settable parameters
@@ -191,6 +196,10 @@ public final class <service_name>ClientBuilder {
 ```
 ~
 
+~ Must {#java-build-annotate}
+annotate service client builders with the `@ServiceClientBuilder` annotation.
+~
+
 ~ Must {#java-builder-api-consistency}
 ensure consistency across all client libraries, by using the following names for client builder fluent API:
 
@@ -201,12 +210,11 @@ ensure consistency across all client libraries, by using the following names for
 | `buildClient`        | Creates a new **sync** client on each call.                                          |
 | `configuration`      | Sets the configuration store that is used during construction of the service client. |
 | `credential`         | Sets the credential to use when authenticating HTTP requests.                        |
-| `connectionString`   | Sets the connection string to use for. This is less-preferred c.f. a `credential`.   |
+| `connectionString`   | Sets the connection string to use for.                                               |
 | `endpoint`           | URL to send HTTP requests to.                                                        |
 | `httpClient`         | Sets the HTTP client to use.                                                         |
 | `httpLogDetailLevel` | Sets the logging level for HTTP requests and responses.                              |
 | `pipeline`           | Sets the HTTP pipeline to use.                                                       |
-| `serviceVersion`     | Specifies the version of the Azure service to use.                                   |
 
 The one exception for consistency is that `endpoint` may be renamed if a more user-friendly name can be justified, e.g. `BlobClientBuilder.blobUrl()`.
 ~
@@ -215,6 +223,11 @@ The one exception for consistency is that `endpoint` may be renamed if a more us
 ensure consistency across all client libraries by having the same order of precedence for builder arguments, if there are scenarios where different configurations are possible. The following list outlines required precedence rules:
 
 1. If the user sets a non-null `pipeline`, all other settings related to construction and configuration of a pipeline are ignored. The provided pipeline is used as-is.
+2. If the user sets a `connectionString` and a `credential`, the `credential` will take precedence and the `connectionString` must be ignored.
+~
+
+~ Must {#java-builder-build-consistency-log}
+log at `info` level when a builder receives mutually exclusive arguments, as this suggests the consumer is not fully understanding of the API and are over-specifying builder arguments, some of which will necessarily be ignored.
 ~
 
 ~ Must {#java-build-async-validation} 
@@ -265,7 +278,7 @@ offer a builder class for model classes.
 ~
 
 ~ Must {#java-model-class-fluent}
-provide a fluent API for configuration. Name setter methods simply after the property being set, e.g. `proxy(Proxy p)`, and have all setter methods return `this`.
+provide a fluent API where appropriate, and in these cases apply the `@Fluent` annotation to the class. Name setter methods simply after the property being set, e.g. `proxy(Proxy p)`, and have all setter methods return `this`.
 ~
 
 ~ Must {#java-model-class-not-immutable}

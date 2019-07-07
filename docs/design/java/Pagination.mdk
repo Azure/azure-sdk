@@ -40,7 +40,7 @@ public final class ConfigurationAsyncClient {
 }
 ```
 
-Consumers of this API can then operate on a stream of `T`, or else they may convert this to a stream of `PagedResponse<T>`. For example, operating on a stream of `T` will happen by default when subscribing to the `PagedFlux`:
+Consumers of this API can then operate on a flux of `T`, or else they may convert this to a flux of `PagedResponse<T>`. For example, operating on a flux of `T` will happen by default when subscribing to the `PagedFlux`:
 
 ```java
 client.listSettings(..)
