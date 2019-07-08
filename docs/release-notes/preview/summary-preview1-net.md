@@ -29,8 +29,8 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
-- New client libraries created using the [Azure SDK Design Guidelines for .NET](https://azuresdkspecs.z5.web.core.windows.net/DotNetSpec.html) resulting in consistent API patterns and shared features like automatic retries, authentication, logging, configurable transport pipelines, exceptions, mocking, etc.
-- Support for Azure Active Directory credentials via our new Identity library that embrace the future of authentication across Azure services.
+- New client libraries were created using the [Azure SDK Design Guidelines for .NET](https://azuresdkspecs.z5.web.core.windows.net/DotNetSpec.html) resulting in consistent API patterns and shared features like automatic retries, authentication, logging, configurable transport pipelines, exceptions, mocking, etc.
+- Support for Azure Active Directory credentials using our new Identity library that embrace the future of authentication across Azure services.
 - Parity across synchronous and asynchronous APIs offering a choice appropriate to your application.
 
 ## Quick Links
