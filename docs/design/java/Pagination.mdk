@@ -5,7 +5,7 @@
 In the Azure SDK for Java we take the position that the sync API is intended for easier consumption, and therefore can (and should) be lesser-featured, in cases where offering a feature will increase the complexity of the API. For this reason, pagination in Java will differ between synchronous and asynchronous APIs:
 
 ~ Must {#java-sync-pagination-api}
-return `Stream<T>` for **synchronous** APIs. Users will not be able to receive any paging information, or indeed, any information whatsoever about the request headers. For example, the configuration service sync client will offer API in the following form:
+return `Stream<T>` for **synchronous** APIs (although exceptions can be requested for `List<T>` or `Iterable<T>`, where more appropriate). Users will not be able to receive any paging information, or indeed, any information whatsoever about the request headers. For example, the configuration service sync client will offer API in the following form:
 
 ```java
 public final class ConfigurationClient {
@@ -18,7 +18,7 @@ public final class ConfigurationClient {
 ~
 
 ~ MustNot {#java-pagination-illegal-types}
-use `List`, `Iterable`, `Iterator` or other collection types for sync APIs that return multiple values.
+use `List`, `Iterable`, or `Iterator` or other collection types for sync APIs that return multiple values (except where explictly allowed).
 ~
 
 ~ Must {#java-async-pagination-api}
