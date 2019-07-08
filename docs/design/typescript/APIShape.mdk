@@ -99,6 +99,19 @@ class ExampleClient {
 ```
 ~
 
+### Options {#ts-options}
+
+The guidelines in this section apply to options passed in options bags to clients, whether methods or constructors. When referring to option names, this means the key of the object users must use to specify that option when passing it into a method or constructor.
+
+~ Must {#ts-options-abortSignal}
+name abort signal options `abortSignal`
+~
+
+~ Must {#ts-options-suffix-durations}
+suffix durations with `In<Unit>`. Unit should be `ms` for milliseconds, and otherwise the name of the unit. Examples include `timeoutInMs` and `delayInSeconds`.
+~
+
+
 ### Response formats {#ts-responses}
 
 Requests to the service fall into two basic groups - methods that make a single logical request, or a deterministic sequence of requests.  An example of a *single logical request* is a request that may be retried inside the operation.  An example of a *deterministic sequence of requests* is a paged operation.
@@ -235,6 +248,7 @@ containerClient.createOrUpdate(); // use upsert
 containerClient.createBlobClient(); // should be `getBlobClient`.
 ```
 ~
+
 ### Network requests
 
 When an application makes a network request, the network infrastructure (like routers) and the called service may take a long time to respond and, in fact, may never respond. A well-written application SHOULD NEVER give up its control to the network infrastucture or service. Here are some examples as to why this is so important:
