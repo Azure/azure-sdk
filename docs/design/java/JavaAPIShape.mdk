@@ -265,6 +265,24 @@ prefer the use of the following terms for CRUD operations:
 remain flexible and use names best suited for developer experience for a particular client library. However, do not let this result in non-Java naming patterns. For example, using `getAll<noun>` instead of `list<noun>` would be frowned upon for a Java client library.
 ~
 
+~ Must {#java-service-method-context}
+provide a service method **in sync clients only** for each operation offered by the service where a consumer may provide a `com.azure.core.util.Context` argument. This argument must be the last argument into the service method (except where varargs are used). If a service method has multiple overloads (for different arguments), only the 'maximal' overloads need to have the `Context` argument. A maximal overload is one which has a full set of arguments (see sample below). It may not be necessary to offer a 'Context overload' in all cases - it is preferred to have minimal API surface area, but `Context` must always be supported.
+
+```java
+getFoo()
+getFoo(x)
+getFoo(x, y)
+getFoo(x, y, z) // maximal overload
+getFoo(a)       // maximal overload
+
+// this will result in the following two methods being required:
+getFoo(x, y, z, Context)
+getFoo(a, Context)
+```
+
+This must not be included in async clients, as they use [subscriber context built into Reactor Flux and Mono APIs](https://projectreactor.io/docs/core/release/reference/#context).
+~
+
 ### Model classes
 
 Model classes are classes that consumers use to provide required information into client library methods. These typically represent the domain model, or represent options classes that must be configured before the request can be made.
