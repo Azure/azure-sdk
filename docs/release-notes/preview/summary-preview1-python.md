@@ -34,7 +34,7 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 
 ### Keyvault
 
-* The `azure-keyvault` package has been split into `azure-keyvault-keys` and `azure-keyvault-secrets`. We intend to add `azure-keyvault-secrets` shortly.
+* The `azure-keyvault` package has been split into `azure-keyvault-keys` and `azure-keyvault-secrets`. We intend to add `azure-keyvault-certificates` shortly.
 
 *Note: The `azure-keyvault-keys` and `azure-keyvault-secrets` packages cannot be installed into the same environment as the existing `azure-keyvault` package.*
 
