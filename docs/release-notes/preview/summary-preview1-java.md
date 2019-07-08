@@ -70,7 +70,7 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 
 | Service  | Readme | Changelog | Samples
 | -- | -- | -- | -- |
-| App Configuration | [Readme](https://github.com/Azure/azure-sdk-for-java/blob/master/appconfiguration/client/README.md) | - | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/appconfiguration/client/src/samples/java) |
+| App Configuration | [Readme](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/appconfiguration/azure-data-appconfiguration/README.md) | - | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/appconfiguration/azure-data-appconfiguration/src/samples/java) |
 | Cosmos | [Readme](https://github.com/Azure/azure-cosmosdb-java/tree/v3/README.md) | - | [Samples](https://github.com/Azure/azure-cosmosdb-java/tree/v3/examples) |
 | Key Vault - Keys | [Readme](https://github.com/Azure/azure-sdk-for-java/blob/master/keyvault/client/keys/README.md) | [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/keyvault/client/keys/CHANGELOG.md) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/keyvault/client/keys/src/samples/java) |
 | Key Vault - Secrets | [Readme](https://github.com/Azure/azure-sdk-for-java/blob/master/keyvault/client/secrets/README.md) | [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/keyvault/client/secrets/CHANGELOG.md) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/keyvault/client/secrets/src/samples/java) |
