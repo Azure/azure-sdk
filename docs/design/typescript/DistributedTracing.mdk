@@ -1,7 +1,9 @@
 #### Distributed Tracing for JavaScript
 
-~ Must
+~ Draft
+~~ Must
 take an option named `parentSpanId` for all asynchronous operations.
-~
+~~
 
-As JavaScript does not have any primitives similar to async local context, we must manually "plumb" parent span IDs.
+JavaScript doesn't have primitives similar to a local context.  As such, we must manually plumb parent span IDs into the library.
+~
