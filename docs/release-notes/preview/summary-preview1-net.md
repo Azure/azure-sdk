@@ -1,6 +1,6 @@
 # Azure SDK for .NET Preview 1 Release Notes
 
-The Azure SDK team is pleased to announce our July 2019 client library preview.  This represents the first release of a ground-up rewrite of our client libraries to ensure consistency, idiomatic design, productivity, and an excellent developer experience.  This preview includes new libraries for Storage (Blobs, Queues, and Files), Key Vault (Secrets and Keys), Event Hubs, Cosmos, Identity, and Azure App Configuration.
+The Azure SDK team is pleased to announce our July 2019 client library preview.  This represents the first release of a ground-up rewrite of our client libraries to ensure consistency, idiomatic design, productivity, and an excellent developer experience.  This preview includes new libraries for Storage (Blobs, Queues, and Files), Key Vault (Secrets and Keys), Event Hubs, Cosmos, and Identity.
 
 ## Installation Instructions
 
@@ -19,8 +19,6 @@ To install any of our packages, please search for them via `Manage NuGet Package
 
     $> dotnet add package Azure.Identity --version 1.0.0-preview.2
 
-    $> dotnet add package Azure.ApplicationModel.Configuration --version 1.0.0-preview.2
-
 ## Feedback
 
 If you have a bug or feature request for one of the libraries, please [file an issue in our repo](https://github.com/Azure/azure-sdk-for-net/issues/new/choose).
@@ -37,7 +35,6 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 | Service  | Install | Readme | Samples |  API Reference | Changelog |
 | -- | -- | -- | -- | -- | -- |
-| App Configuration | [Package](https://www.nuget.org/packages/Azure.ApplicationModel.Configuration/) | [Readme](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/appconfiguration/Azure.ApplicationModel.Configuration/README.md) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/appconfiguration/Azure.ApplicationModel.Configuration/samples) | [API Reference](https://azure.github.io/azure-sdk-for-net/api/ApplicationModel.Configuration/Azure.ApplicationModel.Configuration.html) | - |
 | Core | [Package](https://www.nuget.org/packages/Azure.Core) | [Readme](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/README.md) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/core/Azure.Core/tests/samples) | [API Reference](https://azure.github.io/azure-sdk-for-net/api/Core/Azure.Core.html) | - |
 | Cosmos | [Package](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) | [Readme](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/README.md) | [Samples](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/CodeSamples) | [API Reference](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos?view=azure-dotnet-preview) | [Changelog](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md) |
 | Event Hubs | [Package](https://www.nuget.org/packages/Azure.Messaging.EventHubs/) | [Readme](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/README.md) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples) | [API Reference](https://azure.github.io/azure-sdk-for-net/api/EventHubs/Azure.Messaging.EventHubs.html) | [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md) |
