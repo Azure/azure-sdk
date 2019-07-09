@@ -23,7 +23,7 @@ To install any of our packages, please search for them via `Manage NuGet Package
 
 ## Feedback
 
-If you have a bug or feature request for one of the libraries, please [file an issue in our repo](https://github.com/Azure/azure-sdk-for-net/issues/new/choose) and add the labels `Preview` and `Bug` or `Feature`.
+If you have a bug or feature request for one of the libraries, please [file an issue in our repo](https://github.com/Azure/azure-sdk-for-net/issues/new/choose).
 
 ## Changelog
 
