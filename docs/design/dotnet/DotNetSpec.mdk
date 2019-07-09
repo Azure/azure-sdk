@@ -252,7 +252,7 @@ return `Response<T>` or `Response` from synchronous methods.
 ~ Must {#dotnet-method-async-returntype}
 return `Task<Response<T>>` or `Task<Response>` from asynchronous methods that make network requests.
 
-There are two possible return types from asynchronous methods: `Task` and `ValueTask`. Your code will be doing a network request in the majority of cases.  The `Task` variant is more appropriate for this use case. 
+There are two possible return types from asynchronous methods: `Task` and `ValueTask`. Your code will be doing a network request in the majority of cases.  The `Task` variant is more appropriate for this use case. For more information, see [this blog post](https://devblogs.microsoft.com/dotnet/understanding-the-whys-whats-and-whens-of-valuetask/#user-content-should-every-new-asynchronous-api-return-valuetask--valuetasktresult).
 
 `T` represents the content of the response. For more information, see [Service Method Return Types](#dotnet-method-return).
 ~
