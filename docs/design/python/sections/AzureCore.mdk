@@ -1,0 +1,84 @@
+## Azure core {#python-azure-core}
+
+The `azure-core` package provides common functionality for client libraries. Documentation and usage examples can be found in the [azure-sdk-for-python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/core/azure-core) repository.
+
+### HTTP pipeline {#python-core-http-pipeline}
+
+The HTTP pipeline consists of a HTTP transport that is wrapped by multiple policies. Each policy is a control point during which the pipeline can modify either the request or response (or both). To standardize the way that client libraries interact with Azure services, we prescribe a default set of policies. The order in the list is the most sensible order for implementation.
+
+For more information on the Python implementation of the pipeline, see the [documentation](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/core/azure-core).
+
+#### Custom Policies
+
+Some services may require custom policies to be implemented. This may be because of custom retry logic (e.g. falling back to secondary endpoints) or specialized authentication (e.g. signing of part or all of the request).
+
+~ Should
+use the policy implementations in Azure Core whenever possible. If you need another option to an existing policy, please file an [issue](https://github.com/Azure/azure-sdk/issues/new?assignees=adrianhall&labels=architecture&template=guidelines_change.md&title=Change+Request%3A+%3Cshort+description%3E+for+%3Ctarget+language%3E) and contact @adparch to add the option.
+~
+
+~ Must
+document any custom policies in your package. The documentation should make it clear how a user of your library is supposed to use the policy.
+~
+
+~ Must
+add the policies to the `azure.<package name>.pipeline.policies` namespace.
+~
+
+### Protocols
+#### LROPoller {#python-core-protocol-lro-poller}
+
+```python
+T = TypeVar("T")
+class LROPoller(Protocol):
+
+    def result(self, timeout=None) -> T:
+        """ Retreive the final result of the long running operation.
+
+        :param timeout: How long to wait for operation to complete (in seconds). If not specified, there is no timeout.
+        :raises TimeoutException: If the operation has not completed before it timed out.
+        """
+        ...
+
+    def wait(self, timeout=None) -> None:
+        """ Wait for the operation to complete.
+
+        :param timeout: How long to wait for operation to complete (in seconds). If not specified, there is no timeout.
+        """
+    
+    def done(self) -> boolean:
+        """ Check if long running operation has completed. 
+        """
+
+    def add_done_callback(self, func) -> None:
+        """ Register callback to be invoked when operation completes.
+
+        :param func: Callable that will be called with the eventual result ('T') of the operation.
+        """
+        ...
+```
+
+`azure.core.LROPoller` implements the `LROPoller` protocol.
+
+#### Paged {#python-core-protocol-paged}
+
+```python
+T = TypeVar("T")
+class ByPagePaged(Protocol, Iterable[Iterable[T]]):
+    continuation_token: "str"
+
+class Paged(Protocol, Iterable[T]):
+    continuation_token: "str"
+
+    def by_page(self) -> ByPagePaged[T] ...
+```
+
+`azure.core.Paged` implements the `Paged` protocol.
+
+#### DiagnosticsResponseHook
+
+```python
+class ResponseHook(Protocol):
+    
+    __call__(self, headers, deserialized_response): -> None ...
+
+```
