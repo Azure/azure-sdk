@@ -15,9 +15,9 @@ public final class ConfigurationAsyncClient {
     // information out to the service logger instance
     public Mono<Response<ConfigurationSetting>> setSetting(ConfigurationSetting setting) {
         return service.setKey(serviceEndpoint, setting.key(), setting.label(), setting, getETagValue(setting.etag()), null)
-            .doOnRequest(ignoredValue -> logger.asInfo().log("Setting ConfigurationSetting - {}", setting))
-            .doOnSuccess(response -> logger.asInfo().log("Set ConfigurationSetting - {}", response.value()))
-            .doOnError(error -> logger.asWarning().log("Failed to set ConfigurationSetting - {}", setting, error));
+            .doOnRequest(ignoredValue -> logger.info("Setting ConfigurationSetting - {}", setting))
+            .doOnSuccess(response -> logger.info("Set ConfigurationSetting - {}", response.value()))
+            .doOnError(error -> logger.warning("Failed to set ConfigurationSetting - {}", setting, error));
     }
 }
 ```

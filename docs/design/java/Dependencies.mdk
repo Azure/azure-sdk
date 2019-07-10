@@ -21,3 +21,7 @@ introduce new dependencies on third party libraries that are already referenced 
 ~ MustNot {#java-no-dependency-version-overrides}
 specify or change dependency versions in your client library POM file. All dependency versioning must be centralized through the common parent POM.
 ~
+
+~ MustNot {#java-no-dependency-snapshots}
+include dependencies on external libraries that are -SNAPSHOT versions. All dependencies must be released versions.
+~
