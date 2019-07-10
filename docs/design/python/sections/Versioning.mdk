@@ -6,6 +6,12 @@ use [semantic versioning](https://semver.org) for your package.
 ~
 
 ~ Must
+use the `bN` pre-release segment for [preview releases](https://www.python.org/dev/peps/pep-0440/#pre-releases). 
+
+You **must not** use pre-release segments other than the ones defined in PEP440 (`aN`, `bN`, `rcN`) since build and publication tools and index servers may not sort the versions correctly.
+~
+
+~ Must
 change the version number if *anything* changes in the library.
 ~
 
@@ -38,5 +44,5 @@ use the latest known version of the service protocol when making requests. This 
 ~
 
 ~ Must
-allow a client application to specify an earlier version of the service protocol. See TODO: insert link to client constructor for details.
+allow a client application to specify an earlier version of the service protocol.
 ~

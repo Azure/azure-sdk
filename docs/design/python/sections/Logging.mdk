@@ -4,7 +4,7 @@ use Pythons standard [logging module](https://docs.python.org/3/library/logging.
 ~
 
 ~ Must {#python-specific-logging-named-loggers}
-provide a named logger for you library. The logger for your package **must** use the name of the module. The library **may** provide additional child loggers. If provided, additional child loggers *must* be documented.
+provide a named logger for your library. The logger for your package **must** use the name of the module. The library **may** provide additional child loggers. If provided, additional child loggers *must* be documented.
 
 Ex.
 
@@ -49,9 +49,4 @@ log an `INFO` message, if a service call is cancelled.
 log exceptions thrown as a `WARNING` level message. If the log level set to `DEBUG`, append stack trace information to the message. 
 
 You can determine the logging level for a given logger by calling [`logging.Logger.isEnabledFor`](https://docs.python.org/3/library/logging.html#logging.Logger.isEnabledFor)
-~
-
-
-~ Todo
-describe format/syntax of the log messages.
 ~

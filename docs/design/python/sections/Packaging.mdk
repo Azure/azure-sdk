@@ -12,10 +12,6 @@ use all lowercase in your package name with a dash (-) as a separator.
 use underscore (_) or period (.) in your package name. If your namespace includes underscores, replace them with dash (-) in the distribution package name.
 ~
 
-~ Must {#python-semver}
-use semantic versioning for your package.
-~
-
 ~ Must {#python-follow-packaging-guidance}
 follow the specific package guidance from the [azure-sdk-packaging wiki](https://github.com/Azure/azure-sdk-for-python/wiki/Azure-packaging)
 ~
@@ -35,11 +31,11 @@ include `__init__.py` for the namespace(s) in sdists
 ### Binary extensions
 
 ~ Must {#python-support-operating-systems}
-be approved by @adparch
+be approved by @adparch. Please file an [issue](https://github.com/Azure/azure-sdk/issues/new?assignees=adrianhall&labels=architecture%2C+board-review&template=adp_review.md&title=Board+Review%3A+%3Cclient+library+name%3E) to get your request reviewed..
 ~
 
 ~ Must {#python-support-operating-systems}
-support Windows, Linux (manylinux - see PEP513), macOS. You **should** support the earliest possible manylinux as this will maximize your reach.
+support Windows, Linux (manylinux - see [PEP513](https://www.python.org/dev/peps/pep-0513/), [PEP571](https://www.python.org/dev/peps/pep-0571/)), macOS. You **should** support the earliest possible manylinux as this will maximize your reach.
 ~
 
 ~ Must {#python-support-platforms}

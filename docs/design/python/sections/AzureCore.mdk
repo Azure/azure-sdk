@@ -13,7 +13,7 @@ For more information on the Python implementation of the pipeline, see the [docu
 Some services may require custom policies to be implemented. This may be because of custom retry logic (e.g. falling back to secondary endpoints) or specialized authentication (e.g. signing of part or all of the request).
 
 ~ Should
-use the policy implementations in Azure Core whenever possible. If you need another option to an existing policy, contact @adparch to add the option.
+use the policy implementations in Azure Core whenever possible. If you need another option to an existing policy, please file an [issue](https://github.com/Azure/azure-sdk/issues/new?assignees=adrianhall&labels=architecture&template=guidelines_change.md&title=Change+Request%3A+%3Cshort+description%3E+for+%3Ctarget+language%3E) and contact @adparch to add the option.
 ~
 
 ~ Must
@@ -23,10 +23,6 @@ document any custom policies in your package. The documentation should make it c
 ~ Must
 add the policies to the `azure.<package name>.pipeline.policies` namespace.
 ~
-
-#### Transports
-
-#### Configuration
 
 ### Protocols
 #### LROPoller {#python-core-protocol-lro-poller}

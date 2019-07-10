@@ -42,10 +42,6 @@ class ExampleClient(object): # Don't mix'n match with different method names
 ```
 ~
 
-~ Must {#python-async-namespace}
-use the same namespace for the synchronous client as the synchronous version of the package with .aio appended.
-~
-
 ~ Must {#python-use-same-client-async}
 use the same client name for sync and async packages
 
@@ -55,6 +51,10 @@ Example:
 |-|-|-|-|
 |Sync|azure.sampleservice|azure-sampleservice|azure.sampleservice.SampleServiceClient|
 |Async|azure.sampleservice.aio|azure-sampleservice-aio|azure.sampleservice.aio.SampleServiceClient|
+~
+
+~ Must {#python-async-namespace}
+use the same namespace for the synchronous client as the synchronous version of the package with .aio appended.
 ~
 
 ~ Should {#python-async-package}
@@ -67,10 +67,6 @@ use the same name for the asynchronous version of the package as the synchronous
 
 ~ Must {#python-use-aiohttp}
 use [aiohttp](https://aiohttp.readthedocs.io/en/stable/) as the default HTTP stack for async operations. This **should** be done by making `azure.core.pipeline.transport.AioHttpTransport` the default `transport` type for the async client.
-~
-
-~ Should {#python-support-other-async}
-support async frameworks other than asyncio (i.e. [Trio](https://trio.readthedocs.io/en/latest/))
 ~
 
 

@@ -12,8 +12,12 @@ A compressed service name is the service name without spaces. It may further be 
 You **may** separate words using an underscore if required. If used, `mediaanalytics` would become `media_analytics`
 ~
 
+~ May
+include a group name segment in your namespace (e.g. `azure.<group>.servicename`) if your service or family of services have common behavior (e.g. shared authentication types etc.). If you want to use a group name segment, you **must** register the group name segment with @adparch.
+~
+
 ~ Must
-place management (ARM) APIs in the `mgmt` group. Use the grouping azure.mgmt.<ServiceName> for the namespace. Since more services require control plane APIs than data plane APIs, other namespaces may be used explicitly for control plane only.
+place management (ARM) APIs in the `mgmt` group. Use the grouping `azure.mgmt.<servicename>` for the namespace. Since more services require control plane APIs than data plane APIs, other namespaces may be used explicitly for control plane only.
 ~
 
 ~ Must 

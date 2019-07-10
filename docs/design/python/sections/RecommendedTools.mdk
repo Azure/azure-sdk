@@ -49,5 +49,7 @@ use [Black](https://black.readthedocs.io/en/stable/) for formatting your code.
 ~
 
 ~ Should {#python-use-mypy}
-use [MyPy](https://mypy.readthedocs.io/en/latest/) to statically check your code
+use [MyPy](https://mypy.readthedocs.io/en/latest/) to statically check the public surface area of your library.
+
+*Note: there is no requirement to do check non-shipping code such as tests.*
 ~

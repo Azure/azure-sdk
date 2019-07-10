@@ -3,7 +3,6 @@
 ~ Must {#python-dependency-well-known}
 only pick external dependencies from the following list of well known packages for shared functionality:
 
-  - msal
   - six (python 2 and 3 compatibility)
   - enum34 (backport of Enum for Python2)
   - requests (synchronous HTTP)
@@ -24,7 +23,7 @@ vendor dependencies unless approved by @adparch. Vendoring can sometimes be pref
 ~
 
 ~ MustNot {#python-no-explicit-version-lock}
-pin a specific version of a dependency unless that is the only way to work-around a bug in said dependencys versioning scheme. A library should use a [compatible release](https://www.python.org/dev/peps/pep-0440/#compatible-release) identifier for the dependency.
+pin a specific version of a dependency unless that is the only way to work-around a bug in said dependencies versioning scheme. A library should use a [compatible release](https://www.python.org/dev/peps/pep-0440/#compatible-release) identifier for the dependency.
 
 *Applications are expected to pin exact dependencies. Libraries are not.*.
 ~
