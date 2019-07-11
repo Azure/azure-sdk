@@ -33,19 +33,19 @@ follow the general guidelines in [PEP8](https://www.python.org/dev/peps/pep-0008
 ~ MustNot {#python-no-borrowing}
 "borrow" coding paradigms from other languages.
 
-  *For example, regardless of how common Reactive programming is in the Java community, it is still unfamiliar for most Python developers.*
+For example, no matter how common Reactive programming is in the Java community, it's still unfamiliar for most Python developers.
 ~
 
 ~ Must {#python-consistency}
-favor consistency with other Python components over other libraries for the same service
+favor consistency with other Python components over other libraries for the same service.
 
-  *It is significantly more likely that a developer will use many different libraries using the same languages than that a developer will use the same service from many different languages*
+It's more likely that a developer will use many different libraries using the same language than a developer will use the same service from many different languages.
 ~
 
 ## Naming conventions {#python-naming-convention}
 
 ~ Must {#python-snake-case}
-use snake_case for variable, function and method names:
+use snake_case for variable, function, and method names:
 
 ```python
 # Yes:
@@ -106,7 +106,9 @@ use snake_case for module names.
 ## Method signatures
 
 ~ MustNot
-use static methods ([`staticmethod`](https://docs.python.org/3/library/functions.html#staticmethod)) unless absolutely required. Prefer module level functions instead. This is rare and usually forced by other libraries.
+use static methods ([`staticmethod`](https://docs.python.org/3/library/functions.html#staticmethod)). Prefer module level functions instead. 
+
+Static methods are rare and usually forced by other libraries.
 ~
 
 ~ MustNot
@@ -199,11 +201,11 @@ foo(1, 2, 3)
 ## Public vs "private"
 
 ~ Must {#python-single-underscore}
-use a single leading underscore to indicate that a name is not part of the public API and is not guaranteed stable.
+use a single leading underscore to indicate that a name isn't part of the public API.  Non-public APIs aren't guaranteed to be stable.
 ~
 
 ~ MustNot {#python-no-leading-underscore}
-use leading double underscore prefixed method names unless name clashes in inheritence hierarchy are likely. This is rare. 
+use leading double underscore prefixed method names unless name clashes in the inheritance hierarchy are likely.
 ~
 
 ~ Must {#python-add-public-methods-to-all}
@@ -254,23 +256,23 @@ Examples: [`asyncio.loop.call_soon_threadsafe`](https://docs.python.org/3/librar
 ~
 
 ~ Should
-allow callers to pass in an [`Executor`](https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.Executor) instance rather than defining your own thread or process management for parallelism. 
+allow callers to pass in an [`Executor`](https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.Executor) instance rather than defining your own thread or process management for parallelism.
 
-An exception to this rule is if your library is using a background thread to wait on blocking I/O with only occasional processing, and it is not exposed to the caller in any way. An example of this is the background poller thread for the default `LROPoller` implementation.
+You may do your own process management if the thread isn't exposed to the caller in any way. For example, the `LROPoller` implementation uses a background poller thread.
 ~
 
 ## Docstrings
 
-~ Must 
+~ Must
 follow the [documentation guidelines](http://aka.ms/pydocs) unless explicitly overridden in this document.
 ~
 
 ~ Must
-provide docstrings for all public modules, types and methods.
+provide docstrings for all public modules, types, and methods.
 ~
 
 ~ Must
-document any `**kwarg` directly consumed by a method. You **may** refer to the signature of a called method if the `**kwargs` are simply passed through.
+document any `**kwargs` directly consumed by a method. You may refer to the signature of a called method if the `**kwargs` are passed through.
 
 Example:
 ```python
@@ -283,11 +285,11 @@ def get(*args, **kwargs):
 ~
 
 ~ Must
-provide inline. code examples for each non-trivial method.
+provide inline code examples for each non-trivial method.
 
-you **may** use the `.. literalinclude::` directive to pull code examples from a separate file. The separate files **should** be a valid `pytest`. This allows for continous verification of the code examples.
+Use the `.. literalinclude::` directive to pull code examples from a separate file. The separate files should be a valid `pytest`.  Include the separate code samples in the test suite for continuous verification.
 ~
 
 ~ Must {#python-document-exceptions}
-document exceptions that may be raised explicitly in the method in addition to any exceptions raised by called method.
+document exceptions that may be raised explicitly in the method and any exceptions raised by the called method.
 ~

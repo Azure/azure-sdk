@@ -21,7 +21,7 @@ follow the [namespace package recommendations for Python 3.x](https://docs.pytho
 ~
 
 ~ Must {#python-use-azure-nspkg}
-depend on azure-nspkg for Python 2.x
+depend on `azure-nspkg` for Python 2.x.
 ~
 
 ~ Must {#python-include-init}
@@ -31,18 +31,20 @@ include `__init__.py` for the namespace(s) in sdists
 ### Binary extensions
 
 ~ Must {#python-support-operating-systems}
-be approved by @adparch. Please file an [issue](https://github.com/Azure/azure-sdk/issues/new?assignees=adrianhall&labels=architecture%2C+board-review&template=adp_review.md&title=Board+Review%3A+%3Cclient+library+name%3E) to get your request reviewed..
+be approved by [adparch](https://github.com/azure/azure-sdk/issues). 
 ~
 
 ~ Must {#python-support-operating-systems}
-support Windows, Linux (manylinux - see [PEP513](https://www.python.org/dev/peps/pep-0513/), [PEP571](https://www.python.org/dev/peps/pep-0571/)), macOS. You **should** support the earliest possible manylinux as this will maximize your reach.
+support Windows, Linux (manylinux - see [PEP513](https://www.python.org/dev/peps/pep-0513/), [PEP571](https://www.python.org/dev/peps/pep-0571/)), and MacOS. 
+
+Support the earliest possible manylinux to maximize your reach.
 ~
 
 ~ Must {#python-support-platforms}
-support x86, x64
+support both x86 and x64 architectures.
 ~
 
 ~ Must {#python-support-unicode-ascii}
-support unicode and ascii versions of CPython 2.7
+support unicode and ascii versions of CPython 2.7.
 ~
 
