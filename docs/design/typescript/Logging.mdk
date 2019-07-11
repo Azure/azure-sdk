@@ -17,11 +17,11 @@ create log channels for the following log levels with the following channel name
 ~
 
 ~ May
-have additional log channels for example to log from separate components. However, these channels MUST still provide the three log levels from above for each sub-channel.
+have additional log channels, for example, to log from separate components. However, these channels MUST still provide the three log levels from above for each subchannel.
 ~
 
 ~ Must
-expose all log channels as top-level exports of your package. This allows users to configure how the logging happens and integrate with 3rd-party loggers.
+expose all log channels as top-level exports of your package, allowing the consumer to configure how the logging happens and integrate with 3rd-party loggers.
 ~
 
 ~ Example {#ts-example-loggin-integration}
