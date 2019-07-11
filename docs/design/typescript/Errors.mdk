@@ -9,5 +9,5 @@ use ECMAScript built-in error types for validation failures when appropriate. Sp
 ~
 
 ~ Should {#ts-error-handling-coercion}
-coerce incorrect types into an appropriate type, if possible. JavaScript users expect some amount of fuzziness with parameters as the standard library tends to coerce types if possible. TypeScript users should get pedantic types as they have opted in to types and expect errors.
+coerce incorrect types into an appropriate type, if possible. JavaScript users expect some amount of fuzziness with parameters as the standard library will coerce types if possible. TypeScript users should get pedantic types as they've opted in to types and expect errors.
 ~
