@@ -1,0 +1,42 @@
+[INCLUDE=../general/Logging.mdk]
+
+~ Must {#java-logging-use-clientlogger}
+use the `ClientLogger` API provided within Azure Core as the sole logging API throughout all client libraries. Internally, `ClientLogger` wraps [SLF4J](https://www.slf4j.org/), so all external configuration that is offered through SLF4J is valid, and this is encouraged to be exposed to end users to configure their logging. Refer to the [SLF4J user manual](https://www.slf4j.org/manual.html) for additional guidance.
+~
+
+~ MustNot {#java-logging-no-static-logger}
+create static logger instances, as these will be shared among all client library instances running in a JVM instance. Instead, create a new instance of a `ClientLogger` per instance of all relevant classes. For example, the code below will create a `ClientLogger` instance for the `ConfigurationAsyncClient`, such that each instance of this class will have a unique instance of the `ClientLogger`.
+
+```java
+public final class ConfigurationAsyncClient {
+    private final ClientLogger logger = new ClientLogger(ConfigurationAsyncClient.class);
+    
+    // example async call to a service that uses the Project Reactor APIs to log request, success, and error
+    // information out to the service logger instance
+    public Mono<Response<ConfigurationSetting>> setSetting(ConfigurationSetting setting) {
+        return service.setKey(serviceEndpoint, setting.key(), setting.label(), setting, getETagValue(setting.etag()), null)
+            .doOnRequest(ignoredValue -> logger.info("Setting ConfigurationSetting - {}", setting))
+            .doOnSuccess(response -> logger.info("Set ConfigurationSetting - {}", response.value()))
+            .doOnError(error -> logger.warning("Failed to set ConfigurationSetting - {}", setting, error));
+    }
+}
+```
+~
+
+~ Must {#java-logging-thrown-exceptions}
+throw all exceptions created within the client library code through the `ClientLogger` `logAndThrow` API. This ensures that all exceptions are properly logged. For example, rather than writing code such as shown below:
+
+```java
+if (priority != null && priority < 0) {
+    throw new IllegalArgumentException("'priority' cannot be a negative value. Please specify a zero or positive long value.");
+}
+```
+
+It is instead required to write the following equivalent code:
+
+```java
+if (priority != null && priority < 0) {
+    logger.logAndThrow(new IllegalArgumentException("'priority' cannot be a negative value. Please specify a zero or positive long value."));
+}
+```
+~
