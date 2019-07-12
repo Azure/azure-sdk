@@ -47,7 +47,7 @@ The following is a list of Azure services and links to their open source code:
 | Log Analytics Query | [.NET](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/OperationalInsights/DataPlane) [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/loganalytics/data-plane) [Node](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/loganalytics) [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-loganalytics) |
 | Data Lake Analytics | [.NET](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/DataLake.Analytics) [Java](https://github.com/Azure/azure-libraries-for-java/tree/master/azure-mgmt-datalake-analytics) [Node](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/dataLake.Analytics) [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-mgmt-datalake-analytics) |
 | Data Lake Store | [.NET](https://github.com/Azure/azure-data-lake-store-net) [Java](https://github.com/Azure/azure-data-lake-store-java) [Python](https://github.com/Azure/azure-data-lake-store-python) |
-| Azure Search | [.NET](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Search) |
+| Azure Search | [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/search) |
 | Relay | [.NET](https://github.com/Azure/azure-relay-dotnet) [Node](https://github.com/Azure/azure-relay-node) |
 | Cognitive Services | [.NET](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane) [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/cognitiveservices/data-plane) | [Node](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services) [Python](https://github.com/Azure/azure-sdk-for-python) |
 
