@@ -38,7 +38,7 @@ The `DEBUG` logging level is intended for developers or system administrators to
 ~
 
 ~ MustNot {#python-logging-no-sensitive-info}
-send personally identifiable or sensitive information in log levels other than `DEBUG`.  For example, redact or remove account keys when logging headers.
+send sensitive information in log levels other than `DEBUG`.  For example, redact or remove account keys when logging headers.
 ~
 
 ~ Must {#python-logging-requests-in-info}

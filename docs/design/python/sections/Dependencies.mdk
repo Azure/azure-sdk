@@ -21,7 +21,7 @@ use external dependencies outside the list of [well known dependencies](#python-
 ~ MustNot {#python-no-vendor-deps}
 vendor dependencies unless approved by [adparch](https://github.com/azure/azure-sdk/issues).
 
-When you vendor a dependency in Python, you include the source from another package as if it was part of your package. Copying the source is sometimes preferable over taking a dependency.
+When you vendor a dependency in Python, you include the source from another package as if it was part of your package.
 ~
 
 ~ MustNot {#python-no-explicit-version-lock}
@@ -29,3 +29,5 @@ pin a specific version of a dependency unless that is the only way to work aroun
 
 Applications are expected to pin exact dependencies. Libraries aren't. A library should use a [compatible release](https://www.python.org/dev/peps/pep-0440/#compatible-release) identifier for the dependency.
 ~
+
+[INCLUDE=../general/CommonLibrary.mdk]
