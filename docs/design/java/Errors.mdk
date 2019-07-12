@@ -1,0 +1,43 @@
+[INCLUDE=../general/Errors.mdk]
+ 
+#### Java specific guidelines {#java-errors}
+
+Java offers checked and unchecked exceptions, where checked exceptions force the user to introduce verbose `try .. catch` code blocks and handle each specified exception. The position we take in the Azure SDK for Java is to primarily use unchecked exceptions, to avoid this verbosity, and to improve scalability issues inherent with checked exceptions in large applications.
+
+~ Must {#java-exceptions-unchecked-only}
+use unchecked exceptions for CRUD operation calls.
+~
+
+~ Must {#java-exceptions-javadoc}
+specify all checked and unchecked exceptions thrown in a method within the JavaDoc documentation on the method as `@throws` statements.
+~
+
+~ Must {#java-exceptions-use-existing-azure-types}
+use the existing exception types present in azure-core whenever an exception arises due to a failure to complete a cloud request. Avoid creating new types unless absolutely necessary. The following list outlines all available exception types (with indentation indicating exception type hierarchy), as well as a short description when to use it:
+
+- `AzureException`: Never use this directly, throw a more specific subtype.
+  - `ServiceRequestException`: Thrown for an invalid response with custom error information.
+    - `ReadTimeoutException`: Thrown when the server did not send any data in the allotted amount of time.
+    - `ConnectException`: Thrown by the pipeline if a connection to a service fails or is refused remotely.
+    - `HttpRequestException`: Thrown when an unsuccessful response (4xx, 5xx) is returned from the service.
+      - `ServerException`: Thrown when there is a server error with status code of 5XX.
+      - `TooManyRedirectsException`: Thrown when an HTTP request has reached the maximum number of redirect attempts.
+      - `ClientRequestException`: Thrown when there is an invalid client request with status code of 4XX.
+        - `ClientAuthenticationException`: Thrown when there is a failure to authenticate against the service.
+        - `ResourceExistsException`: Thrown when an HTTP request tried to create an already existing resource.
+        - `ResourceModifiedException`: Thrown for invalid resource modification with status code of 4XX, typically 412 Conflict.
+        - `ResourceNotFoundException`: Thrown when a resource is not found, typically triggered by a 412 response (for update) or 404 (for get/post).
+  - `ServiceResponseException`: Thrown when the request was sent to the service, but the client library was not able to understand the response.
+    - `DecodeException`: Thrown when there is an error during response deserialization.
+~
+
+~ Must {#java-exceptions-use-existing-jdk-types}
+favour the use of a few standard Java exceptions for pre-condition checking:
+
+| Exception                       | When to use                                                    |
+|---------------------------------|----------------------------------------------------------------|
+| `IllegalArgumentException`      | When a method argument is non-null, but inappropriate          |
+| `IllegalStateException`         | When the object state means method invocation cannot proceed   |
+| `NullPointerException`          | When a method argument is required to be non-null, but is null |
+| `UnsupportedOperationException` | When an object does not support method invocation              |
+~

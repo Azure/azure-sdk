@@ -1,0 +1,67 @@
+[INCLUDE=../general/Pagination.mdk]
+ 
+#### Java specific guidelines {#java-pagination}
+
+In the Azure SDK for Java we take the position that the sync API is intended for easier consumption, and therefore can (and should) be lesser-featured, in cases where offering a feature will increase the complexity of the API. For this reason, pagination in Java will differ between synchronous and asynchronous APIs:
+
+~ Must {#java-sync-pagination-api}
+return `Stream<T>` for **synchronous** APIs (although exceptions can be requested for `List<T>` or `Iterable<T>`, where more appropriate). Users will not be able to receive any paging information, or indeed, any information whatsoever about the request headers. For example, the configuration service sync client will offer API in the following form:
+
+```java
+public final class ConfigurationClient {
+    // synchronous API returning a Stream of ConfigurationSetting instances
+    public Stream<ConfigurationSetting> listSettings(...) {
+        ...
+    }
+}
+```
+~
+
+~ MustNot {#java-pagination-illegal-types}
+use `List`, `Iterable`, or `Iterator` or other collection types for sync APIs that return multiple values (except where explictly allowed).
+~
+
+~ Must {#java-async-pagination-api}
+return `PagedFlux<T>` for **asynchronous** APIs, if the service offers paging (if it does not, a `Flux<T>` return type is recommended):
+
+```java
+public final class ConfigurationAsyncClient {
+
+    // asynchronous API returning a PagedFlux of ConfigurationSetting instances
+    public PagedFlux<ConfigurationSetting> listSettings(SettingSelector options, Context context) {
+        // The first lambda is a Supplier<PagedResponse<T>> returning the first page of results 
+        // as a Mono<PagedResponse<T>>.
+        // The second lambda is a Function<String, Mono<PagedResponse<T>>>, returning a 
+        // Mono<PagedResponse<T>> representing a page based on the provided continuationToken.
+        return new PagedFlux<>(
+            () -> listFirstPageSettings(options, context),
+            continuationToken -> listNextPageSettings(contextWithSpanName, continuationToken));
+    }
+}
+```
+
+Consumers of this API can then operate on a flux of `T`, or else they may convert this to a flux of `PagedResponse<T>`. For example, operating on a flux of `T` will happen by default when subscribing to the `PagedFlux`:
+
+```java
+client.listSettings(..)
+      .subscribe(item -> System.out.println("Processing item " + item));
+```
+
+To instead process page-by-page, a user would do the following:
+
+```java
+client.listSettings(..)
+      .byPage()
+      .subscribe(page -> {
+        // page is a PagedResponse, which implements Page and Response, so there exists: 
+        //  * List<T> of items,
+        //  * continuationToken (represented as a String),
+        //  * Status code,
+        //  * HTTP headers,
+        //  * HTTP request
+        System.out.println("Processing page " + page)
+});
+```
+
+The `byPage()` method on `PagedFlux` offers an overload to accept a `continuationToken` string, which will begin the returned Flux at the page specified by this token.
+~
