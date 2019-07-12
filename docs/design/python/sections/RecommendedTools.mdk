@@ -27,7 +27,7 @@ provide recordings to allow running tests offline/without an Azure subscription
 ~
 
 ~ Must {#python-simultanous-tests}
-support multiple simultanous test runs in the same subscription.
+support simultaneous test runs in the same subscription.
 ~
 
 ~ Must {#python-independent-tests}
@@ -41,7 +41,7 @@ use [pylint](https://www.pylint.org/) for your code. Use the pylintrc file in th
 ~
 
 ~ Must {#python-use-flake8}
-use [flake8-docstrings](https://gitlab.com/pycqa/flake8-docstrings) to verify doccomments. 
+use [flake8-docstrings](https://gitlab.com/pycqa/flake8-docstrings) to verify doc comments.
 ~
 
 ~ Must {#python-use-black}
@@ -51,5 +51,5 @@ use [Black](https://black.readthedocs.io/en/stable/) for formatting your code.
 ~ Should {#python-use-mypy}
 use [MyPy](https://mypy.readthedocs.io/en/latest/) to statically check the public surface area of your library.
 
-*Note: there is no requirement to do check non-shipping code such as tests.*
+You don't need to check non-shipping code such as tests.
 ~

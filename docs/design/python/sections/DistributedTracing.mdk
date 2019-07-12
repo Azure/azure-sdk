@@ -1,17 +1,16 @@
 ## Distributed Tracing
 ~ Draft
 
-
 ~~ Must
-create a new trace span for each library method invocation. The easiest way to do so is by adding the the distributed tracing decorator from azure.core.tracing`.
+create a new trace span for each library method invocation. The easiest way to do so is by adding the distributed tracing decorator from `azure.core.tracing`.
 ~~
 
 ~~ Must
-use <package name>/<method name> as the name of the span.
+use `<package name>/<method name>` as the name of the span.
 ~~
 
 ~~ Must
-create a new span for each outgoing network call. This is typically done by the HTTP Pipeline.
+create a new span for each outgoing network call. If using the HTTP pipeline, the new span is created for you.
 ~~
 
 ~~ Must
