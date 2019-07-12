@@ -63,7 +63,7 @@ create a client type corresponding to each level in the hierarchy except for lea
 ~
 
 ~ Must
-make it possible to directly create clients for each level in the hierarchy.  The `__init__` method can be called directly or via the parent.
+make it possible to directly create clients for each level in the hierarchy.  The constructor can be called directly or via the parent.
 
 ```python
 class ChildClient:

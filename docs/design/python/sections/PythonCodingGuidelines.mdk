@@ -205,7 +205,7 @@ use a single leading underscore to indicate that a name isn't part of the public
 ~
 
 ~ MustNot {#python-no-leading-underscore}
-use leading double underscore prefixed method names unless name clashes in the inheritance hierarchy are likely.
+use leading double underscore prefixed method names unless name clashes in the inheritance hierarchy are likely.  Name clashes are rare.
 ~
 
 ~ Must {#python-add-public-methods-to-all}
