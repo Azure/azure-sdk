@@ -14,7 +14,7 @@ have the version number of all pom files in the repo be the version number inten
 
 ### Snapshot Releases
 
-Snapshot releases have a semver version number of the form `x.y.z-SNAPSHOT`. Snapshot releases go into a separate directory on Maven Central, and version numbers do not need to be incremented or changed for each snapshot release (instead, the next release version number should be used, with `-SNAPSHOT` appended). These releases can be made as frequently as desired, and users understand that they may be alpha or beta quality, and even have the API shift underneath them. They are often released automatically as part of a CI/CD process. Users of snapshot releases have to opt-in to using the snapshots repository by explicitly referencing it from their own Maven pom.xml file.
+Snapshot releases have a semver version number of the form `x.y.z-SNAPSHOT`. Snapshot releases go into a separate directory on Maven Central, and version numbers don't need to be incremented or changed for each snapshot release. They're often released automatically as part of a CI/CD process. Users of snapshot releases have to opt-in to using the snapshots repository by explicitly referencing it from their own Maven `pom.xml` file.
 
 ~ MustNot {#java-no-snapshot}
 have a qualifier of `-SNAPSHOT` on any client library.
@@ -22,7 +22,7 @@ have a qualifier of `-SNAPSHOT` on any client library.
 
 ### Preview Releases
 
-Preview releases are made when code hits certain milestones and wider community adoption and testing is warranted. Preview releases have a `-preview.N` qualifier, where the N value increments for each preview release for a given version. Preview releases must be made through the engineering systems pipeline.
+Preview releases are made when code hits certain milestones to promote wider community adoption and testing. Preview releases have a `-preview.N` qualifier, where the `N` value increments for each preview release for a given version. Preview releases must be made through the Azure SDK engineering systems pipeline.
 
 ~ Must {#java-preview-qualifer-required}
 have a qualifier of `-preview.N` for all preview releases.
@@ -37,7 +37,7 @@ use the `@Deprecated` annotation and the `@deprecated` JavaDoc tag when a featur
 ~
 
 ~ Must {#java-deprecation-discuss-before-removal}
-discuss all deprecations and deprecation-removals with the [Java architect](mailto:adparch@microsoft.com). No API should be broken after a GA release without [Java architect](mailto:adparch@microsoft.com) approval.
+discuss all deprecations and deprecation-removals with the [Java architect](https://github.com/azure/azure-sdk/issues). No API should be broken after a GA release without [Java architect](https://github.com/azure/azure-sdk/issues) approval.
 ~
 
 ~ MustNot {#java-do-not-change-api-in-non-major-release}
@@ -45,7 +45,7 @@ remove or change API in any patch or minor release. All API changes must occur i
 ~
 
 ~ MustNot {#java-must-indicate-deprecation-before-change}
-remove or change API until there has been at least one GA release that contains the deprecation notices in the code. This enables developers to receive deprecation warnings at build time in their development projects.
+remove or change API until there has been at least one GA release that contains the deprecation notices in the code. Consumers will receive deprecation warnings at build time in their projects.
 ~
 
 ~ MustNot {#java-no-qualifier-in-GA}
