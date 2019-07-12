@@ -1,17 +1,17 @@
 ## Async support
 
-While the `asyncio` library has been available in one form or another since Python 3.4, and the `async`/`await` keywords were introduced in Python 3.5 back in 2015, many Python developers are not yet familiar with or comfortable using libraries that only provide asynchronous methods.
+The `asyncio` library has been available since Python 3.4, and the `async`/`await` keywords were introduced in Python 3.5. Despite such availability, most Python developers aren't familiar with or comfortable using libraries that only provide asynchronous methods.
 
 ~ Should {#python-sync-and-async}
 provide both sync and async versions of your APIs
 ~
 
 ~ Must {#python-use-async-await}
-use the async/await keywords (requires Python 3.5+). You **must not** use the [yield from coroutine/@asyncio.coroutine](https://docs.python.org/3.4/library/asyncio-task.html) syntax.
+use the `async`/`await` keywords (requires Python 3.5+). Don't use the [yield from coroutine or `@asyncio.coroutine`](https://docs.python.org/3.4/library/asyncio-task.html) syntax.
 ~
 
-~ MustNot
-use the same client type for synchronous and asynchronous operations. You **must** provide two separate classes.
+~ Must
+provide two separate client classes for synchronous and asynchronous operations.  Don't combine async and sync operations in the same class.
 
 ```python
 # Yes
@@ -49,12 +49,12 @@ Example:
 
 |Sync/async|Namespace|Package name|Client name|
 |-|-|-|-|
-|Sync|azure.sampleservice|azure-sampleservice|azure.sampleservice.SampleServiceClient|
-|Async|azure.sampleservice.aio|azure-sampleservice-aio|azure.sampleservice.aio.SampleServiceClient|
+|Sync|`azure.sampleservice`|`azure-sampleservice`|`azure.sampleservice.SampleServiceClient`|
+|Async|`azure.sampleservice.aio`|`azure-sampleservice-aio`|`azure.sampleservice.aio.SampleServiceClient`|
 ~
 
 ~ Must {#python-async-namespace}
-use the same namespace for the synchronous client as the synchronous version of the package with .aio appended.
+use the same namespace for the synchronous client as the synchronous version of the package with `.aio` appended.
 ~
 
 ~ Should {#python-async-package}
@@ -62,11 +62,11 @@ ship a separate package for async support if the async version requires addition
 ~
 
 ~ Must {#python-async-naming}
-use the same name for the asynchronous version of the package as the synchronous version of the package with -aio appended.
+use the same name for the asynchronous version of the package as the synchronous version of the package with `-aio` appended.
 ~
 
 ~ Must {#python-use-aiohttp}
-use [aiohttp](https://aiohttp.readthedocs.io/en/stable/) as the default HTTP stack for async operations. This **should** be done by making `azure.core.pipeline.transport.AioHttpTransport` the default `transport` type for the async client.
+use [`aiohttp`](https://aiohttp.readthedocs.io/en/stable/) as the default HTTP stack for async operations. Use `azure.core.pipeline.transport.AioHttpTransport` as the default `transport` type for the async client.
 ~
 
 
