@@ -92,7 +92,19 @@ If the package or a related package supports it, include tips for logging or ena
 * If you think there's a good chance that developers might stumble across your package in error (because they're searching for specific functionality and mistakenly think the package provides that functionality), point them to the packages they might be looking for.
 
 ## Contributing
-Provide a link to the CONTRIBUTING.md of the repo.
+
+This project welcomes contributions and suggestions. Most contributions require you to agree to a Contributor
+License Agreement (CLA) declaring that you have the right to, and actually do, grant us the rights to use your
+contribution. For details, visit https://cla.microsoft.com.
+When you submit a pull request, a CLA-bot will automatically determine whether you need to provide a CLA and
+decorate the PR appropriately (e.g., label, comment). Simply follow the instructions provided by the bot.
+You will only need to do this once across all repos using our CLA.
+
+If you'd like to contribute to this library, please read the [contributing guide](https://github.com/Azure/azure-sdk-for-js/blob/master/CONTRIBUTING.md) to learn more about how to build and test the code.
+
+This project has adopted the Microsoft Open Source Code of Conduct.
+For more information see the Code of Conduct FAQ or contact opencode@microsoft.com with any additional
+questions or comments.
 
 <!-- LINKS -->
 [style-guide-msft]: https://docs.microsoft.com/style-guide/capitalization
