@@ -121,7 +121,7 @@ prefer the usage one of the preferred verbs for method names.
 |`replace_\<noun>`|key, item|item|Completely replaces an existing item. Fails if the item doesn't exist. |
 |`append_\<noun>`|item|item|Add item to a collection. Item will be added last. |
 |`add_\<noun>`|index, item|item|Add item to a collection. Item will be added at the given index. |
-|`get_\<noun>`|key|item or `None`|Will return `None` if item doesn't exist |
+|`get_\<noun>`|key|item|Raises an exception if item doesn't exist |
 |`list_\<noun>`||`azure.core.Pageable[Item]`|Return an iterable of items. Returns iterable with no items if no items exist (doesn't return `None` or throw)|
 |`\<noun>\_exists`|key|`bool`|Return `True` if the item exists. Must raise an exception if the method failed to determine if the item exists (for example, the service returned an HTTP 503 response)|
 |`delete_\<noun>`|key|`None`|Delete an existing item. Must succeed even if item didn't exist.|
