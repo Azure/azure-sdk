@@ -1,0 +1,126 @@
+## Documentation {#general-documentation}
+
+There are several documentation deliverables that must be included in or as a companion to your client library. Beyond complete and helpful API documentation within the code itself (docstrings), you need a great README and other supporting documentation.
+
+* [README.md](#general-documentation-readme) - Resides in the root of your library's directory within the SDK repository; includes package installation and client library usage information (code samples). [[example](https://github.com/Azure/azure-sdk/blob/master/docs/README-EXAMPLE.md)]
+* [API reference](#general-documentation-api-reference) - Generated from the docstrings in your code; published on docs.microsoft.com. [[example](https://docs.microsoft.com/python/api/azure-batch/azure.batch?view=azure-python)]
+* [Code samples](#general-documentation-code-samples) - Short code examples that demonstrate single (atomic) operations for the champion scenarios you've identified for your library; included in your README, docstrings, and Quickstart. [[example](https://github.com/binderjoe/cosmos-python-prototype/blob/master/examples/examples.py)]
+* [Quickstart](#general-documentation-quickstart) - Article on docs.microsoft.com that is similar to but expands on the README content; typically written by your service's content developer. [[example](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-python)]
+* **Conceptual** - Long-form documentation like Quickstarts, Tutorials, How-to guides, and other content on docs.microsoft.com; typically written by your service's content developer. [[example](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)]
+
+### General guidelines  {#general-documentation-guidelines}
+
+~ Must
+include your service's content developer in the adparch review for your library. To find the content developer you should work with, check with your team's Program Manager.
+~
+
+~ Must
+follow the [Azure SDK Contributors Guide](https://review.docs.microsoft.com/en-us/help/contribute-ref/contribute-ref-how-to-document-sdk). (MICROSOFT INTERNAL)
+~
+
+~ Must
+adhere to the specifications set forth in the Microsoft style guides when you write public-facing documentation. This applies to both long-form documentation like a README and the docstrings in your code. (MICROSOFT INTERNAL)
+
+* [Microsoft Writing Style Guide](https://worldready.cloudapp.net/StyleGuide/Read?id=2700)
+* [Microsoft Cloud Style Guide](https://worldready.cloudapp.net/Styleguide/Read?id=2696)
+~
+
+~ Should
+attempt to document your library into silence. Preempt developers' usage questions and minimize GitHub issues by clearly explaining your API in the docstrings. Include information on service limits and errors they might hit, and how to avoid and recover from those errors.
+
+As you write your code, *doc it so you never hear about it again.* The less questions you have to answer about your client library, the more time you have to build new features for your service.
+~
+
+~ MustNot {#java-maven-no-dependency-versions-in-docs}
+include version details when specifying Maven dependency statements. Always refer the user back to a central document detailing how to use the Azure SDK for Java BOM.
+~
+
+### Code samples {#general-documentation-code-samples}
+
+Code samples are small applications that demonstrate a certain feature that is relevant to the client library, allowing developers to more quickly understand the full usage requirements of a particular set of API. Code samples should not be any more complex than they need to be to demonstrate this feature - they should not become full applications. At all times code samples should have a very high signal:noise ratio between useful code and boilerplate code for non-related reasons.
+
+~ Must
+include code samples alongside your library's code within the repository. The samples should clearly and succinctly demonstrate the operations most developers need to perform with your library. Include samples for every common operation, and especially for those that are complex or might otherwise be difficult for new users of your library. At a bare minimum, include samples for the champion scenarios you've identified for the library.
+~
+
+~ Must {#java-samples-location}
+place code samples within the `/src/samples/java` directory within the client library root directory. This ensures that the code will be compiled, but not packaged into the resulting jar.
+~
+
+~ Must {#java-samples-execution}
+ensure that each sample file is executable by including a `public static void main(String[] args)` method.
+~
+
+~ Must {#java-samples-use-latest-conventions}
+use the latest coding conventions when creating samples. It is recommended to make liberal use of modern Java syntax and API such as diamond operators, etc as they remove boilerplate from your samples and let your library's API shine through better. Do not use any language feature or API of Java beyond the current Java baseline versioned employed by the SDK, currently this is JDK 8.
+~
+
+~ Must {#java-samples-maintained}
+keep sample code maintained and using the latest major release of the library. Sample code repos must be reviewed for freshness and at least one commit must be made to a sample repo every semester - at least to update dependencies to the latest release and to ensure that the code continues to function as expected.
+~
+
+~ Must {#java-samples-easy-grafting}
+ensure that code samples can be easily grafted from the documentation into a users own application and not tied to variable declarations not covered in previous samples in the content.
+~
+
+~ Must {#java-samples-keep-simple}
+ensure that code samples are optimized for ease of reading and comprehension over code compactness and efficiency unless the article context demands otherwise.
+~
+
+~ Must {#java-samples-cross-platform}
+ensure that samples can run in Windows, macOS, and Linux development environments, and are not tied to a non-standard developer toolchain.
+~
+
+~ Must
+build and test your code samples using the repository's continuous integration (CI) to ensure they remain functional.
+~
+
+~ MustNot
+combine more than one operation in a code sample unless it's required for demonstrating the type or member, or it's *in addition to* existing samples that demonstrate atomic operations. For example, a Cosmos DB code samples should not include both account and container creation operations--create two different samples, one for account creation, and one for container creation.
+
+Combined operations cause unnecessary friction for a library consumer by requiring knowledge of additional operations which might be outside their current focus. It requires them to first understand the tangential code surrounding the operation they're working on, then carefully extract just the code they need for their task. The developer can no longer simply copy and paste the code sample into their project.
+~
+
+#### JavaDoc
+
+~ Must {#java-javadoc-easy-generation}
+ensure that anybody can clone the repo containing the client library and execute `mvn javadoc:javadoc` to generate the full and complete JavaDoc output for the code, without any need for additional processing steps.
+~
+
+~ Must {#java-javadoc-code-samples}
+include code samples in all class-level JavaDoc, as well as code samples in relevant method-level JavaDoc. Include these code samples dynamically using the tooling outlined below to ingest the code at build time, rather than hard-code it within the JavaDoc (where it may become stale).
+~
+
+~ Must
+follow the steps below to correctly ingest code samples from Java source files into the generated JavaDoc. Let's assume we want to insert code samples into the JavaDoc of a class named `ClientBuilder` in the `com.azure.clientlibrary` package, located within the `src/main/java` directory:
+
+1. If it does not already exist, create a source directory named `src/samples/java`.
+2. Create a Java package with the same name as the package of the source class for which JavaDoc will be generated (for our example, this is `com.azure.clientlibrary`).
+3. Create a class with the name `<SourceClass>JavaDocCodeSamples` (for example, `ClientBuilderJavaDocCodeSamples`)
+4. Write necessary code samples that you want to insert into the generated javadocs of the source class.
+5. Wrap the code samples with `BEGIN` and `END` comments as shown below. Note that sample names containing some special characters like underscore, comma, parenthesis do not work.
+
+```java
+    // BEGIN: mysampletag1
+    … your code sample here …
+    // END: mysampletag1
+```
+
+6. To use the code sample enclosed within the `BEGIN` and `END` comments, go to the source class and in the javadoc section, add the following:
+
+```java
+    /**
+     * {@codesnippet mysampletag1}
+     */
+```
+
+7. Now, run a Maven build to generate the JavaDoc output, to ensure the sample is included in the output. The Maven command to run is the following: `mvn install -DskipTests -Dinclude-non-shipping-modules -Dgpg.skip=true -f pom.client.xml`
+~
+
+~ Must
+follow the naming convention outlined below for naming samples tags:
+
+ * If a new instance of the class is created through build() method of a builder or through constructor: `<packagename>.<classname>.instantiation`
+ * For other methods in the class: `<packagename>.<classname>.<methodName>`
+ * For overloaded methods, or methods with arguments: `<packagename>.<classname>.<methodName>#<argType1>-<argType2>`
+~
