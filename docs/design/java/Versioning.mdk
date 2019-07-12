@@ -8,49 +8,29 @@ ensure that all releases are versioned using [semantic versioning](https://semve
 have releases of client libraries with a major version of 0, even for early preview releases.
 ~
 
-### Beta API
-
-API needs sufficient 'bake time' to ensure it works in the real world. Rushing to have all API ready for the next release often leads to API regrets, many of which could have been avoided if API could have been reviewed by more users before being committed to.
-
-~ Must {#java-use-deprecated-for-feature-dev}
-use the `@Beta` annotation for API that are under development.
-~
-
-~ Must {#java-explain-experimental-features}
-provide sufficient explanation to clarify that the API is experimental and may change.
-~
-
-~ Must {#java-beta-is-short-term}
-only have beta API in preview releases, and all beta API must be removed before a GA release.
+~ Must {#java-repo-version-next-GA}
+have the version number of all pom files in the repo be the version number intended for the next GA release.
 ~
 
 ### Snapshot Releases
 
-Snapshot releases have a semver version number of the form `x.y.z-SNAPSHOT`. Snapshot releases go into a separate directory on Maven Central, and version numbers do not need to be incremented or changed for each snapshot release (instead, the next release version number should be used, with `-SNAPSHOT` appended). These releases can be made as frequently as desired, and users understand that they may be alpha or beta quality. They can be released automatically as part of a CI/CD process. Users of snapshot releases have to opt-in to using the snapshots repository by explicitly referencing it from their own Maven pom.xml file.
+Snapshot releases have a semver version number of the form `x.y.z-SNAPSHOT`. Snapshot releases go into a separate directory on Maven Central, and version numbers do not need to be incremented or changed for each snapshot release (instead, the next release version number should be used, with `-SNAPSHOT` appended). These releases can be made as frequently as desired, and users understand that they may be alpha or beta quality, and even have the API shift underneath them. They are often released automatically as part of a CI/CD process. Users of snapshot releases have to opt-in to using the snapshots repository by explicitly referencing it from their own Maven pom.xml file.
 
-~ Must {#java-preview-qualifer-required}
-have a qualifier of `-SNAPSHOT`, with no additional version number appended to the end of this.
-~
-
-~ Must {#java-preview-version-next-GA}
-have the version number represent the version intended for the next GA release. For example, a preview release of `1.0.2-SNAPSHOT` should be read to mean that it is a snapshot release of version 1.0.2, and that this snapshot will ultimately be superceded by the GA release of 1.0.2 when it becomes available.
+~ MustNot {#java-no-snapshot}
+have a qualifier of `-SNAPSHOT` on any client library.
 ~
 
 ### Preview Releases
 
-Preview releases are made when code hits certain milestones and wider community adoption and testing is warranted. Preview releases replace the `-SNAPSHOT` qualifier with a `-preview.N` qualifier, where the N value increments for each preview release for a given version. Preview releases must be made through the engineering systems pipeline.
+Preview releases are made when code hits certain milestones and wider community adoption and testing is warranted. Preview releases have a `-preview.N` qualifier, where the N value increments for each preview release for a given version. Preview releases must be made through the engineering systems pipeline.
 
 ~ Must {#java-preview-qualifer-required}
 have a qualifier of `-preview.N` for all preview releases.
 ~
 
-~ Must {#java-preview-version-next-GA}
-have the version number represent the version intended for the next GA release. For example, a preview release of `1.0.2-beta2` should be read to mean that it is the second beta release of version 1.0.2, and that this release will be superceded by the GA release of 1.0.2 when it becomes available.
-~
-
 ### GA Releases
 
-Anything that is not a snapshot or preview release should be considered an official GA release. Official releases must be done only once per version increment, and must only be done through the engineering system pipeline.
+Official releases must be done only once per version increment, and must only be done through the engineering system pipeline.
 
 ~ Must {#java-use-deprecated-for-retiring-api}
 use the `@Deprecated` annotation and the `@deprecated` JavaDoc tag when a feature is to be removed in a future major release. Explain what is being removed, and how developers should transition to new API.

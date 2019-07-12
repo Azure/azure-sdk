@@ -55,7 +55,7 @@ client.listSettings(..)
       .subscribe(page -> {
         // page is a PagedResponse, which implements Page and Response, so there exists: 
         //  * List<T> of items,
-        //  * 'nextPage' URL (can be used for the continuation token),
+        //  * continuationToken (represented as a String),
         //  * Status code,
         //  * HTTP headers,
         //  * HTTP request

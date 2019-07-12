@@ -31,7 +31,7 @@ write custom APIs for streaming or async operations - make use of the existing f
 ~
 
 ~ MustNot {#java-async-no-blocking}
-include blocking calls inside client library code. Code must be async throughout entire codebase. Use [BlockHound](https://github.com/reactor/BlockHound) to detect blocking calls in async APIs.
+include blocking calls inside async client library code. Use [BlockHound](https://github.com/reactor/BlockHound) to detect blocking calls in async APIs.
 ~
 
 ### Sync API
@@ -216,7 +216,7 @@ ensure consistency across all client libraries, by using the following names for
 | `httpLogDetailLevel` | Sets the logging level for HTTP requests and responses.                              |
 | `pipeline`           | Sets the HTTP pipeline to use.                                                       |
 
-The one exception for consistency is that `endpoint` may be renamed if a more user-friendly name can be justified, e.g. `BlobClientBuilder.blobUrl()`.
+The one exception for consistency is that `endpoint` may be renamed if a more user-friendly name can be justified, e.g. `new BlobClientBuilder.blobUrl(..)`. In this case, the `endpoint` API should be removed.
 ~
 
 ~ Must {#java-builder-build-consistency}
@@ -224,10 +224,11 @@ ensure consistency across all client libraries by having the same order of prece
 
 1. If the user sets a non-null `pipeline`, all other settings related to construction and configuration of a pipeline are ignored. The provided pipeline is used as-is.
 2. If the user sets a `connectionString` and a `credential`, the `credential` will take precedence and the `connectionString` must be ignored.
+3. When a more user-friendly name is used instead of `endpoint`, e.g. `blobUrl`, the more user-friendly name will take precedence over the defau
 ~
 
 ~ Must {#java-builder-build-consistency-log}
-log at `info` level when a builder receives mutually exclusive arguments, as this suggests the consumer is not fully understanding of the API and are over-specifying builder arguments, some of which will necessarily be ignored.
+throw an `IllegalStateException` from the builder method when it receives mutually exclusive arguments, as this suggests the consumer is not fully understanding of the API and are over-specifying builder arguments, some of which will necessarily be ignored. The error message in the exception must clearly outline the issue.
 ~
 
 ~ Must {#java-build-async-validation} 
@@ -300,7 +301,7 @@ provide a fluent API where appropriate, and in these cases apply the `@Fluent` a
 ~
 
 ~ Must {#java-model-class-not-immutable}
-ensure that fluent setter API return the same instance of the type. Classes using the fluent pattern should not be immutable types.
+ensure that setter methods within a fluent type return the same instance of the type. Fluent types must not be immutable, returning new instances on each setter call, unless explicitly documented as such and only with discussion with the architecture board.
 ~
 
 ~ MustNot {#java-model-class-no-javabean}
@@ -309,10 +310,10 @@ use the JavaBean naming convention of `get*`, `set*`, and `is*`.
 
 ### Other support classes
 
-For classes that are not client classes or model classes, we choose to not offer builder or fluent APIs. Classes that fall into this category include custom exception types, http policies, credential types, etc.
+For all other types (that are not client or model classes), we must not offer builder or fluent APIs. Classes that fall into this category include custom exception types, http policies, credential types, etc.
 
 ~ Must {#java-other-class-use-javabean}
-use the JavaBean naming convention of `get*`, `set*`, and `is*` for all API.
+use the JavaBean naming convention of `get*`, `set*`, and `is*`.
 ~
 
 ~ MustNot {#java-other-class-no-fluent}
