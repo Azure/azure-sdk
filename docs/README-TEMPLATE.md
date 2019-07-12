@@ -92,7 +92,8 @@ If the package or a related package supports it, include tips for logging or ena
 * If you think there's a good chance that developers might stumble across your package in error (because they're searching for specific functionality and mistakenly think the package provides that functionality), point them to the packages they might be looking for.
 
 ## Contributing
-Provide a link to the CONTRIBUTING.md of the repo.
+
+If you'd like to contribute to this library, please read the [contributing guide](../../../CONTRIBUTING.md) to learn more about how to build and test the code.
 
 <!-- LINKS -->
 [style-guide-msft]: https://docs.microsoft.com/style-guide/capitalization
