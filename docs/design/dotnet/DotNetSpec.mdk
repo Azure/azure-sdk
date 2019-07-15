@@ -490,7 +490,7 @@ public enum OperationStatus
 }
 ```
 
-The LRO can be called as a poller:
+The `Operation` object can be used to poll for a response.
 
 ```csharp
 var client = new ServiceClient();
