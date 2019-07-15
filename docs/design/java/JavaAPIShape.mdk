@@ -216,7 +216,7 @@ ensure consistency across all client libraries, by using the following names for
 | `httpLogDetailLevel` | Sets the logging level for HTTP requests and responses.                              |
 | `pipeline`           | Sets the HTTP pipeline to use.                                                       |
 
-`endpoint` may be renamed if a more user-friendly name can be justified. For example, we use `new BlobClientBuilder.blobUrl(..)`. In this case, the `endpoint` API should be removed.
+`endpoint` may be renamed if a more user-friendly name can be justified. For example, a blob storage library developer may consider using `new BlobClientBuilder.blobUrl(..)`. In this case, the `endpoint` API should be removed.
 ~
 
 ~ Must {#java-builder-build-consistency}
