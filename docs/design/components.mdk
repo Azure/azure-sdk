@@ -2,43 +2,43 @@ Logo        : False
 Embed       : False
 
 Must {
-  before:"<a class='req-label' href='#&id;'>✅</a> **DO** ";
+  before:"<a class='req-label' href='#&id;' role='img' aria-label='DO'>✅</a> **DO** ";
   toc: requirements;
   toc-line: "<tr><td>&id;</td><td>blah</td></tr>";
 }
 
 MustNot {
-  before:"<a class='req-label' href='#&id;'>⛔️</a> **DO NOT** ";
+  before:"<a class='req-label' href='#&id;' role='img' aria-label='DO NOT'>⛔️</a> **DO NOT** ";
 }
 
 Should {
-  before:"<a class='req-label' href='#&id;'>☑️</a> **YOU SHOULD** ";
+  before:"<a class='req-label' href='#&id;' role='img' aria-label='YOU SHOULD'>☑️</a> **YOU SHOULD** ";
 }
 
 ShouldNot {
-  before:"<a class='req-label' href='#&id;'>⚠️</a> **YOU SHOULD NOT** ";
+  before:"<a class='req-label' href='#&id;' role='img' aria-label='YOU SHOULD NOT'>⚠️</a> **YOU SHOULD NOT** ";
 }
 
 May {
-  before:"<a class='req-label' href='#&id;'>☑️</a> **YOU MAY** ";
+  before:"<a class='req-label' href='#&id;' role='img' aria-label='YOU MAY'>☑️</a> **YOU MAY** ";
 }
 
 Optional {
-  before:"<a class='req-label' href='#&id;'>⚠️</a> **IT IS OPTIONAL** to ";
+  before:"<a class='req-label' href='#&id;' role='img' aria-label='IT IS OPTIONAL'>⚠️</a> **IT IS OPTIONAL** to ";
 }
 
 Note {
-  before:"<a class='req-label' href='#&id;'>⚠️</a>";
+  before:"<a class='req-label' href='#&id;' role='img' aria-label='Note'>⚠️</a>";
 }
 
 Todo {
-  before:"<a class='req-label' href='#&id;'>✏️</a>";
+  before:"<a class='req-label' href='#&id;' role='img' aria-label='To Do'>✏️</a>";
 }
 
 Example {
-  before:"<a class='req-label' href='#&id;'>🔍</a>";
+  before:"<a class='req-label' href='#&id;' role='img' aria-label='Example'>🔍</a>";
 }
 
 Draft {
-  before:"<p class='draft-header'>⚠️ Draft</p>";
+  before:"<p class='draft-header' role='img' aria-label='Draft'>⚠️ Draft</p>";
 }
