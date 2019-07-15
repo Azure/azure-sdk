@@ -5,7 +5,7 @@ The Azure core library provides a service provider interface (SPI) for adding pi
 ~ Must {#java-tracing-pluggable-policies}
 support pluggable pipeline policies as part of the http pipeline instantiation. 
 
-Review the code sample below, in which a service client builder creates an `HttpPipeline` from its set of policies.  Tt the same time, the builder allows plugins to add 'before retry' and 'after retry' policies with the lines `HttpPolicyProviders.addBeforeRetryPolicies(policies)` and `HttpPolicyProviders.addAfterRetryPolicies(policies)`:
+Review the code sample below, in which a service client builder creates an `HttpPipeline` from its set of policies.  At the same time, the builder allows plugins to add 'before retry' and 'after retry' policies with the lines `HttpPolicyProviders.addBeforeRetryPolicies(policies)` and `HttpPolicyProviders.addAfterRetryPolicies(policies)`:
 
 ```java
 public ConfigurationAsyncClient build() {
