@@ -241,7 +241,7 @@ leak the underlying protocol transport implementation details to the consumer.  
 ~
 
 ~ Must {#java-naming-subclients}
-prefix methods that create or vend subclients with `get` and suffix with `Client` or `asyncClient` for sync and async subclients respectively (for example, `container.getBlobClient()` or `container.getBlobAsyncClient()`).
+prefix methods that create or vend subclients with `get` and suffix with `Client` or `AsyncClient` for sync and async subclients respectively (for example, `container.getBlobClient()` or `container.getBlobAsyncClient()`).
 ~
 
 ### Common Service Client Patterns
