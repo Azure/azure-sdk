@@ -42,7 +42,7 @@ The API surface of your client library must have the most thought as it is the p
 
 ## Implementing the API {#general-implementing}
 
-Once you have worked through an acceptable API surface, you can start implementing the service clients.
+Once you've worked through an acceptable API surface, implement the service clients.
 
 [INCLUDE=../general/Configuration.mdk]
 [INCLUDE=../general/ParameterValidation.mdk]
@@ -73,7 +73,7 @@ Azure Core is a library that provides common services to other client libraries.
 * [Global configuration](#azurecore-configuration)
 * [Credentials](#azurecore-credentials)
 
-The following sections define the requirements for the Azure Core library.  If you are implementing a client library in a language that already has an Azure Core library, you do not need to read this section.  It is primarily targeted at developers who work on the Azure Core library.
+The following sections define the requirements for the Azure Core library.  If you're implementing a client library in a language that already has an Azure Core library, you don't need to read this section.  It's targeted at developers who work on the Azure Core library.
 
 [INCLUDE=../general/AzureCorePipeline.mdk]
 [INCLUDE=../general/AzureCoreConfiguration.mdk]

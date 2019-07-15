@@ -5,7 +5,7 @@ name all long-running operations with the `begin` prefix.
 ~
  
 ~ Must
-use the `com.azure.core.polling` classes, most notably the `Poller` class, to represent long-running operations. The basic long-running operation API pattern should resemble the following:
+use the `com.azure.core.polling.Poller` class to represent long-running operations. The long-running operation API pattern should resemble the following code:
 
 ```java
 public class <service_name>Client {

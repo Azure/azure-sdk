@@ -1,25 +1,28 @@
 ### Response formats {#general-responses}
 
-~ Draft
-At present the Java spec is to have all API return a "fat" `Response<T>` value. This may change before final releases of client libraries are made. The spec below is non-final.
-~
+Requests to the service fall into two basic groups: methods that make a single logical request, and methods that make a deterministic sequence of requests.  An example of a *single logical request* is a request that may be retried inside the operation.  An example of a *deterministic sequence of requests* is a paged operation.
 
-Requests to the service fall into two basic groups - methods that make a single logical request, or a deterministic sequence of requests.  An example of a *single logical request* is a request that may be retried inside the operation.  An example of a *deterministic sequence of requests* is a paged operation.
-
-The *logical entity* is a protocol neutral representation of a response. For HTTP, the logical entity may combine data from headers, body and the status line. A common example is exposing an ETag header as a property on the logical entity in addition to any deserialized content from the body.
-
-In the case of Java, the approach taken is to talk about `Response<T>` as the 'complete response', as it contains the response information such as HTTP headers, status code, as well as the `T` object, a deserialized object created from the response body. This `T` object would be the 'logical entity'.
+The *logical entity* is a protocol neutral representation of a response. The logical entity may combine data from headers, body, and the status line. For example, you may expose an `ETag` header as a property on the logical entity.  `Response<T>` is the 'complete response'. It contains HTTP headers, status code, and the `T` object (a deserialized object created from the response body). The `T` object would be the 'logical entity'.
 
 ~ Must {#general-return-logical-entities}
-optimize for returning the logical entity for a given request. The logical entity MUST represent the information needed in the 99%+ case.
+return the logical entity for the normal form of a service method. The logical entity MUST represent the information needed in the 99%+ case.
 ~
 
 ~ Must {#general-return-expose-raw}
-*make it possible* for a developer to get access to the complete response, including the status line, headers and body.
+*make it possible* for a developer to access the complete response, including the status line, headers, and body.
+
+Return `Response<T>` on the maximal overload for a service method with `WithResponse` appended to the name.  For example:
+
+```java
+Foo foo = client.getFoo(a);
+Foo foo = client.getFoo(a, b);
+Foo foo = client.getFoo(a, b, c, context); // This is the maximal overload
+Response<Foo> response = client.getFooWithResponse(a, b, c, context);
+```
 ~
 
 ~ Must {#general-return-document-raw-stream}
-document and provide examples on how to access the raw and streamed response for a given request, where exposed by the client library.  We do not expect all methods to expose a streamed response.
+provide examples on how to access the raw and streamed response for a request, where exposed by the client library.  We don't expect all methods to expose a streamed response.
 ~
 
 ~ Must {#general-return-pageable-iterate-items}
@@ -47,7 +50,7 @@ Refer to the [pagination section](#java-pagination) for details on what to retur
 For methods that combine multiple requests into a single call:
 
 ~ MustNot {#general-return-no-headers-if-confusing}
-return headers and other per-request metadata unless it is obvious as to which specific HTTP request the methods return value corresponds to.
+return headers and other per-request metadata unless it's obvious as to which specific HTTP request the methods return value corresponds to.
 ~
 
 ~ Must {#general-expose-data-for-composite-failures}
@@ -55,10 +58,5 @@ provide enough information in failure cases for an application to take appropria
 ~
 
 ~ ShouldNot {#general-dont-use-value}
-use the following as a property name within the models returned within the logical entity.
-
-- `object`
-- `value`
-
-Such usage can cause confusion and will inevitably have to be changed on a per-language basis, which can cause consistency problems.
+use reserved words (such as `object` and `value`) as a property name within the logical entity.  Avoid reserved words in other supported languages.
 ~

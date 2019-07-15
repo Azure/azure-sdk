@@ -1,6 +1,8 @@
 ## Java tooling {#java-tooling}
 
-The two primary tools used to ensure conformance and high quality are SpotBugs and CheckStyle. The Java client libraries are aided by the addition of custom checks that ensure partial conformance to this Java specification document, with more checks added as necessary. Assuming the client library exists in the azure-sdk-for-java repository, there are two commands to execute from the root directory that will generate these reports:
+The two primary tools used to ensure conformance and high quality are SpotBugs and CheckStyle. The Azure SDK build system adds custom checks to enforce compliance with this specification.
+
+ Assuming the client library exists in the [azure/azure-sdk-for-java](https://github.com/azure/azure-sdk-for-java) mono-repo, there are two commands to execute from the root directory that will generate these reports:
 
 1. To install tooling (and generate the SpotBugs report): `mvn install -Dinclude-non-shipping-modules -DskipTests -Dgpg.skip -f pom.client.xml`
 2. To run all other reports: `mvn site:site site:stage -DskipTests -Dgpg.skip -f pom.client.xml`
@@ -18,11 +20,13 @@ Once these two commands are executed, the generated reports are available in the
 ### SpotBugs
 
 ~ Must {#java-tooling-code-linter}
-run SpotBugs using the centralised Azure Java SDK SpotBugs rule set, and ensure that there are no failures being reported.
+run SpotBugs using the Azure Java SDK SpotBugs rule set.  Ensure no failures are reported.
 ~
 
 ~ MustNot {#java-tooling-code-linter-test-no-commit-on-failure}
-push code to a repo that breaks SpotBugs. Because the build is set to fail if any SpotBugs issue is found, it should always be a case that the build can complete successfully before any code is committed and pushed.
+push code to the [azure/azure-sdk-for-java](https://github.com/azure/azure-sdk-for-java) mono-repo that breaks SpotBugs.
+
+The Azure SDK build fails if any SpotBugs issue is found.
 ~
 
 ### CheckStyle
@@ -33,8 +37,8 @@ run CheckStyle, in a similar fashion to SpotBugs above. There must be no failure
 
 ### JaCoCo
 
-Unit tests are an important means of ensuring that our code does what we expect it to, and that it continues to do what we expect as the codebase is developed in future releases. Having a sense of how well our codebase is covered in tests is therefore a useful goal, and this is where [JaCoCo](https://www.eclemma.org/jacoco/) can be useful - it generates HTML reports stating the coverage our unit tests have on the codebase.
+ [JaCoCo](https://www.eclemma.org/jacoco/) generates HTML reports for how much code our unit tests cover.
 
 ~ Must {#java-test-coverage}
-ensure that code test coverage is satisfactory by producing a JaCoCo report.
+run [JaCoCo](https://www.eclemma.org/jacoco/) to ensure that code test coverage is satisfactory.
 ~

@@ -1,11 +1,13 @@
 [INCLUDE=../general/Pagination.mdk]
  
-#### Java specific guidelines {#java-pagination}
+#### Java-specific guidelines {#java-pagination}
 
-In the Azure SDK for Java we take the position that the sync API is intended for easier consumption, and therefore can (and should) be lesser-featured, in cases where offering a feature will increase the complexity of the API. For this reason, pagination in Java will differ between synchronous and asynchronous APIs:
+The synchronous API is intended for easier consumption.  It can offer fewer features than the async API to avoid complexity.
 
 ~ Must {#java-sync-pagination-api}
-return `Stream<T>` for **synchronous** APIs (although exceptions can be requested for `List<T>` or `Iterable<T>`, where more appropriate). Users will not be able to receive any paging information, or indeed, any information whatsoever about the request headers. For example, the configuration service sync client will offer API in the following form:
+return `Stream<T>` for **synchronous** APIs (although exceptions can be requested for `Iterable<T>`, where more appropriate). Users won't receive any paging information.
+
+For example, the configuration service sync client will offer API in the following form:
 
 ```java
 public final class ConfigurationClient {
@@ -18,11 +20,11 @@ public final class ConfigurationClient {
 ~
 
 ~ MustNot {#java-pagination-illegal-types}
-use `List`, `Iterable`, or `Iterator` or other collection types for sync APIs that return multiple values (except where explictly allowed).
+use other collection types for sync APIs that return multiple values (for example, `List`, or `Iterator`).
 ~
 
 ~ Must {#java-async-pagination-api}
-return `PagedFlux<T>` for **asynchronous** APIs, if the service offers paging (if it does not, a `Flux<T>` return type is recommended):
+return `PagedFlux<T>` for **asynchronous** APIs if the service offers paging.  If the service doesn't offer paging, then return `Flux<T>`.
 
 ```java
 public final class ConfigurationAsyncClient {
@@ -40,14 +42,14 @@ public final class ConfigurationAsyncClient {
 }
 ```
 
-Consumers of this API can then operate on a flux of `T`, or else they may convert this to a flux of `PagedResponse<T>`. For example, operating on a flux of `T` will happen by default when subscribing to the `PagedFlux`:
+Consumers of this API can consume individual items by treating the response as a `Flux<T>`:
 
 ```java
 client.listSettings(..)
       .subscribe(item -> System.out.println("Processing item " + item));
 ```
 
-To instead process page-by-page, a user would do the following:
+The consumer may process items page-by-page instead:
 
 ```java
 client.listSettings(..)
@@ -63,5 +65,5 @@ client.listSettings(..)
 });
 ```
 
-The `byPage()` method on `PagedFlux` offers an overload to accept a `continuationToken` string, which will begin the returned Flux at the page specified by this token.
+The `PagedFlux.byPage()` offers an overload to accept a `continuationToken` string, which will begin the returned Flux at the page specified by this token.
 ~

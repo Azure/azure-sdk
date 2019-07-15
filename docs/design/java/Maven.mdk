@@ -1,7 +1,7 @@
 ## Maven
 
 ~ Must {#java-maven-use-parent-pom}
-explicitly specify the Azure Java SDK parent POM file for all client libraries. This enables centralized dependency and build tool management.
+explicitly specify the Azure Java SDK parent POM file for all client libraries. Using the parent POM file enables centralized dependency and build tool management.
 ~
 
 ~ Must {#java-maven-groupid}
@@ -9,7 +9,7 @@ specify the `groupId` as `com.azure`.
 ~
 
 ~ Must {#java-maven-artifactid}
-specify the `artifactId` to be of the form `azure-<group>-<service>`, for example, `azure-storage-blob`. In cases where the client library has multiple children modules, it is acceptable for the root POM `artifactId` to be of the form `azure-<group>-<service>-parent`.
+specify the `artifactId` to be of the form `azure-<group>-<service>`, for example, `azure-storage-blob`. In cases where the client library has multiple children modules, use `azure-<group>-<service>-parent`.
 ~
 
 ~ Must {#java-maven-name}
@@ -17,15 +17,15 @@ specify the `name` element to take the form `Microsoft Azure client library for 
 ~
 
 ~ Must {#java-maven-description}
-specify the `description` element to be a slightly longer statement along the lines of `This package contains the Microsoft Azure <service> client library`.
+set the `description` element to `This package contains the Microsoft Azure <service> client library`.
 ~
 
 ~ Must {#java-maven-url}
-specify the `url` element to point to the root of the GitHub repository containing this source code, which will be frequently (although not always or required to be) present at `https://github.com/Azure/azure-sdk-for-java`.
+specify the `url` element to point to the root of the GitHub repository containing the source code.  Normally, the `url` element will be the [azure/azure-sdk-for-java](https://github.com/azure/azure-sdk-for-java) mono-repo.
 ~
 
 ~ Must {#java-maven-scm}
-specify the source code management section, to specify where the source code resides for the client library. If the source code is located in the https://github.com/Azure/azure-sdk-for-java repository, then the following form must be used:
+specify where the source code for the client library is in the `scm` section. If the source code is located in the [azure/azure-sdk-for-java](https://github.com/azure/azure-sdk-for-java) mono-repo, then the following form must be used:
 
 ```
 <scm>
@@ -34,8 +34,6 @@ specify the source code management section, to specify where the source code res
     <tag>HEAD</tag>
 </scm>
 ```
-
-In cases where the repository storing the code for the client library is different, substitute as necessary to ensure the correct details are provided.
 ~
 
 ~ MustNot {#java-maven-developers}
