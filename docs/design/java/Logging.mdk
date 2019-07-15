@@ -1,16 +1,16 @@
 [INCLUDE=../general/Logging.mdk]
 
 ~ Must {#java-logging-use-clientlogger}
-use the `ClientLogger` API provided within Azure Core as the sole logging API throughout all client libraries. Internally, `ClientLogger` wraps [SLF4J](https://www.slf4j.org/), so all external configuration that is offered through SLF4J is valid, and this is encouraged to be exposed to end users to configure their logging. Refer to the [SLF4J user manual](https://www.slf4j.org/manual.html) for additional guidance.
+use the `ClientLogger` API provided within Azure Core as the sole logging API throughout all client libraries. Internally, `ClientLogger` wraps [SLF4J](https://www.slf4j.org/), so all external configuration that is offered through SLF4J is valid.  We encourage you to expose the SLF4J configuration to end users. For more information, see the [SLF4J user manual](https://www.slf4j.org/manual.html).
 ~
 
-~ MustNot {#java-logging-no-static-logger}
-create static logger instances, as these will be shared among all client library instances running in a JVM instance. Instead, create a new instance of a `ClientLogger` per instance of all relevant classes. For example, the code below will create a `ClientLogger` instance for the `ConfigurationAsyncClient`, such that each instance of this class will have a unique instance of the `ClientLogger`.
+~ Must {#java-logging-no-static-logger}
+create a new instance of a `ClientLogger` per instance of all relevant classes. For example, the code below will create a `ClientLogger` instance for the `ConfigurationAsyncClient`:
 
 ```java
 public final class ConfigurationAsyncClient {
     private final ClientLogger logger = new ClientLogger(ConfigurationAsyncClient.class);
-    
+
     // example async call to a service that uses the Project Reactor APIs to log request, success, and error
     // information out to the service logger instance
     public Mono<Response<ConfigurationSetting>> setSetting(ConfigurationSetting setting) {
@@ -21,20 +21,22 @@ public final class ConfigurationAsyncClient {
     }
 }
 ```
+
+Don't create static logger instances. Static logger instances are shared among all client library instances running in a JVM instance.
 ~
 
 ~ Must {#java-logging-thrown-exceptions}
-throw all exceptions created within the client library code through the `ClientLogger` `logAndThrow` API. This ensures that all exceptions are properly logged. For example, rather than writing code such as shown below:
+throw all exceptions created within the client library code through the `ClientLogger.logAndThrow()` API.
+
+For example:
 
 ```java
+// NO!!!!
 if (priority != null && priority < 0) {
     throw new IllegalArgumentException("'priority' cannot be a negative value. Please specify a zero or positive long value.");
 }
-```
 
-It is instead required to write the following equivalent code:
-
-```java
+// Good
 if (priority != null && priority < 0) {
     logger.logAndThrow(new IllegalArgumentException("'priority' cannot be a negative value. Please specify a zero or positive long value."));
 }

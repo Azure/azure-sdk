@@ -7,7 +7,7 @@ offer an async service client named `<ServiceName>AsyncClient`. More than one se
 ~
 
 ~ Must {#java-async-use-project-reactor}
-use [Project Reactor](http://projectreactor.io) to provide end-users with a high-quality async API.
+use [Project Reactor](http://projectreactor.io) to provide consumers with a high-quality async API.
 ~
 
 ~ MustNot {#java-async-no-other-libs}
@@ -15,7 +15,7 @@ use any other async APIs, such as `CompletableFuture` and [RxJava](https://githu
 ~
 
 ~ MustNot {#java-no-async-naming-pattern}
-use the suffix `Async` in methods that perform operations asynchronously. Let the fact the user has an instance of an 'async client' provide this context.
+use the suffix `Async` in methods that do operations asynchronously. Let the fact the user has an instance of an 'async client' provide this context.
 ~
 
 ~ MustNot {#java-async-no-overloads}
@@ -23,11 +23,11 @@ provide multiple asynchronous methods for a single REST endpoint, unless to prov
 ~
 
 ~ MustNot {#java-async-cancellations}
-provide API that accepts a cancellation token. Cancellation is not a common pattern in Java, and developers who want to be able to cancel requests will be encouraged to use the ability to unsubscribe from a publisher to effect this request.
+provide API that accepts a cancellation token. Cancellation isn't a common pattern in Java. Developers who need to cancel requests unsubscribe from a publisher to cancel the request.
 ~
 
 ~ MustNot {#java-async-no-custom-API}
-write custom APIs for streaming or async operations - make use of the existing functionality offered in the Azure Java SDK base class library. Where necessary, additional functionality should be introduced into the Azure Java SDK base class library after discussions with the [Java architect](mailto:adparch@microsoft.com).
+write custom APIs for streaming or async operations. Make use of the existing functionality offered in the Azure core library. Discuss proposed changes to the Azure core library with the [Java architect](https://github.com/azure/azure-sdk/issues).
 ~
 
 ~ MustNot {#java-async-no-blocking}
@@ -41,23 +41,23 @@ offer a sync service client named `<ServiceName>Client`. More than one service c
 ~
 
 ~ MustNot {#java-sync-cancellations}
-provide API that accepts a cancellation token. Cancellation is not a common pattern in Java, and developers who want to be able to cancel requests will be encouraged to use the async API instead.
+provide a sync API that accepts a cancellation token. Cancellation isn't a common pattern in Java.  Developers who need to cancel requests should use the async API instead.
 ~
 
 ### Service Clients
 
-Azure services will be exposed to Java developers as one or more service client types, plus a set of model classes and other supporting types. The guidelines in this section describe patterns for the design of a service clients and their members.
+Consumers will use one or more _service clients_ to access Azure services, plus a set of model classes and other supporting types.
 
 ~ Must {#java-client-suffix}
-name service client types with the Client suffix, e.g. `ConfigurationClient`.
+name service client types with the _Client_ suffix (for example, `ConfigurationClient`).
 ~
 
 ~ Must {#java-client-annotate}
-annotate all service clients with the `@ServiceClient` annotation, with all fields appropriately set.
+annotate all service clients with the `@ServiceClient` annotation.
 ~
 
 ~ Must {#java-client-root-package}
-place service clients in the root package of their corresponding client library, e.g. `com.azure.storage.blob.BlobClient`, as `com.azure.storage.blob` is considered the root package in this example.
+place service clients in the root package of their corresponding client library (for example, `com.azure.storage.blob.BlobClient`, as `com.azure.storage.blob` is considered the root package in this example).
 ~
 
 ~ Must {#java-client-immutable}
@@ -216,23 +216,24 @@ ensure consistency across all client libraries, by using the following names for
 | `httpLogDetailLevel` | Sets the logging level for HTTP requests and responses.                              |
 | `pipeline`           | Sets the HTTP pipeline to use.                                                       |
 
-The one exception for consistency is that `endpoint` may be renamed if a more user-friendly name can be justified, e.g. `new BlobClientBuilder.blobUrl(..)`. In this case, the `endpoint` API should be removed.
+`endpoint` may be renamed if a more user-friendly name can be justified. For example, a blob storage library developer may consider using `new BlobClientBuilder.blobUrl(..)`. In this case, the `endpoint` API should be removed.
 ~
 
 ~ Must {#java-builder-build-consistency}
-ensure consistency across all client libraries by having the same order of precedence for builder arguments, if there are scenarios where different configurations are possible. The following list outlines required precedence rules:
+use the following precedence rules for builder arguments:
 
 1. If the user sets a non-null `pipeline`, all other settings related to construction and configuration of a pipeline are ignored. The provided pipeline is used as-is.
 2. If the user sets a `connectionString` and a `credential`, the `credential` will take precedence and the `connectionString` must be ignored.
-3. When a more user-friendly name is used instead of `endpoint`, e.g. `blobUrl`, the more user-friendly name will take precedence over the defau
+
+Supporting common precedence rules ensures consistency across client libraries.
 ~
 
 ~ Must {#java-builder-build-consistency-log}
-throw an `IllegalStateException` from the builder method when it receives mutually exclusive arguments, as this suggests the consumer is not fully understanding of the API and are over-specifying builder arguments, some of which will necessarily be ignored. The error message in the exception must clearly outline the issue.
+throw an `IllegalStateException` from the builder method when it receives mutually exclusive arguments.  The consumer is over-specifying builder arguments, some of which will necessarily be ignored. The error message in the exception must clearly outline the issue.
 ~
 
-~ Must {#java-build-async-validation} 
-perform all necessary checks to ensure that the builder will instantiate a service client into a valid state as part of the `build*()` calls, if not earlier as part of each fluent property call. Throw relevant exceptions at this point, rather than later, after the client has been instantiated.
+~ Must {#java-build-async-validation}
+ensure the builder will instantiate a service client into a valid state.  Throw validation exceptions during fluent property calls, or as part of the `build*()` calls.
 ~
 
 ~ MustNot {#general-apisurface-no-leaking-implementation}
@@ -240,7 +241,7 @@ leak the underlying protocol transport implementation details to the consumer.  
 ~
 
 ~ Must {#java-naming-subclients}
-prefix methods which create or vend sub-clients with `get` and suffix with `Client` or `asyncClient`, for sync and async sub-clients, respectively, e.g. `container.getBlobClient()` or `container.getBlobAsyncClient()`.
+prefix methods that create or vend subclients with `get` and suffix with `Client` or `AsyncClient` for sync and async subclients respectively (for example, `container.getBlobClient()` or `container.getBlobAsyncClient()`).
 ~
 
 ### Common Service Client Patterns
@@ -253,21 +254,21 @@ prefer the use of the following terms for CRUD operations:
 | `upsert<noun>`   |key, item         |Updated or created item |Create new item or update existing item. Verb is primarily used in database-like services.                              |
 | `set<noun>`      |key, item         |Updated or created item |Create new item or update existing item. Verb is primarily used for dictionary-like properties of a service.            |
 | `create<noun>`   |key, item         |Created item            |Create new item. Fails if item already exists.                                                                          |
-| `update<noun>`   |key, partial item |Updated item            |Fails if item does not exist.                                                                                           |
-| `replace<noun>`  |key, item         |Replace existing item   |Completely replaces an existing item. Fails if the item does not exist.                                                 |
-| `delete<noun>`   |key               |Deleted item, or `null` |Delete an existing item. Will succeed even if item did not exist. Deleted item may be returned, if service supports it. |
+| `update<noun>`   |key, partial item |Updated item            |Fails if item doesn't exist.                                                                                            |
+| `replace<noun>`  |key, item         |Replace existing item   |Completely replaces an existing item. Fails if the item doesn't exist.                                                  |
+| `delete<noun>`   |key               |Deleted item, or `null` |Delete an existing item. Will succeed even if item didn't exist. Deleted item may be returned, if service supports it.  |
 | `add<noun>`      |index, item       |Added item              |Add item to a collection. Item will be added last, or into the index position specified.                                |
-| `get<noun>`      |key               |Item                    |Will return null if item does not exist.                                                                                |
+| `get<noun>`      |key               |Item                    |Will return null if item doesn't exist.                                                                                |
 | `list<noun>`     |                  |Items                   |Return list of items. Returns empty list if no items exist.                                                             |
 | `<noun>Exists`   |key               |`boolean`               |Return `true` if the item exists.                                                                                       |
 ~
 
 ~ Should {#java-crud-naming-precedence}
-remain flexible and use names best suited for developer experience for a particular client library. However, do not let this result in non-Java naming patterns. For example, using `getAll<noun>` instead of `list<noun>` would be frowned upon for a Java client library.
+remain flexible and use names best suited for developer experience.  Don't let the naming rules result in non-idiomatic naming patterns.  For example, Java developers prefer `list` operations over `getAll` operations.
 ~
 
 ~ Must {#java-service-method-context}
-provide a service method **in sync clients only** for each operation offered by the service where a consumer may provide a `com.azure.core.util.Context` argument. This argument must be the last argument into the service method (except where varargs are used). If a service method has multiple overloads (for different arguments), only the 'maximal' overloads need to have the `Context` argument. A maximal overload is one which has a full set of arguments (see sample below). It may not be necessary to offer a 'Context overload' in all cases - it is preferred to have minimal API surface area, but `Context` must always be supported.
+provide an overload method that takes a `com.azure.core.util.Context` argument for each service operation **in sync clients only**. The `Context` argument must be the last argument into the service method (except where `varargs` are used). If a service method has multiple overloads, only the 'maximal' overloads need to have the `Context` argument. A maximal overload is one that has a full set of arguments.  It may not be necessary to offer a 'Context overload' in all cases.  We prefer a minimal API surface, but `Context` must always be supported.
 
 ```java
 getFoo()
@@ -281,15 +282,17 @@ getFoo(x, y, z, Context)
 getFoo(a, Context)
 ```
 
-This must not be included in async clients, as they use [subscriber context built into Reactor Flux and Mono APIs](https://projectreactor.io/docs/core/release/reference/#context).
+Don't include overloads that take `Context`in async clients.  Async clients use the [subscriber context built into Reactor Flux and Mono APIs](https://projectreactor.io/docs/core/release/reference/#context).
 ~
 
 ### Model classes
 
-Model classes are classes that consumers use to provide required information into client library methods. These typically represent the domain model, or represent options classes that must be configured before the request can be made.
+Model classes are classes that consumers use to provide required information into client library methods. These classes typically represent the domain model, or options classes that must be configured before the request can be made.
 
 ~ Must {#java-model-class-use-ctor}
-provide public constructors for all model classes. By default this should be a no-args constructor only, using the fluent setter API to configure the model class. If, however, the model class merits a design where arguments are passed in via the constructor (with or without fluent setters), this is also an acceptable design.
+provide public constructors for all model classes.
+
+Use a no-args constructor and a fluent setter API to configure the model class. However, other designs may be used for the constructor when appropriate.
 ~
 
 ~ MustNot {#java-model-class-no-builders}
@@ -297,11 +300,15 @@ offer a builder class for model classes.
 ~
 
 ~ Must {#java-model-class-fluent}
-provide a fluent API where appropriate, and in these cases apply the `@Fluent` annotation to the class. Name setter methods simply after the property being set, e.g. `proxy(Proxy p)`, and have all setter methods return `this`.
+provide a fluent API where appropriate.
+
+Apply the `@Fluent` annotation to the class. Name setter methods after the property being set (for example, `proxy(Proxy p)`).  All setter methods must return `this`.
 ~
 
 ~ Must {#java-model-class-not-immutable}
-ensure that setter methods within a fluent type return the same instance of the type. Fluent types must not be immutable, returning new instances on each setter call, unless explicitly documented as such and only with discussion with the architecture board.
+ensure that setter methods within a fluent type return the same instance of the type.
+
+Fluent types must not be immutable.  Don't return a new instance on each setter call.
 ~
 
 ~ MustNot {#java-model-class-no-javabean}
@@ -310,7 +317,7 @@ use the JavaBean naming convention of `get*`, `set*`, and `is*`.
 
 ### Other support classes
 
-For all other types (that are not client or model classes), we must not offer builder or fluent APIs. Classes that fall into this category include custom exception types, http policies, credential types, etc.
+Don't offer builder or fluent APIs for supporting classes such as custom exception types, HTTP policies, and credential types.
 
 ~ Must {#java-other-class-use-javabean}
 use the JavaBean naming convention of `get*`, `set*`, and `is*`.
@@ -326,20 +333,19 @@ provide a builder class.
 
 ### Annotations
 
-There are a number of annotations defined in azure-core. Whilst a few of them are used to enable runtime functionality, the bulk of them are used only as part of the [Azure Java SDK code linting tools](#java-tooling) to validate conformance to this spec, and good Java coding practice.
+A number of annotations are defined in the Azure core library. A few annotations enable runtime functionality.  Most of the annotations are used as part of the [Azure Java SDK code linting tools](#java-tooling).
 
 ~ Must {#java-use-core-annotations} 
-use the azure-core annotations outlined below in all applicable places. Do this eagerly as part of the initial code design, and the code linters will ensure continued conformance to some of the rules outlined in this specification.
+use the Azure core library annotations outlined below in all applicable places. Use annotations eagerly as part of the initial code design.  The code linters will ensure continued conformance to some of the rules outlined in this specification.
 ~
 
 ~ MustNot {#java-annotation-no-string-spacing}
-include spaces in annotation string values, unless the description below states it is allowed.
+include spaces in annotation string values, unless the description below states it's allowed.
 ~
 
-The remainder of this section outlines many of the critical annotations that must be used throughout a client library.
-
 #### Service Interface
-The first place that a lot of annotations are used is when defining a service interface. A service interface is a Java interface that defines all REST endpoints for a service, but is not part of the public API, as it is hidden behind the service client class itself. For example, here is the service interface for one method within the `ConfigurationService`:
+
+A service interface defines the REST endpoints for a service, but isn't part of the public API.  It's hidden behind the service client class. For example, here is the service interface for one method within the `ConfigurationService`:
 
 ```java
 @Host("{url}")
@@ -358,21 +364,23 @@ interface ConfigurationService {
 }
 ```
 
-There are many annotations to unpack here:
+| Annotation | Location | Description |
++------------+----------+-------------+
+| `@ServiceInterface` | Service Interface | This interface represents a REST endpoint for the service.  The argument will be used as the service name in policies (such as telemetry and tracing). The argument must be short, alphanumeric, without spaces, and fit for public consumption. |
+| `@Host` | Service Interface | The host name of the REST service.  The `{url}` maps with the `@HostParam` annotation. |
+| `@<Method>` | Service Method | The HTTP method and endpoint used for the HTTP request. |
+| `@ExpectedResponses` | Service Method | The list of HTTP status codes that the method expects to receive on success. |
+| `@UnexpectedResponseExceptionType` | Method | Enables different exceptions to be thrown based on the status code returned. |
+| `@BodyParam` | Argument | Places this argument into the body of the outgoing HTTP request. |
+| `@HeaderParam` | Argument | Places this argument into the header of the outgoing HTTP request. |
+| `@PathParam` | Argument | Places the argument into the endpoint path. |
+| `@QueryParam` | Argument | Places the argument into the query string of the outgoing HTTP request. |
 
-* `@ServiceInterface` specifies that this interface performs the role of representing a REST endpoint for a particular srevice. This string will be used in places such as telemetry and tracing, and therefore must be fit for public consumption. It must be short, alphanumeric only, and without spaces.
-* `@Host` is an annotation for parameterizing the host name of a REST service. The `{url}` shown in the annotation above maps with the `@HostParam` annotation on the first argument into the `getKeyValue(..)` method. In other words, when the call is made to `getKeyValue(..)`, the caller provides the url, which is then mapped dynamically into the outgoing call.
-* `@Get`, `@Delete`, `@Head`, `@Patch`, `@Post`, and `@Put` all specify the type of HTTP request to perform for a specific method on the interface, as well as the path to the endpoint.
-* `@ExpectedResponses` specifies the HTTP status code that this method expects to receive back. There may be more than one valid status code.
-* `@UnexpectedResponseExceptionType` enables for different exceptions to be thrown based on the status code returned in the response, as well as a single fall-back exception if no status codes match.
-* There are many valid annotation types for method parameters:
-   * `@BodyParam` puts the argument into the body of the outgoing HTTP request.
-   * `@HeaderParam` puts the argument into the header of the outgoing HTTP request.
-   * `@PathParam` puts the argument into the path of the outgoing HTTP request, at the point where the value of the annotation matches the same value in the HTTP request type annotation (i.e. `@Get`, `@Delete`, `@Head`, `@Patch`, `@Post`, or `@Put`).
-   * `@QueryParam` puts the argument into the query string of the outgoing HTTP request.
+When specifying strings, you may use `{argument}` to do string replacement from arguments.  For example, the `@PathParam("key")` annotation replaces the `{key}` segment in the method annotation in the above example.
 
 #### Service Client
-The next place to include annotations is the service client class itself. In here we make use of the `@ServiceClient` and `@ServiceMethod` annotatations, on the service client class and each service client method that does network IO, respectively. Here is a sample class demonstrating the use of these two annotations:
+
+Include the following annotations on the service client class.  For example, this code sample shows a sample class demonstrating the use of these two annotations:
 
 ```java
 @ServiceClient(builder = ConfigurationAsyncClientBuilder.class, isAsync = true, service = ConfigurationService.class)
@@ -385,10 +393,13 @@ public final class ConfigurationAsyncClient {
 }    
 ```
 
-* `@ServiceClient` is placed on all classes that provide API to communicate with an Azure service. The annotation supports specifying the builder responsible for instantiating the service client, whether or not the API is asynchronous, and a reference back to the service interface (the interface annotated with `@ServiceInterface`).
-* `@ServiceMethod` is placed on all service client methods that perform network operations.
+| Annotation | Location | Description |
++------------+----------+-------------+
+| `@ServiceClient` | Service Client | Specifies the builder responsible for instantiating the service client, whether the API is asynchronous, and a reference back to the service interface (the interface annotated with `@ServiceInterface`). |
+| `@ServiceMethod` | Service Method | Placed on all service client methods that do network operations. |
 
 #### Service Client Builder
+
 The `@ServiceClientBuilder` annotation should be placed on any class that is responsible for instantiating service clients (that is, instantiating classes annotated with `@ServiceClient`). For example:
 
 ```java
@@ -396,26 +407,31 @@ The `@ServiceClientBuilder` annotation should be placed on any class that is res
 public final class ConfigurationClientBuilder { ... }
 ```
 
-As can be seen above, this builder states that it is able to build instances of `ConfigurationClient` and `ConfigurationAsyncClient`.
+This builder states that it can build instances of `ConfigurationClient` and `ConfigurationAsyncClient`.
 
 #### Model Classes
+
 There are two annotations of note that should be applied on model classes, when applicable:
 
-* The `@Fluent` annotation is given to all model classes that are expected to provide a fluent API to end users. If a class has this annotation, checks can be made to ensure all API meets this expectation. Similarly, classes that are not annotated with this annotation should not have fluent APIs.
-* The `@Immutable` annotation is given to all immutable classes. If a class has this annotation, checks can be made to ensure all fields in this class are final.
+* The `@Fluent` annotation is given to all model classes that are expected to provide a fluent API to end users.
+* The `@Immutable` annotation is given to all immutable classes.
 
 ### Versioning {#java-service-versioning}
 
 ~ Draft
-The API for specifying a specific service version is not yet defined, so this section will change as it becomes more concrete.
-~
+The API for specifying a specific service version isn't yet defined.  This section will change as it becomes more concrete.
 
-As opposed to the [release versioning](#sec-versioning) section later in this document, this section details how to provide API to consumers such that they may specify exactly which version of an Azure service they want to use.
+
+There are two versions that developers must be concerned with. [Release versioning](#sec-versioning) is the version of the library and is discussed later in this document.  The Azure service API that the library calls also has a version. This section details how consumers can request a specific Azure service API when working with the library.
 
 ~ Must {#java-service-version-default}
 call the latest supported service API version by default.
 ~
 
 ~ Must {#java-service-version-option}
-allow explicitly selecting a supported service API versions when instantiating service client types as part of the client builder API through the `serviceVersion` API. This method will take a `ServiceVersion` enumeration value. This enumeration must have a `getLatest()` method to return the latest service version. If a consumer does not specify a service version, the builder will call `ServiceVersion.getLatest()` and use this version for the lifetime of that client instance.
+allow the consumer to select a supported service API version when instantiating the service client.
+
+Include `.serviceVersion(ServiceVersion version)` as part of the client builder API.  `ServiceVersion` should be an enumeration. The enumeration must have a `getLatest()` method that returns the latest service version. If a consumer doesn't specify a service version, the builder will call `ServiceVersion.getLatest()` to obtain the appropriate service version.
+~
+
 ~

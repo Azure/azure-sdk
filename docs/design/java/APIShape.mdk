@@ -1,13 +1,13 @@
 ### Client interface {#general-apisurface-serviceclient}
 
-In general, your API surface will consist of one or more _service clients_ that the consumer will instantiate to connect to your service, plus a set of supporting types.     
+Your API surface consists of one or more _service clients_ that the consumer will instantiate to connect to your service, plus a set of supporting types.
 
 ~ Must {#general-apisurface-serviceclientnaming}
 name service client types with the _Client_ suffix.
 ~
 
 ~ Must {#general-apisurface-serviceclientnamespace}
-place service client types that the consumer is most likely to interact with in the root package of the client library (e.g. `com.azure.<group>.servicebus`).  Specialized service clients may be placed in sub-packages.
+place service client types that the consumer is most likely to interact with in the root package of the client library (for example, `com.azure.<group>.servicebus`).  Specialized service clients should be placed in subpackages.
 ~
 
 ~ Must {#general-apisurface-serviceclientconstructor}
@@ -15,7 +15,9 @@ allow the consumer to construct a service client with the minimal information ne
 ~
 
 ~ Must {#general-apisurface-standardized-verbs}
-standardize verb prefixes within a set of client libraries for a service.  The service must be able to speak about a specific operation in a cross-language manner within outbound materials (such as documentation, blogs, and public speaking).  They cannot do this if the same operation is referred to by different verbs in different languages.
+standardize verb prefixes within a set of client libraries for a service.  
+
+We speak about using the client library in a cross-language manner within outbound materials such as documentation, blogs, and public speaking.
 ~
 
 ~ Must {#general-apisurface-supportallfeatures}
@@ -24,19 +26,19 @@ support 100% of the features provided by the Azure service the client library re
 
 ### Network requests
 
-Since the client library generally wraps one or more HTTP requests, it is important to support standard network capabilities.  Asynchronous programming techniques are not widely understood, although such techniques are essential in developing scalable web services and required in certain environments (such as mobile or Node environments).  Many developers prefer synchronous method calls for their easy semantics when learning how to use a technology.  In addition, consumers have come to expect certain capabilities in a network stack - capabilities such as call cancellation, automatic retry, and logging. 
+The client library wraps HTTP requests so it's important to support standard network capabilities.  Asynchronous programming techniques aren't widely understood.  However, such techniques are essential in developing resilient web services.  Many developers prefer synchronous method calls for their easy semantics when learning how to use a technology.  Consumers also expect certain capabilities in a network stack (such as call cancellation, automatic retry, and logging).
 
 ~ Must {#general-apisurface-syncandasync}
 support both synchronous and asynchronous service clients.
 ~
 
 ~ Must {#general-apisurface-identifyasync}
-ensure that the consumer can identify which methods are asynchronous and which are synchronous. In Java this is achieved by having [separate service clients](#java-api-shape) for sync and async APIs.
+have [separate service clients](#java-api-shape) for sync and async APIs.  The consumer needs to identify which methods are async and which are sync.
 ~
 
 ### Authentication
 
-Azure services use a variety of different authentication schemes to allow clients to access the service.  Conceptually, there are two entities responsible in this process: a credential and an authentication policy.  Credentials provide confidential authentication data.  Authentication policies use the data provided by a credential to authenticate requests to the service.  
+Azure services use different kinds of authentication schemes to allow clients to access the service.  Conceptually, there are two entities responsible in this process: a credential and an authentication policy.  Credentials provide confidential authentication data.  Authentication policies use the data provided by a credential to authenticate requests to the service.  
 
 ~ Must {#general-apisurface-support-all-auth-techniques}
 support all authentication techniques that the service supports.
@@ -47,14 +49,14 @@ use credential and authentication policy implementations from the Azure Core lib
 ~
 
 ~ Must {#general-apisurface-prefer-token-auth}
-provide credential types that can be used to fetch all data needed to authenticate a request to the service in a non-blocking atomic manner for each authentication scheme that does not have an implementation in Azure Core.
+provide credential types that can be used to fetch all data needed to authenticate a request to the service.  If using a service-specific credential type, the implementation must be non-blocking and atomic.
 ~
 
 ~ Must {#general-apisurface-auth-in-constructors}
 provide service client fluent builder APIs that accept all supported authentication credentials.
 ~
 
-Client libraries may support providing credential data via a connection string __ONLY IF__ the service provides a connection string to users via the portal or other tooling.   Connection strings are generally good for getting started as they are easily integrated into an application by copy/paste from the portal.  However, connection strings are considered a lesser form of authentication because the credentials cannot be rotated within a running process.
+A connection string is a combination of an endpoint, credential data, and other options used to simplify service client configuration.  Client libraries may support a connection string __ONLY IF__ the service provides it via the portal or other tooling.   Connection strings are easily integrated into an application by copy/paste from the portal.  However, credentials within a connection string can't be rotated within a running process.  Their use should be discouraged in production apps.
 
 ~ MustNot {#general-apisurface-no-connection-strings}
 support constructing a service client with a connection string unless such connection string is available within tooling (for copy/paste operations).
