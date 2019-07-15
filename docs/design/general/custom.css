@@ -1,6 +1,7 @@
 body.madoko {
   font-size: 16px;
-  font-family: Segoe UI, SegoeUI, Segoe WP, Helvetica Neue, Helvetica, Tahoma, Arial, sans-serif;
+  font-family: Segoe UI, SegoeUI, Segoe WP, Helvetica Neue, Helvetica, Tahoma,
+    Arial, sans-serif;
 }
 
 .must,
@@ -55,11 +56,18 @@ a.req-label {
 }
 
 .madoko code.code,
-.madoko span.code,
-.madoko pre code {
-  color: #aa0000;
+.madoko span.code {
   font-weight: 700;
+  border-radius: 3px;
+  background-color: rgba(27, 31, 35, 0.05);
+  padding: 0.2em 0.4em;
+  line-height: 1.6;
 }
+
+.madoko pre code {
+  background-color: white;
+}
+
 .madoko p {
   text-align: left;
 }
