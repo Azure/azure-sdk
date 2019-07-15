@@ -369,7 +369,7 @@ interface ConfigurationService {
 | `@ServiceInterface` | Service Interface | This interface represents a REST endpoint for the service.  The argument will be used as the service name in policies (such as telemetry and tracing). The argument must be short, alphanumeric, without spaces, and fit for public consumption. |
 | `@Host` | Service Interface | The host name of the REST service.  The `{url}` maps with the `@HostParam` annotation. |
 | `@<Method>` | Service Method | The HTTP method and endpoint used for the HTTP request. |
-| `@ExpectedResponses` | SPI Method | The list of HTTP status codes that the method expects to receive on success. |
+| `@ExpectedResponses` | Service Method | The list of HTTP status codes that the method expects to receive on success. |
 | `@UnexpectedResponseExceptionType` | Method | Enables different exceptions to be thrown based on the status code returned. |
 | `@BodyParam` | Argument | Places this argument into the body of the outgoing HTTP request. |
 | `@HeaderParam` | Argument | Places this argument into the header of the outgoing HTTP request. |
