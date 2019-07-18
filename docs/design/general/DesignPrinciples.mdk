@@ -36,6 +36,7 @@ The Azure SDK should be designed to enhance the productivity of developers conne
 
 ### Compatible
 
-* 99.99% of features and improvements are not worth the time consumers would have to spend reacting to breaking changes.
+* Breaking changes are more harmful to a user's experience than most new features and improvements are beneficial.
+* Incompatibilities should never be introduced deliberately without thorough review and very strong justification.
 * Do not rely on dependencies that can force our hand on compatibility.
 
