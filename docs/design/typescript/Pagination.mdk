@@ -2,19 +2,19 @@
 
 Most developers will want to process a list one item at a time. Higher-level APIs (for example, async iterators) are preferred in the majority of use cases.  Finer-grained control over handling paginated result sets is sometimes required (for example, to handle over-quota or throttling).  
 
-~ Must
+~ Must {#ts-pagination-list}
 provide a `list` method that returns a `PagedAsyncIterableIterator` from the module `@azure/core-paging`.
 ~
 
-~ Must
+~ Must {ts-pagination-bypage}
 provide page-related settings to the `byPage()` iterator and not the per-item iterator.
 ~
 
-~ Must
+~ Must {ts-pagination-continuationtoken}
 take a `continuationToken` option in the `byPage()` method. You must rename other parameters that perform a similar function (for example, `nextMarker`).  If your page type has a continuation token, it must be named `continuationToken`.
 ~
 
-~ Must
+~ Must {ts-pagination-maxpagesize}
 take a `maxPageSize` option in the `byPage()` method.
 ~
 
