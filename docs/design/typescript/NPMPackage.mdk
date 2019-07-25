@@ -246,23 +246,23 @@ An ESM distribution is consumed by tools such as [Webpack](https://webpack.js.or
 
 #### Browser Builds {#ts-source-distros-browser}
 
-~ Should
+~ Should {#ts-browser-build}
 provide a browser build for your library.
 ~
 
-~ Must
+~ Must {#ts-browser-umd}
 be in UMD module format.
 ~
 
-~ Must
+~ Must {#ts-browser-global-name}
 name the UMD global according to the [namespace guidelines](#ts-namespace).
 ~
 
-~ Must
+~ Must {#ts-browser-minification}
 provide both minified and non-minified versions, both with source mapping.
 ~
 
-~ Must
+~ Must {#ts-browser-folder}
 place browser builds in a top level `browser` folder. The name of the file should be the service name. Append `.min` to the name of minified files. For example, Storage Blob should have `storage-blob.min.js` and `storage-blob.js` under `./browser`.
 ~
 
