@@ -116,6 +116,35 @@ name abort signal options `abortSignal`
 suffix durations with `In<Unit>`. Unit should be `ms` for milliseconds, and otherwise the name of the unit. Examples include `timeoutInMs` and `delayInSeconds`.
 ~
 
+#### Retry-specific Options {#ts-retry-options}
+
+Many services have a notion of retries and have various means to configure them.
+
+~ Do {#ts-use-retry-option-names}
+use the option names specified in table [#ts-retry-option-names].
+~
+
+~ Do {#ts-use-retry-strategies}
+support the following retry strategies:
+
+* `fixed`: retry after some duration, where the duration never changes.
+* `linear`: retry after some duration, where the duration increases linearly after each attempt.
+* `exponential`: retry after some duration, where the duration increases exponentially after each attempt.
+~
+
+~ TableFigure {#ts-retry-option-names; caption="Retry option names"}
+| Option | Values | Usage | Other Names (informational) |
+|--------|-------|------|------|
+| strategy | 'fixed', 'linear', 'exponential' | Used to specify the retry strategy | **Storage**: retryPolicyType |
+| maxRetries | number >= 0 | Number of times to retry. 0 effectively disables retrying. | **Storage**: maxTries<br>**Cosmos**: maxRetryAttemptCount<br>**Keyvault**: retryCount<br>**core-http**: retryCount |
+| retryDelayInMs | number > 0 | Delay between retries. For linear and exponential strategies, this is the initial retry delay and increases thereafter based on the strategy used. | **Cosmos**: fixedRetryIntervalInMilliseconds<br>**Keyvault**: retryIntervalInMS<br>**core-http**:retryInterval|
+| maxRetryDelayInMs | number > 0 | Maximum delay between retries. For linear and exponential strategies, this effectively clamps the maximum amount of time between retries. | **core-http**: maxRetryInterval |
+| tryTimeoutInMs | number > 0 | How long to wait for a particular retry to complete before giving up |
+~
+
+~ DoNot
+support options for per-operation-level timeout such as Cosmos's maxWaitTimeInSeconds. Users wishing to cancel an operation that is taking too long should use an abort signal.
+~
 
 ### Response formats {#ts-responses}
 
