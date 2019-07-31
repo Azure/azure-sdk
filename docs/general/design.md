@@ -1,0 +1,244 @@
+---
+title: "General Guidelines: API Design"
+keywords: guidelines
+permalink: general_design.html
+folder: general
+sidebar: general_sidebar
+---
+
+The API surface of your client library must have the most thought as it is the primary interaction that the consumer has with your service.
+
+## Namespaces
+
+Some languages have a concept of namespaces to group related types.  Grouping services within a cloud infrastructure is common since it aids discoverability and provides structure to the reference documentation.
+
+{% include requirement/SHOULD %} support namespaces if namespace usage is common within the language ecosystem.
+
+{% include requirement/MUST %} use a root namespace of the form `<AZURE>.<group>.<service>`.  All consumer-facing APIs that are commonly used should exist within this namespace.  The namespace is comprised of three parts:
+
+- `<AZURE>` indicates a common prefix for all Azure services.  This may be `Azure` or `com.azure` or similiar, depending on the common form within the language.
+- `<group>` is the group for the service.  See the list below.
+- `<service>` is the shortened service name.
+
+{% include requirement/MUST %} pick a shortened service name that allows the consumer to tie the package to the service being used.  As a default, use the compressed service name.  The namespace does **NOT** change when the branding of the product changes, so avoid the use of marketing names that may change.
+
+A compressed service name is the service name without spaces.  It may further be shortened if the shortened version is well known in the community.  For example, "Azure Media Analytics" would have a compressed service name of `MediaAnalytics`, whereas "Azure Service Bus" would become `ServiceBus`.
+
+{% include requirement/MUST %} use the following list as the group of services (if the target language supports namespaces):
+
+{% include tables/data_namespaces.md %}
+
+If the client library does not seem to fit into the group list, contact the [Architecture Board] to discuss the namespace requirements.
+
+{% include requirement/MUST %} place the management (Azure Resource Manager) API in the `management` group.  Use the grouping `<AZURE>.management.<group>.<service>` for the namespace. Since more services require control plane APIs than data plane APIs, other namespaces may be used explicitly for control plane only.  Data plane usage is by exception only.  Additional namespaces that can be used for control plane SDKs include:
+
+{% include tables/mgmt_namespaces.md %}
+
+Many `management` APIs do not have a data plane because they deal with management of the Azure account. Place the management library in the `<AZURE>.management` namespace.  For example, use `azure.management.costanalysis` instead of `azure.management.management.costanalysis`.
+
+{% include requirement/MUSTNOT %} choose similar names for clients that do different things.
+
+{% include requirement/MUST %} register the chosen namespace with the [Architecture Board].  Open an issue to request the namespace.  See [the registered namespace list](registered_namespaces.html) for a list of the currently registered namespaces.
+
+### Example Namespaces
+
+Here are some examples of namespaces that meet these guidelines:
+
+- `Azure.Data.Cosmos`
+- `Azure.Identity.ActiveDirectory`
+- `Azure.IoT.DeviceProvisioning`
+- `Azure.Storage.Blobs`
+- `Azure.Messaging.NotificationHubs` (the client library for Notification Hubs)
+- `Azure.Management.Messaging.NotificationHubs` (the management library for Notification Hubs)
+
+Here are some namespaces that do not meet the guidelines:
+
+- `Microsoft.Azure.CosmosDB` (not in the `Azure` namespace and does not use grouping)
+- `Azure.MixedReality.Kinect` (the grouping is not in the approved list)
+- `Azure.IoT.IoTHub.DeviceProvisioning` (too many levels in the group)
+
+## Client interface
+
+The API surface will consist of one of more _service clients_ that the consumer will instantiate to connect to your service, plus a set of supporting types.     
+
+{% include requirement/MUST %} name service client types with the `client` suffix.
+
+There are times when operations require the addition of optional data, provided in what is colloquially known as an "options bag".  Libraries should strive for consistent naming.
+
+{% include requirement/SHOULD %} name the type for service client option bags with the `client_options` suffix.
+
+{% include requirement/SHOULD %} name operation option bag types with the `options` suffix.  For example, if the operation is `get_secret`, then the type of the options bag would be called `get_secret_options`.
+
+{% include requirement/MUST %} place service client types that the consumer is most likely to interact with in the root namespace of the client library (assuming namespaces are supported in the target language).  Specialized service clients may be placed in sub-namespaces.
+
+{% include requirement/MUST %} allow the consumer to construct a service client with the minimal information needed to connect and authenticate to the service.
+
+{% include requirement/MUST %} standardize verb prefixes within a set of client libraries for a service.  The service must be able to speak about a specific operation in a cross-language manner within outbound materials (such as documentation, blogs, and public speaking).  They cannot do this if the same operation is referred to by different verbs in different languages.
+
+The following are standard verb prefixes.  You should have a good (articulated) reason to have an alternate verb for one of these operations.  For example, .NET uses `Get<noun>s` instead of `List<noun>s` since it is idiomatic to the language.
+
+{% include tables/standard_verbs.md %}
+
+{% include requirement/MUST %} support 100% of the features provided by the Azure service the client library represents. Gaps in functionality cause confusion and frustration among developers.
+
+## Network requests
+
+Since the client library generally wraps one or more HTTP requests, it is important to support standard network capabilities.  Asynchronous programming techniques are not widely understood, although such techniques are essential in developing scalable web services and required in certain environments (such as mobile or Node environments).  Many developers prefer synchronous method calls for their easy semantics when learning how to use a technology.  In addition, consumers have come to expect certain capabilities in a network stack - capabilities such as call cancellation, automatic retry, and logging. 
+
+{% include requirement/MUST %} support both synchronous and asynchronous method calls, except where the language or default runtime does not support one or the other.
+
+{% include requirement/MUST %} ensure that the consumer can identify which methods are async and which are synchronous.
+
+When an application makes a network request, the network infrastructure (like routers) and the called service may take a long time to respond and, in fact, may never respond. A well-written application SHOULD NEVER give up its control to the network infrastucture or service. Here are some examples as to why this is so important:
+
+- When an orchestrator needs to terminate a service (due to scale in, reconfiguration, or upgrading to a new version), the orchestrator typically notifies a running service instance by sending the Posix SIGINT. When the service receives this signal, it should terminate as quickly and gracefully as possible by setting a cancellation mechanism which is honored by all network operations that are currently in progress.
+- When a consumer's web server receives a request, it may set a time limit indicating how much time it is allowing before it must give a response to the user.
+- When a consumer's GUI application makes a request to an Azure service via our SDK, the GUI might offer a cancel button so that the end user can indicate that they are no longer in waiting for an operation or operations to complete.
+
+The best way for consumers to work with cancellation is to think of cancellation objects as forming a tree. For example:
+
+- Cancelling a parent automatically cancels its children.
+- Children can time out sooner than their parent but cannot extend the total time.
+- Cancellation can happen due to timeout or due to a manual/explicit cancel.
+
+Here is an example of how an application would use the tree of cancellations:
+
+- When an application starts, it should create a cancellation object that represents the entire application; this object is explicitly terminated in response to the application receiving a SIGINT notification.
+- When a web server receives an incoming request, it would create a new cancellation object that is a child of the application node. The new cancellation object would specify a maximum time that the web server is allowed to operate on the request.
+- As part of operating on the incoming request, the web server might need to make multiple requests to other services (like a database). If these requests can be made serially or in parallel, then they might share the previously created cancellation object. However, if the web server wants to limit the time spent on 1 or more of the requests, it can create a new cancellation object (with the desired timeout value) and make this object a child of the incoming node; this way, the individual request times out either when the overall request times out or when the maximum time for this operation is exceeded - whichever happens first.
+- Note that if multiple requests are made in parallel, it is common for the consumer to want to cancel all of them if any one of them fails. This should be a supported scenario.
+
+{% include requirement/MUST %} accept platform-native cancellation tokens (that implement a timeout) on all asynchronous calls.
+
+{% include requirement/SHOULD %} check cancellation tokens only on I/O calls (such as network requests and file loads).  Do not check cancellation tokens in between I/O calls within the client library (for example, when processing data between I/O calls).
+
+{% include requirement/MUSTNOT %} leak the underlying protocol transport implementation details to the consumer.  All types from the protocol transport implementation must be appropriately abstracted.
+
+## Authentication
+
+Azure services use a variety of different authentication schemes to allow clients to access the service.  Conceptually, there are two entities responsible in this process: a credential and an authentication policy.  Credentials provide confidential authentication data.  Authentication policies use the data provided by a credential to authenticate requests to the service.  
+
+{% include requirement/MUST %} support all authentication techniques that the service supports.
+
+{% include requirement/MUST %} use credential and authentication policy implementations from the Azure Core library where available.
+
+{% include requirement/MUST %} provide credential types that can be used to fetch all data needed to authenticate a request to the service in a non-blocking atomic manner for each authentication scheme that does not have an implementation in Azure Core.
+
+{% include requirement/MUST %} provide service client constructors or factories that accept any supported authentication credentials.
+
+Client libraries may support providing credential data via a connection string __ONLY IF__ the service provides a connection string to users via the portal or other tooling.   Connection strings are generally good for getting started as they are easily integrated into an application by copy/paste from the portal.  However, connection strings are considered a lesser form of authentication because the credentials cannot be rotated within a running process.
+
+{% include requirement/MUSTNOT %} support constructing a service client with a connection string unless such connection string is available within tooling (for copy/paste operations).
+
+## Response formats
+
+Requests to the service fall into two basic groups - methods that make a single logical request, or a deterministic sequence of requests.  An example of a *single logical request* is a request that may be retried inside the operation.  An example of a *deterministic sequence of requests* is a paged operation.
+
+The *logical entity* is a protocol neutral representation of a response. For HTTP, the logical entity may combine data from headers, body and the status line. A common example is exposing an ETag header as a property on the logical entity in addition to any deserialized content from the body.
+
+{% include requirement/MUST %} optimize for returning the logical entity for a given request. The logical entity must represent the information needed in the 99%+ case.
+
+{% include requirement/MUST %} allow a consumer to access the complete response, including the status line, headers and body. The client library must follow the language specific guidance for accomplishing this.
+
+{% include requirement/MUST %} provide examples on how to access the raw and streamed response for a given request, where exposed by the client library.  We do not expect all methods to expose a streamed response.
+
+{% include requirement/MUST %} provide a language idiomatic way to enumerate all logical entities for a paged operation, automatically fetching new pages as needed.  
+
+For example, in Python:
+
+```python
+# Yes:
+for instance in client.list_instances():
+    print(instance)
+
+# No - don't force the caller of the library to do paging:
+next_page = None
+while not done:
+    list_instance_result = client.list_instances(page=next_page):
+    for instance ln list_instance_result.response():
+        print(instance)
+    next_page = list_instance_result.next_page
+    done = next_page is None
+```
+
+For methods that combine multiple requests into a single call:
+
+{% include requirement/MUST %} return headers and other per-request metadata unless it is obvious as to which specific HTTP request the methods return value corresponds to.
+
+{% include requirement/MUST %} provide enough information in failure cases for an application to take appropriate corrective action.
+
+{% include requirement/SHOULDNOT %} use common reserved words as a property name within the models returned within the logical entity.  For example:
+
+- `object`
+- `value`
+
+Such usage can cause confusion and will inevitably have to be changed on a per-language basis, which can cause consistency problems.
+
+## Pagination
+
+Azure client libraries eschew low-level pagination APIs in favor of high-level abstractions that implement per-item iterators. High-level APIs are easy for developers to use for the majority of use cases but can be more confusing when finer-grained control is required (for example, over-quota/throttling) and debugging when things go wrong. Other guidelines in this document work to mitigate this limitation, for example by providing robust logging, tracing, and pipeline customization options.
+
+{% include requirement/MUST %} expose paginated collections using language-canonical iterators over items within pages. The APIs used to expose the async iterators are language-dependent but should align with any existing common practices in your ecosystem.
+
+{% include requirement/MUST %} expose paginated collections using an iterator or cursor pattern if async iterators aren't a built-in feature of your language.
+
+{% include requirement/MUST %} expose non-paginated list endpoints identically to paginated list endpoints. Users shouldn't need to appreciate the difference.
+
+{% include requirement/MUST %} use distinct types for entities in a list endpoint and an entity returned from a get endpoint if these are different types, and otherwise you must use the same types in these situations.
+
+{% include important.html content="Services should refrain from having a difference between the type of a particular entity as it exists in a list versus the result of a GET request for that individual item as it makes the client library's surface area simpler." %}
+
+{% include requirement/MUSTNOT %} expose an iterator over each individual item if getting each item requires a corresponding GET request to the service. One GET per item is often too expensive and so not an action we want to take on behalf of users.
+
+{% include requirement/MUSTNOT %} expose an API to get a paginated collection into an array. This is a dangerous capability for services which may return many pages.
+
+{% include requirement/MUST %} expose paging APIs when iterating over a collection. Paging APIs must accept a continuation token (from a prior run) and a maximum number of items to return, and must return a continuation token as part of the response so that the iterator may continue, potentially on a different machine.
+
+## Long running operations
+
+Long-running operations are operations which consist of an initial request to start the operation followed by polling to determine when the operation has completed or failed. Long-running operations in Azure tend to follow the [REST API guidelines for Long-running Operations][rest-lro], but there are exceptions.
+
+{% include requirement/MUST %} represent long-running operations with some object that encapsulates the polling and the operation status. This object, called a *poller*, must provide APIs for:
+
+1. querying the current operation state (either asynchronously, which may consult the service, or synchronously which must not)
+2. requesting an asynchronous notification when the operation has completed
+3. cancelling the operation if cancellation is supported by the service
+4. registering disinterest in the operation so polling stops
+5. triggering a poll operation manually (automatic polling must be disabled)
+6. progress reporting (if supported by the service)
+
+{% include requirement/MUST %} support the following polling configuration options:
+
+* `pollInterval`
+  
+Polling configuration may be used only in the absence of relevant retry-after headers from service, and otherwise should be ignored.
+
+{% include requirement/MUST %} prefix method names which return a poller with either `begin` or `start`.  Language-specific guidelines will dictate which verb to use.
+
+{% include requirement/MUST %} provide a way to instantiate a poller with the serialized state of another poller to begin where it left off, for example by passing the state as a parameter to the same method which started the operation, or by directly instantiating a poller with that state.
+
+{% include requirement/MUSTNOT %} cancel the long-running operation when cancellation is requested via a cancellation token. The cancellation token is cancelling the polling operation and should not have any effect on the service.
+
+{% include requirement/MUST %} log polling status at the `Info` level (including time to next retry)
+
+{% include requirement/MUST %} expose a progress reporting mechanism to the consumer if the service reports progress as part of the polling operation.  Language-dependent guidelines will present additional guidance on how to expose progress reporting in this case.
+
+## Support for non-HTTP protocols
+
+Most Azure services expose a RESTful API over HTTPS.  However, a few services use other protocols, such as [AMQP](https://www.amqp.org/), [MQTT](http://mqtt.org/), or [WebRTC](https://webrtc.org/). In these cases, the operation of the protocol can be split into two phases:
+
+* Per-connection (surrounding when the connection is initiated and terminated)
+* Per-operation (surrounding when an operation is sent through the open connection)
+
+The policies that are added to a HTTP request/response (authentication, unique request ID, telemetry, distributed tracing, and logging) are still valid on both a per-connection and per-operation basis.  However, the methods by which these policies are implemented are protocol dependent.
+
+{% include requirement/MUST %} implement as many of the policies as possible on a per-connection and per-operation basis.
+
+For example, MQTT over WebSockets provides the ability to add headers during the initiation of the WebSockets connection, so this is a good place to add authentication, telemetry, and distributed tracing policies.  However, MQTT has no metadata (the equivalent of HTTP headers), so per-operation policies are not possible.  AMQP, by contract, does have per-operation metadata.  Unique request ID, and distributed tracing headers can be provided on a per-operation basis with AMQP.
+
+{% include requirement/MUST %} consult the [Architecture Board] on policy decisions for non-HTTP protocols.  Implementation of all policies is expected.  If the protocol cannot support a policy, obtain an exception from the [Architecture Board].
+
+{% include requirement/MUST %} use the global configuration established in the Azure Core library to configure policies for non-HTTP protocols.  Consumers don't necessarily know what protocol is used by the client library.  They will expect the client library to honor global configuration that they have established for the entire Azure SDK.  
+
+{% include refs.md %}
+

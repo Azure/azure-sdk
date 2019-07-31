@@ -1,0 +1,42 @@
+entries:
+- title: .NET Sidebar
+  levels: one
+  folders:
+
+  - title: API Documentation
+    folderitems:
+      - title: Microsoft.Azure.Cosmos
+        external_url: https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos?view=azure-dotnet-preview
+      - title: Azure.Messaging.EventHubs
+        external_url: https://azure.github.io/azure-sdk-for-net/api/EventHubs/Azure.Messaging.EventHubs.html
+      - title: Azure.Security.KeyVault.Keys
+        external_url: https://azure.github.io/azure-sdk-for-net/api/KeyVault/Azure.Security.KeyVault.Keys.html
+      - title: Azure.Security.KeyVault.Secrets
+        external_url: https://azure.github.io/azure-sdk-for-net/api/KeyVault/Azure.Security.KeyVault.Secrets.html
+      - title: Azure.Storage.Blobs
+        external_url: https://azure.github.io/azure-sdk-for-net/api/Storage/Azure.Storage.Blobs.html
+      - title: Azure.Storage.Files
+        external_url: https://azure.github.io/azure-sdk-for-net/api/Storage/Azure.Storage.Files.html
+      - title: Azure.Storage.Queues
+        external_url: https://azure.github.io/azure-sdk-for-net/api/Storage/Azure.Storage.Queues.html
+  - title: Guidelines
+    folderitems:
+      - title: Introduction
+        url: /dotnet_introduction.html
+      - title: Service Client Design
+        url: /dotnet_introduction.html#dotnet-client
+      - title: Azure SDK Library Design
+        url: /dotnet_introduction.html#general-azure-sdk-library-design
+      - title: Common Type Usage
+        url: /dotnet_introduction.html#dotnet-commontypes
+  - title: Policies
+    folderitems:
+      - title: Open source
+        url: /policies_opensource.html
+      - title: Repository structure
+        url: /policies_repostructure.html
+      - title: Repository branching
+        url: /policies_repobranching.html
+      - title: Releases
+        url: /policies_releases.html
+
