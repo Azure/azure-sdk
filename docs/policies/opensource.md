@@ -22,6 +22,15 @@ sidebar: general_sidebar
 
 {% include requirement/MUST %} include a copyright header at the top of every source file (including samples). See the [Microsoft Open Source Guidelines](https://docs.opensource.microsoft.com/releasing/copyright-headers.html) for example headers in various languages.
 
+The expected copyright header is as follows:
+
+```fundamental
+Copyright (c) Microsoft Corporation.
+Licensed under the MIT license.
+```
+
+{% include important.html content="There is currently disagreement between the Microsoft Open Source Guidelines and this advice.  This advice is current as of August 2019.  Consult CELA if you are unsure as to the proper license." %}
+
 ## CONTRIBUTING.md
 
 {% include requirement/MUST %} include a `CONTRIBUTING.md` file in your GitHub repository, using it to describe the process by which contributors can make contributions to the project.  An example `CONTRIBUTING.md` is provided by the [Microsoft Open Source Guidelines](https://docs.opensource.microsoft.com/releasing/overview.html):
@@ -29,8 +38,7 @@ sidebar: general_sidebar
 ```
 # Contributing
 
-This project welcomes contributions and suggestions. Most contributions require you to agree to a Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us the rights to use your contribution. For details, visit
-https://cla.microsoft.com.
+This project welcomes contributions and suggestions. Most contributions require you to agree to a Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us the rights to use your contribution. For details, visit https://cla.microsoft.com.
 
 When you submit a pull request, a CLA-bot will automatically determine whether you need to provide a CLA and decorate the PR appropriately (e.g., label, comment). Simply follow the instructions provided by the bot. You will only need to do this once across all repositories using our CLA.
 
@@ -51,6 +59,7 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 {% include requirement/MUST %} edit the root-level CODEOWNERS file to ensure that it is updated to redirect all pull requests for the directory of the client library to point to the relevant engineers of this component. If the client library will exist within its own repository, then a CODEOWNERS file must be introduced and configured appropriately.
 
 Use the following rules to ensure that we can use CODEOWNERS for both GitHub and build failure notifications: 
+
 * Use the `/.github/CODEOWNERS` file
 * Follow the `/sdk/<service name>/` (with the leading and trailing slashes) convention to define service owners
   * When using this format, service owners will be automatically subscribed to build notification failure alerts
