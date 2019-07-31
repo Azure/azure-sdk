@@ -550,8 +550,6 @@ For example, `Azure.Storage.Blobs`.
 
 {% include requirement/MUST %} use one of the following pre-approved namespace groups:
 
-{% include requirement/MUST %} use the following list as the group of services (if the target language supports namespaces):
-
 - `Azure.AI` for artificial intelligence, including machine learning
 - `Azure.Analytics` for client libraries that gather or process analytics data
 - `Azure.Core` for libraries that aren't service specific
@@ -648,7 +646,7 @@ Use the following target setting in the `.csproj` file:
 * `Microsoft.BCL.AsyncInterfaces`.
 * packages produced by your own team.
 
-In the past, [JSON.NET] was commonly used for serialization and deserialization. Use the [System.Text.Json](https://github.com/dotnet/corefx/tree/master/src/System.Text.Json/source_package) 
+In the past, [JSON.NET] was commonly used for serialization and deserialization. Use the [System.Text.Json](https://www.nuget.org/packages/System.Text.Json/) 
 package that is now a part of the .NET platform instead.
 
 {% include requirement/MUSTNOT %} publicly expose types from dependencies unless the types follow these guidelines as well.
