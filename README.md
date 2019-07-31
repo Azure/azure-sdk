@@ -8,7 +8,7 @@ The Azure SDK delivers a platform for developers to leverage the wide variety of
 | C#  /.NET   |[Design Guidelines for .NET][dotnet]    |[azure-sdk-for-net Repository](https://github.com/Azure/azure-sdk-for-net)      | [.NET Preview Documentation](http://aka.ms/net-docs) |
 | Go          |                                                                         |[azure-sdk-for-go Repository](https://github.com/Azure/azure-sdk-for-go)        | [Go Documentation](http://aka.ms/go-docs) |
 | Java        |[Design Guidelines for Java][java]      |[azure-sdk-for-java Repository](https://github.com/Azure/azure-sdk-for-java)    | [Java Documentation](http://aka.ms/java-docs)   |
-| JavaScript  |[Design Guidelines for JavaScript and TypeScript][js] |[azure-sdk-for-js Repository](https://github.com/Azure/azure-sdk-for-js)        | [JavaScript Documentation](http://aka.ms/js-docs)|
+| JavaScript  |[Design Guidelines for JavaScript and TypeScript][typescript] |[azure-sdk-for-js Repository](https://github.com/Azure/azure-sdk-for-js)        | [JavaScript Documentation](http://aka.ms/js-docs)|
 | Python      |[Design Guidelines for Python][python]    |[azure-sdk-for-python Repository](https://github.com/Azure/azure-sdk-for-python)| [Python Documentation](https://aka.ms/python-docs) |
 
 Service teams should schedule reviews of their client libraries with the ADP Review Board.  See the [Review Process](docs/ReviewProcess.md) for more information.
@@ -71,6 +71,6 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 [general]: https://azure.github.io/azure-sdk/general_introduction.html
 [dotnet]: https://azure.github.io/azure-sdk/dotnet_introduction.html
 [java]: https://azure.github.io/azure-sdk/java_introduction.html
-[js]: https://azure.github.io/azure-sdk/js_introduction.html
+[typescript]: https://azure.github.io/azure-sdk/typescript_introduction.html
 [python]: https://azure.github.io/azure-sdk/python_introduction.html
 
