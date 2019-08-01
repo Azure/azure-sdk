@@ -82,7 +82,7 @@ The JavaScript community generally follows SemVer. For preview releases, we will
 + `X.Y.Z-dev.YYYYMMDD`
 + `X.Y.Z-preview.N`
 
-JavaScript dev and preview releases are published to npm with the `@dev` and `@preview` tags.
+JavaScript dev and preview releases are published to npm with the `@dev` and `@next` tags.
 
 ### .NET
 NuGet supports designating a package as 'pre-release'. In this ecosystem, pre-release packages will have daily build numbers in the format:
