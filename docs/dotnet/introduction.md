@@ -608,7 +608,7 @@ Don't introduce new exception types unless there's a programmatic scenario for h
 
 Request logging will be done automatically by the `HttpPipeline`.  If a client library needs to add custom logging, follow the [same guidelines](https://azuresdkspecs.z5.web.core.windows.net/#general-logging) and mechanisms as the pipeline logging mechanism.  If a client library wants to do custom logging, the designer of the library must ensure that the logging mechanism is pluggable in the same way as the `HttpPipeline` logging policy.
 
-{% include requirement/MUST %} follow [the logging section of the Azure SDK General Guidelines](https://azuresdkspecs.z5.web.core.windows.net/#general-logging) if logging directly (as opposed to through the `HttpPipeline`).
+{% include requirement/MUST %} follow [the logging section of the Azure SDK General Guidelines]({{ site.baseurl }}/general_introduction.html#general-logging) if logging directly (as opposed to through the `HttpPipeline`).
 
 
 #### Distributed Tracing {#dotnet-distributedtracing}

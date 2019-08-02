@@ -12,3 +12,6 @@
 [java-guidelines]: {{ site.baseurl }}/java_introduction.html
 [python-guidelines]: {{ site.baseurl }}/python_introduction.html
 [typescript-guidelines]: {{ site.baseurl }}/typescript_introduction.html
+
+[README-EXAMPLE]: https://github.com/Azure/azure-sdk/blob/master/docs/README-EXAMPLE.md
+[README-TEMPLATE]: https://github.com/Azure/azure-sdk/blob/master/docs/README-TEMPLATE.md
