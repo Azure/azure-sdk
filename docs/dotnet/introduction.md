@@ -8,7 +8,7 @@ sidebar: dotnet_sidebar
 
 ## Introduction
 
-The following document describes .NET specific guidelines for designing Azure SDK client libraries. These guidelines complement general [.NET Framework Design Guidelines] with design considerations specific to the Azure SDK. These guidelines also expand on and simplify language-independent [General Azure SDK Guidelines]({{ site.baseurl }}/general_introduction.html). More specific guidelines take precedence over more general guidelines.
+The following document describes .NET specific guidelines for designing Azure SDK client libraries. These guidelines complement general [.NET Framework Design Guidelines] with design considerations specific to the Azure SDK. These guidelines also expand on and simplify language-independent [General Azure SDK Guidelines][general-guidelines]. More specific guidelines take precedence over more general guidelines.
 
 Currently, the document describes guidelines for client libraries exposing HTTP/REST services. It may be expanded in the future to cover other, non-REST, services.
 
@@ -52,13 +52,13 @@ The main value of the Azure SDK is productivity. Other qualities, such as comple
 
 At the end of this document, you can find a section with [the most commonly overlooked guidelines](#dotnet-appendix-overlookedguidelines) in existing Azure SDK libraries.
 
-{% include requirement/MUST %} follow the general [General Azure SDK Guidelines]({{ site.baseurl }}/general_introduction.html).
+{% include requirement/MUST %} follow the [General Azure SDK Guidelines][general-guidelines].
 
 The guidelines provide a robust methodology for communicating with Azure services. The easiest way to ensure that your component meets these requirements is to use the [Azure.Core] package to call Azure services. Details of these helper APIs and their usage are described in the [Using HttpPipeline](#dotnet-usage-httppipeline) section.
 
 {% include requirement/MUST %} use `HttpPipeline` to implement all methods that call Azure REST services. 
 
-The pipeline can be found in the [Azure.Core] package, and it takes care of many general [General Azure SDK Guidelines]. Details of the pipeline design and usage are described in section [Using HttpPipeline](#dotnet-usage-httppipeline) below. If you can't use the pipeline, you must implement [all the general requirements of Azure SDK]({{ site.baseurl }}/general_introduction.html) manually.
+The pipeline can be found in the [Azure.Core] package, and it takes care of many [General Azure SDK Guidelines][general-guidelines]. Details of the pipeline design and usage are described in section [Using HttpPipeline](#dotnet-usage-httppipeline) below. If you can't use the pipeline, you must implement [all the general requirements of Azure SDK]({{ "/general_azurecore.html" | relative_url }}) manually.
 
 # API Design {#dotnet-api}
 
@@ -606,9 +606,9 @@ Don't introduce new exception types unless there's a programmatic scenario for h
 
 ### Logging
 
-Request logging will be done automatically by the `HttpPipeline`.  If a client library needs to add custom logging, follow the [same guidelines](https://azuresdkspecs.z5.web.core.windows.net/#general-logging) and mechanisms as the pipeline logging mechanism.  If a client library wants to do custom logging, the designer of the library must ensure that the logging mechanism is pluggable in the same way as the `HttpPipeline` logging policy.
+Request logging will be done automatically by the `HttpPipeline`.  If a client library needs to add custom logging, follow the [same guidelines]{{ site.baseurl }}/general_implementation.html#general-logging) and mechanisms as the pipeline logging mechanism.  If a client library wants to do custom logging, the designer of the library must ensure that the logging mechanism is pluggable in the same way as the `HttpPipeline` logging policy.
 
-{% include requirement/MUST %} follow [the logging section of the Azure SDK General Guidelines]({{ site.baseurl }}/general_introduction.html#general-logging) if logging directly (as opposed to through the `HttpPipeline`).
+{% include requirement/MUST %} follow [the logging section of the Azure SDK General Guidelines]({{ site.baseurl }}/general_implementation.html#general-logging) if logging directly (as opposed to through the `HttpPipeline`).
 
 
 #### Distributed Tracing {#dotnet-distributedtracing}
@@ -729,7 +729,7 @@ Use _-preview_._N_ suffix for preview package versions. For example, _1.0.0-prev
 
 {% include requirement/MUST %} use [C# documentation comments](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/documentation-comments) for reference documentation.
 
-See the [documentation guidelines](https://azuresdkspecs.z5.web.core.windows.net/#general-documentation) for language-independent guidelines for how to provide good documentation.
+See the [documentation guidelines]({{ site.baseurl }}/general_documentation.html) for language-independent guidelines for how to provide good documentation.
 
 ## Common Type Usage {#dotnet-commontypes}
 
@@ -921,6 +921,8 @@ Some .NET Design Guidelines have been notoriously overlooked in existing Azure S
 {% include requirement/MUSTNOT %} have empty types (types with no members).
 
 <!-- Links -->
+
+{% include refs.md %}
 [.NET Framework Design Guidelines]: https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/
 [Azure Application Configuration service]: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/appconfiguration/Azure.ApplicationModel.Configuration
 [Azure.Core]: https://www.nuget.org/packages/Azure.Core/
