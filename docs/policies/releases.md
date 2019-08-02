@@ -97,10 +97,10 @@ The JavaScript community generally follows SemVer. For preview releases, we will
 - `X.Y.Z-dev.YYYYMMDD`
 - `X.Y.Z-preview.N`
 
-JavaScript dev and preview releases are published to npm with the `@dev` or `@preview` tags.  Use the following:
+JavaScript dev and preview releases are published to npm with the `@dev` or `@next` tags.  Use the following:
 
 ```bash
-$ npm install @azure/package@preview
+$ npm install @azure/package@next
 ```
 
 ### .NET
@@ -122,6 +122,22 @@ Maven supports the [convention](https://cwiki.apache.org/confluence/display/MAVE
 - `X.Y.Z-preview.N`
 
 Dev and preview Java packages are published direct to the Maven registry.
+
+## Version Updates
++ Package versions should be updated immediately after publishing (both preview and GA).  It's safer to have `N+1` in `master` than `N`. 
+  + For previews, only the prerelease suffix should be updated (`1.0.0-preview.1` to `1.0.0-preview.2`) 
+  + For GA, follow SemVer. 
++ Dependency Specifiers
+  + Previews should always be pinned, since breaking changes are allowed between previews and between preview and GA.
+  + GA should always float (`^1.0.0` in JavaScript), since breaking changes should always update the major.
++ Dependency Versions
+  + JS
+    + Preview dependencies should be updated as soon as possible -- once it is certain the dependency will ship before the dependent.  This is to absorb breaking changes and verify against the latest dependency version.
+    + GA dependencies should only need to be updated at major version bumps, since they should float (`^`).
+    + Dependencies older than the latest published version can be listed by running the following commands:
+      + `rush unlink`
+      + `git clean -xdf`
+      + `rush update --full`
 
 ## Preview Releases and GA Graduation
 
