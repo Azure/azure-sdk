@@ -270,11 +270,13 @@ A particular (major.minor) version of a library can choose what service APIs it 
 
 {% include requirement/MUSTNOT %} have a pre-release version or any additional build metadata for GA packages.
 
-{% include requirement/MUST %} give preview packages a pre-release version of the format `1.0.0-Preview-XX` where XX is an integer. Pre-release package versions shouldn't have additional build metadata.
+{% include requirement/MUST %} give preview packages a pre-release version of the format `1.0.0-Preview.X` where X is an integer. Pre-release package versions shouldn't have additional build metadata.
 
 {% include requirement/MUSTNOT %} use a major version of 0, even for preview packages.
 
 Semantic versioning is more of a lofty ideal than a practical specification for some libraries. Also, [one person's bug might be another person's key feature](https://xkcd.com/1172/). Package authors are required to follow semver in a way that is useful for their consumers.
+
+For more details, review the [Releases policy]({{ site.baseurl }}/policies_releases.html).
 
 ## Packaging
 
