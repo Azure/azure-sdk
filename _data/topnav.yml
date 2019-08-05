@@ -1,0 +1,37 @@
+topnav:
+- title: Topnav
+  items:
+    - title: Blog
+      external_url: https://azure.microsoft.com/en-us/blog/topics/developer/
+    - title: Releases
+      url: /
+    
+
+topnav_dropdowns:
+  - title: Topnav Dropdowns
+    folders:
+      - title: Guidelines
+        folderitems:
+            - title: General
+              url: /general_introduction.html
+            - title: Android
+              url: /android_introduction.html
+            - title: C#.NET
+              url: /dotnet_introduction.html
+            - title: Java
+              url: /java_introduction.html
+            - title: Python
+              url: /python_introduction.html
+            - title: TypeScript
+              url: /typescript_introduction.html
+      - title: API References
+        folderitems:
+          - title: C#.NET
+            external_url: https://aka.ms/net-docs
+          - title: Java
+            external_url: https://aka.ms/java-docs
+          - title: Python
+            external_url: https://aka.ms/python-docs
+          - title: TypeScript
+            external_url: https://aka.ms/js-docs
+

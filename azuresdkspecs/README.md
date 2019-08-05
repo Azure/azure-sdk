@@ -1,0 +1,1 @@
+This folder contains the HTML files that will be transferred to the azuresdkspecs.z5.web.core.windows.net site once the Jekyll site goes live
