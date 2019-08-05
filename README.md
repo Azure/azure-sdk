@@ -4,12 +4,12 @@ The Azure SDK delivers a platform for developers to leverage the wide variety of
 
 | Language    | Design Guidelines                                                       | Repo                                                                | Documentation
 |:------------|:-----------------------------------------------------------------------:|:-------------------------------------------------------------------:|:-------------------------:|
-| General   |[General Design Guidelines](https://azuresdkspecs.z5.web.core.windows.net/)    |[azure-sdk Repository](https://github.com/Azure/azure-sdk)      | [Official Azure Documentation](http://aka.ms/azure-sdk-docs) |
-| C#  /.NET   |[Design Guidelines for .NET](https://azuresdkspecs.z5.web.core.windows.net/DotNetSpec.html)    |[azure-sdk-for-net Repository](https://github.com/Azure/azure-sdk-for-net)      | [.NET Preview Documentation](http://aka.ms/net-docs) |
+| General   |[General Design Guidelines][general]    |[azure-sdk Repository](https://github.com/Azure/azure-sdk)      | [Official Azure Documentation](http://aka.ms/azure-sdk-docs) |
+| C#  /.NET   |[Design Guidelines for .NET][dotnet]    |[azure-sdk-for-net Repository](https://github.com/Azure/azure-sdk-for-net)      | [.NET Preview Documentation](http://aka.ms/net-docs) |
 | Go          |                                                                         |[azure-sdk-for-go Repository](https://github.com/Azure/azure-sdk-for-go)        | [Go Documentation](http://aka.ms/go-docs) |
-| Java        |[Design Guidelines for Java](https://azuresdkspecs.z5.web.core.windows.net/JavaSpec.html)      |[azure-sdk-for-java Repository](https://github.com/Azure/azure-sdk-for-java)    | [Java Documentation](http://aka.ms/java-docs)   |
-| JavaScript  |[Design Guidelines for JavaScript and TypeScript](https://azuresdkspecs.z5.web.core.windows.net/TypeScriptSpec.html)|[azure-sdk-for-js Repository](https://github.com/Azure/azure-sdk-for-js)        | [JavaScript Documentation](http://aka.ms/js-docs)|
-| Python      |[Design Guidelines for Python](https://azuresdkspecs.z5.web.core.windows.net/PythonSpec.html)    |[azure-sdk-for-python Repository](https://github.com/Azure/azure-sdk-for-python)| [Python Documentation](https://aka.ms/python-docs) |
+| Java        |[Design Guidelines for Java][java]      |[azure-sdk-for-java Repository](https://github.com/Azure/azure-sdk-for-java)    | [Java Documentation](http://aka.ms/java-docs)   |
+| JavaScript  |[Design Guidelines for JavaScript and TypeScript][typescript] |[azure-sdk-for-js Repository](https://github.com/Azure/azure-sdk-for-js)        | [JavaScript Documentation](http://aka.ms/js-docs)|
+| Python      |[Design Guidelines for Python][python]    |[azure-sdk-for-python Repository](https://github.com/Azure/azure-sdk-for-python)| [Python Documentation](https://aka.ms/python-docs) |
 
 Service teams should schedule reviews of their client libraries with the ADP Review Board.  See the [Review Process](docs/ReviewProcess.md) for more information.
 
@@ -67,3 +67,10 @@ For more information see the [Code of Conduct FAQ](https://opensource.microsoft.
 contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
 [Internal azure-sdk DevOps Wiki](https://aka.ms/azure-sdk-devops-wiki)
+
+[general]: https://azure.github.io/azure-sdk/general_introduction.html
+[dotnet]: https://azure.github.io/azure-sdk/dotnet_introduction.html
+[java]: https://azure.github.io/azure-sdk/java_introduction.html
+[typescript]: https://azure.github.io/azure-sdk/typescript_introduction.html
+[python]: https://azure.github.io/azure-sdk/python_introduction.html
+
