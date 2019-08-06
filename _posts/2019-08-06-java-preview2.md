@@ -19,12 +19,6 @@ To use the preview libraries, refer to the Maven dependency information below, w
 </dependency>
 
 <dependency>
-  <groupId>com.microsoft.azure</groupId>
-  <artifactId>azure-cosmos</artifactId>
-  <version>3.0.0</version>
-</dependency>
-
-<dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-identity</artifactId>
   <version>1.0.0-preview.2</version>
@@ -53,6 +47,18 @@ To use the preview libraries, refer to the Maven dependency information below, w
   <artifactId>azure-storage-blob</artifactId>
   <version>12.0.0-preview.2</version>
 </dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-file</artifactId>
+  <version>12.0.0-preview.2</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-queue</artifactId>
+  <version>12.0.0-preview.2</version>
+</dependency>
 ```
 
 ## Feedback
@@ -69,9 +75,19 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 
 - Added new user credential types, allowing authentication within client applications.
 
+### Event Hubs
+
+- Added batch send capabilities.
+- Added a new EventProcessor for receiving events as an early preview.
+
 ### Key Vault
 
 - Added support for cryptographic operations (such as sign, verify, encrypt, and decrypt) using KeyVault keys.
+- Added support for challenge based authentication.
+
+## Storage
+
+- Added support for Azure Files and Azure Queue Storage.
 
 ## Need help?
 * For reference documentation visit the [Azure SDK for Java documentation](https://azure.github.io/azure-sdk-for-java/track2reports/index.html).

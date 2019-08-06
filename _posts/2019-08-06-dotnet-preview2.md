@@ -12,16 +12,14 @@ The Azure SDK team is pleased to announce our August 2019 client library preview
 
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
-    $> dotnet add package Azure.Storage.Blobs --version 12.0.0-preview.1
-    $> dotnet add package Azure.Storage.Queues --version 12.0.0-preview.1
-    $> dotnet add package Azure.Storage.Files --version 12.0.0-preview.1
+    $> dotnet add package Azure.Storage.Blobs --version 12.0.0-preview.2
+    $> dotnet add package Azure.Storage.Queues --version 12.0.0-preview.2
+    $> dotnet add package Azure.Storage.Files --version 12.0.0-preview.2
 
     $> dotnet add package Azure.Security.KeyVault.Secrets --version 4.0.0-preview.2
     $> dotnet add package Azure.Security.KeyVault.Keys --version 4.0.0-preview.2
 
-    $> dotnet add package Azure.Messaging.EventHubs --version 5.0.0-preview.1
-
-    $> dotnet add package Microsoft.Azure.Cosmos --version 3.0.0.19-preview
+    $> dotnet add package Azure.Messaging.EventHubs --version 5.0.0-preview.2
 
     $> dotnet add package Azure.Identity --version 1.0.0-preview.3
 
@@ -42,16 +40,21 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - Added new user credential types, allowing authentication within client applications.
 
+### Event Hubs
+
+- Added batch send capabilities.
+- Added a new EventProcessor for receiving events as an early preview.
+
 ### Key Vault
 
 - Added support for cryptographic operations (such as sign, verify, encrypt, and decrypt) using KeyVault keys.
+- Added support for challenge based authentication.
 
 ## Quick Links
 
 | Service  | Install | Readme | Samples |  API Reference | Changelog |
 | -- | -- | -- | -- | -- | -- |
 | Core | [Package](https://www.nuget.org/packages/Azure.Core) | [Readme](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/README.md) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/core/Azure.Core/tests/samples) | [API Reference](https://azure.github.io/azure-sdk-for-net/api/Core/Azure.Core.html) | - |
-| Cosmos | [Package](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) | [Readme](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/README.md) | [Samples](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/CodeSamples) | [API Reference](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos?view=azure-dotnet-preview) | [Changelog](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md) |
 | Event Hubs | [Package](https://www.nuget.org/packages/Azure.Messaging.EventHubs/) | [Readme](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/README.md) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples) | [API Reference](https://azure.github.io/azure-sdk-for-net/api/EventHubs/Azure.Messaging.EventHubs.html) | [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md) |
 | Identity | [Package](https://www.nuget.org/packages/Azure.Identity/) | [Readme](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/identity/Azure.Identity/README.md) | - | [API Reference](https://azure.github.io/azure-sdk-for-net/api/Identity/Azure.Identity.html) | - |
 | Key Vault - Keys | [Package](https://www.nuget.org/packages/Azure.Security.KeyVault.Keys/) | [Readme](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/keyvault/Azure.Security.KeyVault.Keys/Readme.md) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault/Azure.Security.KeyVault.Keys/samples) | [API Reference](https://azure.github.io/azure-sdk-for-net/api/KeyVault/Azure.Security.KeyVault.Keys.html) | [Changelog](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault/Azure.Security.KeyVault.Keys/ChangeLog.md) |
