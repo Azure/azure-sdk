@@ -16,14 +16,14 @@ To install any of our packages, please search for them via `Manage NuGet Package
     $> dotnet add package Azure.Storage.Queues --version 12.0.0-preview.1
     $> dotnet add package Azure.Storage.Files --version 12.0.0-preview.1
 
-    $> dotnet add package Azure.Security.KeyVault.Secrets --version 4.0.0-preview.1
-    $> dotnet add package Azure.Security.KeyVault.Keys --version 4.0.0-preview.1
+    $> dotnet add package Azure.Security.KeyVault.Secrets --version 4.0.0-preview.2
+    $> dotnet add package Azure.Security.KeyVault.Keys --version 4.0.0-preview.2
 
     $> dotnet add package Azure.Messaging.EventHubs --version 5.0.0-preview.1
 
     $> dotnet add package Microsoft.Azure.Cosmos --version 3.0.0.19-preview
 
-    $> dotnet add package Azure.Identity --version 1.0.0-preview.2
+    $> dotnet add package Azure.Identity --version 1.0.0-preview.3
 
 ## Feedback
 
@@ -36,6 +36,15 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - New client libraries were created using the [Azure SDK Design Guidelines for .NET][dotnet-guidelines] resulting in consistent API patterns and shared features like automatic retries, authentication, logging, configurable transport pipelines, exceptions, mocking, etc.
 - Support for Azure Active Directory credentials using our new Identity library that embrace the future of authentication across Azure services.
 - Parity across synchronous and asynchronous APIs offering a choice appropriate to your application.
+- Updated dependencies on the latest (preview-7) version of `Azure.Core` library.
+
+### Azure Identity
+
+- Added new user credential types, allowing authentication within client applications.
+
+### Key Vault
+
+- Added support for cryptographic operations (such as sign, verify, encrypt, and decrypt) using KeyVault keys.
 
 ## Quick Links
 

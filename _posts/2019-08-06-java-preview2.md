@@ -65,6 +65,14 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 * Modernized API making use of Java 8 features such as streams, new date / time, functional interfaces, etc, to offer an improved and more productive developer experience.
 * Synchronous and asynchronous APIs offer developers simplicity for simple cases, and full asynchronousity when performance and scalability matters. Reactive streams are offered using [Project Reactor](http://projectreactor.io).
 
+### Azure Identity
+
+- Added new user credential types, allowing authentication within client applications.
+
+### Key Vault
+
+- Added support for cryptographic operations (such as sign, verify, encrypt, and decrypt) using KeyVault keys.
+
 ## Need help?
 * For reference documentation visit the [Azure SDK for Java documentation](https://azure.github.io/azure-sdk-for-java/track2reports/index.html).
 * For tutorials, samples, quick starts and other documentation, visit [Azure for Java Developers](https://docs.microsoft.com/java/azure/).
