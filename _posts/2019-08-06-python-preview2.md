@@ -1,12 +1,12 @@
 ---
-title: Azure SDK for Python (July 2019 Preview)
+title: Azure SDK for Python (August 2019 Preview)
 layout: post
 tags: python
 sidebar: python_sidebar
 repository: azure/azure-sdk-for-python
 ---
 
-The Azure SDK team is pleased to make available the July 2019 client library preview release. This represents the first release of the ground-up rewrite of the client libraries to ensure consistency, idiomatic design, and excellent developer experience and productivity. This preview release includes new client libraries for Azure Cosmos, Identity, Key Vault (keys and secrets), Event Hubs, and Storage (blob, files and queues).
+The Azure SDK team is pleased to make available the August 2019 client library preview release. This represents the first release of the ground-up rewrite of the client libraries to ensure consistency, idiomatic design, and excellent developer experience and productivity. This preview release includes new client libraries for Azure Cosmos, Identity, Key Vault (keys and secrets), Event Hubs, and Storage (blob, files and queues).
 
 ## Installation Instructions
 

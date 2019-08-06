@@ -1,21 +1,21 @@
 ---
-title: Azure SDK for Java (July 2019 Preview)
+title: Azure SDK for Java (August 2019 Preview)
 layout: post
 tags: java
 sidebar: java_sidebar
 repository: azure/azure-sdk-for-java
 ---
 
-The Azure SDK team is pleased to make available the July 2019 client library preview release. This represents the first release of the ground-up rewrite of the client libraries to ensure consistency, idiomatic design, and excellent developer experience and productivity. This preview release includes new client libraries for Azure App Configuration, Cosmos, Identity, Key Vault (keys and secrets), Event Hubs, and Storage (blob).
+The Azure SDK team is pleased to make available the August 2019 client library preview release. This represents the first release of the ground-up rewrite of the client libraries to ensure consistency, idiomatic design, and excellent developer experience and productivity. This preview release includes new client libraries for Azure App Configuration, Cosmos, Identity, Key Vault (keys and secrets), Event Hubs, and Storage (blob).
 
 ## Installation Instructions
-To use the preview libraries, refer to the Maven dependency information below, which may be copied into your projects Maven pom.xml file as appropriate. If you are using a different build tool, refer to its documentation on how to specify dependencies.
+To use the preview libraries, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate. If you are using a different build tool, refer to its documentation on how to specify dependencies.
 
 ```xml
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-data-appconfiguration</artifactId>
-  <version>1.0.0-preview.1</version>
+  <version>1.0.0-preview.2</version>
 </dependency>
 
 <dependency>
@@ -27,31 +27,31 @@ To use the preview libraries, refer to the Maven dependency information below, w
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-identity</artifactId>
-  <version>1.0.0-preview.1</version>
+  <version>1.0.0-preview.2</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-keyvault-keys</artifactId>
-  <version>4.0.0-preview.1</version>
+  <version>4.0.0-preview.2</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-keyvault-secrets</artifactId>
-  <version>4.0.0-preview.1</version>
+  <version>4.0.0-preview.2</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-messaging-eventhubs</artifactId>
-  <version>5.0.0-preview.1</version>
+  <version>5.0.0-preview.2</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-storage-blob</artifactId>
-  <version>12.0.0-preview.1</version>
+  <version>12.0.0-preview.2</version>
 </dependency>
 ```
 
