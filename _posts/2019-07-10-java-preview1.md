@@ -4,6 +4,7 @@ layout: post
 tags: java
 sidebar: java_sidebar
 repository: azure/azure-sdk-for-java
+permalink: /posts/java-preview1/
 ---
 
 The Azure SDK team is pleased to make available the July 2019 client library preview release. This represents the first release of the ground-up rewrite of the client libraries to ensure consistency, idiomatic design, and excellent developer experience and productivity. This preview release includes new client libraries for Azure App Configuration, Cosmos, Identity, Key Vault (keys and secrets), Event Hubs, and Storage (blob).

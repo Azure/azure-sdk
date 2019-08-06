@@ -4,6 +4,7 @@ layout: post
 tags: dotnet
 sidebar: dotnet_sidebar
 repository: azure/azure-sdk-for-net
+permalink: /posts/dotnet-preview1/
 ---
 
 The Azure SDK team is pleased to announce our July 2019 client library preview.  This represents the first release of a ground-up rewrite of our client libraries to ensure consistency, idiomatic design, productivity, and an excellent developer experience.  This preview includes new libraries for Storage (Blobs, Queues, and Files), Key Vault (Secrets and Keys), Event Hubs, Cosmos, and Identity.
