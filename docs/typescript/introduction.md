@@ -52,15 +52,15 @@ The Azure SDK should be designed to enhance the productivity of developers conne
 
 ## General Guidelines
 
-{% include requirement/MUST %} follow the [General Azure SDK Guidelines].
+{% include requirement/MUST id="ts-follow-general-guidelines" %} follow the [General Azure SDK Guidelines].
 
-{% include requirement/MUST %} locate all source code in the [azure/azure-sdk-for-js] GitHub repository.
+{% include requirement/MUST id="ts-repository-location" %} locate all source code in the [azure/azure-sdk-for-js] GitHub repository.
 
-{% include requirement/MUST %} follow Azure SDK engineering systems guidelines for working in the [azure/azure-sdk-for-js] GitHub repository.
+{% include requirement/MUST id="ts-engineering-systems" %} follow Azure SDK engineering systems guidelines for working in the [azure/azure-sdk-for-js] GitHub repository.
 
-{% include requirement/MUST %} follow these guidelines if you publish your client library under the `@azure` scope in npm.
+{% include requirement/MUST id="ts-azure-scope" %} follow these guidelines if you publish your client library under the `@azure` scope in npm.
 
-{% include requirement/SHOULD %} follow these guidelines even if you're not publishing an Azure library under the `@azure` scope.
+{% include requirement/SHOULD id="ts-azure-scope-for-others" %} follow these guidelines even if you're not publishing an Azure library under the `@azure` scope.
 
 ## Terminology
 
