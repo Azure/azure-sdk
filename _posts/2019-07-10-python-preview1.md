@@ -4,6 +4,7 @@ layout: post
 tags: python
 sidebar: python_sidebar
 repository: azure/azure-sdk-for-python
+permalink: /posts/python-preview1/
 ---
 
 The Azure SDK team is pleased to make available the July 2019 client library preview release. This represents the first release of the ground-up rewrite of the client libraries to ensure consistency, idiomatic design, and excellent developer experience and productivity. This preview release includes new client libraries for Azure Cosmos, Identity, Key Vault (keys and secrets), Event Hubs, and Storage (blob, files and queues).
@@ -100,3 +101,5 @@ These clients can be accessed by navigating down the client hierarchy, or instan
 | azure-storage-file | [package](https://pypi.org/project/azure-storage-file/12.0.0b1) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file) | [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.storage.file.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file/HISTORY.md) |
 | azure-storage-queue | [package](https://pypi.org/project/azure-storage-queue/12.0.0b1) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue) | [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.storage.queue.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/HISTORY.md) |
 | azure-cosmos | [package](https://pypi.org/project/azure-cosmos/4.0.0b1/) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos) | [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.cosmos.html) | [changelog.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos/changelog.md) |
+
+{% include refs.md %}
