@@ -77,8 +77,8 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 
 ### Event Hubs
 
-- Added batch send capabilities.
-- Added a new EventProcessor for receiving events as an early preview.
+- Expanded support for sending multiple messages in a single call by adding the ability to create a batch which avoids the error scenario of exceeding size limits. Users having bandwidth concerns can control the batch size as desired.
+- Introduced a new model for consuming events via the EventProcessor class. This simplifies the process of checkpointing today and will handle load balancing across partitions in upcoming updates.
 
 ### Key Vault
 
