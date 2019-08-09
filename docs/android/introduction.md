@@ -54,13 +54,13 @@ The Azure SDK should be designed to enhance the productivity of developers conne
 
 ## General Guidelines
 
-{% include requirement/MUST %} follow the [General Azure SDK Guidelines].
+{% include requirement/MUST id="android-general-follow-general-guidelines" %} follow the [General Azure SDK Guidelines].
 
 > **DEVIATION** 
 
-{% include requirement/MUST %} locate all source code in the [azure/azure-sdk-for-android] GitHub repository.
+{% include requirement/MUST id="android-general-repository" %} locate all source code in the [azure/azure-sdk-for-android] GitHub repository.
 
-{% include requirement/MUST %} follow Azure SDK engineering systems guidelines for working in the [azure/azure-sdk-for-android] GitHub repository.
+{% include requirement/MUST id="android-general-engsys" %} follow Azure SDK engineering systems guidelines for working in the [azure/azure-sdk-for-android] GitHub repository.
 
 {% include refs.md %}
 {% include_relative refs.md %}
