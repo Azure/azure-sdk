@@ -16,7 +16,7 @@ To install any of our packages, please search for them via `Manage NuGet Package
     $> dotnet add package Azure.Storage.Queues --version 12.0.0-preview.2
     $> dotnet add package Azure.Storage.Files --version 12.0.0-preview.2
 
-    $> dotnet add package Azure.Security.KeyVault.Secrets --version 4.0.0-preview.2
+    $> dotnet add package Azure.Security.KeyVault.Secrets --version 4.0.0-preview.3
     $> dotnet add package Azure.Security.KeyVault.Keys --version 4.0.0-preview.2
 
     $> dotnet add package Azure.Messaging.EventHubs --version 5.0.0-preview.2
