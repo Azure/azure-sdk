@@ -14,24 +14,24 @@ When configuring your client library, particular care must be taken to ensure th
 
 ### Client configuration
 
-{% include requirement/MUST %} use relevant global configuration settings either by default or when explicitly requested to by the user, for example by passing in a configuration object to a client constructor.
+{% include requirement/MUST id="general-config-global-config" %} use relevant global configuration settings either by default or when explicitly requested to by the user, for example by passing in a configuration object to a client constructor.
 
-{% include requirement/MUST %} allow different clients of the same type to use different configurations.
+{% include requirement/MUST id="general-config-for-different-clients" %} allow different clients of the same type to use different configurations.
 
-{% include requirement/MUST %} allow consumers of your service clients to opt out of all global configuration settings at once.
+{% include requirement/MUST id="general-config-optout" %} allow consumers of your service clients to opt out of all global configuration settings at once.
 
-{% include requirement/MUST %} allow all global configuration settings to be overridden by client-provided options. The names of these options should align with any user-facing global configuration keys.
+{% include requirement/MUST id="general-config-global-overrides" %} allow all global configuration settings to be overridden by client-provided options. The names of these options should align with any user-facing global configuration keys.
 
-{% include requirement/MUSTNOT %} change behavior based on configuration changes that occur after the client is constructed. Hierarchies of clients inherit parent client configuration unless explicitly changed or overridden. Exceptions to this requirement are as follows:
+{% include requirement/MUSTNOT id="general-config-behaviour-changes" %} change behavior based on configuration changes that occur after the client is constructed. Hierarchies of clients inherit parent client configuration unless explicitly changed or overridden. Exceptions to this requirement are as follows:
 
 1. Log level, which must take effect immediately across the Azure SDK.
 2. Tracing on/off, which must take effect immediately across the Azure SDK.
 
 ### Service-specific environment variables
 
-{% include requirement/MUST %} prefix Azure-specific environment variables with `AZURE_`.
+{% include requirement/MUST id="general-config-envvars-prefix" %} prefix Azure-specific environment variables with `AZURE_`.
 
-{% include requirement/MAY %} use client library-specific environment variables for portal-configured settings which are provided as parameters to your client library. This generally includes credentials and connection details. For example, Service Bus could support the following environment variables:
+{% include requirement/MAY id="general-config-envvars-use-client-specific" %} use client library-specific environment variables for portal-configured settings which are provided as parameters to your client library. This generally includes credentials and connection details. For example, Service Bus could support the following environment variables:
 
 * `AZURE_SERVICEBUS_CONNECTION_STRING`
 * `AZURE_SERVICEBUS_NAMESPACE`
@@ -45,35 +45,35 @@ Storage could support:
 * `AZURE_STORAGE_DNS_SUFFIX`
 * `AZURE_STORAGE_CONNECTION_STRING`
 
-{% include requirement/MUST %} get approval from the [Architecture Board] for every new environment variable. 
+{% include requirement/MUST id="general-config-envvars-get-approval" %} get approval from the [Architecture Board] for every new environment variable. 
 
-{% include requirement/MUST %} use this syntax for environment variables specific to a particular Azure service:
+{% include requirement/MUST id="general-config-envvars-format" %} use this syntax for environment variables specific to a particular Azure service:
 
 * `AZURE_<ServiceName>_<ConfigurationKey>`
 
 where _ServiceName_ is the canonical shortname without spaces, and _ConfigurationKey_ refers to an unnested configuration key for that client library.
 
-{% include requirement/MUSTNOT %} use non-alpha-numeric characters in your environment variable names with the exception of underscore. This ensures broad interoperability.
+{% include requirement/MUSTNOT id="general-config-envvars-posix-compatible" %} use non-alpha-numeric characters in your environment variable names with the exception of underscore. This ensures broad interoperability.
 
 ## Parameter validation
 
 The service client will have several methods that perform requests on the service.  _Service parameters_ are directly passed across the wire to an Azure service.  _Client parameters_ are not passed directly to the service, but used within the client library to fulfill the request.  Examples of client parameters include values that are used to construct a URI, or a file that needs to be uploaded to storage.
 
-{% include requirement/MUST %} validate client parameters.
+{% include requirement/MUST id="general-params-client-validation" %} validate client parameters.
 
-{% include requirement/MUSTNOT %} validate service parameters.  This includes null checks, empty strings, and other common validating conditions. Let the service validate any request parameters.
+{% include requirement/MUSTNOT id="general-params-server-validation" %} validate service parameters.  This includes null checks, empty strings, and other common validating conditions. Let the service validate any request parameters.
 
-{% include requirement/MUST %} validate the developer experience when the service parameters are invalid to ensure appropriate error messages are generated by the service.  If the developer experience is compromised due to service-side error messages, work with the service team to correct prior to release.
+{% include requirement/MUST id="general-params-check-devex" %} validate the developer experience when the service parameters are invalid to ensure appropriate error messages are generated by the service.  If the developer experience is compromised due to service-side error messages, work with the service team to correct prior to release.
 
 ## Network requests
 
 Each supported language has an Azure Core library that contains common mechanisms for cross cutting concerns such as configuration and doing HTTP requests.
 
-{% include requirement/MUST %} use the HTTP pipeline component within Azure Core for communicating to service REST endpoints.
+{% include requirement/MUST id="general-requests-use-pipeline" %} use the HTTP pipeline component within Azure Core for communicating to service REST endpoints.
 
 The HTTP pipeline consists of a HTTP transport that is wrapped by multiple policies. Each policy is a control point during which the pipeline can modify either the request and/or response. We prescribe a default set of policies to standardize how client libraries interact with Azure services.  The order in the list is the most sensible order for implementation.
 
-{% include requirement/MUST %} implement the following policies in the HTTP pipeline:
+{% include requirement/MUST id="general-requests-implement-policies" %} implement the following policies in the HTTP pipeline:
 
 - Telemetry
 - Unique Request ID
@@ -83,84 +83,84 @@ The HTTP pipeline consists of a HTTP transport that is wrapped by multiple polic
 - Distributed tracing
 - Logging
 
-{% include requirement/SHOULD %} use the policy implementations in Azure Core whenever possible.  Do not try to "write your own" policy unless it is doing something unique to your service.  If you need another option to an existing policy, engage with the [Architecture Board] to add the option.
+{% include requirement/SHOULD id="general-requests-use-azurecore-impl" %} use the policy implementations in Azure Core whenever possible.  Do not try to "write your own" policy unless it is doing something unique to your service.  If you need another option to an existing policy, engage with the [Architecture Board] to add the option.
 
 ## Authentication
 
 When implementing authentication, don't open up the consumer to security holes like PII (personally identifiable information) leakage or credential leakage.  Credentials are generally issued with a time limit, and must be refreshed periodically to ensure that the service connection continues to function as expected.  Ensure your client library follows all current security recommendations and consider an independent security review of the client library to ensure you're not introducing potential security problems for the consumer.
 
-{% include requirement/MUSTNOT %} persist, cache, or reuse security credentials.  Security credentials should be considered short lived to cover both security concerns and credential refresh situations.  
+{% include requirement/MUSTNOT id="general-authimpl-no-persisting" %} persist, cache, or reuse security credentials.  Security credentials should be considered short lived to cover both security concerns and credential refresh situations.  
 
 If your service implements a non-standard credential system (that is, a credential system that is not supported by Azure Core), then you need to produce an authentication policy for the HTTP pipeline that can authenticate requests given the alternative credential types provided by the client library.
 
-{% include requirement/MUST %} provide a suitable authentication policy that authenticates the HTTP request in the HTTP pipeline when using non-standard credentials.  This includes custom connection strings, if supported.
+{% include requirement/MUST id="general-authimpl-provide-auth-policy" %} provide a suitable authentication policy that authenticates the HTTP request in the HTTP pipeline when using non-standard credentials.  This includes custom connection strings, if supported.
 
 ## Native code
 
 Some languages support the development of platform-specific native code plugins.  These cause compatibility issues and require additional scrutiny.  Certain languages compile to a machine-native format (for example, C or C++), whereas most modern languages opt to compile to an intermediary format to aid in cross-platform support.
 
-{% include requirement/SHOULD %} write platform-specific / native code unless the language compiles to a machine-native format.
+{% include requirement/SHOULD id="general-no-nativecode" %} write platform-specific / native code unless the language compiles to a machine-native format.
 
 ## Error handling
 
 Error handling is an important aspect of implementing a client library.  It is the primary method by which problems are communicated to the consumer.  There are two methods by which errors are reported to the consumer.  Either the method throws an exception, or the method returns an error code (or value) as its return value, which the consumer must then check.  In this section we refer to "producing an error" to mean returning an error value or throwing an exception, and "an error" to be the error value or exception object.  
 
-{% include requirement/SHOULD %} prefer the use of exceptions over returning an error value when producing an error.
+{% include requirement/SHOULD id="general-errors-prefer-exceptions" %} prefer the use of exceptions over returning an error value when producing an error.
 
-{% include requirement/MUST %} produce an error when any HTTP request fails with an HTTP status code that is not defined by the service/Swagger as a successful status code. These errors should also be logged as errors.
+{% include requirement/MUST id="general-errors-for-failed-requests" %} produce an error when any HTTP request fails with an HTTP status code that is not defined by the service/Swagger as a successful status code. These errors should also be logged as errors.
 
-{% include requirement/MUST %} ensure that the error produced contains the HTTP response (including status code and headers) and originating request (including URL, query parameters, and headers).  
+{% include requirement/MUST id="general-errors-include-request-response" %} ensure that the error produced contains the HTTP response (including status code and headers) and originating request (including URL, query parameters, and headers).  
 
 In the case of a higher-level method that produces multiple HTTP requests, either the last exception or an aggregate exception of all failures should be produced.
 
-{% include requirement/MUST %} ensure that if the service returns rich error information (via the response headers or body), the rich information must be available via the error produced in service-specific properties/fields.
+{% include requirement/MUST id="general-errors-rich-info" %} ensure that if the service returns rich error information (via the response headers or body), the rich information must be available via the error produced in service-specific properties/fields.
 
-{% include requirement/SHOULDNOT %} create a new error type unless the developer can perform an alternate action to remediate the error.  Specialized error types should be based on existing error types present in the Azure Core package.
+{% include requirement/SHOULDNOT id="general-errors-no-new-types" %} create a new error type unless the developer can perform an alternate action to remediate the error.  Specialized error types should be based on existing error types present in the Azure Core package.
 
-{% include requirement/MUSTNOT %} create a new error type when a language-specific error type will suffice.  Use system-provided error types for validation.
+{% include requirement/MUSTNOT id="general-errors-use-system-types" %} create a new error type when a language-specific error type will suffice.  Use system-provided error types for validation.
 
-{% include requirement/MUST %} document the errors that are produced by each method (with the exception of commonly thrown errors that are generally not documented in the target language).
+{% include requirement/MUST id="general-errors-documentation" %} document the errors that are produced by each method (with the exception of commonly thrown errors that are generally not documented in the target language).
 
 ## Logging
 
 Client libraries must support robust logging mechanisms so that the consumer can adequately diagnose issues with the method calls and quickly determine whether the issue is in the consumer code, client library code, or service.
 
-{% include requirement/MUST %} support pluggable log handlers.
+{% include requirement/MUST id="general-logging-pluggable-logger" %} support pluggable log handlers.
 
-{% include requirement/MUST %} make it easy for a consumer to enable logging output to the console. The specific steps required to enable logging to the console must be documented. 
+{% include requirement/MUST id="general-logging-console-logger" %} make it easy for a consumer to enable logging output to the console. The specific steps required to enable logging to the console must be documented. 
 
-{% include requirement/MUST %} use one of the following log levels when emitting logs: Verbose (details), Informational (things happened), Warning (might be a problem or not), and Error.
+{% include requirement/MUST id="general-logging-levels" %} use one of the following log levels when emitting logs: Verbose (details), Informational (things happened), Warning (might be a problem or not), and Error.
 
-{% include requirement/MUST %} use the Error logging level for failures that the application is unlikely to recover from (out of memory, etc.).
+{% include requirement/MUST id="general-logging-failure" %} use the Error logging level for failures that the application is unlikely to recover from (out of memory, etc.).
 
-{% include requirement/MUST %} use the Warning logging level when a function fails to perform its intended task. This generally means that the function will raise an exception.  Do not include occurrences of self-healing events (for example, when a request will be automatically retried).
+{% include requirement/MUST id="general-logging-warning" %} use the Warning logging level when a function fails to perform its intended task. This generally means that the function will raise an exception.  Do not include occurrences of self-healing events (for example, when a request will be automatically retried).
 
-{% include requirement/MUST %} use the Informational logging level when a function operates normally.
+{% include requirement/MUST id="general-logging-info" %} use the Informational logging level when a function operates normally.
 
-{% include requirement/MUST %} use the Verbose logging level for detailed troubleshooting scenarios. This is primarily intended for developers or system administrators to diagnose specific failures.
+{% include requirement/MUST id="general-logging-verbose" %} use the Verbose logging level for detailed troubleshooting scenarios. This is primarily intended for developers or system administrators to diagnose specific failures.
 
-{% include requirement/MUSTNOT %} send sensitive information in log levels other than Verbose. For example, remove account keys when logging headers.
+{% include requirement/MUSTNOT id="general-logging-no-sensitive-info" %} send sensitive information in log levels other than Verbose. For example, remove account keys when logging headers.
 
-{% include requirement/MUST %} log request line, response line, and headers, as Informational message.
+{% include requirement/MUST id="general-logging-requests" %} log request line, response line, and headers, as Informational message.
 
-{% include requirement/MUST %} log an Informational message if a service call is cancelled.
+{% include requirement/MUST id="general-logging-cancellations" %} log an Informational message if a service call is cancelled.
 
-{% include requirement/MUST %} log exceptions thrown as a Warning level message. If the log level set to Verbose, append stack trace information to the message.
+{% include requirement/MUST id="general-logging-exceptions" %} log exceptions thrown as a Warning level message. If the log level set to Verbose, append stack trace information to the message.
 
 
 ## Distributed Tracing
 
 Distributed tracing mechanisms allow the consumer to trace their code from frontend to backend. The distributed tracing library creates spans - units of unique work.  Each span is in a parent-child relationship.  As you go deeper into the hierarchy of code, you create more spans.  These spans can then be exported to a suitable receiver as needed.  To keep track of the spans, a _distributed tracing context_ (called a context in the remainder of this section) is passed into each successive layer.  For more information on this topic, visit the [OpenTelemetry] topic on tracing.
 
-{% include requirement/MUST %} support [OpenTelemetry] for distributed tracing.
+{% include requirement/MUST id="general-tracing-opentelemetry" %} support [OpenTelemetry] for distributed tracing.
 
-{% include requirement/MUST %} accept a context from calling code to establish a parent span.
+{% include requirement/MUST id="general-tracing-accept-context" %} accept a context from calling code to establish a parent span.
 
-{% include requirement/MUST %} pass the context to the backend service through the appropriate headers (`traceparent`, `tracestate`, etc.) to support [Azure Monitor].  This is generally done with the HTTP pipeline.
+{% include requirement/MUST id="general-tracing-pass-context" %} pass the context to the backend service through the appropriate headers (`traceparent`, `tracestate`, etc.) to support [Azure Monitor].  This is generally done with the HTTP pipeline.
 
-{% include requirement/MUST %} create a new span for each method that user code calls.  New spans must be children of the context that was passed in.  If no context was passed in, a new root span must be created.
+{% include requirement/MUST id="general-tracing-new-span-per-method" %} create a new span for each method that user code calls.  New spans must be children of the context that was passed in.  If no context was passed in, a new root span must be created.
 
-{% include requirement/MUST %} create a new span (which must be a child of the per-method span) for each REST call that the client library makes.  This is generally done with the HTTP pipeline.
+{% include requirement/MUST id="general-tracing-new-span-per-rest-call" %} create a new span (which must be a child of the per-method span) for each REST call that the client library makes.  This is generally done with the HTTP pipeline.
 
 Some of these requirements will be handled by the HTTP pipeline.  However, as a client library writer, you must handle the incoming context appropriately.
 
@@ -175,13 +175,13 @@ dependency.
 - **Compatibility** - Often times you do not control a dependency and it may choose to evolve in a direction that is incompatible with your original use.
 - **Security** - If a security vulnerability is discovered in a dependency, it may be difficult ortime consuming to get the vulnerability corrected if Microsoft does not control the dependencys code base.
 
-{% include requirement/MUST %} depend on the Azure Core library for functionality that is common across all client libraries.  This library includes APIs for HTTP connectivity, global configuration, and credential handling.
+{% include requirement/MUST id="general-dependencies-azure-core" %} depend on the Azure Core library for functionality that is common across all client libraries.  This library includes APIs for HTTP connectivity, global configuration, and credential handling.
 
-{% include requirement/MUSTNOT %} be dependent on any other packages within the client library distribution package. Dependencies are by-exception and need a thorough vetting through architecture review.  This does not apply to build dependencies, which are acceptable and commonly used.
+{% include requirement/MUSTNOT id="general-dependencies-approved-only" %} be dependent on any other packages within the client library distribution package. Dependencies are by-exception and need a thorough vetting through architecture review.  This does not apply to build dependencies, which are acceptable and commonly used.
 
-{% include requirement/SHOULD %} consider copying or linking required code into the client library in order to avoid taking a dependency on another package that could conflict with the ecosystem. Make sure that you are not violating any licensing agreements and consider the maintenance that will be required of the duplicated code. ["A little copying is better than a little dependency"][1] (YouTube).
+{% include requirement/SHOULD id="general-dependencies-vendoring" %} consider copying or linking required code into the client library in order to avoid taking a dependency on another package that could conflict with the ecosystem. Make sure that you are not violating any licensing agreements and consider the maintenance that will be required of the duplicated code. ["A little copying is better than a little dependency"][1] (YouTube).
 
-{% include requirement/MUSTNOT %} depend on concrete logging, dependency injection, or configuration technologies (except as implemented in the Azure Core library).  The client library will be used in applications that might be using the logging, DI, and configuration technologies of their choice.
+{% include requirement/MUSTNOT id="general-dependencies-concrete" %} depend on concrete logging, dependency injection, or configuration technologies (except as implemented in the Azure Core library).  The client library will be used in applications that might be using the logging, DI, and configuration technologies of their choice.
 
 Language specific guidelines will maintain a list of approved dependencies.
 
@@ -189,11 +189,11 @@ Language specific guidelines will maintain a list of approved dependencies.
 
 There are occasions when common code needs to be shared between several client libraries.  For example, a set of cooperating client libraries may wish to share a set of exceptions or models.
 
-{% include requirement/MUST %} gain [Architecture Board] approval prior to implementing a common library.
+{% include requirement/MUST id="general-commonlib-approval" %} gain [Architecture Board] approval prior to implementing a common library.
 
-{% include requirement/MUST %} minimize the code within a common library.  Code within the common library is available to the consumer of the client library and shared by multiple client libraries within the same namespace.
+{% include requirement/MUST id="general-commonlib-minimize-code" %} minimize the code within a common library.  Code within the common library is available to the consumer of the client library and shared by multiple client libraries within the same namespace.
 
-{% include requirement/MUST %} store the common library in the same namespace as the associated client libraries.
+{% include requirement/MUST id="general-commonlib-namespace" %} store the common library in the same namespace as the associated client libraries.
 
 A common library will only be approved if:
 
@@ -208,14 +208,9 @@ Let's take two examples:
 
 ## Testing
 
-One of the key things we want to support is to allow consumers of the library to easily write 
-repeatable unit-tests for their applications without activating a service.  This allows them to 
-reliable and quickly test their code without worrying about the vagaries of the underlying service 
-implementation (including, for example, network conditions or service outages).  Mocking is also 
-helpful to simulate failures, edge cases, and hard to reproduce situations (for example: does code 
-work on February 29th).
+One of the key things we want to support is to allow consumers of the library to easily write repeatable unit-tests for their applications without activating a service.  This allows them to reliable and quickly test their code without worrying about the vagaries of the underlying service implementation (including, for example, network conditions or service outages).  Mocking is also helpful to simulate failures, edge cases, and hard to reproduce situations (for example: does code work on February 29th).
 
-{% include requirement/MUST %} support mocking of network operations.
+{% include requirement/MUST id="general-testing-mocking" %} support mocking of network operations.
 
 {% include refs.md %}
 
