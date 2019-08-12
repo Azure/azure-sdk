@@ -1,6 +1,7 @@
 ---
 title: Azure SDK August 2019 Preview and a dive into Consistency
 layout: post
+date: 6 Aug 2019
 tags: release
 sidebar: releases_sidebar
 permalink: /releases/2019-08-06/index.html
