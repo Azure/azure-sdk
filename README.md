@@ -25,33 +25,6 @@ Service teams should schedule reviews of their client libraries with the ADP Rev
    - An NPM package for a JavaScript library
    - A Python wheel for a Python library
 
-# Azure Service Libraries
-
-The following is a list of Azure services and links to their open source code:
-
-## Client Libraries
-
-| Service Name | Language Availability |
-| ------------ | --------------------- |
-| Azure Storage | [.NET](https://github.com/Azure/azure-storage-net) [Go](https://github.com/Azure/azure-storage-go) [Java](https://github.com/Azure/azure-storage-java) [Javascript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage) [Python](https://github.com/Azure/azure-storage-python) |
-| CosmosDB | [Java](https://github.com/Azure/azure-cosmosdb-java) [Javascript](https://github.com/Azure/azure-cosmos-js) [Python](https://github.com/Azure/azure-cosmos-python) |
-| Key Vault | [.NET](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/KeyVault/data-plane) [Java](https://github.com/Azure/azure-keyvault-java) [Javascript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault) [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-keyvault) |
-| Service Bus | [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus) [Java](https://github.com/Azure/azure-service-bus-java) [Javascript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus) [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-servicebus) |
-| Event Hubs | [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub) [Java](https://github.com/Azure/azure-event-hubs-java) [Javascript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/) [Python](https://github.com/Azure/azure-event-hubs-python) |
-| IotHub, Iot Devices, IotHub Provisioning Service, IotHub Provisioning Device | [.NET](https://github.com/Azure/azure-iot-sdk-csharp) [Java](https://github.com/Azure/azure-iot-sdk-java) [Node](https://github.com/Azure/azure-iot-sdk-node) [Python](https://github.com/Azure/azure-iot-sdk-python) |
-| Event Grid | [.NET](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/EventGrid/DataPlane) [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/eventgrid/data-plane) [Node](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/eventgrid) [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-eventgrid) |
-| Batch | [.NET](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/DataPlane) [Java](https://github.com/Azure/azure-batch-sdk-for-java) [Node](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-batch) |
-| HDInsight | [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/HDInsight) [Go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/hdinsight) [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/hdinsight) [Javascript](https://github.com/Azure/azure-sdk-for-js/tree/master/packages/%40azure/arm-hdinsight) [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-mgmt-hdinsight) |
-| Application Insights Ingestion | [.NET](https://github.com/Microsoft/ApplicationInsights-dotnet) [Java](https://github.com/Microsoft/ApplicationInsights-java) [Node](https://github.com/Microsoft/ApplicationInsights-node.js) [Python](https://github.com/Microsoft/ApplicationInsights-python) |
-| Application Insights Query | [.NET](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/ApplicationInsights/DataPlane) [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/applicationinsights/data-plane) [Node](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/applicationinsights-query) [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-applicationinsights)|
-| Log Analytics Query | [.NET](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/OperationalInsights/DataPlane) [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/loganalytics/data-plane) [Node](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/loganalytics) [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-loganalytics) |
-| Data Lake Analytics | [.NET](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/DataLake.Analytics) [Java](https://github.com/Azure/azure-libraries-for-java/tree/master/azure-mgmt-datalake-analytics) [Node](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/dataLake.Analytics) [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-mgmt-datalake-analytics) |
-| Data Lake Store | [.NET](https://github.com/Azure/azure-data-lake-store-net) [Java](https://github.com/Azure/azure-data-lake-store-java) [Python](https://github.com/Azure/azure-data-lake-store-python) |
-| Azure Search | [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/search) |
-| Relay | [.NET](https://github.com/Azure/azure-relay-dotnet) [Node](https://github.com/Azure/azure-relay-node) |
-| Cognitive Services | [.NET](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane) [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/cognitiveservices/data-plane) | [Node](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services) [Python](https://github.com/Azure/azure-sdk-for-python) |
-
-
 # Contributing
 
 This project welcomes contributions and suggestions.  Most contributions require you to agree to a
