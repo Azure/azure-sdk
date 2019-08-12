@@ -18,29 +18,27 @@ In Java, the namespace should be named `com.azure.<group>.<service>[.<feature>]`
 - `<service>` is the service name represented as a single word
 - `<feature>` is an optional subpackage to break services into separate components (for example, storage may have `.blob`, `.files`, and `.queues`)
 
-{% include requirement/MUST %} start the package with `com.azure` to indicate an Azure client library.
+{% include requirement/MUST id="java-namespaces-prefix" %} start the package with `com.azure` to indicate an Azure client library.
 
-{% include requirement/MUST %} construct the package name with all lowercase letters (no camel case is allowed), without spaces, hyphens, or underscores. For example, Azure Key Vault would be in `com.azure.security.keyvault` - note that the two words 'Key' and 'Vault' are brought together to `keyvault`, instead of `keyVault`, `key_vault`, or `key-vault`.  It may further be shortened if the shortened version is well known in the community.  For example, "Azure Media Analytics" would have a compressed service name of `mediaanalytics`, and "Azure Service Bus" would become `servicebus`.
+{% include requirement/MUST id="java-namespaces-format" %} construct the package name with all lowercase letters (no camel case is allowed), without spaces, hyphens, or underscores. For example, Azure Key Vault would be in `com.azure.security.keyvault` - note that the two words 'Key' and 'Vault' are brought together to `keyvault`, instead of `keyVault`, `key_vault`, or `key-vault`.  It may further be shortened if the shortened version is well known in the community.  For example, "Azure Media Analytics" would have a compressed service name of `mediaanalytics`, and "Azure Service Bus" would become `servicebus`.
 
-{% include requirement/MUST %} pick a package name that allows the consumer to tie the package to the service being used. The package does **NOT** change when the branding of the product changes.  Avoid the use of marketing names that may change.
+{% include requirement/MUST id="java-namespaces-package-name" %} pick a package name that allows the consumer to tie the package to the service being used. The package does **NOT** change when the branding of the product changes.  Avoid the use of marketing names that may change.
 
-{% include requirement/MUST %} use the following list as the group of services:
+{% include requirement/MUST id="java-namespaces-approved-list" %} use the following list as the group of services:
 
 {% include tables/data_namespaces.md %}
 
 If the client library does not seem to fit into the group list, contact the [Architecture Board] to discuss the namespace requirements.
 
-{% include requirement/MUST %} place the management (Azure Resource Manager) API in the `management` group.  Use the grouping `<AZURE>.management.<group>.<service>` for the namespace. Since more services require control plane APIs than data plane APIs, other namespaces may be used explicitly for control plane only.  Data plane usage is by exception only.  Additional namespaces that can be used for control plane SDKs include:
+{% include requirement/MUST id="java-namespaces-management" %} place the management (Azure Resource Manager) API in the `management` group.  Use the grouping `<AZURE>.management.<group>.<service>` for the namespace. Since more services require control plane APIs than data plane APIs, other namespaces may be used explicitly for control plane only.  Data plane usage is by exception only.  Additional namespaces that can be used for control plane SDKs include:
 
 {% include tables/mgmt_namespaces.md %}
 
-Many `management` APIs do not have a data plane because they deal with management of the Azure 
-account. Place the management library in the `com.azure.management` namespace.  For example, use 
-`com.azure.management.costanalysis` instead of `com.azure.management.management.costanalysis`.
+Many `management` APIs do not have a data plane because they deal with management of the Azure account. Place the management library in the `com.azure.management` namespace.  For example, use `com.azure.management.costanalysis` instead of `com.azure.management.management.costanalysis`.
 
-{% include requirement/MUSTNOT %} choose similar names for clients that do different things.
+{% include requirement/MUSTNOT id="java-namespaces-ambiguity" %} choose similar names for clients that do different things.
 
-{% include requirement/MUST %} register the chosen namespace with the [Architecture Board].  Open an issue to request the namespace.  See [the registered namespace list](registered_namespaces.html) for a list of the currently registered namespaces.
+{% include requirement/MUST id="java-namespaces-registration" %} register the chosen namespace with the [Architecture Board].  Open an issue to request the namespace.  See [the registered namespace list](registered_namespaces.html) for a list of the currently registered namespaces.
 
 ### Example Namespaces
 
@@ -58,7 +56,7 @@ Here are some namespaces that do not meet the guidelines:
 - `Mcom.microsoft.azure.cosmosdb` (not in the `com.azure` namespace and does not use grouping)
 - `com.azure.mixedreality.kinect` (the grouping is not in the approved list)
 
-{% include requirement/MUSTNOT %} allow implementation code (that is, code that doesn't form part of the public API) to be mistaken as public API. There are two valid arrangements for implementation code:
+{% include requirement/MUSTNOT id="java-namespaces-implementation" %} allow implementation code (that is, code that doesn't form part of the public API) to be mistaken as public API. There are two valid arrangements for implementation code:
 
 1. Implementation classes can be placed within a subpackage named `implementation`.
 2. Implementation classes can be made package-private and placed within the same package as the consuming class.
@@ -69,41 +67,41 @@ CheckStyle checks ensure that classes within an `implementation` package aren't 
 
 Your API surface consists of one or more _service clients_ that the consumer will instantiate to connect to your service, plus a set of supporting types.
 
-{% include requirement/MUST %} name service client types with the _Client_ suffix.
+{% include requirement/MUST id="java-client-naming" %} name service client types with the _Client_ suffix.
 
-{% include requirement/MUST %} place service client types that the consumer is most likely to interact with in the root package of the client library (for example, `com.azure.<group>.servicebus`).  Specialized service clients should be placed in subpackages.
+{% include requirement/MUST id="java-client-namespace" %} place service client types that the consumer is most likely to interact with in the root package of the client library (for example, `com.azure.<group>.servicebus`).  Specialized service clients should be placed in subpackages.
 
-{% include requirement/MUST %} allow the consumer to construct a service client with the minimal information needed to connect and authenticate to the service.
+{% include requirement/MUST id="java-client-construction" %} allow the consumer to construct a service client with the minimal information needed to connect and authenticate to the service.
 
-{% include requirement/MUST %} standardize verb prefixes within a set of client libraries for a service.  
+{% include requirement/MUST id="java-client-verb-prefixes" %} standardize verb prefixes within a set of client libraries for a service.  
 
 We speak about using the client library in a cross-language manner within outbound materials such as documentation, blogs, and public speaking.
 
-{% include requirement/MUST %} support 100% of the features provided by the Azure service the client library represents. Gaps in functionality cause confusion and frustration among developers.
+{% include requirement/MUST id="java-client-feature-support" %} support 100% of the features provided by the Azure service the client library represents. Gaps in functionality cause confusion and frustration among developers.
 
 ## Network requests
 
 The client library wraps HTTP requests so it's important to support standard network capabilities.  Asynchronous programming techniques aren't widely understood.  However, such techniques are essential in developing resilient web services.  Many developers prefer synchronous method calls for their easy semantics when learning how to use a technology.  Consumers also expect certain capabilities in a network stack (such as call cancellation, automatic retry, and logging).
 
-{% include requirement/MUST %} support both synchronous and asynchronous service clients.
+{% include requirement/MUST id="java-network-sync-async" %} support both synchronous and asynchronous service clients.
 
-{% include requirement/MUST %} have [separate service clients] for sync and async APIs.  The consumer needs to identify which methods are async and which are sync.
+{% include requirement/MUST id="java-network-separate-packages" %} have [separate service clients] for sync and async APIs.  The consumer needs to identify which methods are async and which are sync.
 
 ## Authentication
 
 Azure services use different kinds of authentication schemes to allow clients to access the service.  Conceptually, there are two entities responsible in this process: a credential and an authentication policy.  Credentials provide confidential authentication data.  Authentication policies use the data provided by a credential to authenticate requests to the service.  
 
-{% include requirement/MUST %} support all authentication techniques that the service supports.
+{% include requirement/MUST id="java-auth-support" %} support all authentication techniques that the service supports.
 
-{% include requirement/MUST %} use credential and authentication policy implementations from the Azure Core library where available.
+{% include requirement/MUST id="java-auth-azurecore" %} use credential and authentication policy implementations from the Azure Core library where available.
 
-{% include requirement/MUST %} provide credential types that can be used to fetch all data needed to authenticate a request to the service.  If using a service-specific credential type, the implementation must be non-blocking and atomic.
+{% include requirement/MUST id="java-auth-credentials" %} provide credential types that can be used to fetch all data needed to authenticate a request to the service.  If using a service-specific credential type, the implementation must be non-blocking and atomic.
 
-{% include requirement/MUST %} provide service client fluent builder APIs that accept all supported authentication credentials.
+{% include requirement/MUST id="java-auth-fluent-builder" %} provide service client fluent builder APIs that accept all supported authentication credentials.
 
 A connection string is a combination of an endpoint, credential data, and other options used to simplify service client configuration.  Client libraries may support a connection string __ONLY IF__ the service provides it via the portal or other tooling.   Connection strings are easily integrated into an application by copy/paste from the portal.  However, credentials within a connection string can't be rotated within a running process.  Their use should be discouraged in production apps.
 
-{% include requirement/MUSTNOT %} support constructing a service client with a connection string unless such connection string is available within tooling (for copy/paste operations).
+{% include requirement/MUSTNOT id="java-auth-connection-strings" %} support constructing a service client with a connection string unless such connection string is available within tooling (for copy/paste operations).
 
 ## Response formats
 
@@ -111,9 +109,9 @@ Requests to the service fall into two basic groups: methods that make a single l
 
 The *logical entity* is a protocol neutral representation of a response. The logical entity may combine data from headers, body, and the status line. For example, you may expose an `ETag` header as a property on the logical entity.  `Response<T>` is the 'complete response'. It contains HTTP headers, status code, and the `T` object (a deserialized object created from the response body). The `T` object would be the 'logical entity'.
 
-{% include requirement/MUST %} return the logical entity for the normal form of a service method. The logical entity MUST represent the information needed in the 99%+ case.
+{% include requirement/MUST id="java-response-logical-entity" %} return the logical entity for the normal form of a service method. The logical entity MUST represent the information needed in the 99%+ case.
 
-{% include requirement/MUST %} *make it possible* for a developer to access the complete response, including the status line, headers, and body.
+{% include requirement/MUST id="java-response-access-complete" %} *make it possible* for a developer to access the complete response, including the status line, headers, and body.
 
 Return `Response<T>` on the maximal overload for a service method with `WithResponse` appended to the name.  For example:
 
@@ -124,9 +122,9 @@ Foo foo = client.getFoo(a, b, c, context); // This is the maximal overload
 Response<Foo> response = client.getFooWithResponse(a, b, c, context);
 ```
 
-{% include requirement/MUST %} provide examples on how to access the raw and streamed response for a request, where exposed by the client library.  We don't expect all methods to expose a streamed response.
+{% include requirement/MUST id="java-response-examples" %} provide examples on how to access the raw and streamed response for a request, where exposed by the client library.  We don't expect all methods to expose a streamed response.
 
-{% include requirement/MUST %} provide a Java-idiomatic way to enumerate all logical entities for a paged operation, automatically fetching new pages as needed. For example:
+{% include requirement/MUST id="java-pagination-idiomatic" %} provide a Java-idiomatic way to enumerate all logical entities for a paged operation, automatically fetching new pages as needed. For example:
 
 ```java
 // Yes:
@@ -148,18 +146,17 @@ For more information on what to return for `list` operations, refer to [Paginati
 
 For methods that combine multiple requests into a single call:
 
-{% include requirement/MUSTNOT %} return headers and other per-request metadata unless it's obvious as to which specific HTTP request the methods return value corresponds to.
+{% include requirement/MUSTNOT id="java-response-headers" %} return headers and other per-request metadata unless it's obvious as to which specific HTTP request the methods return value corresponds to.
 
-{% include requirement/MUST %} provide enough information in failure cases for an application to take appropriate corrective action.
+{% include requirement/MUST id="java-response-errors" %} provide enough information in failure cases for an application to take appropriate corrective action.
 
-{% include requirement/SHOULDNOT %} use reserved words (such as `object` and `value`) as a property name within the logical entity.  Avoid reserved words in other supported languages.
+{% include requirement/SHOULDNOT id="java-response-no-reserved-words" %} use reserved words (such as `object` and `value`) as a property name within the logical entity.  Avoid reserved words in other supported languages.
 
 ## Pagination
 
 Azure client libraries eschew low-level pagination APIs in favor of high-level abstractions that  implement per-item iterators. High-level APIs are easy for developers to use for the majority of use cases but can be more confusing when finer-grained control is required (for example,  over-quota/throttling) and debugging when things go wrong. Other guidelines in this document work to mitigate this limitation, for example by providing robust logging, tracing, and pipeline  customization options.
 
-{% include requirement/MUST %} return `Stream<T>` for synchronous APIs that expose paginated collections (although exceptions can be requested for `Iterable<T>`, where more appropriate).
-Users won't receive any paging information.
+{% include requirement/MUST id="java-pagination-streaming" %} return `Stream<T>` for synchronous APIs that expose paginated collections (although exceptions can be requested for `Iterable<T>`, where more appropriate). Users won't receive any paging information.
 
 For example, the configuration service sync client offers the following API:
 
@@ -172,9 +169,9 @@ public final class ConfigurationClient {
 }
 ```
 
-{% include requirement/MUSTNOT %} use other collection types for sync APIs that return multiple values (for example, `List`, or `Iterator`).
+{% include requirement/MUSTNOT id="java-pagination-collections" %} use other collection types for sync APIs that return multiple values (for example, `List`, or `Iterator`).
 
-{% include requirement/MUST %} return `PagedFlux<T>` for asynchronous APIs that expose paginated collections.  If the service doesn't offer paging, then return `Flux<T>`.
+{% include requirement/MUST id="java-pagination-pagedflux" %} return `PagedFlux<T>` for asynchronous APIs that expose paginated collections.  If the service doesn't offer paging, then return `Flux<T>`.
 
 ```java
 public final class ConfigurationAsyncClient {
@@ -199,17 +196,15 @@ client.listSettings(..)
       .subscribe(item -> System.out.println("Processing item " + item));
 ```
 
-{% include requirement/MUST %} use distinct types for entities in a list endpoint and an entity returned from a get endpoint if these are different types, and otherwise you must use the same types in these situations.
+{% include requirement/MUST id="java-pagination-distinct-types" %} use distinct types for entities in a list endpoint and an entity returned from a get endpoint if these are different types, and otherwise you must use the same types in these situations.
 
-> Services should refrain from having a difference between the type of a particular entity as it 
-> exists in a list versus the result of a GET request for that individual item as it makes the 
-> client library's surface area simpler.
+> Services should refrain from having a difference between the type of a particular entity as it exists in a list versus the result of a GET request for that individual item as it makes the client library's surface area simpler.
 
-{% include requirement/MUSTNOT %} expose an iterator over each individual item if getting each item requires a corresponding GET request to the service. One GET per item is often too expensive and so not an action we want to take on behalf of users.
+{% include requirement/MUSTNOT id="java-pagination-get-iterator" %} expose an iterator over each individual item if getting each item requires a corresponding GET request to the service. One GET per item is often too expensive and so not an action we want to take on behalf of users.
 
-{% include requirement/MUSTNOT %} expose an API to get a paginated collection into an array. This is a dangerous capability for services which may return many, many pages.
+{% include requirement/MUSTNOT id="java-pagination-arrays" %} expose an API to get a paginated collection into an array. This is a dangerous capability for services which may return many, many pages.
 
-{% include requirement/MUST %} expose paging APIs when iterating over a collection. Paging APIs must accept a continuation token (from a prior run) and a maximum number of items to return, and must return a continuation token as part of the response so that the iterator may continue, potentially on a different machine.
+{% include requirement/MUST id="java-pagination-api" %} expose paging APIs when iterating over a collection. Paging APIs must accept a continuation token (from a prior run) and a maximum number of items to return, and must return a continuation token as part of the response so that the iterator may continue, potentially on a different machine.
 
 This is automatically handled by the `PagedFlux<T>` type. Consumers of this API can consume individual items by treating the response as a `Flux<T>`:
 
@@ -238,12 +233,9 @@ The `PagedFlux.byPage()` offers an overload to accept a `continuationToken` stri
 
 ## Long running operations
 
-Long-running operations are operations which consist of an initial request to start the operation 
-followed by polling to determine when the operation has completed or failed. Long-running 
-operations in Azure tend to follow the [REST API guidelines for Long-running Operations][rest-lro], but 
-there are exceptions.
+Long-running operations are operations which consist of an initial request to start the operation followed by polling to determine when the operation has completed or failed. Long-running operations in Azure tend to follow the [REST API guidelines for Long-running Operations][rest-lro], but there are exceptions.
 
-{% include requirement/MUST %} represent long-running operations with some object that encapsulates the polling and the operation status. This object, called a *poller*, must provide APIs for:
+{% include requirement/MUST id="java-lro-poller" %} represent long-running operations with some object that encapsulates the polling and the operation status. This object, called a *poller*, must provide APIs for:
 
 1. querying the current operation state (either asynchronously, which may consult the service, or synchronously which must not)
 2. requesting an asynchronous notification when the operation has completed
@@ -252,23 +244,23 @@ there are exceptions.
 5. triggering a poll operation manually (automatic polling must be disabled)
 6. progress reporting (if supported by the service)
 
-{% include requirement/MUST %} support the following polling configuration options:
+{% include requirement/MUST id="java-lro-options" %} support the following polling configuration options:
 
 * `pollInterval`
   
 Polling configuration may be used only in the absence of relevant retry-after headers from service, and otherwise should be ignored.
 
-{% include requirement/MUST %} prefix method names which return a poller with the `begin` prefix.
+{% include requirement/MUST id="java-lro-prefix" %} prefix method names which return a poller with the `begin` prefix.
 
-{% include requirement/MUST %} provide a way to instantiate a poller with the serialized state of another poller to begin where it left off, for example by passing the state as a parameter to the same method which started the operation, or by directly instantiating a poller with that state.
+{% include requirement/MUST id="java-lro-continuation" %} provide a way to instantiate a poller with the serialized state of another poller to begin where it left off, for example by passing the state as a parameter to the same method which started the operation, or by directly instantiating a poller with that state.
 
-{% include requirement/MUSTNOT %} cancel the long-running operation when cancellation is requested via a cancellation token. The cancellation token is cancelling the polling operation and should not have any effect on the service.
+{% include requirement/MUSTNOT id="java-lro-cancellation" %} cancel the long-running operation when cancellation is requested via a cancellation token. The cancellation token is cancelling the polling operation and should not have any effect on the service.
 
-{% include requirement/MUST %} log polling status at the `Info` level (including time to next retry)
+{% include requirement/MUST id="java-lro-logging" %} log polling status at the `Info` level (including time to next retry)
 
-{% include requirement/MUST %} expose a progress reporting mechanism to the consumer if the service reports progress as part of the polling operation. 
+{% include requirement/MUST id="java-lro-progress-reporting" %} expose a progress reporting mechanism to the consumer if the service reports progress as part of the polling operation. 
 
-{% include requirement/MUST %} use the `com.azure.core.polling.Poller` class to represent long-running operations.  The long-running operation API pattern is:
+{% include requirement/MUST id="java-lro-poller-class" %} use the `com.azure.core.polling.Poller` class to represent long-running operations.  The long-running operation API pattern is:
 
 ```java
 public class <service_name>Client {
@@ -286,18 +278,15 @@ Most Azure services expose a RESTful API over HTTPS.  However, a few services us
 * Per-connection (surrounding when the connection is initiated and terminated)
 * Per-operation (surrounding when an operation is sent through the open connection)
 
-The policies that are added to a HTTP request/response (authentication, unique request ID, 
-telemetry, distributed tracing, and logging) are still valid on both a per-connection and 
-per-operation basis.  However, the methods by which these policies are implemented are protocol 
-dependent.
+The policies that are added to a HTTP request/response (authentication, unique request ID, telemetry, distributed tracing, and logging) are still valid on both a per-connection and per-operation basis.  However, the methods by which these policies are implemented are protocol dependent.
 
-{% include requirement/MUST %} implement as many of the policies as possible on a per-connection and per-operation basis.
+{% include requirement/MUST id="java-protos-policies" %} implement as many of the policies as possible on a per-connection and per-operation basis.
 
 For example, MQTT over WebSockets provides the ability to add headers during the initiation of the WebSockets connection, so this is a good place to add authentication, telemetry, and distributed tracing policies.  However, MQTT has no metadata (the equivalent of HTTP headers), so per-operation policies are not possible.  AMQP, by contract, does have per-operation metadata.  Unique request ID, and distributed tracing headers can be provided on a per-operation basis with AMQP.
 
-{% include requirement/MUST %} consult the [Architecture Board] on policy decisions for non-HTTP  protocols.  Implementation of all policies is expected.  If the protocol cannot support a policy, obtain an exception from the [Architecture Board].
+{% include requirement/MUST id="java-protos-archboard" %} consult the [Architecture Board] on policy decisions for non-HTTP  protocols.  Implementation of all policies is expected.  If the protocol cannot support a policy, obtain an exception from the [Architecture Board].
 
-{% include requirement/MUST %} use the global configuration established in the Azure Core library to configure policies for non-HTTP protocols.  Consumers don't necessarily know what protocol is used by the client library.  They will expect the client library to honor global configuration that they have established for the entire Azure SDK.  
+{% include requirement/MUST id="java-protos-global-config" %} use the global configuration established in the Azure Core library to configure policies for non-HTTP protocols.  Consumers don't necessarily know what protocol is used by the client library.  They will expect the client library to honor global configuration that they have established for the entire Azure SDK.  
 
 ## The Java API
 
@@ -305,41 +294,41 @@ Consumers will use one or more _service clients_ to access Azure services, plus 
 
 ### Async API
 
-{% include requirement/MUST %} offer an async service client named `<ServiceName>AsyncClient`. More than one service client may be offered for a single service.
+{% include requirement/MUST id="java-async-client-name" %} offer an async service client named `<ServiceName>AsyncClient`. More than one service client may be offered for a single service.
 
-{% include requirement/MUST %} use [Project Reactor] to provide consumers with a high-quality async API.
+{% include requirement/MUST id="java-async-framework" %} use [Project Reactor] to provide consumers with a high-quality async API.
 
-{% include requirement/MUSTNOT %} use any other async APIs, such as `CompletableFuture` or [RxJava].
+{% include requirement/MUSTNOT id="java-async-other-frameworks" %} use any other async APIs, such as `CompletableFuture` or [RxJava].
 
-{% include requirement/MUSTNOT %} use the suffix `Async` in methods that do operations asynchronously. Let the fact the user has an instance of an 'async client' provide this context.
+{% include requirement/MUSTNOT id="java-async-suffix" %} use the suffix `Async` in methods that do operations asynchronously. Let the fact the user has an instance of an 'async client' provide this context.
 
-{% include requirement/MUSTNOT %} provide multiple asynchronous methods for a single REST endpoint, unless to provide overloaded methods to enable alternative or optional method parameters.
+{% include requirement/MUSTNOT id="java-async-methods" %} provide multiple asynchronous methods for a single REST endpoint, unless to provide overloaded methods to enable alternative or optional method parameters.
 
-{% include requirement/MUSTNOT %} provide API that accepts a cancellation token. Cancellation isn't a common pattern in Java. Developers who need to cancel requests unsubscribe from a publisher to cancel the request.
+{% include requirement/MUSTNOT id="java-async-cancellation" %} provide API that accepts a cancellation token. Cancellation isn't a common pattern in Java. Developers who need to cancel requests unsubscribe from a publisher to cancel the request.
 
-{% include requirement/MUSTNOT %} write custom APIs for streaming or async operations. Make use of the existing functionality offered in the Azure core library. Discuss proposed changes to the Azure core library with the [Architecture Board].
+{% include requirement/MUSTNOT id="java-async-streaming" %} write custom APIs for streaming or async operations. Make use of the existing functionality offered in the Azure core library. Discuss proposed changes to the Azure core library with the [Architecture Board].
 
-{% include requirement/MUSTNOT %} include blocking calls inside async client library code. Use [BlockHound] to detect blocking calls in async APIs.
+{% include requirement/MUSTNOT id="java-async-blocking" %} include blocking calls inside async client library code. Use [BlockHound] to detect blocking calls in async APIs.
 
 ### Sync API
 
-{% include requirement/MUST %} offer a sync service client named `<ServiceName>Client`. More than one service client may be offered for a single service.
+{% include requirement/MUST id="java-sync-client-name" %} offer a sync service client named `<ServiceName>Client`. More than one service client may be offered for a single service.
 
-{% include requirement/MUSTNOT %} provide a sync API that accepts a cancellation token. Cancellation isn't a common pattern in Java.  Developers who need to cancel requests should use the async API instead.
+{% include requirement/MUSTNOT id="java-sync-cancellation" %} provide a sync API that accepts a cancellation token. Cancellation isn't a common pattern in Java.  Developers who need to cancel requests should use the async API instead.
 
 ## Service clients
 
-{% include requirement/MUST %} name service client types with the _Client_ suffix (for example, `ConfigurationClient`).
+{% include requirement/MUST id="java-service-client-name" %} name service client types with the _Client_ suffix (for example, `ConfigurationClient`).
 
-{% include requirement/MUST %} annotate all service clients with the `@ServiceClient` annotation.
+{% include requirement/MUST id="java-service-client-annotation" %} annotate all service clients with the `@ServiceClient` annotation.
 
-{% include requirement/MUST %} place service clients in the root package of their corresponding client library (for example, `com.azure.storage.blob.BlobClient`, as `com.azure.storage.blob` is considered the root package in this example).
+{% include requirement/MUST id="java-service-client-namespace" %} place service clients in the root package of their corresponding client library (for example, `com.azure.storage.blob.BlobClient`, as `com.azure.storage.blob` is considered the root package in this example).
 
-{% include requirement/MUST %} ensure that all service client classes are immutable upon instantiation.
+{% include requirement/MUST id="java-service-client-immutable" %} ensure that all service client classes are immutable upon instantiation.
 
-{% include requirement/MUSTNOT %} provide any `public` or `protected` constructors in the service client, except where necessary to support mock testing. Keep visibility to a minimum.
+{% include requirement/MUSTNOT id="java-service-client-constructors" %} provide any `public` or `protected` constructors in the service client, except where necessary to support mock testing. Keep visibility to a minimum.
 
-{% include requirement/MUST %} follow the basic shape outlined below for all synchronous service clients:
+{% include requirement/MUST id="java-sync-client-shape" %} follow the basic shape outlined below for all synchronous service clients:
 
 ```java
 // Copyright (c) Microsoft Corporation. All rights reserved.
@@ -381,7 +370,7 @@ public final class <service_name>Client {
 
 Refer to the [ConfigurationClient class] for a fully built-out example of how a sync client should be constructed.
 
-{% include requirement/MUST %} follow the basic shape outlined below for all asynchronous service clients:
+{% include requirement/MUST id="java-async-client-shape" %} follow the basic shape outlined below for all asynchronous service clients:
 
 ```java
 // Copyright (c) Microsoft Corporation. All rights reserved.
@@ -419,7 +408,7 @@ public final class <service_name>AsyncClient {
 
 Refer to the [ConfigurationAsyncClient class] for a fully built-out example of how an async client should be constructed.
 
-{% include requirement/MUST %} offer a fluent builder API for constructing service clients named `<service_name>ClientBuilder`, which must support building a sync service client instance and an async service client instance (where appropriate). It must offer `buildClient()` and `buildAsyncClient()` API to create a synchronous and asynchronous service client instance, respectively:
+{% include requirement/MUST id="java-service-client-fluent-builder" %} offer a fluent builder API for constructing service clients named `<service_name>ClientBuilder`, which must support building a sync service client instance and an async service client instance (where appropriate). It must offer `buildClient()` and `buildAsyncClient()` API to create a synchronous and asynchronous service client instance, respectively:
 
 ```java
 // Copyright (c) Microsoft Corporation. All rights reserved.
@@ -461,9 +450,9 @@ public final class <service_name>ClientBuilder {
 }
 ```
 
-{% include requirement/MUST %} annotate service client builders with the `@ServiceClientBuilder` annotation.
+{% include requirement/MUST id="java-service-client-builder-annotation" %} annotate service client builders with the `@ServiceClientBuilder` annotation.
 
-{% include requirement/MUST %} ensure consistency across all client libraries, by using the following names for client builder fluent API:
+{% include requirement/MUST id="java-service-client-builder-consistency" %} ensure consistency across all client libraries, by using the following names for client builder fluent API:
 
 | Name                 | Intent                                                                               |
 |----------------------|--------------------------------------------------------------------------------------|
@@ -480,24 +469,24 @@ public final class <service_name>ClientBuilder {
 
 `endpoint` may be renamed if a more user-friendly name can be justified. For example, a blob storage library developer may consider using `new BlobClientBuilder.blobUrl(..)`. In this case, the `endpoint` API should be removed.
 
-{% include requirement/MUST %} use the following precedence rules for builder arguments:
+{% include requirement/MUST id="java-service-client-builder-precedence" %} use the following precedence rules for builder arguments:
 
 1. If the user sets a non-null `pipeline`, all other settings related to construction and configuration of a pipeline are ignored. The provided pipeline is used as-is.
 2. If the user sets a `connectionString` and a `credential`, the `credential` will take precedence and the `connectionString` must be ignored.
 
 Supporting common precedence rules ensures consistency across client libraries.
 
-{% include requirement/MUST %} throw an `IllegalStateException` from the builder method when it receives mutually exclusive arguments.  The consumer is over-specifying builder arguments, some of which will necessarily be ignored. The error message in the exception must clearly outline the issue.
+{% include requirement/MUST id="java-service-client-builder-state" %} throw an `IllegalStateException` from the builder method when it receives mutually exclusive arguments.  The consumer is over-specifying builder arguments, some of which will necessarily be ignored. The error message in the exception must clearly outline the issue.
 
-{% include requirement/MUST %} ensure the builder will instantiate a service client into a valid state.  Throw validation exceptions during fluent property calls, or as part of the `build*()` calls.
+{% include requirement/MUST id="java-service-client-builder-validity" %} ensure the builder will instantiate a service client into a valid state.  Throw validation exceptions during fluent property calls, or as part of the `build*()` calls.
 
-{% include requirement/MUSTNOT %} leak the underlying protocol transport implementation details to the consumer.  All types from the protocol transport implementation must be appropriately abstracted.
+{% include requirement/MUSTNOT id="java-service-client-builder-leakage" %} leak the underlying protocol transport implementation details to the consumer.  All types from the protocol transport implementation must be appropriately abstracted.
 
-{% include requirement/MUST %} prefix methods that create or vend subclients with `get` and suffix with `Client` or `AsyncClient` for sync and async subclients respectively (for example, `container.getBlobClient()` or `container.getBlobAsyncClient()`).
+{% include requirement/MUST id="java-service-client-vend-prefix" %} prefix methods that create or vend subclients with `get` and suffix with `Client` or `AsyncClient` for sync and async subclients respectively (for example, `container.getBlobClient()` or `container.getBlobAsyncClient()`).
 
 ## Common service client patterns
 
-{% include requirement/MUST %} prefer the use of the following terms for CRUD operations:
+{% include requirement/MUST id="java-service-client-verbs" %} prefer the use of the following terms for CRUD operations:
 
 |Verb              |Parameters        |Returns                 |Comments                                                                                                                |
 |------------------|------------------|------------------------|------------------------------------------------------------------------------------------------------------------------|
@@ -512,9 +501,9 @@ Supporting common precedence rules ensures consistency across client libraries.
 | `list<noun>`     |                  |Items                   |Return list of items. Returns empty list if no items exist.                                                             |
 | `<noun>Exists`   |key               |`boolean`               |Return `true` if the item exists.                                                                                       |
 
-{% include requirement/SHOULD %} remain flexible and use names best suited for developer experience.  Don't let the naming rules result in non-idiomatic naming patterns.  For example, Java developers prefer `list` operations over `getAll` operations.
+{% include requirement/SHOULD id="java-service-client-flexibility" %} remain flexible and use names best suited for developer experience.  Don't let the naming rules result in non-idiomatic naming patterns.  For example, Java developers prefer `list` operations over `getAll` operations.
 
-{% include requirement/MUST %} provide an overload method that takes a `com.azure.core.util.Context` argument for each service operation **in sync clients only**. The `Context` argument must be the last argument into the service method (except where `varargs` are used). If a service method has multiple overloads, only the 'maximal' overloads need to have the `Context` argument. A maximal overload is one that has a full set of arguments.  It may not be necessary to offer a 'Context overload' in all cases.  We prefer a minimal API surface, but `Context` must always be supported.
+{% include requirement/MUST id="java-service-client-context" %} provide an overload method that takes a `com.azure.core.util.Context` argument for each service operation **in sync clients only**. The `Context` argument must be the last argument into the service method (except where `varargs` are used). If a service method has multiple overloads, only the 'maximal' overloads need to have the `Context` argument. A maximal overload is one that has a full set of arguments.  It may not be necessary to offer a 'Context overload' in all cases.  We prefer a minimal API surface, but `Context` must always be supported.
 
 ```java
 getFoo()
@@ -534,39 +523,39 @@ Don't include overloads that take `Context`in async clients.  Async clients use 
 
 Model classes are classes that consumers use to provide required information into client library methods. These classes typically represent the domain model, or options classes that must be configured before the request can be made.
 
-{% include requirement/MUST %} provide public constructors for all model classes.
+{% include requirement/MUST id="java-models-constructors" %} provide public constructors for all model classes.
 
 Use a no-args constructor and a fluent setter API to configure the model class. However, other designs may be used for the constructor when appropriate.
 
-{% include requirement/MUSTNOT %} offer a builder class for model classes.
+{% include requirement/MUSTNOT id="java-models-builder" %} offer a builder class for model classes.
 
-{% include requirement/MUST %} provide a fluent API where appropriate.
+{% include requirement/MUST id="java-models-fluent" %} provide a fluent API where appropriate.
 
 Apply the `@Fluent` annotation to the class. Name setter methods after the property being set (for example, `proxy(Proxy p)`).  All setter methods must return `this`.
 
-{% include requirement/MUST %} ensure that setter methods within a fluent type return the same instance of the type.
+{% include requirement/MUST id="java-models-setters" %} ensure that setter methods within a fluent type return the same instance of the type.
 
 Fluent types must not be immutable.  Don't return a new instance on each setter call.
 
-{% include requirement/MUSTNOT %} use the JavaBean naming convention of `get*`, `set*`, and `is*`.
+{% include requirement/MUSTNOT id="java-models-javabeans" %} use the JavaBean naming convention of `get*`, `set*`, and `is*`.
 
 ## Other support classes
 
 Don't offer builder or fluent APIs for supporting classes such as custom exception types, HTTP policies, and credential types.
 
-{% include requirement/MUST %} use the JavaBean naming convention of `get*`, `set*`, and `is*`.
+{% include requirement/MUST id="java-support-javabeans" %} use the JavaBean naming convention of `get*`, `set*`, and `is*`.
 
-{% include requirement/MUSTNOT %} use the fluent API naming convention outlined above for model classes.
+{% include requirement/MUSTNOT id="java-support-fluent" %} use the fluent API naming convention outlined above for model classes.
 
-{% include requirement/MUSTNOT %} provide a builder class.
+{% include requirement/MUSTNOT id="java-support-builder" %} provide a builder class.
 
 ## Annotations
 
 A number of annotations are defined in the Azure core library. A few annotations enable runtime functionality.  Most of the annotations are used as part of the [Azure Java SDK code linting tools](#java-tooling).
 
-{% include requirement/MUST %} use the Azure core library annotations outlined below in all applicable places. Use annotations eagerly as part of the initial code design.  The code linters will ensure continued conformance to some of the rules outlined in this specification.
+{% include requirement/MUST id="java-annotations-azure-core" %} use the Azure core library annotations outlined below in all applicable places. Use annotations eagerly as part of the initial code design.  The code linters will ensure continued conformance to some of the rules outlined in this specification.
 
-{% include requirement/MUSTNOT %} include spaces in annotation string values, unless the description below states it's allowed.
+{% include requirement/MUSTNOT id="java-annotations-format" %} include spaces in annotation string values, unless the description below states it's allowed.
 
 
 ### Service interface
@@ -648,9 +637,9 @@ There are two annotations of note that should be applied on model classes, when 
 
 There are two versions that developers must be concerned with. Release versioning is the version of the library.  The Azure service API that the library calls also has a version. This section details how consumers can request a specific Azure service API when working with the library.
 
-{% include requirement/MUST %} call the latest supported service API version by default.
+{% include requirement/MUST id="java-versioning-latest-service-api" %} call the latest supported service API version by default.
 
-{% include requirement/MUST %} allow the consumer to select a supported service API version when instantiating the service client.
+{% include requirement/MUST id="java-versioning-select-service-api" %} allow the consumer to select a supported service API version when instantiating the service client.
 
 Include `.serviceVersion(ServiceVersion version)` as part of the client builder API.  `ServiceVersion` should be an enumeration. The enumeration must have a `getLatest()` method that returns the latest service version. If a consumer doesn't specify a service version, the builder will call `ServiceVersion.getLatest()` to obtain the appropriate service version.
 

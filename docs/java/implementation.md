@@ -12,25 +12,24 @@ When configuring your client library, particular care must be taken to ensure th
 
 ### Client configuration
 
-{% include requirement/MUST %} use relevant global configuration settings either by default or when explicitly requested to by the user, for example by passing in a configuration object to a client constructor.
+{% include requirement/MUST id="java-config-global" %} use relevant global configuration settings either by default or when explicitly requested to by the user, for example by passing in a configuration object to a client constructor.
 
-{% include requirement/MUST %} allow different clients of the same type to use different configurations.
+{% include requirement/MUST id="java-config-client" %} allow different clients of the same type to use different configurations.
 
-{% include requirement/MUST %} allow consumers of your service clients to opt out of all global 
-configuration settings at once.
+{% include requirement/MUST id="java-config-optout" %} allow consumers of your service clients to opt out of all global configuration settings at once.
 
-{% include requirement/MUST %} allow all global configuration settings to be overridden by client-provided options. The names of these options should align with any user-facing global configuration keys.
+{% include requirement/MUST id="java-config-global-override" %} allow all global configuration settings to be overridden by client-provided options. The names of these options should align with any user-facing global configuration keys.
 
-{% include requirement/MUSTNOT %} change behavior based on configuration changes that occur after the client is constructed. Hierarchies of clients inherit parent client configuration unless explicitly changed or overridden. Exceptions to this requirement are as follows:
+{% include requirement/MUSTNOT id="java-config-behavior-changes" %} change behavior based on configuration changes that occur after the client is constructed. Hierarchies of clients inherit parent client configuration unless explicitly changed or overridden. Exceptions to this requirement are as follows:
 
 1. Log level, which must take effect immediately across the Azure SDK.
 2. Tracing on/off, which must take effect immediately across the Azure SDK.
 
 ### Service-specific environment variables
 
-{% include requirement/MUST %} prefix Azure-specific environment variables with `AZURE_`.
+{% include requirement/MUST id="java-envvars-prefix" %} prefix Azure-specific environment variables with `AZURE_`.
 
-{% include requirement/MAY %} use client library-specific environment variables for portal-configured settings which are provided as parameters to your client library. This generally includes credentials and connection details. For example, Service Bus could support the following environment variables:
+{% include requirement/MAY id="java-envvars-client-prefix" %} use client library-specific environment variables for portal-configured settings which are provided as parameters to your client library. This generally includes credentials and connection details. For example, Service Bus could support the following environment variables:
 
 * `AZURE_SERVICEBUS_CONNECTION_STRING`
 * `AZURE_SERVICEBUS_NAMESPACE`
@@ -44,39 +43,35 @@ Storage could support:
 * `AZURE_STORAGE_DNS_SUFFIX`
 * `AZURE_STORAGE_CONNECTION_STRING`
 
-{% include requirement/MUST %} get approval from the [Architecture Board] for every new environment variable. 
+{% include requirement/MUST id="java-envvars-approval" %} get approval from the [Architecture Board] for every new environment variable. 
 
-{% include requirement/MUST %} use this syntax for environment variables specific to a particular Azure service:
+{% include requirement/MUST id="java-envvars-syntax" %} use this syntax for environment variables specific to a particular Azure service:
 
 * `AZURE_<ServiceName>_<ConfigurationKey>`
 
 where _ServiceName_ is the canonical shortname without spaces, and _ConfigurationKey_ refers to an unnested configuration key for that client library.
 
-{% include requirement/MUSTNOT %} use non-alpha-numeric characters in your environment variable names with the exception of underscore. This ensures broad interoperability.
+{% include requirement/MUSTNOT id="java-envvars-posix-compliance" %} use non-alpha-numeric characters in your environment variable names with the exception of underscore. This ensures broad interoperability.
 
 ## Parameter validation
 
-The service client will have several methods that perform requests on the service. _Service 
-parameters_ are directly passed across the wire to an Azure service. _Client parameters_ are not passed directly to the service, but used within the client library to fulfill the request.  Examples of client parameters include values that are used to construct a URI, or a file that needs to be uploaded to storage.
+The service client will have several methods that perform requests on the service. _Service parameters_ are directly passed across the wire to an Azure service. _Client parameters_ are not passed directly to the service, but used within the client library to fulfill the request.  Examples of client parameters include values that are used to construct a URI, or a file that needs to be uploaded to storage.
 
-{% include requirement/MUST %} validate client parameters.
+{% include requirement/MUST id="java-params-client-validation" %} validate client parameters.
 
-{% include requirement/MUSTNOT %} validate service parameters. This includes null checks, empty strings, and other common validating conditions. Let the service validate any request parameters.
+{% include requirement/MUSTNOT id="java-params-service-validation" %} validate service parameters. This includes null checks, empty strings, and other common validating conditions. Let the service validate any request parameters.
 
-{% include requirement/MUST %} validate the developer experience when the service parameters are invalid to ensure appropriate error messages are generated by the service. If the developer experience is compromised due to service-side error messages, work with the service team to correct prior to release.
+{% include requirement/MUST id="java-params-devex" %} validate the developer experience when the service parameters are invalid to ensure appropriate error messages are generated by the service. If the developer experience is compromised due to service-side error messages, work with the service team to correct prior to release.
 
 ## Network requests
 
 Each supported language has an Azure Core library that contains common mechanisms for cross cutting concerns such as configuration and doing HTTP requests.
 
-{% include requirement/MUST %} use the HTTP pipeline component within `com.azure.core` library for communicating to service REST endpoints.
+{% include requirement/MUST id="java-network-use-http-pipeline" %} use the HTTP pipeline component within `com.azure.core` library for communicating to service REST endpoints.
 
-The HTTP pipeline consists of a HTTP transport that is wrapped by multiple policies. Each policy 
-is a control point during which the pipeline can modify either the request and/or response. We 
-prescribe a default set of policies to standardize how client libraries interact with Azure 
-services. The order in the list is the most sensible order for implementation.
+The HTTP pipeline consists of a HTTP transport that is wrapped by multiple policies. Each policy is a control point during which the pipeline can modify either the request and/or response. We prescribe a default set of policies to standardize how client libraries interact with Azure services. The order in the list is the most sensible order for implementation.
 
-{% include requirement/MUST %} implement the following policies in the HTTP pipeline:
+{% include requirement/MUST id="java-network-policies" %} implement the following policies in the HTTP pipeline:
 
 - Telemetry
 - Unique Request ID
@@ -86,43 +81,43 @@ services. The order in the list is the most sensible order for implementation.
 - Distributed tracing
 - Logging
 
-{% include requirement/SHOULD %} use the policy implementations in Azure Core whenever possible. Do not try to "write your own" policy unless it is doing something unique to your service. If you need another option to an existing policy, engage with the [Architecture Board] to add the option.
+{% include requirement/SHOULD id="java-network-azure-core-policies" %} use the policy implementations in Azure Core whenever possible. Do not try to "write your own" policy unless it is doing something unique to your service. If you need another option to an existing policy, engage with the [Architecture Board] to add the option.
 
 ## Authentication
 
 When implementing authentication, don't open up the consumer to security holes like PII (personally identifiable information) leakage or credential leakage. Credentials are generally issued with a time limit, and must be refreshed periodically to ensure that the service connection continues to function as expected. Ensure your client library follows all current security recommendations and consider an independent security review of the client library to ensure you're not introducing potential security problems for the consumer.
 
-{% include requirement/MUSTNOT %} persist, cache, or reuse security credentials. Security credentials should be considered short lived to cover both security concerns and credential refresh situations. 
+{% include requirement/MUSTNOT id="java-auth-persistence" %} persist, cache, or reuse security credentials. Security credentials should be considered short lived to cover both security concerns and credential refresh situations. 
 
 If your service implements a non-standard credential system (that is, a credential system that is not supported by Azure Core), then you need to produce an authentication policy for the HTTP pipeline that can authenticate requests given the alternative credential types provided by the client library.
 
-{% include requirement/MUST %} provide a suitable authentication policy that authenticates the HTTP request in the HTTP pipeline when using non-standard credentials. This includes custom connection strings, if supported.
+{% include requirement/MUST id="java-auth-policy-impl" %} provide a suitable authentication policy that authenticates the HTTP request in the HTTP pipeline when using non-standard credentials. This includes custom connection strings, if supported.
 
 ## Native code
 
 Native code plugins cause compatibility issues and require additional scrutiny. Certain languages compile to a machine-native format (for example, C or C++), whereas most modern languages opt to compile to an intermediary format to aid in cross-platform support.
 
-{% include requirement/MUSTNOT %} write platform-specific / native code.
+{% include requirement/MUSTNOT id="java-no-native-code" %} write platform-specific / native code.
 
 ## Error handling
 
 Error handling is an important aspect of implementing a client library. It is the primary method by which problems are communicated to the consumer. There are two methods by which errors are reported to the consumer. Either the method throws an exception, or the method returns an error code (or value) as its return value, which the consumer must then check. In this section we refer to "producing an error" to mean returning an error value or throwing an exception, and "an error" to be the error value or exception object. 
 
-{% include requirement/SHOULD %} prefer the use of exceptions over returning an error value when producing an error.
+{% include requirement/SHOULD id="java-errors-prefer-exceptions" %} prefer the use of exceptions over returning an error value when producing an error.
 
-{% include requirement/MUST %} produce an error when any HTTP request fails with an HTTP status code that is not defined by the service/Swagger as a successful status code. These errors should also be logged as errors.
+{% include requirement/MUST id="java-errors-http-request-failed" %} produce an error when any HTTP request fails with an HTTP status code that is not defined by the service/Swagger as a successful status code. These errors should also be logged as errors.
 
-{% include requirement/MUST %} use unchecked exceptions for HTTP requests. Java offers checked and unchecked exceptions, where checked exceptions force the user to introduce verbose `try .. catch` code blocks and handle each specified exception. Unchecked exceptions avoid verbosity and improve scalability issues inherent with checked exceptions in large apps. 
+{% include requirement/MUST id="java-errors-unchecked-exceptions" %} use unchecked exceptions for HTTP requests. Java offers checked and unchecked exceptions, where checked exceptions force the user to introduce verbose `try .. catch` code blocks and handle each specified exception. Unchecked exceptions avoid verbosity and improve scalability issues inherent with checked exceptions in large apps. 
 
-{% include requirement/MUST %} ensure that the error produced contains the HTTP response (including status code and headers) and originating request (including URL, query parameters, and headers). 
+{% include requirement/MUST id="java-errors-include-request-response" %} ensure that the error produced contains the HTTP response (including status code and headers) and originating request (including URL, query parameters, and headers). 
 
 In the case of a higher-level method that produces multiple HTTP requests, either the last exception or an aggregate exception of all failures should be produced.
 
-{% include requirement/MUST %} ensure that if the service returns rich error information (via the response headers or body), the rich information must be available via the error produced in service-specific properties/fields.
+{% include requirement/MUST id="java-errors-rich-info" %} ensure that if the service returns rich error information (via the response headers or body), the rich information must be available via the error produced in service-specific properties/fields.
 
-{% include requirement/MUSTNOT %} create a new error type when a language-specific error type will suffice. Use system-provided error types for validation.
+{% include requirement/MUSTNOT id="java-errors-no-new-errors" %} create a new error type when a language-specific error type will suffice. Use system-provided error types for validation.
 
-{% include requirement/MUST %} use the following standard Java exceptions for pre-condition checking:
+{% include requirement/MUST id="java-errors-system-errors" %} use the following standard Java exceptions for pre-condition checking:
 
 | Exception                       | When to use                                                    |
 |---------------------------------|----------------------------------------------------------------|
@@ -131,11 +126,11 @@ In the case of a higher-level method that produces multiple HTTP requests, eithe
 | `NullPointerException`          | When a method argument is `null` and `null` is unexpected      |
 | `UnsupportedOperationException` | When an object doesn't support method invocation               |
 
-{% include requirement/MUST %} document the errors that are produced by each method (with the exception of commonly thrown errors that are generally not documented in the target language).
+{% include requirement/MUST id="java-errors-document" %} document the errors that are produced by each method (with the exception of commonly thrown errors that are generally not documented in the target language).
 
-{% include requirement/MUST %} specify all checked and unchecked exceptions thrown in a method within the JavaDoc documentation on the method as `@throws` statements.
+{% include requirement/MUST id="java-errors-document-all" %} specify all checked and unchecked exceptions thrown in a method within the JavaDoc documentation on the method as `@throws` statements.
 
-{% include requirement/MUST %} use the existing exception types present in the Azure core library for service request failures. Avoid creating new exception types. The following list outlines all available exception types (with indentation indicating exception type hierarchy):
+{% include requirement/MUST id="java-errors-exception-tree" %} use the existing exception types present in the Azure core library for service request failures. Avoid creating new exception types. The following list outlines all available exception types (with indentation indicating exception type hierarchy):
 
 - `AzureException`: Never use directly. Throw a more specific subtype.
   - `ServiceRequestException`: Thrown for an invalid response with custom error information.
@@ -154,13 +149,11 @@ In the case of a higher-level method that produces multiple HTTP requests, eithe
 
 ## Logging
 
-Client libraries must support robust logging mechanisms so that the consumer can adequately 
-diagnose issues with the method calls and quickly determine whether the issue is in the consumer 
-code, client library code, or service.
+Client libraries must support robust logging mechanisms so that the consumer can adequately diagnose issues with the method calls and quickly determine whether the issue is in the consumer code, client library code, or service.
 
-{% include requirement/MUST %} use the `ClientLogger` API provided within Azure Core as the sole logging API throughout all client libraries. Internally, `ClientLogger` wraps [SLF4J], so all external configuration that is offered through SLF4J is valid.  We encourage you to expose the SLF4J configuration to end users. For more information, see the [SLF4J user manual].
+{% include requirement/MUST id="java-logging-clientlogger" %} use the `ClientLogger` API provided within Azure Core as the sole logging API throughout all client libraries. Internally, `ClientLogger` wraps [SLF4J], so all external configuration that is offered through SLF4J is valid.  We encourage you to expose the SLF4J configuration to end users. For more information, see the [SLF4J user manual].
 
-{% include requirement/MUST %} create a new instance of a `ClientLogger` per instance of all relevant classes. For example, the code below will create a `ClientLogger` instance for the `ConfigurationAsyncClient`:
+{% include requirement/MUST id="java-logging-new-clientlogger" %} create a new instance of a `ClientLogger` per instance of all relevant classes. For example, the code below will create a `ClientLogger` instance for the `ConfigurationAsyncClient`:
 
 ```java
 public final class ConfigurationAsyncClient {
@@ -179,23 +172,23 @@ public final class ConfigurationAsyncClient {
 
 Don't create static logger instances. Static logger instances are shared among all client library instances running in a JVM instance.
 
-{% include requirement/MUST %} use one of the following log levels when emitting logs: `Logger.trace` (details), `Logger.info` (things happened), `Logger.warn` (might be a problem or not), and `Logger.error`.
+{% include requirement/MUST id="java-logging-levels" %} use one of the following log levels when emitting logs: `Logger.trace` (details), `Logger.info` (things happened), `Logger.warn` (might be a problem or not), and `Logger.error`.
 
-{% include requirement/MUST %} use the `Logger.error` logging level for failures that the application is unlikely to recover from (out of memory, etc.).
+{% include requirement/MUST id="java-logging-errors" %} use the `Logger.error` logging level for failures that the application is unlikely to recover from (out of memory, etc.).
 
-{% include requirement/MUST %} use the `Logger.warn` logging level when a function fails to perform its intended task. This generally means that the function will raise an exception.  Do not include occurrences of self-healing events (for example, when a request will be automatically retried).
+{% include requirement/MUST id="java-logging-warn" %} use the `Logger.warn` logging level when a function fails to perform its intended task. This generally means that the function will raise an exception.  Do not include occurrences of self-healing events (for example, when a request will be automatically retried).
 
-{% include requirement/MUST %} use the `Logger.info` logging level when a function operates normally.
+{% include requirement/MUST id="java-logging-info" %} use the `Logger.info` logging level when a function operates normally.
 
-{% include requirement/MUST %} use the `Logger.trace` logging level for detailed troubleshooting scenarios. This is primarily intended for developers or system administrators to diagnose specific failures.
+{% include requirement/MUST id="java-logging-trace" %} use the `Logger.trace` logging level for detailed troubleshooting scenarios. This is primarily intended for developers or system administrators to diagnose specific failures.
 
-{% include requirement/MUSTNOT %} send sensitive information in log levels other than `Logger.trace`. For example, remove account keys when logging headers.
+{% include requirement/MUSTNOT id="java-logging-sensitive" %} send sensitive information in log levels other than `Logger.trace`. For example, remove account keys when logging headers.
 
-{% include requirement/MUST %} log request line, response line, and headers, as a `Logger.info` message.
+{% include requirement/MUST id="java-logging-request-line" %} log request line, response line, and headers, as a `Logger.info` message.
 
-{% include requirement/MUST %} use `Logger.info` if a service call is cancelled.
+{% include requirement/MUST id="java-logging-cancellation" %} use `Logger.info` if a service call is cancelled.
 
-{% include requirement/MUST %} throw all exceptions created within the client library code through the `ClientLogger.logAndThrow()` API.
+{% include requirement/MUST id="java-logging-log-and-throw" %} throw all exceptions created within the client library code through the `ClientLogger.logAndThrow()` API.
 
 For example:
 
@@ -217,7 +210,7 @@ Distributed tracing mechanisms allow the consumer to trace their code from front
 
 The Azure core library provides a service provider interface (SPI) for adding pipeline policies at runtime. The pipeline policy is used to enable tracing on consumer deployments. Pluggable pipeline policies must be supported in all client libraries to enable distributed tracing. Additional metadata can be specified on a per-service-method basis to provide a richer tracing experience for consumers.  
 
-{% include requirement/MUST %} support pluggable pipeline policies as part of the HTTP pipeline instantiation.
+{% include requirement/MUST id="java-tracing-pluggable" %} support pluggable pipeline policies as part of the HTTP pipeline instantiation.
 
 Review the code sample below, in which a service client builder creates an `HttpPipeline` from its set of policies.  At the same time, the builder allows plugins to add 'before retry' and 'after retry' policies with the lines `HttpPolicyProviders.addBeforeRetryPolicies(policies)` and `HttpPolicyProviders.addAfterRetryPolicies(policies)`:
 
@@ -242,104 +235,73 @@ public ConfigurationAsyncClient build() {
 }
 ```
 
-{% include requirement/MUST %} accept a context from calling code to establish a parent span.
+{% include requirement/MUST id="java-tracing-accept-context" %} accept a context from calling code to establish a parent span.
 
-{% include requirement/MUST %} pass the context to the backend service through the appropriate headers (`traceparent`, `tracestate`, etc.) to support [Azure Monitor].  This is generally done with the HTTP pipeline.
+{% include requirement/MUST id="java-tracing-pass-context" %} pass the context to the backend service through the appropriate headers (`traceparent`, `tracestate`, etc.) to support [Azure Monitor].  This is generally done with the HTTP pipeline.
 
-{% include requirement/MUST %} create a new span for each method that user code calls.  New spans must be children of the context that was passed in.  If no context was passed in, a new root span must be created.
+{% include requirement/MUST id="java-tracing-new-span-per-method" %} create a new span for each method that user code calls.  New spans must be children of the context that was passed in.  If no context was passed in, a new root span must be created.
 
-{% include requirement/MUST %} create a new span (which must be a child of the per-method span) for each REST call that the client library makes.  This is generally done with the HTTP pipeline.
+{% include requirement/MUST id="java-tracing-new-span-per-rest-call" %} create a new span (which must be a child of the per-method span) for each REST call that the client library makes.  This is generally done with the HTTP pipeline.
 
-{%include requirement/MUST %} use the Azure core `TracerProxy` API to set additional metadata that should be supplied along with the tracing span. In particular, use the `setAttribute(String key, String value, Context context)` method to set a new key/value pair on the tracing context.
+{%include requirement/MUST id="java-tracing-tracerproxy" %} use the Azure core `TracerProxy` API to set additional metadata that should be supplied along with the tracing span. In particular, use the `setAttribute(String key, String value, Context context)` method to set a new key/value pair on the tracing context.
 
-Some of these requirements will be handled by the HTTP pipeline.  However, as a client library 
-writer, you must handle the incoming context appropriately.
+Some of these requirements will be handled by the HTTP pipeline.  However, as a client library writer, you must handle the incoming context appropriately.
 
 ## Dependencies
 
 Dependencies bring in many considerations that are often easily avoided by avoiding the 
 dependency. 
 
-- Versioning - Many programming languages do not allow a consumer to load multiple versions of the 
-  same package. So, if we have an client library that requires v3 of package Foo and the consumer 
-  wants to use v5 of package Foo, then the consumer cannot build their application. This means 
-  that client libraries should not have dependencies by default. 
-- Size - Consumer applications must be able to deploy as fast as possible into the cloud and move 
-  in various ways across networks. Removing additional code (like dependencies) improves 
-  deployment performance.
-- Licensing - You must be conscious of the licensing restrictions of a dependency and often 
-  provide proper attribution and notices when using them.
-- Compatibility - Often times you do not control a dependency and it may choose to evolve in a 
-  direction that is incompatible with your original use.
-- Security - If a security vulnerability is discovered in a dependency, it may be difficult or
-  time consuming to get the vulnerability corrected if Microsoft does not control the dependency's 
-  code base.
+- **Versioning** - Many programming languages do not allow a consumer to load multiple versions of the same package. So, if we have an client library that requires v3 of package Foo and the consumer wants to use v5 of package Foo, then the consumer cannot build their application. This means that client libraries should not have dependencies by default. 
+- **Size** - Consumer applications must be able to deploy as fast as possible into the cloud and move in various ways across networks. Removing additional code (like dependencies) improves deployment performance.
+- **Licensing** - You must be conscious of the licensing restrictions of a dependency and often provide proper attribution and notices when using them.
+- **Compatibility** - Often times you do not control a dependency and it may choose to evolve in a direction that is incompatible with your original use.
+- **Security** - If a security vulnerability is discovered in a dependency, it may be difficult or time consuming to get the vulnerability corrected if Microsoft does not control the dependency's code base.
 
-{% include requirement/MUST %} depend on the `com.azure.core` library for functionality that is common across 
-all client libraries.  This library includes APIs for HTTP connectivity, global configuration, logging, and 
-credential handling.
+{% include requirement/MUST id="java-dependencies-azure-core" %} depend on the `com.azure.core` library for functionality that is common across all client libraries.  This library includes APIs for HTTP connectivity, global configuration, logging, and credential handling.
 
-{% include requirement/MUSTNOT %} be dependent on any other packages within the client library 
-distribution package, with the exception of the following:
+{% include requirement/MUSTNOT id="java-dependencies-approved-list" %} be dependent on any other packages within the client library distribution package, with the exception of the following:
 
 {% include_relative approved_dependencies.md %}
 
-Dependency versions are purposefully not specified in this table. The definitive source for the dependency versions being used in all client libraries is the [azure-sdk-for-java/parent/pom.xml] file.
+Dependency versions are purposefully not specified in this table. The definitive source for the dependency versions being used in all client libraries is the [azure-sdk-for-java/parent/pom.xml] file. Transitive dependencies of these libraries, or dependencies that are part of a family of dependencies, are allowed.  For example, `reactor-netty` is a child project of `reactor`.
 
-Transitive dependencies of these libraries, or dependencies that are part of a family of dependencies, are allowed.  For example, `reactor-netty` is a child project of `reactor`.
+{% include requirement/MUSTNOT id="java-dependencies-archboard" %} introduce new dependencies on third-party libraries that are already referenced from the parent POM, without first discussing with the Architecture Board].
 
-{% include requirement/MUSTNOT %} introduce new dependencies on third-party libraries that are already referenced from the parent POM, without first discussing with the Architecture Board].
+{% include requirement/MUSTNOT id="java-dependencies-versions" %} specify or change dependency versions in your client library POM file. All dependency versioning must be centralized through the common parent POM.
 
-{% include requirement/MUSTNOT %} specify or change dependency versions in your client library POM file. All dependency versioning must be centralized through the common parent POM.
+{% include requirement/MUSTNOT id="java-dependencies-snapshot" %} include dependencies on external libraries that are -SNAPSHOT versions. All dependencies must be released versions.
 
-{% include requirement/MUSTNOT %} include dependencies on external libraries that are -SNAPSHOT versions. All dependencies must be released versions.
+{% include requirement/SHOULD id="java-dependencies-vendoring" %} consider copying or linking required code into the client library in order to avoid taking a dependency on another package that could conflict with the ecosystem. Make sure that you are not violating any licensing agreements and consider the maintenance that will be required of the duplicated code. ["A little copying is better than a little dependency"][1] (YouTube).
 
-{% include requirement/SHOULD %} consider copying or linking required code into the client library in order to avoid taking a dependency on another package that could conflict with the ecosystem. Make sure that you are not violating any licensing agreements and consider the maintenance that will be required of the duplicated code. ["A little copying is better than a little dependency"][1] (YouTube).
-
-{% include requirement/MUSTNOT %} depend on concrete logging, dependency injection, or configuration technologies (except as implemented in the `com.azure.core` library).  The client library will be used in applications that might be using the logging, DI, and configuration technologies of their choice.
+{% include requirement/MUSTNOT id="java-dependencies-concrete" %} depend on concrete logging, dependency injection, or configuration technologies (except as implemented in the `com.azure.core` library).  The client library will be used in applications that might be using the logging, DI, and configuration technologies of their choice.
 
 ## Service-specific common library code
 
 There are occasions when common code needs to be shared between several client libraries. For example, a set of cooperating client libraries may wish to share a set of exceptions or models.
 
-{% include requirement/MUST %} gain [Architecture Board] approval prior to implementing a common library.
+{% include requirement/MUST id="java-commonlib-approval" %} gain [Architecture Board] approval prior to implementing a common library.
 
-{% include requirement/MUST %} minimize the code within a common library. Code within the common library is available to the consumer of the client library and shared by multiple client libraries within the same namespace.
+{% include requirement/MUST id="java-commonlib-minimize-code" %} minimize the code within a common library. Code within the common library is available to the consumer of the client library and shared by multiple client libraries within the same namespace.
 
-{% include requirement/MUST %} store the common library in the same namespace as the associated client libraries.
+{% include requirement/MUST id="java-commonlib-namespace" %} store the common library in the same namespace as the associated client libraries.
 
 A common library will only be approved if:
 
-* The consumer of the non-shared library will consume the objects within the common library 
- directly, AND
+* The consumer of the non-shared library will consume the objects within the common library directly, AND
 * The information will be shared between multiple client libraries.
 
 Let's take two examples:
 
-1. Implementing two Cognitive Services client libraries, we find a model is required that is 
-  produced by one Cognitive Services client library and consumed by another Coginitive Services 
-  client library, or the same model is produced by two client libraries. The consumer is 
-  required to do the passing of the model in their code, or may need to compare the model 
-  produced by one client library vs. that produced by another client library. This is a good 
-  candidate for choosing a common library.
+1. Implementing two Cognitive Services client libraries, we find a model is required that is produced by one Cognitive Services client library and consumed by another Coginitive Services client library, or the same model is produced by two client libraries. The consumer is required to do the passing of the model in their code, or may need to compare the model produced by one client library vs. that produced by another client library. This is a good candidate for choosing a common library.
 
-2. Two Cognitive Services client libraries throw an `ObjectNotFound` exception to indicate that an 
-  object was not detected in an image. The user might trap the exception, but otherwise will not 
-  operate on the exception. There is no linkage between the `ObjectNotFound` exception in each 
-  client library. This is not a good candidate for creation of a common library (although you 
-  may wish to place this exception in a common library if one exists for the namespace already). 
-  Instead, produce two different exceptions - one in each client library.
+2. Two Cognitive Services client libraries throw an `ObjectNotFound` exception to indicate that an object was not detected in an image. The user might trap the exception, but otherwise will not operate on the exception. There is no linkage between the `ObjectNotFound` exception in each client library. This is not a good candidate for creation of a common library (although you may wish to place this exception in a common library if one exists for the namespace already). Instead, produce two different exceptions - one in each client library.
 
 ## Testing
 
-One of the key things we want to support is to allow consumers of the library to easily write 
-repeatable unit-tests for their applications without activating a service. This allows them to 
-reliable and quickly test their code without worrying about the vagaries of the underlying service 
-implementation (including, for example, network conditions or service outages). Mocking is also 
-helpful to simulate failures, edge cases, and hard to reproduce situations (for example: does code 
-work on February 29th).
+One of the key things we want to support is to allow consumers of the library to easily write repeatable unit-tests for their applications without activating a service. This allows them to reliable and quickly test their code without worrying about the vagaries of the underlying service implementation (including, for example, network conditions or service outages). Mocking is also helpful to simulate failures, edge cases, and hard to reproduce situations (for example: does code work on February 29th).
 
-{% include requirement/MUST %} support mocking of network operations.
+{% include requirement/MUST id="java-testing-mocking" %} support mocking of network operations.
 
 {% include refs.md %}
 {% include_relative refs.md %}

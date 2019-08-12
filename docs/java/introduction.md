@@ -52,11 +52,11 @@ The Azure SDK should be designed to enhance the productivity of developers conne
 
 ## General Guidelines
 
-{% include requirement/MUST %} follow the [General Azure SDK Guidelines].
+{% include requirement/MUST id="java-general-follow-general-guidelines" %} follow the [General Azure SDK Guidelines].
 
-{% include requirement/MUST %} locate all source code in the [azure/azure-sdk-for-java] GitHub repository.
+{% include requirement/MUST id="java-general-repository" %} locate all source code in the [azure/azure-sdk-for-java] GitHub repository.
 
-{% include requirement/MUST %} follow Azure SDK engineering systems guidelines for working in the [azure/azure-sdk-for-java] GitHub repository.
+{% include requirement/MUST id="java-general-engsys" %} follow Azure SDK engineering systems guidelines for working in the [azure/azure-sdk-for-java] GitHub repository.
 
 {% include refs.md %}
 {% include_relative refs.md %}
