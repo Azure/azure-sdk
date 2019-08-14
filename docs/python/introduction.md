@@ -76,43 +76,43 @@ Use the guiding principles in the Zen of Python [Zen of Python] when making desi
 
 ## General Guidelines
 
-{% include requirement/MUST %} follow the [General Azure SDK Guidelines].
+{% include requirement/MUST id="python-general-follow-general-guidelines" %} follow the [General Azure SDK Guidelines].
 
-{% include requirement/MUST %} locate all source code in the [azure/azure-sdk-for-python] GitHub repository.
+{% include requirement/MUST id="python-general-monorepo" %} locate all source code in the [azure/azure-sdk-for-python] GitHub repository.
 
-{% include requirement/MUST %} follow Azure SDK engineering systems guidelines for working in the [azure/azure-sdk-for-python] GitHub repository.
+{% include requirement/MUST id="python-general-engsys" %} follow Azure SDK engineering systems guidelines for working in the [azure/azure-sdk-for-python] GitHub repository.
 
 ## Supported python versions
 
-{% include requirement/MUST %} support Python 2.7 and 3.5.3+.
+{% include requirement/MUST id="python-general-version-support" %} support Python 2.7 and 3.5.3+.
 
-{% include requirement/SHOULD %} provide a [universal package] that works on all supported versions of Python, unless there's a compelling reason to have separate Python2 and Python3 packages.  
+{% include requirement/SHOULD id="python-general-universal-pkg" %} provide a [universal package] that works on all supported versions of Python, unless there's a compelling reason to have separate Python2 and Python3 packages.  
 
 For example, if you depend on different external packages for Python2 and Python3, and neither external dependency is available for both Python versions.
 
-{% include requirement/MUST %} provide both source distributions (`sdist`) and wheels.
+{% include requirement/MUST id="python-general-supply-sdist" %} provide both source distributions (`sdist`) and wheels.
 
-{% include requirement/MUST %} publish both source distributions (`sdist`) and wheels to PyPI.
+{% include requirement/MUST id="python-general-pypi" %} publish both source distributions (`sdist`) and wheels to PyPI.
 
-{% include requirement/MUST %} test correct behavior for both CPython and PyPy for [pure](https://packaging.python.org/guides/distributing-packages-using-setuptools/#id75) and [universal](https://packaging.python.org/guides/distributing-packages-using-setuptools/#universal-wheels) Python wheels. 
+{% include requirement/MUST id="python-general-wheel-behavior" %} test correct behavior for both CPython and PyPy for [pure](https://packaging.python.org/guides/distributing-packages-using-setuptools/#id75) and [universal](https://packaging.python.org/guides/distributing-packages-using-setuptools/#universal-wheels) Python wheels. 
 
 For more information on packaging naming, see the [Packaging] section.
 
 ## Code style
 
-{% include requirement/MUST %} follow the general guidelines in [PEP8](https://www.python.org/dev/peps/pep-0008/) unless explicitly overridden in this document.
+{% include requirement/MUST id="python-codestyle-pep8" %} follow the general guidelines in [PEP8](https://www.python.org/dev/peps/pep-0008/) unless explicitly overridden in this document.
 
-{% include requirement/MUSTNOT %} "borrow" coding paradigms from other languages.
+{% include requirement/MUSTNOT id="python-codestyle-idiomatic" %} "borrow" coding paradigms from other languages.
 
 For example, no matter how common Reactive programming is in the Java community, it's still unfamiliar for most Python developers.
 
-{% include requirement/MUST %} favor consistency with other Python components over other libraries for the same service.
+{% include requirement/MUST id="python-codestyle-consistency" %} favor consistency with other Python components over other libraries for the same service.
 
 It's more likely that a developer will use many different libraries using the same language than a developer will use the same service from many different languages.
 
 ### Naming conventions
 
-{% include requirement/MUST %} use snake_case for variable, function, and method names:
+{% include requirement/MUST id="python-codestyle-vars-naming" %} use snake_case for variable, function, and method names:
 
 ```python
 # Yes:
@@ -132,7 +132,7 @@ def DoSomething():
     ...
 ```
 
-{% include requirement/MUST %} use Pascal case for types:
+{% include requirement/MUST id="python-codestyle-type-naming" %} use Pascal case for types:
 
 ```python
 # Yes:
@@ -148,7 +148,7 @@ class camelCasedTypeName(object):
     pass
 ```
 
-{% include requirement/MUST %} use ALL CAPS for constants:
+{% include requirement/MUST id="python-codestyle-const-naming" %} use ALL CAPS for constants:
 
 ```python
 # Yes:
@@ -161,15 +161,15 @@ max_size = 4711
 MaxSize = 4711
 ```
 
-{% include requirement/MUST %} use snake_case for module names.
+{% include requirement/MUST id="python-codestyle-module-naming" %} use snake_case for module names.
 
 ### Method signatures
 
-{% include requirement/MUSTNOT %} use static methods ([`staticmethod`](https://docs.python.org/3/library/functions.html#staticmethod)). Prefer module level functions instead. 
+{% include requirement/MUSTNOT id="python-codestyle-static-methods" %} use static methods ([`staticmethod`](https://docs.python.org/3/library/functions.html#staticmethod)). Prefer module level functions instead. 
 
 Static methods are rare and usually forced by other libraries.
 
-{% include requirement/MUSTNOT %} use simple getter and setter functions. Use properties instead.
+{% include requirement/MUSTNOT id="python-codestyle-properties" %} use simple getter and setter functions. Use properties instead.
 
 ```python
 # Yes
@@ -188,9 +188,9 @@ class BadThing(object):
         return self._something
 ```
 
-{% include requirement/SHOULDNOT %} have methods that require more than five positional parameters. Optional/flag parameters can be accepted using keyword-only arguments, or `**kwargs`.
+{% include requirement/SHOULDNOT id="python-codestyle-long-args" %} have methods that require more than five positional parameters. Optional/flag parameters can be accepted using keyword-only arguments, or `**kwargs`.
 
-{% include requirement/MUST %} use keyword-only arguments for optional or less-often-used arguments for modules that only need to support Python 3.
+{% include requirement/MUST id="python-codestyle-optional-args" %} use keyword-only arguments for optional or less-often-used arguments for modules that only need to support Python 3.
 
 ```python
 # Yes
@@ -199,7 +199,7 @@ def foo(a, b, *, c, d=None):
     ...
 ```
 
-{% include requirement/MUST %} use keyword-only arguments for arguments that have no obvious ordering.
+{% include requirement/MUST id="python-codestyle-kwargs" %} use keyword-only arguments for arguments that have no obvious ordering.
 
 ```python
 # Yes - `source` and `dest` have logical order, `recurse` and `overwrite` do not.
@@ -210,7 +210,7 @@ def copy(source, dest, *, recurse=False, overwrite=False) ...
 def copy(source, dest, recurse=False, overwrite=False) ...
 ```
 
-{% include requirement/MUST %} specify the parameter name when calling methods with more than two required positional parameters.
+{% include requirement/MUST id="python-codestyle-positional-params" %} specify the parameter name when calling methods with more than two required positional parameters.
 
 ```python
 def foo(a, b, c):
@@ -230,7 +230,7 @@ bar(e=3, d=4)
 foo(1, 2, 3)
 ```
 
-{% include requirement/MUST %} specify the parameter name for optional parameters when calling functions.
+{% include requirement/MUST id="python-codestyle-optional-param-calling" %} specify the parameter name for optional parameters when calling functions.
 
 ```python
 def foo(a, b=1, c=None):
@@ -246,13 +246,13 @@ foo(1, 2, 3)
 
 ### Public vs "private"
 
-{% include requirement/MUST %} use a single leading underscore to indicate that a name isn't part of the public API.  Non-public APIs aren't guaranteed to be stable.
+{% include requirement/MUST id="python-codestyle-private-api" %} use a single leading underscore to indicate that a name isn't part of the public API.  Non-public APIs aren't guaranteed to be stable.
 
-{% include requirement/MUSTNOT %} use leading double underscore prefixed method names unless name clashes in the inheritance hierarchy are likely.  Name clashes are rare.
+{% include requirement/MUSTNOT id="python-codestyle-double-underscore" %} use leading double underscore prefixed method names unless name clashes in the inheritance hierarchy are likely.  Name clashes are rare.
 
-{% include requirement/MUST %} add public methods and types to the module's `__all__` attribute.
+{% include requirement/MUST id="python-codestyle-public-api" %} add public methods and types to the module's `__all__` attribute.
 
-{% include requirement/MUST %} use a leading underscore for internal modules. You **may** omit a leading underscore if the module is a submodule of an internal module.
+{% include requirement/MUST id="python-codestyle-interal-module" %} use a leading underscore for internal modules. You **may** omit a leading underscore if the module is a submodule of an internal module.
 
 ```python
 # Yes:
@@ -267,23 +267,23 @@ azure.exampleservice.some_internal_module
 
 ### Types (or not)
 
-{% include requirement/MUST %} prefer structural subtyping and protocols over explicit type checks.
+{% include requirement/MUST id="python-codestyle-structural-subtyping" %} prefer structural subtyping and protocols over explicit type checks.
 
-{% include requirement/MUST %} derive from the abstract collections base classes `collections.abc` (or `collections` for Python 2.7) to provide custom mapping types.
+{% include requirement/MUST id="python-codestyle-abstract-collections" %} derive from the abstract collections base classes `collections.abc` (or `collections` for Python 2.7) to provide custom mapping types.
 
-{% include requirement/MUST %} provide type hints [PEP484](https://www.python.org/dev/peps/pep-0484/) for publicly documented classes and functions.
+{% include requirement/MUST id="python-codestyle-pep484" %} provide type hints [PEP484](https://www.python.org/dev/peps/pep-0484/) for publicly documented classes and functions.
 
 - See the [suggested syntax for Python 2.7 and 2.7-3.x straddling code](https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code) for guidance for Python 2.7 compatible code.
 
 ### Threading
 
-{% include requirement/MUST %} maintain thread affinity for user-provided callbacks unless explicitly documented to not do so.
+{% include requirement/MUST id="python-codestyle-thread-affinity" %} maintain thread affinity for user-provided callbacks unless explicitly documented to not do so.
 
-{% include requirement/MUST %} explicitly include the fact that a method (function/class) is thread safe in its documentation.
+{% include requirement/MUST id="python-codestyle-document-thread-safety" %} explicitly include the fact that a method (function/class) is thread safe in its documentation.
 
 Examples: [`asyncio.loop.call_soon_threadsafe`](https://docs.python.org/3/library/asyncio-eventloop.html#asyncio.loop.call_soon_threadsafe), [`queue`](https://docs.python.org/3/library/queue.html)
 
-{% include requirement/SHOULD %} allow callers to pass in an [`Executor`](https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.Executor) instance rather than defining your own thread or process management for parallelism.
+{% include requirement/SHOULD id="python-codestyle-use-executor" %} allow callers to pass in an [`Executor`](https://docs.python.org/3/library/concurrent.futures.html#concurrent.futures.Executor) instance rather than defining your own thread or process management for parallelism.
 
 You may do your own thread management if the thread isn't exposed to the caller in any way. For example, the `LROPoller` implementation uses a background poller thread.
 
