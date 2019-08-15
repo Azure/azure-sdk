@@ -12,8 +12,8 @@
 [1]: https://www.youtube.com/watch?v=PAAkCSZUG1c&t=9m28s
 
 <!-- Example Links -->
-[ConfigurationClient class]: https://github.com/Azure/azure-sdk-for-java/blob/master/appconfiguration/client/src/main/java/com/azure/data/appconfiguration/ConfigurationClient.java
-[ConfigurationAsyncClient class]: https://github.com/Azure/azure-sdk-for-java/blob/master/appconfiguration/client/src/main/java/com/azure/data/appconfiguration/ConfigurationAsyncClient.java
+[ConfigurationClient class]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/appconfiguration/azure-data-appconfiguration/src/main/java/com/azure/data/appconfiguration/ConfigurationClient.java
+[ConfigurationAsyncClient class]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/appconfiguration/azure-data-appconfiguration/src/main/java/com/azure/data/appconfiguration/ConfigurationAsyncClient.java
 
 <!-- Intra-document references -->
 [separate service clients]: java_design.html#the-java-api
