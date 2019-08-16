@@ -328,7 +328,7 @@ Consumers will use one or more _service clients_ to access Azure services, plus 
 
 {% include requirement/MUSTNOT id="java-service-client-constructors" %} provide any `public` or `protected` constructors in the service client, except where necessary to support mock testing. Keep visibility to a minimum.
 
-{% include requirement/MUST id="java-service-client-method-naming" %} not use any prefix for all getters and setters that are not service methods. That is, the only time `get`, `set`, etc is valid is when it is used in the context of a call that performs a network operation. All other methods must have no 'JavaBeans' naming prefix.
+{% include requirement/MUSTNOT id="java-service-client-method-naming" %} use any prefix for all getters and setters that are not service methods. That is, the only time `get`, `set`, etc is valid is when it is used in the context of a call that performs a network operation. All other methods must have no 'JavaBeans' naming prefix.
 
 {% include requirement/MUST id="java-sync-client-shape" %} follow the basic shape outlined below for all synchronous service clients:
 
