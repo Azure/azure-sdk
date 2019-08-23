@@ -55,7 +55,7 @@ A given `changelog.md` file must follow the below form:
 
 ```
 
-For clarity, a `change log entry` is simply the header + content up to the next release header OR EOF. During release, if there exists a changelog entry with a version specifier _matching_ that of the currently releasing package, that changelog entry will be added as the body of the GitHub release. 
+For clarity, a `change log entry` is simply the header + content up to the next release header OR EOF. During release, if there exists a changelog entry with a version specifier _matching_ that of the currently releasing package, that changelog entry will be added as the body of the GitHub release.
 
 The [JS ServiceBus SDK](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/changelog.md) maintains a great changelog example. Given that changelog, this is what a [release](https://github.com/Azure/azure-sdk-for-js/releases/tag/%40azure%2Fservice-bus_1.0.0-preview.2) looks like.
 
@@ -87,7 +87,7 @@ Immediately after a package ships the source definition of the package version s
 
 **After Preview Release:** Increment the preview number on the package (e.g. `1.0.0-preview.1` -> `1.0.0-preview.2`) appropriate to the versioning scheme for the language (see blow for language-specific version formatting). Breaking changes are allowed between preview builds.
 
-**After GA Release:** Increment the minor number and add `-preview.1` to the version (e.g. release `1.1.1`, update version to `1.2.0-preview.1`) appropriate to the versioning scheme for the language (see blow for language-specific version formatting). Incrementing the minor version provides versioning space for hotfixes. Breaking changes (which might increment the major version number) are *not* allowed after a GA release without an exception and reivew by the architecture board.
+**After GA Release:** Increment the minor number and add `-preview.1` to the version (e.g. release `1.1.1`, update version to `1.2.0-preview.1`) appropriate to the versioning scheme for the language (see below for language-specific version formatting). Incrementing the minor version provides versioning space for hotfixes. Breaking changes (which might increment the major version number) are *not* allowed after a GA release without an exception and reivew by the architecture board.
 
 **After Hotfix Release:** After releasing a hotfix from a hotfix branch merge back into the main branch. There will be a merge conflict for the version number. The main branch's version number should prevail.
 
