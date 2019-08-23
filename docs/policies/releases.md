@@ -79,19 +79,17 @@ The team makes every effort to follow [SemVer](https://semver.org/) for versioni
 In addition to standard SemVer, the team occasionally releases a preview of a package to allow the community to dogfood and give feedback on new features. These packages may be released as one or both of:
 
 - Dev: a build containing the most up-to-date changes based on the current master branch. Expect frequent and potentially breaking change in this release.
-- Preview: a release generated to get customer feedback before a GA. Preview releases are revised less often than dev. Preview releases may have breaking changes from the previous preview, but should not have breaking changes from the last GA release.
-
-Packages which depend on a preview version should pin specifically to the preview version on which they depend because preview releases may contain breaking changes.
-
-Immediately after a package ships the source definition of the package version should be incremented in source control. It's safer to have `N+1` in `master` than `N`.
+- Preview: a release generated to get customer feedback before a GA. Preview releases are revised less often than dev. Preview releases may have breaking changes from the previous preview, but should not have breaking changes from the last GA release. Once a package has released to GA, any breaking changes require an exception and approval from the architecture board.
 
 ### Incrementing after release
 
+Immediately after a package ships the source definition of the package version should be incremented in source control. It's safer to have `N+1` in `master` than `N`.
+
 **After Preview Release:** Increment the preview number on the package (e.g. `1.0.0-preview.1` -> `1.0.0-preview.2`). Breaking changes are allowed between preview builds.
 
-**After GA release:** Increment the patch number and add `-preview.1` to the version (e.g. release `1.1.1`, update version to `1.1.2-preview.1`).
+**After GA release:** Increment the minor number and add `-preview.1` to the version (e.g. release `1.1.1`, update version to `1.2.0-preview.1`). Breaking changes (which might increment the major version number) are *not* allowed after a GA release without an exception and reivew by the architecture board.
 
-Packages which depend on a released package should float to the latest compatible major version (e.g. `^1.0.0` in JS). Because we're using SemVer only breaking changes alter the major version number and all minor and patch changes should be compatible. The version number should only be updated for a major version change.
+In general packages should only depend on the last publicly published version of a package (even if it's one of our packages), unless there is a reason not to.
 
 Packages which depend on a released package should _not_ be updated immediately to require the new version. This is because the dependant package is not necessarily aware of potentially breaking changes in the preview version of the released package. For example, if Package B (`1.0.0-preview.2`) depends on previously released Package A (`1.0.0`), breaking changes created in Package A (`1.0.1-preview.1`) may not have been incorporated into Package B.
 
@@ -99,7 +97,7 @@ Packages which depend on a released package should _not_ be updated immediately 
 
 Before release for all languages ensure that all packages which depend on another package use the same version of the package on which they depend. Consistent dependency versioning is required for both internal and external dependencies.
 
-For example, if Packages B and C depend on Package A at `1.0.0` and then Package B upgrades to Package A at `2.0.0` and Package B is released, Package C should also be upgraded to use Package A at `2.0.0` before Package C is released. Once Package B's dependency information is changed an issue should be opened against Package C to ensure that its reference to Package A is upgraded as well.
+For example, if Packages B and C depend on Package A at `1.0.0` and then Package B upgrades to Package A at `2.0.0` and Package B is released, Package C should also be upgraded to use Package A at `2.0.0` before Package C is released. Once Package B's dependency information is changed Package C's dependency information should also change and if they cannot be changed together, an issue should be opened to track changing Package C's dependencies.
 
 Each language repo uses a badge for analysis of dependencies on `master` including highlights for inconsistent dependencies.
 
@@ -109,6 +107,10 @@ Each language repo uses a badge for analysis of dependencies on `master` includi
 | JS | [![Dependencies](https://img.shields.io/badge/dependencies-analyzed-blue.svg)](https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-js/dependencies/dependencies.html) |
 | Python | [![Dependencies](https://img.shields.io/badge/dependencies-analyzed-blue.svg)](https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-python/dependencies/dependencies.html) |
 | .NET | [![Dependencies](https://img.shields.io/badge/dependencies-analyzed-blue.svg)](https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-net/dependencies/dependencies.html) |
+
+Packages which depend on a preview version should pin specifically to the preview version on which they depend because preview releases may contain breaking changes.
+
+Avoid source dependencies in projects and only use binary/package dependencies. If a package under development needs to incorporate changes from a package upon which it depends then it should use the nightly dev version of that package. That is, if Project B incorporates changes to Project A then Project B should consume the _Package_ from Project A that is released in the nightly feed.
 
 ### Languages
 
@@ -123,9 +125,9 @@ Python dev releases are not published to PyPi. Instead, use the git tag.
 
 ##### Incrementing after release (Python)
 
-**After Preview Release:** Increment the preview number on the package (e.g. `1.0.0b1` -> `1.0.0b2`). Breaking changes are allowed between preview versions.
+**After Preview Release:**  `1.0.0b1` -> `1.0.0b2`
 
-**After GA release:** Increment the patch number and add `b1` to the version (e.g. release `1.1.1`, update version to `1.1.2b1`).
+**After GA release:** `1.1.1` ->  `1.2.0b1`
 
 **Floating GA dependencies:** Use `<X+1.0.0,>=X.0.0` to float dependencies where `X` is the major release upon which the package depends and `X+1` is the next major version.
 
@@ -144,11 +146,13 @@ $ npm install @azure/package@next
 
 ##### Incrementing after release (JS)
 
-**After Preview Release:** Increment the preview number on the package (e.g. `1.0.0-preview.1` -> `1.0.0-preview.2`). Breaking changes are allowed between preview builds.
+**After Preview Release:** `1.0.0-preview.1` -> `1.0.0-preview.2`
 
-**After GA release:** Increment the patch number and add `-preview.1` to the version (e.g. release `1.1.1`, update version to `1.1.2-preview.1`).
+**After GA release:** `1.1.1` -> `1.2.0-preview.1`
 
 **Floating GA dependencies:** Use `^X.0.0` to float dependencies where `X` is the major release upon which the package depends.
+
+Packages which depend on a released package should float to the latest compatible major version (e.g. `^1.0.0`). Because we're using SemVer only breaking changes alter the major version number and all minor and patch changes should be compatible. The version number should only be updated for a major version change.
 
 Dependencies older than the latest published version can be listed by running the following commands:
 
@@ -171,11 +175,11 @@ Preview .NET packages will be published to NuGet with the pre-release designatio
 
 #### Incrementing after release (.NET)
 
-**After Preview Release:** Increment the preview number on the package (e.g. `1.0.0-preview.1` -> `1.0.0-preview.2`). Breaking changes are allowed between preview builds.
+**After Preview Release:** `1.0.0-preview.1` -> `1.0.0-preview.2`
 
-**After GA release:** Increment the patch number and add `-preview.1` to the version (e.g. release `1.1.1` updates version to `1.1.2-preview.1`).
+**After GA release:** `1.1.1` -> `1.2.0-preview.1`
 
-**Floating GA dependencies:** Use `[X.Y.Z,X+1.0.0)` to float dependencies where `X.Y.Z` is the minimum release upon which the package depends and `X+1` is the next major version after `X`.
+**Floating GA dependencies:** Use the exact verison number to specify the lowest targeted version number of the package.
 
 #### Java
 
