@@ -89,11 +89,9 @@ Immediately after a package ships the source definition of the package version s
 
 **After GA Release:** Increment the minor number and add `-preview.1` to the version (e.g. release `1.1.1`, update version to `1.2.0-preview.1`) appropriate to the versioning scheme for the language (see below for language-specific version formatting). Incrementing the minor version provides versioning space for hotfixes. Breaking changes (which might increment the major version number) are *not* allowed after a GA release without an exception and reivew by the architecture board.
 
-**After Hotfix Release:** After releasing a hotfix from a hotfix branch merge back into the main branch. There will be a merge conflict for the version number. The main branch's version number should prevail.
+**After Hotfix Release:** After releasing a hotfix from a hotfix branch merge back into the main branch. There will be a merge conflict for the version number. The main branch's version number should prevail. A hotfix is the only scenario in which the patch version is incremented.
 
 In general packages should only depend on the last publicly published version of a package (even if it's one of our packages), unless there is a reason not to.
-
-Packages which depend on a released package should _not_ be updated immediately to require the new version. This is because the dependant package is not necessarily aware of potentially breaking changes in the preview version of the released package. For example, if Package B (`1.0.0-preview.2`) depends on previously released Package A (`1.0.0`), breaking changes created in Package A (`1.0.1-preview.1`) may not have been incorporated into Package B.
 
 ### Hotfix Versioning
 
@@ -108,6 +106,8 @@ For example, after releasing `1.1.0` the version in the main branch becomes `1.2
 Before release for all languages ensure that all packages which depend on another package use the same version of the package on which they depend. Consistent dependency versioning is required for both internal and external dependencies.
 
 For example, if Packages B and C depend on Package A at `1.0.0` and then Package B upgrades to Package A at `2.0.0` and Package B is released, Package C should also be upgraded to use Package A at `2.0.0` before Package C is released. Once Package B's dependency information is changed Package C's dependency information should also change and if they cannot be changed together, an issue should be opened to track changing Package C's dependencies.
+
+Packages do not need to upgrade dependencies immediately after every release. That is, after a package releases (e.g. Package A), other packages which depend on that package (e.g. Package B and Package C) do not need to immediately update to require the latest released version of the released package. Later, if either Package B or C needs features in a newer version of Package A then both Packages B and C should be modified to point to the same newer version of Package A.
 
 Each language repo uses a badge for analysis of dependencies on `master` including highlights for inconsistent dependencies.
 
