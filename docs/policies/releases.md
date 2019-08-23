@@ -74,7 +74,7 @@ The team makes every effort to follow [SemVer](https://semver.org/) for versioni
 
 - Changes to the major digit (1.X.Y to 2.X.Y) indicate that breaking changes have been introduced.
 - Increments to the minor digit (1.1.X to 1.2.X) indicate the addition of new features.
-- Increments to the patch number (1.1.1 to 1.1.2) indicate bug fixes
+- Increments to the patch number (1.1.1 to 1.1.2) indicate hotfixes
 
 In addition to standard SemVer, the team occasionally releases a preview of a package to allow the community to dogfood and give feedback on new features. These packages may be released as one or both of:
 
@@ -85,13 +85,23 @@ In addition to standard SemVer, the team occasionally releases a preview of a pa
 
 Immediately after a package ships the source definition of the package version should be incremented in source control. It's safer to have `N+1` in `master` than `N`.
 
-**After Preview Release:** Increment the preview number on the package (e.g. `1.0.0-preview.1` -> `1.0.0-preview.2`). Breaking changes are allowed between preview builds.
+**After Preview Release:** Increment the preview number on the package (e.g. `1.0.0-preview.1` -> `1.0.0-preview.2`) appropriate to the versioning scheme for the language (see blow for language-specific version formatting). Breaking changes are allowed between preview builds.
 
-**After GA release:** Increment the minor number and add `-preview.1` to the version (e.g. release `1.1.1`, update version to `1.2.0-preview.1`). Breaking changes (which might increment the major version number) are *not* allowed after a GA release without an exception and reivew by the architecture board.
+**After GA Release:** Increment the minor number and add `-preview.1` to the version (e.g. release `1.1.1`, update version to `1.2.0-preview.1`) appropriate to the versioning scheme for the language (see blow for language-specific version formatting). Incrementing the minor version provides versioning space for hotfixes. Breaking changes (which might increment the major version number) are *not* allowed after a GA release without an exception and reivew by the architecture board.
+
+**After Hotfix Release:** After releasing a hotfix from a hotfix branch merge back into the main branch. There will be a merge conflict for the version number. The main branch's version number should prevail.
 
 In general packages should only depend on the last publicly published version of a package (even if it's one of our packages), unless there is a reason not to.
 
 Packages which depend on a released package should _not_ be updated immediately to require the new version. This is because the dependant package is not necessarily aware of potentially breaking changes in the preview version of the released package. For example, if Package B (`1.0.0-preview.2`) depends on previously released Package A (`1.0.0`), breaking changes created in Package A (`1.0.1-preview.1`) may not have been incorporated into Package B.
+
+### Hotfix Versioning
+
+Hotfixes are the only scenario where the patch version is updated.
+
+If a hotfix is needed, create a hotfix branch from the release tag and increment the patch version. After the hotfix is released from the hotfix branch, merge the hotfix branch back into the main branch. There will be a merge conflict for the version number. The version in the main branch must prevail.
+
+For example, after releasing `1.1.0` the version in the main branch becomes `1.2.0-preview.1`. However, a hotfix becomes necessary. From the `1.1.0` tag a hotfix branch is created and the version is set to `1.1.1`. After the hotfix is released the hotfix branch is merged back into the main branch. The resulting merge conflict sees the package version set to `1.2.0-preview.1` (i.e. discard the hotfix version in favor of the main branch version). If another hotfix is needed before `1.2.0` ships then a new branch should be created from the `1.1.1` release tag.
 
 ### Consistent Dependency Versions
 
@@ -127,7 +137,7 @@ Python dev releases are not published to PyPi. Instead, use the git tag.
 
 **After Preview Release:**  `1.0.0b1` -> `1.0.0b2`
 
-**After GA release:** `1.1.1` ->  `1.2.0b1`
+**After GA release:** `1.1.0` ->  `1.2.0b1`
 
 **Floating GA dependencies:** Use `<X+1.0.0,>=X.0.0` to float dependencies where `X` is the major release upon which the package depends and `X+1` is the next major version.
 
@@ -148,7 +158,7 @@ $ npm install @azure/package@next
 
 **After Preview Release:** `1.0.0-preview.1` -> `1.0.0-preview.2`
 
-**After GA release:** `1.1.1` -> `1.2.0-preview.1`
+**After GA release:** `1.1.0` -> `1.2.0-preview.1`
 
 **Floating GA dependencies:** Use `^X.0.0` to float dependencies where `X` is the major release upon which the package depends.
 
@@ -177,15 +187,15 @@ Preview .NET packages will be published to NuGet with the pre-release designatio
 
 **After Preview Release:** `1.0.0-preview.1` -> `1.0.0-preview.2`
 
-**After GA release:** `1.1.1` -> `1.2.0-preview.1`
+**After GA release:** `1.1.0` -> `1.2.0-preview.1`
 
-**Floating GA dependencies:** Use the exact verison number to specify the lowest targeted version number of the package.
+**Floating GA dependencies:** Use the exact version number to specify the lowest version of the package which contains the features upon which you depend.
 
 #### Java
 
 Maven supports the [convention](https://cwiki.apache.org/confluence/display/MAVENOLD/Versioning) `MAJOR.MINOR.PATCH-QUALIFIER`. The preferred format for version numbers is:
 
-- `X.Y.Z-SNAPSHOT` (Dev build qualifier used in Maven. Snapshots overwrite with new versions on re-publish.)
+- `X.Y.Z-dev.YYYYMMDD.r` (`r` is based on the number of builds performed on the given day)
 - `X.Y.Z-preview.N`
 
 Dev and preview Java packages are published direct to the Maven registry.
@@ -195,6 +205,8 @@ Dev and preview Java packages are published direct to the Maven registry.
 **After Preview Release:** Increment the preview number on the package (e.g. `1.0.0-preview.1` -> `1.0.0-preview.2`). Breaking changes are allowed between preview builds.
 
 **After GA release:** Increment the patch number and add `-preview.1` to the version (e.g. release `1.1.1` updates version to `1.1.2-preview.1`).
+
+**Floating GA dependencies:** Use the exact version number to specify the lowest version of the package which contains the features upon which you depend.
 
 ## Preview Releases and GA Graduation
 
