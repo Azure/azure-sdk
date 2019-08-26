@@ -100,6 +100,7 @@ mvn install -DskipTests -Dinclude-non-shipping-modules -Dgpg.skip=true -f pom.cl
  * If a new instance of the class is created through build() method of a builder or through constructor: `<packagename>.<classname>.instantiation`
  * For other methods in the class: `<packagename>.<classname>.<methodName>`
  * For overloaded methods, or methods with arguments: `<packagename>.<classname>.<methodName>#<argType1>-<argType2>`
+ * Camel casing for the method name and argument types is valid, but not required.
 
 {% include refs.md %}
 {% include_relative refs.md %}

@@ -171,7 +171,7 @@ public final class ConfigurationClient {
 
 {% include requirement/MUSTNOT id="java-pagination-collections" %} use other collection types for sync APIs that return collections (for example, `List`, `Stream`, `Iterable`, or `Iterator`).
 
-{% include requirement/MUST id="java-pagination-pagedflux" %} return `PagedFlux<T>` for asynchronous APIs that expose paginated collections.  If the service doesn't offer paging, then return `Flux<T>`.
+{% include requirement/MUST id="java-pagination-pagedflux" %} return `PagedFlux<T>` for asynchronous APIs that expose collections. Even if the service does not support pagination, always return `PagedFlux<T>`, as it allows for consumers to retrieve response information in a consistent manner.
 
 ```java
 public final class ConfigurationAsyncClient {
@@ -328,7 +328,7 @@ Consumers will use one or more _service clients_ to access Azure services, plus 
 
 {% include requirement/MUSTNOT id="java-service-client-constructors" %} provide any `public` or `protected` constructors in the service client, except where necessary to support mock testing. Keep visibility to a minimum.
 
-{% include requirement/MUSTNOT id="java-service-client-method-naming" %} use any prefix for all getters and setters that are not service methods. That is, the only time `get`, `set`, etc is valid is when it is used in the context of a call that performs a network operation. All other methods must have no 'JavaBeans' naming prefix.
+{% include requirement/MUST id="java-service-client-method-naming" %} use standard JavaBean naming prefixes for all getters and setters that are not service methods.
 
 {% include requirement/MUST id="java-sync-client-shape" %} follow the basic shape outlined below for all synchronous service clients:
 
@@ -345,7 +345,7 @@ public final class <service_name>Client {
 
     // internally, sync API can defer to async API with sync-over-async
     private final <service_name>AsyncClient client;
-    
+
     // package-private constructors only - all instantiation is done with builders
     <service_name>Client(<service_name>AsyncClient client) {
         this.client = client;
@@ -535,23 +535,23 @@ Use a no-args constructor and a fluent setter API to configure the model class. 
 
 {% include requirement/MUSTNOT id="java-models-builder" %} offer a builder class for model classes.
 
-{% include requirement/MUST id="java-models-fluent" %} provide a fluent API where appropriate.
+{% include requirement/MUST id="java-models-fluent" %} provide a fluent API where appropriate. Setter methods in model classes are encouraged to return `this` to enable method chaining.
 
-Apply the `@Fluent` annotation to the class. Name setter methods after the property being set (for example, `proxy(Proxy p)`).  All setter methods must return `this`.
+{% include requirement/MUST id="java-models-fluent-annotation" %} apply the `@Fluent` annotation to the class.
 
 {% include requirement/MUST id="java-models-setters" %} ensure that setter methods within a fluent type return the same instance of the type.
 
 Fluent types must not be immutable.  Don't return a new instance on each setter call.
 
-{% include requirement/MUSTNOT id="java-models-javabeans" %} use the JavaBean naming convention of `get*`, `set*`, and `is*`.
+{% include requirement/MUST id="java-models-javabeans" %} use the JavaBean naming convention of `get*`, `set*`, and `is*`.
 
 ## Other support classes
 
 Don't offer builder or fluent APIs for supporting classes such as custom exception types, HTTP policies, and credential types.
 
-{% include requirement/MUST id="java-support-fluent" %} use the fluent API naming convention outlined above for model classes. Setter and getter methods must not have any `set`, `get`, or `is` prefix. Setter methods should not return `this` however - these methods should have a `void` return type.
+{% include requirement/MUST id="java-support-prefix" %} use standard JavaBean prefixes for setter and getter methods.
 
-{% include requirement/MUSTNOT id="java-support-javabeans" %} use the JavaBean naming convention of `get*`, `set*`, and `is*`.
+{% include requirement/MUSTNOT id="java-support-setter-return-type" %} return `this` in setter methods - these methods should have a `void` return type.
 
 {% include requirement/MUSTNOT id="java-support-builder" %} provide a builder class.
 
@@ -609,9 +609,9 @@ public final class ConfigurationAsyncClient {
 
     @ServiceMethod
     public Mono<Response<ConfigurationSetting>> addSetting(String key, String value) { 
-        ... 
+        ...
     }
-}    
+}
 ```
 
 | Annotation | Location | Description |
