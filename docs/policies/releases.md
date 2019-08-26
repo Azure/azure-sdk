@@ -87,7 +87,7 @@ Immediately after a package ships the source definition of the package version s
 
 **After Preview Release:** Increment the preview number on the package (e.g. `1.0.0-preview.1` -> `1.0.0-preview.2`) appropriate to the versioning scheme for the language (see blow for language-specific version formatting). Breaking changes are allowed between preview builds.
 
-**After GA Release:** Increment the minor number and add `-preview.1` to the version (e.g. release `1.1.1`, update version to `1.2.0-preview.1`) appropriate to the versioning scheme for the language (see below for language-specific version formatting). Incrementing the minor version provides versioning space for hotfixes. Breaking changes (which might increment the major version number) are *not* allowed after a GA release without an exception and reivew by the architecture board.
+**After GA Release:** Increment the minor number and add `-preview.1` to the version (e.g. release `1.1.0`, update version to `1.2.0-preview.1`) appropriate to the versioning scheme for the language (see below for language-specific version formatting). Incrementing the minor version provides versioning space for hotfixes. Breaking changes (which might increment the major version number) are *not* allowed after a GA release without an exception and reivew by the architecture board.
 
 **After Hotfix Release:** After releasing a hotfix from a hotfix branch merge back into the main branch. There will be a merge conflict for the version number. The main branch's version number should prevail. A hotfix is the only scenario in which the patch version is incremented.
 
@@ -202,9 +202,9 @@ Dev and preview Java packages are published direct to the Maven registry.
 
 #### Incrementing after release (Java)
 
-**After Preview Release:** Increment the preview number on the package (e.g. `1.0.0-preview.1` -> `1.0.0-preview.2`). Breaking changes are allowed between preview builds.
+**After Preview Release:** `1.0.0-preview.1` -> `1.0.0-preview.2`
 
-**After GA release:** Increment the patch number and add `-preview.1` to the version (e.g. release `1.1.1` updates version to `1.1.2-preview.1`).
+**After GA release:** `1.1.0` -> `1.2.0-preview.1`
 
 **Floating GA dependencies:** Use the exact version number to specify the lowest version of the package which contains the features upon which you depend.
 
