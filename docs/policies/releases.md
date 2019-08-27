@@ -72,7 +72,7 @@ The release cycle of each SDK Component may vary based on the needs of the under
 
 The team makes every effort to follow [SemVer](https://semver.org/) for versioning. Because different languages have slightly different conventions for numbering, the way that preview releases are designated varies. In a nutshell, SemVer is defined as `Major.Minor.Patch`, where
 
-- Changes to the major digit (1.X.Y to 2.X.Y) indicate that breaking changes have been introduced.
+- Changes to the major digit (1.X.Y to 2.X.Y) indicate that breaking changes have been introduced. Breaking changes are exceptional and require review and approval by the architecture board.
 - Increments to the minor digit (1.1.X to 1.2.X) indicate the addition of new features.
 - Increments to the patch number (1.1.1 to 1.1.2) indicate hotfixes
 
