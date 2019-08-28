@@ -488,7 +488,7 @@ Supporting common precedence rules ensures consistency across client libraries.
 
 {% include requirement/MUSTNOT id="java-service-client-builder-leakage" %} leak the underlying protocol transport implementation details to the consumer.  All types from the protocol transport implementation must be appropriately abstracted.
 
-{% include requirement/MUSTNOT id="java-service-client-vend-prefix" %} prefix methods that create or vend subclients. The method must simply be named after the subclient, suffixed with `Client` or `AsyncClient` for sync and async subclients respectively (for example, `container.blobClient()` or `container.blobAsyncClient()`).
+{% include requirement/MUST id="java-service-client-vend-prefix" %} prefix methods that create or vend subclients with `get` and suffix with `Client` or `AsyncClient` for sync and async subclients respectively (for example, `container.getBlobClient()` or `container.getBlobAsyncClient()`).
 
 ## Common service client patterns
 
