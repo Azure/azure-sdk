@@ -1,6 +1,6 @@
 | Name                                              | Role                | Allowed in public API | Notes |
 |---------------------------------------------------|-------------------- |:---------------------:|-------|
-| [`Reactor`](http://projectreactor.io)             | Reactive library    | No                    |       |
+| [`Reactor`](http://projectreactor.io)             | Reactive library    | Yes                   |       |
 | [`Netty`](http://netty.io)                        | HTTP client         | No                    |       |
 | [`slf4j`](http://slf4j.org)                       | Logging framework   | No                    | Use the azure core `ClientLogger` API rather than `slf4j` directly. |
 | [`Jackson`](https://github.com/FasterXML/jackson) | JSON parser         | No                    |       |
