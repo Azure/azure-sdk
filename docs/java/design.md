@@ -53,7 +53,7 @@ Here are some examples of namespaces that meet these guidelines:
 
 Here are some namespaces that do not meet the guidelines:
 
-- `Mcom.microsoft.azure.cosmosdb` (not in the `com.azure` namespace and does not use grouping)
+- `com.microsoft.azure.cosmosdb` (not in the `com.azure` namespace and does not use grouping)
 - `com.azure.mixedreality.kinect` (the grouping is not in the approved list)
 
 {% include requirement/MUSTNOT id="java-namespaces-implementation" %} allow implementation code (that is, code that doesn't form part of the public API) to be mistaken as public API. There are two valid arrangements for implementation code:
@@ -156,22 +156,22 @@ For methods that combine multiple requests into a single call:
 
 Azure client libraries eschew low-level pagination APIs in favor of high-level abstractions that  implement per-item iterators. High-level APIs are easy for developers to use for the majority of use cases but can be more confusing when finer-grained control is required (for example,  over-quota/throttling) and debugging when things go wrong. Other guidelines in this document work to mitigate this limitation, for example by providing robust logging, tracing, and pipeline  customization options.
 
-{% include requirement/MUST id="java-pagination-streaming" %} return `Stream<T>` for synchronous APIs that expose paginated collections (although exceptions can be requested for `Iterable<T>`, where more appropriate). Users won't receive any paging information.
+{% include requirement/MUST id="java-pagination-streaming" %} return `PagedIterable<T>` (found in azure-core under `com.azure.core.http.rest`) for synchronous APIs that expose paginated collections, and return `IterableStream<T>` (found in azure-core under `com.azure.core.util`) for synchronous APIs that do not support pagination. These APIs allow consumers to write code that works using the standard *for* loop syntax (as it is an `Iterable`), and also to work with a Java `Stream` (as there is a `stream()` method). `PagedIterable` goes further, by offering consumers `streamByPage` and `iterableByPage` methods to work on page boundaries.
 
-For example, the configuration service sync client offers the following API:
+For example, the configuration service sync client might offer the following API:
 
 ```java
 public final class ConfigurationClient {
-    // synchronous API returning a Stream of ConfigurationSetting instances
-    public Stream<ConfigurationSetting> listSettings(...) {
+    // synchronous API returning a PagedIterable of ConfigurationSetting instances
+    public PagedIterable<ConfigurationSetting> listSettings(...) {
         ...
     }
 }
 ```
 
-{% include requirement/MUSTNOT id="java-pagination-collections" %} use other collection types for sync APIs that return multiple values (for example, `List`, or `Iterator`).
+{% include requirement/MUSTNOT id="java-pagination-collections" %} use other collection types for sync APIs that return collections (for example, `List`, `Stream`, `Iterable`, or `Iterator`).
 
-{% include requirement/MUST id="java-pagination-pagedflux" %} return `PagedFlux<T>` for asynchronous APIs that expose paginated collections.  If the service doesn't offer paging, then return `Flux<T>`.
+{% include requirement/MUST id="java-pagination-pagedflux" %} return `PagedFlux<T>` for asynchronous APIs that expose collections. Even if the service does not support pagination, always return `PagedFlux<T>`, as it allows for consumers to retrieve response information in a consistent manner.
 
 ```java
 public final class ConfigurationAsyncClient {
@@ -328,6 +328,8 @@ Consumers will use one or more _service clients_ to access Azure services, plus 
 
 {% include requirement/MUSTNOT id="java-service-client-constructors" %} provide any `public` or `protected` constructors in the service client, except where necessary to support mock testing. Keep visibility to a minimum.
 
+{% include requirement/MUST id="java-service-client-method-naming" %} use standard JavaBean naming prefixes for all getters and setters that are not service methods.
+
 {% include requirement/MUST id="java-sync-client-shape" %} follow the basic shape outlined below for all synchronous service clients:
 
 ```java
@@ -343,7 +345,7 @@ public final class <service_name>Client {
 
     // internally, sync API can defer to async API with sync-over-async
     private final <service_name>AsyncClient client;
-    
+
     // package-private constructors only - all instantiation is done with builders
     <service_name>Client(<service_name>AsyncClient client) {
         this.client = client;
@@ -358,9 +360,13 @@ public final class <service_name>Client {
     }
 
     // A non-paginated sync list API (refer to pagination section for more details)
-    public Stream<<model>> list<service_operation>(<parameters>) {
-        // deferring to async client internally
-        return client.list<service_operation>(<parameters>).toStream();
+    public IterableStream<<model>> list<service_operation>(<parameters>) {
+        // ...
+    }
+
+    // A paginated sync list API (refer to pagination section for more details)
+    public PagedIterable<<model>> list<service_operation>(<parameters>) {
+        // ...
     }
 
     // other members
@@ -383,7 +389,7 @@ package com.azure.<group>.<service_name>;
     serviceInterfaces = <service_name>Service.class,
     isAsync = true)
 public final class <service_name>AsyncClient {
-        
+
     // package-private constructors only - all instantiation is done with builders
     <service_name>Client(<parameters>, HttpPipeline pipeline) {
         super(pipeline);
@@ -517,7 +523,7 @@ getFoo(x, y, z, Context)
 getFoo(a, Context)
 ```
 
-Don't include overloads that take `Context`in async clients.  Async clients use the [subscriber context built into Reactor Flux and Mono APIs][reactor-context].
+Don't include overloads that take `Context` in async clients.  Async clients use the [subscriber context built into Reactor Flux and Mono APIs][reactor-context].
 
 ## Model classes
 
@@ -529,23 +535,23 @@ Use a no-args constructor and a fluent setter API to configure the model class. 
 
 {% include requirement/MUSTNOT id="java-models-builder" %} offer a builder class for model classes.
 
-{% include requirement/MUST id="java-models-fluent" %} provide a fluent API where appropriate.
+{% include requirement/MUST id="java-models-fluent" %} provide a fluent API where appropriate. Setter methods in model classes are encouraged to return `this` to enable method chaining.
 
-Apply the `@Fluent` annotation to the class. Name setter methods after the property being set (for example, `proxy(Proxy p)`).  All setter methods must return `this`.
+{% include requirement/MUST id="java-models-fluent-annotation" %} apply the `@Fluent` annotation to the class.
 
 {% include requirement/MUST id="java-models-setters" %} ensure that setter methods within a fluent type return the same instance of the type.
 
 Fluent types must not be immutable.  Don't return a new instance on each setter call.
 
-{% include requirement/MUSTNOT id="java-models-javabeans" %} use the JavaBean naming convention of `get*`, `set*`, and `is*`.
+{% include requirement/MUST id="java-models-javabeans" %} use the JavaBean naming convention of `get*`, `set*`, and `is*`.
 
 ## Other support classes
 
 Don't offer builder or fluent APIs for supporting classes such as custom exception types, HTTP policies, and credential types.
 
-{% include requirement/MUST id="java-support-javabeans" %} use the JavaBean naming convention of `get*`, `set*`, and `is*`.
+{% include requirement/MUST id="java-support-prefix" %} use standard JavaBean prefixes for setter and getter methods.
 
-{% include requirement/MUSTNOT id="java-support-fluent" %} use the fluent API naming convention outlined above for model classes.
+{% include requirement/MUSTNOT id="java-support-setter-return-type" %} return `this` in setter methods - these methods should have a `void` return type.
 
 {% include requirement/MUSTNOT id="java-support-builder" %} provide a builder class.
 
@@ -603,9 +609,9 @@ public final class ConfigurationAsyncClient {
 
     @ServiceMethod
     public Mono<Response<ConfigurationSetting>> addSetting(String key, String value) { 
-        ... 
+        ...
     }
-}    
+}
 ```
 
 | Annotation | Location | Description |
