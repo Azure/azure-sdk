@@ -112,7 +112,7 @@ export class ServiceClient {
 
 {% include requirement/MUST id="ts-apisurface-serviceclientconstructor" %} allow the consumer to construct a service client with the minimal information needed to connect and authenticate to the service.
 
-{% include requirement/MUST id="ts-apisurface-standardized-verbs" %} tandardize verb prefixes within a set of client libraries for a service (see [approved verbs](#ts-approved-verbs)).
+{% include requirement/MUST id="ts-apisurface-standardized-verbs" %} standardize verb prefixes within a set of client libraries for a service (see [approved verbs](#ts-approved-verbs)).
 
 The service speaks about specific operations in a cross-language manner within outbound materials (such as documentation, blogs, and public speaking).  The service can't be consistent across languages if the same operation is referred to by different verbs in different languages.
 
