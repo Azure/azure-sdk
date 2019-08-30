@@ -535,7 +535,7 @@ Use a no-args constructor and a fluent setter API to configure the model class. 
 
 {% include requirement/MUSTNOT id="java-models-builder" %} offer a builder class for model classes.
 
-{% include requirement/MUST id="java-models-fluent" %} provide a fluent API where appropriate. Setter methods in model classes are encouraged to return `this` to enable method chaining.
+{% include requirement/MUST id="java-models-fluent" %} provide a fluent API where appropriate. Setter methods in model classes are required to return `this` to enable method chaining.
 
 {% include requirement/MUST id="java-models-fluent-annotation" %} apply the `@Fluent` annotation to the class.
 
