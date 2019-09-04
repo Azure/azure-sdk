@@ -52,7 +52,12 @@ For example, if we re-wrote `AzCopy` in each language using the Azure Blob Stora
 - (Java) `AzCopy/10.0.4-Preview azsdk-java-storage.blobs/11.0.0 (Java/1.8.0_45; Macintosh; Intel Mac OS X 10_10; rv:33.0)`
 - (Python) `AzCopy/10.0.4-Preview azsdk-python-storage/4.0.0 Python/3.7.3 (Ubuntu; Linux x86_64; rv:34.0)`
 
+{% include requirement/MUST id="azurecore-http-telemetry-appid" %} allow the consumer of the library to set the application ID.  This allows the consumer to obtain cross-service telemetry for their app.  The application ID will normally be set in the client options bag.
+
+{% include requirement/MUST id="azurecore-http-telemetry-appid-length" %} support application IDs up to 24 characters in length.  Supporting short application IDs allows service teams to include diagnostic information in the "platform information" section of the user agent, while still allowing the consumer to obtain telemetry information for their app.
+
 {% include requirement/SHOULD id="azurecore-http-telemetry-x-ms-useragent" %} send telemetry information that is normally sent in the `User-Agent` header in the `X-MS-UserAgent` header when the platform does not support changing the `User-Agent` header.  Note that services will need to configure log gathering to capture the `X-MS-UserAgent` header in such a way that it can be queried through normal analytics systems.
+
 
 {% include requirement/SHOULD id="azurecore-http-telemetry-dynamic" %} send additional (dynamic) telemetry information as a semi-colon separated set of key-value types in the `X-MS-AZSDK-Telemetry` header.  For example:
 
