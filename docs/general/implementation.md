@@ -141,12 +141,52 @@ Client libraries must support robust logging mechanisms so that the consumer can
 
 {% include requirement/MUSTNOT id="general-logging-no-sensitive-info" %} send sensitive information in log levels other than Verbose. For example, remove account keys when logging headers.
 
-{% include requirement/MUST id="general-logging-requests" %} log request line, response line, and headers, as Informational message.
+{% include requirement/MUST id="general-logging-requests" %} log request line and dynamically generated headers as an Informational message. The format of the log should be the following:
 
-{% include requirement/MUST id="general-logging-cancellations" %} log an Informational message if a service call is cancelled.
+```
+REQUEST(id={request-id}, try={#}): {METHOD} {url} ["header"="value"...]
+```
+
+For example (this should be on a single line, but is folded for readability):
+
+```
+REQUEST(id=4a0ed94c-2559-4935-7e11-7c36987b1a61, try=1): 
+    GET https://vstsimages.blob.core.windows.net/vhds/MMS.M141.VS2017.1.vhd?se=2018-11-07t21%3A58%3A08z&sig=REDACTED&sp=r&spr=https&sr=b&st=2018-10-24t12%3A58%3A08z&sv=2017-11-09&timeout=901 
+    "x-ms-range"="bytes=327155712-335544319" 
+    "x-ms-version"="2018-03-28"
+    ...
+```
+
+{% include requirement/MUST id="general-logging-responses" %} log response line and headers as an Informational message.  The format of the log should be the following:
+
+```
+RESPONSE(id={request-id}, status={code}, message="{message}"): ["header"="value"...]
+```
+
+For example (this should be on a single line, but is folded for readability):
+
+```
+RESPONSE(id=4a0ed94c-2559-4935-7e11-7c36987b1a61, status=206, message="Partial Content"): 
+    "Accept-Ranges"="bytes" 
+    "Content-Length"="8388608" 
+    "Content-Range"="bytes 327155712-335544319/136367309312" 
+    "Content-Type"="application/octet-stream" "ETag"="0x8D62305BCB84262" 
+    ...
+```
+
+{% include requirement/MUST id="general-logging-cancellations" %} log an Informational message if a service call is cancelled.  The format of the log should be the following:
+
+```
+CANCELLED(id={request-id}): {extended-reason, if available}
+```
+
+For example:
+
+```
+CANCELLED(id=4a0ed94c-2559-4935-7e11-7c36987b1a61)
+```
 
 {% include requirement/MUST id="general-logging-exceptions" %} log exceptions thrown as a Warning level message. If the log level set to Verbose, append stack trace information to the message.
-
 
 ## Distributed Tracing
 
