@@ -188,6 +188,55 @@ CANCELLED(id=4a0ed94c-2559-4935-7e11-7c36987b1a61)
 
 {% include requirement/MUST id="general-logging-exceptions" %} log exceptions thrown as a Warning level message. If the log level set to Verbose, append stack trace information to the message.
 
+### Default Logging
+
+Logging for consumers is generally opt-in and aids the consumer in diagnosis of problems with their code and potential service issues.  However, there are cases where we require default logging, primarily in customer support situations.  The main goal of default logging is to improve customer satisfaction with the service when used in combination with the Azure SDK.  If a consumer requests support from Microsoft for a service operation via the client library, certain information is required in order to diagnose the issue.  We want to ensure that information is always available.  The Azure SDK supports several languages on several operating systems and within several app models.  As such, logging is not always available nor is it advisable in all situations.
+
+{% include requirement/MUST id="fulcrum-logging-required" %} enable default logging when the `TEMP` environment variable exists and file system APIs are available.  The `TEMP` environment variable must point to a writable directory on the filesystem.  In cases where there is no file system, default logging is not available.
+
+{% include requirement/MUSTNOT id="fulcrum-logging-prohibited" %} enable default logging if the platform does not allow user access to the file system.  For example, mobile environments generally have a file system that is not user accessible.
+
+{% include requirement/MUST id="fulcrum-logging-optout" %} allow the consumer to opt out of default logging. 
+
+The consumer should be able to opt out as follows:
+
+* Globally by setting a `AZURE_DISABLE_DEFAULT_LOGGING` environment variable.
+* On a per-client basis by setting a `disableDefaultLogging` client option to true.
+
+{% include requirement/MUST id="fulcrum-logging-where" %} write logs to a sub-directory of the `TEMP` folder named `azurelogs`.  Logs for all service clients should write to the same log file as this allows CSS to identify cross-service issues more easily.
+
+{% include requirement/MUST id="fulcrum-logging-limit-1" %} limit the maximum size of the default log file to a reasonable size, and restrict the number of log files written.  The default logging should strive to never cause an "out of disk space" error in normal operation by cleaning up after itself and be self-maintaining.
+
+{% include requirement/SHOULD id="fulcrum-logging-limit-2" %} strive to minimize the performance effect of default logging.  
+
+{% include requirement/MUST id="fulcrum-logging-requests" %} log the following information when a log message needs to be written:
+
+* Time stamp
+* Request ID
+* REQUEST (method and URI)
+* White listed request headers (redacted as necessary to preserve PII protection)
+* RESPONSE (status code and message)
+* White listed response headers (redacted as necessary to preserve PII protection)
+* The time period between REQUEST and RESPONSE
+* Any operating system level metrics the service deems important to diagnosing common issues (such as memory utilization or CPU load)
+
+{% include requirement/MUST id="fulcrum-logging-pii" %} redact query parameters in the URI that are not white listed.
+
+{% include requirement/MUST id="fulcrum-logging-failures" %} generate a log message when an I/O failure occurs (such as endpoint cannot be found or no connection established).
+
+{% include requirement/MUST id="fulcrum-logging-failure-status" %} generate a log message when a failure HTTP status code is received.
+
+{% include requirement/MUST id="fulcrum-logging-failure-slow" %} generate a log message when the request takes a long time (as defined by the service).
+
+{% include requirement/MUSTNOT id="fulcrum-logging-no-bodies" %} log the body of the request or response.  These tend to be large and will create a significant overhead if logged.
+
+There are no "log levels" in default logging as all logs are written to the same log file.  A client library will need to define two white lists for default logging:
+
+1. Query parameters that can be safely logged because no PII exists.
+2. Request and response headers that can be safely logged because no PII exists.
+
+If a query parameter or header is not in the white list, then it **MUST** be redacted to avoid PII exposure to customer support services.
+
 ## Distributed Tracing
 
 Distributed tracing mechanisms allow the consumer to trace their code from frontend to backend. The distributed tracing library creates spans - units of unique work.  Each span is in a parent-child relationship.  As you go deeper into the hierarchy of code, you create more spans.  These spans can then be exported to a suitable receiver as needed.  To keep track of the spans, a _distributed tracing context_ (called a context in the remainder of this section) is passed into each successive layer.  For more information on this topic, visit the [OpenTelemetry] topic on tracing.
