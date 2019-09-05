@@ -9,10 +9,12 @@ The following are a list of registered namespaces.
 
 | Namespace                     | Service Owner                  |
 | :---------------------------- | :----------------------------- |
+| `azure.ai.inkrecognizer`      | [Ink Recognizer]               |
 | `azure.data.appconfiguration` | [App Configuration]            |
 | `azure.data.cosmos`           | [Azure Cosmos DB]              |
 | `azure.messaging.eventhubs`   | [Event Hubs]                   |
 | `azure.messaging.queues`      | [Azure Storage]                |
+| `azure.search`                | [Azure Search]                 |
 | `azure.security.keyvault`     | [Key Vault]                    |
 | `azure.storage.blobs`         | [Azure Storage]                |
 | `azure.storage.files`         | [Azure Storage]                |
@@ -29,6 +31,8 @@ To register a new namespace, contact the [Architecture Board].
 <!-- Service Links -->
 [App Configuration]: https://azure.microsoft.com/en-us/services/app-configuration/
 [Azure Cosmos DB]: https://azure.microsoft.com/en-us/services/cosmos-db/
+[Azure Search]: https://azure.microsoft.com/en-us/services/search/
 [Azure Storage]: https://azure.microsoft.com/en-us/services/storage
 [Event Hubs]: https://azure.microsoft.com/en-us/services/event-hubs/
+[Ink Recognizer]: https://azure.microsoft.com/en-us/services/cognitive-services/ink-recognizer/
 [Key Vault]: https://azure.microsoft.com/en-us/services/key-vault/
