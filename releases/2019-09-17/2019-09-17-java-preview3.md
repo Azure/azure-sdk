@@ -87,7 +87,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 ## Changelog
 Detailed change logs are linked to in the Quick Links below. Here are some critical call outs.
 
-* Designed based on the [Azure SDK Design Guidelines for Java][java-guidelines], resulting in a consistent API design and common feature set such as HTTP retries, logging, transport protocols, authentication protocols, etc.
+* Designed based on the [Azure SDK Design Guidelines for Java](https://azure.github.io/azure-sdk/java_introduction.html), resulting in a consistent API design and common feature set such as HTTP retries, logging, transport protocols, authentication protocols, etc.
 * Modernized API making use of Java 8 features such as streams, new date / time, functional interfaces, etc, to offer an improved and more productive developer experience.
 * Synchronous and asynchronous APIs offer developers simplicity for simple cases, and full asynchronousity when performance and scalability matters. Reactive streams are offered using [Project Reactor](http://projectreactor.io).
 
@@ -101,13 +101,13 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 ### Key Vault Certificates
 - Added reactive streams support using Project Reactor.
 - Added support for authentication using azure-identity credentials and HTTP challenge based authentication, allowing clients to interact with vaults in sovereign clouds.
-- Updated packages structure to group Key , Secret and Certificate clients in the respective directories 
+- Updated packages structure to group Key, Secret, and Certificate clients in the respective directories 
 
-##  Storage
-- Changed API design replacing List responses to PagedFlux on async APIs and PagedIterable on sync APIs.
+###  Storage
+- Changed API design replacing List responses to `PagedFlux` on async APIs and `PagedIterable` on sync APIs.
 - Simplified API to return model types directly on non-maximal overloads.
 - Added priority support for Azure blob rehydration feature.
-- Added convenience upload methods to BlockBlobClient and BlockBlobAsyncClient.
+- Added convenience upload methods to `BlockBlobClient` and `BlockBlobAsyncClient`.
 - Added uploadRangeFromUrl APIs on sync and async File client.
 - Added generate SAS token APIs for Storage File and Queue.
 - Added validation policy to check the equality of request client id between request and response.
