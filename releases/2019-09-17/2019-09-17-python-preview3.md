@@ -57,7 +57,11 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 
 ### Storage
 
-- [TO BE FILLED]
+- Added support for client provided encryption key to numerous APIs.
+- Added support for `append_block_from_url`, `upload_pages_from_url` in blobs.
+- Added SAS support for snapshot and identity.
+- Added upload_range_from_url API to write the bytes from one Azure File endpoint into the specified range of another Azure File endpoint.
+- Added optional parameters for smb properties related parameters for create_file*, create_directory* related APIs and set_http_headers API.
 
 ## Quick Links
 
