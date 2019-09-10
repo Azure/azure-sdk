@@ -45,7 +45,7 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 - Some `read_all` operations (e.g. `read_all_databases`) have been renamed to list operations (e.g. `list_databases`).
 - A new connection string constructor has been added to `CosmosClient`.
 - All operations that take `request_options` or `feed_options` parameters, these have been moved to keyword only parameters.
-- A new error heirarchy that now inherits from `azure.core.AzureError` instead of `CosmosError`.
+- A new error hierarchy that now inherits from `azure.core.AzureError` instead of `CosmosError`.
 
 ### Event Hubs
 
