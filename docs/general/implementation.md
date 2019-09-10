@@ -192,7 +192,14 @@ CANCELLED(id=4a0ed94c-2559-4935-7e11-7c36987b1a61)
 
 Logging for consumers is generally opt-in and aids the consumer in diagnosis of problems with their code and potential service issues.  However, there are cases where we require default logging, primarily in customer support situations.  The main goal of default logging is to improve customer satisfaction with the service when used in combination with the Azure SDK.  If a consumer requests support from Microsoft for a service operation via the client library, certain information is required in order to diagnose the issue.  We want to ensure that information is always available.  The Azure SDK supports several languages on several operating systems and within several app models.  As such, logging is not always available nor is it advisable in all situations.
 
-{% include requirement/MUST id="fulcrum-logging-required" %} enable default logging when the `TEMP` environment variable exists and file system APIs are available.  The `TEMP` environment variable must point to a writable directory on the filesystem.  In cases where there is no file system, default logging is not available.
+{% include requirement/MUST id="fulcrum-logging-required" %} enable default logging when a temporary directory is available and file system APIs are available.  
+
+To determine if a temporary directory is available, use the following environment variables (in order).  If the environment variable points to a writable directory, then the logs should be written to that location.
+
+* `TMPDIR`
+* `TEMP`
+
+In cases where there is no file system, default logging is not available.
 
 {% include requirement/MUSTNOT id="fulcrum-logging-prohibited" %} enable default logging if the platform does not allow user access to the file system.  For example, mobile environments generally have a file system that is not user accessible.
 
@@ -203,7 +210,7 @@ The consumer should be able to opt out as follows:
 * Globally by setting a `AZURE_DISABLE_DEFAULT_LOGGING` environment variable.
 * On a per-client basis by setting a `disableDefaultLogging` client option to true.
 
-{% include requirement/MUST id="fulcrum-logging-where" %} write logs to a sub-directory of the `TEMP` folder named `azurelogs`.  Logs for all service clients should write to the same log file as this allows CSS to identify cross-service issues more easily.
+{% include requirement/MUST id="fulcrum-logging-where" %} write logs to a sub-directory of the temporary directory named `azurelogs`.  Logs for all service clients should write to the same log file as this allows CSS to identify cross-service issues more easily.
 
 {% include requirement/MUST id="fulcrum-logging-limit-1" %} limit the maximum size of the default log file to a reasonable size, and restrict the number of log files written.  The default logging should strive to never cause an "out of disk space" error in normal operation by cleaning up after itself and be self-maintaining.
 
