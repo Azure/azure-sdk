@@ -8,7 +8,7 @@ repository: azure/azure-sdk-for-java
 permalink: /releases/2019-09-17/java.html
 ---
 
-The Azure SDK team is pleased to make available the September 2019 client library preview release. This represents the updated release of the ground-up rewrite of the client libraries to ensure consistency, idiomatic design, and excellent developer experience and productivity. This preview release includes new and updated client libraries for Azure App Configuration, Identity, Key Vault (keys and secrets), Event Hubs and Event Hubs Checkpoint Store, and Storage (Blobs, Files, and Queues).
+The Azure SDK team is pleased to make available the September 2019 client library preview release. This represents the updated release of the ground-up rewrite of the client libraries to ensure consistency, idiomatic design, and excellent developer experience and productivity. This preview release includes new and updated client libraries for Azure App Configuration, Identity, Key Vault (keys, secrets and certificates), Event Hubs and Event Hubs Checkpoint Store, and Storage (Blobs, Files, and Queues).
 
 ## Installation Instructions
 To use the preview libraries, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate. If you are using a different build tool, refer to its documentation on how to specify dependencies.
