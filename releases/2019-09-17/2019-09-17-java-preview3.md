@@ -8,7 +8,7 @@ repository: azure/azure-sdk-for-java
 permalink: /releases/2019-09-17/java.html
 ---
 
-The Azure SDK team is pleased to make available the September 2019 client library preview release. This represents the first release of the ground-up rewrite of the client libraries to ensure consistency, idiomatic design, and excellent developer experience and productivity. This preview release includes new client libraries for Azure App Configuration, Identity, Key Vault (keys and secrets), Event Hubs, and Storage (Blobs, Files, and Queues).
+The Azure SDK team is pleased to make available the September 2019 client library preview release. This represents the updated release of the ground-up rewrite of the client libraries to ensure consistency, idiomatic design, and excellent developer experience and productivity. This preview release includes new and updated client libraries for Azure App Configuration, Identity, Key Vault (keys and secrets), Event Hubs and Event Hubs Checkpoint Store, and Storage (Blobs, Files, and Queues).
 
 ## Installation Instructions
 To use the preview libraries, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate. If you are using a different build tool, refer to its documentation on how to specify dependencies.
@@ -63,6 +63,12 @@ To use the preview libraries, refer to the Maven dependency information below, w
 </dependency>
 
 <dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-messaging-eventhubs-checkpointstore-blob</artifactId>
+    <version>1.0.0-preview.1</version>
+</dependency>
+
+<dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-storage-blob</artifactId>
   <version>12.0.0-preview.3</version>
@@ -98,6 +104,11 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 - Added synchronous interface to send and receive messages
 - Optimized EventProcessor implementation, added support for balancing partitions across multiple instances of `EventProcessor`.  
 
+### Event Hub Checkpoint Store
+- Added reactive streams support using Project Reactor.
+- Provides an instance of BlobPartitionManager to your Event Processor. BlobPartitionManager uses Storage Blobs to store checkpoints and balance partition load among all instances of Event Processors.
+- Stores checkpoint and partition ownership details in Azure Storage Blobs.
+
 ### Key Vault Certificates
 - Added reactive streams support using Project Reactor.
 - Added support for authentication using azure-identity credentials and HTTP challenge based authentication, allowing clients to interact with vaults in sovereign clouds.
@@ -130,6 +141,9 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 | Service  | Readme | Changelog | Samples | JavaDoc |
 | -- | -- | -- | -- | -- |
 | App Configuration | [Readme](https://github.com/Azure/azure-sdk-for-java/blob/azure-data-appconfiguration_1.0.0-preview.3/sdk/appconfiguration/azure-data-appconfiguration/README.md) | [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-data-appconfiguration_1.0.0-preview.3/sdk/appconfiguration/azure-data-appconfiguration/CHANGELOG.md) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/azure-data-appconfiguration_1.0.0-preview.3/sdk/appconfiguration/azure-data-appconfiguration/src/samples/java/com/azure/data/appconfiguration) | [JavaDoc](https://azure.github.io/azure-sdk-for-java/track2reports/index.html) |
+| EventHub | [Readme](https://github.com/Azure/azure-sdk-for-java/blob/azure-messaging-eventhubs_5.0.0-preview.3/sdk/eventhubs/azure-messaging-eventhubs/README.md) | [Changelog]( https://github.com/Azure/azure-sdk-for-java/blob/azure-messaging-eventhubs_5.0.0-preview.3/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs_5.0.0-preview.3/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs) | [JavaDoc](https://azure.github.io/azure-sdk-for-java/track2reports/index.html) |
+| Event Hubs Checkpoint Store | [Readme](https://github.com/Azure/azure-sdk-for-java/blob/azure-messaging-eventhubs_5.0.0-preview.3/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/README.md) | [Changelog]( https://github.com/Azure/azure-sdk-for-java/blob/azure-messaging-eventhubs_5.0.0-preview.3/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs_5.0.0-preview.3/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java) | [JavaDoc](https://azure.github.io/azure-sdk-for-java/track2reports/index.html) |
+| Identity | [Readme](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/identity/azure-identity/README.md) | [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/identity/azure-identity/CHANGELOG.md) | [Samples]() | [JavaDoc](https://azure.github.io/azure-sdk-for-java/track2reports/index.html) |
 | Key Vault - Keys | [Readme](https://github.com/Azure/azure-sdk-for-java/blob/azure-keyvault-keys_4.0.0-preview.3/sdk/keyvault/azure-keyvault-keys/README.md) | [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-keyvault-keys_4.0.0-preview.3/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/azure-keyvault-keys_4.0.0-preview.3/sdk/keyvault/azure-keyvault-keys/src/samples/java/com/azure/security/keyvault/keys) | [JavaDoc](https://azure.github.io/azure-sdk-for-java/track2reports/index.html) |
 | Key Vault - Certificates | [Readme](https://github.com/Azure/azure-sdk-for-java/blob/azure-keyvault-certificates_4.0.0-preview.3/sdk/keyvault/azure-keyvault-certificates/README.md) | [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-keyvault-certificates_4.0.0-preview.3/sdk/keyvault/azure-keyvault-certificates/CHANGELOG.md) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/azure-keyvault-certificates_4.0.0-preview.3/sdk/keyvault/azure-keyvault-certificates/src/samples/java/com/azure/security/keyvault/certificates) | [JavaDoc](https://azure.github.io/azure-sdk-for-java/track2reports/index.html) |
 | Key Vault - Secrets | [Readme](https://github.com/Azure/azure-sdk-for-java/blob/azure-keyvault-secrets_4.0.0-preview.3/sdk/keyvault/azure-keyvault-secrets/README.md) | [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-keyvault-secrets_4.0.0-preview.3/sdk/keyvault/azure-keyvault-secrets/CHANGELOG.md) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/azure-keyvault-secrets_4.0.0-preview.3/sdk/keyvault/azure-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets) | [JavaDoc](https://azure.github.io/azure-sdk-for-java/track2reports/index.html) || Event Hubs | [Readme](https://github.com/Azure/azure-sdk-for-java/blob/azure-messaging-eventhubs_5.0.0-preview.3/sdk/eventhubs/azure-eventhubs/README.md) | [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-messaging-eventhubs_5.0.0-preview.3/sdk/eventhubs/azure-eventhubs/CHANGELOG.md) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs_5.0.0-preview.3/sdk/eventhubs/azure-eventhubs/src/samples/java/com/azure/messaging/eventhubs) | [JavaDoc](https://azure.github.io/azure-sdk-for-java/track2reports/index.html) |
