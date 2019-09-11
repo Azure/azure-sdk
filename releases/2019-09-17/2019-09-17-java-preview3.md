@@ -16,26 +16,26 @@ To use the preview libraries, refer to the Maven dependency information below, w
 ```xml
 <dependency>
   <groupId>com.azure</groupId>
-  <artifactId>azure-data-appconfiguration</artifactId>
-  <version>1.0.0-preview.3</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure</groupId>
   <artifactId>azure-core</artifactId>
   <version>1.0.0-preview.4</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
-  <artifactId>azure-storage-common</artifactId>
-  <version>12.0.0-preview.3</version>
+  <artifactId>azure-data-appconfiguration</artifactId>
+  <version>1.0.0-preview.3</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-identity</artifactId>
   <version>1.0.0-preview.3</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-keyvault-certificates</artifactId>
+  <version>4.0.0-preview.3</version>
 </dependency>
 
 <dependency>
@@ -52,25 +52,25 @@ To use the preview libraries, refer to the Maven dependency information below, w
 
 <dependency>
   <groupId>com.azure</groupId>
-  <artifactId>azure-keyvault-certificates</artifactId>
-  <version>4.0.0-preview.3</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure</groupId>
   <artifactId>azure-messaging-eventhubs</artifactId>
   <version>5.0.0-preview.3</version>
 </dependency>
 
 <dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-messaging-eventhubs-checkpointstore-blob</artifactId>
-    <version>1.0.0-preview.1</version>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-messaging-eventhubs-checkpointstore-blob</artifactId>
+  <version>1.0.0-preview.1</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-storage-blob</artifactId>
+  <version>12.0.0-preview.3</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-common</artifactId>
   <version>12.0.0-preview.3</version>
 </dependency>
 
