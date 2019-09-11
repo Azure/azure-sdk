@@ -54,4 +54,4 @@ Each requirement in this document is labelled and color-coded to show the relati
 
 {% include refs.md %}
 
-[Progressive Disclosure]: https:/ www.nngroup.com/articles/progressive-disclosure/
+[Progressive Disclosure]: https://www.nngroup.com/articles/progressive-disclosure/
