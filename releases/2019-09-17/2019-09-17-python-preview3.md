@@ -54,7 +54,7 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 
 ### Key Vault
 
-- First release of `azure-keyvault-certificates` supporting the certificates API
+- Release of `azure-keyvault-certificates` supporting the certificates API
 - `CryptographyClient` can perform encrypt/verify/wrap operations locally
 
 ### Storage
