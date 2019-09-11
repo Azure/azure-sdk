@@ -8,7 +8,7 @@ repository: azure/azure-sdk-for-net
 permalink: /releases/2019-09-17/dotnet.html
 ---
 
-The Azure SDK team is pleased to announce our August 2019 client library preview.  This represents the first release of a ground-up rewrite of our client libraries to ensure consistency, idiomatic design, productivity, and an excellent developer experience.  This preview includes new libraries for Storage (Blobs, Queues, and Files), Key Vault (Secrets and Keys), Event Hubs, Cosmos, and Identity.
+The Azure SDK team is pleased to announce our September 2019 client library preview.  This represents the first release of a ground-up rewrite of our client libraries to ensure consistency, idiomatic design, productivity, and an excellent developer experience.  This preview includes new libraries for Storage (Blobs, Queues, and Files), Key Vault (Secrets and Keys), Event Hubs, Cosmos, and Identity.
 
 ## Installation Instructions
 
