@@ -20,6 +20,7 @@ To install any of our packages, please search for them via `Manage NuGet Package
 
     $> dotnet add package Azure.Security.KeyVault.Secrets --version 4.0.0-preview.4
     $> dotnet add package Azure.Security.KeyVault.Keys --version 4.0.0-preview.4
+    $> dotnet add package Azure.Security.KeyVault.Certificates --version 4.0.0-preview.4
 
     $> dotnet add package Azure.Messaging.EventHubs --version 5.0.0-preview.3
 
@@ -52,6 +53,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - Added support for cryptographic operations (such as sign, verify, encrypt, and decrypt) using KeyVault keys.
 - Added support for challenge based authentication.
+- Initial release of the `Azure.Security.KeyVault.Certificates` client library, enablign management of Key Vault certificates, issuers, and contacts.
 
 ## Quick Links
 
