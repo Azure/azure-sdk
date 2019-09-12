@@ -60,6 +60,21 @@ The guidelines provide a robust methodology for communicating with Azure service
 
 The pipeline can be found in the [Azure.Core] package, and it takes care of many [General Azure SDK Guidelines][general-guidelines]. Details of the pipeline design and usage are described in section [Using HttpPipeline](#dotnet-usage-httppipeline) below. If you can't use the pipeline, you must implement [all the general requirements of Azure SDK]({{ "/general_azurecore.html" | relative_url }}) manually.
 
+{% include requirement/MUSTNOT id="dotnet-general-parameter-validation" %} define your own parameter validation class.
+
+Use the `Argument` class in Azure.Core or even "extend" it (it's a partial class included as source) with project-specific argument assertions.
+Just add the following to your project to include it:
+
+```xml
+  <!-- Import Azure.Core properties if not already imported. -->
+  <Import Project="$(MSBuildThisFileDirectory)..\..\..\core\Azure.Core\src\Azure.Core.props" />
+  <ItemGroup>
+    <Compile Include="$(AzureCoreSharedSources)Argument.cs" />
+  </ItemGroup>
+```
+
+See remarks on the `Argument` class for more detail.
+
 # API Design {#dotnet-api}
 
 ## Service Client Design {#dotnet-client}
