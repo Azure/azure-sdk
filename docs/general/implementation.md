@@ -125,68 +125,49 @@ In the case of a higher-level method that produces multiple HTTP requests, eithe
 
 Client libraries must support robust logging mechanisms so that the consumer can adequately diagnose issues with the method calls and quickly determine whether the issue is in the consumer code, client library code, or service.
 
+In general, our advice to consumers of these libraries is to establish logging in their preferred manner at the `WARNING` level or above in production to capture problems with the application, and thise level should be enough for customer support situations.  Informational or verbose logging can be enabled on a case-by-case basis to assist with issue resolution.
+
 {% include requirement/MUST id="general-logging-pluggable-logger" %} support pluggable log handlers.
 
 {% include requirement/MUST id="general-logging-console-logger" %} make it easy for a consumer to enable logging output to the console. The specific steps required to enable logging to the console must be documented. 
 
-{% include requirement/MUST id="general-logging-levels" %} use one of the following log levels when emitting logs: Verbose (details), Informational (things happened), Warning (might be a problem or not), and Error.
+{% include requirement/MUST id="general-logging-levels" %} use one of the following log levels when emitting logs: `Verbose` (details), `Informational` (things happened), `Warning` (might be a problem or not), and `Error`.
 
-{% include requirement/MUST id="general-logging-failure" %} use the Error logging level for failures that the application is unlikely to recover from (out of memory, etc.).
+{% include requirement/MUST id="general-logging-failure" %} use the `Error` logging level for failures that the application is unlikely to recover from (out of memory, etc.).
 
-{% include requirement/MUST id="general-logging-warning" %} use the Warning logging level when a function fails to perform its intended task. This generally means that the function will raise an exception.  Do not include occurrences of self-healing events (for example, when a request will be automatically retried).
+{% include requirement/MUST id="general-logging-warning" %} use the `Warning` logging level when a function fails to perform its intended task. This generally means that the function will raise an exception.  Do not include occurrences of self-healing events (for example, when a request will be automatically retried).
 
-{% include requirement/MUST id="general-logging-info" %} use the Informational logging level when a function operates normally.
+{% include requirement/MAY id="general-logging-slowlinks" %} log the request and response (see below) at the `Warning` when a request/response cycle (to the start of the response body) exceeds a service-defined threshold.  The threshold should be chosen to minimize false-positives and identify service issues.
 
-{% include requirement/MUST id="general-logging-verbose" %} use the Verbose logging level for detailed troubleshooting scenarios. This is primarily intended for developers or system administrators to diagnose specific failures.
+{% include requirement/MUST id="general-logging-info" %} use the `Informational` logging level when a function operates normally.
 
-{% include requirement/MUSTNOT id="general-logging-no-sensitive-info" %} send sensitive information in log levels other than Verbose. For example, remove account keys when logging headers.
+{% include requirement/MUST id="general-logging-verbose" %} use the `Verbose` logging level for detailed troubleshooting scenarios. This is primarily intended for developers or system administrators to diagnose specific failures.
 
-{% include requirement/MUST id="general-logging-requests" %} log request line and dynamically generated headers as an Informational message. The format of the log should be the following:
+{% include requirement/MUSTNOT id="general-logging-no-sensitive-info" %} only log headers and query parameters that are in a service-provided "white-list" of approved headers and query parameters.  All other headers and query parameters must have their values redacted.
 
-```
-REQUEST(id={request-id}, try={#}): {METHOD} {url} ["header"="value"...]
-```
+{% include requirement/MUST id="general-logging-requests" %} log request line and headers as an `Informational` message. The log should include the following information:
 
-For example (this should be on a single line, but is folded for readability):
+* The HTTP method.
+* The URL.
+* The query parameters (potentially redacted).
+* The request headers (potentially redacted).
+* An SDK provided request ID for correlation purposes.
+* The number of times this request has been attempted.
 
-```
-REQUEST(id=4a0ed94c-2559-4935-7e11-7c36987b1a61, try=1): 
-    GET https://vstsimages.blob.core.windows.net/vhds/MMS.M141.VS2017.1.vhd?se=2018-11-07t21%3A58%3A08z&sig=REDACTED&sp=r&spr=https&sr=b&st=2018-10-24t12%3A58%3A08z&sv=2017-11-09&timeout=901 
-    "x-ms-range"="bytes=327155712-335544319" 
-    "x-ms-version"="2018-03-28"
-    ...
-```
+{% include requirement/MUST id="general-logging-responses" %} log response line and headers as an `Informational` message.  The format of the log should be the following:
 
-{% include requirement/MUST id="general-logging-responses" %} log response line and headers as an Informational message.  The format of the log should be the following:
+* The SDK provided request ID (see above).
+* The status code.
+* Any message provided with the status code.
+* The response headers (potentially redacted).
+* The time period between the first attempt of the request and the first byte of the body.
 
-```
-RESPONSE(id={request-id}, status={code}, message="{message}"): ["header"="value"...]
-```
+{% include requirement/MUST id="general-logging-cancellations" %} log an `Informational` message if a service call is cancelled.  The log should include:
 
-For example (this should be on a single line, but is folded for readability):
+* The SDK provided request ID (see above).
+* The reason for the cancellation (if available).
 
-```
-RESPONSE(id=4a0ed94c-2559-4935-7e11-7c36987b1a61, status=206, message="Partial Content"): 
-    "Accept-Ranges"="bytes" 
-    "Content-Length"="8388608" 
-    "Content-Range"="bytes 327155712-335544319/136367309312" 
-    "Content-Type"="application/octet-stream" "ETag"="0x8D62305BCB84262" 
-    ...
-```
-
-{% include requirement/MUST id="general-logging-cancellations" %} log an Informational message if a service call is cancelled.  The format of the log should be the following:
-
-```
-CANCELLED(id={request-id}): {extended-reason, if available}
-```
-
-For example:
-
-```
-CANCELLED(id=4a0ed94c-2559-4935-7e11-7c36987b1a61)
-```
-
-{% include requirement/MUST id="general-logging-exceptions" %} log exceptions thrown as a Warning level message. If the log level set to Verbose, append stack trace information to the message.
+{% include requirement/MUST id="general-logging-exceptions" %} log exceptions thrown as a `Warning` level message. If the log level set to `Verbose`, append stack trace information to the message.
 
 ## Distributed Tracing
 
