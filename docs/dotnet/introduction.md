@@ -62,18 +62,7 @@ The pipeline can be found in the [Azure.Core] package, and it takes care of many
 
 {% include requirement/MUSTNOT id="dotnet-general-parameter-validation" %} define your own parameter validation class.
 
-Use the `Argument` class in Azure.Core or even "extend" it (it's a partial class included as source) with project-specific argument assertions.
-Just add the following to your project to include it:
-
-```xml
-  <!-- Import Azure.Core properties if not already imported. -->
-  <Import Project="$(MSBuildThisFileDirectory)..\..\..\core\Azure.Core\src\Azure.Core.props" />
-  <ItemGroup>
-    <Compile Include="$(AzureCoreSharedSources)Argument.cs" />
-  </ItemGroup>
-```
-
-See remarks on the `Argument` class for more detail.
+Use the `Argument` class in Azure.Core or even "extend" it (it's a partial class included as source) with project-specific argument assertions. See remarks on the `Argument` class for more information.
 
 # API Design {#dotnet-api}
 
