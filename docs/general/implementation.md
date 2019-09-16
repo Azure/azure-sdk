@@ -143,7 +143,7 @@ In general, our advice to consumers of these libraries is to establish logging i
 
 {% include requirement/MUST id="general-logging-verbose" %} use the `Verbose` logging level for detailed troubleshooting scenarios. This is primarily intended for developers or system administrators to diagnose specific failures.
 
-{% include requirement/MUSTNOT id="general-logging-no-sensitive-info" %} only log headers and query parameters that are in a service-provided "white-list" of approved headers and query parameters.  All other headers and query parameters must have their values redacted.
+{% include requirement/MUST id="general-logging-no-sensitive-info" %} only log headers and query parameters that are in a service-provided "white-list" of approved headers and query parameters.  All other headers and query parameters must have their values redacted.
 
 {% include requirement/MUST id="general-logging-requests" %} log request line and headers as an `Informational` message. The log should include the following information:
 
