@@ -125,28 +125,49 @@ In the case of a higher-level method that produces multiple HTTP requests, eithe
 
 Client libraries must support robust logging mechanisms so that the consumer can adequately diagnose issues with the method calls and quickly determine whether the issue is in the consumer code, client library code, or service.
 
+In general, our advice to consumers of these libraries is to establish logging in their preferred manner at the `WARNING` level or above in production to capture problems with the application, and this level should be enough for customer support situations.  Informational or verbose logging can be enabled on a case-by-case basis to assist with issue resolution.
+
 {% include requirement/MUST id="general-logging-pluggable-logger" %} support pluggable log handlers.
 
 {% include requirement/MUST id="general-logging-console-logger" %} make it easy for a consumer to enable logging output to the console. The specific steps required to enable logging to the console must be documented. 
 
-{% include requirement/MUST id="general-logging-levels" %} use one of the following log levels when emitting logs: Verbose (details), Informational (things happened), Warning (might be a problem or not), and Error.
+{% include requirement/MUST id="general-logging-levels" %} use one of the following log levels when emitting logs: `Verbose` (details), `Informational` (things happened), `Warning` (might be a problem or not), and `Error`.
 
-{% include requirement/MUST id="general-logging-failure" %} use the Error logging level for failures that the application is unlikely to recover from (out of memory, etc.).
+{% include requirement/MUST id="general-logging-failure" %} use the `Error` logging level for failures that the application is unlikely to recover from (out of memory, etc.).
 
-{% include requirement/MUST id="general-logging-warning" %} use the Warning logging level when a function fails to perform its intended task. This generally means that the function will raise an exception.  Do not include occurrences of self-healing events (for example, when a request will be automatically retried).
+{% include requirement/MUST id="general-logging-warning" %} use the `Warning` logging level when a function fails to perform its intended task. This generally means that the function will raise an exception.  Do not include occurrences of self-healing events (for example, when a request will be automatically retried).
 
-{% include requirement/MUST id="general-logging-info" %} use the Informational logging level when a function operates normally.
+{% include requirement/MAY id="general-logging-slowlinks" %} log the request and response (see below) at the `Warning` when a request/response cycle (to the start of the response body) exceeds a service-defined threshold.  The threshold should be chosen to minimize false-positives and identify service issues.
 
-{% include requirement/MUST id="general-logging-verbose" %} use the Verbose logging level for detailed troubleshooting scenarios. This is primarily intended for developers or system administrators to diagnose specific failures.
+{% include requirement/MUST id="general-logging-info" %} use the `Informational` logging level when a function operates normally.
 
-{% include requirement/MUSTNOT id="general-logging-no-sensitive-info" %} send sensitive information in log levels other than Verbose. For example, remove account keys when logging headers.
+{% include requirement/MUST id="general-logging-verbose" %} use the `Verbose` logging level for detailed troubleshooting scenarios. This is primarily intended for developers or system administrators to diagnose specific failures.
 
-{% include requirement/MUST id="general-logging-requests" %} log request line, response line, and headers, as Informational message.
+{% include requirement/MUST id="general-logging-no-sensitive-info" %} only log headers and query parameters that are in a service-provided "white-list" of approved headers and query parameters.  All other headers and query parameters must have their values redacted.
 
-{% include requirement/MUST id="general-logging-cancellations" %} log an Informational message if a service call is cancelled.
+{% include requirement/MUST id="general-logging-requests" %} log request line and headers as an `Informational` message. The log should include the following information:
 
-{% include requirement/MUST id="general-logging-exceptions" %} log exceptions thrown as a Warning level message. If the log level set to Verbose, append stack trace information to the message.
+* The HTTP method.
+* The URL.
+* The query parameters (potentially redacted).
+* The request headers (potentially redacted).
+* An SDK provided request ID for correlation purposes.
+* The number of times this request has been attempted.
 
+{% include requirement/MUST id="general-logging-responses" %} log response line and headers as an `Informational` message.  The format of the log should be the following:
+
+* The SDK provided request ID (see above).
+* The status code.
+* Any message provided with the status code.
+* The response headers (potentially redacted).
+* The time period between the first attempt of the request and the first byte of the body.
+
+{% include requirement/MUST id="general-logging-cancellations" %} log an `Informational` message if a service call is cancelled.  The log should include:
+
+* The SDK provided request ID (see above).
+* The reason for the cancellation (if available).
+
+{% include requirement/MUST id="general-logging-exceptions" %} log exceptions thrown as a `Warning` level message. If the log level set to `Verbose`, append stack trace information to the message.
 
 ## Distributed Tracing
 
