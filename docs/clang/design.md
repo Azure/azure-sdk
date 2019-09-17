@@ -25,7 +25,217 @@ void az_iot_credential_deinit(az_iot_credential *credential);
 
 {% include requirement/MUST id="clang-namespaces-prefix" %} prefix all exposed functions with `az_` and the short name of the service; i.e. `az_<svcname>_`.  When using objects (see the Object model later on), add the object name to the list (i.e. `az_<svcname>_<objname>_`).
 
-{% include requirements/MUST id="clang-namespaces-register" %} register the short name of the client library with the [Architecture Board].
+{% include requirement/MUST id="clang-namespaces-register" %} register the short name of the client library with the [Architecture Board].
+
+## Naming conventions
+
+{% include requirement/MUST id="clang-design-naming-concise" %} use clear and concise names.
+
+{% include requirement/SHOULDNOT id="clang-design-naming-abbrev" %} use abbreviations unless necessary or when they are commonly used and understood.  For example, `az` is allowed since it is commonly used to mean `Azure`, and `iot` is used since it is a commonly understood industry term.  However, using `kv` for Key Vault would not be allowed since `kv` is not commonly used to refer to Key Vault.
+
+{% include requirement/MUST id="clang-design-naming-lowercase" %} use lower-case for all variable, function, and struct names.
+
+{% include requirement/MUST id="clang-design-naming-underbar" %} use underscores (`_`) to separate name components (commonly refered to as snake-casing).
+
+{% include requirement/MUST id="clang-design-naming-internal" %} use a single leading underscore to indicate that a name is not part of the public API and is not guaranteed to be stable.
+
+### Variables
+
+{% include requirement/MUST id="clang-design-naming-starpos" %} place the `*` next to the variable name to indicate a pointer type.
+
+{% highlight c %}
+// Bad
+char* name = NULL;
+
+// Good
+char *name = NULL;
+{% endhighlight %}
+
+{% include requirement/MUST id="clang-design-naming-units" %} include units in names.  If a variable represents time, weight, or some other unit, then include the unit in the name so developers can more easily spot problems.  For example:
+
+{% highlight c %}
+// Bad
+uint32 timeout;
+uint32 my_weight;
+
+// Goog
+uint32 timeout_msecs;
+uint32 my_weight_kg;
+{% endhighlight %}
+
+{% include requirement/MUST id="clang-design-naming-optimize-position" %} declare variables in structures organized by use in a manner that minimizes memory wastage because of compiler alignment issues and size.  All things being equal, use alphabetical ordering.
+
+{% highlight c %}
+// Bad
+struct foo {
+    int a;
+    char *b;
+    int c;
+    char *d;
+};
+
+// Good
+struct foo {
+    int a;
+    int c;
+    char *b;
+    char *d;
+};
+{% endhighlight %}
+
+Each variable is normally defined with its own type and line.  An exception can be made when declaring bitfields (to clarify that the variable is a part of one bitfield).  The use of bitfields in general is discouraged.
+
+{% include requirement/MUST id="clang-design-naming-staticvars" %} declare all variables that are only used within the same source file as `static`.  Static variables may contain only the variable name (no prefixes).  For example:
+
+{% highlight c %}
+static uint32_t byte_counter = 0;
+{% endhighlight %}
+
+### Globals
+
+{% include requirement/SHOULDNOT id="clang-design-naming-no-globals" %} use global variables.  If a global variable is absolutely necessary:
+
+* Declare the global at the top of your file.
+* Name the global `g_az_<svcname>_<globalname>`.
+
+{% include requirement/MUST id="clang-design-naming-global-const" %} name global constants using all upper-case, with the `AZ_` prefix, and with snake-casing.  For example:
+
+{% highlight c %}
+// Bad
+const int Global_Foo = 5;
+
+// Good
+const int AZ_CATHERD_TIMEOUT_MSEC = 5;
+{% endhighlight %}
+
+### Structs
+
+{% include requirement/MUST id="clang-design-naming-declare-structs" %} declare major structures at the top of the file in which they are used, or in separate header files if they are used in multiple source files.  
+
+If declaring a structure within a header file, separate declarations should be `extern`.
+
+> TODO: Should we use a meaningful prefix for each member name or for structures in general?
+
+{% include requirement/MUST id="clang-design-naming-struct-definition" %} define structs using typedef.  Name the struct and typedef according to the normal naming for types.  For example:
+
+{% highlight c %}
+typedef struct az_iot_client {
+    char *api_version;
+    az_iot_client_credentials *credentials;
+    int retry_timeout;
+} az_iot_client;
+{% endhighlight %}
+
+### Enums
+
+{% include requirement/MUST id="clang-design-naming-enum" %} use pascal-casing to name enum types.  For example:
+
+{% highlight c %}
+enum PinStateType {
+    PIN_OFF,
+    PIN_ON
+};
+{% endhighlight %}
+
+Enums do not have a guaranteed size.  If you have a type that can take a known range of values and it is transported in a message, you cannot use an enum as the type.
+
+{% include requirement/MUST id="clang-design-naming-enum-errors" %} use the first label within an enum for an error state, if it exists.  
+
+{% highlight c %}
+enum ServiceState {
+    STATE_ERR,
+    STATE_OPEN,
+    STATE_RUNNING,
+    STATE_DYING
+};
+{% endhighlight %}
+
+### Functions
+
+{% include requirement/MUST id="clang-design-naming-funcname" %} name functions with all-lowercase.  If part of the public API, start with `az_<svcname>_[<objname>_]`.  If not, start with `_`. For example:
+
+{% highlight c %}
+// Part of the private API
+int64_t _compute_hash(int32_t a, int32_t b);
+
+// Part of the public API
+az_catherd_client_t az_catherd_create_client(char *herd_name);
+
+// Bad - no leading underscore
+int64_t compute_hash(int32_t a, int32_t b);
+{% endhighlight %}
+
+The definition of the function must be placed in the `*_api.h` file for the module.
+
+{% include requirement/SHOULD id="clang-design-naming-funcstatic" %} declare all functions that are only used within the same source file as `static`.  Static functions may contain only the function name (no prefixes).  For example:
+
+{% highlight c %}
+static int64_t compute_hash(int32_t a, int32_t b) {
+    // ...
+}
+{% endhighlight %}
+
+{% include requirement/SHOULD id="clang-design-naming-paramnames" %} use a meaningful name for parameters and local variable names.  Parameters and local variable names should be named as all lower-case words, separated by underscores (snake-casing).
+
+### Callbacks
+
+Functions that request a callback with a context should order the callback first and then the context.  For example:
+
+{% highlight c %}
+az_iot_client az_iot_client_send_async(az_iot_client *client, 
+        az_iot_message *message, az_iot_release_callback release_message, 
+        az_iot_client_result_callback callback, az_iot_client_result_context context)
+{% endhighlight %}
+
+Callbacks that receive the context should do so as the first argument:
+
+{% highlight c %}
+static void on_client_result(az_iot_client_result_context context, 
+        az_iot_result result, az_iot_message_received message)
+{% endhighlight %}
+
+### Macros
+
+{% include requirement/MUST id="clang-design-naming-macros1" %} name macros with upper-case snake-casing. 
+
+{% include requirement/MUST id="clang-design-naming-macro-params" %} wrap the macro expression in parentheses.  This avoids potential communitive operation ambiguity.
+
+{% include requirement/MUST id="clang-design-naming-macros-form" %} prepend macro names with `AZ_<SVCNAME>` to make macros unique.
+
+{% include requirement/MUST id="clang-design-naming-macros2" %} avoid side-effects when implementing macros.
+
+If the macro is an inline expansion of a function, the function is defined in lowercase and the macro must have the same name in uppercase.  If the macro is an expression, wrap the expression in parenthesis.
+
+For example:
+
+{% highlight c %}
+#define MAX(a,b) ((a > b) ? a : b)
+#define IS_ERR(err) (err < 0)
+{% endhighlight %}
+
+{% include requirement/SHOULD id="clang-design-naming-macros3" %} wrap the macro in `do { ... } while(0)` if the macro is more than a single statement, so that a trailing semicolon works.  Right-justify backslashes to ensure the macro is easy to read.  For example:
+
+{% highlight c %}
+#define MACRO(v, w, x, y)           \
+do {                                \
+    v = (x) + (y);                  \
+    w = (y) + 2;                    \
+} while (0)
+{% endhighlight %}
+
+{% include requirement/MUSTNOT id="clang-design-naming-macros-donoevil" %} change syntax via macro substitution.  It [makes the program unintelligible](https://gist.github.com/aras-p/6224951) to all but the perpetrator.
+
+{% include requirement/SHOULD id="clang-design-naming-macros-inlinefunc" %} replace macros with inline functions where possible.  Macros are not required for code efficiency.
+
+{% highlight c %}
+// Bad
+#define MAX(a,b) ((a > b) ? a : b)
+
+// Good
+inline int max(int x, int y) {
+    return (x > y ? x : y);
+}
+{% endhighlight %}
 
 ## Client interface
 
@@ -486,7 +696,7 @@ The intent is to allow storing a pointed tot he allocation callbacks to ensure t
 
 > TODO: Rationalize this - do we store or not store?
 
-{% include requirement/MUSTNOT id="clang-objmodel-alloc5 %} return any errors from the deallocation function.  It is impossible to write leak-free programs if deallocation and cleanup functions can fail.
+{% include requirement/MUSTNOT id="clang-objmodel-alloc5" %} return any errors from the deallocation function.  It is impossible to write leak-free programs if deallocation and cleanup functions can fail.
 
 For example:
 
@@ -540,7 +750,7 @@ The initialization function should take a set of allocation callbacks and store 
 
 {% include requirement/MUST id="clang-objmodel-destroyalloc1" %} name destruction functions `az_<libname>_<objtype>_destroy`.
 
-{% include reuqirement/MUSTNOT id="clang-objmodel-destroyalloc2" %} take allocation callbacks in the destruction function.
+{% include requirement/MUSTNOT id="clang-objmodel-destroyalloc2" %} take allocation callbacks in the destruction function.
 
 The reason one would take an allocation callback parameter in the destruction function is to save space by not storing it in the object instance. The reason we prohibit this is that it means an object that owns a pointer to another object must then take _two_ allocation parameters in its destroy function. 
 
@@ -622,7 +832,7 @@ If a function takes both optional and non-optional parameters then prefer passin
 
 {% include requirement/MUST id="clang-objmodel-manyparams" %} use a struct to encapsulate parameters if the number of parameters is greater than 5.  
 
-{% include reuqirement/MUSTNOT id="clang-objmodel-manyparams2" %} include the class object in the encapsulating paramter struct.
+{% include requirement/MUSTNOT id="clang-objmodel-manyparams2" %} include the class object in the encapsulating paramter struct.
 
 ### Methods requiring allocation
 
@@ -705,3 +915,21 @@ This syntax is supported on all C99 compilers as it adheres to strict C99 syntax
 The nested enum and union should never have a `tag name` as this is *always* an extension.  It is a user error to access the union without checking its tag first.
 
 ## Versioning
+
+Unlike other languages, client libraries written for the C ecosystem are tied to a single API version within the service.  Different client library versions may target different service API versions.
+
+{% include requirement/MUST id="clang-version-library-api" %} include a `SHORTNAME_VERSIONINFO` definition in the main header file that defines the current version of the library.
+
+{% include requirement/MUST id="clang-version-service-api" %} include a `SHORTNAME_SERVICEVERSION` definition in the main header file that defines the API version of the service that is targetted by the library if the service supports different concurrent versions on the REST API.
+
+Example:
+
+{% highlight c %}
+#ifndef azure_devicetwin_h
+#define azure_devicetwin_h
+
+#define DEVICETWIN_VERSIONINFO "1.0.0"
+#define DEVICETWIN_SERVICEVERSION "2018-11-28"
+
+#endif /* azure_devicetwin_h */
+{% endhighlight %}

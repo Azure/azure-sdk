@@ -56,8 +56,6 @@ The Azure SDK should be designed to enhance the productivity of developers conne
 
 {% include requirement/MUST id="clang-general-follow-general-guidelines" %} follow the [General Azure SDK Guidelines].
 
-> **DEVIATION** 
-
 {% include requirement/MUST id="clang-general-repository" %} locate all source code in the [azure/azure-sdk-for-c] GitHub repository.
 
 {% include requirement/MUST id="clang-general-engsys" %} follow Azure SDK engineering systems guidelines for working in the [azure/azure-sdk-for-c] GitHub repository.

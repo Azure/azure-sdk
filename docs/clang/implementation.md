@@ -127,7 +127,7 @@ Client libraries must support robust logging mechanisms so that the consumer can
 
 In general, our advice to consumers of these libraries is to establish logging in their preferred manner at the `WARNING` level or above in production to capture problems with the application, and this level should be enough for customer support situations.  Informational or verbose logging can be enabled on a case-by-case basis to assist with issue resolution.
 
-{% include requirement/MUST id="clang-logging-use-azurecore %} use the Azure Core library for logging.
+{% include requirement/MUST id="clang-logging-use-azurecore" %} use the Azure Core library for logging.
 
 > TODO: The Azure Core logging library does not exist yet.
 
@@ -319,13 +319,15 @@ TEST_FUNCTION(foo_tcp_manager_create_createAndReturnInstanceSucceed)
 Filenames should be concise, but convey what role the file plays within the library.
 
 {% include requirement/MUST id="clang-style-headerguards" %} use header file guards:
+
+{% highlight c %}
 #ifndef IOT_CLIENT_H
 #define IOT_CLIENT_H
 
 /* Contents of iot_client.h */
 
 #endif /* IOT_CLIENT_H */
-{% highlight c %}
+{% endhighlight %}
 
 ## Tooling
 
@@ -336,7 +338,7 @@ We use a common build and test pipeline to provide for automatic distribution of
 Version 3.7 is the minimum version installed on the Azure Pipelines Microsoft hosted agents 
 (https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/hosted?view=azure-devops)
 
-{% include requirements/MUST id="clang-tooling-cmake-targets" %} include the following standard targets:
+{% include requirement/MUST id="clang-tooling-cmake-targets" %} include the following standard targets:
 
 * `build` to build the library
 * `test` to run the unit test suite
