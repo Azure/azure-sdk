@@ -143,14 +143,14 @@ In general, our advice to consumers of these libraries is to establish logging i
 
 {% include requirement/MUST id="general-logging-verbose" %} use the `Verbose` logging level for detailed troubleshooting scenarios. This is primarily intended for developers or system administrators to diagnose specific failures.
 
-{% include requirement/MUST id="general-logging-no-sensitive-info" %} only log headers and query parameters that are in a service-provided "white-list" of approved headers and query parameters.  All other headers and query parameters must have their values redacted.
+{% include requirement/MUST id="general-logging-no-sensitive-info" %} only log headers and query parameters that are in a service-provided "allow-list" of approved headers and query parameters.  All other headers and query parameters must have their values redacted.
 
 {% include requirement/MUST id="general-logging-requests" %} log request line and headers as an `Informational` message. The log should include the following information:
 
 * The HTTP method.
 * The URL.
-* The query parameters (potentially redacted).
-* The request headers (potentially redacted).
+* The query parameters (redacted if not in the allow-list).
+* The request headers (redacted if not in the allow-list).
 * An SDK provided request ID for correlation purposes.
 * The number of times this request has been attempted.
 
@@ -159,7 +159,7 @@ In general, our advice to consumers of these libraries is to establish logging i
 * The SDK provided request ID (see above).
 * The status code.
 * Any message provided with the status code.
-* The response headers (potentially redacted).
+* The response headers (redacted if not in the allow-list).
 * The time period between the first attempt of the request and the first byte of the body.
 
 {% include requirement/MUST id="general-logging-cancellations" %} log an `Informational` message if a service call is cancelled.  The log should include:
