@@ -248,6 +248,98 @@ Although object-orientated languages can eschew low-level pagination APIs in fav
 
 {% include requirement/MUST id="clang-size-of-page" %} indicate in the return type how many items were returned by the service, and have a list of those items for the consumer to iterate over.
 
+## Error handling
+
+Error handling is an important aspect of implementing a client library. It is the primary method by which problems are communicated to the consumer. Because we intend for the C client libraries to be used on a wide range of devices with a wide range of reliability requirements, it's important to provide robust error handling.
+
+We distinguish between several different types of errors:
+
+* Pre-Conditions
+    : Pre-Condition errors occur when a caller violates the expectations of a function, for example by passing an out-of-range value or a null pointer. These are always avoidable by the direct caller, and will always require a source code change (by the caller) to fix.
+* Post-Conditions
+    : Post-Condition violations happen when some function didn't do the correct thing, these are _always_ bugs in the function itself, and users shouldn't be expected to handle them.
+* Exhaustion / Act of God
+    : errors like running out of stack space, or dealing with power failure that, in general, can not be anticipated and after which it may be hard to execute any more code, let alone recover. Code handling these errors needs to be written to *very* specific requirements, for example not doing any allocations and never growing the stack.
+* Recoverable Error
+    : Things like trying to open a file that doesn't exist, or trying to write to a full disk. These kinds of errors can usually be handled by a function's caller directly, and need to be considered by callers that want to be robust.
+
+### Pre-conditions
+
+{% include requirement/SHOULD id="clang-error-prec-contract" %} check preconditions with a contract macro. For example:
+
+{% highlight c %}
+#ifdef INCLUDE_CONTRACTS
+#  define CONTRACT_CHECK(x)                 \
+    do {                                    \
+      if(!(x)) return az_panic_function();	\
+    } while(0);
+#else
+#  define CONTRACT_CHECK(x)
+#endif
+  az_result some_unction(int some_arg) {
+    CONTRACT_CHECK(some_arg > 0);
+  }
+
+{% endhighlight %}
+
+{% include requirement/MUST id="clang-error-prec-panic" %} call a "panic function" on a (checked) precondition failure. This function should be either provided by the user, or marked as a "weak symbol" if supported by the compiler.
+
+For example
+
+{% highlight c %}
+az_result az_panic() {
+  return AZ_RESULT_INVALID_ARGUMENT;
+}
+{% endhighlight %}
+
+{% include requirement/MAY id="clang-error-prec-disablecheck" %} provide an option to disable any checks, and omit checking code from built binaries.
+
+{% include requirement/MUST id="clang-error-prec-document" %} document all function preconditions. For conditions like "not null", a `[not nullable]` annotation is satisfactory.
+
+#### Post Conditions
+
+{% include requirement/SHOULDNOT id="clang-error-postc-check" %} check post-conditions in a way that changes the computational complexity of the function.
+
+{% include requirement/MUST id="clang-error-postc-disablecheck" %} provide a way to disable postcondition checks, and omit checking code from built binaries.
+
+#### Exhaustion / Act of God
+
+{% include requirement/MUSTNOT id="clang-error-exh-return error" %} return an error to the caller.
+
+{% include requirement/MAY id="clang-error-exh-crash" %} crash, if possible.
+
+Note: if your client library needs to be resilient to these kinds of errors you must either provide a fallback system, or construct your code in a way to facilitate proving that such errors can not occur.
+
+#### Recoverable errors
+
+{% include requirement/MUST id="clang-error-recov-reporting" %} report errors via an error code enum. The core library defines such an enum called `az_result`.
+
+For example:
+
+{% highlight c %}
+AZ_NODISCARD az_result az_catherding_count_cats(az_catherding_herd* herd, int* cats) {
+  if(herd->has_shy_cats) {
+    return AZ_RESULT_CATHERDING_HIDING_CATS;
+  }
+  *cats = herd->num_cats;
+  return AZ_RESULT_SUCCESS;
+}
+{% endhighlight %}
+
+{% include requirement/MUST id="clang-error-recov-nodiscard" %} mark all functions returning errors as `AZ_NODISCARD`. This will cause supported compilers to emit a warning if the caller ignores the error code.
+
+{% include requirement/MUST id="clang-error-recov-success" %} return `AZ_RESULT_SUCCESS` from successful functions, unless the function has no error conditions.
+
+{% include requirement/MUST id="clang-error-recov-error" %} produce a recoverable error when any HTTP request fails with an HTTP status code that is not defined by the service/Swagger as a successful status code.
+
+{% include requirement/MUST id="clang-error-recov-document" %} document all recoverable errors each function generates.
+
+#### A Note on Out Of Memory
+
+We all want to be able to handle low memory situations gracefully and effectively, and C is "helpful" in that most memory allocation functions return an error or null pointer if they fail, including in the case of "out of memory". If you need to allocate memory of a dynamic (user specified) size, or of an extremely large size, then failures of that allocation should always be treated as a recoverable error. However, for small, compile-time constant sized allocations the decision of weather to treat a failure as an "Act of God" or a "Recoverable error" is more subtle and should be decided when you start a new library (with Architectural Review Board consultation).
+
+On some platforms, mainly those that overcommit, it's extremely hard to handle OOM gracefully. Additionally, if you are "almost" out of memory and attempt to grow the stack - by calling functions, for example - then the system _MIGHT NOT TELL YOU_ and your program's state will be corrupted. To recover from out of memory errors the program must have bounded stack size and must set the stack size to that bound at the start of the program. Additionally, the library must not allocate on the OOM error handling path. 
+
 ## Long running operations
 
 > TODO: Implement general guidelines for LRO
@@ -258,7 +350,50 @@ Although object-orientated languages can eschew low-level pagination APIs in fav
 
 ## Memory management
 
-> TODO: Discuss memory management from an API design perspective.  This may be covered in the object model below somewhat, but I think an expansive discussion of how we think about memory management is in order.
+{% include requirement/MUST id="clang-design-mm-allocation" %} let the caller allocate memory, then pass a pointer to it to the functions; e.g. `int az_iot_create_client(az_iot_client* client);`. 
+
+The developer could then write code similar to:
+
+{% highlight c %}
+az_iot_client client; /* or allocate dynamically with malloc() if needed */
+
+/* init client, if needed */
+client.id = 0; 
+client.name = NULL;
+
+if (az_iot_create_client(*client) != 0)
+{
+    /* handle error */
+}
+{% endhighlight %}
+
+{% include requirement/SHOULD id="clang-design-mm-allocation2" %} add functions to allocate and free memory. For example:
+
+{% highlight c %}
+/**
+ * @brief   uLib malloc
+ *
+ *  Defines the malloc function that the ulib shall use as its own way to dynamically allocate
+ *      memory from the HEAP. For simplicity, it can be defined as the malloc(size) from the `stdlib.h`.
+ */
+#define AZ_IOT_MALLOC(size)    malloc(size)
+
+/**
+ * @brief   uLib free
+ *
+ *  Defines the free function that the ulib shall use as its own way to release memory dynamic 
+ *      allocated in the HEAP. For simplicity, it can be defined as the free(ptr) from the `stdlib.h`.
+ */
+#define AZ_IOT_FREE(ptr)       free(ptr)
+{% endhighlight %}
+
+> TODO: Should this be in azure core, or specific to a library?
+
+## Secure functions
+
+{% include requirement/SHOULDNOT id="clang-no-ms-secure-functions" %} use [Microsoft security enhanced versions of CRT functions](https://docs.microsoft.com/en-us/cpp/c-runtime-library/security-enhanced-versions-of-crt-functions?view=vs-2019() to implement APIs that need to be portable across many platforms. Such code is not portable and is not C99 compatible. Adding that code to your API will complicate the implementation with little to no gain from the security side. See [arguments against]( http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1967.htm). 
+
+> TODO: Verify with the security team, and what are the alternatives?
 
 ## Object model
 

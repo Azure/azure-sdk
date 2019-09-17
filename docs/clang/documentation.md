@@ -29,7 +29,111 @@ There are several documentation deliverables that must be included in or as a co
 
 As you write your code, *doc it so you never hear about it again.* The less questions you have to answer about your client library, the more time you have to build new features for your service.
 
-> TODO: How to write docstrings
+### Docstrings
+
+{% include requirement/MUST id="clang-docs-doxygen" %} include docstrings compatible with the [doxygen](http://www.doxygen.nl/index.html) tool for generating reference documentation.
+
+For example, a (very) simple docstring might look like:
+{% highlight c %}
+/**
+ *   @struct az_appconf_client
+ *   @brief The az_appconf_client represents the resources required for a connection to
+ *          an Azure AppcConfiguration resource.
+ */
+{% endhighlight %}
+
+{% include requirement/MUST id="clang-docs-doxygen-cmd" %} use doxygen's `@cmd` style docstrings
+
+{% include requirement/MUST id="clang-docs-doxygen-params" %} format parameter documentation like the following:
+
+{% highlight c %}
+/* <....documentation....>
+* \param[<direction>] <param_name> __<additional_annotations>__ description
+* <....documentation....>
+*/
+{% endhighlight %}
+
+`<additional_annotations>` is a space-separated list of the following annotations:
+
+* `[transfer none|full|container]`
+    : indicates who owns a parameter and how that ownership is transferred by a given function
+      each ownership transfer mode is defined below. The recipient of a value is the caller for `[callee allocates]` parameters and the callee for `[caller allocates]` parameters
+* `[transfer none]`
+    : indicates no change in ownership for this parameter. This is sometimes called "borrowing"
+* `[transfer full]`
+    : indicates complete ownership transfer. After a call to the function the recipient (either the caller or the callee) will be
+      responsible for the value. This usually means the recipient will at least need to arrange for any memory referred to by
+      the value to be freed.
+* `[transfer container]`
+    : indicates full ownership transfer for a container value, but not for its contents. For example a char** parameter (that referrers to an array of cstrings)
+      would be annotated as `[transfer container]` if the recipient is expected to free the array, but not free each element therein.
+* `[nullable]`
+    : the parameter may be set to NULL, only valid for pointer parameters/return values. Don't annotate return values or out parameters as `[nullable]`
+      if NULL is used to report errors. If a parameter is marked `[nullable]` document what happens when it is null.
+* `[not nullable]`
+    : The parameter may not be null.
+* `[caller allocates]`
+    : memory for the value is expected to be allocated by the caller. This is the default for `[in]` parameters, and `[out]/[in,out]` parameters
+      that have a single indirection (that is `Foo* p` is `[caller allocates]` but `Foo** p` is not).
+* `[callee allocates]`
+    : memory for the value will be allocated by the callee. This usually means the caller will need to free said memory when it's no longer needed.
+
+For example:
+{% highlight c %}
+/**
+ * @brief execute a blocking get request
+ *	
+ * @memberof az_appconf_client
+ * 
+ * @param[in] client __[transfer none]__
+ * @param[in] path_and_query __[transfer none][not nullable]__ 
+ * 			  The query to execute relative to the base url of the client
+ * @param[out] result __[transfer full][not nullable][callee allocates]__
+ * @param[out] result_sz __[not nullable]__ size of the result
+ */
+az_appconf_err az_appconf_req_get(
+    az_appconf_client* client, const char* path_and_query, unsigned char** result, size_t* result_sz);
+{% endhighlight %}
+
+Here we see that the first two parameters are input parameters, with no ownership transfer (that is, they are a "borrow"). The `result` output parameter is labeled as `[callee allocates]` because it allocates memory for the output parameter itself. Since `result` is owned by the caller after `az_appconf_req_get` returns it's annotated as `[transfer full]`.
+
+The annotations do not require any special doxygen support and are simply convention. 
+
+{% include requirement/MAY id="clang-docs-doxygen-defaults " %} assume the following default annotations:
+
+* `[not nullable]`
+* For `[out]` and `[in,out]` pointer parameters: `[caller allocates][transfer none]`
+* For `[out]` and `[in,out]` pointer-to-pointer parameters: `[callee allocates][transfer full]`
+* for `[in]` parameters: `[caller allocates]` (Note: `[callee allocates]` doesn't make sense for `[in]` parameters)
+
+{% include requirement/MUST id="clang-docs-doxygen-nullable" %} document what happens to parameters that are set to null.
+
+For example:
+
+{% highlight c %}
+/**
+ * @brief get properties of a cat (e.g. hair color, weight, floof)
+ *
+ * @param[in] our_cat __[transfer none]__ the cat to operate on
+ * @param[out] props __[nullable][caller-allocates]__ pointer to an array of num_props, or null
+ * @param[in,out] num_props __[non nullable][caller-allocates]__ pointer to the number of properties to
+ *                                                               retrieve or to a location to store the number of
+ *                                                               properties queried as described below
+ *
+ * If @p props is NULL then return the number of properties available in @p num_props,
+ * otherwise return @p num_props into the array at @p props
+ */
+az_error az_catherding_get_cat_properties(cat* our_cat, cat_properties* props, size_t* num_props);
+{% endhighlight %}
+
+This function returns an array using all caller-allocated memory. In order to figure out the size of the array the caller can pass NULL for the array `[out]` parameter. They can then allocate the required memory and call the function again.
+
+{% include requirement/MUST id="clang-docs-doxygen-ptr-dir" %} provide a `<direction>` for all parameters that are pointers or structs/unions containing a pointer.
+
+> **Note**: 
+> These annotations are derived from [gobject-introspection-annotations](https://wiki.gnome.org/Projects/GObjectIntrospection/Annotations).  It's not a big deal that we use that form, it's just critical that there is a standard way to indicate ownership of reference parameters
+
+{% include requirement/MUST id="clang-docs-doxygen-failure" %} document how your function can fail. For example, if returning an error code, document when each possible code will be returned.
 
 ### Code snippets
 
