@@ -10,33 +10,15 @@ sidebar: clang_sidebar
 
 The API surface of your client library must have the most thought as it is the primary interaction that the consumer has with your service.  
 
-
 ## Namespaces
 
 The C programming language does not have the concept of a namespace.  Instead, a common prefix is used for all structs, variables, and functions within the library.  This allows the developer to easily distinguish between specific libraries.  For example:
 
 {% highlight c %}
-az_keyvault_key *az_keyvault_keyclient_create_key(char *info)
-{
-
-}
-```
-
-```c
-az_eventhub_eph_process_partition(az_eventhub_partition_info *partition_info)
-{
-
-}
-
-void az_iot_credential_init(az_iot_credential *credential)
-{
-    
-}
-
-void az_iot_credential_deinit(az_iot_credential *credential)
-{
-
-}
+az_keyvault_key *az_keyvault_keyclient_create_key(char *info);
+az_eventhub_eph_process_partition(az_eventhub_partition_info *partition_info);
+void az_iot_credential_init(az_iot_credential *credential);
+void az_iot_credential_deinit(az_iot_credential *credential);
 {% endhighlight %}
 
 {% include requirement/MUST id="general-namespaces-shortened-name" %} pick a shortened service name that allows the consumer to tie the package to the service being used.  As a default, use the compressed service name (that is, the service name with all spaces removed and lower-cased).  The namespace does **NOT** change when the branding of the product changes, so avoid the use of marketing names that may change.
@@ -47,19 +29,236 @@ void az_iot_credential_deinit(az_iot_credential *credential)
 
 ## Client interface
 
-## Network requests
+In C, your API surface will consist of one or more _service client initializers_ that the consumer will call to define a connection to your service, plus a set of supporting functions that perform network requests.
 
-## Authentication
+{% include requirement/MUST id="clang-apisurface-serviceclientnaming" %} name the service client initializer `az_shortname_create_client()`.  It should return a type (generally a struct or struct pointer, but it could also be an integer orhandle that you deal with internally) or `NULL` on error.
+
+{% include requirement/MUST id="clang-apisurface-serviceclientclosing" %} allow the consumer to release resources by calling `az_shortname_close_client()`.  This allows the library to manage memory on behalf of the user for the purposes of the client as well.
+
+{% include requirement/MUST id="clang-apisurface-serviceclient-types" %} define a type `az_shortname_client` that represents the response from the service client initializer.
+
+A typical definition might look like:
+
+Header file:
+
+{% highlight c %}
+#ifndef KEYVAULT_CLIENT_H
+#define KEYVAULT_CLIENT_H
+
+typedef struct az_keyvault_client az_keyvault_client;
+typedef struct az_keyvault_client_credentials az_keyvault_client_credentials;
+typedef struct az_keyvault_http_handler_pipeline az_keyvault_http_handler_pipeline;
+
+az_keyvault_client *az_keyvault_create_client();
+void az_keyvault_close_client(az_keyvault_client *client);
+
+
+/* C does not support overloading function names, so we use a different name */
+az_keyvault_client *az_keyvault_create_client_with_credentials(az_keyvault_client_credentials *credentials);
+
+/* Other functions related to kevault client */
+int az_keyvault_client_backup_certificate_With_http_messages(char *vault_base_url, char *certificate_name, char **custom_headers, int headers_count);
+
+/* client used to create other types */
+az_keyvault_http_handler_pipeline *az_keyvault_client_create_http_handler_pipeline(az_http_client_handler *handler);
+void az_keyvault_client_close_http_handler_pipeline(az_keyvault_http_handler_pipeline *handler_pipeline);
+
+#endif /* IOT_CLIENT_API_H */
+{% endhighlight %}
+
+Source file:
+
+{% highlight c %}
+#include <stdbool.h> 
+#include <stddef.h>
+/* for az_http_client_handler*/
+#include "http_client.h"
+#include "keyvault_client.h"
+
+typedef struct az_keyvault_client {
+	char *accept_language;
+	char *api_version;
+	az_keyvault_client_credentials *credentials;
+	bool generate_clientrequest_id;
+	int long_running_operation_retry_timeout;
+	char *vault_without_scheme;
+} az_keyvault_client;
+
+typedef struct az_keyvault_client_credentials {
+	char *version;
+	/* remaining struct members here */
+} az_keyvault_client_credentials;
+
+typedef struct az_keyvault_http_handler_pipeline {
+	char *version;
+	/* remaining struct members here */
+} az_keyvault_http_handler_pipeline;
+
+az_keyvault_client *az_keyvault_create_client() {
+	/* implementation */
+	return NULL;
+}
+
+void az_keyvault_close_client(az_keyvault_client *client)
+{
+	/* implementation */
+}
+
+az_keyvault_client *az_keyvault_create_client_with_credentials(az_keyvault_client_credentials *credentials) {
+	/* implementation */
+	return NULL;
+}
+
+int az_keyvault_client_backup_certificate_With_http_messages(char *vault_base_url, char *certificate_name, char **custom_headers, int headers_count)
+{
+	/* implementation */
+	return 0;
+}
+
+az_keyvault_http_handler_pipeline* az_keyvault_client_create_http_handler_pipeline(az_http_client_handler *handler)
+{
+	/* implementation */
+	return NULL;
+}
+
+void az_keyvault_client_close_http_handler_pipeline(az_keyvault_http_handler_pipeline *handler_pipeline)
+{
+	/* implementation */
+}
+{% endhighlight %}
+
+> TODO:  Please note that in the previous examples, the memory model used is to have it allocated by the callee, rather than the caller. There are different options and this will be discussed further in a separate memory management section.
+
+{% include requirement/MUST id="clang-apisurface-serviceclientconstructor" %} allow the consumer to construct a service client with the minimal information needed to connect and authenticate to the service.
+
+{% include requirement/MUST id="clang-apisurface-standardized-verbs" %} standardize verb prefixes within a set of client libraries for a service.  The service must be able to speak about a specific operation in a cross-language manner within outbound materials (such as documentation, blogs, and public speaking). They cannot do this if the same operation is referred to by different verbs in different languages.  The following verbs are preferred for CRUD operations:
+
+|Verb|Parameters|Returns|Comments|
+|-|-|-|-|
+| az\_\<shortname>\_\<objname>\__insert_\_\<noun>|key, item|Updated or created item|Create new item or update existing item. Verb is primarily used in database-like services |
+| az\_\<shortname>\_\<objname>\__set_\_\<noun>|key, item|Updated or created item|Create new item or update existing item. Verb is primarily used for dictionary-like properties of a service |
+| az\_\<shortname>\_\<objname>\__create_\_\<noun>|key, item|Created item|Create new item. Fails if item already exists. |
+| az\_\<shortname>\_\<objname>\__update_\_\<noun>|key, partial item|Updated item|Fails if item does not exist. |
+| az\_\<shortname>\_\<objname>\__replace_\_\<noun>|key, item|Replace existing item|Completely replaces an existing item. Fails if the item does not exist. |
+| az\_\<shortname>\_\<objname>\__delete_\_\<noun>|key|None|Delete an existing item. Will succeed even if item did not exist. |
+| az\_\<shortname>\_\<objname>\__append_\_\<noun>|item|Appended item|Add item to a collection. Item will be added last. |
+| az\_\<shortname>\_\<objname>\__add_\_\<noun>|index, item|Added item|Add item to a collection. Item will be added on the given position. |
+| az\_\<shortname>\_\<objname>\__remove_\_\<noun>|key|None or removed item|Remove item from a collection. |
+| az\_\<shortname>\_\<objname>\__get_\_\<noun>|key|Item|Will return None if item does not exist |
+| az\_\<shortname>\_\<objname>\__list_\_\<noun>||array of items|Return list of items. Returns empty list if no items exist |
+| az\_\<shortname>\_\<objname>\__exists_\_\<noun>|key|boolean|Return True if the item exists. |
+
+Some examples:
+
+{% highlight c %}
+void az_keyvault_client_delete_key(az_keyvault_client *client, char *vault_base_url, char *key_name);
+void az_keyvault_client_delete_key_async(az_keyvault_client *client, char *vault_base_url, char *key_name, az_keyvault_callback *callback, void *callback_context);
+
+az_keyvault_certificate_bundle *az_keyvault_client_get_certificate(az_keyvault_client *client, char *certtificate_id);
+void az_keyvault_client_get_certificate_async(az_keyvault_client *client, char *certtificate_id, az_keyvault_callback *callback, void *callback_context);
+
+bool az_keyvault_client_exists_key(az_keyvault_client *client, char *key_name);
+{% endhighlight %}
+
+{% include requirement/MUST id="clang-apisurface-lro-initiation" %} use `az_<shortname>_<objname>_begin_<verb>_<noun>` for methods that initiate a long running operation.  For example: `az_storage_blob_begin_copy_from_url()`.
+
+{% include requirement/MUST id="clang-apisurface-supportallfeatures" %} support as close as possible to 100% of the commonly used features provided by the Azure service the client library represents.  Unlike more general purpose object-orientated languages, the scenarios that need to be supported in C are more limited.
+
+### Network requests
+
+Since the client library clangly wraps one or more HTTP requests, it is important to support standard network capabilities.  Asynchronous programming techniques are not widely understood and the low level nature of C provides an indication that consumers may want to manage threads themselves.  Many developers prefer synchronous method calls for their easy semantics when learning how to use a technology.  
+
+{% include requirement/MUST id="clang-apisurface-be-thread-safe" %} be thread-safe.  Individual requests to the service must be able to be placed on separate threads without unintentional problems.
+
+{% include requirement/MUST id="clang-apisurface-syncandasync" %} support both synchronous and asynchronous functions, utilizing `libuv` for async support.  
+
+{% include requirement/MUST id="clang-apisurface-identifyasync" %} ensure that the consumer can easily identify which functions are async and which are synchronous.
+
+When an application makes a network request, the network infrastructure (like routers) and the called service may take a long time to respond and, in fact, may never respond. A well-written application SHOULD NEVER give up its control to the network infrastucture or service. 
+
+{% include requirement/MUST id="clang-apisurface-supportcancellation" %} accept a timeout in milliseconds for each network request.  
+
+{% include requirement/MUSTNOT id="clang-apisurface-no-leaking-implementation" %} leak the underlying protocol transport implementation details to the consumer.  All types from the protocol transport implementation must be appropriately abstracted.
+
+### Authentication
+
+Azure services use a variety of different authentication schemes to allow clients to access the service. Conceptually, there are two entities responsible in this process: a credential and an authentication policy.  Credentials provide confidential authentication data.  Authentication policies use the data provided by a credential to authenticate requests to the service.  
+
+{% include requirement/MUST id="clang-apisurface-support-all-auth-techniques" %} support all authentication techniques that the service supports and are available to a client application (as opposed to service side).  C is used only for client applications when talking to Azure, so some authentication techniques may not be valid.
+
+{% include requirement/MUST id="clang-apisurface-use-azure-core" %} use credential and authentication policy implementations from the Azure Core library where available.
+
+{% include requirement/MUST id="clang-apisurface-prefer-token-auth" %} provide credential types that can be used to fetch all data needed to authenticate a request to the service in a non-blocking atomic manner for each authentication scheme that does not have an implementation in Azure Core.
+
+{% include requirement/MUST id="clang-apisurface-auth-in-constructors" %} provide service client constructors or factories that accept any supported authentication credentials.
+
+Client libraries may support providing credential data via a connection string __ONLY IF__ the service provides a connection string to users via the portal or other tooling. 
+
+{% include requirement/MUSTNOT id="clang-apisurface-no-connection-strings" %} support constructing a service client with a connection string unless such connection string is available within tooling (for copy/paste operations).
 
 ## Response formats
 
+Requests to the service fall into two basic groups - methods that make a single logical request, or a deterministic sequence of requests.  An example of a *single logical request* is a request that may be retried inside the operation.  An example of a *deterministic sequence of requests* is a paged operation.
+
+The *logical entity* is a protocol neutral representation of a response. For HTTP, the logical entity may combine data from headers, body and the status line. A common example is exposing an ETag header as a property on the logical entity in addition to any deserialized content from the body.
+
+{% include requirement/MUST id="clang-return-logical-entities" %} optimize for returning the logical entity for a given request. The logical entity MUST represent the information needed in the 99%+ case.
+
+{% include requirement/MUST id="clang-return-expose-raw" %} *make it possible* for a developer to get access to the complete response, including the status line, headers and body. The client library MUST follow the language specific guidance for accomplishing this.
+
+For example, you may choose to do something similar to the following:
+
+{% highlight c %}
+typedef struct az_json_short_item {
+    // JSON decoded structure.
+} az_json_short_item;
+
+typedef struct az_json_short_paged_results {
+    uint32 size;
+    az_json_short_item *items;
+} az_json_short_paged_results;
+
+
+typedef struct az_json_short_raw_paged_results {
+    HTTP_HEADERS *headers;
+    uint16 status_code;
+    byte *raw_body;
+    az_json_short_paged_results* results;
+} az_json_short_raw_paged_results;
+
+az_json_short_paged_results* az_json_get_short_list_items(client, /* extra params */);
+az_json_short_raw_paged_results* az_json_get_short_list_items_with_response(client, /* extra params */);
+{% endhighlight %}
+
+{% include requirement/MUST id="clang-return-document-raw-stream" %} document and provide examples on how to access the raw and streamed response for a given request, where exposed by the client library.  We do not expect all methods to expose a streamed response.
+
+For methods that combine multiple requests into a single call:
+
+{% include requirement/MUSTNOT id="clang-return-no-headers-if-confusing" %} return headers and other per-request metadata unless it is obvious as to which specific HTTP request the methods return value corresponds to.
+
+{% include requirement/MUST id="clang-expose-data-for-composite-failures" %} provide enough information in failure cases for an application to take appropriate corrective action.
+
 ## Pagination
+
+Although object-orientated languages can eschew low-level pagination APIs in favor of high-level abstractions, C acts as a lower level language and thus embraces pagination APIs provided by the service.  You should work within the confines of the paging system provided by the service.
+
+{% include requirement/MUST id="clang-pagination-use-paging" %} export the same paging API as the service provides.
+
+{% include requirement/MUST id="clang-last-page" %} indicate in the return type if the consumer has reached the end of the result set.
+
+{% include requirement/MUST id="clang-size-of-page" %} indicate in the return type how many items were returned by the service, and have a list of those items for the consumer to iterate over.
 
 ## Long running operations
 
+> TODO: Implement general guidelines for LRO
+
 ## Support for non-HTTP protocols
 
+> TODO: Implement gneral guidelines for non-HTTP protocols
+
 ## Memory management
+
+> TODO: Discuss memory management from an API design perspective.  This may be covered in the object model below somewhat, but I think an expansive discussion of how we think about memory management is in order.
 
 ## Object model
 
