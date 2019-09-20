@@ -60,10 +60,6 @@ The guidelines provide a robust methodology for communicating with Azure service
 
 The pipeline can be found in the [Azure.Core] package, and it takes care of many [General Azure SDK Guidelines][general-guidelines]. Details of the pipeline design and usage are described in section [Using HttpPipeline](#dotnet-usage-httppipeline) below. If you can't use the pipeline, you must implement [all the general requirements of Azure SDK]({{ "/general_azurecore.html" | relative_url }}) manually.
 
-{% include requirement/MUSTNOT id="dotnet-general-parameter-validation" %} define your own parameter validation class.
-
-Use the `Argument` class in Azure.Core or even "extend" it (it's a partial class included as source) with project-specific argument assertions. See remarks on the `Argument` class for more information.
-
 # API Design {#dotnet-api}
 
 ## Service Client Design {#dotnet-client}
@@ -926,10 +922,4 @@ Some .NET Design Guidelines have been notoriously overlooked in existing Azure S
 <!-- Links -->
 
 {% include refs.md %}
-[.NET Framework Design Guidelines]: https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/
-[Azure Application Configuration service]: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/appconfiguration/Azure.ApplicationModel.Configuration
-[Azure.Core]: https://www.nuget.org/packages/Azure.Core/
-[Moq]: https://github.com/moq/moq4
-[adparch]: https://github.com/azure/azure-sdk/issues
-[.NET Standard 2.0]: https://github.com/dotnet/standard/blob/master/docs/versions/netstandard2.0.md
-[azure/azure-sdk-for-net]: https://github.com/azure/azure-sdk-for-net
+{% include_relative refs.md %}
