@@ -29,8 +29,34 @@ See remarks on the `Argument` class for more detail.
 
 {% include requirement/MAY id="dotnet-tracing-eventsource" %} use `EventSource` to produce diagnostic events.
 
+{% include requirement/MUST id="dotnet-tracing-eventsource-single" %} have a single `EventSource` type per library.
+
+{% include requirement/MUST id="dotnet-tracing-eventsource-internal" %} define `EventSource` class as `internal sealed`.
 
 
+{% include requirement/MUST id="dotnet-tracing-eventsource-singleton" %} define and use a singleton instance of `EventSource`:
+
+{% include requirement/MUST id="dotnet-tracing-eventsource-traits" %} define `AzureEventSource` trait with value `true` (you can use `AzureEventSourceListener.TraitName` `AzureEventSourceListener.TraitValue` constants):
+
+{% include requirement/MUST id="dotnet-tracing-eventsource-name" %} set `EventSource` name to package name replacing `.` with `-` (i.e. . `Azure-Core` for `Azure.Core` package)
+
+{% include requirement/MUST id="dotnet-tracing-eventsource-event-message" %} have `Message` set for all events.
+
+{% include requirement/MUST id="dotnet-tracing-eventsource-public-api" %} treat `EventSource` name, guid, event id and parameters as public API and follow the appropriate versioning rules.
+
+{% include requirement/SHOULD id="dotnet-tracing-eventsource-is-enabled" %} check IsEnabled property before doing expensive work (formatting parameters, calling ToString, etc.)
+
+``` C#
+[EventSource(Name = EventSourceName)]
+internal sealed class AzureCoreEventSource : EventSource
+{
+    private const string EventSourceName = "Azure-Core";
+    
+    public static AzureCoreEventSource Shared { get; } = new AzureCoreEventSource();
+    
+    private AzureCoreEventSource() : base(EventSourceName, EventSourceSettings.Default, AzureEventSourceListener.TraitName, AzureEventSourceListener.TraitValue) { }
+}
+```
 
 <!-- Links -->
 
