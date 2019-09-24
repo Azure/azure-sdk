@@ -194,7 +194,7 @@ dependency.
 - **Size** - Consumer applications must be able to deploy as fast as possible into the cloud and move in various ways across networks. Removing additional code (like dependencies) improves deployment performance.
 - **Licensing** - You must be conscious of the licensing restrictions of a dependency and often provide proper attribution and notices when using them.
 - **Compatibility** - Often times you do not control a dependency and it may choose to evolve in a direction that is incompatible with your original use.
-- **Security** - If a security vulnerability is discovered in a dependency, it may be difficult ortime consuming to get the vulnerability corrected if Microsoft does not control the dependencys code base.
+- **Security** - If a security vulnerability is discovered in a dependency, it may be difficult or time consuming to get the vulnerability corrected if Microsoft does not control the dependency's code base.
 
 {% include requirement/MUST id="general-dependencies-azure-core" %} depend on the Azure Core library for functionality that is common across all client libraries.  This library includes APIs for HTTP connectivity, global configuration, and credential handling.
 
