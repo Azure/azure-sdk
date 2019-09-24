@@ -29,6 +29,8 @@ See remarks on the `Argument` class for more detail.
 
 {% include requirement/MAY id="dotnet-tracing-eventsource" %} use `EventSource` to produce diagnostic events.
 
+{% include requirement/MUST id="dotnet-tracing-eventsource-logging-guidelines" %} follow the logging guidelines when implementing an `EventSource`.
+
 {% include requirement/MUST id="dotnet-tracing-eventsource-single" %} have a single `EventSource` type per library.
 
 {% include requirement/MUST id="dotnet-tracing-eventsource-internal" %} define `EventSource` class as `internal sealed`.
@@ -49,6 +51,12 @@ See remarks on the `Argument` class for more detail.
 
 {% include requirement/MUST id="dotnet-tracing-eventsource-test" %} have a test that asserts `EventSource` name, guid and generates the manifest to verify that event source is correctly defined.
 
+{% include requirement/MUST id="dotnet-tracing-eventsource-test-events" %} test that expected events are produced when appropriate. `TestEventListener` class can be used to collect events. Make sure you mark the test as `[NonParallelizable]`.
+
+{% include requirement/SHOULD id="dotnet-tracing-eventsource-thrown-exceptions" %} avoid logging exceptions that are going to get thrown to user code anyway.
+
+{% include requirement/SHOULD id="dotnet-tracing-eventsource-event-size-limit" %} be aware of event size limit of 64K.
+
 ```
 [Test]
 public void MatchesNameAndGuid()
@@ -58,7 +66,7 @@ public void MatchesNameAndGuid()
 
     // Assert
     Assert.NotNull(eventSourceType);
-    Assert.AreEqual("Azure.Core", EventSource.GetName(eventSourceType));
+    Assert.AreEqual("Azure-Core", EventSource.GetName(eventSourceType));
     Assert.AreEqual(Guid.Parse("1015ab6c-4cd8-53d6-aec3-9b937011fa95"), EventSource.GetGuid(eventSourceType));
     Assert.IsNotEmpty(EventSource.GenerateManifest(eventSourceType, "assemblyPathToIncludeInManifest"));
 }
@@ -67,6 +75,7 @@ public void MatchesNameAndGuid()
 Sample `EventSource` declaration:
 
 ``` C#
+
 [EventSource(Name = EventSourceName)]
 internal sealed class AzureCoreEventSource : EventSource
 {
@@ -74,7 +83,7 @@ internal sealed class AzureCoreEventSource : EventSource
     
     // Having event ids defined as const makes it easy to keep track of them
     private const int MessageSentEventId = 0;
-    
+    private const int ClientClosingEventId = 1;
     
     public static AzureCoreEventSource Shared { get; } = new AzureCoreEventSource();
     
@@ -90,11 +99,19 @@ internal sealed class AzureCoreEventSource : EventSource
         }
     }
     
-    [Event(Id = MessageSentEventId, Level = EventLevel.Informational, Message = "Client {0} sent message with body '{1}'")]
+    // In this example we don't do any expensive parameter formatting so we can avoid extra method and IsEnabled check
+    
+    [Event(ClientClosingEventId, Level = EventLevel.Informational, Message = "Client {0} is closing the connection.")]
+    public void ClientClosing(string clientId)
+    {
+        WriteEvent(ClientClosingEventId, clientId);
+    }
+    
+    [Event(MessageSentEventId, Level = EventLevel.Informational, Message = "Client {0} sent message with body '{1}'")]
     private void MessageSent(string clientId, string messageBody)
     {
-        WriteEvent(clientId, messageBody);
-    }
+        WriteEvent(MessageSentEventId, clientId, messageBody);
+    }    
 }
 ```
 
