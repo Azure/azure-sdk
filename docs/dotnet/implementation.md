@@ -25,6 +25,13 @@ Just add the following to your project to include it:
 
 See remarks on the `Argument` class for more detail.
 
+## EventSource
+
+{% include requirement/MAY id="dotnet-tracing-eventsource" %} use `EventSource` to produce diagnostic events.
+
+
+
+
 <!-- Links -->
 
 {% include refs.md %}
