@@ -130,6 +130,43 @@ Client libraries may support providing credential data via a connection string _
 
 {% include requirement/MUSTNOT id="general-auth-connection-strings" %} support constructing a service client with a connection string unless such connection string is available within tooling (for copy/paste operations).
 
+## Conditional requests
+
+Conditional requests are normally performed using HTTP headers that match the `ETag` to some known value.  For example, adding the following header will translate to "if the record has not been modified since the specified version".
+
+{% highlight text %}
+If-Not-Match: "etag-value"
+{% endhighlight %}
+
+With headers, tests are possible for the following:
+
+* Unconditionally
+* If (not) modified since a version
+* If (not) modified since a date
+* If (not) present
+
+Not all services support all of these semantics, and may not support any of them.  Developers have varying levels of understanding of the `ETag` and conditional requests, so it is best to abstract this concept from the API surface.
+
+To do this, use the general form (modified for idiomatic usage):
+
+{% highlight text %}
+client.<method>(<item>, conditions)
+{% endhighlight %}
+
+For example, it is common to use a conditional get operation to handle caching situations (get the item, but only if not modified since the last time a synchronization was performed).  In this case, you might write the following:
+
+{% highlight javascript %}
+var item = await client.getItem(oldItem, MatchConditions.IfNotModified)
+{% endhighlight %}
+
+Here, the `oldItem` model contains a reference to the `ETag` value.
+
+{% requirement/SHOULD id="general-etag-match-conditions" %} add idiomatic overloads for conditional methods that take a `conditions` parameter to define the match condition.
+
+{% requirement/SHOULD id="general-etag-match-conditions-store" %} use the `ETag` value within the item model for conditional matches.  Developers should not have to store or specify the `ETag` value except in rare (and advanced) circumstances.
+
+> **TO DO**: Add requirements on how to handle return values for conditional return values, like 304 Not Modified.
+
 ## Response formats
 
 Requests to the service fall into two basic groups - methods that make a single logical request, or a deterministic sequence of requests.  An example of a *single logical request* is a request that may be retried inside the operation.  An example of a *deterministic sequence of requests* is a paged operation.
