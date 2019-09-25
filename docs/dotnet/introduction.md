@@ -400,7 +400,7 @@ public abstract class Operation<T>
 
     public ValueTask<Response<T>> WaitAsync(CancellationToken cancellationToken = default);
 
-    public Response GetRawResponse(); 
+    public Response GetRawResponse();
     public T Value; // throws if CachedStatus != Succeeded
     public OperationStatus CachedStatus;
 
@@ -540,6 +540,14 @@ Credentials passed to the constructors must be read before every request (for ex
 
 Don't ask users to compose connection strings manually if they aren't available through the Azure portal. Connection strings are immutable.  It's impossible for an application to roll over credentials when using connection strings.
 
+### Enumerations
+
+{% include requirement/MUST id="dotnet-enums" %} use an `enum` for parameters, properties, and return types when values are known.
+
+{% include requirement/MAY id="dotnet-enums-exception" %} use a `readonly struct` in place of an `enum` that declares well-known fields but can contain unknown values returned from the service, or user-defined values passed to the service.
+
+See [enumeration-like structure documentation](implementation.md#dotnet-enums) for implementation details.
+
 ## General Azure SDK Library Design
 
 ### Namespace Naming {#dotnet-namespace-naming}
@@ -606,9 +614,9 @@ Don't introduce new exception types unless there's a programmatic scenario for h
 
 ### Logging
 
-Request logging will be done automatically by the `HttpPipeline`.  If a client library needs to add custom logging, follow the [same guidelines]{{ site.baseurl }}/general_implementation.html#general-logging) and mechanisms as the pipeline logging mechanism.  If a client library wants to do custom logging, the designer of the library must ensure that the logging mechanism is pluggable in the same way as the `HttpPipeline` logging policy.
+Request logging will be done automatically by the `HttpPipeline`.  If a client library needs to add custom logging, follow the [same guidelines](../implementation.md#general-logging) and mechanisms as the pipeline logging mechanism.  If a client library wants to do custom logging, the designer of the library must ensure that the logging mechanism is pluggable in the same way as the `HttpPipeline` logging policy.
 
-{% include requirement/MUST id="dotnet-logging-follow-guidelines" %} follow [the logging section of the Azure SDK General Guidelines]({{ site.baseurl }}/general_implementation.html#general-logging) if logging directly (as opposed to through the `HttpPipeline`).
+{% include requirement/MUST id="dotnet-logging-follow-guidelines" %} follow [the logging section of the Azure SDK General Guidelines](../implementation.md#general-logging) if logging directly (as opposed to through the `HttpPipeline`).
 
 #### Distributed Tracing {#dotnet-distributedtracing}
 
