@@ -143,7 +143,7 @@ This function returns an array using all caller-allocated memory. In order to fi
 
 {% include requirement/MUST id="clang-docs-snippets-in-docstrings" %} include the example code snippets in your library's docstrings so they appear in its API reference. If the language and its tools support it, ingest these snippets directly into the API reference from within the docstrings. 
 
-For example consider a function called `az_do_something_or_other`:
+For example, consider a function called `az_do_something_or_other`:
 {% highlight c %}
 /** 
  * @brief some structure type
@@ -158,7 +158,7 @@ typedef struct az_some_struct {
  */
 void az_do_something_or_other(az_some_struct* s);
 {% endhighlight %}
-and an example for it's usage `example/example_1.c` that looks like the following:
+It can be used as follows:
 {% highlight c %}
 /**
  * @example example_1.c
@@ -169,14 +169,13 @@ int main() {
     return 1;
 }
 {% endhighlight %}
-when doxygen processes these files it will see the `@example` command in example_1.c and 
+When doxygen processes these files, it will see the `@example` command in example_1.c and 
 add it to the "examples" section of the documentation, it will also see the usage of
 `az_some_struct` in the example and add a link from the documentation of `az_some_struct` to the
 documentation (including source code) for `example_1.c`.
 
-If you'd like to include a source code example directly in the documentation for a struct or function
-you should use the `@include` or `@snippet` commands. Usually `@snippet` is better. For example the above
-example could be written as:
+Use `@include` or `@snippet` to include examples directly in the documentation for a function or structure. 
+For example:
 
 {% highlight c %}
 /** 
@@ -193,7 +192,7 @@ typedef struct az_some_struct {
  */
 void az_do_something_or_other(az_some_struct* s);
 {% endhighlight %}
-and an example for it's usage `example/example_1.c` that looks like the following:
+It can be used as follows:
 {% highlight c %}
 /**
  * @example example_1.c
@@ -208,7 +207,16 @@ int main() {
 {% endhighlight %}
 
 Note that automatic links from documentation to examples will only be generated in struct documentation,
-not in function documentation. To force their generation you can use the `@dontinclude` command.
+not in function documentation. To generate a link from a function's documentation to an example use `@dontinclude`. For example:
+
+{% highlight c %}
+/**
+ * @brief do something, or maybe do some other thing
+ * @memberof az_some_struct
+ * @dontinclude example_1.c
+ */
+void az_do_something_or_other(az_some_struct* s);
+{% endhighlight %}
 
 {% include requirement/MUSTNOT id="clang-docs-operation-combinations" %} combine more than one operation in a code snippet unless it's required for demonstrating the type or member, or it's *in addition to* existing snippets that demonstrate atomic operations. For example, a Cosmos DB code snippet should not include both account and container creation operations--create two different snippets, one for account creation, and one for container creation.
 
