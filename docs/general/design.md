@@ -130,43 +130,6 @@ Client libraries may support providing credential data via a connection string _
 
 {% include requirement/MUSTNOT id="general-auth-connection-strings" %} support constructing a service client with a connection string unless such connection string is available within tooling (for copy/paste operations).
 
-## Conditional requests
-
-Conditional requests are normally performed using HTTP headers that match the `ETag` to some known value.  For example, adding the following header will translate to "if the record has not been modified since the specified version".
-
-{% highlight text %}
-If-Not-Match: "etag-value"
-{% endhighlight %}
-
-With headers, tests are possible for the following:
-
-* Unconditionally
-* If (not) modified since a version
-* If (not) modified since a date
-* If (not) present
-
-Not all services support all of these semantics, and may not support any of them.  Developers have varying levels of understanding of the `ETag` and conditional requests, so it is best to abstract this concept from the API surface.
-
-To do this, use the general form (modified for idiomatic usage):
-
-{% highlight text %}
-client.<method>(<item>, conditions)
-{% endhighlight %}
-
-For example, it is common to use a conditional get operation to handle caching situations (get the item, but only if not modified since the last time a synchronization was performed).  In this case, you might write the following:
-
-{% highlight javascript %}
-var item = await client.getItem(oldItem, MatchConditions.IfNotModified)
-{% endhighlight %}
-
-Here, the `oldItem` model contains a reference to the `ETag` value.
-
-{% requirement/SHOULD id="general-etag-match-conditions" %} add idiomatic overloads for conditional methods that take a `conditions` parameter to define the match condition.
-
-{% requirement/SHOULD id="general-etag-match-conditions-store" %} use the `ETag` value within the item model for conditional matches.  Developers should not have to store or specify the `ETag` value except in rare (and advanced) circumstances.
-
-> **TO DO**: Add requirements on how to handle return values for conditional return values, like 304 Not Modified.
-
 ## Response formats
 
 Requests to the service fall into two basic groups - methods that make a single logical request, or a deterministic sequence of requests.  An example of a *single logical request* is a request that may be retried inside the operation.  An example of a *deterministic sequence of requests* is a paged operation.
@@ -210,6 +173,65 @@ For methods that combine multiple requests into a single call:
 - `value`
 
 Such usage can cause confusion and will inevitably have to be changed on a per-language basis, which can cause consistency problems.
+
+## Conditional requests
+
+[Conditional requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Conditional_requests) are normally performed using HTTP headers that match the `ETag` to some known value.  For example, adding the following header will translate to "if the record has not been modified since the specified version".
+
+{% highlight text %}
+If-Not-Match: "etag-value"
+{% endhighlight %}
+
+With headers, tests are possible for the following:
+
+* Unconditionally
+* If (not) modified since a version
+* If (not) modified since a date
+* If (not) present
+
+Not all services support all of these semantics, and may not support any of them.  Developers have varying levels of understanding of the `ETag` and conditional requests, so it is best to abstract this concept from the API surface.  There are two types of conditional requests we need to be concerned with:
+
+**Safe conditional requests** (e.g. GET)
+
+These are typically used to save bandwidth in an "update cache" scenario, i.e. I have a cached value, only send me the data if what the service has is newer than my copy. These return either a 200 or a 304 status code, indicating the value was not modified, which tells the caller that their cached value is up to date.
+
+**Unsafe conditional requests** (e.g. POST, PUT, or DELETE)
+
+These are typically used to prevent losing updates in an optimistic concurrency scenario, i.e. I've modified the cached value I'm holding, but don't update the service version unless it hass the same copy I've got. These return either a success or a 412 error status code, indicating the value was modified, to indicate to the caller that they'll need to retry their update if they want it to succeed.
+
+These two cases are handled differently in client libraries.  However, the form of the call is the same in both cases.  The signature of the method should be:
+
+{% highlight text %}
+client.<method>(<item>, conditions)
+{% endhighlight %}
+
+For example, it is common to use a conditional get operation to handle caching situations (get the item, but only if not modified since the last time a synchronization was performed).  In this case, you might write the following:
+
+{% highlight javascript %}
+var item = await client.getItem(oldItem, conditions = MatchConditions.IfNotModified)
+{% endhighlight %}
+
+Here, the `oldItem` model contains a reference to the `ETag` value.  The form of the method will be modified based on idiomatic usage patterns in the language of choice.  In cases where the `ETag` value is not known, the operation cannot be conditional.
+
+In addition to the `MatchConditions` enumerated type, the library developer can add a boolean operator that is set to `true` to establish the condition.  For example, use one of the following boolean names instead of the `conditions` operator:
+
+* `onlyIfMatches` 
+* `onlyIfNotPresent`
+* `onlyIfPresent`
+
+In all cases, the conditional expression is "opt-in".
+
+The return value from a conditional operation must be carefully considered.  For safe operators (e.g. GET), return the original value as you normally would from a non-conditional operation if a `Not Modified` result is received.  For unsafe operators (e.g. PUT, DELETE, or POST), throw a specific error when a `Precondition Failed` or `Conflict` result is received.  This allows the consumer to do something different in the case of conflicting results.
+
+{% include requirement/SHOULD %} accept a `conditions` parameters (which takes an enumerated type) on service methods that allow a conditional check on the service. 
+
+{% include requirement/MUST %} include the `ETag` field as part of the object model when conditional operations are supported.
+
+{% include requirement/SHOULD %} accept additional boolean parameters on service methods as necessary to enable conditional checks on the service.
+
+{% include requirement/SHOULD %} return the original object when a `304 Not Modified` response is received from the service due to a conditional check.
+
+{% include requirement/SHOULD %} throw a distinct error when a `412 Precondition Failed` response or a `409 Conflict` response is received from the service due to a conditional check.
 
 ## Pagination
 
