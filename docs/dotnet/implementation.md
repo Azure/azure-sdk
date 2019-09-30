@@ -29,7 +29,17 @@ See remarks on the `Argument` class for more detail.
 
 As described in [general enumeration guidelines](introduction.md#dotnet-enums), you should use `enum` types whenever passing or deserializing a well-known set of values to or from the service.
 There may be times, however, where a `readonly struct` is necessary to capture an extensible value from the service even if well-known values are defined,
-or to pass back to the service those same or other user-supplied values. In those cases, you should define a structure that adheres to the following example:
+or to pass back to the service those same or other user-supplied values. In those cases, you should define a structure that:
+
+1. Is `readonly`.
+2. Stores only the string value.
+3. Defines `readonly static` fields with well-known values.
+4. Defines equality, inequality, and an implicit cast-from-string operators.
+5. Overrides `Equals`, `GetHashCode`, and `ToString` methods.
+6. `Equals(object)` and `GetHashCode` should be attributed with `EditorBrowsable(EditorBrowsableState.Never)`.
+7. Implements `IEquatable<T>` that compares only the string value.
+
+The following example implements these requirements and may be used as a template:
 
 ```csharp
 public readonly struct Example : IEquatable<Example>
@@ -39,7 +49,7 @@ public readonly struct Example : IEquatable<Example>
     /// <summary>
     /// Initializes a new instance of the <see cref="Example"/> structure.
     /// </summary>
-    /// <param name="value"></param>
+    /// <param name="value">The string value of the instance.</param>
     public Example(string value)
     {
         _value = value ?? throw new ArgumentNullException(nameof(value));
