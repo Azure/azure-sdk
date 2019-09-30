@@ -63,6 +63,20 @@ Here are some namespaces that do not meet the guidelines:
 
 CheckStyle checks ensure that classes within an `implementation` package aren't exposed through public API.
 
+### Modules
+
+Java 9 and later support the notion of a module. A module *exports* certain packages, and *requires* other modules. Any package that is exported can be used by other modules, and anything that is not exported is invisible at compile and run times. This is a far stronger form of encapsulation than has existed previously for Java. For the Azure SDK for Java, a client library will be repesented as one or more modules.
+
+{% include requirement/MUST id="java-module-info" %} include a `module-info.java` file for each module you ship. An introduction to Java modules is [available online](https://www.oracle.com/corporate/features/understanding-java-9-modules.html).
+
+{% include requirement/MUST id="java-module-name" %} name your module based on the root package of the client library it represents. For example, `com.azure.core` or `com.azure.storage.blob`.
+
+{% include requirement/MUST id="java-module-requires" %} require only the minimum set of modules relevant for the module being developed.
+
+{% include requirement/MUST id="java-module-exports" %} export only packages that are considered public API. In particular, do **not** export packages that are in the `implementation` package namespace, as these, by convention, are not intended for public use.
+
+{% include requirement/MUSTNOT id="java-module-split-packages" %} have the same package in multiple modules. That is, do not have `com.azure.storage.blob` in module `com.azure.storage.blob` and in module `com.azure.storage.blob.extras`. It is however allowed to have different packages with common parent packages split across different modules. For example, a package named `com.azure.storage` can be in one module, and `com.azure.storage.blob` can be in another.
+
 ## Client interface
 
 Your API surface consists of one or more _service clients_ that the consumer will instantiate to connect to your service, plus a set of supporting types.
@@ -555,6 +569,19 @@ Don't offer builder or fluent APIs for supporting classes such as custom excepti
 
 {% include requirement/MUSTNOT id="java-support-builder" %} provide a builder class.
 
+## Naming Patterns
+
+Using a consistent set of naming patterns across all client libraries will ensure a consistent and more intuitive developer experience. This section outlines good practices for naming that must be followed by all client libraries.
+
+{% include requirement/MUST id="java-naming-succinct" %} prefer succinctness over verbosity, except when readability is impacted. A few examples include:
+
+* A method called `getName()` is short, but may leave some doubt in the users mind about which name is being represented. Instead, naming this method `getLinkName()` will remove all doubt from the users mind, and without substantial additional verbosity.
+* A class may want to return an identifier to a user. There is no additional value in the fully-qualified `getIdentifier()` compared with the shorter and equally-descriptive `getId()`.
+
+{% include requirement/MUSTNOT id="java-naming-uppercase-acronyms" %} fully uppercase acronyms. APIs must take the form of `getHttpConnection()` or `getUrlName()` rather than `getHTTPConnection()` or `getURLName()`.
+
+{% include requirement/MUST id="java-naming-service-acronyns" %} use service-specific acronyms sparingly in API. Whereas most users will accept a method including `Http` or `Url` in the name, most users will not know what `Sas` or `Cpk` mean. Where possible (without breaking the succinctness over verbosity requirement above), expansion of acronyms, or at the very least sufficient documentation at class and method levels to describe the acronym, must be considered.
+
 ## Annotations
 
 A number of annotations are defined in the Azure core library. A few annotations enable runtime functionality.  Most of the annotations are used as part of the [Azure Java SDK code linting tools](#java-tooling).
@@ -562,7 +589,6 @@ A number of annotations are defined in the Azure core library. A few annotations
 {% include requirement/MUST id="java-annotations-azure-core" %} use the Azure core library annotations outlined below in all applicable places. Use annotations eagerly as part of the initial code design.  The code linters will ensure continued conformance to some of the rules outlined in this specification.
 
 {% include requirement/MUSTNOT id="java-annotations-format" %} include spaces in annotation string values, unless the description below states it's allowed.
-
 
 ### Service interface
 
