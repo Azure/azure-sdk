@@ -176,7 +176,7 @@ Such usage can cause confusion and will inevitably have to be changed on a per-l
 
 ## Conditional requests
 
-[Conditional requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Conditional_requests) are normally performed using HTTP headers that match the `ETag` to some known value.  For example, adding the following header will translate to "if the record has not been modified since the specified version".
+[Conditional requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Conditional_requests) are normally performed using HTTP headers.  The primary usage provides headers that match the `ETag` to some known value.  The `ETag` is a blob value that represents a single version of a resource. For example, adding the following header will translate to "if the record's version, specified by the `ETag`, is not the same".
 
 {% highlight text %}
 If-Not-Match: "etag-value"
@@ -184,10 +184,10 @@ If-Not-Match: "etag-value"
 
 With headers, tests are possible for the following:
 
-* Unconditionally
-* If (not) modified since a version
-* If (not) modified since a date
-* If (not) present
+* Unconditionally (no additional headers)
+* If (not) modified since a version (`If-Match` and `If-Not-Match`)
+* If (not) modified since a date (`If-Updated-Since` and `If-Not-Updated-Since`)
+* If (not) present (`If-Match` and `If-Not-Match` with a `*` check)
 
 Not all services support all of these semantics, and may not support any of them.  Developers have varying levels of understanding of the `ETag` and conditional requests, so it is best to abstract this concept from the API surface.  There are two types of conditional requests we need to be concerned with:
 
@@ -197,31 +197,26 @@ These are typically used to save bandwidth in an "update cache" scenario, i.e. I
 
 **Unsafe conditional requests** (e.g. POST, PUT, or DELETE)
 
-These are typically used to prevent losing updates in an optimistic concurrency scenario, i.e. I've modified the cached value I'm holding, but don't update the service version unless it hass the same copy I've got. These return either a success or a 412 error status code, indicating the value was modified, to indicate to the caller that they'll need to retry their update if they want it to succeed.
+These are typically used to prevent losing updates in an optimistic concurrency scenario, i.e. I've modified the cached value I'm holding, but don't update the service version unless it has the same copy I've got. These return either a success or a 412 error status code, indicating the value was modified, to indicate to the caller that they'll need to retry their update if they want it to succeed.
 
 These two cases are handled differently in client libraries.  However, the form of the call is the same in both cases.  The signature of the method should be:
 
 {% highlight text %}
-client.<method>(<item>, conditions)
+client.<method>(<item>, requestOptions)
 {% endhighlight %}
 
-For example, it is common to use a conditional get operation to handle caching situations (get the item, but only if not modified since the last time a synchronization was performed).  In this case, you might write the following:
+The `requestOptions` field is a type `HttpRequestOptions` in typed languages that provides additional options (such as additional headers) to the HTTP requres.   Where possible, the `ETag` value will be retrieved from the old items that is passed into the method.  The form of the method will be modified based on idiomatic usage patterns in the language of choice.  In cases where the `ETag` value is not known, the operation cannot be conditional.
 
-{% highlight javascript %}
-var item = await client.getItem(oldItem, conditions = MatchConditions.IfNotModified)
-{% endhighlight %}
+The library developer can add a boolean operator that is set to `true` to establish the condition.  For example, use one of the following boolean names instead of the `conditions` operator:
 
-Here, the `oldItem` model contains a reference to the `ETag` value.  The form of the method will be modified based on idiomatic usage patterns in the language of choice.  In cases where the `ETag` value is not known, the operation cannot be conditional.
-
-In addition to the `MatchConditions` enumerated type, the library developer can add a boolean operator that is set to `true` to establish the condition.  For example, use one of the following boolean names instead of the `conditions` operator:
-
-* `onlyIfMatches` 
+* `onlyIfChanged` 
+* `onlyIfUnchanged`
 * `onlyIfNotPresent`
 * `onlyIfPresent`
 
 In all cases, the conditional expression is "opt-in".
 
-The return value from a conditional operation must be carefully considered.  For safe operators (e.g. GET), return the original value as you normally would from a non-conditional operation if a `Not Modified` result is received.  For unsafe operators (e.g. PUT, DELETE, or POST), throw a specific error when a `Precondition Failed` or `Conflict` result is received.  This allows the consumer to do something different in the case of conflicting results.
+The return value from a conditional operation must be carefully considered.  For safe operators (e.g. GET), return a `Response<T>` from the conditional request.  However, throw an error if the `Value` is accessed, since there is no value in the body to reference.  For unsafe operators (e.g. PUT, DELETE, or POST), throw a specific error when a `Precondition Failed` or `Conflict` result is received.  This allows the consumer to do something different in the case of conflicting results.
 
 {% include requirement/SHOULD %} accept a `conditions` parameters (which takes an enumerated type) on service methods that allow a conditional check on the service. 
 
@@ -229,7 +224,7 @@ The return value from a conditional operation must be carefully considered.  For
 
 {% include requirement/SHOULD %} accept additional boolean parameters on service methods as necessary to enable conditional checks on the service.
 
-{% include requirement/SHOULD %} return the original object when a `304 Not Modified` response is received from the service due to a conditional check.
+{% include requirement/SHOULD %} return a `Response<T>` when a `304 Not Modified` response is received from the service due to a conditional check.  If the value of such a response is accessed, throw an error.
 
 {% include requirement/SHOULD %} throw a distinct error when a `412 Precondition Failed` response or a `409 Conflict` response is received from the service due to a conditional check.
 
