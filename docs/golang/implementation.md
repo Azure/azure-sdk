@@ -152,4 +152,5 @@ One of the key things we want to support is to allow consumers of the library to
 
 {% include requirement/MUST id="golang-support-mocking" %} support mocking of network operations.
 
-
+{% include refs.md %}
+{% include_relative refs.md %}

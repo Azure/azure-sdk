@@ -65,6 +65,7 @@ Your API surface consists of one or more service clients that the consumer insta
 Azure services use different kinds of authentication schemes to allow clients to access the service. Conceptually, there are two entities responsible in this process: a credential and an authentication policy. Credentials provide confidential authentication data. Authentication policies use the data provided by a credential to authenticate requests to the service.
 
 {% include requirement/MUST id="golang-auth-support" %} support all authentication techniques that the service supports.
+
 {% include requirement/MUST id="golang-auth-use-azidentity" %} use credential and authentication policy implementations from the `azcore` or `azidentity` package where available.
 
 {% include requirement/MUST id="golang-auth-concurrency" %} provide credential types that can be used to fetch all data needed to authenticate a request to the service. If using a service-specific credential type, the implementation must be safe for concurrent use and atomic.
@@ -151,5 +152,5 @@ Model structures are types that consumers use to provide required information in
 > **TODO** The API for specifying a specific service version is not yet defined.
 
 
-
-
+{% include refs.md %}
+{% include_relative refs.md %}
