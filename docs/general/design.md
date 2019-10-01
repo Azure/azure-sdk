@@ -176,7 +176,7 @@ Such usage can cause confusion and will inevitably have to be changed on a per-l
 
 ## Conditional requests
 
-[Conditional requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Conditional_requests) are normally performed using HTTP headers.  The primary usage provides headers that match the `ETag` to some known value.  The `ETag` is a blob value that represents a single version of a resource. For example, adding the following header will translate to "if the record's version, specified by the `ETag`, is not the same".
+[Conditional requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Conditional_requests) are normally performed using HTTP headers.  The primary usage provides headers that match the `ETag` to some known value.  The `ETag` is an opaque identifier that represents a single version of a resource. For example, adding the following header will translate to "if the record's version, specified by the `ETag`, is not the same".
 
 {% highlight text %}
 If-Not-Match: "etag-value"
@@ -187,7 +187,7 @@ With headers, tests are possible for the following:
 * Unconditionally (no additional headers)
 * If (not) modified since a version (`If-Match` and `If-Not-Match`)
 * If (not) modified since a date (`If-Updated-Since` and `If-Not-Updated-Since`)
-* If (not) present (`If-Match` and `If-Not-Match` with a `*` check)
+* If (not) present (`If-Match` and `If-Not-Match` with a `ETag=*` value)
 
 Not all services support all of these semantics, and may not support any of them.  Developers have varying levels of understanding of the `ETag` and conditional requests, so it is best to abstract this concept from the API surface.  There are two types of conditional requests we need to be concerned with:
 
@@ -205,13 +205,13 @@ These two cases are handled differently in client libraries.  However, the form 
 client.<method>(<item>, requestOptions)
 {% endhighlight %}
 
-The `requestOptions` field is a type `HttpRequestOptions` in typed languages that provides additional options (such as additional headers) to the HTTP requres.   Where possible, the `ETag` value will be retrieved from the old items that is passed into the method.  The form of the method will be modified based on idiomatic usage patterns in the language of choice.  In cases where the `ETag` value is not known, the operation cannot be conditional.
+The `requestOptions` field is a type `HttpRequestOptions` in typed languages that provides additional options (such as additional headers) to the HTTP requres.   Where possible, the `ETag` value will be retrieved from the item that is passed into the method.  The form of the method will be modified based on idiomatic usage patterns in the language of choice.  In cases where the `ETag` value is not known, the operation cannot be conditional.
 
 The library developer can add a boolean operator that is set to `true` to establish the condition.  For example, use one of the following boolean names instead of the `conditions` operator:
 
 * `onlyIfChanged` 
 * `onlyIfUnchanged`
-* `onlyIfNotPresent`
+* `onlyIfMissing`
 * `onlyIfPresent`
 
 In all cases, the conditional expression is "opt-in".
