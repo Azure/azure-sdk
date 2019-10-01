@@ -27,7 +27,7 @@ See remarks on the `Argument` class for more detail.
 
 ## EventSource
 
-{% include requirement/MAY id="dotnet-tracing-eventsource" %} use `EventSource` to produce diagnostic events.
+{% include requirement/MUST id="dotnet-tracing-eventsource" %} use `EventSource` to produce diagnostic events.
 
 {% include requirement/MUST id="dotnet-tracing-eventsource-logging-guidelines" %} follow the logging guidelines when implementing an `EventSource`.
 
