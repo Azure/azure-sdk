@@ -586,6 +586,39 @@ Using a consistent set of naming patterns across all client libraries will ensur
 
 {% include requirement/MUST id="java-naming-host-vs-hostname" %} understand the difference between a host and a hostname, and use the correct name. `hostname` is the host name without any port number, whereas `host` is the hostname with the port number. Additionally, API referring to the host name should be spelt as `hostname`, rather than `hostName`. The same applies to `username`, which should be used instead of `userName`.
 
+## Java API Guidance
+
+{% include requirement/MUSTNOT id="java-api-old-date-time" %} create API that exposes the old Java date library (e.g. `java.util.Date`, `java.util.Calendar`, and `java.util.Timezone`). All API must use the new date / time APIs that shipped in JDK 8 in the `java.util.time` package.
+
+{% include requirement/MUSTNOT id="java-api-url" %} create API that exposes the `java.net.URL` API. This API is difficult to work with, and more frequently gets in the users way rather than provide any real assistance. Instead, use the String type to represent the URL. When it is necessary to parse this String into a URL, and if it fails to be parsed (throwing a checked `MalformedURLException`), catch this internally and throw an unchecked `IllegalArgumentException` instead.
+
+{% include requirement/MUST id="java-api-file-paths" %} represent file paths using the Java `java.nio.file.Path` type. Do not use String or the older `java.io.File` type.
+
+### Enumerations
+
+{% include requirement/MUST id="java-enums" %} use an `enum` for parameters, properties, and return types when values are known.
+
+{% include requirement/MAY id="java-expandable-enums" %} use the `ExpandableStringEnum` type provided by azure-core to define an enum-like API that declares well-known fields but which can also contain unknown values returned from the service, or user-defined values passed to the service. An example expandable enum, taken from azure-core's `OperationStatus` type, is shown below:
+
+```java
+public static final class OperationStatus extends ExpandableStringEnum<OperationStatus> {
+    public static final OperationStatus NOT_STARTED = fromString("NOT_STARTED");
+    public static final OperationStatus IN_PROGRESS = fromString("IN_PROGRESS");
+    public static final OperationStatus SUCCESSFULLY_COMPLETED = fromString("SUCCESSFULLY_COMPLETED");
+    public static final OperationStatus FAILED = fromString("FAILED");
+    public static final OperationStatus USER_CANCELLED = fromString("USER_CANCELLED");
+
+    /**
+     * Creates or finds a {@link OperationStatus} from its string representation.
+     * @param name a name to look for
+     * @return the corresponding {@link OperationStatus}
+     */
+    public static OperationStatus fromString(String name) {
+        return fromString(name, OperationStatus.class);
+    }
+}
+```
+
 ## Annotations
 
 A number of annotations are defined in the Azure core library. A few annotations enable runtime functionality.  Most of the annotations are used as part of the [Azure Java SDK code linting tools](#java-tooling).
