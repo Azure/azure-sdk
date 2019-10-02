@@ -90,4 +90,3 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 | azure-identity | [package](https://pypi.org/project/azure-identity/1.0.0b3) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/identity/azure-identity) | [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.identity.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/HISTORY.md) |  |
 | azure-core | [package](https://pypi.org/project/azure-core/1.0.0b3) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/core/azure-core) | [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.core.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/core/azure-core/HISTORY.md) |  |
 
-{% include refs.md %}
