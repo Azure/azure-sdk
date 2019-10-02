@@ -54,7 +54,7 @@ For example, if we re-wrote `AzCopy` in each language using the Azure Blob Stora
 
 {% include requirement/MUST id="azurecore-http-telemetry-appid" %} allow the consumer of the library to set the application ID.  This allows the consumer to obtain cross-service telemetry for their app.  The application ID will normally be set in the client options bag.
 
-{% include requirement/MUST id="azurecore-http-telemetry-appid-length" %} support application IDs up to 24 characters in length.  Supporting short application IDs allows service teams to include diagnostic information in the "platform information" section of the user agent, while still allowing the consumer to obtain telemetry information for their app.
+{% include requirement/MUST id="azurecore-http-telemetry-appid-length" %} enforce that application IDs are no more than 24 characters in length.  Supporting short application IDs allows service teams to include diagnostic information in the "platform information" section of the user agent, while still allowing the consumer to obtain telemetry information for their app.
 
 {% include requirement/SHOULD id="azurecore-http-telemetry-x-ms-useragent" %} send telemetry information that is normally sent in the `User-Agent` header in the `X-MS-UserAgent` header when the platform does not support changing the `User-Agent` header.  Note that services will need to configure log gathering to capture the `X-MS-UserAgent` header in such a way that it can be queried through normal analytics systems.
 
