@@ -13,9 +13,10 @@ Any change to the general design guidelines (which includes everything under the
 
 * The design guideline is discussed within an Architectural Board meeting with a quorum of 3 voting members of the architecture board.  Each voting member may vote as follows:
     * Approve - the architect believes this is a good guideline.
-    * Dissent - the architect feels the guideline has flaws, but not enough to stop the proposal.
-    * Veto - the architect feels the guideline is flawed enough it must not be added to the guidelines.
-* A super-majority of voting members must vote "Approve".  There are no "Veto" votes.
+    * Abstain - the architect feels the guideline has flaws, but not enough to stop the proposal.
+    * Reject - the architect feels the guideline is flawed enough it must not be added to the guidelines.
+* Two thirds of voting members must vote "Approve".  
+* There must be no "Reject" votes.
 * The proposed language for the design guideline is submitted via PR.
     * Review by any appropriate groups (as determined by the board chair) - examples: Security, CSS.
     * Review by at least two affected service teams in different groups.
