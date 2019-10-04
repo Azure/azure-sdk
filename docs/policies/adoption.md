@@ -9,7 +9,7 @@ The design guidelines are meant to be much like the US constitution - a document
 
 ## Changing the general design guidelines
 
-Any change to the general design guidelines should be "a big deal" since such changes affect every single client library that we produce.  The following requirements must be met before a general design guideline is adopted:
+Any change to the general design guidelines (which includes everything under the `/docs/general` folder within the `azure/azure-sdk` repository) should be "a big deal" since such changes affect every single client library that we produce.  The following requirements must be met before a general design guideline is adopted:
 
 * The design guideline is discussed within an Architectural Board meeting with a quorum of 3 voting members of the architecture board.  Each voting member may vote as follows:
     * Approve - the architect believes this is a good guideline.
@@ -23,15 +23,22 @@ Any change to the general design guidelines should be "a big deal" since such ch
 
 ## Changing the language specific guidelines
 
-Language specific guidelines are generally driven by the general guidelines, but also idiomatic and generally accepted principals in the language of choice.  Guidelines can be proposed by anyone via PR, but the following must be met to be merged:
+Language specific guidelines (which includes everything under the language-specific folder of `/docs` in the `azure/azure-sdk` repository) are generally driven by the general guidelines, but also idiomatic and generally accepted design and implementation principals in the language of choice.  Guidelines can be proposed by anyone via PR, but the following must be met to be merged:
 
 * PR is approved (through the PR process) by the assigned language architect and one other architect on the SDK architecture board.
 * PR is reviewed with relevant stake holders (such as service teams, security, and CSS).
 * PR is approved by the language dev lead.
 
+Guidelines, for the purposes of this policy, include:
+
+* The Design Principals
+* The API design guidelines
+* The Implementation guidelines
+* The Documentation guidelines
+
 ## Engineering systems policy changes
 
-The engineering systems policies are also proposed via PR and subject to review:
+The engineering systems policies (which includes everything under the `/docs/policies` folder within the `azure/azure-sdk` repository) are also proposed via PR and subject to review:
 
 * PR is reviewed with relevant stake holders, as determined by the engineering systems dev lead (such as service teams, security, and CSS).
 * PR is approved by the engineering systems dev lead or designate.
@@ -39,7 +46,7 @@ The engineering systems policies are also proposed via PR and subject to review:
 
 ## For new language guidelines
 
-Design guidelines are first published in DRAFT.  This means that they are in flux and may be adjusted as the first libraries are created.  To move from DRAFT to general availability, the following conditions must be met:
+Language specific guidelines are first published in DRAFT.  This means that they are in flux and may be adjusted as the first libraries are created.  During the draft phase, there are no requirements on merging pull requests.  To move from DRAFT to general availability, the following conditions must be met:
 
 * The guidelines are published in draft mode for at least 1 month to allow public comments.
 * The engineering systems are configured for producing client libraries in the language.
