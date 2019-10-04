@@ -186,7 +186,7 @@ With headers, tests are possible for the following:
 
 * Unconditionally (no additional headers)
 * If (not) modified since a version (`If-Match` and `If-Not-Match`)
-* If (not) modified since a date (`If-Updated-Since` and `If-Not-Updated-Since`)
+* If (not) modified since a date (`If-Modified-Since` and `If-Unmodified-Since`)
 * If (not) present (`If-Match` and `If-Not-Match` with a `ETag=*` value)
 
 Not all services support all of these semantics, and may not support any of them.  Developers have varying levels of understanding of the `ETag` and conditional requests, so it is best to abstract this concept from the API surface.  There are two types of conditional requests we need to be concerned with:
@@ -205,9 +205,9 @@ These two cases are handled differently in client libraries.  However, the form 
 client.<method>(<item>, requestOptions)
 {% endhighlight %}
 
-The `requestOptions` field is a type `HttpRequestOptions` in typed languages that provides additional options (such as additional headers) to the HTTP requres.   Where possible, the `ETag` value will be retrieved from the item that is passed into the method.  The form of the method will be modified based on idiomatic usage patterns in the language of choice.  In cases where the `ETag` value is not known, the operation cannot be conditional.
+The `requestOptions` field is a type `HttpRequestOptions` in typed languages that provides additional options (such as additional headers) to the HTTP request.  The `Etag` value will be retrieved from the item that is passed into the method where possible, and method arguments where not possible. The form of the method will be modified based on idiomatic usage patterns in the language of choice.  In cases where the `ETag` value is not known, the operation cannot be conditional.
 
-The library developer can add a boolean operator that is set to `true` to establish the condition.  For example, use one of the following boolean names instead of the `conditions` operator:
+The library developer can add a boolean parameter that is set to `true` to establish the condition.  For example, use one of the following boolean names instead of the `conditions` operator:
 
 * `onlyIfChanged` 
 * `onlyIfUnchanged`
@@ -218,13 +218,13 @@ In all cases, the conditional expression is "opt-in".
 
 The return value from a conditional operation must be carefully considered.  For safe operators (e.g. GET), return a `Response<T>` from the conditional request.  However, throw an error if the `Value` is accessed, since there is no value in the body to reference.  For unsafe operators (e.g. PUT, DELETE, or POST), throw a specific error when a `Precondition Failed` or `Conflict` result is received.  This allows the consumer to do something different in the case of conflicting results.
 
-{% include requirement/SHOULD %} accept a `conditions` parameters (which takes an enumerated type) on service methods that allow a conditional check on the service. 
+{% include requirement/SHOULD %} accept a `conditions` parameter (which takes an enumerated type) on service methods that allow a conditional check on the service. 
 
-{% include requirement/MUST %} include the `ETag` field as part of the object model when conditional operations are supported.
+{% include requirement/SHOULD %} include the `ETag` field as part of the object model when conditional operations are supported.
 
-{% include requirement/SHOULD %} accept additional boolean parameters on service methods as necessary to enable conditional checks on the service.
+{% include requirement/SHOULD %} accept an additional boolean parameter on service methods as necessary to enable conditional checks on the service.
 
-{% include requirement/SHOULD %} return a `Response<T>` when a `304 Not Modified` response is received from the service due to a conditional check.  If the value of such a response is accessed, throw an error.
+{% include requirement/SHOULDNOT %} throw an error when a `304 Not Modified` response is received from the service, unless such errors are idiomatic to the language.
 
 {% include requirement/SHOULD %} throw a distinct error when a `412 Precondition Failed` response or a `409 Conflict` response is received from the service due to a conditional check.
 
