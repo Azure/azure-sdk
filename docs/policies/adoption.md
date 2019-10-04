@@ -23,18 +23,13 @@ Any change to the general design guidelines (which includes everything under the
 
 ## Changing the language specific guidelines
 
-Language specific guidelines (which includes everything under the language-specific folder of `/docs` in the `azure/azure-sdk` repository) are generally driven by the general guidelines, but also idiomatic and generally accepted design and implementation principals in the language of choice.  Guidelines can be proposed by anyone via PR, but the following must be met to be merged:
+Language specific guidelines (which includes everything under the language-specific folder of `/docs` in the `azure/azure-sdk` repository) are generally driven by the general guidelines, but also idiomatic and generally accepted design and implementation principals in the language of choice.  Design guidelines must meet the spirit of the general design guidelines.  Implementation guidelines are governed by the language team, with the language architect having responsibility for ensuring the implementation guidelines meet the best practices for the language concerned.
 
-* PR is approved (through the PR process) by the assigned language architect and one other architect on the SDK architecture board.
+Guidelines can be proposed by anyone via PR, but the following must be met to be merged:
+
+* PR is approved (through the PR process) by the assigned language architect.  If the updated guidelines affect the design principles or the API design sections, then a second member of the architecture board must also approve the PR.
 * PR is reviewed with relevant stake holders (such as service teams, security, and CSS).
 * PR is approved by the language dev lead.
-
-Guidelines, for the purposes of this policy, include:
-
-* The Design Principals
-* The API design guidelines
-* The Implementation guidelines
-* The Documentation guidelines
 
 ## Engineering systems policy changes
 
