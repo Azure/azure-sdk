@@ -71,7 +71,15 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 - Added optional parameters for smb properties related parameters for create_file*, create_directory* related APIs and set_http_headers API.
 
 ### Identity
-- Added a new credential type enabling shared sign-on with other Microsoft applications running on Windows, such as Visual Studio.
+- `AuthorizationCodeCredential` authenticates with a previously obtained
+authorization code. See Azure Active Directory's
+[authorization code documentation](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow)
+for more information about this authentication flow.
+- Multi-cloud support: client credentials accept the authority of an Azure Active
+Directory authentication endpoint as an `authority` keyword argument. Known
+authorities are defined in `azure.identity.KnownAuthorities`. The default
+authority is for Azure Public Cloud, `login.microsoftonline.com`
+(`KnownAuthorities.AZURE_PUBLIC_CLOUD`).
 
 ## Quick Links
 
@@ -87,7 +95,7 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 | azure-storage-file | [package](https://pypi.org/project/azure-storage-file/12.0.0b3) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file) | [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.storage.file.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file/HISTORY.md) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file/tests) |
 | azure-storage-queue | [package](https://pypi.org/project/azure-storage-queue/12.0.0b3) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue) | [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.storage.queue.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/HISTORY.md) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/tests) | 
 | azure-appconfiguration | [package](https://pypi.org/project/azure-appconfiguration/1.0.0b3) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/appconfiguration/azure-appconfiguration) | [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.appconfiguration.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/appconfiguration/azure-appconfiguration/HISTORY.md) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/appconfiguration/azure-appconfiguration/examples) |
-| azure-identity | [package](https://pypi.org/project/azure-identity/1.0.0b3) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/identity/azure-identity) | [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.identity.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/HISTORY.md) |  |
+| azure-identity | [package](https://pypi.org/project/azure-identity/1.0.0b4) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/identity/azure-identity) | [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.identity.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/HISTORY.md) |  |
 | azure-core | [package](https://pypi.org/project/azure-core/1.0.0b3) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/core/azure-core) | [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.core.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/core/azure-core/HISTORY.md) |  |
 
 {% include refs.md %}
