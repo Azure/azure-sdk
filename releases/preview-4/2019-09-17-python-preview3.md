@@ -48,14 +48,12 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 
 ### Event Hubs
 
-- Added `EventProcessor` load balancing.
-- First release of `azure-eventhub-checkpointstoreblob-aio` using Azure Blob Storage to save checkpoint data.
-- Removed constructor method of `PartitionProcessor`. 
-- Replaced `CheckpointManager` with `PartitionContext`.
-- Updated all methods of `PartitionProcessor` to include `PartitionContext` as part of the arguments.
-- Updated accessibility of most class members in `EventHub/EventHubConsumer/EventHubProducer`to be private.
-- Moved `azure.eventhub.eventprocessor` to under `aio` package, which now becomes `azure.eventhub.aio.eventprocessor`.
-- Added property `system_properties` on `EventData`.
+- Added support for tracing (issue #7153).
+- Added new boolean type parameter track_last_enqueued_event_properties in method EventHubClient.create_consumer().
+- Added new property last_enqueued_event_properties of EventHubConsumer which contains sequence_number, offset, enqueued_time and retrieval_time information.
+- Removed support for IoT Hub direct connection. EventHubs compatible connection string of an IotHub can be used to create EventHubClient and read properties or events from an IoT Hub.
+- Removed support for sending EventData to IoT Hub.
+- Removed parameter exception in method close() of EventHubConsumer and EventHubProcuer.
 
 ### Key Vault
 
@@ -86,7 +84,7 @@ authority is for Azure Public Cloud, `login.microsoftonline.com`
 | Library  | Install | Quickstart |  API Reference | Changelog | Samples |
 | -- | -- | -- | -- | -- | -- |
 | azure-cosmos | [package](https://pypi.org/project/azure-cosmos/4.0.0b2/) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos) | [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.cosmos.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/HISTORY.md) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos/samples) |
-| azure-eventhub | [package](https://pypi.org/project/azure-eventhub/5.0.0b3/) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhubs) | [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.eventhub.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhubs/HISTORY.md) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhubs/examples) |
+| azure-eventhub | [package](https://pypi.org/project/azure-eventhub/5.0.0b4/) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhubs) | [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.eventhub.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhubs/HISTORY.md) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhubs/examples) |
 | azure-eventhub-checkpointstoreblob-aio | [package](https://pypi.org/project/azure-eventhub-checkpointstoreblob-aio/1.0.0b1/) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhubs-checkpointstoreblob-aio) | [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.eventhub.extensions.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhubs-checkpointstoreblob-aio/HISTORY.md) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhubs-checkpointstoreblob-aio/examples) |
 | azure-keyvault-certificates | [package](https://pypi.org/project/azure-keyvault-certificates/4.0.0b3) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-certificates) |  [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.keyvault.certificates.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-certificates/HISTORY.md) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-certificates/samples) |
 | azure-keyvault-keys | [package](https://pypi.org/project/azure-keyvault-keys/4.0.0b3) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-keys) |  [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.keyvault.keys.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-keys/HISTORY.md) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-keys/samples) |
