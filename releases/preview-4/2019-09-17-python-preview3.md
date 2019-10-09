@@ -1,14 +1,14 @@
 ---
-title: Azure SDK for Python (September 2019 Preview)
+title: Azure SDK for Python (October 2019 Preview)
 layout: post
-date: 17 Sep 2019
+date: 9 Oct 2019
 tags: python
 sidebar: python_sidebar
 repository: azure/azure-sdk-for-python
 permalink: /releases/preview-4/python.html
 ---
 
-The Azure SDK team is pleased to make available the September 2019 client library preview release. This represents the first release of the ground-up rewrite of the client libraries to ensure consistency, idiomatic design, and excellent developer experience and productivity. This preview release includes new client libraries for Azure Cosmos, Identity, Key Vault (certificates, keys and secrets), Event Hubs, and Storage (blob, files and queues).
+The Azure SDK team is pleased to make available the October 2019 client library preview release. This represents the first release of the ground-up rewrite of the client libraries to ensure consistency, idiomatic design, and excellent developer experience and productivity. This preview release includes new client libraries for Azure Cosmos, Identity, Key Vault (certificates, keys and secrets), Event Hubs, and Storage (blob, files and queues).
 
 ## Installation Instructions
 
@@ -43,12 +43,12 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 
 ### Event Hubs
 
-- Added support for tracing (issue #7153).
-- Added new boolean type parameter track_last_enqueued_event_properties in method EventHubClient.create_consumer().
-- Added new property last_enqueued_event_properties of EventHubConsumer which contains sequence_number, offset, enqueued_time and retrieval_time information.
+- Added support for tracing ([issue #7153](https://github.com/Azure/azure-sdk-for-python/issues/7153)).
+- Added new boolean type parameter `track_last_enqueued_event_properties` in method `EventHubClient.create_consumer()`.
+- Added new property `last_enqueued_event_properties` of EventHubConsumer which contains `sequence_number`, `offset`, `enqueued_time` and `retrieval_time information`.
 - Removed support for IoT Hub direct connection. EventHubs compatible connection string of an IotHub can be used to create EventHubClient and read properties or events from an IoT Hub.
 - Removed support for sending EventData to IoT Hub.
-- Removed parameter exception in method close() of EventHubConsumer and EventHubProcuer.
+- Removed parameter exception in method `close()` of EventHubConsumer and EventHubProcuer.
 
 ### Key Vault
 
@@ -62,7 +62,7 @@ and [secret](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyva
 
 - Added batching support in blobs.
 - Added support to set rehydrate priority in blobs.
-- Breaking changes in PermissionModels for blobs, queues and files.
+- Breaking changes in `PermissionModels` for blobs, queues and files.
 - Modified several methods in blobs to use more keyworrd-only arguments.
 - Other breaking changes in blobs, queues and files.
 
@@ -90,8 +90,8 @@ authority is for Azure Public Cloud, `login.microsoftonline.com`
 | azure-storage-blob | [package](https://pypi.org/project/azure-storage-blob/12.0.0b4) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob) | [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.storage.blob.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/HISTORY.md) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/tests) |
 | azure-storage-file | [package](https://pypi.org/project/azure-storage-file/12.0.0b4) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file) | [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.storage.file.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file/HISTORY.md) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file/tests) |
 | azure-storage-queue | [package](https://pypi.org/project/azure-storage-queue/12.0.0b4) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue) | [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.storage.queue.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/HISTORY.md) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/tests) |
-| azure-appconfiguration | [package](https://pypi.org/project/azure-appconfiguration/1.0.0b3) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/appconfiguration/azure-appconfiguration) | [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.appconfiguration.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/appconfiguration/azure-appconfiguration/HISTORY.md) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/appconfiguration/azure-appconfiguration/examples) |
+| azure-appconfiguration | [package](https://pypi.org/project/azure-appconfiguration/1.0.0b4) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/appconfiguration/azure-appconfiguration) | [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.appconfiguration.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/appconfiguration/azure-appconfiguration/HISTORY.md) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/appconfiguration/azure-appconfiguration/examples) |
 | azure-identity | [package](https://pypi.org/project/azure-identity/1.0.0b4) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/identity/azure-identity) | [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.identity.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/HISTORY.md) |  |
-| azure-core | [package](https://pypi.org/project/azure-core/1.0.0b3) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/core/azure-core) | [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.core.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/core/azure-core/HISTORY.md) |  |
+| azure-core | [package](https://pypi.org/project/azure-core/1.0.0b4) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/core/azure-core) | [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.core.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/core/azure-core/HISTORY.md) |  |
 
 {% include refs.md %}
