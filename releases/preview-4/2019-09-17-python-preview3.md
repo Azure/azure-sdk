@@ -38,13 +38,8 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 
 ### Cosmos
 
-- The client connection has been adapted to consume the HTTP pipeline defined in `azure.core.pipeline`.
-- The constructor of `CosmosClient` has been updated.
-- The interactive objects (`Container`, `Database` etc) have been renamed with a `Proxy` suffix.
-- Some `read_all` operations (e.g. `read_all_databases`) have been renamed to list operations (e.g. `list_databases`).
-- A new connection string constructor has been added to `CosmosClient`.
-- All operations that take `request_options` or `feed_options` parameters, these have been moved to keyword only parameters.
-- A new error hierarchy that now inherits from `azure.core.AzureError` instead of `CosmosError`.
+- Added support for a `timeout` keyword argument to all operations to specify an absolute timeout in seconds within which the operation must be completed. If the timeout value is exceeded, a `azure.cosmos.errors.CosmosClientTimeoutError` will be raised.
+- Added a new `ConnectionRetryPolicy` to manage retry behaviour during HTTP connection errors, along with constructor and per-operation keyword arguments to configure retry behavior.
 
 ### Event Hubs
 
@@ -83,7 +78,7 @@ authority is for Azure Public Cloud, `login.microsoftonline.com`
 
 | Library  | Install | Quickstart |  API Reference | Changelog | Samples |
 | -- | -- | -- | -- | -- | -- |
-| azure-cosmos | [package](https://pypi.org/project/azure-cosmos/4.0.0b2/) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos) | [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.cosmos.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/HISTORY.md) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos/samples) |
+| azure-cosmos | [package](https://pypi.org/project/azure-cosmos/4.0.0b4/) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos) | [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.cosmos.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/HISTORY.md) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos/samples) |
 | azure-eventhub | [package](https://pypi.org/project/azure-eventhub/5.0.0b4/) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhubs) | [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.eventhub.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhubs/HISTORY.md) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhubs/examples) |
 | azure-eventhub-checkpointstoreblob-aio | [package](https://pypi.org/project/azure-eventhub-checkpointstoreblob-aio/1.0.0b4/) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhubs-checkpointstoreblob-aio) | [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.eventhub.extensions.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhubs-checkpointstoreblob-aio/HISTORY.md) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhubs-checkpointstoreblob-aio/examples) |
 | azure-keyvault-certificates | [package](https://pypi.org/project/azure-keyvault-certificates/4.0.0b3) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-certificates) |  [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.keyvault.certificates.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-certificates/HISTORY.md) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-certificates/samples) |
