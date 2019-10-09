@@ -50,7 +50,7 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 
 - Added `EventProcessor` load balancing.
 - First release of `azure-eventhub-checkpointstoreblob-aio` using Azure Blob Storage to save checkpoint data.
-- Removed constructor method of `PartitionProcessor`. 
+- Removed constructor method of `PartitionProcessor`.
 - Replaced `CheckpointManager` with `PartitionContext`.
 - Updated all methods of `PartitionProcessor` to include `PartitionContext` as part of the arguments.
 - Updated accessibility of most class members in `EventHub/EventHubConsumer/EventHubProducer`to be private.
@@ -59,8 +59,11 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 
 ### Key Vault
 
-- Release of `azure-keyvault-certificates` supporting the certificates API
-- `CryptographyClient` can perform encrypt/verify/wrap operations locally
+- Restructured the `Certificate`, `Key`, and `Secret` models. For more specific details, see the respective
+[certificate](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-certificates/HISTORY.md),
+[key](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-keys/HISTORY.md),
+and [secret](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-secrets/HISTORY.md) changelogs.
+- Both async and sync versions of `create_certificate` return pollers now that poll on the certificate's successful creation
 
 ### Storage
 
@@ -85,7 +88,7 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 | azure-keyvault-secrets | [package](https://pypi.org/project/azure-keyvault-secrets/4.0.0b3) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-secrets) | [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.keyvault.secrets.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-secrets/HISTORY.md) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault/azure-keyvault-secrets/samples) |
 | azure-storage-blob | [package](https://pypi.org/project/azure-storage-blob/12.0.0b3) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob) | [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.storage.blob.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/HISTORY.md) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/tests) |
 | azure-storage-file | [package](https://pypi.org/project/azure-storage-file/12.0.0b3) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file) | [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.storage.file.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file/HISTORY.md) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file/tests) |
-| azure-storage-queue | [package](https://pypi.org/project/azure-storage-queue/12.0.0b3) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue) | [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.storage.queue.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/HISTORY.md) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/tests) | 
+| azure-storage-queue | [package](https://pypi.org/project/azure-storage-queue/12.0.0b3) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue) | [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.storage.queue.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/HISTORY.md) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/tests) |
 | azure-appconfiguration | [package](https://pypi.org/project/azure-appconfiguration/1.0.0b3) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/appconfiguration/azure-appconfiguration) | [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.appconfiguration.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/appconfiguration/azure-appconfiguration/HISTORY.md) | [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/appconfiguration/azure-appconfiguration/examples) |
 | azure-identity | [package](https://pypi.org/project/azure-identity/1.0.0b3) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/identity/azure-identity) | [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.identity.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/HISTORY.md) |  |
 | azure-core | [package](https://pypi.org/project/azure-core/1.0.0b3) | [Readme.md](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/core/azure-core) | [Preview Documentation](https://azure.github.io/azure-sdk-for-python/ref/azure.core.html) | [History.md](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/core/azure-core/HISTORY.md) |  |
