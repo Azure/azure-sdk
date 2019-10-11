@@ -19,9 +19,9 @@ To install any of our packages, please search for them via `Manage NuGet Package
     $> dotnet add package Azure.Storage.Queues --version 12.0.0-preview.4
     $> dotnet add package Azure.Storage.Files --version 12.0.0-preview.4
 
-    $> dotnet add package Azure.Security.KeyVault.Secrets --version 4.0.0-preview.4
-    $> dotnet add package Azure.Security.KeyVault.Keys --version 4.0.0-preview.4
-    $> dotnet add package Azure.Security.KeyVault.Certificates --version 4.0.0-preview.4
+    $> dotnet add package Azure.Security.KeyVault.Secrets --version 4.0.0-preview.5
+    $> dotnet add package Azure.Security.KeyVault.Keys --version 4.0.0-preview.5
+    $> dotnet add package Azure.Security.KeyVault.Certificates --version 4.0.0-preview.5
 
     $> dotnet add package Azure.Messaging.EventHubs --version 5.0.0-preview.4
 
@@ -65,9 +65,10 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Key Vault
 
-- Added support for cryptographic operations (such as sign, verify, encrypt, and decrypt) using KeyVault keys.
-- Added support for challenge based authentication.
-- Initial release of the `Azure.Security.KeyVault.Certificates` client library, enabling management of Key Vault certificates, issuers, and contacts.
+- `CryptographyClient` now supports AES key wrap, EC, and RSA cryptographic algorithms.
+- `CryptographyClient` will verify key operations are supported locally or call into Key Vault if not.
+- Many methods have been renamed to be consistent across service libraries.
+- Various bug fixes and API improvements based on customer feedback.
 
 ### App Configuration
 
