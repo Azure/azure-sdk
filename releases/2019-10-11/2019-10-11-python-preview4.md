@@ -1,7 +1,7 @@
 ---
 title: Azure SDK for Python (October 2019 Preview)
 layout: post
-date: 9 Oct 2019
+date: 11 Oct 2019
 tags: python
 sidebar: python_sidebar
 repository: azure/azure-sdk-for-python
