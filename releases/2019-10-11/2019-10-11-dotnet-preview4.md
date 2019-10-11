@@ -27,6 +27,8 @@ To install any of our packages, please search for them via `Manage NuGet Package
 
     $> dotnet add package Azure.Identity --version 1.0.0-preview.4
 
+    $> dotnet add package Azure.Data.AppConfiguration --version 1.0.0-preview.2
+
 ## Feedback
 
 If you have a bug or feature request for one of the libraries, please [file an issue in our repo](https://github.com/Azure/azure-sdk-for-net/issues/new/choose).
@@ -67,6 +69,16 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Added support for challenge based authentication.
 - Initial release of the `Azure.Security.KeyVault.Certificates` client library, enabling management of Key Vault certificates, issuers, and contacts.
 
+### App Configuration
+
+- Enabled conditional requests.
+- Added support for setting x-ms-client-request-id, x-ms-correlation-request-id, and correlation-context headers.
+- Added SetReadOnly/ClearReadOnly methods.
+- Enabled setting service version.
+- Added support for Sync-Token headers.
+- Updated authorization header format.
+- Removed Update methods.
+
 ## Quick Links
 
 | Service  | Install | Readme | Samples |  API Reference | Changelog |
@@ -83,5 +95,6 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 | Storage - Common | [Package](https://www.nuget.org/packages/Azure.Storage.Common/) | [Readme](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Common/README.md) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Common/samples) | [API Reference](https://azure.github.io/azure-sdk-for-net/api/Azure.Storage.html) | [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Common/Changelog.txt) |
 | Storage - Files | [Package](https://www.nuget.org/packages/Azure.Storage.Files/) | [Readme](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files/README.md) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files/samples) | [API Reference](https://azure.github.io/azure-sdk-for-net/api/Azure.Storage.Files.html) | [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files/Changelog.txt) |
 | Storage - Queues | [Package](https://www.nuget.org/packages/Azure.Storage.Queues/) | [Readme](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Queues/README.md) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples) | [API Reference](https://azure.github.io/azure-sdk-for-net/api/Azure.Storage.Queues.html) | [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Queues/Changelog.txt) |
+| App Configuration | [Package](https://www.nuget.org/packages/Azure.Data.AppConfiguration/) | [Readme](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/appconfiguration/Azure.Data.AppConfiguration/README.md) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/appconfiguration/Azure.Data.AppConfiguration/samples) | [API Reference](https://azure.github.io/azure-sdk-for-net/api/Azure.Data.AppConfiguration.html) | - |
 
 {% include refs.md %}
