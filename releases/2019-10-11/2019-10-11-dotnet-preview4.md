@@ -14,9 +14,10 @@ The Azure SDK team is pleased to announce our September 2019 client library prev
 
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
-    $> dotnet add package Azure.Storage.Blobs --version 12.0.0-preview.3
-    $> dotnet add package Azure.Storage.Queues --version 12.0.0-preview.3
-    $> dotnet add package Azure.Storage.Files --version 12.0.0-preview.3
+    $> dotnet add package Azure.Storage.Blobs --version 12.0.0-preview.4
+    $> dotnet add package Azure.Storage.Blobs.Batching --version 12.0.0-preview.4
+    $> dotnet add package Azure.Storage.Queues --version 12.0.0-preview.4
+    $> dotnet add package Azure.Storage.Files --version 12.0.0-preview.4
 
     $> dotnet add package Azure.Security.KeyVault.Secrets --version 4.0.0-preview.4
     $> dotnet add package Azure.Security.KeyVault.Keys --version 4.0.0-preview.4
@@ -39,6 +40,17 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Parity across synchronous and asynchronous APIs offering a choice appropriate to your application.
 - Updated dependencies on the latest (preview-7) version of `Azure.Core` library.
 
+### Storage
+
+- Batching multiple Delete or SetAccessTier operations in a single request
+- Customer Provided Key server side encryption
+- Support for geo-redundant read from secondary location on failure
+- CreateIfNotExists and DeleteIfNotExists convenience methods for Blobs
+- Convenient resource Name properties on all clients
+- Verification of echoed client request IDs
+- `FileClient.PutRangeFromUri` operation
+- A variety of bug fixes and API improvements
+
 ### Azure Identity
 
 - Added new user credential types, allowing authentication within client applications.
@@ -53,7 +65,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - Added support for cryptographic operations (such as sign, verify, encrypt, and decrypt) using KeyVault keys.
 - Added support for challenge based authentication.
-- Initial release of the `Azure.Security.KeyVault.Certificates` client library, enablign management of Key Vault certificates, issuers, and contacts.
+- Initial release of the `Azure.Security.KeyVault.Certificates` client library, enabling management of Key Vault certificates, issuers, and contacts.
 
 ## Quick Links
 
@@ -67,6 +79,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 | Key Vault - Keys | [Package](https://www.nuget.org/packages/Azure.Security.KeyVault.Keys/) | [Readme](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/keyvault/Azure.Security.KeyVault.Keys/README.md) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault/Azure.Security.KeyVault.Keys/samples) | [API Reference](https://azure.github.io/azure-sdk-for-net/api/Azure.Security.KeyVault.Keys.html) | [Changelog](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault/Azure.Security.KeyVault.Keys/ChangeLog.md) |
 | Key Vault - Secrets | [Package](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/) | [Readme](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/keyvault/Azure.Security.KeyVault.Secrets/README.md) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault/Azure.Security.KeyVault.Secrets/samples) | [API Reference](https://azure.github.io/azure-sdk-for-net/api/Azure.Security.KeyVault.Secrets.html) | [Changelog](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault/Azure.Security.KeyVault.Secrets/ChangeLog.md) |
 | Storage - Blobs | [Package](https://www.nuget.org/packages/Azure.Storage.Blobs/) | [Readme](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs/README.md) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples) | [API Reference](https://azure.github.io/azure-sdk-for-net/api/Azure.Storage.Blobs.html) | [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs/Changelog.txt) |
+| Storage - Blobs Batching | [Package](https://www.nuget.org/packages/Azure.Storage.Blobs.Batching/) | [Readme](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs.Batching/README.md) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples) | [API Reference](https://azure.github.io/azure-sdk-for-net/api/Azure.Storage.Blobs.Batching.html) | [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs.Batching/Changelog.txt) |
 | Storage - Common | [Package](https://www.nuget.org/packages/Azure.Storage.Common/) | [Readme](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Common/README.md) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Common/samples) | [API Reference](https://azure.github.io/azure-sdk-for-net/api/Azure.Storage.html) | [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Common/Changelog.txt) |
 | Storage - Files | [Package](https://www.nuget.org/packages/Azure.Storage.Files/) | [Readme](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files/README.md) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files/samples) | [API Reference](https://azure.github.io/azure-sdk-for-net/api/Azure.Storage.Files.html) | [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files/Changelog.txt) |
 | Storage - Queues | [Package](https://www.nuget.org/packages/Azure.Storage.Queues/) | [Readme](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Queues/README.md) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples) | [API Reference](https://azure.github.io/azure-sdk-for-net/api/Azure.Storage.Queues.html) | [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Queues/Changelog.txt) |
