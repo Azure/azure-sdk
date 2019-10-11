@@ -22,7 +22,7 @@ To install any of our packages, please search for them via `Manage NuGet Package
     $> dotnet add package Azure.Security.KeyVault.Keys --version 4.0.0-preview.4
     $> dotnet add package Azure.Security.KeyVault.Certificates --version 4.0.0-preview.4
 
-    $> dotnet add package Azure.Messaging.EventHubs --version 5.0.0-preview.3
+    $> dotnet add package Azure.Messaging.EventHubs --version 5.0.0-preview.4
 
     $> dotnet add package Azure.Identity --version 1.0.0-preview.4
 
