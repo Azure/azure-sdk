@@ -5,7 +5,7 @@ date: 11 Oct 2019
 tags: python
 sidebar: python_sidebar
 repository: azure/azure-sdk-for-python
-permalink: /releases/preview-4/python.html
+permalink: /releases/2019-10-11/python.html
 ---
 
 The Azure SDK team is pleased to make available the October 2019 client library preview release. This represents the first release of the ground-up rewrite of the client libraries to ensure consistency, idiomatic design, and excellent developer experience and productivity. This preview release includes new client libraries for Azure Cosmos, Identity, Key Vault (certificates, keys and secrets), Event Hubs, and Storage (blob, files and queues).
