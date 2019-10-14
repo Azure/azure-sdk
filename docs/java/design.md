@@ -732,15 +732,21 @@ There are two annotations of note that should be applied on model classes, when 
 
 ## Versioning
 
-> The API for specifying a specific service version is not yet defined.  This section will change as it becomes more concrete.
+{% include requirement/MUST id="java-versioning-backwards-compatibility" %} be 100% backwards compatible with older versions of the same package.
 
-There are two versions that developers must be concerned with. Release versioning is the version of the library.  The Azure service API that the library calls also has a version. This section details how consumers can request a specific Azure service API when working with the library.
+{% include requirement/MUST id="java-versioning-highest-api" %} call the highest supported service API version by default.
 
-{% include requirement/MUST id="java-versioning-latest-service-api" %} call the latest supported service API version by default.
+{% include requirement/MUST id="java-versioning-select-api-version" %} allow the consumer to explicitly select a supported service API version when instantiating the service client, by using the service client builder with a property called `serviceVersion`. The fixed-element enum type will be named specifically for the service, but as generally as possible. For example, `IdentityServiceVersion` for Identity. For a service with multiple sub-services, such as Storage, if the services all share a common versioning system, `StorageServiceVersion` would suffice. If they did not, it would be necessary to have separate `BlobServiceVersion`, `QueueServiceVersion`, and `FileServiceVersion` enums.
 
-{% include requirement/MUST id="java-versioning-select-service-api" %} allow the consumer to select a supported service API version when instantiating the service client.
+{% include requirement/MUST id="java-versioning-enum-latest" %} offer a `getLatest()` method on the enum that returns the latest service version. If a consumer doesn't specify a service version, the builder will call `getLatest()` to obtain the appropriate service version.
 
-Include `.serviceVersion(ServiceVersion version)` as part of the client builder API.  `ServiceVersion` should be an enumeration. The enumeration must have a `getLatest()` method that returns the latest service version. If a consumer doesn't specify a service version, the builder will call `ServiceVersion.getLatest()` to obtain the appropriate service version.
+{% include requirement/MUST id="java-versioning-enum--value-naming" %} use the version naming used by the service itself in naming the version values in the enum. The standard approach takes the form `V<year>_<month>_<day>`, such as `V2019_05_09`. Being consistent with the service naming enables easier cross-referencing between service versions and the availability of features in the client library.
+
+{% include note.html content="Third-party reusable libraries shouldn't change behavior without an explicit decision by the developer.  When developing libraries that are based on the Azure SDK, lock the library to a specific service version to avoid changes in behavior." %}
+
+{% include requirement/MUST id="java-versioning-new-package" %} introduce a new library (with new library names, new package names, and new type names) if you must do an API breaking change.
+
+Breaking changes should happen rarely, if ever.  Register your intent to do a breaking change with [adparch]. You'll need to have a discussion with the language architect before approval.
 
 {% include refs.md %}
 {% include_relative refs.md %}
