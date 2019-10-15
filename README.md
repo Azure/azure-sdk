@@ -11,7 +11,7 @@ The Azure SDK delivers a platform for developers to leverage the wide variety of
 | JavaScript  |[Design Guidelines for JavaScript and TypeScript][typescript] |[azure-sdk-for-js Repository](https://github.com/Azure/azure-sdk-for-js)        | [JavaScript Documentation](http://aka.ms/js-docs)|
 | Python      |[Design Guidelines for Python][python]    |[azure-sdk-for-python Repository](https://github.com/Azure/azure-sdk-for-python)| [Python Documentation](https://aka.ms/python-docs) |
 
-Service teams should schedule reviews of their client libraries with the ADP Review Board.  See the [Review Process](docs/policies/reviewprocess.md) for more information.
+Service teams should schedule reviews of their client libraries with the ADP Review Board.  See the [Review Process](https://azure.github.io/azure-sdk/policies_reviewprocess.html) for more information.
 
 ## Terminology
 
