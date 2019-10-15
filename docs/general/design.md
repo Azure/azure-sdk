@@ -205,24 +205,23 @@ These two cases are handled differently in client libraries.  However, the form 
 client.<method>(<item>, requestOptions)
 {% endhighlight %}
 
-The `requestOptions` field is a type `HttpRequestOptions` in typed languages that provides additional options (such as additional headers) to the HTTP request.  The `Etag` value will be retrieved from the item that is passed into the method where possible, and method arguments where not possible. The form of the method will be modified based on idiomatic usage patterns in the language of choice.  In cases where the `ETag` value is not known, the operation cannot be conditional.
+The `requestOptions` field provides preconditions to the HTTP request.  The `Etag` value will be retrieved from the item that is passed into the method where possible, and method arguments where not possible. The form of the method will be modified based on idiomatic usage patterns in the language of choice.  In cases where the `ETag` value is not known, the operation cannot be conditional.
+If the library developer doens't need to support advanced usage of precondition headers, they can add a boolean parameter that is set to true to establish the condition.  For example, use one of the following boolean names instead of the conditions operator:
 
-The library developer can add a boolean parameter that is set to `true` to establish the condition.  For example, use one of the following boolean names instead of the `conditions` operator:
-
-* `onlyIfChanged` 
+* `onlyIfChanged`
 * `onlyIfUnchanged`
 * `onlyIfMissing`
 * `onlyIfPresent`
 
-In all cases, the conditional expression is "opt-in".
+In all cases, the conditional expression is "opt-in", and the default is to perform the operation unconditionally.
 
-The return value from a conditional operation must be carefully considered.  For safe operators (e.g. GET), return a `Response<T>` from the conditional request.  However, throw an error if the `Value` is accessed, since there is no value in the body to reference.  For unsafe operators (e.g. PUT, DELETE, or POST), throw a specific error when a `Precondition Failed` or `Conflict` result is received.  This allows the consumer to do something different in the case of conflicting results.
+The return value from a conditional operation must be carefully considered.  For safe operators (e.g. GET), return a response that will throw if the value is accessed (or follow the same convention used fro a `204 No Content` response), since there is no value in the body to reference.  For unsafe operators (e.g. PUT, DELETE, or POST), throw a specific error when a `Precondition Failed` or `Conflict` result is received.  This allows the consumer to do something different in the case of conflicting results.
 
 {% include requirement/SHOULD %} accept a `conditions` parameter (which takes an enumerated type) on service methods that allow a conditional check on the service. 
 
-{% include requirement/SHOULD %} include the `ETag` field as part of the object model when conditional operations are supported.
+{% include requirement/SHOULD %} accept an additional boolean or enum parameter on service methods as necessary to enable conditional checks using `ETag`.
 
-{% include requirement/SHOULD %} accept an additional boolean parameter on service methods as necessary to enable conditional checks on the service.
+{% include requirement/SHOULD %} include the `ETag` field as part of the object model when conditional operations are supported.
 
 {% include requirement/SHOULDNOT %} throw an error when a `304 Not Modified` response is received from the service, unless such errors are idiomatic to the language.
 
