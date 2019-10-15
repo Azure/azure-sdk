@@ -11,7 +11,7 @@ The following are a list of registered namespaces.
 | :---------------------------- | :----------------------------- |
 | `azure.ai.inkrecognizer`      | [Ink Recognizer]               |
 | `azure.data.appconfiguration` | [App Configuration]            |
-| `azure.data.cosmos`           | [Azure Cosmos DB]              |
+| `azure.cosmos`                | [Azure Cosmos DB]              |
 | `azure.messaging.eventhubs`   | [Event Hubs]                   |
 | `azure.messaging.queues`      | [Azure Storage]                |
 | `azure.search`                | [Azure Search]                 |
