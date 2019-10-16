@@ -122,7 +122,7 @@ Avoid source dependencies in projects and only use binary/package dependencies. 
 
 #### Dependant packages in a Unified Pipeline
 
-In cases where packages have dependices and are built in the same pipeline, dependency versions can track the current version of the packages on which they depend.
+In cases where packages have dependencies and are built in the same pipeline, dependency versions can track the current version of the packages on which they depend.
 
 For example, if Package A and Package B are built in the same Unified Pipeline and Package A is at version `1.0.0-preview.2`, Package B's dependency on Package A should track Package A's version  (i.e. `1.0.0-preview.2`) such that both packages can be built and released from the same pipeline.
 
