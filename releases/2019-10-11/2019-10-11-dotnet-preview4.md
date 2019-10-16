@@ -1,11 +1,11 @@
 ---
-title: Azure SDK for .NET (September 2019 Preview)
+title: Azure SDK for .NET (October 2019 Preview)
 layout: post
-date: 17 Sep 2019
+date: 11 Oct 2019
 tags: dotnet
 sidebar: releases_sidebar
 repository: azure/azure-sdk-for-net
-permalink: /releases/preview-4/dotnet.html
+permalink: /releases/2019-10-11/dotnet.html
 ---
 
 The Azure SDK team is pleased to announce our September 2019 client library preview.  This represents the first release of a ground-up rewrite of our client libraries to ensure consistency, idiomatic design, productivity, and an excellent developer experience.  This preview includes new libraries for Storage (Blobs, Queues, and Files), Key Vault (Secrets and Keys), Event Hubs, Cosmos, and Identity.

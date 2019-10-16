@@ -1,11 +1,11 @@
 ---
-title: Azure SDK for Java (September 2019 Preview)
+title: Azure SDK for Java (October 2019 Preview)
 layout: post
 date: 11 Oct 2019
 tags: java
 sidebar: releases_sidebar
 repository: azure/azure-sdk-for-java
-permalink: /releases/preview-4/java.html
+permalink: /releases/2019-10-11/java.html
 ---
 
 The Azure SDK team is pleased to make available the October 2019 client library preview release. This represents the updated release of the ground-up rewrite of the client libraries to ensure consistency, idiomatic design, and excellent developer experience and productivity. This preview release includes new and updated client libraries for Azure App Configuration, Identity, Key Vault (keys, secrets and certificates), Event Hubs and Event Hubs Checkpoint Store, and Storage (Blobs, Files, and Queues).
