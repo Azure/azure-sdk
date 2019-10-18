@@ -413,7 +413,7 @@ generate_export_header(appconf
 {% include requirement/MUST id="clang-tooling-clang-format" %} use [clang-format](http://clang.llvm.org/docs/ClangFormat.html) for formatting, with the following command-line options:
 
 {% highlight bash %}
-clang-format -style=llvm -i <file> ...
+clang-format -style=file -i <file> ...
 {% endhighlight %}
 
 Using `-i` does an in-place edit of the files for style.  There is [a Visual Studio extension](https://marketplace.visualstudio.com/items?itemName=LLVMExtensions.llvm-toolchain) that binds Ctrl-R Ctrl-F to this operation. Visual Studio 2019 includes this functionality by default.
