@@ -628,12 +628,14 @@ typedef struct az_catherding_herd az_catherding_herd;
 If you need to expose the type (for stack allocation), but would like to make it clear that some fields are private and should not be modified, place the type in the header file as follows::
 
 {% highlight c %}
+struct _az_catherding_herd_internal {
+  uint16_t num_cats;
+  az_catherding_cat* cats;
+  bool is_indoor;
+};
+
 typedef struct az_catherding_herd {
-  struct {
-    uint16_t num_cats;
-    az_catherding_cat* cats;
-    bool is_indoor;
-  } internal;
+  struct _az_catherding_herd_internal _internal;
 } az_catherding_herd;
 {% endhighlight %}
 
