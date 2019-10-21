@@ -85,6 +85,12 @@ To use the preview libraries, refer to the Maven dependency information below, w
   <artifactId>azure-storage-queue</artifactId>
   <version>12.0.0-preview.4</version>
 </dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-core-tracing-opencensus</artifactId>
+  <version>1.0.0-preview.3</version>
+</dependency>
 ```
 
 ## Feedback
@@ -123,6 +129,9 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 - Removed SASTokenCredential, SASTokenCredentialPolicy in client builders, and added sasToken(String) method instead.
 - Fixes various issues ( metadata does not allow capital letter, create method name in PageBlob).
 
+####  Tracing
+- Added tracing support for AMQP client libraries
+
 ## Need help?
 * For reference documentation visit the [Azure SDK for Java documentation](https://azure.github.io/azure-sdk-for-java/track2reports/index.html).
 * For tutorials, samples, quick starts and other documentation, visit [Azure for Java Developers](https://docs.microsoft.com/java/azure/).
@@ -146,5 +155,6 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 | Storage - Blobs Cryptography | [Readme](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob_12.0.0-preview.4/sdk/storage/azure-storage-blob-cryptography/README.md) | [Changelog]() | [Samples]() | [JavaDoc](https://azure.github.io/azure-sdk-for-java/track2reports/index.html) |
 | Storage - File | [Readme](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob_12.0.0-preview.4/sdk/storage/azure-storage-file/README.md) | [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob_12.0.0-preview.4/sdk/storage/azure-storage-file/CHANGELOG.md) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob_12.0.0-preview.4/sdk/storage/azure-storage-file/src/samples) | [JavaDoc](https://azure.github.io/azure-sdk-for-java/track2reports/index.html) |
 | Storage - Queue | [Readme](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob_12.0.0-preview.4/sdk/storage/azure-storage-queue/README.md) | [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob_12.0.0-preview.4/sdk/storage/azure-storage-queue/CHANGELOG.md) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob_12.0.0-preview.4/sdk/storage/azure-storage-queue/src/samples) | [JavaDoc](https://azure.github.io/azure-sdk-for-java/track2reports/index.html) |
+| Tracing | [Readme](https://github.com/Azure/azure-sdk-for-java/tree/azure-core-tracing-opencensus_1.0.0-preview.3/sdk/tracing/azure-core-tracing-opencensus/README.md) | [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-core-tracing-opencensus_1.0.0-preview.3/sdk/tracing/azure-core-tracing-opencensus/CHANGELOG.md) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/azure-core-tracing-opencensus_1.0.0-preview.3/sdk/tracing/azure-core-tracing-opencensus/src/samples/java/com/azure/core/tracing/opencensus) | [JavaDoc](https://azure.github.io/azure-sdk-for-java/track2reports/index.html) |
 
 {% include refs.md %}
