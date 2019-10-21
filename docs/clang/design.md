@@ -654,7 +654,7 @@ void az_catherding_herd_init(az_catherding_herd* herd);
 void az_catherding_herd_init_with_cats(az_catherding_herd* herd, int num_cats, az_catherding_cats* cats);
 {% endhighlight %}
 
-If initialization could fail (for example, during parameter validation), ensure the init function returns an `az_error` to indicate error conditions.
+If initialization could fail (for example, during parameter validation), ensure the init function returns an `az_result` to indicate error conditions.
 
 A possible implementation of these initialization functions would be:
 
@@ -704,7 +704,7 @@ For example:
 #include <stdint.h>
 typedef struct az_catherding_herd az_catherding_herd;
 
-az_error az_catherding_allocate_herd(az_catherding_herd** herd, az_allocation_callbacks* alloc);
+az_result az_catherding_allocate_herd(az_catherding_herd** herd, az_allocation_callbacks* alloc);
 void az_catherding_deallocate_herd(az_catherding_herd* herd, az_allocation_callbacks* alloc);
 {% endhighlight %}
 
@@ -717,14 +717,14 @@ typedef struct az_catherding_herd {
 } az_catherding_herd;
 
 
-az_error az_catherding_allocate_herd(az_catherding_herd** herd, az_allocation_callbacks* alloc) {
+az_result az_catherding_allocate_herd(az_catherding_herd** herd, az_allocation_callbacks* alloc) {
 if(!alloc) {
     *herd = az_default_alloc(sizeof(az_catherding_herd));
 } else {
     *herd = alloc->allocate(sizeof(az_catherding_herd));
 }
 if(!*herd) {
-    return AZ_ERROR_ALLOCATION_ERROR;
+    return az_result_ALLOCATION_ERROR;
 }
 return AZ_SUCCESS;
 }
@@ -788,10 +788,10 @@ To define a method on an object simply define a function taking a pointer to tha
  * @param[in] __[transfer none]__ cat - the cat to add
  * @return Any errors
  * @retval AZ_SUCCESS on success
- * @retval AZ_ERROR_NO_MEMORY if a reallocation of the internal
+ * @retval AZ_RESULT_NO_MEMORY if a reallocation of the internal
  *                            array failed
  */
-az_error az_catherding_herd_add_cat(az_catherding_herd* herd, cat* cat);
+az_result az_catherding_herd_add_cat(az_catherding_herd* herd, cat* cat);
 {% endhighlight %}
 
 {% include requirement/MUST id="clang-objmodel-memberof" %} use `@memberof` to indicate a function is associated with a class.
