@@ -724,7 +724,7 @@ if(!alloc) {
     *herd = alloc->allocate(sizeof(az_catherding_herd));
 }
 if(!*herd) {
-    return az_result_ALLOCATION_ERROR;
+    return AZ_RESULT_ALLOCATION_ERROR;
 }
 return AZ_SUCCESS;
 }
