@@ -100,11 +100,25 @@ When implementing authentication, don't open up the consumer to security holes l
 
 ## Logging
 
-> **TODO** Still in progress
+Client libraries must support robust logging mechanisms so that the consumer can adequately diagnose issues with the method calls and quickly determine whether the issue is in the consumer code, client library code, or service.
+
+{% include requirement/MUST id="golang-log-api" %} use the Logger API provided within azcore as the sole logging API throughout all client libraries.
+
+{% include requirement/MUST id="golang-log-classification" %} define constant classification strings using the `azcore.LogClassification` type, then log using these values.
+
+{% include requirement/MUST id="golang-log-inclue" %} log request line, response line, and headers.
+
+{% include requirement/MUSTNOT id="golang-log-exclude" %} log payloads or HTTP header/query parameter values that aren't on the white list.
 
 ## Distributed tracing
 
-> **TODO** Still in progress
+{% include requirement/MUST id="golang-tracing-abstraction" %} abstract the underlying tracing facility, allowing consumers to use the tracing implementation of their choice.
+
+{% include requirement/MUST id="golang-tracing-span-per-call" %} create a new trace span for each API call.  New spans must be children of the context that was passed in.
+
+{% include requirement/MUST id="golang-tracing-span-name" %} use `<package name>.<type name>.<method name>` as the name of the span.
+
+{% include requirement/MUST id="golang-tracing-propagate" %} propagate tracing context on each outgoing service request through the appropriate headers to support [Azure Monitor](https://azure.microsoft.com/en-us/services/monitor/).  This is generally done with the HTTP pipeline.
 
 ## Dependencies
 
