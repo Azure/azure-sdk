@@ -96,7 +96,36 @@ When implementing authentication, don't open up the consumer to security holes l
 
 ## Error handling
 
-> **TODO** Still in progress
+{% include requirement/MUST id="golang-errors" %} return an error if a method fails to perform its intended functionality.  For methods that return multiple items, the error object is always the last item in the return signature.
+
+{% include requirement/SHOULD id="golang-errors-wrapping" %} wrap an error with another error if it would help in the diagnosis of the underlying failure.  Expect consumers to use [error helper functions](https://blog.golang.org/go1.13-errors) like `errors.As()` and `errors.Is()`.
+
+```go
+err := xml.Unmarshal(resp.Payload, v)
+if err != nil {
+	return fmt.Errorf("unmarshalling type %s: %w", reflect.TypeOf(v).Elem().Name(), err)
+}
+```
+
+{% include requirement/MUST id="golang-errors-on-request-failed" %} return a service-specific error type when an HTTP request fails with an unsuccessful HTTP status code as defined by the service.  The error type MUST be composed of `azcore.RequestError` as an anonymous field.
+
+```go
+type APIError struct {
+	azcore.RequestError
+	Code AnomalyDetectorErrorCodes
+	Message string
+}
+```
+
+{% include requirement/MUST id="golang-errors-include-response" %} include the HTTP response and originating request in the returned error.
+
+In the case of a method that makes multiple HTTP requests, the first error encountered should stop the remainder of the operation and this error (or another error wrapping it) should be returned.
+
+{% include requirement/MUST id="golang-errors-distinct-types" %} return distinct error types so that consumers can distinguish between a client error (incomplete/incorrect API parameter values) and other SDK failures (failure to send the request, marshalling/unmarshalling, parsing errors).
+
+{% include requirement/MUST id="golang-errors-documentation" %} document the error types that are returned by each method.  Don't document commonly returned error types, for example `context.DeadlineExceeded` when an HTTP request times out.
+
+{% include requirement/MUSTNOT id="golang-errors-other-types" %} create arbitrary error types.  Use error types provided by the standard library or `azcore`.
 
 ## Logging
 
