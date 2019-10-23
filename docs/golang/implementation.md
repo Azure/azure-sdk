@@ -102,13 +102,13 @@ When implementing authentication, don't open up the consumer to security holes l
 
 Client libraries must support robust logging mechanisms so that the consumer can adequately diagnose issues with the method calls and quickly determine whether the issue is in the consumer code, client library code, or service.
 
-{% include requirement/MUST id="golang-log-api" %} use the Logger API provided within azcore as the sole logging API throughout all client libraries.
+{% include requirement/MUST id="golang-log-api" %} use the Logger API provided within `azcore` as the sole logging API throughout all client libraries.
 
 {% include requirement/MUST id="golang-log-classification" %} define constant classification strings using the `azcore.LogClassification` type, then log using these values.
 
-{% include requirement/MUST id="golang-log-inclue" %} log request line, response line, and headers.
+{% include requirement/MUST id="golang-log-inclue" %} log HTTP request line, response line, and all header/query parameter names.
 
-{% include requirement/MUSTNOT id="golang-log-exclude" %} log payloads or HTTP header/query parameter values that aren't on the white list.
+{% include requirement/MUSTNOT id="golang-log-exclude" %} log payloads or HTTP header/query parameter values that aren't on the white list.  For header/query parameters not on the white list use the value `<REDACTED>` in place of the real value.
 
 ## Distributed tracing
 
@@ -118,7 +118,7 @@ Client libraries must support robust logging mechanisms so that the consumer can
 
 {% include requirement/MUST id="golang-tracing-span-name" %} use `<package name>.<type name>.<method name>` as the name of the span.
 
-{% include requirement/MUST id="golang-tracing-propagate" %} propagate tracing context on each outgoing service request through the appropriate headers to support [Azure Monitor](https://azure.microsoft.com/en-us/services/monitor/).  This is generally done with the HTTP pipeline.
+{% include requirement/MUST id="golang-tracing-propagate" %} propagate tracing context on each outgoing service request through the appropriate headers to support a tracing service like [Azure Monitor](https://azure.microsoft.com/en-us/services/monitor/) or [ZipKin](https://zipkin.io/).  This is generally done with the HTTP pipeline.
 
 ## Dependencies
 

@@ -151,7 +151,7 @@ Model structures are types that consumers use to provide required information in
 
 Each new package defaults to the latest known service version.
 
-Each package allows the customer to select a previous service version from a list of enum values provided in that package.
+Each package allows the consumer to select a previous service version from a list of enum values provided in that package.
 
 {% include requirement/MUST id="golang-versioning-modules" %} release each package as a [Go module](https://blog.golang.org/using-go-modules).  Legacy dependency management tools such as `dep` and `glide` are not supported.
 
@@ -163,6 +163,7 @@ Each package allows the customer to select a previous service version from a lis
 
 {% include requirement/MUST id="golang-versioning-patch-versions" %} release a new patch version of a module when changes are made that do not affect public surface area.
 
+{% include requirement/MUST id="golang-versioning-preview" %} clearly version prerelease modules.  For new modules, use a v0 major version with no suffix (v0.1.0).  For existing modules, use a `-preview` suffix (v1.1.0-preview, v2.0.0-preview).
 
 {% include refs.md %}
 {% include_relative refs.md %}
