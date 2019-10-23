@@ -136,7 +136,7 @@ func NewCatHerdingClientWithPipeline(endpoint string, p azore.Pipeline) (CatHerd
   // ...
 }
 
-func (c CatHerdingClient) Create(ctx context.Context, mandatoryParam int64, optiosn *FileCreateOptions) (*FileCreateResponse, error) {
+func (c CatHerdingClient) Create(ctx context.Context, mandatoryParam int64, options *CreateOptions) (*CreateResponse, error) {
   // ...
 }
 {% endhighlight %}
@@ -149,8 +149,21 @@ Model structures are types that consumers use to provide required information in
 
 ### Versioning
 
-> **TODO** The API for specifying a specific service version is not yet defined.
+Each new package defaults to the latest known service version.
 
+Each package allows the consumer to select a previous service version from a list of enum values provided in that package.
+
+{% include requirement/MUST id="golang-versioning-modules" %} release each package as a [Go module](https://blog.golang.org/using-go-modules).  Legacy dependency management tools such as `dep` and `glide` are not supported.
+
+{% include requirement/MUST id="golang-versioning-semver" %} release versions of modules in accordance with [semver 2.0](https://semver.org/spec/v2.0.0.html).
+
+{% include requirement/MUST id="golang-versioning-breaking-changes" %} release a new major version of a module when breaking changes are introduced in public surface area; this includes new service versions that are NOT backward-compatible.  Use a new major version subdirectory to support [semantic import versioning](https://github.com/golang/go/wiki/Modules#semantic-import-versioning).
+
+{% include requirement/MUST id="golang-versioning-minor-versions" %} release a new minor version of a module when new public surface area is introduced; this includes new service versions that are backward-compatible with the previous versions.
+
+{% include requirement/MUST id="golang-versioning-patch-versions" %} release a new patch version of a module when changes are made that do not affect public surface area.
+
+{% include requirement/MUST id="golang-versioning-preview" %} clearly version prerelease modules.  For new modules, use a v0 major version with no suffix (v0.1.0).  For existing modules, use a `-preview` suffix (v1.1.0-preview, v2.0.0-preview).
 
 {% include refs.md %}
 {% include_relative refs.md %}
