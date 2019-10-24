@@ -891,7 +891,7 @@ The `Azure.ETag` type is located in `Azure.Core` package.
 
 {% include requirement/MUST id="dotnet-docs-readme" %} have a README.md file in the component root folder.
 
-An example of a good `README.md` file can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/appconfiguration/Azure.ApplicationModel.Configuration/README.md).
+An example of a good `README.md` file can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/appconfiguration/Azure.Data.AppConfiguration/README.md).
 
 {% include requirement/MUST id="dotnet-docs-readme-consumer" %} optimize the `README.md` for the consumer of the client library.
 
