@@ -132,8 +132,10 @@ func (i WidgetIterator) Err() error {
 }
 
 iter := client.ListWidgets(ctx, options)
-for iter.NextPage() {  
-	process(iter.Page())
+for iter.NextPage() { 
+	for _, w := range iter.Page().Widgets {
+		process(w)
+	}
 }
 if iter.Err() != nil {
 	// handle error...
