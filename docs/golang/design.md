@@ -157,12 +157,12 @@ func (c WidgetClient) BeginCreate(ctx context.Context, name string) (*CreateWidg
 }
 ```
 
-{% include requirement/MUST id="golang-lro-resuming-operations" %} provide a mechanism to instantiate a `Operation` type with the `ID` from a previous call to `Operation.ID()`.
+{% include requirement/MUST id="golang-lro-resuming-operations" %} provide a method with the prefix `Resume` to instantiate a `Operation` type with the `ID` from a previous call to `Operation.ID()`.
 
 ```go
-// CreateWidgetOperation creates a new CreateWidgetOperation from the specified ID.
+// ResumeCreateWidgetOperation creates a new CreateWidgetOperation from the specified ID.
 // The ID must come from a previous call to CreateWidgetOperation.ID().
-func (c WidgetClient) CreateWidgetOperation(id string) *CreateWidgetOperation {
+func (c WidgetClient) ResumeCreateWidgetOperation(id string) *CreateWidgetOperation {
 	return &CreateWidgetOperation{}
 }
 ```
@@ -174,7 +174,7 @@ func (c WidgetClient) CreateWidgetOperation(id string) *CreateWidgetOperation {
 ```go
 // RegisterProgressReporter registers a callback to be invoked with the progress message.
 // The message and interval of the callback are determined by the service.
-func (op *CreateWidgetOperation) RegisterProgressReporter(report func(string)) {
+func (op *CreateWidgetOperation) RegisterProgressReporter(reporter func(string)) {
 	// ...
 }
 ```
@@ -212,7 +212,7 @@ for {
 }
 
 // example #3, resuming from a previous operation
-op := client.CreateWidgetOperation("operation ID from external process")
+op := client.ResumeCreateWidgetOperation("operation ID from external process")
 w, err := op.Wait(context.Background(), 2*time.Second)
 if err != nil {
 	// handle error...
