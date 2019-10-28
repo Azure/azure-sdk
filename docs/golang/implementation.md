@@ -96,15 +96,58 @@ When implementing authentication, don't open up the consumer to security holes l
 
 ## Error handling
 
-> **TODO** Still in progress
+{% include requirement/MUST id="golang-errors" %} return an error if a method fails to perform its intended functionality.  For methods that return multiple items, the error object is always the last item in the return signature.
+
+{% include requirement/SHOULD id="golang-errors-wrapping" %} wrap an error with another error if it would help in the diagnosis of the underlying failure.  Expect consumers to use [error helper functions](https://blog.golang.org/go1.13-errors) like `errors.As()` and `errors.Is()`.
+
+```go
+err := xml.Unmarshal(resp.Payload, v)
+if err != nil {
+	return fmt.Errorf("unmarshalling type %s: %w", reflect.TypeOf(v).Elem().Name(), err)
+}
+```
+
+{% include requirement/MUST id="golang-errors-on-request-failed" %} return a service-specific error type when an HTTP request fails with an unsuccessful HTTP status code as defined by the service.  The error type MUST be composed of `azcore.RequestError` as an anonymous field.
+
+```go
+type APIError struct {
+	azcore.RequestError
+	Code AnomalyDetectorErrorCodes
+	Message string
+}
+```
+
+{% include requirement/MUST id="golang-errors-include-response" %} include the HTTP response and originating request in the returned error.
+
+In the case of a method that makes multiple HTTP requests, the first error encountered should stop the remainder of the operation and this error (or another error wrapping it) should be returned.
+
+{% include requirement/MUST id="golang-errors-distinct-types" %} return distinct error types so that consumers can distinguish between a client error (incomplete/incorrect API parameter values) and other SDK failures (failure to send the request, marshalling/unmarshalling, parsing errors).
+
+{% include requirement/MUST id="golang-errors-documentation" %} document the error types that are returned by each method.  Don't document commonly returned error types, for example `context.DeadlineExceeded` when an HTTP request times out.
+
+{% include requirement/MUSTNOT id="golang-errors-other-types" %} create arbitrary error types.  Use error types provided by the standard library or `azcore`.
 
 ## Logging
 
-> **TODO** Still in progress
+Client libraries must support robust logging mechanisms so that the consumer can adequately diagnose issues with the method calls and quickly determine whether the issue is in the consumer code, client library code, or service.
+
+{% include requirement/MUST id="golang-log-api" %} use the Logger API provided within `azcore` as the sole logging API throughout all client libraries.
+
+{% include requirement/MUST id="golang-log-classification" %} define constant classification strings using the `azcore.LogClassification` type, then log using these values.
+
+{% include requirement/MUST id="golang-log-inclue" %} log HTTP request line, response line, and all header/query parameter names.
+
+{% include requirement/MUSTNOT id="golang-log-exclude" %} log payloads or HTTP header/query parameter values that aren't on the white list.  For header/query parameters not on the white list use the value `<REDACTED>` in place of the real value.
 
 ## Distributed tracing
 
-> **TODO** Still in progress
+{% include requirement/MUST id="golang-tracing-abstraction" %} abstract the underlying tracing facility, allowing consumers to use the tracing implementation of their choice.
+
+{% include requirement/MUST id="golang-tracing-span-per-call" %} create a new trace span for each API call.  New spans must be children of the context that was passed in.
+
+{% include requirement/MUST id="golang-tracing-span-name" %} use `<package name>.<type name>.<method name>` as the name of the span.
+
+{% include requirement/MUST id="golang-tracing-propagate" %} propagate tracing context on each outgoing service request through the appropriate headers to support a tracing service like [Azure Monitor](https://azure.microsoft.com/en-us/services/monitor/) or [ZipKin](https://zipkin.io/).  This is generally done with the HTTP pipeline.
 
 ## Dependencies
 
