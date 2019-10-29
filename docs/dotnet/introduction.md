@@ -320,7 +320,7 @@ public class ConfigurationClient {
 }
 ```
 
-{% include requirement/MUST id="dotnet-pagination-ienumerable" %} return `IEnumerable<Response<T>>` or ``IAsyncEnumerable<Response<T>>` from service methods that return a collection of items.
+{% include requirement/MUST id="dotnet-pagination-ienumerable" %} return `IEnumerable<Response<T>>` or `IAsyncEnumerable<Response<T>>` from service methods that return a collection of items.
 
 The ```Response<T>.Raw``` will contain response content related to several individual items.
 
