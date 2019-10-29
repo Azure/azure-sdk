@@ -265,6 +265,34 @@ Refer to the [azappconfig package] for a fully built-out example of how a client
 
 Model structures are types that consumers use to provide required information into client library methods.  They can also be returned from client methods. These structures typically represent the domain model, or option structures that must be configured before the request can be made.
 
+### Enumerated types
+
+{% include requirement/MUST id="golang-enum-type-naming" %} use the suffix `Type` when declaring a type that represents an enumeration.
+
+{% include requirement/MUST id="golang-enum-value-naming" %} name all values with a prefix of the type's name, omitting the `Type` suffix.
+
+{% include requirement/MUST id="golang-enum-value-grouping" %} place all values for an enumerated type within their own `const` block, which is to immediately follow the type's declaration.
+
+{% include requirement/MUST id="golang-enum-type-values" %} define a function that returns a slice containing all possible values for the enumeration.
+
+```go
+// WidgetColorType specifies a Widget's color from the list of possible values.
+type WidgetColorType string
+
+const (
+	WidgetColorBlue WidgetColorType = "blueWidget"
+
+	WidgetColorGreen WidgetColorType = "greenWidget"
+
+	WidgetColorRed WidgetColorType = "redWidget"
+)
+
+// WidgetColorTypeValues returns a slice of possible values for WidgetColorType.
+func WidgetColorTypeValues() []WidgetColorType {
+	// ...
+}
+```
+
 ### Versioning
 
 Each new package defaults to the latest known service version.
