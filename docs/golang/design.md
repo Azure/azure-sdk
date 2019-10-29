@@ -267,6 +267,8 @@ Model structures are types that consumers use to provide required information in
 
 ### Enumerated types
 
+{% include requirement/MUST id="golang-enum-type" %} define the enumeration's type to match the type sent/received over-the-wire (strings and integers are prime examples).
+
 {% include requirement/MUST id="golang-enum-type-naming" %} use the suffix `Type` when declaring a type that represents an enumeration.
 
 {% include requirement/MUST id="golang-enum-value-naming" %} name all values with a prefix of the type's name, omitting the `Type` suffix.
