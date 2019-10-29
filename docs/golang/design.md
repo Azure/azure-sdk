@@ -96,7 +96,78 @@ For methods that combine multiple requests into a single call:
 
 ## Pagination
 
-> **TODO** The API for handling paginated responses is still in progress
+{% include requirement/MUST id="golang-pagination" %} return a value that implements the paged protocol for operations that return collections.  The paged protocol allows consumers to iterate over all items and also provides a method that gives access to individual pages as defined by the service.  Consumers will not directly receive any paging information.
+
+{% include requirement/MUST id="golang-pagination-iterators" %} create iterator types with the name `<Resource>Iterator` that are to be returned from their respective operations.
+
+{% include requirement/MUST id="golang-pagination-methods" %} use the prefix `List` in the method name for methods that return an iterator.  Such methods MUST take a `context.Context` as their first parameter.
+
+```go
+func (c WidgetClient) ListWidgets(ctx context.Context, options *ListWidgetOptions) *WidgetIterator {
+	// ...
+}
+```
+
+{% include requirement/MUST id="golang-pagination-iterator-interface-page" %} expose methods `NextPage()`, `Page()`, and `Err()` on the `<Resource>Iterator` type.
+
+```go
+type WidgetIterator struct {
+	// ...
+}
+
+// NextPage returns true if the iterator advanced to the next page.
+// Returns false if there are no more pages or an error occurred.
+func (i WidgetIterator) NextPage() bool {
+	// ...
+}
+
+// Page returns the current ListWidgetsPage.
+func (i WidgetIterator) Page() *ListWidgetsPage {
+	// ...
+}
+
+// Err returns the last error encountered while iterating.
+func (i WidgetIterator) Err() error {
+	// ...
+}
+
+iter := client.ListWidgets(ctx, options)
+for iter.NextPage() { 
+	for _, w := range iter.Page().Widgets {
+		process(w)
+	}
+}
+if iter.Err() != nil {
+	// handle error...
+}
+```
+
+{% include requirement/MUST id="golang-pagination-iterator-interface-item" %} expose methods `Next()` and `Item()` on the `<Resource>Iterator` type **IFF** the page is a homogenous collection of items.
+
+```go
+// Next returns true if the iterator advanced to the next item.
+// Returns false if there are no more items or an error occurred.
+func (i WidgetIterator) Next() bool {
+	// ...
+}
+
+// Item returns the current Widget based on the iterator's index.
+func (i WidgetIterator) Item() *Widget {
+	// ...
+}
+
+iter := client.ListWidgets(ctx, options)
+for iter.Next() {  
+	process(iter.Item())
+}
+if iter.Err() != nil {
+	// handle error...
+}
+```
+
+{% include requirement/MUSTNOT id="golang-pagination-too-many-gets" %} expose an iterator over a collection if retrieving each item requires a corresponding GET request to the service. One GET per item is often too expensive and thus not an action we want to take on behalf of consumers.
+
+{% include requirement/MUST id="golang-pagination-serialization" %} provide means to serialize and deserialize an iterator so that iteration can pause and continue, potentially on another machine.
 
 ## Long running operations
 
