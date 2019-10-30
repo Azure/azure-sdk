@@ -267,7 +267,7 @@ Model structures are types that consumers use to provide required information in
 
 ### Enumerated types
 
-{% include requirement/MUST id="golang-enum-type" %} define the enumeration's type to match the type sent/received over-the-wire (strings and integers are prime examples).
+{% include requirement/MUST id="golang-enum-type" %} define the enumeration's type to match the type sent/received over-the-wire (string is the most common example).
 
 {% include requirement/MUST id="golang-enum-type-naming" %} use the suffix `Type` when declaring a type that represents an enumeration.
 
@@ -282,11 +282,9 @@ Model structures are types that consumers use to provide required information in
 type WidgetColorType string
 
 const (
-	WidgetColorBlue WidgetColorType = "blueWidget"
-
-	WidgetColorGreen WidgetColorType = "greenWidget"
-
-	WidgetColorRed WidgetColorType = "redWidget"
+	WidgetColorBlue  WidgetColorType = "blue"
+	WidgetColorGreen WidgetColorType = "green"
+	WidgetColorRed   WidgetColorType = "red"
 )
 
 // WidgetColorTypeValues returns a slice of possible values for WidgetColorType.
