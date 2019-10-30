@@ -538,7 +538,7 @@ AZ_NODISCARD az_result az_catherding_count_cats(az_catherding_herd* herd, int* c
 
 {% include requirement/MUST id="clang-error-recov-nodiscard" %} mark all functions returning errors as `AZ_NODISCARD`. This will cause supported compilers to emit a warning if the caller ignores the error code.
 
-{% include requirement/MUST id="clang-error-recov-success" %} return `AZ_OK` from successful functions, unless the function has no error conditions.
+{% include requirement/MUST id="clang-error-recov-success" %} return `AZ_OK` or `AZ_RESULT_MEOW` from successful functions, unless the function has no error conditions.
 
 {% include requirement/MUST id="clang-error-recov-error" %} produce a recoverable error when any HTTP request fails with an HTTP status code that is not defined by the service/Swagger as a successful status code.
 
