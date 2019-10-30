@@ -4,12 +4,16 @@ Azure Cosmos DB is a globally distributed, multi-model database service that sup
 
 Use the Cosmos DB client library for Python to manage databases and the JSON documents they contain in this NoSQL database service:
 
-* Create Cosmos DB databases and modify their settings
-* Create and modify containers to store collections of JSON documents
-* Create, read, update, and delete the items (JSON documents) in your containers
-* Query the documents in your database using SQL-like syntax
+    * Create Cosmos DB databases and modify their settings
+    * Create and modify containers to store collections of JSON documents
+    * Create, read, update, and delete the items (JSON documents) in your containers
+    * Query the documents in your database using SQL-like syntax
 
-[Source code][source_code] | [Package (PyPi)][pypi] | [API reference documentation][ref_cosmos_sdk] | [Product documentation][cosmos_docs] | [Samples][samples]
+- [Source code][source_code] 
+- [Package (PyPi)][pypi] 
+- [API reference documentation][ref_cosmos_sdk] 
+- [Product documentation][cosmos_docs] 
+- [Examples to get Started][samples]
 
 ## Getting started
 
