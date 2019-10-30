@@ -584,7 +584,7 @@ Consider 5+ models to be "large".  The types that the user needs should be easy 
 
 ### Error Reporting {#dotnet-errors}
 
-{% include requirement/MUST id="dotnet-errors-response-failed" %} throw ```ResponseFailedException``` or its subtype when a service method fails with non-success status code. 
+{% include requirement/MUST id="dotnet-errors-response-failed" %} throw ```RequestFailedException``` or its subtype when a service method fails with non-success status code. 
 
 The exception is available in ```Azure.Core``` package:
 ```csharp
@@ -603,14 +603,14 @@ The exception message should contain detailed response information.  For example
 
 ```csharp
 if (response.Status != 200) {
-    ResponseFailedException e = await response.CreateRequestFailedExceptionAsync(message);
+    var e = await response.CreateRequestFailedExceptionAsync(message);
     throw e;
 }
 ```
 
-{% include requirement/MUST id="dotnet-errors-use-response-failed-when-possible" %} use `ResponseFailedException` or one of its subtypes where possible.
+{% include requirement/MUST id="dotnet-errors-use-response-failed-when-possible" %} use `RequestFailedException` or one of its subtypes where possible.
 
-Don't introduce new exception types unless there's a programmatic scenario for handling the new exception that's different than `ResponseFailedException`
+Don't introduce new exception types unless there's a programmatic scenario for handling the new exception that's different than `RequestFailedException`
 
 ### Logging
 
@@ -799,7 +799,7 @@ public virtual async Task<Response<ConfigurationSetting>> AddAsync(Configuration
             // deserialize content
             Response<ConfigurationSetting> result = await CreateResponse(response, cancellationToken);
         }
-        else throw new ResponseFailedException(response);
+        else throw new RequestFailedException(response);
     }
 }
 ```
