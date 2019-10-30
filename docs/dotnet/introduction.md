@@ -584,7 +584,7 @@ Consider 5+ models to be "large".  The types that the user needs should be easy 
 
 ### Error Reporting {#dotnet-errors}
 
-{% include requirement/MUST id="dotnet-errors-response-failed" %} throw ```RequestFailedException``` or its subtype when a service method fails with non-success status code. 
+{% include requirement/MUST id="dotnet-errors-response-failed" %} throw `RequestFailedException` or its subtype when a service method fails with non-success status code. 
 
 The exception is available in ```Azure.Core``` package:
 ```csharp
