@@ -269,26 +269,24 @@ Model structures are types that consumers use to provide required information in
 
 {% include requirement/MUST id="golang-enum-type" %} define the enumeration's type to match the type sent/received over-the-wire (string is the most common example).
 
-{% include requirement/MUST id="golang-enum-type-naming" %} use the suffix `Type` when declaring a type that represents an enumeration.
-
-{% include requirement/MUST id="golang-enum-value-naming" %} name all values with a prefix of the type's name, omitting the `Type` suffix.
+{% include requirement/MUST id="golang-enum-value-naming" %} name all values with a prefix of the type's name.
 
 {% include requirement/MUST id="golang-enum-value-grouping" %} place all values for an enumerated type within their own `const` block, which is to immediately follow the type's declaration.
 
-{% include requirement/MUST id="golang-enum-type-values" %} define a function that returns a slice containing all possible values for the enumeration.
+{% include requirement/MUST id="golang-enum-type-values" %} define a function named `<EnumTypeName>Values()` that returns a slice containing all possible values for the enumeration.
 
 ```go
-// WidgetColorType specifies a Widget's color from the list of possible values.
-type WidgetColorType string
+// WidgetColor specifies a Widget's color from the list of possible values.
+type WidgetColor string
 
 const (
-	WidgetColorBlue  WidgetColorType = "blue"
-	WidgetColorGreen WidgetColorType = "green"
-	WidgetColorRed   WidgetColorType = "red"
+	WidgetColorBlue  WidgetColor = "blue"
+	WidgetColorGreen WidgetColor = "green"
+	WidgetColorRed   WidgetColor = "red"
 )
 
-// WidgetColorTypeValues returns a slice of possible values for WidgetColorType.
-func WidgetColorTypeValues() []WidgetColorType {
+// WidgetColorValues returns a slice of possible values for WidgetColor.
+func WidgetColorValues() []WidgetColor {
 	// ...
 }
 ```
