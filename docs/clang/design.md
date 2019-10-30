@@ -498,7 +498,7 @@ For example
 
 {% highlight c %}
 az_result az_panic() {
-  return AZ_RESULT_INVALID_ARGUMENT;
+  return AZ_ERROR_INVALID_ARGUMENT;
 }
 {% endhighlight %}
 
@@ -532,13 +532,13 @@ AZ_NODISCARD az_result az_catherding_count_cats(az_catherding_herd* herd, int* c
     return AZ_RESULT_CATHERDING_HIDING_CATS;
   }
   *cats = herd->num_cats;
-  return AZ_RESULT_SUCCESS;
+  return AZ_OK;
 }
 {% endhighlight %}
 
 {% include requirement/MUST id="clang-error-recov-nodiscard" %} mark all functions returning errors as `AZ_NODISCARD`. This will cause supported compilers to emit a warning if the caller ignores the error code.
 
-{% include requirement/MUST id="clang-error-recov-success" %} return `AZ_RESULT_SUCCESS` from successful functions, unless the function has no error conditions.
+{% include requirement/MUST id="clang-error-recov-success" %} return `AZ_OK` from successful functions, unless the function has no error conditions.
 
 {% include requirement/MUST id="clang-error-recov-error" %} produce a recoverable error when any HTTP request fails with an HTTP status code that is not defined by the service/Swagger as a successful status code.
 
@@ -724,7 +724,7 @@ if(!alloc) {
     *herd = alloc->allocate(sizeof(az_catherding_herd));
 }
 if(!*herd) {
-    return AZ_RESULT_ALLOCATION_ERROR;
+    return AZ_ERROR_ALLOCATION_ERROR;
 }
 return AZ_SUCCESS;
 }
@@ -787,8 +787,8 @@ To define a method on an object simply define a function taking a pointer to tha
  * @param[in] herd - the herd
  * @param[in] __[transfer none]__ cat - the cat to add
  * @return Any errors
- * @retval AZ_SUCCESS on success
- * @retval AZ_RESULT_NO_MEMORY if a reallocation of the internal
+ * @retval AZ_OK on success
+ * @retval AZ_ERROR_NO_MEMORY if a reallocation of the internal
  *                            array failed
  */
 az_result az_catherding_herd_add_cat(az_catherding_herd* herd, cat* cat);
