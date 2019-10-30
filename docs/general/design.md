@@ -105,9 +105,9 @@ class ConfigurationSetting {
 
 Optional parameters and settings to an operation should be collected into an options bag named `<operation>Options`. For example, the `GetConfigurationSetting` method might take a `GetConfigurationSettingOptions` class for specifying optional parameters.
 
-Results should use the model type (e.g. `ConfigurationSetting`) where the return value is a complete set of data for the model.  However, in cases where an incomplete set of data is returned, use the following types:
+Results should use the model type (e.g. `ConfigurationSetting`) where the return value is a complete set of data for the model.  However, in cases where a partial schema is returned, use the following types:
 
-* `<model>Item` for each item in an enumeration if the enumeration does not return all data about the item.  For example, `GetBlobs()` return an enumeration of `BlobItem`, which contains the blob name and metadata, but not the content of the blob.
+* `<model>Item` for each item in an enumeration if the enumeration returns a partial schema for the model.  For example, `GetBlobs()` return an enumeration of `BlobItem`, which contains the blob name and metadata, but not the content of the blob.
 * `<operation>Result` for the result of an operation.  The `<operation>` is tied to a specific service operation.  If the same result can be used for multiple operations, use a suitable noun-verb phrase instead.  For example, use `UploadBlobResult` for the result from `UploadBlob`, but `ContainerChangeResult` for results from the various methods that change a blob container.
 
 The following table enumerates the various models you might create:
