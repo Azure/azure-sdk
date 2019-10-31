@@ -222,6 +222,37 @@ void az_do_something_or_other(az_some_struct* s);
 
 Combined operations cause unnecessary friction for a library consumer by requiring knowledge of additional operations which might be outside their current focus. It requires them to first understand the tangential code surrounding the operation they're working on, then carefully extract just the code they need for their task. The developer can no longer simply copy and paste the code snippet into their project.
 
-> TODO: Include any build instructions that you must add to your CMakefile in order to generate the documentation.
+### Buildsystem integration
+
+{% include requirement/MUST id="clang-docs-buildsystem" %} Provide a buildsystem target called "docs" to build
+    the documentation
+
+{% include requirement/MUST id="clang-docs-buildsystem-option" %} Provide an option `BUILD_DOCS` to control
+    building of the docs, this should default to `OFF`
+
+To provide this you can use the CMake `FindDoxygen` module as follows:
+
+{% highlight cmake %}
+option(BUILD_DOCS "Build documentation" OFF)
+if(BUILD_DOCS)
+    find_package(Doxygen REQUIRED doxygen)
+
+    # note: DOXYGEN_ options are strings to cmake, not
+    # booleans, thus use only YES and NO
+    set(DOXYGEN_GENERATE_XML YES)
+    set(DOXYGEN_GENERATE_HTML YES)
+
+    set(DOXYGEN_OPTIMIZE_OUTPUT_FOR_C YES)
+    set(DOXYGEN_EXTRACT_PACKAGE YES)
+    set(DOXYGEN_INLINE_SIMPLE_STRUCTS YES)
+    set(DOXYGEN_TYPEDEF_HIDES_STRUCT YES)
+    doxygen_add_docs(docs
+        ${PROJECT_SOURCE_DIR}/inc
+        ${PROJECT_SOURCE_DIR}/doc
+        ${PROJECT_SOURCE_DIR}/src
+        COMMENT "Generate Documentation")
+endif()
+{% endhighlight %}
+
 
 {% include refs.md %}
