@@ -13,7 +13,7 @@ Use the Cosmos DB client library for Python to manage databases and the JSON doc
 - [Package (PyPi)][pypi] 
 - [API reference documentation][ref_cosmos_sdk] 
 - [Product documentation][cosmos_docs] 
-- [Examples to get Started][samples]
+- [Examples][samples]
 
 ## Getting started
 
