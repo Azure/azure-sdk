@@ -603,8 +603,7 @@ The exception message should contain detailed response information.  For example
 
 ```csharp
 if (response.Status != 200) {
-    var e = await response.CreateRequestFailedExceptionAsync(message);
-    throw e;
+    throw await response.CreateRequestFailedExceptionAsync(message);
 }
 ```
 
@@ -801,8 +800,7 @@ public virtual async Task<Response<ConfigurationSetting>> AddAsync(Configuration
         }
         else
         {
-            var e = await response.CreateRequestFailedExceptionAsync(message);
-            throw e;
+            throw await response.CreateRequestFailedExceptionAsync(message);
         }
     }
 }
