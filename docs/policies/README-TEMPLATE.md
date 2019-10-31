@@ -12,7 +12,7 @@ Use the guidelines in each section of this template to ensure consistency and re
 * **DO NOT** use an "Introduction" or "Overview" heading (H2) for this section.
 * First sentence: **Describe the service** briefly. You can usually use the first line of the service's docs landing page for this (Example: [Cosmos DB docs landing page](https://docs.microsoft.com/azure/cosmos-db/)).
 * Next, add a **bulleted list** of the **most common tasks** supported by the package or library, prefaced with "Use the client library for [Product Name] to:". Then, provide code snippets for these tasks in the [Examples](#examples) section later in the document. Keep the task list short but include those tasks most developers need to perform with your package.
-* Include this bullet-ed list of links targeting your product's content at the bottom of the introduction, making any adjustments as necessary (for example, NuGet instead of PyPi):
+* Include this bullet list of links targeting your product's content at the bottom of the introduction, making any adjustments as necessary (for example, NuGet instead of PyPi):
 
     -  [Source code](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-batch)
     -  [Package (PyPi)](https://pypi.org/project/azure-batch/)
