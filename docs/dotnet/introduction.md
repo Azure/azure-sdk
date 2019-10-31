@@ -799,7 +799,11 @@ public virtual async Task<Response<ConfigurationSetting>> AddAsync(Configuration
             // deserialize content
             Response<ConfigurationSetting> result = await CreateResponse(response, cancellationToken);
         }
-        else throw new RequestFailedException(response);
+        else
+        {
+            var e = await response.CreateRequestFailedExceptionAsync(message);
+            throw e;
+        }
     }
 }
 ```
