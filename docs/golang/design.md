@@ -48,19 +48,21 @@ type WidgetClient struct {
 
 ```go
 // NewWidgetClient creates a new instance of WidgetClient with the specified values.  It uses the default pipeline configuration.
-func NewWidgetClient(endpoint string, cred azcore.Credential, options WidgetClientOptions) (WidgetClient, error) {
+func NewWidgetClient(endpoint string, cred azcore.Credential, options WidgetClientOptions) (*WidgetClient, error) {
 	// ...
 }
 
 // NewWidgetClientWithPipeline creates a new instance of WidgetClient with the specified values and custom pipeline.
-func NewWidgetClientWithPipeline(endpoint string, p azcore.Pipeline, options WidgetClientOptions) (WidgetClient, error) {
+func NewWidgetClientWithPipeline(endpoint string, p azcore.Pipeline, options WidgetClientOptions) (*WidgetClient, error) {
 	// ...
 }
 ```
 
 {% include requirement/MUST id="golang-api-service-client-immutable" %} ensure that all service client types are immutable upon instantiation.
 
-{% include requirement/MUSTNOT id="golang-api-service-client-fields" %} export any fields on client types.  This is to support mocking of clients via interface types and also strengthens the immutability requirement.
+{% include requirement/MUST id="golang-api-service-client-byref" %} pass all client instances by reference.  All methods on client types will pass their receiver by reference.
+
+{% include requirement/MUSTNOT id="golang-api-service-client-fields" %} export any fields on client types.  This is to support mocking of clients via interface types and strengthens the immutability requirement.
 
 ## Service client methods
 
@@ -110,7 +112,7 @@ type CreateWidgetResponse struct {
 	Color WidgetColor
 }
 
-func (c WidgetClient) CreateWidget(ctx context.Context, name string, color WidgetColor) (CreateWidgetResponse, error) {
+func (c *WidgetClient) CreateWidget(ctx context.Context, name string, color WidgetColor) (*CreateWidgetResponse, error) {
 	// ...
 }
 ```
@@ -118,7 +120,7 @@ func (c WidgetClient) CreateWidget(ctx context.Context, name string, color Widge
 {% include requirement/MUST id="golang-response-full-response" %} make it possible for a developer to access the complete response, including the HTTP status, headers, and body.
 
 ```go
-func (r CreateWidgetResponse) Response() *azcore.Response {
+func (r *CreateWidgetResponse) Response() *azcore.Response {
 	// ...
 }
 ```
@@ -144,7 +146,7 @@ For methods that combine multiple requests into a single call:
 {% include requirement/MUSTNOT id="golang-pagination-fields" %} export any fields on iterator types.  This is to support mocking of iterator responses via interface types.
 
 ```go
-func (c WidgetClient) ListWidgets(ctx context.Context, options *ListWidgetOptions) *WidgetIterator {
+func (c *WidgetClient) ListWidgets(ctx context.Context, options *ListWidgetOptions) *WidgetIterator {
 	// ...
 }
 ```
@@ -158,17 +160,17 @@ type WidgetIterator struct {
 
 // NextPage returns true if the iterator advanced to the next page.
 // Returns false if there are no more pages or an error occurred.
-func (i WidgetIterator) NextPage() bool {
+func (i *WidgetIterator) NextPage() bool {
 	// ...
 }
 
 // Page returns the current ListWidgetsPage.
-func (i WidgetIterator) Page() *ListWidgetsPage {
+func (i *WidgetIterator) Page() *ListWidgetsPage {
 	// ...
 }
 
 // Err returns the last error encountered while iterating.
-func (i WidgetIterator) Err() error {
+func (i *WidgetIterator) Err() error {
 	// ...
 }
 
@@ -188,12 +190,12 @@ if iter.Err() != nil {
 ```go
 // Next returns true if the iterator advanced to the next item.
 // Returns false if there are no more items or an error occurred.
-func (i WidgetIterator) Next() bool {
+func (i *WidgetIterator) Next() bool {
 	// ...
 }
 
 // Item returns the current Widget based on the iterator's index.
-func (i WidgetIterator) Item() *Widget {
+func (i *WidgetIterator) Item() *Widget {
 	// ...
 }
 
@@ -266,7 +268,7 @@ func (op *CreateWidgetOperation) Wait(ctx context.Context, pollingInterval time.
 
 ```go
 // BeginCreate creates a new widget with the specified name.
-func (c WidgetClient) BeginCreate(ctx context.Context, name string) (*CreateWidgetOperation, error) {
+func (c *WidgetClient) BeginCreate(ctx context.Context, name string) (*CreateWidgetOperation, error) {
 	// ...
 }
 ```
@@ -276,8 +278,8 @@ func (c WidgetClient) BeginCreate(ctx context.Context, name string) (*CreateWidg
 ```go
 // ResumeCreateWidgetOperation creates a new CreateWidgetOperation from the specified ID.
 // The ID must come from a previous call to CreateWidgetOperation.ID().
-func (c WidgetClient) ResumeCreateWidgetOperation(id string) *CreateWidgetOperation {
-	return &CreateWidgetOperation{}
+func (c *WidgetClient) ResumeCreateWidgetOperation(id string) *CreateWidgetOperation {
+	// ...
 }
 ```
 
