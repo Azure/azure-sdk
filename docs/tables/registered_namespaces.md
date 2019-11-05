@@ -11,13 +11,14 @@ The following are a list of registered namespaces.
 | :---------------------------- | :----------------------------- |
 | `azure.ai.inkrecognizer`      | [Ink Recognizer]               |
 | `azure.data.appconfiguration` | [App Configuration]            |
-| `azure.data.cosmos`           | [Azure Cosmos DB]              |
+| `azure.cosmos`                | [Azure Cosmos DB]              |
 | `azure.messaging.eventhubs`   | [Event Hubs]                   |
-| `azure.messaging.queues`      | [Azure Storage]                |
 | `azure.search`                | [Azure Search]                 |
 | `azure.security.keyvault`     | [Key Vault]                    |
 | `azure.storage.blobs`         | [Azure Storage]                |
-| `azure.storage.files`         | [Azure Storage]                |
+| `azure.storage.files.shares`  | [Azure Storage]                |
+| `azure.storage.files.datalake`| [Azure Storage]                |
+| `azure.storage.queues`        | [Azure Storage]                |
 
 We represent the namespace in a standard form (each element is all lower case and starts with the `azure` identifier).  This standard form must be turned into the language-specific form before use.  For example, `azure.security.keyvault` is represented as:
 

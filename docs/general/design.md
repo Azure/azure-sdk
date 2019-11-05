@@ -81,6 +81,45 @@ The following are standard verb prefixes.  You should have a good (articulated) 
 
 {% include requirement/MUST id="general-client-feature-support" %} support 100% of the features provided by the Azure service the client library represents. Gaps in functionality cause confusion and frustration among developers.
 
+## Model types
+
+Client libraries represent entities transferred to and from Azure services as model types.   Certain types are used for round-trips to the service.  They can be sent to the service (as an addition or update operation) and retrieved from the service (as a get operation).  These should be named according to the type.  For example, a `ConfigurationSetting` in App Configuration, or an `Event` on Event Grid.
+
+Data within the model type can generally be split into two parts - data used to support one of the champion scenarios for the service, and less important data.  Given a type `Foo`, the less important details can be gathered in a type called `FooDetails` and attached to `Foo` as the `details` property.
+
+For example:
+
+{% highlight csharp %}
+class ConfigurationSettingDetails {
+    DateTimeOffset lastModifiedDate;
+    DateTimeOffset receivedDate;
+    ETag eTag;
+}
+
+class ConfigurationSetting {
+    String key;
+    String value;
+    ConfigurationSettingDetails details;
+}
+{% endhighlight %}
+
+Optional parameters and settings to an operation should be collected into an options bag named `<operation>Options`. For example, the `GetConfigurationSetting` method might take a `GetConfigurationSettingOptions` class for specifying optional parameters.
+
+Results should use the model type (e.g. `ConfigurationSetting`) where the return value is a complete set of data for the model.  However, in cases where a partial schema is returned, use the following types:
+
+* `<model>Item` for each item in an enumeration if the enumeration returns a partial schema for the model.  For example, `GetBlobs()` return an enumeration of `BlobItem`, which contains the blob name and metadata, but not the content of the blob.
+* `<operation>Result` for the result of an operation.  The `<operation>` is tied to a specific service operation.  If the same result can be used for multiple operations, use a suitable noun-verb phrase instead.  For example, use `UploadBlobResult` for the result from `UploadBlob`, but `ContainerChangeResult` for results from the various methods that change a blob container.
+
+The following table enumerates the various models you might create:
+
+| Type | Example | Usage |
+| `<model>` | `Secret` | The full data for a resource |
+| `<model>Details` | `SecretDetails` | Less important details about a resource.  Attached to `<model>.details` |
+| `<model>Item` | `SecretItem` | A partial set of data returned for enumeration |
+| `<operation>Options` | `AddSecretOptions` | Optional parameters to a single operation |
+| `<operation>Result` | `AddSecretResult` | A partial or different set of data for a single operation |
+| `<model><verb>Result` | `SecretChangeResult` | A partial or different set of data for multiple operations on a model |
+
 ## Network requests
 
 Since the client library generally wraps one or more HTTP requests, it is important to support standard network capabilities.  Asynchronous programming techniques are not widely understood, although such techniques are essential in developing scalable web services and required in certain environments (such as mobile or Node environments).  Many developers prefer synchronous method calls for their easy semantics when learning how to use a technology.  In addition, consumers have come to expect certain capabilities in a network stack - capabilities such as call cancellation, automatic retry, and logging. 
@@ -173,6 +212,59 @@ For methods that combine multiple requests into a single call:
 - `value`
 
 Such usage can cause confusion and will inevitably have to be changed on a per-language basis, which can cause consistency problems.
+
+## Conditional requests
+
+[Conditional requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Conditional_requests) are normally performed using HTTP headers.  The primary usage provides headers that match the `ETag` to some known value.  The `ETag` is an opaque identifier that represents a single version of a resource. For example, adding the following header will translate to "if the record's version, specified by the `ETag`, is not the same".
+
+{% highlight text %}
+If-Not-Match: "etag-value"
+{% endhighlight %}
+
+With headers, tests are possible for the following:
+
+* Unconditionally (no additional headers)
+* If (not) modified since a version (`If-Match` and `If-Not-Match`)
+* If (not) modified since a date (`If-Modified-Since` and `If-Unmodified-Since`)
+* If (not) present (`If-Match` and `If-Not-Match` with a `ETag=*` value)
+
+Not all services support all of these semantics, and may not support any of them.  Developers have varying levels of understanding of the `ETag` and conditional requests, so it is best to abstract this concept from the API surface.  There are two types of conditional requests we need to be concerned with:
+
+**Safe conditional requests** (e.g. GET)
+
+These are typically used to save bandwidth in an "update cache" scenario, i.e. I have a cached value, only send me the data if what the service has is newer than my copy. These return either a 200 or a 304 status code, indicating the value was not modified, which tells the caller that their cached value is up to date.
+
+**Unsafe conditional requests** (e.g. POST, PUT, or DELETE)
+
+These are typically used to prevent losing updates in an optimistic concurrency scenario, i.e. I've modified the cached value I'm holding, but don't update the service version unless it has the same copy I've got. These return either a success or a 412 error status code, indicating the value was modified, to indicate to the caller that they'll need to retry their update if they want it to succeed.
+
+These two cases are handled differently in client libraries.  However, the form of the call is the same in both cases.  The signature of the method should be:
+
+{% highlight text %}
+client.<method>(<item>, requestOptions)
+{% endhighlight %}
+
+The `requestOptions` field provides preconditions to the HTTP request.  The `Etag` value will be retrieved from the item that is passed into the method where possible, and method arguments where not possible. The form of the method will be modified based on idiomatic usage patterns in the language of choice.  In cases where the `ETag` value is not known, the operation cannot be conditional.
+If the library developer doens't need to support advanced usage of precondition headers, they can add a boolean parameter that is set to true to establish the condition.  For example, use one of the following boolean names instead of the conditions operator:
+
+* `onlyIfChanged`
+* `onlyIfUnchanged`
+* `onlyIfMissing`
+* `onlyIfPresent`
+
+In all cases, the conditional expression is "opt-in", and the default is to perform the operation unconditionally.
+
+The return value from a conditional operation must be carefully considered.  For safe operators (e.g. GET), return a response that will throw if the value is accessed (or follow the same convention used fro a `204 No Content` response), since there is no value in the body to reference.  For unsafe operators (e.g. PUT, DELETE, or POST), throw a specific error when a `Precondition Failed` or `Conflict` result is received.  This allows the consumer to do something different in the case of conflicting results.
+
+{% include requirement/SHOULD %} accept a `conditions` parameter (which takes an enumerated type) on service methods that allow a conditional check on the service. 
+
+{% include requirement/SHOULD %} accept an additional boolean or enum parameter on service methods as necessary to enable conditional checks using `ETag`.
+
+{% include requirement/SHOULD %} include the `ETag` field as part of the object model when conditional operations are supported.
+
+{% include requirement/SHOULDNOT %} throw an error when a `304 Not Modified` response is received from the service, unless such errors are idiomatic to the language.
+
+{% include requirement/SHOULD %} throw a distinct error when a `412 Precondition Failed` response or a `409 Conflict` response is received from the service due to a conditional check.
 
 ## Pagination
 

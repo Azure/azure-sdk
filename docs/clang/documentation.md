@@ -143,12 +143,116 @@ This function returns an array using all caller-allocated memory. In order to fi
 
 {% include requirement/MUST id="clang-docs-snippets-in-docstrings" %} include the example code snippets in your library's docstrings so they appear in its API reference. If the language and its tools support it, ingest these snippets directly into the API reference from within the docstrings. 
 
-> TODO: Include explicit reference on how to include example code in the doc snippets.
+For example, consider a function called `az_do_something_or_other`:
+{% highlight c %}
+/** 
+ * @brief some structure type
+ */
+typedef struct az_some_struct {
+    int member;
+} az_some_struct;
+
+/**
+ * @brief do something, or maybe do some other thing
+ * @memberof az_some_struct
+ */
+void az_do_something_or_other(az_some_struct* s);
+{% endhighlight %}
+It can be used as follows:
+{% highlight c %}
+/**
+ * @example example_1.c
+ */
+int main() {
+    az_some_struct a;
+    az_do_something_or_other(&a);
+    return 1;
+}
+{% endhighlight %}
+When doxygen processes these files, it will see the `@example` command in example_1.c and 
+add it to the "examples" section of the documentation, it will also see the usage of
+`az_some_struct` in the example and add a link from the documentation of `az_some_struct` to the
+documentation (including source code) for `example_1.c`.
+
+Use `@include` or `@snippet` to include examples directly in the documentation for a function or structure. 
+For example:
+
+{% highlight c %}
+/** 
+ * @brief some structure type
+ */
+typedef struct az_some_struct {
+    int member;
+} az_some_struct;
+
+/**
+ * @brief do something, or maybe do some other thing
+ * @memberof az_some_struct
+ * see @snippet example_1.c use az_some_struct
+ */
+void az_do_something_or_other(az_some_struct* s);
+{% endhighlight %}
+It can be used as follows:
+{% highlight c %}
+/**
+ * @example example_1.c
+ */
+int main() {
+    /** [use az_some_struct] */
+    az_some_struct a;
+    az_do_something_or_other(&a);
+    /** [use az_some_struct] */
+    return 1;
+}
+{% endhighlight %}
+
+Note that automatic links from documentation to examples will only be generated in struct documentation,
+not in function documentation. To generate a link from a function's documentation to an example use `@dontinclude`. For example:
+
+{% highlight c %}
+/**
+ * @brief do something, or maybe do some other thing
+ * @memberof az_some_struct
+ * @dontinclude example_1.c
+ */
+void az_do_something_or_other(az_some_struct* s);
+{% endhighlight %}
 
 {% include requirement/MUSTNOT id="clang-docs-operation-combinations" %} combine more than one operation in a code snippet unless it's required for demonstrating the type or member, or it's *in addition to* existing snippets that demonstrate atomic operations. For example, a Cosmos DB code snippet should not include both account and container creation operations--create two different snippets, one for account creation, and one for container creation.
 
 Combined operations cause unnecessary friction for a library consumer by requiring knowledge of additional operations which might be outside their current focus. It requires them to first understand the tangential code surrounding the operation they're working on, then carefully extract just the code they need for their task. The developer can no longer simply copy and paste the code snippet into their project.
 
-> TODO: Include any build instructions that you must add to your CMakefile in order to generate the documentation.
+### Buildsystem integration
+
+{% include requirement/MUST id="clang-docs-buildsystem" %} Provide a buildsystem target called "docs" to build
+    the documentation
+
+{% include requirement/MUST id="clang-docs-buildsystem-option" %} Provide an option `BUILD_DOCS` to control
+    building of the docs, this should default to `OFF`
+
+To provide this you can use the CMake `FindDoxygen` module as follows:
+
+{% highlight cmake %}
+option(BUILD_DOCS "Build documentation" OFF)
+if(BUILD_DOCS)
+    find_package(Doxygen REQUIRED doxygen)
+
+    # note: DOXYGEN_ options are strings to cmake, not
+    # booleans, thus use only YES and NO
+    set(DOXYGEN_GENERATE_XML YES)
+    set(DOXYGEN_GENERATE_HTML YES)
+
+    set(DOXYGEN_OPTIMIZE_OUTPUT_FOR_C YES)
+    set(DOXYGEN_EXTRACT_PACKAGE YES)
+    set(DOXYGEN_INLINE_SIMPLE_STRUCTS YES)
+    set(DOXYGEN_TYPEDEF_HIDES_STRUCT YES)
+    doxygen_add_docs(docs
+        ${PROJECT_SOURCE_DIR}/inc
+        ${PROJECT_SOURCE_DIR}/doc
+        ${PROJECT_SOURCE_DIR}/src
+        COMMENT "Generate Documentation")
+endif()
+{% endhighlight %}
+
 
 {% include refs.md %}

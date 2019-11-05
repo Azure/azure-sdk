@@ -39,7 +39,7 @@ Client library usage telemetry is used by service teams (not consumers) to monit
 [<application_id> ]azsdk-<sdk_language>-<package_name>/<package_version> <platform_info>
 ```
 
-- `<application_id>`: optional application-specific string. May contain a slash, but must not contain a space. The string is supplied by the user of the client library, e.g. "AzCopy 10.0.4-Preview"
+- `<application_id>`: optional application-specific string. May contain a slash, but must not contain a space. The string is supplied by the user of the client library, e.g. "AzCopy/10.0.4-Preview"
 - `<sdk_language>`: SDK's language name (all lowercase): "net", "python", "java", or "js" 
 - `<package_name>`: client library package name as it appears to the developer, replacing slashes with dashes and removing the Azure indicator.  For example, "Security.KeyVault" (.NET), "security.keyvault" (Java), "keyvault" (JavaScript & Python)
 - `<package_version>`: the version of the package. Note: this is not the version of the service
@@ -51,6 +51,10 @@ For example, if we re-wrote `AzCopy` in each language using the Azure Blob Stora
 - (JavaScript) `AzCopy/10.0.4-Preview azsdk-js-storage-blob/11.0.0 (Node 10.16.0; Ubuntu; Linux x86_64; rv:34.0)`
 - (Java) `AzCopy/10.0.4-Preview azsdk-java-storage.blobs/11.0.0 (Java/1.8.0_45; Macintosh; Intel Mac OS X 10_10; rv:33.0)`
 - (Python) `AzCopy/10.0.4-Preview azsdk-python-storage/4.0.0 Python/3.7.3 (Ubuntu; Linux x86_64; rv:34.0)`
+
+{% include requirement/MUST id="azurecore-http-telemetry-appid" %} allow the consumer of the library to set the application ID.  This allows the consumer to obtain cross-service telemetry for their app.  The application ID should be settable in the relevant `ClientOptions` object.
+
+{% include requirement/MUST id="azurecore-http-telemetry-appid-length" %} enforce that the application ID is no more than 24 characters in length.  Shorter application IDs allows service teams to include diagnostic information in the "platform information" section of the user agent, while still allowing the consumer to obtain telemetry information for their own application.
 
 {% include requirement/SHOULD id="azurecore-http-telemetry-x-ms-useragent" %} send telemetry information that is normally sent in the `User-Agent` header in the `X-MS-UserAgent` header when the platform does not support changing the `User-Agent` header.  Note that services will need to configure log gathering to capture the `X-MS-UserAgent` header in such a way that it can be queried through normal analytics systems.
 

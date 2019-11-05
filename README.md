@@ -11,7 +11,7 @@ The Azure SDK delivers a platform for developers to leverage the wide variety of
 | JavaScript  |[Design Guidelines for JavaScript and TypeScript][typescript] |[azure-sdk-for-js Repository](https://github.com/Azure/azure-sdk-for-js)        | [JavaScript Documentation](http://aka.ms/js-docs)|
 | Python      |[Design Guidelines for Python][python]    |[azure-sdk-for-python Repository](https://github.com/Azure/azure-sdk-for-python)| [Python Documentation](https://aka.ms/python-docs) |
 
-Service teams should schedule reviews of their client libraries with the ADP Review Board.  See the [Review Process](docs/ReviewProcess.md) for more information.
+Service teams should schedule reviews of their client libraries with the ADP Review Board.  See the [Review Process][revproc] for more information.
 
 ## Terminology
 
@@ -20,9 +20,9 @@ Service teams should schedule reviews of their client libraries with the ADP Rev
 - **Client Library**. This refers to a library (and associated tools, documentation, and samples) that customers/developers use to ease working with an Azure service. There is often one client library per service and per programming language. Sometimes a single client library will contain the ability to connect to multiple services. Each client library is published separately to the appropriate language-specific package repository.  These releases are performed exclusively by the Azure SDK engineering systems team. Customers/Developers consume and use each client library separately as necessary to solve their use case.
 
 - **Package**. This refers to a client library after it has been packaged for distribution for customer-developers to consume. Examples are:
-   - A Nuget package for a .NET client library
+   - A NuGet package for a .NET client library
    - A Maven package for a Java library
-   - An NPM package for a JavaScript library
+   - An npm package for a JavaScript library
    - A Python wheel for a Python library
 
 # Contributing
@@ -46,4 +46,5 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 [java]: https://azure.github.io/azure-sdk/java_introduction.html
 [typescript]: https://azure.github.io/azure-sdk/typescript_introduction.html
 [python]: https://azure.github.io/azure-sdk/python_introduction.html
+[revproc]: https://azure.github.io/azure-sdk/policies_reviewprocess.html
 
