@@ -102,6 +102,8 @@ For methods that combine multiple requests into a single call:
 
 {% include requirement/MUST id="golang-pagination-methods" %} use the prefix `List` in the method name for methods that return an iterator.  Such methods MUST take a `context.Context` as their first parameter.
 
+{% include requirement/MUSTNOT id="golang-pagination-fields" %} export any fields on iterator types.  This is to support mocking of iterator responses via interface types.
+
 ```go
 func (c WidgetClient) ListWidgets(ctx context.Context, options *ListWidgetOptions) *WidgetIterator {
 	// ...
@@ -172,6 +174,8 @@ if iter.Err() != nil {
 ## Long running operations
 
 {% include requirement/MUST id="golang-lro-encapsulation" %} represent long-running operations with a type that encapsulates the polling and operation status.  The type MUST have the suffix `Operation`.
+
+{% include requirement/MUSTNOT id="golang-lro-fields" %} export any fields on operation types.  This is to support mocking of operation responses via interface types.
 
 ```go
 type CreateWidgetOperation struct {
@@ -305,11 +309,15 @@ Consumers will use one or more service clients to access Azure services, plus a 
 
 {% include requirement/MUST id="golang-api-options-ptr" %} allow the user to pass a pointer to this structure as the last parameter. If the user passes `nil`, then the method should assume appropriate default values for all the structure’s fields.  Note that `nil` and a zero-initialized `<MethodNameOptions>` structure are **NOT** required to be semantically equivalent.
 
+{% include requirement/MUSTNOT id="golang-api-mocked-params" %} define a function or method to accept a client, iterator, or operation type as a parameter as this breaks the consumer's ability to mock the value.  Instead, define an interface containing **only** the methods required by the caller and accept that interface as the parameter.
+
 ### Service clients
 
 {% include requirement/MUST id="golang-api-service-client-naming" %} name service client types with the Client suffix (for example, ConfigurationClient).
 
-{% include requirement/MUST id="golang-api-service-client-immutable" %} ensure that all service client classes are immutable upon instantiation.
+{% include requirement/MUST id="golang-api-service-client-immutable" %} ensure that all service client types are immutable upon instantiation.
+
+{% include requirement/MUSTNOT id="golang-api-service-client-fields" %} export any fields on client types.  This is to support mocking of clients via interface types and also strengthens the immutability requirement.
 
 {% include requirement/MUST id="golang-api-service-client-shape" %} follow the basic shape outlined below for all service clients:
 

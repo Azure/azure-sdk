@@ -5,7 +5,7 @@ folder: policies
 sidebar: general_sidebar
 ---
 
-The release policy for the Azure SDK accommodates the need to release different SDK packages based on the ship cycle of the underlying service. 
+The release policy for the Azure SDK accommodates the need to release different SDK packages based on the ship cycle of the underlying service.
 
 ## Terms
 The terms "SDK", "SDK Component", "library" and "package" are used throughout this document and are defined in the [design guidelines](/general_terminology.html).
@@ -30,11 +30,11 @@ We use GitHub releases as a convenient place to put release notes. The change lo
 
 ## ChangeLog Guidance
 
-We recommend that every package maintain a changelog just as a matter of course. However, there is an additional benefit. Ensuring that a `changelog.md` file is both available and formatted appropriately will result in automatically formatted release notes on each GitHub release. 
+We recommend that every package maintain a changelog just as a matter of course. However, there is an additional benefit. Ensuring that a `changelog.md` file is both available and formatted appropriately will result in automatically formatted release notes on each GitHub release.
 
 How?
 
-* **.NET**: extend nuspec to include `changelog.md` in the `.nupkg.` 
+* **.NET**: extend nuspec to include `changelog.md` in the `.nupkg.`
 * **Android and Java**: add `<packageid>-changelog.md` to the existing artifact list.
     * Note that the convention here is `<packageIdentifier>.md`. This mirrors the four existing artifacts per package.
 * **Python**: ensure `changelog.md` is present in the `sdist` artifact.
@@ -132,10 +132,10 @@ For example, if Package A and Package B are built in the same Unified Pipeline a
 
 Python version numbers follow the guidance in [PEP 440](https://www.python.org/dev/peps/pep-0440/) for versioning Python packages. This means that regular releases follow the above specified SemVer format. Preview releases follow the [PEP 440 specification for pre-releases](https://www.python.org/dev/peps/pep-0440/#pre-releases):
 
-- `X.YaYYYYMMDD` (dev using alpha convention)
-- `X.YbZ` (preview release using beta convention)
+- `X.Y.ZdevYYYYMMDDr` (`r` is based on the number of builds performed on the given day)
+- `X.Y.ZbN` (preview release using beta convention)
 
-Python dev releases are not published to PyPi. Instead, use the git tag.
+Preview packages will be published PyPi. Dev packages will be published to an isolated Azure DevOps feed.
 
 ##### Incrementing after release (Python)
 
@@ -149,7 +149,7 @@ Python dev releases are not published to PyPi. Instead, use the git tag.
 
 The JavaScript community generally follows SemVer. For preview releases, we will release with an [npm distribution tag](https://docs.npmjs.com/cli/dist-tag) in the formats:
 
-- `X.Y.Z-dev.YYYYMMDD`
+- `X.Y.Z-dev.YYYYMMDD.r` (`r` is based on the number of builds performed on the given day)
 - `X.Y.Z-preview.N`
 
 JavaScript dev and preview releases are published to npm with the `@dev` or `@next` tags.  Use the following:
@@ -183,7 +183,7 @@ NuGet supports designating a package as 'pre-release'. In this ecosystem, pre-re
 - `X.Y.Z-dev.YYYYMMDD.r` (`r` is based on the number of builds done in a given day)
 - `X.Y.Z-preview.N`
 
-Preview .NET packages will be published to NuGet with the pre-release designation.
+Preview .NET packages will be published to NuGet with the pre-release designation. Dev packages will be published to an isolated Azure DevOps feed.
 
 {% include draft.html content="Still TBD: Where will we store the dev .NET packages" %}
 
@@ -202,7 +202,7 @@ Maven supports the [convention](https://cwiki.apache.org/confluence/display/MAVE
 - `X.Y.Z-dev.YYYYMMDD.r` (`r` is based on the number of builds performed on the given day)
 - `X.Y.Z-preview.N`
 
-Dev and preview Java packages are published direct to the Maven registry.
+Preview Java packages are published direct to the Maven central registry. Dev packages will be published to an isolated Azure DevOps feed.
 
 #### Incrementing after release (Java)
 
