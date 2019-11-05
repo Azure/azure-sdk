@@ -268,15 +268,18 @@ void az_keyvault_client_destroy(az_keyvault_client *client);
 
 
 /* C does not support overloading function names, so we use a different name */
-AZ_NODISCARD az_result *az_keyvault_client_init_with_credentials(az_keyvault_client* self, az_keyvault_client_credentials *credentials);
+AZ_NODISCARD az_result *az_keyvault_client_init_with_credentials(az_keyvault_client* self, 
+  az_keyvault_client_credentials *credentials);
 
 /* Other functions related to kevault client */
 AZ_NODISCARD az_result az_keyvault_client_backup_certificate_with_http_messages(az_keyvault_client* self, 
   char *vault_base_url, char *certificate_name, char **custom_headers, int headers_count);
 
 /* client used to create other types */
-AZ_NODISCARD az_result az_keyvault_client_init_http_handler_pipeline(az_keyvault_client* self, az_http_client_handler *handler, az_keyvault_http_handler_pipeline* pipeline);
-void az_keyvault_client_destroy_http_handler_pipeline(az_keyvault_client* self, az_keyvault_http_handler_pipeline *handler_pipeline);
+AZ_NODISCARD az_result az_keyvault_client_init_http_handler_pipeline(az_keyvault_client* self, 
+  az_http_client_handler *handler, az_keyvault_http_handler_pipeline* pipeline);
+void az_keyvault_client_destroy_http_handler_pipeline(az_keyvault_client* self, 
+  az_keyvault_http_handler_pipeline *handler_pipeline);
 
 #endif /* IOT_CLIENT_API_H */
 {% endhighlight %}
@@ -319,25 +322,29 @@ void az_keyvault_client_destroy(az_keyvault_client *client)
 	/* implementation */
 }
 
-az_result az_keyvault_create_client_with_credentials(az_keyvault_client* client, az_keyvault_client_credentials *credentials) {
+az_result az_keyvault_create_client_with_credentials(az_keyvault_client* client, 
+  az_keyvault_client_credentials *credentials) {
   *client = {0};
 	/* implementation */
 	return AZ_OK;
 }
 
-az_result az_keyvault_client_backup_certificate_with_http_messages(az_keyvault_client* client, char *vault_base_url, char *certificate_name, char **custom_headers, int headers_count)
+az_result az_keyvault_client_backup_certificate_with_http_messages(az_keyvault_client* client, 
+  char *vault_base_url, char *certificate_name, char **custom_headers, int headers_count)
 {
 	/* implementation */
 	return AZ_OK;
 }
 
-az_result az_keyvault_client_init_http_handler_pipeline(az_keyvault_client* self, az_http_client_handler *handler, az_keyvault_http_handler_pipeline* pipeline);
+az_result az_keyvault_client_init_http_handler_pipeline(az_keyvault_client* self, 
+  az_http_client_handler *handler, az_keyvault_http_handler_pipeline* pipeline);
 {
 	/* implementation */
 	return AZ_OK;
 }
 
-void az_keyvault_client_destroy_http_handler_pipeline(az_keyvault_client* self, az_keyvault_http_handler_pipeline *handler_pipeline);
+void az_keyvault_client_destroy_http_handler_pipeline(az_keyvault_client* self, 
+  az_keyvault_http_handler_pipeline *handler_pipeline);
 {
 	/* implementation */
 }
