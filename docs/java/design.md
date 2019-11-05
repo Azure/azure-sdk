@@ -71,13 +71,13 @@ All client libraries for Java standardize on the Maven build tooling for build a
 
 {% include requirement/MUST id="java-maven-groupid" %} specify the `groupId` as `com.azure`.
 
-{% include requirement/MUST id="java-maven-artifactid" %} specify the `artifactId` to be of the form `azure-<group>-<service>`, for example, `azure-storage-blob`. In cases where the client library has multiple children modules, it is acceptable for the root POM `artifactId` to be of the form `azure-<group>-<service>-parent`.
+{% include requirement/MUST id="java-maven-artifactid" %} specify the `artifactId` to be of the form `azure-<group>-<service>`, for example, `azure-storage-blob`. In cases where the client library has multiple children modules, set the root POM `artifactId` to be of the form `azure-<group>-<service>-parent`.
 
 {% include requirement/MUST id="java-maven-name" %} specify the `name` element to take the form `Microsoft Azure client library for <service name>`.
 
 {% include requirement/MUST id="java-maven-description" %} specify the `description` element to be a slightly longer statement along the lines of `This package contains the Microsoft Azure <service> client library`.
 
-{% include requirement/MUST id="java-maven-url" %} specify the `url` element to point to the root of the GitHub repository containing this source code, which will be frequently (although not always or required to be) present at `https://github.com/Azure/azure-sdk-for-java`.
+{% include requirement/MUST id="java-maven-url" %} specify the `url` element to point to the root of the GitHub repository (i.e. `https://github.com/Azure/azure-sdk-for-java`).
 
 {% include requirement/MUST id="java-maven-url" %} specify the source code management section, to specify where the source code resides for the client library. If the source code is located in the https://github.com/Azure/azure-sdk-for-java repository, then the following form must be used:
 
