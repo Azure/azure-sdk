@@ -10,7 +10,7 @@ sidebar: golang_sidebar
 
 The API surface of your client library must have the most thought as it is the primary interaction that the consumer has with your service.  
 
-## Namespaces
+## Package naming
 
 Go groups related types in a package.  In Go, the package should be named `az<service>`, where `<service>` is the service name represented as a single word.
 
@@ -20,9 +20,9 @@ Go groups related types in a package.  In Go, the package should be named `az<se
 
 {% include requirement/MUST id="golang-namespace-registration" %} register the chosen package name with the [Architecture Board]. Open an issue to request the package name. See the [registered namespace list](registered_namespaces.html) for a list of the currently registered namespaces.
 
-## Package Path
+## Package path
 
-{% include requirement/MUST id="golang-pkgpath-construction" %} construct a package import path that allows the consumer to tie its packages to the service being used. The package does **NOT** change when the branding of the product changes. Avoid the use of marketing names that may change.
+{% include requirement/MUST id="golang-pkgpath-construction" %} construct a package import path that allows the consumer to tie its packages to the service being used. The package path does **NOT** change when the branding of the product changes. Avoid the use of marketing names that may change.
 
 {% include requirement/MUST id="golang-pkgpath-leaf" %} ensure that the package leaf directory name matches the package name declared in the source code.
 
@@ -32,13 +32,39 @@ Go groups related types in a package.  In Go, the package should be named `az<se
 
 Many management APIs do not have a data plane because they deal with management of the Azure account. Place the management library in the `mgmt` path. For example, use `sdk/mgmt/costanalysis` instead of `sdk/mgmt/management/costanalysis`.
 
-## Client interface
+## Service clients
 
 Your API surface consists of one or more service clients that the consumer instantiates to connect to your service, plus a set of supporting types.
 
-{% include requirement/MUST id="golang-client-naming" %} name service client types with the `Client` suffix, e.g. `type BlobClient struct`
+{% include requirement/MUST id="golang-client-naming" %} name service client types with the `Client` suffix.
 
-{% include requirement/MUST id="golang-client-constructors" %} provide constructors that returns a new instance of a service client type.
+```go
+type WidgetClient struct {
+	// ...
+}
+```
+
+{% include requirement/MUST id="golang-client-constructors" %} provide constructors in the following format that returns a new instance of a service client type.
+
+```go
+// NewWidgetClient creates a new instance of WidgetClient with the specified values.  It uses the default pipeline configuration.
+func NewWidgetClient(endpoint string, cred azcore.Credential, options WidgetClientOptions) (*WidgetClient, error) {
+	// ...
+}
+
+// NewWidgetClientWithPipeline creates a new instance of WidgetClient with the specified values and custom pipeline.
+func NewWidgetClientWithPipeline(endpoint string, p azcore.Pipeline, options WidgetClientOptions) (*WidgetClient, error) {
+	// ...
+}
+```
+
+{% include requirement/MUST id="golang-api-service-client-immutable" %} ensure that all service client types are immutable upon instantiation.
+
+{% include requirement/MUST id="golang-api-service-client-byref" %} pass all client instances by reference.  All methods on client types will pass their receiver by reference.
+
+{% include requirement/MUSTNOT id="golang-api-service-client-fields" %} export any fields on client types.  This is to support mocking of clients via interface types and strengthens the immutability requirement.
+
+## Service client methods
 
 {% include requirement/MUST id="golang-client-crud-verbs" %} prefer the use of the following terms for CRUD operations:
 
@@ -80,13 +106,28 @@ The _logical entity_ is a protocol neutral representation of a response. The log
 
 {% include requirement/MUST id="golang-response-logical-entity" %} return the logical entity for the normal form of a service method. The logical entity MUST represent the information needed in the 99%+ case.
 
+```go
+type CreateWidgetResponse struct {
+	Name string
+	Color WidgetColor
+}
+
+func (c *WidgetClient) CreateWidget(ctx context.Context, name string, color WidgetColor) (*CreateWidgetResponse, error) {
+	// ...
+}
+```
+
 {% include requirement/MUST id="golang-response-full-response" %} make it possible for a developer to access the complete response, including the HTTP status, headers, and body.
 
-`func (or OperationResponse) RawResponse() *azcore.Response`
+```go
+func (r *CreateWidgetResponse) Response() *azcore.Response {
+	// ...
+}
+```
 
 {% include requirement/MUST id="golang-response-examples" %} provide examples on how to access the streamed response for a request, where exposed by the client library. We don’t expect all methods to expose a streamed response.
 
-{% include requirement/MUST id="golang-response-logical-paging" %} provide a Go-idiomatic way to enumerate all logical entities for a paged operation, automatically fetching new pages as needed.  For more information on what to return for List operations, refer to [Pagination](#pagination).
+{% include requirement/MUST id="golang-response-logical-paging" %} provide an idiomatic way to enumerate all logical entities for a paged operation, automatically fetching new pages as needed.  For more information on what to return for List operations, refer to [Pagination](#pagination).
 
 For methods that combine multiple requests into a single call:
 
@@ -105,7 +146,7 @@ For methods that combine multiple requests into a single call:
 {% include requirement/MUSTNOT id="golang-pagination-fields" %} export any fields on iterator types.  This is to support mocking of iterator responses via interface types.
 
 ```go
-func (c WidgetClient) ListWidgets(ctx context.Context, options *ListWidgetOptions) *WidgetIterator {
+func (c *WidgetClient) ListWidgets(ctx context.Context, options *ListWidgetOptions) *WidgetIterator {
 	// ...
 }
 ```
@@ -119,17 +160,17 @@ type WidgetIterator struct {
 
 // NextPage returns true if the iterator advanced to the next page.
 // Returns false if there are no more pages or an error occurred.
-func (i WidgetIterator) NextPage() bool {
+func (i *WidgetIterator) NextPage() bool {
 	// ...
 }
 
 // Page returns the current ListWidgetsPage.
-func (i WidgetIterator) Page() *ListWidgetsPage {
+func (i *WidgetIterator) Page() *ListWidgetsPage {
 	// ...
 }
 
 // Err returns the last error encountered while iterating.
-func (i WidgetIterator) Err() error {
+func (i *WidgetIterator) Err() error {
 	// ...
 }
 
@@ -149,12 +190,12 @@ if iter.Err() != nil {
 ```go
 // Next returns true if the iterator advanced to the next item.
 // Returns false if there are no more items or an error occurred.
-func (i WidgetIterator) Next() bool {
+func (i *WidgetIterator) Next() bool {
 	// ...
 }
 
 // Item returns the current Widget based on the iterator's index.
-func (i WidgetIterator) Item() *Widget {
+func (i *WidgetIterator) Item() *Widget {
 	// ...
 }
 
@@ -227,7 +268,7 @@ func (op *CreateWidgetOperation) Wait(ctx context.Context, pollingInterval time.
 
 ```go
 // BeginCreate creates a new widget with the specified name.
-func (c WidgetClient) BeginCreate(ctx context.Context, name string) (*CreateWidgetOperation, error) {
+func (c *WidgetClient) BeginCreate(ctx context.Context, name string) (*CreateWidgetOperation, error) {
 	// ...
 }
 ```
@@ -237,8 +278,8 @@ func (c WidgetClient) BeginCreate(ctx context.Context, name string) (*CreateWidg
 ```go
 // ResumeCreateWidgetOperation creates a new CreateWidgetOperation from the specified ID.
 // The ID must come from a previous call to CreateWidgetOperation.ID().
-func (c WidgetClient) ResumeCreateWidgetOperation(id string) *CreateWidgetOperation {
-	return &CreateWidgetOperation{}
+func (c *WidgetClient) ResumeCreateWidgetOperation(id string) *CreateWidgetOperation {
+	// ...
 }
 ```
 
@@ -311,38 +352,15 @@ Consumers will use one or more service clients to access Azure services, plus a 
 
 {% include requirement/MUSTNOT id="golang-api-mocked-params" %} define a function or method to accept a client, iterator, or operation type as a parameter as this breaks the consumer's ability to mock the value.  Instead, define an interface containing **only** the methods required by the caller and accept that interface as the parameter.
 
-### Service clients
-
-{% include requirement/MUST id="golang-api-service-client-naming" %} name service client types with the Client suffix (for example, ConfigurationClient).
-
-{% include requirement/MUST id="golang-api-service-client-immutable" %} ensure that all service client types are immutable upon instantiation.
-
-{% include requirement/MUSTNOT id="golang-api-service-client-fields" %} export any fields on client types.  This is to support mocking of clients via interface types and also strengthens the immutability requirement.
-
-{% include requirement/MUST id="golang-api-service-client-shape" %} follow the basic shape outlined below for all service clients:
-
-{% highlight go %}
-type CatHerdingClient struct {
-}
-
-func NewCatHerdingClient(endpoint string, cred azcore.Credential, options *CatHerdingClinetOptions) (CatHerdingClient, error) {
-  // ...
-}
-
-func NewCatHerdingClientWithPipeline(endpoint string, p azore.Pipeline) (CatHerdingClient, error) {
-  // ...
-}
-
-func (c CatHerdingClient) Create(ctx context.Context, mandatoryParam int64, options *CreateOptions) (*CreateResponse, error) {
-  // ...
-}
-{% endhighlight %}
-
-Refer to the [azappconfig package] for a fully built-out example of how a client should be constructed.
-
 ### Model structures
 
 Model structures are types that consumers use to provide required information into client library methods.  They can also be returned from client methods. These structures typically represent the domain model, or option structures that must be configured before the request can be made.
+
+{% include requirement/MUST id="golang-model-types" %} export all fields on model types to allow for mocking.
+
+{% include requirement/MUST id="golang-model-types-ro" %} document all read-only fields and exclude their values when marshalling the structure to be sent over the wire.
+
+{% include requirement/MUST id="golang-model-types-nil" %} provide a mechanism to distinguish between omitting a value and sending a nil value.
 
 ### Enumerated types
 
