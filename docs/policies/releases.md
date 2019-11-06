@@ -197,18 +197,19 @@ Preview .NET packages will be published to NuGet with the pre-release designatio
 
 #### Java
 
-Maven supports the [convention](https://cwiki.apache.org/confluence/display/MAVENOLD/Versioning) `MAJOR.MINOR.PATCH-QUALIFIER`. The preferred format for version numbers is:
+Maven supports the [convention](https://cwiki.apache.org/confluence/display/MAVENOLD/Versioning) `MAJOR.MINOR.PATCH-QUALIFIER`, which doesn't support SemVer 2 sorting for pre-releases so we have to use a special convention based on their [versioning code](https://github.com/apache/maven/blob/master/maven-artifact/src/main/java/org/apache/maven/artifact/versioning/ComparableVersion.java). The preferred format for version numbers is:
 
 - `X.Y.Z-dev.YYYYMMDD.r` (`r` is based on the number of builds performed on the given day)
-- `X.Y.Z-preview.N`
+- `X.Y.Z-beta.N` (preview release using beta convention)
 
-Preview Java packages are published direct to the Maven central registry. Dev packages will be published to an isolated Azure DevOps feed.
+Preview Java packages are published directly to the Maven central registry. Dev packages will be published to an isolated Azure DevOps feed. Note that that dev packages sort as [newer
+then the preview as well as the GA version of the matching version](https://github.com/apache/maven/blob/master/maven-artifact/src/main/java/org/apache/maven/artifact/versioning/ComparableVersion.java#L423-L428) as such we should avoid ever publishing a dev package to maven central.
 
 #### Incrementing after release (Java)
 
-**After Preview Release:** `1.0.0-preview.1` -> `1.0.0-preview.2`
+**After Preview Release:** `1.0.0-beta.1` -> `1.0.0-beta.2`
 
-**After GA release:** `1.1.0` -> `1.2.0-preview.1`
+**After GA release:** `1.1.0` -> `1.2.0-beta.1`
 
 **Floating GA dependencies:** Use the exact version number to specify the lowest version of the package which contains the features upon which you depend.
 
