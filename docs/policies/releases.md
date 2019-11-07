@@ -147,12 +147,12 @@ Preview packages will be published PyPi. Dev packages will be published to an is
 
 #### JavaScript
 
-The JavaScript community generally follows SemVer. For preview releases, we will release with an [npm distribution tag](https://docs.npmjs.com/cli/dist-tag) in the formats:
+The JavaScript community generally follows [SemVer](https://semver.org/). For beta releases, we will release with an [npm distribution tag](https://docs.npmjs.com/cli/dist-tag) in the formats:
 
 - `X.Y.Z-dev.YYYYMMDD.r` (`r` is based on the number of builds performed on the given day)
-- `X.Y.Z-preview.N`
+- `X.Y.Z-beta.N`
 
-JavaScript dev and preview releases are published to npm with the `@dev` or `@next` tags.  Use the following:
+JavaScript dev and beta releases are published to npm with the `@dev` or `@next` tags.  Use the following:
 
 ```bash
 $ npm install @azure/package@next
@@ -160,11 +160,19 @@ $ npm install @azure/package@next
 
 ##### Incrementing after release (JS)
 
-**After Preview Release:** `1.0.0-preview.1` -> `1.0.0-preview.2`
+**After Beta Release:** `1.0.0-beta.1` -> `1.0.0-beta.2`
 
-**After GA release:** `1.1.0` -> `1.2.0-preview.1`
+**After GA release:** `1.1.0` -> `1.1.1`
+
+**After GA hotfix:** `1.0.0` -> `1.0.0-hotfix.1`
 
 **Floating GA dependencies:** Use `^X.0.0` to float dependencies where `X` is the major release upon which the package depends.
+
+Generally, customers are expected to use caret or tilde ranges. Caret ranges (e.g. `^1.0.0`) allow them to take all non-breaking changes for a package and tilde ranges (`~1.0.0`) allow them to take all minor bugfixes for a particular major/minor release. 
+
+In rare cases where a customer does not wish to take all bugfixes for a particular major/minor release (i.e. the tilde range `~X.Y.0` is not sufficient), but there is a critical fix necessary, we will publish a hotfix package in the format `X.Y.0-hotfix.N` where `N` increments with each successive hotfix. In this case it is expected that the customer will pin the particular hotfix version they wish to use in their `package.json`.
+
+In general, packages that have GA'd are not expected to have additional preview releases unless the underlying service releases preview functionality or the package undergoes significant churn as part of a major version change.
 
 Packages which depend on a released package should float to the latest compatible major version (e.g. `^1.0.0`). Because we're using SemVer only breaking changes alter the major version number and all minor and patch changes should be compatible. The version number should only be updated for a major version change.
 
