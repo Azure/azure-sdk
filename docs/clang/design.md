@@ -241,9 +241,13 @@ inline int max(int x, int y) {
 
 In C, your API surface will consist of one or more _service client initializers_ that the consumer will call to define a connection to your service, plus a set of supporting functions that perform network requests.
 
-{% include requirement/MUST id="clang-apisurface-serviceclientnaming" %} name the service client initializer `az_shortname_create_client()`.  It should return a type (generally a struct or struct pointer, but it could also be an integer orhandle that you deal with internally) or `NULL` on error.
+{% include requirement/MUST id="clang-apisurface-serviceclientnaming" %} the signature of the
+ service client initializer should be 
+ `AZ_NODISCARD az_result az_shortname_client_init(az_shortname_client*, <args>)`.
+ The function may assume that storage has been allocated, and the first parameter points to
+ allocated (but not nessassarly initialized) storage.
 
-{% include requirement/MUST id="clang-apisurface-serviceclientclosing" %} allow the consumer to release resources by calling `az_shortname_close_client()`.  This allows the library to manage memory on behalf of the user for the purposes of the client as well.
+{% include requirement/MUST id="clang-apisurface-serviceclientclosing" %} allow the consumer to release resources by calling `void az_shortname_client_destroy(az_shortname_client*)`.  This allows the library to manage memory on behalf of the user for the purposes of the client as well.
 
 {% include requirement/MUST id="clang-apisurface-serviceclient-types" %} define a type `az_shortname_client` that represents the response from the service client initializer.
 
@@ -259,19 +263,23 @@ typedef struct az_keyvault_client az_keyvault_client;
 typedef struct az_keyvault_client_credentials az_keyvault_client_credentials;
 typedef struct az_keyvault_http_handler_pipeline az_keyvault_http_handler_pipeline;
 
-az_keyvault_client *az_keyvault_create_client();
-void az_keyvault_close_client(az_keyvault_client *client);
+AZ_NODISCARD az_result az_keyvault_client_init(az_keyvault_client* self);
+void az_keyvault_client_destroy(az_keyvault_client *client);
 
 
 /* C does not support overloading function names, so we use a different name */
-az_keyvault_client *az_keyvault_create_client_with_credentials(az_keyvault_client_credentials *credentials);
+AZ_NODISCARD az_result *az_keyvault_client_init_with_credentials(az_keyvault_client* self, 
+  az_keyvault_client_credentials *credentials);
 
 /* Other functions related to kevault client */
-int az_keyvault_client_backup_certificate_With_http_messages(char *vault_base_url, char *certificate_name, char **custom_headers, int headers_count);
+AZ_NODISCARD az_result az_keyvault_client_backup_certificate_with_http_messages(az_keyvault_client* self, 
+  char *vault_base_url, char *certificate_name, char **custom_headers, int headers_count);
 
 /* client used to create other types */
-az_keyvault_http_handler_pipeline *az_keyvault_client_create_http_handler_pipeline(az_http_client_handler *handler);
-void az_keyvault_client_close_http_handler_pipeline(az_keyvault_http_handler_pipeline *handler_pipeline);
+AZ_NODISCARD az_result az_keyvault_client_init_http_handler_pipeline(az_keyvault_client* self, 
+  az_http_client_handler *handler, az_keyvault_http_handler_pipeline* pipeline);
+void az_keyvault_client_destroy_http_handler_pipeline(az_keyvault_client* self, 
+  az_keyvault_http_handler_pipeline *handler_pipeline);
 
 #endif /* IOT_CLIENT_API_H */
 {% endhighlight %}
@@ -309,54 +317,57 @@ az_keyvault_client *az_keyvault_create_client() {
 	return NULL;
 }
 
-void az_keyvault_close_client(az_keyvault_client *client)
+void az_keyvault_client_destroy(az_keyvault_client *client)
 {
 	/* implementation */
 }
 
-az_keyvault_client *az_keyvault_create_client_with_credentials(az_keyvault_client_credentials *credentials) {
+az_result az_keyvault_create_client_with_credentials(az_keyvault_client* client, 
+  az_keyvault_client_credentials *credentials) {
+  *client = {0};
 	/* implementation */
-	return NULL;
+	return AZ_OK;
 }
 
-int az_keyvault_client_backup_certificate_With_http_messages(char *vault_base_url, char *certificate_name, char **custom_headers, int headers_count)
+az_result az_keyvault_client_backup_certificate_with_http_messages(az_keyvault_client* client, 
+  char *vault_base_url, char *certificate_name, char **custom_headers, int headers_count)
 {
 	/* implementation */
-	return 0;
+	return AZ_OK;
 }
 
-az_keyvault_http_handler_pipeline* az_keyvault_client_create_http_handler_pipeline(az_http_client_handler *handler)
+az_result az_keyvault_client_init_http_handler_pipeline(az_keyvault_client* self, 
+  az_http_client_handler *handler, az_keyvault_http_handler_pipeline* pipeline);
 {
 	/* implementation */
-	return NULL;
+	return AZ_OK;
 }
 
-void az_keyvault_client_close_http_handler_pipeline(az_keyvault_http_handler_pipeline *handler_pipeline)
+void az_keyvault_client_destroy_http_handler_pipeline(az_keyvault_client* self, 
+  az_keyvault_http_handler_pipeline *handler_pipeline);
 {
 	/* implementation */
 }
 {% endhighlight %}
 
-> TODO:  Please note that in the previous examples, the memory model used is to have it allocated by the callee, rather than the caller. There are different options and this will be discussed further in a separate memory management section.
-
 {% include requirement/MUST id="clang-apisurface-serviceclientconstructor" %} allow the consumer to construct a service client with the minimal information needed to connect and authenticate to the service.
 
 {% include requirement/MUST id="clang-apisurface-standardized-verbs" %} standardize verb prefixes within a set of client libraries for a service.  The service must be able to speak about a specific operation in a cross-language manner within outbound materials (such as documentation, blogs, and public speaking). They cannot do this if the same operation is referred to by different verbs in different languages.  The following verbs are preferred for CRUD operations:
 
-|Verb|Parameters|Returns|Comments|
-|-|-|-|-|
-| az\_\<shortname>\_\<objname>\__insert_\_\<noun>|key, item|Updated or created item|Create new item or update existing item. Verb is primarily used in database-like services |
-| az\_\<shortname>\_\<objname>\__set_\_\<noun>|key, item|Updated or created item|Create new item or update existing item. Verb is primarily used for dictionary-like properties of a service |
-| az\_\<shortname>\_\<objname>\__create_\_\<noun>|key, item|Created item|Create new item. Fails if item already exists. |
-| az\_\<shortname>\_\<objname>\__update_\_\<noun>|key, partial item|Updated item|Fails if item does not exist. |
-| az\_\<shortname>\_\<objname>\__replace_\_\<noun>|key, item|Replace existing item|Completely replaces an existing item. Fails if the item does not exist. |
-| az\_\<shortname>\_\<objname>\__delete_\_\<noun>|key|None|Delete an existing item. Will succeed even if item did not exist. |
-| az\_\<shortname>\_\<objname>\__append_\_\<noun>|item|Appended item|Add item to a collection. Item will be added last. |
-| az\_\<shortname>\_\<objname>\__add_\_\<noun>|index, item|Added item|Add item to a collection. Item will be added on the given position. |
-| az\_\<shortname>\_\<objname>\__remove_\_\<noun>|key|None or removed item|Remove item from a collection. |
-| az\_\<shortname>\_\<objname>\__get_\_\<noun>|key|Item|Will return None if item does not exist |
-| az\_\<shortname>\_\<objname>\__list_\_\<noun>||array of items|Return list of items. Returns empty list if no items exist |
-| az\_\<shortname>\_\<objname>\__exists_\_\<noun>|key|boolean|Return True if the item exists. |
+| Verb                                             | Parameters        | Returns                 | Comments                                                                                                    |
+| ------------------------------------------------ | ----------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------- |
+| az\_\<shortname>\_\<objname>\__insert_\_\<noun>  | key, item         | Updated or created item | Create new item or update existing item. Verb is primarily used in database-like services                   |
+| az\_\<shortname>\_\<objname>\__set_\_\<noun>     | key, item         | Updated or created item | Create new item or update existing item. Verb is primarily used for dictionary-like properties of a service |
+| az\_\<shortname>\_\<objname>\__create_\_\<noun>  | key, item         | Created item            | Create new item. Fails if item already exists.                                                              |
+| az\_\<shortname>\_\<objname>\__update_\_\<noun>  | key, partial item | Updated item            | Fails if item does not exist.                                                                               |
+| az\_\<shortname>\_\<objname>\__replace_\_\<noun> | key, item         | Replace existing item   | Completely replaces an existing item. Fails if the item does not exist.                                     |
+| az\_\<shortname>\_\<objname>\__delete_\_\<noun>  | key               | None                    | Delete an existing item. Will succeed even if item did not exist.                                           |
+| az\_\<shortname>\_\<objname>\__append_\_\<noun>  | item              | Appended item           | Add item to a collection. Item will be added last.                                                          |
+| az\_\<shortname>\_\<objname>\__add_\_\<noun>     | index, item       | Added item              | Add item to a collection. Item will be added on the given position.                                         |
+| az\_\<shortname>\_\<objname>\__remove_\_\<noun>  | key               | None or removed item    | Remove item from a collection.                                                                              |
+| az\_\<shortname>\_\<objname>\__get_\_\<noun>     | key               | Item                    | Will return None if item does not exist                                                                     |
+| az\_\<shortname>\_\<objname>\__list_\_\<noun>    |                   | array of items          | Return list of items. Returns empty list if no items exist                                                  |
+| az\_\<shortname>\_\<objname>\__exists_\_\<noun>  | key               | boolean                 | Return True if the item exists.                                                                             |
 
 Some examples:
 
