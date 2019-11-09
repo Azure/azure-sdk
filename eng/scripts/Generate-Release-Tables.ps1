@@ -104,7 +104,7 @@ function Write-java-Packages($packageList, $tf)
     $packageUrl = ProbeLinks $($pkg.Package + " - " + $pkg.Version) $("https://search.maven.org/artifact/com.azure/{0}/{1}/jar/" -f $pkg.Package, $pkg.Version)
     $docsUrl = ProbeLinks "Api Reference" $("https://azuresdkdocs.blob.core.windows.net/`$web/java/{0}/{1}/index.html" -f $pkg.Package, $pkg.Version)
     $readmeUrl = ProbeLinks "ReadMe" "$repoPath" "README.md"
-    $samplesUrl = ProbeLinks "Samples" "$repoPath" "samples"
+    $samplesUrl = ProbeLinks "Samples" "$repoPath" "src/samples"
     $changelogUrl = ProbeChangeLogLinks "ChangeLog" "$repoPath"
     $table += ($tf -f $pkg.Service, $packageUrl, $readmeUrl, $samplesUrl, $docsUrl, $changeLogUrl)
   }
