@@ -22,17 +22,17 @@ The main value of the Azure SDK is productivity. Other qualities, such as comple
 
 * Azure SDK libraries follow .NET Framework Design Guidelines.
 * Azure SDK libraries feel like designed by the designers of the .NET Standard libraries.
-* Azure SDK libraries version just like the .NET Standard libraries. 
+* Azure SDK libraries version just like the .NET Standard libraries.
 
 > We are not trying to fix bad parts of the language ecosystem; we embrace the ecosystem with its strengths and its flaws.
 
-**Consistent** 
+**Consistent**
 
 * The Azure SDK feels like a single product of a single team, not a set of NuGet packages.
 * Users learn common concepts once; apply the knowledge across all SDK components.
 * All differences from the guidelines must have good reasons.
 
-**Approachable** 
+**Approachable**
 
 * Small number of steps to get started; power knobs for advanced users
 * Small number of concepts; small number of types; small number of members
@@ -48,7 +48,7 @@ The main value of the Azure SDK is productivity. Other qualities, such as comple
 
 ## General Guidelines {#dotnet-general}
 
-{% include requirement/MUST id="dotnet-general-follow-framework-guidelines" %} follow the official [.NET Framework Design Guidelines]. 
+{% include requirement/MUST id="dotnet-general-follow-framework-guidelines" %} follow the official [.NET Framework Design Guidelines].
 
 At the end of this document, you can find a section with [the most commonly overlooked guidelines](#dotnet-appendix-overlookedguidelines) in existing Azure SDK libraries.
 
@@ -56,7 +56,7 @@ At the end of this document, you can find a section with [the most commonly over
 
 The guidelines provide a robust methodology for communicating with Azure services. The easiest way to ensure that your component meets these requirements is to use the [Azure.Core] package to call Azure services. Details of these helper APIs and their usage are described in the [Using HttpPipeline](#dotnet-usage-httppipeline) section.
 
-{% include requirement/MUST id="dotnet-general-use-http-pipeline" %} use `HttpPipeline` to implement all methods that call Azure REST services. 
+{% include requirement/MUST id="dotnet-general-use-http-pipeline" %} use `HttpPipeline` to implement all methods that call Azure REST services.
 
 The pipeline can be found in the [Azure.Core] package, and it takes care of many [General Azure SDK Guidelines][general-guidelines]. Details of the pipeline design and usage are described in section [Using HttpPipeline](#dotnet-usage-httppipeline) below. If you can't use the pipeline, you must implement [all the general requirements of Azure SDK]({{ "/general_azurecore.html" | relative_url }}) manually.
 
@@ -133,7 +133,7 @@ For example, the service client for the Application Configuration service is cal
 
 ### Service Client Constructors {#dotnet-client-ctor}
 
-{% include requirement/MUST id="dotnet-client-constructor-minimal" %} provide a minimal constructor that takes only the parameters required to connect to the service.  
+{% include requirement/MUST id="dotnet-client-constructor-minimal" %} provide a minimal constructor that takes only the parameters required to connect to the service.
 
 For example, you may use a connection string, or host name and authentication.  It should be easy to start using the client without extensive customization.
 
@@ -232,7 +232,7 @@ For example, review the configuration service _model type_ below:
 public sealed class ConfigurationSetting : IEquatable<ConfigurationSetting> {
 
     public ConfigurationSetting(string key, string value, string label = default);
-    
+
     public string ContentType { get; set; }
     public string ETag { get; internal set; }
     public string Key { get; set; }
@@ -243,7 +243,7 @@ public sealed class ConfigurationSetting : IEquatable<ConfigurationSetting> {
     public string Value { get; set; }
 
     public bool Equals(ConfigurationSetting other);
-    
+
     [EditorBrowsable(EditorBrowsableState.Never)]
     public override bool Equals(object obj);
     [EditorBrowsable(EditorBrowsableState.Never)]
@@ -280,12 +280,12 @@ Ensure you include an internal setter to allow for deserialization.  For more in
 
 {% include requirement/MUST id="dotnet-service-models-prefer-structs" %} ensure model types are structs if they're small, and classes if they're large, per [.NET Framework Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/choosing-between-class-and-struct).
 
-{% include requirement/MUST id="dotnet-service-models-basic-data-interfaces" %} implement basic data type interfaces on model types, per .NET Framework Design Guidelines. 
+{% include requirement/MUST id="dotnet-service-models-basic-data-interfaces" %} implement basic data type interfaces on model types, per .NET Framework Design Guidelines.
 
 TODO: Find reference in the .NET Framework Design Guidelines for this!
 For example, implement `IEquatable<T>`, `IComparable<T>`, `IEnumerable<T>`, etc. if applicable.
 
-{% include requirement/SHOULD id="dotnet-service-editor-browsable-state" %} apply the `[EditorBrowsable(EditorBrowsableState.Never)]` attribute to methods that the user isn't meant to call.  
+{% include requirement/SHOULD id="dotnet-service-editor-browsable-state" %} apply the `[EditorBrowsable(EditorBrowsableState.Never)]` attribute to methods that the user isn't meant to call.
 
 Adding this attribute will hide the methods from being shown with IntelliSense.  A user will almost never call `GetHashCode()` directly.  `Equals(object)` is almost never called if the type implements `IEquatable<T>` (which is preferred).  Hide the `ToString()` method if it isn't overridden.
 
@@ -328,7 +328,7 @@ The ```IAsyncEnumerable<T>``` interface is available in the [Microsoft.BCL.Async
 
 TODO: Include a code snippet example on how the user of the library would use this concept.
 
-{% include requirement/SHOULD id="dotnet-pagination-raw-paging" %} expose raw paging APIs through custom enumerable types with a `ByPage()` method. 
+{% include requirement/SHOULD id="dotnet-pagination-raw-paging" %} expose raw paging APIs through custom enumerable types with a `ByPage()` method.
 
 These APIs should be async only. Synchronous collection APIs must not support paging.
 
@@ -474,13 +474,13 @@ ConfigurationSetting setting = client.Get("Key");
 Assert.AreEqual("Value", setting.Value);
 ```
 
-Review the [full sample](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/appconfiguration/Azure.ApplicationModel.Configuration/samples/Sample8_MockClient.cs) in the GitHub repository.
+Review the [full sample](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/appconfiguration/Azure.Data.AppConfiguration/samples/Sample7_MockClient.cs) in the GitHub repository.
 
 {% include requirement/MUST id="dotnet-mocking-virtual-method" %} make all service methods virtual.
 
 {% include requirement/MUST id="dotnet-mocking-constructor" %} provide protected parameterless constructor for mocking.
 
-{% include requirement/MUST id="dotnet-mocking-factory-builder" %} provide factory or builder for constructing model graphs returned from virtual service methods. 
+{% include requirement/MUST id="dotnet-mocking-factory-builder" %} provide factory or builder for constructing model graphs returned from virtual service methods.
 
 Model types shouldn't have public constructors.  Instances of the model are typically returned from the client library, and are not constructed by the consumer of the library.  Mock implementations need to create instances of model types.  Implement a static class called `<service>ModelFactory` in the same namespace as the model types:
 
@@ -493,7 +493,7 @@ public static class ConfigurationModelFactory {
 
 ### Authentication {#dotnet-authentication}
 
-The client library consumer should construct a service client using just the constructor.  After construction, service methods can be called successfully.  The constructor parameters must take all parameters required to create a functioning client, including all information needed to authenticate with the service.  
+The client library consumer should construct a service client using just the constructor.  After construction, service methods can be called successfully.  The constructor parameters must take all parameters required to create a functioning client, including all information needed to authenticate with the service.
 
 The general constructor pattern refers to _binding parameters_.
 
@@ -515,7 +515,7 @@ Typically, _binding parameters_ would include a URI to the service endpoint and 
 ```csharp
 // hello world constructors using the main authentication method on the service's Azure Portal (typically a connection string)
 // we don't want to use default parameters here; all other overloads can use default parameters
-public BlobServiceClient(string connectionString) 
+public BlobServiceClient(string connectionString)
 public BlobServiceClient(string connectionString, BlobClientOptions options)
 
 // anonymous access
@@ -578,13 +578,13 @@ If you think a new group should be added to the list, contact [adparch].
 
 {% include requirement/MUSTNOT id="dotnet-namespaces-location" %} place APIs in the second-level namespace (directly under the `Azure` namespace).
 
-{% include requirement/SHOULD id="dotnet-namespaces-models" %} consider placing model types in a `.Models` namespace if number of model types is or might become large.  
+{% include requirement/SHOULD id="dotnet-namespaces-models" %} consider placing model types in a `.Models` namespace if number of model types is or might become large.
 
 Consider 5+ models to be "large".  The types that the user needs should be easy to find when using IntelliSense in the main namespace.
 
 ### Error Reporting {#dotnet-errors}
 
-{% include requirement/MUST id="dotnet-errors-response-failed" %} throw ```ResponseFailedException``` or its subtype when a service method fails with non-success status code. 
+{% include requirement/MUST id="dotnet-errors-response-failed" %} throw ```ResponseFailedException``` or its subtype when a service method fails with non-success status code.
 
 The exception is available in ```Azure.Core``` package:
 ```csharp
@@ -595,7 +595,7 @@ public class RequestFailedException : Exception {
 
     public int Status { get; }
 }
-``` 
+```
 
 {% include requirement/SHOULD id="dotnet-errors-response-exception-extensions" %} use `ResponseExceptionExtensions` to create `RequestFailedException` instances.
 
@@ -653,7 +653,7 @@ Use the following target setting in the `.csproj` file:
 * `Microsoft.BCL.AsyncInterfaces`.
 * packages produced by your own team.
 
-In the past, [JSON.NET] was commonly used for serialization and deserialization. Use the [System.Text.Json](https://www.nuget.org/packages/System.Text.Json/) 
+In the past, [JSON.NET] was commonly used for serialization and deserialization. Use the [System.Text.Json](https://www.nuget.org/packages/System.Text.Json/)
 package that is now a part of the .NET platform instead.
 
 {% include requirement/MUSTNOT id="dotnet-dependencies-exposing" %} publicly expose types from dependencies unless the types follow these guidelines as well.
@@ -679,7 +679,7 @@ For example, the following is a code snippet from the `ConfigurationClientOption
 
 ```csharp
 public class ConfigurationClientOptions : HttpPipelineOptions {
-    
+
     public ConfigurationClientOptions(ServiceVersion version = ServiceVersion.V2019_05_09)
 
     public enum ServiceVersion {
@@ -712,7 +712,7 @@ if (client.CanBatch) {
 
 #### Version Numbers {#dotnet-versionnumbers}
 
-Consistent version number scheme allows consumers to determine what to expect from a new version of the library. 
+Consistent version number scheme allows consumers to determine what to expect from a new version of the library.
 
 {% include requirement/MUST id="dotnet-version-semver" %} use _MAJOR_._MINOR_._PATCH_ format for the version of the library dll and the NuGet package.
 
@@ -753,7 +753,7 @@ public class ConfigurationClientOptions : HttpPipelineOptions {
 public class ConfigurationClient {
 
     public ConfigurationClient(string connectionString, ConfigurationClientOptions options);
-    ...   
+    ...
 }
 ```
 
@@ -775,10 +775,10 @@ public virtual async Task<Response<ConfigurationSetting>> AddAsync(Configuration
 
     // Use HttpPipeline _pipeline filed of the client type to create new HTTP request
     using (Request request = _pipeline.CreateRequest()) {
-        
+
         // specify HTTP request line
         request.Method = PipelineMethod.Put;
-        request.UriBuilder = ...; 
+        request.UriBuilder = ...;
 
         // add headers
         request.Headers.Add(IfNoneMatchWildcard);
@@ -804,7 +804,7 @@ public virtual async Task<Response<ConfigurationSetting>> AddAsync(Configuration
 }
 ```
 
-For a more complete example, see the [configuration client](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/appconfiguration/Azure.ApplicationModel.Configuration/src/ConfigurationClient.cs#L93) implementation.
+For a more complete example, see the [configuration client](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/appconfiguration/Azure.Data.AppConfiguration/src/ConfigurationClient.cs) implementation.
 
 ### HttpPipelinePolicy
 
@@ -812,11 +812,11 @@ The HTTP pipeline includes a number of policies that all requests pass through. 
 
 {% include requirement/MUST id="dotnet-http-pipeline-policy-inherit" %} inherit from `HttpPipelinePolicy` if the policy implementation calls asynchronous APIs.
 
-See an example [here](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/src/Pipeline/Policies/BearerTokenAuthenticationPolicy.cs).
+See an example [here](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/src/Pipeline/BearerTokenAuthenticationPolicy.cs).
 
 {% include requirement/MUST id="dotnet-sync-http-pipeline-policy-inherit" %} inherit from `SynchronousHttpPipelinePolicy` if the policy implementation calls only synchronous APIs.
 
-See an example [here](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/src/Pipeline/Policies/ClientRequestIdPolicy.cs).
+See an example [here](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/src/Pipeline/Internal/ClientRequestIdPolicy.cs).
 
 {% include requirement/MUST id="dotnet-http-pipeline-thread-safety" %} be thread-safe. The `ProcessAsync` and `Process` methods must be safe to invoke from multiple threads concurrently.
 
@@ -903,7 +903,7 @@ Each client library should have a quickstart guide with code samples.  Developer
 
 {% include requirement/MUST id="dotnet-samples-location" %} have usage samples in `samples` subdirectory of main library directory.
 
-For a complete example, see the [Configuration Service samples](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/appconfiguration/Azure.ApplicationModel.Configuration/samples).
+For a complete example, see the [Configuration Service samples](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/appconfiguration/Azure.Data.AppConfiguration/samples).
 
 {% include requirement/MUST id="dotnet-samples-naming" %} have a sample file called `S1_HelloWorld.cs`. All other samples are ordered from simplest to most complex using the `S<number>_` prefix.
 

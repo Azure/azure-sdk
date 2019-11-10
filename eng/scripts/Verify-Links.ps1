@@ -1,6 +1,20 @@
 param (
-  [string] $Url
+  [string] $Url,
+  [string] $ignoreLinksFile = "$PSScriptRoot/ignore-links.txt",
+  [switch] $devOpsLogging = $false
 )
+
+function LogWarning
+{
+  if ($devOpsLogging)
+  {
+    Write-Host "##vso[task.LogIssue type=warning;]$args"
+  }
+  else
+  {
+    Write-Warning "$args"
+  }
+}
 
 if ($url -eq "")
 {
@@ -10,38 +24,56 @@ if ($url -eq "")
 
 if ($PSVersionTable.PSVersion.Major -lt 6)
 {
-  Write-Warning "Some web requests will not work in versions of PS earlier then 6. You are running version $($PSVersionTable.PSVersion)."
+  LogWarning "Some web requests will not work in versions of PS earlier then 6. You are running version $($PSVersionTable.PSVersion)."
+}
+
+$badLinks = @();
+$ignoreLinks = @();
+if (Test-Path $ignoreLinksFile)
+{
+  $ignoreLinks = [Array](gc $ignoreLinksFile | % { ($_ -replace "#.*", "").Trim() } | ? { $_ -ne "" })
 }
 
 $uri = [System.Uri]$Url;
-$baseUri = $uri.GetLeftPart([System.UriPartial]::Authority);
-$links = (Invoke-WebRequest -Uri $uri).Links | Select -ExpandProperty href -Unique
-$badLinks = @();
+$links = (Invoke-WebRequest -Uri $uri).Links | % { $_.href } | Select -unique
 Write-Host "Found $($links.Count) links on page $Url";
 foreach ($link in $links)
 {
-  #Write-Host "Checking link $link..."
+  Write-Verbose "Checking link $link..."
 
   try
   {
     $linkUri = [System.Uri]$link;
     if (!$linkUri.IsAbsoluteUri)
     {
-      $linkUri = [System.Uri]($baseUri + $link);
+      $linkUri = new-object System.Uri($Url, $link);
+      Write-Verbose "Resolved relative link to $linkUri"
     }
+
+    $linkUri = [System.Uri]$linkUri.GetComponents([System.UriComponents]::HttpRequestUrl, [System.UriFormat]::SafeUnescaped)
     $response = Invoke-WebRequest -Uri $linkUri
     $statusCode = $response.StatusCode
     if ($statusCode -ne 200)
     {
-      Write-Host "For link $link we got status code $statusCode"
+      Write-Host "For link $linkUri we got status code $statusCode"
     }
   }
   catch
   {
-      Write-Warning "Invalid link $link"
+    if (!$ignoreLinks.Contains($link))
+    {
+      $statusCode = $_.Exception.Response.StatusCode.value__
+      LogWarning "Invalid link[$statusCode] $linkUri"
       $badLinks += $link
+    }
+    else
+    {
+      Write-Verbose "Ignoring invalid line $linkUri because it is in the ignore file."
+    }
   }
 }
 
-Write-Host "Found $($badLinks.Count) bad links:"
-$badLinks | % { Write-Host $_ }
+Write-Host "Found $($badLinks.Count) invalid links on page $Url"
+$badLinks | % { Write-Host "$_" }
+
+exit $badLinks.Count
