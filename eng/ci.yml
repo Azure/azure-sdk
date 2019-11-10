@@ -9,14 +9,9 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+container: jekyll/builder:latest
+
 steps:
-- task: UseRubyVersion@0
-  inputs:
-    versionSpec: '>= 2.4'
-  displayName: Initialize Ruby
-- script: 
-    gem install jekyll bundler
-  displayName: Install jekyll and bundler
 - script: |
     bundle exec jekyll build
   displayName: Build Site
