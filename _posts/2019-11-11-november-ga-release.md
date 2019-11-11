@@ -10,7 +10,6 @@ The Azure SDK team is pleased to announce the Novemeber 2019 release of the Azur
 
 The following libraries have reached our general availability level.  This requires support from all four languages (.NET, Java, Python, and TypeScript).
 
-* Cosmos
 * Key Vault (Keys, Secrets)
 * Storage (Blobs, Queues)
 
@@ -19,9 +18,10 @@ In addition, we have made the Azure Core and Identity libraries generally availa
 We also updated the following libraries with a new preview:
 
 * App Configuration
+* Cosmos
 * Event Hubs
 * KeyVault (Certificates)
-* Storage (Files)
+* Storage (File Shares)
 
 We recommend that you use the generally available client libraries for all new projects, and consider upgrading existing projects to use the new libraries as time permits.
 
