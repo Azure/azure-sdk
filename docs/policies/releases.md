@@ -147,12 +147,12 @@ Preview packages will be published PyPi. Dev packages will be published to an is
 
 #### JavaScript
 
-The JavaScript community generally follows [SemVer](https://semver.org/). For beta releases, we will release with an [npm distribution tag](https://docs.npmjs.com/cli/dist-tag) in the formats:
+The JavaScript community generally follows [SemVer](https://semver.org/). For preview releases, we will release with an [npm distribution tag](https://docs.npmjs.com/cli/dist-tag) in the formats:
 
 - `X.Y.Z-dev.YYYYMMDD.r` (`r` is based on the number of builds performed on the given day)
-- `X.Y.Z-beta.N`
+- `X.Y.Z-preview.N`
 
-JavaScript dev and beta releases are published to npm with the `@dev` or `@next` tags.  Use the following:
+JavaScript dev and preview releases are published to npm with the `@dev` or `@next` tags.  Use the following:
 
 ```bash
 $ npm install @azure/package@next
@@ -160,7 +160,7 @@ $ npm install @azure/package@next
 
 ##### Incrementing after release (JS)
 
-**After Beta Release:** `1.0.0-beta.1` -> `1.0.0-beta.2`
+**After Preview Release:** `1.0.0-preview.1` -> `1.0.0-preview.2`
 
 **After GA release:** `1.1.0` -> `1.1.1`
 
