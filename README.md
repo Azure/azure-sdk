@@ -5,7 +5,7 @@ The Azure SDK delivers a platform for developers to leverage the wide variety of
 | Language    | Design Guidelines                                                       | Repo                                                                | Documentation
 |:------------|:-----------------------------------------------------------------------:|:-------------------------------------------------------------------:|:-------------------------:|
 | General   |[General Design Guidelines][general]    |[azure-sdk Repository](https://github.com/Azure/azure-sdk)      | [Official Azure Documentation](http://aka.ms/azure-sdk-docs) |
-| C#  /.NET   |[Design Guidelines for .NET][dotnet]    |[azure-sdk-for-net Repository](https://github.com/Azure/azure-sdk-for-net)      | [.NET Preview Documentation](http://aka.ms/net-docs) |
+| C#  /.NET   |[Design Guidelines for .NET][dotnet]    |[azure-sdk-for-net Repository](https://github.com/Azure/azure-sdk-for-net)      | [.NET Documentation](http://aka.ms/net-docs) |
 | Go          |                                                                         |[azure-sdk-for-go Repository](https://github.com/Azure/azure-sdk-for-go)        | [Go Documentation](http://aka.ms/go-docs) |
 | Java        |[Design Guidelines for Java][java]      |[azure-sdk-for-java Repository](https://github.com/Azure/azure-sdk-for-java)    | [Java Documentation](http://aka.ms/java-docs)   |
 | JavaScript  |[Design Guidelines for JavaScript and TypeScript][typescript] |[azure-sdk-for-js Repository](https://github.com/Azure/azure-sdk-for-js)        | [JavaScript Documentation](http://aka.ms/js-docs)|
