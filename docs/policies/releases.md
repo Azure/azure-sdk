@@ -132,7 +132,7 @@ For example, if Package A and Package B are built in the same Unified Pipeline a
 
 Python version numbers follow the guidance in [PEP 440](https://www.python.org/dev/peps/pep-0440/) for versioning Python packages. This means that regular releases follow the above specified SemVer format. Preview releases follow the [PEP 440 specification for pre-releases](https://www.python.org/dev/peps/pep-0440/#pre-releases):
 
-- `X.Y.ZdevYYYYMMDDr` (`r` is based on the number of builds performed on the given day)
+- `X.Y.Z.devYYYYMMDDr` (`r` is based on the number of builds performed on the given day)
 - `X.Y.ZbN` (preview release using beta convention)
 
 Preview packages will be published PyPi. Dev packages will be published to an isolated Azure DevOps feed.
@@ -141,7 +141,9 @@ Preview packages will be published PyPi. Dev packages will be published to an is
 
 **After Preview Release:**  `1.0.0b1` -> `1.0.0b2`
 
-**After GA release:** `1.1.0` ->  `1.2.0b1`
+**After GA release:** `1.1.0` ->  `1.1.1`
+
+**After GA hotfix:** `1.1.0` ->  `1.1.0.1`
 
 **Floating GA dependencies:** Use `<X+1.0.0,>=X.0.0` to float dependencies where `X` is the major release upon which the package depends and `X+1` is the next major version.
 
