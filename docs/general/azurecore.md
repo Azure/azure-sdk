@@ -40,7 +40,7 @@ Client library usage telemetry is used by service teams (not consumers) to monit
 ```
 
 - `<application_id>`: optional application-specific string. May contain a slash, but must not contain a space. The string is supplied by the user of the client library, e.g. "AzCopy/10.0.4-Preview"
-- `<sdk_language>`: SDK's language name (all lowercase): "net", "python", "java", or "js" 
+- `<sdk_language>`: SDK's language name (all lowercase): "net", "python", "java", or "js"
 - `<package_name>`: client library package name as it appears to the developer, replacing slashes with dashes and removing the Azure indicator.  For example, "Security.KeyVault" (.NET), "security.keyvault" (Java), "keyvault" (JavaScript & Python)
 - `<package_version>`: the version of the package. Note: this is not the version of the service
 - `<platform_info>`: information about the currently executing language runtime and OS, e.g. "(NODE-VERSION v4.5.0; Windows_NT 10.0.14393)"
@@ -113,12 +113,12 @@ The HTTP Pipeline provides this functionality.
 
 ### Authentication policy
 
-Services across Azure use a variety of different authentication schemes to authenticate clients. Conceptually there are two entities responsible for authenticating service client requests, a credential and an authentication policy.  Credentials provide confidential authentication data needed to authenticate requests.  Authentication policies use the data provided by a credential to authenticate requests to the service. It is essential that credential data can be updated as needed across the lifetime of a client, and authentication policies must always use the most current credential data. 
+Services across Azure use a variety of different authentication schemes to authenticate clients. Conceptually there are two entities responsible for authenticating service client requests, a credential and an authentication policy.  Credentials provide confidential authentication data needed to authenticate requests.  Authentication policies use the data provided by a credential to authenticate requests to the service. It is essential that credential data can be updated as needed across the lifetime of a client, and authentication policies must always use the most current credential data.
 
-{% include requirement/MUSTNOT id="azurecore-http-auth-persistence" %} persist, cache, or reuse tokens returned from the token credential. This is __CRITICAL__ as credentials generally have a short validity period and the token credential is 
+{% include requirement/MUSTNOT id="azurecore-http-auth-persistence" %} persist, cache, or reuse tokens returned from the token credential. This is __CRITICAL__ as credentials generally have a short validity period and the token credential is
 responsible for refreshing these.
 
-{% include requirement/MUST id="azurecore-http-auth-bearer-token" %} implement Bearer authorization policy (which accepts a token credential and 
+{% include requirement/MUST id="azurecore-http-auth-bearer-token" %} implement Bearer authorization policy (which accepts a token credential and
 scope).
 
 ### Response downloader policy
@@ -140,15 +140,15 @@ The Distributed Tracing policy is responsible for:
 
 {% include requirement/MUST id="azurecore-http-tracing-opentelemetry" %} support [OpenTelemetry] for distributed tracing.
 
-{% include requirement/MUST id="azurecore-http-tracing-accept-context" %} accept a context from calling code to establish a parent span.  
+{% include requirement/MUST id="azurecore-http-tracing-accept-context" %} accept a context from calling code to establish a parent span.
 
-{% include requirement/MUST id="azurecore-http-tracing-pass-context" %} pass the context to the backend service through the appropriate headers (`traceparent`, `tracestate`, etc.) to support [Azure Monitor].  
+{% include requirement/MUST id="azurecore-http-tracing-pass-context" %} pass the context to the backend service through the appropriate headers (`traceparent`, `tracestate`, etc.) to support [Azure Monitor].
 
 {% include requirement/MUST id="azurecore-http-tracing-create-span" %} create a new span (which must be a child of the per-method span) for each REST call that the client library makes.
 
 ### Logging policy
 
-Many logging requirements within Azure Core mirror the same requirements for logging within the client library.  
+Many logging requirements within Azure Core mirror the same requirements for logging within the client library.
 
 {% include requirement/MUST id="azurecore-http-logging-handlers" %} allow the client library to set the log handler and log settings.
 
@@ -222,7 +222,7 @@ The Azure SDK can be configured by a variety of sources, some of which are neces
 
 {% include requirement/MUST id="azurecore-config-ordering" %} apply configuration in the order above by default, such that subsequent items in the list override settings from previous items in the list.
 
-{% include requirement/MAY id="azurecore-config-opt-in" %} support configuration systems that users opt in to that do not follow the above ordering. 
+{% include requirement/MAY id="azurecore-config-opt-in" %} support configuration systems that users opt in to that do not follow the above ordering.
 
 {% include requirement/MUST id="azurecore-config-consistent-naming" %} be consistent with naming between environment variables and configuration keys.
 
@@ -248,7 +248,7 @@ Environment variables are a well-known method for IT administrators to configure
 
 ### Global configuration
 
-Global configuration refers to configuration settings that are applied to all applicable client constructors in some manner. 
+Global configuration refers to configuration settings that are applied to all applicable client constructors in some manner.
 
 {% include requirement/MUST id="azurecore-config-shared-pipeline-policies" %} support global configuration of shared pipeline policies including:
 
@@ -271,6 +271,6 @@ OAuth token authentication, obtained via Managed Security Identities (MSI) or Az
 
 [User-Agent header]: https://tools.ietf.org/html/rfc7231#section-5.5.3
 [Transient fault handling]: https://docs.microsoft.com/en-us/azure/architecture/best-practices/transient-faults
-[OpenTelemetry]: https://opentelemetry.io/tracing/
+[OpenTelemetry]: https://opentelemetry.io/
 [Azure Monitor]: https://azure.microsoft.com/services/monitor/
 [CIDR notation]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
