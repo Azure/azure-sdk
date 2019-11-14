@@ -1,0 +1,28 @@
+# Jekyll site
+# Package your Jekyll site using the jekyll/builder Docker container image.
+# Add steps that build, test, save build artifacts, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: UseRubyVersion@0
+  inputs:
+    versionSpec: '>= 2.4'
+  displayName: Initialize Ruby
+
+- script: 
+    gem install jekyll bundler
+  displayName: Install jekyll and bundler
+
+- script: 
+    bundle install
+  displayName: Install project dependencies
+
+- script: |
+    bundle exec jekyll build
+  displayName: Build Site

@@ -193,7 +193,55 @@ Let's take two examples:
 
 One of the key things we want to support is to allow consumers of the library to easily write repeatable unit-tests for their applications without activating a service. This allows them to reliably and quickly test their code without worrying about the vagaries of the underlying service implementation (including, for example, network conditions or service outages). Mocking is also helpful to simulate failures, edge cases, and hard to reproduce situations (for example: does code work on February 29th).
 
-{% include requirement/MUST id="golang-support-mocking" %} support mocking of network operations.
+{% include requirement/MUST id="golang-mock-interface-package" %} generate a sub-package containing interface definitions for all client operations.  The package name will be the same as the parent plus the `iface` suffix.
+
+{% include requirement/MUST id="golang-mock-interface-types" %} generate one interface type per client type that contains all of the client type's exported methods.  The interface type name will be the same as the client type name.
+
+{% include requirement/MUST id="golang-mock-lro-pages" %} generate interface types for LRO and pageable response types that contain all of the methods for their respective types.  The interface type name will be the same as the LRO/pageable response type name.
+
+{% include requirement/MUST id="golang-mock-interface-check" %} generate code to ensure that the interface definitions and their respective types have identical method declarations.  This is usually performed by assigning a nil pointer-to-type to a variable of the interface type.
+
+```go
+package factoryiface
+
+import (
+	// ...
+	"<my repo>/factory"
+)
+
+// WidgetClient contains the set of methods on the factory.WidgetClient type.
+type WidgetClient interface {
+	CreateWidget(ctx context.Context, options factory.WidgetOptions) (*CreateWidgetOperation, error)
+	GetWidget(ctx context.Context, name string) (*factory.Widget, error)
+	ListWidgets(ctx context.Context, options factory.ListWidgetsOptions) (*ListWidgetsIterator, error)
+}
+
+var _ WidgetClient = (*factory.WidgetClient)(nil)
+
+// CreateWidgetOperation contains the set of methods on the factory.CreateWidgetOperation type.
+type CreateWidgetOperation interface {
+	Done() bool
+	ID() string
+	Poll() (*factory.Widget, error)
+	Response() *azcore.Response
+	Wait() (*factory.Widget, error)
+}
+
+var _ CreateWidgetOperation = (*factory.CreateWidgetOperation)(nil)
+
+// ListWidgetsIterator contains the set of methods on the factory.ListWidgetsIterator type.
+type ListWidgetsIterator interface {
+	Err() error
+	Item() *factory.Widget
+	Next() bool
+	NextPage() bool
+	Page() *factory.ListWidgetsPage
+}
+
+var _ ListWidgetsIterator = (*factory.ListWidgetsIterator)(nil)
+```
+
+{% include requirement/MUST id="golang-test-recordings" %} support HTTP request and response recording/playback via the pipeline.
 
 {% include refs.md %}
 {% include_relative refs.md %}
