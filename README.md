@@ -5,8 +5,8 @@ The Azure SDK delivers a platform for developers to leverage the wide variety of
 | Language    | Design Guidelines                           | Repo                             | Documentation                    |
 |:------------|:-------------------------------------------:|:--------------------------------:|:--------------------------------:|
 | General     |[General Design Guidelines]                  |[azure-sdk Repository]            | [Official Azure Documentation]   |
-| Android     |[Design Guidelines for Android] (Draft)      |[azure-sdk-for-net Repository]    | [.NET Documentation              |
-| C# /.NET    |[Design Guidelines for .NET]                 |[azure-sdk-for-net Repository]    | [.NET Documentation              |
+| Android     |[Design Guidelines for Android] (Draft)      |[azure-sdk-for-net Repository]    | [Android Documentation]          |
+| C# /.NET    |[Design Guidelines for .NET]                 |[azure-sdk-for-net Repository]    | [.NET Documentation]             |
 | Go          |[Design Guidelines for Go] (Draft)           |[azure-sdk-for-go Repository]     | [Go Documentation]               |
 | iOS         |[Design Guidelines for iOS] (Draft)          |[azure-sdk-for-ios Repository]    | [iOS Documentation]              |
 | Java        |[Design Guidelines for Java]                 |[azure-sdk-for-java Repository]   | [Java Documentation]             |
