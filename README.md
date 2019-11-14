@@ -49,7 +49,7 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 [Design Guidelines for Go]: https://azure.github.io/azure-sdk/golang_introduction.html
 [Design Guidelines for iOS]: https://azure.github.io/azure-sdk/ios_introduction.html
 [Design Guidelines for Java]: https://azure.github.io/azure-sdk/java_introduction.html
-[[Design Guidelines for TypeScript]: https://azure.github.io/azure-sdk/typescript_introduction.html
+[Design Guidelines for TypeScript]: https://azure.github.io/azure-sdk/typescript_introduction.html
 [Design Guidelines for Python]: https://azure.github.io/azure-sdk/python_introduction.html
 [revproc]: https://azure.github.io/azure-sdk/policies_reviewprocess.html
 
