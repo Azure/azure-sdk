@@ -49,7 +49,11 @@ foreach ($link in $links)
       $linkUri = new-object System.Uri($Url, $link);
       Write-Verbose "Resolved relative link to $linkUri"
     }
-
+    # If the link is not a web request, like mailto, skip it.
+    if (!$linkUri.Scheme.StartsWith("http")) {
+      Write-Verbose "Skipping $linkUri because it is not http based."
+      continue;
+    }
     $linkUri = [System.Uri]$linkUri.GetComponents([System.UriComponents]::HttpRequestUrl, [System.UriFormat]::SafeUnescaped)
     $response = Invoke-WebRequest -Uri $linkUri
     $statusCode = $response.StatusCode
