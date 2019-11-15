@@ -5,10 +5,10 @@ The Azure SDK delivers a platform for developers to leverage the wide variety of
 | Language    | Design Guidelines                           | Repo                             | Documentation                    |
 |:------------|:-------------------------------------------:|:--------------------------------:|:--------------------------------:|
 | General     |[General Design Guidelines]                  |[azure-sdk Repository]            | [Official Azure Documentation]   |
-| Android     |[Design Guidelines for Android] (Draft)      |[azure-sdk-for-net Repository]    | [Android Documentation]          |
+| Android     |[Design Guidelines for Android] (Draft)      |[azure-sdk-for-android Repository]| Coming Soon                      |
 | C# /.NET    |[Design Guidelines for .NET]                 |[azure-sdk-for-net Repository]    | [.NET Documentation]             |
 | Go          |[Design Guidelines for Go] (Draft)           |[azure-sdk-for-go Repository]     | [Go Documentation]               |
-| iOS         |[Design Guidelines for iOS] (Draft)          |[azure-sdk-for-ios Repository]    | [iOS Documentation]              |
+| iOS         |[Design Guidelines for iOS] (Draft)          |[azure-sdk-for-ios Repository]    | Coming Soon                      |
 | Java        |[Design Guidelines for Java]                 |[azure-sdk-for-java Repository]   | [Java Documentation]             |
 | JavaScript  |[Design Guidelines for TypeScript]           |[azure-sdk-for-js Repository]     | [JavaScript Documentation]       |
 | Python      |[Design Guidelines for Python]               |[azure-sdk-for-python Repository] | [Python Documentation]           |
@@ -63,10 +63,8 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 [azure-sdk-for-python Repository]: https://github.com/Azure/azure-sdk-for-python
 
 [Official Azure Documentation]: http://aka.ms/azure-sdk-docs
-[Android Documentation]: http://aka.ms/android-docs
 [.NET Documentation]: http://aka.ms/net-docs
 [Go Documentation]: http://aka.ms/go-docs
-[iOS Documentation]: http://aka.ms/ios-docs
 [Java Documentation]: http://aka.ms/java-docs
 [JavaScript Documentation]: http://aka.ms/js-docs
 [Python Documentation]: https://aka.ms/python-docs
