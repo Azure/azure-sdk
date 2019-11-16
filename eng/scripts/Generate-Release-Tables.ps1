@@ -116,7 +116,7 @@ function Write-js-Packages($packageList, $tf)
   $table = ""
   foreach ($pkg in $packageList)
   {
-    $repoPath = "https://github.com/Azure/azure-sdk-for-js/blob/%40azure%2F{0}_{1}/sdk/{2}/{0}/" -f $pkg.Package, $pkg.Version, $pkg.RepoPath
+    $repoPath = "https://github.com/Azure/azure-sdk-for-js/blob/@azure/{0}_{1}/sdk/{2}/{0}/" -f $pkg.Package, $pkg.Version, $pkg.RepoPath
     $packageUrl = ProbeLinks $($pkg.Package + " - " + $pkg.Version) $("https://www.npmjs.com/package/@azure/{0}/v/{1}" -f $pkg.Package, $pkg.Version)
     $docsUrl = ProbeLinks "Api Reference" $("https://azuresdkdocs.blob.core.windows.net/`$web/javascript/azure-{0}/{1}/index.html" -f $pkg.Package, $pkg.Version)
     $readmeUrl = ProbeLinks "ReadMe" "$repoPath" "README.md"
