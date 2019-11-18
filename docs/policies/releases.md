@@ -132,7 +132,7 @@ For example, if Package A and Package B are built in the same Unified Pipeline a
 
 Python version numbers follow the guidance in [PEP 440](https://www.python.org/dev/peps/pep-0440/) for versioning Python packages. This means that regular releases follow the above specified SemVer format. Preview releases follow the [PEP 440 specification for pre-releases](https://www.python.org/dev/peps/pep-0440/#pre-releases):
 
-- `X.Y.Z.devYYYYMMDDrrr` (`rrr` is based on the number of builds performed on the given day)
+- `X.Y.Z.devYYYYMMDDrrr` (`rrr` is based on the number of builds performed on the given day and it is zero-padded with a valid range starting at 001 and ends at 999)
 - `X.Y.ZbN` (preview release using beta convention)
 
 Preview packages will be published PyPi. Dev packages will be published to an isolated Azure DevOps feed.
@@ -147,7 +147,7 @@ Preview packages will be published PyPi. Dev packages will be published to an is
 
 **Floating GA dependencies:** Use `<X+1.0.0,>=X.0.0` to float dependencies where `X` is the major release upon which the package depends and `X+1` is the next major version.
 
-In rare cases where a customer cannot take all the latest patch version with all the bugfixes for a particular major/minor release, but there is a critical fix necessary, we will publish a hotfix package in the format X.Y.Z.N where N increments with each successive hotfix. In this case it is expected that the customer will pin the particular hotfix version they wish to use.
+In rare cases where a customer cannot take all the latest patch versions with all the bugfixes for a particular major/minor release, but there is a critical fix necessary, we will publish a hotfix package in the format X.Y.Z.N where N increments with each successive hotfix. In this case it is expected that the customer will pin the particular hotfix version they wish to use.
 
 #### JavaScript
 
