@@ -147,6 +147,8 @@ Preview packages will be published PyPi. Dev packages will be published to an is
 
 **Floating GA dependencies:** Use `<X+1.0.0,>=X.0.0` to float dependencies where `X` is the major release upon which the package depends and `X+1` is the next major version.
 
+In rare cases where a customer cannot take all the latest patch version with all the bugfixes for a particular major/minor release, but there is a critical fix necessary, we will publish a hotfix package in the format X.Y.Z.N where N increments with each successive hotfix. In this case it is expected that the customer will pin the particular hotfix version they wish to use.
+
 #### JavaScript
 
 The JavaScript community generally follows [SemVer](https://semver.org/). For preview releases, we will release with an [npm distribution tag](https://docs.npmjs.com/cli/dist-tag) in the formats:
