@@ -4,7 +4,7 @@ Use the guidelines in each section of this template to ensure consistency and re
 
 **Title**: The H1 of your README should be in the format: `# [Product Name] client library for [Language]`
 
-* All headings, including the H1, should use **sentence-style capitalization**. Refer to the [Microsoft Style Guide][style-guide-msft] and [Microsoft Cloud Style Guide][style-guide-cloud] for more information.
+* All headings, including the H1, should use **sentence-style capitalization**. Refer to the [Microsoft Style Guide][style-guide-msft] for more information.
 * Example: `# Azure Batch client library for Python`
 
 **Introduction**: The introduction appears directly under the title (H1) of your README.
@@ -14,7 +14,7 @@ Use the guidelines in each section of this template to ensure consistency and re
 * Next, add a **bulleted list** of the **most common tasks** supported by the package or library, prefaced with "Use the client library for [Product Name] to:". Then, provide code snippets for these tasks in the [Examples](#examples) section later in the document. Keep the task list short but include those tasks most developers need to perform with your package.
 * Include this single line of links targeting your product's content at the bottom of the introduction, making any adjustments as necessary (for example, NuGet instead of PyPi):
 
-  [Source code](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-batch) | [Package (PyPi)](https://pypi.org/project/azure-batch/) | [API reference documentation](https://docs.microsoft.com/python/api/overview/azure/batch?view=azure-python) | [Product documentation](https://docs.microsoft.com/azure/batch/) | [Samples][samples]
+  [Source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/batch/azure-batch) | [Package (PyPi)](https://pypi.org/project/azure-batch/) | [API reference documentation](https://docs.microsoft.com/python/api/overview/azure/batch?view=azure-python) | [Product documentation](https://docs.microsoft.com/azure/batch/) | [Samples][samples]
 
 > TIP: Your README should be as **brief** as possible but **no more brief** than necessary to get a developer new to Azure, the service, or the package up and running quickly. Keep it brief, but include everything a developer needs to make their first API call successfully.
 
@@ -97,5 +97,4 @@ If you'd like to contribute to this library, please read the [contributing guide
 
 <!-- LINKS -->
 [style-guide-msft]: https://docs.microsoft.com/style-guide/capitalization
-[style-guide-cloud]: https://worldready.cloudapp.net/Styleguide/Read?id=2696&topicid=25357
 [samples]: https://github.com/Azure-Samples/azure-batch-samples
