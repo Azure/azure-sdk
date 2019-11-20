@@ -31,7 +31,7 @@ As you write your code, *doc it so you never hear about it again.* The less ques
 
 ### Code examples
 
-Code examples are small functions that demonstrate a certain feature that is relevant to the client library.  Examples allow developers to quickly understand the full usage requirements of your client library.  Code examples shouldn't be any more complex than needed to demonstrate the feature.  Don't write full applications.  Examples should have a high signal to noice ratio between useful code and boilerplate code for non-related reasons.
+Code examples are small functions that demonstrate a certain feature that is relevant to the client library.  Examples allow developers to quickly understand the full usage requirements of your client library.  Code examples shouldn't be any more complex than needed to demonstrate the feature.  Don't write full applications.  Examples should have a high signal to noise ratio between useful code and boilerplate code for non-related reasons.
 
 {% include requirement/MUST id="golang-include-code-examples" %} include code examples within your package’s code. The examples should clearly and succinctly demonstrate the code most developers need to write with your library. Include examples for all common operations. Pay attention to operations that are complex or might be difficult for new users of your library. Include examples for the champion scenarios you’ve identified for the library.
 

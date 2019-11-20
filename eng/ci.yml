@@ -1,0 +1,54 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: UseRubyVersion@0
+  inputs:
+    versionSpec: '>= 2.4'
+  displayName: Initialize Ruby
+
+- script: |
+    gem install jekyll bundler
+  displayName: Install jekyll and bundler
+
+- script: |
+    bundle install
+  displayName: Install project dependencies
+
+- script: |
+    bundle exec jekyll build
+  displayName: Build Site
+
+- script: |
+    bundle exec jekyll serve --detach
+  displayName: Launch local site
+
+- task: Powershell@2
+  inputs:
+    targetType: inline
+    pwsh: true
+    script: |
+      $ProgressPreference = "SilentlyContinue"; # Disable invoke-webrequest progress dialog
+      $invalidLinks = 0;
+      cd "_site"
+      $rootPathLength = (get-location).Path.Length + 1;
+      foreach($html in (dir -r -i *.html)) {
+        $relPath = $html.FullName.Substring($rootPathLength);
+        # Skip the paths starting with '_' as they are generated and not directly referenced
+        if ($relPath.StartsWith("_")) { continue }
+        $url = [System.Uri]("http://localhost:4000/$relPath");
+        Write-Host "Checking links on $url"
+        ../eng/scripts/Verify-Links.ps1 $url -devOpsLogging
+        $invalidLinks += $lastExitCode
+      }
+      Write-Host "Found $invalidLinks total bad links"
+      exit $invalidLinks
+  displayName: Verify Links
+
+- script: |
+    pkill -f jekyll
+  displayName: Shutdown local site
+  condition: always()
