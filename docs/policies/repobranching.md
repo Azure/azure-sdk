@@ -46,4 +46,17 @@ When doing any releases outside of master extra caution needs to be taken to ens
 
 ## Hotfix branches
 
-Under some circumstances we may need to service a specific version of the code with a hotfix and in these cases we should create a branch with the name `hotfix/<appropriate name for what is being hotfixed>` starting from the git release tag that points at the specific version we want to hotfix. Once the branch is created the changes should be made and the version number incremented base on our [versioning guidance](releases.md#package-versioning) for the package. Once the changes are ready then the hotfix branch should be pushed to the main repo and a build should be produced and verified. Once the package is released the changes should be merged (not rebased) into master if they are necessary there. Note that if you do merge you will likely have merge conflicts with at least the version numbers and the versions in master should be taken over the versions from the hotfix branch. Once the fix is released and any changes merged the branch should be deleted, it can always be recreated from the release tag in the future if needed.
+Under some circumstances we may need to service a specific version of the code with a hotfix and in these cases we should create a branch with the name `hotfix/<hotfix name>`, where `<hotfix name>` should have at least the name of the package or service and a short decription or version number with it. That branch should be created from the git release tag that points at the specific version we want to hotfix and pushed to the main repository.
+
+```
+git checkout -b hotifx/<hotfix name> <package-name>_<package-version>
+git push upstream hotifx/<hotfix name>
+```
+
+After you have the main hotfix branch created you should use your usual workflow (i.e. create another branch or work on the same named branch in your fork) and the changes should be made and the version number incremented based on our [versioning guidance](releases.md#package-versioning) for the package. If the fixes are already made in master or another branch you can cherry-pick (`git cherry-pick <sha>`) them into your working branch, otherwise make the code edits as needed. Once all the changes are ready submit a PR against the `hotfix/<hotfix name>` branch you created in the main repo. PR validation should kick in automatically as long as the branch follows the `hotfix/*` naming convention. Once CI is green then the fix can be merged into the `hotfix/<hotfix name>` branch. 
+
+After the changes are merged into the `hotfix/<hotfix name>` branch the same release process we use for master can be used to produce a release out of that branch but when you queue the build be sure to set the branch name to the `hotfix/<hotfix name>`. 
+
+If the changes were not cherry-picked from `master` and they are needed there then merge (`git merge hotfix/<hotfix name>`) them from your `hotfix/<hotfix name>` branch into `master`. When merging accept the version numbers from `master`. 
+
+Once the hotfix has been released and any changes merged back to `master` then you should delete the `hotfix/<hotfix name>` branch, it can always be recreated in the future from the last release tag if needed. 
