@@ -116,6 +116,10 @@ persist, cache, or reuse security credentials.  Security credentials should be c
 
 If your service implements a non-standard credential system (one that is not supported by Azure Core), then you need to produce an authentication policy for the HTTP pipeline that can authenticate requests given the alternative credential types provided by the client library.
 
+{% inlcude requirement/MUST id="clang-implementing-secure-auth-erase" %} Use a "secure" function to zero authentication or authorization credentials as soon as possible once they are no longer needed. Examples of such functions
+include: `SecureZeroMemory`, `memset_s`, and `explicit_bzero`. Examples of insecure functions include `memset`. The reason you must use special functions is that the optimizer will notice that the credentials are
+never accessed again, and will optimize away the call to `memset`, resulting in the credentials remaining in memory.
+
 {% include requirement/MUST id="clang-implementing-auth-policy" %}
 provide a suitable authentication policy that authenticates the HTTP request in the HTTP pipeline when using non-standard credentials.  This includes custom connection strings, if supported.
 
