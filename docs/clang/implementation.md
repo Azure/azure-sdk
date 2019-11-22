@@ -58,10 +58,10 @@ hen configuring your client library, particular care must be taken to ensure tha
 
 {% include requirement/MUST id="clang-config-global-overrides" %} allow all global configuration settings to be overridden by client-provided options. The names of these options should align with any user-facing global configuration keys.
 
-{% include requirement/MUSTNOT id="clang-config-defaults-nochange"} Change the default values of client
+{% include requirement/MUSTNOT id="clang-config-defaults-nochange" %} Change the default values of client
 configuration options based on system or program state.
 
-{% include requirement/MUSTNOT id="clang-config-defaults-nobuildchange"} Change default values of
+{% include requirement/MUSTNOT id="clang-config-defaults-nobuildchange" %} Change default values of
 client configuration options based on how the client library was built.
 
 {% include requirement/MUSTNOT id="clang-config-behaviour-changes" %} change behavior based on configuration changes that occur after the client is constructed. Hierarchies of clients inherit parent client configuration unless explicitly changed or overridden. Exceptions to this requirement are as follows:
