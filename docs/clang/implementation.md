@@ -43,7 +43,7 @@ Use the appropriate options for each compiler to prevent the use of such extensi
 | Compiler                 | Compiler Flags   |
 |:-------------------------|------------------|
 | gcc                      | `-Wall -Wextra`  |
-| Clang and XCode          | `-Weverything`   |
+| Clang and XCode          | `-Wall -Wextra`   |
 | MSVC                     | `/W4`            |
 
 hen configuring your client library, particular care must be taken to ensure that the consumer of your client library can properly configure the connectivity to your Azure service both globally (along with other client libraries the consumer is using) and specifically with your client library.
