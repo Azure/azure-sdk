@@ -487,6 +487,16 @@ In general, clang-format will format your code correctly and ensure consistency.
 
 {% include requirement/MUST id="clang-format-clang-loops" %} place all conditional or loop statements on one line, or add braces to identify the conditional/looping block.
 
+{%highlight c %}
+if (meow == 0) purr += 1; // OK
+if (meow == 0) {
+    purr += 1; // OK
+}
+if (meow == 0) { purr += 1; } // OK (although will probably be changed by clang-format)
+if (meow == 0)
+    purr += 1; // NOT OK
+{% endhighlight %}
+
 {% include requirement/MUST id="clang-format-clang-closing-braces" %} add comments to closing braces.  Adding a comment to closing braces can help when you are reading code because you don't have to find the begin brace to know what is going on.
 
 {% highlight c %}
@@ -500,7 +510,7 @@ while (1) {
 } /* end forever */
 {% endhighlight %}
 
-{% include requirement/MUST id="clang-format-clang-closing-endif" %} add comments to closing preprocessor to make it easier to understand it.  For example:
+{% include requirement/MUST id="clang-format-clang-closing-endif" %} add comments to closing preprocessor directives to make them easier to understand.  For example:
 
 {% highlight c %}
 #if _BEGIN_CODE_
@@ -512,28 +522,10 @@ while (1) {
 #endif /* _BEGIN_CODE_ */
 {% endhighlight %}
 
-{% include requirement/MUST id="clang-format-clang-space-kw" %} place a space between a keyword and a following paren.
-
-
-{% include requirement/MUST id="clang-format-clang-space-func" %} place parens next to function names.
 
 {% include requirement/SHOULDNOT id="clang-format-clang-space-return" %} use parens in return statements when it isn't necessary.
 
-{% include requirement/MUST id="clang-format-clang-ifelse" %} place each segment of an `if`/`then`/`else` statement on a separate line if you have a block.  If you include `else if` statements, ensure you also add an `else` block for finding unhandled cases.
-
-For example:
-
-{% highlight c %}
-if (valid) {
-    ...
-} /* if valid */
-else {
-
-} /* not valid */
-{% endhighlight %}
-
-{% include requirement/MUST id="clang-format-clang-yoda" %} place the constant on the left hand side of an eqality/inequality comparison (yoda style).  For example, `if (6 == errNum) ...`.
-~
+{% include requirement/MUST id="clang-format-clang-no-yoda" %} place constants on the right of comparisons. For example `if (a == 0)` and not `if (0 == a)`
 
 {% include requirement/MUST id="clang-format-clang-comment-fallthru" %} include a comment for falling through a non-empty `case` statement.  For example:
 
