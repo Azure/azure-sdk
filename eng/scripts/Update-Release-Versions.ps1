@@ -124,7 +124,7 @@ function Update-js-Packages($packageList, $versions)
   return $table
 }
 
-function Update-net-Packages($packageList, $tf)
+function Update-dotnet-Packages($packageList, $tf)
 {
   foreach ($pkg in $packageList)
   {
@@ -193,8 +193,9 @@ function Output-Latest-Versions($lang)
   $packagelistFile = Join-Path $releaseFolder "$lang-packages.csv"
   $packageList = gc $packagelistFile | ConvertFrom-Csv | sort Service
 
+
   $apiUrl = "https://api.github.com/repos/azure/azure-sdk-for-$lang"
-  Write-Host "Using API URL $apiUrl"
+  if ($lang -eq "dotnet") { $apiUrl = "https://api.github.com/repos/azure/azure-sdk-for-net" }
 
   $versions = GetPackageVersions $apiUrl
 
@@ -210,7 +211,7 @@ switch($language)
   "all" {
     Output-Latest-Versions "java"
     Output-Latest-Versions "js"
-    Output-Latest-Versions "net"
+    Output-Latest-Versions "dotnet"
     Output-Latest-Versions "python"
     break
   }
@@ -222,7 +223,7 @@ switch($language)
     Output-Latest-Versions $language
     break
   }
-  "net" {
+  "dotnet" {
     Output-Latest-Versions $language
     break
   }
