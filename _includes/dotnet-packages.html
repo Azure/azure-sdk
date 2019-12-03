@@ -1,0 +1,22 @@
+<table>
+<tr>
+  <th>Service</th>
+  <th>Package</th>
+  <th>Documentation</th>
+  <th>Source</th>
+</tr>
+{% for item in packages %}
+<tr>
+  <td>{{ item.Service }}</td>
+  <td><a href="https://www.nuget.org/packages/{{ item.Package }}/{{ item.Version }}"><img alt="{{ item.Package }}" src="https://img.shields.io/static/v1?label=nuget&message={{ item.Version }}&color=blue" /></a></td>
+
+  {% if item.MissingDocs == "True" %}
+  <td><img alt="{{ item.Package }} Missing Docs" src="https://img.shields.io/static/v1?label=missing docs&message={{ item.Version }}&color=red" /></td>
+  {% else %}
+  <td><a href="https://azuresdkdocs.blob.core.windows.net/$web/dotnet/{{ item.Package }}/{{ item.Version }}/api/index.html"><img alt="{{ item.Package }} Docs" src="https://img.shields.io/static/v1?label=github.io&message={{ item.Version }}&color=blue" /></a></td>
+  {% endif %}
+
+  <td><a href="https://github.com/Azure/azure-sdk-for-net/tree/{{ item.Package }}_{{ item.Version }}/sdk/{{ item.RepoPath }}/{{ item.Package }}/"><img alt="{{ item.Package }} Source" src="https://img.shields.io/static/v1?label=github&message={{ item.Version }}&color=blue" /></a></td>
+</tr>
+{% endfor %}
+</table>
