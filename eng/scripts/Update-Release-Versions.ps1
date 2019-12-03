@@ -3,6 +3,8 @@ param (
   $releaseFolder = "$PSScriptRoot\..\..\_data\releases\latest"
 )
 
+$releaseFolder = Resolve-Path $releaseFolder
+
 function GetExistingTags($apiUrl)
 {
   try
@@ -36,7 +38,7 @@ function GetPackageVersions($apiUrl)
         $pv = $packageVersions[$package];
         $pv.Versions += $version;
 
-        ## TODO: Sort based on SemVer for not take the last one
+        ## TODO: Sort based on SemVer and not blindly take the last one
         #if ($pv.Latest -lt $version) {
         $pv.Latest = $version
         #}
@@ -66,16 +68,11 @@ function Update-java-Packages($packageList, $versions)
   {
     $version = $versions[$pkg.Package].Latest;
 
-    if ($pkg.Version -eq $version)
-    {
-      Write-Host "Skipping $($pkg.Package) because there isn't a newer version then $version"
-      continue;
-    }
-
     $valid = $true;
     $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-java/tree/{0}_{1}/sdk/{2}/{0}/" -f $pkg.Package, $version, $pkg.RepoPath))
     $valid = $valid -and (CheckLink ("https://search.maven.org/artifact/com.azure/{0}/{1}/jar/" -f $pkg.Package, $version))
-    $valid = $valid -and (CheckLink ("https://azuresdkdocs.blob.core.windows.net/`$web/java/{0}/{1}/index.html" -f $pkg.Package, $version))
+
+    $pkg.MissingDocs = !(CheckLink ("https://azuresdkdocs.blob.core.windows.net/`$web/java/{0}/{1}/index.html" -f $pkg.Package, $version))
 
     if ($valid)
     {
@@ -100,21 +97,19 @@ function Update-js-Packages($packageList, $versions)
   {
     $version = $versions["@azure/$($pkg.Package)"].Latest;
 
-    if ($pkg.Version -eq $version)
-    {
-      Write-Host "Skipping $($pkg.Package) because there isn't a newer version then $version"
-      continue;
-    }
-
     $valid = $true;
     $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-js/tree/@azure/{0}_{1}/sdk/{2}/{0}/" -f $pkg.Package, $version, $pkg.RepoPath))
     $valid = $valid -and (CheckLink ("https://www.npmjs.com/package/@azure/{0}/v/{1}" -f $pkg.Package, $version))
-    $valid = $valid -and (CheckLink ("https://azuresdkdocs.blob.core.windows.net/`$web/javascript/azure-{0}/{1}/index.html" -f $pkg.Package, $version))
+
+    $pkg.MissingDocs = !(CheckLink ("https://azuresdkdocs.blob.core.windows.net/`$web/javascript/azure-{0}/{1}/index.html" -f $pkg.Package, $version))
 
     if ($valid)
     {
-      Write-Host "Updating version $($pkg.Package) from $($pkg.Version) to $version"
-      $pkg.Version = $version;
+      if ($pkg.Version -ne $version)
+      {
+        Write-Host "Updating version $($pkg.Package) from $($pkg.Version) to $version"
+        $pkg.Version = $version;
+      }
     }
     else
     {
@@ -130,21 +125,19 @@ function Update-dotnet-Packages($packageList, $tf)
   {
     $version = $versions[$pkg.Package].Latest;
 
-    if ($pkg.Version -eq $version)
-    {
-      Write-Host "Skipping $($pkg.Package) because there isn't a newer version then $version"
-      continue;
-    }
-
     $valid = $true;
     $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-net/tree/{0}_{1}/sdk/{2}/{0}/" -f $pkg.Package, $version, $pkg.RepoPath))
     $valid = $valid -and (CheckLink ("https://www.nuget.org/packages/{0}/{1}" -f $pkg.Package, $version))
-    $valid = $valid -and (CheckLink ("https://azuresdkdocs.blob.core.windows.net/`$web/dotnet/{0}/{1}/api/index.html" -f $pkg.Package, $version))
+
+    $pkg.MissingDocs = !(CheckLink ("https://azuresdkdocs.blob.core.windows.net/`$web/dotnet/{0}/{1}/api/index.html" -f $pkg.Package, $version))
 
     if ($valid)
     {
-      Write-Host "Updating version $($pkg.Package) from $($pkg.Version) to $version"
-      $pkg.Version = $version;
+      if ($pkg.Version -ne $version)
+      {
+        Write-Host "Updating version $($pkg.Package) from $($pkg.Version) to $version"
+        $pkg.Version = $version;
+      }
     }
     else
     {
@@ -160,12 +153,6 @@ function Update-python-Packages($packageList, $tf)
   {
     $version = $versions[$pkg.Package].Latest;
 
-    if ($pkg.Version -eq $version)
-    {
-      Write-Host "Skipping $($pkg.Package) because there isn't a newer version then $version"
-      continue;
-    }
-
     # Need to have an override for an invalid package path for azure-eventhub package lives in sdk/eventhub/azure-eventhubs path. We should fix that.
     $pkgPath = $pkg.Package
     if ($pkg.PackagePathOverride -ne $nul) { $pkgPath = $pkg.PackagePathOverride}
@@ -173,12 +160,16 @@ function Update-python-Packages($packageList, $tf)
     $valid = $true;
     $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-python/tree/{0}_{1}/sdk/{2}/{3}/" -f $pkg.Package, $version, $pkg.RepoPath, $pkgPath))
     $valid = $valid -and (CheckLink ("https://pypi.org/project/{0}/{1}" -f $pkg.Package, $version))
-    $valid = $valid -and (CheckLink ("https://azuresdkdocs.blob.core.windows.net/`$web/python/{0}/{1}/index.html" -f $pkg.Package, $version))
+
+    $pkg.MissingDocs = !(CheckLink ("https://azuresdkdocs.blob.core.windows.net/`$web/python/{0}/{1}/index.html" -f $pkg.Package, $version))
 
     if ($valid)
     {
-      Write-Host "Updating version $($pkg.Package) from $($pkg.Version) to $version"
-      $pkg.Version = $version;
+      if ($pkg.Version -ne $version)
+      {
+        Write-Host "Updating version $($pkg.Package) from $($pkg.Version) to $version"
+        $pkg.Version = $version;
+      }
     }
     else
     {
