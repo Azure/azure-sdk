@@ -557,7 +557,10 @@ switch (...) {
 
 ## Complexity Management
 
-{% include requirement/MUST id="clang-init-all-vars" %} initialize all variables. Use compiler flags (such as `gcc -Wall` or `cl.exe /W4`) to catch operations on uninitialized variables.
+{% include requirement/SHOULD id="clang-init-all-vars" %} Initialize all variables. Only leave them
+uninitialized if there is a real performance reason to do so. Use static and dynamic analysis tools to
+check for uninitialized access. You may leave "result" variables uninitialized so long as they clearly do
+not escape from the innermost lexical scope. 
 
 {% include requirement/SHOULD id="clang-function-size" %} limit function bodies to one page of code (40 lines, approximately).
 
