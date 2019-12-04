@@ -8,6 +8,7 @@ The Azure SDK delivers a platform for developers to leverage the wide variety of
 | Android     |[Design Guidelines for Android] (Draft)      |[azure-sdk-for-android Repository]| Coming Soon                      |
 | C# /.NET    |[Design Guidelines for .NET]                 |[azure-sdk-for-net Repository]    | [.NET Documentation]             |
 | Go          |[Design Guidelines for Go] (Draft)           |[azure-sdk-for-go Repository]     | [Go Documentation]               |
+| C           |[Design Guidelines for C99] (Draft)          |[azure-sdk-for-c Repository]      | Coming Soon                      |
 | iOS         |[Design Guidelines for iOS] (Draft)          |[azure-sdk-for-ios Repository]    | Coming Soon                      |
 | Java        |[Design Guidelines for Java]                 |[azure-sdk-for-java Repository]   | [Java Documentation]             |
 | JavaScript  |[Design Guidelines for TypeScript]           |[azure-sdk-for-js Repository]     | [JavaScript Documentation]       |
@@ -47,6 +48,7 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 [Design Guidelines for Android]: https://azure.github.io/azure-sdk/android_introduction.html
 [Design Guidelines for .NET]: https://azure.github.io/azure-sdk/dotnet_introduction.html
 [Design Guidelines for Go]: https://azure.github.io/azure-sdk/golang_introduction.html
+[Design Guidelines for C99]: https://azure.github.io/azure-sdk/clang_introduction.html
 [Design Guidelines for iOS]: https://azure.github.io/azure-sdk/ios_introduction.html
 [Design Guidelines for Java]: https://azure.github.io/azure-sdk/java_introduction.html
 [Design Guidelines for TypeScript]: https://azure.github.io/azure-sdk/typescript_introduction.html
@@ -57,6 +59,7 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 [azure-sdk-for-android Repository]: https://github.com/Azure/azure-sdk-for-android
 [azure-sdk-for-net Repository]: https://github.com/Azure/azure-sdk-for-net
 [azure-sdk-for-go Repository]: https://github.com/Azure/azure-sdk-for-go
+[azure-sdk-for-c Repository]: https://github.com/Azure/azure-sdk-for-c
 [azure-sdk-for-ios Repository]: https://github.com/Azure/azure-sdk-for-ios
 [azure-sdk-for-java Repository]: https://github.com/Azure/azure-sdk-for-java
 [azure-sdk-for-js Repository]: https://github.com/Azure/azure-sdk-for-js
