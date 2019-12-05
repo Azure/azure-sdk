@@ -154,7 +154,7 @@ function Update-python-Packages($packageList, $tf)
     $version = $versions[$pkg.Package].Latest;
 
     $valid = $true;
-    $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-python/tree/{0}_{1}/sdk/{2}/{3}/" -f $pkg.Package, $version, $pkg.RepoPath, $$pkg.Package))
+    $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-python/tree/{0}_{1}/sdk/{2}/{3}/" -f $pkg.Package, $version, $pkg.RepoPath, $pkg.Package))
     $valid = $valid -and (CheckLink ("https://pypi.org/project/{0}/{1}" -f $pkg.Package, $version))
 
     $pkg.MissingDocs = !(CheckLink ("https://azuresdkdocs.blob.core.windows.net/`$web/python/{0}/{1}/index.html" -f $pkg.Package, $version))
