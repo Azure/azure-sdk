@@ -12,20 +12,52 @@ The API surface of your client library must have the most thought as it is the p
 
 ## Namespaces
 
-The C programming language does not have the concept of a namespace.  Instead, a common prefix is used for all structs, variables, and functions within the library.  This allows the developer to easily distinguish between specific libraries.  For example:
+Grouping services within a cloud infrastructure is common since it aids discoverability and provides structure to the reference documentation.
 
-{% highlight c %}
-az_keyvault_key *az_keyvault_keyclient_create_key(char *info);
-az_eventhub_eph_process_partition(az_eventhub_partition_info *partition_info);
-void az_iot_credential_init(az_iot_credential *credential);
-void az_iot_credential_deinit(az_iot_credential *credential);
-{% endhighlight %}
+{% include requirement/SHOULD id="general-namespaces-support" %} support namespaces if namespace usage is common within the language ecosystem.
 
-{% include requirement/MUST id="general-namespaces-shortened-name" %} pick a shortened service name that allows the consumer to tie the package to the service being used.  As a default, use the compressed service name (that is, the service name with all spaces removed and lower-cased).  The namespace does **NOT** change when the branding of the product changes, so avoid the use of marketing names that may change.
+{% include requirement/MUST id="general-namespaces-naming" %} use a root namespace of the form `azure::<group>::<service>`.  All consumer-facing APIs that are commonly used should exist within this namespace.  The namespace is comprised of three parts:
 
-{% include requirement/MUST id="cpp-namespaces-prefix" %} prefix all exposed functions with `az_` and the short name of the service; i.e. `az_<svcname>_`.  When using objects (see the Object model later on), add the object name to the list (i.e. `az_<svcname>_<objname>_`).
+- `azure` indicates a common prefix for all Azure services.
+- `<group>` is the group for the service.  See the list below.
+- `<service>` is the shortened service name.
 
-{% include requirement/MUST id="cpp-namespaces-register" %} register the short name of the client library with the [Architecture Board].
+{% include requirement/MUST id="general-namespaces-shortened-name" %} pick a shortened service name that allows the consumer to tie the package to the service being used.  As a default, use the compressed service name.  The namespace does **NOT** change when the branding of the product changes, so avoid the use of marketing names that may change.
+
+A compressed service name is the service name without spaces.  It may further be shortened if the shortened version is well known in the community.  For example, "Azure Media Analytics" would have a compressed service name of `media_analytics`, whereas "Azure Service Bus" would become `service_bus`.
+
+{% include requirement/MUST id="general-namespaces-approved-list" %} use the following list as the group of services (if the target language supports namespaces):
+
+{% include tables/data_namespaces.md %}
+
+If the client library does not seem to fit into the group list, contact the [Architecture Board] to discuss the namespace requirements.
+
+{% include requirement/MUST id="general-namespaces-mgmt" %} place the management (Azure Resource Manager) API in the `management` group.  Use the grouping `<AZURE>.management.<group>.<service>` for the namespace. Since more services require control plane APIs than data plane APIs, other namespaces may be used explicitly for control plane only.  Data plane usage is by exception only.  Additional namespaces that can be used for control plane SDKs include:
+
+{% include tables/mgmt_namespaces.md %}
+
+Many `management` APIs do not have a data plane because they deal with management of the Azure account. Place the management library in the `<AZURE>.management` namespace.  For example, use `azure.management.costanalysis` instead of `azure.management.management.costanalysis`.
+
+{% include requirement/MUSTNOT id="general-namespaces-similar-names" %} choose similar names for clients that do different things.
+
+{% include requirement/MUST id="general-namespaces-registration" %} register the chosen namespace with the [Architecture Board].  Open an issue to request the namespace.  See [the registered namespace list](registered_namespaces.html) for a list of the currently registered namespaces.
+
+### Example Namespaces
+
+Here are some examples of namespaces that meet these guidelines:
+
+- `azure::data::cosmos`
+- `azure::identity::active_directory`
+- `azure::iot::device_provisioning`
+- `azure::storage::blobs`
+- `azure::messaging::notification_hubs` (the client library for Notification Hubs)
+- `azure::management::messaging::notification_hubs` (the management library for Notification Hubs)
+
+Here are some namespaces that do not meet the guidelines:
+
+- `microsoft::azure::CosmosDB` (not in the `Azure` namespace and does not use grouping, uses capital letters)
+- `azure::mixed_reality.kinect` (the grouping is not in the approved list)
+- `azure::iot::iot_hub::device_provisioning` (too many levels in the group)
 
 ## Naming conventions
 
@@ -95,8 +127,8 @@ static uint32_t byte_counter = 0;
 
 {% include requirement/SHOULDNOT id="cpp-design-naming-no-globals" %} use global variables.  If a global variable is absolutely necessary:
 
-* Declare the global at the top of your file.
-* Name the global `g_az_<svcname>_<globalname>`.
+* Declare the global at the top of your file in your service's namespace.
+* Name the global `g_<svcname>_<globalname>`.
 
 {% include requirement/MUST id="cpp-design-naming-global-const" %} name global constants using all upper-case, with the `AZ_` prefix, and with snake-casing.  For example:
 
@@ -108,7 +140,7 @@ const int Global_Foo = 5;
 const int AZ_CATHERD_TIMEOUT_MSEC = 5;
 {% endhighlight %}
 
-### Structs
+### Structs and Classes
 
 {% include requirement/MUST id="cpp-design-naming-declare-structs" %} declare major structures at the top of the file in which they are used, or in separate header files if they are used in multiple source files.
 
@@ -116,12 +148,19 @@ If declaring a structure within a header file, separate declarations should be `
 
 > TODO: Should we use a meaningful prefix for each member name or for structures in general?
 
-{% include requirement/MUST id="cpp-design-naming-struct-definition" %} define structs using typedef.  Name the struct and typedef according to the normal naming for types.  For example:
+{% include requirement/MUST id="cpp-design-naming-struct-definition" %} define structs and classes without using typedef.  Name the struct and typedef according to the normal naming for types.  For example:
 
-{% highlight c %}
-typedef struct az_iot_client {
+{% highlight cpp %}
+struct iot_client {
     char *api_version;
-    az_iot_client_credentials *credentials;
+    iot_client_credentials *credentials;
+    int retry_timeout;
+};
+
+// Less preferred: Uses C-style typedef.
+typedef struct iot_client {
+    char *api_version;
+    iot_client_credentials *credentials;
     int retry_timeout;
 } az_iot_client;
 {% endhighlight %}
@@ -152,27 +191,33 @@ enum ServiceState {
 
 ### Functions
 
-{% include requirement/MUST id="cpp-design-naming-funcname" %} name functions with all-lowercase.  If part of the public API, start with `az_<svcname>_[<objname>_]`.  If not, start with `_`. For example:
+{% include requirement/MUST id="cpp-design-naming-funcname" %} name functions with all-lowercase.  If part of the public API, start with `<svcname>_[<objname>_]`.  If not, place the API in a "details" namespace. For example:
 
-{% highlight c %}
+{% highlight cpp %}
+namespace azure::group::api {
+namespace details {
 // Part of the private API
-int64_t _compute_hash(int32_t a, int32_t b);
+int64_t compute_hash(int32_t a, int32_t b);
+} // namespace details
 
 // Part of the public API
-az_catherd_client_t az_catherd_create_client(char *herd_name);
+catherd_client catherd_create_client(char *herd_name);
 
-// Bad - no leading underscore
+// Bad - private API in public namespace.
 int64_t compute_hash(int32_t a, int32_t b);
+} // namespace azure::group::api
 {% endhighlight %}
 
 The definition of the function must be placed in the `*_api.h` file for the module.
 
-{% include requirement/SHOULD id="cpp-design-naming-funcstatic" %} declare all functions that are only used within the same source file as `static`.  Static functions may contain only the function name (no prefixes).  For example:
+{% include requirement/SHOULD id="cpp-design-naming-funcstatic" %} declare all functions that are only used within the same source file in an unnamed namespace.  Static functions may contain only the function name (no prefixes).  For example:
 
-{% highlight c %}
-static int64_t compute_hash(int32_t a, int32_t b) {
+{% highlight cpp %}
+namespace {
+int64_t compute_hash(int32_t a, int32_t b) {
     // ...
 }
+} // unnamed namespace
 {% endhighlight %}
 
 {% include requirement/SHOULD id="cpp-design-naming-paramnames" %} use a meaningful name for parameters and local variable names.  Parameters and local variable names should be named as all lower-case words, separated by underscores (snake-casing).
@@ -193,6 +238,10 @@ Callbacks that receive the context should do so as the first argument:
 static void on_client_result(az_iot_client_result_context context,
         az_iot_result result, az_iot_message_received message)
 {% endhighlight %}
+
+### Exceptions
+
+{% include requirement/MAY id="cpp-error-exh-crash" %} Use exceptions. Be aware that exceptions may limit the usability of your SDK to a large portion of C++ customers that build with exceptions disabled.
 
 ### Macros
 

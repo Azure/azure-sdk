@@ -10,25 +10,25 @@ sidebar: cpp_sidebar
 
 ## Supported platforms
 
-{% include requirement/MUST id="cpp-c99" %} implement the client library in [C99](https://en.wikipedia.org/wiki/C99) to ensure maximum portability of your code. While MSVC supports most C99 features, it is not fully compatible with C99 yet.  If using MSVC (or if Windows is required), ensure you avoid non-supported C99 features in MSVC.
-
-> TODO: Provide a link to non-supported C99 features in MSVC
+{% include requirement/MUST id="cpp-cpp14" %} implement the client library in [C++11](https://en.wikipedia.org/wiki/C++11) to ensure maximum portability of your code.
 
 {% include requirement/SHOULD id="cpp-platform" %} support the following platforms and associated compilers when implementing your client library.
 
-| Operating System    | Architecture | Compiler Version                        |
-|---------------------|:------------:|:----------------------------------------|
-| Ubuntu 16.04 (LTS)  | x64          | gcc-5.4.0                               |
-| Ubuntu 18.04 (LTS)  | x86          | gcc-7.3                                 |
-| Ubuntu 18.04 (LTS)  | x64          | cpp 6.0.x                             |
-| OSX 10.13.4         | x64          | XCode 9.4.1                             |
-| Windows Server 2016 | x86          | MSVC 14.16.x                            |
-| Windows Server 2016 | x64          | MSVC 14.16.x                            |
-| Debian 9 Stretch    | x64          | gcc-7.x                                 |
+| Operating System                | Architecture | Compiler Version                        |
+|---------------------------------|:------------:|:----------------------------------------|
+| Ubuntu 16.04 (LTS)              | x64          | gcc-5.4.0                               |
+| Ubuntu 18.04 (LTS)              | x86          | gcc-7.3                                 |
+| Ubuntu 18.04 (LTS)              | x64          | cpp 6.0.x                               |
+| OSX 10.13.4                     | x64          | XCode 9.4.1                             |
+| Windows Server 2016             | x86          | MSVC 14.10.x, MSVC 14.16.x, MSVC 14.20x |
+| Windows Server 2016             | x64          | MSVC 14.10.x, MSVC 14.16.x, MSVC 14.20x |
+| Windows 10                      | ARM          | MSVC 14.10.x, MSVC 14.16.x, MSVC 14.20x |
+| Windows 10                      | ARM64        | MSVC 14.16.x, MSVC 14.20x               |
+| Debian 9 Stretch                | x64          | gcc-7.x                                 |
+| Red Hat Enterprise Linux 7      | x64          | ???                                     |
+| SUSE Linux Enterprise Server 12 | x64          | ???                                     |
 
-> TODO: This is based on versions supported by the Azure IoT SDK for C.  Additional investigation is needed to ensure it is up to date.  We need to make sure the version supported is the latest long term servicing with wide adoption available for each platform.  Suggested additions: RHEL 8 (gcc 8.2.1) and Fedora (30 with gcc 9.1.1) + Alpine.  Windows Server 2016 includes Windows 8 - should we switch?
-
-> TODO: provide any common flags to be used with each compiler.
+> TODO: Get the default compiler versions on RHEL7 and SLES12
 
 {% include requirement/SHOULDNOT id="cpp-cpp-extensions" %} use compiler extensions.  Examples of extensions to avoid include:
 
@@ -43,7 +43,7 @@ Use the appropriate options for each compiler to prevent the use of such extensi
 | Compiler                 | Compiler Flags   |
 |:-------------------------|------------------|
 | gcc                      | `-Wall -Wextra`  |
-| cpp and XCode          | `-Wall -Wextra`   |
+| cpp and XCode            | `-Wall -Wextra`  |
 | MSVC                     | `/W4`            |
 
 hen configuring your client library, particular care must be taken to ensure that the consumer of your client library can properly configure the connectivity to your Azure service both globally (along with other client libraries the consumer is using) and specifically with your client library.

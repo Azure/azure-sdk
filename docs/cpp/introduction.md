@@ -8,7 +8,7 @@ sidebar: cpp_sidebar
 
 {% include draft.html content="The C++ Language guidelines are in DRAFT status" %}
 
-The C guidelines are for the benefit of client library designers targeting service applications written in C, primarily IoT devices.  You do not have to write a client library for C if your service is not normally accessed from IoT devices.
+The C++ guidelines are for the benefit of client library designers targeting service applications written in C++.  You do not have to write a client library for C++ if your service is not normally accessed from C++.
 
 ## Design principles
 
@@ -56,9 +56,7 @@ The Azure SDK should be designed to enhance the productivity of developers conne
 
 {% include requirement/MUST id="cpp-general-follow-general-guidelines" %} follow the [General Azure SDK Guidelines].
 
-{% include requirement/MUST id="cpp-general-repository" %} locate all source code in the [azure/azure-sdk-for-c] GitHub repository.
-
-{% include requirement/MUST id="cpp-general-engsys" %} follow Azure SDK engineering systems guidelines for working in the [azure/azure-sdk-for-c] GitHub repository.
+> TODO: How do we do deployment?
 
 {% include refs.md %}
 {% include_relative refs.md %}
