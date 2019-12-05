@@ -672,17 +672,20 @@ Use a constructor parameter called `version` on the client options type.
 * The `version` parameter must be the first parameter to all constructor overloads.
 * The `version` parameter must be required, and default to the latest supported service version.
 * The type of the `version` parameter must be `ServiceVersion`; an enum nested in the options type.
-* The `ServiceVersion` enum must use explicit values.
+* The `ServiceVersion` enum must use explicit values starting from 1. 
+* `ServiceVersion` enum value 0 is reserved. When 0 is passed into APIs, ArgumentException should be thrown.
 
 For example, the following is a code snippet from the `ConfigurationClientOptions`:
 
 ```csharp
 public class ConfigurationClientOptions : HttpPipelineOptions {
 
-    public ConfigurationClientOptions(ServiceVersion version = ServiceVersion.V2019_05_09)
+    public ConfigurationClientOptions(ServiceVersion version = ServiceVersion.V2019_05_09) {
+        if (value == default) throw new ArgumentException(...);
+    }
 
     public enum ServiceVersion {
-        V2019_05_09 = 0,
+        V2019_05_09 = 1,
     }
     ...
 }
