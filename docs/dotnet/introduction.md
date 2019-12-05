@@ -681,7 +681,9 @@ For example, the following is a code snippet from the `ConfigurationClientOption
 public class ConfigurationClientOptions : HttpPipelineOptions {
 
     public ConfigurationClientOptions(ServiceVersion version = ServiceVersion.V2019_05_09) {
-        if (value == default) throw new ArgumentException(...);
+        if (version == default) 
+            throw new ArgumentException($"The service version {version} is not supported by this library.");
+        }
     }
 
     public enum ServiceVersion {
