@@ -150,7 +150,7 @@ If none is provided, the `latest` tag gets used by default by the `npm publish` 
 Below are the guidelines for versions and tags to use:
 - GA releases will follow [SemVer](https://semver.org/) and the published package should have the tag `latest`.
     - If a hot fix is being shipped for a version older than the current GA version, then ensure that the hot fix gets no tags.
-    One way to do this is to use a dummy tag when publishing and following it up deleting the tag.
+    One way to do this is to use a dummy tag when publishing and deleting the tag afterwards.
     - If a package has moved from preview to GA, ensure that the `next` tag is deleted.
 - Preview releases will use the format `X.Y.Z-preview.N` for version and the published package should have the tag `next`.
     - Additionally, use the `@latest` tag **only** if the package has never had a GA release.
