@@ -584,7 +584,7 @@ Consider 5+ models to be "large".  The types that the user needs should be easy 
 
 ### Error Reporting {#dotnet-errors}
 
-{% include requirement/MUST id="dotnet-errors-response-failed" %} throw `RequestFailedException` or its subtype when a service method fails with non-success status code. 
+{% include requirement/MUST id="dotnet-errors-response-failed" %} throw `RequestFailedException` or its subtype when a service method fails with non-success status code.
 
 The exception is available in ```Azure.Core``` package:
 ```csharp
@@ -613,9 +613,9 @@ Don't introduce new exception types unless there's a programmatic scenario for h
 
 ### Logging
 
-Request logging will be done automatically by the `HttpPipeline`.  If a client library needs to add custom logging, follow the [same guidelines](../implementation.md#general-logging) and mechanisms as the pipeline logging mechanism.  If a client library wants to do custom logging, the designer of the library must ensure that the logging mechanism is pluggable in the same way as the `HttpPipeline` logging policy.
+Request logging will be done automatically by the `HttpPipeline`.  If a client library needs to add custom logging, follow the [same guidelines](implementation.md#general-logging) and mechanisms as the pipeline logging mechanism.  If a client library wants to do custom logging, the designer of the library must ensure that the logging mechanism is pluggable in the same way as the `HttpPipeline` logging policy.
 
-{% include requirement/MUST id="dotnet-logging-follow-guidelines" %} follow [the logging section of the Azure SDK General Guidelines](../implementation.md#general-logging) if logging directly (as opposed to through the `HttpPipeline`).
+{% include requirement/MUST id="dotnet-logging-follow-guidelines" %} follow [the logging section of the Azure SDK General Guidelines](implementation.md#general-logging) if logging directly (as opposed to through the `HttpPipeline`).
 
 #### Distributed Tracing {#dotnet-distributedtracing}
 
