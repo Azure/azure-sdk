@@ -8,5 +8,5 @@ permalink: /releases/latest/index.html
 
 * [.NET](dotnet.html)
 * [Java](java.html)
+* [JavaScript](js.html)
 * [Python](python.html)
-* [TypeScript](js.html)
