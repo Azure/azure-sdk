@@ -98,7 +98,7 @@ const int Global_Foo = 5;
 const int AZ_CATHERD_TIMEOUT_MSEC = 5;
 {% endhighlight %}
 
-{% include requirement/MUST id="clang-design-naming-global-private-const %} name private/internal global constants in all uppercase with the prefix `_az`. For example:
+{% include requirement/MUST id="clang-design-naming-global-private-const" %} name private/internal global constants in all uppercase with the prefix `_az`. For example:
 
 ```c
 // bad
