@@ -153,7 +153,7 @@ Below are the guidelines for versions and tags to use:
     One way to do this is to use a dummy tag when publishing and following it up deleting the tag.
     - If a package has moved from preview to GA, ensure that the `next` tag is deleted.
 - Preview releases will use the format `X.Y.Z-preview.N` for version and the published package should have the tag `next`.
-    - Additionally, use the `@latest` tag **only** if the package being previewed has never been in GA.
+    - Additionally, use the `@latest` tag **only** if the package has never had a GA release.
 - Daily releases will use the format `X.Y.Z-dev.YYYYMMDD.r` (`r` is based on the number of builds performed on the given day) and the published package will have the tag `dev`.
 
 
