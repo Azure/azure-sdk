@@ -24,6 +24,8 @@ sidebar: clang_sidebar
 | OSX 10.13.4         | x64          | XCode 9.4.1                             |
 | Windows Server 2016 | x86          | MSVC 14.16.x                            |
 | Windows Server 2016 | x64          | MSVC 14.16.x                            |
+| Windows Server 2016 | x64          | MSVC 14.23.x                            |
+| Windows Server 2016 | x86,x64      | MSVC 14.23.x                            |
 | Debian 9 Stretch    | x64          | gcc-7.x                                 |
 
 > TODO: This is based on versions supported by the Azure IoT SDK for C.  Additional investigation is needed to ensure it is up to date.  We need to make sure the version supported is the latest long term servicing with wide adoption available for each platform.  Suggested additions: RHEL 8 (gcc 8.2.1) and Fedora (30 with gcc 9.1.1) + Alpine.  Windows Server 2016 includes Windows 8 - should we switch?
