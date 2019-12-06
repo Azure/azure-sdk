@@ -46,7 +46,7 @@ foreach ($link in $links)
     $linkUri = [System.Uri]$link;
     if (!$linkUri.IsAbsoluteUri)
     {
-      $linkUri = new-object System.Uri($Url, $link);
+      $linkUri = new-object System.Uri($uri, $link);
       Write-Verbose "Resolved relative link to $linkUri"
     }
     # If the link is not a web request, like mailto, skip it.
