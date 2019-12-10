@@ -30,7 +30,7 @@ We use GitHub releases as a convenient place to put release notes. The change lo
 
 ## ChangeLog Guidance
 
-Every package MUST maintain a changelog just as a matter of course. However, there is an additional benefit. Ensuring that a `CHANGELOG.md` file is both available and formatted appropriately will result in automatically formatted release notes on each GitHub release.
+Every package MUST maintain a changelog. Ensuring that a `CHANGELOG.md` file is both available and formatted appropriately will result in automatically formatted release notes on each GitHub release.
 
 How?
 
@@ -38,7 +38,7 @@ How?
 * **Android and Java**: add `CHANGELOG.md` to the existing artifact list.
     * CHANGELOG.md is renamed to `<packageid>-changelog.md` during publish to stay consistent with existing artifacts per package.
 * **Python**: ensure `CHANGELOG.md` is present in the `sdist` artifact.
-* **TypeScript**: ensure `CHANGELOG.md` is included in the package tarball.
+* **JavaScript**: ensure `CHANGELOG.md` is included in the package tarball.
 
 Changelogs must be named with all caps i.e. `CHANGELOG.md`. A given `CHANGELOG.md` file must follow the below form:
 
