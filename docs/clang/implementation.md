@@ -123,11 +123,6 @@ configuration options based on runtime system or client state.
 {% include requirement/MUSTNOT id="clang-config-defaults-nobuildchange" %} Change default values of
 client configuration options based on how the client library was built.
 
-{% include requirement/MUSTNOT id="clang-config-behaviour-changes" %} change behavior based on configuration changes that occur after the client is constructed. Hierarchies of clients inherit parent client configuration unless explicitly changed or overridden. Exceptions to this requirement are as follows:
-
-1. Log level, which must take effect immediately across the Azure SDK.
-2. Tracing on/off, which must take effect immediately across the Azure SDK.
-
 {% include requirement/MUSTNOT id="clang-config-noruntime" %} use client library specific runtime 
 configuration such as environment variables or a config file. Keep in mind that many IOT devices
 won't have a filesystem or an "environment block" to read from.
