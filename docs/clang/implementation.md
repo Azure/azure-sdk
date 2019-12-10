@@ -87,10 +87,10 @@ This means configuration options may not be in a shared data structure for all c
 {% include requirement/MUST id="clang-config-global-overrides" %} allow all global configuration settings to be overridden by client-provided options. The names of these options should align with any user-facing global configuration keys.
 
 {% include requirement/MUST id="clang-config-defaults-consistent" %} Have consistent defaults across
-all supported systems and build configurations. For example this means changing settings such as
+all supported systems and build configurations. This means changing settings such as
 default buffer sizes based on the target platform or build settings is prohibited.
 
-For example consider the structure:
+For example, consider the structure:
 ```c
 typedef struct az_catherding_herd {
     int num_cats;
