@@ -90,6 +90,33 @@ This means configuration options may not be in a shared data structure for all c
 all supported systems and build configurations. For example this means changing settings such as
 default buffer sizes based on the target platform or build settings is prohibited.
 
+For example consider the structure:
+```c
+typedef struct az_catherding_herd {
+    int num_cats;
+    uint8_t cat_buffer[CAT_BUFFER_SIZE];
+} az_catherding_herd;
+```
+
+This is OK:
+
+```cmake
+...
+set(AZ_CATHEREDING_CAT_BUFFER_SIZE 1024 CACHE STRING "default size of cat buffer")
+target_compile_definitions(az_catherding PUBLIC CAT_BUFFER_SIZE=${AZ_CATHERDING_CAT_BUFFER_SIZE})
+```
+
+This is not OK:
+
+```cmake
+if(TARGETING_DESKTOP)
+    set(AZ_CATHERDING_CAT_BUFFER_SIZE 4096 CACHE STRING "default size of cat buffer")
+else()
+    set(AZ_CATHERDING_CAT_BUFFER_SIZE 1024 CACHE STRING "default size of cat buffer")
+endif()
+target_compile_definitions(az_catherding PUBLIC CAT_BUFFER_SIZE=${AZ_CATHERDING_CAT_BUFFER_SIZE})
+```
+
 {% include requirement/MUSTNOT id="clang-config-defaults-nochange" %} Change the default values of client
 configuration options based on runtime system or client state.
 
