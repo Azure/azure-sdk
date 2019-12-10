@@ -38,10 +38,14 @@ function GetPackageVersions($apiUrl)
         $pv = $packageVersions[$package];
         $pv.Versions += $version;
 
-        ## TODO: Sort based on SemVer and not blindly take the last one
-        #if ($pv.Latest -lt $version) {
-        $pv.Latest = $version
-        #}
+        # Hack for java we need to ignore preview tags because of sorting issues
+        if (!($apiUrl.Contains("-java") -and $version.Contains("-preview"))) {
+
+          ## TODO: Sort based on SemVer and not blindly take the last one
+          #if ($pv.Latest -lt $version) {
+          $pv.Latest = $version
+          #}
+        }
       }
     }
   return $packageVersions
