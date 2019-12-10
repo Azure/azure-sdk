@@ -12,7 +12,7 @@ pool:
 
 steps:
 - pwsh: |
-    ./eng/script/Update-Release-Versions.ps1
+    ./eng/scripts/Update-Release-Versions.ps1
   displayName: Update Versions locally.
 
 - pwsh:
@@ -31,6 +31,6 @@ steps:
   displayName: Diff and push changes if any
 
 - pwsh: |
-    ./eng/script/Submit-PullRequest.ps1 -RepoOwner "$(RepoOwner)" -RepoName "$(RepoName)" -BaseBranch "master" -PROwner "$(RepoOwner)" -PRBranch "$(BranchName)"" -AuthToken "$(GH_TOKEN)" -PRTitle "$(CommitMsg)"
+    ./eng/scripts/Submit-PullRequest.ps1 -RepoOwner "$(RepoOwner)" -RepoName "$(RepoName)" -BaseBranch "master" -PROwner "$(RepoOwner)" -PRBranch "$(BranchName)"" -AuthToken "$(GH_TOKEN)" -PRTitle "$(CommitMsg)"
   displayName: Create Pull Request
   condition: eq(variables['HasChanges'], 'true')
