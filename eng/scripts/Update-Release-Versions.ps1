@@ -88,7 +88,6 @@ function Update-java-Packages($packageList, $versions)
     }
 
   }
-  return $table
 }
 
 function Update-js-Packages($packageList, $versions)
@@ -116,7 +115,6 @@ function Update-js-Packages($packageList, $versions)
       Write-Warning "Not updating version for $($pkg.Package) because at least one associated URL is not valid!"
     }
   }
-  return $table
 }
 
 function Update-dotnet-Packages($packageList, $tf)
@@ -144,7 +142,6 @@ function Update-dotnet-Packages($packageList, $tf)
       Write-Warning "Not updating version for $($pkg.Package) because at least one associated URL is not valid!"
     }
   }
-  return $table
 }
 
 function Update-python-Packages($packageList, $tf)
@@ -172,7 +169,6 @@ function Update-python-Packages($packageList, $tf)
       Write-Warning "Not updating version for $($pkg.Package) because at least one associated URL is not valid!"
     }
   }
-  return $table
 }
 
 function Output-Latest-Versions($lang)

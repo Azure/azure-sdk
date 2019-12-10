@@ -1,0 +1,36 @@
+trigger:
+- master
+
+variables:
+  BranchName: VersionUpdates
+  CommitMsg: "[automated] Update package index with latest published versions"
+  RepoOwner: azure
+  RepoName: azure-sdk
+
+pool:
+  vmImage: 'windows-2019'
+
+steps:
+- pwsh: |
+    ./eng/script/Update-Release-Versions.ps1
+  displayName: Update Versions locally.
+
+- pwsh:
+    git diff --exit-code
+    if ($LastExitCode -ne 0) {
+      echo "##vso[task.setvariable variable=HasChanges]$true"
+    }
+    else {
+      echo "No changes so skipping code push"
+      exit
+    }
+
+    git checkout -B $(BranchName)
+    git -c user.name "azure-sdk" -c user.email="azure-sdk@users.noreply.github.com" commit -a -m $(CommitMsg)
+    git push https://$(GH_TOKEN)@github.com/$(RepoOwner)/$(RepoName).git -f $(BranchName)
+  displayName: Diff and push changes if any
+
+- pwsh: |
+    ./eng/script/Submit-PullRequest.ps1 -RepoOwner "$(RepoOwner)" -RepoName "$(RepoName)" -BaseBranch "master" -PROwner "$(RepoOwner)" -PRBranch "$(BranchName)"" -AuthToken "$(GH_TOKEN)" -PRTitle "$(CommitMsg)"
+  displayName: Create Pull Request
+  condition: eq(variables['HasChanges'], 'true')
