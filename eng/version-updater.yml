@@ -25,9 +25,15 @@ steps:
       exit
     }
 
+    echo "Checking out and resetting branch $(BranchName)"
     git checkout -B $(BranchName)
+
+    echo "Commiting changes"
     git -c user.name="azure-sdk" -c user.email="azuresdk@microsoft.com" commit -am "$(CommitMsg)"
+
+    echo "Force pushing branch $(BranchName) to https://github.com/$(RepoOwner)/$(RepoName).git"
     git push https://$(GH_TOKEN)@github.com/$(RepoOwner)/$(RepoName).git -f $(BranchName)
+    echo "LastExitCode = $LastExitCode"
 
   displayName: Diff and push changes if any
 
