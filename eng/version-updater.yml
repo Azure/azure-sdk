@@ -24,12 +24,15 @@ steps:
       echo "No changes so skipping code push"
       exit
     }
+    echo "LastExitCode = $LastExitCode"
 
     echo "Checking out and resetting branch $(BranchName)"
     git checkout -B $(BranchName)
+    echo "LastExitCode = $LastExitCode"
 
     echo "Commiting changes"
     git -c user.name="azure-sdk" -c user.email="azuresdk@microsoft.com" commit -am "$(CommitMsg)"
+    echo "LastExitCode = $LastExitCode"
 
     echo "Force pushing branch $(BranchName) to https://github.com/$(RepoOwner)/$(RepoName).git"
     git push https://$(GH_TOKEN)@github.com/$(RepoOwner)/$(RepoName).git -f $(BranchName)
