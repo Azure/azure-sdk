@@ -24,6 +24,8 @@ sidebar: clang_sidebar
 | OSX 10.13.4         | x64          | XCode 9.4.1                             |
 | Windows Server 2016 | x86          | MSVC 14.16.x                            |
 | Windows Server 2016 | x64          | MSVC 14.16.x                            |
+| Windows Server 2016 | x64          | MSVC 14.23.x                            |
+| Windows Server 2016 | x86,x64      | MSVC 14.23.x                            |
 | Debian 9 Stretch    | x64          | gcc-7.x                                 |
 
 > TODO: This is based on versions supported by the Azure IoT SDK for C.  Additional investigation is needed to ensure it is up to date.  We need to make sure the version supported is the latest long term servicing with wide adoption available for each platform.  Suggested additions: RHEL 8 (gcc 8.2.1) and Fedora (30 with gcc 9.1.1) + Alpine.  Windows Server 2016 includes Windows 8 - should we switch?
@@ -107,7 +109,7 @@ provide a suitable authentication policy that authenticates the HTTP request in 
 
 ## Logging
 
-Client libraries must support robust logging mechanisms so that the consumer can adequately diagnose issues with the method calls and quickly determine whether the issue is in the consumer code, client library code, or service.
+Client libraries must support robust logging mechanisms so that the consumer can adequately diagnose issues and quickly determine whether the issue is in the consumer code, client library code, or service.
 
 In general, our advice to consumers of these libraries is to establish logging in their preferred manner at the `WARNING` level or above in production to capture problems with the application, and this level should be enough for customer support situations.  Informational or verbose logging can be enabled on a case-by-case basis to assist with issue resolution.
 
@@ -131,7 +133,7 @@ In general, our advice to consumers of these libraries is to establish logging i
 
 {% include requirement/MUST id="clang-logging-verbose" %} use the `Verbose` logging level for detailed troubleshooting scenarios. This is primarily intended for developers or system administrators to diagnose specific failures.
 
-{% include requirement/MUST id="clang-logging-no-sensitive-info" %} only log headers and query parameters that are in a service-provided "allow-list" of approved headers and query parameters.  All other headers and query parameters must have their values redacted.
+{% include requirement/MUSTNOT id="clang-logging-exclude" %} log payloads or HTTP header/query parameter values that aren't on the service provided white list.  For header/query parameters not on the white list use the value `<REDACTED>` in place of the real value.
 
 {% include requirement/MUST id="clang-logging-requests" %} log request line and headers as an `Informational` message. The log should include the following information:
 
