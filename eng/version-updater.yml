@@ -24,10 +24,10 @@ steps:
     else {
       echo "No changes so skipping code push"
     }
-
+    $LastExitCode = 0
   displayName: Check for changes
 
-- script:
+- pwsh:
     echo "Checking out and resetting branch $(BranchName)"
     git checkout -B $(BranchName)
     echo "Commiting changes"
