@@ -15,14 +15,13 @@ steps:
     ./eng/scripts/Update-Release-Versions.ps1
   displayName: Update Versions locally.
 
-- pwsh:
+- pwsh: |
     git diff --exit-code
     if ($LastExitCode -ne 0) {
       echo "##vso[task.setvariable variable=HasChanges]$true"
     }
     else {
       echo "No changes so skipping code push"
-      exit
     }
 
     git checkout -B $(BranchName)
