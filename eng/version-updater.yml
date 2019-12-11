@@ -25,11 +25,12 @@ steps:
     }
 
     git checkout -B $(BranchName)
-    git -c user.name="azure-sdk" -c user.email="azure-sdk@users.noreply.github.com" commit -a -m $(CommitMsg)
+    git -c user.name="azure-sdk" -c user.email="azuresdk@microsoft.com" commit -am "$(CommitMsg)"
     git push https://$(GH_TOKEN)@github.com/$(RepoOwner)/$(RepoName).git -f $(BranchName)
+
   displayName: Diff and push changes if any
 
 - pwsh: |
     ./eng/scripts/Submit-PullRequest.ps1 -RepoOwner "$(RepoOwner)" -RepoName "$(RepoName)" -BaseBranch "master" -PROwner "$(RepoOwner)" -PRBranch "$(BranchName)" -AuthToken "$(GH_TOKEN)" -PRTitle "$(CommitMsg)"
   displayName: Create Pull Request
-  condition: eq(variables['HasChanges'], 'true')
+  condition: and(succeeded(), eq(variables['HasChanges'], 'true'))
