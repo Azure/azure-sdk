@@ -33,7 +33,8 @@ steps:
     git -c user.name="azure-sdk" -c user.email="azuresdk@microsoft.com" commit -am "$(CommitMsg)"
     $LastExitCode = 0
     echo "Force pushing branch $(BranchName) to https://github.com/$(RepoOwner)/$(RepoName).git"
-    git push --progress https://$(GH_TOKEN)@github.com/$(RepoOwner)/$(RepoName).git -f $(BranchName)
+    echo "git push --quiet https://$(GH_TOKEN)@github.com/$(RepoOwner)/$(RepoName).git -f $(BranchName)"
+    git push --quiet https://$(GH_TOKEN)@github.com/$(RepoOwner)/$(RepoName).git -f $(BranchName)
     $LastExitCode = 0
     echo "Reached End"
   displayName: Push any changes
