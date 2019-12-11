@@ -24,6 +24,7 @@ steps:
     else {
       echo "No changes so skipping code push"
     }
+    $LastExitCode = 0
 
     echo "Checking out and resetting branch $(BranchName)"
     git checkout -B $(BranchName)
@@ -31,8 +32,6 @@ steps:
     git -c user.name="azure-sdk" -c user.email="azuresdk@microsoft.com" commit -am "$(CommitMsg)"
     echo "Force pushing branch $(BranchName) to https://github.com/$(RepoOwner)/$(RepoName).git"
     git push https://$(GH_TOKEN)@github.com/$(RepoOwner)/$(RepoName).git -f $(BranchName)
-
-    $LastExitCode = 0
   displayName: Push any changes
 
 - pwsh: |
