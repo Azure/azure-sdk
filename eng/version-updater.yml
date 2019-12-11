@@ -37,6 +37,7 @@ steps:
     $LastExitCode = 0
     echo "Reached End"
   displayName: Push any changes
+  failOnStderr: false
 
 - pwsh: |
     ./eng/scripts/Submit-PullRequest.ps1 -RepoOwner "$(RepoOwner)" -RepoName "$(RepoName)" -BaseBranch "master" -PROwner "$(RepoOwner)" -PRBranch "$(BranchName)" -AuthToken "$(GH_TOKEN)" -PRTitle "$(CommitMsg)"
