@@ -41,16 +41,6 @@ void az_iot_credential_deinit(az_iot_credential *credential);
 
 ### Variables
 
-{% include requirement/MUST id="clang-design-naming-starpos" %} place the `*` next to the variable name to indicate a pointer type.
-
-{% highlight c %}
-// Bad
-char* name = NULL;
-
-// Good
-char *name = NULL;
-{% endhighlight %}
-
 {% include requirement/MUST id="clang-design-naming-units" %} include units in names.  If a variable represents time, weight, or some other unit, then include the unit in the name so developers can more easily spot problems.  For example:
 
 {% highlight c %}
@@ -98,7 +88,7 @@ static uint32_t byte_counter = 0;
 * Declare the global at the top of your file.
 * Name the global `g_az_<svcname>_<globalname>`.
 
-{% include requirement/MUST id="clang-design-naming-global-const" %} name global constants using all upper-case, with the `AZ_` prefix, and with snake-casing.  For example:
+{% include requirement/MUST id="clang-design-naming-global-const" %} name public global constants using all upper-case, with the `AZ_` prefix, and with snake-casing.  For example:
 
 {% highlight c %}
 // Bad
@@ -108,15 +98,26 @@ const int Global_Foo = 5;
 const int AZ_CATHERD_TIMEOUT_MSEC = 5;
 {% endhighlight %}
 
+{% include requirement/MUST id="clang-design-naming-global-private-const" %} name private/internal global constants in all uppercase with the prefix `_az`. For example:
+
+```c
+// bad
+const int _AZ_PRIVATE_CONSTANT = 5;
+
+// bad
+const int az_PRIVATE_CONSTANT = 5;
+
+// good
+const int _az_PRIVATE_CONSTANT = 5;
+```
+
+Note that this differs slightly from the guidance on internal function naming below. This is because `_AZ_PRIVATE_MEOW` is a reserved name.
+
 ### Structs
 
 {% include requirement/MUST id="clang-design-naming-declare-structs" %} declare major structures at the top of the file in which they are used, or in separate header files if they are used in multiple source files.  
 
-If declaring a structure within a header file, separate declarations should be `extern`.
-
-> TODO: Should we use a meaningful prefix for each member name or for structures in general?
-
-{% include requirement/MUST id="clang-design-naming-struct-definition" %} define structs using typedef.  Name the struct and typedef according to the normal naming for types.  For example:
+{% include requirement/MUST id="clang-design-naming-struct-definition" %} declare structs using typedef.  Name the struct and typedef according to the normal naming for types.  For example:
 
 {% highlight c %}
 typedef struct az_iot_client {
@@ -156,7 +157,7 @@ enum ServiceState {
 
 {% highlight c %}
 // Part of the private API
-int64_t _compute_hash(int32_t a, int32_t b);
+int64_t _az_compute_hash(int32_t a, int32_t b);
 
 // Part of the public API
 az_catherd_client_t az_catherd_create_client(char *herd_name);
@@ -164,6 +165,7 @@ az_catherd_client_t az_catherd_create_client(char *herd_name);
 // Bad - no leading underscore
 int64_t compute_hash(int32_t a, int32_t b);
 {% endhighlight %}
+
 
 The definition of the function must be placed in the `*_api.h` file for the module.
 
@@ -387,13 +389,9 @@ bool az_keyvault_client_exists_key(az_keyvault_client *client, char *key_name);
 
 ### Network requests
 
-Since the client library clangly wraps one or more HTTP requests, it is important to support standard network capabilities.  Asynchronous programming techniques are not widely understood and the low level nature of C provides an indication that consumers may want to manage threads themselves.  Many developers prefer synchronous method calls for their easy semantics when learning how to use a technology.  
+Since the client library cleanly wraps one or more HTTP requests, it is important to support standard network capabilities.  Asynchronous programming techniques are not widely understood and the low level nature of C provides an indication that consumers may want to manage threads themselves.  Many developers prefer synchronous method calls for their easy semantics when learning how to use a technology.  
 
 {% include requirement/MUST id="clang-apisurface-be-thread-safe" %} be thread-safe.  Individual requests to the service must be able to be placed on separate threads without unintentional problems.
-
-{% include requirement/MUST id="clang-apisurface-syncandasync" %} support both synchronous and asynchronous functions, utilizing `libuv` for async support.  
-
-{% include requirement/MUST id="clang-apisurface-identifyasync" %} ensure that the consumer can easily identify which functions are async and which are synchronous.
 
 When an application makes a network request, the network infrastructure (like routers) and the called service may take a long time to respond and, in fact, may never respond. A well-written application SHOULD NEVER give up its control to the network infrastucture or service. 
 
@@ -441,9 +439,9 @@ typedef struct az_json_short_paged_results {
 
 
 typedef struct az_json_short_raw_paged_results {
-    HTTP_HEADERS *headers;
+    http_headers *headers;
     uint16 status_code;
-    byte *raw_body;
+    uint8_t *raw_body;
     az_json_short_paged_results* results;
 } az_json_short_raw_paged_results;
 
@@ -467,7 +465,7 @@ Although object-orientated languages can eschew low-level pagination APIs in fav
 
 {% include requirement/MUST id="clang-last-page" %} indicate in the return type if the consumer has reached the end of the result set.
 
-{% include requirement/MUST id="clang-size-of-page" %} indicate in the return type how many items were returned by the service, and have a list of those items for the consumer to iterate over.
+{% include requirement/MUST id="clang-size-of-page" %} indicate how many items were returned by the service, and have a list of those items for the consumer to iterate over.
 
 ## Error handling
 
@@ -588,7 +586,8 @@ if (az_iot_create_client(*client) != 0)
 }
 {% endhighlight %}
 
-{% include requirement/SHOULD id="clang-design-mm-allocation2" %} add functions to allocate and free memory. For example:
+{% include requirement/SHOULD id="clang-design-mm-allocation2" %} If you must allocate memory within the client library,
+do so using user-overridable functions.
 
 {% highlight c %}
 /**
