@@ -3,7 +3,7 @@ trigger:
 
 variables:
   BranchName: VersionUpdates
-  CommitMsg: "[automated] Update package index with latest published versions"
+  CommitMsg: "Update package index with latest published versions"
   RepoOwner: Azure
   RepoName: azure-sdk
 
@@ -24,10 +24,7 @@ steps:
     else {
       echo "No changes so skipping code push"
     }
-    $LastExitCode = 0
-  displayName: Check for changes
 
-- pwsh:
     echo "Checking out and resetting branch $(BranchName)"
     git checkout -B $(BranchName)
     echo "Commiting changes"
@@ -35,8 +32,8 @@ steps:
     echo "Force pushing branch $(BranchName) to https://github.com/$(RepoOwner)/$(RepoName).git"
     git push https://$(GH_TOKEN)@github.com/$(RepoOwner)/$(RepoName).git -f $(BranchName)
 
-  displayName: Commiting and pushing changes
-  condition: and(succeeded(), eq(variables['HasChanges'], 'true'))
+    $LastExitCode = 0
+  displayName: Push any changes
 
 - pwsh: |
     ./eng/scripts/Submit-PullRequest.ps1 -RepoOwner "$(RepoOwner)" -RepoName "$(RepoName)" -BaseBranch "master" -PROwner "$(RepoOwner)" -PRBranch "$(BranchName)" -AuthToken "$(GH_TOKEN)" -PRTitle "$(CommitMsg)"
