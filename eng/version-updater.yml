@@ -34,7 +34,7 @@ steps:
     echo "Force pushing branch $(BranchName) to https://github.com/$(RepoOwner)/$(RepoName).git"
     git push https://$(GH_TOKEN)@github.com/$(RepoOwner)/$(RepoName).git -f $(BranchName)
     echo "LastExitCode = $LastExitCode"
-
+  ignoreLASTEXITCODE: true
   displayName: Diff and push changes if any
 
 - pwsh: |
