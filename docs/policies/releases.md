@@ -32,46 +32,44 @@ We use GitHub releases as a convenient place to put release notes. The change lo
 
 Every package MUST maintain a changelog. Ensuring that a `CHANGELOG.md` file is both available and formatted appropriately will result in automatically formatted release notes on each GitHub release.
 
-How?
-
-* **.NET**: extend nuspec to include `CHANGELOG.md` in the `.nupkg.`
-* **Android and Java**: add `CHANGELOG.md` to the existing artifact list.
-    * CHANGELOG.md is renamed to `<packageid>-changelog.md` during publish to stay consistent with existing artifacts per package.
-* **Python**: ensure `CHANGELOG.md` is present in the `sdist` artifact.
-* **JavaScript**: ensure `CHANGELOG.md` is included in the package tarball.
-
 Changelogs must be named with all caps i.e. `CHANGELOG.md`. A given `CHANGELOG.md` file must follow the below form:
 
 ```
-# Release History
-# <versionSpecifier> (Release Marker)
+Release History
+=================
+## <versionSpecifier> (Release Marker)
 - <content. Do not introduce another L1 header>
 
 ...
-# <older versionSpecifier> (Release Date)
+## <older versionSpecifier> (Release Date)
 - <content/changes for the older release>
 
 ... older release details trail off into history below
 
 ```
+General guidance is taken from https://keepachangelog.com/en/1.0.0/
+
 Example Changelog
 ```
 Release History
 ================
 
-# 12.1.0 (Unreleased)
-## Added
+## 12.1.0 (Unreleased)
+### Added
 - check to enforce TokenCredential is used only over HTTPS
 
-## Changed
+### Changed
 - Support using SAS token from connection string
 
-## Fixed
+### Fixed
 - Issue where AccountName on BlobUriBuilder would not be populated
   for non-IP style Uris.
 
-# 12.0.0 (2019-11-25)
-## Renamed
+## 12.0.0 (2019-11-25)
+### Breaking Change
+- Added support for the new low-priority node type.
+
+### Renamed
 - Number of operations and models to better align with other client
   libraries and the .NET Framework Design Guidelines
 - Parallel upload/download performance improvements
