@@ -439,7 +439,7 @@ typedef struct az_json_short_paged_results {
 
 
 typedef struct az_json_short_raw_paged_results {
-    heep_headers *headers;
+    http_headers *headers;
     uint16 status_code;
     uint8_t *raw_body;
     az_json_short_paged_results* results;
