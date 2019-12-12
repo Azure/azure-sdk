@@ -32,11 +32,11 @@ A compressed service name is the service name without spaces.  It may further be
 
 If the client library does not seem to fit into the group list, contact the [Architecture Board] to discuss the namespace requirements.
 
-{% include requirement/MUST id="general-namespaces-mgmt" %} place the management (Azure Resource Manager) API in the `management` group.  Use the grouping `<AZURE>.management.<group>.<service>` for the namespace. Since more services require control plane APIs than data plane APIs, other namespaces may be used explicitly for control plane only.  Data plane usage is by exception only.  Additional namespaces that can be used for control plane SDKs include:
+{% include requirement/MUST id="general-namespaces-mgmt" %} place the management (Azure Resource Manager) API in the `management` group.  Use the grouping `<AZURE>::management::<group>::<service>` for the namespace. Since more services require control plane APIs than data plane APIs, other namespaces may be used explicitly for control plane only.  Data plane usage is by exception only.  Additional namespaces that can be used for control plane SDKs include:
 
 {% include tables/mgmt_namespaces.md %}
 
-Many `management` APIs do not have a data plane because they deal with management of the Azure account. Place the management library in the `<AZURE>.management` namespace.  For example, use `azure.management.costanalysis` instead of `azure.management.management.costanalysis`.
+Many `management` APIs do not have a data plane because they deal with management of the Azure account. Place the management library in the `<AZURE>.management` namespace.  For example, use `azure::management::costanalysis` instead of `azure::management::management::costanalysis`.
 
 {% include requirement/MUSTNOT id="general-namespaces-similar-names" %} choose similar names for clients that do different things.
 
@@ -56,7 +56,7 @@ Here are some examples of namespaces that meet these guidelines:
 Here are some namespaces that do not meet the guidelines:
 
 - `microsoft::azure::CosmosDB` (not in the `Azure` namespace and does not use grouping, uses capital letters)
-- `azure::mixed_reality.kinect` (the grouping is not in the approved list)
+- `azure::mixed_reality::kinect` (the grouping is not in the approved list)
 - `azure::iot::iot_hub::device_provisioning` (too many levels in the group)
 
 ## Naming conventions
@@ -73,9 +73,11 @@ Here are some namespaces that do not meet the guidelines:
 
 ### Variables
 
+> TODO: Do we want to keep this rule in C++?
+
 {% include requirement/MUST id="cpp-design-naming-starpos" %} place the `*` next to the variable name to indicate a pointer type.
 
-{% highlight c %}
+{% highlight cpp %}
 // Bad
 char* name = NULL;
 
@@ -85,19 +87,19 @@ char *name = NULL;
 
 {% include requirement/MUST id="cpp-design-naming-units" %} include units in names.  If a variable represents time, weight, or some other unit, then include the unit in the name so developers can more easily spot problems.  For example:
 
-{% highlight c %}
+{% highlight cpp %}
 // Bad
 uint32 timeout;
 uint32 my_weight;
 
-// Goog
+// Good
 uint32 timeout_msecs;
 uint32 my_weight_kg;
 {% endhighlight %}
 
 {% include requirement/MUST id="cpp-design-naming-optimize-position" %} declare variables in structures organized by use in a manner that minimizes memory wastage because of compiler alignment issues and size.  All things being equal, use alphabetical ordering.
 
-{% highlight c %}
+{% highlight cpp %}
 // Bad
 struct foo {
     int a;
@@ -117,10 +119,14 @@ struct foo {
 
 Each variable is normally defined with its own type and line.  An exception can be made when declaring bitfields (to clarify that the variable is a part of one bitfield).  The use of bitfields in general is discouraged.
 
-{% include requirement/MUST id="cpp-design-naming-staticvars" %} declare all variables that are only used within the same source file as `static`.  Static variables may contain only the variable name (no prefixes).  For example:
+{% include requirement/MUST id="cpp-design-naming-staticvars" %} declare all entities that are only used within the same source file in an unnamed namespace.  Such entities may contain only the variable name (no prefixes).  For example:
 
-{% highlight c %}
-static uint32_t byte_counter = 0;
+{% highlight cpp %}
+namespace {
+    uint32_t byte_counter = 0;
+    struct a_class_not_exposed {};
+    class a_different_class_not_exposed {};
+} // unnamed namespace
 {% endhighlight %}
 
 ### Globals
@@ -132,7 +138,7 @@ static uint32_t byte_counter = 0;
 
 {% include requirement/MUST id="cpp-design-naming-global-const" %} name global constants using all upper-case, with the `AZ_` prefix, and with snake-casing.  For example:
 
-{% highlight c %}
+{% highlight cpp %}
 // Bad
 const int Global_Foo = 5;
 
@@ -142,13 +148,61 @@ const int AZ_CATHERD_TIMEOUT_MSEC = 5;
 
 ### Structs and Classes
 
-{% include requirement/MUST id="cpp-design-naming-declare-structs" %} declare major structures at the top of the file in which they are used, or in separate header files if they are used in multiple source files.
-
-If declaring a structure within a header file, separate declarations should be `extern`.
+> TODO: Review
 
 > TODO: Should we use a meaningful prefix for each member name or for structures in general?
 
-{% include requirement/MUST id="cpp-design-naming-struct-definition" %} define structs and classes without using typedef.  Name the struct and typedef according to the normal naming for types.  For example:
+{% include requirement/MUST id="cpp-design-naming-classname" %} name class types with all-lowercase.  If part of the public API, place them in your SDK's namespace.  If not, place the API in a "_details" namespace. For example:
+
+{% highlight cpp %}
+namespace azure::group::api {
+namespace _details {
+// Part of the private API
+struct hash_computation_private_details {
+    int internal_bookkeeping;
+};
+} // namespace _details
+
+// Part of the public API
+struct upload_blob_request {
+    unsigned char* data;
+    size_t data_length;
+};
+
+// Bad - private API in public namespace.
+struct hash_computation_private_details {
+    int internal_bookkeeping;
+};
+} // namespace azure::group::api
+{% endhighlight %}
+
+The definition of types must be placed in the `*_api.h` file for the module.
+
+{% include requirement/SHOULD id="cpp-design-naming-classstatic" %} declare all types that are only used within the same source file in an unnamed namespace.  Such types may contain only the function name (no prefixes).  For example:
+
+{% highlight cpp %}
+namespace {
+struct hash_computation_private_details {
+    int internal_bookkeeping;
+};
+} // unnamed namespace
+{% endhighlight %}
+
+{% include requirement/SHOULD id="cpp-design-naming-members" %} use a meaningful name for class members.  Members should be named as all lower-case words, separated by underscores (snake-casing).
+
+{% include requirement/MUST id="cpp-design-naming-declare-structs" %} declare major structures at the top of the file in which they are used, or in separate header files if they are used in multiple source files.
+
+{% include requirement/MUST id="cpp-design-rule-of-zero" %} Implement the "rule of zero", the "rule of 3", or the "rule of 5". That is, of the special member functions, a type should implement exactly one of the following:
+
+* No copy constructor, no copy assignment operator, no move constructor, no move assignment operator, or destructor.
+* A copy constructor, a copy assignment operator, no move constructor, no move assignment operator, and a destructor.
+* A copy constructor, a copy assignment operator, a move constructor, a move assignment operator, and a destructor.
+
+This encourages use of resource managing types like std::unique_ptr (which implements the rule of 5) as a compositional tool in more complex data models that implement the rule of zero.
+
+{% include requirement/MUST id="cpp-design-initialize-all-data" %} provide types which are usable when default-initialized. (That is, every constructor must initialize all type invariants, not assume members have default values of 0 or similar.)
+
+{% include requirement/SHOULD id="cpp-design-naming-struct-definition" %} define structs and classes without using typedefs.  Name the struct and typedef according to the normal naming for types.  For example:
 
 {% highlight cpp %}
 struct iot_client {
@@ -165,11 +219,85 @@ typedef struct iot_client {
 } az_iot_client;
 {% endhighlight %}
 
+> TODO: REVIEW
+
+{% include requirement/MUST id="cpp-design-no-getters-or-setters" %} define getters and setters for data transfer objects.  Expose the members directly to users unless you need to enforce some constraints on the data.  For example:
+{% highlight cpp %}
+// Good - no restrictions on values
+struct example_request {
+    int retry_timeout;
+    const char* text;
+};
+
+// Bad - no restrictions on parameters and access is not idiomatic
+class example_request {
+    int retry_timeout;
+    const char* text;
+public:
+    int get_retry_timeout() const noexcept {
+        return retry_timeout;
+    }
+    void set_retry_timeout(int i) noexcept {
+        retry_timeout = i;
+    }
+    const char* get_text() const noexcept {
+        return text;
+    }
+    void set_text(const char* i) noexcept {
+        text = i;
+    }
+};
+
+// Good - type maintains invariants
+class type_which_enforces_data_requirements {
+    size_t size_;
+    int* data_;
+public:
+    size_t get_size() const noexcept {
+        return size_;
+    }
+    void add_data(int i) noexcept {
+        data_\[size_++\] = i;
+    }
+};
+
+// Also Good
+class type_which_clamps {
+    int retry_timeout;
+public:
+    int get_retry_timeout() const noexcept {
+        return retry_timeout;
+    }
+    void set_retry_timeout(int i) noexcept {
+        if (i < 0) i = 0; // clamp i to the range [0, 1000]
+        if (i > 1000) i = 1000;
+        retry_timeout = i;
+    }
+};
+
+{% endhighlight %}
+
+{% include requirement/SHOULD id="cpp-design-no-use-struct-keyword" %} declare classes with only public members using the `struct` keyword.
+{% highlight cpp %}
+// Good
+struct only_pubic_members {
+    int member;
+};
+
+// Bad
+class only_public_members {
+public:
+    int member;
+};
+{% endhighlight %}
+
 ### Enums
+
+> TODO: Do we want to require enum classes
 
 {% include requirement/MUST id="cpp-design-naming-enum" %} use pascal-casing to name enum types.  For example:
 
-{% highlight c %}
+{% highlight cpp %}
 enum PinStateType {
     PIN_OFF,
     PIN_ON
@@ -178,9 +306,11 @@ enum PinStateType {
 
 Enums do not have a guaranteed size.  If you have a type that can take a known range of values and it is transported in a message, you cannot use an enum as the type.
 
+> TODO: Is this relevant in C++?
+
 {% include requirement/MUST id="cpp-design-naming-enum-errors" %} use the first label within an enum for an error state, if it exists.
 
-{% highlight c %}
+{% highlight cpp %}
 enum ServiceState {
     STATE_ERR,
     STATE_OPEN,
@@ -191,14 +321,16 @@ enum ServiceState {
 
 ### Functions
 
-{% include requirement/MUST id="cpp-design-naming-funcname" %} name functions with all-lowercase.  If part of the public API, start with `<svcname>_[<objname>_]`.  If not, place the API in a "details" namespace. For example:
+> TODO: Note _details applied from most recent meeting
+
+{% include requirement/MUST id="cpp-design-naming-funcname" %} name functions with all-lowercase.  If part of the public API, place them in your SDK's namespace.  If not, place the API in a "_details" namespace. For example:
 
 {% highlight cpp %}
 namespace azure::group::api {
-namespace details {
+namespace _details {
 // Part of the private API
 int64_t compute_hash(int32_t a, int32_t b);
-} // namespace details
+} // namespace _details
 
 // Part of the public API
 catherd_client catherd_create_client(char *herd_name);
@@ -222,11 +354,15 @@ int64_t compute_hash(int32_t a, int32_t b) {
 
 {% include requirement/SHOULD id="cpp-design-naming-paramnames" %} use a meaningful name for parameters and local variable names.  Parameters and local variable names should be named as all lower-case words, separated by underscores (snake-casing).
 
+{% include requirement/SHOULD id="cpp-design-noexcept" %} declare all functions that can never throw exceptions `noexcept`. If your SDK never uses exceptions, all non-`extern "C"` functions should be marked `noexcept`.
+
 ### Callbacks
+
+> TODO: Is this relevant in C++?
 
 Functions that request a callback with a context should order the callback first and then the context.  For example:
 
-{% highlight c %}
+{% highlight cpp %}
 az_iot_client az_iot_client_send_async(az_iot_client *client,
         az_iot_message *message, az_iot_release_callback release_message,
         az_iot_client_result_callback callback, az_iot_client_result_context context)
@@ -234,14 +370,10 @@ az_iot_client az_iot_client_send_async(az_iot_client *client,
 
 Callbacks that receive the context should do so as the first argument:
 
-{% highlight c %}
+{% highlight cpp %}
 static void on_client_result(az_iot_client_result_context context,
         az_iot_result result, az_iot_message_received message)
 {% endhighlight %}
-
-### Exceptions
-
-{% include requirement/MAY id="cpp-error-exh-crash" %} Use exceptions. Be aware that exceptions may limit the usability of your SDK to a large portion of C++ customers that build with exceptions disabled.
 
 ### Macros
 
@@ -257,14 +389,14 @@ If the macro is an inline expansion of a function, the function is defined in lo
 
 For example:
 
-{% highlight c %}
+{% highlight cpp %}
 #define MAX(a,b) ((a > b) ? a : b)
 #define IS_ERR(err) (err < 0)
 {% endhighlight %}
 
 {% include requirement/SHOULD id="cpp-design-naming-macros3" %} wrap the macro in `do { ... } while(0)` if the macro is more than a single statement, so that a trailing semicolon works.  Right-justify backslashes to ensure the macro is easy to read.  For example:
 
-{% highlight c %}
+{% highlight cpp %}
 #define MACRO(v, w, x, y)           \
 do {                                \
     v = (x) + (y);                  \
@@ -276,7 +408,7 @@ do {                                \
 
 {% include requirement/SHOULD id="cpp-design-naming-macros-inlinefunc" %} replace macros with inline functions where possible.  Macros are not required for code efficiency.
 
-{% highlight c %}
+{% highlight cpp %}
 // Bad
 #define MAX(a,b) ((a > b) ? a : b)
 
@@ -287,6 +419,8 @@ inline int max(int x, int y) {
 {% endhighlight %}
 
 ## Client interface
+
+> TODO: This section is unmodified from the C version; we need to review with SDKs team to determine what they want.
 
 In C, your API surface will consist of one or more _service client initializers_ that the consumer will call to define a connection to your service, plus a set of supporting functions that perform network requests.
 
@@ -304,7 +438,7 @@ A typical definition might look like:
 
 Header file:
 
-{% highlight c %}
+{% highlight cpp %}
 #ifndef KEYVAULT_CLIENT_H
 #define KEYVAULT_CLIENT_H
 
@@ -335,7 +469,7 @@ void az_keyvault_client_destroy_http_handler_pipeline(az_keyvault_client* self,
 
 Source file:
 
-{% highlight c %}
+{% highlight cpp %}
 #include <stdbool.h>
 #include <stddef.h>
 /* for az_http_client_handler*/
@@ -420,7 +554,7 @@ void az_keyvault_client_destroy_http_handler_pipeline(az_keyvault_client* self,
 
 Some examples:
 
-{% highlight c %}
+{% highlight cpp %}
 void az_keyvault_client_delete_key(az_keyvault_client *client, char *vault_base_url, char *key_name);
 void az_keyvault_client_delete_key_async(az_keyvault_client *client, char *vault_base_url, char *key_name, az_keyvault_callback *callback, void *callback_context);
 
@@ -478,7 +612,7 @@ The *logical entity* is a protocol neutral representation of a response. For HTT
 
 For example, you may choose to do something similar to the following:
 
-{% highlight c %}
+{% highlight cpp %}
 typedef struct az_json_short_item {
     // JSON decoded structure.
 } az_json_short_item;
@@ -519,52 +653,39 @@ Although object-orientated languages can eschew low-level pagination APIs in fav
 {% include requirement/MUST id="cpp-size-of-page" %} indicate in the return type how many items were returned by the service, and have a list of those items for the consumer to iterate over.
 
 ## Error handling
+> TODO: Review all this
 
 Error handling is an important aspect of implementing a client library. It is the primary method by which problems are communicated to the consumer. Because we intend for the C client libraries to be used on a wide range of devices with a wide range of reliability requirements, it's important to provide robust error handling.
 
 We distinguish between several different types of errors:
 
+* Exhaustion / Act of God
+    : errors like running out of stack space, or dealing with power failure that, in general, can not be anticipated and after which it may be hard to execute any more code, let alone recover. Code handling these errors needs to be written to *very* specific requirements, for example not doing any allocations and never growing the stack.
 * Pre-Conditions
     : Pre-Condition errors occur when a caller violates the expectations of a function, for example by passing an out-of-range value or a null pointer. These are always avoidable by the direct caller, and will always require a source code change (by the caller) to fix.
 * Post-Conditions
     : Post-Condition violations happen when some function didn't do the correct thing, these are _always_ bugs in the function itself, and users shouldn't be expected to handle them.
-* Exhaustion / Act of God
-    : errors like running out of stack space, or dealing with power failure that, in general, can not be anticipated and after which it may be hard to execute any more code, let alone recover. Code handling these errors needs to be written to *very* specific requirements, for example not doing any allocations and never growing the stack.
+* Heap Exhaustion (Out of Memory)
+    : Running out of memory. Depending on the API, this may be treated like an ordinary exhaustion condition, or it may be a recovertable error
 * Recoverable Error
     : Things like trying to open a file that doesn't exist, or trying to write to a full disk. These kinds of errors can usually be handled by a function's caller directly, and need to be considered by callers that want to be robust.
 
-### Pre-conditions
+#### Exhaustion / Act of God
 
-{% include requirement/SHOULD id="cpp-error-prec-contract" %} check preconditions with a contract macro. For example:
+{% include requirement/MUSTNOT id="cpp-error-exh-return error" %} return an error to the caller.
 
-{% highlight c %}
-#ifdef INCLUDE_CONTRACTS
-#  define CONTRACT_CHECK(x)                 \
-    do {                                    \
-      if(!(x)) return az_panic_function();	\
-    } while(0);
-#else
-#  define CONTRACT_CHECK(x)
-#endif
-  az_result some_unction(int some_arg) {
-    CONTRACT_CHECK(some_arg > 0);
-  }
+{% include requirement/MUST id="cpp-error-exh-crash" %} crash, if possible. This means calling some form of fast failing function, like `abort`.
 
-{% endhighlight %}
+Note: if your client library needs to be resilient to these kinds of errors you must either provide a fallback system, or construct your code in a way to facilitate proving that such errors can not occur.
 
-{% include requirement/MUST id="cpp-error-prec-panic" %} call a "panic function" on a (checked) precondition failure. This function should be either provided by the user, or marked as a "weak symbol" if supported by the compiler.
+#### Pre-conditions
+{% include requirement/MAY id="cpp-error-prec-check" %} check preconditions on function entry.
 
-For example
+{% include requirement/MAY id="cpp-error-prec-disablecheck" %} privide a means to disable precondition checks in release / optimized builds.
 
-{% highlight c %}
-az_result az_panic() {
-  return AZ_ERROR_INVALID_ARGUMENT;
-}
-{% endhighlight %}
+{% include requirement/MUST id="cpp-error-exh-crash" %} crash, if possible. This means calling some form of fast failing function, like `abort`.
 
-{% include requirement/MAY id="cpp-error-prec-disablecheck" %} provide an option to disable any checks, and omit checking code from built binaries.
-
-{% include requirement/MUST id="cpp-error-prec-document" %} document all function preconditions. For conditions like "not null", a `[not nullable]` annotation is satisfactory.
+{% include requirement/MUSTNOT id="cpp-error-prec-exceptions" %} throw a C++ exception.
 
 #### Post Conditions
 
@@ -572,21 +693,27 @@ az_result az_panic() {
 
 {% include requirement/MUST id="cpp-error-postc-disablecheck" %} provide a way to disable postcondition checks, and omit checking code from built binaries.
 
-#### Exhaustion / Act of God
+{% include requirement/MUST id="cpp-error-exh-crash" %} crash, if possible. This means calling some form of fast failing function, like `abort`.
 
-{% include requirement/MUSTNOT id="cpp-error-exh-return error" %} return an error to the caller.
+{% include requirement/MUSTNOT id="cpp-error-prec-exceptions" %} throw a C++ exception.
 
-{% include requirement/MAY id="cpp-error-exh-crash" %} crash, if possible.
+#### Heap Exhaustion (Out of Memory)
 
-Note: if your client library needs to be resilient to these kinds of errors you must either provide a fallback system, or construct your code in a way to facilitate proving that such errors can not occur.
+{% include requirement/MAY id="cpp-error-oom-crash" %} crash. Note that on some comonly deployed platforms like Linux, handling heap exhaustion from user mode is not possible in a default configuration.
+
+> TODO: Do we want to explicitly allow crashing by dereferencing nullptr? That will always crash on some machines but not others.
+
+{% include requirement/MAY id="cpp-error-oom-bad-alloc" %} throw a C++ exception of type `std::bad_alloc` when encountering an out of memory condition. Note that most standard library facilities and the built in `operator new` do this automatically.
 
 #### Recoverable errors
+
+> TODO: Are we going to define our own exception hierarchy? This section is currently unmodified from the C guidelines.
 
 {% include requirement/MUST id="cpp-error-recov-reporting" %} report errors via an error code enum. The core library defines such an enum called `az_result`.
 
 For example:
 
-{% highlight c %}
+{% highlight cpp %}
 AZ_NODISCARD az_result az_catherding_count_cats(az_catherding_herd* herd, int* cats) {
   if(herd->has_shy_cats) {
     return AZ_RESULT_CATHERDING_HIDING_CATS;
@@ -604,16 +731,6 @@ AZ_NODISCARD az_result az_catherding_count_cats(az_catherding_herd* herd, int* c
 
 {% include requirement/MUST id="cpp-error-recov-document" %} document all recoverable errors each function generates.
 
-#### A Note on Out Of Memory
-
-We all want to be able to handle low memory situations gracefully and effectively, and C is "helpful" in that most memory allocation functions return an error or null pointer if they fail, including in the case of "out of memory". If you need to allocate memory of a dynamic (user specified) size, or of an extremely large size, then failures of that allocation should always be treated as a recoverable error. However, for small, compile-time constant sized allocations the decision of weather to treat a failure as an "Act of God" or a "Recoverable error" is more subtle and should be decided when you start a new library (with Architectural Review Board consultation).
-
-On some platforms, mainly those that overcommit, it's extremely hard to handle OOM gracefully. Additionally, if you are "almost" out of memory and attempt to grow the stack - by calling functions, for example - then the system _MIGHT NOT TELL YOU_ and your program's state will be corrupted. To recover from out of memory errors the program must have bounded stack size and must set the stack size to that bound at the start of the program. Additionally, the library must not allocate on the OOM error handling path.
-
-## Long running operations
-
-> TODO: Implement general guidelines for LRO
-
 ## Support for non-HTTP protocols
 
 > TODO: Implement gneral guidelines for non-HTTP protocols
@@ -624,7 +741,7 @@ On some platforms, mainly those that overcommit, it's extremely hard to handle O
 
 The developer could then write code similar to:
 
-{% highlight c %}
+{% highlight cpp %}
 az_iot_client client; /* or allocate dynamically with malloc() if needed */
 
 /* init client, if needed */
@@ -639,7 +756,7 @@ if (az_iot_create_client(*client) != 0)
 
 {% include requirement/SHOULD id="cpp-design-mm-allocation2" %} add functions to allocate and free memory. For example:
 
-{% highlight c %}
+{% highlight cpp %}
 /**
  * @brief   uLib malloc
  *
@@ -661,320 +778,9 @@ if (az_iot_create_client(*client) != 0)
 
 ## Secure functions
 
-{% include requirement/SHOULDNOT id="cpp-no-ms-secure-functions" %} use [Microsoft security enhanced versions of CRT functions](https://docs.microsoft.com/en-us/cpp/c-runtime-library/security-enhanced-versions-of-crt-functions?view=vs-2019() to implement APIs that need to be portable across many platforms. Such code is not portable and is not C99 compatible. Adding that code to your API will complicate the implementation with little to no gain from the security side. See [arguments against]( http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1967.htm).
+{% include requirement/SHOULDNOT id="cpp-no-ms-secure-functions" %} use [Microsoft security enhanced versions of CRT functions](https://docs.microsoft.com/en-us/cpp/c-runtime-library/security-enhanced-versions-of-crt-functions?view=vs-2019) to implement APIs that need to be portable across many platforms. Such code is not portable and is not C99 compatible. Adding that code to your API will complicate the implementation with little to no gain from the security side. See [arguments against]( http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1967.htm).
 
 > TODO: Verify with the security team, and what are the alternatives?
-
-## Object model
-
-C doesn't have object oriented programming built in, but most programs end up implementing some kind of ad-hoc object model.
-
-Let's consider the object used to represent a herd of cats in the fictional Azure Catherding client library. Such a structure could be defined like this:
-
-{% highlight c %}
-typedef struct az_catherding_herd {
-  uint16_t num_cats;
-  az_catherding_cat* cats;
-  bool is_indoor;
-} az_catherding_herd;
-{% endhighlight %}
-
-If you are defining an opaque type then the definition is placed in a `.c` file and the header file contains the following:
-
-{% highlight c %}
-typedef struct az_catherding_herd az_catherding_herd;
-{% endhighlight %}
-
-If you need to expose the type (for stack allocation), but would like to make it clear that some fields are private and should not be modified, place the type in the header file as follows::
-
-{% highlight c %}
-struct _az_catherding_herd_internal {
-  uint16_t num_cats;
-  az_catherding_cat* cats;
-  bool is_indoor;
-};
-
-typedef struct az_catherding_herd {
-  struct _az_catherding_herd_internal _internal;
-} az_catherding_herd;
-{% endhighlight %}
-
-{% include requirement/MUSTNOT id="cpp-objmodel-nohiding" %} hide the members of a struct that supports stack allocation.  This can result in alignment problems and missed optimization opportunities.
-
-### Initialization and destruction
-
-You must always have an initialization function. This function will take a block of allocated memory of the correct size and alignment and turn it into a valid object instance, setting fields to default values and processing initialization parameters.
-
-{% include requirement/MUST id="cpp-objmodel-init" %} name initialization functions with the form `az_<libname>_init_...`.
-
-{% include requirement/MUST id="cpp-objmodel-ready" %} ensure that the object is "ready to use" after a call to the init function for the object.
-
-If there is more than one way to initialize an object, you should define multiple initialization functions with different names. For example:
-
-{% highlight c %}
-void az_catherding_herd_init(az_catherding_herd* herd);
-void az_catherding_herd_init_with_cats(az_catherding_herd* herd, int num_cats, az_catherding_cats* cats);
-{% endhighlight %}
-
-If initialization could fail (for example, during parameter validation), ensure the init function returns an `az_result` to indicate error conditions.
-
-A possible implementation of these initialization functions would be:
-
-{% highlight c %}
-void az_catherding_herd_init(az_catherding_herd* herd) {
-  memset(herd, 0, sizeof(az_catherding_herd));
-}
-
-
-void az_catherding_herd_init_with_cats(az_catherding_herd* herd,
-				       int num_cats, az_catherding_cats* cats) {
-  az_catherding_herd_init(herd);
-  herd->cats = cats;
-  herd->num_cats = num_cats;
-}
-{% endhighlight %}
-
-Similarly to allocation, a type can have a destruction function. However only types that own a resource (such as memory), or require special cleanup (like securely zeroing their memory) need a destruction function.
-
-{% include requirement/SHOULD id="cpp-objmodel-prefer-nonalloc" %} prefer non-allocating types and methods.
-
-### Allocation and deallocation
-
-Your library should not allocate memory if possible.  It should be possible to use the client library without any allocations, deferring all allocations to the client program.
-
-Allocation should be separated from initialization, unless there's an extremely good reason to tie them together. In general we want to let the user allocate their own memory. You only need an allocation function if you intend to hide the size and alignment of the object from the user.
-
-{% include requirement/MUST id="cpp-objmodel-alloc1" %} name the allocation and deallocation functions as `az_<libname>_(de)allocate_<objtype>`.
-
-Note that this is the opposite of the pattern for other methods.  Allocation functions do not operate on a value of `<objtype>`.  Rather they create and destroy such values.
-
-{% include requirement/MUST id="cpp-objmodel-alloc2" %} provide an allocation and deallocation function for opaque types.
-
-{% include requirement/SHOULD id="cpp-objmodel-alloc3" %} take a set of allocation callbacks as a parameter to the allocation and deallocation functions for an opaque type.  Use the library default allocation functions if the allocation callback parameter is NULL.
-
-{% include requirement/SHOULDNOT id="cpp-objmodel-alloc4" %} store a pointer to the allocation callbacks inside the memory returned by the allocation function.  You may store such a pointer for debugging purposes.
-
-The intent is to allow storing a pointed tot he allocation callbacks to ensure the same set of callbacks is used for allocation and deallocation.  However, it is not allowed to change the ABI of the returned object to do this.  You need to store the callbacks before or after the pointer returned to the called.
-
-> TODO: Rationalize this - do we store or not store?
-
-{% include requirement/MUSTNOT id="cpp-objmodel-alloc5" %} return any errors from the deallocation function.  It is impossible to write leak-free programs if deallocation and cleanup functions can fail.
-
-For example:
-
-{% highlight c %}
-#include <stdint.h>
-typedef struct az_catherding_herd az_catherding_herd;
-
-az_result az_catherding_allocate_herd(az_catherding_herd** herd, az_allocation_callbacks* alloc);
-void az_catherding_deallocate_herd(az_catherding_herd* herd, az_allocation_callbacks* alloc);
-{% endhighlight %}
-
-{% highlight c %}
-#include "herd.h"
-typedef struct az_catherding_herd {
-  uint16_t num_cats;
-  az_catherding_cat* cats;
-  bool is_indoor;
-} az_catherding_herd;
-
-
-az_result az_catherding_allocate_herd(az_catherding_herd** herd, az_allocation_callbacks* alloc) {
-if(!alloc) {
-    *herd = az_default_alloc(sizeof(az_catherding_herd));
-} else {
-    *herd = alloc->allocate(sizeof(az_catherding_herd));
-}
-if(!*herd) {
-    return AZ_ERROR_ALLOCATION_ERROR;
-}
-return AZ_SUCCESS;
-}
-
-void az_catherding_deallocate_herd(az_catherding_herd* herd, az_allocation_callbacks* alloc) {
-if(!alloc) {
-    az_default_deallocate(herd);
-} else {
-    alloc->deallocate(herd);
-}
-}
-{% endhighlight %}
-
-### Initialization for objects that allocate
-
-The initialization function should take a set of allocation callbacks and store them inside the object instance.
-
-{% include requirement/MUST id="cpp-objmodel-initalloc1" %} take a set of allocation / deallocation callbacks in the `init` function of objects owning inner pointers.
-
-{% include requirement/SHOULDNOT id="cpp-objmodel-initalloc2" %} allocate different inner pointers with different sets of allocation callbacks.  Use a single allocation callback.
-
-### Destruction for objects that allocate
-
-{% include requirement/MUST id="cpp-objmodel-destroyalloc1" %} name destruction functions `az_<libname>_<objtype>_destroy`.
-
-{% include requirement/MUSTNOT id="cpp-objmodel-destroyalloc2" %} take allocation callbacks in the destruction function.
-
-The reason one would take an allocation callback parameter in the destruction function is to save space by not storing it in the object instance. The reason we prohibit this is that it means an object that owns a pointer to another object must then take _two_ allocation parameters in its destroy function.
-
-{% include requirement/MUSTNOT id="cpp-objmodel-destroyalloc3" %} return any errors in the destruction function.  It's impossible to write leak-free programs if deallocation / cleanup functions can fail.
-
-The destruction function should follow this pattern:
-
-{% highlight c %}
-void az_catherding_herd_destroy(az_catherding_herd* herd);
-{% endhighlight %}
-
-The following is a possible implementation of a destruction function for the cat herding object:
-
-{% highlight c %}
-void az_catherding_herd_destroy(az_catherding_herd* herd) {
-if(herd->alloc) {
-    herd->alloc->deallocate(cats);
-}
-az_string_destroy(herd->str);
-herd->num_cats = 0;
-herd->alloc = 0;
-}
-{% endhighlight %}
-
-### Methods on objects
-
-To define a method on an object simply define a function taking a pointer to that object as its first parameter. For example:
-
-{% highlight c %}
-/**
- * @brief add a cat to the herd
- * @memberof az_catherding_herd
- *
- * @param[in] herd - the herd
- * @param[in] __[transfer none]__ cat - the cat to add
- * @return Any errors
- * @retval AZ_OK on success
- * @retval AZ_ERROR_NO_MEMORY if a reallocation of the internal
- *                            array failed
- */
-az_result az_catherding_herd_add_cat(az_catherding_herd* herd, cat* cat);
-{% endhighlight %}
-
-{% include requirement/MUST id="cpp-objmodel-memberof" %} use `@memberof` to indicate a function is associated with a class.
-
-{% include requirement/MUST id="cpp-objmodel-firstparam" %} provide the class object as the first parameter to a function associated with the class.
-
-### Functions with many parameters
-
-Sometimes a function will take a large number of parameters, many of which have sane defaults.  In this case you should pass them via a struct. Default arguments should be represented by "zero". If the function is a method then the first parameter should still be a pointer to the object type the method is associated with.
-
-For example the previous `az_catherding_herd_init_with_cats` function could be better defined instead as:
-
-{% highlight c %}
-typedef struct az_catherding_herd_init_with_cats_params {
-  int num_cats;
-  az_catherding_cats* cats;
-  bool is_indoor;
-} az_catherding_herd_init_with_cats_params;
-void az_catherding_herd_init_with_params(az_catherding_herd* herd, const az_catherding_herd_init_with_cats_params* params);
-{% endhighlight %}
-
-and would be called from user code like:
-
-{% highlight c %}
-int main() {
-  az_catherding_herd herd;
-  az_catherding_herd_init_with_params(&herd, &(az_catherding_herd_init_with_cats_params){
-    .is_indoor = true
-  });
-}
-{% endhighlight %}
-
-Note that the `num_cats` and `cats` parameters are left as default.
-
-If the `params` parameter is `NULL` then the `az_catherding_init_with_params` function should assume the defaults for all parameters.
-
-If a function takes both optional and non-optional parameters then prefer passing the non-optional ones as parameters and the optional ones by struct.
-
-{% include requirement/MUST id="cpp-objmodel-manyparams" %} use a struct to encapsulate parameters if the number of parameters is greater than 5.
-
-{% include requirement/MUSTNOT id="cpp-objmodel-manyparams2" %} include the class object in the encapsulating paramter struct.
-
-### Methods requiring allocation
-
-If a method could require allocating memory then it should use the most relevant set of allocation callbacks. For example the `az_catherding_herd_add_cat` method may need to allocate or re-allocate the array of cats.  It should use the `az_catherding_herd` allocators.  On the other hand the method:
-
-{% highlight c %}
-void az_catherding_herd_set_str(az_catherding_herd* herd, const char* str);
-{% endhighlight %}
-
-would likely use the allocation callbacks inside the `herd->str` structure.
-
-> TODO: Rationalize advice here.  Earlier, we said don't include allocators inside the structure.
-
-### Callbacks
-
-Callback functions should be defined to take a pointer to the "sender" object as the first argument and a void pointer to user data as the last argument. Any additional arguments, if any, should be contextual data needed by the callback. For example say we had an object `az_catherding_client` that could make requests to be handled in a callback and we represent the response as an object `az_response`. We might define the following:
-
-{% highlight c %}
-typedef bool (*az_catherding_response_callback)(az_catherding_client* client,
-						az_response* resp,
-						void* user_data);
-void az_catherding_client_set_response_callback(az_catherding_client* client,
-						az_catherding_response_callback callback,
-						void* user_data);
-{% endhighlight %}
-
-Client code would use this in the following manner:
-
-{% highlight c %}
-typedef struct user_data {
-  int some_int;
-} user_data;
-
-
-bool handle_resp(az_catherding_client* client,
-		 az_response* resp,
-		 void* user) {
-  user_data* data = user;
-  /* do things with parameters */
-  return true;
-}
-
-int main() {
-  user_data d = {.some_int = 5};
-  az_catherding_client client;
-  az_catherding_client_init(&client);
-  az_catherding_client_set_response_callback(&client, &handle_resp, &d);
-  /* do something that triggers the callback */
-
-  /* unset the callback if we don't want to handle it anymore */
-  az_catherding_client_set_response_callback(&client, NULL, NULL);
-}
-{% endhighlight %}
-
-{% include requirement/MUST id="cpp-objmodel-callback-userdata" %} include a `user_data` parameter on all callbacks.
-
-{% include requirement/MUSTNOT id="cpp-objmodel-callback-deref" %} de-reference the user data pointer from inside the library.
-
-### Discriminated Unions
-
-Discriminated unions can be useful for grouping information in a struct. However, C does not provide a standard way of defining discriminated unions.  Use the following:
-
-{% highlight c %}
-typedef struct discriminated_union {
-  enum {
-	discriminated_union_tag_int,
-	discriminated_union_tag_float,
-	discriminated_union_tag_double
-  } tag;
-  union {
-    int the_int;
-    float the_float;
-    double the_double;
-  } value;
-} discriminated_union;
-{% endhighlight %}
-
-This syntax is supported on all C99 compilers as it adheres to strict C99 syntax. Access the inner member using `union_value.value.the_int` (as an example).
-
-The nested enum and union should never have a `tag name` as this is *always* an extension.  It is a user error to access the union without checking its tag first.
 
 ## Versioning
 
@@ -986,7 +792,7 @@ Unlike other languages, client libraries written for the C ecosystem are tied to
 
 Example:
 
-{% highlight c %}
+{% highlight cpp %}
 #ifndef azure_devicetwin_h
 #define azure_devicetwin_h
 

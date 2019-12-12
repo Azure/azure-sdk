@@ -34,7 +34,7 @@ As you write your code, *doc it so you never hear about it again.* The less ques
 {% include requirement/MUST id="cpp-docs-doxygen" %} include docstrings compatible with the [doxygen](http://www.doxygen.nl/index.html) tool for generating reference documentation.
 
 For example, a (very) simple docstring might look like:
-{% highlight c %}
+{% highlight cpp %}
 /**
  *   @struct az_appconf_client
  *   @brief The az_appconf_client represents the resources required for a connection to
@@ -46,12 +46,14 @@ For example, a (very) simple docstring might look like:
 
 {% include requirement/MUST id="cpp-docs-doxygen-params" %} format parameter documentation like the following:
 
-{% highlight c %}
+{% highlight cpp %}
 /* <....documentation....>
-* \param[<direction>] <param_name> __<additional_annotations>__ description
+* @param[<direction>] <param_name> __<additional_annotations>__ description
 * <....documentation....>
 */
 {% endhighlight %}
+
+> TODO: Review which of these are relevant in C++
 
 `<additional_annotations>` is a space-separated list of the following annotations:
 
@@ -79,11 +81,10 @@ For example, a (very) simple docstring might look like:
     : memory for the value will be allocated by the callee. This usually means the caller will need to free said memory when it's no longer needed.
 
 For example:
-{% highlight c %}
+{% highlight cpp %}
+namespace azure::storage::blob {
 /**
  * @brief execute a blocking get request
- *
- * @memberof az_appconf_client
  *
  * @param[in] client __[transfer none]__
  * @param[in] path_and_query __[transfer none][not nullable]__
@@ -91,11 +92,11 @@ For example:
  * @param[out] result __[transfer full][not nullable][callee allocates]__
  * @param[out] result_sz __[not nullable]__ size of the result
  */
-az_appconf_err az_appconf_req_get(
-    az_appconf_client* client, const char* path_and_query, unsigned char** result, size_t* result_sz);
+void req_get(client* client, const char* path_and_query, unsigned char** result, size_t* result_sz);
+} // namespace azure::storage::blob
 {% endhighlight %}
 
-Here we see that the first two parameters are input parameters, with no ownership transfer (that is, they are a "borrow"). The `result` output parameter is labeled as `[callee allocates]` because it allocates memory for the output parameter itself. Since `result` is owned by the caller after `az_appconf_req_get` returns it's annotated as `[transfer full]`.
+Here we see that the first two parameters are input parameters, with no ownership transfer (that is, they are a "borrow"). The `result` output parameter is labeled as `[callee allocates]` because it allocates memory for the output parameter itself. Since `result` is owned by the caller after `req_get` returns it's annotated as `[transfer full]`.
 
 The annotations do not require any special doxygen support and are simply convention.
 
@@ -110,7 +111,8 @@ The annotations do not require any special doxygen support and are simply conven
 
 For example:
 
-{% highlight c %}
+{% highlight cpp %}
+namespace azure::animals::cats {
 /**
  * @brief get properties of a cat (e.g. hair color, weight, floof)
  *
@@ -123,7 +125,8 @@ For example:
  * If @p props is NULL then return the number of properties available in @p num_props,
  * otherwise return @p num_props into the array at @p props
  */
-az_error az_catherding_get_cat_properties(cat* our_cat, cat_properties* props, size_t* num_props);
+void get_cat_properties(cat* our_cat, cat_properties* props, size_t* num_props);
+} // namespace azure::animals::cats
 {% endhighlight %}
 
 This function returns an array using all caller-allocated memory. In order to figure out the size of the array the caller can pass NULL for the array `[out]` parameter. They can then allocate the required memory and call the function again.
@@ -143,41 +146,43 @@ This function returns an array using all caller-allocated memory. In order to fi
 
 {% include requirement/MUST id="cpp-docs-snippets-in-docstrings" %} include the example code snippets in your library's docstrings so they appear in its API reference. If the language and its tools support it, ingest these snippets directly into the API reference from within the docstrings.
 
-For example, consider a function called `az_do_something_or_other`:
-{% highlight c %}
+For example, consider a function called `do_something_or_other`:
+{% highlight cpp %}
+namespace azure::sdks::example {
 /**
- * @brief some structure type
+ * @brief some class type
  */
-typedef struct az_some_struct {
+struct some_class {
     int member;
-} az_some_struct;
 
-/**
- * @brief do something, or maybe do some other thing
- * @memberof az_some_struct
- */
-void az_do_something_or_other(az_some_struct* s);
+    /**
+    * @brief do something, or maybe do some other thing
+    */
+    void do_something_or_other();
+};
+} // azure::sdks::example
 {% endhighlight %}
 It can be used as follows:
-{% highlight c %}
+{% highlight cpp %}
 /**
- * @example example_1.c
+ * @example example_1.cpp
  */
 int main() {
-    az_some_struct a;
-    az_do_something_or_other(&a);
+    using azure::sdks::example::some_class;
+    some_class a;
+    a.do_something_or_other();
     return 1;
 }
 {% endhighlight %}
-When doxygen processes these files, it will see the `@example` command in example_1.c and
+When doxygen processes these files, it will see the `@example` command in example_1.cpp and
 add it to the "examples" section of the documentation, it will also see the usage of
 `az_some_struct` in the example and add a link from the documentation of `az_some_struct` to the
-documentation (including source code) for `example_1.c`.
+documentation (including source code) for `example_1.cpp`.
 
 Use `@include` or `@snippet` to include examples directly in the documentation for a function or structure.
 For example:
 
-{% highlight c %}
+{% highlight cpp %}
 /**
  * @brief some structure type
  */
@@ -188,14 +193,14 @@ typedef struct az_some_struct {
 /**
  * @brief do something, or maybe do some other thing
  * @memberof az_some_struct
- * see @snippet example_1.c use az_some_struct
+ * see @snippet example_1.cpp use az_some_struct
  */
 void az_do_something_or_other(az_some_struct* s);
 {% endhighlight %}
 It can be used as follows:
-{% highlight c %}
+{% highlight cpp %}
 /**
- * @example example_1.c
+ * @example example_1.cpp
  */
 int main() {
     /** [use az_some_struct] */
@@ -209,11 +214,11 @@ int main() {
 Note that automatic links from documentation to examples will only be generated in struct documentation,
 not in function documentation. To generate a link from a function's documentation to an example use `@dontinclude`. For example:
 
-{% highlight c %}
+{% highlight cpp %}
 /**
  * @brief do something, or maybe do some other thing
  * @memberof az_some_struct
- * @dontinclude example_1.c
+ * @dontinclude example_1.cpp
  */
 void az_do_something_or_other(az_some_struct* s);
 {% endhighlight %}

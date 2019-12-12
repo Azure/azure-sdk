@@ -10,21 +10,22 @@ sidebar: cpp_sidebar
 
 ## Supported platforms
 
-{% include requirement/MUST id="cpp-cpp14" %} implement the client library in [C++11](https://en.wikipedia.org/wiki/C++11) to ensure maximum portability of your code.
-
-{% include requirement/SHOULD id="cpp-platform" %} support the following platforms and associated compilers when implementing your client library.
+{% include requirement/MUST id="cpp-platform-min" %} support the following platforms and associated compilers when implementing your client library.
 
 | Operating System                | Architecture | Compiler Version                        |
 |---------------------------------|:------------:|:----------------------------------------|
-| Ubuntu 16.04 (LTS)              | x64          | gcc-5.4.0                               |
 | Ubuntu 18.04 (LTS)              | x86          | gcc-7.3                                 |
-| Ubuntu 18.04 (LTS)              | x64          | cpp 6.0.x                               |
 | OSX 10.13.4                     | x64          | XCode 9.4.1                             |
-| Windows Server 2016             | x86          | MSVC 14.10.x, MSVC 14.16.x, MSVC 14.20x |
-| Windows Server 2016             | x64          | MSVC 14.10.x, MSVC 14.16.x, MSVC 14.20x |
-| Windows 10                      | ARM          | MSVC 14.10.x, MSVC 14.16.x, MSVC 14.20x |
+| Windows Server 2016             | x86          | MSVC 14.16.x, MSVC 14.20x               |
+| Windows Server 2016             | x64          | MSVC 14.16.x, MSVC 14.20x               |
+| Windows 10                      | ARM          | MSVC 14.16.x, MSVC 14.20x               |
 | Windows 10                      | ARM64        | MSVC 14.16.x, MSVC 14.20x               |
 | Debian 9 Stretch                | x64          | gcc-7.x                                 |
+
+{% include requirement/SHOULD id="cpp-platform" %} support the following additional platforms and associated compilers when implementing your client library.
+
+| Operating System                | Architecture | Compiler Version                        |
+|---------------------------------|:------------:|:----------------------------------------|
 | Red Hat Enterprise Linux 7      | x64          | ???                                     |
 | SUSE Linux Enterprise Server 12 | x64          | ???                                     |
 
@@ -65,7 +66,7 @@ hen configuring your client library, particular care must be taken to ensure tha
 
 ### Service-specific environment variables
 
-> TODO: Does it even make sense to use environment variables in C programs?  IoT?
+> TODO: Does it even make sense to use environment variables in C++ programs?  IoT?
 
 {% include requirement/MUST id="cpp-config-envvars-prefix" %} prefix Azure-specific environment variables with `AZURE_`.
 
@@ -194,9 +195,11 @@ dependency.
 - **Compatibility** - Often times you do not control a dependency and it may choose to evolve in a direction that is incompatible with your original use.
 - **Security** - If a security vulnerability is discovered in a dependency, it may be difficult ortime consuming to get the vulnerability corrected if Microsoft does not control the dependencys code base.
 
-{% include requirement/MUST id="cpp-dependencies-stdlibc" %} use the [C standard library](https://en.wikipedia.org/wiki/C_standard_library).  The C standard library is sometimes referred to as `libc`, the C-Runtime, CRT, or (for Windows) Universal CRT.
+{% include requirement/MUST id="cpp-dependencies-stdlibcpp" %} use the [C++ standard library](https://en.cppreference.com/w/).
 
 {% include requirement/MUST id="cpp-dependencies-azure-core" %} depend on the Azure Core library for functionality that is common across all client libraries.  This library includes APIs for HTTP connectivity, global configuration, and credential handling.
+
+> TODO: Is the SDKs team signed up to build this?
 
 > TODO: Move the azure/azure-c-shared-utility into azure-core as a prerequisite for release of the guidelines.
 
@@ -208,7 +211,7 @@ dependency.
 
 ### C language specifics
 
-Unlike many other programming languages, which have large runtimes, the C standard runtime is limited in functionality and scope. The standard library covers areas such as memory and string manipulation, sandard input/output, floating point and others. However, many of the features required for modern applications and services; e.g. those required for synchronization, networking and advanced memory management and threading are not part of the standard library. Instead, many of those features are included in open source C libraries that are also cross-platform with good support for Windows, OSX and most Linux platforms. Because of that support and because Azure SDK implementations will need such functionality, it is expected that client libraries will take dependencies on these libraries.  Ensure the version matches to allow for compatibility when an application integrates multiple client libraries.
+Unlike many other programming languages, which have large runtimes, the C++ standard runtime is limited in functionality and scope. The standard library covers areas such as memory and string manipulation, sandard input/output, floating point and others. However, many of the features required for modern applications and services; e.g. those required for networking and advanced memory management are not part of the standard library. Instead, many of those features are included in open source C++ libraries that are also cross-platform with good support for Windows, OSX and most Linux platforms. Because of that support and because Azure SDK implementations will need such functionality, it is expected that client libraries will take dependencies on these libraries.  Ensure the version matches to allow for compatibility when an application integrates multiple client libraries.
 
 {% include requirement/MUST id="cpp-approved-dependencies" %} utilize the following libraries as needed for commonly required operations:
 
@@ -218,12 +221,14 @@ Unlike many other programming languages, which have large runtimes, the C standa
 
 ## Testing
 
+> TODO: We need to revisit what libraries and similar we want to use. Consider something like Google Test?
+
 We believe testing is a part of the development process, so we expect unit and integration tests to be a part of the source code.  All components must be covered by automated testing, and developers should strive to test corner cases and main flows for every use case.
 
 All code should contain, at least, requirements, unit tests, end-to-end tests, and samples. The requirements description should be placed in the unit test file, on top of the test function that verifies the requirement. The unit test name should be placed in the code as a comment, together with the code that implements that functionality. For example:
 
 _*API source code file:*_
-{% highlight c %}
+{% highlight cpp %}
 void foo_tcp_manager_destroy(TCP_HANDLE handle)
 {
     if(handle == NULL)
@@ -243,7 +248,7 @@ void foo_tcp_manager_destroy(TCP_HANDLE handle)
 {% endhighlight %}
 
 _*Unit test file:*_
-{% highlight c %}
+{% highlight cpp %}
 /* If the provided TCP_HANDLE is NULL, the foo_tcp_manager_destroy shall do nothing. */
 TEST_FUNCTION(foo_tcp_manager_destroy_does_nothing_on_null_handle)
 {
@@ -279,13 +284,13 @@ TEST_FUNCTION(foo_tcp_manager_destroy_succeed_on_free_all_resources)
 If a single unit test tests more than one requirement, it should be sequentially enumerated in the unit test file, and the same number should be added to the test name in the code comment. For example:
 
 _*API source code file:*_
-{% highlight c %}
+{% highlight cpp %}
     /*[foo_tcp_manager_create_createAndReturnInstanceSucceed_1]*/
     TCP_INSTANCE* instance = (TCP_INSTANCE*)malloc(sizeof(TCP_INSTANCE));
 {% endhighlight %}
 
 _*Unit test file:*_
-{% highlight c %}
+{% highlight cpp %}
 /*[1]The foo_tcp_manager_create shall create a new instance of the TCP_INSTANCE
         and return it as TCP_HANDLE.*/
 /*[2]The foo_tcp_manager_create shall initialize the tcpip thread.*/
@@ -302,7 +307,11 @@ TEST_FUNCTION(foo_tcp_manager_create_createAndReturnInstanceSucceed)
 
 {% include requirement/MUSTNOT id="cpp-testing-valgrind" %} have any memory leaks. Run samples and unit tests with [valgrind](http://www.valgrind.org/downloads/current.html). Unit tests and e2e tests are valgrind verified at the gate.
 
+> TODO: Do we want this for C++?
+
 {% include requirement/MUST id="cpp-testing-unittests" %} unit test your API with [ccputest](https://cpputest.github.io/), a unit testing and mocking framework for C and C++.
+
+> TODO: Does this also mean during deployment on the end-user's machine?
 
 {% include requirement/MUST id="cpp-testing-cmake-unit-tests" %} automatically run unit tests when building your client library; i.e. make unit tests part of your continuous integration (CI)
 
@@ -312,19 +321,21 @@ TEST_FUNCTION(foo_tcp_manager_create_createAndReturnInstanceSucceed)
 
 ### Files
 
-{% include requirement/MUST id="cpp-style-filenaming" %} name all files as lowercase, prefixed by the service short name; separate words with underscores, and end with the appropriate extension (`.c` or `.h`).  For example, `iot_credential.c` is valid, while `IoTCredential.cl` is not.
+{% include requirement/MUST id="cpp-style-filenaming" %} name all files as lowercase, prefixed by the service short name; separate words with underscores, and end with the appropriate extension (`.c`, `.cpp`, or `.h`).  For example, `iot_credential.c` is valid, while `IoTCredential.cl` is not.
 
 {% include requirement/MUST id="cpp-style-publicapi-hdr" %} identify the file containing the public API with `<svcname>_<objname>_api.h`.  For example, `iot_credential_api.h`.
 
-{% include requirement/MUST id="cpp-style-privateapi-hdr" %} place an include file that is not part of the public API in an `internal` directory.  Do no include the service short name.  For example, `internal/credential.h`.
+{% include requirement/MUST id="cpp-style-privateapi-hdr" %} place an include file that is not part of the public API in an `internal` directory.  Do not include the service short name.  For example, `internal/credential.h`.
 
 {% include requirement/MUST id="cpp-style-filenames" %} use characters in the range `[a-z0-9_]` for the name portion (before the file extension).  No other characters are permitted.
 
 Filenames should be concise, but convey what role the file plays within the library.
 
+> TODO: What about pragma once?
+
 {% include requirement/MUST id="cpp-style-headerguards" %} use header file guards:
 
-{% highlight c %}
+{% highlight cpp %}
 #ifndef IOT_CLIENT_H
 #define IOT_CLIENT_H
 
@@ -362,7 +373,7 @@ set(CMAKE_VISIBILITY_INLINES_HIDDEN ON)
 
 This allows you to use an export macro to export symbols. For example:
 
-{% highlight c %}
+{% highlight cpp %}
 #ifndef APPCONF_EXPORT_H
 #define APPCONF_EXPORT_H
 
@@ -503,7 +514,7 @@ if (meow == 0)
 
 {% include requirement/MUST id="cpp-format-cpp-closing-braces" %} add comments to closing braces.  Adding a comment to closing braces can help when you are reading code because you don't have to find the begin brace to know what is going on.
 
-{% highlight c %}
+{% highlight cpp %}
 while (1) {
     if (valid) {
         ...
@@ -516,7 +527,7 @@ while (1) {
 
 {% include requirement/MUST id="cpp-format-cpp-closing-endif" %} add comments to closing preprocessor directives to make them easier to understand.  For example:
 
-{% highlight c %}
+{% highlight cpp %}
 #if _BEGIN_CODE_
 
 #ifndef _INTERNAL_CODE_
@@ -533,7 +544,7 @@ while (1) {
 
 {% include requirement/MUST id="cpp-format-cpp-comment-fallthru" %} include a comment for falling through a non-empty `case` statement.  For example:
 
-{% highlight c %}
+{% highlight cpp %}
 switch (...) {
     case 1:
         do_something();
@@ -572,7 +583,7 @@ Explicit comparison should be used even if the comparison value will never chang
 
 A frequent trouble spot is using `strcmp` to test for string equality.  You should **never** use a default action.  The preferred approach is to use an inline function:
 
-{% highlight c %}
+{% highlight cpp %}
 inline bool string_equal(char *a, char *b) {
     return (0 == strcmp(a, b));
 }
@@ -581,7 +592,7 @@ inline bool string_equal(char *a, char *b) {
 ~ Should
 {% include requirement/SHOULDNOT id="cpp-embedded-assign" %} use embedded assignments.  There is a time and a place for embedded assignment statements.  In some constructs, there is no better way to accomplish the results without making the code bulkier and less readable.
 
-{% highlight c %}
+{% highlight cpp %}
 while (EOF != (c = getchar())) {
     /* process the character */
 }
@@ -593,24 +604,24 @@ However, one should consider the tradeoff between increased speed and decreased 
 
 {% include requirement/MUSTNOT id="cpp-test-implicit-assign" %} use implicit assignment inside a test.  This is generally an accidental omission of the second `=` of the logical compare. The following is confusing and prone to error.
 
-{% highlight c %}
+{% highlight cpp %}
 if (a = b) { ... }
 {% endhighlight %}
 
 Does the programmer really mean assignment here? Sometimes yes, but usually no. Instead use explicit tests and avoid assignment with an implicit test. The recommended form is to do the assignment before doing the test:
 
-{% highlight c %}
+{% highlight cpp %}
 a = b;
 if (a) { ... }
 {% endhighlight %}
 
-{% include requirement/MUST id="cpp-no-register" %} use the register sparingly to indicate the variables that you think are most critical.  Modern compilers will put variables in registers automatically.  In extreme cases, mark the 2-4 most critical values as `register` and mark the rest as `REGISTER`. The latter can be `#defined` to register on those machines with many registers.
+{% include requirement/MUSTNOT id="cpp-no-register" %} use the register keyword.  Modern compilers will put variables in registers automatically.
 
-{% include requirement/MUST id="cpp-be-const-correct" %} be `const` correct.  C provides the `const` keyword to allow passing as parameters objects that cannot change to indicate when a method doesn't modify its object. Using `const` in all the right places is called "const correctness."
+{% include requirement/MUST id="cpp-be-const-correct" %} be `const` correct.  C++ provides the `const` keyword to allow passing as parameters objects that cannot change to indicate when a method doesn't modify its object. Using `const` in all the right places is called "const correctness."
 
 {% include requirement/MUST id="cpp-use-hashif" %} use `#if` instead of `#ifdef`.  For example:
 
-{% highlight c %}
+{% highlight cpp %}
 // Bad example
 #ifdef DEBUG
     temporary_debugger_break();
@@ -619,13 +630,13 @@ if (a) { ... }
 
 Someone else might compile the code with turned-of debug info like:
 
-{% highlight c %}
+{% highlight cpp %}
 cc -c lurker.cc -DDEBUG=0
 {% endhighlight %}
 
 Alway use `#if` if you have to use the preprocessor. This works fine, and does the right thing, even if `DEBUG` is not defined at all (!)
 
-{% highlight c %}
+{% highlight cpp %}
 // Good example
 #if DEBUG
     temporary_debugger_break();
@@ -634,7 +645,7 @@ Alway use `#if` if you have to use the preprocessor. This works fine, and does t
 
 If you really need to test whether a symbol is defined or not, test it with the `defined()` construct, which allows you to add more things later to the conditional without editing text that's already in the program:
 
-{% highlight c %}
+{% highlight cpp %}
 #if !defined(USER_NAME)
  #define USER_NAME "john smith"
 #endif
@@ -645,7 +656,7 @@ Use `#if` to comment out large code blocks.
 
 Sometimes large blocks of code need to be commented out for testing.  The easiest way to do this is with an `#if 0` block:
 
-{% highlight c %}
+{% highlight cpp %}
 void example()
 {
     great looking code
@@ -662,7 +673,7 @@ You can't use `/**/` style comments because comments can't contain comments and 
 
 Do not use `#if 0` directly.  Instead, use descriptive macro names:
 
-{% highlight c %}
+{% highlight cpp %}
 #if NOT_YET_IMPLEMENTED
 #if OBSOLETE
 #if TEMP_DISABLED
@@ -672,7 +683,7 @@ Always add a short comment explaining why it is commented out.
 
 {% include requirement/MUSTNOT id="cpp-" %} put data definitions in header files.  For example, this should be avoided:
 
-{% highlight c %}
+{% highlight cpp %}
 /* aheader.h */
 int x = 0;
 {% endhighlight %}
@@ -681,7 +692,7 @@ It's bad magic to have space consuming code silently inserted through the innoce
 
 {% include requirement/MUSTNOT id="cpp-no-magic-numbers" %} use magic numbers. A magic number is a bare naked number used in source code. It's magic because no-one will know what it means after a while.  This significantly reduces maintainability. For example:
 
-{% highlight c %}
+{% highlight cpp %}
 // Don't write this.
 if      (22 == foo) { start_thermo_nuclear_war(); }
 else if (19 == foo) { refund_lots_money(); }
@@ -691,7 +702,7 @@ else                { cry_cause_im_lost(); }
 
 Instead of magic numbers, use a real name that means something. You can use `#define`, constants, or enums as names. For example:
 
-{% highlight c %}
+{% highlight cpp %}
 // These are good ideas.
 #define   PRESIDENT_WENT_CRAZY  (22)
 const int WE_GOOFED= 19;
@@ -709,7 +720,7 @@ Prefer `enum` values since the debugger can display the label and value and no m
 
 {% include requirement/MUST id="cpp-check-syscall-errors" %} check every system call for an error return, unless you know you wish to ignore errors. For example, `printf` returns an error code but it is rarely relevant. Cast the return to (void) if you do not care about the error code.
 
-{% highlight c %}
+{% highlight cpp %}
 (void)printf("The return type is ignored");
 {% endhighlight %}
 ~
@@ -717,5 +728,7 @@ Prefer `enum` values since the debugger can display the label and value and no m
 {% include requirement/MUST id="cpp-include-errorstr" %} include the system error text when reporting system error messages.
 
 {% include requirement/MUST id="cpp-check-malloc" %} check every call to `malloc` or `realloc`.
+
+> TODO: This needs to match OOM guideance in the design space
 
 We recommend that you use a library-specific wrapper for memory allocation calls that always do the right thing.
