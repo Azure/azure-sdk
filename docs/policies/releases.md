@@ -8,7 +8,7 @@ sidebar: general_sidebar
 The release policy for the Azure SDK accommodates the need to release different SDK packages based on the ship cycle of the underlying service.
 
 ## Terms
-The terms "SDK", "SDK Component", "library" and "package" are used throughout this document and are defined in the [design guidelines](/general_terminology.html).
+The terms "SDK", "SDK Component", "library" and "package" are used throughout this document and are defined in the [design guidelines](general_terminology.html).
 
 ## Supported Registries
 We release client libraries to the following registries:
@@ -143,7 +143,7 @@ In rare cases where a customer cannot take all the latest patch versions with al
 
 #### JavaScript
 
-The JavaScript community generally follows [SemVer](https://semver.org/). 
+The JavaScript community generally follows [SemVer](https://semver.org/).
 When publishing an npm package, [npm distribution tags](https://docs.npmjs.com/cli/dist-tag) can be specified.
 If none is provided, the `latest` tag gets used by default by the `npm publish` command.
 
