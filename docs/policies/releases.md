@@ -143,16 +143,19 @@ In rare cases where a customer cannot take all the latest patch versions with al
 
 #### JavaScript
 
-The JavaScript community generally follows [SemVer](https://semver.org/). For preview releases, we will release with an [npm distribution tag](https://docs.npmjs.com/cli/dist-tag) in the formats:
+The JavaScript community generally follows [SemVer](https://semver.org/). 
+When publishing an npm package, [npm distribution tags](https://docs.npmjs.com/cli/dist-tag) can be specified.
+If none is provided, the `latest` tag gets used by default by the `npm publish` command.
 
-- `X.Y.Z-dev.YYYYMMDD.r` (`r` is based on the number of builds performed on the given day)
-- `X.Y.Z-preview.N`
+Below are the guidelines for versions and tags to use:
+- GA releases will follow [SemVer](https://semver.org/) and the published package should have the tag `latest`.
+    - If a hotfix is being shipped for a version older than the current GA version, then ensure that the hotfix gets no tags.
+    One way to do this is to use a dummy tag when publishing and deleting the tag afterwards.
+    - If a package has moved from preview to GA, ensure that the `next` tag is deleted.
+- Preview releases will use the format `X.Y.Z-preview.N` for version and the published package should have the tag `next`.
+    - Additionally, use the `@latest` tag **only** if the package has never had a GA release.
+- Daily releases will use the format `X.Y.Z-dev.YYYYMMDD.r` (`r` is based on the number of builds performed on the given day) and the published package will have the tag `dev`.
 
-JavaScript dev and preview releases are published to npm with the `@dev` or `@next` tags.  Use the following:
-
-```bash
-$ npm install @azure/package@next
-```
 
 ##### Incrementing after release (JS)
 

@@ -24,6 +24,8 @@ sidebar: clang_sidebar
 | OSX 10.13.4         | x64          | XCode 9.4.1                             |
 | Windows Server 2016 | x86          | MSVC 14.16.x                            |
 | Windows Server 2016 | x64          | MSVC 14.16.x                            |
+| Windows Server 2016 | x64          | MSVC 14.23.x                            |
+| Windows Server 2016 | x86,x64      | MSVC 14.23.x                            |
 | Debian 9 Stretch    | x64          | gcc-7.x                                 |
 
 > TODO: This is based on versions supported by the Azure IoT SDK for C.  Additional investigation is needed to ensure it is up to date.  We need to make sure the version supported is the latest long term servicing with wide adoption available for each platform.  Suggested additions: RHEL 8 (gcc 8.2.1) and Fedora (30 with gcc 9.1.1) + Alpine.  Windows Server 2016 includes Windows 8 - should we switch?
@@ -58,40 +60,20 @@ hen configuring your client library, particular care must be taken to ensure tha
 
 {% include requirement/MUST id="clang-config-global-overrides" %} allow all global configuration settings to be overridden by client-provided options. The names of these options should align with any user-facing global configuration keys.
 
+{% include requirement/MUSTNOT id="clang-config-defaults-nochange" %} Change the default values of client
+configuration options based on system or program state.
+
+{% include requirement/MUSTNOT id="clang-config-defaults-nobuildchange" %} Change default values of
+client configuration options based on how the client library was built.
+
 {% include requirement/MUSTNOT id="clang-config-behaviour-changes" %} change behavior based on configuration changes that occur after the client is constructed. Hierarchies of clients inherit parent client configuration unless explicitly changed or overridden. Exceptions to this requirement are as follows:
 
 1. Log level, which must take effect immediately across the Azure SDK.
 2. Tracing on/off, which must take effect immediately across the Azure SDK.
 
-### Service-specific environment variables
-
-> TODO: Does it even make sense to use environment variables in C programs?  IoT?
-
-{% include requirement/MUST id="clang-config-envvars-prefix" %} prefix Azure-specific environment variables with `AZURE_`.
-
-{% include requirement/MAY id="clang-config-envvars-use-client-specific" %} use client library-specific environment variables for portal-configured settings which are provided as parameters to your client library. This generally includes credentials and connection details. For example, Service Bus could support the following environment variables:
-
-* `AZURE_SERVICEBUS_CONNECTION_STRING`
-* `AZURE_SERVICEBUS_NAMESPACE`
-* `AZURE_SERVICEBUS_ISSUER`
-* `AZURE_SERVICEBUS_ACCESS_KEY`
-
-Storage could support:
-
-* `AZURE_STORAGE_ACCOUNT`
-* `AZURE_STORAGE_ACCESS_KEY`
-* `AZURE_STORAGE_DNS_SUFFIX`
-* `AZURE_STORAGE_CONNECTION_STRING`
-
-{% include requirement/MUST id="clang-config-envvars-get-approval" %} get approval from the [Architecture Board] for every new environment variable. 
-
-{% include requirement/MUST id="clang-config-envvars-format" %} use this syntax for environment variables specific to a particular Azure service:
-
-* `AZURE_<ServiceName>_<ConfigurationKey>`
-
-where _ServiceName_ is the canonical shortname without spaces, and _ConfigurationKey_ refers to an unnested configuration key for that client library.
-
-{% include requirement/MUSTNOT id="clang-config-envvars-posix-compatible" %} use non-alpha-numeric characters in your environment variable names with the exception of underscore. This ensures broad interoperability.
+{% include requirement/MUSTNOT id="clang-config-noruntime" %} use client library specific runtime 
+configuration such as environment variables or a config file. Keep in mind that many IOT devices
+won't have a filesystem or an "environment block" to read from.
 
 ## Parameter validation
 
@@ -127,7 +109,7 @@ provide a suitable authentication policy that authenticates the HTTP request in 
 
 ## Logging
 
-Client libraries must support robust logging mechanisms so that the consumer can adequately diagnose issues with the method calls and quickly determine whether the issue is in the consumer code, client library code, or service.
+Client libraries must support robust logging mechanisms so that the consumer can adequately diagnose issues and quickly determine whether the issue is in the consumer code, client library code, or service.
 
 In general, our advice to consumers of these libraries is to establish logging in their preferred manner at the `WARNING` level or above in production to capture problems with the application, and this level should be enough for customer support situations.  Informational or verbose logging can be enabled on a case-by-case basis to assist with issue resolution.
 
@@ -151,7 +133,7 @@ In general, our advice to consumers of these libraries is to establish logging i
 
 {% include requirement/MUST id="clang-logging-verbose" %} use the `Verbose` logging level for detailed troubleshooting scenarios. This is primarily intended for developers or system administrators to diagnose specific failures.
 
-{% include requirement/MUST id="clang-logging-no-sensitive-info" %} only log headers and query parameters that are in a service-provided "allow-list" of approved headers and query parameters.  All other headers and query parameters must have their values redacted.
+{% include requirement/MUSTNOT id="clang-logging-exclude" %} log payloads or HTTP header/query parameter values that aren't on the service provided white list.  For header/query parameters not on the white list use the value `<REDACTED>` in place of the real value.
 
 {% include requirement/MUST id="clang-logging-requests" %} log request line and headers as an `Informational` message. The log should include the following information:
 

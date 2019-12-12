@@ -38,10 +38,14 @@ function GetPackageVersions($apiUrl)
         $pv = $packageVersions[$package];
         $pv.Versions += $version;
 
-        ## TODO: Sort based on SemVer and not blindly take the last one
-        #if ($pv.Latest -lt $version) {
-        $pv.Latest = $version
-        #}
+        # Hack for java we need to ignore preview tags because of sorting issues
+        if (!($apiUrl.Contains("-java") -and $version.Contains("-preview"))) {
+
+          ## TODO: Sort based on SemVer and not blindly take the last one
+          #if ($pv.Latest -lt $version) {
+          $pv.Latest = $version
+          #}
+        }
       }
     }
   return $packageVersions
@@ -88,7 +92,6 @@ function Update-java-Packages($packageList, $versions)
     }
 
   }
-  return $table
 }
 
 function Update-js-Packages($packageList, $versions)
@@ -116,7 +119,6 @@ function Update-js-Packages($packageList, $versions)
       Write-Warning "Not updating version for $($pkg.Package) because at least one associated URL is not valid!"
     }
   }
-  return $table
 }
 
 function Update-dotnet-Packages($packageList, $tf)
@@ -144,7 +146,6 @@ function Update-dotnet-Packages($packageList, $tf)
       Write-Warning "Not updating version for $($pkg.Package) because at least one associated URL is not valid!"
     }
   }
-  return $table
 }
 
 function Update-python-Packages($packageList, $tf)
@@ -153,12 +154,8 @@ function Update-python-Packages($packageList, $tf)
   {
     $version = $versions[$pkg.Package].Latest;
 
-    # Need to have an override for an invalid package path for azure-eventhub package lives in sdk/eventhub/azure-eventhubs path. We should fix that.
-    $pkgPath = $pkg.Package
-    if ($pkg.PackagePathOverride -ne $nul) { $pkgPath = $pkg.PackagePathOverride}
-
     $valid = $true;
-    $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-python/tree/{0}_{1}/sdk/{2}/{3}/" -f $pkg.Package, $version, $pkg.RepoPath, $pkgPath))
+    $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-python/tree/{0}_{1}/sdk/{2}/{3}/" -f $pkg.Package, $version, $pkg.RepoPath, $pkg.Package))
     $valid = $valid -and (CheckLink ("https://pypi.org/project/{0}/{1}" -f $pkg.Package, $version))
 
     $pkg.MissingDocs = !(CheckLink ("https://azuresdkdocs.blob.core.windows.net/`$web/python/{0}/{1}/index.html" -f $pkg.Package, $version))
@@ -176,7 +173,6 @@ function Update-python-Packages($packageList, $tf)
       Write-Warning "Not updating version for $($pkg.Package) because at least one associated URL is not valid!"
     }
   }
-  return $table
 }
 
 function Output-Latest-Versions($lang)
