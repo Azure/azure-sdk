@@ -30,28 +30,49 @@ We use GitHub releases as a convenient place to put release notes. The change lo
 
 ## ChangeLog Guidance
 
-We recommend that every package maintain a changelog just as a matter of course. However, there is an additional benefit. Ensuring that a `changelog.md` file is both available and formatted appropriately will result in automatically formatted release notes on each GitHub release.
+Every package MUST maintain a changelog. Ensuring that a `CHANGELOG.md` file is both available and formatted appropriately will result in automatically formatted release notes on each GitHub release.
 
-How?
-
-* **.NET**: extend nuspec to include `changelog.md` in the `.nupkg.`
-* **Android and Java**: add `<packageid>-changelog.md` to the existing artifact list.
-    * Note that the convention here is `<packageIdentifier>.md`. This mirrors the four existing artifacts per package.
-* **Python**: ensure `changelog.md` is present in the `sdist` artifact.
-* **TypeScript**: ensure `changelog.md` is included in the package tarball.
-
-A given `changelog.md` file must follow the below form:
+Changelogs must be named with all caps i.e. `CHANGELOG.md`. A given `CHANGELOG.md` file must follow the below form:
 
 ```
-# <versionSpecifier>
-<content. Do not introduce another L1 header>
+Release History
+=================
+## <versionSpecifier> (Release Marker)
+- <content. Do not introduce another L1 header>
 
 ...
-
-# <older versionSpecifier>
-<content/changes for the older release>
+## <older versionSpecifier> (Release Date)
+- <content/changes for the older release>
 
 ... older release details trail off into history below
+
+```
+General guidance is taken from https://keepachangelog.com/en/1.0.0/
+
+Example Changelog
+```
+Release History
+================
+
+## 12.1.0 (Unreleased)
+### Added
+- check to enforce TokenCredential is used only over HTTPS
+
+### Changed
+- Support using SAS token from connection string
+
+### Fixed
+- Issue where AccountName on BlobUriBuilder would not be populated
+  for non-IP style Uris.
+
+## 12.0.0 (2019-11-25)
+### Breaking Change
+- Added support for the new low-priority node type.
+
+### Renamed
+- Number of operations and models to better align with other client
+  libraries and the .NET Framework Design Guidelines
+- Parallel upload/download performance improvements
 
 ```
 
