@@ -35,10 +35,10 @@ Every package MUST maintain a changelog. Ensuring that a `CHANGELOG.md` file is 
 Changelogs must be named with all caps i.e. `CHANGELOG.md`. A given `CHANGELOG.md` file must follow the below form:
 
 ```
-Release History
-=================
+# Release History
+
 ## <versionSpecifier> (Release Marker)
-- <content. Do not introduce another L1 header>
+- <content. Do not introduce another header at the same level as the versionSpecifier>
 
 ...
 ## <older versionSpecifier> (Release Date)
@@ -51,8 +51,7 @@ General guidance is taken from https://keepachangelog.com/en/1.0.0/
 
 Example Changelog
 ```
-Release History
-================
+# Release History
 
 ## 12.1.0 (Unreleased)
 ### Added
