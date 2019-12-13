@@ -801,3 +801,7 @@ Example:
 
 #endif /* azure_devicetwin_h */
 {% endhighlight %}
+
+## Async
+
+> TODO: We need to talk about async.
