@@ -24,6 +24,8 @@ sidebar: clang_sidebar
 | OSX 10.13.4         | x64          | XCode 9.4.1                             |
 | Windows Server 2016 | x86          | MSVC 14.16.x                            |
 | Windows Server 2016 | x64          | MSVC 14.16.x                            |
+| Windows Server 2016 | x64          | MSVC 14.23.x                            |
+| Windows Server 2016 | x86,x64      | MSVC 14.23.x                            |
 | Debian 9 Stretch    | x64          | gcc-7.x                                 |
 
 > TODO: This is based on versions supported by the Azure IoT SDK for C.  Additional investigation is needed to ensure it is up to date.  We need to make sure the version supported is the latest long term servicing with wide adoption available for each platform.  Suggested additions: RHEL 8 (gcc 8.2.1) and Fedora (30 with gcc 9.1.1) + Alpine.  Windows Server 2016 includes Windows 8 - should we switch?
@@ -43,7 +45,7 @@ Use the appropriate options for each compiler to prevent the use of such extensi
 | Compiler                 | Compiler Flags   |
 |:-------------------------|------------------|
 | gcc                      | `-Wall -Wextra`  |
-| Clang and XCode          | `-Weverything`   |
+| Clang and XCode          | `-Wall -Wextra`   |
 | MSVC                     | `/W4`            |
 
 hen configuring your client library, particular care must be taken to ensure that the consumer of your client library can properly configure the connectivity to your Azure service both globally (along with other client libraries the consumer is using) and specifically with your client library.
@@ -58,40 +60,20 @@ hen configuring your client library, particular care must be taken to ensure tha
 
 {% include requirement/MUST id="clang-config-global-overrides" %} allow all global configuration settings to be overridden by client-provided options. The names of these options should align with any user-facing global configuration keys.
 
+{% include requirement/MUSTNOT id="clang-config-defaults-nochange" %} Change the default values of client
+configuration options based on system or program state.
+
+{% include requirement/MUSTNOT id="clang-config-defaults-nobuildchange" %} Change default values of
+client configuration options based on how the client library was built.
+
 {% include requirement/MUSTNOT id="clang-config-behaviour-changes" %} change behavior based on configuration changes that occur after the client is constructed. Hierarchies of clients inherit parent client configuration unless explicitly changed or overridden. Exceptions to this requirement are as follows:
 
 1. Log level, which must take effect immediately across the Azure SDK.
 2. Tracing on/off, which must take effect immediately across the Azure SDK.
 
-### Service-specific environment variables
-
-> TODO: Does it even make sense to use environment variables in C programs?  IoT?
-
-{% include requirement/MUST id="clang-config-envvars-prefix" %} prefix Azure-specific environment variables with `AZURE_`.
-
-{% include requirement/MAY id="clang-config-envvars-use-client-specific" %} use client library-specific environment variables for portal-configured settings which are provided as parameters to your client library. This generally includes credentials and connection details. For example, Service Bus could support the following environment variables:
-
-* `AZURE_SERVICEBUS_CONNECTION_STRING`
-* `AZURE_SERVICEBUS_NAMESPACE`
-* `AZURE_SERVICEBUS_ISSUER`
-* `AZURE_SERVICEBUS_ACCESS_KEY`
-
-Storage could support:
-
-* `AZURE_STORAGE_ACCOUNT`
-* `AZURE_STORAGE_ACCESS_KEY`
-* `AZURE_STORAGE_DNS_SUFFIX`
-* `AZURE_STORAGE_CONNECTION_STRING`
-
-{% include requirement/MUST id="clang-config-envvars-get-approval" %} get approval from the [Architecture Board] for every new environment variable. 
-
-{% include requirement/MUST id="clang-config-envvars-format" %} use this syntax for environment variables specific to a particular Azure service:
-
-* `AZURE_<ServiceName>_<ConfigurationKey>`
-
-where _ServiceName_ is the canonical shortname without spaces, and _ConfigurationKey_ refers to an unnested configuration key for that client library.
-
-{% include requirement/MUSTNOT id="clang-config-envvars-posix-compatible" %} use non-alpha-numeric characters in your environment variable names with the exception of underscore. This ensures broad interoperability.
+{% include requirement/MUSTNOT id="clang-config-noruntime" %} use client library specific runtime 
+configuration such as environment variables or a config file. Keep in mind that many IOT devices
+won't have a filesystem or an "environment block" to read from.
 
 ## Parameter validation
 
@@ -116,6 +98,10 @@ persist, cache, or reuse security credentials.  Security credentials should be c
 
 If your service implements a non-standard credential system (one that is not supported by Azure Core), then you need to produce an authentication policy for the HTTP pipeline that can authenticate requests given the alternative credential types provided by the client library.
 
+{% include requirement/MUST id="clang-implementing-secure-auth-erase" %} Use a "secure" function to zero authentication or authorization credentials as soon as possible once they are no longer needed. Examples of such functions
+include: `SecureZeroMemory`, `memset_s`, and `explicit_bzero`. Examples of insecure functions include `memset`. An optimizer may notice that the credentials are
+never accessed again, and optimize away the call to `memset`, resulting in the credentials remaining in memory.
+
 {% include requirement/MUST id="clang-implementing-auth-policy" %}
 provide a suitable authentication policy that authenticates the HTTP request in the HTTP pipeline when using non-standard credentials.  This includes custom connection strings, if supported.
 
@@ -123,7 +109,7 @@ provide a suitable authentication policy that authenticates the HTTP request in 
 
 ## Logging
 
-Client libraries must support robust logging mechanisms so that the consumer can adequately diagnose issues with the method calls and quickly determine whether the issue is in the consumer code, client library code, or service.
+Client libraries must support robust logging mechanisms so that the consumer can adequately diagnose issues and quickly determine whether the issue is in the consumer code, client library code, or service.
 
 In general, our advice to consumers of these libraries is to establish logging in their preferred manner at the `WARNING` level or above in production to capture problems with the application, and this level should be enough for customer support situations.  Informational or verbose logging can be enabled on a case-by-case basis to assist with issue resolution.
 
@@ -147,7 +133,7 @@ In general, our advice to consumers of these libraries is to establish logging i
 
 {% include requirement/MUST id="clang-logging-verbose" %} use the `Verbose` logging level for detailed troubleshooting scenarios. This is primarily intended for developers or system administrators to diagnose specific failures.
 
-{% include requirement/MUST id="clang-logging-no-sensitive-info" %} only log headers and query parameters that are in a service-provided "allow-list" of approved headers and query parameters.  All other headers and query parameters must have their values redacted.
+{% include requirement/MUSTNOT id="clang-logging-exclude" %} log payloads or HTTP header/query parameter values that aren't on the service provided white list.  For header/query parameters not on the white list use the value `<REDACTED>` in place of the real value.
 
 {% include requirement/MUST id="clang-logging-requests" %} log request line and headers as an `Informational` message. The log should include the following information:
 
@@ -487,6 +473,16 @@ In general, clang-format will format your code correctly and ensure consistency.
 
 {% include requirement/MUST id="clang-format-clang-loops" %} place all conditional or loop statements on one line, or add braces to identify the conditional/looping block.
 
+{%highlight c %}
+if (meow == 0) purr += 1; // OK
+if (meow == 0) {
+    purr += 1; // OK
+}
+if (meow == 0) { purr += 1; } // OK (although will probably be changed by clang-format)
+if (meow == 0)
+    purr += 1; // NOT OK
+{% endhighlight %}
+
 {% include requirement/MUST id="clang-format-clang-closing-braces" %} add comments to closing braces.  Adding a comment to closing braces can help when you are reading code because you don't have to find the begin brace to know what is going on.
 
 {% highlight c %}
@@ -500,7 +496,7 @@ while (1) {
 } /* end forever */
 {% endhighlight %}
 
-{% include requirement/MUST id="clang-format-clang-closing-endif" %} add comments to closing preprocessor to make it easier to understand it.  For example:
+{% include requirement/MUST id="clang-format-clang-closing-endif" %} add comments to closing preprocessor directives to make them easier to understand.  For example:
 
 {% highlight c %}
 #if _BEGIN_CODE_
@@ -512,28 +508,10 @@ while (1) {
 #endif /* _BEGIN_CODE_ */
 {% endhighlight %}
 
-{% include requirement/MUST id="clang-format-clang-space-kw" %} place a space between a keyword and a following paren.
-
-
-{% include requirement/MUST id="clang-format-clang-space-func" %} place parens next to function names.
 
 {% include requirement/SHOULDNOT id="clang-format-clang-space-return" %} use parens in return statements when it isn't necessary.
 
-{% include requirement/MUST id="clang-format-clang-ifelse" %} place each segment of an `if`/`then`/`else` statement on a separate line if you have a block.  If you include `else if` statements, ensure you also add an `else` block for finding unhandled cases.
-
-For example:
-
-{% highlight c %}
-if (valid) {
-    ...
-} /* if valid */
-else {
-
-} /* not valid */
-{% endhighlight %}
-
-{% include requirement/MUST id="clang-format-clang-yoda" %} place the constant on the left hand side of an eqality/inequality comparison (yoda style).  For example, `if (6 == errNum) ...`.
-~
+{% include requirement/MUST id="clang-format-clang-no-yoda" %} place constants on the right of comparisons. For example `if (a == 0)` and not `if (0 == a)`
 
 {% include requirement/MUST id="clang-format-clang-comment-fallthru" %} include a comment for falling through a non-empty `case` statement.  For example:
 
@@ -561,7 +539,10 @@ switch (...) {
 
 ## Complexity Management
 
-{% include requirement/MUST id="clang-init-all-vars" %} initialize all variables. Use compiler flags (such as `gcc -Wall` or `cl.exe /W4`) to catch operations on uninitialized variables.
+{% include requirement/SHOULD id="clang-init-all-vars" %} Initialize all variables. Only leave them
+uninitialized if there is a real performance reason to do so. Use static and dynamic analysis tools to
+check for uninitialized access. You may leave "result" variables uninitialized so long as they clearly do
+not escape from the innermost lexical scope. 
 
 {% include requirement/SHOULD id="clang-function-size" %} limit function bodies to one page of code (40 lines, approximately).
 

@@ -1,0 +1,50 @@
+trigger:
+- master
+
+variables:
+  BranchName: PackageVersionUpdates
+  CommitMsg: "Update package index with latest published versions"
+  RepoOwner: Azure
+  RepoName: azure-sdk
+
+pool:
+  vmImage: 'windows-2019'
+
+steps:
+- pwsh: |
+    ./eng/scripts/Update-Release-Versions.ps1
+  displayName: Update versions locally
+
+- pwsh: |
+    echo "git diff --exit-code"
+    git diff --exit-code
+
+    if ($LastExitCode -ne 0) {
+      echo "##vso[task.setvariable variable=HasChanges]$true"
+      echo "Changes detected so setting HasChanges=true"
+    }
+    else {
+      echo "No changes so skipping code push"
+    }
+
+  displayName: "Check for changes"
+  ignoreLASTEXITCODE: true
+
+- script: |
+    echo "git checkout -B $(BranchName)"
+    git checkout -B $(BranchName)
+
+    echo "git -c user.name=""azure-sdk"" -c user.email=""azuresdk@microsoft.com"" commit -am ""$(CommitMsg)"""
+    git -c user.name="azure-sdk" -c user.email="azuresdk@microsoft.com" commit -am "$(CommitMsg)"
+
+    echo "git push https://$(GH_TOKEN)@github.com/$(RepoOwner)/$(RepoName).git -f $(BranchName)"
+    git push https://$(GH_TOKEN)@github.com/$(RepoOwner)/$(RepoName).git -f $(BranchName)
+
+  displayName: Push changes
+  condition: and(succeeded(), eq(variables['HasChanges'], 'true'))
+
+- pwsh: |
+    ./eng/scripts/Submit-PullRequest.ps1 -RepoOwner "$(RepoOwner)" -RepoName "$(RepoName)" -BaseBranch "master" -PROwner "$(RepoOwner)" -PRBranch "$(BranchName)" -AuthToken "$(GH_TOKEN)" -PRTitle "$(CommitMsg)"
+
+  displayName: Create pull request
+  condition: and(succeeded(), eq(variables['HasChanges'], 'true'))

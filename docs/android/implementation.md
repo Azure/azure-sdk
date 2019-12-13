@@ -106,11 +106,11 @@ The HTTP pipeline consists of a HTTP transport that is wrapped by multiple polic
 
 When implementing authentication, don't open up the consumer to security holes like PII (personally identifiable information) leakage or credential leakage. Credentials are generally issued with a time limit, and must be refreshed periodically to ensure that the service connection continues to function as expected. Ensure your client library follows all current security recommendations and consider an independent security review of the client library to ensure you're not introducing potential security problems for the consumer.
 
-{% include requirement/MUSTNOT id="android-auth-never-persist" %} persist, cache, or reuse security credentials. Security credentials should be considered short lived to cover both security concerns and credential refresh situations. 
+{% include requirement/MUSTNOT id="android-auth-never-persist" %} persist, cache, or reuse security credentials. Security credentials should be considered short lived to cover both security concerns and credential refresh situations.
 
 If your service implements a non-standard credential system (that is, a credential system that is not supported by Azure Core), then you need to produce an authentication policy for the HTTP pipeline that can authenticate requests given the alternative credential types provided by the client library.
 
-{% include requirement/MUST id="android-auth-policy" %} provide a suitable authentication policy that authenticates the HTTP request in the HTTP pipeline when using non-standard credentials. 
+{% include requirement/MUST id="android-auth-policy" %} provide a suitable authentication policy that authenticates the HTTP request in the HTTP pipeline when using non-standard credentials.
 
 {% include requirement/MUSTNOT id="andorid-auth-connection-strings" %} support connection strings.  They are insecure within the context of an Android mobile app.
 
@@ -122,15 +122,15 @@ Native code plugins cause compatibility issues and require additional scrutiny. 
 
 ## Error handling
 
-Error handling is an important aspect of implementing a client library. It is the primary method by which problems are communicated to the consumer. There are two methods by which errors are reported to the consumer. Either the method throws an exception, or the method returns an error code (or value) as its return value, which the consumer must then check. In this section we refer to "producing an error" to mean returning an error value or throwing an exception, and "an error" to be the error value or exception object. 
+Error handling is an important aspect of implementing a client library. It is the primary method by which problems are communicated to the consumer. There are two methods by which errors are reported to the consumer. Either the method throws an exception, or the method returns an error code (or value) as its return value, which the consumer must then check. In this section we refer to "producing an error" to mean returning an error value or throwing an exception, and "an error" to be the error value or exception object.
 
 {% include requirement/SHOULD id="android-errors-prefer-exceptions" %} prefer the use of exceptions over returning an error value when producing an error.
 
 {% include requirement/MUST id="android-errors-for-failed-request" %} produce an error when any HTTP request fails with an HTTP status code that is not defined by the service/Swagger as a successful status code. These errors should also be logged as errors.
 
-{% include requirement/MUST id="android-errors-use-unchecked-exceptions" %} use unchecked exceptions for HTTP requests. Java offers checked and unchecked exceptions, where checked exceptions force the user to introduce verbose `try .. catch` code blocks and handle each specified exception. Unchecked exceptions avoid verbosity and improve scalability issues inherent with checked exceptions in large apps. 
+{% include requirement/MUST id="android-errors-use-unchecked-exceptions" %} use unchecked exceptions for HTTP requests. Java offers checked and unchecked exceptions, where checked exceptions force the user to introduce verbose `try .. catch` code blocks and handle each specified exception. Unchecked exceptions avoid verbosity and improve scalability issues inherent with checked exceptions in large apps.
 
-{% include requirement/MUST id="android-errors-contents" %} ensure that the error produced contains the HTTP response (including status code and headers) and originating request (including URL, query parameters, and headers). 
+{% include requirement/MUST id="android-errors-contents" %} ensure that the error produced contains the HTTP response (including status code and headers) and originating request (including URL, query parameters, and headers).
 
 In the case of a higher-level method that produces multiple HTTP requests, either the last exception or an aggregate exception of all failures should be produced.
 
@@ -172,7 +172,7 @@ In the case of a higher-level method that produces multiple HTTP requests, eithe
 
 Client libraries must support robust logging mechanisms so that the consumer can adequately diagnose issues with the method calls and quickly determine whether the issue is in the consumer code, client library code, or service.
 
-{% include requirement/MUST id="android-logging-clientlogger" %} use the `ClientLogger` API provided within Azure Core as the sole logging API throughout all client libraries. Internally, `ClientLogger` logs to the ADB console. 
+{% include requirement/MUST id="android-logging-clientlogger" %} use the `ClientLogger` API provided within Azure Core as the sole logging API throughout all client libraries. Internally, `ClientLogger` logs to the ADB console.
 
 {% include requirement/MUST id="android-logging-create-new" %} create a new instance of a `ClientLogger` per instance of all relevant classes. For example, the code below will create a `ClientLogger` instance for the `ConfigurationAsyncClient`:
 
@@ -229,7 +229,7 @@ if (priority != null && priority < 0) {
 
 Distributed tracing mechanisms allow the consumer to trace their code from frontend to backend.  The distributed tracing library creates spans - units of unique work.  Each span is in a parent-child relationship.  As you go deeper into the hierarchy of code, you create more spans.  These spans can then be exported to a suitable receiver as needed.  To keep track of the spans, a _distributed tracing context_ (called a context in the remainder of this section) is passed into each successive layer.  For more information on this topic, visit the [OpenTelemetry] topic on tracing.
 
-The Azure core library provides a service provider interface (SPI) for adding pipeline policies at runtime. The pipeline policy is used to enable tracing on consumer deployments. Pluggable pipeline policies must be supported in all client libraries to enable distributed tracing. Additional metadata can be specified on a per-service-method basis to provide a richer tracing experience for consumers.  
+The Azure core library provides a service provider interface (SPI) for adding pipeline policies at runtime. The pipeline policy is used to enable tracing on consumer deployments. Pluggable pipeline policies must be supported in all client libraries to enable distributed tracing. Additional metadata can be specified on a per-service-method basis to provide a richer tracing experience for consumers.
 
 {% include requirement/MUST id="android-tracing-pluggable" %} support pluggable pipeline policies as part of the HTTP pipeline instantiation.
 
@@ -270,9 +270,9 @@ Some of these requirements will be handled by the HTTP pipeline.  However, as a 
 
 ## Dependencies
 
-Dependencies bring in many considerations that are often easily avoided by avoiding the dependency. 
+Dependencies bring in many considerations that are often easily avoided by avoiding the dependency.
 
-- **Versioning** - Many programming languages do not allow a consumer to load multiple versions of the same package. So, if we have an client library that requires v3 of package Foo and the consumer wants to use v5 of package Foo, then the consumer cannot build their application. This means that client libraries should not have dependencies by default. 
+- **Versioning** - Many programming languages do not allow a consumer to load multiple versions of the same package. So, if we have an client library that requires v3 of package Foo and the consumer wants to use v5 of package Foo, then the consumer cannot build their application. This means that client libraries should not have dependencies by default.
 - **Size** - Consumer applications must be able to deploy as fast as possible into the cloud and move in various ways across networks. Removing additional code (like dependencies) improves deployment performance.
 - **Licensing** - You must be conscious of the licensing restrictions of a dependency and often provide proper attribution and notices when using them.
 - **Compatibility** - Often times you do not control a dependency and it may choose to evolve in a direction that is incompatible with your original use.
@@ -283,8 +283,6 @@ Dependencies bring in many considerations that are often easily avoided by avoid
 {% include requirement/MUSTNOT id="android-dependencies-approved" %} be dependent on any other packages within the client library distribution package, with the exception of the following:
 
 {% include_relative approved_dependencies.md %}
-
-Dependency versions are purposefully not specified in this table. The definitive source for the dependency versions being used in all client libraries is the [azure-sdk-for-android/parent/pom.xml] file. Transitive dependencies of these libraries, or dependencies that are part of a family of dependencies, are allowed.
 
 {% include requirement/MUSTNOT id="android-dependencies-introduction" %} introduce new dependencies on third-party libraries that are already referenced from the parent POM, without first discussing with the [Architecture Board].
 

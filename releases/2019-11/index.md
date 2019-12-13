@@ -10,5 +10,5 @@ permalink: /releases/2019-11/index.html
 
 * [.NET]({{ site.baseurl }}{% link releases/2019-11/2019-11-dotnet.md %})
 * [Java]({{ site.baseurl }}{% link releases/2019-11/2019-11-java.md %})
+* [JavaScript]({{ site.baseurl }}{% link releases/2019-11/2019-11-js.md %})
 * [Python]({{ site.baseurl }}{% link releases/2019-11/2019-11-python.md %})
-* [TypeScript]({{ site.baseurl }}{% link releases/2019-11/2019-11-js.md %})

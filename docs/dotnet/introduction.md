@@ -584,7 +584,7 @@ Consider 5+ models to be "large".  The types that the user needs should be easy 
 
 ### Error Reporting {#dotnet-errors}
 
-{% include requirement/MUST id="dotnet-errors-response-failed" %} throw ```ResponseFailedException``` or its subtype when a service method fails with non-success status code.
+{% include requirement/MUST id="dotnet-errors-response-failed" %} throw `RequestFailedException` or its subtype when a service method fails with non-success status code.
 
 The exception is available in ```Azure.Core``` package:
 ```csharp
@@ -603,20 +603,19 @@ The exception message should contain detailed response information.  For example
 
 ```csharp
 if (response.Status != 200) {
-    ResponseFailedException e = await response.CreateRequestFailedExceptionAsync(message);
-    throw e;
+    throw await response.CreateRequestFailedExceptionAsync(message);
 }
 ```
 
-{% include requirement/MUST id="dotnet-errors-use-response-failed-when-possible" %} use `ResponseFailedException` or one of its subtypes where possible.
+{% include requirement/MUST id="dotnet-errors-use-response-failed-when-possible" %} use `RequestFailedException` or one of its subtypes where possible.
 
-Don't introduce new exception types unless there's a programmatic scenario for handling the new exception that's different than `ResponseFailedException`
+Don't introduce new exception types unless there's a programmatic scenario for handling the new exception that's different than `RequestFailedException`
 
 ### Logging
 
-Request logging will be done automatically by the `HttpPipeline`.  If a client library needs to add custom logging, follow the [same guidelines](../implementation.md#general-logging) and mechanisms as the pipeline logging mechanism.  If a client library wants to do custom logging, the designer of the library must ensure that the logging mechanism is pluggable in the same way as the `HttpPipeline` logging policy.
+Request logging will be done automatically by the `HttpPipeline`.  If a client library needs to add custom logging, follow the [same guidelines](implementation.md#general-logging) and mechanisms as the pipeline logging mechanism.  If a client library wants to do custom logging, the designer of the library must ensure that the logging mechanism is pluggable in the same way as the `HttpPipeline` logging policy.
 
-{% include requirement/MUST id="dotnet-logging-follow-guidelines" %} follow [the logging section of the Azure SDK General Guidelines](../implementation.md#general-logging) if logging directly (as opposed to through the `HttpPipeline`).
+{% include requirement/MUST id="dotnet-logging-follow-guidelines" %} follow [the logging section of the Azure SDK General Guidelines](implementation.md#general-logging) if logging directly (as opposed to through the `HttpPipeline`).
 
 #### Distributed Tracing {#dotnet-distributedtracing}
 
@@ -673,17 +672,22 @@ Use a constructor parameter called `version` on the client options type.
 * The `version` parameter must be the first parameter to all constructor overloads.
 * The `version` parameter must be required, and default to the latest supported service version.
 * The type of the `version` parameter must be `ServiceVersion`; an enum nested in the options type.
-* The `ServiceVersion` enum must use explicit values.
+* The `ServiceVersion` enum must use explicit values starting from 1. 
+* `ServiceVersion` enum value 0 is reserved. When 0 is passed into APIs, ArgumentException should be thrown.
 
 For example, the following is a code snippet from the `ConfigurationClientOptions`:
 
 ```csharp
 public class ConfigurationClientOptions : HttpPipelineOptions {
 
-    public ConfigurationClientOptions(ServiceVersion version = ServiceVersion.V2019_05_09)
+    public ConfigurationClientOptions(ServiceVersion version = ServiceVersion.V2019_05_09) {
+        if (version == default) 
+            throw new ArgumentException($"The service version {version} is not supported by this library.");
+        }
+    }
 
     public enum ServiceVersion {
-        V2019_05_09 = 0,
+        V2019_05_09 = 1,
     }
     ...
 }
@@ -799,7 +803,10 @@ public virtual async Task<Response<ConfigurationSetting>> AddAsync(Configuration
             // deserialize content
             Response<ConfigurationSetting> result = await CreateResponse(response, cancellationToken);
         }
-        else throw new ResponseFailedException(response);
+        else
+        {
+            throw await response.CreateRequestFailedExceptionAsync(message);
+        }
     }
 }
 ```
