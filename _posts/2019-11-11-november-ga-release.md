@@ -6,7 +6,7 @@ sidebar: releases_sidebar
 repository: azure/azure-sdk
 ---
 
-The Azure SDK team is pleased to announce the Novemeber 2019 release of the Azure client libraries.  We have some libraries that have reached General Availability and others that we have provided a new preview.
+The Azure SDK team is pleased to announce the November 2019 release of the Azure client libraries.  We have some libraries that have reached General Availability and others that we have provided a new preview.
 
 The following libraries have reached our general availability level.  This requires support from all four languages (.NET, Java, Python, and TypeScript).
 
