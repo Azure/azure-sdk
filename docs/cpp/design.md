@@ -184,6 +184,34 @@ This encourages use of resource managing types like std::unique_ptr (which imple
 
 {% include requirement/MUST id="cpp-design-initialize-all-data" %} provide types which are usable when default-initialized. (That is, every constructor must initialize all type invariants, not assume members have default values of 0 or similar.)
 
+{% highlight cpp %}
+class type_with_invariants {
+    int member;
+public:
+    type_with_invariants() : member(0) {} // Good: initializes all parts of the object
+    int next() {
+        return member++;
+    }
+};
+
+class bad_type_with_invariants {
+    int member;
+public:
+    type_with_invariants() {} // Bad: Does not initialize all parts of the object
+    int next() {
+        return member++;
+    }
+};
+
+void the_customer_code() {
+    type_with_invariants a{}; // value-initializes a type_with_invariants, OK
+    type_with_invariants b; // default-initializes a type_with_invariants, we want this to be OK
+    bad_type_with_invariants c{}; // value-initializes a bad_type_with_invariants, OK
+    bad_type_with_invariants d; // default-initializes a bad_type_with_invariants, this will trigger
+                                // undefined behavior if anyone calls d.next()
+}
+{% endhighlight %}
+
 {% include requirement/SHOULD id="cpp-design-naming-struct-definition" %} define structs and classes without using typedefs.  Name the struct and typedef according to the normal naming for types.  For example:
 
 {% highlight cpp %}
