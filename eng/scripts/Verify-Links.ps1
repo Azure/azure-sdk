@@ -64,7 +64,7 @@ foreach ($link in $links)
   }
   catch
   {
-    if (!$ignoreLinks.Contains($link))
+    if ($null -eq $ignoreLinks -or !$ignoreLinks.Contains($link))
     {
       $statusCode = $_.Exception.Response.StatusCode.value__
       LogWarning "Invalid link[$statusCode] $linkUri"
