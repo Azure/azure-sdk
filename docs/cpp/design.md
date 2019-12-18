@@ -73,19 +73,16 @@ Here are some namespaces that do not meet the guidelines:
 
 ### Variables
 
-> TODO: Do we want to keep this rule in C++?
-
-{% include requirement/MUST id="cpp-design-naming-starpos" %} place the `*` next to the variable name to indicate a pointer type.
-
+{% include requirement/MUST id="cpp-design-typing-units" %} use types to enforce units where possible. For example, the C++ standard library provides `std::chrono` which makes time conversions automatic.
 {% highlight cpp %}
 // Bad
-char* name = NULL;
+uint32 timeout;
 
 // Good
-char *name = NULL;
+std::chrono::milliseconds timeout;
 {% endhighlight %}
 
-{% include requirement/MUST id="cpp-design-naming-units" %} include units in names.  If a variable represents time, weight, or some other unit, then include the unit in the name so developers can more easily spot problems.  For example:
+{% include requirement/MUST id="cpp-design-naming-units" %} include units in names when a type based solution to enforce units is not present.  If a variable represents weight, or some other unit, then include the unit in the name so developers can more easily spot problems.  For example:
 
 {% highlight cpp %}
 // Bad
@@ -93,7 +90,7 @@ uint32 timeout;
 uint32 my_weight;
 
 // Good
-uint32 timeout_msecs;
+std::chrono::milliseconds timeout;
 uint32 my_weight_kg;
 {% endhighlight %}
 
@@ -131,24 +128,9 @@ namespace {
 
 ### Globals
 
-{% include requirement/SHOULDNOT id="cpp-design-naming-no-globals" %} use global variables.  If a global variable is absolutely necessary:
-
-* Declare the global at the top of your file in your service's namespace.
-* Name the global `g_<svcname>_<globalname>`.
-
-{% include requirement/MUST id="cpp-design-naming-global-const" %} name global constants using all upper-case, with the `AZ_` prefix, and with snake-casing.  For example:
-
-{% highlight cpp %}
-// Bad
-const int Global_Foo = 5;
-
-// Good
-const int AZ_CATHERD_TIMEOUT_MSEC = 5;
-{% endhighlight %}
+{% include requirement/SHOULDNOT id="cpp-design-naming-no-globals" %} use global non-constant variables.
 
 ### Structs and Classes
-
-> TODO: Review
 
 > TODO: Should we use a meaningful prefix for each member name or for structures in general?
 
@@ -205,21 +187,20 @@ This encourages use of resource managing types like std::unique_ptr (which imple
 {% include requirement/SHOULD id="cpp-design-naming-struct-definition" %} define structs and classes without using typedefs.  Name the struct and typedef according to the normal naming for types.  For example:
 
 {% highlight cpp %}
+// Good: Uses C++ style class declaration:
 struct iot_client {
     char *api_version;
     iot_client_credentials *credentials;
     int retry_timeout;
 };
 
-// Less preferred: Uses C-style typedef.
+// Bad: Uses C-style typedef:
 typedef struct iot_client {
     char *api_version;
     iot_client_credentials *credentials;
     int retry_timeout;
 } az_iot_client;
 {% endhighlight %}
-
-> TODO: REVIEW
 
 {% include requirement/MUST id="cpp-design-no-getters-or-setters" %} define getters and setters for data transfer objects.  Expose the members directly to users unless you need to enforce some constraints on the data.  For example:
 {% highlight cpp %}
@@ -306,8 +287,6 @@ enum PinStateType {
 
 Enums do not have a guaranteed size.  If you have a type that can take a known range of values and it is transported in a message, you cannot use an enum as the type.
 
-> TODO: Is this relevant in C++?
-
 {% include requirement/MUST id="cpp-design-naming-enum-errors" %} use the first label within an enum for an error state, if it exists.
 
 {% highlight cpp %}
@@ -320,8 +299,6 @@ enum ServiceState {
 {% endhighlight %}
 
 ### Functions
-
-> TODO: Note _details applied from most recent meeting
 
 {% include requirement/MUST id="cpp-design-naming-funcname" %} name functions with all-lowercase.  If part of the public API, place them in your SDK's namespace.  If not, place the API in a "_details" namespace. For example:
 
@@ -653,7 +630,6 @@ Although object-orientated languages can eschew low-level pagination APIs in fav
 {% include requirement/MUST id="cpp-size-of-page" %} indicate in the return type how many items were returned by the service, and have a list of those items for the consumer to iterate over.
 
 ## Error handling
-> TODO: Review all this
 
 Error handling is an important aspect of implementing a client library. It is the primary method by which problems are communicated to the consumer. Because we intend for the C client libraries to be used on a wide range of devices with a wide range of reliability requirements, it's important to provide robust error handling.
 
@@ -666,7 +642,7 @@ We distinguish between several different types of errors:
 * Post-Conditions
     : Post-Condition violations happen when some function didn't do the correct thing, these are _always_ bugs in the function itself, and users shouldn't be expected to handle them.
 * Heap Exhaustion (Out of Memory)
-    : Running out of memory. Depending on the API, this may be treated like an ordinary exhaustion condition, or it may be a recovertable error
+    : Running out of memory.
 * Recoverable Error
     : Things like trying to open a file that doesn't exist, or trying to write to a full disk. These kinds of errors can usually be handled by a function's caller directly, and need to be considered by callers that want to be robust.
 
@@ -699,41 +675,42 @@ Note: if your client library needs to be resilient to these kinds of errors you 
 
 #### Heap Exhaustion (Out of Memory)
 
-{% include requirement/MAY id="cpp-error-oom-crash" %} crash. Note that on some comonly deployed platforms like Linux, handling heap exhaustion from user mode is not possible in a default configuration.
+{% include requirement/MAY id="cpp-error-oom-crash" %} crash. For example, this may mean dereferencing a nullptr returned by malloc, or explicitly checking and calling abort.
 
-> TODO: Do we want to explicitly allow crashing by dereferencing nullptr? That will always crash on some machines but not others.
+Note that on some comonly deployed platforms like Linux, handling heap exhaustion from user mode is not possible in a default configuration.
 
-{% include requirement/MAY id="cpp-error-oom-bad-alloc" %} throw a C++ exception of type `std::bad_alloc` when encountering an out of memory condition. Note that most standard library facilities and the built in `operator new` do this automatically.
+{% include requirement/MAY id="cpp-error-oom-bad-alloc" %} propagate a C++ exception of type `std::bad_alloc` when encountering an out of memory condition. We do not expect the program to continue in a recoverable state after this occurs. Note that most standard library facilities and the built in `operator new` do this automatically, and we want to allow use of other facilities that may throw here.
+
+{% include requirement/MUSTNOT id="cpp-error-oom-throw" %} throw bad_alloc from the SDK code itself.
 
 #### Recoverable errors
 
-> TODO: Are we going to define our own exception hierarchy? This section is currently unmodified from the C guidelines.
+{% include requirement/MUST id="cpp-error-recov-reporting" %} report errors by throwing C++ exceptions.
 
-{% include requirement/MUST id="cpp-error-recov-reporting" %} report errors via an error code enum. The core library defines such an enum called `az_result`.
+> TODO: The Core library needs to provide exceptions for the common failure modes, e.g. the same values as `az_result` in the C SDK.
 
 For example:
 
 {% highlight cpp %}
-AZ_NODISCARD az_result az_catherding_count_cats(az_catherding_herd* herd, int* cats) {
-  if(herd->has_shy_cats) {
-    return AZ_RESULT_CATHERDING_HIDING_CATS;
+class herd {
+  bool has_shy_cats;
+public:
+  void count_cats(int* cats) {
+    if(this->has_shy_cats) {
+      throw std::runtime_error("shy cats are not allowed");
+    }
+    *cats = this->num_cats;
   }
-  *cats = herd->num_cats;
-  return AZ_OK;
-}
+};
 {% endhighlight %}
-
-{% include requirement/MUST id="cpp-error-recov-nodiscard" %} mark all functions returning errors as `AZ_NODISCARD`. This will cause supported compilers to emit a warning if the caller ignores the error code.
-
-{% include requirement/MUST id="cpp-error-recov-success" %} return `AZ_OK` or `AZ_RESULT_MEOW` from successful functions, unless the function has no error conditions.
 
 {% include requirement/MUST id="cpp-error-recov-error" %} produce a recoverable error when any HTTP request fails with an HTTP status code that is not defined by the service/Swagger as a successful status code.
 
-{% include requirement/MUST id="cpp-error-recov-document" %} document all recoverable errors each function generates.
+{% include requirement/MUST id="cpp-error-recov-document" %} document all exceptions each function and its transitive dependencies may throw, except for `std::bad_alloc`.
 
 ## Support for non-HTTP protocols
 
-> TODO: Implement gneral guidelines for non-HTTP protocols
+> TODO: Implement general guidelines for non-HTTP protocols
 
 ## Memory management
 
@@ -804,4 +781,4 @@ Example:
 
 ## Async
 
-> TODO: We need to talk about async.
+> TODO: We need to talk about async more.
