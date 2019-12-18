@@ -8,6 +8,8 @@ sidebar: cpp_sidebar
 
 {% include draft.html content="The C++ Language guidelines are in DRAFT status" %}
 
+> TODO: Do we want all examples to follow all guidelines (e.g. namespaces, noexcept, nodiscard, etc.) or would we prefer to highlight only that which an individual guideline is talking about?
+
 The API surface of your client library must have the most thought as it is the primary interaction that the consumer has with your service.
 
 ## Namespaces
@@ -135,6 +137,8 @@ namespace {
 > TODO: Should we use a meaningful prefix for each member name or for structures in general?
 
 {% include requirement/MUST id="cpp-design-naming-classname" %} name class types with all-lowercase.  If part of the public API, place them in your SDK's namespace.  If not, place the API in a "_details" namespace. For example:
+
+> TODO: Investigate if we can use nested namespace declarations like this on all the supported compilers in the Implementation section.
 
 {% highlight cpp %}
 namespace azure::group::api {
