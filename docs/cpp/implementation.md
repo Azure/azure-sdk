@@ -29,6 +29,8 @@ sidebar: cpp_sidebar
 | Red Hat Enterprise Linux 7      | x64          | ???                                     |
 | SUSE Linux Enterprise Server 12 | x64          | ???                                     |
 
+> TODO: Get licenses for RHEL7 and SLES 12 to Bill so that he can collect this data
+> TODO: Azure Native SDKs team to set those two and Debian in a lab somewhere?
 > TODO: Get the default compiler versions on RHEL7 and SLES12
 
 {% include requirement/SHOULDNOT id="cpp-cpp-extensions" %} use compiler extensions.  Examples of extensions to avoid include:
