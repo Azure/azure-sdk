@@ -625,7 +625,7 @@ Request logging will be done automatically by the `HttpPipeline`.  If a client l
 
 {% include requirement/MUST id="dotnet-packaging-nuget" %} package all components as NuGet packages.
 
-If your client library is built by the Azure SDK engineering systems, all packaging requirements will be met automatically. Follow the [.NET packaging guidelines](https://docs.microsoft.com/en-us/dotnet/standard/library-guidance/nuget) if you're self-publishing. For Microsoft owned packages we need to support both windows (for windows dump diagnostics) and portable (for x-platform debugging) pdb formats which means you need to publish them to the Microsoft symbol server because the Nuget symbol server only supports portable pdbs. 
+If your client library is built by the Azure SDK engineering systems, all packaging requirements will be met automatically. Follow the [.NET packaging guidelines](https://docs.microsoft.com/en-us/dotnet/standard/library-guidance/nuget) if you're self-publishing. For Microsoft owned packages we need to support both windows (for windows dump diagnostics) and portable (for x-platform debugging) pdb formats which means you need to publish them to the Microsoft symbol server and not the Nuget symbol server which only supports portable pdbs. 
 
 {% include requirement/MUST id="dotnet-packaging-naming" %} name the package based on the name of the main namespace of the component.
 
