@@ -331,6 +331,12 @@ Version 3.7 is the minimum version installed on the Azure Pipelines Microsoft ho
 
 Include other targets as they appear useful during the development process.
 
+{% include requirement/SHOULD id="clang-tooling-minimize-variants" %} Minimize build variants.
+In particular do not add build options that change the client library ABI or API unless absolutely
+nessassarly. If nessassarly prefer options that strictly add functionality.
+
+
+
 > TODO: Should we advise using valgrind, cppcheck, or other analysis tools (static or dynamic)?
 
 {% include requirement/MUST id="clang-tooling-cmake-settings1" %} use hidden visibility when building dynamic libraries. For CMake:
