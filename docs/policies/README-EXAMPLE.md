@@ -37,7 +37,7 @@ az cosmosdb create --resource-group <resource-group-name> --name <cosmos-account
 
 ### Authenticate the client
 
-Interaction with Cosmos DB starts with an instance of the CosmosClient class. You need an **account**, its **URI**, and one of its **account keys** to instantiate the client object.
+Interaction with Cosmos DB starts with an instance of the `CosmosClient` class. You need an **account**, its **URI**, and one of its **account keys** to instantiate the client object.
 
 #### Get credentials
 
@@ -53,7 +53,7 @@ export ACCOUNT_KEY=$(az cosmosdb list-keys --resource-group $RES_GROUP --name $A
 
 #### Create client
 
-Once you've populated the `ACCOUNT_URI` and `ACCOUNT_KEY` environment variables, you can create the CosmosClient.
+Once you've populated the `ACCOUNT_URI` and `ACCOUNT_KEY` environment variables, you can create the `CosmosClient`.
 
 ```Python
 from azure.cosmos import HTTPFailure, CosmosClient, Container, Database, PartitionKey
@@ -66,7 +66,7 @@ client = CosmosClient(url, key)
 
 ## Key concepts
 
-Once you've initialized a CosmosClient, you can interact with the primary resource types in Cosmos DB:
+Once you've initialized a `CosmosClient`, you can interact with the primary resource types in Cosmos DB:
 
 * Database: A Cosmos DB account can contain multiple databases. When you create a database, you specify the API you'd like to use when interacting with its documents: SQL, MongoDB, Gremlin, Cassandra, or Azure Table. Use the Database object to manage its containers.
 
@@ -88,7 +88,7 @@ The following sections provide several code snippets covering some of the most c
 
 ### Create a database
 
-After authenticating your CosmosClient, you can work with any resource in the account. The code snippet below creates a SQL API database, which is the default when no API is specified when create_database is invoked.
+After authenticating your `CosmosClient`, you can work with any resource in the account. The code snippet below creates a SQL API database, which is the default when no API is specified when create_database is invoked.
 
 ```Python
 database_name = 'testDatabase'
