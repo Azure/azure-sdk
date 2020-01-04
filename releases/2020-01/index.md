@@ -1,5 +1,5 @@
 ---
-title: Azure SDK December 2019
+title: Azure SDK January 2020
 layout: post
 date: January 2020
 tags: release
