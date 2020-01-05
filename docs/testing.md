@@ -10,19 +10,27 @@ Software testing provides developers a safety net. Investing in tests upfront sa
 * Python: https://azure.github.io/azure-sdk/python_implementation.html#testing
 * TypeScript: https://azure.github.io/azure-sdk/typescript_implementation.html#testing-typescript-libraries
 
-## Internal testing (by the ADP team)
+## Testing (by the ADP team)
 
 **DO** ensure that client libraries have appropriate unit test coverage. [Focus on quality, rather than attaining a specific target](https://martinfowler.com/bliki/TestCoverage.html) in unit test coverage. In other words, use the code coverage reporting tools to identify areas where more tests would be beneficial, rather than using these tools simply to attain a target coverage value.
 
 **DO** write tests that ensure APIs fulfil their contract and algorithms work as specified. These tests must work without the need for any network connectivity or access to Azure services.
 
-**DO** write tests that use a mock service implementation. This ensures that the service client continues to properly consume service responses as APIs and implementations evolve.
+**DO** write tests that use a mock service implementation, with a set of recorded tests per service version supported by the client library. This ensures that the service client continues to properly consume service responses as APIs and implementations evolve. Recorded tests must be run using the language-appropriate trigger to enable the specific service version support in the client library.
+
+**DO** recreate recorded tests for a specific service version when notified by the service team of any changes to the endpoint APIs for that service version. In the absence of this notification, recordings should not be updated needlessly.
 
 **DO** enable all network-mocked services to also connect to live Azure service. The test assertions should remain unchanged regardless of whether the service call is mocked or not.
 
-## External testing (by users of our client libraries)
+**DO** ensure that external users can run all tests without needing access to internal resources. If internal-only tests are necessary, these should be a separate test suite triggered via a separate command, so that they are not executed by external users who will then encounter test failures that they cannot resolve.
 
-**DO** ensure that users can write higher-level unit tests for their applications and libraries that make use of the Azure client libraries.
+**DO NOT** rely on pre-existing test resources or infrastructure and **DO NOT** leave test resources around after tests have completed. Anything needed for a test should be initialized and cleaned up as part of the test execution (whether by running an ARM template prior to starting tests, or by setting up and tearing down resources in the tests themselves).
+
+**DO** use unique, descriptive test case names so test failures in CI (especially external PRs) are readily understandable.
+
+## Testability (by users of our client libraries)
+
+As outlined above, writing tests that we can run constantly is critical for confidence in our client library offering, but equally critical is enabling users of the Azure client libraries to write tests for their applications and libraries. End users want to be certain that their code is performing appropriately, and in cases where this code interacts with the Azure client libraries, end users do not want complex or costly Azure interactions to prevent their ability to test their software.
 
 **DO** support the ability for users to override service client methods such that functionality may be overridden through mocking frameworks or other means.
 
@@ -39,3 +47,12 @@ All client libraries must support mocking.
 **DO** use [Mockito](https://site.mockito.org/) for creating mock objects for testing. Refer to the [DZone reference card](https://dzone.com/refcardz/mockito?chapter=1) for more details on how to use Mockito.
 
 **DO** ensure that all service client classes can be mocked using Mockito. This places restrictions on static APIs and final classes.
+
+## Discussion topics
+
+1. **Jeffrey:** I've never worked with recordings before so I don't fully understand how they work. For example, is a request is sent with a current DATE HTTP header, then the recording might return an old date header back? The Storage service uses the current date header in the string-to-sign and I don't know how recordings deal with this. This document doesn't describe at all how to accomplish the guidelines.
+
+2. **Jonathan:** How to deal with situations where service team breaks endpoint APIs after tests have been recorded?
+
+3. **Brian / Jonathan:** "DO ensure all samples are harnessed as tests so that samples and implementation are always in sync."
+3.1 **Jonathan comment:** In Java we have these as compilable code that is compiled as part of a normal build, but they are not unit tests. I think this meets the spirit of what Brian is saying but I wanted to be clear that these are not unit tests for Java.
