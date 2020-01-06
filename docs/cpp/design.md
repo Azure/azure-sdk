@@ -134,8 +134,6 @@ namespace {
 
 ### Structs and Classes
 
-> TODO: Should we use a meaningful prefix for each member name or for structures in general?
-
 {% include requirement/MUST id="cpp-design-naming-classname" %} name class types with all-lowercase.  If part of the public API, place them in your SDK's namespace.  If not, place the API in a "_details" namespace. For example:
 
 > TODO: Investigate if we can use nested namespace declarations like this on all the supported compilers in the Implementation section.
@@ -192,8 +190,8 @@ This encourages use of resource managing types like std::unique_ptr (which imple
 class type_with_invariants {
     int member;
 public:
-    type_with_invariants() : member(0) {} // Good: initializes all parts of the object
-    int next() {
+    type_with_invariants() noexcept : member(0) {} // Good: initializes all parts of the object
+    [[nodiscard]] int next() noexcept  {
         return member++;
     }
 };
@@ -221,15 +219,15 @@ void the_customer_code() {
 {% highlight cpp %}
 // Good: Uses C++ style class declaration:
 struct iot_client {
-    char *api_version;
-    iot_client_credentials *credentials;
+    char* api_version;
+    iot_client_credentials* credentials;
     int retry_timeout;
 };
 
 // Bad: Uses C-style typedef:
 typedef struct iot_client {
-    char *api_version;
-    iot_client_credentials *credentials;
+    char* api_version;
+    iot_client_credentials* credentials;
     int retry_timeout;
 } az_iot_client;
 {% endhighlight %}
@@ -247,13 +245,13 @@ class example_request {
     int retry_timeout;
     const char* text;
 public:
-    int get_retry_timeout() const noexcept {
+    [[nodiscard]] int get_retry_timeout() const noexcept {
         return retry_timeout;
     }
     void set_retry_timeout(int i) noexcept {
         retry_timeout = i;
     }
-    const char* get_text() const noexcept {
+    [[nodiscard]] const char* get_text() const noexcept {
         return text;
     }
     void set_text(const char* i) noexcept {
@@ -266,7 +264,7 @@ class type_which_enforces_data_requirements {
     size_t size_;
     int* data_;
 public:
-    size_t get_size() const noexcept {
+    [[nodiscard]] size_t get_size() const noexcept {
         return size_;
     }
     void add_data(int i) noexcept {
@@ -278,7 +276,7 @@ public:
 class type_which_clamps {
     int retry_timeout;
 public:
-    int get_retry_timeout() const noexcept {
+    [[nodiscard]] int get_retry_timeout() const noexcept {
         return retry_timeout;
     }
     void set_retry_timeout(int i) noexcept {
@@ -306,27 +304,16 @@ public:
 
 ### Enums
 
-> TODO: Do we want to require enum classes
+> TODO: Our most recent meeting said to do what the C guidelines do here, but as far as I can tell the C guidelines don't contain the bits we were talking about, so I wrote the following:
 
-{% include requirement/MUST id="cpp-design-naming-enum" %} use pascal-casing to name enum types.  For example:
+{% include requirement/MUSTNOT id="cpp-design-use-no-service-enums" %} Use enumerations that need to be kept in sync with services, as this inhibits round tripping. Use string constants rather than enumerations for such cases. You may still use `enum class` for options that control behavior of the SDK / client rather than the service.
 
-{% highlight cpp %}
-enum PinStateType {
-    PIN_OFF,
-    PIN_ON
-};
-{% endhighlight %}
-
-Enums do not have a guaranteed size.  If you have a type that can take a known range of values and it is transported in a message, you cannot use an enum as the type.
-
-{% include requirement/MUST id="cpp-design-naming-enum-errors" %} use the first label within an enum for an error state, if it exists.
+{% include requirement/MUST id="cpp-design-use-enum-class" %} use `enum class` for enumerations. For example:
 
 {% highlight cpp %}
-enum ServiceState {
-    STATE_ERR,
-    STATE_OPEN,
-    STATE_RUNNING,
-    STATE_DYING
+enum class pin_state {
+    off,
+    on
 };
 {% endhighlight %}
 
@@ -338,14 +325,14 @@ enum ServiceState {
 namespace azure::group::api {
 namespace _details {
 // Part of the private API
-int64_t compute_hash(int32_t a, int32_t b);
+[[nodiscard]] int64_t compute_hash(int32_t a, int32_t b) noexcept;
 } // namespace _details
 
 // Part of the public API
-catherd_client catherd_create_client(char *herd_name);
+[[nodiscard]] catherd_client catherd_create_client(char *herd_name);
 
 // Bad - private API in public namespace.
-int64_t compute_hash(int32_t a, int32_t b);
+[[nodiscard]] int64_t compute_hash(int32_t a, int32_t b) noexcept;
 } // namespace azure::group::api
 {% endhighlight %}
 
@@ -355,7 +342,7 @@ The definition of the function must be placed in the `*_api.h` file for the modu
 
 {% highlight cpp %}
 namespace {
-int64_t compute_hash(int32_t a, int32_t b) {
+[[nodiscard]] int64_t compute_hash(int32_t a, int32_t b) noexcept {
     // ...
 }
 } // unnamed namespace
@@ -364,25 +351,6 @@ int64_t compute_hash(int32_t a, int32_t b) {
 {% include requirement/SHOULD id="cpp-design-naming-paramnames" %} use a meaningful name for parameters and local variable names.  Parameters and local variable names should be named as all lower-case words, separated by underscores (snake-casing).
 
 {% include requirement/SHOULD id="cpp-design-noexcept" %} declare all functions that can never throw exceptions `noexcept`. If your SDK never uses exceptions, all non-`extern "C"` functions should be marked `noexcept`.
-
-### Callbacks
-
-> TODO: Is this relevant in C++?
-
-Functions that request a callback with a context should order the callback first and then the context.  For example:
-
-{% highlight cpp %}
-az_iot_client az_iot_client_send_async(az_iot_client *client,
-        az_iot_message *message, az_iot_release_callback release_message,
-        az_iot_client_result_callback callback, az_iot_client_result_context context)
-{% endhighlight %}
-
-Callbacks that receive the context should do so as the first argument:
-
-{% highlight cpp %}
-static void on_client_result(az_iot_client_result_context context,
-        az_iot_result result, az_iot_message_received message)
-{% endhighlight %}
 
 ### Macros
 
@@ -422,176 +390,18 @@ do {                                \
 #define MAX(a,b) ((a > b) ? a : b)
 
 // Good
-inline int max(int x, int y) {
+[[nodiscard]] inline int max(int x, int y) noexcept {
     return (x > y ? x : y);
 }
 {% endhighlight %}
 
 ## Client interface
 
-> TODO: This section is unmodified from the C version; we need to review with SDKs team to determine what they want.
-
-In C, your API surface will consist of one or more _service client initializers_ that the consumer will call to define a connection to your service, plus a set of supporting functions that perform network requests.
-
-{% include requirement/MUST id="cpp-apisurface-serviceclientnaming" %} the signature of the
- service client initializer should be
- `AZ_NODISCARD az_result az_shortname_client_init(az_shortname_client*, <args>)`.
- The function may assume that storage has been allocated, and the first parameter points to
- allocated (but not nessassarly initialized) storage.
-
-{% include requirement/MUST id="cpp-apisurface-serviceclientclosing" %} allow the consumer to release resources by calling `void az_shortname_client_destroy(az_shortname_client*)`.  This allows the library to manage memory on behalf of the user for the purposes of the client as well.
-
-{% include requirement/MUST id="cpp-apisurface-serviceclient-types" %} define a type `az_shortname_client` that represents the response from the service client initializer.
-
-A typical definition might look like:
-
-Header file:
-
-{% highlight cpp %}
-#ifndef KEYVAULT_CLIENT_H
-#define KEYVAULT_CLIENT_H
-
-typedef struct az_keyvault_client az_keyvault_client;
-typedef struct az_keyvault_client_credentials az_keyvault_client_credentials;
-typedef struct az_keyvault_http_handler_pipeline az_keyvault_http_handler_pipeline;
-
-AZ_NODISCARD az_result az_keyvault_client_init(az_keyvault_client* self);
-void az_keyvault_client_destroy(az_keyvault_client *client);
-
-
-/* C does not support overloading function names, so we use a different name */
-AZ_NODISCARD az_result *az_keyvault_client_init_with_credentials(az_keyvault_client* self,
-  az_keyvault_client_credentials *credentials);
-
-/* Other functions related to kevault client */
-AZ_NODISCARD az_result az_keyvault_client_backup_certificate_with_http_messages(az_keyvault_client* self,
-  char *vault_base_url, char *certificate_name, char **custom_headers, int headers_count);
-
-/* client used to create other types */
-AZ_NODISCARD az_result az_keyvault_client_init_http_handler_pipeline(az_keyvault_client* self,
-  az_http_client_handler *handler, az_keyvault_http_handler_pipeline* pipeline);
-void az_keyvault_client_destroy_http_handler_pipeline(az_keyvault_client* self,
-  az_keyvault_http_handler_pipeline *handler_pipeline);
-
-#endif /* IOT_CLIENT_API_H */
-{% endhighlight %}
-
-Source file:
-
-{% highlight cpp %}
-#include <stdbool.h>
-#include <stddef.h>
-/* for az_http_client_handler*/
-#include "http_client.h"
-#include "keyvault_client.h"
-
-typedef struct az_keyvault_client {
-	char *accept_language;
-	char *api_version;
-	az_keyvault_client_credentials *credentials;
-	bool generate_clientrequest_id;
-	int long_running_operation_retry_timeout;
-	char *vault_without_scheme;
-} az_keyvault_client;
-
-typedef struct az_keyvault_client_credentials {
-	char *version;
-	/* remaining struct members here */
-} az_keyvault_client_credentials;
-
-typedef struct az_keyvault_http_handler_pipeline {
-	char *version;
-	/* remaining struct members here */
-} az_keyvault_http_handler_pipeline;
-
-az_keyvault_client *az_keyvault_create_client() {
-	/* implementation */
-	return NULL;
-}
-
-void az_keyvault_client_destroy(az_keyvault_client *client)
-{
-	/* implementation */
-}
-
-az_result az_keyvault_create_client_with_credentials(az_keyvault_client* client,
-  az_keyvault_client_credentials *credentials) {
-  *client = {0};
-	/* implementation */
-	return AZ_OK;
-}
-
-az_result az_keyvault_client_backup_certificate_with_http_messages(az_keyvault_client* client,
-  char *vault_base_url, char *certificate_name, char **custom_headers, int headers_count)
-{
-	/* implementation */
-	return AZ_OK;
-}
-
-az_result az_keyvault_client_init_http_handler_pipeline(az_keyvault_client* self,
-  az_http_client_handler *handler, az_keyvault_http_handler_pipeline* pipeline);
-{
-	/* implementation */
-	return AZ_OK;
-}
-
-void az_keyvault_client_destroy_http_handler_pipeline(az_keyvault_client* self,
-  az_keyvault_http_handler_pipeline *handler_pipeline);
-{
-	/* implementation */
-}
-{% endhighlight %}
-
-{% include requirement/MUST id="cpp-apisurface-serviceclientconstructor" %} allow the consumer to construct a service client with the minimal information needed to connect and authenticate to the service.
-
-{% include requirement/MUST id="cpp-apisurface-standardized-verbs" %} standardize verb prefixes within a set of client libraries for a service.  The service must be able to speak about a specific operation in a cross-language manner within outbound materials (such as documentation, blogs, and public speaking). They cannot do this if the same operation is referred to by different verbs in different languages.  The following verbs are preferred for CRUD operations:
-
-| Verb                                             | Parameters        | Returns                 | Comments                                                                                                    |
-| ------------------------------------------------ | ----------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------- |
-| az\_\<shortname>\_\<objname>\__insert_\_\<noun>  | key, item         | Updated or created item | Create new item or update existing item. Verb is primarily used in database-like services                   |
-| az\_\<shortname>\_\<objname>\__set_\_\<noun>     | key, item         | Updated or created item | Create new item or update existing item. Verb is primarily used for dictionary-like properties of a service |
-| az\_\<shortname>\_\<objname>\__create_\_\<noun>  | key, item         | Created item            | Create new item. Fails if item already exists.                                                              |
-| az\_\<shortname>\_\<objname>\__update_\_\<noun>  | key, partial item | Updated item            | Fails if item does not exist.                                                                               |
-| az\_\<shortname>\_\<objname>\__replace_\_\<noun> | key, item         | Replace existing item   | Completely replaces an existing item. Fails if the item does not exist.                                     |
-| az\_\<shortname>\_\<objname>\__delete_\_\<noun>  | key               | None                    | Delete an existing item. Will succeed even if item did not exist.                                           |
-| az\_\<shortname>\_\<objname>\__append_\_\<noun>  | item              | Appended item           | Add item to a collection. Item will be added last.                                                          |
-| az\_\<shortname>\_\<objname>\__add_\_\<noun>     | index, item       | Added item              | Add item to a collection. Item will be added on the given position.                                         |
-| az\_\<shortname>\_\<objname>\__remove_\_\<noun>  | key               | None or removed item    | Remove item from a collection.                                                                              |
-| az\_\<shortname>\_\<objname>\__get_\_\<noun>     | key               | Item                    | Will return None if item does not exist                                                                     |
-| az\_\<shortname>\_\<objname>\__list_\_\<noun>    |                   | array of items          | Return list of items. Returns empty list if no items exist                                                  |
-| az\_\<shortname>\_\<objname>\__exists_\_\<noun>  | key               | boolean                 | Return True if the item exists.                                                                             |
-
-Some examples:
-
-{% highlight cpp %}
-void az_keyvault_client_delete_key(az_keyvault_client *client, char *vault_base_url, char *key_name);
-void az_keyvault_client_delete_key_async(az_keyvault_client *client, char *vault_base_url, char *key_name, az_keyvault_callback *callback, void *callback_context);
-
-az_keyvault_certificate_bundle *az_keyvault_client_get_certificate(az_keyvault_client *client, char *certtificate_id);
-void az_keyvault_client_get_certificate_async(az_keyvault_client *client, char *certtificate_id, az_keyvault_callback *callback, void *callback_context);
-
-bool az_keyvault_client_exists_key(az_keyvault_client *client, char *key_name);
-{% endhighlight %}
-
-{% include requirement/MUST id="cpp-apisurface-lro-initiation" %} use `az_<shortname>_<objname>_begin_<verb>_<noun>` for methods that initiate a long running operation.  For example: `az_storage_blob_begin_copy_from_url()`.
-
-{% include requirement/MUST id="cpp-apisurface-supportallfeatures" %} support as close as possible to 100% of the commonly used features provided by the Azure service the client library represents.  Unlike more general purpose object-orientated languages, the scenarios that need to be supported in C are more limited.
+> TODO: This section needs to be driven by code in the Core library.
 
 ### Network requests
 
-Since the client library clangly wraps one or more HTTP requests, it is important to support standard network capabilities.  Asynchronous programming techniques are not widely understood and the low level nature of C provides an indication that consumers may want to manage threads themselves.  Many developers prefer synchronous method calls for their easy semantics when learning how to use a technology.
-
-{% include requirement/MUST id="cpp-apisurface-be-thread-safe" %} be thread-safe.  Individual requests to the service must be able to be placed on separate threads without unintentional problems.
-
-{% include requirement/MUST id="cpp-apisurface-syncandasync" %} support both synchronous and asynchronous functions, utilizing `libuv` for async support.
-
-{% include requirement/MUST id="cpp-apisurface-identifyasync" %} ensure that the consumer can easily identify which functions are async and which are synchronous.
-
-When an application makes a network request, the network infrastructure (like routers) and the called service may take a long time to respond and, in fact, may never respond. A well-written application SHOULD NEVER give up its control to the network infrastucture or service.
-
-{% include requirement/MUST id="cpp-apisurface-supportcancellation" %} accept a timeout in milliseconds for each network request.
-
-{% include requirement/MUSTNOT id="cpp-apisurface-no-leaking-implementation" %} leak the underlying protocol transport implementation details to the consumer.  All types from the protocol transport implementation must be appropriately abstracted.
+> TODO: This section needs to be driven by code in the Core library.
 
 ### Authentication
 
@@ -703,7 +513,7 @@ Note: if your client library needs to be resilient to these kinds of errors you 
 
 {% include requirement/MUST id="cpp-error-exh-crash" %} crash, if possible. This means calling some form of fast failing function, like `abort`.
 
-{% include requirement/MUSTNOT id="cpp-error-prec-exceptions" %} throw a C++ exception.
+{% include requirement/MUSTNOT id="cpp-error-postc-exceptions" %} throw a C++ exception.
 
 #### Heap Exhaustion (Out of Memory)
 
@@ -717,7 +527,7 @@ Note that on some comonly deployed platforms like Linux, handling heap exhaustio
 
 #### Recoverable errors
 
-{% include requirement/MUST id="cpp-error-recov-reporting" %} report errors by throwing C++ exceptions.
+{% include requirement/MUST id="cpp-error-recov-reporting" %} report errors by throwing C++ exceptions defined in the Azure C++ Core Library.
 
 > TODO: The Core library needs to provide exceptions for the common failure modes, e.g. the same values as `az_result` in the C SDK.
 
@@ -739,51 +549,6 @@ public:
 {% include requirement/MUST id="cpp-error-recov-error" %} produce a recoverable error when any HTTP request fails with an HTTP status code that is not defined by the service/Swagger as a successful status code.
 
 {% include requirement/MUST id="cpp-error-recov-document" %} document all exceptions each function and its transitive dependencies may throw, except for `std::bad_alloc`.
-
-## Support for non-HTTP protocols
-
-> TODO: Implement general guidelines for non-HTTP protocols
-
-## Memory management
-
-{% include requirement/MUST id="cpp-design-mm-allocation" %} let the caller allocate memory, then pass a pointer to it to the functions; e.g. `int az_iot_create_client(az_iot_client* client);`.
-
-The developer could then write code similar to:
-
-{% highlight cpp %}
-az_iot_client client; /* or allocate dynamically with malloc() if needed */
-
-/* init client, if needed */
-client.id = 0;
-client.name = NULL;
-
-if (az_iot_create_client(*client) != 0)
-{
-    /* handle error */
-}
-{% endhighlight %}
-
-{% include requirement/SHOULD id="cpp-design-mm-allocation2" %} add functions to allocate and free memory. For example:
-
-{% highlight cpp %}
-/**
- * @brief   uLib malloc
- *
- *  Defines the malloc function that the ulib shall use as its own way to dynamically allocate
- *      memory from the HEAP. For simplicity, it can be defined as the malloc(size) from the `stdlib.h`.
- */
-#define AZ_IOT_MALLOC(size)    malloc(size)
-
-/**
- * @brief   uLib free
- *
- *  Defines the free function that the ulib shall use as its own way to release memory dynamic
- *      allocated in the HEAP. For simplicity, it can be defined as the free(ptr) from the `stdlib.h`.
- */
-#define AZ_IOT_FREE(ptr)       free(ptr)
-{% endhighlight %}
-
-> TODO: Should this be in azure core, or specific to a library?
 
 ## Secure functions
 
@@ -811,6 +576,36 @@ Example:
 #endif /* azure_devicetwin_h */
 {% endhighlight %}
 
+## C++ Exceptions
+
+{% include requirement/MUSTNOT id="cpp-exceptions" %} throw exceptions, except those from the Azure C++ Core library as described in the error handling section.
+
+{% include requirement/MUST id="cpp-exceptions" %} propagate exceptions thrown by user code, callbacks, or dependencies. Assume any user-provided callback will propagate C++ exceptions unless the SDK documents that the callback must be completely non-throwing.
+
+{% highlight cpp %}
+template<class Callback>
+void api_func(const Callback& c) {
+    // best
+    c();
+
+    // allowed, but results in a less pretty debugging experience for customers
+    try {
+        c();
+    } catch (...) {
+        // clean up
+        throw; // throw; rethrows the original exception object
+    }
+
+    // prohibited
+    try {
+        c();
+    } catch (...) {
+        // missing throw;
+    }
+}
+{% endhighlight %}
+
+
 ## Async
 
-> TODO: We need to talk about async more.
+> TODO: Async needs to be funded.
