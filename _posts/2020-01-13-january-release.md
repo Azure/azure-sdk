@@ -1,7 +1,7 @@
 ---
 title: Azure SDK Releases (January 2020)
 layout: post
-date: 01 Jan 2020
+date: 13 Jan 2020
 sidebar: releases_sidebar
 repository: azure/azure-sdk
 ---
