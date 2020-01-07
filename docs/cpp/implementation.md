@@ -36,7 +36,7 @@ sidebar: cpp_sidebar
 {% include requirement/SHOULDNOT id="cpp-cpp-extensions" %} use compiler extensions.  Examples of extensions to avoid include:
 
 * [MSVC compiler extensions](https://docs.microsoft.com/en-us/cpp/build/reference/microsoft-extensions-to-c-and-cpp?view=vs-2019)
-* [cpp language extensions](https://cpp.llvm.org/docs/LanguageExtensions.html)
+* [clang language extensions](https://clang.llvm.org/docs/LanguageExtensions.html)
 * [GNU C compiler extensions](https://gcc.gnu.org/onlinedocs/gcc/C-Extensions.html)
 
 Use the appropriate options for each compiler to prevent the use of such extensions.
@@ -72,7 +72,7 @@ client configuration options based on how the client library was built.
 1. Log level, which must take effect immediately across the Azure SDK.
 2. Tracing on/off, which must take effect immediately across the Azure SDK.
 
-{% include requirement/MUSTNOT id="cpp-config-noruntime" %} use client library specific runtime 
+{% include requirement/MUSTNOT id="cpp-config-noruntime" %} use client library specific runtime
 configuration such as environment variables or a config file. Keep in mind that many IOT devices
 won't have a filesystem or an "environment block" to read from.
 
@@ -390,7 +390,7 @@ generate_export_header(appconf
     EXPORT_FILE_NAME az/appconf_export.h)
 {% endhighlight %}
 
-{% include requirement/MUST id="cpp-tooling-cpp-format" %} use [cpp-format](http://cpp.llvm.org/docs/ClangFormat.html) for formatting, with the following command-line options:
+{% include requirement/MUST id="cpp-tooling-cpp-format" %} use [clang-format](https://clang.llvm.org/docs/ClangFormat.html) for formatting, with the following command-line options:
 
 {% highlight bash %}
 cpp-format -style=file -i <file> ...
@@ -457,7 +457,7 @@ endif()
 
 ## Formatting
 
-{% include requirement/MUST id="cpp-format-cpp" %} use [cpp-format](http://cpp.llvm.org/docs/ClangFormat.html) for formatting your code. Use the common `cpp-format` options from Engineering Systems.
+{% include requirement/MUST id="cpp-format-cpp" %} use [cpp-format](https://clang.llvm.org/docs/ClangFormat.html) for formatting your code. Use the common `cpp-format` options from Engineering Systems.
 
 In general, cpp-format will format your code correctly and ensure consistency. However, these are few additional  rules to keep in mind.
 
