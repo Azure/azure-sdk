@@ -36,9 +36,8 @@ As you write your code, *doc it so you never hear about it again.* The less ques
 For example, a (very) simple docstring might look like:
 {% highlight cpp %}
 /**
- *   @struct az_appconf_client
- *   @brief The az_appconf_client represents the resources required for a connection to
- *          an Azure AppcConfiguration resource.
+ *   @class client
+ *   @brief The client represents the resources required for a connection to an Azure AppcConfiguration resource.
  */
 {% endhighlight %}
 
@@ -48,37 +47,10 @@ For example, a (very) simple docstring might look like:
 
 {% highlight cpp %}
 /* <....documentation....>
-* @param[<direction>] <param_name> __<additional_annotations>__ description
+* @param[<direction>] <param_name> description
 * <....documentation....>
 */
 {% endhighlight %}
-
-> TODO: Review which of these are relevant in C++
-
-`<additional_annotations>` is a space-separated list of the following annotations:
-
-* `[transfer none|full|container]`
-    : indicates who owns a parameter and how that ownership is transferred by a given function
-      each ownership transfer mode is defined below. The recipient of a value is the caller for `[callee allocates]` parameters and the callee for `[caller allocates]` parameters
-* `[transfer none]`
-    : indicates no change in ownership for this parameter. This is sometimes called "borrowing"
-* `[transfer full]`
-    : indicates complete ownership transfer. After a call to the function the recipient (either the caller or the callee) will be
-      responsible for the value. This usually means the recipient will at least need to arrange for any memory referred to by
-      the value to be freed.
-* `[transfer container]`
-    : indicates full ownership transfer for a container value, but not for its contents. For example a char** parameter (that referrers to an array of cstrings)
-      would be annotated as `[transfer container]` if the recipient is expected to free the array, but not free each element therein.
-* `[nullable]`
-    : the parameter may be set to NULL, only valid for pointer parameters/return values. Don't annotate return values or out parameters as `[nullable]`
-      if NULL is used to report errors. If a parameter is marked `[nullable]` document what happens when it is null.
-* `[not nullable]`
-    : The parameter may not be null.
-* `[caller allocates]`
-    : memory for the value is expected to be allocated by the caller. This is the default for `[in]` parameters, and `[out]/[in,out]` parameters
-      that have a single indirection (that is `Foo* p` is `[caller allocates]` but `Foo** p` is not).
-* `[callee allocates]`
-    : memory for the value will be allocated by the callee. This usually means the caller will need to free said memory when it's no longer needed.
 
 For example:
 {% highlight cpp %}
@@ -86,26 +58,14 @@ namespace azure::storage::blob {
 /**
  * @brief execute a blocking get request
  *
- * @param[in] client __[transfer none]__
- * @param[in] path_and_query __[transfer none][not nullable]__
- * 			  The query to execute relative to the base url of the client
- * @param[out] result __[transfer full][not nullable][callee allocates]__
- * @param[out] result_sz __[not nullable]__ size of the result
+ * @param[in] client
+ * @param[in] path_and_query The query to execute relative to the base url of the client
+ * @param[out] result
+ * @param[out] result_sz size of the result
  */
 void req_get(client* client, const char* path_and_query, unsigned char** result, size_t* result_sz);
 } // namespace azure::storage::blob
 {% endhighlight %}
-
-Here we see that the first two parameters are input parameters, with no ownership transfer (that is, they are a "borrow"). The `result` output parameter is labeled as `[callee allocates]` because it allocates memory for the output parameter itself. Since `result` is owned by the caller after `req_get` returns it's annotated as `[transfer full]`.
-
-The annotations do not require any special doxygen support and are simply convention.
-
-{% include requirement/MAY id="cpp-docs-doxygen-defaults " %} assume the following default annotations:
-
-* `[not nullable]`
-* For `[out]` and `[in,out]` pointer parameters: `[caller allocates][transfer none]`
-* For `[out]` and `[in,out]` pointer-to-pointer parameters: `[callee allocates][transfer full]`
-* for `[in]` parameters: `[caller allocates]` (Note: `[callee allocates]` doesn't make sense for `[in]` parameters)
 
 {% include requirement/MUST id="cpp-docs-doxygen-nullable" %} document what happens to parameters that are set to null.
 
@@ -116,11 +76,10 @@ namespace azure::animals::cats {
 /**
  * @brief get properties of a cat (e.g. hair color, weight, floof)
  *
- * @param[in] our_cat __[transfer none]__ the cat to operate on
- * @param[out] props __[nullable][caller-allocates]__ pointer to an array of num_props, or null
- * @param[in,out] num_props __[non nullable][caller-allocates]__ pointer to the number of properties to
- *                                                               retrieve or to a location to store the number of
- *                                                               properties queried as described below
+ * @param[in] our_cat the cat to operate on
+ * @param[out] props pointer to an array of num_props, or null
+ * @param[in,out] num_props pointer to the number of properties to retrieve or to a location to store the number of
+ *                          properties queried as described below
  *
  * If @p props is NULL then return the number of properties available in @p num_props,
  * otherwise return @p num_props into the array at @p props
@@ -129,14 +88,7 @@ void get_cat_properties(cat* our_cat, cat_properties* props, size_t* num_props);
 } // namespace azure::animals::cats
 {% endhighlight %}
 
-This function returns an array using all caller-allocated memory. In order to figure out the size of the array the caller can pass NULL for the array `[out]` parameter. They can then allocate the required memory and call the function again.
-
-{% include requirement/MUST id="cpp-docs-doxygen-ptr-dir" %} provide a `<direction>` for all parameters that are pointers or structs/unions containing a pointer.
-
-> **Note**:
-> These annotations are derived from [gobject-introspection-annotations](https://wiki.gnome.org/Projects/GObjectIntrospection/Annotations).  It's not a big deal that we use that form, it's just critical that there is a standard way to indicate ownership of reference parameters
-
-{% include requirement/MUST id="cpp-docs-doxygen-failure" %} document how your function can fail. For example, if returning an error code, document when each possible code will be returned.
+{% include requirement/MUST id="cpp-docs-doxygen-failure" %} document which exceptions your function can propagate.
 
 ### Code snippets
 
@@ -176,26 +128,25 @@ int main() {
 {% endhighlight %}
 When doxygen processes these files, it will see the `@example` command in example_1.cpp and
 add it to the "examples" section of the documentation, it will also see the usage of
-`az_some_struct` in the example and add a link from the documentation of `az_some_struct` to the
+`some_struct` in the example and add a link from the documentation of `some_struct` to the
 documentation (including source code) for `example_1.cpp`.
 
 Use `@include` or `@snippet` to include examples directly in the documentation for a function or structure.
 For example:
 
 {% highlight cpp %}
-/**
- * @brief some structure type
- */
-typedef struct az_some_struct {
+//
+// @brief some structure type
+//
+struct some_struct {
     int member;
-} az_some_struct;
+};
 
-/**
- * @brief do something, or maybe do some other thing
- * @memberof az_some_struct
- * see @snippet example_1.cpp use az_some_struct
- */
-void az_do_something_or_other(az_some_struct* s);
+//
+// @brief do something, or maybe do some other thing
+// see @snippet example_1.cpp use some_struct
+//
+void do_something_or_other(some_struct* s);
 {% endhighlight %}
 It can be used as follows:
 {% highlight cpp %}
@@ -203,10 +154,10 @@ It can be used as follows:
  * @example example_1.cpp
  */
 int main() {
-    /** [use az_some_struct] */
-    az_some_struct a;
-    az_do_something_or_other(&a);
-    /** [use az_some_struct] */
+    /** [use some_struct] */
+    some_struct a;
+    do_something_or_other(&a);
+    /** [use some_struct] */
     return 1;
 }
 {% endhighlight %}
@@ -217,10 +168,9 @@ not in function documentation. To generate a link from a function's documentatio
 {% highlight cpp %}
 /**
  * @brief do something, or maybe do some other thing
- * @memberof az_some_struct
  * @dontinclude example_1.cpp
  */
-void az_do_something_or_other(az_some_struct* s);
+void do_something_or_other(const some_struct& s);
 {% endhighlight %}
 
 {% include requirement/MUSTNOT id="cpp-docs-operation-combinations" %} combine more than one operation in a code snippet unless it's required for demonstrating the type or member, or it's *in addition to* existing snippets that demonstrate atomic operations. For example, a Cosmos DB code snippet should not include both account and container creation operations--create two different snippets, one for account creation, and one for container creation.
@@ -247,7 +197,6 @@ if(BUILD_DOCS)
     set(DOXYGEN_GENERATE_XML YES)
     set(DOXYGEN_GENERATE_HTML YES)
 
-    set(DOXYGEN_OPTIMIZE_OUTPUT_FOR_C YES)
     set(DOXYGEN_EXTRACT_PACKAGE YES)
     set(DOXYGEN_INLINE_SIMPLE_STRUCTS YES)
     set(DOXYGEN_TYPEDEF_HIDES_STRUCT YES)
