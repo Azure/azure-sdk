@@ -311,9 +311,7 @@ struct example {
 
 ### Enums
 
-> TODO: Our most recent meeting said to do what the C guidelines do here, but as far as I can tell the C guidelines don't contain the bits we were talking about, so I wrote the following:
-
-{% include requirement/MUSTNOT id="cpp-design-use-no-service-enums" %} Use enumerations that need to be kept in sync with services, as this inhibits round tripping. Use string constants rather than enumerations for such cases. You may still use `enum class` for options that control behavior of the SDK / client rather than the service.
+{% include requirement/MUSTNOT id="clang-design-enumsareinternal" %} use enums to model any data sent to the service. Use enums only for types completely internal to the client library. For example, an enum to disable Nagle's algorithm would be OK, but an enum to ask the service to create a particular entity kind is not.
 
 {% include requirement/MUST id="cpp-design-use-enum-class" %} use `enum class` for enumerations. For example:
 

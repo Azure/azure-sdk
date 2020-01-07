@@ -14,7 +14,7 @@ sidebar: cpp_sidebar
 
 | Operating System                | Architecture | Compiler Version                        |
 |---------------------------------|:------------:|:----------------------------------------|
-| Ubuntu 18.04 (LTS)              | x86          | gcc-7.3                                 |
+| Ubuntu 18.04 (LTS)              | x64          | gcc-7.3                                 |
 | OSX 10.13.4                     | x64          | XCode 9.4.1                             |
 | Windows Server 2016             | x86          | MSVC 14.16.x, MSVC 14.20x               |
 | Windows Server 2016             | x64          | MSVC 14.16.x, MSVC 14.20x               |
@@ -61,40 +61,20 @@ hen configuring your client library, particular care must be taken to ensure tha
 
 {% include requirement/MUST id="cpp-config-global-overrides" %} allow all global configuration settings to be overridden by client-provided options. The names of these options should align with any user-facing global configuration keys.
 
+{% include requirement/MUSTNOT id="cpp-config-defaults-nochange" %} Change the default values of client
+configuration options based on system or program state.
+
+{% include requirement/MUSTNOT id="cpp-config-defaults-nobuildchange" %} Change default values of
+client configuration options based on how the client library was built.
+
 {% include requirement/MUSTNOT id="cpp-config-behaviour-changes" %} change behavior based on configuration changes that occur after the client is constructed. Hierarchies of clients inherit parent client configuration unless explicitly changed or overridden. Exceptions to this requirement are as follows:
 
 1. Log level, which must take effect immediately across the Azure SDK.
 2. Tracing on/off, which must take effect immediately across the Azure SDK.
 
-### Service-specific environment variables
-
-> TODO: Does it even make sense to use environment variables in C++ programs?  IoT?
-
-{% include requirement/MUST id="cpp-config-envvars-prefix" %} prefix Azure-specific environment variables with `AZURE_`.
-
-{% include requirement/MAY id="cpp-config-envvars-use-client-specific" %} use client library-specific environment variables for portal-configured settings which are provided as parameters to your client library. This generally includes credentials and connection details. For example, Service Bus could support the following environment variables:
-
-* `AZURE_SERVICEBUS_CONNECTION_STRING`
-* `AZURE_SERVICEBUS_NAMESPACE`
-* `AZURE_SERVICEBUS_ISSUER`
-* `AZURE_SERVICEBUS_ACCESS_KEY`
-
-Storage could support:
-
-* `AZURE_STORAGE_ACCOUNT`
-* `AZURE_STORAGE_ACCESS_KEY`
-* `AZURE_STORAGE_DNS_SUFFIX`
-* `AZURE_STORAGE_CONNECTION_STRING`
-
-{% include requirement/MUST id="cpp-config-envvars-get-approval" %} get approval from the [Architecture Board] for every new environment variable.
-
-{% include requirement/MUST id="cpp-config-envvars-format" %} use this syntax for environment variables specific to a particular Azure service:
-
-* `AZURE_<ServiceName>_<ConfigurationKey>`
-
-where _ServiceName_ is the canonical shortname without spaces, and _ConfigurationKey_ refers to an unnested configuration key for that client library.
-
-{% include requirement/MUSTNOT id="cpp-config-envvars-posix-compatible" %} use non-alpha-numeric characters in your environment variable names with the exception of underscore. This ensures broad interoperability.
+{% include requirement/MUSTNOT id="cpp-config-noruntime" %} use client library specific runtime 
+configuration such as environment variables or a config file. Keep in mind that many IOT devices
+won't have a filesystem or an "environment block" to read from.
 
 ## Parameter validation
 
