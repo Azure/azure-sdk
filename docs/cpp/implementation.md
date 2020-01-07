@@ -29,9 +29,9 @@ sidebar: cpp_sidebar
 | Red Hat Enterprise Linux 7      | x64          | ???                                     |
 | SUSE Linux Enterprise Server 12 | x64          | ???                                     |
 
-> TODO: Get licenses for RHEL7 and SLES 12 to Bill so that he can collect this data
 > TODO: Azure Native SDKs team to set those two and Debian in a lab somewhere?
-> TODO: Get the default compiler versions on RHEL7 and SLES12
+<br/>
+> TODO: Get the default compiler versions on RHEL7 and SLES12.
 
 {% include requirement/SHOULDNOT id="cpp-cpp-extensions" %} use compiler extensions.  Examples of extensions to avoid include:
 
@@ -180,12 +180,6 @@ In general, our advice to consumers of these libraries is to establish logging i
 
 {% include requirement/MUST id="cpp-logging-exceptions" %} log exceptions thrown as a `Warning` level message. If the log level set to `Verbose`, append stack trace information to the message.
 
-## Distributed tracing
-
-> TODO: Implement the spirit of the general guidelines for distributed tracing.
-
-> TODO: Distributed Tracing is explicitly removed?
-
 ## Dependencies
 
 Dependencies bring in many considerations that are often easily avoided by avoiding the
@@ -201,9 +195,7 @@ dependency.
 
 {% include requirement/MUST id="cpp-dependencies-azure-core" %} depend on the Azure Core library for functionality that is common across all client libraries.  This library includes APIs for HTTP connectivity, global configuration, and credential handling.
 
-> TODO: Is the SDKs team signed up to build this?
-
-> TODO: Move the azure/azure-c-shared-utility into azure-core as a prerequisite for release of the guidelines.
+> TODO: The Core library does not exist yet.
 
 {% include requirement/MUSTNOT id="cpp-dependencies-approved-only" %} be dependent on any other packages within the client library distribution package. Dependencies are by-exception and need a thorough vetting through architecture review.  This does not apply to build dependencies, which are acceptable and commonly used.
 
@@ -211,7 +203,7 @@ dependency.
 
 {% include requirement/MUSTNOT id="cpp-dependencies-concrete" %} depend on concrete logging, dependency injection, or configuration technologies (except as implemented in the Azure Core library).  The client library will be used in applications that might be using the logging, DI, and configuration technologies of their choice.
 
-### C language specifics
+### C and C++ language specifics
 
 Unlike many other programming languages, which have large runtimes, the C++ standard runtime is limited in functionality and scope. The standard library covers areas such as memory and string manipulation, sandard input/output, floating point and others. However, many of the features required for modern applications and services; e.g. those required for networking and advanced memory management are not part of the standard library. Instead, many of those features are included in open source C++ libraries that are also cross-platform with good support for Windows, OSX and most Linux platforms. Because of that support and because Azure SDK implementations will need such functionality, it is expected that client libraries will take dependencies on these libraries.  Ensure the version matches to allow for compatibility when an application integrates multiple client libraries.
 
@@ -307,9 +299,7 @@ TEST_FUNCTION(foo_tcp_manager_create_createAndReturnInstanceSucceed)
 }
 {% endhighlight %}
 
-{% include requirement/MUSTNOT id="cpp-testing-valgrind" %} have any memory leaks. Run samples and unit tests with [valgrind](http://www.valgrind.org/downloads/current.html). Unit tests and e2e tests are valgrind verified at the gate.
-
-> TODO: Do we want this for C++?
+{% include requirement/MUSTNOT id="cpp-testing-valgrind" %} have any memory leaks. Run samples and unit tests with [valgrind](http://www.valgrind.org/downloads/current.html) or [address sanitizer](https://github.com/google/sanitizers). Unit tests and e2e tests are valgrind verified at the gate.
 
 {% include requirement/MUST id="cpp-testing-unittests" %} unit test your API with [ccputest](https://cpputest.github.io/), a unit testing and mocking framework for C and C++.
 
@@ -333,17 +323,12 @@ TEST_FUNCTION(foo_tcp_manager_create_createAndReturnInstanceSucceed)
 
 Filenames should be concise, but convey what role the file plays within the library.
 
-> TODO: What about pragma once?
-
-{% include requirement/MUST id="cpp-style-headerguards" %} use header file guards:
+{% include requirement/MUST id="cpp-style-headerguards" %} use `#pragma once`
 
 {% highlight cpp %}
-#ifndef IOT_CLIENT_H
-#define IOT_CLIENT_H
+#pragma once
 
-/* Contents of iot_client.h */
-
-#endif /* IOT_CLIENT_H */
+// Contents of a given header
 {% endhighlight %}
 
 ## Tooling
@@ -363,8 +348,6 @@ Version 3.7 is the minimum version installed on the Azure Pipelines Microsoft ho
 * `all` to run all three targets
 
 Include other targets as they appear useful during the development process.
-
-> TODO: Should we advise using valgrind, cppcheck, or other analysis tools (static or dynamic)?
 
 {% include requirement/MUST id="cpp-tooling-cmake-settings1" %} use hidden visibility when building dynamic libraries. For CMake:
 
@@ -490,11 +473,7 @@ endif()
 
 {% include requirement/MUST id="cpp-package-vcpkg" %} publish your package to [vcpkg](https://github.com/Microsoft/vcpkg), a C++ library manager supporting Windows, Linux, and MacOS.
 
-{% include requirement/SHOULD id="cpp-package-linux" %} publish libraries targeted to Linux to standard Linux package managers.
-
-> TODO: decide which Linux package managers to support plus which repositories we bless.
-
-> TODO:  Decide if we need to publish to GitHub Package Registry.  If we do, then we likely want to do it across all languages.ß
+> TODO:  Decide if we need to publish to GitHub Package Registry.  If we do, then we likely want to do it across all languages.
 
 ## Formatting
 
@@ -696,41 +675,23 @@ It's bad magic to have space consuming code silently inserted through the innoce
 
 {% highlight cpp %}
 // Don't write this.
-if      (22 == foo) { start_thermo_nuclear_war(); }
-else if (19 == foo) { refund_lots_money(); }
-else if (16 == foo) { infinite_loop(); }
-else                { cry_cause_im_lost(); }
+if (19 == foo) { refund_lots_money(); }}
+else           { happy_days_i_know_why_im_here(); }
 {% endhighlight %}
 
-Instead of magic numbers, use a real name that means something. You can use `#define`, constants, or enums as names. For example:
+Instead of magic numbers, use a real name that means something. You can use `constexpr` for names. For example:
 
 {% highlight cpp %}
-// These are good ideas.
-#define   PRESIDENT_WENT_CRAZY  (22)
-const int WE_GOOFED= 19;
-enum  {
-   THEY_DIDNT_PAY= 16
-};
+constexpr int WE_GOOFED = 19;
 
-if      (PRESIDENT_WENT_CRAZY == foo) { start_thermo_nuclear_war(); }
-else if (WE_GOOFED            == foo) { refund_lots_money(); }
-else if (THEY_DIDNT_PAY       == foo) { infinite_loop(); }
-else                                  { happy_days_i_know_why_im_here(); }
+if (WE_GOOFED == foo) { refund_lots_money(); }
+else                  { happy_days_i_know_why_im_here(); }
 {% endhighlight %}
-
-Prefer `enum` values since the debugger can display the label and value and no memory is allocated.  If you use `const`, memory is allocated.  If you use `#define`, the debugger cannot display the label.
 
 {% include requirement/MUST id="cpp-check-syscall-errors" %} check every system call for an error return, unless you know you wish to ignore errors. For example, `printf` returns an error code but it is rarely relevant. Cast the return to (void) if you do not care about the error code.
 
 {% highlight cpp %}
-(void)printf("The return type is ignored");
+(void)printf("The return value is ignored");
 {% endhighlight %}
-~
 
 {% include requirement/MUST id="cpp-include-errorstr" %} include the system error text when reporting system error messages.
-
-{% include requirement/MUST id="cpp-check-malloc" %} check every call to `malloc` or `realloc`.
-
-> TODO: This needs to match OOM guideance in the design space
-
-We recommend that you use a library-specific wrapper for memory allocation calls that always do the right thing.

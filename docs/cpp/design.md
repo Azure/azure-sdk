@@ -134,8 +134,6 @@ namespace {
 
 {% include requirement/MUST id="cpp-design-naming-classname" %} name class types with all-lowercase.  If part of the public API, place them in your SDK's namespace.  If not, place the API in a "_details" namespace. For example:
 
-> TODO: Investigate if we can use nested namespace declarations like this on all the supported compilers in the Implementation section.
-
 {% highlight cpp %}
 namespace azure::group::api {
 namespace _details {
@@ -567,7 +565,7 @@ public:
 
 ## C++ Exceptions
 
-{% include requirement/MUSTNOT id="cpp-exceptions" %} throw exceptions, except those from the Azure C++ Core library as described in the error handling section.
+{% include requirement/MUSTNOT id="cpp-exceptions" %} `throw` exceptions, except those from the Azure C++ Core library as described in the error handling section.
 
 {% include requirement/MUST id="cpp-exceptions" %} propagate exceptions thrown by user code, callbacks, or dependencies. Assume any user-provided callback will propagate C++ exceptions unless the SDK documents that the callback must be completely non-throwing.
 
