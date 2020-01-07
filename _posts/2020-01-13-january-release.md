@@ -54,7 +54,7 @@ Let's take a typical string and use the named entities API to obfuscate PII (Per
 ```csharp
 var input = "SSN 555-55-5555, phone: 555-555-5555, some other info";
 
-var result = client.RecognizePiiEntities(input);
+RecognizePiiEntitiesResult result = client.RecognizePiiEntities(input);
 IReadOnlyCollection<NamedEntity> entities = result.NamedEntities;
 var output = new StringBuilder(input);
 foreach (var entity in entities) {
