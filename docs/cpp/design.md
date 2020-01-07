@@ -8,8 +8,6 @@ sidebar: cpp_sidebar
 
 {% include draft.html content="The C++ Language guidelines are in DRAFT status" %}
 
-> TODO: Do we want all examples to follow all guidelines (e.g. namespaces, noexcept, nodiscard, etc.) or would we prefer to highlight only that which an individual guideline is talking about?
-
 The API surface of your client library must have the most thought as it is the primary interaction that the consumer has with your service.
 
 ## Namespaces
@@ -302,6 +300,17 @@ public:
 };
 {% endhighlight %}
 
+{% include requirement/MUSTNOT id="cpp-design-no-public-prefixes" %} declare public class members with prefixes or suffixes.
+
+{% highlight cpp %}
+struct example {
+    int a; // OK
+    int m_a; // prohibited
+    int _a; // prohibited
+    int a_; // prohibited
+};
+{% endhighlight &}
+
 ### Enums
 
 > TODO: Our most recent meeting said to do what the C guidelines do here, but as far as I can tell the C guidelines don't contain the bits we were talking about, so I wrote the following:
@@ -555,26 +564,6 @@ public:
 {% include requirement/SHOULDNOT id="cpp-no-ms-secure-functions" %} use [Microsoft security enhanced versions of CRT functions](https://docs.microsoft.com/en-us/cpp/c-runtime-library/security-enhanced-versions-of-crt-functions?view=vs-2019) to implement APIs that need to be portable across many platforms. Such code is not portable and is not C99 compatible. Adding that code to your API will complicate the implementation with little to no gain from the security side. See [arguments against]( http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1967.htm).
 
 > TODO: Verify with the security team, and what are the alternatives?
-
-## Versioning
-
-Unlike other languages, client libraries written for the C ecosystem are tied to a single API version within the service.  Different client library versions may target different service API versions.
-
-{% include requirement/MUST id="cpp-version-library-api" %} include a `SHORTNAME_VERSIONINFO` definition in the main header file that defines the current version of the library.
-
-{% include requirement/MUST id="cpp-version-service-api" %} include a `SHORTNAME_SERVICEVERSION` definition in the main header file that defines the API version of the service that is targetted by the library if the service supports different concurrent versions on the REST API.
-
-Example:
-
-{% highlight cpp %}
-#ifndef azure_devicetwin_h
-#define azure_devicetwin_h
-
-#define DEVICETWIN_VERSIONINFO "1.0.0"
-#define DEVICETWIN_SERVICEVERSION "2018-11-28"
-
-#endif /* azure_devicetwin_h */
-{% endhighlight %}
 
 ## C++ Exceptions
 
