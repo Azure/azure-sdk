@@ -44,7 +44,7 @@ To use the Text Analytics SDK, first create a client.  We'll use [C#](https://gi
 
 ```csharp
 var endpoint = new Uri(myEndpoint);
-var client = new TextAnalyticsClient(endpoint, new DefaultAzureCredentials());
+var client = new TextAnalyticsClient(endpoint, new DefaultAzureCredential());
 ```
 
 The `DefaultAzureCredentials()` object will use whatever credentials it can find.  If you are running the app on a local development workstation, it will use the user credentials from local development tools like Visual Studio.  If you are running the app in the Azure cloud, it will use the connected service principal.
