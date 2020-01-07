@@ -38,7 +38,7 @@ If you want to dive deep into the content, the release notes linked above and th
 
 The Text Analytics API is part of the Azure Cognitive Services suite of machine learning services that provides advanced natural language processing over raw text.  It can be used for sentiment analysis, language detection, key phrase extraction and entity recognition (such as PII).  
 
-One of the big changes in the v3.0 Text Analytics REST API that the new SDK supports is [*Named Entity Recognition*](https://docs.microsoft.com//azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking).  This takes unstructured text and returns a list of disambiguated entities within the provided text with links to more information on the web (like Wikipedia and Bing).  Disambiguation is important here.  For example, how do you determine whether "Mars" is being used as a planet or as the Roman god of war, or a chocolate bar?
+The new SDK supports [all the features](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/overview) of the new v3.0 REST API for Text Analytics.  For example, you can detect the language that the text was written in, identify PII (personally identifiable information), extract key phrases, categorize concepts like places and people within the text, link to external sources (like Wikipedia or Bing) for disambiguation, and perform sentiment analysis.
 
 To use the Text Analytics SDK, first create a client.  We'll use [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics) for this months snippets, although the SDK is also available in [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics), [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics), and [JavaScript / TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/cognitiveservices-textanalytics).  To create a client:
 
@@ -71,6 +71,33 @@ SSN ***********, phone: ************, some other info
 ```
 
 The PII has been replaced with something innocuous.  The SDK has both synchronous and asynchronous methods in all libraries, allowing you the flexibility to build your app in the way that you prefer.
+
+Let's take a look at another use case - sentiment analysis.  Use sentiment analysis to find out what your customers think about the comments that they write in social media or other channels.  The API returns a score between 0 and 1 for each document.  This time, we will look at a Python example. As before, you need a client reference:
+
+```python
+from azure.ai.textanalytics import TextAnalyticsClient
+
+endpoint = os.getenv("AZURE_TEXT_ANALYTICS_ENDPOINT")
+api_key = os.getenv("AZURE_TEXT_ANALYTICS_KEY")
+client = TextAnalyticsClient(endpoint = self.endpoint, credential=self.api_key)
+```
+
+With a reusable client, you can perform any of the text analytics operations:
+
+```python
+docs = [
+    "This speaker was awesome.  The talk was very relevant to my work.",
+    "How boring!  The speaker was monotone and put me to sleep!"
+]
+
+api_result = client.analyze_sentiment(docs)
+results = [doc for doc in api_result if not doc.is_error]
+
+for idx, s in enumerate(results):
+  print("Sentiment = {} for doc {}".format(s.sentiment, docs[idx]))
+```
+
+Be sure to check out all the samples for Text Analytics and let us know what you think!  You can find samples for [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics), [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/README.md), [JavaScript / TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/cognitiveservices-textanalytics/samples), and [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples).
 
 ## Working with us and giving feedback
 
