@@ -61,7 +61,7 @@ foreach (var entity in entities) {
     var newText = new string('*', entity.Length);
     output.Replace(entity.Text, newText, entity.Offset, entity.Length);
 }
-Console.WriteLine(input);
+Console.WriteLine(output);
 ```
 
 The output should be:
