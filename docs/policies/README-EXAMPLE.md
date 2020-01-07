@@ -9,7 +9,13 @@ Use the Cosmos DB client library for Python to manage databases and the JSON doc
 * Create, read, update, and delete the items (JSON documents) in your containers
 * Query the documents in your database using SQL-like syntax
 
-[Source code][source_code] | [Package (PyPi)][pypi] | [API reference documentation][ref_cosmos_sdk] | [Product documentation][cosmos_docs] | [Samples][samples]
+  - [Package (PyPi)][pypi]
+  - [API reference documentation][ref_cosmos_sdk]
+  - [Product documentation][cosmos_docs]
+  - [Source code](./)
+  - [ChangeLog](./CHANGELOG.md)
+  - [Samples](./samples)
+  - [Versioned API References](https://azure.github.io/azure-sdk-for-python/ref/Cosmos.html)
 
 ## Getting started
 
@@ -31,7 +37,7 @@ az cosmosdb create --resource-group <resource-group-name> --name <cosmos-account
 
 ### Authenticate the client
 
-Interaction with Cosmos DB starts with an instance of the [CosmosClient][ref_cosmosclient] class. You need an **account**, its **URI**, and one of its **account keys** to instantiate the client object.
+Interaction with Cosmos DB starts with an instance of the `CosmosClient` class. You need an **account**, its **URI**, and one of its **account keys** to instantiate the client object.
 
 #### Get credentials
 
@@ -47,7 +53,7 @@ export ACCOUNT_KEY=$(az cosmosdb list-keys --resource-group $RES_GROUP --name $A
 
 #### Create client
 
-Once you've populated the `ACCOUNT_URI` and `ACCOUNT_KEY` environment variables, you can create the [CosmosClient][ref_cosmosclient].
+Once you've populated the `ACCOUNT_URI` and `ACCOUNT_KEY` environment variables, you can create the `CosmosClient`.
 
 ```Python
 from azure.cosmos import HTTPFailure, CosmosClient, Container, Database, PartitionKey
@@ -60,13 +66,13 @@ client = CosmosClient(url, key)
 
 ## Key concepts
 
-Once you've initialized a [CosmosClient][ref_cosmosclient], you can interact with the primary resource types in Cosmos DB:
+Once you've initialized a `CosmosClient`, you can interact with the primary resource types in Cosmos DB:
 
-* [Database][ref_database]: A Cosmos DB account can contain multiple databases. When you create a database, you specify the API you'd like to use when interacting with its documents: SQL, MongoDB, Gremlin, Cassandra, or Azure Table. Use the [Database][ref_database] object to manage its containers.
+* Database: A Cosmos DB account can contain multiple databases. When you create a database, you specify the API you'd like to use when interacting with its documents: SQL, MongoDB, Gremlin, Cassandra, or Azure Table. Use the Database object to manage its containers.
 
-* [Container][ref_container]: A container is a collection of JSON documents. You create (insert), read, update, and delete items in a container by using methods on the [Container][ref_container] object.
+* Container: A container is a collection of JSON documents. You create (insert), read, update, and delete items in a container by using methods on the Container object.
 
-* [Item][ref_item]: An Item is the dictionary-like representation of a JSON document stored in a container. Each Item you add to a container must include an `id` key with a value that uniquely identifies the item within the container.
+* Item: An Item is the dictionary-like representation of a JSON document stored in a container. Each Item you add to a container must include an `id` key with a value that uniquely identifies the item within the container.
 
 For more information about these resources, see [Working with Azure Cosmos databases, containers and items][cosmos_resources].
 
@@ -82,7 +88,7 @@ The following sections provide several code snippets covering some of the most c
 
 ### Create a database
 
-After authenticating your [CosmosClient][ref_cosmosclient], you can work with any resource in the account. The code snippet below creates a SQL API database, which is the default when no API is specified when [create_database][ref_cosmosclient_create_database] is invoked.
+After authenticating your `CosmosClient`, you can work with any resource in the account. The code snippet below creates a SQL API database, which is the default when no API is specified when create_database is invoked.
 
 ```Python
 database_name = 'testDatabase'
@@ -108,11 +114,11 @@ except HTTPFailure as e:
     container = database.get_container(container_name)
 ```
 
-The preceding snippet also handles the [HTTPFailure][ref_httpfailure] exception if the container creation failed. For more information on error handling and troubleshooting, see the [Troubleshooting](#troubleshooting) section.
+The preceding snippet also handles the HTTPFailure exception if the container creation failed. For more information on error handling and troubleshooting, see the [Troubleshooting](#troubleshooting) section.
 
 ### Insert data
 
-To insert items into a container, pass a dictionary containing your data to [Container.upsert_item][ref_container_upsert_item]. Each item you add to a container must include an `id` key with a value that uniquely identifies the item within the container.
+To insert items into a container, pass a dictionary containing your data to Container.upsert_item. Each item you add to a container must include an `id` key with a value that uniquely identifies the item within the container.
 
 This example inserts several items into the container, each with a unique `id`:
 
@@ -131,7 +137,7 @@ for i in range(1, 10):
 
 ### Query the database
 
-A Cosmos DB SQL API database supports querying the items in a container with [Container.query_items][ref_container_query_items] using SQL-like syntax.
+A Cosmos DB SQL API database supports querying the items in a container with Container.query_items using SQL-like syntax.
 
 This example queries a container for items with a specific `id`:
 
@@ -149,7 +155,7 @@ for item in container.query_items(
 
 > NOTE: Although you can specify any value for the container name in the `FROM` clause, we recommend you use the container name for consistency.
 
-Perform parameterized queries by passing a dictionary containing the parameters and their values to [Container.query_items][ref_container_query_items]:
+Perform parameterized queries by passing a dictionary containing the parameters and their values to Container.query_items:
 
 ```Python
 discontinued_items = container.query_items(
@@ -167,7 +173,7 @@ For more information on querying Cosmos DB databases using the SQL API, see [Que
 
 ### Delete data
 
-To delete items from a container, use [Container.delete_item][ref_container_delete_item]. The SQL API in Cosmos DB does not support the SQL `DELETE` statement.
+To delete items from a container, use Container.delete_item. The SQL API in Cosmos DB does not support the SQL `DELETE` statement.
 
 ```Python
 for item in container.query_items(query='SELECT * FROM products p WHERE p.productModel = "DISCONTINUED"'):
@@ -259,20 +265,9 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 [pip]: https://pypi.org/project/pip/
 [pypi]: https://pypi.org/project/azure-cosmos/
 [python]: https://www.python.org/downloads/
-[ref_container_delete_item]: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-cosmos/4.0.0b5/azure.cosmos.html#azure.cosmos.ContainerProxy.delete_item
-[ref_container_query_items]: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-cosmos/4.0.0b5/azure.cosmos.html#azure.cosmos.ContainerProxy.query_items
-[ref_container_upsert_item]: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-cosmos/4.0.0b5/azure.cosmos.html#azure.cosmos.ContainerProxy.upsert_item
-[ref_container]: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-cosmos/4.0.0b5/azure.cosmos.html#azure.cosmos.ContainerProxy
-[ref_cosmos_sdk]: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-cosmos/4.0.0b5/azure.cosmos.html
-[ref_cosmosclient_create_database]: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-cosmos/4.0.0b5/azure.cosmos.html#azure.cosmos.CosmosClient.create_database
-[ref_cosmosclient]: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-cosmos/4.0.0b5/azure.cosmos.html#azure.cosmos.CosmosClient
-[ref_database]: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-cosmos/4.0.0b5/azure.cosmos.html#azure.cosmos.DatabaseProxy
-[ref_httpfailure]: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-cosmos/4.0.0b5/azure.cosmos.html#azure.cosmos.exceptions.CosmosHttpResponseError
-[ref_item]: http://azure.github.io/azure-sdk-for-python/ref/Cosmos.html
-[samples]: https://github.com/binderjoe/cosmos-python-prototype/blob/master/examples
+[ref_cosmos_sdk]: http://azure.github.io/azure-sdk-for-python/ref/Cosmos.html#azure-cosmos
 [sample_database_mgmt]: https://github.com/binderjoe/cosmos-python-prototype/blob/master/examples/databasemanagementsample.py
 [sample_document_mgmt]: https://github.com/binderjoe/cosmos-python-prototype/blob/master/examples/documentmanagementsample.py
 [sample_examples_misc]: https://github.com/binderjoe/cosmos-python-prototype/blob/master/examples/examples.py
-[source_code]: https://github.com/binderjoe/cosmos-python-prototype
 [venv]: https://docs.python.org/3/library/venv.html
 [virtualenv]: https://virtualenv.pypa.io
