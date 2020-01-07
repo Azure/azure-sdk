@@ -10,16 +10,16 @@ This month, we have promoted three of the client libraries to general availabili
 
 The new generally available libraries being released this month are:
 
-* Azure App Configuration
-* Azure Key Vault Certificates 
-* Azure Event Hubs, including a simplified event processor module
+* [Azure App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/)
+* [Azure Key Vault Certificates](https://docs.microsoft.com/en-us/azure/key-vault/certificate-scenarios)
+* [Azure Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs/), including an event processor host module for a streamlined development experience
 
 These are ready to use in your production applications.  You can find details of all released libraries on [our releases page](https://azure.github.io/azure-sdk/releases/latest/).
 
 New preview releases:
 
-* Azure Storage Datalake Files
-* Azure Text Analytics
+* [Azure Storage Data Lake Files](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Azure Text Analytics](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/index)
 
 We believe these are ready for your use, but not yet ready for production.  Between now and the GA release, these libraries may undergo API changes.  We'd love your feedback!  If you use these libraries and like what you see, or you want to see changes, let us know in the GitHub issues for the appropriate language. 
 
@@ -71,3 +71,16 @@ SSN ***********, phone: ************, some other info
 ```
 
 The PII has been replaced with something innocuous.  The SDK has both synchronous and asynchronous methods in all libraries, allowing you the flexibility to build your app in the way that you prefer.
+
+## Working with us and giving feedback
+
+So far, the community has filed hundreds of issues against these new SDKs with feedback randing from documentation issues to API surface area change requests to pointing out failure cases.  Please keep that coming.  We work in the open on GitHub and you can submit issues here:
+
+* [API design guidelines](https://github.com/Azure/azure-sdk/)
+* [.NET](https://github.com/Azure/azure-sdk-for-net)
+* [Java](https://github.com/Azure/azure-sdk-for-java)
+* [JavaScript / TypeScript](https://github.com/Azure/azure-sdk-for-js)
+* [Python](https://github.com/Azure/azure-sdk-for-python)
+
+Finally, please keep up to date with all the news about the Azure developer experience programs and let us know how we are doing by following [@azuresdk](https://twitter.com/AzureSDK).
+
