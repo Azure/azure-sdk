@@ -8,31 +8,53 @@ sidebar: golang_sidebar
 
 {% include draft.html content="The Go Language guidelines are in DRAFT status" %}
 
-The API surface of your client library must have the most thought as it is the primary interaction that the consumer has with your service.  
-
-## Package naming
+# Packages
 
 Go groups related types in a package.  In Go, the package should be named `az<service>`, where `<service>` is the service name represented as a single word.
 
-{% include requirement/MUST id="golang-namespace-prefix" %} start the package with `az` to indicate an Azure client library.
+{% include requirement/MUST id="golang-namespace-prefix" %} start the package with `az` to indicate an Azure client package.
 
-{% include requirement/MUST id="golang-namespace-pkgname" %} construct the package name with all lowercase letters (uppercase letters, hyphens and underscores are not allowed). For example, the Azure Key Vault package would be named `azkeyvault` and the Azure Storage Blob package would be named `azblob`.
+{% include requirement/MUST id="golang-namespace-pkgname" %} construct the package name with all lowercase letters (uppercase letters, hyphens and underscores are not allowed). For example, the Azure Key Vault package would be named `azkeyvault` and the Azure blob storage package would be named `azblob`.
 
 {% include requirement/MUST id="golang-namespace-registration" %} register the chosen package name with the [Architecture Board]. Open an issue to request the package name. See the [registered namespace list](registered_namespaces.html) for a list of the currently registered namespaces.
 
-## Package path
+## Directory Structure - TODO: update
 
 {% include requirement/MUST id="golang-pkgpath-construction" %} construct a package import path that allows the consumer to tie its packages to the service being used. The package path does **NOT** change when the branding of the product changes. Avoid the use of marketing names that may change.
 
 {% include requirement/MUST id="golang-pkgpath-leaf" %} ensure that the package leaf directory name matches the package name declared in the source code.
 
-{% include requirement/MUST id="golang-pkgpath-mgmt" %} place the management (Azure Resource Manager) API in the `mgmt` group. Use the grouping `./sdk/<group>/mgmt/<service>` for the package path. Since more services require control plane APIs than data plane APIs, other paths may be used explicitly for control plane only. Data plane usage is by exception only. Additional paths that can be used for control plane SDKs include:
+{% include requirement/MUST id="golang-pkgpath-mgmt" %} place the management (Azure Resource Manager) API in the `mgmt` path. Use the grouping `./sdk/<group>/mgmt/<service>` for the package path. Since more services require management APIs than data plane APIs, other paths may be used explicitly for management only. Data plane usage is by exception only. Additional paths that can be used for control plane SDKs include:
 
 {% include tables/mgmt_namespaces.md %}
 
-Many management APIs do not have a data plane because they deal with management of the Azure account. Place the management library in the `mgmt` path. For example, use `sdk/mgmt/costanalysis` instead of `sdk/mgmt/management/costanalysis`.
+Many management APIs do not have a data plane because they deal with management of the Azure account. Place the management package in the `mgmt` path. For example, use `sdk/mgmt/costanalysis` instead of `sdk/mgmt/management/costanalysis`.
 
-## Service clients
+## Versioning
+
+{% include requirement/MUST id="golang-versioning-modules" %} release each package as a [Go module](https://blog.golang.org/using-go-modules).  Legacy dependency management tools such as `dep` and `glide` are not supported.
+
+{% include requirement/MUST id="golang-versioning-semver" %} release versions of modules in accordance with [semver 2.0](https://semver.org/spec/v2.0.0.html).
+
+{% include requirement/MUST id="golang-versioning-preview" %} clearly version prerelease modules.  For new modules, use a v0 major version with no suffix (v0.1.0).  For existing modules, use a `-preview` suffix (v1.1.0-preview, v2.0.0-preview).
+
+## Dependencies
+
+Dependencies bring in many considerations that are often easily avoided by avoiding the dependency.
+
+- **Versioning** - Many programming languages do not allow a consumer to load multiple versions of the same package. So, if we have an client package that requires v3 of package Foo and the consumer wants to use v5 of package Foo, then the consumer cannot build their application. This means that client libraries should not have dependencies by default. 
+- **Size** - Consumer applications must be able to deploy as fast as possible into the cloud and move in various ways across networks. Removing additional code (like dependencies) improves deployment performance.
+- **Licensing** - You must be conscious of the licensing restrictions of a dependency and often provide proper attribution and notices when using them.
+- **Compatibility** - Often times you do not control a dependency and it may choose to evolve in a direction that is incompatible with your original use.
+- **Security** - If a security vulnerability is discovered in a dependency, it may be difficult or time consuming to get the vulnerability corrected if Microsoft does not control the dependency's code base.
+
+{% include requirement/MUST id="golang-dependencies-azure-core" %} depend on the `azcore` package for functionality that is common across all client packages.  This package includes APIs for HTTP connectivity, global configuration, logging, and credential handling.
+
+{% include requirement/MUSTNOT id="golang-dependencies-approved-list" %} be dependent on any other packages within the client package distribution package, with the exception of the following:
+
+{% include_relative approved_dependencies.md %}
+
+# Service Clients
 
 Your API surface consists of one or more service clients that the consumer instantiates to connect to your service, plus a set of supporting types.
 
@@ -44,47 +66,30 @@ type WidgetClient struct {
 }
 ```
 
-{% include requirement/MUST id="golang-client-constructors" %} provide constructors in the following format that returns a new instance of a service client type.
+{% include requirement/MUST id="golang-api-service-client-immutable" %} ensure that all service client types are safe for concurrent use by multiple goroutines.
+
+{% include requirement/MUSTNOT id="golang-api-service-client-fields" %} export any fields on client types.  This is to support mocking of clients via interface types.
+
+## Service Client Constructors
+
+{% include requirement/MUST id="golang-client-constructors" %} provide two constructors in the following format that returns a new instance of a service client type.
 
 ```go
 // NewWidgetClient creates a new instance of WidgetClient with the specified values.  It uses the default pipeline configuration.
+// endpoint - TODO
+// cred - TODO
+// options - TODO
 func NewWidgetClient(endpoint string, cred azcore.Credential, options WidgetClientOptions) (*WidgetClient, error) {
 	// ...
 }
 
 // NewWidgetClientWithPipeline creates a new instance of WidgetClient with the specified values and custom pipeline.
-func NewWidgetClientWithPipeline(endpoint string, p azcore.Pipeline, options WidgetClientOptions) (*WidgetClient, error) {
+// endpoint - TODO
+// p - TODO
+func NewWidgetClientWithPipeline(endpoint string, p azcore.Pipeline) (*WidgetClient, error) {
 	// ...
 }
 ```
-
-{% include requirement/MUST id="golang-api-service-client-immutable" %} ensure that all service client types are immutable upon instantiation.
-
-{% include requirement/MUST id="golang-api-service-client-byref" %} pass all client instances by reference.  All methods on client types will pass their receiver by reference.
-
-{% include requirement/MUSTNOT id="golang-api-service-client-fields" %} export any fields on client types.  This is to support mocking of clients via interface types and strengthens the immutability requirement.
-
-## Service client methods
-
-{% include requirement/MUST id="golang-client-crud-verbs" %} prefer the use of the following terms for CRUD operations:
-
-| Verb           | Parameters | Comments |
-| `Set<noun>`    | key,item   | Adds new item or updates existing item. |
-| `Add<noun>`    | key,item   | Adds a new item.  Fails if item already exists. |
-| `Update<noun>` | key,item   | Updates an existing item.  Fails if item doesn't exist. |
-| `Delete<noun>` | key        | Deletes an existing item. |
-| `Get<noun>`    | key        | Will retun an error if item doesn't exist. |
-| `List<noun>`   |            | Return list of items.  Returns empty list if no items exist. |
-| `<noun>Exists` | key        | Return `true` if the item exists. |
-
-{% include requirement/SHOULD id="golang-client-verbs-flexible" %} remain flexible and use names best suited for developer experience. Don’t conflict with terminology used by the service team’s documentation, blogs, and presentations.
-
-{% include requirement/MUST id="golang-feature-support" %} support 100% of the features provided by the Azure service the client library represents. Gaps in functionality cause confusion and frustration among developers.
-
-{% include requirement/MUSTNOT id="golang-noimplleakage" %} allow implementation code (that is, code that doesn’t form part of the public API) to be mistaken as public API. There are two valid arrangements for implementation code:
-
-1.	Implementation types and functions should not be exported and placed within the same package.
-2.	Implementation types and functions can be placed in an [internal package](https://docs.google.com/document/d/1e8kOo3r51b2BWtTs_1uADIA5djfXhPT36s6eHVRIvaU/edit).
 
 ## Authentication
 
@@ -94,11 +99,60 @@ Azure services use different kinds of authentication schemes to allow clients to
 
 {% include requirement/MUST id="golang-auth-use-azidentity" %} use credential and authentication policy implementations from the `azcore` or `azidentity` package where available.
 
-{% include requirement/MUST id="golang-auth-concurrency" %} provide credential types that can be used to fetch all data needed to authenticate a request to the service. If using a service-specific credential type, the implementation must be safe for concurrent use and atomic.
+{% include requirement/MUST id="golang-auth-concurrency" %} provide credential types that can be used to fetch all data needed to authenticate a request to the service. If using a service-specific credential type, the implementation must be safe for concurrent use by multiple goroutines.
 
-{% include requirement/MUSTNOT id="golang-auth-connection-strings" %} support constructing a service client with a connection string unless such connection string is available within tooling (for copy/paste operations). A connection string is a combination of an endpoint, credential data, and other options used to simplify service client configuration. Client libraries may support a connection string **ONLY IF** the service provides it via the portal or other tooling. Connection strings are easily integrated into an application by copy/paste from the portal. However, credentials within a connection string can’t be rotated within a running process. Their use should be discouraged in production apps.
+{% include requirement/MUSTNOT id="golang-auth-connection-strings" %} support constructing a service client with a connection string unless such connection string is available within tooling (e.g. Azure portal, for copy/paste operations). A connection string is a combination of an endpoint, credential data, and other options used to simplify service client configuration. Connection strings are easily integrated into an application by copy/paste from the portal. However, credentials within a connection string can’t be rotated within a running process. Their use should be discouraged in production apps.  If the client library supports connection strings, the constructor should look like this:
 
-## Response formats
+```go
+// NewWidgetClientFromConnectionString creates a new instance of WidgetClient with the specified values.  It uses the default pipeline configuration.
+TODO - spell out each parameter in its own comment line
+func NewWidgetClientFromConnectionString(ctx context.Context, con string, options *WidgetClientOptions) (*WidgetClient, error) {
+	// ...
+}
+```
+
+## Service Methods
+
+{% include requirement/MUST id="golang-client-crud-verbs" %} prefer the use of the following terms for CRUD operations:
+
+| Verb           | Parameters | Comments |
+| `Set<noun>`    | key,item   | Adds new item or updates existing item. |
+| `Add<noun>`    | key,item   | Adds a new item.  Fails if item already exists. |
+| `Update<noun>` | key,item   | Updates an existing item.  Fails if item doesn't exist. |
+| `Delete<noun>` | key        | Deletes an existing item. Doesn't fail if item doesn't exist. |
+| `Get<noun>`    | key        | Will retun an error if item doesn't exist. |
+| `List<noun>`   |            | Returns list of items.  Returns empty list if no items exist. |
+| `<noun>Exists` | key        | Returns `true` if the item exists. |
+
+{% include requirement/SHOULD id="golang-client-verbs-flexible" %} remain flexible and use names best suited for developer experience. Don’t conflict with terminology used by the service team’s documentation, blogs, and presentations.
+
+{% include requirement/MUSTNOT id="golang-api-multimethods" %} provide multiple methods for a single REST endpoint.
+
+## Service Method Parameters
+
+{% include requirement/MUST id="golang-api-service-client-byref" %} ensure that all methods on client types pass their receiver by reference.
+
+{% include requirement/MUST id="golang-api-context" %} accept a `context.Context` object as the first parameter to every method that performs any I/O operations.
+
+{% include requirement/MUST id="golang-api-mandatory-params" %} have every I/O method accept all required parameters after the mandatory `context.Context` object.
+
+{% include requirement/MUST id="golang-api-options-struct" %} define a `<MethodNameOptions>` structure for every method with optional parameters.  This structure includes fields for all non-mandatory parameters. The structure can have fields added to it over time to simplify versioning.  To disambiguate names, use the client type name for a prefix.
+
+{% include requirement/MUST id="golang-api-options-ptr" %} allow the user to pass a pointer to this structure as the last parameter. If the user passes `nil`, then the method should assume appropriate default values for all the structure’s fields.  Note that `nil` and a zero-initialized `<MethodNameOptions>` structure are **NOT** required to be semantically equivalent.
+
+{% include requirement/MUSTNOT id="golang-api-mocked-params" %} define a function or method to accept a client, iterator, or operation type as a parameter as this breaks the consumer's ability to mock the value.  Instead, define an interface containing **only** the methods required by the caller and accept that interface as the parameter.
+
+### Parameter Validation
+
+The service client will have several methods that perform requests on the service. _Service parameters_ are directly passed across the wire to an Azure service. _Client parameters_ are not passed directly to the service, but used within the client library to fulfill the request.  Examples of client parameters include values that are used to construct a URI, or a file that needs to be uploaded to storage.
+
+{% include requirement/MUST id="golang-params-client-validation" %} validate client parameters.
+
+{% include requirement/MUSTNOT id="golang-params-service-validation" %} validate service parameters. This includes null checks, empty strings, and other common validating conditions. Let the service validate any request parameters.
+
+{% include requirement/MUST id="golang-params-devex" %} validate the developer experience when the service parameters are invalid to ensure appropriate error messages are generated by the service. If the developer experience is compromised due to service-side error messages, work with the service team to correct prior to release.
+
+## Service Method Return Types
 
 Requests to the service fall into two basic groups: methods that make a single logical request, and methods that make a deterministic sequence of requests. An example of a _single logical request_ is a request that may be retried inside the operation. An example of a _deterministic sequence of requests_ is a paged operation.
 
@@ -135,7 +189,15 @@ For methods that combine multiple requests into a single call:
 
 {% include requirement/MUST id="golang-response-failure-info" %} provide enough information in failure cases for an application to take appropriate corrective action.
 
-## Pagination
+Model structures are types that consumers use to provide required information into client library methods.  They can also be returned from client methods. These structures typically represent the domain model, or option structures that must be configured before the request can be made.
+
+{% include requirement/MUST id="golang-model-types" %} export all fields on model types to allow for mocking.
+
+{% include requirement/MUST id="golang-model-types-ro" %} document all read-only fields and exclude their values when marshalling the structure to be sent over the wire.
+
+{% include requirement/MUST id="golang-model-types-nil" %} provide a mechanism to distinguish between omitting a value and sending a nil value.
+
+## Pagination Methods
 
 {% include requirement/MUST id="golang-pagination" %} return a value that implements the paged protocol for operations that return collections.  The paged protocol allows consumers to iterate over all items and also provides a method that gives access to individual pages as defined by the service.  Consumers will not directly receive any paging information.
 
@@ -212,7 +274,7 @@ if iter.Err() != nil {
 
 {% include requirement/MUST id="golang-pagination-serialization" %} provide means to serialize and deserialize an iterator so that iteration can pause and continue, potentially on another machine.
 
-## Long running operations
+## Long Running Operations
 
 {% include requirement/MUST id="golang-lro-encapsulation" %} represent long-running operations with a type that encapsulates the polling and operation status.  The type MUST have the suffix `Operation`.
 
@@ -336,33 +398,61 @@ if err != nil {
 process(w)
 ```
 
-## The Go API
+## Mocking
 
-Consumers will use one or more service clients to access Azure services, plus a set of model classes and other supporting types. 
+One of the key things we want to support is to allow consumers of the package to easily write repeatable unit-tests for their applications without activating a service. This allows them to reliably and quickly test their code without worrying about the vagaries of the underlying service implementation (including, for example, network conditions or service outages). Mocking is also helpful to simulate failures, edge cases, and hard to reproduce situations (for example: does code work on February 29th).
 
-{% include requirement/MUSTNOT id="golang-api-multimethods" %} provide multiple methods for a single REST endpoint.
+{% include requirement/MUST id="golang-mock-interface-package" %} generate a sub-package containing interface definitions for all client operations.  The package name will be the same as the parent plus the `iface` suffix.
 
-{% include requirement/MUST id="golang-api-context" %} accept a `context.Context` object as the first parameter to every method that performs 1 (or more) I/O operations.
+{% include requirement/MUST id="golang-mock-interface-types" %} generate one interface type per client type that contains all of the client type's exported methods.  The interface type name will be the same as the client type name.
 
-{% include requirement/MUST id="golang-api-mandatory-params" %} have every I/O method accept all required parameters after the mandatory `context.Context` object.
+{% include requirement/MUST id="golang-mock-lro-pages" %} generate interface types for LRO and pageable response types that contain all of the methods for their respective types.  The interface type name will be the same as the LRO/pageable response type name.
 
-{% include requirement/MUST id="golang-api-options-struct" %} define a `<MethodNameOptions>` structure for every method with optional parameters.  This structure includes fields for all non-mandatory parameters. The structure can have fields added to it over time to simplify versioning.  To disambiguate names, use the client type name prefix.  E.g. for the BlobClient `List()` method the options type name would be `BlobListOptions`.
+{% include requirement/MUST id="golang-mock-interface-check" %} generate code to ensure that the interface definitions and their respective types have identical method declarations.  This is usually performed by assigning a nil pointer-to-type to a variable of the interface type.
 
-{% include requirement/MUST id="golang-api-options-ptr" %} allow the user to pass a pointer to this structure as the last parameter. If the user passes `nil`, then the method should assume appropriate default values for all the structure’s fields.  Note that `nil` and a zero-initialized `<MethodNameOptions>` structure are **NOT** required to be semantically equivalent.
+```go
+package factoryiface
 
-{% include requirement/MUSTNOT id="golang-api-mocked-params" %} define a function or method to accept a client, iterator, or operation type as a parameter as this breaks the consumer's ability to mock the value.  Instead, define an interface containing **only** the methods required by the caller and accept that interface as the parameter.
+import (
+	// ...
+	"<my repo>/factory"
+)
 
-### Model structures
+// WidgetClient contains the set of methods on the factory.WidgetClient type.
+type WidgetClient interface {
+	CreateWidget(ctx context.Context, options factory.WidgetOptions) (*CreateWidgetOperation, error)
+	GetWidget(ctx context.Context, name string) (*factory.Widget, error)
+	ListWidgets(ctx context.Context, options factory.ListWidgetsOptions) (*ListWidgetsIterator, error)
+}
 
-Model structures are types that consumers use to provide required information into client library methods.  They can also be returned from client methods. These structures typically represent the domain model, or option structures that must be configured before the request can be made.
+var _ WidgetClient = (*factory.WidgetClient)(nil)
 
-{% include requirement/MUST id="golang-model-types" %} export all fields on model types to allow for mocking.
+// CreateWidgetOperation contains the set of methods on the factory.CreateWidgetOperation type.
+type CreateWidgetOperation interface {
+	Done() bool
+	ID() string
+	Poll() (*factory.Widget, error)
+	Response() *azcore.Response
+	Wait() (*factory.Widget, error)
+}
 
-{% include requirement/MUST id="golang-model-types-ro" %} document all read-only fields and exclude their values when marshalling the structure to be sent over the wire.
+var _ CreateWidgetOperation = (*factory.CreateWidgetOperation)(nil)
 
-{% include requirement/MUST id="golang-model-types-nil" %} provide a mechanism to distinguish between omitting a value and sending a nil value.
+// ListWidgetsIterator contains the set of methods on the factory.ListWidgetsIterator type.
+type ListWidgetsIterator interface {
+	Err() error
+	Item() *factory.Widget
+	Next() bool
+	NextPage() bool
+	Page() *factory.ListWidgetsPage
+}
 
-### Enumerated types
+var _ ListWidgetsIterator = (*factory.ListWidgetsIterator)(nil)
+```
+
+{% include requirement/MUST id="golang-test-recordings" %} support HTTP request and response recording/playback via the pipeline.
+
+## Enumerated Types
 
 {% include requirement/MUST id="golang-enum-type" %} define the enumeration's type to match the type sent/received over-the-wire (string is the most common example).
 
@@ -387,24 +477,6 @@ func WidgetColorValues() []WidgetColor {
 	// ...
 }
 ```
-
-### Versioning
-
-Each new package defaults to the latest known service version.
-
-Each package allows the consumer to select a previous service version from a list of enum values provided in that package.
-
-{% include requirement/MUST id="golang-versioning-modules" %} release each package as a [Go module](https://blog.golang.org/using-go-modules).  Legacy dependency management tools such as `dep` and `glide` are not supported.
-
-{% include requirement/MUST id="golang-versioning-semver" %} release versions of modules in accordance with [semver 2.0](https://semver.org/spec/v2.0.0.html).
-
-{% include requirement/MUST id="golang-versioning-breaking-changes" %} release a new major version of a module when breaking changes are introduced in public surface area; this includes new service versions that are NOT backward-compatible.  Use a new major version subdirectory to support [semantic import versioning](https://github.com/golang/go/wiki/Modules#semantic-import-versioning).
-
-{% include requirement/MUST id="golang-versioning-minor-versions" %} release a new minor version of a module when new public surface area is introduced; this includes new service versions that are backward-compatible with the previous versions.
-
-{% include requirement/MUST id="golang-versioning-patch-versions" %} release a new patch version of a module when changes are made that do not affect public surface area.
-
-{% include requirement/MUST id="golang-versioning-preview" %} clearly version prerelease modules.  For new modules, use a v0 major version with no suffix (v0.1.0).  For existing modules, use a `-preview` suffix (v1.1.0-preview, v2.0.0-preview).
 
 {% include refs.md %}
 {% include_relative refs.md %}
