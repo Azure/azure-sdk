@@ -136,6 +136,8 @@ In the case of a higher-level method that produces multiple HTTP requests, eithe
 
 {% include requirement/MUST id="ts-errors-documentation" %} document the errors that are produced by each method (with the exception of commonly thrown errors that are generally not documented in the target language).
 
+{% include requirement/SHOULD id="ts-error-use-name" %} check the name property inside catch clauses rather than using `instanceof`.
+
 ## Logging {#general-logging}
 
 Client libraries must support robust logging mechanisms so that the consumer can adequately diagnose issues with the method calls and quickly determine whether the issue is in the consumer code, client library code, or service.
