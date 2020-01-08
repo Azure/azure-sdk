@@ -474,7 +474,7 @@ ConfigurationSetting setting = client.Get("Key");
 Assert.AreEqual("Value", setting.Value);
 ```
 
-Review the [full sample](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/appconfiguration/Azure.Data.AppConfiguration/samples/Sample7_MockClient.cs) in the GitHub repository.
+Review the [full sample](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/appconfiguration/Azure.Data.AppConfiguration/samples/Sample7_MockClient.md) in the GitHub repository.
 
 {% include requirement/MUST id="dotnet-mocking-virtual-method" %} make all service methods virtual.
 
