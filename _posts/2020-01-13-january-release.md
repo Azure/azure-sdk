@@ -97,6 +97,8 @@ for idx, s in enumerate(results):
   print("Sentiment = {} for doc {}".format(s.sentiment, docs[idx]))
 ```
 
+This gives you an idea of how easy sentiment analysis is to implement, but there is much more power there.  For example, you can do per-sentence sentiment analysis.  
+
 Be sure to check out all the samples for Text Analytics and let us know what you think!  You can find samples for [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics), [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/README.md), [JavaScript / TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/cognitiveservices-textanalytics/samples), and [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples).
 
 ## Working with us and giving feedback
