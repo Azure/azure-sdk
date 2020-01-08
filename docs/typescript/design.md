@@ -176,6 +176,27 @@ The guidelines in this section apply to options passed in options bags to client
 
 {% include requirement/MUST id="ts-options-suffix-durations" %} suffix durations with `In<Unit>`. Unit should be `ms` for milliseconds, and otherwise the name of the unit. Examples include `timeoutInMs` and `delayInSeconds`.
 
+#### Retry-specific Options {#ts-retry-options}
+
+Many services have a notion of retries and have various means to configure them.
+
+{% include requirement/MUST id="ts-use-retry-option-names" %} use the option names specified in the table below
+
+| Option | Values | Usage | Other Names (informational) |
+|--------|-------|------|------|
+| retryMode | 'fixed', 'linear', 'exponential' | Used to specify the retry strategy |
+| maxRetries | number >= 0 | Number of times to retry. 0 effectively disables retrying. |
+| retryDelayInMs | number > 0 | Delay between retries. For linear and exponential strategies, this is the initial retry delay and increases thereafter based on the strategy used. |
+| maxRetryDelayInMs | number > 0 | Maximum delay between retries. For linear and exponential strategies, this effectively clamps the maximum amount of time between retries. |
+| tryTimeoutInMs | number > 0 | How long to wait for a particular retry to complete before giving up |
+
+
+{% include requirement/MUST id="ts-use-retry-strategies" %} support the following retry strategies:
+
+* `fixed`: retry after some duration, where the duration never changes.
+* `exponential`: retry after some duration, where the duration increases exponentially after each attempt.
+
+
 ### Response formats {#ts-responses}
 
 Requests to the service fall into two basic groups - methods that make a single logical request, or a deterministic sequence of requests.  An example of a *single logical request* is a request that may be retried inside the operation.  An example of a *deterministic sequence of requests* is a paged operation. The *logical entity* is a protocol neutral representation of a response. For HTTP, the logical entity may combine data from headers, the body, and the status line.  For example, you may add the `ETag` header as a property on the logical entity to the deserialized content from the body of the response.
