@@ -59,7 +59,7 @@ IReadOnlyCollection<NamedEntity> entities = result.NamedEntities;
 var output = new StringBuilder(input);
 foreach (var entity in entities) {
     var newText = new string('*', entity.Length);
-    output.Replace(entity.Text, newText, entity.Offset, entity.Length);
+    output.Replace(entity.Text, newText);
 }
 Console.WriteLine(output);
 ```
@@ -112,4 +112,3 @@ So far, the community has filed hundreds of issues against these new SDKs with f
 * [Python](https://github.com/Azure/azure-sdk-for-python)
 
 Finally, please keep up to date with all the news about the Azure developer experience programs and let us know how we are doing by following [@azuresdk](https://twitter.com/AzureSDK).
-
