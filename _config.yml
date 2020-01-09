@@ -61,6 +61,9 @@ paginate: 10
 paginate_path: /page:num/
 timezone: "US/Pacific"
 
+# Set to the latest release collection directory. Must be specified as a string.
+latest_version: "202001"
+
 defaults:
   -
     scope:

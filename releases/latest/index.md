@@ -9,20 +9,20 @@ permalink: /releases/latest/index.html
 
 ## [.NET packages](dotnet.html)
 
-{% assign packages = site.data.releases.latest.dotnet-packages %}
+{% assign packages = site.data.releases[site[latest_version]].dotnet-packages %}
 {% include dotnet-packages.html %}
 
 ## [Java packages](java.html)
 
-{% assign packages = site.data.releases.latest.java-packages %}
+{% assign packages = site.data.releases[site[latest_version]].java-packages %}
 {% include java-packages.html %}
 
 ## [JavaScript packages](js.html)
 
-{% assign packages = site.data.releases.latest.js-packages %}
+{% assign packages = site.data.releases[site[latest_version]].js-packages %}
 {% include js-packages.html %}
 
 ## [Python packages](python.html)
 
-{% assign packages = site.data.releases.latest.python-packages %}
+{% assign packages = site.data.releases[site[latest_version]].python-packages %}
 {% include python-packages.html %}
