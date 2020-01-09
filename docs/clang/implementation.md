@@ -296,9 +296,16 @@ TEST_FUNCTION(foo_tcp_manager_create_createAndReturnInstanceSucceed)
 
 {% include requirement/MUST id="clang-style-filenaming" %} name all files as lowercase, prefixed by the service short name; separate words with underscores, and end with the appropriate extension (`.c` or `.h`).  For example, `iot_credential.c` is valid, while `IoTCredential.cl` is not.
 
-{% include requirement/MUST id="clang-style-publicapi-hdr" %} identify the file containing the public API with `<svcname>_<objname>_api.h`.  For example, `iot_credential_api.h`.
+{% include requirement/MUST id="clang-style-publicapi-hdr" %} identify the file containing the public API with `<svcname>_<objname>.h`.  For example, `iot_credential.h`.
 
-{% include requirement/MUST id="clang-style-privateapi-hdr" %} place an include file that is not part of the public API in an `internal` directory.  Do no include the service short name.  For example, `internal/credential.h`.
+{% include requirement/MUST id="clang-style-privateapi-hdr" %} place include files that are not part of the public API in the `src` directory.
+
+{% include requirement/MUST id="clang-style-internalapi-hdr" %} place include files that are exposed to other sdk components but not part of the public api in
+the `internal` directory (a sibling of `src` and `inc`).
+
+{% include requirement/MUSTNOT id="clang-style-publicapi-hdr-includes" %} Include internal or private headers in public headers.
+
+{% include requirement/MUSTNOT id="clang-style-install-internal-private-headers" %} Install internal or private headers with `make install` or equivalent.
 
 {% include requirement/MUST id="clang-style-filenames" %} use characters in the range `[a-z0-9_]` for the name portion (before the file extension).  No other characters are permitted.
 
