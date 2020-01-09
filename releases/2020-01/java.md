@@ -5,7 +5,6 @@ date: January 2020
 tags: java azure
 sidebar: releases_sidebar
 repository: azure/azure-sdk-for-java
-permalink: /releases/2020-01/java.html
 ---
 
 The Azure SDK team is pleased to make available the January 2020 client library GA release. This GA release includes new and updated client libraries for Identity, Key Vault (keys, secrets and certificates), Event Hubs and Storage (Blobs and Queues). Some of the libraries are released as beta and they are Checkpoint Store, Storage File.
