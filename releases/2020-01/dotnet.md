@@ -52,7 +52,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ## Quick Links
 
-{% assign packages = site.data.releases.202001.dotnet-packages %}
+{% assign packages = site.data.releases.latest.dotnet-packages %}
 {% include dotnet-packages.html %}
 
 {% include refs.md %}

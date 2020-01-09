@@ -6,8 +6,9 @@ sidebar: releases_sidebar
 repository: azure/azure-sdk-for-js
 ---
 
-{% assign packages = site.data.releases.202001.js-packages %}
-{% include js-packages.html %}
+## Quick Links
 
+{% assign packages = site.data.releases.latest.js-packages %}
+{% include js-packages.html %}
 
 {% include refs.md %}

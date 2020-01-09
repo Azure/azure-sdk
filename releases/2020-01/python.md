@@ -1,13 +1,14 @@
 ---
 title: Azure SDK for Python - (January 2020)
-layout: default
+layout: post
 tags: python
 sidebar: releases_sidebar
 repository: azure/azure-sdk-for-python
 ---
 
-{% assign packages = site.data.releases.202001.python-packages %}
-{% include python-packages.html %}
+## Quick Links
 
+{% assign packages = site.data.releases.latest.python-packages %}
+{% include python-packages.html %}
 
 {% include refs.md %}

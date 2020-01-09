@@ -177,7 +177,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ## Quick Links
 
-{% assign packages = site.data.releases.202001.java-packages %}
+{% assign packages = site.data.releases.latest.java-packages %}
 {% include java-packages.html %}
 
 {% include refs.md %}
