@@ -1,11 +1,10 @@
 ---
 title: Azure SDK for Python (January 2020)
 layout: post
-date: Jan 2020
+date: January 2020
 tags: python
 sidebar: releases_sidebar
 repository: azure/azure-sdk-for-python
-permalink: /releases/2020-01/python.html
 ---
 
 The Azure SDK team is pleased to make available the January 2020 client library GA release. This GA release includes new and updated client libraries for App Configuration, Identity, Key Vault (keys, secrets and certificates), Event Hubs and Storage (Blobs, Queues, and File share). Some of the libraries are released as preview such as Text Analytics, and Storage Datalake.
@@ -104,6 +103,5 @@ on Windows
 
 {% assign packages = site.data.releases.latest.python-packages %}
 {% include python-packages.html %}
-
 
 {% include refs.md %}
