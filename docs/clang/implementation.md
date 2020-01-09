@@ -303,9 +303,9 @@ TEST_FUNCTION(foo_tcp_manager_create_createAndReturnInstanceSucceed)
 {% include requirement/MUST id="clang-style-internalapi-hdr" %} place include files that are exposed to other sdk components but not part of the public api in
 the `internal` directory (a sibling of `src` and `inc`).
 
-{% include requirement/MUSTNOT id="clang-style-publicapi-hdr-includes" %} Include internal or private headers in public headers.
+{% include requirement/MUSTNOT id="clang-style-publicapi-hdr-includes" %} include internal or private headers in public headers.
 
-{% include requirement/MUSTNOT id="clang-style-install-internal-private-headers" %} Install internal or private headers with `make install` or equivalent.
+{% include requirement/MUSTNOT id="clang-style-install-internal-private-headers" %} install internal or private headers with `make install` or equivalent.
 
 {% include requirement/MUST id="clang-style-filenames" %} use characters in the range `[a-z0-9_]` for the name portion (before the file extension).  No other characters are permitted.
 
