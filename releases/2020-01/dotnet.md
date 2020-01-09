@@ -16,6 +16,7 @@ The Azure SDK team is pleased to announce our January 2020 client library releas
 #### Updates
 
 - Key Vault (Keys, Secrets)
+- Storage (Blobs, Queues, File Shares, DataLake)
 
 ## Installation Instructions
 
@@ -35,7 +36,7 @@ To install any of our packages, please search for them via `Manage NuGet Package
 
     $> dotnet add package Azure.Storage.Blobs
     $> dotnet add package Azure.Storage.Blobs.Batch
-    $> dotnet add package Azure.Storage.Files.DataLake --version 12.0.0-preview.7
+    $> dotnet add package Azure.Storage.Files.DataLake --version 12.0.0-preview.8
     $> dotnet add package Azure.Storage.Files.Shares
     $> dotnet add package Azure.Storage.Queues
 
