@@ -1,11 +1,10 @@
 ---
 title: Azure SDK for Python (January 2020)
 layout: post
-date: Jan 2020
+date: January 2020
 tags: python
 sidebar: releases_sidebar
 repository: azure/azure-sdk-for-python
-permalink: /releases/2020-01/python.html
 ---
 
 The Azure SDK team is pleased to make available the January 2020 client library GA release. This GA release includes new and updated client libraries for App Configuration, Identity, Key Vault (keys, secrets and certificates), Event Hubs and Storage (Blobs, Queues, and File share). Some of the libraries are released as preview such as Text Analytics, and Storage Datalake.
@@ -31,14 +30,14 @@ This release includes the following:
 To install the latest preview version of the packages, copy and paste the following commands into a terminal:
 
 ```bash
-pip install --pre azure-appconfiguration
+pip install azure-appconfiguration
 pip install --pre azure-eventhub
 pip install --pre azure-eventhub-checkpointstoreblob-aio
 pip install azure-storage-blob
 pip install --pre azure-storage-file-datalake
 pip install --pre azure-storage-file-share
 pip install azure-storage-queue
-pip install --pre azure-keyvault-certificates
+pip install azure-keyvault-certificates
 pip install azure-keyvault-keys
 pip install azure-keyvault-secrets
 pip install azure-identity
@@ -55,9 +54,7 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 
 ### App Configuration
 
-- azure.cosmos.errors module deprecated and replaced by azure.cosmos.exceptions
-- The access condition parameters (`access_condition`, `if_match`, `if_none_match`) have been deprecated in favor of separate `match_condition` and `etag` parameters.
-- Added query Distinct, Offset and Limit support.
+- Add AAD auth support
 
 ### Event Hubs
 
@@ -81,13 +78,7 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 
 ### Key Vault
 
-- Restructured the `Certificate`, `Key`, and `Secret` models and renamed them to `KeyVaultCertificate`, `KeyVaultKey`, and `KeyVaultSecret`.
-- Renamed methods to more clearly reflect their intended uses.
-- Both async and sync versions of deleting and recovering keys and secrets now return pollers that can be awaited if necessary
-- For more specific details about these changes, see the respective
-[certificate](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-certificates/HISTORY.md),
-[key](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-keys/HISTORY.md),
-and [secret](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-secrets/HISTORY.md) changelogs.
+- GA release of certificates
 
 
 ### Identity
@@ -123,6 +114,5 @@ on Windows
 
 {% assign packages = site.data.releases.latest.python-packages %}
 {% include python-packages.html %}
-
 
 {% include refs.md %}
