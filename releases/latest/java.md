@@ -1,5 +1,5 @@
 ---
-title: Azure SDK for Java - Latest
+title: Azure SDK for Java (Latest)
 layout: default
 tags: java
 sidebar: releases_sidebar

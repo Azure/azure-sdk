@@ -1,6 +1,7 @@
 ---
-title: Azure SDK for .NET - (January 2020)
+title: Azure SDK for .NET (January 2020)
 layout: post
+date: January 2020
 tags: dotnet
 sidebar: releases_sidebar
 repository: azure/azure-sdk-for-net

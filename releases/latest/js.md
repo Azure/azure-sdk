@@ -1,5 +1,5 @@
 ---
-title: Azure SDK for JavaScript - Latest
+title: Azure SDK for JavaScript (Latest)
 layout: default
 tags: javascript typescript
 sidebar: releases_sidebar
