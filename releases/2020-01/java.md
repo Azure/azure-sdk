@@ -34,13 +34,13 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-security-keyvault-secrets</artifactId>
-  <version>4.0.2</version>
+  <version>4.1.0</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-security-keyvault-keys</artifactId>
-  <version>4.0.2</version>
+  <version>4.1.0</version>
 </dependency>
 
 <dependency>
