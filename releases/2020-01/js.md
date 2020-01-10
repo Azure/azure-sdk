@@ -20,7 +20,7 @@ To install the packages, copy and paste the below into a terminal.
     $> npm install @azure/app-configuration
     $> npm install @azure/keyvault-certificates
     $> npm install @azure/keyvault-keys
-    $> npm install @azure/keyvault-certificates
+    $> npm install @azure/keyvault-secrets
     $> npm install @azure/event-hubs
     $> npm install @azure/eventhubs-checkpointstore-blob
     $> npm install @azure/storage-blob
@@ -40,7 +40,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
   For more details, please see [Storage Blob](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/storage-blob_12.0.2/sdk/storage/storage-blob/CHANGELOG.md#1202-202001) change log.
 
-Detailed change logs for other libraries can be found in their source repository linked to in the Quick Links below.
+Detailed change logs for other libraries can be found in the source repository linked to in the Quick Links below.
 
 ## Quick Links
 
