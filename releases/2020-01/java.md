@@ -118,7 +118,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
 ### App Configuration
-- SettingSelector takes a filter instead of taking a list of strings. For more details. please see the [App Configuration] (https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/appconfiguration/azure-data-appconfiguration/CHANGELOG.md#101-2020-01-07)
+- SettingSelector takes a filter instead of taking a list of strings. For more details. please see the [App Configuration](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/appconfiguration/azure-data-appconfiguration/CHANGELOG.md#101-2020-01-07).
 
 ### Event Hubs
 - The Event Hub connection is reestablished when a transient failure is encountered.
