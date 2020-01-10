@@ -41,7 +41,7 @@ pip install azure-keyvault-certificates
 pip install azure-keyvault-keys
 pip install azure-keyvault-secrets
 pip install azure-identity
-pip install azure-textanalytics
+pip install --pre azure-ai-textanalytics
 ```
 
 ## Feedback
@@ -98,6 +98,17 @@ on Windows
 ### Core
 
 ### Text Analytics
+
+- The first preview with new API design for the azure-ai-textanalytics client library
+- New APIs include `recognize_linked_entities` and `recognize_pii_entities`, and an improved version of `analyze_sentiment`
+- New underlying REST pipeline implementation based on the `azure-core` library
+- Authentication with subscription key or Azure Active Directory supported
+- Module-level, single text operations provided for performing analysis on a single string
+- Asynchronous API operations added under `azure.ai.textanalytics.aio`
+- New input types allow user to provide a list of strings as the input documents 
+- Responses now consist of a heterogeneous list of results and document errors returned in the order of the provided documents
+- Keyword argument `model_version` can be used to specify the model version used to analyze documents
+- Keyword arguments `default_country_hint` and `default_language` allow users to specify the defaults at client instantiation
 
 ## Quick Links
 
