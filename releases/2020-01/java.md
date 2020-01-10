@@ -175,7 +175,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Added EventHubs.* properties to attributes of processing spans. Detailed [changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-core-tracing-opentelemetry_1.0.0-beta.2/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md) for `azure-core-tracing-opentelemetry`.
 
 ### Text Analytics
-- The first preview with new API design for the azure-ai-textanalytics client library
+- The first preview with new API design for the `azure-ai-textanalytics` client library
 - It uses the Text Analytics service `v3.0-preview.1` API.
 - New namespace/package name:
     - The namespace/package name for Azure Text Analytics client library has changed from 
