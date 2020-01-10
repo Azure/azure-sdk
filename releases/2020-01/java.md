@@ -184,7 +184,7 @@ For more details, please see the detailed [changelog](https://github.com/Azure/a
 * File an issue via [Github Issues](https://github.com/Azure/azure-sdk-for-java/issues/new/choose).
 * Check [previous questions](https://stackoverflow.com/questions/tagged/azure-java-sdk) or ask new ones on StackOverflow using `azure-java-sdk` tag.
 
-## Quick Links
+## Latest Releases
 
 {% assign packages = site.data.releases.latest.java-packages %}
 {% include java-packages.html %}

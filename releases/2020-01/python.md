@@ -106,7 +106,7 @@ on Windows
 - Keyword argument `model_version` can be used to specify the model version used to analyze documents
 - Keyword arguments `default_country_hint` and `default_language` allow users to specify the defaults at client instantiation
 
-## Quick Links
+## Latest Releases
 
 {% assign packages = site.data.releases.latest.python-packages %}
 {% include python-packages.html %}

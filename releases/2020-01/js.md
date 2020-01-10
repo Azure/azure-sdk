@@ -29,7 +29,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 ## Changelog
 Detailed change logs are linked to in the Quick Links below.
 
-## Quick Links
+## Latest Releases
 
 {% assign packages = site.data.releases.latest.js-packages %}
 {% include js-packages.html %}
