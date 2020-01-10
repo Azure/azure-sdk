@@ -16,7 +16,7 @@ The Azure SDK team is pleased to announce our January 2020 client library releas
 #### Updates
 
 - Key Vault (Keys, Secrets)
-- Storage (Blobs, Queues, File Shares, DataLake)
+- Storage (Blobs, Blobs Batch, Queues, File Shares, DataLake)
 
 ## Installation Instructions
 
