@@ -108,6 +108,12 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <artifactId>azure-cosmos</artifactId>
   <version>4.0.0-preview.1</version>
 </dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-ai-textanalytics</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
 ```
 
 ## Feedback
@@ -168,6 +174,21 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Added links for batch send operation in Event Hubs client library.
 - Added EventHubs.* properties to attributes of processing spans. Detailed [changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-core-tracing-opentelemetry_1.0.0-beta.2/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md) for `azure-core-tracing-opentelemetry`.
 
+### Text Analytics
+- The first preview with new API design for the azure-ai-textanalytics client library
+- It uses the Text Analytics service `v3.0-preview.1` API.
+- New namespace/package name:
+    - The namespace/package name for Azure Text Analytics client library has changed from 
+    `com.microsoft.azure.cognitiveservices.language.textanalytics` to `com.azure.ai.textanalytics`
+- Added support for:
+  - Subscription key and AAD authentication for both synchronous and asynchronous clients.
+  - Language detection.
+  - Entity recognition.
+  - Entity linking recognition.
+  - Personally identifiable information entities recognition.
+  - Key phrases extraction.
+  - Analyze sentiment APIs including analysis for mixed sentiment.
+  
 ## Need help?
 * For reference documentation visit the [Azure SDK for Java documentation](https://azure.github.io/azure-sdk-for-java/).
 * For tutorials, samples, quick starts and other documentation, visit [Azure for Java Developers](https://docs.microsoft.com/java/azure/).
