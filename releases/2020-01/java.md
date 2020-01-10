@@ -131,42 +131,28 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Error handling in `EventProcessor` is broken out and handled in several scenarios.
 - For more details, please see the [EventHubs changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md#501-2020-01-07).
   
-### Keyvault Certificates
+### Keyvault (Secrets, Keys, Certificates)
+- Updated dependency. For more details. please see the [KeyVault Secrets](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md#402-2020-01-07)
+- Fixes the logic of `getKeyId()` method in `KeyEncryptionKeyClient` and `KeyEncryptionKeyAsyncClient` to ensure key id is available in all scenarios. For more details. please see the [KeyVault Keys](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md#402-2020-01-07)
 - Updated dependency. For more details. please see the [KeyVault Certificates](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md#400-2020-01-07)
 
-### Keyvault Keys
-- - Fixes the logic of `getKeyId()` method in `KeyEncryptionKeyClient` and `KeyEncryptionKeyAsyncClient` to ensure key id is available in all scenarios. For more details. please see the [KeyVault Keys](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md#402-2020-01-07)
-
-### Keyvault Secrets
-- - Updated dependency. For more details. please see the [KeyVault Secrets](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md#402-2020-01-07)
-
-### Storage Blob
+### Storage (Blobs, Files, Queues)
 - Optimized `downloadToFile` to avoid an unnecessary `getProperties` call and to lock on an ETag once the operation has
   started. For more details, please see the [Storage
   Blob](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md#version-1210-2019-12-??)
   change log.
-
-### Storage Blob Batch
 - Changed exception throwing to throw `StorageBlobException` on invalid request and `BlobBatchStorageException` when
   batch operations fail. For more details, please see the [Storage Blob
   Batch](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-batch/CHANGELOG.md#version-1210-2019-12-??)
   change log.
-
-### Storage Blob Cryptography
 - Added a check in `EncryptedBlobClientBuilder` to enforce HTTPS for bearer token authentication. For more details,
   please see the [Storage Blob
   Cryptography](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md#version-1210-2019-12-??)
   change log.
-
-### Storage File Datalake
 - Fixed bug in ClientBuilders that prevented OAuth from functioning. For more details, please see the [Storage File Datalake](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md#version-1200-beta7-2019-12-??)
   change log.
-
-### Storage File Share
 - Renamed FileReference to StorageFileItem. For more details, please see the [Storage File Share](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/CHANGELOG.md#version-1200-preview5-2019-10-??)
   change log.
-
-### Storage Queue
 - Added a check in ClientBuilders to enforce HTTPS for bearer token authentication. For more details, please see the [Storage Queue](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/CHANGELOG.md#version-1210-2019-12-??)
   change log.
 
