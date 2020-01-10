@@ -11,12 +11,13 @@ The Azure SDK team is pleased to announce our January 2020 client library releas
 
 #### GA
 
+- Event Hubs
 - Key Vault (Certificates)
 
 #### Updates
 
-- Storage (Blobs, Blobs Batch, Queues, File Shares, DataLake)
 - Key Vault (Keys, Secrets)
+- Storage (Blobs, Blobs Batch, Queues, File Shares, DataLake)
 
 #### Preview
 
@@ -34,7 +35,8 @@ To install any of our packages, please search for them via `Manage NuGet Package
 
     $> dotnet add package Azure.Identity
 
-    $> dotnet add package Azure.Messaging.EventHubs --version 5.0.0-preview.6
+    $> dotnet add package Azure.Messaging.EventHubs 
+    $> dotnet add package Azure.Messaging.EventHubs.Processor 
 
     $> dotnet add package Azure.Security.KeyVault.Certificates
     $> dotnet add package Azure.Security.KeyVault.Key
@@ -54,16 +56,22 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
+### Event Hubs
+
+- Namespaces have been reorganized to align types to their functional area. Cross-functional types have been left in the root namespace while specialized types were moved to the Producer, Consumer, or Processor namespaces.
+
+- The hierarchy of custom exceptions has been flattened, with only the EventHubsException remaining. The well-known failure scenarios that had previously been represented as stand-alone types are now exposed by the `Reason` property.  Please see the [Event Hubs README](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs#event-hubs-exception) for details.
+
+### Key Vault
+
+- Challenge-based authentication requests are only sent over HTTPS.
+
 ### Storage
 
 - Added Exists API to BlobBaseClient and BlobContainerClient
 - Fixed SAS related bugs
 - Fixed progress reporting for parallel uploads
 - Fixed issue where certain query parameters were not being logged for DataLake.
-
-### Key Vault
-
-- Challenge-based authentication requests are only sent over HTTPS.
 
 ### Text Analytics
 
