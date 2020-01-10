@@ -18,9 +18,15 @@ The Azure SDK team is pleased to announce our January 2020 client library releas
 - Storage (Blobs, Blobs Batch, Queues, File Shares, DataLake)
 - Key Vault (Keys, Secrets)
 
+#### Preview
+
+- Text Analytics
+
 ## Installation Instructions
 
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
+
+    $> dotnet add package Azure.AI.TextAnalytics --version 1.0.0-preview.1
 
     $> dotnet add package Azure.Cosmos --version 4.0.0-preview
 
@@ -58,6 +64,17 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 ### Key Vault
 
 - Challenge-based authentication requests are only sent over HTTPS.
+
+### Text Analytics
+
+- This library supports only the Text Analytics Service v3.0-preview.1 API.  The previous `Microsoft.Azure.CognitiveServices.Language.TextAnalytics` library supported only earlier service versions.
+- The namespace/package name for Azure Text Analytics client library has changed from `Microsoft.Azure.CognitiveServices.Language.TextAnalytics` to `Azure.AI.TextAnalytics`
+- Added support for:
+  - Subscription key and AAD authentication for both synchronous and asynchronous clients.
+  - Detect Language.
+  - Separation of Entity Recognition and Entity Linking.
+  - Identification of Personally Identifiable Information.
+  - Analyze Sentiment APIs including analysis for mixed sentiment.
 
 ## Quick Links
 
