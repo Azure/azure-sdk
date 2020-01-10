@@ -59,7 +59,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Text Analytics
 
-- This library supports only the Text Analytics Service v3.0-preview.1 API, whereas the previous library supports only earlier versions.
+- This library supports only the Text Analytics Service v3.0-preview.1 API.  The previous `Microsoft.Azure.CognitiveServices.Language.TextAnalytics` library supported only earlier service versions.
 - The namespace/package name for Azure Text Analytics client library has changed from `Microsoft.Azure.CognitiveServices.Language.TextAnalytics` to `Azure.AI.TextAnalytics`
 - Added support for:
   - Subscription key and AAD authentication for both synchronous and asynchronous clients.
