@@ -12,11 +12,11 @@ sidebar: golang_sidebar
 
 Go groups related types in a package.  In Go, the package should be named `az<service>`, where `<service>` is the service name represented as a single word.
 
-{% include requirement/MUST id="golang-namespace-prefix" %} start the package with `az` to indicate an Azure client package.
+{% include requirement/MUST id="golang-package-prefix" %} start the package with `az` to indicate an Azure client package.
 
-{% include requirement/MUST id="golang-namespace-pkgname" %} construct the package name with all lowercase letters (uppercase letters, hyphens and underscores are not allowed). For example, the Azure Key Vault package would be named `azkeyvault` and the Azure blob storage package would be named `azblob`.
+{% include requirement/MUST id="golang-package-name" %} construct the package name with all lowercase letters (uppercase letters, hyphens and underscores are not allowed). For example, the Azure Key Vault package would be named `azkeyvault` and the Azure blob storage package would be named `azblob`.
 
-{% include requirement/MUST id="golang-namespace-registration" %} register the chosen package name with the [Architecture Board]. Open an issue to request the package name. See the [registered namespace list](registered_namespaces.html) for a list of the currently registered namespaces.
+{% include requirement/MUST id="golang-package-registration" %} register the chosen package name with the [Architecture Board]. Open an issue to request the package name. See the [registered package list](registered_namespaces.html) for a list of the currently registered packages.
 
 ## Directory Structure - TODO: update
 
@@ -40,15 +40,15 @@ Many management APIs do not have a data plane because they deal with management 
 
 ## Dependencies
 
-Dependencies bring in many considerations that are often easily avoided by avoiding the dependency.
+Packages should strive to avoid taking dependencies on packages outside of the standard library for the following reasons:
 
-- **Versioning** - Many programming languages do not allow a consumer to load multiple versions of the same package. So, if we have an client package that requires v3 of package Foo and the consumer wants to use v5 of package Foo, then the consumer cannot build their application. This means that client libraries should not have dependencies by default. 
+- **Versioning** - Exposing types defined outside the standard library (i.e. `exchange types`) can indroduce versioning complexity.  If we have an client package that exposes types from a v3 of package Foo and the consumer wants to use v5 of package Foo, then the consumer cannot use the v5 types to satisfy the v3 requirement.
 - **Size** - Consumer applications must be able to deploy as fast as possible into the cloud and move in various ways across networks. Removing additional code (like dependencies) improves deployment performance.
 - **Licensing** - You must be conscious of the licensing restrictions of a dependency and often provide proper attribution and notices when using them.
 - **Compatibility** - Often times you do not control a dependency and it may choose to evolve in a direction that is incompatible with your original use.
 - **Security** - If a security vulnerability is discovered in a dependency, it may be difficult or time consuming to get the vulnerability corrected if Microsoft does not control the dependency's code base.
 
-{% include requirement/MUST id="golang-dependencies-azure-core" %} depend on the `azcore` package for functionality that is common across all client packages.  This package includes APIs for HTTP connectivity, global configuration, logging, and credential handling.
+{% include requirement/MUST id="golang-dependencies-azure-core" %} depend on the `azcore` package for functionality that is common across all client packages.  This package includes APIs for HTTP connectivity, global configuration, logging, and credential handling, and more.
 
 {% include requirement/MUSTNOT id="golang-dependencies-approved-list" %} be dependent on any other packages within the client package distribution package, with the exception of the following:
 
@@ -62,17 +62,17 @@ Your API surface consists of one or more service clients that the consumer insta
 
 ```go
 type WidgetClient struct {
-	// ...
+	// all fields MUST NOT be exported
 }
 ```
 
-{% include requirement/MUST id="golang-api-service-client-immutable" %} ensure that all service client types are safe for concurrent use by multiple goroutines.
+{% include requirement/MUST id="golang-api-service-client-immutable" %} ensure that all service client types are safe for concurrent use by multiple goroutines.  Ideally, all client state is immutable which will satisfy this guideline.
 
 {% include requirement/MUSTNOT id="golang-api-service-client-fields" %} export any fields on client types.  This is to support mocking of clients via interface types.
 
 ## Service Client Constructors
 
-{% include requirement/MUST id="golang-client-constructors" %} provide two constructors in the following format that returns a new instance of a service client type.
+{% include requirement/MUST id="golang-client-constructors" %} provide two constructors in the following format that return a new instance of a service client type.
 
 ```go
 // NewWidgetClient creates a new instance of WidgetClient with the specified values.  It uses the default pipeline configuration.
@@ -91,9 +91,9 @@ func NewWidgetClientWithPipeline(endpoint string, p azcore.Pipeline) (*WidgetCli
 }
 ```
 
-## Authentication
+## Authentication and Credentials
 
-Azure services use different kinds of authentication schemes to allow clients to access the service. Conceptually, there are two entities responsible in this process: a credential and an authentication policy. Credentials provide confidential authentication data. Authentication policies use the data provided by a credential to authenticate requests to the service.
+Azure services use different kinds of authentication schemes to allow clients to access the service. Conceptually, there are two entities responsible in this process: a credential and an authentication policy. Credentials provide confidential authentication data. Authentication policies use the data provided by a credential to modify an HTTP request before it is sent to the service.
 
 {% include requirement/MUST id="golang-auth-support" %} support all authentication techniques that the service supports.
 
@@ -138,7 +138,7 @@ func NewWidgetClientFromConnectionString(ctx context.Context, con string, option
 
 {% include requirement/MUST id="golang-api-options-struct" %} define a `<MethodNameOptions>` structure for every method with optional parameters.  This structure includes fields for all non-mandatory parameters. The structure can have fields added to it over time to simplify versioning.  To disambiguate names, use the client type name for a prefix.
 
-{% include requirement/MUST id="golang-api-options-ptr" %} allow the user to pass a pointer to this structure as the last parameter. If the user passes `nil`, then the method should assume appropriate default values for all the structure’s fields.  Note that `nil` and a zero-initialized `<MethodNameOptions>` structure are **NOT** required to be semantically equivalent.
+{% include requirement/MUST id="golang-api-options-ptr" %} allow the user to pass a pointer to the structure as the last parameter. If the user passes `nil`, then the method should assume appropriate default values for all the structure’s fields.  Note that `nil` and a zero-initialized `<MethodNameOptions>` structure are **NOT** required to be semantically equivalent.
 
 {% include requirement/MUSTNOT id="golang-api-mocked-params" %} define a function or method to accept a client, iterator, or operation type as a parameter as this breaks the consumer's ability to mock the value.  Instead, define an interface containing **only** the methods required by the caller and accept that interface as the parameter.
 
