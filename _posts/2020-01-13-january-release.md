@@ -40,7 +40,7 @@ The Text Analytics API is part of the Azure Cognitive Services suite of machine 
 
 The new SDK supports [all the features](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/overview) of the new v3.0 REST API for Text Analytics.  For example, you can detect the language that the text was written in, identify PII (personally identifiable information), extract key phrases, categorize concepts like places and people within the text, link to external sources (like Wikipedia or Bing) for disambiguation, and perform sentiment analysis.
 
-To use the Text Analytics SDK, first create a client.  We'll use [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics) for this months snippets, although the SDK is also available in [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics), [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics), and [JavaScript / TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/cognitiveservices-textanalytics).  To create a client:
+To use the Text Analytics SDK, first create a client.  We'll use [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics) for this months snippets, although the SDK is also available in [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics), [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics), and [JavaScript / TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics).  To create a client:
 
 ```csharp
 var endpoint = new Uri(myEndpoint);
@@ -99,7 +99,7 @@ for idx, s in enumerate(results):
 
 This gives you an idea of how easy sentiment analysis is to implement, but there is much more power there.  For example, you can do per-sentence sentiment analysis.  
 
-Be sure to check out all the samples for Text Analytics and let us know what you think!  You can find samples for [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics), [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/README.md), [JavaScript / TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/cognitiveservices-textanalytics/samples), and [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples).
+Be sure to check out all the samples for Text Analytics and let us know what you think!  You can find samples for [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics), [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/README.md), [JavaScript / TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples), and [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples).
 
 ## Working with us and giving feedback
 
