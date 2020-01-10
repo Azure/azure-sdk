@@ -1,6 +1,6 @@
 ## SDK Support for sovereign clouds and Azure Stack
 
-The fact that there are multiple instances of Azure clouds introduces a distinct set of challenges for developers.
+The fact that there are multiple Azure clouds introduces a distinct set of challenges for developers.
 
 ### Endpoint configuration
 Different cloud instances have different endpoint addresses. This includes both endpoints for services (e.g. the default storage endpoint suffix for the Azure China Cloud is core.chinacloudapi.cn whereas the default storage endpoint suffix for the Azure US Government cloud is core.usgovcloudapi.net)
