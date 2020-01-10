@@ -15,6 +15,7 @@ The Azure SDK team is pleased to announce our January 2020 client library releas
 
 #### Updates
 
+- Storage (Blobs, Blobs Batch, Queues, File Shares, DataLake)
 - Key Vault (Keys, Secrets)
 
 ## Installation Instructions
@@ -35,7 +36,7 @@ To install any of our packages, please search for them via `Manage NuGet Package
 
     $> dotnet add package Azure.Storage.Blobs
     $> dotnet add package Azure.Storage.Blobs.Batch
-    $> dotnet add package Azure.Storage.Files.DataLake --version 12.0.0-preview.7
+    $> dotnet add package Azure.Storage.Files.DataLake --version 12.0.0-preview.8
     $> dotnet add package Azure.Storage.Files.Shares
     $> dotnet add package Azure.Storage.Queues
 
@@ -46,6 +47,13 @@ If you have a bug or feature request for one of the libraries, please [file an i
 ## Changelog
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
+
+### Storage
+
+- Added Exists API to BlobBaseClient and BlobContainerClient
+- Fixed SAS related bugs
+- Fixed progress reporting for parallel uploads
+- Fixed issue where certain query parameters were not being logged for DataLake.
 
 ### Key Vault
 
