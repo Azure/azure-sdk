@@ -18,7 +18,6 @@ This release includes the following:
 - Storage (Blobs, Queues, File Shares)
 - Key Vault (Certificates, Secrets, Keys)
 - Identity
-- Core
 
 #### Preview
 
@@ -80,7 +79,6 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 
 - GA release of certificates
 
-
 ### Identity
 
 - `DefaultAzureCredential` accepts an `authority` keyword argument, enabling
@@ -94,8 +92,6 @@ for transport
 - Known issue ([#8292](https://github.com/Azure/azure-sdk-for-python/issues/8292)):
 `DefaultAzureCredential` and `SharedTokenCredential` raise exceptions on Python 3.8
 on Windows
-
-### Core
 
 ### Text Analytics
 
