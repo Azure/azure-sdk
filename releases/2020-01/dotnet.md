@@ -15,8 +15,8 @@ The Azure SDK team is pleased to announce our January 2020 client library releas
 
 #### Updates
 
-- Key Vault (Keys, Secrets)
 - Storage (Blobs, Blobs Batch, Queues, File Shares, DataLake)
+- Key Vault (Keys, Secrets)
 
 ## Installation Instructions
 
@@ -47,6 +47,13 @@ If you have a bug or feature request for one of the libraries, please [file an i
 ## Changelog
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
+
+### Storage
+
+- Added Exists API to BlobBaseClient and BlobContainerClient
+- Fixed SAS related bugs
+- Fixed progress reporting for parallel uploads
+- Fixed issue where certain query parameters were not being logged for DataLake.
 
 ### Key Vault
 
