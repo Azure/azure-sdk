@@ -189,6 +189,8 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
   - Key phrases extraction.
   - Analyze sentiment APIs including analysis for mixed sentiment.
   
+For more details, please see the detailed [changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#100-beta1-2020-01-09).
+
 ## Need help?
 * For reference documentation visit the [Azure SDK for Java documentation](https://azure.github.io/azure-sdk-for-java/).
 * For tutorials, samples, quick starts and other documentation, visit [Azure for Java Developers](https://docs.microsoft.com/java/azure/).
