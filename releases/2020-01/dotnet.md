@@ -84,7 +84,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
   - Identification of Personally Identifiable Information.
   - Analyze Sentiment APIs including analysis for mixed sentiment.
 
-## Quick Links
+## Latest Releases
 
 {% assign packages = site.data.releases.latest.dotnet-packages %}
 {% include dotnet-packages.html %}
