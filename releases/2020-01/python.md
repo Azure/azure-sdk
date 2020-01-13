@@ -75,7 +75,7 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 - `enqueue_message` is now called `send_message` in queues.
 - Other breaking changes like renaming `LeaseClient` in blobs to `BlobLeaseClient`.
 
-### Key Vault
+### Key Vault (Keys, Secrets, and Certificates)
 
 - GA release of certificates
 
