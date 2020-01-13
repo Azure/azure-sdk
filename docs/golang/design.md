@@ -278,13 +278,13 @@ if iter.Err() != nil {
 
 {% include requirement/MUST id="golang-lro-encapsulation" %} represent long-running operations with a type that encapsulates the polling and operation status.  The type MUST have the suffix `Operation`.
 
-{% include requirement/MUSTNOT id="golang-lro-fields" %} export any fields on operation types.  This is to support mocking of operation responses via interface types.
-
 ```go
 type CreateWidgetOperation struct {
-	// ...
+	// all fields MUST NOT be exported
 }
 ```
+
+{% include requirement/MUSTNOT id="golang-lro-fields" %} export any fields on operation types.  This is to support mocking of operation responses via interface types.
 
 {% include requirement/MUST id="golang-lro-operation-type" %} provide the following methods on an `Operation` type: `Done()`, `ID()`, `Response()`, `Poll()`, and `Wait()`.
 
