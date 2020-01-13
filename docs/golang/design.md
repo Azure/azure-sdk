@@ -48,6 +48,8 @@ Packages should strive to avoid taking dependencies on packages outside of the s
 - **Compatibility** - Often times you do not control a dependency and it may choose to evolve in a direction that is incompatible with your original use.
 - **Security** - If a security vulnerability is discovered in a dependency, it may be difficult or time consuming to get the vulnerability corrected if Microsoft does not control the dependency's code base.
 
+{% include requirement/MUST id="golang-dependencies-exch-types" %} limit exchange types to those provided by the standard library (**NO EXCEPTIONS**).
+
 {% include requirement/MUST id="golang-dependencies-azure-core" %} depend on the `azcore` package for functionality that is common across all client packages.  This package includes APIs for HTTP connectivity, global configuration, logging, and credential handling, and more.
 
 {% include requirement/MUSTNOT id="golang-dependencies-approved-list" %} be dependent on any other packages within the client package distribution package, with the exception of the following:
@@ -140,8 +142,6 @@ func NewWidgetClientFromConnectionString(ctx context.Context, con string, option
 
 {% include requirement/MUST id="golang-api-options-ptr" %} allow the user to pass a pointer to the structure as the last parameter. If the user passes `nil`, then the method should assume appropriate default values for all the structure’s fields.  Note that `nil` and a zero-initialized `<MethodNameOptions>` structure are **NOT** required to be semantically equivalent.
 
-{% include requirement/MUSTNOT id="golang-api-mocked-params" %} define a function or method to accept a client, iterator, or operation type as a parameter as this breaks the consumer's ability to mock the value.  Instead, define an interface containing **only** the methods required by the caller and accept that interface as the parameter.
-
 ### Parameter Validation
 
 The service client will have several methods that perform requests on the service. _Service parameters_ are directly passed across the wire to an Azure service. _Client parameters_ are not passed directly to the service, but used within the client library to fulfill the request.  Examples of client parameters include values that are used to construct a URI, or a file that needs to be uploaded to storage.
@@ -195,84 +195,47 @@ Model structures are types that consumers use to provide required information in
 
 {% include requirement/MUST id="golang-model-types-ro" %} document all read-only fields and exclude their values when marshalling the structure to be sent over the wire.
 
-{% include requirement/MUST id="golang-model-types-nil" %} provide a mechanism to distinguish between omitting a value and sending a nil value.
-
 ## Pagination Methods
 
-{% include requirement/MUST id="golang-pagination" %} return a value that implements the paged protocol for operations that return collections.  The paged protocol allows consumers to iterate over all items and also provides a method that gives access to individual pages as defined by the service.  Consumers will not directly receive any paging information.
+{% include requirement/MUST id="golang-pagination" %} return a value that implements the Pager interface for operations that return pages.  The Pager interface allows consumers to iterate over all pages as defined by the service.
 
-{% include requirement/MUST id="golang-pagination-iterators" %} create iterator types with the name `<Resource>Iterator` that are to be returned from their respective operations.
+{% include requirement/MUST id="golang-pagination-pagers" %} create Pager interface types with the name `<Resource>Pager` that are to be returned from their respective operations.
 
-{% include requirement/MUST id="golang-pagination-methods" %} use the prefix `List` in the method name for methods that return an iterator.  Such methods MUST take a `context.Context` as their first parameter.
-
-{% include requirement/MUSTNOT id="golang-pagination-fields" %} export any fields on iterator types.  This is to support mocking of iterator responses via interface types.
+{% include requirement/MUST id="golang-pagination-pagers-interface-page" %} expose methods `NextPage()`, `Page()`, and `Err()` on the `<Resource>Pager` type.
 
 ```go
-func (c *WidgetClient) ListWidgets(ctx context.Context, options *ListWidgetOptions) *WidgetIterator {
-	// ...
+type WidgetPager interface {
+	// NextPage returns true if the pager advanced to the next page.
+	// Returns false if there are no more pages or an error occurred.
+	NextPage(context.Context) bool
+
+	// Page returns the current WidgetsPage.
+	Page() *WidgetsPage
+
+	// Err returns the last error encountered while paging.
+	Err() error
 }
 ```
 
-{% include requirement/MUST id="golang-pagination-iterator-interface-page" %} expose methods `NextPage()`, `Page()`, and `Err()` on the `<Resource>Iterator` type.
+{% include requirement/MUST id="golang-pagination-methods" %} use the prefix `List` in the method name for methods that return a Pager.  The `List` method creates the Pager but does NOT perform an IO operation.
 
 ```go
-type WidgetIterator struct {
+func (c *WidgetClient) ListWidgets(options *ListWidgetOptions) *WidgetPager {
 	// ...
 }
 
-// NextPage returns true if the iterator advanced to the next page.
-// Returns false if there are no more pages or an error occurred.
-func (i *WidgetIterator) NextPage() bool {
-	// ...
-}
-
-// Page returns the current ListWidgetsPage.
-func (i *WidgetIterator) Page() *ListWidgetsPage {
-	// ...
-}
-
-// Err returns the last error encountered while iterating.
-func (i *WidgetIterator) Err() error {
-	// ...
-}
-
-iter := client.ListWidgets(ctx, options)
-for iter.NextPage() { 
-	for _, w := range iter.Page().Widgets {
+pager := client.ListWidgets(options)
+for pager.NextPage(ctx) { 
+	for _, w := range pager.Page().Widgets {
 		process(w)
 	}
 }
-if iter.Err() != nil {
+if pager.Err() != nil {
 	// handle error...
 }
 ```
 
-{% include requirement/MUST id="golang-pagination-iterator-interface-item" %} expose methods `Next()` and `Item()` on the `<Resource>Iterator` type **IFF** the page is a homogenous collection of items.
-
-```go
-// Next returns true if the iterator advanced to the next item.
-// Returns false if there are no more items or an error occurred.
-func (i *WidgetIterator) Next() bool {
-	// ...
-}
-
-// Item returns the current Widget based on the iterator's index.
-func (i *WidgetIterator) Item() *Widget {
-	// ...
-}
-
-iter := client.ListWidgets(ctx, options)
-for iter.Next() {  
-	process(iter.Item())
-}
-if iter.Err() != nil {
-	// handle error...
-}
-```
-
-{% include requirement/MUSTNOT id="golang-pagination-too-many-gets" %} expose an iterator over a collection if retrieving each item requires a corresponding GET request to the service. One GET per item is often too expensive and thus not an action we want to take on behalf of consumers.
-
-{% include requirement/MUST id="golang-pagination-serialization" %} provide means to serialize and deserialize an iterator so that iteration can pause and continue, potentially on another machine.
+{% include requirement/MUST id="golang-pagination-serialization" %} provide means to serialize and deserialize a Pager so that paging can pause and continue, potentially on another machine.
 
 ## Long Running Operations
 
@@ -422,7 +385,7 @@ import (
 type WidgetClient interface {
 	CreateWidget(ctx context.Context, options factory.WidgetOptions) (*CreateWidgetOperation, error)
 	GetWidget(ctx context.Context, name string) (*factory.Widget, error)
-	ListWidgets(ctx context.Context, options factory.ListWidgetsOptions) (*ListWidgetsIterator, error)
+	ListWidgets(options factory.ListWidgetsOptions) (*factory.ListWidgetsPager, error)
 }
 
 var _ WidgetClient = (*factory.WidgetClient)(nil)
@@ -437,17 +400,6 @@ type CreateWidgetOperation interface {
 }
 
 var _ CreateWidgetOperation = (*factory.CreateWidgetOperation)(nil)
-
-// ListWidgetsIterator contains the set of methods on the factory.ListWidgetsIterator type.
-type ListWidgetsIterator interface {
-	Err() error
-	Item() *factory.Widget
-	Next() bool
-	NextPage() bool
-	Page() *factory.ListWidgetsPage
-}
-
-var _ ListWidgetsIterator = (*factory.ListWidgetsIterator)(nil)
 ```
 
 {% include requirement/MUST id="golang-test-recordings" %} support HTTP request and response recording/playback via the pipeline.
