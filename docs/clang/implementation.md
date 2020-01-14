@@ -52,7 +52,38 @@ hen configuring your client library, particular care must be taken to ensure tha
 
 ### Client configuration
 
-{% include requirement/MUST id="clang-config-global-config" %} use relevant global configuration settings either by default or when explicitly requested to by the user, for example by passing in a configuration object to a client constructor.
+{% include requirement/MUST id="clang-config-global-config" %} use relevant global configuration settings either by default or when explicitly requested to by the user.
+
+{% include requirement/SHOULD id="clang-config-global-config-howto" %} Use an "options" structure
+to allow user specified configuration, in particular when there are many configuration options
+for one client constructor.
+
+For example,
+
+```c
+typedef struct az_catherding_client_options {
+    uint32_t num_cats;
+    bool indoor_cats;
+} az_catherding_client_options;
+
+AZ_NODISCARD az_catherding_client_options az_catherding_client_default_options(void);
+
+AZ_NODISCARD az_result az_catherding_client_init(az_catherding_client* self, const az_catherding_default_cat_options* options);
+```
+
+The user can request the default with:
+
+```c
+az_catherding_client client = {0};
+az_result res = az_catherding_client_init(&cat, NULL);
+```
+or specify their own options with:
+```c
+az_catherding_client client = {0};
+az_catherding_cat_options options = az_catherding_client_default_options();
+options.num_cats = 4;
+az_result res = az_catherding_client_init(&client, &options);
+```
 
 {% include requirement/MUST id="clang-config-for-different-clients" %} allow different clients of the same type to use different configurations.
 
@@ -60,16 +91,41 @@ hen configuring your client library, particular care must be taken to ensure tha
 
 {% include requirement/MUST id="clang-config-global-overrides" %} allow all global configuration settings to be overridden by client-provided options. The names of these options should align with any user-facing global configuration keys.
 
-{% include requirement/MUSTNOT id="clang-config-defaults-nochange" %} Change the default values of client
-configuration options based on system or program state.
+{% include requirement/MUST id="clang-config-defaults-consistent" %} Have consistent defaults across
+all supported systems and build configurations. This means changing settings such as
+default buffer sizes based on the target platform or build settings is prohibited.
+
+For example, consider the structure:
+```c
+typedef struct az_catherding_herd {
+    int num_cats;
+    uint8_t cat_buffer[CAT_BUFFER_SIZE];
+} az_catherding_herd;
+```
+
+This is OK:
+
+```cmake
+...
+set(AZ_CATHEREDING_CAT_BUFFER_SIZE 1024 CACHE STRING "default size of cat buffer")
+target_compile_definitions(az_catherding PUBLIC CAT_BUFFER_SIZE=${AZ_CATHERDING_CAT_BUFFER_SIZE})
+```
+
+This is not OK:
+
+```cmake
+if(TARGETING_DESKTOP)
+    set(AZ_CATHERDING_CAT_BUFFER_SIZE 4096 CACHE STRING "default size of cat buffer")
+else()
+    set(AZ_CATHERDING_CAT_BUFFER_SIZE 1024 CACHE STRING "default size of cat buffer")
+endif()
+target_compile_definitions(az_catherding PUBLIC CAT_BUFFER_SIZE=${AZ_CATHERDING_CAT_BUFFER_SIZE})
+```
+
+{% include requirement/MUSTNOT id="clang-config-defaults-nochange" %} Change the default values of client configuration options based on runtime system or client state.
 
 {% include requirement/MUSTNOT id="clang-config-defaults-nobuildchange" %} Change default values of
 client configuration options based on how the client library was built.
-
-{% include requirement/MUSTNOT id="clang-config-behaviour-changes" %} change behavior based on configuration changes that occur after the client is constructed. Hierarchies of clients inherit parent client configuration unless explicitly changed or overridden. Exceptions to this requirement are as follows:
-
-1. Log level, which must take effect immediately across the Azure SDK.
-2. Tracing on/off, which must take effect immediately across the Azure SDK.
 
 {% include requirement/MUSTNOT id="clang-config-noruntime" %} use client library specific runtime 
 configuration such as environment variables or a config file. Keep in mind that many IOT devices
