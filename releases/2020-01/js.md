@@ -34,13 +34,32 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Changelog
 
-- Storage (File Shares, File Data Lake, Blobs, Queues)
+Detailed change logs for each of the libraries can be found in the source repository linked to in the Quick Links table.
+Below are some noteworthy changes in the current release.
+
+### Event Hubs
+
+This release marks the general availability of the `@azure/event-hubs` library and the companion `@azure/eventhubs-checkpointstore-blob` package.
+Notable changes since the last preview are
+- Usage of the new `code` property on the `MessagingError` rather than `name` to identify the different kinds of errors that can occur when sending or receiving events.
+- The Event Hubs library now respects the values set in the environment variable `AZURE_LOG_LEVEL` to control the logging levels.
+- Event position is now passed via options to the `subscribe()` method to specify the starting position when receiving events in the absence of checkpoint store.
+- Improved retry and error handling when subscribing to events. The client will call your error handler when retry attempts are exhausted and then resume receiving events from the last checkpointed position.
+
+### Text Analytics
+
+- The new `@azure/ai-text-analytics` library supports only the Text Analytics Service v3.0-preview.1 API.
+The previous `@azure/cognitiveservices-textanalytics` library supported only earlier service versions.
+- Added support for:
+  - Subscription key and AAD authentication.
+  - Separation of Entity Recognition and Entity Linking.
+  - Identification of Personally Identifiable Information.
+  - Analyze Sentiment APIs including analysis for mixed sentiment.
+
+### Storage (File Shares, File Data Lake, Blobs, Queues)
   - Name properties on clients now support more kinds of endpoints(IPv4/v6 hosts, single word domains).
-  - Service clients now share a single HTTP client instance by default.
+  
 
-  For more details, please see [Storage Blob](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/storage-blob_12.0.2/sdk/storage/storage-blob/CHANGELOG.md#1202-202001) change log.
-
-Detailed change logs for other libraries can be found in the source repository linked to in the Quick Links below.
 
 ## Latest Releases
 
