@@ -137,6 +137,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Updated dependency. For more details. please see the [KeyVault Certificates](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md#400-2020-01-07)
 
 ### Storage (Blobs, Files, Queues)
+- Adding generateSas methods on all the storage clients to make it more discoverable to the user
 - Control data size with `ParallelTransferOptions `, Improved performance of `BlockBlobOutputStream` and allow users to provide parallel transfer options using `BlockBlobClient`. Please see the [Storage
   Blob](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob_12.2.0/sdk/storage/azure-storage-blob/CHANGELOG.md#1220-2020-01-08)
   change log.
