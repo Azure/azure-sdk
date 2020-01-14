@@ -138,8 +138,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Storage (Blobs, Files, Queues)
 - Adding generateSas methods on all the storage clients to make it more discoverable to the user.
-- Control data size with `ParallelTransferOptions`, Improved performance of `BlockBlobOutputStream` and allow users to provide parallel transfer options using `BlockBlobClient`.  For more details, Please see the [Storage
-  Blob](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob_12.2.0/sdk/storage/azure-storage-blob/CHANGELOG.md#1220-2020-01-08).
+- Control data size with `ParallelTransferOptions`, Improved performance of `BlockBlobOutputStream` and allow users to provide parallel transfer options using `BlockBlobClient`.[Storage Blob](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob_12.2.0/sdk/storage/azure-storage-blob/CHANGELOG.md#1220-2020-01-08).
 
 ### Tracing
 - Added links for batch send operation in Event Hubs client library.
