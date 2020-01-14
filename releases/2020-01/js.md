@@ -41,7 +41,7 @@ Below are some noteworthy changes in the current release.
 
 This release marks the general availability of the `@azure/event-hubs` library and the companion `@azure/eventhubs-checkpointstore-blob` package.
 Notable changes since the last preview are
-- Usage of the new `code` property on the `MessagingError` rather than `name` to identify the different kinds of errors that can occur when sending or receiving events
+- Usage of the new `code` property on the `MessagingError` rather than `name` to identify the different kinds of errors that can occur when sending or receiving events.
 - The Event Hubs library now respects the values set in the environment variable `AZURE_LOG_LEVEL` to control the logging levels.
 - Event position is now passed via options to the `subscribe()` method to specify the starting position when receiving events in the absence of checkpoint store.
 - Improved retry and error handling when subscribing to events. The client will call your error handler when retry attempts are exhausted and then resume receiving events from the last checkpointed position.
