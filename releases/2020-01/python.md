@@ -81,17 +81,7 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 
 ### Identity
 
-- `DefaultAzureCredential` accepts an `authority` keyword argument, enabling
-its use in national clouds
-- All credentials with `tenant_id` and `client_id` positional parameters now accept them in that order
-- Optional parameters for several credentials are now keyword arguments
-- Authenticating with a single sign-on shared with other Microsoft applications
-only requires a username when multiple users have signed in
-- Async credentials default to [aiohttp](https://pypi.org/project/aiohttp/)
-for transport
-- Known issue ([#8292](https://github.com/Azure/azure-sdk-for-python/issues/8292)):
-`DefaultAzureCredential` and `SharedTokenCredential` raise exceptions on Python 3.8
-on Windows
+- An async credential's transport session can be closed by using the credential as an async context manager (`async with`) or calling its `close` method
 
 ### Text Analytics
 
