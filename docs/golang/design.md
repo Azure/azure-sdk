@@ -18,17 +18,32 @@ Go groups related types in a package.  In Go, the package should be named `az<se
 
 {% include requirement/MUST id="golang-package-registration" %} register the chosen package name with the [Architecture Board]. Open an issue to request the package name. See the [registered package list](registered_namespaces.html) for a list of the currently registered packages.
 
-## Directory Structure - TODO: update
+## Directory Structure
 
 {% include requirement/MUST id="golang-pkgpath-construction" %} construct a package import path that allows the consumer to tie its packages to the service being used. The package path does **NOT** change when the branding of the product changes. Avoid the use of marketing names that may change.
 
 {% include requirement/MUST id="golang-pkgpath-leaf" %} ensure that the package leaf directory name matches the package name declared in the source code.
+
+{% include requirement/MUST id="golang-pkgpath-apiver" %} ensure that each service API version is in its own directory.
 
 {% include requirement/MUST id="golang-pkgpath-mgmt" %} place the management (Azure Resource Manager) API in the `mgmt` path. Use the grouping `./sdk/<group>/mgmt/<service>` for the package path. Since more services require management APIs than data plane APIs, other paths may be used explicitly for management only. Data plane usage is by exception only. Additional paths that can be used for control plane SDKs include:
 
 {% include tables/mgmt_namespaces.md %}
 
 Many management APIs do not have a data plane because they deal with management of the Azure account. Place the management package in the `mgmt` path. For example, use `sdk/mgmt/costanalysis` instead of `sdk/mgmt/management/costanalysis`.
+
+Here is a complete example.
+
+Data-plane packages for storage:
+
+- github.com/Azure/azure-sdk-for-go/sdk/storage/blob/2019-12-19/azblob
+- github.com/Azure/azure-sdk-for-go/sdk/storage/queue/2019-12-19/azqueue
+- github.com/Azure/azure-sdk-for-go/sdk/storage/table/2019-12-19/aztable
+
+Management-plane packages for storage:
+
+- github.com/Azure/azure-sdk-for-go/sdk/storage/mgmt/2019-01-01/azstorage
+- github.com/Azure/azure-sdk-for-go/sdk/storage/mgmt/2019-02-01/azstorage
 
 ## Versioning
 
@@ -99,20 +114,22 @@ type WidgetClient struct {
 
 ```go
 // NewWidgetClient creates a new instance of WidgetClient with the specified values.  It uses the default pipeline configuration.
-// endpoint - TODO
-// cred - TODO
-// options - TODO
+// endpoint - The URI of the Widget.
+// cred - The credential used to authenticate with the Widget service.
+// options - Optional WidgetClient values.  Pass nil to accept default values.
 func NewWidgetClient(endpoint string, cred azcore.Credential, options WidgetClientOptions) (*WidgetClient, error) {
 	// ...
 }
 
 // NewWidgetClientWithPipeline creates a new instance of WidgetClient with the specified values and custom pipeline.
-// endpoint - TODO
-// p - TODO
+// endpoint - The URI of the Widget.
+// p - The pipeline used to process HTTP requests and responses for this WidgetClient.
 func NewWidgetClientWithPipeline(endpoint string, p azcore.Pipeline) (*WidgetClient, error) {
 	// ...
 }
 ```
+
+{% include requirement/MUST id="golang-client-constructors-params" %} document all constructor parameters as part of the method block comment.
 
 ## Authentication and Credentials
 
@@ -128,7 +145,6 @@ Azure services use different kinds of authentication schemes to allow clients to
 
 ```go
 // NewWidgetClientFromConnectionString creates a new instance of WidgetClient with the specified values.  It uses the default pipeline configuration.
-TODO - spell out each parameter in its own comment line
 func NewWidgetClientFromConnectionString(ctx context.Context, con string, options *WidgetClientOptions) (*WidgetClient, error) {
 	// ...
 }
@@ -169,6 +185,17 @@ When implementing authentication, don't open up the consumer to security holes l
 
 {% include requirement/MUST id="golang-api-options-ptr" %} allow the user to pass a pointer to the structure as the last parameter. If the user passes `nil`, then the method should assume appropriate default values for all the structure’s fields.  Note that `nil` and a zero-initialized `<MethodNameOptions>` structure are **NOT** required to be semantically equivalent.
 
+{% include requirement/MUST id="golang-api-params" %} document all parameters as part of the method block comment.
+
+```go
+// GetWidget retrieves the specified Widget.
+// ctx - The context used to control the lifetime of the request.
+// name - The name of the Widget to retrieve.
+func (c *WidgetClient) GetWidget(ctx context.Context, name string) (*WidgetResponse, error) {
+	// ...
+}
+```
+
 ### Parameter Validation
 
 The service client will have several methods that perform requests on the service. _Service parameters_ are directly passed across the wire to an Azure service. _Client parameters_ are not passed directly to the service, but used within the client library to fulfill the request.  Examples of client parameters include values that are used to construct a URI, or a file that needs to be uploaded to storage.
@@ -183,28 +210,27 @@ The service client will have several methods that perform requests on the servic
 
 Requests to the service fall into two basic groups: methods that make a single logical request, and methods that make a deterministic sequence of requests. An example of a _single logical request_ is a request that may be retried inside the operation. An example of a _deterministic sequence of requests_ is a paged operation.
 
-The _logical entity_ is a protocol neutral representation of a response. The logical entity may combine data from headers, body, and the HTTP status. For example, you may expose an `ETag` header as a property on the logical entity. `OperationResponse` is the ‘complete response’. It contains HTTP headers, status code, and the object (a deserialized object created from the response body).
+The _logical entity_ is a protocol neutral representation of a response. The logical entity may combine data from headers, body, and the HTTP status. For example, you may expose an `ETag` header as a property on the logical entity. `<Operation>Response` is the ‘complete response’. It contains HTTP headers, status code, and the object (a deserialized object created from the response body).
 
 {% include requirement/MUST id="golang-response-logical-entity" %} return the logical entity for the normal form of a service method. The logical entity MUST represent the information needed in the 99%+ case.
 
 ```go
-type CreateWidgetResponse struct {
+type GetWidgetResponse struct {
+	Widget *Widget
+	RawResponse *azcore.Response
+}
+
+type Widget struct {
 	Name string
 	Color WidgetColor
 }
 
-func (c *WidgetClient) CreateWidget(ctx context.Context, name string, color WidgetColor) (*CreateWidgetResponse, error) {
+func (c *WidgetClient) GetWidget(ctx context.Context, name string) (*GetWidgetResponse, error) {
 	// ...
 }
 ```
 
 {% include requirement/MUST id="golang-response-full-response" %} make it possible for a developer to access the complete response, including the HTTP status, headers, and body.
-
-```go
-func (r *CreateWidgetResponse) Response() *azcore.Response {
-	// ...
-}
-```
 
 {% include requirement/MUST id="golang-response-examples" %} provide examples on how to access the streamed response for a request, where exposed by the client library. We don’t expect all methods to expose a streamed response.
 
