@@ -58,37 +58,37 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-storage-blob</artifactId>
-  <version>12.1.0</version>
+  <version>12.2.0</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-storage-blob-batch</artifactId>
-  <version>12.1.0</version>
+  <version>12.2.0</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-storage-blob-cryptography</artifactId>
-  <version>12.1.0</version>
+  <version>12.2.0</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-storage-file-datalake</artifactId>
-  <version>12.0.0-beta.7</version>
+  <version>12.0.0-beta.9</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-storage-file-share</artifactId>
-  <version>12.0.0</version>
+  <version>12.1.0</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-storage-queue</artifactId>
-  <version>12.1.0</version>
+  <version>12.2.0</version>
 </dependency>
 
 <dependency>
@@ -137,24 +137,8 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Updated dependency. For more details. please see the [KeyVault Certificates](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md#400-2020-01-07)
 
 ### Storage (Blobs, Files, Queues)
-- Optimized `downloadToFile` to avoid an unnecessary `getProperties` call and to lock on an ETag once the operation has
-  started. For more details, please see the [Storage
-  Blob](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md#version-1210-2019-12-??)
-  change log.
-- Changed exception throwing to throw `StorageBlobException` on invalid request and `BlobBatchStorageException` when
-  batch operations fail. For more details, please see the [Storage Blob
-  Batch](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-batch/CHANGELOG.md#version-1210-2019-12-??)
-  change log.
-- Added a check in `EncryptedBlobClientBuilder` to enforce HTTPS for bearer token authentication. For more details,
-  please see the [Storage Blob
-  Cryptography](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md#version-1210-2019-12-??)
-  change log.
-- Fixed bug in ClientBuilders that prevented OAuth from functioning. For more details, please see the [Storage File Datalake](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md#version-1200-beta7-2019-12-??)
-  change log.
-- Renamed FileReference to StorageFileItem. For more details, please see the [Storage File Share](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/CHANGELOG.md#version-1200-preview5-2019-10-??)
-  change log.
-- Added a check in ClientBuilders to enforce HTTPS for bearer token authentication. For more details, please see the [Storage Queue](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/CHANGELOG.md#version-1210-2019-12-??)
-  change log.
+- Adding generateSas methods on all the storage clients to make it more discoverable to the user.
+- Control data size with `ParallelTransferOptions`, Improved performance of `BlockBlobOutputStream` and allow users to provide parallel transfer options using `BlockBlobClient`.[Storage Blob](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob_12.2.0/sdk/storage/azure-storage-blob/CHANGELOG.md#1220-2020-01-08).
 
 ### Tracing
 - Added links for batch send operation in Event Hubs client library.
