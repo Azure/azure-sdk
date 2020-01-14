@@ -141,18 +141,17 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Control data size with `ParallelTransferOptions`, Improved performance of `BlockBlobOutputStream` and allow users to provide parallel transfer options using `BlockBlobClient`.  For more details, Please see the [Storage
   Blob](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob_12.2.0/sdk/storage/azure-storage-blob/CHANGELOG.md#1220-2020-01-08)
   change log.
-- Upgraded to new version. For more details, please see the [Storage Blob
+- For more details, please see the [Storage Blob
   Batch](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob_12.2.0/sdk/storage/azure-storage-blob-batch/CHANGELOG.md#1220-2020-01-08)
   change log.
-- Upgraded to new version. For more details,
-  please see the [Storage Blob
+- For more details, please see the [Storage Blob
   Cryptography](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob_12.2.0/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md#1220-2020-01-08)
   change log.
-- Upgraded to new version. For more details, please see the [Storage File Datalake](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob_12.2.0/sdk/storage/azure-storage-file-datalake/CHANGELOG.md#1200-beta9-2020-01-08)
+- For more details, please see the [Storage File Datalake](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob_12.2.0/sdk/storage/azure-storage-file-datalake/CHANGELOG.md#1200-beta9-2020-01-08)
   change log.
-- Upgraded to new version. For more details, please see the [Storage File Share](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob_12.2.0/sdk/storage/azure-storage-file-share/CHANGELOG.md#1210-2020-01-08)
+- For more details, please see the [Storage File Share](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob_12.2.0/sdk/storage/azure-storage-file-share/CHANGELOG.md#1210-2020-01-08)
   change log.
-- Upgraded to new version. For more details, please see the [Storage Queue](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob_12.2.0/sdk/storage/azure-storage-queue/CHANGELOG.md#1220-2020-01-08)
+- For more details, please see the [Storage Queue](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob_12.2.0/sdk/storage/azure-storage-queue/CHANGELOG.md#1220-2020-01-08)
   change log.
 
 ### Tracing
