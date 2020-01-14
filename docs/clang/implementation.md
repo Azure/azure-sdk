@@ -50,37 +50,40 @@ hen configuring your client library, particular care must be taken to ensure tha
 
 ### Client configuration
 
-{% include requirement/MUST id="clang-config-global-config" %} use relevant global configuration settings either by default or when explicitly requested to by the user, 
-for example by passing in a configuration object to a client constructor.
+{% include requirement/MUST id="clang-config-global-config" %} use relevant global configuration settings either by default or when explicitly requested to by the user.
 
-For example:
+{% include requirement/SHOULD id="clang-config-global-config-howto" %} Use an "options" structure
+to allow user specified configuration, in particular when there are many configuration options
+for one client constructor.
+
+For example,
 
 ```c
-typedef struct az_catherding_cat_options {
+typedef struct az_catherding_client_options {
     uint32_t num_cats;
     bool indoor_cats;
-} az_catherding_cat_options;
+} az_catherding_client_options;
 
-const az_catherding_cat_options az_catherding_cat_default_options = {.num_cats = 4, .indoor_cats = false};
+AZ_NODISCARD az_catherding_client_options az_catherding_client_default_options(void);
 
-AZ_NODISCARD az_result az_catherding_cat_init(az_catherding_cat* self, const az_catherding_default_cat_options* options);
+AZ_NODISCARD az_result az_catherding_client_init(az_catherding_client* self, const az_catherding_default_cat_options* options);
 ```
 
 The user can request the default with:
 
 ```c
-az_catherding_cat cat = {0};
-az_result res = az_catherding_cat_init(&cat, &az_catherding_cat_default_options);
+az_catherding_client client = {0};
+az_result res = az_catherding_client_init(&cat, NULL);
 ```
 or specify their own options with:
 ```c
-az_catherding_cat cat = {0};
-az_result res = az_catherding_cat_init(&cat, &(az_catherding_cat_options){.num_cats = 4, .indoor_cats = false});
+az_catherding_client client = {0};
+az_catherding_cat_options options = az_catherding_client_default_options();
+options.num_cats = 4;
+az_result res = az_catherding_client_init(&client, &options);
 ```
 
 {% include requirement/MUST id="clang-config-for-different-clients" %} allow different clients of the same type to use different configurations.
-
-This means configuration options may not be in a shared data structure for all clients of that type
 
 {% include requirement/MUST id="clang-config-optout" %} allow consumers of your service clients to opt out of all global configuration settings at once.
 
@@ -117,8 +120,7 @@ endif()
 target_compile_definitions(az_catherding PUBLIC CAT_BUFFER_SIZE=${AZ_CATHERDING_CAT_BUFFER_SIZE})
 ```
 
-{% include requirement/MUSTNOT id="clang-config-defaults-nochange" %} Change the default values of client
-configuration options based on runtime system or client state.
+{% include requirement/MUSTNOT id="clang-config-defaults-nochange" %} Change the default values of client configuration options based on runtime system or client state.
 
 {% include requirement/MUSTNOT id="clang-config-defaults-nobuildchange" %} Change default values of
 client configuration options based on how the client library was built.
