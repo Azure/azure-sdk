@@ -95,7 +95,7 @@ static uint32_t byte_counter = 0;
 const int Global_Foo = 5;
 
 // Good
-const int AZ_CATHERD_TIMEOUT_MSEC = 5;
+const int AZ_WIDGETS_TIMEOUT_MSEC = 5;
 {% endhighlight %}
 
 {% include requirement/MUST id="clang-design-naming-global-private-const" %} name private/internal global constants in all uppercase with the prefix `_az`. For example:
@@ -165,7 +165,7 @@ enum ServiceState {
 int64_t _az_compute_hash(int32_t a, int32_t b);
 
 // Part of the public API
-az_catherd_client_t az_catherd_create_client(char *herd_name);
+az_result az_widgets_client_init(az_widgets_client* self);
 
 // Bad - no leading underscore
 int64_t compute_hash(int32_t a, int32_t b);
@@ -777,7 +777,7 @@ The destruction function should follow this pattern:
 void az_widgets_client_destroy(az_widgets_client* client);
 {% endhighlight %}
 
-The following is a possible implementation of a destruction function for the cat herding object:
+The following is a possible implementation of a destruction function for the widgets client object:
 
 {% highlight c %}
 void az_widgets_client_destroy(az_widgets_client* client) {
@@ -796,11 +796,11 @@ To define a method on an object simply define a function taking a pointer to tha
 
 {% highlight c %}
 /**
- * @brief add a cat to the herd
+ * @brief add a side to the widget
  * @memberof az_widgets_client
  *
  * @param[in] herd - the herd
- * @param[in] __[transfer none]__ cat - the cat to add
+ * @param[in] __[transfer none]__ side - the side to add
  * @return Any errors
  * @retval AZ_OK on success
  * @retval AZ_ERROR_NO_MEMORY if a reallocation of the internal
@@ -851,7 +851,7 @@ If a function takes both optional and non-optional parameters then prefer passin
 
 ### Methods requiring allocation
 
-If a method could require allocating memory then it should use the most relevant set of allocation callbacks. For example the `az_widgets_client_add_side` method may need to allocate or re-allocate the array of cats.  It should use the `az_widgets_client` allocators.  On the other hand the method:
+If a method could require allocating memory then it should use the most relevant set of allocation callbacks. For example the `az_widgets_client_add_side` method may need to allocate or re-allocate the array of sides.  It should use the `az_widgets_client` allocators.  On the other hand the method:
 
 {% highlight c %}
 void az_widgets_client_set_str(az_widgets_client* herd, const char* str);
