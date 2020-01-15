@@ -46,13 +46,13 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-messaging-eventhubs</artifactId>
-  <version>5.0.1</version>
+  <version>5.0.0-beta.6</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-messaging-eventhubs-checkpointstore-blob</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.0-beta.4</version>
 </dependency>
 
 <dependency>
