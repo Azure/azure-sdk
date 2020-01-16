@@ -12,7 +12,7 @@ The new generally available libraries being released this month are:
 
 * [Azure App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/)
 * [Azure Key Vault Certificates](https://docs.microsoft.com/en-us/azure/key-vault/certificate-scenarios)
-* [Azure Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs/), including an event processor host module for a streamlined development experience
+* [Azure Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs/)  (.NET and Java are pending final validation, but should appear soon!)
 
 These are ready to use in your production applications.  You can find details of all released libraries on [our releases page](https://azure.github.io/azure-sdk/releases/latest/).
 
