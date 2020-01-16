@@ -61,28 +61,28 @@ for one client constructor.
 For example,
 
 ```c
-typedef struct az_catherding_client_options {
-    uint32_t num_cats;
-    bool indoor_cats;
-} az_catherding_client_options;
+typedef struct az_widgets_client_options {
+    uint32_t num_sides;
+    bool was_frobnicated;
+} az_widgets_client_options;
 
-AZ_NODISCARD az_catherding_client_options az_catherding_client_default_options(void);
+AZ_NODISCARD az_widgets_client_options az_widgets_client_default_options(void);
 
-AZ_NODISCARD az_result az_catherding_client_init(az_catherding_client* self, const az_catherding_default_cat_options* options);
+AZ_NODISCARD az_result az_widgets_client_init(az_widgets_client* self, const az_widgets_default_client_options* options);
 ```
 
 The user can request the default with:
 
 ```c
-az_catherding_client client = {0};
-az_result res = az_catherding_client_init(&cat, NULL);
+az_widgets_client client = {0};
+az_result res = az_widgets_client_init(&client, NULL);
 ```
 or specify their own options with:
 ```c
-az_catherding_client client = {0};
-az_catherding_cat_options options = az_catherding_client_default_options();
-options.num_cats = 4;
-az_result res = az_catherding_client_init(&client, &options);
+az_widgets_client client = {0};
+az_widgets_client_options options = az_widgets_client_default_options();
+options.num_sides = 4;
+az_result res = az_widgets_client_init(&client, &options);
 ```
 
 {% include requirement/MUST id="clang-config-for-different-clients" %} allow different clients of the same type to use different configurations.
@@ -97,29 +97,29 @@ default buffer sizes based on the target platform or build settings is prohibite
 
 For example, consider the structure:
 ```c
-typedef struct az_catherding_herd {
-    int num_cats;
-    uint8_t cat_buffer[CAT_BUFFER_SIZE];
-} az_catherding_herd;
+typedef struct az_widgets_widget {
+    int num_sides;
+    uint8_t side_buffer[AZ_WIDGETS_SIDE_BUFFER_SIZE];
+} az_widgets_widget;
 ```
 
 This is OK:
 
 ```cmake
 ...
-set(AZ_CATHEREDING_CAT_BUFFER_SIZE 1024 CACHE STRING "default size of cat buffer")
-target_compile_definitions(az_catherding PUBLIC CAT_BUFFER_SIZE=${AZ_CATHERDING_CAT_BUFFER_SIZE})
+set(AZ_WIDGETS_SIDE_BUFFER_SIZE 1024 CACHE STRING "default size of side buffer")
+target_compile_definitions(az_widgets PUBLIC AZ_WIDGETS_SIDE_BUFFER_SIZE=${AZ_WIDGETS_SIDE_BUFFER_SIZE})
 ```
 
 This is not OK:
 
 ```cmake
 if(TARGETING_DESKTOP)
-    set(AZ_CATHERDING_CAT_BUFFER_SIZE 4096 CACHE STRING "default size of cat buffer")
+    set(AZ_WIDGETS_SIDE_BUFFER_SIZE 4096 CACHE STRING "default size of side buffer")
 else()
-    set(AZ_CATHERDING_CAT_BUFFER_SIZE 1024 CACHE STRING "default size of cat buffer")
+    set(AZ_WIDGETS_SIDE_BUFFER_SIZE 1024 CACHE STRING "default size of side buffer")
 endif()
-target_compile_definitions(az_catherding PUBLIC CAT_BUFFER_SIZE=${AZ_CATHERDING_CAT_BUFFER_SIZE})
+target_compile_definitions(az_widgets PUBLIC CAT_BUFFER_SIZE=${AZ_WIDGETS_SIDE_BUFFER_SIZE})
 ```
 
 {% include requirement/MUSTNOT id="clang-config-defaults-nochange" %} Change the default values of client configuration options based on runtime system or client state.
