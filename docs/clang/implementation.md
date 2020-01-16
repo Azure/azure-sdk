@@ -52,7 +52,38 @@ hen configuring your client library, particular care must be taken to ensure tha
 
 ### Client configuration
 
-{% include requirement/MUST id="clang-config-global-config" %} use relevant global configuration settings either by default or when explicitly requested to by the user, for example by passing in a configuration object to a client constructor.
+{% include requirement/MUST id="clang-config-global-config" %} use relevant global configuration settings either by default or when explicitly requested to by the user.
+
+{% include requirement/SHOULD id="clang-config-global-config-howto" %} Use an "options" structure
+to allow user specified configuration, in particular when there are many configuration options
+for one client constructor.
+
+For example,
+
+```c
+typedef struct az_widgets_client_options {
+    uint32_t num_sides;
+    bool was_frobnicated;
+} az_widgets_client_options;
+
+AZ_NODISCARD az_widgets_client_options az_widgets_client_default_options(void);
+
+AZ_NODISCARD az_result az_widgets_client_init(az_widgets_client* self, const az_widgets_default_client_options* options);
+```
+
+The user can request the default with:
+
+```c
+az_widgets_client client = {0};
+az_result res = az_widgets_client_init(&client, NULL);
+```
+or specify their own options with:
+```c
+az_widgets_client client = {0};
+az_widgets_client_options options = az_widgets_client_default_options();
+options.num_sides = 4;
+az_result res = az_widgets_client_init(&client, &options);
+```
 
 {% include requirement/MUST id="clang-config-for-different-clients" %} allow different clients of the same type to use different configurations.
 
@@ -60,16 +91,41 @@ hen configuring your client library, particular care must be taken to ensure tha
 
 {% include requirement/MUST id="clang-config-global-overrides" %} allow all global configuration settings to be overridden by client-provided options. The names of these options should align with any user-facing global configuration keys.
 
-{% include requirement/MUSTNOT id="clang-config-defaults-nochange" %} Change the default values of client
-configuration options based on system or program state.
+{% include requirement/MUST id="clang-config-defaults-consistent" %} Have consistent defaults across
+all supported systems and build configurations. This means changing settings such as
+default buffer sizes based on the target platform or build settings is prohibited.
+
+For example, consider the structure:
+```c
+typedef struct az_widgets_widget {
+    int num_sides;
+    uint8_t side_buffer[AZ_WIDGETS_SIDE_BUFFER_SIZE];
+} az_widgets_widget;
+```
+
+This is OK:
+
+```cmake
+...
+set(AZ_WIDGETS_SIDE_BUFFER_SIZE 1024 CACHE STRING "default size of side buffer")
+target_compile_definitions(az_widgets PUBLIC AZ_WIDGETS_SIDE_BUFFER_SIZE=${AZ_WIDGETS_SIDE_BUFFER_SIZE})
+```
+
+This is not OK:
+
+```cmake
+if(TARGETING_DESKTOP)
+    set(AZ_WIDGETS_SIDE_BUFFER_SIZE 4096 CACHE STRING "default size of side buffer")
+else()
+    set(AZ_WIDGETS_SIDE_BUFFER_SIZE 1024 CACHE STRING "default size of side buffer")
+endif()
+target_compile_definitions(az_widgets PUBLIC CAT_BUFFER_SIZE=${AZ_WIDGETS_SIDE_BUFFER_SIZE})
+```
+
+{% include requirement/MUSTNOT id="clang-config-defaults-nochange" %} Change the default values of client configuration options based on runtime system or client state.
 
 {% include requirement/MUSTNOT id="clang-config-defaults-nobuildchange" %} Change default values of
 client configuration options based on how the client library was built.
-
-{% include requirement/MUSTNOT id="clang-config-behaviour-changes" %} change behavior based on configuration changes that occur after the client is constructed. Hierarchies of clients inherit parent client configuration unless explicitly changed or overridden. Exceptions to this requirement are as follows:
-
-1. Log level, which must take effect immediately across the Azure SDK.
-2. Tracing on/off, which must take effect immediately across the Azure SDK.
 
 {% include requirement/MUSTNOT id="clang-config-noruntime" %} use client library specific runtime 
 configuration such as environment variables or a config file. Keep in mind that many IOT devices
@@ -296,9 +352,16 @@ TEST_FUNCTION(foo_tcp_manager_create_createAndReturnInstanceSucceed)
 
 {% include requirement/MUST id="clang-style-filenaming" %} name all files as lowercase, prefixed by the service short name; separate words with underscores, and end with the appropriate extension (`.c` or `.h`).  For example, `iot_credential.c` is valid, while `IoTCredential.cl` is not.
 
-{% include requirement/MUST id="clang-style-publicapi-hdr" %} identify the file containing the public API with `<svcname>_<objname>_api.h`.  For example, `iot_credential_api.h`.
+{% include requirement/MUST id="clang-style-publicapi-hdr" %} identify the file containing the public API with `<svcname>_<objname>.h`.  For example, `iot_credential.h`.
 
-{% include requirement/MUST id="clang-style-privateapi-hdr" %} place an include file that is not part of the public API in an `internal` directory.  Do no include the service short name.  For example, `internal/credential.h`.
+{% include requirement/MUST id="clang-style-privateapi-hdr" %} place include files that are not part of the public API in the `src` directory.
+
+{% include requirement/MUST id="clang-style-internalapi-hdr" %} place include files that are exposed to other sdk components but not part of the public api in
+the `internal` directory (a sibling of `src` and `inc`).
+
+{% include requirement/MUSTNOT id="clang-style-publicapi-hdr-includes" %} include internal or private headers in public headers.
+
+{% include requirement/MUSTNOT id="clang-style-install-internal-private-headers" %} install internal or private headers with `make install` or equivalent.
 
 {% include requirement/MUST id="clang-style-filenames" %} use characters in the range `[a-z0-9_]` for the name portion (before the file extension).  No other characters are permitted.
 

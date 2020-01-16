@@ -112,9 +112,9 @@ For example:
 
 {% highlight c %}
 /**
- * @brief get properties of a cat (e.g. hair color, weight, floof)
+ * @brief get properties of a widget (e.g. place of manufacture, number of sides, material)
  *
- * @param[in] our_cat __[transfer none]__ the cat to operate on
+ * @param[in] self __[transfer none]__ the widget to operate on
  * @param[out] props __[nullable][caller-allocates]__ pointer to an array of num_props, or null
  * @param[in,out] num_props __[non nullable][caller-allocates]__ pointer to the number of properties to
  *                                                               retrieve or to a location to store the number of
@@ -123,7 +123,7 @@ For example:
  * If @p props is NULL then return the number of properties available in @p num_props,
  * otherwise return @p num_props into the array at @p props
  */
-az_error az_catherding_get_cat_properties(cat* our_cat, cat_properties* props, size_t* num_props);
+az_error az_widgets_get_widget_properties(az_widgets_widget* self, az_widgets_widget_properties* props, size_t* num_props);
 {% endhighlight %}
 
 This function returns an array using all caller-allocated memory. In order to figure out the size of the array the caller can pass NULL for the array `[out]` parameter. They can then allocate the required memory and call the function again.

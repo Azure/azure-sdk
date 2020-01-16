@@ -8,31 +8,93 @@ sidebar: golang_sidebar
 
 {% include draft.html content="The Go Language guidelines are in DRAFT status" %}
 
-The API surface of your client library must have the most thought as it is the primary interaction that the consumer has with your service.  
-
-## Package naming
+# Packages
 
 Go groups related types in a package.  In Go, the package should be named `az<service>`, where `<service>` is the service name represented as a single word.
 
-{% include requirement/MUST id="golang-namespace-prefix" %} start the package with `az` to indicate an Azure client library.
+{% include requirement/MUST id="golang-package-prefix" %} start the package with `az` to indicate an Azure client package.
 
-{% include requirement/MUST id="golang-namespace-pkgname" %} construct the package name with all lowercase letters (uppercase letters, hyphens and underscores are not allowed). For example, the Azure Key Vault package would be named `azkeyvault` and the Azure Storage Blob package would be named `azblob`.
+{% include requirement/MUST id="golang-package-name" %} construct the package name with all lowercase letters (uppercase letters, hyphens and underscores are not allowed). For example, the Azure Key Vault package would be named `azkeyvault` and the Azure blob storage package would be named `azblob`.
 
-{% include requirement/MUST id="golang-namespace-registration" %} register the chosen package name with the [Architecture Board]. Open an issue to request the package name. See the [registered namespace list](registered_namespaces.html) for a list of the currently registered namespaces.
+{% include requirement/MUST id="golang-package-registration" %} register the chosen package name with the [Architecture Board]. Open an issue to request the package name. See the [registered package list](registered_namespaces.html) for a list of the currently registered packages.
 
-## Package path
+## Directory Structure
 
 {% include requirement/MUST id="golang-pkgpath-construction" %} construct a package import path that allows the consumer to tie its packages to the service being used. The package path does **NOT** change when the branding of the product changes. Avoid the use of marketing names that may change.
 
 {% include requirement/MUST id="golang-pkgpath-leaf" %} ensure that the package leaf directory name matches the package name declared in the source code.
 
-{% include requirement/MUST id="golang-pkgpath-mgmt" %} place the management (Azure Resource Manager) API in the `mgmt` group. Use the grouping `./sdk/<group>/mgmt/<service>` for the package path. Since more services require control plane APIs than data plane APIs, other paths may be used explicitly for control plane only. Data plane usage is by exception only. Additional paths that can be used for control plane SDKs include:
+{% include requirement/MUST id="golang-pkgpath-apiver" %} ensure that each service API version is in its own directory.
+
+{% include requirement/MUST id="golang-pkgpath-mgmt" %} place the management (Azure Resource Manager) API in the `mgmt` path. Use the grouping `./sdk/<group>/mgmt/<service>` for the package path. Since more services require management APIs than data plane APIs, other paths may be used explicitly for management only. Data plane usage is by exception only. Additional paths that can be used for control plane SDKs include:
 
 {% include tables/mgmt_namespaces.md %}
 
-Many management APIs do not have a data plane because they deal with management of the Azure account. Place the management library in the `mgmt` path. For example, use `sdk/mgmt/costanalysis` instead of `sdk/mgmt/management/costanalysis`.
+Many management APIs do not have a data plane because they deal with management of the Azure account. Place the management package in the `mgmt` path. For example, use `sdk/mgmt/costanalysis` instead of `sdk/mgmt/management/costanalysis`.
 
-## Service clients
+Here is a complete example.
+
+Data-plane packages:
+
+- github.com/Azure/azure-sdk-for-go/sdk/keyvault/7.0/azkeyvault
+- github.com/Azure/azure-sdk-for-go/sdk/storage/blob/2019-12-19/azblob
+- github.com/Azure/azure-sdk-for-go/sdk/storage/queue/2019-12-19/azqueue
+- github.com/Azure/azure-sdk-for-go/sdk/storage/table/2019-12-19/aztable
+
+Management-plane packages:
+
+- github.com/Azure/azure-sdk-for-go/sdk/keyvault/mgmt/2019-09-01/azkeyvault
+- github.com/Azure/azure-sdk-for-go/sdk/storage/mgmt/2019-01-01/azstorage
+- github.com/Azure/azure-sdk-for-go/sdk/storage/mgmt/2019-02-01/azstorage
+
+## Versioning
+
+{% include requirement/MUST id="golang-versioning-modules" %} release each package as a [Go module](https://blog.golang.org/using-go-modules).  Legacy dependency management tools such as `dep` and `glide` are not supported.
+
+{% include requirement/MUST id="golang-versioning-semver" %} release versions of modules in accordance with [semver 2.0](https://semver.org/spec/v2.0.0.html).
+
+{% include requirement/MUST id="golang-versioning-preview" %} clearly version prerelease modules.  For new modules, use a v0 major version with no suffix (v0.1.0).  For existing modules, use a `-preview` suffix (v1.1.0-preview, v2.0.0-preview).
+
+## Dependencies
+
+Packages should strive to avoid taking dependencies on packages outside of the standard library for the following reasons:
+
+- **Versioning** - Exposing types defined outside the standard library (i.e. `exchange types`) can indroduce versioning complexity.  If we have an client package that exposes types from a v3 of package Foo and the consumer wants to use v5 of package Foo, then the consumer cannot use the v5 types to satisfy the v3 requirement.
+- **Size** - Consumer applications must be able to deploy as fast as possible into the cloud and move in various ways across networks. Removing additional code (like dependencies) improves deployment performance.
+- **Licensing** - You must be conscious of the licensing restrictions of a dependency and often provide proper attribution and notices when using them.
+- **Compatibility** - Often times you do not control a dependency and it may choose to evolve in a direction that is incompatible with your original use.
+- **Security** - If a security vulnerability is discovered in a dependency, it may be difficult or time consuming to get the vulnerability corrected if Microsoft does not control the dependency's code base.
+
+{% include requirement/MUST id="golang-dependencies-exch-types" %} limit exchange types to those provided by the standard library (**NO EXCEPTIONS**).
+
+{% include requirement/MUST id="golang-dependencies-azure-core" %} depend on the `azcore` package for functionality that is common across all client packages.  This package includes APIs for HTTP connectivity, global configuration, logging, and credential handling, and more.
+
+{% include requirement/MUSTNOT id="golang-dependencies-approved-list" %} be dependent on any other packages within the client package distribution package, with the exception of the following:
+
+{% include_relative approved_dependencies.md %}
+
+## Service-Specific Common Packages
+
+There are occasions when common code needs to be shared between several client packages. For example, a set of cooperating client packages may wish to share a set of exceptions or models.
+
+{% include requirement/MUST id="golang-commonlib-approval" %} gain [Architecture Board] approval prior to implementing a common package.
+
+{% include requirement/MUST id="golang-commonlib-minimize-code" %} minimize the code within a common package. Code within the common package is treated the same as any other client package.
+
+{% include requirement/MUST id="golang-commonlib-namespace" %} store the common package in the same directory as the associated client packages.
+
+A common package will only be approved if:
+
+* The consumer of the non-shared package will consume the objects within the common package directly, AND
+* The information will be shared between multiple client package.
+
+Let's take two examples:
+
+1. Implementing two Cognitive Services client packages, we find a model is required that is produced by one Cognitive Services client package and consumed by another Coginitive Services client package, or the same model is produced by two client packages. The consumer is required to do the passing of the model in their code, or may need to compare the model produced by one client package vs. that produced by another client package. This is a good candidate for choosing a common package.
+
+2. Two Cognitive Services client packages return a `BoundingBox` model to indicate where an object was detected in an image. There is no linkage between the `BoundingBox` model in each client package, and it is not passed into another client package. This is not a good candidate for creation of a common package (although you may wish to place this model in a common package if one exists for the namespace already). Instead, produce two different models - one in each client package.
+
+# Service Clients
 
 Your API surface consists of one or more service clients that the consumer instantiates to connect to your service, plus a set of supporting types.
 
@@ -40,31 +102,63 @@ Your API surface consists of one or more service clients that the consumer insta
 
 ```go
 type WidgetClient struct {
-	// ...
+	// all fields MUST NOT be exported
 }
 ```
 
-{% include requirement/MUST id="golang-client-constructors" %} provide constructors in the following format that returns a new instance of a service client type.
+{% include requirement/MUST id="golang-api-service-client-immutable" %} ensure that all service client types are safe for concurrent use by multiple goroutines.  Ideally, all client state is immutable which will satisfy this guideline.
+
+{% include requirement/MUSTNOT id="golang-api-service-client-fields" %} export any fields on client types.  This is to support mocking of clients via interface types.
+
+## Service Client Constructors
+
+{% include requirement/MUST id="golang-client-constructors" %} provide two constructors in the following format that return a new instance of a service client type.
 
 ```go
 // NewWidgetClient creates a new instance of WidgetClient with the specified values.  It uses the default pipeline configuration.
+// endpoint - The URI of the Widget.
+// cred - The credential used to authenticate with the Widget service.
+// options - Optional WidgetClient values.  Pass nil to accept default values.
 func NewWidgetClient(endpoint string, cred azcore.Credential, options WidgetClientOptions) (*WidgetClient, error) {
 	// ...
 }
 
 // NewWidgetClientWithPipeline creates a new instance of WidgetClient with the specified values and custom pipeline.
-func NewWidgetClientWithPipeline(endpoint string, p azcore.Pipeline, options WidgetClientOptions) (*WidgetClient, error) {
+// endpoint - The URI of the Widget.
+// p - The pipeline used to process HTTP requests and responses for this WidgetClient.
+func NewWidgetClientWithPipeline(endpoint string, p azcore.Pipeline) (*WidgetClient, error) {
 	// ...
 }
 ```
 
-{% include requirement/MUST id="golang-api-service-client-immutable" %} ensure that all service client types are immutable upon instantiation.
+{% include requirement/MUST id="golang-client-constructors-params" %} document all constructor parameters as part of the method block comment.
 
-{% include requirement/MUST id="golang-api-service-client-byref" %} pass all client instances by reference.  All methods on client types will pass their receiver by reference.
+## Authentication and Credentials
 
-{% include requirement/MUSTNOT id="golang-api-service-client-fields" %} export any fields on client types.  This is to support mocking of clients via interface types and strengthens the immutability requirement.
+Azure services use different kinds of authentication schemes to allow clients to access the service. Conceptually, there are two entities responsible in this process: a credential and an authentication policy. Credentials provide confidential authentication data. Authentication policies use the data provided by a credential to modify an HTTP request before it is sent to the service.
 
-## Service client methods
+{% include requirement/MUST id="golang-auth-support" %} support all authentication techniques that the service supports.
+
+{% include requirement/MUST id="golang-auth-use-azidentity" %} use credential and authentication policy implementations from the `azcore` or `azidentity` package where available.
+
+{% include requirement/MUST id="golang-auth-concurrency" %} provide credential types that can be used to fetch all data needed to authenticate a request to the service. If using a service-specific credential type, the implementation must be safe for concurrent use by multiple goroutines.
+
+{% include requirement/MUSTNOT id="golang-auth-connection-strings" %} support constructing a service client with a connection string unless such connection string is available within tooling (e.g. Azure portal, for copy/paste operations). A connection string is a combination of an endpoint, credential data, and other options used to simplify service client configuration. Connection strings are easily integrated into an application by copy/paste from the portal. However, credentials within a connection string can’t be rotated within a running process. Their use should be discouraged in production apps.  If the client library supports connection strings, the constructor should look like this:
+
+```go
+// NewWidgetClientFromConnectionString creates a new instance of WidgetClient with the specified values.  It uses the default pipeline configuration.
+func NewWidgetClientFromConnectionString(ctx context.Context, con string, options *WidgetClientOptions) (*WidgetClient, error) {
+	// ...
+}
+```
+
+When implementing authentication, don't open up the consumer to security holes like PII (personally identifiable information) leakage or credential leakage. Credentials are generally issued with a time limit, and must be refreshed periodically to ensure that the service connection continues to function as expected. Ensure your client library follows all current security recommendations and consider an independent security review of the client library to ensure you're not introducing potential security problems for the consumer.
+
+{% include requirement/MUSTNOT id="golang-auth-persistence" %} persist, cache, or reuse security credentials. Security credentials should be considered short lived to cover both security concerns and credential refresh situations. 
+
+{% include requirement/MUST id="golang-auth-policy-impl" %} provide a suitable authentication policy policy if your service implements a non-standard authentication system (that is, an authentication system that is not supported by Azure Core).  You also need to produce an authentication policy for the HTTP pipeline that can add credentials to requests given the alternative authentication mechanism provided by the service.  Custom credentials will need to implement the `azcore.Credentials` interface.
+
+## Service Methods
 
 {% include requirement/MUST id="golang-client-crud-verbs" %} prefer the use of the following terms for CRUD operations:
 
@@ -72,60 +166,93 @@ func NewWidgetClientWithPipeline(endpoint string, p azcore.Pipeline, options Wid
 | `Set<noun>`    | key,item   | Adds new item or updates existing item. |
 | `Add<noun>`    | key,item   | Adds a new item.  Fails if item already exists. |
 | `Update<noun>` | key,item   | Updates an existing item.  Fails if item doesn't exist. |
-| `Delete<noun>` | key        | Deletes an existing item. |
+| `Delete<noun>` | key        | Deletes an existing item. Doesn't fail if item doesn't exist. |
 | `Get<noun>`    | key        | Will retun an error if item doesn't exist. |
-| `List<noun>`   |            | Return list of items.  Returns empty list if no items exist. |
-| `<noun>Exists` | key        | Return `true` if the item exists. |
+| `List<noun>`   |            | Returns list of items.  Returns empty list if no items exist. |
+| `<noun>Exists` | key        | Returns `true` if the item exists. |
 
 {% include requirement/SHOULD id="golang-client-verbs-flexible" %} remain flexible and use names best suited for developer experience. Don’t conflict with terminology used by the service team’s documentation, blogs, and presentations.
 
-{% include requirement/MUST id="golang-feature-support" %} support 100% of the features provided by the Azure service the client library represents. Gaps in functionality cause confusion and frustration among developers.
+{% include requirement/MUSTNOT id="golang-api-multimethods" %} provide multiple methods for a single REST endpoint.
 
-{% include requirement/MUSTNOT id="golang-noimplleakage" %} allow implementation code (that is, code that doesn’t form part of the public API) to be mistaken as public API. There are two valid arrangements for implementation code:
+## Service Method Parameters
 
-1.	Implementation types and functions should not be exported and placed within the same package.
-2.	Implementation types and functions can be placed in an [internal package](https://docs.google.com/document/d/1e8kOo3r51b2BWtTs_1uADIA5djfXhPT36s6eHVRIvaU/edit).
+{% include requirement/MUST id="golang-api-service-client-byref" %} ensure that all methods on client types pass their receiver by reference.
 
-## Authentication
+{% include requirement/MUST id="golang-api-context" %} accept a `context.Context` object as the first parameter to every method that performs any I/O operations.
 
-Azure services use different kinds of authentication schemes to allow clients to access the service. Conceptually, there are two entities responsible in this process: a credential and an authentication policy. Credentials provide confidential authentication data. Authentication policies use the data provided by a credential to authenticate requests to the service.
+{% include requirement/MUST id="golang-api-mandatory-params" %} have every I/O method accept all required parameters after the mandatory `context.Context` object.
 
-{% include requirement/MUST id="golang-auth-support" %} support all authentication techniques that the service supports.
+{% include requirement/MUST id="golang-api-options-struct" %} define a `<MethodNameOptions>` structure for every method with optional parameters.  This structure includes fields for all non-mandatory parameters. The structure can have fields added to it over time to simplify versioning.  To disambiguate names, use the client type name for a prefix.
 
-{% include requirement/MUST id="golang-auth-use-azidentity" %} use credential and authentication policy implementations from the `azcore` or `azidentity` package where available.
+{% include requirement/MUST id="golang-api-options-ptr" %} allow the user to pass a pointer to the structure as the last parameter. If the user passes `nil`, then the method should assume appropriate default values for all the structure’s fields.  Note that `nil` and a zero-initialized `<MethodNameOptions>` structure are **NOT** required to be semantically equivalent.
 
-{% include requirement/MUST id="golang-auth-concurrency" %} provide credential types that can be used to fetch all data needed to authenticate a request to the service. If using a service-specific credential type, the implementation must be safe for concurrent use and atomic.
+{% include requirement/MUST id="golang-api-params" %} document all parameters as part of the method block comment.
 
-{% include requirement/MUSTNOT id="golang-auth-connection-strings" %} support constructing a service client with a connection string unless such connection string is available within tooling (for copy/paste operations). A connection string is a combination of an endpoint, credential data, and other options used to simplify service client configuration. Client libraries may support a connection string **ONLY IF** the service provides it via the portal or other tooling. Connection strings are easily integrated into an application by copy/paste from the portal. However, credentials within a connection string can’t be rotated within a running process. Their use should be discouraged in production apps.
+```go
+// GetWidget retrieves the specified Widget.
+// ctx - The context used to control the lifetime of the request.
+// name - The name of the Widget to retrieve.
+func (c *WidgetClient) GetWidget(ctx context.Context, name string) (*WidgetResponse, error) {
+	// ...
+}
+```
 
-## Response formats
+### Parameter Validation
+
+The service client will have several methods that perform requests on the service. _Service parameters_ are directly passed across the wire to an Azure service. _Client parameters_ are not passed directly to the service, but used within the client library to fulfill the request.  Examples of client parameters include values that are used to construct a URI, or a file that needs to be uploaded to storage.
+
+{% include requirement/MUST id="golang-params-client-validation" %} validate client parameters.
+
+{% include requirement/MUSTNOT id="golang-params-service-validation" %} validate service parameters. This includes null checks, empty strings, and other common validating conditions. Let the service validate any request parameters.
+
+{% include requirement/MUST id="golang-params-devex" %} validate the developer experience when the service parameters are invalid to ensure appropriate error messages are generated by the service. If the developer experience is compromised due to service-side error messages, work with the service team to correct prior to release.
+
+## Service Method Return Types
 
 Requests to the service fall into two basic groups: methods that make a single logical request, and methods that make a deterministic sequence of requests. An example of a _single logical request_ is a request that may be retried inside the operation. An example of a _deterministic sequence of requests_ is a paged operation.
 
-The _logical entity_ is a protocol neutral representation of a response. The logical entity may combine data from headers, body, and the HTTP status. For example, you may expose an `ETag` header as a property on the logical entity. `OperationResponse` is the ‘complete response’. It contains HTTP headers, status code, and the object (a deserialized object created from the response body).
+The _logical entity_ is a protocol neutral representation of a response. The logical entity may combine data from headers, body, and the HTTP status. For example, you may expose an `ETag` header as a property on the logical entity. `<Operation>Response` is the ‘complete response’. It contains HTTP headers, status code, and the object (a deserialized object created from the response body).
 
 {% include requirement/MUST id="golang-response-logical-entity" %} return the logical entity for the normal form of a service method. The logical entity MUST represent the information needed in the 99%+ case.
 
 ```go
-type CreateWidgetResponse struct {
+type GetWidgetHeaders struct {
+	ETag *string
+	LastModified *time.Time
+}
+
+type GetWidgetResponse struct {
+	StatusCode int
+	Headers *GetWidgetHeaders // optional field, IFF defined by the service
+	Widget *Widget
+}
+
+type Widget struct {
 	Name string
 	Color WidgetColor
 }
 
-func (c *WidgetClient) CreateWidget(ctx context.Context, name string, color WidgetColor) (*CreateWidgetResponse, error) {
+func (c *WidgetClient) GetWidget(ctx context.Context, name string) (*GetWidgetResponse, error) {
 	// ...
 }
 ```
 
-{% include requirement/MUST id="golang-response-full-response" %} make it possible for a developer to access the complete response, including the HTTP status, headers, and body.
-
-```go
-func (r *CreateWidgetResponse) Response() *azcore.Response {
-	// ...
-}
-```
+{% include requirement/MUSTNOT id="golang-response-response-headers" %} generate a `<Operation>Headers` type if the operation doesn't return any values via headers.
 
 {% include requirement/MUST id="golang-response-examples" %} provide examples on how to access the streamed response for a request, where exposed by the client library. We don’t expect all methods to expose a streamed response.
+
+```go
+func (c *WidgetClient) GetWidgetBinary(ctx context.Context, name string) (*GetWidgetBinaryResponse, error) {
+	// ...
+}
+
+type GetWidgetBinaryResponse struct {
+	StatusCode int
+	Headers *GetWidgetBinaryHeaders
+	Bytes *bytes.Reader
+}
+```
 
 {% include requirement/MUST id="golang-response-logical-paging" %} provide an idiomatic way to enumerate all logical entities for a paged operation, automatically fetching new pages as needed.  For more information on what to return for List operations, refer to [Pagination](#pagination).
 
@@ -135,191 +262,149 @@ For methods that combine multiple requests into a single call:
 
 {% include requirement/MUST id="golang-response-failure-info" %} provide enough information in failure cases for an application to take appropriate corrective action.
 
-## Pagination
+Model structures are types that consumers use to provide required information into client library methods.  They can also be returned from client methods. These structures typically represent the domain model, or option structures that must be configured before the request can be made.
 
-{% include requirement/MUST id="golang-pagination" %} return a value that implements the paged protocol for operations that return collections.  The paged protocol allows consumers to iterate over all items and also provides a method that gives access to individual pages as defined by the service.  Consumers will not directly receive any paging information.
+{% include requirement/MUST id="golang-model-types" %} export all fields on model types to allow for mocking.
 
-{% include requirement/MUST id="golang-pagination-iterators" %} create iterator types with the name `<Resource>Iterator` that are to be returned from their respective operations.
+{% include requirement/MUST id="golang-model-types-ro" %} document all read-only fields and exclude their values when marshalling the structure to be sent over the wire.
 
-{% include requirement/MUST id="golang-pagination-methods" %} use the prefix `List` in the method name for methods that return an iterator.  Such methods MUST take a `context.Context` as their first parameter.
+## Pagination Methods
 
-{% include requirement/MUSTNOT id="golang-pagination-fields" %} export any fields on iterator types.  This is to support mocking of iterator responses via interface types.
+{% include requirement/MUST id="golang-pagination" %} return a value that implements the Pager interface for operations that return pages.  The Pager interface allows consumers to iterate over all pages as defined by the service.
+
+{% include requirement/MUST id="golang-pagination-pagers" %} create Pager interface types with the name `<Resource>Pager` that are to be returned from their respective operations.
+
+{% include requirement/MUST id="golang-pagination-pagers-interface-page" %} expose methods `NextPage()`, `Page()`, and `Err()` on the `<Resource>Pager` type.
 
 ```go
-func (c *WidgetClient) ListWidgets(ctx context.Context, options *ListWidgetOptions) *WidgetIterator {
-	// ...
+type WidgetPager interface {
+	// NextPage returns true if the pager advanced to the next page.
+	// Returns false if there are no more pages or an error occurred.
+	NextPage(context.Context) bool
+
+	// Page returns the current WidgetsPage.
+	PageResponse() *ListWidgetsResponse
+
+	// Err returns the last error encountered while paging.
+	Err() error
+}
+
+type ListWidgetsResponse struct {
+	StatusCode int
+	Widgets *[]Widget
+	Headers *ListWidgetsHeaders
 }
 ```
 
-{% include requirement/MUST id="golang-pagination-iterator-interface-page" %} expose methods `NextPage()`, `Page()`, and `Err()` on the `<Resource>Iterator` type.
+{% include requirement/MUST id="golang-pagination-methods" %} use the prefix `List` in the method name for methods that return a Pager.  The `List` method creates the Pager but does NOT perform an IO operation.
 
 ```go
-type WidgetIterator struct {
+func (c *WidgetClient) ListWidgets(options *ListWidgetOptions) *WidgetPager {
 	// ...
 }
 
-// NextPage returns true if the iterator advanced to the next page.
-// Returns false if there are no more pages or an error occurred.
-func (i *WidgetIterator) NextPage() bool {
-	// ...
-}
-
-// Page returns the current ListWidgetsPage.
-func (i *WidgetIterator) Page() *ListWidgetsPage {
-	// ...
-}
-
-// Err returns the last error encountered while iterating.
-func (i *WidgetIterator) Err() error {
-	// ...
-}
-
-iter := client.ListWidgets(ctx, options)
-for iter.NextPage() { 
-	for _, w := range iter.Page().Widgets {
+pager := client.ListWidgets(options)
+for pager.NextPage(ctx) { 
+	for _, w := range pager.PageResponse().Widgets {
 		process(w)
 	}
 }
-if iter.Err() != nil {
+if pager.Err() != nil {
 	// handle error...
 }
 ```
 
-{% include requirement/MUST id="golang-pagination-iterator-interface-item" %} expose methods `Next()` and `Item()` on the `<Resource>Iterator` type **IFF** the page is a homogenous collection of items.
+{% include requirement/MUST id="golang-pagination-serialization" %} provide means to serialize and deserialize a Pager so that paging can pause and continue, potentially on another machine.
+
+## Long Running Operations
+
+{% include requirement/MUST id="golang-lro-poller" %} return a value that implements the Poller interface for long-running operation methods.  The Poller interface encapsulates the polling and status of the long-running operation.
+
+{% include requirement/MUST id="golang-lro-poller-name" %} create Poller interface types with the name `<Resource>Poller` that are to be returned from their respective operations.
+
+{% include requirement/MUST id="golang-lro-poller-def" %} provide the following methods on a `<Resource>Poller` type: `Done()`, `ID()`, `Poll()`, and `Wait()`.
 
 ```go
-// Next returns true if the iterator advanced to the next item.
-// Returns false if there are no more items or an error occurred.
-func (i *WidgetIterator) Next() bool {
-	// ...
-}
+type WidgetPoller interface {
+	// Done returns true if the LRO has completed.
+	Done() bool
 
-// Item returns the current Widget based on the iterator's index.
-func (i *WidgetIterator) Item() *Widget {
-	// ...
-}
+	// ID returns a value representing the operation that can be used to poll for the status
+	// of the LRO.  IDs are generated by the service and are unique for the operation.
+	ID() string
 
-iter := client.ListWidgets(ctx, options)
-for iter.Next() {  
-	process(iter.Item())
-}
-if iter.Err() != nil {
-	// handle error...
-}
-```
+	// Poll fetches the latest state of the LRO.
+	// If Poll fails, the WidgetPoller is unmodified and the error is returned.
+	// If Poll succeeds and the operation has completed with failure, the WidgetPoller
+	// is updated and the error is returned.
+	// If Poll succeeds and the operation has completed successfully, the WidgetPoller
+	// is updated and the Widget is returned.
+	// If Poll succeeds and the operation has not completed, the WidgetPoller is
+	// updated and both return values are nil.
+	Poll(context.Context) (*WidgetResponse, error)
 
-{% include requirement/MUSTNOT id="golang-pagination-too-many-gets" %} expose an iterator over a collection if retrieving each item requires a corresponding GET request to the service. One GET per item is often too expensive and thus not an action we want to take on behalf of consumers.
-
-{% include requirement/MUST id="golang-pagination-serialization" %} provide means to serialize and deserialize an iterator so that iteration can pause and continue, potentially on another machine.
-
-## Long running operations
-
-{% include requirement/MUST id="golang-lro-encapsulation" %} represent long-running operations with a type that encapsulates the polling and operation status.  The type MUST have the suffix `Operation`.
-
-{% include requirement/MUSTNOT id="golang-lro-fields" %} export any fields on operation types.  This is to support mocking of operation responses via interface types.
-
-```go
-type CreateWidgetOperation struct {
-	// ...
-}
-```
-
-{% include requirement/MUST id="golang-lro-operation-type" %} provide the following methods on an `Operation` type: `Done()`, `ID()`, `Response()`, `Poll()`, and `Wait()`.
-
-```go
-// Done returns true if the LRO has completed.
-func (op *CreateWidgetOperation) Done() bool {
-	// ...
-}
-
-// ID returns a value representing the operation that can be used to poll for the status
-// of the LRO.  IDs are generated by the service and are unique for the operation.
-func (op *CreateWidgetOperation) ID() string {
-	// ...
-}
-
-// Response returns the last response from the service.
-func (op *CreateWidgetOperation) Response() *azcore.Response {
-	// ...
-}
-
-// Poll fetches the latest state of the LRO.
-// If Poll fails, the CreateWidgetOperation is unmodified and the error is returned.
-// If Poll succeeds and the operation has completed with failure, the CreateWidgetOperation
-// is updated and the error is returned.
-// If Poll succeeds and the operation has completed successfully, the CreateWidgetOperation
-// is updated and the Widget is returned.
-// If Poll succeeds and the operation has not completed, the CreateWidgetOperation is
-// updated and both return values are nil.
-func (op *CreateWidgetOperation) Poll(ctx context.Context) (*Widget, error) {
-	// ...
-}
-
-// Wait blocks until the LRO is completed, returning the response or any errors encountered.
-// The specified polling interval is used if the server does not return a preferred interval.
-func (op *CreateWidgetOperation) Wait(ctx context.Context, pollingInterval time.Duration) (*Widget, error) {
-	// ...
+	// Wait blocks until the LRO is completed, returning the response or any errors encountered.
+	// The specified polling interval is used if the server does not return a preferred interval.
+	Wait(ctx context.Context, pollingInterval time.Duration) (*WidgetResponse, error)
 }
 ```
 
 {% include requirement/MUST id="golang-lro-wait-method" %} accept a `pollingInterval` argument in the `Wait()` method to be used in the absence of relevant retry-after headers from the service.
 
-{% include requirement/MUST id="golang-lro-method-naming" %} prefix methods which return a `Operation` with `Begin`.
+{% include requirement/MUST id="golang-lro-method-naming" %} prefix methods which return a `<Resource>Poller` with `Begin`.
 
 ```go
 // BeginCreate creates a new widget with the specified name.
-func (c *WidgetClient) BeginCreate(ctx context.Context, name string) (*CreateWidgetOperation, error) {
+func (c *WidgetClient) BeginCreate(ctx context.Context, name string, options *BeginCreateOptions) (WidgetPoller, error) {
 	// ...
 }
 ```
 
-{% include requirement/MUST id="golang-lro-resuming-operations" %} provide a method with the prefix `Resume` to instantiate a `Operation` type with the `ID` from a previous call to `Operation.ID()`.
+{% include requirement/MUST id="golang-lro-resuming-operations" %} provide a method with the prefix `Resume` to instantiate a `<Resource>Poller` type with the `ID` from a previous call to `Operation.ID()`.
 
 ```go
-// ResumeCreateWidgetOperation creates a new CreateWidgetOperation from the specified ID.
-// The ID must come from a previous call to CreateWidgetOperation.ID().
-func (c *WidgetClient) ResumeCreateWidgetOperation(id string) *CreateWidgetOperation {
+// ResumeWidgetPoller creates a new WidgetPoller from the specified ID.
+// id - The value must come from a previous call to WidgetPoller.ID().
+// reported - Optional callback invoked with the progress message provided by the service.
+func (c *WidgetClient) ResumeWidgetPoller(id string, reporter func(string)) WidgetPoller {
 	// ...
 }
 ```
 
 {% include requirement/MUSTNOT id="golang-lro-cancel" %} cancel the LRO when cancellation is requested via a context. The context is cancelling the polling operation and should not have any effect on the service.
 
-{% include requirement/MUST id="golang-lro-progress-reporting" %} expose a progress reporting mechanism to the consumer if the service reports progress as part of the polling operation.
-
-```go
-// RegisterProgressReporter registers a callback to be invoked with the progress message.
-// The message and interval of the callback are determined by the service.
-func (op *CreateWidgetOperation) RegisterProgressReporter(reporter func(string)) {
-	// ...
-}
-```
+{% include requirement/MUST id="golang-lro-progress-reporting" %} expose an optional progress reporting mechanism to the consumer if the service reports progress as part of the polling operation.  The progress reporting mechanism can be included as part of an API's optional parameters.
 
 {% include requirement/MUST id="golang-lro-pattern" %} follow the operation pattern for all LROs.
 
 ```go
 // example #1, blocking call to Wait()
-op, err := client.BeginCreateWidget(context.Background(), "blue_widget")
+options := BeginCreateOptions{
+	Reporter: func(msg string){
+		fmt.Printf("widget creation progress: %s", msg)
+	}
+}
+poller, err := client.BeginCreate(context.Background(), "blue_widget", options)
 if err != nil {
 	// handle error...
 }
-w, err := op.Wait(context.Background(), 5*time.Second)
+w, err := poller.Wait(context.Background(), 5*time.Second)
 if err != nil {
 	// handle error...
 }
 process(w)
 
 // example #2, customized wait loop
-op, err := client.BeginCreateWidget(context.Background(), "green_widget")
+poller, err := client.BeginCreate(context.Background(), "green_widget")
 if err != nil {
 	// handle error...
 }
 for {
-	w, err := op.Poll(context.Background())
+	w, err := poller.Poll(context.Background())
 	if err != nil {
 		// handle error...
 	}
-	if op.Done() {
+	if poller.Done() {
 		process(w)
 		break
 	}
@@ -328,41 +413,50 @@ for {
 }
 
 // example #3, resuming from a previous operation
-op := client.ResumeCreateWidgetOperation("operation ID from external process")
-w, err := op.Wait(context.Background(), 2*time.Second)
+poller := client.ResumeWidgetPoller("operation ID from external process", func(msg string){
+	fmt.Printf("wiget creation progress: %s", msg)
+})
+w, err := poller.Wait(context.Background(), 2*time.Second)
 if err != nil {
 	// handle error...
 }
 process(w)
 ```
 
-## The Go API
+## Mocking
 
-Consumers will use one or more service clients to access Azure services, plus a set of model classes and other supporting types. 
+One of the key things we want to support is to allow consumers of the package to easily write repeatable unit-tests for their applications without activating a service. This allows them to reliably and quickly test their code without worrying about the vagaries of the underlying service implementation (including, for example, network conditions or service outages). Mocking is also helpful to simulate failures, edge cases, and hard to reproduce situations (for example: does code work on February 29th).
 
-{% include requirement/MUSTNOT id="golang-api-multimethods" %} provide multiple methods for a single REST endpoint.
+{% include requirement/MUST id="golang-mock-interface-package" %} generate a sub-package containing interface definitions for all client operations.  The package name will be the same as the parent plus the `iface` suffix.
 
-{% include requirement/MUST id="golang-api-context" %} accept a `context.Context` object as the first parameter to every method that performs 1 (or more) I/O operations.
+{% include requirement/MUST id="golang-mock-interface-types" %} generate one interface type per client type that contains all of the client type's exported methods.  The interface type name will be the same as the client type name.
 
-{% include requirement/MUST id="golang-api-mandatory-params" %} have every I/O method accept all required parameters after the mandatory `context.Context` object.
+{% include requirement/MUST id="golang-mock-lro-pages" %} generate interface types for LRO and pageable response types that contain all of the methods for their respective types.  The interface type name will be the same as the LRO/pageable response type name.
 
-{% include requirement/MUST id="golang-api-options-struct" %} define a `<MethodNameOptions>` structure for every method with optional parameters.  This structure includes fields for all non-mandatory parameters. The structure can have fields added to it over time to simplify versioning.  To disambiguate names, use the client type name prefix.  E.g. for the BlobClient `List()` method the options type name would be `BlobListOptions`.
+{% include requirement/MUST id="golang-mock-interface-check" %} generate code to ensure that the interface definitions and their respective types have identical method declarations.  This is usually performed by assigning a nil pointer-to-type to a variable of the interface type.
 
-{% include requirement/MUST id="golang-api-options-ptr" %} allow the user to pass a pointer to this structure as the last parameter. If the user passes `nil`, then the method should assume appropriate default values for all the structure’s fields.  Note that `nil` and a zero-initialized `<MethodNameOptions>` structure are **NOT** required to be semantically equivalent.
+```go
+package factoryiface
 
-{% include requirement/MUSTNOT id="golang-api-mocked-params" %} define a function or method to accept a client, iterator, or operation type as a parameter as this breaks the consumer's ability to mock the value.  Instead, define an interface containing **only** the methods required by the caller and accept that interface as the parameter.
+import (
+	// ...
+	"<my repo>/factory"
+)
 
-### Model structures
+// WidgetClient contains the set of methods on the factory.WidgetClient type.
+type WidgetClient interface {
+	BeginCreate(ctx context.Context, options *factory.BeginCreateOptions) (factory.WidgetPoller, error)
+	GetWidget(ctx context.Context, name string) (*factory.GetWidgetResponse, error)
+	ListWidgets(options *factory.ListWidgetsOptions) (factory.ListWidgetsPager, error)
+	// other methods...
+}
 
-Model structures are types that consumers use to provide required information into client library methods.  They can also be returned from client methods. These structures typically represent the domain model, or option structures that must be configured before the request can be made.
+var _ WidgetClient = (*factory.WidgetClient)(nil)
+```
 
-{% include requirement/MUST id="golang-model-types" %} export all fields on model types to allow for mocking.
+{% include requirement/MUST id="golang-test-recordings" %} support HTTP request and response recording/playback via the pipeline.
 
-{% include requirement/MUST id="golang-model-types-ro" %} document all read-only fields and exclude their values when marshalling the structure to be sent over the wire.
-
-{% include requirement/MUST id="golang-model-types-nil" %} provide a mechanism to distinguish between omitting a value and sending a nil value.
-
-### Enumerated types
+## Enumerated Types
 
 {% include requirement/MUST id="golang-enum-type" %} define the enumeration's type to match the type sent/received over-the-wire (string is the most common example).
 
@@ -388,23 +482,124 @@ func WidgetColorValues() []WidgetColor {
 }
 ```
 
-### Versioning
+## Service Client Configuration
 
-Each new package defaults to the latest known service version.
+{% include requirement/MUST id="golang-config-global" %} use relevant global configuration settings either by default or when explicitly requested to by the user, for example by passing in a configuration object to a client constructor.
 
-Each package allows the consumer to select a previous service version from a list of enum values provided in that package.
+{% include requirement/MUST id="golang-config-client" %} allow different clients of the same type to use different configurations.
 
-{% include requirement/MUST id="golang-versioning-modules" %} release each package as a [Go module](https://blog.golang.org/using-go-modules).  Legacy dependency management tools such as `dep` and `glide` are not supported.
+{% include requirement/MUST id="golang-config-optout" %} allow consumers of your service clients to opt out of all global configuration settings at once.
 
-{% include requirement/MUST id="golang-versioning-semver" %} release versions of modules in accordance with [semver 2.0](https://semver.org/spec/v2.0.0.html).
+{% include requirement/MUST id="golang-config-global-override" %} allow all global configuration settings to be overridden by client-provided options. The names of these options should align with any user-facing global configuration keys.
 
-{% include requirement/MUST id="golang-versioning-breaking-changes" %} release a new major version of a module when breaking changes are introduced in public surface area; this includes new service versions that are NOT backward-compatible.  Use a new major version subdirectory to support [semantic import versioning](https://github.com/golang/go/wiki/Modules#semantic-import-versioning).
+{% include requirement/MUSTNOT id="golang-config-behavior-changes" %} change behavior based on configuration changes that occur after the client is constructed. Hierarchies of clients inherit parent client configuration unless explicitly changed or overridden. Exceptions to this requirement are as follows:
 
-{% include requirement/MUST id="golang-versioning-minor-versions" %} release a new minor version of a module when new public surface area is introduced; this includes new service versions that are backward-compatible with the previous versions.
+1. Log level, which must take effect immediately across the Azure SDK.
+2. Tracing on/off, which must take effect immediately across the Azure SDK.
 
-{% include requirement/MUST id="golang-versioning-patch-versions" %} release a new patch version of a module when changes are made that do not affect public surface area.
+# Error Handling and Diagnostics
 
-{% include requirement/MUST id="golang-versioning-preview" %} clearly version prerelease modules.  For new modules, use a v0 major version with no suffix (v0.1.0).  For existing modules, use a `-preview` suffix (v1.1.0-preview, v2.0.0-preview).
+{% include requirement/MUST id="golang-errors" %} return an error if a method fails to perform its intended functionality.  For methods that return multiple items, the error object is always the last item in the return signature.
+
+{% include requirement/SHOULD id="golang-errors-wrapping" %} wrap an error with another error if it would help in the diagnosis of the underlying failure.  Expect consumers to use [error helper functions](https://blog.golang.org/go1.13-errors) like `errors.As()` and `errors.Is()`.
+
+```go
+err := xml.Unmarshal(resp.Payload, v)
+if err != nil {
+	return fmt.Errorf("unmarshalling type %s: %w", reflect.TypeOf(v).Elem().Name(), err)
+}
+```
+
+{% include requirement/MUST id="golang-errors-on-request-failed" %} return a service-specific error type when an HTTP request fails with an unsuccessful HTTP status code as defined by the service.  The error type MUST be composed of `azcore.RequestError` as an anonymous field.
+
+```go
+type APIError struct {
+	azcore.RequestError
+	Code AnomalyDetectorErrorCodes
+	Message string
+}
+```
+
+{% include requirement/MUST id="golang-errors-include-response" %} include the HTTP response and originating request in the returned error.
+
+In the case of a method that makes multiple HTTP requests, the first error encountered should stop the remainder of the operation and this error (or another error wrapping it) should be returned.
+
+{% include requirement/MUST id="golang-errors-distinct-types" %} return distinct error types so that consumers can distinguish between a client error (incomplete/incorrect API parameter values) and other SDK failures (failure to send the request, marshalling/unmarshalling, parsing errors).
+
+{% include requirement/MUST id="golang-errors-documentation" %} document the error types that are returned by each method.  Don't document commonly returned error types, for example `context.DeadlineExceeded` when an HTTP request times out.
+
+{% include requirement/MUSTNOT id="golang-errors-other-types" %} create arbitrary error types.  Use error types provided by the standard library or `azcore`.
+
+## Logging
+
+Client libraries must support robust logging mechanisms so that the consumer can adequately diagnose issues with the method calls and quickly determine whether the issue is in the consumer code, client library code, or service.
+
+{% include requirement/MUST id="golang-log-api" %} use the Logger API provided within `azcore` as the sole logging API throughout all client libraries.
+
+{% include requirement/MUST id="golang-log-classification" %} define constant classification strings using the `azcore.LogClassification` type, then log using these values.
+
+{% include requirement/MUST id="golang-log-inclue" %} log HTTP request line, response line, and all header/query parameter names.
+
+{% include requirement/MUSTNOT id="golang-log-exclude" %} log payloads or HTTP header/query parameter values that aren't on the white list.  For header/query parameters not on the white list use the value `<REDACTED>` in place of the real value.
+
+## Distributed Tracing
+
+{% include requirement/MUST id="golang-tracing-abstraction" %} abstract the underlying tracing facility, allowing consumers to use the tracing implementation of their choice.
+
+{% include requirement/MUST id="golang-tracing-span-per-call" %} create a new trace span for each API call.  New spans must be children of the context that was passed in.
+
+{% include requirement/MUST id="golang-tracing-span-name" %} use `<package name>.<type name>.<method name>` as the name of the span.
+
+{% include requirement/MUST id="golang-tracing-propagate" %} propagate tracing context on each outgoing service request through the appropriate headers to support a tracing service like [Azure Monitor](https://azure.microsoft.com/en-us/services/monitor/) or [ZipKin](https://zipkin.io/).  This is generally done with the HTTP pipeline.
+
+# HTTP Pipeline and Policies
+
+Each supported language has an Azure Core library that contains common mechanisms for cross cutting concerns such as configuration and doing HTTP requests.
+
+{% include requirement/MUST id="golang-network-use-http-pipeline" %} use the HTTP pipeline component within `azcore` library for communicating to service REST endpoints.
+
+The HTTP pipeline consists of a HTTP transport that is wrapped by multiple policies. Each policy is a control point during which the pipeline can modify either the request and/or response. We prescribe a default set of policies to standardize how client libraries interact with Azure services. The order in the list is the most sensible order for implementation.
+
+{% include requirement/MUST id="golang-network-policies" %} implement the following policies in the HTTP pipeline:
+
+- Telemetry
+- Unique Request ID
+- Retry
+- Authentication
+- Response downloader
+- Distributed tracing
+- Logging
+- The HTTP transport itself
+
+{% include requirement/SHOULD id="golang-network-azure-core-policies" %} use the policy implementations in Azure Core whenever possible. Do not try to "write your own" policy unless it is doing something unique to your service. If you need another option to an existing policy, engage with the [Architecture Board] to add the option.
+
+# Configuration via Environment Variables
+
+{% include requirement/MUST id="golang-envvars-prefix" %} prefix Azure-specific environment variables with `AZURE_`.
+
+{% include requirement/MAY id="golang-envvars-client-prefix" %} use client library-specific environment variables for portal-configured settings which are provided as parameters to your client library. This generally includes credentials and connection details. For example, Service Bus could support the following environment variables:
+
+* `AZURE_SERVICEBUS_CONNECTION_STRING`
+* `AZURE_SERVICEBUS_NAMESPACE`
+* `AZURE_SERVICEBUS_ISSUER`
+* `AZURE_SERVICEBUS_ACCESS_KEY`
+
+Storage could support:
+
+* `AZURE_STORAGE_ACCOUNT`
+* `AZURE_STORAGE_ACCESS_KEY`
+* `AZURE_STORAGE_DNS_SUFFIX`
+* `AZURE_STORAGE_CONNECTION_STRING`
+
+{% include requirement/MUST id="golang-envvars-approval" %} get approval from the [Architecture Board] for every new environment variable. 
+
+{% include requirement/MUST id="golang-envvars-syntax" %} use this syntax for environment variables specific to a particular Azure service:
+
+* `AZURE_<ServiceName>_<ConfigurationKey>`
+
+where _ServiceName_ is the canonical shortname without spaces, and _ConfigurationKey_ refers to an unnested configuration key for that client library.
+
+{% include requirement/MUSTNOT id="golang-envvars-posix-compliance" %} use non-alpha-numeric characters in your environment variable names with the exception of underscore. This ensures broad interoperability.
 
 {% include refs.md %}
 {% include_relative refs.md %}
