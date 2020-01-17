@@ -11,7 +11,9 @@ Each release cycle, we produce release notes for every language.  To do this:
 
 * The release manager (within the PM organization) will create a new folder within the `/releases` directory of the `azure/azure-sdk` repository (named in `YYYY-MM` format) and create the necessary files.
 * The engineering leads for the packages being released will fill in the details of the release notes via the normal PR process.
-* The release manager will review and merge the PRs for the release notes.
+* The release manager will review the release notes, merging PRs.  After code complete, the release manager will do a final editorial pass before linking the release notes into the table of contents.
+
+Release notes are part of the release and must be ready for final edit by the "Code Complete" date.
 
 ## What's in a release note?
 
