@@ -661,7 +661,7 @@ package that is now a part of the .NET platform instead.
 
 {% include requirement/MUST id="dotnet-versioning-backwards-compatibility" %} be 100% backwards compatible with older versions of the same package.
 
-For detailed rules, see [.NET Breaking Changes](https://github.com/dotnet/corefx/blob/master/Documentation/coding-guidelines/breaking-change-rules.md).
+For detailed rules, see [.NET Breaking Changes](https://github.com/dotnet/runtime/blob/master/docs/coding-guidelines/breaking-change-rules.md).
 
 {% include requirement/MUST id="dotnet-versioning-highest-api" %} call the highest supported service API version by default.
 
