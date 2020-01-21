@@ -10,7 +10,7 @@ sidebar: general_sidebar
 Each release cycle, we produce release notes for every language.  To do this:
 
 * The release manager (within the PM organization) will create a new folder within the `/releases` directory of the `azure/azure-sdk` repository (named in `YYYY-MM` format) and create the necessary files.
-* The engineering leads for the packages being released will fill in the details of the release notes via the normal PR process.
+* The engineering leads for the packages being released are responsible for ensuring the details of the release notes are filled in via the normal PR process.
 * The release manager will review the release notes, merging PRs.  After code complete, the release manager will do a final editorial pass before linking the release notes into the table of contents.
 
 Release notes are part of the release and must be ready for final edit by the "Code Complete" date.
@@ -40,9 +40,13 @@ For example, "fixed a bug in which the event processor would stop working if you
 
 Ensure the release notes are written from the perspective of the user.   We don't want to tell them about a new change without ALSO telling them how to take advantage of the change with either a link to the documentation or a short snippet of code.
 
+## What if my library is changed but doesn't have any "developer impacting changes"?
+
+You can either leave the library out of the release notes, or add a note such as "This release contains bug fixes to improve quality."
+
 ## How to produce quick links?
 
-> Heath will provide this section
+The release manager will produce the point-in-time snapshot of the versions and ensure the release notes use the snapshot to generate the quick links tables.
 
 ## Who publishes the release notes?
 
