@@ -15,7 +15,7 @@
 
 [dotnet-latest-releases]: {{ site.baseurl }}{% link releases/latest/dotnet.md %}
 [java-latest-releases]: {{ site.baseurl }}{% link releases/latest/java.md %}
-[js-latest-releases]: {{ site.baseurl }} {% link releases/latest/js.md %}
+[js-latest-releases]: {{ site.baseurl }}{% link releases/latest/js.md %}
 [python-latest-releases]: {{ site.baseurl }}{% link releases/latest/python.md %}
 
 [README-EXAMPLE]: https://github.com/Azure/azure-sdk/blob/master/docs/policies/README-EXAMPLE.md
