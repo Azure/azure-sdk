@@ -20,9 +20,3 @@ Creation of the pipeline within Azure Pipelines is automated. When a ```ci.yml``
 In general each pipeline that ships a library (or set of libraries) to customers should be optimized to perform necessary build, test and static analysis steps for just that set of libraries. Where it is desirable to run analysis across the entire repository, these tasks should be pulled out into special case pipelines.
 
 The reason for this is that we don't want a static analysis failure in one part of the code base blocking the release of an unrelated library. Additionally, repo-wide analysis steps generally take a long time and it is inappropriate to bog down the pipelines for this activity.
-
-# Ship Readiness and Dependency Management
-
-Our aim is to keep the state of the ```master``` branch in a constantly shippable state. This means that as much as possible internal dependencies between different parts of the SDK should be "binary dependencies" where the dependency is sourced from a public registry. Source dependencies across ```sdk/[service]``` folders should be avoided if possible.
-
-This also helps avoid taking dependencies on unreleased APIs which can block release if not detected early.
