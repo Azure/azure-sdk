@@ -123,6 +123,45 @@ We speak about using the client library in a cross-language manner within outbou
 
 {% include requirement/MUST id="java-client-feature-support" %} support 100% of the features provided by the Azure service the client library represents. Gaps in functionality cause confusion and frustration among developers.
 
+## Model types
+
+Client libraries represent entities transferred to and from Azure services as model types. Certain types are used for round-trips to the service. They can be sent to the service (as an addition or update operation) and retrieved from the service (as a get operation). These should be named according to the type. For example, a `ConfigurationSetting` in App Configuration, or an `Event` on Event Grid.
+
+Data within the model type can generally be split into two parts - data used to support one of the champion scenarios for the service, and less important data.  Given a type `Foo`, the less important details can be gathered in a type called `FooDetails` and attached to `Foo` as the `details` property.
+
+For example:
+
+{% highlight java %}
+public class ConfigurationSettingDetails {
+    private DateTimeOffset lastModifiedDate;
+    private DateTimeOffset receivedDate;
+    private ETag eTag;
+}
+
+public class ConfigurationSetting {
+    private String key;
+    private String value;
+    private ConfigurationSettingDetails details;
+}
+{% endhighlight %}
+
+Optional parameters and settings to an operation should be collected into an options bag named `<operation>Options`. For example, the `getConfigurationSetting()` method might take a `GetConfigurationSettingOptions` class for specifying optional parameters.
+
+Results should use the model type (e.g. `ConfigurationSetting`) where the return value is a complete set of data for the model.  However, in cases where a partial schema is returned, use the following types:
+
+* `<model>Item` for each item in an enumeration if the enumeration returns a partial schema for the model.  For example, `getBlobs()` return an enumeration of `BlobItem`, which contains the blob name and metadata, but not the content of the blob.
+* `<operation>Result` for the result of an operation.  The `<operation>` is tied to a specific service operation.  If the same result can be used for multiple operations, use a suitable noun-verb phrase instead.  For example, use `UploadBlobResult` for the result from `uploadBlob()`, but `ContainerChangeResult` for results from the various methods that change a blob container.
+
+The following table enumerates the various models you might create:
+
+| Type | Example | Usage |
+| `<model>` | `Secret` | The full data for a resource |
+| `<model>Details` | `SecretDetails` | Less important details about a resource.  Attached to `<model>.details` |
+| `<model>Item` | `SecretItem` | A partial set of data returned for enumeration |
+| `<operation>Options` | `AddSecretOptions` | Optional parameters to a single operation |
+| `<operation>Result` | `AddSecretResult` | A partial or different set of data for a single operation |
+| `<model><verb>Result` | `SecretChangeResult` | A partial or different set of data for multiple operations on a model |
+
 ## Network requests
 
 The client library wraps HTTP requests so it's important to support standard network capabilities.  Asynchronous programming techniques aren't widely understood.  However, such techniques are essential in developing resilient web services.  Many developers prefer synchronous method calls for their easy semantics when learning how to use a technology.  Consumers also expect certain capabilities in a network stack (such as call cancellation, automatic retry, and logging).
