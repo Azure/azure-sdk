@@ -178,7 +178,7 @@ Don't create static logger instances. Static logger instances are shared among a
 
 {% include requirement/MUST id="java-logging-warning" %} use the `Warning` logging level when a function fails to perform its intended task. This generally means that the function will raise an exception.  Do not include occurrences of self-healing events (for example, when a request will be automatically retried).
 
-{% include requirement/MAY id="java-logging-slowlinks" %} log the request and response (see below) at the `Warning` when a request/response cycle (to the start of the response body) exceeds a service-defined threshold.  The threshold should be chosen to minimize false-positives and identify service issues.
+{% include requirement/MAY id="java-logging-slowlinks" %} log the request and response (see below) at the `Warning` logging level when a request/response cycle (to the start of the response body) exceeds a service-defined threshold.  The threshold should be chosen to minimize false-positives and identify service issues.
 
 {% include requirement/MUST id="java-logging-info" %} use the `Informational` logging level when a function operates normally.
 
@@ -194,6 +194,8 @@ Don't create static logger instances. Static logger instances are shared among a
 * The request headers (redacted if not in the allow-list).
 * An SDK provided request ID for correlation purposes.
 * The number of times this request has been attempted.
+
+This happens within azure-core by default, but users can configure this through the builder `httpLogOptions` configuration setting.
 
 {% include requirement/MUST id="java-logging-responses" %} log response line and headers as an `Informational` message.  The format of the log should be the following:
 
