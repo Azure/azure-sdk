@@ -196,6 +196,59 @@ For methods that combine multiple requests into a single call:
 
 {% include requirement/SHOULDNOT id="java-response-no-reserved-words" %} use reserved words (such as `object` and `value`) as a property name within the logical entity.  Avoid reserved words in other supported languages.
 
+## Conditional requests
+
+[Conditional requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Conditional_requests) are normally performed using HTTP headers.  The primary usage provides headers that match the `ETag` to some known value.  The `ETag` is an opaque identifier that represents a single version of a resource. For example, adding the following header will translate to "if the record's version, specified by the `ETag`, is not the same".
+
+{% highlight text %}
+If-Not-Match: "etag-value"
+{% endhighlight %}
+
+With headers, tests are possible for the following:
+
+* Unconditionally (no additional headers)
+* If (not) modified since a version (`If-Match` and `If-Not-Match`)
+* If (not) modified since a date (`If-Modified-Since` and `If-Unmodified-Since`)
+* If (not) present (`If-Match` and `If-Not-Match` with a `ETag=*` value)
+
+Not all services support all of these semantics, and may not support any of them.  Developers have varying levels of understanding of the `ETag` and conditional requests, so it is best to abstract this concept from the API surface.  There are two types of conditional requests we need to be concerned with:
+
+**Safe conditional requests** (e.g. GET)
+
+These are typically used to save bandwidth in an "update cache" scenario, i.e. I have a cached value, only send me the data if what the service has is newer than my copy. These return either a 200 or a 304 status code, indicating the value was not modified, which tells the caller that their cached value is up to date.
+
+**Unsafe conditional requests** (e.g. POST, PUT, or DELETE)
+
+These are typically used to prevent losing updates in an optimistic concurrency scenario, i.e. I've modified the cached value I'm holding, but don't update the service version unless it has the same copy I've got. These return either a success or a 412 error status code, indicating the value was modified, to indicate to the caller that they'll need to retry their update if they want it to succeed.
+
+These two cases are handled differently in client libraries.  However, the form of the call is the same in both cases.  The signature of the method should be:
+
+{% highlight text %}
+client.<method>(<item>, requestOptions)
+{% endhighlight %}
+
+The `requestOptions` field provides preconditions to the HTTP request.  The `Etag` value will be retrieved from the item that is passed into the method where possible, and method arguments where not possible. The form of the method will be modified based on idiomatic usage patterns in the language of choice.  In cases where the `ETag` value is not known, the operation cannot be conditional.
+If the library developer does not need to support advanced usage of precondition headers, they can add a boolean parameter that is set to true to establish the condition.  For example, use one of the following boolean names instead of the conditions operator:
+
+* `onlyIfChanged`
+* `onlyIfUnchanged`
+* `onlyIfMissing`
+* `onlyIfPresent`
+
+In all cases, the conditional expression is "opt-in", and the default is to perform the operation unconditionally.
+
+The return value from a conditional operation must be carefully considered.  For safe operators (e.g. GET), return a response that will throw if the value is accessed (or follow the same convention used fro a `204 No Content` response), since there is no value in the body to reference.  For unsafe operators (e.g. PUT, DELETE, or POST), throw a specific error when a `Precondition Failed` or `Conflict` result is received.  This allows the consumer to do something different in the case of conflicting results.
+
+{% include requirement/SHOULD %} accept a `conditions` parameter (which takes an enumerated type) on service methods that allow a conditional check on the service. 
+
+{% include requirement/SHOULD %} accept an additional boolean or enum parameter on service methods as necessary to enable conditional checks using `ETag`.
+
+{% include requirement/SHOULD %} include the `ETag` field as part of the object model when conditional operations are supported.
+
+{% include requirement/SHOULDNOT %} throw an error when a `304 Not Modified` response is received from the service, unless such errors are idiomatic to the language.
+
+{% include requirement/SHOULD %} throw a distinct error when a `412 Precondition Failed` response or a `409 Conflict` response is received from the service due to a conditional check.
+
 ## Pagination
 
 Azure client libraries eschew low-level pagination APIs in favor of high-level abstractions that  implement per-item iterators. High-level APIs are easy for developers to use for the majority of use cases but can be more confusing when finer-grained control is required (for example,  over-quota/throttling) and debugging when things go wrong. Other guidelines in this document work to mitigate this limitation, for example by providing robust logging, tracing, and pipeline  customization options.
