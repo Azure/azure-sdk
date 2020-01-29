@@ -24,9 +24,9 @@ Use the guidelines in each section of this template to ensure consistency and re
 
 * **DO** use relative links to other files in the source repository. Relative links will be converted to absolute links using the commit sha reference during publishing, that will ensure that we don't break links when we move things around in the repo in the future. So avoid using absolute links to a branch like `master` as they will definitely be broken in the future.
 
-* **DO NOT** use version numbers in the links as the version numbers will often be missed when releasing new versions thus point to the wrong thing or don't exist at all. Instead avoid linking directly to versioned information. If you still need a link you should first try to link to a page that contains all the versions so someone can choose or link the the latest which may be out of sync with the content but should usually remain valid.
+* **DO NOT** use version numbers in the links as the version numbers will often be missed when releasing new versions thus point to the wrong thing or not exist at all. Instead avoid linking directly to versioned information. If you still need a link you should first try to link to a page that contains all the versions so someone can choose or link to the latest which may be out of sync with the content but should usually remain valid.
 
-* **DO** think about the longevity of your links be sure to pick links we believe will remain stable and around for a long time. So not temporary links or links that point to moving targets like a repository branch.
+* **DO** think about the longevity of your links and be sure to pick links we believe will remain stable and around for a long time. So no temporary links or links that point to moving targets like a repository branch which may not contain the files in the same locations over time. 
 
 > TIP: Your README should be as **brief** as possible but **no more brief** than necessary to get a developer new to Azure, the service, or the package up and running quickly. Keep it brief, but include everything a developer needs to make their first API call successfully.
 
