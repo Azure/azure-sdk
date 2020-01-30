@@ -111,7 +111,7 @@ Immediately after a package ships the source definition of the package version s
 
 **GA Release:** Some languages bump the minor and others bump the patch version please see specific guidelines below based on your language. Breaking changes (which might increment the major version number) are *not* allowed after a GA release without an exception and review by the architecture board.
 
-**GA Hot-fix Release:** Some languages bump the patch version and others have specific conventions see guidelines below based on your language. See [Hot-fix Branches](repobranching.md#hot-fix-branches) for branching strategy of hot-fixes.
+**GA Hotfix Release:** Some languages bump the patch version and others have specific conventions see guidelines below based on your language. See [Hotfix Branches](repobranching.md#hotfix-branches) for branching strategy of hotfixes.
 
 ### Consistent Dependency Versions
 
@@ -157,11 +157,11 @@ Preview packages will be published PyPi. Dev packages will be published to an is
 
 **GA Release:** `1.1.0` ->  `1.1.1`
 
-**GA hot-fix Release:** `1.1.0` ->  `1.1.0.1`
+**GA Hotfix Release:** `1.1.0` ->  `1.1.0.1`
 
 **Floating GA dependencies:** Use `<X+1.0.0,>=X.0.0` to float dependencies where `X` is the major release upon which the package depends and `X+1` is the next major version.
 
-In rare cases where a customer cannot take all the latest patch versions with all the bug fixes for a particular major/minor release, but there is a critical fix necessary, we will publish a hot-fix package in the format X.Y.Z.N where N increments with each successive hot-fix. In this case it is expected that the customer will pin the particular hot-fix version they wish to use.
+In rare cases where a customer cannot take all the latest patch versions with all the bug fixes for a particular major/minor release, but there is a critical fix necessary, we will publish a hotfix package in the format X.Y.Z.N where N increments with each successive hotfix. In this case it is expected that the customer will pin the particular hotfix version they wish to use.
 
 #### JavaScript
 
@@ -172,7 +172,7 @@ If none is provided, the `latest` tag gets used by default by the `npm publish` 
 Below are the guidelines for versions and tags to use:
 
 - GA releases will follow [SemVer](https://semver.org/) and the published package should have the tag `latest`.
-  - If a hot-fix is being shipped for a version older than the current GA version, then ensure that the hot-fix gets no tags.  One way to do this is to use a dummy tag when publishing and deleting the tag afterwards.
+  - If a hotfix is being shipped for a version older than the current GA version, then ensure that the hotfix gets no tags.  One way to do this is to use a dummy tag when publishing and deleting the tag afterwards.
   - If a package has moved from preview to GA, ensure that the `next` tag is deleted.
 - Preview releases will use the format `X.Y.Z-preview.N` for version and the published package should have the tag `next`.
   - Additionally, use the `@latest` tag **only** if the package has never had a GA release.
@@ -184,13 +184,13 @@ Below are the guidelines for versions and tags to use:
 
 **GA Release:** `1.1.0` -> `1.1.1`
 
-**GA hot-fix Release:** `1.0.0` -> `1.0.0-hot-fix.1`
+**GA Hotfix Release:** `1.0.0` -> `1.0.0-hotfix.1`
 
 **Floating GA dependencies:** Use `^X.0.0` to float dependencies where `X` is the major release upon which the package depends.
 
 Generally, customers are expected to use caret or tilde ranges. Caret ranges (e.g. `^1.0.0`) allow them to take all non-breaking changes for a package and tilde ranges (`~1.0.0`) allow them to take all minor bugfixes for a particular major/minor release.
 
-In rare cases where a customer does not wish to take all bugfixes for a particular major/minor release (i.e. the tilde range `~X.Y.0` is not sufficient), but there is a critical fix necessary, we will publish a hot-fix package in the format `X.Y.0-hot-fix.N` where `N` increments with each successive hot-fix. In this case it is expected that the customer will pin the particular hot-fix version they wish to use in their `package.json`.
+In rare cases where a customer does not wish to take all bugfixes for a particular major/minor release (i.e. the tilde range `~X.Y.0` is not sufficient), but there is a critical fix necessary, we will publish a hotfix package in the format `X.Y.0-hotfix.N` where `N` increments with each successive hotfix. In this case it is expected that the customer will pin the particular hotfix version they wish to use in their `package.json`.
 
 In general, packages that have GA'd are not expected to have additional preview releases unless the underlying service releases preview functionality or the package undergoes significant churn as part of a major version change.
 
@@ -219,7 +219,7 @@ Preview .NET packages will be published to NuGet with the pre-release designatio
 
 **GA Release:** `1.1.0` -> `1.2.0-preview.1`
 
-**GA hot-fix Release:** `1.0.0` -> `1.0.1`
+**GA Hotfix Release:** `1.0.0` -> `1.0.1`
 
 **Floating GA dependencies:** Use the exact version number to specify the lowest version of the package which contains the features upon which you depend.
 
@@ -239,7 +239,7 @@ then the preview as well as the GA version of the matching version](https://gith
 
 **GA Release:** `1.1.0` -> `1.2.0-beta.1`
 
-**GA hot-fix Release:** `1.0.0` -> `1.0.1`
+**GA Hotfix Release:** `1.0.0` -> `1.0.1`
 
 **Floating GA dependencies:** Use the exact version number to specify the lowest version of the package which contains the features upon which you depend.
 
