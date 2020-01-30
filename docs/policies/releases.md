@@ -30,9 +30,13 @@ We use GitHub releases as a convenient place to put release notes. The change lo
 
 ## ChangeLog Guidance
 
-Every package MUST maintain a changelog. Ensuring that a `CHANGELOG.md` file is both available and formatted appropriately will result in automatically formatted release notes on each GitHub release.
+Ensuring that a `CHANGELOG.md` file is both available and formatted appropriately will result in automatically formatted release notes on each GitHub release.
 
-Changelogs must be named with all caps i.e. `CHANGELOG.md`. A given `CHANGELOG.md` file must follow the below form:
+{% include requirement/MUST %} maintain a changelog for every package.
+
+{% include requirement/MUST %} name changelogs with all caps except for the extension, i.e. `CHANGELOG.md`.
+
+{% include requirement/MUST %} follow the format below:
 
 ```
 # Release History
@@ -47,7 +51,7 @@ Changelogs must be named with all caps i.e. `CHANGELOG.md`. A given `CHANGELOG.m
 ... older release details trail off into history below
 
 ```
-General guidance is taken from https://keepachangelog.com/en/1.0.0/
+General guidance is taken from <https://keepachangelog.com/en/1.0.0/>.
 
 Example Changelog
 ```
@@ -62,7 +66,7 @@ Example Changelog
 
 ### Fixed
 - Issue where AccountName on BlobUriBuilder would not be populated
-  for non-IP style Uris.
+  for non-IP style Uris ([#123](https://github.com/Azure/azure-sdk-for-net#123))
 
 ## 12.0.0 (2019-11-25)
 ### Breaking Change
@@ -74,6 +78,8 @@ Example Changelog
 - Parallel upload/download performance improvements
 
 ```
+
+{% include requirement/SHOULD %} link to GitHub issues (full URL) that were fixed in that release going forward (i.e. do not backfill older issues). See example above under the `### Fixed` heading.
 
 For clarity, a `change log entry` is simply the header + content up to the next release header OR EOF. During release, if there exists a changelog entry with a version specifier _matching_ that of the currently releasing package, that changelog entry will be added as the body of the GitHub release.
 
