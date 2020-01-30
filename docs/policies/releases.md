@@ -66,7 +66,7 @@ Example Changelog
 
 ### Fixed
 - Issue where AccountName on BlobUriBuilder would not be populated
-  for non-IP style Uris ([#123](https://github.com/Azure/azure-sdk-for-net#123))
+  for non-IP style Uris ([#8638](https://github.com/Azure/azure-sdk-for-net/issues/8638))
 
 ## 12.0.0 (2019-11-25)
 ### Breaking Change
