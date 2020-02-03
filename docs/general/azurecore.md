@@ -294,7 +294,7 @@ In terms of precedence, use the following:
 3. Information inferred from the `AZURE_CLOUD`.
 4. Information known about the `AzureCloud` (default cloud instance).
 
-{% include requirement/MUST id="azurecore-sovereign-cloud-1 %} allow the developer or client libraries to determine the endpoint based on the `ARM_DATA_ENDPOINT` information.
+{% include requirement/MUST id="azurecore-sovereign-cloud-1" %} allow the developer or client libraries to determine the endpoint based on the `ARM_DATA_ENDPOINT` information.
 
 This capability is placed in the Azure Core library because the `ARM_DATA_ENDPOINT` reflects information in multiple client libraries, and thus may be cached.  Client libraries should only refer to this information in the event that the `ARM_DATA_ENDPOINT` global setting is configured.
 
