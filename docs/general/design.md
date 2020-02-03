@@ -116,13 +116,13 @@ In terms of precedence, use the following:
 
 For libraries that either infer the endpoint to be used or construct the endpoint to be used: 
 
-{% include requirement/MUST %} allow the developer to set the endpoint to be used within the client construction.
+{% include requirement/MUST id="general-sovereign-cloud-1" %} allow the developer to set the endpoint to be used within the client construction.
 
-{% include requirement/MUST %} consult the appropriate Azure Core mechanism for determining the endpoint in the case the `ARM_DATA_ENDPOINT` global setting is configured.
+{% include requirement/MUST id="general-sovereign-cloud-2" %} consult the appropriate Azure Core mechanism for determining the endpoint in the case the `ARM_DATA_ENDPOINT` global setting is configured.
 
-{% include requirement/MUST %} support sovereign clouds, as specified by the `AZURE_CLOUD` global setting.  If the `AZURE_CLOUD` global setting is configured but not understood, an error should be produced.
+{% include requirement/MUST id="general-sovereign-cloud-3" %} support sovereign clouds, as specified by the `AZURE_CLOUD` global setting.  If the `AZURE_CLOUD` global setting is configured but not understood, an error should be produced.
 
-{% include requirement/MUST %} assume the developer is connecting to the Azure Public Cloud in the absence of other configuration.
+{% include requirement/MUST id="general-sovereign-cloud-4" %} assume the developer is connecting to the Azure Public Cloud in the absence of other configuration.
 
 ## Model types
 
