@@ -285,18 +285,18 @@ In the former case, the developer will set the `AZURE_CLOUD` setting to the "fri
 |`AzureUSGovernment`|https://azure.microsoft.com/en-us/global-infrastructure/government/|
 |`AzureGermanCloud`|https://azure.microsoft.com/en-us/global-infrastructure/germany/|
 
-In the latter case, the developer will set the well-known URI in the `ARM_DATA_ENDPOINT` setting.  The application will then download a JSON file that identifies the endpoints for each service.
+In the latter case, the developer will set the well-known URI in the `ARM_DATA_ENDPOINT_URL` setting.  The application will then download a JSON file that identifies the endpoints for each service.
 
 In terms of precedence, use the following:
 
 1. Developer-provided endpoint information.
-2. Information derived from the `ARM_DATA_ENDPOINT`.
+2. Information derived from the `ARM_DATA_ENDPOINT_URL`.
 3. Information inferred from the `AZURE_CLOUD`.
 4. Information known about the `AzureCloud` (default cloud instance).
 
-{% include requirement/MUST id="azurecore-sovereign-cloud-1" %} allow the developer or client libraries to determine the endpoint based on the `ARM_DATA_ENDPOINT` information.
+{% include requirement/MUST id="azurecore-sovereign-cloud-1" %} allow the developer or client libraries to determine the endpoint based on the `ARM_DATA_ENDPOINT_URL` information.
 
-This capability is placed in the Azure Core library because the `ARM_DATA_ENDPOINT` reflects information in multiple client libraries, and thus may be cached.  Client libraries should only refer to this information in the event that the `ARM_DATA_ENDPOINT` global setting is configured.
+This capability is placed in the Azure Core library because the `ARM_DATA_ENDPOINT_URL` reflects information in multiple client libraries, and thus may be cached.  Client libraries should only refer to this information in the event that the `ARM_DATA_ENDPOINT_URL` global setting is configured, and the information can be retrieved and parsed correctly.
 
 ## Authentication and credentials
 
