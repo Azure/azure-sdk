@@ -7,7 +7,23 @@ sidebar: releases_sidebar
 repository: azure/azure-sdk-for-java
 ---
 
-The Azure SDK team is pleased to make available the February 2020 client library GA release. This GA release includes new and updated client libraries for Identity, Key Vault (keys, secrets and certificates), Event Hubs and Storage (Blobs and Queues). Some of the libraries are released as beta and they are Checkpoint Store, Storage File.
+The Azure SDK team is pleased to announce our February 2020 client library releases.
+
+#### GA
+
+- Event Hubs
+
+#### Updates
+
+- Identity
+- Storage (Blobs, Blobs Batch, Queues, File Shares, DataLake)
+
+#### Preview
+
+- Cosmos
+- Key Vault (Keys)
+- Text Analytics
+
 
 ## Installation Instructions
 To use the GA and beta libraries, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate. If you are using a different build tool, refer to its documentation on how to specify dependencies.
@@ -46,13 +62,13 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-messaging-eventhubs</artifactId>
-  <version>5.0.0-beta.6</version>
+  <version>5.0.1</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-messaging-eventhubs-checkpointstore-blob</artifactId>
-  <version>1.0.0-beta.4</version>
+  <version>1.0.1</version>
 </dependency>
 
 <dependency>
@@ -123,7 +139,10 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
-
+### Event Hubs
+- The Event Hub connection is reestablished when a transient failure is encountered.
+- Error handling in `EventProcessor` is broken out and handled in several scenarios.
+- For more details, please see the [EventHubs changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md#501-2020-02-11).
 
 ## Need help?
 * For reference documentation visit the [Azure SDK for Java documentation](https://azure.github.io/azure-sdk-for-java/).
