@@ -160,8 +160,7 @@ Primarily, all Azure services should support Azure Active Directory OAuth token 
 
 {% include requirement/MUST id="general-auth-provide-token-client-constructor" %} provide a service client constructor or factory that accept an instance of the TokenCredential abstraction from Azure Core.
 
-{% include requirement/MUSTNOT id="auth-client-token-persistence" %} persist, cache, or reuse tokens returned from the token credential. This is __CRITICAL__ as credentials generally have a short validity period and the token credential is
-responsible for refreshing these.
+{% include requirement/MUSTNOT id="auth-client-token-persistence" %} persist, cache, or reuse tokens returned from the token credential. This is __CRITICAL__ as credentials generally have a short validity period and the token credential is responsible for refreshing these.
 
 {% include requirement/MUST id="general-auth-use-core" %} use authentication policy implementations from the Azure Core library where available.
 
