@@ -139,10 +139,9 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
-### Event Hubs
+### Event Hubs ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md#501-2020-02-11))
 - The Event Hub connection is reestablished when a transient failure is encountered.
 - Error handling in `EventProcessor` is broken out and handled in several scenarios.
-- For more details, please see the [EventHubs changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md#501-2020-02-11).
 
 ## Need help?
 * For reference documentation visit the [Azure SDK for Java documentation](https://azure.github.io/azure-sdk-for-java/).
