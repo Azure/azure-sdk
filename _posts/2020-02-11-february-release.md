@@ -48,7 +48,19 @@ using AzureEventSourceListener listener = AzureEventSourceListener.CreateConsole
 
 ## Java libraries
 
-**TODO: ADD JAVA CODE HERE**
+The Java client libraries all use [SLF4J](https://www.slf4j.org/) under the covers for logging.  There are many mechanisms for [configuring SLF4J](https://dzone.com/articles/how-configure-slf4j-different) to get just the right logging for you application.  However, we are looking at the simplest mechanism todya.  There is a built-in logger for temporary debugging purposes.  As long as you have not already included the SLF4J library, just set the `AZURE_LOG_LEVEL` environment variable to "debug".  For example, in bash:
+
+```bash
+export AZURE_LOG_LEVEL="debug"
+```
+
+Or, in PowerShell:
+
+```bash
+$env:AZURE_LOG_LEVEL="debug"
+```
+
+Then run your application as normal.  The logs will be emitted on the console.  For more information on the Java logging system, refer to [our wiki](https://github.com/Azure/azure-sdk-for-java/wiki/Logging-with-Azure-SDK).
 
 ## JavaScript and TypeScript libraries
 
@@ -56,7 +68,18 @@ using AzureEventSourceListener listener = AzureEventSourceListener.CreateConsole
 
 ## Python libraries
 
-**TODO: ADD PYTHON CODE HERE**
+Python uses the [standard logging module](https://docs.python.org/3/howto/logging.html).  This makes it relly easy to configure just like you would any other Python library:
+
+```python
+import logging
+logging.basicConfig()
+
+# Enable DEBUG logging for all azure libraries
+azure_root_logger = logging.getLogger('azure')
+azure_root_logger.setLevel(logging.DEBUG)
+```
+
+You can see more configuration examples in the [logging cookbook](https://docs.python.org/3/howto/logging-cookbook.html).
 
 As you can see, the same logging features are provided in each language, but how each language accomplishes them is idiomatic to the language.  How you work with these features should feel very natural in your language of choice.
 
