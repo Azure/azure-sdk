@@ -87,7 +87,7 @@ If it doesn't, let us know!
 
 ## Working with us and giving feedback
 
-So far, the community has filed hundreds of issues against these new SDKs with feedback randing from documentation issues to API surface area change requests to pointing out failure cases.  Please keep that coming.  We work in the open on GitHub and you can submit issues here:
+So far, the community has filed hundreds of issues against these new SDKs with feedback ranging from documentation issues to API surface area change requests to pointing out failure cases.  Please keep that coming.  We work in the open on GitHub and you can submit issues here:
 
 * [API design guidelines](https://github.com/Azure/azure-sdk/)
 * [.NET](https://github.com/Azure/azure-sdk-for-net)
