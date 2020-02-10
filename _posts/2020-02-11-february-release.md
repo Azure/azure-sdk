@@ -48,7 +48,7 @@ using AzureEventSourceListener listener = AzureEventSourceListener.CreateConsole
 
 ## Java libraries
 
-The Java client libraries all use [SLF4J](https://www.slf4j.org/) under the covers for logging.  There are many mechanisms for [configuring SLF4J](https://dzone.com/articles/how-configure-slf4j-different) to get just the right logging for you application.  However, we are looking at the simplest mechanism todya.  There is a built-in logger for temporary debugging purposes.  As long as you have not already included the SLF4J library, just set the `AZURE_LOG_LEVEL` environment variable to "debug".  For example, in bash:
+The Java client libraries all use [SLF4J](https://www.slf4j.org/) under the covers for logging.  There are many mechanisms for [configuring SLF4J](https://dzone.com/articles/how-configure-slf4j-different) to get just the right logging for you application.  However, we are looking at the simplest mechanism today.  There is a built-in logger for temporary debugging purposes.  As long as you have not already included the SLF4J library, just set the `AZURE_LOG_LEVEL` environment variable to "debug".  For example, in bash:
 
 ```bash
 export AZURE_LOG_LEVEL="debug"
