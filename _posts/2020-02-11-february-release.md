@@ -6,11 +6,10 @@ sidebar: releases_sidebar
 repository: azure/azure-sdk
 ---
 
-The new generally available libraries being released this month are:
+Welcome to the February release of the Azure SDK.  We have updated the following libraries:
 
-* [Azure App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/)
-* [Azure Key Vault Certificates](https://docs.microsoft.com/en-us/azure/key-vault/certificate-scenarios)
-* [Azure Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs/)  
+* Azure Storage (Blobs and File Shares).
+* Event Hubs
 
 These are ready to use in your production applications.  You can find details of all released libraries on [our releases page](https://azure.github.io/azure-sdk/releases/latest/).
 
@@ -48,23 +47,43 @@ using AzureEventSourceListener listener = AzureEventSourceListener.CreateConsole
 
 ## Java libraries
 
-The Java client libraries all use [SLF4J](https://www.slf4j.org/) under the covers for logging.  There are many mechanisms for [configuring SLF4J](https://dzone.com/articles/how-configure-slf4j-different) to get just the right logging for you application.  However, we are looking at the simplest mechanism today.  There is a built-in logger for temporary debugging purposes.  As long as you have not already included the SLF4J library, just set the `AZURE_LOG_LEVEL` environment variable to "debug".  For example, in bash:
+The Java client libraries all use [SLF4J](https://www.slf4j.org/) under the covers for logging.  There are many mechanisms for [configuring SLF4J](https://dzone.com/articles/how-configure-slf4j-different) to get just the right logging for you application.  However, we are looking at the simplest mechanism today.  There is a built-in logger for temporary debugging purposes.  As long as you have not already included the SLF4J library, just set the `AZURE_LOG_LEVEL` environment variable to "verbose".  For example, in bash:
 
 ```bash
-export AZURE_LOG_LEVEL="debug"
+export AZURE_LOG_LEVEL="verbose"
 ```
 
 Or, in PowerShell:
 
 ```bash
-$env:AZURE_LOG_LEVEL="debug"
+$env:AZURE_LOG_LEVEL="verbose"
 ```
 
 Then run your application as normal.  The logs will be emitted on the console.  For more information on the Java logging system, refer to [our wiki](https://github.com/Azure/azure-sdk-for-java/wiki/Logging-with-Azure-SDK).
 
 ## JavaScript and TypeScript libraries
 
-**TODO: ADD JAVASCRIPT CODE HERE**
+There are two easy ways to enable logging for your Node applications.  You can set the `AZURE_LOG_LEVEL` to "verbose".  In this case, the logs will be output to stderr (for Node applications) or the console (for browser applications).  For example, in bash:
+
+```bash
+export AZURE_LOG_LEVEL="verbose"
+```
+
+Or, in PowerShell:
+
+```bash
+$env:AZURE_LOG_LEVEL="verbose"
+```
+
+If you want to do the same thing in code, you can use the `@azure/logger` module:
+
+```javascript
+import { setLogLevel } from "@azure/logger";
+
+setLogLevel("verbose");
+```
+
+This allows you to be more dynamic in your logging.  For example, you might want to enable logging on a single client library, or replace the logger with your own implementation.  For more information, check out the [logger library](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/core/logger).
 
 ## Python libraries
 
