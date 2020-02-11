@@ -58,7 +58,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Text Analytics
 
-- Added the ability to create a TextAnalitycs client with a credential that can be updated in long-lived clients.
+- Added the ability to create a Text Analytics client with a credential that can be updated in long-lived clients.
 - The `TextAnalyticsError` model has been simplified and now collection objects include a `HasError` property that allows to check if an operation on a particular document succeeded or failed.
 - All batch overload methods have been renamed by adding the suffix `Batch` or `BatchAsync` accordingly.
 - All single text operation methods now return an atomic type of the operation result.
