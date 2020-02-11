@@ -56,6 +56,12 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
+### Identity [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/identity/Azure.Identity/CHANGELOG.md#111)
+- Fixed `UsernamePasswordCredential` constructor parameter mishandling
+- Updated `ManagedIdentityCredential` endpoint discovery to avoid throwing
+- Fixed `ManagedIdentityCredential` to raise `CredentialUnavailableException` on 400 return from the service where no identity has been assigned
+- Updated error messaging from `DefaultAzureCredential` to more easily root cause failures
+
 ### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#100-preview2-2020-02-11)
 
 - Added the ability to create a Text Analytics client with a credential that can be updated in long-lived clients.
