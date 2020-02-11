@@ -46,6 +46,12 @@ If you have a bug or feature request for one of the libraries, please post an is
 Detailed change logs are linked to in the Quick Links below. Here are some critical call outs.
 
 
+### Identity
+
+- `ClientCertificateCredential` supports password-protected certificates
+- Added `CredentialUnavailableError` to distinguish cases when failure to obtain a token was expected
+  - For example, `EnvironmentCredential.get_token()` will raise this error when environment variable configuration is incomplete
+
 ## Latest Releases
 
 {% assign packages = site.data.releases.latest.python-packages %}
