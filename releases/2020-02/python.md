@@ -55,6 +55,15 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 
 - This release contains bug fixes to improve quality.
 
+### Text Analytics
+
+- The single text, module-level operations have been removed from the client library.  Use the batching methods for optimal performance in production environments.
+- New credential class `TextAnalyticsApiKeyCredential("<api_key>")` must be used if authenticating with an API key. It provides an `update_key()` method which allows you to update the API key for long-lived clients. Passing the API key as a string is no longer supported.
+- The `TextAnalyticsError` model has been simplified to an object with only `code`, `message`, and `target` attributes.
+- `__repr__` has been added to all of the response objects.
+- An `AttributeError` with custom error message is now raised if you try to access a result attribute on a `DocumentError` object.
+
+
 ## Latest Releases
 
 {% assign packages = site.data.releases.latest.python-packages %}
