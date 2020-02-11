@@ -51,6 +51,10 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 - `ClientCertificateCredential` supports password-protected certificates.
 - Added `CredentialUnavailableError` to distinguish cases when failure to obtain a token was expected. For example, `EnvironmentCredential.get_token()` will raise this error when environment variable configuration is incomplete.
 
+### Key Vault
+
+- This release contains bug fixes to improve quality.
+
 ## Latest Releases
 
 {% assign packages = site.data.releases.latest.python-packages %}
