@@ -261,7 +261,7 @@ Global configuration refers to configuration settings that are applied to all ap
 
 {% include requirement/MUST id="azurecore-config-opt-out" %} provide a method of opting out from importing system settings and environment variables into the configuration.
 
-### Sovereign cloud and secure endpoints
+### Sovereign clouds
 
 The Azure Cloud is not just one cloud.  There are sovereign clouds (such as those in China and Germany), government clouds, and Azure Stack - an on-premise implementation of Azure.  There are three primary differences between sovereign clouds and the Azure public clouds:
 
@@ -269,7 +269,7 @@ The Azure Cloud is not just one cloud.  There are sovereign clouds (such as thos
 2. The list of supported API versions may be different.
 3. The endpoints used will be different.
 
-The majority of services are configured using an endpoint definition (which is generally a fully-qualified URI).  However, some services have implicit endpoints defined (for example, Azure Identity uses `https://login.microsoftonline.com`) and some services construct an endpoint based on a friendly name.  There are approximately 15-20 services for which one of these cases hold.
+The majority of services are configured using an endpoint definition (which is generally a fully-qualified URI).  However, some services have implicit endpoints defined (for example, Azure Identity uses `https://login.microsoftonline.com` for public Azure) and some services construct an endpoint based on a friendly name.  There are approximately 15-20 services for which one of these cases hold.
 
 Sovereign clouds may be split into two distinct groups:
 
@@ -289,7 +289,7 @@ In the latter case, the developer will set the well-known URI in the `ARM_DATA_E
 
 In terms of precedence, use the following:
 
-1. Developer-provided endpoint information.
+1. Explicit endpoint information (provided to the client in code).
 2. Information derived from the `ARM_DATA_ENDPOINT_URL`.
 3. Information inferred from the `AZURE_CLOUD`.
 4. Information known about the `AzureCloud` (default cloud instance).
