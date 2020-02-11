@@ -31,7 +31,7 @@ To install any of our packages, please search for them via `Manage NuGet Package
 
     $> dotnet add package Azure.Cosmos --version 4.0.0-preview
 
-    $> dotnet add package Azure.Data.AppConfiguration --version 1.0.0-preview.4
+    $> dotnet add package Azure.Data.AppConfiguration
 
     $> dotnet add package Azure.Identity
 
