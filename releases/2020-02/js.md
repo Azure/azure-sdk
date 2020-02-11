@@ -33,6 +33,13 @@ If you have a bug or feature request for one of the libraries, please post an is
 Detailed change logs for each of the libraries can be found in the source repository linked to in the Quick Links table.
 Below are some noteworthy changes in the current release.
 
+### Storage Blob ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/CHANGELOG.md))
+- Added support for Encryption Scope. Similar to CPK but encryption key is provided by name.
+- Added MD5 and CRC headers for Blob Copy.
+
+### Storage File Share ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/CHANGELOG.md))
+- A new type `ShareLeaseClient` has been added to manage leases.
+- Added SMB parameters for file copy.
 
 ## Latest Releases
 

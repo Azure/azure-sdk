@@ -35,8 +35,8 @@ To install any of our packages, please search for them via `Manage NuGet Package
 
     $> dotnet add package Azure.Identity
 
-    $> dotnet add package Azure.Messaging.EventHubs 
-    $> dotnet add package Azure.Messaging.EventHubs.Processor 
+    $> dotnet add package Azure.Messaging.EventHubs
+    $> dotnet add package Azure.Messaging.EventHubs.Processor
 
     $> dotnet add package Azure.Security.KeyVault.Certificates
     $> dotnet add package Azure.Security.KeyVault.Key
@@ -44,7 +44,7 @@ To install any of our packages, please search for them via `Manage NuGet Package
 
     $> dotnet add package Azure.Storage.Blobs
     $> dotnet add package Azure.Storage.Blobs.Batch
-    $> dotnet add package Azure.Storage.Files.DataLake --version 12.0.0-preview.8
+    $> dotnet add package Azure.Storage.Files.DataLake --version 12.0.0-preview.9
     $> dotnet add package Azure.Storage.Files.Shares
     $> dotnet add package Azure.Storage.Queues
 
@@ -63,6 +63,20 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - All batch overload methods have been renamed by adding the suffix `Batch` or `BatchAsync` accordingly.
 - All single text operation methods now return an atomic type of the operation result.
 
+### Storage Blobs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md)
+- Modified BlockBlobClient.Upload() and BlockBlobClient.UploadAsync() to support parallel and multi-part uploads.
+- Added support for Encryption Scopes.
+
+### Storage Files DataLake [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md)
+- Added DataLakeFileClient.ReadTo() and DataLakeFileClient.ReadToAsync() APIs, providing support for parallel downloads to Stream and Files.
+- Added progress reporting to DataLakeFileClient.Append() and DataLakeFileClient.AppendAsync().
+- Added DataLakeFileSystemClient.GetRootDirectoryClient().
+- Renamed LeaseDurationType, LeaseState, and LeaseStatus to DataLakeLeaseDuration, DataLakeLeaseState, and DataLakeLeaseStatus.
+
+### Storage Files Shares [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md)
+- Added ShareFileClient.ClearRangesAsync() API.
+- Added SMB parameters to File Copy APIs.
+- Added support for file leases.
 
 ## Latest Releases
 

@@ -7,7 +7,7 @@ sidebar: releases_sidebar
 repository: azure/azure-sdk-for-python
 ---
 
-The Azure SDK team is pleased to make available the February 2020 client library GA release. 
+The Azure SDK team is pleased to make available the February 2020 client library GA release.
 
 This release includes the following:
 
@@ -45,7 +45,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 Detailed change logs are linked to in the Quick Links below. Here are some critical call outs.
 
-
 ### Identity
 
 - `ClientCertificateCredential` supports password-protected certificates.
@@ -54,6 +53,9 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 ### Key Vault
 
 - This release contains bug fixes to improve quality.
+
+### Storage File DataLake ([Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md))
+- Async APIs are now supported.
 
 ## Latest Releases
 
