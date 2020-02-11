@@ -170,7 +170,7 @@ In addition to Azure Active Directory OAuth, services may provide custom authent
 
 {% include requirement/MUST id="general-auth-provide-credential-types" %} define a public custom credential type which enables clients to authenticate requests using the custom scheme.
 
-{% include requirement/SHOULDNOT id="general-auth-credential-type-base" %} define custom credential types extending the TokenCredential abstraction from Azure Core.
+{% include requirement/SHOULDNOT id="general-auth-credential-type-base" %} define custom credential types extending the TokenCredential abstraction from Azure Core. This is especially true in type safe languages where extending this abstraction would break the type safety of other service clients, allowing users to instantiate them with the custom credential of the wrong service.
 
 {% include requirement/MUST id="general-auth-credential-type-placement" %} define custom credential types in the same namespace and package as the client, or in a service group namespace and shared package, not in Azure Core or Azure Identity.
 
