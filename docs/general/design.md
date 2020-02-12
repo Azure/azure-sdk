@@ -170,7 +170,7 @@ In addition to Azure Active Directory OAuth, services may provide custom authent
 
 {% include requirement/MUST id="general-auth-provide-credential-types" %} define a public custom credential type which enables clients to authenticate requests using the custom scheme.
 
-{% include requirement/SHOULDNOT id="general-auth-credential-type-base" %} define custom credential types extending the TokenCredential abstraction from Azure Core. This is especially true in type safe languages where extending this abstraction would break the type safety of other service clients, allowing users to instantiate them with the custom credential of the wrong service.
+{% include requirement/SHOULDNOT id="general-auth-credential-type-base" %} define custom credential types extending or implementing the TokenCredential abstraction from Azure Core. This is especially true in type safe languages where extending or implementing this abstraction would break the type safety of other service clients, allowing users to instantiate them with the custom credential of the wrong service.
 
 {% include requirement/MUST id="general-auth-credential-type-placement" %} define custom credential types in the same namespace and package as the client, or in a service group namespace and shared package, not in Azure Core or Azure Identity.
 
@@ -184,7 +184,7 @@ In addition to Azure Active Directory OAuth, services may provide custom authent
 
 {% include requirement/MUSTNOT id="general-auth-credential-set-properties" %} define public settable properties or fields which allow users to update the authentication data directly in a non-atomic manner.
 
-{% include requirement/SHOULDNOT id="general-auth-credential-get-properties" %} define public properties or fields which allow users to access the authentication data directly. They are often unnecessary, and are difficult to use in a thread safe manner.
+{% include requirement/SHOULDNOT id="general-auth-credential-get-properties" %} define public properties or fields which allow users to access the authentication data directly. They are most often not needed by end users, and are difficult to use in a thread safe manner. In the case that exposing the authentication data is necessary, all the data needed to authenticate requests should be returned from a single API which guarantees the data returned is in a consistent state.
 
 {% include requirement/MUST id="general-auth-provide-client-constructor" %} provide service client constructors or factories that accept all supported credential types.
 
