@@ -141,6 +141,9 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Identity ([Changelog]())
 
+- All credential builders support setting a pipeline via `httpPipeline` method.
+- SharedTokenCacheCredentialBuilder supports setting the tenant id via `tenantId` method.
+
 ### KeyVault Keys ([Changelog]())
 
 ### Storage Blobs ([Changelog]())
@@ -156,6 +159,12 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 ### Storage Queues ([Changelog]())
 
 ### Text Analytics ([Changelog]())
+
+- General class and method renames to comply with API guidelines.
+- Single text operations now return atomic type of the operation result.
+- Simplified `TextAnaylticsError` to only contain `code`, `message`, and `target`.
+- Subscription key authentication now uses `TextAnalyticsApiKeyCredential` as the parameter for `credential`. This class supports dynamically updating the subscription key using `updateCredential`.
+- Accessing a result on a `DocumentError` now raises a `TextAnalyticsException` with a description of the error.
 
 ## Need help
 
