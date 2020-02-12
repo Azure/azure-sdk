@@ -139,24 +139,23 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - The Event Hub connection is reestablished when a transient failure is encountered.
 - Error handling in `EventProcessor` is broken out and handled in several scenarios.
 
-### Identity
+### Identity ([Changelog]())
 
-### KeyVault Keys
+### KeyVault Keys ([Changelog]())
 
-### Storage Blobs
+### Storage Blobs ([Changelog]())
 
-### Storage Blob Batch
+### Storage Blob Batch ([Changelog]())
 
-### Storage Blob Cryptography
+### Storage Blob Cryptography ([Changelog]())
 
-### Storage Files Datalake
+### Storage Files Datalake ([Changelog]())
 
-### Storage Files Shares
+### Storage Files Shares ([Changelog]())
 
-### Storage Queues
+### Storage Queues ([Changelog]())
 
 ### Text Analytics ([Changelog]())
-
 
 ## Need help
 
