@@ -111,7 +111,7 @@ In addition to standard SemVer, the team occasionally releases a preview of a pa
 
 ### Incrementing after release
 
-Immediately after a package ships the source definition of the package version should be incremented in source control. It's safer to have `N+1` in `master` than `N`.
+Immediately after a package ships the source definition of the package version should be incremented in source control. It's safer to have `N+1` in `master` than `N`. Package increment after release happens automatically as part of the release pipelines.
 
 **Preview Release:** Increment the preview number on the package (e.g. `1.0.0-preview.1` -> `1.0.0-preview.2`) appropriate to the versioning scheme for the language (see blow for language-specific version formatting). Breaking changes are allowed between preview builds.
 

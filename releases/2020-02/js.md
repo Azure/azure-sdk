@@ -9,6 +9,7 @@ repository: azure/azure-sdk-for-js
 
 The Azure SDK team is pleased to make available the February 2020 client library release. This represents the seventh release of the ground-up rewrite of the client libraries to ensure consistency, idiomatic design, and excellent developer experience and productivity. This release includes:
 
+- Update for Azure Cosmos
 - Update for Azure Event Hubs
 - Update for Azure Blob Storage
 - New preview for Azure Text Analytics
@@ -22,6 +23,7 @@ To install the packages, copy and paste the below into a terminal.
     $> npm install @azure/storage-file-datalake
     $> npm install @azure/storage-queue
     $> npm install @azure/ai-text-analytics
+    $> npm install @azure/cosmos
 
 ## Feedback
 If you have a bug or feature request for one of the libraries, please post an issue at the [azure-sdk-for-js repository](https://github.com/azure/azure-sdk-for-js/issues)
@@ -31,17 +33,17 @@ If you have a bug or feature request for one of the libraries, please post an is
 Detailed change logs for each of the libraries can be found in the source repository linked to in the Quick Links table.
 Below are some noteworthy changes in the current release.
 
-### Event Hubs
+### Cosmos
+- Added support for spatial indexing, bounding boxes, and geospatial configuration
 
+### Event Hubs
 This release contains bug fixes to improve quality.
 
 ### Storage (File Shares, File Data Lake, Blobs, Queues)
-
 - Added support for new features introduced in `2019-07-07` Azure Storage Service API version.
 - Added a new type `ShareLeaseClient` to manage File Share leases.
 
 ### Text Analytics
-
 - Added support for rotating API keys via the `TextAnalyticsApiKeyCredential.updateKey` method.
 - Added a discriminant type for `TextAnalyticsResult.error` to allow for easy differentiation between success and error types using `if (result.error) { ... }` in both TypeScript and JavaScript.
 - [Breaking] Removed the `Entity` type and added new return types `CategorizedEntity` and `PiiEntity` for the `recognizeEntities` and `recognizePiiEntities` methods respectively. These types are equivalent to the previous `Entity` type.
