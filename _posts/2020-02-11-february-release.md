@@ -43,7 +43,7 @@ One of the main advantages of the new Azure SDK is that common developer concern
 
 All .NET client libraries emit events to ETW (Event Tracing for Windows) via the `EventSource` class.  This system has been a part of the .NET framework for a long time.  Event sources allow you to use structured logging in your application code with a minimal performance overhead.
 
-Although you can use out-of-process tools (such as **TODO: INSERT TOOLS HERE WITH LINKS**), a [core tenet of our libraries](https://azure.github.io/azure-sdk/general_implementation.html#general-logging-console-logger) includes the ability to easily send logs to the console.  When developing your app, you should be able to view the logs in real time without much overhead.  You can accomplish this with a one-liner at the top of your application:
+Although you can use out-of-process tools (such as [PerfView](https://github.com/Microsoft/perfview) or [dotnet trace](https://docs.microsoft.com/en-us/dotnet/core/diagnostics/dotnet-trace)), a [core tenet of our libraries](https://azure.github.io/azure-sdk/general_implementation.html#general-logging-console-logger) includes the ability to easily send logs to the console.  When developing your app, you should be able to view the logs in real time without much overhead.  You can accomplish this with a one-liner at the top of your application:
 
 ```csharp
 using AzureEventSourceListener listener = AzureEventSourceListener.CreateConsoleLogger();
