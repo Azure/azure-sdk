@@ -158,12 +158,13 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Storage Queues ([Changelog]())
 
-### Text Analytics ([Changelog]())
+### Text Analytics ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_1.0.0-beta.2/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#100-beta2-2020-02-12))
 
-- General class and method renames to comply with API guidelines.
-- Single text operations now return atomic type of the operation result.
+- General class and method rename to comply with API guidelines.
+- All single text operation methods now return an atomic type of operation result.
 - Simplified `TextAnaylticsError` to only contain `code`, `message`, and `target`.
-- Subscription key authentication now uses `TextAnalyticsApiKeyCredential` as the parameter for `credential`. This class supports dynamically updating the subscription key using `updateCredential`.
+- Added the ability to create a Text Analytics client with a credential that can be updated in long-lived clients.
+- All batch overload methods have been renamed by adding the suffix `Batch`.
 - Accessing a result on a `DocumentError` now raises a `TextAnalyticsException` with a description of the error.
 
 ## Need help
