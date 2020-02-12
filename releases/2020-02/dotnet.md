@@ -63,6 +63,10 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Add support for retrying on 408, 500, 502, 504 status codes.
 - Remove commit hash from User-Agent telemetry.
 
+### Identity [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/identity/Azure.Identity/CHANGELOG.md#111)
+- `ManagedIdentityCredential` now throws `CredentailUnavailableException` when the service returns a 400 status code, indicating an identity has not been assigned
+- Updated error messaging from `DefaultAzureCredential` to more easily root cause failures
+
 ### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#100-preview2-2020-02-11)
 
 - Added the ability to create a Text Analytics client with a credential that can be updated in long-lived clients.
