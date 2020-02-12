@@ -160,7 +160,7 @@ Primarily, all Azure services should support Azure Active Directory OAuth token 
 
 {% include requirement/MUST id="general-auth-provide-token-client-constructor" %} provide a service client constructor or factory that accepts an instance of the TokenCredential abstraction from Azure Core.
 
-{% include requirement/MUSTNOT id="auth-client-token-persistence" %} persist, cache, or reuse tokens returned from the token credential. This is __CRITICAL__ as credentials generally have a short validity period and the token credential is responsible for refreshing these.
+{% include requirement/MUSTNOT id="auth-client-no-token-persistence" %} persist, cache, or reuse tokens returned from the token credential. This is __CRITICAL__ as credentials generally have a short validity period and the token credential is responsible for refreshing these.
 
 {% include requirement/MUST id="general-auth-use-core" %} use authentication policy implementations from the Azure Core library where available.
 
@@ -356,4 +356,3 @@ For example, MQTT over WebSockets provides the ability to add headers during the
 {% include requirement/MUST id="general-proto-config" %} use the global configuration established in the Azure Core library to configure policies for non-HTTP protocols.  Consumers don't necessarily know what protocol is used by the client library.  They will expect the client library to honor global configuration that they have established for the entire Azure SDK.  
 
 {% include refs.md %}
-
