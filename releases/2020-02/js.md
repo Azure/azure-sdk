@@ -24,6 +24,7 @@ To install the packages, copy and paste the below into a terminal.
     $> npm install @azure/storage-file-datalake
     $> npm install @azure/storage-queue
     $> npm install @azure/ai-text-analytics
+    $> npm install @azure/cosmos
 
 ## Feedback
 If you have a bug or feature request for one of the libraries, please post an issue at the [azure-sdk-for-js repository](https://github.com/azure/azure-sdk-for-js/issues)
@@ -32,6 +33,9 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 Detailed change logs for each of the libraries can be found in the source repository linked to in the Quick Links table.
 Below are some noteworthy changes in the current release.
+
+## Cosmos
+- Added support for spatial indexing, bounding boxes, and geospatial configuration
 
 
 ## Latest Releases
