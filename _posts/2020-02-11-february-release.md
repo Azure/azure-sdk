@@ -8,9 +8,10 @@ repository: azure/azure-sdk
 
 Welcome to the February release of the Azure SDK.  We have updated the following libraries:
 
-* Storage (Blobs, Files, and Queues).
+* Cosmos (JavaScript only).
 * Event Hubs (Java and JavaScript).
 * Key Vault (Python only).
+* Storage (Blobs, Files, and Queues).
 
 These are ready to use in your production applications.  You can find details of all released libraries on [our releases page](https://azure.github.io/azure-sdk/releases/latest/).
 
