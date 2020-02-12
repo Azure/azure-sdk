@@ -118,4 +118,4 @@ So far, the community has filed hundreds of issues against these new SDKs with f
 * [JavaScript / TypeScript](https://github.com/Azure/azure-sdk-for-js)
 * [Python](https://github.com/Azure/azure-sdk-for-python)
 
-Finally, please keep up to date with all the news about the Azure developer experience programs and let us know how we are doing by following [@azuresdk](https://twitter.com/AzureSDK).
+Finally, please keep up to date with all the news about the Azure developer experience programs and let us know how we are doing by following [@azuresdk](https://twitter.com/AzureSDK) on Twitter.
