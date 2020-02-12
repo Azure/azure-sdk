@@ -8,15 +8,19 @@ repository: azure/azure-sdk
 
 Welcome to the February release of the Azure SDK.  We have updated the following libraries:
 
-* Azure Storage (Blobs and File Shares).
-* Event Hubs
+* Storage (Blobs, Files, and Queues).
+* Event Hubs (Java and JavaScript).
+* Key Vault (Python only).
 
 These are ready to use in your production applications.  You can find details of all released libraries on [our releases page](https://azure.github.io/azure-sdk/releases/latest/).
 
 New preview releases:
 
-* [Azure Storage Data Lake Files](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [Azure Text Analytics](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/index)
+* Cosmos (Java only).
+* Key Vault Keys (Java only).
+* Storage Blob Cryptography.
+* Storage Data Lake Files.
+* Text Analytics.
 
 We believe these are ready for your use, but not yet ready for production.  Between now and the GA release, these libraries may undergo API changes.  We'd love your feedback!  If you use these libraries and like what you see, or you want to see changes, let us know in the GitHub issues for the appropriate language. 
 
