@@ -64,9 +64,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Remove commit hash from User-Agent telemetry.
 
 ### Identity [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/identity/Azure.Identity/CHANGELOG.md#111)
-- Fixed `UsernamePasswordCredential` constructor parameter mishandling
-- Updated `ManagedIdentityCredential` endpoint discovery to avoid throwing
-- Fixed `ManagedIdentityCredential` to raise `CredentialUnavailableException` on 400 return from the service where no identity has been assigned
+- `ManagedIdentityCredential` now throws `CredentailUnavailableException` when the service returns a 400 status code, indicating an identity has not been assigned
 - Updated error messaging from `DefaultAzureCredential` to more easily root cause failures
 
 ### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#100-preview2-2020-02-11)
