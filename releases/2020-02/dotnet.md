@@ -56,6 +56,13 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
+### Azure.Core [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/CHANGELOG.md#102)
+
+- Block bearer token authentication for non TLS protected endpoints.
+- Add support for retrying on request timeouts.
+- Add support for retrying on 408, 500, 502, 504 status codes.
+- Remove commit hash from User-Agent telemetry.
+
 ### Identity [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/identity/Azure.Identity/CHANGELOG.md#111)
 - Fixed `UsernamePasswordCredential` constructor parameter mishandling
 - Updated `ManagedIdentityCredential` endpoint discovery to avoid throwing
