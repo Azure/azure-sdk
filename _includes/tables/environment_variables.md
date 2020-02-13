@@ -19,5 +19,6 @@
 | AZURE_TRACING_DISABLED        | Disables tracing                       |
 | **General SDK Configuration**                                         ||
 | AZURE_CLOUD                   | Name of the sovereign cloud            |
+| ARM_DATA_ENDPOINT_URL         | URI to load the list of endpoints      |
 | AZURE_SUBSCRIPTION_ID         | Azure subscription                     |
 | AZURE_RESOURCE_GROUP          | Azure Resource Group                   |
