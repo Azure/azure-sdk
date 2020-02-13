@@ -8,9 +8,11 @@ sidebar: general_sidebar
 The release policy for the Azure SDK accommodates the need to release different SDK packages based on the ship cycle of the underlying service.
 
 ## Terms
+
 The terms "SDK", "SDK Component", "library" and "package" are used throughout this document and are defined in the [design guidelines](general_terminology.html).
 
-## Supported Registries
+## Supported registries
+
 We release client libraries to the following registries:
 
 - NuGet (.NET)
@@ -38,7 +40,7 @@ Ensuring that a `CHANGELOG.md` file is both available and formatted appropriatel
 
 {% include requirement/MUST %} follow the format below:
 
-```
+```markdown
 # Release History
 
 ## <versionSpecifier> (Release Marker)
@@ -49,12 +51,13 @@ Ensuring that a `CHANGELOG.md` file is both available and formatted appropriatel
 - <content/changes for the older release>
 
 ... older release details trail off into history below
-
 ```
-General guidance is taken from <https://keepachangelog.com/en/1.0.0/>.
 
-Example Changelog
-```
+General guidance is taken from https://keepachangelog.com/en/1.0.0/
+
+Example Changelog:
+
+```markdown
 # Release History
 
 ## 12.1.0 (Unreleased)
@@ -76,7 +79,6 @@ Example Changelog
 - Number of operations and models to better align with other client
   libraries and the .NET Framework Design Guidelines
 - Parallel upload/download performance improvements
-
 ```
 
 {% include requirement/SHOULD %} link to GitHub issues (full URL) that were fixed in that release going forward (i.e. do not backfill older issues). See example above under the `### Fixed` heading.
@@ -102,18 +104,18 @@ The team makes every effort to follow [SemVer](https://semver.org/) for versioni
 - Increments to the minor digit (1.1.X to 1.2.X) indicate the addition of new apis or features.
 - Increments to the patch number (1.1.1 to 1.1.2) indicate a set of new compatible fixes.
 
-In addition to standard SemVer, the team occasionally releases a preview of a package to allow the community to dogfood and give feedback on new features.
+In addition to standard SemVer, the team occasionally releases a preview of a package to allow the community to dog food and give feedback on new features.
 
 - Dev: a build containing the most up-to-date changes based on the current master branch. Expect frequent and potentially breaking change in this release.
 - Preview: a release generated to get customer feedback before a GA. Preview releases are revised less often than dev. Preview releases may have breaking changes from the previous preview, but should not have breaking changes from the last GA release. Once a package has released to GA, any breaking changes require an exception and approval from the architecture board.
 
 ### Incrementing after release
 
-Immediately after a package ships the source definition of the package version should be incremented in source control. It's safer to have `N+1` in `master` than `N`.
+Immediately after a package ships the source definition of the package version should be incremented in source control. It's safer to have `N+1` in `master` than `N`. Package increment after release happens automatically as part of the release pipelines.
 
 **Preview Release:** Increment the preview number on the package (e.g. `1.0.0-preview.1` -> `1.0.0-preview.2`) appropriate to the versioning scheme for the language (see blow for language-specific version formatting). Breaking changes are allowed between preview builds.
 
-**GA Release:** Some languages bump the minor and others bump the patch version please see specific guidelines below based on your language. Breaking changes (which might increment the major version number) are *not* allowed after a GA release without an exception and reivew by the architecture board.
+**GA Release:** Some languages bump the minor and others bump the patch version please see specific guidelines below based on your language. Breaking changes (which might increment the major version number) are *not* allowed after a GA release without an exception and review by the architecture board.
 
 **GA Hotfix Release:** Some languages bump the patch version and others have specific conventions see guidelines below based on your language. See [Hotfix Branches](repobranching.md#hotfix-branches) for branching strategy of hotfixes.
 
@@ -165,7 +167,7 @@ Preview packages will be published PyPi. Dev packages will be published to an is
 
 **Floating GA dependencies:** Use `<X+1.0.0,>=X.0.0` to float dependencies where `X` is the major release upon which the package depends and `X+1` is the next major version.
 
-In rare cases where a customer cannot take all the latest patch versions with all the bugfixes for a particular major/minor release, but there is a critical fix necessary, we will publish a hotfix package in the format X.Y.Z.N where N increments with each successive hotfix. In this case it is expected that the customer will pin the particular hotfix version they wish to use.
+In rare cases where a customer cannot take all the latest patch versions with all the bug fixes for a particular major/minor release, but there is a critical fix necessary, we will publish a hotfix package in the format X.Y.Z.N where N increments with each successive hotfix. In this case it is expected that the customer will pin the particular hotfix version they wish to use.
 
 #### JavaScript
 
@@ -174,14 +176,13 @@ When publishing an npm package, [npm distribution tags](https://docs.npmjs.com/c
 If none is provided, the `latest` tag gets used by default by the `npm publish` command.
 
 Below are the guidelines for versions and tags to use:
-- GA releases will follow [SemVer](https://semver.org/) and the published package should have the tag `latest`.
-    - If a hotfix is being shipped for a version older than the current GA version, then ensure that the hotfix gets no tags.
-    One way to do this is to use a dummy tag when publishing and deleting the tag afterwards.
-    - If a package has moved from preview to GA, ensure that the `next` tag is deleted.
-- Preview releases will use the format `X.Y.Z-preview.N` for version and the published package should have the tag `next`.
-    - Additionally, use the `@latest` tag **only** if the package has never had a GA release.
-- Daily releases will use the format `X.Y.Z-dev.YYYYMMDD.r` (`r` is based on the number of builds performed on the given day) and the published package will have the tag `dev`.
 
+- GA releases will follow [SemVer](https://semver.org/) and the published package should have the tag `latest`.
+  - If a hotfix is being shipped for a version older than the current GA version, then ensure that the hotfix gets no tags.  One way to do this is to use a dummy tag when publishing and deleting the tag afterwards.
+  - If a package has moved from preview to GA, ensure that the `next` tag is deleted.
+- Preview releases will use the format `X.Y.Z-preview.N` for version and the published package should have the tag `next`.
+  - Additionally, use the `@latest` tag **only** if the package has never had a GA release.
+- Daily releases will use the format `X.Y.Z-dev.YYYYMMDD.r` (`r` is based on the number of builds performed on the given day) and the published package will have the tag `dev`.
 
 ##### Incrementing after release (JS)
 
@@ -259,9 +260,9 @@ The Azure SDK team may choose to create a preview release for several reasons:
 To create a preview, the release must:
 
 - Have initial documentation.
-    - Full API documentation.
-    - A quick start guide for using the SDK.
-    - How to guides for champion scenarios.
+  - Full API documentation.
+  - A quick start guide for using the SDK.
+  - How to guides for champion scenarios.
 
 - Have a clear README file with guidelines for how the community can submit feedback.
 
@@ -270,18 +271,22 @@ To create a preview, the release must:
 - Receive an initial design review from the service team (may be combined with architecture review).
 
 - Ratify shipping dependencies with the service team.
-    - If the service must ship before the SDK can ship, establish timeline for preview and GA in the service.
-    - If the SDK contains customer-critical features, establish which features these are and what customer expectations exist.
+  - If the service must ship before the SDK can ship, establish timeline for preview and GA in the service.
+  - If the SDK contains customer-critical features, establish which features these are and what customer expectations exist.
 
 - If changes are substantial, refer to internal documentation for starting a release notification process in support.
 
 - All service features supported by the SDK must be publicly available.
 
+- Support for at least 2 languages.  Preferably, support one statically typed language (such as C# or Java) and one dynamically typed language (such as TypeScript or Python).
+
 To graduate to GA, a preview release must:
 
+- Support all four tier-1 languages (.NET, Java, Python, TypeScript) unless there is a good (and documented) reason to not include support for one of the languages.
+
 - Have final documentation.
-    - Conceptual documentation for how the service works.
-    - Samples of common uses cases for the service.
+  - Conceptual documentation for how the service works.
+  - Samples of common uses cases for the service.
 
 - Have a preview release available for at least one month to allow for community feedback.
 
@@ -293,7 +298,7 @@ To graduate to GA, a preview release must:
 
 - Pass stress and performance testing and have unit, functional, performance and stress tests meeting maturity stage 1 or higher.
 
-- Receive a fina [Architecture Board] review.
+- Receive a final [Architecture Board] review.
 
 - Receive final design sign-off from service team.
 
