@@ -156,13 +156,15 @@ Here is an example of how an application would use the tree of cancellations:
 ## Authentication
 Azure services use a variety of different authentication schemes to allow clients to access the service.  Conceptually, there are two entities responsible in this process: a credential and an authentication policy.  Credentials provide confidential authentication data.  Authentication policies use the data provided by a credential to authenticate requests to the service.  
 
-Primarily, all Azure services should support Azure Active Directory OAuth token authentication, and clients must support authenticating requests in this manner.
+Primarily, all Azure services should support Azure Active Directory OAuth token authentication, and all clients must support authenticating requests in this manner.
 
 {% include requirement/MUST id="general-auth-provide-token-client-constructor" %} provide a service client constructor or factory that accepts an instance of the TokenCredential abstraction from Azure Core.
 
 {% include requirement/MUSTNOT id="auth-client-no-token-persistence" %} persist, cache, or reuse tokens returned from the token credential. This is __CRITICAL__ as credentials generally have a short validity period and the token credential is responsible for refreshing these.
 
 {% include requirement/MUST id="general-auth-use-core" %} use authentication policy implementations from the Azure Core library where available.
+
+{% include requirement/MUST id="general-auth-reserve-when-not-suported" %} reserve the API surface needed for TokenCredential authentication, in the rare case that a service does not yet support Azure Active Directory authentication.
 
 In addition to Azure Active Directory OAuth, services may provide custom authentication schemes. In this case the following guidelines apply.
 
