@@ -31,7 +31,7 @@ To install any of our packages, please search for them via `Manage NuGet Package
 
     $> dotnet add package Azure.Cosmos --version 4.0.0-preview
 
-    $> dotnet add package Azure.Data.AppConfiguration --version 1.0.0-preview.4
+    $> dotnet add package Azure.Data.AppConfiguration
 
     $> dotnet add package Azure.Identity
 
@@ -55,6 +55,17 @@ If you have a bug or feature request for one of the libraries, please [file an i
 ## Changelog
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
+
+### Azure.Core [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/CHANGELOG.md#102)
+
+- Block bearer token authentication for non TLS protected endpoints.
+- Add support for retrying on request timeouts.
+- Add support for retrying on 408, 500, 502, 504 status codes.
+- Remove commit hash from User-Agent telemetry.
+
+### Identity [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/identity/Azure.Identity/CHANGELOG.md#111)
+- `ManagedIdentityCredential` now throws `CredentailUnavailableException` when the service returns a 400 status code, indicating an identity has not been assigned
+- Updated error messaging from `DefaultAzureCredential` to more easily root cause failures
 
 ### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#100-preview2-2020-02-11)
 
