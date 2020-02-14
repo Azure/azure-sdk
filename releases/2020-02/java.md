@@ -74,37 +74,37 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-storage-blob</artifactId>
-  <version>12.4.0-beta.1</version>
+  <version>12.4.0</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-storage-blob-batch</artifactId>
-  <version>12.4.0-beta.1</version>
+  <version>12.4.0</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-storage-blob-cryptography</artifactId>
-  <version>12.4.0-beta.1</version>
+  <version>12.4.0</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-storage-file-datalake</artifactId>
-  <version>12.0.0-beta.11</version>
+  <version>12.0.0-beta.12</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-storage-file-share</artifactId>
-  <version>12.2.0-beta.1</version>
+  <version>12.2.0</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-storage-queue</artifactId>
-  <version>12.3.0-beta.1</version>
+  <version>12.3.0</version>
 </dependency>
 
 <dependency>
@@ -143,20 +143,6 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - The Event Hub connection is reestablished when a transient failure is encountered.
 - Error handling in `EventProcessor` is broken out and handled in several scenarios.
 
-### Storage Blob ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md))
-- Added support for encryption scopes service. Container and blob builders now accept an encryption scope parameter. Service and container builders accept a BlobContainerEncryptionScope parameter.
-- Modified downloadToFile to populate BlobProperties.blobSize to be the blob size instead of the content length of the first range.
-
-### Storage Blob Cryptography ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md))
-- Added EncryptedBlobClient.getOutputStream methods to enable support for upload via OutputStream.
-
-### Storage File DataLake ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md))
-- You can now rename files and directories across file systems.
-- Added DataLakeFileSystem.GetRootDirectory methods to get the root directory in a file system.
-
-### Storage File Share ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/CHANGELOG.md))
-- Added support for file leases. Includes the ShareLeaseClientBuilder, ShareLeaseClient, and ShareLeaseAsync client and overloads accepting leaseIds for operations that support leases.
-- Added start copy parameters - FileSmbProperties, file permission, file permission copy mode, set archive, and ignore read only.
 
 ## Need help?
 * For reference documentation visit the [Azure SDK for Java documentation](https://azure.github.io/azure-sdk-for-java/).
