@@ -29,10 +29,10 @@ We believe these are ready for your use, but not yet ready for production.  Bet
 
 Use the links below to get started with your language of choice.  You will notice that all the preview libraries are tagged with "preview".
 
-* [.NET release notes]({{site.baseurl}}/releases/2020-01/dotnet.html)
-* [Java release notes]({{site.baseurl}}/releases/2020-01/java.html)
-* [Python release notes]({{site.baseurl}}/releases/2020-01/python.html)
-* [JavaScript release notes]({{site.baseurl}}/releases/2020-01/js.html)
+* [.NET release notes]({{site.baseurl}}/releases/2020-02/dotnet.html)
+* [Java release notes]({{site.baseurl}}/releases/2020-02/java.html)
+* [Python release notes]({{site.baseurl}}/releases/2020-02/python.html)
+* [JavaScript release notes]({{site.baseurl}}/releases/2020-02/js.html)
 
 If you want to dive deep into the content, the release notes linked above and the change logs they point to give more details on what has changed.
 
@@ -92,7 +92,7 @@ This allows you to be more dynamic in your logging.  For example, you might want
 
 ## Python libraries
 
-Python uses the [standard logging module](https://docs.python.org/3/howto/logging.html).  This makes it relly easy to configure just like you would any other Python library:
+Python uses the [standard logging module](https://docs.python.org/3/howto/logging.html).  This makes it really easy to configure just like you would any other Python library:
 
 ```python
 import logging
