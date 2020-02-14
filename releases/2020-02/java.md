@@ -80,7 +80,7 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-storage-blob-batch</artifactId>
-  <version>12.4.0</version>
+  <version>12.4.0-beta.1</version>
 </dependency>
 
 <dependency>
