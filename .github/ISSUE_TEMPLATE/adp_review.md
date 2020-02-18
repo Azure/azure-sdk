@@ -3,7 +3,7 @@ name: Architectural Board Review Request
 about: Request that an Azure client library go through an architectural board review
 title: 'Board Review: <client library name>'
 labels: architecture, board-review
-assignees: adrianhall
+assignees: kyle-patterson
 ---
 
 Thank you for starting the process for approval of the client library for your Azure service.  Thorough review of your client library ensures that your APIs are consistent with the guidelines and the consumers of your client library have a consistently good experience when using Azure. 
