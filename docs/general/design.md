@@ -81,6 +81,49 @@ The following are standard verb prefixes.  You should have a good (articulated) 
 
 {% include requirement/MUST id="general-client-feature-support" %} support 100% of the features provided by the Azure service the client library represents. Gaps in functionality cause confusion and frustration among developers.
 
+## Sovereign clouds and default endpoints
+
+The Azure Cloud is not just one cloud.  There are sovereign clouds (such as those in China and Germany), government clouds, and Azure Stack - an on-premise implementation of Azure.  There are three primary differences between sovereign clouds and the Azure public clouds:
+
+1. Not all services may be available in sovereign clouds.
+2. The list of supported API versions may be different.
+3. The endpoints used will be different.
+
+The majority of services are configured using an endpoint definition (which is generally a fully-qualified URI).  However, some services have implicit endpoints defined (for example, Azure Identity uses `https://login.microsoftonline.com`) and some services construct an endpoint based on a friendly name.  There are approximately 15-20 services for which one of these cases hold.
+
+Sovereign clouds may be split into two distinct groups:
+
+1. The list of endpoints is known in advance.
+2. The list of endpoints is downloaded from a well-known URI.
+
+In the former case, the developer will set the `AZURE_CLOUD` setting to the "friendly name" of the cloud.  These names are shared between Azure CLI, PowerShell, and other tools:
+
+|Friendly name|Notes|
+|-|-|
+|`AzureCloud`|Default cloud instance. Used unless overridden by application.|
+|`AzureChinaCloud`|https://azure.microsoft.com/en-us/global-infrastructure/china/|
+|`AzureUSGovernment`|https://azure.microsoft.com/en-us/global-infrastructure/government/|
+|`AzureGermanCloud`|https://azure.microsoft.com/en-us/global-infrastructure/germany/|
+
+In the latter case, the developer will set the well-known URI in the `ARM_DATA_ENDPOINT_URL` setting.  The application will then download a JSON file that identifies the endpoints for each service.
+
+In terms of precedence, use the following:
+
+1. Developer-provided endpoint information.
+2. Information derived from the `ARM_DATA_ENDPOINT_URL`.
+3. Information inferred from the `AZURE_CLOUD`.
+4. Information known about the `AzureCloud` (default cloud instance).
+
+For libraries that either infer the endpoint to be used or construct the endpoint to be used: 
+
+{% include requirement/MUST id="general-sovereign-cloud-1" %} allow the developer to set the endpoint to be used within the client construction.
+
+{% include requirement/MUST id="general-sovereign-cloud-2" %} consult the appropriate Azure Core mechanism for determining the endpoint in the case the `ARM_DATA_ENDPOINT_URL` global setting is configured.
+
+{% include requirement/MUST id="general-sovereign-cloud-3" %} support sovereign clouds, as specified by the `AZURE_CLOUD` global setting.  If the `AZURE_CLOUD` global setting is configured but not understood, an error should be produced.
+
+{% include requirement/MUST id="general-sovereign-cloud-4" %} assume the developer is connecting to the Azure Public Cloud in the absence of other configuration.
+
 ## Model types
 
 Client libraries represent entities transferred to and from Azure services as model types.   Certain types are used for round-trips to the service.  They can be sent to the service (as an addition or update operation) and retrieved from the service (as a get operation).  These should be named according to the type.  For example, a `ConfigurationSetting` in App Configuration, or an `Event` on Event Grid.
@@ -154,16 +197,41 @@ Here is an example of how an application would use the tree of cancellations:
 {% include requirement/MUSTNOT id="general-network-no-leakage" %} leak the underlying protocol transport implementation details to the consumer.  All types from the protocol transport implementation must be appropriately abstracted.
 
 ## Authentication
-
 Azure services use a variety of different authentication schemes to allow clients to access the service.  Conceptually, there are two entities responsible in this process: a credential and an authentication policy.  Credentials provide confidential authentication data.  Authentication policies use the data provided by a credential to authenticate requests to the service.  
 
-{% include requirement/MUST id="general-auth-support" %} support all authentication techniques that the service supports.
+Primarily, all Azure services should support Azure Active Directory OAuth token authentication, and all clients must support authenticating requests in this manner.
 
-{% include requirement/MUST id="general-auth-use-core" %} use credential and authentication policy implementations from the Azure Core library where available.
+{% include requirement/MUST id="general-auth-provide-token-client-constructor" %} provide a service client constructor or factory that accepts an instance of the TokenCredential abstraction from Azure Core.
 
-{% include requirement/MUST id="general-auth-provide-credential types" %} provide credential types that can be used to fetch all data needed to authenticate a request to the service in a non-blocking atomic manner for each authentication scheme that does not have an implementation in Azure Core.
+{% include requirement/MUSTNOT id="auth-client-no-token-persistence" %} persist, cache, or reuse tokens returned from the token credential. This is __CRITICAL__ as credentials generally have a short validity period and the token credential is responsible for refreshing these.
 
-{% include requirement/MUST id="general-auth-provide-client-constructor" %} provide service client constructors or factories that accept any supported authentication credentials.
+{% include requirement/MUST id="general-auth-use-core" %} use authentication policy implementations from the Azure Core library where available.
+
+{% include requirement/MUST id="general-auth-reserve-when-not-suported" %} reserve the API surface needed for TokenCredential authentication, in the rare case that a service does not yet support Azure Active Directory authentication.
+
+In addition to Azure Active Directory OAuth, services may provide custom authentication schemes. In this case the following guidelines apply.
+
+{% include requirement/MUST id="general-auth-support" %} support all authentication schemes that the service supports.
+
+{% include requirement/MUST id="general-auth-provide-credential-types" %} define a public custom credential type which enables clients to authenticate requests using the custom scheme.
+
+{% include requirement/SHOULDNOT id="general-auth-credential-type-base" %} define custom credential types extending or implementing the TokenCredential abstraction from Azure Core. This is especially true in type safe languages where extending or implementing this abstraction would break the type safety of other service clients, allowing users to instantiate them with the custom credential of the wrong service.
+
+{% include requirement/MUST id="general-auth-credential-type-placement" %} define custom credential types in the same namespace and package as the client, or in a service group namespace and shared package, not in Azure Core or Azure Identity.
+
+{% include requirement/MUST id="general-auth-credential-type-prefix" %} prepend custom credential type names with the service name or service group name to provide clear context to its intended scope and usage.
+
+{% include requirement/MUST id="general-auth-credential-type-suffix" %} append Credential to the end of the custom credential type name. Note this must be singular not plural.
+
+{% include requirement/MUST id="general-auth-provide-credential-constructor" %} define a constructor or factory for the custom credential type which takes in ALL data needed for the custom authentication protocol.
+
+{% include requirement/MUST id="general-auth-provide-update-method" %} define an update method which accepts all mutable credential data, and updates the credential in an atomic, thread safe manner.
+
+{% include requirement/MUSTNOT id="general-auth-credential-set-properties" %} define public settable properties or fields which allow users to update the authentication data directly in a non-atomic manner.
+
+{% include requirement/SHOULDNOT id="general-auth-credential-get-properties" %} define public properties or fields which allow users to access the authentication data directly. They are most often not needed by end users, and are difficult to use in a thread safe manner. In the case that exposing the authentication data is necessary, all the data needed to authenticate requests should be returned from a single API which guarantees the data returned is in a consistent state.
+
+{% include requirement/MUST id="general-auth-provide-client-constructor" %} provide service client constructors or factories that accept all supported credential types.
 
 Client libraries may support providing credential data via a connection string __ONLY IF__ the service provides a connection string to users via the portal or other tooling.   Connection strings are generally good for getting started as they are easily integrated into an application by copy/paste from the portal.  However, connection strings are considered a lesser form of authentication because the credentials cannot be rotated within a running process.
 
@@ -333,4 +401,3 @@ For example, MQTT over WebSockets provides the ability to add headers during the
 {% include requirement/MUST id="general-proto-config" %} use the global configuration established in the Azure Core library to configure policies for non-HTTP protocols.  Consumers don't necessarily know what protocol is used by the client library.  They will expect the client library to honor global configuration that they have established for the entire Azure SDK.  
 
 {% include refs.md %}
-

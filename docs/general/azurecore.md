@@ -115,9 +115,6 @@ The HTTP Pipeline provides this functionality.
 
 Services across Azure use a variety of different authentication schemes to authenticate clients. Conceptually there are two entities responsible for authenticating service client requests, a credential and an authentication policy.  Credentials provide confidential authentication data needed to authenticate requests.  Authentication policies use the data provided by a credential to authenticate requests to the service. It is essential that credential data can be updated as needed across the lifetime of a client, and authentication policies must always use the most current credential data.
 
-{% include requirement/MUSTNOT id="azurecore-http-auth-persistence" %} persist, cache, or reuse tokens returned from the token credential. This is __CRITICAL__ as credentials generally have a short validity period and the token credential is
-responsible for refreshing these.
-
 {% include requirement/MUST id="azurecore-http-auth-bearer-token" %} implement Bearer authorization policy (which accepts a token credential and
 scope).
 
@@ -260,6 +257,43 @@ Global configuration refers to configuration settings that are applied to all ap
 {% include requirement/MUST id="azurecore-config-override-global-config" %} provide configuration keys for setting or overriding every configuration setting inherited from the system or environment variables.
 
 {% include requirement/MUST id="azurecore-config-opt-out" %} provide a method of opting out from importing system settings and environment variables into the configuration.
+
+### Sovereign clouds
+
+The Azure Cloud is not just one cloud.  There are sovereign clouds (such as those in China and Germany), government clouds, and Azure Stack - an on-premise implementation of Azure.  There are three primary differences between sovereign clouds and the Azure public clouds:
+
+1. Not all services may be available in sovereign clouds.
+2. The list of supported API versions may be different.
+3. The endpoints used will be different.
+
+The majority of services are configured using an endpoint definition (which is generally a fully-qualified URI).  However, some services have implicit endpoints defined (for example, Azure Identity uses `https://login.microsoftonline.com` for public Azure) and some services construct an endpoint based on a friendly name.  There are approximately 15-20 services for which one of these cases hold.
+
+Sovereign clouds may be split into two distinct groups:
+
+1. The list of endpoints is known in advance.
+2. The list of endpoints is downloaded from a well-known URI.
+
+In the former case, the developer will set the `AZURE_CLOUD` setting to the "friendly name" of the cloud.  These names are shared between Azure CLI, PowerShell, and other tools:
+
+|Friendly name|Notes|
+|-|-|
+|`AzureCloud`|Default cloud instance. Used unless overridden by application.|
+|`AzureChinaCloud`|https://azure.microsoft.com/en-us/global-infrastructure/china/|
+|`AzureUSGovernment`|https://azure.microsoft.com/en-us/global-infrastructure/government/|
+|`AzureGermanCloud`|https://azure.microsoft.com/en-us/global-infrastructure/germany/|
+
+In the latter case, the developer will set the well-known URI in the `ARM_DATA_ENDPOINT_URL` setting.  The application will then download a JSON file that identifies the endpoints for each service.
+
+In terms of precedence, use the following:
+
+1. Explicit endpoint information (provided to the client in code).
+2. Information derived from the `ARM_DATA_ENDPOINT_URL`.
+3. Information inferred from the `AZURE_CLOUD`.
+4. Information known about the `AzureCloud` (default cloud instance).
+
+{% include requirement/MUST id="azurecore-sovereign-cloud-1" %} allow the developer or client libraries to determine the endpoint based on the `ARM_DATA_ENDPOINT_URL` information.
+
+This capability is placed in the Azure Core library because the `ARM_DATA_ENDPOINT_URL` reflects information in multiple client libraries, and thus may be cached.  Client libraries should only refer to this information in the event that the `ARM_DATA_ENDPOINT_URL` global setting is configured, and the information can be retrieved and parsed correctly.
 
 ## Authentication and credentials
 
