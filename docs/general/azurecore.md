@@ -115,9 +115,6 @@ The HTTP Pipeline provides this functionality.
 
 Services across Azure use a variety of different authentication schemes to authenticate clients. Conceptually there are two entities responsible for authenticating service client requests, a credential and an authentication policy.  Credentials provide confidential authentication data needed to authenticate requests.  Authentication policies use the data provided by a credential to authenticate requests to the service. It is essential that credential data can be updated as needed across the lifetime of a client, and authentication policies must always use the most current credential data.
 
-{% include requirement/MUSTNOT id="azurecore-http-auth-persistence" %} persist, cache, or reuse tokens returned from the token credential. This is __CRITICAL__ as credentials generally have a short validity period and the token credential is
-responsible for refreshing these.
-
 {% include requirement/MUST id="azurecore-http-auth-bearer-token" %} implement Bearer authorization policy (which accepts a token credential and
 scope).
 
