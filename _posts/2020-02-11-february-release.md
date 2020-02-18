@@ -52,7 +52,7 @@ using AzureEventSourceListener listener = AzureEventSourceListener.CreateConsole
 
 ## Java libraries
 
-The Java client libraries all use [SLF4J](https://www.slf4j.org/) under the covers for logging.  There are many mechanisms for [configuring SLF4J](https://dzone.com/articles/how-configure-slf4j-different) to get just the right logging for your application.  By default, there is no SLF4J implementation in the client library. Today, we will show the easiest implementation - [the simple logger](http://www.slf4j.org/api/org/slf4j/impl/SimpleLogger.html).  Download and add [slf4j-simple 1.7.30.jar](https://search.maven.org/artifact/org.slf4j/slf4j-simple/1.7.30/jar) to your classpath (ensuring you do not have another SLF4J library in your app).  Set the `AZURE_LOG_LEVEL` environment variable to "verbose".  For example, in bash:
+The Java client libraries all use [SLF4J](https://www.slf4j.org/) under the covers for logging.  There are many mechanisms for [configuring SLF4J](https://dzone.com/articles/how-configure-slf4j-different) to get just the right logging for your application.  By default, there is no SLF4J implementation in the client library. Today, we will show the easiest implementation - [the simple logger](http://www.slf4j.org/api/org/slf4j/impl/SimpleLogger.html).  Download and add [slf4j-simple 1.7.28.jar](https://search.maven.org/artifact/org.slf4j/slf4j-simple/1.7.28/jar) to your classpath (ensuring you do not have another SLF4J library in your app).  Set the `AZURE_LOG_LEVEL` environment variable to "verbose".  For example, in bash:
 
 ```bash
 export AZURE_LOG_LEVEL="verbose"
