@@ -197,16 +197,41 @@ Here is an example of how an application would use the tree of cancellations:
 {% include requirement/MUSTNOT id="general-network-no-leakage" %} leak the underlying protocol transport implementation details to the consumer.  All types from the protocol transport implementation must be appropriately abstracted.
 
 ## Authentication
-
 Azure services use a variety of different authentication schemes to allow clients to access the service.  Conceptually, there are two entities responsible in this process: a credential and an authentication policy.  Credentials provide confidential authentication data.  Authentication policies use the data provided by a credential to authenticate requests to the service.  
 
-{% include requirement/MUST id="general-auth-support" %} support all authentication techniques that the service supports.
+Primarily, all Azure services should support Azure Active Directory OAuth token authentication, and all clients must support authenticating requests in this manner.
 
-{% include requirement/MUST id="general-auth-use-core" %} use credential and authentication policy implementations from the Azure Core library where available.
+{% include requirement/MUST id="general-auth-provide-token-client-constructor" %} provide a service client constructor or factory that accepts an instance of the TokenCredential abstraction from Azure Core.
 
-{% include requirement/MUST id="general-auth-provide-credential types" %} provide credential types that can be used to fetch all data needed to authenticate a request to the service in a non-blocking atomic manner for each authentication scheme that does not have an implementation in Azure Core.
+{% include requirement/MUSTNOT id="auth-client-no-token-persistence" %} persist, cache, or reuse tokens returned from the token credential. This is __CRITICAL__ as credentials generally have a short validity period and the token credential is responsible for refreshing these.
 
-{% include requirement/MUST id="general-auth-provide-client-constructor" %} provide service client constructors or factories that accept any supported authentication credentials.
+{% include requirement/MUST id="general-auth-use-core" %} use authentication policy implementations from the Azure Core library where available.
+
+{% include requirement/MUST id="general-auth-reserve-when-not-suported" %} reserve the API surface needed for TokenCredential authentication, in the rare case that a service does not yet support Azure Active Directory authentication.
+
+In addition to Azure Active Directory OAuth, services may provide custom authentication schemes. In this case the following guidelines apply.
+
+{% include requirement/MUST id="general-auth-support" %} support all authentication schemes that the service supports.
+
+{% include requirement/MUST id="general-auth-provide-credential-types" %} define a public custom credential type which enables clients to authenticate requests using the custom scheme.
+
+{% include requirement/SHOULDNOT id="general-auth-credential-type-base" %} define custom credential types extending or implementing the TokenCredential abstraction from Azure Core. This is especially true in type safe languages where extending or implementing this abstraction would break the type safety of other service clients, allowing users to instantiate them with the custom credential of the wrong service.
+
+{% include requirement/MUST id="general-auth-credential-type-placement" %} define custom credential types in the same namespace and package as the client, or in a service group namespace and shared package, not in Azure Core or Azure Identity.
+
+{% include requirement/MUST id="general-auth-credential-type-prefix" %} prepend custom credential type names with the service name or service group name to provide clear context to its intended scope and usage.
+
+{% include requirement/MUST id="general-auth-credential-type-suffix" %} append Credential to the end of the custom credential type name. Note this must be singular not plural.
+
+{% include requirement/MUST id="general-auth-provide-credential-constructor" %} define a constructor or factory for the custom credential type which takes in ALL data needed for the custom authentication protocol.
+
+{% include requirement/MUST id="general-auth-provide-update-method" %} define an update method which accepts all mutable credential data, and updates the credential in an atomic, thread safe manner.
+
+{% include requirement/MUSTNOT id="general-auth-credential-set-properties" %} define public settable properties or fields which allow users to update the authentication data directly in a non-atomic manner.
+
+{% include requirement/SHOULDNOT id="general-auth-credential-get-properties" %} define public properties or fields which allow users to access the authentication data directly. They are most often not needed by end users, and are difficult to use in a thread safe manner. In the case that exposing the authentication data is necessary, all the data needed to authenticate requests should be returned from a single API which guarantees the data returned is in a consistent state.
+
+{% include requirement/MUST id="general-auth-provide-client-constructor" %} provide service client constructors or factories that accept all supported credential types.
 
 Client libraries may support providing credential data via a connection string __ONLY IF__ the service provides a connection string to users via the portal or other tooling.   Connection strings are generally good for getting started as they are easily integrated into an application by copy/paste from the portal.  However, connection strings are considered a lesser form of authentication because the credentials cannot be rotated within a running process.
 
@@ -376,4 +401,3 @@ For example, MQTT over WebSockets provides the ability to add headers during the
 {% include requirement/MUST id="general-proto-config" %} use the global configuration established in the Azure Core library to configure policies for non-HTTP protocols.  Consumers don't necessarily know what protocol is used by the client library.  They will expect the client library to honor global configuration that they have established for the entire Azure SDK.  
 
 {% include refs.md %}
-
