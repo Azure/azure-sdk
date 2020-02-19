@@ -155,6 +155,9 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### KeyVault Keys ([Changelog]())
 
+- `KeyVaultKey` model can be instantiated using `fromKeyId(String keyId, JsonWebKey jsonWebKey)` and `fromName(String name, JsonWebKey jsonWebKey)` methods on the `KeyVaultKey` model.
+- Allows `KeyEncryptionKeyClientBuilder` to consume `KeyVaultKey` model and build `KeyEncryptionKey` and `AsyncKeyEncryptionKey` via`buildKeyEncryptionKey(KeyVaultKey key) ` and `buildAsyncKeyEncryptionKey(KeyVaultKey key)` methods respectively.
+
 ### Text Analytics ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_1.0.0-beta.2/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#100-beta2-2020-02-12))
 
 - General class and method rename to comply with API guidelines.
