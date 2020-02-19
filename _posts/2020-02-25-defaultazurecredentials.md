@@ -10,7 +10,7 @@ How do your apps identify themselves to the cloud resources you are using?
 
 This is one of the most central considerations when building a cloud-native app.  Ideally, your app should run in all phases.  When you write a service, you should be able to take the same code and run it in your development environment, on a compute service in your own data center, or in any of the Azure clouds without code changes.  How do you do this?
 
-The answer is to use the `DefaultAzureCredential`.  This is a type that is available in .NET, Java, TypeScript, and Python across all of our latest client libraries (App Config, Event Hubs, Key Vault, and Storage) and will be built into future client libraries as well.
+The answer is to use the `DefaultAzureCredential` from the Azure Identity library.  This is a type that is available in [.NET](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.Identity/1.1.1/api/index.html), [Java](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-identity/1.1.0-beta.1/index.html), [TypeScript](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-identity/1.0.2/index.html), and [Python](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-identity/1.3.0/index.html) across all of our latest client libraries (App Config, Event Hubs, Key Vault, and Storage) and will be built into future client libraries as well.
 
 The basics are very simple.  To create a client, use the `DefaultAzureCredential` as the credential type.  For example, to create a Key Vault Secrets client:
 
@@ -91,7 +91,7 @@ You can do this in one step if you are building your infrastructure using deploy
 
 ## Development services
 
-The third type of credential is for developers.  If you have an appropriately configured developer workstation with [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) or [Visual Studio](https://visualstudio.com) signed in to Azure, then the Azure credentials from your tools will be used.  This allows you to run your service easily from the command line or via F5 within Visual Studio.
+The third type of credential is for developers.  If you have an appropriately configured developer workstation with [Visual Studio](https://visualstudio.com) signed in to Azure, then the Azure credentials from your tools will be used.  Other tools (such as Azure CLI, PowerShell, and Visual Studio Code) will be added in the near future. This allows you to run your service easily from the command line or via F5 within Visual Studio.
 
 > **TODO:** What does VS Code & PowerShell do?  If I have the Azure Accounts plugin for VSCode, does it just work?
 
