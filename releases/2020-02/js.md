@@ -37,7 +37,7 @@ Below are some noteworthy changes in the current release.
 - Added support for spatial indexing, bounding boxes, and geospatial configuration
 
 ### Event Hubs
-This release contains bug fixes to improve quality.
+- Improved bundling support of this library for web browsers.
 
 ### Storage (File Shares, File Data Lake, Blobs, Queues)
 - Added support for new features introduced in `2019-07-07` Azure Storage Service API version.
