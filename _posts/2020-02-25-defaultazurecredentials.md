@@ -16,7 +16,7 @@ The basics are very simple.  To create a client, use the `DefaultAzureCredential
 
 ```text
 // .NET
-var client = new SecretClient(vaultUri: new Uri(keyVaultUrl), credential: new DefaultAzureCredential());
+var client = new SecretClient(vaultUri: new Uri(keyVaultUrl), credential: new DefaultAzureCredential(true));
 
 // Java
 SecretClient client = new SecretClientBuilder()
@@ -89,17 +89,19 @@ $> az keyvault set-policy --name my-key-vault --object-id <Object-ID> --secret-p
 
 You can do this in one step if you are building your infrastructure using deployment tools such as Azure Resource Manager (ARM), Terraform, or Ansible.  
 
-## Development services
+## During development
 
 The third type of credential is for developers.  If you have an appropriately configured developer workstation with [Visual Studio](https://visualstudio.com) signed in to Azure, then the Azure credentials from your tools will be used.  Other tools (such as Azure CLI, PowerShell, and Visual Studio Code) will be added in the near future. This allows you to run your service easily from the command line or via F5 within Visual Studio.
 
-> **TODO:** What does VS Code & PowerShell do?  If I have the Azure Accounts plugin for VSCode, does it just work?
-
 This gives you a great ability to build and run your application without any code changes.  You don't need anything else.  However, if your account does not have access to the resources necessary for the app to run, you can override the information by creating a service principal in the tenant that owns the resources, then use the environment variables that I mentioned above.
+
+> Although you can use the same resources for development as production, it's a bad idea.  My recommendation is to use the App Configuration service to store the list of resources tagged as "dev" or "prod".  Then the first task for your app is to retrieve the tagged list from App Configuration and use that to configure which resources to use.
 
 ## The final stop: Interactive browser
 
 If all of these fails, the `DefaultAzureCredential` will attempt to pop up a browser window and ask for the right credentials.  If you are not using any of the supported tools, then this will allow you to run your application on your development system by requesting a token on startup.
+
+Some languages enable the interactive browser by default, whereas others require that you enable it first.  If the interactive browser is not popping up, check the documentation.
 
 ## Take your app from development to production with no code changes
 
