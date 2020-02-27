@@ -20,7 +20,56 @@ What if you aren't using the Spring Framework?  One of the hallmarks of Java dev
 
 ## Selecting OkHttp as the HTTP transport
 
-> TODO: Write the blog post!
+Every Azure service library depends on the Azure Core library to provide the HTTP transport.  This is through a service provider interface (SPI) called `HttpClient`.  We don't build an implementation into Azure Core.  Instead, the implementation is provided by a dependency.  In the default, case, that is `azure-core-http-netty`.
+
+The Azure team provides an alternate implementation based on OkHttp.  To use it, simply exclude the default version and include the OkHttp version.  For example, let's say you want to use the Key Vault
+Secrets library, you would provide the following in your `pom.xml` file:
+
+{% highlight xml %}
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-security-keyvault-secrets</artifactId>
+    <version>4.1.0</version>
+    <exclusions>
+      <exclusion>
+        <groupId>com.azure</groupId>
+        <artifactId>azure-core-http-netty</artifactId>
+      </exclusion>
+    </exclusions>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-core-http-okhttp</artifactId>
+  <version>1.1.0</version>
+</dependency>
+{% endhighlight %}
+
+If the default dependency is removed (via the exclusion), but no implementation is given in its place, the application will fail to start.
+
+## Configuring the HTTP transport
+
+All services rely on this transport layer, which makes it a great option to set global settings that your organization needs.  For example, let's say you have a HTTP proxy in your enterprise.  You can create your own HTTP transport:
+
+{% highlight java %}
+InetSocketAddress proxyService = new InetSocketAddress(proxyHost, proxyPort);
+ProxyOptions proxyOptions = new ProxyOptions(ProxyOptions.Type.HTTP, proxyService)
+    .setCredentials(proxyUser, proxyPassword);
+HttpClient httpClient = new OkHttpAsyncHttpClientBuilder()
+    .proxy(proxyOptions)
+    .build();
+{% endhighlight %}
+
+You can also use `NettyAsyncHttpClientBuilder` for this same functionality.  You can now pass the resulting `HttpClient` object into any service builder:
+
+{% highlight java %}
+SecretClient client = new SecretClientBuilder()
+        .vaultUrl(keyVaultUrl)
+        .credential(new DefaultAzureCredentialBuilder().build())
+        .httpClient(httpClient)
+        .buildClient();
+{% endhighlight %}
+
+If OkHttp and Netty are not your favorite libraries, then you can also [write your own HTTP client plugin](https://github.com/Azure/azure-sdk-for-java/wiki/Custom-HTTP-clients).  Let us know if you do this.  We'd love to hear why and how you got on.
 
 ## Want to hear more?
 
