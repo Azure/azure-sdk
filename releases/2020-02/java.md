@@ -148,12 +148,15 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 * File an issue via [Github Issues](https://github.com/Azure/azure-sdk-for-java/issues/new/choose).
 * Check [previous questions](https://stackoverflow.com/questions/tagged/azure-java-sdk) or ask new ones on StackOverflow using `azure-java-sdk` tag.
 
-### Identity ([Changelog]())
+### Identity ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-identity_1.1.0-beta.1/sdk/identity/azure-identity/CHANGELOG.md))
 
 - All credential builders support setting a pipeline via `httpPipeline` method.
 - SharedTokenCacheCredentialBuilder supports setting the tenant id via `tenantId` method.
 
-### KeyVault Keys ([Changelog]())
+### KeyVault Keys ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-keys_4.2.0-beta.1/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md))
+
+- `KeyVaultKey` model can be instantiated using factory methods `fromKeyId(String keyId, JsonWebKey jsonWebKey)` and `fromName(String name, JsonWebKey jsonWebKey)`.
+- `KeyEncryptionKeyClientBuilder` can consume `KeyVaultKey` and build `KeyEncryptionKey` and `AsyncKeyEncryptionKey` via `buildKeyEncryptionKey(KeyVaultKey key)` and `buildAsyncKeyEncryptionKey(KeyVaultKey key)` methods respectively.
 
 ### Text Analytics ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_1.0.0-beta.2/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#100-beta2-2020-02-12))
 
