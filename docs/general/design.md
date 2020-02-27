@@ -81,49 +81,6 @@ The following are standard verb prefixes.  You should have a good (articulated) 
 
 {% include requirement/MUST id="general-client-feature-support" %} support 100% of the features provided by the Azure service the client library represents. Gaps in functionality cause confusion and frustration among developers.
 
-## Sovereign clouds and default endpoints
-
-The Azure Cloud is not just one cloud.  There are sovereign clouds (such as those in China and Germany), government clouds, and Azure Stack - an on-premise implementation of Azure.  There are three primary differences between sovereign clouds and the Azure public clouds:
-
-1. Not all services may be available in sovereign clouds.
-2. The list of supported API versions may be different.
-3. The endpoints used will be different.
-
-The majority of services are configured using an endpoint definition (which is generally a fully-qualified URI).  However, some services have implicit endpoints defined (for example, Azure Identity uses `https://login.microsoftonline.com`) and some services construct an endpoint based on a friendly name.  There are approximately 15-20 services for which one of these cases hold.
-
-Sovereign clouds may be split into two distinct groups:
-
-1. The list of endpoints is known in advance.
-2. The list of endpoints is downloaded from a well-known URI.
-
-In the former case, the developer will set the `AZURE_CLOUD` setting to the "friendly name" of the cloud.  These names are shared between Azure CLI, PowerShell, and other tools:
-
-|Friendly name|Notes|
-|-|-|
-|`AzureCloud`|Default cloud instance. Used unless overridden by application.|
-|`AzureChinaCloud`|https://azure.microsoft.com/en-us/global-infrastructure/china/|
-|`AzureUSGovernment`|https://azure.microsoft.com/en-us/global-infrastructure/government/|
-|`AzureGermanCloud`|https://azure.microsoft.com/en-us/global-infrastructure/germany/|
-
-In the latter case, the developer will set the well-known URI in the `ARM_DATA_ENDPOINT_URL` setting.  The application will then download a JSON file that identifies the endpoints for each service.
-
-In terms of precedence, use the following:
-
-1. Developer-provided endpoint information.
-2. Information derived from the `ARM_DATA_ENDPOINT_URL`.
-3. Information inferred from the `AZURE_CLOUD`.
-4. Information known about the `AzureCloud` (default cloud instance).
-
-For libraries that either infer the endpoint to be used or construct the endpoint to be used: 
-
-{% include requirement/MUST id="general-sovereign-cloud-1" %} allow the developer to set the endpoint to be used within the client construction.
-
-{% include requirement/MUST id="general-sovereign-cloud-2" %} consult the appropriate Azure Core mechanism for determining the endpoint in the case the `ARM_DATA_ENDPOINT_URL` global setting is configured.
-
-{% include requirement/MUST id="general-sovereign-cloud-3" %} support sovereign clouds, as specified by the `AZURE_CLOUD` global setting.  If the `AZURE_CLOUD` global setting is configured but not understood, an error should be produced.
-
-{% include requirement/MUST id="general-sovereign-cloud-4" %} assume the developer is connecting to the Azure Public Cloud in the absence of other configuration.
-
 ## Model types
 
 Client libraries represent entities transferred to and from Azure services as model types.   Certain types are used for round-trips to the service.  They can be sent to the service (as an addition or update operation) and retrieved from the service (as a get operation).  These should be named according to the type.  For example, a `ConfigurationSetting` in App Configuration, or an `Event` on Event Grid.
