@@ -63,7 +63,6 @@ The previous `@azure/cognitiveservices-textanalytics` library supported only ear
 
 ## Latest Releases
 
-{% assign packages = site.data.releases.latest.js-packages %}
-{% include js-packages.html %}
+View all the latest versions of JavaScript packages [here][js-latest-releases].
 
 {% include refs.md %}
