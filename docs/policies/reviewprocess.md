@@ -10,14 +10,14 @@ We expect all Azure client libraries to pass rigorous API reviews similar to tho
 ## Sequence of events
 Depending on the nature and scope of the client library work being done, the sequence of events to follow when engaging with the architecture board will follow one of two paths.  If you are unsure which path applies to the work you are doing, you should consult with a langauge architect for guidance.
 
-### 1 New libraries and/or large feature work
+### 1 New libraries, large feature work, and/or core pipeline changes
 
 Our common goal is to create a great developer experience on Azure.  New libraries provide an opportunty to dramatically improve that experience by working closely with the architecture board.  Talking about designs in a group results in better APIs, facilitates mutual learning, and helps get everyone on the same page for what we consider a consistent design. The reviews are not a gate, but a fundamental process for designing good APIs.
 
 It's critical that library owners engage with the architecture board early enough to allow time for fixes and, sometimes significant API redesign based on discussion. New libraries and/or large feature work should be reviewed in an architecture board meeting three times:
 1. The first is purely informational/educational getting the board up to speed with the features that are coming.  This allows for early feedback and will potentially affect the service design.
-2. The second is to propose the overall API shape in the core languages (.NET, Java, Python, and TypeScript) ideally before most of the coding work has been done to implement the APIs.  This should be done before the first public preview.
-3. The third is a final signoff with an eye towards consistency and to work through any details that arose as part of implementation.  This is the final signoff and it is not complete until all languages are signed off.  Occasionally, questions arise in the review for one langauge that will impact the implementation in other languages as well.  For this reason, it is encouraged that all langauges are scheduled for final signoff in the same board meeting or in back-to-back board meetings.
+2. The second is to propose the overall API shape in the core languages (.NET, Java, Python, and TypeScript) with an eye towards consistency and to work through any details that arose as part of implementation. Occasionally, questions arise in the review for one langauge that will impact the implementation in other languages as well.  For this reason, it is encouraged that all langauges are scheduled for review in the same board meeting or in back-to-back board meetings.  Ideally these reviews happen before most of the coding work has been done to implement the APIs.  This should be done before the first public preview.
+3. The third is a final signoff.  This is the final signoff and it is not complete until all languages are signed off.  When there has been limited change to the API since the second review, architects may choose to sign off over email rather than requiring a full arch board meeting.
 
 See [Requesting an API review with the board](#requesting-an-api-review-with-the-board) below for instructions on how to request one of these three reviews.
 
