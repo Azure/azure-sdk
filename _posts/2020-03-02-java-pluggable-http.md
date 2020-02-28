@@ -69,7 +69,7 @@ SecretClient client = new SecretClientBuilder()
         .buildClient();
 ```
 
-If OkHttp and Netty are not your favorite libraries, then you can also [write your own HTTP client plugin](https://github.com/Azure/azure-sdk-for-java/wiki/Custom-HTTP-clients).  Let us know if you do this.  We'd love to hear why and how you got on.
+If OkHttp and Netty doesn't fit your requirements or aren't your favorite libraries, you can also [write your own HTTP client plugin](https://github.com/Azure/azure-sdk-for-java/wiki/Custom-HTTP-clients).  Let us know if you do this, we'd love to hear why and how the process went.
 
 ## Want to hear more?
 
