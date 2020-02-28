@@ -20,7 +20,7 @@ What if you aren't using the Spring Framework?  One of the hallmarks of Java dev
 
 ## Selecting OkHttp as the HTTP transport
 
-Every HTTP-based Azure service library depends on the Azure Core library to provide the HTTP transport.  This is done through a service provider interface (SPI) called `HttpClientProvider`.  We don't build an implementation into Azure Core.  Instead, the implementation is provided by a dependency.  In the default, case, that is `azure-core-http-netty`.
+Every HTTP-based Azure service library depends on the Azure Core library to provide the HTTP transport.  This is done through a service provider interface (SPI) called `HttpClientProvider`.  We don't build an implementation into Azure Core.  Instead, the implementation is provided by a dependency.  In the default case, that is `azure-core-http-netty`.
 
 The Azure team provides an alternate implementation based on OkHttp.  To use it, simply exclude the default version and include the OkHttp version.  For example, let's say you want to use the Key Vault
 Secrets library, you would provide the following in your `pom.xml` file:
@@ -69,7 +69,7 @@ SecretClient client = new SecretClientBuilder()
         .buildClient();
 ```
 
-If OkHttp and Netty doesn't fit your requirements or aren't your favorite libraries, you can also [write your own HTTP client plugin](https://github.com/Azure/azure-sdk-for-java/wiki/Custom-HTTP-clients).  Let us know if you do this, we'd love to hear why and how the process went.
+If OkHttp and Netty doesn't fit your requirements, you can also [write your own HTTP client plugin](https://github.com/Azure/azure-sdk-for-java/wiki/Custom-HTTP-clients).  Let us know if you do this. We'd love to hear why and how the process went.
 
 ## Want to hear more?
 
