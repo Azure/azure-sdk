@@ -54,7 +54,7 @@ To request a review:
 1. [Submit an issue](https://github.com/Azure/azure-sdk/issues/new/choose) to the [Architecture Board].  If the service is pre-release and not yet publicly disclosed, use the private repository([azure-sdk-pr](https://github.com/Azure/azure-sdk-pr)).  After creating the issue, email the [Architecture Board](mailto:adparch@microsoft.com) to communicate specific requests such as scheduling, invite lists, etc.
     - Ensure you provide all information (or direct links to the information) for ease of review.
     - If this is an API review, ensure that API listings are published for review at lease 5 working days before the meeting with the board, allowing time for reviews and comments.
-2. A review with the entire review board will be scheduled.
+2. A review with the entire board will be scheduled.
 3. After the review is completed, the architecture board will publish recommendations.
 
 ## API Listings
