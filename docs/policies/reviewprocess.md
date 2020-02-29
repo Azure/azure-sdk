@@ -16,11 +16,11 @@ Our common goal is to create a great developer experience on Azure.  New librari
 
 It's critical that library owners engage with the architecture board early enough to allow time for fixes and, sometimes significant API redesign based on discussion. New libraries and/or large feature work should be discussed in an architecture board meeting three times:
 
-1. The first is purely informational/educational getting the board up to speed with the features that are coming.  This allows for early feedback and will potentially affect the service design.  High level topics such as API namespaces, function names, and types will be suggested in this first discussion.
-2. The second is to propose and review the overall API shape in the core languages (.NET, Java, Python, and TypeScript) with an eye towards consistency and to work through any details that arose as part of implementation. Occasionally, questions arise in the review for one langauge that will impact the implementation in other languages as well.  For this reason, it is encouraged that all langauges are scheduled for review in the same board meeting or in board meetings within a 7 day period.  Ideally these reviews happen before most of the coding work has been done to implement the APIs.  This should be done before the first public preview.
-3. The third is a final API signoff.  All languages must be signed off before any are released as GA.  When there has been limited change to the API since the second review, architects may choose to sign off over email rather than requiring a full arch board meeting.
+1. **Informational** - The first is purely informational/educational getting the board up to speed with the features that are coming.  This allows for early feedback and will potentially affect the service design.  High level topics such as API namespaces, function names, and types will be suggested in this first discussion.
+2. **Review** - The second is to propose and review the overall API shape in the core languages (.NET, Java, Python, and TypeScript) with an eye towards consistency. Occasionally, questions arise in the review for one langauge that will impact the implementation in other languages as well.  For this reason, it is encouraged that all langauges are scheduled for review in the same board meeting or in board meetings within a 7 day period.  Ideally these reviews happen before most of the coding work has been done to implement the APIs.  This should be done before the first public preview.
+3. **Signoff** - The third is a final API signoff.  All languages must be signed off before any are released as GA.  When there have been limited changes made to the API since the second review, architects may choose to sign off over email without the need for a full meeting.
 
-See [Requesting an API review with the board](#requesting-an-api-review-with-the-board) below for instructions on how to request one of these three reviews.
+See [Requesting a meeting with the board](#requesting-a-meeting-with-the-board) below for instructions on how to request one of these three meetings.
 
 ### 2 Small, targeted changes and bug fixes
 
@@ -52,6 +52,16 @@ To conduct a review of a new library or large feature work, we need the followin
 6. If the client library is already prototyped, the proposed distribution (for example, DLL files for .NET, or JAR files for Java)
 7. If the client library already GAed in the past, and this review is for additional APIs, the diff between the old API and new API.
 
+## Requesting a meeting with the board
+
+To request a review:
+
+1. [Submit an issue](https://github.com/Azure/azure-sdk/issues/new/choose) to the [Architecture Board].  If the service is pre-release and not yet publicly disclosed, use the private repository([azure-sdk-pr](https://github.com/Azure/azure-sdk-pr)).  After creating the issue, email the [Architecture Board](mailto:adparch@microsoft.com) to communicate specific requests such as scheduling, invite lists, etc.
+    - Ensure you provide all information (or direct links to the information) for ease of review.
+    - If this is an API review, ensure that API listings are published for review at lease 5 working days before the meeting with the board, allowing time for reviews and comments.
+2. A review with the entire review board will be scheduled.
+3. After the review is completed, the architecture board will publish recommendations.
+
 ## API Listings
 
 During API reviews, we look at API usage samples (as discussed above) and a detailed API listing.  You can see an example of such listing [here](https://github.com/Azure/azure-sdk/blob/master/docs/dotnet/APIListingExample.md).
@@ -64,14 +74,5 @@ If you have a prototype of your APIs, depending on the language the APIs are for
 - For Python, use [stubgen from mypy](https://github.com/python/mypy/blob/master/docs/source/stubgen.rst) to produce a single file with your public API surface.  Submit the output of stubgen as a PR for the [azure-sdk-for-python](http://github.com/azure/azure-sdk-for-python) repository.
 
 For all other languages, send a request to the [Architecture Board] to discuss the best format on individual basis.
-
-## Requesting an API review with the board
-
-To request a review:
-
-1. [Submit an issue](https://github.com/Azure/azure-sdk/issues/new/choose) to the [Architecture Board].  If the service is pre-release and not yet publicly disclosed, use the private repository([azure-sdk-pr](https://github.com/Azure/azure-sdk-pr)).  After creating the issue, email the [Architecture Board](mailto:adparch@microsoft.com) to communicate specific requests such as scheduling, invite lists, etc.
-    - Ensure you provide all information (or direct links to the information) for ease of review.
-2. A review with the entire review board will be scheduled.
-3. After the review is completed, the architecture board will publish recommendations.
 
 {% include refs.md %}
