@@ -28,13 +28,15 @@ For small or targeted changes and bug fixes which modify APIs, the architect in 
 
 Remember that **all changes** to an API must be approved by the language architect before release.
 
-### Tracking API changes that need to be reviewed
-
-Between releases, changes to APIs are not always obvious (to the developer or the reviewer) when they're being made so it's important that we identify them clearly and review them to ensure the best SDK library experience for our customers. Long-term we will have tooling in place to detect API additions, changes, and breaks.  Until then, we will use the "APIChange" label on PRs to identify code changes that included a modification to an already released API.  This signals to that a langauge architect needs to review the change.  Once they've approved the change they would add the "ArchApproved" label.  Before release, a review of all changes merged into the library should be done to ensure that all "APIChange" labels are pared with an "ArchApproved" label.  Here is an [example query](https://github.com/Azure/azure-sdk-for-java/pulls?utf8=%E2%9C%93&q=is%3Apr+label%3AAPIChange+) for the Java libraries.
-
 ### Previewing API changes
 
 Because we are committed to never breaking APIs, it is expected that API changes are released in preview or RC (release candidate) for a period of time before they are released as GA.  This gives customers time to provide feedback which could result in adjustments to the API before it GAs.  In most circumstances, API changes going through either the full or abreviated review process should be previewed (or RC) before GA.
+
+### Tracking API changes that need to be reviewed
+
+While an API is in preview or after it in GA, changes to APIs are not always obvious (to the developer or the reviewer) when they're being made so it's important that we identify them and review them to ensure the best SDK library experience for our customers. Long-term we will have tooling in place to detect API additions, changes, and breaks.  Until then, we will use the "APIChange" label on PRs to identify code changes that included a modification to an already released API.  This signals to that a langauge architect needs to review the change.  Once they've approved the change they would add the "ArchApproved" label.  Before release, a review of all changes merged into the library should be done to ensure that all "APIChange" labels are pared with an "ArchApproved" label.  Here is an [example query](https://github.com/Azure/azure-sdk-for-java/pulls?utf8=%E2%9C%93&q=is%3Apr+label%3AAPIChange+) for the Java libraries.  
+
+When the library developers indicate that they're ready to release, these should be reviewed together by the architect as part of final signoff before GA.  Libraries should not be released as GA (or updated to GA) if there are unresolved "APIChange" labels without a corresponding "ArchApproved" label.
 
 ## How to Design Great Azure APIs
 
@@ -66,7 +68,7 @@ To request a review:
 
 During API reviews, we look at API usage samples (as discussed above) and a detailed API listing.  You can see an example of such listing [here](https://github.com/Azure/azure-sdk/blob/master/docs/dotnet/APIListingExample.md).
 
-If you have a prototype of your APIs, depending on the language the APIs are for, you can possibly generate the API listing.
+If you have a prototype of your APIs, depending on the language the APIs are for, you can generate the API listing.
 
 - For .NET, upload a DLL to the [ApiView tool](http://apiview.dev).
 - For Java, upload a JAR to the [ApiView tool](http://apiview.dev).
