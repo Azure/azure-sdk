@@ -14,18 +14,17 @@ Depending on the nature and scope of the client library work being done, the seq
 
 Our common goal is to create a great developer experience on Azure.  New libraries provide an opportunty to dramatically improve that experience by working closely with the architecture board.  Talking about designs in a group results in better APIs, facilitates mutual learning, and helps get everyone on the same page for what we consider a consistent design. The reviews are not a gate, but a fundamental process for designing good APIs.
 
-It's critical that library owners engage with the architecture board early enough to allow time for fixes and, sometimes significant API redesign based on discussion. New libraries and/or large feature work should be reviewed in an architecture board meeting three times:
+It's critical that library owners engage with the architecture board early enough to allow time for fixes and, sometimes significant API redesign based on discussion. New libraries and/or large feature work should be discussed in an architecture board meeting three times:
+
 1. The first is purely informational/educational getting the board up to speed with the features that are coming.  This allows for early feedback and will potentially affect the service design.
-2. The second is to propose the overall API shape in the core languages (.NET, Java, Python, and TypeScript) with an eye towards consistency and to work through any details that arose as part of implementation. Occasionally, questions arise in the review for one langauge that will impact the implementation in other languages as well.  For this reason, it is encouraged that all langauges are scheduled for review in the same board meeting or in back-to-back board meetings.  Ideally these reviews happen before most of the coding work has been done to implement the APIs.  This should be done before the first public preview.
-3. The third is a final signoff.  This is the final signoff and it is not complete until all languages are signed off.  When there has been limited change to the API since the second review, architects may choose to sign off over email rather than requiring a full arch board meeting.
+2. The second is to propose and review the overall API shape in the core languages (.NET, Java, Python, and TypeScript) with an eye towards consistency and to work through any details that arose as part of implementation. Occasionally, questions arise in the review for one langauge that will impact the implementation in other languages as well.  For this reason, it is encouraged that all langauges are scheduled for review in the same board meeting or in back-to-back board meetings.  Ideally these reviews happen before most of the coding work has been done to implement the APIs.  This should be done before the first public preview.
+3. The third is a final signoff.  All languages must be signed off before any are released as GA.  When there has been limited change to the API since the second review, architects may choose to sign off over email rather than requiring a full arch board meeting.
 
 See [Requesting an API review with the board](#requesting-an-api-review-with-the-board) below for instructions on how to request one of these three reviews.
 
 ### 2 Small, targeted changes and bug fixes
 
-For small or targeted changes, the architect in each language can review and sign off without a combined/central review. We highly recommend doing this review as early as possible. This should be done over email where possible with links to API diffs. In some cases it makes sense for small changes to the API to be batched for efficiency. If the language architect determines there is a need for a deeper discussion, then a meeting with that architect should be scheduled to have that conversation. If it’s a cross language discussion, then the entire board should be scheduled. 
-
-These types of changes often will be added to a GA library without the need to preview. If it is determined that the change should be previewed, it should be considered a large change (using the path number 1 above) even if the code diff itself is small.
+For small or targeted changes and bug fixes which modify APIs, the architect in each language can review and sign off without a combined/central review. We highly recommend doing this review as early as possible. This should be done over email where possible with links to API diffs. In some cases it makes sense for small changes to the API to be batched for efficiency. If the language architect determines there is a need for a deeper discussion, then a meeting with that architect should be scheduled to have that conversation. If it’s a cross language discussion, then the entire board should be scheduled. 
 
 Remember that **all changes** to an API must be approved by the language architect before release.
 
@@ -33,6 +32,9 @@ Remember that **all changes** to an API must be approved by the language archite
 
 Between releases, changes to APIs are not always obvious (to the developer or the reviewer) when they're being made so it's important that we identify them clearly and review them to ensure the best SDK library experience for our customers. Long-term we will have tooling in place to detect API additions, changes, and breaks.  Until then, we will use the "APIChange" label on PRs to identify code changes that included a modification to an already released API.  This signals to that a langauge architect needs to review the change.  Once they've approved the change they would add the "ArchApproved" label.  Before release, a review of all changes merged into the library should be done to ensure that all "APIChange" labels are pared with an "ArchApproved" label.  Here is an [example query](https://github.com/Azure/azure-sdk-for-java/pulls?utf8=%E2%9C%93&q=is%3Apr+label%3AAPIChange+) for the Java libraries.
 
+### Previewing API changes
+
+Because we are committed to never breaking APIs, it is expected that API changes are released in preview or RC (release candidate) for a period of time before they are released as GA.  This gives customers time to provide feedback which could result in adjustments to the API before it GAs.  In most circumstances, API changes going through either the full or abreviated review process should be previewed (or RC) before GA.
 
 ## How to Design Great Azure APIs
 
