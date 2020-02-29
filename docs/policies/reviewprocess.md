@@ -71,7 +71,7 @@ During API reviews, we look at API usage samples (as discussed above) and a deta
 If you have a prototype of your APIs, depending on the language the APIs are for, you can generate the API listing.
 
 - For .NET, upload a DLL to the [ApiView tool](http://apiview.dev).
-- For Java, upload a JAR to the [ApiView tool](http://apiview.dev).
+- For Java, upload the `*-sources.jar` file to the [ApiView tool](http://apiview.dev) (e.g. `azure-core-1.3.0-beta.1-sources.jar`).
 - For TypeScript, use [API-Extractor](https://github.com/Microsoft/web-build-tools/wiki/API-Extractor) to produce a single file with your public API surface.  Submit the output of the API-Extractor as a PR for the [azure-sdk-for-js](http://github.com/azure/azure-sdk-for-js) repository.
 - For Python, use [stubgen from mypy](https://github.com/python/mypy/blob/master/docs/source/stubgen.rst) to produce a single file with your public API surface.  Submit the output of stubgen as a PR for the [azure-sdk-for-python](http://github.com/azure/azure-sdk-for-python) repository.
 
