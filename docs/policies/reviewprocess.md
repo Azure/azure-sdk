@@ -10,13 +10,13 @@ We expect all Azure client libraries to pass rigorous API reviews similar to tho
 ## Sequence of events
 Depending on the nature and scope of the client library work being done, the sequence of events to follow when engaging with the architecture board will follow one of two paths.  If you are unsure which path applies to the work you are doing, you should consult with a language architect for guidance.
 
-### 1 New libraries, large feature work, and/or core pipeline changes
+### 1 New libraries, large feature work, and/or pipeline changes
 
-Our common goal is to create a great developer experience on Azure.  New libraries provide an opportunty to dramatically improve that experience by working closely with the architecture board.  Talking about designs in a group results in better APIs, facilitates mutual learning, and helps get everyone on the same page for what we consider a consistent design. The reviews are not a gate, but a fundamental process for designing good APIs.
+Our common goal is to create a great developer experience on Azure.  New libraries provide an opportunity to dramatically improve that experience by working closely with the architecture board.  Talking about designs in a group results in better APIs, facilitates mutual learning, and helps get everyone on the same page for what we consider a consistent design. The reviews are not a gate, but a fundamental process for designing good APIs.
 
-It's critical that library owners engage with the architecture board early enough to allow time for fixes and, sometimes significant API redesign based on discussion. New libraries and/or large feature work should be discussed in an architecture board meeting three times:
+It's critical that library owners engage with the architecture board early enough to allow time for fixes and (sometimes significant) API redesign based on discussion. New libraries and/or large feature work should be discussed in an architecture board meeting three times:
 
-1. **Informational** - The first is purely informational/educational getting the board up to speed with the features that are coming.  This allows for early feedback and will potentially affect the service design.  High level topics such as API namespaces, function names, and types will be suggested in this first discussion.  See [What to prepare for the initial discussion](#what-to-prepare-for-the-initial-discussion) below.
+1. **Informational** - The first is purely informational/educational to enable the board to get up to speed with the library / new features that are coming.  This allows for early feedback and will potentially affect the service design.  High level topics such as API namespaces, function names, and types will be suggested in this first discussion.  See [What to prepare for the initial discussion](#what-to-prepare-for-the-initial-discussion) below.
 2. **Review** - The second is to propose and review the overall API shape in the core languages (.NET, Java, Python, and TypeScript) with an eye towards consistency. Occasionally, questions arise in the review for one language that will impact the implementation in other languages as well.  For this reason, it is encouraged that all languages are scheduled for review in the same board meeting or in board meetings within a 7 day period.  Ideally these reviews happen before most of the coding work has been done to implement the APIs.  This should be done before the first public preview.
 3. **Signoff** - The third is a final API signoff.  All languages must be signed off before any are released as GA.  When there have been limited changes made to the API since the second review, architects may choose to sign off over email without the need for a full meeting.
 
@@ -30,22 +30,21 @@ Remember that **all changes** to an API must be approved by the language archite
 
 ### Previewing API changes
 
-Because we are committed to never breaking APIs, it is expected that API changes are released in preview or RC (release candidate) for a period of time before they are released as GA.  This gives customers time to provide feedback which could result in adjustments to the API before it GAs.  In most circumstances, API changes going through either the full or abreviated review process should be previewed (or RC) before GA.
+It is expected that API changes are released in preview or RC (release candidate) for a period of time before they are released as GA.  This gives customers time to provide feedback which could result in adjustments to the API before it GAs.  API changes that go straight to GA do not benefit from this feedback which can result in them being difficult for customers to use and for us to support.  In most circumstances, API changes going through either the full or abreviated review process should be previewed (or RC) before GA.
 
 ### Tracking API changes that need to be reviewed
 
-While an API is in preview or after it in GA, changes to APIs are not always obvious (to the developer or the reviewer) when they're being made so it's important that we identify them and review them to ensure the best SDK library experience for our customers. Long-term we will have tooling in place to detect API additions, changes, and breaks.  Until then, we will use the "APIChange" label on PRs to identify code changes that included a modification to an already released API.  This signals to that a language architect needs to review the change.  Once they've approved the change they would add the "ArchApproved" label.  Before release, a review of all changes merged into the library should be done to ensure that all "APIChange" labels are pared with an "ArchApproved" label.  Here is an [example query](https://github.com/Azure/azure-sdk-for-java/pulls?utf8=%E2%9C%93&q=is%3Apr+label%3AAPIChange+) for the Java libraries.  
+While an API is in preview or after it is in GA, changes to APIs are not always obvious (to the developer or the reviewer) when they're being made so it's important that we identify them and review them to ensure the best SDK library experience for our customers. Long-term we will have tooling in place to detect API additions, changes, and breaks.  Until then, we will use the "APIChange" label on PRs to identify code changes that included a modification to an already released API.  This signals to that a language architect needs to review the change.  Once they've approved the change they would add the "ArchApproved" label.  Before release, a review of all changes merged into the library should be done to ensure that all "APIChange" labels are paired with an "ArchApproved" label.  Here is an [example query](https://github.com/Azure/azure-sdk-for-java/pulls?utf8=%E2%9C%93&q=is%3Apr+label%3AAPIChange+) for the Java libraries.  
 
-When the library developers indicate they're ready to release, these should be reviewed by the architect as part of final signoff before GA.  Libraries should not be released as GA (or updated to GA) if there are unresolved "APIChange" labels without a corresponding "ArchApproved" label.
+When the library developers indicate they're ready to release, these should be reviewed by the architect as part of final signoff before GA.  Libraries should not be released as GA (or updated to GA) if there are unresolved "APIChange" labels without a corresponding "ArchApproved" label.  Once final review is requested, all "APIChange" labels will be responded to within 5 working days.
 
 ## What to prepare for the initial discussion
 
 For the initial discussion of a new library or large feature work, it is encouraged that the following things be proposed or provided by the owners of the client library:
 
-1. Several code samples showing how the client library is meant to be used by customers. An example of a good set of usage samples can be found [here](https://github.com/dotnet/corefx/issues/32588).
-2. A listing of 3-5 champion scenarios relevant to the developer. These must identify the critical scenarios that the majority of developers will experience. For each champion scenario, a link to a code sample in the repo must be provided. It is expected that these champion scenarios are optimized for, ensuring succinct, intuitive, and productive developer experiences are possible for each.
-3. Link to the service documentation/specification.
-4. Link to the service REST APIs, if applicable/available.
+1. A listing of 3-5 champion scenarios relevant to the developer. These must identify the critical scenarios that the majority of developers will experience. For each champion scenario, a link to a code sample in the repo must be provided. It is expected that these champion scenarios are optimized for, ensuring succinct, intuitive, and productive developer experiences are possible for each.
+2. Link to the service documentation/specification.
+3. Link to the service REST APIs, if applicable/available.
 
 ## Requesting a meeting with the board
 
@@ -54,6 +53,7 @@ To request a review:
 1. [Submit an issue](https://github.com/Azure/azure-sdk/issues/new/choose) to the [Architecture Board].  If the service is pre-release and not yet publicly disclosed, use the private repository([azure-sdk-pr](https://github.com/Azure/azure-sdk-pr)).  After creating the issue, email the [Architecture Board](mailto:adparch@microsoft.com) to communicate specific requests such as scheduling, invite lists, etc.
     - Ensure you provide all information (or direct links to the information) for ease of review.
     - If this is an API review, ensure that API listings are published for review at lease 5 working days before the meeting with the board, allowing time for reviews and comments.
+    - If this is an API review, also prepare several code samples for review showing how the client library is meant to be used by customers. An example of a good set of usage samples can be found [here](https://github.com/dotnet/corefx/issues/32588).
 2. A review with the entire board will be scheduled.
 3. After the review is completed, the architecture board will publish recommendations.
 
