@@ -46,7 +46,9 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 Detailed change logs are linked to in the Quick Links below. Here are some critical call outs.
 
-<!--TODO -->
+### Key Vault
+
+- Sockets opened by a client can be closed by calling the client's `close` method, or using the client as a context manager
 
 ## Latest Releases
 
