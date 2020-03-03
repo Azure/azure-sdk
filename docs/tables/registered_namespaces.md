@@ -9,10 +9,13 @@ The following are a list of registered namespaces.
 
 | Namespace                     | Service Owner                  |
 | :---------------------------- | :----------------------------- |
+| `azure.ai.formrecognizer`     | [Form Recognizer]              |
 | `azure.ai.inkrecognizer`      | [Ink Recognizer]               |
+| `azure.ai.textanalytics`      | [Text Analytics]               |
 | `azure.data.appconfiguration` | [App Configuration]            |
 | `azure.cosmos`                | [Azure Cosmos DB]              |
 | `azure.messaging.eventhubs`   | [Event Hubs]                   |
+| `azure.messaging.servicebus`  | [Service Bus]                  |
 | `azure.search`                | [Azure Search]                 |
 | `azure.security.keyvault`     | [Key Vault]                    |
 | `azure.storage.blobs`         | [Azure Storage]                |
@@ -30,10 +33,13 @@ To register a new namespace, contact the [Architecture Board].
 {% include refs.md %}
 
 <!-- Service Links -->
-[App Configuration]: https://azure.microsoft.com/en-us/services/app-configuration/
-[Azure Cosmos DB]: https://azure.microsoft.com/en-us/services/cosmos-db/
-[Azure Search]: https://azure.microsoft.com/en-us/services/search/
-[Azure Storage]: https://azure.microsoft.com/en-us/services/storage
-[Event Hubs]: https://azure.microsoft.com/en-us/services/event-hubs/
-[Ink Recognizer]: https://azure.microsoft.com/en-us/services/cognitive-services/ink-recognizer/
-[Key Vault]: https://azure.microsoft.com/en-us/services/key-vault/
+[App Configuration]: https://azure.microsoft.com/services/app-configuration/
+[Azure Cosmos DB]: https://azure.microsoft.com/services/cosmos-db/
+[Azure Search]: https://azure.microsoft.com/services/search/
+[Azure Storage]: https://azure.microsoft.com/services/storage
+[Event Hubs]: https://azure.microsoft.com/services/event-hubs/
+[Form Recognizer]: https://azure.microsoft.com/services/cognitive-services/form-recognizer/
+[Ink Recognizer]: https://azure.microsoft.com/services/cognitive-services/ink-recognizer/
+[Key Vault]: https://azure.microsoft.com/services/key-vault/
+[Service Bus]: https://azure.microsoft.com/services/service-bus/
+[Text Analytics]: http://azure.microsoft.com/services/cognitive-services/text-analytics/
