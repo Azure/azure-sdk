@@ -17,6 +17,7 @@ This release includes the following:
 #### Preview
 
 Text Analytics
+Identity
 
 
 ## Installation Instructions
@@ -34,7 +35,7 @@ pip install azure-storage-queue
 pip install azure-keyvault-certificates
 pip install azure-keyvault-keys
 pip install azure-keyvault-secrets
-pip install azure-identity
+pip install --pre azure-identity
 pip install --pre azure-ai-textanalytics
 ```
 
@@ -47,6 +48,9 @@ If you have a bug or feature request for one of the libraries, please post an is
 Detailed change logs are linked to in the Quick Links below. Here are some critical call outs.
 
 <!--TODO -->
+
+### Identity
+- Preview implementation of `AzureCliCredential`, which authenticates with the identity logged in to the Azure CLI. This credential is also part of `DefaultAzureCredential`.
 
 ## Latest Releases
 
