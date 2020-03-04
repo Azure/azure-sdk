@@ -8,7 +8,11 @@
 
 [general-guidelines]: {{ site.baseurl }}/general_introduction.html
 [android-guidelines]: {{ site.baseurl }}/android_introduction.html
+[clang-guidelines]: {{ site.baseurl }}/clang_introduction.html
+[cpp-guidelines]: {{ site.baseurl }}/cpp_introduction.html
 [dotnet-guidelines]: {{ site.baseurl }}/dotnet_introduction.html
+[golang-guidelines]: {{ site.baseurl }}/golang_introduction.html
+[ios-guidelines]: {{ site.baseurl }}/ios_introduction.html
 [java-guidelines]: {{ site.baseurl }}/java_introduction.html
 [python-guidelines]: {{ site.baseurl }}/python_introduction.html
 [typescript-guidelines]: {{ site.baseurl }}/typescript_introduction.html
