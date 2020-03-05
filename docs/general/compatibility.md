@@ -19,7 +19,7 @@ Having said that, you can always imagine code, even if contrived, that will brea
 Also, there are some incompatible changes that are worth doing, e.g. changes required to fix security bugs. 
 And so given that absolute compatibility is not possible in practice, we want to be best-in-class, which as a rule of thumb means being on par with base libraries of the corresponding language.
 
-Principle #1: Azure SDK libraries must be as compatible or better than the base libraries of their language. For example, Azure SDK for .NET libraries as compatible as the .NET Base Class Libraries.
+Principle #1: Azure SDK libraries must be as compatible or better than the base libraries of their language. For example, Azure SDK for .NET libraries must be as compatible as the .NET Base Class Libraries.
 
 ### Azure SDK Compatibility Reviews
 Azure SDK guidelines define details of what's considered a compatible change in each language ecosystem. All changes that are not explicitly designated as compatible, need to be reviewed and approved by the Azure SDK Architecture Board. 
