@@ -11,7 +11,7 @@ This section describes guidelines related to compatibility. In particular, it de
 ## Compatibility Principles
 One of the main general principles of the Azure SDK is that it is **Dependable**, and one of the main aspects of dependability is a high level of compatibility. 
 
-In the context of these guideline, compatibility means that software written using one version of our libraries should function correctly when upgraded to a newer version of the same library, as long as it calls the same version of the service REST API.
+In the context of these guideline, compatibility means that software written using one version of our libraries should function correctly when upgraded to a newer version of the same library, as long as it calls the same version of the service REST API as it was calling before the upgrade.
 This is to ensure that developers using the Azure SDK can upgrade to new versions of our libraries without immediately being subjected to a large cost of fixing resulting breaks. 
 This is good for our customers, as it lowers their costs, and it's good for us, as it helps in the adoption of new Azure features, i.e. a win-win.
 
@@ -48,4 +48,4 @@ Changes allowed in a new major or minor version of a package (not a patch versio
 All other changes allowed only when:
 
 - Approved by the Azure SDK Architecture Board, and 
-- User must to opt into the new behavior by specifying a new API version or a client option.
+- User must opt into the new behavior by specifying a new API version or a client option.
