@@ -87,11 +87,11 @@ The purposes of the client library is to communicate with an Azure service.  Azu
 
 {% include requirement/MUST id="general-service-apiversion-1" %} only target generally available service API versions when releasing a GA version of the client library.
 
-{% include requirement/MUST id="general-service-apiversion-2" %} target the latest generally available service API version by default.
+{% include requirement/MUST id="general-service-apiversion-2" %} target the latest generally available service API version by default in GA versions of the client library.
 
 {% include requirement/MUST id="general-service-apiversion-5" %} document the service API version that is used by default.
 
-{% include requirement/MUST id="general-service-apiversion-3" %} target the latest public preview API version when releasing a public preview version of the client library.
+{% include requirement/MUST id="general-service-apiversion-3" %} target the latest public preview API version by default when releasing a public preview version of the client library.
 
 {% include requirement/MUST id="general-service-apiversion-4" %} include all service API versions that are supported by the client library in a `ServiceVersion` enumerated value.
 
