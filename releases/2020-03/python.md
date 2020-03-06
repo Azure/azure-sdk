@@ -26,9 +26,9 @@ To install the latest preview version of the packages, copy and paste the follow
 
 ```bash
 pip install azure-appconfiguration
-pip install pre azure-eventhub
-pip install pre azure-eventhub-checkpointstoreblob
-pip install pre azure-eventhub-checkpointstoreblob-aio
+pip install azure-eventhub
+pip install azure-eventhub-checkpointstoreblob
+pip install azure-eventhub-checkpointstoreblob-aio
 pip install azure-storage-blob
 pip install --pre azure-storage-file-datalake
 pip install --pre azure-storage-file-share
