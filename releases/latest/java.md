@@ -10,4 +10,6 @@ sidebar: releases_sidebar
 {% assign packages = site.data.releases.latest.java-packages %}
 {% include java-packages.html %}
 
+*This is the list of all our new Java Azure SDK libraries for a more complete list of libraries see [this table](all/java.md)*
+
 {% include refs.md %}
