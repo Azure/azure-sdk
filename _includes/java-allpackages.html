@@ -1,0 +1,14 @@
+<table>
+<tr>
+  <th>Service</th>
+  <th>Package</th>
+</tr>
+
+{% for item in packages %}
+<tr>
+  <td>{{ item.Service }}</td>
+  <td><a href="https://search.maven.org/artifact/{{ item.GroupId }}/{{ item.ArtifactId }}/{{ item.Version }}/jar/"><img alt="{{ item.Package }}" src="https://img.shields.io/static/v1?label=maven-central&message={{ item.Version }}&color=blue" /></a></td>
+</tr>
+{% endfor %}
+
+</table>
