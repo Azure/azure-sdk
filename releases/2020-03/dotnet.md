@@ -27,7 +27,7 @@ The Azure SDK team is pleased to announce our March 2020 client library releases
 
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
-    $> dotnet add package Azure.AI.TextAnalytics --version 1.0.0-preview.2
+    $> dotnet add package Azure.AI.TextAnalytics --version 1.0.0-preview.3
 
     $> dotnet add package Azure.Cosmos --version 4.0.0-preview
 
@@ -56,7 +56,9 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
-<!--TODO -->
+### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#100-preview3-2020-03-10)
+- New supported entity categories have been added.
+- Added `DetectLanguageInput.None` for user convenience when overriding the default behavior of `CountryHint`.
 
 ## Latest Releases
 
