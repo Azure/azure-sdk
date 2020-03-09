@@ -90,7 +90,7 @@ namespace Azure.<group>.<service_name> {
     }
 
     // options for configuring the client
-    public class <service_name>ClientOptions : HttpPipelineOptions {
+    public class <service_name>ClientOptions : ClientOptions {
 
     }
 }
@@ -107,8 +107,8 @@ namespace Azure.Data.Configuration {
         public ConfigurationClient(string connectionString, ConfigurationClientOptions options);
         protected ConfigurationClient(); // for mocking
 
-        public virtual Task<Response<<ConfigurationSetting>> GetAsync(string key, CancellationToken cancellationToken = default);
-        public virtual Response<ConfigurationSetting> Get(string key, CancellationToken cancellationToken = default);
+        public virtual Task<Response<<ConfigurationSetting>> GetConfigurationSettingAsync(string key, CancellationToken cancellationToken = default);
+        public virtual Response<ConfigurationSetting> GetConfigurationSetting(string key, CancellationToken cancellationToken = default);
 
         // other members
         …
@@ -147,7 +147,7 @@ public class ConfigurationClient {
 
 {% include requirement/MUST id="dotnet-client-constructor-overloads" %} provide constructor overloads that allow specifying additional options such as credentials, a custom HTTP pipeline, or advanced configuration.
 
-Custom pipeline and client-specific configuration are represented by an `options` parameter. Guidelines for using `HttpPipelineOptions` can be found in [Extending and Using HttpPipelineOptions](#dotnet-usage-options) section below.
+Custom pipeline and client-specific configuration are represented by an `options` parameter. The type of the parameter is typically a subclass of ```ClientOptions``` type. Guidelines for using `ClientOptions` can be found in [Extending and Using ClientOptions](#dotnet-usage-options) section below.
 
 For example, the `ConfigurationClient` type and its public constructors look as follows:
 
@@ -306,57 +306,24 @@ In practice, you need to provide public APIs to construct _model graphs_. See [S
 
 ### Returning Collections {#dotnet-paging}
 
-Many Azure REST APIs return collections of data in batches or pages. A client library will expose such APIs as an enumerable type.  For example, the configuration service returns collections of items as follows:
+Many Azure REST APIs return collections of data in batches or pages. A client library will expose such APIs as special enumerable types ```Pageable<T>``` or ```AsyncPageable<T>```. 
+These types are located in the ```Azure.Core``` package. 
+
+For example, the configuration service returns collections of items as follows:
 
 ```csharp
 public class ConfigurationClient {
 
     // asynchronous API returning a collection of items
-    public virtual IAsyncEnumerable<Response<ConfigurationSetting>> GetAllAsync(...);
+    public virtual AsyncPageable<Response<ConfigurationSetting>> GetConfigurationSettingsAsync(...);
 
     // synchronous variant of the method above
-    public virtual IEnumerable<Response<ConfigurationSetting>> GetAll(...);
+    public virtual Pageable<ConfigurationSetting> GetConfigurationSettings(...);
     ...
 }
 ```
 
-{% include requirement/MUST id="dotnet-pagination-ienumerable" %} return `IEnumerable<Response<T>>` or `IAsyncEnumerable<Response<T>>` from service methods that return a collection of items.
-
-The ```Response<T>.Raw``` will contain response content related to several individual items.
-
-The ```IAsyncEnumerable<T>``` interface is available in the [Microsoft.BCL.AsyncInterfaces](https://www.nuget.org/packages/Microsoft.Bcl.AsyncInterfaces) package.
-
-TODO: Include a code snippet example on how the user of the library would use this concept.
-
-{% include requirement/SHOULD id="dotnet-pagination-raw-paging" %} expose raw paging APIs through custom enumerable types with a `ByPage()` method.
-
-These APIs should be async only. Synchronous collection APIs must not support paging.
-
-```csharp
-public class <Service>Client {
-    public AsyncEnumerator<Item> GetItemsAsync(...);
-
-    public class AsyncEnumerator : IAsyncEnumerator<T> {
-        public PageAsyncEnumerator<T> ByPage(string continuationToken = default);
-    }
-}
-
-// Azure.Core Package
-namespace Azure.Core {
-    public class  PageAsyncEnumerator : IAsyncEnumerator<Page<T>> {
-        public int PageSizeHint { get; set; }
-        ... // interface implementations
-    }
-
-    public struct Page<T> {
-        public string ContinuationToken { get; }
-        public T[] Values { get; }
-        public Response GetRawResponse();
-    }
-}
-```
-
-TODO: Include a code snippet example on how the user of the library would use this concept.
+{% include requirement/MUST id="dotnet-pagination-ienumerable" %} return ```Pageable<T>``` or ```AsyncPageable<T>``` from service methods that return a collection of items.
 
 ### Service Method Parameters {#dotnet-parameters}
 
@@ -374,86 +341,84 @@ Common parameter validations include null checks, empty string checks, and range
 
 ### Long Running Operations {#dotnet-longrunning}
 
-Some service operations, known as _Long Running Operations_ or _LROs_ take a long time (hours or days). Such operations are started with a service call.  Their progress is monitored with one or more separate calls. The LRO pattern looks like this code snippet:
+Some service operations, known as _Long Running Operations_ or _LROs_ take a long time (up to hours or days). Such operations do not return their result immediately, but rather are started, their progress is polled, and finally the result of the operation is retrieved. 
+
+Azure.Core library exposes an abstract type called ```Operation<T>```, which represents such LROs and supports operations for polling and waiting for status changes, and retrieving the final operation result.
 
 ```csharp
-public class <Service>Client {
+// the following type is located in Azure.Core
+public abstract class Operation<T> {
 
-    // Operation<T> is a type in Azure.Core
-    // Note that LROs are exposed as asynchronous methods only
-    public Task<Operation<Model>> Start<OperationName>Async(...);
+    public abstract bool HasCompleted { get; }
+    public abstract bool HasValue { get; }
 
-    // this overload lets users access an existing operation
-    public Task<Operation<Model>> Start<OperationName>Async(string operationId);
+    public abstract string Id { get; }
 
-    // synchronous versions
-    public Operation<Model> Start<OperationName>(...);
-    public Operation<Model> Start<OperationName>(string operationId);
+    public abstract T Value { get; } // throws if CachedStatus != Succeeded
+    public abstract Response GetRawResponse();
+
+    public abstract Response UpdateStatus(CancellationToken cancellationToken = default);
+    public abstract ValueTask<Response> UpdateStatusAsync(CancellationToken cancellationToken = default);
+
+    public abstract ValueTask<Response<T>> WaitForCompletionAsync(CancellationToken cancellationToken = default);
+    public abstract ValueTask<Response<T>> WaitForCompletionAsync(TimeSpan pollingInterval, CancellationToken cancellationToken);
+}
+```
+Client libraries need to inherit from ```Operation<T>``` not only to implement all abstract members, but also to provide a constructor required to access an existing LRO (an LRO initiated by a different process).
+
+```csharp
+public class CopyFromUriOperation : Operation<long> {
+    public CopyFromUriOperation(string id, BlobBaseClient client);
+    ...
 }
 
-// the following types are in Azure.Core package
-public abstract class Operation<T>
-{
-    // will use cached value withing polling interval
-    public ValueTask<Response<OperationStatus>> GetStatusAsync(CancellationToken cancellationToken = default);
-    public Response<OperationStatus> GetStatus(CancellationToken cancellationToken = default);
-
-    public ValueTask<Response<T>> WaitAsync(CancellationToken cancellationToken = default);
-
-    public Response GetRawResponse();
-    public T Value; // throws if CachedStatus != Succeeded
-    public OperationStatus CachedStatus;
-
-    public string Id { get; }
-    public TimeSpan PollingInterval { get; set; }
-}
-
-public enum OperationStatus
-{
-    Running,
-    Succeeded,
-    Cancelled,
-    Failed,
+public class BlobBaseClient {
+    
+    public virtual CopyFromUriOperation StartCopyFromUri(..., CancellationToken cancellationToken = default);
+    public virtual Task<CopyFromUriOperation> StartCopyFromUriAsync(..., CancellationToken cancellationToken = default);
 }
 ```
 
 The `Operation` object can be used to poll for a response.
 
 ```csharp
-var client = new ServiceClient();
+BlobBaseClient client = ...
 
 // automatic polling
 {
-    Model value = await client.StartOperationAsync().WaitAsync();
+    var value = await client.StartCopyFromUri(...).WaitForCompletionAsync();
     Console.WriteLine(value);
 }
 
 // manual polling
 {
-    Operation<Model> operation = await client.StartOperationAsync();
-    while ((await operation.GetStatusAsync(cancel.Token)) == Status.Running)
+    CopyFromUriOperation operation = await client.StartCopyFromUriAsync(...);
+    while (true)
     {
+        await client.UpdateStatusAsync();
+        if (client.HasCompleted) break;
         await Task.Delay(1000); // play some elevator music
     }
-    Console.WriteLine(operation.Value);
+    if (operation.HasValue) Console.WriteLine(operation.Value);
 }
 
 // saving operation ID
 {
-    Operation<Model> operation1 = await client.StartOperationAsync();
+    CopyFromUriOperation operation = await client.StartCopyFromUriAsync(...);
     string operationId = operation.Id;
 
     // two days later
-    Operation<Model> operation2 = await client.StartOperationAsync(operationId);
-    Model value = await operation2.WaitAsync();
+    var operation2 = new CopyFromUriOperation(operationId, client);
+    var value = await operation2.WaitForCompletionAsync();
 }
 ```
 
 {% include requirement/MUST id="dotnet-lro-prefix" %} name all methods that start an LRO with the `Start` prefix.
 
-{% include requirement/SHOULD id="dotnet-lro-continuation" %} provide an overload of the method that starts the LRO taking operationId parameter.
+{% include requirement/MUST id="dotnet-lro-return" %} return a subclass of ```Operation<T>``` from LRO methods.
 
-This overload is used to access an in-progress LRO.
+{% include requirement/MAY id="dotnet-lro-subclass" %} add additional APIs to subclasses of ```Operation<T>```.
+For example, some subclasses add a constructor allowing to create an operation instance from a previously saved operation ID. Also, some subclasses are more granular states besides the IsCompleted and HasValue states that are present on the base class.
 
 ### Supporting Mocking {#dotnet-mocking}
 
