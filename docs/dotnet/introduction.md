@@ -451,8 +451,22 @@ Model types shouldn't have public constructors.  Instances of the model are typi
 
 ```csharp
 public static class ConfigurationModelFactory {
-    public static ConfigurationSetting ConfigurationSetting(string key, string value, string label=default, string contentType=default, ETag eTag=default, Nullable<DateTimeOffset> lastModified=default, Nullable<bool> locked=default);
+    public static ConfigurationSetting ConfigurationSetting(string key, string value, string label=default, string contentType=default, ETag eTag=default, DateTimeOffset? lastModified=default, bool? locked=default);
     public static SettingBatch SettingBatch(ConfigurationSetting[] settings, string link, SettingSelector selector);
+}
+```
+
+{% include requirement/MUST id="dotnet-mocking-factory-builder-methods" %} must hide older overloads and avoid ambiguity.
+
+When read-only properties are added to models and factory methods must be added to optionally set these properties,
+you must hide the previous method and remove all default parameter values to avoid ambiguity:
+
+```csharp
+public static class ConfigurationModelFactory {
+    [EditorBrowsable(EditorBrowsableState.Never)]
+    public static ConfigurationSetting ConfigurationSetting(string key, string value, string label, string contentType, ETag eTag, DateTimeOffset? lastModified, bool? locked) =>
+        ConfigurationSetting(key, value, label, contentType, eTag, lastModified, locked, default);
+    public static ConfigurationSetting ConfigurationSetting(string key, string value, string label=default, string contentType=default, ETag eTag=default, DateTimeOffset? lastModified=default, bool? locked=default, int? ttl=default);
 }
 ```
 
@@ -891,11 +905,11 @@ Some .NET Design Guidelines have been notoriously overlooked in existing Azure S
 
 {% include requirement/MUSTNOT id="dotnet-problems-abstractions" %} use abstractions unless the Azure SDK both returns and consumes the abstraction.  An abstraction is either an interface or abstract class.
 
-{% include requirement/MUSTNOT id="dotnet-problems-interfaces" %} use interfaces if you can use abstract classes. The only reasons to use an interface are: a) you need to “multiple-inherit”, b) you want structs to implement an abstraction.
+{% include requirement/MUSTNOT id="dotnet-problems-interfaces" %} use interfaces if you can use abstract classes. The only reasons to use an interface are: a) you need to "multiple-inherit", b) you want structs to implement an abstraction.
 
 {% include requirement/MUSTNOT id="dotnet-problems-generic-words" %} use generic words and terms for type names.  For example, do not use names like `OperationResponse` or `DataCollection`.
 
-{% include requirement/SHOULDNOT id="dotnet-problems-valid-values" %} use parameter types where it’s not clear what valid values are supported.  For example, do not use strings but only accept certain values in the string.
+{% include requirement/SHOULDNOT id="dotnet-problems-valid-values" %} use parameter types where it's not clear what valid values are supported.  For example, do not use strings but only accept certain values in the string.
 
 {% include requirement/MUSTNOT id="dotnet-problems-empty-types" %} have empty types (types with no members).
 
