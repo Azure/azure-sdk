@@ -12,15 +12,15 @@ The Azure SDK team is pleased to announce our March 2020 client library releases
 #### GA
 
 - Event Hubs
-- Key Vault (Certificates)
 
 #### Updates
 
-- Key Vault (Keys, Secrets)
+- Key Vault (Certificates, Keys, Secrets)
 - Storage (Blobs, Blobs Batch, Queues, File Shares, DataLake)
 
 #### Preview
 
+- Key Vault (Certificates, Keys, Secrets)
 - Text Analytics
 
 ## Installation Instructions
@@ -57,11 +57,41 @@ If you have a bug or feature request for one of the libraries, please [file an i
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
 ### Azure Identity [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/identity/Azure.Identity/CHANGELOG.md#120-preview1)
+
 - Updating `DefaultAzureCredential` to enable authenticating through the Azure CLI
 - `ClientCertificateCredential` now supports being constructed with a path to an unencrypted certificate (in either PFX or PEM format)
 - `EnvironmentCredential` now supports reading a certificate path from `AZURE_CLIENT_CERTIFICATE_PATH`
 
+### Azure Key Vault
+
+#### 4.1.0-preview.1
+
+- Add `RecoverableDays` property to properties.
+- Add "import" value to `KeyOperation` enumeration.
+- See changelogs for details:
+  - [Certificates](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/keyvault/Azure.Security.KeyVault.Certificates/CHANGELOG.md#410-preview1-2020-03-09)
+  - [Keys](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/keyvault/Azure.Security.KeyVault.Keys/CHANGELOG.md#410-preview1-2020-03-09)
+  - [Secrets](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/keyvault/Azure.Security.KeyVault.Secrets/CHANGELOG.md#410-preview1-2020-03-09)
+
+#### Certificates 4.0.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/keyvault/Azure.Security.KeyVault.Certificates/CHANGELOG.md#401-2020-03-03)
+
+- Fix certificate import and merge issues.
+- Shorten diagnostic scope names.
+- Sanitize header values in exceptions.
+
+### Keys 4.0.2 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/keyvault/Azure.Security.KeyVault.Keys/CHANGELOG.md#402-2020-03-03)
+
+- Shorten diagnostic scope names.
+- Sanitize header values in exceptions.
+
+#### Secrets 4.0.2 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/keyvault/Azure.Security.KeyVault.Secrets/CHANGELOG.md#402-2020-03-03)
+
+- Fix diagnostic bug for `SecretClient.PurgeDeletedSecret`.
+- Shorten diagnostic scope names.
+- Sanitize header values in exceptions.
+
 ### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#100-preview3-2020-03-10)
+
 - New supported entity categories have been added.
 - Added `DetectLanguageInput.None` for user convenience when overriding the default behavior of `CountryHint`.
 
