@@ -50,7 +50,7 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 <!--TODO -->
 
 ### Identity
-- Preview implementation of `AzureCliCredential`, which authenticates with the identity logged in to the Azure CLI. This credential is also part of `DefaultAzureCredential`.
+- (Preview) `DefaultAzureCredential` can authenticate with the identity logged in to the Azure CLI.
 
 ## Latest Releases
 
