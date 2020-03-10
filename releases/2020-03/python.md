@@ -46,7 +46,10 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 Detailed change logs are linked to in the Quick Links below. Here are some critical call outs.
 
-<!--TODO -->
+### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#change-log-azure-ai-textanalytics)
+
+- Pass `"none"` into `country_hint` to not use the default of `"US"` for the `detect_language` method
+- Parameters `country_hint` and `language` are now passed as keyword arguments
 
 ## Latest Releases
 
