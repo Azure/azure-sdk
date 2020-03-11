@@ -64,9 +64,7 @@ The pipeline can be found in the [Azure.Core] package, and it takes care of many
 
 ## Service Client Design {#dotnet-client}
 
-Azure services will be exposed to .NET developers as one or more _service client_ types, and a set of _supporting types_. 
-Service clients are the main starting points for developers trying to call Azure services, and each client library should have at least one client in its main namespace. 
-The guidelines in this section describe patterns for the design of a service client.  A service client should look like this code snippet:
+Azure services will be exposed to .NET developers as one or more _service client_ types, and a set of _supporting types_. Service clients are the main starting points for developers trying to call Azure services, and each client library should have at least one client in its main namespace. The guidelines in this section describe patterns for the design of a service client.  A service client should look like this code snippet:
 
 ```csharp
 namespace Azure.<group>.<service_name> {
@@ -196,13 +194,13 @@ public class ConfigurationClient {
 
 {% include requirement/MUST id="dotnet-service-methods-sync-and-async" %} provide both asynchronous and synchronous variants for all service methods.
 
-Developers often want to port their existing explications to work in the Cloud. These existing application are often full of synchronous methods, and developers are not willing to spend time rewriting these application to be fully asynchronous. Calling asynchronous APIs from synchronous methods can only be done through a technique called _sync-over-async_, which is unfortunately prone to causing deadlocks. The Azure SDK team is providing synchronous APIs for all client libraries to minimize friction when porting existing application to Azure.
+Many developers want to port existing application to the Cloud. These application are often synchronous, and the cost of rewriting them to be asynchronous is usually prohibitive. Calling asynchronous APIs from synchronous methods can only be done through a technique called [_sync-over-async_, which can cause deadlocks](https://devblogs.microsoft.com/pfxteam/should-i-expose-synchronous-wrappers-for-asynchronous-methods/). Azure SDK is providing synchronous APIs to minimize friction when porting existing application to Azure.
 
 {% include requirement/MUST id="dotnet-service-methods-naming" %} ensure that the names of the asynchronous and the synchronous variants differ only by the _Async_ suffix.
 
 {% include requirement/MUST id="dotnet-service-methods-cancellation" %} ensure all service methods, both asynchronous and synchronous, take an optional `CancellationToken` parameter called _cancellationToken_.
 
-The token should be passed to all I/O calls, and other BCL methods that take it.  Don't check the token manually unless you are doing significant amount of CPU bound work.
+The token should be further passed to all calls that take a cancellation token. DO NOT check the token manually, except when running a significant amount of CPU-bound work within the library, e.g. a loop that can take more than a typical network call.
 
 {% include requirement/MUST id="dotnet-service-methods-virtual" %} make service methods virtual.
 
@@ -222,7 +220,7 @@ There are two possible return types from asynchronous methods: `Task` and `Value
 
 ### Service Method Return Types {#dotnet-method-return}
 
-As mentioned above, service methods will often return `Response<T>`. The `T``can be either an unstructured payload (e.g. bytes of a storage blob) or a _model type_ representing deserialized response content. This section describes guidelines for the design of unstructured return types, _model types_, and all their transitive closure of dependencies (the _model graph_).
+As mentioned above, service methods will often return `Response<T>`. The `T` can be either an unstructured payload (e.g. bytes of a storage blob) or a _model type_ representing deserialized response content. This section describes guidelines for the design of unstructured return types, _model types_, and all their transitive closure of public dependencies (i.e. the _model graph_).
 
 {% include requirement/MUST id="dotnet-service-return-unstructured-type" %} use one of the following return types to represent an unstructured payload:
 
@@ -271,7 +269,7 @@ public class ConfigurationClient {
 
 {% include requirement/MUST id="dotnet-service-return-model-public-getters" %} ensure model public properties are get-only if they aren't intended to be changed by the user.
 
-Most output-only models can be fully get-only. Models that are used as both outputs and inputs of service call methods would typically have a mixture of get-only and get-set properties. 
+Most output-only models can be fully read-only. Models that are used as both outputs and inputs (i.e. received from and sent to the service) typically have a mixture of read-only and read-write properties.
 
 For example, the `Locked` property of `ConfigurationSetting` is controlled by the service.  It shouldn't be changed by the user.  The `ContentType` property, by contrast, can be modified by the user.
 
@@ -286,7 +284,9 @@ public sealed class ConfigurationSetting : IEquatable<ConfigurationSetting> {
 
 Ensure you include an internal setter to allow for deserialization.  For more information, see [JSON Serialization](#dotnet-usage-json).
 
-{% include requirement/MUST id="dotnet-service-models-prefer-structs" %} ensure model types are structs if they're small and immutable, especially if they are often stored in arrays, and classes if they're large, per [.NET Framework Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/choosing-between-class-and-struct).
+{% include requirement/MUST id="dotnet-service-models-prefer-structs" %} ensure model types are structs, if they meet the criteria for being structs.
+
+Good candidates for struct are types that are small and immutable, especially if they are often stored in arrays. See [.NET Framework Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/choosing-between-class-and-struct) for details.
 
 {% include requirement/SHOULD id="dotnet-service-models-basic-data-interfaces" %} implement basic data type interfaces on model types, per .NET Framework Design Guidelines.
 
@@ -297,12 +297,12 @@ For example, implement `IEquatable<T>`, `IComparable<T>`, `IEnumerable<T>`, etc.
 - ```IReadOnlyDictionary<T>``` and ```IDictionary<T>``` for lookup tables
 - ```T[]```, ```Memory<T>```, and ```ReadOnlyMemory<T>``` when low allocations and perfromance are critical
 
-Note that this guidance does not apply to input parameters. Input parameters representing collections should follow standard .NET Design Guidelines, e.g. use ```IEnumerable<T>``` is allowed.
+Note that this guidance does not apply to input parameters. Input parameters representing collections should follow standard [.NET Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/parameter-design), e.g. use ```IEnumerable<T>``` is allowed.
 Also, this guidance does not apply to return types of service method calls. These should be using ```Pageable<T>``` and ```AsyncPageable<T>``` discussed in [Service Method Return Types](#dotnet-method-return).
 
 {% include requirement/MAY id="dotnet-service-models-namespace" %} place output model types in _.Models_ subnamespace to avoid cluttering the main namespace with too many types.
 
-It is important for the main namespace of a client library to be clutter free. Some client libraries have a relatively small number of model types, and these should keep the model types in the main namespace. For example, model types of `Azure.Data.AppConfiguration` package are in the main namespace. On the other hand, the `Azure.Storage.Blobs` package opted to move model types to a _.Models_ subnamespace.
+It is important for the main namespace of a client library to be clutter free. Some client libraries have a relatively small number of model types, and these should keep the model types in the main namespace. For example, model types of `Azure.Data.AppConfiguration` package are in the main namespace. On the other hand, model types of `Azure.Storage.Blobs` package are in _.Models_ subnamespace.
 
 ```csharp
 namespace Azure.Storage.Blobs {
@@ -391,9 +391,9 @@ public class BlobCreateOptions {
 }
 ```
 
-{% include requirement/MUST id="dotnet-params-complex" %} use _options_ parameter pattern for complex service methods.
+{% include requirement/MUST id="dotnet-params-complex" %} use the _options_ parameter pattern for complex service methods.
 
-{% include requirement/MAY id="dotnet-params-complex" %} use _options_ parameter pattern for simple service methods that you expect to `grow` in the future.
+{% include requirement/MAY id="dotnet-params-complex" %} use the _options_ parameter pattern for simple service methods that you expect to `grow` in the future.
 
 {% include requirement/MAY id="dotnet-params-complex" %} add simple overloads of methods using the _options_ parameter pattern. 
 
@@ -848,7 +848,7 @@ public virtual async Task<Response<ConfigurationSetting>> AddAsync(Configuration
         request.Content = HttpPipelineRequestContent.Create(content);
 
         // send the request
-        var response await Pipeline.SendRequestAsync(request).ConfigureAwait(false);
+        var response = await Pipeline.SendRequestAsync(request).ConfigureAwait(false);
 
         if (response.Status == 200) {
             // deserialize content
