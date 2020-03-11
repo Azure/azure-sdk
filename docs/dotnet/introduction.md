@@ -1,5 +1,5 @@
 ---
-title: "C#.NET Guidelines"
+title: ".NET Azure SDK Design Guidelines"
 keywords: guidelines dotnet
 permalink: dotnet_introduction.html
 folder: dotnet
@@ -12,7 +12,7 @@ The following document describes .NET specific guidelines for designing Azure SD
 
 Currently, the document describes guidelines for client libraries exposing HTTP/REST services. It may be expanded in the future to cover other, non-REST, services.
 
-We'll use the client library for the [Azure Application Configuration service] to illustrate various design concepts.
+We'll use the client library for the [Azure Application Configuration service](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/appconfiguration/Azure.Data.AppConfiguration) to illustrate various design concepts.
 
 ## Design Principles {#dotnet-principles}
 
@@ -64,7 +64,7 @@ The pipeline can be found in the [Azure.Core] package, and it takes care of many
 
 ## Service Client Design {#dotnet-client}
 
-Azure services will be exposed to .NET developers as one or more _service client_ types, and a set of _supporting types_. The guidelines in this section describe patterns for the design of a service client.  A service client should look like this code snippet:
+Azure services will be exposed to .NET developers as one or more _service client_ types, and a set of _supporting types_. Service clients are the main starting points for developers trying to call Azure services, and each client library should have at least one client in its main namespace. The guidelines in this section describe patterns for the design of a service client.  A service client should look like this code snippet:
 
 ```csharp
 namespace Azure.<group>.<service_name> {
@@ -121,6 +121,8 @@ namespace Azure.Data.Configuration {
 }
 ```
 
+You can find the full sources of [here](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/appconfiguration/Azure.Data.AppConfiguration/src/ConfigurationClient.cs).
+
 {% include requirement/MUST id="dotnet-client-naming" %} name service client types with the _Client_ suffix.
 
 For example, the service client for the Application Configuration service is called `ConfigurationClient`.
@@ -143,11 +145,11 @@ public class ConfigurationClient {
 }
 ```
 
-{% include requirement/MUSTNOT id="dotnet-client-constructor-no-default-params" %} use default parameters in the _hello world_ constructor.
+{% include requirement/MUSTNOT id="dotnet-client-constructor-no-default-params" %} use default parameters in the simplest constructor.
 
 {% include requirement/MUST id="dotnet-client-constructor-overloads" %} provide constructor overloads that allow specifying additional options such as credentials, a custom HTTP pipeline, or advanced configuration.
 
-Custom pipeline and client-specific configuration are represented by an `options` parameter. The type of the parameter is typically a subclass of ```ClientOptions``` type. Guidelines for using `ClientOptions` can be found in [Extending and Using ClientOptions](#dotnet-usage-options) section below.
+Custom pipeline and client-specific configuration are represented by an `options` parameter. The type of the parameter is typically a subclass of ```ClientOptions``` type. Guidelines for using `ClientOptions` can be found in [Using ClientOptions](#dotnet-usage-options) section below.
 
 For example, the `ConfigurationClient` type and its public constructors look as follows:
 
@@ -192,11 +194,13 @@ public class ConfigurationClient {
 
 {% include requirement/MUST id="dotnet-service-methods-sync-and-async" %} provide both asynchronous and synchronous variants for all service methods.
 
+Many developers want to port existing application to the Cloud. These application are often synchronous, and the cost of rewriting them to be asynchronous is usually prohibitive. Calling asynchronous APIs from synchronous methods can only be done through a technique called [_sync-over-async_, which can cause deadlocks](https://devblogs.microsoft.com/pfxteam/should-i-expose-synchronous-wrappers-for-asynchronous-methods/). Azure SDK is providing synchronous APIs to minimize friction when porting existing application to Azure.
+
 {% include requirement/MUST id="dotnet-service-methods-naming" %} ensure that the names of the asynchronous and the synchronous variants differ only by the _Async_ suffix.
 
 {% include requirement/MUST id="dotnet-service-methods-cancellation" %} ensure all service methods, both asynchronous and synchronous, take an optional `CancellationToken` parameter called _cancellationToken_.
 
-The token should be passed to all I/O calls.  Don't check the token manually.
+The token should be further passed to all calls that take a cancellation token. DO NOT check the token manually, except when running a significant amount of CPU-bound work within the library, e.g. a loop that can take more than a typical network call.
 
 {% include requirement/MUST id="dotnet-service-methods-virtual" %} make service methods virtual.
 
@@ -216,7 +220,7 @@ There are two possible return types from asynchronous methods: `Task` and `Value
 
 ### Service Method Return Types {#dotnet-method-return}
 
-As mentioned above, service methods will often return `Response<T>`. The `T``can be either an unstructured payload (bytes of a storage blob) or a _model type_ representing deserialized response content. This section describes guidelines for the design of unstructured return types, _model types_, and all their transitive closure of dependencies (the _model graph_).
+As mentioned above, service methods will often return `Response<T>`. The `T` can be either an unstructured payload (e.g. bytes of a storage blob) or a _model type_ representing deserialized response content. This section describes guidelines for the design of unstructured return types, _model types_, and all their transitive closure of public dependencies (i.e. the _model graph_).
 
 {% include requirement/MUST id="dotnet-service-return-unstructured-type" %} use one of the following return types to represent an unstructured payload:
 
@@ -265,6 +269,8 @@ public class ConfigurationClient {
 
 {% include requirement/MUST id="dotnet-service-return-model-public-getters" %} ensure model public properties are get-only if they aren't intended to be changed by the user.
 
+Most output-only models can be fully read-only. Models that are used as both outputs and inputs (i.e. received from and sent to the service) typically have a mixture of read-only and read-write properties.
+
 For example, the `Locked` property of `ConfigurationSetting` is controlled by the service.  It shouldn't be changed by the user.  The `ContentType` property, by contrast, can be modified by the user.
 
 ```csharp
@@ -276,15 +282,41 @@ public sealed class ConfigurationSetting : IEquatable<ConfigurationSetting> {
 }
 ```
 
-Ensure you include an internal setter to allow for deserialization.  For more information, see [Serialization](#dotnet-usage-serialization).
+Ensure you include an internal setter to allow for deserialization.  For more information, see [JSON Serialization](#dotnet-usage-json).
 
-{% include requirement/MUST id="dotnet-service-models-prefer-structs" %} ensure model types are structs if they're small, and classes if they're large, per [.NET Framework Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/choosing-between-class-and-struct).
+{% include requirement/MUST id="dotnet-service-models-prefer-structs" %} ensure model types are structs, if they meet the criteria for being structs.
 
-{% include requirement/MUST id="dotnet-service-models-basic-data-interfaces" %} implement basic data type interfaces on model types, per .NET Framework Design Guidelines.
+Good candidates for struct are types that are small and immutable, especially if they are often stored in arrays. See [.NET Framework Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/choosing-between-class-and-struct) for details.
 
-TODO: Find reference in the .NET Framework Design Guidelines for this!
+{% include requirement/SHOULD id="dotnet-service-models-basic-data-interfaces" %} implement basic data type interfaces on model types, per .NET Framework Design Guidelines.
+
 For example, implement `IEquatable<T>`, `IComparable<T>`, `IEnumerable<T>`, etc. if applicable.
 
+{% include requirement/SHOULD id="dotnet-service-return-model-collections" %} use the following collection types for properties of model types:
+- ```IReadOnlyList<T>``` and ```IList<T>``` for most collections
+- ```IReadOnlyDictionary<T>``` and ```IDictionary<T>``` for lookup tables
+- ```T[]```, ```Memory<T>```, and ```ReadOnlyMemory<T>``` when low allocations and perfromance are critical
+
+Note that this guidance does not apply to input parameters. Input parameters representing collections should follow standard [.NET Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/parameter-design), e.g. use ```IEnumerable<T>``` is allowed.
+Also, this guidance does not apply to return types of service method calls. These should be using ```Pageable<T>``` and ```AsyncPageable<T>``` discussed in [Service Method Return Types](#dotnet-method-return).
+
+{% include requirement/MAY id="dotnet-service-models-namespace" %} place output model types in _.Models_ subnamespace to avoid cluttering the main namespace with too many types.
+
+It is important for the main namespace of a client library to be clutter free. Some client libraries have a relatively small number of model types, and these should keep the model types in the main namespace. For example, model types of `Azure.Data.AppConfiguration` package are in the main namespace. On the other hand, model types of `Azure.Storage.Blobs` package are in _.Models_ subnamespace.
+
+```csharp
+namespace Azure.Storage.Blobs {
+    public class BlobClient { ... }
+    public class BlobClientOptions { ... }
+    ...
+}
+namespace Azure.Storage.Blobs.Models {
+    ...
+    public class BlobContainerItem { ... } 
+    public class BlobContainerProperties { ...}
+    ...
+}
+```
 {% include requirement/SHOULD id="dotnet-service-editor-browsable-state" %} apply the `[EditorBrowsable(EditorBrowsableState.Never)]` attribute to methods that the user isn't meant to call.
 
 Adding this attribute will hide the methods from being shown with IntelliSense.  A user will almost never call `GetHashCode()` directly.  `Equals(object)` is almost never called if the type implements `IEquatable<T>` (which is preferred).  Hide the `ToString()` method if it isn't overridden.
@@ -326,6 +358,46 @@ public class ConfigurationClient {
 {% include requirement/MUST id="dotnet-pagination-ienumerable" %} return ```Pageable<T>``` or ```AsyncPageable<T>``` from service methods that return a collection of items.
 
 ### Service Method Parameters {#dotnet-parameters}
+
+Service methods fall into two main groups when it comes to the number and complexity of parameters they accept:
+
+- Service Methods with Simple Inputs, _simple methods_ for short
+- Service Methods with Complex Inputs, _complext methods_ for short
+
+_Simple methods_ are methods that take up to six parameters, with most of the parameters being simple BCL primitives. _Complex methods_ are methods that take large number of parameters and typically correspond to REST APIs with complex request payloads.
+
+_Simple methods_ should follow standard .NET Design Guidelines for parameter list and overload design. 
+
+_Complex methods_ should use _option parameter_ to represent the request payload, and consider providing convenience simple overloads for most common scenarios.
+
+```csharp
+public class BlobContainerClient {
+
+    // simple service method
+    public virtual Response<BlobInfo> UploadBlob(string blobName, Stream content, CancellationToken cancellationToken = default);
+
+    // complex service method
+    public virtual Response<BlobInfo> CreateBlob(BlobCreateOptions options = null, CancellationToken cancellationToken = default);
+
+    // convinience overload[s]
+    public virtual Response<BlobContainerInfo> CreateBlob(string blobName, CancellationToken cancellationToken = default);
+}
+
+public class BlobCreateOptions {
+    public PublicAccessType Access { get; set; }
+    public IDictionary<string, string> Metadata { get; } 
+    public BlobContainerEncryptionScopeOptions Encryption { get; set; }
+    ...
+}
+```
+
+{% include requirement/MUST id="dotnet-params-complex" %} use the _options_ parameter pattern for complex service methods.
+
+{% include requirement/MAY id="dotnet-params-complex" %} use the _options_ parameter pattern for simple service methods that you expect to `grow` in the future.
+
+{% include requirement/MAY id="dotnet-params-complex" %} add simple overloads of methods using the _options_ parameter pattern. 
+
+If in common scenarios, users are likely to pass just a small subset of what the _options_ parameter represents, consider adding an overload with a parameter list representing just this subset.  
 
 #### Parameter Validation
 
@@ -559,7 +631,7 @@ If you think a new group should be added to the list, contact [adparch].
 
 {% include requirement/SHOULD id="dotnet-namespaces-models" %} consider placing model types in a `.Models` namespace if number of model types is or might become large.
 
-Consider 5+ models to be "large".  The types that the user needs should be easy to find when using IntelliSense in the main namespace.
+See [model type guidelines](#dotnet-service-models-namespace) for details.
 
 ### Error Reporting {#dotnet-errors}
 
@@ -657,7 +729,7 @@ Use a constructor parameter called `version` on the client options type.
 For example, the following is a code snippet from the `ConfigurationClientOptions`:
 
 ```csharp
-public class ConfigurationClientOptions : HttpPipelineOptions {
+public class ConfigurationClientOptions : ClientOptions {
 
     public ConfigurationClientOptions(ServiceVersion version = ServiceVersion.V2019_05_09) {
         if (version == default) 
@@ -723,13 +795,13 @@ See the [documentation guidelines]({{ site.baseurl }}/general_documentation.html
 
 ## Common Type Usage {#dotnet-commontypes}
 
-### HttpPipelineOptions {#dotnet-usage-options}
+### Using ClientOptions {#dotnet-usage-options}
 
-{% include requirement/MUST id="dotnet-http-pipeline-options" %} name subclasses of ```HttpPipelineOptions``` by adding _Client_ suffix to the name of the client type the options subclass is configuring.
+{% include requirement/MUST id="dotnet-http-pipeline-options" %} name subclasses of ```ClientOptions``` by adding _Options_ suffix to the name of the client type the options subclass is configuring.
 
 ```csharp
 // options for configuring ConfigurationClient
-public class ConfigurationClientOptions : HttpPipelineOptions {
+public class ConfigurationClientOptions : ClientOptions {
     ...
 }
 
@@ -746,7 +818,7 @@ If the options type can be shared by multiple client types, name it with a plura
 
 Each overload constructor should take at least `version` parameter to specify the service version. See [Versioning](#dotnet-service-version-option) guidelines for details.
 
-### HttpPipeline {#dotnet-usage-httppipeline}
+### Using HttpPipeline {#dotnet-usage-httppipeline}
 
 The following example shows a typical way of using `HttpPipeline` to implement a service call method. The `HttpPipeline` will handle common HTTP requirements such as the user agent, logging, distributed tracing, retries, and proxy configuration.
 
@@ -760,8 +832,10 @@ public virtual async Task<Response<ConfigurationSetting>> AddAsync(Configuration
     using (Request request = _pipeline.CreateRequest()) {
 
         // specify HTTP request line
-        request.Method = PipelineMethod.Put;
-        request.UriBuilder = ...;
+        request.Method = RequestMethod.Put;
+        request.Uri.Reset(_endpoint);
+        request.Uri.AppendPath(KvRoute, escape: false);
+        requast.Uri.AppendPath(key);
 
         // add headers
         request.Headers.Add(IfNoneMatchWildcard);
@@ -774,10 +848,8 @@ public virtual async Task<Response<ConfigurationSetting>> AddAsync(Configuration
         request.Content = HttpPipelineRequestContent.Create(content);
 
         // send the request
-        await Pipeline.SendRequestAsync(request).ConfigureAwait(false);
+        var response = await Pipeline.SendRequestAsync(request).ConfigureAwait(false);
 
-        // get response
-        Response response = message.Response;
         if (response.Status == 200) {
             // deserialize content
             Response<ConfigurationSetting> result = await CreateResponse(response, cancellationToken);
@@ -792,7 +864,7 @@ public virtual async Task<Response<ConfigurationSetting>> AddAsync(Configuration
 
 For a more complete example, see the [configuration client](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/appconfiguration/Azure.Data.AppConfiguration/src/ConfigurationClient.cs) implementation.
 
-### HttpPipelinePolicy
+### Using HttpPipelinePolicy
 
 The HTTP pipeline includes a number of policies that all requests pass through.  Examples of policies include setting required headers, authentication, generating a request ID, and implementing proxy authentication.  `HttpPipelinePolicy` is the base type of all policies (plugins) of the `HttpPipeline`. This section describes guidelines for designing custom policies.
 
@@ -800,15 +872,15 @@ The HTTP pipeline includes a number of policies that all requests pass through. 
 
 See an example [here](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/src/Pipeline/BearerTokenAuthenticationPolicy.cs).
 
-{% include requirement/MUST id="dotnet-sync-http-pipeline-policy-inherit" %} inherit from `SynchronousHttpPipelinePolicy` if the policy implementation calls only synchronous APIs.
+{% include requirement/MUST id="dotnet-sync-http-pipeline-policy-inherit" %} inherit from `HttpPipelineSynchronousPolicy` if the policy implementation calls only synchronous APIs.
 
 See an example [here](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/src/Pipeline/Internal/ClientRequestIdPolicy.cs).
 
-{% include requirement/MUST id="dotnet-http-pipeline-thread-safety" %} be thread-safe. The `ProcessAsync` and `Process` methods must be safe to invoke from multiple threads concurrently.
+{% include requirement/MUST id="dotnet-http-pipeline-thread-safety" %} ensure `ProcessAsync` and `Process` methods are thread safe.
 
-`HttpPipelineMessage`, `Request`, and `Response` don't have to be thread-safe.
+`HttpMessage`, `Request`, and `Response` don't have to be thread-safe.
 
-### JSON {#dotnet-usage-json}
+### JSON Serialization {#dotnet-usage-json}
 
 {% include requirement/MUST id="dotnet-json-use-system-text-json" %} use [`System.Text.Json`](https://www.nuget.org/packages/System.Text.Json) package to write and read JSON content.
 
