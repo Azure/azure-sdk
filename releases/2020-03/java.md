@@ -32,7 +32,7 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-data-appconfiguration</artifactId>
-  <version>1.0.1</version>
+  <version>1.1.0</version>
 </dependency>
 
 <dependency>
@@ -133,6 +133,9 @@ If you have a bug or feature request for one of the libraries, please post an is
 ## Changelog
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
+### App Configuration ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/019fd02d575597e81978d6b7922a71966fbf491b/sdk/appconfiguration/azure-data-appconfiguration/CHANGELOG.md#110-2020-03-11))
+- Updated javadoc to support the changes that App Configuration service no longer support `*a` and `*a*` suffix and full text search.
+- Upgrade Azure Core version from 1.2.0 to 1.3.0.
 
 ### Text Analytics ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#100-beta3-2020-03-10))
 - General class and method rename to comply with API guidelines.
