@@ -22,6 +22,7 @@ The Azure SDK team is pleased to announce our March 2020 client library releases
 
 - Key Vault (Certificates, Keys, Secrets)
 - Text Analytics
+- Search
 
 ## Installation Instructions
 
@@ -37,6 +38,8 @@ To install any of our packages, please search for them via `Manage NuGet Package
 
     $> dotnet add package Azure.Messaging.EventHubs
     $> dotnet add package Azure.Messaging.EventHubs.Processor
+
+    $> dotnet add package Azure.Search --version 11.0.0-preview.1
 
     $> dotnet add package Azure.Security.KeyVault.Certificates
     $> dotnet add package Azure.Security.KeyVault.Key
@@ -94,6 +97,11 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - New supported entity categories have been added.
 - Added `DetectLanguageInput.None` for user convenience when overriding the default behavior of `CountryHint`.
+
+#### Search
+
+- Initial preview of the Azure.Search client library enabling you to query and
+  update documents in search indexes.
 
 ## Latest Releases
 
