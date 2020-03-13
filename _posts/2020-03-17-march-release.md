@@ -155,7 +155,7 @@ import { odata } from '@azure/search';
 // In this case $facetLocation = 'US'
 const response = await searchClient.search({
   searhcText: searchString,
-  filter: odata`Product/any(p: p/Location eq ${facetLocation})`,
+  filter: odata`Location eq ${facetLocation}`,
   orderBy: [ "price desc" ],
   select: [ "productName", "price" ],
   top: 20,
@@ -167,6 +167,8 @@ const response = await searchClient.search({
   ]
 });
 ```
+
+The `odata` formatter ensures that the variables you use are quoted properly.
 
 Let's turn our attention to the search input box.  One of the features of any good product search is an autocompleter.  Azure Cognitive Search provides [suggesters](https://docs.microsoft.com/azure/search/index-add-suggesters) to allow the search service to suggest records you might be interested in.  You can use this to implement an autocomplete feature:
 
