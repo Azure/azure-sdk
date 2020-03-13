@@ -17,11 +17,13 @@ The Azure SDK team is pleased to announce our March 2020 client library releases
 
 - App Configuration
 - Identity
-- Storage (Blobs, Blobs Batch, Queues, File Shares)
+- Storage (Blobs, Blobs Batch, Blob Cryptography, Queues, File Shares)
 
 #### Preview
 
 - Cosmos
+- Identity
+- KeyVault (Certificates, Keys, Secrets)
 - Search
 - Text Analytics
 - Tracing OpenTelemetry
@@ -42,23 +44,28 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <artifactId>azure-identity</artifactId>
   <version>1.0.4</version>
 </dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-identity</artifactId>
+  <version>1.1.0-beta.2</version>
+</dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-security-keyvault-certificates</artifactId>
-  <version>4.0.0</version>
+  <version>4.1.0-beta.1</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-security-keyvault-secrets</artifactId>
-  <version>4.1.0</version>
+  <version>4.2.0-beta.1</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-security-keyvault-keys</artifactId>
-  <version>4.2.0-beta.1</version>
+  <version>4.2.0-beta.2</version>
 </dependency>
 
 <dependency>
@@ -145,7 +152,57 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 ### App Configuration ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-data-appconfiguration_1.1.0/sdk/appconfiguration/azure-data-appconfiguration/CHANGELOG.md))
 
 - Updated javadoc to support the changes that App Configuration service no longer support `*a` and `*a*` suffix and full text search.
-- Upgrade Azure Core version from 1.2.0 to 1.3.0.
+- Upgrade `azure-core` version from `1.2.0` to `1.3.0`.
+
+### Cosmos ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-cosmos_4.0.1-beta.1/sdk/cosmos/azure-cosmos/CHANGELOG.md))
+
+### Identity
+
+#### 1.0.4 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-identity_1.0.4/sdk/identity/azure-identity/CHANGELOG.md))
+
+- Upgraded `azure-core` version from `1.2.0` to `1.3.0`.
+
+#### 1.1.0-beta.2 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-identity_1.1.0-beta.2/sdk/identity/azure-identity/CHANGELOG.md))
+
+- Added `authorityHost` setter in `DefaultAzureCredentialBuilder`.
+- Added `executorService` setter in all the credential builders except `ManagedIdentityCredentialBuilder`.
+- Added `tokenRefreshOffset` setter in all the credential builders.
+- Added `httpClient` setter in all the credential builders.
+- Updated `DefaultAzureCredential` to enable authenticating through the Azure CLI.
+
+### KeyVault Certificates ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-certificates_4.1.0-beta.1/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md))
+
+- Added `recoverableDays` property to `CertificateProperties`.
+- Added support for `7.1-Preview1` service version.
+
+### KeyVault Keys ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-keys_4.2.0-beta.2/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md))
+
+- Added `recoverableDays` property to `KeyProperties`.
+- Added `Import` operation to `KeyOperation`.
+- Added support for `7.1-Preview1` service version.
+
+### KeyVault Secrets ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-secrets_4.2.0-beta.1/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md))
+
+- Added `recoverableDays` property to `SecretProperties`.
+- Added support for `7.1-Preview1` service version.
+
+### Search ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-search_11.0.0-beta.1/sdk/search/azure-search/CHANGELOG.md))
+
+- Support for `Document` operations such as add, delete, and update.
+- Support for autocomplete, search, and suggestion operations on `Document`s.
+- Support for the resource operations on `Indexes`, `Indexers`, `Skillsets`, and `Synonyms`.
+
+### Storage Blobs ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob_12.5.0/sdk/storage/azure-storage-blob/CHANGELOG.md))
+
+### Storage Blobs Batch ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob-batch_12.4.0/sdk/storage/azure-storage-blob-batch/CHANGELOG.md))
+
+### Storage Blobs Cryptography ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob-cryptography_12.5.0/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md))
+
+### Storage Files DataLake ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-file-datalake_12.0.1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md))
+
+### Storage Files Shares ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-file-share_12.3.0/sdk/storage/azure-storage-file-share/CHANGELOG.md))
+
+### Storage Queues ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-queue_12.4.0/sdk/storage/azure-storage-queue/CHANGELOG.md))
 
 ### Text Analytics ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_1.0.0-beta.3/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md))
 
@@ -155,24 +212,6 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Added `getDefaultCountryHint()`, `getDefaultLanguage()` and `getServiceVersion()` to `TextAnalyticsClient`
 - Supported `Iterable<T>` instead of `List<T>` text inputs.
 - Removed `InnerError`, `DocumentResultCollection` and `TextAnalyticsClientOptions` class.
-
-### Cosmos ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-cosmos_4.0.1-beta.1/sdk/cosmos/azure-cosmos/CHANGELOG.md))
-
-### Search ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-search_11.0.0-beta.1/sdk/search/azure-search/CHANGELOG.md))
-
-### Identity ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-identity_1.0.4/sdk/identity/azure-identity/CHANGELOG.md))
-
-### Storage Blobs ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob_12.5.0/sdk/storage/azure-storage-blob/CHANGELOG.md))
-
-### Storage Blobs Batch ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob-batch_12.4.0/sdk/storage/azure-storage-blob-batch/CHANGELOG.md))
-
-### Storage Blobs Cryptography ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob-cryptography_12.5.0/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md))
-
-### Storage Files Shares ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-file-share_12.3.0/sdk/storage/azure-storage-file-share/CHANGELOG.md))
-
-### Storage Files DataLake ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-file-datalake_12.0.1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md))
-
-### Storage Queues ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-queue_12.4.0/sdk/storage/azure-storage-queue/CHANGELOG.md))
 
 ### Tracing OpenTelemetry ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-core-tracing-opentelemetry_1.0.0-beta.3/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md))
 
