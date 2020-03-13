@@ -11,18 +11,20 @@ The Azure SDK team is pleased to announce our March 2020 client library releases
 
 #### GA
 
-- Event Hubs
+- Storage DataLake
 
 #### Updates
 
-- Storage (Blobs, Blobs Batch, Queues, File Shares, DataLake)
+- App Configuration
+- Identity
+- Storage (Blobs, Blobs Batch, Queues, File Shares)
 
 #### Preview
 
 - Cosmos
-- Identity
-- Key Vault (Keys)
+- Search
 - Text Analytics
+- Tracing OpenTelemetry
 
 ## Installation Instructions
 
@@ -168,7 +170,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Storage Files Shares ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-file-share_12.3.0/sdk/storage/azure-storage-file-share/CHANGELOG.md))
 
-### Storage Files Datalake ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-file-datalake_12.0.1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md))
+### Storage Files DataLake ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-file-datalake_12.0.1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md))
 
 ### Storage Queues ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-queue_12.4.0/sdk/storage/azure-storage-queue/CHANGELOG.md))
 
