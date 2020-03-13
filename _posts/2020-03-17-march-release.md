@@ -180,7 +180,7 @@ const suggestions = response.results || [];
 
 You can then use the suggestions to populate the drop-down autocomplete box.
 
-For more information on the Azure Cognitive Search SDK for JavaScript, check out the [API documentation](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-search/1.1.0-preview.1/index.html).  The Azure Cognitive Search SDK is also available for Python, Java, and .NET.
+For more information on the Azure Cognitive Search SDK for JavaScript, check out the [API documentation](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-search/11.0.0-preview.1/index.html).  The Azure Cognitive Search SDK is also available for Python, Java, and .NET.
 
 ## Working with us and giving feedback
 
