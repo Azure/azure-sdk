@@ -26,7 +26,7 @@ New preview releases:
 
 In addition, we have released a new preview for the Java distributed tracing client, and a new GA release for the Python distributed tracing client.  The distributed tracing client allows you to trace a request from the SDK entry-point through to the service using Azure Monitor.
 
-We believe these are ready for your use, but not yet ready for production.  Between now and the GA release, these libraries may undergo API changes.  We'd love your feedback!  If you use these libraries and like what you see, or you want to see changes, let us know in the GitHub issues for the appropriate language. 
+We believe these are ready for you to use and experiment with, but not yet ready for production.  Between now and the GA release, these libraries may undergo API changes.  We'd love your feedback!  If you use these libraries and like what you see, or you want to see changes, let us know in GitHub issues. 
 
 ## Getting Started
 
