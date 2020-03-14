@@ -19,7 +19,7 @@ These are ready to use in your production applications.  You can find details of
 New preview releases:
 
 * Azure Identity.
-* Cognitive Search.
+* Azure Cognitive Search.
 * Cosmos (Java only).
 * Key Vault v4.1
 * Text Analytics.
