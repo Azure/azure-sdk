@@ -7,8 +7,7 @@ sidebar: releases_sidebar
 # .NET Packages
 
 {% assign packages = site.data.releases.latest.dotnet-packages %}
+New Libraries | [All Libraries](all/dotnet.md)
 {% include dotnet-packages.html %}
-
-*This is the list of all our new .NET Azure SDK libraries for a more complete list of libraries see [this table](all/dotnet.md)*
 
 {% include refs.md %}
