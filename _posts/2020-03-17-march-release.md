@@ -41,7 +41,7 @@ If you want to dive deep into the content, the release notes linked above and th
 
 ## Introducing Azure Cognitive Search
 
-This month, we are introducing a preview of the Azure Cognitive Search client.  [Azure Cognitive Search](https://azure.microsoft.com/services/search) is search-as-a-service, allowing developers to add a rich search experience over private, heterogenous content in web, mobile, and enterprise applications.  You've probably seen this type of search experience in action when you use a product search capability within an eCommerce site.  Let's take a look at how you can implement the search capability in your own client applications.  For this demonstration, I'm going to be using JavaScript and the React framework.
+This month, we are introducing a preview of the Azure Cognitive Search client.  [Azure Cognitive Search](https://azure.microsoft.com/services/search) is search-as-a-service, allowing developers to add a rich search experience over private, heterogenous content in web, mobile, and enterprise applications.  You've probably seen this type of search experience in action when you use a product search capability within an e-commerce site.  Let's take a look at how you can implement the search capability in your own client applications.  For this demonstration, I'm going to be using JavaScript and the React framework.
 
 Start by creating a singleton service client:
 
