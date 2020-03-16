@@ -43,7 +43,7 @@ If you want to dive deep into the content, the release notes linked above and th
 
 This month, we are introducing a preview of the Azure Cognitive Search client.  [Azure Cognitive Search](https://azure.microsoft.com/services/search) is search-as-a-service, allowing developers to add a rich search experience over private, heterogenous content in web, mobile, and enterprise applications.  You've probably seen this type of search experience in action when you use a product search capability within an e-commerce site.  Let's take a look at how you can implement the search capability in your own client applications.  For this demonstration, I'm going to be using JavaScript and the React framework.
 
-> We recommend that most application use an intermediary web API service to protect the API key.  You can write your web API using Azure Functions and Node.js.  The same JavaScript API is used to access Azure Cognitive Search.
+> We recommend that most applications use an intermediary web API service to protect the API key.  You can write your web API using Azure Functions and Node.js.  The same JavaScript API is used to access Azure Cognitive Search.
 
 Start by creating a singleton service client:
 
