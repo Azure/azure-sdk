@@ -10,7 +10,8 @@ sidebar: releases_sidebar
 {% assign packages = site.data.allpackages.java-packages %}
 
 There are {{ packages.size }} total Azure library packages published to maven central from the [azure-sdk account](https://search.maven.org/search?q=g:com.microsoft.azure%20OR%20g:com.azure).
-[New Libraries](../latest/java.md) | All Libraries
+
+[New Libraries](../java.md) | All Libraries
 
 {% include java-allpackages.html %}
 
