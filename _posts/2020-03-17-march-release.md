@@ -100,7 +100,7 @@ const SearchPage = () => {
 
 When the user enters something in the `SearchInputBox` component, the `onSearch` method is called.  This is asynchronous, allowing your application to be responsive to more user inputs.  The search string is stored in state (re-rendering the component to update the `FacetDisplay`), then a search is executed against the Azure Cognitive Search service.  In this case, we are taking a single page of 20 results (as specified by the `top` and `skip` values).  If you wish to implement paging, you would increment the `skip` value to skip that number of entries.  In this case, successive values of `skip` would be 20, 40, 60, and so on.
 
-[Facets](https://docs.microsoft.com/azure/search/search-filters-facets) allow you to display buckets that assist the user to further refine their search.  If you are search for a chair, you might want to refine your search based on location, rating, or color.  Here is an example component:
+[Facets](https://docs.microsoft.com/azure/search/search-filters-facets) allow you to display buckets that assist the user to further refine their search.  If you are searching for a chair, you might want to refine your search based on location, rating, or color.  Here is an example component:
 
 ```javascript
 import React, { useEffect, useState } from 'react';
