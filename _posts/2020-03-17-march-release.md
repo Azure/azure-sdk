@@ -115,14 +115,14 @@ const SearchPage = ({ searchString }) => {
       const response = await searchClient.search({
         searchText: searchString,
         facets: [
-          "Location,count:3,sort:count",
-          "Rating,count:5,sort:count",
-          "Color,count:3,sort:count"
+          "location,count:3,sort:count",
+          "rating,count:5,sort:count",
+          "color,count:3,sort:count"
         ]
       });
 
-      setLocations(facets.Location.map(v => v.value));
-      setRating(facets.Rating.map(v => v.value));
+      setLocations(facets.location.map(v => v.value));
+      setRating(facets.rating.map(v => v.value));
     };
 
     runFacetQuery();
@@ -155,15 +155,15 @@ import { odata } from '@azure/search';
 // In this case $facetLocation = 'US'
 const response = await searchClient.search({
   searhcText: searchString,
-  filter: odata`Location eq ${facetLocation}`,
+  filter: odata`location eq ${facetLocation}`,
   orderBy: [ "price desc" ],
   select: [ "productName", "price" ],
   top: 20,
   skip: 0
   facets: [
-    "Location,count:3,sort:count",
-    "Rating,count:5,sort:count",
-    "Color,count:3,sort:count"
+    "location,count:3,sort:count",
+    "rating,count:5,sort:count",
+    "color,count:3,sort:count"
   ]
 });
 ```
