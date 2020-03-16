@@ -32,10 +32,10 @@ We believe these are ready for you to use and experiment with, but not yet ready
 
 Use the links below to get started with your language of choice.  You will notice that all the preview libraries are tagged with "preview".
 
-* [.NET release notes]({{site.baseurl}}/releases/2020-02/dotnet.html)
-* [Java release notes]({{site.baseurl}}/releases/2020-02/java.html)
-* [Python release notes]({{site.baseurl}}/releases/2020-02/python.html)
-* [JavaScript release notes]({{site.baseurl}}/releases/2020-02/js.html)
+* [.NET release notes]({{site.baseurl}}/releases/2020-03/dotnet.html)
+* [Java release notes]({{site.baseurl}}/releases/2020-03/java.html)
+* [Python release notes]({{site.baseurl}}/releases/2020-03/python.html)
+* [JavaScript release notes]({{site.baseurl}}/releases/2020-03/js.html)
 
 If you want to dive deep into the content, the release notes linked above and the change logs they point to give more details on what has changed.
 
@@ -184,7 +184,7 @@ const suggestions = response.results || [];
 
 You can then use the suggestions to populate the drop-down autocomplete box.
 
-For more information on the Azure Cognitive Search SDK for JavaScript, check out the [API documentation](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-search/11.0.0-preview.1/index.html).  The Azure Cognitive Search SDK is also available for Python, Java, and .NET.
+For more information on the Azure Cognitive Search SDK for JavaScript, check out the [API documentation](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-search/11.0.0-preview.1/index.html).  The Azure Cognitive Search SDK is also available for [Python](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-search/1.0.0b1/index.html), [Java](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-search/11.0.0-beta.1/index.html), and [.NET](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.Search/11.0.0-preview.1/api/index.html).
 
 ## Working with us and giving feedback
 
