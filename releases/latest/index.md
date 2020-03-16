@@ -10,28 +10,23 @@ permalink: /releases/latest/index.html
 ## [.NET packages](dotnet.md)
 
 {% assign packages = site.data.releases.latest.dotnet-packages %}
+New Libraries | [All Libraries](all/dotnet.md)
 {% include dotnet-packages.html %}
-
-*This is the list of all our new .NET Azure SDK libraries for a more complete list of libraries see [this table](all/dotnet.md)*
 
 ## [Java packages](java.md)
 
 {% assign packages = site.data.releases.latest.java-packages %}
+New Libraries | [All Libraries](all/java.md)
 {% include java-packages.html %}
-
-*This is the list of all our new Java Azure SDK libraries for a more complete list of libraries see [this table](all/java.md)*
 
 ## [JavaScript packages](js.md)
 
 {% assign packages = site.data.releases.latest.js-packages %}
+New Libraries | [All Libraries](all/js.md)
 {% include js-packages.html %}
-
-*This is the list of all our new JavaScript Azure SDK libraries for a more complete list of libraries see [this table](all/js.md)*
 
 ## [Python packages](python.md)
 
 {% assign packages = site.data.releases.latest.python-packages %}
+New Libraries | [All Libraries](all/python.md)
 {% include python-packages.html %}
-
-*This is the list of all our new Python Azure SDK libraries for a more complete list of libraries see [this table](all/python.md)*
-
