@@ -7,7 +7,9 @@ sidebar: releases_sidebar
 # .NET Packages
 
 {% assign packages = site.data.releases.latest.dotnet-packages %}
+
 New Libraries | [All Libraries](all/dotnet.md)
+
 {% include dotnet-packages.html %}
 
 {% include refs.md %}

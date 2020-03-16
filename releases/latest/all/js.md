@@ -10,7 +10,8 @@ sidebar: releases_sidebar
 {% assign packages = site.data.allpackages.js-packages %}
 
 There are {{ packages.size }} total Azure library packages published to npm from the [azure-sdk account](https://www.npmjs.com/~azure-sdk).
-[New Libraries](../latest/js.md) | All Libraries
+
+[New Libraries](../js.md) | All Libraries
 
 {% include js-allpackages.html %}
 
