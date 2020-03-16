@@ -47,7 +47,7 @@ To install any of our packages, please search for them via `Manage NuGet Package
 
     $> dotnet add package Azure.Storage.Blobs
     $> dotnet add package Azure.Storage.Blobs.Batch
-    $> dotnet add package Azure.Storage.Files.DataLake --version 12.0.0-preview.9
+    $> dotnet add package Azure.Storage.Files.DataLake
     $> dotnet add package Azure.Storage.Files.Shares
     $> dotnet add package Azure.Storage.Queues
 
@@ -102,6 +102,13 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - Initial preview of the Azure.Search client library enabling you to query and
   update documents in search indexes.
+
+### Azure Storage
+
+#### Files DataLake [Changelog](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/)
+
+- This library is now Generally Available.
+
 
 ## Latest Releases
 
