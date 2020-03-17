@@ -219,6 +219,13 @@ public readonly struct EncryptionAlgorithm : IEquatable<EncryptionAlgorithm>
 }
 ```
 
+## Client builder extensions
+
+All Azure client libraries ship with a set of extension methods that provide integration with ASP.NET Core applications.
+
+
+
+
 <!-- Links -->
 
 {% include refs.md %}
