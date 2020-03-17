@@ -5,7 +5,7 @@ folder: policies
 sidebar: general_sidebar
 ---
 
-Whilst the Azure SDK is considered a unified set of libraries, each group of libraries ships on a seperate cadence with varying levels of change as dictated by the needs of the service that those libraries support.
+Whilst the Azure SDK is considered a unified set of libraries, each group of libraries ships on a separate cadence with varying levels of change as dictated by the needs of the service that those libraries support.
 
 # Pipeline per "Service"
 
