@@ -19,7 +19,7 @@ In order to help reduce the clutter of branches in the main repo as well as to e
 
 ## Feature branches
 
-For isolated work people should create branches off master and keep them in their local or forked repostory. The name for these branches is up to the individual working on the changes and doesn't need to match the `feature` naming scheme but instead should match what the set of changes people are making. Once the work is ready the changes should be rebased on top of master and a pull request should be submitted to the main repository.
+For isolated work people should create branches off master and keep them in their local or forked repository. The name for these branches is up to the individual working on the changes and doesn't need to match the `feature` naming scheme but instead should match what the set of changes people are making. Once the work is ready the changes should be rebased on top of master and a pull request should be submitted to the main repository.
 
 If there are a set of people that need to collaborate on the same set of changes before they can go into master then a feature branch can be pushed to the main repository for sharing. Collaborators can either work together to push changes to that branch or submit pull requests against it until it is ready to go to master. Once the feature work is ready the changes should be rebased on top of master and a pull request submitted to the master branch in the main repository. Once the feature work pull request is complete then the branch should be deleted from the main repository.
 
@@ -46,11 +46,11 @@ When doing any releases outside of master extra caution needs to be taken to ens
 
 ## Hotfix branches
 
-Under some circumstances we may need to service a specific version of the code with a hotfix and in these cases we should create a branch with the name `hotfix/<hotfix name>`, where `<hotfix name>` should have at least the name of the package or service and a short decription or version number with it. That branch should be created from the git release tag that points at the specific version we want to hotfix and pushed to the main repository.
+Under some circumstances we may need to service a specific version of the code with a hotfix and in these cases we should create a branch with the name `hotfix/<hotfix name>`, where `<hotfix name>` should have at least the name of the package or service and a short description or version number with it. That branch should be created from the git release tag that points at the specific version we want to hotfix and pushed to the main repository.
 
 ```
-git checkout -b hotifx/<hotfix name> <package-name>_<package-version>
-git push upstream hotifx/<hotfix name>
+git checkout -b hotfix/<hotfix name> <package-name>_<package-version>
+git push upstream hotfix/<hotfix name>
 ```
 
 After you have the main hotfix branch created you should use your usual workflow (i.e. create another branch or work on the same named branch in your fork) and the changes should be made and the version number incremented based on our [versioning guidance](releases.md#package-versioning) for the package. If the fixes are already made in master or another branch you can cherry-pick (`git cherry-pick <sha>`) them into your working branch, otherwise make the code edits as needed. Once all the changes are ready submit a PR against the `hotfix/<hotfix name>` branch you created in the main repo. PR validation should kick in automatically as long as the branch follows the `hotfix/*` naming convention. Once CI is green then the fix can be merged into the `hotfix/<hotfix name>` branch. 
