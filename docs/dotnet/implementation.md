@@ -233,6 +233,31 @@ All Azure client libraries ship with a set of extension methods that provide int
 
 {% include requirement/MUST id="dotnet-client-builder-overloads" %} provide an overload for every set of constructor parameters.
 
+{% include requirement/MUST id="dotnet-client-builder-overload-normal" %} provide extension method for `IAzureClientFactoryBuilder` interface for constructors that take `TokenCredentials`. Extension method should take same set of parameters as constructor and call into `builder.RegisterClientFactory`
+
+Sample implementation:
+
+``` C#
+public static IAzureClientBuilder<ConfigurationClient, ConfigurationClientOptions> AddConfigurationClient<TBuilder>(this TBuilder builder, string connectionString)
+            where TBuilder : IAzureClientFactoryBuilder
+{
+    return builder.RegisterClientFactory<ConfigurationClient, ConfigurationClientOptions>(options => new ConfigurationClient(connectionString, options));
+}
+```
+
+{% include requirement/MUST id="dotnet-client-builder-overload-tokencredential" %} provide extension method for `IAzureClientFactoryBuilderWithCredential` internface for constructors that take `TokenCredentials`. Extension method should take same set of parameters as constructor except the `TokenCredential` and call into `builder.RegisterClientFactory` overload that provides the token credential as part of construction lambda.
+
+
+Sample implementation:
+
+```
+  public static IAzureClientBuilder<SecretClient, SecretClientOptions> AddSecretClient<TBuilder>(this TBuilder builder, Uri vaultUri)
+            where TBuilder : IAzureClientFactoryBuilderWithCredential
+        {
+            return builder.RegisterClientFactory<SecretClient, SecretClientOptions>((options, cred) => new SecretClient(vaultUri, cred, options));
+        }
+```
+
 <!-- Links -->
 
 {% include refs.md %}
