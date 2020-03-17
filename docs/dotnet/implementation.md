@@ -250,7 +250,7 @@ public static IAzureClientBuilder<ConfigurationClient, ConfigurationClientOption
 
 Sample implementation:
 
-```
+``` C#
 public static IAzureClientBuilder<SecretClient, SecretClientOptions> AddSecretClient<TBuilder>(this TBuilder builder, Uri vaultUri)
      where TBuilder : IAzureClientFactoryBuilderWithCredential
 {
@@ -261,7 +261,7 @@ public static IAzureClientBuilder<SecretClient, SecretClientOptions> AddSecretCl
 {% include requirement/MUST id="dotnet-client-builder-overload-configuration" %} provide extension method for `IAzureClientFactoryBuilderWithConfiguration<TConfiguration>` that takes `TConfiguration configuration`.
 
 Sample implementation:
-```
+``` C#
 public static IAzureClientBuilder<SecretClient, SecretClientOptions> AddSecretClient<TBuilder, TConfiguration>(this TBuilder builder, TConfiguration configuration)
     where TBuilder : IAzureClientFactoryBuilderWithConfiguration<TConfiguration>
 {
