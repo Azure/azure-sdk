@@ -239,7 +239,7 @@ Sample implementation:
 
 ``` C#
 public static IAzureClientBuilder<ConfigurationClient, ConfigurationClientOptions> AddConfigurationClient<TBuilder>(this TBuilder builder, string connectionString)
-            where TBuilder : IAzureClientFactoryBuilder
+    where TBuilder : IAzureClientFactoryBuilder
 {
     return builder.RegisterClientFactory<ConfigurationClient, ConfigurationClientOptions>(options => new ConfigurationClient(connectionString, options));
 }
@@ -251,11 +251,22 @@ public static IAzureClientBuilder<ConfigurationClient, ConfigurationClientOption
 Sample implementation:
 
 ```
-  public static IAzureClientBuilder<SecretClient, SecretClientOptions> AddSecretClient<TBuilder>(this TBuilder builder, Uri vaultUri)
-            where TBuilder : IAzureClientFactoryBuilderWithCredential
-        {
-            return builder.RegisterClientFactory<SecretClient, SecretClientOptions>((options, cred) => new SecretClient(vaultUri, cred, options));
-        }
+public static IAzureClientBuilder<SecretClient, SecretClientOptions> AddSecretClient<TBuilder>(this TBuilder builder, Uri vaultUri)
+     where TBuilder : IAzureClientFactoryBuilderWithCredential
+{
+    return builder.RegisterClientFactory<SecretClient, SecretClientOptions>((options, cred) => new SecretClient(vaultUri, cred, options));
+}
+```
+
+{% include requirement/MUST id="dotnet-client-builder-overload-configuration" %} provide extension method for `IAzureClientFactoryBuilderWithConfiguration<TConfiguration>` that takes `TConfiguration configuration`.
+
+Sample implementation:
+```
+public static IAzureClientBuilder<SecretClient, SecretClientOptions> AddSecretClient<TBuilder, TConfiguration>(this TBuilder builder, TConfiguration configuration)
+    where TBuilder : IAzureClientFactoryBuilderWithConfiguration<TConfiguration>
+{
+    return builder.RegisterClientFactory<SecretClient, SecretClientOptions>(configuration);
+}
 ```
 
 <!-- Links -->
