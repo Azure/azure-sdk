@@ -245,7 +245,7 @@ public static IAzureClientBuilder<ConfigurationClient, ConfigurationClientOption
 }
 ```
 
-{% include requirement/MUST id="dotnet-client-builder-overload-tokencredential" %} provide extension method for `IAzureClientFactoryBuilderWithCredential` internface for constructors that take `TokenCredentials`. Extension method should take same set of parameters as constructor except the `TokenCredential` and call into `builder.RegisterClientFactory` overload that provides the token credential as part of factory lambda.
+{% include requirement/MUST id="dotnet-client-builder-overload-tokencredential" %} provide extension method for `IAzureClientFactoryBuilderWithCredential` internface for constructors that take `TokenCredentials`. Extension method should take same set of parameters as constructor except the `TokenCredential` and call into `builder.RegisterClientFactory` overload that provides the token credential as part of factory lambda. 
 
 Sample implementation:
 
@@ -257,7 +257,7 @@ public static IAzureClientBuilder<SecretClient, SecretClientOptions> AddSecretCl
 }
 ```
 
-{% include requirement/MUST id="dotnet-client-builder-overload-configuration" %} provide extension method for `IAzureClientFactoryBuilderWithConfiguration<TConfiguration>` that takes `TConfiguration configuration`.
+{% include requirement/MUST id="dotnet-client-builder-overload-configuration" %} provide extension method for `IAzureClientFactoryBuilderWithConfiguration<TConfiguration>` that takes `TConfiguration configuration`. This overload would allow customers to pass in a `IConfiguration` object and create client dynamically based on configuration values.
 
 Sample implementation:
 ``` C#
