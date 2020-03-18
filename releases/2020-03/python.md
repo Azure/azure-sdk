@@ -15,6 +15,7 @@ This release includes the following:
 
 - Key Vault
 - Event Hubs
+- Storage DataLake
 
 #### Preview
 
@@ -90,6 +91,10 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 
 ### Search
 - (Preview) Initial release of Python SDK for Azure Cognitive Search
+
+### Storage File DataLake ([Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-storage-file-datalake_12.0.0/sdk/storage/azure-storage-file-datalake/CHANGELOG.md))
+- Added `set_file_system_access_policy` and `get_file_system_access_policy` APIs on `FileSystemClient`
+- Added `upload_data` API on `DataLakeFileClient` to support bulk upload.
 
 ## Latest Releases
 
