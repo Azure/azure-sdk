@@ -219,15 +219,15 @@ public readonly struct EncryptionAlgorithm : IEquatable<EncryptionAlgorithm>
 }
 ```
 
-## Client builder extensions
+## ASP.NET Core Integration
 
-All Azure client libraries ship with a set of extension methods that provide integration with ASP.NET Core applications by registering clients with DependencyInjection container, flowing Azure SDK logs to ASP.NET Core logging subsystem and providing ability to use configuration subsystem for client configuration (for more examplese see https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/core/Microsoft.Extensions.Azure)
+All Azure client libraries ship with a set of extension methods that provide integration with ASP.NET Core applications by registering clients with DependencyInjection container, flowing Azure SDK logs to ASP.NET Core logging subsystem and providing ability to use configuration subsystem for client configuration (for more examples see https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/core/Microsoft.Extensions.Azure)
 
-{% include requirement/MUST id="dotnet-builder-class-name" %} provide a single `*ClientBuilderExtensions` class for every Azure SDK client library that contains client types. Name of the type should consist of last part of library name with `ClientBuilderExtensions` suffix added. For example: `SecretClientBuilderExtensions`, `BlobClientBuilderExtensions`
+{% include requirement/MUST id="dotnet-builder-class-name" %} provide a single `*ClientBuilderExtensions` class for every Azure SDK client library that contains client types. Name of the type should use the same prefix as the `*ClientOptions` class used across the library. For example: `SecretClientBuilderExtensions`, `BlobClientBuilderExtensions`
 
 {% include requirement/MUST id="dotnet-client-builder-class-namespace" %} use `Microsoft.Extensions.Azure` as a namespace.
 
-{% include requirement/MUST id="dotnet-client-builder-class-service-client" %} only provide overloads for the `*ServiceClient` if library ships one or for every client in assembly otherwise.
+{% include requirement/MUST id="dotnet-client-builder-class-service-client" %} provide integration extension methods for every top level client type users are expected to start with in the main namespace. Do not include integration extension methods for secondary clients, child clients, or clients in advanced namespaces.
 
 {% include requirement/MUST id="dotnet-client-builder-extension-name" %} name extension methods as `Add[ClientName]` for example. Add `AddSecretsClient`, `AddBlobServiceClient`.
 
