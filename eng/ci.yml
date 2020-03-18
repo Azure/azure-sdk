@@ -30,7 +30,7 @@ steps:
     docker run --net=host --rm linkchecker/linkchecker
     "http://localhost:4000/index.html"
     --anchors
-    --no-robots --no-status --check-extern
+    --no-robots --no-status
     --no-follow-url "https://azure.github.io/azure-sdk-for-*"
     --no-follow-url "http://localhost:4000/releases/latest/all/*"
     --ignore-url "https://github.com/Azure/azure-sdk-pr"
