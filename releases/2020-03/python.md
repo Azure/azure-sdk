@@ -15,6 +15,7 @@ This release includes the following:
 
 - Key Vault
 - Event Hubs
+- Storage DataLake
 
 #### Preview
 
@@ -69,27 +70,17 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 - Pass `"none"` into `country_hint` to not use the default of `"US"` for the `detect_language` method
 - Parameters `country_hint` and `language` are now passed as keyword arguments
 
-
-### Azure Storage
-
-#### Blob [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md)
-
-- `StorageUserAgentPolicy` now replaced with `UserAgentPolicy` from azure-core.
-
-#### File Share [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/CHANGELOG.md)
-
-- `StorageUserAgentPolicy` now replaced with `UserAgentPolicy` from azure-core.
-
-#### File Datalake [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md)
-
-- This library is now Generally Available.
-- There have been some breaking changes in the APIs which you can explore in the changelog.
-
 ### Identity
 - (Preview) `DefaultAzureCredential` can authenticate with the identity logged in to the Azure CLI.
 
 ### Search
 - (Preview) Initial release of Python SDK for Azure Cognitive Search
+
+### Storage File Datalake [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md)
+- This library is now Generally Available.
+- Added `set_file_system_access_policy` and `get_file_system_access_policy` APIs on `FileSystemClient`
+- Added `upload_data` API on `DataLakeFileClient` to support bulk upload.
+- There have been some breaking changes in the APIs which you can explore in the changelog.
 
 ## Latest Releases
 
