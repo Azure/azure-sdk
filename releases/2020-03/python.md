@@ -17,6 +17,7 @@ This release includes the following:
 #### Preview
 
 Text Analytics
+Identity
 
 
 ## Installation Instructions
@@ -34,7 +35,7 @@ pip install azure-storage-queue
 pip install azure-keyvault-certificates
 pip install azure-keyvault-keys
 pip install azure-keyvault-secrets
-pip install azure-identity
+pip install --pre azure-identity
 pip install --pre azure-ai-textanalytics
 ```
 
@@ -50,6 +51,9 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 
 - Pass `"none"` into `country_hint` to not use the default of `"US"` for the `detect_language` method
 - Parameters `country_hint` and `language` are now passed as keyword arguments
+
+### Identity
+- (Preview) `DefaultAzureCredential` can authenticate with the identity logged in to the Azure CLI.
 
 ## Latest Releases
 
