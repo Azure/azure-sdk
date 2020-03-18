@@ -18,6 +18,7 @@ This release includes the following:
 
 Text Analytics
 Identity
+Search
 
 
 ## Installation Instructions
@@ -37,6 +38,7 @@ pip install azure-keyvault-keys
 pip install azure-keyvault-secrets
 pip install --pre azure-identity
 pip install --pre azure-ai-textanalytics
+pip install --pre azure-search
 ```
 
 ## Feedback
@@ -54,6 +56,9 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 
 ### Identity
 - (Preview) `DefaultAzureCredential` can authenticate with the identity logged in to the Azure CLI.
+
+### Search
+- (Preview) Initial release of Python SDK for Azure Cognitive Search
 
 ## Latest Releases
 
