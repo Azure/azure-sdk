@@ -16,7 +16,7 @@ The Azure SDK team is pleased to announce our March 2020 client library releases
 #### Updates
 
 - Core
-- Key Vault (Keys, Secrets)
+- Key Vault (Certificates, Keys, Secrets)
 - Storage (Blobs, Blobs Batch, Queues, File Shares, DataLake)
 
 #### Preview
@@ -60,12 +60,12 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
+### Azure Core
 
 - Add OPTIONS and TRACE HTTP request methods.
 - Add `NetworkTimeout` property to `RetryOptions` and apply it to network operations like sending request or reading from the response stream.
 - Implement serialization for RequestFailedException.
 
-<!--TODO -->
 ### Azure Identity [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/identity/Azure.Identity/CHANGELOG.md#120-preview1)
 
 - Updating `DefaultAzureCredential` to enable authenticating through the Azure CLI
