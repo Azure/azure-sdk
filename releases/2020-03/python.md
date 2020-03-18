@@ -13,13 +13,14 @@ This release includes the following:
 
 #### GA
 
-Event Hubs
+- Key Vault
+- Event Hubs
 
 #### Preview
 
-Text Analytics
-Identity
-Search
+- Text Analytics
+- Identity
+- Search
 
 
 ## Installation Instructions
@@ -51,6 +52,10 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 Detailed change logs are linked to in the Quick Links below. Here are some critical call outs.
 
+### Key Vault
+
+- Sockets opened by a client can be closed by calling the client's `close` method, or using the client as a context manager
+
 ### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/CHANGELOG.md#501-2020-03-09)
 - Fixed a bug that swallowed errors when receiving events with azure.eventhub.EventHubConsumerClient #9660
 - Fixed a bug that caused get_eventhub_properties, get_partition_ids, and get_partition_properties to raise an error on Azure Stack #9920
@@ -58,7 +63,6 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 ### Event Hubs CheckpointStoreBlob [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/CHANGELOG.md#110-2020-03-09)
 
 - Param api_version of BlobCheckpointStore now supports older versions of Azure Storage Service API.
-
 
 ### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#change-log-azure-ai-textanalytics)
 
