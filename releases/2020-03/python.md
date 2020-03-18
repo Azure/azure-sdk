@@ -17,6 +17,7 @@ This release includes the following:
 #### Preview
 
 Text Analytics
+Identity
 
 
 ## Installation Instructions
@@ -34,7 +35,7 @@ pip install azure-storage-queue
 pip install azure-keyvault-certificates
 pip install azure-keyvault-keys
 pip install azure-keyvault-secrets
-pip install azure-identity
+pip install --pre azure-identity
 pip install --pre azure-ai-textanalytics
 ```
 
@@ -49,6 +50,14 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 ### Key Vault
 
 - Sockets opened by a client can be closed by calling the client's `close` method, or using the client as a context manager
+
+### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#change-log-azure-ai-textanalytics)
+
+- Pass `"none"` into `country_hint` to not use the default of `"US"` for the `detect_language` method
+- Parameters `country_hint` and `language` are now passed as keyword arguments
+
+### Identity
+- (Preview) `DefaultAzureCredential` can authenticate with the identity logged in to the Azure CLI.
 
 ## Latest Releases
 
