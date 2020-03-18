@@ -115,7 +115,7 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <artifactId>azure-storage-queue</artifactId>
   <version>12.4.0</version>
 </dependency>
-  
+
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-core-tracing-opentelemetry</artifactId>
@@ -192,17 +192,24 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Support for autocomplete, search, and suggestion operations on `Document`s.
 - Support for the resource operations on `Indexes`, `Indexers`, `Skillsets`, and `Synonyms`.
 
-### Storage Blobs ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob_12.5.0/sdk/storage/azure-storage-blob/CHANGELOG.md))
+### Azure Storage
 
-### Storage Blobs Batch ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob-batch_12.4.0/sdk/storage/azure-storage-blob-batch/CHANGELOG.md))
+#### Files DataLake ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-file-datalake_12.0.1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md))
 
-### Storage Blobs Cryptography ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob-cryptography_12.5.0/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md))
+- This library is now Generally Available.
 
-### Storage Files DataLake ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-file-datalake_12.0.1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md))
+#### Blobs ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob_12.5.0/sdk/storage/azure-storage-blob/CHANGELOG.md))
 
-### Storage Files Shares ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-file-share_12.3.0/sdk/storage/azure-storage-file-share/CHANGELOG.md))
+- Added logic to ReliableDownload to retry TimeoutException.
+- Added default timeout to download stream to timeout if certain amount of time passes without seeing any data.
 
-### Storage Queues ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-queue_12.4.0/sdk/storage/azure-storage-queue/CHANGELOG.md))
+#### Blobs Batch ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob-batch_12.4.0/sdk/storage/azure-storage-blob-batch/CHANGELOG.md))
+
+- Fixed bug where AAD authorization would fail.
+
+#### Blobs Cryptography ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob-cryptography_12.5.0/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md))
+
+- Added support for specifying customer provided key.
 
 ### Text Analytics ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_1.0.0-beta.3/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md))
 
