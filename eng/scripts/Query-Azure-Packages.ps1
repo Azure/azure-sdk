@@ -88,7 +88,7 @@ function Output-Latest-Versions($lang)
   }
 
   Write-Host "Writing $packagelistFile"
-  $packageList | Sort Service | Export-Csv -NoTypeInformation $packagelistFile
+  $packageList | Sort Service, Package | Export-Csv -NoTypeInformation $packagelistFile
 }
 
 switch($language)

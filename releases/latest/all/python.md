@@ -11,6 +11,8 @@ sidebar: releases_sidebar
 
 There are {{ packages.size }} total Azure library packages published to npm from the [azure-sdk account](https://pypi.org/user/azure-sdk/).
 
+[New Libraries](../python.md) | All Libraries
+
 {% include python-allpackages.html %}
 
 {% include refs.md %}

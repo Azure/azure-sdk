@@ -13,7 +13,11 @@ pool:
 steps:
 - pwsh: |
     ./eng/scripts/Update-Release-Versions.ps1
-  displayName: Update versions locally
+  displayName: Update new package from release tags
+
+- pwsh: |
+    ./eng/scripts/Query-Azure-Packages.ps1
+  displayName: Update packages from package manager
 
 - pwsh: |
     echo "git diff --exit-code"

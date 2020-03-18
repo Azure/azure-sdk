@@ -30,7 +30,7 @@ Remember that **all changes** to an API must be approved by the language archite
 
 ### Previewing API changes
 
-It is expected that API changes are released in preview or RC (release candidate) for a period of time before they are released as GA.  This gives customers time to provide feedback which could result in adjustments to the API before it GAs.  API changes that go straight to GA do not benefit from this feedback which can result in them being difficult for customers to use and for us to support.  In most circumstances, API changes going through either the full or abreviated review process should be previewed (or RC) before GA.
+It is expected that API changes are released in preview or RC (release candidate) for a period of time before they are released as GA.  This gives customers time to provide feedback which could result in adjustments to the API before it GAs.  API changes that go straight to GA do not benefit from this feedback which can result in them being difficult for customers to use and for us to support.  In most circumstances, API changes going through either the full or abbreviated review process should be previewed (or RC) before GA.
 
 ### Tracking API changes that need to be reviewed
 

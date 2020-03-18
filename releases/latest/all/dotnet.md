@@ -10,6 +10,8 @@ sidebar: releases_sidebar
 
 There are {{ packages.size }} total Azure library packages published to nuget from the [azure-sdk account](https://www.nuget.org/profiles/azure-sdk).
 
+[New Libraries](../dotnet.md) | All Libraries
+
 {% include dotnet-allpackages.html %}
 
 {% include refs.md %}
