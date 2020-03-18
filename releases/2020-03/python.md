@@ -55,6 +55,9 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 ### Identity
 - (Preview) `DefaultAzureCredential` can authenticate with the identity logged in to the Azure CLI.
 
+### Search
+- (Preview) Initial release of Python SDK for Azure Cognitive Search
+
 ## Latest Releases
 
 {% assign packages = site.data.releases.latest.python-packages %}
