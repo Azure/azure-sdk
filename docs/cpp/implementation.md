@@ -49,7 +49,7 @@ Use the appropriate options for each compiler to prevent the use of such extensi
 | cpp and XCode            | `-Wall -Wextra`  |
 | MSVC                     | `/W4`            |
 
-hen configuring your client library, particular care must be taken to ensure that the consumer of your client library can properly configure the connectivity to your Azure service both globally (along with other client libraries the consumer is using) and specifically with your client library.
+When configuring your client library, particular care must be taken to ensure that the consumer of your client library can properly configure the connectivity to your Azure service both globally (along with other client libraries the consumer is using) and specifically with your client library.
 
 ### Client configuration
 
@@ -169,7 +169,7 @@ dependency.
 - **Size** - Consumer applications must be able to deploy as fast as possible into the cloud and move in various ways across networks. Removing additional code (like dependencies) improves deployment performance.
 - **Licensing** - You must be conscious of the licensing restrictions of a dependency and often provide proper attribution and notices when using them.
 - **Compatibility** - Often times you do not control a dependency and it may choose to evolve in a direction that is incompatible with your original use.
-- **Security** - If a security vulnerability is discovered in a dependency, it may be difficult ortime consuming to get the vulnerability corrected if Microsoft does not control the dependencys code base.
+- **Security** - If a security vulnerability is discovered in a dependency, it may be difficult or time consuming to get the vulnerability corrected if Microsoft does not control the dependencies code base.
 
 {% include requirement/MUST id="cpp-dependencies-stdlibcpp" %} use the [C++ standard library](https://en.cppreference.com/w/).
 
@@ -185,7 +185,7 @@ dependency.
 
 ### C and C++ language specifics
 
-Unlike many other programming languages, which have large runtimes, the C++ standard runtime is limited in functionality and scope. The standard library covers areas such as memory and string manipulation, sandard input/output, floating point and others. However, many of the features required for modern applications and services; e.g. those required for networking and advanced memory management are not part of the standard library. Instead, many of those features are included in open source C++ libraries that are also cross-platform with good support for Windows, OSX and most Linux platforms. Because of that support and because Azure SDK implementations will need such functionality, it is expected that client libraries will take dependencies on these libraries.  Ensure the version matches to allow for compatibility when an application integrates multiple client libraries.
+Unlike many other programming languages, which have large runtimes, the C++ standard runtime is limited in functionality and scope. The standard library covers areas such as memory and string manipulation, standard input/output, floating point and others. However, many of the features required for modern applications and services; e.g. those required for networking and advanced memory management are not part of the standard library. Instead, many of those features are included in open source C++ libraries that are also cross-platform with good support for Windows, OSX and most Linux platforms. Because of that support and because Azure SDK implementations will need such functionality, it is expected that client libraries will take dependencies on these libraries.  Ensure the version matches to allow for compatibility when an application integrates multiple client libraries.
 
 {% include requirement/MUST id="cpp-approved-dependencies" %} utilize the following libraries as needed for commonly required operations:
 

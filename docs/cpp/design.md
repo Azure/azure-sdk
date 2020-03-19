@@ -67,7 +67,7 @@ Here are some namespaces that do not meet the guidelines:
 
 {% include requirement/MUST id="cpp-design-naming-lowercase" %} use lower-case for all variable, function, and struct names.
 
-{% include requirement/MUST id="cpp-design-naming-underbar" %} use underscores (`_`) to separate name components (commonly refered to as snake-casing).
+{% include requirement/MUST id="cpp-design-naming-underbar" %} use underscores (`_`) to separate name components (commonly referred to as snake-casing).
 
 {% include requirement/MUST id="cpp-design-naming-internal" %} use a single leading underscore to indicate that a name is not part of the public API and is not guaranteed to be stable.
 
@@ -361,7 +361,7 @@ namespace {
 
 {% include requirement/MUST id="cpp-design-naming-macros1" %} name macros with upper-case snake-casing.
 
-{% include requirement/MUST id="cpp-design-naming-macro-params" %} wrap the macro expression in parentheses.  This avoids potential communitive operation ambiguity.
+{% include requirement/MUST id="cpp-design-naming-macro-params" %} wrap the macro expression in parentheses.  This avoids potential commutative operation ambiguity.
 
 {% include requirement/MUST id="cpp-design-naming-macros-form" %} prepend macro names with `AZ_<SVCNAME>` to make macros unique.
 
