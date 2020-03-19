@@ -7,13 +7,12 @@ repository: azure/azure-sdk
 ---
 
 Todays topic is diagnostics with Python applications.  I have a fairly complex
-application, and something is going wrong.  As always, when learning a new
-technology, I simplify the application so I can see what is going on.  
+application, and something is going wrong.  Azure provides a capability within
+Azure Monitor called transaction monitoring that tracks a transaction (such as 
+an API call) from your application all the way through to the service that fulfills 
+the request.  This is powered by OpenTelemetry, a distributed tracing framework.
 
-We're actively soliciting feedback on distributed tracing, so let us know what
-you think of this functionality.
-
-Here is a really simple application:
+As always, when learning a new technology, I simplify the application so I can see what is going on.  Here is a really simple application:
 
 {% highlight python %}
 import os
@@ -61,10 +60,10 @@ az storage account create \
 az ad sp create-for-rbac \
   --name http://pythondemoapp03242020 \
   --role "Storage Blob Data Contributor" \
-  --scopes /subscriptions/<SUBSCRIPTION>/resourceGroups/python-demoapp/providers/Microsoft.Storage/storageAccounts/pythondemoapp03242020
+  --scopes /subscriptions/<SUBSCRIPTION>/resourceGroups/python-demoapp
 {% endhighlight %}
 
-Replace `SUBSCRIPTION` with your Subscription ID. You can use the `az account show` command to see the subscription.  You can then set some environment variables based on the output:
+The storage account name must be unique across Azure, so pick a good name!  Replace `SUBSCRIPTION` with your Subscription ID. You can use the `az account show` command to see the subscription.  You can then set some environment variables based on the output:
 
 {% highlight bash %}
 export AZURE_TENANT_ID="<create-for-rbac output tenant>"
@@ -227,5 +226,7 @@ Run your code.  You can now view the application map, along with all the resourc
 From this application map, you can see that two HTTP calls happened to the storage resource, and one call to the Azure AD resource.  You can see the average time they took.  From here, you can dive in deeper to performance problems in your application.
 
 ## Want to hear more?
+
+What do you think of distributed tracing?  We're actively soliciting your feedback on this feature, so let us know!
 
 Follow us on [Twitter at @AzureSDK](https://twitter.com/AzureSDK).  We'll be covering more best practices in cloud-native development as well as providing updates on our progress in developing the next generation of Azure SDK. 
