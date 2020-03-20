@@ -44,7 +44,7 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 
 [Internal azure-sdk DevOps Wiki](https://aka.ms/azure-sdk-devops-wiki)
 
-[![Github.io linkchecker](https://dev.azure.com/azure-sdk/internal/_apis/build/status/util/github.io%20-%20linkchecker?branchName=master)](https://dev.azure.com/azure-sdk/internal/_build/latest?definitionId=1620&branchName=master)
+[![Github.io linkchecker](https://img.shields.io/azure-devops/build/azure-sdk/internal/1620?label=github.io%20linkchecker)](https://dev.azure.com/azure-sdk/internal/_build/latest?definitionId=1620&branchName=master)
 
 [General Design Guidelines]: https://azure.github.io/azure-sdk/general_introduction.html
 [Design Guidelines for Android]: https://azure.github.io/azure-sdk/android_introduction.html
