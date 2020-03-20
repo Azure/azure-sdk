@@ -3,6 +3,7 @@ title: Enabling distributed tracing with the Azure SDK for Python
 layout: post
 date: 24 Mar 2020
 sidebar: releases_sidebar
+author_github: adrianhall
 repository: azure/azure-sdk
 ---
 
@@ -20,21 +21,21 @@ from azure.identity import DefaultAzureCredential
 from azure.core.exceptions import ResourceExistsError
 from azure.storage.blob import BlobServiceClient
 
-def upload_to(url, container, blob):
+def upload_to(account_url, container_name, blob_name):
   # Create a client for this request
-  client = BlobServiceClient(account_url=url,credential=DefaultAzureCredential())
+  client = BlobServiceClient(account_url, credential=DefaultAzureCredential())
 
   # Create a client for the named container
-  container_client = client.get_container_client(container)
+  container_client = client.get_container_client(container_name)
   try:
     container_client.create_container()
     print("Container created")
   except ResourceExistsError:
     print("Container already exists (ignored).")
 
-  # Create a client for the named blob
-  blob_client = container_client.get_blob_client(blob)
-  with open(blob, "rb") as data:
+  # Create a client for the named blob and upload data
+  blob_client = container_client.get_blob_client(blob_name)
+  with open(blob_name, "rb") as data:
     blob_client.upload_blob(data, overwrite=True)
 
 # Upload main.py to the container
@@ -44,8 +45,9 @@ upload_to(storage_url, "demo", "main.py")
 
 This simple console application creates a container within the storage account,
 then uploads the `main.py` file (which contains the source code to the app) as
-a block blob.  To support this, I've created a resource group, a storage account,
-and a service principal with permissions to access the storage account.
+a blob.  To support this, I've created a resource group, a storage account,
+and a service principal with permissions to access the storage account using 
+the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 
 {% highlight bash %}
 az group create \
@@ -92,15 +94,18 @@ This will print the request and response.  Information that may have PII is reda
 
 When you are looking at why a particular network operation is slow, logging alone won't help you.  You need to be able to trace the entire request from beginning to end, including "across the wire" to the service.  Consider a typical application has the application, a piece of middleware that implements a REST or GraphQL endpoint, and then a database connection.  Which bit of the infrastructure is slow gets really complicated.  As the infrastructure becomes more complex, so does the difficulty of figuring out which piece of the infrastructure is having issues.
 
-Enter [OpenTelemetry](https://opentelemetry.io/).  OpenTelemetry is an open standard that allows you to trace requests across your infrastructure. It passes headers between the various components to move the request ID through the system.  Let's start by instrumenting the application.  First,
-we need some libraries:
+Enter [OpenTelemetry](https://opentelemetry.io/).  OpenTelemetry is an open standard that allows you to trace requests across your infrastructure. It passes headers between the various components to move the request ID through the system.  Let's start by instrumenting the application. 
+
+> Before you use preview packages, create and activate a [virtual environment](https://docs.python.org/3/tutorial/venv.html) for your work.
+
+First, we need some libraries:
 
 {% highlight bash %}
 pip install opentelemetry-api==0.4a0
 pip install opentelemetry-sdk==0.4a0
 {% endhighlight %}
 
-> **NOTE** We are pinning the version of the OpenTelemetry SDK here so that the instructions work properly.  The API for OpenTelemetry is changing, so make sure you follow the appropriate instructions.
+> **NOTE** We are pinning the version of the OpenTelemetry SDK here so that the instructions work properly.  The API for OpenTelemetry is changing, so make sure you follow the appropriate instructions.  You can [find the documentation for this version on GitHub](https://github.com/open-telemetry/opentelemetry-python/tree/v0.4a.x/docs).
 
 Then, let's update the app to support basic tracing:
 
@@ -124,13 +129,13 @@ trace.tracer_source().add_span_processor(
 )
 tracer = trace.get_tracer(__name__)
 
-def upload_to(url, container, blob):
+def upload_to(account_url, container_name, blob_name):
   with tracer.start_as_current_span("upload_to"):
     # Create a client for this request
-    client = BlobServiceClient(account_url=url,credential=DefaultAzureCredential())
+    client = BlobServiceClient(account_ur, credential=DefaultAzureCredential())
 
     # Create a client for the named container
-    container_client = client.get_container_client(container)
+    container_client = client.get_container_client(container_name)
     try:
       container_client.create_container()
       print("Container created")
@@ -138,8 +143,8 @@ def upload_to(url, container, blob):
       print("Container already exists (ignored).")
 
     # Create a client for the named blob
-    blob_client = container_client.get_blob_client(blob)
-    with open(blob, "rb") as data:
+    blob_client = container_client.get_blob_client(blob_name)
+    with open(blob_name, "rb") as data:
       blob_client.upload_blob(data, overwrite=True)
 
 # Upload main.py to the container
@@ -148,7 +153,9 @@ with tracer.start_as_current_span("mainapp"):
   upload_to(storage_url, "demo", "main.py")
 {% endhighlight %}
 
-First, you need to decide where you are going to put the trace information you collect.  This is known as an Exporter.  There are several good ones (and we'll get onto that in a moment), but, for now, we are just using dump to the console.  We can then configure the rest of the OpenTelemetry system.  OpenTelemetry is in beta right now, so ensure you check out [the sample](https://github.com/open-telemetry/opentelemetry-python/blob/master/docs/examples/basic_tracer/tracer.py) as it seems to have the latest information on how to configure tracing.
+First, you need to decide where you are going to put the trace information you collect.  This is known as an Exporter.  There are several good ones (and we'll get onto that in a moment), but, for now, we are just sending the trace information to the console.  We can then configure the rest of the OpenTelemetry system. 
+
+> The OpenTelemetry library is in preview right now, and the API is changing with new versions.  Ensure you are using an API/SDK version that is compatible with your exporter and plugins.
 
 Once you have the OpenTelemetry library configured, just wrap each of the blocks you want to group together with a `with tracer.start_as_current_span(name)`.  I've got one for the main application,
 and an inner one for the `upload_to` method.
