@@ -45,7 +45,7 @@ upload_to(storage_url, "demo", "main.py")
 This simple console application creates a container within the storage account,
 then uploads the `main.py` file (which contains the source code to the app) as
 a block blob.  To support this, I've created a resource group, a storage account,
-and a service principal with permissions to access the storage acocunt.
+and a service principal with permissions to access the storage account.
 
 {% highlight bash %}
 az group create \
@@ -151,12 +151,12 @@ with tracer.start_as_current_span("mainapp"):
 First, you need to decide where you are going to put the trace information you collect.  This is known as an Exporter.  There are several good ones (and we'll get onto that in a moment), but, for now, we are just using dump to the console.  We can then configure the rest of the OpenTelemetry system.  OpenTelemetry is in beta right now, so ensure you check out [the sample](https://github.com/open-telemetry/opentelemetry-python/blob/master/docs/examples/basic_tracer/tracer.py) as it seems to have the latest information on how to configure tracing.
 
 Once you have the OpenTelemetry library configured, just wrap each of the blocks you want to group together with a `with tracer.start_as_current_span(name)`.  I've got one for the main application,
-and an inner on for the `upload_to` method.
+and an inner one for the `upload_to` method.
 
 Running the app, this is what it looks like:
 
 {% highlight text %}
-C:\Users\adrian\github\python-opentelemetry-test> python main.py
+$ python main.py
 Container already exists (ignored).
 Span(name="upload_to", context=SpanContext(trace_id=0x55dfc91e9feb3a56df74d9add43038f2, span_id=0x8dab600f714bfb13, trace_state={}), kind=SpanKind.INTERNAL, parent=Span(name="mainapp", context=SpanContext(trace_id=0x55dfc91e9feb3a56df74d9add43038f2, span_id=0xb2a773d445c6237b, trace_state={})), start_time=2020-03-19T21:40:29.285159Z, end_time=2020-03-19T21:40:30.060733Z)Span(name="mainapp", context=SpanContext(trace_id=0x55dfc91e9feb3a56df74d9add43038f2, span_id=0xb2a773d445c6237b, trace_state={}), kind=SpanKind.INTERNAL, parent=None, start_time=2020-03-19T21:40:29.285159Z, end_time=2020-03-19T21:40:30.061730Z)
 {% endhighlight %}
@@ -172,7 +172,7 @@ preview tracing package for the Azure SDK:
 pip install azure-core-tracing-opentelemetry --pre
 {% endhighlight %}
 
-Then, dd the following three lines to the start of your application:
+Then, add the following three lines to the start of your application:
 
 {% highlight python %}
 # Configure distributed tracing in Azure SDK
