@@ -132,7 +132,7 @@ tracer = trace.get_tracer(__name__)
 def upload_to(account_url, container_name, blob_name):
   with tracer.start_as_current_span("upload_to"):
     # Create a client for this request
-    client = BlobServiceClient(account_ur, credential=DefaultAzureCredential())
+    client = BlobServiceClient(account_url, credential=DefaultAzureCredential())
 
     # Create a client for the named container
     container_client = client.get_container_client(container_name)
