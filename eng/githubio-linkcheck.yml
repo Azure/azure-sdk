@@ -1,0 +1,54 @@
+trigger: none
+pr: none
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: >
+    docker run --net=host --rm linkchecker/linkchecker "http://azure.github.io/azure-sdk/index.html"
+    --anchors
+    --check-extern
+    --threads 1
+    --pause 30
+    --no-robots --no-status
+    --no-follow-url "https://azure.github.io/azure-sdk-for-*"
+    --no-follow-url "https://azure.github.io/azure-cosmos-*"
+    --ignore-url "https://github.com/Azure/azure-sdk-pr"
+    --ignore-url "https://www.npmjs.com/package/*"
+  displayName: 'azure-sdk link check'
+  continueOnError: true
+
+- script: >
+    docker run --rm linkchecker/linkchecker "https://azure.github.io/azure-sdk-for-java/index.html"
+    --no-robots
+    --no-status
+    --check-extern
+  displayName: 'java link check'
+  continueOnError: true
+
+- script: >
+    docker run --rm linkchecker/linkchecker "https://azure.github.io/azure-sdk-for-js/index.html"
+    --no-robots
+    --no-status
+    --check-extern
+  displayName: 'js link check'
+  continueOnError: true
+
+- script: >
+    docker run --rm linkchecker/linkchecker "https://azure.github.io/azure-sdk-for-net/index.html"
+    --no-robots
+    --no-status
+    --check-extern
+  displayName: 'net link check'
+  continueOnError: true
+
+- script: >
+    docker run --rm linkchecker/linkchecker "https://azure.github.io/azure-sdk-for-python/index.html"
+    --no-robots
+    --no-status
+    --check-extern
+    --ignore-url https://azure.github.io/azure-sdk-for-python/_static/fonts/RobotoSlab/roboto-slab.eot
+    --ignore-url ../fonts/RobotoSlab/roboto-slab.eot
+  displayName: 'python link check'
+  continueOnError: true
