@@ -131,7 +131,7 @@ typedef struct az_iot_client {
 
 {% include requirement/MUST id="clang-design-naming-enum" %} use snake-casing to name enum types, and include the az_<svcname>_<shortenumname> prefix.
 
-{% include requirement/MUST id="clang-design-naming-enumerators %}
+{% include requirement/MUST id="clang-design-naming-enumerators" %}
 Name enumerators (the "members" of an enum) with ALL_CAPS and with
 the AZ_<svcname>_<shortenumname> prefix. For example:
 
