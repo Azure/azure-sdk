@@ -164,7 +164,7 @@ You can see two spans - one inside the other - with the appropriate names.
 To enable distributed tracing within the Azure SDK, you need to tell Azure Core which tracing library you are using.  There is a tracing implementation for the older OpenCensus and the newer OpenTelemetry.  You could also write your own, although that would be more work.  Install the preview tracing package for the Azure SDK:
 
 {% highlight bash %}
-pip install azure-core-tracing-opentelemetry --pre
+pip install azure-core-tracing-opentelemetry
 {% endhighlight %}
 
 Then, add the following three lines to the start of your application:
