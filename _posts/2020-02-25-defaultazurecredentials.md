@@ -3,6 +3,7 @@ title: Authentication and the Azure SDK
 layout: post
 date: 25 Feb 2020
 sidebar: releases_sidebar
+author_github: adrianhall
 repository: azure/azure-sdk
 ---
 
