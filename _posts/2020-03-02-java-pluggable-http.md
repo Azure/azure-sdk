@@ -3,6 +3,7 @@ title: Pluggable HTTP Modules with the Azure SDK for Java
 layout: post
 date: 03 Mar 2020
 sidebar: releases_sidebar
+author_github: alzimmermsft
 repository: azure/azure-sdk
 ---
 
