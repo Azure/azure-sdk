@@ -81,6 +81,24 @@ The following are standard verb prefixes.  You should have a good (articulated) 
 
 {% include requirement/MUST id="general-client-feature-support" %} support 100% of the features provided by the Azure service the client library represents. Gaps in functionality cause confusion and frustration among developers.
 
+## Service API versions
+
+The purposes of the client library is to communicate with an Azure service.  Azure services support multiple API versions.  To understand the capabilities of the service, the client library must be able to support multiple service API versions.
+
+{% include requirement/MUST id="general-service-apiversion-1" %} only target generally available service API versions when releasing a GA version of the client library.
+
+{% include requirement/MUST id="general-service-apiversion-2" %} target the latest generally available service API version by default in GA versions of the client library.
+
+{% include requirement/MUST id="general-service-apiversion-5" %} document the service API version that is used by default.
+
+{% include requirement/MUST id="general-service-apiversion-3" %} target the latest public preview API version by default when releasing a public preview version of the client library.
+
+{% include requirement/MUST id="general-service-apiversion-4" %} include all service API versions that are supported by the client library in a `ServiceVersion` enumerated value.
+
+{% include requirement/MUST id="general-service-apiversion-6" %} ensure that the values of the `ServiceVersion` enumerated value "match" the version strings in the service Swagger definition.  
+
+For the purposes of this requirement, semantic changes are allowed.  For instance, many version strings are based on SemVer, which allows dots and dashes.  However, these characters are not allowed in identifiers.  The developer **MUST** be able to clearly understand what service API version will be used when the service version is set to each value in the `ServiceVersion` enumerated value.
+
 ## Model types
 
 Client libraries represent entities transferred to and from Azure services as model types.   Certain types are used for round-trips to the service.  They can be sent to the service (as an addition or update operation) and retrieved from the service (as a get operation).  These should be named according to the type.  For example, a `ConfigurationSetting` in App Configuration, or an `Event` on Event Grid.
