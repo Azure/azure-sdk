@@ -11,7 +11,7 @@ title: Best practices for using Azure SDK with ASP.NET Core
 
 I spend a lot of time working on various web services.  Usually, I spend time producing the same web service in different languages and different run-times.  One of my favorites is creating an ASP.NET Core web API.  The tooling in Visual Studio makes it so easy.  As with all development tasks, there are many ways you can make your app less performant or less secure.  This article is about avoiding the pitfalls when integrating the Azure SDK into your ASP.NET Core application.
 
-The advice comes down to four basic tenets:
+The advice comes down to three basic tenets:
 
 1. Centrally configure services during app startup.
 2. Store your configuration separately from code.
@@ -29,7 +29,7 @@ To configure the services, first add the following NuGet packages to your projec
 * [Azure.Identity](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/identity/Azure.Identity/README.md)
 * The `Azure.*` package for the Azure service client you wish to add.
 
-For example, let's say I want to use Key Vault secrets and Storage, I could do the following:
+For example, let's say I want to use Key Vault secrets and Blob Storage, I could do the following:
 
 ```bash
 $> dotnet add package Microsoft.Extensions.Azure
@@ -38,7 +38,7 @@ $> dotnet add package Azure.Security.KeyVault.Secrets
 $> dotnet add package Azure.Storage.Blobs
 ```
 
-Now I can update the `ConfigureServices()` method to inject a service client for each service.
+Now I can update the `ConfigureServices()` method to register a service client for each service.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -61,9 +61,7 @@ public void ConfigureServices(IServiceCollection services)
 
 In this example, you would need to explicitly specify the `keyVaultUrl` and `storageUrl`  Both variables should be `Uri` types.  In addition, you would need to set up a service principal, then configure environment variables to let the application know what service principal to use.  This is done by specifying the `AZURE_TENANT_ID`, `AZURE_CLIENT_ID`, and `AZURE_CLIENT_SECRET` environment variables.
 
-This makes the code rather brittle.  What happens when you want to rotate the secrets?  How about when you want to move the resource, or connect to a different storage account when you are running in development?
-
-The good news is that I can now use dependency injection to use the clients.  For example, I've got a Web API controller class that uses the blob storage client:
+With the services configured in `Startup`, I can now use dependency injection to use the clients.  For example, I've got a Web API controller class that uses the blob storage client:
 
 ```csharp
 [ApiController]
@@ -169,7 +167,7 @@ The `DefaultAzureCredential` checks several methods of authenticating your servi
 With this basic setup, you can do much more:
 
 * Provide multiple service clients with different names.
-* Configure global settings, like the retry policy.
+* Configure global settings, like the retry settings.
 * [Send your logs to Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/learn/dotnetcore-quick-start).
 * [Store your configuration within App Configuration](https://docs.microsoft.com/en-us/azure/azure-app-configuration/quickstart-aspnet-core-app?tabs=core2x).
 
@@ -210,7 +208,7 @@ The un-named service client is still available in the same way as before.  Named
 
 ### Configure a new retry policy
 
-At some point, you will want to change the default settings for a service client.  You may want a different retry policy, or to use a different service API version, for example.  You can set the retry policy globally or on a per service basis.  Let's say you have added the following to your `appSettings.json` file:
+At some point, you will want to change the default settings for a service client.  You may want different retry settings, or to use a different service API version, for example.  You can set the retry settings globally or on a per service basis.  Let's say you have added the following to your `appSettings.json` file:
 
 ```json
 {
@@ -267,7 +265,7 @@ You can also place policy over-rides in the `appSettings.json` file:
 ```json
 {
   "KeyVault": {
-    "VaultUri": "https://mykeyvaul.vault.azure.net",
+    "VaultUri": "https://mykeyvault.vault.azure.net",
     "retry": {
       "maxRetries": 10
     }
