@@ -70,7 +70,7 @@ If a language architect is not present at the meeting, they must review and conf
 The current language representatives are listed below:
 
 | Language | Architect | Representatives |
-| .NET | [Krzysztof Cwalina](mailto:kcwalina@microsoft.com) | Anne Loomis Thompson |
+| .NET | [Krzysztof Cwalina](mailto:kcwalina@microsoft.com) | Anne Loomis Thompson, Ted Glaza |
 | Java | [Jonathan Giles](mailto:Jonathan.Giles@microsoft.com) | Srikanta Nagaraja |
 | JavaScript | [Brian Terlson](mailto:Brian.Terlson@microsoft.com) | Jeff Fisher |
 | Python | [Johan Stenberg](mailto:johan.stenberg@microsoft.com) | Anna Tisch |
