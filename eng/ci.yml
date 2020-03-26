@@ -27,16 +27,15 @@ steps:
   displayName: Launch local site
 
 - script: >
-    docker run --net=host --rm linkchecker/linkchecker "http://localhost:4000/index.html"
+    docker run --net=host --rm weshaggard/linkchecker "http://localhost:4000/index.html"
     --anchors
     --check-extern
-    --threads 1
-    --pause 30
-    --no-robots --no-status
+    --no-robots
+    --no-status
+    --no-warnings
     --no-follow-url "https://azure.github.io/azure-sdk-for-*"
     --no-follow-url "https://azure.github.io/azure-cosmos-*"
     --ignore-url "https://github.com/Azure/azure-sdk-pr"
-    --ignore-url "https://www.npmjs.com/package/*"
   displayName: 'azure-sdk link check'
   continueOnError: true
 
