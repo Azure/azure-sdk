@@ -97,7 +97,14 @@ My first attempt at `ConfigureServices()` has embedded `Uri` objects.  This is a
 ```json
 {
   "AzureDefaults": {
-
+    "Diagnostics": {
+      "IsTelemetryDisabled": false,
+      "IsLoggingContentEnabled": true
+    },
+    "retry": {
+      "MaxRetries": 3,
+      "Mode": "Exponential"
+    }
   },
   "KeyVault": {
     "VaultUri": "https://mykeyvault.vault.azure.net"
@@ -107,6 +114,8 @@ My first attempt at `ConfigureServices()` has embedded `Uri` objects.  This is a
   }
 }
 ```
+
+You can add any options from the [ClientOptions](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/src/RetryOptions.cs) into the `AzureDefaults` section.
 
 The `Configuration` object is injected from the host, and stored inside the `Startup` constructor.  I can now modify the `ConfigureServices()` method to use this configuration:
 
