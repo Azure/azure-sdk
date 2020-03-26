@@ -65,7 +65,7 @@ In order for an API to be approved, the following conditions must be met at the 
 - Representatives from all tier-1 languages, and all languages under consideration must be present at the meeting.
 - A minimum of **TWO** architects from different language groups must be present at the meeting.
 
-If a language architect is not present at the meeting, they must review and confirm the outcome of the meeting within 1 business day.
+If a language architect is not present at the meeting, they must review and confirm the outcome of the meeting within 1 business day.  If the language architect is unavailable, the language area engineering lead within the Azure SDK group can approve instead.
 
 The current language representatives are listed below:
 
