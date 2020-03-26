@@ -260,89 +260,69 @@ We believe testing is a part of the development process, so we expect unit and i
 
 All code should contain, at least, requirements, unit tests, end-to-end tests, and samples. The requirements description should be placed in the unit test file, on top of the test function that verifies the requirement. The unit test name should be placed in the code as a comment, together with the code that implements that functionality. For example:
 
+In general, each group of tests will be in it's own file and implement a function like `int test_<group_name>()` that will call cmocka_run_group_tests_name for all the tests in that group. The client library will have
+one main testing file that contains the test entry point (`int main()`).
+
 _*API source code file:*_
-{% highlight c %}
-void foo_tcp_manager_destroy(TCP_HANDLE handle)
+```c
+void az_widget_tcp_manager_destroy(az_widget_tcp_manager* self)
 {
-    if(handle == NULL)
+    if(self == NULL)
     {
-        /*[foo_tcp_manager_destroy_does_nothing_on_null_handle]*/
+        /*[widget_tcp_manager_destroy_does_nothing_on_null_handle]*/
         LogError("handle cannot be NULL");
     }
     else
     {
-        TCP_INSTANCE* instance = (TCP_INSTANCE*)handle;
-
-        /*[foo_tcp_manager_destroy_succeed_on_free_all_resources]*/
-        netif_remove(&(instance->lpc_netif));
-        free(instance);
+        netif_remove(&(self->lpc_netif));
     }
 }
-{% endhighlight %}
+```
 
 _*Unit test file:*_
-{% highlight c %}
-/* If the provided TCP_HANDLE is NULL, the foo_tcp_manager_destroy shall do nothing. */
-TEST_FUNCTION(foo_tcp_manager_destroy_does_nothing_on_null_handle)
+```c
+#include <cmocka.h>
+
+/* If the provided widget_manager is NULL, the widget_tcp_manager_destroy shall do nothing. */
+void widget_tcp_manager_destroy_does_nothing_on_null_handle(void** state)
 {
-    ///arrange
+    (void)state;
+    //arrange
 
-    ///act
-    foo_tcp_manager_destroy(NULL);
+    //act
+    widget_tcp_manager_destroy(NULL);
 
-    ///assert
-
-    ///cleanup
+    //assert
+    ....
+    //cleanup
 }
 
-/* The foo_tcp_manager_destroy shall free all resources allocated by the tcpip. */
-TEST_FUNCTION(foo_tcp_manager_destroy_succeed_on_free_all_resources)
-{
-    ///arrange
-    TCP_HANDLE handle = foo_tcp_manager_create();
-    umock_c_reset_all_calls();
-    STRICT_EXPECTED_CALL(netif_remove(IGNORED_PTR_ARG));
-    STRICT_EXPECTED_CALL(free(handle));
-
-    ///act
-    foo_tcp_manager_destroy(handle);
-
-    ///assert
-    ASSERT_ARE_EQUAL(char_ptr, umock_c_get_expected_calls(), umock_c_get_actual_calls());
-
-    ///cleanup
+int test_widget_tcp_manager() {
+    const struct CMUnitTest tests[] = {
+        cmocka_unit_test(widget_widget_manager_destroy_does_nothing_on_null_handle)
+    };
+    return cmocka_run_group_tests_name("widget_tcp_manager", tests, NULL, NULL);
 }
-{% endhighlight %}
+```
 
-If a single unit test tests more than one requirement, it should be sequentially enumerated in the unit test file, and the same number should be added to the test name in the code comment. For example:
+_*tests/main.c*_
+```c
+#include "az_widget_tests.h"
+#include <cmocka>
+int main() {
+    int result = 0;
+    result += test_widget_tcp_manager();
+    result += test_widget_....();
 
-_*API source code file:*_
-{% highlight c %}
-    /*[foo_tcp_manager_create_createAndReturnInstanceSucceed_1]*/
-    TCP_INSTANCE* instance = (TCP_INSTANCE*)malloc(sizeof(TCP_INSTANCE));
-{% endhighlight %}
-
-_*Unit test file:*_
-{% highlight c %}
-/*[1]The foo_tcp_manager_create shall create a new instance of the TCP_INSTANCE 
-        and return it as TCP_HANDLE.*/
-/*[2]The foo_tcp_manager_create shall initialize the tcpip thread.*/
-/*[3]The foo_tcp_manager_create shall initialize the netif with default 
-        gateway, ip address, and net mask by calling netif_add.*/
-/*[4]The foo_tcp_manager_create shall set the netif defaults by calling 
-        netif_set_default and netif_set_up.*/
-/*[5]If dhcp is enabled, the foo_tcp_manager_create shall start it by calling dhcp_start.*/
-TEST_FUNCTION(foo_tcp_manager_create_createAndReturnInstanceSucceed)
-{
-    ...
+    return result;
 }
-{% endhighlight %}
+```
 
 {% include requirement/MUSTNOT id="clang-testing-valgrind" %} have any memory leaks. Run samples and unit tests with [valgrind](http://www.valgrind.org/downloads/current.html). Unit tests and e2e tests are valgrind verified at the gate.
 
-{% include requirement/MUST id="clang-testing-unittests" %} unit test your API with [ccputest](https://cpputest.github.io/), a unit testing and mocking framework for C and C++.
+{% include requirement/MUST id="clang-testing-unittests" %} unit test your API with [cmocka](https://cmocka.org/), a unit testing and mocking framework for C and C++.
 
-{% include requirement/MUST id="clang-testing-cmake-unit-tests" %} automatically run unit tests when building your client library; i.e. make unit tests part of your continuous integration (CI)
+{% include requirement/MUST id="clang-testing-cmake-unit-tests" %} make unit tests part of your continuous integration (CI)
 
 {% include requirement/MUST id="clang-testing-code-coverage" %} maintain a minimum 80% code coverage with unit tests.
 
@@ -500,8 +480,6 @@ clang-format -style=file -i <file> ...
 
 Using `-i` does an in-place edit of the files for style.  There is [a Visual Studio extension](https://marketplace.visualstudio.com/items?itemName=LLVMExtensions.llvm-toolchain) that binds Ctrl-R Ctrl-F to this operation. Visual Studio 2019 includes this functionality by default.
 
-> TODO: Decide on exact formatting standards to use and include here.
-
 {% include requirement/MUST id="clang-tooling-cmake-docs" %} generate API documentation with `doxygen`. 
 For example in CMake:
 
@@ -541,11 +519,7 @@ endif()
 
 {% include requirement/MUST id="clang-tooling-test-tools" %} use the following tools for testing:
 
-* Azure C Test for unit test running: [https://github.com/Azure/azure-ctest](https://github.com/Azure/azure-ctest)
-
-* Azure micro mock C [umock-c](https://github.com/Azure/umock-c): [https://github.com/Azure/umock-c](https://github.com/Azure/umock-c)
-
-* Use TestRunnerSwitcher, which is a simple library to switch test runners between [azure-ctest](https://github.com/Azure/azure-ctest.git) and CppUnitTest: [https://github.com/Azure/azure-c-testrunnerswitcher](https://github.com/Azure/azure-c-testrunnerswitcher)
+* [cmocka](https://cmocka.org/) for unit testing, and mocking
 
 ## Packaging
 
