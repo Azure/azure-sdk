@@ -9,13 +9,14 @@ repository: azure/azure-sdk
 title: Best practices for using Azure SDK with ASP.NET Core
 ---
 
+
 I spend a lot of time working on various web services.  Usually, I spend time producing the same web service in different languages and different run-times.  One of my favorites is creating an ASP.NET Core web API.  The tooling in Visual Studio makes it so easy.  As with all development tasks, there are many ways you can make your app less performant or less secure.  This article is about avoiding the pitfalls when integrating the Azure SDK into your ASP.NET Core application.
 
-The advice comes down to three basic tenets:
+The advice comes down to three best practices:
 
 1. Centrally configure services during app startup.
 2. Store your configuration separately from code.
-3. Use the `DefaultAzureCredential`.
+3. Use the [`DefaultAzureCredential`]({% post_url 2020-02-25-defaultazurecredential.md %}).
 
 Let's take each of these in turn.
 
@@ -59,7 +60,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-In this example, you would need to explicitly specify the `keyVaultUrl` and `storageUrl`  Both variables should be `Uri` types.  In addition, you would need to set up a service principal, then configure environment variables to let the application know what service principal to use.  This is done by specifying the `AZURE_TENANT_ID`, `AZURE_CLIENT_ID`, and `AZURE_CLIENT_SECRET` environment variables.
+In this example, you would need to explicitly specify the `keyVaultUrl` and `storageUrl`  Both variables are `Uri` types.  In addition, you would need to set up a service principal, then configure environment variables to let the application know what service principal to use.  This is done by specifying the `AZURE_TENANT_ID`, `AZURE_CLIENT_ID`, and `AZURE_CLIENT_SECRET` environment variables.
 
 With the services configured in `Startup`, I can now use dependency injection to use the clients.  For example, I've got a Web API controller class that uses the blob storage client:
 
@@ -145,7 +146,11 @@ This is a step towards the correct usage.  However, I still have to specify the 
 
 ## Use DefaultAzureCredential
 
-Fixing the credentials is probably the easiest part of this process.  Use the `DefaultAzureCredential` object for the credential handling.  Just swap out the `EnvironmentCredential` with `DefaultAzureCredential`.  Here is the final `ConfigureServices()` method:
+Fixing the credentials is probably the easiest part of this process.  Use the `DefaultAzureCredential` object for the credential handling.   The `DefaultAzureCredential` chooses the best authentication mechanism based on your environment, allowing you to move your app seamlessly from development to production with no code changes.
+
+To enable it, just swap out the `EnvironmentCredential` with `DefaultAzureCredential`.  
+
+Here is the final `ConfigureServices()` method:
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -269,13 +274,13 @@ public void ConfigureServices(IServiceCollection services)
 }
 ``` 
 
-You can also place policy over-rides in the `appSettings.json` file:
+You can also place policy overrides in the `appSettings.json` file:
 
 ```json
 {
   "KeyVault": {
     "VaultUri": "https://mykeyvault.vault.azure.net",
-    "retry": {
+    "Retry": {
       "maxRetries": 10
     }
   }
@@ -284,6 +289,6 @@ You can also place policy over-rides in the `appSettings.json` file:
 
 ## Want to hear more?
 
-Follow us on [Twitter at @AzureSDK](https://twitter.com/AzureSDK).  We'll be covering more best practices in cloud-native development as well as providing updates on our progress in developing the next generation of Azure SDK. 
+Follow us on [Twitter at @AzureSDK](https://twitter.com/AzureSDK).  We'll be covering more best practices in cloud-native development as well as providing updates on our progress in developing the next generation of Azure SDKs. 
 
 Contributors to this article: _Pavel Krymets_.
