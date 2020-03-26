@@ -66,17 +66,7 @@ In order for an API to be approved, the following conditions must be met at the 
 - A minimum of **TWO** architects from different language groups must be present at the meeting.
 
 If a language architect is not present at the meeting, they must review and confirm the outcome of the meeting within 1 business day.  If the language architect is unavailable, the language area engineering lead within the Azure SDK group can approve instead.
-
-The current language representatives are listed below:
-
-| Language | Architect | Representatives |
-| .NET | [Krzysztof Cwalina](mailto:kcwalina@microsoft.com) | Anne Loomis Thompson, Ted Glaza |
-| Java | [Jonathan Giles](mailto:Jonathan.Giles@microsoft.com) | Srikanta Nagaraja |
-| JavaScript | [Brian Terlson](mailto:Brian.Terlson@microsoft.com) | Jeff Fisher |
-| Python | [Johan Stenberg](mailto:johan.stenberg@microsoft.com) | Anna Tisch |
-| At Large | [Jeffrey Richter](mailto:jeffrey.richter@microsoft.com) | Scott Schaab |
-
-This list of language representatives can only be changed by the LT of the Azure SDK group.
+The list of language representatives can only be changed by the LT of the Azure SDK group.
 
 ## API Listings
 
