@@ -101,7 +101,7 @@ My first attempt at `ConfigureServices()` has embedded `Uri` objects.  This is a
       "IsTelemetryDisabled": false,
       "IsLoggingContentEnabled": true
     },
-    "retry": {
+    "Retry": {
       "MaxRetries": 3,
       "Mode": "Exponential"
     }
@@ -222,7 +222,7 @@ At some point, you will want to change the default settings for a service client
 ```json
 {
   "AzureDefaults": {
-    "retry": {
+    "Retry": {
       "maxTries": 3
     }
   },
