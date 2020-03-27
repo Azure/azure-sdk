@@ -5,6 +5,23 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- pwsh: |
+    dir env:
+
+- task: GitHubComment@0
+  inputs:
+    gitHubConnection: 'Azure'
+    comment: |
+      Test PR commenting
+
+- pwsh: |
+    dir env:
+    Write-Host "--SYSTEM_ACCESSTOKEN = [$($env:SYSTEM_ACCESSTOKEN)]"
+    Write-Host "--System.AccessToken = [$(System.AccessToken)])"
+    Write-Host "--ENDPOINT_AUTH_AZURE = [$($env:ENDPOINT_AUTH_AZURE)]"
+    Write-Host "--System.EndPoint.Auth.Azure = [$(System.EndPoint.Auth.Azure)]"
+    Write-Host "--System.EndPoint_Auth_Azure = [$(System.EndPoint_Auth_Azure)]"
+
 - task: UseRubyVersion@0
   inputs:
     versionSpec: '>= 2.4'
