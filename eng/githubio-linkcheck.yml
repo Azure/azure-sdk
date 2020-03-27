@@ -33,6 +33,7 @@ steps:
     --no-status
     --no-warnings
     --check-extern
+    --ignore-url "https://azure.github.io/azure-sdk-for-js/styles/main.css"
   displayName: 'js link check'
   continueOnError: true
 
