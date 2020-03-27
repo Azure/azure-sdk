@@ -14,7 +14,7 @@ sidebar: cpp_sidebar
 
 ### Windows
 
-| Operating System     | Version       | Architectures | Compiler Version                        | Notes        
+| Operating System     | Version       | Architectures | Compiler Version                        | Notes
 |----------------------|---------------|---------------|-----------------------------------------|------
 | Windows Client       | 7 SP1+, 8.1   | x86           | MSVC 14.16.x, MSVC 14.20x               |
 | Windows 10 Client    | Version 1607+ | x64, x86      | MSVC 14.16.x, MSVC 14.20x               |
@@ -23,13 +23,13 @@ sidebar: cpp_sidebar
 
 ### Mac
 
-| Operating System                | Version       | Architectures | Compiler Version                        | Notes        
+| Operating System                | Version       | Architectures | Compiler Version                        | Notes
 |---------------------------------|---------------|---------------|-----------------------------------------|------
 | macOS                           | 10.13+        | x64           | XCode 9.4.1                             |
 
 ### Linux
 
-| Operating System                | Version       | Architectures | Compiler Version                        | Notes        
+| Operating System                | Version       | Architectures | Compiler Version                        | Notes
 |---------------------------------|---------------|---------------|-----------------------------------------|------
 | Red Hat Enterprise Linux <br> CentOS <br> Oracle Linux        | 7+            | x64           | gcc-4.8                                 | [Red Hat lifecycle](https://access.redhat.com/support/policy/updates/errata/) <br> [CentOS lifecycle](https://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d) <br> [Oracle Linux lifecycle](http://www.oracle.com/us/support/library/elsp-lifetime-069338.pdf)
 | Debian                          | 9+            | x64           | gcc-6.3                                 | [Debian lifecycle](https://wiki.debian.org/DebianReleases)
@@ -211,7 +211,7 @@ All code should contain, at least, requirements, unit tests, end-to-end tests, a
 
 _*API source code file:*_
 {% highlight cpp %}
-void foo_tcp_manager_destroy(TCP_HANDLE handle)
+void FooTcpManagerDestroy(TCP_HANDLE handle)
 {
     if(handle == NULL)
     {
@@ -222,7 +222,7 @@ void foo_tcp_manager_destroy(TCP_HANDLE handle)
     {
         TCP_INSTANCE* instance = (TCP_INSTANCE*)handle;
 
-        /*[foo_tcp_manager_destroy_succeed_on_free_all_resources]*/
+        /*[FooTcpManagerDestroySucceedOnFreeAllResources]*/
         netif_remove(&(instance->lpc_netif));
         free(instance);
     }
@@ -232,12 +232,12 @@ void foo_tcp_manager_destroy(TCP_HANDLE handle)
 _*Unit test file:*_
 {% highlight cpp %}
 /* If the provided TCP_HANDLE is NULL, the foo_tcp_manager_destroy shall do nothing. */
-TEST_FUNCTION(foo_tcp_manager_destroy_does_nothing_on_null_handle)
+TEST_FUNCTION(FooTcpManagerDestroyDoesNothingOnNullHandle)
 {
     ///arrange
 
     ///act
-    foo_tcp_manager_destroy(NULL);
+    FooTcpManagerDestroy(NULL);
 
     ///assert
 
@@ -245,7 +245,7 @@ TEST_FUNCTION(foo_tcp_manager_destroy_does_nothing_on_null_handle)
 }
 
 /* The foo_tcp_manager_destroy shall free all resources allocated by the tcpip. */
-TEST_FUNCTION(foo_tcp_manager_destroy_succeed_on_free_all_resources)
+TEST_FUNCTION(FooTcpManagerDestroySucceedOnFreeAllResources)
 {
     ///arrange
     TCP_HANDLE handle = foo_tcp_manager_create();
@@ -254,7 +254,7 @@ TEST_FUNCTION(foo_tcp_manager_destroy_succeed_on_free_all_resources)
     STRICT_EXPECTED_CALL(free(handle));
 
     ///act
-    foo_tcp_manager_destroy(handle);
+    FooTcpManagerDestroy(handle);
 
     ///assert
     ASSERT_ARE_EQUAL(char_ptr, umock_c_get_expected_calls(), umock_c_get_actual_calls());
@@ -516,20 +516,20 @@ while (1) {
 {% highlight cpp %}
 switch (...) {
     case 1:
-        do_something();
+        DoSomething();
         break;
     case 2:
-        do_something_else();
+        DoSomethingElse();
         /* fall through */
     case 3:
         {
             int v;
 
-            do_something_more(v);
+            DoSomethingMore(v);
         }
         break;
     default:
-        log(LOG_DEBUG, "default case reached");
+        Log(LOG_DEBUG, "default case reached");
 }
 {% endhighlight %}
 
@@ -553,7 +553,7 @@ Explicit comparison should be used even if the comparison value will never chang
 A frequent trouble spot is using `strcmp` to test for string equality.  You should **never** use a default action.  The preferred approach is to use an inline function:
 
 {% highlight cpp %}
-inline bool string_equal(char *a, char *b) {
+inline bool StringEqual(char *a, char *b) {
     return (0 == strcmp(a, b));
 }
 {% endhighlight %}
@@ -593,7 +593,7 @@ if (a) { ... }
 {% highlight cpp %}
 // Bad example
 #ifdef DEBUG
-    temporary_debugger_break();
+    TemporaryDebuggerBreak();
 #endif
 {% endhighlight %}
 
@@ -608,7 +608,7 @@ Alway use `#if` if you have to use the preprocessor. This works fine, and does t
 {% highlight cpp %}
 // Good example
 #if DEBUG
-    temporary_debugger_break();
+    TemporaryDebuggerBreak();
 #endif
 {% endhighlight %}
 
@@ -626,7 +626,7 @@ Use `#if` to comment out large code blocks.
 Sometimes large blocks of code need to be commented out for testing.  The easiest way to do this is with an `#if 0` block:
 
 {% highlight cpp %}
-void example()
+void Example()
 {
     great looking code
 
@@ -663,8 +663,8 @@ It's bad magic to have space consuming code silently inserted through the innoce
 
 {% highlight cpp %}
 // Don't write this.
-if (19 == foo) { refund_lots_money(); }}
-else           { happy_days_i_know_why_im_here(); }
+if (19 == foo) { RefundLotsMoney(); }}
+else           { HappyDaysIKnowWhyIAmHere(); }
 {% endhighlight %}
 
 Instead of magic numbers, use a real name that means something. You can use `constexpr` for names. For example:
@@ -672,8 +672,8 @@ Instead of magic numbers, use a real name that means something. You can use `con
 {% highlight cpp %}
 constexpr int WE_GOOFED = 19;
 
-if (WE_GOOFED == foo) { refund_lots_money(); }
-else                  { happy_days_i_know_why_im_here(); }
+if (WE_GOOFED == foo) { RefundLotsMoney(); }
+else                  { HappyDaysIKnowWhyIAmHere(); }
 {% endhighlight %}
 
 {% include requirement/MUST id="cpp-check-syscall-errors" %} check every system call for an error return, unless you know you wish to ignore errors. For example, `printf` returns an error code but it is rarely relevant. Cast the return to (void) if you do not care about the error code.

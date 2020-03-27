@@ -16,48 +16,50 @@ Grouping services within a cloud infrastructure is common since it aids discover
 
 {% include requirement/SHOULD id="general-namespaces-support" %} support namespaces if namespace usage is common within the language ecosystem.
 
-{% include requirement/MUST id="general-namespaces-naming" %} use a root namespace of the form `azure::<group>::<service>`.  All consumer-facing APIs that are commonly used should exist within this namespace.  The namespace is comprised of three parts:
+{% include requirement/MUST id="general-namespaces-naming" %} use a root namespace of the form `Azure::<Group>::<Service>`.  All consumer-facing APIs that are commonly used should exist within this namespace.  The namespace is comprised of three parts:
 
-- `azure` indicates a common prefix for all Azure services.
-- `<group>` is the group for the service.  See the list below.
-- `<service>` is the shortened service name.
+- `Azure` indicates a common prefix for all Azure services.
+- `<Group>` is the group for the service.  See the list below.
+- `<Service>` is the shortened service name.
 
 {% include requirement/MUST id="general-namespaces-shortened-name" %} pick a shortened service name that allows the consumer to tie the package to the service being used.  As a default, use the compressed service name.  The namespace does **NOT** change when the branding of the product changes, so avoid the use of marketing names that may change.
 
-A compressed service name is the service name without spaces.  It may further be shortened if the shortened version is well known in the community.  For example, "Azure Media Analytics" would have a compressed service name of `media_analytics`, whereas "Azure Service Bus" would become `service_bus`.
+A compressed service name is the service name without spaces.  It may further be shortened if the shortened version is well known in the community.  For example, "Azure Media Analytics" would have a compressed service name of `MediaAnalytics`, whereas "Azure Service Bus" would become `ServiceBus`.
 
-{% include requirement/MUST id="general-namespaces-approved-list" %} use the following list as the group of services (if the target language supports namespaces):
+{% include requirement/MUST id="general-namespaces-approved-list" %} use the following list as the group of services:
 
-{% include tables/data_namespaces.md %}
+{% include tables/data_namespaces_pascal_case.md %}
 
 If the client library does not seem to fit into the group list, contact the [Architecture Board] to discuss the namespace requirements.
 
-{% include requirement/MUST id="general-namespaces-mgmt" %} place the management (Azure Resource Manager) API in the `management` group.  Use the grouping `<AZURE>::management::<group>::<service>` for the namespace. Since more services require control plane APIs than data plane APIs, other namespaces may be used explicitly for control plane only.  Data plane usage is by exception only.  Additional namespaces that can be used for control plane SDKs include:
+{% include requirement/MUST id="general-namespaces-mgmt" %} place the management (Azure Resource Manager) API in the `Management` group.  Use the grouping `Azure::Management::<Group>::<Service>` for the namespace. Since more services require control plane APIs than data plane APIs, other namespaces may be used explicitly for control plane only.  Data plane usage is by exception only.  Additional namespaces that can be used for control plane SDKs include:
 
-{% include tables/mgmt_namespaces.md %}
+{% include tables/mgmt_namespaces_pascal_case.md %}
 
-Many `management` APIs do not have a data plane because they deal with management of the Azure account. Place the management library in the `<AZURE>.management` namespace.  For example, use `azure::management::costanalysis` instead of `azure::management::management::costanalysis`.
+Many `management` APIs do not have a data plane because they deal with management of the Azure account. Place the management library in the `Azure::Management` namespace.  For example, use `Azure::Management::CostAnalysis` instead of `Azure::Management::Management::CostAnalysis`.
 
 {% include requirement/MUSTNOT id="general-namespaces-similar-names" %} choose similar names for clients that do different things.
 
 {% include requirement/MUST id="general-namespaces-registration" %} register the chosen namespace with the [Architecture Board].  Open an issue to request the namespace.  See [the registered namespace list](registered_namespaces.html) for a list of the currently registered namespaces.
 
+> TODO: How do we link to a PascalCase version of registered_namespaces.html ?
+
 ### Example Namespaces
 
 Here are some examples of namespaces that meet these guidelines:
 
-- `azure::data::cosmos`
-- `azure::identity::active_directory`
-- `azure::iot::device_provisioning`
-- `azure::storage::blobs`
-- `azure::messaging::notification_hubs` (the client library for Notification Hubs)
-- `azure::management::messaging::notification_hubs` (the management library for Notification Hubs)
+- `Azure::Data::Cosmos`
+- `Azure::Identity::ActiveDirectory`
+- `Azure::Iot::DeviceProvisioning`
+- `Azure::Storage::Blobs`
+- `Azure::Messaging::NotificationHubs` (the client library for Notification Hubs)
+- `Azure::Management::Messaging::NotificationHubs` (the management library for Notification Hubs)
 
 Here are some namespaces that do not meet the guidelines:
 
-- `microsoft::azure::CosmosDB` (not in the `Azure` namespace and does not use grouping, uses capital letters)
-- `azure::mixed_reality::kinect` (the grouping is not in the approved list)
-- `azure::iot::iot_hub::device_provisioning` (too many levels in the group)
+- `microsoft::azure::CosmosDB` (not in the `Azure` namespace and does not use grouping, uses lowercase letters)
+- `azure::mixed_reality::kinect` (the grouping is not in the approved list and uses snake_case)
+- `Azure::Iot::IotHub::DeviceProvisioning` (too many levels in the group)
 
 ## Naming conventions
 
@@ -65,40 +67,42 @@ Here are some namespaces that do not meet the guidelines:
 
 {% include requirement/SHOULDNOT id="cpp-design-naming-abbrev" %} use abbreviations unless necessary or when they are commonly used and understood.  For example, `az` is allowed since it is commonly used to mean `Azure`, and `iot` is used since it is a commonly understood industry term.  However, using `kv` for Key Vault would not be allowed since `kv` is not commonly used to refer to Key Vault.
 
-{% include requirement/MUST id="cpp-design-naming-lowercase" %} use lower-case for all variable, function, and struct names.
+{% include requirement/MUST id="cpp-design-naming-lowercase" %} use lower-case for local variable names, and for private member variable names.
 
-{% include requirement/MUST id="cpp-design-naming-underbar" %} use underscores (`_`) to separate name components (commonly referred to as snake-casing).
+> TODO: Review this guidance for member variables as what we want for public and private members may differ.
 
-{% include requirement/MUST id="cpp-design-naming-internal" %} use a single leading underscore to indicate that a name is not part of the public API and is not guaranteed to be stable.
+{% include requirement/MUST id="cpp-design-naming-underbar" %} use capital letters to separate name components in global variable, function, enum, enumerator, or class names (commonly referred to as Pascal-casing).
+
+{% include requirement/MUST id="cpp-design-naming-internal" %} use a "Details" namespace to indicate that a name is not part of the public API and is not guaranteed to be stable.
 
 ### Variables
 
 {% include requirement/MUST id="cpp-design-typing-units" %} use types to enforce units where possible. For example, the C++ standard library provides `std::chrono` which makes time conversions automatic.
 {% highlight cpp %}
 // Bad
-uint32 timeout;
+uint32 Timeout;
 
 // Good
-std::chrono::milliseconds timeout;
+std::chrono::milliseconds Timeout;
 {% endhighlight %}
 
 {% include requirement/MUST id="cpp-design-naming-units" %} include units in names when a type based solution to enforce units is not present.  If a variable represents weight, or some other unit, then include the unit in the name so developers can more easily spot problems.  For example:
 
 {% highlight cpp %}
 // Bad
-uint32 timeout;
-uint32 my_weight;
+uint32 Timeout;
+uint32 MyWeight;
 
 // Good
-std::chrono::milliseconds timeout;
-uint32 my_weight_kg;
+std::chrono::milliseconds Timeout;
+uint32 MyWeightKg;
 {% endhighlight %}
 
 {% include requirement/MUST id="cpp-design-naming-optimize-position" %} declare variables in structures organized by use in a manner that minimizes memory wastage because of compiler alignment issues and size.  All things being equal, use alphabetical ordering.
 
 {% highlight cpp %}
 // Bad
-struct foo {
+struct Foo {
     int a;
     char *b;
     int c;
@@ -106,7 +110,7 @@ struct foo {
 };
 
 // Good
-struct foo {
+struct Foo {
     int a;
     int c;
     char *b;
@@ -120,9 +124,9 @@ Each variable is normally defined with its own type and line.  An exception can 
 
 {% highlight cpp %}
 namespace {
-    uint32_t byte_counter = 0;
-    struct a_class_not_exposed {};
-    class a_different_class_not_exposed {};
+    uint32_t ByteCounter = 0;
+    struct AClassNotExposed {};
+    class ADifferentClassNotExposed {};
 } // unnamed namespace
 {% endhighlight %}
 
@@ -132,37 +136,35 @@ namespace {
 
 ### Structs and Classes
 
-{% include requirement/MUST id="cpp-design-naming-classname" %} name class types with all-lowercase.  If part of the public API, place them in your SDK's namespace.  If not, place the API in a "_details" namespace. For example:
+{% include requirement/MUST id="cpp-design-naming-classname" %} name class types with PascalCase.  If part of the public API, place them in your SDK's namespace.  If not, place the API in a "Details" namespace. For example:
 
 {% highlight cpp %}
-namespace azure::group::api {
-namespace _details {
+namespace Azure::Group::Api {
+namespace Details {
 // Part of the private API
-struct hash_computation_private_details {
+struct HashComputationPrivateDetails {
     int internal_bookkeeping;
 };
-} // namespace _details
+} // namespace Details
 
 // Part of the public API
-struct upload_blob_request {
+struct UploadBlobRequest {
     unsigned char* data;
     size_t data_length;
 };
 
 // Bad - private API in public namespace.
-struct hash_computation_private_details {
+struct HashComputationPrivateDetails {
     int internal_bookkeeping;
 };
-} // namespace azure::group::api
+} // namespace Azure::Group::Api
 {% endhighlight %}
-
-The definition of types must be placed in the `*_api.h` file for the module.
 
 {% include requirement/SHOULD id="cpp-design-naming-classstatic" %} declare all types that are only used within the same source file in an unnamed namespace.  Such types may contain only the function name (no prefixes).  For example:
 
 {% highlight cpp %}
 namespace {
-struct hash_computation_private_details {
+struct HashComputationPrivateDetails {
     int internal_bookkeeping;
 };
 } // unnamed namespace
@@ -183,30 +185,30 @@ This encourages use of resource managing types like std::unique_ptr (which imple
 {% include requirement/MUST id="cpp-design-initialize-all-data" %} provide types which are usable when default-initialized. (That is, every constructor must initialize all type invariants, not assume members have default values of 0 or similar.)
 
 {% highlight cpp %}
-class type_with_invariants {
+class TypeWithInvariants {
     int member;
 public:
-    type_with_invariants() noexcept : member(0) {} // Good: initializes all parts of the object
-    [[nodiscard]] int next() noexcept  {
+    TypeWithInvariants() noexcept : member(0) {} // Good: initializes all parts of the object
+    [[nodiscard]] int Next() noexcept  {
         return member++;
     }
 };
 
-class bad_type_with_invariants {
+class BadTypeWithInvariants {
     int member;
 public:
-    type_with_invariants() {} // Bad: Does not initialize all parts of the object
-    int next() {
+    BadTypeWithInvariants() {} // Bad: Does not initialize all parts of the object
+    int Next() {
         return member++;
     }
 };
 
-void the_customer_code() {
-    type_with_invariants a{}; // value-initializes a type_with_invariants, OK
-    type_with_invariants b; // default-initializes a type_with_invariants, we want this to be OK
-    bad_type_with_invariants c{}; // value-initializes a bad_type_with_invariants, OK
-    bad_type_with_invariants d; // default-initializes a bad_type_with_invariants, this will trigger
-                                // undefined behavior if anyone calls d.next()
+void TheCustomerCode() {
+    TypeWithInvariants a{}; // value-initializes a TypeWithInvariants, OK
+    TypeWithInvariants b; // default-initializes a TypeWithInvariants, we want this to be OK
+    BadTypeWithInvariants c{}; // value-initializes a BadTypeWithInvariants, OK
+    BadTypeWithInvariants d; // default-initializes a BadTypeWithInvariants, this will trigger
+                             // undefined behavior if anyone calls d.Next()
 }
 {% endhighlight %}
 
@@ -214,68 +216,68 @@ void the_customer_code() {
 
 {% highlight cpp %}
 // Good: Uses C++ style class declaration:
-struct iot_client {
+struct IotClient {
     char* api_version;
-    iot_client_credentials* credentials;
+    IotClientCredentials* credentials;
     int retry_timeout;
 };
 
 // Bad: Uses C-style typedef:
-typedef struct iot_client {
+typedef struct IotClient {
     char* api_version;
-    iot_client_credentials* credentials;
+    IotClientCredentials* credentials;
     int retry_timeout;
-} az_iot_client;
+} AzIotClient;
 {% endhighlight %}
 
 {% include requirement/MUST id="cpp-design-no-getters-or-setters" %} define getters and setters for data transfer objects.  Expose the members directly to users unless you need to enforce some constraints on the data.  For example:
 {% highlight cpp %}
 // Good - no restrictions on values
-struct example_request {
+struct ExampleRequest {
     int retry_timeout;
     const char* text;
 };
 
 // Bad - no restrictions on parameters and access is not idiomatic
-class example_request {
+class ExampleRequest {
     int retry_timeout;
     const char* text;
 public:
-    [[nodiscard]] int get_retry_timeout() const noexcept {
+    [[nodiscard]] int GetRetryTimeout() const noexcept {
         return retry_timeout;
     }
-    void set_retry_timeout(int i) noexcept {
+    void SetRetryTimeout(int i) noexcept {
         retry_timeout = i;
     }
-    [[nodiscard]] const char* get_text() const noexcept {
+    [[nodiscard]] const char* GetText() const noexcept {
         return text;
     }
-    void set_text(const char* i) noexcept {
+    void SetText(const char* i) noexcept {
         text = i;
     }
 };
 
 // Good - type maintains invariants
-class type_which_enforces_data_requirements {
+class TypeWhichEnforcesDataRequirements {
     size_t size_;
     int* data_;
 public:
-    [[nodiscard]] size_t get_size() const noexcept {
+    [[nodiscard]] size_t GetSize() const noexcept {
         return size_;
     }
-    void add_data(int i) noexcept {
+    void AddData(int i) noexcept {
         data_\[size_++\] = i;
     }
 };
 
 // Also Good
-class type_which_clamps {
+class TypeWhichClamps {
     int retry_timeout;
 public:
-    [[nodiscard]] int get_retry_timeout() const noexcept {
+    [[nodiscard]] int GetRetryTimeout() const noexcept {
         return retry_timeout;
     }
-    void set_retry_timeout(int i) noexcept {
+    void SetRetryTimeout(int i) noexcept {
         if (i < 0) i = 0; // clamp i to the range [0, 1000]
         if (i > 1000) i = 1000;
         retry_timeout = i;
@@ -287,12 +289,12 @@ public:
 {% include requirement/SHOULD id="cpp-design-no-use-struct-keyword" %} declare classes with only public members using the `struct` keyword.
 {% highlight cpp %}
 // Good
-struct only_pubic_members {
+struct OnlyPublicMembers {
     int member;
 };
 
 // Bad
-class only_public_members {
+class OnlyPublicMembers {
 public:
     int member;
 };
@@ -300,8 +302,10 @@ public:
 
 {% include requirement/MUSTNOT id="cpp-design-no-public-prefixes" %} declare public class members with prefixes or suffixes.
 
+> TODO: Do we still want this? There was some support in the 2020-03-26 meeting for the `m_` prefix.
+
 {% highlight cpp %}
-struct example {
+struct Example {
     int a; // OK
     int m_a; // prohibited
     int _a; // prohibited
@@ -316,44 +320,42 @@ struct example {
 {% include requirement/MUST id="cpp-design-use-enum-class" %} use `enum class` for enumerations. For example:
 
 {% highlight cpp %}
-enum class pin_state {
-    off,
-    on
+enum class PinState {
+    Off,
+    On
 };
 {% endhighlight %}
 
 ### Functions
 
-{% include requirement/MUST id="cpp-design-naming-funcname" %} name functions with all-lowercase.  If part of the public API, place them in your SDK's namespace.  If not, place the API in a "_details" namespace. For example:
+{% include requirement/MUST id="cpp-design-naming-funcname" %} name functions with all-lowercase.  If part of the public API, place them in your SDK's namespace.  If not, place the API in a "Details" namespace. For example:
 
 {% highlight cpp %}
-namespace azure::group::api {
-namespace _details {
+namespace Azure::Group::Api {
+namespace Details {
 // Part of the private API
-[[nodiscard]] int64_t compute_hash(int32_t a, int32_t b) noexcept;
-} // namespace _details
+[[nodiscard]] int64_t ComputeHash(int32_t a, int32_t b) noexcept;
+} // namespace Details
 
 // Part of the public API
-[[nodiscard]] catherd_client catherd_create_client(char *herd_name);
+[[nodiscard]] CatHerdClient CatHerdCreateClient(char *herdName);
 
 // Bad - private API in public namespace.
-[[nodiscard]] int64_t compute_hash(int32_t a, int32_t b) noexcept;
-} // namespace azure::group::api
+[[nodiscard]] int64_t ComputeHash(int32_t a, int32_t b) noexcept;
+} // namespace Azure::Group::Api
 {% endhighlight %}
-
-The definition of the function must be placed in the `*_api.h` file for the module.
 
 {% include requirement/SHOULD id="cpp-design-naming-funcstatic" %} declare all functions that are only used within the same source file in an unnamed namespace.  Static functions may contain only the function name (no prefixes).  For example:
 
 {% highlight cpp %}
 namespace {
-[[nodiscard]] int64_t compute_hash(int32_t a, int32_t b) noexcept {
+[[nodiscard]] int64_t ComputeHash(int32_t a, int32_t b) noexcept {
     // ...
 }
 } // unnamed namespace
 {% endhighlight %}
 
-{% include requirement/SHOULD id="cpp-design-naming-paramnames" %} use a meaningful name for parameters and local variable names.  Parameters and local variable names should be named as all lower-case words, separated by underscores (snake-casing).
+{% include requirement/SHOULD id="cpp-design-naming-paramnames" %} use a meaningful name for parameters and local variable names.  Parameters and local variable names should be named as all lower-case words, with all words but the first capitalized (camelCasing).
 
 {% include requirement/SHOULD id="cpp-design-noexcept" %} declare all functions that can never throw exceptions `noexcept`. If your SDK never uses exceptions, all non-`extern "C"` functions should be marked `noexcept`.
 
@@ -395,7 +397,7 @@ do {                                \
 #define MAX(a,b) ((a > b) ? a : b)
 
 // Good
-[[nodiscard]] inline int max(int x, int y) noexcept {
+[[nodiscard]] inline int Max(int x, int y) noexcept {
     return (x > y ? x : y);
 }
 {% endhighlight %}
@@ -437,25 +439,27 @@ The *logical entity* is a protocol neutral representation of a response. For HTT
 For example, you may choose to do something similar to the following:
 
 {% highlight cpp %}
-typedef struct az_json_short_item {
+namespace Azure::Group::Api {
+struct JsonShortItem {
     // JSON decoded structure.
-} az_json_short_item;
+};
 
-typedef struct az_json_short_paged_results {
+struct JsonShortPagedResults {
     uint32 size;
-    az_json_short_item *items;
-} az_json_short_paged_results;
+    JsonShortItem *items;
+};
 
-
-typedef struct az_json_short_raw_paged_results {
+struct JsonShortRawPagedResults {
     HTTP_HEADERS *headers;
     uint16 status_code;
     byte *raw_body;
-    az_json_short_paged_results* results;
-} az_json_short_raw_paged_results;
+    JsonShortPagedResults* results;
+};
 
-az_json_short_paged_results* az_json_get_short_list_items(client, /* extra params */);
-az_json_short_raw_paged_results* az_json_get_short_list_items_with_response(client, /* extra params */);
+class ShortItemsClient {
+    JsonShortPagedResults* JsonGetShortListItems() const;
+    JsonShortRawPagedResults* JsonGetShortListItemsWithResponse(client, /* extra params */);
+};
 {% endhighlight %}
 
 {% include requirement/MUST id="cpp-return-document-raw-stream" %} document and provide examples on how to access the raw and streamed response for a given request, where exposed by the client library.  We do not expect all methods to expose a streamed response.
@@ -539,10 +543,10 @@ Note that on some comonly deployed platforms like Linux, handling heap exhaustio
 For example:
 
 {% highlight cpp %}
-class herd {
+class Herd {
   bool has_shy_cats;
 public:
-  void count_cats(int* cats) {
+  void CountCats(int* cats) {
     if(this->has_shy_cats) {
       throw std::runtime_error("shy cats are not allowed");
     }
@@ -569,7 +573,7 @@ public:
 
 {% highlight cpp %}
 template<class Callback>
-void api_func(const Callback& c) {
+void ApiFunc(const Callback& c) {
     // best
     c();
 
