@@ -9,8 +9,9 @@ repository: azure/azure-sdk
 title: Best practices for using Azure SDK with ASP.NET Core
 ---
 
+If you are developing an ASP.NET Core application, you know that there is a common way of structuring your application.  There is a central bootstrap class (`Startup`) and a number of classes that fulfill roles in the application, like controllers, view models, and so on.  The tooling within Visual Studio makes this very easy to accomplish.
 
-I spend a lot of time working on various web services.  Usually, I spend time producing the same web service in different languages and different run-times.  One of my favorites is creating an ASP.NET Core web API.  The tooling in Visual Studio makes it so easy.  As with all development tasks, there are many ways you can make your app less performant or less secure.  This article is about avoiding the pitfalls when integrating the Azure SDK into your ASP.NET Core application.
+As with the integration of any SDK, when you want to integrate with the Azure SDK, there are good ways and bad ways to structure your code.  In this article, I will cover the best practices that you should follow to maximize the scalability, performance, and security of your applications when using the Azure SDKs in an ASP.NET Core application.
 
 The advice comes down to three best practices:
 
