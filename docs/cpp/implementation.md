@@ -14,7 +14,7 @@ sidebar: cpp_sidebar
 
 ### Windows
 
-| Operating System     | Version       | Architectures | Compiler Version                        | Notes        
+| Operating System     | Version       | Architectures | Compiler Version                        | Notes
 |----------------------|---------------|---------------|-----------------------------------------|------
 | Windows Client       | 7 SP1+, 8.1   | x86           | MSVC 14.16.x, MSVC 14.20x               |
 | Windows 10 Client    | Version 1607+ | x64, x86      | MSVC 14.16.x, MSVC 14.20x               |
@@ -23,13 +23,13 @@ sidebar: cpp_sidebar
 
 ### Mac
 
-| Operating System                | Version       | Architectures | Compiler Version                        | Notes        
+| Operating System                | Version       | Architectures | Compiler Version                        | Notes
 |---------------------------------|---------------|---------------|-----------------------------------------|------
 | macOS                           | 10.13+        | x64           | XCode 9.4.1                             |
 
 ### Linux
 
-| Operating System                | Version       | Architectures | Compiler Version                        | Notes        
+| Operating System                | Version       | Architectures | Compiler Version                        | Notes
 |---------------------------------|---------------|---------------|-----------------------------------------|------
 | Red Hat Enterprise Linux <br> CentOS <br> Oracle Linux        | 7+            | x64           | gcc-4.8                                 | [Red Hat lifecycle](https://access.redhat.com/support/policy/updates/errata/) <br> [CentOS lifecycle](https://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d) <br> [Oracle Linux lifecycle](http://www.oracle.com/us/support/library/elsp-lifetime-069338.pdf)
 | Debian                          | 9+            | x64           | gcc-6.3                                 | [Debian lifecycle](https://wiki.debian.org/DebianReleases)
@@ -318,6 +318,14 @@ Filenames should be concise, but convey what role the file plays within the libr
 
 // Contents of a given header
 {% endhighlight %}
+
+{% include requirement/MUST id="cpp-style-whole-sdk-header" %} have a header file that includes an entire SDK. For example, `azure_storage.h` or `<azure/storage.h>`.
+
+> TODO: should directory structure mimic the namespace structure with directories or all in one directory with underscores?
+
+{% include requirement/SHOULD id="cpp-style-sub-sdk-header" %} have headers for smaller components that make sense to be used together. For example, `<azure_storage_blobs.h>` or `<azure/storage/blobs.h>`.
+
+{% include requirement/MUSTNOT id="cpp-style-change-headers" %} substantially change the names exposed by the header in response to macros or other controls. For example, `NOMINMAX` or `WIN32_LEAN_AND_MEAN` from `<Windows.h>`.
 
 ## Tooling
 
