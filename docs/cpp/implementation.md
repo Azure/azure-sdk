@@ -12,26 +12,34 @@ sidebar: cpp_sidebar
 
 {% include requirement/MUST id="cpp-platform-min" %} support the following platforms and associated compilers when implementing your client library.
 
-| Operating System                | Architecture | Compiler Version                        |
-|---------------------------------|:------------:|:----------------------------------------|
-| Ubuntu 18.04 (LTS)              | x64          | gcc-7.3                                 |
-| OSX 10.13.4                     | x64          | XCode 9.4.1                             |
-| Windows Server 2016             | x86          | MSVC 14.16.x, MSVC 14.20x               |
-| Windows Server 2016             | x64          | MSVC 14.16.x, MSVC 14.20x               |
-| Windows 10                      | ARM          | MSVC 14.16.x, MSVC 14.20x               |
-| Windows 10                      | ARM64        | MSVC 14.16.x, MSVC 14.20x               |
-| Debian 9 Stretch                | x64          | gcc-7.x                                 |
+### Windows
+
+| Operating System     | Version       | Architectures | Compiler Version                        | Notes        
+|----------------------|---------------|---------------|-----------------------------------------|------
+| Windows Client       | 7 SP1+, 8.1   | x86           | MSVC 14.16.x, MSVC 14.20x               |
+| Windows 10 Client    | Version 1607+ | x64, x86      | MSVC 14.16.x, MSVC 14.20x               |
+| Nano Server          | Version 1803+ | x64, ARM32    | MSVC 14.16.x, MSVC 14.20x               |
+| Windows Server       | 2012 R2+      | x64, x86      | MSVC 14.16.x, MSVC 14.20x               |
+
+### Mac
+
+| Operating System                | Version       | Architectures | Compiler Version                        | Notes        
+|---------------------------------|---------------|---------------|-----------------------------------------|------
+| macOS                           | 10.13+        | x64           | XCode 9.4.1                             |
+
+### Linux
+
+| Operating System                | Version       | Architectures | Compiler Version                        | Notes        
+|---------------------------------|---------------|---------------|-----------------------------------------|------
+| Red Hat Enterprise Linux <br> CentOS <br> Oracle Linux        | 7+            | x64           | gcc-4.8                                 | [Red Hat lifecycle](https://access.redhat.com/support/policy/updates/errata/) <br> [CentOS lifecycle](https://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d) <br> [Oracle Linux lifecycle](http://www.oracle.com/us/support/library/elsp-lifetime-069338.pdf)
+| Debian                          | 9+            | x64           | gcc-6.3                                 | [Debian lifecycle](https://wiki.debian.org/DebianReleases)
+| Ubuntu                          | 18.04, 16.04  | x64           | gcc-7.3                                 | [Ubuntu lifecycle](https://wiki.ubuntu.com/Releases)
+| Linux Mint                      | 18+           | x64           | gcc-7.3                                 | [Linux Mint lifecycle](https://www.linuxmint.com/download_all.php)
+| openSUSE                        | 15+           | x64           | gcc-7.5                                 | [OpenSUSE lifecycle](https://en.opensuse.org/Lifetime)
+| SUSE Enterprise Linux (SLES)    | 12 SP2+       | x64           | gcc-4.8                                 | [SUSE lifecycle](https://www.suse.com/lifecycle/)
 
 {% include requirement/SHOULD id="cpp-platform" %} support the following additional platforms and associated compilers when implementing your client library.
 
-| Operating System                | Architecture | Compiler Version                        |
-|---------------------------------|:------------:|:----------------------------------------|
-| Red Hat Enterprise Linux 7      | x64          | ???                                     |
-| SUSE Linux Enterprise Server 12 | x64          | ???                                     |
-
-> TODO: Azure Native SDKs team to set those two and Debian in a lab somewhere?
-<br/>
-> TODO: Get the default compiler versions on RHEL7 and SLES12.
 
 {% include requirement/SHOULDNOT id="cpp-cpp-extensions" %} use compiler extensions.  Examples of extensions to avoid include:
 
