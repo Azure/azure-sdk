@@ -153,7 +153,7 @@ Client libraries must support robust logging mechanisms so that the consumer can
 
 {% include requirement/MUST id="java-logging-clientlogger" %} use the `ClientLogger` API provided within Azure Core as the sole logging API throughout all client libraries. Internally, `ClientLogger` wraps [SLF4J], so all external configuration that is offered through SLF4J is valid.  We encourage you to expose the SLF4J configuration to end users. For more information, see the [SLF4J user manual].
 
-{% include requirement/MUST id="java-logging-new-clientlogger" %} create a new instance of a `ClientLogger` per instance of all relevant classes. For example, the code below will create a `ClientLogger` instance for the `ConfigurationAsyncClient`:
+{% include requirement/MUST id="java-logging-new-clientlogger" %} create a new instance of a `ClientLogger` per instance of all relevant classes, except in situations where performance is critical or the instances are short-lived (and therefore the cost of unique loggers is excessive). In these cases, it is acceptable to have a shared (or static) logger instance. For example, the code below will create a `ClientLogger` instance for the `ConfigurationAsyncClient`:
 
 ```java
 public final class ConfigurationAsyncClient {
@@ -170,7 +170,7 @@ public final class ConfigurationAsyncClient {
 }
 ```
 
-Don't create static logger instances. Static logger instances are shared among all client library instances running in a JVM instance.
+Note that static loggers are shared among all client library instances running in a JVM instance. Static loggers should be used carefully and in short-lived cases only.
 
 {% include requirement/MUST id="java-logging-levels" %} use one of the following log levels when emitting logs: `Logger.trace` (details), `Logger.info` (things happened), `Logger.warn` (might be a problem or not), and `Logger.error`.
 
@@ -302,6 +302,8 @@ Let's take two examples:
 One of the key things we want to support is to allow consumers of the library to easily write repeatable unit-tests for their applications without activating a service. This allows them to reliable and quickly test their code without worrying about the vagaries of the underlying service implementation (including, for example, network conditions or service outages). Mocking is also helpful to simulate failures, edge cases, and hard to reproduce situations (for example: does code work on February 29th).
 
 {% include requirement/MUST id="java-testing-mocking" %} support mocking of network operations.
+
+{% include requirement/MUST id="java-testing-params" %} parameterize all applicable unit tests to make use of all available HTTP clients and service versions. Parameterized runs of all tests must occur as part of live tests. Shorter runs, consisting of just Netty and the latest service version, can be run whenever PR validation occurs.
 
 {% include refs.md %}
 {% include_relative refs.md %}
