@@ -5,8 +5,6 @@ date: 31 Mar 2020
 sidebar: releases_sidebar
 author_github: pakrym
 repository: azure/azure-sdk
-------
-title: Best practices for using Azure SDK with ASP.NET Core
 ---
 
 If you are developing an ASP.NET Core application, you know that there is a common way of structuring your application.  There is a central bootstrap class (`Startup`) and a number of classes that fulfill roles in the application, like controllers, view models, and so on.  The tooling within Visual Studio makes this very easy to accomplish.
@@ -17,7 +15,7 @@ The advice comes down to three best practices:
 
 1. Centrally configure services during app startup.
 2. Store your configuration separately from code.
-3. Use the [`DefaultAzureCredential`]({% post_url 2020-02-25-defaultazurecredential %}).
+3. Use the [`DefaultAzureCredential`]({% post_url 2020-02-25-defaultazurecredentials %}).
 
 Let's take each of these in turn.
 
