@@ -1,13 +1,13 @@
 ---
-title: Azure SDK for JavaScript (March 2020)
+title: Azure SDK for JavaScript (April 2020)
 layout: post
-date: March 2020
+date: April 2020
 tags: javascript typescript
 sidebar: releases_sidebar
 repository: azure/azure-sdk-for-js
 ---
 
-The Azure SDK team is pleased to make available the March 2020 client library release. This represents the seventh release of the ground-up rewrite of the client libraries to ensure consistency, idiomatic design, and excellent developer experience and productivity. This release includes:
+The Azure SDK team is pleased to make available the April 2020 client library release. This represents the seventh release of the ground-up rewrite of the client libraries to ensure consistency, idiomatic design, and excellent developer experience and productivity. This release includes:
 
 - Update for Azure Cosmos
 - Update for Azure Event Hubs
