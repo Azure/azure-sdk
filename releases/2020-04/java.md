@@ -1,13 +1,13 @@
 ---
-title: Azure SDK for Java (March 2020)
+title: Azure SDK for Java (April 2020)
 layout: post
-date: March 2020
+date: April 2020
 tags: java azure
 sidebar: releases_sidebar
 repository: azure/azure-sdk-for-java
 ---
 
-The Azure SDK team is pleased to announce our March 2020 client library releases.
+The Azure SDK team is pleased to announce our April 2020 client library releases.
 
 #### GA
 
