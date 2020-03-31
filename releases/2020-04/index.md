@@ -4,7 +4,8 @@ layout: post
 date: April 2020
 tags: release
 sidebar: releases_sidebar
-permalink: /releases/2020-02/index.html
+permalink: /releases/2020-04/index.html
+
 ---
 ## Release notes
 
