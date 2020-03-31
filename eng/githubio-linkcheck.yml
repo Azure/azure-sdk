@@ -15,6 +15,7 @@ steps:
     --no-follow-url "https://azure.github.io/azure-sdk-for-*"
     --no-follow-url "https://azure.github.io/azure-cosmos-*"
     --ignore-url "https://github.com/Azure/azure-sdk-pr"
+    --ignore-url "https://www.linuxmint.com/download_all.php"
   displayName: 'azure-sdk link check'
   continueOnError: true
 
