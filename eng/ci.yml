@@ -26,27 +26,19 @@ steps:
     bundle exec jekyll serve --detach
   displayName: Launch local site
 
-- task: Powershell@2
-  inputs:
-    targetType: inline
-    pwsh: true
-    script: |
-      $ProgressPreference = "SilentlyContinue"; # Disable invoke-webrequest progress dialog
-      $invalidLinks = 0;
-      cd "_site"
-      $rootPathLength = (get-location).Path.Length + 1;
-      foreach($html in (dir -r -i *.html)) {
-        $relPath = $html.FullName.Substring($rootPathLength);
-        # Skip the paths starting with '_' as they are generated and not directly referenced
-        if ($relPath.StartsWith("_")) { continue }
-        $url = [System.Uri]("http://localhost:4000/$relPath");
-        Write-Host "Checking links on $url"
-        ../eng/scripts/Verify-Links.ps1 $url -devOpsLogging
-        $invalidLinks += $lastExitCode
-      }
-      Write-Host "Found $invalidLinks total bad links"
-      exit $invalidLinks
-  displayName: Verify Links
+- script: >
+    docker run --net=host --rm weshaggard/linkchecker "http://localhost:4000/index.html"
+    --anchors
+    --check-extern
+    --no-robots
+    --no-status
+    --no-warnings
+    --no-follow-url "https://azure.github.io/azure-sdk-for-*"
+    --no-follow-url "https://azure.github.io/azure-cosmos-*"
+    --ignore-url "https://github.com/Azure/azure-sdk-pr"
+    --ignore-url "https://www.linuxmint.com/download_all.php"
+  displayName: 'azure-sdk link check'
+  continueOnError: true
 
 - script: |
     pkill -f jekyll

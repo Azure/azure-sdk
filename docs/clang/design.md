@@ -129,13 +129,17 @@ typedef struct az_iot_client {
 
 ### Enums
 
-{% include requirement/MUST id="clang-design-naming-enum" %} use pascal-casing to name enum types.  For example:
+{% include requirement/MUST id="clang-design-naming-enum" %} use snake-casing to name enum types, and include the az_<svcname>_<shortenumname> prefix.
+
+{% include requirement/MUST id="clang-design-naming-enumerators" %}
+Name enumerators (the "members" of an enum) with ALL_CAPS and with
+the AZ_<svcname>_<shortenumname> prefix. For example:
 
 {% highlight c %}
-enum PinStateType {
-    PIN_OFF,
-    PIN_ON
-};
+typedef enum az_pin_state {
+    AZ_PIN_STATE_OFF,
+    AZ_PIN_STATE_ON
+} az_pin_state;
 {% endhighlight %}
 
 Enums do not have a guaranteed size.  If you have a type that can take a known range of values and it is transported in a message, you cannot use an enum as the type.
@@ -145,15 +149,15 @@ Enums do not have a guaranteed size.  If you have a type that can take a known r
 
 {% include requirement/MUSTNOT id="clang-design-enumsareinternal" %} use C enums to model any data sent to the service. Use C enums only for types completely internal to the client library.
 
-{% include requirement/MUST id="clang-design-naming-enum-errors" %} use the first label within an enum for an error state, if it exists.  
+{% include requirement/SHOULD id="clang-design-naming-enum-errors" %} use the first label within an enum for an error state, if it exists.  
 
 {% highlight c %}
-enum ServiceState {
-    STATE_ERR,
-    STATE_OPEN,
-    STATE_RUNNING,
-    STATE_DYING
-};
+typedef enum az_iot_service_state {
+    AZ_IOT_SERVICE_STATE_ERR,
+    AZ_IOT_SERVICE_STATE_OPEN,
+    AZ_IOT_SERVICE_STATE_RUNNING,
+    AZ_IOT_SERVICE_STATE_DYING
+} az_iot_service_state;
 {% endhighlight %}
 
 ### Functions

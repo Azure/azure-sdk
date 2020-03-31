@@ -3,6 +3,7 @@ title: Pluggable HTTP Modules with the Azure SDK for Java
 layout: post
 date: 03 Mar 2020
 sidebar: releases_sidebar
+author_github: alzimmermsft
 repository: azure/azure-sdk
 ---
 
@@ -74,3 +75,5 @@ If OkHttp and Netty doesn't fit your requirements, you can also [write your own 
 ## Want to hear more?
 
 Follow us on [Twitter](https://twitter.com/AzureSDK).  We'll be covering more best practices in cloud-native development as well as providing updates on our progress in developing the next generation of Azure SDK. 
+
+Contributors to this article: _Alan Zimmer_.

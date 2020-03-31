@@ -1,50 +1,34 @@
 trigger:
 - master
 
-variables:
-  BranchName: PackageVersionUpdates
-  CommitMsg: "Update package index with latest published versions"
-  RepoOwner: Azure
-  RepoName: azure-sdk
-
 pool:
   vmImage: 'windows-2019'
 
+resources:
+  repositories:
+    - repository: azure-sdk-tools
+      type: github
+      name: Azure/azure-sdk-tools
+      endpoint: azure
+
 steps:
-- pwsh: |
-    ./eng/scripts/Update-Release-Versions.ps1
-  displayName: Update versions locally
+- checkout: self
+- checkout: azure-sdk-tools
 
 - pwsh: |
-    echo "git diff --exit-code"
-    git diff --exit-code
-
-    if ($LastExitCode -ne 0) {
-      echo "##vso[task.setvariable variable=HasChanges]$true"
-      echo "Changes detected so setting HasChanges=true"
-    }
-    else {
-      echo "No changes so skipping code push"
-    }
-
-  displayName: "Check for changes"
-  ignoreLASTEXITCODE: true
-
-- script: |
-    echo "git checkout -B $(BranchName)"
-    git checkout -B $(BranchName)
-
-    echo "git -c user.name=""azure-sdk"" -c user.email=""azuresdk@microsoft.com"" commit -am ""$(CommitMsg)"""
-    git -c user.name="azure-sdk" -c user.email="azuresdk@microsoft.com" commit -am "$(CommitMsg)"
-
-    echo "git push https://$(GH_TOKEN)@github.com/$(RepoOwner)/$(RepoName).git -f $(BranchName)"
-    git push https://$(GH_TOKEN)@github.com/$(RepoOwner)/$(RepoName).git -f $(BranchName)
-
-  displayName: Push changes
-  condition: and(succeeded(), eq(variables['HasChanges'], 'true'))
+    ./azure-sdk/eng/scripts/Update-Release-Versions.ps1
+  displayName: Update new package from release tags
 
 - pwsh: |
-    ./eng/scripts/Submit-PullRequest.ps1 -RepoOwner "$(RepoOwner)" -RepoName "$(RepoName)" -BaseBranch "master" -PROwner "$(RepoOwner)" -PRBranch "$(BranchName)" -AuthToken "$(GH_TOKEN)" -PRTitle "$(CommitMsg)"
+    ./azure-sdk/eng/scripts/Query-Azure-Packages.ps1
+  displayName: Update packages from package manager
 
-  displayName: Create pull request
-  condition: and(succeeded(), eq(variables['HasChanges'], 'true'))
+- template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
+  parameters:
+    RepoName: azure-sdk
+    PRBranchName: PackageVersionUpdates
+    CommitMsg: "Update package index with latest published versions"
+    PRTitle: "Update package index with latest published versions"
+    PushArgs: -f
+    WorkingDirectory: $(System.DefaultWorkingDirectory)/azure-sdk
+    ScriptDirectory: $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts
