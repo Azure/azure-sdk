@@ -15,7 +15,7 @@ The advice comes down to three best practices:
 
 1. Centrally configure services during app startup.
 2. Store your configuration separately from code.
-3. Use the [`DefaultAzureCredential`]({% post_url 2020-02-25-defaultazurecredentials %}).
+3. Use the [`DefaultAzureCredential`](https://azure.github.io/azure-sdk/posts/2020-02-25/defaultazurecredentials.html).
 
 Let's take each of these in turn.
 
