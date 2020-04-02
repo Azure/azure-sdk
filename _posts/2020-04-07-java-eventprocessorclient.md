@@ -13,7 +13,7 @@ How might this work?
 
 ![]({{ site.base_url }}/images/posts/04072020-image1.png)
 
-Each base station has a number of feeds from the instruments, each of which could provide information at different rates.  This is all fed into an [Azure Event Hub](https://azure.microsoft.com/en-us/services/event-hubs/).  Azure Event Hubs are a scalable messaging system primarily used for data ingestion, allowing you to analyze millions of data points.  You could use the same system for analyzing marketing data coming from a mobile application, shopping data coming from the scanners at a grocery store, or security devices monitoring millions of homes.  We've learned a few things about this, and have come up with some best practices to follow.  Although you can use any of our languages for this (.NET, Python, Java, or TypeScript), we will be using Java for the examples today.
+Each base station has a number of feeds from the instruments, each of which could provide information at different rates.  This is all fed into an [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/).  Azure Event Hubs are a scalable messaging system primarily used for data ingestion, allowing you to analyze millions of data points.  You could use the same system for analyzing marketing data coming from a mobile application, shopping data coming from the scanners at a grocery store, or security devices monitoring millions of homes.  We've learned a few things about this, and have come up with some best practices to follow.  Although you can use any of our languages for this (.NET, Python, Java, or JavaScript/TypeScript), we will be using Java for the examples today.
 
 ## Send data in batches most of the time
 
@@ -39,49 +39,49 @@ public class TemperatureSender {
 }
 ```
 
-This is a fictitious class that will send temperature data from a connected device to the Event Hub.  You specify the Event Hub namespace and name (both obtained when provisioning the Event Hubs) to configure the connection.
+This is a fictitious class that will send temperature data from a connected device to the Event Hub.  You specify the Event Hub namespace and name (both obtained when provisioning the Event Hubs) to configure the connection.  The rest of the class code is below.
 
 The `TemperatureDevice` class (not shown) is responsible for reading data from the device.  How do we send data?  Let's create a method that reads a temperature and stores it in a batch.
 When the batch is full, it will send the data to the Event Hub.
 
 ```java
-   private EventDataBatch currentBatch = null;
+    private EventDataBatch currentBatch = null;
 
-   public sendTemperatureData() {
-     // Get the temperature from the device
-     Temperature measure = this.device.getTemperature();
-     // Serialize the temperature as a string value
-     String json = this.serializer.writeValueAsString(measure.toString());
+    public sendTemperatureData() {
+      // Get the temperature from the device
+      Temperature measure = this.device.getTemperature();
+      // Serialize the temperature as a string value
+      String json = this.serializer.writeValueAsString(measure.toString());
 
-     // Events contain an opaque series of bytes.  To understand what these bytes
-     // represent, add some application properties to the event.
-     EventData eventData = new EventData(json.getBytes());
-     eventData.getProperties().put("measurement", "temperature");
-     eventData.getProperties().put("content-type", "application/json");
+      // Events contain an opaque series of bytes.  To understand what these bytes
+      // represent, add some application properties to the event.
+      EventData eventData = new EventData(json.getBytes());
+      eventData.getProperties().put("measurement", "temperature");
+      eventData.getProperties().put("content-type", "application/json");
 
-     // Batch options are needed to set the partition ID
-     CreateBatchOptions batchOptions = new CreateBatchOptions();
+      // Batch options are needed to set the partition ID
+      CreateBatchOptions batchOptions = new CreateBatchOptions();
 
-     // No batch?  Create one
-     if (currentBatch == null) {
-       this.currentBatch = this.sender.createBatch(batchOptions);
-     }
+      // No batch?  Create one
+      if (currentBatch == null) {
+        this.currentBatch = this.sender.createBatch(batchOptions);
+      }
 
-     // Attempt to add to the batch - if the item does not fit, then the batch
-     // is full, so send it, then create a new batch.
-     if (!this.currentBatch.tryAdd(eventData)) {
-       this.sender.send(this.currentBatch);
-       this.currentBatch = this.sender.createBatch(batchOptions);
+      // Attempt to add to the batch - if the item does not fit, then the batch
+      // is full, so send it, then create a new batch.
+      if (!this.currentBatch.tryAdd(eventData)) {
+        this.sender.send(this.currentBatch);
+        this.currentBatch = this.sender.createBatch(batchOptions);
 
-       // Add the item that didn't fit.
-       this.currentBatch.tryAdd(eventData);
-     }
-   }
+        // Add the item that didn't fit.
+        this.currentBatch.tryAdd(eventData);
+      }
+    }
 
-   public flushData() {
-     this.sender.send(this.currentBatch);
-     this.currentBatch = null;
-   }
+    public flushData() {
+      this.sender.send(this.currentBatch);
+      this.currentBatch = null;
+    }
 ```
 
 You can call the `sendTemperatureData()` as many times and as often as you want.  It will batch up the event data and send it to a particular partition.
@@ -210,7 +210,7 @@ The best case for scalability is to have the same number of `EventProcessorClien
 
 ## Further reading
 
-Take a look at the [Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs/) documentation, and the API reference for the `EventProcessorClient` (in [.NET](https://azure.github.io/azure-sdk-for-net/eventhub.html), [Java](https://azure.github.io/azure-sdk-for-java/eventhubs.html), [JavaScript](https://azure.github.io/azure-sdk-for-js/eventhub.html), and [Python](https://azure.github.io/azure-sdk-for-python/ref/Event-Hub.html)).  The full source code for the an example project is on [GitHub](https://github.com/conniey/weather-app).
+Take a look at the [Event Hubs](https://docs.microsoft.com/azure/event-hubs/) documentation, and the API reference for the `EventProcessorClient` (in [.NET](https://azure.github.io/azure-sdk-for-net/eventhub.html), [Java](https://azure.github.io/azure-sdk-for-java/eventhubs.html), [JavaScript](https://azure.github.io/azure-sdk-for-js/eventhub.html), and [Python](https://azure.github.io/azure-sdk-for-python/ref/Event-Hub.html)).  The full source code for the an example project is on [GitHub](https://github.com/conniey/weather-app).
 
 ## Want to hear more?
 
