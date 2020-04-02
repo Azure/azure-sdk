@@ -233,7 +233,7 @@ All Azure client libraries ship with a set of extension methods that provide int
 
 {% include requirement/MUST id="dotnet-client-builder-overloads" %} provide an overload for every set of constructor parameters.
 
-{% include requirement/MUST id="dotnet-client-builder-overload-normal" %} provide extension method for `IAzureClientFactoryBuilder` interface for constructors that take `TokenCredentials`. Extension method should take same set of parameters as constructor and call into `builder.RegisterClientFactory`
+{% include requirement/MUST id="dotnet-client-builder-overload-normal" %} provide extension method for `IAzureClientFactoryBuilder` interface for constructors that don't take `TokenCredentials`. Extension method should take same set of parameters as constructor and call into `builder.RegisterClientFactory`
 
 Sample implementation:
 
