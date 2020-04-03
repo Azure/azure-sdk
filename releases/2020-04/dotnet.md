@@ -13,6 +13,8 @@ The Azure SDK team is pleased to announce our April 2020 client library releases
 
 #### Updates
 
+- Core
+
 #### Preview
 
 - Service Bus
@@ -30,6 +32,12 @@ If you have a bug or feature request for one of the libraries, please [file an i
 ## Changelog
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
+
+### Core [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/CHANGELOG.md)
+
+- `AzureKeyCredential` and its respective policy.
+- Response trace messages are properly identified.
+- Content type "application/x-www-form-urlencoded" is decoded in trace messages.
 
 ### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md)
 
