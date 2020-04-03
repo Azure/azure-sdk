@@ -102,7 +102,7 @@ Now that the data we want to process is in the Event Hub, it's time to look at p
 2. You don't want to repeatedly process the same events by starting from the beginning of the stream each time, so you must record a checkpoint every now and then.
 3. Even though data is sent in batches, the batch sizes may vary.  Your processing strategy may be different from your sending strategy.
 
-There is a low-level client for processing events.  Unless you are very concerned about latency (to the point where you really want to control when and how many events you pull off the Event Hub and skip events if you are getting behind), you will want to use the `EventProcessorClient`.
+Most of the time, you will want to use the `EventProcessorClient`.  There is a low-level client that interacts directly with the AMQP transport protocol.  However, this is not recommended unless you have a significant concern about latency and want to control when and how many event you pull from the Event Hub.
 
 The `EventProcessorClient` is a higher-level construct wrapping the low-level client.  It does all the "boiler-plate" event management for you; for example, coordinating processing between multiple hosts, allowing other processor clients to "take over" if you need to move the processing to another host (for example, to support zero-down-time upgrades), and storing checkpoint information.
 
