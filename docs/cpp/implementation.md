@@ -301,11 +301,9 @@ TEST_FUNCTION(foo_tcp_manager_create_createAndReturnInstanceSucceed)
 
 ### Files
 
-{% include requirement/MUST id="cpp-style-filenaming" %} name all files as lowercase, prefixed by the service short name; separate words with underscores, and end with the appropriate extension (`.c`, `.cpp`, or `.h`).  For example, `iot_credential.c` is valid, while `IoTCredential.cl` is not.
+{% include requirement/MUST id="cpp-style-filenaming" %} name all files as lowercase, in a directory of the service short name. Separate words with underscores, and end with the appropriate extension (`.cpp` or `.hpp`). For example, `iot_credential.cpp` is valid, while `IoTCredential.cl` is not.
 
-{% include requirement/MUST id="cpp-style-publicapi-hdr" %} identify the file containing the public API with `<svcname>_<objname>_api.h`.  For example, `iot_credential_api.h`.
-
-{% include requirement/MUST id="cpp-style-privateapi-hdr" %} place an include file that is not part of the public API in an `internal` directory.  Do not include the service short name.  For example, `internal/credential.h`.
+{% include requirement/MUST id="cpp-style-privateapi-hdr" %} place an include file that is not part of the public API in an `internal` directory.  Do not include the service short name.  For example, `<azure/internal/credential.hpp>`.
 
 {% include requirement/MUST id="cpp-style-filenames" %} use characters in the range `[a-z0-9_]` for the name portion (before the file extension).  No other characters are permitted.
 
@@ -319,11 +317,9 @@ Filenames should be concise, but convey what role the file plays within the libr
 // Contents of a given header
 {% endhighlight %}
 
-{% include requirement/MUST id="cpp-style-whole-sdk-header" %} have a header file that includes an entire SDK. For example, `azure_storage.h` or `<azure/storage.h>`.
+{% include requirement/MAY id="cpp-style-whole-sdk-header" %} have a header file that includes an entire client library. For example, `<azure/speech.hpp>`.
 
-> TODO: should directory structure mimic the namespace structure with directories or all in one directory with underscores?
-
-{% include requirement/SHOULD id="cpp-style-sub-sdk-header" %} have headers for smaller components that make sense to be used together. For example, `<azure_storage_blobs.h>` or `<azure/storage/blobs.h>`.
+{% include requirement/SHOULD id="cpp-style-sub-sdk-header" %} have headers for smaller components that make sense to be used together. For example, `<azure/speech/translation.hpp>`.
 
 {% include requirement/MUSTNOT id="cpp-style-change-headers" %} substantially change the names exposed by the header in response to macros or other controls. For example, `NOMINMAX` or `WIN32_LEAN_AND_MEAN` from `<Windows.h>`.
 
@@ -402,8 +398,8 @@ CMake will automatically generate an appropriate export header:
 
 {% highlight cmake %}
 include(GenerateExportHeader)
-generate_export_header(appconf
-    EXPORT_FILE_NAME az/appconf_export.h)
+generate_export_header(speech
+    EXPORT_FILE_NAME azure/speech_export.hpp)
 {% endhighlight %}
 
 {% include requirement/MUST id="cpp-tooling-cpp-format" %} use [clang-format](https://clang.llvm.org/docs/ClangFormat.html) for formatting, with the following command-line options:
@@ -661,7 +657,7 @@ Always add a short comment explaining why it is commented out.
 {% include requirement/MUSTNOT id="cpp-" %} put data definitions in header files.  For example, this should be avoided:
 
 {% highlight cpp %}
-/* aheader.h */
+/* aheader.hpp */
 int x = 0;
 {% endhighlight %}
 
