@@ -228,7 +228,7 @@ typedef struct iot_client {
 } az_iot_client;
 {% endhighlight %}
 
-{% include requirement/MUST id="cpp-design-no-getters-or-setters" %} define getters and setters for data transfer objects.  Expose the members directly to users unless you need to enforce some constraints on the data.  For example:
+{% include requirement/MUSTNOT id="cpp-design-no-getters-or-setters" %} define getters and setters for data transfer objects.  Expose the members directly to users unless you need to enforce some constraints on the data.  For example:
 {% highlight cpp %}
 // Good - no restrictions on values
 struct example_request {
