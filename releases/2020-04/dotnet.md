@@ -18,11 +18,14 @@ The Azure SDK team is pleased to announce our April 2020 client library releases
 #### Preview
 
 - Service Bus
+- Text Analytics
 
 ## Installation Instructions
 
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
+    $> dotnet add package Azure.AI.TextAnalytics --version 1.0.0-preview.4
+    
     $> dotnet add package Azure.Messaging.ServiceBus --version 7.0.0-preview.1
 
 ## Feedback
@@ -38,6 +41,12 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - `AzureKeyCredential` and its respective policy.
 - Response trace messages are properly identified.
 - Content type "application/x-www-form-urlencoded" is decoded in trace messages.
+
+### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#100-preview4-2020-04-07)
+
+- Remove the `RecognizePiiEntities` endpoint and all related models.
+- Add mock support for the Text Analytics client with respective samples.
+- Add integration for ASP.NET Core.
 
 ### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md)
 
