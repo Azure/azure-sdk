@@ -26,10 +26,14 @@ The Azure SDK team is pleased to announce our April 2020 client library releases
 
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
-    $> dotnet add package Azure.Search.Documents --version 1.0.0-preview.2
+    $> dotnet add package Azure.Messaging.EventHubs --version 5.1.0-preview.1
     
-    $> dotnet add package Azure.Messaging.ServiceBus --version 7.0.0-preview.1
+    $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.1.0-preview.1
+    
+    $> dotnet add package Azure.Search.Documents --version 1.0.0-preview.2
 
+    $> dotnet add package Azure.Messaging.ServiceBus --version 7.0.0-preview.1
+    
     $> dotnet add package Azure.AI.TextAnalytics --version 1.0.0-preview.4
 
 ## Feedback
