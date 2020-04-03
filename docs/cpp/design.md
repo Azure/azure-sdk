@@ -10,13 +10,27 @@ sidebar: cpp_sidebar
 
 The API surface of your client library must have the most thought as it is the primary interaction that the consumer has with your service.
 
-## Namespaces
+## Naming and Declarations
+
+{% include requirement/MUST id="cpp-design-naming-concise" %} use clear, concise, and meaningful names.
+
+{% include requirement/SHOULDNOT id="cpp-design-naming-abbrev" %} use abbreviations unless necessary or when they are commonly used and understood.  For example, `az` is allowed since it is commonly used to mean `Azure`, and `iot` is used since it is a commonly understood industry term.  However, using `kv` for Key Vault would not be allowed since `kv` is not commonly used to refer to Key Vault.
+
+### Definitions
+
+- **PascalCase** identifiers start with an uppercase letter and then use additional capital letters to divide words. Acronyms and initialisms are capitalized if they are 2 letters or shorter; otherwise only the first letter is capitalized. For example, `PascalCase`, `HttpRequest`, `JsonParser`, or `IOContext`.
+
+- **camelCase** identifiers start with a lowercase letter and then use additional capital letters to divide words. Acronyms and initialisms that start an identifier are all lowercase if they begin an identifier, otherwise they follow the same 2 letters rule as PascalCase. For example, `camelCase`, `httpRequest`, `processHttp`, `ioContext`, `startIO`.
+
+- **ALL_CAPITAL_SNAKE_CASE** identifiers are composed of entirely capital letters and divide words with underscores.
+
+### Namespaces
 
 Grouping services within a cloud infrastructure is common since it aids discoverability and provides structure to the reference documentation.
 
-{% include requirement/SHOULD id="general-namespaces-support" %} support namespaces if namespace usage is common within the language ecosystem.
+{% include requirement/MUST id="cpp-design-naming-namespaces" %} name namespaces using **PascalCase**.
 
-{% include requirement/MUST id="general-namespaces-naming" %} use a root namespace of the form `Azure::<Group>::<Service>`.  All consumer-facing APIs that are commonly used should exist within this namespace.  The namespace is comprised of three parts:
+{% include requirement/MUST id="cpp-design-naming-namespaces-hierarchy" %} use a root namespace of the form `Azure::<Group>::<Service>`.  All consumer-facing APIs that are commonly used should exist within this namespace.  The namespace is comprised of three parts:
 
 - `Azure` indicates a common prefix for all Azure services.
 - `<Group>` is the group for the service.  See the list below.
@@ -44,7 +58,34 @@ Many `management` APIs do not have a data plane because they deal with managemen
 
 > TODO: How do we link to a PascalCase version of registered_namespaces.html ?
 
-### Example Namespaces
+{% include requirement/MUST id="cpp-design-naming-namespaces-details" %} place private implementation details in a `Details` namespace.
+
+{% highlight cpp %}
+namespace Azure::Group::Api {
+namespace Details {
+// Part of the private API
+struct HashComputation {
+    int InternalBookkeeping;
+};
+
+const int g_privateConstant = 1729;
+} // namespace Details
+
+// Part of the public API
+struct UploadBlobRequest {
+    unsigned char* Data;
+    size_t DataLength;
+};
+
+// Bad - private API in public namespace.
+struct HashComputation {
+    int InternalBookkeeping;
+};
+const int g_privateConstant = 1729;
+} // namespace Azure::Group::Api
+{% endhighlight %}
+
+#### Example Namespaces
 
 Here are some examples of namespaces that meet these guidelines:
 
@@ -61,23 +102,59 @@ Here are some namespaces that do not meet the guidelines:
 - `azure::mixed_reality::kinect` (the grouping is not in the approved list and uses snake_case)
 - `Azure::Iot::IotHub::DeviceProvisioning` (too many levels in the group)
 
-## Naming conventions
+### Class Types (including `union`s and `struct`s)
 
-{% include requirement/MUST id="cpp-design-naming-concise" %} use clear and concise names.
+Throughout this section, *class types* includes types with *class-key* `struct` or *class-key* `union`, consistent with the [C++ Standard](http://eel.is/c++draft/class#pre-4).
 
-{% include requirement/SHOULDNOT id="cpp-design-naming-abbrev" %} use abbreviations unless necessary or when they are commonly used and understood.  For example, `az` is allowed since it is commonly used to mean `Azure`, and `iot` is used since it is a commonly understood industry term.  However, using `kv` for Key Vault would not be allowed since `kv` is not commonly used to refer to Key Vault.
+{% include requirement/MUST id="cpp-design-naming-classes" %} name class types with **PascalCase**.
 
-{% include requirement/MUST id="cpp-design-naming-lowercase" %} use lower-case for local variable names, and for private member variable names.
+{% include requirement/MUST id="cpp-design-naming-classes-public-protected-variables" %} name `public` and `protected` member variables with **PascalCase**.
 
-> TODO: Review this guidance for member variables as what we want for public and private members may differ.
+{% include requirement/MUST id="cpp-design-naming-classes-public-variables" %} name `private` member variables with an `m_` prefix, followed by a **camelCase** name. For example, `m_timeoutMs`.
 
-{% include requirement/MUST id="cpp-design-naming-underbar" %} use capital letters to separate name components in global variable, function, enum, enumerator, or class names (commonly referred to as Pascal-casing).
+{% include requirement/MUST id="cpp-design-naming-classes-functions" %} name member functions with **PascalCase**, except where the C++ Standard forbids this. For example, `UploadBlob`, or `operator[]`.
 
-{% include requirement/MUST id="cpp-design-naming-internal" %} use a "Details" namespace to indicate that a name is not part of the public API and is not guaranteed to be stable.
+{% include requirement/SHOULD id="cpp-design-naming-classes-no-struct-keyword" %} declare classes with only public members using *class-key* `struct`.
+{% highlight cpp %}
+// Good
+struct OnlyPublicMembers {
+    int Member;
+};
+
+// Bad
+class OnlyPublicMembers {
+public:
+    int Member;
+};
+{% endhighlight %}
+
+{% include requirement/SHOULD id="cpp-design-naming-classes-typedefs" %} define class types without using `typedef`s. For example:
+
+{% highlight cpp %}
+// Good: Uses C++ style class declaration:
+struct IotClient {
+    char* ApiVersion;
+    IotClientCredentials* Credentials;
+    int RetryTimeout;
+};
+
+// Bad: Uses C-style typedef:
+typedef struct IotClient {
+    char* ApiVersion;
+    IotClientCredentials* Credentials;
+    int RetryTimeout;
+} AzIotClient;
+{% endhighlight %}
 
 ### Variables
 
-{% include requirement/MUST id="cpp-design-typing-units" %} use types to enforce units where possible. For example, the C++ standard library provides `std::chrono` which makes time conversions automatic.
+{% include requirement/MUST id="cpp-design-naming-variables-public-global" %} name namespace scope variables intended for user consumption with **PascalCase**.
+
+{% include requirement/MUST id="cpp-design-naming-variables-public-global" %} name namespace scope variables intended only for internal consumption with a `g_` prefix followed by **camelCase**. For example, `g_applicationContext`. Note that all such cases will be in a `Details` namespace or an unnamed namespace.
+
+{% include requirement/MUST id="cpp-design-naming-variables-local" %} name local variables and parameters with **camelCase**.
+
+{% include requirement/MUST id="cpp-design-naming-variables-typing-units" %} use types to enforce units where possible. For example, the C++ standard library provides `std::chrono` which makes time conversions automatic.
 {% highlight cpp %}
 // Bad
 uint32 Timeout;
@@ -86,7 +163,7 @@ uint32 Timeout;
 std::chrono::milliseconds Timeout;
 {% endhighlight %}
 
-{% include requirement/MUST id="cpp-design-naming-units" %} include units in names when a type based solution to enforce units is not present.  If a variable represents weight, or some other unit, then include the unit in the name so developers can more easily spot problems.  For example:
+{% include requirement/MUST id="cpp-design-naming-naming-units" %} include units in names when a type based solution to enforce units is not present.  If a variable represents weight, or some other unit, then include the unit in the name so developers can more easily spot problems.  For example:
 
 {% highlight cpp %}
 // Bad
@@ -98,83 +175,100 @@ std::chrono::milliseconds Timeout;
 uint32 MyWeightKg;
 {% endhighlight %}
 
-{% include requirement/MUST id="cpp-design-naming-optimize-position" %} declare variables in structures organized by use in a manner that minimizes memory wastage because of compiler alignment issues and size.  All things being equal, use alphabetical ordering.
+{% include requirement/MUST id="cpp-design-naming-variables-one-per-line" %} Declare or define each variable on its own line, except when declaring bitfields. An exception can be made when declaring bitfields (to clarify that the variable is a part of one bitfield). The use of bitfields in general is discouraged.
+
+### Enums and Enumerators
+
+{% include requirement/MUST id="cpp-design-naming-enum" %} name `enum class`es and enumerators using **PascalCase**.
+
+{% include requirement/MUST id="cpp-design-naming-enum-class" %} use `enum class` for enumerations. For example:
 
 {% highlight cpp %}
-// Bad
-struct Foo {
-    int a;
-    char *b;
-    int c;
-    char *d;
-};
-
-// Good
-struct Foo {
-    int a;
-    int c;
-    char *b;
-    char *d;
+enum class PinState {
+    Off,
+    On
 };
 {% endhighlight %}
 
-Each variable is normally defined with its own type and line.  An exception can be made when declaring bitfields (to clarify that the variable is a part of one bitfield).  The use of bitfields in general is discouraged.
+### Functions
 
-{% include requirement/MUST id="cpp-design-naming-staticvars" %} declare all entities that are only used within the same source file in an unnamed namespace.  Such entities may contain only the variable name (no prefixes).  For example:
-
-{% highlight cpp %}
-namespace {
-    uint32_t ByteCounter = 0;
-    struct AClassNotExposed {};
-    class ADifferentClassNotExposed {};
-} // unnamed namespace
-{% endhighlight %}
-
-### Globals
-
-{% include requirement/SHOULDNOT id="cpp-design-naming-no-globals" %} use global non-constant variables.
-
-### Structs and Classes
-
-{% include requirement/MUST id="cpp-design-naming-classname" %} name class types with PascalCase.  If part of the public API, place them in your SDK's namespace.  If not, place the API in a "Details" namespace. For example:
+{% include requirement/MUST id="cpp-design-naming-functions" %} name functions with **PascalCase**. For example:
 
 {% highlight cpp %}
 namespace Azure::Group::Api {
 namespace Details {
 // Part of the private API
-struct HashComputationPrivateDetails {
-    int internal_bookkeeping;
-};
+[[nodiscard]] int64_t ComputeHash(int32_t a, int32_t b) noexcept;
 } // namespace Details
 
 // Part of the public API
-struct UploadBlobRequest {
-    unsigned char* data;
-    size_t data_length;
-};
+[[nodiscard]] CatHerdClient CatHerdCreateClient(char* herdName);
 
 // Bad - private API in public namespace.
-struct HashComputationPrivateDetails {
-    int internal_bookkeeping;
-};
+[[nodiscard]] int64_t ComputeHash(int32_t a, int32_t b) noexcept;
 } // namespace Azure::Group::Api
 {% endhighlight %}
 
-{% include requirement/SHOULD id="cpp-design-naming-classstatic" %} declare all types that are only used within the same source file in an unnamed namespace.  Such types may contain only the function name (no prefixes).  For example:
+{% include requirement/SHOULD id="cpp-design-naming-functions-noexcept" %} declare all functions that can never throw exceptions `noexcept`.
+
+### Templates
+
+{% include requirement/MUST id="cpp-design-naming-templates" %} name function templates and class templates the same as one would name non-templates.
+
+{% include requirement/MUST id="cpp-design-naming-templates-parameters" %} name template arguments with **PascalCase**.
+
+### Macros
+
+{% include requirement/SHOULD id="cpp-design-naming-macros-avoid" %} avoid use of macros. It is acceptable to use macros in the following situations. Use outside of these situations should contact the Azure Review Board.
+
+* Platform, compiler, or other environment detection (for example, `_WIN32` or `_MSC_VER`).
+* Header guards.
+* Emission or suppression of diagnostics.
+* Emission or supression of debugging asserts.
+* Import declarations. (`__declspec(dllimport)`, `__declspec(dllexport)`)
+
+> TODO: Need to involve Charlie in how we want to talk about import declarations
+
+{% include requirement/MUST id="cpp-design-naming-macros-caps" %} name macros with **ALL_CAPITAL_SNAKE_CASE**.
+
+{% include requirement/MUST id="cpp-design-naming-macros-form" %} prepend macro names with `AZ_<SERVICENAME>` to make macros unique.
+
+{% include requirement/MUSTNOT id="cpp-design-naming-macros-functions" %} use macros where an inline function or function template would achieve the same effect. Macros are not required for code efficiency.
+
+{% highlight cpp %}
+// Bad
+##define MAX(a,b) ((a > b) ? a : b)
+
+// Good
+template<class T>
+[[nodiscard]] inline T Max(T x, T y) {
+    return x > y ? x : y;
+}
+{% endhighlight %}
+
+{% include requirement/MUSTNOT id="cpp-design-naming-macros-donoevil" %} change syntax via macro substitution.  It [makes the program unintelligible](https://gist.github.com/aras-p/6224951) to all but the perpetrator.
+
+## Physical Design
+
+> TODO: Move this to implementation or move the headers discussion from implementation here
+
+{% include requirement/SHOULD id="cpp-design-physical-include-quotes" %} include files using quotes (") for files within the same git repository, and angle brackets (<>) for external dependencies.
+
+{% include requirement/SHOULD id="cpp-design-physical-unnamed-namespace" %} declare all types that are only used within the same `.cpp` file in an unnamed namespace. For example:
 
 {% highlight cpp %}
 namespace {
-struct HashComputationPrivateDetails {
-    int internal_bookkeeping;
+struct HashComputation {
+    int InternalBookkeeping;
 };
 } // unnamed namespace
 {% endhighlight %}
 
-{% include requirement/SHOULD id="cpp-design-naming-members" %} use a meaningful name for class members.  Members should be named as all lower-case words, separated by underscores (snake-casing).
+## Logical Design
 
-{% include requirement/MUST id="cpp-design-naming-declare-structs" %} declare major structures at the top of the file in which they are used, or in separate header files if they are used in multiple source files.
+### Type Safety Recommendations
 
-{% include requirement/MUST id="cpp-design-rule-of-zero" %} Implement the "rule of zero", the "rule of 3", or the "rule of 5". That is, of the special member functions, a type should implement exactly one of the following:
+{% include requirement/MUST id="cpp-design-logical-rule-of-zero" %} In class types, implement the "rule of zero", the "rule of 3", or the "rule of 5". That is, of the special member functions, a type should implement exactly one of the following:
 
 * No copy constructor, no copy assignment operator, no move constructor, no move assignment operator, or destructor.
 * A copy constructor, a copy assignment operator, no move constructor, no move assignment operator, and a destructor.
@@ -182,24 +276,24 @@ struct HashComputationPrivateDetails {
 
 This encourages use of resource managing types like std::unique_ptr (which implements the rule of 5) as a compositional tool in more complex data models that implement the rule of zero.
 
-{% include requirement/MUST id="cpp-design-initialize-all-data" %} provide types which are usable when default-initialized. (That is, every constructor must initialize all type invariants, not assume members have default values of 0 or similar.)
+{% include requirement/MUST id="cpp-design-logical-initialize-all-data" %} provide types which are usable when default-initialized. (That is, every constructor must initialize all type invariants, not assume members have default values of 0 or similar.)
 
 {% highlight cpp %}
 class TypeWithInvariants {
-    int member;
+    int m_member;
 public:
     TypeWithInvariants() noexcept : member(0) {} // Good: initializes all parts of the object
     [[nodiscard]] int Next() noexcept  {
-        return member++;
+        return m_member++;
     }
 };
 
 class BadTypeWithInvariants {
-    int member;
+    int m_member;
 public:
     BadTypeWithInvariants() {} // Bad: Does not initialize all parts of the object
     int Next() {
-        return member++;
+        return m_member++;
     }
 };
 
@@ -212,229 +306,124 @@ void TheCustomerCode() {
 }
 {% endhighlight %}
 
-{% include requirement/SHOULD id="cpp-design-naming-struct-definition" %} define structs and classes without using typedefs.  Name the struct and typedef according to the normal naming for types.  For example:
 
-{% highlight cpp %}
-// Good: Uses C++ style class declaration:
-struct IotClient {
-    char* api_version;
-    IotClientCredentials* credentials;
-    int retry_timeout;
-};
-
-// Bad: Uses C-style typedef:
-typedef struct IotClient {
-    char* api_version;
-    IotClientCredentials* credentials;
-    int retry_timeout;
-} AzIotClient;
-{% endhighlight %}
-
-{% include requirement/MUST id="cpp-design-no-getters-or-setters" %} define getters and setters for data transfer objects.  Expose the members directly to users unless you need to enforce some constraints on the data.  For example:
+{% include requirement/MUST id="cpp-design-logical-no-getters-or-setters" %} define getters and setters for data transfer objects.  Expose the members directly to users unless you need to enforce some constraints on the data.  For example:
 {% highlight cpp %}
 // Good - no restrictions on values
 struct ExampleRequest {
-    int retry_timeout;
-    const char* text;
+    int RetryTimeoutMs;
+    const char* Text;
 };
 
 // Bad - no restrictions on parameters and access is not idiomatic
 class ExampleRequest {
-    int retry_timeout;
-    const char* text;
+    int m_retryTimeoutMs;
+    const char* m_text;
 public:
-    [[nodiscard]] int GetRetryTimeout() const noexcept {
-        return retry_timeout;
+    [[nodiscard]] int GetRetryTimeoutMs() const noexcept {
+        return m_retryTimeoutMs;
     }
-    void SetRetryTimeout(int i) noexcept {
-        retry_timeout = i;
+    void SetRetryTimeoutMs(int i) noexcept {
+        m_retryTimeoutMs = i;
     }
     [[nodiscard]] const char* GetText() const noexcept {
-        return text;
+        return m_text;
     }
     void SetText(const char* i) noexcept {
-        text = i;
+        m_text = i;
     }
 };
 
 // Good - type maintains invariants
 class TypeWhichEnforcesDataRequirements {
-    size_t size_;
-    int* data_;
+    size_t m_size;
+    int* m_data;
 public:
     [[nodiscard]] size_t GetSize() const noexcept {
-        return size_;
+        return m_size;
     }
     void AddData(int i) noexcept {
-        data_\[size_++\] = i;
+        m_data\[m_size++\] = i;
     }
 };
 
 // Also Good
 class TypeWhichClamps {
-    int retry_timeout;
+    int m_retryTimeout;
 public:
     [[nodiscard]] int GetRetryTimeout() const noexcept {
-        return retry_timeout;
+        return m_retryTimeout;
     }
     void SetRetryTimeout(int i) noexcept {
         if (i < 0) i = 0; // clamp i to the range [0, 1000]
         if (i > 1000) i = 1000;
-        retry_timeout = i;
+        m_retryTimeout = i;
     }
 };
 
 {% endhighlight %}
 
-{% include requirement/SHOULD id="cpp-design-no-use-struct-keyword" %} declare classes with only public members using the `struct` keyword.
-{% highlight cpp %}
-// Good
-struct OnlyPublicMembers {
-    int member;
-};
-
-// Bad
-class OnlyPublicMembers {
-public:
-    int member;
-};
-{% endhighlight %}
-
-{% include requirement/MUSTNOT id="cpp-design-no-public-prefixes" %} declare public class members with prefixes or suffixes.
-
-> TODO: Do we still want this? There was some support in the 2020-03-26 meeting for the `m_` prefix.
-
-{% highlight cpp %}
-struct Example {
-    int a; // OK
-    int m_a; // prohibited
-    int _a; // prohibited
-    int a_; // prohibited
-};
-{% endhighlight &}
-
-### Enums
-
-{% include requirement/MUSTNOT id="clang-design-enumsareinternal" %} use enums to model any data sent to the service. Use enums only for types completely internal to the client library. For example, an enum to disable Nagle's algorithm would be OK, but an enum to ask the service to create a particular entity kind is not.
-
-{% include requirement/MUST id="cpp-design-use-enum-class" %} use `enum class` for enumerations. For example:
-
-{% highlight cpp %}
-enum class PinState {
-    Off,
-    On
-};
-{% endhighlight %}
-
-### Functions
-
-{% include requirement/MUST id="cpp-design-naming-funcname" %} name functions with all-lowercase.  If part of the public API, place them in your SDK's namespace.  If not, place the API in a "Details" namespace. For example:
-
-{% highlight cpp %}
-namespace Azure::Group::Api {
-namespace Details {
-// Part of the private API
-[[nodiscard]] int64_t ComputeHash(int32_t a, int32_t b) noexcept;
-} // namespace Details
-
-// Part of the public API
-[[nodiscard]] CatHerdClient CatHerdCreateClient(char *herdName);
-
-// Bad - private API in public namespace.
-[[nodiscard]] int64_t ComputeHash(int32_t a, int32_t b) noexcept;
-} // namespace Azure::Group::Api
-{% endhighlight %}
-
-{% include requirement/SHOULD id="cpp-design-naming-funcstatic" %} declare all functions that are only used within the same source file in an unnamed namespace.  Static functions may contain only the function name (no prefixes).  For example:
-
-{% highlight cpp %}
-namespace {
-[[nodiscard]] int64_t ComputeHash(int32_t a, int32_t b) noexcept {
-    // ...
-}
-} // unnamed namespace
-{% endhighlight %}
-
-{% include requirement/SHOULD id="cpp-design-naming-paramnames" %} use a meaningful name for parameters and local variable names.  Parameters and local variable names should be named as all lower-case words, with all words but the first capitalized (camelCasing).
-
-{% include requirement/SHOULD id="cpp-design-noexcept" %} declare all functions that can never throw exceptions `noexcept`. If your SDK never uses exceptions, all non-`extern "C"` functions should be marked `noexcept`.
-
-### Macros
-
-{% include requirement/MUST id="cpp-design-naming-macros1" %} name macros with upper-case snake-casing.
-
-{% include requirement/MUST id="cpp-design-naming-macro-params" %} wrap the macro expression in parentheses.  This avoids potential commutative operation ambiguity.
-
-{% include requirement/MUST id="cpp-design-naming-macros-form" %} prepend macro names with `AZ_<SVCNAME>` to make macros unique.
-
-{% include requirement/MUST id="cpp-design-naming-macros2" %} avoid side-effects when implementing macros.
-
-If the macro is an inline expansion of a function, the function is defined in lowercase and the macro must have the same name in uppercase.  If the macro is an expression, wrap the expression in parenthesis.
-
-For example:
-
-{% highlight cpp %}
-#define MAX(a,b) ((a > b) ? a : b)
-#define IS_ERR(err) (err < 0)
-{% endhighlight %}
-
-{% include requirement/SHOULD id="cpp-design-naming-macros3" %} wrap the macro in `do { ... } while(0)` if the macro is more than a single statement, so that a trailing semicolon works.  Right-justify backslashes to ensure the macro is easy to read.  For example:
-
-{% highlight cpp %}
-#define MACRO(v, w, x, y)           \
-do {                                \
-    v = (x) + (y);                  \
-    w = (y) + 2;                    \
-} while (0)
-{% endhighlight %}
-
-{% include requirement/MUSTNOT id="cpp-design-naming-macros-donoevil" %} change syntax via macro substitution.  It [makes the program unintelligible](https://gist.github.com/aras-p/6224951) to all but the perpetrator.
-
-{% include requirement/SHOULD id="cpp-design-naming-macros-inlinefunc" %} replace macros with inline functions where possible.  Macros are not required for code efficiency.
+{% include requirement/MUST id="cpp-design-logical-optimize-position" %} declare variables in structures organized by use in a manner that minimizes memory wastage because of compiler alignment issues and size.  All things being equal, use alphabetical ordering.
 
 {% highlight cpp %}
 // Bad
-#define MAX(a,b) ((a > b) ? a : b)
+struct Foo {
+    int A; // the compiler will insert 4 bytes of padding after A to align B
+    char *B;
+    int C;
+    char *D;
+};
 
 // Good
-[[nodiscard]] inline int Max(int x, int y) noexcept {
-    return (x > y ? x : y);
-}
+struct Foo {
+    int A; // C is now stored in that padding
+    int C;
+    char *B;
+    char *D;
+};
 {% endhighlight %}
 
-## Client interface
+{% include requirement/MUSTNOT id="cpp-design-logical-enumsareinternal" %} use enums to model any data sent to the service. Use enums only for types completely internal to the client library. For example, an enum to disable Nagle's algorithm would be OK, but an enum to ask the service to create a particular entity kind is not.
+
+### Secure functions
+
+{% include requirement/SHOULDNOT id="cpp-design-logical-no-ms-secure-functions" %} use [Microsoft security enhanced versions of CRT functions](https://docs.microsoft.com/en-us/cpp/c-runtime-library/security-enhanced-versions-of-crt-functions?view=vs-2019) to implement APIs that need to be portable across many platforms. Such code is not portable and is not compatible with either the C or C++ Standards. See [arguments against]( http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1967.htm).
+
+> TODO: Verify with the security team, and what are the alternatives?
+
+### Client interface
 
 > TODO: This section needs to be driven by code in the Core library.
 
-### Network requests
+#### Network requests
 
 > TODO: This section needs to be driven by code in the Core library.
 
-### Authentication
+#### Authentication
 
 Azure services use a variety of different authentication schemes to allow clients to access the service. Conceptually, there are two entities responsible in this process: a credential and an authentication policy.  Credentials provide confidential authentication data.  Authentication policies use the data provided by a credential to authenticate requests to the service.
 
-{% include requirement/MUST id="cpp-apisurface-support-all-auth-techniques" %} support all authentication techniques that the service supports and are available to a client application (as opposed to service side).  C is used only for client applications when talking to Azure, so some authentication techniques may not be valid.
+{% include requirement/MUST id="cpp-design-logical-client-support-all-auth-techniques" %} support all authentication techniques that the service supports and are available to a client application (as opposed to service side).  C is used only for client applications when talking to Azure, so some authentication techniques may not be valid.
 
-{% include requirement/MUST id="cpp-apisurface-use-azure-core" %} use credential and authentication policy implementations from the Azure Core library where available.
+{% include requirement/MUST id="cpp-design-logical-client-use-azure-core" %} use credential and authentication policy implementations from the Azure Core library where available.
 
-{% include requirement/MUST id="cpp-apisurface-prefer-token-auth" %} provide credential types that can be used to fetch all data needed to authenticate a request to the service in a non-blocking atomic manner for each authentication scheme that does not have an implementation in Azure Core.
+{% include requirement/MUST id="cpp-design-logical-client-prefer-token-auth" %} provide credential types that can be used to fetch all data needed to authenticate a request to the service in a non-blocking atomic manner for each authentication scheme that does not have an implementation in Azure Core.
 
 {% include requirement/MUST id="cpp-apisurface-auth-in-constructors" %} provide service client constructors or factories that accept any supported authentication credentials.
 
 Client libraries may support providing credential data via a connection string __ONLY IF__ the service provides a connection string to users via the portal or other tooling.
 
-{% include requirement/MUSTNOT id="cpp-apisurface-no-connection-strings" %} support constructing a service client with a connection string unless such connection string is available within tooling (for copy/paste operations).
+{% include requirement/MUSTNOT id="cpp-design-logical-client-surface-no-connection-strings" %} support constructing a service client with a connection string unless such connection string is available within tooling (for copy/paste operations).
 
-## Response formats
+#### Response formats
 
 Requests to the service fall into two basic groups - methods that make a single logical request, or a deterministic sequence of requests.  An example of a *single logical request* is a request that may be retried inside the operation.  An example of a *deterministic sequence of requests* is a paged operation.
 
 The *logical entity* is a protocol neutral representation of a response. For HTTP, the logical entity may combine data from headers, body and the status line. A common example is exposing an ETag header as a property on the logical entity in addition to any deserialized content from the body.
 
-{% include requirement/MUST id="cpp-return-logical-entities" %} optimize for returning the logical entity for a given request. The logical entity MUST represent the information needed in the 99%+ case.
+{% include requirement/MUST id="cpp-design-logical-client-return-logical-entities" %} optimize for returning the logical entity for a given request. The logical entity MUST represent the information needed in the 99%+ case.
 
-{% include requirement/MUST id="cpp-return-expose-raw" %} *make it possible* for a developer to get access to the complete response, including the status line, headers and body. The client library MUST follow the language specific guidance for accomplishing this.
+{% include requirement/MUST id="cpp-design-logical-client-expose-raw" %} *make it possible* for a developer to get access to the complete response, including the status line, headers and body. The client library MUST follow the language specific guidance for accomplishing this.
 
 For example, you may choose to do something similar to the following:
 
@@ -445,15 +434,15 @@ struct JsonShortItem {
 };
 
 struct JsonShortPagedResults {
-    uint32 size;
-    JsonShortItem *items;
+    uint32 Size;
+    JsonShortItem* Items;
 };
 
 struct JsonShortRawPagedResults {
-    HTTP_HEADERS *headers;
-    uint16 status_code;
-    byte *raw_body;
-    JsonShortPagedResults* results;
+    HTTP_HEADERS* Headers;
+    uint16 StatusCode;
+    byte* RawBody;
+    JsonShortPagedResults* Results;
 };
 
 class ShortItemsClient {
@@ -462,25 +451,25 @@ class ShortItemsClient {
 };
 {% endhighlight %}
 
-{% include requirement/MUST id="cpp-return-document-raw-stream" %} document and provide examples on how to access the raw and streamed response for a given request, where exposed by the client library.  We do not expect all methods to expose a streamed response.
+{% include requirement/MUST id="cpp-design-logical-client-document-raw-stream" %} document and provide examples on how to access the raw and streamed response for a given request, where exposed by the client library.  We do not expect all methods to expose a streamed response.
 
 For methods that combine multiple requests into a single call:
 
-{% include requirement/MUSTNOT id="cpp-return-no-headers-if-confusing" %} return headers and other per-request metadata unless it is obvious as to which specific HTTP request the methods return value corresponds to.
+{% include requirement/MUSTNOT id="cpp-design-logical-client-no-headers-if-confusing" %} return headers and other per-request metadata unless it is obvious as to which specific HTTP request the methods return value corresponds to.
 
-{% include requirement/MUST id="cpp-expose-data-for-composite-failures" %} provide enough information in failure cases for an application to take appropriate corrective action.
+{% include requirement/MUST id="cpp-design-logical-client-expose-data-for-composite-failures" %} provide enough information in failure cases for an application to take appropriate corrective action.
 
-## Pagination
+#### Pagination
 
 Although object-orientated languages can eschew low-level pagination APIs in favor of high-level abstractions, C acts as a lower level language and thus embraces pagination APIs provided by the service.  You should work within the confines of the paging system provided by the service.
 
-{% include requirement/MUST id="cpp-pagination-use-paging" %} export the same paging API as the service provides.
+{% include requirement/MUST id="cpp-design-logical-client-pagination-use-paging" %} export the same paging API as the service provides.
 
-{% include requirement/MUST id="cpp-last-page" %} indicate in the return type if the consumer has reached the end of the result set.
+{% include requirement/MUST id="cpp-design-logical-client-pagination-cpp-last-page" %} indicate in the return type if the consumer has reached the end of the result set.
 
-{% include requirement/MUST id="cpp-size-of-page" %} indicate in the return type how many items were returned by the service, and have a list of those items for the consumer to iterate over.
+{% include requirement/MUST id="cpp-design-logical-client-pagination-size-of-page" %} indicate in the return type how many items were returned by the service, and have a list of those items for the consumer to iterate over.
 
-## Error handling
+### Error handling
 
 Error handling is an important aspect of implementing a client library. It is the primary method by which problems are communicated to the consumer. Because we intend for the C client libraries to be used on a wide range of devices with a wide range of reliability requirements, it's important to provide robust error handling.
 
@@ -499,44 +488,44 @@ We distinguish between several different types of errors:
 
 #### Exhaustion / Act of God
 
-{% include requirement/MUSTNOT id="cpp-error-exh-return error" %} return an error to the caller.
+{% include requirement/MUSTNOT id="cpp-design-logical-errorhandling-actofgod-no-return" %} return an error to the caller.
 
-{% include requirement/MUST id="cpp-error-exh-crash" %} crash, if possible. This means calling some form of fast failing function, like `abort`.
+{% include requirement/MUST id="cpp-design-logical-errorhandling-actofgod-crash" %} crash, if possible. This means calling some form of fast failing function, like `abort`.
 
 Note: if your client library needs to be resilient to these kinds of errors you must either provide a fallback system, or construct your code in a way to facilitate proving that such errors can not occur.
 
 #### Pre-conditions
-{% include requirement/MAY id="cpp-error-prec-check" %} check preconditions on function entry.
+{% include requirement/MAY id="cpp-design-logical-errorhandling-prec-check" %} check preconditions on function entry.
 
-{% include requirement/MAY id="cpp-error-prec-disablecheck" %} privide a means to disable precondition checks in release / optimized builds.
+{% include requirement/MAY id="cpp-design-logical-errorhandling-prec-disablecheck" %} privide a means to disable precondition checks in release / optimized builds.
 
-{% include requirement/MUST id="cpp-error-exh-crash" %} crash, if possible. This means calling some form of fast failing function, like `abort`.
+{% include requirement/MUST id="cpp-design-logical-errorhandling-prec-crash" %} crash, if possible. This means calling some form of fast failing function, like `abort`.
 
-{% include requirement/MUSTNOT id="cpp-error-prec-exceptions" %} throw a C++ exception.
+{% include requirement/MUSTNOT id="cpp-design-logical-errorhandling-prec-exceptions" %} throw a C++ exception.
 
 #### Post Conditions
 
-{% include requirement/SHOULDNOT id="cpp-error-postc-check" %} check post-conditions in a way that changes the computational complexity of the function.
+{% include requirement/SHOULDNOT id="cpp-design-logical-errorhandling-postc-check" %} check post-conditions in a way that changes the computational complexity of the function.
 
-{% include requirement/MUST id="cpp-error-postc-disablecheck" %} provide a way to disable postcondition checks, and omit checking code from built binaries.
+{% include requirement/MUST id="cpp-design-logical-errorhandling-postc-disablecheck" %} provide a way to disable postcondition checks, and omit checking code from built binaries.
 
-{% include requirement/MUST id="cpp-error-exh-crash" %} crash, if possible. This means calling some form of fast failing function, like `abort`.
+{% include requirement/MUST id="cpp-design-logical-errorhandling-postc-crash" %} crash, if possible. This means calling some form of fast failing function, like `abort`.
 
-{% include requirement/MUSTNOT id="cpp-error-postc-exceptions" %} throw a C++ exception.
+{% include requirement/MUSTNOT id="cpp-design-logical-errorhandling-postc-exceptions" %} throw a C++ exception.
 
 #### Heap Exhaustion (Out of Memory)
 
-{% include requirement/MAY id="cpp-error-oom-crash" %} crash. For example, this may mean dereferencing a nullptr returned by malloc, or explicitly checking and calling abort.
+{% include requirement/MAY id="cpp-design-logical-errorhandling-oom-crash" %} crash. For example, this may mean dereferencing a nullptr returned by malloc, or explicitly checking and calling abort.
 
 Note that on some comonly deployed platforms like Linux, handling heap exhaustion from user mode is not possible in a default configuration.
 
-{% include requirement/MAY id="cpp-error-oom-bad-alloc" %} propagate a C++ exception of type `std::bad_alloc` when encountering an out of memory condition. We do not expect the program to continue in a recoverable state after this occurs. Note that most standard library facilities and the built in `operator new` do this automatically, and we want to allow use of other facilities that may throw here.
+{% include requirement/MAY id="cpp-design-logical-errorhandling-oom-bad-alloc" %} propagate a C++ exception of type `std::bad_alloc` when encountering an out of memory condition. We do not expect the program to continue in a recoverable state after this occurs. Note that most standard library facilities and the built in `operator new` do this automatically, and we want to allow use of other facilities that may throw here.
 
-{% include requirement/MUSTNOT id="cpp-error-oom-throw" %} throw bad_alloc from the SDK code itself.
+{% include requirement/MUSTNOT id="cpp-design-logical-errorhandling-oom-throw" %} throw bad_alloc from the SDK code itself.
 
 #### Recoverable errors
 
-{% include requirement/MUST id="cpp-error-recov-reporting" %} report errors by throwing C++ exceptions defined in the Azure C++ Core Library.
+{% include requirement/MUST id="cpp-design-logical-errorhandling-recov-reporting" %} report errors by throwing C++ exceptions defined in the Azure C++ Core Library.
 
 > TODO: The Core library needs to provide exceptions for the common failure modes, e.g. the same values as `az_result` in the C SDK.
 
@@ -544,32 +533,27 @@ For example:
 
 {% highlight cpp %}
 class Herd {
-  bool has_shy_cats;
+  bool m_hasShyCats;
+  int m_numCats;
 public:
   void CountCats(int* cats) {
-    if(this->has_shy_cats) {
+    if(m_hasShyCats) {
       throw std::runtime_error("shy cats are not allowed");
     }
-    *cats = this->num_cats;
+    *cats = m_numCats;
   }
 };
 {% endhighlight %}
 
-{% include requirement/MUST id="cpp-error-recov-error" %} produce a recoverable error when any HTTP request fails with an HTTP status code that is not defined by the service/Swagger as a successful status code.
+{% include requirement/MUST id="cpp-design-logical-errorhandling-recov-error" %} produce a recoverable error when any HTTP request fails with an HTTP status code that is not defined by the service/Swagger as a successful status code.
 
-{% include requirement/MUST id="cpp-error-recov-document" %} document all exceptions each function and its transitive dependencies may throw, except for `std::bad_alloc`.
+{% include requirement/MUST id="cpp-design-logical-errorhandling-recov-document" %} document all exceptions each function and its transitive dependencies may throw, except for `std::bad_alloc`.
 
-## Secure functions
+#### C++ Exceptions
 
-{% include requirement/SHOULDNOT id="cpp-no-ms-secure-functions" %} use [Microsoft security enhanced versions of CRT functions](https://docs.microsoft.com/en-us/cpp/c-runtime-library/security-enhanced-versions-of-crt-functions?view=vs-2019) to implement APIs that need to be portable across many platforms. Such code is not portable and is not C99 compatible. Adding that code to your API will complicate the implementation with little to no gain from the security side. See [arguments against]( http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1967.htm).
+{% include requirement/MUSTNOT id="cpp-design-logical-errorhandling-exceptions-other" %} `throw` exceptions, except those from the Azure C++ Core library as described in the error handling section.
 
-> TODO: Verify with the security team, and what are the alternatives?
-
-## C++ Exceptions
-
-{% include requirement/MUSTNOT id="cpp-exceptions" %} `throw` exceptions, except those from the Azure C++ Core library as described in the error handling section.
-
-{% include requirement/MUST id="cpp-exceptions" %} propagate exceptions thrown by user code, callbacks, or dependencies. Assume any user-provided callback will propagate C++ exceptions unless the SDK documents that the callback must be completely non-throwing.
+{% include requirement/MUST id="cpp-design-logical-errorhandling-exceptions" %} propagate exceptions thrown by user code, callbacks, or dependencies. Assume any user-provided callback will propagate C++ exceptions unless the SDK documents that the callback must be completely non-throwing.
 
 {% highlight cpp %}
 template<class Callback>
@@ -593,8 +577,3 @@ void ApiFunc(const Callback& c) {
     }
 }
 {% endhighlight %}
-
-
-## Async
-
-> TODO: Async needs to be funded.
