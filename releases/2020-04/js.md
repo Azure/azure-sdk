@@ -22,8 +22,8 @@ To install the packages, copy and paste the below into a terminal.
     $> npm install @azure/event-hubs
     $> npm install @azure/ai-text-analytics
     $> npm install @azure/identity
-    $> npm install @azure/search
-    $> npm install @azure/service-bus
+    $> npm install @azure/search-documents
+    $> npm install @azure/service-bus@next
 
 ## Feedback
 If you have a bug or feature request for one of the libraries, please post an issue at the [azure-sdk-for-js repository](https://github.com/azure/azure-sdk-for-js/issues)
@@ -63,7 +63,7 @@ Below are some noteworthy changes in the current release.
 
 ### Service Bus
 
-- Initial preview of Azure Service Bus client version 7.0.
+- Initial preview of Azure Service Bus client library version 7.
 - This version of library has been designed based on the [Azure SDK Design Guidelines for TypeScript](https://azure.github.io/azure-sdk/typescript_introduction.html) to ensure consistency, idiomatic design, and excellent developer experience and productivity.
 
 ## Latest Releases
