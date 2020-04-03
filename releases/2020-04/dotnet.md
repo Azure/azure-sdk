@@ -18,6 +18,7 @@ The Azure SDK team is pleased to announce our April 2020 client library releases
 #### Preview
 
 - Event Hubs
+- Search
 - Service Bus
 - Text Analytics
 
@@ -25,9 +26,11 @@ The Azure SDK team is pleased to announce our April 2020 client library releases
 
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
-    $> dotnet add package Azure.AI.TextAnalytics --version 1.0.0-preview.4
+    $> dotnet add package Azure.Search.Documents --version 1.0.0-preview.2
     
     $> dotnet add package Azure.Messaging.ServiceBus --version 7.0.0-preview.1
+
+    $> dotnet add package Azure.AI.TextAnalytics --version 1.0.0-preview.4
 
 ## Feedback
 
@@ -52,6 +55,11 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 ### Event Hubs Processor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md)
 
 - The `EventProcessorClient` has been enhanced to derive from the new `EventProcessor<TPartition>` primitive, brining improvements to stability, resilience, and performance.
+
+### Search [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md)
+
+- Renamed to `Azure.Search.Documents` (assembly, namespace, and package)
+- Added support for creating and managing Search Indexes
 
 ### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md)
 
