@@ -23,9 +23,9 @@ Applications using Event Hubs are split into producers (the app that sends data)
 
 ```java
 public class TemperatureSender {
-  private EventHubProducerClient sender;
-  private final ObjectMapper serializer = new ObjectMapper;
-  private TemperatureDevice device;
+  private final EventHubProducerClient sender;
+  private final ObjectMapper serializer = new ObjectMapper();
+  private final TemperatureDevice device;
 
   public TemperatureSender(String namespace, String hubName, TemperatureDevice device) {
     TokenCredential credential = new DefaultAzureCredentialBuilder().build();
@@ -51,7 +51,7 @@ When the batch is full, it will send the data to the Event Hub.
       // Get the temperature from the device
       Temperature measure = this.device.getTemperature();
       // Serialize the temperature as a string value
-      String json = this.serializer.writeValueAsString(measure.toString());
+      String json = this.serializer.writeValueAsString(measure);
 
       // Events contain an opaque series of bytes.  To understand what these bytes
       // represent, add some application properties to the event.
@@ -104,7 +104,7 @@ Now that the data we want to process is in the Event Hub, it's time to look at p
 
 There is a low-level client for processing events.  Unless you are very concerned about latency (to the point where you really want to control when and how many events you pull off the Event Hub and skip events if you are getting behind), you will want to use the `EventProcessorClient`.
 
-The EventProcessorClient is a higher-level construct wrapping the low-level client.  It does all the "boiler-plate" event management for you; for example, coordinating processing between multiple hosts, allowing other processor clients to "take over" if you need to move the processing to another host (for example, to support zero-down-time upgrades), and storing checkpoint information.
+The `EventProcessorClient` is a higher-level construct wrapping the low-level client.  It does all the "boiler-plate" event management for you; for example, coordinating processing between multiple hosts, allowing other processor clients to "take over" if you need to move the processing to another host (for example, to support zero-down-time upgrades), and storing checkpoint information.
 
 Let's look at an example.  The event processor consists of a "main" method that sets up and runs the `EventProcessorClient`, and an event processing client.  In this instance, we are going to checkpoint after we have processed 25 events.  If the `EventProcessorClient` is shut down in the middle of a batch of 25 events, some events will get reprocessed.  On the other hand, checkpointing after every event is a significant overhead.
 
