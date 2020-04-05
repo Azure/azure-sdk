@@ -14,6 +14,7 @@ The Azure SDK team is pleased to announce our April 2020 client library releases
 #### Updates
 
 - Core
+- Key Vault
 
 #### Preview
 
@@ -26,15 +27,19 @@ The Azure SDK team is pleased to announce our April 2020 client library releases
 
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
+    $> dotnet add package Azure.AI.TextAnalytics --version 1.0.0-preview.4
+
     $> dotnet add package Azure.Messaging.EventHubs --version 5.1.0-preview.1
-    
+
     $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.1.0-preview.1
-    
-    $> dotnet add package Azure.Search.Documents --version 1.0.0-preview.2
 
     $> dotnet add package Azure.Messaging.ServiceBus --version 7.0.0-preview.1
-    
-    $> dotnet add package Azure.AI.TextAnalytics --version 1.0.0-preview.4
+
+    $> dotnet add package Azure.Search.Documents --version 1.0.0-preview.2
+
+    $> dotnet add package Azure.Security.KeyVault.Certificates --version 4.0.2
+    $> dotnet add package Azure.Security.KeyVault.Keys --version 4.0.3
+    $> dotnet add package Azure.Security.KeyVault.Secrets --version 4.0.3
 
 ## Feedback
 
@@ -60,6 +65,10 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - The `EventProcessorClient` has been enhanced to derive from the new `EventProcessor<TPartition>` primitive, brining improvements to stability, resilience, and performance.
 
+### Key Vault Certificates [Changelog][keyvault-certificates], Keys [Changelog][keyvault-keys], and Secrets [Changelog][keyvault-secrets]
+
+- Fixed concurrency issue in our challenge-based authentication policy ([#9737](https://github.com/Azure/azure-sdk-for-net/issues/9737))
+
 ### Search [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md)
 
 - Renamed to `Azure.Search.Documents` (assembly, namespace, and package)
@@ -81,3 +90,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 {% include dotnet-packages.html %}
 
 {% include refs.md %}
+
+  [keyvault-certificates]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Certificates_4.0.2/sdk/keyvault/Azure.Security.KeyVault.Certificates/CHANGELOG.md#402-2020-03-18
+  [keyvault-keys]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Keys_4.0.3/sdk/keyvault/Azure.Security.KeyVault.Keys/CHANGELOG.md#403-2020-03-18
+  [keyvault-secrets]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Secrets_4.0.3/sdk/keyvault/Azure.Security.KeyVault.Secrets/CHANGELOG.md#403-2020-03-18
