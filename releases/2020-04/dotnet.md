@@ -37,6 +37,8 @@ To install any of our packages, please search for them via `Manage NuGet Package
 
     $> dotnet add package Azure.Search.Documents --version 1.0.0-preview.2
 
+    $> dotnet add package Azure.Identity --version 1.2.0-preview.2
+
     $> dotnet add package Azure.Security.KeyVault.Certificates --version 4.0.2
     $> dotnet add package Azure.Security.KeyVault.Keys --version 4.0.3
     $> dotnet add package Azure.Security.KeyVault.Secrets --version 4.0.3
