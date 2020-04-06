@@ -6,6 +6,6 @@
 
 {% assign packages = site.data.releases.latest.java-packages %}
 
-**New Libraries** | [All Libraries]({% link releases/latest/all/java.md %})
+**New Libraries** | [All Libraries]({{ site.baseurl }}{% link releases/latest/all/java.md %})
 
 {% include java-packages.html %}

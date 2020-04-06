@@ -8,6 +8,6 @@
 
 There are {{ packages.size }} total Azure library packages published to maven central from the [azure-sdk account](https://search.maven.org/search?q=g:com.microsoft.azure%20OR%20g:com.azure).
 
-[New Libraries]({% link releases/latest/java.md %}) | **All Libraries**
+[New Libraries]({{ site.baseurl }}{% link releases/latest/java.md %}) | **All Libraries**
 
 {% include java-allpackages.html %}
