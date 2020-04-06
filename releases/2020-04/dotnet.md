@@ -55,6 +55,9 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Response trace messages are properly identified.
 - Content type "application/x-www-form-urlencoded" is decoded in trace messages.
 
+### Identity [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/identity/Azure.Identity/CHANGELOG.md#120-preview2)
+- Updates `DefaultAzureCredential` to enable authenticating through Visual Studio and Visual Studio Code.
+
 ### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md)
 
 - A new primitive, `EventProcessor<TPartition>`, has been implemented to serve as an extensibility point for creating a custom event processor instance.  More detail can be found in the [design proposal](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/design/event-processor%7BT%7D-proposal.md).
