@@ -17,7 +17,7 @@ This release includes the following:
 
 #### Preview
 
-
+- Service Bus
 
 
 ## Installation Instructions
