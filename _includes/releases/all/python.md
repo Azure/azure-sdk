@@ -8,6 +8,6 @@
 
 There are {{ packages.size }} total Azure library packages published to npm from the [azure-sdk account](https://pypi.org/user/azure-sdk/).
 
-[New Libraries]({% link releases/latest/python.md %}) | **All Libraries**
+[New Libraries]({{ site.baseurl }}{% link releases/latest/python.md %}) | **All Libraries**
 
 {% include python-allpackages.html %}
