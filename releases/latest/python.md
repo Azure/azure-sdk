@@ -3,14 +3,7 @@ title: Azure SDK for Python (Latest)
 layout: default
 tags: python
 sidebar: releases_sidebar
+header: true
 ---
-
-# Python Packages
-
-{% assign packages = site.data.releases.latest.python-packages %}
-
-New Libraries | [All Libraries](all/python.md)
-
-{% include python-packages.html %}
-
+{% include releases/python.md %}
 {% include refs.md %}
