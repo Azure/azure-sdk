@@ -9,8 +9,6 @@ repository: azure/azure-sdk-for-net
 
 The Azure SDK team is pleased to announce our April 2020 client library releases.
 
-#### GA
-
 #### Updates
 
 - Core
@@ -33,7 +31,6 @@ To install any of our packages, please search for them via `Manage NuGet Package
     $> dotnet add package Azure.Identity --version 1.2.0-preview.2
 
     $> dotnet add package Azure.Messaging.EventHubs --version 5.1.0-preview.1
-
     $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.1.0-preview.1
 
     $> dotnet add package Azure.Messaging.ServiceBus --version 7.0.0-preview.1
