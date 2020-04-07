@@ -17,6 +17,7 @@ This release includes the following:
 
 #### Preview
 
+- Text Analytics
 - Service Bus
 - Event Hubs
 
@@ -51,6 +52,11 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 Detailed change logs are linked to in the Quick Links below. Here are some critical call outs.
 
+### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#change-log-azure-ai-textanalytics)
+
+- We are no longer supporting the `recognize_pii_entities` endpoint for this release
+- We are removing `TextAnalyticsApiKeyCredential` and are now using `AzureKeyCredential` from azure.core.credentials as our API key credential.
+
 ### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/CHANGELOG.md)
 
 - This release simplifies the client hierarchy and many common flows, such as spawning senders and receivers directly from the `ServiceBusClient`.  Recommend reading migration guide and full changelog for details.
@@ -62,7 +68,7 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 ### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/CHANGELOG.md)
 
 - Added `EventHubConsumerClient.receive_batch()` to receive and process events in batches instead of one by one. #9184
-- `EventHubConsumerCliuent.receive()` has a new param `max_wait_time`. 
+- `EventHubConsumerCliuent.receive()` has a new param `max_wait_time`.
 `on_event` is called every `max_wait_time` when no events are received and `max_wait_time` is not `None` or 0.
 - Param event of `PartitionContext.update_checkpoint` is now optional. The last received event is used when param event is not passed in.
 - `EventData.system_properties` has added missing properties when consuming messages from IotHub. #10408
