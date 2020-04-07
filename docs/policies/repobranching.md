@@ -53,10 +53,26 @@ git checkout -b hotfix/<hotfix name> <package-name>_<package-version>
 git push upstream hotfix/<hotfix name>
 ```
 
-After you have the main hotfix branch created you should use your usual workflow (i.e. create another branch or work on the same named branch in your fork) and the changes should be made and the version number incremented based on our [versioning guidance](releases.md#package-versioning) for the package. If the fixes are already made in master or another branch you can cherry-pick (`git cherry-pick <sha>`) them into your working branch, otherwise make the code edits as needed. Once all the changes are ready submit a PR against the `hotfix/<hotfix name>` branch you created in the main repo. PR validation should kick in automatically as long as the branch follows the `hotfix/*` naming convention. Once CI is green then the fix can be merged into the `hotfix/<hotfix name>` branch. 
+After you have the main hotfix branch created you should use your usual workflow (i.e. create another branch or work on the same named branch in your fork) and the changes should be made and the version number incremented based on our [versioning guidance](releases.md#package-versioning) for the package. If the fixes are already made in master or another branch you can cherry-pick (`git cherry-pick <sha>`) them into your working branch, otherwise make the code edits as needed. Once all the changes are ready submit a PR against the `hotfix/<hotfix name>` branch you created in the main repo. PR validation should kick in automatically as long as the branch follows the `hotfix/*` naming convention. Once CI is green then the fix can be merged into the `hotfix/<hotfix name>` branch.
 
-After the changes are merged into the `hotfix/<hotfix name>` branch the same release process we use for master can be used to produce a release out of that branch but when you queue the build be sure to set the branch name to the `hotfix/<hotfix name>`. 
+After the changes are merged into the `hotfix/<hotfix name>` branch the same release process we use for master can be used to produce a release out of that branch but when you queue the build be sure to set the branch name to the `hotfix/<hotfix name>`.
 
-If the changes were not cherry-picked from `master` and they are needed there then merge (`git merge hotfix/<hotfix name>`) them from your `hotfix/<hotfix name>` branch into `master`. When merging accept the version numbers from `master`. 
+If the changes were not cherry-picked from `master` and they are needed there then merge (`git merge hotfix/<hotfix name>`) them from your `hotfix/<hotfix name>` branch into `master`. When merging accept the version numbers from `master`.
 
-Once the hotfix has been released and any changes merged back to `master` then you should delete the `hotfix/<hotfix name>` branch, it can always be recreated in the future from the last release tag if needed. 
+```
+git checkout master
+git pull --ff-only upstream master
+git merge --no-commit hotfix/<hotfix name>
+# Fix merge conflicts and review merged lines to make sure they are correct.
+git commit
+git push -u origin merge-<hotfix name>
+# Create a PR to merge origin/merge-<hotfix name> to upstream/master to run validations and get approval.
+# After validation completes and the PR is approved, run:
+git push upstream master
+```
+
+Once the hotfix has been released and any changes merged back to `master` then you should delete the `hotfix/<hotfix name>` branch, it can always be recreated in the future from the last release tag if needed.
+
+```
+git push upstream :hotfix/<hotfix name>
+```
