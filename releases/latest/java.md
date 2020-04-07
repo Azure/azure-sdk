@@ -3,14 +3,7 @@ title: Azure SDK for Java (Latest)
 layout: default
 tags: java
 sidebar: releases_sidebar
+header: true
 ---
-
-# Java Packages
-
-{% assign packages = site.data.releases.latest.java-packages %}
-
-New Libraries | [All Libraries](all/java.md)
-
-{% include java-packages.html %}
-
+{% include releases/java.md %}
 {% include refs.md %}

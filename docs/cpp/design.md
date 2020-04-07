@@ -156,8 +156,6 @@ struct hash_computation_private_details {
 } // namespace azure::group::api
 {% endhighlight %}
 
-The definition of types must be placed in the `*_api.h` file for the module.
-
 {% include requirement/SHOULD id="cpp-design-naming-classstatic" %} declare all types that are only used within the same source file in an unnamed namespace.  Such types may contain only the function name (no prefixes).  For example:
 
 {% highlight cpp %}
@@ -228,7 +226,7 @@ typedef struct iot_client {
 } az_iot_client;
 {% endhighlight %}
 
-{% include requirement/MUST id="cpp-design-no-getters-or-setters" %} define getters and setters for data transfer objects.  Expose the members directly to users unless you need to enforce some constraints on the data.  For example:
+{% include requirement/MUSTNOT id="cpp-design-no-getters-or-setters" %} define getters and setters for data transfer objects.  Expose the members directly to users unless you need to enforce some constraints on the data.  For example:
 {% highlight cpp %}
 // Good - no restrictions on values
 struct example_request {
@@ -340,8 +338,6 @@ namespace _details {
 [[nodiscard]] int64_t compute_hash(int32_t a, int32_t b) noexcept;
 } // namespace azure::group::api
 {% endhighlight %}
-
-The definition of the function must be placed in the `*_api.h` file for the module.
 
 {% include requirement/SHOULD id="cpp-design-naming-funcstatic" %} declare all functions that are only used within the same source file in an unnamed namespace.  Static functions may contain only the function name (no prefixes).  For example:
 
