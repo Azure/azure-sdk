@@ -11,15 +11,12 @@ The Azure SDK team is pleased to make available the April 2020 client library GA
 
 This release includes the following:
 
-#### GA
-
-
-
 #### Preview
 
 - Text Analytics
 - Service Bus
 - Event Hubs
+- Search Documents
 - Identity
 
 
@@ -41,7 +38,7 @@ pip install azure-keyvault-keys
 pip install azure-keyvault-secrets
 pip install --pre azure-identity
 pip install --pre azure-ai-textanalytics
-pip install --pre azure-search
+pip install --pre azure-search-documents
 pip install --pre azure-servicebus
 ```
 
@@ -73,6 +70,12 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 `on_event` is called every `max_wait_time` when no events are received and `max_wait_time` is not `None` or 0.
 - Param event of `PartitionContext.update_checkpoint` is now optional. The last received event is used when param event is not passed in.
 - `EventData.system_properties` has added missing properties when consuming messages from IotHub. #10408
+
+### Search Documents [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/CHANGELOG.md)
+
+- Added index service client
+- Accepted an array of `RegexFlags` for `PatternAnalyzer` and `PatternTokenizer`
+- Removed `SearchApiKeyCredential` and now using `AzureKeyCredential` from azure.core.credentials as key credential
 
 ### Identity [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/CHANGELOG.md)
 
