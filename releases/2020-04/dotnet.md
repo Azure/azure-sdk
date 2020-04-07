@@ -19,6 +19,7 @@ The Azure SDK team is pleased to announce our April 2020 client library releases
 #### Preview
 
 - Event Hubs
+- Identity
 - Search
 - Service Bus
 - Text Analytics
@@ -28,6 +29,8 @@ The Azure SDK team is pleased to announce our April 2020 client library releases
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
     $> dotnet add package Azure.AI.TextAnalytics --version 1.0.0-preview.4
+
+    $> dotnet add package Azure.Identity --version 1.2.0-preview.2
 
     $> dotnet add package Azure.Messaging.EventHubs --version 5.1.0-preview.1
 
@@ -54,6 +57,9 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - `AzureKeyCredential` and its respective policy.
 - Response trace messages are properly identified.
 - Content type "application/x-www-form-urlencoded" is decoded in trace messages.
+
+### Identity [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/identity/Azure.Identity/CHANGELOG.md#120-preview2)
+- Updates `DefaultAzureCredential` to enable authenticating through Visual Studio and Visual Studio Code.
 
 ### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md)
 
