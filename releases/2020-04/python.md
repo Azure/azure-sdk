@@ -11,10 +11,6 @@ The Azure SDK team is pleased to make available the April 2020 client library GA
 
 This release includes the following:
 
-#### GA
-
-
-
 #### Preview
 
 - Text Analytics
