@@ -11,13 +11,13 @@ The Azure SDK team is pleased to make available the April 2020 client library GA
 
 This release includes the following:
 
-#### GA
-
-
-
 #### Preview
 
+- Text Analytics
 - Service Bus
+- Event Hubs
+- Search Documents
+- Identity
 
 
 ## Installation Instructions
@@ -26,7 +26,7 @@ To install the latest preview version of the packages, copy and paste the follow
 
 ```bash
 pip install azure-appconfiguration
-pip install azure-eventhub
+pip install --pre azure-eventhub
 pip install azure-eventhub-checkpointstoreblob
 pip install azure-eventhub-checkpointstoreblob-aio
 pip install azure-storage-blob
@@ -38,7 +38,7 @@ pip install azure-keyvault-keys
 pip install azure-keyvault-secrets
 pip install --pre azure-identity
 pip install --pre azure-ai-textanalytics
-pip install --pre azure-search
+pip install --pre azure-search-documents
 pip install --pre azure-servicebus
 ```
 
@@ -50,6 +50,11 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 Detailed change logs are linked to in the Quick Links below. Here are some critical call outs.
 
+### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#change-log-azure-ai-textanalytics)
+
+- We are no longer supporting the `recognize_pii_entities` endpoint for this release
+- We are removing `TextAnalyticsApiKeyCredential` and are now using `AzureKeyCredential` from azure.core.credentials as our API key credential.
+
 ### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/CHANGELOG.md)
 
 - This release simplifies the client hierarchy and many common flows, such as spawning senders and receivers directly from the `ServiceBusClient`.  Recommend reading migration guide and full changelog for details.
@@ -57,6 +62,25 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 - Exception hierarchy has been overhauled and made more precise to better denote failure reasons.
 - Batch creation is now initiated off of the sender via `create_batch`.
 - Users should be aware that this is a preview release with only support for queues, full featureset will be included in upcoming previews.
+
+### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/CHANGELOG.md)
+
+- Added `EventHubConsumerClient.receive_batch()` to receive and process events in batches instead of one by one. #9184
+- `EventHubConsumerCliuent.receive()` has a new param `max_wait_time`.
+`on_event` is called every `max_wait_time` when no events are received and `max_wait_time` is not `None` or 0.
+- Param event of `PartitionContext.update_checkpoint` is now optional. The last received event is used when param event is not passed in.
+- `EventData.system_properties` has added missing properties when consuming messages from IotHub. #10408
+
+### Search Documents [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/CHANGELOG.md)
+
+- Added index service client
+- Accepted an array of `RegexFlags` for `PatternAnalyzer` and `PatternTokenizer`
+- Removed `SearchApiKeyCredential` and now using `AzureKeyCredential` from azure.core.credentials as key credential
+
+### Identity [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/CHANGELOG.md)
+
+- All `get_token` methods consistently require at least one scope argument, raising an error when none is passed. Although `get_token()` may sometimes have succeeded in prior versions, it couldn't do so consistently because its behavior was undefined, and dependened on the credential's type and internal state.
+- The host of the Active Directory endpoint credentials should use can be set in the environment variable `AZURE_AUTHORITY_HOST`. See `azure.identity.KnownAuthorities` for a list of common values.
 
 ## Latest Releases
 
