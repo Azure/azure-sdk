@@ -5,55 +5,23 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: >
-    docker run --net=host --rm weshaggard/linkchecker "https://azure.github.io/azure-sdk/index.html"
-    --anchors
-    --check-extern
-    --no-robots
-    --no-status
-    --no-warnings
-    --no-follow-url "https://azure.github.io/azure-sdk-for-*"
-    --no-follow-url "https://azure.github.io/azure-cosmos-*"
-    --ignore-url "https://github.com/Azure/azure-sdk-pr"
-    --ignore-url "https://www.linuxmint.com/download_all.php"
+
+- pwsh: |
+    ./eng/scripts/Verify-Links.ps1 https://azure.github.io/azure-sdk/index.html
   displayName: 'azure-sdk link check'
-  continueOnError: true
 
-- script: >
-    docker run --rm weshaggard/linkchecker "https://azure.github.io/azure-sdk-for-java/index.html"
-    --no-robots
-    --no-status
-    --no-warnings
-    --check-extern
+- pwsh: |
+    ./eng/scripts/Verify-Links.ps1 https://azure.github.io/azure-sdk-for-java/index.html
   displayName: 'java link check'
-  continueOnError: true
 
-- script: >
-    docker run --rm weshaggard/linkchecker "https://azure.github.io/azure-sdk-for-js/index.html"
-    --no-robots
-    --no-status
-    --no-warnings
-    --check-extern
-    --ignore-url "https://azure.github.io/azure-sdk-for-js/styles/main.css"
+- pwsh: |
+    ./eng/scripts/Verify-Links.ps1 https://azure.github.io/azure-sdk-for-js/index.html
   displayName: 'js link check'
-  continueOnError: true
 
-- script: >
-    docker run --rm weshaggard/linkchecker "https://azure.github.io/azure-sdk-for-net/index.html"
-    --no-robots
-    --no-status
-    --no-warnings
-    --check-extern
+- pwsh: |
+    ./eng/scripts/Verify-Links.ps1 https://azure.github.io/azure-sdk-for-net/index.html
   displayName: 'net link check'
-  continueOnError: true
 
-- script: >
-    docker run --rm weshaggard/linkchecker "https://azure.github.io/azure-sdk-for-python/index.html"
-    --no-robots
-    --no-status
-    --no-warnings
-    --check-extern
-    --ignore-url https://azure.github.io/azure-sdk-for-python/_static/fonts/RobotoSlab/roboto-slab.eot
-    --ignore-url ../fonts/RobotoSlab/roboto-slab.eot
+- pwsh: |
+    ./eng/scripts/Verify-Links.ps1 https://azure.github.io/azure-sdk-for-python/index.html
   displayName: 'python link check'
-  continueOnError: true
