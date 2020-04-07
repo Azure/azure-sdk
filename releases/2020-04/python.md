@@ -21,6 +21,7 @@ This release includes the following:
 - Service Bus
 - Event Hubs
 - Search Documents
+- Identity
 
 
 ## Installation Instructions
@@ -79,6 +80,11 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 - Added index service client
 - Accepted an array of `RegexFlags` for `PatternAnalyzer` and `PatternTokenizer`
 - Removed `SearchApiKeyCredential` and now using `AzureKeyCredential` from azure.core.credentials as key credential
+
+### Identity [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/CHANGELOG.md)
+
+- All `get_token` methods consistently require at least one scope argument, raising an error when none is passed. Although `get_token()` may sometimes have succeeded in prior versions, it couldn't do so consistently because its behavior was undefined, and dependened on the credential's type and internal state.
+- The host of the Active Directory endpoint credentials should use can be set in the environment variable `AZURE_AUTHORITY_HOST`. See `azure.identity.KnownAuthorities` for a list of common values.
 
 ## Latest Releases
 
