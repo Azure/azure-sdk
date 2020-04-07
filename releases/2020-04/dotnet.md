@@ -19,6 +19,7 @@ The Azure SDK team is pleased to announce our April 2020 client library releases
 #### Preview
 
 - Event Hubs
+- Identity
 - Search
 - Service Bus
 - Text Analytics
