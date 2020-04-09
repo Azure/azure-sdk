@@ -1309,10 +1309,22 @@ h4.panel-title {
   padding: 3px 3px 2px 3px;
   margin-bottom: 1px;
 }
-.btn-preview{
-    background-color: #A9A9A9;
-    border-color: #A9A9A9;
+
+.btn-primary:hover {
+  background-color: #0088ec;
+  border-color: #0088ec;
 }
+
+.btn-preview {
+  background-color: #a9a9a9;
+  border-color: #a9a9a9;
+}
+
+.btn-preview:hover {
+  background-color: #c3c3c3;
+  border-color: #c3c3c3;
+}
+
 .badge {
   border-radius: 4px;
   margin-left: 3px;
