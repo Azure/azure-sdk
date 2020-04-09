@@ -203,99 +203,11 @@ Unlike many other programming languages, which have large runtimes, the C++ stan
 
 ## Testing
 
-> TODO: We need to revisit what libraries and similar we want to use. Consider something like Google Test?
-
 We believe testing is a part of the development process, so we expect unit and integration tests to be a part of the source code.  All components must be covered by automated testing, and developers should strive to test corner cases and main flows for every use case.
 
-All code should contain, at least, requirements, unit tests, end-to-end tests, and samples. The requirements description should be placed in the unit test file, on top of the test function that verifies the requirement. The unit test name should be placed in the code as a comment, together with the code that implements that functionality. For example:
+All code should contain, at least, requirements, unit tests, end-to-end tests, and samples.
 
-_*API source code file:*_
-{% highlight cpp %}
-void FooTcpManagerDestroy(TCP_HANDLE handle)
-{
-    if(handle == NULL)
-    {
-        /*[foo_tcp_manager_destroy_does_nothing_on_null_handle]*/
-        LogError("handle cannot be NULL");
-    }
-    else
-    {
-        TCP_INSTANCE* instance = (TCP_INSTANCE*)handle;
-
-        /*[FooTcpManagerDestroySucceedOnFreeAllResources]*/
-        netif_remove(&(instance->lpc_netif));
-        free(instance);
-    }
-}
-{% endhighlight %}
-
-_*Unit test file:*_
-{% highlight cpp %}
-/* If the provided TCP_HANDLE is NULL, the foo_tcp_manager_destroy shall do nothing. */
-TEST_FUNCTION(FooTcpManagerDestroyDoesNothingOnNullHandle)
-{
-    ///arrange
-
-    ///act
-    FooTcpManagerDestroy(NULL);
-
-    ///assert
-
-    ///cleanup
-}
-
-/* The foo_tcp_manager_destroy shall free all resources allocated by the tcpip. */
-TEST_FUNCTION(FooTcpManagerDestroySucceedOnFreeAllResources)
-{
-    ///arrange
-    TCP_HANDLE handle = foo_tcp_manager_create();
-    umock_c_reset_all_calls();
-    STRICT_EXPECTED_CALL(netif_remove(IGNORED_PTR_ARG));
-    STRICT_EXPECTED_CALL(free(handle));
-
-    ///act
-    FooTcpManagerDestroy(handle);
-
-    ///assert
-    ASSERT_ARE_EQUAL(char_ptr, umock_c_get_expected_calls(), umock_c_get_actual_calls());
-
-    ///cleanup
-}
-{% endhighlight %}
-
-If a single unit test tests more than one requirement, it should be sequentially enumerated in the unit test file, and the same number should be added to the test name in the code comment. For example:
-
-_*API source code file:*_
-{% highlight cpp %}
-    /*[foo_tcp_manager_create_createAndReturnInstanceSucceed_1]*/
-    TCP_INSTANCE* instance = (TCP_INSTANCE*)malloc(sizeof(TCP_INSTANCE));
-{% endhighlight %}
-
-_*Unit test file:*_
-{% highlight cpp %}
-/*[1]The foo_tcp_manager_create shall create a new instance of the TCP_INSTANCE
-        and return it as TCP_HANDLE.*/
-/*[2]The foo_tcp_manager_create shall initialize the tcpip thread.*/
-/*[3]The foo_tcp_manager_create shall initialize the netif with default
-        gateway, ip address, and net mask by calling netif_add.*/
-/*[4]The foo_tcp_manager_create shall set the netif defaults by calling
-        netif_set_default and netif_set_up.*/
-/*[5]If dhcp is enabled, the foo_tcp_manager_create shall start it by calling dhcp_start.*/
-TEST_FUNCTION(foo_tcp_manager_create_createAndReturnInstanceSucceed)
-{
-    ...
-}
-{% endhighlight %}
-
-{% include requirement/MUSTNOT id="cpp-testing-valgrind" %} have any memory leaks. Run samples and unit tests with [valgrind](http://www.valgrind.org/downloads/current.html) or [address sanitizer](https://github.com/google/sanitizers). Unit tests and e2e tests are valgrind verified at the gate.
-
-{% include requirement/MUST id="cpp-testing-unittests" %} unit test your API with [ccputest](https://cpputest.github.io/), a unit testing and mocking framework for C and C++.
-
-> TODO: Does this also mean during deployment on the end-user's machine?
-
-{% include requirement/MUST id="cpp-testing-cmake-unit-tests" %} automatically run unit tests when building your client library; i.e. make unit tests part of your continuous integration (CI)
-
-{% include requirement/MUST id="cpp-testing-code-coverage" %} maintain a minimum 80% code coverage with unit tests.
+Tests should be written using the [Google Test][] library.
 
 ## Coding style
 
