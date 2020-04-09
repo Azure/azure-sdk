@@ -211,7 +211,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 #### 4.2.0-beta.3 (Changelog)
 
-### Search ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-search_11.0.0-beta.1/sdk/search/azure-search/CHANGELOG.md))
+### Search ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-search-documents_1.0.0-beta.2/sdk/search/azure-search-documents/CHANGELOG.md))
 Version 1.0.0-beta.2 is the consecutive beta version of 11.0.0-beta.1. The version is made because we renamed 
 the search client library module name and namespace.
 
