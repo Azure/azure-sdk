@@ -179,7 +179,9 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
-### App Configuration (Changelog)
+### App Configuration ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-data-appconfiguration_1.1.1/sdk/appconfiguration/azure-data-appconfiguration/CHANGELOG.md))
+
+- Update dependency version, `azure-core` to 1.4.0 and `azure-core-http-netty` to 1.5.0.
 
 ### EventHubs (Changelog)
 
@@ -225,7 +227,12 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Queues (Changelog)
 
-### Text Analytics (Changelog)
+### Text Analytics ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_1.0.0-beta.4/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md))
+
+- Throws an illegal argument exception when the given list of documents is an empty list.
+- Renamed all input parameters `text` to `document`, and `inputTexts` to `documents`.
+- Removed all PII endpoints and update with related changes, such as remove related models, samples, codesnippets, docstrings, etc from this library. 
+- Replaced `TextAnalyticsApiKeyCredential` with `AzureKeyCredential`.
 
 ### Tracing OpenTelemetry (Changelog)
 
