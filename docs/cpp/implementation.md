@@ -299,6 +299,8 @@ TEST_FUNCTION(foo_tcp_manager_create_createAndReturnInstanceSucceed)
 
 ## Coding style
 
+{% include requirement/MUST id="cpp-style-clang-format" %} format your source code with `clang-format`, using the configuration file located in [the azure-sdk-for-cpp repo](https://github.com/Azure/azure-sdk-for-cpp/blob/master/.clang-format).
+
 ### Files
 
 {% include requirement/MUST id="cpp-style-filenaming" %} name all files as lowercase, in a directory of the service short name. Separate words with underscores, and end with the appropriate extension (`.cpp` or `.hpp`). For example, `iot_credential.cpp` is valid, while `IoTCredential.cl` is not.
