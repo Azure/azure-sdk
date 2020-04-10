@@ -359,16 +359,6 @@ endif()
 
 {% include requirement/MUSTNOT id="cpp-tooling-cmake-no-samples-by-default" %} install samples by default.
 
-### Testing and Mocking {cpp-testing}
-
-{% include requirement/MUST id="cpp-tooling-test-tools" %} use the following tools for testing:
-
-* Azure C Test for unit test running: [https://github.com/Azure/azure-ctest](https://github.com/Azure/azure-ctest)
-
-* Azure micro mock C [umock-c](https://github.com/Azure/umock-c): [https://github.com/Azure/umock-c](https://github.com/Azure/umock-c)
-
-* Use TestRunnerSwitcher, which is a simple library to switch test runners between [azure-ctest](https://github.com/Azure/azure-ctest.git) and CppUnitTest: [https://github.com/Azure/azure-c-testrunnerswitcher](https://github.com/Azure/azure-c-testrunnerswitcher)
-
 ## Packaging
 
 {% include requirement/SHOULD id="cpp-package-dynamic" %} provide both dynamic and static linking options for your library.  Each has its own merits and use cases.
