@@ -24,7 +24,7 @@ New preview releases:
 
 In addition, there is a new preview release for Azure Identity, which features improvements to the `DefaultAzureCredential` to better support common developer workflows.
 
-We believe these are ready for you to use and experiment with, but not yet ready for production.  Between now and the GA release, these libraries may undergo API changes.  We'd love your feedback!  If you use these libraries and like what you see, or you want to see changes, let us know in GitHub issues. 
+We believe these are ready for you to use and experiment with, but not yet ready for production.  Between now and the GA release, these libraries may undergo API changes.  We'd love your feedback!  If you use these libraries and like what you see, or you want to see changes, let us know in GitHub issues.
 
 ## Getting Started
 
@@ -156,4 +156,4 @@ So far, the community has filed hundreds of issues against these new SDKs with f
 * [JavaScript / TypeScript](https://github.com/Azure/azure-sdk-for-js)
 * [Python](https://github.com/Azure/azure-sdk-for-python)
 
-Finally, please keep up to date with all the news about the Azure developer experience programs and let us know how we are doing by following [@azuresdk](https://twitter.com/AzureSDK) on Twitter.
+Finally, please keep up to date with all the news about the Azure developer experience programs and let us know how we are doing by following [@azuresdk](https://twitter.com/AzureSDK) on Twitter
