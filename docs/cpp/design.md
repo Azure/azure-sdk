@@ -222,7 +222,6 @@ namespace Details {
 {% include requirement/SHOULD id="cpp-design-naming-macros-avoid" %} avoid use of macros. It is acceptable to use macros in the following situations. Use outside of these situations should contact the Azure Review Board.
 
 * Platform, compiler, or other environment detection (for example, `_WIN32` or `_MSC_VER`).
-* Header guards.
 * Emission or suppression of diagnostics.
 * Emission or supression of debugging asserts.
 * Import declarations. (`__declspec(dllimport)`, `__declspec(dllexport)`)
