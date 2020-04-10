@@ -51,7 +51,7 @@ Some services only support username/password type authentication; yet others onl
 
 When you are developing service applications, you want them to be long-running.  If you have good password hygiene, then you are rotating the passwords to all your cloud resources on a regular basis.  At some point, the password you are using in your application (that is embedded in a connection string) is going to change, causing you to restart your application.  Of course, you've designed your application reith resiliency in mind, so this involves modifying the password wherever you store them and restarting your app, but you can avoid that restart.
 
-You should instead use the `DefaultAzureCredential` to authenticate to services that can support it.  For more information on the `DefaultAzureCredential`, see [our blog post]({% post_url 2020-02-25-defaultazurecredentials %}).
+You should instead use the `DefaultAzureCredential` to authenticate to services that can support it.  The `DefaultAzureCredential` automatically deals with changing passwords.  You can rotate keys on a regular basis without restarting your service. For more information on the `DefaultAzureCredential`, see [our blog post]({% post_url 2020-02-25-defaultazurecredentials %}).
 
 There are places where you have to store a connection string - most notably, Azure SQL does not support Azure Active Directory at the time of writing, so you have to use connection strings.
 
