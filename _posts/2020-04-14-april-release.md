@@ -57,7 +57,7 @@ There are places where you have to store a connection string - most notably, Azu
 
 ### Store secrets in Key Vault
 
-Key Vault has three functions - secrets, keys, and certificate storage.  If all the services you use support Azure Active Directory, your service is unlikely to require access to Key Vault for secret storage.  Managed identities and Azure Active Directory is enough to handle the requirements.  However, as we have noted, there are API keys and connection strings that may occassionally be needed.  In these cases, you should store secrets in Key Vault.
+Key Vault has three functions - secrets, keys, and certificate storage.  If all the services you use support Azure Active Directory, your service is unlikely to require access to Key Vault for secret storage.  Managed identities and Azure Active Directory are enough to handle the requirements.  However, as we have noted, there are API keys and connection strings that may occasionally be needed.  In these cases, you should store secrets in Key Vault.
 
 First, set up an environment variable that contains your Key Vault URI.  I generally set mine in `AZURE_KEYVAULT_URI`.  Having a standard helps.  Getting the keys out of Key Vault is simple, no matter which language you code in.  In .NET:
 
@@ -156,4 +156,4 @@ So far, the community has filed hundreds of issues against these new SDKs with f
 * [JavaScript / TypeScript](https://github.com/Azure/azure-sdk-for-js)
 * [Python](https://github.com/Azure/azure-sdk-for-python)
 
-Finally, please keep up to date with all the news about the Azure developer experience programs and let us know how we are doing by following [@azuresdk](https://twitter.com/AzureSDK) on Twitter
+Finally, please keep up to date with all the news about the Azure developer experience programs and let us know how we are doing by following [@azuresdk](https://twitter.com/AzureSDK) on Twitter.
