@@ -7,7 +7,9 @@ author_github: bterlson
 repository: azure/azure-sdk
 ---
 
-Cancelling in-progress network operations is critical for many applications to maintain responsiveness and avoid waiting for pointless work to complete. For example, when downloading a large blob from Azure Storage, a user might want to cancel the download, and it would be nice if we could tell the Storage library that it doesn't need to download any more. The new Azure SDK libraries for JavaScript and TypeScript have adopted abort signals for just this purpose.
+Cancelling in-progress network operations is critical for many applications to maintain responsiveness and avoid waiting for pointless work to complete. For example, when downloading a large blob from Azure Storage, a user might want to cancel the download, and it would be nice if we could tell the Storage library that it doesn't need to download any more. Or, maybe your process got an interrupt signal because the node is no longer needed or needs to upgrade and you need to stop any in-progress operations and shut down as soon as possible.
+
+The new Azure SDK libraries for JavaScript and TypeScript have adopted abort signals for just these purposes.
 
 ## AbortController &amp; AbortSignal
 
@@ -132,11 +134,12 @@ const list = await getShoppingList({ abortSignal });
 controller.abort();
 ```
 
-Linked signals are also useful when an operation is divided into many sub-tasks and you want granular control over which parts of the subtask you cancel while also having the ability to cancel the entire operation all at once.
+Linked signals are also useful when an operation is divided into many sub-tasks and you want granular control over which parts of the task you cancel while also being able to cancel the entire operation all at once. The top-level task might even be the application itself. For example, if you want to handle an interrupt signal gracefully by cancelling all in-progress operations inside your application, you can create an abort controller at application startup, handle the interrupt signal by calling `abort()`, and pass that signal or linked signals to all calls into Azure SDK libraries.
 
 ## Further reading
 
 * [@azure/abort-controller readme on npm](https://www.npmjs.com/package/@azure/abort-controller)
+* [Azure SDK guidelines for network requests](https://azure.github.io/azure-sdk/general_design.html#network-requests).
 
 ## Want to hear more?
 
