@@ -61,7 +61,7 @@ Many `management` APIs do not have a data plane because they deal with managemen
 {% include requirement/MUST id="cpp-design-naming-namespaces-details" %} place private implementation details in a `Details` namespace.
 
 {% highlight cpp %}
-namespace Azure::Group::Service {
+namespace Azure { namespace Group { namespace Service {
 namespace Details {
 // Part of the private API
 struct HashComputation {
@@ -82,7 +82,7 @@ struct HashComputation {
     int InternalBookkeeping;
 };
 const int g_privateConstant = 1729;
-} // namespace Azure::Group::Service
+}}} // namespace Azure::Group::Service
 {% endhighlight %}
 
 #### Example Namespaces
@@ -195,7 +195,7 @@ enum class PinState {
 {% include requirement/MUST id="cpp-design-naming-functions" %} name functions with **PascalCase**. For example:
 
 {% highlight cpp %}
-namespace Azure::Group::Service {
+namespace Azure { namespace Group { namespace Service {
 namespace Details {
 // Part of the private API
 [[nodiscard]] int64_t ComputeHash(int32_t a, int32_t b) noexcept;
@@ -206,7 +206,7 @@ namespace Details {
 
 // Bad - private API in public namespace.
 [[nodiscard]] int64_t ComputeHash(int32_t a, int32_t b) noexcept;
-} // namespace Azure::Group::Service
+}}} // namespace Azure::Group::Service
 {% endhighlight %}
 
 {% include requirement/SHOULD id="cpp-design-naming-functions-noexcept" %} declare all functions that can never throw exceptions `noexcept`.
@@ -222,7 +222,6 @@ namespace Details {
 {% include requirement/SHOULD id="cpp-design-naming-macros-avoid" %} avoid use of macros. It is acceptable to use macros in the following situations. Use outside of these situations should contact the Azure Review Board.
 
 * Platform, compiler, or other environment detection (for example, `_WIN32` or `_MSC_VER`).
-* Header guards.
 * Emission or suppression of diagnostics.
 * Emission or supression of debugging asserts.
 * Import declarations. (`__declspec(dllimport)`, `__declspec(dllexport)`)
@@ -428,7 +427,7 @@ The *logical entity* is a protocol neutral representation of a response. For HTT
 For example, you may choose to do something similar to the following:
 
 {% highlight cpp %}
-namespace Azure::Group::Service {
+namespace Azure { namespace Group { namespace Service {
 struct JsonShortItem {
     // JSON decoded structure.
 };
@@ -449,6 +448,7 @@ class ShortItemsClient {
     JsonShortPagedResults* JsonGetShortListItems() const;
     JsonShortRawPagedResults* JsonGetShortListItemsWithResponse(client, /* extra params */);
 };
+}}} // namespace Azure::Group::Service
 {% endhighlight %}
 
 {% include requirement/MUST id="cpp-design-logical-client-document-raw-stream" %} document and provide examples on how to access the raw and streamed response for a given request, where exposed by the client library.  We do not expect all methods to expose a streamed response.
