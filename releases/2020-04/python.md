@@ -86,11 +86,11 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 
 ### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
 
-- The first preview with new API design for the `azure-ai-formrecognizer` client library
+- The first preview with new API design for the Azure Cognitive Services Form Recognizer client library
+- New namespace/package `azure-ai-formrecognizer` which replaces the package `azure-cognitiveservices-formrecognizer`
 - Adds `FormRecognizerClient` to analyze custom forms, receipts, and form content/layout
 - Adds `FormTrainingClient` to train custom models (with/without labels), and manage the custom models on your account
 - Asynchronous APIs added under `azure.ai.formrecognizer.aio`
-- New underlying REST pipeline implementation based on the `azure-core` library
 - Authentication with API key supported using `AzureKeyCredential("<api_key>")` from `azure.core.credentials`
 - For stream methods, `content-type` is automatically detected
 
