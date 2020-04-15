@@ -18,6 +18,7 @@ This release includes the following:
 - Event Hubs
 - Search Documents
 - Identity
+- Form Recognizer
 
 
 ## Installation Instructions
@@ -40,6 +41,7 @@ pip install --pre azure-identity
 pip install --pre azure-ai-textanalytics
 pip install --pre azure-search-documents
 pip install --pre azure-servicebus
+pip install azure-ai-formrecognizer
 ```
 
 ## Feedback
@@ -81,6 +83,16 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 
 - All `get_token` methods consistently require at least one scope argument, raising an error when none is passed. Although `get_token()` may sometimes have succeeded in prior versions, it couldn't do so consistently because its behavior was undefined, and dependened on the credential's type and internal state.
 - The host of the Active Directory endpoint credentials should use can be set in the environment variable `AZURE_AUTHORITY_HOST`. See `azure.identity.KnownAuthorities` for a list of common values.
+
+### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+
+- The first preview with new API design for the `azure-ai-formrecognizer` client library
+- Adds `FormRecognizerClient` to analyze custom forms, receipts, and form content/layout
+- Adds `FormTrainingClient` to train custom models (with/without labels), and manage the custom models on your account
+- Asynchronous APIs added under `azure.ai.formrecognizer.aio`
+- New underlying REST pipeline implementation based on the `azure-core` library
+- Authentication with API key supported using `AzureKeyCredential("<api_key>")` from `azure.core.credentials`
+- For stream methods, `content-type` is automatically detected
 
 ## Latest Releases
 
