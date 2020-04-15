@@ -124,7 +124,7 @@ Consider an `exists` method. The method **must** distinguish between the service
 # Yes
 try:
     exists = client.resource_exists(name):
-    if not resource:
+    if not exists:
         print("The resource doesn't exist...")
 except azure.core.errors.ServiceRequestError:
     print("We don't know if the resource exists - so it was appropriate to throw an exception!")
