@@ -26,10 +26,11 @@ pip install --pre azure-storage-queue
 ```
 
 ## Feedback
+
 If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/azure/azure-sdk-for-python/issues).
 
-
 ## Changelog
+
 Detailed change logs are linked to in the Quick Links below. Here are some critical call outs.
 
 ### Identity
@@ -92,6 +93,6 @@ These clients can be accessed by navigating down the client hierarchy, or instan
 
 ## Quick Links
 
-See [Nov Release](..\2019-11\python.html)
+See [Nov Release]({{site.baseurl}}{% link releases/2019-11/2019-11-python.md %})
 
 {% include refs.md %}

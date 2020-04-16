@@ -55,6 +55,6 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ## Quick Links
 
-See [Nov Release](..\2019-11\dotnet.html)
+See [Nov Release]({{site.baseurl}}{% link releases/2019-11/2019-11-dotnet.md %})
 
 {% include refs.md %}

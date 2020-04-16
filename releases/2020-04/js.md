@@ -64,7 +64,7 @@ Below are some noteworthy changes in the current release.
 ### Service Bus
 
 - Initial preview of Azure Service Bus client library version 7.
-- This version of library has been designed based on the [Azure SDK Design Guidelines for TypeScript](https://azure.github.io/azure-sdk/typescript_introduction.html) to ensure consistency, idiomatic design, and excellent developer experience and productivity.
+- This version of library has been designed based on the [Azure SDK Design Guidelines for TypeScript]({{ site.baseurl }}{% link docs/typescript/introduction.md %}) to ensure consistency, idiomatic design, and excellent developer experience and productivity.
 
 ## Latest Releases
 

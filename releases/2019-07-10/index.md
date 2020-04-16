@@ -7,12 +7,12 @@ sidebar: releases_sidebar
 permalink: /releases/2019-07-10/index.html
 ---
 
-Today we’re happy to share a new set of libraries for working with Azure Storage,  Azure Cosmos DB, Azure Key Vault, and Azure Event Hubs in Java, Python, JavaScript or TypeScript, and .NET. These libraries provide access to new service features, and represent the first step towards applying a [new set of standards](https://azure.github.io/azure-sdk/) across the Azure SDKs that we believe will make the libraries easier to learn and integrate into your software. You can get these libraries today from your favorite package manager, and we would love to hear your feedback on [GitHub](https://github.com/azure/azure-sdk/issues/). To get started follow the instructions linked below:
+Today we’re happy to share a new set of libraries for working with Azure Storage,  Azure Cosmos DB, Azure Key Vault, and Azure Event Hubs in Java, Python, JavaScript or TypeScript, and .NET. These libraries provide access to new service features, and represent the first step towards applying a [new set of standards]({{site.baseurl}}{% link docs/general/introduction.md %}) across the Azure SDKs that we believe will make the libraries easier to learn and integrate into your software. You can get these libraries today from your favorite package manager, and we would love to hear your feedback on [GitHub](https://github.com/azure/azure-sdk/issues/). To get started follow the instructions linked below:
 
-* [Python Release Notes](python.html)
-* [Java Release Notes](java.html)
-* [JavaScript Release Notes](js.html)
-* [.NET Release Notes](dotnet.html)
+* [Python Release Notes]({{site.baseurl}}{% link releases/2019-07-10/2019-07-10-python-preview1.md %})
+* [Java Release Notes]({{site.baseurl}}{% link releases/2019-07-10/2019-07-10-java-preview1.md %})
+* [JavaScript Release Notes]({{site.baseurl}}{% link releases/2019-07-10/2019-07-10-js-preview1.md %})
+* [.NET Release Notes]({{site.baseurl}}{% link releases/2019-07-10/2019-07-10-dotnet-preview1.md %})
 
 ## Why are we doing this?
 
@@ -32,7 +32,7 @@ The team will go into much of what I am about to outline in follow-up blog posts
 
 Productivity is a multifaceted topic on its own, but two main elements of it are consistency and usability.
 
-To help reach consistency, we codified the things we learned while working with Azure developers into a set of API design guidelines. The guidelines themselves are built in the open on [our GitHub repository](https://azure.github.io/azure-sdk/) and consist of a section of principles that goes into more detail on how we approached this space, a set of general guidelines, and language specific guidelines for Java, Python, .NET, and JavaScript. By applying the guidelines we believe that these libraries will be easier to use and easier to learn. When you learn a pattern or API shape in one library you should be able to count on it being the same in others.
+To help reach consistency, we codified the things we learned while working with Azure developers into a set of API design guidelines. The guidelines themselves are built in the open on [our GitHub repository](https://github.com/azure/azure-sdk/) and consist of a section of principles that goes into more detail on how we approached this space, a set of general guidelines, and language specific guidelines for Java, Python, .NET, and JavaScript. By applying the guidelines we believe that these libraries will be easier to use and easier to learn. When you learn a pattern or API shape in one library you should be able to count on it being the same in others.
 
 To help drive usability, we tweaked how we gather user feedback. We continue to do many of the standard practices in the industry such as releasing previews, working directly with developers on their projects, and responding to issues in many different community forums but the next step for us was to usability test the libraries. For each of the libraries we are releasing today, we have brought developers into a lab and had them work through different use cases while we observed them. That feedback was instrumental to shape both the guidelines as well as the API shape of the libraries.
 
@@ -53,11 +53,11 @@ Having good documentation and samples could be considered an aspect of productiv
 We also found we needed to change how we work with and engage the community and what we build on top of. To that end, we’ve begun work to restructure and centralize our development effort into a few key repositories:
 
 * [Azure-sdk](https://github.com/azure/azure-sdk): As a central location to start from and a place for high level topics like the design guidelines.
-* Repositories for each language: 
-    * [azure-sdk-for-python](https://github.com/azure/azure-sdk-for-python)
-    * [azure-sdk-for-java](https://github.com/azure/azure-sdk-for-java)
-    * [azure-sdk-for-js](https://github.com/azure/azure-sdk-for-js)
-    * [azure-sdk-for-net](https://github.com/azure/azure-sdk-for-net)
+* Repositories for each language:
+  * [azure-sdk-for-python](https://github.com/azure/azure-sdk-for-python)
+  * [azure-sdk-for-java](https://github.com/azure/azure-sdk-for-java)
+  * [azure-sdk-for-js](https://github.com/azure/azure-sdk-for-js)
+  * [azure-sdk-for-net](https://github.com/azure/azure-sdk-for-net)
 
 Finally, we built a new core library that is helping us provide common features like identity and authentication, both synchronous and asynchronous APIs, logging, error handling, networking retries and more across all libraries.
 
@@ -65,9 +65,9 @@ Finally, we built a new core library that is helping us provide common features 
 
 We are very pleased to be sharing the preview release of the new Azure libraries that conform to many of the principles outlined above. We would like to encourage you to download and try the new SDKs today. To help you along the way, we are providing release notes describing what’s new in each library, how to get the packages, and how to file GitHub issues specific to the previews.
 
-* [Python Release Notes](python.html)
-* [Java Release Notes](java.html)
-* [JavaScript Release Notes](js.html)
-* [.NET Release Notes](dotnet.html)
+* [Python Release Notes]({{site.baseurl}}{% link releases/2019-07-10/2019-07-10-python-preview1.md %})
+* [Java Release Notes]({{site.baseurl}}{% link releases/2019-07-10/2019-07-10-java-preview1.md %})
+* [JavaScript Release Notes]({{site.baseurl}}{% link releases/2019-07-10/2019-07-10-js-preview1.md %})
+* [.NET Release Notes]({{site.baseurl}}{% link releases/2019-07-10/2019-07-10-dotnet-preview1.md %})
 
 In addition to filing GitHub issues, feel free to also follow and tweet us [@AzureSDK](https://twitter.com/AzureSDK). We look forward to receiving your feedback so we can improve the libraries, and make it easier for you to create great software and solve problems with Azure.

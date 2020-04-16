@@ -52,6 +52,6 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 
 ## Quick Links
 
-See [Nov Release](..\2019-11\python.html)
+See [Nov Release]({{site.baseurl}}{% link releases/2019-11/2019-11-python.md %})
 
 {% include refs.md %}
