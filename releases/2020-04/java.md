@@ -187,11 +187,10 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - Added heartbeat for single process event consumer in EventProcessorClient.
 - Added batch receive for EventProcessorClient.
-- Bug fixes for reconnection issues.
 
 ### Event Hubs Checkpoint Store [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-messaging-eventhubs-checkpointstore-blob_1.1.0-beta.1/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md)
 
-- Updates dependency of azure-messaging-eventhubs to support receiving in batches.
+- Updates dependencies.
 
 ### Identity
 
