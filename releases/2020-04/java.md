@@ -230,17 +230,15 @@ the search client library module name and namespace.
 
 ### ServiceBus (Changelog)
 
-### Blobs (Changelog)
+### Blobs [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md)
+- This release contains various bug fixes to improve quality.
 
-### Blobs Batch (Changelog)
+### Blobs Cryptography [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md)
+- It is now possible to specify a key/keyResolver after they specify a pipeline/client on the builder
 
-### Blobs Crytography (Changelog)
-
-### Files Datalake (Changelog)
-
-### Files Shares (Changelog)
-
-### Queues (Changelog)
+### Files Datalake [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md)
+- Added an `isDirectory` property to `PathProperties`.
+- Added overloads to `DataLakeFileSystemClient.createFile/createDirectory`, `DataLakeDirectoryClient.createFile/createSubdirectory` to allow overwrite behavior.
 
 ### Text Analytics ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_1.0.0-beta.4/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md))
 

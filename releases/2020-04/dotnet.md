@@ -13,6 +13,7 @@ The Azure SDK team is pleased to announce our April 2020 client library releases
 
 - Core
 - Key Vault
+- Storage
 
 #### Preview
 
@@ -40,6 +41,10 @@ To install any of our packages, please search for them via `Manage NuGet Package
     $> dotnet add package Azure.Security.KeyVault.Certificates --version 4.0.2
     $> dotnet add package Azure.Security.KeyVault.Keys --version 4.0.3
     $> dotnet add package Azure.Security.KeyVault.Secrets --version 4.0.3
+
+    $> dotnet add package Azure.Storage.Blobs
+    $> dotnet add package Azure.Storage.Common
+    $> dotnet add package Azure.Storage.Files.DataLake
 
 ## Feedback
 
@@ -76,6 +81,18 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - Renamed to `Azure.Search.Documents` (assembly, namespace, and package)
 - Added support for creating and managing Search Indexes
+
+### Storage
+
+#### Azure Storage Blob [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md)
+- The new 12.4.1 release contains various bug fixes and improvements to the library
+
+#### Azure Storage Files DataLake [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md)
+- Added `PathProperties.IsDirectory`
+- Fixed bugs where exceptions were thrown
+
+#### Azure Storage Common [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Common/CHANGELOG.md)
+- This release contains bug fixes to improve quality
 
 ### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md)
 
