@@ -13,7 +13,7 @@ Welcome to the April release of the Azure SDK.  We have updated the following li
 * Key Vault
 * Storage
 
-These are ready to use in your production applications.  You can find details of all released libraries on [our releases page]({site.baseurl}}{% link releases/latest/index.md %}).
+These are ready to use in your production applications.  You can find details of all released libraries on [our releases page]({{site.baseurl}}{% link releases/latest/index.md %}).
 
 New preview releases:
 
