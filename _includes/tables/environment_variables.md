@@ -13,6 +13,7 @@
 | AZURE_CLIENT_ID               | Azure Active Directory                 |
 | AZURE_CLIENT_SECRET           | Azure Active Directory                 |
 | AZURE_TENANT_ID               | Azure Active Directory                 |
+| AZURE_AUTHORITY_HOST          | Azure Active Directory                 |
 | **Pipeline Configuration**                                            ||
 | AZURE_TELEMETRY_DISABLED      | Disables telemetry                     |
 | AZURE_LOG_LEVEL               | Enable logging by setting a log level. |
