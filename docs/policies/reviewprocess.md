@@ -8,6 +8,7 @@ sidebar: general_sidebar
 We expect all Azure client libraries to pass rigorous API reviews similar to those conducted for any other API produced by Microsoft (for example, the .NET APIs).  In addition to detailed reviews of new libraries, **all changes** to an API must be approved by the language architect before release.
 
 ## Sequence of events
+
 Depending on the nature and scope of the client library work being done, the sequence of events to follow when engaging with the architecture board will follow one of two paths.  If you are unsure which path applies to the work you are doing, you should consult with a language architect for guidance.
 
 ### 1 New libraries, large feature work, and/or pipeline changes
@@ -24,7 +25,7 @@ See [Requesting a meeting with the board](#requesting-a-meeting-with-the-board) 
 
 ### 2 Small, targeted changes and bug fixes
 
-For small or targeted changes and bug fixes which modify APIs, the architect in each language can review and sign off without a combined/central review. We highly recommend doing this review as early as possible. This should be done over email where possible with links to API diffs.  CC the full [Architecture Board](mailto:adparch@microsoft.com) on these mails. In some cases it makes sense for small changes to the API to be batched for efficiency. If the language architect determines there is a need for a deeper discussion, then a meeting with that architect should be scheduled to have that conversation. If it’s a cross language discussion, then the entire board should be scheduled. 
+For small or targeted changes and bug fixes which modify APIs, the architect in each language can review and sign off without a combined/central review. We highly recommend doing this review as early as possible. This should be done over email where possible with links to API diffs.  CC the full [Architecture Board](mailto:adparch@microsoft.com) on these mails. In some cases it makes sense for small changes to the API to be batched for efficiency. If the language architect determines there is a need for a deeper discussion, then a meeting with that architect should be scheduled to have that conversation. If it’s a cross language discussion, then the entire board should be scheduled.
 
 Remember that **all changes** to an API must be approved by the language architect before release.
 
@@ -56,6 +57,16 @@ To request a review:
     - If this is an API review, also prepare several code samples for review showing how the client library is meant to be used by customers. An example of a good set of usage samples can be found [here](https://github.com/dotnet/corefx/issues/32588).
 2. A review with the entire board will be scheduled.
 3. After the review is completed, the architecture board will publish recommendations.
+
+## Approval Meeting Requirements
+
+In order for an API to be approved, the following conditions must be met at the architectural board meeting:
+
+- Representatives from all tier-1 languages, and all languages under consideration must be present at the meeting.
+- A minimum of **TWO** architects from different language groups must be present at the meeting.
+
+If a language architect is not present at the meeting, they must review and confirm the outcome of the meeting within 1 business day.  If the language architect is unavailable, the language area engineering lead within the Azure SDK group can approve instead.
+The list of language representatives can only be changed by the LT of the Azure SDK group.
 
 ## API Listings
 

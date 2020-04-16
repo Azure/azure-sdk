@@ -219,6 +219,56 @@ public readonly struct EncryptionAlgorithm : IEquatable<EncryptionAlgorithm>
 }
 ```
 
+## ASP.NET Core Integration
+
+All Azure client libraries ship with a set of extension methods that provide integration with ASP.NET Core applications by registering clients with DependencyInjection container, flowing Azure SDK logs to ASP.NET Core logging subsystem and providing ability to use configuration subsystem for client configuration (for more examples see https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/core/Microsoft.Extensions.Azure)
+
+{% include requirement/MUST id="dotnet-builder-class-name" %} provide a single `*ClientBuilderExtensions` class for every Azure SDK client library that contains client types. Name of the type should use the same prefix as the `*ClientOptions` class used across the library. For example: `SecretClientBuilderExtensions`, `BlobClientBuilderExtensions`
+
+{% include requirement/MUST id="dotnet-client-builder-class-namespace" %} use `Microsoft.Extensions.Azure` as a namespace.
+
+{% include requirement/MUST id="dotnet-client-builder-class-service-client" %} provide integration extension methods for every top level client type users are expected to start with in the main namespace. Do not include integration extension methods for secondary clients, child clients, or clients in advanced namespaces.
+
+{% include requirement/MUST id="dotnet-client-builder-extension-name" %} name extension methods as `Add[ClientName]` for example. Add `AddSecretsClient`, `AddBlobServiceClient`.
+
+{% include requirement/MUST id="dotnet-client-builder-overloads" %} provide an overload for every set of constructor parameters.
+
+{% include requirement/MUST id="dotnet-client-builder-overload-normal" %} provide extension method for `IAzureClientFactoryBuilder` interface for constructors that don't take `TokenCredentials`. Extension method should take same set of parameters as constructor and call into `builder.RegisterClientFactory`
+
+Sample implementation:
+
+``` C#
+public static IAzureClientBuilder<ConfigurationClient, ConfigurationClientOptions> AddConfigurationClient<TBuilder>(this TBuilder builder, string connectionString)
+    where TBuilder : IAzureClientFactoryBuilder
+{
+    return builder.RegisterClientFactory<ConfigurationClient, ConfigurationClientOptions>(options => new ConfigurationClient(connectionString, options));
+}
+```
+
+{% include requirement/MUST id="dotnet-client-builder-overload-tokencredential" %} provide extension method for `IAzureClientFactoryBuilderWithCredential` interface for constructors that take `TokenCredentials`. Extension method should take same set of parameters as constructor except the `TokenCredential` and call into `builder.RegisterClientFactory` overload that provides the token credential as part of factory lambda. 
+
+
+Sample implementation:
+
+``` C#
+public static IAzureClientBuilder<SecretClient, SecretClientOptions> AddSecretClient<TBuilder>(this TBuilder builder, Uri vaultUri)
+     where TBuilder : IAzureClientFactoryBuilderWithCredential
+{
+    return builder.RegisterClientFactory<SecretClient, SecretClientOptions>((options, cred) => new SecretClient(vaultUri, cred, options));
+}
+```
+
+{% include requirement/MUST id="dotnet-client-builder-overload-configuration" %} provide extension method for `IAzureClientFactoryBuilderWithConfiguration<TConfiguration>` that takes `TConfiguration configuration`. This overload would allow customers to pass in a `IConfiguration` object and create client dynamically based on configuration values.
+
+Sample implementation:
+``` C#
+public static IAzureClientBuilder<SecretClient, SecretClientOptions> AddSecretClient<TBuilder, TConfiguration>(this TBuilder builder, TConfiguration configuration)
+    where TBuilder : IAzureClientFactoryBuilderWithConfiguration<TConfiguration>
+{
+    return builder.RegisterClientFactory<SecretClient, SecretClientOptions>(configuration);
+}
+```
+
 <!-- Links -->
 
 {% include refs.md %}
