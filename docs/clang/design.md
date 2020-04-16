@@ -127,6 +127,21 @@ typedef struct az_iot_client {
 } az_iot_client;
 {% endhighlight %}
 
+{% include requirement/MUSTNOT id="clang-design-naming-struct-no-const %} declare const fields within structs. Pointers to const are fine, however. For example:
+```c
+// bad
+typedef struct az_iot_client {
+    const int retry_timeout;
+    char * const api_version;
+} az_iot_client;
+
+// good
+typedef struct az_iot_client {
+    int retry_timeout;
+    char const * api_version;
+} az_iot_client;
+```
+
 ### Enums
 
 {% include requirement/MUST id="clang-design-naming-enum" %} use snake-casing to name enum types, and include the az_<svcname>_<shortenumname> prefix.
