@@ -16,8 +16,9 @@ sidebar: cpp_sidebar
 
 | Operating System     | Version       | Architectures | Compiler Version                        | Notes
 |----------------------|---------------|---------------|-----------------------------------------|------
-| Windows Client       | 7 SP1+, 8.1   | x86           | MSVC 14.16.x, MSVC 14.20x               |
-| Windows 10 Client    | Version 1607+ | x64, x86      | MSVC 14.16.x, MSVC 14.20x               |
+| Windows Client       | 7 SP1+, 8.1   | x64, x86      | MSVC 14.16.x, MSVC 14.20x               |
+| Windows 10 Client    | Version 1607+ | x64, x86, ARM | MSVC 14.16.x, MSVC 14.20x               |
+| Windows 10 Client    | Version 1909+ | ARM64         | MSVC 14.20x                             |
 | Nano Server          | Version 1803+ | x64, ARM32    | MSVC 14.16.x, MSVC 14.20x               |
 | Windows Server       | 2012 R2+      | x64, x86      | MSVC 14.16.x, MSVC 14.20x               |
 
