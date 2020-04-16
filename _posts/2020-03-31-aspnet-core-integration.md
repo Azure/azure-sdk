@@ -1,7 +1,7 @@
 ---
 title: Best practices for using Azure SDK with ASP.NET Core
 layout: post
-date: 31 Mar 2020
+date: 2020-03-31
 sidebar: releases_sidebar
 author_github: pakrym
 repository: azure/azure-sdk
@@ -15,7 +15,7 @@ The advice comes down to three best practices:
 
 1. Centrally configure services during app startup.
 2. Store your configuration separately from code.
-3. Use the [`DefaultAzureCredential`](https://azure.github.io/azure-sdk/posts/2020-02-25/defaultazurecredentials.html).
+3. Use the [`DefaultAzureCredential`]({{ site.baseurl }}{% post_url 2020-02-25-defaultazurecredentials %}).
 
 Let's take each of these in turn.
 
@@ -173,7 +173,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-The `DefaultAzureCredential` checks several methods of authenticating your service.  First, it checks to see if you have the environment variables set.  If you have explicitly provided credentials in this manner, they are used.   Next, it checks to see if you have set up a managed identity.  The mechanism for doing this varies by hosting platform.  For virtual machines and Azure App Services, for example, there is a managed identity section in the portal.  You can also configure the managed identity using your favorite command line tool (Azure CLI, PowerShell, Azure Resource Manager, Terraform, etc.).  You must ensure you have provided the managed service principal with permissions to access the resources you are trying to use.  For more information on using managed identities, check [the documentation](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview).
+The `DefaultAzureCredential` checks several methods of authenticating your service.  First, it checks to see if you have the environment variables set.  If you have explicitly provided credentials in this manner, they are used.   Next, it checks to see if you have set up a managed identity.  The mechanism for doing this varies by hosting platform.  For virtual machines and Azure App Services, for example, there is a managed identity section in the portal.  You can also configure the managed identity using your favorite command line tool (Azure CLI, PowerShell, Azure Resource Manager, Terraform, etc.).  You must ensure you have provided the managed service principal with permissions to access the resources you are trying to use.  For more information on using managed identities, check [the documentation](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
 ## More settings
 
@@ -181,8 +181,8 @@ With this basic setup, you can do much more:
 
 * Provide multiple service clients with different names.
 * Configure global settings, like the retry settings.
-* [Send your logs to Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/learn/dotnetcore-quick-start).
-* [Store your configuration within App Configuration](https://docs.microsoft.com/en-us/azure/azure-app-configuration/quickstart-aspnet-core-app?tabs=core2x).
+* [Send your logs to Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/dotnetcore-quick-start).
+* [Store your configuration within App Configuration](https://docs.microsoft.com/azure/azure-app-configuration/quickstart-aspnet-core-app?tabs=core2x).
 
 Let's take a look at a couple of these.
 

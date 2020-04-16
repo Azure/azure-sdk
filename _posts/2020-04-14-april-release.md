@@ -1,7 +1,7 @@
 ---
 title: Azure SDK Releases (April 2020)
 layout: post
-date: 14 apr 2020
+date: 2020-04-14
 sidebar: releases_sidebar
 repository: azure/azure-sdk
 ---
@@ -13,7 +13,7 @@ Welcome to the April release of the Azure SDK.  We have updated the following li
 * Key Vault
 * Storage
 
-These are ready to use in your production applications.  You can find details of all released libraries on [our releases page](https://azure.github.io/azure-sdk/releases/latest/).
+These are ready to use in your production applications.  You can find details of all released libraries on [our releases page]({site.baseurl}}{% link releases/latest/index.md %}).
 
 New preview releases:
 
@@ -30,10 +30,10 @@ We believe these are ready for you to use and experiment with, but not yet ready
 
 Use the links below to get started with your language of choice.  You will notice that all the preview libraries are tagged with "preview".
 
-* [.NET release notes]({{site.baseurl}}/releases/2020-04/dotnet.html)
-* [Java release notes]({{site.baseurl}}/releases/2020-04/java.html)
-* [Python release notes]({{site.baseurl}}/releases/2020-04/python.html)
-* [JavaScript release notes]({{site.baseurl}}/releases/2020-04/js.html)
+* [.NET release notes]({{site.baseurl}}{% link releases/2020-04/dotnet.md %})
+* [Java release notes]({{site.baseurl}}{% link releases/2020-04/java.md %})
+* [Python release notes]({{site.baseurl}}{% link releases/2020-04/python.md %})
+* [JavaScript release notes]({{site.baseurl}}{% link releases/2020-04/js.md %})
 
 If you want to dive deep into the content, the release notes linked above and the change logs they point to give more details on what has changed.
 
@@ -51,7 +51,7 @@ Some services only support username/password type authentication; yet others onl
 
 When you are developing service applications, you want them to be long-running.  If you have good password hygiene, then you are rotating the passwords to all your cloud resources on a regular basis.  At some point, the password you are using in your application is going to change.  If you use connection strings, the application will need to be restarted.  Additionally, you have to store your connection string in plain text within the environment of your application.  You should never store security credentials in plain text.  For these reasons, avoid using connection strings wherever possible.
 
-Instead, secure your resources with Azure Active Directory, then use an appropriate credential with the Azure SDK.  The `DefaultAzureCredential` includes the `ManagedIdentityCredential`, which supports rotating keys on managed identities.  This allows you to rotate keys on a regular basis without restarting your service. For more information on the `DefaultAzureCredential`, see [our blog post]({% post_url 2020-02-25-defaultazurecredentials %}).
+Instead, secure your resources with Azure Active Directory, then use an appropriate credential with the Azure SDK.  The `DefaultAzureCredential` includes the `ManagedIdentityCredential`, which supports rotating keys on managed identities.  This allows you to rotate keys on a regular basis without restarting your service. For more information on the `DefaultAzureCredential`, see [our blog post]({{ site.baseurl }}{% post_url 2020-02-25-defaultazurecredentials %}).
 
 There are places where you have to store a connection string - most notably, Azure SQL does not support Azure Active Directory at the time of writing, so you have to use connection strings.
 
@@ -156,4 +156,4 @@ So far, the community has filed hundreds of issues against these new SDKs with f
 * [JavaScript / TypeScript](https://github.com/Azure/azure-sdk-for-js)
 * [Python](https://github.com/Azure/azure-sdk-for-python)
 
-Finally, please keep up to date with all the news about the Azure developer experience programs and let us know how we are doing by following [@azuresdk](https://twitter.com/AzureSDK) on Twitter.
+Finally, please keep up to date with all the news about the Azure developer experience programs and let us know how we are doing by following [@AzureSDK](https://twitter.com/AzureSDK) on Twitter.
