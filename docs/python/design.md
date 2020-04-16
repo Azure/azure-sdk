@@ -169,7 +169,7 @@ class ChildClient:
 |`delete_\<noun>`|key|`None`|Delete an existing item. Must succeed even if item didn't exist.|
 |`remove_\<noun>`|key|removed item or `None`|Remove a reference to an item from a collection. This method doesn't delete the actual item, only the reference.|
 
-{% include requirement/MUST id="python-client-standardize-verbs" %} standardize verb prefixes outside the list of preferred verbs for a given service across language SDKs. If a verb is called `dowload` in one language, we should avoid naming it `fetch` in another.
+{% include requirement/MUST id="python-client-standardize-verbs" %} standardize verb prefixes outside the list of preferred verbs for a given service across language SDKs. If a verb is called `download` in one language, we should avoid naming it `fetch` in another.
 
 {% include requirement/MUST id="python-lro-prefix" %} prefix methods with `begin_` for long running operations. Long running operations *must* return a [Poller](#python-core-protocol-lro-poller) object. 
 
