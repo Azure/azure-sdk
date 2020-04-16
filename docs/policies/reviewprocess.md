@@ -43,7 +43,7 @@ When the library developers indicate they're ready to release, these should be r
 
 For the initial discussion of a new library or large feature work, it is encouraged that the following things be proposed or provided by the owners of the client library:
 
-1. A listing of 3-5 champion scenarios relevant to the developer. These must identify the critical scenarios that the majority of developers will experience. For each champion scenario, a link to a code sample in the repo must be provided. It is expected that these champion scenarios are optimized for, ensuring succinct, intuitive, and productive developer experiences are possible for each.
+1. Code samples added to the repo for key scenarios relevant to the developer.  They should be added to the library's sample folder ([example](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)) These must demonstrate how to use API functions that the majority of developers will use ([example](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample1_DetectLanguage.md)). It is expected that these samples are optimized for, ensuring succinct, intuitive, and productive developer experiences are possible for each.
 2. Link to the service documentation/specification.
 3. Link to the service REST APIs, if applicable/available.
 
