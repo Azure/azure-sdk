@@ -25,7 +25,7 @@ See [Requesting a meeting with the board](#requesting-a-meeting-with-the-board) 
 
 ### 2 Small, targeted changes and bug fixes
 
-For small or targeted changes and bug fixes which modify APIs, the architect in each language can review and sign off without a combined/central review. We highly recommend doing this review as early as possible. This should be done over email where possible with links to API diffs.  CC the full [Architecture Board](mailto:adparch@microsoft.com) on these mails. In some cases it makes sense for small changes to the API to be batched for efficiency. If the language architect determines there is a need for a deeper discussion, then a meeting with that architect should be scheduled to have that conversation. If it’s a cross language discussion, then the entire board should be scheduled.
+For small or targeted changes and bug fixes which modify APIs, the architect in each language can review and sign off without a combined/central review. We highly recommend doing this review as early as possible. This should be done on GitHub by opening an issue with links to API diffs.  Include all architects as reviewers. In some cases it makes sense for small changes to the API to be batched for efficiency. If a language architect determines there is a need for a deeper discussion, then a meeting with that architect should be scheduled to have that conversation. If it’s a cross language discussion, then a board meeting should be scheduled. 
 
 Remember that **all changes** to an API must be approved by the language architect before release.
 
