@@ -13,7 +13,7 @@ The new Azure SDK libraries for JavaScript and TypeScript have adopted abort sig
 
 ## AbortController &amp; AbortSignal
 
-`AbortController` and `AbortSignal` are [standard features in the browser](https://developer.mozilla.org/en-US/docs/Web/API/AbortController) and are used with the [`fetch` API](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch) to abort in-progress network requests. The controller is responsible for triggering the cancellation, and signals are responsible for notifying when a cancellation has been triggered. This separation of concerns enables you to safely pass an abort signal without delegating the ability to cancel the signal as well.
+`AbortController` and `AbortSignal` are [standard features in the browser](https://developer.mozilla.org/en-US/docs/Web/API/AbortController) and are used with the [`fetch` API](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch) to abort in-progress network requests. The controller is responsible for triggering the cancellation, and signals are responsible for notifying when a cancellation has been triggered.
 
 If you're only targeting fairly modern browsers, you can use the built-in `AbortController` and `AbortSignal` and everything will work fine. If you're targeting Node.js, or if you want to take advantage of linked signals or other features that I'll cover later in this post, you can use the implementation in the Azure SDK found in the [`@azure/abort-controller` npm package](https://www.npmjs.com/package/@azure/abort-controller).
 
