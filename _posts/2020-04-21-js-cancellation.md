@@ -93,7 +93,7 @@ controller.abort();
 
 ### Cancelling with a timeout
 
-Frequently you want to give an operation some amount of time to return a useful result, and if it hasn't, you're no longer interested. You could call `abortSignal.abort()` in a `setTimeout` callback, but this pattern is so common we provide a bit of sugar:
+Frequently you want to give an operation some amount of time to return a useful result, and if it hasn't, you'd like to cancel it. You could call `abortSignal.abort()` in a `setTimeout` callback, but this pattern is so common we provide a bit of sugar:
 
 ```javascript
 const list = await getShoppingList({ abortSignal: AbortController.timeout(1000) });
