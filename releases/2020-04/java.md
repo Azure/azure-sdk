@@ -183,9 +183,15 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - Update dependency version, `azure-core` to 1.4.0 and `azure-core-http-netty` to 1.5.0.
 
-### EventHubs (Changelog)
+### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-messaging-eventhubs_5.1.0-beta.1/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md)
 
-### EventHubs Checkpoint Store (Changelog)
+- Added heartbeat for single process event consumer in EventProcessorClient.
+- Added batch receive for EventProcessorClient.
+- Bug fixes for reconnection issues.
+
+### Event Hubs Checkpoint Store [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-messaging-eventhubs-checkpointstore-blob_1.1.0-beta.1/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md)
+
+- Updates dependency of azure-messaging-eventhubs to support receiving in batches.
 
 ### Identity
 
@@ -212,7 +218,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### 4.2.0-beta.3 (Changelog)
 
 ### Search ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-search-documents_1.0.0-beta.2/sdk/search/azure-search-documents/CHANGELOG.md))
-Version 1.0.0-beta.2 is the consecutive beta version of 11.0.0-beta.1. The version is made because we renamed 
+Version 1.0.0-beta.2 is the consecutive beta version of 11.0.0-beta.1. The version is made because we renamed
 the search client library module name and namespace.
 
 - Renamed the azure-search module to azure-search-documents.
@@ -223,12 +229,15 @@ the search client library module name and namespace.
 - Fixed a bug where the Date header wouldn't be updated with a new value on request retry.
 - Changed the field type of `CustomAnalyzer`.
 - Made `RangeFacetResult` and `ValueFacetResult` object strongly typed.
-- Added helper function for IndexBatchException. 
+- Added helper function for IndexBatchException.
 - Added ScoringParameter class.
 - Refactored some boolean field getter.
 - Made `IndexDocumentsBatch` APIs plurality.
 
-### ServiceBus (Changelog)
+### ServiceBus [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-messaging-servicebus_7.0.0-beta.1/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md)
+
+- Initial preview of Azure Service Bus client library version 7.
+- This version of library has been designed based on the [Azure SDK Design Guidelines for Java](https://azure.github.io/azure-sdk/java_introduction.html) to ensure consistency, idiomatic design, and excellent developer experience and productivity.
 
 ### Blobs [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md)
 - This release contains various bug fixes to improve quality.
@@ -244,7 +253,7 @@ the search client library module name and namespace.
 
 - Throws an illegal argument exception when the given list of documents is an empty list.
 - Renamed all input parameters `text` to `document`, and `inputTexts` to `documents`.
-- Removed all PII endpoints and update with related changes, such as remove related models, samples, codesnippets, docstrings, etc from this library. 
+- Removed all PII endpoints and update with related changes, such as remove related models, samples, codesnippets, docstrings, etc from this library.
 - Replaced `TextAnalyticsApiKeyCredential` with `AzureKeyCredential`.
 
 ### Tracing OpenTelemetry (Changelog)
