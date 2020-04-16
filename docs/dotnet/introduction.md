@@ -961,11 +961,38 @@ Each client library should have a quickstart guide with code samples.  Developer
 
 {% include requirement/MUST id="dotnet-samples-location" %} have usage samples in `samples` subdirectory of main library directory.
 
-For a complete example, see the [Configuration Service samples](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/appconfiguration/Azure.Data.AppConfiguration/samples).
+For a complete example, see the [Configuration Service samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/appconfiguration/Azure.Data.AppConfiguration/samples).
 
-{% include requirement/MUST id="dotnet-samples-naming" %} have a sample file called `S1_HelloWorld.cs`. All other samples are ordered from simplest to most complex using the `S<number>_` prefix.
+{% include requirement/MUST id="dotnet-samples-readme" %} have a `README.md` file with the following front matter:
 
-{% include requirement/MUST id="dotnet-sync-samples-naming" %} use synchronous APIs in the `S1_HelloWorld.cs` sample.  Add a second sample (named `S2_HelloWorldAsync.cs`) that does the same thing as `S1_HelloWorld.cs` using asynchronous code.
+```yml
+---
+page_type: sample
+languages:
+- csharp
+products:
+- azure
+- azure-app-configuration
+name: Azure.Data.AppConfiguration samples for .NET
+description: Samples for the Azure.Data.AppConfiguration client library
+---
+```
+
+{% include requirement/MUST id="dotnet-samples-readme-links" %} link to each of the samples files using a brief description as the link text.
+
+{% include requirement/MUST id="dotnet-samples-naming" %} have a sample file called `Sample1_HelloWorld.md`. All other samples are ordered from simplest to most complex using the `Sample<number>_` prefix.
+
+{% include requirement/MUST id="dotnet-sync-samples-naming" %} use synchronous APIs in the `Sample1_HelloWorld.md` sample.  Add a second sample named `Sample1_HelloWorldAsync.md` that does the same thing as `Sample1_HelloWorld.md` using asynchronous code.
+
+{% include requirement/MUST id="dotnet-samples-source-snippets" %} use `#region`s in source with a unique identifier starting with "Snippet:" like `Snippet:AzConfigSample1_CreateConfigurationClient`. This must be unique within the entire repo.
+
+{% include requirement/MUST id="dotnet-samples-snippets" %} C# code fences with the corresponding `#region` name like so:
+
+````markdown
+```C# Snippet:AzConfigSample1_CreateConfigurationClient
+var client = new ConfigurationClient(connectionString);
+```
+````
 
 {% include requirement/MUST id="dotnet-samples-build" %} make sure all the samples build and run as part of the CI process.
 
