@@ -7,7 +7,7 @@ sidebar: releases_sidebar
 permalink: /releases/2019-08-06/index.html
 ---
 
-The second previews of Azure SDKs which follow the latest Azure API Guidelines and Patterns are now available ([.NET](, [Java], [JavaScript], [Python]). These previews contains bug fixes, new features, and additional work towards guidelines adherence.
+The second previews of Azure SDKs which follow the latest Azure API Guidelines and Patterns are now available ([.NET], [Java], [JavaScript], [Python]). These previews contains bug fixes, new features, and additional work towards guidelines adherence.
 
 ## What’s new
 
