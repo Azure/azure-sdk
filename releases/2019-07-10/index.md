@@ -1,6 +1,6 @@
 ---
 title: Previewing Azure SDKs following new Azure SDK API Standards
-date: 10 Jul 2019
+date: 2019-07-10
 layout: post
 tags: release
 sidebar: releases_sidebar

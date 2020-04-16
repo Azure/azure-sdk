@@ -1,7 +1,7 @@
 ---
 title: Azure SDK for Java (August 2019 Preview)
 layout: post
-date: 6 Aug 2019
+date: 2019-08-06
 tags: java
 sidebar: releases_sidebar
 repository: azure/azure-sdk-for-java

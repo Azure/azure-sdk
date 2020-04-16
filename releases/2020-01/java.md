@@ -1,7 +1,7 @@
 ---
 title: Azure SDK for Java (January 2020)
 layout: post
-date: January 2020
+date: 2020-01-13
 tags: java azure
 sidebar: releases_sidebar
 repository: azure/azure-sdk-for-java

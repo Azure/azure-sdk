@@ -1,7 +1,7 @@
 ---
 title: Azure SDK October 2019 Preview
 layout: post
-date: 11 Oct 2019
+date: 2019-10-11
 tags: release
 sidebar: releases_sidebar
 permalink: /releases/2019-10-11/index.html

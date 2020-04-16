@@ -1,7 +1,7 @@
 ---
 title: Azure SDK March 2020
 layout: post
-date: March 2020
+date: 2020-03-17
 tags: release
 sidebar: releases_sidebar
 ---

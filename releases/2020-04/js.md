@@ -1,7 +1,7 @@
 ---
 title: Azure SDK for JavaScript (April 2020)
 layout: post
-date: April 2020
+date: 2020-04-14
 tags: javascript typescript
 sidebar: releases_sidebar
 repository: azure/azure-sdk-for-js
