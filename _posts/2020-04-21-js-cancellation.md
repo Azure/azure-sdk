@@ -1,5 +1,5 @@
 ---
-title: How to cancel operations in the Azure SDK for JavaScript
+title: How to use abort signals to cancel operations in the Azure SDK for JavaScript/TypeScript
 layout: post
 date: 21 apr 2020
 sidebar: releases_sidebar
@@ -13,9 +13,9 @@ The new Azure SDK libraries for JavaScript and TypeScript have adopted abort sig
 
 ## AbortController &amp; AbortSignal
 
-`AbortController` and `AbortSignal` are [standard features in the browser](https://developer.mozilla.org/en-US/docs/Web/API/AbortController) and are used with the [`fetch` API](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch) to abort in-progress network requests. The controller is responsible for triggering cancellation, and signals are responsible for notifying when cancellation has been triggered. This separation of concerns enables you to safely pass an abort signal without delegating the ability to cancel the signal as well.
+`AbortController` and `AbortSignal` are [standard features in the browser](https://developer.mozilla.org/en-US/docs/Web/API/AbortController) and are used with the [`fetch` API](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch) to abort in-progress network requests. The controller is responsible for triggering the cancellation, and signals are responsible for notifying when a cancellation has been triggered. This separation of concerns enables you to safely pass an abort signal without delegating the ability to cancel the signal as well.
 
-If you're just targeting fairly modern browsers, you can use the built-in `AbortController` and `AbortSignal` and everything will work fine. If you're targeting Node.js, or if you want to take advantage of linked signals or other features that I'll cover later in this post, you can use the implementation in the Azure SDK found in the [`@azure/abort-controller` npm package](https://www.npmjs.com/package/@azure/abort-controller).
+If you're only targeting fairly modern browsers, you can use the built-in `AbortController` and `AbortSignal` and everything will work fine. If you're targeting Node.js, or if you want to take advantage of linked signals or other features that I'll cover later in this post, you can use the implementation in the Azure SDK found in the [`@azure/abort-controller` npm package](https://www.npmjs.com/package/@azure/abort-controller).
 
 To abort an in-progress request such as an upload or download in storage, create a new `AbortController` and pass its signal into the method you might want to cancel later:
 
@@ -34,11 +34,11 @@ await blobClient.download({ abortSignal })
 controller.abort();
 ```
 
-Note that cancelling using `AbortController` only affects client-side code. It does not notify the service that cancellation has happened. For example, if you are uploading a key into KeyVault and you cancel before it finishes, the key might still be created.
+Note that cancelling using `AbortController` only affects client-side code. It does not notify the service that cancellation has happened. For example, if you are uploading a key into Key Vault and you cancel before it finishes, the key might still be created.
 
 ## Cancelling multiple operations
 
-Often you have multiple in-flight operations you might want to cancel all at once. To continue our Storage example, maybe you're downloading multiple files in parallel. Or, perhaps you have to fetch a secret from Azure KeyVault before using that key in a subsequent operation. In that case, you can pass the same signal to each method, and calling abort on the controller will cancel whichever of them is in progress at that time.
+Often you have multiple in-flight operations that you might want to cancel all at once. To continue our Storage example, maybe you're downloading multiple files in parallel. Or, perhaps you have to fetch a secret from Azure Key Vault before using that secret in a subsequent operation. In that case, you can pass the same signal to each method, and calling abort on the controller will cancel whichever of them is in progress at that time.
 
 ```javascript
 async function getShoppingList({ abortSignal }) {
@@ -55,7 +55,7 @@ const list = await getShoppingList({ abortSignal });
 controller.abort();
 ```
 
-In this example, we cancel fetching the connection string from KeyVault or, if we've already fetched that, cancel the download.
+In this example, we cancel fetching the connection string from Key Vault or, if we've already fetched that, cancel the download.
 
 ## Handling AbortErrors
 
