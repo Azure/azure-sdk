@@ -233,10 +233,10 @@ the search client library module name and namespace.
 - Refactored some boolean field getter.
 - Made `IndexDocumentsBatch` APIs plurality.
 
-### ServiceBus ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-messaging-servicebus_7.0.0-beta.1/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md))
+### Service Bus ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-messaging-servicebus_7.0.0-beta.1/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md))
 
 - Initial preview of Azure Service Bus client library version 7.
-- This version of library has been designed based on the [Azure SDK Design Guidelines for Java](https://azure.github.io/azure-sdk/java_introduction.html) to ensure consistency, idiomatic design, and excellent developer experience and productivity.
+- This version of library has been designed based on the [Azure SDK Design Guidelines for Java]({{site.baseurl}}{% link docs/java/introduction.md %}) to ensure consistency, idiomatic design, and excellent developer experience and productivity.
 
 ### Blobs ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md))
 - This release contains various bug fixes to improve quality.
