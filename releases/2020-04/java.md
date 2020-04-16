@@ -183,12 +183,12 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - Update dependency version, `azure-core` to 1.4.0 and `azure-core-http-netty` to 1.5.0.
 
-### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-messaging-eventhubs_5.1.0-beta.1/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md)
+### Event Hubs ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-messaging-eventhubs_5.1.0-beta.1/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md))
 
 - Added heartbeat for single process event consumer in EventProcessorClient.
 - Added batch receive for EventProcessorClient.
 
-### Event Hubs Checkpoint Store [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-messaging-eventhubs-checkpointstore-blob_1.1.0-beta.1/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md)
+### Event Hubs Checkpoint Store ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-messaging-eventhubs-checkpointstore-blob_1.1.0-beta.1/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md))
 
 - Updates dependencies.
 
@@ -233,18 +233,18 @@ the search client library module name and namespace.
 - Refactored some boolean field getter.
 - Made `IndexDocumentsBatch` APIs plurality.
 
-### ServiceBus [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-messaging-servicebus_7.0.0-beta.1/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md)
+### ServiceBus ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-messaging-servicebus_7.0.0-beta.1/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md))
 
 - Initial preview of Azure Service Bus client library version 7.
 - This version of library has been designed based on the [Azure SDK Design Guidelines for Java](https://azure.github.io/azure-sdk/java_introduction.html) to ensure consistency, idiomatic design, and excellent developer experience and productivity.
 
-### Blobs [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md)
+### Blobs ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md))
 - This release contains various bug fixes to improve quality.
 
-### Blobs Cryptography [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md)
+### Blobs Cryptography ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md))
 - It is now possible to specify a key/keyResolver after they specify a pipeline/client on the builder
 
-### Files Datalake [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md)
+### Files Datalake ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md))
 - Added an `isDirectory` property to `PathProperties`.
 - Added overloads to `DataLakeFileSystemClient.createFile/createDirectory`, `DataLakeDirectoryClient.createFile/createSubdirectory` to allow overwrite behavior.
 
