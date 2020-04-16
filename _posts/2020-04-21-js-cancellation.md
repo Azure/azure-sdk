@@ -7,13 +7,18 @@ author_github: bterlson
 repository: azure/azure-sdk
 ---
 
-Cancelling in-progress network operations is critical for many applications to maintain responsiveness and avoid waiting for pointless work to complete. For example, when downloading a large blob from Azure Storage, a user might want to cancel the download, and it would be nice if we could tell the Storage library that it doesn't need to download any more. Or, maybe your process got an interrupt signal because the server is no longer needed or needs to upgrade and you need to stop any in-progress operations and shut down as soon as possible.
+Cancelling in-progress network operations is critical for applications to maintain responsiveness and avoid doing work that isn't needed anymore. There are many situations where you want to cancel on-going work, for example when you are:
 
-The new Azure SDK libraries for JavaScript and TypeScript have adopted abort signals for just these purposes.
+* downloading a large file from Azure Storage and the user wants to cancel the download
+* processing events from an Event Hub and you need to gracefully shut down in order to scale down or to apply updates
+* running an operation that might take a while and you don't want to wait longer than a fixed amount of time
+* running multiple operations in parallel and getting one result makes the other results irrelevant
+
+The new Azure SDK libraries for JavaScript and TypeScript have adopted abort signals situations like these.
 
 ## AbortController &amp; AbortSignal
 
-`AbortController` and `AbortSignal` are [standard features in the browser](https://developer.mozilla.org/en-US/docs/Web/API/AbortController) and are used with the [`fetch` API](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch) to abort in-progress network requests. The controller is responsible for triggering the cancellation, and signals are responsible for notifying when a cancellation has been triggered.
+`AbortController` and `AbortSignal` are [standard features in the browser](https://developer.mozilla.org/en-US/docs/Web/API/AbortController) and are used with the [`fetch` API](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch) to abort in-progress network requests. The controller is responsible for triggering the cancellation, and signals are responsible for notifying when a cancellation has been triggered. This separation of concerns enables you to safely pass the abort signal to other parts of your application without worrying about it unintentionally cancelling the request.
 
 If you're only targeting fairly modern browsers, you can use the built-in `AbortController` and `AbortSignal` and everything will work fine. If you're targeting Node.js, or if you want to take advantage of linked signals or other features that I'll cover later in this post, you can use the implementation in the Azure SDK found in the [`@azure/abort-controller` npm package](https://www.npmjs.com/package/@azure/abort-controller).
 
