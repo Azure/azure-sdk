@@ -183,9 +183,14 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - Update dependency version, `azure-core` to 1.4.0 and `azure-core-http-netty` to 1.5.0.
 
-### EventHubs (Changelog)
+### Event Hubs ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-messaging-eventhubs_5.1.0-beta.1/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md))
 
-### EventHubs Checkpoint Store (Changelog)
+- Added heartbeat for single process event consumer in EventProcessorClient.
+- Added batch receive for EventProcessorClient.
+
+### Event Hubs Checkpoint Store ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-messaging-eventhubs-checkpointstore-blob_1.1.0-beta.1/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md))
+
+- Updates dependencies.
 
 ### Identity
 
@@ -212,7 +217,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### 4.2.0-beta.3 (Changelog)
 
 ### Search ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-search-documents_1.0.0-beta.2/sdk/search/azure-search-documents/CHANGELOG.md))
-Version 1.0.0-beta.2 is the consecutive beta version of 11.0.0-beta.1. The version is made because we renamed 
+Version 1.0.0-beta.2 is the consecutive beta version of 11.0.0-beta.1. The version is made because we renamed
 the search client library module name and namespace.
 
 - Renamed the azure-search module to azure-search-documents.
@@ -223,20 +228,23 @@ the search client library module name and namespace.
 - Fixed a bug where the Date header wouldn't be updated with a new value on request retry.
 - Changed the field type of `CustomAnalyzer`.
 - Made `RangeFacetResult` and `ValueFacetResult` object strongly typed.
-- Added helper function for IndexBatchException. 
+- Added helper function for IndexBatchException.
 - Added ScoringParameter class.
 - Refactored some boolean field getter.
 - Made `IndexDocumentsBatch` APIs plurality.
 
-### ServiceBus (Changelog)
+### Service Bus ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-messaging-servicebus_7.0.0-beta.1/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md))
 
-### Blobs [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md)
+- Initial preview of Azure Service Bus client library version 7.
+- This version of library has been designed based on the [Azure SDK Design Guidelines for Java]({{site.baseurl}}{% link docs/java/introduction.md %}) to ensure consistency, idiomatic design, and excellent developer experience and productivity.
+
+### Blobs ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md))
 - This release contains various bug fixes to improve quality.
 
-### Blobs Cryptography [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md)
+### Blobs Cryptography ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md))
 - It is now possible to specify a key/keyResolver after they specify a pipeline/client on the builder
 
-### Files Datalake [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md)
+### Files Datalake ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md))
 - Added an `isDirectory` property to `PathProperties`.
 - Added overloads to `DataLakeFileSystemClient.createFile/createDirectory`, `DataLakeDirectoryClient.createFile/createSubdirectory` to allow overwrite behavior.
 
@@ -244,7 +252,7 @@ the search client library module name and namespace.
 
 - Throws an illegal argument exception when the given list of documents is an empty list.
 - Renamed all input parameters `text` to `document`, and `inputTexts` to `documents`.
-- Removed all PII endpoints and update with related changes, such as remove related models, samples, codesnippets, docstrings, etc from this library. 
+- Removed all PII endpoints and update with related changes, such as remove related models, samples, codesnippets, docstrings, etc from this library.
 - Replaced `TextAnalyticsApiKeyCredential` with `AzureKeyCredential`.
 
 ### Tracing OpenTelemetry (Changelog)
