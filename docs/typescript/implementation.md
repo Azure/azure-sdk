@@ -285,7 +285,7 @@ For more details, review the [Releases policy]({{ site.baseurl }}/policies_relea
 
 {% include requirement/MUST id="ts-npm-package-ownership" %} have npm package ownership set to either the Azure or Microsoft organizations.
 
-### File Layout {#ts-package-file-layout}
+### Package Layout {#ts-package-file-layout}
 
 Use the following canonical file structure for your npm package:
 <a name="ts-figure-package-layout"></a>
@@ -293,38 +293,27 @@ Use the following canonical file structure for your npm package:
 ```
 azure-library
 ├─ README.md
-├─ LICENSE.md
-├─ CONTRIBUTING.md
-├─ browser
-│  ├─ service.js
-│  └─ service.min.js
-│
+├─ LICENSE
 ├─ dist
 │  ├─ index.js
+│  ├─ index.js.map
 │  └─ ... *.js
 │
 ├─ dist-esm
-│  ├─ lib
-│  │ ├─ index.js
-│  │ └─ ... *.js
-│  │
-│  └─ test
+│  └─ lib
+│    ├─ index.js
+│    ├─ index.js.map
+│    └─ ... *.js
 │
-├─ src
-│  ├─ index.ts
-│  └─ ... *.ts
+├─ types
+│  └─ service.d.ts
 │
-├─ test
-│  └─ ... *.ts
-│
-├─ package.json
-├─ package-lock.json
-└─ tsconfig.json
+└─ package.json
 ```
 
-At a high level: original source goes in `./src`, main entrypoint goes in `./dist`, and additional source distributions go under `./dist-xxx`.
-
 {% include requirement/MUST id="ts-file-layout-conventions" %} follow these conventions where applicable.
+
+{% include requirement/MUSTNOT id="ts-no-tsconfig" %} include a `tsconfig.json` file in your package. While generally useful to include, our `tsconfig.json` files are heavily tied to our monorepo structure and so won't work properly when read from inside an individual package.
 
 {% include requirement/MAY id="ts-can-have-other-files" %} include other files.
 
@@ -362,8 +351,7 @@ The following sections describe the package.json file that must be included with
   },
   "files": [
     "dist",
-    "dist-esm",
-    "browser"
+    "dist-esm"
   ],
   "devDependencies": { /* ... */ },,
   "dependencies": { /* ... */ },
@@ -433,9 +421,9 @@ For example, the following JSON snippet demonstrates the minimum requirements:
 
 ### Distributions {#ts-source-distros}
 
-Modern npm packages often ship multiple source distributions targeting different usage scenarios. Packages must include the original source, a CJS or UMD build, and an ESM build (see below). Packages may include other source distributions as necessary for their particular usage scenarios. The main downside of including additional source distributions is the increased package size (larger packages mean CIs take longer). However, performance, compatibility, and developer experience goals are often more important.
+Modern npm packages often ship multiple source distributions targeting different usage scenarios. Packages must include a CJS or UMD build, an ESM build, and original soure files. Packages may include other source distributions as necessary for their particular usage scenarios. The main downside of including additional source distributions is the increased package size (larger packages mean CIs take longer). However, performance, compatibility, and developer experience goals are often more important.
 
-{% include requirement/MUST id="ts-include-original-source" %} include the source code in your package.  Include your source directory in the `files` array in your `package.json`.
+{% include requirement/MUST id="ts-include-original-source" %} include the source code in your source map files' `sourcesContent` by using the TypeScript compiler option `inlineSources`.
 
 The source code in your package helps developers debug your package. _Go-to-definition_ is a quick way to confirm how to use a function. Seeing useful names and readable source code in call stacks helps with debugging. We can aggressively optimize the build artifacts since users won't need to puzzle through the mangled code.
 
