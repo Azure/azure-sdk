@@ -1,7 +1,7 @@
 ---
 title: Azure SDK for .NET (October 2019 Preview)
 layout: post
-date: 11 Oct 2019
+date: 2019-10-11
 tags: dotnet
 sidebar: releases_sidebar
 repository: azure/azure-sdk-for-net
@@ -37,7 +37,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
-- New client libraries were created using the [Azure SDK Design Guidelines for .NET](https://azure.github.io/azure-sdk/dotnet_introduction.html) resulting in consistent API patterns and shared features like automatic retries, authentication, logging, configurable transport pipelines, exceptions, mocking, etc.
+- New client libraries were created using the [Azure SDK Design Guidelines for .NET]({{site.baseurl}}{% link docs/dotnet/introduction.md %}) resulting in consistent API patterns and shared features like automatic retries, authentication, logging, configurable transport pipelines, exceptions, mocking, etc.
 - Support for Azure Active Directory credentials using our new Identity library that embrace the future of authentication across Azure services.
 - Parity across synchronous and asynchronous APIs offering a choice appropriate to your application.
 - Updated dependencies on the latest (preview-7) version of `Azure.Core` library.

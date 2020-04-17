@@ -1,7 +1,7 @@
 ---
 title: Azure SDK for .NET (August 2019 Preview)
 layout: post
-date: 6 Aug 2019
+date: 2019-08-06
 tags: dotnet
 sidebar: releases_sidebar
 repository: azure/azure-sdk-for-net
@@ -55,6 +55,6 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ## Quick Links
 
-See [Nov Release](..\2019-11\dotnet.html)
+See [Nov Release]({{site.baseurl}}{% link releases/2019-11/2019-11-dotnet.md %})
 
 {% include refs.md %}

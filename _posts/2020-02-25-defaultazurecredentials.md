@@ -1,7 +1,7 @@
 ---
 title: Authentication and the Azure SDK
 layout: post
-date: 25 Feb 2020
+date: 2020-02-25
 sidebar: releases_sidebar
 author_github: adrianhall
 repository: azure/azure-sdk
@@ -49,7 +49,7 @@ The first choice is the environment.  If you have the following environment vari
 * `AZURE_CLIENT_SECRET`
 * `AZURE_TENANT_ID`
 
-If you need to explicitly define what user is used for authentication when communicating with an Azure resource, set these environment variables.  These environment variables define the [service principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals) that will be used for authentication and authorization.  You can configure a service principal for your application using the Azure CLI as follows:
+If you need to explicitly define what user is used for authentication when communicating with an Azure resource, set these environment variables.  These environment variables define the [service principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) that will be used for authentication and authorization.  You can configure a service principal for your application using the Azure CLI as follows:
 
 ```bash
 $> az ad sp create-for-rbac --name http://my-application --skip-assignment
@@ -80,7 +80,7 @@ Now that your environment is set up, the `client` in your application will be ab
 
 ## Managed Identities
 
-The environment is a great option when you have all the information necessary to authenticate as a service principal.  However, it does establish a management burden.  You have to maintain the service credentials, and rotate client secrets on a regular basis.  When running your service in the confines of a cloud compute instance (such as a virtual machine, container, App Service, Functions, or Service Bus), you can use [managed identities](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview).  When you establish a system-assigned identity for the service, a service principal is created for you that is associated with the service.  You can also establish a user-assigned identity (which is a service principal that you associate with the service).  Your application can get authenticated easily by reaching out to an endpoint on the compute resource.  the `DefaultAzureCredential` manages this communication for you.
+The environment is a great option when you have all the information necessary to authenticate as a service principal.  However, it does establish a management burden.  You have to maintain the service credentials, and rotate client secrets on a regular basis.  When running your service in the confines of a cloud compute instance (such as a virtual machine, container, App Service, Functions, or Service Bus), you can use [managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).  When you establish a system-assigned identity for the service, a service principal is created for you that is associated with the service.  You can also establish a user-assigned identity (which is a service principal that you associate with the service).  Your application can get authenticated easily by reaching out to an endpoint on the compute resource.  the `DefaultAzureCredential` manages this communication for you.
 
 For instance, let's say you are running your application in Azure App Service.  To create a suitable managed identity with permissions to access your Key Vault:
 
@@ -118,7 +118,7 @@ If all of these mechanisms for obtaining a credential fail, the `DefaultAzureCre
 
 Let's take an example.  I'm writing a backend service right now that consists of a Node.js API service that communicates with Cosmos DB and Azure Storage.  I store the base URI for Azure Storage and the connection string for Cosmos DB in Azure Key Vault secrets, and specify the URI needed to access the Key Vault as an environment variables.  This allows me to run the service locally, as an App Service, or in a container.
 
-{% highlight javascript %}
+```javascript
 import { SecretClient } from '@azure/keyvault-secrets';
 import { DefaultAzureCredential } from '@azure/identity';
 import { CosmosClient } from '@azure/cosmos';
@@ -136,7 +136,7 @@ async function configureClients() {
     cosmosClient = new CosmosClient(cosmosDbConnectonString);
     storageClient = new BlobServiceClient(storageUri, credential);
 }
-{% endhighlight %}
+```
 
 When I run my app from my development environment, it uses the credentials from my tooling.  If I don't have any appropriate tooling, the app will pop up a browser to get the credentials.  I can bypass this process by creating a service principal and ensuring the permissions are set properly.
 

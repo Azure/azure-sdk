@@ -1,7 +1,7 @@
 ---
 title: Azure SDK December 2019
 layout: post
-date: Dec 2019
+date: 2019-12-13
 tags: release
 sidebar: releases_sidebar
 permalink: /releases/2019-12/index.html

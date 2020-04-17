@@ -1,7 +1,7 @@
 ---
 title: Azure SDK January 2020
 layout: post
-date: January 2020
+date: 2020-01-13
 tags: release
 sidebar: releases_sidebar
 permalink: /releases/2020-01/index.html

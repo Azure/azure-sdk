@@ -1,7 +1,7 @@
 ---
 title: Azure SDK Releases (January 2020)
 layout: post
-date: 13 Jan 2020
+date: 2020-01-13
 sidebar: releases_sidebar
 repository: azure/azure-sdk
 ---
@@ -14,7 +14,7 @@ The new generally available libraries being released this month are:
 * [Azure Key Vault Certificates](https://docs.microsoft.com/en-us/azure/key-vault/certificate-scenarios)
 * [Azure Event Hubs](https://docs.microsoft.com/en-us/azure/event-hubs/)  (.NET and Java are pending final validation, but should appear soon!)
 
-These are ready to use in your production applications.  You can find details of all released libraries on [our releases page](https://azure.github.io/azure-sdk/releases/latest/).
+These are ready to use in your production applications.  You can find details of all released libraries on [our releases page]({{site.baseurl}}{% link releases/latest/index.md %}).
 
 New preview releases:
 
@@ -27,10 +27,10 @@ We believe these are ready for your use, but not yet ready for production.  Bet
 
 Use the links below to get started with your language of choice.  You will notice that all the preview libraries are tagged with "preview".
 
-* [.NET release notes]({{site.baseurl}}/releases/2020-01/dotnet.html)
-* [Java release notes]({{site.baseurl}}/releases/2020-01/java.html)
-* [Python release notes]({{site.baseurl}}/releases/2020-01/python.html)
-* [JavaScript release notes]({{site.baseurl}}/releases/2020-01/js.html)
+* [.NET release notes]({{site.baseurl}}{% link releases/2020-01/dotnet.md %})
+* [Java release notes]({{site.baseurl}}{% link releases/2020-01/java.md %})
+* [Python release notes]({{site.baseurl}}{% link releases/2020-01/python.md %})
+* [JavaScript release notes]({{site.baseurl}}{% link releases/2020-01/js.md %})
 
 If you want to dive deep into the content, the release notes linked above and the change logs they point to give more details on what has changed.
 
@@ -105,7 +105,7 @@ Be sure to check out all the samples for Text Analytics and let us know what you
 
 So far, the community has filed hundreds of issues against these new SDKs with feedback randing from documentation issues to API surface area change requests to pointing out failure cases.  Please keep that coming.  We work in the open on GitHub and you can submit issues here:
 
-* [API design guidelines](https://github.com/Azure/azure-sdk/)
+* [API design guidelines](https://github.com/Azure/azure-sdk)
 * [.NET](https://github.com/Azure/azure-sdk-for-net)
 * [Java](https://github.com/Azure/azure-sdk-for-java)
 * [JavaScript / TypeScript](https://github.com/Azure/azure-sdk-for-js)

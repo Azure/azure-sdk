@@ -1,7 +1,7 @@
 ---
 title: Process data in real-time with Java and Azure Event Hubs
 layout: post
-date: 07 April 2020
+date: 2020-04-07
 sidebar: releases_sidebar
 author_github: conniey
 repository: azure/azure-sdk
@@ -11,7 +11,7 @@ In my position with the Azure SDK team, I'm fortunate to talk to a lot of custom
 
 How might this work?
 
-![]({{ site.base_url }}/images/posts/04072020-image1.png)
+![]({{ site.base_url }}{% link images/posts/04072020-image1.png %})
 
 Each base station has a number of feeds from the instruments, each of which could provide information at different rates.  This is all fed into an [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/).  Azure Event Hubs are a scalable messaging system primarily used for data ingestion, allowing you to analyze millions of data points.  You could use the same system for analyzing marketing data coming from a mobile application, shopping data coming from the scanners at a grocery store, or security devices monitoring millions of homes.  We've learned a few things about this, and have come up with some best practices to follow.  Although you can use any of our languages for this ([.NET](https://github.com/azure/azure-sdk-for-net), [Python](https://github.com/azure/azure-sdk-for-python), [Java](https://github.com/azure/azure-sdk-for-java), or [JavaScript/TypeScript](https://github.com/azure/azure-sdk-for-js)), we will be using Java for the examples today.
 

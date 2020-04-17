@@ -1,7 +1,7 @@
 ---
 title: Azure SDK for Python (April 2020)
 layout: post
-date: April 2020
+date: 2020-04-14
 tags: python
 sidebar: releases_sidebar
 repository: azure/azure-sdk-for-python

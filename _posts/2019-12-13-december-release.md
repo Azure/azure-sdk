@@ -1,7 +1,7 @@
 ---
 title: Azure SDK Releases (December 2019)
 layout: post
-date: 13 Dec 2019
+date: 2019-12-13
 sidebar: releases_sidebar
 repository: azure/azure-sdk
 ---
@@ -28,7 +28,7 @@ We are always looking for developer feedback. When you have feedback, open an is
 
 You can find all the details in our release notes for each language:
 
-* [.NET release notes]({{site.baseurl}}/releases/2019-12/dotnet.html)
-* [Java release notes]({{site.baseurl}}/releases/2019-12/java.html)
-* [Python release notes]({{site.baseurl}}/releases/2019-12/python.html)
-* [JavaScript release notes]({{site.baseurl}}/releases/2019-12/js.html)
+* [.NET release notes]({{site.baseurl}}{% link releases/2019-12/2019-12-dotnet.md %})
+* [Java release notes]({{site.baseurl}}{% link releases/2019-12/2019-12-java.md %})
+* [Python release notes]({{site.baseurl}}{% link releases/2019-12/2019-12-python.md %})
+* [JavaScript release notes]({{site.baseurl}}{% link releases/2019-12/2019-12-js.md %})

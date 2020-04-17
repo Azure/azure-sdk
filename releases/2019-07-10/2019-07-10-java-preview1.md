@@ -1,6 +1,6 @@
 ---
 title: Azure SDK for Java (July 2019 Preview)
-date: 10 Jul 2019
+date: 2019-07-10
 layout: post
 tags: java
 sidebar: releases_sidebar
@@ -11,6 +11,7 @@ permalink: /releases/2019-07-10/java.html
 The Azure SDK team is pleased to make available the July 2019 client library preview release. This represents the first release of the ground-up rewrite of the client libraries to ensure consistency, idiomatic design, and excellent developer experience and productivity. This preview release includes new client libraries for Azure App Configuration, Cosmos, Identity, Key Vault (keys and secrets), Event Hubs, and Storage (blob).
 
 ## Installation Instructions
+
 To use the preview libraries, refer to the Maven dependency information below, which may be copied into your projects Maven pom.xml file as appropriate. If you are using a different build tool, refer to its documentation on how to specify dependencies.
 
 ```xml
@@ -76,6 +77,7 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 
 ## Quick Links
 
-See [Nov Release](..\2019-11\java.html)
+See [Nov Release]({{site.baseurl}}{% link releases/2019-11/2019-11-java.md %})
+
 
 {% include refs.md %}

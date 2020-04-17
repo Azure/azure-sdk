@@ -1,7 +1,7 @@
 ---
 title: Azure SDK Releases (February 2020)
 layout: post
-date: 11 Feb 2020
+date: 2020-02-11
 sidebar: releases_sidebar
 repository: azure/azure-sdk
 ---
@@ -13,7 +13,7 @@ Welcome to the February release of the Azure SDK.  We have updated the following
 * Key Vault (Python only).
 * Storage (Blobs, Files, and Queues).
 
-These are ready to use in your production applications.  You can find details of all released libraries on [our releases page](https://azure.github.io/azure-sdk/releases/latest/).
+These are ready to use in your production applications.  You can find details of all released libraries on [our releases page]({{site.baseurl}}{% link releases/latest/index.md %}).
 
 New preview releases:
 
@@ -29,10 +29,10 @@ We believe these are ready for your use, but not yet ready for production.  Bet
 
 Use the links below to get started with your language of choice.  You will notice that all the preview libraries are tagged with "preview".
 
-* [.NET release notes]({{site.baseurl}}/releases/2020-02/dotnet.html)
-* [Java release notes]({{site.baseurl}}/releases/2020-02/java.html)
-* [Python release notes]({{site.baseurl}}/releases/2020-02/python.html)
-* [JavaScript release notes]({{site.baseurl}}/releases/2020-02/js.html)
+* [.NET release notes]({{site.baseurl}}{% link releases/2020-02/dotnet.md %})
+* [Java release notes]({{site.baseurl}}{% link releases/2020-02/java.md %})
+* [Python release notes]({{site.baseurl}}{% link releases/2020-02/python.md %})
+* [JavaScript release notes]({{site.baseurl}}{% link releases/2020-02/js.md %})
 
 If you want to dive deep into the content, the release notes linked above and the change logs they point to give more details on what has changed.
 
@@ -44,7 +44,7 @@ One of the main advantages of the new Azure SDK is that common developer concern
 
 All .NET client libraries emit events to ETW (Event Tracing for Windows) via the `EventSource` class.  This system has been a part of the .NET framework for a long time.  Event sources allow you to use structured logging in your application code with a minimal performance overhead.
 
-Although you can use out-of-process tools (such as [PerfView](https://github.com/Microsoft/perfview) or [dotnet trace](https://docs.microsoft.com/en-us/dotnet/core/diagnostics/dotnet-trace)), a [core tenet of our libraries](https://azure.github.io/azure-sdk/general_implementation.html#general-logging-console-logger) includes the ability to easily send logs to the console.  When developing your app, you should be able to view the logs in real time without much overhead.  You can accomplish this with a one-liner at the top of your application:
+Although you can use out-of-process tools (such as [PerfView](https://github.com/Microsoft/perfview) or [dotnet trace](https://docs.microsoft.com/en-us/dotnet/core/diagnostics/dotnet-trace)), a [core tenet of our libraries]({{ "/general_implementation.html#general-logging-console-logger" | relative_url }}) includes the ability to easily send logs to the console.  When developing your app, you should be able to view the logs in real time without much overhead.  You can accomplish this with a one-liner at the top of your application:
 
 ```csharp
 using AzureEventSourceListener listener = AzureEventSourceListener.CreateConsoleLogger();
@@ -113,7 +113,7 @@ If it doesn't, let us know!
 
 So far, the community has filed hundreds of issues against these new SDKs with feedback ranging from documentation issues to API surface area change requests to pointing out failure cases.  Please keep that coming.  We work in the open on GitHub and you can submit issues here:
 
-* [API design guidelines](https://github.com/Azure/azure-sdk/)
+* [API design guidelines](https://github.com/Azure/azure-sdk)
 * [.NET](https://github.com/Azure/azure-sdk-for-net)
 * [Java](https://github.com/Azure/azure-sdk-for-java)
 * [JavaScript / TypeScript](https://github.com/Azure/azure-sdk-for-js)

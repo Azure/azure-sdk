@@ -1,7 +1,7 @@
 ---
 title: Azure SDK for Python (September 2019 Preview)
 layout: post
-date: 17 Sep 2019
+date: 2019-09-17
 tags: python
 sidebar: python_sidebar
 repository: azure/azure-sdk-for-python
@@ -29,6 +29,7 @@ pip install --pre azure-identity
 ```
 
 ## Feedback
+
 If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/azure/azure-sdk-for-python/issues).
 
 
@@ -71,8 +72,9 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 - Added optional parameters for smb properties related parameters for create_file*, create_directory* related APIs and set_http_headers API.
 
 ### Identity
+
 - Added a new credential type enabling shared sign-on with other Microsoft applications running on Windows, such as Visual Studio.
 
 ## Quick Links
 
-See [Nov Release](..\2019-11\python.html)
+See [Nov Release]({{site.baseurl}}{% link releases/2019-11/2019-11-python.md %})

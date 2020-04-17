@@ -1,7 +1,7 @@
 ---
 title: Azure SDK Releases (March 2020)
 layout: post
-date: 17 mar 2020
+date: 2020-03-17
 sidebar: releases_sidebar
 repository: azure/azure-sdk
 ---
@@ -14,7 +14,7 @@ Welcome to the March release of the Azure SDK.  We have updated the following li
 * Storage Blobs, File Shares, and Queues.
 * Storage Data Lake (new GA release).
 
-These are ready to use in your production applications.  You can find details of all released libraries on [our releases page](https://azure.github.io/azure-sdk/releases/latest/).
+These are ready to use in your production applications.  You can find details of all released libraries on [our releases page]({{site.baseurl}}{% link releases/latest/index.md %}).
 
 New preview releases:
 
@@ -32,16 +32,16 @@ We believe these are ready for you to use and experiment with, but not yet ready
 
 Use the links below to get started with your language of choice.  You will notice that all the preview libraries are tagged with "preview".
 
-* [.NET release notes]({{site.baseurl}}/releases/2020-03/dotnet.html)
-* [Java release notes]({{site.baseurl}}/releases/2020-03/java.html)
-* [Python release notes]({{site.baseurl}}/releases/2020-03/python.html)
-* [JavaScript release notes]({{site.baseurl}}/releases/2020-03/js.html)
+* [.NET release notes]({{site.baseurl}}{% link releases/2020-03/dotnet.md %})
+* [Java release notes]({{site.baseurl}}{% link releases/2020-03/java.md %})
+* [Python release notes]({{site.baseurl}}{% link releases/2020-03/python.md %})
+* [JavaScript release notes]({{site.baseurl}}{% link releases/2020-03/js.md %})
 
 If you want to dive deep into the content, the release notes linked above and the change logs they point to give more details on what has changed.
 
 ## Introducing Azure Cognitive Search
 
-This month, we are introducing a preview of the Azure Cognitive Search client.  [Azure Cognitive Search](https://azure.microsoft.com/services/search) is search-as-a-service, allowing developers to add a rich search experience over private, heterogenous content in web, mobile, and enterprise applications.  You've probably seen this type of search experience in action when you use a product search capability within an e-commerce site.  Let's take a look at how you can implement the search capability in your own client applications.  For this demonstration, I'm going to be using JavaScript and the React framework.
+This month, we are introducing a preview of the Azure Cognitive Search client. [Azure Cognitive Search](https://azure.microsoft.com/services/search) is search-as-a-service, allowing developers to add a rich search experience over private, heterogenous content in web, mobile, and enterprise applications.  You've probably seen this type of search experience in action when you use a product search capability within an e-commerce site.  Let's take a look at how you can implement the search capability in your own client applications.  For this demonstration, I'm going to be using JavaScript and the React framework.
 
 > We recommend that most applications use an intermediary web API service to protect the API key.  You can write your web API using Azure Functions and Node.js.  The same JavaScript API is used to access Azure Cognitive Search.
 
@@ -190,7 +190,7 @@ For more information on the Azure Cognitive Search SDK for JavaScript, check out
 
 So far, the community has filed hundreds of issues against these new SDKs with feedback ranging from documentation issues to API surface area change requests to pointing out failure cases.  Please keep that coming.  We work in the open on GitHub and you can submit issues here:
 
-* [API design guidelines](https://github.com/Azure/azure-sdk/)
+* [API design guidelines](https://github.com/Azure/azure-sdk)
 * [.NET](https://github.com/Azure/azure-sdk-for-net)
 * [Java](https://github.com/Azure/azure-sdk-for-java)
 * [JavaScript / TypeScript](https://github.com/Azure/azure-sdk-for-js)
