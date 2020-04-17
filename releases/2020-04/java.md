@@ -194,27 +194,50 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Identity
 
-#### 1.0.5 (Changelog)
+#### 1.0.5 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/release/identity-service/sdk/identity/azure-identity/CHANGELOG.md#105-2020-04-07))
 
-#### 1.1.0-beta.3 (Changelog)
+- Update azure-core dependency to version 1.4.0.
+
+#### 1.1.0-beta.3 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-identity_1.1.0-beta.3/sdk/identity/azure-identity/CHANGELOG.md#110-beta3-2020-04-07))
+
+- Added `KnownAuthorityHosts` to enable quick references to public azure authority hosts.
+- Added methods to allow credential configuration in `DefaultAzureCredentialBuilder`
+- Added support for authority host to be read from `AZURE_AUTHORITY_HOST` environment variable.
+- Added support for `ClientCertificateCredential` and `UserNamePasswordCredential` in EnvironmentCredential.
 
 ### KeyVault Certificates
 
-#### 4.0.2 (Changelog)
+#### 4.0.2 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-certificates_4.0.2/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md#402-2020-04-07))
 
-#### 4.1.0-beta.2 (Changelog)
+- Update azure-core dependency to version 1.4.0.
+
+#### 4.1.0-beta.2 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-certificates_4.1.0-beta.2/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md#420-beta2-2020-04-09))
+
+- Added `retryPolicy` setter in `CertificateClientBuilder`
+- Update azure-core dependency to version 1.4.0.
 
 ### KeyVault Keys
 
-#### 4.1.2 (Changelog)
+#### 4.1.2 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-keys_4.1.2/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md#412-2020-04-07))
 
-#### 4.2.0-beta.2 (Changelog)
+- Update azure-core dependency to version 1.4.0.
+
+#### 4.2.0-beta.3 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-keys_4.2.0-beta.3/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md#420-beta3-2020-04-09))
+
+- Added `LocalCryptographyClient`, `LocalCryptographyAsyncClient`, `LocalKeyEncryptionKeyClient` and `LocalKeyEncryptionKeyAsyncClient` to perform cryptography operations locally.
+- Added `retryPolicy` setter in `KeyClientBuilder`, `CryptographyClientBuilder` and `KeyEncryptionKeyClientBuilder`
+- Update azure-core dependency to version 1.4.0.
 
 ### KeyVault Secrets
 
-#### 4.1.2 (Changelog)
+#### 4.1.2 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-secrets_4.1.2/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md#412-2020-04-07))
 
-#### 4.2.0-beta.3 (Changelog)
+- Update azure-core dependency to version 1.4.0.
+
+#### 4.2.0-beta.2 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-secrets_4.2.0-beta.2/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md#420-beta2-2020-04-09))
+
+- Update azure-core dependency to version 1.4.0.
+- Added `retryPolicy` setter in `SecretClientBuilder`
 
 ### Search ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-search-documents_1.0.0-beta.2/sdk/search/azure-search-documents/CHANGELOG.md))
 Version 1.0.0-beta.2 is the consecutive beta version of 11.0.0-beta.1. The version is made because we renamed
