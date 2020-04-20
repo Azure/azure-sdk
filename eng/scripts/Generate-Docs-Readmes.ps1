@@ -1,4 +1,4 @@
-# Example Usage: ./copy_readmes.ps1 -CodeRepo C:/repo/sdk-for-python -DocRepo C:/repo/azure-docs-sdk-python
+# Example Usage: ./Generate_Docs_Readmes.ps1 -CodeRepo C:/repo/sdk-for-python -DocRepo C:/repo/azure-docs-sdk-python
 # Highly recommended that you use Powershell Core.
 # git reset --hard origin/smoke-test on the doc repo prior to running this
 
@@ -31,7 +31,7 @@ if ($CodeRepo -Match "java"){
   $metadataUri = "https://raw.githubusercontent.com/Azure/azure-sdk/master/_data/releases/latest/java-packages.csv"
 }
 if ($CodeRepo -Match "js"){
-  $lang - "JavaScript"
+  $lang = "JavaScript"
   $TARGET_FOLDER = Join-Path -Path $DocRepo  -ChildPath "docs-ref-services"
   $metadataUri = "https://raw.githubusercontent.com/Azure/azure-sdk/master/_data/releases/latest/js-packages.csv"
 }
@@ -58,7 +58,7 @@ foreach($service in $selectedServices){
   foreach($library in $libraries){
 
     $package = $library.Package
-    $version = $library.VersionGA
+    $version = If ([string]::IsNullOrWhiteSpace($library.VersionGA)) {$library.VersionPreview} Else {$library.VersionGA}
 
     $file = Join-Path -Path $readmePath -ChildPath "/$package/README.md" | Get-Item
     Write-Host "`tOutputting $($file.FullName)"
