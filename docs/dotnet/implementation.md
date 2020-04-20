@@ -134,6 +134,8 @@ In those cases, you should define a structure that:
 - Overrides `Equals`, `GetHashCode`, and `ToString` methods.
 - `Equals(object)` and `GetHashCode` should be attributed with `EditorBrowsable(EditorBrowsableState.Never)`.
 
+Type of value comparison should be selected on per-service basis, if the service is inconsistent with how string values are returned the case-insensitive comparison is allowed.
+
 The following example implements these requirements and should be used as a template:
 
 ```csharp
