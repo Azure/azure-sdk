@@ -62,13 +62,17 @@ function ResolveUri ([System.Uri]$referralUri, [string]$link)
 
 function ParseLinks([string]$baseUri, [string]$htmlContent)
 {
-  $hrefRegex = "<a[^>]+href\s*=\s*[""']?(?<href>[^""'\s]*)[""']?"
+  $hrefRegex = "<a[^>]+href\s*=\s*[""']?(?<href>[^""']*)[""']?"
   $regexOptions = [System.Text.RegularExpressions.RegexOptions]"Singleline, IgnoreCase";
 
   $hrefs = [RegEx]::Matches($htmlContent, $hrefRegex, $regexOptions);
 
+  #$hrefs | Foreach-Object { Write-Host $_ }
+
   Write-Verbose "Found $($hrefs.Count) raw href's in page $baseUri";
   $links = $hrefs | ForEach-Object { ResolveUri $baseUri $_.Groups["href"].Value } | Sort-Object -Unique
+
+  #$links | Foreach-Object { Write-Host $_ }
 
   return $links
 }
@@ -147,8 +151,6 @@ function GetLinks([System.Uri]$pageUri)
   }
 
   $links = ParseLinks $pageUri $content
-
-  #$links | Foreach-Object { Write-Host $_ }
 
   return $links;
 }
