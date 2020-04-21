@@ -15,6 +15,7 @@ The Azure SDK team is pleased to make available the April 2020 client library re
 - New preview of Azure Cognitive Search
 - New preview of Azure Identity
 - Initial preview of Azure Service Bus v7
+- Initial preview of Azure Form Recognizer
 
 ## Installation Instructions
 To install the packages, copy and paste the below into a terminal.
@@ -24,6 +25,7 @@ To install the packages, copy and paste the below into a terminal.
     $> npm install @azure/identity
     $> npm install @azure/search-documents
     $> npm install @azure/service-bus@next
+    $> npm install @azure/ai-form-recognizer
 
 ## Feedback
 If you have a bug or feature request for one of the libraries, please post an issue at the [azure-sdk-for-js repository](https://github.com/azure/azure-sdk-for-js/issues)
@@ -65,6 +67,16 @@ Below are some noteworthy changes in the current release.
 
 - Initial preview of Azure Service Bus client library version 7.
 - This version of library has been designed based on the [Azure SDK Design Guidelines for TypeScript]({{ site.baseurl }}{% link docs/typescript/introduction.md %}) to ensure consistency, idiomatic design, and excellent developer experience and productivity.
+
+### Form Recognizer
+
+- The new `@azur/ai-form-recognizer` library supports the Form Recognizer Service v2.0-preview API. The previous `@azure/cognitiveservices-formrecognizer` library support earlier service versions.
+- Added support for:
+  - Training custom form models
+  - Listing/retriving/deleting existing models
+  - Form content/layout recognition
+  - Custom form recognition
+  - USA receipt recognition.
 
 ## Latest Releases
 
