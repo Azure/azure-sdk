@@ -43,7 +43,7 @@ When the library developers indicate they're ready to release, these should be r
 
 For the initial discussion of a new library or large feature work, it is encouraged that the following things be proposed or provided by the owners of the client library:
 
-1. Code samples added to the repo for key scenarios relevant to the developer.  They should be added to the library's sample folder ([example](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)) These must demonstrate how to use API functions that the majority of developers will use ([example](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample1_DetectLanguage.md)). It is expected that these samples are optimized for, ensuring succinct, intuitive, and productive developer experiences are possible for each.
+1. Code samples added to the repo for key scenarios relevant to the target developer.  For introductory discussions, these samples do not need to be 'final' or 'perfect.'  They should be added to the library's sample folder ([example](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)). These must demonstrate the expected use of API functions which target developers would use regularly. ([example](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample1_DetectLanguage.md)). It is expected that these samples are optimized for ensuring that succinct, intuitive, and productive developer experiences are possible for each scenario.
 2. Link to the service documentation/specification.
 3. Link to the service REST APIs, if applicable/available.
 
