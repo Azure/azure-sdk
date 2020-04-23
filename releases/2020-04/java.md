@@ -20,6 +20,7 @@ The Azure SDK team is pleased to announce our April 2020 client library releases
 #### Preview
 
 - EventHubs (Client, Checkpoint Store)
+- FormRecognizer
 - Identity
 - KeyVault (Certificates, Keys, Secrets)
 - Search
@@ -32,6 +33,12 @@ The Azure SDK team is pleased to announce our April 2020 client library releases
 To use the GA and beta libraries, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate. If you are using a different build tool, refer to its documentation on how to specify dependencies.
 
 ```xml
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-ai-formrecognizer</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-data-appconfiguration</artifactId>
@@ -192,6 +199,14 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - Updates dependencies.
 
+### Form Recognizer ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_1.0.0-beta.1/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md))
+
+- The first preview with new API design for the Azure Cognitive Services Form Recognizer client library
+- Adds `FormRecognizerClient` to analyze custom forms, receipts, and form content/layout
+- Adds `FormTrainingClient` to train custom models (with/without labels), and manage the custom models on your account
+- Authentication with API key supported using `AzureKeyCredential("<api_key>")` from `com.azure.core.credential`
+- For stream methods, `content-type` is automatically detected
+
 ### Identity
 
 #### 1.0.5 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/release/identity-service/sdk/identity/azure-identity/CHANGELOG.md#105-2020-04-07))
@@ -278,7 +293,10 @@ the search client library module name and namespace.
 - Removed all PII endpoints and update with related changes, such as remove related models, samples, codesnippets, docstrings, etc from this library.
 - Replaced `TextAnalyticsApiKeyCredential` with `AzureKeyCredential`.
 
-### Tracing OpenTelemetry (Changelog)
+### Tracing OpenTelemetry ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-core-tracing-opentelemetry_1.0.0-beta.4/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md))
+
+- Added az namespace info attribute to all outgoing spans for Http Libraries.
+- Updated `io.opentelemetry` to 0.2.4.
 
 ## Need help
 
