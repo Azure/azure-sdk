@@ -18,6 +18,7 @@ The Azure SDK team is pleased to announce our April 2020 client library releases
 #### Preview
 
 - Event Hubs
+- Form Recognizer
 - Identity
 - Search
 - Service Bus
@@ -26,6 +27,8 @@ The Azure SDK team is pleased to announce our April 2020 client library releases
 ## Installation Instructions
 
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
+
+    $> dotnet add package Azure.AI.FormRecognizer --version 1.0.0-preview.1
 
     $> dotnet add package Azure.AI.TextAnalytics --version 1.0.0-preview.4
 
@@ -59,6 +62,15 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - `AzureKeyCredential` and its respective policy.
 - Response trace messages are properly identified.
 - Content type "application/x-www-form-urlencoded" is decoded in trace messages.
+
+### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#100-preview1-04-23-2020)
+
+- The first preview Azure Form Recognizer client library that follows the [.NET Azure SDK Design Guidelines](https://azure.github.io/azure-sdk/dotnet_introduction.html).
+- This library replaces the package [`Microsoft.Azure.CognitiveServices.FormRecognizer`](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.FormRecognizer/0.8.0-preview).
+- This library supports only the Form Recognizer Service v2.0-preview API.
+- Two client design:
+  - `FormRecognizerClient` to recognize and extract fields/values on custom forms, receipts, and form content/layout.
+  - `FormTrainingClient` to train custom models, and manage the custom models on your resource account.
 
 ### Identity [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/identity/Azure.Identity/CHANGELOG.md#120-preview2)
 - Updates `DefaultAzureCredential` to enable authenticating through Visual Studio and Visual Studio Code.
