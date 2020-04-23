@@ -13,7 +13,6 @@ The Azure SDK team is pleased to announce our April 2020 client library releases
 
 - App Configuration
 - EventHubs (Client, Checkpoint Store)
-- FormRecognizer
 - Identity
 - KeyVault (Certificates, Keys, Secrets)
 - Storage (Blobs, Blobs Batch, Blobs Cryptography, Files Datalake, Files Shares, Queues)
