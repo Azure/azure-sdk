@@ -25,7 +25,7 @@ See [Requesting a meeting with the board](#requesting-a-meeting-with-the-board) 
 
 ### 2 Small, targeted changes and bug fixes
 
-For small or targeted changes and bug fixes which modify APIs, the architect in each language can review and sign off without a combined/central review. We highly recommend doing this review as early as possible. This should be done over email where possible with links to API diffs.  CC the full [Architecture Board](mailto:adparch@microsoft.com) on these mails. In some cases it makes sense for small changes to the API to be batched for efficiency. If the language architect determines there is a need for a deeper discussion, then a meeting with that architect should be scheduled to have that conversation. If it’s a cross language discussion, then the entire board should be scheduled.
+For small or targeted changes and bug fixes which modify APIs, the architect in each language can review and sign off without a combined/central review. We highly recommend doing this review as early as possible. This should be done on GitHub by opening an issue with links to API diffs.  Include all architects as reviewers. In some cases it makes sense for small changes to the API to be batched for efficiency. If a language architect determines there is a need for a deeper discussion, then a meeting with that architect should be scheduled to have that conversation. If it’s a cross language discussion, then a board meeting should be scheduled. 
 
 Remember that **all changes** to an API must be approved by the language architect before release.
 
@@ -43,7 +43,7 @@ When the library developers indicate they're ready to release, these should be r
 
 For the initial discussion of a new library or large feature work, it is encouraged that the following things be proposed or provided by the owners of the client library:
 
-1. A listing of 3-5 champion scenarios relevant to the developer. These must identify the critical scenarios that the majority of developers will experience. For each champion scenario, a link to a code sample in the repo must be provided. It is expected that these champion scenarios are optimized for, ensuring succinct, intuitive, and productive developer experiences are possible for each.
+1. Code samples added to the repo for key scenarios relevant to the target developer.  For introductory discussions, these samples do not need to be 'final' or 'perfect.'  They should be added to the library's sample folder ([example](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples)). These must demonstrate the expected use of API functions which target developers would use regularly. ([example](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample1_DetectLanguage.md)). It is expected that these samples are optimized for ensuring that succinct, intuitive, and productive developer experiences are possible for each scenario.
 2. Link to the service documentation/specification.
 3. Link to the service REST APIs, if applicable/available.
 
