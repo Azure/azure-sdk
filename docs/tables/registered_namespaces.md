@@ -16,7 +16,7 @@ The following are a list of registered namespaces.
 | `azure.cosmos`                | [Azure Cosmos DB]              |
 | `azure.messaging.eventhubs`   | [Event Hubs]                   |
 | `azure.messaging.servicebus`  | [Service Bus]                  |
-| `azure.search`                | [Azure Search]                 |
+| `azure.search.documents`      | [Azure Search]                 |
 | `azure.security.keyvault`     | [Key Vault]                    |
 | `azure.storage.blobs`         | [Azure Storage]                |
 | `azure.storage.files.shares`  | [Azure Storage]                |
