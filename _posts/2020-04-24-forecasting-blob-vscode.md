@@ -208,7 +208,7 @@ pyplot.show()
 
 We see that the forecast captures the primary data trend rather nicely.  We can add the left-out test data to the chart above by uncommenting the remaining pyplot stanza and rerunning to get an idea of how well it has been fit, and observe that the delta is acceptably small.
 
-** As a pragmatic note: **  It can often be wise to not include all historical data when training your model; this may result in overfitting if the behavior of the data changes subtlely.  Finding a balance between "enough data to capture the trend" and "not enough to overfit" is an important question to ask, and should be re-evaluated over time as the underlying data changes.  A notebook (such as this one!) can help for easily evaluating that manually, and can give inspiration for how this process could be automated, potentially using blob storage as well for persistance of model metadata.
+**As a pragmatic note:**  It can often be wise to not include all historical data when training your model; this may result in overfitting if the behavior of the data changes subtlely.  Finding a balance between "enough data to capture the trend" and "not enough to overfit" is an important question to ask, and should be re-evaluated over time as the underlying data changes.  A notebook (such as this one!) can help for easily evaluating that manually, and can give inspiration for how this process could be automated, potentially using blob storage as well for persistance of model metadata.
 
 ## Using Azure Storage to iterate and automate ##
 
