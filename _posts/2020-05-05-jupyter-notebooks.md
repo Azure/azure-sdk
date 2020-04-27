@@ -1,5 +1,5 @@
 ---
-title: Forecasting service scale out with Jupyter Notebooks in Visual Studio Code
+title: Forecasting Service Scale Out with Jupyter Notebooks in Visual Studio Code
 layout: post
 date: 2020-05-05
 sidebar: releases_sidebar
@@ -7,7 +7,7 @@ author_github: KieranBrantnerMagee
 repository: azure/azure-sdk
 ---
 
-Visual Studio Code has a great extension for running Jupyter Notebooks, which is a great tool for those of us interested in data analytics as it simplifies our workflows.  In this article, I will show how to consume Azure data in a Jupyter Notebook using the Azure SDK.  The problem I will be demonstrating builds a predictive model to anticipate service scale-up, which is a common task for optimizing cloud spend and anticipating scale requirements.
+Visual Studio Code has [an extension for running Jupyter Notebooks](https://code.visualstudio.com/docs/python/python-tutorial), which is a great tool for those of us interested in data analytics as it simplifies our workflows.  In this article, I will show how to consume Azure data in a Jupyter Notebook using the Azure SDK.  The problem I will be demonstrating builds a predictive model to anticipate service scale-up, which is a common task for optimizing cloud spend and anticipating scale requirements.
 
 ![An example plot]({{site.baseurl}}/images/posts/20200505-image1.svg)
 
@@ -40,7 +40,7 @@ This uses an odd quoting to ensure that the application supports paths with spac
 
 ## Loading the data
 
-Next, we need to load the data from Azure Blob Storage, which means dealing with authentication.  Azure Identity provides a handy short-cut called the `DefaultAzureCredential`.  This lets you log in to Azure with a number of different utilities, including (if necessary) an interactive Browser.
+Next, we need to load the data from Azure Blob Storage, which means dealing with authentication.  Azure Identity provides a handy class called the `DefaultAzureCredential` that simplifies authentication.  This lets you log in to Azure with a number of different utilities, including (if necessary) an interactive browser.
 
 ```python
 from azure.identity import DefaultAzureCredential
@@ -66,7 +66,7 @@ storage_account_url = "https://{}.blob.core.windows.net".format(azure_storage_ac
 storage_client = BlobServiceClient(storage_account_url, credential)
 ```
 
-We can now use the `storage_client` to enumerate and fetch the logs stored in blogs within the container.  If you receive an authentication error in this section, check that the user or service principal being used has "Blob Data Owner" permissions to the storage account; "Owner" is not sufficient by itself.
+We can now use the `storage_client` to enumerate and fetch the logs stored in blogs within the container.  If you receive an authentication error in this section, check that the user or service principal being used has "Blob Data Owner" permissions to the storage account; "Owner" is not sufficient by itself.  Refer to the [Azure documentation](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal) for more information.
 
 ```python
 import json
@@ -100,11 +100,11 @@ data = extract_requests_from_container(storage_client, storage_blob_path, storag
     datetime.utcnow() - timedelta(hours=3), datetime.utcnow())
 ```
 
-This code iterates through all the blobs in the '/Requests/' folder, reads the JSON from the file, and creates a data frame with the count of requests.
+This code iterates through all the blobs in the '/Requests/' folder, reads the JSON from the file, and creates a dataframe with the count of requests.
 
 ## Preparing the data
 
-Now that we have some raw data, we can aggregate it into a useful granularity to do forecasting.  The initial data set is per-event.  It would be more useful to have the data bucketed by a timespan that allows us to see the underlying pattern we're hoping to model.  For our data, we'll use 2 minute buckets.  This may naturally differ with other datasets, the but goal is the same.  Produce a continuous and non-sparse representation of the desired load trend, smothing over short-term variance without losing too much signal.
+Now that we have some raw data, we can aggregate it into a useful granularity to do forecasting.  The initial data set is per-event.  It would be more useful to have the data bucketed by a timespan that allows us to see the underlying pattern we're hoping to model.  For our data, we'll use 2 minute buckets.  This may naturally differ with other datasets, the but goal is the same.  Produce a continuous and non-sparse representation of the desired load trend, smoothing over short-term variance without losing too much signal.
 
 ```python
 grouped_data = data.groupby(pandas.Grouper(freq='2Min')).agg({'count'})
@@ -146,7 +146,7 @@ The forecast captures the primary data trend nicely.  We can add the left-out te
 
 ## Use Azure Storage to iterate and automate
 
-Now that we have a promising model, we need to ensure it does not regress.  A common pattern for this is to store the hyperparameters and model outcomes in a persisted data store such as Azure Storage.  We'll reuse the client that we used earlier.  The credential you are using will need the "Blob Data Writer" permission to write back to Azure Storage.
+Now that we have a promising model, we need to ensure it does not regress.  A common pattern for this is to store the hyperparameters and model outcomes in a persisted data store such as Azure Storage.  We'll reuse the client that we used earlier.  The credential you are using will need [the "Blob Data Writer" permission to write back to Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal).
 
 First, let's capture some metrics to denote the current state of the model:
 
