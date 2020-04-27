@@ -1,4 +1,11 @@
-# New Azure Identity features for developers
+---
+title: New Azure Identity features for developers
+layout: post
+date: 2020-05-12
+sidebar: releases_sidebar
+author_github: jianghaolu
+repository: azure/azure-sdk
+---
 
 In the Azure Identity library, `DefaultAzureCredential` is the recommended way to handle authentication across your local workstation and your deployment environment. It attempts to figure out what environment you are running in, and uses the most appropriate credential for the purpose. Its use and features are explained in our previous blog post: https://azure.github.io/azure-sdk/posts/2020-02-25/defaultazurecredentials.html.
 
