@@ -99,7 +99,7 @@ public async Task DoWorkAsync(CancellationToken cancellationToken = default)
 
 ### Linking CancellationTokens
 
-There may be times when you have a group of tasks you want to cancel individually or all together, for example downloading as many files as possible and reporting on those that failed. You can linked a `CancellationToken` to a new `CancellationTokenSource` so that when that original `CancellationToken` is canceled, any tokens created from a linked `CancellationTokenSource` are canceled:
+There may be times when you have a group of tasks you want to cancel individually or all together, for example downloading as many files as possible and reporting on those that failed. You can link a `CancellationToken` to a new `CancellationTokenSource` so that when that original `CancellationToken` is canceled, any tokens created from a linked `CancellationTokenSource` are canceled:
 
 ```csharp
 public async Task DownloadAsync(Uri uri, CancellationToken cancellationToken = default)
