@@ -47,7 +47,7 @@ var client = new SecretClient(new Uri(keyVaultUrl), new DefaultAzureCredential(t
 
 ```java
 // Java
-DefaultAzureCredential credential = new DefaultAzureCredential().build();
+DefaultAzureCredential credential = new DefaultAzureCredentialBuilder().build();
 
 SecretClient secretClient = new SecretClientBuilder()
     .vaultUrl("https://mysecretkeyvault.vault.azure.net")
@@ -86,7 +86,7 @@ Since there are other credentials in the `DefaultAzureCredential` chain, it may 
 
 ### IntelliJCredential
 
-For Java developers using IntelliJ IDEA, we are adding another credential `IntelliJCredential`. Applications using this credential will be able to use the same account logged in Azure Toolkit for IntelliJ.
+For Java developers using IntelliJ IDEA, we are adding another credential `IntelliJCredential`. Applications using this credential will be able to use the same account logged in Azure Toolkit for IntelliJ. You will need IntelliJ IDEA 2019.1 or above and the latest Azure Toolkit for IntelliJ plugin.
 
 In your IntelliJ window, open File -> Settings -> Plugins. Search "Azure Toolkit for IntelliJ" in the marketplace. Install and restart IDE. 
 
@@ -96,10 +96,27 @@ Now you should be able to find a new menu item Tools -> Azure -> Azure Sign In..
 
 Device Login will help you login as a user account. Follow the instructions to login on the login.microsoftonline.com website with the device code. IntelliJ will prompt you to select your subscriptions. You are free to choose any you want - it doesn't matter for our use case.
 
-Once you are logged in, in your application, your `DefaultAzureCredential` will be able to pick up the user account logged in:
+Once you are logged in, in your application, your `DefaultAzureCredential` will be able to pick up the user account automatically on Mac or Linux:
 
 ```java
-DefaultAzureCredential credential = new DefaultAzureCredential().build();
+DefaultAzureCredential credential = new DefaultAzureCredentialBuilder().build();
+
+SecretClient secretClient = new SecretClientBuilder()
+    .vaultUrl("https://mysecretkeyvault.vault.azure.net")
+    .credential(credential)
+    .buildClient();
+```
+
+On Windows, you will need to sepcify the keep pass database path to read IntelliJ credentials. You can find the path in IntelliJ settings under File -> Settings -> Appearance & Behavior -> System Settings -> Passwords:
+
+![]({{ site.baseurl }}{% link images/posts/05122020-intellij-keepass.png %})
+
+And pass the database path into the `DefaultAzureCredentialBuilder`:
+
+```java
+DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
+    .windowsKeepPassDatabasePath("C:\\Users\\jianghaolu\\AppData\\Roaming\\JetBrains\\IdeaIC2020.1\\c.kdbx")
+    .build();
 
 SecretClient secretClient = new SecretClientBuilder()
     .vaultUrl("https://mysecretkeyvault.vault.azure.net")
@@ -193,7 +210,7 @@ var client = new SecretClient(new Uri(keyVaultUrl), new DefaultAzureCredential(t
 
 ```java
 // Java
-DefaultAzureCredential credential = new DefaultAzureCredential().build();
+DefaultAzureCredential credential = new DefaultAzureCredentialBuilder().build();
 
 SecretClient secretClient = new SecretClientBuilder()
     .vaultUrl("https://mysecretkeyvault.vault.azure.net")
