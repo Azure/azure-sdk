@@ -11,15 +11,15 @@ Visual Studio Code has [an extension for running Jupyter Notebooks](https://code
 
 ![An example plot]({{site.baseurl}}/images/posts/20200505-image1.svg)
 
-To create the predictive model, I'll need some data.  My application is logging to Azure Application Insights, which then stores the data in Azure Blob Storage as a series of time-series files.
+To create the predictive model, I'll need some data.  My application is logging to Azure Application Insights, which then stores the data in Azure Blob Storage as a series of time-series log files.
 
 To start, you will need [Visual Studio Code](https://code.visualstudio.com) with the [VSCode Python extension](https://code.visualstudio.com/docs/python/python-tutorial) installed.  When you run a Jupyter notebook for the first time, VSCode will prompt you to install necessary modules.
 
-You can [download the demo notebook]({{site.baseurl}}/images/posts/ForecastingInVSCodeWithBlob.ipynb) and open it directly in VSCode.  Jupyter notebooks intermesh code and documentation seamlessly, allowing for self-documenting code.  
+You can [download the demo notebook]({{site.baseurl}}/images/posts/ForecastingInVSCodeWithBlob.ipynb) and open it directly in VSCode.  Jupyter notebooks intermesh code and documentation seamlessly, allowing for an interactive documentation experience.  
 
 ![Run a Jupyter Notebook in VSCode]({{site.baseurl}}/images/posts/20200505-image2.png)
 
-The rest of this article walks through the Jupyter notebook.  First, let's bring in some standard libraries, including the Azure SDK that allows us to read the data, data manipulation, forecasting, and visualization libraries.
+The rest of this article walks through the Jupyter notebook.  First, let's bring in the packages we will need; including the Azure SDK that allows us to read the data, data manipulation, forecasting, and visualization packages.
 
 ```python
 import sys
@@ -36,7 +36,7 @@ import sys
 !"{sys.executable}" -m pip jupyter notebook
 ```
 
-This uses an odd quoting to ensure that the application supports paths with spaces in them.  If you bump into permissions issues, you may be using a system provided version of Python and do not have permissions to install system packages.  You can install Python in a user location instead.
+This uses an odd quoting to ensure that the application supports paths with spaces in them.  If you bump into permissions issues, you may be using a system installed version of Python and do not have permissions to install packages for global use.  You can install Python in a user location instead.
 
 ## Loading the data
 
@@ -58,7 +58,7 @@ azure_storage_account = 'REPLACE_ME'
 # Name of the Container holding the data
 azure_storage_container = 'REPLACE_ME'
 # Base path for the blobs within the container
-azure_storage_path = ''
+azure_storage_path = 'REPLACE_ME'
 
 from azure.storage.blob import BlobServiceClient
 
@@ -158,7 +158,7 @@ rmse = numpy.sqrt(mean_squared_error(test, forecast))
 # Akaike's information criterion, a measure that also folds the "simplicity" of the model into the score
 aic = model.aic()
 # When the last forecast was made
-forecast_tiem = test.index[-1]
+forecast_time = test.index[-1]
 # Parameters for the model
 params = model.params()
 ```
@@ -191,7 +191,7 @@ except ResourceExistsError:
     print("Warning: Blob already exists")
 ```
 
-We can then take steps similar to fetching the initial log data above to pull the model logs for inspection; for instance, to watch fora regression in model performance:
+We can then take steps similar to fetching the initial log data above to pull the model logs for inspection; for instance, to watch for a regression in model performance:
 
 ```python
 container = storage_client.get_container_client(output_container_name)
