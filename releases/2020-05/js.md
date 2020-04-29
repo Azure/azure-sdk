@@ -62,7 +62,7 @@ Below are some noteworthy changes in the current release.
 
 ### Azure Identity
 
-- [TODO]
+- This release contains bug fixes to environment variables and quality of service improvements.
 
 ### Cognitive Search
 
