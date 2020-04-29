@@ -57,7 +57,8 @@ Below are some noteworthy changes in the current release.
 
 ### Event Hubs
 
-- [TODO]
+- Updated `EventHubProducerClient.sendBatch()` to allow sending an array of events
+- Improved performance of `EventDataBatch.tryAdd()` method
 
 ### Azure Identity
 
@@ -69,7 +70,7 @@ Below are some noteworthy changes in the current release.
 
 ### Form Recognizer
 
-- [TODO]
+- Fixed an issue in reference docs.
 
 ### Service Bus
 
