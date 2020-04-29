@@ -57,8 +57,8 @@ Below are some noteworthy changes in the current release.
 
 ### Event Hubs
 
-- Updated `EventHubProducerClient.sendBatch()` to allow sending an array of events
-- Improved performance of `EventDataBatch.tryAdd()` method
+- Updated `EventHubProducerClient.sendBatch()` to allow sending an array of events.
+- Improved performance of `EventDataBatch.tryAdd()` method.
 
 ### Azure Identity
 
