@@ -1,7 +1,7 @@
 ---
-title: Azure SDK April 2020
+title: Azure SDK May 2020
 layout: post
-date: 2020-04-14
+date: 2020-05-01
 tags: release
 sidebar: releases_sidebar
 permalink: /releases/2020-04/index.html

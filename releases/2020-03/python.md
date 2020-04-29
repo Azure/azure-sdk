@@ -84,7 +84,6 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 
 ## Latest Releases
 
-{% assign packages = site.data.releases.latest.python-packages %}
-{% include python-packages.html %}
+View all the latest versions of Python packages [here][python-latest-releases].
 
 {% include refs.md %}
