@@ -7,7 +7,7 @@ sidebar: releases_sidebar
 repository: azure/azure-sdk-for-python
 ---
 
-The Azure SDK team is pleased to make available the May 2020 client library GA release.
+The Azure SDK team is pleased to make available the {{ page.date | date: "%B %Y" }} client library GA release.
 
 This release includes the following:
 

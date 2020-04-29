@@ -7,7 +7,7 @@ sidebar: releases_sidebar
 repository: azure/azure-sdk-for-net
 ---
 
-The Azure SDK team is pleased to announce our May 2020 client library releases.
+The Azure SDK team is pleased to announce our {{ page.date | date: "%B %Y" }} client library releases.
 
 #### Updates
 
