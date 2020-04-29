@@ -232,7 +232,6 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ## Latest Releases
 
-{% assign packages = site.data.releases.latest.java-packages %}
-{% include java-packages.html %}
+View all the latest versions of Java packages [here][java-latest-releases].
 
 {% include refs.md %}
