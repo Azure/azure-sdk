@@ -74,7 +74,11 @@ Below are some noteworthy changes in the current release.
 
 ### Service Bus
 
-- [TODO]
+7.0.0-preview.2
+
+- send() can now send an array of messages which will transparently batch and send them to Service Bus
+- Message settlement can now use the management link, allowing for settlement even when the original receiver has been closed
+- New sample to demonstrate how to round-robin sessions in a queue or subscription
 
 ## Latest Releases
 
