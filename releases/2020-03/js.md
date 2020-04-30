@@ -60,7 +60,6 @@ This release contains bug fixes to improve quality.
 
 ## Latest Releases
 
-{% assign packages = site.data.releases.latest.js-packages %}
-{% include js-packages.html %}
+View all the latest versions of JavaScript packages [here][js-latest-releases].
 
 {% include refs.md %}

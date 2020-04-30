@@ -1,13 +1,13 @@
 ---
 title: Azure SDK for JavaScript (May 2020)
 layout: post
-date: 2020-05-12
+date: 2020-05-01
 tags: javascript typescript
 sidebar: releases_sidebar
 repository: azure/azure-sdk-for-js
 ---
 
-The Azure SDK team is pleased to make available the May 2020 client library release.
+The Azure SDK team is pleased to make available the {{ page.date | date: "%B %Y" }} client library release.
 
 - Updates for Core libraries
 - Update for Azure Event Hubs
@@ -30,8 +30,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Changelog
 
-Detailed change logs for each of the libraries can be found in the source repository linked to in the Quick Links table.
-Below are some noteworthy changes in the current release.
 
 ### Core libraries
 
