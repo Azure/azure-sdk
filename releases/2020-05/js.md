@@ -60,7 +60,9 @@ If you have a bug or feature request for one of the libraries, please post an is
 - The `ServiceBusSender.send()` method now has an overload that takes an array of events.
 If you know beforehand that your messages would fit under the message size restrictions, this is an easier way to send events instead of creating an `ServiceBusMessageBatch` and filling it one by one.
 - When not using sessions, messages can now be settled even after the receiver has been closed.
-- New sample to demonstrate how to round-robin sessions in a queue or subscription
+- The `createSender`, `createReceiver` and `createSessionReceiver` methods are now async. The promise retuned by them are resolved after the link is successfully established with the service.
+- New sample to demonstrate how to receive messages from multiple sessions in a queue or subscription using session receivers.
+- Improved reliability of connection recovery and error reporting when receiving messages via the subscribe() method.
 
 ## Latest Releases
 
