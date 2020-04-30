@@ -283,7 +283,7 @@ For methods that combine multiple requests into a single call:
 
 Azure client libraries eschew low-level pagination APIs in favor of high-level abstractions that  implement per-item iterators. High-level APIs are easy for developers to use for the majority of use cases but can be more confusing when finer-grained control is required (for example,  over-quota/throttling) and debugging when things go wrong. Other guidelines in this document work to mitigate this limitation, for example by providing robust logging, tracing, and pipeline  customization options.
 
-{% include requirement/MUST id="java-pagination-streaming" %} return `PagedIterable<T>` (found in azure-core under `com.azure.core.http.rest`) for synchronous APIs that expose paginated collections, and return `IterableStream<T>` (found in azure-core under `com.azure.core.util`) for synchronous APIs that do not support pagination (and never will support it). These APIs allow consumers to write code that works using the standard *for* loop syntax (as it is an `Iterable`), and also to work with a Java `Stream` (as there is a `stream()` method). `PagedIterable` goes further, by offering consumers `streamByPage` and `iterableByPage` methods to work on page boundaries. Subclasses of these types are acceptable as return types too, so long as the naming convention generally follows the pattern `<serviceName>PagedIterable` or `<serviceName>IterableStream`.
+{% include requirement/MUST id="java-pagination-streaming" %} return `PagedIterable<T>` (found in azure-core under `com.azure.core.http.rest`) for synchronous APIs that expose paginated collections. Do not return `IterableStream<T>` (found in azure-core under `com.azure.core.util`) in synchronous APIs, as this removes from the user the ability to get response details from the service request. `PagedIterable` allows consumers to write code that works using the standard *for* loop syntax (as it is an `Iterable`), and also to work with a Java `Stream` (as there is a `stream()` method). Consumers may also call `streamByPage()` and `iterableByPage()` methods to work on page boundaries. Subclasses of these types are acceptable as return types too, so long as the naming convention generally follows the pattern `<serviceName>PagedIterable` or `<operation>PagedIterable`.
 
 For example, the configuration service sync client might offer the following API:
 
@@ -589,19 +589,19 @@ public final class <service_name>ClientBuilder {
 
 {% include requirement/MUST id="java-service-client-builder-consistency" %} ensure consistency across all client libraries, by using the following names for client builder fluent API:
 
-| Name                 | Intent                                                                                              |
-|----------------------|-----------------------------------------------------------------------------------------------------|
-| `addPolicy`          | Adds a policy to the set of existing policies (assumes no custom pipeline is set).                  |
-| `buildAsyncClient`   | Creates a new **async** client on each call.                                                        |
-| `buildClient`        | Creates a new **sync** client on each call.                                                         |
-| `configuration`      | Sets the configuration store that is used during construction of the service client.                |
-| `credential`         | Sets the credential to use when authenticating HTTP requests.                                       |
-| `connectionString`   | Sets the connection string to use for.                                                              |
-| `endpoint`           | URL to send HTTP requests to.                                                                       |
-| `httpClient`         | Sets the HTTP client to use.                                                                        |
-| `httpLogOptions`     | Configuration for HTTP logging level, header redaction, etc.                                        |
-| `pipeline`           | Sets the HTTP pipeline to use.                                                                      |
-| `serviceVersion`     | Sets the [service version](#versioning) to use. This must be a type implementing `ServiceVersion`.  |
+| Name                 | Intent                                                                                                 |
+|----------------------|--------------------------------------------------------------------------------------------------------|
+| `addPolicy`          | Adds a policy to the set of existing policies (assumes no custom pipeline is set).                     |
+| `buildAsyncClient`   | Creates a new **async** client on each call.                                                           |
+| `buildClient`        | Creates a new **sync** client on each call.                                                            |
+| `configuration`      | Sets the configuration store that is used during construction of the service client.                   |
+| `credential`         | Sets the credential to use when authenticating HTTP requests.                                          |
+| `connectionString`   | Sets the connection string to use for (only applicable if the Azure portal offers it for the service). |
+| `endpoint`           | URL to send HTTP requests to.                                                                          |
+| `httpClient`         | Sets the HTTP client to use.                                                                           |
+| `httpLogOptions`     | Configuration for HTTP logging level, header redaction, etc.                                           |
+| `pipeline`           | Sets the HTTP pipeline to use.                                                                         |
+| `serviceVersion`     | Sets the [service version](#versioning) to use. This must be a type implementing `ServiceVersion`.     |
 
 `endpoint` may be renamed if a more user-friendly name can be justified. For example, a blob storage library developer may consider using `new BlobClientBuilder.blobUrl(..)`. In this case, the `endpoint` API should be removed.
 
@@ -655,15 +655,99 @@ getFoo(a, Context)
 
 Don't include overloads that take `Context` in async clients.  Async clients use the [subscriber context built into Reactor Flux and Mono APIs][reactor-context].
 
+## Service method parameters
+
+Service methods fall into two main groups when it comes to the number and complexity of parameters they accept:
+
+- Service Methods with simple inputs, _simple methods_ for short
+- Service Methods with complex inputs, _complex methods_ for short
+
+_Simple methods_ are methods that take up to six parameters, with most of the parameters being simple primitive types. _Complex methods_ are methods that take a larger number of parameters and typically correspond to REST APIs with complex request payloads.
+
+_Simple methods_ should follow standard Java best practices for parameter list and overload design.
+
+_Complex methods_ should introduce an _option parameter_ to represent the request payload. Consideration can subsequently be made for providing simpler convenience overloads for the most common scenarios.
+
+```java
+public class BlobContainerClient {
+
+    // simple service methods
+    public BlobInfo uploadBlob(String blobName, byte[] content);
+    public Response<BlobInfo> uploadBlobWithResponse(String blobName, byte[] content, Context context);
+
+    // complex service methods
+    public BlobInfo createBlob(CreateBlobOptions options);
+    public Response<BlobInfo> createBlobWithResponse(CreateBlobOptions options, Context context);
+
+    // convenience overload[s]
+    public BlobInfo createBlob(String blobName);
+}
+
+public class CreateBlobOptions {
+    private String blobName;
+    private PublicAccessType access;
+    private Map<string, string> metadata;
+
+    // Constructor enforces the requirement that blobName is always set
+    public CreateBlobOptions(String blobName) {
+        this.blobName = blobName;
+    }
+
+    public String getBlobName() {
+        return blobName;
+    }
+
+    public CreateBlobOptions setAccess(PublicAccessType access) {
+        this.access = access;
+        return this;
+    }
+
+    public PublicAccessType getAccess() {
+        return access;
+    }
+
+    public CreateBlobOptions setMetadata(Map<String, String> metadata) {
+        this.metadata = metadata;
+        return this;
+    }
+
+    public Map<String, String> getMetadata() {
+        return metadata;
+    }
+}
+```
+
+{% include requirement/MUST id="java-params-complex-naming" %} name the _options_ type after the name of the service method it is used for, such that the type is named `<operation>Options`. For example, above the method was `createBlob`, and so the _options_ type was named `CreateBlobOptions`.
+
+{% include requirement/MUST id="java-params-complex" %} use the _options_ parameter pattern for complex service methods.
+
+{% include requirement/MAY id="java-params-complex-growth" %} use the _options_ parameter pattern for simple service methods that you expect to `grow` in the future.
+
+{% include requirement/MAY id="java-params-complex-overloads" %} add simple overloads of methods using the _options_ parameter pattern.
+
+If in common scenarios, users are likely to pass just a small subset of what the _options_ parameter represents, consider adding an overload with a parameter list representing just this subset.
+
+{% include requirement/MUSTNOT id="java-params-complex-overloads" %} introduce method overloads that take a subset of the parameters as well as the _options_ parameter. _Option_ parameters must be the only argument to a method, apart from the `Context` type, which must continue to be outside the _options_ type.
+
+{% include requirement/MUST id="java-params-complex-withResponse" %} use the _options_ parameter type, if it exists, for all `*WithResponse` methods. If no _options_ parameter type exists, do not create one solely for the `*WithResponse` method.
+
+{% include requirement/MUST id="java-params-options-package" %} place all options types in a root-level `options` package, to make options types distinct from service clients and model types.
+
+{% include requirement/MUST id="java-params-options-design" %} design options types with the same design guidance as given below for model class types, namely fluent setters for optional arguments, using the standard JavaBean naming convention of `get*`, `set*`, and `is*`. Additionally, there may be constructor overloads for each combination of required arguments.
+
+{% include requirement/MAY id="java-params-options-ctor" %} introduce constructor overloads for each combination of required arguments.
+
 ## Model classes
 
-Model classes are classes that consumers use to provide required information into client library methods. These classes typically represent the domain model, or options classes that must be configured before the request can be made.
+Model classes are classes that consumers use to provide required information into client library methods, or to receive information from Azure services from client library methods. These classes typically represent the domain model.
 
-{% include requirement/MUST id="java-models-constructors" %} provide public constructors for all model classes.
+{% include requirement/MUST id="java-models-constructors" %} provide public constructors for all model classes that a user is allowed to instantiate. Model classes that are not instantiable by the user, for example if they are model types returned from the service, should not have any publicly visible constructors.
 
 Use a no-args constructor and a fluent setter API to configure the model class. However, other designs may be used for the constructor when appropriate.
 
 {% include requirement/MUSTNOT id="java-models-builder" %} offer a builder class for model classes.
+
+{% include requirement/SHOULD id="java-models-interface" %} put model classes that are intended as service return types only, and which have undesirable public API (which is not intended for consumers of the client library) into the `.implementation.models` package. In its place, an interface should be put into the public-facing `.models` package, and it should be this type that is returned through the public API to end users. Examples of situations where this is applicable include when there are constructors or setters on a type which receive implementation types, or when a type should be immutable but needs to be mutable internally. The interface should have the model type name, and the implementation (within `.implementation.models`) should be named `<interfaceName>Impl`.
 
 {% include requirement/MUST id="java-models-fluent" %} provide a fluent API where appropriate. Setter methods in model classes are required to return `this` to enable method chaining.
 
