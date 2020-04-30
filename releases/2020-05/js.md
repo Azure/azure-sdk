@@ -36,8 +36,9 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Event Hubs
 
-- Updated `EventHubProducerClient.sendBatch()` to allow sending an array of events.
-- Improved performance of `EventDataBatch.tryAdd()` method.
+- The `EventHubProducerClient.sendBatch()` method now has an overload that takes an array of events.
+If you know beforehand that your events would fit under the message size restrictions, this is an easier way to send events instead of creating an `EventDataBatch` and filling it one by one.
+- Improved efficiency of the `EventDataBatch.tryAdd()` method which will improve your send performance when adding many events to the batch.
 
 ### Cognitive Search
 
