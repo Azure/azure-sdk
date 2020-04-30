@@ -13,18 +13,18 @@ The Azure Identity library May release contains a collection of efforts to impro
 
 ## DefaultAzureCredential: New credentials
 
-So far there are 4 credentials types `DefaultAzureCredential` supports. It attempts to use `EnvironmentCredential`, `ManagedIdentityCredential`, `SharedTokenCacheCredential`, and `AzureCliCredential`, in that order. The .NET library also supports `InteractiveBrowserCredential`. In the Azure Identity May release, we are adding more credentials that can work seamlessly in your favorite IDEs. Most of these credentials are stored in encrypted locations, eliminating the need to set up credentials in a file or environment variables, thus lowering your risk of exposing your personal identification information on your workstation.
+So far there are 4 credentials types `DefaultAzureCredential` supports. It attempts to use `EnvironmentCredential`, `ManagedIdentityCredential`, `SharedTokenCacheCredential`, and `AzureCliCredential`, in that order. The .NET and Python libraries also support `InteractiveBrowserCredential`. In the Azure Identity May release, we are adding more credentials that can work seamlessly in your favorite IDEs. Most of these credentials are stored in encrypted locations, eliminating the need to set up credentials in a file or environment variables, thus lowering your risk of exposing your personal identification information on your workstation.
 
 We are adding `VisualStudioCodeCredential` to .NET, Java, Python and JavaScript libraries. For .NET we are also adding a `VisualStudioCredential`. For Java we are also adding an `IntelliJCredential`. The new list of credentials `DefaultAzureCredential` supports and attempts to authenticate with are listed below, in order:
 
 1. `EnvironmentCredential`
 1. `ManagedIdentityCredential`
-1. `SharedTokenCacheCredential`
+1. `SharedTokenCacheCredential` (Windows only, with MacOS & Linux supporting comming soon)
 1. `VisualStudioCredential` (.NET only)
 1. `IntelliJCredential` (Java only)
 1. `VisualStudioCodeCredential`
 1. `AzureCliCredential`
-1. `InteractiveBrowserCredential` (.NET only)
+1. `InteractiveBrowserCredential` (.NET & Python only, disabled by default)
 
 I'll now walk you through the steps to configure and set up these credentials.
 
@@ -61,8 +61,8 @@ const client = new SecretClient(keyVaultUrl, new DefaultAzureCredential());
 ```
 
 ```py
-// Python
-client = SecretClient(keyVaultUrl, DefaultAzureCredential())
+# Python
+client = SecretClient(vault_url, DefaultAzureCredential())
 ```
 
 Since there are other credentials in the `DefaultAzureCredential` chain, it may pick up another credential before it reaches `VisualStudioCodeCredential`. To exclude the previous credentials, see [Exclude certain credentials](#exclude-certain-credentials).
@@ -107,7 +107,7 @@ SecretClient secretClient = new SecretClientBuilder()
     .buildClient();
 ```
 
-On Windows, you will need to sepcify the keep pass database path to read IntelliJ credentials. You can find the path in IntelliJ settings under File -> Settings -> Appearance & Behavior -> System Settings -> Passwords:
+On Windows, you will need to sepcify the KeePass database path to read IntelliJ credentials. You can find the path in IntelliJ settings under File -> Settings -> Appearance & Behavior -> System Settings -> Passwords:
 
 ![]({{ site.baseurl }}{% link images/posts/05122020-intellij-keepass.png %})
 
@@ -115,7 +115,7 @@ And pass the database path into the `DefaultAzureCredentialBuilder`:
 
 ```java
 DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
-    .windowsKeepPassDatabasePath("C:\\Users\\jianghaolu\\AppData\\Roaming\\JetBrains\\IdeaIC2020.1\\c.kdbx")
+    .intelliJKeyPassDatabasePath("C:\\Users\\jianghaolu\\AppData\\Roaming\\JetBrains\\IdeaIC2020.1\\c.kdbx")
     .build();
 
 SecretClient secretClient = new SecretClientBuilder()
@@ -158,8 +158,8 @@ var client = new SecretClient(new Uri(keyVaultUrl), new DefaultAzureCredential(o
 DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
     .excludeEnvironmentCredential()
     .excludeSharedTokenCacheCredential()
+    .excludeVsCodeCredential()
     .excludeIntelliJCredential()
-    .excludeAzureCliCredential()
     .build();
 
 SecretClient secretClient = new SecretClientBuilder()
@@ -169,13 +169,13 @@ SecretClient secretClient = new SecretClientBuilder()
 ```
 
 ```py
-// Python
+# Python
 credential = DefaultAzureCredential(
     exclude_environment_credential=True,
     exclude_shared_token_cache_credential=True,
     exclude_cli_credential=True
 )
-client = SecretClient(keyVaultUrl, credential)
+client = SecretClient(vault_url, credential)
 ```
 
 The `SecretClient` created with the above code will only attempt authentication with `ManagedIdentityCredential` and `VisualStudioCodeCredential`. This feature is not available in JavaScript yet - similar configurations on what underlying credentials will be used to authenticate in a DefaultAzureCredential will come soon for JavaScript.
@@ -224,8 +224,8 @@ const client = new SecretClient(keyVaultUrl, new DefaultAzureCredential());
 ```
 
 ```py
-// Python
-client = SecretClient(keyVaultUrl, DefaultAzureCredential())
+# Python
+client = SecretClient(vault_url, DefaultAzureCredential())
 ```
 
 On the local environment with `EnvironmentCredential` set up, Azure Identity will print the following logs:
