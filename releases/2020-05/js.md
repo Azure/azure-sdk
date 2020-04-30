@@ -30,6 +30,10 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Changelog
 
+### Core libraries
+
+- Core libraries are now compatible with OpenTelemetry 0.6.
+
 ### Event Hubs
 
 - Updated `EventHubProducerClient.sendBatch()` to allow sending an array of events.
