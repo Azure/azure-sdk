@@ -115,7 +115,7 @@ And pass the database path into the `DefaultAzureCredentialBuilder`:
 
 ```java
 DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
-    .intelliJKeyPassDatabasePath("C:\\Users\\jianghaolu\\AppData\\Roaming\\JetBrains\\IdeaIC2020.1\\c.kdbx")
+    .intelliJKeePassDatabasePath("C:\\Users\\jianghaolu\\AppData\\Roaming\\JetBrains\\IdeaIC2020.1\\c.kdbx")
     .build();
 
 SecretClient secretClient = new SecretClientBuilder()
