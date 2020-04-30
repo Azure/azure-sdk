@@ -46,6 +46,12 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
+### Core [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/CHANGELOG.md)
+
+- Read client request ID value used for logging and tracing off the initial request object if available.
+- Fixed a bug when using Azure.Core based libraries in Blazor WebAssembly apps.
+
+
 ### Package-specific changelogs
 Fill in your high-level changelogs like this for each package
 
