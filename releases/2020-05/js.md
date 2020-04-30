@@ -57,7 +57,8 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 7.0.0-preview.2
 
-- send() can now send an array of messages which will transparently batch and send them to Service Bus
+- The `ServiceBusSender.send()` method now has an overload that takes an array of events.
+If you know beforehand that your messages would fit under the message size restrictions, this is an easier way to send events instead of creating an `ServiceBusMessageBatch` and filling it one by one.
 - When not using sessions, messages can now be settled even after the receiver has been closed.
 - New sample to demonstrate how to round-robin sessions in a queue or subscription
 
