@@ -35,10 +35,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Updated `EventHubProducerClient.sendBatch()` to allow sending an array of events.
 - Improved performance of `EventDataBatch.tryAdd()` method.
 
-### Azure Identity
-
-- This release contains bug fixes to environment variables and quality of service improvements.
-
 ### Cognitive Search
 
 - Added support for Indexers API (Create, Get, List, etc.)
