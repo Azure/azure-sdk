@@ -30,29 +30,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Changelog
 
-
-### Core libraries
-
-- `@azure/core-tracing`
-  - [BREAKING] Migrate to OpenTelemetry 0.6 using the new `@opentelemetry/api` package. There were a few breaking changes:
-    - `SpanContext` now requires traceFlags to be set.
-    - `Tracer` has removed `recordSpanData`, `getBinaryFormat`, and `getHttpTextFormat`.
-    - `Tracer.getCurrentSpan` returns `undefined` instead of `null` when unset.
-    - `Link` objects renamed `spanContext` property to `context`.
-- `@azure/core-auth`
-  - Removed the below interfaces from the public API of this package as they are defined elsewhere.
-    - OperationOptions
-    - OperationRequestOptions
-    - OperationTracingOptions
-    - AbortSignalLike
-- `@azure/core-http`
-  - Added support for `text/plain` endpoints.
-  - Updated to use OpenTelemetry 0.6 via `@azure/core-tracing`.
-- `@azure/core-amqp`
-  - Added compatiblity with TypeScript versions 3.1 through 3.6+.
-  - Added a new method `refreshConnection()` on the `ConnectionContextBase` to replace the `connection` property on it with a new rhea-promise `Connection` object.
-- `@azure/core-lro` - Moved `@opentelemetry/types` to the `devDependencies`.
-
 ### Event Hubs
 
 - Updated `EventHubProducerClient.sendBatch()` to allow sending an array of events.
@@ -64,11 +41,17 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Cognitive Search
 
-- [TODO]
+- Added support for Indexers API (Create, Get, List, etc.)
+- Added support for Datasources API.(Create, Get, List, etc.)
 
 ### Form Recognizer
 
-- Fixed an issue in reference docs.
+- We released a new `@azur/ai-form-recognizer` library in late April that supports the Form Recognizer Service v2.0-preview API. The previous `@azure/cognitiveservices-formrecognizer` library supports earlier service versions. This new version added support for:
+  - Training custom form models
+  - Listing/retriving/deleting existing models
+  - Form content/layout recognition
+  - Custom form recognition
+  - USA receipt recognition.
 
 ### Service Bus
 
