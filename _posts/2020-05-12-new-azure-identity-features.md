@@ -7,15 +7,13 @@ author_github: jianghaolu
 repository: azure/azure-sdk
 ---
 
-In the Azure Identity library, `DefaultAzureCredential` is the recommended way to handle authentication across your local workstation and your deployment environment. It attempts to figure out what environment you are running in, and uses the most appropriate credential for the purpose. Its use and features are explained in our previous blog post: https://azure.github.io/azure-sdk/posts/2020-02-25/defaultazurecredentials.html.
+In the Azure SDK, `DefaultAzureCredential` is the recommended way to handle authentication across your local workstation and your deployment environment. It attempts to figure out what environment you are running in, and uses the most appropriate credential for the purpose. Its use and features are explained in our [previous blog post](https://azure.github.io/azure-sdk/posts/2020-02-25/defaultazurecredentials.html). The latest release of the Azure Identity library contains numerous improvements to improve the developer experience around authentication, including integration with more tools and better diagnostics.
 
-The Azure Identity library May release contains a collection of efforts to improve the developer experience of using `DefaultAzureCredential`, including better exception handling, logging, and an addition of credentials for IDE integration. I hope you will find these new features handy in your everyday work.
+## New credential types
 
-## DefaultAzureCredential: New credentials
+DefaultAzureCredential looks through four specific locations to find suitable information for authenticating to the service: environment variables, managed identity, the MSAL shared token cache (supporting tools like Visual Studio) and the Azure CLI. In .NET and Python, you can also enable an interactive browser, which asks you to log into Azure. In this release, we are adding more credentials that can work seamlessly in your favorite IDEs. Most of these credentials are stored in encrypted locations, eliminating the need to set up credentials in a file or environment variables, thus lowering your risk of exposing your personal identification information on your workstation.
 
-So far there are 4 credentials types `DefaultAzureCredential` supports. It attempts to use `EnvironmentCredential`, `ManagedIdentityCredential`, `SharedTokenCacheCredential`, and `AzureCliCredential`, in that order. The .NET and Python libraries also support `InteractiveBrowserCredential`. In the Azure Identity May release, we are adding more credentials that can work seamlessly in your favorite IDEs. Most of these credentials are stored in encrypted locations, eliminating the need to set up credentials in a file or environment variables, thus lowering your risk of exposing your personal identification information on your workstation.
-
-We are adding `VisualStudioCodeCredential` to .NET, Java, Python and JavaScript libraries. For .NET we are also adding a `VisualStudioCredential`. For Java we are also adding an `IntelliJCredential`. The new list of credentials `DefaultAzureCredential` supports and attempts to authenticate with are listed below, in order:
+In this release, we will support authentication via standard tooling: Visual Studio (for .NET), Visual Studio Code, IntelliJ (for Java), and the Azure CLI. They are slotted onto the end of the default credential chain provided in DefaultAzureCredential. The new list of credentials `DefaultAzureCredential` supports and attempts to authenticate with are listed below, in order:
 
 1. `EnvironmentCredential`
 1. `ManagedIdentityCredential`
@@ -30,11 +28,11 @@ I'll now walk you through the steps to configure and set up these credentials.
 
 ### VisualStudioCodeCredential
 
-In your VS Code window, navigate to Extensions and install Azure Account (https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account). Then execute command "Azure: Sign In":
+The Visual Studio Code authentication is handled by an integration with the Azure Account extension. To use, install the Azure Account extension, then use View->Command Palette to execute the "Azure: Sign IN" command:
 
 ![]({{ site.baseurl }}{% link images/posts/05122020-vscode-sign-in.png %})
 
-The browser should navigate to a page under `login.microsoftonline.com` and direct you through the login process. Once you are sucessfully logged in, you will see a web page:
+This will open a browser that allows you to sign in to Azure. Once you have completed the login process, you can close the browser as directed. Running your application (either in the debugger or anywhere on the development machine) will use the credential from your sign-in.
 
 ![]({{ site.baseurl }}{% link images/posts/05122020-vscode-logged-in.png %})
 
@@ -65,8 +63,6 @@ const client = new SecretClient(keyVaultUrl, new DefaultAzureCredential());
 client = SecretClient(vault_url, DefaultAzureCredential())
 ```
 
-Since there are other credentials in the `DefaultAzureCredential` chain, it may pick up another credential before it reaches `VisualStudioCodeCredential`. To exclude the previous credentials, see [Exclude certain credentials](#exclude-certain-credentials).
-
 ### VisualStudioCredential
 
 For .NET developers using Visual Studio 2017 or above, we are adding another credential `VisualStudioCredential`. Applications using this credential will be able to use the same account logged in Visual Studio.
@@ -81,8 +77,6 @@ Once you are logged in, in your application, your `VisualStudioCredential` will 
 // .NET
 var client = new SecretClient(new Uri(keyVaultUrl), new DefaultAzureCredential(true));
 ```
-
-Since there are other credentials in the `DefaultAzureCredential` chain, it may pick up another credential before it reaches `VisualStudioCredential`. To exclude the previous credentials, see [Exclude certain credentials](#exclude-certain-credentials).
 
 ### IntelliJCredential
 
@@ -107,7 +101,7 @@ SecretClient secretClient = new SecretClientBuilder()
     .buildClient();
 ```
 
-On Windows, you will need to sepcify the KeePass database path to read IntelliJ credentials. You can find the path in IntelliJ settings under File -> Settings -> Appearance & Behavior -> System Settings -> Passwords:
+On Windows, sepcify the KeePass database path to read IntelliJ credentials. You can find the path in IntelliJ settings under File -> Settings -> Appearance & Behavior -> System Settings -> Passwords:
 
 ![]({{ site.baseurl }}{% link images/posts/05122020-intellij-keepass.png %})
 
@@ -124,16 +118,14 @@ SecretClient secretClient = new SecretClientBuilder()
     .buildClient();
 ```
 
-Since there are other credentials in the `DefaultAzureCredential` chain, it may pick up another credential before it reaches `IntelliJCredential`. To exclude the previous credentials, see [Exclude certain credentials](#exclude-certain-credentials).
+## Adjust which credentials are used in DefaultAzureCredential
 
-## DefaultAzureCredential: Fine control over which credentials are used
-
-You may have noticed, with the increasing number of credentials in the `DefaultAzureCredential` chain and the automatic fallback to the next credential design, it's difficult to control and monitor which credential is actually being used. Therefore, we are introducing a set of new ways to fine control which exceptions to exclude, when to fail and when to fallback to the next credential in chain, and how to monitor which credential is being used.
+With the increasing number of credentials in the `DefaultAzureCredential` chain and the automatic fallback to the next credential design, it's difficult to control and monitor which credential is actually being used. We are introducing a set of new ways to fine control which exceptions to exclude, when to fail and when to fallback to the next credential in chain, and how to monitor which credential is being used.
 
 ### Exclude certain credentials
 
 Sometimes, the environment we are running our applications in uses a credential sitting in the back of the chain. When `DefaultAzureCredential` searches for a credential to authenticate with, it will attempt a few other credentials to reach the one desired. This is not only slow, but could also pick up the wrong credential, or peeking into secure system data we'd like to avoid.
-In the May release, you can now customize the chain by excluding any number of them when creating an instance of `DefaultAzureCredential`.
+In this release, you can now customize the chain by excluding any number of them when creating an instance of `DefaultAzureCredential`.
 
 For example, in my development environment I use `VisualStudioCodeCredential` and my application is deployed to a virtual machine in Azure where Managed Identity is available, I can create a `DefaultAzureCredential` as follows:
 
@@ -182,53 +174,13 @@ The `SecretClient` created with the above code will only attempt authentication 
 
 ### Fail the authentication, don't try the next
 
-Other than excluding certain credentials, another challenge we face a lot is that when a credential fails to authenticate, `DefaultAzureCredential` will automatically try the next credential, which may lead to unwanted behaviors. Your application could be authenticating with a totally different credential you anticipated for the whole time.
+When a credential fails to authenticate, DefaultAzureCredential automatically trys the next credential. This can cause problems when you partially configure a credential. For example, in the past, if the secret in the environment variable `AZURE_CLIENT_SECRET` expired, `DefaultAzureCredential` will try the other options. If you have accounts signed in VS Code or Azure CLI, `DefaultAzureCredential` may be using those accounts without you realizing it.
 
-For example, in my development environment my application uses `EnvironmentCredential` and in Azure it uses `ManagedIdentityCredential`. So I wrote the following code:
+In the latest release, if the configuration is present for a credential, but authentication fails, the entire chain fails, resulting in a faster "fail". We achieve this by adding an exception type `CredentialUnavailableException`. `DefaultAzureCredential` will only attempt to authenticate with the next credential if a `CredentialUnavailableException` is thrown from the current credential. In the above example, if the environment variables are present but authentication failed, the `EnvironmentCredential` will not throw `CredentialUnavailableException`, causing `DefaultAzureCredential` to propagate the exception and stop trying other credentials.
 
-```java
-DefaultAzureCredential credential = new DefaultAzureCredentialBuilder().build();
+### Improved logging support
 
-SecretClient secretClient = new SecretClientBuilder()
-    .vaultUrl("https://mysecretkeyvault.vault.azure.net")
-    .credential(credential)
-    .buildClient();
-```
-
-However, I had a typo in my environment variable `AZURE_CLIENT_SECRET`, causing the authentication to fail. In the past, `DefaultAzureCredential` will skip past the failed `EnvironmentCredential`, and `ManagedIdentityCredential` next since this is not running in Azure. `DefaultAzureCredential` would eventually pick up the credential I'm logged in VS Code or Azure CLI, thoughout which I'm completely unaware.
-
-In the May release, we are adding an exception type `CredentialUnavailableException`. `DefaultAzureCredential` will only attempt to authenticate with the next credential if a `CredentialUnavailableException` is thrown from the current credential. In the above example, if the environment variables are present but authentication failed, the `EnvironmentCredential` will not throw `CredentialUnavailableException`, causing `DefaultAzureCredential` to propagate the exception and stop trying other credentials.
-
-### Monitor behaviors through improved logs
-
-On top of all the control we are giving you, we are also adding more logs to help you monitor the authentications happening on your local workstation and in your deployment. From the log of a `DefaultAzureCredential`, you can quickly tell which underlyng credential is used to acquire a token. With the same authenticate code:
-
-```csharp
-// .NET
-var client = new SecretClient(new Uri(keyVaultUrl), new DefaultAzureCredential(true));
-```
-
-```java
-// Java
-DefaultAzureCredential credential = new DefaultAzureCredentialBuilder().build();
-
-SecretClient secretClient = new SecretClientBuilder()
-    .vaultUrl("https://mysecretkeyvault.vault.azure.net")
-    .credential(credential)
-    .buildClient();
-```
-
-```javascript
-// JavaScript
-const client = new SecretClient(keyVaultUrl, new DefaultAzureCredential());
-```
-
-```py
-# Python
-client = SecretClient(vault_url, DefaultAzureCredential())
-```
-
-On the local environment with `EnvironmentCredential` set up, Azure Identity will print the following logs:
+We added more log messages to assist in diagnosing authentication problems. You can now easily understand which credential is used to acquire a token. When you use the same code above to authenticate to Key Vault, on the local environment with `EnvironmentCredential` set up, Azure Identity will print the following logs:
 
 ```
 Azure Identity => DefaultAzureCredential invoking NewChainedTokenCredential
@@ -250,9 +202,16 @@ Azure Identity => Managed Identity environment: IMDS
 With this log you will be able to trace to each credential attempted by `DefaultAzureCredential` and diagnose where the issue comes from.
 
 ## Community acknowledgements
-I'd like to give special thanks to Alejandro Baeza(alexbaeza) and Kiran Hegde(HankiGreed) for helping us improve the Azure Identity libraries on GitHub. Your contributions have helped many people and organizations succeed!
+I'd like to give special thanks to Alejandro Baeza(https://github.com/alexbaeza) and Kiran Hegde(https://github.com/HankiGreed) for helping us improve the Azure Identity libraries on GitHub. Your contributions have helped many people and organizations succeed!
 
-## What's coming next & how to help us
-In the next few months we are rolling out more exciting features, including secure token cache on MacOS and Linux, more integrations with tools like CLI and PowerShell, and more credentials to improve developer experience. You can follow along in our GitHub issues under the label `Azure.Identity` in our repositories - https://github.com/Azure/azure-sdk-for-[net/java/python/js].
+## Working with us and giving feedback
 
-We also welcome issues and pull requests on bug reports / feature requests. It's been a great time building this library with you all!
+So far, the community has filed hundreds of issues against these new SDKs with feedback ranging from documentation issues to API surface area change requests to pointing out failure cases.  Please keep that coming.  We work in the open on GitHub and you can submit issues here:
+
+* [API design guidelines](https://github.com/Azure/azure-sdk/)
+* [.NET](https://github.com/Azure/azure-sdk-for-net)
+* [Java](https://github.com/Azure/azure-sdk-for-java)
+* [JavaScript / TypeScript](https://github.com/Azure/azure-sdk-for-js)
+* [Python](https://github.com/Azure/azure-sdk-for-python)
+
+Finally, please keep up to date with all the news about the Azure developer experience programs and let us know how we are doing by following [@AzureSDK](https://twitter.com/AzureSDK) on Twitter.
