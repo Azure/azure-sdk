@@ -56,7 +56,7 @@ If you know beforehand that your events would fit under the message size restric
 
 ### Service Bus
 
-7.0.0-preview.2
+The second preview for Service Bus (7.0.0-preview.2) has the below improvements:
 
 - The `ServiceBusSender.send()` method now has an overload that takes an array of events.
 If you know beforehand that your messages would fit under the message size restrictions, this is an easier way to send events instead of creating an `ServiceBusMessageBatch` and filling it one by one.
