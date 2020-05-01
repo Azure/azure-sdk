@@ -63,7 +63,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Search [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md)
 
-- Renamed `SearchIndexClient` to `SearchClient` and renamed many model types.
+- Renamed `SearchIndexClient` to `SearchClient` and renamed numerous models for search index creation.
 - Simplified the use of e-tags.
 
 ## Latest Releases
