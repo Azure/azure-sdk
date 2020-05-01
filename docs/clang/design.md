@@ -169,19 +169,27 @@ typedef enum az_iot_service_state {
 int64_t _az_compute_hash(int32_t a, int32_t b);
 
 // Part of the public API
-az_result az_widgets_client_init(az_widgets_client* self);
+AZ_NODISCARD az_result az_widgets_client_init(az_widgets_client* self);
 
 // Bad - no leading underscore
 int64_t compute_hash(int32_t a, int32_t b);
 {% endhighlight %}
 
-{% include requirement/MUST id="clang-design-naming-funcstatic" %} declare all functions that initialize structures with `..._<objname>_init`. 
-
-{% include requirement/MUST id="clang-design-naming-funcstatic" %} declare all functions that return created structures with `..._<objname>_create`. 
+{% include requirement/MUST id="clang-design-naming-funcstatic" %} declare all functions that initialize structures with `..._<objname>_init`.  These functions can fail and must return an az_result.
 
 {% highlight c %}
+
 // Initialize the object
-az_result az_widgets_client_init(az_widgets_client* self);
+AZ_NODISCARD az_result az_widgets_client_init(az_widgets_client* self);
+
+{% endhighlight %}
+
+{% include requirement/MUST id="clang-design-naming-funcstatic" %} declare all functions that return an initialized options structure (which can be examined/modified) with `..._<objname>_options_default`.  These functions must always succeed.
+
+{% highlight c %}
+
+// Default initialized options object
+AZ_NODISCARD az_widgets_options az_widgets_options_default();
 
 {% endhighlight %}
 
