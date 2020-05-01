@@ -23,8 +23,8 @@ To install any of our packages, please search for them via `Manage NuGet Package
 
     $> dotnet add package Azure.Identity --version 1.2.0-preview.2
 
-    $> dotnet add package Azure.Messaging.EventHubs --version 5.1.0-preview.1
-    $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.1.0-preview.1
+    $> dotnet add package Azure.Messaging.EventHubs
+    $> dotnet add package Azure.Messaging.EventHubs.Processor
 
     $> dotnet add package Azure.Messaging.ServiceBus --version 7.0.0-preview.1
 
@@ -51,9 +51,13 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Read client request ID value used for logging and tracing off the initial request object if available.
 - Fixed a bug when using Azure.Core based libraries in Blazor WebAssembly apps.
 
+### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md)
 
-### Package-specific changelogs
-Fill in your high-level changelogs like this for each package
+- The set of features from v5.1.0-preview.1 are now generally available.  This includes the `EventProcessor<TPartition>` and `PartitionReceiver` types which focus on advanced application scenarios which require greater low-level control. 
+
+### Event Hubs Processor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md)
+
+- The set of features from v5.1.0-preview.1 are now generally available.  This includes the enhancements to the `EventProcessorClient` for improved stability, resilience, and performance.
 
 ## Latest Releases
 
