@@ -28,7 +28,7 @@ I'll now walk you through the steps to configure and set up these credentials.
 
 ### VisualStudioCodeCredential
 
-The Visual Studio Code authentication is handled by an integration with the Azure Account extension. To use, install the Azure Account extension, then use View->Command Palette to execute the "Azure: Sign IN" command:
+The Visual Studio Code authentication is handled by an integration with the Azure Account extension. To use, install the Azure Account extension, then use View->Command Palette to execute the "Azure: Sign In" command:
 
 ![]({{ site.baseurl }}{% link images/posts/05122020-vscode-sign-in.png %})
 
