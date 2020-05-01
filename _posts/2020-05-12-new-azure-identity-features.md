@@ -124,10 +124,7 @@ With the increasing number of credentials in the `DefaultAzureCredential` chain 
 
 ### Exclude certain credentials
 
-Sometimes, the environment we are running our applications in uses a credential sitting in the back of the chain. When `DefaultAzureCredential` searches for a credential to authenticate with, it will attempt a few other credentials to reach the one desired. This is not only slow, but could also pick up the wrong credential, or peeking into secure system data we'd like to avoid.
-In this release, you can now customize the chain by excluding any number of them when creating an instance of `DefaultAzureCredential`.
-
-For example, in my development environment I use `VisualStudioCodeCredential` and my application is deployed to a virtual machine in Azure where Managed Identity is available, I can create a `DefaultAzureCredential` as follows:
+Sometimes, the environment we are running our applications in uses a credential sitting in the back of the chain. When `DefaultAzureCredential` searches for a credential to authenticate with, it will attempt a few other credentials to reach the one desired. This is not only slow, but could also pick up the wrong credential, or peeking into secure system data we'd like to avoid. In this release, you can now customize the chain by excluding any number of them when creating an instance of `DefaultAzureCredential`. For example, in my development environment I use `VisualStudioCodeCredential` and my application is deployed to a virtual machine in Azure where Managed Identity is available, I can create a `DefaultAzureCredential` as follows:
 
 ```csharp
 // .NET
