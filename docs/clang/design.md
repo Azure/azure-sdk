@@ -175,8 +175,15 @@ az_result az_widgets_client_init(az_widgets_client* self);
 int64_t compute_hash(int32_t a, int32_t b);
 {% endhighlight %}
 
+{% include requirement/MUST id="clang-design-naming-funcstatic" %} declare all functions that initialize structures with `..._<objname>_init`. 
 
-The definition of the function must be placed in the `*_api.h` file for the module.
+{% include requirement/MUST id="clang-design-naming-funcstatic" %} declare all functions that return created structures with `..._<objname>_create`. 
+
+{% highlight c %}
+// Initialize the object
+az_result az_widgets_client_init(az_widgets_client* self);
+
+{% endhighlight %}
 
 {% include requirement/SHOULD id="clang-design-naming-funcstatic" %} declare all functions that are only used within the same source file as `static`.  Static functions may contain only the function name (no prefixes).  For example:
 
