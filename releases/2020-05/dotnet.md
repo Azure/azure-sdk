@@ -13,6 +13,8 @@ The Azure SDK team is pleased to announce our {{ page.date | date: "%B %Y" }} cl
 
 #### Preview
 
+- Search
+
 ## Installation Instructions
 
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
@@ -28,7 +30,7 @@ To install any of our packages, please search for them via `Manage NuGet Package
 
     $> dotnet add package Azure.Messaging.ServiceBus --version 7.0.0-preview.1
 
-    $> dotnet add package Azure.Search.Documents --version 1.0.0-preview.2
+    $> dotnet add package Azure.Search.Documents --version 1.0.0-preview.3
 
     $> dotnet add package Azure.Security.KeyVault.Certificates --version 4.0.2
     $> dotnet add package Azure.Security.KeyVault.Keys --version 4.0.3
@@ -58,6 +60,11 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 ### Event Hubs Processor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md)
 
 - The set of features from v5.1.0-preview.1 are now generally available.  This includes the enhancements to the `EventProcessorClient` for improved stability, resilience, and performance.
+
+### Search [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md)
+
+- Renamed `SearchIndexClient` to `SearchClient` and renamed numerous models for search index creation.
+- Simplified the use of e-tags.
 
 ## Latest Releases
 
