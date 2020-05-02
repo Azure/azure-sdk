@@ -43,7 +43,7 @@ If you know beforehand that your events would fit under the message size restric
 
 ### Form Recognizer
 
-We released a new `@azur/ai-form-recognizer` library in late April that supports the Form Recognizer Service v2.0-preview API. The previous `@azure/cognitiveservices-formrecognizer` library supports earlier service versions. This new version added support for:
+We released a new `@azure/ai-form-recognizer` library in late April that supports the Form Recognizer Service v2.0-preview API. The previous `@azure/cognitiveservices-formrecognizer` library supports earlier service versions. This new version added support for:
 - Training custom form models
 - Listing/retrieving/deleting existing models
 - Form content/layout recognition
