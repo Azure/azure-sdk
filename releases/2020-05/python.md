@@ -11,9 +11,16 @@ The Azure SDK team is pleased to make available the {{ page.date | date: "%B %Y"
 
 This release includes the following:
 
+#### GA
+
+- Storage Blob
+- Storage File Datalake
+- Event Hub
+
 #### Preview
 
-
+- Identity
+- Search
 
 ## Installation Instructions
 
