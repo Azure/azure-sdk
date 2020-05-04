@@ -66,7 +66,6 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Do not attempt to autocomplete messages with the processor if the user settled the message in their callback.
 - Add SendAsync overload accepting an IEnumerable of ServiceBusMessage.
 
-
 ## Latest Releases
 
 {% assign packages = site.data.releases.latest.dotnet-packages %}
