@@ -44,6 +44,14 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Changelog
 
+### Azure Storage
+#### Blob [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md)
+
+- This release contains bug fixes to improve the quality of the library
+
+#### File DataLake [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/CHANGELOG.md)
+
+- This release contains bug fixes to improve the quality of the library
 
 
 ## Latest Releases
