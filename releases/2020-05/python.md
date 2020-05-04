@@ -44,6 +44,11 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Changelog
 
+### Identity [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/CHANGELOG.md)
+
+- `DefaultAzureCredential` can authenticate as the user signed in to Visual Studio Code's Azure Account extension. No configuration is required. This feature is not yet supported on Python 2.7 on Linux.
+- `DeviceCodeCredential` caches tokens in memory
+- New API allowing applications to control when `DeviceCodeCredential` and `InteractiveBrowserCredential` prompt for authentication. See the full [changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/CHANGELOG.md) for more details.
 
 
 ## Latest Releases
