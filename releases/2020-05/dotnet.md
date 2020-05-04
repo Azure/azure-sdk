@@ -58,7 +58,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Renamed `SearchIndexClient` to `SearchClient` and renamed numerous models for search index creation.
 - Simplified the use of e-tags.
 
-### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/1ba220a0113b667d70f6506a72b8a5cecdac1747/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md#700-preview2-2020-05-04)
+### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md#700-preview2-2020-05-04)
 
 - Allow specifying a list of named sessions when using ServiceBusSessionProcessor.
 - Transactions/Send via support.
