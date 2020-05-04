@@ -19,7 +19,7 @@ You can [download the demo notebook]({{site.baseurl}}/images/posts/ForecastingIn
 
 ![Run a Jupyter Notebook in VSCode]({{site.baseurl}}/images/posts/20200505-image2.png)
 
-The rest of this article walks through the Jupyter notebook.  First, let's bring in the packages we will need; including the Azure SDK that allows us to read the data, data manipulation, forecasting, and visualization packages.
+The rest of this article walks through the Jupyter notebook.  First, let's bring in the packages we will need, including the Azure SDK that allows us to read the data, data manipulation, forecasting, and visualization packages.
 
 ```python
 import sys
@@ -36,7 +36,7 @@ import sys
 !"{sys.executable}" -m pip jupyter notebook
 ```
 
-This uses an odd quoting to ensure that the application supports paths with spaces in them.  If you bump into permissions issues, you may be using a system installed version of Python and do not have permissions to install packages for global use.  You can install Python in a user location instead.
+This uses an odd quoting to ensure that the application supports paths with spaces in them.  If you bump into permissions issues, you may be using a system installed version of Python and do not have permissions to install packages for global use.  You can install Python in a user-controlled location instead, and set your Jupyter kernel accordingly.
 
 ## Loading the data
 
@@ -66,7 +66,7 @@ storage_account_url = "https://{}.blob.core.windows.net".format(azure_storage_ac
 storage_client = BlobServiceClient(storage_account_url, credential)
 ```
 
-We can now use the `storage_client` to enumerate and fetch the logs stored in blogs within the container.  If you receive an authentication error in this section, check that the user or service principal being used has "Blob Data Owner" permissions to the storage account; "Owner" is not sufficient by itself.  Refer to the [Azure documentation](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal) for more information.
+We can now use the `storage_client` to enumerate and fetch the logs stored in blobs within the container.  If you receive an authentication error in this section, check that the user or service principal being used has "Blob Data Owner" permissions to the storage account; "Owner" is not sufficient by itself.  Refer to the [Azure documentation](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal) for more information.
 
 ```python
 import json
@@ -96,7 +96,7 @@ def extract_requests_from_container(client, blob_path, container_name, start_tim
                 continue
     return data
 
-data = extract_requests_from_container(storage_client, storage_blob_path, storage_container_name, 
+data = extract_requests_from_container(storage_client, azure_storage_path, azure_storage_container, 
     datetime.utcnow() - timedelta(hours=3), datetime.utcnow())
 ```
 
@@ -104,7 +104,7 @@ This code iterates through all the blobs in the '/Requests/' folder, reads the J
 
 ## Preparing the data
 
-Now that we have some raw data, we can aggregate it into a useful granularity to do forecasting.  The initial data set is per-event.  It would be more useful to have the data bucketed by a timespan that allows us to see the underlying pattern we're hoping to model.  For our data, we'll use 2 minute buckets.  This may naturally differ with other datasets, the but goal is the same.  Produce a continuous and non-sparse representation of the desired load trend, smoothing over short-term variance without losing too much signal.
+Now that we have some raw data, we can aggregate it into a useful granularity to do forecasting.  The initial data set is per-event.  It would be more useful to have the data bucketed by a timespan that allows us to see the underlying pattern we're hoping to model.  For our data, we'll use 2 minute buckets.  This may naturally differ with other datasets, the but goal is the same:  produce a continuous and non-sparse representation of the desired load trend, smoothing over short-term variance without losing too much signal.
 
 ```python
 grouped_data = data.groupby(pandas.Grouper(freq='2Min')).agg({'count'})
@@ -142,7 +142,7 @@ pyplot.show()
 
 The forecast captures the primary data trend nicely.  We can add the left-out test data to the chart to compare between the forecast and actual data.
 
-> It is normal to not include all historical data when training your model.  Including all historical data may result in overfitting if the behavior of the data changes subtlely.  Finding a balance between "enough data to capture the trend" and "not enough to overfit" is an important point to consider.  Jupyter notebooks can help by easily providing data to do this analysis, and can give inspiration for automation techniques.
+> It is normal to not include all historical data when training your model.  Including all historical data may result in overfitting if the behavior of the data changes subtlely.  Finding a balance between "enough data to capture the trend" and "not enough to overfit" is an important point to consider.  Jupyter notebooks can help by easily providing an environment to do this analysis, and can give inspiration for automation techniques.
 
 ## Use Azure Storage to iterate and automate
 
