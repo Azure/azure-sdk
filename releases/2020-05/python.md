@@ -21,7 +21,7 @@ To install the latest preview version of the packages, copy and paste the follow
 
 ```bash
 pip install azure-appconfiguration
-pip install --pre azure-eventhub
+pip install azure-eventhub
 pip install azure-eventhub-checkpointstoreblob
 pip install azure-eventhub-checkpointstoreblob-aio
 pip install azure-storage-blob
@@ -49,6 +49,16 @@ If you have a bug or feature request for one of the libraries, please post an is
 #### Blob [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md)
 
 - This release contains bug fixes to improve the quality of the library
+
+### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/CHANGELOG.md)
+
+- `EventHubProducerClient.send_batch` accepts either an `EventDataBatch` or a finite list of `EventData`. #9181
+- Added enqueueTime to span links of distributed tracing. #9599
+- Fixed a bug that turned `azure.eventhub.EventhubConsumerClient` into an exclusive receiver when it has no checkpoint store. #11181
+- Updated uAMQP dependency to 1.2.7.
+  - Fixed bug in setting certificate of tlsio on MacOS. #7201
+  - Fixed bug that caused segmentation fault in network tracing on MacOS when setting `logging_enable` to `True` in `EventHubConsumerClient` and `EventHubProducerClient`.
+
 
 #### File DataLake [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md)
 
