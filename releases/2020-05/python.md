@@ -13,7 +13,7 @@ This release includes the following:
 
 #### Preview
 
-
+- Service Bus
 
 ## Installation Instructions
 
@@ -67,6 +67,13 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Add helpers for defining Search Index fields
 - `SearchIndexClient` renamed to `SearchClient`
 
+### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/CHANGELOG.md)
+
+- This release continues to move towards feature parity with the existing sdk.  Recommend reading migration guide and full changelog for details.
+- Support for topics and subscriptions.
+- Support for message scheduling and cancellation.
+- Support for implicitly sending a list of messages as a batch, for ease of use.
+- Reorganization and polish of exception hierarchy, to both better align with idiomatic error responses and provide internal consistency.
 
 ## Latest Releases
 
