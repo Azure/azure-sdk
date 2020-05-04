@@ -50,6 +50,11 @@ If you have a bug or feature request for one of the libraries, please post an is
 - `DeviceCodeCredential` caches tokens in memory
 - New API allowing applications to control when `DeviceCodeCredential` and `InteractiveBrowserCredential` prompt for authentication. See the full [changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/CHANGELOG.md) for more details.
 
+### Search [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/CHANGELOG.md)
+
+- Add service sub-clients for Skillsets, Synonym Maps, and Indexers operations 
+- Add helpers for defining Search Index fields
+- `SearchIndexClient` renamed to `SearchClient`
 
 ## Latest Releases
 
