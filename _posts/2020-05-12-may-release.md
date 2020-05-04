@@ -1,11 +1,45 @@
 ---
-title: New Azure Identity features for developers
+title: Azure SDK Releases (May 2020)
 layout: post
 date: 2020-05-12
 sidebar: releases_sidebar
-author_github: jianghaolu
 repository: azure/azure-sdk
+author_github: jianghaolu
 ---
+
+Welcome to the May release of the Azure SDK.  We have updated the following libraries:
+
+* App Configuration (Java and Python only)
+* Event Hubs
+* Key Vault
+* Storage
+
+These are ready to use in your production applications.  You can find details of all released libraries on [our releases page]({{site.baseurl}}{% link releases/latest/index.md %}).
+
+New preview releases:
+
+* Cosmos (Java only)
+* Form Recognizer
+* Search
+* Service Bus
+* Text Analytics
+
+In addition, there is a new preview release for Azure Identity, which features improvements to the `DefaultAzureCredential` to better support common developer workflows.  See below for more details.
+
+We believe these are ready for you to use and experiment with, but not yet ready for production.  Between now and the GA release, these libraries may undergo API changes.  We'd love your feedback!  If you use these libraries and like what you see, or you want to see changes, let us know in GitHub issues.
+
+## Getting Started
+
+Use the links below to get started with your language of choice.  You will notice that all the preview libraries are tagged with "preview".
+
+* [.NET release notes]({{site.baseurl}}{% link releases/2020-04/dotnet.md %})
+* [Java release notes]({{site.baseurl}}{% link releases/2020-04/java.md %})
+* [Python release notes]({{site.baseurl}}{% link releases/2020-04/python.md %})
+* [JavaScript release notes]({{site.baseurl}}{% link releases/2020-04/js.md %})
+
+If you want to dive deep into the content, the release notes linked above and the change logs they point to give more details on what has changed.
+
+## In depth: Azure Identity
 
 In the Azure SDK, `DefaultAzureCredential` is the recommended way to handle authentication across your local workstation and your deployment environment. It attempts to figure out what environment you are running in, and uses the most appropriate credential for the purpose. Its use and features are explained in our [previous blog post](https://azure.github.io/azure-sdk/posts/2020-02-25/defaultazurecredentials.html). The latest release of the Azure Identity library contains numerous improvements to improve the developer experience around authentication, including integration with more tools and better diagnostics.
 
