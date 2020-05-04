@@ -205,29 +205,6 @@ When a credential fails to authenticate, DefaultAzureCredential automatically tr
 
 In the latest release, if the configuration is present for a credential, but authentication fails, the entire chain fails, resulting in a faster "fail". We achieve this by adding an exception type `CredentialUnavailableException`. `DefaultAzureCredential` will only attempt to authenticate with the next credential if a `CredentialUnavailableException` is thrown from the current credential. In the above example, if the environment variables are present but authentication failed, the `EnvironmentCredential` will not throw `CredentialUnavailableException`, causing `DefaultAzureCredential` to propagate the exception and stop trying other credentials.
 
-### Improved logging support
-
-We added more log messages to assist in diagnosing authentication problems. You can now easily understand which credential is used to acquire a token. When you use the same code above to authenticate to Key Vault, on the local environment with `EnvironmentCredential` set up, Azure Identity will print the following logs:
-
-```
-Azure Identity => DefaultAzureCredential invoking NewChainedTokenCredential
-Azure Identity => EnvironmentCredential invoking ClientSecretCredential
-Azure Identity => GetToken() result for ClientSecretCredential: SUCCESS
-Azure Identity => Scopes: [https://vault.azure.net]
-```
-
-When deployed to a virtual machine in Azure with Managed Identities, Azure Identity will print the following logs:
-
-```
-Azure Identity => DefaultAzureCredential invoking NewChainedTokenCredential
-Azure Identity => ERROR in EnvironmentCredential: Missing environment variable AZURE_TENANT_ID
-Azure Identity => GetToken() result for ManagedIdentityCredential: SUCCESS
-Azure Identity => Scopes: [https://vault.azure.net]
-Azure Identity => Managed Identity environment: IMDS
-```
-
-With this log you will be able to trace to each credential attempted by `DefaultAzureCredential` and diagnose where the issue comes from.
-
 ## Community acknowledgements
 I'd like to give special thanks to Alejandro Baeza(https://github.com/alexbaeza) and Kiran Hegde(https://github.com/HankiGreed) for helping us improve the Azure Identity libraries on GitHub. Your contributions have helped many people and organizations succeed!
 
