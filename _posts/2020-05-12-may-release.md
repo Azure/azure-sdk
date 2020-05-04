@@ -9,20 +9,16 @@ author_github: jianghaolu
 
 Welcome to the May release of the Azure SDK.  We have updated the following libraries:
 
-* App Configuration (Java and Python only)
 * Event Hubs
-* Key Vault
-* Storage
+* Storage (Python only)
 
 These are ready to use in your production applications.  You can find details of all released libraries on [our releases page]({{site.baseurl}}{% link releases/latest/index.md %}).
 
 New preview releases:
 
-* Cosmos (Java only)
 * Form Recognizer
 * Search
 * Service Bus
-* Text Analytics
 
 In addition, there is a new preview release for Azure Identity, which features improvements to the `DefaultAzureCredential` to better support common developer workflows.  See below for more details.
 
