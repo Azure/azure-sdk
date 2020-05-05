@@ -68,6 +68,19 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### DateProtection Blob Extensions [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Extensions.AspNetCore.DataProtection.Blobs_1.0.0-preview.2/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Blobs/CHANGELOG.md)
 
+- Package renamed to Azure.Extensions.AspNetCore.DataProtection.Blobs
+
+### DateProtection Keys Extensions [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Extensions.AspNetCore.DataProtection.Blobs_1.0.0-preview.2/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Keys/CHANGELOG.md)
+
+- Package renamed to Azure.Extensions.AspNetCore.DataProtection.Keys
+- Default overload of ProtectKeysWithAzureKeyVault now takes a Uri to be consistent with other extension methods and KeyVault clients.
+
+### Configuration Secrets Extensions [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Extensions.AspNetCore.Configuration.Secrets_1.0.0-preview.2/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Blobs/CHANGELOG.md)
+
+- Package renamed to Azure.Extensions.AspNetCore.DataProtection.Blobs
+
+
+
 ## Latest Releases
 
 {% assign packages = site.data.releases.latest.dotnet-packages %}
