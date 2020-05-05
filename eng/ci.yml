@@ -19,7 +19,7 @@ steps:
   displayName: Install project dependencies
 
 - script: |
-    bundle exec jekyll build
+    bundle exec jekyll build --future
   displayName: Build Site
 
 - pwsh: |
