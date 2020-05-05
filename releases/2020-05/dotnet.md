@@ -25,6 +25,8 @@ The Azure SDK team is pleased to announce our {{ page.date | date: "%B %Y" }} cl
 
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
+    $> dotnet add package Azure.Identity --version 1.2.0-preview.3
+
     $> dotnet add package Azure.Messaging.EventHubs
     $> dotnet add package Azure.Messaging.EventHubs.Processor
 
@@ -52,6 +54,10 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 ### Event Hubs Processor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md)
 
 - The set of features from v5.1.0-preview.1 are now generally available.  This includes the enhancements to the `EventProcessorClient` for improved stability, resilience, and performance.
+
+### Identity [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/identity/Azure.Identity/CHANGELOG.md#120-preview3)
+
+- New API allowing applications to control when `DeviceCodeCredential` and `InteractiveBrowserCredential` prompt for authentication.
 
 ### Search [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md)
 
