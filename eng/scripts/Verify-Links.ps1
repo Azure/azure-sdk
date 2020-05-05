@@ -142,7 +142,8 @@ function GetLinks([System.Uri]$pageUri)
         $content = Get-Content ($file + "index.html")
       }
       else {
-        Write-Error "Don't know how to process file $pageUri"
+        # Fallback to just reading the content directly
+        $content = Get-Content $file
       }
     }
   }
