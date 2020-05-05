@@ -66,6 +66,8 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Do not attempt to autocomplete messages with the processor if the user settled the message in their callback.
 - Add SendAsync overload accepting an IEnumerable of ServiceBusMessage.
 
+### DateProtection Blob Extensions [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Extensions.AspNetCore.DataProtection.Blobs_1.0.0-preview.2/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Blobs/CHANGELOG.md)
+
 ## Latest Releases
 
 {% assign packages = site.data.releases.latest.dotnet-packages %}
