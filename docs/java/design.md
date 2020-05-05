@@ -192,11 +192,11 @@ The client library wraps HTTP requests so it's important to support standard net
 
 Azure services use a variety of different authentication schemes to allow clients to access the service.  Conceptually, there are two entities responsible in this process: a credential and an authentication policy.  Credentials provide confidential authentication data.  Authentication policies use the data provided by a credential to authenticate requests to the service.  
 
-Primarily, all Azure services should support Azure Active Directory OAuth token authentication, and all clients must support authenticating requests in this manner.
+Primarily, all Azure services should support Azure Active Directory OAuth token authentication, and all clients of services that support Azure Active Directory OAuth token authentication must support authenticating requests in this manner.
 
-{% include requirement/MUST id="java-auth-fluent-builder" %} provide service client fluent builder APIs that accepts an instance of the TokenCredential abstraction from Azure Core.
+{% include requirement/MUST id="java-auth-fluent-builder" %} provide service client fluent builder APIs that accepts an instance of the appropriate azure-core credential abstraction, namely `TokenCredential`, `BasicAuthenticationCredential`, or `AzureKeyCredential`.
 
-{% include requirement/MUSTNOT id="auth-client-no-token-persistence" %} persist, cache, or reuse tokens returned from the token credential. This is __CRITICAL__ as credentials generally have a short validity period and the token credential is responsible for refreshing these.
+{% include requirement/MUSTNOT id="auth-client-no-token-persistence" %} persist, cache, or reuse tokens beyond the validity period of the given token. If any caching is implemented, the token credential must be given the opportunity to refresh before it expires.
 
 {% include requirement/MUST id="java-auth-use-core" %} use authentication policy implementations from the Azure Core library where available.
 
@@ -748,6 +748,8 @@ Use a no-args constructor and a fluent setter API to configure the model class. 
 {% include requirement/MUSTNOT id="java-models-builder" %} offer a builder class for model classes.
 
 {% include requirement/SHOULD id="java-models-interface" %} put model classes that are intended as service return types only, and which have undesirable public API (which is not intended for consumers of the client library) into the `.implementation.models` package. In its place, an interface should be put into the public-facing `.models` package, and it should be this type that is returned through the public API to end users. Examples of situations where this is applicable include when there are constructors or setters on a type which receive implementation types, or when a type should be immutable but needs to be mutable internally. The interface should have the model type name, and the implementation (within `.implementation.models`) should be named `<interfaceName>Impl`.
+
+**Note:** Extra caution must be taken to ensure that the returned interface has had consideration given to any future evolution of the interface, as growing an interface presents its own set of challenges (that is, [default methods](https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html)).
 
 {% include requirement/MUST id="java-models-fluent" %} provide a fluent API where appropriate. Setter methods in model classes are required to return `this` to enable method chaining.
 
