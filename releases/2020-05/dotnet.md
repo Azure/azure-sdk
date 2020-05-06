@@ -25,6 +25,8 @@ The Azure SDK team is pleased to announce our {{ page.date | date: "%B %Y" }} cl
 
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
+    $> dotnet add package Azure.AI.FormRecognizer --version 1.0.0-preview.2
+
     $> dotnet add package Azure.Messaging.EventHubs
     $> dotnet add package Azure.Messaging.EventHubs.Processor
 
@@ -52,6 +54,11 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 ### Event Hubs Processor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md)
 
 - The set of features from v5.1.0-preview.1 are now generally available.  This includes the enhancements to the `EventProcessorClient` for improved stability, resilience, and performance.
+
+### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#100-preview2-05-06-2020)
+
+- All of `FormRecognizerClient`'s `FormRecognizerClientOptions` are now passed to the client returned by
+`FormRecognizerClient.GetFormTrainingClient`.
 
 ### Search [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md)
 
