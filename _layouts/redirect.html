@@ -3,6 +3,12 @@
     <head>
         <meta http-equiv="refresh" content="0;url={{ page.redirect_uri | relative_url }}"/>
         <title>Page Moved</title>
+        {% if site.google_analytics %}
+        {% include google_analytics.html %}
+        {% endif %}
+        {% if site.app_insights %}
+        {% include app_insights.html %}
+        {% endif %}
     </head>
     <body>
         This page has moved.  Click <a href="{{ page.redirect_uri | relative_url }}">here</a> to go to the new page>
