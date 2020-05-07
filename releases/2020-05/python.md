@@ -53,9 +53,13 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Changelog
 
-### Azure Storage
+### Storage
 
 #### Blob [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md)
+
+- This release contains bug fixes to improve the quality of the library
+
+#### File Data Lake [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md)
 
 - This release contains bug fixes to improve the quality of the library
 
@@ -67,11 +71,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Updated uAMQP dependency to 1.2.7.
   - Fixed bug in setting certificate of tlsio on MacOS. #7201
   - Fixed bug that caused segmentation fault in network tracing on MacOS when setting `logging_enable` to `True` in `EventHubConsumerClient` and `EventHubProducerClient`.
-
-
-#### File DataLake [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md)
-
-- This release contains bug fixes to improve the quality of the library
 
 
 ### Identity [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/CHANGELOG.md)
