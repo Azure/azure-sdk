@@ -18,6 +18,7 @@ The Azure SDK team is pleased to announce our {{ page.date | date: "%B %Y" }} cl
 
 #### Preview
 
+- Form Recognizer
 - Search
 - Service Bus
 
@@ -25,8 +26,10 @@ The Azure SDK team is pleased to announce our {{ page.date | date: "%B %Y" }} cl
 
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
-    $> dotnet add package Azure.Identity --version 1.2.0-preview.3
+    $> dotnet add package Azure.AI.FormRecognizer --version 1.0.0-preview.2
 
+    $> dotnet add package Azure.Identity --version 1.2.0-preview.3
+    
     $> dotnet add package Azure.Messaging.EventHubs
     $> dotnet add package Azure.Messaging.EventHubs.Processor
 
@@ -55,6 +58,11 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - The set of features from v5.1.0-preview.1 are now generally available.  This includes the enhancements to the `EventProcessorClient` for improved stability, resilience, and performance.
 
+### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#100-preview2-05-06-2020)
+
+- All of `FormRecognizerClient`'s `FormRecognizerClientOptions` are now passed to the client returned by
+`FormRecognizerClient.GetFormTrainingClient`.
+
 ### Identity [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/identity/Azure.Identity/CHANGELOG.md#120-preview3)
 
 - New API allowing applications to control when `DeviceCodeCredential` and `InteractiveBrowserCredential` prompt for authentication.
@@ -71,6 +79,21 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Add SessionInitializingAsync/SessionClosingAsync events in ServiceBusSessionProcessor.
 - Do not attempt to autocomplete messages with the processor if the user settled the message in their callback.
 - Add SendAsync overload accepting an IEnumerable of ServiceBusMessage.
+
+### DateProtection Blob Extensions [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Extensions.AspNetCore.DataProtection.Blobs_1.0.0-preview.2/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Blobs/CHANGELOG.md)
+
+- Package renamed to Azure.Extensions.AspNetCore.DataProtection.Blobs
+
+### DateProtection Keys Extensions [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Extensions.AspNetCore.DataProtection.Blobs_1.0.0-preview.2/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Keys/CHANGELOG.md)
+
+- Package renamed to Azure.Extensions.AspNetCore.DataProtection.Keys
+- Default overload of ProtectKeysWithAzureKeyVault now takes a Uri to be consistent with other extension methods and KeyVault clients.
+
+### Configuration Secrets Extensions [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Extensions.AspNetCore.Configuration.Secrets_1.0.0-preview.2/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Blobs/CHANGELOG.md)
+
+- Package renamed to Azure.Extensions.AspNetCore.DataProtection.Blobs
+
+
 
 ## Latest Releases
 

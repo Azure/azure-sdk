@@ -22,6 +22,7 @@ This release includes the following:
 - Identity
 - Search
 - Service Bus
+- Form Recognizer
 
 ## Installation Instructions
 
@@ -92,6 +93,17 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Support for message scheduling and cancellation.
 - Support for implicitly sending a list of messages as a batch, for ease of use.
 - Reorganization and polish of exception hierarchy, to both better align with idiomatic error responses and provide internal consistency.
+
+### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+
+- This release contains bug fixes to improve quality
+- `__repr__` has been added to all of the models
+
+#### Key Bug Fixes
+
+- The Form Recognizer client libraries (versions 1.0.0b1 and 1.0.0b2) have a known bug which occurs when a multi-page 
+document containing blank pages is analyzed by the recognize custom form methods (without labels). If the parameter 
+`include_text_content` is set to `True`, the `text_content` attribute will not be populated with any data.
 
 ## Latest Releases
 

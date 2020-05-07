@@ -98,9 +98,11 @@
 </div>
 <!-- /#main -->
     </div>
-
+    {% if site.google_analytics %}
+    {% include google_analytics.html %}
+    {% endif %}
+    {% if site.app_insights %}
+    {% include app_insights.html %}
+    {% endif %}
 </body>
-{% if site.google_analytics %}
-{% include google_analytics.html %}
-{% endif %}
 </html>
