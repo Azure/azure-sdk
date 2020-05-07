@@ -39,8 +39,7 @@ When you submit a pull request, a CLA-bot will automatically determine whether y
 a CLA and decorate the PR appropriately (e.g., label, comment). Simply follow the instructions
 provided by the bot. You will only need to do this once across all repos using our CLA.
 
-Please see our [contributing guide](CONTRIBUTING.md) for complete instructions on how you can contribute to this website. 
-For instructions on how to contribute to the SDKs check CONTRIBUTING.md in each language repo
+Please see our [contributing guide](CONTRIBUTING.md) for complete instructions on how you can contribute to this website. For instructions on how to contribute to the SDKs check the CONTRIBUTING.md in each language repo.
 
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
 For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
