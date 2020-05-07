@@ -383,19 +383,35 @@ Polling configuration may be used only in the absence of relevant retry-after he
 
 {% include requirement/MUST id="java-lro-continuation" %} provide a way to instantiate a poller with the serialized state of another poller to begin where it left off, for example by passing the state as a parameter to the same method which started the operation, or by directly instantiating a poller with that state.
 
-{% include requirement/MUSTNOT id="java-lro-cancellation" %} cancel the long-running operation when cancellation is requested via a cancellation token. The cancellation token is cancelling the polling operation and should not have any effect on the service.
+{% include requirement/MUSTNOT id="java-lro-cancellation" %} cancel the client side polling operation when cancellation is requested. This cancellation should not have any effect on the service.
 
 {% include requirement/MUST id="java-lro-logging" %} log polling status at the `Info` level (including time to next retry)
 
 {% include requirement/MUST id="java-lro-progress-reporting" %} expose a progress reporting mechanism to the consumer if the service reports progress as part of the polling operation. 
 
-{% include requirement/MUST id="java-lro-poller-class" %} use the `com.azure.core.polling.Poller` class to represent long-running operations.  The long-running operation API pattern is:
+{% include requirement/MUST id="java-lro-poller-class" %} use the `com.azure.core.util.polling.PollerFlux` and `com.azure.core.util.polling.SyncPoller` to represent long-running operations. The long-running operation API pattern is:
 
 ```java
+// Async client
+public class <service_name>AsyncClient {
+    // PollerFlux<T, U> is a type in azure core
+    // T is the type of long-running operation poll response value
+    // U is the type of the final result of long-running operation
+    public PollerFlux<T, U> begin<operation_name>(<parameters>) {
+        return new PollerFlux<>(...);
+    }
+}
+```
+
+```java
+// sync client
 public class <service_name>Client {
-    // Poller<T> is a type in azure core
-    public Poller<T> begin<operation_name>(<parameters>) {
-        return new Poller<>(...);
+    // SyncPoller<T, U> is a type in azure core
+    // T is the type of long-running operation poll response value
+    // U is the type of the final result of long-running operation
+    public SyncPoller<T, U> begin<operation_name>(<parameters>) {
+        PollerFlux<> asyncPoller = asyncClient.begin<operation_name>(<parameters>);
+        return asyncPoller.getSyncPoller();
     }
 }
 ```
