@@ -14,6 +14,7 @@ The Azure SDK team is pleased to announce our {{ page.date | date: "%B %Y" }} cl
 
 #### Preview
 
+- Service Bus
 
 ## Installation Instructions
 
@@ -113,7 +114,7 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-messaging-servicebus</artifactId>
-  <version>7.0.0-beta.1</version>
+  <version>7.0.0-beta.2</version>
 </dependency>
 
 <dependency>
@@ -171,6 +172,12 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Changelog
 
+Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
+
+### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md#700-beta2-2020-05-07)
+
+- Allow receiving from first available single and multiple sessions through ServiceBusReceiverAsyncClient.
+- Add send overload that accepts an Iterable of ServiceBusMessage.
 
 ## Need help
 
