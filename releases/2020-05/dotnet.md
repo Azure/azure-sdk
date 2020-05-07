@@ -28,6 +28,8 @@ To install any of our packages, please search for them via `Manage NuGet Package
 
     $> dotnet add package Azure.AI.FormRecognizer --version 1.0.0-preview.2
 
+    $> dotnet add package Azure.Identity --version 1.2.0-preview.3
+    
     $> dotnet add package Azure.Messaging.EventHubs
     $> dotnet add package Azure.Messaging.EventHubs.Processor
 
@@ -60,6 +62,10 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - All of `FormRecognizerClient`'s `FormRecognizerClientOptions` are now passed to the client returned by
 `FormRecognizerClient.GetFormTrainingClient`.
+
+### Identity [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/identity/Azure.Identity/CHANGELOG.md#120-preview3)
+
+- New API allowing applications to control when `DeviceCodeCredential` and `InteractiveBrowserCredential` prompt for authentication.
 
 ### Search [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md)
 
