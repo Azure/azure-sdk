@@ -29,13 +29,18 @@ To install any of our packages, please search for them via `Manage NuGet Package
     $> dotnet add package Azure.AI.FormRecognizer --version 1.0.0-preview.2
 
     $> dotnet add package Azure.Identity --version 1.2.0-preview.3
-    
+
     $> dotnet add package Azure.Messaging.EventHubs
     $> dotnet add package Azure.Messaging.EventHubs.Processor
 
     $> dotnet add package Azure.Messaging.ServiceBus --version 7.0.0-preview.2
 
     $> dotnet add package Azure.Search.Documents --version 1.0.0-preview.3
+
+    $> dotnet add package Azure.Storage.Blobs
+    $> dotnet add package Azure.Storage.Files.Datalake
+    $> dotnet add package Azure.Storage.Files.Shares
+    $> dotnet add package Azure.Storage.Common
 
 ## Feedback
 
@@ -52,7 +57,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md)
 
-- The set of features from v5.1.0-preview.1 are now generally available.  This includes the `EventProcessor<TPartition>` and `PartitionReceiver` types which focus on advanced application scenarios which require greater low-level control. 
+- The set of features from v5.1.0-preview.1 are now generally available.  This includes the `EventProcessor<TPartition>` and `PartitionReceiver` types which focus on advanced application scenarios which require greater low-level control.
 
 ### Event Hubs Processor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md)
 
@@ -92,6 +97,25 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 ### Configuration Secrets Extensions [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Extensions.AspNetCore.Configuration.Secrets_1.0.0-preview.2/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Blobs/CHANGELOG.md)
 
 - Package renamed to Azure.Extensions.AspNetCore.DataProtection.Blobs
+
+### Azure Storage
+
+#### Blobs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md)
+
+- This release includes bug fixes to improve the quality of the library.
+
+#### Datalake [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md)
+
+- Added DataLakeFileClient.Upload() overload that allows setting metadata, permissions, and umask.
+- Added DataLakeFileSystemClient.GetPathClient().
+
+#### File Shares [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md)
+
+- This release includes bug fixes to improve the quality of the library.
+
+#### Common [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Common/CHANGELOG.md)
+
+- This release includes bug fixes to improve the quality of the library.
 
 
 
