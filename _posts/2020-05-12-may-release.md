@@ -28,10 +28,10 @@ We believe these are ready for you to use and experiment with, but not yet ready
 
 Use the links below to get started with your language of choice.  You will notice that all the preview libraries are tagged with "preview".
 
-* [.NET release notes]({{site.baseurl}}{% link releases/2020-04/dotnet.md %})
-* [Java release notes]({{site.baseurl}}{% link releases/2020-04/java.md %})
-* [Python release notes]({{site.baseurl}}{% link releases/2020-04/python.md %})
-* [JavaScript release notes]({{site.baseurl}}{% link releases/2020-04/js.md %})
+* [.NET release notes]({{site.baseurl}}{% link releases/2020-05/dotnet.md %})
+* [Java release notes]({{site.baseurl}}{% link releases/2020-05/java.md %})
+* [Python release notes]({{site.baseurl}}{% link releases/2020-05/python.md %})
+* [JavaScript release notes]({{site.baseurl}}{% link releases/2020-05/js.md %})
 
 If you want to dive deep into the content, the release notes linked above and the change logs they point to give more details on what has changed.
 
