@@ -47,7 +47,7 @@ In this release, we will support authentication via standard tooling: Visual Stu
 
 1. `EnvironmentCredential`
 1. `ManagedIdentityCredential`
-1. `SharedTokenCacheCredential` (Windows only, with MacOS & Linux supporting comming soon)
+1. `SharedTokenCacheCredential` (Windows only, with MacOS & Linux supporting coming soon)
 1. `VisualStudioCredential` (.NET only)
 1. `IntelliJCredential` (Java only)
 1. `VisualStudioCodeCredential`
@@ -201,7 +201,7 @@ The `SecretClient` created with the above code will only attempt authentication 
 
 ### Fail the authentication, don't try the next
 
-When a credential fails to authenticate, DefaultAzureCredential automatically trys the next credential. This can cause problems when you partially configure a credential. For example, in the past, if the secret in the environment variable `AZURE_CLIENT_SECRET` expired, `DefaultAzureCredential` will try the other options. If you have accounts signed in VS Code or Azure CLI, `DefaultAzureCredential` may be using those accounts without you realizing it.
+When a credential fails to authenticate, DefaultAzureCredential automatically tries the next credential. This can cause problems when you partially configure a credential. For example, in the past, if the secret in the environment variable `AZURE_CLIENT_SECRET` expired, `DefaultAzureCredential` will try the other options. If you have accounts signed in VS Code or Azure CLI, `DefaultAzureCredential` may be using those accounts without you realizing it.
 
 In the latest release, if the configuration is present for a credential, but authentication fails, the entire chain fails, resulting in a faster "fail". We achieve this by adding an exception type `CredentialUnavailableException`. `DefaultAzureCredential` will only attempt to authenticate with the next credential if a `CredentialUnavailableException` is thrown from the current credential. In the above example, if the environment variables are present but authentication failed, the `EnvironmentCredential` will not throw `CredentialUnavailableException`, causing `DefaultAzureCredential` to propagate the exception and stop trying other credentials.
 
