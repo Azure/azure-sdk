@@ -601,9 +601,11 @@ public final class <service_name>ClientBuilder {
 }
 ```
 
+{% include requirement/MUST id="java-service-client-fluent-builder-multiple-clients" %} offer build method 'overloads' for when a builder can build multiple client types. These methods must be named in the form `build<client>Client()` and `build<client>AsyncClient()`. For example, `buildBlobClient()` and `buildBlobAsyncClient()`.
+
 {% include requirement/MUST id="java-service-client-builder-annotation" %} annotate service client builders with the `@ServiceClientBuilder` annotation.
 
-{% include requirement/MUST id="java-service-client-builder-consistency" %} ensure consistency across all client libraries, by using the following names for client builder fluent API:
+{% include requirement/MUST id="java-service-client-builder-consistency" %} ensure consistency across all client libraries, by using the following names for client builder fluent API (use these as appropriate - not all APIs must be present on all client libraries, for example AMQP-based libraries need not provide the HTTP-specific API):
 
 | Name                 | Intent                                                                                                 |
 |----------------------|--------------------------------------------------------------------------------------------------------|
@@ -699,10 +701,11 @@ public class BlobContainerClient {
     public BlobInfo createBlob(String blobName);
 }
 
+@Fluent
 public class CreateBlobOptions {
     private String blobName;
     private PublicAccessType access;
-    private Map<string, string> metadata;
+    private Map<String, String> metadata;
 
     // Constructor enforces the requirement that blobName is always set
     public CreateBlobOptions(String blobName) {
@@ -763,7 +766,7 @@ Use a no-args constructor and a fluent setter API to configure the model class. 
 
 {% include requirement/MUSTNOT id="java-models-builder" %} offer a builder class for model classes.
 
-{% include requirement/SHOULD id="java-models-interface" %} put model classes that are intended as service return types only, and which have undesirable public API (which is not intended for consumers of the client library) into the `.implementation.models` package. In its place, an interface should be put into the public-facing `.models` package, and it should be this type that is returned through the public API to end users. Examples of situations where this is applicable include when there are constructors or setters on a type which receive implementation types, or when a type should be immutable but needs to be mutable internally. The interface should have the model type name, and the implementation (within `.implementation.models`) should be named `<interfaceName>Impl`.
+{% include requirement/MUST id="java-models-interface" %} put model classes that are intended as service return types only, and which have undesirable public API (which is not intended for consumers of the client library) into the `.implementation.models` package. In its place, an interface should be put into the public-facing `.models` package, and it should be this type that is returned through the public API to end users. Examples of situations where this is applicable include when there are constructors or setters on a type which receive implementation types, or when a type should be immutable but needs to be mutable internally. The interface should have the model type name, and the implementation (within `.implementation.models`) should be named `<interfaceName>Impl`.
 
 **Note:** Extra caution must be taken to ensure that the returned interface has had consideration given to any future evolution of the interface, as growing an interface presents its own set of challenges (that is, [default methods](https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html)).
 
