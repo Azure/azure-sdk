@@ -14,6 +14,7 @@ The Azure SDK team is pleased to announce our {{ page.date | date: "%B %Y" }} cl
 
 #### Preview
 
+- Form Recognizer
 - Service Bus
 
 ## Installation Instructions
@@ -24,7 +25,7 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-ai-formrecognizer</artifactId>
-  <version>1.0.0-beta.1</version>
+  <version>1.0.0-beta.2</version>
 </dependency>
 
 <dependency>
@@ -156,12 +157,6 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-ai-textanalytics</artifactId>
-  <version>1.0.0-beta.4</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-core-tracing-opentelemetry</artifactId>
   <version>1.0.0-beta.4</version>
 </dependency>
 ```
