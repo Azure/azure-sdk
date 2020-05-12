@@ -114,6 +114,10 @@ If you'd like to contribute to this library, please read the [contributing guide
 ## Links to language repos
 
 [Python Readme Template](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/template/azure-template/README.md)
+
 [JavaScript Readme Template](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/template/template/README.md)
+
 [Java Readme Template](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/template/azure-sdk-template/README.md)
+
 [.net Readme Template](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/template/Azure.Template/README.md)
+
