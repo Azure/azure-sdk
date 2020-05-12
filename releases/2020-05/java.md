@@ -180,6 +180,7 @@ Here are some of the highlights:
 
 ### Search ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/search/azure-search-documents/CHANGELOG.md#100-beta3-2020-05-05))
 Here are some of the highlights:
+#### New Features 
 - Changed Azure Search service version from `2019-05-06` to `2019-05-06-Preview`
 - Added helper class `FieldBuilder` which converts a strongly-typed model class to `List<Field>`. 
 
