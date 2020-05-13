@@ -55,12 +55,12 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-identity</artifactId>
-  <version>1.0.5</version>
+  <version>1.0.6</version>
 </dependency>
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-identity</artifactId>
-  <version>1.1.0-beta.3</version>
+  <version>1.1.0-beta.4</version>
 </dependency>
 
 <dependency>
@@ -166,6 +166,22 @@ Here are some of the highlights:
 - Added support for sending a collection of events as a single batch from `EventHubProducerClient` and `EventHubProducerAsyncClient`.
 - Added support for heartbeat for single process event function in Event Processor Client.
 - Added support for receiving events in batches in Event Processor Client.
+
+### Identity
+
+#### 1.0.6 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-identity_1.0.6/sdk/identity/azure-identity/CHANGELOG.md#106-2020-05-05))
+
+- Update azure-core dependency to version 1.5.0.
+- Fix `MSIToken` expiry time parsing for Azure App Service platforms.
+
+#### 1.1.0-beta.4 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-identity_1.1.0-beta.4/sdk/identity/azure-identity/CHANGELOG.md#110-beta4-2020-05-06))
+
+- Added `IntelliJCredential` support in `DefaultAzureCredential`.
+- Added `VsCodeCredential` support in `DefaultAzureCredential`.
+- Added support to disable specific credentials in `DefaultAzureCredential` authentication flow.
+- Added Shared Token cache support for MacOS Keychain, Gnome Keyring, and plain text for other Linux environments
+- Added option to write to shared token cache from `InteractiveBrowserCredential`, `AuthorizationCodeCredential`, `UsernamePasswordCredential` and `DeviceCodeCredential`
+
 
 ### Service Bus ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md#700-beta2-2020-05-07))
 
