@@ -28,6 +28,8 @@ The release notes consist of four sections:
 
 ## What's a "developer impacting change"?
 
+UPDATE
+
 We don't want to advertise every single bug fix as most of them do not impact the way customers think about developing the client.  The change log provides an exhaustive list of changes.  We don't need to duplicate it.
 
 A critical change is one that the developer would either need to know or want to know.
