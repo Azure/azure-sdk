@@ -43,23 +43,13 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-messaging-eventhubs</artifactId>
-  <version>5.0.3</version>
-</dependency>
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-messaging-eventhubs</artifactId>
-  <version>5.1.0-beta.1</version>
+  <version>5.1.0</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-messaging-eventhubs-checkpointstore-blob</artifactId>
-  <version>1.0.3</version>
-</dependency>
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-messaging-eventhubs-checkpointstore-blob</artifactId>
-  <version>1.1.0-beta.1</version>
+  <version>1.1.0</version>
 </dependency>
 
 <dependency>
@@ -167,7 +157,18 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Changelog
 
+### Event Hubs ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-messaging-eventhubs_5.1.0/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md))
+
+Here are some of the highlights:
+
+#### New Features
+
+- Added support for sending a collection of events as a single batch from `EventHubProducerClient` and `EventHubProducerAsyncClient`.
+- Added support for heartbeat for single process event function in Event Processor Client.
+- Added support for receiving events in batches in Event Processor Client.
+
 ### Service Bus ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md#700-beta2-2020-05-07))
+
 Here are some of the highlights:
 #### New Features 
 - Allow receiving from first available single and multiple sessions through ServiceBusReceiverAsyncClient.
