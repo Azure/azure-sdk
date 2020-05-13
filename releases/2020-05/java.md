@@ -169,7 +169,7 @@ Here are some of the highlights:
 
 ### Identity
 
-#### 1.0.6 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/release/identity-service/sdk/identity/azure-identity/CHANGELOG.md#105-2020-04-07))
+#### 1.0.6 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-identity_1.0.6/sdk/identity/azure-identity/CHANGELOG.md#106-2020-05-05))
 
 - Update azure-core dependency to version 1.5.0.
 - Fix `MSIToken` expiry time parsing for Azure App Service platforms.
