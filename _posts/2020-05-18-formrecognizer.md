@@ -9,24 +9,26 @@ repository: azure/azure-sdk
 
 Ever wondered the evolution of computer-assisted data entry and how it slowly took away the need for manual intervention in data entry procedures?
 
-As part of this digital transformation, the customers felt the need to have an AI solution to reduce the cost of converting paper/digital documents (invoices, receipts, business cards, etc.) into structured data for subsequent processing. The AI solution that Azure has to offer being, Azure Form Recognizer. Azure Form Recognizer is a cognitive service that uses machine learning technology to identify and extract key-value pairs and table data from form documents. It then outputs structured data that includes the relationships in the original file.
-Not just assiting with data entry, but Form recognizer could offer more with optimizing the auditing needs of customer to make informed business decisions by learning from their expense trends or aiding with document matching for platforms dealing with digital records.
+As part of this digital transformation, the customers soon felt a need to have an AI solution to automate and reduce the cost of converting paper/digital documents (invoices, receipts, business cards, etc.) into structured data for further processing and hence, Azure Form Recognizer. Azure Form Recognizer is an AI-powered document extraction cognitive service that uses machine learning technology to identify and extract key-value pairs and table data from form documents. It outputs recognized structured data and includes the relationships between the various fields in the original file.
+Applications of Form Recognizer service can seem to extend beyond just assiting with data entry. Form recognizer could also offer integrated solutions for optimizing the auditing needs of customer to aid them in making informed business decisions by learning from their expense trends or aiding with document matching for platforms dealing with digital records.
 
 ![]({{ site.base_url }}{% link images/posts/05182020-image1.png %})
 
 Lets take an example to understand how a customer might want to use Form Recognizer Azure service to populate expense fields from receipt url as part of an expense maintianing data entry app.
 
-The expense entry app user, would provide a receipt Url for which they want to recognize the relevant expense field information. The underlying Azure SDK client library then feeds this document to the [Form Recognizer](https://docs.microsoft.com/en-us/azure/cognitive-services/form-recognizer/). Although you can use any of our languages for this ([.NET](https://github.com/azure/azure-sdk-for-net), [Python](https://github.com/azure/azure-sdk-for-python), [Java](https://github.com/azure/azure-sdk-for-java), or [JavaScript/TypeScript](https://github.com/azure/azure-sdk-for-js)), we will be using Java for the examples today.
+The expense data entry app user, would need to provide a receipt Url for which they want to recognize the relevant expense field information. This could be a web app using Form Recognizer Azure SDK library internally. The underlying SDK client library then feeds this document Url to the [Form Recognizer](https://docs.microsoft.com/en-us/azure/cognitive-services/form-recognizer/) service. Let's see some code on how the app might want to use this library. Although you can use any of our languages for this ([.NET](https://github.com/azure/azure-sdk-for-net), [Python](https://github.com/azure/azure-sdk-for-python), [Java](https://github.com/azure/azure-sdk-for-java), or [JavaScript/TypeScript](https://github.com/azure/azure-sdk-for-js)), we will be using Java for the examples today.
 
 ## Recognize expense fields from receipt
 
-The Form Recognizer recognize receipt API includes a pretrained model for reading English sales receipts from the United States — the type used by restaurants, gas stations, retail. This model extracts key information such as the time and date of the transaction, merchant information, amounts of taxes and totals and more. In addition, the prebuilt receipt model is trained to recognize and return all of the text on a receipt.
+The Form Recognizer recognize receipt API includes a pretrained model for reading English sales receipts from the United States — the type used by restaurants, gas stations, retail. This model has already being trained to extract expense related key information such as the time and date of the transaction, merchant information, amounts of taxes and totals and more. In addition, the prebuilt receipt model is trained to recognize and return all of the text on a receipt.
 
 ```java
 public class AnalyzeDataApp {
+  // Create a formRecognizerClient
   private final FormRecognizerClient formRecognizerClient;
 
   public AnalyzeDataApp(String apiKey, String endpoint) {
+    // Authenticate the client with valid endpoint and API key
     this.formRecognizerClient = new FormRecognizerClientBuilder()
       .credential(new AzureKeyCredential(apiKey)))
       .endpoint(endpoint)
@@ -119,19 +121,23 @@ Let's create a method that exports/prints out the recognized layout information.
   }
 ```
 
-The Form Recognizer client library, can further be extended to provide completely customized and tailored data. It allows users to train models using their own data forms and then use those trained models for recognizing customized data!
-For starters, the user needs to provide a set of five input forms that should be used for training the model. 
-The custom training model API's additionally provide user convenience of training the models with or without labeled data. 
+The Form Recognizer client library, can further be extended to provide completely customized and tailored data. It allows users to train models using their own data forms and then use those trained models for recognizing customized forms!
+To do this, the user first needs to provide a set of five input forms (minimum) that they would want to use for training the model. 
+The custom training model API's additionally provide the user a convenience of training the models with or without labeled data. 
 
 ## Custom model training with Labels
-Custom models built using labeled data, does supervised learning to extract keys/value pairs of interest, using the labeled data information provided by the user. The process of labeling of data undergoes steps of creating tags/labels for text elements that you would want the model to recognize. The returned customized model results in better-suited model for the custom form at hand and also further can be used to produce models for more complex forms.
-Let's see an example of how to train a custom model and recognize form using that model.
+Custom models built using labeled data, does supervised learning to recognize keys/value pairs of special interest to the user. This is done by using the labeled data information provided by the user. The process of labeling of data undergoes steps of creating tags/labels for text elements that you would want the model to recognize more explicitly. Look for the [OCR Form Labeling Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application) open source project on github to assist you with labeling of your forms. Learn more about setting up the input data required for training with labels [here](https://docs.microsoft.com/en-us/azure/cognitive-services/form-recognizer/quickstarts/python-labeled-data#set-up-training-data). The returned customized model results in better-suited model for recognizing the custom form at hand and further can be used to produce models for more complex forms.
+Let's see an example of how to train a custom model using labeled data and recognize a form using that model.
 
 ```java
   public recognizeFormTextLayout(String trainingFilesUrl, String analyzeFileUrl) {
+
+    // Get a FormTrainingClient from FormRecognizerClient
+    FormTrainingClient formTrainingClient = this.formRecognizerClient.getFormTrainingClient();
+
     // Set to true to use labeled data when training
     boolean useTrainingLabels = true;
-    SyncPoller<OperationResult, CustomFormModel> trainingPoller = client.beginTraining(trainingFilesUrl, useTrainingLabels);
+    SyncPoller<OperationResult, CustomFormModel> trainingPoller = formTrainingClient.beginTraining(trainingFilesUrl, useTrainingLabels);
 
     // Wait for the poller to complete and get the final result
     CustomFormModel customFormModel = trainingPoller.getFinalResult();
@@ -152,6 +158,7 @@ Let's see an example of how to train a custom model and recognize form using tha
     // Wait for the poller to complete and get the final result
     IterableStream<RecognizedForm> recognizedForms = recognizeFormPoller.getFinalResult();
 
+    // Iterate over each page of the form
     recognizedForms.forEach(form -> {
       System.out.println("----------- Recognized Form -----------");
       form.getFields().forEach((label, formField) -> {
@@ -170,8 +177,57 @@ This feature allows customers to submit their input forms, without requiring lab
 
 The API differentiates unlabeled and labeled training of models with the presence of boolean parameter `useTrainingLabels` If `useTrainingLabels = false` the `beginTraining` API performs model training without labels.
 
-## Managing Account/ Management API?
-// Should be mentioned?
+## Managing your Cognitive Services Account
+The SDK client library for Form Recognizer additionally offers customers with API's to learn more about their Cognitive services account. Users can manage their account by getting subscription account information or can dive into specifics for a particular model or even delete a model if no longer needed!
+
+Let's see a code example of how this looks:
+
+```java
+  public manageCustomModels() {
+
+    // Get a FormTrainingClient from FormRecognizerClient
+    FormTrainingClient formTrainingClient = this.formRecognizerClient.getFormTrainingClient();
+
+    // First, we see how many custom models we have, and what our model limit is for this account
+    AccountProperties accountProperties = client.getAccountProperties();
+    System.out.printf("The account has %s custom models, and we can have at most %s custom models",
+        accountProperties.getCustomModelCount(), accountProperties.getCustomModelLimit());
+
+    // Next, we get a paged list of all of our custom models
+    PagedIterable<CustomFormModelInfo> customModels = client.getModelInfos();
+    System.out.println("We have following models in the account:");
+    customModels.forEach(customFormModelInfo -> {
+        System.out.printf("Model Id: %s%n", customFormModelInfo.getModelId());
+        modelId.set(customFormModelInfo.getModelId());
+        // get custom model info for each of the listed models
+        CustomFormModel customModel = client.getCustomModel(customFormModelInfo.getModelId());
+        System.out.printf("Model Id: %s%n", customModel.getModelId());
+        System.out.printf("Model Status: %s%n", customModel.getModelStatus());
+        System.out.printf("Created on: %s%n", customModel.getCreatedOn());
+        System.out.printf("Updated on: %s%n", customModel.getLastUpdatedOn());
+        customModel.getSubModels().forEach(customFormSubModel -> {
+            System.out.printf("Custom Model Form type: %s%n", customFormSubModel.getFormType());
+            System.out.printf("Custom Model Accuracy: %.2f%n", customFormSubModel.getAccuracy());
+            if (customFormSubModel.getFieldMap() != null) {
+                customFormSubModel.getFieldMap().forEach((fieldText, customFormModelField) -> {
+                    System.out.printf("Field Text: %s%n", fieldText);
+                    System.out.printf("Field Accuracy: %.2f%n", customFormModelField.getAccuracy());
+                });
+            }
+
+        });
+    });
+    
+    // Delete a Custom Model
+    System.out.printf("Deleted model with model Id: %s operation completed with status: %s%n", modelId.get(),
+        client.deleteModelWithResponse(modelId.get(), Context.NONE).getStatusCode());
+  }
+```
+
+## Coming up
+Stay tuned for the June release of the Azure SDK as it would add:
+- Support for Copy Custom Model API
+  Now the customers, can further share and copy their custom models between regions and subscriptions using the new Copy Custom Model feature. 
 
 ## Further documentation
 
