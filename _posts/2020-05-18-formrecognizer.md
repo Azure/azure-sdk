@@ -7,19 +7,19 @@ author_github: savaity
 repository: azure/azure-sdk
 ---
 
-Data entry is boring. We all hate it, but one team in Azure Cognitive Service decided we needed a better way that can take away the need to manually enter data. As part of a digital transformation, users can leverage an AI solution to automate and reduce the cost of converting paper documents (such as invoices, receipts, and business cards) into structured data for further processing.
-[Azure Form Recognizer](https://docs.microsoft.com/en-us/azure/cognitive-services/form-recognizer/) is an Azure cognitive service focused on using machine learning to identify and extract key-value pairs and table data from scanned paper documents. Applications for Form Recognizer service can extend beyond just assisting with data entry. It could also be used in integrated solutions for optimizing the auditing needs of customers, letting them make informed business decisions by learning from their expense trends or matching documents with digital records.
+Data entry is boring. We all hate it, but one team in Azure Cognitive Service decided we needed a better way that can take away the need to manually enter data. As part of a digital transformation, users can leverage an AI solution to automate and reduce the cost of converting paper documents (such as invoices and receipts) into structured data for further processing.
+[Azure Form Recognizer](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/) is an Azure Cognitive Service focused on using machine learning to identify and extract key-value pairs and table data from scanned paper documents. Applications for Form Recognizer service can extend beyond just assisting with data entry. It could also be used in integrated solutions for optimizing the auditing needs of users, letting them make informed business decisions by learning from their expense trends or matching documents with digital records.
 
 ![]({{ site.base_url }}{% link images/posts/05182020-image1.png %})
 
-Let's take an example to understand how a customer might want to use Azure Form Recognizer to populate expense fields from receipt as part of an expense maintaining data entry app. This could be a web or mobile app using the Form Recognizer client library internally.
-The user provides a URL to a receipt for which they want to recognize the relevant expense field information. The underlying client library then feeds this URL to the Form Recognizer service and outputs the recognized receipt information on the provided document.
+Let's take an example to understand how a user might want to use Azure Form Recognizer to populate expense fields from receipt as part of an expense maintaining data entry app. This could be a web or mobile app using the Form Recognizer client library internally to interact with the service.
+The user of the app provides a URL to a receipt for which they want to recognize the relevant expense field information. The underlying client library then feeds this URL to the Form Recognizer service and outputs the relevant expense related information recognized expense related on the provided document.
 
 Let's see some code on how the app might want to use this library. Although, you can use any of our languages for this ([.NET](https://github.com/azure/azure-sdk-for-net), [Python](https://github.com/azure/azure-sdk-for-python), [Java](https://github.com/azure/azure-sdk-for-java), or [JavaScript/TypeScript](https://github.com/azure/azure-sdk-for-js)), we will be using Java for the examples today.
 
 ## Recognize expense fields from receipt
 
-The Form Recognizer, recognize receipt API includes a pre-trained model for reading English sales receipts (e.g. receipts from restaurants or gas stations). This model has already been trained to extract expense related key information such as the time and date of the transaction, merchant information, taxes, total cost, individual prices on an item, and more.
+The Form Recognizer recognize receipt API includes a pre-trained model for reading English sales receipts (e.g. receipts from restaurants or gas stations). This model has already been trained to extract expense related key information such as the time and date of the transaction, merchant information, taxes, total cost, individual prices on an item, and more.
 
 Let's create and authenticate a FormRecognizer client that will be used throughout the class
 
@@ -29,7 +29,7 @@ public class AnalyzeDataApp {
   private final FormRecognizerClient formRecognizerClient;
 
   public AnalyzeDataApp(String apiKey, String endpoint) {
-    // Authenticate the client with valid endpoint and API key
+    // Authenticate the client with valid endpoint and API key of your created Form Recognizer resource
     this.formRecognizerClient = new FormRecognizerClientBuilder()
       .credential(new AzureKeyCredential(apiKey)))
       .endpoint(endpoint)
@@ -38,15 +38,15 @@ public class AnalyzeDataApp {
 }
 ```
 
-The next step would be to use the above-created client and upload the user-provided receipt to the client library's recognize receipt API.
+The next step would be to use the above-created client and feed the user-provided receipt URL to the client library's recognize receipt API.
 
 ```java
-  public uploadReceipt(String receiptUrl) {
+  public recognizeReceipt(String receiptUrl) {
     // Use the client created above to start analyzing the receipt provided by the user
     SyncPoller<OperationResult, IterableStream<RecognizedReceipt>> recognizeReceiptPoller = this.formRecognizerClient.beginRecognizeReceiptsFromUrl(receiptUrl);
     // This is a long runnning operation, so wait for the poller to complete and get the final result
     IterableStream<RecognizedReceipt> receiptPageResults = recognizeReceiptPoller.getFinalResult();
-    // Prints receipt/document info
+    // Prints receipt/document information
     printReceiptDetails(receiptPageResults);
   }
 ```
@@ -64,7 +64,7 @@ The following code prints general information for the provided receipt:
       // The recognized form type for the receipt
       System.out.printf("Form type: %s", recognizedReceipt.getRecognizedForm().getFormType());
 
-      // Get US specific receipt fields
+      // For example sake, get US specific receipt fields
       processAsUSReceipt(recognizedReceipt)
     });
   }
@@ -84,7 +84,7 @@ Next, let's see how can we process the extracted receipt to provide more context
     // Each extracted value is returned with a confidence value, to highlight specific ones that might need more attention
     System.out.printf("Merchant Phone Number %s, confidence: %.2f%n", usReceipt.getMerchantPhoneNumber().getFieldValue(), usReceipt.getMerchantPhoneNumber().getConfidence());
 
-    // Users can also get the bounding box info for each element
+    // Users can also get the bounding box information for each element
     final StringBuilder boundingBox = new StringBuilder();
     usReceipt.getTotal().getValueText().getBoundingBox().getPoints().forEach(point -> boundingBox.append(String.format("[%.2f, %.2f]", point.getX(), point.getY())));
     // This can be used in a graphical UI to draw boxes around the various elements for visual validation steps
@@ -105,16 +105,16 @@ Next, let's see how can we process the extracted receipt to provide more context
   }
 ```
 
-Now, let's look at an example of how a customer might want to use this library for interpreting form's tabular content and text information into usable formatted data.
+Now, let's look at an example of how a user might want to use this library for interpreting form's tabular content and text information into usable formatted data.
 
 ## Recognize text and layout information using the Form Recognizer
 
 Form Recognizer can also extract text and table structure (the row and column numbers associated with the text) using high-definition optical character recognition (OCR). The resultant data contains each line of text and its corresponding bounding box placement on the form page document. It also returns the tabular data found on the page, with each of the cell field information with its corresponding row-column coordinate.
 
-First, let's upload a form that needs to be analyzed for text and table information.
+First, let's use the user-provided form URL that needs to be analyzed for text and table information.
 
 ```java
-  public uploadLayoutForm(String formUrl) {
+  public recognizeContent(String formUrl) {
     // Use the client created above to start analyzing the form provided by the user
     SyncPoller<OperationResult, IterableStream<FormPage>> recognizeContentPoller = this.formRecognizerClient.beginRecognizeContent(formUrl);
     // This is a long runnning operation, so wait for the poller to complete and get the final result
@@ -143,7 +143,7 @@ Let's create a method that prints out the recognized content information.
         // Iterate over each cell in the table
         formTable.getCells().forEach(formTableCell -> {
 
-          // Use bounding box info on each cell data for graphical UI use cases
+          // Use bounding box information on each cell data for graphical UI use cases
           final StringBuilder boundingBoxInfo = new StringBuilder();
           formTableCell.getBoundingBox().getPoints().forEach(point -> boundingBoxInfo.append(String.format("[%.2f, %.2f]", point.getX(), point.getY())));
 
@@ -162,9 +162,9 @@ Custom models can be created using two approaches: Creating custom models with L
 
 ### Custom model training with Labels
 Custom models built using labeled data are highly tailored models. Since they use the labeled data provided by the user, highlighting the custom information in the input forms. These custom models are built by the service using supervised machine learning algorithms to recognize keys/value pairs of special interest to the user.
-A particular application of this feature could be seen when you’re working with documents that deviate from the standard industry formats and could be more of your own business model specific format. In these cases, this custom extraction feature can help the customers build a solution by training a model on their own data, based on just five documents.
+A particular application of this feature could be seen when you’re working with documents that deviate from the standard industry formats and could be more of your own business model specific format. In these cases, this custom extraction feature can help the user build a solution by training a model on their own data, based on just five documents.
 
-Look here for more info on [setting up labeled training data](https://docs.microsoft.com/en-us/azure/cognitive-services/form-recognizer/quickstarts/label-tool#set-up-the-sample-labeling-tool).
+Look here for more information on [setting up labeled training data](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool#set-up-the-sample-labeling-tool).
 
 Let's see an example of how to train a custom model using labeled data and recognize a form using that model.
 
@@ -231,7 +231,7 @@ The client library differentiates between training with labels and without label
 
 ## Further documentation
 
-Take a look at the [Form Recognizer](https://docs.microsoft.com/en-us/azure/cognitive-services/form-recognizer/) documentation, and the API reference for the `FormRecognizerClient` in
+Take a look at the [Form Recognizer](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/) documentation, and the API reference for the `FormRecognizerClient` in
 - [.NET](https://azure.github.io/azure-sdk-for-net/formrecognizer.html)
 - [Java](https://azure.github.io/azure-sdk-for-java/formrecognizer.html)
 - [JavaScript](https://azure.github.io/azure-sdk-for-js/formrecognizer.html)
