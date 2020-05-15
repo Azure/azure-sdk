@@ -557,7 +557,7 @@ operations in Azure tend to follow the [REST API guidelines for Long-running Ope
   
 Polling configuration may be used only in the absence of relevant retry-after headers from service, and otherwise should be ignored.
 
-{% include requirement/MUST id="ts-lro-prefix-methods" %} prefix method names which return a poller with either `begin` or `start`. Language-specific guidelines will dictate which verb to use.
+{% include requirement/MUST id="ts-lro-prefix-methods" %} prefix method names which return a poller with either `begin`.
 
 {% include requirement/MUST id="ts-lro-continuation" %} provide a way to instantiate a poller with the serialized state of another poller to begin where it left off, for example by passing the state as a parameter to the same method which started the operation, or by directly instantiating a poller with that state.
 
