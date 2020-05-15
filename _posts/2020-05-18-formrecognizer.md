@@ -21,7 +21,7 @@ Let's see some code on how the app might want to use this library. Although, you
 
 The Form Recognizer recognize receipt API includes a pre-trained model for reading English sales receipts (e.g. receipts from restaurants or gas stations). This model has already been trained to extract expense related key information such as the time and date of the transaction, merchant information, taxes, total cost, individual prices on an item, and more.
 
-Let's create and authenticate a FormRecognizer client that will be used throughout the class
+Let's create and authenticate a FormRecognizer client that will be used throughout the class.
 
 ```java
 public class AnalyzeDataApp {
@@ -85,14 +85,33 @@ Next, let's see how can we process the extracted receipt to provide more context
     System.out.printf("Merchant Phone Number %s, confidence: %.2f%n", usReceipt.getMerchantPhoneNumber().getFieldValue(), usReceipt.getMerchantPhoneNumber().getConfidence());
 
     // Users can also get the bounding box information for each element
-    final StringBuilder boundingBox = new StringBuilder();
-    usReceipt.getTotal().getValueText().getBoundingBox().getPoints().forEach(point -> boundingBox.append(String.format("[%.2f, %.2f]", point.getX(), point.getY())));
-    // This can be used in a graphical UI to draw boxes around the various elements for visual validation steps
-    System.out.printf("Field Total has value %s within bounding box %s %n", usReceipt.getTotal().getValueText(), boundingBoxStr);
+    getBoundingBoxInfo(usReceipt.getTotal().getValueText())
 
     // Get hold of the itemized data from the receipt, if present
+    printItemizedReceiptData(usReceipt.getReceiptItems());
+  }
+```
+
+The boundinx box information provided on each element can be used in graphical UI to draw boxes around the various elements for visual validation steps.
+The below example shows how you can get the bounding information for the field `total` found in the receipt.
+
+```java
+  public getBoundingBoxInfo(FieldText fieldTextValue) {
+
+    final StringBuilder boundingBox = new StringBuilder();
+    fieldTextValue.getBoundingBox().getPoints().forEach(point -> boundingBox.append(String.format("[%.2f, %.2f]", point.getX(), point.getY())));
+    // This can be used in a graphical UI to draw boxes around the various elements for visual validation steps
+    System.out.printf("Field Total has value %s within bounding box %s %n", fieldTextValue, boundingBoxStr);
+  }
+```
+
+Let's use the method below to print details of itemized data found on the receipt
+
+```java
+  public printItemizedReceiptData(USReceiptItem recognizedReceiptItems) {
+    // Get hold of the itemized data from the receipt, if present
     System.out.printf("Receipt Items: %n");
-    usReceipt.getReceiptItems().forEach(receiptItem -> {
+    recognizedReceiptItems.forEach(receiptItem -> {
       // Prints the name of the item
       System.out.printf("Name: %s, confidence: %.2f%n", receiptItem.getName().getFieldValue(), receiptItem.getName().getConfidence());
       // Prints the quantity of the item
@@ -119,15 +138,15 @@ First, let's use the user-provided form URL that needs to be analyzed for text a
     SyncPoller<OperationResult, IterableStream<FormPage>> recognizeContentPoller = this.formRecognizerClient.beginRecognizeContent(formUrl);
     // This is a long runnning operation, so wait for the poller to complete and get the final result
     IterableStream<FormPage> contentPageResults = recognizeLayoutPoller.getFinalResult();
-    // Print form layout information
-    printContentInformation(contentPageResults);
+    // Prints form page metadata
+    printPageMetadata(contentPageResults);
   }
 ```
 
-Let's create a method that prints out the recognized content information.
+Print page metadata information including details of the page orientation and dimension details.
 
 ```java
-  public printContentInformation(IterableStream<FormPage> contentPageResults) {
+  public printPageMetadata(IterableStream<FormPage> contentPageResults) {
     // The provided form could span over multiple pages, iterate over each page of the form for its relevant content
     contentPageResults.forEach(formPage -> {
       System.out.println("----Recognizing content ----");
@@ -135,7 +154,18 @@ Let's create a method that prints out the recognized content information.
       // Display the page metdata
       System.out.printf("The form page has width: %s and height: %s, measured with unit: %s%n", formPage.getWidth(), formPage.getHeight(), formPage.getUnit());
 
-      // Display recognized table information from the form
+      // Prints recognized layout/content information for the form
+      printContentInformation(formPage);
+
+    });
+  }
+```
+
+Let's create a method that prints out the recognized content information.
+
+```java
+  public printContentInformation(FormPage formPage) {
+    // Display recognized table information from the form
       formPage.getTables().forEach(formTable -> {
         // The row and column count for each table
         System.out.printf("The recognized table has %s rows and %s columns.%n", formTable.getRowCount(), formTable.getColumnCount());
@@ -151,7 +181,6 @@ Let's create a method that prints out the recognized content information.
           System.out.printf("This cell has text %s, within bounding box %s.%n", formTableCell.getText(), boundingBoxInfo);
         });
       });
-    });
   }
 ```
 
@@ -177,14 +206,23 @@ First, let's create a custom model, trained using labeled data provided by the u
     FormTrainingClient formTrainingClient = this.formRecognizerClient.getFormTrainingClient();
 
     // Set to true to use labeled data when training
-    boolean useTrainingLabels = true;
+    boolean useLabelFile = true;
     // Use the trainingFilesUrl, to provide the input forms that should be used for training the model
-    SyncPoller<OperationResult, CustomFormModel> trainingPoller = formTrainingClient.beginTraining(trainingFilesUrl, useTrainingLabels);
+    SyncPoller<OperationResult, CustomFormModel> trainingPoller = formTrainingClient.beginTraining(trainingFilesUrl, useLabelFile);
 
     // This is a long-running operation, so wait for the poller to complete and get the final result
     CustomFormModel customFormModel = trainingPoller.getFinalResult();
 
     // Print information of the created custom model
+    printModelDetails(customFormModel);
+
+  }
+```
+Print custom model information and use the created model to analyze custom fields on the form.
+
+```java
+  public printModelDetails(CustomFormModel customFormModel) {
+    // Prints the generate Model Id
     System.out.printf("Model Id: %s%n", customFormModel.getModelId());
 
     // Indicates the status of the created model if it has been successfully created or was invalid
@@ -227,7 +265,7 @@ Next, let's use the above created custom model to analyze our custom form.
 ### Custom model training without Labels
 This approach allows the user of the library to create a custom model without requiring to go through labeling process steps and still be able to turn forms into usable data. This uses unsupervised learning to understand the layout and relationships between fields and entries in your forms. The underlying algorithm for this API clusters the forms by type, discovers what keys and tables are present, and associates values to keys and entries to tables. Since the user does not provide any labeled data, the recognize API with this model doesn't recognize specific tags/labels of special interest to the user but is still able to create a tailored model for a specific set of custom forms.
 
-The client library differentiates between training with labels and without labels with the presence of boolean parameter `useTrainingLabels`. If `useTrainingLabels = false` the `beginTraining` API performs model training without labels.
+The client library differentiates between training with labels and without labels with the presence of boolean parameter `useLabelFile`. If `useLabelFile = false` the `beginTraining` API performs model training without labels.
 
 ## Further documentation
 
