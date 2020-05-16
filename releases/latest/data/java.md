@@ -5,5 +5,5 @@ tags: java
 sidebar: releases_sidebar
 header: true
 ---
-{% include releases/java.md %}
+{% include releases/data/java.md %}
 {% include refs.md %}

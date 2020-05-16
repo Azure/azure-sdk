@@ -1,13 +1,15 @@
 {% if page.header %}
-{% include releases/header.md %}
+{% include releases/shared/header.md %}
 {% endif %}
 
 ## .NET
 
-{% assign packages = site.data.allpackages.dotnet-packages %}
+{% assign packages = site.data.releases.all.dotnet-packages %}
 
 There are {{ packages.size }} total Azure library packages published to nuget from the [azure-sdk account](https://www.nuget.org/profiles/azure-sdk).
 
-{% include releases/nav/tabs.md dataurl="/releases/latest/dotnet.html" mgmturl="/releases/latest/mgmt/dotnet.html" allurl="/releases/latest/all/dotnet.html" active="all" %}
+{% include releases/nav/tabs.md lang="dotnet" active="all" %}
 
-{% include dotnet-allpackages.html %}
+{% include releases/variables/dotnet.md %}
+
+{% include releases/all/pkgtable.md %}

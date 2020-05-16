@@ -73,13 +73,14 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
   - `FormTrainingClient` to train custom models, and manage the custom models on your resource account.
 
 ### Identity [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/identity/Azure.Identity/CHANGELOG.md#120-preview2)
+
 - Updates `DefaultAzureCredential` to enable authenticating through Visual Studio and Visual Studio Code.
 
 ### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md)
 
-- A new primitive, `EventProcessor<TPartition>`, has been implemented to serve as an extensibility point for creating a custom event processor instance.  More detail can be found in the [design proposal](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/design/event-processor%7BT%7D-proposal.md).
+- A new primitive, `EventProcessor<TPartition>`, has been implemented to serve as an extensibility point for creating a custom event processor instance. More detail can be found in the [design proposal](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/design/event-processor%7BT%7D-proposal.md).
 
-- A new primitive, `PartitionProcessor`, has been implemented to serve as a low-level means of reading batches of events from a single partition with greater control over network configuration.  More detail can be found in the [design proposal](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/design/partition-receiver-proposal.md).
+- A new primitive, `PartitionProcessor`, has been implemented to serve as a low-level means of reading batches of events from a single partition with greater control over network configuration. More detail can be found in the [design proposal](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/design/partition-receiver-proposal.md).
 
 ### Event Hubs Processor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md)
 
@@ -97,13 +98,16 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 ### Storage
 
 #### Azure Storage Blob [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md)
+
 - The new 12.4.1 release contains various bug fixes and improvements to the library
 
 #### Azure Storage Files DataLake [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md)
+
 - Added `PathProperties.IsDirectory`
 - Fixed bugs where exceptions were thrown
 
 #### Azure Storage Common [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Common/CHANGELOG.md)
+
 - This release contains bug fixes to improve quality
 
 ### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md)
@@ -122,6 +126,6 @@ View all the latest versions of .NET packages [here][dotnet-latest-releases].
 
 {% include refs.md %}
 
-  [keyvault-certificates]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Certificates_4.0.2/sdk/keyvault/Azure.Security.KeyVault.Certificates/CHANGELOG.md#402-2020-03-18
-  [keyvault-keys]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Keys_4.0.3/sdk/keyvault/Azure.Security.KeyVault.Keys/CHANGELOG.md#403-2020-03-18
-  [keyvault-secrets]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Secrets_4.0.3/sdk/keyvault/Azure.Security.KeyVault.Secrets/CHANGELOG.md#403-2020-03-18
+[keyvault-certificates]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Certificates_4.0.2/sdk/keyvault/Azure.Security.KeyVault.Certificates/CHANGELOG.md#402-2020-03-18
+[keyvault-keys]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Keys_4.0.3/sdk/keyvault/Azure.Security.KeyVault.Keys/CHANGELOG.md#403-2020-03-18
+[keyvault-secrets]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Secrets_4.0.3/sdk/keyvault/Azure.Security.KeyVault.Secrets/CHANGELOG.md#403-2020-03-18

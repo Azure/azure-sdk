@@ -1,13 +1,15 @@
 {% if page.header %}
-{% include releases/header.md %}
+{% include releases/shared/header.md %}
 {% endif %}
 
 ## JavaScript
 
-{% assign packages = site.data.allpackages.js-packages %}
+{% assign packages = site.data.releases.all.js-packages %}
 
 There are {{ packages.size }} total Azure library packages published to npm from the [azure-sdk account](https://www.npmjs.com/~azure-sdk).
 
-{% include releases/nav/tabs.md dataurl="/releases/latest/js.html" mgmturl="/releases/latest/mgmt/js.html" allurl="/releases/latest/all/js.html" active="all" %}
+{% include releases/nav/tabs.md lang="js" active="all" %}
 
-{% include js-allpackages.html %}
+{% include releases/variables/js.md %}
+{% assign package_url_template = "https://www.npmjs.com/package/item.Package/v/item.Version" %}
+{% include releases/all/pkgtable.md %}

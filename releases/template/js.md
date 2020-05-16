@@ -43,7 +43,6 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ## Latest Releases
 
-{% assign packages = site.data.releases.latest.js-packages %}
-{% include js-packages.html %}
+View all the latest versions of JavaScript packages [here][js-latest-releases].
 
 {% include refs.md %}

@@ -17,10 +17,10 @@
 [python-guidelines]: {{ site.baseurl }}{% link docs/python/introduction.md %}
 [typescript-guidelines]: {{ site.baseurl }}{% link docs/typescript/introduction.md %}
 
-[dotnet-latest-releases]: {{ site.baseurl }}{% link releases/latest/dotnet.md %}
-[java-latest-releases]: {{ site.baseurl }}{% link releases/latest/java.md %}
-[js-latest-releases]: {{ site.baseurl }}{% link releases/latest/js.md %}
-[python-latest-releases]: {{ site.baseurl }}{% link releases/latest/python.md %}
+[dotnet-latest-releases]: {{ site.baseurl }}{% link releases/latest/data/dotnet.md %}
+[java-latest-releases]: {{ site.baseurl }}{% link releases/latest/data/java.md %}
+[js-latest-releases]: {{ site.baseurl }}{% link releases/latest/data/js.md %}
+[python-latest-releases]: {{ site.baseurl }}{% link releases/latest/data/python.md %}
 
 [README-EXAMPLE]: https://github.com/Azure/azure-sdk/blob/master/docs/policies/README-EXAMPLE.md
 [README-TEMPLATE]: https://github.com/Azure/azure-sdk/blob/master/docs/policies/README-TEMPLATE.md

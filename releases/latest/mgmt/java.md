@@ -1,9 +1,9 @@
 ---
-title: Azure SDK for Python (Latest)
+title: Azure SDK for Java (Latest)
 layout: default
-tags: python
+tags: java
 sidebar: releases_sidebar
 header: true
 ---
-{% include releases/python.md %}
+{% include releases/mgmt/java.md %}
 {% include refs.md %}

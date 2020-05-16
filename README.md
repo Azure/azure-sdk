@@ -79,7 +79,7 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 [JavaScript Documentation]: http://aka.ms/js-docs
 [Python Documentation]: https://aka.ms/python-docs
 
-[.NET Packages]: https://azure.github.io/azure-sdk/releases/latest/dotnet.html
-[Java Packages]: https://azure.github.io/azure-sdk/releases/latest/java.html
-[Javascript Packages]: https://azure.github.io/azure-sdk/releases/latest/js.html
-[Python Packages]: https://azure.github.io/azure-sdk/releases/latest/python.html
+[.NET Packages]: https://azure.github.io/azure-sdk/releases/latest/data/dotnet.html
+[Java Packages]: https://azure.github.io/azure-sdk/releases/latest/data/java.html
+[Javascript Packages]: https://azure.github.io/azure-sdk/releases/latest/data/js.html
+[Python Packages]: https://azure.github.io/azure-sdk/releases/latest/data/python.html

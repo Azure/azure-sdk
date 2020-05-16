@@ -1,6 +1,6 @@
 param (
   $language = "all",
-  $folder =  "$PSScriptRoot\..\..\_data\allpackages"
+  $folder =  "$PSScriptRoot\..\..\_data\releases\all"
 )
 
 function Query-java-Packages

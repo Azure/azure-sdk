@@ -8,7 +8,7 @@
 
 {% for item in packages %}
 
-{% include releases/pkgrow.md %}
+{% include releases/shared/pkgrow.md %}
 
 {% endfor %}
 

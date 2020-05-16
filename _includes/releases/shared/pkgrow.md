@@ -10,7 +10,7 @@
         {% capture url %}
         {{ package_url_template | replace: 'item.Package', item.Package | replace: 'item.Version', version}}
         {% endcapture %}
-        {% include releases/pkgbadge.md  label=label url=url %}
+        {% include releases/shared/pkgbadge.md  label=label url=url %}
     {% endif %}
 
     {% if item.VersionPreview != "" %}
@@ -18,7 +18,7 @@
         {% capture url %}
         {{ package_url_template | replace: 'item.Package', item.Package | replace: 'item.Version', version}}
         {% endcapture %}
-        {% include releases/pkgbadge.md  label=label preview="true" url=url %}
+        {% include releases/shared/pkgbadge.md  label=label preview="true" url=url %}
     {% endif %}
   </td>
   <td>
@@ -31,7 +31,7 @@
             {{ docs_url_template | replace: 'item.Package', item.Package | replace: 'item.Version', version}}
         {% endif %}
         {% endcapture %}
-        {% include releases/pkgbadge.md label="docs" url=url %}
+        {% include releases/shared/pkgbadge.md label="docs" url=url %}
     {% endif %}
 
     {% if item.VersionPreview != "" %}
@@ -43,7 +43,7 @@
             {{ docs_url_template | replace: 'item.Package', item.Package | replace: 'item.Version', version}}
         {% endif %}
         {% endcapture %}
-        {% include releases/pkgbadge.md label="docs" preview="true" url=url %}
+        {% include releases/shared/pkgbadge.md label="docs" preview="true" url=url %}
     {% endif %}
   </td>
   <td>
@@ -56,7 +56,7 @@
             {{ source_url_template | replace: 'item.Package', item.Package | replace: 'item.Version', version | replace: 'item.RepoPath', item.RepoPath}}
         {% endif %}
         {% endcapture %}
-        {% include releases/pkgbadge.md label="github" url=url %}
+        {% include releases/shared/pkgbadge.md label="github" url=url %}
     {% endif %}
 
     {% if item.VersionPreview != "" %}
@@ -68,7 +68,7 @@
             {{ source_url_template | replace: 'item.Package', item.Package | replace: 'item.Version', version | replace: 'item.RepoPath', item.RepoPath}}
         {% endif %}
         {% endcapture %}
-        {% include releases/pkgbadge.md label="github" preview="true" url=url %}
+        {% include releases/shared/pkgbadge.md label="github" preview="true" url=url %}
     {% endif %}
   </td>
 </tr>

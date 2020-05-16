@@ -5,5 +5,5 @@ tags: javascript typescript
 sidebar: releases_sidebar
 header: true
 ---
-{% include releases/js.md %}
+{% include releases/data/js.md %}
 {% include refs.md %}
