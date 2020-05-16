@@ -6,6 +6,6 @@
 
 {% assign packages = site.data.releases.latest.js-packages %}
 
-**New Libraries** | [All Libraries]({{ site.baseurl }}{% link releases/latest/all/js.md %})
+{% include releases/nav/tabs.md dataurl="/releases/latest/js.html" mgmturl="/releases/latest/mgmt/js.html" allurl="/releases/latest/all/js.html" active="data" %}
 
 {% include js-packages.html %}

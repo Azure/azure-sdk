@@ -6,6 +6,6 @@
 
 {% assign packages = site.data.releases.latest.dotnet-packages %}
 
-**New Libraries** | [All Libraries]({{ site.baseurl }}{% link releases/latest/all/dotnet.md %})
+{% include releases/nav/tabs.md dataurl="/releases/latest/dotnet.html" mgmturl="/releases/latest/mgmt/dotnet.html" allurl="/releases/latest/all/dotnet.html" active="data" %}
 
 {% include dotnet-packages.html %}

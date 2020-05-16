@@ -8,6 +8,6 @@
 
 There are {{ packages.size }} total Azure library packages published to nuget from the [azure-sdk account](https://www.nuget.org/profiles/azure-sdk).
 
-[New Libraries]({{ site.baseurl }}{% link releases/latest/dotnet.md %}) | **All Libraries**
+{% include releases/nav/tabs.md dataurl="/releases/latest/dotnet.html" mgmturl="/releases/latest/mgmt/dotnet.html" allurl="/releases/latest/all/dotnet.html" active="all" %}
 
 {% include dotnet-allpackages.html %}

@@ -6,6 +6,6 @@
 
 {% assign packages = site.data.releases.latest.python-packages %}
 
-**New Libraries** | [All Libraries]({{ site.baseurl }}{% link releases/latest/all/python.md %})
+{% include releases/nav/tabs.md dataurl="/releases/latest/python.html" mgmturl="/releases/latest/mgmt/python.html" allurl="/releases/latest/all/python.html" active="data" %}
 
 {% include python-packages.html %}
