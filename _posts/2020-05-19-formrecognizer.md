@@ -1,5 +1,5 @@
 ---
-title: Introducing Form Recognizer client library: the AI-powered document extraction library for Azure.
+title: "Introducing Form Recognizer client library: AI-powered document extraction"
 layout: post
 date: 2020-05-19
 sidebar: releases_sidebar
@@ -90,7 +90,8 @@ Next, let's see how can we process the extracted receipt to provide more context
   }
 ```
 
-The boundinx box information provided on each element can be used in graphical UI to draw boxes around the various elements for visual validation steps.
+The bounding box information provided on each element can be used in graphical UI to draw boxes around the various elements for visual validation steps.
+
 The below example shows how you can get the bounding information for the field `total` found in the receipt.
 
 ```java
