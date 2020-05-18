@@ -11,7 +11,7 @@ Data entry is boring. We all hate it, but one team in Azure Cognitive Service de
 [Azure Form Recognizer](https://aka.ms/form-recognizer/) is an Azure Cognitive Service focused on using machine learning to identify and extract text, key-value pairs and tables data from documents. Applications for Form Recognizer service can extend beyond just assisting with data entry. It could also be used in integrated solutions for optimizing the auditing needs of users, letting them make informed business decisions by learning from their expense trends or matching documents with digital records.
 
 Let's take an example to understand how a user might want to use Azure Form Recognizer to populate expense fields from receipt as part of an expense maintaining data entry app. This could be a web or mobile app using the Form Recognizer client library internally to interact with the service.
-The user of the app can provide a URL to a recipt or also choose to upload file data for the document which they want to recognize the relevant expense field information. Let's use a document URL for the examples below. The underlying client library then feeds this URL to the Form Recognizer service and outputs the relevant expense related information recognized expense related on the provided document.
+The user of the app can provide a URL to a receipt or also choose to upload file data for the document which they want to recognize the relevant expense field information. Let's use a document URL for the examples below. The underlying client library then feeds this URL to the Form Recognizer service and outputs the relevant expense related information recognized expense related on the provided document.
 
 Let's see some code on how the app might want to use this library. Although, you can use any of our languages for this ([.NET](https://github.com/azure/azure-sdk-for-net), [Python](https://github.com/azure/azure-sdk-for-python), [Java](https://github.com/azure/azure-sdk-for-java), or [JavaScript/TypeScript](https://github.com/azure/azure-sdk-for-js)), we will be using Java for the examples today.
 
@@ -185,10 +185,10 @@ Let's create a method that prints out the recognized content information.
 ## Creating your own tailored models
 
 The Form Recognizer client library can further be extended to create customized and tailored models. It allows users to train models using their own data forms and then use those customized models for recognizing custom forms!
-Custom models can be created using two approaches: Creating custom models with Labels and without Labels.
+Custom models can be created using two approaches: Creating custom models with training labels and without training labels.
 
-### Custom model training with Labels
-Custom models built using labeled data are highly tailored models. Since they use the labeled data provided by the user, highlighting the custom information in the input forms. These custom models are built by the service using supervised machine learning algorithms to recognize keys/value pairs of special interest to the user.
+### Custom model training with training labels
+Custom models built using labeled data are highly tailored models. Since they use the labeled data provided by the user, highlighting the custom information in the input forms. These custom models are trained by the service using supervised machine learning algorithms to recognize form fields of special interest to the user.
 A particular application of this feature could be seen when you’re working with documents that deviate from the standard industry formats and could be more of your own business model specific format. In these cases, this custom extraction feature can help the user build a solution by training a model on their own data, based on just five documents.
 
 Look here for more information on [setting up labeled training data](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool#set-up-the-sample-labeling-tool).
@@ -260,7 +260,7 @@ Next, let's use the above created custom model to analyze our custom form.
   }
 ```
 
-### Custom model training without Labels
+### Custom model training without training labels
 This approach allows the user of the library to create a custom model without requiring to go through labeling process steps and still be able to turn forms into usable data. This uses unsupervised learning to understand the layout and relationships between fields and entries in your forms. The underlying algorithm for this API clusters the forms by type, discovers what keys and tables are present, and associates values to keys and entries to tables. Since the user does not provide any labeled data, the recognize API with this model doesn't recognize specific tags/labels of special interest to the user but is still able to create a tailored model for a specific set of custom forms.
 
 The client library differentiates between training with labels and without labels with the presence of boolean parameter `useLabelFile`. If `useLabelFile = false` the `beginTraining` API performs model training without labels.
@@ -268,10 +268,10 @@ The client library differentiates between training with labels and without label
 ## Further documentation
 
 Take a look at the [Form Recognizer](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/) documentation, and the API reference for the `FormRecognizerClient` in
-- [.NET](https://azure.github.io/azure-sdk-for-net/formrecognizer.html)
-- [Java](https://azure.github.io/azure-sdk-for-java/formrecognizer.html)
-- [JavaScript](https://azure.github.io/azure-sdk-for-js/formrecognizer.html)
-- [Python](https://azure.github.io/azure-sdk-for-python/ref/Form-Recognizer.html)
+- [.NET](https://azure.github.io/azure-sdk-for-net/formrecognizer.html), [Readme](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer#azure-cognitive-services-form-recognizer-client-library-for-net)
+- [Java](https://azure.github.io/azure-sdk-for-java/formrecognizer.html), [Readme](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/formrecognizer/azure-ai-formrecognizer#azure-form-recognizer-client-library-for-java)
+- [JavaScript](https://azure.github.io/azure-sdk-for-js/formrecognizer.html), [Readme](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer#azure-form-recognizer-client-library-for-javascript)
+- [Python](https://azure.github.io/azure-sdk-for-python/ref/Form-Recognizer.html), [Readme](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer#azure-form-recognizer-client-library-for-python)
 
 ## Want to hear more?
 
