@@ -1,5 +1,5 @@
 ---
-title: "Introducing Form Recognizer client library: the AI-powered document extraction library for Azure."
+title: "Introducing Form Recognizer client library: AI-powered document extraction"
 layout: post
 date: 2020-05-19
 sidebar: releases_sidebar
