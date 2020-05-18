@@ -1,5 +1,5 @@
 ---
-title: Introducing Form Recognizer: the AI-powered document extraction library for Azure.
+title: Introducing Form Recognizer client library: the AI-powered document extraction library for Azure.
 layout: post
 date: 2020-05-19
 sidebar: releases_sidebar
@@ -7,19 +7,17 @@ author_github: savaity
 repository: azure/azure-sdk
 ---
 
-Data entry is boring. We all hate it, but one team in Azure Cognitive Service decided we needed a better way that can take away the need to manually enter data. As part of a digital transformation, users can leverage an AI solution to automate and reduce the cost of converting paper documents (such as invoices and receipts) into structured data for further processing.
-[Azure Form Recognizer](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/) is an Azure Cognitive Service focused on using machine learning to identify and extract key-value pairs and table data from scanned paper documents. Applications for Form Recognizer service can extend beyond just assisting with data entry. It could also be used in integrated solutions for optimizing the auditing needs of users, letting them make informed business decisions by learning from their expense trends or matching documents with digital records.
-
-![]({{ site.base_url }}{% link images/posts/05182020-image1.png %})
+Data entry is boring. We all hate it, but one team in Azure Cognitive Service decided we needed a better way that can take away the need to manually enter data. As part of a digital transformation, users can leverage an AI solution to automate and reduce the cost of converting documents (such as invoices and receipts) and forms into structured data for further processing.
+[Azure Form Recognizer](https://aka.ms/form-recognizer/) is an Azure Cognitive Service focused on using machine learning to identify and extract text, key-value pairs and tables data from documents. Applications for Form Recognizer service can extend beyond just assisting with data entry. It could also be used in integrated solutions for optimizing the auditing needs of users, letting them make informed business decisions by learning from their expense trends or matching documents with digital records.
 
 Let's take an example to understand how a user might want to use Azure Form Recognizer to populate expense fields from receipt as part of an expense maintaining data entry app. This could be a web or mobile app using the Form Recognizer client library internally to interact with the service.
-The user of the app provides a URL to a receipt for which they want to recognize the relevant expense field information. The underlying client library then feeds this URL to the Form Recognizer service and outputs the relevant expense related information recognized expense related on the provided document.
+The user of the app can provide a URL to a recipt or also choose to upload file data for the document which they want to recognize the relevant expense field information. Let's use a document URL for the examples below. The underlying client library then feeds this URL to the Form Recognizer service and outputs the relevant expense related information recognized expense related on the provided document.
 
 Let's see some code on how the app might want to use this library. Although, you can use any of our languages for this ([.NET](https://github.com/azure/azure-sdk-for-net), [Python](https://github.com/azure/azure-sdk-for-python), [Java](https://github.com/azure/azure-sdk-for-java), or [JavaScript/TypeScript](https://github.com/azure/azure-sdk-for-js)), we will be using Java for the examples today.
 
 ## Recognize expense fields from receipt
 
-The Form Recognizer recognize receipt API includes a pre-trained model for reading English sales receipts (e.g. receipts from restaurants or gas stations). This model has already been trained to extract expense related key information such as the time and date of the transaction, merchant information, taxes, total cost, individual prices on an item, and more.
+The Form Recognizer prebuilt receipt API includes a pre-trained model for reading English sales receipts (e.g. receipts from restaurants or gas stations). This model has already been trained to extract expense related key information such as the time and date of the transaction, merchant information, taxes, total cost, individual line items, and more.
 
 Let's create and authenticate a FormRecognizer client that will be used throughout the class.
 
