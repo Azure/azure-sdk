@@ -4,7 +4,7 @@
 
 ## JavaScript
 
-{% assign packages = site.data.releases.data.js-packages %}
+{% assign packages = site.data.releases.new.js-packages | where: 'Type', 'Data' %}
 
 {% include releases/nav/tabs.md lang="js" active="data" %}
 

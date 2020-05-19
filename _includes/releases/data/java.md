@@ -4,7 +4,7 @@
 
 ## Java
 
-{% assign packages = site.data.releases.data.java-packages %}
+{% assign packages = site.data.releases.new.java-packages | where: 'Type', 'Data' %}
 
 {% include releases/nav/tabs.md lang="java" active="data" %}
 

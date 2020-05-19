@@ -4,7 +4,7 @@
 
 ## .NET
 
-{% assign packages = site.data.releases.data.dotnet-packages %}
+{% assign packages = site.data.releases.new.dotnet-packages | where: 'Type', 'Data' %}
 
 {% include releases/nav/tabs.md lang="dotnet" active="data" %}
 

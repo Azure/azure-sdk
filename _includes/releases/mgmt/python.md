@@ -4,7 +4,7 @@
 
 ## Python
 
-{% assign packages = site.data.releases.mgmt.python-packages %}
+{% assign packages = site.data.releases.new.python-packages | where: 'Type', 'Mgmt' %}
 
 {% include releases/nav/tabs.md lang="python" active="mgmt" %}
 

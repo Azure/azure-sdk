@@ -4,7 +4,7 @@
 
 ## JavaScript
 
-{% assign packages = site.data.releases.mgmt.js-packages %}
+{% assign packages = site.data.releases.new.js-packages | where: 'Type', 'Mgmt' %}
 
 {% include releases/nav/tabs.md lang="js" active="mgmt" %}
 

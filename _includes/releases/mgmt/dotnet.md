@@ -4,7 +4,7 @@
 
 ## .NET
 
-{% assign packages = site.data.releases.mgmt.dotnet-packages %}
+{% assign packages = site.data.releases.new.dotnet-packages | where: 'Type', 'Mgmt' %}
 
 {% include releases/nav/tabs.md lang="dotnet" active="mgmt" %}
 
