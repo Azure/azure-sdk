@@ -384,6 +384,34 @@ struct Foo {
 
 {% include requirement/MUSTNOT id="cpp-design-logical-enumsareinternal" %} use enums to model any data sent to the service. Use enums only for types completely internal to the client library. For example, an enum to disable Nagle's algorithm would be OK, but an enum to ask the service to create a particular entity kind is not.
 
+### Const and Reference members
+
+{% include requirement/MUSTNOT id="cpp-design-logical-no-const-or-reference-members" %} declare types with const or reference members. Const and reference members artificially make your types non-Regular as they aren't assignable, and have surprising interactions with C++ Core language rules. For example, many accesses to const or reference members would need to involve use of `std::launder` to avoid undefined behavior, but `std::launder` was added in C++17, a later version than the SDKs currently target. See C++ Core Working Group [CWG1116 "Aliasing of union members"](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#1116), [CWG1776 "Replacement of class objects containing reference members"](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#1776), and [P0137R1 "Replacement of class objects containing reference members"](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0137r1.html) for additional details.
+
+If you want a type to provide effectively const data except assignment, declare all your member functions const. Const member functions only get a const view of the class' data.
+
+{% highlight cpp %}
+// Bad
+class RetrySettings {
+    const int m_maxRetryCount;
+public:
+    int GetMaxRetryCount() {
+        // intent: disallow m_maxRetryCount = aDifferentValue;
+        return m_maxRetryCount;
+    }
+};
+
+// Good
+class RetrySettings {
+    int m_maxRetryCount;
+public:
+    int GetMaxRetryCount() const {
+        // still prohibits m_maxRetryCount = aDifferentValue; without making RetrySettings un-assignable
+        return m_maxRetryCount;
+    }
+};
+{% endhighlight %}
+
 ### Secure functions
 
 {% include requirement/SHOULDNOT id="cpp-design-logical-no-ms-secure-functions" %} use [Microsoft security enhanced versions of CRT functions](https://docs.microsoft.com/en-us/cpp/c-runtime-library/security-enhanced-versions-of-crt-functions?view=vs-2019) to implement APIs that need to be portable across many platforms. Such code is not portable and is not compatible with either the C or C++ Standards. See [arguments against]( http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1967.htm).
