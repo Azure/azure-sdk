@@ -11,13 +11,15 @@ Data entry is boring. We all hate it, but one team in Azure Cognitive Service de
 [Azure Form Recognizer](https://aka.ms/form-recognizer/) is an Azure Cognitive Service focused on using machine learning to identify and extract text, key-value pairs and tables data from documents. Applications for Form Recognizer service can extend beyond just assisting with data entry. It could also be used in integrated solutions for optimizing the auditing needs of users, letting them make informed business decisions by learning from their expense trends or matching documents with digital records.
 
 Let's take an example to understand how a user might want to use Azure Form Recognizer to populate expense fields from receipt as part of an expense maintaining data entry app. This could be a web or mobile app using the Form Recognizer client library internally to interact with the service.
-The user of the app can provide a URL to a receipt or also choose to upload file data for the document which they want to recognize the relevant expense field information. Let's use a document URL for the examples below. The underlying client library then feeds this URL to the Form Recognizer service and outputs the relevant expense related information recognized expense related on the provided document.
+The user of the app can provide a URL to a receipt or also choose to upload file data for the document which they want to recognize expense field information. Let's use a document URL for the examples below. The underlying client library then feeds this URL to the Form Recognizer service and outputs the relevant expense related information recognized expense related on the provided document.
 
-Let's see some code on how the app might want to use this library. Although, you can use any of our languages for this ([.NET](https://github.com/azure/azure-sdk-for-net), [Python](https://github.com/azure/azure-sdk-for-python), [Java](https://github.com/azure/azure-sdk-for-java), or [JavaScript/TypeScript](https://github.com/azure/azure-sdk-for-js)), we will be using Java for the examples today.
+Let's see some code on how the app might want to use this library. Although, you can use any of our languages for this ([.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/), [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer), [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/formrecognizer/azure-ai-formrecognizer), or [JavaScript/TypeScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer)), we will be using Java for the examples today. These libraries are currently in preview and are supporting the v2.0-preview version of the Form Recognizer service.
 
 ## Recognize expense fields from receipt
 
 The Form Recognizer prebuilt receipt API includes a pre-trained model for reading English sales receipts (e.g. receipts from restaurants or gas stations). This model has already been trained to extract expense related key information such as the time and date of the transaction, merchant information, taxes, total cost, individual line items, and more.
+
+ You can create a Form recognizer resource by following the instructions [here](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/formrecognizer/azure-ai-formrecognizer#create-a-form-recognizer-resource) and use the generated key and endpoint to authenticate the client.
 
 Let's create and authenticate a FormRecognizer client that will be used throughout the class.
 
@@ -269,10 +271,10 @@ The client library differentiates between training with labels and without label
 ## Further documentation
 
 Take a look at the [Form Recognizer](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/) documentation, and the API reference for the `FormRecognizerClient` in
-- [.NET](https://azure.github.io/azure-sdk-for-net/formrecognizer.html), [Readme](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer#azure-cognitive-services-form-recognizer-client-library-for-net)
-- [Java](https://azure.github.io/azure-sdk-for-java/formrecognizer.html), [Readme](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/formrecognizer/azure-ai-formrecognizer#azure-form-recognizer-client-library-for-java)
-- [JavaScript](https://azure.github.io/azure-sdk-for-js/formrecognizer.html), [Readme](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer#azure-form-recognizer-client-library-for-javascript)
-- [Python](https://azure.github.io/azure-sdk-for-python/ref/Form-Recognizer.html), [Readme](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer#azure-form-recognizer-client-library-for-python)
+- .NET [Reference Documentation](https://azure.github.io/azure-sdk-for-net/formrecognizer.html), [Readme](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer#azure-cognitive-services-form-recognizer-client-library-for-net)
+- Java [Reference Documentation](https://azure.github.io/azure-sdk-for-java/formrecognizer.html), [Readme](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/formrecognizer/azure-ai-formrecognizer#azure-form-recognizer-client-library-for-java)
+- Javascript [Reference Documentation](https://azure.github.io/azure-sdk-for-js/formrecognizer.html), [Readme](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer#azure-form-recognizer-client-library-for-javascript)
+- Python [Reference Documentation](https://azure.github.io/azure-sdk-for-python/ref/Form-Recognizer.html), [Readme](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer#azure-form-recognizer-client-library-for-python)
 
 ## Want to hear more?
 
