@@ -111,37 +111,37 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-storage-blob</artifactId>
-  <version>12.6.0</version>
+  <version>12.6.1</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-storage-blob-batch</artifactId>
-  <version>12.5.0</version>
+  <version>12.5.1</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-storage-blob-cryptography</artifactId>
-  <version>12.6.0</version>
+  <version>12.6.1</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-storage-file-datalake</artifactId>
-  <version>12.1.0</version>
+  <version>12.1.1</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-storage-file-share</artifactId>
-  <version>12.4.0</version>
+  <version>12.4.1</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-storage-queue</artifactId>
-  <version>12.5.0</version>
+  <version>12.5.1</version>
 </dependency>
 
 <dependency>
@@ -186,15 +186,74 @@ Here are some of the highlights:
 ### Service Bus ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md#700-beta2-2020-05-07))
 
 Here are some of the highlights:
-#### New Features 
+
+#### New Features
+
 - Allow receiving from first available single and multiple sessions through ServiceBusReceiverAsyncClient.
 - Add send overload that accepts an Iterable of ServiceBusMessage.
 
 ### Search ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/search/azure-search-documents/CHANGELOG.md#100-beta3-2020-05-05))
+
 Here are some of the highlights:
-#### New Features 
+
+#### New Features
+
 - Changed Azure Search service version from `2019-05-06` to `2019-05-06-Preview`
-- Added helper class `FieldBuilder` which converts a strongly-typed model class to `List<Field>`. 
+- Added helper class `FieldBuilder` which converts a strongly-typed model class to `List<Field>`.
+
+### Storage Blobs ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob_12.6.1/sdk/storage/azure-storage-blob/CHANGELOG.md))
+
+Here are some of the highlights:
+
+#### Bug Fixes
+
+- Resolved percent encoding issue when dealing with certain UTF-8 characters. [#10216](https://github.com/Azure/azure-sdk-for-java/issues/10216) [#10446](https://github.com/Azure/azure-sdk-for-java/issues/10446)
+- Resolved deserialization issue when dealing with a leading byte order mark. [#9982](https://github.com/Azure/azure-sdk-for-java/issues/9982)
+
+### Storage Blob Batch ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob-batch_12.5.1/sdk/storage/azure-storage-blob-batch/CHANGELOG.md))
+
+Here are some of the highlights:
+
+#### Bug Fixes
+
+- Resolved percent encoding issue when dealing with certain UTF-8 characters. [#10216](https://github.com/Azure/azure-sdk-for-java/issues/10216) [#10446](https://github.com/Azure/azure-sdk-for-java/issues/10446)
+- Resolved deserialization issue when dealing with a leading byte order mark. [#9982](https://github.com/Azure/azure-sdk-for-java/issues/9982)
+
+### Storage Blob Cryptography ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob-cryptography_12.6.1/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md))
+
+Here are some of the highlights:
+
+#### Bug Fixes
+
+- Resolved percent encoding issue when dealing with certain UTF-8 characters. [#10216](https://github.com/Azure/azure-sdk-for-java/issues/10216) [#10446](https://github.com/Azure/azure-sdk-for-java/issues/10446)
+- Resolved deserialization issue when dealing with a leading byte order mark. [#9982](https://github.com/Azure/azure-sdk-for-java/issues/9982)
+
+### Storage Files Datalake ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-file-datalake_12.1.1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md))
+
+Here are some of the highlights:
+
+#### Bug Fixes
+
+- Resolved percent encoding issue when dealing with certain UTF-8 characters. [#10216](https://github.com/Azure/azure-sdk-for-java/issues/10216) [#10446](https://github.com/Azure/azure-sdk-for-java/issues/10446)
+- Resolved deserialization issue when dealing with a leading byte order mark. [#9982](https://github.com/Azure/azure-sdk-for-java/issues/9982)
+
+### Storage Files Shares ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-file-share_12.4.1/sdk/storage/azure-storage-file-share/CHANGELOG.md))
+
+Here are some of the highlights:
+
+#### Bug Fixes
+
+- Resolved percent encoding issue when dealing with certain UTF-8 characters. [#10216](https://github.com/Azure/azure-sdk-for-java/issues/10216) [#10446](https://github.com/Azure/azure-sdk-for-java/issues/10446)
+- Resolved deserialization issue when dealing with a leading byte order mark. [#9982](https://github.com/Azure/azure-sdk-for-java/issues/9982)
+
+### Storage Queues ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-queue_12.5.1/sdk/storage/azure-storage-queue/CHANGELOG.md))
+
+Here are some of the highlights:
+
+#### Bug Fixes
+
+- Resolved percent encoding issue when dealing with certain UTF-8 characters. [#10216](https://github.com/Azure/azure-sdk-for-java/issues/10216) [#10446](https://github.com/Azure/azure-sdk-for-java/issues/10446)
+- Resolved deserialization issue when dealing with a leading byte order mark. [#9982](https://github.com/Azure/azure-sdk-for-java/issues/9982)
 
 ## Need help
 
