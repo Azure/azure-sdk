@@ -108,7 +108,9 @@ Model classes are classes that consumers use to provide required information int
 
 {% include requirement/MUST id="ios-service-client-verb-prefix" %} use the verb as as prefix for the method name when object(s) the action will apply to or return is unclear. For example, prefer `storageBlobClient.listContainers()` rather than `storageBlobClient.list()`.
 
-{% include requirement/MUST id="ios-service-client-method-parameter-name" %} provide unambiguous parameter labels for all client methods. Do not use the `_` syntax to avoid requiring parameter labels.
+{% include requirement/MUST id="ios-service-client-method-parameter-name" %} provide unambiguous parameter labels for all client methods. Avoid using the `_` syntax to avoid requiring parameter labels for client methods.
+
+{% include requirement/MAY id="ios-service-client-method-parameter-unnamed" %} use the `_` syntax to avoid requiring a parameter label for the first parameter of delegate methods and other scenarios where doing so is idiomatic to Swift naming conventions.
 
 {% include requirement/SHOULD id="ios-service-client-flexibility" %} remain flexible and use names best suited for developer experience.  Don't let the naming rules result in non-idiomatic naming patterns.  For example, Swift developers prefer `list` operations over `getAll` operations.
 
