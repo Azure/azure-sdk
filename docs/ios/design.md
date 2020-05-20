@@ -264,9 +264,9 @@ client.listConfigurationSettings(...) { result, _ in
 
 ## Cancellation
 
-TODO: make this a MUST for how to support cancellation.
+{% include requirement/MUST id="ios-async-cancellation" %} return an `AzureTask` object (or subclass thereof) from async client methods. This object allows the developer to call `.cancel()` on the operation to request cancellation. Cancellation is provided on a best-effort basis.
 
-{% include requirement/MUSTNOT id="ios-async-cancellation" %} provide an API that accepts a cancellation token. Cancellation tokens are not supported by the native iOS Networking APIs. Client APIs shall begin their request and return an `AzureTask`. Developers who need to cancel a request calls `.cancel()` on the `AzureTask` object.
+{% include requirement/MUST id="ios-async-cancellation-implementation" %} cancel any in-flight requests when a developer calls `cancel()` on the returned `AzureTask` object. If the body of the client method includes multiple, sequential async operations, you must check for cancellation before executing any operations after the first.
 
 ## Long running operations
 
