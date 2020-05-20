@@ -160,51 +160,7 @@ Accepting a callback of type `HTTPResultHandler` achieves the above two requirem
 
 {% include requirement/MUST id="ios-response-provide-examples" %} provide examples on how to access the raw and streamed response for a request, where exposed by the client library.  We don't expect all methods to expose a streamed response.
 
-{% include requirement/MUST id="ios-response-pagination" %} return an instance of the `PagedCollection` class for all paged operations. `PagedCollection` provides a Swift-idiomatic way to asynchronously iterate through all results of a paged operation in a page-by-page or item-by-item fashion. `PagedCollection` also provides a property that conforms to the `Sequence` protocol, providing a way to synchronously consume all results of a paged operation using a standard `for ... in` loop.  For example:
-
-TODO: Update this to a UI-specific example
-
-{% highlight swift %}
-// Explicit asynchronous iteration of a `PagedCollection`
-client.listConfigurationSettings(...) { result, _ in
-    switch result {
-        case .success(let pagedCollection):
-            // Handle the first page of results
-            for setting in pagedCollection.pageItems {
-                print(setting.description)
-            }
-            var done = false
-            repeat {
-                // Iterate remaining results page-by-page
-                // The developer can use `nextItem` to iterate item-by-item instead
-                pagedCollection.nextPage { result in
-                    if case let .success(pageItems) = result {
-                        for setting in items {
-                            print(setting.description)
-                        }
-                    } else {
-                        done = true
-                    }
-                }
-            } while (!done)
-        ...
-    }
-}
-
-// Automatic synchronous iteration of a `PagedCollection`
-client.listConfigurationSettings(...) { result, _ in
-    switch result {
-        case .success(let pagedCollection):
-            // Iterate synchronously through all results using the `Sequence` protocol
-            for setting in pagedCollection.syncCollection {
-                print(setting.description)
-            }
-        ...
-    }
-}
-{% endhighlight %}
-
-For more information on what to return for `list` operations, refer to [Pagination](#pagination).
+{% include requirement/MUST id="ios-response-pagination" %} return an instance of the `PagedCollection` class for all paged operations. For more information on what to return for `list` operations, refer to [Pagination](#pagination).
 
 For methods that combine multiple requests into a single call:
 
@@ -217,6 +173,80 @@ For methods that combine multiple requests into a single call:
 ## Pagination
 
 Azure client libraries eschew low-level pagination APIs in favor of high-level abstractions that implement per-item iterators. High-level APIs are easy for developers to use for the majority of use cases but can be more confusing when finer-grained control is required (for example, over-quota/throttling) and debugging when things go wrong. Other guidelines in this document work to mitigate this limitation, for example by providing robust logging, tracing, and pipeline customization options.
+
+The Azure SDK for iOS contains the `PagedCollection` type, which provides Swift-idiomatic ways to iterate through all results of a paged operation. The developer can asynchronously iterate through the `PagedCollection` in a page-by-page or item-by-item fashion by calling the `forEachPage` and `forEachItem` methods:
+
+{% highlight swift %}
+// Automatic asynchronous iteration of a `PagedCollection` page-by-page
+client.listConfigurationSettings(...) { result, _ in
+    if case let .success(pagedCollection) = result {
+        pagedCollection.forEachPage { settings in
+            for setting in settings {
+                print(setting.description)
+            }
+            // `return false` to interrupt iteration
+            return true
+        }
+    }
+}
+
+// Automatic asynchronous iteration of a `PagedCollection` item-by-item
+client.listConfigurationSettings(...) { result, _ in
+    if case let .success(pagedCollection) = result {
+        pagedCollection.forEachItem { setting in
+            print(setting.description)
+            // `return false` to interrupt iteration
+            return true
+        }
+    }
+}
+{% endhighlight %}
+
+The developer can also choose to directly access the `PagedCollection`'s `items` and `pageItems` properties, manually advancing the collection by calling the asynchronous `nextPage` method as needed:
+
+{% highlight swift %}
+// Explicit asynchronous iteration of a `PagedCollection` page-by-page
+override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    client.listConfigurationSettings(...) { result, _ in
+        if case let .success(pagedCollection) = result {
+            self.dataSource = pagedCollection
+            self.tableView.reloadData()
+        }
+    }
+}
+
+internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let item = self.dataSource.items[indexPath.row]
+    let cell = tableView.dequeueReusableCell(withIdentifier: "ConfigurationSettingCell", for: indexPath)
+    ...
+    // Load next page if at the end of the current list
+    if indexPath.row == self.dataSource.count - 1, self.noMoreData == false {
+        self.dataSource.nextPage { result
+            if case let .success(data) = result, data != nil {
+                self.tableView.reloadData()
+            } else {
+                self.noMoreData = true
+            }
+        }
+    }
+    return cell
+}
+{% endhighlight %}
+
+Finally, `PagedCollection` also provides a property that conforms to the `Sequence` protocol, providing a way for the developer to synchronously consume all results of a paged operation using a standard `for ... in` loop:
+
+{% highlight swift %}
+// Automatic synchronous iteration of a `PagedCollection` item-by-item
+client.listConfigurationSettings(...) { result, _ in
+    if case let .success(pagedCollection) = result {
+        for setting in pagedCollection.syncCollection {
+            print(setting.description)
+            // `break` to interrupt iteration
+        }
+    }
+}
+{% endhighlight %}
 
 {% include requirement/MUST id="ios-pagination-async-support" %} return a `PagedCollection` for APIs that expose a collection of results, regardless of whether the collection is paginated or non-paginated. This ensures that paginated and non-paginated collections are accessed and operate the same way. Users should not need to appreciate the difference.
 
