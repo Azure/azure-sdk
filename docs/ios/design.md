@@ -112,7 +112,7 @@ Model classes are classes that consumers use to provide required information int
 
 {% include requirement/MAY id="ios-service-client-method-parameter-unnamed" %} use the `_` syntax to avoid requiring a parameter label for the first parameter of delegate methods and other scenarios where doing so is idiomatic to Swift naming conventions.
 
-{% include requirement/SHOULD id="ios-service-client-flexibility" %} remain flexible and use names best suited for developer experience.  Don't let the naming rules result in non-idiomatic naming patterns.  For example, Swift developers prefer `list` operations over `getAll` operations.
+{% include requirement/SHOULD id="ios-service-client-flexibility" %} remain flexible and use names best suited for developer experience.  Don't let the naming rules result in non-idiomatic naming patterns.  For example, naming methods `download` and `upload` provides more semantic meaning and would be more idiomatic than naming them `getBlob` and `putBlob`.
 
 {% include requirement/MUSTNOT id="ios-async-suffix" %} use the suffix `Async` in methods that do operations asynchronously.
 
