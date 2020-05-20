@@ -17,7 +17,7 @@ Swift does not use namespaces.  Instead, there are product module names.  The fo
 The product module name should be named `Azure<Service>[<Feature>]`.  All classes should exist within this module.  Here:
 
 - `<Service>` is the service name represented as a single word
-- `<Feature>` is an optional subpackage to break services into separate components (for example, storage may have `Blobs`, `Files`, and `Queues`)
+- `<Feature>` is an optional subpackage to break services into separate components (for example, storage may have `Blob`, `File`, and `Queue` subpackages)
 
 {% include requirement/MUST id="ios-modulename-format" %} start the module name with `Azure` to indicate an Azure client library.  Use a capitalized shortened name for the service name, and finish with an optional suffix for the feature.
 
@@ -25,9 +25,9 @@ For example, Azure Key Vault would be in AzureKeyVault.  Note that Key and Vault
 
 {% include requirement/MUST id="ios-modulename-selection" %} pick a module name that allows the consumer to tie the module to the service being used. The package does **NOT** change when the branding of the product changes.  Avoid the use of marketing names that may change.
 
-{% include requirement/MUST id="ios-modulename-path" %} locate the module's project files and all code pertaining to the module in a directory following the format `sdk/<service>/<ModuleName>/`. For example, code for the storage service's Blobs library should be stored in `sdk/storage/AzureStorageBlobs/`.
+{% include requirement/MUST id="ios-modulename-path" %} locate the module's project files and all code pertaining to the module in a directory following the format `sdk/<service>/<ModuleName>/`. For example, code for the storage service's Blob library should be stored in `sdk/storage/AzureStorageBlob/`.
 
-{% include requirement/MUST id="ios-modulename-bundle" %} construct the module's bundle identifier following the format `com.azure.<service>.<ModuleName>`. For example, the storage service's Blobs library should use the bundle identifier `com.azure.storage.AzureStorageBlobs`.
+{% include requirement/MUST id="ios-modulename-bundle" %} construct the module's bundle identifier following the format `com.azure.<service>.<ModuleName>`. For example, the storage service's Blob library should use the bundle identifier `com.azure.storage.AzureStorageBlob`.
 
 {% include requirement/MUST id="ios-namespaces-management" %} place the management (Azure Resource Manager) API in the `AzureMgmt` prefixed module.  For example, a Swift management API for Azure Key Vault would use `AzureMgmtKeyVault`.  We do not expect many management APIs for Swift, so this should be uncommon.
 
@@ -45,7 +45,7 @@ Your API surface consists of one or more _service clients_ that the consumer wil
 
 ### Client interface
 
-{% include requirement/MUST id="ios-async-client-name" %} offer an async service client named `<Service>[<Feature>]Client`, as async is the most common paradigm on iOS. More than one service client may be offered for a single service. For example, a client for the storage service's Blobs feature should be named `StorageBlobsClient`.
+{% include requirement/MUST id="ios-async-client-name" %} offer an async service client named `<Service>[<Feature>]Client`, as async is the most common paradigm on iOS. More than one service client may be offered for a single service. For example, a client for the storage service's Blob feature should be named `StorageBlobClient`.
 
 {% include requirement/MUSTNOT id="ios-async-framework" %} use a third-party library to provide an async API.
 
@@ -106,7 +106,7 @@ Model classes are classes that consumers use to provide required information int
 
 {% include requirement/MUST id="ios-service-client-verb" %} use the verb by itself as the method name when the name of the first parameter and the return type (or callback parameter type) makes it obvious what object the action will apply to and/or what object(s) will be returned. For example, prefer `keyVaultClient.get(key: 'foo')` rather than `keyVaultClient.getKey(name: 'foo')` or `keyVaultClient.getKey('foo')`.
 
-{% include requirement/MUST id="ios-service-client-verb-prefix" %} use the verb as as prefix for the method name when object(s) the action will apply to or return is unclear. For example, prefer `storageBlobsClient.listContainers()` rather than `storageBlobsClient.list()`.
+{% include requirement/MUST id="ios-service-client-verb-prefix" %} use the verb as as prefix for the method name when object(s) the action will apply to or return is unclear. For example, prefer `storageBlobClient.listContainers()` rather than `storageBlobClient.list()`.
 
 {% include requirement/MUST id="ios-service-client-method-parameter-name" %} provide unambiguous parameter labels for all client methods. Do not use the `_` syntax to avoid requiring parameter labels.
 
