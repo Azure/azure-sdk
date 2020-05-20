@@ -1,6 +1,6 @@
 param (
   $language = "all",
-  $releaseFolder = "$PSScriptRoot\..\..\_data\releases\data"
+  $releaseFolder = "$PSScriptRoot\..\..\_data\releases\new"
 )
 
 $releaseFolder = Resolve-Path $releaseFolder
