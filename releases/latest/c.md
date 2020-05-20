@@ -1,5 +1,5 @@
 ---
-title: Azure SDK for .NET (Latest)
+title: Azure SDK for Embedded C (Latest)
 layout: default
 tags: c
 sidebar: releases_sidebar
