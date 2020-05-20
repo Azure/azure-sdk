@@ -10,4 +10,6 @@ permalink: /releases/latest/index.html
 {% include releases/java.md %}
 {% include releases/js.md %}
 {% include releases/python.md %}
+{% include releases/c.md %}
+
 {% include refs.md %}

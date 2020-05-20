@@ -1,24 +1,26 @@
 <tr>
   <td>{{ item.Service }}</td>
   <td>
-    {% capture label %} 
-        {{ package_label }}
-    {% endcapture %}
-
-    {% if item.VersionGA != "" %}
-        {% assign version = item.VersionGA %}
-        {% capture url %}
-        {{ package_url_template | replace: 'item.Package', item.Package | replace: 'item.Version', version}}
+    {% if item.Package != "" %}
+        {% capture label %} 
+            {{ package_label }}
         {% endcapture %}
-        {% include releases/pkgbadge.md  label=label url=url %}
-    {% endif %}
+        
+        {% if item.VersionGA != "" %}
+            {% assign version = item.VersionGA %}
+            {% capture url %}
+            {{ package_url_template | replace: 'item.Package', item.Package | replace: 'item.Version', version}}
+            {% endcapture %}
+            {% include releases/pkgbadge.md  label=label url=url %}
+        {% endif %}
 
-    {% if item.VersionPreview != "" %}
-        {% assign version = item.VersionPreview %}
-        {% capture url %}
-        {{ package_url_template | replace: 'item.Package', item.Package | replace: 'item.Version', version}}
-        {% endcapture %}
-        {% include releases/pkgbadge.md  label=label preview="true" url=url %}
+        {% if item.VersionPreview != "" %}
+            {% assign version = item.VersionPreview %}
+            {% capture url %}
+            {{ package_url_template | replace: 'item.Package', item.Package | replace: 'item.Version', version}}
+            {% endcapture %}
+            {% include releases/pkgbadge.md  label=label preview="true" url=url %}
+        {% endif %}
     {% endif %}
   </td>
   <td>

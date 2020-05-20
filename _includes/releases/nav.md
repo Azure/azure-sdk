@@ -1,1 +1,1 @@
-[.NET](#net) | [Java](#java) | [JavaScript/TypeScript](#javascript) | [Python](#python)
+[.NET](#net) | [Java](#java) | [JavaScript/TypeScript](#javascript) | [Python](#python) | [C](#c)
