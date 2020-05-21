@@ -123,6 +123,63 @@ We speak about using the client library in a cross-language manner within outbou
 
 {% include requirement/MUST id="java-client-feature-support" %} support 100% of the features provided by the Azure service the client library represents. Gaps in functionality cause confusion and frustration among developers.
 
+## Service API versions
+
+The purposes of the client library is to communicate with an Azure service.  Azure services support multiple API versions.  To understand the capabilities of the service, the client library must be able to support multiple service API versions.
+
+{% include requirement/MUST id="java-service-apiversion-1" %} only target generally available service API versions when releasing a GA version of the client library.
+
+{% include requirement/MUST id="java-service-apiversion-2" %} target the latest generally available service API version by default in GA versions of the client library.
+
+{% include requirement/MUST id="java-service-apiversion-5" %} document the service API version that is used by default.
+
+{% include requirement/MUST id="java-service-apiversion-3" %} target the latest public preview API version by default when releasing a public preview version of the client library.
+
+{% include requirement/MUST id="java-service-apiversion-4" %} include all service API versions that are supported by the client library in a `ServiceVersion` enumerated value.
+
+{% include requirement/MUST id="java-service-apiversion-6" %} ensure that the values of the `ServiceVersion` enumerated value "match" the version strings in the service Swagger definition.  
+
+For the purposes of this requirement, semantic changes are allowed.  For instance, many version strings are based on SemVer, which allows dots and dashes.  However, these characters are not allowed in identifiers.  The developer **MUST** be able to clearly understand what service API version will be used when the service version is set to each value in the `ServiceVersion` enumerated value.
+
+## Model types
+
+Client libraries represent entities transferred to and from Azure services as model types.   Certain types are used for round-trips to the service.  They can be sent to the service (as an addition or update operation) and retrieved from the service (as a get operation).  These should be named according to the type.  For example, a `ConfigurationSetting` in App Configuration, or an `Event` on Event Grid.
+
+Data within the model type can generally be split into two parts - data used to support one of the champion scenarios for the service, and less important data.  Given a type `Foo`, the less important details can be gathered in a type called `FooDetails` and attached to `Foo` as the `details` property.
+
+For example:
+
+{% highlight java %}
+public class ConfigurationSettingDetails {
+    private OffsetDateTime lastModifiedDate;
+    private OffsetDateTime receivedDate;
+    private ETag eTag;
+}
+
+public class ConfigurationSetting {
+    private String key;
+    private String value;
+    private ConfigurationSettingDetails details;
+}
+{% endhighlight %}
+
+Optional parameters and settings to an operation should be collected into an options bag named `<operation>Options`. For example, the `GetConfigurationSetting` method might take a `GetConfigurationSettingOptions` class for specifying optional parameters.
+
+Results should use the model type (e.g. `ConfigurationSetting`) where the return value is a complete set of data for the model.  However, in cases where a partial schema is returned, use the following types:
+
+* `<model>Item` for each item in an enumeration if the enumeration returns a partial schema for the model.  For example, `GetBlobs()` return an enumeration of `BlobItem`, which contains the blob name and metadata, but not the content of the blob.
+* `<operation>Result` for the result of an operation.  The `<operation>` is tied to a specific service operation.  If the same result can be used for multiple operations, use a suitable noun-verb phrase instead.  For example, use `UploadBlobResult` for the result from `UploadBlob`, but `ContainerChangeResult` for results from the various methods that change a blob container.
+
+The following table enumerates the various models you might create:
+
+| Type | Example | Usage |
+| `<model>` | `Secret` | The full data for a resource |
+| `<model>Details` | `SecretDetails` | Less important details about a resource.  Attached to `<model>.details` |
+| `<model>Item` | `SecretItem` | A partial set of data returned for enumeration |
+| `<operation>Options` | `AddSecretOptions` | Optional parameters to a single operation |
+| `<operation>Result` | `AddSecretResult` | A partial or different set of data for a single operation |
+| `<model><verb>Result` | `SecretChangeResult` | A partial or different set of data for multiple operations on a model |
+
 ## Network requests
 
 The client library wraps HTTP requests so it's important to support standard network capabilities.  Asynchronous programming techniques aren't widely understood.  However, such techniques are essential in developing resilient web services.  Many developers prefer synchronous method calls for their easy semantics when learning how to use a technology.  Consumers also expect certain capabilities in a network stack (such as call cancellation, automatic retry, and logging).
@@ -133,17 +190,43 @@ The client library wraps HTTP requests so it's important to support standard net
 
 ## Authentication
 
-Azure services use different kinds of authentication schemes to allow clients to access the service.  Conceptually, there are two entities responsible in this process: a credential and an authentication policy.  Credentials provide confidential authentication data.  Authentication policies use the data provided by a credential to authenticate requests to the service.  
+Azure services use a variety of different authentication schemes to allow clients to access the service.  Conceptually, there are two entities responsible in this process: a credential and an authentication policy.  Credentials provide confidential authentication data.  Authentication policies use the data provided by a credential to authenticate requests to the service.  
 
-{% include requirement/MUST id="java-auth-support" %} support all authentication techniques that the service supports.
+Primarily, all Azure services should support Azure Active Directory OAuth token authentication, and all clients of services that support Azure Active Directory OAuth token authentication must support authenticating requests in this manner.
 
-{% include requirement/MUST id="java-auth-azurecore" %} use credential and authentication policy implementations from the Azure Core library where available.
+{% include requirement/MUST id="java-auth-fluent-builder" %} provide service client fluent builder APIs that accepts an instance of the appropriate azure-core credential abstraction, namely `TokenCredential`, `BasicAuthenticationCredential`, or `AzureKeyCredential`.
 
-{% include requirement/MUST id="java-auth-credentials" %} provide credential types that can be used to fetch all data needed to authenticate a request to the service.  If using a service-specific credential type, the implementation must be non-blocking and atomic.
+{% include requirement/MUSTNOT id="auth-client-no-token-persistence" %} persist, cache, or reuse tokens beyond the validity period of the given token. If any caching is implemented, the token credential must be given the opportunity to refresh before it expires.
 
-{% include requirement/MUST id="java-auth-fluent-builder" %} provide service client fluent builder APIs that accept all supported authentication credentials.
+{% include requirement/MUST id="java-auth-use-core" %} use authentication policy implementations from the Azure Core library where available.
 
-A connection string is a combination of an endpoint, credential data, and other options used to simplify service client configuration.  Client libraries may support a connection string __ONLY IF__ the service provides it via the portal or other tooling.   Connection strings are easily integrated into an application by copy/paste from the portal.  However, credentials within a connection string can't be rotated within a running process.  Their use should be discouraged in production apps.
+{% include requirement/MUST id="java-auth-reserve-when-not-suported" %} reserve the API surface needed for TokenCredential authentication, in the rare case that a service does not yet support Azure Active Directory authentication.
+
+In addition to Azure Active Directory OAuth, services may provide custom authentication schemes. In this case the following guidelines apply.
+
+{% include requirement/MUST id="java-auth-support" %} support all authentication schemes that the service supports.
+
+{% include requirement/MUST id="java-auth-provide-credential-types" %} define a public custom credential type which enables clients to authenticate requests using the custom scheme.
+
+{% include requirement/SHOULDNOT id="java-auth-credential-type-base" %} define custom credential types extending or implementing the TokenCredential abstraction from Azure Core. This is especially true in type safe languages where extending or implementing this abstraction would break the type safety of other service clients, allowing users to instantiate them with the custom credential of the wrong service.
+
+{% include requirement/MUST id="java-auth-credential-type-placement" %} define custom credential types in the same namespace and package as the client, or in a service group namespace and shared package, not in Azure Core or Azure Identity.
+
+{% include requirement/MUST id="java-auth-credential-type-prefix" %} prepend custom credential type names with the service name or service group name to provide clear context to its intended scope and usage.
+
+{% include requirement/MUST id="java-auth-credential-type-suffix" %} append Credential to the end of the custom credential type name. Note this must be singular not plural.
+
+{% include requirement/MUST id="java-auth-provide-credential-constructor" %} define a constructor or factory for the custom credential type which takes in ALL data needed for the custom authentication protocol.
+
+{% include requirement/MUST id="java-auth-provide-update-method" %} define an update method which accepts all mutable credential data, and updates the credential in an atomic, thread safe manner.
+
+{% include requirement/MUSTNOT id="java-auth-credential-set-properties" %} define public settable properties or fields which allow users to update the authentication data directly in a non-atomic manner.
+
+{% include requirement/SHOULDNOT id="java-auth-credential-get-properties" %} define public properties or fields which allow users to access the authentication data directly. They are most often not needed by end users, and are difficult to use in a thread safe manner. In the case that exposing the authentication data is necessary, all the data needed to authenticate requests should be returned from a single API which guarantees the data returned is in a consistent state.
+
+{% include requirement/MUST id="java-auth-provide-client-constructor" %} provide service client constructors or factories that accept all supported credential types.
+
+Client libraries may support providing credential data via a connection string __ONLY IF__ the service provides a connection string to users via the portal or other tooling.   Connection strings are generally good for getting started as they are easily integrated into an application by copy/paste from the portal.  However, connection strings are considered a lesser form of authentication because the credentials cannot be rotated within a running process.
 
 {% include requirement/MUSTNOT id="java-auth-connection-strings" %} support constructing a service client with a connection string unless such connection string is available within tooling (for copy/paste operations).
 
@@ -253,7 +336,7 @@ The return value from a conditional operation must be carefully considered.  For
 
 Azure client libraries eschew low-level pagination APIs in favor of high-level abstractions that  implement per-item iterators. High-level APIs are easy for developers to use for the majority of use cases but can be more confusing when finer-grained control is required (for example,  over-quota/throttling) and debugging when things go wrong. Other guidelines in this document work to mitigate this limitation, for example by providing robust logging, tracing, and pipeline  customization options.
 
-{% include requirement/MUST id="java-pagination-streaming" %} return `PagedIterable<T>` (found in azure-core under `com.azure.core.http.rest`) for synchronous APIs that expose paginated collections, and return `IterableStream<T>` (found in azure-core under `com.azure.core.util`) for synchronous APIs that do not support pagination. These APIs allow consumers to write code that works using the standard *for* loop syntax (as it is an `Iterable`), and also to work with a Java `Stream` (as there is a `stream()` method). `PagedIterable` goes further, by offering consumers `streamByPage` and `iterableByPage` methods to work on page boundaries.
+{% include requirement/MUST id="java-pagination-streaming" %} return `PagedIterable<T>` (found in azure-core under `com.azure.core.http.rest`) for synchronous APIs that expose paginated collections. Do not return `IterableStream<T>` (found in azure-core under `com.azure.core.util`) in synchronous APIs, as this removes from the user the ability to get response details from the service request. `PagedIterable` allows consumers to write code that works using the standard *for* loop syntax (as it is an `Iterable`), and also to work with a Java `Stream` (as there is a `stream()` method). Consumers may also call `streamByPage()` and `iterableByPage()` methods to work on page boundaries. Subclasses of these types are acceptable as return types too, so long as the naming convention generally follows the pattern `<serviceName>PagedIterable` or `<operation>PagedIterable`.
 
 For example, the configuration service sync client might offer the following API:
 
@@ -266,9 +349,9 @@ public final class ConfigurationClient {
 }
 ```
 
-{% include requirement/MUSTNOT id="java-pagination-collections" %} use other collection types for sync APIs that return collections (for example, `List`, `Stream`, `Iterable`, or `Iterator`).
+{% include requirement/MUSTNOT id="java-pagination-collections" %} return other collection types for sync APIs that return collections (for example, `List`, `Stream`, `Iterable`, or `Iterator`).
 
-{% include requirement/MUST id="java-pagination-pagedflux" %} return `PagedFlux<T>` for asynchronous APIs that expose collections. Even if the service does not support pagination, always return `PagedFlux<T>`, as it allows for consumers to retrieve response information in a consistent manner.
+{% include requirement/MUST id="java-pagination-pagedflux" %} return `PagedFlux<T>` (or an appropriately-named subclass) for asynchronous APIs that expose collections. Even if the service does not support pagination, always return `PagedFlux<T>`, as it allows for consumers to retrieve response information in a consistent manner.
 
 ```java
 public final class ConfigurationAsyncClient {
@@ -295,7 +378,7 @@ client.listSettings(..)
 
 {% include requirement/MUST id="java-pagination-distinct-types" %} use distinct types for entities in a list endpoint and an entity returned from a get endpoint if these are different types, and otherwise you must use the same types in these situations.
 
-> Services should refrain from having a difference between the type of a particular entity as it exists in a list versus the result of a GET request for that individual item as it makes the client library's surface area simpler.
+{% include important.html content="Services should refrain from having a difference between the type of a particular entity as it exists in a list versus the result of a GET request for that individual item as it makes the client library's surface area simpler." %}
 
 {% include requirement/MUSTNOT id="java-pagination-get-iterator" %} expose an iterator over each individual item if getting each item requires a corresponding GET request to the service. One GET per item is often too expensive and so not an action we want to take on behalf of users.
 
@@ -328,6 +411,8 @@ client.listSettings(..)
 
 The `PagedFlux.byPage()` offers an overload to accept a `continuationToken` string, which will begin the returned `Flux` at the page specified by this token.
 
+{% include requirement/MAY id="java-pagination-subtypes" %} subclass the azure-core paged and iterable APIs, where appropriate, to offer additional, service specific API to users. If this is done, the subtype must be named as it currently is, prefixed with the name of the service. For example, `SearchPagedFlux` and `SearchPagedIterable`. Subtypes are expected to be placed within a `util` package existing within the root package.
+
 ## Long running operations
 
 Long-running operations are operations which consist of an initial request to start the operation followed by polling to determine when the operation has completed or failed. Long-running operations in Azure tend to follow the [REST API guidelines for Long-running Operations][rest-lro], but there are exceptions.
@@ -351,19 +436,35 @@ Polling configuration may be used only in the absence of relevant retry-after he
 
 {% include requirement/MUST id="java-lro-continuation" %} provide a way to instantiate a poller with the serialized state of another poller to begin where it left off, for example by passing the state as a parameter to the same method which started the operation, or by directly instantiating a poller with that state.
 
-{% include requirement/MUSTNOT id="java-lro-cancellation" %} cancel the long-running operation when cancellation is requested via a cancellation token. The cancellation token is cancelling the polling operation and should not have any effect on the service.
+{% include requirement/MUSTNOT id="java-lro-cancellation" %} cancel the client side polling operation when cancellation is requested. This cancellation should not have any effect on the service.
 
 {% include requirement/MUST id="java-lro-logging" %} log polling status at the `Info` level (including time to next retry)
 
 {% include requirement/MUST id="java-lro-progress-reporting" %} expose a progress reporting mechanism to the consumer if the service reports progress as part of the polling operation. 
 
-{% include requirement/MUST id="java-lro-poller-class" %} use the `com.azure.core.polling.Poller` class to represent long-running operations.  The long-running operation API pattern is:
+{% include requirement/MUST id="java-lro-poller-class" %} use the `com.azure.core.util.polling.PollerFlux` and `com.azure.core.util.polling.SyncPoller` to represent long-running operations. The long-running operation API pattern is:
 
 ```java
+// Async client
+public class <service_name>AsyncClient {
+    // PollerFlux<T, U> is a type in azure core
+    // T is the type of long-running operation poll response value
+    // U is the type of the final result of long-running operation
+    public PollerFlux<T, U> begin<operation_name>(<parameters>) {
+        return new PollerFlux<>(...);
+    }
+}
+```
+
+```java
+// sync client
 public class <service_name>Client {
-    // Poller<T> is a type in azure core
-    public Poller<T> begin<operation_name>(<parameters>) {
-        return new Poller<>(...);
+    // SyncPoller<T, U> is a type in azure core
+    // T is the type of long-running operation poll response value
+    // U is the type of the final result of long-running operation
+    public SyncPoller<T, U> begin<operation_name>(<parameters>) {
+        PollerFlux<> asyncPoller = asyncClient.begin<operation_name>(<parameters>);
+        return asyncPoller.getSyncPoller();
     }
 }
 ```
@@ -553,24 +654,40 @@ public final class <service_name>ClientBuilder {
 }
 ```
 
+{% include requirement/MUST id="java-service-client-fluent-builder-multiple-clients" %} offer build method 'overloads' for when a builder can build multiple client types. These methods must be named in the form `build<client>Client()` and `build<client>AsyncClient()`. For example, `buildBlobClient()` and `buildBlobAsyncClient()`.
+
 {% include requirement/MUST id="java-service-client-builder-annotation" %} annotate service client builders with the `@ServiceClientBuilder` annotation.
 
-{% include requirement/MUST id="java-service-client-builder-consistency" %} ensure consistency across all client libraries, by using the following names for client builder fluent API:
+{% include requirement/MUST id="java-service-client-builder-consistency" %} ensure consistency across all HTTP-based client libraries, by using the following names for client builder fluent API:
 
-| Name                 | Intent                                                                               |
-|----------------------|--------------------------------------------------------------------------------------|
-| `addPolicy`          | Adds a policy to the set of existing policies (assumes no custom pipeline is set).   |
-| `buildAsyncClient`   | Creates a new **async** client on each call.                                         |
-| `buildClient`        | Creates a new **sync** client on each call.                                          |
-| `configuration`      | Sets the configuration store that is used during construction of the service client. |
-| `credential`         | Sets the credential to use when authenticating HTTP requests.                        |
-| `connectionString`   | Sets the connection string to use for.                                               |
-| `endpoint`           | URL to send HTTP requests to.                                                        |
-| `httpClient`         | Sets the HTTP client to use.                                                         |
-| `httpLogOptions`     | Configuration for HTTP logging level, header redaction, etc.                         |
-| `pipeline`           | Sets the HTTP pipeline to use.                                                       |
+| Name                 | Intent                                                                                                 |
+|----------------------|--------------------------------------------------------------------------------------------------------|
+| `addPolicy`          | Adds a policy to the set of existing policies (assumes no custom pipeline is set).                     |
+| `buildAsyncClient`   | Creates a new **async** client on each call.                                                           |
+| `buildClient`        | Creates a new **sync** client on each call.                                                            |
+| `configuration`      | Sets the configuration store that is used during construction of the service client.                   |
+| `credential`         | Sets the credential to use when authenticating HTTP requests.                                          |
+| `connectionString`   | Sets the connection string to use for (only applicable if the Azure portal offers it for the service). |
+| `endpoint`           | URL to send HTTP requests to.                                                                          |
+| `httpClient`         | Sets the HTTP client to use.                                                                           |
+| `httpLogOptions`     | Configuration for HTTP logging level, header redaction, etc.                                           |
+| `pipeline`           | Sets the HTTP pipeline to use.                                                                         |
+| `serviceVersion`     | Sets the [service version](#versioning) to use. This must be a type implementing `ServiceVersion`.     |
 
 `endpoint` may be renamed if a more user-friendly name can be justified. For example, a blob storage library developer may consider using `new BlobClientBuilder.blobUrl(..)`. In this case, the `endpoint` API should be removed.
+
+{% include requirement/MUST id="java-service-client-builder-consistency-amqp" %} ensure consistency across all AMQP-based client libraries, by using the following names for client builder fluent API:
+
+| Name                       | Intent                                                                                                 |
+|----------------------------|--------------------------------------------------------------------------------------------------------|
+| `build<Type>AsyncClient`   | Creates a new **async** client on each call.                                                           |
+| `build<Type>Client`        | Creates a new **sync** client on each call.                                                            |
+| `configuration`            | Sets the configuration store that is used during construction of the service client.                   |
+| `credential`               | Sets the credential to use when authenticating AMQP requests.                                          |
+| `connectionString`         | Sets the connection string to use for (only applicable if the Azure portal offers it for the service). |
+| `transportType`            | Sets the preferred transport type to AMQP or Web Sockets that the client should use.                   |
+| `retry`                    | Sets the retry policy to use.                                                                          |
+| `proxyOptions`             | Sets the proxy connection settings.                                                                    |
 
 {% include requirement/MUST id="java-service-client-builder-precedence" %} use the following precedence rules for builder arguments:
 
@@ -622,15 +739,102 @@ getFoo(a, Context)
 
 Don't include overloads that take `Context` in async clients.  Async clients use the [subscriber context built into Reactor Flux and Mono APIs][reactor-context].
 
+## Service method parameters
+
+Service methods fall into two main groups when it comes to the number and complexity of parameters they accept:
+
+- Service Methods with simple inputs, _simple methods_ for short
+- Service Methods with complex inputs, _complex methods_ for short
+
+_Simple methods_ are methods that take up to six parameters, with most of the parameters being simple primitive types. _Complex methods_ are methods that take a larger number of parameters and typically correspond to REST APIs with complex request payloads.
+
+_Simple methods_ should follow standard Java best practices for parameter list and overload design.
+
+_Complex methods_ should introduce an _option parameter_ to represent the request payload. Consideration can subsequently be made for providing simpler convenience overloads for the most common scenarios.
+
+```java
+public class BlobContainerClient {
+
+    // simple service methods
+    public BlobInfo uploadBlob(String blobName, byte[] content);
+    public Response<BlobInfo> uploadBlobWithResponse(String blobName, byte[] content, Context context);
+
+    // complex service methods
+    public BlobInfo createBlob(CreateBlobOptions options);
+    public Response<BlobInfo> createBlobWithResponse(CreateBlobOptions options, Context context);
+
+    // convenience overload[s]
+    public BlobInfo createBlob(String blobName);
+}
+
+@Fluent
+public class CreateBlobOptions {
+    private String blobName;
+    private PublicAccessType access;
+    private Map<String, String> metadata;
+
+    // Constructor enforces the requirement that blobName is always set
+    public CreateBlobOptions(String blobName) {
+        this.blobName = blobName;
+    }
+
+    public String getBlobName() {
+        return blobName;
+    }
+
+    public CreateBlobOptions setAccess(PublicAccessType access) {
+        this.access = access;
+        return this;
+    }
+
+    public PublicAccessType getAccess() {
+        return access;
+    }
+
+    public CreateBlobOptions setMetadata(Map<String, String> metadata) {
+        this.metadata = metadata;
+        return this;
+    }
+
+    public Map<String, String> getMetadata() {
+        return metadata;
+    }
+}
+```
+
+{% include requirement/MUST id="java-params-complex-naming" %} name the _options_ type after the name of the service method it is used for, such that the type is named `<operation>Options`. For example, above the method was `createBlob`, and so the _options_ type was named `CreateBlobOptions`.
+
+{% include requirement/MUST id="java-params-complex" %} use the _options_ parameter pattern for complex service methods.
+
+{% include requirement/MAY id="java-params-complex-growth" %} use the _options_ parameter pattern for simple service methods that you expect to `grow` in the future.
+
+{% include requirement/MAY id="java-params-complex-overloads" %} add simple overloads of methods using the _options_ parameter pattern.
+
+If in common scenarios, users are likely to pass just a small subset of what the _options_ parameter represents, consider adding an overload with a parameter list representing just this subset.
+
+{% include requirement/MUSTNOT id="java-params-complex-overloads" %} introduce method overloads that take a subset of the parameters as well as the _options_ parameter. _Option_ parameters must be the only argument to a method, apart from the `Context` type, which must continue to be outside the _options_ type.
+
+{% include requirement/MUST id="java-params-complex-withResponse" %} use the _options_ parameter type, if it exists, for all `*WithResponse` methods. If no _options_ parameter type exists, do not create one solely for the `*WithResponse` method.
+
+{% include requirement/MUST id="java-params-options-package" %} place all options types in a root-level `options` package, to make options types distinct from service clients and model types.
+
+{% include requirement/MUST id="java-params-options-design" %} design options types with the same design guidance as given below for model class types, namely fluent setters for optional arguments, using the standard JavaBean naming convention of `get*`, `set*`, and `is*`. Additionally, there may be constructor overloads for each combination of required arguments.
+
+{% include requirement/MAY id="java-params-options-ctor" %} introduce constructor overloads for each combination of required arguments.
+
 ## Model classes
 
-Model classes are classes that consumers use to provide required information into client library methods. These classes typically represent the domain model, or options classes that must be configured before the request can be made.
+Model classes are classes that consumers use to provide required information into client library methods, or to receive information from Azure services from client library methods. These classes typically represent the domain model.
 
-{% include requirement/MUST id="java-models-constructors" %} provide public constructors for all model classes.
+{% include requirement/MUST id="java-models-constructors" %} provide public constructors for all model classes that a user is allowed to instantiate. Model classes that are not instantiable by the user, for example if they are model types returned from the service, should not have any publicly visible constructors.
 
 Use a no-args constructor and a fluent setter API to configure the model class. However, other designs may be used for the constructor when appropriate.
 
 {% include requirement/MUSTNOT id="java-models-builder" %} offer a builder class for model classes.
+
+{% include requirement/MUST id="java-models-interface" %} put model classes that are intended as service return types only, and which have undesirable public API (which is not intended for consumers of the client library) into the `.implementation.models` package. In its place, an interface should be put into the public-facing `.models` package, and it should be this type that is returned through the public API to end users. Examples of situations where this is applicable include when there are constructors or setters on a type which receive implementation types, or when a type should be immutable but needs to be mutable internally. The interface should have the model type name, and the implementation (within `.implementation.models`) should be named `<interfaceName>Impl`.
+
+**Note:** Extra caution must be taken to ensure that the returned interface has had consideration given to any future evolution of the interface, as growing an interface presents its own set of challenges (that is, [default methods](https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html)).
 
 {% include requirement/MUST id="java-models-fluent" %} provide a fluent API where appropriate. Setter methods in model classes are required to return `this` to enable method chaining.
 
@@ -668,6 +872,8 @@ Using a consistent set of naming patterns across all client libraries will ensur
 {% include requirement/MUST id="java-naming-host-vs-hostname" %} understand the difference between a host and a hostname, and use the correct name. `hostname` is the host name without any port number, whereas `host` is the hostname with the port number. Additionally, API referring to the host name should be spelt as `hostname`, rather than `hostName`. The same applies to `username`, which should be used instead of `userName`.
 
 {% include requirement/MUSTNOT id="java-interface-i-prefix" %} name interface types with an 'I' prefix, e.g. `ISearchClient`. Instead, do not have any prefix for an interface, preferring `SearchClient` as the name for the interface type in this case.
+
+{% include requirement/MUST id="java-naming-enum-uppercase" %} use all upper-case names for enum (and 'expandable' enum) values. `EnumType.FOO` and `EnumType.TWO_WORDS` are valid, whereas `EnumType.Foo` and `EnumType.twoWords` are not).
 
 ## Java API Guidance
 
@@ -789,7 +995,7 @@ There are two annotations of note that should be applied on model classes, when 
 
 {% include requirement/MUST id="java-versioning-highest-api" %} call the highest supported service API version by default.
 
-{% include requirement/MUST id="java-versioning-select-api-version" %} allow the consumer to explicitly select a supported service API version when instantiating the service client, by using the service client builder with a property called `serviceVersion`. The fixed-element enum type will be named specifically for the service, but as generally as possible. For example, `IdentityServiceVersion` for Identity. For a service with multiple sub-services, such as Storage, if the services all share a common versioning system, `StorageServiceVersion` would suffice. If they did not, it would be necessary to have separate `BlobServiceVersion`, `QueueServiceVersion`, and `FileServiceVersion` enums.
+{% include requirement/MUST id="java-versioning-select-api-version" %} allow the consumer to explicitly select a supported service API version when instantiating the service client, by using the service client builder with a property called `serviceVersion`. This method must take a type implementing the `ServiceVersion` interface, named specifically for the service, but as generally as possible. For example, `IdentityServiceVersion` for Identity. For a service with multiple sub-services, such as Storage, if the services all share a common versioning system, `StorageServiceVersion` would suffice. If they did not, it would be necessary to have separate `BlobServiceVersion`, `QueueServiceVersion`, and `FileServiceVersion` enums.
 
 {% include requirement/MUST id="java-versioning-enum-latest" %} offer a `getLatest()` method on the enum that returns the latest service version. If a consumer doesn't specify a service version, the builder will call `getLatest()` to obtain the appropriate service version.
 

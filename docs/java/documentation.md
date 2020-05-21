@@ -65,35 +65,7 @@ Combined operations require knowledge of additional operations that might be out
 
 {% include requirement/MUST id="java-javadoc-samples" %} include code samples in all class-level JavaDoc, and in relevant method-level JavaDoc.
 
-{% include requirement/MUSTNOT id="java-javadoc-hard-coding" %} hard-code the sample within the JavaDoc (where it may become stale).  Follow the steps below to correctly ingest code samples from Java source files into the generated JavaDoc. 
-
-Let's assume we want to insert code samples into the JavaDoc of a class named `ClientBuilder` in the `com.azure.clientlibrary` package, located within the `src/main/java` directory:
-
-1. If it doesn't exist, create a source directory named `src/samples/java`.
-2. Create a Java package with the same name as the package of the source class for which JavaDoc will be generated (for our example, `com.azure.clientlibrary`).
-3. Create a class with the name `<SourceClass>JavaDocCodeSamples` (for example, `ClientBuilderJavaDocCodeSamples`)
-4. Write code samples to insert into the generated JavaDoc of the source class.
-5. Wrap the code samples with `BEGIN` and `END` comments. Don't use punctuation in the sample name.
-
-```java
-    // BEGIN: mysampletag1
-    … your code sample here …
-    // END: mysampletag1
-```
-
-6. Open the source class in `src/main/java`.  Edit the JavaDoc section:
-
-```java
-    /**
-     * {@codesnippet mysampletag1}
-     */
-```
-
-7. Generate the JavaDoc output with Maven.
-
-```bash
-mvn install -DskipTests -Dinclude-non-shipping-modules -Dgpg.skip=true -f pom.client.xml
-```
+{% include requirement/MUSTNOT id="java-javadoc-hard-coding" %} hard-code the sample within the JavaDoc (where it may become stale). Put code samples in `/src/samples/java` and use the available tooling to reference them.
 
 {% include requirement/MUST id="java-javadoc-naming-samples" %} follow the naming convention outlined below for naming samples tags:
 
