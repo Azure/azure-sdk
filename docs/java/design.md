@@ -358,7 +358,7 @@ client.listSettings(..)
 
 The `PagedFlux.byPage()` offers an overload to accept a `continuationToken` string, which will begin the returned `Flux` at the page specified by this token.
 
-{% include requirement/MAY id="java-pagination-subtypes" %} subclass the azure-core paged APIs, where appropriate, to offer additional, service specific API to users. If this is done, the subtype must be named as it currently is, prefixed with the name of the service. For example, `SearchPagedFlux` and `SearchPagedIterable`. Subtypes are expected to be placed within a `util` package existing within the root package.
+{% include requirement/MAY id="java-pagination-subtypes" %} subclass the azure-core paged and iterable APIs, where appropriate, to offer additional, service specific API to users. If this is done, the subtype must be named as it currently is, prefixed with the name of the service. For example, `SearchPagedFlux` and `SearchPagedIterable`. Subtypes are expected to be placed within a `util` package existing within the root package.
 
 ## Long running operations
 
@@ -605,7 +605,7 @@ public final class <service_name>ClientBuilder {
 
 {% include requirement/MUST id="java-service-client-builder-annotation" %} annotate service client builders with the `@ServiceClientBuilder` annotation.
 
-{% include requirement/MUST id="java-service-client-builder-consistency" %} ensure consistency across all client libraries, by using the following names for client builder fluent API (use these as appropriate - not all APIs must be present on all client libraries, for example AMQP-based libraries need not provide the HTTP-specific API):
+{% include requirement/MUST id="java-service-client-builder-consistency" %} ensure consistency across all HTTP-based client libraries, by using the following names for client builder fluent API:
 
 | Name                 | Intent                                                                                                 |
 |----------------------|--------------------------------------------------------------------------------------------------------|
@@ -622,6 +622,19 @@ public final class <service_name>ClientBuilder {
 | `serviceVersion`     | Sets the [service version](#versioning) to use. This must be a type implementing `ServiceVersion`.     |
 
 `endpoint` may be renamed if a more user-friendly name can be justified. For example, a blob storage library developer may consider using `new BlobClientBuilder.blobUrl(..)`. In this case, the `endpoint` API should be removed.
+
+{% include requirement/MUST id="java-service-client-builder-consistency-amqp" %} ensure consistency across all AMQP-based client libraries, by using the following names for client builder fluent API:
+
+| Name                       | Intent                                                                                                 |
+|----------------------------|--------------------------------------------------------------------------------------------------------|
+| `build<Type>AsyncClient`   | Creates a new **async** client on each call.                                                           |
+| `build<Type>Client`        | Creates a new **sync** client on each call.                                                            |
+| `configuration`            | Sets the configuration store that is used during construction of the service client.                   |
+| `credential`               | Sets the credential to use when authenticating AMQP requests.                                          |
+| `connectionString`         | Sets the connection string to use for (only applicable if the Azure portal offers it for the service). |
+| `transportType`            | Sets the preferred transport type to AMQP or Web Sockets that the client should use.                   |
+| `retry`                    | Sets the retry policy to use.                                                                          |
+| `proxyOptions`             | Sets the proxy connection settings.                                                                    |
 
 {% include requirement/MUST id="java-service-client-builder-precedence" %} use the following precedence rules for builder arguments:
 
