@@ -34,13 +34,54 @@ function CheckLink($url)
   }
   return $false
 }
+function MSDocLink($lang, $pkgName)
+{
+  return "https://docs.microsoft.com/en-us/$lang/api/overview/azure/{0}-readme/" -f ($pkgName -replace "azure[\.-]", "")
+}
 
+function GHDocLink($lang, $pkgName, $version)
+{
+  return "$azuresdkdocs/$lang/{0}/{1}/index.html" -f $pkgName, $version
+}
+function UpdateDocLinks($lang, $pkg)
+{
+  $version = $pkg.VersionGA
+  if ($version -eq "") { $version = $pkg.VersionPreview }
+
+  $msPackagePath = $pkg.Package -replace "azure[\.-]", ""
+  $msdocvalid = CheckLink "https://docs.microsoft.com/en-us/${lang}/api/overview/azure/${msPackagePath}-readme/"
+
+  Write-Host "Checking https://docs.microsoft.com/en-us/${lang}/api/overview/azure/${msPackagePath}-readme/"
+  if ($msdocvalid) {
+    $pkg.MSDocs = ""
+  }
+  else {
+    if ($pkg.MSDocs -eq "" -or $pkg.MSDocs -eq "NA") {
+      Write-Host "MSDoc link is not valid so marking as NA"
+      $pkg.MSDocs = "NA"
+    }
+  }
+  $ghformat = "{0}/{1}"
+  if ($lang -eq "javascript") { $ghformat = "azure-{0}/{1}" }
+  elseif ($lang -eq "dotnet") { $ghformat = "{0}/{1}/api" }
+  $ghpath = $ghformat -f $pkg.Package, $version 
+  $ghdocvalid = CheckLink "$azuresdkdocs/${lang}/${ghpath}/index.html"
+
+  if ($ghdocvalid) {
+    $pkg.GHDocs = ""
+  }
+  else {
+    if ($pkg.GHDocs -eq "" -or $pkg.GHDocs -eq "NA") {
+      Write-Host "GHDoc link is not valid so marking as NA"
+      $pkg.GHDocs = "NA"
+    }
+  }
+}
 function Check-java-links($pkg, $version)
 {
   $valid = $true;
   $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-java/tree/{0}_{1}/sdk/{2}/{0}/" -f $pkg.Package, $version, $pkg.RepoPath))
   $valid = $valid -and (CheckLink ("https://search.maven.org/artifact/com.azure/{0}/{1}/jar/" -f $pkg.Package, $version))
-  $valid = $valid -and (CheckLink ("$azuresdkdocs/java/{0}/{1}/index.html" -f $pkg.Package, $version))
   return $valid;
 }
 
@@ -75,6 +116,7 @@ function Update-java-Packages($packageList)
     else {
       Write-Warning "Not updating VersionPreview for $($pkg.Package) because at least one associated URL is not valid!"
     }
+    UpdateDocLinks "java" $pkg
   }
 }
 
@@ -83,7 +125,6 @@ function Check-js-links($pkg, $version)
   $valid = $true;
   $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-js/tree/@azure/{0}_{1}/sdk/{2}/{0}/" -f $pkg.Package, $version, $pkg.RepoPath))
   $valid = $valid -and (CheckLink ("https://www.npmjs.com/package/@azure/{0}/v/{1}" -f $pkg.Package, $version))
-  $valid = $valid -and (CheckLink ("$azuresdkdocs/javascript/azure-{0}/{1}/index.html" -f $pkg.Package, $version))
   return $valid
 }
 
@@ -97,7 +138,7 @@ function Update-js-Packages($packageList)
     }
     elseif (Check-js-links $pkg $version) {
       if ($pkg.VersionGA -ne $version) {
-        Write-Host "Updating VersionGA $($pkg.Package) from $($pkg.Version) to $version"
+        Write-Host "Updating VersionGA $($pkg.Package) from $($pkg.VersionGA) to $version"
         $pkg.VersionGA = $version;
       }
     }
@@ -111,13 +152,14 @@ function Update-js-Packages($packageList)
     }
     elseif (Check-js-links $pkg $version) {
       if ($pkg.VersionPreview -ne $version) {
-        Write-Host "Updating VersionPreview $($pkg.Package) from $($pkg.Version) to $version"
+        Write-Host "Updating VersionPreview $($pkg.Package) from $($pkg.VersionPreview) to $version"
         $pkg.VersionPreview = $version;
       }
     }
     else {
       Write-Warning "Not updating VersionPreview for $($pkg.Package) because at least one associated URL is not valid!"
     }
+    UpdateDocLinks "javascript" $pkg
   }
 }
 
@@ -126,7 +168,6 @@ function Check-dotnet-links($pkg, $version)
     $valid = $true;
     $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-net/tree/{0}_{1}/sdk/{2}/{0}/" -f $pkg.Package, $version, $pkg.RepoPath))
     $valid = $valid -and (CheckLink ("https://www.nuget.org/packages/{0}/{1}" -f $pkg.Package, $version))
-    $valid = $valid -and (CheckLink ("$azuresdkdocs/dotnet/{0}/{1}/api/index.html" -f $pkg.Package, $version))
     return $valid
 }
 
@@ -140,7 +181,7 @@ function Update-dotnet-Packages($packageList)
     }
     elseif (Check-dotnet-links $pkg $version) {
       if ($pkg.VersionGA -ne $version) {
-        Write-Host "Updating VersionGA $($pkg.Package) from $($pkg.Version) to $version"
+        Write-Host "Updating VersionGA $($pkg.Package) from $($pkg.VersionGA) to $version"
         $pkg.VersionGA = $version;
       }
     }
@@ -154,13 +195,14 @@ function Update-dotnet-Packages($packageList)
     }
     elseif (Check-dotnet-links $pkg $version) {
       if ($pkg.VersionPreview -ne $version) {
-        Write-Host "Updating VersionPreview $($pkg.Package) from $($pkg.Version) to $version"
+        Write-Host "Updating VersionPreview $($pkg.Package) from $($pkg.VersionPreview) to $version"
         $pkg.VersionPreview = $version;
       }
     }
     else {
       Write-Warning "Not updating VersionPreview for $($pkg.Package) because at least one associated URL is not valid!"
     }
+    UpdateDocLinks "dotnet" $pkg
   }
 }
 
@@ -169,7 +211,6 @@ function Check-python-links($pkg, $version)
     $valid = $true;
     $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-python/tree/{0}_{1}/sdk/{2}/{3}/" -f $pkg.Package, $version, $pkg.RepoPath, $pkg.Package))
     $valid = $valid -and (CheckLink ("https://pypi.org/project/{0}/{1}" -f $pkg.Package, $version))
-    $valid = $valid -and (CheckLink ("$azuresdkdocs/python/{0}/{1}/index.html" -f $pkg.Package, $version))
     return $valid
 }
 function Update-python-Packages($packageList)
@@ -182,7 +223,7 @@ function Update-python-Packages($packageList)
     }
     elseif (Check-python-links $pkg $version){
       if ($pkg.VersionGA -ne $version) {
-        Write-Host "Updating VersionGA $($pkg.Package) from $($pkg.Version) to $version"
+        Write-Host "Updating VersionGA $($pkg.Package) from $($pkg.VersionGA) to $version"
         $pkg.VersionGA = $version;
       }
     }
@@ -196,13 +237,14 @@ function Update-python-Packages($packageList)
     }
     elseif (Check-python-links $pkg $version){
       if ($pkg.VersionPreview -ne $version) {
-        Write-Host "Updating VersionPreview $($pkg.Package) from $($pkg.Version) to $version"
+        Write-Host "Updating VersionPreview $($pkg.Package) from $($pkg.VersionPreview) to $version"
         $pkg.VersionPreview = $version;
       }
     }
     else {
       Write-Warning "Not updating VersionPreview for $($pkg.Package) because at least one associated URL is not valid!"
     }
+    UpdateDocLinks "python" $pkg
   }
 }
 
@@ -215,7 +257,7 @@ function Output-Latest-Versions($lang)
   &$LangFunction $packageList 
 
   Write-Host "Writing $packagelistFile"
-  $packageList | ConvertTo-CSV -NoTypeInformation | out-file $packagelistFile -encoding ascii
+  $packageList | ConvertTo-CSV -NoTypeInformation -UseQuotes Always | out-file $packagelistFile -encoding ascii
 }
 
 switch($language)

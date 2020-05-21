@@ -2,7 +2,8 @@
 <tr>
   <th>Service</th>
   <th>Package</th>
-  <th>Documentation</th>
+  <th>MSDocs</th>
+  <th>GHDocs</th>
   <th>Source</th>
 </tr>
 <tbody id="myTable">
