@@ -22,7 +22,7 @@ Use the guidelines in each section of this template to ensure consistency and re
   - [Samples](./samples)
   - [Versioned API References](https://azure.github.io/azure-sdk-for-python/ref/Cosmos.html) -- Note this link format may be updated in the future but it is the best we have for now.
 
-* **DO** use relative links to other files in the source repository. Relative links will be converted to absolute links using the commit sha reference during publishing, that will ensure that we don't break links when we move things around in the repo in the future. So avoid using absolute links to a branch like `master` as they will definitely be broken in the future.
+* **DO NOT** use relative links to other files in the source repository. Use links to master in all our md files in the repo as this will help ensure that links work and don't break in a lot of cases. However when we publish these to docs we have the opportunity to transform those links to use the release tags instead of the master links.
 
 * **DO NOT** use version numbers in the links as the version numbers will often be missed when releasing new versions thus point to the wrong thing or not exist at all. Instead avoid linking directly to versioned information. If you still need a link you should first try to link to a page that contains all the versions so someone can choose or link to the latest which may be out of sync with the content but should usually remain valid.
 
