@@ -34,9 +34,9 @@ If you want to dive deep into the content, the release notes linked above and th
 
 ## Introducing the Azure SDK for Embedded Devices
 
-The [Azure Embedded C SDK](https://github.com/Azure/azure-sdk-for-c) is designed to allow small embedded (IoT) devices to communicate with Azure services.  Since we expect the client library code to run on microcontrollers that have slower CPUs and very limited amounts of flash, the Embedded C SDK is architected very differently than the Azure SDKs we offer for developing services.
+The [Azure Embedded C SDK](https://github.com/Azure/azure-sdk-for-c) is designed to allow small embedded (IoT) devices to communicate with Azure services.  Since we expect the client library code to run on microcontrollers that have slower CPUs and very limited amounts of flash, the Embedded C SDK is architected very differently than the Azure SDKs we offer in other languages.
 
-To properly address this target:
+To properly address the needs of the embedded developer:
 
 * The SDK is distributed as source code and compiled alongside your code.
 * We target the [C99 standard](http://www.open-std.org/jtc1/sc22/wg14/) and test with gcc, clang, and the Microsoft Visual C compilers.
@@ -59,9 +59,9 @@ At the heart of the SDK is what we refer to as _Azure Core_.  This code defines 
 By utilizing Azure Core, Azure client libraries will share a comon implementation and many features will behave identically across the suite of clinet libraries.  For example, the standard HTTP pipeline unifies the handling of authentication, logging, retry, and telemetry.
 
 
-### Example: Uploading a blog
+### Example: Uploading a blob to Azure Storage
 
-The code below demonstrates how to upload ASCII text to an Azure Storage blog using the new Azure Embedded C SDK.  The sample also shows how to enable logging.  
+The code below demonstrates how to upload ASCII text to an Azure Storage blob using the Azure Embedded C SDK.  The sample also shows how to enable logging.  
 
 ```clang
 #include <az_context.h>
