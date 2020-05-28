@@ -112,7 +112,7 @@ Model classes are classes that consumers use to provide required information int
 
 {% include requirement/MAY id="ios-service-client-method-parameter-unnamed" %} use the `_` syntax to avoid requiring a parameter label for the first parameter of delegate methods and other scenarios where doing so is idiomatic to Swift naming conventions.
 
-{% include requirement/SHOULD id="ios-service-client-flexibility" %} remain flexible and use names best suited for developer experience.  Don't let the naming rules result in non-idiomatic naming patterns.  For example, naming methods `download` and `upload` provides more semantic meaning and would be more idiomatic than naming them `getBlob` and `putBlob`.
+{% include requirement/SHOULD id="ios-service-client-flexibility" %} remain flexible and use names best suited for developer experience.  Don't let the naming rules result in non-idiomatic naming patterns.  For example, naming methods `download(blob:)` and `upload(blob:)` provides more semantic meaning and would be more idiomatic than naming them `get(blob:)` and `put(blob:)`.
 
 {% include requirement/MUSTNOT id="ios-async-suffix" %} use the suffix `Async` in methods that do operations asynchronously.
 
@@ -120,9 +120,15 @@ Model classes are classes that consumers use to provide required information int
 
 The client library wraps HTTP requests so it's important to support standard network capabilities.  Asynchronous programming techniques aren't widely understood.  However, such techniques are essential in developing resilient web services.  Many developers prefer synchronous method calls for their easy semantics when learning how to use a technology.  Consumers also expect certain capabilities in a network stack (such as call cancellation, automatic retry, and logging).
 
-{% include requirement/MUST id="ios-network-callback" %} accept a callback of type `HTTPResultHandler` named `completion` as the final parameter for client methods which only notify the user once, upon completion or failure of the async call.
+{% include requirement/MUST id="ios-network-callback-final" %} accept a callback as the final parameter for async client methods, allowing developers to take advantage of Swift's trailing closure syntax.
 
-{% include requirement/MUST id="ios-network-delegate" %} provide a delegate protocol that the developer can conform to for client methods which notify the user of multiple events beyond simple completion. For such methods, accept the delegate as the final parameter or return an object to which the delegate can be attached.
+{% include requirement/SHOULD id="ios-network-callback-single" %} accept only a single callback for any given async client method. Providing a method that accepts multiple callbacks leads to unnecessarily cluttered code, and only the final callback parameter can make use of the trailing closure syntax.
+
+{% include requirement/MUST id="ios-network-callback-suffix" %} use the suffix `handler` for all callback parameter names, e.g. `completionHandler`, `progressHandler`.
+
+{% include requirement/SHOULD id="ios-network-callback-type" %} use `HTTPResultHandler` as the type of the callback to expose both the result (or error) and the response data.
+
+{% include requirement/MAY id="ios-network-delegate" %} provide a delegate protocol that the developer can conform to instead of a callback parameter for async client methods where use of the delegate would improve clarity and/or reduce clutter. For such methods, you may either accept the delegate as the final parameter or return an object to which the delegate can be attached.
 
 {% include requirement/MUSTNOT id="ios-network-multiple-methods" %} provide multiple methods for a single REST endpoint.
 
@@ -144,7 +150,7 @@ Azure services use different kinds of authentication schemes to allow clients to
 
 Client libraries may support providing credential data via a connection string __ONLY IF__ the service provides a connection string to users via the portal or other tooling. Connection strings are generally good for getting started as they are easily integrated into an application by copy/paste from the portal. However, connection strings are considered a lesser form of authentication because the credentials cannot be rotated within a running process.
 
-{% include requirement/MAY id="ios-auth-connection-strings"%} provide a service client initializer that accepts a connection string if appropriate. The connection string must be provided as teh first parameter to the initializer and must be named `connectionString`. When supporting connection strings, the documentation must include a warning that building credentials such as connection strings into a consumer-facing application is inherently insecure.
+{% include requirement/MAY id="ios-auth-connection-strings"%} provide a service client initializer that accepts a connection string if appropriate. The connection string must be provided as the first parameter to the initializer and must be named `connectionString`. When supporting connection strings, the documentation must include a warning that building credentials such as connection strings into a consumer-facing application is inherently insecure.
 
 {% include requirement/MUSTNOT id="ios-auth-connection-strings-only" %} support initializing a service client with a connection string unless such connection string is available within tooling (for copy/paste operations).
 
@@ -156,9 +162,7 @@ The *logical entity* is a protocol neutral representation of a response. The log
 
 {% include requirement/MUST id="ios-response-return-logical-entity" %} return the logical entity for the normal form of a service method. The logical entity MUST represent the information needed in the 99%+ case.
 
-{% include requirement/MUST id="ios-response-access-response" %} *make it possible* for a developer to access the complete response, including the status line, headers, and body.
-
-Accepting a callback of type `HTTPResultHandler` achieves the above two requirements for client methods which only notify the user once, upon completion or failure of the async call.
+{% include requirement/MUST id="ios-response-access-response" %} *make it possible* for a developer to access the complete response, including the status line, headers, and body. The callback type `HTTPResultHandler` encodes this requirement and is the recommended type for callbacks passed to async client methods.
 
 {% include requirement/MUST id="ios-response-provide-examples" %} provide examples on how to access the raw and streamed response for a request, where exposed by the client library.  We don't expect all methods to expose a streamed response.
 
