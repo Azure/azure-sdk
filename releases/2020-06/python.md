@@ -11,6 +11,10 @@ The Azure SDK team is pleased to make available the {{ page.date | date: "%B %Y"
 
 This release includes the following:
 
+#### GA
+
+- Cosmos DB
+
 #### Preview
 
 - Text Analytics
@@ -20,6 +24,7 @@ This release includes the following:
 To install the latest preview version of the packages, copy and paste the following commands into a terminal:
 
 ```bash
+pip install azure-cosmos
 pip install --pre azure-ai-textanalytics
 ```
 
@@ -28,6 +33,11 @@ pip install --pre azure-ai-textanalytics
 If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/azure/azure-sdk-for-python/issues).
 
 ## Changelog
+
+### Cosmos DB [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/CHANGELOG.md)
+
+- Stable release.
+- Added HttpLoggingPolicy to pipeline to enable passing in a custom logger for request and response headers.
 
 ### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md)
 
