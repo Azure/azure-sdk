@@ -14,12 +14,12 @@ Use the guidelines in each section of this template to ensure consistency and re
 * Next, add a **bulleted list** of the **most common tasks** supported by the package or library, prefaced with "Use the client library for [Product Name] to:". Then, provide code snippets for these tasks in the [Examples](#examples) section later in the document. Keep the task list short but include those tasks most developers need to perform with your package.
 * Include this set of links targeting your product's content at the bottom of the introduction, making any adjustments as necessary (for example, NuGet instead of PyPi):
 
-  - [Package (PyPi)](https://pypi.org/project/azure-batch/)
-  - [API reference documentation](https://docs.microsoft.com/python/api/overview/azure/batch?view=azure-python)
-  - [Product documentation](https://docs.microsoft.com/azure/batch/)
-  - [Source code](./)
-  - [ChangeLog](./CHANGELOG.md)
-  - [Samples](./samples)
+  - [Package (PyPi)](https://pypi.org/project/azure-cosmos/)
+  - [API reference documentation](https://docs.microsoft.com/en-us/python/api/overview/azure/cosmos-readme?view=azure-python)
+  - [Product documentation](https://docs.microsoft.com/en-us/azure/cosmos-db/)
+  - [Source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)
+  - [ChangeLog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/CHANGELOG.md)
+  - [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos/samples)
   - [Versioned API References](https://azure.github.io/azure-sdk-for-python/ref/Cosmos.html) -- Note this link format may be updated in the future but it is the best we have for now.
 
 * **DO NOT** use relative links to other files in the source repository. Use links to master in all our md files in the repo as this will help ensure that links work and don't break in a lot of cases. However when we publish these to docs we have the opportunity to transform those links to use the release tags instead of the master links.
