@@ -35,7 +35,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
-### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md)
+### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#100-preview5-2020-05-27)
 
 - Client library now targets the service's v3.0 API, instead of the v3.0-preview.1 API.
 - Updated the models to correspond with service changes.
