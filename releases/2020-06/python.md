@@ -39,7 +39,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Stable release.
 - Added HttpLoggingPolicy to pipeline to enable passing in a custom logger for request and response headers.
 
-### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md)
+### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#100b6-2020-05-27)
 
 - We are now targeting the service's v3.0 API, instead of the v3.0-preview.1 API
 - Updated the models to correspond with service changes
