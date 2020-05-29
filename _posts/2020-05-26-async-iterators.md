@@ -1,7 +1,7 @@
 ---
-title: AsyncIterators in the Azure SDK
+title: Async Iterators in the Azure SDK for JavaScript &amp; TypeScript
 layout: post
-date: 26 may 2020
+date: 2020-06-02
 sidebar: releases_sidebar
 author_github: bterlson
 repository: azure/azure-sdk
@@ -9,7 +9,7 @@ repository: azure/azure-sdk
 
 A common feature in cloud APIs is paging for list results. Result sets may be massive - you could have thousands of blobs in a container, for example. Getting all results at once can cause delays in transmission and excessive load on the backend, and might even be so big it won't fit into memory in your client. So services offer potentially large collections in pages and developers request one page of results at a time.
 
-Azure SDK libraries abstract away the details of requesting pages from the service. You write a normal loop, and we take care of the rest. For example, here is the code that iterates through a list of containers in Storage:
+The Azure SDK for Javascript and TypeScript abstracts away the details of requesting pages from the service. You write a normal loop, and we take care of the rest. For example, here is the code that iterates through a list of containers in Storage:
 
 ```javascript
 const containers = blobServiceClient.listContainers();
@@ -20,7 +20,7 @@ for await (const container of containers) {
 
 How is this done? We use features that were added to recent editions of JavaScript; most notably async iterators. Async Iterators represent a stream of data that is loaded asynchronously. They are used across the Azure SDK to represent asynchronous streams of data such as paginated APIs like above.
 
-Async Iterators, and the Async Generators that produce them, were added in the ES2018 edition of the JavaScript standard. They are supported natively in recent version of modern browsers, but TypeScript can compile them down to generators or even vanilla functions.
+Async Iterators, the Async Generators that produce them, and the [`for-await-of` loops](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for-await...of) loops that consume them were added in the ES2018 edition of the JavaScript standard. They are supported natively in recent version of modern browsers, but TypeScript can [compile them down](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-3.html#async-iteration) to previous versions of JavaScript.
 
 If you're already familiar with async functions, promises, generators, and iterators, feel free to skip the background below. If not, that's great, most of this blog is for you!
 
@@ -296,3 +296,18 @@ let items = await toArray(client.listThings());
 ```
 
 You'll find other libraries on npm for doing all sorts of things with async iterators, and in the future this support will only grow. Adopting async iterators in the Azure SDK makes sure we'll interoperate seamlessly with great libraries across our ecosystem.
+
+## Further reading
+
+- [MDN documentation for the `for-await-of` loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for-await...of).
+- [MDN documentation for `Symbol.asyncIterator`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/asyncIterator)
+- [MDN documentation for iterators and generators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators)
+- [TypeScript 2.3 Release Notes](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-3.html#async-iteration) which added support for async iteration
+- [TypeScript handbook on iterators and generators](https://www.typescriptlang.org/docs/handbook/iterators-and-generators.html)
+
+## Want to hear more?
+
+Follow us on Twitter at [@AzureSDK](https://twitter.com/AzureSDK). We'll be covering more best
+practices in cloud-native development as well as providing updates on our progress in developing the next generation of Azure SDKs.
+
+Contributors to this article: _[Brian Terlson](https://twitter.com/bterlson)_.
