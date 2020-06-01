@@ -12,9 +12,9 @@ Use the Cosmos DB client library for Python to manage databases and the JSON doc
   - [Package (PyPi)][pypi]
   - [API reference documentation][ref_cosmos_sdk]
   - [Product documentation][cosmos_docs]
-  - [Source code](./)
-  - [ChangeLog](./CHANGELOG.md)
-  - [Samples](./samples)
+  - [Source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)
+  - [ChangeLog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/CHANGELOG.md)
+  - [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos/samples)
   - [Versioned API References](https://azure.github.io/azure-sdk-for-python/ref/Cosmos.html)
 
 ## Getting started
