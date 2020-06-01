@@ -1,13 +1,12 @@
 ---
-title: Azure SDK for Python (%%MONTH%% %%YEAR%%)
+title: Azure SDK for Python (%%MMMM yyyy%%)
 layout: post
-date: %%RELEASEDATE%%
 tags: python
 sidebar: releases_sidebar
 repository: azure/azure-sdk-for-python
 ---
 
-The Azure SDK team is pleased to make available the {{ page.date | date: "%B %Y" }} client library release.
+The Azure SDK team is pleased to make available the %%MMMM yyyy%% client library release.
 
 #### GA
 

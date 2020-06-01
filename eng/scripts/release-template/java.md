@@ -1,13 +1,12 @@
 ---
-title: Azure SDK for Java (%%MONTH%% %%YEAR%%)
+title: Azure SDK for Java (%%MMMM yyyy%%)
 layout: post
-date: %%RELEASEDATE%%
 tags: java azure
 sidebar: releases_sidebar
 repository: azure/azure-sdk-for-java
 ---
 
-The Azure SDK team is pleased to announce our {{ page.date | date: "%B %Y" }} client library releases.
+The Azure SDK team is pleased to announce our %%MMMM yyyy%% client library releases.
 
 #### GA
 

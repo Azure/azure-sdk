@@ -1,13 +1,12 @@
 ---
-title: Azure SDK for JavaScript (%%MONTH%% %%YEAR%%)
+title: Azure SDK for JavaScript (%%MMMM yyyy%%)
 layout: post
-date: %%RELEASEDATE%%
 tags: javascript typescript
 sidebar: releases_sidebar
 repository: azure/azure-sdk-for-js
 ---
 
-The Azure SDK team is pleased to make available the {{ page.date | date: "%B %Y" }} client library release.
+The Azure SDK team is pleased to make available the %%MMMM yyyy%% client library release.
 
 #### GA
 
