@@ -37,7 +37,6 @@ If you have a bug or feature request for one of the libraries, please [file an i
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
 ### _Package name_ 
-`[Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/LINK/CHANGELOG.md)`
 
 - Major changes only!!!
 
