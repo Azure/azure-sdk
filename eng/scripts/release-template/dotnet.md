@@ -1,13 +1,12 @@
 ---
-title: Azure SDK for .NET (%%MONTH%% %%YEAR%%)
+title: Azure SDK for .NET (%%MMMM yyyy%%)
 layout: post
-date: %%RELEASEDATE%%
 tags: dotnet
 sidebar: releases_sidebar
 repository: azure/azure-sdk-for-net
 ---
 
-The Azure SDK team is pleased to announce our {{ page.date | date: "%B %Y" }} client library releases.
+The Azure SDK team is pleased to announce our %%MMMM yyyy%% client library releases.
 
 #### GA
 
