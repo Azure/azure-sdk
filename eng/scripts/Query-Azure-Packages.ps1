@@ -6,7 +6,7 @@ param (
 function Query-java-Packages
 {
   # Rest API docs https://search.maven.org/classic/#api
-  $mavenQuery = Invoke-RestMethod "https://search.maven.org/solrsearch/select?q=g:com.microsoft.azure%20OR%20g:com.azure&rows=1000&wt=json"
+  $mavenQuery = Invoke-RestMethod "https://search.maven.org/solrsearch/select?q=g:com.microsoft.azure*%20OR%20g:com.azure&rows=1000&wt=json"
 
   Write-Host "Found $($mavenQuery.response.numFound) maven packages"
   $packages = $mavenQuery.response.docs | % { [pscustomobject]@{ Service = $_.a; Package = $_.id; Version = $_.latestVersion; GroupId = $_.g; ArtifactId = $_.a } }
