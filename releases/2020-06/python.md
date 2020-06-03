@@ -59,7 +59,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 - Support to copy a custom model from one Form Recognizer resource to another
 - Authentication using azure-identity credentials now supported
-- All long running operation methods now accept the keyword argument continuation_token to restart the poller from a saved state
+- All long running operation methods now accept the keyword argument `continuation_token` to restart the poller from a saved state
 
 
 ## Latest Releases
