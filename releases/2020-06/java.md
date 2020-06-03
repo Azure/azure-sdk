@@ -36,14 +36,16 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Changelog
 
-### Form Recognizer ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/search/azure-search-documents/CHANGELOG.md#100-beta3-2020-05-05))
+### Form Recognizer ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#100-beta3-2020-05-06))
 
 Here are some of the highlights:
 
 #### New Features
 
-- Added AAD authentication support for Form Recognizer client.
-- Added support for Copy API feature
+- Add support to copy custom model from one Form Recognizer resource to another.
+- Add support for Azure Active Directory credential.
+- [Breaking] Rename refactoring for cross-language consistency.
+- [Breaking] Remove `USReceipt` and related types.
 
 
 ## Need help
