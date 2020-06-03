@@ -8,24 +8,25 @@ repository: azure/azure-sdk-for-js
 
 The Azure SDK team is pleased to make available the June 2020 client library release.
 
-#### GA
-
-- _Add packages_
-
-#### Updates
-
-- _Add packages_
-
-#### Preview
-
-- _Add packages_
+- Updates for Core libraries
+- Update for Azure Event Hubs
+- New preview of Azure Identity
+- New preview of Azure Cognitive Search
+- New preview of Azure Cognitive Form Recognizer
+- New preview of Azure Cognitive Text Analytics
+- New preview of Azure Service Bus
 
 ## Installation Instructions
 
 To install the packages, copy and paste the below into a terminal.
 
 ```bash
-$> npm install @azure/package-name
+$> npm install @azure/event-hubs
+$> npm install @azure/identity
+$> npm install @azure/search-documents
+$> npm install @azure/ai-form-recognizer
+$> npm install @azure/ai-text-analytics
+$> npm install @azure/service-bus@next
 ```
 
 ## Feedback
@@ -36,9 +37,33 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
-### _Package name_
+### Event Hubs
 
-- Major changes only!
+- TODO
+
+### Identity
+
+- TODO
+
+### Search
+
+- TODO
+
+### Text Analytics
+
+- TODO
+
+### Form Recognizer
+
+- Add support to copy custom model from one Form Recognizer resource to another.
+- Add support for Azure Active Directory credential.
+- [Breaking] Recognition and training methods now return results directly, instead of wrapping the result in a response object.
+- [Breaking] Rename refactoring for cross-language consistency.
+- [Breaking] Remove `USReceipt` and related types.
+
+### Service Bus
+
+- TODO
 
 ## Latest Releases
 
