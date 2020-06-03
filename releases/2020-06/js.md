@@ -51,14 +51,21 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Text Analytics
 
-- TODO
+- The library now uses the Text Analytics v3.0 (General Availability) service endpoint.
+- [Breaking] Renamed all result array types that extend JavaScript's base `Array` class to end with the word `Array` instead of `Collection` (e.g. `AnalyzeSentimentResultCollection` is now `AnalyzeSentimentResultArray`)
+- [Breaking] Renamed `score` to `confidenceScore` in the `Match`, `Entity`, and `DetectedLanguage` types.
+- [Breaking] Removed the `graphemeOffset` and `graphemeLength` properties of the `Match`, `Entity`, and `SentenceSentiment` types.
+- [Breaking] Renamed the `graphemeCount` property of `TextDocumentStatistics` back to `characterCount`
+- Added a `text` property to `SentenceSentiment` that contains the sentence text
+- [Breaking] Removed the `warnings` property of `SentenceSentiment`.
+- Added `warnings` property to every document response object containing a list of `TextAnalyticsWarning` objects relevant to the corresponding document.
 
 ### Form Recognizer
 
 - Add support to copy custom model from one Form Recognizer resource to another.
 - Add support for Azure Active Directory credential.
 - [Breaking] Recognition and training methods now return results directly, instead of wrapping the result in a response object.
-- [Breaking] Rename refactoring for cross-language consistency.
+- [Breaking] Rename refactoring for many public APIs for cross-language consistency.
 - [Breaking] Remove `USReceipt` and related types.
 
 ### Service Bus
