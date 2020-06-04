@@ -410,11 +410,11 @@ if err != nil {
 }
 poller := resp.Poller
 for {
-	resp, err := p.Poll(context.Background())
+	resp, err := poller.Poll(context.Background())
 	if err != nil {
 		// handle error ...
 	}
-	if p.Done() {
+	if poller.Done() {
 		break
 	}
 	if delay := azcore.RetryAfter(resp); delay > 0 {
@@ -423,7 +423,7 @@ for {
 		time.Sleep(frequency)
 	}
 }
-w, err := p.FinalResponse(ctx)
+w, err := poller.FinalResponse(ctx)
 if err != nil {
 	// handle error ...
 }
@@ -442,11 +442,11 @@ if err != nil {
 	// handle error ...
 }
 for {
-	resp, err := p.Poll(context.Background())
+	resp, err := poller.Poll(context.Background())
 	if err != nil {
 		// handle error ... 
 	}
-	if p.Done() {
+	if poller.Done() {
 		break
 	}
 	if delay := azcore.RetryAfter(resp); delay > 0 {
@@ -455,7 +455,7 @@ for {
 		time.Sleep(frequency)
 	}
 }
-w, err := p.FinalResponse(ctx)
+w, err := poller.FinalResponse(ctx)
 if err != nil {
 	// handle error ...
 }
