@@ -109,7 +109,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 #### Breaking Changes
 
-- TODO
+- `Sender` now has an `open()` method to proactively initialize the connection. In addition `ServiceBusClient.createSender()` is no longer an `async` method.
 
 #### New Features
 
