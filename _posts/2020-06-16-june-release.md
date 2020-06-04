@@ -11,7 +11,7 @@ Welcome to the June release of the Azure SDK.  We have updated the following lib
 
 * Cosmos (Java)
 * Event Hubs
-* Azure Storage (Java, Python)
+* Azure Storage
 * Text Analytics
 
 These are ready to use in your production applications.  You can find details of all released libraries on [our releases page]({{site.baseurl}}{% link releases/latest/index.md %}).
