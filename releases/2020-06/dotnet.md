@@ -40,6 +40,16 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Client library now targets the service's v3.0 API, instead of the v3.0-preview.1 API.
 - Updated the models to correspond with service changes.
 
+### Core [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.2.2/sdk/core/Azure.Core/CHANGELOG.md)
+
+- Retry server timeouts on .NET Framework.
+
+### Core Experimental [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core.Experimental_0.1.0-preview.1/sdk/core/Azure.Core.Experimental/CHANGELOG.md)
+
+- Added serialization primitives: `ObjectSerializer`,`JsonObjectSerializer`
+- Added spatial geometry types.
+- Added `BinaryData` type.
+
 ## Latest Releases
 
 {% assign packages = site.data.releases.latest.dotnet-packages %}
