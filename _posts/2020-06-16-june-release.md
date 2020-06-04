@@ -53,16 +53,16 @@ To properly address the needs of the embedded developer:
 
 ### SDK architecture
 
-At the heart of the SDK is what we refer to as _Azure Core_.  This code defines several data times and functions for use by the client libraries such as the Azure IoT client libraries and the Azure Blob Storage client library.  Some of the features you will use directly:
+At the heart of the SDK is what we refer to as _Azure Core_.  This code defines several data types and functions for use by the client libraries such as the Azure IoT client libraries and the Azure Blob Storage client library.  Some of the features you will use directly:
 
 * A **Span** represents a byte buffer and is used for string manipulation, HTTP requests and responses, and for building and parsing JSON payloads.  It allows us to return a substring within a larger string without any memory allocations.
 * As the SDK performs operations, it can send log messages to an application-defined callback through the **Logging** feature.  You can enable this to assist with debugging.
 * **Context**s offer an I/O cancellation mechanism.  Multiple contexts can be composed together in your application call tree.  When a context is cancelled, its children are also cancelled.
 * We provide a non-allocating **JSON builder** and **JSON parser**.
 * We provide non-allocating **HTTP request and response** handlers.
-* The SDK validates function arguments and invokes a callback when validation fails.  By default, this callback suspends the calling thread _forever_.  However, you can ovrride this behavious.  Further, you can disable argument validation in production builds to obtain smaller and faster code.
+* The SDK validates function arguments and invokes a callback when validation fails.  By default, this callback suspends the calling thread _forever_.  However, you can ovrride this behaviour.  Further, you can disable argument validation in production builds to obtain smaller and faster code.
 
-By utilizing Azure Core, Azure client libraries will share a comon implementation and many features will behave identically across the suite of clinet libraries.  For example, the standard HTTP pipeline unifies the handling of authentication, logging, retry, and telemetry.
+By utilizing Azure Core, Azure client libraries will share a common implementation and many features will behave identically across the suite of clinet libraries.  For example, the standard HTTP pipeline unifies the handling of authentication, logging, retry, and telemetry.
 
 
 ### Example: Uploading a blob to Azure Storage
@@ -141,7 +141,7 @@ int main()
 }
 ```
 
-While this example demonstrates how to use `libcurl` as an HTTP stack, you can modify the code below to use a different HTTP stack.  See the [GitHub repository](https://github.com/Azure/azure-sdk-for-c) for more information.
+While this example demonstrates how to use `libcurl` as an HTTP stack, you can modify the code to use a different HTTP stack.  See the [GitHub repository](https://github.com/Azure/azure-sdk-for-c) for more information.
 
 ### More information
 
