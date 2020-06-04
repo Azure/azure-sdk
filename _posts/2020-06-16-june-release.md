@@ -1,7 +1,7 @@
 ---
 title: Azure SDK Releases (June 2020)
 layout: post
-date: 2020-06-09
+date: 2020-06-16
 sidebar: releases_sidebar
 repository: azure/azure-sdk
 author_github: JeffreyRichter
@@ -9,13 +9,19 @@ author_github: JeffreyRichter
 
 Welcome to the June release of the Azure SDK.  We have updated the following libraries:
 
-* TBD
-* 
+* Cosmos (Java)
+* Event Hubs
+* Azure Storage (Java, Python)
+* Text Analytics
+
 These are ready to use in your production applications.  You can find details of all released libraries on [our releases page]({{site.baseurl}}{% link releases/latest/index.md %}).
 
 New preview releases:
 
-* TBD
+* Azure.Identity
+* Azure Search
+* Form Recognizer
+* Service Bus
 
 In addition, we've released a new preview of the Azure SDK for Embedded C.  See below for details.
 
