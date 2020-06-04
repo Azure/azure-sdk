@@ -355,7 +355,7 @@ type WidgetPoller interface {
 {% include requirement/MUST id="golang-lro-method-naming" %} prefix methods which return a `<Resource>Poller` with `Begin`.
 
 ```go
-// WidgetResponse is the response envelope for a Widget
+// WidgetResponse is the response envelope for a Widget that also includes LRO related fields used to retrieve a final Widget: PollUntilDone() and Poller
 type WidgetResponse struct {
 	// PollUntilDone will poll the service endpoint until a terminal state is reached or an error is 
 	// received. If successful will return a populated WidgetResponse
