@@ -377,7 +377,7 @@ func (c *WidgetClient) BeginCreate(ctx context.Context, name string, options *Be
 }
 ```
 
-{% include requirement/MUST id="golang-lro-resuming-operations" %} provide a method with the prefix `Resume` to instantiate a `<Resource>Poller` type with the `ID` from a previous call to `Operation.ID()`.
+{% include requirement/MUST id="golang-lro-resuming-operations" %} provide a method with the prefix `Resume` to instantiate a `<Resource>Poller` type with the `ResumeToken` from a previous call to `Poller.ResumeToken()`.
 
 ```go
 // ResumeWidgetPoller creates a new WidgetPoller from the specified ResumtToken.
@@ -432,7 +432,7 @@ process(w)
 // example #3, resuming from a previous operation
 // getting the resume token from a previous poller instance
 poller := resp.Poller
-tk := poller.ResumeToken()
+tk, err := poller.ResumeToken()
 if err != nil {
 	// handle error ...
 }
