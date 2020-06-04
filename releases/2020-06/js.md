@@ -39,17 +39,9 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Event Hubs
 
-#### Breaking Changes
-
-- TODO
-
-#### New Features
-
-- TODO
-
 #### Key Bug Fixes
 
-- TODO
+- Fixed an issue where a `TypeError` was sometimes thrown as an uncaught exception.
 
 ### Identity
 
