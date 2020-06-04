@@ -372,7 +372,7 @@ type WidgetResponse struct {
 }
 
 // BeginCreate creates a new widget with the specified name.
-func (c *WidgetClient) BeginCreate(ctx context.Context, name string, options *BeginCreateOptions) (WidgetResponse, error) {
+func (c *WidgetClient) BeginCreate(ctx context.Context, name string, options *BeginCreateOptions) (*WidgetResponse, error) {
 	// ...
 }
 ```
