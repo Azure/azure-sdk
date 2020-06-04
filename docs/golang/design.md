@@ -340,7 +340,7 @@ type WidgetPoller interface {
 	// If Poll succeeds and the operation has completed successfully, the WidgetPoller
 	// is updated and the Widget is returned.
 	// If Poll succeeds and the operation has not completed, the WidgetPoller is
-	// updated and returns the latest http response.
+	// updated and returns the latest HTTP response.
 	Poll(context.Context) (*http.Response, error)
 
 	// FinalResponse performs a final GET to the service and returns the final response 
@@ -389,18 +389,11 @@ func (c *WidgetClient) ResumeWidgetPoller(resumeToken string) WidgetPoller {
 
 {% include requirement/MUSTNOT id="golang-lro-cancel" %} cancel the LRO when cancellation is requested via a context. The context is cancelling the polling operation and should not have any effect on the service.
 
-{% include requirement/MUST id="golang-lro-progress-reporting" %} expose an optional progress reporting mechanism to the consumer if the service reports progress as part of the polling operation.  The progress reporting mechanism can be included as part of an API's optional parameters.
-
 {% include requirement/MUST id="golang-lro-pattern" %} follow the operation pattern for all LROs.
 
 ```go
 // example #1, blocking call to PollUntilDone()
-options := BeginCreateOptions{
-	Reporter: func(msg string){
-		fmt.Printf("widget creation progress: %s", msg)
-	}
-}
-resp, err := client.BeginCreate(context.Background(), "blue_widget", options)
+resp, err := client.BeginCreate(context.Background(), "blue_widget", nil)
 if err != nil {
 	// handle error...
 }
@@ -437,7 +430,14 @@ if err != nil {
 process(w)
 
 // example #3, resuming from a previous operation
-poller, err := client.ResumeWidgetPoller("resume token from external process")
+// getting the resume token from a previous poller instance
+poller := resp.Poller
+tk := poller.ResumeToken()
+if err != nil {
+	// handle error ...
+}
+// resuming from the resume token that was previously saved
+poller, err := client.ResumeWidgetPoller(tk)
 if err != nil {
 	// handle error ...
 }
