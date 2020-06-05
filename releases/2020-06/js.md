@@ -120,7 +120,7 @@ This is the first GA release version of Text Analytics library.
 
 #### Breaking Changes
 
-- `Sender` now has an `open()` method to proactively initialize the connection. In addition `ServiceBusClient.createSender()` is no longer an `async` method.
+- `ServiceBusClient.createSender()` which was made async in the previous preview to include the link initialization is no longer async. Instead, the sender now has an `open()` method that can be used to proactively initialize the link. 
 
 #### New Features
 
