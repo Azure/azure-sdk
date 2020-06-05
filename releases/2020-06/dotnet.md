@@ -45,12 +45,15 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 #### 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#100-2020-06-09)
 
-- First stable release of Azure.AI.TextAnalytics package.
+- General availability release.
 
 #### 1.0.0-preview.5 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#100-preview5-2020-05-27)
 
-- Client library now targets the service's v3.0 API, instead of the v3.0-preview.1 API.
+##### Breaking Changes
 - Updated the models to correspond with service changes.
+
+##### New Features
+- Client library now targets the service's v3.0 API, instead of the v3.0-preview.1 API.
 
 ### Core Experimental [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core.Experimental_0.1.0-preview.1/sdk/core/Azure.Core.Experimental/CHANGELOG.md)
 
