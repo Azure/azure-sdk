@@ -25,6 +25,9 @@ To install any of our packages, please search for them via `Manage NuGet Package
 
 ```bash
  $> dotnet add package Azure.AI.TextAnalytics --version 1.0.0-preview.5
+ $> dotnet add package Azure.Extensions.AspNetCore.Configuration.Secrets
+ $> dotnet add package Azure.Extensions.AspNetCore.DataProtection.Keys
+ $> dotnet add package Azure.Extensions.AspNetCore.DataProtection.Blobs
 ```
 
 ## Feedback
@@ -40,15 +43,29 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Client library now targets the service's v3.0 API, instead of the v3.0-preview.1 API.
 - Updated the models to correspond with service changes.
 
-### Core [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.2.2/sdk/core/Azure.Core/CHANGELOG.md)
-
-- Retry server timeouts on .NET Framework.
-
 ### Core Experimental [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core.Experimental_0.1.0-preview.1/sdk/core/Azure.Core.Experimental/CHANGELOG.md)
 
 - Added serialization primitives: `ObjectSerializer`,`JsonObjectSerializer`
 - Added spatial geometry types.
 - Added `BinaryData` type.
+
+### Core [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.2.2/sdk/core/Azure.Core/CHANGELOG.md)
+
+- Retry server timeouts on .NET Framework.
+
+### Azure.Extensions.AspNetCore.Configuration.Secrets [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Extensions.AspNetCore.Configuration.Secrets_1.0.0/sdk/extensions/Azure.Extensions.AspNetCore.Configuration.Secrets/CHANGELOG.md)
+
+- General availability release.
+
+
+### Azure.Extensions.AspNetCore.DataProtection.Keys [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Extensions.AspNetCore.DataProtection.Keys_1.0.0/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Keys/CHANGELOG.md)
+
+- General availability release.
+
+
+### Azure.Extensions.AspNetCore.DataProtection.Blobs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Extensions.AspNetCore.DataProtection.Blobs_1.0.0/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Blobs/CHANGELOG.md)
+
+- General availability release.
 
 ## Latest Releases
 
