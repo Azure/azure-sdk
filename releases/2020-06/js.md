@@ -130,7 +130,7 @@ This is the first GA release version of Text Analytics library.
 #### Key Bug Fixes
 
 
-- TODO
+- Improves the performance of the `ServiceBusMessageBatch.tryAdd` method.
 
 ## Latest Releases
 
