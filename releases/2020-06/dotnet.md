@@ -11,6 +11,8 @@ The Azure SDK team is pleased to announce our {{ page.date | date: "%B %Y" }} cl
 
 #### GA
 
+- Text Analytics
+
 
 #### Updates
 
@@ -24,6 +26,7 @@ The Azure SDK team is pleased to announce our {{ page.date | date: "%B %Y" }} cl
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
 ```bash
+ $> dotnet add package Azure.AI.TextAnalytics
  $> dotnet add package Azure.AI.TextAnalytics --version 1.0.0-preview.5
  $> dotnet add package Azure.Extensions.AspNetCore.Configuration.Secrets
  $> dotnet add package Azure.Extensions.AspNetCore.DataProtection.Keys
@@ -38,10 +41,19 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
-### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#100-preview5-2020-05-27)
+### Text Analytics 
 
-- Client library now targets the service's v3.0 API, instead of the v3.0-preview.1 API.
+#### 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#100-2020-06-09)
+
+- General availability release.
+
+#### 1.0.0-preview.5 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#100-preview5-2020-05-27)
+
+##### Breaking Changes
 - Updated the models to correspond with service changes.
+
+##### New Features
+- Client library now targets the service's v3.0 API, instead of the v3.0-preview.1 API.
 
 ### Core Experimental [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core.Experimental_0.1.0-preview.1/sdk/core/Azure.Core.Experimental/CHANGELOG.md)
 
