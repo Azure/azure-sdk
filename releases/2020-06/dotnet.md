@@ -27,6 +27,7 @@ To install any of our packages, please search for them via `Manage NuGet Package
 ```bash
  $> dotnet add package Azure.AI.TextAnalytics
  $> dotnet add package Azure.AI.TextAnalytics --version 1.0.0-preview.5
+ 
  $> dotnet add package Azure.Extensions.AspNetCore.DataProtection.Blobs
  $> dotnet add package Azure.Extensions.AspNetCore.DataProtection.Keys
  $> dotnet add package Azure.Extensions.AspNetCore.Configuration.Secrets
