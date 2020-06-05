@@ -23,27 +23,40 @@
   </td>
   <td>
     {% if item.VersionGA != "" %}
-        {% assign version = item.VersionGA %}
-        {% capture url %}
-        {% if item.DocsPath contains "http" %}
-            {{item.DocsPath}}
-        {% else %}
-            {{ docs_url_template | replace: 'item.Package', item.Package | replace: 'item.Version', version}}
+        {% assign pkgPath = item.Package | remove: 'Azure.' | remove: 'azure-' %}
+        {% assign url = item.MSDocs %}
+        {% if item.MSDocs == "" %}
+            {% assign url = msdocs_url_template | replace: 'item.Package', pkgPath %}
         {% endif %}
-        {% endcapture %}
-        {% include releases/pkgbadge.md label="docs" url=url %}
+        {% include releases/pkgbadge.md label="msdocs" url=url %}
+    {% endif %}
+
+    {% if item.VersionPreview != "" %}
+        {% assign pkgPath = item.Package | remove: 'Azure.' | remove: 'azure-' %}
+        {% assign url = item.MSDocs %}
+        {% if item.MSDocs == "" %}
+            {% assign url = msdocs_url_template | replace: 'item.Package', pkgPath %}
+        {% endif %}
+        {% include releases/pkgbadge.md label="msdocs" preview="true" url=url %}
+    {% endif %}
+  </td>
+  <td>
+    {% if item.VersionGA != "" %}
+        {% assign version = item.VersionGA %}
+        {% assign url = item.GHDocs %}
+        {% if item.GHDocs == "" %}
+            {% assign url = ghdocs_url_template | replace: 'item.Package', item.Package | replace: 'item.Version', version %}
+        {% endif %}
+        {% include releases/pkgbadge.md label="ghdocs" url=url %}
     {% endif %}
 
     {% if item.VersionPreview != "" %}
         {% assign version = item.VersionPreview %}
-        {% capture url %}
-        {% if item.DocsPath contains "http" %}
-            {{item.DocsPath}}
-        {% else %}
-            {{ docs_url_template | replace: 'item.Package', item.Package | replace: 'item.Version', version}}
+        {% assign url = item.GHDocs %}
+        {% if item.GHDocs == "" %}
+            {% assign url = ghdocs_url_template | replace: 'item.Package', item.Package | replace: 'item.Version', version %}
         {% endif %}
-        {% endcapture %}
-        {% include releases/pkgbadge.md label="docs" preview="true" url=url %}
+        {% include releases/pkgbadge.md label="ghdocs" preview="true" url=url %}
     {% endif %}
   </td>
   <td>
