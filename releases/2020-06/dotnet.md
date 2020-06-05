@@ -13,7 +13,6 @@ The Azure SDK team is pleased to announce our {{ page.date | date: "%B %Y" }} cl
 
 - Text Analytics
 
-
 #### Updates
 
 
@@ -28,9 +27,10 @@ To install any of our packages, please search for them via `Manage NuGet Package
 ```bash
  $> dotnet add package Azure.AI.TextAnalytics
  $> dotnet add package Azure.AI.TextAnalytics --version 1.0.0-preview.5
- $> dotnet add package Azure.Extensions.AspNetCore.Configuration.Secrets
- $> dotnet add package Azure.Extensions.AspNetCore.DataProtection.Keys
+ 
  $> dotnet add package Azure.Extensions.AspNetCore.DataProtection.Blobs
+ $> dotnet add package Azure.Extensions.AspNetCore.DataProtection.Keys
+ $> dotnet add package Azure.Extensions.AspNetCore.Configuration.Secrets
 ```
 
 ## Feedback
@@ -40,6 +40,74 @@ If you have a bug or feature request for one of the libraries, please [file an i
 ## Changelog
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
+
+### Azure.Extensions.AspNetCore.DataProtection.Blobs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Extensions.AspNetCore.DataProtection.Blobs_1.0.0/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Blobs/CHANGELOG.md)
+
+- General availability release.
+
+### Azure.Extensions.AspNetCore.DataProtection.Keys [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Extensions.AspNetCore.DataProtection.Keys_1.0.0/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Keys/CHANGELOG.md)
+
+- General availability release.
+
+### Azure.Extensions.AspNetCore.Configuration.Secrets [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Extensions.AspNetCore.Configuration.Secrets_1.0.0/sdk/extensions/Azure.Extensions.AspNetCore.Configuration.Secrets/CHANGELOG.md)
+
+- General availability release.
+
+### Core [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.2.2/sdk/core/Azure.Core/CHANGELOG.md)
+
+#### Key Bug Fixes
+- Retry server timeouts on .NET Framework.
+
+### Core Experimental [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core.Experimental_0.1.0-preview.1/sdk/core/Azure.Core.Experimental/CHANGELOG.md)
+
+#### New Features
+- Added serialization primitives: `ObjectSerializer`,`JsonObjectSerializer`
+- Added spatial geometry types.
+- Added `BinaryData` type.
+
+### Form Recognizer [Changelog]()
+
+#### Breaking Changes
+ - Breaking changes
+
+#### New Features
+ - New features
+
+#### Key Bug Fixes
+ - Notable bug fixes
+
+ ### Identity [Changelog]()
+
+#### Breaking Changes
+ - Breaking changes
+
+#### New Features
+ - New features
+ 
+#### Key Bug Fixes
+ - Notable bug fixes
+
+ ### Search [Changelog]()
+
+#### Breaking Changes
+ - Breaking changes
+
+#### New Features
+ - New features
+
+#### Key Bug Fixes
+ - Notable bug fixes
+
+ ### Service Bus [Changelog]()
+
+#### Breaking Changes
+ - Breaking changes
+
+#### New Features
+ - New features
+ 
+#### Key Bug Fixes
+ - Notable bug fixes
 
 ### Text Analytics 
 
@@ -54,30 +122,6 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ##### New Features
 - Client library now targets the service's v3.0 API, instead of the v3.0-preview.1 API.
-
-### Core Experimental [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core.Experimental_0.1.0-preview.1/sdk/core/Azure.Core.Experimental/CHANGELOG.md)
-
-#### New Features
-- Added serialization primitives: `ObjectSerializer`,`JsonObjectSerializer`
-- Added spatial geometry types.
-- Added `BinaryData` type.
-
-### Core [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.2.2/sdk/core/Azure.Core/CHANGELOG.md)
-
-#### Key Bug Fixes
-- Retry server timeouts on .NET Framework.
-
-### Azure.Extensions.AspNetCore.Configuration.Secrets [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Extensions.AspNetCore.Configuration.Secrets_1.0.0/sdk/extensions/Azure.Extensions.AspNetCore.Configuration.Secrets/CHANGELOG.md)
-
-- General availability release.
-
-### Azure.Extensions.AspNetCore.DataProtection.Keys [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Extensions.AspNetCore.DataProtection.Keys_1.0.0/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Keys/CHANGELOG.md)
-
-- General availability release.
-
-### Azure.Extensions.AspNetCore.DataProtection.Blobs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Extensions.AspNetCore.DataProtection.Blobs_1.0.0/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Blobs/CHANGELOG.md)
-
-- General availability release.
 
 ## Latest Releases
 
