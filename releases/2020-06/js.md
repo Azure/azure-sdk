@@ -8,12 +8,12 @@ repository: azure/azure-sdk-for-js
 
 The Azure SDK team is pleased to make available the June 2020 client library release.
 
+- General Availability of Azure Cognitive Text Analytics
 - Updates for Core libraries
 - Update for Azure Event Hubs
 - New preview of Azure Identity
 - New preview of Azure Cognitive Search
 - New preview of Azure Cognitive Form Recognizer
-- New preview of Azure Cognitive Text Analytics
 - New preview of Azure Service Bus
 
 ## Installation Instructions
@@ -36,6 +36,24 @@ If you have a bug or feature request for one of the libraries, please post an is
 ## Changelog
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
+
+### Text Analytics
+
+Text Analytics library is now GA release version.
+
+#### Breaking Changes
+
+- Renamed all result array types that extend JavaScript's base `Array` class to end with the word `Array` instead of `Collection` (e.g. `AnalyzeSentimentResultCollection` is now `AnalyzeSentimentResultArray`)
+- Renamed `score` to `confidenceScore` in the `Match`, `Entity`, and `DetectedLanguage` types.
+- Removed the `graphemeOffset` and `graphemeLength` properties of the `Match`, `Entity`, and `SentenceSentiment` types.
+- Renamed the `graphemeCount` property of `TextDocumentStatistics` back to `characterCount`
+- Removed the `warnings` property of `SentenceSentiment`.
+
+#### New Features
+
+- The library now uses the Text Analytics v3.0 (General Availability) service endpoint.
+- Added a `text` property to `SentenceSentiment` that contains the sentence text
+- Added `warnings` property to every document response object containing a list of `TextAnalyticsWarning` objects relevant to the corresponding document.
 
 ### Event Hubs
 
@@ -72,23 +90,6 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### Key Bug Fixes
 
 - TODO
-
-### Text Analytics
-
-#### Breaking Changes
-
-- Renamed all result array types that extend JavaScript's base `Array` class to end with the word `Array` instead of `Collection` (e.g. `AnalyzeSentimentResultCollection` is now `AnalyzeSentimentResultArray`)
-- Renamed `score` to `confidenceScore` in the `Match`, `Entity`, and `DetectedLanguage` types.
-- Removed the `graphemeOffset` and `graphemeLength` properties of the `Match`, `Entity`, and `SentenceSentiment` types.
-- Renamed the `graphemeCount` property of `TextDocumentStatistics` back to `characterCount`
-- Removed the `warnings` property of `SentenceSentiment`.
-
-#### New Features
-
-- The library now uses the Text Analytics v3.0 (General Availability) service endpoint.
-- Added a `text` property to `SentenceSentiment` that contains the sentence text
-- Added `warnings` property to every document response object containing a list of `TextAnalyticsWarning` objects relevant to the corresponding document.
-
 
 ### Form Recognizer
 
