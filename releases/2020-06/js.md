@@ -81,15 +81,25 @@ Text Analytics library is now GA release version.
 
 #### Breaking Changes
 
-- TODO
+- Results of `ListIndexes` operation can now be listed by pages.
+- Added `onlyIfUnchanged` parameter for CreateOrUpdate and Delete operations.
+- Removed `$select` property for the List operations.
+- Refactored `SearchServiceClient` and split it to `SearchIndexClient` and `SearchIndexerClient` and changed `SearchIndexClient` class to `SearchClient` class.
+- All required parameters are moved out of options bag.
+- Renamed `countDocuments` method to `getDocumentsCount` method.
+- In `search` method, moved the `searchText` parameter from the options bag to method parameter. 
+- In `indexDocuments` method, the options parameter is renamed to `IndexDocumentsOptions`.
+- Modified `deleteDocuments` method to get documents as a parameter.
+- In `getIndexStatistics` method, renamed the return type from `GetIndexStatisticsResult` to `SearchIndexStatistics`.
+- In `getServiceStatistics` method, renamed the return type from `ServiceStatistics` to `SearchServiceStatistics`.
+- Modified `DataSource` model name to `DataSourceConnection`. Changed all references in the method names, parameters, etc.
+- Renamed `SimpleDataType` model to `SearchFieldDataType` model.
+- Modified the names of several models & parameters. Please refer [#8984](https://github.com/Azure/azure-sdk-for-js/issues/8984), [#9037](https://github.com/Azure/azure-sdk-for-js/issues/9037) and [#8383](https://github.com/Azure/azure-sdk-for-js/issues/8383) for a detailed list of renames.
 
 #### New Features
 
-- TODO
-
-#### Key Bug Fixes
-
-- TODO
+- Added separate methods for getting just names such as `listIndexesNames`, `listSynonymMapsNames`, etc.
+- Added `getSearchClient` method to the `SearchIndexClient` class.
 
 ### Form Recognizer
 
