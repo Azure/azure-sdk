@@ -39,7 +39,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Text Analytics
 
-Text Analytics library is now GA release version.
+This is the first GA release version of Text Analytics library.
 
 #### Breaking Changes
 
