@@ -45,12 +45,14 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Core Experimental [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core.Experimental_0.1.0-preview.1/sdk/core/Azure.Core.Experimental/CHANGELOG.md)
 
+#### New Features
 - Added serialization primitives: `ObjectSerializer`,`JsonObjectSerializer`
 - Added spatial geometry types.
 - Added `BinaryData` type.
 
 ### Core [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.2.2/sdk/core/Azure.Core/CHANGELOG.md)
 
+#### Key Bug Fixes
 - Retry server timeouts on .NET Framework.
 
 ### Azure.Extensions.AspNetCore.Configuration.Secrets [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Extensions.AspNetCore.Configuration.Secrets_1.0.0/sdk/extensions/Azure.Extensions.AspNetCore.Configuration.Secrets/CHANGELOG.md)
