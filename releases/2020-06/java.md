@@ -28,6 +28,11 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <artifactId>azure-ai-formrecognizer</artifactId>
   <version>1.0.0-beta.3</version>
 </dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-ai-textanalytics</artifactId>
+  <version>1.0.0</version>
+</dependency>
 ```
 
 ## Feedback
@@ -50,6 +55,10 @@ Here are some of the highlights:
 
 - Added support to copy a custom model from one Form Recognizer resource to another.
 - Added support for authentication using Azure Active Directory credential.
+
+### Text Analytics ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#100-2020-06-09))
+
+- First stable release of `azure-ai-textanalytics`.
 
 ## Need help
 
