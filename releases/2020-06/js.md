@@ -125,7 +125,8 @@ This is the first GA release version of Text Analytics library.
 
 #### New Features
 
-- TODO
+- Added management API features under `ServiceBusManagementClient` that lets you manage a namespace with CRUD operations on the entities(queues, topics, and subscriptions) and on the rules of a subscription.
+	- Supports authentication with a service bus connection string as well as with the AAD credentials from `@azure/identity`.
 
 #### Key Bug Fixes
 
