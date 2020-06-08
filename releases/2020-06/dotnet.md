@@ -68,12 +68,12 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Added spatial geometry types.
 - Added `BinaryData` type.
 
-### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#100-preview2-06-09-2020)
+### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#100-preview3-06-09-2020)
 
 #### Breaking Changes
-- All long running operation objects now return a `xxxCollection` object instead of the atomic type.
+- All long running operation objects now return a `xxxCollection` object instead of a list.
 - `USReceipt` and related types have been removed. Information about a `RecognizedReceipt` must now be extracted from its `RecognizedForm`.
-- Method `GetFormTrainingClient` is removed from `FormRecognizerClient` and `GetFormRecognizerClient` is added to `FormTrainingClient`.
+- Method `GetFormTrainingClient` has been removed from `FormRecognizerClient` and `GetFormRecognizerClient` has been added to `FormTrainingClient`.
 - Other method and property renaming detailed in changelog.
 
 #### New Features
