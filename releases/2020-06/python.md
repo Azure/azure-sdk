@@ -18,6 +18,7 @@ This release includes the following:
 #### Preview
 
 - Text Analytics
+- Form Recognizer
 
 ## Installation Instructions
 
@@ -26,6 +27,7 @@ To install the latest preview version of the packages, copy and paste the follow
 ```bash
 pip install azure-cosmos
 pip install --pre azure-ai-textanalytics
+pip install azure-ai-formrecognizer
 ```
 
 ## Feedback
@@ -43,6 +45,22 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 - We are now targeting the service's v3.0 API, instead of the v3.0-preview.1 API
 - Updated the models to correspond with service changes
+
+### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#100b3-2020-06-09)
+
+#### Breaking changes
+
+- All asynchronous long running operation methods now return an instance of an AsyncLROPoller from azure-core
+- All asynchronous long running operation methods have been renamed with the `begin_` prefix to indicate that they return a poller object
+- Method `get_form_training_client()` is removed from `FormRecognizerClient` and `get_form_recognizer_client()` is added to `FormTrainingClient`
+- Other method and property renaming detailed in changelog
+
+#### New Features
+
+- Support to copy a custom model from one Form Recognizer resource to another
+- Authentication using azure-identity credentials now supported
+- All long running operation methods now accept the keyword argument `continuation_token` to restart the poller from a saved state
+
 
 ## Latest Releases
 
