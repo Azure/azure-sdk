@@ -65,17 +65,11 @@ This is the first GA release version of Text Analytics library.
 
 #### Breaking Changes
 
-- TODO
+- Switch to using `CredentialUnavailable` to differentiate from expected and unexpected errors during `DefaultAzureCredential` startup. [PR #8172](https://github.com/Azure/azure-sdk-for-js/pull/8127). Note: this changes the original behavior for `ManagedIdentityCredential`, which previously would return `null` instead of throwing an exception.
 
 #### New Features
 
-- TODO
-
-#### Key Bug Fixes
-
-- TODO
-
-- TODO
+- Make all developer credentials public as well as the list used by `DefaultAzureCredential` [PR #9274](https://github.com/Azure/azure-sdk-for-js/pull/9274)
 
 ### Search
 
