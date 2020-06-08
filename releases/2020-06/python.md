@@ -19,6 +19,7 @@ This release includes the following:
 
 - Text Analytics
 - Form Recognizer
+- Service Bus
 
 ## Installation Instructions
 
@@ -28,6 +29,7 @@ To install the latest preview version of the packages, copy and paste the follow
 pip install azure-cosmos
 pip install --pre azure-ai-textanalytics
 pip install azure-ai-formrecognizer
+pip install --pre azure-servicebus
 ```
 
 ## Feedback
