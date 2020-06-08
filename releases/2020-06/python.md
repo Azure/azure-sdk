@@ -19,6 +19,7 @@ This release includes the following:
 
 - Text Analytics
 - Form Recognizer
+- Identity
 
 ## Installation Instructions
 
