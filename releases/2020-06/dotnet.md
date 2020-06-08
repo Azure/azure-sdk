@@ -65,16 +65,21 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Added spatial geometry types.
 - Added `BinaryData` type.
 
-### Form Recognizer [Changelog]()
+### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#100-preview2-06-09-2020)
 
 #### Breaking Changes
- - Breaking changes
+- All long running operation objects now return a `xxxCollection` object instead of the atomic type.
+- `USReceipt` and related types have been removed. Information about a `RecognizedReceipt` must now be extracted from its `RecognizedForm`.
+- Method `GetFormTrainingClient` is removed from `FormRecognizerClient` and `GetFormRecognizerClient` is added to `FormTrainingClient`.
+- Other method and property renaming detailed in changelog.
 
 #### New Features
- - New features
+- Support to copy a custom model from one Form Recognizer resource to another.
+- Authentication using azure-identity credentials now supported.
 
 #### Key Bug Fixes
- - Notable bug fixes
+- `FormRecognizerClient.StartRecognizeCustomFormsFromUri` now works with URIs that contain blank spaces, encoded or not ([#11564](https://github.com/Azure/azure-sdk-for-net/issues/11564)).
+- Custom form recognition without labels can now handle multipaged forms ([#11881](https://github.com/Azure/azure-sdk-for-net/issues/11881)).
 
  ### Identity [Changelog]()
 
