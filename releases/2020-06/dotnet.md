@@ -19,6 +19,7 @@ The Azure SDK team is pleased to announce our {{ page.date | date: "%B %Y" }} cl
 #### Preview
 
 - Form Recognizer
+- Service Bus
 - Text Analytics
 
 ## Installation Instructions
@@ -34,6 +35,8 @@ To install any of our packages, please search for them via `Manage NuGet Package
  $> dotnet add package Azure.Extensions.AspNetCore.DataProtection.Blobs
  $> dotnet add package Azure.Extensions.AspNetCore.DataProtection.Keys
  $> dotnet add package Azure.Extensions.AspNetCore.Configuration.Secrets
+
+ $> dotnet add package Azure.Messaging.ServiceBus --version 7.0.0-preview.3
 ```
 
 ## Feedback
@@ -106,16 +109,17 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### Key Bug Fixes
  - Notable bug fixes
 
- ### Service Bus [Changelog]()
+ ### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md#700-preview3-2020-06-08)
 
 #### Breaking Changes
- - Breaking changes
+- Introduce ServiceBusSessionReceiverOptions/ServiceBusSessionProcessorOptions for creating ServiceBusSessionReceiver/ServiceBusSessionProcessor.
+- Make ServiceBusReceivedMessage.Properties IReadOnlyDictionary rather than IDictionary.
 
 #### New Features
- - New features
- 
-#### Key Bug Fixes
- - Notable bug fixes
+- Add the ServiceBusManagementClient for CRUD operations on a namespace.
+- Add constructor for ServiceBusMessage taking a string.
+- Use the BinaryData type for ServiceBusMessage.Body.
+- Add diagnostic tracing.
 
 ### Text Analytics 
 
