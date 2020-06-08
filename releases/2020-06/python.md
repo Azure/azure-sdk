@@ -28,6 +28,7 @@ To install the latest preview version of the packages, copy and paste the follow
 pip install azure-cosmos
 pip install --pre azure-ai-textanalytics
 pip install azure-ai-formrecognizer
+pip install --pre azure-identity
 ```
 
 ## Feedback
@@ -40,6 +41,11 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 - Stable release.
 - Added HttpLoggingPolicy to pipeline to enable passing in a custom logger for request and response headers.
+
+### Identity [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/CHANGELOG.md)
+
+- Added `AzureCliCredential` and `VSCodeCredential`, which enable authenticating as the identity signed in to the Azure CLI and Visual Studio Code, respectively.
+- The optional persistent cache for `DeviceCodeCredential` and `InteractiveBrowserCredential` is supported on Linux and macOS.
 
 ### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#100b6-2020-05-27)
 
