@@ -61,6 +61,12 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Authentication using azure-identity credentials now supported
 - All long running operation methods now accept the keyword argument `continuation_token` to restart the poller from a saved state
 
+### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/CHANGELOG.md)
+
+- This release continues to move towards feature parity with the existing sdk.  Recommend reading migration guide and full changelog for details.
+- Support for management of Queue entities; creation, deletion, and fetching of metadata.
+- Support for dead letter receivers against both Queues and Subscriptions.
+- Includes a version bump of the internal UAMQP package to support passing both reason and description when deadlettering a message.
 
 ## Latest Releases
 
