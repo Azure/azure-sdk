@@ -1,7 +1,7 @@
 ---
 title: "Introducing Form Recognizer client library: AI-powered document extraction"
 layout: post
-date: 2020-05-19
+date: 2020-06-10
 sidebar: releases_sidebar
 author_github: savaity
 repository: azure/azure-sdk
@@ -17,7 +17,7 @@ Let's see some code on how the app might want to use this library. Although, you
 
 ## Recognize expense fields from receipt
 
-The Form Recognizer prebuilt receipt API includes a pre-trained model for reading English sales receipts (e.g. receipts from restaurants or gas stations). This model has already been trained to extract expense related key information such as the time and date of the transaction, merchant information, taxes, total cost, individual line items, and more.
+The Form Recognizer prebuilt receipt API includes a pre-trained model for reading English sales receipts (e.g. receipts from restaurants or gas stations). This model has already been trained to extract expense related key information such as the time and date of the transaction, merchant information, taxes, total cost, individual line items, and [more]( https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeReceiptResult).
 
  You can create a Form recognizer resource by following the instructions [here](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/formrecognizer/azure-ai-formrecognizer#create-a-form-recognizer-resource) and use the generated key and endpoint to authenticate the client.
 
@@ -70,25 +70,34 @@ The following code prints general information for the provided receipt:
   }
 ```
 
-Next, let's see how can we process the extracted receipt to provide more contextual information for a US receipt. The `asUsReceipt()` extension method below, allows users to drill into locale-specific fields information.
+Next, let's see how can we process the extracted receipt to provide more contextual information for a US receipt.
 
 ```java
   public processAsUSReceipt(RecognizedReceipt recognizedReceipt) {
 
-    // Get a US receipt specific field information
-    USReceipt usReceipt = ReceiptExtensions.asUSReceipt(recognizedReceipt);
+    // Get receipt specific field information
+    Map<String, FormField> recognizedFields = recognizedReceipt.getRecognizedForm().getFields();
 
     // Some commonly found fields on a US Receipt
-    System.out.printf("Merchant Name: %s, confidence: %.2f%n", usReceipt.getMerchantName().getFieldValue(), usReceipt.getMerchantName().getConfidence());
-    System.out.printf("Merchant Address: %s, confidence: %.2f%n", usReceipt.getMerchantAddress().getName(), usReceipt.getMerchantAddress().getConfidence());
+    FormField merchantNameField = recognizedFields.get("MerchantName");
+    if (merchantNameField != null) {
+        if (merchantNameField.getFieldValue().getType() == FieldValueType.STRING) {
+            System.out.printf("Merchant Name: %s, confidence: %.2f%n", merchantNameField.getFieldValue().asString(), merchantNameField.getConfidence());
+        }
+    }
     // Each extracted value is returned with a confidence value, to highlight specific ones that might need more attention
-    System.out.printf("Merchant Phone Number %s, confidence: %.2f%n", usReceipt.getMerchantPhoneNumber().getFieldValue(), usReceipt.getMerchantPhoneNumber().getConfidence());
+    FormField merchantAddressField = recognizedFields.get("MerchantAddress");
+    if (merchantAddressField != null) {
+        if (merchantAddressField.getFieldValue().getType() == FieldValueType.STRING) {
+            System.out.printf("Merchant Address: %s, confidence: %.2f%n", merchantAddressField.getFieldValue().asString(), merchantAddressField.getConfidence());
+        }
+    }
 
     // Users can also get the bounding box information for each element
-    getBoundingBoxInfo(usReceipt.getTotal().getValueText())
+    getBoundingBoxInfo(merchantNameField.getValueText())
 
     // Get hold of the itemized data from the receipt, if present
-    printItemizedReceiptData(usReceipt.getReceiptItems());
+    printItemizedReceiptData(recognizedFields.get("Items));
   }
 ```
 
@@ -109,19 +118,36 @@ The below example shows how you can get the bounding information for the field `
 Let's use the method below to print details of itemized data found on the receipt
 
 ```java
-  public printItemizedReceiptData(USReceiptItem recognizedReceiptItems) {
+  public printItemizedReceiptData(FormField receiptItemsField) {
     // Get hold of the itemized data from the receipt, if present
     System.out.printf("Receipt Items: %n");
-    recognizedReceiptItems.forEach(receiptItem -> {
-      // Prints the name of the item
-      System.out.printf("Name: %s, confidence: %.2f%n", receiptItem.getName().getFieldValue(), receiptItem.getName().getConfidence());
-      // Prints the quantity of the item
-      System.out.printf("Quantity: %s, confidence: %.2f%n", receiptItem.getQuantity().getFieldValue(), receiptItem.getQuantity().getConfidence());
-      // Prints the price of the item
-      System.out.printf("Price: %s, confidence: %.2f%n", receiptItem.getPrice().getFieldValue(), receiptItem.getPrice().getConfidence());
-      // Prints the total price of the item
-      System.out.printf("Total Price: %s, confidence: %.2f%n", receiptItem.getTotalPrice().getFieldValue(), receiptItem.getTotalPrice().getConfidence());
-    });
+    if (receiptItemsField.getFieldValue().getType() == FieldValueType.LIST) {
+      List<FormField> receiptItems = receiptItemsField.getFieldValue().asList();
+      receiptItems.forEach(receiptItem -> {
+        if (receiptItem.getFieldValue().getType() == FieldValueType.MAP) {
+            receiptItem.getFieldValue().asMap().forEach((key, formField) -> {
+              // Prints the name of the item
+              if (key.equals("Name")) {
+                  if (formField.getFieldValue().getType() == FieldValueType.STRING) {
+                      System.out.printf("Name: %s, confidence: %.2fs%n", formField.getFieldValue().asString(), formField.getConfidence());
+                  }
+              }
+              // Prints the quantity of the item
+              if (key.equals("Quantity")) {
+                  if (formField.getFieldValue().getType() == FieldValueType.INTEGER) {
+                      System.out.printf("Quantity: %s, confidence: %.2f%n", formField.getFieldValue().asInteger(), formField.getConfidence());
+                  }
+              }
+              // Prints the total price of the item
+              if (key.equals("TotalPrice")) {
+                  if (formField.getFieldValue().getType() == FieldValueType.FLOAT) {
+                      System.out.printf("Total Price: %s, confidence: %.2f%n", formField.getFieldValue().asFloat(), formField.getConfidence());
+                  }
+              }
+          });
+        }
+      });
+    }
   }
 ```
 
@@ -138,7 +164,7 @@ First, let's use the user-provided form URL that needs to be analyzed for text a
     // Use the client created above to start analyzing the form provided by the user
     SyncPoller<OperationResult, IterableStream<FormPage>> recognizeContentPoller = this.formRecognizerClient.beginRecognizeContent(formUrl);
     // This is a long runnning operation, so wait for the poller to complete and get the final result
-    IterableStream<FormPage> contentPageResults = recognizeLayoutPoller.getFinalResult();
+    IterableStream<FormPage> contentPageResults = recognizeContentPoller.getFinalResult();
     // Prints form page metadata
     printPageMetadata(contentPageResults);
   }
@@ -207,9 +233,9 @@ First, let's create a custom model, trained using labeled data provided by the u
     FormTrainingClient formTrainingClient = this.formRecognizerClient.getFormTrainingClient();
 
     // Set to true to use labeled data when training
-    boolean useLabelFile = true;
+    boolean useTrainingLabels = true;
     // Use the trainingFilesUrl, to provide the input forms that should be used for training the model
-    SyncPoller<OperationResult, CustomFormModel> trainingPoller = formTrainingClient.beginTraining(trainingFilesUrl, useLabelFile);
+    SyncPoller<OperationResult, CustomFormModel> trainingPoller = formTrainingClient.beginTraining(trainingFilesUrl, useTrainingLabels);
 
     // This is a long-running operation, so wait for the poller to complete and get the final result
     CustomFormModel customFormModel = trainingPoller.getFinalResult();
@@ -230,9 +256,9 @@ Print custom model information and use the created model to analyze custom field
     System.out.printf("Model Status: %s%n", customFormModel.getModelStatus());
 
     // Since the data is labeled, we are able to return the accuracy of the model
-    customFormModel.getSubModels().forEach(customFormSubModel -> {
+    customFormModel.getSubmodels().forEach(customFormSubmodel -> {
       // Improve model accuracy by labeling additional forms
-      System.out.printf("Sub-model accuracy: %.2f%n", customFormSubModel.getAccuracy());
+      System.out.printf("Sub-model accuracy: %.2f%n", customFormSubmodel.getAccuracy());
     });
 
     // Recognize custom form using this custom model
@@ -266,7 +292,45 @@ Next, let's use the above created custom model to analyze our custom form.
 ### Custom model training without training labels
 This approach allows the user of the library to create a custom model without requiring to go through labeling process steps and still be able to turn forms into usable data. This uses unsupervised learning to understand the layout and relationships between fields and entries in your forms. The underlying algorithm for this API clusters the forms by type, discovers what keys and tables are present, and associates values to keys and entries to tables. Since the user does not provide any labeled data, the recognize API with this model doesn't recognize specific tags/labels of special interest to the user but is still able to create a tailored model for a specific set of custom forms.
 
-The client library differentiates between training with labels and without labels with the presence of boolean parameter `useLabelFile`. If `useLabelFile = false` the `beginTraining` API performs model training without labels.
+The client library differentiates between training with labels and without labels with the presence of boolean parameter `useTrainingLabels`. If `useTrainingLabels = false` the `beginTraining` API performs model training without labels.
+
+### What's new in Form Recognizer?
+#### Copy custom model
+The Form recognizer client library now supports copying a custom model from one form recognizer resource to another. You can now copy your custom trained models between regions and subscriptions using the new Copy Custom Model feature.
+Let's look at an example on how to do it:
+
+Firstly, let's obtain authorization to copy into the target resource by calling the `getCopyAuthorization()` operation against the target resource client.
+```java
+// Instantiate the target client where we want to copy the custom model to.
+FormTrainingClient targetClient = new FormTrainingClientBuilder()
+    .credential(new AzureKeyCredential("{key}"))
+    .endpoint("https://{target_endpoint}.cognitiveservices.azure.com/")
+    .buildClient();
+
+// Get authorization to copy the model to target resource
+CopyAuthorization copyAuthorization = targetClient.getCopyAuthorization("targetResourceId", "targetResourceRegion");
+```
+
+Next, let's invoke the copy model operation by calling `beginCopy()` on the source client (the client where the model currently exists).
+```java
+// The Id of the model that needs to be copied to the target resource
+String copyModelId = "copy-model-Id";
+// Start copy operation from the source client
+SyncPoller<OperationResult, CustomFormModelInfo> copyPoller = formRecognizerClient.beginCopyModel(copyModelId, copyAuthorization);
+
+// This is a long runnning operation, so wait for the poller to complete and get the final result
+copyPoller.waitForCompletion();
+
+// Once the operation completes, you can get the copied model from the target resource client
+// Get the copied model
+CustomFormModel targetModel = targetClient.getCustomModel(copyAuthorization.getModelId());
+System.out.printf("Target resource model has model Id: %s, model status: %s, was created on: %s,"
+  + " transfer completed on: %s.%n",
+  targetModel.getModelId(),
+  targetModel.getModelStatus(),
+  targetModel.getRequestedOn(),
+  targetModel.getCompletedOn());
+```
 
 ## Further documentation
 
