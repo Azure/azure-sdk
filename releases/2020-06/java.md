@@ -58,7 +58,7 @@ Here are some of the highlights:
 
 ### Text Analytics ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#100-2020-06-09))
 
-- First stable release of `azure-ai-textanalytics`.
+- Initial release of `azure-ai-textanalytics` version 1.0.0 which targets Azure Text Analytics service API version v3.0.
 
 ## Need help
 
