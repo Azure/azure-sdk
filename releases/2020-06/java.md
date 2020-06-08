@@ -10,22 +10,24 @@ The Azure SDK team is pleased to announce our June 2020 client library releases.
 
 #### GA
 
-- _Add packages_
+- Text Analytics
 
 #### Updates
 
-- _Add packages_
-
 #### Preview
 
-- _Add packages_
+- Form Recognizer
 
 ## Installation Instructions
 
 To use the GA and beta libraries, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate. If you are using a different build tool, refer to its documentation on how to specify dependencies.
 
 ```xml
-<!-- Insert dependencies -->
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-ai-formrecognizer</artifactId>
+  <version>1.0.0-beta.3</version>
+</dependency>
 ```
 
 ## Feedback
@@ -34,12 +36,21 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Changelog
 
-Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
+### Form Recognizer ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#100-beta3-2020-06-09))
 
-### _Package name_
+Here are some of the highlights:
 
-- Major changes only!
-  
+#### Breaking changes
+
+- Method `getFormTrainingClient()` is removed from `FormRecognizerClient` and `getFormRecognizerClient()` is added to `FormTrainingClient`
+- `USReceipt` and related types have been removed. Information about a `RecognizedReceipt` must now be extracted from its `RecognizedForm`.
+- Other method and property renaming detailed in changelog
+
+#### New Features
+
+- Added support to copy a custom model from one Form Recognizer resource to another.
+- Added support for authentication using Azure Active Directory credential.
+
 ## Need help
 
 - For reference documentation visit the [Azure SDK for Java documentation](https://azure.github.io/azure-sdk-for-java/).
