@@ -18,6 +18,7 @@ The Azure SDK team is pleased to announce our {{ page.date | date: "%B %Y" }} cl
 
 #### Preview
 
+- Form Recognizer
 - Text Analytics
 
 ## Installation Instructions
@@ -25,6 +26,8 @@ The Azure SDK team is pleased to announce our {{ page.date | date: "%B %Y" }} cl
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
 ```bash
+ $> dotnet add package Azure.AI.FormRecognizer --version 1.0.0-preview.3
+
  $> dotnet add package Azure.AI.TextAnalytics
  $> dotnet add package Azure.AI.TextAnalytics --version 1.0.0-preview.5
  
