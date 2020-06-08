@@ -20,6 +20,7 @@ The Azure SDK team is pleased to announce our {{ page.date | date: "%B %Y" }} cl
 
 - Form Recognizer
 - Text Analytics
+- Service Bus
 
 ## Installation Instructions
 
@@ -108,20 +109,17 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### Key Bug Fixes
  - Notable bug fixes
 
- ### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md)
+ ### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md#700-preview3-2020-06-08)
 
 #### Breaking Changes
-- Introduce ServiceBusSessionReceiverOptions/ServiceBusSessionProcessorOptions for creating ServiceBusSessionReceiver/ServiceBusSessionProcessor
-- Make ServiceBusReceivedMessage.Properties IReadOnlyDictionary rather than IDictionary
+- Introduce ServiceBusSessionReceiverOptions/ServiceBusSessionProcessorOptions for creating ServiceBusSessionReceiver/ServiceBusSessionProcessor.
+- Make ServiceBusReceivedMessage.Properties IReadOnlyDictionary rather than IDictionary.
 
 #### New Features
-- Add the ServiceBusManagementClient for CRUD operations on a namespace
-- Add constructor for ServiceBusMessage taking a string
-- Use the BinaryData type for ServiceBusMessage.Body
-- Add diagnostic tracing
- 
-#### Key Bug Fixes
- - Notable bug fixes
+- Add the ServiceBusManagementClient for CRUD operations on a namespace.
+- Add constructor for ServiceBusMessage taking a string.
+- Use the BinaryData type for ServiceBusMessage.Body.
+- Add diagnostic tracing.
 
 ### Text Analytics 
 
