@@ -18,6 +18,7 @@ The Azure SDK team is pleased to announce our {{ page.date | date: "%B %Y" }} cl
 
 #### Preview
 
+- Form Recognizer
 - Text Analytics
 
 ## Installation Instructions
@@ -25,6 +26,8 @@ The Azure SDK team is pleased to announce our {{ page.date | date: "%B %Y" }} cl
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
 ```bash
+ $> dotnet add package Azure.AI.FormRecognizer --version 1.0.0-preview.3
+
  $> dotnet add package Azure.AI.TextAnalytics
  $> dotnet add package Azure.AI.TextAnalytics --version 1.0.0-preview.5
  
@@ -65,16 +68,21 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Added spatial geometry types.
 - Added `BinaryData` type.
 
-### Form Recognizer [Changelog]()
+### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#100-preview3-06-09-2020)
 
 #### Breaking Changes
- - Breaking changes
+- All long running operation objects now return a `xxxCollection` object instead of a list.
+- `USReceipt` and related types have been removed. Information about a `RecognizedReceipt` must now be extracted from its `RecognizedForm`.
+- Method `GetFormTrainingClient` has been removed from `FormRecognizerClient` and `GetFormRecognizerClient` has been added to `FormTrainingClient`.
+- Other method and property renaming detailed in changelog.
 
 #### New Features
- - New features
+- Support to copy a custom model from one Form Recognizer resource to another.
+- Authentication using azure-identity credentials now supported.
 
 #### Key Bug Fixes
- - Notable bug fixes
+- `FormRecognizerClient.StartRecognizeCustomFormsFromUri` now works with URIs that contain blank spaces, encoded or not ([#11564](https://github.com/Azure/azure-sdk-for-net/issues/11564)).
+- Custom form recognition without labels can now handle multipaged forms ([#11881](https://github.com/Azure/azure-sdk-for-net/issues/11881)).
 
  ### Identity [Changelog]()
 
