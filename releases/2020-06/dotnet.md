@@ -19,8 +19,8 @@ The Azure SDK team is pleased to announce our {{ page.date | date: "%B %Y" }} cl
 #### Preview
 
 - Form Recognizer
-- Text Analytics
 - Service Bus
+- Text Analytics
 
 ## Installation Instructions
 
