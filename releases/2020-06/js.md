@@ -59,7 +59,7 @@ This is the first GA release version of Text Analytics library.
 
 #### Key Bug Fixes
 
-- Fixed an issue where a `TypeError` was sometimes thrown as an uncaught exception.
+- Improved the reliability of connections and connection recovery.
 
 ### Identity
 
