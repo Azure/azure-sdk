@@ -82,7 +82,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 #### New features
 
 - Added support for AMQP transactions.
-- Added AMQP framing error conditions.
 
 #### Bug fixes
 
