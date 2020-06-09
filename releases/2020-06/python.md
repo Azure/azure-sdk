@@ -46,7 +46,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 ### Identity [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/CHANGELOG.md)
 
 - Added `AzureCliCredential`, which authenticates as the identity signed in to the Azure CLI
-- Added `VSCodeCredential`, which authenticates as the user signed in to Visual Studio Code's Azure Account extension. On Linux the credential is limited to Python 3 and may not work on all distros.
+- Added `VSCodeCredential`, which authenticates as the user signed in to Visual Studio Code's Azure Account extension. On Linux the credential is limited to Python 3.5-3.7 and may not work on all distros.
 - The optional persistent cache for `DeviceCodeCredential` and `InteractiveBrowserCredential` is supported on Linux and macOS.
 
 ### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#100b6-2020-05-27)
