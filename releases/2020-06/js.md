@@ -99,7 +99,6 @@ This is the first GA release version of Text Analytics library.
 
 #### Breaking Changes
 
-
 - Recognition and training methods now return results directly, instead of wrapping the result in a response object.
 - Rename refactoring for many public APIs for cross-language consistency.
 - Remove `USReceipt` and related types.
@@ -108,7 +107,6 @@ This is the first GA release version of Text Analytics library.
 
 - Add support to copy custom model from one Form Recognizer resource to another.
 - Add support for Azure Active Directory credential.
-
 
 ### Service Bus
 
@@ -123,7 +121,6 @@ This is the first GA release version of Text Analytics library.
 	- Supports authentication with a service bus connection string as well as with the AAD credentials from `@azure/identity`.
 
 #### Key Bug Fixes
-
 
 - Improves the performance of the `ServiceBusMessageBatch.tryAdd` method.
 
