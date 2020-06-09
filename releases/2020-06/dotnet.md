@@ -19,6 +19,7 @@ The Azure SDK team is pleased to announce our {{ page.date | date: "%B %Y" }} cl
 #### Preview
 
 - Form Recognizer
+- Search
 - Service Bus
 - Text Analytics
 
@@ -37,6 +38,8 @@ To install any of our packages, please search for them via `Manage NuGet Package
  $> dotnet add package Azure.Extensions.AspNetCore.Configuration.Secrets
 
  $> dotnet add package Azure.Messaging.ServiceBus --version 7.0.0-preview.3
+
+ $> dotnet add package Azure.Search.Documents --version 1.0.0-preview.4
 ```
 
 ## Feedback
@@ -98,16 +101,19 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### Key Bug Fixes
  - Notable bug fixes
 
- ### Search [Changelog]()
+ ### Search [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md#100-preview4-2020-06-09)
 
 #### Breaking Changes
- - Breaking changes
+ - Split `SearchServiceClient` into `SearchIndexClient` for managing indexes, and `SearchIndexerClient` for managing indexers, both of which are now in `Azure.Search.Documents.Indexes`.
+ - Moved models for managing indexes, indexers, and skillsets to `Azure.Search.Documents.Indexes.Models`.
+ - Made collection- and dictionary-type properties read-only, i.e. has only get-accessors.
+ - Removed `dynamic` support from `SearchDocument` for the time being.
+ - Please see the [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md#100-preview4-2020-06-09) for additional type, method, and parameter renames.
 
 #### New Features
- - New features
-
-#### Key Bug Fixes
- - Notable bug fixes
+ - Referencing `Azure.Core.Experimental` which brings new spatial types and custom serializers.
+ - Added `SearchClientBuilderExtensions` to integrate with ASP.NET Core.
+ - Added `SearchModelFactory` to mock output model types.
 
  ### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md#700-preview3-2020-06-08)
 
