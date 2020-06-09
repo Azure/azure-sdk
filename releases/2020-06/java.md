@@ -61,6 +61,7 @@ Here are some of the highlights:
 - Initial release of `azure-ai-textanalytics` version 1.0.0 which targets Azure Text Analytics service API version v3.0.
 
  1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#100-beta5-2020-05-27))
+
  **New features**
 - Added Text property and `getText()` to `SentenceSentiment`.
 - `Warnings` property added to each document-level response object returned from the endpoints. It is a list of `TextAnalyticsWarnings`.
