@@ -123,23 +123,22 @@ Here are some of the highlights:
 - Added support for authentication using Azure Active Directory credential.
 
 ### Text Analytics
- 1.0.0 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#100-2020-06-09))
+#### 1.0.0 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#100-2020-06-09))
 - Initial release of `azure-ai-textanalytics` version 1.0.0 which targets Azure Text Analytics service API version v3.0.
 
- 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#100-beta5-2020-05-27))
+#### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#100-beta5-2020-05-27))
 
-#### New features
+##### New features
 - Added Text property and `getText()` to `SentenceSentiment`.
-- `Warnings` property added to each document-level response object returned from the endpoints. It is a list of `TextAnalyticsWarnings`.
 - Added `getWarnings()` to `CategorizedEntityCollection`, `KeyPhrasesCollection`, `LinkedEntityCollection` to retrieve warnings. 
 - Text analytics SDK update the service to version `v3.0` from `v3.0-preview.1`.
 
-#### Breaking changes
+##### Breaking changes
 - Removed pagination feature, which removed `TextAnalyticsPagedIterable`, `TextAnalyticsPagedFlux` and `TextAnalyticsPagedResponse`
 - Removed overload methods for API that takes a list of String, only keep max-overload API that has a list of String, language or country hint, and `TextAnalyticsRequestOption`.
 - Renamed `apiKey()` to `credential()` on TextAnalyticsClientBuilder.
 - Removed `getGraphemeLength()` and `getGraphemeOffset()` from `CategorizedEntity`, `SentenceSentiment`, and `LinkedEntityMatch`.
-- Deprecated `TextDocumentInput(String id, String text, String language)` constructor, but added `setLanguage()` setter since `language` is optional.
+- Removed `TextDocumentInput(String id, String text, String language)` constructor, but added `setLanguage()` setter since `language` is optional.
 
 ### Tracing OpenTelemetry ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md#100-beta5-2020-06-08))
 
