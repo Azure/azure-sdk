@@ -135,7 +135,7 @@ Here are some of the highlights:
 #### New features
 - Added Text property and `getText()` to `SentenceSentiment`.
 - `Warnings` property added to each document-level response object returned from the endpoints. It is a list of `TextAnalyticsWarnings`.
-- Added `CategorizedEntityCollection`, `KeyPhrasesCollection`, `LinkedEntityCollection` for having `getWarnings()` to retrieve warnings. 
+- Added `getWarnings()` to `CategorizedEntityCollection`, `KeyPhrasesCollection`, `LinkedEntityCollection` to retrieve warnings. 
 - Text analytics SDK update the service to version `v3.0` from `v3.0-preview.1`.
 
 #### Breaking changes
