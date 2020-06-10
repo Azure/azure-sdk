@@ -21,6 +21,7 @@ The Azure SDK team is pleased to announce our June 2020 client library releases.
 #### Preview
 
 - Form Recognizer
+- Service Bus
 - Tracing OpenTelemetry
 
 ## Installation Instructions
@@ -63,6 +64,12 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <artifactId>azure-ai-formrecognizer</artifactId>
   <version>1.0.0-beta.3</version>
 </dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-messaging-servicebus</artifactId>
+  <version>7.0.0-beta.3</version>
+</dependency>
 ```
 
 ## Feedback
@@ -73,11 +80,15 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Core ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/CHANGELOG.md#151-2020-06-08))
 
+Here are some of the highlights:
+
 #### Bug fixes
 
 - Better handling of custom `Content-Type` headers, ex `application/custom+json`.
 
 ### Core - AMQP ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-amqp/CHANGELOG.md#120-2020-06-08))
+
+Here are some of the highlights:
 
 #### New features
 
@@ -90,6 +101,8 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Fixed adding credits to new AMQP receive links upon creation.
 
 ### Core - Http - Netty ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-http-netty/CHANGELOG.md#152-2020-06-08))
+
+Here are some of the highlights:
 
 #### Bug fixes
 
@@ -110,7 +123,17 @@ Here are some of the highlights:
 - Added support to copy a custom model from one Form Recognizer resource to another.
 - Added support for authentication using Azure Active Directory credential.
 
+### Service Bus ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md#700-beta3-2020-06-08))
+
+Here are some of the highlights:
+
+#### New Features
+
+- Added support for transactions. APIs to create, commit and rollback a transaction and to send and settle messages using a transaction.
+
 ### Tracing OpenTelemetry ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md#100-beta5-2020-06-08))
+
+Here are some of the highlights:
 
 #### Breaking changes
 
