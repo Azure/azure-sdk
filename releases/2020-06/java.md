@@ -83,10 +83,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Changelog
 
-### App Configuration ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/appconfiguration/azure-data-appconfiguration/CHANGELOG.md#112-2020-06-09))
-
-- Update dependency version, `azure-core` to 1.5.1 and `azure-core-http-netty` to 1.5.2.
-
 ### Core ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/CHANGELOG.md#151-2020-06-08))
 
 #### Bug fixes
