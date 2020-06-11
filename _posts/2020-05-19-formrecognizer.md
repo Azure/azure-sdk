@@ -1,7 +1,7 @@
 ---
 title: "Introducing Form Recognizer client library: AI-powered document extraction"
 layout: post
-date: 2020-06-10
+date: 2020-05-19
 sidebar: releases_sidebar
 author_github: savaity
 repository: azure/azure-sdk
@@ -17,7 +17,7 @@ Let's see some code on how the app might want to use this library. Although, you
 
 ## Recognize expense fields from receipt
 
-The Form Recognizer prebuilt receipt API includes a pre-trained model for reading English sales receipts (e.g. receipts from restaurants or gas stations). This model has already been trained to extract expense related key information such as the time and date of the transaction, merchant information, taxes, total cost, individual line items, and [more]( https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeReceiptResult).
+The Form Recognizer prebuilt receipt API includes a pre-trained model for reading English sales receipts (e.g. receipts from restaurants or gas stations). This model has already been trained to extract expense related key information such as the time and date of the transaction, merchant information, taxes, total cost, individual line items, and more.
 
  You can create a Form recognizer resource by following the instructions [here](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/formrecognizer/azure-ai-formrecognizer#create-a-form-recognizer-resource) and use the generated key and endpoint to authenticate the client.
 
@@ -287,44 +287,6 @@ Next, let's use the above created custom model to analyze our custom form.
 This approach allows the user of the library to create a custom model without requiring to go through labeling process steps and still be able to turn forms into usable data. This uses unsupervised learning to understand the layout and relationships between fields and entries in your forms. The underlying algorithm for this API clusters the forms by type, discovers what keys and tables are present, and associates values to keys and entries to tables. Since the user does not provide any labeled data, the recognize API with this model doesn't recognize specific tags/labels of special interest to the user but is still able to create a tailored model for a specific set of custom forms.
 
 The client library differentiates between training with labels and without labels with the presence of boolean parameter `useTrainingLabels`. If `useTrainingLabels = false` the `beginTraining` API performs model training without labels.
-
-### What's new in Form Recognizer?
-#### Copy custom model
-The Form Recognizer client library now supports copying a custom model from one form recognizer resource to another. You can now copy your custom trained models between regions and subscriptions using the new Copy Custom Model feature.
-Let's look at an example on how to do it:
-
-Firstly, let's obtain authorization to copy into the target resource by calling the `getCopyAuthorization()` operation against the target resource client.
-```java
-// Instantiate the target client where we want to copy the custom model to.
-FormTrainingClient targetClient = new FormTrainingClientBuilder()
-    .credential(new AzureKeyCredential("{key}"))
-    .endpoint("https://{target_endpoint}.cognitiveservices.azure.com/")
-    .buildClient();
-
-// Get authorization to copy the model to target resource
-CopyAuthorization copyAuthorization = targetClient.getCopyAuthorization("target_resource_id", "target_resource_region");
-```
-
-Next, let's invoke the copy model operation by calling `beginCopyModel()` on the source client (the client where the model currently exists).
-```java
-// The Id of the model that needs to be copied to the target resource
-String copyModelId = "copy_model_Id";
-// Start copy operation from the source client
-SyncPoller<OperationResult, CustomFormModelInfo> copyPoller = formRecognizerClient.beginCopyModel(copyModelId, copyAuthorization);
-
-// This is a long runnning operation, so wait for the poller to complete and get the final result
-copyPoller.waitForCompletion();
-
-// Once the operation completes, you can get the copied model from the target resource client
-// Get the copied model
-CustomFormModel targetModel = targetClient.getCustomModel(copyAuthorization.getModelId());
-System.out.printf("Target resource model has model Id: %s, model status: %s, was created on: %s,"
-  + " transfer completed on: %s.%n",
-  targetModel.getModelId(),
-  targetModel.getModelStatus(),
-  targetModel.getRequestedOn(),
-  targetModel.getCompletedOn());
-```
 
 ## Further documentation
 
