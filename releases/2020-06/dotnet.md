@@ -19,6 +19,7 @@ The Azure SDK team is pleased to announce our {{ page.date | date: "%B %Y" }} cl
 #### Preview
 
 - Form Recognizer
+- Identity
 - Search
 - Service Bus
 - Text Analytics
@@ -36,6 +37,8 @@ To install any of our packages, please search for them via `Manage NuGet Package
  $> dotnet add package Azure.Extensions.AspNetCore.DataProtection.Blobs
  $> dotnet add package Azure.Extensions.AspNetCore.DataProtection.Keys
  $> dotnet add package Azure.Extensions.AspNetCore.Configuration.Secrets
+
+ $> dotnet add package Azure.Identity --version 1.2.0-preview.4
 
  $> dotnet add package Azure.Messaging.ServiceBus --version 7.0.0-preview.3
 
@@ -90,16 +93,15 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - `FormRecognizerClient.StartRecognizeCustomFormsFromUri` now works with URIs that contain blank spaces, encoded or not ([#11564](https://github.com/Azure/azure-sdk-for-net/issues/11564)).
 - Custom form recognition without labels can now handle multipaged forms ([#11881](https://github.com/Azure/azure-sdk-for-net/issues/11881)).
 
- ### Identity [Changelog]()
-
-#### Breaking Changes
- - Breaking changes
+ ### Identity [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/identity/Azure.Identity/CHANGELOG.md#120-preview4)
 
 #### New Features
- - New features
- 
+- Makes `AzureCliCredential`, `VisualStudioCredential` and `VisualStudioCodeCredential` public to allow direct usage.
+- Added `Authenticate` methods to `UsernamePasswordCredential`
+
 #### Key Bug Fixes
- - Notable bug fixes
+- Fix `SharedTokenCacheCredential` account filter to be case-insensitive (Issue [#10816](https://github.com/Azure/azure-sdk-for-net/issues/10816))
+- Update `VisualStudioCodeCredential` to properly throw `CredentialUnavailableException` when re-authentication is needed. (Issue [#11595](https://github.com/Azure/azure-sdk-for-net/issues/11595))
 
  ### Search [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md#100-preview4-2020-06-09)
 
