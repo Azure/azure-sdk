@@ -170,29 +170,19 @@ Here are some of the highlights:
 - Added support to copy a custom model from one Form Recognizer resource to another.
 - Added support for authentication using Azure Active Directory credential.
 
-### KeyVault Certificates
-#### 4.0.4 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-certificates_4.0.4/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md#414-2020-06-10))
-- Updated version for azure-core, azure-identity and external dependencies.
-
-#### 4.1.0-beta.3 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-certificates_4.1.0-beta.3/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md#410-beta3-2020-06-10))
-- Updated version for azure-core, azure-identity and external dependencies.
-
 ### KeyVault Keys
 #### 4.1.4 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-keys_4.1.4/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md#414-2020-06-10))
-- Updated version for azure-core, azure-identity and external dependencies.
+##### Functional Changes
 - `404` responses from `listPropertiesOfKeyVersions` in `KeyAsyncClient` and `KeyClient` now throw a `ResourceNotFoundException`.
 
 #### 4.2.0-beta.4 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-keys_4.2.0-beta.4/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md#420-beta4-2020-06-10))
-- Updated version for azure-core, azure-identity and external dependencies.
+##### Functional Changes
 - `404` responses from `listPropertiesOfKeyVersions` in `KeyAsyncClient` and `KeyClient` now throw a `ResourceNotFoundException`.
 - `buildAsyncKeyEncryptionKey` in `LocalKeyEncryptionKeyClientBuilder` now throws an exception when no ID is present in a given `JsonWebKey`.
 
 ### KeyVault Secrets
-#### 4.1.4 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-secrets_4.1.4/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md#414-2020-06-10))
-- Updated version for azure-core, azure-identity and external dependencies.
-
 #### 4.2.0-beta.3 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-secrets_4.2.0-beta.3/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md#420-beta3-2020-06-10))
-- Updated version for azure-core, azure-identity and external dependencies.
+##### Bug fixes
 - Fixed `ByteBuff` resource leak in `KeyVaultCredentialPolicy`.
 
 ### Text Analytics
