@@ -34,24 +34,14 @@ function CheckLink($url)
   }
   return $false
 }
-function MSDocLink($lang, $pkgName)
-{
-  return "https://docs.microsoft.com/en-us/$lang/api/overview/azure/{0}-readme/" -f ($pkgName -replace "azure[\.-]", "")
-}
-
-function GHDocLink($lang, $pkgName, $version)
-{
-  return "$azuresdkdocs/$lang/{0}/{1}/index.html" -f $pkgName, $version
-}
 function UpdateDocLinks($lang, $pkg)
 {
   $version = $pkg.VersionGA
   if ($version -eq "") { $version = $pkg.VersionPreview }
 
   $msPackagePath = $pkg.Package -replace "azure[\.-]", ""
-  $msdocvalid = CheckLink "https://docs.microsoft.com/en-us/${lang}/api/overview/azure/${msPackagePath}-readme/"
+  $msdocvalid = CheckLink "https://docs.microsoft.com/${lang}/api/overview/azure/${msPackagePath}-readme/"
 
-  Write-Host "Checking https://docs.microsoft.com/en-us/${lang}/api/overview/azure/${msPackagePath}-readme/"
   if ($msdocvalid) {
     $pkg.MSDocs = ""
   }
@@ -209,7 +199,7 @@ function Update-dotnet-Packages($packageList)
 function Check-python-links($pkg, $version) 
 {
     $valid = $true;
-    $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-python/tree/{0}_{1}/sdk/{2}/{3}/" -f $pkg.Package, $version, $pkg.RepoPath, $pkg.Package))
+    $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-python/tree/{0}_{1}/sdk/{2}/{0}/" -f $pkg.Package, $version, $pkg.RepoPath))
     $valid = $valid -and (CheckLink ("https://pypi.org/project/{0}/{1}" -f $pkg.Package, $version))
     return $valid
 }
@@ -257,7 +247,7 @@ function Output-Latest-Versions($lang)
   &$LangFunction $packageList 
 
   Write-Host "Writing $packagelistFile"
-  $packageList | ConvertTo-CSV -NoTypeInformation -UseQuotes Always | out-file $packagelistFile -encoding ascii
+  $packageList | ConvertTo-CSV -NoTypeInformation -UseQuotes Always | Out-File $packagelistFile -encoding ascii
 }
 
 switch($language)
