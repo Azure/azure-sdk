@@ -21,6 +21,7 @@ This release includes the following:
 - Text Analytics
 - Form Recognizer
 - Search
+- Service Bus
 
 ## Installation Instructions
 
@@ -31,6 +32,7 @@ pip install azure-cosmos
 pip install --pre azure-ai-textanalytics
 pip install azure-ai-formrecognizer
 pip install --pre azure-search-documents
+pip install --pre azure-servicebus
 ```
 
 ## Feedback
@@ -109,6 +111,14 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Autocomplete & suggest methods now takes arguments search_text & suggester_name rather than query objects
 - Create_or_updates methods does not support partial updates
 - Renamed Batch methods
+### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/CHANGELOG.md)
+
+#### New Features
+
+- This release continues to move towards feature parity with the existing sdk.  Recommend reading migration guide and full changelog for details.
+- Support for management of Queue entities; creation, deletion, and fetching of metadata.
+- Support for dead letter receivers against both Queues and Subscriptions.
+- Includes a version bump of the internal UAMQP package to support passing both reason and description when deadlettering a message.
 
 ## Latest Releases
 
