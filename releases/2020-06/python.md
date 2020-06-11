@@ -65,6 +65,8 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/CHANGELOG.md)
 
+#### New Features
+
 - This release continues to move towards feature parity with the existing sdk.  Recommend reading migration guide and full changelog for details.
 - Support for management of Queue entities; creation, deletion, and fetching of metadata.
 - Support for dead letter receivers against both Queues and Subscriptions.
