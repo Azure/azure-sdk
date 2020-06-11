@@ -17,10 +17,12 @@ The Azure SDK team is pleased to announce our June 2020 client library releases.
 - Text Analytics
 
 #### Updates
+- KeyVault (Certificates, Keys, Secrets)
 
 #### Preview
 
 - Form Recognizer
+- KeyVault (Certificates, Keys, Secrets)
 - Service Bus
 - Tracing OpenTelemetry
 
@@ -82,6 +84,39 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <artifactId>azure-messaging-servicebus</artifactId>
   <version>7.0.0-beta.3</version>
 </dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-certificates</artifactId>
+  <version>4.0.4</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-certificates</artifactId>
+  <version>4.1.0-beta.3</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-keys</artifactId>
+  <version>4.1.4</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-keys</artifactId>
+  <version>4.2.0-beta.4</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-secrets</artifactId>
+  <version>4.1.4</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-secrets</artifactId>
+  <version>4.2.0-beta.3</version>
+</dependency>
 ```
 
 ## Feedback
@@ -134,6 +169,21 @@ Here are some of the highlights:
 
 - Added support to copy a custom model from one Form Recognizer resource to another.
 - Added support for authentication using Azure Active Directory credential.
+
+### KeyVault Keys
+#### 4.1.4 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-keys_4.1.4/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md#414-2020-06-10))
+##### Functional Changes
+- `404` responses from `listPropertiesOfKeyVersions` in `KeyAsyncClient` and `KeyClient` now throw a `ResourceNotFoundException`.
+
+#### 4.2.0-beta.4 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-keys_4.2.0-beta.4/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md#420-beta4-2020-06-10))
+##### Functional Changes
+- `404` responses from `listPropertiesOfKeyVersions` in `KeyAsyncClient` and `KeyClient` now throw a `ResourceNotFoundException`.
+- `buildAsyncKeyEncryptionKey` in `LocalKeyEncryptionKeyClientBuilder` now throws an exception when no ID is present in a given `JsonWebKey`.
+
+### KeyVault Secrets
+#### 4.2.0-beta.3 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-secrets_4.2.0-beta.3/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md#420-beta3-2020-06-10))
+##### Bug fixes
+- Fixed `ByteBuff` resource leak in `KeyVaultCredentialPolicy`.
 
 ### Text Analytics
 
