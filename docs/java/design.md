@@ -822,6 +822,51 @@ If in common scenarios, users are likely to pass just a small subset of what the
 
 {% include requirement/MAY id="java-params-options-ctor" %} introduce constructor overloads for each combination of required arguments.
 
+{% include requirement/MAY id="java-params-options-ctor" %} use a single options type for both sync and async client if they have different params that are inter-convertible. For instance, an async operations may use `Flux<ByteBuffer>` whereas the sync counterpart will use `InputStream`. Since the `InputStream` can be converted to a `Flux<ByteBuffer>`, a single options type with two constructor overloads can be used.
+
+```java
+@Fluent
+public class UploadBlobOptions {
+    private Flux<ByteBuffer> fluxData;
+    private InputStream inputStreamData;
+    private long length;
+    private Map<String, String> metadata;
+
+
+    public UploadBlobOptions(Flux<ByteBuffer> fluxData) {
+        this.fluxData = fluxData;
+    }
+
+    public UploadBlobOptions(InputStream inputStreamData, long length) {
+        this.inputStreamData = inputStreamData;
+        this.length = length;
+    }
+
+    public Flux<ByteBuffer> getFluxData() {
+        return fluxData;
+    }
+
+    public InputStream getInputStreamData() {
+        return inputStreamData;
+    }
+
+    public long getLength() {
+        return length;
+    }
+    
+    public CreateBlobOptions setMetadata(Map<String, String> metadata) {
+        this.metadata = metadata;
+        return this;
+    }
+
+    public Map<String, String> getMetadata() {
+        return metadata;
+    }
+}
+```
+
+{% include requirement/MAY id="java-params-options-ctor" %} use two options types when the sync and async operations have different params that are not inter-convertible or applicable to either one of the clients. If two options types are created, name them as `<operation>Options` and `<operation>AsyncOptions` for sync and async operations respectively.
+
 ## Model classes
 
 Model classes are classes that consumers use to provide required information into client library methods, or to receive information from Azure services from client library methods. These classes typically represent the domain model.
