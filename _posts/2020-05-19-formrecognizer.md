@@ -59,7 +59,7 @@ The following code prints general information for the provided receipt:
       System.out.println("----------- Recognized Receipt -----------");
 
       // Info of the current page being analyzed
-      System.out.printf("Start page number: %s, End page number: %s", recognizedReceipt.getRecognizedForm().getPageRange().getStartPageNumber(), recognizedReceipt.getRecognizedForm().getPageRange().getEndPageNumber());
+      System.out.printf("Start page number: %d, End page number: %d", recognizedReceipt.getRecognizedForm().getFormPageRange().getFirstPageNumber(), recognizedReceipt.getRecognizedForm().getFormPageRange().getLastPageNumber());
 
       // The recognized form type for the receipt
       System.out.printf("Form type: %s", recognizedReceipt.getRecognizedForm().getFormType());
@@ -97,7 +97,7 @@ Next, let's see how can we process the extracted receipt to provide more context
     getBoundingBoxInfo(merchantNameField.getValueText())
 
     // Get hold of the itemized data from the receipt, if present
-    printItemizedReceiptData(recognizedFields.get("Items));
+    printItemizedReceiptData(recognizedFields.get("Items"));
   }
 ```
 
@@ -111,7 +111,7 @@ The below example shows how you can get the bounding information for the field `
     final StringBuilder boundingBox = new StringBuilder();
     fieldTextValue.getBoundingBox().getPoints().forEach(point -> boundingBox.append(String.format("[%.2f, %.2f]", point.getX(), point.getY())));
     // This can be used in a graphical UI to draw boxes around the various elements for visual validation steps
-    System.out.printf("Field Total has value %s within bounding box %s %n", fieldTextValue, boundingBoxStr);
+    System.out.printf("Field Total has value %f within bounding box %s %n", fieldTextValue, boundingBoxStr);
   }
 ```
 
@@ -127,21 +127,15 @@ Let's use the method below to print details of itemized data found on the receip
         if (receiptItem.getFieldValue().getType() == FieldValueType.MAP) {
             receiptItem.getFieldValue().asMap().forEach((key, formField) -> {
               // Prints the name of the item
-              if (key.equals("Name")) {
+              if ("Name".equals(key)) {
                   if (formField.getFieldValue().getType() == FieldValueType.STRING) {
-                      System.out.printf("Name: %s, confidence: %.2fs%n", formField.getFieldValue().asString(), formField.getConfidence());
-                  }
-              }
-              // Prints the quantity of the item
-              if (key.equals("Quantity")) {
-                  if (formField.getFieldValue().getType() == FieldValueType.INTEGER) {
-                      System.out.printf("Quantity: %s, confidence: %.2f%n", formField.getFieldValue().asInteger(), formField.getConfidence());
+                      System.out.printf("Name: %s, confidence: %.2f%n", formField.getFieldValue().asString(), formField.getConfidence());
                   }
               }
               // Prints the total price of the item
-              if (key.equals("TotalPrice")) {
+              if ("TotalPrice".equals(key)) {
                   if (formField.getFieldValue().getType() == FieldValueType.FLOAT) {
-                      System.out.printf("Total Price: %s, confidence: %.2f%n", formField.getFieldValue().asFloat(), formField.getConfidence());
+                      System.out.printf("Total Price: %f, confidence: %.2f%n", formField.getFieldValue().asFloat(), formField.getConfidence());
                   }
               }
           });
@@ -179,7 +173,7 @@ Print page metadata information including details of the page orientation and di
       System.out.println("----Recognizing content ----");
 
       // Display the page metdata
-      System.out.printf("The form page has width: %s and height: %s, measured with unit: %s%n", formPage.getWidth(), formPage.getHeight(), formPage.getUnit());
+      System.out.printf("The form page has width: %f and height: %f, measured with unit: %s%n", formPage.getWidth(), formPage.getHeight(), formPage.getUnit());
 
       // Prints recognized layout/content information for the form
       printContentInformation(formPage);
@@ -195,7 +189,7 @@ Let's create a method that prints out the recognized content information.
     // Display recognized table information from the form
       formPage.getTables().forEach(formTable -> {
         // The row and column count for each table
-        System.out.printf("The recognized table has %s rows and %s columns.%n", formTable.getRowCount(), formTable.getColumnCount());
+        System.out.printf("The recognized table has %d rows and %d columns.%n", formTable.getRowCount(), formTable.getColumnCount());
 
         // Iterate over each cell in the table
         formTable.getCells().forEach(formTableCell -> {
@@ -296,7 +290,7 @@ The client library differentiates between training with labels and without label
 
 ### What's new in Form Recognizer?
 #### Copy custom model
-The Form recognizer client library now supports copying a custom model from one form recognizer resource to another. You can now copy your custom trained models between regions and subscriptions using the new Copy Custom Model feature.
+The Form Recognizer client library now supports copying a custom model from one form recognizer resource to another. You can now copy your custom trained models between regions and subscriptions using the new Copy Custom Model feature.
 Let's look at an example on how to do it:
 
 Firstly, let's obtain authorization to copy into the target resource by calling the `getCopyAuthorization()` operation against the target resource client.
@@ -308,13 +302,13 @@ FormTrainingClient targetClient = new FormTrainingClientBuilder()
     .buildClient();
 
 // Get authorization to copy the model to target resource
-CopyAuthorization copyAuthorization = targetClient.getCopyAuthorization("targetResourceId", "targetResourceRegion");
+CopyAuthorization copyAuthorization = targetClient.getCopyAuthorization("target_resource_id", "target_resource_region");
 ```
 
-Next, let's invoke the copy model operation by calling `beginCopy()` on the source client (the client where the model currently exists).
+Next, let's invoke the copy model operation by calling `beginCopyModel()` on the source client (the client where the model currently exists).
 ```java
 // The Id of the model that needs to be copied to the target resource
-String copyModelId = "copy-model-Id";
+String copyModelId = "copy_model_Id";
 // Start copy operation from the source client
 SyncPoller<OperationResult, CustomFormModelInfo> copyPoller = formRecognizerClient.beginCopyModel(copyModelId, copyAuthorization);
 
