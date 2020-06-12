@@ -10,18 +10,27 @@ resources:
       type: github
       name: Azure/azure-sdk-tools
       endpoint: azure
+    - repository: azure-dev-docs-pr
+      type: github
+      name: MicrosoftDocs/azure-dev-docs-pr
+      endpoint: azure
 
 steps:
 - checkout: self
 - checkout: azure-sdk-tools
+- checkout: azure-dev-docs-pr
 
-- pwsh: |
-    ./azure-sdk/eng/scripts/Update-Release-Versions.ps1
+- task: PowerShell@2
   displayName: Update new package from release tags
+  inputs:
+    pwsh: true
+    filePath: ./azure-sdk/eng/scripts/Update-Release-Versions.ps1
 
-- pwsh: |
-    ./azure-sdk/eng/scripts/Query-Azure-Packages.ps1
+- task: PowerShell@2
   displayName: Update packages from package manager
+  inputs:
+    pwsh: true
+    filePath: ./azure-sdk/eng/scripts/Query-Azure-Packages.ps1
 
 - template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
   parameters:
@@ -31,4 +40,23 @@ steps:
     PRTitle: "Update package index with latest published versions"
     PushArgs: -f
     WorkingDirectory: $(System.DefaultWorkingDirectory)/azure-sdk
+    ScriptDirectory: $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts
+
+- task: PowerShell@2
+  displayName: Generate package index markdown files
+  inputs:
+    pwsh: true
+    filePath: ./azure-sdk/eng/scripts/Generate-Package-Index.ps1
+    arguments: >
+      -outputFolder $(System.DefaultWorkingDirectory)/azure-dev-docs-pr/articles/includes/
+
+- template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
+  parameters:
+    RepoOwner: MicrosoftDocs
+    RepoName: azure-dev-docs-pr
+    PRBranchName: PackageIndexUpdates
+    CommitMsg: "Update package index with latest published versions"
+    PRTitle: "Update package index with latest published versions"
+    PushArgs: -f
+    WorkingDirectory: $(System.DefaultWorkingDirectory)/azure-dev-docs-pr
     ScriptDirectory: $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts

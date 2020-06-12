@@ -12,7 +12,7 @@ $outputFolder = Resolve-Path $outputFolder
 
 function MSDocLink($lang, $pkg) 
 {
-  if ($pkg.MSDocs -eq "NA") { return $pkg.MSDocs }
+  if ($pkg.MSDocs -eq "NA") { return "" }
   if ($pkg.MSDocs -ne "") { return "[docs]($($pkg.MSDocs))" }
 
   $msPackagePath = $pkg.Package -replace "azure[\.-]", ""
@@ -46,7 +46,7 @@ function Get-Row($pkg, $lang, $packageFormat, $sourceFormat)
   }
 
   if ($pkg.RepoPath -eq "NA") {
-    $source = "NA"
+    $source = ""
   }
 
   return "| ${service} | ${package} | ${docs} | ${source} |`n"
