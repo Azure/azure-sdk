@@ -9,7 +9,7 @@ author_github: JeffreyRichter
 
 Welcome to the June release of the Azure SDK.  We have updated the following libraries:
 
-* Cosmos (Java)
+* Cosmos DB (Java)
 * Event Hubs
 * Azure Storage
 * Text Analytics
