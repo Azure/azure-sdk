@@ -59,7 +59,7 @@ The following code prints general information for the provided receipt:
       System.out.println("----------- Recognized Receipt -----------");
 
       // Info of the current page being analyzed
-      System.out.printf("Start page number: %s, End page number: %s", recognizedReceipt.getRecognizedForm().getPageRange().getStartPageNumber(), recognizedReceipt.getRecognizedForm().getPageRange().getEndPageNumber());
+      System.out.printf("Start page number: %d, End page number: %d", recognizedReceipt.getRecognizedForm().getFormPageRange().getFirstPageNumber(), recognizedReceipt.getRecognizedForm().getFormPageRange().getLastPageNumber());
 
       // The recognized form type for the receipt
       System.out.printf("Form type: %s", recognizedReceipt.getRecognizedForm().getFormType());
@@ -70,25 +70,34 @@ The following code prints general information for the provided receipt:
   }
 ```
 
-Next, let's see how can we process the extracted receipt to provide more contextual information for a US receipt. The `asUsReceipt()` extension method below, allows users to drill into locale-specific fields information.
+Next, let's see how can we process the extracted receipt to provide more contextual information for a US receipt.
 
 ```java
   public processAsUSReceipt(RecognizedReceipt recognizedReceipt) {
 
-    // Get a US receipt specific field information
-    USReceipt usReceipt = ReceiptExtensions.asUSReceipt(recognizedReceipt);
+    // Get receipt specific field information
+    Map<String, FormField> recognizedFields = recognizedReceipt.getRecognizedForm().getFields();
 
     // Some commonly found fields on a US Receipt
-    System.out.printf("Merchant Name: %s, confidence: %.2f%n", usReceipt.getMerchantName().getFieldValue(), usReceipt.getMerchantName().getConfidence());
-    System.out.printf("Merchant Address: %s, confidence: %.2f%n", usReceipt.getMerchantAddress().getName(), usReceipt.getMerchantAddress().getConfidence());
+    FormField merchantNameField = recognizedFields.get("MerchantName");
+    if (merchantNameField != null) {
+        if (merchantNameField.getFieldValue().getType() == FieldValueType.STRING) {
+            System.out.printf("Merchant Name: %s, confidence: %.2f%n", merchantNameField.getFieldValue().asString(), merchantNameField.getConfidence());
+        }
+    }
     // Each extracted value is returned with a confidence value, to highlight specific ones that might need more attention
-    System.out.printf("Merchant Phone Number %s, confidence: %.2f%n", usReceipt.getMerchantPhoneNumber().getFieldValue(), usReceipt.getMerchantPhoneNumber().getConfidence());
+    FormField merchantAddressField = recognizedFields.get("MerchantAddress");
+    if (merchantAddressField != null) {
+        if (merchantAddressField.getFieldValue().getType() == FieldValueType.STRING) {
+            System.out.printf("Merchant Address: %s, confidence: %.2f%n", merchantAddressField.getFieldValue().asString(), merchantAddressField.getConfidence());
+        }
+    }
 
     // Users can also get the bounding box information for each element
-    getBoundingBoxInfo(usReceipt.getTotal().getValueText())
+    getBoundingBoxInfo(merchantNameField.getValueText())
 
     // Get hold of the itemized data from the receipt, if present
-    printItemizedReceiptData(usReceipt.getReceiptItems());
+    printItemizedReceiptData(recognizedFields.get("Items"));
   }
 ```
 
@@ -102,26 +111,37 @@ The below example shows how you can get the bounding information for the field `
     final StringBuilder boundingBox = new StringBuilder();
     fieldTextValue.getBoundingBox().getPoints().forEach(point -> boundingBox.append(String.format("[%.2f, %.2f]", point.getX(), point.getY())));
     // This can be used in a graphical UI to draw boxes around the various elements for visual validation steps
-    System.out.printf("Field Total has value %s within bounding box %s %n", fieldTextValue, boundingBoxStr);
+    System.out.printf("Field Total has value %f within bounding box %s %n", fieldTextValue, boundingBoxStr);
   }
 ```
 
 Let's use the method below to print details of itemized data found on the receipt
 
 ```java
-  public printItemizedReceiptData(USReceiptItem recognizedReceiptItems) {
+  public printItemizedReceiptData(FormField receiptItemsField) {
     // Get hold of the itemized data from the receipt, if present
     System.out.printf("Receipt Items: %n");
-    recognizedReceiptItems.forEach(receiptItem -> {
-      // Prints the name of the item
-      System.out.printf("Name: %s, confidence: %.2f%n", receiptItem.getName().getFieldValue(), receiptItem.getName().getConfidence());
-      // Prints the quantity of the item
-      System.out.printf("Quantity: %s, confidence: %.2f%n", receiptItem.getQuantity().getFieldValue(), receiptItem.getQuantity().getConfidence());
-      // Prints the price of the item
-      System.out.printf("Price: %s, confidence: %.2f%n", receiptItem.getPrice().getFieldValue(), receiptItem.getPrice().getConfidence());
-      // Prints the total price of the item
-      System.out.printf("Total Price: %s, confidence: %.2f%n", receiptItem.getTotalPrice().getFieldValue(), receiptItem.getTotalPrice().getConfidence());
-    });
+    if (receiptItemsField.getFieldValue().getType() == FieldValueType.LIST) {
+      List<FormField> receiptItems = receiptItemsField.getFieldValue().asList();
+      receiptItems.forEach(receiptItem -> {
+        if (receiptItem.getFieldValue().getType() == FieldValueType.MAP) {
+            receiptItem.getFieldValue().asMap().forEach((key, formField) -> {
+              // Prints the name of the item
+              if ("Name".equals(key)) {
+                  if (formField.getFieldValue().getType() == FieldValueType.STRING) {
+                      System.out.printf("Name: %s, confidence: %.2f%n", formField.getFieldValue().asString(), formField.getConfidence());
+                  }
+              }
+              // Prints the total price of the item
+              if ("TotalPrice".equals(key)) {
+                  if (formField.getFieldValue().getType() == FieldValueType.FLOAT) {
+                      System.out.printf("Total Price: %f, confidence: %.2f%n", formField.getFieldValue().asFloat(), formField.getConfidence());
+                  }
+              }
+          });
+        }
+      });
+    }
   }
 ```
 
@@ -138,7 +158,7 @@ First, let's use the user-provided form URL that needs to be analyzed for text a
     // Use the client created above to start analyzing the form provided by the user
     SyncPoller<OperationResult, IterableStream<FormPage>> recognizeContentPoller = this.formRecognizerClient.beginRecognizeContent(formUrl);
     // This is a long runnning operation, so wait for the poller to complete and get the final result
-    IterableStream<FormPage> contentPageResults = recognizeLayoutPoller.getFinalResult();
+    IterableStream<FormPage> contentPageResults = recognizeContentPoller.getFinalResult();
     // Prints form page metadata
     printPageMetadata(contentPageResults);
   }
@@ -153,7 +173,7 @@ Print page metadata information including details of the page orientation and di
       System.out.println("----Recognizing content ----");
 
       // Display the page metdata
-      System.out.printf("The form page has width: %s and height: %s, measured with unit: %s%n", formPage.getWidth(), formPage.getHeight(), formPage.getUnit());
+      System.out.printf("The form page has width: %f and height: %f, measured with unit: %s%n", formPage.getWidth(), formPage.getHeight(), formPage.getUnit());
 
       // Prints recognized layout/content information for the form
       printContentInformation(formPage);
@@ -169,7 +189,7 @@ Let's create a method that prints out the recognized content information.
     // Display recognized table information from the form
       formPage.getTables().forEach(formTable -> {
         // The row and column count for each table
-        System.out.printf("The recognized table has %s rows and %s columns.%n", formTable.getRowCount(), formTable.getColumnCount());
+        System.out.printf("The recognized table has %d rows and %d columns.%n", formTable.getRowCount(), formTable.getColumnCount());
 
         // Iterate over each cell in the table
         formTable.getCells().forEach(formTableCell -> {
@@ -207,9 +227,9 @@ First, let's create a custom model, trained using labeled data provided by the u
     FormTrainingClient formTrainingClient = this.formRecognizerClient.getFormTrainingClient();
 
     // Set to true to use labeled data when training
-    boolean useLabelFile = true;
+    boolean useTrainingLabels = true;
     // Use the trainingFilesUrl, to provide the input forms that should be used for training the model
-    SyncPoller<OperationResult, CustomFormModel> trainingPoller = formTrainingClient.beginTraining(trainingFilesUrl, useLabelFile);
+    SyncPoller<OperationResult, CustomFormModel> trainingPoller = formTrainingClient.beginTraining(trainingFilesUrl, useTrainingLabels);
 
     // This is a long-running operation, so wait for the poller to complete and get the final result
     CustomFormModel customFormModel = trainingPoller.getFinalResult();
@@ -230,9 +250,9 @@ Print custom model information and use the created model to analyze custom field
     System.out.printf("Model Status: %s%n", customFormModel.getModelStatus());
 
     // Since the data is labeled, we are able to return the accuracy of the model
-    customFormModel.getSubModels().forEach(customFormSubModel -> {
+    customFormModel.getSubmodels().forEach(customFormSubmodel -> {
       // Improve model accuracy by labeling additional forms
-      System.out.printf("Sub-model accuracy: %.2f%n", customFormSubModel.getAccuracy());
+      System.out.printf("Sub-model accuracy: %.2f%n", customFormSubmodel.getAccuracy());
     });
 
     // Recognize custom form using this custom model
@@ -266,7 +286,7 @@ Next, let's use the above created custom model to analyze our custom form.
 ### Custom model training without training labels
 This approach allows the user of the library to create a custom model without requiring to go through labeling process steps and still be able to turn forms into usable data. This uses unsupervised learning to understand the layout and relationships between fields and entries in your forms. The underlying algorithm for this API clusters the forms by type, discovers what keys and tables are present, and associates values to keys and entries to tables. Since the user does not provide any labeled data, the recognize API with this model doesn't recognize specific tags/labels of special interest to the user but is still able to create a tailored model for a specific set of custom forms.
 
-The client library differentiates between training with labels and without labels with the presence of boolean parameter `useLabelFile`. If `useLabelFile = false` the `beginTraining` API performs model training without labels.
+The client library differentiates between training with labels and without labels with the presence of boolean parameter `useTrainingLabels`. If `useTrainingLabels = false` the `beginTraining` API performs model training without labels.
 
 ## Further documentation
 
