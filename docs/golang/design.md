@@ -579,7 +579,7 @@ Client libraries must support robust logging mechanisms so that the consumer can
 
 {% include requirement/MUST id="golang-log-inclue" %} log HTTP request line, response line, and all header/query parameter names.
 
-{% include requirement/MUSTNOT id="golang-log-exclude" %} log payloads or HTTP header/query parameter values that aren't on the white list.  For header/query parameters not on the white list use the value `<REDACTED>` in place of the real value.
+{% include requirement/MUSTNOT id="golang-log-exclude" %} log payloads or HTTP header/query parameter values that aren't on the allow list.  For header/query parameters not on the allow list use the value `<REDACTED>` in place of the real value.
 
 ## Distributed Tracing
 
