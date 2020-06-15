@@ -176,7 +176,7 @@ logger.writeLog(for: "MyClient", withLevel: AzureCoreLogLevels.Verbose, message:
 > TODO: Logging (see general guidelines)
 > * Provide abstracted logger in AzureCore
 > * Use os_logger unless over-ridden
-> * AllowListHeaders & allowListQueryParams
+> * allowHeaders & allowQueryParams
 
 > TBD:
 > * Hook in to HockeyApp
