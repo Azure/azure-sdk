@@ -9,7 +9,7 @@ function Query-java-Packages
   $mavenQuery = Invoke-RestMethod "https://search.maven.org/solrsearch/select?q=g:com.microsoft.azure*%20OR%20g:com.azure&rows=1000&wt=json"
 
   Write-Host "Found $($mavenQuery.response.numFound) maven packages"
-  $packages = $mavenQuery.response.docs | Foreach-Object { [pscustomobject]@{ Service = $_.a; Package = $_.id; Version = $_.latestVersion; GroupId = $_.g; ArtifactId = $_.a } }
+  $packages = $mavenQuery.response.docs | Foreach-Object { [pscustomobject]@{ Service = $_.a; Package = $_.a; GroupId = $_.g; Version = $_.latestVersion; } }
   return $packages
 }
 
@@ -75,7 +75,7 @@ function Output-Latest-Versions($lang)
 
   foreach ($pkg in $packages)
   {
-    $pkgEntries = $packageList | ? { $_.Package -eq $pkg.Package }
+    $pkgEntries = $packageList | Where-Object { $_.Package -eq $pkg.Package -and $_.GroupId -eq $pkg.GroupId}
 
     if ($pkgEntries.Count -gt 1) {
       Write-Error "Found $($pkgEntry.Count) package entries for $pkg.Package"

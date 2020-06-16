@@ -15,7 +15,7 @@ function MSDocLink($lang, $pkg)
   if ($pkg.MSDocs -eq "NA") { return "" }
   if ($pkg.MSDocs -ne "") { return "[docs]($($pkg.MSDocs))" }
 
-  $msPackagePath = $pkg.Package -replace "azure[\.-]", ""
+  $msPackagePath = $pkg.Package -replace "@?azure[\.-\\]", ""
   return "[docs](https://docs.microsoft.com/${lang}/api/overview/azure/${msPackagePath}-readme/)"
 }
 
@@ -54,7 +54,8 @@ function Get-Row($pkg, $lang, $packageFormat, $sourceFormat)
 
 function Get-java-row($pkg)
 {
-  $packageFormat = "maven [{1}](https://search.maven.org/artifact/com.azure/{0}/{1}/jar/)"
+  $groupId = $pkg.GroupId
+  $packageFormat = "maven [{1}](https://search.maven.org/artifact/${groupId}/{0}/{1}/jar/)"
   $sourceFormat = "github [{1}](https://github.com/Azure/azure-sdk-for-java/tree/{0}_{1}/sdk/{2}/{0}/)"
   
   return Get-Row $pkg "java" $packageFormat $sourceFormat
@@ -62,8 +63,8 @@ function Get-java-row($pkg)
 
 function Get-js-row($pkg)
 {
-  $packageFormat = "npm [{1}](https://www.npmjs.com/package/@azure/{0}/v/{1})"
-  $sourceFormat = "github [{1}](https://github.com/Azure/azure-sdk-for-js/tree/@azure/{0}_{1}/sdk/{2}/{0}/)"
+  $packageFormat = "npm [{1}](https://www.npmjs.com/package/{0}/v/{1})"
+  $sourceFormat = "github [{1}](https://github.com/Azure/azure-sdk-for-js/tree/{0}_{1}/sdk/{2}/{0}/)"
   return Get-Row $pkg "js" $packageFormat $sourceFormat
 }
 
@@ -112,9 +113,8 @@ function Write-Markdown($lang)
     }
   
     $pkg | Add-Member -NotePropertyMembers $pkgProperties -Force
-    
-    $normalizedPkg = $pkg.Package.Replace("@azure/","").Replace("com.azure:", "")
-    $pkgEntries = $packageList | Where-Object { $_.Package -eq $normalizedPkg }
+
+    $pkgEntries = $packageList | Where-Object { $_.Package -eq $pkg.Package -and $_.GroupId -eq $pkg.GroupId }
 
     if ($pkgEntries.Count -eq 1) {
       $pkg.MSDocs = $pkgEntries[0].MSDocs

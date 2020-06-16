@@ -71,7 +71,7 @@ function Check-java-links($pkg, $version)
 {
   $valid = $true;
   $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-java/tree/{0}_{1}/sdk/{2}/{0}/" -f $pkg.Package, $version, $pkg.RepoPath))
-  $valid = $valid -and (CheckLink ("https://search.maven.org/artifact/com.azure/{0}/{1}/jar/" -f $pkg.Package, $version))
+  $valid = $valid -and (CheckLink ("https://search.maven.org/artifact/{3}/{0}/{1}/jar/" -f $pkg.Package, $version, $pkg.GroupId))
   return $valid;
 }
 
