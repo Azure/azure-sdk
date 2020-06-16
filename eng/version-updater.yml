@@ -10,6 +10,7 @@ resources:
       type: github
       name: Azure/azure-sdk-tools
       endpoint: azure
+      ref: AddErrorHandlingSPR
 
 steps:
 - checkout: self
@@ -29,6 +30,7 @@ steps:
 
 - template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
   parameters:
+    BaseBranchName: master
     RepoName: azure-sdk
     PRBranchName: PackageVersionUpdates
     CommitMsg: "Update package index with latest published versions"
@@ -51,6 +53,7 @@ steps:
 
 - template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
   parameters:
+    BaseBranchName: master
     RepoOwner: MicrosoftDocs
     RepoName: azure-dev-docs-pr
     PRBranchName: PackageIndexUpdates
