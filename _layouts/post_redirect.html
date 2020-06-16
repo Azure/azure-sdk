@@ -1,0 +1,22 @@
+{%- if page.redirect -%}
+{%- assign absolute_url = page.redirect -%}
+{%- else -%}
+{%- assign relative_url = page.title | slugify -%}
+{%- assign absolute_url = site.blog_url | append: relative_url -%}
+{%- endif -%}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="refresh" content="0;url={{ absolute_url }}"/>
+        <title>Page Moved</title>
+        {% if site.google_analytics %}
+        {% include google_analytics.html %}
+        {% endif %}
+        {% if site.app_insights %}
+        {% include app_insights.html %}
+        {% endif %}
+    </head>
+    <body>
+        This page has moved. You will be redirected automatically, or click <a href="{{ absolute_url }}">here</a> to go there now.
+    </body>
+</html>

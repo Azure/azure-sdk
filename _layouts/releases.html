@@ -4,6 +4,8 @@ layout: default
 
 <h1>{{ site.data.ui-text[site.locale].recent_releases | default: "Recent Releases" }}</h1>
 
+<p><i>Our blog has moved to <a href="{{ site.blog_url }}">{{ site.blog_url }}</a>. Please update your feed readers for the latest news on Azure SDK!</i></p>
+
 {% for post in paginator.posts %}
     {% include archive-single.html %}
 {% endfor %}
