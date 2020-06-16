@@ -7,8 +7,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="refresh" content="0;url={{ absolute_url }}"/>
+        <meta http-equiv="refresh" content="0;url={{ absolute_url }}">
+        <meta name="robots" content="noindex">
         <title>Page Moved</title>
+        <link rel="canonical" href="{{ absolute_url }}">
         {% if site.google_analytics %}
         {% include google_analytics.html %}
         {% endif %}

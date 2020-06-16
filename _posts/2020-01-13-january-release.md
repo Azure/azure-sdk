@@ -3,6 +3,7 @@ title: Azure SDK Releases (January 2020)
 date: 2020-01-13
 sidebar: releases_sidebar
 repository: azure/azure-sdk
+redirect: https://devblogs.microsoft.com/azure-sdk/azure-sdk-release-january-2020/
 ---
 
 This month, we have promoted three of the client libraries to general availability, and expanded our service support to include a preview SDK for our first Cognitive Service: the Azure Text Analytics service.

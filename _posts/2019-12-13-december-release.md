@@ -3,6 +3,7 @@ title: Azure SDK Releases (December 2019)
 date: 2019-12-13
 sidebar: releases_sidebar
 repository: azure/azure-sdk
+redirect: https://devblogs.microsoft.com/azure-sdk/azure-sdk-release-december-2019/
 ---
 
 The Azure SDK team is pleased to announce the December 2019 release of the Azure client libraries.  We have some libraries that have reached General Availability and others that we have provided a new preview.
