@@ -130,6 +130,10 @@ The client library wraps HTTP requests so it's important to support standard net
 
 {% include requirement/MAY id="ios-network-delegate" %} provide a delegate protocol that the developer can conform to instead of a callback parameter for async client methods where use of the delegate would improve clarity and/or reduce clutter. For such methods, you may either accept the delegate as the final parameter or return an object to which the delegate can be attached.
 
+{% include requirement/MUST id="ios-network-delegate-method-names" %} use the name of the delegate protocol as a prefix for each delegate method it defines so that the developer can easily locate the delegate methods via code completion. For example, a `TransferDelegate` protocol should definite delegate methods that start with `transfer`, e.g. `transfer(_:didUpdateWithState:)`.
+
+{% include requirement/MUST id="ios-network-delegate-method-impls" %} provide empty (do-nothing) default implementations for all delegate methods.
+
 {% include requirement/MUSTNOT id="ios-network-multiple-methods" %} provide multiple methods for a single REST endpoint.
 
 {% include requirement/MUSTNOT id="ios-async-no-blocking" %} include blocking calls inside async client library code.
