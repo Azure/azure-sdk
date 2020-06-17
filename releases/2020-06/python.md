@@ -22,6 +22,14 @@ This release includes the following:
 - Form Recognizer
 - Search
 - Service Bus
+- Management Library - Compute
+- Management Library - Network
+- Management Library - Resource
+- Management Library - Storage
+- Management Library - Monitor
+- Management Library - AppConfiguration
+- Management Library - EventHub
+- Management Library - KeyVault
 
 ## Installation Instructions
 
@@ -33,6 +41,14 @@ pip install --pre azure-ai-textanalytics
 pip install azure-ai-formrecognizer
 pip install --pre azure-search-documents
 pip install --pre azure-servicebus
+pip install --pre azure-mgmt-compute
+pip install --pre azure-mgmt-network
+pip install --pre azure-mgmt-resource
+pip install --pre azure-mgmt-storage
+pip install --pre azure-mgmt-monitor
+pip install --pre azure-mgmt-appconfiguration
+pip install --pre azure-mgmt-eventhub
+pip install --pre azure-mgmt-keyvault
 ```
 
 ## Feedback
@@ -119,6 +135,11 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Support for management of Queue entities; creation, deletion, and fetching of metadata.
 - Support for dead letter receivers against both Queues and Subscriptions.
 - Includes a version bump of the internal UAMQP package to support passing both reason and description when deadlettering a message.
+
+### New Management Libraries
+
+A new set of management libraries that follow the [Azure SDK Design Guidelines for Python](https://azure.github.io/azure-sdk/python/guidelines/) are now in Public Preview. These new libraries provide a number of core capabilities that are shared amongst all Azure SDKs, including the intuitive Azure Identity library, an HTTP Pipeline with custom policies, error-handling, distributed tracing, and much more. 
+You can find the list of new packages [on this page](https://azure.github.io/azure-sdk/releases/latest/python.html). Documentation and code samples for these new libraries can be found [here](https://azure.github.io/azure-sdk-for-python)
 
 ## Latest Releases
 
