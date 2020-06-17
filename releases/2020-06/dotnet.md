@@ -51,13 +51,13 @@ To install any of our packages, please search for them via `Manage NuGet Package
 
  $> dotnet add package Azure.Search.Documents --version 1.0.0-preview.4
  
- $> dotnet add package Azure.ResourceManager.Compute -- version 1.0.0-preview.1
- $> dotnet add package Azure.ResourceManager.Network -- version 1.0.0-preview.1
- $> dotnet add package Azure.ResourceManager.Resources -- version 1.0.0-preview.1
- $> dotnet add package Azure.ResourceManager.Storage -- version 1.0.0-preview.1
- $> dotnet add package Azure.ResourceManager.KeyVault -- version 1.0.0-preview.1
- $> dotnet add package Azure.ResourceManager.EventHubs -- version 1.0.0-preview.1
- $> dotnet add package Azure.ResourceManager.AppConfiguration -- version 1.0.0-preview.1
+ $> dotnet add package Azure.ResourceManager.Compute --version 1.0.0-preview.1
+ $> dotnet add package Azure.ResourceManager.Network --version 1.0.0-preview.1
+ $> dotnet add package Azure.ResourceManager.Resources --version 1.0.0-preview.1
+ $> dotnet add package Azure.ResourceManager.Storage --version 1.0.0-preview.1
+ $> dotnet add package Azure.ResourceManager.KeyVault --version 1.0.0-preview.1
+ $> dotnet add package Azure.ResourceManager.EventHubs --version 1.0.0-preview.1
+ $> dotnet add package Azure.ResourceManager.AppConfiguration --version 1.0.0-preview.1
  
 ```
 
