@@ -2,19 +2,16 @@
   <td>{{ item.Service }}</td>
   <td>
     {% assign trimmedPackage = item.Package | remove: package_trim %}
-    {% capture label %} 
-        {{ package_label }}
-    {% endcapture %}
 
-    {% assign package_url = package_url_template | replace: 'item.Package', item.Package | replace: 'item.TrimmedPackage', trimmedPackage %}
+    {% assign package_url = package_url_template | replace: 'item.Package', item.Package | replace: 'item.TrimmedPackage', trimmedPackage | replace: 'item.GroupId', item.GroupId %}
     {% if item.VersionGA != "" %}
-        {% assign url = package_url |replace: 'item.Version', item.VersionGA  %}
-        {% include releases/pkgbadge.md  label=label url=url %}
+        {% assign url = package_url | replace: 'item.Version', item.VersionGA  %}
+        {% include releases/pkgbadge.md  label=package_label url=url version=item.VersionGA %}
     {% endif %}
 
     {% if item.VersionPreview != "" %}
-        {% assign url = package_url |replace: 'item.Version', item.VersionPreview  %}
-        {% include releases/pkgbadge.md  label=label preview="true" url=url %}
+        {% assign url = package_url | replace: 'item.Version', item.VersionPreview  %}
+        {% include releases/pkgbadge.md  label=package_label preview="true" url=url version=item.VersionPreview %}
     {% endif %}
   </td>
   <td>
@@ -25,12 +22,12 @@
 
     {% if item.VersionGA != "" %}
         {% assign url = msdocs_url | replace: 'item.Version', item.VersionGA %}
-        {% include releases/pkgbadge.md label="msdocs" url=url %}
+        {% include releases/pkgbadge.md label="msdocs" url=url version=item.VersionGA %}
     {% endif %}
 
     {% if item.VersionPreview != "" %}
         {% assign url = msdocs_url | replace: 'item.Version', item.VersionPreview %}
-        {% include releases/pkgbadge.md label="msdocs" preview="true" url=url %}
+        {% include releases/pkgbadge.md label="msdocs" preview="true" url=url version=item.VersionPreview %}
     {% endif %}
   </td>
   <td>
@@ -41,12 +38,12 @@
 
     {% if item.VersionGA != "" %}
         {% assign url = ghdocs_url | replace: 'item.Version', item.VersionGA %}
-        {% include releases/pkgbadge.md label="ghdocs" url=url %}
+        {% include releases/pkgbadge.md label="ghdocs" url=url version=item.VersionGA %}
     {% endif %}
 
     {% if item.VersionPreview != "" %}
         {% assign url = ghdocs_url | replace: 'item.Version', item.VersionPreview %}
-        {% include releases/pkgbadge.md label="ghdocs" preview="true" url=url %}
+        {% include releases/pkgbadge.md label="ghdocs" preview="true" url=url version=item.VersionPreview %}
     {% endif %}
   </td>
   <td>
@@ -58,12 +55,12 @@
 
     {% if item.VersionGA != "" %}
         {% assign url = source_url | replace: 'item.Version', item.VersionGA %}
-        {% include releases/pkgbadge.md label="github" url=url %}
+        {% include releases/pkgbadge.md label="github" url=url version=item.VersionGA %}
     {% endif %}
 
     {% if item.VersionPreview != "" %}
         {% assign url = source_url | replace: 'item.Version', item.VersionPreview %}
-        {% include releases/pkgbadge.md label="github" preview="true" url=url %}
+        {% include releases/pkgbadge.md label="github" preview="true" url=url version=item.VersionPreview %}
     {% endif %}
   </td>
 </tr>
