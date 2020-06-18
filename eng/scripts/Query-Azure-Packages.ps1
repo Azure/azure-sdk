@@ -9,7 +9,7 @@ function Query-java-Packages
   $mavenQuery = Invoke-RestMethod "https://search.maven.org/solrsearch/select?q=g:com.microsoft.azure*%20OR%20g:com.azure&rows=1000&wt=json"
 
   Write-Host "Found $($mavenQuery.response.numFound) maven packages"
-  $packages = $mavenQuery.response.docs | Foreach-Object { [pscustomobject]@{ Service = $_.a; Package = $_.a; GroupId = $_.g; Version = $_.latestVersion; } }
+  $packages = $mavenQuery.response.docs | Foreach-Object { [pscustomobject]@{ DisplayName = $_.a; Package = $_.a; GroupId = $_.g; Version = $_.latestVersion; } }
   return $packages
 }
 
@@ -21,7 +21,7 @@ function Query-dotnet-Packages
   $nugetQuery = Invoke-RestMethod "https://azuresearch-usnc.nuget.org/query?q=owner:azure-sdk&take=1000"
 
   Write-Host "Found $($nugetQuery.totalHits) nuget packages"
-  $packages = $nugetQuery.data | Foreach-Object { [pscustomobject]@{ Service = $_.id; Package = $_.id; Version = $_.version } }
+  $packages = $nugetQuery.data | Foreach-Object { [pscustomobject]@{ DisplayName = $_.id; Package = $_.id; Version = $_.version } }
   return $packages
 }
 
@@ -43,7 +43,7 @@ function Query-js-Packages
   } while ($npmQuery.objects.Count -ne 0);
 
   Write-Host "Found $($npmPackages.Count) npm packages"
-  $packages = $npmPackages | Foreach-Object { [pscustomobject]@{ Service = $_.name; Package = $_.name; Version = $_.version } }
+  $packages = $npmPackages | Foreach-Object { [pscustomobject]@{ DisplayName = $_.name; Package = $_.name; Version = $_.version } }
   return $packages
 }
 
@@ -55,7 +55,7 @@ function Query-python-Packages
   $pythonPackages = $pythonPackagesNames | Foreach-Object { (Invoke-RestMethod "https://pypi.org/pypi/$_/json").info }
 
   Write-Host "Found $($pythonPackages.Count) python packages"
-  $packages = $pythonPackages | Foreach-Object { [pscustomobject]@{ Service = $_.name; Package = $_.name; Version = $_.version } }
+  $packages = $pythonPackages | Foreach-Object { [pscustomobject]@{ DisplayName = $_.name; Package = $_.name; Version = $_.version } }
   return $packages
 }
 
@@ -91,7 +91,7 @@ function Output-Latest-Versions($lang)
   }
 
   Write-Host "Writing $packagelistFile"
-  $packageList = $packageList | Sort-Object Service, Package
+  $packageList = $packageList | Sort-Object DisplayName, Package
   $packageList | Export-Csv -NoTypeInformation $packagelistFile -UseQuotes Always
 }
 

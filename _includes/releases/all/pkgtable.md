@@ -1,6 +1,6 @@
 <table>
 <tr>
-  <th>Service</th>
+  <th>Display Name</th>
   <th>Package</th>
   <th>Notes</th>
 </tr>

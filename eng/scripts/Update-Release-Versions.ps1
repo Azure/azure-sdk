@@ -243,7 +243,7 @@ function Update-python-Packages($packageList)
 function Output-Latest-Versions($lang)
 {
   $packagelistFile = Join-Path $releaseFolder "$lang-packages.csv"
-  $packageList = Get-Content $packagelistFile | ConvertFrom-Csv | Sort-Object Service
+  $packageList = Get-Content $packagelistFile | ConvertFrom-Csv | Sort-Object DisplayName
 
   $LangFunction = "Update-$lang-Packages"
   &$LangFunction $packageList 

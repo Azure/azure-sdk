@@ -1,9 +1,9 @@
 <table>
 <tr>
-  <th>Service</th>
+  <th>Display Name</th>
   <th>Package</th>
-  <th>MSDocs</th>
-  <th>GHDocs</th>
+  <th>MS Docs</th>
+  <th>GH Docs</th>
   <th>Source</th>
 </tr>
 <tbody id="myTable">
