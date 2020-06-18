@@ -39,8 +39,8 @@ function UpdateDocLinks($lang, $pkg)
   $version = $pkg.VersionGA
   if ($version -eq "") { $version = $pkg.VersionPreview }
 
-  $msPackagePath = $pkg.Package -replace "azure[\.-]", ""
-  $msdocvalid = CheckLink "https://docs.microsoft.com/${lang}/api/overview/azure/${msPackagePath}-readme/"
+  $trimmedPackage = $pkg.Package -replace "@?azure[\.\-/]", ""
+  $msdocvalid = CheckLink "https://docs.microsoft.com/${lang}/api/overview/azure/${trimmedPackage}-readme/"
 
   if ($msdocvalid) {
     $pkg.MSDocs = ""
@@ -52,7 +52,7 @@ function UpdateDocLinks($lang, $pkg)
     }
   }
   $ghformat = "{0}/{1}"
-  if ($lang -eq "javascript") { $ghformat = "azure-{0}/{1}" }
+  if ($lang -eq "javascript") { $ghformat = "azure-${trimmedPackage}/{1}" }
   elseif ($lang -eq "dotnet") { $ghformat = "{0}/{1}/api" }
   $ghpath = $ghformat -f $pkg.Package, $version 
   $ghdocvalid = CheckLink "$azuresdkdocs/${lang}/${ghpath}/index.html"
@@ -71,7 +71,7 @@ function Check-java-links($pkg, $version)
 {
   $valid = $true;
   $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-java/tree/{0}_{1}/sdk/{2}/{0}/" -f $pkg.Package, $version, $pkg.RepoPath))
-  $valid = $valid -and (CheckLink ("https://search.maven.org/artifact/com.azure/{0}/{1}/jar/" -f $pkg.Package, $version))
+  $valid = $valid -and (CheckLink ("https://search.maven.org/artifact/{2}/{0}/{1}/jar/" -f $pkg.Package, $version, $pkg.GroupId))
   return $valid;
 }
 
@@ -112,9 +112,10 @@ function Update-java-Packages($packageList)
 
 function Check-js-links($pkg, $version)
 {
+  $trimmedPackage = $pkg.Package.Replace("@azure/", "")
   $valid = $true;
-  $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-js/tree/@azure/{0}_{1}/sdk/{2}/{0}/" -f $pkg.Package, $version, $pkg.RepoPath))
-  $valid = $valid -and (CheckLink ("https://www.npmjs.com/package/@azure/{0}/v/{1}" -f $pkg.Package, $version))
+  $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-js/tree/{0}_{1}/sdk/{2}/{3}/" -f $pkg.Package, $version, $pkg.RepoPath, $trimmedPackage))
+  $valid = $valid -and (CheckLink ("https://www.npmjs.com/package/{0}/v/{1}" -f $pkg.Package, $version))
   return $valid
 }
 
@@ -122,7 +123,8 @@ function Update-js-Packages($packageList)
 {
   foreach ($pkg in $packageList)
   {
-    $version = GetVersionWebContent "javascript" "azure-$($pkg.Package)" "latest-ga"
+    $trimmedPackage = $pkg.Package.Replace("@azure/", "")
+    $version = GetVersionWebContent "javascript" "azure-${trimmedPackage}" "latest-ga"
     if ($version -eq "") {
       $pkg.VersionGA = "";
     }
@@ -136,7 +138,7 @@ function Update-js-Packages($packageList)
       Write-Warning "Not updating VersionGA for $($pkg.Package) because at least one associated URL is not valid!"
     }
 
-    $version = GetVersionWebContent "javascript" "azure-$($pkg.Package)" "latest-preview"
+    $version = GetVersionWebContent "javascript" "azure-${trimmedPackage}" "latest-preview"
     if ($version -eq "") {
       $pkg.VersionPreview = "";
     }
