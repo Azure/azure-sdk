@@ -75,7 +75,7 @@ function Output-Latest-Versions($lang)
 
   foreach ($pkg in $packages)
   {
-    $pkgEntries = $packageList | Where-Object { $_.Package -eq $pkg.Package -and $_.GroupId -eq $pkg.GroupId}
+    $pkgEntries = $packageList | Where-Object { $_.Package -eq $pkg.Package -and $_.GroupId -eq $pkg.GroupId }
 
     if ($pkgEntries.Count -gt 1) {
       Write-Error "Found $($pkgEntry.Count) package entries for $pkg.Package"
