@@ -6,7 +6,7 @@
         {{ package_label }}
     {% endcapture %}
 
-    {% assign package_url = package_url_template | replace: 'item.Package', item.Package | 'item.TrimmedPackage', trimmedPackage %}
+    {% assign package_url = package_url_template | replace: 'item.Package', item.Package | replace: 'item.TrimmedPackage', trimmedPackage %}
     {% if item.VersionGA != "" %}
         {% assign url = package_url |replace: 'item.Version', item.VersionGA  %}
         {% include releases/pkgbadge.md  label=label url=url %}
@@ -20,7 +20,7 @@
   <td>
     {% assign msdocs_url = item.MSDocs %}
     {% if item.MSDocs == "" %}
-        {% assign msdocs_url = msdocs_url_template | replace: 'item.Package', item.Package | 'item.TrimmedPackage', trimmedPackage %}
+        {% assign msdocs_url = msdocs_url_template | replace: 'item.Package', item.Package | replace: 'item.TrimmedPackage', trimmedPackage %}
     {% endif %}
 
     {% if item.VersionGA != "" %}
@@ -36,7 +36,7 @@
   <td>
     {% assign ghdocs_url = item.GHDocs %}
     {% if item.GHDocs == "" %}
-        {% assign ghdocs_url = ghdocs_url_template | replace: 'item.Package', item.Package | 'item.TrimmedPackage', trimmedPackage %}
+        {% assign ghdocs_url = ghdocs_url_template | replace: 'item.Package', item.Package | replace: 'item.TrimmedPackage', trimmedPackage %}
     {% endif %}
 
     {% if item.VersionGA != "" %}
@@ -53,7 +53,7 @@
     {% if item.RepoPath contains "http" %}
         {% assign source_url = item.RepoPath %}
     {% else %}
-        {% assign source_url = source_url_template | replace: 'item.Package', item.Package | 'item.TrimmedPackage', trimmedPackage | replace: 'item.RepoPath', item.RepoPath %}
+        {% assign source_url = source_url_template | replace: 'item.Package', item.Package | replace: 'item.TrimmedPackage', trimmedPackage | replace: 'item.RepoPath', item.RepoPath %}
     {% endif %}
 
     {% if item.VersionGA != "" %}
