@@ -21,12 +21,12 @@ function MSDocLink($lang, $pkg)
 
 function Get-Heading()
 {
- return  "| Service | Package | Docs | Source |`n" + 
-         "| ------- | ------- | ---- | ------ |`n"
+ return  "| Name | Package | Docs | Source |`n" + 
+         "| ---- | ------- | ---- | ------ |`n"
 }
 function Get-Row($pkg, $lang, $packageFormat, $sourceFormat)
 {
-  $service = $pkg.Service
+  $displayName = $pkg.DisplayName
   $docs = MSDocLink $lang $pkg
 
   if ($pkg.VersionGA -ne "" -and $pkg.VersionPreview -ne "") {
@@ -49,7 +49,7 @@ function Get-Row($pkg, $lang, $packageFormat, $sourceFormat)
     $source = ""
   }
 
-  return "| ${service} | ${package} | ${docs} | ${source} |`n"
+  return "| ${displayName} | ${package} | ${docs} | ${source} |`n"
 }
 
 function Get-java-row($pkg)
@@ -85,7 +85,7 @@ function Get-python-row($pkg)
 function Write-Markdown($lang)
 {
   $packagelistFile = Join-Path $releaseFolder "$lang-packages.csv"
-  $packageList = Get-Content $packagelistFile | ConvertFrom-Csv | Sort-Object Service
+  $packageList = Get-Content $packagelistFile | ConvertFrom-Csv | Sort-Object DisplayName
 
   $fileContent = Get-Heading
   $LangFunction = "Get-$lang-row"
@@ -99,7 +99,7 @@ function Write-Markdown($lang)
   $fileContent | Set-Content $mdfile
 
   $allPackagelistFile = Join-Path $allFolder "$lang-packages.csv"
-  $allPackageList = Get-Content $allPackagelistFile | ConvertFrom-Csv | Sort-Object Service
+  $allPackageList = Get-Content $allPackagelistFile | ConvertFrom-Csv | Sort-Object DisplayName
 
 
   $allFileContent = Get-Heading

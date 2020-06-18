@@ -1,5 +1,5 @@
 <tr>
-  <td>{{ item.Service }}</td>
+  <td>{{ item.DisplayName }}</td>
   <td>
     {% assign trimmedPackage = item.Package | remove: package_trim %}
 
