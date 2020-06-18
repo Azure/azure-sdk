@@ -6,7 +6,7 @@ param (
 function Query-java-Packages
 {
   # Rest API docs https://search.maven.org/classic/#api
-  $mavenQuery = Invoke-RestMethod "https://search.maven.org/solrsearch/select?q=g:com.microsoft.azure*%20OR%20g:com.azure&rows=1000&wt=json"
+  $mavenQuery = Invoke-RestMethod "https://search.maven.org/solrsearch/select?q=g:com.microsoft.azure*%20OR%20g:com.azure*&rows=1000&wt=json"
 
   Write-Host "Found $($mavenQuery.response.numFound) maven packages"
   $packages = $mavenQuery.response.docs | Foreach-Object { [pscustomobject]@{ DisplayName = $_.a; Package = $_.a; GroupId = $_.g; Version = $_.latestVersion; } }
@@ -69,6 +69,7 @@ function Output-Latest-Versions($lang)
   $extraProperties = [ordered]@{
     Hide = ""
     Notes = ""
+    Type = ""
   }
   $LangFunction = "Query-$lang-Packages"
   $packages= &$LangFunction
@@ -82,7 +83,8 @@ function Output-Latest-Versions($lang)
     }
     elseif ($pkgEntries.Count -eq 0) {
       # Add package
-      $packageList += ($pkg | Add-Member -NotePropertyMembers $extraProperties -Force)
+      $pkg | Add-Member -NotePropertyMembers $extraProperties -Force
+      $packageList += $pkg
     }
     else {
       # Update version of package
@@ -91,7 +93,7 @@ function Output-Latest-Versions($lang)
   }
 
   Write-Host "Writing $packagelistFile"
-  $packageList = $packageList | Sort-Object DisplayName, Package
+  $packageList = $packageList | Sort-Object DisplayName, Package, GroupId
   $packageList | Export-Csv -NoTypeInformation $packagelistFile -UseQuotes Always
 }
 
