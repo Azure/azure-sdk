@@ -32,6 +32,11 @@ function LogWarning
 function ResolveUri ([System.Uri]$referralUri, [string]$link)
 {
   $linkUri = [System.Uri]$link;
+  # If the link is mailto, skip it.
+  if($linkUri.StartsWith("mailto:")){
+    Write-Verbose "Skipping $linkUri because it isa mailto link."
+    return $null
+  }
 
   if (!$linkUri.IsAbsoluteUri) {
     # For rooted paths resolve from the baseUrl
@@ -47,8 +52,8 @@ function ResolveUri ([System.Uri]$referralUri, [string]$link)
   Write-Verbose "ResolvedUri $link to $linkUri"
 
   # If the link is not a web request, like mailto, skip it.
-  if ((!$linkUri.Scheme.StartsWith("http") -and !$linkUri.IsFile) -or ($linkUri.Scheme.StartsWith("mailto:")) ) {
-    Write-Verbose "Skipping $linkUri because it is not http or file based or is mailto."
+  if (!$linkUri.Scheme.StartsWith("http") -and !$linkUri.IsFile) {
+    Write-Verbose "Skipping $linkUri because it is not http or file based."
     return $null
   }
 
