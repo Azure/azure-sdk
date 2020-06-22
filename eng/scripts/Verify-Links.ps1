@@ -32,8 +32,8 @@ function LogWarning
 function ResolveUri ([System.Uri]$referralUri, [string]$link)
 {
   # If the link is mailto, skip it.
-  if($linkUri.StartsWith("mailto:")){
-    Write-Verbose "Skipping $linkUri because it isa mailto link."
+  if($link.StartsWith("mailto:")){
+    Write-Verbose "Skipping $linkUri because it is a mailto link."
     return $null
   }
   $linkUri = [System.Uri]$link;
