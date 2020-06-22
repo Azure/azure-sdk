@@ -31,13 +31,12 @@ function LogWarning
 
 function ResolveUri ([System.Uri]$referralUri, [string]$link)
 {
-  $linkUri = [System.Uri]$link;
   # If the link is mailto, skip it.
   if($linkUri.StartsWith("mailto:")){
     Write-Verbose "Skipping $linkUri because it isa mailto link."
     return $null
   }
-
+  $linkUri = [System.Uri]$link;
   if (!$linkUri.IsAbsoluteUri) {
     # For rooted paths resolve from the baseUrl
     if ($link.StartsWith("/")) {
