@@ -25,17 +25,6 @@ The Azure SDK team is pleased to announce our June 2020 client library releases.
 - KeyVault (Certificates, Keys, Secrets)
 - Service Bus
 - Tracing OpenTelemetry
-- Management Library - Compute
-- Management Library - Network
-- Management Library - Storage
-- Management Library - Resources
-- Management Library - Managed Identity
-- Management Library - Authorization
-- Management Library - Insight
-- Management Library - AppService
-- Management Library - SQL
-- Management Library - CosmosDB
-- Management Library - Key Vault
 
 ## Installation Instructions
 
@@ -128,77 +117,6 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <artifactId>azure-security-keyvault-secrets</artifactId>
   <version>4.2.0-beta.3</version>
 </dependency>
-<dependency>
-  <groupId>com.azure.resourcemanager</groupId>
-  <artifactId>azure-resourcemanager-resources</artifactId>
-  <version>2.0.0</version>
-</dependency>
-<dependency>
-  <groupId>com.azure.resourcemanager</groupId>
-  <artifactId>azure-resourcemanager-storage</artifactId>
-  <version>2.0.0</version>
-</dependency>
-<dependency>
-  <groupId>com.azure.resourcemanager</groupId>
-  <artifactId>azure-resourcemanager-keyvault</artifactId>
-  <version>2.0.0</version>
-</dependency>
-<dependency>
-  <groupId>com.azure.resourcemanager</groupId>
-  <artifactId>azure-resourcemanager-authorization</artifactId>
-  <version>2.0.0</version>
-</dependency>
-<dependency>
-  <groupId>com.azure.resourcemanager</groupId>
-  <artifactId>azure-resourcemanager-msi</artifactId>
-  <version>2.0.0</version>
-</dependency>
-<dependency>
-  <groupId>com.azure.resourcemanager</groupId>
-  <artifactId>azure-resourcemanager-network</artifactId>
-  <version>2.0.0</version>
-</dependency>
-<dependency>
-  <groupId>com.azure.resourcemanager</groupId>
-  <artifactId>azure-resourcemanager-compute</artifactId>
-  <version>2.0.0</version>
-</dependency>
-<dependency>
-  <groupId>com.azure.resourcemanager</groupId>
-  <artifactId>azure-resourcemanager-sql</artifactId>
-  <version>2.0.0</version>
-</dependency>
-<dependency>
-  <groupId>com.azure.resourcemanager</groupId>
-  <artifactId>azure-resourcemanager-cosmos</artifactId>
-  <version>2.0.0</version>
-</dependency>
-<dependency>
-  <groupId>com.azure.resourcemanager</groupId>
-  <artifactId>azure-resourcemanager-dns</artifactId>
-  <version>2.0.0</version>
-</dependency>
-<dependency>
-  <groupId>com.azure.resourcemanager</groupId>
-  <artifactId>azure-resourcemanager-appservice</artifactId>
-  <version>2.0.0</version>
-</dependency>
-<dependency>
-  <groupId>com.azure.resourcemanager</groupId>
-  <artifactId>azure-resourcemanager-containerservice</artifactId>
-  <version>2.0.0</version>
-</dependency>
-<dependency>
-  <groupId>com.azure.resourcemanager</groupId>
-  <artifactId>azure-resourcemanager-containerregistry</artifactId>
-  <version>2.0.0</version>
-</dependency>
-<dependency>
-  <groupId>com.azure.resourcemanager</groupId>
-  <artifactId>azure-resourcemanager-monitor</artifactId>
-  <version>2.0.0</version>
-</dependency>
-  
 ```
 
 ## Feedback
@@ -304,12 +222,6 @@ Here are some of the highlights:
 #### Breaking changes
 
 - Changed `Tracer` loading from using all on classpath to only using the first.
-
-### New Management Libraries
-
-A new set of management libraries that follow the [Azure SDK Design Guidelines for Java](https://azure.github.io/azure-sdk/java/guidelines/) are now in Public Preview. These new libraries provide a higher-level, object-oriented API for managing Azure resources, that is optimized for ease of use, succinctness and consistency. You can find the list of new packages [on this page](https://azure.github.io/azure-sdk/releases/latest/java.html). Detailed documentation and code samples for these new libraries can be [found here](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/management)
-
-These new packages share the same groupId ``com.azures.resourcemanager`` and artifactId share the same prefix of ``azure-resourcemanager`` 
 
 ## Need help
 

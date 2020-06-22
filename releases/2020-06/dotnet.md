@@ -23,13 +23,6 @@ The Azure SDK team is pleased to announce our {{ page.date | date: "%B %Y" }} cl
 - Search
 - Service Bus
 - Text Analytics
-- Management Library - Compute
-- Management Library - Network
-- Management Library - Resources
-- Management Library - Storage
-- Management Library - KeyVault
-- Management Library - EventHubs
-- Management Library - AppConfiguration
 
 ## Installation Instructions
 
@@ -50,15 +43,6 @@ To install any of our packages, please search for them via `Manage NuGet Package
  $> dotnet add package Azure.Messaging.ServiceBus --version 7.0.0-preview.3
 
  $> dotnet add package Azure.Search.Documents --version 1.0.0-preview.4
- 
- $> dotnet add package Azure.ResourceManager.Compute --version 1.0.0-preview.1
- $> dotnet add package Azure.ResourceManager.Network --version 1.0.0-preview.1
- $> dotnet add package Azure.ResourceManager.Resources --version 1.0.0-preview.1
- $> dotnet add package Azure.ResourceManager.Storage --version 1.0.0-preview.1
- $> dotnet add package Azure.ResourceManager.KeyVault --version 1.0.0-preview.1
- $> dotnet add package Azure.ResourceManager.EventHubs --version 1.0.0-preview.1
- $> dotnet add package Azure.ResourceManager.AppConfiguration --version 1.0.0-preview.1
- 
 ```
 
 ## Feedback
@@ -158,11 +142,6 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ##### New Features
 - Client library now targets the service's v3.0 API, instead of the v3.0-preview.1 API.
-
-### New Management Libraries
-A new set of management libraries that follow the [Azure SDK Design Guidelines for .NET](https://azure.github.io/azure-sdk/dotnet_introduction.html) and based on [Azure.Core libraries](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/core/Azure.Core) are now in Public Preview. These new libraries provide a number of core capabilities that are shared amongst all Azure SDKs, including the intuitive Azure Identity library, an HTTP Pipeline with custom policies, error-handling, distributed tracing, and much more. You can find the list of new packages [on this page](https://azure.github.io/azure-sdk/releases/latest/dotnet.html). 
-
-To get started with these new libraries, please see the [quickstart guide here](https://github.com/Azure/azure-sdk-for-net/blob/master/doc/mgmt_preview_quickstart.md). These new libraries can be identifed by namespaces that start with `Azure.ResourceManager`, e.g. `Azure.ResourceManager.Network`
 
 ## Latest Releases
 
