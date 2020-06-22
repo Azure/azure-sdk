@@ -497,6 +497,58 @@ Although object-orientated languages can eschew low-level pagination APIs in fav
 
 {% include requirement/MUST id="cpp-design-logical-client-pagination-size-of-page" %} indicate in the return type how many items were returned by the service, and have a list of those items for the consumer to iterate over.
 
+#### Enumerations
+
+{% include requirement/MUST id="cpp-design-logical-client-enumerations-no-enums" %} use `enum` or `enum class` for values shared "over the wire" with a service, to support future compatibility with the service where additional values are added. Such values should be persisted as strings in client data structures instead.
+
+{% include requirement/MAY id="cpp-design-logical-client-enumerations-enumish-pattern" %} provide an 'extensible enum' pattern for storing service enumerations which provides reasonable constant values. This pattern stores the value as a string but provides public static member fields with the individual values for customer consumption. For example:
+
+{% highlight cpp %}
+#include <azure.hpp> // for Azure::Core::LocaleInvariantCaseInsensitiveEqual
+#include <utility> // for std::move
+namespace Azure { namespace Group { namespace Service {
+
+// an "Extensible Enum" type
+class KeyType {
+    std::string m_Value;
+public:
+    // Provide `explicit` conversion from string or types convertible to string:
+    explicit KeyType(const std::string& value) : m_Value(value) { }
+    explicit KeyType(std::string&& value) : m_Value(std::move(value)) { }
+    explicit KeyType(const char* value) : m_Value(value) { }
+
+    // Provide an equality comparison. If the service treats the enumeration case insensitively,
+    // use LocaleInvariantCaseInsensitiveEqual to prevent differing locale settings from affecting
+    // the SDK's behavior:
+    bool operator==(const KeyType& other) const noexcept {
+        return Azure::Core::LocaleInvariantCaseInsensitiveEqual(m_Value, other.m_Value);
+    }
+
+    bool operator!=(const KeyType& other) const noexcept { return !(*this == other); }
+
+    // Provide a "Get" accessor
+    const std::string& Get() const noexcept { return mValue; }
+
+    // Provide your example values as static const members
+    const static KeyType Ec;
+    const static KeyType EcHsm;
+    const static KeyType Rsa;
+    const static KeyType RsaHsm;
+    const static KeyType Oct;
+};
+}}} // namespace Azure::Group::Service
+
+
+// in a .cpp file:
+namespace Azure { namespace Group { namespace Service {
+const KeyType KeyType::Ec = "EC";
+const KeyType KeyType::EcHsm = "EC-HSM";
+const KeyType KeyType::Rsa = "RSA";
+const KeyType KeyType::RsaHsm = "RSA-HSM";
+const KeyType KeyType::Oct = "oct";
+}}} // namespace Azure::Group::Service
+{% endhighlight %}
+
 ### Error handling
 
 Error handling is an important aspect of implementing a client library. It is the primary method by which problems are communicated to the consumer. Because we intend for the C client libraries to be used on a wide range of devices with a wide range of reliability requirements, it's important to provide robust error handling.
