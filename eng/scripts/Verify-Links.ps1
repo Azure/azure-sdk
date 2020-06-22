@@ -47,8 +47,8 @@ function ResolveUri ([System.Uri]$referralUri, [string]$link)
   Write-Verbose "ResolvedUri $link to $linkUri"
 
   # If the link is not a web request, like mailto, skip it.
-  if (!$linkUri.Scheme.StartsWith("http") -and !$linkUri.IsFile) {
-    Write-Verbose "Skipping $linkUri because it is not http or file based."
+  if ((!$linkUri.Scheme.StartsWith("http") -and !$linkUri.IsFile) -or ($linkUri.Scheme.StartsWith("mailto:")) ) {
+    Write-Verbose "Skipping $linkUri because it is not http or file based or is mailto."
     return $null
   }
 
