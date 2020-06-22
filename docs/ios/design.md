@@ -130,6 +130,14 @@ The client library wraps HTTP requests so it's important to support standard net
 
 {% include requirement/MAY id="ios-network-delegate" %} provide a delegate protocol that the developer can conform to instead of a callback parameter for async client methods where use of the delegate would improve clarity and/or reduce clutter. For such methods, you may either accept the delegate as the final parameter or return an object to which the delegate can be attached.
 
+{% include requirement/MUST id="ios-network-delegate-name" %} follow the Swift naming conventions when providing a delegate protocol. Protocols that describe what something is should read as nouns (e.g. `Collection`), protocols that describe a capability should be named using the suffixes `able`, `ible`, or `ing` (e.g. `Equatable`, `ProgressReporting`).
+
+{% include requirement/MUST id="ios-network-delegate-method-names" %} use a consistent prefix for each method defined by the delegate so that the developer can easily locate the delegate methods via code completion. The name of the delegating object is commonly used as as the prefix. For example, a `TransferDelegate` protocol used to notify about events coming from `Transfer` objects might define delegate methods that start with `transfer`, e.g. `transfer(_:didUpdateWithState:)`, `transferDidComplete(_:)`.
+
+{% include requirement/SHOULD id="ios-network-delegate-method-param" %} accept the delegating object as the first unnamed parameter to delegate methods when using the delegating object's name as the prefix for the delegate method.
+
+{% include requirement/MUST id="ios-network-delegate-method-impls" %} provide empty (do-nothing) default implementations for all delegate methods.
+
 {% include requirement/MUSTNOT id="ios-network-multiple-methods" %} provide multiple methods for a single REST endpoint.
 
 {% include requirement/MUSTNOT id="ios-async-no-blocking" %} include blocking calls inside async client library code.
