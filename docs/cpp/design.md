@@ -412,6 +412,20 @@ public:
 };
 {% endhighlight %}
 
+### Integer sizes
+
+The following integer rules are listed in rough priority order. Integer size selections are primarily driven by service future compatibility. For example, just because today a service might have a 2 GiB file size limit does not mean that it will have such a limit forever. We believe 64 bit length limits will be sufficient for sizes an individual program works with for the foreseeable future.
+
+{% include requirement/MUST id="cpp-design-logical-integer-files" %} Represent file sizes with `int64_t`, even on 32 bit platforms.
+
+{% include requirement/MUST id="cpp-design-logical-integer-memory-buffers" %} Represent memory buffer sizes with `size_t` or `ptrdiff_t` as appropriate for the environment. Between the two, choose the type likely to need the fewest conversions in application. For example, we would prefer signed `ptrdiff_t` in most cases because signed integers behave like programmers expect more consistently, but the SDK will need to transact with `malloc`, `std::vector`, and/or `std::string` which all speak unsigned `size_t`.
+
+{% include requirement/MUST id="cpp-design-logical-integer-service-values" %} Represent any other integral quantity passed over the wire to a service using `int64_t`, even if the service uses a 32 bit constant internally today.
+
+{% include requirement/MUSTNOT id="cpp-design-logical-integer-not-int" %} Use `int` under any circumstances, including `for` loop indexes. Those should usually use `ptrdiff_t` or `size_t` under the buffer size rule above.
+
+{% include requirement/MAY id="cpp-design-logical-integer-otherwise" %} Use any integer type in the `intN_t` or `uintN_t` family as appropriate for quantities not enumerated above, such as calculated values internal to the SDK such as retry counts.
+
 ### Secure functions
 
 {% include requirement/SHOULDNOT id="cpp-design-logical-no-ms-secure-functions" %} use [Microsoft security enhanced versions of CRT functions](https://docs.microsoft.com/en-us/cpp/c-runtime-library/security-enhanced-versions-of-crt-functions?view=vs-2019) to implement APIs that need to be portable across many platforms. Such code is not portable and is not compatible with either the C or C++ Standards. See [arguments against]( http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1967.htm).
