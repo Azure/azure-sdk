@@ -33,7 +33,7 @@ function ResolveUri ([System.Uri]$referralUri, [string]$link)
 {
   # If the link is mailto, skip it.
   if($link.StartsWith("mailto:")){
-    Write-Verbose "Skipping $linkUri because it is a mailto link."
+    Write-Verbose "Skipping $link because it is a mailto link."
     return $null
   }
   $linkUri = [System.Uri]$link;
