@@ -504,7 +504,7 @@ Although object-orientated languages can eschew low-level pagination APIs in fav
 {% include requirement/MAY id="cpp-design-logical-client-enumerations-enumish-pattern" %} provide an 'extensible enum' pattern for storing service enumerations which provides reasonable constant values. This pattern stores the value as a string but provides public static member fields with the individual values for customer consumption. For example:
 
 {% highlight cpp %}
-#include <azure.hpp> // for Azure::Core::LocaleInvariantCaseInsensitiveEqual
+#include <azure.hpp> // for Azure::Core::Details::LocaleInvariantCaseInsensitiveEqual
 #include <utility> // for std::move
 namespace Azure { namespace Group { namespace Service {
 
@@ -521,7 +521,7 @@ public:
     // use LocaleInvariantCaseInsensitiveEqual to prevent differing locale settings from affecting
     // the SDK's behavior:
     bool operator==(const KeyType& other) const noexcept {
-        return Azure::Core::LocaleInvariantCaseInsensitiveEqual(m_Value, other.m_Value);
+        return Azure::Core::Details::LocaleInvariantCaseInsensitiveEqual(m_Value, other.m_Value);
     }
 
     bool operator!=(const KeyType& other) const noexcept { return !(*this == other); }
