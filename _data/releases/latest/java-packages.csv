@@ -1,25 +1,39 @@
-"DisplayName","ServiceName","Package","GroupId","VersionGA","VersionPreview","RepoPath","MSDocs","GHDocs","Type"
-"App Configuration","App Configuration","azure-data-appconfiguration","com.azure","1.1.2","","appconfiguration","","",""
-"Cognitive Search","Search","azure-search-documents","com.azure","","1.0.0-beta.4","search","","",""
-"Core","Core","azure-core","com.azure","1.5.1","","core","","",""
-"Core - AMQP","Core","azure-core-amqp","com.azure","1.2.0","","core","","",""
-"Core - HTTP Netty","Core","azure-core-http-netty","com.azure","1.5.2","","core","","",""
-"Core - HTTP OkHttp","Core","azure-core-http-okhttp","com.azure","1.2.3","","core","","",""
-"Cosmos","Cosmos","azure-cosmos","com.azure","4.0.1","","cosmos","","",""
-"Event Hubs","Event Hubs","azure-messaging-eventhubs","com.azure","5.1.1","","eventhubs","","",""
-"Event Hubs - Azure Blob Storage Checkpoint Store","Event Hubs","azure-messaging-eventhubs-checkpointstore-blob","com.azure","1.1.1","","eventhubs","","",""
-"Form Recognizer","Form Recognizer","azure-ai-formrecognizer","com.azure","","1.0.0-beta.3","formrecognizer","NA","",""
-"Identity","Identity","azure-identity","com.azure","1.0.7","1.1.0-beta.5","identity","","",""
-"Key Vault - Certificates","Key Vault","azure-security-keyvault-certificates","com.azure","4.0.4","4.1.0-beta.3","keyvault","","",""
-"Key Vault - Keys","Key Vault","azure-security-keyvault-keys","com.azure","4.1.4","4.2.0-beta.4","keyvault","","",""
-"Key Vault - Secrets","Key Vault","azure-security-keyvault-secrets","com.azure","4.1.4","4.2.0-beta.3","keyvault","","",""
-"Service Bus","Service Bus","azure-messaging-servicebus","com.azure","","7.0.0-beta.3","servicebus","","",""
-"Storage - Blobs","Storage","azure-storage-blob","com.azure","12.7.0","","storage","","",""
-"Storage - Blobs Batch","Storage","azure-storage-blob-batch","com.azure","12.5.2","","storage","","",""
-"Storage - Blobs Cryptography","Storage","azure-storage-blob-cryptography","com.azure","12.7.0","","storage","","",""
-"Storage - Common","Storage","azure-storage-common","com.azure","12.7.0","","storage","","",""
-"Storage - File Data Lake","Storage","azure-storage-file-datalake","com.azure","12.1.2","","storage","","",""
-"Storage - File Shares","Storage","azure-storage-file-share","com.azure","12.5.0","","storage","","",""
-"Storage - Queues","Storage","azure-storage-queue","com.azure","12.5.2","","storage","","",""
-"Text Analytics","Text Analytics","azure-ai-textanalytics","com.azure","1.0.0","","textanalytics","","",""
-"Tracing","Core","azure-core-tracing-opentelemetry","com.azure","","1.0.0-beta.5","core","NA","",""
+DisplayName,ServiceName,Package,GroupId,VersionGA,VersionPreview,RepoPath,MSDocs,GHDocs,Type
+App Configuration,App Configuration,azure-data-appconfiguration,com.azure,1.1.2,,appconfiguration,,,
+Cognitive Search,Search,azure-search-documents,com.azure,,1.0.0-beta.4,search,,,
+Core,Core,azure-core,com.azure,1.5.1,,core,,,
+Core - AMQP,Core,azure-core-amqp,com.azure,1.2.0,,core,,,
+Core - HTTP Netty,Core,azure-core-http-netty,com.azure,1.5.2,,core,,,
+Core - HTTP OkHttp,Core,azure-core-http-okhttp,com.azure,1.2.3,,core,,,
+Cosmos,Cosmos,azure-cosmos,com.azure,4.0.1,,cosmos,,,
+Event Hubs,Event Hubs,azure-messaging-eventhubs,com.azure,5.1.1,,eventhubs,,,
+Event Hubs - Azure Blob Storage Checkpoint Store,Event Hubs,azure-messaging-eventhubs-checkpointstore-blob,com.azure,1.1.1,,eventhubs,,,
+Form Recognizer,Form Recognizer,azure-ai-formrecognizer,com.azure,,1.0.0-beta.3,formrecognizer,NA,,
+Identity,Identity,azure-identity,com.azure,1.0.7,1.1.0-beta.5,identity,,,
+Key Vault - Certificates,Key Vault,azure-security-keyvault-certificates,com.azure,4.0.4,4.1.0-beta.3,keyvault,,,
+Key Vault - Keys,Key Vault,azure-security-keyvault-keys,com.azure,4.1.4,4.2.0-beta.4,keyvault,,,
+Key Vault - Secrets,Key Vault,azure-security-keyvault-secrets,com.azure,4.1.4,4.2.0-beta.3,keyvault,,,
+Service Bus,Service Bus,azure-messaging-servicebus,com.azure,,7.0.0-beta.3,servicebus,,,
+Storage - Blobs,Storage,azure-storage-blob,com.azure,12.7.0,,storage,,,
+Storage - Blobs Batch,Storage,azure-storage-blob-batch,com.azure,12.5.2,,storage,,,
+Storage - Blobs Cryptography,Storage,azure-storage-blob-cryptography,com.azure,12.7.0,,storage,,,
+Storage - Common,Storage,azure-storage-common,com.azure,12.7.0,,storage,,,
+Storage - File Data Lake,Storage,azure-storage-file-datalake,com.azure,12.1.2,,storage,,,
+Storage - File Shares,Storage,azure-storage-file-share,com.azure,12.5.0,,storage,,,
+Storage - Queues,Storage,azure-storage-queue,com.azure,12.5.2,,storage,,,
+Text Analytics,Text Analytics,azure-ai-textanalytics,com.azure,1.0.0,,textanalytics,,,
+Tracing,Core,azure-core-tracing-opentelemetry,com.azure,,1.0.0-beta.5,core,NA,,
+Resources,Resources,azure-resourcemanager-resources,com.azure.resourcemanager,,2.0.0-beta.1,resources/mgmt,,,Mgmt
+Storage,Storage,azure-resourcemanager-storage,com.azure.resourcemanager,,2.0.0-beta.1,storage/mgmt,,,Mgmt
+,Key Vault,azure-resourcemanager-keyvault,com.azure.resourcemanager,,2.0.0-beta.1,keyvault/mgmt,,,Mgmt
+,Authorization,azure-resourcemanager-authorization,com.azure.resourcemanager,,2.0.0-beta.1,authorization/mgmt,,,Mgmt
+,Managed Service Identity,azure-resourcemanager-msi,com.azure.resourcemanager,,2.0.0-beta.1,managedserviceidentity/mgmt,,,Mgmt
+,Network,azure-resourcemanager-network,com.azure.resourcemanager,,2.0.0-beta.1,network/mgmt,,,Mgmt
+,Compute,azure-resourcemanager-compute,com.azure.resourcemanager,,2.0.0-beta.1,compute/mgmt,,,Mgmt
+,SQL,azure-resourcemanager-sql,com.azure.resourcemanager,,2.0.0-beta.1,sql/mgmt,,,Mgmt
+,Cosmos,azure-resourcemanager-cosmos,com.azure.resourcemanager,,2.0.0-beta.1,cosmos/mgmt,,,Mgmt
+,DNS,azure-resourcemanager-dns,com.azure.resourcemanager,,2.0.0-beta.1,dns/mgmt,,,Mgmt
+,App Service,azure-resourcemanager-appservice,com.azure.resourcemanager,,2.0.0-beta.1,appservice/mgmt,,,Mgmt
+,Container Service,azure-resourcemanager-containerservice,com.azure.resourcemanager,,2.0.0-beta.1,containerservice/mgmt,,,Mgmt
+,Container Registry,azure-resourcemanager-containerregistry,com.azure.resourcemanager,,2.0.0-beta.1,containerregistry/mgmt,,,Mgmt
+,Monitor,azure-resourcemanager-monitor,com.azure.resourcemanager,,2.0.0-beta.1,monitor/mgmt,,,Mgmt
