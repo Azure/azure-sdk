@@ -40,7 +40,7 @@ sdk\<service name>\<package name>\*samples*
 
 #### Special considerations for application frameworks
 
-The azure-sdk language repositories will some times contain modules/libraries/packages which provide integration between popular application frameworks as Azure services. For example Spring Boot, Spring Data, or ASP.NET. In general the modules that provide integration with a specific service should be co-located with the other modules for that service. In very limited circumstances an application framework may contains shared logic used across multiple integrations, or all integrations are in a single module. In those cases the module may be placed in a directory named after the application framework (e.g. ```sdk/spring/```).
+The azure-sdk language repositories will sometimes contain modules/libraries/packages which provide integration between popular application frameworks as Azure services. For example Spring Boot, Spring Data, or ASP.NET. In general the modules that provide integration with a specific service should be co-located with the other modules for that service. In very limited circumstances an application framework may contains shared logic used across multiple integrations, or all integrations are in a single module. In those cases the module may be placed in a directory named after the application framework (e.g. ```sdk/spring/```).
 
 ### Examples:
 
