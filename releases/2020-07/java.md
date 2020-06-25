@@ -105,6 +105,11 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <artifactId>azure-resourcemanager-monitor</artifactId>
   <version>2.0.0</version>
 </dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-data-schemaregistry</artifactId>
+  <version>1.0.0-beta.2</version>
+</dependency>
   
 ```
 
