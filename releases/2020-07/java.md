@@ -14,7 +14,7 @@ The Azure SDK team is pleased to announce our July 2020 client library releases.
 
 #### Updates
 
-- _Azure-Cosmos
+- Azure-Cosmos
 
 #### Preview
 
