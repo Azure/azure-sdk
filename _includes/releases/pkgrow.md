@@ -21,8 +21,8 @@
     {% endif %}
 
     {% if item.VersionGA != "" %}
-        {% assign url = msdocs_url | replace: 'item.Version', item.VersionGA %}
-        {% include releases/pkgbadge.md label="msdocs" url=url version=item.VersionGA | remove: 'item.PreSuffix' %}
+        {% assign url = msdocs_url | replace: 'item.Version', item.VersionGA | remove: 'item.PreSuffix' %}
+        {% include releases/pkgbadge.md label="msdocs" url=url version=item.VersionGA %}
     {% endif %}
 
     {% if item.VersionPreview != "" %}
