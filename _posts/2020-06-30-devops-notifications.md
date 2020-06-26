@@ -7,12 +7,13 @@ author_github: danieljurek
 repository: azure/azure-sdk
 ---
 
-The Azure SDK engineering system runs roughly 450 Azure DevOps pipelines to validate GitHub Pull Requests, run live test automation, and ensure that the libraries are ready to be released. If a build or test fails, our alerting system immediately notifies our SDK engineering teams and partner Azure service teams. In this post, we'll learn how we've scaled Azure DevOps notifications to alert the right people at the right time when our automation discovers an issue.
+The Azure SDK Engineering System runs roughly 480 Azure DevOps pipelines to validate GitHub Pull Requests, run live test automation, and ensure that the libraries are ready to be released. If a build or test fails, our alerting system immediately notifies our SDK engineering teams and partner Azure service teams. In this post, we'll learn how The Azure SDK Engineering Systems team scaled Azure DevOps notifications to alert the right people at the right time when our automation discovers an issue.
 
 ## That’s a lot of pipelines
+
 We generally create one pipeline per service/language combination to build and test code relating to that pipeline. This keeps our DevOps agent machine time focused more narrowly and enables engineers to iterate more quickly on changes. For example, there’s no need to build packages and run tests for Storage when you’re making changes to Key Vault.
 
-Keeping this many pipelines organized requires a standard approach to how we create, configure, name, and trigger pipelines. When you can apply standards you can automate work, so we built automation that uses the [Azure DevOps API](https://docs.microsoft.com/rest/api/azure/devops/?view=azure-devops-rest-5.1). A small team of engineers can scale our engineering systems to meet the needs of an ever growing matrix of services and languages.
+Keeping this many pipelines organized requires a standard approach to how we create, configure, name, and trigger pipelines. When you can apply standards you can automate work, so we built automation that uses the [Azure DevOps API](https://docs.microsoft.com/rest/api/azure/devops/?view=azure-devops-rest-5.1). A small team of engineers can scale our Engineering Systems to meet the needs of an ever growing matrix of services and languages.
 
 ## Alert System Architecture
 
@@ -39,7 +40,7 @@ purpose: ParentNotificationTeam
 
 The `pipelineId` field gives the Azure DevOps pipeline ID and the `purpose` can either be `ParentNotificationTeam` or `SynchronizedNotificationTeam`.
 
-We use two teams because some interested parties (like project leads or engineering systems administrators) may want to know when pipeline executions fail. The Parent Notification Team allows us to manually add these parties. The Synchronized Notification team gets the code owners.
+We use two teams because some interested parties (like project leads or Engineering Systems administrators) may want to know when pipeline executions fail. The Parent Notification Team allows us to manually add these parties. The Synchronized Notification team gets the code owners.
 
 ```text
 ----------------------------------------
@@ -83,9 +84,10 @@ The notification creation tool is open source so you can use it to build your ow
 
 [https://github.com/Azure/azure-sdk-tools/tree/master/tools/notification-configuration](https://github.com/Azure/azure-sdk-tools/tree/master/tools/notification-configuration)
 
-If you are working outside of Microsoft you will need to adapt the [GitHubNameResolver](https://github.com/Azure/azure-sdk-tools/blob/master/tools/notification-configuration/github-codeowner-subscriber/GitHubNameResolver.cs) class to work with your own contact resolving strategy.
+If you are working outside of Microsoft you will need to adapt the [GitHubNameResolver](https://github.com/Azure/azure-sdk-tools/blob/master/tools/notification-configuration/github-codeowner-subscriber/GitHubNameResolver.cs) class to work with your own contact resolving strategy. The process may be as simple as getting the user's email address from the [GitHub User API](https://developer.github.com/v3/users/#get-a-user).
 
 ## Other things to try
+
 Some ideas we had when designing this project but have not implemented yet:
 
 **Microsoft Teams** – The Azure SDK team makes considerable use of Microsoft Teams and putting these alerts in a Teams channel could work better than email for the ways in which some teams work.
