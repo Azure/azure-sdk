@@ -29,6 +29,8 @@ The Azure SDK team is pleased to announce our July 2020 client library releases.
 - Management Library - SQL
 - Management Library - CosmosDB
 - Management Library - Key Vault
+- Schema Registry
+- Schema Registry - Avro-Specific
 
 ## Installation Instructions
 
@@ -110,7 +112,16 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <artifactId>azure-resourcemanager-monitor</artifactId>
   <version>2.0.0</version>
 </dependency>
-  
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-data-schemaregistry</artifactId>
+  <version>1.0.0-beta.2</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-data-schemaregistry-avro</artifactId>
+  <version>1.0.0-beta.2</version>
+</dependency>
 ```
 
 ## Feedback
@@ -132,6 +143,18 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 * Fixed issues with order by query returning duplicate results when resuming by using continuation token. 
 * Fixed issues with value query returning null values for nested object.
 * Fixed null pointer exception on request manager in RntbdClientChannelPool.
+
+### Azure Schema Registry ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/schemaregistry/azure-data-schemaregistry/CHANGELOG.md#100-beta2-2020-06-19))
+
+## 1.0.0-beta.2 (2020-06-19)
+### Key Bug Fixes
+- Fix 4xx HTTP response handling
+
+### Azure Schema Registry Avro ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/schemaregistry/azure-data-schemaregistry-avro/CHANGELOG.md#100-beta2-2020-06-19))
+
+## 1.0.0-beta.2 (2020-06-19)
+### Key Bug Fixes
+- Fix null max schema map size parameter behavior
 
 ### New Management Libraries
 
