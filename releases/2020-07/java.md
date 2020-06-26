@@ -14,7 +14,7 @@ The Azure SDK team is pleased to announce our July 2020 client library releases.
 
 #### Updates
 
-- _Add packages_
+- Azure-Cosmos
 
 #### Preview
 
@@ -35,6 +35,11 @@ The Azure SDK team is pleased to announce our July 2020 client library releases.
 To use the GA and beta libraries, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate. If you are using a different build tool, refer to its documentation on how to specify dependencies.
 
 ```xml
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-cosmos</artifactId>
+  <version>4.1.0</version>
+</dependency>
 <dependency>
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-resources</artifactId>
@@ -115,6 +120,18 @@ If you have a bug or feature request for one of the libraries, please post an is
 ## Changelog
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
+
+### Azure Cosmos ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-cosmos/CHANGELOG.md#410-2020-06-25))
+
+## 4.1.0 (2020-06-25)
+### New Features
+* Added support for `GROUP BY` query.
+* Increased the default value of maxConnectionsPerEndpoint to 130 in DirectConnectionConfig.
+* Increased the default value of maxRequestsPerConnection to 30 in DirectConnectionConfig.
+### Key Bug Fixes
+* Fixed issues with order by query returning duplicate results when resuming by using continuation token. 
+* Fixed issues with value query returning null values for nested object.
+* Fixed null pointer exception on request manager in RntbdClientChannelPool.
 
 ### New Management Libraries
 
