@@ -1,5 +1,5 @@
 ---
-title: Routing failure notifications in DevOps
+title: Routing Failure Notifications in DevOps
 layout: post
 date: 2020-06-30
 sidebar: releases_sidebar
@@ -7,21 +7,21 @@ author_github: danieljurek
 repository: azure/azure-sdk
 ---
 
-Every day some 441 Azure DevOps pipelines validate GitHub Pull Requests, run live test automation, and ensure that code in our repositories’ main branches is ready for release. If a build or test fails, our alerting system lets our language engineering teams and partner service teams know right away. Here’s how we’ve scaled Azure DevOps notifications to alert the right people to an issue our automation discovers.
+The Azure SDK engineering system runs roughly 450 Azure DevOps pipelines to validate GitHub Pull Requests, run live test automation, and ensure that the libraries are ready to be released. If a build or test fails, our alerting system immediately notifies our SDK engineering teams and partner Azure service teams. In this post, we'll learn how we've scaled Azure DevOps notifications to alert the right people at the right time when our automation discovers an issue.
 
 ## That’s a lot of pipelines
-We generally create one pipeline per service and language to build and test code relating to that pipeline. This keeps our DevOps agent machine time focused more narrowly and enables engineers to iterate more quickly on changes. There’s no need to build packages and run tests for Storage when you’re making changes to Key Vault.
+We generally create one pipeline per service/language combination to build and test code relating to that pipeline. This keeps our DevOps agent machine time focused more narrowly and enables engineers to iterate more quickly on changes. For example, there’s no need to build packages and run tests for Storage when you’re making changes to Key Vault.
 
-Keeping this many pipelines organized requires a standard approach to how we create, configure, name, and trigger pipelines. When you can apply standards you can automate work, so we built automation that using the [Azure DevOps API](https://docs.microsoft.com/en-us/rest/api/azure/devops/?view=azure-devops-rest-5.1). A small team of engineers can scale our engineering systems to meet the needs of an ever growing matrix of services and languages.
+Keeping this many pipelines organized requires a standard approach to how we create, configure, name, and trigger pipelines. When you can apply standards you can automate work, so we built automation that uses the [Azure DevOps API](https://docs.microsoft.com/rest/api/azure/devops/?view=azure-devops-rest-5.1). A small team of engineers can scale our engineering systems to meet the needs of an ever growing matrix of services and languages.
 
 ## Alert System Architecture
 
-The Engineering Systems team looks for existing tools to handle problems and, in this case, the Azure DevOps alerting system does most of the work for us. Rather than build our own alerting system we automate configuring Azure DevOps notification groups.
+The Engineering Systems team looks for existing tools to handle problems and we discovered that the Azure DevOps alerting system does most of the work for us. Rather than build our own alerting system we automate configuring Azure DevOps notification groups.
 
 Our alerting system makes use of GitHub’s CODEOWNERS file that teams are already using to add reviewers to pull requests. These same owners are responsible for fixing code in their service’s SDK when a build or test fails. In order to route failure notifications we need to do a few things:
 
 1. Get a list of pipelines with schedule triggers
-1. Create notification groups for each pipeline we care about and subscribe those groups to receive failure notifications
+1. Create notification groups for each pipeline and subscribe those groups to receive failure notifications
 1. Synchronize appropriate code owners into the group
 
 ### Get a list of pipelines with schedule triggers
