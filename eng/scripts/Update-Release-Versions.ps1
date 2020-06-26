@@ -34,6 +34,7 @@ function CheckLink($url)
   }
   return $false
 }
+
 function UpdateDocLinks($lang, $pkg)
 {
   $version = $pkg.VersionGA
