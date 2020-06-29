@@ -93,3 +93,6 @@ Some ideas we had when designing this project but have not implemented yet:
 **Microsoft Teams** – The Azure SDK team makes considerable use of Microsoft Teams and putting these alerts in a Teams channel could work better than email for the ways in which some teams work.
 
 **Making better use of error logs** – Azure DevOps has a Logging Commands feature where a specifically formatted message sent to stdout will generate an alert in Azure DevOps. These alerts are the only detail a developer will see in an email and a little more effort here can help a product engineer quickly make sense of the failure and save time on investigations:
+## Conclusion
+
+Using and enforcing consistent pipeline and repo layouts means that our Engineering System will scale smoothly to meet the needs of our product engineers.  Small tools like this one can tune your system in ways that help your product teams stay focused on their goals.
