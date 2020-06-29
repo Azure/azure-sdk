@@ -42,20 +42,7 @@ The `pipelineId` field gives the Azure DevOps pipeline ID and the `purpose` can 
 
 We use two teams because some interested parties (like project leads or Engineering Systems administrators) may want to know when pipeline executions fail. The Parent Notification Team allows us to manually add these parties. The Synchronized Notification team gets the code owners.
 
-```text
-----------------------------------------
-| Parent Notification Team             |
-|  * Person 1                          |
-|  * Person 2                          |
-|                                      |
-|   ---------------------------------- |
-|   | Synchronized Notification Team | |
-|   |  * Person A                    | |
-|   |  * Person B                    | |
-|   |                                | |
-|   ---------------------------------- |
-----------------------------------------
-```
+![The synchronized notification team is a member of the parent notification team](https://devblogs.microsoft.com/azure-sdk/wp-content/uploads/sites/58/2020/06/nested-notification-groups.png)
 
 ### Synchronize CODEOWNERS
 
@@ -93,6 +80,9 @@ Some ideas we had when designing this project but have not implemented yet:
 **Microsoft Teams** – The Azure SDK team makes considerable use of Microsoft Teams and putting these alerts in a Teams channel could work better than email for the ways in which some teams work.
 
 **Making better use of error logs** – Azure DevOps has a Logging Commands feature where a specifically formatted message sent to stdout will generate an alert in Azure DevOps. These alerts are the only detail a developer will see in an email and a little more effort here can help a product engineer quickly make sense of the failure and save time on investigations:
+
+![An example of error message logs in an Azure DevOps failure email](https://devblogs.microsoft.com/azure-sdk/wp-content/uploads/sites/58/2020/06/devops-email-error-messages.png)
+
 ## Conclusion
 
 Using and enforcing consistent pipeline and repo layouts means that our Engineering System will scale smoothly to meet the needs of our product engineers.  Small tools like this one can tune your system in ways that help your product teams stay focused on their goals.
