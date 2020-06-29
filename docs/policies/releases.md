@@ -152,8 +152,13 @@ For example, if Package A and Package B are built in the same Unified Pipeline a
 
 Python version numbers follow the guidance in [PEP 440](https://www.python.org/dev/peps/pep-0440/) for versioning Python packages. This means that regular releases follow the above specified SemVer format. Preview releases follow the [PEP 440 specification for pre-releases](https://www.python.org/dev/peps/pep-0440/#pre-releases):
 
-- `X.Y.Z.devYYYYMMDDrrr` (`rrr` is based on the number of builds performed on the given day and it is zero-padded with a valid range starting at 001 and ends at 999)
 - `X.Y.ZbN` (preview release using beta convention)
+
+Dev build version number is appended to package version to generate dev build version. If current package version is GA version then dev build version number will be as follows:
+- `X.Y.Z.devYYYYMMDDrrr` (`rrr` is based on the number of builds performed on the given day and it is zero-padded with a valid range starting at 001 and ends at 999)
+
+If current package version is preview version then dev build version will be as follows:
+- `X.Y.ZbN.devYYYYMMDDrrr`
 
 Preview packages will be published PyPi. Dev packages will be published to an isolated Azure DevOps feed.
 
