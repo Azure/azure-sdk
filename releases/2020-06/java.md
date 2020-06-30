@@ -15,6 +15,7 @@ The Azure SDK team is pleased to announce our June 2020 client library releases.
 - Core - Http - Netty
 - Core - Http - OkHttp
 - Text Analytics
+- Azure Cosmos
 
 #### Updates
 - KeyVault (Certificates, Keys, Secrets)
@@ -116,6 +117,11 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-security-keyvault-secrets</artifactId>
   <version>4.2.0-beta.3</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-cosmos</artifactId>
+  <version>4.0.1</version>
 </dependency>
 ```
 
@@ -222,6 +228,39 @@ Here are some of the highlights:
 #### Breaking changes
 
 - Changed `Tracer` loading from using all on classpath to only using the first.
+
+### Azure Cosmos ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-cosmos/CHANGELOG.md#401-2020-06-10))
+
+## 4.0.1 (2020-06-10)
+### New Features
+* Renamed `QueryRequestOptions` to `CosmosQueryRequestOptions`.
+* Updated `ChangeFeedProcessorBuilder` to builder pattern.
+* Updated `CosmosPermissionProperties` with new container name and child resources APIs.
+### Key Bug Fixes
+* Fixed ConnectionPolicy `toString()` Null Pointer Exception.
+
+## 4.0.1-beta.4 (2020-06-03)
+### New Features
+* Added more samples & enriched docs to `CosmosClientBuilder`. 
+* Updated `CosmosDatabase` & `CosmosContainer` APIs with throughputProperties for autoscale/autopilot support. 
+* Renamed `CosmosClientException` to `CosmosException`. 
+* Replaced `AccessCondition` & `AccessConditionType` by `ifMatchETag()` & `ifNoneMatchETag()` APIs. 
+* Merged all `Cosmos*AsyncResponse` & `CosmosResponse` types to a single `CosmosResponse` type.
+* Renamed `CosmosResponseDiagnostics` to `CosmosDiagnostics`.  
+* Wrapped `FeedResponseDiagnostics` in `CosmosDiagnostics`. 
+* Removed `jackson` dependency from azure-cosmos & relying on azure-core. 
+* Replaced `CosmosKeyCredential` with `AzureKeyCredential` type. 
+* Added `ProxyOptions` APIs to `GatewayConnectionConfig`. 
+* Updated SDK to use `Instant` type instead of `OffsetDateTime`. 
+* Added new enum type `OperationKind`. 
+* Renamed `FeedOptions` to `QueryRequestOptions`. 
+* Added `getETag()` & `getTimestamp()` APIs to `Cosmos*Properties` types. 
+* Added `userAgent` information in `CosmosException` & `CosmosDiagnostics`. 
+* Updated new line character in `Diagnostics` to System new line character. 
+* Removed `readAll*` APIs, use query select all APIs instead.
+* Added `ChangeFeedProcessor` estimate lag API.   
+### Key Bug Fixes
+* Fixed issue with parsing of query results in case of Value order by queries. 
 
 ## Need help
 
