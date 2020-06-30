@@ -86,3 +86,5 @@ Some ideas we had when designing this project but have not implemented yet:
 ## Conclusion
 
 Using and enforcing consistent pipeline and repo layouts means that our Engineering System will scale smoothly to meet the needs of our product engineers.  Small tools like this one can tune your system in ways that help your product teams stay focused on their goals.
+
+Finally, please keep up to date with all the news about the Azure developer experience programs and let us know how we are doing by following [@AzureSDK](https://twitter.com/AzureSDK) on Twitter.
