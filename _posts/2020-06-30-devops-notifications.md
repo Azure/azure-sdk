@@ -7,7 +7,7 @@ author_github: danieljurek
 repository: azure/azure-sdk
 ---
 
-The Azure SDK Engineering System runs roughly 480 Azure DevOps pipelines to validate GitHub Pull Requests, run live test automation, and ensure that the libraries are ready to be released. If a build or test fails, our alerting system immediately notifies our SDK engineering teams and partner Azure service teams. In this post, we'll learn how The Azure SDK Engineering Systems team scaled Azure DevOps notifications to alert the right people at the right time when our automation discovers an issue.
+The Azure SDK Engineering System runs roughly 480 Azure DevOps pipelines to validate GitHub Pull Requests, run live test automation, and ensure that the libraries are ready to be released. If a build or test fails, our alerting system immediately notifies our SDK engineering teams and partner Azure service teams. In this post, we'll learn how the Azure SDK Engineering Systems team scaled Azure DevOps notifications to alert the right people at the right time when our automation discovers an issue.
 
 ## That’s a lot of pipelines
 
