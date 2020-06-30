@@ -221,42 +221,47 @@ The developer can also choose to directly access the `PagedCollection`'s `items`
 {% highlight swift %}
 // Explicit asynchronous iteration of a `PagedCollection` page-by-page
 override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
+    ...
+    // Execute the asynchronous method and use the resulting paged collection as the data source
     client.listConfigurationSettings(...) { result, _ in
         if case let .success(pagedCollection) = result {
             self.dataSource = pagedCollection
-            self.tableView.reloadData()
+            ...
         }
     }
+    ...
 }
 
 internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let item = self.dataSource.items[indexPath.row]
-    let cell = tableView.dequeueReusableCell(withIdentifier: "ConfigurationSettingCell", for: indexPath)
     ...
-    // Load next page if at the end of the current list
-    if indexPath.row == self.dataSource.count - 1, self.noMoreData == false {
+    // Get the corresponding item from the pagedCollection
+    let item = self.dataSource.items[indexPath.row]
+    ...
+    // Load the next page if the user is at the end of the current page
+    if indexPath.row == self.dataSource.count - 1 {
+        // nextPage automatically stops when exhausted, no need to handle that case separately
         self.dataSource.nextPage { result
-            if case let .success(data) = result, data != nil {
-                self.tableView.reloadData()
-            } else {
-                self.noMoreData = true
+            if case .success = result {
+                ...
             }
         }
     }
-    return cell
+    ...
 }
 {% endhighlight %}
 
-Finally, `PagedCollection` also provides a property that conforms to the `Sequence` protocol, providing a way for the developer to synchronously consume all results of a paged operation using a standard `for ... in` loop:
+Finally, `PagedCollection` also provides an iterator property that conforms to the `Sequence` protocol, providing a way for the developer to synchronously consume all results of a paged operation using a standard `for ... in` loop:
 
 {% highlight swift %}
 // Automatic synchronous iteration of a `PagedCollection` item-by-item
 client.listConfigurationSettings(...) { result, _ in
     if case let .success(pagedCollection) = result {
-        for setting in pagedCollection.syncCollection {
-            print(setting.description)
-            // `break` to interrupt iteration
+        // Synchronous iteration will block the UI thread as more pages are fetched
+        DispatchQueue.global(qos: .background).async {
+            for setting in pagedCollection.syncIterator {
+                print(setting.description)
+                // `break` to interrupt iteration
+            }
         }
     }
 }
