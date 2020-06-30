@@ -10,15 +10,22 @@ The Azure SDK team is pleased to make available the July 2020 client library rel
 
 #### GA
 
-- _Add packages_
+- *TODO*
 
 #### Updates
 
-- _Add packages_
+- Azure App Configuration
+- Core libraries
+- Azure Event Hubs
 
 #### Preview
 
-- _Add packages_
+- Azure Event Hubs
+- Azure Cognitive Form Recognizer
+- Azure Identity
+- Azure Key Vault Certificates/Keys/Secrets
+- Azure Cognitive Search
+- Azure Service Bus
 
 ## Installation Instructions
 
@@ -36,9 +43,111 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
-### _Package name_
+### App Configuration
 
-- Major changes only!
+#### New Features
+
+- *TODO* add browser support
+
+### Event Hubs
+
+Updates to last stable release
+
+#### New Features
+
+- *TODO*
+
+#### Breaking Changes
+
+- *TODO*
+
+#### Key Bug Fixes
+
+- *TODO*
+
+New preview version
+
+#### New Features
+
+- *TODO*
+
+#### Breaking Changes from Last Preview
+
+- *TODO*
+
+#### Key Bug Fixes
+
+- *TODO*
+
+### Identity
+
+#### New Features
+
+- *TODO*
+
+#### Breaking Changes from Last Preview
+
+- *TODO*
+
+#### Key Bug Fixes
+
+- *TODO*
+
+### Key Vault Certificates/Keys/Secrets
+
+#### New Features
+
+- *TODO*
+
+#### Breaking Changes from Last Preview
+
+- *TODO*
+
+#### Key Bug Fixes
+
+- *TODO*
+
+### Form Recognizer
+
+#### New Features
+
+- *TODO*
+
+#### Breaking Changes from Last Preview
+
+- *TODO*
+
+#### Key Bug Fixes
+
+- *TODO*
+
+### Search
+
+#### New Features
+
+- *TODO*
+
+#### Breaking Changes from Last Preview
+
+- *TODO*
+
+#### Key Bug Fixes
+
+- *TODO*
+
+### Service Bus
+
+#### New Features
+
+- *TODO*
+
+#### Breaking Changes from Last Preview
+
+- *TODO*
+
+#### Key Bug Fixes
+
+- *TODO*
 
 ## Latest Releases
 
