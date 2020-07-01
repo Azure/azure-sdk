@@ -56,9 +56,9 @@ The Azure SDK should be designed to enhance the productivity of developers conne
 
 {% include requirement/MUST id="ios-general-follow-general-guidelines" %} follow the [General Azure SDK Guidelines].
 
-{% include requirement/MUST id="ios-general-repository" %} locate all source code in the [azure/azure-sdk-for-ios] GitHub repository.
+{% include requirement/MUST id="ios-general-repository" %} locate all source code in the [Azure/azure-sdk-for-ios] GitHub repository.
 
-{% include requirement/MUST id="ios-general-engsys" %} follow Azure SDK engineering systems guidelines for working in the [azure/azure-sdk-for-ios] GitHub repository.
+{% include requirement/MUST id="ios-general-engsys" %} follow Azure SDK engineering systems guidelines for working in the [Azure/azure-sdk-for-ios] GitHub repository.
 
 {% include requirement/MUST id="ios-language" %} write the client library in Swift 5.
 
