@@ -27,22 +27,72 @@ Our alerting system makes use of GitHub’s CODEOWNERS file that teams are alrea
 
 ### Get a list of pipelines with schedule triggers
 
-This is a straightforward process of filtering pipelines in the Azure DevOps build definition API.
+We use the [.NET client libraries for Azure DevOps and TFS](https://docs.microsoft.com/en-us/azure/devops/integrate/concepts/dotnet-client-libraries?view=azure-devops) in our tools because the client libraries simplify working with the Azure DevOps API.
+
+The client libraries do not provide the ability to directly filter by definition types so we use LINQ to filter the query results.
+
+This example shows how to filter pipeline definitions based on the trigger type.
+
+```csharp
+using Microsoft.TeamFoundation.Build.WebApi;
+using Microsoft.VisualStudio.Services.Common;
+using Microsoft.VisualStudio.Services.WebApi;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace DemoFilteringScheduledPipelines
+{
+    class Program
+    {
+         static async Task Main(string[] args)
+        {
+            const string devOpsToken = "<devops_pat>";
+            const string organization = "<your_organization_name>";
+            const string projectName = "<your_project_name>";
+
+            // Create credentials using the PAT
+            var devOpsCreds = new VssBasicCredential("nobody", devOpsToken);
+            var devOpsConnection = new VssConnection(new Uri($"https://dev.azure.com/{organization}/"), devOpsCreds);
+
+            // Create client and fetch a list of definitions for the
+            // specified project. The .NET client library does not directly
+            // support querying for build definitions based on trigger types
+            var buildDefinitionClient = await devOpsConnection.GetClientAsync<BuildHttpClient>();
+            var definitions = await buildDefinitionClient.GetFullDefinitionsAsync2(project: projectName);
+
+            // Use LINQ to filter definitions to those definitions that have schedules
+            var targetDefinitions = definitions.Where(def =>
+                def.Triggers.Any(trigger => trigger.TriggerType == DefinitionTriggerType.Schedule));
+
+
+            foreach (var definition in targetDefinitions)
+            {
+                Console.WriteLine($"{definition.Name} ({definition.Id}) has a schedule");
+            }
+        }
+    }
+}
+```
 
 ### Create notification groups
 
-We query groups in DevOps and use YAML in the group description to understand each group’s purpose. This keeps us from having to store data in another database. The syntax is simple:
+For each of the filtered pipelines we create two groups or "Teams" in Azure DevOps. The Parent Notification Team serves as the central point of contact and the Synchronized Notification Team contains the contacts from the CODEOWNERS file.
+
+The Parent Notification Team is subscribed to alerts for its pipeline and it has as its member the Synchronized Notification Team. We can add add arbitrary members to the parent team, like project or Engineering System administrators, who want to know when a pipeline fails but don't want to be a code owner on GitHub.
+
+The Synchronized Notification Team belongs to the Parent Notification team. When a GitHub alias is added or removed from the CODEOWNERS file for a given pipeline the corresponding contact is added or removed from the Synchronized Notification Team.
+
+![The synchronized notification team is a member of the parent notification team](https://devblogs.microsoft.com/azure-sdk/wp-content/uploads/sites/58/2020/06/nested-notification-groups.png)
+
+We keep track of groups using YAML in the `Description` field of the pipeline. This keeps us from having to store data in another database. For example:
 
 ```yaml
 pipelineId: 123
 purpose: ParentNotificationTeam
 ```
 
-The `pipelineId` field gives the Azure DevOps pipeline ID and the `purpose` can either be `ParentNotificationTeam` or `SynchronizedNotificationTeam`.
-
-We use two teams because some interested parties (like project leads or Engineering Systems administrators) may want to know when pipeline executions fail. The Parent Notification Team allows us to manually add these parties. The Synchronized Notification team gets the code owners.
-
-![The synchronized notification team is a member of the parent notification team](https://devblogs.microsoft.com/azure-sdk/wp-content/uploads/sites/58/2020/06/nested-notification-groups.png)
+The `pipelineId` field gives the Azure DevOps pipeline numerical ID and the `purpose` can either be `ParentNotificationTeam` or `SynchronizedNotificationTeam`.
 
 ### Synchronize CODEOWNERS
 
