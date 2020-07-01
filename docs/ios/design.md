@@ -80,13 +80,17 @@ Client initializers, and some client methods, accept options to customize the cl
 
 ### Client models
 
-{% include draft.html content="Guidance on naming and placement of model classes is not yet defined.  This section will change as it becomes more concrete." %}
+Models are structures that consumers use to provide required information into client library methods. These structures typically represent the domain model, or options structures that must be configured before the request can be made.
 
-Model classes are classes that consumers use to provide required information into client library methods. These classes typically represent the domain model, or options classes that must be configured before the request can be made.
+{% include requirement/MUST id="ios-client-model-immutable-struct" %} express client models as immutable structs rather than classes. All properties of models must be expressed as `let` values.
 
-> **TODO** Integrate naming : see https://github.com/Azure/azure-sdk/pull/664
+{% include requirement/MUST id="ios-client-model-struct-init" %} provide an initializer with default values for every property the model contains.
 
-> **TODO** Produce Swift specific guidance on where models go and how to construct them.
+{% include requirement/MUST id="ios-client-model-domain-location" %} store client models representing the domain model (and enumerations / structures referenced by such models) within the `Source/Models` directory inside the library's root directory.
+
+{% include requirement/MUST id="ios-client-model-options-location" %} store client models representing options structures (and enumerations / structures referenced by such models) within the `Source/Options` directory inside the library's root directory.
+
+{% include requirement/MUST id="ios-client-model-conformance" %} conform to the `AzureConfigurable` protocol for structures that define options passed when initializing a service client, and the `AzureOptions` protocol for structures that define options passed to a single service client API method.
 
 ### Client methods
 
