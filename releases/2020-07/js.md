@@ -47,7 +47,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 #### New Features
 
-- *TODO* add browser support
+- Added browser support for the latest versions of Chrome, Edge and Firefox.
 
 ### Event Hubs
 
