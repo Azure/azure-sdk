@@ -137,4 +137,14 @@ Some ideas we had when designing this project but have not implemented yet:
 
 Using and enforcing consistent pipeline and repo layouts means that our Engineering System will scale smoothly to meet the needs of our product engineers.  Small tools like this one can tune your system in ways that help your product teams stay focused on their goals.
 
+## Working with us and giving feedback
+
+So far, the community has filed hundreds of issues against these new SDKs with feedback ranging from documentation issues to API surface area change requests to pointing out failure cases. Please keep that coming. We work in the open on GitHub and you can submit issues here:
+
+* [API design guidelines](https://github.com/Azure/azure-sdk/)
+* [.NET](https://github.com/Azure/azure-sdk-for-net)
+* [Java](https://github.com/Azure/azure-sdk-for-java)
+* [JavaScript / TypeScript](https://github.com/Azure/azure-sdk-for-js)
+* [Python](https://github.com/Azure/azure-sdk-for-python)
+
 Finally, please keep up to date with all the news about the Azure developer experience programs and let us know how we are doing by following [@AzureSDK](https://twitter.com/AzureSDK) on Twitter.
