@@ -147,7 +147,8 @@ New preview version
 
 #### Key Bug Fixes
 
-- *TODO*
+- Fixed the bug where the messages scheduled in parallel with the `scheduleMessage` method have the same sequence number in response.
+- Fixed the bug where the `userProperties` in a correlation filter are not populated in the rule while using the `ServiceBusManagementClient.createRule()` method.
 
 ## Latest Releases
 
