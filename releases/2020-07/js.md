@@ -139,7 +139,9 @@ New preview version
 
 #### New Features
 
-- *TODO*
+- Adds abortSignal support throughout Sender and non-session Receivers.
+- (Receiver|SessionReceiver).subscribe() now returns a closeable object which will stop new messages from arriving but still leave the receiver open so they can be settled via methods like complete().
+- `OperationOptions` has been added for the methods under `ServiceBusManagementClient`, this adds support for abortSignal, requestOptions when creating and sending HTTP requests.
 
 #### Breaking Changes from Last Preview
 
