@@ -153,7 +153,16 @@ New preview version
 
 #### Breaking Changes from Last Preview
 
-- *TODO*
+- Standardized methods on senders and receivers to use the `Messages` suffix, removed dedicated methods dealing with a single message to reduce API surface.
+- Standardized methods that peek and receive a given number of messages to use a similar signature. 
+  Old: `peekMessages(options);` and `receiveMessages(maxMessages, options);`
+  New: `peekMessages(maxMessageCount, options);` and `receiveMessages(maxMessageCount, options);`
+- Removed `isReceivingMessages` method on the `Receiver`.
+- Management api updates
+
+  - Renamed `createdOn`, `accessedOn` and `modifiedOn` properties to `createdAt`, `accessedAt` and `modifiedAt`, updated the corresponding type from `ISO-8601 timestamp string` to the `Date` type in the responses for the `runtimeInfo` methods for Queue, Topic and Subscription.
+  - The property `top` in the options passed to any of the methods that get information for multiple entities like `getQueues` or `getQueuesRuntimeInfo` is renamed to `maxCount`.
+  - The "update" methods (`updateQueue`, `updateTopic` and `updateSubscription`) now require all properties on the given queue/topic/subscription object to be set though only a subset of them are actually updatable. Therefore, the suggested flow is to use the "get" methods to get the queue/topic/subscription object, update as needed, and then pass it to the "update" methods.
 
 #### Key Bug Fixes
 
