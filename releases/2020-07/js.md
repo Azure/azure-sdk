@@ -10,7 +10,7 @@ The Azure SDK team is pleased to make available the July 2020 client library rel
 
 #### GA
 
-- *TODO*
+- Azure Cognitive Search
 
 #### Updates
 
@@ -22,9 +22,7 @@ The Azure SDK team is pleased to make available the July 2020 client library rel
 
 - Azure Event Hubs
 - Azure Cognitive Form Recognizer
-- Azure Identity
 - Azure Key Vault Certificates/Keys/Secrets
-- Azure Cognitive Search
 - Azure Service Bus
 
 ## Installation Instructions
@@ -32,7 +30,15 @@ The Azure SDK team is pleased to make available the July 2020 client library rel
 To install the packages, copy and paste the below into a terminal.
 
 ```bash
-$> npm install @azure/package-name
+$> npm install @azure/app-configuration
+$> npm install @azure/event-hubs
+$> npm install @azure/event-hubs@next
+$> npm install @azure/search-documents
+$> npm install @azure/ai-form-recognizer
+$> npm install @azure/keyvault-certificates
+$> npm install @azure/keyvault-keys
+$> npm install @azure/keyvault-secrets
+$> npm install @azure/service-bus@next
 ```
 
 ## Feedback
@@ -42,6 +48,22 @@ If you have a bug or feature request for one of the libraries, please post an is
 ## Changelog
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
+
+### Search
+
+This is the first stable release version of the Cognitive Search library.
+
+#### New Features
+
+- *TODO*
+
+#### Breaking Changes from Last Preview
+
+- *TODO*
+
+#### Key Bug Fixes
+
+- *TODO*
 
 ### App Configuration
 
@@ -108,20 +130,6 @@ New preview version
 - *TODO*
 
 ### Form Recognizer
-
-#### New Features
-
-- *TODO*
-
-#### Breaking Changes from Last Preview
-
-- *TODO*
-
-#### Key Bug Fixes
-
-- *TODO*
-
-### Search
 
 #### New Features
 
