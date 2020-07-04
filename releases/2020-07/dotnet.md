@@ -19,6 +19,7 @@ The Azure SDK team is pleased to announce our July 2020 client library releases.
 #### Preview
 
 - Event Hubs
+- Form Recognizer
 - Management Library - Compute
 - Management Library - Network
 - Management Library - Resources
@@ -32,6 +33,8 @@ The Azure SDK team is pleased to announce our July 2020 client library releases.
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
 ```bash
+ $> dotnet add package Azure.AI.FormRecognizer --version 1.0.0-preview.4
+
  $> dotnet add package Azure.AI.TextAnalytics 
  
  $> dotnet add package Azure.Messaging.EventHubs --version 5.2.0-preview.1
@@ -63,6 +66,14 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 ### Event Hubs Processor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md)
 
 - The `EventProcessorClient` now supports configuring the `PrefetchCount`, `CacheEventCount`, and `LoadBalancingStrategy` for more control over performance tuning.
+
+### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#100-preview4-07-08-2020)
+
+#### Breaking Changes
+- `RecognizedReceipt` and `RecognizedReceiptsCollection` classes removed. Receipt field values must now be obtained from a `RecognizedForm`.
+
+#### Key Bug Fixes
+- Fixed a bug in which the `FormPage.TextAngle` property sometimes fell out of the (-180, 180] range ([#13082](https://github.com/Azure/azure-sdk-for-net/issues/13082)).
 
 ### New Management Libraries
 A new set of management libraries that follow the [Azure SDK Design Guidelines for .NET](https://azure.github.io/azure-sdk/dotnet_introduction.html) and based on [Azure.Core libraries](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/core/Azure.Core) are now in Public Preview. These new libraries provide a number of core capabilities that are shared amongst all Azure SDKs, including the intuitive Azure Identity library, an HTTP Pipeline with custom policies, error-handling, distributed tracing, and much more. You can find the list of new packages [on this page](https://azure.github.io/azure-sdk/releases/latest/dotnet.html).
