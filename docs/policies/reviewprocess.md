@@ -77,7 +77,7 @@ If you have a prototype of your APIs, depending on the language the APIs are for
 - For .NET, upload a DLL to the [ApiView tool](http://apiview.dev).
 - For Java, upload the `*-sources.jar` file to the [ApiView tool](http://apiview.dev) (e.g. `azure-core-1.3.0-beta.1-sources.jar`).
 - For TypeScript, use [API-Extractor](https://github.com/Microsoft/web-build-tools/wiki/API-Extractor) to produce a single file with your public API surface.  Submit the output of the API-Extractor as a PR for the [azure-sdk-for-js](http://github.com/azure/azure-sdk-for-js) repository.
-- For Python, use [stubgen from mypy](https://github.com/python/mypy/blob/master/docs/source/stubgen.rst) to produce a single file with your public API surface.  Submit the output of stubgen as a PR for the [azure-sdk-for-python](http://github.com/azure/azure-sdk-for-python) repository.
+- For Python, use [our custom API stub generator](https://github.com/Azure/azure-sdk-tools/tree/master/packages/python-packages/api-stub-generator#generate-stub-file) to produce a single file with your public API surface.  Upload the output of stubgen to the [ApiView tool](http://apiview.dev).
 
 For all other languages, send a request to the [Architecture Board] to discuss the best format on individual basis.
 
