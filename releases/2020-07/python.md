@@ -63,11 +63,11 @@ You can find the list of new packages [on this page](https://azure.github.io/azu
 
 - This release continues to move towards feature parity with the existing sdk.  Recommend reading migration guide and full changelog for details.
 - Support for management of Topic, Subscription and Rule entities; creation, deletion, and fetching of metadata.
-- `receive_messages()` (formerly `receive()`) now supports receiving a batch of messages (`max_batch_size` > 1) without the need to set prefetch value during creation of `ServiceBusReceiver`
+- `receive_messages()` (formerly `receive()`) now supports receiving a batch of messages (`max_batch_size` > 1) without the need to set `prefetch` parameter during `ServiceBusReceiver` initialization
 
 #### Breaking changes
 
-- `receive_messages()` (formerly `receive()`) no longer raises a `ValueError` if `max_batch_size` is less than the `prefetch` value set during receiver initialization.
+- `receive_messages()` (formerly `receive()`) no longer raises a `ValueError` if `max_batch_size` is less than the `prefetch` parameter set during `ServiceBusReceiver` initialization.
 - To align better with broader service bus SDK family, renaming:
   `receive()` -> `receive_messages()`
   `peek()` ->  `peek_messages()`
