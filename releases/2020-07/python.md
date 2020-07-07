@@ -24,7 +24,7 @@ The Azure SDK team is pleased to make available the July 2020 client library rel
 - Management Library - Storage
 - Management Library - Monitor
 - Management Library - AppConfiguration
-- Management Library - EventHub
+- Management Library - Event Hubs
 - Management Library - KeyVault
 - Service Bus
 - Event Hubs
