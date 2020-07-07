@@ -40,7 +40,7 @@ Client library usage telemetry is used by service teams (not consumers) to monit
 ```
 
 - `<application_id>`: optional application-specific string. May contain a slash, but must not contain a space. The string is supplied by the user of the client library, e.g. "AzCopy/10.0.4-Preview"
-- `<sdk_language>`: SDK's language name (all lowercase): "net", "python", "java", or "js"
+- `<sdk_language>`: SDK's language name (all lowercase): "net", "python", "java", "js", "c", "cpp", or "go"
 - `<package_name>`: client library package name as it appears to the developer, replacing slashes with dashes and removing the Azure indicator.  For example, "Security.KeyVault" (.NET), "security.keyvault" (Java), "keyvault" (JavaScript & Python)
 - `<package_version>`: the version of the package. Note: this is not the version of the service
 - `<platform_info>`: information about the currently executing language runtime and OS, e.g. "(NODE-VERSION v4.5.0; Windows_NT 10.0.14393)"
