@@ -31,14 +31,23 @@ To install the packages, copy and paste the below into a terminal.
 
 ```bash
 $> npm install @azure/app-configuration
-$> npm install @azure/event-hubs
-$> npm install @azure/event-hubs@next
 $> npm install @azure/search-documents
 $> npm install @azure/ai-form-recognizer
 $> npm install @azure/keyvault-certificates
 $> npm install @azure/keyvault-keys
 $> npm install @azure/keyvault-secrets
 $> npm install @azure/service-bus@next
+```
+
+To install the stable version of the Event Hubs library:
+
+```bash
+$> npm install @azure/event-hubs
+```
+To install the preview version of the Event Hubs library:
+
+```bash
+$> npm install @azure/event-hubs@next
 ```
 
 ## Feedback
@@ -73,6 +82,8 @@ This is the first stable release version of the Cognitive Search library.
 
 ### Event Hubs
 
+We have released two versions of the Event Hubs library this time: updates to the stable version, and a new preview version.
+
 Updates to last stable release
 
 #### Key Bug Fixes
@@ -84,19 +95,6 @@ New preview version
 #### New Features
 
 - The `EventHubConsumerClient` now supports configuring `loadBalancingOptions` for more control over performance tuning while load balancing.
-### Identity
-
-#### New Features
-
-- *TODO*
-
-#### Breaking Changes from Last Preview
-
-- *TODO*
-
-#### Key Bug Fixes
-
-- *TODO*
 
 ### Key Vault Certificates/Keys/Secrets
 
@@ -137,7 +135,7 @@ New preview version
 #### Breaking Changes from Last Preview
 
 - Standardized methods on senders and receivers to use the `Messages` suffix, removed dedicated methods dealing with a single message to reduce API surface.
-- Standardized methods that peek and receive a given number of messages to use a similar signature. 
+- Standardized methods that peek and receive a given number of messages to use a similar signature.
   Old: `peekMessages(options);` and `receiveMessages(maxMessages, options);`
   New: `peekMessages(maxMessageCount, options);` and `receiveMessages(maxMessageCount, options);`
 - Removed `isReceivingMessages` method on the `Receiver`.
