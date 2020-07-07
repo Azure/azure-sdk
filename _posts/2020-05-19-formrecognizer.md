@@ -43,9 +43,9 @@ The next step would be to use the above-created client and feed the user-provide
 ```java
   public recognizeReceipt(String receiptUrl) {
     // Use the client created above to start analyzing the receipt provided by the user
-    SyncPoller<OperationResult, IterableStream<RecognizedReceipt>> recognizeReceiptPoller = this.formRecognizerClient.beginRecognizeReceiptsFromUrl(receiptUrl);
+    SyncPoller<OperationResult, IterableStream<RecognizedForm>> recognizeReceiptPoller = this.formRecognizerClient.beginRecognizeReceiptsFromUrl(receiptUrl);
     // This is a long runnning operation, so wait for the poller to complete and get the final result
-    IterableStream<RecognizedReceipt> receiptPageResults = recognizeReceiptPoller.getFinalResult();
+    IterableStream<RecognizedForm> receiptPageResults = recognizeReceiptPoller.getFinalResult();
     // Prints receipt/document information
     printReceiptDetails(receiptPageResults);
   }
@@ -53,19 +53,19 @@ The next step would be to use the above-created client and feed the user-provide
 
 The following code prints general information for the provided receipt:
 ```java
-  public printReceiptDetails(IterableStream<RecognizedReceipt> receiptPageResults) {
+  public printReceiptDetails(IterableStream<RecognizedForm> receiptPageResults) {
     // The receipt document could span over multiple pages, iterate over each page of the receipt
     receiptPageResults.forEach(recognizedReceipt -> {
       System.out.println("----------- Recognized Receipt -----------");
 
       // Info of the current page being analyzed
-      System.out.printf("Start page number: %d, End page number: %d", recognizedReceipt.getRecognizedForm().getFormPageRange().getFirstPageNumber(), recognizedReceipt.getRecognizedForm().getFormPageRange().getLastPageNumber());
+      System.out.printf("Start page number: %d, End page number: %d", recognizedForm.getFormPageRange().getFirstPageNumber(), recognizedForm.getFormPageRange().getLastPageNumber());
 
       // The recognized form type for the receipt
-      System.out.printf("Form type: %s", recognizedReceipt.getRecognizedForm().getFormType());
+      System.out.printf("Form type: %s", recognizedForm.getFormType());
 
       // For example sake, get US specific receipt fields
-      processAsUSReceipt(recognizedReceipt)
+      processAsUSReceipt(recognizedForm)
     });
   }
 ```
@@ -73,31 +73,23 @@ The following code prints general information for the provided receipt:
 Next, let's see how can we process the extracted receipt to provide more contextual information for a US receipt.
 
 ```java
-  public processAsUSReceipt(RecognizedReceipt recognizedReceipt) {
-
+  public processAsUSReceipt(RecognizedForm recognizedForm) {
     // Get receipt specific field information
-    Map<String, FormField> recognizedFields = recognizedReceipt.getRecognizedForm().getFields();
+    Receipt usReceipt = new Receipt(recognizedForm);
 
     // Some commonly found fields on a US Receipt
-    FormField merchantNameField = recognizedFields.get("MerchantName");
-    if (merchantNameField != null) {
-        if (merchantNameField.getFieldValue().getType() == FieldValueType.STRING) {
-            System.out.printf("Merchant Name: %s, confidence: %.2f%n", merchantNameField.getFieldValue().asString(), merchantNameField.getConfidence());
-        }
-    }
+    System.out.printf("Merchant Name: %s, confidence: %.2f%n", usReceipt.getMerchantName().getValue(),
+      usReceipt.getMerchantName().getConfidence());
+
     // Each extracted value is returned with a confidence value, to highlight specific ones that might need more attention
-    FormField merchantAddressField = recognizedFields.get("MerchantAddress");
-    if (merchantAddressField != null) {
-        if (merchantAddressField.getFieldValue().getType() == FieldValueType.STRING) {
-            System.out.printf("Merchant Address: %s, confidence: %.2f%n", merchantAddressField.getFieldValue().asString(), merchantAddressField.getConfidence());
-        }
-    }
+    System.out.printf("Merchant Address: %s, confidence: %.2f%n",
+      usReceipt.getMerchantAddress().getValue(), usReceipt.getMerchantAddress().getConfidence());
 
     // Users can also get the bounding box information for each element
-    getBoundingBoxInfo(merchantNameField.getValueText())
+    getBoundingBoxInfo(usReceipt.getMerchantName().getValueData());
 
     // Get hold of the itemized data from the receipt, if present
-    printItemizedReceiptData(recognizedFields.get("Items"));
+    printItemizedReceiptData(usReceipt.getReceiptItems());
   }
 ```
 
@@ -106,42 +98,33 @@ The bounding box information provided on each element can be used in graphical U
 The below example shows how you can get the bounding information for the field `total` found in the receipt.
 
 ```java
-  public getBoundingBoxInfo(FieldText fieldTextValue) {
+  public getBoundingBoxInfo(FieldData fieldValueData) {
 
     final StringBuilder boundingBox = new StringBuilder();
-    fieldTextValue.getBoundingBox().getPoints().forEach(point -> boundingBox.append(String.format("[%.2f, %.2f]", point.getX(), point.getY())));
+    fieldValueData.getBoundingBox().getPoints().forEach(point -> boundingBox.append(String.format("[%.2f, %.2f]", point.getX(), point.getY())));
     // This can be used in a graphical UI to draw boxes around the various elements for visual validation steps
-    System.out.printf("Field Total has value %f within bounding box %s %n", fieldTextValue, boundingBoxStr);
+    System.out.printf("Field Total has value %s within bounding box %s %n", fieldValueData.getText(), boundingBoxStr);
   }
 ```
 
 Let's use the method below to print details of itemized data found on the receipt
 
 ```java
-  public printItemizedReceiptData(FormField receiptItemsField) {
+  public printItemizedReceiptData(List<ReceiptItem> receiptItems) {
     // Get hold of the itemized data from the receipt, if present
     System.out.printf("Receipt Items: %n");
-    if (receiptItemsField.getFieldValue().getType() == FieldValueType.LIST) {
-      List<FormField> receiptItems = receiptItemsField.getFieldValue().asList();
-      receiptItems.forEach(receiptItem -> {
-        if (receiptItem.getFieldValue().getType() == FieldValueType.MAP) {
-            receiptItem.getFieldValue().asMap().forEach((key, formField) -> {
-              // Prints the name of the item
-              if ("Name".equals(key)) {
-                  if (formField.getFieldValue().getType() == FieldValueType.STRING) {
-                      System.out.printf("Name: %s, confidence: %.2f%n", formField.getFieldValue().asString(), formField.getConfidence());
-                  }
-              }
-              // Prints the total price of the item
-              if ("TotalPrice".equals(key)) {
-                  if (formField.getFieldValue().getType() == FieldValueType.FLOAT) {
-                      System.out.printf("Total Price: %f, confidence: %.2f%n", formField.getFieldValue().asFloat(), formField.getConfidence());
-                  }
-              }
-          });
-        }
-      });
-    }
+    receiptItems.forEach(receiptItem -> {
+      // Prints the name of the item
+      if (receiptItem.getName() != null) {
+          System.out.printf("Name: %s, confidence: %.2f%n", receiptItem.getName().getValue(),
+              receiptItem.getName().getConfidence());
+      }
+      // Prints the quantity of the item
+      if (receiptItem.getQuantity() != null) {
+          System.out.printf("Quantity: %f, confidence: %.2f%n", receiptItem.getQuantity().getValue(),
+              receiptItem.getQuantity().getConfidence());
+      }
+    });
   }
 ```
 
@@ -277,7 +260,7 @@ Next, let's use the above created custom model to analyze our custom form.
       // Get the recognized fields on a form page
       formPage.getFields().forEach((label, formField) -> {
         // Examine the confidence values for each of the applied tags in the labeling process
-        System.out.printf("Field %s has value %s with confidence score of %.2f.%n", label, formField.getFieldValue(), formField.getConfidence());
+        System.out.printf("Field %s has value %s with confidence score of %.2f.%n", label, formField.getValue(), formField.getConfidence());
       });
     });
   }
