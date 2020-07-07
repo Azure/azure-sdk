@@ -76,7 +76,7 @@ To get started with these new libraries, please see the [quickstart guide here](
 
 ### Core [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/CHANGELOG.md#130-2020-07-02)
 
-### Added
+#### New features
 - `HttpPipeline.CreateClientRequestIdScope` method to allow setting client request id on outgoing requests.
 
 ## Latest Releases
