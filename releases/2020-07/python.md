@@ -87,6 +87,8 @@ You can find the list of new packages [on this page](https://azure.github.io/azu
 
 ### Identity [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/CHANGELOG.md)
 
+#### New Features
+
 - Added `AzureCliCredential`, which authenticates as the identity signed in to the Azure CLI
 - Added `VSCodeCredential`, which authenticates as the user signed in to Visual Studio Code's Azure Account extension.
 - The optional persistent cache for `DeviceCodeCredential` and `InteractiveBrowserCredential` is supported on Linux and macOS.
