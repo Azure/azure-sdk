@@ -27,6 +27,7 @@ The Azure SDK team is pleased to make available the July 2020 client library rel
 - Management Library - EventHub
 - Management Library - KeyVault
 - Service Bus
+- Event Hubs
 - Form Recognizer
 
 ## Installation Instructions
@@ -43,6 +44,7 @@ pip install --pre azure-mgmt-appconfiguration
 pip install --pre azure-mgmt-eventhub
 pip install --pre azure-mgmt-keyvault
 pip install --pre azure-servicebus
+pip install --pre azure-eventhub
 pip install azure-ai-formrecognizer
 ```
 
@@ -75,6 +77,19 @@ You can find the list of new packages [on this page](https://azure.github.io/azu
   `peek()` ->  `peek_messages()`
   `schedule()` -> `schedule_messages()`
   `send()` ->  `send_messages()`
+
+### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/CHANGELOG.md)
+
+#### New Features
+
+- `EventHubConsumerClient` constructor accepts two new parameters for the load balancer.
+    - `load_balancing_strategy`, which can be "greedy" or "balanced". 
+     With greedy strategy, one execution of load balancing will claim as many partitions as required to balance the load
+     whereas with balanced strategy one execution of load balancing will claim at most 1 partition.
+    - `partition_ownership_expiration_interval`, which allows you to customize the partition ownership expiration for load balancing.
+     A consumer client may lose its owned partitions more often with a smaller expiration interval. But a larger interval
+     may result in idle partitions not being claimed for longer time. 
+- Added enum class `azure.eventhub.LoadBalancingStrategy` for `load_balancing_strategy`.
 
 ### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#100b4-2020-07-07)
 
