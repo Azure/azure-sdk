@@ -27,6 +27,7 @@ The Azure SDK team is pleased to make available the July 2020 client library rel
 - Management Library - EventHub
 - Management Library - KeyVault
 - Service Bus
+- Form Recognizer
 
 ## Installation Instructions
 
@@ -42,6 +43,7 @@ pip install --pre azure-mgmt-appconfiguration
 pip install --pre azure-mgmt-eventhub
 pip install --pre azure-mgmt-keyvault
 pip install --pre azure-servicebus
+pip install azure-ai-formrecognizer
 pip install azure-search-documents
 ```
 
@@ -75,6 +77,13 @@ You can find the list of new packages [on this page](https://azure.github.io/azu
   `schedule()` -> `schedule_messages()`
   `send()` ->  `send_messages()`
 
+### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#100b4-2020-07-07)
+
+#### Breaking changes
+
+- `begin_recognize_receipts` and `begin_recognize_receipts_from_url` now return a list of `RecognizedForm`
+- Model and property renaming detailed in changelog
+
 ### Search [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/CHANGELOG.md)
 
 #### New Features
@@ -99,7 +108,6 @@ You can find the list of new packages [on this page](https://azure.github.io/azu
   * PhoneticEncoder
   * ScoringFunctionAggregation
   * ScoringFunctionInterpolation
-
 
 ## Latest Releases
 
