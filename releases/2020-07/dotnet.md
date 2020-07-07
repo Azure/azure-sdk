@@ -54,6 +54,11 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
+### Core [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/CHANGELOG.md#130-2020-07-02)
+
+#### New features
+- `HttpPipeline.CreateClientRequestIdScope` method to allow setting client request id on outgoing requests.
+
 ### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md)
 
 - The `EventHubConsumerClient` now supports configuring the `PrefetchCount` and `CacheEventCount` for more control over performance tuning.
@@ -73,11 +78,6 @@ To get started with these new libraries, please see the [quickstart guide here](
 
 #### Key Bug Fixes
 - The document confidence scores for analyze sentiment now contains the values the Text Analytics service returns. (Issue [#12889](https://github.com/Azure/azure-sdk-for-net/issues/12889)).
-
-### Core [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/CHANGELOG.md#130-2020-07-02)
-
-#### New features
-- `HttpPipeline.CreateClientRequestIdScope` method to allow setting client request id on outgoing requests.
 
 ## Latest Releases
 
