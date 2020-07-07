@@ -55,7 +55,7 @@ The following code prints general information for the provided receipt:
 ```java
   public printReceiptDetails(IterableStream<RecognizedForm> receiptPageResults) {
     // The receipt document could span over multiple pages, iterate over each page of the receipt
-    receiptPageResults.forEach(recognizedReceipt -> {
+    receiptPageResults.forEach(recognizedForm -> {
       System.out.println("----------- Recognized Receipt -----------");
 
       // Info of the current page being analyzed
@@ -75,6 +75,7 @@ Next, let's see how can we process the extracted receipt to provide more context
 ```java
   public processAsUSReceipt(RecognizedForm recognizedForm) {
     // Get receipt specific field information
+    // Create your own receipt class, for example - https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/java/com/azure/ai/formrecognizer/Receipt.java
     Receipt usReceipt = new Receipt(recognizedForm);
 
     // Some commonly found fields on a US Receipt
