@@ -83,16 +83,7 @@ New preview version
 
 #### New Features
 
-- *TODO*
-
-#### Breaking Changes from Last Preview
-
-- *TODO*
-
-#### Key Bug Fixes
-
-- *TODO*
-
+- The `EventHubConsumerClient` now supports configuring `loadBalancingOptions` for more control over performance tuning while load balancing.
 ### Identity
 
 #### New Features
