@@ -26,6 +26,7 @@ The Azure SDK team is pleased to make available the July 2020 client library rel
 - Management Library - AppConfiguration
 - Management Library - EventHub
 - Management Library - KeyVault
+- Identity
 - Service Bus
 - Form Recognizer
 
@@ -42,6 +43,7 @@ pip install --pre azure-mgmt-monitor
 pip install --pre azure-mgmt-appconfiguration
 pip install --pre azure-mgmt-eventhub
 pip install --pre azure-mgmt-keyvault
+pip install --pre azure-identity
 pip install --pre azure-servicebus
 pip install azure-ai-formrecognizer
 ```
@@ -82,6 +84,14 @@ You can find the list of new packages [on this page](https://azure.github.io/azu
 
 - `begin_recognize_receipts` and `begin_recognize_receipts_from_url` now return a list of `RecognizedForm`
 - Model and property renaming detailed in changelog
+
+### Identity [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/CHANGELOG.md)
+
+#### New Features
+
+- Added `AzureCliCredential`, which authenticates as the identity signed in to the Azure CLI
+- Added `VSCodeCredential`, which authenticates as the user signed in to Visual Studio Code's Azure Account extension.
+- The optional persistent cache for `DeviceCodeCredential` and `InteractiveBrowserCredential` is supported on Linux and macOS.
 
 ## Latest Releases
 
