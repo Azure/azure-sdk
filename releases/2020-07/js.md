@@ -75,17 +75,9 @@ This is the first stable release version of the Cognitive Search library.
 
 Updates to last stable release
 
-#### New Features
-
-- *TODO*
-
-#### Breaking Changes
-
-- *TODO*
-
 #### Key Bug Fixes
 
-- *TODO*
+- Improved the reliability of closing `EventHubConsumerClient` and `Subscriptions`.
 
 New preview version
 
