@@ -10,7 +10,7 @@ The Azure SDK team is pleased to make available the July 2020 client library rel
 
 #### GA
 
-- _Add packages_
+- Search
 
 #### Updates
 
@@ -42,6 +42,7 @@ pip install --pre azure-mgmt-appconfiguration
 pip install --pre azure-mgmt-eventhub
 pip install --pre azure-mgmt-keyvault
 pip install --pre azure-servicebus
+pip install azure-search-documents
 ```
 
 ## Feedback
@@ -73,6 +74,32 @@ You can find the list of new packages [on this page](https://azure.github.io/azu
   `peek()` ->  `peek_messages()`
   `schedule()` -> `schedule_messages()`
   `send()` ->  `send_messages()`
+
+### Search [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/CHANGELOG.md)
+
+#### New Features
+
+- Exposed more models:
+
+  * BM25SimilarityAlgorithm
+  * ClassicSimilarityAlgorithm
+  * EdgeNGramTokenFilterSide
+  * EntityCategory
+  * EntityRecognitionSkillLanguage
+  * FieldMapping
+  * FieldMappingFunction
+  * ImageAnalysisSkillLanguage
+  * ImageDetail
+  * IndexerExecutionStatus
+  * IndexerStatus
+  * KeyPhraseExtractionSkillLanguage
+  * MicrosoftStemmingTokenizerLanguage
+  * MicrosoftTokenizerLanguage
+  * OcrSkillLanguage
+  * PhoneticEncoder
+  * ScoringFunctionAggregation
+  * ScoringFunctionInterpolation
+
 
 ## Latest Releases
 
