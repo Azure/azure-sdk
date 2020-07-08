@@ -15,11 +15,13 @@ The Azure SDK team is pleased to announce our July 2020 client library releases.
 #### Updates
 
 - Azure-Cosmos
+- App Configuration
 - Core
 - Core - AMQP
 - Core - Http Netty
 - Core - Http OkHttp
 - Core - Test
+- Text Analytics
 
 #### Preview
 
@@ -37,12 +39,24 @@ The Azure SDK team is pleased to announce our July 2020 client library releases.
 - Management Library - Key Vault
 - Schema Registry
 - Schema Registry - Avro-Specific
+- Form Recognizer
 
 ## Installation Instructions
 
 To use the GA and beta libraries, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate. If you are using a different build tool, refer to its documentation on how to specify dependencies.
 
 ```xml
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-ai-formrecognizer</artifactId>
+  <version>1.0.0-beta.4</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-ai-textanalytics</artifactId>
+  <version>1.0.1</version>
+</dependency>
+</dependency>
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-core</artifactId>
@@ -77,6 +91,21 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-cosmos</artifactId>
   <version>4.1.0</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-data-appconfiguration</artifactId>
+  <version>1.1.3</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-data-schemaregistry</artifactId>
+  <version>1.0.0-beta.2</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-data-schemaregistry-avro</artifactId>
+  <version>1.0.0-beta.2</version>
 </dependency>
 <dependency>
   <groupId>com.azure.resourcemanager</groupId>
@@ -148,16 +177,6 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <artifactId>azure-resourcemanager-monitor</artifactId>
   <version>2.0.0</version>
 </dependency>
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-data-schemaregistry</artifactId>
-  <version>1.0.0-beta.2</version>
-</dependency>
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-data-schemaregistry-avro</artifactId>
-  <version>1.0.0-beta.2</version>
-</dependency>
 ```
 
 ## Feedback
@@ -205,7 +224,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Key Bug Fixes
 
-- Fixed issues with order by query returning duplicate results when resuming by using continuation token. 
+- Fixed issues with order by query returning duplicate results when resuming by using continuation token.
 - Fixed issues with value query returning null values for nested object.
 - Fixed null pointer exception on request manager in RntbdClientChannelPool.
 
@@ -225,12 +244,22 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - Fix null max schema map size parameter behavior
 
+### Form Recognizer ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#100-beta4-2020-07-07))
+
+## 1.0.0-beta.4 (2020-07-07)
+### Breaking changes
+- `beginRecognizeReceipt` APIs now return a `RecognizedForm` model instead of a `RecognizedReceipt`.
+- Model and property renaming detailed in changelog
+
+### Key Bug Fixes
+- Fixed `textAngle` to be returned between `(-180, 180]`.
+
 ### New Management Libraries
 
 A new set of management libraries that follow the [Azure SDK Design Guidelines for Java](https://azure.github.io/azure-sdk/java/guidelines/) are now in Public Preview. These new libraries provide a higher-level, object-oriented API for managing Azure resources, that is optimized for ease of use, succinctness and consistency. You can find the list of new packages [on this page](https://azure.github.io/azure-sdk/releases/latest/java.html). Detailed documentation and code samples for these new libraries can be [found here](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/management)
 
-These new packages share the same groupId ``com.azures.resourcemanager`` and artifactId share the same prefix of ``azure-resourcemanager`` 
-  
+These new packages share the same groupId ``com.azures.resourcemanager`` and artifactId share the same prefix of ``azure-resourcemanager``
+
 ## Need help
 
 - For reference documentation visit the [Azure SDK for Java documentation](https://azure.github.io/azure-sdk-for-java/).
