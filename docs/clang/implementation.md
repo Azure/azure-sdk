@@ -260,7 +260,7 @@ We believe testing is a part of the development process, so we expect unit and i
 
 All code should contain, at least, requirements, unit tests, end-to-end tests, and samples. The requirements description should be placed in the unit test file, on top of the test function that verifies the requirement. The unit test name should be placed in the code as a comment, together with the code that implements that functionality. For example:
 
-In general, each group of tests will be in it's own file and implement a function like `int test_<group_name>()` that will call cmocka_run_group_tests_name for all the tests in that group. The client library will have
+In general, each group of tests will be in it's own file and implement a function like `int test_<group_name>()` that will call `cmocka_run_group_tests_name` for all the tests in that group. The client library will have
 one main testing file that contains the test entry point (`int main()`).
 
 _*API source code file:*_
