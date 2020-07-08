@@ -20,6 +20,7 @@ The Azure SDK team is pleased to announce our July 2020 client library releases.
 #### Preview
 
 - Event Hubs
+- Form Recognizer
 - Service Bus
 - Management Library - Compute
 - Management Library - Network
@@ -34,6 +35,8 @@ The Azure SDK team is pleased to announce our July 2020 client library releases.
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
 ```bash
+ $> dotnet add package Azure.AI.FormRecognizer --version 1.0.0-preview.4
+
  $> dotnet add package Azure.AI.TextAnalytics
 
  $> dotnet add package Azure.Messaging.EventHubs --version 5.2.0-preview.1
@@ -74,6 +77,12 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 ### Event Hubs Processor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md)
 
 - The `EventProcessorClient` now supports configuring the `PrefetchCount`, `CacheEventCount`, and `LoadBalancingStrategy` for more control over performance tuning.
+
+### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#100-preview4-2020-07-07)
+
+#### Breaking Changes
+- `RecognizedReceipt` and `RecognizedReceiptsCollection` classes removed. Receipt field values must now be obtained from a `RecognizedForm`.
+- Model and property renamings detailed in the Changelog.
 
 ### Search [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md#1100-2020-07-07)
 
