@@ -22,7 +22,6 @@ The Azure SDK team is pleased to make available the July 2020 client library rel
 
 - Azure Event Hubs
 - Azure Cognitive Form Recognizer
-- Azure Key Vault Certificates/Keys/Secrets
 - Azure Service Bus
 
 ## Installation Instructions
@@ -33,9 +32,6 @@ To install the packages, copy and paste the below into a terminal.
 $> npm install @azure/app-configuration
 $> npm install @azure/search-documents
 $> npm install @azure/ai-form-recognizer
-$> npm install @azure/keyvault-certificates
-$> npm install @azure/keyvault-keys
-$> npm install @azure/keyvault-secrets
 $> npm install @azure/service-bus@next
 ```
 
@@ -95,20 +91,6 @@ New preview version
 #### New Features
 
 - The `EventHubConsumerClient` now supports configuring `loadBalancingOptions` for more control over performance tuning while load balancing.
-
-### Key Vault Certificates/Keys/Secrets
-
-#### New Features
-
-- *TODO*
-
-#### Breaking Changes from Last Preview
-
-- *TODO*
-
-#### Key Bug Fixes
-
-- *TODO*
 
 ### Form Recognizer
 
