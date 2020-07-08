@@ -15,7 +15,7 @@ The Azure SDK team is pleased to announce our July 2020 client library releases.
 
 #### Updates
 
-- _Add packages_
+- App Configuration
 
 #### Preview
 
@@ -38,6 +38,8 @@ To install any of our packages, please search for them via `Manage NuGet Package
  $> dotnet add package Azure.AI.FormRecognizer --version 1.0.0-preview.4
 
  $> dotnet add package Azure.AI.TextAnalytics
+
+ $> dotnet add package Azure.Data.AppConfiguration
 
  $> dotnet add package Azure.Messaging.EventHubs --version 5.2.0-preview.1
  $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.2.0-preview.1
@@ -62,6 +64,10 @@ If you have a bug or feature request for one of the libraries, please [file an i
 ## Changelog
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
+
+### App Configuration [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/appconfiguration/Azure.Data.AppConfiguration/CHANGELOG.md#101-2020-07-07)
+
+- Update the tag list for the AzConfig package
 
 ### Core [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/CHANGELOG.md#130-2020-07-02)
 
