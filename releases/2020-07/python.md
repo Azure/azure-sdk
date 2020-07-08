@@ -27,6 +27,7 @@ The Azure SDK team is pleased to make available the July 2020 client library rel
 - Management Library - Event Hubs
 - Management Library - KeyVault
 - Service Bus
+- Storage
 - Event Hubs
 - Form Recognizer
 - Identity
@@ -49,6 +50,10 @@ pip install --pre azure-eventhub
 pip install azure-ai-formrecognizer
 pip install --pre azure-identity
 pip install azure-search-documents
+pip install --pre azure-storage-blob
+pip install --pre azure-storage-blob-changefeed
+pip install --pre azure-storage-file-datalake
+pip install --pre azure-storage-file-share
 ```
 
 ## Feedback
@@ -61,7 +66,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### New Management Libraries
 
-A new set of management libraries that follow the [Azure SDK Design Guidelines for Python](https://azure.github.io/azure-sdk/python/guidelines/) are now in Public Preview. These new libraries provide a number of core capabilities that are shared amongst all Azure SDKs, including the intuitive Azure Identity library, an HTTP Pipeline with custom policies, error-handling, distributed tracing, and much more. 
+A new set of management libraries that follow the [Azure SDK Design Guidelines for Python](https://azure.github.io/azure-sdk/python/guidelines/) are now in Public Preview. These new libraries provide a number of core capabilities that are shared amongst all Azure SDKs, including the intuitive Azure Identity library, an HTTP Pipeline with custom policies, error-handling, distributed tracing, and much more.
 You can find the list of new packages [on this page](https://azure.github.io/azure-sdk/releases/latest/python.html). Documentation and code samples for these new libraries can be found [here](https://azure.github.io/azure-sdk-for-python)
 
 ### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/CHANGELOG.md)
@@ -86,12 +91,12 @@ You can find the list of new packages [on this page](https://azure.github.io/azu
 #### New Features
 
 - `EventHubConsumerClient` constructor accepts two new parameters for the load balancer.
-    - `load_balancing_strategy`, which can be "greedy" or "balanced". 
+    - `load_balancing_strategy`, which can be "greedy" or "balanced".
      With greedy strategy, one execution of load balancing will claim as many partitions as required to balance the load
      whereas with balanced strategy one execution of load balancing will claim at most 1 partition.
     - `partition_ownership_expiration_interval`, which allows you to customize the partition ownership expiration for load balancing.
      A consumer client may lose its owned partitions more often with a smaller expiration interval. But a larger interval
-     may result in idle partitions not being claimed for longer time. 
+     may result in idle partitions not being claimed for longer time.
 - Added enum class `azure.eventhub.LoadBalancingStrategy` for `load_balancing_strategy`.
 
 ### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#100b4-2020-07-07)
@@ -133,6 +138,21 @@ You can find the list of new packages [on this page](https://azure.github.io/azu
   * PhoneticEncoder
   * ScoringFunctionAggregation
   * ScoringFunctionInterpolation
+
+### Storage
+
+#### Blob [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md)
+  - Added support for Blob Tags, Blob Versioning, Jumbo Blobs, and more
+  - Fixed a variety of bugs to improve the experience of using this library
+
+#### Blob ChangeFeed [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob-changefeed/CHANGELOG.md)
+  - Added a preview version of this library to support change feed
+
+#### File DataLake [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md)
+  - Block size is increased to 4 GB max and max single put increased to 5 GB
+
+#### File Share [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/CHANGELOG.md)
+  - Added `undelete_share` on FileShareServiceClient
 
 ## Latest Releases
 

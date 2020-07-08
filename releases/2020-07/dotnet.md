@@ -21,6 +21,7 @@ The Azure SDK team is pleased to announce our July 2020 client library releases.
 
 - Event Hubs
 - Service Bus
+- Storage
 - Management Library - Compute
 - Management Library - Network
 - Management Library - Resources
@@ -40,6 +41,12 @@ To install any of our packages, please search for them via `Manage NuGet Package
  $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.2.0-preview.1
 
  $> dotnet add package Azure.Messaging.ServiceBus --version 7.0.0-preview.4
+
+ $> dotnet add package Azure.Storage.Blobs --version 12.5.0-preview.5
+ $> dotnet add package Azure.Storage.Blobs.ChangeFeed --version 12.5.0-preview.5
+ $> dotnet add package Azure.Storage.Files.DataLake --version 12.0.0-preview.1
+ $> dotnet add package Azure.Storage.Files.Shares --version 12.3.0-preview.1
+ $> dotnet add package Azure.Storage.Queues --version 12.4.0-preview.5
 
  $> dotnet add package Azure.Search.Documents
 
@@ -99,6 +106,25 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### New Features
 - Add IAsyncEnumerable Receive overload
 - Add batch schedule/cancel schedule messages
+
+### Storage
+
+#### Blobs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md)
+- Added support for Blob Tags, Blob Versioning, Object Replication Service, Append Seal, Jumbo Blobs, and more
+- Fixed a variety of bugs to improve the experience of using this library
+
+#### Blobs ChangeFeed [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md)
+- Added a preview version of this library to support change feed
+
+#### Files DataLake [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md)
+- Added support for Jumbo Files
+- Fixed a variety of bugs to improve the experience of using this library
+
+#### Files Shares [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md)
+- Added support for Large Files and File Soft Delete
+- Fixed a variety of bugs to improve the experience of using this library
+
+#### Queues [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Queues/CHANGELOG.md)
 
 ### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#101-2020-06-23)
 
