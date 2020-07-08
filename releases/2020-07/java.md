@@ -15,6 +15,7 @@ The Azure SDK team is pleased to announce our July 2020 client library releases.
 #### Updates
 
 - Azure-Cosmos
+- App Configuration
 - Core
 - Core - AMQP
 - Core - Http Netty
@@ -45,6 +46,17 @@ The Azure SDK team is pleased to announce our July 2020 client library releases.
 To use the GA and beta libraries, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate. If you are using a different build tool, refer to its documentation on how to specify dependencies.
 
 ```xml
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-ai-formrecognizer</artifactId>
+  <version>1.0.0-beta.4</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-ai-textanalytics</artifactId>
+  <version>1.0.1</version>
+</dependency>
+</dependency>
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-core</artifactId>
@@ -79,6 +91,21 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-cosmos</artifactId>
   <version>4.1.0</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-data-appconfiguration</artifactId>
+  <version>1.1.3</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-data-schemaregistry</artifactId>
+  <version>1.0.0-beta.2</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-data-schemaregistry-avro</artifactId>
+  <version>1.0.0-beta.2</version>
 </dependency>
 <dependency>
   <groupId>com.azure.resourcemanager</groupId>
@@ -149,26 +176,6 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-monitor</artifactId>
   <version>2.0.0</version>
-</dependency>
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-data-schemaregistry</artifactId>
-  <version>1.0.0-beta.2</version>
-</dependency>
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-data-schemaregistry-avro</artifactId>
-  <version>1.0.0-beta.2</version>
-</dependency>
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-ai-formrecognizer</artifactId>
-  <version>1.0.0-beta.4</version>
-</dependency>
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-ai-textanalytics</artifactId>
-  <version>1.0.1</version>
 </dependency>
 ```
 
