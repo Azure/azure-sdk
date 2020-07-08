@@ -15,7 +15,7 @@ The Azure SDK team is pleased to announce our July 2020 client library releases.
 
 #### Updates
 
-- _Add packages_
+- App Configuration
 
 #### Preview
 
@@ -64,6 +64,10 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 #### New features
 - `HttpPipeline.CreateClientRequestIdScope` method to allow setting client request id on outgoing requests.
+
+### App Configuration [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/appconfiguration/Azure.Data.AppConfiguration/CHANGELOG.md)
+
+- Update the tag list for the AzConfig package
 
 ### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md)
 
