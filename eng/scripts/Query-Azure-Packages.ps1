@@ -52,7 +52,7 @@ function Query-python-Packages
   $pythonQuery = "import xmlrpc.client; [print(pkg[1]) for pkg in xmlrpc.client.ServerProxy('https://pypi.org/pypi').user_packages('azure-sdk')]"
   $pythonPackagesNames = (python -c "$pythonQuery")
 
-  $pythonPackages = $pythonPackagesNames | Foreach-Object { (Invoke-RestMethod "https://pypi.org/pypi/$_/json").info }
+  $pythonPackages = $pythonPackagesNames | Foreach-Object { try { (Invoke-RestMethod "https://pypi.org/pypi/$_/json").info } catch { } }
 
   Write-Host "Found $($pythonPackages.Count) python packages"
   $packages = $pythonPackages | Foreach-Object { [pscustomobject]@{ DisplayName = $_.name; Package = $_.name; Version = $_.version } }
