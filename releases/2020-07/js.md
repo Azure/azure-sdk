@@ -43,18 +43,27 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 ### Storage
 
 #### Blob [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/CHANGELOG.md)
-  - Added support for Blob Tags, Blob Versioning, Quick Query, Jumbo Blobs, and more
-  - Fixed a variety of bugs to improve the experience of using this library
+
+##### New Features
+- Added support for Blob Tags, Blob Versioning, Quick Query, Jumbo Blobs, and more
+- Added convenience method `createIfNotExists` for `ContainerClient`, `AppendBlobClient`, and `PageBlobClient`
+- Added convenience method `deleteIfExists` for `ContainerClient` and `BlobClients`
 
 #### Blob ChangeFeed [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob-changefeed/CHANGELOG.md)
-  - Added a preview version of this library to support change feed
+
+##### New Features
+- Added a preview version of this library to support change feed
 
 #### File DataLake [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/CHANGELOG.md)
-  - Block size is increased to 4 GB max
-  - Added more mapping for Blob and DFS endpoints
+
+##### New Features
+- Block size is increased to 4 GB max
+- Added more mapping for Blob and DFS endpoints
 
 #### File Share [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/CHANGELOG.md)
-  - Supports 4 TB files
+
+##### New Features
+- Supports 4 TB files
 
 ## Latest Releases
 

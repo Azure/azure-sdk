@@ -110,21 +110,36 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 ### Storage
 
 #### Blobs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md)
-- Added support for Blob Tags, Blob Versioning, Object Replication Service, Append Seal, Jumbo Blobs, and more
-- Fixed a variety of bugs to improve the experience of using this library
+
+##### New Features
+- Added support for Blob Tags, Blob Versioning, Object Replication Service, Append Seal, and Jumbo Blobs
+- Added support for setting access tier on Blob Snapshots and Versions
+- Added RehydratePriority to BlobProperties and BlobItemProperties
+
+##### Key Bug Fixes
+- Fixed bug where `BlobBaseClient.DownloadTo()` was throwing an exception when downloading blobs of size 0
+- Fixed bug where all `BlobModelFactory.BlobProperties()` parameters were required
+- Fixed bug where `BlobBaseClient.BlobName` was encoded, affecting SAS generation
+- Fixed bug where AccountType enum was missing BlockBlobStorage and FileStorage
 
 #### Blobs ChangeFeed [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md)
+
+##### New Features
 - Added a preview version of this library to support change feed
 
 #### Files DataLake [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md)
+
+##### New Features
 - Added support for Jumbo Files
-- Fixed a variety of bugs to improve the experience of using this library
 
 #### Files Shares [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md)
-- Added support for Large Files and File Soft Delete
-- Fixed a variety of bugs to improve the experience of using this library
 
-#### Queues [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Queues/CHANGELOG.md)
+##### New Features
+- Added support for Large Files and File Soft Delete
+
+##### Key Bug Fixes
+- Fixed bug where ShareDirectoryClient and ShareFileClient.Name and .Path were sometimes URL-encoded
+- Fixed bug where ShareClient.WithSnapshot(), ShareDirectoryClient.WithSnapshot(), and ShareFileClient.WithSnapshot() were not functioning correctly
 
 ### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#101-2020-06-23)
 

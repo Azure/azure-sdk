@@ -37,6 +37,10 @@ The Azure SDK team is pleased to announce our July 2020 client library releases.
 - Management Library - Key Vault
 - Schema Registry
 - Schema Registry - Avro-Specific
+- Storage - Blob
+- Storage - Blob ChangeFeed
+- Storage - File DataLake
+- Storage - File Share
 
 ## Installation Instructions
 
@@ -178,11 +182,6 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <artifactId>azure-storage-file-share</artifactId>
   <version>12.6.0-beta.1</version>
 </dependency>
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-storage-queue</artifactId>
-  <version>12.6.0-beta.1</version>
-</dependency>
 ```
 
 ## Feedback
@@ -253,20 +252,26 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 ### Storage
 
 #### Blob [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md)
+
+##### New Features
 - Added support for Blob Tags, Blob Versioning, Jumbo Blobs, and more
-- Fixed a variety of bugs to improve the experience of using this library
 
 #### Blob ChangeFeed [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-changefeed/CHANGELOG.md)
+
+##### New Features
 - Added a preview version of this library to support change feed
 
 #### File DataLake [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md)
+
+##### New Features
 - Added support to query a file
 - Added support to increase max size of data that can be sent via append
 
 #### File Share [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/CHANGELOG.md)
+
+##### New Features
 - Added support for restoring file share
 
-#### Queue [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/CHANGELOG.md)
 
 ### New Management Libraries
 

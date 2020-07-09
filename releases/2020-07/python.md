@@ -142,17 +142,27 @@ You can find the list of new packages [on this page](https://azure.github.io/azu
 ### Storage
 
 #### Blob [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md)
-  - Added support for Blob Tags, Blob Versioning, Jumbo Blobs, and more
-  - Fixed a variety of bugs to improve the experience of using this library
+
+##### New Features
+- Added `query_blob` API to enable users to select/project on block blob or block blob snapshot data by providing simple query expressions
+- Added blob versioning feature, so that every time there is a blob override the `version_id` will be updated automatically and returned in the response, the `version_id` could be used later to refer to the overwritten blob
+- Added `set_blob_tags`, `get_blob_tags`, and `find_blobs_by_tags` to acquire blobs based on blob tags
+- Block size is increased to 4GB at maximum, max single put size is increased to 5GB
 
 #### Blob ChangeFeed [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob-changefeed/CHANGELOG.md)
-  - Added a preview version of this library to support change feed
+
+##### New Features
+- Added a preview version of this library to support change feed
 
 #### File DataLake [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md)
-  - Block size is increased to 4 GB max and max single put increased to 5 GB
+
+##### New Features
+- Block size is increased to 4 GB max and max single put increased to 5 GB
 
 #### File Share [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/CHANGELOG.md)
-  - Added `undelete_share` on FileShareServiceClient
+
+##### New Features
+- Added `undelete_share` on FileShareServiceClient
 
 ## Latest Releases
 
