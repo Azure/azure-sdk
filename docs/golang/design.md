@@ -481,7 +481,7 @@ One of the key things we want to support is to allow consumers of the package to
 ```go
 // WidgetOperations contains the methods for the Widget group.
 type WidgetOperations interface {
-	BeginCreate(ctx context.Context, options *BeginCreateOptions) (WidgetPollerResponse, error)
+	BeginCreate(ctx context.Context, options *BeginCreateOptions) (*WidgetPollerResponse, error)
 	GetWidget(ctx context.Context, name string) (*WidgetResponse, error)
 	ListWidgets(options *ListWidgetsOptions) (ListWidgetsPager, error)
 	// other methods...
