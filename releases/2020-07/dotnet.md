@@ -21,6 +21,7 @@ The Azure SDK team is pleased to announce our July 2020 client library releases.
 
 - Event Hubs
 - Form Recognizer
+- Identity
 - Service Bus
 - Management Library - Compute
 - Management Library - Network
@@ -40,6 +41,8 @@ To install any of our packages, please search for them via `Manage NuGet Package
  $> dotnet add package Azure.AI.TextAnalytics
 
  $> dotnet add package Azure.Data.AppConfiguration
+
+ $> dotnet add package Azure.Identity --version 1.2.0-preview.5
 
  $> dotnet add package Azure.Messaging.EventHubs --version 5.2.0-preview.1
  $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.2.0-preview.1
@@ -89,6 +92,12 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### Breaking Changes
 - `RecognizedReceipt` and `RecognizedReceiptsCollection` classes removed. Receipt field values must now be obtained from a `RecognizedForm`.
 - Model and property renamings detailed in the Changelog.
+
+### Identity [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/identity/Azure.Identity/CHANGELOG.md#120-preview5-2020-07-08)
+
+#### New Features
+- Added options classes `ClientCertificateCredentialOptions` and `ClientSecretCredentialOptions` which support the following new option
+    - `EnablePersistentCache` configures these credentials to use a persistent cache shared between credentials which set this option. By default the cache is per credential and in memory only.
 
 ### Search [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md#1100-2020-07-07)
 
