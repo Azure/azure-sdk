@@ -56,19 +56,15 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Search
 
-This is the first stable release version of the Cognitive Search library.
-
-#### New Features
-
-- *TODO*
+This is the first stable GA release of the Cognitive Search library.
 
 #### Breaking Changes from Last Preview
 
-- *TODO*
-
-#### Key Bug Fixes
-
-- *TODO*
+- In Suggest API & Search API return values, a new property called `document` is introduced. All user-defined fields are moved inside this `document` property.
+- In `analyzeText` API, the `text` parameter is moved from method level to inside `options` bag.
+- In `search` API, `includeTotalResultCount` property is renamed to `includeTotalCount`.
+- In `ServiceCounters`, the `skillsetCounter` property has been removed.
+- Modified the names of several properties. Please refer [#9321](https://github.com/Azure/azure-sdk-for-js/issues/9321) for a detailed list of renames.
 
 ### App Configuration
 
@@ -96,15 +92,17 @@ New preview version
 
 #### New Features
 
-- *TODO*
+- Added an `expiresOn` property to the `CopyAuthorization` type containing the time that the Copy Authorization will expire encoded as a JavaScript `Date` type.
 
 #### Breaking Changes from Last Preview
 
-- *TODO*
-
-#### Key Bug Fixes
-
-- *TODO*
+- Replace `RecognizedReceiptArray` with the more generic `RecognizedFormArray` in the Poller response type returned by `beginRecognizeReceipts` and `beginRecognizeReceiptsFromUrl`.
+- Rename the `textContent` field of the `FieldData` and `FormTableCell` types to `fieldElements` to mirror the change in its type.
+- Rename the `FormField` type's `labelText` and `valueText` fields to `labelData` and `valueData` respectively, to mirror the change of their type to `FieldData`;
+- Rename the `includeTextContent` request option to `includeFieldElements` to mirror the change to `FieldData` and `FormElement`.
+- Rename `FieldText` to `FieldData` and `FormContent` to `FormElement` to reflect that fields may contain more than textual information.
+- Rename `includeTextDetails` to `includeTextContent` in custom form and receipt recognition options to be consistent with other languages.
+- Rename properties `requestedOn` to `trainingStartedOn` and `completedOn` to `trainingCompletedOn` in `CustomFormModel` and `CustomFormModelInfo` types.
 
 ### Service Bus
 
