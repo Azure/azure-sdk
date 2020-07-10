@@ -240,6 +240,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Add Message/Messages suffix to Peek/Send/Receive/Abandon/Defer/Complete/DeadLetter methods.
 - Message settlement methods take a lock token string rather than `MessageLockToken`.
 - Remove `MessageLockToken` interface. `ServiceBusReceivedMessage` no longer uses interface.
+- Remove `ServiceBusReceiverAsyncClient.receive(int)` method; use `receive().take(int)` instead.
 
 #### New Features
 - Add `ServiceBusDeadLetterReceiverClientBuilder` to receive messages from dead-letter queue.
