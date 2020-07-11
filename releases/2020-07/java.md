@@ -26,20 +26,21 @@ The Azure SDK team is pleased to announce our July 2020 client library releases.
 #### Preview
 
 - Core - Experimental
-- Management Library - Compute
-- Management Library - Network
-- Management Library - Storage
-- Management Library - Resources
-- Management Library - Managed Identity
-- Management Library - Authorization
-- Management Library - Insight
+- Form Recognizer
 - Management Library - AppService
-- Management Library - SQL
+- Management Library - Authorization
+- Management Library - Compute
 - Management Library - CosmosDB
+- Management Library - Insight
 - Management Library - Key Vault
+- Management Library - Managed Identity
+- Management Library - Network
+- Management Library - Resources
+- Management Library - SQL
+- Management Library - Storage
 - Schema Registry
 - Schema Registry - Avro-Specific
-- Form Recognizer
+- Service Bus
 
 ## Installation Instructions
 
@@ -106,6 +107,11 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-data-schemaregistry-avro</artifactId>
   <version>1.0.0-beta.2</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-messaging-servicebus</artifactId>
+  <version>7.0.0-beta.4</version>
 </dependency>
 <dependency>
   <groupId>com.azure.resourcemanager</groupId>
@@ -227,6 +233,18 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Fixed issues with order by query returning duplicate results when resuming by using continuation token.
 - Fixed issues with value query returning null values for nested object.
 - Fixed null pointer exception on request manager in RntbdClientChannelPool.
+
+### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md#700-beta4-2020-07-10)
+
+#### Breaking Changes
+- Add Message/Messages suffix to Peek/Send/Receive/Abandon/Defer/Complete/DeadLetter methods.
+- Message settlement methods take a lock token string rather than `MessageLockToken`.
+- Remove `MessageLockToken` interface. `ServiceBusReceivedMessage` no longer uses interface.
+- Remove `ServiceBusReceiverAsyncClient.receive(int)` method; use `receive().take(int)` instead.
+
+#### New Features
+- Add `ServiceBusDeadLetterReceiverClientBuilder` to receive messages from dead-letter queue.
+- Add support to send message via another entity.
 
 ### Azure Schema Registry ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/schemaregistry/azure-data-schemaregistry/CHANGELOG.md#100-beta2-2020-06-19))
 
