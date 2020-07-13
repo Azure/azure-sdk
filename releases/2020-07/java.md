@@ -15,38 +15,53 @@ The Azure SDK team is pleased to announce our July 2020 client library releases.
 #### Updates
 
 - Azure-Cosmos
+- App Configuration
 - Core
 - Core - AMQP
 - Core - Http Netty
 - Core - Http OkHttp
 - Core - Test
+- Text Analytics
 
 #### Preview
 
 - Core - Experimental
-- Management Library - Compute
-- Management Library - Network
-- Management Library - Storage
-- Management Library - Resources
-- Management Library - Managed Identity
-- Management Library - Authorization
-- Management Library - Insight
+- Form Recognizer
 - Management Library - AppService
-- Management Library - SQL
+- Management Library - Authorization
+- Management Library - Compute
 - Management Library - CosmosDB
+- Management Library - Insight
 - Management Library - Key Vault
+- Management Library - Managed Identity
+- Management Library - Network
+- Management Library - Resources
+- Management Library - SQL
+- Management Library - Storage
 - Schema Registry
 - Schema Registry - Avro-Specific
 - Storage - Blob
 - Storage - Blob ChangeFeed
 - Storage - File DataLake
 - Storage - File Share
+- Service Bus
 
 ## Installation Instructions
 
 To use the GA and beta libraries, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate. If you are using a different build tool, refer to its documentation on how to specify dependencies.
 
 ```xml
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-ai-formrecognizer</artifactId>
+  <version>1.0.0-beta.4</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-ai-textanalytics</artifactId>
+  <version>1.0.1</version>
+</dependency>
+</dependency>
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-core</artifactId>
@@ -81,6 +96,26 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-cosmos</artifactId>
   <version>4.1.0</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-data-appconfiguration</artifactId>
+  <version>1.1.3</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-data-schemaregistry</artifactId>
+  <version>1.0.0-beta.2</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-data-schemaregistry-avro</artifactId>
+  <version>1.0.0-beta.2</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-messaging-servicebus</artifactId>
+  <version>7.0.0-beta.4</version>
 </dependency>
 <dependency>
   <groupId>com.azure.resourcemanager</groupId>
@@ -233,6 +268,18 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Fixed issues with value query returning null values for nested object.
 - Fixed null pointer exception on request manager in RntbdClientChannelPool.
 
+### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md#700-beta4-2020-07-10)
+
+#### Breaking Changes
+- Add Message/Messages suffix to Peek/Send/Receive/Abandon/Defer/Complete/DeadLetter methods.
+- Message settlement methods take a lock token string rather than `MessageLockToken`.
+- Remove `MessageLockToken` interface. `ServiceBusReceivedMessage` no longer uses interface.
+- Remove `ServiceBusReceiverAsyncClient.receive(int)` method; use `receive().take(int)` instead.
+
+#### New Features
+- Add `ServiceBusDeadLetterReceiverClientBuilder` to receive messages from dead-letter queue.
+- Add support to send message via another entity.
+
 ### Azure Schema Registry ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/schemaregistry/azure-data-schemaregistry/CHANGELOG.md#100-beta2-2020-06-19))
 
 ## 1.0.0-beta.2 (2020-06-19)
@@ -271,6 +318,17 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ##### New Features
 - Added support for restoring file share
+
+
+### Form Recognizer ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#100-beta4-2020-07-07))
+
+## 1.0.0-beta.4 (2020-07-07)
+### Breaking changes
+- `beginRecognizeReceipt` APIs now return a `RecognizedForm` model instead of a `RecognizedReceipt`.
+- Model and property renaming detailed in changelog
+
+### Key Bug Fixes
+- Fixed `textAngle` to be returned between `(-180, 180]`.
 
 
 ### New Management Libraries

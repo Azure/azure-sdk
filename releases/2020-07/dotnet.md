@@ -15,11 +15,13 @@ The Azure SDK team is pleased to announce our July 2020 client library releases.
 
 #### Updates
 
-- _Add packages_
+- App Configuration
 
 #### Preview
 
 - Event Hubs
+- Form Recognizer
+- Identity
 - Service Bus
 - Storage
 - Management Library - Compute
@@ -35,7 +37,13 @@ The Azure SDK team is pleased to announce our July 2020 client library releases.
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
 ```bash
+ $> dotnet add package Azure.AI.FormRecognizer --version 1.0.0-preview.4
+
  $> dotnet add package Azure.AI.TextAnalytics
+
+ $> dotnet add package Azure.Data.AppConfiguration
+
+ $> dotnet add package Azure.Identity --version 1.2.0-preview.5
 
  $> dotnet add package Azure.Messaging.EventHubs --version 5.2.0-preview.1
  $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.2.0-preview.1
@@ -67,6 +75,10 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
+### App Configuration [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/appconfiguration/Azure.Data.AppConfiguration/CHANGELOG.md#101-2020-07-07)
+
+- Update the tag list for the AzConfig package
+
 ### Core [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/CHANGELOG.md#130-2020-07-02)
 
 #### New features
@@ -81,6 +93,18 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 ### Event Hubs Processor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md)
 
 - The `EventProcessorClient` now supports configuring the `PrefetchCount`, `CacheEventCount`, and `LoadBalancingStrategy` for more control over performance tuning.
+
+### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#100-preview4-2020-07-07)
+
+#### Breaking Changes
+- `RecognizedReceipt` and `RecognizedReceiptsCollection` classes removed. Receipt field values must now be obtained from a `RecognizedForm`.
+- Model and property renamings detailed in the Changelog.
+
+### Identity [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/identity/Azure.Identity/CHANGELOG.md#120-preview5-2020-07-08)
+
+#### New Features
+- Added options classes `ClientCertificateCredentialOptions` and `ClientSecretCredentialOptions` which support the following new option
+    - `EnablePersistentCache` configures these credentials to use a persistent cache shared between credentials which set this option. By default the cache is per credential and in memory only.
 
 ### Search [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md#1100-2020-07-07)
 
