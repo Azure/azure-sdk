@@ -74,19 +74,15 @@ This is the first stable GA release of the Cognitive Search library.
 
 ### Event Hubs
 
-We have released two versions of the Event Hubs library this time: updates to the stable version, and a new preview version.
-
-Updates to last stable release
+We have released two versions of the Event Hubs library this time. An update to the stable version with bug fixes, and a preview version with new features.
 
 #### Key Bug Fixes
 
-- Improved the reliability of closing `EventHubConsumerClient` and `Subscriptions`.
-
-New preview version
+- The update to the stable version i.e version 5.2.2 has improved the application reliability when closing `EventHubConsumerClient` and `Subscriptions`.
 
 #### New Features
 
-- The `EventHubConsumerClient` now supports configuring `loadBalancingOptions` for more control over performance tuning while load balancing.
+- The preview version 5.3.0-preview.1 now supports configuring `loadBalancingOptions` when constructing the `EventHubConsumerClient` for more control over performance tuning while load balancing.
 
 ### Form Recognizer
 
