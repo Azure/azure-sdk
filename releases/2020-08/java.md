@@ -56,7 +56,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Fixed issue in query and change feed when recreating the collection with same name.
 - Fixed issue with top query throwing ClassCastException.
 - Fixed issue with order by query throwing NullPointerException.
-- Fixed `Operator called default onErrorDropped` when stream got cancelled.
+- Fixed issue in handling of cancelled requests in direct mode causing reactor `onErrorDropped` being called. 
   
 ## Need help
 
