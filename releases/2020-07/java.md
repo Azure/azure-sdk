@@ -268,8 +268,8 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Add `ServiceBusDeadLetterReceiverClientBuilder` to receive messages from dead-letter queue.
 - Add support to send message via another entity.
 
-### Azure Serach [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/search/azure-search-documents/CHANGELOG.md#1100-2020-07-13)
-- Changed version to 11.0.0.
+### Azure Search [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/search/azure-search-documents/CHANGELOG.md#1100-2020-07-13)
+- Changed to GA version 11.0.0.
 - Removed preview version `SearchClientOptions.ServiceVersion.V2019_05_06_Preview` and added version `SearchClientOptions.ServiceVersion.V2020_06_30`.
 
 #### New Features
