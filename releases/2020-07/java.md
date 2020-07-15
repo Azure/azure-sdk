@@ -10,7 +10,7 @@ The Azure SDK team is pleased to announce our July 2020 client library releases.
 
 #### GA
 
-- _Add packages_
+- Azure Search
 
 #### Updates
 
@@ -57,7 +57,6 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <artifactId>azure-ai-textanalytics</artifactId>
   <version>1.0.1</version>
 </dependency>
-</dependency>
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-core</artifactId>
@@ -97,6 +96,11 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-data-appconfiguration</artifactId>
   <version>1.1.3</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-search-documents</artifactId>
+  <version>11.0.0</version>
 </dependency>
 <dependency>
   <groupId>com.azure</groupId>
@@ -220,14 +224,14 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Azure Cosmos ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-cosmos/CHANGELOG.md#420-2020-07-14))
 
-## 4.2.0 (2020-07-14)
+#### 4.2.0 (2020-07-14)
 
-### New Features
+#### New Features
 
 - Added script logging enabled API to `CosmosStoredProcedureRequestOptions`.
 - Updated `DirectConnectionConfig` default `idleEndpointTimeout` to 1h and default `connectTimeout` to 5s.
 
-### Key Bug Fixes
+#### Key Bug Fixes
 
 - Fixed issue where `GatewayConnectionConfig` `idleConnectionTimeout` was overriding `DirectConnectionConfig` `idleConnectionTimeout`.
 - Fixed `responseContinuationTokenLimitInKb` get and set APIs in `CosmosQueryRequestOptions`.
@@ -238,15 +242,15 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Azure Cosmos ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-cosmos/CHANGELOG.md#410-2020-06-25))
 
-## 4.1.0 (2020-06-25)
+#### 4.1.0 (2020-06-25)
 
-### New Features
+#### New Features
 
 - Added support for `GROUP BY` query.
 - Increased the default value of maxConnectionsPerEndpoint to 130 in DirectConnectionConfig.
 - Increased the default value of maxRequestsPerConnection to 30 in DirectConnectionConfig.
 
-### Key Bug Fixes
+#### Key Bug Fixes
 
 - Fixed issues with order by query returning duplicate results when resuming by using continuation token.
 - Fixed issues with value query returning null values for nested object.
@@ -263,6 +267,24 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### New Features
 - Add `ServiceBusDeadLetterReceiverClientBuilder` to receive messages from dead-letter queue.
 - Add support to send message via another entity.
+
+### Azure Search [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/search/azure-search-documents/CHANGELOG.md#1100-2020-07-13)
+- Changed to GA version 11.0.0.
+- Removed preview version `SearchClientOptions.ServiceVersion.V2019_05_06_Preview` and added version `SearchClientOptions.ServiceVersion.V2020_06_30`.
+
+#### New Features
+
+- Added `IndexDocumentsOptions` used to configure document operations.
+
+#### Breaking Changes
+
+- Moved search result metadata to `SearchPagedFlux` and `SearchPagedIterable` from `SearchPagedResponse`.
+- Changed many model classes from fluent setter pattern to immutable constructor pattern.
+- Removed `RequestOptions` from APIs, instead use pipeline context to pass per method contextual information.
+- Removed strongly type GeoJSON classes.
+
+#### Bug Fixes
+- Removed `implementation` classes from APIs.
 
 ### Azure Schema Registry ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/schemaregistry/azure-data-schemaregistry/CHANGELOG.md#100-beta2-2020-06-19))
 
