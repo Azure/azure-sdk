@@ -91,7 +91,7 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-cosmos</artifactId>
-  <version>4.1.0</version>
+  <version>4.2.0</version>
 </dependency>
 <dependency>
   <groupId>com.azure</groupId>
@@ -217,6 +217,24 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Added `JsonSerializer` interface containing JSON specific serializer APIs.
 - Added `JsonNode`, and subclasses, which are strongly type representations of a JSON tree.
 - Added `GeoJSON` classes and serializers.
+
+### Azure Cosmos ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-cosmos/CHANGELOG.md#420-2020-07-14))
+
+## 4.2.0 (2020-07-14)
+
+### New Features
+
+- Added script logging enabled API to `CosmosStoredProcedureRequestOptions`.
+- Updated `DirectConnectionConfig` default `idleEndpointTimeout` to 1h and default `connectTimeout` to 5s.
+
+### Key Bug Fixes
+
+- Fixed issue where `GatewayConnectionConfig` `idleConnectionTimeout` was overriding `DirectConnectionConfig` `idleConnectionTimeout`.
+- Fixed `responseContinuationTokenLimitInKb` get and set APIs in `CosmosQueryRequestOptions`.
+- Fixed issue in query and change feed when recreating the collection with same name.
+- Fixed issue with top query throwing ClassCastException.
+- Fixed issue with order by query throwing NullPointerException.
+- Fixed issue in handling of cancelled requests in direct mode causing reactor `onErrorDropped` being called. 
 
 ### Azure Cosmos ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-cosmos/CHANGELOG.md#410-2020-06-25))
 
