@@ -21,6 +21,7 @@ The Azure SDK team is pleased to announce our July 2020 client library releases.
 - Core - Http Netty
 - Core - Http OkHttp
 - Core - Test
+- KeyVault (Certificates, Keys, Secrets)
 - Text Analytics
 
 #### Preview
@@ -186,6 +187,21 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-monitor</artifactId>
   <version>2.0.0</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-certificates</artifactId>
+  <version>4.0.5</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-keys</artifactId>
+  <version>4.1.5</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-secrets</artifactId>
+  <version>4.1.5</version>
 </dependency>
 ```
 
