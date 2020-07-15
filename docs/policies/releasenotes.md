@@ -30,11 +30,12 @@ The release notes consist of four sections:
 
 We don't want to advertise every single bug fix as most of them do not impact the way customers think about developing the client.  The change log provides an exhaustive list of changes.  We don't need to duplicate it.
 
-A critical change is one that the developer would either need to know or want to know.
+However, in the release notes we do want to list critical changes for customers. A critical change is one that the developer would either need to know or want to know. Use the following section headers (*Security Fixes, Breaking Changes, New Featues, and Key Bug Fixes*) for the defined critical changes:
 
-* Security fixes, no matter how small.
-* Changes to the API.
-* Behavioral changes
+* *Security Fixes* - Any security fix, no matter how small
+* *Breaking Changes* - Changes to an existing API or changes to the behavior of an existing API
+* *New Features* - Adding a new API or feature
+* *Key Bug Fixes* - Major bug fixes that require a customer to do something, bug fixes that come from multiple up-votes in github or that are motivated by customer feedback
 
 For example, "fixed a bug in which the event processor would stop working if you received no events for 30 minutes" does not qualify.  The customer does not need to do anything, and it's fairly likely they have not bumped into this error.  However, "Added a new overload to the constructor to support AzureAD credentials" would definitely be a good thing to include.
 
@@ -48,6 +49,17 @@ You can either leave the library out of the release notes, or add a note such as
 
 The release manager will produce the point-in-time snapshot of the versions and ensure the release notes use the snapshot to generate the quick links tables.
 
-## Who publishes the release notes?
+## Who publishes the release notes and when are they published?
 
-The release manager will merge and publish the release notes.
+* For all on-time releases, the release manager will merge and publish the release notes in the current month's on-time release folder. 
+* For all out-of-band releases, the release notes in the following month's on-time release folder. 
+
+Release notes will locked for GA and preview libraries after the blog publication date (1 week following release date). (Note: all changelogs should be done on release day)
+
+## What do I need to do for an out-of-band release?
+
+The release manager will merge and publish the release notes in the following month's on-time release folder.
+
+You may optionally provide social media outreach for out-of-band releases.  Contact the _Community Engagement Manager_ for details on this at least 7 working days prior to the release.
+
+

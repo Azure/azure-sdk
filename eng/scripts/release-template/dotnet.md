@@ -1,13 +1,12 @@
 ---
-title: Azure SDK for .NET (%%MONTH%% %%YEAR%%)
+title: Azure SDK for .NET (%%MMMM yyyy%%)
 layout: post
-date: %%RELEASEDATE%%
 tags: dotnet
 sidebar: releases_sidebar
 repository: azure/azure-sdk-for-net
 ---
 
-The Azure SDK team is pleased to announce our {{ page.date | date: "%B %Y" }} client library releases.
+The Azure SDK team is pleased to announce our %%MMMM yyyy%% client library releases.
 
 #### GA
 
@@ -37,7 +36,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
-### _Package name_ [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/LINK/CHANGELOG.md)
+### _Package name_ 
 
 - Major changes only!!!
 

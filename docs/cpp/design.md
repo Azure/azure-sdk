@@ -150,9 +150,31 @@ typedef struct IotClient {
 
 {% include requirement/MUST id="cpp-design-naming-variables-public-global" %} name namespace scope variables intended for user consumption with **PascalCase**.
 
-{% include requirement/MUST id="cpp-design-naming-variables-public-global" %} name namespace scope variables intended only for internal consumption with a `g_` prefix followed by **camelCase**. For example, `g_applicationContext`. Note that all such cases will be in a `Details` namespace or an unnamed namespace.
+{% include requirement/MUST id="cpp-design-naming-variables-constants" %} name namespace scope `const` or `constexpr` variables intended for user consumption with **PascalCase** and a `c_` prefix.
+
+{% include requirement/MUST id="cpp-design-naming-variables-public-global" %} name namespace scope non-constant variables intended only for internal consumption with a `g_` prefix followed by **camelCase**. For example, `g_applicationContext`. Note that all such cases will be in a `Details` namespace or an unnamed namespace.
 
 {% include requirement/MUST id="cpp-design-naming-variables-local" %} name local variables and parameters with **camelCase**.
+
+{% highlight cpp %}
+// Examples of the above naming rules:
+
+namespace Azure { namespace Group { namespace Service {
+int PublicNamespaceScopeVariable; // these should be used sparingly
+const int c_PublicNamespaceScopeConstant = 42;
+constexpr int c_OtherPublicNamespaceScopeConstant = 42;
+constexpr char * c_PublicNamespaceScopeConstantPointer = nullptr; // const pointer to modifiable
+
+void Function(int parameterName) {
+    int localName;
+}
+
+namespace Details {
+    extern int g_internalUseGlobal;
+} // namespace Details
+
+}}} // namespace Azure::Group::Service
+{% endhighlight %}
 
 {% include requirement/MUST id="cpp-design-naming-variables-typing-units" %} use types to enforce units where possible. For example, the C++ standard library provides `std::chrono` which makes time conversions automatic.
 {% highlight cpp %}
@@ -383,6 +405,48 @@ struct Foo {
 {% endhighlight %}
 
 {% include requirement/MUSTNOT id="cpp-design-logical-enumsareinternal" %} use enums to model any data sent to the service. Use enums only for types completely internal to the client library. For example, an enum to disable Nagle's algorithm would be OK, but an enum to ask the service to create a particular entity kind is not.
+
+### Const and Reference members
+
+{% include requirement/MUSTNOT id="cpp-design-logical-no-const-or-reference-members" %} declare types with const or reference members. Const and reference members artificially make your types non-Regular as they aren't assignable, and have surprising interactions with C++ Core language rules. For example, many accesses to const or reference members would need to involve use of `std::launder` to avoid undefined behavior, but `std::launder` was added in C++17, a later version than the SDKs currently target. See C++ Core Working Group [CWG1116 "Aliasing of union members"](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#1116), [CWG1776 "Replacement of class objects containing reference members"](http://www.open-std.org/jtc1/sc22/wg21/docs/cwg_defects.html#1776), and [P0137R1 "Replacement of class objects containing reference members"](http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2016/p0137r1.html) for additional details.
+
+If you want a type to provide effectively const data except assignment, declare all your member functions const. Const member functions only get a const view of the class' data.
+
+{% highlight cpp %}
+// Bad
+class RetrySettings {
+    const int m_maxRetryCount;
+public:
+    int GetMaxRetryCount() {
+        // intent: disallow m_maxRetryCount = aDifferentValue;
+        return m_maxRetryCount;
+    }
+};
+
+// Good
+class RetrySettings {
+    int m_maxRetryCount;
+public:
+    int GetMaxRetryCount() const {
+        // still prohibits m_maxRetryCount = aDifferentValue; without making RetrySettings un-assignable
+        return m_maxRetryCount;
+    }
+};
+{% endhighlight %}
+
+### Integer sizes
+
+The following integer rules are listed in rough priority order. Integer size selections are primarily driven by service future compatibility. For example, just because today a service might have a 2 GiB file size limit does not mean that it will have such a limit forever. We believe 64 bit length limits will be sufficient for sizes an individual program works with for the foreseeable future.
+
+{% include requirement/MUST id="cpp-design-logical-integer-files" %} Represent file sizes with `int64_t`, even on 32 bit platforms.
+
+{% include requirement/MUST id="cpp-design-logical-integer-memory-buffers" %} Represent memory buffer sizes with `size_t` or `ptrdiff_t` as appropriate for the environment. Between the two, choose the type likely to need the fewest conversions in application. For example, we would prefer signed `ptrdiff_t` in most cases because signed integers behave like programmers expect more consistently, but the SDK will need to transact with `malloc`, `std::vector`, and/or `std::string` which all speak unsigned `size_t`.
+
+{% include requirement/MUST id="cpp-design-logical-integer-service-values" %} Represent any other integral quantity passed over the wire to a service using `int64_t`, even if the service uses a 32 bit constant internally today.
+
+{% include requirement/MUSTNOT id="cpp-design-logical-integer-not-int" %} Use `int` under any circumstances, including `for` loop indexes. Those should usually use `ptrdiff_t` or `size_t` under the buffer size rule above.
+
+{% include requirement/MAY id="cpp-design-logical-integer-otherwise" %} Use any integer type in the `intN_t` or `uintN_t` family as appropriate for quantities not enumerated above, such as calculated values internal to the SDK such as retry counts.
 
 ### Secure functions
 

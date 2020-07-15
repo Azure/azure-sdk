@@ -1,7 +1,6 @@
 ---
-title: Azure SDK (%%MONTH%% %%YEAR%%)
+title: Azure SDK (July 2020)
 layout: post
-date: %%RELEASEDATE%%
 tags: release
 sidebar: releases_sidebar
 ---

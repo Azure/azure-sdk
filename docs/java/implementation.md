@@ -133,19 +133,15 @@ In the case of a higher-level method that produces multiple HTTP requests, eithe
 {% include requirement/MUST id="java-errors-exception-tree" %} use the existing exception types present in the Azure core library for service request failures. Avoid creating new exception types. The following list outlines all available exception types (with indentation indicating exception type hierarchy):
 
 - `AzureException`: Never use directly. Throw a more specific subtype.
-  - `ServiceRequestException`: Thrown for an invalid response with custom error information.
-    - `ReadTimeoutException`: Thrown when the server didn't send any data in the allotted amount of time.
-    - `ConnectException`: Thrown by the pipeline if a connection to a service fails or is refused remotely.
-    - `HttpRequestException`: Thrown when an unsuccessful response (4xx, 5xx) is returned from the service.
-      - `ServerException`: Thrown when there's a server error with status code of 5XX.
-      - `TooManyRedirectsException`: Thrown when an HTTP request has reached the maximum number of redirect attempts.
-      - `ClientRequestException`: Thrown when there's an invalid client request with status code of 4XX.
-        - `ClientAuthenticationException`: Thrown when there's a failure to authenticate against the service.
-        - `ResourceExistsException`: Thrown when an HTTP request tried to create an already existing resource.
-        - `ResourceModifiedException`: Thrown for invalid resource modification with status code of 4XX, typically 412 Conflict.
-        - `ResourceNotFoundException`: Thrown when a resource is not found, typically triggered by a 412 response (for PUT) or 404 (for GET/POST).
-  - `ServiceResponseException`: Thrown when the request was sent to the service, but the client library wasn't able to understand the response.
+  - `HttpResponseException`: Thrown when an unsuccessful response is received with http status code (e.g. 3XX, 4XX, 5XX) from the service request.
+    - `ClientAuthenticationException`: Thrown when there's a failure to authenticate against the service.
     - `DecodeException`: Thrown when there's an error during response deserialization.
+    - `ResourceExistsException`: Thrown when an HTTP request tried to create an already existing resource.
+    - `ResourceModifiedException`: Thrown for invalid resource modification with status code of 4XX, typically 412 Conflict.
+    - `ResourceNotFoundException`: Thrown when a resource is not found, typically triggered by a 412 response (for PUT) or 404 (for GET/POST).
+    - `TooManyRedirectsException`: Thrown when an HTTP request has reached the maximum number of redirect attempts.
+  - `ServiceResponseException`: Thrown when the request was sent to the service, but the client library wasn't able to understand the response.
+  - `ServiceRequestException`: Thrown for an invalid response with custom error information.
 
 ## Logging
 
@@ -153,7 +149,7 @@ Client libraries must support robust logging mechanisms so that the consumer can
 
 {% include requirement/MUST id="java-logging-clientlogger" %} use the `ClientLogger` API provided within Azure Core as the sole logging API throughout all client libraries. Internally, `ClientLogger` wraps [SLF4J], so all external configuration that is offered through SLF4J is valid.  We encourage you to expose the SLF4J configuration to end users. For more information, see the [SLF4J user manual].
 
-{% include requirement/MUST id="java-logging-new-clientlogger" %} create a new instance of a `ClientLogger` per instance of all relevant classes. For example, the code below will create a `ClientLogger` instance for the `ConfigurationAsyncClient`:
+{% include requirement/MUST id="java-logging-new-clientlogger" %} create a new instance of a `ClientLogger` per instance of all relevant classes, except in situations where performance is critical, the instances are short-lived (and therefore the cost of unique loggers is excessive), or in static-only classes (where there is no instantiation of the class allowed). In these cases, it is acceptable to have a shared (or static) logger instance. For example, the code below will create a `ClientLogger` instance for the `ConfigurationAsyncClient`:
 
 ```java
 public final class ConfigurationAsyncClient {
@@ -170,7 +166,7 @@ public final class ConfigurationAsyncClient {
 }
 ```
 
-Don't create static logger instances. Static logger instances are shared among all client library instances running in a JVM instance.
+Note that static loggers are shared among all client library instances running in a JVM instance. Static loggers should be used carefully and in short-lived cases only.
 
 {% include requirement/MUST id="java-logging-levels" %} use one of the following log levels when emitting logs: `Verbose` (details), `Informational` (things happened), `Warning` (might be a problem or not), and `Error`.
 
@@ -288,11 +284,11 @@ dependency.
 
 {% include_relative approved_dependencies.md %}
 
-Dependency versions are purposefully not specified in this table. The definitive source for the dependency versions being used in all client libraries is the [azure-sdk-for-java/parent/pom.xml] file. Transitive dependencies of these libraries, or dependencies that are part of a family of dependencies, are allowed.  For example, `reactor-netty` is a child project of `reactor`.
+Dependency versions are purposefully not specified in this table. The definitive source for the dependency versions being used in all client libraries is [published in a separate document that is generated from the azure-sdk-for-java code repository](https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-java/staging/dependency-whitelist.html). Transitive dependencies of these libraries, or dependencies that are part of a family of dependencies, are allowed.  For example, `reactor-netty` is a child project of `reactor`.
 
 {% include requirement/MUSTNOT id="java-dependencies-archboard" %} introduce new dependencies on third-party libraries that are already referenced from the parent POM, without first discussing with the Architecture Board].
 
-{% include requirement/MUSTNOT id="java-dependencies-versions" %} specify or change dependency versions in your client library POM file. All dependency versioning must be centralized through the common parent POM.
+{% include requirement/MUSTNOT id="java-dependencies-versions" %} specify or change dependency versions in your client library POM file. All dependency versioning must be [centralized through existing tooling](https://github.com/Azure/azure-sdk-for-java/blob/master/CONTRIBUTING.md#versions-and-versioning).
 
 {% include requirement/MUSTNOT id="java-dependencies-snapshot" %} include dependencies on external libraries that are -SNAPSHOT versions. All dependencies must be released versions.
 
@@ -326,6 +322,8 @@ Let's take two examples:
 One of the key things we want to support is to allow consumers of the library to easily write repeatable unit-tests for their applications without activating a service. This allows them to reliable and quickly test their code without worrying about the vagaries of the underlying service implementation (including, for example, network conditions or service outages). Mocking is also helpful to simulate failures, edge cases, and hard to reproduce situations (for example: does code work on February 29th).
 
 {% include requirement/MUST id="java-testing-mocking" %} support mocking of network operations.
+
+{% include requirement/MUST id="java-testing-params" %} parameterize all applicable unit tests to make use of all available HTTP clients and service versions. Parameterized runs of all tests must occur as part of live tests. Shorter runs, consisting of just Netty and the latest service version, can be run whenever PR validation occurs.
 
 {% include refs.md %}
 {% include_relative refs.md %}
