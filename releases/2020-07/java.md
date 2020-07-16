@@ -28,6 +28,7 @@ The Azure SDK team is pleased to announce our July 2020 client library releases.
 
 - Core - Experimental
 - Form Recognizer
+- KeyVault (Certificates, Keys, Secrets)
 - Management Library - AppService
 - Management Library - Authorization
 - Management Library - Compute
@@ -195,13 +196,28 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 </dependency>
 <dependency>
   <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-certificates</artifactId>
+  <version>4.1.0-beta.4</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
   <artifactId>azure-security-keyvault-keys</artifactId>
   <version>4.1.5</version>
 </dependency>
 <dependency>
   <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-keys</artifactId>
+  <version>4.2.0-beta.5</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
   <artifactId>azure-security-keyvault-secrets</artifactId>
   <version>4.1.5</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-secrets</artifactId>
+  <version>4.2.0-beta.4</version>
 </dependency>
 ```
 
