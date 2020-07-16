@@ -282,22 +282,12 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Fixed issues with value query returning null values for nested object.
 - Fixed null pointer exception on request manager in RntbdClientChannelPool.
 
-### Azure Identity ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/release/identity-service/sdk/identity/azure-identity/CHANGELOG.md#108-2020-07-06)
-
-#### 1.0.8 (2020-07-06)
-
-- Upgraded azure-core dependency to 1.6.0
-
-
-### Azure Identity Beta ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/identity/azure-identity/CHANGELOG.md#110-beta6-2020-07-10)
+### Azure Identity ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/identity/azure-identity/CHANGELOG.md#110-beta6-2020-07-10)
 
 #### 1.1.0-beta.6 (2020-07-10)
 
 - Added .getCredentials() method to DefaultAzureCredential and ChainedTokenCredential and added option .addAll(Collection<? extends TokenCredential>) on ChainedtokenCredentialBuilder.
 - Added logging information in credentials and improved error messages in DefaultAzureCredential.
-
-
-
 
 ### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md#700-beta4-2020-07-10)
 
