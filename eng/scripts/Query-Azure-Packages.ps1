@@ -18,7 +18,7 @@ function Query-dotnet-Packages
   # Rest API docs
   # https://docs.microsoft.com/en-us/nuget/api/search-query-service-resource
   # https://docs.microsoft.com/en-us/nuget/consume-packages/finding-and-choosing-packages#search-syntax
-  $nugetQuery = Invoke-RestMethod "https://azuresearch-usnc.nuget.org/query?q=owner:azure-sdk&take=1000"
+  $nugetQuery = Invoke-RestMethod "https://azuresearch-usnc.nuget.org/query?q=owner:azure-sdk&prerelease=true&semVerLevel=2.0.0&take=1000"
 
   Write-Host "Found $($nugetQuery.totalHits) nuget packages"
   $packages = $nugetQuery.data | Foreach-Object { [pscustomobject]@{ DisplayName = $_.id; Package = $_.id; Version = $_.version } }
@@ -52,7 +52,7 @@ function Query-python-Packages
   $pythonQuery = "import xmlrpc.client; [print(pkg[1]) for pkg in xmlrpc.client.ServerProxy('https://pypi.org/pypi').user_packages('azure-sdk')]"
   $pythonPackagesNames = (python -c "$pythonQuery")
 
-  $pythonPackages = $pythonPackagesNames | Foreach-Object { (Invoke-RestMethod "https://pypi.org/pypi/$_/json").info }
+  $pythonPackages = $pythonPackagesNames | Foreach-Object { try { (Invoke-RestMethod "https://pypi.org/pypi/$_/json").info } catch { } }
 
   Write-Host "Found $($pythonPackages.Count) python packages"
   $packages = $pythonPackages | Foreach-Object { [pscustomobject]@{ DisplayName = $_.name; Package = $_.name; Version = $_.version } }

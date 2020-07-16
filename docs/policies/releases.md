@@ -24,7 +24,9 @@ We recommend that you use a package manager that supports these registries.
 
 ## Git Tagging
 
-Each language repository contains multiple packages inside of it. Releases for each package are tagged in the format `<package-name>_<package-version>`.
+For language repositories which contain multiple packages, releases for each package are tagged in the format `<package-name>_<package-version>`.
+
+For language repositories where the repo is shipped as a single source unit, releases for the entire repo are tagged in the format `<repo-name>_<release-version>`. For example: `azure-sdk-for-c_1.0.0-preview.1`
 
 ## GitHub Releases
 
@@ -113,7 +115,7 @@ In addition to standard SemVer, the team occasionally releases a preview of a pa
 
 Immediately after a package ships the source definition of the package version should be incremented in source control. It's safer to have `N+1` in `master` than `N`. Package increment after release happens automatically as part of the release pipelines.
 
-**Preview Release:** Increment the preview number on the package (e.g. `1.0.0-preview.1` -> `1.0.0-preview.2`) appropriate to the versioning scheme for the language (see blow for language-specific version formatting). Breaking changes are allowed between preview builds.
+**Preview Release:** Increment the preview number on the package (e.g. `1.0.0-preview.1` -> `1.0.0-preview.2`) appropriate to the versioning scheme for the language (see below for language-specific version formatting). Breaking changes are allowed between preview builds.
 
 **GA Release:** Some languages bump the minor and others bump the patch version please see specific guidelines below based on your language. Breaking changes (which might increment the major version number) are *not* allowed after a GA release without an exception and review by the architecture board.
 
