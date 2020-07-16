@@ -20,6 +20,7 @@ The Azure SDK team is pleased to make available the July 2020 client library rel
 
 #### Preview
 
+- Storage
 - Azure Event Hubs
 - Azure Cognitive Form Recognizer
 - Azure Service Bus
@@ -29,6 +30,11 @@ The Azure SDK team is pleased to make available the July 2020 client library rel
 To install the packages, copy and paste the below into a terminal.
 
 ```bash
+$> npm install @azure/storage-blob
+$> npm install @azure/storage-blob-changfeed
+$> npm install @azure/storage-file-datalake
+$> npm install @azure/storage-file-share
+$> npm install @azure/storage-queue
 $> npm install @azure/app-configuration
 $> npm install @azure/search-documents
 $> npm install @azure/ai-form-recognizer
@@ -53,6 +59,31 @@ If you have a bug or feature request for one of the libraries, please post an is
 ## Changelog
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
+
+### Storage
+
+#### Blob [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/CHANGELOG.md)
+
+##### New Features
+- Added support for Blob Tags, Blob Versioning, Quick Query, Jumbo Blobs, and more
+- Added convenience method `createIfNotExists` for `ContainerClient`, `AppendBlobClient`, and `PageBlobClient`
+- Added convenience method `deleteIfExists` for `ContainerClient` and `BlobClients`
+
+#### Blob ChangeFeed [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob-changefeed/CHANGELOG.md)
+
+##### New Features
+- Added a preview version of this library to support change feed
+
+#### File DataLake [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/CHANGELOG.md)
+
+##### New Features
+- Block size is increased to 4 GB max
+- Added more mapping for Blob and DFS endpoints
+
+#### File Share [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/CHANGELOG.md)
+
+##### New Features
+- Supports 4 TB files
 
 ### Search ([CHANGELOG](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/CHANGELOG.md#1100-2020-07-06))
 

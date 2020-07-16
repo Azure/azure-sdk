@@ -42,6 +42,10 @@ The Azure SDK team is pleased to announce our July 2020 client library releases.
 - Management Library - Storage
 - Schema Registry
 - Schema Registry - Avro-Specific
+- Storage - Blob
+- Storage - Blob ChangeFeed
+- Storage - File DataLake
+- Storage - File Share
 - Service Bus
 
 ## Installation Instructions
@@ -201,6 +205,33 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 </dependency>
 <dependency>
   <groupId>com.azure</groupId>
+  <artifactId>azure-data-schemaregistry</artifactId>
+  <version>1.0.0-beta.2</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-data-schemaregistry-avro</artifactId>
+  <version>1.0.0-beta.2</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-blob</artifactId>
+  <version>12.8.0-beta.1</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-blob-changefeed</artifactId>
+  <version>12.0.0-beta.1</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-file-datalake</artifactId>
+  <version>12.2.0-beta.1</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-file-share</artifactId>
+  <version>12.6.0-beta.1</version>
   <artifactId>azure-security-keyvault-certificates</artifactId>
   <version>4.0.5</version>
 </dependency>
@@ -351,6 +382,30 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - Fix null max schema map size parameter behavior
 
+### Storage
+
+#### Blob [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md)
+
+##### New Features
+- Added support for Blob Tags, Blob Versioning, Jumbo Blobs, and more
+
+#### Blob ChangeFeed [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-changefeed/CHANGELOG.md)
+
+##### New Features
+- Added a preview version of this library to support change feed
+
+#### File DataLake [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md)
+
+##### New Features
+- Added support to query a file
+- Added support to increase max size of data that can be sent via append
+
+#### File Share [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/CHANGELOG.md)
+
+##### New Features
+- Added support for restoring file share
+
+
 ### Form Recognizer ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#100-beta4-2020-07-07))
 
 ## 1.0.0-beta.4 (2020-07-07)
@@ -360,6 +415,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Key Bug Fixes
 - Fixed `textAngle` to be returned between `(-180, 180]`.
+
 
 ### New Management Libraries
 

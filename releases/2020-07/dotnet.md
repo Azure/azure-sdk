@@ -23,6 +23,7 @@ The Azure SDK team is pleased to announce our July 2020 client library releases.
 - Form Recognizer
 - Identity
 - Service Bus
+- Storage
 - Management Library - Compute
 - Management Library - Network
 - Management Library - Resources
@@ -48,6 +49,12 @@ To install any of our packages, please search for them via `Manage NuGet Package
  $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.2.0-preview.1
 
  $> dotnet add package Azure.Messaging.ServiceBus --version 7.0.0-preview.4
+
+ $> dotnet add package Azure.Storage.Blobs --version 12.5.0-preview.5
+ $> dotnet add package Azure.Storage.Blobs.ChangeFeed --version 12.5.0-preview.5
+ $> dotnet add package Azure.Storage.Files.DataLake --version 12.0.0-preview.1
+ $> dotnet add package Azure.Storage.Files.Shares --version 12.3.0-preview.1
+ $> dotnet add package Azure.Storage.Queues --version 12.4.0-preview.5
 
  $> dotnet add package Azure.Search.Documents
 
@@ -123,6 +130,40 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### New Features
 - Add IAsyncEnumerable Receive overload
 - Add batch schedule/cancel schedule messages
+
+### Storage
+
+#### Blobs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md)
+
+##### New Features
+- Added support for Blob Tags, Blob Versioning, Object Replication Service, Append Seal, and Jumbo Blobs
+- Added support for setting access tier on Blob Snapshots and Versions
+- Added RehydratePriority to BlobProperties and BlobItemProperties
+
+##### Key Bug Fixes
+- Fixed bug where `BlobBaseClient.DownloadTo()` was throwing an exception when downloading blobs of size 0
+- Fixed bug where all `BlobModelFactory.BlobProperties()` parameters were required
+- Fixed bug where `BlobBaseClient.BlobName` was encoded, affecting SAS generation
+- Fixed bug where AccountType enum was missing BlockBlobStorage and FileStorage
+
+#### Blobs ChangeFeed [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md)
+
+##### New Features
+- Added a preview version of this library to support change feed
+
+#### Files DataLake [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md)
+
+##### New Features
+- Added support for Jumbo Files
+
+#### Files Shares [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md)
+
+##### New Features
+- Added support for Large Files and File Soft Delete
+
+##### Key Bug Fixes
+- Fixed bug where ShareDirectoryClient and ShareFileClient.Name and .Path were sometimes URL-encoded
+- Fixed bug where ShareClient.WithSnapshot(), ShareDirectoryClient.WithSnapshot(), and ShareFileClient.WithSnapshot() were not functioning correctly
 
 ### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#101-2020-06-23)
 
