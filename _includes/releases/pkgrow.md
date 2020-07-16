@@ -21,13 +21,13 @@
     {% endif %}
 
     {% if item.VersionGA != "" %}
-        {% assign url = msdocs_url | replace: 'item.Version', item.VersionGA | remove: 'item.PreSuffix' %}
+        {% assign url = msdocs_url | replace: 'item.Version', item.VersionGA %}
         {% include releases/pkgbadge.md label="msdocs" url=url version=item.VersionGA %}
     {% endif %}
 
     {% if item.VersionPreview != "" %}
         {% assign pre_suffix = '-pre' | append: msdocs_preview_moniker_suffix %}
-        {% assign url = msdocs_url | replace: 'item.Version', item.VersionPreview | replace: 'item.PreSuffix', pre_suffix %}
+        {% assign url = msdocs_url | replace: 'item.Version', item.VersionPreview | append: pre_suffix %}
         {% include releases/pkgbadge.md label="msdocs" preview="true" url=url version=item.VersionPreview %}
     {% endif %}
   </td>
