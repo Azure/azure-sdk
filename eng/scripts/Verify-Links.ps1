@@ -95,7 +95,19 @@ function CheckLink ([System.Uri]$linkUri)
   }
   else {
     try {
-      $response = Invoke-WebRequest -Uri $linkUri
+      $headRequestSucceeded = $true
+      try {
+        # Attempt HEAD request first
+        $response = Invoke-WebRequest -Uri $linkUri -Method HEAD
+      }
+      catch {
+        $headRequestSucceeded = $false
+      }
+      if (!$headRequestSucceeded) {
+        # Attempt a GET request if the HEAD request failed.
+        $response = Invoke-WebRequest -Uri $linkUri -Method GET
+      }
+
       $statusCode = $response.StatusCode
       if ($statusCode -ne 200) {
         Write-Host "[$statusCode] while requesting $linkUri"
