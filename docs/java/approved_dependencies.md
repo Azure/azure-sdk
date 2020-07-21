@@ -7,5 +7,5 @@
 | [OkHttp](https://square.github.io/okhttp/)                       | HTTP client         | No                    | Used only in azure-core-http-okhttp.      |
 | [OpenTelemetry](https://opentelemetry.io/)                       | Telemetry library   | No                    | Used only in azure-core-tracing-opentelemetry. |
 | [Reactor](https://projectreactor.io)                             | Reactive library    | Yes                   |       |
-| [slf4j](https://slf4j.org)                                       | Logging framework   | No                    | Use the azure core `ClientLogger` API rather than `slf4j` directly. |
+| [slf4j](https://www.slf4j.org)                                   | Logging framework   | No                    | Use the azure core `ClientLogger` API rather than `slf4j` directly. |
 | [Apache Qpid Proton-J](https://github.com/apache/qpid-proton-j)  | AMQP messaging      | No                    | Used only in azure-core-amqp. |
