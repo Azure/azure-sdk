@@ -1,4 +1,4 @@
-# Lifetime management and tread-safety guarantees of Azure SDK clients
+# Lifetime management and thread-safety guarantees of Azure SDK clients
 
 When using Azure SDK client in high throughput applications it's important to know how to maximize the performance while keeping the code correct and bug-free. 
 
