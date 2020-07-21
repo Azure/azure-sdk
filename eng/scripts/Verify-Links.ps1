@@ -95,7 +95,7 @@ function CheckLink ([System.Uri]$linkUri)
   }
   else {
     try {
-      $response = Invoke-WebRequest -Uri $linkUri
+      $response = Invoke-WebRequest -Uri $linkUri -Method HEAD
       $statusCode = $response.StatusCode
       if ($statusCode -ne 200) {
         Write-Host "[$statusCode] while requesting $linkUri"
