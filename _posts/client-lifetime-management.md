@@ -6,7 +6,7 @@ The main rule of Azure SDK client lifetime management is: **treat clients as sin
 
 There is no need to keep more that than one instance of a client for a given set of constructor parameters or client options. This can be implemented in many ways: creating an instance once and passing it around as a parameter, storing instance in a field, or registering it as a singleton in a dependency injection container of your choice.
 
-Bad:
+Bad (extra allocations and initialization):
 ``` C#
 foreach (var secretName in secretNames)
 {
@@ -31,19 +31,22 @@ foreach (var secretName in secretNames)
 Also good:
 
 ``` C#
-public class SecretConfigurationSource
+public class Program
 {
-    private readonly SecretClient _client;
+    internal static SecretClient Client;
 
-    public SecretConfigurationSource()
+    public static void Main()
     {
-        _client = new SecretClient(new Uri("<secrets_endpoint>"), new DefaultAzureCredential());
+        Client = new SecretClient(new Uri("<secrets_endpoint>"), new DefaultAzureCredential());
     }
+}
 
-    public string GetConfigurationValue(string settingName)
+public class OtherClass
+{
+    public string DoWork()
     {
-        KeyVaultSecret secret = _client.GetSecret(settingName);
-        return secret.Value;
+        KeyVaultSecret secret = Program.Client.GetSecret(settingName);
+        Console.WriteLine(secret.Value);
     }
 }
 ```
