@@ -158,4 +158,4 @@ httpClient.Dispose();
 
 # Using ASP.NET Core
 
-If you are using Azure SDK clients in an ASP.NET Core application, client lifetime management can be simplified with the Microsoft.Extensions.Azure package that provides seamless integration of Azure clients with the ASP.NET Core dependency injection and configuration systems.  See the [Best practices for using Azure SDK with ASP.NET Core](https://devblogs.microsoft.com/azure-sdk/best-practices-for-using-azure-sdk-with-asp-net-core/) blog post for details.
+If you are using Azure SDK clients in an ASP.NET Core application, client lifetime management can be simplified with the Microsoft.Extensions.Azure package that provides seamless integration of Azure clients with the ASP.NET Core dependency injection and configuration systems.  See the [Best practices for using Azure SDK with ASP.NET Core](https://devblogs.microsoft.com/azure-sdk/best-practices-for-using-azure-sdk-with-asp-net-core/) blog post or [Microsoft.Extensions.Azure package readme](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Microsoft.Extensions.Azure/README.md) for details.
