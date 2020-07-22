@@ -1,6 +1,8 @@
 # Lifetime management and thread-safety guarantees of Azure SDK clients
 
-When using Azure SDK client libraries in high throughput applications, it's important to know how to maximize performance while keeping the code correct and bug-free. 
+When using Azure SDK client libraries in high throughput applications, it's important to know how to maximize performance and avoid extra allocations while prevent bugs that could be introduced by accessing data from multiple threads. This article covers the best practices of using clients and models efficiently.
+
+# Client lifetime
 
 The main rule of Azure SDK client lifetime management is: **treat clients as singletons.**
 
@@ -51,8 +53,7 @@ public class OtherClass
 }
 ```
 
-# Thread-safe
-
+# Thread-safety
 
 ## Clients are thread-safe 
 
@@ -111,7 +112,7 @@ client.UpdateSecretProperties(newSecret.Properties);
 ```
 
 
-# Immutable after creation
+# Clients immutability
 
 Clients are immutable after being created which also makes them safe to share and reuse safely ([guideline](https://azure.github.io/azure-sdk/general_implementation.html#general-config-behaviour-changes)).  This means that after the client is constructed, you cannot change the endpoint it connects to, the credential, and other values passed via the client options.
 
@@ -133,15 +134,19 @@ secretClientOptions.Retry.Delay = TimeSpan.FromSeconds(100);
 
 **NOTE:** important exception from this rule are credential type implementations that are required to support rolling the key after the client was created ([guideline](azure.github.io/azure-sdk/dotnet_introduction.html#dotnet-auth-rolling-credentials)). Examples of such types include [AzureKeyCredential](https://docs.microsoft.com/en-us/dotnet/api/azure.azurekeycredential.update?view=azure-dotnet#Azure_AzureKeyCredential_Update_System_String_), [StorageSharedKeyCredential](https://docs.microsoft.com/en-us/dotnet/api/azure.storage.storagesharedkeycredential.setaccountkey?view=azure-dotnet#Azure_Storage_StorageSharedKeyCredential_SetAccountKey_System_String_). This feature is to enable long-running application while using limited-time keys that need to be rolled periodically without requiring application restart or client re-creation.
 
-# Why clients are not disposable
+# Clients are not disposable
 
-One question that comes up often is why aren't HTTP-based Azure clients implementing `IDisposable` while internally using an `HttpClient` that is disposable?  All Azure SDK clients, by default, use a single shared `HttpClient` instance and don't create any other resources that need to be actively freed.
+## Shared HttpClient is used by default
+
+One question that comes up often is why aren't HTTP-based Azure clients implementing `IDisposable` while internally using an `HttpClient` that is disposable?  All Azure SDK clients, by default, use a single shared `HttpClient` instance and don't create any other resources that need to be actively freed. The shared client instance is persisted thoughout the entire application lifetime.
 
 ``` C#
 // Both clients reuse the shared HttpClient and don't need to be disposed
 var blobClient = new BlobClient(new Uri(sasUri));
 var blobClient2 = new BlobClient(new Uri(sasUri2));
 ```
+
+## Customer provided HttpClient instances have to be explicitly disposed 
 
 If you provide a custom instance of `HttpClient` to an Azure client, you become responsible for managing the `HttpClient` lifetime and disposing it at the right time.  We recommend [following `HttpClient` best practices](https://docs.microsoft.com/en-us/dotnet/api/system.net.http.httpclient?view=netcore-3.1#remarks) when customizing the transport.
 
