@@ -6,7 +6,7 @@ The main rule of Azure SDK client lifetime management is: **treat clients as sin
 
 There is no need to keep more that than one instance of a client for a given set of constructor parameters or client options. This can be implemented in many ways: creating an instance once and passing it around as a parameter, storing instance in a field, or registering it as a singleton in a dependency injection container of your choice.
 
-Bad (extra allocations and initialization):
+❌ Bad (extra allocations and initialization):
 ``` C#
 foreach (var secretName in secretNames)
 {
@@ -16,7 +16,7 @@ foreach (var secretName in secretNames)
 }
 ```
 
-Good:
+✔️ Good:
 
 
 ``` C#
@@ -28,7 +28,7 @@ foreach (var secretName in secretNames)
 }
 ```
 
-Also good:
+✔️ Also good:
 
 ``` C#
 public class Program
@@ -70,6 +70,7 @@ foreach (var secretName in secretNames)
 
 The following sample illustrates a bug where accessing a model from multiple threads might cause an undefined behavior.
 
+❌ Bad:
 ``` C#
 KeyVaultSecret newSecret = client.SetSecret("secret", "value");
 
@@ -81,6 +82,28 @@ foreach (var tag in tags)
 
 client.UpdateSecretProperties(newSecret.Properties);
 ```
+
+If you really need to acces the model from different threads use a syncronization primitive.
+
+✔️ Good:
+
+``` C#
+KeyVaultSecret newSecret = client.SetSecret("secret", "value");
+
+foreach (var tag in tags)
+{
+    Task.Run(() =>
+    {
+        lock (newSecret)
+        {
+            newSecret.Properties.Tags[tag] = CalculateTagValue(tag);
+        }
+    );
+}
+
+client.UpdateSecretProperties(newSecret.Properties);
+```
+
 
 # Immutable after creation
 
