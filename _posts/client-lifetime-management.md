@@ -53,7 +53,7 @@ public class OtherClass
 
 # Thread-safe
 
-We guarantee that all client instance methods are thread-safe and independent of each other.  This ensures the recommendation of reusing client instances is always safe, even across threads.
+We guarantee that all client instance methods are thread-safe and independent of each other ([guideline](https://azure.github.io/azure-sdk/dotnet_introduction.html#dotnet-service-methods-thread-safety)).  This ensures the recommendation of reusing client instances is always safe, even across threads.
 
 ``` C#
 var client = new SecretClient(new Uri("<secrets_endpoint>"), new DefaultAzureCredential());
@@ -107,7 +107,7 @@ client.UpdateSecretProperties(newSecret.Properties);
 
 # Immutable after creation
 
-Clients are immutable after being created which also makes them safe to share and reuse safely.  This means that after the client is constructed, you cannot change the endpoint it connects to, the credential, and other values passed via the client options.
+Clients are immutable after being created which also makes them safe to share and reuse safely ([guideline](https://azure.github.io/azure-sdk/general_implementation.html#general-config-behaviour-changes)).  This means that after the client is constructed, you cannot change the endpoint it connects to, the credential, and other values passed via the client options.
 
 ``` C#
 var secretClientOptions = new SecretClientOptions()
@@ -124,7 +124,7 @@ var mySecretClient = new SecretClient(new Uri("<...>"), new DefaultAzureCredenti
 secretClientOptions.Retry.Delay = TimeSpan.FromSeconds(100);
 ```
 
-**NOTE:** important exception from this rule are some `TokenCredential` implementations that allow rolling the key after the client was created (https://docs.microsoft.com/en-us/dotnet/api/azure.azurekeycredential.update?view=azure-dotnet#Azure_AzureKeyCredential_Update_System_String_)
+**NOTE:** important exception from this rule are credential type implementations that are required to support rolling the key after the client was created ([guideline](azure.github.io/azure-sdk/dotnet_introduction.html#dotnet-auth-rolling-credentials)). Examples of such types include [AzureKeyCredential](https://docs.microsoft.com/en-us/dotnet/api/azure.azurekeycredential.update?view=azure-dotnet#Azure_AzureKeyCredential_Update_System_String_), [StorageSharedKeyCredential](https://docs.microsoft.com/en-us/dotnet/api/azure.storage.storagesharedkeycredential.setaccountkey?view=azure-dotnet#Azure_Storage_StorageSharedKeyCredential_SetAccountKey_System_String_).
 
 # Why clients are not disposable
 
