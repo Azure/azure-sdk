@@ -22,7 +22,10 @@ Use the guidelines in each section of this template to ensure consistency and re
   - [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos/samples)
   - [Versioned API References](https://azure.github.io/azure-sdk-for-python/ref/Cosmos.html) -- Note this link format may be updated in the future but it is the best we have for now.
 
-* **DO NOT** use relative links to other files in the source repository. Use links to master in all our md files in the repo as this will help ensure that links work and don't break in a lot of cases. However when we publish these to docs we have the opportunity to transform those links to use the release tags instead of the master links.
+* **DO NOT** use relative links to other files in the source repository. Use links to master in all our md files in the repo as this will help ensure that links work and don't break in a lot of cases. However when we publish these to docs we have the opportunity to transform those links to use the release tags instead of the master links. 
+ - The primary reason for this guidance update is that the contents of the MD files end up getting used in a lot more context then on github. For example they are consumed by docs, samples, package managers, etc. In the past when we had the guidance of using relative links, we found folks having issues with broken links in md files in our repos, hence we decided to change the guidance to use links to master.
+
+* If the CI validation fails because of link verification for a link to a file or section present in your PR and not in the master but will be a valid link after the PR is merged to master, then you can reference it as a `highlighted text` instead of link on github for the current PR and update the `highlighted text` into link after that
 
 * **DO NOT** use version numbers in the links as the version numbers will often be missed when releasing new versions thus point to the wrong thing or not exist at all. Instead avoid linking directly to versioned information. If you still need a link you should first try to link to a page that contains all the versions so someone can choose or link to the latest which may be out of sync with the content but should usually remain valid.
 
