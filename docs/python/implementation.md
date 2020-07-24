@@ -326,6 +326,8 @@ Don't use pre-release segments other than the ones defined in [PEP440](https://w
 
 {% include requirement/MUST id="python-versioning-major" %} increment the major version if there are breaking changes in the package. Breaking changes require prior approval from the [Architecture Board].
 
+{% include requirement/MUST id="python-versioning-major" %} select a version number greater than the highest version number of any other released Track 1 packages for the service.
+
 The bar to make a breaking change is extremely high for GA client libraries.  We may create a new package with a different name to avoid diamond dependency issues.
 
 ### REST API method versioning
