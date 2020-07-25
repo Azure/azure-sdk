@@ -100,7 +100,7 @@ function Get-python-Packages
 function Write-Latest-Versions($lang)
 {
   $packagelistFile = Join-Path $folder "$lang-packages.csv"
-  $packageList = Import-Csv $packagelistFile
+  $packageList = Import-Csv $packagelistFile | Sort-Object Type, DisplayName, Package, GroupId
 
   if ($null -eq $packageList) { $packageList = @() }
 
@@ -109,7 +109,7 @@ function Write-Latest-Versions($lang)
 
   foreach ($pkg in $packages)
   {
-    $pkgEntries = $packageList | Where-Object { PackageEqual $_ $pkg } | Sort-Object Type, DisplayName, Package, GroupId
+    $pkgEntries = $packageList | Where-Object { PackageEqual $_ $pkg }
 
     if ($pkgEntries.Count -gt 1) {
       Write-Error "Found $($pkgEntries.Count) package entries for $($pkg.Package + $pkg.GroupId)"

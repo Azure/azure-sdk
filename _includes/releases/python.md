@@ -5,7 +5,8 @@
 ## Python
 
 {% assign packages = site.data.releases.latest.python-packages %}
+{% assign packageType = "data" %}
 
-**New Libraries** | [All Libraries]({{ site.baseurl }}{% link releases/latest/all/python.md %})
+**New Libraries** | [Mgmt Libraries]({{ site.baseurl }}{% link releases/latest/mgmt/python.md %}) | [All Libraries]({{ site.baseurl }}{% link releases/latest/all/python.md %})
 
 {% include python-packages.html %}

@@ -5,7 +5,8 @@
 ## .NET
 
 {% assign packages = site.data.releases.latest.dotnet-packages %}
+{% assign packageType = "data" %}
 
-**New Libraries** | [All Libraries]({{ site.baseurl }}{% link releases/latest/all/dotnet.md %})
+**New Libraries** | [Mgmt Libraries]({{ site.baseurl }}{% link releases/latest/mgmt/dotnet.md %}) | [All Libraries]({{ site.baseurl }}{% link releases/latest/all/dotnet.md %})
 
 {% include dotnet-packages.html %}

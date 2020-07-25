@@ -1,3 +1,4 @@
+{% if item.Hide != "true" and (item.Type == packageType or packageType == "") %}
 <tr>
   <td>{{ item.DisplayName }}</td>
   <td>
@@ -66,5 +67,6 @@
         {% include releases/pkgbadge.md label="github" preview="true" url=url version=item.VersionPreview %}
     {% endif %}
   </td>
+  <td>{{ item.Notes }}</td>
 </tr>
-
+{% endif %}
