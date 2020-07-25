@@ -1,14 +1,11 @@
 param (
   $language = "all",
   $releaseFolder = "$PSScriptRoot\..\..\_data\releases\latest",
-  $allFolder =  "$PSScriptRoot\..\..\_data\allpackages",
   $outputFolder = "."
 )
 
 $releaseFolder = Resolve-Path $releaseFolder
-$allFolder = Resolve-Path $allFolder
 $outputFolder = Resolve-Path $outputFolder
-
 
 function MSDocLink($lang, $pkg) 
 {
@@ -85,11 +82,14 @@ function Get-python-row($pkg)
 function Write-Markdown($lang)
 {
   $packagelistFile = Join-Path $releaseFolder "$lang-packages.csv"
-  $packageList = Get-Content $packagelistFile | ConvertFrom-Csv | Sort-Object DisplayName
+  $packageList = Get-Content $packagelistFile | ConvertFrom-Csv | Sort-Object Type, DisplayName, Package, GroupId
+
+  $clientPackageList = $packageList | Where-Object { $_.Type }
+  $otherPackages = $packageList | Where-Object { !$_.Type }
 
   $fileContent = Get-Heading
   $LangFunction = "Get-$lang-row"
-  foreach($pkg in $packageList)
+  foreach($pkg in $clientPackageList)
   {
     $fileContent += &$LangFunction $pkg 
   }
@@ -98,29 +98,11 @@ function Write-Markdown($lang)
   Write-Host "Writing $mdfile"
   $fileContent | Set-Content $mdfile
 
-  $allPackagelistFile = Join-Path $allFolder "$lang-packages.csv"
-  $allPackageList = Get-Content $allPackagelistFile | ConvertFrom-Csv | Sort-Object DisplayName
-
+  $allPackageList = $clientPackageList + $otherPackages
 
   $allFileContent = Get-Heading
   foreach($pkg in $allPackageList)
   {
-    $pkgProperties = [ordered]@{
-      VersionGA = $pkg.Version
-      VersionPreview = ""
-      MSDocs = "NA"
-      RepoPath = "NA"
-    }
-  
-    $pkg | Add-Member -NotePropertyMembers $pkgProperties -Force
-
-    $pkgEntries = $packageList | Where-Object { $_.Package -eq $pkg.Package -and $_.GroupId -eq $pkg.GroupId }
-
-    if ($pkgEntries.Count -eq 1) {
-      $pkg.MSDocs = $pkgEntries[0].MSDocs
-      $pkg.RepoPath = $pkgEntries[0].RepoPath
-    }
-
     $allFileContent += &$LangFunction $pkg
   }
 
@@ -156,7 +138,7 @@ switch($language)
   }
   default {
     Write-Host "Unrecognized Language: $language"
-    exit(1)
+    exit 1
   }
 }
 

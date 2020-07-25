@@ -1,6 +1,6 @@
 param (
   $language = "all",
-  $folder =  "$PSScriptRoot\..\..\_data\allpackages"
+  $folder =  "$PSScriptRoot\..\..\_data\releases\latest"
 )
 
 function PackageEqual($pkg1, $pkg2) {
@@ -109,7 +109,7 @@ function Write-Latest-Versions($lang)
 
   foreach ($pkg in $packages)
   {
-    $pkgEntries = $packageList | Where-Object { PackageEqual $_ $pkg }
+    $pkgEntries = $packageList | Where-Object { PackageEqual $_ $pkg } | Sort-Object Type, DisplayName, Package, GroupId
 
     if ($pkgEntries.Count -gt 1) {
       Write-Error "Found $($pkgEntries.Count) package entries for $($pkg.Package + $pkg.GroupId)"
@@ -120,8 +120,13 @@ function Write-Latest-Versions($lang)
     }
     else {
       # Update version of package
-      $pkgEntries[0].VersionGA = $pkg.VersionGA
-      $pkgEntries[0].VersionPreview = $pkg.VersionPreview
+      if ($pkg.VersionGA) {
+        $pkgEntries[0].VersionGA = $pkg.VersionGA
+        $pkgEntries[0].VersionPreview = ""
+      }
+      else {
+        $pkgEntries[0].VersionPreview = $pkg.VersionPreview
+      }
     }
   }
 
@@ -131,12 +136,14 @@ function Write-Latest-Versions($lang)
     $pkgEntries = $packages | Where-Object { PackageEqual $_ $pkg }
 
     if ($pkgEntries -and $pkgEntries.Count -ne 1) {
-      Write-Host "Found package $($pkg.Package) in the CSV which should be removed"
+      Write-Host "Found package $($pkg.Package) in the CSV which could be removed"
     }
   }
 
   Write-Host "Writing $packagelistFile"
-  $packageList = $packageList | Sort-Object DisplayName, Package, GroupId
+  $clientPackages = $packageList | Where-Object { $_.Type }
+  $otherPackages = $packageList | Where-Object { !$_.Type }
+  $packageList = $clientPackages + $otherPackages
   $packageList | Export-Csv -NoTypeInformation $packagelistFile -UseQuotes Always
 }
 
@@ -167,7 +174,7 @@ switch($language)
   }
   default {
     Write-Host "Unrecognized Language: $language"
-    exit(1)
+    exit 1
   }
 }
 

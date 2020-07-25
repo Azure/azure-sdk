@@ -1,6 +1,6 @@
 param (
   $language = "all",
-  $releaseFolder = "$PSScriptRoot\..\..\_data\allpackages"#"$PSScriptRoot\..\..\_data\releases\latest"
+  $releaseFolder = "$PSScriptRoot\..\..\_data\releases\latest"
 )
 
 $releaseFolder = Resolve-Path $releaseFolder
@@ -247,15 +247,17 @@ function Update-python-Packages($packageList)
 function Output-Latest-Versions($lang)
 {
   $packagelistFile = Join-Path $releaseFolder "$lang-packages.csv"
-  $packageList = Get-Content $packagelistFile | ConvertFrom-Csv | Sort-Object Package, GroupId, DisplayName
+  $packageList = Get-Content $packagelistFile | ConvertFrom-Csv | Sort-Object Type, DisplayName, Package, GroupId
 
   # Only update libraries that have a type
   $clientPackages = $packageList | Where-Object { $_.Type }
+  $otherPackages = $packageList | Where-Object { !$_.Type }
 
   $LangFunction = "Update-$lang-Packages"
   &$LangFunction $clientPackages 
 
   Write-Host "Writing $packagelistFile"
+  $packageList = $clientPackages + $otherPackages
   $packageList | ConvertTo-CSV -NoTypeInformation -UseQuotes Always | Out-File $packagelistFile -encoding ascii
 }
 
@@ -286,7 +288,7 @@ switch($language)
   }
   default {
     Write-Host "Unrecognized Language: $language"
-    exit(1)
+    exit 1
   }
 }
 
