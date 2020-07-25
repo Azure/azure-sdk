@@ -27,12 +27,12 @@ function CreatePackage(
   }
 
   return [PSCustomObject][ordered]@{
-    DisplayName = $package
-    ServiceName = ""
     Package = $package
     GroupId = $groupId
     VersionGA = $versionGA
     VersionPreview = $versionPreview
+    DisplayName = $package
+    ServiceName = ""
     RepoPath = ""
     MSDocs = ""
     GHDocs = ""
