@@ -83,7 +83,7 @@ The HTTP pipeline consists of a HTTP transport that is wrapped by multiple polic
 
 {% include requirement/SHOULD id="java-network-azure-core-policies" %} use the policy implementations in Azure Core whenever possible. Do not try to "write your own" policy unless it is doing something unique to your service. If you need another option to an existing policy, engage with the [Architecture Board] to add the option.
 
-{% include requirement/MUST id="java-network-azure-core-policies-public" %} make all custom policies (HTTP or otherwise) available as public API. This enables developers who chose to implement their own pipeline to reuse the policy rather than write it themselves.
+{% include requirement/MUST id="java-network-azure-core-policies-public" %} make all custom policies (HTTP or otherwise) available as public API. This enables developers who choose to implement their own pipeline to reuse the policy rather than write it themselves.
 
 ## Authentication
 
