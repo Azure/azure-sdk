@@ -42,10 +42,10 @@ steps:
 
 - pwsh: |
     git clone https://$(azuresdk-github-pat)@github.com/MicrosoftDocs/azure-dev-docs-pr $(System.DefaultWorkingDirectory)/azure-dev-docs-pr
-  displayName: Clone azure-dev-docs-pr 
+  displayName: Clone azure-dev-docs-pr repo
 
 - task: PowerShell@2
-  displayName: Generate package index markdown files
+  displayName: Generate all package index markdown files
   inputs:
     pwsh: true
     filePath: ./azure-sdk/eng/scripts/Generate-Package-Index.ps1
@@ -62,4 +62,29 @@ steps:
     PRTitle: "Update package index with latest published versions"
     PushArgs: -f
     WorkingDirectory: $(System.DefaultWorkingDirectory)/azure-dev-docs-pr
+    ScriptDirectory: $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts
+
+- pwsh: |
+    git clone https://github.com/dotnet/docs $(System.DefaultWorkingDirectory)/dotnet-docs
+  displayName: Clone dotnet docs repo
+
+- task: PowerShell@2
+  displayName: Generate dotnet package index markdown files
+  inputs:
+    pwsh: true
+    filePath: ./azure-sdk/eng/scripts/Generate-Package-Index.ps1
+    arguments: >
+      -language dotnet
+      -outputFolder $(System.DefaultWorkingDirectory)/dotnet-docs/docs/azure/includes/
+
+- template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
+  parameters:
+    BaseBranchName: master
+    RepoOwner: dotnet
+    RepoName: docs
+    PRBranchName: PackageIndexUpdates
+    CommitMsg: "Update package index with latest published versions"
+    PRTitle: "Update package index with latest published versions"
+    PushArgs: -f
+    WorkingDirectory: $(System.DefaultWorkingDirectory)/dotnet-docs
     ScriptDirectory: $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts
