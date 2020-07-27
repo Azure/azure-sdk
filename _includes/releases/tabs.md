@@ -1,6 +1,6 @@
 <ul class="nav nav-tabs">
-  <li class="nav-item {% if include.active == 'data' %}active{% endif %}">
-    <a class="nav-link" href="{{ site.baseurl }}/releases/latest/{{ include.lang }}.html">Data Libraries</a>
+  <li class="nav-item {% if include.active == 'client' %}active{% endif %}">
+    <a class="nav-link" href="{{ site.baseurl }}/releases/latest/{{ include.lang }}.html">Client Libraries</a>
   </li>
   <li class="nav-item {% if include.active == 'mgmt' %}active{% endif %}">
     <a class="nav-link" href="{{ site.baseurl }}/releases/latest/mgmt/{{ include.lang }}.html">Management Libraries</a>
