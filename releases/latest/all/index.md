@@ -6,8 +6,8 @@ permalink: /releases/latest/index.html
 ---
 {% include releases/header.md %}
 {% include releases/nav.md %}
-{% include releases/dotnet.md type="data" %}
-{% include releases/java.md type="data" %}
-{% include releases/js.md type="data" %}
-{% include releases/python.md type="data" %}
+{% include releases/dotnet.md type="all" %}
+{% include releases/java.md type="all" %}
+{% include releases/js.md type="all" %}
+{% include releases/python.md type="all" %}
 {% include refs.md %}

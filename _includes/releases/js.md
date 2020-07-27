@@ -1,12 +1,17 @@
-{% if page.header %}
 {% include releases/header.md %}
-{% endif %}
 
 ## JavaScript
 
-{% assign packages = site.data.releases.latest.js-packages %}
-{% assign packageType = "data" %}
+{% if include.type == "all" %}
+  {% assign packages = site.data.releases.latest.js-packages %}
+{% else %}
+  {% assign packages = site.data.releases.latest.js-packages | where: 'Type', include.type %}
+{% endif %}
 
-**New Libraries** | [Mgmt Libraries]({{ site.baseurl }}{% link releases/latest/mgmt/js.md %}) | [All Libraries]({{ site.baseurl }}{% link releases/latest/all/js.md %})
+{{ description | replace: 'PackageCount', packages.size }}
 
-{% include js-packages.html %}
+{% include releases/tabs.md lang="js" active=include.type %}
+
+{% include releases/variables/js.md %}
+
+{% include releases/pkgtable.md %}

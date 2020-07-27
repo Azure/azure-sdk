@@ -1,12 +1,17 @@
-{% if page.header %}
 {% include releases/header.md %}
-{% endif %}
 
 ## Python
 
-{% assign packages = site.data.releases.latest.python-packages %}
-{% assign packageType = "data" %}
+{% if include.type == "all" %}
+  {% assign packages = site.data.releases.latest.python-packages %}
+{% else %}
+  {% assign packages = site.data.releases.latest.python-packages | where: 'Type', include.type %}
+{% endif %}
 
-**New Libraries** | [Mgmt Libraries]({{ site.baseurl }}{% link releases/latest/mgmt/python.md %}) | [All Libraries]({{ site.baseurl }}{% link releases/latest/all/python.md %})
+{{ description | replace: 'PackageCount', packages.size }}
 
-{% include python-packages.html %}
+{% include releases/tabs.md lang="python" active=include.type %}
+
+{% include releases/variables/python.md %}
+
+{% include releases/pkgtable.md %}

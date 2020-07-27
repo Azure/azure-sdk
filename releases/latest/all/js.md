@@ -5,19 +5,9 @@ tags: javascript typescript
 sidebar: releases_sidebar
 header: true
 ---
-{% if page.header %}
-{% include releases/header.md %}
-{% endif %}
+{% capture description %}
+There are PackageCount total Azure library packages published to npm from the [azure-sdk account](https://www.npmjs.com/~azure-sdk).
+{% endcapture %}
 
-## JavaScript
-
-{% assign packages = site.data.releases.latest.dotnet-packages %}
-{% assign packageType = "" %}
-
-There are {{ packages.size }} total Azure library packages published to npm from the [azure-sdk account](https://www.npmjs.com/~azure-sdk).
-
-[New Libraries]({{ site.baseurl }}{% link releases/latest/js.md %})| [Mgmt Libraries]({{ site.baseurl }}{% link releases/latest/mgmt/js.md %}) | **All Libraries**
-
-{% include js-packages.html %}
-
+{% include releases/js.md type="all" %}
 {% include refs.md %}

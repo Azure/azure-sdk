@@ -1,4 +1,4 @@
-{% if item.Hide != "true" and (item.Type == packageType or packageType == "") %}
+{% if item.Hide != "true" %}
 <tr>
   <td>{{ item.DisplayName }}</td>
   <td>
