@@ -122,7 +122,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Latest Releases
 
-{% assign packages = site.data.releases.latest.python-packages %}
-{% include python-packages.html %}
+View all the latest versions of Python packages [here][python-latest-releases].
 
 {% include refs.md %}

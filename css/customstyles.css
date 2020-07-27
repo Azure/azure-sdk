@@ -157,7 +157,7 @@ th {
   text-align: left;
 }
 table {
-  max-width: 90%;
+  max-width: 100%;
   margin-bottom: 20px;
   border: 1px solid #dedede;
 }
@@ -679,6 +679,10 @@ h4 {
 .nav-tabs > li.active > a:focus {
   background-color: #248ec2;
   color: white;
+}
+
+.nav-tabs {
+  border-bottom: none;
 }
 
 ol li ol li {

@@ -1,11 +1,17 @@
-{% if page.header %}
 {% include releases/header.md %}
-{% endif %}
 
 ## Java
 
-{% assign packages = site.data.releases.latest.java-packages %}
+{% if include.type == "all" %}
+  {% assign packages = site.data.releases.latest.java-packages %}
+{% else %}
+  {% assign packages = site.data.releases.latest.java-packages | where: 'Type', include.type %}
+{% endif %}
 
-**New Libraries** | [All Libraries]({{ site.baseurl }}{% link releases/latest/all/java.md %})
+{{ description | replace: 'PackageCount', packages.size }}
 
-{% include java-packages.html %}
+{% include releases/tabs.md lang="java" active=include.type %}
+
+{% include releases/variables/java.md %}
+
+{% include releases/pkgtable.md %}

@@ -1,3 +1,4 @@
+{% if item.Hide != "true" %}
 <tr>
   <td>{{ item.DisplayName }}</td>
   <td>
@@ -50,7 +51,7 @@
     {% endif %}
   </td>
   <td>
-    {% if item.RepoPath contains "http" %}
+    {% if item.RepoPath == "NA" or item.RepoPath contains "http" %}
         {% assign source_url = item.RepoPath %}
     {% else %}
         {% assign source_url = source_url_template | replace: 'item.Package', item.Package | replace: 'item.TrimmedPackage', trimmedPackage | replace: 'item.RepoPath', item.RepoPath %}
@@ -66,5 +67,6 @@
         {% include releases/pkgbadge.md label="github" preview="true" url=url version=item.VersionPreview %}
     {% endif %}
   </td>
+  <td>{{ item.Notes }}</td>
 </tr>
-
+{% endif %}

@@ -126,7 +126,6 @@ This is the first GA release version of the Text Analytics library.
 
 ## Latest Releases
 
-{% assign packages = site.data.releases.latest.js-packages %}
-{% include js-packages.html %}
+View all the latest versions of JavaScript packages [here][js-latest-releases].
 
 {% include refs.md %}

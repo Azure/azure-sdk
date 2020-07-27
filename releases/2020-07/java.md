@@ -433,7 +433,6 @@ These new packages share the same groupId ``com.azures.resourcemanager`` and art
 
 ## Latest Releases
 
-{% assign packages = site.data.releases.latest.java-packages %}
-{% include java-packages.html %}
+View all the latest versions of Java packages [here][java-latest-releases].
 
 {% include refs.md %}

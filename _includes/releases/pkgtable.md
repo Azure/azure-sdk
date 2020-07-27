@@ -5,6 +5,7 @@
   <th>MS Docs</th>
   <th>GH Docs</th>
   <th>Source</th>
+  <th>Notes</th>
 </tr>
 <tbody id="myTable">
 {% for item in packages %}
