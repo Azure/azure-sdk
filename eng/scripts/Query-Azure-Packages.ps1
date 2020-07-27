@@ -122,7 +122,9 @@ function Write-Latest-Versions($lang)
       # Update version of package
       if ($pkg.VersionGA) {
         $pkgEntries[0].VersionGA = $pkg.VersionGA
-        $pkgEntries[0].VersionPreview = ""
+        if ($pkgEntries[0].VersionGA -gt $pkgEntries[0].VersionPreview) {
+          $pkgEntries[0].VersionPreview = ""
+        }
       }
       else {
         $pkgEntries[0].VersionPreview = $pkg.VersionPreview

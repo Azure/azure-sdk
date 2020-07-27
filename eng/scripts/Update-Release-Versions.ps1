@@ -84,6 +84,12 @@ function Update-java-Packages($packageList)
   foreach ($pkg in $packageList)
   {
     $version = GetVersionWebContent "java" $pkg.Package "latest-ga"
+
+    if ($null -eq $version) {
+      Write-Host "Skipping update for $($pkg.Package) as we don't have versiong info for it. "
+      continue;
+    }
+
     if ($version -eq "") { 
       $pkg.VersionGA = ""
     }
@@ -129,6 +135,12 @@ function Update-js-Packages($packageList)
   {
     $trimmedPackage = $pkg.Package.Replace("@azure/", "")
     $version = GetVersionWebContent "javascript" "azure-${trimmedPackage}" "latest-ga"
+
+    if ($null -eq $version) {
+      Write-Host "Skipping update for $($pkg.Package) as we don't have versiong info for it. "
+      continue;
+    }
+
     if ($version -eq "") {
       $pkg.VersionGA = "";
     }
@@ -172,6 +184,11 @@ function Update-dotnet-Packages($packageList)
   foreach ($pkg in $packageList)
   {
     $version = GetVersionWebContent "dotnet" $pkg.Package "latest-ga"
+    if ($null -eq $version) {
+      Write-Host "Skipping update for $($pkg.Package) as we don't have versiong info for it. "
+      continue;
+    }
+
     if ($version -eq "") {
       $pkg.VersionGA = ""
     }
@@ -214,6 +231,11 @@ function Update-python-Packages($packageList)
   foreach ($pkg in $packageList)
   {
     $version = GetVersionWebContent "python" $pkg.Package "latest-ga"
+    if ($null -eq $version) {
+      Write-Host "Skipping update for $($pkg.Package) as we don't have versiong info for it. "
+      continue;
+    }
+
     if ($version -eq "") {
       $pkg.VersionGA = ""
     }

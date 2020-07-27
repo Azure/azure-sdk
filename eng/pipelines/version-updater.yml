@@ -18,16 +18,16 @@ steps:
 - checkout: azure-sdk-tools
 
 - task: PowerShell@2
-  displayName: Update new package from release tags
-  inputs:
-    pwsh: true
-    filePath: ./azure-sdk/eng/scripts/Update-Release-Versions.ps1
-
-- task: PowerShell@2
   displayName: Update packages from package manager
   inputs:
     pwsh: true
     filePath: ./azure-sdk/eng/scripts/Query-Azure-Packages.ps1
+
+- task: PowerShell@2
+  displayName: Update packages from sdk release data
+  inputs:
+    pwsh: true
+    filePath: ./azure-sdk/eng/scripts/Update-Release-Versions.ps1
 
 - template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
   parameters:
