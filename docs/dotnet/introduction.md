@@ -785,7 +785,7 @@ Use _-preview_._N_ suffix for preview package versions. For example, _1.0.0-prev
 
 {% include requirement/SHOULD id="dotnet-version-major-changes" %} increment the major version when making large feature changes.
 
-{% include requirement/MUST id="dotnet-version-change-on-release" %} select a version number greater than the highest version number of any other released Track 1 packages for the service.
+{% include requirement/MUST id="dotnet-version-change-on-release" %} select a version number greater than the highest version number of any other released Track 1 package for the service in any other scope or language.
 
 ### Documentation {#dotnet-documentation}
 
