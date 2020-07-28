@@ -13,6 +13,14 @@ Here's the general contribution process:
 1. Commit your changes to that branch
 1. Do a PR from your fork/branch to azure-sdk/master.
 
+## GitHub Codespaces
+
+1. Click on the "Code -> Open with Codespaces" button.
+2. Open a Terminal
+3. Execute the following command and Ctrl+Click the link generated.  A new window will open with the Azure SDK website.
+
+    `bundle exec jekyll serve`
+
 ## Website Setup
 
 This site uses Jekyll and GitHub pages. Installation instructions can be found here: https://jekyllrb.com/docs/installation
