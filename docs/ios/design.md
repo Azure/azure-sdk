@@ -90,7 +90,7 @@ Models are structures that consumers use to provide required information into cl
 
 {% include requirement/MUST id="ios-client-model-options-location" %} store client models representing options structures (and enumerations / structures referenced by such models) within the `Source/Options` directory inside the library's root directory.
 
-{% include requirement/MUST id="ios-client-model-conformance" %} conform to the `AzureConfigurable` protocol for structures that define options passed when initializing a service client, and the `AzureOptions` protocol for structures that define options passed to a single service client API method.
+{% include requirement/MUST id="ios-client-model-conformance" %} conform to the `AzureClientOptions` protocol for structures that define options passed when initializing a service client, and the `AzureOptions` protocol for structures that define options passed to a single service client API method.
 
 ### Client methods
 
@@ -340,7 +340,7 @@ class CatHerdingClient {
     }
 }
 
-class CatHerdingClientOptions: AzureConfigurable {
+class CatHerdingClientOptions: AzureClientOptions {
     /// The API version of the Cat Herding service to invoke.
     public let apiVersion: String
     ...
