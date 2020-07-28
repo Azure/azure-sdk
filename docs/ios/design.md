@@ -80,13 +80,17 @@ Client initializers, and some client methods, accept options to customize the cl
 
 ### Client models
 
-{% include draft.html content="Guidance on naming and placement of model classes is not yet defined.  This section will change as it becomes more concrete." %}
+Models are structures that consumers use to provide required information into client library methods. These structures typically represent the domain model, or options structures that must be configured before the request can be made.
 
-Model classes are classes that consumers use to provide required information into client library methods. These classes typically represent the domain model, or options classes that must be configured before the request can be made.
+{% include requirement/MUST id="ios-client-model-immutable-struct" %} express client models as immutable structs rather than classes. All properties of models must be expressed as `let` values.
 
-> **TODO** Integrate naming : see https://github.com/Azure/azure-sdk/pull/664
+{% include requirement/MUST id="ios-client-model-struct-init" %} provide an initializer with default values for every property the model contains.
 
-> **TODO** Produce Swift specific guidance on where models go and how to construct them.
+{% include requirement/MUST id="ios-client-model-domain-location" %} store client models representing the domain model (and enumerations / structures referenced by such models) within the `Source/Models` directory inside the library's root directory.
+
+{% include requirement/MUST id="ios-client-model-options-location" %} store client models representing options structures (and enumerations / structures referenced by such models) within the `Source/Options` directory inside the library's root directory.
+
+{% include requirement/MUST id="ios-client-model-conformance" %} conform to the `AzureClientOptions` protocol for structures that define options passed when initializing a service client, and the `AzureOptions` protocol for structures that define options passed to a single service client API method.
 
 ### Client methods
 
@@ -221,42 +225,47 @@ The developer can also choose to directly access the `PagedCollection`'s `items`
 {% highlight swift %}
 // Explicit asynchronous iteration of a `PagedCollection` page-by-page
 override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
+    ...
+    // Execute the asynchronous method and use the resulting paged collection as the data source
     client.listConfigurationSettings(...) { result, _ in
         if case let .success(pagedCollection) = result {
             self.dataSource = pagedCollection
-            self.tableView.reloadData()
+            ...
         }
     }
+    ...
 }
 
 internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let item = self.dataSource.items[indexPath.row]
-    let cell = tableView.dequeueReusableCell(withIdentifier: "ConfigurationSettingCell", for: indexPath)
     ...
-    // Load next page if at the end of the current list
-    if indexPath.row == self.dataSource.count - 1, self.noMoreData == false {
+    // Get the corresponding item from the pagedCollection
+    let item = self.dataSource.items[indexPath.row]
+    ...
+    // Load the next page if the user is at the end of the current page
+    if indexPath.row == self.dataSource.count - 1 {
+        // nextPage automatically stops when exhausted, no need to handle that case separately
         self.dataSource.nextPage { result
-            if case let .success(data) = result, data != nil {
-                self.tableView.reloadData()
-            } else {
-                self.noMoreData = true
+            if case .success = result {
+                ...
             }
         }
     }
-    return cell
+    ...
 }
 {% endhighlight %}
 
-Finally, `PagedCollection` also provides a property that conforms to the `Sequence` protocol, providing a way for the developer to synchronously consume all results of a paged operation using a standard `for ... in` loop:
+Finally, `PagedCollection` also provides an iterator property that conforms to the `Sequence` protocol, providing a way for the developer to synchronously consume all results of a paged operation using a standard `for ... in` loop:
 
 {% highlight swift %}
 // Automatic synchronous iteration of a `PagedCollection` item-by-item
 client.listConfigurationSettings(...) { result, _ in
     if case let .success(pagedCollection) = result {
-        for setting in pagedCollection.syncCollection {
-            print(setting.description)
-            // `break` to interrupt iteration
+        // Synchronous iteration will block the UI thread as more pages are fetched
+        DispatchQueue.global(qos: .background).async {
+            for setting in pagedCollection.syncIterator {
+                print(setting.description)
+                // `break` to interrupt iteration
+            }
         }
     }
 }
@@ -331,7 +340,7 @@ class CatHerdingClient {
     }
 }
 
-class CatHerdingClientOptions: AzureConfigurable {
+class CatHerdingClientOptions: AzureClientOptions {
     /// The API version of the Cat Herding service to invoke.
     public let apiVersion: String
     ...
