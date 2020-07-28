@@ -18,8 +18,8 @@ function MSDocLink($lang, $pkg)
 
 function Get-Heading()
 {
- return  "| Name | Package | Docs | Source |`n" + 
-         "| ---- | ------- | ---- | ------ |`n"
+ return  "| Name | Package | Docs | Source |" + [System.Environment]::NewLine + 
+         "| ---- | ------- | ---- | ------ |" + [System.Environment]::NewLine
 }
 function Get-Row($pkg, $lang, $packageFormat, $sourceFormat)
 {
@@ -46,7 +46,7 @@ function Get-Row($pkg, $lang, $packageFormat, $sourceFormat)
     $source = ""
   }
 
-  return "| ${displayName} | ${package} | ${docs} | ${source} |`n"
+  return "| ${displayName} | ${package} | ${docs} | ${source} |" + [System.Environment]::NewLine
 }
 
 function Get-java-row($pkg)
@@ -96,7 +96,7 @@ function Write-Markdown($lang)
   
   $mdfile = Join-Path $outputFolder "$lang-new.md"
   Write-Host "Writing $mdfile"
-  $fileContent | Set-Content $mdfile
+  Set-Content $mdfile -Value $fileContent -NoNewline
 
   $allPackageList = $clientPackageList + $otherPackages
 
@@ -108,7 +108,7 @@ function Write-Markdown($lang)
 
   $allMdfile = Join-Path $outputFolder "$lang-all.md"
   Write-Host "Writing $allMdfile"
-  $allFileContent | Set-Content $allMdfile
+  Set-Content $allMdfile -Value $allFileContent -NoNewline
 }
 
 switch($language)
