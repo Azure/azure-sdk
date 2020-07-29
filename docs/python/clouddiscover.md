@@ -109,7 +109,9 @@ Given that more configuration settings can be added over time, you may run into 
 
 > In most languages, the failure is exposed as an exception.
 
-* Methods that accept a configuration object that is missing one or more configuration settings that it expects MUST raise an error.
+* Methods that accept a configuration object that is missing one or more configuration settings that it expects MUST raise an error. The error message MUST be clear enough for the developer to understand what data is missing and how to supply it.
+
+* Adding a new required configuration property for a given method/API is a breaking change. 
 
 ## Example usage 
 
@@ -120,6 +122,10 @@ Given that more configuration settings can be added over time, you may run into 
 azure.core.settings.set_default_cloud('AzureChinaCloud')
 
 creds = azure.identity.DefaultAzureCredential() # We will use the Azure China Cloud's authority (https://login.chinacloudapi.cn) since that is what is configured as the default cloud.
+
+# The default management endpoint from AzureChinaCloud is used
+# (picked up from the resourceManager service entry in of the AzureChinaCloud built-in cloud configuration)
+client = azure.mgmt.compute.ComputeManagementClient(subscriptionId, creds)
 
 # I can still specify the default authority host to override the default settings...
 public_azure_creds = azure.identity.DefaultAzureCredential(authority='https://login.windows.net')
