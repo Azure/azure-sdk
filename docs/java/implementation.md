@@ -67,7 +67,7 @@ The service client will have several methods that perform requests on the servic
 
 Each supported language has an Azure Core library that contains common mechanisms for cross cutting concerns such as configuration and doing HTTP requests.
 
-{% include requirement/MUST id="java-network-use-http-pipeline" %} use the HTTP pipeline component within `com.azure.core` library for communicating to service REST endpoints.
+{% include requirement/MUST id="java-network-use-http-pipeline" %} use the HTTP pipeline component within `azure-core` library for communicating to service REST endpoints.
 
 The HTTP pipeline consists of a HTTP transport that is wrapped by multiple policies. Each policy is a control point during which the pipeline can modify either the request and/or response. We prescribe a default set of policies to standardize how client libraries interact with Azure services. The order in the list is the most sensible order for implementation.
 
@@ -82,6 +82,8 @@ The HTTP pipeline consists of a HTTP transport that is wrapped by multiple polic
 - Logging
 
 {% include requirement/SHOULD id="java-network-azure-core-policies" %} use the policy implementations in Azure Core whenever possible. Do not try to "write your own" policy unless it is doing something unique to your service. If you need another option to an existing policy, engage with the [Architecture Board] to add the option.
+
+{% include requirement/MUST id="java-network-azure-core-policies-public" %} make all custom policies (HTTP or otherwise) available as public API. This enables developers who choose to implement their own pipeline to reuse the policy rather than write it themselves.
 
 ## Authentication
 

@@ -1007,5 +1007,27 @@ There are two annotations of note that should be applied on model classes, when 
 
 Breaking changes should happen rarely, if ever.  Register your intent to do a breaking change with [adparch]. You'll need to have a discussion with the language architect before approval.
 
+### Version Numbers {#java-versionnumbers}
+
+Consistent version number scheme allows consumers to determine what to expect from a new version of the library.
+
+{% include requirement/MUST id="java-version-semver" %} use _MAJOR_._MINOR_._PATCH_ format for the library version.
+
+Use `-beta.N` suffix for beta package versions. For example, `1.0.0-beta.2`.
+
+{% include requirement/MUST id="java-version-change-on-release" %} change the version number of the client library when **ANYTHING** changes in the client library.
+
+{% include requirement/MUST id="java-version-patching" %} increment the patch version when fixing a bug.
+
+{% include requirement/MUSTNOT id="java-version-features-in-patch" %} include new APIs in a patch release.
+
+{% include requirement/MUST id="java-version-add-feature" %} increment the major or minor version when adding support for a service API version.
+
+{% include requirement/MUST id="java-version-add-api" %} increment the major or minor version when adding a new method to the public API.
+
+{% include requirement/SHOULD id="java-version-major-changes" %} increment the major version when making large feature changes.
+
+{% include requirement/MUST id="java-version-change-on-release" %} select a version number greater than the highest version number of any other released Track 1 packages for the service.
+
 {% include refs.md %}
 {% include_relative refs.md %}
