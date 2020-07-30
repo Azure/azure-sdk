@@ -9,9 +9,9 @@ repository: azure/azure-sdk
 
 Back in March 2020 (seems so long ago doesn't it!) we posted about [how we structured the Azure SDK repositories](https://devblogs.microsoft.com/azure-sdk/building-the-azure-sdk-repository-structure/). We compared some of the implications of mono-repo vs. micro-repo decisions when it comes to hosting our SDKs and outlined some of the key considerations for choosing between the two.
 
-One of the factors in the decision was the level of tool chain support for your nominated approach.
+One of the factors in the decision was the level of tool chain support for our nominated approach.
 
-For the most part we've managed to navigate the various trade-offs associated with choosing a mono-repository structure and still be able to ship various components of the SDK independently.
+For the most part we've managed to navigate the various trade-offs associated with choosing a mono-repository structure while still being able to ship various components of the SDK independently.
 
 This is enabled in large part due to the fact that for many of our repositories (.NET, Java, JavaScript, and Python), the artifact we ship is a bundle of source/binaries which are consumed independently of where we host our source code. In short, if we can script a way to produce the artifacts we can ship them however we want!
 
@@ -19,7 +19,7 @@ But what about ecosystems where there is a significant relationship between the 
 
 ## Consuming via source
 
-In ecosystems where there is no defacto standard for packaging developers are left to come up with their own solutions for sharing code. In C, C++, and Objective-C codebases for example it is not uncommon to see developers using Git sub-modules or vendoring in entire snapshots of third party libraries.
+In ecosystems where there is no defacto standard for packaging, developers are left to come up with their own solutions for sharing code. In C, C++, and Objective-C codebases for example it is not uncommon to see developers using Git sub-modules or vendoring in entire snapshots of third party libraries.
 
 Recently in the C++ community we've seen more efforts to formulate a standard approach to code-reuse. A good example is [vcpkg](https://github.com/Microsoft/vcpkg). In the iOS community we see solutions like [CocoaPods](https://cocoapods.org/).
 
@@ -29,7 +29,7 @@ Source-based composition of dependencies is a common feature of ecosystems that 
 
 ## Repository as package
 
-Language/platform developers today can't ignore the importance of having a simple and streamlined code reuse experience. It isn't surprising then when we look at languages like Swift and Go that they have made early efforts to formalize what it means to create reusable code.
+Language/platform designers today can't ignore the importance of having a simple and streamlined code reuse experience. It isn't surprising then when we look at languages like Swift and Go that they have made early efforts to formalize what it means to create reusable code.
 
 What is different about these ecosystems when compared to .NET, Python, JavaScript and Java is that they've opted to strongly tie the definition of a package to the source repository that hosts it.
 
@@ -47,7 +47,7 @@ In the case of our Swift and Go SDKs we've opted to stick with the mono-reposito
 
 This is an example of where tool chain support has major implications for how you structure your repository and at what level of granularity you can release components to customers.
 
-## Knowing when your fighting the tools
+## Knowing when you're fighting the tools
 
 When it comes to building solutions I am a big proponent of the [principle of least astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment). Applied to the engineering systems for the Azure SDK, that means trying not the fight the tools that support the ecosystem that you are targetting.
 
@@ -58,15 +58,29 @@ The table below is my quick survey of some ecosystems and how they map:
 |Ecosystem|Package format|Package discovery|Package distribution|Package cardinality
 |--|--|--|--|--|
 |.NET|Binary|Registry|Registry|1:Many
-|Python|Source|Registry|Registry|1:Many
+|Python|Source<sup>1</sup>|Registry<sup>1</sup>|Registry<sup>1</sup>|1:Many
 |JavaScript|Source|Registry|Registry|1:Many (1:1 by convention)
 |Java|Binary|Registry|Registry|1:Many
 |Go|Source|Repository|Repository|1:1
-|Swift|Source|Repository|Repository|1:1
+|Swift|Source<sup>2</sup>|Repository|Repository|1:1<sup>3</sup>
 |Rust|Source|Registry|Registry|1:Many (1:1 by convention)
 
-For .NET example it is quite normal to have a single repository produce multiple packages, and because each package exists independently of the repository contains its sources.
+With .NET for example, it is quite normal to have a single repository produce multiple packages because each package exists independently of the repository which contains its sources.
 
 If we tried to do the same thing with Swift by comparison we'd frequently be fighting against the Swift tool chain.
 
 In the JavaScript community, NPM packages are generally one package per repository, but the fact that package discovery and distribution is handled by the registry means that we can get away with breaking that convention in the interests of keeping a single place for developers to report issues and make contributions.
+
+## Conclusions
+
+The capabilities and constraints of the package management tool chain used by a particular ecosystem can have a dramatic impact on how you structure your repositories and whether you ship a single monolithic package, or whether you can break it up.
+
+We've learned on the Azure SDK team that it generally works best if you start with the end-developer in mind and figure out how to optimize the consumption experience and then balance that against other considerations such as inner-loop developer efficiency, engineering system complexity and supporability.
+
+## Notes
+
+1. Python also supports binary distribution in the form of wheel packages, and source distribution can also be directly from the version control system.
+
+2. Swift Package Manager recently added support for wrapping binary frameworks (*.xcframework archives) in a package. The Swift Package meta-data in the ```Package.swift``` file still needs to be hosted in a repository, but the package itself can be a binary.
+
+3. Whilst Swift Packager Manager only supports one package per repository, a single package can define multiple _Products_ which allow you to control which parts of the code is built.
