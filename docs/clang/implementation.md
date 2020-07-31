@@ -361,37 +361,30 @@ the `internal` directory (a sibling of `src` and `inc`).
 
 {% include requirement/MUSTNOT id="clang-style-publicapi-hdr-includes" %} include internal or private headers in public headers.
 
-> **Note**: It is allowed to a public header to declare internal structures to be used **only** within another internal structure/API. See example below.
+> **Note**: It is allowed for a public header to declare internal structures to be used **only** within another internal structure or API. See example below.
 
-Below code **can** be part of a public header.
-
+For example, the following **can** be part of a public header.
 {% highlight c %}
 // internal structure only used by another _internal field
 typedef struct {
       int x;
 } _az_internal_structure;
 
-// Public structure with one internal field `_internal`
+// Public structure with a nested `_internal` structure
 typedef struct {
-      int y;
+      int y; // Public field in a public struct.
       struct {
-            _az_private_struct; // This is OK
+            _az_internal_structure nested; // This is OK
       } _internal;
 } az_public_struct;
 {% endhighlight %}
 
-Below code **can not** be part of a public header.
-
+On the contrary, the following **cannot** be part of a public header.
 {% highlight c %}
-// internal structure only used by another _internal field
+// Public structure with a nested `_internal` structure
 typedef struct {
-      int x;
-} _az_internal_structure;
-
-// Public structure with one internal field `_internal`
-typedef struct {
-      int y;
-      _az_private_struct; // This is not OK. Exposing internal field as public.
+      int y; // Public field in a public struct.
+      _az_internal_structure nested; // This is not OK. Exposing internal field as public.
 } az_public_struct;
 {% endhighlight %}
 
