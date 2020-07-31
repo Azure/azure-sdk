@@ -142,7 +142,7 @@ The following example implements these requirements and should be used as a temp
 /// <summary>
 /// An algorithm used for encryption and decryption
 /// </summary>
-public readonly struct EncryptionAlgorithm : IEquatable<EncryptionAlgorithm>
+public partial readonly struct EncryptionAlgorithm : IEquatable<EncryptionAlgorithm>
 {
     internal const string Rsa15Value = "RSA1_5";
     internal const string RsaOaepValue = "RSA-OAEP";
@@ -218,6 +218,36 @@ public readonly struct EncryptionAlgorithm : IEquatable<EncryptionAlgorithm>
         RsaOaep256Value => RSAEncryptionPadding.OaepSHA256,
         _ => null,
     };
+}
+```
+
+### Constant values for enumeration-like structures {#dotnet-enums-values}
+
+If and only if extensible enum values *must* be used as constant expressions, e.g. attribute values, you should declare a nested static class named `Values` with public constants:
+
+```csharp
+public partial readonly struct EncryptionAlgorithm : IEquatable<EncryptionAlgorithm>
+{
+    /// <summary>
+    /// The values of all declared <see cref="EncryptionAlgorithm"/> properties as string constants.
+    /// </summary>
+    public static class Values
+    {
+        /// <summary>
+        /// RSA1_5
+        /// </summary>
+        public const string Rsa15 = EncryptionAlgorithm.Rsa15Value;
+
+        /// <summary>
+        /// RSA-OAEP
+        /// </summary>
+        public const string RsaOaep = EncryptionAlgorithm.RsaOaepValue;
+
+        /// <summary>
+        /// RSA-OAEP256
+        /// </summary>
+        public const string RsaOaep256 = EncryptionAlgorithm.RsaOaep256Value;
+    }
 }
 ```
 
