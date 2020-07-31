@@ -361,6 +361,8 @@ the `internal` directory (a sibling of `src` and `inc`).
 
 {% include requirement/MUSTNOT id="clang-style-publicapi-hdr-includes" %} include internal or private headers in public headers.
 
+{% include requirement/MUSTNOT id="clang-style-publicapi-hdr-expose" %} expose internal implementation details (fields, types, or methods) within the public surface area and header files. The following **note** issues one exception to this guidance.
+
 > **Note**: It is allowed for a public header to declare internal structures to be used **only** within another internal structure or API. See example below.
 
 For example, the following **can** be part of a public header.
