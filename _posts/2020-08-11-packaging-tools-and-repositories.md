@@ -79,7 +79,7 @@ We've learned on the Azure SDK team that it generally works best if you start wi
 
 ## Notes
 
-1. Python also supports binary distribution in the form of wheel packages, and source distribution can also be directly from the version control system.
+1. Python also supports binary distribution in the form of wheel packages, and source distribution can come directly from the version control system.
 
 2. Swift Package Manager recently added support for wrapping binary frameworks (*.xcframework archives) in a package. The Swift Package meta-data in the ```Package.swift``` file still needs to be hosted in a repository, but the package itself can be a binary.
 
