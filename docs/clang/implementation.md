@@ -361,6 +361,35 @@ the `internal` directory (a sibling of `src` and `inc`).
 
 {% include requirement/MUSTNOT id="clang-style-publicapi-hdr-includes" %} include internal or private headers in public headers.
 
+{% include requirement/MUSTNOT id="clang-style-publicapi-hdr-expose" %} expose internal implementation details (fields, types, or methods) within the public surface area and header files. The following **note** issues one exception to this guidance.
+
+> **Note**: It is allowed for a public header to declare internal structures to be used **only** within another internal structure or API. See example below.
+
+For example, the following **can** be part of a public header.
+{% highlight c %}
+// internal structure only used by another _internal field
+typedef struct {
+      int x;
+} _az_internal_structure;
+
+// Public structure with a nested `_internal` structure
+typedef struct {
+      int y; // Public field in a public struct.
+      struct {
+            _az_internal_structure nested; // This is OK.
+      } _internal;
+} az_public_struct;
+{% endhighlight %}
+
+On the contrary, the following **cannot** be part of a public header.
+{% highlight c %}
+// Public structure with an internal struct exposed as a public field rather than within a nested `_internal` struct.
+typedef struct {
+      int y; // Public field in a public struct.
+      _az_internal_structure nested; // This is not OK. Exposing internal field as public.
+} az_public_struct;
+{% endhighlight %}
+
 {% include requirement/MUSTNOT id="clang-style-install-internal-private-headers" %} install internal or private headers with `make install` or equivalent.
 
 {% include requirement/MUST id="clang-style-filenames" %} use characters in the range `[a-z0-9_]` for the name portion (before the file extension).  No other characters are permitted.
