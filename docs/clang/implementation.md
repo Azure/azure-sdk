@@ -376,14 +376,14 @@ typedef struct {
 typedef struct {
       int y; // Public field in a public struct.
       struct {
-            _az_internal_structure nested; // This is OK
+            _az_internal_structure nested; // This is OK.
       } _internal;
 } az_public_struct;
 {% endhighlight %}
 
 On the contrary, the following **cannot** be part of a public header.
 {% highlight c %}
-// Public structure with a nested `_internal` structure
+// Public structure with an internal struct exposed as a public field rather than within a nested `_internal` struct.
 typedef struct {
       int y; // Public field in a public struct.
       _az_internal_structure nested; // This is not OK. Exposing internal field as public.
