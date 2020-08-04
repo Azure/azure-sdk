@@ -19,7 +19,7 @@ But what about ecosystems where there is a significant relationship between the 
 
 ## Consuming via source
 
-In ecosystems where there is no defacto standard for packaging, developers are left to come up with their own solutions for sharing code. In C, C++, and Objective-C codebases for example it is not uncommon to see developers using Git sub-modules or vendoring in entire snapshots of third party libraries.
+In ecosystems where there is no defacto standard for packaging, developers are left to come up with their own solutions for sharing code. In C, C++, and Objective-C codebases for example, it is not uncommon to see developers using Git sub-modules or vendoring in entire snapshots of third party libraries.
 
 Recently in the C++ community we've seen more efforts to formulate a standard approach to code-reuse. A good example is [vcpkg](https://github.com/Microsoft/vcpkg). In the iOS community we see solutions like [CocoaPods](https://cocoapods.org/).
 
