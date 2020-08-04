@@ -33,7 +33,7 @@ Language/platform designers today can't ignore the importance of having a simple
 
 What is different about these ecosystems when compared to .NET, Python, JavaScript, and Java is that they've opted to strongly tie the definition of a package to the source repository that hosts it.
 
-In Swift for example; Swift Package Manager generally points to dependencies via a URL to a Git repository with a ref specifying the branch/tag/commit being depended on. You won't find a version specifier in the ```Package.swift``` within that repository, that is a function of the Git ref.
+For example, the Swift Package Manager generally points to dependencies via a URL to a Git repository with a ref specifying the branch/tag/commit being depended on. You won't find a version specifier in the ```Package.swift``` within that repository, that is a function of the Git ref.
 
 The approach that Go takes is so similar that it isn't worth delving into it in more detail other than to say that both Go and Swift have a very strong notion of the repository and the package being one and the same thing.
 
