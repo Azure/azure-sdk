@@ -31,7 +31,7 @@ Source-based composition of dependencies is a common feature of ecosystems that 
 
 Language/platform designers today can't ignore the importance of having a simple and streamlined code reuse experience. It isn't surprising then when we look at languages like Swift and Go that they have made early efforts to formalize what it means to create reusable code.
 
-What is different about these ecosystems when compared to .NET, Python, JavaScript and Java is that they've opted to strongly tie the definition of a package to the source repository that hosts it.
+What is different about these ecosystems when compared to .NET, Python, JavaScript, and Java is that they've opted to strongly tie the definition of a package to the source repository that hosts it.
 
 In Swift for example; Swift Package Manager generally points to dependencies via a URL to a Git repository with a ref specifying the branch/tag/commit being depended on. You won't find a version specifier in the ```Package.swift``` within that repository, that is a function of the Git ref.
 
