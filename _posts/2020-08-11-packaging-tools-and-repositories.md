@@ -1,5 +1,5 @@
 ---
-title: Packaging tools &amp; repositories
+title: Azure SDK: Packaging, tools, and repository structure
 layout: post
 date: 2020-08-11
 sidebar: releases_sidebar
