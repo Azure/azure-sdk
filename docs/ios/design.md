@@ -287,7 +287,7 @@ client.listConfigurationSettings(...) { result, _ in
 
 {% include requirement/MUST id="ios-async-cancellation" %} support an optional `CancellationToken` object in conformance with the `AzureOptions` protocol. This object allows the developer to call `.cancel()` on the token or set a timeout, after which a best-effort attempt is made to cancel the request.
 
-{% include requirement/MUST id="ios-async-cancellation-implementation" %} cancel any in-flight requests when a developer calls `cancel()` on the `CancellationToken`. If the body of the client method includes multiple, sequential async operations, you must check for cancellation before executing any operations after the first. You must also check for cancellation immediately after a response has been received and prior to further processing. If the user has requested cancellation, the response should not be processed further.
+{% include requirement/MUST id="ios-async-cancellation-implementation" %} cancel any in-flight requests when a developer calls `cancel()` on the `CancellationToken`. If the body of the client method includes multiple, sequential operations, you must check for cancellation before executing any operations after the first. Since the underlying iOS network APIs do not permit cancellation of in-flight requests, you must also check for cancellation immediately after receiving any response. If cancellation has been requested, indicate that the call has been cancelled and do not return or otherwise further process the response.
 
 {% include requirement/MUST id="ios-async-cancellation-triggers-error" %} return an `AzureError.sdk` error when cancellation is requested stating that the request was canceled, even if the request was successful.
 
