@@ -65,7 +65,7 @@ When it comes to building solutions I am a big proponent of the [principle of le
 
 For package managers this means understanding the relationship that package format, discovery, distribution and cardinality have on the way that you structure your repository and the surrounding build and release systems.
 
-The table below is my quick survey of some ecosystems and how they map to package format, discovery, distribution and cardinality (whether the one repo can host sources for multiple packages):
+The table below is my quick survey of some ecosystems and how they map to package format, discovery, distribution, and cardinality (whether the one repo can host sources for multiple packages):
 
 |Ecosystem|Package format|Package discovery|Package distribution|Package cardinality
 |--|--|--|--|--|
@@ -97,4 +97,3 @@ The capabilities and constraints of the package management tool chain used by a 
 We've learned on the Azure SDK team that it generally works best if you start with the end-developer in mind and figure out how to optimize the consumption experience and then balance that against other considerations such as inner-loop developer efficiency, engineering system complexity and supportability.
 
 ## Notes
-
