@@ -8,24 +8,30 @@ repository: azure/azure-sdk-for-js
 
 The Azure SDK team is pleased to make available the August 2020 client library release.
 
-#### GA
-
-- _Add packages_
-
 #### Updates
 
-- _Add packages_
+- Core libraries.
+- Identity.
+- Azure Event Hubs.
+- Azure Form Recognizer.
+- Azure Key Vault.
 
 #### Preview
 
-- _Add packages_
+- Azure Service Bus.
 
 ## Installation Instructions
 
 To install the packages, copy and paste the below into a terminal.
 
 ```bash
-$> npm install @azure/package-name
+$> npm install @azure/identity
+$> npm install @azure/eventhubs-checkpointstore-blob
+$> npm install @azure/ai-form-recognizer
+$> npm install @azure/keyvault-keys
+$> npm install @azure/keyvault-secrets
+$> npm install @azure/keyvault-certificates
+$> npm install @azure/service-bus
 ```
 
 ## Feedback
