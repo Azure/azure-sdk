@@ -37,7 +37,7 @@ Here are some [samples]<!--TODO: add link to samples (https://github.com/azure-s
 ```
 This will ensure that you don't forget to update the link in the README later and the README won't have any broken links
 
-* **DO NOT** use locale in the urls like `en-us`.
+* **DO NOT** use locale in the urls like `en-us`. For example use `https://docs.microsoft.com/dotnet/api/azure.storage.blobs` instead of `https://docs.microsoft.com/en-us/dotnet/api/azure.storage.blobs`
 
 * **DO NOT** use version numbers in the links as the version numbers will often be missed when releasing new versions thus point to the wrong thing or not exist at all. Instead avoid linking directly to versioned information. If you still need a link you should first try to link to a page that contains all the versions so someone can choose or link to the latest which may be out of sync with the content but should usually remain valid.
 
