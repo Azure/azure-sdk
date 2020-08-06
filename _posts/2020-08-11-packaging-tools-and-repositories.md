@@ -94,6 +94,6 @@ If we tried to do the same thing with Swift by comparison we'd frequently be fig
 
 In the JavaScript community, NPM packages are generally one package per repository, but the fact that package discovery and distribution is handled by the registry means that we can get away with breaking that convention in the interests of keeping a single place for developers to report issues and make contributions.
 
-## Conclusions
+## Conclusion
 
 As we build out the SDK for each language/ecosystem we are constantly striving to maintain a balance the productivity of the developers building the SDK and the experience of the developers consuming the SDK. The tool chains in each ecosystem influence much of how our engineering system works and the decisions we make about structuring and releasing the SDK.
