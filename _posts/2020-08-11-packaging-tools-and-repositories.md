@@ -74,11 +74,11 @@ The table below is my quick survey of some ecosystems and how they map to packag
 |Ecosystem|Package format|Package discovery|Package distribution|Package cardinality
 |--|--|--|--|--|
 |.NET|Binary|Registry|Registry|1:Many
-|Python|Source<sup>1</sup>|Registry<sup>1</sup>|Registry<sup>1</sup>|1:Many
-|JavaScript|Source|Registry|Registry|1:Many (1:1 by convention)
 |Java|Binary|Registry|Registry|1:Many
-|Go|Source|Repository|Repository|1:Many
+|JavaScript|Source|Registry|Registry|1:Many (1:1 by convention)
+|Python|Source<sup>1</sup>|Registry<sup>1</sup>|Registry<sup>1</sup>|1:Many
 |Swift|Source<sup>2</sup>|Repository|Repository|1:1<sup>3</sup>
+|Go|Source|Repository|Repository|1:Many
 |Rust|Source|Registry|Registry|1:Many (1:1 by convention)
 
 > ### Notes
