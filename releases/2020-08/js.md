@@ -42,9 +42,108 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
-### _Package name_
+### Identity
 
-- Major changes only!
+#### [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/identity/identity/CHANGELOG.md)
+
+##### New Features
+- Extended DefaultAzureCredential with an experimental credential that uses the login credential from Azure CLI.
+- Extended DefaultAzureCredential with an experimental credential that uses the login credential from VSCode's Azure Account extension.
+- Add the ability to read AZURE_AUTHORITY_HOST from the environment.
+- Made all the developer credentials public as well as the list of credentials used by DefaultAzureCredential.
+- Make the keytar dependency optional, allowing for building and running on platforms not supported by keytar.
+
+### Azure Event Hubs
+
+#### [Azure Event Hubs Checkpoint Store's Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/CHANGELOG.md)
+
+##### Breaking Changes
+
+[TODO]
+
+##### New Features
+
+[TODO]
+
+##### Major Fixes
+
+[TODO]
+
+### Azure Form Recognizer
+
+#### [Azure Form Recognizer's Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
+
+##### Breaking Changes
+
+[TODO]
+
+##### New Features
+
+[TODO]
+
+##### Major Fixes
+
+[TODO]
+
+### Azure Key Vault
+
+#### [Azure Key Vault Keys' Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-keys/CHANGELOG.md)
+
+##### Breaking Changes
+
+[TODO]
+
+##### New Features
+
+[TODO]
+
+##### Major Fixes
+
+[TODO]
+
+#### [Azure Key Vault Secrets' Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-secrets/CHANGELOG.md)
+
+##### Breaking Changes
+
+[TODO]
+
+##### New Features
+
+[TODO]
+
+##### Major Fixes
+
+[TODO]
+
+#### [Azure Key Vault Certificates' Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-certificates/CHANGELOG.md)
+
+##### Breaking Changes
+
+[TODO]
+
+##### New Features
+
+[TODO]
+
+##### Major Fixes
+
+[TODO]
+
+### Azure Service Bus
+
+#### [Azure Service Bus' Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md)
+
+##### Breaking Changes
+
+[TODO]
+
+##### New Features
+
+[TODO]
+
+##### Major Fixes
+
+[TODO]
 
 ## Latest Releases
 
