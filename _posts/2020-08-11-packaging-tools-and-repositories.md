@@ -31,19 +31,31 @@ Source-based composition of dependencies is a common feature of ecosystems that 
 
 Language/platform designers today can't ignore the importance of having a simple and streamlined code reuse experience. It isn't surprising then when we look at languages like Swift and Go that they have made early efforts to formalize what it means to create reusable code.
 
-What is different about these ecosystems when compared to .NET, Python, JavaScript, and Java is that they've opted to strongly tie the definition of a package to the source repository that hosts it.
+The difference with these ecosystems when compared to .NET, Python, JavaScript, and Java is that they've opted to strongly tie the definition of a package to the source repository that hosts it.
 
-For example, the Swift Package Manager generally points to dependencies via a URL to a Git repository with a ref specifying the branch/tag/commit being depended on. You won't find a version specifier in the ```Package.swift``` within that repository, that is a function of the Git ref.
+* Swift Package Manager looks for a ```Package.swift``` file in the root of a Git repository and versions a targetted by Git ref.
 
-The approach that Go takes is so similar that it isn't worth delving into it in more detail other than to say that both Go and Swift have a very strong notion of the repository and the package being one and the same thing.
+![Swift Package Structure](/images/posts/swift-package-structure.PNG)
 
-From an open source ecosystem perspective the _repository as package_ approach has a lot of nice characteristics. For example it is very easy for a consumer of your package to fork you repository on GitHub make some local changes on a branch and consume it within their own solution whilst they wait for their changes to be upstreamed (or not).
+* Go uses a ```Go.mod``` file to define a module and delcare its dependencies. Once again, the Git ref is used as the version specifier.
 
-Like everything though there is a downside. In both Swift and Go, the model for _repository as package_ is strictly one package per repository. This means that if you are tied to the monolithic repository model then you are going to have a monolithic package.
+![Go Package Structure](/images/posts/go-package-structure.PNG)
+
+
+
+### Repository as package has nice OSS characteristics
+
+Source-based packages where the repository is used as a discovery and distribution mechanism makes it very easy for a consumer of your package to fork your repository on GitHub make some local changes on a branch and consume it within their own solution whilst they wait for their changes to be upstreamed (or not).
+
+### Downsides of repository as package
+
+Like everything though there is a downside. In Swift specifically the model for _repository as package_ is strictly one package per repository. This means that if you are tied to the monolithic repository model then you are going to have a monolithic package.
 
 When building a set of APIs like we have in the SDK we need to carefully consider whether the requirement to ship the entire SDK at once vs. piecemeal is a blocker, and then depending on the packaging tool chain, that will have impacts on the way we structure our repositories.
 
-In the case of our Swift and Go SDKs we've opted to stick with the mono-repository approach to create a focal point for reporting issues and community contributions.
+In the case of our Swift SDKs we've opted to stick with the mono-repository approach to create a focal point for reporting issues and community contributions.
+
+Go's deep linking capability allows us to operate as a mono-repository but also ship module updates independently.
 
 This is an example of where tool chain support has major implications for how you structure your repository and at what level of granularity you can release components to customers.
 
@@ -53,7 +65,7 @@ When it comes to building solutions I am a big proponent of the [principle of le
 
 For package managers this means understanding the relationship that package format, discovery, distribution and cardinality have on the way that you structure your repository and the surrounding build and release systems.
 
-The table below is my quick survey of some ecosystems and how they map:
+The table below is my quick survey of some ecosystems and how they map to package format, discovery, distribution and cardinality (whether the one repo can host sources for multiple packages):
 
 |Ecosystem|Package format|Package discovery|Package distribution|Package cardinality
 |--|--|--|--|--|
@@ -61,9 +73,16 @@ The table below is my quick survey of some ecosystems and how they map:
 |Python|Source<sup>1</sup>|Registry<sup>1</sup>|Registry<sup>1</sup>|1:Many
 |JavaScript|Source|Registry|Registry|1:Many (1:1 by convention)
 |Java|Binary|Registry|Registry|1:Many
-|Go|Source|Repository|Repository|1:1
+|Go|Source|Repository|Repository|1:Many
 |Swift|Source<sup>2</sup>|Repository|Repository|1:1<sup>3</sup>
 |Rust|Source|Registry|Registry|1:Many (1:1 by convention)
+
+> ### Notes
+> 1. Python also supports binary distribution in the form of wheel packages, and source distribution can come directly from the version control system.
+>
+> 2. Swift Package Manager recently added support for wrapping binary frameworks (*.xcframework archives) in a package. The Swift Package meta-data in the ```Package.swift``` file still needs to be hosted in a repository, but the package itself can be a binary.
+>
+> 3. Whilst Swift Packager Manager only supports one package per repository, a single package can define multiple _Products_ which allow you to control which parts of the code is built.
 
 With .NET for example, it is quite normal to have a single repository produce multiple packages because each package exists independently of the repository which contains its sources.
 
@@ -79,8 +98,3 @@ We've learned on the Azure SDK team that it generally works best if you start wi
 
 ## Notes
 
-1. Python also supports binary distribution in the form of wheel packages, and source distribution can come directly from the version control system.
-
-2. Swift Package Manager recently added support for wrapping binary frameworks (*.xcframework archives) in a package. The Swift Package meta-data in the ```Package.swift``` file still needs to be hosted in a repository, but the package itself can be a binary.
-
-3. Whilst Swift Packager Manager only supports one package per repository, a single package can define multiple _Products_ which allow you to control which parts of the code is built.
