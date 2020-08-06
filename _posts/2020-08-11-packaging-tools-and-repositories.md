@@ -69,7 +69,7 @@ When it comes to building solutions I am a big proponent of the [principle of le
 
 For package managers this means understanding the relationship that package format, discovery, distribution and cardinality have on the way that you structure your repository and the surrounding build and release systems.
 
-The table below is my quick survey of some ecosystems and how they map to package format, discovery, distribution and cardinality (whether the one repo can host sources for multiple packages):
+The table below is my quick survey of some ecosystems and how they map to package format, discovery, distribution, and cardinality (whether the one repo can host sources for multiple packages):
 
 |Ecosystem|Package format|Package discovery|Package distribution|Package cardinality
 |--|--|--|--|--|
