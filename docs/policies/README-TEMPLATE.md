@@ -22,7 +22,9 @@ Use the guidelines in each section of this template to ensure consistency and re
   - [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos/samples)
   - [Versioned API References](https://azure.github.io/azure-sdk-for-python/ref/Cosmos.html) -- Note this link format may be updated in the future but it is the best we have for now.
 
-* **DO NOT** use relative links to other files in the source repository. Use links to master in all our md files in the repo as this will help ensure that links work and don't break in a lot of cases. However when we publish these to docs we have the opportunity to transform those links to use the release tags instead of the master links. 
+* **DO NOT** use relative links to other files in the source repository. While relative links work well when browsing directly on github they tend to break when we consume this content in other places, such as docs, samples, package managers, etc. For this reason the guidance is to use links to master in all our MD files in the repo as this will help ensure that links work in other contexts.
+
+However given we own the publishing pipeline for docs we will transform master links to links based on release tags to help ensure the links remain over time and point at exact versions of the content when the docs were published. 
  - The primary reason for this guidance update is that the contents of the MD files end up getting used in a lot more context then on github. For example they are consumed by docs, samples, package managers, etc. In the past when we had the guidance of using relative links, we found folks having issues with broken links in md files in our repos, hence we decided to change the guidance to use links to master.
 
 * If the CI validation fails because of link verification for a link to a file or section present in your PR and not in the master but will be a valid link after the PR is merged to master, then you can put the link as a comment like this 
@@ -133,4 +135,3 @@ If you'd like to contribute to this library, please read the [contributing guide
 [Java Readme Template](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/template/azure-sdk-template/README.md)
 
 [.Net Readme Template](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/template/Azure.Template/README.md)
-
