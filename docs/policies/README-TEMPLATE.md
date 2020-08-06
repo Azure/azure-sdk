@@ -22,7 +22,21 @@ Use the guidelines in each section of this template to ensure consistency and re
   - [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos/samples)
   - [Versioned API References](https://azure.github.io/azure-sdk-for-python/ref/Cosmos.html) -- Note this link format may be updated in the future but it is the best we have for now.
 
-* **DO NOT** use relative links to other files in the source repository. Use links to master in all our md files in the repo as this will help ensure that links work and don't break in a lot of cases. However when we publish these to docs we have the opportunity to transform those links to use the release tags instead of the master links.
+* **DO NOT** use relative links to other files in the source repository. While relative links work well when browsing directly on github they tend to break when we consume this content in other places, such as docs, samples, package managers, etc. For this reason the guidance is to use links to master in all our MD files in the repo as this will help ensure that links work in other contexts.
+
+However given we own the publishing pipeline for docs we will transform master links to links based on release tags to help ensure the links remain over time and point at exact versions of the content when the docs were published. 
+
+* If the CI validation fails because of link verification for a link to a file or section present in your PR and not in the master but will be a valid link after the PR is merged to master, then you can put the link as a comment like this 
+```
+Here are some [samples]<!--(https://github.com/azure-sdk-for-python/blob/master/samples.json)--> to look at.
+```
+You can also put a TODO inside the comment like -
+```
+Here are some [samples]<!--TODO: add link to samples (https://github.com/azure-sdk-for-python/blob/master/samples.json)--> to look at.
+```
+This will ensure that you don't forget to update the link in the README later and the README won't have any broken links
+
+* **DO NOT** use locale in the urls like `en-us`. For example use `https://docs.microsoft.com/dotnet/api/azure.storage.blobs` instead of `https://docs.microsoft.com/en-us/dotnet/api/azure.storage.blobs`
 
 * **DO NOT** use version numbers in the links as the version numbers will often be missed when releasing new versions thus point to the wrong thing or not exist at all. Instead avoid linking directly to versioned information. If you still need a link you should first try to link to a page that contains all the versions so someone can choose or link to the latest which may be out of sync with the content but should usually remain valid.
 
@@ -120,4 +134,3 @@ If you'd like to contribute to this library, please read the [contributing guide
 [Java Readme Template](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/template/azure-sdk-template/README.md)
 
 [.Net Readme Template](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/template/Azure.Template/README.md)
-
