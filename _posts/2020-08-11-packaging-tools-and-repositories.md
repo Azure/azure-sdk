@@ -7,9 +7,13 @@ author_github: mitchdenny
 repository: azure/azure-sdk
 ---
 
+The capabilities and constraints of the package management tool chain used by a particular ecosystem can have a dramatic impact on how you structure your repositories and whether you ship a single monolithic package, or whether you can break it up.
+
+We've learned on the Azure SDK team that it generally works best if you start with the end-developer in mind and figure out how to optimize the consumption experience and then balance that against other considerations such as inner-loop developer efficiency, engineering system complexity and supportability.
+
 Back in March 2020 (seems so long ago doesn't it!) we posted about [how we structured the Azure SDK repositories](https://devblogs.microsoft.com/azure-sdk/building-the-azure-sdk-repository-structure/). We compared some of the implications of mono-repo vs. micro-repo decisions when it comes to hosting our SDKs and outlined some of the key considerations for choosing between the two.
 
-One of the factors in the decision was the level of tool chain support for our nominated approach.
+One of the factors in the decision was the level of tool chain support for our selected approach.
 
 For the most part we've managed to navigate the various trade-offs associated with choosing a mono-repository structure while still being able to ship various components of the SDK independently.
 
@@ -31,9 +35,9 @@ Source-based composition of dependencies is a common feature of ecosystems that 
 
 Language/platform designers today can't ignore the importance of having a simple and streamlined code reuse experience. It isn't surprising then when we look at languages like Swift and Go that they have made early efforts to formalize what it means to create reusable code.
 
-The difference with these ecosystems when compared to .NET, Python, JavaScript, and Java is that they've opted to strongly tie the definition of a package to the source repository that hosts it.
+The difference with these ecosystems when compared to .NET, Java, JavaScript, and Python is that they've opted to strongly tie the definition of a package to the source repository that hosts it.
 
-* Swift Package Manager looks for a ```Package.swift``` file in the root of a Git repository and versions a targetted by Git ref.
+* Swift Package Manager looks for a ```Package.swift``` file in the root of a Git repository and versions are targeted by Git ref.
 
 ![Swift Package Structure](/images/posts/swift-package-structure.PNG)
 
@@ -92,9 +96,4 @@ In the JavaScript community, NPM packages are generally one package per reposito
 
 ## Conclusions
 
-The capabilities and constraints of the package management tool chain used by a particular ecosystem can have a dramatic impact on how you structure your repositories and whether you ship a single monolithic package, or whether you can break it up.
-
-We've learned on the Azure SDK team that it generally works best if you start with the end-developer in mind and figure out how to optimize the consumption experience and then balance that against other considerations such as inner-loop developer efficiency, engineering system complexity and supportability.
-
-## Notes
-
+As we build out the SDK for each language/ecosystem we are constantly striving to maintain a balance the productivity of the developers building the SDK and the experience of the developers consuming the SDK. The tool chains in each ecosystem influence much of how our engineering system works and the decisions we make about structuring and releasing the SDK.
