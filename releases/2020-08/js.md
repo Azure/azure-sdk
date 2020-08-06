@@ -71,7 +71,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Azure Form Recognizer
 
-#### [Azure Form Recognizer's Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
+#### Form Recognizer's [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
 
 ##### Breaking Changes
 
@@ -87,7 +87,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Azure Key Vault
 
-#### [Azure Key Vault Keys' Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-keys/CHANGELOG.md)
+#### Key Vault Keys' [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-keys/CHANGELOG.md)
 
 ##### Breaking Changes
 
@@ -101,7 +101,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 [TODO]
 
-#### [Azure Key Vault Secrets' Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-secrets/CHANGELOG.md)
+#### Key Vault Secrets' [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-secrets/CHANGELOG.md)
 
 ##### Breaking Changes
 
@@ -115,7 +115,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 [TODO]
 
-#### [Azure Key Vault Certificates' Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-certificates/CHANGELOG.md)
+#### Key Vault Certificates' [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-certificates/CHANGELOG.md)
 
 ##### Breaking Changes
 
@@ -131,7 +131,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Azure Service Bus
 
-#### [Azure Service Bus' Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md)
+#### Service Bus' [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md)
 
 ##### Breaking Changes
 
