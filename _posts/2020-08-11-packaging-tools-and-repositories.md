@@ -63,7 +63,7 @@ Go's deep linking capability allows us to operate as a mono-repository but also 
 
 This is an example of where tool chain support has major implications for how you structure your repository and at what level of granularity you can release components to customers.
 
-## Knowing when you're fighting the tools
+## Use the tools that are idiomatic to the language and use them as intended
 
 When it comes to building solutions I am a big proponent of the [principle of least astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment). Applied to the engineering systems for the Azure SDK, that means trying not the fight the tools that support the ecosystem that you are targetting.
 
