@@ -4,7 +4,11 @@ The Azure SDK project welcomes contributions and suggestions.  Most contribution
 
 When you submit a pull request, a CLA-bot will automatically determine whether you need to provide a CLA and decorate the PR appropriately (e.g., label, comment). Simply follow the instructions provided by the bot. You will only need to do this once across all repos using our CLA.
 
-## Contribution Process
+## Azure SDK Blog Contributions
+
+The [Azure SDK Blog](https://aka.ms/azsdk/blog) welcomes contributions related to the new Azure SDKs.  Please reach out to us here [azsdkblog@microsoft.com](mailto:azsdkblog@microsoft.com) if you are interested in contributing a blog post.
+
+## Azure SDK GitHub Pages Site Contributions
 
 Here's the general contribution process:
 
