@@ -9,7 +9,7 @@ repository: azure/azure-sdk
 
 The capabilities and constraints of the package management tool chain used by a particular ecosystem can have a dramatic impact on how you structure your repositories and whether you ship a single monolithic package, or whether you can break it up.
 
-We've learned on the Azure SDK team that it generally works best if you start with the end-developer in mind and figure out how to optimize the consumption experience and then balance that against other considerations such as inner-loop developer efficiency, engineering system complexity and supportability.
+We've learned on the Azure SDK team that it generally works best if you start with the end-developer in mind and figure out how to optimize the consumption experience and then balance that against other considerations such as inner-loop developer efficiency, engineering system complexity, and supportability.
 
 Back in March 2020 (seems so long ago doesn't it!) we posted about [how we structured the Azure SDK repositories](https://devblogs.microsoft.com/azure-sdk/building-the-azure-sdk-repository-structure/). We compared some of the implications of mono-repo vs. micro-repo decisions when it comes to hosting our SDKs and outlined some of the key considerations for choosing between the two.
 
@@ -21,7 +21,7 @@ But what about ecosystems where there is a significant relationship between the 
 
 ## Package delivery systems
 
-When developers consume third-party dependencies they need a way of hooking them into their builds at the right time. Really a package delivery system is just a convention that is agreed to by developers in a particular ecosystem which makes it easy to consume third-party code. In .NET for example, the unit of code reuse is an assembly (typically a DLL file), and a NuGet package is just a zip file containing that DLL for any target runtime versions that the package supports, as well as other meta data which describes that packages own dependencies. When you install it walks the graph of all dependencies downloading each file in turn. The ```*.csproj``` file contains a list of packages that project depends on so that when you build its got somewhere to start looking for all the dependencies. Once all the DLL files are downloaded into the cache, the compiler is invoked with a pointer to these dependencies.
+When developers consume third-party dependencies they need a way of hooking them into their builds at the right time. Really a package delivery system is just a convention that is agreed to by developers in a particular ecosystem which makes it easy to consume third-party code. In .NET for example, the unit of code reuse is an assembly (typically a DLL file), and a NuGet package is just a zip file containing that DLL for any target runtime versions that the package supports, as well as other metadata which describes that packages own dependencies. When you install the package it walks the graph of all dependencies and downloads each file in turn. The ```*.csproj``` file contains a list of packages that project depends on so that when you build it has somewhere to start looking for all the dependencies. Once all the DLL files are downloaded into the cache, the compiler is invoked with a pointer to these dependencies.
 
 Each ecosystem does it slightly differently, but at the end of the day its about downloading source/binaries and hooking them into the build system for the project that a developer is working on.
 
