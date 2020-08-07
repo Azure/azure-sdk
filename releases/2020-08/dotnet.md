@@ -18,14 +18,15 @@ The Azure SDK team is pleased to announce our August 2020 client library release
 
 #### Preview
 
-- _Add packages_
+- Event Hubs
 
 ## Installation Instructions
 
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
 ```bash
-$> dotnet install PACKAGE --version whatever
+ $> dotnet add package Azure.Messaging.EventHubs --version 5.2.0-preview.2
+ $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.2.0-preview.2
 ```
 
 ## Feedback
@@ -34,7 +35,9 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 ## Changelog
 
-Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
+### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md)
+
+- This release contains several fixes for minor issues as well as a collection of performance enhancements.
 
 ### Azure.Core (https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/CHANGELOG.md#140-2020-08-06)
 
@@ -51,9 +54,9 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### Breaking Changes
 - `ObjectSerializer`: Moved to `Azure.Core`.
 
-### _Package name_ 
+### Event Hubs Processor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md)
 
-- Major changes only!!!
+- This release contains several fixes for minor issues as well as a collection of performance enhancements.
 
 ## Latest Releases
 
