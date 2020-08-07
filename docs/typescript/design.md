@@ -32,11 +32,13 @@ While consumers are fast at adopting new versions of TypeScript, version 3.1 is 
 
 {% include requirement/MUST id="ts-register-dropped-platforms" %} get approval from the [Architecture Board] to drop support for any platform (except IE11 and Node 6) even if support isn't required.
 
-## Namespaces and NPM scopes {#ts-namespace}
+## Namespaces, NPM Scopes, and Distribution Tags {#ts-namespace}
 
 {% include requirement/MUST id="ts-azure-scope" %} publish your library to the `@azure` npm scope.
 
 {% include requirement/MUST id="ts-namespace-serviceclient" %} pick a package name that allows the consumer to tie the namespace to the service being used.  As a default, use the compressed service name at the end of the namespace.  The namespace does **NOT** change when the branding of the product changes. Avoid the use of marketing names that may change.
+
+{% include requirement/MUST id="ts-npm-dist-tags" %} publish GA packages using the npm distribution tag `latest` and preview packages using `next`.
 
 {% include requirement/MUST id="ts-namespace-in-browsers" %} use one of the appropriate namespaces (see below) for browser globals when producing UMD builds.
 
