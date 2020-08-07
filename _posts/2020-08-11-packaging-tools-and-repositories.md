@@ -53,7 +53,7 @@ The difference with these ecosystems when compared to .NET, Java, JavaScript, an
 
 #### Repository as package has nice OSS characteristics
 
-Source-based packages where the repository is used as a discovery and distribution mechanism makes it very easy for a consumer of your package to fork your repository on GitHub make some local changes on a branch and consume it within their own solution whilst they wait for their changes to be upstreamed (or not).
+Source-based packages where the repository is used as a discovery and distribution mechanism makes it very easy for a consumer of your package to fork your repository on GitHub, make some local changes on a branch, and consume it within their own solution whilst they wait for their changes to be upstreamed (or not).
 
 #### Downsides of repository as package
 
@@ -71,9 +71,9 @@ This is an example of where tool chain support has major implications for how yo
 
 When it comes to building solutions I am a big proponent of the [principle of least astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment). Applied to the engineering systems for the Azure SDK, that means trying not the fight the tools that support the ecosystem that you are targetting.
 
-For package managers this means understanding the relationship that package format, discovery, distribution and cardinality have on the way that you structure your repository and the surrounding build and release systems.
+For package managers this means understanding the relationship that package format, discovery, distribution, and cardinality have on the way that you structure your repository and the surrounding build and release systems.
 
-The table below is my quick survey of some ecosystems and how they map to package format, discovery, distribution, and cardinality (whether the one repo can host sources for multiple packages):
+The table below is a survey of some ecosystems and how they map to package format, discovery, distribution, and cardinality (whether the one repo can host sources for multiple packages):
 
 |Ecosystem|Package format|Package discovery|Package distribution|Package cardinality
 |--|--|--|--|--|
@@ -88,7 +88,7 @@ The table below is my quick survey of some ecosystems and how they map to packag
 > ### Notes
 > 1. Python also supports binary distribution in the form of wheel packages, and source distribution can come directly from the version control system.
 >
-> 2. Swift Package Manager recently added support for wrapping binary frameworks (*.xcframework archives) in a package. The Swift Package meta-data in the ```Package.swift``` file still needs to be hosted in a repository, but the package itself can be a binary.
+> 2. Swift Package Manager recently added support for wrapping binary frameworks (*.xcframework archives) in a package. The Swift Package metadata in the ```Package.swift``` file still needs to be hosted in a repository, but the package itself can be a binary.
 >
 > 3. Whilst Swift Packager Manager only supports one package per repository, a single package can define multiple _Products_ which allow you to control which parts of the code is built.
 
@@ -100,4 +100,4 @@ In the JavaScript community, NPM packages are generally one package per reposito
 
 ## Conclusion
 
-As we build out the SDK for each language/ecosystem we are constantly striving to maintain a balance the productivity of the developers building the SDK and the experience of the developers consuming the SDK. The tool chains in each ecosystem influence much of how our engineering system works and the decisions we make about structuring and releasing the SDK.
+As we build out the SDK for each language/ecosystem we are constantly striving to maintain a balance of the productivity of the developers building the SDK and the experience of the developers consuming the SDK. The tool chains in each ecosystem influence much of how our engineering system works and the decisions we make about structuring and releasing the SDK.
