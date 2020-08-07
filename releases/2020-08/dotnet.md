@@ -46,7 +46,6 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### Fixed
 - Connection leak for retried non-buffered requests on .NET Framework.
 
-
 ### Azure.Core.Experimental (https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core.Experimental/CHANGELOG.md#010-preview3-2020-08-06)
 
 #### Breaking Changes
