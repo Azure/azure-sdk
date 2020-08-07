@@ -13,11 +13,9 @@ We've learned on the Azure SDK team that it generally works best if you start wi
 
 Back in March 2020 (seems so long ago doesn't it!) we posted about [how we structured the Azure SDK repositories](https://devblogs.microsoft.com/azure-sdk/building-the-azure-sdk-repository-structure/). We compared some of the implications of mono-repo vs. micro-repo decisions when it comes to hosting our SDKs and outlined some of the key considerations for choosing between the two.
 
-One of the factors in the decision was the level of tool chain support for our selected approach.
+The quick version of that article is that we wanted to create a single place where developers and contributors could work together on a particular language or ecosystems version of the SDK. One of the factors in the decision was the level of tool chain support for our selected approach. For the most part we've managed to navigate the various trade-offs associated with choosing a mono-repository structure while still being able to ship various components of the SDK independently.
 
-For the most part we've managed to navigate the various trade-offs associated with choosing a mono-repository structure while still being able to ship various components of the SDK independently.
-
-This is enabled in large part due to the fact that for many of our repositories (.NET, Java, JavaScript, and Python), the artifact we ship is a bundle of source/binaries which are consumed independently of where we host our source code. In short, if we can script a way to produce the artifacts we can ship them however we want!
+This is enabled in large part due to the fact that for many of our repositories (.NET, Java, JavaScript, and Python), the artifact we ship is a bundle of source/binaries which are consumed independently of where we host our source code. This means that its possible to have two libraries with interdependencies in the repo, but the dependent library can use the published version of the package whilst the new version continues to evolve (this is called binary composition - which the blog post linked above covers in a bit more detail).
 
 But what about ecosystems where there is a significant relationship between the source repo and the method of consuming our SDK?
 
