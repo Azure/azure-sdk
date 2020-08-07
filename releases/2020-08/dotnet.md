@@ -39,7 +39,6 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 #### Added
 - Added `ObjectSerializer` base class for serialization.
-- Added `IMemberNameConverter` for converting member names to serialized property names.
 - Added `JsonObjectSerializer` that implements `ObjectSerializer` for `System.Text.Json`.
 
 #### Fixed
