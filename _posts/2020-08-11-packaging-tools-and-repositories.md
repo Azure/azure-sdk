@@ -21,7 +21,13 @@ This is enabled in large part due to the fact that for many of our repositories 
 
 But what about ecosystems where there is a significant relationship between the source repo and the method of consuming our SDK?
 
-## Consuming via source
+## Package delivery systems
+
+When developers consume third-party dependencies they need a way of hooking them into their builds at the right time. Really a package delivery system is just a convention that is agreed to by developers in a particular ecosystem which makes it easy to consume third-party code. In .NET for example, the unit of code reuse is an assembly (typically a DLL file), and a NuGet package is just a zip file containing that DLL for any target runtime versions that the package supports, as well as other meta data which describes that packages own dependencies. When you install it walks the graph of all dependencies downloading each file in turn. The ```*.csproj``` file contains a list of packages that project depends on so that when you build its got somewhere to start looking for all the dependencies. Once all the DLL files are downloaded into the cache, the compiler is invoked with a pointer to these dependencies.
+
+Each ecosystem does it slightly differently, but at the end of the day its about downloading source/binaries and hooking them into the build system for the project that a developer is working on.
+
+### Consuming via source
 
 In ecosystems where there is no defacto standard for packaging, developers are left to come up with their own solutions for sharing code. In C, C++, and Objective-C codebases for example, it is not uncommon to see developers using Git sub-modules or committing entire snapshots of third party libraries.
 
@@ -31,7 +37,7 @@ The general approach that these package managers take is that they allow you to 
 
 Source-based composition of dependencies is a common feature of ecosystems that produce native binaries where there tends to be less introspection capabilities at runtime.
 
-## Repository as package
+### Repository as package
 
 Language/platform designers today can't ignore the importance of having a simple and streamlined code reuse experience. It isn't surprising then when we look at languages like Swift and Go that they have made early efforts to formalize what it means to create reusable code.
 
@@ -47,11 +53,11 @@ The difference with these ecosystems when compared to .NET, Java, JavaScript, an
 
 
 
-### Repository as package has nice OSS characteristics
+#### Repository as package has nice OSS characteristics
 
 Source-based packages where the repository is used as a discovery and distribution mechanism makes it very easy for a consumer of your package to fork your repository on GitHub make some local changes on a branch and consume it within their own solution whilst they wait for their changes to be upstreamed (or not).
 
-### Downsides of repository as package
+#### Downsides of repository as package
 
 Like everything though there is a downside. In Swift specifically the model for _repository as package_ is strictly one package per repository. This means that if you are tied to the monolithic repository model then you are going to have a monolithic package.
 
