@@ -26,7 +26,7 @@ We recommend that you use a package manager that supports these registries.
 
 For language repositories which contain multiple packages, releases for each package are tagged in the format `<package-name>_<package-version>`.
 
-For language repositories where the repo is the primary shipping unit, the releases should be tagged in the format `<release-version>` (i.e. `1.0.0-preview.1`). If there are other secondary assets that also ship from the same repo then those assets should use an identifier for those assets and the version `<identifier-name>_<release-version>` (i.e. `tools_1.0.0-preview.1`). 
+For language repositories where the repo is the primary shipping unit, the releases should be tagged in the format `<release-version>` (i.e. `1.0.0-beta.1`). If there are other secondary assets that also ship from the same repo then those assets should use an identifier for those assets and the version `<identifier-name>_<release-version>` (i.e. `tools_1.0.0-beta.1`). 
 
 ## GitHub Releases
 
@@ -119,7 +119,7 @@ In addition to standard SemVer, the team occasionally releases a preview of a pa
 
 Immediately after a package ships the source definition of the package version should be incremented in source control. It's safer to have `N+1` in `master` than `N`. Package increment after release happens automatically as part of the release pipelines.
 
-**Preview Release:** Increment the preview number on the package (e.g. `1.0.0-preview.1` -> `1.0.0-preview.2`) appropriate to the versioning scheme for the language (see below for language-specific version formatting). Breaking changes are allowed between preview builds.
+**Preview Release:** Increment the beta number on the package (e.g. `1.0.0-beta.1` -> `1.0.0-beta.2`) appropriate to the versioning scheme for the language (see below for language-specific version formatting). Breaking changes are allowed between preview builds.
 
 **GA Release:** Some languages bump the minor and others bump the patch version please see specific guidelines below based on your language. Breaking changes (which might increment the major version number) are *not* allowed after a GA release without an exception and review by the architecture board.
 
@@ -150,7 +150,7 @@ Avoid source dependencies in projects and only use binary/package dependencies. 
 
 In cases where packages have dependencies and are built in the same pipeline, dependency versions can track the current version of the packages on which they depend.
 
-For example, if Package A and Package B are built in the same Unified Pipeline and Package A is at version `1.0.0-preview.2`, Package B's dependency on Package A should track Package A's version  (i.e. `1.0.0-preview.2`) such that both packages can be built and released from the same pipeline.
+For example, if Package A and Package B are built in the same Unified Pipeline and Package A is at version `1.0.0-beta.2`, Package B's dependency on Package A should track Package A's version  (i.e. `1.0.0-beta.2`) such that both packages can be built and released from the same pipeline.
 
 ### Languages
 
@@ -188,7 +188,8 @@ Below are the guidelines for versions and tags to use:
   - If a package has moved from preview to GA, ensure that the `next` tag is deleted.
 - Preview releases will use the format `X.Y.Z-preview.N` for version and the published package should have the tag `next`.
   - Additionally, use the `@latest` tag **only** if the package has never had a GA release.
-- Daily releases will use the format `X.Y.Z-dev.YYYYMMDD.r` (`r` is based on the number of builds performed on the given day) and the published package will have the tag `dev`.
+  - Note: JS uses `preview` instead of `beta` for pre-release packages to avoid floating up to dev packages if folks depend on a version like `^1.0.0-beta.1`. Since `preview` sorts later the `dev` people can more easily stay on the normal preview packages and not accidently resolve to the more volatile dev packages.
+- Daily releases will use the format `X.Y.Z-dev.YYYYMMDD.r` (`r` is based on the number of builds performed on the given day) and the published package will have the tag `dev`. To consume a dev package either pin to a specific version or use the `dev` tag as the version to avoid crossing packages with other preview packages.
 
 ##### Incrementing after release (JS)
 
@@ -221,15 +222,15 @@ rush update --full
 NuGet supports designating a package as 'pre-release'. In this ecosystem, pre-release packages will have daily build numbers in the format:
 
 - `X.Y.Z-dev.YYYYMMDD.r` (`r` is based on the number of builds done in a given day)
-- `X.Y.Z-preview.N`
+- `X.Y.Z-beta.N`
 
 Preview .NET packages will be published to NuGet with the pre-release designation. Dev packages will be published to an isolated Azure DevOps feed.
 
 #### Incrementing after release (.NET)
 
-**Preview Release:** `1.0.0-preview.1` -> `1.0.0-preview.2`
+**Preview Release:** `1.0.0-beta.1` -> `1.0.0-beta.2`
 
-**GA Release:** `1.1.0` -> `1.2.0-preview.1`
+**GA Release:** `1.1.0` -> `1.2.0-beta.1`
 
 **GA Hotfix Release:** `1.0.0` -> `1.0.1`
 
