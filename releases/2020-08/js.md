@@ -31,7 +31,7 @@ $> npm install @azure/ai-form-recognizer
 $> npm install @azure/keyvault-keys
 $> npm install @azure/keyvault-secrets
 $> npm install @azure/keyvault-certificates
-$> npm install @azure/service-bus
+$> npm install @azure/service-bus@next
 ```
 
 ## Feedback
@@ -47,8 +47,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/identity/identity/CHANGELOG.md)
 
 ##### New Features
-- Extended DefaultAzureCredential with an experimental credential that uses the login credential from Azure CLI.
-- Extended DefaultAzureCredential with an experimental credential that uses the login credential from VSCode's Azure Account extension.
+- Extended `DefaultAzureCredential` with experimental credentials that use login credentials from Azure CLI or Visual Studio Code's Azure Account extension.
 - Add the ability to read AZURE_AUTHORITY_HOST from the environment.
 - Made all the developer credentials public as well as the list of credentials used by DefaultAzureCredential.
 - Make the keytar dependency optional, allowing for building and running on platforms not supported by keytar.
@@ -133,15 +132,40 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 #### Service Bus' [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md)
 
-##### Breaking Changes
+##### Breaking Changes from Last Preview
 
-[TODO]
+
+- `receiveMode` parameter in the `createReceiver()`, `createSessionReceiver()` and `createDeadletterReceiver()` methods has been moved into the options bag with the default value `"peekLock"` mode.
+
+  Example:
+
+  - OLD: `createReceiver(<queue-name>, "peekLock")` and `createReceiver(<queue-name>, "receiveAndDelete")`
+  - NEW: `createReceiver(<queue-name>)` and `createReceiver(<queue-name>, {receiveMode: "receiveAndDelete"})`
+
+- Added Async iterable iterators with pagination support for all the listing methods like `getQueues()`, `getTopics()`, `getQueuesRuntimeInfo()`, etc. and renamed them to use the `list` verb.
+  - Please refer to the examples in the `samples` folder - [listingEntities](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/samples/typescript/src/advanced/listingEntities.ts)
+- `receiveMessages()`'s optional `maxWaitTimeInMs` parameter now controls how long to wait for the _first_ message, rather than how long to wait for an entire set of messages. This change allows for a faster return of messages to your application.
+- `userProperties` attribute under the `ServiceBusMessage`(and `ReceivedMessage`, `ReceivedMessageWithLock`) has been renamed to `properties`. Same change has been made to the `userProperties` attribute in the correlation-rule filter.
+- The terms `RuntimeInfo` and `Description` are replaced with `RuntimeProperties` and `Properties` to better align with guidelines around the kind of suffixes we use for naming methods and interfaces.
 
 ##### New Features
 
-[TODO]
+- User agent details can now be added to the outgoing requests by passing the user-agent prefixes to the `ServiceBusClient` and the `ServiceBusManagementClient` through options.
+  Example user-agent string if the prefix `SampleApp` is provided to `ServiceBusManagementClient`:
+  `SampleApp azsdk-js-azureservicebus/7.0.0-preview.5 core-http/1.1.5 Node/v12.16.0 OS/(x64-Windows_NT-10.0.18363)`
+- Added `deadLetterErrorDescription` and `deadLetterReason` properties on the received messages. Previously, they were under the `properties` in the message.
 
-##### Major Fixes
+  OLD: `message.properties["DeadLetterReason"]` and `message.properties["DeadLetterErrorDescription"]`
+  NEW: `message.deadLetterReason` and `message.deadLetterErrorDescription`
+
+- Added tracing support to the methods under `ServiceBusManagementClient`.
+
+##### Bug Fixes
+
+- Fixes [bug 9926](https://github.com/Azure/azure-sdk-for-js/issues/9926)
+  where attempting to create AMQP links when the AMQP connection was in the
+  process of closing resulted in a `TypeError` in an uncaught exception.
+
 
 [TODO]
 
