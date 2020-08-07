@@ -35,6 +35,24 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 ## Changelog
 
+### Azure.Core [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/CHANGELOG.md#140-2020-08-06)
+
+#### Added
+- Added `ObjectSerializer` base class for serialization.
+- Added `JsonObjectSerializer` that implements `ObjectSerializer` for `System.Text.Json`.
+
+#### Fixed
+- Connection leak for retried non-buffered requests on .NET Framework.
+
+### Azure.Core.Experimental [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core.Experimental/CHANGELOG.md#010-preview3-2020-08-06)
+
+#### Breaking Changes
+- `ObjectSerializer`: Moved to `Azure.Core`.
+
+### Microsoft.Azure.Core.NewtonsoftJson [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Microsoft.Azure.Core.NewtonsoftJson/CHANGELOG.md#100-preview1-2020-08-07)
+
+- First release of `Newtonsoft.Json` serialization adapter package.
+
 ### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md)
 
 - This release contains several fixes for minor issues as well as a collection of performance enhancements.
