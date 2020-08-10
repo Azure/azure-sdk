@@ -53,6 +53,18 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 - First release of `Newtonsoft.Json` serialization adapter package.
 
+### Azure.Extensions.AspNetCore.DataProtection.Blobs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Blobs/CHANGELOG.md#101-2020-08-06)
+
+#### Fixed
+
+- Transient error in key refresh (#12415).
+
+### Azure.Extensions.AspNetCore.DataProtection.Keys [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Keys/CHANGELOG.md#101-2020-08-06)
+
+#### Fixed
+
+- Deadlock on .NET Framework (#12605)
+
 ### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md)
 
 - This release contains several fixes for minor issues as well as a collection of performance enhancements.
