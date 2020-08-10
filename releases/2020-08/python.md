@@ -72,9 +72,17 @@ As before, please refer to the official changelog for a more complete enumeratio
 
 ### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#300b1-2020-08-11)
 
-- Version of this package bumped to `3.0.0b1` and now targets the service's stable v2.0 API.
-- This release contains some property/parameter renaming and bug fixes to improve quality.
+#### Breaking changes
 
+- Version of this package bumped to `3.0.0b1` and now targets the service's stable v2.0 API
+- Values are now capitalized for enums `FormContentType`, `LengthUnit`, `TrainingStatus`, and `CustomFormModelStatus`
+- `document_name` renamed to `name` on `TrainingDocumentInfo`
+- Keyword argument `include_sub_folders` renamed to `include_subfolders` on `begin_training` methods
+
+#### New features
+
+- `FormField` now has attribute `value_type` which contains the semantic data type of the field value. The options for
+`value_type` are described in the enum `FieldValueType`
 
 ## Latest Releases
 
