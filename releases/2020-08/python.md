@@ -14,7 +14,7 @@ The Azure SDK team is pleased to make available the August 2020 client library r
 
 #### Updates
 
-- _Add packages_
+- App Configuration
 
 #### Preview
 
@@ -25,7 +25,7 @@ The Azure SDK team is pleased to make available the August 2020 client library r
 To install the latest preview version of the packages, copy and paste the following commands into a terminal:
 
 ```bash
-$> pip install azure-packagename
+$> pip install azure-appconfiguration
 ```
 
 ## Feedback
