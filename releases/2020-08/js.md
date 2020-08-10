@@ -56,14 +56,6 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 #### [Azure Event Hubs Checkpoint Store's Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/CHANGELOG.md)
 
-##### Breaking Changes
-
-[TODO]
-
-##### New Features
-
-[TODO]
-
 ##### Major Fixes
 
 - Fixes issue [#10132](https://github.com/Azure/azure-sdk-for-js/issues/10132)
