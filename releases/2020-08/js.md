@@ -66,7 +66,10 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ##### Major Fixes
 
-[TODO]
+- Fixes issue [#10132](https://github.com/Azure/azure-sdk-for-js/issues/10132)
+  where using an Azure Storage Account with soft-deletes or blob versioning enabled
+  would cause `listCheckpoints` to suffer performance penalties proportional to the
+  number of times `updateCheckpoint` was called.
 
 ### Azure Form Recognizer
 
