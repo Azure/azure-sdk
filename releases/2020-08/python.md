@@ -19,6 +19,7 @@ The Azure SDK team is pleased to make available the August 2020 client library r
 #### Preview
 
  - Service Bus
+ - Search
 
 ## Installation Instructions
 
@@ -27,6 +28,7 @@ To install the latest preview version of the packages, copy and paste the follow
 ```bash
 pip install azure-identity
 pip install --pre azure-servicebus
+pip install --pre azure-search-documents
 ```
 
 ## Feedback
@@ -67,6 +69,14 @@ Please refer to the service bus changelog for a full enumeration.
 As before, please refer to the official changelog for a more complete enumeration.
 - Renamed `idle_timeout` in `get_<queue/subscription>_receiver()` to `max_wait_time` to normalize with naming elsewhere.
 - Updated uAMQP dependency to 1.2.10 such that the receiver does not shut down when generator times out, and can be received from again.
+
+### Search [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/CHANGELOG.md)
+
+#### New Features
+
+- new SearchIndexDocumentBatchingClient
+
+SearchIndexDocumentBatchingClient supports handling document indexing actions in an automatic way. It can trigger the flush method automatically based on pending tasks and idle time.
 
 ## Latest Releases
 
