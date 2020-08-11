@@ -39,7 +39,7 @@ It’s critical that library owners engage with the architecture board early eno
 If you are unsure which path applies to the work you are doing, you should consult with a language architect for guidance.
 
 
-## Types of Meetings and What to Prepare 
+## Types of Review Meetings and What to Prepare 
 
 [Submit an issue](https://github.com/Azure/azure-sdk/issues/new/choose) to the Architecture Board to request for a meeting. If the service is pre-release and not yet publicly disclosed, use the private repository ([azure-sdk-pr](https://github.com/Azure/azure-sdk-pr)). After creating the issue, email the Architecture Board to communicate specific requests such as scheduling, invite lists, etc.
 
@@ -126,7 +126,6 @@ Considering the following questions would help guide some the of library design 
 3. What features of the API need to be explained in the sample so that someone could use this API in a real app?
 
 
-
 ## What Happens During Review
 
 ### Who should be present? 
@@ -158,6 +157,11 @@ For introductory and API review sessions, there will usually be a list of action
 
 If after an API Sign Off session the Architecture Board approves the release of the API, the SDK Team will add the comment “APPROVED FOR RELEASE” to the issue requesting for the Sign Off review. The service team will need to create an issue using the template “Record of Architecture Board Approval for Release” to indicate that the library has gone through all the required reviews for release. The release manager will ask for a link to this GitHub issue for confirmation. 
 
+## Getting Approval for Small, Targeted Changes and Bug Fixes
+
+For small or targeted changes and bug fixes which modify APIs, the architect in each language can review and sign off without a combined/central review. We highly recommend doing this review as early as possible. This should be done on GitHub by opening an issue with links to API diffs. Include all architects as reviewers. In some cases it makes sense for small changes to the API to be batched for efficiency. If a language architect determines there is a need for a deeper discussion, then a meeting with that architect should be scheduled to have that conversation. If it’s a cross language discussion, then a board meeting should be scheduled.
+
+Remember that **all** changes to an API must be approved by the language architect before release.
 
 
 ## Tracking API Changes That Need to be Reviewed
