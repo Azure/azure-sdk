@@ -19,6 +19,7 @@ The Azure SDK team is pleased to make available the August 2020 client library r
 #### Preview
 
  - Service Bus
+ - Form Recognizer
  - Search
 
 ## Installation Instructions
@@ -28,6 +29,7 @@ To install the latest preview version of the packages, copy and paste the follow
 ```bash
 pip install azure-identity
 pip install --pre azure-servicebus
+pip install azure-ai-formrecognizer
 pip install --pre azure-search-documents
 ```
 
@@ -69,6 +71,20 @@ Please refer to the service bus changelog for a full enumeration.
 As before, please refer to the official changelog for a more complete enumeration.
 - Renamed `idle_timeout` in `get_<queue/subscription>_receiver()` to `max_wait_time` to normalize with naming elsewhere.
 - Updated uAMQP dependency to 1.2.10 such that the receiver does not shut down when generator times out, and can be received from again.
+
+### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#300b1-2020-08-11)
+
+#### Breaking changes
+
+- Version of this package bumped to `3.0.0b1` and now targets the service's stable v2.0 API
+- Values are now capitalized for enums `FormContentType`, `LengthUnit`, `TrainingStatus`, and `CustomFormModelStatus`
+- `document_name` renamed to `name` on `TrainingDocumentInfo`
+- Keyword argument `include_sub_folders` renamed to `include_subfolders` on `begin_training` methods
+
+#### New features
+
+- `FormField` now has attribute `value_type` which contains the semantic data type of the field value. The options for
+`value_type` are described in the enum `FieldValueType`
 
 ### Search [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/CHANGELOG.md)
 
