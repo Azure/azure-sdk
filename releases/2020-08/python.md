@@ -15,6 +15,7 @@ The Azure SDK team is pleased to make available the August 2020 client library r
 #### Updates
 
 - Identity
+- Key Vault
 
 #### Preview
 
@@ -29,6 +30,9 @@ To install the latest preview version of the packages, copy and paste the follow
 pip install azure-identity
 pip install --pre azure-servicebus
 pip install azure-ai-formrecognizer
+pip install azure-keyvault-certificates
+pip install azure-keyvault-keys
+pip install azure-keyvault-secrets
 ```
 
 ## Feedback
@@ -51,7 +55,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### New Features
 
 - This release continues to move towards feature parity with the existing sdk.  Recommend reading migration guide and full changelog for details.
-- Added properties to Message, PeekMessage and ReceivedMessage such as `content_type`, `label`, `message_id`, `dead_letter_error_description` and `delivery_count`. 
+- Added properties to Message, PeekMessage and ReceivedMessage such as `content_type`, `label`, `message_id`, `dead_letter_error_description` and `delivery_count`.
 Please refer to the docstring for further information, and service bus changelog for full enumeration.
 - Added new supported value types int, float, datetime and timedelta for `CorrelationFilter.properties`.
 - Added new properties `parameters` and `requires_preprocessing` to `SqlRuleFilter` and `SqlRuleAction`.
@@ -83,6 +87,12 @@ As before, please refer to the official changelog for a more complete enumeratio
 
 - `FormField` now has attribute `value_type` which contains the semantic data type of the field value. The options for
 `value_type` are described in the enum `FieldValueType`
+
+
+### Key Vault
+
+- All Key Vault libraries now target the service's 7.1 API version
+- For more information about the individual library's changelogs, please see `azure-keyvault-certificates`'s [changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-certificates/CHANGELOG.md#420-2020-08-11), `azure-keyvault-keys`'s [changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md#420-2020-08-11), or `azure-keyvault-secrets`'s [changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-secrets/CHANGELOG.md#420-2020-08-11)
 
 ## Latest Releases
 
