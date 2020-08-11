@@ -47,12 +47,13 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/identity/identity/CHANGELOG.md)
 
 ##### New Features
-- Extended `DefaultAzureCredential` with experimental credentials that use login credentials from Azure CLI or Visual Studio Code's Azure Account extension.
-- Add the ability to read AZURE_AUTHORITY_HOST from the environment.
-- Made all the developer credentials public as well as the list of credentials used by DefaultAzureCredential.
-- Make the keytar dependency optional, allowing for building and running on platforms not supported by keytar.
-
-### Azure Event Hubs
+- With 1.1.0, new developer credentials are now available: `VisualStudioCodeCredential` and `AzureCliCredential`.
+  - `VisualStudioCodeCredential` allows developers to log into Azure using the credentials available after logging in through the Azure Account extension in Visual Studio Code.
+  - `AzureCliCredential` allows developers to log into Azure using the login credentials after an "az login" call.
+- Both `VisualStudioCodeCredential` and `AzureCliCredential` may be used directly or indirectly as part of `DefaultAzureCredential`.
+- Added the ability to configure the Managed Identity with a user-assigned client ID via a new option available in the `DefaultAzureCredential` constructor options: `managedIdentityClientId`.
+- Made a list of known authorities is now available via a new top-level constant: `AzureAuthorityHosts`.
+- Introduced the `CredentialUnavailable` error, which allows developers to differentiate between a credential not being available and an error happening during authentication.### Azure Event Hubs
 
 #### [Azure Event Hubs Checkpoint Store's Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/CHANGELOG.md)
 
@@ -83,45 +84,40 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 #### Key Vault Keys' [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-keys/CHANGELOG.md)
 
-##### Breaking Changes
-
-[TODO]
-
 ##### New Features
 
-[TODO]
+- Added the optional `serviceVersion` property to the `KeyClient` and `CryptographyClient` optional parameters to control the version of the Key Vault service being used by the clients.
+    - It defaults to the latest supported API version, which currently is `7.1`.
+    - Other supported service version at the moment is `7.0`.
+- Added `import` to the list of possible values for `KeyOperation`.
+- Added `recoverableDays` as an optional property to `KeyProperties` which denotes the number of days in which the key can be recovered after deletion. This is only applicable for Azure Key Vaults with the soft-delete setting enabled.
 
 ##### Major Fixes
 
-[TODO]
+- Fixed [bug 10352](https://github.com/Azure/azure-sdk-for-js/issues/10352), which caused cryptography operations on RSA-HSM keys to fail.
 
 #### Key Vault Secrets' [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-secrets/CHANGELOG.md)
 
-##### Breaking Changes
-
-[TODO]
-
 ##### New Features
 
-[TODO]
-
-##### Major Fixes
-
-[TODO]
+- Added the optional `serviceVersion` property to the `SecretClient` optional parameters to control the version of the Key Vault service being used by the client.
+    - It defaults to the latest supported API version, which currently is `7.1`.
+    - Other supported service version at the moment is `7.0`.
+- Added `recoverableDays` as an optional property to `SecretProperties` which denotes the number of days in which the secret can be recovered after deletion. This is only applicable for Azure Key Vaults with the soft-delete setting enabled.
 
 #### Key Vault Certificates' [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-certificates/CHANGELOG.md)
 
-##### Breaking Changes
-
-[TODO]
-
 ##### New Features
 
-[TODO]
+- Added the optional `serviceVersion` property to the `KeyClient` and `CryptographyClient` optional parameters to control the version of the Key Vault service being used by the clients.
+    - It defaults to the latest supported API version, which currently is `7.1`.
+    - Other supported service version at the moment is `7.0`.
+- Added `import` to the list of possible values for `KeyOperation`.
+- Added `recoverableDays` as an optional property to `KeyProperties` which denotes the number of days in which the key can be recovered after deletion. This is only applicable for Azure Key Vaults with the soft-delete setting enabled.
 
 ##### Major Fixes
 
-[TODO]
+- Fixed [bug 10352](https://github.com/Azure/azure-sdk-for-js/issues/10352), which caused cryptography operations on RSA-HSM keys to fail.
 
 ### Azure Service Bus
 
