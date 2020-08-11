@@ -27,6 +27,10 @@ To install any of our packages, please search for them via `Manage NuGet Package
 ```bash
  $> dotnet add package Azure.Messaging.EventHubs --version 5.2.0-preview.2
  $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.2.0-preview.2
+ $> dotnet add package Azure.Extensions.AspNetCore.DataProtection.Blobs
+ $> dotnet add package Azure.Extensions.AspNetCore.DataProtection.Blobs
+ $> dotnet add package Azure.Core.Experimental --version 0.1.0-preview.3
+ $> dotnet add package Microsoft.Azure.Core.NewtonsoftJson --version 1.0.0-preview.1
 ```
 
 ## Feedback
