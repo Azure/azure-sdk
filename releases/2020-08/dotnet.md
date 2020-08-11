@@ -19,17 +19,23 @@ The Azure SDK team is pleased to announce our August 2020 client library release
 #### Preview
 
 - Event Hubs
+- Form Recognizer
 
 ## Installation Instructions
 
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
 ```bash
+ $> dotnet add package Azure.AI.FormRecognizer --version 3.0.0-preview.1
+
  $> dotnet add package Azure.Core.Experimental --version 0.1.0-preview.3
+
  $> dotnet add package Azure.Extensions.AspNetCore.DataProtection.Blobs
  $> dotnet add package Azure.Extensions.AspNetCore.DataProtection.Keys
+
  $> dotnet add package Azure.Messaging.EventHubs --version 5.2.0-preview.2
  $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.2.0-preview.2
+
  $> dotnet add package Microsoft.Azure.Core.NewtonsoftJson --version 1.0.0-preview.1
 ```
 
@@ -76,6 +82,23 @@ If you have a bug or feature request for one of the libraries, please [file an i
 ### Event Hubs Processor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md)
 
 - This release contains several fixes for minor issues as well as a collection of performance enhancements.
+
+### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#300-preview1-2020-08-11)
+
+#### Breaking changes
+
+- The library now targets the service's v2.0 API, instead of the v2.0-preview.1 API.
+- Updated version number from `1.0.0-preview.5` to `3.0.0-preview.1`.
+- Added models `RecognizeCustomFormsOptions`, `RecognizeReceiptsOptions`, and `RecognizeContentOptions` instead of a generic `RecognizeOptions` to support passing configurable options to recognize APIs.
+- Added model `TrainingOptions` to support passing configurable options to training APIs. This type now includes `TrainingFileFilter`.
+
+#### New Features
+
+- Added diagnostics functionality to the `FormRecognizerClient`, to the `FormTrainingClient` and to long-running operation types.
+
+#### Fixes
+
+- Made the `TrainingFileFilter` constructor public.
 
 ## Latest Releases
 
