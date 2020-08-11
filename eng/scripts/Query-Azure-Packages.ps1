@@ -33,9 +33,9 @@ function CreatePackage(
     VersionPreview = $versionPreview
     DisplayName = $package
     ServiceName = ""
-    RepoPath = ""
-    MSDocs = ""
-    GHDocs = ""
+    RepoPath = "NA"
+    MSDocs = "NA"
+    GHDocs = "NA"
     Type = ""
     Hide = ""
     Notes = ""

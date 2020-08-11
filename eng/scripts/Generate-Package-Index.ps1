@@ -67,7 +67,7 @@ function Get-js-row($pkg)
 
 function Get-dotnet-row($pkg)
 {
-  $packageFormat = "nuget [{1}](https://www.nuget.org/packages/{0}/{1})"
+  $packageFormat = "NuGet [{1}](https://www.nuget.org/packages/{0}/{1})"
   $sourceFormat = "github [{1}](https://github.com/Azure/azure-sdk-for-net/tree/{0}_{1}/sdk/{2}/{0}/)"
   return Get-Row $pkg "dotnet" $packageFormat $sourceFormat
 }

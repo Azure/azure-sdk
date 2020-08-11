@@ -26,7 +26,7 @@ We recommend that you use a package manager that supports these registries.
 
 For language repositories which contain multiple packages, releases for each package are tagged in the format `<package-name>_<package-version>`.
 
-For language repositories where the repo is shipped as a single source unit, releases for the entire repo are tagged in the format `<repo-name>_<release-version>`. For example: `azure-sdk-for-c_1.0.0-preview.1`
+For language repositories where the repo is the primary shipping unit, the releases should be tagged in the format `<release-version>` (i.e. `1.0.0-preview.1`). If there are other secondary assets that also ship from the same repo then those assets should use an identifier for those assets and the version `<identifier-name>_<release-version>` (i.e. `tools_1.0.0-preview.1`). 
 
 ## GitHub Releases
 

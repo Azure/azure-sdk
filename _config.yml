@@ -49,6 +49,8 @@ social:
     - https://twitter.com/AzureSDK
     - https://github.com/azure/azure-sdk
 
+blog_url: https://devblogs.microsoft.com/azure-sdk/
+
 # Various plugin settings
 highlighter: rouge
 markdown: kramdown
@@ -82,7 +84,7 @@ defaults:
       path: ""
       type: "posts"
     values:
-      layout: "post"
+      layout: "post_redirect"
       comments: false
       search: true
       sidebar: home_sidebar
