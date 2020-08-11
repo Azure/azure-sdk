@@ -15,6 +15,7 @@ The Azure SDK team is pleased to make available the August 2020 client library r
 #### Updates
 
 - Identity
+- Text Analytics
 
 #### Preview
 
@@ -27,6 +28,7 @@ To install the latest preview version of the packages, copy and paste the follow
 
 ```bash
 pip install azure-identity
+pip install azure-ai-textanalytics
 pip install --pre azure-servicebus
 pip install azure-ai-formrecognizer
 ```
@@ -46,12 +48,16 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - User authentication and cache configuration APIs added since 1.4.0b1 have been removed (see the full changelog for details). They will return in 1.5.0b1.
 - Renamed `VSCodeCredential` to `VisualStudioCodeCredential`
 
+### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#500-2020-07-27)
+
+- Re-released GA version 1.0.0 under new version 5.0.0
+
 ### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/CHANGELOG.md)
 
 #### New Features
 
 - This release continues to move towards feature parity with the existing sdk.  Recommend reading migration guide and full changelog for details.
-- Added properties to Message, PeekMessage and ReceivedMessage such as `content_type`, `label`, `message_id`, `dead_letter_error_description` and `delivery_count`. 
+- Added properties to Message, PeekMessage and ReceivedMessage such as `content_type`, `label`, `message_id`, `dead_letter_error_description` and `delivery_count`.
 Please refer to the docstring for further information, and service bus changelog for full enumeration.
 - Added new supported value types int, float, datetime and timedelta for `CorrelationFilter.properties`.
 - Added new properties `parameters` and `requires_preprocessing` to `SqlRuleFilter` and `SqlRuleAction`.
