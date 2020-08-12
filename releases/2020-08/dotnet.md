@@ -11,6 +11,7 @@ The Azure SDK team is pleased to announce our August 2020 client library release
 #### GA
 
 - Search
+- Text Analytics
 
 #### Updates
 
@@ -27,6 +28,8 @@ To install any of our packages, please search for them via `Manage NuGet Package
 
 ```bash
  $> dotnet add package Azure.AI.FormRecognizer --version 3.0.0-preview.1
+
+ $> dotnet add package Azure.AI.TextAnalytics --version 5.0.0
 
  $> dotnet add package Azure.Core.Experimental --version 0.1.0-preview.3
 
@@ -107,6 +110,10 @@ If you have a bug or feature request for one of the libraries, please [file an i
 #### New Features
 - Added `SearchClientOptions.Serializer` to set which `ObjectSerializer` to use for serialization.
 - Added `FieldBuilder` to easily create `SearchIndex` fields from a model type.
+
+### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#500-2020-07-27)
+
+- Re-released GA version 1.0.1 under new version 5.0.0
 
 ## Latest Releases
 
