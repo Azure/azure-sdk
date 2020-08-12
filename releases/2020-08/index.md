@@ -5,6 +5,10 @@ tags: release
 sidebar: releases_sidebar
 ---
 
+## Highlights
+
+* Azure Identity GA release with new Developer Credential types, logging enhancements, proactive token refresh, and authority host support.
+
 ## Release notes
 
 * [.NET](dotnet.md)
