@@ -97,17 +97,10 @@ As before, please refer to the official changelog for a more complete enumeratio
 
 ### Key Vault
 
+- All Key Vault libraries now target the service's 7.1 API version
 #### Keys [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md#420-2020-08-11)
-
-- Default service version is now 7.1
-
 #### Secrets [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-secrets/CHANGELOG.md#420-2020-08-11)
-
-- Default service version is now 7.1
-
 #### Certificates [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-certificates/CHANGELOG.md#420-2020-08-11)
-
-- Default service version is now 7.1
 
 ## Latest Releases
 
