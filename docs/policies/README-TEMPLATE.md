@@ -22,27 +22,21 @@ Use the guidelines in each section of this template to ensure consistency and re
   - [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos/samples)
   - [Versioned API References](https://azure.github.io/azure-sdk-for-python/ref/Cosmos.html) -- Note this link format may be updated in the future but it is the best we have for now.
 
-* **DO NOT** use relative links to other files in the source repository. While relative links work well when browsing directly on github they tend to break when we consume this content in other places, such as docs, samples, package managers, etc. For this reason the guidance is to use links to master in all our MD files in the repo as this will help ensure that links work in other contexts.
+> TIP: Your README should be as **brief** as possible but **no more brief** than necessary to get a developer new to Azure, the service, or the package up and running quickly. Keep it brief, but include everything a developer needs to make their first API call successfully.
 
-However given we own the publishing pipeline for docs we will transform master links to links based on release tags to help ensure the links remain over time and point at exact versions of the content when the docs were published. 
+## Link Guidelines
 
-* If the CI validation fails because of link verification for a link to a file or section present in your PR and not in the master but will be a valid link after the PR is merged to master, then you can put the link as a comment like this 
-```
-Here are some [samples]<!--(https://github.com/azure-sdk-for-python/blob/master/samples.json)--> to look at.
-```
-You can also put a TODO inside the comment like -
-```
-Here are some [samples]<!--TODO: add link to samples (https://github.com/azure-sdk-for-python/blob/master/samples.json)--> to look at.
-```
-This will ensure that you don't forget to update the link in the README later and the README won't have any broken links
+* **DO NOT** use relative links to other files in the source repository. While relative links work well when browsing directly on github they tend to break when we consume the content in other places, such as docs, samples, package managers, etc. For this reason the guidance is to use links to master in all our MD files in the repo as this will help ensure that links work in other contexts.
+
+  * Given we own the publishing pipeline for docs we will transform master links to links based on release tags to help ensure the links remain over time and point at exact versions of the content when the docs were published. 
+
+  * If the CI validation fails because of link verification for a link to a file or section present in your PR and not in the master but will be a valid link after the PR is merged to master, then you can put the link as a comment like this `Here are some [samples]<!--(https://github.com/azure-sdk-for-python/blob/master/samples.json)--> to look at.` (Note you can also put a TODO in the comment if you like). Then in a follow-up PR you can remove the comment to get the link you wanted. 
 
 * **DO NOT** use locale in the urls like `en-us`. For example use `https://docs.microsoft.com/dotnet/api/azure.storage.blobs` instead of `https://docs.microsoft.com/en-us/dotnet/api/azure.storage.blobs`
 
 * **DO NOT** use version numbers in the links as the version numbers will often be missed when releasing new versions thus point to the wrong thing or not exist at all. Instead avoid linking directly to versioned information. If you still need a link you should first try to link to a page that contains all the versions so someone can choose or link to the latest which may be out of sync with the content but should usually remain valid.
 
 * **DO** think about the longevity of your links and be sure to pick links we believe will remain stable and around for a long time. So no temporary links or links that point to moving targets like a repository branch which may not contain the files in the same locations over time. 
-
-> TIP: Your README should be as **brief** as possible but **no more brief** than necessary to get a developer new to Azure, the service, or the package up and running quickly. Keep it brief, but include everything a developer needs to make their first API call successfully.
 
 ## Getting started
 
