@@ -14,6 +14,7 @@ The Azure SDK team is pleased to announce our August 2020 client library release
 
 #### Updates
 
+- Azure App Configuration
 - Azure Core
 - Azure Core Http Netty
 - Azure Core Http OkHttp
@@ -72,6 +73,12 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-ai-formrecognizer</artifactId>
   <version>3.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-data-appconfiguration</artifactId>
+  <version>1.1.4</version>
 </dependency>
 ```
 
