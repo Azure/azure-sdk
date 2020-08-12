@@ -21,6 +21,7 @@ The Azure SDK team is pleased to make available the August 2020 client library r
 
  - Service Bus
  - Form Recognizer
+ - Search
 
 ## Installation Instructions
 
@@ -31,6 +32,7 @@ pip install azure-identity
 pip install azure-ai-textanalytics
 pip install --pre azure-servicebus
 pip install azure-ai-formrecognizer
+pip install --pre azure-search-documents
 ```
 
 ## Feedback
@@ -89,6 +91,14 @@ As before, please refer to the official changelog for a more complete enumeratio
 
 - `FormField` now has attribute `value_type` which contains the semantic data type of the field value. The options for
 `value_type` are described in the enum `FieldValueType`
+
+### Search [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/CHANGELOG.md)
+
+#### New Features
+
+- new SearchIndexDocumentBatchingClient
+
+SearchIndexDocumentBatchingClient supports handling document indexing actions in an automatic way. It can trigger the flush method automatically based on pending tasks and idle time.
 
 ## Latest Releases
 
