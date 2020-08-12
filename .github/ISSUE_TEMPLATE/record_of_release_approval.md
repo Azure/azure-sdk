@@ -14,7 +14,7 @@ To understand how the review process works, please see our [guidelines](https://
 * Responsible service team:
 * Main contact email:
 * Expected release library: 
-* Expected release type (Public Preview, Private Preview, GA)
+* Expected release type (Public Preview, Private Preview, GA): 
 * Expected release date:
 
 ## Review Records

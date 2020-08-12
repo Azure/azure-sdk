@@ -36,9 +36,15 @@ Please reference our [review process guidelines](https://azure.github.io/azure-s
 * Is there an existing SDK library? If yes, provide link: 
 
 
-## Champion Scenarios (Option 1)
+## Step 1: Champion Scenarios 
 
-Please read through the Champion Scenario section [here](https://azure.github.io/azure-sdk/policies_reviewprocess.html) to understand what is considered a “Champion Scenario”
+Ultimately the library should be easy to use for common scenarios that developers want. Consider the following questions when thinking about champion scenarios:
+
+1. What is the app the developer is building that uses your client library?
+2. Who is the end-user of the application (the developer's customer)?
+3. What features of the API need to be explained in the sample so that someone could use this API in real app?
+   
+You can also find examples in the Champion Scenario section [here](https://azure.github.io/azure-sdk/policies_reviewprocess.html).
 
 * Champion scenario 1
     * Link to library’s sample folder: 
@@ -48,8 +54,8 @@ Please read through the Champion Scenario section [here](https://azure.github.io
 * Champion scenario n
     * Link to library’s sample folder:
 
-## How-To Guides (Option 2)
-Samples demonstrating common how-tos: 
+## Step 2: Quickstart Samples
+Prototype samples demonstrating how to consume the client library: 
 
 * Create a new resource
 * Read the resource
@@ -60,11 +66,6 @@ Samples demonstrating common how-tos:
 * Handling race conditions/concurrency issues
 
 
-Considering the following questions would help guide some the of library design decisions, because ultimately the library should be easy to use for common scenarios that developers want:
-
-1. What is the app the developer is building that uses your client library?
-2. Who is the end-user of the application (the developer's customer)
-3. What features of the API need to be explained in the sample so that someone could use this API in a real app?
 
 
 ## Thank you for your submission!

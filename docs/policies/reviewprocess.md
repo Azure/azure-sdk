@@ -12,7 +12,6 @@ The Azure DevEx Architecture Review Board is a board of language architects spec
 
 We expect all Azure client libraries to pass rigorous API reviews similar to those conducted for any other API produced by Microsoft (for example, the .NET APIs). In addition to detailed reviews of new libraries, **all changes** to an API must be approved by an architect of the specific language before release.
 
-
 ## API Review Process Roadmap
 
 Typically, there will be a minimum of three meetings with the Architecture Board: 
@@ -23,7 +22,7 @@ Typically, there will be a minimum of three meetings with the Architecture Board
 
 Depending on the library surface and other factors, more than one API reviews may be needed.  
 
-After the API is signed off and ready to be released, library owners will need to create an issue using the issue template “Record of Architecture Board Approval for Release.” The release manager will ask for a link to this issue as part of the PLR. 
+Create an epic using the “Record of Architecture Board Approval for Release” issue template to track reviews and approvals. The release manager will ask for a link to this issue as part of the PLR. 
 
 
 It’s critical that library owners engage with the architecture board early enough to allow time for fixes and (sometimes significant) API redesign based on discussion. Depending on the nature and scope of the client library work being done, the sequence of events to follow when engaging with the architecture board will follow one of two paths:
@@ -54,13 +53,13 @@ This purely informational/educational to enable the board to get up to speed wit
     * Link to documentation introducing/describing the service
     * Some teams also prepare a PowerPoint introductions 
 * Link to the service REST APIs, if applicable/available.
-* Champion scenarios samples
+* Champion scenario samples
     * See “Champion scenarios” section below for definition and examples
     * [Sample example](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample1_DetectLanguage.md)
         * Need not be “final” or “perfect”
         * Should be added to library’s sample folder ([example](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples))
-* How-To Guide (Option 2)
-  * See "How-To Guide" section below
+* Quickstart samples
+  * See "Quickstart Samples" section below
 
 ### 2. API Review
 During API reviews, we look at API usage samples and a detailed API listing. You can see an example of such listing [here](https://github.com/Azure/azure-sdk/blob/master/docs/dotnet/APIListingExample.md).
@@ -80,7 +79,7 @@ Depending on the situation and service, more than one API reviews may be needed 
 * Links to the API Listings for each language 
   * Be sure to provide these at least **5 business days before** the intended review date so architects have time to review before the meeting
 * Code samples for each champion scenario 
-* How-To guide (Option 2)
+* Quickstart samples 
 
 ### 3. API Sign Off
 
@@ -106,9 +105,9 @@ Examples of bad scenarios:
 * Send a batch of events (again, part of the scenario)
 * Create a page blob (it's not used by enough of the user base)
 
-### How-To Guides
+### Quickstart Samples
 
-Samples demonstrating common how-tos: 
+Prototype samples demonstrating common how-tos: 
 
 * Create a new resource
 * Read the resource
@@ -117,14 +116,6 @@ Samples demonstrating common how-tos:
 * Authentication
 * Error handling 
 * Handling race conditions/concurrency issues
-
-
-Considering the following questions would help guide some the of library design decisions, because ultimately the library should be easy to use for common scenarios that developers want:
-
-1. What is the app the developer is building that uses your client library?
-2. Who is the end-user of the application (the developer's customer)
-3. What features of the API need to be explained in the sample so that someone could use this API in a real app?
-
 
 ## What Happens During Review
 
@@ -155,7 +146,9 @@ If a language architect is *not* present at the meeting, they must review and co
 
 For introductory and API review sessions, there will usually be a list of action items to take before the next meeting. Be sure to follow up on these items. Sometimes, one of these action items could be to schedule for another API review once the architects suggested changes have been made. 
 
-If after an API Sign Off session the Architecture Board approves the release of the API, the SDK Team will add the comment “APPROVED FOR RELEASE” to the issue requesting for the Sign Off review. The service team will need to create an issue using the template “Record of Architecture Board Approval for Release” to indicate that the library has gone through all the required reviews for release. The release manager will ask for a link to this GitHub issue for confirmation. 
+Remember to create an epic using the issue template “Record of Architecture Board Approval for Release” to keep track of API reviews and approvals.
+
+If after an API Sign Off session the Architecture Board approves the release of the API, the SDK Team will add the comment “APPROVED FOR RELEASE” to the issue requesting for the Sign Off review. Remember to add the issue's link to the record of approval epic!
 
 ## Getting Approval for Small, Targeted Changes and Bug Fixes
 
