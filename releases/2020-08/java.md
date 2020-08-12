@@ -14,6 +14,7 @@ The Azure SDK team is pleased to announce our August 2020 client library release
 
 #### Updates
 
+- Azure App Configuration
 - Azure Core
 - Azure Core Http Netty
 - Azure Core Http OkHttp
@@ -24,6 +25,7 @@ The Azure SDK team is pleased to announce our August 2020 client library release
 - Azure Core Experimental
 - Azure Core Management
 - Azure Core Tracing OpenTelemetry
+- Form Recognizer
 
 ## Installation Instructions
 
@@ -65,6 +67,18 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-cosmos</artifactId>
   <version>4.3.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-ai-formrecognizer</artifactId>
+  <version>3.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-data-appconfiguration</artifactId>
+  <version>1.1.4</version>
 </dependency>
 ```
 
@@ -140,30 +154,39 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 #### New Features
 
-- Updated reactor-core library version to `3.3.8.RELEASE`. 
-- Updated reactor-netty library version to `0.9.10.RELEASE`. 
-- Updated netty library version to `4.1.51.Final`. 
-- Added new overload APIs for `upsertItem` with `partitionKey`. 
-- Added open telemetry tracing support. 
+- Updated reactor-core library version to `3.3.8.RELEASE`.
+- Updated reactor-netty library version to `0.9.10.RELEASE`.
+- Updated netty library version to `4.1.51.Final`.
+- Added new overload APIs for `upsertItem` with `partitionKey`.
+- Added open telemetry tracing support.
 
 #### Key Bug Fixes
 
 - Fixed issue where SSLException gets thrown in case of cancellation of requests in GATEWAY mode.
 - Fixed resource throttle retry policy on stored procedures execution.
-- Fixed issue where SDK hangs in log level DEBUG mode. 
-- Fixed periodic spikes in latency in Direct mode. 
-- Fixed high client initialization time issue. 
-- Fixed http proxy bug when customizing client with direct mode and gateway mode. 
-- Fixed potential NPE in users passes null options. 
+- Fixed issue where SDK hangs in log level DEBUG mode.
+- Fixed periodic spikes in latency in Direct mode.
+- Fixed high client initialization time issue.
+- Fixed http proxy bug when customizing client with direct mode and gateway mode.
+- Fixed potential NPE in users passes null options.
 - Added timeUnit to `requestLatency` in diagnostics string.
-- Removed duplicate uri string from diagnostics string. 
+- Removed duplicate uri string from diagnostics string.
 - Fixed diagnostics string in proper JSON format for point operations.
-- Fixed issue with `.single()` operator causing the reactor chain to blow up in case of Not Found exception. 
+- Fixed issue with `.single()` operator causing the reactor chain to blow up in case of Not Found exception.
 
-### _Package name_
+### Form Recognizer ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#300-beta1-2020-08-11))
 
-- Major changes only!
-  
+#### Breaking changes
+- Bumped package version to 3.0.0-beta.1 and now targets the service's stable v2.0 API
+- Changed param ordering for methods `beginRecognizeCustomForms` and `beginRecognizeCustomFormsFromUrl`
+- Model and property renamings detailed in the Changelog.
+
+#### New features
+- Added support for context passing.
+
+### Key Bug Fixes
+- Fixed `getFields()` on `RecognizedForm` to preserve service side ordering of fields.
+
 ## Need help
 
 - For reference documentation visit the [Azure SDK for Java documentation](https://azure.github.io/azure-sdk-for-java/).
