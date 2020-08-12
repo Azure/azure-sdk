@@ -10,6 +10,7 @@ The Azure SDK team is pleased to announce our August 2020 client library release
 
 #### GA
 
+- Key Vault (Certificates, Keys, Secrets)
 - Search
 
 #### Updates
@@ -37,6 +38,10 @@ To install any of our packages, please search for them via `Manage NuGet Package
  $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.2.0-preview.2
 
  $> dotnet add package Azure.Search.Documents
+
+ $> dotnet add package Azure.Security.KeyVault.Certificates
+ $> dotnet add package Azure.Security.KeyVault.Key
+ $> dotnet add package Azure.Security.KeyVault.Secrets
 
  $> dotnet add package Microsoft.Azure.Core.NewtonsoftJson --version 1.0.0-preview.1
 ```
@@ -101,6 +106,24 @@ If you have a bug or feature request for one of the libraries, please [file an i
 #### Fixes
 
 - Made the `TrainingFileFilter` constructor public.
+
+### Azure Key Vault
+
+#### Certificates 4.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Certificates_4.1.0/sdk/keyvault/Azure.Security.KeyVault.Certificates/CHANGELOG.md#410-2020-08-11)
+
+- Default service version is now 7.1.
+- Added `RecoverableDays` property to `CertificateProperties`.
+
+#### Keys 4.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Keys_4.1.0/sdk/keyvault/Azure.Security.KeyVault.Keys/CHANGELOG.md#410-2020-08-11)
+
+- Default service version is now 7.1.
+- Added "import" value to `KeyOperation` enumeration.
+- Added `RecoverableDays` property to `KeyProperties`.
+
+#### Secrets 4.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Secrets_4.1.0/sdk/keyvault/Azure.Security.KeyVault.Secrets/CHANGELOG.md#410-2020-08-11)
+
+- Default service version is now 7.1.
+- Added `RecoverableDays` property to `SecretProperties`.
 
 ### Search [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md#1110-2020-08-11)
 
