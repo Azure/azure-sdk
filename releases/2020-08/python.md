@@ -16,6 +16,7 @@ The Azure SDK team is pleased to make available the August 2020 client library r
 
 - Identity
 - Text Analytics
+- Key Vault
 
 #### Preview
 
@@ -33,6 +34,9 @@ pip install azure-ai-textanalytics
 pip install --pre azure-servicebus
 pip install azure-ai-formrecognizer
 pip install --pre azure-search-documents
+pip install azure-keyvault-certificates
+pip install azure-keyvault-keys
+pip install azure-keyvault-secrets
 ```
 
 ## Feedback
@@ -92,6 +96,7 @@ As before, please refer to the official changelog for a more complete enumeratio
 - `FormField` now has attribute `value_type` which contains the semantic data type of the field value. The options for
 `value_type` are described in the enum `FieldValueType`
 
+
 ### Search [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/CHANGELOG.md)
 
 #### New Features
@@ -99,6 +104,13 @@ As before, please refer to the official changelog for a more complete enumeratio
 - new SearchIndexDocumentBatchingClient
 
 SearchIndexDocumentBatchingClient supports handling document indexing actions in an automatic way. It can trigger the flush method automatically based on pending tasks and idle time.
+
+### Key Vault
+
+- All Key Vault libraries now target the service's 7.1 API version
+#### Keys [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md#420-2020-08-11)
+#### Secrets [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-secrets/CHANGELOG.md#420-2020-08-11)
+#### Certificates [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-certificates/CHANGELOG.md#420-2020-08-11)
 
 ## Latest Releases
 
