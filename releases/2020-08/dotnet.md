@@ -10,7 +10,7 @@ The Azure SDK team is pleased to announce our August 2020 client library release
 
 #### GA
 
-- _Add packages_
+- Search
 
 #### Updates
 
@@ -35,6 +35,8 @@ To install any of our packages, please search for them via `Manage NuGet Package
 
  $> dotnet add package Azure.Messaging.EventHubs --version 5.2.0-preview.2
  $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.2.0-preview.2
+
+ $> dotnet add package Azure.Search.Documents
 
  $> dotnet add package Microsoft.Azure.Core.NewtonsoftJson --version 1.0.0-preview.1
 ```
@@ -99,6 +101,12 @@ If you have a bug or feature request for one of the libraries, please [file an i
 #### Fixes
 
 - Made the `TrainingFileFilter` constructor public.
+
+### Search [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md#1110-2020-08-11)
+
+#### New Features
+- Added `SearchClientOptions.Serializer` to set which `ObjectSerializer` to use for serialization.
+- Added `FieldBuilder` to easily create `SearchIndex` fields from a model type.
 
 ## Latest Releases
 
