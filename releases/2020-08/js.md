@@ -82,42 +82,26 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 [TODO]
 
-### Azure Key Vault
+### Azure Key Vault Keys, Secrets and Certificates
 
-#### Key Vault Keys' [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-keys/CHANGELOG.md)
+#### Changelogs
 
-##### New Features
+- [Key Vault Keys](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-keys/CHANGELOG.md).
+- [Key Vault Secrets](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-secrets/CHANGELOG.md).
+- [Key Vault Certificates](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-certificates/CHANGELOG.md).
 
-- Added the optional `serviceVersion` property to the `KeyClient` and `CryptographyClient` optional parameters to control the version of the Key Vault service being used by the clients.
+##### New Features on Keys, Secrets and Certificates
+
+- Added the optional `serviceVersion` property to the `CertificateClient`, `SecretClient`, `KeyClient` and `CryptographyClient` optional parameters to control the version of the Key Vault service being used by the clients.
     - It defaults to the latest supported API version, which currently is `7.1`.
     - Other supported service version at the moment is `7.0`.
+- Added `recoverableDays` as an optional property to `KeyProperties`, `SecretProperties` and `CertificateProperties`, which denotes the number of days in which the key, secret or certificate can be recovered after deletion. This is only applicable for Azure Key Vaults with the soft-delete setting enabled.
+
+##### New Features on Key Vault Keys
+
 - Added `import` to the list of possible values for `KeyOperation`.
-- Added `recoverableDays` as an optional property to `KeyProperties` which denotes the number of days in which the key can be recovered after deletion. This is only applicable for Azure Key Vaults with the soft-delete setting enabled.
 
-##### Major Fixes
-
-- Fixed [bug 10352](https://github.com/Azure/azure-sdk-for-js/issues/10352), which caused cryptography operations on RSA-HSM keys to fail.
-
-#### Key Vault Secrets' [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-secrets/CHANGELOG.md)
-
-##### New Features
-
-- Added the optional `serviceVersion` property to the `SecretClient` optional parameters to control the version of the Key Vault service being used by the client.
-    - It defaults to the latest supported API version, which currently is `7.1`.
-    - Other supported service version at the moment is `7.0`.
-- Added `recoverableDays` as an optional property to `SecretProperties` which denotes the number of days in which the secret can be recovered after deletion. This is only applicable for Azure Key Vaults with the soft-delete setting enabled.
-
-#### Key Vault Certificates' [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-certificates/CHANGELOG.md)
-
-##### New Features
-
-- Added the optional `serviceVersion` property to the `KeyClient` and `CryptographyClient` optional parameters to control the version of the Key Vault service being used by the clients.
-    - It defaults to the latest supported API version, which currently is `7.1`.
-    - Other supported service version at the moment is `7.0`.
-- Added `import` to the list of possible values for `KeyOperation`.
-- Added `recoverableDays` as an optional property to `KeyProperties` which denotes the number of days in which the key can be recovered after deletion. This is only applicable for Azure Key Vaults with the soft-delete setting enabled.
-
-##### Major Fixes
+##### Major Fixes on Key Vault Keys
 
 - Fixed [bug 10352](https://github.com/Azure/azure-sdk-for-js/issues/10352), which caused cryptography operations on RSA-HSM keys to fail.
 
