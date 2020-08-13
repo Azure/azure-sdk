@@ -55,6 +55,8 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Made a list of known authorities is now available via a new top-level constant: `AzureAuthorityHosts`.
 - Introduced the `CredentialUnavailable` error, which allows developers to differentiate between a credential not being available and an error happening during authentication.### Azure Event Hubs
 
+### Event Hubs
+
 #### [Azure Event Hubs Checkpoint Store's Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/CHANGELOG.md)
 
 ##### Major Fixes
