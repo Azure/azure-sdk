@@ -19,6 +19,7 @@ The Azure SDK team is pleased to announce our August 2020 client library release
 - Azure Core Http Netty
 - Azure Core Http OkHttp
 - Azure-Cosmos
+- Azure Spring Boot
 
 #### Preview
 
@@ -263,6 +264,25 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Only updateable properties on QueueProperties, TopicProperties, and SubscriptionProperties are exposed
 - MessageDetailCount is flattened and removed in QueueRuntimeInfo, TopicRuntimeInfo, and SubscriptionRuntimeInfo.
 >>>>>>> 909ac89a4a5bac3741c7f777d8dc3a6370fa1343
+
+### Azure Spring Boot ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot/CHANGELOG.md#233-2020-08-07))
+
+#### New Features
+- Support connection to multiple Key Vault from a single application configuration file 
+- Support case sensitive keys in Key Vault 
+- Key Vault Spring Boot Actuator 
+
+#### Improved
+- Revamp KeyVault refreshing logic to avoid unnecessary updates. 
+- Update the underpinning JMS library for Service Bus to JMS 2.0 to support seamlessly lift and shift their Spring workloads to Azure and automatic creation of resources.
+
+#### Bug Fixes
+- Address CVEs and cleaned up all warnings at build time. 
+
+#### Deprecated
+- azure-servicebus-spring-boot-starter 
+- azure-mediaservices-spring-boot-starter 
+- azure-storage-spring-boot-starter  
 
 ## Need help
 
