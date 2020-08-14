@@ -24,8 +24,11 @@ The Azure SDK team is pleased to announce our August 2020 client library release
 
 - Azure Core Experimental
 - Azure Core Management
+- Azure Core Serializer Json Gson
+- Azure Core Serializer Json Jackson
 - Azure Core Tracing OpenTelemetry
 - Form Recognizer
+- Azure Search Documents
 
 ## Installation Instructions
 
@@ -59,6 +62,16 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 </dependency>
 <dependency>
   <groupId>com.azure</groupId>
+  <artifactId>azure-core-serializer-json-gson</artifactId>
+  <version>1.0.0-beta.3</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-core-serializer-json-jackson</artifactId>
+  <version>1.0.0-beta.3</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
   <artifactId>azure-core-tracing-opentelemetry</artifactId>
   <version>1.0.0-beta.6</version>
 </dependency>
@@ -79,6 +92,12 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-data-appconfiguration</artifactId>
   <version>1.1.4</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-search-documents</artifactId>
+  <version>11.1.0-beta.1</version>
 </dependency>
 ```
 
@@ -142,6 +161,32 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - Fixed polling status HTTP status code check to include 202.
 
+### Azure Core Serializer Json Gson ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-serializer-json-gson/CHANGELOG.md#100-beta3-2020-08-12))
+
+#### New Features
+
+- `GsonJsonSerializer` now implements the interface `MemberNameConverter`.
+
+#### Breaking Changes
+
+- Changed `GsonJsonSerializer` to implement `azure-core`'s `JsonSerialzer` instead of `azure-core-experimental`'s.
+- Removed JSON tree models and APIs.
+
+#### Breaking Changes
+
+### Azure Core Serializer Json Jackson ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-serializer-json-jackson/CHANGELOG.md#100-beta3-2020-08-12))
+
+#### New Features
+
+- `JacksonJsonSerializer` now implements the interface `MemberNameConverter`.
+
+#### Breaking Changes
+
+- Changed `JacksonJsonSerializer` to implement `azure-core`'s `JsonSerialzer` instead of `azure-core-experimental`'s.
+- Removed JSON tree models and APIs.
+
+#### Breaking Changes
+
 ### Azure Core Tracing OpenTelemetry ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md#100-beta6-2020-08-07))
 
 #### New Featues
@@ -186,6 +231,15 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Key Bug Fixes
 - Fixed `getFields()` on `RecognizedForm` to preserve service side ordering of fields.
+
+### Azure Search Documents ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/search/azure-search-documents/CHANGELOG.md#1110-beta1-2020-08-12))
+
+#### New Features 
+
+- Added `buildSearchFields` API to `SearchIndexClient` and `SearchIndexAsyncClient` to aid in creating `SearchField`s from the passed `Class`.
+- Added `SearchableFieldProperty`, `SimpleFieldProperty`, and `FieldBuilderIgnore` to annotate `Class`es passed into `buildSearchFields`.
+- Added `getDefaultLogOptions` to `SearchClientBuilder`, `SearchIndexCleintBuilder`, and `SearchIndexerClientBuilder`. Updated client construction to use default log options by default.
+- Added the ability for clients to accept a `JsonSerializer` to specify a custom JSON serialization layer when dealing with Search documents.
 
 ## Need help
 
