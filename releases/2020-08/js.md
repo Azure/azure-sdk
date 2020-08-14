@@ -36,7 +36,7 @@ $> npm install @azure/service-bus@next
 
 ## Feedback
 
-If you have a bug or feature request for one of the libraries, please post an issue at the [azure-sdk-for-js repository](https://github.com/azure/azure-sdk-for-js/issues)
+If you have a bug or feature request for one of the libraries, please post an issue at the [azure-sdk-for-js repository](https://github.com/azure/azure-sdk-for-js/issues).
 
 ## Changelog
 
@@ -44,26 +44,26 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Identity
 
-#### [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/identity/identity/CHANGELOG.md)
+#### Identity's [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/identity/identity/CHANGELOG.md)
 
 ##### New Features
 - With 1.1.0, new developer credentials are now available: `VisualStudioCodeCredential` and `AzureCliCredential`.
-  - `VisualStudioCodeCredential` allows developers to log into Azure using the credentials available after logging in through the Azure Account extension in Visual Studio Code.
+  - `VisualStudioCodeCredential` allows developers to authenticate using the credentials available after logging in through the Azure Account extension in Visual Studio Code.
   - `AzureCliCredential` allows developers to log into Azure using the login credentials after an "az login" call.
 - Both `VisualStudioCodeCredential` and `AzureCliCredential` may be used directly or indirectly as part of `DefaultAzureCredential`.
 - Added the ability to configure the Managed Identity with a user-assigned client ID via a new option available in the `DefaultAzureCredential` constructor options: `managedIdentityClientId`.
-- Made a list of known authorities is now available via a new top-level constant: `AzureAuthorityHosts`.
-- Introduced the `CredentialUnavailable` error, which allows developers to differentiate between a credential not being available and an error happening during authentication.### Azure Event Hubs
+- A list of known authorities is now available via a new top-level constant: `AzureAuthorityHosts`.
+- Introduced the `CredentialUnavailable` error, which allows developers to differentiate between a credential not being available and an error happening during authentication.
 
 ### Event Hubs
 
-#### [Azure Event Hubs Checkpoint Store's Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/CHANGELOG.md)
+#### Azure Event Hubs Checkpoint Store's [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/CHANGELOG.md)
 
 ##### Major Fixes
 
-- Fixes issue [#10132](https://github.com/Azure/azure-sdk-for-js/issues/10132)
-  where using an Azure Storage Account with soft-deletes or blob versioning enabled
-  would cause `listCheckpoints` to suffer performance penalties proportional to the
+- Fixed issue [#10132](https://github.com/Azure/azure-sdk-for-js/issues/10132).
+  An Azure Storage Account with soft-deletes or blob versioning enabled
+  no longer causes `listCheckpoints` to suffer performance penalties proportional to the
   number of times `updateCheckpoint` was called.
 
 ### Azure Form Recognizer
@@ -83,8 +83,8 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ##### New Features
 
-- Changed the package version to 3.0.0-preview.1 to reduce confusion with older versions of the Azure Form Recognizer SDKs.
-- Switched to using the generally-available 2.0 service endpoint rather than 2.0-preview.
+- Changed the package version to `3.0.0-preview.1` to reduce confusion with older versions of the Azure Form Recognizer SDKs.
+- Switched from using the service endpoint version `2.0-preview` to the now generally-available version `2.0`.
 - Changed the type of the `options` bag parameter of `beginRecognizeReceipts` and `beginRecognizeReceiptsFromUrl` to `BeginRecognizeReceiptsOptions`.
 - Added a `pageNumber` property to the `FormTable` and `FormTableCell` types indicating the number of the page where the table/cell appeared within the input document.
 - Made the `rowSpan`, `columnSpan`, `isHeader`, and `isFooter` properties of the `FormTableCell` type non-optional to reflect that they have default values.
@@ -100,10 +100,11 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ##### New Features on Keys, Secrets and Certificates
 
-- Added the optional `serviceVersion` property to the `CertificateClient`, `SecretClient`, `KeyClient` and `CryptographyClient` optional parameters to control the version of the Key Vault service being used by the clients.
+- Added a `serviceVersion` property to the `CertificateClient`, `SecretClient`, `KeyClient` and `CryptographyClient` optional parameters to control the version of the Key Vault service being used by the clients.
     - It defaults to the latest supported API version, which currently is `7.1`.
-    - Other supported service version at the moment is `7.0`.
-- Added `recoverableDays` as an optional property to `KeyProperties`, `SecretProperties` and `CertificateProperties`, which denotes the number of days in which the key, secret or certificate can be recovered after deletion. This is only applicable for Azure Key Vaults with the soft-delete setting enabled.
+    - The other supported service version at the moment is `7.0`.
+- Added `recoverableDays` as an optional property to `KeyProperties`, `SecretProperties` and `CertificateProperties`, which denotes the number of days in which the Key, Secret or Certificate can be recovered after deletion.
+    - This is only applicable for Azure Key Vaults with the `soft-delete` setting enabled.
 
 ##### New Features on Key Vault Keys
 
@@ -111,7 +112,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ##### Major Fixes on Key Vault Keys
 
-- Fixed [bug 10352](https://github.com/Azure/azure-sdk-for-js/issues/10352), which caused cryptography operations on RSA-HSM keys to fail.
+- Fixed [bug 10352](https://github.com/Azure/azure-sdk-for-js/issues/10352), which caused the cryptography operations on `RSA-HSM` keys to fail.
 
 ### Azure Service Bus
 
@@ -120,18 +121,18 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 ##### Breaking Changes from Last Preview
 
 
-- `receiveMode` parameter in the `createReceiver()`, `createSessionReceiver()` and `createDeadletterReceiver()` methods has been moved into the options bag with the default value `"peekLock"` mode.
+- `receiveMode` parameter in the `createReceiver()`, `createSessionReceiver()` and `createDeadletterReceiver()` methods has been moved into the options bag, now setting the `"peekLock"` mode by default.
 
   Example:
 
   - OLD: `createReceiver(<queue-name>, "peekLock")` and `createReceiver(<queue-name>, "receiveAndDelete")`
   - NEW: `createReceiver(<queue-name>)` and `createReceiver(<queue-name>, {receiveMode: "receiveAndDelete"})`
 
-- Added Async iterable iterators with pagination support for all the listing methods like `getQueues()`, `getTopics()`, `getQueuesRuntimeInfo()`, etc. and renamed them to use the `list` verb.
+- Added Async iterable iterators with pagination support for all the listing methods like `getQueues()`, `getTopics()`, `getQueuesRuntimeInfo()`, etc. and renamed them to use the `list` verb (becoming `listQueues()`, `listTopics()`, `listQueuesRuntimeProperties()`, etc. respectively).
   - Please refer to the examples in the `samples` folder - [listingEntities](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/samples/typescript/src/advanced/listingEntities.ts)
 - `receiveMessages()`'s optional `maxWaitTimeInMs` parameter now controls how long to wait for the _first_ message, rather than how long to wait for an entire set of messages. This change allows for a faster return of messages to your application.
-- `userProperties` attribute under the `ServiceBusMessage`(and `ReceivedMessage`, `ReceivedMessageWithLock`) has been renamed to `properties`. Same change has been made to the `userProperties` attribute in the correlation-rule filter.
-- The terms `RuntimeInfo` and `Description` are replaced with `RuntimeProperties` and `Properties` to better align with guidelines around the kind of suffixes we use for naming methods and interfaces.
+- `userProperties` attribute under the `ServiceBusMessage`(and `ReceivedMessage`, `ReceivedMessageWithLock`) has been renamed to `properties`. The same change has been made to the `userProperties` attribute in the correlation-rule filter.
+- The terms `RuntimeInfo` and `Description` have been replaced with `RuntimeProperties` and `Properties` to better align with guidelines around the kind of suffixes we use for naming methods and interfaces.
 
 ##### New Features
 
@@ -140,7 +141,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
   `SampleApp azsdk-js-azureservicebus/7.0.0-preview.5 core-http/1.1.5 Node/v12.16.0 OS/(x64-Windows_NT-10.0.18363)`
 - Added `deadLetterErrorDescription` and `deadLetterReason` properties on the received messages. Previously, they were under the `properties` in the message.
 
-  OLD: `message.properties["DeadLetterReason"]` and `message.properties["DeadLetterErrorDescription"]`
+  OLD: `message.properties["DeadLetterReason"]` and `message.properties["DeadLetterErrorDescription"]`  
   NEW: `message.deadLetterReason` and `message.deadLetterErrorDescription`
 
 - Added tracing support to the methods under `ServiceBusManagementClient`.
@@ -150,9 +151,6 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Fixes [bug 9926](https://github.com/Azure/azure-sdk-for-js/issues/9926)
   where attempting to create AMQP links when the AMQP connection was in the
   process of closing resulted in a `TypeError` in an uncaught exception.
-
-
-[TODO]
 
 ## Latest Releases
 
