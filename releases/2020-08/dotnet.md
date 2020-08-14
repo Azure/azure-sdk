@@ -22,6 +22,7 @@ The Azure SDK team is pleased to announce our August 2020 client library release
 
 - Event Hubs
 - Form Recognizer
+- Service Bus
 
 ## Installation Instructions
 
@@ -39,6 +40,8 @@ To install any of our packages, please search for them via `Manage NuGet Package
 
  $> dotnet add package Azure.Messaging.EventHubs --version 5.2.0-preview.2
  $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.2.0-preview.2
+
+ $> dotnet add package Azure.Messaging.ServiceBus --version 7.0.0-preview.5
 
  $> dotnet add package Azure.Search.Documents
 
@@ -133,6 +136,18 @@ If you have a bug or feature request for one of the libraries, please [file an i
 #### New Features
 - Added `SearchClientOptions.Serializer` to set which `ObjectSerializer` to use for serialization.
 - Added `FieldBuilder` to easily create `SearchIndex` fields from a model type.
+
+### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md#700-preview5-2020-08-11)
+
+#### Breaking Changes
+- Change MaxConcurrentCalls to MaxConcurrentSessions in ServiceBusSessionProcessor.
+- Replace (Queue|Topic|Subscription|Rule)Description with (Queue|Topic|Subscription|Rule)Properties.
+- Add Create(Queue|Topic|Subscription|Rule)Options for creating entities.
+- Replace (Queue|Topic|Subscription)RuntimeInfo with (Queue|Topic|Subscription)RuntimeProperties.
+- Remove MessageCountDetails and move the properties directly into the RuntimeProperties types.
+
+#### New Features
+- Added MaxConcurrentCallsPerSession option to ServiceBusSessionProcessor
 
 ### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#500-2020-07-27)
 
