@@ -26,6 +26,7 @@ The Azure SDK team is pleased to announce our August 2020 client library release
 - Azure Core Management
 - Azure Core Tracing OpenTelemetry
 - Form Recognizer
+- Azure Service Bus
 
 ## Installation Instructions
 
