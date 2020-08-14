@@ -72,15 +72,23 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ##### Breaking Changes
 
-[TODO]
+- Renamed the `includeSubFolders` property of the `TrainSourceFilter` type to `includeSubfolders`.
+- Renamed the `documentName` property of the `TrainingDocumentInfo` type to just `name`.
+- Removed the `containingLine` property of the `FormWord` type.
+- Renamed `CustomFormField` to `CustomFormModelField` for similarity to other language SDKs.
+- Removed the redundant `expirationDateTimeTicks` property from the `CopyAuthorization` type, as the `expiresOn` property exists.
+- Moved the optional `contentType` parameter of the `FormRecognizerClient` recognition methods (`recognizeContent`, `recognizeCustomForms`, `recognizeReceipts`, and their URL-based variants) to the associated options bag for these methods.
+- Removed exports of several internal types, including most internal poller operation states and some unused types. All client poller implementations now return a smaller subset of fields.
+
 
 ##### New Features
 
-[TODO]
+- Changed the package version to 3.0.0-preview.1 to reduce confusion with older versions of the Azure Form Recognizer SDKs.
+- Switched to using the generally-available 2.0 service endpoint rather than 2.0-preview.
+- Changed the type of the `options` bag parameter of `beginRecognizeReceipts` and `beginRecognizeReceiptsFromUrl` to `BeginRecognizeReceiptsOptions`.
+- Added a `pageNumber` property to the `FormTable` and `FormTableCell` types indicating the number of the page where the table/cell appeared within the input document.
+- Made the `rowSpan`, `columnSpan`, `isHeader`, and `isFooter` properties of the `FormTableCell` type non-optional to reflect that they have default values.
 
-##### Major Fixes
-
-[TODO]
 
 ### Azure Key Vault Keys, Secrets and Certificates
 
