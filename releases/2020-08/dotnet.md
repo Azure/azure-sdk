@@ -10,6 +10,7 @@ The Azure SDK team is pleased to announce our August 2020 client library release
 
 #### GA
 
+- Identity
 - Key Vault (Certificates, Keys, Secrets)
 - Search
 - Text Analytics
@@ -37,6 +38,8 @@ To install any of our packages, please search for them via `Manage NuGet Package
 
  $> dotnet add package Azure.Extensions.AspNetCore.DataProtection.Blobs
  $> dotnet add package Azure.Extensions.AspNetCore.DataProtection.Keys
+
+ $> dotnet add package Azure.Identity
 
  $> dotnet add package Azure.Messaging.EventHubs --version 5.2.0-preview.2
  $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.2.0-preview.2
@@ -112,6 +115,22 @@ If you have a bug or feature request for one of the libraries, please [file an i
 #### Fixes
 
 - Made the `TrainingFileFilter` constructor public.
+
+### Azure Identity [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/identity/Azure.Identity/CHANGELOG.md#120-2020-08-10)
+
+### New Features
+- Includes changes from 1.2.0-preview.1 to 1.2.0-preview.6
+  - Added credential types for authentication in the development environment `VisualStudioCredential`, `VisualStudioCodeCredential`, `AzureCliCredential`
+  - Updated `DefaultAzureCredential` authentication flow to contain new development credential types
+  - Added `AzureAuthorityHosts` to simplify authentication in sovereign clouds
+
+### Breaking Changes
+- Removing Application Authentication APIs for GA release. These will be reintroduced in 1.3.0-preview.
+
+### Fixes and improvements
+- Fixed excess errors in `DefaultAzureCredential` tracing (Issue [#10659](https://github.com/Azure/azure-sdk-for-net/issues/10659))
+- Fixed concurrency issue in `DefaultAzureCredential` (Issue [#13044](https://github.com/Azure/azure-sdk-for-net/issues/13044))
+
 
 ### Azure Key Vault
 
