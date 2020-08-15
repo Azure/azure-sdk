@@ -10,7 +10,9 @@ The Azure SDK team is pleased to announce our August 2020 client library release
 
 #### GA
 
-- _Add packages_
+- Azure Key Vault Certificates
+- Azure Key Vault Keys
+- Azure Key Vault Secrets
 
 #### Updates
 
@@ -93,6 +95,22 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-data-appconfiguration</artifactId>
   <version>1.1.4</version>
+</dependency>
+
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-security-keyvault-certificates</artifactId>
+    <version>4.1.0</version>
+</dependency>
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-security-keyvault-keys</artifactId>
+    <version>4.2.0</version>
+</dependency>
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-security-keyvault-secrets</artifactId>
+    <version>4.2.0</version>
 </dependency>
 
 <dependency>
@@ -238,6 +256,34 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 #### Key Bug Fixes
 - Fixed `getFields()` on `RecognizedForm` to preserve service side ordering of fields.
+
+### Azure Key Vault Certificates ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md#410-2020-08-12))
+
+#### New features
+- Added support for service version `7.1`.
+- Added `retryPolicy` setter in `CertificateClientBuilder`.
+- Added `recoverableDays` property to `CertificateProperties`.
+
+#### Key Bug Fixes
+- Fixed an issue that prevented using classes from package `com.azure.security.keyvault.certificates` when working on a project using Java 9+.
+
+### Azure Key Vault Keys ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md#420-2020-08-12))
+
+#### New features
+- Added support for service version `7.1`.
+- Added `retryPolicy` setter in `KeyClientBuilder`, `CryptographyClientBuilder` and `KeyEncryptionKeyClientBuilder`.
+- Added `recoverableDays` property to `KeyProperties`.
+- Added `Import` operation to `KeyOperation`.
+
+#### Key Bug Fixes
+- Fixed an issue that prevented using classes from package `com.azure.security.keyvault.keys` when working on a project using Java 9+.
+
+### Azure Key Vault Secrets ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md#420-2020-08-12))
+
+#### New features
+- Added support for service version `7.1`.
+- Added `retryPolicy` setter in `SecretClientBuilder`.
+- Added `recoverableDays` property to `SecretProperties`.
 
 ### Azure Search Documents ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/search/azure-search-documents/CHANGELOG.md#1110-beta1-2020-08-12))
 
