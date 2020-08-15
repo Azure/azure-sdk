@@ -26,8 +26,12 @@ The Azure SDK team is pleased to announce our August 2020 client library release
 
 - Azure Core Experimental
 - Azure Core Management
+- Azure Core Serializer Json Gson
+- Azure Core Serializer Json Jackson
 - Azure Core Tracing OpenTelemetry
 - Form Recognizer
+- Azure Search Documents
+- Azure Service Bus
 
 ## Installation Instructions
 
@@ -57,6 +61,16 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-core-management</artifactId>
+  <version>1.0.0-beta.3</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-core-serializer-json-gson</artifactId>
+  <version>1.0.0-beta.3</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-core-serializer-json-jackson</artifactId>
   <version>1.0.0-beta.3</version>
 </dependency>
 <dependency>
@@ -97,6 +111,18 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
     <groupId>com.azure</groupId>
     <artifactId>azure-security-keyvault-secrets</artifactId>
     <version>4.2.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-search-documents</artifactId>
+  <version>11.1.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-messaging-servicebus</artifactId>
+  <version>7.0.0-beta.5</version>
 </dependency>
 ```
 
@@ -159,6 +185,32 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### Key Bug Fixes
 
 - Fixed polling status HTTP status code check to include 202.
+
+### Azure Core Serializer Json Gson ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-serializer-json-gson/CHANGELOG.md#100-beta3-2020-08-12))
+
+#### New Features
+
+- `GsonJsonSerializer` now implements the interface `MemberNameConverter`.
+
+#### Breaking Changes
+
+- Changed `GsonJsonSerializer` to implement `azure-core`'s `JsonSerialzer` instead of `azure-core-experimental`'s.
+- Removed JSON tree models and APIs.
+
+#### Breaking Changes
+
+### Azure Core Serializer Json Jackson ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-serializer-json-jackson/CHANGELOG.md#100-beta3-2020-08-12))
+
+#### New Features
+
+- `JacksonJsonSerializer` now implements the interface `MemberNameConverter`.
+
+#### Breaking Changes
+
+- Changed `JacksonJsonSerializer` to implement `azure-core`'s `JsonSerialzer` instead of `azure-core-experimental`'s.
+- Removed JSON tree models and APIs.
+
+#### Breaking Changes
 
 ### Azure Core Tracing OpenTelemetry ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md#100-beta6-2020-08-07))
 
@@ -232,6 +284,27 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Added support for service version `7.1`.
 - Added `retryPolicy` setter in `SecretClientBuilder`.
 - Added `recoverableDays` property to `SecretProperties`.
+
+### Azure Search Documents ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/search/azure-search-documents/CHANGELOG.md#1110-beta1-2020-08-12))
+
+#### New Features 
+
+- Added `buildSearchFields` API to `SearchIndexClient` and `SearchIndexAsyncClient` to aid in creating `SearchField`s from the passed `Class`.
+- Added `SearchableFieldProperty`, `SimpleFieldProperty`, and `FieldBuilderIgnore` to annotate `Class`es passed into `buildSearchFields`.
+- Added `getDefaultLogOptions` to `SearchClientBuilder`, `SearchIndexCleintBuilder`, and `SearchIndexerClientBuilder`. Updated client construction to use default log options by default.
+- Added the ability for clients to accept a `JsonSerializer` to specify a custom JSON serialization layer when dealing with Search documents.
+
+### Azure Service Bus ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md#700-beta5-2020-08-11))
+
+#### New features
+- Automatic lock renewal using LockRenewalOperation.
+- A timeout period is added when synchronously receiving messages.
+
+#### Breaking changes
+- Service Bus queue, topic, and subscription creation are done through CreateQueueOptions,
+  CreateTopicOptions, and CreateSubscriptionOptions.
+- Only updateable properties on QueueProperties, TopicProperties, and SubscriptionProperties are exposed
+- MessageDetailCount is flattened and removed in QueueRuntimeInfo, TopicRuntimeInfo, and SubscriptionRuntimeInfo.
 
 ## Need help
 
