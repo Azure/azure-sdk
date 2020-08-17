@@ -49,7 +49,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
-
 ### Identity [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/CHANGELOG.md)
 
 #### Breaking Changes
@@ -117,5 +116,21 @@ SearchIndexDocumentBatchingClient supports handling document indexing actions in
 ## Latest Releases
 
 View all the latest versions of Python packages [here][python-latest-releases].
+
+### Azure Cosmos DB Python SDK
+
+#### Version 4.1.0 (2020-08-10) Released
+
+**New features**
+- Added the ability to set the analytical storage TTL when creating a new container.
+
+**Bug fixes**
+- Added deprecation warning for "lazy" indexing mode. The backend no longer allows creating containers with this mode and will set them to consistent instead.
+- Fixed support for dicts as inputs for get_client APIs.
+- Fixed Python 2/3 compatibility in query iterators.
+- Fixed type hint error. Issue #12570 - thanks @sl-sandy.
+- Fixed bug where options headers were not added to upsert_item function. Issue #11791 - thank you @aalapatirvbd.
+- Fixed error raised when a non string ID is used in an item. It now raises TypeError rather than AttributeError. Issue #11793 - thank you @Rabbit994.
+
 
 {% include refs.md %}
