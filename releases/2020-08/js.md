@@ -44,7 +44,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Identity
 
-#### Identity's [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/identity/identity/CHANGELOG.md)
+#### Identity [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/identity/identity/CHANGELOG.md)
 
 ##### New Features
 - With 1.1.0, new developer credentials are now available: `VisualStudioCodeCredential` and `AzureCliCredential`.
@@ -57,7 +57,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Azure Form Recognizer
 
-#### Form Recognizer's [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
+#### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
 
 ##### Breaking Changes
 
@@ -100,7 +100,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Azure Service Bus
 
-#### Service Bus' [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md)
+#### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md)
 
 ##### Breaking Changes from Last Preview
 
