@@ -127,6 +127,45 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 </dependency>
 ```
 
+To use Azure Spring Boot starters, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate.
+
+```xml
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>azure-active-directory-b2c-spring-boot-starter</artifactId>
+  <version>2.3.3</version>
+</dependency>
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>azure-active-directory-spring-boot-starter</artifactId>
+  <version>2.3.3</version>
+</dependency>
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>azure-cosmosdb-spring-boot-starter</artifactId>
+  <version>2.3.3</version>
+</dependency>
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>azure-data-gremlin-spring-boot-starter</artifactId>
+  <version>2.3.3</version>
+</dependency>
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>azure-keyvault-secrets-spring-boot-starter</artifactId>
+  <version>2.3.3</version>
+</dependency>
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>azure-spring-boot-metrics-starter</artifactId>
+  <version>2.3.3</version>
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>azure-servicebus-jms-spring-boot-starter</artifactId>
+  <version>2.3.3</version>
+</dependency>
+</dependency>
+```
 ## Feedback
 
 If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/azure/azure-sdk-for-java/issues).
@@ -307,24 +346,22 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Only updateable properties on QueueProperties, TopicProperties, and SubscriptionProperties are exposed
 - MessageDetailCount is flattened and removed in QueueRuntimeInfo, TopicRuntimeInfo, and SubscriptionRuntimeInfo.
 
-### Azure Spring Boot ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot/CHANGELOG.md#233-2020-08-07))
+### Azure Spring Boot ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot/CHANGELOG.md#233-2020-08-13))
 
 #### New Features
 - Support connection to multiple Key Vault from a single application configuration file 
 - Support case sensitive keys in Key Vault 
 - Key Vault Spring Boot Actuator 
 
-#### Improved
-- Revamp KeyVault refreshing logic to avoid unnecessary updates. 
-- Update the underpinning JMS library for Service Bus to JMS 2.0 to support seamlessly lift and shift their Spring workloads to Azure and automatic creation of resources.
-
-#### Bug Fixes
+#### Key Bug Fixes
 - Address CVEs and cleaned up all warnings at build time. 
 
-#### Deprecated
+#### Breaking Changes
 - azure-servicebus-spring-boot-starter 
 - azure-mediaservices-spring-boot-starter 
 - azure-storage-spring-boot-starter  
+- Revamp KeyVault refreshing logic to avoid unnecessary updates. 
+- Update the underpinning JMS library for Service Bus to JMS 2.0 to support seamlessly lift and shift their Spring workloads to Azure and automatic creation of resources.
 
 ## Need help
 
