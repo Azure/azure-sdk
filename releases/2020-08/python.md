@@ -18,7 +18,7 @@ The Azure SDK team is pleased to make available the August 2020 client library r
 - Identity
 - Text Analytics
 - Key Vault
-- Cosmos
+- Cosmos DB
 
 #### Preview
 
