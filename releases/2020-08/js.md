@@ -55,17 +55,6 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - A list of known authorities is now available via a new top-level constant: `AzureAuthorityHosts`.
 - Introduced the `CredentialUnavailable` error, which allows developers to differentiate between a credential not being available and an error happening during authentication.
 
-### Event Hubs
-
-#### Azure Event Hubs Checkpoint Store's [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/CHANGELOG.md)
-
-##### Major Fixes
-
-- Fixed issue [#10132](https://github.com/Azure/azure-sdk-for-js/issues/10132).
-  An Azure Storage Account with soft-deletes or blob versioning enabled
-  no longer causes `listCheckpoints` to suffer performance penalties proportional to the
-  number of times `updateCheckpoint` was called.
-
 ### Azure Form Recognizer
 
 #### Form Recognizer's [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
@@ -83,12 +72,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ##### New Features
 
-- Changed the package version to `3.0.0-preview.1` to reduce confusion with older versions of the Azure Form Recognizer SDKs.
 - Switched from using the service endpoint version `2.0-preview` to the now generally-available version `2.0`.
-- Changed the type of the `options` bag parameter of `beginRecognizeReceipts` and `beginRecognizeReceiptsFromUrl` to `BeginRecognizeReceiptsOptions`.
-- Added a `pageNumber` property to the `FormTable` and `FormTableCell` types indicating the number of the page where the table/cell appeared within the input document.
-- Made the `rowSpan`, `columnSpan`, `isHeader`, and `isFooter` properties of the `FormTableCell` type non-optional to reflect that they have default values.
-
 
 ### Azure Key Vault Keys, Secrets and Certificates
 
@@ -145,12 +129,6 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
   NEW: `message.deadLetterReason` and `message.deadLetterErrorDescription`
 
 - Added tracing support to the methods under `ServiceBusManagementClient`.
-
-##### Bug Fixes
-
-- Fixes [bug 9926](https://github.com/Azure/azure-sdk-for-js/issues/9926)
-  where attempting to create AMQP links when the AMQP connection was in the
-  process of closing resulted in a `TypeError` in an uncaught exception.
 
 ## Latest Releases
 
