@@ -89,6 +89,10 @@ For clarity, a `change log entry` is simply the header + content up to the next 
 
 The [JS ServiceBus SDK](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md) maintains a great changelog example. Given that changelog, this is what a [release](https://github.com/Azure/azure-sdk-for-js/releases/tag/%40azure%2Fservice-bus_1.0.0-preview.2) looks like.
 
+### Changelog Entries for GA releases
+
+When doing a switch from a preview to a GA release there are often very few changes which can be misleading to customers, as they might not think there are many changes. Instead when doing a GA release it is recommended that we either squash all the preview notes into the GA changelog entry or add a comment similar to `Includes all changes from X.Y.Z-preview.A to X.Y.Z.preview.B` so that it is clear that all those changes are included. 
+
 ## Release Cycle
 
 The release cycle of each SDK Component may vary based on the needs of the underlying service. The Azure SDK team recommends:

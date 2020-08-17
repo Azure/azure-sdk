@@ -10,7 +10,9 @@ The Azure SDK team is pleased to announce our August 2020 client library release
 
 #### GA
 
-- _Add packages_
+- Azure Key Vault Certificates
+- Azure Key Vault Keys
+- Azure Key Vault Secrets
 
 #### Updates
 
@@ -29,11 +31,8 @@ The Azure SDK team is pleased to announce our August 2020 client library release
 - Azure Core Serializer Json Jackson
 - Azure Core Tracing OpenTelemetry
 - Form Recognizer
-<<<<<<< HEAD
 - Azure Search Documents
-=======
 - Azure Service Bus
->>>>>>> 909ac89a4a5bac3741c7f777d8dc3a6370fa1343
 
 ## Installation Instructions
 
@@ -100,14 +99,31 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 </dependency>
 
 <dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-security-keyvault-certificates</artifactId>
+    <version>4.1.0</version>
+</dependency>
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-security-keyvault-keys</artifactId>
+    <version>4.2.0</version>
+</dependency>
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-security-keyvault-secrets</artifactId>
+    <version>4.2.0</version>
+</dependency>
+
+<dependency>
   <groupId>com.azure</groupId>
-<<<<<<< HEAD
   <artifactId>azure-search-documents</artifactId>
   <version>11.1.0-beta.1</version>
-=======
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
   <artifactId>azure-messaging-servicebus</artifactId>
   <version>7.0.0-beta.5</version>
->>>>>>> 909ac89a4a5bac3741c7f777d8dc3a6370fa1343
 </dependency>
 ```
 
@@ -242,7 +258,34 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### Key Bug Fixes
 - Fixed `getFields()` on `RecognizedForm` to preserve service side ordering of fields.
 
-<<<<<<< HEAD
+### Azure Key Vault Certificates ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md#410-2020-08-12))
+
+#### New features
+- Added support for service version `7.1`.
+- Added `retryPolicy` setter in `CertificateClientBuilder`.
+- Added `recoverableDays` property to `CertificateProperties`.
+
+#### Key Bug Fixes
+- Fixed an issue that prevented using classes from package `com.azure.security.keyvault.certificates` when working on a project using Java 9+.
+
+### Azure Key Vault Keys ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md#420-2020-08-12))
+
+#### New features
+- Added support for service version `7.1`.
+- Added `retryPolicy` setter in `KeyClientBuilder`, `CryptographyClientBuilder` and `KeyEncryptionKeyClientBuilder`.
+- Added `recoverableDays` property to `KeyProperties`.
+- Added `Import` operation to `KeyOperation`.
+
+#### Key Bug Fixes
+- Fixed an issue that prevented using classes from package `com.azure.security.keyvault.keys` when working on a project using Java 9+.
+
+### Azure Key Vault Secrets ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md#420-2020-08-12))
+
+#### New features
+- Added support for service version `7.1`.
+- Added `retryPolicy` setter in `SecretClientBuilder`.
+- Added `recoverableDays` property to `SecretProperties`.
+
 ### Azure Search Documents ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/search/azure-search-documents/CHANGELOG.md#1110-beta1-2020-08-12))
 
 #### New Features 
@@ -251,7 +294,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Added `SearchableFieldProperty`, `SimpleFieldProperty`, and `FieldBuilderIgnore` to annotate `Class`es passed into `buildSearchFields`.
 - Added `getDefaultLogOptions` to `SearchClientBuilder`, `SearchIndexCleintBuilder`, and `SearchIndexerClientBuilder`. Updated client construction to use default log options by default.
 - Added the ability for clients to accept a `JsonSerializer` to specify a custom JSON serialization layer when dealing with Search documents.
-=======
+
 ### Azure Service Bus ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md#700-beta5-2020-08-11))
 
 #### New features
@@ -263,7 +306,6 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
   CreateTopicOptions, and CreateSubscriptionOptions.
 - Only updateable properties on QueueProperties, TopicProperties, and SubscriptionProperties are exposed
 - MessageDetailCount is flattened and removed in QueueRuntimeInfo, TopicRuntimeInfo, and SubscriptionRuntimeInfo.
->>>>>>> 909ac89a4a5bac3741c7f777d8dc3a6370fa1343
 
 ### Azure Spring Boot ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot/CHANGELOG.md#233-2020-08-07))
 
