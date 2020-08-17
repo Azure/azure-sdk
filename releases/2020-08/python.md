@@ -18,6 +18,7 @@ The Azure SDK team is pleased to make available the August 2020 client library r
 - Identity
 - Text Analytics
 - Key Vault
+- Cosmos
 
 #### Preview
 
@@ -39,6 +40,7 @@ pip install --pre azure-search-documents
 pip install azure-keyvault-certificates
 pip install azure-keyvault-keys
 pip install azure-keyvault-secrets
+pip install azure-cosmos
 ```
 
 ## Feedback
@@ -113,24 +115,16 @@ SearchIndexDocumentBatchingClient supports handling document indexing actions in
 #### Secrets [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-secrets/CHANGELOG.md#420-2020-08-11)
 #### Certificates [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-certificates/CHANGELOG.md#420-2020-08-11)
 
+
+### Azure Cosmos DB Python SDK [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/CHANGELOG.md)
+
+#### New Features
+
+- Added the ability to set the analytical storage TTL when creating a new container.
+
 ## Latest Releases
 
 View all the latest versions of Python packages [here][python-latest-releases].
-
-### Azure Cosmos DB Python SDK
-
-#### Version 4.1.0 (2020-08-10) Released
-
-**New features**
-- Added the ability to set the analytical storage TTL when creating a new container.
-
-**Bug fixes**
-- Added deprecation warning for "lazy" indexing mode. The backend no longer allows creating containers with this mode and will set them to consistent instead.
-- Fixed support for dicts as inputs for get_client APIs.
-- Fixed Python 2/3 compatibility in query iterators.
-- Fixed type hint error. Issue #12570 - thanks @sl-sandy.
-- Fixed bug where options headers were not added to upsert_item function. Issue #11791 - thank you @aalapatirvbd.
-- Fixed error raised when a non string ID is used in an item. It now raises TypeError rather than AttributeError. Issue #11793 - thank you @Rabbit994.
 
 
 {% include refs.md %}
