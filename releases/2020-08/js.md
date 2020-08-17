@@ -8,13 +8,16 @@ repository: azure/azure-sdk-for-js
 
 The Azure SDK team is pleased to make available the August 2020 client library release.
 
+#### GA
+
+- Identity
+- Azure Key Vault
+
 #### Updates
 
 - Core libraries
-- Identity
 - Azure Event Hubs
 - Azure Form Recognizer
-- Azure Key Vault
 
 #### Preview
 
