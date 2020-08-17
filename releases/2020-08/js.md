@@ -50,7 +50,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - With 1.1.0, new developer credentials are now available: `VisualStudioCodeCredential` and `AzureCliCredential`.
   - `VisualStudioCodeCredential` allows developers to authenticate using the credentials available after logging in through the Azure Account extension in Visual Studio Code.
   - `AzureCliCredential` allows developers to log into Azure using the login credentials after an "az login" call.
-- Both `VisualStudioCodeCredential` and `AzureCliCredential` may be used directly or indirectly as part of `DefaultAzureCredential`.
+  - Both `VisualStudioCodeCredential` and `AzureCliCredential` may be used directly or indirectly as part of `DefaultAzureCredential`.
 - Added the ability to configure the Managed Identity with a user-assigned client ID via a new option available in the `DefaultAzureCredential` constructor options: `managedIdentityClientId`.
 - A list of known authorities is now available via a new top-level constant: `AzureAuthorityHosts`.
 - Introduced the `CredentialUnavailable` error, which allows developers to differentiate between a credential not being available and an error happening during authentication.
