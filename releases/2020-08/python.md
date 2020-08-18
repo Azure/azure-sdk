@@ -130,7 +130,7 @@ SearchIndexDocumentBatchingClient supports handling document indexing actions in
 #### File DataLake [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md)
 
 ##### New Features
-- Patch release to update the minimum dependency requirement
+- Added `query_file` API to enable users to select/project on DataLake file data by providing simple query expressions.
 
 #### File Share [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/CHANGELOG.md)
 
