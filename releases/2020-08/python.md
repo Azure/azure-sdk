@@ -51,7 +51,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
-
 ### Identity [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/CHANGELOG.md)
 
 #### Breaking Changes
@@ -121,6 +120,7 @@ SearchIndexDocumentBatchingClient supports handling document indexing actions in
 - Added deprecation warning for "lazy" indexing mode. The backend no longer allows creating containers with this mode and will set them to consistent instead.
 - Various bug fixes.
 
+
 #### New Features
 
 - Added the ability to set the analytical storage TTL when creating a new container.
@@ -128,5 +128,6 @@ SearchIndexDocumentBatchingClient supports handling document indexing actions in
 ## Latest Releases
 
 View all the latest versions of Python packages [here][python-latest-releases].
+
 
 {% include refs.md %}
