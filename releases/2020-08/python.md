@@ -136,6 +136,7 @@ SearchIndexDocumentBatchingClient supports handling document indexing actions in
 #### File Share [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/CHANGELOG.md)
 
 ##### New Features
+- GA of v12.2.0, includes features from all preview versions.
 - Stable release of preview feature `undelete_share` on FileShareServiceClient
 
 ### Key Vault
