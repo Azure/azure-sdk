@@ -10,7 +10,7 @@ The Azure SDK team is pleased to make available the August 2020 client library r
 
 #### GA
 
-- _Add packages_
+- Storage
 
 #### Updates
 
@@ -41,6 +41,9 @@ pip install azure-keyvault-certificates
 pip install azure-keyvault-keys
 pip install azure-keyvault-secrets
 pip install azure-cosmos
+pip install azure-storage-blob
+pip install azure-storage-file-datalake
+pip install azure-storage-file-share
 ```
 
 ## Feedback
@@ -107,6 +110,34 @@ As before, please refer to the official changelog for a more complete enumeratio
 - new SearchIndexDocumentBatchingClient
 
 SearchIndexDocumentBatchingClient supports handling document indexing actions in an automatic way. It can trigger the flush method automatically based on pending tasks and idle time.
+
+### Storage
+
+#### Blob [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md)
+
+##### New Features
+- GA of v12.4.0, includes features from all preview versions
+- Added support for Object Replication on `list_blobs` and `get_blob_properties`
+- Added more support for Blob Tags
+- Added `rehydrate_priority` to BlobProperties
+- Added support to set tier on a snapshot or version
+
+##### Key Bug Fixes
+- Fixed bug when parsing blob url with `/` in blob name
+- Fixed `blob_samples_query` bug
+- Support batch delete empty blob list
+
+#### File DataLake [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md)
+
+##### New Features
+- GA of v12.1.1, includes features from all preview versions
+- Added `query_file` API to enable users to select/project on DataLake file data by providing simple query expressions.
+
+#### File Share [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/CHANGELOG.md)
+
+##### New Features
+- GA of v12.2.0, includes features from all preview versions.
+- Stable release of preview feature `undelete_share` on FileShareServiceClient
 
 ### Key Vault
 
