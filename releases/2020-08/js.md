@@ -49,6 +49,8 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 #### Identity [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/identity/identity/CHANGELOG.md)
 
+We are happy to announce that the features we had introduced in the preview updates for Identity over the past few months are now stable and out of preview!
+
 ##### New Features
 - With 1.1.0, new developer credentials are now available: `VisualStudioCodeCredential` and `AzureCliCredential`.
   - `VisualStudioCodeCredential` allows developers to authenticate using the credentials available after logging in through the Azure Account extension in Visual Studio Code.
@@ -60,6 +62,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Azure Form Recognizer
 
+We hav yet another preview with some API changes for a generally improved experience and which targets the service version 2.0
 #### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
 
 ##### Breaking Changes
@@ -79,6 +82,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Azure Key Vault Keys, Secrets and Certificates
 
+We are happy to announce that the features we had introduced as a preview a few months ago are now stable and out of preview!
 #### Changelogs
 
 - [Key Vault Keys](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-keys/CHANGELOG.md).
@@ -103,6 +107,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Azure Service Bus
 
+We have another preview for you containing API changes for a generally improved user experience.
 #### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md)
 
 ##### Breaking Changes from Last Preview
