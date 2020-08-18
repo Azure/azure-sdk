@@ -22,6 +22,7 @@ steps:
     filePath: $(System.DefaultWorkingDirectory)/azure-sdk/eng/scripts/Generate-Release-Structure.ps1
     arguments: > 
       -ReleaseDateString "$(ReleaseDate)"
+      -PublishRelease $$(PublishRelease)
 
 - template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
   parameters:

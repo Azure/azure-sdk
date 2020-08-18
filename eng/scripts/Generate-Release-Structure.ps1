@@ -1,7 +1,8 @@
 param (
   [string]$releaseDateString = "",
   [string]$releaseTemplate = "$PSScriptRoot\release-template",
-  [string]$releaseRootFolder = "$PSScriptRoot\..\..\releases"
+  [string]$releaseRootFolder = "$PSScriptRoot\..\..\releases",
+  [bool]$publishRelease = $false
 )
 
 if ($releaseDateString -eq "") {
@@ -15,61 +16,64 @@ $releaseString = $releaseDate.ToString("yyyy-MM")
 $releaseFolder = Join-Path (Resolve-Path $releaseRootFolder) $releaseString
 $releaseSidebar = Resolve-Path "$PSScriptRoot\..\..\_data\sidebars\releases_sidebar.yml"
 
-if (!(Test-Path $releaseFolder)) {
-  New-Item -Type Directory $releaseFolder | Out-Null
-}
+if ($publishRelease) {
+  ### Update release sidebar
+  Install-Module -Name powershell-yaml -RequiredVersion 0.4.2 -Force -Scope CurrentUser
 
-### Copy template files for ones that don't exist
-foreach ($file in (Get-ChildItem $releaseTemplate/*)) {
-  $newFile = Join-Path $releasefolder $file.Name
-  if (Test-Path $newFile) {
-    Write-Host "Skipping $newFile because it already exists"
+  $yml = Get-Content $releaseSidebar | ConvertFrom-Yaml -Ordered
+
+  $yearGroupName = $releaseDate.ToString("yyyy") + " Releases"
+  $yearGroup = $yml.entries.folders | Where-Object { $_.title -eq $yearGroupName }
+
+  if (!$yearGroup) {
+    $yearGroup = [ordered]@{ title = "$yearGroupName"; folderitems = @() }
+
+    # insert in spot 1 as spot 0 is reserved for Latest
+    $yml.entries.folders.Insert(1, $yearGroup)
   }
-  else {
-    Copy-Item $file $newFile
+
+  $monthGroupName = $releaseDate.ToString("MMMM")
+  $monthGroup = $yearGroup.folderitems | Where-Object { $_.title -eq $monthGroupName }
+
+  if (!$monthGroup) {
+    $monthGroup = [ordered]@{ title = $monthGroupName; url = "/releases/$releaseString/index.html" }
+    $yearGroup.folderitems.Insert(0, $monthGroup)
   }
+
+  $yml | ConvertTo-Yaml -OutFile $releaseSidebar -Force
 }
+else {
+  if (!(Test-Path $releaseFolder)) {
+    New-Item -Type Directory $releaseFolder | Out-Null
+  }
 
-### Update template files with date
-foreach ($file in (Get-ChildItem $releaseFolder)) {
-  $fileContent = Get-Content $file
-
-  $fileContent = $fileContent | ForEach-Object {
-    if ($_ -match "%%(?<format>.*?)%%") {
-      try {
-        $_ -replace $matches[0], $releaseDate.ToString($matches["format"]) 
-      }
-      catch {
-        Write-Host ("Date format " + $matches["format"] + " in file $file is invalid.")
-      }
-    } else {
-      $_
+  ### Copy template files for ones that don't exist
+  foreach ($file in (Get-ChildItem $releaseTemplate/*)) {
+    $newFile = Join-Path $releasefolder $file.Name
+    if (Test-Path $newFile) {
+      Write-Host "Skipping $newFile because it already exists"
+    }
+    else {
+      Copy-Item $file $newFile
     }
   }
-  $fileContent | Set-Content $file
+
+  ### Update template files with date
+  foreach ($file in (Get-ChildItem $releaseFolder)) {
+    $fileContent = Get-Content $file
+
+    $fileContent = $fileContent | ForEach-Object {
+      if ($_ -match "%%(?<format>.*?)%%") {
+        try {
+          $_ -replace $matches[0], $releaseDate.ToString($matches["format"]) 
+        }
+        catch {
+          Write-Host ("Date format " + $matches["format"] + " in file $file is invalid.")
+        }
+      } else {
+        $_
+      }
+    }
+    $fileContent | Set-Content $file
+  }
 }
-
-### Update release sidebar
-Install-Module -Name powershell-yaml -RequiredVersion 0.4.2 -Force -Scope CurrentUser
-
-$yml = Get-Content $releaseSidebar | ConvertFrom-Yaml -Ordered
-
-$yearGroupName = $releaseDate.ToString("yyyy") + " Releases"
-$yearGroup = $yml.entries.folders | Where-Object { $_.title -eq $yearGroupName }
-
-if (!$yearGroup) {
-  $yearGroup = [ordered]@{ title = "$yearGroupName"; folderitems = @() }
-
-  # insert in spot 1 as spot 0 is reserved for Latest
-  $yml.entries.folders.Insert(1, $yearGroup)
-}
-
-$monthGroupName = $releaseDate.ToString("MMMM")
-$monthGroup = $yearGroup.folderitems | Where-Object { $_.title -eq $monthGroupName }
-
-if (!$monthGroup) {
-  $monthGroup = [ordered]@{ title = $monthGroupName; url = "/releases/$releaseString/index.html" }
-  $yearGroup.folderitems.Insert(0, $monthGroup)
-}
-
-$yml | ConvertTo-Yaml -OutFile $releaseSidebar -Force
