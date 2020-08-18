@@ -10,10 +10,6 @@ The Azure SDK team is pleased to announce our August 2020 client library release
 
 #### GA
 
-- Azure Key Vault Certificates
-- Azure Key Vault Keys
-- Azure Key Vault Secrets
-
 #### Updates
 
 - Azure App Configuration
@@ -21,6 +17,9 @@ The Azure SDK team is pleased to announce our August 2020 client library release
 - Azure Core Http Netty
 - Azure Core Http OkHttp
 - Azure-Cosmos
+- Azure Key Vault Certificates
+- Azure Key Vault Keys
+- Azure Key Vault Secrets
 
 #### Preview
 
