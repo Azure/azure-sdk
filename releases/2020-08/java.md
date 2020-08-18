@@ -81,7 +81,7 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-cosmos</artifactId>
-  <version>4.3.0</version>
+  <version>4.3.1</version>
 </dependency>
 
 <dependency>
@@ -216,6 +216,16 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### New Featues
 
 - Update `opentelemetry-api` dependency version to `0.6.0` and included `io.grpc:grpc-context[1.30.0]` external dependency.
+
+### Azure Cosmos ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-cosmos/CHANGELOG.md#431-2020-08-13))
+
+#### 4.3.1 (2020-08-13)
+
+#### Key Bug Fixes
+
+- Fixed issue with `GROUP BY` query, where it was returning only one page.
+- Fixed user agent string format to comply with central SDK guidelines.
+- Enhanced diagnostics information to include query plan diagnostics.
 
 ### Azure Cosmos ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-cosmos/CHANGELOG.md#430-2020-07-29))
 
