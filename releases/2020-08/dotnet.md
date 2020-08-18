@@ -31,27 +31,27 @@ The Azure SDK team is pleased to announce our August 2020 client library release
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
 ```bash
- $> dotnet add package Azure.AI.FormRecognizer --version 3.0.0-preview.1
+ $> dotnet add package Azure.AI.FormRecognizer --version 3.0.0-preview.2
 
  $> dotnet add package Azure.AI.TextAnalytics --version 5.0.0
 
- $> dotnet add package Azure.Core.Experimental --version 0.1.0-preview.3
+ $> dotnet add package Azure.Core.Experimental --version 0.1.0-preview.4
 
  $> dotnet add package Azure.Extensions.AspNetCore.DataProtection.Blobs
  $> dotnet add package Azure.Extensions.AspNetCore.DataProtection.Keys
 
  $> dotnet add package Azure.Identity
 
- $> dotnet add package Azure.Messaging.EventHubs --version 5.2.0-preview.2
- $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.2.0-preview.2
+ $> dotnet add package Azure.Messaging.EventHubs --version 5.2.0-preview.3
+ $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.2.0-preview.3
 
  $> dotnet add package Azure.Messaging.ServiceBus --version 7.0.0-preview.5
 
- $> dotnet add package Azure.Storage.Blobs --version 12.5.0
- $> dotnet add package Azure.Storage.Blobs.ChangeFeed --version 12.0.0-preview.3
- $> dotnet add package Azure.Storage.Files.DataLake --version 12.3.0
- $> dotnet add package Azure.Storage.Files.Shares --version 12.3.0
- $> dotnet add package Azure.Storage.Queues --version 12.4.0
+ $> dotnet add package Azure.Storage.Blobs --version 12.5.1
+ $> dotnet add package Azure.Storage.Blobs.ChangeFeed --version 12.0.0-preview.4
+ $> dotnet add package Azure.Storage.Files.DataLake --version 12.3.1
+ $> dotnet add package Azure.Storage.Files.Shares --version 12.3.1
+ $> dotnet add package Azure.Storage.Queues --version 12.4.1
 
  $> dotnet add package Azure.Search.Documents
 
