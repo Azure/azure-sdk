@@ -18,6 +18,7 @@ The Azure SDK team is pleased to make available the August 2020 client library r
 - Identity
 - Text Analytics
 - Key Vault
+- Cosmos DB
 
 #### Preview
 
@@ -39,6 +40,7 @@ pip install --pre azure-search-documents
 pip install azure-keyvault-certificates
 pip install azure-keyvault-keys
 pip install azure-keyvault-secrets
+pip install azure-cosmos
 ```
 
 ## Feedback
@@ -48,7 +50,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 ## Changelog
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
-
 
 ### Identity [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/CHANGELOG.md)
 
@@ -114,8 +115,16 @@ SearchIndexDocumentBatchingClient supports handling document indexing actions in
 #### Secrets [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-secrets/CHANGELOG.md#420-2020-08-11)
 #### Certificates [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-certificates/CHANGELOG.md#420-2020-08-11)
 
+
+### Azure Cosmos DB Python SDK [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/CHANGELOG.md)
+
+#### New Features
+
+- Added the ability to set the analytical storage TTL when creating a new container.
+
 ## Latest Releases
 
 View all the latest versions of Python packages [here][python-latest-releases].
+
 
 {% include refs.md %}
