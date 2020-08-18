@@ -116,7 +116,7 @@ SearchIndexDocumentBatchingClient supports handling document indexing actions in
 #### Blob [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md)
 
 ##### New Features
-- GA of v12.4.0
+- GA of v12.4.0, includes features from all preview versions
 - Added support for Object Replication on `list_blobs` and `get_blob_properties`
 - Added more support for Blob Tags
 - Added `rehydrate_priority` to BlobProperties
