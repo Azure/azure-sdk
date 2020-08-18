@@ -12,6 +12,7 @@ The Azure SDK team is pleased to announce our August 2020 client library release
 
 - Key Vault (Certificates, Keys, Secrets)
 - Search
+- Storage
 - Text Analytics
 
 #### Updates
@@ -42,6 +43,12 @@ To install any of our packages, please search for them via `Manage NuGet Package
  $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.2.0-preview.2
 
  $> dotnet add package Azure.Messaging.ServiceBus --version 7.0.0-preview.5
+
+ $> dotnet add package Azure.Storage.Blobs --version 12.5.0
+ $> dotnet add package Azure.Storage.Blobs.ChangeFeed --version 12.0.0-preview.3
+ $> dotnet add package Azure.Storage.Files.DataLake --version 12.3.0
+ $> dotnet add package Azure.Storage.Files.Shares --version 12.3.0
+ $> dotnet add package Azure.Storage.Queues --version 12.4.0
 
  $> dotnet add package Azure.Search.Documents
 
@@ -130,6 +137,45 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 - Default service version is now 7.1.
 - Added `RecoverableDays` property to `SecretProperties`.
+
+### Storage
+
+#### Blobs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md)
+
+##### New Features
+- GA of v12.5.0
+- Added support for custom local emulator hostname for blob storage endpoints
+
+##### Key Bug Fixes
+- Fixed bug where `BlobContainerClient.SetAccessPolicy()` sends DateTimeOffset.MinValue when StartsOn and ExpiresOn are not set in BlobAccessPolicy
+
+#### Blobs ChangeFeed [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md)
+
+##### New Features
+- GA of this library
+
+#### Files DataLake [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md)
+
+##### New Features
+- GA of v12.3.0, includes features from all preview versions
+- Added `DataLakeFileClient.OpenWrite()`
+
+##### Key Bug Fixes
+- Fixed bug where `DataLakeFileSystemClient.SetAccessPolicy()` sends DateTimeOffset.MinValue when StartsOn and ExpiresOn are not set in DataLakeAccessPolicy
+
+#### Files Shares [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md)
+
+##### New Features
+- GA of v12.3.0, includes features from all preview versions
+- Added `ShareFileClient.OpenWrite()`
+
+##### Key Bug Fixes
+- Fixed bug where `ShareClient.SetAccessPolicy()` sends DateTimeOffset.MinValue when StartsOn and ExpiresOn are not set in ShareAccessPolicy
+
+#### Queues [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Queues/CHANGELOG.md)
+
+##### New Features
+- GA of v12.4.0, includes features from all preview versions
 
 ### Search [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md#1110-2020-08-11)
 

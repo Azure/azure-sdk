@@ -10,6 +10,8 @@ The Azure SDK team is pleased to announce our August 2020 client library release
 
 #### GA
 
+- Azure Storage Blob
+
 #### Updates
 
 - Azure App Configuration
@@ -94,6 +96,30 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-data-appconfiguration</artifactId>
   <version>1.1.4</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-blob</artifactId>
+  <version>12.8.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-blob-changefeed</artifactId>
+  <version>12.0.0-beta.2</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-file-datalake</artifactId>
+  <version>12.2.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-file-share</artifactId>
+  <version>12.6.0</version>
 </dependency>
 
 <dependency>
@@ -286,7 +312,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Azure Search Documents ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/search/azure-search-documents/CHANGELOG.md#1110-beta1-2020-08-12))
 
-#### New Features 
+#### New Features
 
 - Added `buildSearchFields` API to `SearchIndexClient` and `SearchIndexAsyncClient` to aid in creating `SearchField`s from the passed `Class`.
 - Added `SearchableFieldProperty`, `SimpleFieldProperty`, and `FieldBuilderIgnore` to annotate `Class`es passed into `buildSearchFields`.
@@ -304,6 +330,40 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
   CreateTopicOptions, and CreateSubscriptionOptions.
 - Only updateable properties on QueueProperties, TopicProperties, and SubscriptionProperties are exposed
 - MessageDetailCount is flattened and removed in QueueRuntimeInfo, TopicRuntimeInfo, and SubscriptionRuntimeInfo.
+
+### Azure Storage
+
+#### Blob [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md)
+
+##### New Features
+- GA of v12.8.0, includes features from all preview versions
+- Added support for Object Replication Service on listBlobs and getProperties
+- Added support for blob tags
+- Added RehydratePriority to BlobProperties and BlobItemProperties
+- Added support to set tier on a snapshot or version
+
+##### Key Bug Fixes
+- Fixed bug that ignored customer specified block size when determining buffer sizes in BlobClient.upload
+- Fixed a bug that would cause buffered upload to always put an empty blob before uploading actual data
+
+#### Blob ChangeFeed [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-changefeed/CHANGELOG.md)
+
+##### New Features
+- Added the ability to read to the current hour
+- Standardized continuation token behavior
+
+#### File DataLake [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md)
+
+##### New Features
+- GA of v12.2.0
+
+##### Key Bug Fixes
+- Fixed bug where Query Input Stream would throw when a ByteBuffer of length 0 was encountered
+
+#### File Share [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/CHANGELOG.md)
+
+##### New Features
+- GA of v12.6.0, for the 2019-12-12 service version
 
 ## Need help
 
