@@ -100,6 +100,12 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 </dependency>
 
 <dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-identity</artifactId>
+    <version>1.1.0</version>
+</dependency>
+
+<dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-storage-blob</artifactId>
   <version>12.8.0</version>
@@ -318,6 +324,29 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Removed duplicate uri string from diagnostics string.
 - Fixed diagnostics string in proper JSON format for point operations.
 - Fixed issue with `.single()` operator causing the reactor chain to blow up in case of Not Found exception.
+
+
+### Azure Identity ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/identity/azure-identity/CHANGELOG.md#110-2020-08-10))
+
+#### 1.1.0 (2020-08-10)
+
+- Upgraded core dependency to 1.7.0
+- Removed the default value of 0 for port in `InteractiveBrowserCredential`.
+
+### Breaking Changes
+- Removing Application Authentication APIs for GA release. These will be reintroduced in 1.2.0-beta.1.
+  - Removed class `AuthenticationRecord`
+  - Removed class `AuthenticationRequiredException`
+  - Removed methods `allowUnencryptedCache()` and `enablePersistentCache()` from `ClientCertificateCredentialBuilder`,
+   `ClientSecretCredentialBuilder`, `InteractiveBrowserCredentialBuilder`, `DeviceCodeCredentialBuilder`,
+    `UsernamePasswordCredentialBuilder` and `ClientCertificateCredentialBuilder`.
+  - Removed methods `allowUnencryptedCache()` and `authenticationRecord(AuthenticationRecord)` from `SharedTokenCacheCredentialBuilder`.
+  - Removed methods `authenticationRecord(AuthenticationRecord)` and `disableAutomaticAuthentication()` from `DeviceCodeCredentialBuilder` and `InteractiveBrowserCredentialBuilder`.
+  - Removed methods `authenticate(TokenRequestContext)` and `authenticate()` from `DeviceCodeCredential`, `InteractiveBrowserCredential`
+    and `UsernamePasswordCredential`.
+
+
+
 
 ### Form Recognizer ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#300-beta1-2020-08-11))
 
