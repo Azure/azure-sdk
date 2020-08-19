@@ -325,7 +325,6 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Fixed diagnostics string in proper JSON format for point operations.
 - Fixed issue with `.single()` operator causing the reactor chain to blow up in case of Not Found exception.
 
-
 ### Azure Identity ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/identity/azure-identity/CHANGELOG.md#110-2020-08-10))
 
 #### 1.1.0 (2020-08-10)
@@ -344,9 +343,6 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
   - Removed methods `authenticationRecord(AuthenticationRecord)` and `disableAutomaticAuthentication()` from `DeviceCodeCredentialBuilder` and `InteractiveBrowserCredentialBuilder`.
   - Removed methods `authenticate(TokenRequestContext)` and `authenticate()` from `DeviceCodeCredential`, `InteractiveBrowserCredential`
     and `UsernamePasswordCredential`.
-
-
-
 
 ### Form Recognizer ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#300-beta1-2020-08-11))
 
