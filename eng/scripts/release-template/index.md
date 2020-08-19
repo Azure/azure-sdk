@@ -10,6 +10,7 @@ Thank you for your interest in the new Azure SDKs! We release new features, impr
 You can find links to packages, code, and docs on our [Azure SDK Releases page](https://aka.ms/azsdk/releases).
 
 ## Release Highlights
+
 *
 *
 *
