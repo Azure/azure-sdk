@@ -45,7 +45,7 @@ To install any of our packages, please search for them via `Manage NuGet Package
  $> dotnet add package Azure.Messaging.EventHubs --version 5.2.0-preview.3
  $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.2.0-preview.3
 
- $> dotnet add package Azure.Messaging.ServiceBus --version 7.0.0-preview.5
+ $> dotnet add package Azure.Messaging.ServiceBus --version 7.0.0-preview.6
 
  $> dotnet add package Azure.Storage.Blobs --version 12.5.1
  $> dotnet add package Azure.Storage.Blobs.ChangeFeed --version 12.0.0-preview.4
