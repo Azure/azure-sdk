@@ -10,7 +10,7 @@ The Azure SDK team is pleased to make available the September 2020 client librar
 
 #### GA
 
-- _Add packages_
+- Form Recognizer
 
 #### Updates
 
@@ -25,7 +25,7 @@ The Azure SDK team is pleased to make available the September 2020 client librar
 To install the latest preview version of the packages, copy and paste the following commands into a terminal:
 
 ```bash
-$> pip install azure-packagename
+pip install azure-ai-formrecognizer
 ```
 
 ## Feedback
@@ -36,9 +36,9 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
-### _Package name_
+### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#300-2020-08-20)
 
-- Major changes only!
+- Generally available, stable version 3.0.0 released
 
 ## Latest Releases
 
