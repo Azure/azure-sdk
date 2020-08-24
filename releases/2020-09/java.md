@@ -10,7 +10,7 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 
 #### GA
 
-- _Add packages_
+- Form Recognizer
 
 #### Updates
 
@@ -25,7 +25,11 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 To use the GA and beta libraries, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate. If you are using a different build tool, refer to its documentation on how to specify dependencies.
 
 ```xml
-<!-- Insert dependencies -->
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-ai-formrecognizer</artifactId>
+  <version>3.0.0</version>
+</dependency>
 ```
 
 ## Feedback
@@ -36,10 +40,17 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
+### Form Recognizer ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_3.0.0/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#300-2020-08-20))
+
+- Generally available, stable version 3.0.0 released
+
+#### Breaking changes
+- Renamed `BoundingBox` model to `FieldBoundingBox`
+
 ### _Package name_
 
 - Major changes only!
-  
+
 ## Need help
 
 - For reference documentation visit the [Azure SDK for Java documentation](https://azure.github.io/azure-sdk-for-java/).
