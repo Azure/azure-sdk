@@ -11,7 +11,7 @@ param (
   [string] $baseUrl = "",
   # path to the root of the site for resolving rooted relative links, defaults to host root for http and file directory for local files
   [string] $rootUrl = "",
-  # list of http status codes count as broken links. Defaults to 404. 
+  # list of http status codes count as broken links. Defaults to 404.
   [array] $errorStatusCodes = @(404)
 )
 
@@ -86,51 +86,77 @@ function CheckLink ([System.Uri]$linkUri)
 {
   if ($checkedLinks.ContainsKey($linkUri)) { return }
 
-  Write-Verbose "Checking link $linkUri..."
-  if ($linkUri.IsFile) {
-    if (!(Test-Path $linkUri.LocalPath)) {
-      LogWarning "Link to file does not exist $($linkUri.LocalPath)"
-      $script:badLinks += $linkUri
+  $tryCount = 1
+  do {
+    $shouldRetry = $false;
+    Write-Verbose "Checking link $linkUri..."
+    if ($linkUri.IsFile) {
+      if (!(Test-Path $linkUri.LocalPath)) {
+        LogWarning "Link to file does not exist $($linkUri.LocalPath)"
+        $script:badLinks += $linkUri
+      }
     }
-  }
-  else {
-    try {
-      $headRequestSucceeded = $true
+    else {
       try {
-        # Attempt HEAD request first
-        $response = Invoke-WebRequest -Uri $linkUri -Method HEAD
-      }
-      catch {
-        $headRequestSucceeded = $false
-      }
-      if (!$headRequestSucceeded) {
-        # Attempt a GET request if the HEAD request failed.
-        $response = Invoke-WebRequest -Uri $linkUri -Method GET
-      }
+        $headRequestSucceeded = $true
+        try {
+          # Attempt HEAD request first
+          $response = Invoke-WebRequest -Uri $linkUri -Method HEAD
+        }
+        catch {
+          $headRequestSucceeded = $false
+        }
+        if (!$headRequestSucceeded) {
+          # Attempt a GET request if the HEAD request failed.
+          $response = Invoke-WebRequest -Uri $linkUri -Method GET
+        }
 
-      $statusCode = $response.StatusCode
-      if ($statusCode -ne 200) {
-        Write-Host "[$statusCode] while requesting $linkUri"
-      }
-    }
-    catch {
-      $statusCode = $_.Exception.Response.StatusCode.value__
-
-      if ($statusCode -in $errorStatusCodes) {
-        LogWarning "[$statusCode] broken link $linkUri"
-        $script:badLinks += $linkUri 
-      }
-      else {
-        if ($null -ne $statusCode) {
+        $statusCode = $response.StatusCode
+        if ($statusCode -ne 200) {
           Write-Host "[$statusCode] while requesting $linkUri"
         }
+      }
+      catch {
+        if (!$response) {
+          $response = $_.Exception.Response
+        }
+        $statusCode = $response.StatusCode.value__
+
+        if ($statusCode -in $errorStatusCodes) {
+          LogWarning "[$statusCode] broken link $linkUri"
+          $script:badLinks += $linkUri
+        }
         else {
-          Write-Host "Exception while requesting $linkUri"
-          Write-Host $_.Exception.ToString()
+          if ($statusCode) {
+            # For 429 rate-limiting try to pause for if possible
+            if ($response -and $statusCode -eq 429 -and $tryCount -eq 1) {
+              $retryAfter = $response.Headers.RetryAfter.Delta.TotalSeconds
+
+              # Default retry after 60 (arbitrary) seconds if no header given 
+              if (!$retryAfter) { $retryAfter = 60 }
+              
+              # If we got a Retry-After header less then 60 seconds we will pause and wait
+              if ($retryAfter -gt 0 -and $retryAfter -le 60) {
+                Write-Host "Rate-Limited for $retryAfter seconds while requesting $linkUri"
+                Start-Sleep -Seconds $retryAfter
+                $shouldRetry = $true
+                $tryCount++
+              }
+            }
+            if (!$shouldRetry) {
+              Write-Host "[$statusCode] while requesting $linkUri"
+            }
+          }
+          else {
+            Write-Host "Exception while requesting $linkUri"
+            Write-Host $_.Exception.ToString()
+          }
         }
       }
     }
   }
+  until (!$shouldRetry)
+
   $checkedLinks[$linkUri] = $true;
 }
 
@@ -207,7 +233,7 @@ if ($baseUrl -eq "") {
 }
 
 if ($rootUrl -eq "") {
-  if ($uri.IsFile) { 
+  if ($uri.IsFile) {
     # for files default to the containing directory
     $rootUrl = $baseUrl;
   }
@@ -232,7 +258,7 @@ while ($pageUrisToCheck.Count -ne 0)
 
   $linkUris = GetLinks $pageUri
   Write-Host "Found $($linkUris.Count) links on page $pageUri";
-  
+
   foreach ($linkUri in $linkUris) {
     CheckLink $linkUri
     if ($recursive) {
