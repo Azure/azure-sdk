@@ -42,7 +42,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Form Recognizer ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_3.0.0/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#300-2020-08-20))
 
-- Generally available, stable version 3.0.0 released
+- Generally available, stable version 3.0.0 released targetting v2.0 GA version of the Form Recognizer service
 
 #### Breaking changes
 - Renamed `BoundingBox` model to `FieldBoundingBox`
