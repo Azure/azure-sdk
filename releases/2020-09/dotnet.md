@@ -38,7 +38,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#300-2020-08-20)
 
-- First stable release of the Azure.AI.FormRecognizer package.
+- First stable release of the Azure.AI.FormRecognizer package, targeting Azure Form Recognizer service API version 2.0.
 
 #### New Features
 
