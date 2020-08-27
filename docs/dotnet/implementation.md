@@ -223,7 +223,7 @@ public partial readonly struct EncryptionAlgorithm : IEquatable<EncryptionAlgori
 
 ### Constant values for enumeration-like structures {#dotnet-enums-values}
 
-If and only if extensible enum values *must* be used as constant expressions, e.g. attribute values, you should declare a nested static class named `Values` with public constants:
+{% include requirement/SHOULD id="dotnet-enums-values-define" %} define a nested static class named `Values` with public constants if and only if extensible enum values *must* be used as constant expressions, e.g. attribute values:
 
 ```csharp
 public partial readonly struct EncryptionAlgorithm : IEquatable<EncryptionAlgorithm>
@@ -250,6 +250,8 @@ public partial readonly struct EncryptionAlgorithm : IEquatable<EncryptionAlgori
     }
 }
 ```
+
+{% include requirement/MUST id="dotnet-enums-values-test" %} define tests to ensure extensible enum properties and defined `Values` constants declare the same names and define the same values. See [here](https://github.com/Azure/azure-sdk-for-net/blob/322f6952e4946229949bd3375f5eb6120895fd2f/sdk/search/Azure.Search.Documents/tests/Models/LexicalAnalyzerNameTests.cs#L14-L29) for an example.
 
 ## ASP.NET Core Integration
 
