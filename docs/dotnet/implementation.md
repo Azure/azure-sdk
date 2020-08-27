@@ -223,7 +223,11 @@ public partial readonly struct EncryptionAlgorithm : IEquatable<EncryptionAlgori
 
 ### Constant values for enumeration-like structures {#dotnet-enums-values}
 
-{% include requirement/SHOULD id="dotnet-enums-values-define" %} define a nested static class named `Values` with public constants if and only if extensible enum values *must* be used as constant expressions, e.g. attribute values:
+{% include requirement/SHOULD id="dotnet-enums-values-define" %} define a nested static class named `Values` with public constants if and only if extensible enum values *must* be used as constant expressions, for example:
+
+- Attribute values
+- Default parameter values
+- Switch statements and expressions
 
 ```csharp
 public partial readonly struct EncryptionAlgorithm : IEquatable<EncryptionAlgorithm>
