@@ -310,7 +310,7 @@ class ResponseHook(Protocol):
 
 {% include requirement/MUST id="python-versioning-semver" %} use [semantic versioning](https://semver.org) for your package. 
 
-{% include requirement/MUST id="python-versioning-beta" %} use the `bN` pre-release segment for [preview releases](https://www.python.org/dev/peps/pep-0440/#pre-releases). 
+{% include requirement/MUST id="python-versioning-beta" %} use the `bN` pre-release segment for [beta releases](https://www.python.org/dev/peps/pep-0440/#pre-releases). 
 
 Don't use pre-release segments other than the ones defined in [PEP440](https://www.python.org/dev/peps/pep-0440) (`aN`, `bN`, `rcN`). Build tools, publication tools, and index servers may not sort the versions correctly.
 

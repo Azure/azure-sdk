@@ -46,8 +46,8 @@ Language specific guidelines are first published in DRAFT.  This means that they
 
 * The guidelines are published in draft mode for at least 1 month to allow public comments.
 * The engineering systems are configured for producing client libraries in the language.
-* The Azure Core and Azure Identity libraries are published in preview to appropriate distribution points.
-* At least 2 Azure client libraries are published in preview to the appropriate distribution points.
+* The Azure Core and Azure Identity libraries are published in beta to appropriate distribution points.
+* At least 2 Azure client libraries are published in beta to the appropriate distribution points.
 * At least 1 user study has been conducted that studies the Azure Core and Azure Identity library usage (generally as part of a client library user study).
 * The guidelines have been reviewed by the architectural board and (if there is one) the language team in DevDiv.
 

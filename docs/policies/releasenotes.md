@@ -54,7 +54,7 @@ The release manager will produce the point-in-time snapshot of the versions and 
 * For all on-time releases, the release manager will merge and publish the release notes in the current month's on-time release folder. 
 * For all out-of-band releases, the release notes in the following month's on-time release folder. 
 
-Release notes will locked for GA and preview libraries after the blog publication date (1 week following release date). (Note: all changelogs should be done on release day)
+Release notes will locked for GA and beta libraries after the blog publication date (1 week following release date). (Note: all changelogs should be done on release day)
 
 ## What do I need to do for an out-of-band release?
 

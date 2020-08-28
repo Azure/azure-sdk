@@ -53,7 +53,7 @@ Management-plane packages:
 
 {% include requirement/MUST id="golang-versioning-semver" %} release versions of modules in accordance with [semver 2.0](https://semver.org/spec/v2.0.0.html).
 
-{% include requirement/MUST id="golang-versioning-preview" %} clearly version prerelease modules.  For new modules, use a v0 major version with no suffix (v0.1.0).  For existing modules, use a `-preview` suffix (v1.1.0-preview, v2.0.0-preview).
+{% include requirement/MUST id="golang-versioning-preview" %} clearly version prerelease modules.  For new modules, use a v0 major version with no suffix (v0.1.0).  For existing modules, use a `-beta` suffix (v1.1.0-beta, v2.0.0-beta).
 
 ## Dependencies
 

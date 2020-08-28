@@ -103,6 +103,7 @@ function Update-java-Packages($packageList)
       Write-Warning "Not updating VersionGA for $($pkg.Package) because at least one associated URL is not valid!"
     }
 
+    # TODO: Do references to "latest-preview" need to be changed to "latest-beta"?
     $version = GetVersionWebContent "java" $pkg.Package "latest-preview"
     if ($version -eq "") {
       $pkg.VersionPreview = ""

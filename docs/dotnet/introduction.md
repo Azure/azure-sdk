@@ -771,7 +771,7 @@ Consistent version number scheme allows consumers to determine what to expect fr
 
 {% include requirement/MUST id="dotnet-version-semver" %} use _MAJOR_._MINOR_._PATCH_ format for the version of the library dll and the NuGet package.
 
-Use _-preview_._N_ suffix for preview package versions. For example, _1.0.0-preview.2_.
+Use _-beta_._N_ suffix for beta (formerly "preview") package versions. For example, _1.0.0-beta.2_.
 
 {% include requirement/MUST id="dotnet-version-change-on-release" %} change the version number of the client library when **ANYTHING** changes in the client library.
 

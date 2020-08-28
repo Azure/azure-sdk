@@ -273,9 +273,9 @@ A particular (major.minor) version of a library can choose what service APIs it 
 
 {% include requirement/MUSTNOT id="ts-versioning-no-ga-prerelease" %} have a pre-release version or any additional build metadata for GA packages.
 
-{% include requirement/MUST id="ts-versioning-preview" %} give preview packages a pre-release version of the format `1.0.0-Preview.X` where X is an integer. Pre-release package versions shouldn't have additional build metadata.
+{% include requirement/MUST id="ts-versioning-preview" %} give beta packages a pre-release version of the format `1.0.0-beta.X` where X is an integer. Pre-release package versions shouldn't have additional build metadata.
 
-{% include requirement/MUSTNOT id="ts-versioning-no-version-0" %} use a major version of 0, even for preview packages.
+{% include requirement/MUSTNOT id="ts-versioning-no-version-0" %} use a major version of 0, even for beta packages.
 
 {% include requirement/MUST id="general-versioning-bump" %} select a version number greater than the highest version number of any other released Track 1 package for the service in any other npm scope or language.
 
