@@ -53,7 +53,7 @@ Management-plane packages:
 
 {% include requirement/MUST id="golang-versioning-semver" %} release versions of modules in accordance with [semver 2.0](https://semver.org/spec/v2.0.0.html).
 
-{% include requirement/MUST id="golang-versioning-preview" %} clearly version prerelease modules.  For new modules, use a v0 major version with no suffix (v0.1.0).  For existing modules, use a `-preview` suffix (v1.1.0-preview, v2.0.0-preview).
+{% include requirement/MUST id="golang-versioning-beta" %} clearly version prerelease modules.  For new modules, use a v0 major version with no suffix (v0.1.0).  For existing modules, use a `-beta` suffix (v1.1.0-beta, v2.0.0-beta).
 
 ## Dependencies
 
@@ -167,7 +167,7 @@ func NewWidgetClientFromConnectionString(ctx context.Context, con string, option
 
 When implementing authentication, don't open up the consumer to security holes like PII (personally identifiable information) leakage or credential leakage. Credentials are generally issued with a time limit, and must be refreshed periodically to ensure that the service connection continues to function as expected. Ensure your client library follows all current security recommendations and consider an independent security review of the client library to ensure you're not introducing potential security problems for the consumer.
 
-{% include requirement/MUSTNOT id="golang-auth-persistence" %} persist, cache, or reuse security credentials. Security credentials should be considered short lived to cover both security concerns and credential refresh situations. 
+{% include requirement/MUSTNOT id="golang-auth-persistence" %} persist, cache, or reuse security credentials. Security credentials should be considered short lived to cover both security concerns and credential refresh situations.
 
 {% include requirement/MUST id="golang-auth-policy-impl" %} provide a suitable authentication policy policy if your service implements a non-standard authentication system (that is, an authentication system that is not supported by Azure Core).  You also need to produce an authentication policy for the HTTP pipeline that can add credentials to requests given the alternative authentication mechanism provided by the service.  Custom credentials will need to implement the `azcore.Credentials` interface.
 
@@ -314,7 +314,7 @@ func (c *WidgetClient) ListWidgets(options *ListWidgetOptions) *WidgetPager {
 }
 
 pager := client.ListWidgets(options)
-for pager.NextPage(ctx) { 
+for pager.NextPage(ctx) {
 	for _, w := range pager.PageResponse().Widgets {
 		process(w)
 	}
@@ -339,7 +339,7 @@ type WidgetPoller interface {
 	// Done returns true if the LRO has completed.
 	Done() bool
 
-	// ResumeToken returns a value representing the poller that can be used to 
+	// ResumeToken returns a value representing the poller that can be used to
 	// resume the LRO. ResumeTokens are unique for the operation.
 	ResumeToken() string
 
@@ -353,7 +353,7 @@ type WidgetPoller interface {
 	// updated and returns the latest HTTP response.
 	Poll(context.Context) (*http.Response, error)
 
-	// FinalResponse performs a final GET to the service and returns the final response 
+	// FinalResponse performs a final GET to the service and returns the final response
 	// for the polling operation. If there is an error performing the final GET then an error is returned.
 	// If the final GET succeeded then the final WidgetResponse will be returned.
 	FinalResponse(context.Context) (*WidgetResponse, error)
@@ -450,7 +450,7 @@ if err != nil {
 for {
 	resp, err := poller.Poll(context.Background())
 	if err != nil {
-		// handle error ... 
+		// handle error ...
 	}
 	if poller.Done() {
 		break
@@ -627,7 +627,7 @@ Storage could support:
 * `AZURE_STORAGE_DNS_SUFFIX`
 * `AZURE_STORAGE_CONNECTION_STRING`
 
-{% include requirement/MUST id="golang-envvars-approval" %} get approval from the [Architecture Board] for every new environment variable. 
+{% include requirement/MUST id="golang-envvars-approval" %} get approval from the [Architecture Board] for every new environment variable.
 
 {% include requirement/MUST id="golang-envvars-syntax" %} use this syntax for environment variables specific to a particular Azure service:
 
