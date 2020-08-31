@@ -102,16 +102,20 @@ The release cycle of each SDK Component may vary based on the needs of the under
 
 ## Package Versioning
 
-The team makes every effort to follow [SemVer](https://semver.org/) for versioning. Because different languages have slightly different conventions for numbering, the way that beta releases are designated varies. In a nutshell, SemVer is defined as `Major.Minor.Patch`, where
+The team makes every effort to follow [SemVer](https://semver.org/) for versioning. In a nutshell, SemVer is defined as `Major.Minor.Patch`, where:
 
 - Changes to the major digit (1.X.Y to 2.X.Y) indicate that breaking changes have been introduced. Breaking changes are exceptional and require review and approval by the architecture board.
 - Increments to the minor digit (1.1.X to 1.2.X) indicate the addition of new apis or features.
 - Increments to the patch number (1.1.1 to 1.1.2) indicate a set of new compatible fixes.
 
-In addition to standard SemVer, the team occasionally releases a beta version of a package to allow the community to dog food and give feedback on new features.
+In addition to the stable GA releases the team also has prereleases of a package to allow the community to try new features early and give feedback.
 
-- Beta: A release generated to get customer feedback before a GA. Beta releases are revised less often than dev. Beta releases may have breaking changes from the previous beta, but should not have breaking changes from the last GA release. Once a package has released to GA, any breaking changes require an exception and approval from the architecture board.
-- Dev: A release generated to give customers early access to our most up-to-date changes. Customers should not take production dependencies on these as they are volatile and will break often. They should only be used to temporarily unblock issues or to get a early read on the upcomming releases.
+- Alpha releases are sometimes referred to as dev releases and use a prerelease label that contains a date stamp similar to `-alpha-YYYYMMDD.r` to ensure the versions are unique as they will often be published daily. These are often published to an isolated registry depending on the language ecosystem. These releases are based on the latest committed code changes and should not be used for production dependencies. They are very volatile and change from version-to-version and thus are mostly useful to temporarily working around an issue or testing out the latest library changes. 
+- Beta releases use a prerelease label like `-beta.X` and are published to the most common public registry for each language ecosystem. These releases are less volatile and released less often then alpha releases and are usually used before releasing a new minor or major GA release. Beta releases may have breaking changes from the previous beta but should not have breaking changes from the last GA release. Once a package has released to GA, any breaking changes require an exception and approval from the architecture board.
+
+While all the languages follow the general versioning scheme, they each have slight differences based on their ecosystem, for those differences see the individual language sections below.
+
+NOTE: Given that alpha releases have versions based on the day they will often times have newer changes then beta releases. This means that if you want to consume the latest changes from an alpha release you need to take care and avoid accidently consuming the latest beta release. Each language section gives an example of how to consume the latest alpha version for each language ecosystem.
 
 ### Incrementing after release
 
@@ -142,7 +146,7 @@ Each language repo uses a badge for analysis of dependencies on `master` includi
 
 Packages which depend on beta versions should pin specifically to the beta version on which they depend because beta releases may contain breaking changes.
 
-Avoid source dependencies in projects and only use binary/package dependencies. If a package under development needs to incorporate changes from a package upon which it depends then it should use the dev version of that package. That is, if Project B incorporates changes to Project A then Project B should consume the _Package_ from Project A that is released in the dev feed.
+Avoid source dependencies in projects and only use binary/package dependencies. If a package under development needs to incorporate changes from a package upon which it depends then it should use the alpha version of that package. That is, if Project B incorporates changes to Project A then Project B should consume the _Package_ from Project A that is released as alpha to the dev feed.
 
 #### Dependent packages in a Unified Pipeline
 
@@ -156,10 +160,10 @@ For example, if Package A and Package B are built in the same Unified Pipeline a
 
 Python version numbers follow the guidance in [PEP 440](https://www.python.org/dev/peps/pep-0440/) for versioning Python packages. This means that regular releases follow the above specified SemVer format. Beta releases follow the [PEP 440 specification for pre-releases](https://www.python.org/dev/peps/pep-0440/#pre-releases):
 
-- `X.Y.ZaYYYYMMDDrrr` (`rrr` is based on the number of builds performed on the given day and it is zero-padded with a valid range starting at 001 and ends at 999) used for daily dev releases.
+- `X.Y.ZaYYYYMMDDrrr` (`rrr` is based on the number of builds performed on the given day and it is zero-padded with a valid range starting at 001 and ends at 999) used for daily alpha releases.
 - `X.Y.ZbN` used for beta releases.
 
-Beta packages will be published PyPi. Dev packages will be published to the isolated [azure-sdk-for-python](https://dev.azure.com/azure-sdk/public/_packaging?_a=feed&feed=azure-sdk-for-python) Azure DevOps feed. To consume a dev package it is recommended you either pin to the specific version or to get the latest dev release you can specify the version dependency as `"package-name">=X.Y.Za,<X.Y.Zb`.
+Beta packages will be published PyPi. Alpha packages will be published to the isolated [azure-sdk-for-python](https://dev.azure.com/azure-sdk/public/_packaging?_a=feed&feed=azure-sdk-for-python) DevOps feed. To consume an alpha package you should either pin to a specific version or use a version specifier like `"package-name">=X.Y.Za,<X.Y.Zb` to get the latest alpha release while avoiding any potential beta versions which might contain older changes.
 
 ##### Incrementing after release (Python)
 
@@ -186,7 +190,7 @@ Below are the guidelines for versions and tags to use:
   - If a package has moved from beta to GA, ensure that the `next` tag is deleted.
 - Beta releases will use the format `X.Y.Z-beta.N` for version and the published package should have the tag `next`.
   - Additionally, use the `latest` tag **only** if the package has never had a GA release.
-- Daily dev releases will use the format `X.Y.Z-alpha.YYYYMMDD.r` (`r` is based on the number of builds performed on the given day) and the published package will have the tag `dev` and published to npm. To consume a dev package either pin to a specific version or use the `dev` tag as the version to avoid crossing packages with other beta packages. You can also use a version range similar to `X.Y.Z-alpha - X.Y.Z-beta` to get the latest dev release and avoid the beta release versions.
+- Daily alpha releases will use the format `X.Y.Z-alpha.YYYYMMDD.r` (`r` is based on the number of builds performed on the given day) and the latest published package will have the `dev` tag and published to npm. To consume a alpha package either pin to a specific version or use the `dev` tag as the version. You can also use a version range similar to `X.Y.Z-alpha - X.Y.Z-beta` to get the latest alpha release while avoiding any potential beta versions which might contain older changes.
 
 ##### Incrementing after release (JS)
 
@@ -218,10 +222,10 @@ rush update --full
 
 NuGet supports designating a package as 'pre-release'. In this ecosystem, pre-release packages will have daily build numbers in the format:
 
-- `X.Y.Z-alpha.YYYYMMDD.r` (`r` is based on the number of builds done in a given day) for daily dev releases.
+- `X.Y.Z-alpha.YYYYMMDD.r` (`r` is based on the number of builds done in a given day) for daily alpha releases.
 - `X.Y.Z-beta.N` for beta releases.
 
-Beta .NET packages will be published to NuGet with the pre-release designation. Deev packages will be published to the isolated [azure-sdk-for-net](https://dev.azure.com/azure-sdk/public/_packaging?_a=feed&feed=azure-sdk-for-net) Azure DevOps feed. To consume a dev package you should either pin to a specific version or use a version specifier like `X.Y.Z-alpha*` to get the latet dev package and avoid beta releases.
+Beta packages will be published to NuGet with the pre-release designation. Alpha packages will be published to the isolated [azure-sdk-for-net](https://dev.azure.com/azure-sdk/public/_packaging?_a=feed&feed=azure-sdk-for-net) DevOps feed. To consume an alpha package you should either pin to a specific version or use a version specifier like `X.Y.Z-alpha*` to get the latest alpha release while avoiding any potential beta versions which might contain older changes.
 
 #### Incrementing after release (.NET)
 
@@ -237,10 +241,10 @@ Beta .NET packages will be published to NuGet with the pre-release designation. 
 
 Maven supports the [convention](https://cwiki.apache.org/confluence/display/MAVENOLD/Versioning) `MAJOR.MINOR.PATCH-QUALIFIER`, which doesn't support SemVer 2 sorting for pre-releases so we have to use a special convention based on their [versioning code](https://github.com/apache/maven/blob/master/maven-artifact/src/main/java/org/apache/maven/artifact/versioning/ComparableVersion.java). The preferred format for version numbers is:
 
-- `X.Y.Z-alpha.YYYYMMDD.r` (`r` is based on the number of builds performed on the given day) for daily dev releases.
+- `X.Y.Z-alpha.YYYYMMDD.r` (`r` is based on the number of builds performed on the given day) for daily alpha releases.
 - `X.Y.Z-beta.N` for beta releases.
 
-Beta Java packages are published directly to the Maven central registry. Dev packages will be published to the isolated [azure-sdk-for-java](https://dev.azure.com/azure-sdk/public/_packaging?_a=feed&feed=azure-sdk-for-java) Azure DevOps feed. To consume a dev package you should either pin to a specific version or use a version specifier like `(X.Y.Z-alpha, X.Y.Z-beta)` to get the latet dev package and avoid beta releases.
+Beta packages are published directly to the Maven central registry. Alpha packages will be published to the isolated [azure-sdk-for-java](https://dev.azure.com/azure-sdk/public/_packaging?_a=feed&feed=azure-sdk-for-java) DevOps feed. To consume an alpha package you should either pin to a specific version or use a version specifier like `(X.Y.Z-alpha, X.Y.Z-beta)` to get the latest alpha release while avoiding any potential beta versions which might contain older changes.
 
 #### Incrementing after release (Java)
 
