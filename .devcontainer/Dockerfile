@@ -7,31 +7,37 @@ FROM debian:10
 ARG USERNAME=vscode
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID
+ARG PORT=4000
+
+# The port on which Jekyll will serve the site
+EXPOSE ${PORT}
 
 # ENV Variables required by Jekyll
-ENV LANG=en_US.UTF-8
-ENV LANGUAGE=en_US:en
-ENV TZ=America/Chicago
-ENV LC_ALL=en_US.UTF-8
-ENV LANG=en_US.UTF-8
-ENV LANGUAGE=en_US
+ENV LANG=en_US.UTF-8 \
+    LANGUAGE=en_US:en \
+    LC_ALL=en_US.UTF-8 \
+    TZ=America/Chicago
+
+# Install packages as root
+USER root
 
 # Install needed packages and setup non-root user. Use a separate RUN statement to add your own dependencies.
 RUN apt-get update \
     && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get -y install --no-install-recommends apt-utils dialog 2>&1 \
-    #
-    # Install vim, git, process tools, lsb-release
-    && apt-get install -y \
+    && LANG=C LC_ALL=C apt-get -y install --no-install-recommends \
+        apt-utils \
+        dialog \
+        sudo \
+        #
+        # Install vim, git, process tools, lsb-release
         git \
         openssh-client \
         less \
-    #
-    # Install ruby
-    && apt-get install -y \
+        #
+        # Install ruby
         make \
         ruby-full \
-		build-essential \
+        build-essential \
         zlib1g-dev \
         locales \
     #
@@ -49,8 +55,8 @@ RUN apt-get update \
     # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
     && groupadd --gid $USER_GID $USERNAME \
     && useradd -s /bin/bash --uid $USER_UID --gid $USER_GID -m $USERNAME \
-    # [Optional] Add sudo support for the non-root user
-    && apt-get install -y sudo \
+    #
+    # Add sudo support for the non-root user
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME\
     && chmod 0440 /etc/sudoers.d/$USERNAME \
     #
@@ -59,7 +65,5 @@ RUN apt-get update \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
 
-# [Optional] Uncomment this section to install additional OS packages.
-# RUN apt-get update \
-#     && export DEBIAN_FRONTEND=noninteractive \
-#     && apt-get -y install --no-install-recommends <your-package-list-here>
+# Switch back to the non-root user
+USER ${USERNAME}

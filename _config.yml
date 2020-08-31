@@ -19,7 +19,6 @@ output: web
 
 plugins:
   - jekyll-github-metadata
-  - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-seo-tag
@@ -60,8 +59,6 @@ kramdown:
   hard_wrap: false
   syntax_highlighter: rouge
 
-paginate: 10
-paginate_path: /page:num/
 timezone: "US/Pacific"
 
 relative_links:
