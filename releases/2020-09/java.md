@@ -57,6 +57,7 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <version>3.0.0</version>
 </dependency>
 
+<!-- If you want to include all available packages -->
 <dependency>
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager</artifactId>
@@ -64,6 +65,18 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 </dependency>
 
 ```
+
+For management libraries, if you'd rather include all available libraries without importing each individual package, we have provided the following "uber" package for you:
+```xml
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+```
+
 
 ## Feedback
 
