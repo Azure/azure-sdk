@@ -38,7 +38,7 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 - Management Library - Service Bus
 - Management Library - Spring Cloud
 - Management Library - SQL
-- Management Library - Traffice Manager
+- Management Library - Traffic Manager
 
 ## Installation Instructions
 
@@ -57,26 +57,151 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <version>3.0.0</version>
 </dependency>
 
-<!-- If you want to include all available packages -->
 <dependency>
   <groupId>com.azure.resourcemanager</groupId>
-  <artifactId>azure-resourcemanager</artifactId>
+  <artifactId>azure-resourcemanager-resources</artifactId>
   <version>2.0.0</version>
 </dependency>
 
-```
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-storage</artifactId>
+  <version>2.0.0</version>
+</dependency>
 
-For management libraries, if you'd rather include all available libraries without importing each individual package, we have provided the following "uber" package for you:
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-keyvault</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-authorization</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-msi</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-network</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-compute</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-cosmos</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-dns</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-appservice</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-containerservice</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-containerregistry</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-monitor</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-dns</artifactId>
+  <version>2.0.0-beta.3</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-eventhubs</artifactId>
+  <version>2.0.0-beta.3</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-privatedns</artifactId>
+  <version>2.0.0-beta.3</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-redis</artifactId>
+  <version>2.0.0-beta.3</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-servicebus</artifactId>
+  <version>2.0.0-beta.3</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-appplatform</artifactId>
+  <version>2.0.0-beta.3</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-sql</artifactId>
+  <version>2.0.0-beta.3</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-dns</artifactId>
+  <version>2.0.0-beta.3</version>
+</dependency>
+```
+For management libraries, you can also use the following single package to avoid importing all dependencies on your own:
+
 ```xml
 
+<!-- This package contains all stable versions of management libraries-->
 <dependency>
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager</artifactId>
   <version>2.0.0</version>
 </dependency>
 
-```
+<!-- This package contains both stable and preview management libraries -->
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager</artifactId>
+  <version>2.0.0-beta</version>
+</dependency>
 
+```
 
 ## Feedback
 
