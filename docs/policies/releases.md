@@ -110,8 +110,8 @@ The team makes every effort to follow [SemVer](https://semver.org/) for versioni
 
 In addition to the stable GA releases the team also has prereleases of a package to allow the community to try new features early and give feedback.
 
-- Alpha releases are sometimes referred to as dev releases and use a prerelease label that contains a date stamp similar to `-alpha-YYYYMMDD.r` to ensure the versions are unique as they will often be published daily. These are often published to an isolated registry depending on the language ecosystem. These releases are based on the latest committed code changes and should not be used for production dependencies. They are very volatile and change from version-to-version and thus are mostly useful to temporarily working around an issue or testing out the latest library changes. 
-- Beta releases use a prerelease label like `-beta.X` and are published to the most common public registry for each language ecosystem. These releases are less volatile and released less often then alpha releases and are usually used before releasing a new minor or major GA release. Beta releases may have breaking changes from the previous beta but should not have breaking changes from the last GA release. Once a package has released to GA, any breaking changes require an exception and approval from the architecture board.
+- Alpha releases are sometimes referred to as dev releases and use a prerelease label that contains a date stamp similar to `-alpha-YYYYMMDD.r`. This ensures the versions are unique as they will often be published daily. These are often published to an isolated registry depending on the language ecosystem. These releases are based on the latest committed code changes and should not be used for production dependencies. They are very volatile and change from version-to-version. These are mostly useful for temporarily working around an issue or testing out the latest library changes. 
+- Beta releases use a prerelease label like `-beta.X` and are published to the most common public registry for each language ecosystem. These releases are less volatile and released less often then alpha releases.  These are usually used before releasing a new minor or major GA release. Beta releases may have breaking changes from the previous beta but should not have breaking changes from the last GA release. Once a package has released to GA, any breaking changes require an exception and approval from the architecture board.
 
 While all the languages follow the general versioning scheme, they each have slight differences based on their ecosystem, for those differences see the individual language sections below.
 
@@ -146,7 +146,7 @@ Each language repo uses a badge for analysis of dependencies on `master` includi
 
 Packages which depend on beta versions should pin specifically to the beta version on which they depend because beta releases may contain breaking changes.
 
-Avoid source dependencies in projects and only use binary/package dependencies. If a package under development needs to incorporate changes from a package upon which it depends then it should use the alpha version of that package. That is, if Project B incorporates changes to Project A then Project B should consume the _Package_ from Project A that is released as alpha to the dev feed.
+Packages should try to avoid source level dependencies to other projects that don't ship in the same pipeline and instead rely on binary/package dependencies. This is to help avoid accidently taking dependencies on new features in other libraries and enable each library to ship independent of the others in the repo. If new dependencies are required extra care should be taken to ship the lower level dependencies before shipping the higher level libraries to make sure the entire dependency chain is shipped. To help ensure we don't end up with broken dependency versions we have enabled Min/Max testing in each repo to ensure we test the lower end and the upper end of our dependency range for the dependencies our packages say they support. 
 
 #### Dependent packages in a Unified Pipeline
 
@@ -190,7 +190,7 @@ Below are the guidelines for versions and tags to use:
   - If a package has moved from beta to GA, ensure that the `next` tag is deleted.
 - Beta releases will use the format `X.Y.Z-beta.N` for version and the published package should have the tag `next`.
   - Additionally, use the `latest` tag **only** if the package has never had a GA release.
-- Daily alpha releases will use the format `X.Y.Z-alpha.YYYYMMDD.r` (`r` is based on the number of builds performed on the given day) and the latest published package will have the `dev` tag and published to npm. To consume a alpha package either pin to a specific version or use the `dev` tag as the version. You can also use a version range similar to `X.Y.Z-alpha - X.Y.Z-beta` to get the latest alpha release while avoiding any potential beta versions which might contain older changes.
+- Daily alpha releases will use the format `X.Y.Z-alpha.YYYYMMDD.r` (`r` is based on the number of builds performed on the given day) and the latest published package will have the `dev` tag and published to npm. To consume a alpha package either pin to a specific version or use the `dev` tag as the version.
 
 ##### Incrementing after release (JS)
 
