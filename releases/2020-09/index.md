@@ -13,8 +13,8 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 
 * Azure Form Recognizer GA release supporting v2.0 GA version of the Form Recognizer service.
 * Management Libraries Updates
-    - GA releases for Java and Python
-    - New packages in Public Preview for Java / .NET / Python
+    - GA releases for [Java](java.md) and [Python](python.md)
+    - New packages in Public Preview for [Java](java.md) / [.NET](dotnet.md) / [Python](python.md)
 
 ## Release Notes
 
