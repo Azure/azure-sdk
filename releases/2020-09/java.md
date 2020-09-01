@@ -183,7 +183,7 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <version>2.0.0-beta.3</version>
 </dependency>
 ```
-For management libraries, you can also use the following single package to avoid importing all dependencies on your own:
+If you are using multiple management libraries in your project and want to import all libraries altogether, you can also use the following package(s):
 
 ```xml
 
