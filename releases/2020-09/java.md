@@ -11,6 +11,17 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 #### GA
 
 - Form Recognizer
+- Management Library - AppService
+- Management Library - Authorization
+- Management Library - Compute
+- Management Library - Container Service
+- Management Library - CosmosDB
+- Management Library - Insight
+- Management Library - Key Vault
+- Management Library - Managed Identity
+- Management Library - Network
+- Management Library - Resources
+- Management Library - Storage
 
 #### Updates
 
@@ -19,6 +30,15 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 #### Preview
 
 - Anomaly Detector
+- Management Library - CDN
+- Management Library - DNS
+- Management Library - Event Hubs
+- Management Library - Private DNS
+- Management Library - Redis
+- Management Library - Service Bus
+- Management Library - Spring Cloud
+- Management Library - SQL
+- Management Library - Traffice Manager
 
 ## Installation Instructions
 
@@ -35,6 +55,12 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-ai-formrecognizer</artifactId>
   <version>3.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager</artifactId>
+  <version>2.0.0</version>
 </dependency>
 
 ```
