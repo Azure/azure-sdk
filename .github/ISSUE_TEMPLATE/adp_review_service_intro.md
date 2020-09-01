@@ -14,7 +14,7 @@ Please reference our [review process guidelines](https://azure.github.io/azure-s
 
 **Before submitting, ensure you adjust the title of the issue appropriately.**
 
-**Note that the right material must be included before a meeting can be scheduled.** 
+**Note that the required material must be included before a meeting can be scheduled.** 
 
 ## Contacts and Timeline
 
@@ -43,8 +43,11 @@ Ultimately the library should be easy to use for common scenarios that developer
 1. What is the app the developer is building that uses your client library?
 2. Who is the end-user of the application (the developer's customer)?
 3. What features of the API need to be explained in the sample so that someone could use this API in real app?
+4. How does the **authentication** workflow look? 
    
-You can also find examples in the Champion Scenario section [here](https://azure.github.io/azure-sdk/policies_reviewprocess.html).
+See Champion Scenario section [here](https://azure.github.io/azure-sdk/policies_reviewprocess.html).
+
+Code is appreciated but optional. Pseudocode is fine.  
 
 * Champion scenario 1
     * Link to library’s sample folder: 
@@ -54,14 +57,13 @@ You can also find examples in the Champion Scenario section [here](https://azure
 * Champion scenario n
     * Link to library’s sample folder:
 
-## Step 2: Quickstart Samples
-Prototype samples demonstrating how to consume the client library: 
+## Step 2: Quickstart Samples (Optional)
+Include samples demonstrating how to consume the client library if available: 
 
 * Create a new resource
 * Read the resource
 * Modify the resource
 * Delete the resource
-* Authentication
 * Error handling 
 * Handling race conditions/concurrency issues
 

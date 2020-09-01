@@ -14,9 +14,11 @@ Please reference our [review process guidelines](https://azure.github.io/azure-s
 
 To ensure consistency, all Tier-1 languages (C#, TypeScript, Java, Python) will generally be reviewed together.  In expansive libraries, we will pair dynamic languages (Python, TypeScript) together, and strongly typed languages (C#, Java) together in separate meetings.
 
+For Tier-2 languages (C, C++, Go, Android, iOS), the review will be on an as-needed basis.
+
 **Before submitting, ensure you adjust the title of the issue appropriately.**
 
-**Note that the right material must be included before a meeting can be scheduled.** 
+**Note that the required material must be included before a meeting can be scheduled.** 
 
 
 
@@ -45,23 +47,26 @@ Please read through “API Listing” section [here](https://azure.github.io/azu
 
 ### .NET
 
-* Upload DLL to [apiview](https://apiview.azurewebsites.net).  Link:
-* Link to samples for champion scenarios:
+* Upload a DLL to the [ApiView](http://apiview.dev/) tool. Link:
+* Link to samples for Champion Scenarios/Quickstart samples:
 
 ### Java
 
-* Upload JAR to [apiview](https://apiview.azurewebsites.net).  Link:
-* Link to samples for champion scenarios:
+* Upload the `*-sources.jar` file to the [ApiView](http://apiview.dev/) tool (e.g. `azure-core-1.3.0-beta.1-sources.jar`).Link:
+* Link to samples for Champion Scenarios/Quickstart samples:
 
 ### Python
 
-* Upload output of stubgen to [apiview](https://apiview.azurewebsites.net):
-* Link to samples for champion scenarios:
-
+* Upload output of our [custom API stub generator](https://github.com/Azure/azure-sdk-tools/tree/master/packages/python-packages/api-stub-generator#generate-stub-file) to the [ApiView](http://apiview.dev/) tool. Link:
+* Link to samples for Champion Scenarios/Quickstart samples:
+  
 ### TypeScript
 
-* Upload output of api-extractor as a Draft PR.  Link to PR:
-* Link to samples for champion scenarios:
+* Upload output of the [API-Extractor](https://github.com/Microsoft/web-build-tools/wiki/API-Extractor) as a PR for the [azure-sdk-for-js](http://github.com/azure/azure-sdk-for-js) repository. Link to PR:
+* Link to samples for Champion Scenarios/Quickstart samples:
+
+
+For all other languages, send a request to the Architecture Board to discuss the best format on individual basis.
 
 
 ## Thank you!

@@ -6,7 +6,7 @@ sidebar: general_sidebar
 ---
 
 ## Introduction
-The Azure DevEx Architecture Review Board is a board of language architects specializing in Java, Python, TS/JS, C#, C, and Go in addition to language specific platforms like .Net, Andriod, and IOS. 
+The Azure Developer Platform (ADP) Architecture Review Board is a board of language architects specializing in Java, Python, TS/JS, C#, C, C++, Go, Android, and iOS.
 
 **The Architecture Board reviews Track 2 libraries only**. By definition, a Track 2 library is one that follows our [Track 2 library design guidelines and specific language guidelines](https://azure.github.io/azure-sdk/general_introduction.html). This means that libraries produced solely by a code generator do NOT follow these guidelines; engineers MUST build a layer on top of the generated code in order to produce a library that meets the guidelines.  
 
@@ -54,26 +54,28 @@ This purely informational/educational to enable the board to get up to speed wit
     * Some teams also prepare a PowerPoint introductions 
 * Link to the service REST APIs, if applicable/available.
 * Champion scenario samples
-    * See “Champion scenarios” section below for definition and examples
+    * Code is appreciated but optional. Pseudocode is fine.
+    * See “Champion scenarios” section below for definition
     * [Sample example](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples/Sample1_DetectLanguage.md)
         * Need not be “final” or “perfect”
         * Should be added to library’s sample folder ([example](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics/samples))
-* Quickstart samples
+* Quickstart samples 
+  * Optional for introductory meeting
   * See "Quickstart Samples" section below
-
+  
 ### 2. API Review
-During API reviews, we look at API usage samples and a detailed API listing. You can see an example of such listing [here](https://github.com/Azure/azure-sdk/blob/master/docs/dotnet/APIListingExample.md).
+During API reviews, we look at Quickstart samples and a detailed API listing. You can see an example of such listing [here](https://github.com/Azure/azure-sdk/blob/master/docs/dotnet/APIListingExample.md).
 
 If you have a prototype of your APIs, depending on the language the APIs are for, you can generate the API listing.
 
 * For .NET, upload a DLL to the [ApiView](http://apiview.dev/) tool.
 * For Java, upload the `*-sources.jar` file to the [ApiView](http://apiview.dev/) tool (e.g. `azure-core-1.3.0-beta.1-sources.jar`).
-* For TypeScript, use API-Extractor to produce a single file with your public API surface. Submit the output of the [API-Extractor](https://github.com/Microsoft/web-build-tools/wiki/API-Extractor) as a PR for the [azure-sdk-for-js](http://github.com/azure/azure-sdk-for-js) repository.
 * For Python, use our [custom API stub generator](https://github.com/Azure/azure-sdk-tools/tree/master/packages/python-packages/api-stub-generator#generate-stub-file) to produce a single file with your public API surface. Upload the output of stubgen to the [ApiView](http://apiview.dev/) tool.
+* For TypeScript, use API-Extractor to produce a single file with your public API surface. Submit the output of the [API-Extractor](https://github.com/Microsoft/web-build-tools/wiki/API-Extractor) as a PR for the [azure-sdk-for-js](http://github.com/azure/azure-sdk-for-js) repository.
 
 For all other languages, send a request to the Architecture Board to discuss the best format on individual basis.
 
-Depending on the situation and service, more than one API reviews may be needed (because there are major changes between API versions, for example). If that is the case, file another issue when the team is ready for another review.  
+Depending on the situation and service, more than one API review may be needed (because there are major changes between API versions, for example). If that is the case, file another issue when the team is ready for another review.  
 
 **What to bring (include the following in GitHub issue requesting for review):**
 * Links to the API Listings for each language 
@@ -93,12 +95,9 @@ The goal of the API sign-off meeting is to resolve any controversial/unsettled q
   
 ### Champion Scenarios
 
-A champion scenario is a use case that the consumer of the client library is commonly expected to perform.  Champion scenarios are used to ensure the developer experience is exemplary for the common cases.  You need to show the entire code sample (including error handling, as an example) for the champion scenarios.
+A champion scenario is a use case that the consumer of the client library is commonly expected to perform.  Champion scenarios are used to ensure the developer experience is exemplary for the common cases. You need to show the entire code sample (including error handling, as an example) for the champion scenarios. Please also show how the **authentication workflow** would look like for your library.
 
-Examples of good scenarios are technology agnostic (i.e. the customer can do the same thing in multiple ways), and are expected to be used by > 20% of users:
-* Upload a file
-* Update firmware on the device
-* Recognize faces in an uploaded image
+Examples of good scenarios are technology agnostic (i.e. the customer can do the same thing in multiple ways), and are expected to be used by > 20% of users. 
 
 Examples of bad scenarios:
 * Create a client (it's part of a scenario, and we'll see it often enough in true champion scenarios)
@@ -107,13 +106,12 @@ Examples of bad scenarios:
 
 ### Quickstart Samples
 
-Prototype samples demonstrating common how-tos: 
+Samples demonstrating common how-tos: 
 
 * Create a new resource
 * Read the resource
 * Modify the resource
 * Delete the resource
-* Authentication
 * Error handling 
 * Handling race conditions/concurrency issues
 
@@ -132,14 +130,16 @@ Language architects will have reviewed the API Listings provided by the time of 
 
 ### API Sign Off 
 
-Typically, there’ll be some unsettled/controversial questions on the API either from language architects who reviewed the API or from the presenting team. Since the goal of this review is to approve the API, the Board usually jumps right into discussing these questions. The review will end of a final approval of the API or follow up items to get the API to be approved. 
+Typically, there’ll be some unsettled/controversial questions on the API either from language architects who reviewed the API or from the presenting team. Since the goal of this review is to approve the API, the Board usually jumps right into discussing these questions. The review will end with a final approval of the API or follow up items to get the API to be approved. 
+
+### Required Quorum
 
 For an API to be approved, the following conditions must be met at the Architecture Board meeting:
 
 * Representatives from all Tier-1 languages (Java, Python, TS/JS, C#), and all languages under consideration must be present at the meeting.
 * A minimum of THREE architects from different language groups must be present at the meeting.
   
-If a language architect is *not* present at the meeting, they must review and confirm the outcome of the meeting within 1 business day. If the language architect is unavailable, the language area engineering lead within the Azure SDK group can approve instead. The list of language representatives can only be changed by the LT of the Azure SDK group.
+If a language architect is *not* present at the meeting, a deputy architect can be the representative of that specific language instead. The list of language representatives can only be changed by the LT of the Azure SDK group.
 
 
 ## What Happens After Review
