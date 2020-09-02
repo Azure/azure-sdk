@@ -31,6 +31,8 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 
 - Anomaly Detector
 - Management Library - CDN
+- Management Library - Container Instance
+- Management Library - Container Registry
 - Management Library - DNS
 - Management Library - Event Hubs
 - Management Library - Private DNS
@@ -125,62 +127,68 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 
 <dependency>
   <groupId>com.azure.resourcemanager</groupId>
-  <artifactId>azure-resourcemanager-containerregistry</artifactId>
-  <version>2.0.0</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-monitor</artifactId>
   <version>2.0.0</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-containerinstance</artifactId>
+  <version>2.0.0-beta.4</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-containerregistry</artifactId>
+  <version>2.0.0-beta.4</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-dns</artifactId>
-  <version>2.0.0-beta.3</version>
+  <version>2.0.0-beta.4</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-eventhubs</artifactId>
-  <version>2.0.0-beta.3</version>
+  <version>2.0.0-beta.4</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-privatedns</artifactId>
-  <version>2.0.0-beta.3</version>
+  <version>2.0.0-beta.4</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-redis</artifactId>
-  <version>2.0.0-beta.3</version>
+  <version>2.0.0-beta.4</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-servicebus</artifactId>
-  <version>2.0.0-beta.3</version>
+  <version>2.0.0-beta.4</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-appplatform</artifactId>
-  <version>2.0.0-beta.3</version>
+  <version>2.0.0-beta.4</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-sql</artifactId>
-  <version>2.0.0-beta.3</version>
+  <version>2.0.0-beta.4</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-trafficmanager</artifactId>
-  <version>2.0.0-beta.3</version>
+  <version>2.0.0-beta.4</version>
 </dependency>
 ```
 If you are using multiple management libraries in your project and want to import all libraries altogether, you can also choose to use the following wrapper package
@@ -198,7 +206,7 @@ If you are using multiple management libraries in your project and want to impor
 <dependency>
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager</artifactId>
-  <version>2.0.0-beta</version>
+  <version>2.0.0-beta.4</version>
 </dependency>
 
 ```
