@@ -179,15 +179,15 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 
 <dependency>
   <groupId>com.azure.resourcemanager</groupId>
-  <artifactId>azure-resourcemanager-dns</artifactId>
+  <artifactId>azure-resourcemanager-trafficmanager</artifactId>
   <version>2.0.0-beta.3</version>
 </dependency>
 ```
-If you are using multiple management libraries in your project and want to import all libraries altogether, you can also use the following package(s):
+If you are using multiple management libraries in your project and want to import all libraries altogether, you can also choose to use the following wrapper package
 
 ```xml
 
-<!-- This package contains all stable versions of management libraries-->
+<!-- This package contains all currently available management libraries that are stable-->
 <dependency>
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager</artifactId>
