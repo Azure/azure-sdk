@@ -10,15 +10,23 @@ The Azure SDK team is pleased to make available the September 2020 client librar
 
 #### GA
 
-- _Add packages_
+- Azure Storage Blob Changefeed.
+- Azure Form Recognizer.
 
 #### Updates
 
-- _Add packages_
+- Core Libraries.
+- Azure Storage.
+- Azure Event Hubs.
 
 #### Preview
 
-- _Add packages_
+- Identity.
+- Azure Key Vault.
+- Azure Service Bus.
+- Azure Tables.
+- Azure Schema Registry.
+- Azure Text Analytics.
 
 ## Installation Instructions
 
