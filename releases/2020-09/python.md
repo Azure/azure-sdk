@@ -18,7 +18,7 @@ The Azure SDK team is pleased to make available the September 2020 client librar
 
 #### Preview
 
-- _Add packages_
+- Azure Event Grid preview 1 (2.0.0b1)
 
 ## Installation Instructions
 
