@@ -47,6 +47,7 @@ $> npm install @azure/keyvault-certificates@next
 $> npm install @azure/keyvault-admin@next
 $> npm install @azure/data-tables@next
 $> npm install @azure/schema-registry@next
+$> npm install @azure/schema-registry-avro@next
 $> npm install @azure/ai-text-analytics@next
 ```
 
