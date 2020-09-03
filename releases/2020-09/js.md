@@ -65,6 +65,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 Keep in mind that:
 
 - Including the package name in the headers makes the URL links work for multiple packages.
+- Only include customer-facing changes.
 - The format of this file will be cleaned up once all of your proposals are in.
 
 ---
