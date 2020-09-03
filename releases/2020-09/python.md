@@ -26,6 +26,7 @@ To install the latest preview version of the packages, copy and paste the follow
 
 ```bash
 pip install azure-ai-formrecognizer
+pip install azure-eventgrid
 ```
 
 ## Feedback
@@ -39,6 +40,10 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 ### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#300-2020-08-20)
 
 - Generally available, stable version 3.0.0 released
+
+### Event Grid [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventgrid/azure-eventgrid/CHANGELOG.md#200b1-2020-09-08)
+
+- Azure Event Grid v2 preview SDK (v2.0.0b1) is released with support for CloudEvent
 
 ## Latest Releases
 
