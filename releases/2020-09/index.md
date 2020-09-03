@@ -12,7 +12,7 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 ## Release Highlights
 
 * Azure Form Recognizer GA release supporting v2.0 GA version of the Form Recognizer service.
-*
+* Azure Tables Beta 1 release.
 *
 
 ## Release Notes
