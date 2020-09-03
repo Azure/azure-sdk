@@ -26,7 +26,7 @@ To install the latest preview version of the packages, copy and paste the follow
 
 ```bash
 pip install azure-ai-formrecognizer
-pip install azure-eventgrid
+pip install azure-eventgrid --pre
 ```
 
 ## Feedback
