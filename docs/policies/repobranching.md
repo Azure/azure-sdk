@@ -15,7 +15,7 @@ While master will always be in a buildable state it will not necessarily always 
 
 ## Work should happen in Forks
 
-In order to help reduce the clutter of branches in the main repo as well as to enable a common workflow for both contributors and community members with different permissions people should create forks of the main repository and work in them (see https://help.github.com/en/articles/working-with-forks). Once work is ready in the fork then a pull request can be submitted back to the main repository.
+In order to help reduce the clutter of branches in the main repo as well as to enable a common workflow for both contributors and community members with different permissions people should create forks of the main repository and work in them (see [working-with-forks](https://help.github.com/en/articles/working-with-forks)). Once work is ready in the fork then a pull request can be submitted back to the main repository.
 
 ## Feature branches
 
