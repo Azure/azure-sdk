@@ -39,6 +39,7 @@ steps:
     PushArgs: -f
     WorkingDirectory: $(System.DefaultWorkingDirectory)/azure-sdk
     ScriptDirectory: $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts
+    PRLabels: 'auto-merge'
 
 - pwsh: |
     git clone https://$(azuresdk-github-pat)@github.com/MicrosoftDocs/azure-dev-docs-pr $(System.DefaultWorkingDirectory)/azure-dev-docs-pr
