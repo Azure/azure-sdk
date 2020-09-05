@@ -44,4 +44,5 @@ steps:
     filePath: azure-sdk-tools/eng/common/scripts/Verify-Links.ps1 
     arguments: >
       -urls ./_site/index.html
-      -devOpsLogging: $true
+      -ignoreLinksFile ./eng/ignore-links.txt
+      -devOpsLogging:$true
