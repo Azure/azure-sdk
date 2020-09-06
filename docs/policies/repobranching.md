@@ -15,7 +15,73 @@ While master will always be in a buildable state it will not necessarily always 
 
 ## Work should happen in Forks
 
-In order to help reduce the clutter of branches in the main repo as well as to enable a common workflow for both contributors and community members with different permissions people should create forks of the main repository and work in them (see [working-with-forks](https://help.github.com/en/articles/working-with-forks)). Once work is ready in the fork then a pull request can be submitted back to the main repository.
+In order to help reduce the clutter of branches in the main repo as well as to enable a common workflow for both contributors and community members with different permissions people should create forks of the main repository and work in them. Once work is ready in the fork then a pull request can be submitted back to the main repository.
+
+See the next few sections for some simple getting started instructions for using forks but for more detailed documentation from github see [working-with-forks](https://help.github.com/en/articles/working-with-forks). 
+
+### Clone forked repo
+
+After you have created the your own Fork by clicking the Fork button on the main repo you can use the following commands to clone and setup your local repo.
+
+```cmd
+# clone your forked repo locally which will setup your origin remote
+git clone https://github.com/<your-github-username>/azure-sdk-for-<lang>.git
+
+# add an upstream remote to the main repository.
+cd azure-sdk-for-<lang>
+git remote add upstream https://github.com/Azure/azure-sdk-for-<lang>.git
+
+git remote -v
+# origin    https://github.com/<your-github-username>/azure-sdk-for-<lang>.git (fetch)
+# origin    https://github.com/<your-github-username>/azure-sdk-for-<lang>.git (push)
+# upstream  https://github.com/Azure/azure-sdk-for-<lang>.git (fetch)
+# upstream  https://github.com/Azure/azure-sdk-for-<lang>.git (push)
+```
+After you have ran those commands you should be all setup with your local cloned repo, a remote for your forked repo called origin, and a remote for the main repo called upstream.
+
+### Sync your local and forked repo with latest changes from the main repo
+
+While working in a fork is highly recommended that you avoid committing changes directly into master so you can use it to sync your various repos. The instructions in this section assume you are using master as your syncing branch. 
+
+```cmd
+# switch to your local master
+git checkout master
+
+# update your local master branch with what is in the main repo
+git pull upstream master --ff-only
+
+# update your forked repo's master branch to match
+git push origin master
+```
+
+At this point all three of your repos: local, origin, and upstream should all match and be in sync.
+
+Note that in order to ensure that we don't accidently get our local or origin master out of sync we use the `--ff-only` (fast-forward only) option which will fail if you have any commits that aren't already in the main repo. If you ever get into this state the easiest thing to do is to force reset your local master branch.
+
+```cmd
+# Warning: this will remove any commits you might have in your local master so if you need those you should stash them in another branch before doing this
+git reset --hard upstream/master
+
+# If you also have your forked master out of sync you might need to use the force option when you push your changes there.
+git push origin master -f
+```
+
+### Rebase changes on top of latest master
+
+If you have changes that you have been working on and you need to update them with the latest changes from master you should do the following commands after you have sync'ed your local master.
+
+```cmd
+git checkout <branch-name>
+
+# The rebase command will replay your changes on top of your local master branch
+# If there are any merge conflicts you will need to resolve them now.
+# Tip: if you want to squash changes you can add the '-i' for interactive mode to select which commits you want to squash during rebase.
+git rebase master
+
+# Assuming there were new changes in master since you created your branch originally rebase will rewrite the commits and 
+# as such will require you to do a force push to your fork which is why the '-f' option is passed.
+git push origin <branch-name> -f
+```
 
 ## Feature branches
 
