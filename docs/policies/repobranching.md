@@ -23,7 +23,7 @@ See the next few sections for some simple getting started instructions for using
 
 After you have created the your own Fork by clicking the Fork button on the main repo you can use the following commands to clone and setup your local repo.
 
-```cmd
+```
 # clone your forked repo locally which will setup your origin remote
 git clone https://github.com/<your-github-username>/azure-sdk-for-<lang>.git
 
@@ -43,7 +43,7 @@ After you have ran those commands you should be all setup with your local cloned
 
 While working in a fork is highly recommended that you avoid committing changes directly into master so you can use it to sync your various repos. The instructions in this section assume you are using master as your syncing branch. 
 
-```cmd
+```
 # switch to your local master
 git checkout master
 
@@ -58,7 +58,7 @@ At this point all three of your repos: local, origin, and upstream should all ma
 
 Note that in order to ensure that we don't accidently get our local or origin master out of sync we use the `--ff-only` (fast-forward only) option which will fail if you have any commits that aren't already in the main repo. If you ever get into this state the easiest thing to do is to force reset your local master branch.
 
-```cmd
+```
 # Warning: this will remove any commits you might have in your local master so if you need those you should stash them in another branch before doing this
 git reset --hard upstream/master
 
@@ -70,7 +70,7 @@ git push origin master -f
 
 If you have changes that you have been working on and you need to update them with the latest changes from master you should do the following commands after you have sync'ed your local master.
 
-```cmd
+```
 git checkout <branch-name>
 
 # The rebase command will replay your changes on top of your local master branch
