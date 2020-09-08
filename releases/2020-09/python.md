@@ -21,6 +21,7 @@ The Azure SDK team is pleased to make available the September 2020 client librar
 
 - Event Grid
 - Search
+- Event Hubs
 
 ## Installation Instructions
 
@@ -32,6 +33,7 @@ pip install azure-eventgrid --pre
 pip install azure-keyvault-certificates
 pip install azure-search-documents --pre
 pip install azure-appconfiguration
+pip install azure-eventhubs
 ```
 
 ## Feedback
@@ -72,6 +74,12 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### Features
 
 - Added match condition support for set_read_only method
+
+### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/CHANGELOG.md)
+
+#### Features
+
+- Added `SharedAccessSignature` support to connection strings
 
 ## Latest Releases
 
