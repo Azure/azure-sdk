@@ -19,6 +19,7 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 #### Preview
 
 - Anomaly Detector
+- Event Grid
 
 ## Installation Instructions
 
@@ -35,6 +36,12 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-ai-formrecognizer</artifactId>
   <version>3.0.0</version>
+</dependency>
+
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-messaging-eventgrid</artifactId>
+    <version>2.0.0-beta.1</version>
 </dependency>
 
 ```
@@ -56,7 +63,11 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Anomaly Detector ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-anomalydetector_3.0.0-beta.1/sdk/anomalydetector/azure-ai-anomalydetector/CHANGELOG.md#300-beta1-2020-08-27))
 
-- Initial preview release for Anomaly Detector 
+- Initial preview release for Anomaly Detector
+
+### Event Grid ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md))
+
+-Initial Preview release for Event Grid 
 
 ### _Package name_
 
