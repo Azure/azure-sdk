@@ -18,7 +18,7 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 
 #### Preview
 
-- _Add packages_
+- Event Grid
 
 ## Installation Instructions
 
@@ -26,6 +26,8 @@ To install any of our packages, please search for them via `Manage NuGet Package
 
 ```bash
 $> dotnet install Azure.AI.FormRecognizer --version 3.0.0
+
+$> dotnet add package Azure.Messaging.EventGrid --version 4.0.0-beta.1
 ```
 
 ## Feedback
@@ -43,6 +45,9 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### New Features
 
 - Added `FormRecognizerModelFactory` static class to support mocking model types.
+
+### Azure.Messaging.EventGrid [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md)
+- Initial beta release of Azure Event Grid client library
 
 ## Latest Releases
 
