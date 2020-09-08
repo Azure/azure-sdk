@@ -15,10 +15,12 @@ The Azure SDK team is pleased to make available the September 2020 client librar
 #### Updates
 
 - Key Vault Certificates
+- App Configuration
 
 #### Preview
 
-- Azure Event Grid preview 1 (2.0.0b1)
+- Event Grid
+- Search
 
 ## Installation Instructions
 
@@ -28,6 +30,8 @@ To install the latest preview version of the packages, copy and paste the follow
 pip install azure-ai-formrecognizer
 pip install azure-eventgrid --pre
 pip install azure-keyvault-certificates
+pip install azure-search-documents --pre
+pip install azure-appconfiguration
 ```
 
 ## Feedback
@@ -50,6 +54,24 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### Certificates [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-certificates/CHANGELOG.md#421-2020-09-08)
 
 - Fixed incompatibility issues with API version `2016-10-01`
+
+### Search [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/CHANGELOG.md)
+
+#### Features
+
+- Added azure.search.documents.RequestEntityTooLargeError
+- Flush method in BatchClient now will not return until all actions are done
+
+#### Breaking Changes
+
+- Removed succeeded_actions & failed_actions from BatchClient
+- Removed get_index_document_batching_client from SearchClient
+
+### Application Configuration [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/appconfiguration/azure-appconfiguration/CHANGELOG.md)
+
+#### Features
+
+- Added match condition support for set_read_only method
 
 ## Latest Releases
 
