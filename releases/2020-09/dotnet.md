@@ -19,7 +19,6 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 
 #### Preview
 
-
 - Anomaly Detector
 - Event Grid
 
@@ -31,7 +30,6 @@ To install any of our packages, please search for them via `Manage NuGet Package
 $> dotnet add package Azure.AI.AnomalyDetector --version 3.0.0-preview.2
 
 $> dotnet install Azure.AI.FormRecognizer --version 3.0.0
-
 
 $> dotnet add package Azure.Messaging.EventHubs
 $> dotnet add package Azure.Messaging.EventHubs.Processor
@@ -88,7 +86,6 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 ### Event Grid [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md)
 
 - Initial beta release of Azure Event Grid client library
-
 ## Latest Releases
 
 View all the latest versions of .NET packages [here][dotnet-latest-releases].
