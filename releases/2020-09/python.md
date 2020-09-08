@@ -85,7 +85,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Azure Data Tables v2 preview SDK (v12.0.0b1) is released with support for Storage and CosmosDB
 
 
-### Event Hubs CheckpointStoreBlob [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/CHANGELOG.md#110-2020-03-09)
+### Event Hubs CheckpointStoreBlob [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/CHANGELOG.md)
 
 #### Key Bug Fixes
 
