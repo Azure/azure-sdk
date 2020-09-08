@@ -31,10 +31,10 @@ $> dotnet add package Azure.AI.AnomalyDetector --version 3.0.0-preview.2
 
 $> dotnet install Azure.AI.FormRecognizer --version 3.0.0
 
+$> dotnet add package Azure.Messaging.EventGrid --version 4.0.0-beta.1
+
 $> dotnet add package Azure.Messaging.EventHubs
 $> dotnet add package Azure.Messaging.EventHubs.Processor
-
-$> dotnet add package Azure.Messaging.EventGrid --version 4.0.0-beta.1
 ```
 
 ## Feedback
@@ -54,6 +54,9 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Renamed `AnomalyDetectorClient.ChangePointDetectAsync` and `AnomalyDetectorClient.ChangePointDetect` to `AnomalyDetectorClient.DetectChangePointAsync` and `AnomalyDetectorClient.DetectChangePoint`.
 - Renamed `Request` to `DetectRequest`.
 - Renamed `Point` to `TimeSeriesPoint`.
+### Event Grid [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md)
+
+- Initial beta release of Azure Event Grid client library
 
 ### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md)
 
@@ -82,10 +85,6 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### New Features
 
 - Added `FormRecognizerModelFactory` static class to support mocking model types.
-
-### Event Grid [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md)
-
-- Initial beta release of Azure Event Grid client library
 ## Latest Releases
 
 View all the latest versions of .NET packages [here][dotnet-latest-releases].
