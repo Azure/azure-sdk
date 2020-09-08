@@ -16,12 +16,12 @@ The Azure SDK team is pleased to make available the September 2020 client librar
 
 - Key Vault Certificates
 - App Configuration
+- Event Hubs
 
 #### Preview
 
 - Event Grid
 - Search
-- Event Hubs
 
 ## Installation Instructions
 
