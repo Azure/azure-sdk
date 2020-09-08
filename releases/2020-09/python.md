@@ -19,8 +19,8 @@ The Azure SDK team is pleased to make available the September 2020 client librar
 
 #### Preview
 
-- Azure Event Grid preview 1
-- Azure Search Documents preview 2
+- Event Grid
+- Search
 
 ## Installation Instructions
 
