@@ -21,6 +21,7 @@ The Azure SDK team is pleased to make available the September 2020 client librar
 
 - Event Grid
 - Search
+- Tables
 
 ## Installation Instructions
 
@@ -32,6 +33,7 @@ pip install azure-eventgrid --pre
 pip install azure-keyvault-certificates
 pip install azure-search-documents --pre
 pip install azure-appconfiguration
+pip install azure-data-tables
 ```
 
 ## Feedback
@@ -72,6 +74,13 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### Features
 
 - Added match condition support for set_read_only method
+
+
+### Azure Data Tables [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/tables/azure-data-tables/CHANGELOG.md)
+
+#### Features
+
+- Azure Data Tables v2 preview SDK (v12.0.0b1) is released with support for Storage and CosmosDB
 
 ## Latest Releases
 
