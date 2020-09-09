@@ -33,12 +33,11 @@ The Azure SDK team is pleased to make available the September 2020 client librar
 To install the packages, copy and paste the below into a terminal.
 
 ```bash
-$> npm install @azure/storage-blob-changefeed
+$> npm install @azure/ai-form-recognizer
 $> npm install @azure/storage-queue
 $> npm install @azure/storage-file-share
 $> npm install @azure/storage-datalake
 $> npm install @azure/storage-blob
-$> npm install @azure/ai-form-recognizer
 $> npm install @azure/event-hubs
 $> npm install @azure/identity@next
 $> npm install @azure/eventgrid@next
@@ -49,6 +48,7 @@ $> npm install @azure/keyvault-admin@next
 $> npm install @azure/service-bus@next
 $> npm install @azure/data-tables@next
 $> npm install @azure/ai-text-analytics@next
+$> npm install @azure/storage-blob-changefeed@next
 ```
 
 ## Feedback
@@ -89,25 +89,52 @@ Keep in mind that:
 
 - _Add one or more, or remove the "Major Fixes on ..." section._
 
-#### @azure/eventgrid@3.0.0-beta.1  [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventgrid/eventgrid/CHANGELOG.md)
+---
 
-(leave blank)
 
-##### Breaking Changes on @azure/eventgrid@3.0.0-beta.1
+### Azure Form Recognizer
 
-- The Event Grid SDK has been updated to follow the new Azure SDK Design Guidelines.
+#### Azure Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
+
+We are pleased to announce the general availability (GA) of the `@azure/ai-form-recognizer` package version 3.0.0.
+
+##### Features
+- Train and utilize custom and/or predefined AI models to extract information from text document images.
+- Uses the Azure Form Recognizer v2.0 (GA) endpoint for the latest service features.
+View all the latest versions of JavaScript packages [here][js-latest-releases].
+
+
+### Azure Event Hubs
+
+#### Azure Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/CHANGELOG.md)
+
+#### New Features in @azure/event-hubs@5.3.0
+
+- Adds `loadBalancingOptions` to the `EventHubConsumerClient` to add control around
+  how aggressively the client claims partitions while load balancing.
+  ([PR 9706](https://github.com/Azure/azure-sdk-for-js/pull/9706)).
+- Support using the SharedAccessSignature from the connection string.
+  ([PR 10951](https://github.com/Azure/azure-sdk-for-js/pull/10951)).
+
+
+#### Azure Event Grid
+
+##### Azure Event Grid [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventgrid/eventgrid/CHANGELOG.md)
+
+Azure Event Grid releases a new preview with some API improvements, including:
 
 ##### New Features on @azure/eventgrid@3.0.0-beta.1
 
 - The Event Grid SDK now supports sending and deseriazing events using the Cloud Events 1.0 schema.
 
-### @azure/service-bus@7.0.0-preview.6
 
-#### @azure/service-bus@7.0.0-preview.6 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md)
+### Azure Service Bus
+
+#### Azure Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md)
 
 #### Breaking Changes in @azure/service-bus@7.0.0-preview.6
 
-- API Changes
+- API Changes:
   - `SessionReceiver.sessionLockedUntilUtc` is readonly and never undefined.
     [PR 10625](https://github.com/Azure/azure-sdk-for-js/pull/10625)
   - `ServiceBusClient.createDeadLetterReceiver()` has been absorbed into `createReceiver()`.
@@ -120,7 +147,7 @@ Keep in mind that:
     });
     ```
 
-- Renames
+- Renames:
   - The `ServiceBusManagementClient` has been renamed to `ServiceBusAdministrationClient`. See
     [Issue 11012](https://github.com/Azure/azure-sdk-for-js/issues/11012) for more details.
   - All senders and receivers are now prefixed with `ServiceBus`: `ServiceBusSender`, `ServiceBusReceiver`, `ServiceBusSessionReceiver`
@@ -133,7 +160,7 @@ Keep in mind that:
     - `updatedAt` renamed to `modifiedAt`
     - `ServiceBusManagementClientOptions` for `ServiceBusManagementClient` is replaced by `PipelineOptions` from `@azure/core-http`
     - `AuthorizationRule.accessRights` type has been changed to be a string union with the available rights.
- 
+
 #### New Features in @azure/service-bus@7.0.0-preview.6
   
 - Support using the SharedAccessSignature from the connection string.
@@ -141,26 +168,6 @@ Keep in mind that:
 - Added a new field `amqpAnnotatedMessage` to the received message which will hold the received
   message in its raw form, complete with all parts of the message as per the [AMQP spec](https://www.amqp.org/sites/amqp.org/files/amqp.pdf).
 - Added `ServiceBusAdministrationClient.ruleExists()`
-### @azure/event-hubs@5.3.0
 
-#### @azure/event-hubs@5.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/CHANGELOG.md)
-
-#### New Features in @azure/event-hubs@5.3.0
-
-- Adds `loadBalancingOptions` to the `EventHubConsumerClient` to add control around
-  how aggressively the client claims partitions while load balancing.
-  ([PR 9706](https://github.com/Azure/azure-sdk-for-js/pull/9706)).
-- Support using the SharedAccessSignature from the connection string.
-  ([PR 10951](https://github.com/Azure/azure-sdk-for-js/pull/10951)).
-### @azure/ai-form-recognizer@3.0.0
-
-#### @azure/ai-form-recognizer@3.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
-
-We are pleased to announce the general availability (GA) of the `@azure/ai-form-recognizer` package version 3.0.0.
-
-##### Features
-- Train and utilize custom and/or predefined AI models to extract information from text document images.
-- Uses the Azure Form Recognizer v2.0 (GA) endpoint for the latest service features.
-View all the latest versions of JavaScript packages [here][js-latest-releases].
 
 {% include refs.md %}
