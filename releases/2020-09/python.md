@@ -45,7 +45,7 @@ pip install azure-eventhub-checkpointstoreblob
 pip install azure-eventhub-checkpointstoreblob-aio
 pip install azure-data-tables
 pip install azure-schemaregistry
-pip install azure-schemaregistry-avroserializerr
+pip install azure-schemaregistry-avroserializer
 ```
 
 ## Feedback
