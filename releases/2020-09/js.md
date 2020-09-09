@@ -91,6 +91,18 @@ Keep in mind that:
 
 ## Latest Releases
 
+### @azure/event-hubs@5.3.0
+
+#### @azure/event-hubs@5.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/CHANGELOG.md)
+
+#### New Features in @azure/event-hubs@5.3.0
+
+- Adds `loadBalancingOptions` to the `EventHubConsumerClient` to add control around
+  how aggressively the client claims partitions while load balancing.
+  ([PR 9706](https://github.com/Azure/azure-sdk-for-js/pull/9706)).
+- Support using the SharedAccessSignature from the connection string.
+  ([PR 10951](https://github.com/Azure/azure-sdk-for-js/pull/10951)).
+
 View all the latest versions of JavaScript packages [here][js-latest-releases].
 
 {% include refs.md %}
