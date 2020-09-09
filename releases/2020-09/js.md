@@ -152,7 +152,15 @@ Keep in mind that:
   ([PR 9706](https://github.com/Azure/azure-sdk-for-js/pull/9706)).
 - Support using the SharedAccessSignature from the connection string.
   ([PR 10951](https://github.com/Azure/azure-sdk-for-js/pull/10951)).
+### @azure/ai-form-recognizer@3.0.0
 
+#### @azure/ai-form-recognizer@3.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
+
+We are pleased to announce the general availability (GA) of the `@azure/ai-form-recognizer` package version 3.0.0.
+
+##### Features
+- Train and utilize custom and/or predefined AI models to extract information from text document images.
+- Uses the Azure Form Recognizer v2.0 (GA) endpoint for the latest service features.
 View all the latest versions of JavaScript packages [here][js-latest-releases].
 
 {% include refs.md %}
