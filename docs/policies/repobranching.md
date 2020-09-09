@@ -66,7 +66,7 @@ git reset --hard upstream/master
 # If you also have your forked master out of sync you might need to use the force option when you push those changes
 git push origin master -f
 ```
-### Creating a branch and pushing to your fork
+### Creating a branch and pushing it to your fork
 
 After your local master branch is in-sync with the upstream master you can now create a branch and do work.
 ```bash
