@@ -21,9 +21,9 @@ See the next few sections for some simple getting started instructions for using
 
 ### Clone forked repo
 
-After you have created the your own Fork by clicking the Fork button on the main repo you can use the following commands to clone and setup your local repo.
+After you have created your own fork by clicking the fork button on the main repo you can use the following commands to clone and set up your local repo.
 
-```
+```bash
 # clone your forked repo locally which will setup your origin remote
 git clone https://github.com/<your-github-username>/azure-sdk-for-<lang>.git
 
@@ -41,9 +41,9 @@ After you have ran those commands you should be all setup with your local cloned
 
 ### Sync your local and forked repo with latest changes from the main repo
 
-While working in a fork is highly recommended that you avoid committing changes directly into master so you can use it to sync your various repos. The instructions in this section assume you are using master as your syncing branch. 
+Working in a fork is highly recommended so you should avoid committing changes directly into master and you can use it to sync your various repos. The instructions in this section assume you are using master as your syncing branch. 
 
-```
+```bash
 # switch to your local master
 git checkout master
 
@@ -54,34 +54,56 @@ git pull upstream master --ff-only
 git push origin master
 ```
 
-At this point all three of your repos: local, origin, and upstream should all match and be in sync.
+At this point all three of your repos - local, origin, and upstream - should all match and be in sync.
 
 Note that in order to ensure that we don't accidently get our local or origin master out of sync we use the `--ff-only` (fast-forward only) option which will fail if you have any commits that aren't already in the main repo. If you ever get into this state the easiest thing to do is to force reset your local master branch.
 
-```
-# Warning: this will remove any commits you might have in your local master so if you need those you should stash them in another branch before doing this
+```bash
+# Warning: this will remove any commits you might have in your local master so if 
+# you need those you should stash them in another branch before doing this
 git reset --hard upstream/master
 
-# If you also have your forked master out of sync you might need to use the force option when you push your changes there.
+# If you also have your forked master out of sync you might need to use the force option when you push those changes
 git push origin master -f
 ```
+### Creating a branch and pushing to your fork
+
+After your local master branch is in-sync with the upstream master you can now create a branch and do work.
+```bash
+git checkout <branch-name>
+
+# Make changes
+# Stage changes for commit
+git add <file-path> # or * for all files
+git commit
+
+git push origin <branch-name>
+```
+At this point you should be able to go to the main repository on github and see a link to create a pull request with the changes you pushed.
+
+_Tip_: Some folks like to quickly stage and commit with a simple message at the same time you can use the following command for that.
+```bash
+git commit -am "Commit message"
+```
+Note that `-a` means commit all files that have changes so be sure to not have any other modified files in your working directory. The `-m` allows you to pass a commit message at the command line and is useful for quick commits but you might want to use your configured editor for better commit messages when pushing changes you want to be reviewed and merged into the main repo. 
 
 ### Rebase changes on top of latest master
 
-If you have changes that you have been working on and you need to update them with the latest changes from master you should do the following commands after you have sync'ed your local master.
+If you have changes that you have been working on and you need to update them with the latest changes from master, you should do the following commands after you have sync'ed your local master.
 
-```
+```bash
 git checkout <branch-name>
 
 # The rebase command will replay your changes on top of your local master branch
 # If there are any merge conflicts you will need to resolve them now.
-# Tip: if you want to squash changes you can add the '-i' for interactive mode to select which commits you want to squash during rebase.
 git rebase master
 
 # Assuming there were new changes in master since you created your branch originally rebase will rewrite the commits and 
 # as such will require you to do a force push to your fork which is why the '-f' option is passed.
 git push origin <branch-name> -f
 ```
+
+_Tip_: if you want to squash changes you can add the `-i` to the rebase command for interactive mode to select which commits you want to squash, see [interactive mode](https://www.git-scm.com/docs/git-rebase#_interactive_mode) for information.
 
 ## Feature branches
 
