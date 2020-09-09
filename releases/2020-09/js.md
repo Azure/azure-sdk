@@ -94,14 +94,13 @@ Keep in mind that:
 
 ### Azure Form Recognizer
 
-#### Azure Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
-
 We are pleased to announce the general availability (GA) of the `@azure/ai-form-recognizer` package version 3.0.0.
+
+#### Azure Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
 
 ##### Features
 - Train and utilize custom and/or predefined AI models to extract information from text document images.
 - Uses the Azure Form Recognizer v2.0 (GA) endpoint for the latest service features.
-View all the latest versions of JavaScript packages [here][js-latest-releases].
 
 
 ### Azure Event Hubs
@@ -119,9 +118,9 @@ View all the latest versions of JavaScript packages [here][js-latest-releases].
 
 #### Azure Event Grid
 
-##### Azure Event Grid [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventgrid/eventgrid/CHANGELOG.md)
+We're releasing a new preview for the Azure Event Grid client, with some API improvements.
 
-Azure Event Grid releases a new preview with some API improvements, including:
+##### Azure Event Grid [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventgrid/eventgrid/CHANGELOG.md)
 
 ##### New Features on @azure/eventgrid@3.0.0-beta.1
 
@@ -129,6 +128,8 @@ Azure Event Grid releases a new preview with some API improvements, including:
 
 
 ### Azure Service Bus
+
+We're releasing a new preview for the Azure Service Bus, with some API changes and new features.
 
 #### Azure Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md)
 
@@ -169,5 +170,8 @@ Azure Event Grid releases a new preview with some API improvements, including:
   message in its raw form, complete with all parts of the message as per the [AMQP spec](https://www.amqp.org/sites/amqp.org/files/amqp.pdf).
 - Added `ServiceBusAdministrationClient.ruleExists()`
 
+## Latest Releases
+
+View all the latest versions of JavaScript packages [here][js-latest-releases].
 
 {% include refs.md %}
