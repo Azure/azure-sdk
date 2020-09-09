@@ -10,7 +10,6 @@ The Azure SDK team is pleased to make available the September 2020 client librar
 
 #### GA
 
-- Azure Storage Blob Changefeed
 - Azure Form Recognizer
 
 #### Updates
@@ -22,11 +21,12 @@ The Azure SDK team is pleased to make available the September 2020 client librar
 #### Preview
 
 - Identity
+- Azure Event Grid
 - Azure Key Vault
 - Azure Service Bus
 - Azure Tables
-- Azure Schema Registry
 - Azure Text Analytics
+- Azure Storage Blob Changefeed
 
 ## Installation Instructions
 
@@ -41,13 +41,13 @@ $> npm install @azure/storage-blob
 $> npm install @azure/ai-form-recognizer
 $> npm install @azure/event-hubs
 $> npm install @azure/identity@next
+$> npm install @azure/eventgrid@next
 $> npm install @azure/keyvault-keys@next
 $> npm install @azure/keyvault-secrets@next
 $> npm install @azure/keyvault-certificates@next
 $> npm install @azure/keyvault-admin@next
+$> npm install @azure/service-bus@next
 $> npm install @azure/data-tables@next
-$> npm install @azure/schema-registry@next
-$> npm install @azure/schema-registry-avro@next
 $> npm install @azure/ai-text-analytics@next
 ```
 
