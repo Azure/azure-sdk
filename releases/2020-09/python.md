@@ -34,6 +34,8 @@ pip install azure-keyvault-certificates
 pip install azure-search-documents --pre
 pip install azure-appconfiguration
 pip install azure-data-tables
+pip install azure-eventhub-checkpointstoreblob
+pip install azure-eventhub-checkpointstoreblob-aio
 ```
 
 ## Feedback
@@ -81,6 +83,13 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### Features
 
 - Azure Data Tables v2 preview SDK (v12.0.0b1) is released with support for Storage and CosmosDB
+
+
+### Event Hubs CheckpointStoreBlob [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/CHANGELOG.md)
+
+#### Key Bug Fixes
+
+- Fixes a bug that may gradually slow down retrieving checkpoint data if the storage account has "File share soft delete" enabled.
 
 ## Latest Releases
 
