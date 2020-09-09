@@ -16,6 +16,7 @@ The Azure SDK team is pleased to make available the September 2020 client librar
 
 - Key Vault Certificates
 - App Configuration
+- Event Hubs
 
 #### Preview
 
@@ -33,6 +34,7 @@ pip install azure-eventgrid --pre
 pip install azure-keyvault-certificates
 pip install azure-search-documents --pre
 pip install azure-appconfiguration
+pip install azure-eventhubs
 pip install azure-data-tables
 pip install azure-eventhub-checkpointstoreblob
 pip install azure-eventhub-checkpointstoreblob-aio
@@ -55,6 +57,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Azure Event Grid v2 preview SDK (v2.0.0b1) is released with support for CloudEvent
 
 ### Key Vault
+
 #### Certificates [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-certificates/CHANGELOG.md#421-2020-09-08)
 
 - Fixed incompatibility issues with API version `2016-10-01`
@@ -77,6 +80,11 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - Added match condition support for set_read_only method
 
+### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/CHANGELOG.md)
+
+#### Features
+
+- Added `SharedAccessSignature` support to connection strings
 
 ### Azure Data Tables [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/tables/azure-data-tables/CHANGELOG.md)
 
