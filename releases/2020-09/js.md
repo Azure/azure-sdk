@@ -124,7 +124,7 @@ We're releasing a new preview for the Azure Event Grid client, with some API imp
 
 ##### New Features on @azure/eventgrid@3.0.0-beta.1
 
-- The Event Grid SDK now supports sending and deseriazing events using the Cloud Events 1.0 schema.
+- The Event Grid SDK now supports sending and deserializing events using the Cloud Events 1.0 schema.
 
 
 ### Azure Service Bus
