@@ -170,6 +170,20 @@ We're releasing a new preview for the Azure Service Bus, with some API changes a
   message in its raw form, complete with all parts of the message as per the [AMQP spec](https://www.amqp.org/sites/amqp.org/files/amqp.pdf).
 - Added `ServiceBusAdministrationClient.ruleExists()`
 
+
+### Azure Tables
+
+We're releasing a new beta version for a client of Azure Tables. It supports the essential functionality of the service, including creating and deleting tables, as well as querying, creating, reading, updating and deleting entities.
+
+#### Azure Tables [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/tables/data-tables/CHANGELOG.md)
+
+##### New Features on @azure/data-tables@1.0.0-beta.1
+
+- First beta release of this new package.
+- Provides client API to interact with the Azure Tables service
+- [Readme](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/tables/data-tables/README.md)
+
+
 ## Latest Releases
 
 View all the latest versions of JavaScript packages [here][js-latest-releases].
