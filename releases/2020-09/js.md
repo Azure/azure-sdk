@@ -183,7 +183,6 @@ We're releasing a new beta version for a client of Azure Tables. It supports the
 - Provides client API to interact with the Azure Tables service
 - [Readme](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/tables/data-tables/README.md)
 
-
 ### Azure Storage
 
 #### Azure Storage Blob [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/CHANGELOG.md)
