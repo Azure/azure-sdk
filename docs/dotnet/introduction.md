@@ -286,7 +286,7 @@ Ensure you include an internal setter to allow for deserialization.  For more in
 
 {% include requirement/MUST id="dotnet-service-models-prefer-structs" %} ensure model types are structs, if they meet the criteria for being structs.
 
-Good candidates for struct are types that are small and immutable, especially if they are often stored in arrays. See [.NET Framework Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/choosing-between-class-and-struct) for details.
+Good candidates for struct are types that are small and immutable, especially if they are often stored in arrays. See [.NET Framework Design Guidelines](https://docs.microsoft.com/dotnet/standard/design-guidelines/choosing-between-class-and-struct) for details.
 
 {% include requirement/SHOULD id="dotnet-service-models-basic-data-interfaces" %} implement basic data type interfaces on model types, per .NET Framework Design Guidelines.
 
@@ -297,7 +297,7 @@ For example, implement `IEquatable<T>`, `IComparable<T>`, `IEnumerable<T>`, etc.
 - ```IReadOnlyDictionary<T>``` and ```IDictionary<T>``` for lookup tables
 - ```T[]```, ```Memory<T>```, and ```ReadOnlyMemory<T>``` when low allocations and perfromance are critical
 
-Note that this guidance does not apply to input parameters. Input parameters representing collections should follow standard [.NET Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/parameter-design), e.g. use ```IEnumerable<T>``` is allowed.
+Note that this guidance does not apply to input parameters. Input parameters representing collections should follow standard [.NET Design Guidelines](https://docs.microsoft.com/dotnet/standard/design-guidelines/parameter-design), e.g. use ```IEnumerable<T>``` is allowed.
 Also, this guidance does not apply to return types of service method calls. These should be using ```Pageable<T>``` and ```AsyncPageable<T>``` discussed in [Service Method Return Types](#dotnet-method-return).
 
 {% include requirement/MAY id="dotnet-service-models-namespace" %} place output model types in _.Models_ subnamespace to avoid cluttering the main namespace with too many types.
@@ -676,7 +676,7 @@ Request logging will be done automatically by the `HttpPipeline`.  If a client l
 
 {% include requirement/MUST id="dotnet-packaging-nuget" %} package all components as NuGet packages.
 
-If your client library is built by the Azure SDK engineering systems, all packaging requirements will be met automatically. Follow the [.NET packaging guidelines](https://docs.microsoft.com/en-us/dotnet/standard/library-guidance/nuget) if you're self-publishing. For Microsoft owned packages we need to support both windows (for windows dump diagnostics) and portable (for x-platform debugging) pdb formats which means you need to publish them to the Microsoft symbol server and not the Nuget symbol server which only supports portable pdbs.
+If your client library is built by the Azure SDK engineering systems, all packaging requirements will be met automatically. Follow the [.NET packaging guidelines](https://docs.microsoft.com/dotnet/standard/library-guidance/nuget) if you're self-publishing. For Microsoft owned packages we need to support both windows (for windows dump diagnostics) and portable (for x-platform debugging) pdb formats which means you need to publish them to the Microsoft symbol server and not the Nuget symbol server which only supports portable pdbs.
 
 {% include requirement/MUST id="dotnet-packaging-naming" %} name the package based on the name of the main namespace of the component.
 
@@ -791,7 +791,7 @@ Use _-beta._N_ suffix for beta package versions. For example, _1.0.0-beta.2_.
 
 {% include requirement/MUST id="dotnet-docs-document-everything" %} document every exposed (public or protected) type and member within your library's code.
 
-{% include requirement/MUST id="dotnet-docs-docstrings" %} use [C# documentation comments](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/documentation-comments) for reference documentation.
+{% include requirement/MUST id="dotnet-docs-docstrings" %} use [C# documentation comments](https://docs.microsoft.com/dotnet/csharp/language-reference/language-specification/documentation-comments) for reference documentation.
 
 See the [documentation guidelines]({{ site.baseurl }}/general_documentation.html) for language-independent guidelines for how to provide good documentation.
 
