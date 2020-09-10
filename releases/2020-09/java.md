@@ -67,7 +67,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Event Grid ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md#200-beta1-2020-09-09))
 
--Initial Preview release for Event Grid 
+- Initial Preview release for Event Grid 
 
 ### _Package name_
 
