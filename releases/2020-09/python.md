@@ -134,17 +134,17 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### New Features
 
 - This release continues to move towards GA.  Recommend reading migration guide and full changelog for details.
-- Exposes internal AMQP message properties via `ServiceBusMessage.amqp_message`
+- Exposes internal AMQP message properties via `ServiceBusMessage.amqp_message`.
 - Messages can now be sent twice in succession.
 - Connection strings used with `from_connection_string` methods now support using the `SharedAccessSignature` key in leiu of `SharedAccessKey` and `SharedAccessKeyName`, taking the string of the properly constructed token as value.
 
 #### Breaking changes
 
 - Broad renames (e.g. `PeekMessage`->`PeekedMessage`, `ServiceBusManagementClient`->`ServiceBusAdministrationClient`, etc) to align concepts across language SDKs.  Please see changelog for full enumeration.
-- Attempting to initialize a sender or receiver with a different connection string entity and specified entity (e.g. `queue_name`) will result in an AuthenticationError
-- Attempting to call `send_messages` on something not a `Message`, `BatchMessage`, or list of `Message`s, will now throw a `TypeError` instead of `ValueError`
+- Attempting to initialize a sender or receiver with a different connection string entity and specified entity (e.g. `queue_name`) will result in an AuthenticationError.
+- Attempting to call `send_messages` on something not a `Message`, `BatchMessage`, or list of `Message`s, will now throw a `TypeError` instead of `ValueError`.
 - Sending a message twice will no longer result in a MessageAlreadySettled exception.
-- No longer export `ServiceBusSharedKeyCredential`
+- No longer export `ServiceBusSharedKeyCredential`.
 
 ## Latest Releases
 
