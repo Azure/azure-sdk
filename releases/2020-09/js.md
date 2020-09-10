@@ -36,7 +36,7 @@ To install the packages, copy and paste the below into a terminal.
 $> npm install @azure/ai-form-recognizer
 $> npm install @azure/storage-queue
 $> npm install @azure/storage-file-share
-$> npm install @azure/storage-datalake
+$> npm install @azure/storage-file-datalake
 $> npm install @azure/storage-blob
 $> npm install @azure/event-hubs
 $> npm install @azure/identity@next
