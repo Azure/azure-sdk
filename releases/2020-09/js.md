@@ -103,6 +103,61 @@ We are pleased to announce the general availability (GA) of the `@azure/ai-form-
 - Uses the Azure Form Recognizer v2.0 (GA) endpoint for the latest service features.
 
 
+### Azure Storage
+
+#### Azure Storage Blob [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/CHANGELOG.md)
+
+##### New Features on @azure/storage-blob@12.2.0
+
+- Supported RehydratePriority.
+- Supported Object Replication Service.
+- Supported Append Blob Seal.
+- Supported Tags conditional operations.
+- The Static Website Service now supports a DefaultIndexDocumentPath for a global HTTP 200 route within the static website. You can get it by `BlobServiceClient.getProperties()` and set it via `blobServiceClient.setProperties()`.
+
+##### Major Fixes on @azure/storage-blob@12.2.0
+
+- The `credential` parameter of `newPipeline()` function is now optional. If not specified, `AnonymousCredential` is used. Fixes bug [9628](https://github.com/Azure/azure-sdk-for-js/issues/9628).
+- High level upload functions `BlockBlobClient.uploadFile()`, `BlockBlobClient.uploadStream()` and `BlockBlobClient.uploadBrowserData()` now support setting tier. Fixes bug [9062](https://github.com/Azure/azure-sdk-for-js/issues/9062).
+- The Content-Length header is no longer ignored. Fixes bugs [8903](https://github.com/Azure/azure-sdk-for-js/issues/8903), [9300](https://github.com/Azure/azure-sdk-for-js/issues/9300) and [10614](https://github.com/Azure/azure-sdk-for-js/issues/10614).
+
+#### Azure Data Lake Storage [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/CHANGELOG.md)
+
+##### New Features on @azure/storage-file-datalake@12.1.0
+
+- Supported Quick Query. Added a new API `DataLakeFileClient.query()`.
+
+##### Major Fixes on @azure/storage-file-datalake@12.1.0
+
+- The `credential` parameter of `newPipeline()` function is now optional. If not specified, `AnonymousCredential` is used. Fixes bug [9628](https://github.com/Azure/azure-sdk-for-js/issues/9628).
+- The Content-Length header is no more ignored. Fixes bugs [8903](https://github.com/Azure/azure-sdk-for-js/issues/8903), [9300](https://github.com/Azure/azure-sdk-for-js/issues/9300) and [10614](https://github.com/Azure/azure-sdk-for-js/issues/10614).
+
+#### Azure Storage File Share [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/CHANGELOG.md)
+
+##### New Features on @azure/storage-file-share@12.2.0
+
+- Supported share soft delete. Added `undeleteShare` to `ShareServiceClient`. `listShares` now can return deleted shares. Note: share soft delete only take effect on accounts with share soft delete feature enabled.
+
+##### Major Fixes on @azure/storage-file-share@12.2.0
+
+- The `credential` parameter of `newPipeline()` function is now optional. If not specified, `AnonymousCredential` is used. Fixes bug [9628](https://github.com/Azure/azure-sdk-for-js/issues/9628).
+- The Content-Length header is no more ignored. Fixes bugs [8903](https://github.com/Azure/azure-sdk-for-js/issues/8903), [9300](https://github.com/Azure/azure-sdk-for-js/issues/9300) and [10614](https://github.com/Azure/azure-sdk-for-js/issues/10614).
+
+#### Azure Storage Queue [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/CHANGELOG.md)
+
+##### Major Fixes on @azure/storage-queue@12.1.0
+
+- The `credential` parameter of `newPipeline()` function is now optional. If not specified, `AnonymousCredential` is used. Fixes bug [9628](https://github.com/Azure/azure-sdk-for-js/issues/9628).
+- The Content-Length header is no longer ignored. Fixes bugs [8903](https://github.com/Azure/azure-sdk-for-js/issues/8903), [9300](https://github.com/Azure/azure-sdk-for-js/issues/9300) and [10614](https://github.com/Azure/azure-sdk-for-js/issues/10614).
+
+#### Azure Storage Blob Change Feed [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob-changefeed/CHANGELOG.md)
+
+##### New Features on @azure/storage-blob-change-feed@12.0.0-preview.2
+
+- Supported `abortSignal` when fetching Change Feed events.
+- Added new constructor overloads for the `BlobChangeFeedClient`.
+
+
 ### Azure Event Hubs
 
 #### Azure Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/CHANGELOG.md)
@@ -183,59 +238,24 @@ We're releasing the first beta version of the new Azure Tables client, following
 - Provides client API to interact with the Azure Tables service
 - [Readme](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/tables/data-tables/README.md)
 
-### Azure Storage
 
-#### Azure Storage Blob [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/CHANGELOG.md)
+#### Azure Text Analytics
 
-##### New Features on @azure/storage-blob@12.2.0
+We're releasing a new beta version of the new Azure Text Analytics client, which is now targeting the service's v3.1-preview.2 API as the default instead of v3.0.
 
-- Supported RehydratePriority.
-- Supported Object Replication Service.
-- Supported Append Blob Seal.
-- Supported Tags conditional operations.
-- The Static Website Service now supports a DefaultIndexDocumentPath for a global HTTP 200 route within the static website. You can get it by `BlobServiceClient.getProperties()` and set it via `blobServiceClient.setProperties()`.
+#### Azure Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/CHANGELOG.md)
 
-##### Major Fixes on @azure/storage-blob@12.2.0
+##### New Features on @azure/text-analytics@5.1.0-beta.1
 
-- The `credential` parameter of `newPipeline()` function is now optional. If not specified, `AnonymousCredential` is used. Fixes bug [9628](https://github.com/Azure/azure-sdk-for-js/issues/9628).
-- High level upload functions `BlockBlobClient.uploadFile()`, `BlockBlobClient.uploadStream()` and `BlockBlobClient.uploadBrowserData()` now support setting tier. Fixes bug [9062](https://github.com/Azure/azure-sdk-for-js/issues/9062).
-- The Content-Length header is no longer ignored. Fixes bugs [8903](https://github.com/Azure/azure-sdk-for-js/issues/8903), [9300](https://github.com/Azure/azure-sdk-for-js/issues/9300) and [10614](https://github.com/Azure/azure-sdk-for-js/issues/10614).
+- We now have added support for opinion mining feature of Sentiment Analysis. To get this support, pass `includeOpinionMining` as True when calling the `analyzeSentiment` endpoint.
+- We have added the `recognizePiiEntities` API which returns entities containing personal information for a batch of documents and also returns the redacted text.
+- The `length` and `offset` properties are added to the `SentenceSentiment`, `Entity`, `Match`, `PiiEntity` and `CategorizedEntity` interfaces to represent the length of the sentence's text and its offset from the start of the document. The unit of distance used is UTF-16 code points.
+- `bingEntitySearchApiId` property is now returned for entities returned by `recognizeLinkedEntities` API and is added to the `LinkedEntity` interface. This property is to be used in conjunction with the Bing Entity Search API to fetch additional relevant information about the returned entity.
 
-#### Azure Data Lake Storage [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/CHANGELOG.md)
+##### Major Fixes on @azure/text-analytics@5.1.0-beta.1
 
-##### New Features on @azure/storage-file-datalake@12.1.0
+- The `text` property of the `SentenceSentiment` interface is no longer marked as optional because the service has always returned it. This interface is used exclusively as an output type so this change does not break existing code.
 
-- Supported Quick Query. Added a new API `DataLakeFileClient.query()`.
-
-##### Major Fixes on @azure/storage-file-datalake@12.1.0
-
-- The `credential` parameter of `newPipeline()` function is now optional. If not specified, `AnonymousCredential` is used. Fixes bug [9628](https://github.com/Azure/azure-sdk-for-js/issues/9628).
-- The Content-Length header is no more ignored. Fixes bugs [8903](https://github.com/Azure/azure-sdk-for-js/issues/8903), [9300](https://github.com/Azure/azure-sdk-for-js/issues/9300) and [10614](https://github.com/Azure/azure-sdk-for-js/issues/10614).
-
-#### Azure Storage File Share [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/CHANGELOG.md)
-
-##### New Features on @azure/storage-file-share@12.2.0
-
-- Supported share soft delete. Added `undeleteShare` to `ShareServiceClient`. `listShares` now can return deleted shares. Note: share soft delete only take effect on accounts with share soft delete feature enabled.
-
-##### Major Fixes on @azure/storage-file-share@12.2.0
-
-- The `credential` parameter of `newPipeline()` function is now optional. If not specified, `AnonymousCredential` is used. Fixes bug [9628](https://github.com/Azure/azure-sdk-for-js/issues/9628).
-- The Content-Length header is no more ignored. Fixes bugs [8903](https://github.com/Azure/azure-sdk-for-js/issues/8903), [9300](https://github.com/Azure/azure-sdk-for-js/issues/9300) and [10614](https://github.com/Azure/azure-sdk-for-js/issues/10614).
-
-#### Azure Storage Queue [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/CHANGELOG.md)
-
-##### Major Fixes on @azure/storage-queue@12.1.0
-
-- The `credential` parameter of `newPipeline()` function is now optional. If not specified, `AnonymousCredential` is used. Fixes bug [9628](https://github.com/Azure/azure-sdk-for-js/issues/9628).
-- The Content-Length header is no longer ignored. Fixes bugs [8903](https://github.com/Azure/azure-sdk-for-js/issues/8903), [9300](https://github.com/Azure/azure-sdk-for-js/issues/9300) and [10614](https://github.com/Azure/azure-sdk-for-js/issues/10614).
-
-#### Azure Storage Blob Change Feed [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob-changefeed/CHANGELOG.md)
-
-##### New Features on @azure/storage-blob-change-feed@12.0.0-preview.2
-
-- Supported `abortSignal` when fetching Change Feed events.
-- Added new constructor overloads for the `BlobChangeFeedClient`.
 
 ## Latest Releases
 
