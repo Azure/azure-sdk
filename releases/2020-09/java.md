@@ -21,6 +21,7 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 - Azure Core Http Netty
 - Azure Core Http OkHttp
 - Azure Search Documents
+- Form Recognizer
 
 #### Preview
 
@@ -28,6 +29,7 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 - Azure Core Serializer Apache Avro
 - Anomaly Detector
 - Azure Search Documents
+- Azure Tables
 
 ## Installation Instructions
 
@@ -42,8 +44,19 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 
 <dependency>
   <groupId>com.azure</groupId>
+  <artifactId>azure-data-tables</artifactId>
+  <version>12.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
   <artifactId>azure-ai-formrecognizer</artifactId>
   <version>3.0.0</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-ai-formrecognizer</artifactId>
+  <version>3.0.1</version>
 </dependency>
 
 <dependency>
@@ -220,6 +233,10 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### Breaking Changes
 
 - Updated Jackson annotations to include `required = true` when service must receive or return the property.
+
+### Tables ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-data-tables_12.0.0-beta.1/sdk/tables/azure-data-tables/CHANGELOG.md#1200-beta1-2020-09-10))
+
+- Initial preview release for Azure Tables
 
 #### Bug Fixes
 
