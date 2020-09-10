@@ -41,9 +41,9 @@ As you write your code, doc it so you never hear about it again. The fewer quest
 
 ## Code samples
 
-Code samples are small applications that demonstrate a certain feature that is relevant to the client library.  Samples allow developers to quickly understand the full usage requirements of your client library. Code samples shouldn't be any more complex than they needed to demonstrate the feature. Don't write full applications. Samples should have a high signal to noise ratio between useful code and boilerplate code for non-related reasons.
+Code samples are small applications that demonstrate a certain feature that is relevant to the client library. Samples allow developers to quickly understand the full usage requirements of your client library. Code samples shouldn't be any more complex than they needed to demonstrate the feature. Don't write full applications. Samples should have a high signal to noise ratio between useful code and boilerplate code for non-related reasons.
 
-{% include requirement/MUST id="android-samples-include-them" %} include code samples alongside your library's code within the repository. The samples should clearly and succinctly demonstrate the code most developers need to write with your library. Include samples for all common operations.  Pay attention to operations that are complex or might be difficult for new users of your library. Include samples for the champion scenarios you've identified for the library.
+{% include requirement/MUST id="android-samples-include-them" %} include code samples alongside your library's code within the repository. The samples should clearly and succinctly demonstrate the code most developers need to write with your library. Include samples for all common operations. Pay attention to operations that are complex or might be difficult for new users of your library. Include samples for the champion scenarios you've identified for the library.
 
 {% include requirement/MUST id="android-samples-in-java" %} place Java code samples within the `/src/samples/java` directory within the client library root directory. The samples will be compiled, but not packaged into the resulting jar.
 
@@ -59,21 +59,21 @@ Code samples are small applications that demonstrate a certain feature that is r
 
 > **DEVIATION** Java version support for Android
 
-{% include requirement/MUST id="android-samples-java-version" %} use the latest coding conventions when creating samples. Make liberal use of modern Java syntax and APIs (for example, diamond operators) as they remove boilerplate from your samples and highlight you library. Don't use any language feature or API of Java the currently supported Java baseline.  The current supported Java version is Java 7 (with a few Java extensions).
+{% include requirement/MUST id="android-samples-java-version" %} use the latest coding conventions when creating samples. Make liberal use of modern Java syntax and APIs (for example, diamond operators) as they remove boilerplate from your samples and highlight you library. Don't use any language feature or API of Java the currently supported Java baseline. The current supported Java version is Java 7 (with a few Java extensions).
 
 > **DEVIATION** Android support version
 
 {% include requirement/MUST id="android-samples-api-version" %} ensure that samples are written with a `minSdkVersion` of 23. 
 
-{% include requirement/MUST id="android-samples-latest-major-library-version" %} compile sample code using the latest major release of the library. Review sample code for freshness.  At least one commit must be made (to update dependencies) to each sample per semester.
+{% include requirement/MUST id="android-samples-latest-major-library-version" %} compile sample code using the latest major release of the library. Review sample code for freshness. At least one commit must be made (to update dependencies) to each sample per semester.
 
-{% include requirement/MUST id="android-samples-grafting" %} ensure that code samples can be easily grafted from the documentation into a users own application.  For example, don't rely on variable declarations in other samples.
+{% include requirement/MUST id="android-samples-grafting" %} ensure that code samples can be easily grafted from the documentation into a users own application. For example, don't rely on variable declarations in other samples.
 
 {% include requirement/MUST id="android-samples-comprehension" %} write code samples for ease of reading and comprehension over code compactness and efficiency.
 
 {% include requirement/MUST id="android-samples-build" %} build and test your code samples using the repository's continuous integration (CI) to ensure they remain functional.
 
-{% include requirement/MUSTNOT id="android-samples-no-combinations" %} combine multiple operations in a code snippet unless it's required for demonstrating the type or member. For example, a Cosmos DB code sample doesn't include both account and container creation operations.  Create a sample for account creation, and another sample for container creation.  You may combine multiple code snippets in the same sample, but ensure you can cut and paste just one operation.
+{% include requirement/MUSTNOT id="android-samples-no-combinations" %} combine multiple operations in a code snippet unless it's required for demonstrating the type or member. For example, a Cosmos DB code sample doesn't include both account and container creation operations. Create a sample for account creation, and another sample for container creation. You may combine multiple code snippets in the same sample, but ensure you can cut and paste just one operation.
 
 Combined operations require knowledge of additional operations that might be outside their current focus. The developer must first understand the code surrounding the operation they're working on, and can't copy and paste the code sample into their project.
 
@@ -83,7 +83,7 @@ Combined operations require knowledge of additional operations that might be out
 
 {% include requirement/MUST id="android-javadoc-include-samples" %} include code samples in all class-level JavaDoc, and in relevant method-level JavaDoc.
 
-{% include requirement/MUSTNOT id="android-javadoc-no-hard-coding" %} hard-code the sample within the JavaDoc (where it may become stale).  Follow the steps below to correctly ingest code samples from Java source files into the generated JavaDoc. 
+{% include requirement/MUSTNOT id="android-javadoc-no-hard-coding" %} hard-code the sample within the JavaDoc (where it may become stale). Follow the steps below to correctly ingest code samples from Java source files into the generated JavaDoc. 
 
 Let's assume we want to insert code samples into the JavaDoc of a class named `ClientBuilder` in the `com.azure.android.clientlibrary` package, located within the `src/main/java` directory:
 
@@ -99,7 +99,7 @@ Let's assume we want to insert code samples into the JavaDoc of a class named `C
     // END: mysampletag1
 ```
 
-6. Open the source class in `src/main/java`.  Edit the JavaDoc section:
+6. Open the source class in `src/main/java`. Edit the JavaDoc section:
 
 ```java
     /**

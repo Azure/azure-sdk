@@ -10,7 +10,7 @@ sidebar: android_sidebar
 
 ## Library considerations
 
-Android Java developers need to concern themselves with the runtime environment they are running in.  The Android ecosystem is fragmented, with a wide variety of runtimes deployed.
+Android Java developers need to concern themselves with the runtime environment they are running in. The Android ecosystem is fragmented, with a wide variety of runtimes deployed.
 
 {% include requirement/MUST id="android-library-sync-support" %} support API level 23 and later (Android 6.0 Marshmallow).
 
@@ -23,13 +23,13 @@ There are two settings that are of concern when discussing the minimum API level
 1. The minimum API level that Google supports.
 2. The reach of selecting a particular API level.
 
-We require the minimum API level that Google supports that reaches 70% of Android devices (as listed on the [Android distribution dashboard](https://developer.android.com/about/dashboards/)).  This is currently API level 23.
+We require the minimum API level that Google supports that reaches 70% of Android devices (as listed on the [Android distribution dashboard](https://developer.android.com/about/dashboards/)). This is currently API level 23.
 
 {% include requirement/MUST id="android-library-target-sdk-version" %} set the `targetSdkVersion` to be API level 26.
 
-As of November 2018, all existing apps are required to target API level 26 or higher.  For more information, see [Improving app security and performance on Google Play for years to come](https://android-developers.googleblog.com/2017/12/improving-app-security-and-performance.html).
+As of November 2018, all existing apps are required to target API level 26 or higher. For more information, see [Improving app security and performance on Google Play for years to come](https://android-developers.googleblog.com/2017/12/improving-app-security-and-performance.html).
 
-{% include requirement/MUST id="android-library-max-sdk-version" %} set the `maxSdkVersion` to be the latest API level that you have run tests on.  This should be the latest API level that is supported by Google at the point at which the SDK is released.
+{% include requirement/MUST id="android-library-max-sdk-version" %} set the `maxSdkVersion` to be the latest API level that you have run tests on. This should be the latest API level that is supported by Google at the point at which the SDK is released.
 
 {% include requirement/MUST id="android-library-java-version" %} use Java 7, with the following Java 8 features:
 
@@ -68,11 +68,11 @@ When configuring your client library, particular care must be taken to ensure th
 1. Log level, which must take effect immediately across the Azure SDK.
 2. Tracing on/off, which must take effect immediately across the Azure SDK.
 
-{% include requirement/MUSTNOT id="android-config-envvars" %} rely on environment variables or other environment configuration to configure the SDK.  The user of a mobile app does not have access to environment variables.  Use the Azure Core configuration API instead.
+{% include requirement/MUSTNOT id="android-config-envvars" %} rely on environment variables or other environment configuration to configure the SDK. The user of a mobile app does not have access to environment variables. Use the Azure Core configuration API instead.
 
 ## Parameter validation
 
-The service client will have several methods that perform requests on the service. _Service parameters_ are directly passed across the wire to an Azure service. _Client parameters_ are not passed directly to the service, but used within the client library to fulfill the request.  Examples of client parameters include values that are used to construct a URI, or a file that needs to be uploaded to storage.
+The service client will have several methods that perform requests on the service. _Service parameters_ are directly passed across the wire to an Azure service. _Client parameters_ are not passed directly to the service, but used within the client library to fulfill the request. Examples of client parameters include values that are used to construct a URI, or a file that needs to be uploaded to storage.
 
 {% include requirement/MUST id="android-params-client-validation" %} validate client parameters.
 
@@ -112,7 +112,7 @@ If your service implements a non-standard credential system (that is, a credenti
 
 {% include requirement/MUST id="android-auth-policy" %} provide a suitable authentication policy that authenticates the HTTP request in the HTTP pipeline when using non-standard credentials.
 
-{% include requirement/MUSTNOT id="andorid-auth-connection-strings" %} support connection strings.  They are insecure within the context of an Android mobile app.
+{% include requirement/MUSTNOT id="andorid-auth-connection-strings" %} support connection strings. They are insecure within the context of an Android mobile app.
 
 ## Native code
 
@@ -197,7 +197,7 @@ Don't create static logger instances. Static logger instances are shared among a
 
 {% include requirement/MUST id="android-logging-errors" %} use the `Logger.error` logging level for failures that the application is unlikely to recover from (out of memory, etc.).
 
-{% include requirement/MUST id="android-logging-warn" %} use the `Logger.warn` logging level when a function fails to perform its intended task. This generally means that the function will raise an exception.  Do not include occurrences of self-healing events (for example, when a request will be automatically retried).
+{% include requirement/MUST id="android-logging-warn" %} use the `Logger.warn` logging level when a function fails to perform its intended task. This generally means that the function will raise an exception. Do not include occurrences of self-healing events (for example, when a request will be automatically retried).
 
 {% include requirement/MUST id="android-logging-info" %} use the `Logger.info` logging level when a function operates normally.
 
@@ -227,13 +227,13 @@ if (priority != null && priority < 0) {
 
 ## Distributed tracing
 
-Distributed tracing mechanisms allow the consumer to trace their code from frontend to backend.  The distributed tracing library creates spans - units of unique work.  Each span is in a parent-child relationship.  As you go deeper into the hierarchy of code, you create more spans.  These spans can then be exported to a suitable receiver as needed.  To keep track of the spans, a _distributed tracing context_ (called a context in the remainder of this section) is passed into each successive layer.  For more information on this topic, visit the [OpenTelemetry] topic on tracing.
+Distributed tracing mechanisms allow the consumer to trace their code from frontend to backend. The distributed tracing library creates spans - units of unique work. Each span is in a parent-child relationship. As you go deeper into the hierarchy of code, you create more spans. These spans can then be exported to a suitable receiver as needed. To keep track of the spans, a _distributed tracing context_ (called a context in the remainder of this section) is passed into each successive layer. For more information on this topic, visit the [OpenTelemetry] topic on tracing.
 
 The Azure core library provides a service provider interface (SPI) for adding pipeline policies at runtime. The pipeline policy is used to enable tracing on consumer deployments. Pluggable pipeline policies must be supported in all client libraries to enable distributed tracing. Additional metadata can be specified on a per-service-method basis to provide a richer tracing experience for consumers.
 
 {% include requirement/MUST id="android-tracing-pluggable" %} support pluggable pipeline policies as part of the HTTP pipeline instantiation.
 
-Review the code sample below, in which a service client builder creates an `HttpPipeline` from its set of policies.  At the same time, the builder allows plugins to add 'before retry' and 'after retry' policies with the lines `HttpPolicyProviders.addBeforeRetryPolicies(policies)` and `HttpPolicyProviders.addAfterRetryPolicies(policies)`:
+Review the code sample below, in which a service client builder creates an `HttpPipeline` from its set of policies. At the same time, the builder allows plugins to add 'before retry' and 'after retry' policies with the lines `HttpPolicyProviders.addBeforeRetryPolicies(policies)` and `HttpPolicyProviders.addAfterRetryPolicies(policies)`:
 
 ```java
 public ConfigurationAsyncClient build() {
@@ -258,15 +258,15 @@ public ConfigurationAsyncClient build() {
 
 {% include requirement/MUST id="android-tracing-accept-context" %} accept a context from calling code to establish a parent span.
 
-{% include requirement/MUST id="android-tracing-pass-context" %} pass the context to the backend service through the appropriate headers (`traceparent`, `tracestate`, etc.) to support [Azure Monitor].  This is generally done with the HTTP pipeline.
+{% include requirement/MUST id="android-tracing-pass-context" %} pass the context to the backend service through the appropriate headers (`traceparent`, `tracestate`, etc.) to support [Azure Monitor]. This is generally done with the HTTP pipeline.
 
-{% include requirement/MUST id="android-tracing-new-span-per-method" %} create a new span for each method that user code calls.  New spans must be children of the context that was passed in.  If no context was passed in, a new root span must be created.
+{% include requirement/MUST id="android-tracing-new-span-per-method" %} create a new span for each method that user code calls. New spans must be children of the context that was passed in. If no context was passed in, a new root span must be created.
 
-{% include requirement/MUST id="android-tracing-new-span-per-rest-call" %} create a new span (which must be a child of the per-method span) for each REST call that the client library makes.  This is generally done with the HTTP pipeline.
+{% include requirement/MUST id="android-tracing-new-span-per-rest-call" %} create a new span (which must be a child of the per-method span) for each REST call that the client library makes. This is generally done with the HTTP pipeline.
 
 {%include requirement/MUST id="android-tracing-use-tracerproxy" %} use the Azure core `TracerProxy` API to set additional metadata that should be supplied along with the tracing span. In particular, use the `setAttribute(String key, String value, Context context)` method to set a new key/value pair on the tracing context.
 
-Some of these requirements will be handled by the HTTP pipeline.  However, as a client library writer, you must handle the incoming context appropriately.
+Some of these requirements will be handled by the HTTP pipeline. However, as a client library writer, you must handle the incoming context appropriately.
 
 ## Dependencies
 
@@ -278,7 +278,7 @@ Dependencies bring in many considerations that are often easily avoided by avoid
 - **Compatibility** - Often times you do not control a dependency and it may choose to evolve in a direction that is incompatible with your original use.
 - **Security** - If a security vulnerability is discovered in a dependency, it may be difficult or time consuming to get the vulnerability corrected if Microsoft does not control the dependency's code base.
 
-{% include requirement/MUST id="android-dependencies-azure-core" %} depend on the Android `com.azure.core` library for functionality that is common across all client libraries.  This library includes APIs for HTTP connectivity, global configuration, logging, and credential handling.
+{% include requirement/MUST id="android-dependencies-azure-core" %} depend on the Android `com.azure.core` library for functionality that is common across all client libraries. This library includes APIs for HTTP connectivity, global configuration, logging, and credential handling.
 
 {% include requirement/MUSTNOT id="android-dependencies-approved" %} be dependent on any other packages within the client library distribution package, with the exception of the following:
 
@@ -292,7 +292,7 @@ Dependencies bring in many considerations that are often easily avoided by avoid
 
 {% include requirement/SHOULD id="android-dependencies-vendoring" %} consider copying or linking required code into the client library in order to avoid taking a dependency on another package that could conflict with the ecosystem. Make sure that you are not violating any licensing agreements and consider the maintenance that will be required of the duplicated code. ["A little copying is better than a little dependency"][1] (YouTube).
 
-{% include requirement/MUSTNOT id="android-dependencies-concrete" %} depend on concrete logging, dependency injection, or configuration technologies (except as implemented in the `com.azure.core` library).  The client library will be used in applications that might be using the logging, DI, and configuration technologies of their choice.
+{% include requirement/MUSTNOT id="android-dependencies-concrete" %} depend on concrete logging, dependency injection, or configuration technologies (except as implemented in the `com.azure.core` library). The client library will be used in applications that might be using the logging, DI, and configuration technologies of their choice.
 
 ## Service-specific common library code
 
