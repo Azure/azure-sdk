@@ -14,7 +14,7 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 
 #### Updates
 
-- _Add packages_
+- Azure App Configuration
 
 #### Preview
 
@@ -37,6 +37,11 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <version>3.0.0</version>
 </dependency>
 
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-data-appconfiguration</artifactId>
+  <version>1.1.5</version>
+</dependency>
 ```
 
 ## Feedback
