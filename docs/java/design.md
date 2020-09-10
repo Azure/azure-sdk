@@ -6,7 +6,7 @@ folder: java
 sidebar: java_sidebar
 ---
 
-The API surface of your client library must have the most thought as it is the primary interaction that the consumer has with your service.  
+The API surface of your client library must have the most thought as it is the primary interaction that the consumer has with your service.
 
 ## Namespaces
 
@@ -117,7 +117,7 @@ Your API surface consists of one or more _service clients_ that the consumer wil
 
 {% include requirement/MUST id="java-client-construction" %} allow the consumer to construct a service client with the minimal information needed to connect and authenticate to the service.
 
-{% include requirement/MUST id="java-client-verb-prefixes" %} standardize verb prefixes within a set of client libraries for a service.  
+{% include requirement/MUST id="java-client-verb-prefixes" %} standardize verb prefixes within a set of client libraries for a service.
 
 We speak about using the client library in a cross-language manner within outbound materials such as documentation, blogs, and public speaking.
 
@@ -133,11 +133,11 @@ The purposes of the client library is to communicate with an Azure service.  Azu
 
 {% include requirement/MUST id="java-service-apiversion-5" %} document the service API version that is used by default.
 
-{% include requirement/MUST id="java-service-apiversion-3" %} target the latest public preview API version by default when releasing a public preview version of the client library.
+{% include requirement/MUST id="java-service-apiversion-3" %} target the latest public preview API version by default when releasing a public beta version of the client library.
 
 {% include requirement/MUST id="java-service-apiversion-4" %} include all service API versions that are supported by the client library in a `ServiceVersion` enumerated value.
 
-{% include requirement/MUST id="java-service-apiversion-6" %} ensure that the values of the `ServiceVersion` enumerated value "match" the version strings in the service Swagger definition.  
+{% include requirement/MUST id="java-service-apiversion-6" %} ensure that the values of the `ServiceVersion` enumerated value "match" the version strings in the service Swagger definition.
 
 For the purposes of this requirement, semantic changes are allowed.  For instance, many version strings are based on SemVer, which allows dots and dashes.  However, these characters are not allowed in identifiers.  The developer **MUST** be able to clearly understand what service API version will be used when the service version is set to each value in the `ServiceVersion` enumerated value.
 
@@ -190,7 +190,7 @@ The client library wraps HTTP requests so it's important to support standard net
 
 ## Authentication
 
-Azure services use a variety of different authentication schemes to allow clients to access the service.  Conceptually, there are two entities responsible in this process: a credential and an authentication policy.  Credentials provide confidential authentication data.  Authentication policies use the data provided by a credential to authenticate requests to the service.  
+Azure services use a variety of different authentication schemes to allow clients to access the service.  Conceptually, there are two entities responsible in this process: a credential and an authentication policy.  Credentials provide confidential authentication data.  Authentication policies use the data provided by a credential to authenticate requests to the service.
 
 Primarily, all Azure services should support Azure Active Directory OAuth token authentication, and all clients of services that support Azure Active Directory OAuth token authentication must support authenticating requests in this manner.
 
@@ -322,7 +322,7 @@ In all cases, the conditional expression is "opt-in", and the default is to perf
 
 The return value from a conditional operation must be carefully considered.  For safe operators (e.g. GET), return a response that will throw if the value is accessed (or follow the same convention used fro a `204 No Content` response), since there is no value in the body to reference.  For unsafe operators (e.g. PUT, DELETE, or POST), throw a specific error when a `Precondition Failed` or `Conflict` result is received.  This allows the consumer to do something different in the case of conflicting results.
 
-{% include requirement/SHOULD %} accept a `conditions` parameter (which takes an enumerated type) on service methods that allow a conditional check on the service. 
+{% include requirement/SHOULD %} accept a `conditions` parameter (which takes an enumerated type) on service methods that allow a conditional check on the service.
 
 {% include requirement/SHOULD %} accept an additional boolean or enum parameter on service methods as necessary to enable conditional checks using `ETag`.
 
@@ -358,9 +358,9 @@ public final class ConfigurationAsyncClient {
 
     // asynchronous API returning a PagedFlux of ConfigurationSetting instances
     public PagedFlux<ConfigurationSetting> listSettings(SettingSelector options, Context context) {
-        // The first lambda is a Supplier<PagedResponse<T>> returning the first page of results 
+        // The first lambda is a Supplier<PagedResponse<T>> returning the first page of results
         // as a Mono<PagedResponse<T>>.
-        // The second lambda is a Function<String, Mono<PagedResponse<T>>>, returning a 
+        // The second lambda is a Function<String, Mono<PagedResponse<T>>>, returning a
         // Mono<PagedResponse<T>> representing a page based on the provided continuationToken.
         return new PagedFlux<>(
             () -> listFirstPageSettings(options, context),
@@ -399,7 +399,7 @@ The consumer may process items page-by-page instead:
 client.listSettings(..)
       .byPage()
       .subscribe(page -> {
-        // page is a PagedResponse, which implements Page and Response, so there exists: 
+        // page is a PagedResponse, which implements Page and Response, so there exists:
         //  * List<T> of items,
         //  * continuationToken (represented as a String),
         //  * Status code,
@@ -429,7 +429,7 @@ Long-running operations are operations which consist of an initial request to st
 {% include requirement/MUST id="java-lro-options" %} support the following polling configuration options:
 
 * `pollInterval`
-  
+
 Polling configuration may be used only in the absence of relevant retry-after headers from service, and otherwise should be ignored.
 
 {% include requirement/MUST id="java-lro-prefix" %} prefix method names which return a poller with the `begin` prefix.
@@ -440,7 +440,7 @@ Polling configuration may be used only in the absence of relevant retry-after he
 
 {% include requirement/MUST id="java-lro-logging" %} log polling status at the `Info` level (including time to next retry)
 
-{% include requirement/MUST id="java-lro-progress-reporting" %} expose a progress reporting mechanism to the consumer if the service reports progress as part of the polling operation. 
+{% include requirement/MUST id="java-lro-progress-reporting" %} expose a progress reporting mechanism to the consumer if the service reports progress as part of the polling operation.
 
 {% include requirement/MUST id="java-lro-poller-class" %} use the `com.azure.core.util.polling.PollerFlux` and `com.azure.core.util.polling.SyncPoller` to represent long-running operations. The long-running operation API pattern is:
 
@@ -484,7 +484,7 @@ For example, MQTT over WebSockets provides the ability to add headers during the
 
 {% include requirement/MUST id="java-protos-archboard" %} consult the [Architecture Board] on policy decisions for non-HTTP  protocols.  Implementation of all policies is expected.  If the protocol cannot support a policy, obtain an exception from the [Architecture Board].
 
-{% include requirement/MUST id="java-protos-global-config" %} use the global configuration established in the Azure Core library to configure policies for non-HTTP protocols.  Consumers don't necessarily know what protocol is used by the client library.  They will expect the client library to honor global configuration that they have established for the entire Azure SDK.  
+{% include requirement/MUST id="java-protos-global-config" %} use the global configuration established in the Azure Core library to configure policies for non-HTTP protocols.  Consumers don't necessarily know what protocol is used by the client library.  They will expect the client library to honor global configuration that they have established for the entire Azure SDK.
 
 ## The Java API
 
@@ -537,7 +537,7 @@ Consumers will use one or more _service clients_ to access Azure services, plus 
 package com.azure.<group>.<service_name>;
 
 @ServiceClient(
-    builder = <service_name>ClientBuilder.class, 
+    builder = <service_name>ClientBuilder.class,
     serviceInterfaces = <service_name>Service.class)
 public final class <service_name>Client {
 
@@ -583,7 +583,7 @@ Refer to the [ConfigurationClient class] for a fully built-out example of how a 
 package com.azure.<group>.<service_name>;
 
 @ServiceClient(
-    builder = <service_name>ClientBuilder.class, 
+    builder = <service_name>ClientBuilder.class,
     serviceInterfaces = <service_name>Service.class,
     isAsync = true)
 public final class <service_name>AsyncClient {
@@ -960,7 +960,7 @@ Include the following annotations on the service client class.  For example, thi
 public final class ConfigurationAsyncClient {
 
     @ServiceMethod
-    public Mono<Response<ConfigurationSetting>> addSetting(String key, String value) { 
+    public Mono<Response<ConfigurationSetting>> addSetting(String key, String value) {
         ...
     }
 }

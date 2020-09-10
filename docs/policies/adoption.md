@@ -15,7 +15,7 @@ Any change to the general design guidelines (which includes everything under the
     * Approve - the architect believes this is a good guideline.
     * Abstain - the architect feels the guideline has flaws, but not enough to stop the proposal.
     * Reject - the architect feels the guideline is flawed enough it must not be added to the guidelines.
-* Two thirds of voting members must vote "Approve".  
+* Two thirds of voting members must vote "Approve".
 * There must be no "Reject" votes.
 * The proposed language for the design guideline is submitted via PR.
     * Review by any appropriate groups (as determined by the board chair) - examples: Security, CSS.
@@ -46,8 +46,8 @@ Language specific guidelines are first published in DRAFT.  This means that they
 
 * The guidelines are published in draft mode for at least 1 month to allow public comments.
 * The engineering systems are configured for producing client libraries in the language.
-* The Azure Core and Azure Identity libraries are published in preview to appropriate distribution points.
-* At least 2 Azure client libraries are published in preview to the appropriate distribution points.
+* The Azure Core and Azure Identity libraries are published in beta to appropriate distribution points.
+* At least 2 Azure client libraries are published in beta to the appropriate distribution points.
 * At least 1 user study has been conducted that studies the Azure Core and Azure Identity library usage (generally as part of a client library user study).
 * The guidelines have been reviewed by the architectural board and (if there is one) the language team in DevDiv.
 

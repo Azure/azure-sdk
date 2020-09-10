@@ -14,12 +14,14 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 
 #### Updates
 
-- _Add packages_
+- Azure App Configuration
+- Form Recognizer
 
 #### Preview
 
 - Anomaly Detector
 - Event Grid
+- Azure Tables
 
 ## Installation Instructions
 
@@ -34,8 +36,19 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 
 <dependency>
   <groupId>com.azure</groupId>
+  <artifactId>azure-data-tables</artifactId>
+  <version>12.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
   <artifactId>azure-ai-formrecognizer</artifactId>
   <version>3.0.0</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-ai-formrecognizer</artifactId>
+  <version>3.0.1</version>
 </dependency>
 
 <dependency>
@@ -44,6 +57,11 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
     <version>2.0.0-beta.1</version>
 </dependency>
 
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-data-appconfiguration</artifactId>
+  <version>1.1.5</version>
+</dependency>
 ```
 
 ## Feedback
@@ -68,6 +86,10 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 ### Event Grid ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md#200-beta1-2020-09-09))
 
 -Initial Preview release for Event Grid 
+
+### Tables ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-data-tables_12.0.0-beta.1/sdk/tables/azure-data-tables/CHANGELOG.md#1200-beta1-2020-09-10))
+
+- Initial preview release for Azure Tables
 
 ### _Package name_
 

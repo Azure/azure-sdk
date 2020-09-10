@@ -59,7 +59,7 @@ Here are some namespaces that do not meet the guidelines:
 
 ## Client interface
 
-The API surface will consist of one of more _service clients_ that the consumer will instantiate to connect to your service, plus a set of supporting types.     
+The API surface will consist of one of more _service clients_ that the consumer will instantiate to connect to your service, plus a set of supporting types.
 
 {% include requirement/MUST id="general-client-naming" %} name service client types with the `client` suffix.
 
@@ -91,11 +91,11 @@ The purposes of the client library is to communicate with an Azure service.  Azu
 
 {% include requirement/MUST id="general-service-apiversion-5" %} document the service API version that is used by default.
 
-{% include requirement/MUST id="general-service-apiversion-3" %} target the latest public preview API version by default when releasing a public preview version of the client library.
+{% include requirement/MUST id="general-service-apiversion-3" %} target the latest public preview API version by default when releasing a public beta version of the client library.
 
 {% include requirement/MUST id="general-service-apiversion-4" %} include all service API versions that are supported by the client library in a `ServiceVersion` enumerated value.
 
-{% include requirement/MUST id="general-service-apiversion-6" %} ensure that the values of the `ServiceVersion` enumerated value "match" the version strings in the service Swagger definition.  
+{% include requirement/MUST id="general-service-apiversion-6" %} ensure that the values of the `ServiceVersion` enumerated value "match" the version strings in the service Swagger definition.
 
 For the purposes of this requirement, semantic changes are allowed.  For instance, many version strings are based on SemVer, which allows dots and dashes.  However, these characters are not allowed in identifiers.  The developer **MUST** be able to clearly understand what service API version will be used when the service version is set to each value in the `ServiceVersion` enumerated value.
 
@@ -140,7 +140,7 @@ The following table enumerates the various models you might create:
 
 ## Network requests
 
-Since the client library generally wraps one or more HTTP requests, it is important to support standard network capabilities.  Asynchronous programming techniques are not widely understood, although such techniques are essential in developing scalable web services and required in certain environments (such as mobile or Node environments).  Many developers prefer synchronous method calls for their easy semantics when learning how to use a technology.  In addition, consumers have come to expect certain capabilities in a network stack - capabilities such as call cancellation, automatic retry, and logging. 
+Since the client library generally wraps one or more HTTP requests, it is important to support standard network capabilities.  Asynchronous programming techniques are not widely understood, although such techniques are essential in developing scalable web services and required in certain environments (such as mobile or Node environments).  Many developers prefer synchronous method calls for their easy semantics when learning how to use a technology.  In addition, consumers have come to expect certain capabilities in a network stack - capabilities such as call cancellation, automatic retry, and logging.
 
 {% include requirement/MUST id="general-network-support-sync-and-async" %} support both synchronous and asynchronous method calls, except where the language or default runtime does not support one or the other.
 
@@ -172,7 +172,7 @@ Here is an example of how an application would use the tree of cancellations:
 {% include requirement/MUSTNOT id="general-network-no-leakage" %} leak the underlying protocol transport implementation details to the consumer.  All types from the protocol transport implementation must be appropriately abstracted.
 
 ## Authentication
-Azure services use a variety of different authentication schemes to allow clients to access the service.  Conceptually, there are two entities responsible in this process: a credential and an authentication policy.  Credentials provide confidential authentication data.  Authentication policies use the data provided by a credential to authenticate requests to the service.  
+Azure services use a variety of different authentication schemes to allow clients to access the service.  Conceptually, there are two entities responsible in this process: a credential and an authentication policy.  Credentials provide confidential authentication data.  Authentication policies use the data provided by a credential to authenticate requests to the service.
 
 Primarily, all Azure services should support Azure Active Directory OAuth token authentication, and all clients must support authenticating requests in this manner.
 
@@ -224,7 +224,7 @@ The *logical entity* is a protocol neutral representation of a response. For HTT
 
 {% include requirement/MUST id="general-response-streaming" %} provide examples on how to access the raw and streamed response for a given request, where exposed by the client library.  We do not expect all methods to expose a streamed response.
 
-{% include requirement/MUST id="general-response-enumeration" %} provide a language idiomatic way to enumerate all logical entities for a paged operation, automatically fetching new pages as needed.  
+{% include requirement/MUST id="general-response-enumeration" %} provide a language idiomatic way to enumerate all logical entities for a paged operation, automatically fetching new pages as needed.
 
 For example, in Python:
 
@@ -299,7 +299,7 @@ In all cases, the conditional expression is "opt-in", and the default is to perf
 
 The return value from a conditional operation must be carefully considered.  For safe operators (e.g. GET), return a response that will throw if the value is accessed (or follow the same convention used fro a `204 No Content` response), since there is no value in the body to reference.  For unsafe operators (e.g. PUT, DELETE, or POST), throw a specific error when a `Precondition Failed` or `Conflict` result is received.  This allows the consumer to do something different in the case of conflicting results.
 
-{% include requirement/SHOULD %} accept a `conditions` parameter (which takes an enumerated type) on service methods that allow a conditional check on the service. 
+{% include requirement/SHOULD %} accept a `conditions` parameter (which takes an enumerated type) on service methods that allow a conditional check on the service.
 
 {% include requirement/SHOULD %} accept an additional boolean or enum parameter on service methods as necessary to enable conditional checks using `ETag`.
 
@@ -345,7 +345,7 @@ Long-running operations are operations which consist of an initial request to st
 {% include requirement/MUST id="general-lro-polling-config" %} support the following polling configuration options:
 
 * `pollInterval`
-  
+
 Polling configuration may be used only in the absence of relevant retry-after headers from service, and otherwise should be ignored.
 
 {% include requirement/MUST id="general-lro-prefix" %} prefix method names which return a poller with either `begin` or `start`.  Language-specific guidelines will dictate which verb to use.
@@ -373,6 +373,6 @@ For example, MQTT over WebSockets provides the ability to add headers during the
 
 {% include requirement/MUST id="general-proto-adparch" %} consult the [Architecture Board] on policy decisions for non-HTTP protocols.  Implementation of all policies is expected.  If the protocol cannot support a policy, obtain an exception from the [Architecture Board].
 
-{% include requirement/MUST id="general-proto-config" %} use the global configuration established in the Azure Core library to configure policies for non-HTTP protocols.  Consumers don't necessarily know what protocol is used by the client library.  They will expect the client library to honor global configuration that they have established for the entire Azure SDK.  
+{% include requirement/MUST id="general-proto-config" %} use the global configuration established in the Azure Core library to configure policies for non-HTTP protocols.  Consumers don't necessarily know what protocol is used by the client library.  They will expect the client library to honor global configuration that they have established for the entire Azure SDK.
 
 {% include refs.md %}

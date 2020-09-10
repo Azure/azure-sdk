@@ -12,8 +12,11 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 ## Release Highlights
 
 * Azure Form Recognizer GA release supporting v2.0 GA version of the Form Recognizer service.
-*
-*
+* Azure Tables Client Libraries Beta 1 release
+* Azure Event Grid v2 preview SDK (v2.0.0b1) is released with support for CloudEvent
+* Azure Data Tables v2 preview SDK (v12.0.0b1) is released with support for Storage and CosmosDB
+* Azure Schema Registry Beta 1 release
+* Azure Schema Registry Avro Serializer Beta 1 release
 
 ## Release Notes
 
