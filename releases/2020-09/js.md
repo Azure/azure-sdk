@@ -173,7 +173,7 @@ We're releasing a new preview for the Azure Service Bus, with some API changes a
 
 ### Azure Tables
 
-We're releasing a new beta version for a client of Azure Tables. It supports the essential functionality of the service, including creating and deleting tables, as well as querying, creating, reading, updating and deleting entities.
+We're releasing the first beta version of the new Azure Tables client, following our [guidelines](https://azure.github.io/azure-sdk/typescript_introduction.html) which ensures it is idiomatic, consistent, and diagnosable. It supports essential operations of the service, such as creating and deleting tables, as well as querying, creating, reading, updating and deleting entities.
 
 #### Azure Tables [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/tables/data-tables/CHANGELOG.md)
 
