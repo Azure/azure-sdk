@@ -19,6 +19,7 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 #### Preview
 
 - Anomaly Detector
+- Tables
 
 ## Installation Instructions
 
@@ -29,6 +30,12 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-ai-anomalydetector</artifactId>
   <version>3.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-data-tables</artifactId>
+  <version>12.0.0-beta.1</version>
 </dependency>
 
 <dependency>
@@ -56,7 +63,11 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Anomaly Detector ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-anomalydetector_3.0.0-beta.1/sdk/anomalydetector/azure-ai-anomalydetector/CHANGELOG.md#300-beta1-2020-08-27))
 
-- Initial preview release for Anomaly Detector 
+- Initial preview release for Anomaly Detector
+
+### Tables ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-data-tables_12.0.0-beta.1/sdk/tables/azure-data-tables/CHANGELOG.md#1200-beta1-2020-09-09))
+
+- Initial preview release for Tables
 
 ### _Package name_
 
