@@ -14,7 +14,7 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 
 #### Updates
 
-- _Add packages_
+- Form Recognizer
 
 #### Preview
 
@@ -36,7 +36,11 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <artifactId>azure-ai-formrecognizer</artifactId>
   <version>3.0.0</version>
 </dependency>
-
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-ai-formrecognizer</artifactId>
+  <version>3.0.1</version>
+</dependency>
 ```
 
 ## Feedback
@@ -56,7 +60,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Anomaly Detector ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-anomalydetector_3.0.0-beta.1/sdk/anomalydetector/azure-ai-anomalydetector/CHANGELOG.md#300-beta1-2020-08-27))
 
-- Initial preview release for Anomaly Detector 
+- Initial preview release for Anomaly Detector
 
 ### _Package name_
 
