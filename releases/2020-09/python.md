@@ -27,6 +27,7 @@ The Azure SDK team is pleased to make available the September 2020 client librar
 - Key Vault Administration
 - Schema Registry
 - Schema Registry Avro Serializer
+- Service Bus
 
 ## Installation Instructions
 
@@ -46,6 +47,7 @@ pip install azure-eventhub-checkpointstoreblob-aio
 pip install azure-data-tables
 pip install azure-schemaregistry
 pip install azure-schemaregistry-avroserializer
+pip install azure-servicebus --pre
 ```
 
 ## Feedback
@@ -126,6 +128,23 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### Features
 
 - Azure Schema Registry Avro Serializer v1 preview SDK (1.0.0b1) is released with support for avro data serialization and deserialization along with automatic schema registration and retrieval.
+
+### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/CHANGELOG.md)
+
+#### New Features
+
+- This release continues to move towards GA.  Recommend reading migration guide and full changelog for details.
+- Exposes internal AMQP message properties via `ServiceBusMessage.amqp_message`.
+- Messages can now be sent twice in succession.
+- Connection strings used with `from_connection_string` methods now support using the `SharedAccessSignature` key in leiu of `SharedAccessKey` and `SharedAccessKeyName`, taking the string of the properly constructed token as value.
+
+#### Breaking changes
+
+- Broad renames (e.g. `PeekMessage`->`PeekedMessage`, `ServiceBusManagementClient`->`ServiceBusAdministrationClient`, etc) to align concepts across language SDKs.  Please see changelog for full enumeration.
+- Attempting to initialize a sender or receiver with a different connection string entity and specified entity (e.g. `queue_name`) will result in an AuthenticationError.
+- Attempting to call `send_messages` on something not a `Message`, `BatchMessage`, or list of `Message`s, will now throw a `TypeError` instead of `ValueError`.
+- Sending a message twice will no longer result in a MessageAlreadySettled exception.
+- No longer export `ServiceBusSharedKeyCredential`.
 
 ## Latest Releases
 
