@@ -16,7 +16,7 @@ The Azure SDK team is pleased to make available the %%MMMM yyyy%% client library
 
 - _Add packages_
 
-#### Preview
+#### Beta
 
 - _Add packages_
 
