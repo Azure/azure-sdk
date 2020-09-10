@@ -11,56 +11,41 @@ The Azure SDK team is pleased to make available the September 2020 client librar
 #### GA
 
 - Form Recognizer
-- Management Library - Compute
-- Management Library - Network
-- Management Library - Resource
-- Management Library - Storage
-- Management Library - Monitor
-- Management Library - AppConfiguration
-- Management Library - Event Hubs
-- Management Library - KeyVault
 
 #### Updates
 
-- _Add packages_
+- Key Vault Certificates
+- App Configuration
+- Event Hubs
 
 #### Preview
 
-- Management Library - Authorization
-- Management Library - Cosmos DB
-- Management Library - Container Instance
-- Management Library - Container Registry
-- Management Library - Container Service
-- Management Library - Digital Twins
-- Management Library - Redis Cache
-- Management Library - Service Bus
-- Management Library - SQL
-
+- Event Grid
+- Search
+- Tables
+- Identity
+- Key Vault Administration
+- Schema Registry
+- Schema Registry Avro Serializer
 
 ## Installation Instructions
 
-To install the latest version of the packages (preview versions contains "--pre"), copy and paste the following commands into a terminal:
+To install the latest preview version of the packages, copy and paste the following commands into a terminal:
 
 ```bash
 pip install azure-ai-formrecognizer
-pip install azure-mgmt-compute
-pip install azure-mgmt-network
-pip install azure-mgmt-resource
-pip install azure-mgmt-storage
-pip install azure-mgmt-monitor
-pip install azure-mgmt-appconfiguration
-pip install azure-mgmt-eventhub
-pip install azure-mgmt-keyvault
-pip install --pre azure-mgmt-authorization
-pip install --pre azure-mgmt-cosmosdb
-pip install --pre azure-mgmt-containerinstance
-pip install --pre azure-mgmt-containerregistry
-pip install --pre azure-mgmt-containerservice
-pip install --pre azure-mgmt-monitor
-pip install --pre azure-mgmt-digtaltwins
-pip install --pre azure-mgmt-redis
-pip install --pre azure-mgmt-servicebus
-pip install --pre azure-mgmt-sql
+pip install azure-eventgrid --pre
+pip install azure-identity --pre
+pip install azure-keyvault-administration
+pip install azure-keyvault-certificates
+pip install azure-search-documents --pre
+pip install azure-appconfiguration
+pip install azure-eventhubs
+pip install azure-eventhub-checkpointstoreblob
+pip install azure-eventhub-checkpointstoreblob-aio
+pip install azure-data-tables
+pip install azure-schemaregistry
+pip install azure-schemaregistry-avroserializer
 ```
 
 ## Feedback
@@ -75,9 +60,72 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - Generally available, stable version 3.0.0 released
 
-### Management Libraries
-We are excited to announce the GA releases of management libraries that follow the [Azure SDK Design Guidelines for Python](https://azure.github.io/azure-sdk/python/guidelines/). In addition, more management libraries are now in Public Preview to provide better Azure service coverage. These new libraries provide a number of core capabilities that are shared amongst all Azure SDKs, including the intuitive Azure Identity library, an HTTP Pipeline with custom policies, error-handling, distributed tracing, and much more.
-You can find the list of new packages [on this page](https://azure.github.io/azure-sdk/releases/latest/python.html). Documentation and code samples for these new libraries can be found [here](https://azure.github.io/azure-sdk-for-python)
+### Event Grid [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventgrid/azure-eventgrid/CHANGELOG.md#200b1-2020-09-08)
+
+- Azure Event Grid v2 preview SDK (v2.0.0b1) is released with support for CloudEvent
+
+### Identity [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/CHANGELOG.md#150b1-2020-09-08)
+
+- Reintroduced user authentication API from the last beta version (1.4.0b7)
+- Added support for ADFS and Subject Name/Issuer authentication
+
+### Key Vault
+
+#### Administration [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-administration/CHANGELOG.md#400b1-2020-09-08)
+
+- First beta release with support for role-based access control, full-vault backup, and full-vault restore and selective key restore operations
+
+#### Certificates [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-certificates/CHANGELOG.md#421-2020-09-08)
+
+- Fixed incompatibility issues with API version `2016-10-01`
+
+### Search [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/CHANGELOG.md)
+
+#### Features
+
+- Added azure.search.documents.RequestEntityTooLargeError
+- Flush method in BatchClient now will not return until all actions are done
+
+#### Breaking Changes
+
+- Removed succeeded_actions & failed_actions from BatchClient
+- Removed get_index_document_batching_client from SearchClient
+
+### Application Configuration [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/appconfiguration/azure-appconfiguration/CHANGELOG.md)
+
+#### Features
+
+- Added match condition support for set_read_only method
+
+### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/CHANGELOG.md)
+
+#### Features
+
+- Added `SharedAccessSignature` support to connection strings
+
+### Event Hubs CheckpointStoreBlob [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/CHANGELOG.md)
+
+#### Key Bug Fixes
+
+- Fixes a bug that may gradually slow down retrieving checkpoint data if the storage account has "File share soft delete" enabled.
+
+### Azure Data Tables [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/tables/azure-data-tables/CHANGELOG.md)
+
+#### Features
+
+- Azure Data Tables v2 preview SDK (v12.0.0b1) is released with support for Storage and CosmosDB
+
+### Schema Registry [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/schemaregistry/azure-schemaregistry/CHANGELOG.md)
+
+#### Features
+
+- Azure Schema Registry v1 preview SDK (1.0.0b1) is released with support for schema registration and retrieval.
+
+### Schema Registry Avro Serializer [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/schemaregistry/azure-schemaregistry/CHANGELOG.md)
+
+#### Features
+
+- Azure Schema Registry Avro Serializer v1 preview SDK (1.0.0b1) is released with support for avro data serialization and deserialization along with automatic schema registration and retrieval.
 
 ## Latest Releases
 
