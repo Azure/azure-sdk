@@ -237,7 +237,6 @@ We're releasing a new beta version for a client of Azure Tables. It supports the
 - Supported `abortSignal` when fetching Change Feed events.
 - Added new constructor overloads for the `BlobChangeFeedClient`.
 
-
 ## Latest Releases
 
 View all the latest versions of JavaScript packages [here][js-latest-releases].
