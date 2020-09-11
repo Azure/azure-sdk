@@ -17,6 +17,9 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 * Azure Data Tables v2 preview SDK (v12.0.0b1) is released with support for Storage and CosmosDB
 * Azure Schema Registry Beta 1 release
 * Azure Schema Registry Avro Serializer Beta 1 release
+* Azure Cognitive Search SDK for Java added `buildSearchFields` to `SearchIndexClient` and `SearchIndexAsyncClient` to help easily build a search index from a model type.
+* Azure Cognitive Search SDK beta release of document indexing clients.
+* Azure Core Serializer GSON and Jackson for Java GA release supporting pluggable serialization in SDKs.
 
 ## Release Notes
 
