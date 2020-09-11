@@ -25,7 +25,6 @@ The Azure SDK team is pleased to make available the September 2020 client librar
 - Azure Key Vault
 - Azure Service Bus
 - Azure Tables
-- Azure Text Analytics
 - Azure Storage Blob Changefeed
 
 ## Installation Instructions
@@ -47,7 +46,6 @@ $> npm install @azure/keyvault-certificates@next
 $> npm install @azure/keyvault-admin@next
 $> npm install @azure/service-bus@next
 $> npm install @azure/data-tables@next
-$> npm install @azure/ai-text-analytics@next
 $> npm install @azure/storage-blob-changefeed@next
 ```
 
@@ -237,24 +235,6 @@ We're releasing the first beta version of the new Azure Tables client, following
 - First beta release of this new package.
 - Provides client API to interact with the Azure Tables service
 - [Readme](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/tables/data-tables/README.md)
-
-
-#### Azure Text Analytics
-
-We're releasing a new beta version of the new Azure Text Analytics client, which is now targeting the service's v3.1-preview.2 API as the default instead of v3.0.
-
-#### Azure Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/CHANGELOG.md)
-
-##### New Features on @azure/text-analytics@5.1.0-beta.1
-
-- We now have added support for opinion mining feature of Sentiment Analysis. To get this support, pass `includeOpinionMining` as True when calling the `analyzeSentiment` endpoint.
-- We have added the `recognizePiiEntities` API which returns entities containing personal information for a batch of documents and also returns the redacted text.
-- The `length` and `offset` properties are added to the `SentenceSentiment`, `Entity`, `Match`, `PiiEntity` and `CategorizedEntity` interfaces to represent the length of the sentence's text and its offset from the start of the document. The unit of distance used is UTF-16 code points.
-- `bingEntitySearchApiId` property is now returned for entities returned by `recognizeLinkedEntities` API and is added to the `LinkedEntity` interface. This property is to be used in conjunction with the Bing Entity Search API to fetch additional relevant information about the returned entity.
-
-##### Major Fixes on @azure/text-analytics@5.1.0-beta.1
-
-- The `text` property of the `SentenceSentiment` interface is no longer marked as optional because the service has always returned it. This interface is used exclusively as an output type so this change does not break existing code.
 
 
 ## Latest Releases
