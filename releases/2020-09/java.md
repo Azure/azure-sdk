@@ -39,6 +39,7 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 - Azure Core Experimental
 - Azure Core Serializer Apache Avro
 - Anomaly Detector
+- Event Grid
 - Azure Search Documents
 - Azure Tables
 - Management Library - CDN
@@ -81,7 +82,8 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <version>3.0.1</version>
 </dependency>
 
-<groupId>com.azure</groupId>
+<dependency>
+  <groupId>com.azure</groupId>
   <artifactId>azure-core</artifactId>
   <version>1.8.1</version>
 </dependency>
@@ -126,6 +128,12 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-data-appconfiguration</artifactId>
   <version>1.1.5</version>
+</dependency>
+
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-messaging-eventgrid</artifactId>
+    <version>2.0.0-beta.1</version>
 </dependency>
 
 <dependency>
@@ -405,6 +413,10 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### Breaking Changes
 
 - Updated Jackson annotations to include `required = true` when service must receive or return the property.
+
+### Event Grid ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md#200-beta1-2020-09-09))
+
+- Initial Preview release for Event Grid 
 
 ### Tables ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-data-tables_12.0.0-beta.1/sdk/tables/azure-data-tables/CHANGELOG.md#1200-beta1-2020-09-10))
 
