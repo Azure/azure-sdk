@@ -57,38 +57,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
----
-
-=== COPY THIS AND ADD THE INFORMATION OF YOUR PACKAGE: ===
-
-Keep in mind that:
-
-- Including the package name in the headers makes the URL links work for multiple packages.
-- Only include customer-facing changes.
-- The format of this file will be cleaned up once all of your proposals are in.
-
----
-
-### _Package name_
-
-#### _Package name_ [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/<service-folder>/<package-folder>/CHANGELOG.md)
-
-(leave blank)
-
-##### Breaking Changes on _Package name_
-
-- _Add one or more, or remove the "Breaking Changes on ..." entire section._
-
-##### New Features on _Package name_
-
-- _Add one or more, or remove the "New Features on ..." section._
-
-##### Major Fixes on _Package name_
-
-- _Add one or more, or remove the "Major Fixes on ..." section._
-
----
-
 
 ### Azure Form Recognizer
 
@@ -178,6 +146,40 @@ We're releasing a new preview for the Azure Event Grid client, with some API imp
 ##### New Features on @azure/eventgrid@3.0.0-beta.1
 
 - The Event Grid SDK now supports sending and deserializing events using the Cloud Events 1.0 schema.
+
+
+#### Azure Key Vault
+
+We're releasing four beta versions of the Azure Key Vault packages. The the `4.2.0-beta.1` version of Key Vault Keys, Secrets and Certificates have a new feature that allows parsing the Ids of their respective keys, secrets and certficates. The package for Key Vault Keys in particular now provides a new client called `LocalCryptographyClient`. We're also announcing a brand new package called Key Vault Administration (`@azure/keyvault-admin` on NPM) which is releasing two new clients, `KeyVaultAccessControlClient` and `KeyVaultBackupClient`.
+
+#### Changelogs
+
+- [Key Vault Keys](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-keys/CHANGELOG.md).
+- [Key Vault Secrets](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-secrets/CHANGELOG.md).
+- [Key Vault Certificates](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-certificates/CHANGELOG.md).
+- [Key Vault Administration](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-admin/CHANGELOG.md).
+
+##### New Features on @azure/keyvault-keys@4.2.0-beta.1
+
+- Added `parseKeyVaultKeysIdentifier` and `ParsedKeyVaultKeysIdentifier` to help with parsing the unique identifiers of Key Vault Keys.
+- Added the basic structure of a new client to perform local cryptography operations, which is now called `LocalCryptographyClient`.  
+  - The existing `CryptographyClient`, when initialized, will create one instance of a local cryptography client, which can be retrieved by calling to a new method that is part of the `CryptographyClient` class: `getLocalCryptographyClient()`.
+  - The `LocalCryptographyClient` currently has limited support of the cryptography operations available on the `CryptographyClient`. More operations will be added over time.
+
+##### New Features on @azure/keyvault-secrets@4.2.0-beta.1
+
+- Added `parseKeyVaultSecretsIdentifier` and `ParsedKeyVaultSecretsIdentifier` to help with parsing the unique identifiers of Key Vault Secrets.
+
+##### New Features on @azure/keyvault-certificates@4.2.0-beta.1
+
+- Added `parseKeyVaultCertificatesIdentifier` and `ParsedKeyVaultCertificatesIdentifier` to help with parsing the unique identifiers of Key Vault Certificates.
+
+##### New Features on @azure/keyvault-admin@4.0.0-beta.1
+
+The @azure/keyvault-admin package provides two clients, `KeyVaultAccessControlClient` and `KeyVaultBackupClient`.
+
+- The `KeyVaultAccessControlClient` allows working with role-based access control (RBAC) operations, meaning assigning, deleting and retrieving role assignments, and retrieving role definitions.
+- The `KeyVaultBackupClient` allows generating full backups and restores of Key Vault instances, and selective restores of keys.
 
 
 ### Azure Service Bus
