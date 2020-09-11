@@ -34,7 +34,7 @@ sidebar: clang_sidebar
 
 {% include requirement/SHOULDNOT id="clang-cpp-extensions" %} use compiler extensions.  Examples of extensions to avoid include:
 
-* [MSVC compiler extensions](https://docs.microsoft.com/en-us/cpp/build/reference/microsoft-extensions-to-c-and-cpp?view=vs-2019)
+* [MSVC compiler extensions](https://docs.microsoft.com/cpp/build/reference/microsoft-extensions-to-c-and-cpp?view=vs-2019)
 * [Clang language extensions](https://clang.llvm.org/docs/LanguageExtensions.html)
 * [GNU C compiler extensions](https://gcc.gnu.org/onlinedocs/gcc/C-Extensions.html)
 
@@ -414,7 +414,7 @@ We use a common build and test pipeline to provide for automatic distribution of
 {% include requirement/MUST id="clang-tooling-cmake" %} use [CMake](https://CMake.org/) v3.7 for your project build system. 
 
 Version 3.7 is the minimum version installed on the Azure Pipelines Microsoft hosted agents 
-(https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/hosted?view=azure-devops)
+(https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops)
 
 {% include requirement/MUST id="clang-tooling-cmake-targets" %} include the following standard targets:
 

@@ -1,4 +1,4 @@
-[.NET Framework Design Guidelines]: https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/
+[.NET Framework Design Guidelines]: https://docs.microsoft.com/dotnet/standard/design-guidelines/
 [Azure Application Configuration service]: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/appconfiguration/Azure.Data.AppConfiguration
 [Azure.Core]: https://www.nuget.org/packages/Azure.Core/
 [Moq]: https://github.com/moq/moq4
