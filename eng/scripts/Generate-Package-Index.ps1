@@ -53,7 +53,7 @@ function Get-java-row($pkg)
 {
   $groupId = $pkg.GroupId
   $packageFormat = "maven [{1}](https://search.maven.org/artifact/${groupId}/{0}/{1}/jar/)"
-  $sourceFormat = "github [{1}](https://github.com/Azure/azure-sdk-for-java/tree/{0}_{1}/sdk/{2}/{0}/)"
+  $sourceFormat = "GitHub [{1}](https://github.com/Azure/azure-sdk-for-java/tree/{0}_{1}/sdk/{2}/{0}/)"
   
   return Get-Row $pkg "java" $packageFormat $sourceFormat
 }
@@ -61,21 +61,21 @@ function Get-java-row($pkg)
 function Get-js-row($pkg)
 {
   $packageFormat = "npm [{1}](https://www.npmjs.com/package/{0}/v/{1})"
-  $sourceFormat = "github [{1}](https://github.com/Azure/azure-sdk-for-js/tree/{0}_{1}/sdk/{2}/{0}/)"
+  $sourceFormat = "GitHub [{1}](https://github.com/Azure/azure-sdk-for-js/tree/{0}_{1}/sdk/{2}/{0}/)"
   return Get-Row $pkg "js" $packageFormat $sourceFormat
 }
 
 function Get-dotnet-row($pkg)
 {
   $packageFormat = "NuGet [{1}](https://www.nuget.org/packages/{0}/{1})"
-  $sourceFormat = "github [{1}](https://github.com/Azure/azure-sdk-for-net/tree/{0}_{1}/sdk/{2}/{0}/)"
+  $sourceFormat = "GitHub [{1}](https://github.com/Azure/azure-sdk-for-net/tree/{0}_{1}/sdk/{2}/{0}/)"
   return Get-Row $pkg "dotnet" $packageFormat $sourceFormat
 }
 
 function Get-python-row($pkg)
 {
   $packageFormat = "pypi [{1}](https://pypi.org/project/{0}/{1})"
-  $sourceFormat = "github [{1}](https://github.com/Azure/azure-sdk-for-python/tree/{0}_{1}/sdk/{2}/{0}/)"
+  $sourceFormat = "GitHub [{1}](https://github.com/Azure/azure-sdk-for-python/tree/{0}_{1}/sdk/{2}/{0}/)"
   return Get-Row $pkg "python" $packageFormat $sourceFormat
 }
 

@@ -586,7 +586,7 @@ Client libraries must support robust logging mechanisms so that the consumer can
 
 {% include requirement/MUST id="golang-tracing-span-name" %} use `<package name>.<type name>.<method name>` as the name of the span.
 
-{% include requirement/MUST id="golang-tracing-propagate" %} propagate tracing context on each outgoing service request through the appropriate headers to support a tracing service like [Azure Monitor](https://azure.microsoft.com/en-us/services/monitor/) or [ZipKin](https://zipkin.io/).  This is generally done with the HTTP pipeline.
+{% include requirement/MUST id="golang-tracing-propagate" %} propagate tracing context on each outgoing service request through the appropriate headers to support a tracing service like [Azure Monitor](https://azure.microsoft.com/services/monitor/) or [ZipKin](https://zipkin.io/).  This is generally done with the HTTP pipeline.
 
 # HTTP Pipeline and Policies
 
