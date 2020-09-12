@@ -12,6 +12,7 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 
 - Azure Core Serializer GSON JSON
 - Azure Core Serializer Jackson JSON
+- Azure Event Hubs
 - Form Recognizer
 - Management Library - AppService
 - Management Library - Authorization
@@ -24,6 +25,7 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 - Management Library - Network
 - Management Library - Resources
 - Management Library - Storage
+- Azure Service Bus
 
 #### Updates
 
@@ -41,6 +43,7 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 - Anomaly Detector
 - Event Grid
 - Azure Search Documents
+- Service Bus
 - Azure Tables
 - Management Library - CDN
 - Management Library - Container Instance
@@ -134,6 +137,18 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
     <groupId>com.azure</groupId>
     <artifactId>azure-messaging-eventgrid</artifactId>
     <version>2.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-messaging-eventhubs</artifactId>
+    <version>5.2.0</version>
+</dependency>
+
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-messaging-servicebus</artifactId>
+    <version>7.0.0-beta.6</version>
 </dependency>
 
 <dependency>
@@ -371,6 +386,13 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - General availability.
 
+### Azure Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md#520-2020-09-11)
+
+#### New Features
+
+- Add support for connection strings containing a Shared Access Signature.
+- Add options for controlling partition ownership expiration, load balancing strategy.
+
 ### Form Recognizer ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_3.0.0/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#300-2020-08-20))
 
 - General availability, stable version 3.0.0 released targetting v2.0 GA version of the Form Recognizer service
@@ -416,7 +438,19 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Event Grid ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md#200-beta1-2020-09-09))
 
-- Initial Preview release for Event Grid 
+- Initial Preview release for Event Grid
+
+### Azure Service Bus ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md#700-beta6-2020-09-11))
+
+#### New features
+- Add support for authenticating with a connection string containing a Shared Access Signature.
+
+#### Breaking changes
+- LockRenewalOperation is removed. Replaced with renewMessageLock and renewSessionLock.
+- ServiceBusDeadLetterReceiverBuilder is removed and replaced with `ServiceBusReceiverBuilder.subQueue(SubQueue)`.
+- Remove settlement methods that take `String lockToken` and replace with `ServiceBusReceivedMessage`.
+- Rename ServiceBusMangementClient to ServiceBusAdministrationClient.
+- Replace all return and parameter types of Instant with OffsetDateTime.
 
 ### Tables ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-data-tables_12.0.0-beta.1/sdk/tables/azure-data-tables/CHANGELOG.md#1200-beta1-2020-09-10))
 
