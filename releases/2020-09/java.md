@@ -10,6 +10,7 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 
 #### GA
 
+- Azure Core AMQP
 - Azure Core Serializer GSON JSON
 - Azure Core Serializer Jackson JSON
 - Azure Event Hubs
