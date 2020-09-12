@@ -10,7 +10,6 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 
 #### GA
 
-- Azure Core AMQP
 - Azure Core Serializer GSON JSON
 - Azure Core Serializer Jackson JSON
 - Form Recognizer
@@ -30,6 +29,7 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 
 - Azure App Configuration
 - Azure Core
+- Azure Core AMQP
 - Azure Core Http Netty
 - Azure Core Http OkHttp
 - Azure Event Hubs
