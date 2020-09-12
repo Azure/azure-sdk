@@ -13,7 +13,6 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 - Azure Core AMQP
 - Azure Core Serializer GSON JSON
 - Azure Core Serializer Jackson JSON
-- Azure Event Hubs
 - Form Recognizer
 - Management Library - AppService
 - Management Library - Authorization
@@ -26,7 +25,6 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 - Management Library - Network
 - Management Library - Resources
 - Management Library - Storage
-- Azure Service Bus
 
 #### Updates
 
@@ -34,6 +32,7 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 - Azure Core
 - Azure Core Http Netty
 - Azure Core Http OkHttp
+- Azure Event Hubs
 - Azure Search Documents
 - Form Recognizer
 
@@ -44,7 +43,7 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 - Anomaly Detector
 - Event Grid
 - Azure Search Documents
-- Service Bus
+- Azure Service Bus
 - Azure Tables
 - Management Library - CDN
 - Management Library - Container Instance
@@ -90,6 +89,12 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-core</artifactId>
   <version>1.8.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-core-amqp</artifactId>
+  <version>1.5.1</version>
 </dependency>
 
 <dependency>
@@ -337,6 +342,18 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - General performance fixes for serialization, URL modification and parsing, and more.
 - Improved request and response body logging performance by using bulk `ByteBuffer` reading instead of byte by byte reading.
 - Fixed bug where header logging checked for a log level of not equals `verbose` instead of equals `verbose`.
+
+
+### Azure Core AMQP ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-amqp/CHANGELOG.md#151-2020-09-10))
+
+#### New Features
+
+- Expose AmqpAnnotatedMessage, AmqpMessageHeader, and other AMQP properties.
+- Add support for authenticating with Shared Access Signatures.
+
+#### Bug Fixes
+
+- Close children sessions and links when its associated parent is disposed.
 
 ### Azure Core Experimental ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-experimental/CHANGELOG.md#100-beta4-2020-09-08))
 
