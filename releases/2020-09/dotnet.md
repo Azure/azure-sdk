@@ -54,6 +54,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Renamed `AnomalyDetectorClient.ChangePointDetectAsync` and `AnomalyDetectorClient.ChangePointDetect` to `AnomalyDetectorClient.DetectChangePointAsync` and `AnomalyDetectorClient.DetectChangePoint`.
 - Renamed `Request` to `DetectRequest`.
 - Renamed `Point` to `TimeSeriesPoint`.
+
 ### Event Grid [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md)
 
 - Initial beta release of Azure Event Grid client library
