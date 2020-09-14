@@ -33,6 +33,9 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 - Azure Core Http Netty
 - Azure Core Http OkHttp
 - Azure Event Hubs
+- Azure Key Vault Certificates
+- Azure Key Vault Keys
+- Azure Key Vault Secrets
 - Azure Search Documents
 - Form Recognizer
 - Azure Cosmos
@@ -41,6 +44,10 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 
 - Azure Core Experimental
 - Azure Core Serializer Apache Avro
+- Azure Key Vault Administration
+- Azure Key Vault Certificates
+- Azure Key Vault Keys
+- Azure Key Vault Secrets
 - Anomaly Detector
 - Event Grid
 - Azure Search Documents
@@ -302,9 +309,50 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 </dependency>
 
 <dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-security-keyvault-administration</artifactId>
+    <version>4.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-security-keyvault-certificates</artifactId>
+    <version>4.1.1</version>
+</dependency>
+
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-security-keyvault-certificates</artifactId>
+    <version>4.2.0-beta.1</version>
+</dependency>
+
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-security-keyvault-keys</artifactId>
+    <version>4.2.1</version>
+</dependency>
+
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-security-keyvault-keys</artifactId>
+    <version>4.3.0-beta.1</version>
+</dependency>
+
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-security-keyvault-secrets</artifactId>
+    <version>4.2.1</version>
+</dependency>
+
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-security-keyvault-secrets</artifactId>
+    <version>4.3.0-beta.1</version>
+</dependency>
+
+<dependency>
   <groupId>com.azure</groupId>
-  <artifactId>
-  </artifactId>
+  <artifactId>azure-cosmos</artifactId>
   <version>4.4.0</version>
 </dependency>
 ```
@@ -426,6 +474,22 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### Breaking changes
 
 - Renamed `BoundingBox` model to `FieldBoundingBox`
+
+### Azure Key Vault Administration 4.0.0-beta.1 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-administration/CHANGELOG.md#400-beta1-2020-09-11))
+
+#### New features
+- Added two new clients for performing Role-based Access Control (RBAC) operations on Key Vault: `KeyVaultAccessControlClient` and `KeyVaultAccessControlAsyncClient`.
+- Added two new clients for performing backup and restore operations on Key Vault: `KeyVaultBackupClient` and `KeyVaultBackupAsyncClient`.
+
+### Azure Key Vault Certificates 4.3.0-beta.1 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md#420-beta1-2020-09-11))
+
+#### Key Bug Fixes
+- Fixed an issue that prevented using classes from package `com.azure.security.keyvault.certificates` when working on a project using Java 9+.
+
+### Azure Key Vault Keys 4.3.0-beta.1 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md#430-beta1-2020-09-11))
+
+#### Key Bug Fixes
+- Fixed an issue that prevented using classes from package `com.azure.security.keyvault.keys` when working on a project using Java 9+.
 
 ### Anomaly Detector ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-anomalydetector_3.0.0-beta.1/sdk/anomalydetector/azure-ai-anomalydetector/CHANGELOG.md#300-beta1-2020-08-27))
 
