@@ -35,7 +35,7 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 - Azure Event Hubs
 - Azure Search Documents
 - Form Recognizer
-- Azure-Cosmos
+- Azure Cosmos
 
 #### Preview
 
@@ -303,7 +303,8 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 
 <dependency>
   <groupId>com.azure</groupId>
-  <artifactId>azure-cosmos</artifactId>
+  <artifactId>
+  </artifactId>
   <version>4.4.0</version>
 </dependency>
 ```
