@@ -35,6 +35,7 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 - Azure Event Hubs
 - Azure Search Documents
 - Form Recognizer
+- Azure-Cosmos
 
 #### Preview
 
@@ -299,6 +300,12 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <artifactId>azure-resourcemanager-trafficmanager</artifactId>
   <version>2.0.0-beta.4</version>
 </dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-cosmos</artifactId>
+  <version>4.4.0</version>
+</dependency>
 ```
 If you are using multiple management libraries in your project and want to import all libraries altogether, you can also choose to use the following wrapper package
 
@@ -473,6 +480,17 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 ### Tables ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-data-tables_12.0.0-beta.1/sdk/tables/azure-data-tables/CHANGELOG.md#1200-beta1-2020-09-10))
 
 - Initial preview release for Azure Tables
+
+### Azure Cosmos ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-cosmos/CHANGELOG.md#440-2020-09-12))
+
+#### 4.4.0 (2020-09-12)
+
+#### Key Bug Fixes
+
+- Fixed RequestTimeoutException when enabling `netty-tcnative-boringssl` dependency.
+- Fixed memory leak issue on Delete operations in `GATEWAY` mode.
+- Fixed a leak in `CosmosClient` instantiation when endpoint uri is invalid.
+- Improved `CPU History` diagnostics.
 
 ### Management Libraries
 
