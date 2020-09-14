@@ -71,32 +71,21 @@ We are pleased to announce the general availability (GA) of the `@azure/ai-form-
 
 ### Azure Storage
 
+- Bug Fixes - Undid the workaround for axios where the Content-Length header is removed before the request is passed to underlying http client. The workaround leads to HMAC signature miss-match for users using http clients like the default node http client which do not set the header themselves. Fixes bugs [8903](https://github.com/Azure/azure-sdk-for-js/issues/8903), [9300](https://github.com/Azure/azure-sdk-for-js/issues/9300) and [10614](https://github.com/Azure/azure-sdk-for-js/issues/10614).
+
 #### Azure Storage Blob [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/CHANGELOG.md)
 
 ##### New Features on @azure/storage-blob@12.2.0
 
-- Supported RehydratePriority.
-- Supported Object Replication Service.
-- Supported Append Blob Seal.
-- Supported Tags conditional operations.
+- Supported [Tags Conditional Operations](https://docs.microsoft.com/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations#tags-conditional-operations). Now you can specify conditions against the tags on a blob resource for several read and write operations.
 - The Static Website Service now supports a DefaultIndexDocumentPath for a global HTTP 200 route within the static website. You can get it by `BlobServiceClient.getProperties()` and set it via `blobServiceClient.setProperties()`.
-
-##### Major Fixes on @azure/storage-blob@12.2.0
-
-- The `credential` parameter of `newPipeline()` function is now optional. If not specified, `AnonymousCredential` is used. Fixes bug [9628](https://github.com/Azure/azure-sdk-for-js/issues/9628).
-- High level upload functions `BlockBlobClient.uploadFile()`, `BlockBlobClient.uploadStream()` and `BlockBlobClient.uploadBrowserData()` now support setting tier. Fixes bug [9062](https://github.com/Azure/azure-sdk-for-js/issues/9062).
-- The Content-Length header is no longer ignored. Fixes bugs [8903](https://github.com/Azure/azure-sdk-for-js/issues/8903), [9300](https://github.com/Azure/azure-sdk-for-js/issues/9300) and [10614](https://github.com/Azure/azure-sdk-for-js/issues/10614).
+- High level upload functions `BlockBlobClient.uploadFile()`, `BlockBlobClient.uploadStream()` and `BlockBlobClient.uploadBrowserData()` now support setting tier via the `tier` option. See [issue 9062](https://github.com/Azure/azure-sdk-for-js/issues/9062).
 
 #### Azure Data Lake Storage [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/CHANGELOG.md)
 
 ##### New Features on @azure/storage-file-datalake@12.1.0
 
-- Supported Quick Query. Added a new API `DataLakeFileClient.query()`.
-
-##### Major Fixes on @azure/storage-file-datalake@12.1.0
-
-- The `credential` parameter of `newPipeline()` function is now optional. If not specified, `AnonymousCredential` is used. Fixes bug [9628](https://github.com/Azure/azure-sdk-for-js/issues/9628).
-- The Content-Length header is no more ignored. Fixes bugs [8903](https://github.com/Azure/azure-sdk-for-js/issues/8903), [9300](https://github.com/Azure/azure-sdk-for-js/issues/9300) and [10614](https://github.com/Azure/azure-sdk-for-js/issues/10614).
+- Supported Query Blob Contents. Added a new API `DataLakeFileClient.query()`. This API applies a simple Structured Query Language (SQL) statement on a blob's contents and returns only the queried subset of the data. You can also call Query Blob Contents to query the contents of a version or snapshot. Learn more at [Query Blob Content REST API](https://docs.microsoft.com/rest/api/storageservices/query-blob-contents)
 
 #### Azure Storage File Share [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/CHANGELOG.md)
 
@@ -104,24 +93,13 @@ We are pleased to announce the general availability (GA) of the `@azure/ai-form-
 
 - Supported share soft delete. Added `undeleteShare` to `ShareServiceClient`. `listShares` now can return deleted shares. Note: share soft delete only take effect on accounts with share soft delete feature enabled.
 
-##### Major Fixes on @azure/storage-file-share@12.2.0
-
-- The `credential` parameter of `newPipeline()` function is now optional. If not specified, `AnonymousCredential` is used. Fixes bug [9628](https://github.com/Azure/azure-sdk-for-js/issues/9628).
-- The Content-Length header is no more ignored. Fixes bugs [8903](https://github.com/Azure/azure-sdk-for-js/issues/8903), [9300](https://github.com/Azure/azure-sdk-for-js/issues/9300) and [10614](https://github.com/Azure/azure-sdk-for-js/issues/10614).
-
 #### Azure Storage Queue [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/CHANGELOG.md)
-
-##### Major Fixes on @azure/storage-queue@12.1.0
-
-- The `credential` parameter of `newPipeline()` function is now optional. If not specified, `AnonymousCredential` is used. Fixes bug [9628](https://github.com/Azure/azure-sdk-for-js/issues/9628).
-- The Content-Length header is no longer ignored. Fixes bugs [8903](https://github.com/Azure/azure-sdk-for-js/issues/8903), [9300](https://github.com/Azure/azure-sdk-for-js/issues/9300) and [10614](https://github.com/Azure/azure-sdk-for-js/issues/10614).
 
 #### Azure Storage Blob Change Feed [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob-changefeed/CHANGELOG.md)
 
 ##### New Features on @azure/storage-blob-change-feed@12.0.0-preview.2
 
-- Supported `abortSignal` when fetching Change Feed events.
-- Added new constructor overloads for the `BlobChangeFeedClient`.
+- Added new constructor overloads for the `BlobChangeFeedClient` to support initializing with storage account credentials.
 
 
 ### Azure Event Hubs
