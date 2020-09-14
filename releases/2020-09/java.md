@@ -428,8 +428,8 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 ### Azure Key Vault Administration 4.0.0-beta.1 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-administration/CHANGELOG.md#400-beta1-2020-09-11))
 
 #### New features
-- Added two new clients for performing Role-based Access Control (RBAC) operations on Key Vault: `KeyVaultAccessControlClient` & `KeyVaultAccessControlAsyncClient`.
-- Added two new clients for performing backup and restore operations on Key Vault: `KeyVaultBackupClient` & `KeyVaultBackupAsyncClient`.
+- Added two new clients for performing Role-based Access Control (RBAC) operations on Key Vault: `KeyVaultAccessControlClient` and `KeyVaultAccessControlAsyncClient`.
+- Added two new clients for performing backup and restore operations on Key Vault: `KeyVaultBackupClient` and `KeyVaultBackupAsyncClient`.
 
 ### Azure Key Vault Certificates 4.3.0-beta.1 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md#420-beta1-2020-09-11))
 
