@@ -102,7 +102,7 @@ We're releasing a new preview for the Azure Event Grid client, with some API imp
 
 #### Azure Key Vault
 
-We are introducing a new package `@azure/keyvault-admin` that provides support for 
+We are introducing a new package `@azure/keyvault-admin` that provides support for:
 - role-based access control (RBAC) operations like assigning, deleting and retrieving role assignments, and retrieving role definitions.
 - backup/restore operations for whole Key Vault instances, and selective restores of keys.
 
