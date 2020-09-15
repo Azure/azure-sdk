@@ -37,6 +37,7 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 - Azure Key Vault Keys
 - Azure Key Vault Secrets
 - Azure Search Documents
+- Azure Spring Cloud
 - Form Recognizer
 - Azure Cosmos
 
@@ -376,6 +377,100 @@ If you are using multiple management libraries in your project and want to impor
 
 ```
 
+To use Azure Spring Cloud starters and binders, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate.
+
+```xml
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>spring-cloud-azure-context</artifactId>
+  <version>1.2.8</version>
+</dependency>
+
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>spring-cloud-azure-eventhubs-stream-binder</artifactId>
+  <version>1.2.8</version>
+</dependency>
+
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>spring-cloud-azure-servicebus-queue-stream-binder</artifactId>
+  <version>1.2.8</version>
+</dependency>
+
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>spring-cloud-azure-servicebus-topic-stream-binder</artifactId>
+  <version>1.2.8</version>
+</dependency>
+
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>spring-cloud-azure-servicebus-stream-binder-core</artifactId>
+    <version>1.2.8</version>
+</dependency>
+
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>spring-starter-azure-cache</artifactId>
+  <version>1.2.8</version>
+</dependency>
+
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>spring-cloud-starter-azure-eventhubs</artifactId>
+  <version>1.2.8</version>
+</dependency>
+
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>spring-cloud-starter-azure-eventhubs-kafka</artifactId>
+  <version>1.2.8</version>
+</dependency>
+
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>spring-cloud-starter-azure-servicebus</artifactId>
+  <version>1.2.8</version>
+</dependency>
+
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>spring-starter-azure-storage</artifactId>
+    <version>1.2.8</version>
+</dependency>
+
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>spring-cloud-starter-azure-storage-queue</artifactId>
+    <version>1.2.8</version>
+</dependency>
+
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>spring-cloud-azure-storage</artifactId>
+    <version>1.2.8</version>
+</dependency>
+
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>spring-integration-eventhubs</artifactId>
+    <version>1.2.8</version>
+</dependency>
+
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>spring-integration-servicebus</artifactId>
+    <version>1.2.8</version>
+</dependency>
+
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>spring-integration-storage-queue</artifactId>
+    <version>1.2.8</version>
+</dependency>
+
+```
 ## Feedback
 
 If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/azure/azure-sdk-for-java/issues).
@@ -525,6 +620,18 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### Breaking Changes
 
 - Updated Jackson annotations to include `required = true` when service must receive or return the property.
+
+### Azure Spring Cloud ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-cloud-autoconfigure/CHANGELOG.md#128-2020-09-14))
+
+#### New features
+
+- Enable Storage starter to support overwriting blob data.
+- Enable Actuator for storage blob.
+- Enable scheduled enqueue message in Service Bus binders.
+
+#### Key Bug Fixes
+
+- Fixed the repeated consumption of Event Hubs messages when the checkpoint mode is BATCH.
 
 ### Event Grid ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md#200-beta1-2020-09-09))
 
