@@ -65,7 +65,7 @@ We are pleased to announce the general availability (GA) of the `@azure/ai-form-
 
 #### Major Fixes
 
-- Undid the workaround for axios where the Content-Length header is removed before the request is passed to underlying http client. The workaround leads to HMAC signature miss-match for users using http clients like the default node http client which do not set the header themselves.
+- Reverted the workaround for axios where the Content-Length header is removed before the request is passed to underlying http client. The workaround leads to HMAC signature miss-match for users using http clients like the default node http client which do not set the header themselves.
 
 #### New Features in Azure Storage Blob ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/CHANGELOG.md))
 
