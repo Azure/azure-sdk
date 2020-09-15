@@ -25,8 +25,6 @@ The Azure SDK team is pleased to make available the September 2020 client librar
 - Tables
 - Identity
 - Key Vault Administration
-- Schema Registry
-- Schema Registry Avro Serializer
 - Service Bus
 
 ## Installation Instructions
@@ -45,8 +43,6 @@ pip install azure-eventhubs
 pip install azure-eventhub-checkpointstoreblob
 pip install azure-eventhub-checkpointstoreblob-aio
 pip install azure-data-tables
-pip install azure-schemaregistry
-pip install azure-schemaregistry-avroserializer
 pip install azure-servicebus --pre
 ```
 
@@ -116,18 +112,6 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### Features
 
 - Azure Data Tables v2 preview SDK (v12.0.0b1) is released with support for Storage and CosmosDB
-
-### Schema Registry [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/schemaregistry/azure-schemaregistry/CHANGELOG.md)
-
-#### Features
-
-- Azure Schema Registry v1 preview SDK (1.0.0b1) is released with support for schema registration and retrieval.
-
-### Schema Registry Avro Serializer [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/schemaregistry/azure-schemaregistry/CHANGELOG.md)
-
-#### Features
-
-- Azure Schema Registry Avro Serializer v1 preview SDK (1.0.0b1) is released with support for avro data serialization and deserialization along with automatic schema registration and retrieval.
 
 ### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/CHANGELOG.md)
 
