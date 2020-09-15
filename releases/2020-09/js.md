@@ -197,12 +197,14 @@ We're releasing a new preview for the Azure Service Bus, with some API changes a
 
 #### New Features in @azure/service-bus@7.0.0-preview.6
   
-- Support using the SharedAccessSignature from the connection string.
+- Support a new key-value pair in the connection string for the Shared Access Signature. The key to use is `SharedAccessSignature`.
   ([PR 10951](https://github.com/Azure/azure-sdk-for-js/pull/10951)).
 - Added a new field `amqpAnnotatedMessage` to the received message which will hold the received
   message in its raw form, complete with all parts of the message as per the [AMQP spec](https://www.amqp.org/sites/amqp.org/files/amqp.pdf).
 - Added `ServiceBusAdministrationClient.ruleExists()`
 
+- Options to create a queue and topic now support `enableExpress` boolean property. `enableExpress` indicates whether Express Entities are enabled on a queue or topic. An express queue holds a message in memory temporarily before writing it to persistent storage.
+  [PR 10984](https://github.com/Azure/azure-sdk-for-js/pull/10984)
 
 ### Azure Tables
 
@@ -210,11 +212,6 @@ We're releasing the first beta version of the new Azure Tables client, following
 
 #### Azure Tables [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/tables/data-tables/CHANGELOG.md)
 
-##### New Features on @azure/data-tables@1.0.0-beta.1
-
-- First beta release of this new package.
-- Provides client API to interact with the Azure Tables service
-- [Readme](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/tables/data-tables/README.md)
 
 
 ## Latest Releases
