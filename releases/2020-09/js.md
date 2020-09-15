@@ -111,7 +111,7 @@ We are pleased to announce the general availability (GA) of the `@azure/ai-form-
 - Adds `loadBalancingOptions` to the `EventHubConsumerClient` to add control around
   how aggressively the client claims partitions while load balancing.
   ([PR 9706](https://github.com/Azure/azure-sdk-for-js/pull/9706)).
-- Support using the SharedAccessSignature from the connection string.
+- Support a new key-value pair in the connection string for the Shared Access Signature. The key to use is `SharedAccessSignature`.
   ([PR 10951](https://github.com/Azure/azure-sdk-for-js/pull/10951)).
 
 
@@ -128,7 +128,10 @@ We're releasing a new preview for the Azure Event Grid client, with some API imp
 
 #### Azure Key Vault
 
-We're releasing four beta versions of the Azure Key Vault packages. The the `4.2.0-beta.1` version of Key Vault Keys, Secrets and Certificates have a new feature that allows parsing the Ids of their respective keys, secrets and certficates. The package for Key Vault Keys in particular now provides a new client called `LocalCryptographyClient`. We're also announcing a brand new package called Key Vault Administration (`@azure/keyvault-admin` on NPM) which is releasing two new clients, `KeyVaultAccessControlClient` and `KeyVaultBackupClient`.
+
+We are introducing a new package `@azure/keyvault-admin` that provides support for role-based access control (RBAC) operations and backup/restore operations for whole Key Vault instances.
+
+For Key Vault Keys, Secrets and Certificates packages, we are releasing a beta for the next version that exports a function to parse the key/secret/certificate id and return the different components like the vault url, name and version of the key/secret/certificate.
 
 #### Changelogs
 
