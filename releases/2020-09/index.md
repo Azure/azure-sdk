@@ -14,7 +14,6 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 * Azure Form Recognizer Client Library GA release supporting v2.0 GA version of the Form Recognizer service
 * Azure Tables Client Libraries Beta 1 release
 * Azure Event Grid Client Libraries Beta 1 release with support for CloudEvent
-* Azure Schema Registry Beta 1 release
 * Azure Cognitive Search Client Library for Java added `buildSearchFields` to `SearchIndexClient` and `SearchIndexAsyncClient` to help easily build a search index from a model type.
 * Azure Cognitive Search Client Library beta release of document indexing clients.
 * Azure Core Serializer GSON and Jackson for Java GA release supporting pluggable serialization in SDKs.
