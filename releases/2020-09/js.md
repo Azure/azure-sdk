@@ -184,7 +184,7 @@ We're releasing a new preview for the Azure Service Bus, with some API changes a
 - Renames:
   - The `ServiceBusManagementClient` has been renamed to `ServiceBusAdministrationClient`. See
     [Issue 11012](https://github.com/Azure/azure-sdk-for-js/issues/11012) for more details.
-  - All senders and receivers are now prefixed with `ServiceBus`: `ServiceBusSender`, `ServiceBusReceiver`, `ServiceBusSessionReceiver`
+  - Sender, Receivers, and the ReceivedMessage interfaces are now prefixed with `ServiceBus`: `ServiceBusSender`, `ServiceBusReceiver`, `ServiceBusSessionReceiver`, `ServiceBusReceivedMessage` and `ServiceBusReceivedMessageWithLock`.
   - Lock duration fields for receivers have been renamed to apply to message locks and session locks:
     - `maxMessageAutoRenewLockDurationInMs` to `maxAutoRenewLockDurationInMs`
     - `autoRenewLockDurationInMs` -> `maxAutoRenewLockDurationInMs`
