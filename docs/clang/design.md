@@ -203,8 +203,8 @@ static int64_t compute_hash(int32_t a, int32_t b) {
 
 {% include requirement/SHOULD id="clang-design-naming-paramnames" %} use a meaningful name for parameters and local variable names.  Parameters and local variable names should be named as all lower-case words, separated by underscores (snake-casing).
 
-{% include requirements/MUSTNOT id="clang-design-const-parameters" %} use first level const for parameters or return types. Pointers to const are fine. First level const on function parameters does not
-provide any additional grantees to the caller, and can be confusing. For example:
+{% include requirements/MUSTNOT id="clang-design-const-parameters" %} use first level const for parameters or return types. Pointers to const are fine. First level const on function parameters do not
+provide any additional guarantees to the caller, and can be confusing. For example:
 
 This is not OK:
 ```c
