@@ -22,6 +22,9 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 - Anomaly Detector
 - Event Grid
 - Schema Registry
+- Management Library - CosmosDB
+- Management Library - DNS
+- Management Library - Insight
 
 ## Installation Instructions
 
@@ -36,6 +39,10 @@ $> dotnet add package Azure.Messaging.EventGrid --version 4.0.0-beta.1
 
 $> dotnet add package Azure.Messaging.EventHubs
 $> dotnet add package Azure.Messaging.EventHubs.Processor
+
+$> dotnet install Azure.ResourceManager.CosmosDB --version 1.0.0-preview.1
+$> dotnet install Azure.ResourceManager.Dns --version 1.0.0-preview.1
+$> dotnet install Azure.ResourceManager.Monitor --version 1.0.0-preview.1
 ```
 
 ## Feedback
@@ -95,6 +102,11 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 ### Schema Registry - Apache Avro [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/schemaregistry/Microsoft.Azure.Data.SchemaRegistry.ApacheAvro/CHANGELOG.md)
 
 - Initial beta release of Azure Schema Registry - Apache Avro library
+
+### New Management Libraries
+A new set of management libraries that follow the [Azure SDK Design Guidelines for .NET](https://azure.github.io/azure-sdk/dotnet_introduction.html) and based on [Azure.Core libraries](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/core/Azure.Core) are now in Public Preview. These new libraries provide a number of core capabilities that are shared amongst all Azure SDKs, including the intuitive Azure Identity library, an HTTP Pipeline with custom policies, error-handling, distributed tracing, and much more. You can find the list of new packages [on this page](https://azure.github.io/azure-sdk/releases/latest/dotnet.html).
+
+To get started with these new libraries, please see the [quickstart guide here](http://aka.ms/azsdk/dotnet/mgmt). These new libraries can be identifed by namespaces that start with `Azure.ResourceManager`, e.g. `Azure.ResourceManager.Network`
 
 ## Latest Releases
 
