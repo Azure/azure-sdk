@@ -93,8 +93,12 @@ function Write-Markdown($lang)
   {
     $fileContent += &$LangFunction $pkg 
   }
-  
-  $mdfile = Join-Path $outputFolder "$lang-new.md"
+  $fileLang = $lang
+  if ($lang -eq "js") { 
+    $fileLang = "javascript" 
+  }
+
+  $mdfile = Join-Path $outputFolder "$fileLang-new.md"
   Write-Host "Writing $mdfile"
   Set-Content $mdfile -Value $fileContent -NoNewline
 
@@ -106,7 +110,7 @@ function Write-Markdown($lang)
     $allFileContent += &$LangFunction $pkg
   }
 
-  $allMdfile = Join-Path $outputFolder "$lang-all.md"
+  $allMdfile = Join-Path $outputFolder "$fileLang-all.md"
   Write-Host "Writing $allMdfile"
   Set-Content $allMdfile -Value $allFileContent -NoNewline
 }
