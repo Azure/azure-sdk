@@ -40,6 +40,7 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 - Azure Spring Cloud
 - Form Recognizer
 - Azure Cosmos
+- Azure Spring Boot
 
 #### Preview
 
@@ -471,6 +472,46 @@ To use Azure Spring Cloud starters and binders, refer to the Maven dependency in
 </dependency>
 
 ```
+
+To use Azure Spring Boot starters, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate.
+```xml
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>azure-active-directory-b2c-spring-boot-starter</artifactId>
+  <version>2.3.5</version>
+</dependency>
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>azure-active-directory-spring-boot-starter</artifactId>
+  <version>2.3.5</version>
+</dependency>
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>azure-cosmosdb-spring-boot-starter</artifactId>
+  <version>2.3.5</version>
+</dependency>
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>azure-data-gremlin-spring-boot-starter</artifactId>
+  <version>2.3.5</version>
+</dependency>
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>azure-keyvault-secrets-spring-boot-starter</artifactId>
+  <version>2.3.5</version>
+</dependency>
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>azure-spring-boot-metrics-starter</artifactId>
+  <version>2.3.5</version>
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>azure-servicebus-jms-spring-boot-starter</artifactId>
+  <version>2.3.5</version>
+</dependency>
+</dependency>
+
+```
 ## Feedback
 
 If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/azure/azure-sdk-for-java/issues).
@@ -687,6 +728,12 @@ These new packages share the same groupId ``com.azures.resourcemanager`` and art
 #### Bug Fixes
 
 - Changed `Fluent` annotations to `Immutable` when the class is immutable.
+
+### Azure Spring Boot ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot/CHANGELOG.md#235-2020-09-14))
+
+#### Key Bug Fixes
+- Exclude disabled secrets when getting Key Vault secrets
+- Get full list of groups the user belongs to from Graph API
 
 ## Need help
 
