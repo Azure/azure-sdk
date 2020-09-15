@@ -664,6 +664,20 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Fixed a leak in `CosmosClient` instantiation when endpoint uri is invalid.
 - Improved `CPU History` diagnostics.
 
+### Azure Cosmos ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-cosmos/CHANGELOG.md#440-beta1-2020-08-27))
+
+#### 4.4.0-beta.1 (2020-08-27)
+
+#### New Features
+- Added new API to efficiently load many documents (via list of pk/id pairs or all documents for a set of pk values).
+- Added new `deleteItem` API.
+- Enabled query metrics by default.
+
+#### Key Bug Fixes
+- Fixed NPE in `GatewayAddressCache`.
+- Fixing query metric issue for zero item response.
+- Improved performance (reduced CPU usage) for address parsing and Master-Key authentication.
+
 ### Management Libraries
 
 We are excited to announce the GA releases of management libraries that follow the [Azure SDK Design Guidelines for Java](https://azure.github.io/azure-sdk/java/guidelines/). In addition, more management libraries are now in Public Preview to provide better Azure service coverage. These new libraries provide a higher-level, object-oriented API for managing Azure resources, that is optimized for ease of use, succinctness and consistency. You can find the list of new packages [on this page](https://azure.github.io/azure-sdk/releases/latest/java.html). Detailed documentation and code samples for these new libraries can be [found here](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/resourcemanager)
