@@ -53,115 +53,73 @@ npm install @azure/storage-blob-changefeed@next
 
 If you have a bug or feature request for one of the libraries, please post an issue at the [azure-sdk-for-js repository](https://github.com/azure/azure-sdk-for-js/issues)
 
-### Azure Form Recognizer
+### Azure Form Recognizer ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md))
 
 We are pleased to announce the general availability (GA) of the `@azure/ai-form-recognizer` package version 3.0.0.
 
-#### Azure Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
-
-##### Features
+#### Features
 - Train and utilize custom and/or predefined AI models to extract information from text document images.
 - Uses the Azure Form Recognizer v2.0 (GA) endpoint for the latest service features.
 
-
 ### Azure Storage
 
-- Bug Fixes - Undid the workaround for axios where the Content-Length header is removed before the request is passed to underlying http client. The workaround leads to HMAC signature miss-match for users using http clients like the default node http client which do not set the header themselves. Fixes bugs [8903](https://github.com/Azure/azure-sdk-for-js/issues/8903), [9300](https://github.com/Azure/azure-sdk-for-js/issues/9300) and [10614](https://github.com/Azure/azure-sdk-for-js/issues/10614).
+#### Major Fixes
 
-#### Azure Storage Blob [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/CHANGELOG.md)
+- Undid the workaround for axios where the Content-Length header is removed before the request is passed to underlying http client. The workaround leads to HMAC signature miss-match for users using http clients like the default node http client which do not set the header themselves.
 
-##### New Features on @azure/storage-blob@12.2.0
+#### New Features in Azure Storage Blob ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/CHANGELOG.md))
 
 - Supported [Tags Conditional Operations](https://docs.microsoft.com/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations#tags-conditional-operations). Now you can specify conditions against the tags on a blob resource for several read and write operations.
 - The Static Website Service now supports a DefaultIndexDocumentPath for a global HTTP 200 route within the static website. You can get it by `BlobServiceClient.getProperties()` and set it via `blobServiceClient.setProperties()`.
-- High level upload functions `BlockBlobClient.uploadFile()`, `BlockBlobClient.uploadStream()` and `BlockBlobClient.uploadBrowserData()` now support setting tier via the `tier` option. See [issue 9062](https://github.com/Azure/azure-sdk-for-js/issues/9062).
+- High level upload functions `BlockBlobClient.uploadFile()`, `BlockBlobClient.uploadStream()` and `BlockBlobClient.uploadBrowserData()` now support setting tier like `Hot`, `Cool` or `Archive` via the `tier` option.
 
-#### Azure Data Lake Storage [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/CHANGELOG.md)
-
-##### New Features on @azure/storage-file-datalake@12.1.0
+#### New Features in Azure Data Lake Storage ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/CHANGELOG.md))
 
 - Supported Query Blob Contents. Added a new API `DataLakeFileClient.query()`. This API applies a simple Structured Query Language (SQL) statement on a blob's contents and returns only the queried subset of the data. You can also call Query Blob Contents to query the contents of a version or snapshot. Learn more at [Query Blob Content REST API](https://docs.microsoft.com/rest/api/storageservices/query-blob-contents)
 
-#### Azure Storage File Share [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/CHANGELOG.md)
-
-##### New Features on @azure/storage-file-share@12.2.0
+#### New Features in Azure Storage File Share ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/CHANGELOG.md))
 
 - Supported share soft delete. Added `undeleteShare` to `ShareServiceClient`. `listShares` now can return deleted shares. Note: share soft delete only take effect on accounts with share soft delete feature enabled.
 
-#### Azure Storage Queue [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/CHANGELOG.md)
-
-#### Azure Storage Blob Change Feed [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob-changefeed/CHANGELOG.md)
-
-##### New Features on @azure/storage-blob-change-feed@12.0.0-preview.2
+#### New Features in Azure Storage Blob Change Feed ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob-changefeed/CHANGELOG.md))
 
 - Added new constructor overloads for the `BlobChangeFeedClient` to support initializing with storage account credentials.
 
+### Azure Event Hubs ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/CHANGELOG.md))
 
-### Azure Event Hubs
+#### New Features
 
-#### Azure Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/CHANGELOG.md)
-
-#### New Features in @azure/event-hubs@5.3.0
-
-- Adds `loadBalancingOptions` to the `EventHubConsumerClient` to add control around how aggressively the client claims partitions while load balancing.
+- Added `loadBalancingOptions` to the `EventHubConsumerClient` to add control around how aggressively the client claims partitions while load balancing.
 - Support a new key-value pair in the connection string for the Shared Access Signature. The key to use is `SharedAccessSignature`.
 
-
-#### Azure Event Grid
+#### Azure Event Grid ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventgrid/eventgrid/CHANGELOG.md))
 
 We're releasing a new preview for the Azure Event Grid client, with some API improvements. This release is a preview of our efforts to create a client library that is user friendly and idiomatic to the JavaScript ecosystem. The reasons for most of the changes in this update can be found in the [Azure SDK Design Guidelines for TypeScript](https://azure.github.io/azure-sdk/typescript_introduction.html).
 
-##### Azure Event Grid [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventgrid/eventgrid/CHANGELOG.md)
-
-##### New Features on @azure/eventgrid@3.0.0-beta.1
+##### New Features
 
 - The Event Grid SDK now supports sending and deserializing events using the [Cloud Events 1.0 schema](https://cloudevents.io/).
 
-
 #### Azure Key Vault
 
-
-We are introducing a new package `@azure/keyvault-admin` that provides support for role-based access control (RBAC) operations and backup/restore operations for whole Key Vault instances.
+We are introducing a new package `@azure/keyvault-admin` that provides support for 
+- role-based access control (RBAC) operations like assigning, deleting and retrieving role assignments, and retrieving role definitions.
+- backup/restore operations for whole Key Vault instances, and selective restores of keys.
 
 For Key Vault Keys, Secrets and Certificates packages, we are releasing a beta for the next version that exports a function to parse the key/secret/certificate id and return the different components like the vault url, name and version of the key/secret/certificate.
 
 #### Changelogs
 
-- [Key Vault Keys](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-keys/CHANGELOG.md).
-- [Key Vault Secrets](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-secrets/CHANGELOG.md).
-- [Key Vault Certificates](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-certificates/CHANGELOG.md).
-- [Key Vault Administration](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-admin/CHANGELOG.md).
+- [Key Vault Keys](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-keys/CHANGELOG.md)
+- [Key Vault Secrets](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-secrets/CHANGELOG.md)
+- [Key Vault Certificates](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-certificates/CHANGELOG.md)
+- [Key Vault Administration](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-admin/CHANGELOG.md)
 
-##### New Features on @azure/keyvault-keys@4.2.0-beta.1
-
-- Added `parseKeyVaultKeysIdentifier` and `ParsedKeyVaultKeysIdentifier` to help with parsing the unique identifiers of Key Vault Keys.
-- Added the basic structure of a new client to perform local cryptography operations, which is now called `LocalCryptographyClient`.  
-  - The existing `CryptographyClient`, when initialized, will create one instance of a local cryptography client, which can be retrieved by calling to a new method that is part of the `CryptographyClient` class: `getLocalCryptographyClient()`.
-  - The `LocalCryptographyClient` currently has limited support of the cryptography operations available on the `CryptographyClient`. More operations will be added over time.
-
-##### New Features on @azure/keyvault-secrets@4.2.0-beta.1
-
-- Added `parseKeyVaultSecretsIdentifier` and `ParsedKeyVaultSecretsIdentifier` to help with parsing the unique identifiers of Key Vault Secrets.
-
-##### New Features on @azure/keyvault-certificates@4.2.0-beta.1
-
-- Added `parseKeyVaultCertificatesIdentifier` and `ParsedKeyVaultCertificatesIdentifier` to help with parsing the unique identifiers of Key Vault Certificates.
-
-##### New Features on @azure/keyvault-admin@4.0.0-beta.1
-
-The @azure/keyvault-admin package provides two clients, `KeyVaultAccessControlClient` and `KeyVaultBackupClient`.
-
-- The `KeyVaultAccessControlClient` allows working with role-based access control (RBAC) operations, meaning assigning, deleting and retrieving role assignments, and retrieving role definitions.
-- The `KeyVaultBackupClient` allows generating full backups and restores of Key Vault instances, and selective restores of keys.
-
-
-### Azure Service Bus
+### Azure Service Bus ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md))
 
 We're releasing a new preview for the Azure Service Bus, with some API changes and new features.
 
-#### Azure Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md)
-
-#### Breaking Changes in @azure/service-bus@7.0.0-preview.6
+#### Breaking Changes
 
 - API Changes:
   - `SessionReceiver.sessionLockedUntilUtc` is readonly and never undefined.
@@ -189,7 +147,7 @@ We're releasing a new preview for the Azure Service Bus, with some API changes a
     - `ServiceBusManagementClientOptions` for `ServiceBusManagementClient` is replaced by `PipelineOptions` from `@azure/core-http`
     - `AuthorizationRule.accessRights` type has been changed to be a string union with the available rights.
 
-#### New Features in @azure/service-bus@7.0.0-preview.6
+#### New Features
   
 - Support a new key-value pair in the connection string for the Shared Access Signature. The key to use is `SharedAccessSignature`.
 - Added a new field `amqpAnnotatedMessage` to the received message which will hold the received
@@ -197,36 +155,21 @@ We're releasing a new preview for the Azure Service Bus, with some API changes a
 - Added `ServiceBusAdministrationClient.ruleExists()`
 - Options to create a queue and topic now support `enableExpress` boolean property. `enableExpress` indicates whether Express Entities are enabled on a queue or topic. An express queue holds a message in memory temporarily before writing it to persistent storage.
 
-### Azure Tables
+### Azure Tables ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/tables/data-tables/CHANGELOG.md))
 
 We're releasing the first beta version of the new Azure Tables client, following our [guidelines](https://azure.github.io/azure-sdk/typescript_introduction.html) which ensures it is idiomatic, consistent, and diagnosable. It supports essential operations of the service, such as creating and deleting tables, as well as querying, creating, reading, updating and deleting entities.
 
-#### Azure Tables [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/tables/data-tables/CHANGELOG.md)
+### Azure Text Analytics ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/CHANGELOG.md))
 
-##### New Features on @azure/data-tables 
-
-- First beta release of this new package.
-- Provides client API to interact with the Azure Tables service
-- [Readme](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/tables/data-tables/README.md)
-
-
-### Azure Text Analytics
-
-#### Azure Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/CHANGELOG.md)
-
-##### New Features in @azure/text-analytics@5.1.0-beta.1
+##### New Features
 - We are now targeting the service's v3.1-preview.2 API as the default instead of v3.0.
 - We have added support for opinion mining feature of Sentiment Analysis. To get this support, pass `includeOpinionMining` as True when calling the `analyzeSentiment` endpoint.
 - We have added the `recognizePiiEntities` API which returns entities containing personal information for a batch of documents and also returns the redacted text.
 - The `length` and `offset` properties are added to the `SentenceSentiment`, `Entity`, `Match`, `PiiEntity` and `CategorizedEntity` interfaces to represent the length of the sentence's text and its offset from the start of the document. The unit of distance used is UTF-16 code points.
 - `bingEntitySearchApiId` property is now returned for entities returned by `recognizeLinkedEntities` API and is added to the `LinkedEntity` interface. This property is to be used in conjunction with the Bing Entity Search API to fetch additional relevant information about the returned entity.
 
-##### Major Fixes in @azure/text-analytics@5.1.0-beta.1
-- The `text` property of the `SentenceSentiment` interface is no longer marked as optional because the service has always returned it. This interface is used exclusively as an output type so this change does not break existing code.
-
-
 ## Latest Releases
 
-View all the latest versions of JavaScript packages [here][js-latest-releases].
+View all the [latest versions of JavaScript packages][js-latest-releases].
 
 {% include refs.md %}
