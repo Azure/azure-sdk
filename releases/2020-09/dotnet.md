@@ -27,6 +27,9 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 - Key Vault (Administration, Certificates, Keys, Secrets)
 - Service Bus
 - Tables
+- Management Library - CosmosDB
+- Management Library - DNS
+- Management Library - Insight
 
 ## Installation Instructions
 
@@ -57,6 +60,10 @@ $> dotnet add package Azure.Security.KeyVault.Administration --version 4.0.0-bet
 $> dotnet add package Azure.Security.KeyVault.Certificates --version 4.2.0-beta.1
 $> dotnet add package Azure.Security.KeyVault.Keys --version 4.2.0-beta.1
 $> dotnet add package Azure.Security.KeyVault.Secrets --version 4.2.0-beta.1
+
+$> dotnet install Azure.ResourceManager.CosmosDB --version 1.0.0-preview.1
+$> dotnet install Azure.ResourceManager.Dns --version 1.0.0-preview.1
+$> dotnet install Azure.ResourceManager.Monitor --version 1.0.0-preview.1
 ```
 
 ## Feedback
@@ -226,5 +233,10 @@ View all the latest versions of .NET packages [here][dotnet-latest-releases].
 - Made `EntityNameFormatter` internal.
 - Made settlement methods on `ProcessMessageEventArgs` and `ProcessSessionMessageEventArgs` virtual for mocking.
 - Made all Create methods on `ServiceBusClient` virtual for mocking.
+
+### New Management Libraries
+A new set of management libraries that follow the [Azure SDK Design Guidelines for .NET](https://azure.github.io/azure-sdk/dotnet_introduction.html) and based on [Azure.Core libraries](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/core/Azure.Core) are now in Public Preview. These new libraries provide a number of core capabilities that are shared amongst all Azure SDKs, including the intuitive Azure Identity library, an HTTP Pipeline with custom policies, error-handling, distributed tracing, and much more. You can find the list of new packages [on this page](https://aka.ms/azsdk/releases).
+
+To get started with these new libraries, please see the [quickstart guide here](http://aka.ms/azsdk/net/mgmt). These new libraries can be identifed by namespaces that start with `Azure.ResourceManager`, e.g. `Azure.ResourceManager.Network`
 
 {% include refs.md %}
