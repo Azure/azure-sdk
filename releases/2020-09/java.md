@@ -128,6 +128,18 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 </dependency>
 
 <dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-identity</artifactId>
+  <version>1.1.2</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-identity</artifactId>
+  <version>1.2.0-beta.1</version>
+</dependency>
+
+<dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-messaging-eventgrid</artifactId>
     <version>2.0.0-beta.1</version>
@@ -436,6 +448,23 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### Breaking changes
 
 - Renamed `BoundingBox` model to `FieldBoundingBox`
+
+### Azure Identity ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-identity_1.1.2/sdk/identity/azure-identity/CHANGELOG.md#112-2020-09-09))
+
+- General availability, upgraded core dependency to 1.8.1
+
+### Azure Identity Beta ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-identity_1.2.0-beta.1/sdk/identity/azure-identity/CHANGELOG.md#120-beta1-2020-09-11))
+
+- Added `InteractiveBrowserCredentialBuilder.redirectUrl(String)` to configure the redirect URL
+- Deprecated `InteractiveBrowserCredentialBuilder.port(int)`
+- Added support for App Service 2019 MSI Endpoint in `ManagedIdentityCredential`
+- Added Shared Token cache support for MacOS Keychain, Gnome Keyring, and plain text for other Linux environments
+- Added option to write to shared token cache from `InteractiveBrowserCredential`, `AuthorizationCodeCredential`, `UsernamePasswordCredential`, `DeviceCodeCredential` `ClientSecretCredential` and `ClientCertificateCredential`
+- Added new APIs for authenticating users with `DeviceCodeCredential`,  `InteractiveBrowserCredential` and `UsernamePasswordCredential`.
+    - Added method `authenticate` which pro-actively interacts with the user to authenticate if necessary and returns a serializable `AuthenticationRecord`
+- Added following configurable options in classes `DeviceCodeCredentialBuilder` and `InteractiveBrowserCredentialBuilder`
+    - `authenticationRecord` enables initializing a credential with an `AuthenticationRecord` returned from a prior call to `Authenticate`
+    - `disableAutomaticAuthentication` disables automatic user interaction causing the credential to throw an `AuthenticationRequiredException` when interactive authentication is necessary.
 
 ### Azure Key Vault Administration 4.0.0-beta.1 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-administration/CHANGELOG.md#400-beta1-2020-09-11))
 
