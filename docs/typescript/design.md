@@ -28,7 +28,7 @@ Use [caniuse.com](https://caniuse.com) to determine whether you can use a given 
 Supporting older versions of TypeScript can be a challenge. There are two general approaches:
 
 1. Don't use new features.
-2. Use [`typesVersions`](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-1.html#version-selection-with-typesversions), which might require manual effort to produce typings compatible with older versions based on the new typings. Much of that effort can be automated using [`downlevel-dts`](https://github.com/sandersn/downlevel-dts).
+2. Use [`typesVersions`](https://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html#version-selection-with-typesversions), which might require manual effort to produce typings compatible with older versions based on the new typings. Much of that effort can be automated using [`downlevel-dts`](https://github.com/sandersn/downlevel-dts).
 
 {% include requirement/MUST id="ts-register-dropped-platforms" %} get approval from the [Architecture Board] to drop support for any platform (except IE11 and Node 6) even if support isn't required.
 
