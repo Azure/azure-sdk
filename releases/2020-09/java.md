@@ -13,6 +13,17 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 - Azure Core Serializer GSON JSON
 - Azure Core Serializer Jackson JSON
 - Form Recognizer
+- Management Library - AppService
+- Management Library - Authorization
+- Management Library - Compute
+- Management Library - Container Service
+- Management Library - CosmosDB
+- Management Library - Insight
+- Management Library - Key Vault
+- Management Library - Managed Identity
+- Management Library - Network
+- Management Library - Resources
+- Management Library - Storage
 
 #### Updates
 
@@ -46,6 +57,17 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 - Azure Search Documents
 - Azure Service Bus
 - Azure Tables
+- Management Library - CDN
+- Management Library - Container Instance
+- Management Library - Container Registry
+- Management Library - DNS
+- Management Library - Event Hubs
+- Management Library - Private DNS
+- Management Library - Redis
+- Management Library - Service Bus
+- Management Library - Spring Cloud
+- Management Library - SQL
+- Management Library - Traffic Manager
 
 ## Installation Instructions
 
@@ -217,6 +239,138 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <artifactId>azure-cosmos</artifactId>
   <version>4.4.0</version>
 </dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-resources</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-storage</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-keyvault</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-authorization</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-msi</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-network</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-compute</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-cosmos</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-dns</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-appservice</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-containerservice</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-monitor</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-containerinstance</artifactId>
+  <version>2.0.0-beta.4</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-containerregistry</artifactId>
+  <version>2.0.0-beta.4</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-dns</artifactId>
+  <version>2.0.0-beta.4</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-eventhubs</artifactId>
+  <version>2.0.0-beta.4</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-privatedns</artifactId>
+  <version>2.0.0-beta.4</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-redis</artifactId>
+  <version>2.0.0-beta.4</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-servicebus</artifactId>
+  <version>2.0.0-beta.4</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-appplatform</artifactId>
+  <version>2.0.0-beta.4</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-sql</artifactId>
+  <version>2.0.0-beta.4</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-trafficmanager</artifactId>
+  <version>2.0.0-beta.4</version>
+</dependency>
 ```
 To use Azure Spring Cloud starters and binders, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate.
 
@@ -352,6 +506,27 @@ To use Azure Spring Boot starters, refer to the Maven dependency information bel
 </dependency>
 
 ```
+
+If you are using multiple management libraries in your project and want to import all libraries altogether, you can also choose to use the following wrapper package
+
+```xml
+
+<!-- This package contains all currently available management libraries that are stable-->
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<!-- This package contains both stable and preview management libraries -->
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager</artifactId>
+  <version>2.0.0-beta.4</version>
+</dependency>
+```
+
+
 ## Feedback
 
 If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/azure/azure-sdk-for-java/issues).
@@ -585,6 +760,11 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### Key Bug Fixes
 - Exclude disabled secrets when getting Key Vault secrets
 - Get full list of groups the user belongs to from Graph API
+
+### New Management Libraries
+A new set of management libraries that follow the [Azure SDK Design Guidelines for .NET](https://azure.github.io/azure-sdk/dotnet_introduction.html) and based on [Azure.Core libraries](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/core/Azure.Core) are now in Public Preview. These new libraries provide a number of core capabilities that are shared amongst all Azure SDKs, including the intuitive Azure Identity library, an HTTP Pipeline with custom policies, error-handling, distributed tracing, and much more. You can find the list of new packages [on this page](https://aka.ms/azsdk/releases).
+
+To get started with these new libraries, please see the [quickstart guide here](http://aka.ms/azsdk/net/mgmt). These new libraries can be identifed by namespaces that start with `Azure.ResourceManager`, e.g. `Azure.ResourceManager.Network`
 
 ## Need help
 
