@@ -16,6 +16,15 @@ To understand how the review process works, please see our [guidelines](https://
 * Expected release library: 
 * Expected release type (Public Preview, Private Preview, GA): 
 * Expected release date:
+  
+## Meeting Notes
+Place the notes taken for each meeting in the appropriate section below.  
+### 1. Introductory Session
+
+### 2. API Review Session
+
+### 3. API Sign Off Session
+
 
 ## Review Records
 
