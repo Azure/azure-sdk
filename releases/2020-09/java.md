@@ -22,6 +22,7 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 - Azure Core Http Netty
 - Azure Core Http OkHttp
 - Azure Event Hubs
+- Azure Identity
 - Azure Key Vault Certificates
 - Azure Key Vault Keys
 - Azure Key Vault Secrets
@@ -35,6 +36,7 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 
 - Azure Core Experimental
 - Azure Core Serializer Apache Avro
+- Azure Identity
 - Azure Key Vault Administration
 - Azure Key Vault Certificates
 - Azure Key Vault Keys
@@ -451,7 +453,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Azure Identity ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-identity_1.1.2/sdk/identity/azure-identity/CHANGELOG.md#112-2020-09-09))
 
-- General availability, upgraded core dependency to 1.8.1
+- Upgraded core dependency to 1.8.1
 
 ### Azure Identity Beta ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-identity_1.2.0-beta.1/sdk/identity/azure-identity/CHANGELOG.md#120-beta1-2020-09-11))
 
