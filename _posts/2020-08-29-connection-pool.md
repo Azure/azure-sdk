@@ -1,4 +1,4 @@
-# Azure SDK and Connection Polling
+# Azure SDK and Connection Pooling
 
 To build a scalable applications it's important to understand how your downlevel dependencies scale and what limitations you can hit.
 
@@ -10,7 +10,7 @@ This post discusses specifics of HTTP Connection pooling based on the .NET runti
 
 ## .NET Framework
 
-Connection polling on .NET framework is controlled by the [ServicePointManager](https://docs.microsoft.com/dotnet/api/system.net.servicepointmanager) class and the most important fact to remember is that the pool, by default, is limited to **2** connections to a particular endpoint (host+port pair) in non-web applications and to **10** connection per endpoint in ASP.NET applications. After maximum allowed number of connections is reached HTTP requests would be queued until one of the existing connections becomes available again.
+Connection pooling on .NET framework is controlled by the [ServicePointManager](https://docs.microsoft.com/dotnet/api/system.net.servicepointmanager) class and the most important fact to remember is that the pool, by default, is limited to **2** connections to a particular endpoint (host+port pair) in non-web applications and to **10** connection per endpoint in ASP.NET applications. After maximum allowed number of connections is reached HTTP requests would be queued until one of the existing connections becomes available again.
 
 Imagine writing a console applications that uploads files to Azure Blob. To speedup the process you decided to upload using 20 parallel threads. The default connection pool limit means that even though you have 20 [BlockBlobClient.UploadAsync](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.specialized.blockblobclient.uploadasync) calls running in parallel only 2 of them would be actually uploading data and the rest would be stuck in the queue.
 
