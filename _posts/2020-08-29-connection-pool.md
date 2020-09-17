@@ -40,7 +40,7 @@ Another way to easily starve the connection pool is by not disposing unbuffered 
 
 Most Azure SDK client method would buffer and deserialize response for you. But some method operate on large blocks of data, that are impractical to fully load in memory, would return an active network stream allowing data to be read and processed in chunks.
 
-These methods would have the stream as part of the `Value` inside the `Response<T>`. One common example of such a method is the `BlockBlobClient.DownloadAsync` that returns `Response<DownloadInfo>` and `DownloadInfo` containing a `STREAM?????` property.
+These methods would have the stream as part of the `Value` inside the `Response<T>`. One common example of such a method is the [BlockBlobClient.DownloadAsync](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadasync) that returns `Response<DownloadInfo>` and [`BlobDownloadInfo`](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.models.blobdownloadinfo) having a `Content` property.
 
 Each of these streams represents a network connection rented out from the pool and they are only returned when disposed or read to the end. By not doing that you are "burning" connections forever decreasing the pool size. This can quickly lead to a situation where there are no more connections to use for sending requests and all of requests fails with a timeout exception.
 
