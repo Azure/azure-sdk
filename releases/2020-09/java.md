@@ -215,7 +215,7 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-cosmos</artifactId>
-  <version>4.4.0</version>
+  <version>4.5.0</version>
 </dependency>
 ```
 To use Azure Spring Cloud starters and binders, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate.
@@ -550,6 +550,15 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 ### Tables ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-data-tables_12.0.0-beta.1/sdk/tables/azure-data-tables/CHANGELOG.md#1200-beta1-2020-09-10))
 
 - Initial preview release for Azure Tables
+
+### Azure Cosmos ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-cosmos/CHANGELOG.md#450-2020-09-16))
+
+#### 4.5.0 (2020-09-16)
+
+#### New Features
+
+- Increased robustness of the Rntbd stack in case of intermittent connectivity issues.
+- Improved latency in case of intermittent connectivity issues to individual backend replicas for multi-region accounts avoiding initiation of unnecessary regional fail-overs.
 
 ### Azure Cosmos ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-cosmos/CHANGELOG.md#440-2020-09-12))
 
