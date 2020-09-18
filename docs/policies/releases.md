@@ -256,6 +256,20 @@ Beta packages are published directly to the Maven central registry. Alpha packag
 
 **Floating GA dependencies:** Use the exact version number to specify the lowest version of the package which contains the features upon which you depend.
 
+#### Embedded C
+
+C99 releases the source code of the repository in a single unit of source code. It does not ship packages to any package managers. Because the C repo ships from the `master` branch, code going into the `master` branch must be in a completed state and ready to ship.
+
+An Embedded C release includes a Tag and Release (e.g. [1.0.0-preview.5](https://github.com/Azure/azure-sdk-for-c/releases/tag/1.0.0-preview.5)) on GitHub and documentation as GitHub Pages (e.g. [1.0.0-preview.5](https://azuresdkdocs.blob.core.windows.net/$web/c/docs/1.0.0-preview.5/index.html)).
+
+#### Incrementing after release (Embedded C)
+
+**Preview release:** `1.0.0-beta.1` -> `1.0.0-beta.2`
+
+**GA Release:** `1.1.0` -> `1.2.0-beta.1`
+
+**GA Hotfix Release:** `1.0.0` -> `1.0.1`
+
 ## Beta Releases and GA Graduation
 
 The Azure SDK team may choose to create a beta release for several reasons:
