@@ -266,6 +266,100 @@ function Update-python-Packages($packageList)
   }
 }
 
+function Check-c-links($pkg, $version) 
+{
+    $valid = $true;
+    $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-c/tree/{0}/sdk/{1}" -f $version, $pkg.RepoPath))
+    $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-c/archive/{0}.zip" -f $version))
+    return $valid
+}
+function Update-c-Packages($packageList)
+{
+  foreach ($pkg in $packageList)
+  {
+    $version = GetVersionWebContent "c" $pkg.Package "latest-ga"
+    if ($null -eq $version) {
+      Write-Host "Skipping update for $($pkg.Package) as we don't have versiong info for it. "
+      continue;
+    }
+
+    if ($version -eq "") {
+      $pkg.VersionGA = ""
+    }
+    elseif (Check-c-links $pkg $version){
+      if ($pkg.VersionGA -ne $version) {
+        Write-Host "Updating VersionGA $($pkg.Package) from $($pkg.VersionGA) to $version"
+        $pkg.VersionGA = $version;
+      }
+    }
+    else {
+      Write-Warning "Not updating VersionGA for $($pkg.Package) because at least one associated URL is not valid!"
+    }
+
+    $version = GetVersionWebContent "c" $pkg.Package "latest-preview"
+    if ($version -eq "") {
+      $pkg.VersionPreview = ""
+    }
+    elseif (Check-c-links $pkg $version){
+      if ($pkg.VersionPreview -ne $version) {
+        Write-Host "Updating VersionPreview $($pkg.Package) from $($pkg.VersionPreview) to $version"
+        $pkg.VersionPreview = $version;
+      }
+    }
+    else {
+      Write-Warning "Not updating VersionPreview for $($pkg.Package) because at least one associated URL is not valid!"
+    }
+    UpdateDocLinks "c" $pkg
+  }
+}
+
+function Check-cpp-links($pkg, $version) 
+{
+    $valid = $true;
+    $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-cpp/tree/{0}_{1}/sdk/{2}/{0}" -f $pkg.Package, $version, $pkg.RepoPath))
+    $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-cpp/archive/{0}_{1}.zip" -f $pkg.Package, $version))
+    return $valid
+}
+function Update-cpp-Packages($packageList)
+{
+  foreach ($pkg in $packageList)
+  {
+    $version = GetVersionWebContent "cpp" $pkg.Package "latest-ga"
+    if ($null -eq $version) {
+      Write-Host "Skipping update for $($pkg.Package) as we don't have versiong info for it. "
+      continue;
+    }
+
+    if ($version -eq "") {
+      $pkg.VersionGA = ""
+    }
+    elseif (Check-cpp-links $pkg $version){
+      if ($pkg.VersionGA -ne $version) {
+        Write-Host "Updating VersionGA $($pkg.Package) from $($pkg.VersionGA) to $version"
+        $pkg.VersionGA = $version;
+      }
+    }
+    else {
+      Write-Warning "Not updating VersionGA for $($pkg.Package) because at least one associated URL is not valid!"
+    }
+
+    $version = GetVersionWebContent "cpp" $pkg.Package "latest-preview"
+    if ($version -eq "") {
+      $pkg.VersionPreview = ""
+    }
+    elseif (Check-cpp-links $pkg $version){
+      if ($pkg.VersionPreview -ne $version) {
+        Write-Host "Updating VersionPreview $($pkg.Package) from $($pkg.VersionPreview) to $version"
+        $pkg.VersionPreview = $version;
+      }
+    }
+    else {
+      Write-Warning "Not updating VersionPreview for $($pkg.Package) because at least one associated URL is not valid!"
+    }
+    UpdateDocLinks "cpp" $pkg
+  }
+}
+
 function Output-Latest-Versions($lang)
 {
   $packagelistFile = Join-Path $releaseFolder "$lang-packages.csv"
@@ -290,6 +384,8 @@ switch($language)
     Output-Latest-Versions "js"
     Output-Latest-Versions "dotnet"
     Output-Latest-Versions "python"
+    Output-Latest-Versions "c"
+    Output-Latest-Versions "cpp"
     break
   }
   "java" {
@@ -305,6 +401,14 @@ switch($language)
     break
   }
   "python" {
+    Output-Latest-Versions $language
+    break
+  }
+  "c" {
+    Output-Latest-Versions $language
+    break
+  }
+  "cpp" {
     Output-Latest-Versions $language
     break
   }
