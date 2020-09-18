@@ -93,4 +93,4 @@ There was a major change around connection pool management in .NET Core. Connect
 
 ## Future improvements Azure.Core
 
-We are making changes in the upcoming Azure.Core ([15263](https://github.com/Azure/azure-sdk-for-net/pull/15263)) to automatically increase the connection pool size for Azure endpoints to `50` in the applications where the global setting is kept at the default value of `2`. It would be released in Azure.Core 1.5.1 October release.
+We are making changes in the upcoming Azure.Core ([#15263](https://github.com/Azure/azure-sdk-for-net/pull/15263)) to automatically increase the connection pool size for Azure endpoints to `50` in the applications where the global setting is kept at the default value of `2`. It would be released in Azure.Core 1.5.1 October release.
