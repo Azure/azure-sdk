@@ -258,7 +258,7 @@ Beta packages are published directly to the Maven central registry. Alpha packag
 
 #### Embedded C
 
-C99 releases the source code of the repository in a single unit of source code. It does not ship packages to any package managers. Because the C repo ships from the `master` branch code going into the `master` branch must be in a completed state and ready to ship.
+C99 releases the source code of the repository in a single unit of source code. It does not ship packages to any package managers. Because the C repo ships from the `master` branch, code going into the `master` branch must be in a completed state and ready to ship.
 
 An Embedded C release includes a Tag and Relese (e.g. [1.0.0-preview.5](https://github.com/Azure/azure-sdk-for-c/releases/tag/1.0.0-preview.5)) on GitHub and a release of documentation for GitHub Pages (e.g. [1.0.0-preview.5](https://azuresdkdocs.blob.core.windows.net/$web/c/docs/1.0.0-preview.5/index.html)).
 
