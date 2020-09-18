@@ -1,4 +1,4 @@
-# Azure SDK and Connection Pool Limits
+# Azure SDK and Connection Pool Limits in .NET Framework
 
 To build scalable applications it's important to understand how your downstream dependencies scale and what limitations you can hit.
 
