@@ -2,11 +2,13 @@
 
 To build scalable applications it's important to understand how your downstream dependencies scale and what limitations you can hit.
 
-The majority of Azure services expose functionality over HTTP REST APIs. Azure SDKs, in turn, wrap the HTTP communication into an easy-to-use set of client and model types.
+The majority of Azure services expose functionality over HTTP REST APIs. The Azure SDKs, in turn, wrap the HTTP communication into an easy-to-use set of client and model types.
 
 Every time you call a method on a `Client` class, an HTTP request is sent to the service. Sending an HTTP request requires a socket connection to be established between client and the server. Establishing a connection is an expensive operation that might sometimes take longer than processing of the request itself. To combat this, .NET maintains a pool of HTTP connections that can be reused instead of opening a new one every time.
 
 The post details the specifics of HTTP connection pooling based on the .NET runtime you are using and ways to tune it to make sure connection limits don't negatively affect your application performance.
+
+**NOTE:** most of this is not applicable for applications using .NET Core. See [.NET Core section](#.NET-Core) for details.
 
 ## .NET Framework
 
@@ -64,7 +66,7 @@ Each of these streams represents a network connection borrowed from the pool and
 You can use `app.config`/`web.config` files to change the limit or do it in code. It's also possible to change the limit on per-endpoint basis.
 
 ``` C#
-ServicePoint servicePoint = ServicePointManager.FindServicePoint(new Uri("http://www.contoso.com/"));
+ServicePoint servicePoint = ServicePointManager.FindServicePoint(new Uri("http://my-example-account.blob.core.windows.net/"));
 servicePoint.ConnectionLimit = 40;
 
 ServicePointManager.DefaultConnectionLimit = 20;
@@ -73,12 +75,12 @@ ServicePointManager.DefaultConnectionLimit = 20;
 ```xml
 <configuration>
   <system.net>
-      <connectionManagement>
-          <add address="http://www.contoso.com" maxconnection="40" />
+    <connectionManagement>
+      <add address="http://my-example-account.blob.core.windows.com" maxconnection="40" />
       <add address="*" maxconnection="20" />
-          </connectionManagement>
-      </system.net>
-  </configuration>
+    </connectionManagement>
+  </system.net>
+</configuration>
 ```
 
 We recommend setting the limit to a maximum number of parallel request you expect to send and load testing/monitoring your application to achieve the optimal performance.
