@@ -127,7 +127,7 @@ typedef struct az_iot_client {
 } az_iot_client;
 {% endhighlight %}
 
-{% include requirement/MUSTNOT id="clang-design-naming-struct-no-const %} declare const fields within structs. Pointers to const are fine, however. For example:
+{% include requirement/MUSTNOT id="clang-design-naming-struct-no-const" %} declare const fields within structs. Pointers to const are fine, however. For example:
 ```c
 // bad
 typedef struct az_iot_client {
