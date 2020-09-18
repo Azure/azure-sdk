@@ -19,8 +19,8 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 
 * [All release notes](index.md)
 * [.NET release notes](dotnet.md)
-* [C++ release notes](cpp.md)
-* [Embedded C release notes](c.md)
 * [Java release notes](java.md)
 * [JavaScript/TypeScript release notes](js.md)
 * [Python release notes](python.md)
+* [C++ release notes](cpp.md)
+* [Embedded C release notes](c.md)
