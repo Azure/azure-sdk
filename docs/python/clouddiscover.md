@@ -4,16 +4,16 @@ There are multiple Azure Cloud instances. This includes well-known cloud instanc
 
 The clouds differ in which endpoints to use when connecting to it. Finding exactly which endpoints to use is challenging for users. This applies both for public clouds and private instances. For private cloud instances, Microsoft does not know the specific endpoints used by the cloud instance. Additionally cloud instances may or may not be reachable from public internet. 
 
-In order to discover which endpoints (DNS names and suffixes) are to be used when connecting to a specific cloud, a disovery endpoint has been introduced. This reduces the amount of information a developer needs in order to connect to a given cloud to knowing a single endpoint.
+In order to discover which endpoints (DNS names and suffixes) are to be used when connecting to a specific cloud, a discovery endpoint has been introduced. This reduces the amount of information a developer needs in order to connect to a given cloud to knowing a single endpoint.
 
 ## Goals
 
 * Simplify configuring for a client connecting to public clouds other than Public Azure.
-* Allow use of configuration data retreived from cloud configuration discovery endpoint for private cloud instances.
+* Allow use of configuration data retrieved from cloud configuration discovery endpoint for private cloud instances.
 
 ## Non-goals
 
-* Automatically discover which cloud an application runs in.
+* Automatically discover which cloud an application runs in and default libraries to use that by default.
 * Change in requirements for client libraries to always accept a simple name (e.g. storage account name) in addition to full endpoint information when constructing clients.
 
 ## Core capabilities
@@ -86,6 +86,8 @@ None of the properties in a service configuration entry are required as they dif
 
 * Service specific client libraries that have baked-in cloud-specific defaults MUST accept a cloud configuration instance in the constructor (or equivalent) for the service client instance. Client libraries MAY also accept a a simple cloud name.
 
+> Examples of cloud specific defaults include hostnames (for services sharing a common DNS name, such as ARM) and host name suffixes (for client libraries that concatenate a "simple" service name with a suffix to build the full DNS name to connect to).
+
 ### Ambient default configuration
 
 * A language MAY provide the capability to set the default cloud to use. 
@@ -97,10 +99,10 @@ None of the properties in a service configuration entry are required as they dif
 
 The order of precedence is (in order of decreasing specificity):
 
-* Explicitly provided endpoint parameter passed in value in the method call
-* Explicitly provided configuration value from cloud_configuration parameter passed in the method call
-* Ambient default cloud (if supported)
+* Explicitly provided configuration value from cloud_configuration parameter provided when creating the client.
+* Ambient default cloud (if supported) explicitly set by the application.
 * Endpoint specific environment variables (e.g. `AZURE_AUTHORITY_HOST`)
+* Cloud specified in the `AZURE_CLOUD` environment variable. 
 * Final fallback, corresponding Public Azure's settings (built in to the client library)
 
 ### Missing configuration properties
@@ -117,6 +119,8 @@ Given that more configuration settings can be added over time, you may run into 
 
 ### Python
 ```python
+from azure.core import CloudConfiguration
+
 # In order to default to switch all default values to match the expected configuration for
 # the Azure China Cloud.
 azure.core.settings.set_default_cloud('AzureChinaCloud')
@@ -133,23 +137,14 @@ public_azure_creds = azure.identity.DefaultAzureCredential(authority='https://lo
 # I can also specify a full cloud configuration object:
 # In order to default to switch all default values to match the expected configuration for
 # the Azure China Cloud.
-config = CloudConfiguration.from_json(requests.get('https://azurestackinstance1.contoso.com/discover'.json()))
+config: typing.Mapping[str, CloudConfiguration] = CloudConfiguration.load(requests.get('https://azurestackinstance1.contoso.com/discover'.json()))
 azure.core.settings.set_default_cloud(config['AzureStack'])
 
-# ...or pass in a custom cloud configuration into a method
-creds = azure.identity.DefaultAzureCredential(cloud_configuration=config['PublicAzure'])
-```
+# ...or pass in a custom cloud configuration instance into a method
+creds = azure.identity.DefaultAzureCredential(cloud_configuration=config['AzureStackInstance2'])
 
-### C#
-
-```C#
-// In order to default to switch all default values to match the expected configuration for
-// the Azure China Cloud.
-creds = Azure.Core.Identity.DefaultAzureCredentials(
-    Azure.Core.Identity.DefaultAzureCredentialOptions() {
-        CloudConfiguration = Azure.Core.CloudConfigurations.AzureChinaCloud
-    }
-);
+# ...or by name
+creds = azure.identity.DefaultAzureCredential(cloud_configuration='PublicAzure')
 ```
 
 ## Future evolution/addition of per-service endpoint configuration
