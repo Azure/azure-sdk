@@ -163,7 +163,6 @@ int main(void) {
     // done, need to connect to some other service endpoint
     client = az_iot_create_client(); // <--- does not compile
     // do things with the other client
-
 }
 
 ```
