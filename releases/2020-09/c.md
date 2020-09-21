@@ -8,12 +8,6 @@ repository: azure/azure-sdk-for-c
 
 The Azure SDK team is pleased to make available the September 2020 client library release.
 
-#### GA
-
-
-#### Updates
-
-
 #### Beta
 
 - Azure Core
@@ -24,9 +18,9 @@ The Azure SDK team is pleased to make available the September 2020 client librar
 To install any of our packages, copy and paste the following commands into a terminal:
 
 ```bash
-$>  git clone https://github.com/Azure/azure-sdk-for-c
+git clone https://github.com/Azure/azure-sdk-for-c
 
-$>  git checkout <tag_name>
+git checkout <tag_name>
 ```
 
 ## Feedback
