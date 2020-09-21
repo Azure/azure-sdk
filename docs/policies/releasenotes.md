@@ -58,15 +58,14 @@ Release notes will locked for GA and beta libraries after the blog publication d
 
 ## What do I need to do for an out-of-band release?
 
-If you need to release a library after the official release notes release date has occurred but before the next month has been released, then add your release notes to the current month's release notes. The release manager will merge and publish the release notes in the current month's release folder.
+If you need to release a library after the official release notes release date has occurred but before the next month has been released, then add your release notes to the current month's release notes. The _Azure SDK release manager_ will merge and publish the release notes in the current month's release folder.
 
 For example:
 1. The official release notes are announced on 9/18/2020.
 1. The library you need to ship does not ship by that date, say 9/22/2020.
-1. Submit a PR to add your release notes to September release notes and tag the Azure SDK release manager.
+1. Submit a PR to add your release notes to September release notes and tag the _Azure SDK release manager_.
 
-If you have any questions, please reach out to the Azure SDK release manager.
+If you have any questions, please reach out to the _Azure SDK release manager_.
 
 You may optionally provide social media outreach for out-of-band releases.  Contact the _Community Engagement Manager_ for details on this at least 7 working days prior to the release.
-
 
