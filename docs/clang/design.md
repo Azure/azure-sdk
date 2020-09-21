@@ -147,7 +147,7 @@ The reason to avoid such members is that it makes it impossible to ever _reassig
 ```c
 typedef struct az_iot_client {
     int retry_timeout;
-    char const *const api_version;
+    char const* const api_version;
 };
 
 az_iot_client az_iot_create_client() {
