@@ -132,7 +132,7 @@ typedef struct az_iot_client {
 // bad
 typedef struct az_iot_client {
     const int retry_timeout;
-    char * const api_version;
+    char* const api_version;
 } az_iot_client;
 
 // good
