@@ -602,6 +602,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Added support for the Opinion Mining feature. To use this feature, you need to make sure you are using the 
 service's v3.1-preview.1 and above API. To get this support pass `includeOpinionMining` as `true` in 
 `AnalyzeSentimentOptions` when calling the sentiment analysis endpoints.
+
 ## Need help
 
 - For reference documentation visit the [Azure SDK for Java documentation](https://azure.github.io/azure-sdk-for-java/).
