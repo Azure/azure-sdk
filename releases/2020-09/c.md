@@ -29,8 +29,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Changelog
 
-Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
-
 ### Azure Core [Changelog](https://github.com/Azure/azure-sdk-for-c/blob/master/CHANGELOG.md)
 
 #### New Features
