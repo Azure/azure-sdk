@@ -27,7 +27,7 @@ git checkout <tag_name>
 
 ## Feedback
 
-If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/azure/azure-sdk-for-cpp/issues).
+If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/Azure/azure-sdk-for-cpp/issues).
 
 ## Changelog
 
