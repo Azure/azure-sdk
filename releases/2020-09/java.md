@@ -596,18 +596,13 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 ### Azure Text Analytics ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.1.0-beta.1/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#510-beta1-2020-09-17))
 
 #### New features
-- Added `offset` and `length` properties for `CategorizedEntity`, `LinkedEntityMatch` and `SentenceSentiment`
-  - `length` is the number of characters in the text of these models
-  - `offset` is the offset of the text from the start of the document
 - Updated Text Analytics SDK's default service API version to `v3.1-preview.2` from `v3.0`.
 - Added support for Personally Identifiable Information(PII) entity recognition feature.
   To use this feature, you need to make sure you are using the service's v3.1-preview.1 API.
 - Added support for the Opinion Mining feature. To use this feature, you need to make sure you are using the 
 service's v3.1-preview.1 and above API. To get this support pass `includeOpinionMining` as `true` in 
 `AnalyzeSentimentOptions` when calling the sentiment analysis endpoints.
-- Add property `bingEntitySearchApiId` to the `LinkedEntity` class. This property is only available for v3.1-preview.2
-and up, and it is to be used in conjunction with the Bing Entity Search API to fetch additional relevant information
-about the returned entity.
+
 
 ## Need help
 
