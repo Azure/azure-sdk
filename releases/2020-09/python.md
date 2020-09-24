@@ -26,6 +26,7 @@ The Azure SDK team is pleased to make available the September 2020 client librar
 - Identity
 - Key Vault Administration
 - Service Bus
+- Text Analytics
 
 ## Installation Instructions
 
@@ -44,6 +45,7 @@ pip install azure-eventhub-checkpointstoreblob
 pip install azure-eventhub-checkpointstoreblob-aio
 pip install azure-data-tables
 pip install azure-servicebus --pre
+pip install azure-ai-textanalytics --pre
 ```
 
 ## Feedback
@@ -129,6 +131,14 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Attempting to call `send_messages` on something not a `Message`, `BatchMessage`, or list of `Message`s, will now throw a `TypeError` instead of `ValueError`.
 - Sending a message twice will no longer result in a MessageAlreadySettled exception.
 - No longer export `ServiceBusSharedKeyCredential`.
+
+### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#510b1-2020-09-17)
+
+#### New Features
+
+- Defaults to the latest service API version, which currently is `3.1-preview.2`.
+- Added new endpoint `recognize_pii_entities`, which returns entities containing personally identificable information from a batch of documents
+- Added support for opinion mining, which is more in-depth sentiment analysis
 
 ## Latest Releases
 
