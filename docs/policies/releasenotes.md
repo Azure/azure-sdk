@@ -51,15 +51,22 @@ The release manager will produce the point-in-time snapshot of the versions and 
 
 ## Who publishes the release notes and when are they published?
 
-* For all on-time releases, the release manager will merge and publish the release notes in the current month's on-time release folder.
-* For all out-of-band releases, the release notes in the following month's on-time release folder.
-
-Release notes will locked for GA and beta libraries after the blog publication date (1 week following release date). (Note: all changelogs should be done on release day)
+* For all releases, the release manager will merge and publish the release notes in the current month's release folder.
 
 ## What do I need to do for an out-of-band release?
 
-The release manager will merge and publish the release notes in the following month's on-time release folder.
+If you need to release a library after the official release notes release date has occurred but before the next month has been released, then add your release notes to the current month's release notes. The _Azure SDK release manager_ will merge and publish the release notes in the current month's release folder.
+
+For example:
+1. The official release notes are announced on 9/18/2020.
+1. The library you need to ship does not ship by that date, say 9/22/2020.
+1. Submit a PR to add your release notes to September release notes and tag the _Azure SDK release manager_.
+
+If you have any questions, please reach out to the _Azure SDK release manager_.
 
 You may optionally provide social media outreach for out-of-band releases.  Contact the _Community Engagement Manager_ for details on this at least 7 working days prior to the release.
 
+## Where do I go if I need help?
+
+The _Azure SDK release manager_ is best place to start when you need help with a release. They manage the Release channel in the Azure SDK Teams team.  If you need help you can post a message in that Teams channel here: <https://aka.ms/azsdk/teams/release>
 

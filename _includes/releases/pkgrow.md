@@ -26,7 +26,7 @@
         {% include releases/pkgbadge.md label="msdocs" url=url version=item.VersionGA %}
     {% endif %}
 
-    {% if item.VersionPreview != "" %}
+    {% if item.VersionGA == "" and item.VersionPreview != "" %}
         {% if item.MSDocs != "NA" %}
             {% assign pre_suffix = '-pre' | append: msdocs_preview_moniker_suffix %}
             {% assign url = msdocs_url | replace: 'item.Version', item.VersionPreview | append: pre_suffix %}
