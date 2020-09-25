@@ -15,6 +15,10 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 - Form Recognizer
 - Identity
 
+#### Updates
+
+- Storage
+
 #### Preview
 
 - Anomaly Detector
@@ -56,6 +60,13 @@ $> dotnet add package Azure.Security.KeyVault.Administration --version 4.0.0-bet
 $> dotnet add package Azure.Security.KeyVault.Certificates --version 4.2.0-beta.1
 $> dotnet add package Azure.Security.KeyVault.Keys --version 4.2.0-beta.1
 $> dotnet add package Azure.Security.KeyVault.Secrets --version 4.2.0-beta.1
+
+$> dotnet add package Azure.Storage.Blobs --version 12.6.0
+$> dotnet add package Azure.Storage.Blobs.Batch --version 12.3.1
+$> dotnet add package Azure.Storage.Blobs.ChangeFeed --version 12.0.0-preview.4
+$> dotnet add package Azure.Storage.Files.DataLake --version 12.4.0
+$> dotnet add package Azure.Storage.Files.Shares --version 12.4.0
+$> dotnet add package Azure.Storage.Queues --version 12.4.2
 ```
 
 ## Feedback
@@ -143,6 +154,33 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### New Features
 
 - Added `KeyVaultSecretIdentifier` to parse secret URIs.
+
+
+### Azure Storage Blobs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md)
+
+#### Key Bug Fixes
+
+- `BlobClient.Upload()`, `BlockBlobClient.Upload()`, `AppendBlobClient.AppendBlock()`, and `PageBlobClient.UploadPages()` will not deadlock anymore if the content stream's position is not 0.
+- Fixed bug in `BlobBaseClient.OpenRead()` which was causing more downloads than necessary.
+- Fixed bug where `PageBlobWriteStream` would advance Position 2 times the number of written bytes.
+
+### Azure Storage Files DataLake [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md)
+
+#### Key Bug Fixes
+- `DataLakeFileClient.Upload()` will not deadlock anymore if the content stream's position is not 0.
+- Fixed bug in `DataLakeFileClient.OpenRead()` which was causing more downloads than necessary.
+
+### Azure Storage Files Shares [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md)
+
+#### Key Bug Fixes
+- Fixed bug where `ShareFileClient.Upload()` and `ShareFileClient.UploadRange()` would deadlock if the content stream's position was not set to 0.
+- Fixed bug in `ShareFileClient.OpenRead()` which was causing more downloads than necessary.
+- Fixed bug where `ShareClient.Delete()` could not delete Share Snapshots unless the `includeSnapshots` parameter was set to false.
+
+### Azure Storage Queues [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Queues/CHANGELOG.md)
+
+#### Key Bug Fixes
+- Fixed a bug where `QueueClient.UpdateMessage` and `QueueClient.UpdateMessageAsync` were erasing message content if only `visibilityTimeout` was provided
 
 ### Event Grid [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md)
 
