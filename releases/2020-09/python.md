@@ -142,7 +142,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### New Features
 
 - Defaults to the latest service API version, which currently is `3.1-preview.2`.
-- Added new endpoint `recognize_pii_entities`, which returns entities containing personally identificable information from a batch of documents
+- Added new endpoint `recognize_pii_entities`, which returns entities containing personally identifiable information from a batch of documents
 - Added support for opinion mining, which is more in-depth sentiment analysis
 
 ### Azure Storage Blob [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md)
