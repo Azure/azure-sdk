@@ -25,6 +25,7 @@ The Azure SDK team is pleased to make available the September 2020 client librar
 - Azure Key Vault
 - Azure Service Bus
 - Azure Tables
+- Azure Text Analytics
 - Azure Storage Blob Changefeed
 
 ## Installation Instructions
@@ -46,6 +47,7 @@ npm install @azure/keyvault-certificates@next
 npm install @azure/keyvault-admin@next
 npm install @azure/service-bus@next
 npm install @azure/data-tables@next
+npm install @azure/ai-text-analytics@next
 npm install @azure/storage-blob-changefeed@next
 ```
 
@@ -162,6 +164,7 @@ We're releasing the first beta version of the new Azure Tables client, following
 ### Azure Text Analytics ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/CHANGELOG.md))
 
 ##### New Features
+
 - We are now targeting the service's v3.1-preview.2 API as the default instead of v3.0.
 - We have added support for opinion mining feature of Sentiment Analysis. To get this support, pass `includeOpinionMining` as True when calling the `analyzeSentiment` endpoint.
 - We have added the `recognizePiiEntities` API which returns entities containing personal information for a batch of documents and also returns the redacted text.
