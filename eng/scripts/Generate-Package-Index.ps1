@@ -28,6 +28,9 @@ function Get-Row($pkg, $lang, $packageFormat, $sourceFormat)
   $displayName = $pkg.DisplayName
   $docs = MSDocLink $lang $pkg
 
+  $version = $pkg.VersionGA
+  if ($version -eq "") { $version = $pkg.VersionPreview }
+
   if ($pkg.VersionGA -ne "" -and $pkg.VersionPreview -ne "") {
     $package = $packageFormat -f $pkg.Package, $pkg.VersionGA
     $package += "<br>"
@@ -38,8 +41,6 @@ function Get-Row($pkg, $lang, $packageFormat, $sourceFormat)
     $source += $sourceFormat -f $pkg.Package, $pkg.VersionPreview, $pkg.RepoPath
   }
   else {
-    $version = $pkg.VersionGA
-    if ($version -eq "") { $version = $pkg.VersionPreview }
     $package = $packageFormat -f $pkg.Package, $version
     $source = $sourceFormat -f $pkg.Package, $version, $pkg.RepoPath
   }
@@ -48,7 +49,7 @@ function Get-Row($pkg, $lang, $packageFormat, $sourceFormat)
     $source = ""
   }
   elseif ($pkg.RepoPath.StartsWith("http")) {
-    $source = "GitHub [${versions}]($($pkg.RepoPath))"
+    $source = "GitHub [${version}]($($pkg.RepoPath))"
   }
 
   return "| ${displayName} | ${package} | ${docs} | ${source} |" + [System.Environment]::NewLine
