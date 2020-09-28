@@ -11,14 +11,7 @@ The Azure SDK team is pleased to make available the September 2020 client librar
 #### GA
 
 - Form Recognizer
-- Management Library - Compute
-- Management Library - Network
-- Management Library - Resource
-- Management Library - Storage
-- Management Library - Monitor
-- Management Library - AppConfiguration
-- Management Library - Event Hubs
-- Management Library - KeyVault
+- Storage
 
 #### Updates
 
@@ -34,6 +27,7 @@ The Azure SDK team is pleased to make available the September 2020 client librar
 - Identity
 - Key Vault Administration
 - Service Bus
+- Text Analytics
 
 ## Installation Instructions
 
@@ -52,14 +46,11 @@ pip install azure-eventhub-checkpointstoreblob
 pip install azure-eventhub-checkpointstoreblob-aio
 pip install azure-data-tables
 pip install azure-servicebus --pre
-pip install azure-mgmt-compute
-pip install azure-mgmt-network
-pip install azure-mgmt-resource
-pip install azure-mgmt-storage
-pip install azure-mgmt-monitor
-pip install azure-mgmt-appconfiguration
-pip install azure-mgmt-eventhub
-pip install azure-mgmt-keyvault
+pip install azure-ai-textanalytics --pre
+pip install azure-storage-blob
+pip install azure-storage-blob-changefeed
+pip install azure-storage-file-datalake
+pip install azure-storage-queue
 ```
 
 ## Feedback
@@ -146,8 +137,39 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Sending a message twice will no longer result in a MessageAlreadySettled exception.
 - No longer export `ServiceBusSharedKeyCredential`.
 
-### Management Libraries
-We are excited to announce the GA releases of management libraries that follow the [Azure SDK Design Guidelines for Python](https://azure.github.io/azure-sdk/python/guidelines/). These new libraries provide a number of core capabilities that are shared amongst all Azure SDKs, including the intuitive Azure Identity library, an HTTP Pipeline with custom policies, error-handling, distributed tracing, and much more. Documentation and code samples for these new libraries can be found [here](https://azure.github.io/azure-sdk-for-python)
+### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#510b1-2020-09-17)
+
+#### New Features
+
+- Defaults to the latest service API version, which currently is `3.1-preview.2`.
+- Added new endpoint `recognize_pii_entities`, which returns entities containing personally identifiable information from a batch of documents
+- Added support for opinion mining, which is more in-depth sentiment analysis
+
+### Azure Storage Blob [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md)
+
+#### New Features
+- Added `exists` method to check if a blob exists.
+
+#### Key Bug Fixes
+- Users can now have special characters in their source URLs for `copy_blob_from_url`, `upload_blob_from_url`, etc.
+- Fixed SAS credentials URL malformation when using local Azurite container.
+- Fixed issue with permission string causing an authentication failure.
+
+### Azure Storage Blob Changefeed [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob-changefeed/CHANGELOG.md)
+
+#### Breaking changes
+- Change the `continuation token` from a dict to a str.
+- `start_time`/`end_time` and `continuation_token` are mutually exclusive now
+
+### Azure Storage File DataLake [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md)
+
+#### Key Bug Fixes
+- Fixed renaming with SAS string
+
+### Azure Storage Queue [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-queue/CHANGELOG.md)
+
+#### Key Bug Fixes
+- Fixed `QueueClient` type declaration
 
 ## Latest Releases
 

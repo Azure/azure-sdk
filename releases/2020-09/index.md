@@ -18,9 +18,6 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 * Azure Cognitive Search SDK for Java added `buildSearchFields` to `SearchIndexClient` and `SearchIndexAsyncClient` to help easily build a search index from a model type.
 * Azure Cognitive Search SDK beta release of document indexing clients.
 * Azure Core Serializer GSON and Jackson for Java GA release supporting pluggable serialization in SDKs.
-* Management Libraries Updates
-    - GA releases for [Java](java.md) and [Python](python.md). These libraries are ready for production use.
-    - New Packages in Public Preview for [Java](java.md) / [.NET](dotnet.md)
 
 ## Release Notes
 

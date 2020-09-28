@@ -17,7 +17,7 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 
 #### Updates
 
-- _Add packages_
+- Storage
 
 #### Preview
 
@@ -27,6 +27,7 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 - Key Vault (Administration, Certificates, Keys, Secrets)
 - Service Bus
 - Tables
+- Text Analytics
 
 ## Installation Instructions
 
@@ -36,6 +37,8 @@ To install any of our packages, please search for them via `Manage NuGet Package
 $> dotnet add package Azure.AI.AnomalyDetector --version 3.0.0-preview.2
 
 $> dotnet add package Azure.AI.FormRecognizer --version 3.0.0
+
+ $> dotnet add package Azure.AI.TextAnalytics --version 5.1.0-beta.1
 
 $> dotnet add package Azure.Data.AppConfiguration --version 1.0.2
 
@@ -57,6 +60,13 @@ $> dotnet add package Azure.Security.KeyVault.Administration --version 4.0.0-bet
 $> dotnet add package Azure.Security.KeyVault.Certificates --version 4.2.0-beta.1
 $> dotnet add package Azure.Security.KeyVault.Keys --version 4.2.0-beta.1
 $> dotnet add package Azure.Security.KeyVault.Secrets --version 4.2.0-beta.1
+
+$> dotnet add package Azure.Storage.Blobs --version 12.6.0
+$> dotnet add package Azure.Storage.Blobs.Batch --version 12.3.1
+$> dotnet add package Azure.Storage.Blobs.ChangeFeed --version 12.0.0-preview.4
+$> dotnet add package Azure.Storage.Files.DataLake --version 12.4.0
+$> dotnet add package Azure.Storage.Files.Shares --version 12.4.0
+$> dotnet add package Azure.Storage.Queues --version 12.4.2
 ```
 
 ## Feedback
@@ -145,6 +155,33 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - Added `KeyVaultSecretIdentifier` to parse secret URIs.
 
+
+### Azure Storage Blobs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md)
+
+#### Key Bug Fixes
+
+- `BlobClient.Upload()`, `BlockBlobClient.Upload()`, `AppendBlobClient.AppendBlock()`, and `PageBlobClient.UploadPages()` will not deadlock anymore if the content stream's position is not 0.
+- Fixed bug in `BlobBaseClient.OpenRead()` which was causing more downloads than necessary.
+- Fixed bug where `PageBlobWriteStream` would advance Position 2 times the number of written bytes.
+
+### Azure Storage Files DataLake [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md)
+
+#### Key Bug Fixes
+- `DataLakeFileClient.Upload()` will not deadlock anymore if the content stream's position is not 0.
+- Fixed bug in `DataLakeFileClient.OpenRead()` which was causing more downloads than necessary.
+
+### Azure Storage Files Shares [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md)
+
+#### Key Bug Fixes
+- Fixed bug where `ShareFileClient.Upload()` and `ShareFileClient.UploadRange()` would deadlock if the content stream's position was not set to 0.
+- Fixed bug in `ShareFileClient.OpenRead()` which was causing more downloads than necessary.
+- Fixed bug where `ShareClient.Delete()` could not delete Share Snapshots unless the `includeSnapshots` parameter was set to false.
+
+### Azure Storage Queues [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Queues/CHANGELOG.md)
+
+#### Key Bug Fixes
+- Fixed a bug where `QueueClient.UpdateMessage` and `QueueClient.UpdateMessageAsync` were erasing message content if only `visibilityTimeout` was provided
+
 ### Event Grid [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md)
 
 - Initial beta release of Azure Event Grid client library
@@ -168,18 +205,6 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### Key Bug Fixes
 
 - The approach used for creation of checkpoints has been updated to interact with Azure Blob storage more efficiently.  This will yield major performance improvements when soft delete was enabled and minor improvements otherwise.
-
-### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#300-2020-08-20)
-
-- First stable release of the Azure.AI.FormRecognizer package, targeting Azure Form Recognizer service API version 2.0.
-
-#### New Features
-
-- Added `FormRecognizerModelFactory` static class to support mocking model types.
-
-## Latest Releases
-
-View all the latest versions of .NET packages [here][dotnet-latest-releases].
 
 ### Identity [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/identity/Azure.Identity/CHANGELOG.md#130-beta1-2020-09-11)
 
@@ -227,4 +252,27 @@ View all the latest versions of .NET packages [here][dotnet-latest-releases].
 - Made settlement methods on `ProcessMessageEventArgs` and `ProcessSessionMessageEventArgs` virtual for mocking.
 - Made all Create methods on `ServiceBusClient` virtual for mocking.
 
+### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#300-2020-08-20)
+
+- First stable release of the Azure.AI.FormRecognizer package, targeting Azure Form Recognizer service API version 2.0.
+
+#### New Features
+
+- Added `FormRecognizerModelFactory` static class to support mocking model types.
+
+### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#510-beta1-2020-09-17)
+
+#### New Features
+- It defaults to the latest supported API version, which currently is `3.1-preview.2`.
+- `ErrorCode` value returned from the service is now surfaced in `RequestFailedException`.
+- Added the `RecognizePiiEntities` endpoint which returns entities containing Personally Identifiable Information. This feature is available in the Text Analytics service v3.1-preview.1 and above.
+- Support added for Opinion Mining. This feature is available in the Text Analytics service v3.1-preview.1 and above.
+- Added `Offset` and `Length` properties for `CategorizedEntity`, `SentenceSentiment`, and `LinkedEntityMatch`. The default encoding is UTF-16 code units. For additional information see https://aka.ms/text-analytics-offsets
+- `TextAnalyticsError` and `TextAnalyticsWarning` now are marked as immutable.
+-Added property `BingEntitySearchApiId` to the `LinkedEntity` class. This property is only available for v3.1-preview.2 and up, and it is to be used in conjunction with the Bing Entity Search API to fetch additional relevant information about the returned entity.
+
+
+## Latest Releases
+
+View all the latest versions of .NET packages [here][dotnet-latest-releases].
 {% include refs.md %}
