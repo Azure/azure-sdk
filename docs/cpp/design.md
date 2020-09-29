@@ -56,8 +56,6 @@ Many `management` APIs do not have a data plane because they deal with managemen
 
 {% include requirement/MUST id="general-namespaces-registration" %} register the chosen namespace with the [Architecture Board].  Open an issue to request the namespace.  See [the registered namespace list](registered_namespaces.html) for a list of the currently registered namespaces.
 
-> TODO: How do we link to a PascalCase version of registered_namespaces.html ?
-
 {% include requirement/MUST id="cpp-design-naming-namespaces-details" %} place private implementation details in a `Details` namespace.
 
 {% highlight cpp %}
