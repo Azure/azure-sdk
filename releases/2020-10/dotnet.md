@@ -18,14 +18,15 @@ The Azure SDK team is pleased to announce our October 2020 client library releas
 
 #### Beta
 
-- _Add packages_
+- Event Hubs
 
 ## Installation Instructions
 
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
 ```bash
-$> dotnet install PACKAGE --version whatever
+$> dotnet add package Azure.Messaging.EventHubs --version 5.3.0-beta.2
+$> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.3.0-beta.2
 ```
 
 ## Feedback
@@ -36,9 +37,19 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
-### _Package name_ 
+### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md)
 
-- Major changes only!!!
+#### New Features
+
+- `EventData` has been integrated with the new Schema Registry service, via use of the `SchemaRegistryAvroObjectSerializer` with the `BodyAsBinaryData` member.
+
+- The `EventHubProducerClient` now offers the ability to opt-into idempotent publishing, reducing the potential for duplication when a publishing operation encounters timeouts or other transient failures.
+
+### Event Hubs Processor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md)
+
+#### New Features
+
+- `EventData` has been integrated with the new Schema Registry service, via use of the `SchemaRegistryAvroObjectSerializer` with the `BodyAsBinaryData` member.
 
 ## Latest Releases
 
