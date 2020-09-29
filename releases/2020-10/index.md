@@ -11,9 +11,9 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 
 ## Release Highlights
 
-*
-*
-*
+* Management Libraries Updates
+  - GA releases for [Java](java.md) and [Python](python.md). These libraries are ready for production use.
+  - New Packages in Public Preview for [Java](java.md) / [.NET](dotnet.md)
 
 ## Release Notes
 
