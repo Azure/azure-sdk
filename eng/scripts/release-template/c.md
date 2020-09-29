@@ -34,8 +34,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Changelog
 
-Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
-
 ### _Package name_
 
 - Major changes only!
