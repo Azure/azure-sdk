@@ -36,6 +36,7 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 
 - Azure Core Experimental
 - Azure Core Serializer Apache Avro
+- Azure Event Hubs
 - Azure Identity
 - Azure Key Vault Administration
 - Azure Key Vault Certificates
@@ -152,6 +153,24 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
     <groupId>com.azure</groupId>
     <artifactId>azure-messaging-eventhubs</artifactId>
     <version>5.2.0</version>
+</dependency>
+
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-messaging-eventhubs</artifactId>
+    <version>5.3.0-beta.1</version>
+</dependency>
+
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-messaging-eventhubs-checkpointstore-blob</artifactId>
+    <version>1.2.0</version>
+</dependency>
+
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-messaging-eventhubs-checkpointstore-blob</artifactId>
+    <version>1.3.0-beta.1</version>
 </dependency>
 
 <dependency>
@@ -449,6 +468,12 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - Add support for connection strings containing a Shared Access Signature.
 - Add options for controlling partition ownership expiration, load balancing strategy.
+
+### Azure Event Hubs Beta [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-messaging-eventhubs_5.3.0-beta.1/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md#530-beta1-2020-09-25)
+
+#### New Features
+
+- A producer client can be configured to be an idempotent producer. When an event with the same producer group id and publishing sequence number is sent twice, only one will be accepted to the event hub.
 
 ### Form Recognizer ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_3.0.0/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#300-2020-08-20))
 
