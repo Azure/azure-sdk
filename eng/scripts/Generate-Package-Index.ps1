@@ -27,6 +27,7 @@ function Get-Row($pkg, $lang, $packageFormat, $sourceFormat)
 {
   $displayName = $pkg.DisplayName
   $docs = MSDocLink $lang $pkg
+  $docs = $docs -replace "https://docs.microsoft.com(/en-us)?", ""
 
   $version = $pkg.VersionGA
   if ($version -eq "") { $version = $pkg.VersionPreview }
