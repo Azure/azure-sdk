@@ -4,7 +4,7 @@
 | HTTP_PROXY                    | Proxy for HTTP connections                                                                 |
 | HTTPS_PROXY                   | Proxy for HTTPS connections                                                                |
 | NO_PROXY                      | Hosts which must not use a proxy                                                           |
-| ALL_PROXY                     | Proxy for HTTP and/or HTTPS requests in case HTTP_PROXY and/or HTTPS_PROXY are not defined |
+| ALL_PROXY                     | Proxy for HTTP and/or HTTPS connections in case HTTP_PROXY and/or HTTPS_PROXY are not defined |
 | **Identity**                  |                                                                                            |
 | MSI_ENDPOINT                  | Azure AD MSI Credentials                                                                   |
 | MSI_SECRET                    | Azure AD MSI Credentials                                                                   |
