@@ -25,8 +25,8 @@ The Azure SDK team is pleased to announce our October 2020 client library releas
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
 ```bash
-$> dotnet add package Azure.Messaging.EventHubs --version 5.3.0-beta.2
-$> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.3.0-beta.2
+$> dotnet add package Azure.Messaging.EventHubs --version 5.3.0-beta.3
+$> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.3.0-beta.3
 ```
 
 ## Feedback
