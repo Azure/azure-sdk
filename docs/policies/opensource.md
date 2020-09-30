@@ -65,6 +65,7 @@ Use the following rules to ensure that we can use CODEOWNERS for both GitHub and
   * When using this format, service owners will be automatically subscribed to build notification failure alerts
 * Place more general rules higher in the file and more specific rules lower in the file as GitHub uses the last matching expression
 * Use only GitHub person aliases for the owners (e.g. `@person`). GitHub groups, GitHub users that aren't linked to internal users, internal group aliases, and email addresses are not supported at this time.
+* If you want PRs in those folders to be auto-labeled, add a comment line above the entry with the path with the content of `# PRLabel: ` followed by the `%Label` you want to apply. Note: Currently wildcards are not supported and just one label per folder works for now.
 
 ```gitignore
 # Catch-all for SDK changes
@@ -73,6 +74,7 @@ Use the following rules to ensure that we can use CODEOWNERS for both GitHub and
 # Service teams
 /sdk/azconfig/   @person3 @person4
 /sdk/keyvault/   @person5 @person6
+# PRLabel: %label
 /sdk/servicebus/ @person7 @person8
 ```
 
