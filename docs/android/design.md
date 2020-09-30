@@ -22,9 +22,9 @@ In Java, the namespace should be named `com.azure.android.<group>.<service>[.<fe
 - `<service>` is the service name represented as a single word
 - `<feature>` is an optional subpackage to break services into separate components (for example, storage may have `.blob`, `.files`, and `.queues`)
 
-{% include requirement/MUST id="android-namespaces-prefix" %} start the package with `com.azure.android` to indicate an Azure client library.
+{% include requirement/MUST id="android-namespaces-prefix" %} start the package with `com.azure.android` to indicate an Azure client library for Android.
 
-{% include requirement/MUST id="android-namespaces-format" %} construct the package name with all lowercase letters (no camel case is allowed), without spaces, hyphens, or underscores. For example, Azure Key Vault would be in `com.azure.android.security.keyvault` - note that the two words 'Key' and 'Vault' are brought together to `keyvault`, instead of `keyVault`, `key_vault`, or `key-vault`. It may further be shortened if the shortened version is well known in the community. For example, "Azure Media Analytics" would have a compressed service name of `mediaanalytics`, and "Azure Service Bus" would become `servicebus`.
+{% include requirement/MUST id="android-namespaces-format" %} construct the package name with all lowercase letters (no camel case is allowed), without spaces, hyphens, or underscores. For example, Azure Key Vault would be in `com.azure.android.security.keyvault` - note that the two words 'Key' and 'Vault' are brought together to `keyvault`, instead of `keyVault`, `key_vault`, or `key-vault`. It may further be shortened if the shortened version is well-known in the community. For example, "Azure Media Analytics" would have a compressed service name of `mediaanalytics`, and "Azure Service Bus" would become `servicebus`.
 
 {% include requirement/MUST id="android-namespaces-package-name" %} pick a package name that allows the consumer to tie the package to the service being used. The package does **NOT** change when the branding of the product changes. Avoid the use of marketing names that may change.
 
@@ -40,6 +40,30 @@ If the client library does not seem to fit into the group list, contact the [Arc
 
 {% include requirement/MUST id="android-namespaces-registration" %} register the chosen namespace with the [Architecture Board]. Open an issue to request the namespace. See [the registered namespace list](registered_namespaces.html) for a list of the currently registered namespaces.
 
+{% include requirement/MUSTNOT id="android-namespaces-implementation" %} allow implementation code (that is, code that doesn't form part of the public API) to be mistaken as public API. There are two valid arrangements for implementation code:
+
+1. Implementation classes can be placed within a subpackage named `implementation`.
+2. Implementation classes can be made package-private and placed within the same package as the consuming class.
+
+CheckStyle checks ensure that classes within an `implementation` package aren't exposed through public API.
+
+### Gradle
+
+All client libraries for Android standardize on the Gradle build tooling for build and dependency management. This section details the standard configuration that must be used in all client libraries.
+
+{% include requirement/MUST id="android-build-gradle" %} ship a build.gradle file for each client library, or for each module within that client library (e.g. Storage might have one each for blob, queue, and file).
+
+{% include requirement/MUST id="android-manifest-package" %} specify the `package` to be of the form `com.azure.android.<group>.<service>[.<feature>]` in your library's AndroidManifest, for example, `com.azure.android.storage.blob`.
+
+```xml
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.azure.android.storage.blob"/>
+```
+
+{% include requirement/MUST id="android-gradle-publish-name" %} specify the `ext.publishName` property to take the form `Microsoft Azure Android Client Library for <service name>` at the top-level of the Gradle file.
+
+{% include requirement/MUST id="android-gradle-description" %} specify the `description` property to be a slightly longer statement along the lines of `This package contains the Android client library for Microsoft Azure <service>`.
+
 ## Service clients
 
 Your API surface consists of one or more _service clients_ that the consumer will instantiate to connect to your service, plus a set of supporting types.
@@ -48,23 +72,17 @@ Your API surface consists of one or more _service clients_ that the consumer wil
 
 {% include requirement/MUST id="android-client-mobile-consistency" %} be consistent with other mobile platforms in feature support (for example, iOS).
 
-{% include requirement/MUST id="android-client-verb-prefix" %} standardize verb prefixes within a set of client libraries for a service.
-
-We speak about using the client library in a cross-language manner within outbound materials such as documentation, blogs, and public speaking.
-
 ### Client interface
 
 {% include requirement/MUST id="android-service-client-naming" %} name service client types with the _Client_ suffix (for example, `ConfigurationClient`).
 
-{% include requirement/MUST id="android-async-client-name" %} offer an async service client named `<Service>[<Feature>]AsyncClient`, as async is the most common paradigm on Android. More than one service client may be offered for a single service. For example, a client for the storage service's Blob feature should be named `StorageBlobAsyncClient`.
-
-{% include requirement/MUSTNOT id="android-async-framework" %} use a third-party library to provide an async API.
-
-{% include requirement/MUSTNOT id="android-async-use-azure-core" %} write custom APIs for streaming or async operations. Make use of the existing functionality offered in the Azure Core library. Discuss proposed changes to the Azure Core library with the [Architecture Board].
-
 {% include requirement/MUST id="android-client-location" %} place service client types that the consumer is most likely to interact with in the root package of the client library (for example, `com.azure.android.messaging.servicebus`). Specialized service clients should be placed in subpackages.
 
+{% include requirement/MUST id="android-async-client-name" %} offer an async service client named `<Service>[<Feature>]AsyncClient`, as async is the most common paradigm on Android. More than one service client may be offered for a single service. For example, a client for the storage service's Blob feature should be named `StorageBlobAsyncClient`.
+
 {% include requirement/MUST id="android-client-constructor-minimal" %} allow the consumer to construct a service client with the minimal information needed to connect and authenticate to the service.
+
+{% include requirement/MUST id="android-service-client-builder" %} offer a fluent builder API for constructing service clients, said builder must be an inner class within the service client class it will instantiate. 
 
 {% include requirement/MUST id="android-service-client-immutability" %} ensure that all service client classes are immutable upon instantiation.
 
@@ -72,25 +90,37 @@ We speak about using the client library in a cross-language manner within outbou
 
 {% include requirement/MUSTNOT id="android-client-no-static-constructors" %} provide static methods to initialize a client.
 
+{% include requirement/MUSTNOT id="android-async-framework" %} use a third-party library to provide an async API.
+
+{% include requirement/MUSTNOT id="android-async-use-azure-core" %} write custom APIs for streaming or async operations. Make use of the existing functionality offered in the Azure Core library. Discuss proposed changes to the Azure Core library with the [Architecture Board].
+
+{% include requirement/MUST id="android-client-verb-prefix" %} standardize verb prefixes within a set of client libraries for a service.
+
+We speak about using the client library in a cross-language manner within outbound materials such as documentation, blogs, and public speaking.
+
 ### Client options
 
 Client constructors, and some client methods, accept options to customize the client or to customize how the method will be executed. 
 
-{% include requirement/MUST id="android-options-object" %} provide an immutable object named with the suffix `Options` to allow for customization of the client / method call. This struct should have a constructor that accepts all possible options for the client / method call as optional parameters.
+{% include requirement/MUST id="android-options-object" %} provide an immutable class named with the suffix `Options` to allow for customization of the client / method call. This class should have a constructor that accepts all possible options for the client / method call as optional parameters.
 
 {% include requirement/MUST id="android-options-parameter" %} accept an `Options` object as a single parameter named `options` in the client constructor or method signature, rather than accepting individual options as separate parameters.
 
-{% include requirement/MUST id="android-options-types" %} use rich types where possible for options. For example, use the `Date` type for dates and the `URL` type for URLs. When not possible, name the option with a suffix to express the expected type. If the expected type is a unit, the suffix should follow the format `In<Unit>`. Unit should be `ms` for milliseconds, and otherwise the name of the unit. Examples include `timeoutInMs` and `delayInSeconds`.
+{% include requirement/MUST id="android-options-types" %} use rich types where possible for options. For example, use the `Date` type for dates. When not possible, name the option with a suffix to express the expected type. If the expected type is a unit, the suffix should follow the format `In<Unit>`. Unit should be `ms` for milliseconds, and otherwise the name of the unit. Examples include `timeoutInMs` and `delayInSeconds`.
 
 ### Client models
 
 Models are classes that consumers use to provide required information into client library methods. These classes typically represent the domain model, or options classes that must be configured before the request can be made.
 
-{% include requirement/MUST id="android-models-constructors" %} provide public constructors for all model classes.
+{% include requirement/MUST id="android-models-constructors" %} provide public constructors for all model classes that a user is allowed to instantiate. Model classes that are not instantiable by the user, for example if they are model types returned from the service, should not have any publicly visible constructors.
 
 Use a no-args constructor and a fluent setter API to configure the model class. However, other designs may be used for the constructor when appropriate.
 
 {% include requirement/MUSTNOT id="android-models-builder" %} offer a builder class for model classes.
+
+{% include requirement/MUST id="android-models-interface" %} put model classes that are intended as service return types only, and which have undesirable public API (which is not intended for consumers of the client library) into the `.implementation.models` package. In its place, an interface should be put into the public-facing `.models` package, and it should be this type that is returned through the public API to end users. Examples of situations where this is applicable include when there are constructors or setters on a type which receive implementation types, or when a type should be immutable but needs to be mutable internally. The interface should have the model type name, and the implementation (within `.implementation.models`) should be named `<interfaceName>Impl`.
+
+**Note:** Extra caution must be taken to ensure that the returned interface has had consideration given to any future evolution of the interface, as growing an interface presents its own set of challenges (that is, [default methods](https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html)).
 
 {% include requirement/MUST id="android-models-fluent" %} provide a fluent API where appropriate.
 
@@ -100,7 +130,7 @@ Apply the `@Fluent` annotation to the class. Name setter methods after the prope
 
 Fluent types must not be immutable. Don't return a new instance on each setter call.
 
-{% include requirement/MUSTNOT id="android-models-no-javabeans" %} use the JavaBean naming convention of `get*`, `set*`, and `is*`.
+{% include requirement/MUST id="android-models-javabeans" %} use the JavaBean naming convention of `get*`, `set*`, and `is*`.
 
 {% include requirement/MUST id="android-client-model-domain-location" %} store client models representing the domain model (and enumerations / classes referenced by such models) within the `models` package inside the library's root directory.
 
@@ -112,9 +142,9 @@ Fluent types must not be immutable. Don't return a new instance on each setter c
 
 Don't offer builder or fluent APIs for supporting classes such as custom exception types, HTTP policies, and credential types.
 
-{% include requirement/MUST id="android-support-javabeans" %} use the JavaBean naming convention of `get*`, `set*`, and `is*`.
+{% include requirement/MUST id="android-support-prefix" %} use standard JavaBean prefixes for setter and getter methods.
 
-{% include requirement/MUSTNOT id="android-support-no-fluent" %} use the fluent API naming convention outlined above for model classes.
+{% include requirement/MUSTNOT id="android-support-setter-return-type" %} return `this` in setter methods - these methods should have a `void` return type.
 
 {% include requirement/MUSTNOT id="android-support-no-builder" %} provide a builder class.
 
@@ -139,6 +169,8 @@ Don't offer builder or fluent APIs for supporting classes such as custom excepti
 
 {% include requirement/SHOULD id="android-service-client-flexibility" %} remain flexible and use names best suited for developer experience. Don't let the naming rules result in non-idiomatic naming patterns. For example, Java developers prefer `list` operations over `getAll` operations.
 
+{% include requirement/MUSTNOT id="android-async-suffix" %} use the suffix `Async` in methods that do operations asynchronously.
+
 ## Network requests
 
 The client library wraps HTTP requests so it's important to support standard network capabilities. Asynchronous programming techniques aren't widely understood. However, such techniques are essential in developing resilient web services. Many developers prefer synchronous method calls for their easy semantics when learning how to use a technology. Consumers also expect certain capabilities in a network stack (such as call cancellation, automatic retry, and logging).
@@ -147,21 +179,47 @@ The client library wraps HTTP requests so it's important to support standard net
 
 {% include requirement/MUST id="android-network-packaging-for-sync-and-async" %} have [separate service clients] for sync and async APIs. The consumer needs to identify which methods are async and which are sync.
 
+{% include requirement/MUST id="android-network-callback-final" %} accept a callback as the final parameter for async client methods.
+
+{% include requirement/SHOULD id="android-network-callback-single" %} accept only a single callback for any given async client method. Providing a method that accepts multiple callbacks leads to unnecessarily cluttered code.
+
+{% include requirement/MUST id="android-network-callback-name" %} use the name `callback` for all callback parameter names.
+
+{% include requirement/MUST id="android-network-callback-type" %} make exclusive use of the `Callback` or `CallbackWithHeaders` types from Azure Core when defining an async client method `callback` parameter.
+
 ## Authentication
 
 Azure services use different kinds of authentication schemes to allow clients to access the service. Conceptually, there are two entities responsible in this process: a credential and an authentication policy. Credentials provide confidential authentication data. Authentication policies use the data provided by a credential to authenticate requests to the service. 
 
 {% include requirement/MUST id="android-auth-support" %} support all authentication techniques that the service supports and that make sense in a mobile context. Service principal authentication generally does not make sense, for example.
 
-{% include requirement/MUST id="android-auth-azure-core" %} use credential and authentication policy implementations from the Azure Core library where available.
+{% include requirement/MUSTNOT id="android-auth-no-token-persistence" %} persist, cache, or reuse tokens beyond the validity period of the given token. If any caching is implemented, the token credential must be given the opportunity to refresh before it expires.
 
-{% include requirement/MUST id="android-auth-credentials" %} provide credential types that can be used to fetch all data needed to authenticate a request to the service. If using a service-specific credential type, the implementation must be non-blocking and atomic.
+{% include requirement/MUST id="android-auth-azure-core" %} use credential and authentication policy implementations from the Azure Core library where available.
 
 {% include requirement/MUST id="android-auth-fluent-builder" %} provide service client fluent builder APIs that accept all supported authentication credentials.
 
-A connection string is a combination of an endpoint, credential data, and other options used to simplify service client configuration. 
+{% include requirement/MUST id="android-auth-credentials" %} provide credential types that can be used to fetch all data needed to authenticate a request to the service. If using a service-specific credential type, the implementation must be non-blocking and atomic.
 
-{% include requirement/MUSTNOT id="android-auth-connection-strings"%} support connection strings. Connection strings are insecure in the context of a mobile app.
+{% include requirement/MUST id="android-auth-credential-type-placement" %} define custom credential types in the same namespace and package as the client, or in a service group namespace and shared package, not in Azure Core or Azure Identity.
+
+{% include requirement/MUST id="android-auth-credential-type-prefix" %} prepend custom credential type names with the service name or service group name to provide clear context to its intended scope and usage.
+
+{% include requirement/MUST id="android-auth-credential-type-suffix" %} append Credential to the end of the custom credential type name. Note this must be singular not plural. 
+
+{% include requirement/MUST id="android-auth-provide-credential-constructor" %} define a constructor or factory for the custom credential type which takes in ALL data needed for the custom authentication protocol.
+
+{% include requirement/MUST id="android-auth-provide-update-method" %} define an update method which accepts all mutable credential data, and updates the credential in an atomic, thread safe manner.
+
+{% include requirement/MUSTNOT id="android-auth-credential-set-properties" %} define public settable properties or fields which allow users to update the authentication data directly in a non-atomic manner.
+
+{% include requirement/SHOULDNOT id="android-auth-credential-get-properties" %} define public properties or fields which allow users to access the authentication data directly. They are most often not needed by end users, and are difficult to use in a thread safe manner. In the case that exposing the authentication data is necessary, all the data needed to authenticate requests should be returned from a single API which guarantees the data returned is in a consistent state.
+
+Client libraries may support providing credential data via a connection string __ONLY IF__ the service provides a connection string to users via the portal or other tooling. Connection strings are generally good for getting started as they are easily integrated into an application by copy/paste from the portal. However, connection strings are considered a lesser form of authentication because the credentials cannot be rotated within a running process.
+
+{% include requirement/MAY id="android-auth-connection-strings"%} provide a service client initializer that accepts a connection string if appropriate. The connection string must be provided as the first parameter to the initializer and must be named `connectionString`. When supporting connection strings, the documentation must include a warning that building credentials such as connection strings into a consumer-facing application is inherently insecure.
+
+{% include requirement/MUSTNOT id="android-auth-connection-strings-only" %} support initializing a service client with a connection string unless such connection string is available within tooling (for copy/paste operations).
 
 ## Response formats
 
