@@ -31,7 +31,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Azure Core [Changelog](https://github.com/Azure/azure-sdk-for-c/blob/master/CHANGELOG.md)
 
-#### New Features
+### New Features
 
 - Add `az_json_writer_append_json_text()` to support appending existing JSON with the JSON writer.
 - Add support for system properties for IoT Hub messages to `az_iot_common.h`.
@@ -40,7 +40,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Add `AZ_IOT_MESSAGE_PROPERTIES_USER_ID` and `AZ_IOT_MESSAGE_PROPERTIES_CREATION_TIME` helper macros.
 - Add new `az_result` value `AZ_ERROR_DEPENDENCY_NOT_PROVIDED` which is returned by the HTTP adapter.
 
-#### Breaking Changes
+### Breaking Changes
 
 - Rename `az_iot_hub_client_properties` to `az_iot_message_properties` and move it from `az_iot_hub_client.h` to `az_iot_common.h`.
 - Remove `az_pair`, and its usage from `az_http_request_append_header()`, `az_http_response_get_next_header()`, and `az_iot_message_properties_next()` in favor of individual name and value `az_span` parameters.
