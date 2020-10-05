@@ -38,10 +38,6 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/CHANGELOG.md)
 
-#### New Features
-
-- This release continues to move towards GA.  Recommend reading migration guide and full changelog for details.
-
 #### Breaking changes
 
 * Passing any type other than `ReceiveMode` as parameter `receive_mode` now throws a `TypeError` instead of `AttributeError`.
