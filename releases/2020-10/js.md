@@ -18,6 +18,7 @@ The Azure SDK team is pleased to make available the October 2020 client library 
 
 #### Beta
 
+- Azure Identity.
 - _REMEMBER TO ADD YOUR BETA PACKAGES_
 
 ## Installation Instructions
@@ -25,7 +26,7 @@ The Azure SDK team is pleased to make available the October 2020 client library 
 To install the packages, copy and paste the below into a terminal.
 
 ```bash
-$> npm install @azure/package-name
+$> npm install @azure/identity@next
 ```
 
 ## Feedback
@@ -64,6 +65,23 @@ Keep in mind that:
 ##### Major Fixes on _Package name_
 
 - _Add one or more, or remove the "Major Fixes on ..." section._
+
+
+### Azure Identity
+
+#### @azure/identity  [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/identity/identity/CHANGELOG.md)
+
+Our authentication library is being released with some minor changes and fixes to the existing authentication methods.
+
+##### New Features on @azure/identity@1.2.0-beta.2
+
+- `DefaultAzureCredential` now by default shows the Device Code message on the console. This can still be overwritten with a custom behavior by specifying a function as the third parameter, `userPromptCallback`.
+- Added Active Directory Federation Services authority host support to the node credentials.
+
+##### Major Fixes on @azure/identity@1.2.0-beta.2
+
+- Added support for multiple clouds on `VisualStudioCodeCredential`. Fixes customer issue [11452](https://github.com/Azure/azure-sdk-for-js/issues/11452).
+- `ManagedIdentityCredential` has been aligned with other languages, now treating expected errors properly. This fixes customer issue [11451](https://github.com/Azure/azure-sdk-for-js/issues/11451).
 
 
 ## Latest Releases
