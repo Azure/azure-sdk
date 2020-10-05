@@ -169,7 +169,7 @@ public class ConfigurationClient {
 }
 ```
 
-{% include requirement/MUSTNOT id="dotnet-client-constructor-use-params" %} reference virtual properties of the client class as parameters to other methods or constructors within the constructor. Not only does this violation [.NET Framework Constructor Design], but will complicate mocking. Use parameters or local variables instead.
+{% include requirement/MUSTNOT id="dotnet-client-constructor-use-params" %} reference virtual properties of the client class as parameters to other methods or constructors within the client constructor. This violates the [.NET Framework Constructor Design] because a field to which a virtual property refers may not be initialized yet, or a mocked virtual property may not be set up yet. Use parameters or local variables instead:
 
 ```csharp
 public class ConfigurationClient {
@@ -183,7 +183,7 @@ public class ConfigurationClient {
 }
 ```
 
-Using the virtual property instead of the parameter requires the property to be mocked to return the value before the constructor is called when the mock is created. In [Moq] this requires using the delegate parameter to create the mock, which may not be an obvious workaround.
+In mocks, using the virtual property instead of the parameter requires the property to be mocked to return the value before the constructor is called when the mock is created. In [Moq] this requires using the delegate parameter to create the mock, which may not be an obvious workaround.
 
 See [Supporting Mocking](#dotnet-mocking) for details.
 
