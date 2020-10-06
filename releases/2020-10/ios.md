@@ -16,13 +16,13 @@ The Azure SDK team is pleased to make available the October 2020 client library 
 
 - _Add packages_
 
-#### Preview
+#### Beta
 
 - _Add packages_
 
 ## Installation Instructions
 
-To install the latest GA and preview libraries, use the [Swift Package Manager](https://swift.org/package-manager/). If you are using a different tool, refer to its documentation on how to specify dependencies.
+To install the latest GA and beta libraries, use the [Swift Package Manager](https://swift.org/package-manager/).
 
 ### Xcode
 
@@ -63,8 +63,8 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - For reference documentation visit the [Azure SDK for iOS documentation](https://azure.github.io/azure-sdk-for-ios/).
 - For tutorials, samples, quick starts and other documentation, visit the [Azure SDK for iOS repository](https://github.com/azure/azure-sdk-for-ios/).
 - File an issue via [Github Issues](https://github.com/Azure/azure-sdk-for-ios/issues/new/choose).
-- Check [previous questions](https://stackoverflow.com/questions/tagged/azure-ios-sdk) or ask new ones on
- StackOverflow using the `azure-ios-sdk` tag.
+- Check [previous questions](https://stackoverflow.com/questions/tagged/azure+ios) or ask new ones on
+ StackOverflow using the `azure` and `ios` tags.
 
 ## Latest Releases
 
