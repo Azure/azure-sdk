@@ -48,8 +48,6 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#510b2-2020-10-06)
 
-#### New Features
-
 #### Breaking changes
 
 * Removed extra property `length` from relevant models. Originally, this property represented the length of the `text` property in those same models. To get the length of the text in these models, just call `len()` on the text property.
