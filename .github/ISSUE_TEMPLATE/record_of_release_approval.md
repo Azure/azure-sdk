@@ -30,15 +30,16 @@ Place the notes taken for each meeting in the appropriate section below.
 
 Provide **links to GitHub issues** indicating that the Architecture Board has reviewed the library for all Tier-1 Languages (Java, C#, Python, and TS/JS)
 
-* Introductory session: Link 
-* API Review session(s): Link(s)
-    * There could be more than one API review for the library depending on surface area, scale, etc. 
-* API Sign Off session: Link 
 * Champion Scenarios and Quickstart Samples reviewed 
     * C#: YES/NO, Links
     * Python: YES/NO, Links
     * JS: YES/NO, Links
     * Java: YES/NO, Links
+* Introductory session: Link 
+* API Review session(s): Link(s)
+    * There could be more than one API review for the library depending on surface area, scale, etc. 
+* API Sign Off session: Link 
+
 
 ## Links to Published Packages
 * C#: Link 
