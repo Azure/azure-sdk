@@ -26,9 +26,9 @@ The Azure SDK team is pleased to announce our October 2020 client library releas
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
 ```bash
+$> dotnet add package Azure.Data.Tables --version 3.0.0-beta.2
 $> dotnet add package Azure.Messaging.EventHubs --version 5.3.0-beta.3
 $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.3.0-beta.3
-$> dotnet add package Azure.Data.Tables --version 3.0.0-beta.2
 ```
 
 ## Feedback
@@ -38,6 +38,13 @@ If you have a bug or feature request for one of the libraries, please [file an i
 ## Changelog
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
+
+### Azure.Data.Tables [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/tables/Azure.Data.Tables/CHANGELOG.md#300-beta2-2020-10-06)
+
+#### New Features
+
+- Implemented batch operations.
+- `TableClient`'s `GetEntity` method now exposes the `select` query option to allow for more efficient existence checks for a table entity.
 
 ### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md)
 
@@ -52,16 +59,6 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### New Features
 
 - `EventData` has been integrated with the new Schema Registry service, via use of the `SchemaRegistryAvroObjectSerializer` with the `BodyAsBinaryData` member.
-
-### Azure.Data.Tables [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/tables/Azure.Data.Tables/CHANGELOG.md#300-beta2-2020-10-06)
-
-### Added
-
-- Implemented batch operations.
-
-### Changed
-
-- `TableClient`'s `GetEntity` method now exposes the `select` query option to allow for more efficient existence checks for a table entity.
 
 ## Latest Releases
 
