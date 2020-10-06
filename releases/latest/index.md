@@ -11,4 +11,6 @@ sidebar: releases_sidebar
 {% include releases/python.md type="client" %}
 {% include releases/cpp.md type="client" %}
 {% include releases/c.md type="client" %}
+{% include releases/android.md type="client" %}
+{% include releases/ios.md type="client" %}
 {% include refs.md %}
