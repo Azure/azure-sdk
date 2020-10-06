@@ -16,13 +16,13 @@ The Azure SDK team is pleased to announce our October 2020 client library releas
 
 - _Add packages_
 
-#### Beta
+#### Preview
 
 - _Add packages_
 
 ## Installation Instructions
 
-To use the latest GA and beta libraries, refer to the dependency information below, which may be copied into your projects Gradle `build.gradle` or Maven `pom.xml` file as appropriate. If you are using a different build tool, refer to its documentation on how to specify dependencies.
+To use the latest GA and preview libraries, refer to the dependency information below, which may be copied into your projects Gradle `build.gradle` or Maven `pom.xml` file as appropriate. If you are using a different build tool, refer to its documentation on how to specify dependencies.
 
 ### Gradle
 

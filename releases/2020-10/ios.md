@@ -16,13 +16,13 @@ The Azure SDK team is pleased to make available the October 2020 client library 
 
 - _Add packages_
 
-#### Beta
+#### Preview
 
 - _Add packages_
 
 ## Installation Instructions
 
-To install the latest GA and beta libraries, use the [Swift Package Manager](https://swift.org/package-manager/). If you are using a different tool, refer to its documentation on how to specify dependencies.
+To install the latest GA and preview libraries, use the [Swift Package Manager](https://swift.org/package-manager/). If you are using a different tool, refer to its documentation on how to specify dependencies.
 
 ### Xcode
 
