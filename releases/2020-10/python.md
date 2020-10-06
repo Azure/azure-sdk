@@ -20,6 +20,7 @@ The Azure SDK team is pleased to make available the October 2020 client library 
 
 - Service Bus
 - Search
+- Text Analytics
 
 ## Installation Instructions
 
@@ -29,6 +30,7 @@ To install the latest beta version of the packages, copy and paste the following
 pip install azure-servicebus --pre
 pip install azure-search-documents --pre
 pip install azure-appconfiguration
+pip install azure-ai-textanalytics --pre
 ```
 
 ## Feedback
@@ -62,6 +64,12 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Renamed SearchIndexDocumentBatchingClient.add_merge_or_upload_actions to SearchIndexingBufferedSender.merge_or_upload_documents
 - Stopped supporting window kwargs for SearchIndexingBufferedSender
 - Split kwarg hook into on_new, on_progress, on_error, on_remove for SearchIndexingBufferedSender
+
+### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#510b2-2020-10-06)
+
+#### Breaking changes
+
+* Removed extra property `length` from relevant models. Originally, this property represented the length of the `text` property in those same models. To get the length of the text in these models, just call `len()` on the text property.
 
 ## Latest Releases
 
