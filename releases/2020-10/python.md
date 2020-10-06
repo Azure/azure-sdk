@@ -19,6 +19,7 @@ The Azure SDK team is pleased to make available the October 2020 client library 
 #### Beta
 
 - Service Bus
+- Text Analytics
 
 ## Installation Instructions
 
@@ -26,6 +27,7 @@ To install the latest beta version of the packages, copy and paste the following
 
 ```bash
 pip install azure-servicebus --pre
+pip install azure-ai-textanalytics --pre
 ```
 
 ## Feedback
@@ -43,6 +45,14 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 * Passing any type other than `ReceiveMode` as parameter `receive_mode` now throws a `TypeError` instead of `AttributeError`.
 * Administration Client calls now take only entity names, not `<Entity>Descriptions` as well to reduce ambiguity in which entity was being acted on. TypeError will now be thrown on improper parameter types (non-string).
 * `AMQPMessage` (`Message.amqp_message`) properties are now read-only, changes of these properties would not be reflected in the underlying message.  This may be subject to change before GA.
+
+### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#510b2-2020-10-06)
+
+#### New Features
+
+#### Breaking changes
+
+* Removed extra property `length` from relevant models. Originally, this property represented the length of the `text` property in those same models. To get the length of the text in these models, just call `len()` on the text property.
 
 ## Latest Releases
 
