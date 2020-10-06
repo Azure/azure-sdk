@@ -59,7 +59,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 ## Need help
 
 - For reference documentation visit the [Azure SDK for Android documentation](https://azure.github.io/azure-sdk-for-android/).
-- For tutorials, samples, quick starts and other documentation, visit the [Azure for Android repository](https://github.com/azure/azure-sdk-for-android/).
+- For tutorials, samples, quick starts and other documentation, visit the [Azure SDK for Android repository](https://github.com/azure/azure-sdk-for-android/).
 - File an issue via [Github Issues](https://github.com/Azure/azure-sdk-for-android/issues/new/choose).
 - Check [previous questions](https://stackoverflow.com/questions/tagged/azure-android-sdk) or ask new ones on
  StackOverflow using the `azure-android-sdk` tag.

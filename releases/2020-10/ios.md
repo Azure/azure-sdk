@@ -6,7 +6,7 @@ sidebar: releases_sidebar
 repository: azure/azure-sdk-for-ios
 ---
 
-The Azure SDK team is pleased to make available the October 2020 client library release.
+The Azure SDK team is pleased to make available the October 2020 client library releases.
 
 #### GA
 
@@ -58,16 +58,16 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - Major changes only!
 
-## Latest Releases
+## Need help
 
 - For reference documentation visit the [Azure SDK for iOS documentation](https://azure.github.io/azure-sdk-for-ios/).
-- For tutorials, samples, quick starts and other documentation, visit [Azure for Mobile Developers](https://github.com/azure/azure-sdk-for-ios/).
+- For tutorials, samples, quick starts and other documentation, visit the [Azure SDK for iOS repository](https://github.com/azure/azure-sdk-for-ios/).
 - File an issue via [Github Issues](https://github.com/Azure/azure-sdk-for-ios/issues/new/choose).
 - Check [previous questions](https://stackoverflow.com/questions/tagged/azure-ios-sdk) or ask new ones on
  StackOverflow using the `azure-ios-sdk` tag.
 
 ## Latest Releases
 
-View all the latest versions of iOS packages [here][android-latest-releases].
+View all the latest versions of iOS packages [here][ios-latest-releases].
 
 {% include refs.md %}
