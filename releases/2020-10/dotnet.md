@@ -53,7 +53,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - `EventData` has been integrated with the new Schema Registry service, via use of the `SchemaRegistryAvroObjectSerializer` with the `BodyAsBinaryData` member.
 
-### Azure.Data.Tables [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/tables/Azure.Data.Tables/CHANGELOG.md)
+### Azure.Data.Tables [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/tables/Azure.Data.Tables/CHANGELOG.md#300-beta2-2020-10-06)
 
 ### Added
 
