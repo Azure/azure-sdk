@@ -1,12 +1,12 @@
 ---
-title: Azure SDK for Android (October 2020)
+title: Azure SDK for Android (%%MMMM yyyy%%)
 layout: post
 tags: android azure
 sidebar: releases_sidebar
 repository: azure/azure-sdk-for-android
 ---
 
-The Azure SDK team is pleased to announce our October 2020 client library releases.
+The Azure SDK team is pleased to announce our %%MMMM yyyy%% client library releases.
 
 #### GA
 
@@ -45,8 +45,7 @@ To use the latest GA and beta libraries, refer to the dependency information bel
 
 ## Feedback
 
-If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com
-/azure/azure-sdk-for-android/issues).
+If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/azure/azure-sdk-for-android/issues).
 
 ## Changelog
 

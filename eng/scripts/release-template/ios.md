@@ -1,12 +1,12 @@
 ---
-title: Azure SDK for iOS (October 2020)
+title: Azure SDK for iOS (%%MMMM yyyy%%)
 layout: post
 tags: ios azure
 sidebar: releases_sidebar
 repository: azure/azure-sdk-for-ios
 ---
 
-The Azure SDK team is pleased to make available the October 2020 client library releases.
+The Azure SDK team is pleased to announce our %%MMMM yyyy%% client library releases.
 
 #### GA
 
