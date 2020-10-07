@@ -120,11 +120,6 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - Enhanced playback recording to use test class name plus test name to identify records.
 
-#### Key Bug Fixes
-
-- Added additional response data redaction.
-- Updated handling of `HttpClient` retrieval from the classpath to no longer require dependent libraries to `add-opens` in Java 9+.
-
 ### Azure Search Documents
 
 #### 11.2.0-beta.2 ([CHANGELOG](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/search/azure-search-documents/CHANGELOG.md#1120-beta2-2020-10-06))
@@ -144,7 +139,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Made `SearchIdexingBufferedSender` generic typed.
 - Removed `IndexingHooks` in favor of individual callbacks.
 - Removed the ability to configure `batchSize` on buffered sender and changed the default to 500 instead of 1000.
-- Changed `onActionRemoved` to `onActionSent`.
+- Renamed `onActionRemoved` to `onActionSent`.
   
 ## Need help
 
