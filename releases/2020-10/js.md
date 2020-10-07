@@ -19,8 +19,8 @@ The Azure SDK team is pleased to make available the October 2020 client library 
 #### Beta
 
 - Azure Identity.
-- Azure Metrics Advisor
-- Azure Tables
+- Azure Metrics Advisor.
+- Azure Tables.
 
 - _REMEMBER TO ADD YOUR BETA PACKAGES_
 
@@ -77,7 +77,7 @@ Keep in mind that:
 
 ##### New Features on @azure/data-tables@1.0.0-beta.2
 
-- Implemented batch operations
+- Implemented batch operations.
 
 ### Azure Metrics Advisor
 
@@ -86,13 +86,12 @@ Keep in mind that:
 (leave blank)
 
 - This is the inital preview of client library that supports the newly announced preview of the Azure Metrics Advisor service.
-- This library has been designed based on the [Azure SDK Design Guidelines for TypeScript]({{ site.baseurl }}{% link docs/typescript/introduction.md %}) to ensure consistency, idiomat\
-ic design, and excellent developer experience and productivity.
-- it supports all services APIs, including but not limited to
-  - Manage data feeds
-  - Configure anomaly detection and alerting configurations
+- This library has been designed based on the [Azure SDK Design Guidelines for TypeScript]({{ site.baseurl }}{% link docs/typescript/introduction.md %}) to ensure consistency, idiomatic design, and excellent developer experience and productivity.
+- It supports all services APIs, including but not limited to
+  - Manage data feeds.
+  - Configure anomaly detection and alerting configurations.
   - Query anomaly detection results, for example, incidents, anomalies, alerts, enriched series data, etc.
-  - Diagnose incident root causes
+  - Diagnose incident root causes.
 
 ### Azure Identity
 
