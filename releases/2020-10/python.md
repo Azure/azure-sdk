@@ -51,7 +51,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Search [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/CHANGELOG.md)
 
-#### Features
+#### New Features
 
 - Added auto_flush_interval support for SearchIndexingBufferedSender
 
