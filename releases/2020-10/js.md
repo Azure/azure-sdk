@@ -20,6 +20,8 @@ The Azure SDK team is pleased to make available the October 2020 client library 
 
 - Azure Identity.
 - Azure Metrics Advisor
+- Azure Tables
+
 - _REMEMBER TO ADD YOUR BETA PACKAGES_
 
 ## Installation Instructions
@@ -28,6 +30,7 @@ To install the packages, copy and paste the below into a terminal.
 
 ```bash
 $> npm install @azure/identity@next
+$> npm install @azure/data-tables@next
 $> npm install @azure/ai-metrics-advisor
 ```
 
@@ -68,6 +71,13 @@ Keep in mind that:
 
 - _Add one or more, or remove the "Major Fixes on ..." section._
 
+### Azure Tables
+
+#### @azure/data-tables [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/tables/data-tables/CHANGELOG.md)
+
+##### New Features on @azure/data-tables@1.0.0-beta.2
+
+- Implemented batch operations
 
 ### Azure Metrics Advisor
 
