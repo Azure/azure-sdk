@@ -19,6 +19,7 @@ The Azure SDK team is pleased to announce our October 2020 client library releas
 #### Beta
 
 - Event Hubs
+- Key Vault
 - Tables
 
 ## Installation Instructions
@@ -27,6 +28,12 @@ To install any of our packages, please search for them via `Manage NuGet Package
 
 ```bash
 $> dotnet add package Azure.Data.Tables --version 3.0.0-beta.2
+
+$> dotnet add package Azure.Security.KeyVault.Administration --version 4.0.0-beta.2
+$> dotnet add package Azure.Security.KeyVault.Certificates --version 4.2.0-beta.2
+$> dotnet add package Azure.Security.KeyVault.Keys --version 4.2.0-beta.2
+$> dotnet add package Azure.Security.KeyVault.Secrets --version 4.2.0-beta.2
+
 $> dotnet add package Azure.Messaging.EventHubs --version 5.3.0-beta.3
 $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.3.0-beta.3
 ```
@@ -59,6 +66,10 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### New Features
 
 - `EventData` has been integrated with the new Schema Registry service, via use of the `SchemaRegistryAvroObjectSerializer` with the `BodyAsBinaryData` member.
+
+### Key Vault
+
+- Bug fixes and performance improvements.
 
 ## Latest Releases
 
