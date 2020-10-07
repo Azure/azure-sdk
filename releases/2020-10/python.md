@@ -21,6 +21,7 @@ The Azure SDK team is pleased to make available the October 2020 client library 
 - Service Bus
 - Search
 - Text Analytics
+- Metrics Advisor
 
 ## Installation Instructions
 
@@ -31,6 +32,7 @@ pip install azure-servicebus --pre
 pip install azure-search-documents --pre
 pip install azure-appconfiguration
 pip install azure-ai-textanalytics --pre
+pip install azure-ai-metricsadvisor --pre
 ```
 
 ## Feedback
