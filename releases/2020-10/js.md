@@ -19,6 +19,7 @@ The Azure SDK team is pleased to make available the October 2020 client library 
 #### Beta
 
 - Azure Identity.
+- Azure Metrics Advisor
 - _REMEMBER TO ADD YOUR BETA PACKAGES_
 
 ## Installation Instructions
@@ -27,6 +28,7 @@ To install the packages, copy and paste the below into a terminal.
 
 ```bash
 $> npm install @azure/identity@next
+$> npm install @azure/ai-metrics-advisor
 ```
 
 ## Feedback
@@ -66,6 +68,21 @@ Keep in mind that:
 
 - _Add one or more, or remove the "Major Fixes on ..." section._
 
+
+### Azure Metrics Advisor
+
+#### @azure/ai-metrics-advisor [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/metricsadvisor/ai-metrics-advisor/CHANGELOG.md)
+
+(leave blank)
+
+- This is the inital preview of client library that supports the newly announced preview of the Azure Metrics Advisor service.
+- This library has been designed based on the [Azure SDK Design Guidelines for TypeScript]({{ site.baseurl }}{% link docs/typescript/introduction.md %}) to ensure consistency, idiomat\
+ic design, and excellent developer experience and productivity.
+- it supports all services APIs, including but not limited to
+  - Manage data feeds
+  - Configure anomaly detection and alerting configurations
+  - Query anomaly detection results, for example, incidents, anomalies, alerts, enriched series data, etc.
+  - Diagnose incident root causes
 
 ### Azure Identity
 
