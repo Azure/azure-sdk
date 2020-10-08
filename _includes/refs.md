@@ -17,7 +17,9 @@
 [python-guidelines]: {{ site.baseurl }}{% link docs/python/introduction.md %}
 [typescript-guidelines]: {{ site.baseurl }}{% link docs/typescript/introduction.md %}
 
+[android-latest-releases]: {{ site.baseurl }}{% link releases/latest/android.md %}
 [dotnet-latest-releases]: {{ site.baseurl }}{% link releases/latest/dotnet.md %}
+[ios-latest-releases]: {{ site.baseurl }}{% link releases/latest/ios.md %}
 [java-latest-releases]: {{ site.baseurl }}{% link releases/latest/java.md %}
 [js-latest-releases]: {{ site.baseurl }}{% link releases/latest/js.md %}
 [python-latest-releases]: {{ site.baseurl }}{% link releases/latest/python.md %}
