@@ -291,7 +291,7 @@ Beta packages are published directly to the Maven central registry. Alpha packag
 
 iOS releases the source code of the repository in a single unit of source code. It supports only the Swift Package Manager and does not ship packages to any package registry. Because the iOS repo ships from the `master` branch, code going into the `master` branch must be in a completed state and ready to ship.
 
-An iOS release includes a Tag and Release (e.g. [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-ios/releases/tag/1.0.0-beta.2)) on GitHub and documentation as GitHub Pages (e.g. [1.0.0-beta.2](https://azure.github.io/azure-sdk-for-ios/)).
+An iOS release includes a Tag and Release (e.g. [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-ios/releases/tag/1.0.0-beta.2)) on GitHub and documentation as GitHub Pages.
 
 #### Incrementing after release (iOS)
 
