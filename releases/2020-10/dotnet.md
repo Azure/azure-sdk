@@ -29,13 +29,13 @@ To install any of our packages, please search for them via `Manage NuGet Package
 ```bash
 $> dotnet add package Azure.Data.Tables --version 3.0.0-beta.2
 
+$> dotnet add package Azure.Messaging.EventHubs --version 5.3.0-beta.3
+$> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.3.0-beta.3
+
 $> dotnet add package Azure.Security.KeyVault.Administration --version 4.0.0-beta.2
 $> dotnet add package Azure.Security.KeyVault.Certificates --version 4.2.0-beta.2
 $> dotnet add package Azure.Security.KeyVault.Keys --version 4.2.0-beta.2
 $> dotnet add package Azure.Security.KeyVault.Secrets --version 4.2.0-beta.2
-
-$> dotnet add package Azure.Messaging.EventHubs --version 5.3.0-beta.3
-$> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.3.0-beta.3
 ```
 
 ## Feedback
