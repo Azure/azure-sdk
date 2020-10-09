@@ -272,7 +272,7 @@ func (c *WidgetClient) GetWidget(ctx context.Context, name string, options *GetW
 {% include requirement/MUST id="golang-response-examples" %} provide examples on how to access the streamed response for a request, where exposed by the client library. We don’t expect all methods to expose a streamed response.
 
 ```go
-func (c *WidgetClient) GetBinaryResponse(ctx context.Context, name string, options GetBinaryResponse) (*http.Response, error) {
+func (c *WidgetClient) GetBinaryResponse(ctx context.Context, name string, options GetBinaryResponseOptions) (*http.Response, error) {
 	// ...
 }
 
