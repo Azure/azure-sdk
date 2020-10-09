@@ -18,6 +18,7 @@ The Azure SDK team is pleased to make available the October 2020 client library 
 
 #### Beta
 
+- Storage
 - Service Bus
 - Search
 - Text Analytics
@@ -31,6 +32,10 @@ pip install azure-servicebus --pre
 pip install azure-search-documents --pre
 pip install azure-appconfiguration
 pip install azure-ai-textanalytics --pre
+pip install azure-storage-blob --pre
+pip install azure-storage-file-datalake --pre
+pip install azure-storage-file-share --pre
+pip install azure-storage-queue
 ```
 
 ## Feedback
@@ -70,6 +75,28 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### Breaking changes
 
 * Removed extra property `length` from relevant models. Originally, this property represented the length of the `text` property in those same models. To get the length of the text in these models, just call `len()` on the text property.
+
+### Azure Storage Blob [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md)
+
+#### New Features
+- Added support for Arrow format (`ArrowType`) output serialization using `quick_query()`.
+- Added support for undeleting a container.
+- Added support for `LastAccessTime` property on a blob, which could be the last time a blob was written or read.
+
+### Azure Storage File DataLake [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md)
+
+#### Key Bug Fixes
+- Added support for recursive set/update/remove Access Control on a path and sub-paths.
+- Added support for setting an expiry on files where the file gets deleted once it expires.
+- Added support to generate directory SAS and added support to specify additional user ids and correlation ids for user delegation SAS.
+
+### Azure Storage File Share [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/CHANGELOG.md)
+
+#### Key Bug Fixes
+- Added support for enabling SMB Multichannel for the share service.
+- Added support for leasing a share.
+- Added support for getting the range diff between current file and a snapshot as well as getting the diff between two file snapshots.
+
 
 ## Latest Releases
 
