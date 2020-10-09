@@ -85,7 +85,7 @@ Keep in mind that:
 
 ##### New Features on @azure/data-tables@1.0.0-beta.2
 
-- Implemented batch operations.
+- Implemented support for batch operations. This allows sending multiple create, delete and update operations in a single atomic transaction.
 
 ### Azure Metrics Advisor
 
