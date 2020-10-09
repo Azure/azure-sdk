@@ -19,7 +19,10 @@ The Azure SDK team is pleased to announce our October 2020 client library releas
 #### Beta
 
 - Event Hubs
+<<<<<<< HEAD
 - Key Vault
+=======
+>>>>>>> 1cee149a4111c2253a85da722877aa5bfa5fd4d3
 - Storage
 - Tables
 
@@ -33,11 +36,14 @@ $> dotnet add package Azure.Data.Tables --version 3.0.0-beta.2
 $> dotnet add package Azure.Messaging.EventHubs --version 5.3.0-beta.3
 $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.3.0-beta.3
 
+<<<<<<< HEAD
 $> dotnet add package Azure.Security.KeyVault.Administration --version 4.0.0-beta.2
 $> dotnet add package Azure.Security.KeyVault.Certificates --version 4.2.0-beta.2
 $> dotnet add package Azure.Security.KeyVault.Keys --version 4.2.0-beta.2
 $> dotnet add package Azure.Security.KeyVault.Secrets --version 4.2.0-beta.2
 
+=======
+>>>>>>> 1cee149a4111c2253a85da722877aa5bfa5fd4d3
 $> dotnet add package Azure.Storage.Blobs --version 12.7.0-preview.1
 $> dotnet add package Azure.Storage.Blobs.Batch --version 12.4.0-preview.1
 $> dotnet add package Azure.Storage.Blobs.ChangeFeed --version 12.0.0-preview.5
@@ -75,11 +81,14 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - `EventData` has been integrated with the new Schema Registry service, via use of the `SchemaRegistryAvroObjectSerializer` with the `BodyAsBinaryData` member.
 
+<<<<<<< HEAD
 
 ### Key Vault
 
 - Bug fixes and performance improvements.
 
+=======
+>>>>>>> 1cee149a4111c2253a85da722877aa5bfa5fd4d3
 ### Azure Storage Blobs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md)
 
 #### New Features

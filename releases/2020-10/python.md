@@ -37,16 +37,22 @@ pip install azure-search-documents --pre
 pip install azure-appconfiguration
 pip install azure-ai-textanalytics --pre
 <<<<<<< HEAD
+<<<<<<< HEAD
 pip install azure-ai-metricsadvisor --pre
 pip install azure-identity
 pip install azure-keyvault-administration
 pip install azure-keyvault-keys
 =======
+=======
+>>>>>>> 1cee149a4111c2253a85da722877aa5bfa5fd4d3
 pip install azure-storage-blob --pre
 pip install azure-storage-file-datalake --pre
 pip install azure-storage-file-share --pre
 pip install azure-storage-queue
+<<<<<<< HEAD
 >>>>>>> Adding storage updates
+=======
+>>>>>>> 1cee149a4111c2253a85da722877aa5bfa5fd4d3
 ```
 
 ## Feedback
@@ -87,6 +93,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 * Removed extra property `length` from relevant models. Originally, this property represented the length of the `text` property in those same models. To get the length of the text in these models, just call `len()` on the text property.
 
+<<<<<<< HEAD
 ### Identity [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/CHANGELOG.md#141-2020-10-07)
 
 #### Key Bug Fixes
@@ -107,6 +114,8 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### New Features
 - CryptographyClient can perform decrypt and sign operations locally
 
+=======
+>>>>>>> 1cee149a4111c2253a85da722877aa5bfa5fd4d3
 ### Azure Storage Blob [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md)
 
 #### New Features
