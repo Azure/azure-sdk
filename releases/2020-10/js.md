@@ -21,7 +21,7 @@ The Azure SDK team is pleased to make available the October 2020 client library 
 - Azure Identity.
 - Azure Metrics Advisor.
 - Azure Tables.
-Azure Service Bus
+- Azure Service Bus.
 - _REMEMBER TO ADD YOUR BETA PACKAGES_
 
 ## Installation Instructions
@@ -53,16 +53,6 @@ Keep in mind that:
 
 ---
 
-#### @azure/service-bus@7.0.0-preview.7 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md)
-
-##### New Features on @azure/service-bus@7.0.0-preview.7
-
-- Message locks can be auto-renewed in all receive methods (receiver.receiveMessages, receiver.subcribe
-  and receiver.getMessageIterator). This can be configured in options when calling `ServiceBusClient.createReceiver()`.
-  [PR 11658](https://github.com/Azure/azure-sdk-for-js/pull/11658)
-- `ServiceBusClient` now supports authentication with AAD credentials in the browser(can use `InteractiveBrowserCredential` from `@azure/identity`).
-  [PR 11250](https://github.com/Azure/azure-sdk-for-js/pull/11250)
-
 #### _Package name_ [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/<service-folder>/<package-folder>/CHANGELOG.md)
 
 (leave blank)
@@ -79,6 +69,18 @@ Keep in mind that:
 
 - _Add one or more, or remove the "Major Fixes on ..." section._
 
+
+#### @azure/service-bus@7.0.0-preview.7 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md)
+
+##### New Features on @azure/service-bus@7.0.0-preview.7
+
+- Message locks can be auto-renewed in all receive methods (receiver.receiveMessages, receiver.subcribe
+  and receiver.getMessageIterator). This can be configured in options when calling `ServiceBusClient.createReceiver()`.
+  [PR 11658](https://github.com/Azure/azure-sdk-for-js/pull/11658)
+- `ServiceBusClient` now supports authentication with AAD credentials in the browser(can use `InteractiveBrowserCredential` from `@azure/identity`).
+  [PR 11250](https://github.com/Azure/azure-sdk-for-js/pull/11250)
+
+
 ### Azure Tables
 
 #### @azure/data-tables [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/tables/data-tables/CHANGELOG.md)
@@ -86,6 +88,7 @@ Keep in mind that:
 ##### New Features on @azure/data-tables@1.0.0-beta.2
 
 - Implemented support for batch operations. This allows sending multiple create, delete and update operations in a single atomic transaction.
+
 
 ### Azure Metrics Advisor
 
@@ -100,6 +103,7 @@ Keep in mind that:
   - Configure anomaly detection and alerting configurations.
   - Query anomaly detection results, for example, incidents, anomalies, alerts, enriched series data, etc.
   - Diagnose incident root causes.
+
 
 ### Azure Identity
 
