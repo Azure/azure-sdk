@@ -38,7 +38,7 @@ $> dotnet add package Azure.AI.AnomalyDetector --version 3.0.0-preview.2
 
 $> dotnet add package Azure.AI.FormRecognizer --version 3.0.0
 
- $> dotnet add package Azure.AI.TextAnalytics --version 5.1.0-beta.1
+$> dotnet add package Azure.AI.TextAnalytics --version 5.1.0-beta.1
 
 $> dotnet add package Azure.Data.AppConfiguration --version 1.0.2
 

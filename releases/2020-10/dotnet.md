@@ -21,12 +21,15 @@ The Azure SDK team is pleased to announce our October 2020 client library releas
 - Event Hubs
 - Key Vault
 - Tables
+- Text Analytics
 
 ## Installation Instructions
 
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
 ```bash
+$> dotnet add package Azure.AI.TextAnalytics --version 5.1.0-beta.2
+
 $> dotnet add package Azure.Data.Tables --version 3.0.0-beta.2
 
 $> dotnet add package Azure.Messaging.EventHubs --version 5.3.0-beta.3
@@ -70,6 +73,11 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 ### Key Vault
 
 - Bug fixes and performance improvements.
+
+### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#510-beta2-2020-10-06)
+
+#### Breaking changes
+- Removed property `Length` from the library as it can be obtained by calling `Length` on the `Text` property of types `CategorizedEntity`, `SentenceSentiment`, `LinkedEntityMatch`, `AspectSentiment`, `OpinionSentiment`, and `PiiEntity`.
 
 ## Latest Releases
 
