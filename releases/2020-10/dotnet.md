@@ -20,6 +20,7 @@ The Azure SDK team is pleased to announce our October 2020 client library releas
 
 - Event Hubs
 - Key Vault
+- Storage
 - Tables
 
 ## Installation Instructions
@@ -36,6 +37,13 @@ $> dotnet add package Azure.Security.KeyVault.Administration --version 4.0.0-bet
 $> dotnet add package Azure.Security.KeyVault.Certificates --version 4.2.0-beta.2
 $> dotnet add package Azure.Security.KeyVault.Keys --version 4.2.0-beta.2
 $> dotnet add package Azure.Security.KeyVault.Secrets --version 4.2.0-beta.2
+
+$> dotnet add package Azure.Storage.Blobs --version 12.7.0-preview.1
+$> dotnet add package Azure.Storage.Blobs.Batch --version 12.4.0-preview.1
+$> dotnet add package Azure.Storage.Blobs.ChangeFeed --version 12.0.0-preview.5
+$> dotnet add package Azure.Storage.Files.DataLake --version 12.5.0-preview.1
+$> dotnet add package Azure.Storage.Files.Shares --version 12.5.0-preview.1
+$> dotnet add package Azure.Storage.Queues --version 12.5.0-preview.1
 ```
 
 ## Feedback
@@ -67,9 +75,51 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - `EventData` has been integrated with the new Schema Registry service, via use of the `SchemaRegistryAvroObjectSerializer` with the `BodyAsBinaryData` member.
 
+
 ### Key Vault
 
 - Bug fixes and performance improvements.
+
+### Azure Storage Blobs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md)
+
+#### New Features
+- Added support for Container Soft Delete.
+- Added support for Blob Query Arrow output format.
+- Added support for Blob Last Access Time tracking.
+
+#### Key Bug Fixes
+- Fixed bug causing `BlobAccessPolicy.StartsOn` and `.ExpiresOn` to crash the process.
+- Fixed bug in where Stream returned from `AppendBlobClient.OpenWrite()`, `BlockBlobClient.OpenWrite()`, and `PageBlobClient.OpenWrite()` did not flush while disposing preventing compatibility with using keyword.
+- Fixed bug where Listing Blobs with `BlobTraits.Metadata` would return `BlobItems` with null metadata instead of an empty dictionary if no metadata was present.
+
+### Azure Storage Files DataLake [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md)
+
+#### New Features
+- Added support for Directory SAS.
+- Added support for File Set Expiry.
+- Added `Close` and `RetainUncommitedData` to `DataLakeFileUploadOptions`
+- Added seekability to `DataLakeFileClient.OpenRead()`
+- Added `DataLakeClientBuilderExtensions`
+
+#### Key Bug Fixes
+- Fixed bug where `DataLakeFileClient.Upload()` could not upload read-only files.
+- Fixed bug causing `DataLakeBlobAccessPolicy.StartsOn` and `.ExpiresOn` to crash the process.
+- Fixed bug where Stream returned from `DataLakeFileClient.OpenWrite()` did not flush while disposing preventing compatibility with using keyword.
+- Fixed bug where `DataLakeDirectoryClient.Rename()` and `DataLakeDirectoryFileClient.Rename()` couldn't handle source paths with special characters.
+
+### Azure Storage Files Shares [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md)
+
+#### New Features
+- Added support for 4 TB Files
+- Added support for SMB Multichannel
+- Added support for Share and Share Snapshot Leases
+- Added support for Get File Range Diff
+- Added support for Set Share Tier
+
+#### Key Bug Fixes
+- Fixed bug causing `ShareAccessPolicy.StartsOn` and `.ExpiresOn` to crash the process.
+- Fixed bug where Stream returned from `ShareFileClient.OpenWrite()` did not flush while disposing preventing compatibility with using keyword.
+
 
 ## Latest Releases
 
