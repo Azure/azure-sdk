@@ -77,7 +77,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 ### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#510-beta2-2020-10-06)
 
 #### Breaking changes
-- Removed property `Length` from the library as it can be obtain by calling `Length` on the `Text` property of types `CategorizedEntity`, `SentenceSentiment`, `LinkedEntityMatch`, `AspectSentiment`, `OpinionSentiment`, and `PiiEntity`.
+- Removed property `Length` from the library as it can be obtained by calling `Length` on the `Text` property of types `CategorizedEntity`, `SentenceSentiment`, `LinkedEntityMatch`, `AspectSentiment`, `OpinionSentiment`, and `PiiEntity`.
 
 ## Latest Releases
 
