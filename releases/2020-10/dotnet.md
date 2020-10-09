@@ -20,6 +20,7 @@ The Azure SDK team is pleased to announce our October 2020 client library releas
 
 - Event Hubs
 - Key Vault
+- Support packages for Microsoft.Spatial
 - Tables
 - Text Analytics
 
@@ -39,6 +40,9 @@ $> dotnet add package Azure.Security.KeyVault.Administration --version 4.0.0-bet
 $> dotnet add package Azure.Security.KeyVault.Certificates --version 4.2.0-beta.2
 $> dotnet add package Azure.Security.KeyVault.Keys --version 4.2.0-beta.2
 $> dotnet add package Azure.Security.KeyVault.Secrets --version 4.2.0-beta.2
+
+$> dotnet add package Microsoft.Azure.Core.Spatial --version 1.0.0-beta.1
+$> dotnet add package Microsoft.Azure.Core.Spatial.NewtonsoftJson --version 1.0.0-beta.1
 ```
 
 ## Feedback
@@ -73,6 +77,16 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 ### Key Vault
 
 - Bug fixes and performance improvements.
+
+### Support packages for Microsoft.Spatial
+
+#### Microsoft.Azure.Core.Spatial [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Microsoft.Azure.Core.Spatial/CHANGELOG.md#100-beta1-2020-10-08)
+
+- Added `MicrosoftSpatialGeoJsonConverter` to serialize `Microsoft.Spatial.GeometryPoint` objects.
+
+#### Microsoft.Azure.Core.Spatial.NewtonsoftJson [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Microsoft.Azure.Core.Spatial.NewtonsoftJson/CHANGELOG.md#100-beta1-2020-10-08)
+
+- Added `NewtonsoftJsonMicrosoftSpatialGeoJsonConverter` to serialize `Microsoft.Spatial.GeographyPoint` objects.
 
 ### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#510-beta2-2020-10-06)
 
