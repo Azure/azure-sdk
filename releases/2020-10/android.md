@@ -10,9 +10,9 @@ The Azure SDK team is pleased to announce our October 2020 client library releas
 
 #### Beta
 
+- Azure Communication Services Chat
+- Azure Communication Services Common
 - Azure Core
-- Azure Communication Chat
-- Azure Communication Common
 
 ## Installation Instructions
 
@@ -71,17 +71,17 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
-### Azure Communication Chat [Changelog]()
+### Azure Communication Services Chat ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/communication/azure-communication-chat/CHANGELOG.md#100-beta2-2020-10-06))
 
-- Major changes only!
+- Initial Preview release for Azure Communication Chat
 
-### Azure Communication Common [Changelog]()
+### Azure Communication Services Common ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/communication/azure-communication-common/CHANGELOG.md#100-beta1-2020-09-22))
 
-- Major changes only!
+- Initial Preview release for Azure Communication Common
+ 
+### Azure Core ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/core/azure-core/CHANGELOG.md#100-beta2-2020-10-05))
 
-### Azure Core [Changelog]()
-
-- Major changes only!
+- Added `PagedDataCollection`, `PagedDataResponseCollection`, `AsyncPagedDataCollection` and associated types to support pagination APIs.
   
 ## Need help
 

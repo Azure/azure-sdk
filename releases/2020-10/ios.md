@@ -10,9 +10,9 @@ The Azure SDK team is pleased to announce our October 2020 client library releas
 
 #### Beta
 
+- Azure Communication Services Chat
+- Azure Communication Services Common
 - Azure Core
-- Azure Communication
-- Azure Communication Chat
 
 ## Installation Instructions
 
@@ -44,7 +44,13 @@ Next, add each client library you wish to use in a target to the target's array 
         ...
         .target(
             name: "MyTarget",
-            dependencies: ["AzureCommunication", "AzureCommunicationChat", "AzureCore", ...])
+            dependencies: [
+                "AzureCommunication",
+                "AzureCommunicationChat",
+                "AzureCore",
+                ...
+            ]
+        )
     ]
 ```
 
@@ -56,17 +62,17 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
-### Azure Communication [Changelog]()
+### Azure Communication Services Chat ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/master/CHANGELOG.md#100-beta2-2020-10-05))
 
-- Major changes only!
+- Initial Preview release for Azure Communication Chat
 
-### Azure Communication Chat [Changelog]()
+### Azure Communication Services Common ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/master/CHANGELOG.md#100-beta1-2020-09-21))
 
-- Major changes only!
+- Initial Preview release for Azure Communication Common
 
-### Azure Core [Changelog]()
+### Azure Core ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/master/CHANGELOG.md#100-beta1-2020-09-21))
 
-- Major changes only!
+- Initial Preview release for Azure Core
 
 ## Need help
 
