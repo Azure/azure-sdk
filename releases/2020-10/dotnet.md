@@ -19,10 +19,7 @@ The Azure SDK team is pleased to announce our October 2020 client library releas
 #### Beta
 
 - Event Hubs
-<<<<<<< HEAD
 - Key Vault
-=======
->>>>>>> 1cee149a4111c2253a85da722877aa5bfa5fd4d3
 - Storage
 - Tables
 
@@ -81,14 +78,11 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - `EventData` has been integrated with the new Schema Registry service, via use of the `SchemaRegistryAvroObjectSerializer` with the `BodyAsBinaryData` member.
 
-<<<<<<< HEAD
 
 ### Key Vault
 
 - Bug fixes and performance improvements.
 
-=======
->>>>>>> 1cee149a4111c2253a85da722877aa5bfa5fd4d3
 ### Azure Storage Blobs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md)
 
 #### New Features
