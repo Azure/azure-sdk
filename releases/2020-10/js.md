@@ -21,7 +21,7 @@ The Azure SDK team is pleased to make available the October 2020 client library 
 - Azure Identity.
 - Azure Metrics Advisor.
 - Azure Tables.
-
+Azure Service Bus
 - _REMEMBER TO ADD YOUR BETA PACKAGES_
 
 ## Installation Instructions
@@ -53,7 +53,15 @@ Keep in mind that:
 
 ---
 
-### _Package name_
+#### @azure/service-bus@7.0.0-preview.7 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md)
+
+##### New Features on @azure/service-bus@7.0.0-preview.7
+
+- Message locks can be auto-renewed in all receive methods (receiver.receiveMessages, receiver.subcribe
+  and receiver.getMessageIterator). This can be configured in options when calling `ServiceBusClient.createReceiver()`.
+  [PR 11658](https://github.com/Azure/azure-sdk-for-js/pull/11658)
+- `ServiceBusClient` now supports authentication with AAD credentials in the browser(can use `InteractiveBrowserCredential` from `@azure/identity`).
+  [PR 11250](https://github.com/Azure/azure-sdk-for-js/pull/11250)
 
 #### _Package name_ [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/<service-folder>/<package-folder>/CHANGELOG.md)
 
