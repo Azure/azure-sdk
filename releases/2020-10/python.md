@@ -36,17 +36,14 @@ pip install azure-servicebus --pre
 pip install azure-search-documents --pre
 pip install azure-appconfiguration
 pip install azure-ai-textanalytics --pre
-<<<<<<< HEAD
 pip install azure-ai-metricsadvisor --pre
 pip install azure-identity
 pip install azure-keyvault-administration
 pip install azure-keyvault-keys
-=======
 pip install azure-storage-blob --pre
 pip install azure-storage-file-datalake --pre
 pip install azure-storage-file-share --pre
 pip install azure-storage-queue
->>>>>>> Adding storage updates
 ```
 
 ## Feedback
