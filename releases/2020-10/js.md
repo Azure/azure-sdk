@@ -22,7 +22,13 @@ The Azure SDK team is pleased to make available the October 2020 client library 
 - Azure Metrics Advisor.
 - Azure Tables.
 - Azure Service Bus.
-- _REMEMBER TO ADD YOUR BETA PACKAGES_
+- Azure Search.
+- Azure Text Analytics.
+- Azure Storage Blob Changefeed.
+- Azure Storage Queue.
+- Azure Storage File Share.
+- Azure Storage Data Lake.
+- Azure Storage Blob.
 
 ## Installation Instructions
 
@@ -30,8 +36,17 @@ To install the packages, copy and paste the below into a terminal.
 
 ```bash
 $> npm install @azure/identity@next
+$> npm install @azure/ai-metrics-advisor@next
 $> npm install @azure/data-tables@next
-$> npm install @azure/ai-metrics-advisor
+$> npm install @azure/service-bus@next
+$> npm install @azure/search@next
+$> npm install @azure/ai-text-analytics@next
+$> npm install @azure/storage-blob-changefeed@next
+$> npm install @azure/storage-queue@next
+$> npm install @azure/storage-file-share@next
+$> npm install @azure/storage-datalake@next
+$> npm install @azure/storage-blob@next
+
 ```
 
 ## Feedback
@@ -53,6 +68,8 @@ Keep in mind that:
 
 ---
 
+### _Package name_
+
 #### _Package name_ [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/<service-folder>/<package-folder>/CHANGELOG.md)
 
 (leave blank)
@@ -69,6 +86,40 @@ Keep in mind that:
 
 - _Add one or more, or remove the "Major Fixes on ..." section._
 
+---
+
+### Azure Identity
+
+#### @azure/identity  [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/identity/identity/CHANGELOG.md)
+
+Our authentication library is being released with some minor changes and fixes to the existing authentication methods.
+
+##### New Features on @azure/identity@1.2.0-beta.2
+
+- `DefaultAzureCredential` now by default shows the Device Code message on the console. This can still be overwritten with a custom behavior by specifying a function as the third parameter, `userPromptCallback`.
+- Added Active Directory Federation Services authority host support to the node credentials.
+
+##### Major Fixes on @azure/identity@1.2.0-beta.2
+
+- Added support for multiple clouds on `VisualStudioCodeCredential`. Fixes customer issue [11452](https://github.com/Azure/azure-sdk-for-js/issues/11452).
+- `ManagedIdentityCredential` has been aligned with other languages, now treating expected errors properly. This fixes customer issue [11451](https://github.com/Azure/azure-sdk-for-js/issues/11451)
+
+### Azure Metrics Advisor
+
+#### @azure/ai-metrics-advisor [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/metricsadvisor/ai-metrics-advisor/CHANGELOG.md)
+
+(leave blank)
+
+- This is the inital preview of client library that supports the newly announced preview of the Azure Metrics Advisor service.
+- This library has been designed based on the [Azure SDK Design Guidelines for TypeScript]({{ site.baseurl }}{% link docs/typescript/introduction.md %}) to ensure consistency, idiomatic design, and excellent developer experience and productivity.
+- It supports all services APIs, including but not limited to
+  - Manage data feeds.
+  - Configure anomaly detection and alerting configurations.
+  - Query anomaly detection results, for example, incidents, anomalies, alerts, enriched series data, etc.
+  - Diagnose incident root causes.
+
+
+### Azure Service Bus
 
 #### @azure/service-bus@7.0.0-preview.7 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md)
 
@@ -90,37 +141,33 @@ Keep in mind that:
 - Implemented support for batch operations. This allows sending multiple create, delete and update operations in a single atomic transaction.
 
 
-### Azure Metrics Advisor
+### Azure Search
 
-#### @azure/ai-metrics-advisor [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/metricsadvisor/ai-metrics-advisor/CHANGELOG.md)
+TODO
 
-(leave blank)
+### Azure Text Analytics.
 
-- This is the inital preview of client library that supports the newly announced preview of the Azure Metrics Advisor service.
-- This library has been designed based on the [Azure SDK Design Guidelines for TypeScript]({{ site.baseurl }}{% link docs/typescript/introduction.md %}) to ensure consistency, idiomatic design, and excellent developer experience and productivity.
-- It supports all services APIs, including but not limited to
-  - Manage data feeds.
-  - Configure anomaly detection and alerting configurations.
-  - Query anomaly detection results, for example, incidents, anomalies, alerts, enriched series data, etc.
-  - Diagnose incident root causes.
+TODO
 
+### Azure Storage Blob Changefeed.
 
-### Azure Identity
+TODO
 
-#### @azure/identity  [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/identity/identity/CHANGELOG.md)
+### Azure Storage Queue.
 
-Our authentication library is being released with some minor changes and fixes to the existing authentication methods.
+TODO
 
-##### New Features on @azure/identity@1.2.0-beta.2
+### Azure Storage File Share.
 
-- `DefaultAzureCredential` now by default shows the Device Code message on the console. This can still be overwritten with a custom behavior by specifying a function as the third parameter, `userPromptCallback`.
-- Added Active Directory Federation Services authority host support to the node credentials.
+TODO
 
-##### Major Fixes on @azure/identity@1.2.0-beta.2
+### Azure Storage Data Lake.
 
-- Added support for multiple clouds on `VisualStudioCodeCredential`. Fixes customer issue [11452](https://github.com/Azure/azure-sdk-for-js/issues/11452).
-- `ManagedIdentityCredential` has been aligned with other languages, now treating expected errors properly. This fixes customer issue [11451](https://github.com/Azure/azure-sdk-for-js/issues/11451).
+TODO
 
+### Azure Storage Blob.
+
+TODO
 
 ## Latest Releases
 
