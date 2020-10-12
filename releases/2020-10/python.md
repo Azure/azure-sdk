@@ -15,6 +15,8 @@ The Azure SDK team is pleased to make available the October 2020 client library 
 #### Updates
 
 - App Configuration
+- Identity
+- Key Vault Keys
 
 #### Beta
 
@@ -22,6 +24,7 @@ The Azure SDK team is pleased to make available the October 2020 client library 
 - Search
 - Text Analytics
 - Metrics Advisor
+- Key Vault Administration
 
 ## Installation Instructions
 
@@ -33,6 +36,9 @@ pip install azure-search-documents --pre
 pip install azure-appconfiguration
 pip install azure-ai-textanalytics --pre
 pip install azure-ai-metricsadvisor --pre
+pip install azure-identity
+pip install azure-keyvault-administration
+pip install azure-keyvault-keys
 ```
 
 ## Feedback
@@ -72,6 +78,26 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### Breaking changes
 
 * Removed extra property `length` from relevant models. Originally, this property represented the length of the `text` property in those same models. To get the length of the text in these models, just call `len()` on the text property.
+
+### Identity [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/CHANGELOG.md#141-2020-10-07)
+
+#### Key Bug Fixes
+- Fixed a bug causing tokens acquired from the Azure CLI to have incorrectly long lifetimes
+
+### Key Vault
+
+#### Administration [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-administration/CHANGELOG.md#400b2-2020-10-06)
+
+#### New Features
+- `KeyVaultBackupClient.get_backup_status` and `.get_restore_status` enable checking the status of a pending operation by its job ID
+
+#### Breaking Changes
+- The `role_assignment_name` parameter of `KeyVaultAccessControlClient.create_role_assignment` is now an optional keyword-only argument. The client will generate a name for the assignment when one isn't provided.
+
+#### Keys [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md#430-2020-10-06)
+
+#### New Features
+- CryptographyClient can perform decrypt and sign operations locally
 
 ## Latest Releases
 
