@@ -50,6 +50,8 @@ Next, add each client library you wish to use in a target to the target's array 
 
 If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/azure/azure-sdk-for-ios/issues).
 
+## Release highlights
+
 ### _Package name_
 
 - Major changes only!
