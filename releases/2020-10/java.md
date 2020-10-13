@@ -17,6 +17,7 @@ The Azure SDK team is pleased to announce our October 2020 client library releas
 - Azure Core
 - Azure Core Http Netty
 - Azure Core Http OkHttp
+- Azure Core Amqp
 - Azure Event Hubs
 - Azure Identity
 - Azure Key Vault Certificates
@@ -109,6 +110,12 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 
 <dependency>
   <groupId>com.azure</groupId>
+  <artifactId>azure-core-amqp</artifactId>
+  <version>1.6.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
   <artifactId>azure-core-experimental</artifactId>
   <version>1.0.0-beta.6</version>
 </dependency>
@@ -189,6 +196,18 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-messaging-eventgrid</artifactId>
   <version>2.0.0-beta.3</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-messaging-eventhubs</artifactId>
+  <version>5.3.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-messaging-eventhubs-checkpointstore-blob</artifactId>
+  <version>1.3.0</version>
 </dependency>
 
 <dependency>
@@ -351,6 +370,14 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Fixed a bug where calling `UrlBuilder.parse` could result in an exception. [#15013](https://github.com/Azure/azure-sdk-for-java/issues/15013)
 - Changed `ContinuablePagedIterable` implementation to use a custom iterable to prevent additional, unrequested pages from being retrieved. [#15575](https://github.com/Azure/azure-sdk-for-java/issues/15575)
 
+### Azure Core Amqp 1.6.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/release/azure-core-amqp_1.6.0/sdk/core/azure-core-amqp/CHANGELOG.md#160-2020-10-12)
+
+#### New Features
+- Added peer certificate verification options when connecting to an AMQP endpoint.
+
+#### Breaking Changes
+- Removed `BinaryData` type which was used for `AmqpAnnotatedMessage`. 
+
 
 ### Azure Core Experimental 1.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-experimental/CHANGELOG.md#100-beta6-2020-10-06)
 
@@ -397,6 +424,11 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Added the methods `pfxCertificate(InputStream certificate, String clientCertificatePassword)` and `pemCertificate(InputStream certificate)` in `ClientCertificateCredentialBuilder`.
 - Added `includeX5c(boolean)` method in `ClientCertificateCredentialBuilder` to enable subject name / issuer based authentication.
 - Added a default `challengeConsumer` in `DeviceCodeCredentialBuilder` which prints the device code information to console. The `challengeConsumer` configuration is no longer required in `DeviceCodeCredentialBuilder`.
+
+### Azure EventHubs 5.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md#530-2020-10-12)
+#### New Features
+- Add `clientOptions` to `EventHubClientBuilder` to support for setting user's application id in the user-agent property
+of the amqp connection.
 
 ### Azure Search Documents 11.2.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/search/azure-search-documents/CHANGELOG.md#1120-beta2-2020-10-06)
 
