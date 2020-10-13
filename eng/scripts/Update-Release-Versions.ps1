@@ -37,6 +37,7 @@ function CheckLink($url)
 
 function UpdateDocLinks($lang, $pkg)
 {
+  if ($lang -eq "js") { $lang = "javascript" }
   $version = $pkg.VersionGA
   if ($version -eq "") { $version = $pkg.VersionPreview }
 
@@ -466,7 +467,12 @@ function Output-Latest-Versions($lang)
   $otherPackages = $packageList | Where-Object { !$_.Type }
 
   $LangFunction = "Update-$lang-Packages"
-  &$LangFunction $clientPackages 
+  &$LangFunction $clientPackages
+
+  foreach($otherPackage in $otherPackages)
+  {
+    UpdateDocLinks $lang $otherPackage
+  }
 
   Write-Host "Writing $packagelistFile"
   $packageList = $clientPackages + $otherPackages
