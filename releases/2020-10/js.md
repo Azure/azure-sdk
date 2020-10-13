@@ -24,8 +24,6 @@ The Azure SDK team is pleased to make available the October 2020 client library 
 - Azure Service Bus.
 - Azure Search.
 - Azure Text Analytics.
-- Azure Storage Blob Changefeed.
-- Azure Storage Queue.
 - Azure Storage File Share.
 - Azure Storage Data Lake.
 - Azure Storage Blob.
@@ -149,25 +147,39 @@ TODO
 
 TODO
 
-### Azure Storage Blob Changefeed.
 
-TODO
 
-### Azure Storage Queue.
 
-TODO
+### Azure Storage
 
-### Azure Storage File Share.
+Updated Azure Storage Service API version to 2020-02-10.
 
-TODO
+#### @azure/storage-blob [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/CHANGELOG.md)
 
-### Azure Storage Data Lake.
+##### New Features on @azure/storage-blob@12.3.0-beta.1
 
-TODO
+- Added support for Container Soft Delete. Added a new API `BlobServiceClient.undeleteContainer()` to restore a previously deleted blob container.
 
-### Azure Storage Blob.
+#### @azure/storage-file-datalake [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/CHANGELOG.md)
 
-TODO
+##### New Features on @azure/storage-file-datalake@12.2.0-beta.1
+
+- Added support for directory SAS and delegation SAS v2. Now supports generate SAS on directory level. Also added support for `saoid`, `suoid` and `scid` for delegation SAS. See the user delegation SAS [document](https://docs.microsoft.com/en-us/rest/api/storageservices/create-user-delegation-sas#specify-a-signed-object-id-for-a-security-principal-preview) for more details.
+- Added support for File Set Expiry. Now can call `DataLakeFileClient.setExpiry()` to schedule the deletion of a file.
+- Added `DataLakePathClient.setAccessControlRecursive()` to support setting access control recursively. 
+
+#### storage-file-share [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/CHANGELOG.md)
+
+##### New Features on @azure/storage-file-share@12.3.0-beta.1
+
+- Added support for Share and Share Snapshot Leases. Now can initialize a `ShareLeaseClient` with a `ShareClient` to manage leases for a share or share snapshot. Most operations on share now also support lease conditions.
+- Added support for Get File Range Diff. Added `ShareFileClient.getRangeListDiff()` for getting the list of ranges that differ between a previous share snapshot and the file.
+- Added support for Set Share Tier. Added `ShareClient.setAccessTier()` for setting the access tier of the share.
+
+
+
+
+
 
 ## Latest Releases
 
