@@ -32,6 +32,8 @@ $> dotnet install PACKAGE --version whatever
 
 If you have a bug or feature request for one of the libraries, please [file an issue in our repo](https://github.com/Azure/azure-sdk-for-net/issues/new/choose).
 
+## Release highlights
+
 ### _Package name_ 
 
 - Major changes only!!!
