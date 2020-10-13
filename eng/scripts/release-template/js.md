@@ -32,6 +32,8 @@ $> npm install @azure/package-name
 
 If you have a bug or feature request for one of the libraries, please post an issue at the [azure-sdk-for-js repository](https://github.com/azure/azure-sdk-for-js/issues)
 
+## Release highlights
+
 ### _Package name_
 
 - Major changes only!
