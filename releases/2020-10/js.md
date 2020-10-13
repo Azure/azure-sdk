@@ -8,7 +8,7 @@ repository: azure/azure-sdk-for-js
 
 The Azure SDK team is pleased to make available the October 2020 client library release.
 
-#### Updates libraries (beta)
+#### Beta releases
 
 - Azure Identity.
 - Azure Metrics Advisor.
@@ -59,7 +59,7 @@ Our authentication library is being released with some minor changes and fixes t
 
 ##### Major Fixes on @azure/identity@1.2.0-beta.2
 
-- Added support for multiple clouds on `VisualStudioCodeCredential`. Fixes customer issue [11452](https://github.com/Azure/azure-sdk-for-js/issues/11452).
+- Added support for multiple clouds on `VisualStudioCodeCredential`. 
 - `ManagedIdentityCredential` has been aligned with other languages, now treating expected errors properly. This fixes customer issue [11451](https://github.com/Azure/azure-sdk-for-js/issues/11451)
 
 
@@ -114,7 +114,7 @@ We're releasing a new preview of our Azure Search library. This update adds supp
 - Azure Search SDK has been regenerated using the latest swaggers. This enables new properties for IndexParameters.
 
 
-### Azure Storage
+### Azure Storage (Coming Soon)
 
 Updated Azure Storage Service API version to 2020-02-10.
 
