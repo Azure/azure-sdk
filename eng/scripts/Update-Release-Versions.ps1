@@ -38,12 +38,10 @@ function CheckLink($url)
 function UpdateDocLinks($lang, $pkg)
 {
   if ($lang -eq "js") { $lang = "javascript" }
-  $version = $pkg.VersionGA
-  if ($version -eq "") { $version = $pkg.VersionPreview }
 
   $trimmedPackage = $pkg.Package -replace "@?azure[\.\-/]", ""
 
-  if ($version -eq $pkg.VersionPreview) { $suffix = "-pre" }
+  if (!$pkg.VersionGA -and $pkg.VersionPreview) { $suffix = "-pre" }
 
   $msdocvalid = CheckLink "https://docs.microsoft.com/${lang}/api/overview/azure/${trimmedPackage}-readme${suffix}/"
 
@@ -59,8 +57,16 @@ function UpdateDocLinks($lang, $pkg)
   $ghformat = "{0}/{1}"
   if ($lang -eq "javascript") { $ghformat = "azure-${trimmedPackage}/{1}" }
   elseif ($lang -eq "dotnet") { $ghformat = "{0}/{1}/api" }
-  $ghpath = $ghformat -f $pkg.Package, $version 
-  $ghdocvalid = CheckLink "$azuresdkdocs/${lang}/${ghpath}/index.html"
+
+  $ghLinkFormat = "$azuresdkdocs/${lang}/${ghformat}/index.html"
+
+  $ghdocvalid = ($pkg.VersionGA -or $pkg.VersionPreview)
+  if ($pkg.VersionGA) {
+    $ghdocvalid = $ghdocvalid -and (CheckLink ($ghLinkFormat -f $pkg.Package, $pkg.VersionGA))
+  }
+  if ($pkg.VersionPreview) {
+    $ghdocvalid = $ghdocvalid -and (CheckLink ($ghLinkFormat -f $pkg.Package, $pkg.VersionPreview))
+  }
 
   if ($ghdocvalid) {
     $pkg.GHDocs = ""
