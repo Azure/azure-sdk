@@ -21,13 +21,17 @@ The Azure SDK team is pleased to announce our October 2020 client library releas
 - Event Hubs
 - Key Vault
 - Storage
+- Support packages for Microsoft.Spatial
 - Tables
+- Text Analytics
 
 ## Installation Instructions
 
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
 ```bash
+$> dotnet add package Azure.AI.TextAnalytics --version 5.1.0-beta.2
+
 $> dotnet add package Azure.Data.Tables --version 3.0.0-beta.2
 
 $> dotnet add package Azure.Messaging.EventHubs --version 5.3.0-beta.3
@@ -44,6 +48,9 @@ $> dotnet add package Azure.Storage.Blobs.ChangeFeed --version 12.0.0-preview.5
 $> dotnet add package Azure.Storage.Files.DataLake --version 12.5.0-preview.1
 $> dotnet add package Azure.Storage.Files.Shares --version 12.5.0-preview.1
 $> dotnet add package Azure.Storage.Queues --version 12.5.0-preview.1
+
+$> dotnet add package Microsoft.Azure.Core.Spatial --version 1.0.0-beta.1
+$> dotnet add package Microsoft.Azure.Core.Spatial.NewtonsoftJson --version 1.0.0-beta.1
 ```
 
 ## Feedback
@@ -79,6 +86,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 ### Key Vault
 
 - Bug fixes and performance improvements.
+
 
 ### Azure Storage Blobs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md)
 
@@ -120,6 +128,20 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Fixed bug causing `ShareAccessPolicy.StartsOn` and `.ExpiresOn` to crash the process.
 - Fixed bug where Stream returned from `ShareFileClient.OpenWrite()` did not flush while disposing preventing compatibility with using keyword.
 
+### Support packages for Microsoft.Spatial
+
+#### Microsoft.Azure.Core.Spatial [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Microsoft.Azure.Core.Spatial/CHANGELOG.md#100-beta1-2020-10-08)
+
+- Added `MicrosoftSpatialGeoJsonConverter` to serialize `Microsoft.Spatial.GeometryPoint` objects.
+
+#### Microsoft.Azure.Core.Spatial.NewtonsoftJson [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Microsoft.Azure.Core.Spatial.NewtonsoftJson/CHANGELOG.md#100-beta1-2020-10-08)
+
+- Added `NewtonsoftJsonMicrosoftSpatialGeoJsonConverter` to serialize `Microsoft.Spatial.GeographyPoint` objects.
+
+### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#510-beta2-2020-10-06)
+
+#### Breaking changes
+- Removed property `Length` from the library as it can be obtained by calling `Length` on the `Text` property of types `CategorizedEntity`, `SentenceSentiment`, `LinkedEntityMatch`, `AspectSentiment`, `OpinionSentiment`, and `PiiEntity`.
 
 ## Latest Releases
 

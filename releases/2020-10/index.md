@@ -12,8 +12,8 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 ## Release Highlights
 
 * Azure Metrics Advisor Client Libraries Beta 1 release
-*
-*
+* Opentelemetry Exporter Azure Monitor client Beta 1 release
+* Azure Communication Services Chat, Azure Communication Services Common and Azure Core Beta 1 releases for Android and iOS.
 
 ## Release Notes
 
