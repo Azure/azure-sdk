@@ -8,22 +8,13 @@ repository: azure/azure-sdk-for-js
 
 The Azure SDK team is pleased to make available the October 2020 client library release.
 
-#### GA
-
-- _REMEMBER TO ADD YOUR GA PACKAGES_
-
-#### Updates
-
-- _REMEMBER TO ADD YOUR UPDATE PACKAGES_
-
-#### Beta
+#### Updates libraries (beta)
 
 - Azure Identity.
 - Azure Metrics Advisor.
 - Azure Tables.
 - Azure Service Bus.
 - Azure Search.
-- Azure Text Analytics.
 - Azure Storage File Share.
 - Azure Storage Data Lake.
 - Azure Storage Blob.
@@ -38,7 +29,6 @@ $> npm install @azure/ai-metrics-advisor@next
 $> npm install @azure/data-tables@next
 $> npm install @azure/service-bus@next
 $> npm install @azure/search@next
-$> npm install @azure/ai-text-analytics@next
 $> npm install @azure/storage-blob-changefeed@next
 $> npm install @azure/storage-queue@next
 $> npm install @azure/storage-file-share@next
@@ -55,36 +45,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
----
-
-=== COPY THIS AND ADD THE INFORMATION OF YOUR PACKAGE: ===
-
-Keep in mind that:
-
-- Including the package name in the headers makes the URL links work for multiple packages.
-- The format of this file will be cleaned up once all of your proposals are in.
-
----
-
-### _Package name_
-
-#### _Package name_ [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/<service-folder>/<package-folder>/CHANGELOG.md)
-
-(leave blank)
-
-##### Breaking Changes on _Package name_
-
-- _Add one or more, or remove the "Breaking Changes on ..." entire section._
-
-##### New Features on _Package name_
-
-- _Add one or more, or remove the "New Features on ..." section._
-
-##### Major Fixes on _Package name_
-
-- _Add one or more, or remove the "Major Fixes on ..." section._
-
----
 
 ### Azure Identity
 
@@ -102,37 +62,40 @@ Our authentication library is being released with some minor changes and fixes t
 - Added support for multiple clouds on `VisualStudioCodeCredential`. Fixes customer issue [11452](https://github.com/Azure/azure-sdk-for-js/issues/11452).
 - `ManagedIdentityCredential` has been aligned with other languages, now treating expected errors properly. This fixes customer issue [11451](https://github.com/Azure/azure-sdk-for-js/issues/11451)
 
+
 ### Azure Metrics Advisor
 
-#### @azure/ai-metrics-advisor [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/metricsadvisor/ai-metrics-advisor/CHANGELOG.md)
+#### @azure/ai-metrics-advisor [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/metricsadvisor/ai-metrics-advisor/CHANGELOG.md#100-beta1-2020-10-07)
 
-(leave blank)
+We're happy to announce an initial preview of a client library that supports the newly announced preview of the Azure Metrics Advisor service. This library has been designed based on the [Azure SDK Design Guidelines for TypeScript]({{ site.baseurl }}{% link docs/typescript/introduction.md %}) to ensure consistency, idiomatic design, and excellent developer experience and productivity.
 
-- This is the inital preview of client library that supports the newly announced preview of the Azure Metrics Advisor service.
-- This library has been designed based on the [Azure SDK Design Guidelines for TypeScript]({{ site.baseurl }}{% link docs/typescript/introduction.md %}) to ensure consistency, idiomatic design, and excellent developer experience and productivity.
-- It supports all services APIs, including but not limited to
-  - Manage data feeds.
-  - Configure anomaly detection and alerting configurations.
-  - Query anomaly detection results, for example, incidents, anomalies, alerts, enriched series data, etc.
-  - Diagnose incident root causes.
+##### Features on @azure/ai-metrics-advisor@1.0.0-beta.1
+
+- It supports all services APIs, including but not limited to:
+  - The management of data feeds.
+  - Configuring anomaly detection and alerting configurations.
+  - Querying anomaly detection results, for example, incidents, anomalies, alerts, enriched series data, etc.
+  - Diagnosing incident root causes.
 
 
 ### Azure Service Bus
 
 #### @azure/service-bus@7.0.0-preview.7 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md)
 
+We're releasing a new preview of our Azure Service Bus library. This includes updates to the message locks and the support of browser authentication through AAD credentials.
+
 ##### New Features on @azure/service-bus@7.0.0-preview.7
 
-- Message locks can be auto-renewed in all receive methods (receiver.receiveMessages, receiver.subcribe
-  and receiver.getMessageIterator). This can be configured in options when calling `ServiceBusClient.createReceiver()`.
-  [PR 11658](https://github.com/Azure/azure-sdk-for-js/pull/11658)
-- `ServiceBusClient` now supports authentication with AAD credentials in the browser(can use `InteractiveBrowserCredential` from `@azure/identity`).
-  [PR 11250](https://github.com/Azure/azure-sdk-for-js/pull/11250)
+- Message locks can be auto-renewed in all receive methods (`receiver.receiveMessages`, `receiver.subcribe`
+  and `receiver.getMessageIterator`). This can be configured in options when calling `ServiceBusClient.createReceiver()`.
+- `ServiceBusClient` now supports authentication with AAD credentials in the browser (you can use `InteractiveBrowserCredential` from `@azure/identity`).
 
 
 ### Azure Tables
 
 #### @azure/data-tables [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/tables/data-tables/CHANGELOG.md)
+
+We're releasing a new preview of our Azure Tables library. This update adds support for batch operations.
 
 ##### New Features on @azure/data-tables@1.0.0-beta.2
 
@@ -141,13 +104,14 @@ Our authentication library is being released with some minor changes and fixes t
 
 ### Azure Search
 
-TODO
+#### @azure/search [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/CHANGELOG.md#1110-beta1-2020-10-05)
 
-### Azure Text Analytics.
+We're releasing a new preview of our Azure Search library. This update adds support for batch operations.
 
-TODO
+##### New Features on @azure/search@11.1.0-beta.1
 
-
+- Azure Search SDK now supports batching. The document actions (`upload`, `merge`, `mergeupload`, `delete`) could be done in batch format with autoFlush set to true or false.
+- Azure Search SDK has been regenerated using the latest swaggers. This enables new properties for IndexParameters.
 
 
 ### Azure Storage
@@ -175,10 +139,6 @@ Updated Azure Storage Service API version to 2020-02-10.
 - Added support for Share and Share Snapshot Leases. Now can initialize a `ShareLeaseClient` with a `ShareClient` to manage leases for a share or share snapshot. Most operations on share now also support lease conditions.
 - Added support for Get File Range Diff. Added `ShareFileClient.getRangeListDiff()` for getting the list of ranges that differ between a previous share snapshot and the file.
 - Added support for Set Share Tier. Added `ShareClient.setAccessTier()` for setting the access tier of the share.
-
-
-
-
 
 
 ## Latest Releases
