@@ -104,23 +104,25 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### New Features
 - CryptographyClient can perform decrypt and sign operations locally
 
-### Azure Storage Blob [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md)
+### Azure Storage
 
-#### New Features
+#### Blob [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md)
+
+##### New Features
 - Added support for Arrow format (`ArrowType`) output serialization using `quick_query()`.
 - Added support for undeleting a container.
 - Added support for `LastAccessTime` property on a blob, which could be the last time a blob was written or read.
 
-### Azure Storage File DataLake [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md)
+#### File DataLake [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md)
 
-#### Key Bug Fixes
+##### New Features
 - Added support for recursive set/update/remove Access Control on a path and sub-paths.
 - Added support for setting an expiry on files where the file gets deleted once it expires.
 - Added support to generate directory SAS and added support to specify additional user ids and correlation ids for user delegation SAS.
 
-### Azure Storage File Share [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/CHANGELOG.md)
+#### File Share [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/CHANGELOG.md)
 
-#### Key Bug Fixes
+##### New Features
 - Added support for enabling SMB Multichannel for the share service.
 - Added support for leasing a share.
 - Added support for getting the range diff between current file and a snapshot as well as getting the diff between two file snapshots.
