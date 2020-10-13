@@ -15,6 +15,7 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 * OpenTelemetry Exporter Azure Monitor client Beta 1 release
 * Azure Core Beta 1 release for Android and iOS
 * Azure Communication Services Chat and Azure Communication Services Common Beta 1 releases for Android and iOS
+* Azure C++ Beta for Core and Storage
 
 ## Release Notes
 
