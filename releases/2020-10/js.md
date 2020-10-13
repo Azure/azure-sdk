@@ -60,7 +60,6 @@ Our authentication library is being released with some minor changes and fixes t
 ##### Major Fixes on @azure/identity@1.2.0-beta.2
 
 - Added support for multiple clouds on `VisualStudioCodeCredential`. 
-- `ManagedIdentityCredential` has been aligned with other languages, now treating expected errors properly. This fixes customer issue [11451](https://github.com/Azure/azure-sdk-for-js/issues/11451)
 
 
 ### Azure Metrics Advisor
