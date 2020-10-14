@@ -27,4 +27,4 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 * [C++ release notes](cpp.md)
 * [Embedded C release notes](c.md)
 * [Android release notes](android.md)
-* [iOS C release notes](ios.md)
+* [iOS release notes](ios.md)
