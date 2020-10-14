@@ -41,11 +41,6 @@ $> npm install @azure/storage-blob@next
 
 If you have a bug or feature request for one of the libraries, please post an issue at the [azure-sdk-for-js repository](https://github.com/azure/azure-sdk-for-js/issues)
 
-## Changelog
-
-Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
-
-
 ### Azure Identity
 
 #### @azure/identity  [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/identity/identity/CHANGELOG.md)
