@@ -108,7 +108,7 @@ We're releasing a new preview of our Azure Search library. This update adds supp
 - Azure Search SDK has been regenerated using the latest swaggers. This enables new properties for IndexParameters.
 
 
-### Azure Storage (Coming Soon)
+### Azure Storage
 
 Updated Azure Storage Service API version to 2020-02-10.
 
