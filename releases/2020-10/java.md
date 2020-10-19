@@ -15,6 +15,7 @@ The Azure SDK team is pleased to announce our October 2020 client library releas
 - Management Library - Compute
 - Management Library - Container Service
 - Management Library - CosmosDB
+- Management Library - DNS
 - Management Library - Insight
 - Management Library - Key Vault
 - Management Library - Managed Identity
@@ -56,7 +57,6 @@ The Azure SDK team is pleased to announce our October 2020 client library releas
 - Management Library - CDN
 - Management Library - Container Instance
 - Management Library - Container Registry
-- Management Library - DNS
 - Management Library - Event Hubs
 - Management Library - Private DNS
 - Management Library - Redis
@@ -439,12 +439,6 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 
 <dependency>
   <groupId>com.azure.resourcemanager</groupId>
-  <artifactId>azure-resourcemanager-dns</artifactId>
-  <version>2.0.0-beta.5</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-eventhubs</artifactId>
   <version>2.0.0-beta.5</version>
 </dependency>
@@ -470,7 +464,7 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 <dependency>
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-appplatform</artifactId>
-  <version>2.0.0-beta.4</version>
+  <version>2.0.0-beta.5</version>
 </dependency>
 
 <dependency>
