@@ -256,6 +256,20 @@ Beta packages are published directly to the Maven central registry. Alpha packag
 
 **Floating GA dependencies:** Use the exact version number to specify the lowest version of the package which contains the features upon which you depend.
 
+#### C++
+
+C++ releases the source code of the package via releases on github. It currently does not ship packages to any package managers.
+
+A C++ release includes a Tag and Release (e.g. [azure-core_1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-cpp/releases/tag/azure-core_1.0.0-beta.1)) on GitHub and documentation as GitHub Pages (e.g. [azure-core_1.0.0-beta.1](https://azuresdkdocs.blob.core.windows.net/$web/cpp/docs/azure-core_1.0.0-beta.1/index.html)).
+
+#### Incrementing after release (C++)
+
+**Preview release:** `1.0.0-beta.1` -> `1.0.0-beta.2`
+
+**GA Release:** `1.1.0` -> `1.2.0-beta.1`
+
+**GA Hotfix Release:** `1.0.0` -> `1.0.1`
+
 #### Embedded C
 
 C99 releases the source code of the repository in a single unit of source code. It does not ship packages to any package managers. Because the C repo ships from the `master` branch, code going into the `master` branch must be in a completed state and ready to ship.
