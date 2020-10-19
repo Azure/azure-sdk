@@ -115,8 +115,6 @@ never accessed again, and optimize away the call to `memset`, resulting in the c
 {% include requirement/MUST id="cpp-implementing-auth-policy" %}
 provide a suitable authentication policy that authenticates the HTTP request in the HTTP pipeline when using non-standard credentials.  This includes custom connection strings, if supported.
 
-> TODO: The authentication policies are generally within the Azure Core / Identity library - that does not exist yet.
-
 ## Logging
 
 Client libraries must support robust logging mechanisms so that the consumer can adequately diagnose issues with the method calls and quickly determine whether the issue is in the consumer code, client library code, or service.
@@ -124,8 +122,6 @@ Client libraries must support robust logging mechanisms so that the consumer can
 In general, our advice to consumers of these libraries is to establish logging in their preferred manner at the `WARNING` level or above in production to capture problems with the application, and this level should be enough for customer support situations.  Informational or verbose logging can be enabled on a case-by-case basis to assist with issue resolution.
 
 {% include requirement/MUST id="cpp-logging-use-azurecore" %} use the Azure Core library for logging.
-
-> TODO: The Azure Core logging library does not exist yet.
 
 {% include requirement/MUST id="cpp-logging-pluggable-logger" %} support pluggable log handlers.
 
@@ -183,8 +179,6 @@ dependency.
 {% include requirement/MUST id="cpp-dependencies-stdlibcpp" %} use the [C++ standard library](https://en.cppreference.com/w/).
 
 {% include requirement/MUST id="cpp-dependencies-azure-core" %} depend on the Azure Core library for functionality that is common across all client libraries.  This library includes APIs for HTTP connectivity, global configuration, and credential handling.
-
-> TODO: The Core library does not exist yet.
 
 {% include requirement/MUSTNOT id="cpp-dependencies-approved-only" %} be dependent on any other packages within the client library distribution package. Dependencies are by-exception and need a thorough vetting through architecture review.  This does not apply to build dependencies, which are acceptable and commonly used.
 
@@ -325,8 +319,6 @@ cpp-format -style=file -i <file> ...
 
 Using `-i` does an in-place edit of the files for style.  There is [a Visual Studio extension](https://marketplace.visualstudio.com/items?itemName=LLVMExtensions.llvm-toolchain) that binds Ctrl-R Ctrl-F to this operation. Visual Studio 2019 includes this functionality by default.
 
-> TODO: Decide on exact formatting standards to use and include here.
-
 {% include requirement/MUST id="cpp-tooling-cmake-docs" %} generate API documentation with `doxygen`.
 For example in CMake:
 
@@ -370,11 +362,9 @@ endif()
 
 {% include requirement/MUST id="cpp-package-vcpkg" %} publish your package to [vcpkg](https://github.com/Microsoft/vcpkg), a C++ library manager supporting Windows, Linux, and MacOS.
 
-> TODO:  Decide if we need to publish to GitHub Package Registry.  If we do, then we likely want to do it across all languages.
-
 ## Formatting
 
-{% include requirement/MUST id="cpp-format-cpp" %} use [cpp-format](https://clang.llvm.org/docs/ClangFormat.html) for formatting your code. Use the common `cpp-format` options from Engineering Systems.
+{% include requirement/MUST id="cpp-format-cpp" %} use [cpp-format](https://clang.llvm.org/docs/ClangFormat.html) for formatting your code. Use the [.clang-format](https://github.com/Azure/azure-sdk-for-cpp/blob/master/.clang-format) options.
 
 In general, cpp-format will format your code correctly and ensure consistency. However, these are few additional  rules to keep in mind.
 

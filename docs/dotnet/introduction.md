@@ -169,6 +169,22 @@ public class ConfigurationClient {
 }
 ```
 
+{% include requirement/MUSTNOT id="dotnet-client-constructor-use-params" %} reference virtual properties of the client class as parameters to other methods or constructors within the client constructor. This violates the [.NET Framework Constructor Design] because a field to which a virtual property refers may not be initialized yet, or a mocked virtual property may not be set up yet. Use parameters or local variables instead:
+
+```csharp
+public class ConfigurationClient {
+    private readonly ConfigurationRestClient _client;
+    public ConfigurationClient(string connectionString) {
+        ConnectionString = connectionString;
+        // Use parameter below instead of the class-defined virtual property.
+        _client = new ConfigurationRestClient(connectionString);
+    }
+    public virtual string ConnectionString { get; }
+}
+```
+
+In mocks, using the virtual property instead of the parameter requires the property to be mocked to return the value before the constructor is called when the mock is created. In [Moq] this requires using the delegate parameter to create the mock, which may not be an obvious workaround.
+
 See [Supporting Mocking](#dotnet-mocking) for details.
 
 ### Service Methods {#dotnet-client-methods}
@@ -528,7 +544,7 @@ public static class ConfigurationModelFactory {
 }
 ```
 
-{% include requirement/MUST id="dotnet-mocking-factory-builder-methods" %} must hide older overloads and avoid ambiguity.
+{% include requirement/MUST id="dotnet-mocking-factory-builder-methods" %} hide older overloads and avoid ambiguity.
 
 When read-only properties are added to models and factory methods must be added to optionally set these properties,
 you must hide the previous method and remove all default parameter values to avoid ambiguity:

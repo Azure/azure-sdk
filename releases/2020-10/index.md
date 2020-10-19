@@ -11,6 +11,11 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 
 ## Release Highlights
 
+* Azure Metrics Advisor Client Libraries Beta 1 release. Read more in this blog post: [Detect anomalies in your data with Metrics Advisor](https://devblogs.microsoft.com/azure-sdk/metrics-advisor-anomaly-detection/)
+* OpenTelemetry Exporter Azure Monitor client Beta 1 release
+* Azure Core Beta 1 release for Android and iOS
+* Azure Communication Services Chat and Azure Communication Services Common Beta 1 releases for Android and iOS
+* Azure C++ Beta for Core and Storage. Read more in this blog post: [Introducing the new Azure SDK for C++ Beta](https://devblogs.microsoft.com/azure-sdk/cppintro/)
 * Management Libraries Updates
   - GA releases for [Java](java.md) and [Python](python.md). These libraries are ready for production use.
   - New Packages in Public Preview for [Java](java.md) / [.NET](dotnet.md)
@@ -24,3 +29,5 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 * [Python release notes](python.md)
 * [C++ release notes](cpp.md)
 * [Embedded C release notes](c.md)
+* [Android release notes](android.md)
+* [iOS release notes](ios.md)

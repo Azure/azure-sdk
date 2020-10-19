@@ -1,12 +1,12 @@
 ---
-title: Azure SDK for C++ (October 2020)
+title: Azure SDK for C++ (September 2020)
 layout: post
 tags: C++ cpp
 sidebar: releases_sidebar
 repository: azure/azure-sdk-for-cpp
 ---
 
-The Azure SDK team is pleased to make available the October 2020 client library release.
+The Azure SDK team is pleased to make available the September 2020 client library release.
 
 #### Beta
 
@@ -33,22 +33,24 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Azure Core [Changelog](https://github.com/Azure/azure-sdk-for-c/blob/master/CHANGELOG.md)
 
+### Azure Storage Blobs [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/CHANGELOG.md#100-beta2-2020-09-09)
+
 #### New Features
 
-#### Bug Fixes
-
-- Fixed a case where path was not properly encoded
-- Switched to select() in libcurl for polling operations
-
-### Azure Storage Blobs [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/CHANGELOG.md#100-beta2-2020-09-09)
+- Support for Blob Batch
+- Support for Blob Index
 
 ### Azure Storage Files DataLake [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/CHANGELOG.md#100-beta2-2020-09-09)
 
 #### New Features
 
-- Support for SetExpiry
+- Support for Lease related operations
 
 ### Azure Storage Files Shares [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/CHANGELOG.md#100-beta2-2020-09-09)
+
+#### New Features
+
+- Added File SAS generation support
 
 ## Latest Releases
 

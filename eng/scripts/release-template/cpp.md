@@ -3,7 +3,7 @@ title: Azure SDK for C++ (%%MMMM yyyy%%)
 layout: post
 tags: C++ cpp
 sidebar: releases_sidebar
-repository: azure/azure-sdk-for-cpp
+repository: Azure/azure-sdk-for-cpp
 ---
 
 The Azure SDK team is pleased to make available the %%MMMM yyyy%% client library release.
@@ -30,11 +30,9 @@ $>
 
 ## Feedback
 
-If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/azure/azure-sdk-for-cpp/issues).
+If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/Azure/azure-sdk-for-cpp/issues).
 
-## Changelog
-
-Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
+## Release highlights
 
 ### _Package name_
 

@@ -4,7 +4,7 @@
   <td>
     {% assign trimmedPackage = item.Package | remove: package_trim %}
 
-    {% assign package_url = package_url_template | replace: 'item.Package', item.Package | replace: 'item.TrimmedPackage', trimmedPackage | replace: 'item.GroupId', item.GroupId %}
+    {% assign package_url = package_url_template | replace: 'item.Package', item.Package | replace: 'item.TrimmedPackage', trimmedPackage | replace: 'item.GroupId', item.GroupId | replace: 'item.RepoPath', item.RepoPath %}
     {% if item.VersionGA != "" %}
         {% assign url = package_url | replace: 'item.Version', item.VersionGA  %}
         {% include releases/pkgbadge.md  label=package_label url=url version=item.VersionGA %}
