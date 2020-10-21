@@ -55,6 +55,7 @@ The Azure SDK team is pleased to announce our October 2020 client library releas
 - Azure Tables
 - Azure Text Analytics
 - Opentelemetry exporter Azure monitor
+- Azure Spring Boot
 
 ## Installation Instructions
 
@@ -332,6 +333,14 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 </dependency>
 ```
 
+To use Azure Spring Boot starters, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate.
+```xml
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>azure-servicebus-jms-spring-boot-starter</artifactId>
+  <version>2.3.6-beta.1</version>
+</dependency>
+```
 ## Feedback
 
 If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/azure/azure-sdk-for-java/issues).
@@ -642,6 +651,11 @@ of the amqp connection.
 - Fixed a bug where snapshot would be appended to a share snapshot instead of sharesnapshot.
 - Fixed a bug that would cause authentication failures when building a client by passing an endpoint which had a SAS token with protocol set to https,http
 - Fixed a bug where a custom application ID in HttpLogOptions would not be added to the User Agent String.
+
+### Azure Spring Boot ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/feature/spring-jms-servicebus/sdk/spring/azure-spring-boot/CHANGELOG.md#236-beta1-2020-10-14))
+
+#### New Features
+- upgrade jms underlying library with azure-servicebus-jms.
 
 
 ## Need help

@@ -371,10 +371,10 @@ To use Azure Spring Boot starters, refer to the Maven dependency information bel
   <artifactId>azure-spring-boot-metrics-starter</artifactId>
   <version>2.3.5</version>
 <dependency>
+</dependency>
   <groupId>com.microsoft.azure</groupId>
   <artifactId>azure-servicebus-jms-spring-boot-starter</artifactId>
   <version>2.3.5</version>
-</dependency>
 </dependency>
 
 ```
