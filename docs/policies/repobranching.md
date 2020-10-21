@@ -119,7 +119,7 @@ For each package we release there will be a unique git tag created that contains
 
 Format of the tag should be `<package-name>_<package-version>`
 
-**_Note:_** Our release tags should be considered immutable and we should avoid updating or deleting them after we have pushed them. If you need to update or delete one for some exceptional case please reach out the engineering system team to discuss options. 
+**_Note:_** Our release tags should be considered immutable.  Avoid updating or deleting them after they are pushed. If you need to update or delete one for some exceptional case, please contact the engineering system team to discuss options. 
 
 ## Release branches
 
