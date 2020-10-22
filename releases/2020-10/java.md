@@ -824,19 +824,18 @@ of the amqp connection.
 - Fixed a bug that would cause authentication failures when building a client by passing an endpoint which had a SAS token with protocol set to https,http
 - Fixed a bug where a custom application ID in HttpLogOptions would not be added to the User Agent String.
 
-<<<<<<< nickzhums-september-mgmt
-### Management Libraries
-
-We are excited to announce the GA releases of management libraries that follow the [Azure SDK Design Guidelines for Java](https://azure.github.io/azure-sdk/java/guidelines/). In addition, more management libraries are now in Public Preview to provide better Azure service coverage. These new libraries provide a higher-level, object-oriented API for managing Azure resources, that is optimized for ease of use, succinctness and consistency. You can find the list of new packages [on this page](https://azure.github.io/azure-sdk/releases/latest/java.html). Detailed documentation and code samples for these new libraries can be [found here](http://aka.ms/azsdk/java/mgmt)
-
-These new packages share the same groupId ``com.azures.resourcemanager`` and artifactId share the same prefix of ``azure-resourcemanager``
-=======
 ### Azure Spring Boot ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/feature/spring-jms-servicebus/sdk/spring/azure-spring-boot/CHANGELOG.md#236-beta1-2020-10-14))
 
 #### New Features
 - upgrade jms underlying library with azure-servicebus-jms.
 
->>>>>>> master
+### Management Libraries
+
+We are excited to announce the GA releases of management libraries that follow the [Azure SDK Design Guidelines for Java](https://azure.github.io/azure-sdk/java/guidelines/). In addition, more management libraries are now in Public Preview to provide better Azure service coverage. These new libraries provide a higher-level, object-oriented API for managing Azure resources, that is optimized for ease of use, succinctness and consistency. You can find the list of new packages [on this page](https://azure.github.io/azure-sdk/releases/latest/java.html). Detailed documentation and code samples for these new libraries can be [found here](http://aka.ms/azsdk/java/mgmt)
+
+These new packages share the same groupId ``com.azures.resourcemanager`` and artifactId share the same prefix of ``azure-resourcemanager``
+
+The recent management library release annoucements as well as future roadmap can be found at [this blog post](https://aka.ms/azsdk/blog/octmgmtga)
 
 ## Need help
 
