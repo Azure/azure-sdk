@@ -33,8 +33,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Azure Core [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/core/azure-core/CHANGELOG.md)
 
-#### New Features
-
 #### Bug Fixes
 
 - Fixed a case where path was not properly encoded
