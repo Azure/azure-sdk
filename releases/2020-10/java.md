@@ -835,7 +835,7 @@ We are excited to announce the GA releases of management libraries that follow t
 
 These new packages share the same groupId ``com.azures.resourcemanager`` and artifactId share the same prefix of ``azure-resourcemanager``
 
-The recent management library release annoucements as well as future roadmap can be found at [this blog post](https://aka.ms/azsdk/blog/octmgmtga)
+More details of recent management library release annoucements as well as future roadmap can be found at [this blog post](https://aka.ms/azsdk/blog/octmgmtga)
 
 ## Need help
 
