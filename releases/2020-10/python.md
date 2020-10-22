@@ -145,6 +145,8 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 ### Management Libraries
 We are excited to announce the GA releases of management libraries that follow the [Azure SDK Design Guidelines for Python](https://azure.github.io/azure-sdk/python/guidelines/). These new libraries provide a number of core capabilities that are shared amongst all Azure SDKs, including the intuitive Azure Identity library, an HTTP Pipeline with custom policies, error-handling, distributed tracing, and much more. Documentation and code samples for these new libraries can be found [here](http://aka.ms/azsdk/python/mgmt)
 
+More details of recent management library release annoucements as well as future roadmap can be found at [this blog post](https://aka.ms/azsdk/blog/octmgmtga)
+
 ## Latest Releases
 
 View all the latest versions of Python packages [here][python-latest-releases].
