@@ -23,8 +23,8 @@
 [java-latest-releases]: {{ site.baseurl }}{% link releases/latest/java.md %}
 [js-latest-releases]: {{ site.baseurl }}{% link releases/latest/js.md %}
 [python-latest-releases]: {{ site.baseurl }}{% link releases/latest/python.md %}
-[cpp-latest-releases]: {{ site.baseurl }}{% link releases/latest/c.md %}
-[c-latest-releases]: {{ site.baseurl }}{% link releases/latest/cpp.md %}
+[cpp-latest-releases]: {{ site.baseurl }}{% link releases/latest/cpp.md %}
+[c-latest-releases]: {{ site.baseurl }}{% link releases/latest/c.md %}
 
 [README-EXAMPLE]: https://github.com/Azure/azure-sdk/blob/master/docs/policies/README-EXAMPLE.md
 [README-TEMPLATE]: https://github.com/Azure/azure-sdk/blob/master/docs/policies/README-TEMPLATE.md
