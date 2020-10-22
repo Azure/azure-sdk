@@ -15,7 +15,7 @@ Use the guidelines in each section of this template to ensure consistency and re
 * Include this set of links targeting your product's content at the bottom of the introduction, making any adjustments as necessary (for example, NuGet instead of PyPi):
 
   - [Package (PyPi)](https://pypi.org/project/azure-cosmos/)
-  - [API reference documentation](https://docs.microsoft.com/python/api/overview/azure/cosmos-readme?view=azure-python)
+  - [API reference documentation](https://docs.microsoft.com/python/api/overview/azure/cosmos-readme)
   - [Product documentation](https://docs.microsoft.com/azure/cosmos-db/)
   - [Source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)
   - [ChangeLog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/CHANGELOG.md)

@@ -19,6 +19,9 @@
     {% assign msdocs_url = item.MSDocs %}
     {% if item.MSDocs == "" %}
         {% assign msdocs_url = msdocs_url_template | replace: 'item.Package', item.Package | replace: 'item.TrimmedPackage', trimmedPackage %}
+        {% if item.VersionGA == "" and item.VersionPreview != "" %}
+            {% assign msdocs_url = msdocs_url | append: '-pre' %}
+        {% endif %}
     {% endif %}
 
     {% if item.VersionGA != "" %}
@@ -27,11 +30,8 @@
     {% endif %}
 
     {% if item.VersionGA == "" and item.VersionPreview != "" %}
-        {% if item.MSDocs != "NA" %}
-            {% assign pre_suffix = '-pre' | append: msdocs_preview_moniker_suffix %}
-            {% assign url = msdocs_url | replace: 'item.Version', item.VersionPreview | append: pre_suffix %}
-            {% include releases/pkgbadge.md label="msdocs" preview="true" url=url version=item.VersionPreview %}
-        {% endif %}
+        {% assign url = msdocs_url | replace: 'item.Version', item.VersionPreview %}
+        {% include releases/pkgbadge.md label="msdocs" preview="true" url=url version=item.VersionPreview %}
     {% endif %}
   </td>
   <td>
