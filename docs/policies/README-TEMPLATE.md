@@ -38,6 +38,8 @@ Use the guidelines in each section of this template to ensure consistency and re
 
 * **DO NOT** use upper case in the anchor tag links like `#Samples`. Using upper case in anchor tag links will not work when we convert them to html as they are usually case sensitive. For this reason the guidance is to use lower case for any anchor tags we have in all our MD files in the repo as this will help ensure that links work in other contexts. For example use `https://github.com/Azure/azure-sdk-for-java#client-new-releases` instead of `https://github.com/Azure/azure-sdk-for-java#Client-New-Releases`
 
+* **DO** use `https` instead of `http` for links to ensure we are linking to secure servers.
+
 * **DO** think about the longevity of your links and be sure to pick links we believe will remain stable and around for a long time. So no temporary links or links that point to moving targets like a repository branch which may not contain the files in the same locations over time. 
 
 ## Getting started
