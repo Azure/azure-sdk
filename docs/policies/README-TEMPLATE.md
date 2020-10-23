@@ -15,7 +15,7 @@ Use the guidelines in each section of this template to ensure consistency and re
 * Include this set of links targeting your product's content at the bottom of the introduction, making any adjustments as necessary (for example, NuGet instead of PyPi):
 
   - [Package (PyPi)](https://pypi.org/project/azure-cosmos/)
-  - [API reference documentation](https://docs.microsoft.com/python/api/overview/azure/cosmos-readme?view=azure-python)
+  - [API reference documentation](https://docs.microsoft.com/python/api/overview/azure/cosmos-readme)
   - [Product documentation](https://docs.microsoft.com/azure/cosmos-db/)
   - [Source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)
   - [ChangeLog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/CHANGELOG.md)
@@ -35,6 +35,8 @@ Use the guidelines in each section of this template to ensure consistency and re
 * **DO NOT** use locale in the urls like `en-us`. For example use `https://docs.microsoft.com/dotnet/api/azure.storage.blobs` instead of `https://docs.microsoft.com/dotnet/api/azure.storage.blobs`
 
 * **DO NOT** use version numbers in the links as the version numbers will often be missed when releasing new versions thus point to the wrong thing or not exist at all. Instead avoid linking directly to versioned information. If you still need a link you should first try to link to a page that contains all the versions so someone can choose or link to the latest which may be out of sync with the content but should usually remain valid.
+
+* **DO NOT** use upper case in the anchor tag links like `#Samples`. Using upper case in anchor tag links will not work when we convert them to html as they are usually case sensitive. For this reason the guidance is to use lower case for any anchor tags we have in all our MD files in the repo as this will help ensure that links work in other contexts. For example use `https://github.com/Azure/azure-sdk-for-java#client-new-releases` instead of `https://github.com/Azure/azure-sdk-for-java#Client-New-Releases`
 
 * **DO** use `https` instead of `http` for links to ensure we are linking to secure servers.
 

@@ -31,7 +31,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Changelog
 
-### Azure Core [Changelog](https://github.com/Azure/azure-sdk-for-c/blob/master/CHANGELOG.md)
+### Azure Core [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/core/azure-core/CHANGELOG.md)
 
 ### Azure Storage Blobs [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/CHANGELOG.md#100-beta2-2020-09-09)
 
