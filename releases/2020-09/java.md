@@ -22,6 +22,7 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 - Azure Core Http Netty
 - Azure Core Http OkHttp
 - Azure Event Hubs
+- Azure Identity
 - Azure Key Vault Certificates
 - Azure Key Vault Keys
 - Azure Key Vault Secrets
@@ -35,6 +36,8 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 
 - Azure Core Experimental
 - Azure Core Serializer Apache Avro
+- Azure Event Hubs
+- Azure Identity
 - Azure Key Vault Administration
 - Azure Key Vault Certificates
 - Azure Key Vault Keys
@@ -44,6 +47,7 @@ The Azure SDK team is pleased to announce our September 2020 client library rele
 - Azure Search Documents
 - Azure Service Bus
 - Azure Tables
+- Azure Text Analytics
 
 ## Installation Instructions
 
@@ -128,6 +132,18 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 </dependency>
 
 <dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-identity</artifactId>
+  <version>1.1.2</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-identity</artifactId>
+  <version>1.2.0-beta.1</version>
+</dependency>
+
+<dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-messaging-eventgrid</artifactId>
     <version>2.0.0-beta.1</version>
@@ -137,6 +153,24 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
     <groupId>com.azure</groupId>
     <artifactId>azure-messaging-eventhubs</artifactId>
     <version>5.2.0</version>
+</dependency>
+
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-messaging-eventhubs</artifactId>
+    <version>5.3.0-beta.1</version>
+</dependency>
+
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-messaging-eventhubs-checkpointstore-blob</artifactId>
+    <version>1.2.0</version>
+</dependency>
+
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-messaging-eventhubs-checkpointstore-blob</artifactId>
+    <version>1.3.0-beta.1</version>
 </dependency>
 
 <dependency>
@@ -202,6 +236,12 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-cosmos</artifactId>
   <version>4.4.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-ai-textanalytics</artifactId>
+  <version>5.1.0-beta.1</version>
 </dependency>
 ```
 To use Azure Spring Cloud starters and binders, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate.
@@ -331,10 +371,10 @@ To use Azure Spring Boot starters, refer to the Maven dependency information bel
   <artifactId>azure-spring-boot-metrics-starter</artifactId>
   <version>2.3.5</version>
 <dependency>
+</dependency>
   <groupId>com.microsoft.azure</groupId>
   <artifactId>azure-servicebus-jms-spring-boot-starter</artifactId>
   <version>2.3.5</version>
-</dependency>
 </dependency>
 
 ```
@@ -429,6 +469,12 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Add support for connection strings containing a Shared Access Signature.
 - Add options for controlling partition ownership expiration, load balancing strategy.
 
+### Azure Event Hubs Beta [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-messaging-eventhubs_5.3.0-beta.1/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md#530-beta1-2020-09-25)
+
+#### New Features
+
+- A producer client can be configured to be an idempotent producer. When an event with the same producer group id and publishing sequence number is sent twice, only one will be accepted to the event hub.
+
 ### Form Recognizer ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_3.0.0/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#300-2020-08-20))
 
 - General availability, stable version 3.0.0 released targetting v2.0 GA version of the Form Recognizer service
@@ -436,6 +482,23 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### Breaking changes
 
 - Renamed `BoundingBox` model to `FieldBoundingBox`
+
+### Azure Identity ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-identity_1.1.2/sdk/identity/azure-identity/CHANGELOG.md#112-2020-09-09))
+
+- Upgraded core dependency to 1.8.1
+
+### Azure Identity Beta ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-identity_1.2.0-beta.1/sdk/identity/azure-identity/CHANGELOG.md#120-beta1-2020-09-11))
+
+- Added `InteractiveBrowserCredentialBuilder.redirectUrl(String)` to configure the redirect URL
+- Deprecated `InteractiveBrowserCredentialBuilder.port(int)`
+- Added support for App Service 2019 MSI Endpoint in `ManagedIdentityCredential`
+- Added Shared Token cache support for MacOS Keychain, Gnome Keyring, and plain text for other Linux environments
+- Added option to write to shared token cache from `InteractiveBrowserCredential`, `AuthorizationCodeCredential`, `UsernamePasswordCredential`, `DeviceCodeCredential` `ClientSecretCredential` and `ClientCertificateCredential`
+- Added new APIs for authenticating users with `DeviceCodeCredential`,  `InteractiveBrowserCredential` and `UsernamePasswordCredential`.
+    - Added method `authenticate` which pro-actively interacts with the user to authenticate if necessary and returns a serializable `AuthenticationRecord`
+- Added following configurable options in classes `DeviceCodeCredentialBuilder` and `InteractiveBrowserCredentialBuilder`
+    - `authenticationRecord` enables initializing a credential with an `AuthenticationRecord` returned from a prior call to `Authenticate`
+    - `disableAutomaticAuthentication` disables automatic user interaction causing the credential to throw an `AuthenticationRequiredException` when interactive authentication is necessary.
 
 ### Azure Key Vault Administration 4.0.0-beta.1 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-administration/CHANGELOG.md#400-beta1-2020-09-11))
 
@@ -554,6 +617,16 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### Key Bug Fixes
 - Exclude disabled secrets when getting Key Vault secrets
 - Get full list of groups the user belongs to from Graph API
+
+### Azure Text Analytics ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.1.0-beta.1/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#510-beta1-2020-09-17))
+
+#### New features
+- Updated Text Analytics SDK's default service API version to `v3.1-preview.2` from `v3.0`.
+- Added support for Personally Identifiable Information(PII) entity recognition feature.
+  To use this feature, you need to make sure you are using the service's v3.1-preview.1 API.
+- Added support for the Opinion Mining feature. To use this feature, you need to make sure you are using the 
+service's v3.1-preview.1 and above API. To get this support pass `includeOpinionMining` as `true` in 
+`AnalyzeSentimentOptions` when calling the sentiment analysis endpoints.
 
 ## Need help
 

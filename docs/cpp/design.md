@@ -56,8 +56,6 @@ Many `management` APIs do not have a data plane because they deal with managemen
 
 {% include requirement/MUST id="general-namespaces-registration" %} register the chosen namespace with the [Architecture Board].  Open an issue to request the namespace.  See [the registered namespace list](registered_namespaces.html) for a list of the currently registered namespaces.
 
-> TODO: How do we link to a PascalCase version of registered_namespaces.html ?
-
 {% include requirement/MUST id="cpp-design-naming-namespaces-details" %} place private implementation details in a `Details` namespace.
 
 {% highlight cpp %}
@@ -450,7 +448,7 @@ The following integer rules are listed in rough priority order. Integer size sel
 
 ### Secure functions
 
-{% include requirement/SHOULDNOT id="cpp-design-logical-no-ms-secure-functions" %} use [Microsoft security enhanced versions of CRT functions](https://docs.microsoft.com/cpp/c-runtime-library/security-enhanced-versions-of-crt-functions?view=vs-2019) to implement APIs that need to be portable across many platforms. Such code is not portable and is not compatible with either the C or C++ Standards. See [arguments against]( http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1967.htm).
+{% include requirement/SHOULDNOT id="cpp-design-logical-no-ms-secure-functions" %} use [Microsoft security enhanced versions of CRT functions](https://docs.microsoft.com/cpp/c-runtime-library/security-enhanced-versions-of-crt-functions) to implement APIs that need to be portable across many platforms. Such code is not portable and is not compatible with either the C or C++ Standards. See [arguments against]( http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1967.htm).
 
 > TODO: Verify with the security team, and what are the alternatives?
 
@@ -474,9 +472,9 @@ Azure services use a variety of different authentication schemes to allow client
 
 {% include requirement/MUST id="cpp-apisurface-auth-in-constructors" %} provide service client constructors or factories that accept any supported authentication credentials.
 
-Client libraries may support providing credential data via a connection string __ONLY IF__ the service provides a connection string to users via the portal or other tooling.
+{% include requirement/SHOULDNOT id="cpp-design-logical-client-surface-no-connection-strings" %} support providing credential data via a connection string. Connection string interfaces should be provided __ONLY IF__ the service provides a connection string to users via the portal or other tooling.
 
-{% include requirement/MUSTNOT id="cpp-design-logical-client-surface-no-connection-strings" %} support constructing a service client with a connection string unless such connection string is available within tooling (for copy/paste operations).
+{% include requirement/MUSTNOT id="cpp-design-logical-client-surface-no-connection-string-ctors" %} support constructing a service client with a connection string unless such connection string. Provide a `CreateFromConnectionString` static member function which returns a client instead to encourage customers to choose non-connection-string-based authentication.
 
 #### Response formats
 
@@ -532,6 +530,58 @@ Although object-orientated languages can eschew low-level pagination APIs in fav
 {% include requirement/MUST id="cpp-design-logical-client-pagination-cpp-last-page" %} indicate in the return type if the consumer has reached the end of the result set.
 
 {% include requirement/MUST id="cpp-design-logical-client-pagination-size-of-page" %} indicate in the return type how many items were returned by the service, and have a list of those items for the consumer to iterate over.
+
+#### Enumerations
+
+{% include requirement/MUST id="cpp-design-logical-client-enumerations-no-enums" %} use `enum` or `enum class` for values shared "over the wire" with a service, to support future compatibility with the service where additional values are added. Such values should be persisted as strings in client data structures instead.
+
+{% include requirement/MAY id="cpp-design-logical-client-enumerations-enumish-pattern" %} provide an 'extensible enum' pattern for storing service enumerations which provides reasonable constant values. This pattern stores the value as a string but provides public static member fields with the individual values for customer consumption. For example:
+
+{% highlight cpp %}
+#include <azure.hpp> // for Azure::Core::Details::LocaleInvariantCaseInsensitiveEqual
+#include <utility> // for std::move
+namespace Azure { namespace Group { namespace Service {
+
+// an "Extensible Enum" type
+class KeyType {
+    std::string m_Value;
+public:
+    // Provide `explicit` conversion from string or types convertible to string:
+    explicit KeyType(const std::string& value) : m_Value(value) { }
+    explicit KeyType(std::string&& value) : m_Value(std::move(value)) { }
+    explicit KeyType(const char* value) : m_Value(value) { }
+
+    // Provide an equality comparison. If the service treats the enumeration case insensitively,
+    // use LocaleInvariantCaseInsensitiveEqual to prevent differing locale settings from affecting
+    // the SDK's behavior:
+    bool operator==(const KeyType& other) const noexcept {
+        return Azure::Core::Details::LocaleInvariantCaseInsensitiveEqual(m_Value, other.m_Value);
+    }
+
+    bool operator!=(const KeyType& other) const noexcept { return !(*this == other); }
+
+    // Provide a "Get" accessor
+    const std::string& Get() const noexcept { return mValue; }
+
+    // Provide your example values as static const members
+    const static KeyType Ec;
+    const static KeyType EcHsm;
+    const static KeyType Rsa;
+    const static KeyType RsaHsm;
+    const static KeyType Oct;
+};
+}}} // namespace Azure::Group::Service
+
+
+// in a .cpp file:
+namespace Azure { namespace Group { namespace Service {
+const KeyType KeyType::Ec = "EC";
+const KeyType KeyType::EcHsm = "EC-HSM";
+const KeyType KeyType::Rsa = "RSA";
+const KeyType KeyType::RsaHsm = "RSA-HSM";
+const KeyType KeyType::Oct = "oct";
+}}} // namespace Azure::Group::Service
+{% endhighlight %}
 
 ### Error handling
 

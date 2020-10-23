@@ -12,8 +12,10 @@ function MSDocLink($lang, $pkg)
   if ($pkg.MSDocs -eq "NA") { return "" }
   if ($pkg.MSDocs -ne "") { return "[docs]($($pkg.MSDocs))" }
 
+  if (!$pkg.Version -and $pkg.VersionPreview) { $suffix = "-pre" }
+
   $msPackagePath = $pkg.Package -replace "@?azure[\.\-/]", ""
-  return "[docs](https://docs.microsoft.com/${lang}/api/overview/azure/${msPackagePath}-readme/)"
+  return "[docs](https://docs.microsoft.com/${lang}/api/overview/azure/${msPackagePath}-readme${suffix}/)"
 }
 
 function Get-Heading()
@@ -25,6 +27,10 @@ function Get-Row($pkg, $lang, $packageFormat, $sourceFormat)
 {
   $displayName = $pkg.DisplayName
   $docs = MSDocLink $lang $pkg
+  $docs = $docs -replace "https://docs.microsoft.com(/en-us)?", ""
+
+  $version = $pkg.VersionGA
+  if ($version -eq "") { $version = $pkg.VersionPreview }
 
   if ($pkg.VersionGA -ne "" -and $pkg.VersionPreview -ne "") {
     $package = $packageFormat -f $pkg.Package, $pkg.VersionGA
@@ -36,14 +42,15 @@ function Get-Row($pkg, $lang, $packageFormat, $sourceFormat)
     $source += $sourceFormat -f $pkg.Package, $pkg.VersionPreview, $pkg.RepoPath
   }
   else {
-    $version = $pkg.VersionGA
-    if ($version -eq "") { $version = $pkg.VersionPreview }
     $package = $packageFormat -f $pkg.Package, $version
     $source = $sourceFormat -f $pkg.Package, $version, $pkg.RepoPath
   }
 
   if ($pkg.RepoPath -eq "NA") {
     $source = ""
+  }
+  elseif ($pkg.RepoPath.StartsWith("http")) {
+    $source = "GitHub [${version}]($($pkg.RepoPath))"
   }
 
   return "| ${displayName} | ${package} | ${docs} | ${source} |" + [System.Environment]::NewLine
@@ -61,8 +68,9 @@ function Get-java-row($pkg)
 function Get-js-row($pkg)
 {
   $packageFormat = "npm [{1}](https://www.npmjs.com/package/{0}/v/{1})"
-  $sourceFormat = "GitHub [{1}](https://github.com/Azure/azure-sdk-for-js/tree/{0}_{1}/sdk/{2}/{0}/)"
-  return Get-Row $pkg "js" $packageFormat $sourceFormat
+  $trimmedPackage = $pkg.Package -replace "^@azure/", ""
+  $sourceFormat = "GitHub [{1}](https://github.com/Azure/azure-sdk-for-js/tree/{0}_{1}/sdk/{2}/${trimmedPackage}/)"
+  return Get-Row $pkg "javascript" $packageFormat $sourceFormat
 }
 
 function Get-dotnet-row($pkg)
@@ -83,6 +91,7 @@ function Write-Markdown($lang)
 {
   $packagelistFile = Join-Path $releaseFolder "$lang-packages.csv"
   $packageList = Get-Content $packagelistFile | ConvertFrom-Csv | Sort-Object Type, DisplayName, Package, GroupId
+  $packageList = $packageList | Where-Object { $_.Hide -ne "true" }
 
   $clientPackageList = $packageList | Where-Object { $_.Type }
   $otherPackages = $packageList | Where-Object { !$_.Type }
@@ -93,8 +102,12 @@ function Write-Markdown($lang)
   {
     $fileContent += &$LangFunction $pkg 
   }
-  
-  $mdfile = Join-Path $outputFolder "$lang-new.md"
+  $fileLang = $lang
+  if ($lang -eq "js") { 
+    $fileLang = "javascript" 
+  }
+
+  $mdfile = Join-Path $outputFolder "$fileLang-new.md"
   Write-Host "Writing $mdfile"
   Set-Content $mdfile -Value $fileContent -NoNewline
 
@@ -106,7 +119,7 @@ function Write-Markdown($lang)
     $allFileContent += &$LangFunction $pkg
   }
 
-  $allMdfile = Join-Path $outputFolder "$lang-all.md"
+  $allMdfile = Join-Path $outputFolder "$fileLang-all.md"
   Write-Host "Writing $allMdfile"
   Set-Content $allMdfile -Value $allFileContent -NoNewline
 }

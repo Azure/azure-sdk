@@ -256,6 +256,65 @@ Beta packages are published directly to the Maven central registry. Alpha packag
 
 **Floating GA dependencies:** Use the exact version number to specify the lowest version of the package which contains the features upon which you depend.
 
+#### C++
+
+C++ releases the source code of the package via releases on github. It currently does not ship packages to any package managers.
+
+A C++ release includes a Tag and Release (e.g. [azure-core_1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-cpp/releases/tag/azure-core_1.0.0-beta.1)) on GitHub and documentation as GitHub Pages (e.g. [azure-core_1.0.0-beta.1](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-core/1.0.0-beta.1/index.html)).
+
+#### Incrementing after release (C++)
+
+**Preview release:** `1.0.0-beta.1` -> `1.0.0-beta.2`
+
+**GA Release:** `1.1.0` -> `1.2.0-beta.1`
+
+**GA Hotfix Release:** `1.0.0` -> `1.0.1`
+
+#### Embedded C
+
+C99 releases the source code of the repository in a single unit of source code. It does not ship packages to any package managers. Because the C repo ships from the `master` branch, code going into the `master` branch must be in a completed state and ready to ship.
+
+An Embedded C release includes a Tag and Release (e.g. [1.0.0-preview.5](https://github.com/Azure/azure-sdk-for-c/releases/tag/1.0.0-preview.5)) on GitHub and documentation as GitHub Pages (e.g. [1.0.0-preview.5](https://azuresdkdocs.blob.core.windows.net/$web/c/docs/1.0.0-preview.5/index.html)).
+
+#### Incrementing after release (Embedded C)
+
+**Preview release:** `1.0.0-beta.1` -> `1.0.0-beta.2`
+
+**GA Release:** `1.1.0` -> `1.2.0-beta.1`
+
+**GA Hotfix Release:** `1.0.0` -> `1.0.1`
+
+#### Android
+
+Maven supports the [convention](https://cwiki.apache.org/confluence/display/MAVENOLD/Versioning) `MAJOR.MINOR.PATCH-QUALIFIER`, which doesn't support SemVer 2 sorting for pre-releases so we have to use a special convention based on their [versioning code](https://github.com/apache/maven/blob/master/maven-artifact/src/main/java/org/apache/maven/artifact/versioning/ComparableVersion.java). The preferred format for version numbers is:
+
+- `X.Y.Z-alpha.YYYYMMDD.r` (`r` is based on the number of builds performed on the given day) for daily alpha releases.
+- `X.Y.Z-beta.N` for beta releases.
+
+Beta packages are published directly to the Maven central registry. Alpha packages will be published to the isolated [azure-sdk-for-android](https://dev.azure.com/azure-sdk/public/_packaging?_a=feed&feed=azure-sdk-for-android) DevOps feed. To consume an alpha package you should either pin to a specific version or use a version specifier like `(X.Y.Z-alpha, X.Y.Z-beta)` to get the latest alpha release while avoiding any potential beta versions which might contain older changes.
+
+#### Incrementing after release (Android)
+
+**Beta Release:** `1.0.0-beta.1` -> `1.0.0-beta.2`
+
+**GA Release:** `1.1.0` -> `1.2.0-beta.1`
+
+**GA Hotfix Release:** `1.0.0` -> `1.0.1`
+
+#### iOS
+
+iOS releases the source code of the repository in a single unit of source code. It supports only the Swift Package Manager and does not ship packages to any package registry. Because the iOS repo ships from the `master` branch, code going into the `master` branch must be in a completed state and ready to ship.
+
+An iOS release includes a Tag and Release (e.g. [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-ios/releases/tag/1.0.0-beta.2)) on GitHub and documentation as GitHub Pages.
+
+#### Incrementing after release (iOS)
+
+**Preview release:** `1.0.0-beta.1` -> `1.0.0-beta.2`
+
+**GA Release:** `1.1.0` -> `1.2.0-beta.1`
+
+**GA Hotfix Release:** `1.0.0` -> `1.0.1`
+
 ## Beta Releases and GA Graduation
 
 The Azure SDK team may choose to create a beta release for several reasons:
