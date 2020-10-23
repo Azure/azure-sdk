@@ -165,7 +165,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - This is the first beta of the `Azure.AI.MetricsAdvisor` client library.
 
-### Monitor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/monitor/OpenTelemetry.Exporter.AzureMonitor/CHANGELOG.md#100-beta1-2020-10-07)
+### Monitor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/OpenTelemetry.Exporter.AzureMonitor_1.0.0-beta.1/sdk/monitor/OpenTelemetry.Exporter.AzureMonitor/CHANGELOG.md#100-beta1-2020-10-07)
 
 - Initial release of Azure Monitor Exporter for [OpenTelemetry .NET](https://github.com/open-telemetry/opentelemetry-dotnet)
 
