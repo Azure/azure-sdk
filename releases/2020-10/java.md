@@ -1,4 +1,4 @@
----
+
 title: Azure SDK for Java (October 2020)
 layout: post
 tags: java azure
@@ -10,6 +10,18 @@ The Azure SDK team is pleased to announce our October 2020 client library releas
 
 #### GA
 
+- Management Library - AppService
+- Management Library - Authorization
+- Management Library - Compute
+- Management Library - Container Service
+- Management Library - CosmosDB
+- Management Library - DNS
+- Management Library - Insight (Monitor)
+- Management Library - Key Vault
+- Management Library - Managed Identity
+- Management Library - Network
+- Management Library - Resources
+- Management Library - Storage
 
 #### Updates
 
@@ -42,6 +54,16 @@ The Azure SDK team is pleased to announce our October 2020 client library releas
 - Azure Key Vault Keys
 - Azure Key Vault Secrets
 - Event Grid
+- Management Library - CDN
+- Management Library - Container Instance
+- Management Library - Container Registry
+- Management Library - Event Hubs
+- Management Library - Private DNS
+- Management Library - Redis
+- Management Library - Service Bus
+- Management Library - Spring Cloud
+- Management Library - SQL
+- Management Library - Traffic Manager
 - Azure Metrics Advisor
 - Azure Search Documents
 - Azure Service Bus
@@ -331,6 +353,156 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <artifactId>opentelemetry-exporters-azuremonitor</artifactId>
   <version>1.0.0-beta.1</version>
 </dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-resources</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-storage</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-keyvault</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-authorization</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-msi</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-network</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-compute</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-cosmos</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-dns</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-appservice</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-containerservice</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-monitor</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-containerinstance</artifactId>
+  <version>2.0.0-beta.5</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-containerregistry</artifactId>
+  <version>2.0.0-beta.5</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-cdn</artifactId>
+  <version>2.0.0-beta.5</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-eventhubs</artifactId>
+  <version>2.0.0-beta.5</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-privatedns</artifactId>
+  <version>2.0.0-beta.5</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-redis</artifactId>
+  <version>2.0.0-beta.5</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-servicebus</artifactId>
+  <version>2.0.0-beta.5</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-appplatform</artifactId>
+  <version>2.0.0-beta.5</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-sql</artifactId>
+  <version>2.0.0-beta.5</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-trafficmanager</artifactId>
+  <version>2.0.0-beta.5</version>
+</dependency>
+```
+
+If you are using multiple management libraries in your project and want to import all libraries altogether, you can also choose to use the following wrapper package
+
+```xml
+
+<!-- This package contains all currently available management libraries that are stable-->
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<!-- This package contains both stable and preview management libraries -->
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager</artifactId>
+  <version>2.0.0-beta.5</version>
 ```
 
 To use Azure Spring Boot starters, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate.
@@ -657,6 +829,13 @@ of the amqp connection.
 #### New Features
 - upgrade jms underlying library with azure-servicebus-jms.
 
+### Management Libraries
+
+We are excited to announce the GA releases of management libraries that follow the [Azure SDK Design Guidelines for Java](https://azure.github.io/azure-sdk/java/guidelines/). In addition, more management libraries are now in Public Preview to provide better Azure service coverage. These new libraries provide a higher-level, object-oriented API for managing Azure resources, that is optimized for ease of use, succinctness and consistency. You can find the list of new packages [on this page](https://azure.github.io/azure-sdk/releases/latest/java.html). Detailed documentation and code samples for these new libraries can be [found here](http://aka.ms/azsdk/java/mgmt)
+
+These new packages share the same groupId ``com.azures.resourcemanager`` and artifactId share the same prefix of ``azure-resourcemanager``
+
+More details of recent management library release annoucements as well as future roadmap can be found at [this blog post](https://aka.ms/azsdk/blog/octmgmtga)
 
 ## Need help
 

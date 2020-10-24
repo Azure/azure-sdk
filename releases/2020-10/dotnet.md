@@ -14,7 +14,10 @@ The Azure SDK team is pleased to announce our October 2020 client library releas
 
 #### Updates
 
-- _Add packages_
+- Management Library - Compute
+- Management Library - Network
+- Management Library - Resources
+- Management Library - Storage
 
 #### Beta
 
@@ -22,6 +25,9 @@ The Azure SDK team is pleased to announce our October 2020 client library releas
 - Event Hubs
 - Identity
 - Key Vault
+- Management Library - CosmosDB
+- Management Library - DNS
+- Management Library - Insight
 - Metrics Advisor
 - Monitor
 - Search Documents
@@ -50,6 +56,15 @@ $> dotnet add package Azure.Messaging.EventHubs --version 5.3.0-beta.3
 $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.3.0-beta.3
 
 $> dotnet add package Azure.Messaging.ServiceBus --version 7.0.0-preview.8
+
+$> dotnet install Azure.ResourceManager.Compute --version 1.0.0-preview.2
+$> dotnet install Azure.ResourceManager.Network --version 1.0.0-preview.2
+$> dotnet install Azure.ResourceManager.Resources --version 1.0.0-preview.2
+$> dotnet install Azure.ResourceManager.Storage --version 1.0.0-preview.2
+
+$> dotnet install Azure.ResourceManager.CosmosDB --version 1.0.0-preview.1
+$> dotnet install Azure.ResourceManager.Dns --version 1.0.0-preview.1
+$> dotnet install Azure.ResourceManager.Insights --version 1.0.0-preview.1
 
 $> dotnet add package Azure.Search.Documents --version 11.2.0-beta.1
 
@@ -215,6 +230,13 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 #### Breaking changes
 - Removed property `Length` from the library as it can be obtained by calling `Length` on the `Text` property of types `CategorizedEntity`, `SentenceSentiment`, `LinkedEntityMatch`, `AspectSentiment`, `OpinionSentiment`, and `PiiEntity`.
+
+### New Management Libraries
+A new set of management libraries that follow the [Azure SDK Design Guidelines for .NET](https://azure.github.io/azure-sdk/dotnet_introduction.html) and based on [Azure.Core libraries](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/core/Azure.Core) are now in Public Preview. These new libraries provide a number of core capabilities that are shared amongst all Azure SDKs, including the intuitive Azure Identity library, an HTTP Pipeline with custom policies, error-handling, distributed tracing, and much more. You can find the list of new packages [on this page](https://aka.ms/azsdk/releases).
+
+To get started with these new libraries, please see the [quickstart guide here](http://aka.ms/azsdk/net/mgmt). These new libraries can be identifed by namespaces that start with `Azure.ResourceManager`, e.g. `Azure.ResourceManager.Network`
+
+More details of recent management library release annoucements as well as future roadmap can be found at [this blog post](https://aka.ms/azsdk/blog/octmgmtga)
 
 ## Latest Releases
 
