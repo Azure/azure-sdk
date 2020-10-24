@@ -74,7 +74,7 @@ $> dotnet add package Azure.Security.KeyVault.Keys --version 4.2.0-beta.2
 $> dotnet add package Azure.Security.KeyVault.Secrets --version 4.2.0-beta.2
 
 $> dotnet add package Azure.Storage.Blobs --version 12.7.0-preview.1
-$> dotnet add package Azure.Storage.Blobs.Batch --version 12.4.0-preview.1df
+$> dotnet add package Azure.Storage.Blobs.Batch --version 12.4.0-preview.1
 $> dotnet add package Azure.Storage.Blobs.ChangeFeed --version 12.0.0-preview.5
 $> dotnet add package Azure.Storage.Files.DataLake --version 12.5.0-preview.1
 $> dotnet add package Azure.Storage.Files.Shares --version 12.5.0-preview.1
