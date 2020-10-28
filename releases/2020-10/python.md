@@ -10,7 +10,14 @@ The Azure SDK team is pleased to make available the October 2020 client library 
 
 #### GA
 
-- _Add packages_
+- Management Library - Compute
+- Management Library - Network
+- Management Library - Resource
+- Management Library - Storage
+- Management Library - Monitor
+- Management Library - AppConfiguration
+- Management Library - Event Hubs
+- Management Library - KeyVault
 
 #### Updates
 
@@ -40,6 +47,14 @@ pip install azure-ai-metricsadvisor --pre
 pip install azure-identity
 pip install azure-keyvault-administration
 pip install azure-keyvault-keys
+pip install azure-mgmt-compute
+pip install azure-mgmt-network
+pip install azure-mgmt-resource
+pip install azure-mgmt-storage
+pip install azure-mgmt-monitor
+pip install azure-mgmt-appconfiguration
+pip install azure-mgmt-eventhub
+pip install azure-mgmt-keyvault
 pip install azure-storage-blob --pre
 pip install azure-storage-file-datalake --pre
 pip install azure-storage-file-share --pre
@@ -127,6 +142,10 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Added support for leasing a share.
 - Added support for getting the range diff between current file and a snapshot as well as getting the diff between two file snapshots.
 
+### Management Libraries
+We are excited to announce the GA releases of management libraries that follow the [Azure SDK Design Guidelines for Python](https://azure.github.io/azure-sdk/python/guidelines/). These new libraries provide a number of core capabilities that are shared amongst all Azure SDKs, including the intuitive Azure Identity library, an HTTP Pipeline with custom policies, error-handling, distributed tracing, and much more. Documentation and code samples for these new libraries can be found [here](http://aka.ms/azsdk/python/mgmt)
+
+More details of recent management library release annoucements as well as future roadmap can be found at [this blog post](https://aka.ms/azsdk/blog/octmgmtga)
 
 ## Latest Releases
 
