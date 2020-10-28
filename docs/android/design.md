@@ -260,7 +260,7 @@ while (!done) {
 }
 ```
 
-For more information on what to return for `list` operations, refer to [Pagination].
+{% include requirement/MUST id="android-response-pagination" %} return an instance of the `PagedDataCollection<T>` class for all paged operations. For more information on what to return for `list` operations, refer to [Pagination](#pagination).
 
 For methods that combine multiple requests into a single call:
 
@@ -272,57 +272,78 @@ For methods that combine multiple requests into a single call:
 
 ## Pagination
 
-Azure client libraries eschew low-level pagination APIs in favor of high-level abstractions that  implement per-item iterators. High-level APIs are easy for developers to use for the majority of use cases but can be more confusing when finer-grained control is required (for example, over-quota/throttling) and debugging when things go wrong. Other guidelines in this document work to mitigate this limitation, for example by providing robust logging, tracing, and pipeline customization options.
+Azure client libraries eschew low-level pagination APIs in favor of high-level abstractions that implement per-item iterators. High-level APIs are easy for developers to use for the majority of use cases but can be more confusing when finer-grained control is required (for example, over-quota/throttling) and debugging when things go wrong. Other guidelines in this document work to mitigate this limitation, for example by providing robust logging, tracing, and pipeline customization options.
 
-{% include requirement/MUST id="android-pagination-iterable" %} return `Iterable<T>` for synchronous APIs that expose paginated collections. 
+{% include requirement/MUST id="android-pagination-sync-support" %} return `PagedDataCollection<T, P>` for APIs that expose paginated collections. The `PagedDataCollection<T, P>` type (located in Azure Core) provides access to paged results on a per-page basis.
 
-> **DEVIATION** WE SHOULD EXPOSE SYNC PAGING APIS FOR ANDROID:  This is because Android Architecture Components is already async (so you connect via sync APIs) and the Paging control requires per-page iterators.
+{% include requirement/MUST id="android-pagination-rest-sync-support" %} return `PagedDataResonseCollection<T, P>` for synchronous APIs that expose paginated collections that need to include its HTTP response details. The `PagedDataResponseCollection<T, P>` type (located in Azure Core) provides access to paged results on a per-page basis.
 
-{% include requirement/MUST id="android-pagination-sync-support" %} return `PagedResponse<T>` for synchronous APIs that expose paginated collections. The `PagedResponse<T>` type (located in Azure Core) provides access to paged results on a per-page basis.
+{% include requirement/MUST id="android-pagination-rest-async-support" %} return `PagedDataCollection<T, P>` for asynchronous APIs that expose paginated collections that need to include its HTTP response details. The `AsyncPagedDataCollection<T, P>` type (located in Azure Core) provides access to paged results on a per-page basis.
 
-For example, the configuration service sync client offers the following API:
+For example, the chat service sync client offers the following API:
 
 ```java
-public final class ConfigurationClient {
-    // synchronous API returning a Stream of ConfigurationSetting instances
-    public Iterable<ConfigurationSetting> listSettings(SettingSelector options, Context context) {
+public final class ChatClient {
+    // Synchronous API returning a list of chat messages from a thread, including the response details.
+    public PagedDataResponseCollection<ChatMessage, Page<ChatMessage>> listChatMessagesWithPageResponse(String chatThreadId, Integer maxPageSize, OffsetDateTime startTime) {
         ...
     }
+}
 
-    public PagedResponse<ConfigurationSetting> listSettingsByPage(SettingSelector options, String continuationToken, Context context) {
-        ...
-    }
+// Page-by-page synchronous iteration with Response
+final PagedDataResponseCollection<ChatMessage, Page<ChatMessage>> pagesWithResponse = chatServiceClient.listChatMessagesWithPageResponse("threadId",5, OffsetDateTime.now());
+final Response<Page<ChatMessage>> firstPageWithResponse = pagesWithResponse.getFirstPage();
+final Response<Page<ChatMessage>> nextPageWithResponse = pagesWithResponse.getPage(firstPageWithResponse.getValue().getNextPageId());
+// Get more pages.
+...
+// Item-by-item synchronous iteration.
+final Page<ChatMessage> nextPage = nextPageWithResponse.getValue();
+
+for (ChatMessage chatMessage : nextPage.getItems()) {
+    ...
 }
 ```
 
 {% include requirement/MUSTNOT id="android-pagination-no-collections" %} use other collection types for sync APIs that return multiple values (for example, `List`, or `Iterator`).
 
-{% include requirement/MUST id="android-pagination-paged-flux" %} return `PagedFlux<T>` for asynchronous APIs that expose paginated collections. If the service doesn't offer paging, then return `Flux<T>`.
+{% include requirement/MUST id="android-pagination-paged-flux" %} use the Azure Core `Callback<AsyncPagedDataCollection<T, P>>>` type for handling HTTP responses from asynchronous APIs that expose paginated collections.
+
+For example, the chat service async client offers the following API:
 
 ```java
-public final class ConfigurationAsyncClient {
+public final class ChatAsyncClient {
+    // Asynchronous API returning a list of chat messages from a thread, including the response details.
+    public void listChatMessagesPages(String chatThreadId, Integer maxPageSize, OffsetDateTime startTime, final Callback<AsyncPagedDataCollection<ChatMessage, Page<ChatMessage>>> collectionCallback) {
+        ...
+    }
+}
 
-    // asynchronous API returning a PagedFlux of ConfigurationSetting instances
-    public PagedFlux<ConfigurationSetting> listSettings(SettingSelector options, Context context) {
-        // The first lambda is a Supplier<PagedResponse<T>> returning the first page of results 
-        // as a Mono<PagedResponse<T>>.
-        // The second lambda is a Function<String, Mono<PagedResponse<T>>>, returning a 
-        // Mono<PagedResponse<T>> representing a page based on the provided continuationToken.
-        return new PagedFlux<>(
-            () -> listFirstPageSettings(options, context),
-            continuationToken -> listNextPageSettings(contextWithSpanName, continuationToken));
+// Page-by-page asynchronous iteration
+chatAsyncClient.listChatMessagesPages("threadId", 5, OffsetDateTime.now(), new Callback<AsyncPagedDataCollection<ChatMessage, Page<ChatMessage>>>() {
+    @Override
+    public void onSuccess(AsyncPagedDataCollection<ChatMessage, Page<ChatMessage>> asyncPagedDataCollection, Response response) {
+        asyncPagedDataCollection.getFirstPage(new Callback<Page<ChatMessage>>() {
+            @Override
+            public void onSuccess(Page<ChatMessage> result, Response response) {
+                // Item-by-item synchronous iteration.
+                for (ChatMessage chatMessage : result.getItems()) {
+                    ...
+                }
+
+                // Get the next page
+                asyncPagedDataCollection.getPage(result.getNextPageId(), new Callback<Page<ChatMessage>>() {
+                    @Override
+                    public void onSuccess(Page<ChatMessage> result, Response response) {
+                        // Get more pages.
+                    }
+                }
+            }
+        }
     }
 }
 ```
 
-Consumers of this API can consume individual items by treating the response as a `Flux<T>`:
-
-```java
-client.listSettings(..)
-      .subscribe(item -> System.out.println("Processing item " + item));
-```
-
-{% include requirement/MUST id="android-pagination-distinct-types" %} use distinct types for entities in a list endpoint and an entity returned from a get endpoint if these are different types, and otherwise you must use the same types in these situations.
+{% include requirement/MUST id="android-pagination-distinct-types" %} use the same type for entities returned from a list operation vs. a get operation if those operations return different views of the same result. For example a list operation may provide only a minimal representation of each result, with the expectation that a get operation must be performed for each result to access the full representation. If the representations are compatible, reuse the same type for both the list and the get operation. Otherwise, it is permissible to use distinct types for each operation.
 
 {% include important.html content="Services should refrain from having a difference between the type of a particular entity as it exists in a list versus the result of a GET request for that individual item as it makes the client library's surface area simpler." %}
 
@@ -332,70 +353,15 @@ client.listSettings(..)
 
 {% include requirement/MUST id="android-pagination-paging-api" %} expose paging APIs when iterating over a collection. Paging APIs must accept a continuation token (from a prior run) and a maximum number of items to return, and must return a continuation token as part of the response so that the iterator may continue, potentially on a different machine.
 
-This is automatically handled by the `PagedFlux<T>` type. Consumers of this API can consume individual items by treating the response as a `Flux<T>`:
+This is automatically handled by `PagedDataCollection<T, P>`, `PagedDataResponseCollection<T, P>` and `AsyncPagedDataCollection<T, P>`. Consumers of this API can consume individual items via the `getItems` API in the underlying `Page<T>` of these collections.
 
-```java
-client.listSettings(..)
-      .subscribe(item -> System.out.println("Processing item " + item));
-```
-
-The consumer may process items page-by-page instead:
-
-```java
-client.listSettings(..)
-      .byPage()
-      .subscribe(page -> {
-        // page is a PagedResponse, which implements Page and Response, so there exists: 
-        //  * List<T> of items,
-        //  * continuationToken (represented as a String),
-        //  * Status code,
-        //  * HTTP headers,
-        //  * HTTP request
-        System.out.println("Processing page " + page)
-});
-```
-
-The `PagedFlux.byPage()` offers an overload to accept a `continuationToken` string, which will begin the returned `Flux` at the page specified by this token.
+The `getPage()` API in the aforementioned collections accepts a continuation token (`pageId`) string, which will retrieve the page specified by this token.
 
 ## Long running operations
 
-Long-running operations are operations which consist of an initial request to start the operation followed by polling to determine when the operation has completed or failed. Long-running operations in Azure tend to follow the [REST API guidelines for Long-running Operations][rest-lro], but there are exceptions.
+Long-running operations are uncommon in a mobile context.  If you feel like you need long running operations, contact the [Azure SDK mobile team](mailto:azuresdkmobileteam@microsoft.com) for advice.
 
-{% include requirement/MUST id="android-lro-poller" %} represent long-running operations with some object that encapsulates the polling and the operation status. This object, called a *poller*, must provide APIs for:
-
-1. querying the current operation state (either asynchronously, which may consult the service, or synchronously which must not)
-2. requesting an asynchronous notification when the operation has completed
-3. cancelling the operation if cancellation is supported by the service
-4. registering disinterest in the operation so polling stops
-5. triggering a poll operation manually (automatic polling must be disabled)
-6. progress reporting (if supported by the service)
-
-{% include requirement/MUST id="android-lro-options" %} support the following polling configuration options:
-
-* `pollInterval`
-  
-Polling configuration may be used only in the absence of relevant retry-after headers from service, and otherwise should be ignored.
-
-{% include requirement/MUST id="android-lro-prefix" %} prefix method names which return a poller with the `begin` prefix.
-
-{% include requirement/MUST id="android-lro-continuation" %} provide a way to instantiate a poller with the serialized state of another poller to begin where it left off, for example by passing the state as a parameter to the same method which started the operation, or by directly instantiating a poller with that state.
-
-{% include requirement/MUSTNOT id="android-lro-cancellation" %} cancel the long-running operation when cancellation is requested via a cancellation token. The cancellation token is cancelling the polling operation and should not have any effect on the service.
-
-{% include requirement/MUST id="android-lro-logging" %} log polling status at the `Info` level (including time to next retry)
-
-{% include requirement/MUST id="android-lro-progress-reporting" %} expose a progress reporting mechanism to the consumer if the service reports progress as part of the polling operation. 
-
-{% include requirement/MUST id="android-lro-poller-class" %} use the `com.azure.android.core.polling.Poller` class to represent long-running operations. The long-running operation API pattern is:
-
-```java
-public class <service_name>Client {
-    // Poller<T> is a type in azure core
-    public Poller<T> begin<operation_name>(<parameters>) {
-        return new Poller<>(...);
-    }
-}
-```
+{% include requirement/MAY id="android-lro-poller" %} represent long-running operations with some object that encapsulates the polling and the operation status.
 
 ## Support for non-HTTP protocols
 
@@ -415,359 +381,15 @@ For example, MQTT over WebSockets provides the ability to add headers during the
 
 {% include requirement/MUST id="android-proto-archboard" %} consult the [Architecture Board] on policy decisions for non-HTTP  protocols. Implementation of all policies is expected. If the protocol cannot support a policy, obtain an exception from the [Architecture Board].
 
-{% include requirement/MUST id="android-proto-global-config" %} use the global configuration established in the Azure Core library to configure policies for non-HTTP protocols.  Consumers don't necessarily know what protocol is used by the client library.  They will expect the client library to honor global configuration that they have established for the entire Azure SDK.  
+{% include requirement/MUST id="android-proto-global-config" %} use the global configuration established in the Azure Core library to configure policies for non-HTTP protocols.  Consumers don't necessarily know what protocol is used by the client library.  They will expect the client library to honor global configuration that they have established for the entire Azure SDK.
 
-## The Java API
+## Service versioning
 
-Consumers will use one or more _service clients_ to access Azure services, plus a set of model classes and other supporting types.  Both synchronous APIs and asynchronous APIs are supported.
+There are two versions that developers must be concerned with. Release versioning is the version of the library.  The Azure service API that the library calls also has a version. This section details how consumers can request a specific Azure service API when working with the library.
 
-### Async API
+{% include requirement/MUST id="ios-versioning-latest-service-api" %} call the latest supported service API version by default.
 
-{% include requirement/MUST id="android-async-client-name" %} offer an async service client named `<ServiceName>AsyncClient`. More than one service client may be offered for a single service.
-
-{% include requirement/MUST id="android-async-framework" %} use [Project Reactor] to provide consumers with a high-quality async API. 
-
-{% include requirement/MUSTNOT id="android-async-only-framework" %} use any other async APIs, such as `CompletableFuture` or [RxJava].
-
-{% include requirement/MUSTNOT id="android-async-suffix" %} use the suffix `Async` in methods that do operations asynchronously. Let the fact the user has an instance of an 'async client' provide this context.
-
-{% include requirement/MUSTNOT id="android-async-multiple-methods" %} provide multiple asynchronous methods for a single REST endpoint, unless to provide overloaded methods to enable alternative or optional method parameters.
-
-{% include requirement/MUSTNOT id="android-async-cancellation" %} provide API that accepts a cancellation token. Cancellation isn't a common pattern in Java. Developers who need to cancel requests unsubscribe from a publisher to cancel the request.
-
-{% include requirement/MUSTNOT id="android-async-use-azure-core" %} write custom APIs for streaming or async operations. Make use of the existing functionality offered in the Azure core library. Discuss proposed changes to the Azure core library with the [Architecture Board].
-
-{% include requirement/MUSTNOT id="android-async-no-blocking" %} include blocking calls inside async client library code. Use [BlockHound] to detect blocking calls in async APIs.
-
-### Sync API
-
-{% include requirement/MUST id="android-sync-client-name" %} offer a sync service client named `<ServiceName>Client`. More than one service client may be offered for a single service.
-
-{% include requirement/MUSTNOT id="android-sync-cancellation" %} provide a sync API that accepts a cancellation token. Cancellation isn't a common pattern in Java.  Developers who need to cancel requests should use the async API instead.
-
-## Service clients
-
-{% include requirement/MUST id="android-service-client-naming" %} name service client types with the _Client_ suffix (for example, `ConfigurationClient`).
-
-{% include requirement/MUST id="android-service-client-annotation" %} annotate all service clients with the `@ServiceClient` annotation.
-
-{% include requirement/MUST id="android-service-client-location" %} place service clients in the root package of their corresponding client library (for example, `com.azure.storage.blob.BlobClient`, as `com.azure.storage.blob` is considered the root package in this example).
-
-{% include requirement/MUST id="android-service-client-immutability" %} ensure that all service client classes are immutable upon instantiation.
-
-{% include requirement/MUSTNOT id="android-service-client-constructors" %} provide any `public` or `protected` constructors in the service client, except where necessary to support mock testing. Keep visibility to a minimum.
-
-{% include requirement/MUST id="android-sync-service-client-shape" %} follow the basic shape outlined below for all synchronous service clients:
-
-```java
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License.
-
-package com.azure.<group>.<service_name>;
-
-@ServiceClient(
-    builder = <service_name>ClientBuilder.class, 
-    serviceInterfaces = <service_name>Service.class)
-public final class <service_name>Client {
-
-    // internally, sync API can defer to async API with sync-over-async
-    private final <service_name>AsyncClient client;
-    
-    // package-private constructors only - all instantiation is done with builders
-    <service_name>Client(<service_name>AsyncClient client) {
-        this.client = client;
-    }
-
-    // service methods...
-
-    // A single response API
-    public Response<<model>> <service_operation>(<parameters>) {
-        // deferring to async client internally
-        return client.<service_operation>(<parameters>).block();
-    }
-
-    // A non-paginated sync list API (refer to pagination section for more details)
-    public Stream<<model>> list<service_operation>(<parameters>) {
-        // deferring to async client internally
-        return client.list<service_operation>(<parameters>).toStream();
-    }
-
-    // other members
-    …
-}
-```
-
-Refer to the [ConfigurationClient class] for a fully built-out example of how a sync client should be constructed.
-
-{% include requirement/MUST id="android-async-service-client-shape" %} follow the basic shape outlined below for all asynchronous service clients:
-
-```java
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License.
-
-package com.azure.<group>.<service_name>;
-
-@ServiceClient(
-    builder = <service_name>ClientBuilder.class, 
-    serviceInterfaces = <service_name>Service.class,
-    isAsync = true)
-public final class <service_name>AsyncClient {
-        
-    // package-private constructors only - all instantiation is done with builders
-    <service_name>Client(<parameters>, HttpPipeline pipeline) {
-        super(pipeline);
-    }
-
-    // service methods...
-
-    // A single response API
-    public Mono<Response<<model>>> <service_operation>(<parameters>) {
-        ...
-    }
-
-    // A paginated response API
-    public PagedFlux<<model>> list<service_operation>(<parameters>) {
-        ...
-    }
-
-    // other members
-    ...
-}
-```
-
-Refer to the [ConfigurationAsyncClient class] for a fully built-out example of how an async client should be constructed.
-
-{% include requirement/MUST id="android-service-client-fluent-builder" %} offer a fluent builder API for constructing service clients named `<service_name>ClientBuilder`, which must support building a sync service client instance and an async service client instance (where appropriate). It must offer `buildClient()` and `buildAsyncClient()` API to create a synchronous and asynchronous service client instance, respectively:
-
-```java
-// Copyright (c) Microsoft Corporation. All rights reserved.
-// Licensed under the MIT License.
-
-package com.azure.<group>.<service_name>;
-
-@ServiceClientBuilder(serviceClients = {<service_name>Client.class, <service_name>AsyncClient.class})
-public final class <service_name>ClientBuilder {
-
-    // private fields for all settable parameters
-    ...
-
-    // public constructor - this is the only available front door to creating a service client instance
-    public <service_name>ClientBuilder() {
-        builder = <service_name>AsyncClient.builder();
-    }
-
-    // The buildClient() method returns a new instance of the sync client each time it is called
-    public <service_name>Client buildClient() {
-        // create an async client and pass that into the sync client for sync-over-async impl
-        return new <service_name>Client(buildAsync());
-    }
-
-    // The buildAsyncClient() method returns a new instance of the async client each time it is called
-    public <service_name>Client buildAsyncClient() {
-        // configuration of pipeline, etc
-        ...
-
-        // instantiate new async client instance
-        return new <service_name>AsyncClient(serviceEndpoint, pipeline);
-    }
-
-    // fluent API, each returning 'this', and one for each parameter to configure
-    public <service_name>ClientBuilder <property>(<parameter>) {
-        builder.<property>(<parameter>);
-        return this;
-    }
-}
-```
-
-{% include requirement/MUST id="android-service-client-builder-annotation" %} annotate service client builders with the `@ServiceClientBuilder` annotation.
-
-{% include requirement/MUST %} ensure consistency across all client libraries, by using the following names for client builder fluent API:
-
-| Name                 | Intent                                                                               |
-|----------------------|--------------------------------------------------------------------------------------|
-| `addPolicy`          | Adds a policy to the set of existing policies (assumes no custom pipeline is set).   |
-| `buildAsyncClient`   | Creates a new **async** client on each call.                                         |
-| `buildClient`        | Creates a new **sync** client on each call.                                          |
-| `configuration`      | Sets the configuration store that is used during construction of the service client. |
-| `credential`         | Sets the credential to use when authenticating HTTP requests.                        |
-| `connectionString`   | Sets the connection string to use for.                                               |
-| `endpoint`           | URL to send HTTP requests to.                                                        |
-| `httpClient`         | Sets the HTTP client to use.                                                         |
-| `httpLogDetailLevel` | Sets the logging level for HTTP requests and responses.                              |
-| `pipeline`           | Sets the HTTP pipeline to use.                                                       |
-
-`endpoint` may be renamed if a more user-friendly name can be justified. For example, a blob storage library developer may consider using `new BlobClientBuilder.blobUrl(..)`. In this case, the `endpoint` API should be removed.
-
-{% include requirement/MUST id="android-service-client-builder-precedence" %} use the following precedence rules for builder arguments:
-
-1. If the user sets a non-null `pipeline`, all other settings related to construction and configuration of a pipeline are ignored. The provided pipeline is used as-is.
-2. If the user sets a `connectionString` and a `credential`, the `credential` will take precedence and the `connectionString` must be ignored.
-
-Supporting common precedence rules ensures consistency across client libraries.
-
-{% include requirement/MUST id="android-service-client-builder-illegal-state" %} throw an `IllegalStateException` from the builder method when it receives mutually exclusive arguments.  The consumer is over-specifying builder arguments, some of which will necessarily be ignored. The error message in the exception must clearly outline the issue.
-
-{% include requirement/MUST id="android-service-client-builder-valid-client" %} ensure the builder will instantiate a service client into a valid state.  Throw validation exceptions during fluent property calls, or as part of the `build*()` calls.
-
-{% include requirement/MUSTNOT id="android-service-client-builder-leakage" %} leak the underlying protocol transport implementation details to the consumer.  All types from the protocol transport implementation must be appropriately abstracted.
-
-{% include requirement/MUST id="android-service-client-vending-prefix" %} prefix methods that create or vend subclients with `get` and suffix with `Client` or `AsyncClient` for sync and async subclients respectively (for example, `container.getBlobClient()` or `container.getBlobAsyncClient()`).
-
-## Common service client patterns
-
-{% include requirement/MUST id="android-service-client-approved-verbs" %} prefer the use of the following terms for CRUD operations:
-
-|Verb              |Parameters        |Returns                 |Comments                                                                                                                |
-|------------------|------------------|------------------------|------------------------------------------------------------------------------------------------------------------------|
-| `upsert<noun>`   |key, item         |Updated or created item |Create new item or update existing item. Verb is primarily used in database-like services.                              |
-| `set<noun>`      |key, item         |Updated or created item |Create new item or update existing item. Verb is primarily used for dictionary-like properties of a service.            |
-| `create<noun>`   |key, item         |Created item            |Create new item. Fails if item already exists.                                                                          |
-| `update<noun>`   |key, partial item |Updated item            |Fails if item doesn't exist.                                                                                            |
-| `replace<noun>`  |key, item         |Replace existing item   |Completely replaces an existing item. Fails if the item doesn't exist.                                                  |
-| `delete<noun>`   |key               |Deleted item, or `null` |Delete an existing item. Will succeed even if item didn't exist. Deleted item may be returned, if service supports it.  |
-| `add<noun>`      |index, item       |Added item              |Add item to a collection. Item will be added last, or into the index position specified.                                |
-| `get<noun>`      |key               |Item                    |Will return null if item doesn't exist.                                                                                |
-| `list<noun>`     |                  |Items                   |Return list of items. Returns empty list if no items exist.                                                             |
-| `<noun>Exists`   |key               |`boolean`               |Return `true` if the item exists.                                                                                       |
-
-{% include requirement/SHOULD id="android-service-client-flexibility" %} remain flexible and use names best suited for developer experience.  Don't let the naming rules result in non-idiomatic naming patterns.  For example, Java developers prefer `list` operations over `getAll` operations.
-
-{% include requirement/MUST id="android-service-client-context" %} provide an overload method that takes a `com.azure.core.util.Context` argument for each service operation **in sync clients only**. The `Context` argument must be the last argument into the service method (except where `varargs` are used). If a service method has multiple overloads, only the 'maximal' overloads need to have the `Context` argument. A maximal overload is one that has a full set of arguments.  It may not be necessary to offer a 'Context overload' in all cases.  We prefer a minimal API surface, but `Context` must always be supported.
-
-```java
-getFoo()
-getFoo(x)
-getFoo(x, y)
-getFoo(x, y, z) // maximal overload
-getFoo(a)       // maximal overload
-
-// this will result in the following two methods being required:
-getFoo(x, y, z, Context)
-getFoo(a, Context)
-```
-
-Don't include overloads that take `Context`in async clients.  Async clients use the [subscriber context built into Reactor Flux and Mono APIs][reactor-context].
-
-## Model classes
-
-Model classes are classes that consumers use to provide required information into client library methods. These classes typically represent the domain model, or options classes that must be configured before the request can be made.
-
-{% include requirement/MUST id="android-models-constructors" %} provide public constructors for all model classes.
-
-Use a no-args constructor and a fluent setter API to configure the model class. However, other designs may be used for the constructor when appropriate.
-
-{% include requirement/MUSTNOT id="android-models-builder" %} offer a builder class for model classes.
-
-{% include requirement/MUST id="android-models-fluent" %} provide a fluent API where appropriate.
-
-Apply the `@Fluent` annotation to the class. Name setter methods after the property being set (for example, `proxy(Proxy p)`).  All setter methods must return `this`.
-
-{% include requirement/MUST id="android-models-fluent-setters" %} ensure that setter methods within a fluent type return the same instance of the type.
-
-Fluent types must not be immutable.  Don't return a new instance on each setter call.
-
-{% include requirement/MUSTNOT id="android-models-no-javabeans" %} use the JavaBean naming convention of `get*`, `set*`, and `is*`.
-
-## Other support classes
-
-Don't offer builder or fluent APIs for supporting classes such as custom exception types, HTTP policies, and credential types.
-
-{% include requirement/MUST id="android-support-javabeans" %} use the JavaBean naming convention of `get*`, `set*`, and `is*`.
-
-{% include requirement/MUSTNOT id="android-support-no-fluent" %} use the fluent API naming convention outlined above for model classes.
-
-{% include requirement/MUSTNOT id="android-support-no-builder" %} provide a builder class.
-
-## Annotations
-
-A number of annotations are defined in the Azure Core library. A few annotations enable runtime functionality. Most of the annotations are used as part of the [Azure Java SDK code linting tools](#java-tooling).
-
-{% include requirement/MUST id="android-annotations-azurecore" %} use the Azure Core library annotations outlined below in all applicable places. Use annotations eagerly as part of the initial code design. The code linters will ensure continued conformance to some of the rules outlined in this specification.
-
-{% include requirement/MUSTNOT id="android-annotations-format" %} include spaces in annotation string values, unless the description below states it's allowed.
-
-### Service interface
-
-A service interface defines the REST endpoints for a service, but isn't part of the public API. It's hidden behind the service client class. For example, here is the service interface for one method within the `ConfigurationService`:
-
-```java
-@Host("{url}")
-@ServiceInterface("AppConfig")
-interface ConfigurationService {
-    @Get("kv/{key}")
-    @ExpectedResponses({200})
-    @UnexpectedResponseExceptionType(code = {404}, value = ResourceNotFoundException.class)
-    @UnexpectedResponseExceptionType(HttpResponseException.class)
-    Mono<Response<ConfigurationSetting>> getKeyValue(
-            @HostParam("url") String url, @PathParam("key") String key, @QueryParam("label") String label,
-            @QueryParam("$select") String fields, @HeaderParam("Accept-Datetime") String acceptDatetime,
-            @HeaderParam("If-Match") String ifMatch, @HeaderParam("If-None-Match") String ifNoneMatch,
-            Context context);
-    ...
-}
-```
-
-| Annotation | Location | Description |
-|------------|----------|-------------|
-| `@ServiceInterface` | Service Interface | This interface represents a REST endpoint for the service. The argument will be used as the service name in policies (such as telemetry and tracing). The argument must be short, alphanumeric, without spaces, and fit for public consumption. |
-| `@Host` | Service Interface | The host name of the REST service. The `{url}` maps with the `@HostParam` annotation. |
-| `@<Method>` | Service Method | The HTTP method and endpoint used for the HTTP request. |
-| `@ExpectedResponses` | Service Method | The list of HTTP status codes that the method expects to receive on success. |
-| `@UnexpectedResponseExceptionType` | Method | Enables different exceptions to be thrown based on the status code returned. |
-| `@BodyParam` | Argument | Places this argument into the body of the outgoing HTTP request. |
-| `@HeaderParam` | Argument | Places this argument into the header of the outgoing HTTP request. |
-| `@PathParam` | Argument | Places the argument into the endpoint path. |
-| `@QueryParam` | Argument | Places the argument into the query string of the outgoing HTTP request. |
-
-When specifying strings, you may use `{argument}` to do string replacement from arguments. For example, the `@PathParam("key")` annotation replaces the `{key}` segment in the method annotation in the above example.
-
-### Service client
-
-Include the following annotations on the service client class. For example, this code sample shows a sample class demonstrating the use of these two annotations:
-
-```java
-@ServiceClient(builder = ConfigurationAsyncClientBuilder.class, isAsync = true, service = ConfigurationService.class)
-public final class ConfigurationAsyncClient {
-
-    @ServiceMethod
-    public Mono<Response<ConfigurationSetting>> addSetting(String key, String value) { 
-        ... 
-    }
-}    
-```
-
-| Annotation | Location | Description |
-|------------|----------|-------------|
-| `@ServiceClient` | Service Client | Specifies the builder responsible for instantiating the service client, whether the API is asynchronous, and a reference back to the service interface (the interface annotated with `@ServiceInterface`). |
-| `@ServiceMethod` | Service Method | Placed on all service client methods that do network operations. |
-
-### Service Client Builder
-
-The `@ServiceClientBuilder` annotation should be placed on any class that is responsible for instantiating service clients (that is, instantiating classes annotated with `@ServiceClient`). For example:
-
-```java
-@ServiceClientBuilder(serviceClients = {ConfigurationClient.class, ConfigurationAsyncClient.class})
-public final class ConfigurationClientBuilder { ... }
-```
-
-This builder states that it can build instances of `ConfigurationClient` and `ConfigurationAsyncClient`.
-
-### Model Classes
-
-There are two annotations of note that should be applied on model classes, when applicable:
-
-* The `@Fluent` annotation is given to all model classes that are expected to provide a fluent API to end users.
-* The `@Immutable` annotation is given to all immutable classes.
-
-## Versioning
-
-{% include draft.html content="The API for specifying a specific service version is not yet defined. This section will change as it becomes more concrete." %}
-
-There are two versions that developers must be concerned with. Release versioning is the version of the library. The Azure service API that the library calls also has a version. This section details how consumers can request a specific Azure service API when working with the library.
-
-{% include requirement/MUST id="android-versioning-latest-service-api" %} call the latest supported service API version by default.
-
-{% include requirement/MUST id="android-versioning-select-service-api" %} allow the consumer to select a supported service API version when instantiating the service client.
+{% include requirement/MUST id="ios-versioning-select-service-api" %} allow the consumer to select a supported service API version when instantiating the service client.
 
 Include `.serviceVersion(ServiceVersion version)` as part of the client builder API. `ServiceVersion` should be an enumeration. The enumeration must have a `getLatest()` method that returns the latest service version. If a consumer doesn't specify a service version, the builder will call `ServiceVersion.getLatest()` to obtain the appropriate service version.
 
