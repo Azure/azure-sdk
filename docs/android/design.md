@@ -72,43 +72,59 @@ Your API surface consists of one or more _service clients_ that the consumer wil
 
 {% include requirement/MUST id="android-client-mobile-consistency" %} be consistent with other mobile platforms in feature support (for example, iOS).
 
-### Client interface
+### Service clients
 
-{% include requirement/MUST id="android-service-client-naming" %} name service client types with the _Client_ suffix (for example, `ConfigurationClient`).
+#### Client naming
 
-{% include requirement/MUST id="android-client-location" %} place service client types that the consumer is most likely to interact with in the root package of the client library (for example, `com.azure.android.messaging.servicebus`). Specialized service clients should be placed in subpackages.
+{% include requirement/MUST id="android-client-naming" %} name service client types with the _Client_ suffix (for example, `ConfigurationClient`). More than one service client may be offered for a single service. For example, a client for the storage service's Blob feature should be named `StorageBlobClient`.
 
-{% include requirement/MUST id="android-async-client-name" %} offer an async service client named `<Service>[<Feature>]AsyncClient`, as async is the most common paradigm on Android. More than one service client may be offered for a single service. For example, a client for the storage service's Blob feature should be named `StorageBlobAsyncClient`.
+{% include requirement/MUST id="android-async-client-name" %} offer an async service client named `<Service>[<Feature>]AsyncClient`, as async is the most common paradigm on Android.
 
-{% include requirement/MUST id="android-client-constructor-minimal" %} allow the consumer to construct a service client with the minimal information needed to connect and authenticate to the service.
+{% include requirement/MUST id="android-sync-client-name" %} offer a sync service client named `<ServiceName>Client`.
 
-{% include requirement/MUST id="android-service-client-builder" %} offer a fluent builder API for constructing service clients, said builder must be an inner class within the service client class it will instantiate. 
-
-{% include requirement/MUST id="android-service-client-immutability" %} ensure that all service client classes are immutable upon instantiation.
-
-{% include requirement/MUSTNOT id="android-service-client-constructors" %} provide any `public` or `protected` constructors in the service client, except where necessary to support mock testing. Keep visibility to a minimum.
-
-{% include requirement/MUSTNOT id="android-client-no-static-constructors" %} provide static methods to initialize a client.
-
-{% include requirement/MUSTNOT id="android-async-framework" %} use a third-party library to provide an async API.
-
-{% include requirement/MUSTNOT id="android-async-use-azure-core" %} write custom APIs for streaming or async operations. Make use of the existing functionality offered in the Azure Core library. Discuss proposed changes to the Azure Core library with the [Architecture Board].
+{% include requirement/MUST id="android-client-location" %} place service client types that the consumer is most likely to interact with in the root package of the client library (for example, `com.azure.storage.blob`). Specialized service clients should be placed in subpackages.
 
 {% include requirement/MUST id="android-client-verb-prefix" %} standardize verb prefixes within a set of client libraries for a service.
 
 We speak about using the client library in a cross-language manner within outbound materials such as documentation, blogs, and public speaking.
 
-### Client options
+#### Client initialization 
+
+{% include requirement/MUST id="android-client-constructor-minimal" %} allow the consumer to construct a service client with the minimal information needed to connect and authenticate to the service.
+
+{% include requirement/MUST id="android-client-builder" %} offer a fluent builder API for constructing service clients, said builder must be an inner class within the service client class it will instantiate.
+
+{% include requirement/MUST id="android-client-immutability" %} ensure that all service client classes are immutable upon instantiation.
+
+{% include requirement/MUSTNOT id="android-client-constructors" %} provide any `public` or `protected` constructors in the service client, except where necessary to support mock testing. Keep visibility to a minimum.
+
+{% include requirement/MUSTNOT id="android-client-no-static-constructors" %} provide static methods to initialize a client.
+
+#### Async clients
+
+{% include requirement/MUSTNOT id="android-async-framework" %} use a third-party library to provide an async API.
+
+{% include requirement/MUSTNOT id="android-async-suffix" %} use the suffix `Async` in methods that do operations asynchronously. Let the fact the user has an instance of an 'async client' provide this context.
+
+{% include requirement/MUSTNOT id="android-async-multiple-methods" %} provide multiple asynchronous methods for a single REST endpoint, unless to provide overloaded methods to enable alternative or optional method parameters.
+
+{% include requirement/MUSTNOT id="android-async-use-azure-core" %} write custom APIs for streaming or async operations. Make use of the existing functionality offered in the Azure core library. Discuss proposed changes to the Azure core library with the [Architecture Board].
+
+{% include requirement/MUSTNOT id="android-async-no-blocking" %} include blocking calls inside async client library code.
+
+#### Client options
 
 Client constructors, and some client methods, accept options to customize the client or to customize how the method will be executed. 
 
 {% include requirement/MUST id="android-options-object" %} provide an immutable class named with the suffix `Options` to allow for customization of the client / method call. This class should have a constructor that accepts all possible options for the client / method call as optional parameters.
 
+{% include requirement/MUST id="android-options-classes-extend" %} make `Options` objects extend from Azure Core's `ClientOptions` for clients and `RequestOptions` for method calls.
+
 {% include requirement/MUST id="android-options-parameter" %} accept an `Options` object as a single parameter named `options` in the client constructor or method signature, rather than accepting individual options as separate parameters.
 
 {% include requirement/MUST id="android-options-types" %} use rich types where possible for options. For example, use the `Date` type for dates. When not possible, name the option with a suffix to express the expected type. If the expected type is a unit, the suffix should follow the format `In<Unit>`. Unit should be `ms` for milliseconds, and otherwise the name of the unit. Examples include `timeoutInMs` and `delayInSeconds`.
 
-### Client models
+#### Client models
 
 Models are classes that consumers use to provide required information into client library methods. These classes typically represent the domain model, or options classes that must be configured before the request can be made.
 
@@ -138,7 +154,7 @@ Fluent types must not be immutable. Don't return a new instance on each setter c
 
 {% include requirement/MUST id="android-client-model-conformance" %} conform to the `AzureClientOptions` protocol for classes that define options passed when initializing a service client, and the `AzureOptions` protocol for classes that define options passed to a single service client API method.
 
-#### Other support classes
+##### Other support classes
 
 Don't offer builder or fluent APIs for supporting classes such as custom exception types, HTTP policies, and credential types.
 
@@ -148,7 +164,7 @@ Don't offer builder or fluent APIs for supporting classes such as custom excepti
 
 {% include requirement/MUSTNOT id="android-support-no-builder" %} provide a builder class.
 
-### Client methods
+#### Client methods
 
 {% include requirement/MUST id="android-client-verb-prefix" %} name client methods using a standardized set of verbs or verb prefixes within a set of client libraries for a service. Prefer the use of the following terms for CRUD operations:
 
@@ -353,9 +369,17 @@ chatAsyncClient.listChatMessagesPages("threadId", 5, OffsetDateTime.now(), new C
 
 {% include requirement/MUST id="android-pagination-paging-api" %} expose paging APIs when iterating over a collection. Paging APIs must accept a continuation token (from a prior run) and a maximum number of items to return, and must return a continuation token as part of the response so that the iterator may continue, potentially on a different machine.
 
-This is automatically handled by `PagedDataCollection<T, P>`, `PagedDataResponseCollection<T, P>` and `AsyncPagedDataCollection<T, P>`. Consumers of this API can consume individual items via the `getItems` API in the underlying `Page<T>` of these collections.
+This is automatically handled by `PagedDataCollection<T, P>`, `PagedDataResponseCollection<T, P>` and `AsyncPagedDataCollection<T, P>`. Consumers of this API can consume individual items via the `getItems()` API in the underlying `Page<T>` of these collections.
 
 The `getPage()` API in the aforementioned collections accepts a continuation token (`pageId`) string, which will retrieve the page specified by this token.
+
+## Cancellation
+
+{% include requirement/MUST id="android-async-cancellation" %} support an optional `CancellationToken` object in conformance with the `RequestOptions` interface. This object allows the developer to call `cancel()` on the token or set a timeout, after which a best-effort attempt is made to cancel the request.
+
+{% include requirement/MUST id="android-async-cancellation-implementation" %} cancel any in-flight requests when a developer calls `cancel()` on the `CancellationToken`. If the body of the client method includes multiple, sequential operations, you must check for cancellation before executing any operations after the first. Since the underlying Android network APIs do not permit cancellation of in-flight requests, you must also check for cancellation immediately after receiving any response. If cancellation has been requested, indicate that the call has been cancelled and do not return or otherwise further process the response.
+
+{% include requirement/MUST id="android-async-cancellation-triggers-error" %} return an `AzureException` when cancellation is requested stating that the request was canceled, even if the request was successful.
 
 ## Long running operations
 
