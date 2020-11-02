@@ -1,13 +1,5 @@
----
-post_title: 'Azure SDK GitHub Issue Support Process'
-username: jiayma@microsoft.com
-categories: azure-sdk
-tags: azure-sdk,github
-featured_image: 
-summary: See how the Azure SDK team's issue support process works and how you can help us help you resolve your issue faster.
----
 ## Overview
-In this blog post, you'll see what process the Azure SDK team has implemented to ensure that your issue is reviewed promptly and by the right team. The hope is that by gaining some insight into this process, you'll have a better experience interacting with us on GitHub and a smoother issue resolving process.
+The document is intended to show you what process the Azure SDK team has implemented to ensure that your issue is reviewed promptly and by the right team. The hope is that by gaining some insight into this process, you'll have a better experience interacting with us on GitHub and a smoother issue resolving process.
 
 The process as described here currently applies to the following repositories:
 
@@ -93,4 +85,4 @@ Our current support process has room for improvement. Sometimes we or the bot mi
 
 ## Feedback
 
-We're always looking for ways to improve this process, so please feel free to leave us any feedback and/or suggestion here or in any of the repositories above!
+We're always looking for ways to improve this process, so please feel free to leave us any feedback and/or suggestion in any of the repositories above!
