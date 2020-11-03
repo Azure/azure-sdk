@@ -469,8 +469,8 @@ function Output-Latest-Versions($lang)
   $packageList = Get-Content $packagelistFile | ConvertFrom-Csv | Sort-Object Type, DisplayName, Package, GroupId
 
   # Only update libraries that have a type
-  $clientPackages = $packageList | Where-Object { $_.Type }
-  $otherPackages = $packageList | Where-Object { !$_.Type }
+  $clientPackages = $packageList | Where-Object { $_.New -eq "true" }
+  $otherPackages = $packageList | Where-Object { $_.New -ne "true"  }
 
   $LangFunction = "Update-$lang-Packages"
   &$LangFunction $clientPackages
