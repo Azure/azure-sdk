@@ -37,6 +37,7 @@ function CreatePackage(
     MSDocs = "NA"
     GHDocs = "NA"
     Type = ""
+    New = "false"
     Hide = ""
     Notes = ""
   };
@@ -143,8 +144,8 @@ function Write-Latest-Versions($lang)
   }
 
   Write-Host "Writing $packagelistFile"
-  $clientPackages = $packageList | Where-Object { $_.Type }
-  $otherPackages = $packageList | Where-Object { !$_.Type }
+  $clientPackages = $packageList | Where-Object { $_.New -eq "true" }
+  $otherPackages = $packageList | Where-Object { $_.New -ne "true" }
   $packageList = $clientPackages + $otherPackages
   $packageList | Export-Csv -NoTypeInformation $packagelistFile -UseQuotes Always
 }
