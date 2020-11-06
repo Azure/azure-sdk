@@ -2,8 +2,8 @@
 <tr>
   <th>Display Name</th>
   <th>Package</th>
-  <th>MS Docs</th>
-  <th>GH Docs</th>
+  <th>Microsoft Docs</th>
+  <th>GitHub Docs</th>
   <th>Source</th>
   <th>Notes</th>
 </tr>
