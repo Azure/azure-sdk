@@ -20,7 +20,7 @@ Use the guidelines in each section of this template to ensure consistency and re
   - [Source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)
   - [ChangeLog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/CHANGELOG.md)
   - [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos/samples)
-  - [Versioned API References](https://azure.github.io/azure-sdk-for-python/ref/Cosmos.html) -- Note this link format may be updated in the future but it is the best we have for now.
+  - [Versioned API References](https://azure.github.io/azure-sdk-for-python/cosmosdb.html) -- Note this link format may be updated in the future but it is the best we have for now.
 
 > TIP: Your README should be as **brief** as possible but **no more brief** than necessary to get a developer new to Azure, the service, or the package up and running quickly. Keep it brief, but include everything a developer needs to make their first API call successfully.
 
