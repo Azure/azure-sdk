@@ -505,6 +505,10 @@ BlobBaseClient client = ...
 
 {% include requirement/MUST id="dotnet-lro-return" %} return a subclass of ```Operation<T>``` from LRO methods.
 
+{% include requirement/MUST id="dotnet-lro-return" %} throw ```InvalidOperationException``` when the ```Value``` property is evaluated before the operation is complete (```HasCompleted``` is false).
+
+{% include requirement/MUST id="dotnet-lro-return" %} throw ```RequestFailedException``` or its subtype when the ```Value``` property is evaluated and the operation has completed without a successful result.
+
 {% include requirement/MAY id="dotnet-lro-subclass" %} add additional APIs to subclasses of ```Operation<T>```.
 For example, some subclasses add a constructor allowing to create an operation instance from a previously saved operation ID. Also, some subclasses are more granular states besides the IsCompleted and HasValue states that are present on the base class.
 
