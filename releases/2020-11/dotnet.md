@@ -18,7 +18,7 @@ The Azure SDK team is pleased to announce our November 2020 client library relea
 
 #### Beta
 
-- Tables [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/3ff84e738c517daf3c451fd39a6f126855ac3b95/sdk/tables/Azure.Data.Tables/CHANGELOG.md)
+- Tables
 
 ## Installation Instructions
 
@@ -34,7 +34,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 ## Release highlights
 
-### Tables
+### Tables [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/3ff84e738c517daf3c451fd39a6f126855ac3b95/sdk/tables/Azure.Data.Tables/CHANGELOG.md)
 
 ### New Features
 
