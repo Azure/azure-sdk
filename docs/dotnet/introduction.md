@@ -507,7 +507,7 @@ BlobBaseClient client = ...
 
 {% include requirement/MUST id="dotnet-lro-return" %} throw ```InvalidOperationException``` when the ```Value``` property is evaluated before the operation is complete (```HasCompleted``` is false).
 
-{% include requirement/MUSTNOT id="dotnet-namespaces-location" %} throw from an LRO except for when evaluating the ```Value``` property as described above.
+{% include requirement/MUSTNOT id="dotnet-namespaces-location" %} throw from ```UpdateStatus```, ```WaitForCompletion```, or ```WaitForCompletionAsync```.
 
 {% include requirement/MUST id="dotnet-lro-return" %} throw ```RequestFailedException``` or its subtype when the ```Value``` property is evaluated and the operation has completed without a successful result.
 
