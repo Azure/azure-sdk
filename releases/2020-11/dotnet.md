@@ -18,14 +18,15 @@ The Azure SDK team is pleased to announce our November 2020 client library relea
 
 #### Beta
 
-- _Add packages_
+- Event Hubs
 
 ## Installation Instructions
 
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
 ```bash
-$> dotnet install PACKAGE --version whatever
+$> dotnet add package Azure.Messaging.EventHubs --version 5.3.0-beta.4
+$> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.3.0-beta.4
 ```
 
 ## Feedback
@@ -34,9 +35,17 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 ## Release highlights
 
-### _Package name_ 
+### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md)
 
-- Major changes only!!!
+This release contains a collection of minor bug fixes, performance improvements, and documentation enhancements.
+
+#### New Features
+
+- Connection strings can now be parsed into their key/value pairs using the `EventHubsConnectionStringProperties` class.
+
+### Event Hubs Processor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md)
+
+This release contains a collection of minor bug fixes, performance improvements, and documentation enhancements.
 
 ## Latest Releases
 
