@@ -18,6 +18,7 @@ The Azure SDK team is pleased to announce our November 2020 client library relea
 
 #### Beta
 
+- Event Hubs
 - Tables
 
 ## Installation Instructions
@@ -25,6 +26,9 @@ The Azure SDK team is pleased to announce our November 2020 client library relea
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
 ```bash
+$> dotnet add package Azure.Messaging.EventHubs --version 5.3.0-beta.4
+$> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.3.0-beta.4
+
 $> dotnet add package Azure.Data.Tables --version 3.0.0-beta.3
 ```
 
@@ -33,6 +37,18 @@ $> dotnet add package Azure.Data.Tables --version 3.0.0-beta.3
 If you have a bug or feature request for one of the libraries, please [file an issue in our repo](https://github.com/Azure/azure-sdk-for-net/issues/new/choose).
 
 ## Release highlights
+
+### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md)
+
+This release contains a collection of minor bug fixes, performance improvements, and documentation enhancements.
+
+#### New Features
+
+- Connection strings can now be parsed into their key/value pairs using the `EventHubsConnectionStringProperties` class.
+
+### Event Hubs Processor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md)
+
+This release contains a collection of minor bug fixes, performance improvements, and documentation enhancements.
 
 ### Tables [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/3ff84e738c517daf3c451fd39a6f126855ac3b95/sdk/tables/Azure.Data.Tables/CHANGELOG.md)
 
