@@ -19,6 +19,8 @@ The Azure SDK team is pleased to make available the November 2020 client library
 #### Beta
 
 - Service Bus
+- Search
+- Metrics Advisor
 
 ## Installation Instructions
 
@@ -26,6 +28,8 @@ To install the latest beta version of the packages, copy and paste the following
 
 ```bash
 pip install azure-servicebus --pre
+pip install azure-search-documents --pre
+pip install azure-ai-metricsadvisor --pre
 ```
 
 ## Feedback
@@ -47,6 +51,12 @@ If you have a bug or feature request for one of the libraries, please post an is
 * Refactors all service-impacting operations from the `ServiceBusMessage` object onto the `ServiceBusReceiver` object itself, e.g. lock renewal and settlement.
 * `get_*_session_receiver` functions have been incorporated into their `get_*_receiver` counterparts, activated by passing a `session_id` parameter.
 * Continued Exception behavior cleanup, normalization, and documentation, as well as naming polish in line with the broad name prefix alignment.
+
+### Metrics Advisor [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md)
+
+#### Breaking Changes
+
+- Significant renames across parameters and methods. Please go to the [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md) for detail information.
 
 ## Latest Releases
 
