@@ -33,11 +33,9 @@ Use the style guides for both long-form documentation like a README and the `doc
 
 As you write your code, doc it so you never hear about it again. The fewer questions you have to answer about your client library, the more time you have to build new features for your service.
 
-> **DEVIATION** Added Kotlin requirement
-
 {% include requirement/MUST id="android-docs-lang-support" %} document the library with samples and code snippets in both Kotlin and Java.
 
-{% include requirement/MUSTNOT id="android-docs-version-details" %} include version details when specifying Maven dependency statements. Always refer the user back to a central document detailing how to use the Azure SDK for Java BOM.
+{% include requirement/MUSTNOT id="android-docs-version-details" %} include version details when specifying Gradle or Maven dependency statements. Always refer the user back to a central document detailing how to use the Azure SDK root build.gradle file.
 
 ## Code samples
 
@@ -47,23 +45,15 @@ Code samples are small applications that demonstrate a certain feature that is r
 
 {% include requirement/MUST id="android-samples-in-java" %} place Java code samples within the `/src/samples/java` directory within the client library root directory. The samples will be compiled, but not packaged into the resulting jar.
 
-> **DEVIATION** Kotlin support
-
 {% include requirement/MUST id="android-samples-in-kotlin" %} place Kotlin code samples within the `/src/samples/kotlin` directory within the client library root directory. 
 
 {% include requirement/MUST id="android-samples-lang-support" %} write both a Java version and a Kotlin version when writing code samples.
 
-> **DEVIATION** Samples must be Android apps
-
 {% include requirement/MUST id="android-samples-android-studio" %} ensure that each sample file is wrapped in an Android application that can be loaded and compiled by Android Studio.
-
-> **DEVIATION** Java version support for Android
 
 {% include requirement/MUST id="android-samples-java-version" %} use the latest coding conventions when creating samples. Make liberal use of modern Java syntax and APIs (for example, diamond operators) as they remove boilerplate from your samples and highlight you library. Don't use any language feature or API of Java the currently supported Java baseline. The current supported Java version is Java 7 (with a few Java extensions).
 
-> **DEVIATION** Android support version
-
-{% include requirement/MUST id="android-samples-api-version" %} ensure that samples are written with a `minSdkVersion` of 23. 
+{% include requirement/MUST id="android-samples-api-version" %} ensure that samples are written with a `minSdkVersion` of 21. 
 
 {% include requirement/MUST id="android-samples-latest-major-library-version" %} compile sample code using the latest major release of the library. Review sample code for freshness. At least one commit must be made (to update dependencies) to each sample per semester.
 
@@ -71,7 +61,7 @@ Code samples are small applications that demonstrate a certain feature that is r
 
 {% include requirement/MUST id="android-samples-comprehension" %} write code samples for ease of reading and comprehension over code compactness and efficiency.
 
-{% include requirement/MUST id="android-samples-build" %} build and test your code samples using the repository's continuous integration (CI) to ensure they remain functional.
+{% include requirement/MUST id="android-samples-build-code" %} build and test your code samples using the repository's continuous integration (CI) to ensure they remain functional.
 
 {% include requirement/MUSTNOT id="android-samples-no-combinations" %} combine multiple operations in a code snippet unless it's required for demonstrating the type or member. For example, a Cosmos DB code sample doesn't include both account and container creation operations. Create a sample for account creation, and another sample for container creation. You may combine multiple code snippets in the same sample, but ensure you can cut and paste just one operation.
 
