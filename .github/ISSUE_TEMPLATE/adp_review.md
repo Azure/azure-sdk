@@ -3,12 +3,12 @@ name: Architectural Board Review Request
 about: Request that an Azure client library go through an architectural board review
 title: 'Board Review: <client library name>'
 labels: architecture, board-review
-assignees: kyle-patterson
+assignees: lilyjma
 ---
 
 Thank you for starting the process for approval of the client library for your Azure service.  Thorough review of your client library ensures that your APIs are consistent with the guidelines and the consumers of your client library have a consistently good experience when using Azure. 
 
-** Before submitting, ensure you adjust the title of the issue appropriately **
+** Before submitting, ensure you adjust the title of the issue appropriately and remove any extra issue template boilerplate **
 
 To ensure consistency, all Tier-1 languages (C#, TypeScript, Java, Python) will generally be reviewed together.  In expansive libraries, we will pair dynamic languages (Python, TypeScript) together, and strongly typed languages (C#, Java) together in separate meetings.
 
