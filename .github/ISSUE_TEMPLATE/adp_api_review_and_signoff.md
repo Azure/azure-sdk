@@ -43,7 +43,7 @@ For Tier-2 languages (C, C++, Go, Android, iOS), the review will be on an as-nee
 
 ## Artifacts required (per language)
 
-Please read through “API Listing” section [here](https://azure.github.io/azure-sdk/policies_reviewprocess.html#api-listings) to understand how these artifacts are generated. **It is critical that these artifacts are present and are in the right format. If not, the language architects cannot review them with the SDK Team’s API review tool.**
+Please read through “API Review” section [here](https://azure.github.io/azure-sdk/policies_reviewprocess.html) to understand how these artifacts are generated. **It is critical that these artifacts are present and are in the right format. If not, the language architects cannot review them with the SDK Team’s API review tool.**
 
 ### .NET
 
