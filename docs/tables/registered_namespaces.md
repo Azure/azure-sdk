@@ -10,7 +10,6 @@ The following are a list of registered namespaces.
 | Namespace                     | Service Owner                  |
 | :---------------------------- | :----------------------------- |
 | `azure.ai.formrecognizer`     | [Form Recognizer]              |
-| `azure.ai.inkrecognizer`      | [Ink Recognizer]               |
 | `azure.ai.textanalytics`      | [Text Analytics]               |
 | `azure.data.appconfiguration` | [App Configuration]            |
 | `azure.cosmos`                | [Azure Cosmos DB]              |
@@ -25,8 +24,9 @@ The following are a list of registered namespaces.
 
 We represent the namespace in a standard form (each element is all lower case and starts with the `azure` identifier).  This standard form must be turned into the language-specific form before use.  For example, `azure.security.keyvault` is represented as:
 
-* `com.azure.security.keyvault` in Java, and
-* `Azure.Security.KeyVault` in .NET.
+* `com.azure.security.keyvault` in Java,
+* `Azure.Security.KeyVault` in .NET, and
+* `Azure::Security::KeyVault` in C++.
 
 To register a new namespace, contact the [Architecture Board].
 
@@ -39,7 +39,6 @@ To register a new namespace, contact the [Architecture Board].
 [Azure Storage]: https://azure.microsoft.com/services/storage
 [Event Hubs]: https://azure.microsoft.com/services/event-hubs/
 [Form Recognizer]: https://azure.microsoft.com/services/cognitive-services/form-recognizer/
-[Ink Recognizer]: https://azure.microsoft.com/services/cognitive-services/ink-recognizer/
 [Key Vault]: https://azure.microsoft.com/services/key-vault/
 [Service Bus]: https://azure.microsoft.com/services/service-bus/
 [Text Analytics]: http://azure.microsoft.com/services/cognitive-services/text-analytics/

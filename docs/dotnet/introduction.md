@@ -169,6 +169,22 @@ public class ConfigurationClient {
 }
 ```
 
+{% include requirement/MUSTNOT id="dotnet-client-constructor-use-params" %} reference virtual properties of the client class as parameters to other methods or constructors within the client constructor. This violates the [.NET Framework Constructor Design] because a field to which a virtual property refers may not be initialized yet, or a mocked virtual property may not be set up yet. Use parameters or local variables instead:
+
+```csharp
+public class ConfigurationClient {
+    private readonly ConfigurationRestClient _client;
+    public ConfigurationClient(string connectionString) {
+        ConnectionString = connectionString;
+        // Use parameter below instead of the class-defined virtual property.
+        _client = new ConfigurationRestClient(connectionString);
+    }
+    public virtual string ConnectionString { get; }
+}
+```
+
+In mocks, using the virtual property instead of the parameter requires the property to be mocked to return the value before the constructor is called when the mock is created. In [Moq] this requires using the delegate parameter to create the mock, which may not be an obvious workaround.
+
 See [Supporting Mocking](#dotnet-mocking) for details.
 
 ### Service Methods {#dotnet-client-methods}
@@ -286,7 +302,7 @@ Ensure you include an internal setter to allow for deserialization.  For more in
 
 {% include requirement/MUST id="dotnet-service-models-prefer-structs" %} ensure model types are structs, if they meet the criteria for being structs.
 
-Good candidates for struct are types that are small and immutable, especially if they are often stored in arrays. See [.NET Framework Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/choosing-between-class-and-struct) for details.
+Good candidates for struct are types that are small and immutable, especially if they are often stored in arrays. See [.NET Framework Design Guidelines](https://docs.microsoft.com/dotnet/standard/design-guidelines/choosing-between-class-and-struct) for details.
 
 {% include requirement/SHOULD id="dotnet-service-models-basic-data-interfaces" %} implement basic data type interfaces on model types, per .NET Framework Design Guidelines.
 
@@ -297,7 +313,7 @@ For example, implement `IEquatable<T>`, `IComparable<T>`, `IEnumerable<T>`, etc.
 - ```IReadOnlyDictionary<T>``` and ```IDictionary<T>``` for lookup tables
 - ```T[]```, ```Memory<T>```, and ```ReadOnlyMemory<T>``` when low allocations and perfromance are critical
 
-Note that this guidance does not apply to input parameters. Input parameters representing collections should follow standard [.NET Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/parameter-design), e.g. use ```IEnumerable<T>``` is allowed.
+Note that this guidance does not apply to input parameters. Input parameters representing collections should follow standard [.NET Design Guidelines](https://docs.microsoft.com/dotnet/standard/design-guidelines/parameter-design), e.g. use ```IEnumerable<T>``` is allowed.
 Also, this guidance does not apply to return types of service method calls. These should be using ```Pageable<T>``` and ```AsyncPageable<T>``` discussed in [Service Method Return Types](#dotnet-method-return).
 
 {% include requirement/MAY id="dotnet-service-models-namespace" %} place output model types in _.Models_ subnamespace to avoid cluttering the main namespace with too many types.
@@ -312,7 +328,7 @@ namespace Azure.Storage.Blobs {
 }
 namespace Azure.Storage.Blobs.Models {
     ...
-    public class BlobContainerItem { ... } 
+    public class BlobContainerItem { ... }
     public class BlobContainerProperties { ...}
     ...
 }
@@ -338,8 +354,8 @@ In practice, you need to provide public APIs to construct _model graphs_. See [S
 
 ### Returning Collections {#dotnet-paging}
 
-Many Azure REST APIs return collections of data in batches or pages. A client library will expose such APIs as special enumerable types ```Pageable<T>``` or ```AsyncPageable<T>```. 
-These types are located in the ```Azure.Core``` package. 
+Many Azure REST APIs return collections of data in batches or pages. A client library will expose such APIs as special enumerable types ```Pageable<T>``` or ```AsyncPageable<T>```.
+These types are located in the ```Azure.Core``` package.
 
 For example, the configuration service returns collections of items as follows:
 
@@ -366,7 +382,7 @@ Service methods fall into two main groups when it comes to the number and comple
 
 _Simple methods_ are methods that take up to six parameters, with most of the parameters being simple BCL primitives. _Complex methods_ are methods that take large number of parameters and typically correspond to REST APIs with complex request payloads.
 
-_Simple methods_ should follow standard .NET Design Guidelines for parameter list and overload design. 
+_Simple methods_ should follow standard .NET Design Guidelines for parameter list and overload design.
 
 _Complex methods_ should use _option parameter_ to represent the request payload, and consider providing convenience simple overloads for most common scenarios.
 
@@ -385,7 +401,7 @@ public class BlobContainerClient {
 
 public class BlobCreateOptions {
     public PublicAccessType Access { get; set; }
-    public IDictionary<string, string> Metadata { get; } 
+    public IDictionary<string, string> Metadata { get; }
     public BlobContainerEncryptionScopeOptions Encryption { get; set; }
     ...
 }
@@ -395,9 +411,9 @@ public class BlobCreateOptions {
 
 {% include requirement/MAY id="dotnet-params-complex" %} use the _options_ parameter pattern for simple service methods that you expect to `grow` in the future.
 
-{% include requirement/MAY id="dotnet-params-complex" %} add simple overloads of methods using the _options_ parameter pattern. 
+{% include requirement/MAY id="dotnet-params-complex" %} add simple overloads of methods using the _options_ parameter pattern.
 
-If in common scenarios, users are likely to pass just a small subset of what the _options_ parameter represents, consider adding an overload with a parameter list representing just this subset.  
+If in common scenarios, users are likely to pass just a small subset of what the _options_ parameter represents, consider adding an overload with a parameter list representing just this subset.
 
 #### Parameter Validation
 
@@ -413,7 +429,7 @@ Common parameter validations include null checks, empty string checks, and range
 
 ### Long Running Operations {#dotnet-longrunning}
 
-Some service operations, known as _Long Running Operations_ or _LROs_ take a long time (up to hours or days). Such operations do not return their result immediately, but rather are started, their progress is polled, and finally the result of the operation is retrieved. 
+Some service operations, known as _Long Running Operations_ or _LROs_ take a long time (up to hours or days). Such operations do not return their result immediately, but rather are started, their progress is polled, and finally the result of the operation is retrieved.
 
 Azure.Core library exposes an abstract type called ```Operation<T>```, which represents such LROs and supports operations for polling and waiting for status changes, and retrieving the final operation result.
 
@@ -445,7 +461,7 @@ public class CopyFromUriOperation : Operation<long> {
 }
 
 public class BlobBaseClient {
-    
+
     public virtual CopyFromUriOperation StartCopyFromUri(..., CancellationToken cancellationToken = default);
     public virtual Task<CopyFromUriOperation> StartCopyFromUriAsync(..., CancellationToken cancellationToken = default);
 }
@@ -528,7 +544,7 @@ public static class ConfigurationModelFactory {
 }
 ```
 
-{% include requirement/MUST id="dotnet-mocking-factory-builder-methods" %} must hide older overloads and avoid ambiguity.
+{% include requirement/MUST id="dotnet-mocking-factory-builder-methods" %} hide older overloads and avoid ambiguity.
 
 When read-only properties are added to models and factory methods must be added to optionally set these properties,
 you must hide the previous method and remove all default parameter values to avoid ambiguity:
@@ -676,7 +692,7 @@ Request logging will be done automatically by the `HttpPipeline`.  If a client l
 
 {% include requirement/MUST id="dotnet-packaging-nuget" %} package all components as NuGet packages.
 
-If your client library is built by the Azure SDK engineering systems, all packaging requirements will be met automatically. Follow the [.NET packaging guidelines](https://docs.microsoft.com/en-us/dotnet/standard/library-guidance/nuget) if you're self-publishing. For Microsoft owned packages we need to support both windows (for windows dump diagnostics) and portable (for x-platform debugging) pdb formats which means you need to publish them to the Microsoft symbol server and not the Nuget symbol server which only supports portable pdbs. 
+If your client library is built by the Azure SDK engineering systems, all packaging requirements will be met automatically. Follow the [.NET packaging guidelines](https://docs.microsoft.com/dotnet/standard/library-guidance/nuget) if you're self-publishing. For Microsoft owned packages we need to support both windows (for windows dump diagnostics) and portable (for x-platform debugging) pdb formats which means you need to publish them to the Microsoft symbol server and not the Nuget symbol server which only supports portable pdbs.
 
 {% include requirement/MUST id="dotnet-packaging-naming" %} name the package based on the name of the main namespace of the component.
 
@@ -723,7 +739,7 @@ Use a constructor parameter called `version` on the client options type.
 * The `version` parameter must be the first parameter to all constructor overloads.
 * The `version` parameter must be required, and default to the latest supported service version.
 * The type of the `version` parameter must be `ServiceVersion`; an enum nested in the options type.
-* The `ServiceVersion` enum must use explicit values starting from 1. 
+* The `ServiceVersion` enum must use explicit values starting from 1.
 * `ServiceVersion` enum value 0 is reserved. When 0 is passed into APIs, ArgumentException should be thrown.
 
 For example, the following is a code snippet from the `ConfigurationClientOptions`:
@@ -732,7 +748,7 @@ For example, the following is a code snippet from the `ConfigurationClientOption
 public class ConfigurationClientOptions : ClientOptions {
 
     public ConfigurationClientOptions(ServiceVersion version = ServiceVersion.V2019_05_09) {
-        if (version == default) 
+        if (version == default)
             throw new ArgumentException($"The service version {version} is not supported by this library.");
         }
     }
@@ -771,7 +787,7 @@ Consistent version number scheme allows consumers to determine what to expect fr
 
 {% include requirement/MUST id="dotnet-version-semver" %} use _MAJOR_._MINOR_._PATCH_ format for the version of the library dll and the NuGet package.
 
-Use _-preview_._N_ suffix for preview package versions. For example, _1.0.0-preview.2_.
+Use _-beta._N_ suffix for beta package versions. For example, _1.0.0-beta.2_.
 
 {% include requirement/MUST id="dotnet-version-change-on-release" %} change the version number of the client library when **ANYTHING** changes in the client library.
 
@@ -791,7 +807,7 @@ Use _-preview_._N_ suffix for preview package versions. For example, _1.0.0-prev
 
 {% include requirement/MUST id="dotnet-docs-document-everything" %} document every exposed (public or protected) type and member within your library's code.
 
-{% include requirement/MUST id="dotnet-docs-docstrings" %} use [C# documentation comments](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/language-specification/documentation-comments) for reference documentation.
+{% include requirement/MUST id="dotnet-docs-docstrings" %} use [C# documentation comments](https://docs.microsoft.com/dotnet/csharp/language-reference/language-specification/documentation-comments) for reference documentation.
 
 See the [documentation guidelines]({{ site.baseurl }}/general_documentation.html) for language-independent guidelines for how to provide good documentation.
 

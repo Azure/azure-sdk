@@ -21,16 +21,17 @@ Typically, there will be a minimum of three meetings with the Architecture Board
 2.	API reviews 
 3.	API Sign Off 
 
+
 Depending on the library surface and other factors, more than one API reviews may be needed.  
 
 Create an epic using the “Record of Architecture Board Approval for Release” issue template to track reviews and approvals. The release manager will ask for a link to this issue as part of the PLR. 
-
 
 It’s critical that library owners engage with the architecture board early enough to allow time for fixes and (sometimes significant) API redesign based on discussion. Depending on the nature and scope of the client library work being done, the sequence of events to follow when engaging with the architecture board will follow one of two paths:
 
 1. **New libraries, large feature work, and/or pipeline changes**
 
     These changes should be discussed in an architecture board meeting at least three times. See “Types of Review Meetings and What to Prepare” section below.
+
 
 2. **Small, targeted changes and bug fixes**
 
@@ -150,12 +151,15 @@ Remember to create an epic using the issue template “Record of Architecture Bo
 
 If after an API Sign Off session the Architecture Board approves the release, the SDK Team will add the comment “APPROVED FOR RELEASE” to the issue requesting for the Sign Off review. Remember to add the issue's link to the record of approval epic!
 
+## Previewing API Changes
+
+It is expected that API changes are released in beta for a period of time before they are released as GA. This gives customers time to provide feedback which could result in adjustments to the API before it GAs. API changes that go straight to GA do not benefit from this feedback which can result in them being difficult for customers to use and for us to support. In most circumstances, API changes going through either the full or abbreviated review process should be released as beta before GA.
+
 ## Getting Approval for Small, Targeted Changes and Bug Fixes
 
 For small or targeted changes and bug fixes which modify APIs, the architect in each language can review and sign off without a combined/central review. We highly recommend doing this review as early as possible. This should be done on GitHub by opening an issue with links to API diffs. Include all architects as reviewers. In some cases it makes sense for small changes to the API to be batched for efficiency. If a language architect determines there is a need for a deeper discussion, then a meeting with that architect should be scheduled. If it’s a cross-language discussion, then a board meeting should be scheduled.
 
 Remember that **all** changes to an API must be approved by the language architect before release.
-
 
 ## Tracking API Changes That Need to be Reviewed
 While an API is in preview or after it is in GA, changes to APIs are not always obvious (to the developer or the reviewer) when they’re being made so it’s important that we identify them and review them to ensure the best SDK library experience for our customers. Long-term we will have tooling in place to detect API additions, changes, and breaks. Until then, we will use the “APIChange” label on PRs to identify code changes that included a modification to an already released API. This signals to that a language architect needs to review the change. Once they’ve approved the change they would add the “ArchApproved” label. Before release, a review of all changes merged into the library should be done to ensure that all “APIChange” labels are paired with an “ArchApproved” label. Here is an [example query](https://github.com/Azure/azure-sdk-for-java/pulls?utf8=%E2%9C%93&q=is%3Apr+label%3AAPIChange+) for the Java libraries.

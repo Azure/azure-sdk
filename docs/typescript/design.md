@@ -32,11 +32,15 @@ While consumers are fast at adopting new versions of TypeScript, version 3.1 is 
 
 {% include requirement/MUST id="ts-register-dropped-platforms" %} get approval from the [Architecture Board] to drop support for any platform (except IE11 and Node 6) even if support isn't required.
 
-## Namespaces and NPM scopes {#ts-namespace}
+## Namespaces, NPM Scopes, and Distribution Tags {#ts-namespace}
 
 {% include requirement/MUST id="ts-azure-scope" %} publish your library to the `@azure` npm scope.
 
 {% include requirement/MUST id="ts-namespace-serviceclient" %} pick a package name that allows the consumer to tie the namespace to the service being used.  As a default, use the compressed service name at the end of the namespace.  The namespace does **NOT** change when the branding of the product changes. Avoid the use of marketing names that may change.
+
+{% include requirement/MUST id="ts-npm-dist-tag-beta" %} tag beta packages with the npm distribution tag `next`. If there is no generally available release of this package, it should also be tagged `latest`.
+
+{% include requirement/MUST id="ts-npm-dist-tag-next" %} tag generally available npm packages `latest`. Generally available packages may also be tagged `next` if they include the changes from the most recent beta.
 
 {% include requirement/MUST id="ts-namespace-in-browsers" %} use one of the appropriate namespaces (see below) for browser globals when producing UMD builds.
 
@@ -96,7 +100,7 @@ export class ServiceClient {
 
   // Service methods. Options take at least an abortSignal.
   async createItem(options?: CreateItemOptions): CreateItemResponse;
-  async deleteItem(options?: DeleteItemOptions): DeleteItemResponse; 
+  async deleteItem(options?: DeleteItemOptions): DeleteItemResponse;
 
   // Simple paginated API
   listItems(): PagedAsyncIterableIterator<Item, ItemPage> { }
@@ -172,7 +176,9 @@ class ExampleClient {
 
 The guidelines in this section apply to options passed in options bags to clients, whether methods or constructors. When referring to option names, this means the key of the object users must use to specify that option when passing it into a method or constructor.
 
-{% include requirement/MUST id="ts-options-abortSignal" %} name abort signal options `abortSignal`
+{% include requirement/MUST id="ts-naming-options" %} name the type of the options bag as `<class name>Options` and `<method name>Options` for constructors and methods respectively.
+
+{% include requirement/MUST id="ts-options-abortSignal" %} name abort signal options `abortSignal`.
 
 {% include requirement/MUST id="ts-options-suffix-durations" %} suffix durations with `In<Unit>`. Unit should be `ms` for milliseconds, and otherwise the name of the unit. Examples include `timeoutInMs` and `delayInSeconds`.
 
@@ -326,7 +332,7 @@ The best way for consumers to work with cancellation is to think of cancellation
 
 ### Authentication
 
-Azure services use different kinds of authentication schemes to allow clients to access the service.  Conceptually, there are two entities responsible in this process: a credential and an authentication policy.  Credentials provide confidential authentication data.  Authentication policies use the data provided by a credential to authenticate requests to the service.  
+Azure services use different kinds of authentication schemes to allow clients to access the service.  Conceptually, there are two entities responsible in this process: a credential and an authentication policy.  Credentials provide confidential authentication data.  Authentication policies use the data provided by a credential to authenticate requests to the service.
 
 {% include requirement/MUST id="ts-apisurface-supportcancellation" %} support all authentication techniques that the service supports.
 
@@ -348,7 +354,7 @@ Promises were added to JavaScript ES2015. ES2016 and later added `async` functio
 
 {% include requirement/SHOULD id="ts-use-async-functions" %} use `async` functions for implementing asynchronous library APIs.
 
-If you need to support ES5 and are concerned with library size, use `async` when combining asynchronous code with control flow constructs.  Use promises for simpler code flows.  `async` adds code bloat (especially when targeting ES5) when transpiled. 
+If you need to support ES5 and are concerned with library size, use `async` when combining asynchronous code with control flow constructs.  Use promises for simpler code flows.  `async` adds code bloat (especially when targeting ES5) when transpiled.
 
 {% include requirement/MUST id="ts-use-iterators" %} use [Iterators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators) and [Async Iterators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for-await...of) for sequences and streams of all sorts.
 
@@ -451,7 +457,7 @@ Your `tsconfig.json` should look similar to the following example:
 
 {% include requirement/MUST id="ts-config-declaration" %} set `compilerOptions.declaration` to true. The `--declaration` option tells TypeScript to emit a `d.ts` file that contains the public surface area of your library. TypeScript and editors use this file to provide intellisense and type checking capabilities. Ensure you reference this type declaration file from the `types` field of your package.json.
 
-{% include requirement/MUSTNOT id="ts-config-no-experimentalDecorators" %} set `compilerOptions.experimentalDecorators` to `true`. The experimentalDecorators flag adds support for "v1 decorators" to TypeScript. Unfortunately the standards process has moved on to an incompatible second version that is not yet implemented by TypeScript. Taking a dependency on decorators now means signing up your users for breaking changes later. 
+{% include requirement/MUSTNOT id="ts-config-no-experimentalDecorators" %} set `compilerOptions.experimentalDecorators` to `true`. The experimentalDecorators flag adds support for "v1 decorators" to TypeScript. Unfortunately the standards process has moved on to an incompatible second version that is not yet implemented by TypeScript. Taking a dependency on decorators now means signing up your users for breaking changes later.
 
 {% include requirement/MUST id="ts-config-sourceMap" %} set `compilerOptions.sourceMap` and `compilerOptions.declarationMap` to true. Shipping source maps in your package ensures clients can easily debug into your library code. `sourceMap` maps your emitted JS source to the declaration file and `declarationMap` maps the declaration file back to the TypeScript source that generated it. Be sure to include your original TypeScript sources in the package.
 
@@ -465,7 +471,7 @@ Your `tsconfig.json` should look similar to the following example:
 
 ## Pagination {#ts-pagination}
 
-Most developers will want to process a list one item at a time. Higher-level APIs (for example, async iterators) are preferred in the majority of use cases.  Finer-grained control over handling paginated result sets is sometimes required (for example, to handle over-quota or throttling).  
+Most developers will want to process a list one item at a time. Higher-level APIs (for example, async iterators) are preferred in the majority of use cases.  Finer-grained control over handling paginated result sets is sometimes required (for example, to handle over-quota or throttling).
 
 {% include requirement/MUST id="ts-pagination-provide-list" %} provide a `list` method that returns a `PagedAsyncIterableIterator` from the module `@azure/core-paging`.
 
@@ -473,7 +479,7 @@ Most developers will want to process a list one item at a time. Higher-level API
 
 {% include requirement/MUST id="ts-pagination-take-continuationToken" %} take a `continuationToken` option in the `byPage()` method. You must rename other parameters that perform a similar function (for example, `nextMarker`).  If your page type has a continuation token, it must be named `continuationToken`.
 
-{% include requirement/MUST id="ts-pagination-take-maxpagesize" %} take a `maxPageSize` option in the `byPage()` method.  
+{% include requirement/MUST id="ts-pagination-take-maxpagesize" %} take a `maxPageSize` option in the `byPage()` method.
 
 An example of a paginating client:
 <a name="ts-example-pagination"></a>
@@ -512,7 +518,7 @@ class ServiceClient {
         }
 
         const itemIter = items();
-        
+
         return {
             next() {
                 return itemIter.next();
@@ -539,7 +545,7 @@ class ServiceClient {
 
 ## Long Running Operations {#ts-lro}
 
-Long-running operations are operations which consist of an initial request to start the operation followed by polling to determine when the operation has completed or failed. Long-running 
+Long-running operations are operations which consist of an initial request to start the operation followed by polling to determine when the operation has completed or failed. Long-running
 operations in Azure tend to follow the [REST API guidelines for Long-running Operations][rest-lro], but there are exceptions.
 
 {% include requirement/MUST %} represent long-running operations with some object that encapsulates the polling and the operation status. This object, called a *poller*, must provide APIs for:
@@ -554,7 +560,7 @@ operations in Azure tend to follow the [REST API guidelines for Long-running Ope
 {% include requirement/MUST id="ts-lro-support-options" %} support the following polling configuration options:
 
 * `pollInterval`
-  
+
 Polling configuration may be used only in the absence of relevant retry-after headers from service, and otherwise should be ignored.
 
 {% include requirement/MUST id="ts-lro-prefix-methods" %} prefix method names which return a poller with either `begin`.
@@ -584,7 +590,7 @@ For example, MQTT over WebSockets provides the ability to add headers during the
 
 {% include requirement/MUST id="general-other-protocols-consult-on-policies" %} consult the [Architecture Board] on policy decisions for non-HTTP protocols.  Implementation of all policies is expected.  If the protocol cannot support a policy, obtain an exception from the [Architecture Board].
 
-{% include requirement/MUST id="general-other-protocols-use-global-config" %} use the global configuration established in the Azure Core library to configure policies for non-HTTP protocols.  Consumers don't necessarily know what protocol is used by the client library.  They will expect the client library to honor global configuration that they have established for the entire Azure SDK.  
+{% include requirement/MUST id="general-other-protocols-use-global-config" %} use the global configuration established in the Azure Core library to configure policies for non-HTTP protocols.  Consumers don't necessarily know what protocol is used by the client library.  They will expect the client library to honor global configuration that they have established for the entire Azure SDK.
 
 {% include refs.md %}
 {% include_relative refs.md %}

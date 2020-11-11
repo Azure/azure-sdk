@@ -37,6 +37,7 @@ function CreatePackage(
     MSDocs = "NA"
     GHDocs = "NA"
     Type = ""
+    New = "false"
     Hide = ""
     Notes = ""
   };
@@ -54,8 +55,8 @@ function Get-java-Packages
 function Get-dotnet-Packages
 {
   # Rest API docs
-  # https://docs.microsoft.com/en-us/nuget/api/search-query-service-resource
-  # https://docs.microsoft.com/en-us/nuget/consume-packages/finding-and-choosing-packages#search-syntax
+  # https://docs.microsoft.com/nuget/api/search-query-service-resource
+  # https://docs.microsoft.com/nuget/consume-packages/finding-and-choosing-packages#search-syntax
   $nugetQuery = Invoke-RestMethod "https://azuresearch-usnc.nuget.org/query?q=owner:azure-sdk&prerelease=true&semVerLevel=2.0.0&take=1000"
 
   Write-Host "Found $($nugetQuery.totalHits) nuget packages"
@@ -143,8 +144,8 @@ function Write-Latest-Versions($lang)
   }
 
   Write-Host "Writing $packagelistFile"
-  $clientPackages = $packageList | Where-Object { $_.Type }
-  $otherPackages = $packageList | Where-Object { !$_.Type }
+  $clientPackages = $packageList | Where-Object { $_.New -eq "true" }
+  $otherPackages = $packageList | Where-Object { $_.New -ne "true" }
   $packageList = $clientPackages + $otherPackages
   $packageList | Export-Csv -NoTypeInformation $packagelistFile -UseQuotes Always
 }

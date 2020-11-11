@@ -53,7 +53,7 @@ Management-plane packages:
 
 {% include requirement/MUST id="golang-versioning-semver" %} release versions of modules in accordance with [semver 2.0](https://semver.org/spec/v2.0.0.html).
 
-{% include requirement/MUST id="golang-versioning-preview" %} clearly version prerelease modules.  For new modules, use a v0 major version with no suffix (v0.1.0).  For existing modules, use a `-preview` suffix (v1.1.0-preview, v2.0.0-preview).
+{% include requirement/MUST id="golang-versioning-beta" %} clearly version prerelease modules.  For new modules, use a v0 major version with no suffix (v0.1.0).  For existing modules, use a `-beta` suffix (v1.1.0-beta, v2.0.0-beta).
 
 ## Dependencies
 
@@ -67,7 +67,7 @@ Packages should strive to avoid taking dependencies on packages outside of the s
 
 {% include requirement/MUST id="golang-dependencies-exch-types" %} limit exchange types to those provided by the standard library (**NO EXCEPTIONS**).
 
-{% include requirement/MUST id="golang-dependencies-azure-core" %} depend on the `azcore` package for functionality that is common across all client packages.  This package includes APIs for HTTP connectivity, global configuration, logging, and credential handling, and more.
+{% include requirement/MUST id="golang-dependencies-azure-core" %} depend on the `azcore` package for functionality that is common across all client packages.  This package includes APIs for HTTP connectivity, global configuration, logging, credential handling, and more.
 
 {% include requirement/MUST id="golang-dependencies-azure-core" %} depend on the `sdk/internal` package for functionality that is common across all client packages that should not be publicly exported.  This package includes helpers for creating errors with stack frame information, and more.
 
@@ -167,9 +167,9 @@ func NewWidgetClientFromConnectionString(ctx context.Context, con string, option
 
 When implementing authentication, don't open up the consumer to security holes like PII (personally identifiable information) leakage or credential leakage. Credentials are generally issued with a time limit, and must be refreshed periodically to ensure that the service connection continues to function as expected. Ensure your client library follows all current security recommendations and consider an independent security review of the client library to ensure you're not introducing potential security problems for the consumer.
 
-{% include requirement/MUSTNOT id="golang-auth-persistence" %} persist, cache, or reuse security credentials. Security credentials should be considered short lived to cover both security concerns and credential refresh situations. 
+{% include requirement/MUSTNOT id="golang-auth-persistence" %} persist, cache, or reuse security credentials. Security credentials should be considered short lived to cover both security concerns and credential refresh situations.
 
-{% include requirement/MUST id="golang-auth-policy-impl" %} provide a suitable authentication policy policy if your service implements a non-standard authentication system (that is, an authentication system that is not supported by Azure Core).  You also need to produce an authentication policy for the HTTP pipeline that can add credentials to requests given the alternative authentication mechanism provided by the service.  Custom credentials will need to implement the `azcore.Credentials` interface.
+{% include requirement/MUST id="golang-auth-policy-impl" %} provide a suitable authentication policy if your service implements a non-standard authentication system (that is, an authentication system that is not supported by Azure Core).  You also need to produce an authentication policy for the HTTP pipeline that can add credentials to requests given the alternative authentication mechanism provided by the service.  Custom credentials will need to implement the `azcore.Credentials` interface.
 
 ## Service Methods
 
@@ -196,7 +196,20 @@ When implementing authentication, don't open up the consumer to security holes l
 
 {% include requirement/MUST id="golang-api-mandatory-params" %} have every I/O method accept all required parameters after the mandatory `context.Context` object.
 
-{% include requirement/MUST id="golang-api-options-struct" %} define a `<MethodNameOptions>` structure for every method with optional parameters.  This structure includes fields for all non-mandatory parameters. The structure can have fields added to it over time to simplify versioning.  To disambiguate names, use the client type name for a prefix.
+{% include requirement/MUST id="golang-api-options-struct" %} define a `<MethodNameOptions>` structure for every method.  This structure includes fields for all non-mandatory parameters. The structure can have fields added to it over time to simplify versioning.  To disambiguate names, use the client type name for a prefix.  If the method contains no optional parameters, the `options` struct should have a comment indicating it's a placeholder for future optional parameters.
+
+```go
+// GetWidgetOptions contains the optional parameters for the Widget.Get method.
+type GetWidgetOptions struct {
+	OptionalTag *string
+	OptionalLength *int
+}
+
+// SetWidgetOptions contains the optional parameters for the Widget.Set method.
+type SetWidgetOptions struct {
+	// placeholder for future optional parameters
+}
+```
 
 {% include requirement/MUST id="golang-api-options-ptr" %} allow the user to pass a pointer to the structure as the last parameter. If the user passes `nil`, then the method should assume appropriate default values for all the structure’s fields.  Note that `nil` and a zero-initialized `<MethodNameOptions>` structure are **NOT** required to be semantically equivalent.
 
@@ -206,7 +219,8 @@ When implementing authentication, don't open up the consumer to security holes l
 // GetWidget retrieves the specified Widget.
 // ctx - The context used to control the lifetime of the request.
 // name - The name of the Widget to retrieve.
-func (c *WidgetClient) GetWidget(ctx context.Context, name string) (*WidgetResponse, error) {
+// options - Any optional parameters.
+func (c *WidgetClient) GetWidget(ctx context.Context, name string, options *GetWidgetOptions) (*WidgetResponse, error) {
 	// ...
 }
 ```
@@ -250,7 +264,7 @@ type Widget struct {
 	Color WidgetColor
 }
 
-func (c *WidgetClient) GetWidget(ctx context.Context, name string) (*WidgetResponse, error) {
+func (c *WidgetClient) GetWidget(ctx context.Context, name string, options *GetWidgetOptions) (*WidgetResponse, error) {
 	// ...
 }
 ```
@@ -258,7 +272,7 @@ func (c *WidgetClient) GetWidget(ctx context.Context, name string) (*WidgetRespo
 {% include requirement/MUST id="golang-response-examples" %} provide examples on how to access the streamed response for a request, where exposed by the client library. We don’t expect all methods to expose a streamed response.
 
 ```go
-func (c *WidgetClient) GetBinaryResponse(ctx context.Context, name string) (*http.Response, error) {
+func (c *WidgetClient) GetBinaryResponse(ctx context.Context, name string, options GetBinaryResponseOptions) (*http.Response, error) {
 	// ...
 }
 
@@ -288,6 +302,7 @@ Model structures are types that consumers use to provide required information in
 {% include requirement/MUST id="golang-pagination-pagers-interface-page" %} expose methods `NextPage()`, `Page()`, and `Err()` on the `<Resource>Pager` type.
 
 ```go
+// WidgetPager provides iteration over ListWidgets pages.
 type WidgetPager interface {
 	// NextPage returns true if the pager advanced to the next page.
 	// Returns false if there are no more pages or an error occurred.
@@ -309,12 +324,12 @@ type ListWidgetsResponse struct {
 {% include requirement/MUST id="golang-pagination-methods" %} use the prefix `List` in the method name for methods that return a Pager.  The `List` method creates the Pager but does NOT perform an IO operation.
 
 ```go
-func (c *WidgetClient) ListWidgets(options *ListWidgetOptions) *WidgetPager {
+func (c *WidgetClient) ListWidgets(options *ListWidgetOptions) WidgetPager {
 	// ...
 }
 
 pager := client.ListWidgets(options)
-for pager.NextPage(ctx) { 
+for pager.NextPage(ctx) {
 	for _, w := range pager.PageResponse().Widgets {
 		process(w)
 	}
@@ -335,25 +350,31 @@ if pager.Err() != nil {
 {% include requirement/MUST id="golang-lro-poller-def" %} provide the following methods on a `<Resource>Poller` type: `Done()`, `ResumeToken()`, `Poll()`, and `FinalResponse()`.
 
 ```go
+// Poller provides operations for checking the state of a long-running operation.
+// An LRO can be in either a non-terminal or terminal state.  A non-terminal state
+// indicates the LRO is still in progress.  A terminal state indicates the LRO has
+// completed successfully, failed, or was cancelled.
 type WidgetPoller interface {
-	// Done returns true if the LRO has completed.
+	// Done returns true if the LRO has reached a terminal state.
 	Done() bool
 
-	// ResumeToken returns a value representing the poller that can be used to 
-	// resume the LRO. ResumeTokens are unique for the operation.
+	// ResumeToken returns a value representing the poller that can be used to resume
+	// the LRO at a later time. ResumeTokens are unique per service operation.
 	ResumeToken() string
 
-	// Poll fetches the latest state of the LRO.
-	// If Poll fails, the WidgetPoller is unmodified and the error is returned.
-	// If Poll succeeds and the operation has completed with failure, the WidgetPoller
-	// is updated and the error is returned.
-	// If Poll succeeds and the operation has completed successfully, the WidgetPoller
-	// is updated and the Widget is returned.
-	// If Poll succeeds and the operation has not completed, the WidgetPoller is
-	// updated and returns the latest HTTP response.
+	// Poll fetches the latest state of the LRO.  It returns an HTTP response or error.
+	// If the LRO has completed successfully, the poller's state is update and the HTTP
+	// response is returned.
+	// If the LRO has completed with failure or was cancelled, the poller's state is
+	// updated and the error is returned.
+	// If the LRO has not reached a terminal state, the poller's state is updated and
+	// the latest HTTP response is returned.
+	// If Poll fails, the poller's state is unmodified and the error is returned.
+	// Calling Poll on an LRO that has reached a terminal state will return the final
+	// HTTP response or error.
 	Poll(context.Context) (*http.Response, error)
 
-	// FinalResponse performs a final GET to the service and returns the final response 
+	// FinalResponse performs a final GET to the service and returns the final response
 	// for the polling operation. If there is an error performing the final GET then an error is returned.
 	// If the final GET succeeded then the final WidgetResponse will be returned.
 	FinalResponse(context.Context) (*WidgetResponse, error)
@@ -450,7 +471,7 @@ if err != nil {
 for {
 	resp, err := poller.Poll(context.Background())
 	if err != nil {
-		// handle error ... 
+		// handle error ...
 	}
 	if poller.Done() {
 		break
@@ -482,7 +503,7 @@ One of the key things we want to support is to allow consumers of the package to
 // WidgetOperations contains the methods for the Widget group.
 type WidgetOperations interface {
 	BeginCreate(ctx context.Context, options *BeginCreateOptions) (*WidgetPollerResponse, error)
-	GetWidget(ctx context.Context, name string) (*WidgetResponse, error)
+	GetWidget(ctx context.Context, name string, options *GetWidgetOptions) (*WidgetResponse, error)
 	ListWidgets(options *ListWidgetsOptions) (ListWidgetsPager, error)
 	// other methods...
 }
@@ -586,7 +607,7 @@ Client libraries must support robust logging mechanisms so that the consumer can
 
 {% include requirement/MUST id="golang-tracing-span-name" %} use `<package name>.<type name>.<method name>` as the name of the span.
 
-{% include requirement/MUST id="golang-tracing-propagate" %} propagate tracing context on each outgoing service request through the appropriate headers to support a tracing service like [Azure Monitor](https://azure.microsoft.com/en-us/services/monitor/) or [ZipKin](https://zipkin.io/).  This is generally done with the HTTP pipeline.
+{% include requirement/MUST id="golang-tracing-propagate" %} propagate tracing context on each outgoing service request through the appropriate headers to support a tracing service like [Azure Monitor](https://azure.microsoft.com/services/monitor/) or [ZipKin](https://zipkin.io/).  This is generally done with the HTTP pipeline.
 
 # HTTP Pipeline and Policies
 
@@ -599,7 +620,6 @@ The HTTP pipeline consists of a HTTP transport that is wrapped by multiple polic
 {% include requirement/MUST id="golang-network-policies" %} implement the following policies in the HTTP pipeline:
 
 - Telemetry
-- Unique Request ID
 - Retry
 - Authentication
 - Response downloader
@@ -627,7 +647,7 @@ Storage could support:
 * `AZURE_STORAGE_DNS_SUFFIX`
 * `AZURE_STORAGE_CONNECTION_STRING`
 
-{% include requirement/MUST id="golang-envvars-approval" %} get approval from the [Architecture Board] for every new environment variable. 
+{% include requirement/MUST id="golang-envvars-approval" %} get approval from the [Architecture Board] for every new environment variable.
 
 {% include requirement/MUST id="golang-envvars-syntax" %} use this syntax for environment variables specific to a particular Azure service:
 

@@ -142,7 +142,7 @@ The following example implements these requirements and should be used as a temp
 /// <summary>
 /// An algorithm used for encryption and decryption
 /// </summary>
-public readonly struct EncryptionAlgorithm : IEquatable<EncryptionAlgorithm>
+public partial readonly struct EncryptionAlgorithm : IEquatable<EncryptionAlgorithm>
 {
     internal const string Rsa15Value = "RSA1_5";
     internal const string RsaOaepValue = "RSA-OAEP";
@@ -220,6 +220,42 @@ public readonly struct EncryptionAlgorithm : IEquatable<EncryptionAlgorithm>
     };
 }
 ```
+
+### Constant values for enumeration-like structures {#dotnet-enums-values}
+
+{% include requirement/SHOULD id="dotnet-enums-values-define" %} define a nested static class named `Values` with public constants if and only if extensible enum values *must* be used as constant expressions, for example:
+
+- Attribute values
+- Default parameter values
+- Switch statements and expressions
+
+```csharp
+public partial readonly struct EncryptionAlgorithm : IEquatable<EncryptionAlgorithm>
+{
+    /// <summary>
+    /// The values of all declared <see cref="EncryptionAlgorithm"/> properties as string constants.
+    /// </summary>
+    public static class Values
+    {
+        /// <summary>
+        /// RSA1_5
+        /// </summary>
+        public const string Rsa15 = EncryptionAlgorithm.Rsa15Value;
+
+        /// <summary>
+        /// RSA-OAEP
+        /// </summary>
+        public const string RsaOaep = EncryptionAlgorithm.RsaOaepValue;
+
+        /// <summary>
+        /// RSA-OAEP256
+        /// </summary>
+        public const string RsaOaep256 = EncryptionAlgorithm.RsaOaep256Value;
+    }
+}
+```
+
+{% include requirement/MUST id="dotnet-enums-values-test" %} define tests to ensure extensible enum properties and defined `Values` constants declare the same names and define the same values. See [here](https://github.com/Azure/azure-sdk-for-net/blob/322f6952e4946229949bd3375f5eb6120895fd2f/sdk/search/Azure.Search.Documents/tests/Models/LexicalAnalyzerNameTests.cs#L14-L29) for an example.
 
 ## ASP.NET Core Integration
 
