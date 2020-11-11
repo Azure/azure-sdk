@@ -12,9 +12,9 @@ sidebar: android_sidebar
 
 Android Java developers need to concern themselves with the runtime environment they are running in. The Android ecosystem is fragmented, with a wide variety of runtimes deployed.
 
-{% include requirement/MUST id="android-library-sync-support" %} support API level 23 and later (Android 6.0 Marshmallow).
+{% include requirement/MUST id="android-library-sync-support" %} support API level 21 and later (Android 5.0 Lollipop).
 
-{% include requirement/MUST id="android-library-async-support" %} support async HTTP at API level 26.
+{% include requirement/MUST id="android-library-async-support" %} support async HTTP at API level 21.
 
 {% include requirement/MUST id="android-library-separate-libraries" %} release separate client libraries for sync and async versions.
 
@@ -23,7 +23,7 @@ There are two settings that are of concern when discussing the minimum API level
 1. The minimum API level that Google supports.
 2. The reach of selecting a particular API level.
 
-We require the minimum API level that Google supports that reaches 70% of Android devices (as listed on the [Android distribution dashboard](https://developer.android.com/about/dashboards/)). This is currently API level 23.
+We require the minimum API level that Google supports that reaches 90% of Android devices (as listed on the [Android distribution dashboard](https://developer.android.com/about/dashboards/)). This is currently API level 21.
 
 {% include requirement/MUST id="android-library-target-sdk-version" %} set the `targetSdkVersion` to be API level 26.
 
@@ -102,6 +102,8 @@ The HTTP pipeline consists of a HTTP transport that is wrapped by multiple polic
 
 {% include requirement/SHOULD id="android-network-use-azure-core-policies" %} use the policy implementations in Azure Core whenever possible. Do not try to "write your own" policy unless it is doing something unique to your service. If you need another option to an existing policy, engage with the [Architecture Board] to add the option.
 
+{% include requirement/MUST id="android-network-azure-core-policies-public" %} make all custom policies (HTTP or otherwise) available as public API. This enables developers who choose to implement their own pipeline to reuse the policy rather than write it themselves.
+
 ## Authentication
 
 When implementing authentication, don't open up the consumer to security holes like PII (personally identifiable information) leakage or credential leakage. Credentials are generally issued with a time limit, and must be refreshed periodically to ensure that the service connection continues to function as expected. Ensure your client library follows all current security recommendations and consider an independent security review of the client library to ensure you're not introducing potential security problems for the consumer.
@@ -112,7 +114,9 @@ If your service implements a non-standard credential system (that is, a credenti
 
 {% include requirement/MUST id="android-auth-policy" %} provide a suitable authentication policy that authenticates the HTTP request in the HTTP pipeline when using non-standard credentials.
 
-{% include requirement/MUSTNOT id="andorid-auth-connection-strings" %} support connection strings. They are insecure within the context of an Android mobile app.
+Client libraries may support providing credential data via a connection string __ONLY IF__ the service provides a connection string to users via the portal or other tooling.   Connection strings are generally good for getting started as they are easily integrated into an application by copy/paste from the portal.  However, connection strings are considered a lesser form of authentication because the credentials cannot be rotated within a running process.
+
+{% include requirement/MUSTNOT id="android-auth-connection-strings" %} support constructing a service client with a connection string unless such connection string is available within tooling (for copy/paste operations).
 
 ## Native code
 
@@ -154,19 +158,17 @@ In the case of a higher-level method that produces multiple HTTP requests, eithe
 {% include requirement/MUST id="android-errors-exception-tree" %} use the existing exception types present in the Azure core library for service request failures. Avoid creating new exception types. The following list outlines all available exception types (with indentation indicating exception type hierarchy):
 
 - `AzureException`: Never use directly. Throw a more specific subtype.
-  - `ServiceRequestException`: Thrown for an invalid response with custom error information.
-    - `ReadTimeoutException`: Thrown when the server didn't send any data in the allotted amount of time.
-    - `ConnectException`: Thrown by the pipeline if a connection to a service fails or is refused remotely.
-    - `HttpRequestException`: Thrown when an unsuccessful response (4xx, 5xx) is returned from the service.
-      - `ServerException`: Thrown when there's a server error with status code of 5XX.
-      - `TooManyRedirectsException`: Thrown when an HTTP request has reached the maximum number of redirect attempts.
-      - `ClientRequestException`: Thrown when there's an invalid client request with status code of 4XX.
-        - `ClientAuthenticationException`: Thrown when there's a failure to authenticate against the service.
-        - `ResourceExistsException`: Thrown when an HTTP request tried to create an already existing resource.
-        - `ResourceModifiedException`: Thrown for invalid resource modification with status code of 4XX, typically 412 Conflict.
-        - `ResourceNotFoundException`: Thrown when a resource is not found, typically triggered by a 412 response (for PUT) or 404 (for GET/POST).
-  - `ServiceResponseException`: Thrown when the request was sent to the service, but the client library wasn't able to understand the response.
+  - `ReadTimeoutException`: Thrown when the server didn't send any data in the allotted amount of time.
+  - `ConnectException`: Thrown by the pipeline if a connection to a service fails or is refused remotely.
+  - `HttpRequestException`: Thrown when an unsuccessful response (4xx, 5xx) is returned from the service.
+    - `ServerException`: Thrown when there's a server error with status code of 5XX.
+    - `TooManyRedirectsException`: Thrown when an HTTP request has reached the maximum number of redirect attempts.
+  - `HttpResponseException`: Thrown when the request was sent to the service, but the client library wasn't able to understand the response.
     - `DecodeException`: Thrown when there's an error during response deserialization.
+    - `ClientAuthenticationException`: Thrown when there's an invalid client request with status code of 4XX.
+    - `ResourceExistsException`: Thrown when an HTTP request tried to create an already existing resource.
+    - `ResourceModifiedException`: Thrown for invalid resource modification with status code of 4XX, typically 412 Conflict.
+    - `ResourceNotFoundException`: Thrown when a resource is not found, typically triggered by a 412 response (for PUT) or 404 (for GET/POST).
 
 ## Logging
 
@@ -182,34 +184,68 @@ public final class ConfigurationAsyncClient {
 
     // example async call to a service that uses the Project Reactor APIs to log request, success, and error
     // information out to the service logger instance
-    public Mono<Response<ConfigurationSetting>> setSetting(ConfigurationSetting setting) {
-        return service.setKey(serviceEndpoint, setting.key(), setting.label(), setting, getETagValue(setting.etag()), null)
-            .doOnRequest(ignoredValue -> logger.info("Setting ConfigurationSetting - {}", setting))
-            .doOnSuccess(response -> logger.info("Set ConfigurationSetting - {}", response.value()))
-            .doOnError(error -> logger.warning("Failed to set ConfigurationSetting - {}", setting, error));
+    public void setSetting(ConfigurationSetting setting) {
+        return service.setKey(serviceEndpoint, setting.key(), setting.label(), setting, getETagValue(setting.etag()), null, new CallbackWithHeader<ConfigurationSetting>() {
+            @Override
+            public void onSuccess(Response<ConfigurationSetting> response) {
+                logger.info("Set ConfigurationSetting - {}", response.value());
+            }
+
+            @Override
+            public void onError(Response<ConfigurationSetting> errorResponse) {
+                logger.warning("Failed to set ConfigurationSetting - {}", setting, errorResponse.getMessage());
+            }
+        });
     }
 }
 ```
 
 Don't create static logger instances. Static logger instances are shared among all client library instances running in a JVM instance.
 
-{% include requirement/MUST id="android-logging-levels" %} use one of the following log levels when emitting logs: `Logger.trace` (details), `Logger.info` (things happened), `Logger.warn` (might be a problem or not), and `Logger.error`.
+{% include requirement/MUST id="android-logging-levels" %} use one of the following log levels when emitting logs: `Logger.debug` (details), `Logger.info` (things happened), `Logger.warning` (might be a problem or not), and `Logger.error`.
 
 {% include requirement/MUST id="android-logging-errors" %} use the `Logger.error` logging level for failures that the application is unlikely to recover from (out of memory, etc.).
 
-{% include requirement/MUST id="android-logging-warn" %} use the `Logger.warn` logging level when a function fails to perform its intended task. This generally means that the function will raise an exception. Do not include occurrences of self-healing events (for example, when a request will be automatically retried).
+{% include requirement/MUST id="android-logging-warn" %} use the `Logger.warning` logging level when a function fails to perform its intended task. This generally means that the function will raise an exception. Do not include occurrences of self-healing events (for example, when a request will be automatically retried).
 
 {% include requirement/MUST id="android-logging-info" %} use the `Logger.info` logging level when a function operates normally.
 
-{% include requirement/MUST id="android-logging-trace" %} use the `Logger.trace` logging level for detailed troubleshooting scenarios. This is primarily intended for developers or system administrators to diagnose specific failures.
+{% include requirement/MUST id="android-logging-trace" %} use the `Logger.debug` logging level for detailed troubleshooting scenarios. This is primarily intended for developers or system administrators to diagnose specific failures.
 
 {% include requirement/MUSTNOT id="android-logging-sensitive-info" %} send sensitive information in log levels other than `Logger.trace`. For example, remove account keys when logging headers.
 
-{% include requirement/MUST id="android-logging-request" %} log request line, response line, and headers, as a `Logger.info` message.
+{% include requirement/MUST id="android-logging-no-sensitive-info" %} only log headers and query parameters that are in a service-provided "allow-list" of approved headers and query parameters.  All other headers and query parameters must have their values redacted.
+
+{% include requirement/MUST id="android-logging-requests" %} log request line and headers as a `Logger.info` message. The log should include the following information:
+                                                                                                                                      
+* The HTTP method.
+* The URL.
+* The query parameters (redacted if not in the allow-list).
+* The request headers (redacted if not in the allow-list).
+* An SDK provided request ID for correlation purposes.
+
+This happens within azure-core by default, but users can configure this through the builder `httpLogOptions` configuration setting.
 
 {% include requirement/MUST id="android-logging-cancellation" %} use `Logger.info` if a service call is cancelled.
 
 {% include requirement/MUST id="android-logging-throws" %} throw all exceptions created within the client library code through the `ClientLogger.logAndThrow()` API.
+
+{% include requirement/MUST id="android-logging-responses" %} log response line and headers as a `Logger.info` message. The format of the log should be the following:
+
+* The SDK provided request ID (see above).
+* The status code.
+* Any message provided with the status code.
+* The response headers (redacted if not in the allow-list).
+* The time period between the first attempt of the request and the first byte of the body.
+
+{% include requirement/MUST id="android-logging-cancellations" %} log an message at the `Logger.info` level if a service call is cancelled.  The log should include:
+
+* The SDK provided request ID (see above).
+* The reason for the cancellation (if available).
+
+{% include requirement/MUST id="android-logging-exceptions" %} log exceptions thrown as a `Warning` level message. If the log level set to `Verbose`, append stack trace information to the message.
+
+{% include requirement/MUST id="android-logging-log-and-throw" %} throw all exceptions created within the client library code through the `ClientLogger.logAndThrow()` API.
 
 For example:
 
@@ -278,7 +314,7 @@ Dependencies bring in many considerations that are often easily avoided by avoid
 - **Compatibility** - Often times you do not control a dependency and it may choose to evolve in a direction that is incompatible with your original use.
 - **Security** - If a security vulnerability is discovered in a dependency, it may be difficult or time consuming to get the vulnerability corrected if Microsoft does not control the dependency's code base.
 
-{% include requirement/MUST id="android-dependencies-azure-core" %} depend on the Android `com.azure.core` library for functionality that is common across all client libraries. This library includes APIs for HTTP connectivity, global configuration, logging, and credential handling.
+{% include requirement/MUST id="android-dependencies-azure-core" %} depend on the Android `com.azure.android.core` library for functionality that is common across all client libraries. This library includes APIs for HTTP connectivity, global configuration, logging, and credential handling.
 
 {% include requirement/MUSTNOT id="android-dependencies-approved" %} be dependent on any other packages within the client library distribution package, with the exception of the following:
 
@@ -286,7 +322,7 @@ Dependencies bring in many considerations that are often easily avoided by avoid
 
 {% include requirement/MUSTNOT id="android-dependencies-introduction" %} introduce new dependencies on third-party libraries that are already referenced from the parent POM, without first discussing with the [Architecture Board].
 
-{% include requirement/MUSTNOT id="android-dependencies-pom" %} specify or change dependency versions in your client library POM file. All dependency versioning must be centralized through the common parent POM.
+{% include requirement/MUSTNOT id="android-dependencies-pom" %} specify or change dependency versions in your client library Gradle or POM file. All dependency versioning must be centralized through the common parent build.gradle file.
 
 {% include requirement/MUSTNOT id="android-dependencies-snapshot" %} include dependencies on external libraries that are -SNAPSHOT versions. All dependencies must be released versions.
 
