@@ -3,6 +3,7 @@ title: Azure SDK (August 2020)
 layout: post
 tags: release
 sidebar: releases_sidebar
+permalink: /releases/2020-08/index.html
 ---
 
 ## Highlights

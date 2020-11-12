@@ -3,7 +3,7 @@ title: "Java Guidelines: API Design"
 keywords: guidelines java
 permalink: java_design.html
 folder: java
-sidebar: java_sidebar
+sidebar: general_sidebar
 ---
 
 The API surface of your client library must have the most thought as it is the primary interaction that the consumer has with your service.

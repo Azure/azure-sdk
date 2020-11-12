@@ -80,7 +80,7 @@ defaults:
       layout: "page"
       comments: false
       search: true
-      sidebar: home_sidebar
+      sidebar: general_sidebar
       topnav: topnav
   -
     scope:
@@ -90,11 +90,11 @@ defaults:
       layout: "post_redirect"
       comments: false
       search: true
-      sidebar: home_sidebar
+      sidebar: general_sidebar
       topnav: topnav
       permalink: /posts/:year-:month-:day/:title:output_ext
 
 sidebars:
-  - home_sidebar
+  - general_sidebar
 
 github: [metadata]

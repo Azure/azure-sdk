@@ -3,7 +3,7 @@ title: "C#.NET Guidelines: Implementation"
 keywords: guidelines dotnet
 permalink: dotnet_implementation.html
 folder: dotnet
-sidebar: dotnet_sidebar
+sidebar: general_sidebar
 ---
 
 ## Parameter validation {#dotnet-parameters}
