@@ -1320,8 +1320,13 @@ h4.panel-title {
 }
 
 .btn-preview {
+  align-items: center;
   background-color: #a9a9a9;
   border-color: #a9a9a9;
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: column;
+  margin-top: 4px;
 }
 
 .btn-preview:hover {
@@ -1333,4 +1338,8 @@ h4.panel-title {
   border-radius: 4px;
   margin-left: 3px;
   font-size: 10px;
+}
+
+.badge-preview {
+  margin-left: 0px;
 }
