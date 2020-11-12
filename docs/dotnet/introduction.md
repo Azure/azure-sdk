@@ -505,14 +505,21 @@ BlobBaseClient client = ...
 
 {% include requirement/MUST id="dotnet-lro-return" %} return a subclass of ```Operation<T>``` from LRO methods.
 
-{% include requirement/MUST id="dotnet-lro-return" %} throw ```InvalidOperationException``` when the ```Value``` property is evaluated before the operation is complete (```HasCompleted``` is false).
-
-{% include requirement/MUSTNOT id="dotnet-namespaces-location" %} throw from ```UpdateStatus```, ```WaitForCompletion```, or ```WaitForCompletionAsync```.
-
-{% include requirement/MUST id="dotnet-lro-return" %} throw ```RequestFailedException``` or its subtype when the ```Value``` property is evaluated and the operation has completed without a successful result.
+{% include requirement/MUST id="dotnet-lro-return" %} check the value of ```HasCompleted``` in subclass implementations of ```UpdateStatus``` and ```UpdateStatusAsync``` and immediately return the result of ```GetRawResponse``` if it is true.
 
 {% include requirement/MAY id="dotnet-lro-subclass" %} add additional APIs to subclasses of ```Operation<T>```.
 For example, some subclasses add a constructor allowing to create an operation instance from a previously saved operation ID. Also, some subclasses are more granular states besides the IsCompleted and HasValue states that are present on the base class.
+
+{% include requirement/MUST id="dotnet-lro-return" %} throw from ```Operation<T>``` subclasses in the following scenarios.
+
+* ```RequestFailedException``` or its subtype should be thrown from ```UpdateStatus```, ```WaitForCompletion```, or ```WaitForCompletionAsync``` if the operation completes with an non-success result. Include any relevant error state information in the exception details.
+* Any ```RequestFailedException```or its subtype resulting from the underlying service operation calls in ```RequestFailedException``` from ```UpdateStatus```, ```WaitForCompletion```, or ```WaitForCompletionAsync```.
+* ```RequestFailedException``` should be thrown when the ```Value``` property is evaluated before the operation is complete (```HasCompleted``` is false).
+  * The exception should be the same as what was thrown from ```UpdateStatus```, ```WaitForCompletion```, or ```WaitForCompletionAsync```.
+* ```InvalidOperationException``` should be thrown when the ```Value``` property is evaluated if the operation failed (```HasValue``` is false).
+  * The exception message should be: "The operation has not yet completed."
+
+{% include requirement/MUST id="dotnet-lro-return" %} throw ```RequestFailedException``` or its subtype when the ```Value``` property is evaluated and the operation has completed without a successful result.
 
 ### Supporting Mocking {#dotnet-mocking}
 
