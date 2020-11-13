@@ -21,6 +21,7 @@ The Azure SDK team is pleased to make available the November 2020 client library
 - Service Bus
 - Search
 - Metrics Advisor
+- Eventgrid
 
 ## Installation Instructions
 
@@ -30,6 +31,7 @@ To install the latest beta version of the packages, copy and paste the following
 pip install azure-servicebus --pre
 pip install azure-search-documents --pre
 pip install azure-ai-metricsadvisor --pre
+pip install azure-eventgrid --pre
 ```
 
 ## Feedback
