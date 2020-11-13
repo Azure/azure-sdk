@@ -3,7 +3,7 @@ title: "Python Guidelines: Implementation"
 keywords: guidelines python
 permalink: python_implementation.html
 folder: python
-sidebar: python_sidebar
+sidebar: general_sidebar
 ---
 
 ## Configuration

@@ -3,7 +3,7 @@ title: ".NET Azure SDK Design Guidelines"
 keywords: guidelines dotnet
 permalink: dotnet_introduction.html
 folder: dotnet
-sidebar: dotnet_sidebar
+sidebar: general_sidebar
 ---
 
 ## Introduction
@@ -64,7 +64,11 @@ The pipeline can be found in the [Azure.Core] package, and it takes care of many
 
 ## Service Client Design {#dotnet-client}
 
-Azure services will be exposed to .NET developers as one or more _service client_ types, and a set of _supporting types_. Service clients are the main starting points for developers trying to call Azure services, and each client library should have at least one client in its main namespace. The guidelines in this section describe patterns for the design of a service client.  A service client should look like this code snippet:
+Azure services will be exposed to .NET developers as one or more _service client_ types, and a set of _supporting types_. 
+
+### Namespaces
+
+Service clients are the main starting points for developers trying to call Azure services, and each client library should have at least one client in its main namespace. The guidelines in this section describe patterns for the design of a service client.  A service client should look like this code snippet:
 
 ```csharp
 namespace Azure.<group>.<service_name> {

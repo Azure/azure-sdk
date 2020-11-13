@@ -3,7 +3,7 @@ title: "Go Guidelines: Documentation"
 keywords: guidelines golang
 permalink: golang_documentation.html
 folder: golang
-sidebar: golang_sidebar
+sidebar: general_sidebar
 ---
 
 {% include draft.html content="The Go Language guidelines are in DRAFT status" %}

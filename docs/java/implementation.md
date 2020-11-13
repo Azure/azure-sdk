@@ -3,7 +3,7 @@ title: "Java Guidelines: Implementation"
 keywords: guidelines java
 permalink: java_implementation.html
 folder: java
-sidebar: java_sidebar
+sidebar: general_sidebar
 ---
 
 ## Configuration

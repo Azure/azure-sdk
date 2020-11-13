@@ -3,7 +3,7 @@ title: "C Guidelines: Documentation"
 keywords: guidelines clang
 permalink: clang_documentation.html
 folder: clang
-sidebar: clang_sidebar
+sidebar: general_sidebar
 ---
 
 {% include draft.html content="The C Language guidelines are in DRAFT status" %}

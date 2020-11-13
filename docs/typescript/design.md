@@ -3,7 +3,7 @@ title: "TypeScript Guidelines: API Design"
 keywords: guidelines typescript
 permalink: typescript_design.html
 folder: typescript
-sidebar: js_sidebar
+sidebar: general_sidebar
 ---
 
 The API surface of your client library must have the most thought as it is the primary interaction that the consumer has with your service.

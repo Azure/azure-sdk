@@ -3,7 +3,7 @@ title: "C++ Guidelines: API Design"
 keywords: guidelines cpp
 permalink: cpp_design.html
 folder: cpp
-sidebar: cpp_sidebar
+sidebar: general_sidebar
 ---
 
 {% include draft.html content="The C++ Language guidelines are in DRAFT status" %}

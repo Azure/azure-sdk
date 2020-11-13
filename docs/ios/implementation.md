@@ -3,7 +3,7 @@ title: "iOS Guidelines: Implementation"
 keywords: guidelines ios
 permalink: ios_implementation.html
 folder: ios
-sidebar: ios_sidebar
+sidebar: general_sidebar
 ---
 
 ## Library considerations

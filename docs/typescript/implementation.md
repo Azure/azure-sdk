@@ -3,7 +3,7 @@ title: "TypeScript Guidelines: Implementation"
 keywords: guidelines typescript
 permalink: typescript_implementation.html
 folder: typescript
-sidebar: js_sidebar
+sidebar: general_sidebar
 ---
 
 Once you've worked through an acceptable API design, you can start implementing the service clients.
