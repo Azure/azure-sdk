@@ -125,7 +125,7 @@ We are releasing to add support for new service features in Azure Storage Servic
 
 - Fixed an issue where `DataLakePathClient.move()` will give an `InvalidSourceUri` error when the copy source name contains characters that need to be URL encoded.
 
-#### storage-file-share [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/CHANGELOG.md)
+#### @azure/storage-file-share [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/CHANGELOG.md)
 
 ##### New Features on @azure/storage-file-share@12.3.0
 
