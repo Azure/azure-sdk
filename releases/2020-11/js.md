@@ -46,7 +46,7 @@ $> npm install @azure/ai-form-recognizer@next
 
 ## Feedback
 
-If you have a bug or feature request for one of the libraries, please post an issue at the [azure-sdk-for-js repository](https://github.com/azure/azure-sdk-for-js/issues)
+If you have a bug or feature request for one of the libraries, please post an issue at the [azure-sdk-for-js repository](https://github.com/azure/azure-sdk-for-js/issues).
 
 ## Release highlights
 
@@ -58,7 +58,7 @@ We're glad to announce a new major release of our Identity package. This release
 
 ##### New Features on @azure/identity@1.2.0
 
-- A new dependency has been added: the Microsoft Authentication Library (MSAL). MSAL allows us to provide secure and reliable implementations for `InteractiveBrowserCredential` and `DeviceCodeCredential`. 
+- A new dependency has been added: the Microsoft Authentication Library (MSAL). MSAL allows us to provide secure and reliable implementations for `InteractiveBrowserCredential` and `DeviceCodeCredential`.
 - `InteractiveBrowserCredential` now works for Node, which spawns the user's browser and connects via a browser-based auth code flow.
 - With 1.2, we've added support for Azure Arc to our Managed Identity credential.
 - Identity now supports Subject Name/Issuer (SNI) as part of authentication for ClientCertificateCredential.
@@ -77,7 +77,7 @@ We're releasing a new preview of our Azure Tables library. This update provides 
 
 ##### Major fixes on @azure/data-tables@1.0.0-beta3
 
-Renamed system properties `odata.etag` and `Timestamp` to provide more idiomatic property names. Queried entities now get the properties `etag` and `timestamp` instead of `odata.etag` and `Timestamp`,
+Renamed system properties `odata.etag` and `Timestamp` to provide more idiomatic property names. Queried entities now get the properties `etag` and `timestamp` instead of `odata.etag` and `Timestamp`.
 
 ### Azure Storage
 
@@ -129,7 +129,7 @@ This is the last preview version of the Azure Service Bus client library before 
 - The methods to complete, abandon, defer and deadletter a message along with the method to renew message lock have been moved from the message to the receiver. With this, we now have additional validation to ensure that a peeked message cannot be used with these methods.
 - Returned responses from the methods under the `ServiceBusAdministrationClient` now use a generic type `WithResponse<T>` for a cleaner API surface. The raw responses(`_response`) have been updated to return only the `{request, status, headers}`, properties such as `parsedHeaders`, `parsedBody` have been removed.
 - Removed `AmqpAnnotatedMessage`, `AmqpMessageHeaders`, `AmqpMessageProperties` interfaces in favour of the ones from `@azure/core-amqp`. This is part of the move from `@azure/core-amqp` version update from 1.1.x to 2.0.0. As part of this, `userId` will not be made available as part of `AmqpMessageProperties` until its type is fixed in the upstream `rhea` library.
-- Many other updates to methods, interfaces, types, and names based on user studies and internal reviews, more info at [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md#700-preview8-2020-11-04)
+- Many other updates to methods, interfaces, types, and names based on user studies and internal reviews, more info at [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md#700-preview8-2020-11-04).
 
 ##### New Features on @azure/service-bus@7.0.0-preview.8
 
@@ -164,39 +164,39 @@ This beta package targets Azure Metrics Advisor API version  `1.0.0-beta.2`
 - `DataFeedOptions` property `dataFeedDescription` is renamed to `description`.
 - Rename types whose name are too generic:
   - `Alert` is renamed to `AnomalyAlert`.
-  - `Anomaly` is renamed to `DataPointAnomaly`
+  - `Anomaly` is renamed to `DataPointAnomaly`.
   - `Incident` is renamed to `AnomalyIncident`.
   - `Metric` is renamed to `DataFeedMetric`.
   - `Dimension` is renamed to `DataFeedDimension`.
   - `*Hook*` is renamed to `*NotificationHook*`.
 - `DataFeed` properties `admins` is renamed to `adminEmails` and `viewers` is renamed to `viewerEmails`.
-- `IncidentRootCause` property `dimensionKey` is renamed to `seriesKey`. `AnomalyIncident.dimensionKey` is renamed to `rootDimensionKey`
+- `IncidentRootCause` property `dimensionKey` is renamed to `seriesKey`. `AnomalyIncident.dimensionKey` is renamed to `rootDimensionKey`.
 - The `-List` suffix is removed from Array properties in `MetricSeriesData` and `MetricsEnrichedSeriesData`. Plural form is used instead.
 - `*PageResponse` types now extends from `Array<ItemType>` instead of wrapping an array of `ItemType`. Their types names are also shortened.
-- Rename method for listing alerts
-  - `listAlertsForAlertConfiguration(alertConfigId, startTime, endTime, timemode, options)` to `listAlerts(alertConfigId, startTime, endTime, timemode, options)`
+- Rename method for listing alerts:
+  - `listAlertsForAlertConfiguration(alertConfigId, startTime, endTime, timemode, options)` to `listAlerts(alertConfigId, startTime, endTime, timemode, options)`.
 - Rename feedback methods :
-  - `listMetricFeedbacks()` to `listFeedback()`
-  - `getMetricFeedback()` to `getFeedback()`
-  - `createMetricFeedback()` to `createFeedback()`
+  - `listMetricFeedbacks()` to `listFeedback()`.
+  - `getMetricFeedback()` to `getFeedback()`.
+  - `createMetricFeedback()` to `createFeedback()`.
 - Rename detection configuration methods:
-  - `createMetricAnomalyDetectionConfiguration(anomalyConfig)` to `createDetectionConfig(anomalyConfig)`
-  - `getMetricAnomalyDetectionConfiguration(detectionConfigId)` to `getDetectionConfig(detectionConfigId)`
-  - `createMetricAnomalyDetectionConfiguration(config)` to `createDetectionConfig(config)`
-  - `updateMetricAnomalyDetectionConfiguration(configId, patch)` to `updateDetectionConfig(configId, patch)`
-  - `deleteMetricAnomalyDetectionConfiguration(detectionConfigId)` to `deleteDetectionConfig(detectionConfigId)`
-  - `listMetricAnomalyDetectionConfigurations(metricId)` to `listDetectionConfigs(metricId)`
+  - `createMetricAnomalyDetectionConfiguration(anomalyConfig)` to `createDetectionConfig(anomalyConfig)`.
+  - `getMetricAnomalyDetectionConfiguration(detectionConfigId)` to `getDetectionConfig(detectionConfigId)`.
+  - `createMetricAnomalyDetectionConfiguration(config)` to `createDetectionConfig(config)`.
+  - `updateMetricAnomalyDetectionConfiguration(configId, patch)` to `updateDetectionConfig(configId, patch)`.
+  - `deleteMetricAnomalyDetectionConfiguration(detectionConfigId)` to `deleteDetectionConfig(detectionConfigId)`.
+  - `listMetricAnomalyDetectionConfigurations(metricId)` to `listDetectionConfigs(metricId)`.
 - Rename anomaly alert configuration methods:
-  - `createAnomalyAlertConfiguration(anomalyAlertConfig)` to `createAlertConfig(anomalyAlertConfig)`
-  - `updateAnomalyAlertConfiguration(alertConfigId, patch)` to `updateAlertConfig(alertConfigId, patch)`
-  - `deleteAnomalyAlertConfiguration(alertConfigId)` to `deleteAlertConfig(alertConfigId)`
-  - `listAnomalyAlertConfigurations(detectdionConfigId)` to `listAlertConfigs(detectdionConfigId)`
+  - `createAnomalyAlertConfiguration(anomalyAlertConfig)` to `createAlertConfig(anomalyAlertConfig)`.
+  - `updateAnomalyAlertConfiguration(alertConfigId, patch)` to `updateAlertConfig(alertConfigId, patch)`.
+  - `deleteAnomalyAlertConfiguration(alertConfigId)` to `deleteAlertConfig(alertConfigId)`.
+  - `listAnomalyAlertConfigurations(detectdionConfigId)` to `listAlertConfigs(detectdionConfigId)`.
 - Data feed ingestion granularity now has `"PerMinute"` and `"PerSecond"` instead of `"Minutely"` and `"Secondly"`.
 - Change the type of following timestamp properties from `Date` to `number`:
-  - `AnomalyAlert.timestamp`
-  - `DataPointAnomaly.timestamp`
-  - `EnrichmentStatus.timestamp`
-  - `IngestionStatus.timestamp`
+  - `AnomalyAlert.timestamp`.
+  - `DataPointAnomaly.timestamp`.
+  - `EnrichmentStatus.timestamp`.
+  - `IngestionStatus.timestamp`.
   - `latestSuccessTimestamp` and `latestActiveTimestamp` in the return type of `getDataFeedIngestionProgress()`.
 - Remove the wrapping data feed `options` property from `DataFeed` and `DataFeedPatch` and flatten its child properties.
 
@@ -215,7 +215,7 @@ This beta package targets Azure Form Recognizer API version  `2.1-preview.2`, an
 - A `language` option for the content recognition method `beginRecognizeContent` that specifies the document's language (the service supports language auto-detection, so this option allows for forcing the service to use a particular language).
 - A `pages` option for the content recognition method `beginRecognizeContent` that specifies which pages in a multi-page document (a document with a content type of "application/pdf" or "image/tiff") should be analyzed, allowing for the analysis of only certain pages of a document.
 - Two new response fields:
-  - A `boundingBox` property on recognized `FormTable` objects that indicates the extent of the entire table on the page (previously, only individual elements had `boundingBox`es).
+  - A `boundingBox` property on recognized `FormTable` objects that indicates the extent of the entire table on the page (previously, only individual elements had `boundingBox`).
   - An `appearance` property of `FormLine` objects that contains information about the line's appearance in the document such as its style (e.g. "handwritten"). 
   
 In addition to the above form recognition features, there is also a new set of model training features, including:
