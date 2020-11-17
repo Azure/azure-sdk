@@ -22,6 +22,7 @@ The Azure SDK team is pleased to make available the November 2020 client library
 - Search
 - Metrics Advisor
 - Eventgrid
+- Form Recognizer
 
 ## Installation Instructions
 
@@ -32,6 +33,7 @@ pip install azure-servicebus --pre
 pip install azure-search-documents --pre
 pip install azure-ai-metricsadvisor --pre
 pip install azure-eventgrid --pre
+pip install azure-ai-formrecognizer --pre
 ```
 
 ## Feedback
@@ -59,6 +61,30 @@ If you have a bug or feature request for one of the libraries, please post an is
 #### Breaking Changes
 
 - Significant renames across parameters and methods. Please go to the [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md) for detail information.
+
+### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+
+This version of the SDK defaults to the latest supported API version, which currently is v2.1-preview.
+
+#### New Features
+
+- Support for two new prebuilt recognition models for invoices and business cards through the 
+`begin_recognize_invoices()` and  `begin_recognize_business_cards()` methods (as well as their `from_url` counterparts) 
+of `FormRecognizerClient`.
+- Support for selection marks as a new fundamental form element. This type is supported in content recognition and in
+training/recognizing custom forms (labeled only).
+- Support for creating composed models from a collection of existing models (trained with labels) through the 
+`begin_create_composed_model()` method of `FormTrainingClient`.
+- A `model_name` keyword argument added for model training (both `begin_training()` and `begin_create_composed_model()`) that 
+can specify a human-readable name for a model.
+- Support for the bitmap image format (with content type "image/bmp") in prebuilt model recognition and content recognition.
+- A `locale` keyword argument added for all prebuilt model methods, allowing for the specification of a document's origin to assist the 
+service with correct analysis of the document's content.
+- A `language` keyword argument added for the content recognition method `begin_recognize_content()` that specifies which 
+language to process the document in.
+- A `pages` keyword argument added for the content recognition method `begin_recognize_content()` that specifies which pages
+in a multi-page document should be analyzed.
+- Additional properties added to response models - see Changelog for detailed information.
 
 ## Latest Releases
 
