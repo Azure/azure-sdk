@@ -64,9 +64,6 @@ We're glad to announce a new major release of our Identity package. This release
 - Identity now supports Subject Name/Issuer (SNI) as part of authentication for ClientCertificateCredential.
 - Added Active Directory Federation Services authority host support to the node credentials.
 - Added support for multiple clouds on `VisualStudioCodeCredential`.
-
-##### Major Fixes on @azure/identity@1.2.0
-
 - Added support for authenticating with user assigned identities on Azure App Service.
 
 ### Azure Tables
@@ -150,20 +147,14 @@ This beta package targets Azure Metrics Advisor API version  `1.0.0-beta.2`
 
 ##### Breaking Changes on @azure/ai-metrics-advisor@1.0.0-beta.2
 
-- Combines `listAnomaliesForDetectionConfiguration()` and `listAnomaliesForAlert()` into overloads of `listAnomalies()`.
-- Combines `listIncidentsForDetectionConfiguration()` and `listIncidentsForAlert()` into overloads of `listIncidents()`.
+- Combined `listAnomaliesForDetectionConfiguration()` and `listAnomaliesForAlert()` into overloads of `listAnomalies()`.
+- Combined `listIncidentsForDetectionConfiguration()` and `listIncidentsForAlert()` into overloads of `listIncidents()`.
 - `listAnomalies()` and `listIncidents()` on detection configures now also take strings of date formats for `startTime` and `endTime` parameters.
-- Fixes typo: `lastOccuredTime` is now `lastOccurredTime`.
+- Fixed typo: `lastOccuredTime` is now `lastOccurredTime`.
 - Feedback property `dimensionFilter` is renamed to `dimensionKey`.
 - `DataFeed.metricIds` array is removed as GUIDs alone are not very useful.
 - `DataFeedOptions` property `dataFeedDescription` is renamed to `description`.
-- Rename types whose name are too generic:
-  - `Alert` is renamed to `AnomalyAlert`.
-  - `Anomaly` is renamed to `DataPointAnomaly`.
-  - `Incident` is renamed to `AnomalyIncident`.
-  - `Metric` is renamed to `DataFeedMetric`.
-  - `Dimension` is renamed to `DataFeedDimension`.
-  - `*Hook*` is renamed to `*NotificationHook*`.
+- Renamed types whose name are too generic: `Alert` to `AnomalyAlert`, `Anomaly` to `DataPointAnomaly`, `Incident` to `AnomalyIncident`, `Metric` to `DataFeedMetric`, `Dimension` to `DataFeedDimension`, `*Hook*` to `*NotificationHook*`.
 - `DataFeed` properties `admins` is renamed to `adminEmails` and `viewers` is renamed to `viewerEmails`.
 - `IncidentRootCause` property `dimensionKey` is renamed to `seriesKey`. `AnomalyIncident.dimensionKey` is renamed to `rootDimensionKey`.
 - The `-List` suffix is removed from Array properties in `MetricSeriesData` and `MetricsEnrichedSeriesData`. Plural form is used instead.
