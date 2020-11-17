@@ -10,22 +10,22 @@ The Azure SDK team is pleased to make available the November 2020 client library
 
 #### GA
 
-- Azure Identity.
-- Azure Tables.
-- Azure Storage Blob.
-- Azure Storage Data Lake.
-- Azure Storage File Share.
+- Azure Identity
+- Azure Tables
+- Azure Storage Blob
+- Azure Storage Data Lake
+- Azure Storage File Share
 
 #### Updates
 
-- Azure Event Hubs.
-- Azure Storage Queue.
+- Azure Event Hubs
+- Azure Storage Queue
 
 #### Beta
 
-- Azure Service Bus.
-- Azure Metrics Advisor.
-- Azure Form Recognizer.
+- Azure Service Bus
+- Azure Metrics Advisor
+- Azure Form Recognizer
 
 ## Installation Instructions
 
