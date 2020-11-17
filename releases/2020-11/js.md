@@ -10,7 +10,6 @@ The Azure SDK team is pleased to make available the November 2020 client library
 
 #### GA
 
-- _REMEMBER TO ADD YOUR GA PACKAGES_
 - Azure Identity.
 - Azure Tables.
 - Azure Storage Blob.
@@ -19,14 +18,14 @@ The Azure SDK team is pleased to make available the November 2020 client library
 
 #### Updates
 
-- _REMEMBER TO ADD YOUR UPDATE PACKAGES_
 - Azure Event Hubs.
 - Azure Storage Queue.
 
 #### Beta
 
-- _REMEMBER TO ADD YOUR BETA PACKAGES_
 - Azure Service Bus.
+- Azure Metrics Advisor.
+- Azure Form Recognizer.
 
 ## Installation Instructions
 
@@ -41,6 +40,8 @@ $> npm install @azure/storage-file-share
 $> npm install @azure/storage-queue@latest
 $> npm install @azure/event-hubs@latest
 $> npm install @azure/service-bus@next
+$> npm install @azure/ai-metrics-advisor@next
+$> npm install @azure/ai-form-recognizer@next
 ```
 
 ## Feedback
@@ -48,37 +49,6 @@ $> npm install @azure/service-bus@next
 If you have a bug or feature request for one of the libraries, please post an issue at the [azure-sdk-for-js repository](https://github.com/azure/azure-sdk-for-js/issues)
 
 ## Release highlights
-
----
-
-=== COPY THIS AND ADD THE INFORMATION OF YOUR PACKAGE: ===
-
-Keep in mind that:
-
-- Including the package name in the headers makes the URL links work for multiple packages.
-- The format of this file will be cleaned up once all of your proposals are in.
-
----
-
-### _Project name_ 
-
-#### @azure/_package-name_ [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/<service-folder>/<package-folder>/CHANGELOG.md)
-
-(leave blank)
-
-##### Breaking Changes on @azure/_package-name_@_version_
-
-- _Add one or more, or remove the "Breaking Changes on ..." entire section._
-
-##### New Features on @azure/_package-name_@_version_
-
-- _Add one or more, or remove the "New Features on ..." section._
-
-##### Major Fixes on @azure/_package-name_@_version_
-
-- _Add one or more, or remove the "Major Fixes on ..." section._
-
----
 
 ### Identity
 
@@ -117,7 +87,7 @@ We are releasing to add support for new service features in Azure Storage Servic
 
 ##### New Features on @azure/storage-blob@12.3.0
 
-- Added `BlockBlobClient.uploadData(data: Buffer | Blob | ArrayBuffer | ArrayBufferView, options)` for parallel uploading. It's avaiable in both Node.js and browsers.
+- Added `BlockBlobClient.uploadData(data: Buffer | Blob | ArrayBuffer | ArrayBufferView, options)` for parallel uploading. It's available in both Node.js and browsers.
 
 #### @azure/storage-file-datalake [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/CHANGELOG.md)
 
@@ -171,6 +141,32 @@ This is the last preview version of the Azure Service Bus client library before 
 - Internal improvements that would affect memory consumption for the operations depending on `$management` link such as peeking into messages or message lock renewals or session lock renewals: 
   - If made parallel requests before the link initialization, it would have resulted in a warning such as `MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 sender_error listeners added to [Sender]. Use emittr.setMaxListeners() to increase limit(same for receiver_error)`. This has been improved such that the listeners are reused to avoid the issue of adding many event listeners.
   - With many ongoing outstanding requests, warning such as `MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 message listeners added to [Receiver]. Use emittr.setMaxListeners() to increase limit` is observed. The issue has been fixed in the dependency `@azure/core-amqp` by making the requests to reuse the listeners, this is part of the move from `@azure/core-amqp` version update from 1.1.x to 2.0.0.
+
+### Form Recognizer
+
+This beta package targets Azure Form Recognizer API version  `2.1-preview.2`, and introduces support for its new form recognition features, including:
+
+#### @azure/ai-form-recognizer [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
+
+##### New Features on @azure/ai-form-recognizer@3.1.0-beta.1
+
+- Support for two new prebuilt recognition models for invoices and business cards through the `beginRecognizeInvoices` and `beginRecognizeBusinessCards` methods (as well as their `FromUrl` counterparts) of `FormRecognizerClient`.
+- Support for "Selection Marks" as a new fundamental form element. A selection mark is a mark such as a checkbox or a radio button on a form that can be either "selected" or "unselected". This type is supported in content recognition where it is a new type of `FormElement` as well as in custom and prebuilt model recognition where it is a new type of `FormField`.
+- Support for the bitmap image format (with content type "image/bmp") in prebuilt model recognition and content recognition. Custom form recognition does not currently support bitmap images.
+- A `locale` option for all prebuilt model methods, allowing for the specification of a document's origin to assist the service with correct analysis of the documents contents.
+- A `language` option for the content recognition method `beginRecognizeContent` that specifies the document's language (the service supports language auto-detection, so this option allows for forcing the service to use a particular language).
+- A `pages` option for the content recognition method `beginRecognizeContent` that specifies which pages in a multi-page document (a document with a content type of "application/pdf" or "image/tiff") should be analyzed, allowing for the analysis of only certain pages of a document.
+- Two new response fields:
+  - A `boundingBox` property on recognized `FormTable` objects that indicates the extent of the entire table on the page (previously, only individual elements had `boundingBox`es).
+  - An `appearance` property of `FormLine` objects that contains information about the line's appearance in the document such as its style (e.g. "handwritten"). 
+  
+In addition to the above form recognition features, there is also a new set of model training features, including:
+
+- Creating composed models from an array of model GUIDs through the `beginCreateComposedModel` method of `FormTrainingClient`. Composed models combine a set of custom labeled models into a single model with a unique model GUID, and when the new composed model is used for recognition, it will insert a classification step that determines the most appropriate of its submodels to use for recognition. This feature also encompasses some new fields, including:
+  - A `properties` field of `CustomFormModelInfo` and `CustomFormModel` that may optionally contain extra properties of the custom model. Currently, the only such property is `isComposedModel`, which indicates that the model is a composed model rather than a standard trained model.
+  - A `modelId` property of `RecognizedForm` that contains the GUID of the specific submodel that was used to analyze the form and generate the result.
+  - A `formTypeConfidence` property of `RecognizedForm` that represents the service's confidence that it chose  the correct submodel to use during analysis (and therefore the correct value of `formType`).
+- A `modelName` option for model training (both `beginTraining` and `beginCreateComposedModel`) that can specify a human-readable name for a model. The model name does not have to be unique, and because models are immutable it cannot be changed. The `modelName` field of `CustomFormModelInfo` and `CustomFormModel` will now contain the name of the model, if one was associated during model creation.
 
 ## Latest Releases
 
