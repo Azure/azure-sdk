@@ -142,32 +142,7 @@ This beta package targets Azure Metrics Advisor API version  `1.0.0-beta.2`. The
 
 ##### Breaking Changes on @azure/ai-metrics-advisor@1.0.0-beta.2
 
-- Rename Methods:
-  -  Combine `listAnomaliesForDetectionConfiguration()` and `listAnomaliesForAlert()` into overloads of `listAnomalies()`
-  -  Combine `listIncidentsForDetectionConfiguration()` and `listIncidentsForAlert()` into overloads of `listIncidents()`
- - Rename method for listing alerts `listAlertsForAlertConfiguration()` to `listAlerts()`
- - Rename feedback methods
- - Rename detection configuration methods
- - Rename anomaly alert configuration methods
-- Rename Types : 
-  - `Alert` is renamed to `AnomalyAlert`.
-  - `Anomaly` is renamed to `DataPointAnomaly`
-  - `Incident` is renamed to `AnomalyIncident`.
-  - `Metric` is renamed to `DataFeedMetric`.
-  - `Dimension` is renamed to `DataFeedDimension`.
-  - `*Hook*` is renamed to `*NotificationHook*`.
-  -  `*PageResponse` types now extends from `Array<ItemType>` instead of wrapping an array of `ItemType`. Their types names are also shortened.
-  -  Data feed ingestion granularity now has `"PerMinute"` and `"PerSecond"` instead of `"Minutely"` and `"Secondly"`.
-  -  Change the type of few timestamp properties from `Date` to `number`
-
-- Rename Properties : 
-  -  Feedback property `dimensionFilter` is renamed to `dimensionKey`.
-  -  `DataFeedOptions` property `dataFeedDescription` is renamed to `description`.
-  -  The `-List` suffix is removed from Array properties in `MetricSeriesData` and `MetricsEnrichedSeriesData`. Plural form is used instead.
- -  `DataFeed` properties `admins` is renamed to `adminEmails` and `viewers` is renamed to `viewerEmails`.
- -  `IncidentRootCause` property `dimensionKey` is renamed to `seriesKey`. `AnomalyIncident.dimensionKey` is renamed to `rootDimensionKey`
- -  Property `createdTime` on `DataFeed` and `MetricFeedbackCommon` to `createdOn`.
--  Remove the wrapping data feed `options` property from `DataFeed` and `DataFeedPatch` and flatten its child properties.
+- Renamed couple of methods, types and properties as a result of combining few methods into respective overloads, using shorter and readable names, renaming all generic types to service specific type names, incorporating feedback received from the user study sessions and Architecture Board Review meetings.
 
 ### Form Recognizer
 
