@@ -133,16 +133,16 @@ This is the last preview version of the Azure Service Bus client library before 
 
 #### @azure/ai-metrics-advisor [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/metricsadvisor/ai-metrics-advisor/CHANGELOG.md)
 
-This beta package targets Azure Metrics Advisor API version  `1.0.0-beta.2`. The changes in this version are incorporated from the feedback received during the User Studies conducted and the Architecture Board Review Meetings.
+This beta package with version 1.0.0-beta.2 is based on Azure Metrics Advisor API. The changes in this SDK version are incorporated from the feedback received during the User Studies conducted and the Architecture Board Review Meetings.
 
 ##### New Features on @azure/ai-metrics-advisor@1.0.0-beta.2
 
-- Parameters of `Date` type now also accept strings. No validation is done for the strings. The SDK calls `new Date()` to convert them to `Date`.
+- Parameters of `Date` type now also accept strings
 - Handle potential new data feed source types gracefully
 
 ##### Breaking Changes on @azure/ai-metrics-advisor@1.0.0-beta.2
 
-- Renamed couple of methods, types and properties as a result of combining few methods into respective overloads, using shorter and readable names, renaming all generic types to service specific type names, incorporating feedback received from the user study sessions and Architecture Board Review meetings.
+- Various renames of types, methods, and properties to improve the API surface.  Please see the [CHANGELOG](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/metricsadvisor/ai-metrics-advisor/CHANGELOG.md) for more details.
 
 ### Form Recognizer
 
