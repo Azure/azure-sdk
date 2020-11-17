@@ -70,11 +70,7 @@ We're glad to announce a new major release of our Identity package. This release
 
 We're releasing a new preview of our Azure Tables library. This update provides more idiomatic names to the system properties for `odata.etag` and `Timestamp`.
 
-#### @azure/data-tables [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/tables/data-tables/CHANGELOG.md)
-
-##### Major fixes on @azure/data-tables@1.0.0-beta3
-
-Renamed system properties `odata.etag` and `Timestamp` to provide more idiomatic property names. Queried entities now get the properties `etag` and `timestamp` instead of `odata.etag` and `Timestamp`.
+@azure/data-tables's [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/tables/data-tables/CHANGELOG.md).
 
 ### Azure Storage
 
@@ -108,7 +104,7 @@ We are releasing to add support for new service features in Azure Storage Servic
 
 We're releasing an Azure Event Hubs client patch update with bug fixes.
 
-#### @azure/event-hubs [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/CHANGELOG.md)
+@azure/event-hubs's [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/CHANGELOG.md).
 
 ##### Major Fixes on @azure/event-hubs@3.5.1
 
