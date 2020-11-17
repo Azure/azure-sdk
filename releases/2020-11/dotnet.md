@@ -32,6 +32,7 @@ The Azure SDK team is pleased to announce our November 2020 client library relea
 - Event Grid
 - Event Hubs
 - Extensions Azure
+- Form Recognizer
 - Key Vault Administration
 - Key Vault Certificates
 - Key Vault Keys
@@ -47,6 +48,8 @@ The Azure SDK team is pleased to announce our November 2020 client library relea
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
 ```bash
+$> dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.1
+
 $> dotnet add package Azure.AI.MetricsAdvisor --version 1.0.0-beta.2
 
 $> dotnet add package Azure.Communication.Administration --version 1.0.0-beta.3
@@ -215,6 +218,23 @@ This release contains a collection of minor bug fixes, performance improvements,
 #### New Features
 
 - Added an overload of `AddAzureKeyVault` that takes an `AzureKeyVaultConfigurationOptions` parameter and allows specifying the reload interval.
+
+### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md)
+
+This release of the SDK defaults to the latest supported API version, which currently is v2.1-preview.2
+
+#### New Features
+
+- Support for two new prebuilt recognition models for invoices and business cards.
+- Support for selection marks as a new fundamental form element. This type is supported in content recognition and in
+training/recognizing custom forms (labeled only).
+- Support for creating composed models from a collection of existing models (trained with labels).
+- A `ModelName` property added for model training that can specify a human-readable name for a model.
+- Support for the bitmap image format (with content type "image/bmp") in prebuilt model recognition and content recognition.
+- A `locale` keyword argument added for all prebuilt model methods, allowing for the specification of a document's origin to assist the 
+service with correct analysis of the document's content.
+- A `language` keyword argument added for the content recognition method `StartRecognizeContent()` that specifies which language to process the document in.
+- Additional properties added to response models - see Changelog for detailed information.
 
 ### Identity [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/identity/Azure.Identity/CHANGELOG.md#130-2020-11-12)
 
