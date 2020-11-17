@@ -103,7 +103,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 - Remove support for specifying SAS version.
 
-
 ### azure-storage-blobs [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/CHANGELOG.md#1200-beta5-2020-11-13)
 
 #### New Features
