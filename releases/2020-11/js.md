@@ -109,7 +109,7 @@ We are releasing to add support for new service features in Azure Storage Servic
 
 ### Event Hubs
 
-We're releasing an Azure Event Hubs client update with a necessary bug fix to the `EventHubConsumerClient.subscribe()` event handler.
+We're releasing an Azure Event Hubs client patch update with bug fixes.
 
 #### @azure/event-hubs [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/CHANGELOG.md)
 
@@ -136,11 +136,6 @@ This is the last preview version of the Azure Service Bus client library before 
 - A helper method parseServiceBusConnectionString has been added which validates and parses a given connection string for Azure Service Bus. You can use this to extract the namespace and entityPath details from the connection string.
 - Tracing, using [@azure/core-tracing](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/core/core-tracing/README.md), has been added for sending and receiving of messages.
 
-##### Major fixes on @azure/service-bus@7.0.0-preview.8
-
-- Internal improvements that would affect memory consumption for the operations depending on `$management` link such as peeking into messages or message lock renewals or session lock renewals: 
-  - If made parallel requests before the link initialization, it would have resulted in a warning such as `MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 sender_error listeners added to [Sender]. Use emittr.setMaxListeners() to increase limit(same for receiver_error)`. This has been improved such that the listeners are reused to avoid the issue of adding many event listeners.
-  - With many ongoing outstanding requests, warning such as `MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 message listeners added to [Receiver]. Use emittr.setMaxListeners() to increase limit` is observed. The issue has been fixed in the dependency `@azure/core-amqp` by making the requests to reuse the listeners, this is part of the move from `@azure/core-amqp` version update from 1.1.x to 2.0.0.
 
 ### Metrics Advisor
 
