@@ -52,9 +52,9 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Identity
 
-We're glad to announce a new major release of our Identity package. This release includes standardized `ManagedIdentityCredential` support across languages, as well as improvements to `VisualStudioCodeCredential`, `DeviceCodeCredential` and `InteractiveBrowserCredential`.
-
 #### @azure/identity [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/identity/identity/CHANGELOG.md)
+
+We're glad to announce a new major release of our Identity package. This release includes standardized `ManagedIdentityCredential` support across languages, as well as improvements to `VisualStudioCodeCredential`, `DeviceCodeCredential` and `InteractiveBrowserCredential`.
 
 ##### New Features on @azure/identity@1.2.0
 
@@ -68,15 +68,15 @@ We're glad to announce a new major release of our Identity package. This release
 
 ### Azure Tables
 
-We're releasing a new preview of our Azure Tables library. This update provides more idiomatic names to the system properties for `odata.etag` and `Timestamp`.
+#### @azure/data-tables [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/tables/data-tables/CHANGELOG.md).
 
-@azure/data-tables's [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/tables/data-tables/CHANGELOG.md).
+We're releasing a new preview of our Azure Tables library. This update provides more idiomatic names to the system properties for `odata.etag` and `Timestamp`.
 
 ### Azure Storage
 
-We are releasing to add support for new service features in Azure Storage Service API version 2020-02-10.
-
 #### @azure/storage-blob [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/CHANGELOG.md)
+
+We are releasing to add support for new service features in Azure Storage Service API version 2020-02-10.
 
 ##### New Features on @azure/storage-blob@12.3.0
 
@@ -102,9 +102,9 @@ We are releasing to add support for new service features in Azure Storage Servic
 
 ### Event Hubs
 
-We're releasing an Azure Event Hubs client patch update with bug fixes.
+#### @azure/event-hubs [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/CHANGELOG.md).
 
-@azure/event-hubs's [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/CHANGELOG.md).
+We're releasing an Azure Event Hubs client patch update with bug fixes.
 
 ##### Major Fixes on @azure/event-hubs@3.5.1
 
@@ -112,9 +112,9 @@ We're releasing an Azure Event Hubs client patch update with bug fixes.
 
 ### Service Bus
 
-This is the last preview version of the Azure Service Bus client library before releasing it for general availability later this month, this release includes improvements in error handling, various interface/method/type updates and internal improvements in terms of memory consumption.
-
 #### @azure/service-bus [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md)
+
+This is the last preview version of the Azure Service Bus client library before releasing it for general availability later this month, this release includes improvements in error handling, various interface/method/type updates and internal improvements in terms of memory consumption.
 
 ##### Breaking Changes on @azure/service-bus@7.0.0-preview.8
 
@@ -129,12 +129,11 @@ This is the last preview version of the Azure Service Bus client library before 
 - A helper method parseServiceBusConnectionString has been added which validates and parses a given connection string for Azure Service Bus. You can use this to extract the namespace and entityPath details from the connection string.
 - Tracing, using [@azure/core-tracing](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/core/core-tracing/README.md), has been added for sending and receiving of messages.
 
-
 ### Metrics Advisor
 
-This beta package targets Azure Metrics Advisor API version  `1.0.0-beta.2`
-
 #### @azure/ai-metrics-advisor [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/metricsadvisor/ai-metrics-advisor/CHANGELOG.md)
+
+This beta package targets Azure Metrics Advisor API version  `1.0.0-beta.2`. The changes in this version are incorporated from the feedback received during the User Studies conducted and the Architecture Board Review Meetings.
 
 ##### New Features on @azure/ai-metrics-advisor@1.0.0-beta.2
 
@@ -143,50 +142,38 @@ This beta package targets Azure Metrics Advisor API version  `1.0.0-beta.2`
 
 ##### Breaking Changes on @azure/ai-metrics-advisor@1.0.0-beta.2
 
-- Combined `listAnomaliesForDetectionConfiguration()` and `listAnomaliesForAlert()` into overloads of `listAnomalies()`.
-- Combined `listIncidentsForDetectionConfiguration()` and `listIncidentsForAlert()` into overloads of `listIncidents()`.
-- `listAnomalies()` and `listIncidents()` on detection configures now also take strings of date formats for `startTime` and `endTime` parameters.
-- Fixed typo: `lastOccuredTime` is now `lastOccurredTime`.
-- Feedback property `dimensionFilter` is renamed to `dimensionKey`.
-- `DataFeed.metricIds` array is removed as GUIDs alone are not very useful.
-- `DataFeedOptions` property `dataFeedDescription` is renamed to `description`.
-- Renamed types whose name are too generic: `Alert` to `AnomalyAlert`, `Anomaly` to `DataPointAnomaly`, `Incident` to `AnomalyIncident`, `Metric` to `DataFeedMetric`, `Dimension` to `DataFeedDimension`, `*Hook*` to `*NotificationHook*`.
-- `DataFeed` properties `admins` is renamed to `adminEmails` and `viewers` is renamed to `viewerEmails`.
-- `IncidentRootCause` property `dimensionKey` is renamed to `seriesKey`. `AnomalyIncident.dimensionKey` is renamed to `rootDimensionKey`.
-- The `-List` suffix is removed from Array properties in `MetricSeriesData` and `MetricsEnrichedSeriesData`. Plural form is used instead.
-- `*PageResponse` types now extends from `Array<ItemType>` instead of wrapping an array of `ItemType`. Their types names are also shortened.
-- Rename method for listing alerts:
-  - `listAlertsForAlertConfiguration(alertConfigId, startTime, endTime, timemode, options)` to `listAlerts(alertConfigId, startTime, endTime, timemode, options)`.
-- Rename feedback methods :
-  - `listMetricFeedbacks()` to `listFeedback()`.
-  - `getMetricFeedback()` to `getFeedback()`.
-  - `createMetricFeedback()` to `createFeedback()`.
-- Rename detection configuration methods:
-  - `createMetricAnomalyDetectionConfiguration(anomalyConfig)` to `createDetectionConfig(anomalyConfig)`.
-  - `getMetricAnomalyDetectionConfiguration(detectionConfigId)` to `getDetectionConfig(detectionConfigId)`.
-  - `createMetricAnomalyDetectionConfiguration(config)` to `createDetectionConfig(config)`.
-  - `updateMetricAnomalyDetectionConfiguration(configId, patch)` to `updateDetectionConfig(configId, patch)`.
-  - `deleteMetricAnomalyDetectionConfiguration(detectionConfigId)` to `deleteDetectionConfig(detectionConfigId)`.
-  - `listMetricAnomalyDetectionConfigurations(metricId)` to `listDetectionConfigs(metricId)`.
-- Rename anomaly alert configuration methods:
-  - `createAnomalyAlertConfiguration(anomalyAlertConfig)` to `createAlertConfig(anomalyAlertConfig)`.
-  - `updateAnomalyAlertConfiguration(alertConfigId, patch)` to `updateAlertConfig(alertConfigId, patch)`.
-  - `deleteAnomalyAlertConfiguration(alertConfigId)` to `deleteAlertConfig(alertConfigId)`.
-  - `listAnomalyAlertConfigurations(detectdionConfigId)` to `listAlertConfigs(detectdionConfigId)`.
-- Data feed ingestion granularity now has `"PerMinute"` and `"PerSecond"` instead of `"Minutely"` and `"Secondly"`.
-- Change the type of following timestamp properties from `Date` to `number`:
-  - `AnomalyAlert.timestamp`.
-  - `DataPointAnomaly.timestamp`.
-  - `EnrichmentStatus.timestamp`.
-  - `IngestionStatus.timestamp`.
-  - `latestSuccessTimestamp` and `latestActiveTimestamp` in the return type of `getDataFeedIngestionProgress()`.
-- Remove the wrapping data feed `options` property from `DataFeed` and `DataFeedPatch` and flatten its child properties.
+- Rename Methods:
+  -  Combine `listAnomaliesForDetectionConfiguration()` and `listAnomaliesForAlert()` into overloads of `listAnomalies()`
+  -  Combine `listIncidentsForDetectionConfiguration()` and `listIncidentsForAlert()` into overloads of `listIncidents()`
+ - Rename method for listing alerts `listAlertsForAlertConfiguration()` to `listAlerts()`
+ - Rename feedback methods
+ - Rename detection configuration methods
+ - Rename anomaly alert configuration methods
+- Rename Types : 
+  - `Alert` is renamed to `AnomalyAlert`.
+  - `Anomaly` is renamed to `DataPointAnomaly`
+  - `Incident` is renamed to `AnomalyIncident`.
+  - `Metric` is renamed to `DataFeedMetric`.
+  - `Dimension` is renamed to `DataFeedDimension`.
+  - `*Hook*` is renamed to `*NotificationHook*`.
+  -  `*PageResponse` types now extends from `Array<ItemType>` instead of wrapping an array of `ItemType`. Their types names are also shortened.
+  -  Data feed ingestion granularity now has `"PerMinute"` and `"PerSecond"` instead of `"Minutely"` and `"Secondly"`.
+  -  Change the type of few timestamp properties from `Date` to `number`
+
+- Rename Properties : 
+  -  Feedback property `dimensionFilter` is renamed to `dimensionKey`.
+  -  `DataFeedOptions` property `dataFeedDescription` is renamed to `description`.
+  -  The `-List` suffix is removed from Array properties in `MetricSeriesData` and `MetricsEnrichedSeriesData`. Plural form is used instead.
+ -  `DataFeed` properties `admins` is renamed to `adminEmails` and `viewers` is renamed to `viewerEmails`.
+ -  `IncidentRootCause` property `dimensionKey` is renamed to `seriesKey`. `AnomalyIncident.dimensionKey` is renamed to `rootDimensionKey`
+ -  Property `createdTime` on `DataFeed` and `MetricFeedbackCommon` to `createdOn`.
+-  Remove the wrapping data feed `options` property from `DataFeed` and `DataFeedPatch` and flatten its child properties.
 
 ### Form Recognizer
 
-This beta package targets Azure Form Recognizer API version  `2.1-preview.2`, and introduces support for its new form recognition features, including:
-
 #### @azure/ai-form-recognizer [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
+
+This beta package targets Azure Form Recognizer API version  `2.1-preview.2`, and introduces support for its new form recognition features, including:
 
 ##### New Features on @azure/ai-form-recognizer@3.1.0-beta.1
 
