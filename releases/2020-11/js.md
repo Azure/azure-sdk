@@ -133,7 +133,7 @@ This is the last preview version of the Azure Service Bus client library before 
 
 #### @azure/ai-metrics-advisor [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/metricsadvisor/ai-metrics-advisor/CHANGELOG.md)
 
-This beta package with version 1.0.0-beta.2 is based on Azure Metrics Advisor API. The changes in this SDK version are incorporated from the feedback received during the User Studies conducted and the Architecture Board Review Meetings.
+This version 1.0.0-beta.2  incorporates feedback from UX Studies and Architecture Board Review.
 
 ##### New Features on @azure/ai-metrics-advisor@1.0.0-beta.2
 
