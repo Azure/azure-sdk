@@ -114,7 +114,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 - Fixed bug where missing required properties on CloudEvent would cause deserialization to fail.
 
-### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md)
+### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md#530-beta4-2020-11-10)
 
 This release contains a collection of minor bug fixes, performance improvements, and documentation enhancements.
 
@@ -122,7 +122,7 @@ This release contains a collection of minor bug fixes, performance improvements,
 
 - Connection strings can now be parsed into their key/value pairs using the `EventHubsConnectionStringProperties` class.
 
-### Event Hubs Processor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md)
+### Event Hubs Processor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md#530-beta4-2020-11-10)
 
 This release contains a collection of minor bug fixes, performance improvements, and documentation enhancements.
 
@@ -162,24 +162,23 @@ This release contains a collection of minor bug fixes, performance improvements,
 
 #### Breaking Changes
 
-- Consolidated backup and RBAC client options into a single `KeyVaultAdministrationClientOptions`.
-- Refactored `BackupOperation` to return `BackupResult`.
-- Refactored `RestoreOperation` to return `RestoreResult`.
-- Made `KeyVaultRoleAssignmentProperties` internal and moved its properties to method parameters for `CreateRoleAssignment`.
+- Both `BackupOperation` and `RestoreOperation` return a result containing the `Uri` instead of just the `Uri` itself for future possible expansion.
+- Changed `NotActions` and `NotDataActions` to `DenyActions` and `DenyDataActions` respectively.
+- Consolidated `KeyVaultAccessControlClientOptions` and `KeyVaultBackupClientOptions` into `KeyVaultAdministrationClientOptions`.
 
 ### Key Vault Certificates [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/keyvault/Azure.Security.KeyVault.Certificates/CHANGELOG.md#420-beta3-2020-11-12)
 
 #### New Features
 
-- Added `DownloadCertificate` and `DownloadCertificateAsync` methods to get `X509Certificate2` with private key if permitted ([#12083](https://github.com/Azure/azure-sdk-for-net/issues/12083)).
+- Documentation improvements.
 
 ### Key Vault Keys [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/keyvault/Azure.Security.KeyVault.Keys/CHANGELOG.md#420-beta3-2020-11-12)
 
 #### New Features
 
-- Added `KeyType.OctHsm` to support "oct-HSM" key operations.
-- Added AES-GCM and AES-CBC support for encrypting and decrypting, including new `Encrypt` and `Decrypt` overloads.
-- Added support for Secure Key Release including the `Export` method on `KeyClient` and `ReleasePolicy` property on various models.
+- Added support for "oct-HSM" for Managed HSM.
+- Added support for AES-CBC and AES-GCM - locally when possible on the client.
+- Added support for key export on Managed HSM, including early preview support for Secure Key Release.
 
 ### Key Vault Secrets [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/keyvault/Azure.Security.KeyVault.Secrets/CHANGELOG.md#420-beta3-2020-11-12)
 
@@ -232,9 +231,9 @@ This release contains a collection of minor bug fixes, performance improvements,
 
 - The general availability release of System.Memory.Data package.
 
-### Tables [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/3ff84e738c517daf3c451fd39a6f126855ac3b95/sdk/tables/Azure.Data.Tables/CHANGELOG.md)
+### Tables [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/tables/Azure.Data.Tables/CHANGELOG.md#300-beta3-2020-11-12)
 
-### New Features
+#### New Features
 
 - Added support for Upsert batch operations.
 - Added support for some numeric type coercion for TableEntity properties.
