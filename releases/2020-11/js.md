@@ -142,6 +142,64 @@ This is the last preview version of the Azure Service Bus client library before 
   - If made parallel requests before the link initialization, it would have resulted in a warning such as `MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 sender_error listeners added to [Sender]. Use emittr.setMaxListeners() to increase limit(same for receiver_error)`. This has been improved such that the listeners are reused to avoid the issue of adding many event listeners.
   - With many ongoing outstanding requests, warning such as `MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 message listeners added to [Receiver]. Use emittr.setMaxListeners() to increase limit` is observed. The issue has been fixed in the dependency `@azure/core-amqp` by making the requests to reuse the listeners, this is part of the move from `@azure/core-amqp` version update from 1.1.x to 2.0.0.
 
+### Metrics Advisor
+
+This beta package targets Azure Metrics Advisor API version  `1.0.0-beta.2`
+
+#### @azure/ai-metrics-advisor [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/metricsadvisor/ai-metrics-advisor/CHANGELOG.md)
+
+##### New Features on @azure/ai-metrics-advisor@1.0.0-beta.2
+
+- Parameters of `Date` type now also accept strings. No validation is done for the strings. The SDK calls `new Date()` to convert them to `Date`.
+- Handle potential new data feed source types gracefully
+
+##### Breaking Changes on @azure/ai-metrics-advisor@1.0.0-beta.2
+
+- Combines `listAnomaliesForDetectionConfiguration()` and `listAnomaliesForAlert()` into overloads of `listAnomalies()`.
+- Combines `listIncidentsForDetectionConfiguration()` and `listIncidentsForAlert()` into overloads of `listIncidents()`.
+- `listAnomalies()` and `listIncidents()` on detection configures now also take strings of date formats for `startTime` and `endTime` parameters.
+- Fixes typo: `lastOccuredTime` is now `lastOccurredTime`.
+- Feedback property `dimensionFilter` is renamed to `dimensionKey`.
+- `DataFeed.metricIds` array is removed as GUIDs alone are not very useful.
+- `DataFeedOptions` property `dataFeedDescription` is renamed to `description`.
+- Rename types whose name are too generic:
+  - `Alert` is renamed to `AnomalyAlert`.
+  - `Anomaly` is renamed to `DataPointAnomaly`
+  - `Incident` is renamed to `AnomalyIncident`.
+  - `Metric` is renamed to `DataFeedMetric`.
+  - `Dimension` is renamed to `DataFeedDimension`.
+  - `*Hook*` is renamed to `*NotificationHook*`.
+- `DataFeed` properties `admins` is renamed to `adminEmails` and `viewers` is renamed to `viewerEmails`.
+- `IncidentRootCause` property `dimensionKey` is renamed to `seriesKey`. `AnomalyIncident.dimensionKey` is renamed to `rootDimensionKey`
+- The `-List` suffix is removed from Array properties in `MetricSeriesData` and `MetricsEnrichedSeriesData`. Plural form is used instead.
+- `*PageResponse` types now extends from `Array<ItemType>` instead of wrapping an array of `ItemType`. Their types names are also shortened.
+- Rename method for listing alerts
+  - `listAlertsForAlertConfiguration(alertConfigId, startTime, endTime, timemode, options)` to `listAlerts(alertConfigId, startTime, endTime, timemode, options)`
+- Rename feedback methods :
+  - `listMetricFeedbacks()` to `listFeedback()`
+  - `getMetricFeedback()` to `getFeedback()`
+  - `createMetricFeedback()` to `createFeedback()`
+- Rename detection configuration methods:
+  - `createMetricAnomalyDetectionConfiguration(anomalyConfig)` to `createDetectionConfig(anomalyConfig)`
+  - `getMetricAnomalyDetectionConfiguration(detectionConfigId)` to `getDetectionConfig(detectionConfigId)`
+  - `createMetricAnomalyDetectionConfiguration(config)` to `createDetectionConfig(config)`
+  - `updateMetricAnomalyDetectionConfiguration(configId, patch)` to `updateDetectionConfig(configId, patch)`
+  - `deleteMetricAnomalyDetectionConfiguration(detectionConfigId)` to `deleteDetectionConfig(detectionConfigId)`
+  - `listMetricAnomalyDetectionConfigurations(metricId)` to `listDetectionConfigs(metricId)`
+- Rename anomaly alert configuration methods:
+  - `createAnomalyAlertConfiguration(anomalyAlertConfig)` to `createAlertConfig(anomalyAlertConfig)`
+  - `updateAnomalyAlertConfiguration(alertConfigId, patch)` to `updateAlertConfig(alertConfigId, patch)`
+  - `deleteAnomalyAlertConfiguration(alertConfigId)` to `deleteAlertConfig(alertConfigId)`
+  - `listAnomalyAlertConfigurations(detectdionConfigId)` to `listAlertConfigs(detectdionConfigId)`
+- Data feed ingestion granularity now has `"PerMinute"` and `"PerSecond"` instead of `"Minutely"` and `"Secondly"`.
+- Change the type of following timestamp properties from `Date` to `number`:
+  - `AnomalyAlert.timestamp`
+  - `DataPointAnomaly.timestamp`
+  - `EnrichmentStatus.timestamp`
+  - `IngestionStatus.timestamp`
+  - `latestSuccessTimestamp` and `latestActiveTimestamp` in the return type of `getDataFeedIngestionProgress()`.
+- Remove the wrapping data feed `options` property from `DataFeed` and `DataFeedPatch` and flatten its child properties.
+
 ### Form Recognizer
 
 This beta package targets Azure Form Recognizer API version  `2.1-preview.2`, and introduces support for its new form recognition features, including:
