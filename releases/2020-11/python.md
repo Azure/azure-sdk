@@ -18,8 +18,12 @@ The Azure SDK team is pleased to make available the November 2020 client library
 
 #### Beta
 
+- Communication Administration
+- Communication Chat
+- Communication Sms
 - Service Bus
 - Search
+- Management Library - Communication
 - Metrics Advisor
 - Eventgrid
 - Form Recognizer
@@ -29,11 +33,15 @@ The Azure SDK team is pleased to make available the November 2020 client library
 To install the latest beta version of the packages, copy and paste the following commands into a terminal:
 
 ```bash
+pip install azure-communication-administration --pre
+pip install azure-communication-chat --pre
+pip install azure-communication-sms --pre
 pip install azure-servicebus --pre
 pip install azure-search-documents --pre
 pip install azure-ai-metricsadvisor --pre
 pip install azure-eventgrid --pre
 pip install azure-ai-formrecognizer --pre
+pip install azure-mgmt-communication --pre
 ```
 
 ## Feedback
@@ -41,6 +49,48 @@ pip install azure-ai-formrecognizer --pre
 If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/azure/azure-sdk-for-python/issues).
 
 ## Release highlights
+
+### Communication Administration [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-administration/CHANGELOG.md#100b3-2020-11-16)
+
+#### New Features
+
+##### `PhoneNumberAdministrationClient`
+
+- Add long-running operation polling methods `ReservePhoneNumberPolling`, `PurchaseReservationPolling`, `ReleasePhoneNumberPolling`.
+
+#### Breaking Changes
+
+##### `PhoneNumberSearch` renamed to `PhoneNumberReservation`.
+
+##### `PhoneNumberReservation`
+
+- `search_id` has been renamed to `reservation_id`.
+
+##### `PhoneNumberAdministrationClient`
+
+- `get_search_by_id` has been renamed to `get_reservation_by_id`.
+- `create_search` has been renamed to `begin_reserve_phone_numbers`.
+- `begin_reserve_phone_numbers` now takes either `options`, or `continuation_token` keywords as input.
+- `begin_reserve_phone_numbers` now returns `LROPoller[PhoneNumberReservation]`.
+- `release_phone_numbers` has been renamed to `begin_release_phone_numbers`.
+- `begin_release_phone_numbers` now takes either `phone_numbers`, or `continuation_token` keywords as input.
+- `begin_release_phone_numbers` now returns `LROPoller[PhoneNumberRelease]`.
+- `purchase_search` has been renamed to `begin_purchase_reservation`.
+- `begin_purchase_reservation` now takes either `reservation_id`, or `continuation_token` keywords as input.
+- `begin_purchase_reservation` now returns `LROPoller[PurchaseReservationPolling]`.
+- `cancel_search` has been renamed to `cancel_reservation`.
+
+### Communication Chat [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-chat/CHANGELOG.md#100b3-2020-11-16)
+
+This release contains minor bug fixes and improvements.
+
+### Communication Sms [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-sms/CHANGELOG.md#100b4-2020-11-16)
+
+This release contains minor bug fixes and improvements.
+
+### Management Library - Communication [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-mgmt-communication/CHANGELOG.md#100b4-2020-11-16)
+
+This release contains minor bug fixes and improvements.
 
 ### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/CHANGELOG.md)
 

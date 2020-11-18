@@ -35,6 +35,7 @@ The Azure SDK team is pleased to announce our November 2020 client library relea
 - Key Vault Certificates
 - Key Vault Keys
 - Key Vault Secrets
+- Management Library - Communication
 - Metrics Advisor
 - Search Documents
 - Service Bus
@@ -293,6 +294,10 @@ This release contains a collection of minor bug fixes, performance improvements,
 - Renamed `Properties` to `ApplicationProperties` in `CorrelationRuleFilter`.
 - Removed `ServiceBusSenderOptions`.
 - Removed `TransactionEntityPath` from `ServiceBusSender`.
+
+### Management Library - Communication [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.ResourceManager.Communication/CHANGELOG.md#100-beta3-2020-11-16)
+
+This release contains test improvements.
 
 ### System Memory Data [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/System.Memory.Data/CHANGELOG.md#100-2020-11-03)
 
