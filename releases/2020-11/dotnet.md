@@ -22,6 +22,10 @@ The Azure SDK team is pleased to announce our November 2020 client library relea
 #### Beta
 
 - Azure Monitor
+- Communication Administration
+- Communication Chat
+- Communication Common
+- Communication Sms
 - Core AMQP
 - Core NewtonsoftJson
 - Event Grid
@@ -42,6 +46,11 @@ To install any of our packages, please search for them via `Manage NuGet Package
 
 ```bash
 $> dotnet add package Azure.AI.MetricsAdvisor --version 1.0.0-beta.2
+
+$> dotnet add package Azure.Communication.Administration --version 1.0.0-beta.3
+$> dotnet add package Azure.Communication.Chat --version 1.0.0-beta.3
+$> dotnet add package Azure.Communication.Common --version 1.0.0-beta.3
+$> dotnet add package Azure.Communication.Sms --version 1.0.0-beta.3
 
 $> dotnet add package Azure.Core.Amqp --version 1.0.0-beta.1
 
@@ -85,6 +94,64 @@ If you have a bug or feature request for one of the libraries, please [file an i
 ### Azure Monitor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/monitor/Microsoft.OpenTelemetry.Exporter.AzureMonitor/CHANGELOG.md#100-beta1-2020-11-06)
 
 - Initial release of Azure Monitor Exporter for [OpenTelemetry .NET](https://github.com/open-telemetry/opentelemetry-dotnet).
+
+### Communication Administration [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Administration/CHANGELOG.md#100-beta3-2020-11-16)
+
+#### New Features
+
+- Support for mocking all client methods that use models with internal constructors.
+- Added support for long-running operations. More detail under Breaking Changes.
+
+#### Breaking Changes
+
+##### Model Types
+
+- Renamed `CreateSearchOptions` to `CreateReservationOptions`.
+- Renamed `CreateSearchResponse` to `CreateReservationResponse`.
+- Renamed `ReleaseResponse` to `PhoneNumberReleaseResponse`.
+- Renamed `SearchStatus` to `ReservationStatus`.
+- Added `PhoneNumberReservationOperation`.
+- Added `PhoneNumberReservationPurchaseOperation`.
+- Added `ReleasePhoneNumberOperation`.
+- Renamed `PhoneNumberSearch` to `PhoneNumberReservation`.
+
+##### PhoneNumberReservation
+
+- Renamed `searchId` to `reservationId`.
+
+##### PhoneNumberAdministrationClient
+
+- Renamed `CancelSearch` to `CancelReservation`.
+- Renamed `CancelSearchAsync` to `CancelReservationAsync`.
+- Renamed `GetAllSearches` to `GetAllReservations`.
+- Renamed `GetAllSearchesAsync` to `GetAllReservationsAsync`.
+- Renamed `GetSearchByIdAsync` to `GetReservationByIdAsync`.
+- Renamed `GetSearchById` to `GetReservationById`.
+- Renamed `CancelSearch` to `CancelReservation`.
+- Renamed `CancelSearchAsync` to `CancelReservationAsync`.
+- Replaced `CreateSearchAsync` with `StartReservationAsync` which returns a poller for the long-running operation.
+- Replaced `CreateSearch` with `StartReservation` which is a long-running operation.
+- Replaced `PurchaseSearchAsync` with `StartPurchaseReservationAsync` which returns a poller for the long-running operation.
+- Replaced `PurchaseSearch` with `StartPurchaseReservation` which is a long-running operation.
+- Replaced `ReleasePhoneNumbersAsync` with `StartReleasePhoneNumbersAsync` which returns a poller for the long-running operation.
+- Replaced `ReleasePhoneNumbers` with `StartReleasePhoneNumbers` which is a long-running operation.
+
+### Communication Chat [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Chat/CHANGELOG.md#100-beta3-2020-11-16)
+
+#### New Features
+
+- Support for mocking all client methods that use models with internal constructors.
+- Added unit test for pagination.
+
+### Communication Common [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Common/CHANGELOG.md#100-beta3-2020-11-16)
+
+This release contains test improvements and documentation enhancements.
+
+### Communication Sms [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Sms/CHANGELOG.md#100-beta3-2020-11-16)
+
+#### New Features
+
+Support for mocking all client methods that use models with internal constructors.
 
 ### Core AMQP [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core.Amqp/CHANGELOG.md#100-beta1-2020-11-04)
 
