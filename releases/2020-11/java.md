@@ -10,7 +10,7 @@ The Azure SDK team is pleased to announce our November 2020 client library relea
 
 #### GA
 
-- _Add packages_
+- Storage
 
 #### Updates
 
@@ -25,7 +25,59 @@ The Azure SDK team is pleased to announce our November 2020 client library relea
 To use the GA and beta libraries, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate. If you are using a different build tool, refer to its documentation on how to specify dependencies.
 
 ```xml
-<!-- Insert dependencies -->
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-blob</artifactId>
+  <version>12.9.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-blob-batch</artifactId>
+  <version>12.7.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-blob-changefeed</artifactId>
+  <version>12.0.0-beta.4</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-blob-cryptography</artifactId>
+  <version>12.9.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-common</artifactId>
+  <version>12.9.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-file-datalake</artifactId>
+  <version>12.3.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-file-share</artifactId>
+  <version>12.7.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-queue</artifactId>
+  <version>12.7.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-internal-avro</artifactId>
+  <version>12.0.1</version>
+</dependency>
 ```
 
 ## Feedback
@@ -34,10 +86,51 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-### _Package name_
+### Azure Storage Blob [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md)
 
-- Major changes only!
-  
+#### New Features
+- GA all features from previous release.
+- Added support for move and execute permissions on blob SAS and container SAS, and list permissions on blob SAS.
+- Added support to specify a preauthorized user id and correlation id for user delegation SAS.
+- Renamed `BlobDownloadToFileOptions.rangeGetContentMd5` to `BlobDownloadToFileOptions.retrieveContentRangeMd5`
+
+#### Bug Fixes
+- Fixed a bug where interspersed element types returned by page listing would deserialize incorrectly.
+- Fixed a bug where BlobInputStream would not eTag lock on the blob, resulting in undesirable behavior if the blob was modified in the middle of reading.
+
+### Azure Storage File Datalake [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md)
+
+#### New Features
+- GA all features from previous release.
+- Added support to specify whether or not a pipeline policy should be added per -call or per retry.
+- Modified DataLakeAclChangeFailedException to extend AzureException
+
+#### Bug Fixes
+
+- Fixed a bug where the endpoint would be improperly converted if the account name contained the word dfs.
+
+### Azure Storage File Share [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/CHANGELOG.md)
+
+#### New Features
+- GA all features from previous release.
+- Added support to specify whether or not a pipeline policy should be added per call or per retry.
+- Added support for setting access tier on a share through ShareClient.create, ShareClient.setAccessTier.
+- Added support for getting access tier on a share through ShareClient.getProperties, ShareServiceClient.listShares
+- Renamed setAccessTier to setProperties and deprecated setQuotaInGb in favor of setProperties.
+Renamed DeleteSnapshotsOptionType to ShareSnapshotsDeleteOptionType in ShareClient.delete
+Removed ability to create a ShareLeaseClient for a Share or Share Snapshot. This feature has been rescheduled for future release.
+
+#### Bug Fixes
+- Fixed a bug where interspersed element types returned by range diff listing would deserialize incorrectly.
+
+### Azure Storage Queue [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/CHANGELOG.md)
+
+#### New Features
+- Added support to specify whether or not a pipeline policy should be added per call or per retry.
+
+#### Bug Fixes
+- Fixed a bug that would cause a NPE when visibilityTimeout was set to null in QueueClient.updateMessage
+
 ## Need help
 
 - For reference documentation visit the [Azure SDK for Java documentation](https://azure.github.io/azure-sdk-for-java/).

@@ -10,7 +10,7 @@ The Azure SDK team is pleased to make available the November 2020 client library
 
 #### GA
 
-- _Add packages_
+- Storage
 
 #### Updates
 
@@ -32,6 +32,10 @@ pip install azure-servicebus --pre
 pip install azure-search-documents --pre
 pip install azure-ai-metricsadvisor --pre
 pip install azure-eventgrid --pre
+pip install azure-storage-blob
+pip install azure-storage-file-datalake
+pip install azure-storage-file-share
+pip install azure-storage-queue
 ```
 
 ## Feedback
@@ -59,6 +63,34 @@ If you have a bug or feature request for one of the libraries, please post an is
 #### Breaking Changes
 
 - Significant renames across parameters and methods. Please go to the [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md) for detail information.
+
+### Azure Storage Blob [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md)
+
+#### New Features
+- GA the following preview features: ArrowDialect as output format of `query_blob`, `undelete_container` on `BlobServiceClient`, and Last Access Time.
+
+#### Key Bug Fixes
+- Fixed the expired Authorization token problem during retry.
+- Catch exceptions thrown by async download.
+
+### Azure Storage File Share [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/CHANGELOG.md)
+
+#### New Features
+- GA support for enabling SMB Multichannel for the share service and `get_ranges` on `ShareFileClient`.
+- Added `set_share_properties` which allows setting share tier.
+
+### Azure Storage File DataLake [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md)
+
+#### New Features
+- GA support for set/update/remove access control recursively, `set_file_expiry` on `DataLakeFileClient`. and feature generating directory level SAS.
+
+#### Key Bug Fixes
+- Fixed session closure of filesystem.
+
+### Azure Storage Queue [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-queue/CHANGELOG.md)
+
+#### New Features
+- Added `receive_message` on `QueueClient` to support receiving one message from queue.
 
 ## Latest Releases
 
