@@ -512,14 +512,12 @@ For example, some subclasses add a constructor allowing to create an operation i
 
 {% include requirement/MUST id="dotnet-lro-return" %} throw from ```Operation<T>``` subclasses in the following scenarios.
 
-* ```RequestFailedException``` or its subtype should be thrown from ```UpdateStatus```, ```WaitForCompletion```, or ```WaitForCompletionAsync``` if the operation completes with an non-success result. Include any relevant error state information in the exception details.
-* Any ```RequestFailedException```or its subtype resulting from the underlying service operation calls in ```RequestFailedException``` from ```UpdateStatus```, ```WaitForCompletion```, or ```WaitForCompletionAsync```.
-* ```RequestFailedException``` should be thrown when the ```Value``` property is evaluated before the operation is complete (```HasCompleted``` is false).
-  * The exception should be the same as what was thrown from ```UpdateStatus```, ```WaitForCompletion```, or ```WaitForCompletionAsync```.
-* ```InvalidOperationException``` should be thrown when the ```Value``` property is evaluated if the operation failed (```HasValue``` is false).
+* If the operation completes with a non-success result, throw ```RequestFailedException``` or its subtype from ```UpdateStatus```, ```WaitForCompletion```, or ```WaitForCompletionAsync```.
+  * Include any relevant error state information in the exception details.
+* If an underlying service operation call from ```UpdateStatus```, ```WaitForCompletion```, or ```WaitForCompletionAsync``` throws, re-throw ```RequestFailedException``` or its subtype.
+* If the ```Value``` property is evaluated after the operation failed (```HasValue``` is false and ```HasCompleted``` is true) throw the same exception as the one thrown when the operation failed.
+* If the ```Value``` property is evaluated before the operation is complete (```HasCompleted``` is false) throw ```InvalidOperationException```.
   * The exception message should be: "The operation has not yet completed."
-
-{% include requirement/MUST id="dotnet-lro-return" %} throw ```RequestFailedException``` or its subtype when the ```Value``` property is evaluated and the operation has completed without a successful result.
 
 ### Supporting Mocking {#dotnet-mocking}
 
