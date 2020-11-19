@@ -23,6 +23,10 @@ The Azure SDK team is pleased to make available the November 2020 client library
 
 #### Beta
 
+- Azure Communication Administration
+- Azure Communication Chat
+- Azure Communication Common
+- Azure Communication SMS
 - Azure Service Bus
 - Azure Metrics Advisor
 - Azure Form Recognizer
@@ -32,6 +36,10 @@ The Azure SDK team is pleased to make available the November 2020 client library
 To install the packages, copy and paste the below into a terminal.
 
 ```bash
+$> npm install @azure/communication-administration@next
+$> npm install @azure/communication-chat@next
+$> npm install @azure/communication-common@next
+$> npm install @azure/communication-sms@next
 $> npm install @azure/identity
 $> npm install @azure/tables
 $> npm install @azure/storage-blob
@@ -49,6 +57,51 @@ $> npm install @azure/ai-form-recognizer@next
 If you have a bug or feature request for one of the libraries, please post an issue at the [azure-sdk-for-js repository](https://github.com/azure/azure-sdk-for-js/issues).
 
 ## Release highlights
+
+### Communication
+
+#### @azure/communication-administration [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-administration/CHANGELOG.md#100-beta3-2020-11-16)
+
+#### New Features on @azure/communication-administration@1.0.0-beta.3
+
+- Added support for long-running operations. See details under Breaking Changes.
+
+#### Breaking Changes on @azure/communication-administration@1.0.0-beta.3
+
+##### Model types
+
+- Renamed `CancelSearchOptions` to `CancelReservationOptions`.
+- Removed `GetReleaseOptions`.
+- Removed `GetSearchOptions`.
+- Replaced `CreateSearchOptions` with `BeginReservePhoneNumbersOptions`.
+- Replaced `PurchaseSearchOptions` with `BeginPurchaseReservationOptions`.
+- Replaced `ReleasePhoneNumbersOptions` with `BeginReleasePhoneNumbersOptions`.
+- Renamed `PhoneNumberSearch` to `PhoneNumberReservation`.
+
+##### `PhoneNumberReservation`
+
+- Renamed `searchId` property to `reservationId`.
+
+##### `PhoneNumberAdministrationClient`
+
+- Renamed `cancelSearch` to `cancelReservation`.
+- Removed `getRelease` and `GetReleaseOptions`.
+- Removed `getSearch` and `GetSearchOptions`.
+- Replaced `createSearch` with `beginReservePhoneNumbers` which returns a poller for the long-running operation.
+- Replaced `purchaseSearch` with `beginPurchaseReservation` which returns a poller for the long-running operation.
+- Replaced `releasePhoneNumbers` with `beginReleasePhoneNumbers` which returns a poller for the long-running operation.
+
+#### @azure/communication-chat [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-chat/CHANGELOG.md#100-beta3-2020-11-16)
+
+This release contains minor fixes.
+
+#### @azure/communication-common [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-common/CHANGELOG.md#100-beta3-2020-11-16)
+
+This release contains minor fixes.
+
+#### @azure/communication-sms [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-sms/CHANGELOG.md#100-beta3-2020-11-16)
+
+This release contains minor fixes.
 
 ### Identity
 
