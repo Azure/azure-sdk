@@ -1368,3 +1368,9 @@ h4.panel-title {
   justify-content: center;
   padding: 7px 0 7px 0;
 }
+
+@media (max-width: 600px) {
+  .nav-language-filter {
+    flex-direction: column;
+  }
+}
