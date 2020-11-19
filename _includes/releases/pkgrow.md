@@ -1,6 +1,6 @@
 {% if item.Hide != "true" %}
 <tr>
-  <td>{{ item.DisplayName }}</td>
+  <td class="table-display-text-th">{{ item.DisplayName }}</td>
   <td>
     {% assign trimmedPackage = item.Package | remove: package_trim %}
 
@@ -67,6 +67,6 @@
         {% include releases/pkgbadge.md label="github" preview="true" url=url version=item.VersionPreview %}
     {% endif %}
   </td>
-  <td>{{ item.Notes }}</td>
+  <td class="table-display-text-th">{{ item.Notes }}</td>
 </tr>
 {% endif %}

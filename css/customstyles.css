@@ -170,7 +170,7 @@ table > tfoot > tr > th,
 table > thead > tr > td,
 table > tbody > tr > td,
 table > tfoot > tr > td {
-  padding: 8px;
+  padding: 7px 0px 7px 0px;
   line-height: 1.42857143;
   vertical-align: top;
   border-top: 1px solid #ddd;
@@ -1344,4 +1344,12 @@ h4.panel-title {
 
 .badge-preview {
   margin-left: 0px;
+}
+
+.table-display-name-th {
+  width: 18rem;
+}
+
+.table-display-text-th {
+  padding: 7px;
 }
