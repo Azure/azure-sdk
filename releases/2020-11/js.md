@@ -26,7 +26,7 @@ The Azure SDK team is pleased to make available the November 2020 client library
 - Azure Communication Administration
 - Azure Communication Chat
 - Azure Communication Common
-- Azure Communication Sms
+- Azure Communication SMS
 - Azure Service Bus
 - Azure Metrics Advisor
 - Azure Form Recognizer

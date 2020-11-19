@@ -20,7 +20,7 @@ The Azure SDK team is pleased to make available the November 2020 client library
 
 - Communication Administration
 - Communication Chat
-- Communication Sms
+- Communication SMS
 - Service Bus
 - Search
 - Management Library - Communication
@@ -56,7 +56,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ##### `PhoneNumberAdministrationClient`
 
-- Add long-running operation polling methods `ReservePhoneNumberPolling`, `PurchaseReservationPolling`, `ReleasePhoneNumberPolling`.
+- Added long-running operation polling methods `ReservePhoneNumberPolling`, `PurchaseReservationPolling`, `ReleasePhoneNumberPolling`.
 
 #### Breaking Changes
 
@@ -84,7 +84,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 This release contains minor bug fixes and improvements.
 
-### Communication Sms [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-sms/CHANGELOG.md#100b4-2020-11-16)
+### Communication SMS [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-sms/CHANGELOG.md#100b4-2020-11-16)
 
 This release contains minor bug fixes and improvements.
 

@@ -25,7 +25,7 @@ The Azure SDK team is pleased to announce our November 2020 client library relea
 - Communication Administration
 - Communication Chat
 - Communication Common
-- Communication Sms
+- Communication SMS
 - Core AMQP
 - Core NewtonsoftJson
 - Event Grid
@@ -148,7 +148,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 This release contains test improvements and documentation enhancements.
 
-### Communication Sms [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Sms/CHANGELOG.md#100-beta3-2020-11-16)
+### Communication SMS [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Sms/CHANGELOG.md#100-beta3-2020-11-16)
 
 #### New Features
 

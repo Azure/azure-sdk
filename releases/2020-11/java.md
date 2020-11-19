@@ -21,7 +21,7 @@ The Azure SDK team is pleased to announce our November 2020 client library relea
 - Azure Communication Administration
 - Azure Communication Chat
 - Azure Communication Common
-- Azure Communication Sms
+- Azure Communication SMS
 
 ## Installation Instructions
 
@@ -104,7 +104,7 @@ This release contains test improvements.
 
 This release contains bug fixes to improve quality.
 
-### Azure Communication Sms [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-sms/CHANGELOG.md#100-beta3-2020-11-16)
+### Azure Communication SMS [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-sms/CHANGELOG.md#100-beta3-2020-11-16)
 
 #### New Features
 
