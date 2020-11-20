@@ -10,15 +10,21 @@ sidebar: general_sidebar
 
 The following document describes .NET specific guidelines for designing Azure SDK client libraries. These guidelines complement general [.NET Framework Design Guidelines] with design considerations specific to the Azure SDK. These guidelines also expand on and simplify language-independent [General Azure SDK Guidelines][general-guidelines]. More specific guidelines take precedence over more general guidelines.
 
-Currently, the document describes guidelines for client libraries exposing HTTP/REST services. It may be expanded in the future to cover other, non-REST, services.  TODO: say reach out to arch board.  Make a header?
+TODO: link to aka.ms/fxdg3 with note about logging in to Safari Online.
 
-We'll use the client library for the [Azure Application Configuration service](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/appconfiguration/Azure.Data.AppConfiguration) to illustrate various design concepts.  TODO: Should we update this to reflect new guidelines, e.g. around naming, etc.
+Currently, the document describes guidelines for client libraries exposing HTTP/REST services. It may be expanded in the future to cover other, non-REST, services.  
+
+TODO: say reach out to arch board.  Pull this out into a section with a section-header?
+
+Throughout this document, We'll use the client library for the [Azure Application Configuration service](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/appconfiguration/Azure.Data.AppConfiguration) to illustrate various design concepts.  
+
+TODO: Should we update this to reflect new guidelines, e.g. around naming, etc?
 
 TODO: Add one or two sentence roadmap of what you'll find in document, how it is structured.  Eg. API, focusing on the service client, considerations for packaging and releasing a library, and Azure Core types, and how they can be used in APIs
 
 ### Design Principles {#dotnet-principles}
 
-The main value of the Azure SDK is **productivity**. Other qualities, such as completeness, extensibility, and performance are important but secondary.  We ensure our customers can be highly productive when using our libraries by ensuring these libraries are:
+The main value of the Azure SDK is **productivity** building applications with Azure services. Other qualities, such as completeness, extensibility, and performance are important but secondary.  We ensure our customers can be highly productive when using our libraries by ensuring these libraries are:
 
 **Idiomatic**
 
@@ -52,11 +58,13 @@ The main value of the Azure SDK is **productivity**. Other qualities, such as co
 
 {% include requirement/MUST id="dotnet-general-follow-framework-guidelines" %} follow the official [.NET Framework Design Guidelines].
 
-At the end of this document, you can find a section with [the most commonly overlooked guidelines](#dotnet-appendix-overlookedguidelines) in existing Azure SDK libraries.
+At various points in this document, you can find a section with [the most commonly overlooked guidelines](#dotnet-appendix-overlookedguidelines) in existing Azure SDK libraries.
 
 {% include requirement/MUST id="dotnet-general-follow-general-guidelines" %} follow the [General Azure SDK Guidelines][general-guidelines].
 
 The guidelines provide a robust methodology for communicating with Azure services. The easiest way to ensure that your component meets these requirements is to use the [Azure.Core] package to call Azure services. Details of these helper APIs and their usage are described in the [Using HttpPipeline](#dotnet-usage-httppipeline) section.
+
+TODO: Do we need this section if we'll remove the general section?
 
 {% include requirement/MUST id="dotnet-general-use-http-pipeline" %} use `HttpPipeline` to implement all methods that call Azure REST services.
 
@@ -68,7 +76,7 @@ Azure services will be exposed to .NET developers as one or more _service client
 
 ### The Service Client {#dotnet-client}
 
-Service clients are the main starting points for developers calling Azure services with the Azure SDK.  Each client library should have at least one client in its main namespace, so that it's easily discoverable. The guidelines in this section describe patterns for the design of a service client.  
+Service clients are the main starting points for developers calling Azure services with the Azure SDK.  Each client library should have at least one client in its main namespace, so it's easy to discover. The guidelines in this section describe patterns for the design of a service client.  
 
 A service client should have the same shape as this code snippet:
 
@@ -164,6 +172,9 @@ public class ConfigurationClient {
 
 Custom pipeline and client-specific configuration are represented by an `options` parameter. The type of the parameter is typically a subclass of ```ClientOptions``` type. Guidelines for using `ClientOptions` can be found in [Using ClientOptions](#dotnet-usage-options) section below.
 
+TODO: See Auth section for more on credentials
+TODO: Use similar format for See More for ClientOptions
+
 For example, the `ConfigurationClient` type and its public constructors look as follows:
 
 ```csharp
@@ -182,6 +193,8 @@ public class ConfigurationClient {
 }
 ```
 
+TODO: move the following to implementation
+
 {% include requirement/MUSTNOT id="dotnet-client-constructor-use-params" %} reference virtual properties of the client class as parameters to other methods or constructors within the client constructor. This violates the [.NET Framework Constructor Design] because a field to which a virtual property refers may not be initialized yet, or a mocked virtual property may not be set up yet. Use parameters or local variables instead:
 
 ```csharp
@@ -198,7 +211,7 @@ public class ConfigurationClient {
 
 In mocks, using the virtual property instead of the parameter requires the property to be mocked to return the value before the constructor is called when the mock is created. In [Moq] this requires using the delegate parameter to create the mock, which may not be an obvious workaround.
 
-See [Mocking Support](#dotnet-mocking) for details.
+See [Support for Mocking](#dotnet-mocking) for details.
 
 #### Service Methods {#dotnet-client-methods}
 
@@ -241,7 +254,7 @@ The token should be further passed to all calls that take a cancellation token. 
 
 {% include requirement/MUST id="dotnet-service-methods-virtual" %} make service methods virtual.
 
-Virtual methods are used to support mocking. See [Mocking Support](#dotnet-mocking) for details.
+Virtual methods are used to support mocking. See [Support for Mocking](#dotnet-mocking) for details.
 
 ##### Return Types
 
@@ -261,9 +274,7 @@ There are two possible return types from asynchronous methods: `Task` and `Value
 
 #### Service Method Return Types {#dotnet-method-return}
 
-As mentioned above, service methods will often return `Response<T>`. The `T` can be either an unstructured payload (e.g. bytes of a storage blob) or a _model type_ representing deserialized response content. This section describes guidelines for the design of unstructured return types, _model types_, and all their transitive closure of public dependencies (i.e. the _model graph_).
-
-TODO: Say see "Model Types" for more details
+As mentioned above, service methods will often return `Response<T>`. The `T` can be either an unstructured payload (e.g. bytes of a storage blob) or a _model type_ representing deserialized response content.
 
 {% include requirement/MUST id="dotnet-service-return-unstructured-type" %} use one of the following return types to represent an unstructured payload:
 
@@ -276,6 +287,8 @@ TODO: Say see "Model Types" for more details
 TODO: Say see model types for more information
 
 #### Service Method Parameters {#dotnet-parameters}
+
+TODO: Tighten this up for clarity.
 
 Service methods fall into two main groups when it comes to the number and complexity of parameters they accept:
 
@@ -322,6 +335,10 @@ If in common scenarios, users are likely to pass just a small subset of what the
 
 TODO: There was a discussion here and the guidance was updated within the .NET team and across Java as well.  Update these to reflect those decisions?
 
+##### Conditional Requests
+
+TODO: Discussion of this with simplified semantics with forward linking to discussion of `MatchConditions` in Azure Core section.
+
 ##### Parameter Validation
 
 Service methods take two kinds of parameters: _service parameters_ and _client parameters_. _Service parameters_ are directly passed across the wire to the service.  _Client parameters_ are used within the client library and aren't passed directly to the service.
@@ -361,7 +378,7 @@ TODO: link to further discussion in Azure.Core section
 
 Some service operations, known as _Long Running Operations_ or _LROs_ take a long time (up to hours or days). Such operations do not return their result immediately, but rather are started, their progress is polled, and finally the result of the operation is retrieved.
 
-Azure.Core library exposes an abstract type called ```Operation<T>```, which represents such LROs and supports operations for polling and waiting for status changes, and retrieving the final operation result.  A service method invoking a long running operation will return a subclass of Operation<T>.
+Azure.Core library exposes an abstract type called ```Operation<T>```, which represents such LROs and supports operations for polling and waiting for status changes, and retrieving the final operation result.  A service method invoking a long running operation will return a subclass of `Operation<T>`, as shown below.
 
 ```csharp
 public class CopyFromUriOperation : Operation<long> {
@@ -417,11 +434,15 @@ BlobBaseClient client = ...
 {% include requirement/MAY id="dotnet-lro-subclass" %} add additional APIs to subclasses of ```Operation<T>```.
 For example, some subclasses add a constructor allowing to create an operation instance from a previously saved operation ID. Also, some subclasses are more granular states besides the IsCompleted and HasValue states that are present on the base class.
 
-TODO: link to further discussion in Azure Core section, e.g. for more info, see Operation<T> in Azure Core section
+TODO: link to further discussion in Azure Core section, e.g. for more info, see `Operation<T>` in Azure Core section
 
 ### Supporting Types
 
+TODO: Short sentence of transition
+
 #### Model Types
+
+This section describes guidelines for the design _model types_ and all their transitive closure of public dependencies (i.e. the _model graph_).  A model type is a representation of a REST service's resource.
 
 For example, review the configuration service _model type_ below:
 
@@ -481,6 +502,8 @@ Ensure you include an internal setter to allow for deserialization.  For more in
 
 Good candidates for struct are types that are small and immutable, especially if they are often stored in arrays. See [.NET Framework Design Guidelines](https://docs.microsoft.com/dotnet/standard/design-guidelines/choosing-between-class-and-struct) for details.
 
+TODO: Update link to FDG3
+
 {% include requirement/SHOULD id="dotnet-service-models-basic-data-interfaces" %} implement basic data type interfaces on model types, per .NET Framework Design Guidelines.
 
 For example, implement `IEquatable<T>`, `IComparable<T>`, `IEnumerable<T>`, etc. if applicable.
@@ -488,7 +511,7 @@ For example, implement `IEquatable<T>`, `IComparable<T>`, `IEnumerable<T>`, etc.
 {% include requirement/SHOULD id="dotnet-service-return-model-collections" %} use the following collection types for properties of model types:
 - ```IReadOnlyList<T>``` and ```IList<T>``` for most collections
 - ```IReadOnlyDictionary<T>``` and ```IDictionary<T>``` for lookup tables
-- ```T[]```, ```Memory<T>```, and ```ReadOnlyMemory<T>``` when low allocations and perfromance are critical
+- ```T[]```, ```Memory<T>```, and ```ReadOnlyMemory<T>``` when low allocations and performance are critical
 
 Note that this guidance does not apply to input parameters. Input parameters representing collections should follow standard [.NET Design Guidelines](https://docs.microsoft.com/dotnet/standard/design-guidelines/parameter-design), e.g. use ```IEnumerable<T>``` is allowed.
 Also, this guidance does not apply to return types of service method calls. These should be using ```Pageable<T>``` and ```AsyncPageable<T>``` discussed in [Service Method Return Types](#dotnet-method-return).
@@ -510,7 +533,7 @@ namespace Azure.Storage.Blobs.Models {
     ...
 }
 ```
-{% include requirement/SHOULD id="dotnet-service-editor-browsable-state" %} apply the `[EditorBrowsable(EditorBrowsableState.Never)]` attribute to methods that the user isn't meant to call.
+{% include requirement/SHOULD id="dotnet-service-editor-browsable-state" %} apply the `[EditorBrowsable(EditorBrowsableState.Never)]` attribute to methods on the model type that the user isn't meant to call.
 
 Adding this attribute will hide the methods from being shown with IntelliSense.  A user will almost never call `GetHashCode()` directly.  `Equals(object)` is almost never called if the type implements `IEquatable<T>` (which is preferred).  Hide the `ToString()` method if it isn't overridden.
 
@@ -523,19 +546,11 @@ public sealed class ConfigurationSetting : IEquatable<ConfigurationSetting> {
 }
 ```
 
-{% include note.html content="Unlike client APIs, model type APIs aren't required to be thread-safe, as they're rarely shared between threads." %}
+{% include note.html content="Unlike service clients, model types aren't required to be thread-safe, as they're rarely shared between threads." %}
 
 {% include requirement/MUST id="dotnet-models-in-mocks" %} ensure all model types can be used in mocks.
 
-In practice, you need to provide public APIs to construct _model graphs_. See [Mocking Support](#dotnet-mocking) for details.
-
-#### Enumerations
-
-{% include requirement/MUST id="dotnet-enums" %} use an `enum` for parameters, properties, and return types when values are known.
-
-{% include requirement/MAY id="dotnet-enums-exception" %} use a `readonly struct` in place of an `enum` that declares well-known fields but can contain unknown values returned from the service, or user-defined values passed to the service.
-
-See [enumeration-like structure documentation](implementation.md#dotnet-enums) for implementation details.
+In practice, you need to provide public APIs to construct _model graphs_. See [Support for Mocking](#dotnet-mocking) for details.
 
 #### Commonly Overlooked .NET Type Design Guidelines
 
@@ -561,7 +576,17 @@ The `Azure.ETag` type is located in `Azure.Core` package.
 
 {% include requirement/MUST id="dotnet-primitives-uri" %} use `System.Uri` to represent URIs.
 
+#### Enumerations
+
+{% include requirement/MUST id="dotnet-enums" %} use an `enum` for parameters, properties, and return types when values are known.
+
+{% include requirement/MAY id="dotnet-enums-exception" %} use a `readonly struct` in place of an `enum` that declares well-known fields but can contain unknown values returned from the service, or user-defined values passed to the service.
+
+See [enumeration-like structure documentation](implementation.md#dotnet-enums) for implementation details.
+
 ### Exceptions {#dotnet-errors}
+
+In .NET, throwing exceptions is how we communicate to library consumers that the services returned an error.
 
 {% include requirement/MUST id="dotnet-errors-response-failed" %} throw `RequestFailedException` or its subtype when a service method fails with non-success status code.
 
@@ -680,7 +705,7 @@ TODO: Update this with the correct new process
 
 Don't ask users to compose connection strings manually if they aren't available through the Azure portal. Connection strings are immutable.  It's impossible for an application to roll over credentials when using connection strings.
 
-### Mocking Support {#dotnet-mocking}
+### Support for Mocking {#dotnet-mocking}
 
 All client libraries must support mocking to enable non-live testing of service clients by customers.
 
@@ -737,6 +762,8 @@ public static class ConfigurationModelFactory {
 ```
 
 ### Hierarchical Clients
+
+TODO: Discussion
 
 ## Azure SDK Library Design
 
@@ -957,11 +984,11 @@ If the options type can be shared by multiple client types, name it with a plura
 
 Each overload constructor should take at least `version` parameter to specify the service version. See [Versioning](#dotnet-service-version-option) guidelines for details.
 
-### Pageable<T> and AsyncPageable<T>
+### Pageable\<T\> and AsyncPageable\<T\>
 
 TODO: Some discussion can go here.
 
-### Operation<T>
+### Operation\<T\>
 
 ```csharp
 // the following type is located in Azure.Core
