@@ -27,10 +27,7 @@ The Azure SDK team is pleased to make available the November 2020 client library
 - Metrics Advisor
 - Eventgrid
 - Form Recognizer
-<<<<<<< HEAD
 - Text Analytics
-=======
->>>>>>> e809f953aa614cd4154a626fe58c6d70b89ea653
 
 ## Installation Instructions
 
@@ -46,10 +43,7 @@ pip install azure-ai-metricsadvisor --pre
 pip install azure-eventgrid --pre
 pip install azure-ai-formrecognizer --pre
 pip install azure-mgmt-communication --pre
-<<<<<<< HEAD
 pip install azure-ai-textanalytics --pre
-=======
->>>>>>> e809f953aa614cd4154a626fe58c6d70b89ea653
 ```
 
 ## Feedback
