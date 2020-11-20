@@ -18,13 +18,34 @@ The Azure SDK team is pleased to announce our November 2020 client library relea
 
 #### Beta
 
-- _Add packages_
+- Azure Communication Administration
+- Azure Communication Chat
+- Azure Communication Common
+- Azure Communication SMS
 
 ## Installation Instructions
 
 To use the GA and beta libraries, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate. If you are using a different build tool, refer to its documentation on how to specify dependencies.
 
 ```xml
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-communication-administration</artifactId>
+  <version>1.0.0-beta.3</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-communication-chat</artifactId>
+  <version>1.0.0-beta.3</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-communication-common</artifactId>
+  <version>1.0.0-beta.3</version>
+</dependency>
+
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-storage-blob</artifactId>
@@ -35,7 +56,6 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-storage-blob-batch</artifactId>
   <version>12.7.0</version>
-</dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
@@ -77,6 +97,12 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-storage-internal-avro</artifactId>
   <version>12.0.1</version>
+</dependency>
+  
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-communication-sms</artifactId>
+  <version>1.0.0-beta.3</version>
 </dependency>
 ```
 
@@ -131,6 +157,61 @@ Removed ability to create a ShareLeaseClient for a Share or Share Snapshot. This
 #### Bug Fixes
 - Fixed a bug that would cause a NPE when visibilityTimeout was set to null in QueueClient.updateMessage
 
+### Azure Communication Administration [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-administration/CHANGELOG.md#100-beta3-2020-11-16)
+
+#### New Features
+
+- Support directly passing connection string to the CommunicationIdentityClientBuilder.
+- Added support for sync and async long-running operations
+    - beginCreateReservation
+    - beginPurchaseReservation
+    - beginReleasePhoneNumber
+
+#### Breaking Changes
+
+- Removed credential(CommunicationClientCredential credential) and replaced with 
+accessKey(String accessKey) within CommunicationIdentityClientBuilder.
+- `PhoneNumberSearch` renamed to `PhoneNumberReservation`.
+- `SearchStatus` renamed to `ReservationStatus`.
+- `CreateSearchOptions` reanamed to `CreateReservationOptions`.
+- `CreateSearchResponse` renamed to `CreateReservationResponse`.
+
+##### PhoneNumberReservation
+
+- `searchId` renamed to `reservationId`.
+- `getSearchId` renamed to `getReservationId`.
+- `setSearchId` renamed to `setReservationId`.
+
+##### Phone Number Clients
+
+- `getSearchId`renamed to `getReservationId`
+- `getSearchByIdWithResponse`renamed to `getReservationByIdWithResponse`.
+- `createSearchWithResponse`renamed to `createReservationWithResponse`.
+- `listAllSearches`renamed to `listAllReservations`.
+- `cancelSearch`renamed to `cancelReservation`.
+- `cancelSearchWithResponse`renamed to `cancelReservationWithResponse`.
+- Replaced`createSearch`with to `beginCreateReservation` which returns a poller for the long-running operation.
+- Replaced `purchaseSearch`renamed to `beginPurchaseReservation` which returns a poller for the long-running operation.
+- Replaced `releasePhoneNumber`renamed to `beginReleasePhoneNumber` which returns a poller for the long-running operation.
+
+### Azure Communication Chat [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-chat/CHANGELOG.md#100-beta3-2020-11-16)
+
+This release contains test improvements.
+
+### Azure Communication Common [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-common/CHANGELOG.md#100-beta3-2020-11-16)
+
+This release contains bug fixes to improve quality.
+
+### Azure Communication SMS [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-sms/CHANGELOG.md#100-beta3-2020-11-16)
+
+#### New Features
+
+- Support directly passing connection string to the SmsClientBuilder using connectionString().
+
+#### Breaking Changes
+
+- Removed credential(CommunicationClientCredential credential) and replaced with accessKey(String accessKey) within CommunicationIdentityClientBuilder.
+  
 ## Need help
 
 - For reference documentation visit the [Azure SDK for Java documentation](https://azure.github.io/azure-sdk-for-java/).

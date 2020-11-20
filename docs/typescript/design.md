@@ -10,7 +10,7 @@ The API surface of your client library must have the most thought as it is the p
 
 ## Platform Support {#ts-platform-support}
 
-{% include requirement/MUST id="ts-node-support" %} support [all LTS versions of Node](https://github.com/nodejs/Release#release-schedule) and newer versions up to and including the latest release. At time of writing, this means Node 8.x through Node 12.x.
+{% include requirement/MUST id="ts-node-support" %} support [all LTS versions of Node](https://github.com/nodejs/Release#release-schedule) and newer versions up to and including the latest release.
 
 {% include requirement/MUST id="ts-browser-support" %} support the following browsers and versions:
 

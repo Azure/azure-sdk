@@ -18,16 +18,24 @@ The Azure SDK team is pleased to make available the November 2020 client library
 
 #### Beta
 
+- Communication Administration
+- Communication Chat
+- Communication SMS
 - Service Bus
 - Search
+- Management Library - Communication
 - Metrics Advisor
 - Eventgrid
+- Form Recognizer
 
 ## Installation Instructions
 
 To install the latest beta version of the packages, copy and paste the following commands into a terminal:
 
 ```bash
+pip install azure-communication-administration --pre
+pip install azure-communication-chat --pre
+pip install azure-communication-sms --pre
 pip install azure-servicebus --pre
 pip install azure-search-documents --pre
 pip install azure-ai-metricsadvisor --pre
@@ -36,6 +44,8 @@ pip install azure-storage-blob
 pip install azure-storage-file-datalake
 pip install azure-storage-file-share
 pip install azure-storage-queue
+pip install azure-ai-formrecognizer --pre
+pip install azure-mgmt-communication --pre
 ```
 
 ## Feedback
@@ -43,6 +53,48 @@ pip install azure-storage-queue
 If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/azure/azure-sdk-for-python/issues).
 
 ## Release highlights
+
+### Communication Administration [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-administration/CHANGELOG.md#100b3-2020-11-16)
+
+#### New Features
+
+##### `PhoneNumberAdministrationClient`
+
+- Added long-running operation polling methods `ReservePhoneNumberPolling`, `PurchaseReservationPolling`, `ReleasePhoneNumberPolling`.
+
+#### Breaking Changes
+
+##### `PhoneNumberSearch` renamed to `PhoneNumberReservation`.
+
+##### `PhoneNumberReservation`
+
+- `search_id` has been renamed to `reservation_id`.
+
+##### `PhoneNumberAdministrationClient`
+
+- `get_search_by_id` has been renamed to `get_reservation_by_id`.
+- `create_search` has been renamed to `begin_reserve_phone_numbers`.
+- `begin_reserve_phone_numbers` now takes either `options`, or `continuation_token` keywords as input.
+- `begin_reserve_phone_numbers` now returns `LROPoller[PhoneNumberReservation]`.
+- `release_phone_numbers` has been renamed to `begin_release_phone_numbers`.
+- `begin_release_phone_numbers` now takes either `phone_numbers`, or `continuation_token` keywords as input.
+- `begin_release_phone_numbers` now returns `LROPoller[PhoneNumberRelease]`.
+- `purchase_search` has been renamed to `begin_purchase_reservation`.
+- `begin_purchase_reservation` now takes either `reservation_id`, or `continuation_token` keywords as input.
+- `begin_purchase_reservation` now returns `LROPoller[PurchaseReservationPolling]`.
+- `cancel_search` has been renamed to `cancel_reservation`.
+
+### Communication Chat [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-chat/CHANGELOG.md#100b3-2020-11-16)
+
+This release contains minor bug fixes and improvements.
+
+### Communication SMS [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-sms/CHANGELOG.md#100b4-2020-11-16)
+
+This release contains minor bug fixes and improvements.
+
+### Management Library - Communication [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-mgmt-communication/CHANGELOG.md#100b4-2020-11-16)
+
+This release contains minor bug fixes and improvements.
 
 ### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/CHANGELOG.md)
 
@@ -91,6 +143,30 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 #### New Features
 - Added `receive_message` on `QueueClient` to support receiving one message from queue.
+
+### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+
+This version of the SDK defaults to the latest supported API version, which currently is v2.1-preview.
+
+#### New Features
+
+- Support for two new prebuilt recognition models for invoices and business cards through the 
+`begin_recognize_invoices()` and  `begin_recognize_business_cards()` methods (as well as their `from_url` counterparts) 
+of `FormRecognizerClient`.
+- Support for selection marks as a new fundamental form element. This type is supported in content recognition and in
+training/recognizing custom forms (labeled only).
+- Support for creating composed models from a collection of existing models (trained with labels) through the 
+`begin_create_composed_model()` method of `FormTrainingClient`.
+- A `model_name` keyword argument added for model training (both `begin_training()` and `begin_create_composed_model()`) that 
+can specify a human-readable name for a model.
+- Support for the bitmap image format (with content type "image/bmp") in prebuilt model recognition and content recognition.
+- A `locale` keyword argument added for all prebuilt model methods, allowing for the specification of a document's origin to assist the 
+service with correct analysis of the document's content.
+- A `language` keyword argument added for the content recognition method `begin_recognize_content()` that specifies which 
+language to process the document in.
+- A `pages` keyword argument added for the content recognition method `begin_recognize_content()` that specifies which pages
+in a multi-page document should be analyzed.
+- Additional properties added to response models - see Changelog for detailed information.
 
 ## Latest Releases
 
