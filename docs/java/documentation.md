@@ -3,7 +3,7 @@ title: "Java Guidelines: Documentation"
 keywords: guidelines java
 permalink: java_documentation.html
 folder: java
-sidebar: java_sidebar
+sidebar: general_sidebar
 ---
 
 There are several pieces of documentation that must be included with your client library. Beyond complete and helpful API documentation within the code itself (`JavaDoc`), you need a great README and other supporting documentation.

@@ -1,10 +1,10 @@
 {% if item.Hide != "true" %}
 <tr>
-  <td>{{ item.DisplayName }}</td>
+  <td class="table-display-text-th">{{ item.DisplayName }}</td>
   <td>
     {% assign trimmedPackage = item.Package | remove: package_trim %}
 
-    {% assign package_url = package_url_template | replace: 'item.Package', item.Package | replace: 'item.TrimmedPackage', trimmedPackage | replace: 'item.GroupId', item.GroupId %}
+    {% assign package_url = package_url_template | replace: 'item.Package', item.Package | replace: 'item.TrimmedPackage', trimmedPackage | replace: 'item.GroupId', item.GroupId | replace: 'item.RepoPath', item.RepoPath %}
     {% if item.VersionGA != "" %}
         {% assign url = package_url | replace: 'item.Version', item.VersionGA  %}
         {% include releases/pkgbadge.md  label=package_label url=url version=item.VersionGA %}
@@ -19,6 +19,9 @@
     {% assign msdocs_url = item.MSDocs %}
     {% if item.MSDocs == "" %}
         {% assign msdocs_url = msdocs_url_template | replace: 'item.Package', item.Package | replace: 'item.TrimmedPackage', trimmedPackage %}
+        {% if item.VersionGA == "" and item.VersionPreview != "" %}
+            {% assign msdocs_url = msdocs_url | append: '-pre' %}
+        {% endif %}
     {% endif %}
 
     {% if item.VersionGA != "" %}
@@ -27,11 +30,8 @@
     {% endif %}
 
     {% if item.VersionGA == "" and item.VersionPreview != "" %}
-        {% if item.MSDocs != "NA" %}
-            {% assign pre_suffix = '-pre' | append: msdocs_preview_moniker_suffix %}
-            {% assign url = msdocs_url | replace: 'item.Version', item.VersionPreview | append: pre_suffix %}
-            {% include releases/pkgbadge.md label="msdocs" preview="true" url=url version=item.VersionPreview %}
-        {% endif %}
+        {% assign url = msdocs_url | replace: 'item.Version', item.VersionPreview %}
+        {% include releases/pkgbadge.md label="msdocs" preview="true" url=url version=item.VersionPreview %}
     {% endif %}
   </td>
   <td>
@@ -67,6 +67,6 @@
         {% include releases/pkgbadge.md label="github" preview="true" url=url version=item.VersionPreview %}
     {% endif %}
   </td>
-  <td>{{ item.Notes }}</td>
+  <td class="table-display-text-th">{{ item.Notes }}</td>
 </tr>
 {% endif %}

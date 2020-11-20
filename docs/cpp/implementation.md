@@ -3,7 +3,7 @@ title: "C++ Guidelines: Implementation"
 keywords: guidelines cpp
 permalink: cpp_implementation.html
 folder: cpp
-sidebar: cpp_sidebar
+sidebar: general_sidebar
 ---
 
 {% include draft.html content="The C++ Language guidelines are in DRAFT status" %}
@@ -44,7 +44,7 @@ sidebar: cpp_sidebar
 
 {% include requirement/SHOULDNOT id="cpp-cpp-extensions" %} use compiler extensions.  Examples of extensions to avoid include:
 
-* [MSVC compiler extensions](https://docs.microsoft.com/cpp/build/reference/microsoft-extensions-to-c-and-cpp?view=vs-2019)
+* [MSVC compiler extensions](https://docs.microsoft.com/cpp/build/reference/microsoft-extensions-to-c-and-cpp)
 * [clang language extensions](https://clang.llvm.org/docs/LanguageExtensions.html)
 * [GNU C compiler extensions](https://gcc.gnu.org/onlinedocs/gcc/C-Extensions.html)
 
@@ -239,7 +239,7 @@ We use a common build and test pipeline to provide for automatic distribution of
 {% include requirement/MUST id="cpp-tooling-cmake" %} use [CMake](https://CMake.org/) v3.7 for your project build system.
 
 Version 3.7 is the minimum version installed on the Azure Pipelines Microsoft hosted agents
-(https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops)
+(https://docs.microsoft.com/azure/devops/pipelines/agents/hosted)
 
 {% include requirement/MUST id="cpp-tooling-cmake-targets" %} include the following standard targets:
 

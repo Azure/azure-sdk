@@ -3,7 +3,7 @@ title: "Android Guidelines: API Design"
 keywords: guidelines android
 permalink: android_design.html
 folder: android
-sidebar: android_sidebar
+sidebar: general_sidebar
 ---
 
 {% include draft.html content="The Android guidelines are in DRAFT status" %}

@@ -3,7 +3,7 @@ title: "C++ Guidelines: API Design"
 keywords: guidelines cpp
 permalink: cpp_design.html
 folder: cpp
-sidebar: cpp_sidebar
+sidebar: general_sidebar
 ---
 
 {% include draft.html content="The C++ Language guidelines are in DRAFT status" %}
@@ -448,7 +448,7 @@ The following integer rules are listed in rough priority order. Integer size sel
 
 ### Secure functions
 
-{% include requirement/SHOULDNOT id="cpp-design-logical-no-ms-secure-functions" %} use [Microsoft security enhanced versions of CRT functions](https://docs.microsoft.com/cpp/c-runtime-library/security-enhanced-versions-of-crt-functions?view=vs-2019) to implement APIs that need to be portable across many platforms. Such code is not portable and is not compatible with either the C or C++ Standards. See [arguments against]( http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1967.htm).
+{% include requirement/SHOULDNOT id="cpp-design-logical-no-ms-secure-functions" %} use [Microsoft security enhanced versions of CRT functions](https://docs.microsoft.com/cpp/c-runtime-library/security-enhanced-versions-of-crt-functions) to implement APIs that need to be portable across many platforms. Such code is not portable and is not compatible with either the C or C++ Standards. See [arguments against]( http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1967.htm).
 
 > TODO: Verify with the security team, and what are the alternatives?
 

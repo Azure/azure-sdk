@@ -38,7 +38,7 @@ $> dotnet add package Azure.AI.AnomalyDetector --version 3.0.0-preview.2
 
 $> dotnet add package Azure.AI.FormRecognizer --version 3.0.0
 
- $> dotnet add package Azure.AI.TextAnalytics --version 5.1.0-beta.1
+$> dotnet add package Azure.AI.TextAnalytics --version 5.1.0-beta.1
 
 $> dotnet add package Azure.Data.AppConfiguration --version 1.0.2
 
@@ -190,7 +190,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 #### New Features
 
-- The `EventProcessor<TPartition>` now supports a configurable strategy for load balancing, allowing control over whether it claims ownership of partitions in a balanced manner _(default)_ or more aggressively.  The strategy may be set in the `EventProcessorOptions` when creating the processor.  More details about strategies can be found in the associated [documentation](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.processor.loadbalancingstrategy?view=azure-dotnet).
+- The `EventProcessor<TPartition>` now supports a configurable strategy for load balancing, allowing control over whether it claims ownership of partitions in a balanced manner _(default)_ or more aggressively.  The strategy may be set in the `EventProcessorOptions` when creating the processor.  More details about strategies can be found in the associated [documentation](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.processor.loadbalancingstrategy).
 
 - The `EventHubConsumerClient` now allows for performance tuning by setting the `PrefetchCount` and `CacheEventCount` values in its associated options.
 
@@ -198,7 +198,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 #### New Features
 
-- The `EventProcessorClient` now supports a configurable strategy for load balancing, allowing control over whether it claims ownership of partitions in a balanced manner _(default)_ or more aggressively.  The strategy may be set in the `EventProcessorClientOptions` when creating the processor.  More details about strategies can be found in the associated [documentation](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.processor.loadbalancingstrategy?view=azure-dotnet).
+- The `EventProcessorClient` now supports a configurable strategy for load balancing, allowing control over whether it claims ownership of partitions in a balanced manner _(default)_ or more aggressively.  The strategy may be set in the `EventProcessorClientOptions` when creating the processor.  More details about strategies can be found in the associated [documentation](https://docs.microsoft.com/dotnet/api/azure.messaging.eventhubs.processor.loadbalancingstrategy).
 
 - The `EventProcessorClient` now allows for performance tuning by setting the `PrefetchCount` and `CacheEventCount` values in its associated options.
 

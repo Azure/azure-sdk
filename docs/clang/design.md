@@ -3,7 +3,7 @@ title: "C Guidelines: API Design"
 keywords: guidelines clang
 permalink: clang_design.html
 folder: clang
-sidebar: clang_sidebar
+sidebar: general_sidebar
 ---
 
 {% include draft.html content="The C Language guidelines are in DRAFT status" %}
@@ -635,7 +635,7 @@ do so using user-overridable functions.
 
 ## Secure functions
 
-{% include requirement/SHOULDNOT id="clang-no-ms-secure-functions" %} use [Microsoft security enhanced versions of CRT functions](https://docs.microsoft.com/cpp/c-runtime-library/security-enhanced-versions-of-crt-functions?view=vs-2019) to implement APIs that need to be portable across many platforms. Such code is not portable and is not C99 compatible. Adding that code to your API will complicate the implementation with little to no gain from the security side. See [arguments against]( http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1967.htm). 
+{% include requirement/SHOULDNOT id="clang-no-ms-secure-functions" %} use [Microsoft security enhanced versions of CRT functions](https://docs.microsoft.com/cpp/c-runtime-library/security-enhanced-versions-of-crt-functions) to implement APIs that need to be portable across many platforms. Such code is not portable and is not C99 compatible. Adding that code to your API will complicate the implementation with little to no gain from the security side. See [arguments against]( http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1967.htm). 
 
 > TODO: Verify with the security team, and what are the alternatives?
 

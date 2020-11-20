@@ -3,7 +3,7 @@ title: Azure SDK for Embedded C (%%MMMM yyyy%%)
 layout: post
 tags: c
 sidebar: releases_sidebar
-repository: azure/azure-sdk-for-c
+repository: Azure/azure-sdk-for-c
 ---
 
 The Azure SDK team is pleased to make available the %%MMMM yyyy%% client library release.
@@ -30,9 +30,9 @@ $>
 
 ## Feedback
 
-If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/azure/azure-sdk-for-c/issues).
+If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/Azure/azure-sdk-for-c/issues).
 
-## Changelog
+## Release highlights
 
 ### _Package name_
 

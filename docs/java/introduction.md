@@ -3,7 +3,7 @@ title: "Java Guidelines: Introduction"
 keywords: guidelines java
 permalink: java_introduction.html
 folder: java
-sidebar: java_sidebar
+sidebar: general_sidebar
 ---
 
 The Java guidelines are for the benefit of client library designers targeting service applications written in Java.  If you are a client library designer that is targeting Android mobile apps, refer to the [Android Guidelines](android_introduction.html) instead.

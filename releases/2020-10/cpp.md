@@ -8,37 +8,45 @@ repository: azure/azure-sdk-for-cpp
 
 The Azure SDK team is pleased to make available the October 2020 client library release.
 
-#### GA
-
-- _Add packages_
-
-#### Updates
-
-- _Add packages_
-
 #### Beta
 
-- _Add packages_
+- Azure Core
+- Azure Storage Blobs
+- Azure Storage Files DataLake
+- Azure Storage Files Shares
 
 ## Installation Instructions
 
 To install any of our packages, copy and paste the following commands into a terminal:
 
 ```bash
-$> 
+git clone https://github.com/Azure/azure-sdk-for-cpp
+
+git checkout <tag_name>
 ```
 
 ## Feedback
 
-If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/azure/azure-sdk-for-cpp/issues).
+If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/Azure/azure-sdk-for-cpp/issues).
 
 ## Changelog
 
-Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
+### Azure Core [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/core/azure-core/CHANGELOG.md)
 
-### _Package name_
+#### Bug Fixes
 
-- Major changes only!
+- Fixed a case where path was not properly encoded
+- Switched to select() in libcurl for polling operations
+
+### Azure Storage Blobs [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/CHANGELOG.md#100-beta2-2020-09-09)
+
+### Azure Storage Files DataLake [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/CHANGELOG.md#100-beta2-2020-09-09)
+
+#### New Features
+
+- Support for SetExpiry
+
+### Azure Storage Files Shares [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/CHANGELOG.md#100-beta2-2020-09-09)
 
 ## Latest Releases
 
