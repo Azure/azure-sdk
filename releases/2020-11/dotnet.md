@@ -225,6 +225,7 @@ This release of the SDK defaults to the latest supported API version, which curr
 
 #### New Features
 
+- Added integration for ASP.NET Core.
 - Support for two new prebuilt recognition models for invoices and business cards.
 - Support for selection marks as a new fundamental form element. This type is supported in content recognition and in
 training/recognizing custom forms (labeled only).
