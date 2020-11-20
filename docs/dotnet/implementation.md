@@ -6,111 +6,31 @@ folder: dotnet
 sidebar: general_sidebar
 ---
 
-## Code Generation
+## API Implementation
 
-## Logging
+### The Service Client
 
-Request logging will be done automatically by the `HttpPipeline`.  If a client library needs to add custom logging, follow the [same guidelines](implementation.md#general-logging) and mechanisms as the pipeline logging mechanism.  If a client library wants to do custom logging, the designer of the library must ensure that the logging mechanism is pluggable in the same way as the `HttpPipeline` logging policy.
+#### Service Client Constructors
 
-{% include requirement/MUST id="dotnet-logging-follow-guidelines" %} follow [the logging section of the Azure SDK General Guidelines](implementation.md#general-logging) if logging directly (as opposed to through the `HttpPipeline`).
+##### Creating Generated Client
 
-### EventSource
+##### HttpPipeline
 
-{% include requirement/MUST id="dotnet-tracing-eventsource" %} use `EventSource` to produce diagnostic events.
+##### Setting up Authentication
 
-{% include requirement/MUST id="dotnet-tracing-eventsource-logging-guidelines" %} follow the logging guidelines when implementing an `EventSource`.
+#### Service Methods
 
-{% include requirement/MUST id="dotnet-tracing-eventsource-single" %} have a single `EventSource` type per library.
+##### Calling Generated Code
 
-{% include requirement/MUST id="dotnet-tracing-eventsource-internal" %} define `EventSource` class as `internal sealed`.
+##### Diagnostic Scopes
 
-{% include requirement/MUST id="dotnet-tracing-eventsource-singleton" %} define and use a singleton instance of `EventSource`:
+#### Service Method Return Types
 
-{% include requirement/MUST id="dotnet-tracing-eventsource-traits" %} define `AzureEventSource` trait with value `true` to make the `EventSource` discoverable by listeners (you can use `AzureEventSourceListener.TraitName` `AzureEventSourceListener.TraitValue` constants):
+##### Creating Response Instances
 
-{% include requirement/MUST id="dotnet-tracing-eventsource-name" %} set `EventSource` name to package name replacing `.` with `-` (i.e. . `Azure-Core` for `Azure.Core` package)
+#### Service Method Parameters
 
-{% include requirement/MUST id="dotnet-tracing-eventsource-event-message" %} have `Message` property of EventAttribute set for all events.
-
-{% include requirement/MUST id="dotnet-tracing-eventsource-public-api" %} treat `EventSource` name, guid, event id and parameters as public API and follow the appropriate versioning rules.
-
-{% include requirement/SHOULD id="dotnet-tracing-eventsource-is-enabled" %} check IsEnabled property before doing expensive work (formatting parameters, calling ToString, allocations etc.)
-
-{% include requirement/MUSTNOT id="dotnet-tracing-eventsource-event-param-exception" %} define events with `Exception` parameters as they are not supported by `EventSource`.
-
-{% include requirement/MUST id="dotnet-tracing-eventsource-test" %} have a test that asserts `EventSource` name, guid and generates the manifest to verify that event source is correctly defined.
-
-{% include requirement/MUST id="dotnet-tracing-eventsource-test-events" %} test that expected events are produced when appropriate. `TestEventListener` class can be used to collect events. Make sure you mark the test as `[NonParallelizable]`.
-
-{% include requirement/SHOULD id="dotnet-tracing-eventsource-thrown-exceptions" %} avoid logging exceptions that are going to get thrown to user code anyway.
-
-{% include requirement/SHOULD id="dotnet-tracing-eventsource-event-size-limit" %} be aware of event size limit of 64K.
-
-```
-[Test]
-public void MatchesNameAndGuid()
-{
-    // Arrange & Act
-    var eventSourceType = typeof(AzureCoreEventSource);
-
-    // Assert
-    Assert.NotNull(eventSourceType);
-    Assert.AreEqual("Azure-Core", EventSource.GetName(eventSourceType));
-    Assert.AreEqual(Guid.Parse("1015ab6c-4cd8-53d6-aec3-9b937011fa95"), EventSource.GetGuid(eventSourceType));
-    Assert.IsNotEmpty(EventSource.GenerateManifest(eventSourceType, "assemblyPathToIncludeInManifest"));
-}
-```
-
-Sample `EventSource` declaration:
-
-``` C#
-
-[EventSource(Name = EventSourceName)]
-internal sealed class AzureCoreEventSource : EventSource
-{
-    private const string EventSourceName = "Azure-Core";
-    
-    // Having event ids defined as const makes it easy to keep track of them
-    private const int MessageSentEventId = 0;
-    private const int ClientClosingEventId = 1;
-    
-    public static AzureCoreEventSource Shared { get; } = new AzureCoreEventSource();
-    
-    private AzureCoreEventSource() : base(EventSourceName, EventSourceSettings.Default, AzureEventSourceListener.TraitName, AzureEventSourceListener.TraitValue) { }
-    
-    [NonEvent]
-    public void MessageSent(Guid clientId, string messageBody)
-    {
-        // We are calling Guid.ToString make sure anyone is listening before spending resources
-        if (IsEnabled(EventLevel.Informational, EventKeywords.None))
-        {
-            MessageSent(clientId.ToString("N"), messageBody);
-        }
-    }
-    
-    // In this example we don't do any expensive parameter formatting so we can avoid extra method and IsEnabled check
-    
-    [Event(ClientClosingEventId, Level = EventLevel.Informational, Message = "Client {0} is closing the connection.")]
-    public void ClientClosing(string clientId)
-    {
-        WriteEvent(ClientClosingEventId, clientId);
-    }
-    
-    [Event(MessageSentEventId, Level = EventLevel.Informational, Message = "Client {0} sent message with body '{1}'")]
-    private void MessageSent(string clientId, string messageBody)
-    {
-        WriteEvent(MessageSentEventId, clientId, messageBody);
-    }    
-}
-```
-
-## Distributed Tracing {#dotnet-distributedtracing}
-
-{% include draft.html content="Guidance coming soon ..." %}
-
-TODO: If we don't have this, we should probably take this part out.
-
-## Parameter validation {#dotnet-parameters}
+##### Parameter validation {#dotnet-parameters}
 
 In addition to [general parameter validation guidelines](introduction.md#dotnet-parameters):
 
@@ -129,7 +49,15 @@ Just add the following to your project to include it:
 
 See remarks on the `Argument` class for more detail.
 
-## Enumeration-like structures {#dotnet-enums}
+#### Methods Returning Collections (Paging)
+
+#### Methods Invoking Long Running Operations
+
+### Supporting Types
+
+#### Generated Model Types
+
+#### Enumeration-like structures {#dotnet-enums}
 
 As described in [general enumeration guidelines](introduction.md#dotnet-enums), you should use `enum` types whenever passing or deserializing a well-known set of values to or from the service.
 There may be times, however, where a `readonly struct` is necessary to capture an extensible value from the service even if well-known values are defined,
@@ -235,7 +163,7 @@ public partial readonly struct EncryptionAlgorithm : IEquatable<EncryptionAlgori
 }
 ```
 
-### Constant values for enumeration-like structures {#dotnet-enums-values}
+##### Constant values for enumeration-like structures {#dotnet-enums-values}
 
 {% include requirement/SHOULD id="dotnet-enums-values-define" %} define a nested static class named `Values` with public constants if and only if extensible enum values *must* be used as constant expressions, for example:
 
@@ -271,7 +199,123 @@ public partial readonly struct EncryptionAlgorithm : IEquatable<EncryptionAlgori
 
 {% include requirement/MUST id="dotnet-enums-values-test" %} define tests to ensure extensible enum properties and defined `Values` constants declare the same names and define the same values. See [here](https://github.com/Azure/azure-sdk-for-net/blob/322f6952e4946229949bd3375f5eb6120895fd2f/sdk/search/Azure.Search.Documents/tests/Models/LexicalAnalyzerNameTests.cs#L14-L29) for an example.
 
-## ASP.NET Core Integration
+### Exceptions
+
+#### Using Azure Core helpers to create exception instances
+
+### Authentication
+
+### Hierarchical Clients
+
+### Code Generation
+
+## Library Implementation
+
+### Logging
+
+Request logging will be done automatically by the `HttpPipeline`.  If a client library needs to add custom logging, follow the [same guidelines](implementation.md#general-logging) and mechanisms as the pipeline logging mechanism.  If a client library wants to do custom logging, the designer of the library must ensure that the logging mechanism is pluggable in the same way as the `HttpPipeline` logging policy.
+
+{% include requirement/MUST id="dotnet-logging-follow-guidelines" %} follow [the logging section of the Azure SDK General Guidelines](implementation.md#general-logging) if logging directly (as opposed to through the `HttpPipeline`).
+
+#### EventSource
+
+{% include requirement/MUST id="dotnet-tracing-eventsource" %} use `EventSource` to produce diagnostic events.
+
+{% include requirement/MUST id="dotnet-tracing-eventsource-logging-guidelines" %} follow the logging guidelines when implementing an `EventSource`.
+
+{% include requirement/MUST id="dotnet-tracing-eventsource-single" %} have a single `EventSource` type per library.
+
+{% include requirement/MUST id="dotnet-tracing-eventsource-internal" %} define `EventSource` class as `internal sealed`.
+
+{% include requirement/MUST id="dotnet-tracing-eventsource-singleton" %} define and use a singleton instance of `EventSource`:
+
+{% include requirement/MUST id="dotnet-tracing-eventsource-traits" %} define `AzureEventSource` trait with value `true` to make the `EventSource` discoverable by listeners (you can use `AzureEventSourceListener.TraitName` `AzureEventSourceListener.TraitValue` constants):
+
+{% include requirement/MUST id="dotnet-tracing-eventsource-name" %} set `EventSource` name to package name replacing `.` with `-` (i.e. . `Azure-Core` for `Azure.Core` package)
+
+{% include requirement/MUST id="dotnet-tracing-eventsource-event-message" %} have `Message` property of EventAttribute set for all events.
+
+{% include requirement/MUST id="dotnet-tracing-eventsource-public-api" %} treat `EventSource` name, guid, event id and parameters as public API and follow the appropriate versioning rules.
+
+{% include requirement/SHOULD id="dotnet-tracing-eventsource-is-enabled" %} check IsEnabled property before doing expensive work (formatting parameters, calling ToString, allocations etc.)
+
+{% include requirement/MUSTNOT id="dotnet-tracing-eventsource-event-param-exception" %} define events with `Exception` parameters as they are not supported by `EventSource`.
+
+{% include requirement/MUST id="dotnet-tracing-eventsource-test" %} have a test that asserts `EventSource` name, guid and generates the manifest to verify that event source is correctly defined.
+
+{% include requirement/MUST id="dotnet-tracing-eventsource-test-events" %} test that expected events are produced when appropriate. `TestEventListener` class can be used to collect events. Make sure you mark the test as `[NonParallelizable]`.
+
+{% include requirement/SHOULD id="dotnet-tracing-eventsource-thrown-exceptions" %} avoid logging exceptions that are going to get thrown to user code anyway.
+
+{% include requirement/SHOULD id="dotnet-tracing-eventsource-event-size-limit" %} be aware of event size limit of 64K.
+
+```
+[Test]
+public void MatchesNameAndGuid()
+{
+    // Arrange & Act
+    var eventSourceType = typeof(AzureCoreEventSource);
+
+    // Assert
+    Assert.NotNull(eventSourceType);
+    Assert.AreEqual("Azure-Core", EventSource.GetName(eventSourceType));
+    Assert.AreEqual(Guid.Parse("1015ab6c-4cd8-53d6-aec3-9b937011fa95"), EventSource.GetGuid(eventSourceType));
+    Assert.IsNotEmpty(EventSource.GenerateManifest(eventSourceType, "assemblyPathToIncludeInManifest"));
+}
+```
+
+Sample `EventSource` declaration:
+
+``` C#
+
+[EventSource(Name = EventSourceName)]
+internal sealed class AzureCoreEventSource : EventSource
+{
+    private const string EventSourceName = "Azure-Core";
+    
+    // Having event ids defined as const makes it easy to keep track of them
+    private const int MessageSentEventId = 0;
+    private const int ClientClosingEventId = 1;
+    
+    public static AzureCoreEventSource Shared { get; } = new AzureCoreEventSource();
+    
+    private AzureCoreEventSource() : base(EventSourceName, EventSourceSettings.Default, AzureEventSourceListener.TraitName, AzureEventSourceListener.TraitValue) { }
+    
+    [NonEvent]
+    public void MessageSent(Guid clientId, string messageBody)
+    {
+        // We are calling Guid.ToString make sure anyone is listening before spending resources
+        if (IsEnabled(EventLevel.Informational, EventKeywords.None))
+        {
+            MessageSent(clientId.ToString("N"), messageBody);
+        }
+    }
+    
+    // In this example we don't do any expensive parameter formatting so we can avoid extra method and IsEnabled check
+    
+    [Event(ClientClosingEventId, Level = EventLevel.Informational, Message = "Client {0} is closing the connection.")]
+    public void ClientClosing(string clientId)
+    {
+        WriteEvent(ClientClosingEventId, clientId);
+    }
+    
+    [Event(MessageSentEventId, Level = EventLevel.Informational, Message = "Client {0} sent message with body '{1}'")]
+    private void MessageSent(string clientId, string messageBody)
+    {
+        WriteEvent(MessageSentEventId, clientId, messageBody);
+    }    
+}
+```
+
+### Distributed Tracing {#dotnet-distributedtracing}
+
+{% include draft.html content="Guidance coming soon ..." %}
+
+TODO: If we don't have this, we should probably take this part out.
+
+## Ecosystem Integration
+
+### Integration with ASP.NET Core
 
 All Azure client libraries ship with a set of extension methods that provide integration with ASP.NET Core applications by registering clients with DependencyInjection container, flowing Azure SDK logs to ASP.NET Core logging subsystem and providing ability to use configuration subsystem for client configuration (for more examples see https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/core/Microsoft.Extensions.Azure)
 
@@ -298,7 +342,6 @@ public static IAzureClientBuilder<ConfigurationClient, ConfigurationClientOption
 ```
 
 {% include requirement/MUST id="dotnet-client-builder-overload-tokencredential" %} provide extension method for `IAzureClientFactoryBuilderWithCredential` interface for constructors that take `TokenCredentials`. Extension method should take same set of parameters as constructor except the `TokenCredential` and call into `builder.RegisterClientFactory` overload that provides the token credential as part of factory lambda. 
-
 
 Sample implementation:
 
