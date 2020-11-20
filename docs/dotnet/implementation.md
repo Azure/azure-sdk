@@ -6,26 +6,15 @@ folder: dotnet
 sidebar: general_sidebar
 ---
 
-## Parameter validation {#dotnet-parameters}
+## Code Generation
 
-In addition to [general parameter validation guidelines](introduction.md#dotnet-parameters):
+## Logging
 
-{% include requirement/MUSTNOT id="dotnet-parameter-validation-class" %} define your own parameter validation class.
+Request logging will be done automatically by the `HttpPipeline`.  If a client library needs to add custom logging, follow the [same guidelines](implementation.md#general-logging) and mechanisms as the pipeline logging mechanism.  If a client library wants to do custom logging, the designer of the library must ensure that the logging mechanism is pluggable in the same way as the `HttpPipeline` logging policy.
 
-Use the `Argument` class in Azure.Core or even "extend" it (it's a partial class included as source) with project-specific argument assertions.
-Just add the following to your project to include it:
+{% include requirement/MUST id="dotnet-logging-follow-guidelines" %} follow [the logging section of the Azure SDK General Guidelines](implementation.md#general-logging) if logging directly (as opposed to through the `HttpPipeline`).
 
-```xml
-<!-- Import Azure.Core properties if not already imported. -->
-<Import Project="$(MSBuildThisFileDirectory)..\..\..\core\Azure.Core\src\Azure.Core.props" />
-<ItemGroup>
-    <Compile Include="$(AzureCoreSharedSources)Argument.cs" />
-</ItemGroup>
-```
-
-See remarks on the `Argument` class for more detail.
-
-## EventSource
+### EventSource
 
 {% include requirement/MUST id="dotnet-tracing-eventsource" %} use `EventSource` to produce diagnostic events.
 
@@ -114,6 +103,31 @@ internal sealed class AzureCoreEventSource : EventSource
     }    
 }
 ```
+
+## Distributed Tracing {#dotnet-distributedtracing}
+
+{% include draft.html content="Guidance coming soon ..." %}
+
+TODO: If we don't have this, we should probably take this part out.
+
+## Parameter validation {#dotnet-parameters}
+
+In addition to [general parameter validation guidelines](introduction.md#dotnet-parameters):
+
+{% include requirement/MUSTNOT id="dotnet-parameter-validation-class" %} define your own parameter validation class.
+
+Use the `Argument` class in Azure.Core or even "extend" it (it's a partial class included as source) with project-specific argument assertions.
+Just add the following to your project to include it:
+
+```xml
+<!-- Import Azure.Core properties if not already imported. -->
+<Import Project="$(MSBuildThisFileDirectory)..\..\..\core\Azure.Core\src\Azure.Core.props" />
+<ItemGroup>
+    <Compile Include="$(AzureCoreSharedSources)Argument.cs" />
+</ItemGroup>
+```
+
+See remarks on the `Argument` class for more detail.
 
 ## Enumeration-like structures {#dotnet-enums}
 
