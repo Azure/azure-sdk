@@ -10,28 +10,28 @@ sidebar: android_sidebar
 
 ## Library considerations
 
-Android Java developers need to concern themselves with the runtime environment they are running in. The Android ecosystem is fragmented, with a wide variety of runtimes deployed.
+### TODO: Revisit min API level
+
+Android developers need to concern themselves with the runtime environment they are running in. The Android ecosystem is fragmented, with a wide variety of runtimes deployed.
 
 {% include requirement/MUST id="android-library-sync-support" %} support API level 21 and later (Android 5.0 Lollipop).
-
-{% include requirement/MUST id="android-library-async-support" %} support async HTTP at API level 21.
-
-{% include requirement/MUST id="android-library-separate-libraries" %} release separate client libraries for sync and async versions.
 
 There are two settings that are of concern when discussing the minimum API level to choose:
 
 1. The minimum API level that Google supports.
 2. The reach of selecting a particular API level.
 
-We require the minimum API level that Google supports that reaches 90% of Android devices (as listed on the [Android distribution dashboard](https://developer.android.com/about/dashboards/)). This is currently API level 21.
+We require the minimum API level that Google supports that reaches at least 90% of Android devices (as listed on the [Android distribution dashboard](https://developer.android.com/about/dashboards/)). This is currently API level 21.
 
-{% include requirement/MUST id="android-library-target-sdk-version" %} set the `targetSdkVersion` to be API level 26.
+{% include requirement/MUST id="android-library-target-sdk-version" %} set the `targetSdkVersion` to be API level 26 or higher.
 
 As of November 2018, all existing apps are required to target API level 26 or higher. For more information, see [Improving app security and performance on Google Play for years to come](https://android-developers.googleblog.com/2017/12/improving-app-security-and-performance.html).
 
 {% include requirement/MUST id="android-library-max-sdk-version" %} set the `maxSdkVersion` to be the latest API level that you have run tests on. This should be the latest API level that is supported by Google at the point at which the SDK is released.
 
-{% include requirement/MUST id="android-library-java-version" %} use Java 7, with the following Java 8 features:
+{% include requirement/MUST id="android-library-java-lang" %} write client libraries in Java. This avoids forcing customers to depend on the Kotlin runtime in their applications.
+
+{% include requirement/MUST id="android-library-java-version" %} write client libraries using Java 8 syntax. Java 8 syntax constructs will be down-leveled using [Java 8 language feature desugaring](https://developer.android.com/studio/write/java8-support#supported_features) provided by Android Gradle Plugin 3.0.0+. This includes use of the following Java 8 language features:
 
 * Lambda expressions
 * Method references
@@ -39,15 +39,25 @@ As of November 2018, all existing apps are required to target API level 26 or hi
 * Default and static interface methods
 * Repeating annotations
 
-{% include requirement/MUST id="android-library-source-compat" %} use source and target compatibility set to 1.8.
+{% include requirement/MUST id="android-library-source-compat" %} set your Gradle project's source and target compatibility level to 1.8.
 
-{% include requirement/MUST id="android-library-shrink-code" %} [shrink your code](https://developer.android.com/studio/build/shrink-code.html#shrink-code)
+{% include requirement/MUSTNOT id="android-library-java-api" %} use Java 8+ APIs. Some such APIs are able to be down-leveled using [Java 8+ API desugaring](https://developer.android.com/studio/write/java8-support#library-desugaring) provided by Android Gradle Plugin 4.0.0+. However many developers may not be using a sufficiently updated version of the plugin, and library desugaring injects additional code into the customer's application, potentially increasing the APK size or method count. This includes use of the following Java 8+ APIs:
 
-{% include requirement/MUST id="android-library-64bit" %} Release the library as a 64-bit AAR.
+* Sequential streams (`java.util.stream`)
+* `java.time`
+* `java.util.function`
+* Java 8+ additions to `java.util.{Map,Collection,Comparator}`
+* Optionals (`java.util.Optional`, `java.util.OptionalInt` and `java.util.OptionalDouble`)
+* Java 8+ additions to `java.util.concurrent.atomic` (new methods on `AtomicInteger`, `AtomicLong` and `AtomicReference`)
+* `ConcurrentHashMap`
 
-{% include requirement/MUST id="android-library-resoiurce-prefix" %} define a `resourcePrefix` of `azure_<service>` in the `build.gradle` android section if using resources.
+{% include requirement/MUST id="android-library-aar" %} release the library as an Android AAR.
 
-{% include requirement/MUST id="android-library-proguard" %} use `consumerProguardFiles` if you need to change Proguard settings to support the client library.
+{% include requirement/MUST id="android-library-resource-prefix" %} define a `resourcePrefix` of `azure_<service>` in the `build.gradle` android section if using resources.
+
+{% include requirement/SHOULD id="android-library-shrink-code" %} include a Proguard configuration in the AAR to assist developers in correctly minifying their applications when using the library.
+
+{% include requirement/MUST id="android-library-proguard" %} use `consumerProguardFiles` if you include a Proguard configuration in the library.
 
 ## Configuration
 
@@ -68,7 +78,7 @@ When configuring your client library, particular care must be taken to ensure th
 1. Log level, which must take effect immediately across the Azure SDK.
 2. Tracing on/off, which must take effect immediately across the Azure SDK.
 
-{% include requirement/MUSTNOT id="android-config-envvars" %} rely on environment variables or other environment configuration to configure the SDK. The user of a mobile app does not have access to environment variables. Use the Azure Core configuration API instead.
+{% include requirement/MUSTNOT id="android-config-envvars" %} rely on environment variables or other environment configuration to configure the SDK. The user of a mobile app does not have access to environment variables. Use the Azure Core Configuration API instead.
 
 ## Parameter validation
 
@@ -96,19 +106,20 @@ The HTTP pipeline consists of a HTTP transport that is wrapped by multiple polic
 - Unique Request ID
 - Retry
 - Authentication
-- Response downloader
 - Distributed tracing
 - Logging
 
-{% include requirement/SHOULD id="android-network-use-azure-core-policies" %} use the policy implementations in Azure Core whenever possible. Do not try to "write your own" policy unless it is doing something unique to your service. If you need another option to an existing policy, engage with the [Architecture Board] to add the option.
+{% include requirement/SHOULD id="android-network-use-azure-core-policies" %} use the policy implementations in Azure Core whenever possible. Do not try to "write your own" policy unless it is doing something unique to your service. If you need another option to an existing policy, engage with the Architecture Board to add the option.
 
 {% include requirement/MUST id="android-network-azure-core-policies-public" %} make all custom policies (HTTP or otherwise) available as public API. This enables developers who choose to implement their own pipeline to reuse the policy rather than write it themselves.
+
+### TODO: Discuss abstraction of HTTP client
 
 ## Authentication
 
 When implementing authentication, don't open up the consumer to security holes like PII (personally identifiable information) leakage or credential leakage. Credentials are generally issued with a time limit, and must be refreshed periodically to ensure that the service connection continues to function as expected. Ensure your client library follows all current security recommendations and consider an independent security review of the client library to ensure you're not introducing potential security problems for the consumer.
 
-{% include requirement/MUSTNOT id="android-auth-never-persist" %} persist, cache, or reuse security credentials. Security credentials should be considered short lived to cover both security concerns and credential refresh situations.
+{% include requirement/MUSTNOT id="android-auth-never-persist" %} persist, cache to disk, or reuse security credentials. Security credentials should be considered short lived to cover both security concerns and credential refresh situations.
 
 If your service implements a non-standard credential system (that is, a credential system that is not supported by Azure Core), then you need to produce an authentication policy for the HTTP pipeline that can authenticate requests given the alternative credential types provided by the client library.
 
@@ -116,13 +127,15 @@ If your service implements a non-standard credential system (that is, a credenti
 
 Client libraries may support providing credential data via a connection string __ONLY IF__ the service provides a connection string to users via the portal or other tooling.   Connection strings are generally good for getting started as they are easily integrated into an application by copy/paste from the portal.  However, connection strings are considered a lesser form of authentication because the credentials cannot be rotated within a running process.
 
-{% include requirement/MUSTNOT id="android-auth-connection-strings" %} support constructing a service client with a connection string unless such connection string is available within tooling (for copy/paste operations).
+{% include requirement/MUSTNOT id="android-auth-connection-strings" %} support constructing a service client with a connection string unless such connection string is available within tooling (for copy/paste operations). When supporting connection strings, the documentation must include a warning that building credentials such as connection strings into a consumer-facing application is inherently insecure.
 
 ## Native code
 
 Native code plugins cause compatibility issues and require additional scrutiny. Certain languages compile to a machine-native format (for example, C or C++), whereas most modern languages opt to compile to an intermediary format to aid in cross-platform support.
 
-{% include requirement/MUSTNOT id="android-no-native-code" %} write platform-specific / native code.
+{% include requirement/SHOULDNOT id="android-no-native-code" %} write platform-specific / native code. If you feel like you need to include native binaries in your library, contact the [Azure SDK mobile team](mailto:azuresdkmobileteam@microsoft.com) for advice.
+
+{% include requirement/MUST id="android-native-code-arch" %} include binaries for all common Android architectures if your library includes platform-specific / native code.
 
 ## Error handling
 

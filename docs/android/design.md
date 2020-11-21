@@ -78,9 +78,9 @@ Your API surface consists of one or more _service clients_ that the consumer wil
 
 {% include requirement/MUST id="android-client-naming" %} name service client types with the _Client_ suffix (for example, `ConfigurationClient`). More than one service client may be offered for a single service. For example, a client for the storage service's Blob feature should be named `StorageBlobClient`.
 
-{% include requirement/MUST id="android-async-client-name" %} offer an async service client named `<Service>[<Feature>]AsyncClient`, as async is the most common paradigm on Android.
+{% include requirement/MUST id="android-async-client-name" %} offer an async service client named `<Service>[<Feature>]AsyncClient`.
 
-{% include requirement/MUST id="android-sync-client-name" %} offer a sync service client named `<ServiceName>Client`.
+{% include requirement/MUST id="android-sync-client-name" %} offer a sync service client named `<Service>[<Feature>]Client`.
 
 {% include requirement/MUST id="android-client-location" %} place service client types that the consumer is most likely to interact with in the root package of the client library (for example, `com.azure.storage.blob`). Specialized service clients should be placed in subpackages.
 
@@ -102,6 +102,8 @@ We speak about using the client library in a cross-language manner within outbou
 
 #### Async clients
 
+##### TODO: Revise
+
 {% include requirement/MUSTNOT id="android-async-framework" %} use a third-party library to provide an async API.
 
 {% include requirement/MUSTNOT id="android-async-suffix" %} use the suffix `Async` in methods that do operations asynchronously. Let the fact the user has an instance of an 'async client' provide this context.
@@ -114,13 +116,15 @@ We speak about using the client library in a cross-language manner within outbou
 
 #### Client options
 
-Client constructors, and some client methods, accept options to customize the client or to customize how the method will be executed. 
+Client constructors and client methods must accept options to customize the client or to customize how the method will be executed. 
 
-{% include requirement/MUST id="android-options-object" %} provide an immutable class named with the suffix `Options` to allow for customization of the client / method call. This class should have a constructor that accepts all possible options for the client / method call as optional parameters.
+{% include requirement/MUST id="android-options-object" %} provide an immutable class named with the suffix `Options` to allow for customization of each client or method call.
 
 {% include requirement/MUST id="android-options-classes-extend" %} make `Options` objects extend from Azure Core's `ClientOptions` for clients and `RequestOptions` for method calls.
 
-{% include requirement/MUST id="android-options-parameter" %} accept an `Options` object as a single parameter named `options` in the client constructor or method signature, rather than accepting individual options as separate parameters.
+{% include requirement/MUST id="android-options-parameter-required" %} accept all arguments required to construct a client or execute a method call as individual parameters to the client constructor or method. An argument is considered required if the library author deems it to be essential to the developer experience of the client API, regardless of whether the argument is flagged as required in the service's API spec.
+
+{% include requirement/MUST id="android-options-parameter-optional" %} include an overload of each constructor or method that accepts an `Options` object as the final parameter named `options`. The `Options` object must contain all optional arguments to the constructor or method call, do not expose individual optional arguments as separate parameters to the constructor or method.
 
 {% include requirement/MUST id="android-options-types" %} use rich types where possible for options. For example, use the `Date` type for dates. When not possible, name the option with a suffix to express the expected type. If the expected type is a unit, the suffix should follow the format `In<Unit>`. Unit should be `ms` for milliseconds, and otherwise the name of the unit. Examples include `timeoutInMs` and `delayInSeconds`.
 
@@ -189,11 +193,13 @@ Don't offer builder or fluent APIs for supporting classes such as custom excepti
 
 ## Network requests
 
+### TODO: Revise
+
 The client library wraps HTTP requests so it's important to support standard network capabilities. Asynchronous programming techniques aren't widely understood. However, such techniques are essential in developing resilient web services. Many developers prefer synchronous method calls for their easy semantics when learning how to use a technology. Consumers also expect certain capabilities in a network stack (such as call cancellation, automatic retry, and logging).
 
 {% include requirement/MUST id="android-network-sync-and-async" %} support both synchronous and asynchronous service clients.
 
-{% include requirement/MUST id="android-network-packaging-for-sync-and-async" %} have [separate service clients] for sync and async APIs. The consumer needs to identify which methods are async and which are sync.
+{% include requirement/MUST id="android-network-packaging-for-sync-and-async" %} have separate service clients for sync and async APIs. The consumer needs to identify which methods are async and which are sync.
 
 {% include requirement/MUST id="android-network-callback-final" %} accept a callback as the final parameter for async client methods.
 
@@ -288,11 +294,13 @@ For methods that combine multiple requests into a single call:
 
 ## Pagination
 
+### TODO: Revise
+
 Azure client libraries eschew low-level pagination APIs in favor of high-level abstractions that implement per-item iterators. High-level APIs are easy for developers to use for the majority of use cases but can be more confusing when finer-grained control is required (for example, over-quota/throttling) and debugging when things go wrong. Other guidelines in this document work to mitigate this limitation, for example by providing robust logging, tracing, and pipeline customization options.
 
 {% include requirement/MUST id="android-pagination-sync-support" %} return `PagedDataCollection<T, P>` for APIs that expose paginated collections. The `PagedDataCollection<T, P>` type (located in Azure Core) provides access to paged results on a per-page basis.
 
-{% include requirement/MUST id="android-pagination-rest-sync-support" %} return `PagedDataResonseCollection<T, P>` for synchronous APIs that expose paginated collections that need to include its HTTP response details. The `PagedDataResponseCollection<T, P>` type (located in Azure Core) provides access to paged results on a per-page basis.
+{% include requirement/MUST id="android-pagination-rest-sync-support" %} return `PagedDataResponseCollection<T, P>` for synchronous APIs that expose paginated collections that need to include its HTTP response details. The `PagedDataResponseCollection<T, P>` type (located in Azure Core) provides access to paged results on a per-page basis.
 
 {% include requirement/MUST id="android-pagination-rest-async-support" %} return `PagedDataCollection<T, P>` for asynchronous APIs that expose paginated collections that need to include its HTTP response details. The `AsyncPagedDataCollection<T, P>` type (located in Azure Core) provides access to paged results on a per-page basis.
 
