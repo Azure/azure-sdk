@@ -2,6 +2,7 @@ param (
   $language = "all",
   $releaseFolder = "$PSScriptRoot\..\..\_data\releases\latest"
 )
+Set-StrictMode -Version 3
 
 $releaseFolder = Resolve-Path $releaseFolder
 
@@ -35,12 +36,17 @@ function CheckLink($url)
   return $false
 }
 
-function UpdateDocLinks($lang, $pkg)
+function UpdateDocLinks($lang, $pkg, $skipIfNA = $false)
 {
+  if ($skipIfNA -and $pkg.MSDocs -eq "NA" -and $pkg.GHDocs -eq "NA") {
+    return
+  }
+
   if ($lang -eq "js") { $lang = "javascript" }
 
   $trimmedPackage = $pkg.Package -replace "@?azure[\.\-/]", ""
 
+  $suffix = ""
   if (!$pkg.VersionGA -and $pkg.VersionPreview) { $suffix = "-pre" }
 
   $msdocvalid = CheckLink "https://docs.microsoft.com/${lang}/api/overview/azure/${trimmedPackage}-readme${suffix}/"
@@ -90,6 +96,10 @@ function Update-java-Packages($packageList)
 {
   foreach ($pkg in $packageList)
   {
+    if ($pkg.Package.EndsWith("-parent") -or $pkg.Package.EndsWith("-bom")) {
+      # Skip parent or bom packages because we don't publish any docs or other links for them. The versions should be updated by the package manager update
+      continue
+    }
     $version = GetVersionWebContent "java" $pkg.Package "latest-ga"
 
     if ($null -eq $version) {
@@ -237,6 +247,11 @@ function Update-python-Packages($packageList)
 {
   foreach ($pkg in $packageList)
   {
+    if ($pkg.Package.EndsWith("-nspkg")) {
+      # Skip nspkg's because we don't publish any docs or other links for them. The versions should be updated by the package manager update
+      continue
+    }
+
     $version = GetVersionWebContent "python" $pkg.Package "latest-ga"
     if ($null -eq $version) {
       Write-Host "Skipping update for $($pkg.Package) as we don't have versiong info for it. "
@@ -477,7 +492,7 @@ function Output-Latest-Versions($lang)
 
   foreach($otherPackage in $otherPackages)
   {
-    UpdateDocLinks $lang $otherPackage
+    UpdateDocLinks $lang $otherPackage -skipIfNA $true
   }
 
   Write-Host "Writing $packagelistFile"

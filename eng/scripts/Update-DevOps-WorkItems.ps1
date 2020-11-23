@@ -976,7 +976,7 @@ function UpdateShippedPackageVersion($pkgWorkItem, $versionsFromTags)
   $loggingString = "[$($pkgWI.id)]"
   $loggingString += "$($pkgWorkItem.fields['Custom.Language'])"
   $loggingString += " - $($pkgWorkItem.fields['Custom.Package'])"
-  $loggingString += "($($pkgWorkItem.fields['Custom.PackageVersionMajorMinor'])"
+  $loggingString += "($($pkgWorkItem.fields['Custom.PackageVersionMajorMinor']))"
   $loggingString += " - Updating versions $versionsForDebug"
   Write-Host $loggingString
   $response = Invoke-RestMethod -Method PATCH `
