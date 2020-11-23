@@ -27,6 +27,7 @@ The Azure SDK team is pleased to make available the November 2020 client library
 - Metrics Advisor
 - Eventgrid
 - Form Recognizer
+- Text Analytics
 
 ## Installation Instructions
 
@@ -46,6 +47,7 @@ pip install azure-storage-file-share
 pip install azure-storage-queue
 pip install azure-ai-formrecognizer --pre
 pip install azure-mgmt-communication --pre
+pip install azure-ai-textanalytics --pre
 ```
 
 ## Feedback
@@ -150,23 +152,29 @@ This version of the SDK defaults to the latest supported API version, which curr
 
 #### New Features
 
-- Support for two new prebuilt recognition models for invoices and business cards through the 
-`begin_recognize_invoices()` and  `begin_recognize_business_cards()` methods (as well as their `from_url` counterparts) 
+- Support for two new prebuilt recognition models for invoices and business cards through the
+`begin_recognize_invoices()` and  `begin_recognize_business_cards()` methods (as well as their `from_url` counterparts)
 of `FormRecognizerClient`.
 - Support for selection marks as a new fundamental form element. This type is supported in content recognition and in
 training/recognizing custom forms (labeled only).
-- Support for creating composed models from a collection of existing models (trained with labels) through the 
+- Support for creating composed models from a collection of existing models (trained with labels) through the
 `begin_create_composed_model()` method of `FormTrainingClient`.
-- A `model_name` keyword argument added for model training (both `begin_training()` and `begin_create_composed_model()`) that 
+- A `model_name` keyword argument added for model training (both `begin_training()` and `begin_create_composed_model()`) that
 can specify a human-readable name for a model.
 - Support for the bitmap image format (with content type "image/bmp") in prebuilt model recognition and content recognition.
-- A `locale` keyword argument added for all prebuilt model methods, allowing for the specification of a document's origin to assist the 
+- A `locale` keyword argument added for all prebuilt model methods, allowing for the specification of a document's origin to assist the
 service with correct analysis of the document's content.
-- A `language` keyword argument added for the content recognition method `begin_recognize_content()` that specifies which 
+- A `language` keyword argument added for the content recognition method `begin_recognize_content()` that specifies which
 language to process the document in.
 - A `pages` keyword argument added for the content recognition method `begin_recognize_content()` that specifies which pages
 in a multi-page document should be analyzed.
 - Additional properties added to response models - see Changelog for detailed information.
+
+### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#510b3-2020-11-19)
+
+#### New Features
+- Support for the service's long-running batch analysis `Analyze` API.
+- Support for the service's `Health` API. Since this is a gated preview, you will need to have your subscription put on an allow list to use.
 
 ## Latest Releases
 
