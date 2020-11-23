@@ -42,6 +42,7 @@ The Azure SDK team is pleased to announce our November 2020 client library relea
 - Search Documents
 - Service Bus
 - Tables
+- Text Analytics
 
 ## Installation Instructions
 
@@ -51,6 +52,8 @@ To install any of our packages, please search for them via `Manage NuGet Package
 $> dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.1
 
 $> dotnet add package Azure.AI.MetricsAdvisor --version 1.0.0-beta.2
+
+$> dotnet add package Azure.AI.TextAnalytics --version 5.1.0-beta.3
 
 $> dotnet add package Azure.Communication.Administration --version 1.0.0-beta.3
 $> dotnet add package Azure.Communication.Chat --version 1.0.0-beta.3
@@ -219,7 +222,7 @@ This release contains a collection of minor bug fixes, performance improvements,
 
 - Added an overload of `AddAzureKeyVault` that takes an `AzureKeyVaultConfigurationOptions` parameter and allows specifying the reload interval.
 
-### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md)
+### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#310-beta1-2020-11-23)
 
 This release of the SDK defaults to the latest supported API version, which currently is v2.1-preview.2
 
@@ -398,6 +401,12 @@ This release contains test improvements.
 - Added support for Upsert batch operations.
 - Added support for some numeric type coercion for TableEntity properties.
 - Added TryGetFailedEntityFromException method on TablesTransactionalBatch to extract the entity that caused a batch failure from a RequestFailedException.
+
+### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#510-beta3-2020-11-19)
+
+#### New Features
+- Added support for new asynchronous Text Analytics for Health API. Note this is a currently in a gated preview where AAD is not supported. More information [here](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health?tabs=ner#request-access-to-the-public-preview).
+- Added support for new asynchronous Analyze API to support the execution of multiples task in one or more documents. Current task support include: Named entity recognition, Personally Identifiable Information, and Key phrase extraction.
 
 ## Latest Releases
 
