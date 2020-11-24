@@ -10,7 +10,7 @@ sidebar: android_sidebar
 
 ## Library considerations
 
-### TODO: Revisit min API level
+> TODO: Revisit min API level
 
 Android developers need to concern themselves with the runtime environment they are running in. The Android ecosystem is fragmented, with a wide variety of runtimes deployed.
 
@@ -113,7 +113,7 @@ The HTTP pipeline consists of a HTTP transport that is wrapped by multiple polic
 
 {% include requirement/MUST id="android-network-azure-core-policies-public" %} make all custom policies (HTTP or otherwise) available as public API. This enables developers who choose to implement their own pipeline to reuse the policy rather than write it themselves.
 
-### TODO: Discuss abstraction of HTTP client
+> TODO: Discuss abstraction of HTTP client
 
 ## Authentication
 
@@ -168,12 +168,12 @@ In the case of a higher-level method that produces multiple HTTP requests, eithe
 
 {% include requirement/MUST id="android-errors-javadoc" %} specify all checked and unchecked exceptions thrown in a method within the JavaDoc documentation on the method as `@throws` statements.
 
-{% include requirement/MUST id="android-errors-exception-tree" %} use the existing exception types present in the Azure core library for service request failures. Avoid creating new exception types. The following list outlines all available exception types (with indentation indicating exception type hierarchy):
+{% include requirement/MUST id="android-errors-exception-tree" %} use the existing exception types present in the Azure core library for common failures related to sending requests to and receiving responses from the service. The following list outlines all available exception types (with indentation indicating exception type hierarchy):
 
 - `AzureException`: Never use directly. Throw a more specific subtype.
   - `ReadTimeoutException`: Thrown when the server didn't send any data in the allotted amount of time.
   - `ConnectException`: Thrown by the pipeline if a connection to a service fails or is refused remotely.
-  - `HttpRequestException`: Thrown when an unsuccessful response (4xx, 5xx) is returned from the service.
+  - `HttpRequestException`: Thrown when the HTTP status code (4xx, 5xx) indicates the request was unable to be processed by the service.
     - `ServerException`: Thrown when there's a server error with status code of 5XX.
     - `TooManyRedirectsException`: Thrown when an HTTP request has reached the maximum number of redirect attempts.
   - `HttpResponseException`: Thrown when the request was sent to the service, but the client library wasn't able to understand the response.
@@ -183,11 +183,13 @@ In the case of a higher-level method that produces multiple HTTP requests, eithe
     - `ResourceModifiedException`: Thrown for invalid resource modification with status code of 4XX, typically 412 Conflict.
     - `ResourceNotFoundException`: Thrown when a resource is not found, typically triggered by a 412 response (for PUT) or 404 (for GET/POST).
 
+{% include requirement/MAY id="android-errors-client-exception" %} provide a single exception type that inherits from `HttpResponseException` (or `AzureException` for non-HTTP services) to represent service-specific errors.
+
 ## Logging
 
 Client libraries must support robust logging mechanisms so that the consumer can adequately diagnose issues with the method calls and quickly determine whether the issue is in the consumer code, client library code, or service.
 
-{% include requirement/MUST id="android-logging-clientlogger" %} use the `ClientLogger` API provided within Azure Core as the sole logging API throughout all client libraries. Internally, `ClientLogger` logs to the ADB console.
+{% include requirement/MUST id="android-logging-clientlogger" %} use the `ClientLogger` API provided within Azure Core as the sole logging API throughout all client libraries. Internally, `ClientLogger` logs to the Android Logcat buffer.
 
 {% include requirement/MUST id="android-logging-create-new" %} create a new instance of a `ClientLogger` per instance of all relevant classes. For example, the code below will create a `ClientLogger` instance for the `ConfigurationAsyncClient`:
 
@@ -195,8 +197,7 @@ Client libraries must support robust logging mechanisms so that the consumer can
 public final class ConfigurationAsyncClient {
     private final ClientLogger logger = new ClientLogger(ConfigurationAsyncClient.class);
 
-    // example async call to a service that uses the Project Reactor APIs to log request, success, and error
-    // information out to the service logger instance
+    // example call to a service
     public void setSetting(ConfigurationSetting setting) {
         return service.setKey(serviceEndpoint, setting.key(), setting.label(), setting, getETagValue(setting.etag()), null, new CallbackWithHeader<ConfigurationSetting>() {
             @Override
@@ -213,7 +214,7 @@ public final class ConfigurationAsyncClient {
 }
 ```
 
-Don't create static logger instances. Static logger instances are shared among all client library instances running in a JVM instance.
+Don't create static logger instances. Static logger instances are long-lived and the memory allocated to them is not released until the application is terminated.
 
 {% include requirement/MUST id="android-logging-levels" %} use one of the following log levels when emitting logs: `Logger.debug` (details), `Logger.info` (things happened), `Logger.warning` (might be a problem or not), and `Logger.error`.
 
@@ -223,9 +224,9 @@ Don't create static logger instances. Static logger instances are shared among a
 
 {% include requirement/MUST id="android-logging-info" %} use the `Logger.info` logging level when a function operates normally.
 
-{% include requirement/MUST id="android-logging-trace" %} use the `Logger.debug` logging level for detailed troubleshooting scenarios. This is primarily intended for developers or system administrators to diagnose specific failures.
+{% include requirement/MUST id="android-logging-debug" %} use the `Logger.debug` logging level for detailed troubleshooting scenarios. This is primarily intended for developers or system administrators to diagnose specific failures.
 
-{% include requirement/MUSTNOT id="android-logging-sensitive-info" %} send sensitive information in log levels other than `Logger.trace`. For example, remove account keys when logging headers.
+{% include requirement/MUSTNOT id="android-logging-sensitive-info" %} send sensitive information in log levels other than `Logger.debug`. For example, remove account keys when logging headers.
 
 {% include requirement/MUST id="android-logging-no-sensitive-info" %} only log headers and query parameters that are in a service-provided "allow-list" of approved headers and query parameters.  All other headers and query parameters must have their values redacted.
 
@@ -239,10 +240,6 @@ Don't create static logger instances. Static logger instances are shared among a
 
 This happens within azure-core by default, but users can configure this through the builder `httpLogOptions` configuration setting.
 
-{% include requirement/MUST id="android-logging-cancellation" %} use `Logger.info` if a service call is cancelled.
-
-{% include requirement/MUST id="android-logging-throws" %} throw all exceptions created within the client library code through the `ClientLogger.logAndThrow()` API.
-
 {% include requirement/MUST id="android-logging-responses" %} log response line and headers as a `Logger.info` message. The format of the log should be the following:
 
 * The SDK provided request ID (see above).
@@ -251,12 +248,12 @@ This happens within azure-core by default, but users can configure this through 
 * The response headers (redacted if not in the allow-list).
 * The time period between the first attempt of the request and the first byte of the body.
 
-{% include requirement/MUST id="android-logging-cancellations" %} log an message at the `Logger.info` level if a service call is cancelled.  The log should include:
+{% include requirement/MUST id="android-logging-cancellations" %} log a message at the `Logger.info` level if a service call is cancelled.  The log should include:
 
 * The SDK provided request ID (see above).
 * The reason for the cancellation (if available).
 
-{% include requirement/MUST id="android-logging-exceptions" %} log exceptions thrown as a `Warning` level message. If the log level set to `Verbose`, append stack trace information to the message.
+{% include requirement/MUST id="android-logging-exceptions" %} log thrown exceptions at the `Logger.warning` level. If the log level is set to `debug`, append stack trace information to the message.
 
 {% include requirement/MUST id="android-logging-log-and-throw" %} throw all exceptions created within the client library code through the `ClientLogger.logAndThrow()` API.
 
@@ -276,53 +273,16 @@ if (priority != null && priority < 0) {
 
 ## Distributed tracing
 
-Distributed tracing mechanisms allow the consumer to trace their code from frontend to backend. The distributed tracing library creates spans - units of unique work. Each span is in a parent-child relationship. As you go deeper into the hierarchy of code, you create more spans. These spans can then be exported to a suitable receiver as needed. To keep track of the spans, a _distributed tracing context_ (called a context in the remainder of this section) is passed into each successive layer. For more information on this topic, visit the [OpenTelemetry] topic on tracing.
+Distributed tracing is not common within the mobile ecosystem, so we don’t expect that consumers will implement distributed tracing within a mobile app. However, the consumer should not be prevented from implementing distributed tracing if they so desire.
 
-The Azure core library provides a service provider interface (SPI) for adding pipeline policies at runtime. The pipeline policy is used to enable tracing on consumer deployments. Pluggable pipeline policies must be supported in all client libraries to enable distributed tracing. Additional metadata can be specified on a per-service-method basis to provide a richer tracing experience for consumers.
-
-{% include requirement/MUST id="android-tracing-pluggable" %} support pluggable pipeline policies as part of the HTTP pipeline instantiation.
-
-Review the code sample below, in which a service client builder creates an `HttpPipeline` from its set of policies. At the same time, the builder allows plugins to add 'before retry' and 'after retry' policies with the lines `HttpPolicyProviders.addBeforeRetryPolicies(policies)` and `HttpPolicyProviders.addAfterRetryPolicies(policies)`:
-
-```java
-public ConfigurationAsyncClient build() {
-    ...
-
-    // Closest to API goes first, closest to wire goes last.
-    final List<HttpPipelinePolicy> policies = new ArrayList<>();
-    policies.add(new UserAgentPolicy(AzureConfiguration.NAME, AzureConfiguration.VERSION, buildConfiguration));
-    policies.add(new RequestIdPolicy());
-    policies.add(new AddHeadersPolicy(headers));
-    policies.add(new AddDatePolicy());
-    policies.add(new ConfigurationCredentialsPolicy(buildCredentials));
-    HttpPolicyProviders.addBeforeRetryPolicies(policies);
-    policies.add(retryPolicy);
-    policies.addAll(this.policies);
-    HttpPolicyProviders.addAfterRetryPolicies(policies);
-    policies.add(new HttpLoggingPolicy(httpLogDetailLevel));
-
-    ...
-}
-```
-
-{% include requirement/MUST id="android-tracing-accept-context" %} accept a context from calling code to establish a parent span.
-
-{% include requirement/MUST id="android-tracing-pass-context" %} pass the context to the backend service through the appropriate headers (`traceparent`, `tracestate`, etc.) to support [Azure Monitor]. This is generally done with the HTTP pipeline.
-
-{% include requirement/MUST id="android-tracing-new-span-per-method" %} create a new span for each method that user code calls. New spans must be children of the context that was passed in. If no context was passed in, a new root span must be created.
-
-{% include requirement/MUST id="android-tracing-new-span-per-rest-call" %} create a new span (which must be a child of the per-method span) for each REST call that the client library makes. This is generally done with the HTTP pipeline.
-
-{%include requirement/MUST id="android-tracing-use-tracerproxy" %} use the Azure core `TracerProxy` API to set additional metadata that should be supplied along with the tracing span. In particular, use the `setAttribute(String key, String value, Context context)` method to set a new key/value pair on the tracing context.
-
-Some of these requirements will be handled by the HTTP pipeline. However, as a client library writer, you must handle the incoming context appropriately.
+> TODO: What would we need to do to enable distributed tracing?
 
 ## Dependencies
 
 Dependencies bring in many considerations that are often easily avoided by avoiding the dependency.
 
 - **Versioning** - Many programming languages do not allow a consumer to load multiple versions of the same package. So, if we have an client library that requires v3 of package Foo and the consumer wants to use v5 of package Foo, then the consumer cannot build their application. This means that client libraries should not have dependencies by default.
-- **Size** - Consumer applications must be able to deploy as fast as possible into the cloud and move in various ways across networks. Removing additional code (like dependencies) improves deployment performance.
+- **Size** - Consumer applications must be able to deploy as fast as possible to mobile devices. Mobile devices also have limited storage and users may have limited data plans. Removing additional code (like dependencies) is critical for many mobile applications.
 - **Licensing** - You must be conscious of the licensing restrictions of a dependency and often provide proper attribution and notices when using them.
 - **Compatibility** - Often times you do not control a dependency and it may choose to evolve in a direction that is incompatible with your original use.
 - **Security** - If a security vulnerability is discovered in a dependency, it may be difficult or time consuming to get the vulnerability corrected if Microsoft does not control the dependency's code base.
@@ -333,15 +293,15 @@ Dependencies bring in many considerations that are often easily avoided by avoid
 
 {% include_relative approved_dependencies.md %}
 
-{% include requirement/MUSTNOT id="android-dependencies-introduction" %} introduce new dependencies on third-party libraries that are already referenced from the parent POM, without first discussing with the [Architecture Board].
+> TODO: We should have a guideline around use of AndroidX libraries. Or if they're treated the same as other external dependencies we should add them to the approved dependencies list.
 
-{% include requirement/MUSTNOT id="android-dependencies-pom" %} specify or change dependency versions in your client library Gradle or POM file. All dependency versioning must be centralized through the common parent build.gradle file.
+{% include requirement/MUSTNOT id="android-dependencies-versions" %} specify or change dependency versions in your client library Gradle file. All dependency versioning must be centralized through the common parent `build.gradle` file.
 
 {% include requirement/MUSTNOT id="android-dependencies-snapshot" %} include dependencies on external libraries that are -SNAPSHOT versions. All dependencies must be released versions.
 
 {% include requirement/SHOULD id="android-dependencies-vendoring" %} consider copying or linking required code into the client library in order to avoid taking a dependency on another package that could conflict with the ecosystem. Make sure that you are not violating any licensing agreements and consider the maintenance that will be required of the duplicated code. ["A little copying is better than a little dependency"][1] (YouTube).
 
-{% include requirement/MUSTNOT id="android-dependencies-concrete" %} depend on concrete logging, dependency injection, or configuration technologies (except as implemented in the `com.azure.core` library). The client library will be used in applications that might be using the logging, DI, and configuration technologies of their choice.
+{% include requirement/MUSTNOT id="android-dependencies-concrete" %} depend on concrete logging, dependency injection, or configuration technologies (except as implemented in the `com.azure.android.core` library). The client library will be used in applications that might be using the logging, DI, and configuration technologies of their choice.
 
 ## Service-specific common library code
 
@@ -366,9 +326,11 @@ Let's take two examples:
 
 ## Testing
 
-One of the key things we want to support is to allow consumers of the library to easily write repeatable unit-tests for their applications without activating a service. This allows them to reliable and quickly test their code without worrying about the vagaries of the underlying service implementation (including, for example, network conditions or service outages). Mocking is also helpful to simulate failures, edge cases, and hard to reproduce situations (for example: does code work on February 29th).
+One of the key things we want to support is to allow consumers of the library to easily write repeatable unit-tests for their applications without activating a service. This allows them to reliably and quickly test their code without worrying about the vagaries of the underlying service implementation (including, for example, network conditions or service outages). Mocking is also helpful to simulate failures, edge cases, and hard to reproduce situations (for example: does code work on February 29th).
 
 {% include requirement/MUST id="android-testing-mocking" %} support mocking of network operations.
+
+{% include requirement/MUST id="android-testing-stub-os" %} encapsulate access to Android OS APIs by way of an intermediate interface. This allows the runtime implementation to be swapped out for a test implementation in unit tests.
 
 {% include refs.md %}
 {% include_relative refs.md %}

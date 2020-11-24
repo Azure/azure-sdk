@@ -35,7 +35,9 @@ As you write your code, doc it so you never hear about it again. The fewer quest
 
 {% include requirement/MUST id="android-docs-lang-support" %} document the library with samples and code snippets in both Kotlin and Java.
 
-{% include requirement/MUSTNOT id="android-docs-version-details" %} include version details when specifying Gradle or Maven dependency statements. Always refer the user back to a central document detailing how to use the Azure SDK root build.gradle file.
+{% include requirement/MUST id="android-docs-package-managers" %} include both Gradle and Maven samples when specifying how to install the library.
+
+{% include requirement/MUST id="android-docs-version-details" %} specify the latest version of a library when providing examples of Gradle or Maven dependency statements.
 
 ## Code samples
 
@@ -51,13 +53,11 @@ Code samples are small applications that demonstrate a certain feature that is r
 
 {% include requirement/MUST id="android-samples-android-studio" %} ensure that each sample file is wrapped in an Android application that can be loaded and compiled by Android Studio.
 
-{% include requirement/MUST id="android-samples-java-version" %} use the latest coding conventions when creating samples. Make liberal use of modern Java syntax and APIs (for example, diamond operators) as they remove boilerplate from your samples and highlight you library. Don't use any language feature or API of Java the currently supported Java baseline. The current supported Java version is Java 7 (with a few Java extensions).
-
-{% include requirement/MUST id="android-samples-api-version" %} ensure that samples are written with a `minSdkVersion` of 21. 
+{% include requirement/MUST id="android-samples-java-version" %} use the latest coding conventions when creating samples. Make liberal use of modern Java / Kotlin syntax (for example, diamond operators), APIs, and Android OS features, as they remove boilerplate from your samples and highlight your library.
 
 {% include requirement/MUST id="android-samples-latest-major-library-version" %} compile sample code using the latest major release of the library. Review sample code for freshness. At least one commit must be made (to update dependencies) to each sample per semester.
 
-{% include requirement/MUST id="android-samples-grafting" %} ensure that code samples can be easily grafted from the documentation into a users own application. For example, don't rely on variable declarations in other samples.
+{% include requirement/MUST id="android-samples-grafting" %} ensure that code samples are self-contained and can be easily grafted from the documentation into a user's application. For example, don't rely on variable declarations in other samples.
 
 {% include requirement/MUST id="android-samples-comprehension" %} write code samples for ease of reading and comprehension over code compactness and efficiency.
 
@@ -69,41 +69,11 @@ Combined operations require knowledge of additional operations that might be out
 
 ## JavaDoc
 
-{% include requirement/MUST id="android-javadoc-production" %} ensure that anybody can clone the repo containing the client library and execute `mvn javadoc:javadoc` to generate the full and complete JavaDoc output for the code, without any need for additional processing steps.
+{% include requirement/MUST id="android-javadoc-production" %} ensure that anybody can clone the repo containing the client library and execute `./gradlew :dokkaHtmlMultiModule` to generate the full and complete JavaDoc output for the code, without any need for additional processing steps.
 
-{% include requirement/MUST id="android-javadoc-include-samples" %} include code samples in all class-level JavaDoc, and in relevant method-level JavaDoc.
+{% include requirement/MUST id="android-javadoc-include-samples" %} include code snippets in all class-level JavaDoc, and in relevant method-level JavaDoc.
 
-{% include requirement/MUSTNOT id="android-javadoc-no-hard-coding" %} hard-code the sample within the JavaDoc (where it may become stale). Follow the steps below to correctly ingest code samples from Java source files into the generated JavaDoc. 
-
-Let's assume we want to insert code samples into the JavaDoc of a class named `ClientBuilder` in the `com.azure.android.clientlibrary` package, located within the `src/main/java` directory:
-
-1. If it doesn't exist, create a source directory named `src/samples/java`.
-2. Create a Java package with the same name as the package of the source class for which JavaDoc will be generated (for our example, `com.azure.android.clientlibrary`).
-3. Create a class with the name `<SourceClass>JavaDocCodeSamples` (for example, `ClientBuilderJavaDocCodeSamples`)
-4. Write code samples to insert into the generated JavaDoc of the source class.
-5. Wrap the code samples with `BEGIN` and `END` comments. Don't use punctuation in the sample name.
-
-```java
-    // BEGIN: mysampletag1
-    … your code sample here …
-    // END: mysampletag1
-```
-
-6. Open the source class in `src/main/java`. Edit the JavaDoc section:
-
-```java
-    /**
-     * {@codesnippet mysampletag1}
-     */
-```
-
-7. Generate the JavaDoc output with Maven.
-
-```bash
-mvn install -DskipTests -Dinclude-non-shipping-modules -Dgpg.skip=true -f pom.client.xml
-```
-
-{% include requirement/MUST id="android-samples-naming" %} follow the naming convention outlined below for naming samples tags:
+{% include requirement/MUST id="android-samples-naming" %} follow the naming convention outlined below for naming snippets:
 
  * If a new instance of the class is created through build() method of a builder or through constructor: `<packagename>.<classname>.instantiation`
  * For other methods in the class: `<packagename>.<classname>.<methodName>`
@@ -111,5 +81,3 @@ mvn install -DskipTests -Dinclude-non-shipping-modules -Dgpg.skip=true -f pom.cl
 
 {% include refs.md %}
 {% include_relative refs.md %}
-
-
