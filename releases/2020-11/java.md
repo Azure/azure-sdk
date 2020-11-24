@@ -22,6 +22,9 @@ The Azure SDK team is pleased to announce our November 2020 client library relea
 - Azure Communication Chat
 - Azure Communication Common
 - Azure Communication SMS
+- Azure Spring Cloud
+- Azure Spring Boot
+- JCA Provider for Azure Key Vault
 
 ## Installation Instructions
 
@@ -103,6 +106,98 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-communication-sms</artifactId>
   <version>1.0.0-beta.3</version>
+</dependency>
+```
+To use Azure Spring Cloud starters and binders, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate.
+
+```xml
+ <dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-stream-binder-servicebus-queue</artifactId>
+  <version>2.0.0-beta.1</version> 
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-stream-binder-servicebus-topic</artifactId>
+  <version>2.0.0-beta.1</version> 
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-starter-cache</artifactId>
+  <version>2.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-starter-eventhubs-kafka</artifactId>
+  <version>2.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-stream-binder-eventhubs</artifactId>
+  <version>2.0.0-beta.1</version>
+</dependency>
+```
+
+To use Azure Spring Boot starters, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate.
+```xml
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-boot-bom</artifactId>
+  <version>3.0.0-beta.1</version>
+  <type>pom</type>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-boot</artifactId>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-boot-starter</artifactId>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-boot-starter-active-directory</artifactId>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-boot-starter-active-directory-b2c</artifactId>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-boot-starter-cosmos</artifactId>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-boot-starter-keyvault-secrets</artifactId>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-boot-starter-servicebus-jms</artifactId>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-boot-starter-storage</artifactId>
+</dependency>
+```
+
+To JCA Provider for Azure Key Vault, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate.
+```xml
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-jca</artifactId>
+  <version>1.0.0-beta.2</version> 
 </dependency>
 ```
 
@@ -211,6 +306,38 @@ This release contains bug fixes to improve quality.
 #### Breaking Changes
 
 - Removed credential(CommunicationClientCredential credential) and replaced with accessKey(String accessKey) within CommunicationIdentityClientBuilder.
+
+### Azure Spring Cloud ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-cloud-autoconfigure/CHANGELOG.md#128-2020-09-14))
+
+#### Breaking Changes
+- Change group id from com.microsoft.azure to com.azure.spring.
+- Change artifact id from spring-cloud-azure-autoconfigure to azure-spring-cloud-autoconfigure.
+
+### Azure Spring Boot ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot/CHANGELOG.md#300-beta1-2020-11-18))
+
+#### Breaking Changes
+
+*   Conditional access policy is not supported temporary, we may recover it in the future.
+*   Configuration items like `spring.security.oauth2.client.xxx` is not supported anymore. Please use the following configuration items instead:
+    
+    ```
+    azure.activedirectory.tenant-id=xxxxxx-your-tenant-id-xxxxxx
+    azure.activedirectory.client-id=xxxxxx-your-client-id-xxxxxx
+    azure.activedirectory.client-secret=xxxxxx-your-client-secret-xxxxxx
+    azure.activedirectory.user-group.allowed-groups=group1, group2
+    azure.activedirectory.scope = your-customized-scope1, your-customized-scope2
+    azure.activedirectory.redirect-uri-template=xxxxxx-your-redirect-uri-xxxxxx
+    
+    ```
+    
+*   Check scope parameter for AAD authorization requests before configuration. Necessary permissions would be automatically added if needed.
+*   Update `com.azure` group id to `com.azure.spring`.
+*   Deprecated azure-spring-boot-metrics-starter.
+*   Change group id from `com.microsoft.azure` to `com.azure.spring`.
+
+### JCA Provider for Azure Key Vault ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-jca/CHANGELOG.md#100-beta2-2020-11-17))
+
+- Add support for PEM based certificates.
   
 ## Need help
 
