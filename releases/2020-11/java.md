@@ -34,11 +34,14 @@ The Azure SDK team is pleased to announce our November 2020 client library relea
 - Azure Communication Common
 - Azure Communication SMS
 - Azure Digital Twins
+- Azure Form Recognizer
 - Azure Metrics Advisor
 - Azure Key Vault Administration
+- Azure Key Vault Keys
 - Azure Tables
 - Azure Eventhubs
 - Azure Service Bus
+- Azure Text Analytics
 - Microsoft Opentelemetry Exporter Azuremonitor
 
 ## Installation Instructions
@@ -62,6 +65,18 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-ai-textanalytics</artifactId>
   <version>5.0.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-ai-formrecognizer</artifactId>
+  <version>3.0.3</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-ai-formrecognizer</artifactId>
+  <version>3.1.0-beta.1</version>
 </dependency>
 
 <dependency>
@@ -162,8 +177,32 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 
 <dependency>
   <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-certificates</artifactId>
+  <version>4.1.3</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-jca</artifactId>
+  <version>1.0.0-beta.2</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-keys</artifactId>
+  <version>4.2.3</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
   <artifactId>azure-security-keyvault-keys</artifactId>
   <version>4.3.0-beta.3</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-secrets</artifactId>
+  <version>4.2.3</version>
 </dependency>
 
 <dependency>
@@ -232,6 +271,30 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/azure/azure-sdk-for-java/issues).
 
 ## Release highlights
+
+### Azure Ai Formrecognizer 3.1.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#310-beta1-2020-11-23)
+
+#### Breaking changes
+
+- Defaults to the latest supported API version, which currently is `2.1-preview.2`.
+
+#### New Features
+
+- Added support for pre-built business card recognition.
+- Added support for pre-built invoices recognition.
+- Added implementation support to create a composed model from the `FormTrainingClient` by calling method `beginCreateComposedModel`.
+- Added `language` to `RecognizeContentOptions` for users to specify a preferred language to process the document.
+- Added support to `beginRecognizeContent` to recognize selection marks such as check boxes and radio buttons.
+- Added support to train and recognize custom forms with selection marks such as check boxes and radio buttons.
+This functionality is only available in trained with labels scenarios.
+- When passing `includeFieldElements` as true in `RecognizeCustomFormsOptions`, the property `fieldElements` on `FieldData`
+and `FormTableCell` will also be populated with any selection marks found on the page.
+- Added support for providing locale info when recognizing receipts and business cards.
+Supported locales include support EN-US, EN-AU, EN-CA, EN-GB, EN-IN.
+- Added property `Appearance` to `FormLine` to indicate the style of the extracted text, for example, "handwriting" or "other".
+- Added support for `FormContentType` `image/bmp` in recognize content and prebuilt models.
+- Added property `Pages` to `RecognizeContentOptions` to specify the page numbers to analyze.
+- Added property `BoundingBox` to `FormTable`.
 
 ### Azure Ai Metricsadvisor 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md#100-beta2-2020-11-10)
 
@@ -377,7 +440,11 @@ accessKey(String accessKey) within CommunicationIdentityClientBuilder.
 - Added support for encrypting and decrypting AES-GCM and AES-CBC keys.
 - Added `KeyType.OCT_HSM` to support "oct-HSM" key operations.
 
-### Azure Storage Blob [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md)
+### Azure Security Keyvault Jca 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-jca/CHANGELOG.md#100-beta2-2020-11-17)
+
+- Add support for PEM based certificates.
+
+### Azure Storage Blob 12.9.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md#1290-2020-11-11)
 
 #### New Features
 
@@ -427,6 +494,15 @@ Removed ability to create a ShareLeaseClient for a Share or Share Snapshot. This
 #### Bug Fixes
 
 - Fixed a bug that would cause a NPE when visibilityTimeout was set to null in QueueClient.updateMessage
+
+### Azure Ai Textanalytics 5.1.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#510-beta3-2020-11-19)
+
+#### New features
+
+- Added support for healthcare recognition feature. It is represented as a long-running operation. Cancellation supported.
+- Added support for analyze tasks feature, It analyzes multiple tasks (such as, entity recognition, PII entity recognition
+and key phrases extraction) simultaneously in a list of document.
+- Currently, Azure Active Directory (AAD) is not supported in the Healthcare recognition feature.
 
 ### Microsoft Opentelemetry Exporter Azuremonitor 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/monitor/microsoft-opentelemetry-exporter-azuremonitor/CHANGELOG.md#100-beta2-2020-11-10)
 
