@@ -146,7 +146,7 @@ This release contains minor bug fixes and improvements.
 #### New Features
 - Added `receive_message` on `QueueClient` to support receiving one message from queue.
 
-### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md)
+### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#310b1-2020-11-23)
 
 This version of the SDK defaults to the latest supported API version, which currently is v2.1-preview.
 
