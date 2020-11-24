@@ -102,7 +102,7 @@ We speak about using the client library in a cross-language manner within outbou
 
 #### Async clients
 
-##### TODO: Revise
+> TODO: Revise
 
 {% include requirement/MUSTNOT id="android-async-framework" %} use a third-party library to provide an async API.
 
@@ -193,7 +193,7 @@ Don't offer builder or fluent APIs for supporting classes such as custom excepti
 
 ## Network requests
 
-### TODO: Revise
+> TODO: Revise
 
 The client library wraps HTTP requests so it's important to support standard network capabilities. Asynchronous programming techniques aren't widely understood. However, such techniques are essential in developing resilient web services. Many developers prefer synchronous method calls for their easy semantics when learning how to use a technology. Consumers also expect certain capabilities in a network stack (such as call cancellation, automatic retry, and logging).
 
@@ -294,7 +294,7 @@ For methods that combine multiple requests into a single call:
 
 ## Pagination
 
-### TODO: Revise
+> TODO: Revise
 
 Azure client libraries eschew low-level pagination APIs in favor of high-level abstractions that implement per-item iterators. High-level APIs are easy for developers to use for the majority of use cases but can be more confusing when finer-grained control is required (for example, over-quota/throttling) and debugging when things go wrong. Other guidelines in this document work to mitigate this limitation, for example by providing robust logging, tracing, and pipeline customization options.
 
