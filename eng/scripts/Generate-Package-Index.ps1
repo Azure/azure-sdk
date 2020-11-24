@@ -3,6 +3,7 @@ param (
   $releaseFolder = "$PSScriptRoot\..\..\_data\releases\latest",
   $outputFolder = "."
 )
+Set-StrictMode -Version 3
 
 $releaseFolder = Resolve-Path $releaseFolder
 $outputFolder = Resolve-Path $outputFolder
@@ -12,7 +13,8 @@ function MSDocLink($lang, $pkg)
   if ($pkg.MSDocs -eq "NA") { return "" }
   if ($pkg.MSDocs -ne "") { return "[docs]($($pkg.MSDocs))" }
 
-  if (!$pkg.Version -and $pkg.VersionPreview) { $suffix = "-pre" }
+  $suffix = ""
+  if (!$pkg.VersionGA -and $pkg.VersionPreview) { $suffix = "-pre" }
 
   $msPackagePath = $pkg.Package -replace "@?azure[\.\-/]", ""
   return "[docs](https://docs.microsoft.com/${lang}/api/overview/azure/${msPackagePath}-readme${suffix}/)"
@@ -31,6 +33,11 @@ function Get-Row($pkg, $lang, $packageFormat, $sourceFormat)
 
   $version = $pkg.VersionGA
   if ($version -eq "") { $version = $pkg.VersionPreview }
+
+  if ($version -eq "") {
+    Write-Warning "No version found for $($pkg.Package) so skipping"
+    return
+  }
 
   if ($pkg.VersionGA -ne "" -and $pkg.VersionPreview -ne "") {
     $package = $packageFormat -f $pkg.Package, $pkg.VersionGA
