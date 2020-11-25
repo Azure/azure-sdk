@@ -8,7 +8,7 @@ sidebar: general_sidebar
 
 {% include draft.html content="The Android guidelines are in DRAFT status" %}
 
-The Android guidelines are for the benefit of client library designers targeting service applications written for the native Android ecosystem.  You do not have to write a client library for Android if your service is not normally accessed from mobile apps.
+The Android guidelines are for the benefit of client library designers targeting service applications written for the native Android ecosystem. You do not have to write a client library for Android if your service is not normally accessed from mobile apps.
 
 ## Design principles
 
@@ -55,8 +55,6 @@ The Azure SDK should be designed to enhance the productivity of developers conne
 ## General Guidelines
 
 {% include requirement/MUST id="android-general-follow-general-guidelines" %} follow the [General Azure SDK Guidelines].
-
-> **DEVIATION** 
 
 {% include requirement/MUST id="android-general-repository" %} locate all source code in the [azure/azure-sdk-for-android] GitHub repository.
 
