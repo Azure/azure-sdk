@@ -24,7 +24,7 @@ The Azure SDK team is pleased to announce our November 2020 client library relea
 - Azure Communication SMS
 - Azure Spring Cloud
 - Azure Spring Boot
-- JCA Provider for Azure Key Vault
+- Azure Key Vault JCA Provider  
 
 ## Installation Instructions
 
@@ -314,7 +314,7 @@ This release contains bug fixes to improve quality.
 
 - Removed credential(CommunicationClientCredential credential) and replaced with accessKey(String accessKey) within CommunicationIdentityClientBuilder.
 
-### Azure Spring Cloud ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-cloud-autoconfigure/CHANGELOG.md#128-2020-09-14))
+### Azure Spring Cloud ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-cloud-autoconfigure/CHANGELOG.md#200-beta1-2020-11-18))
 
 #### Breaking Changes
 - Change group id from com.microsoft.azure to com.azure.spring.
