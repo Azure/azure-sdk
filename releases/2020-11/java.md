@@ -192,7 +192,7 @@ To use Azure Spring Boot starters, refer to the Maven dependency information bel
 </dependency>
 ```
 
-To JCA Provider for Azure Key Vault, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate.
+To use JCA Provider for Azure Key Vault, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate.
 ```xml
 <dependency>
   <groupId>com.azure</groupId>
