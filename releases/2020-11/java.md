@@ -144,52 +144,59 @@ To use Azure Spring Cloud starters and binders, refer to the Maven dependency in
 
 To use Azure Spring Boot starters, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate.
 ```xml
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-boot-bom</artifactId>
-  <version>3.0.0-beta.1</version>
-  <type>pom</type>
-</dependency>
+<dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>azure-spring-boot-bom</artifactId>
+        <version>3.0.0-beta.1</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+</dependencyManagement>
 
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-boot</artifactId>
-</dependency>
-
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-boot-starter</artifactId>
-</dependency>
-
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-boot-starter-active-directory</artifactId>
-</dependency>
-
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-boot-starter-active-directory-b2c</artifactId>
-</dependency>
-
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-boot-starter-cosmos</artifactId>
-</dependency>
-
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-boot-starter-keyvault-secrets</artifactId>
-</dependency>
-
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-boot-starter-servicebus-jms</artifactId>
-</dependency>
-
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-boot-starter-storage</artifactId>
-</dependency>
+<dependencies>
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot-starter</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot-starter-active-directory</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot-starter-active-directory-b2c</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot-starter-cosmos</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot-starter-keyvault-secrets</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot-starter-servicebus-jms</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot-starter-storage</artifactId>
+    </dependency>
+</dependencies>
 ```
 
 To use JCA Provider for Azure Key Vault, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate.
