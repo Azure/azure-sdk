@@ -12,9 +12,13 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 
 ## Release Highlights
 
-*
-*
-*
+### Identity
+
+We're glad to announce a new major release of our Identity package. This release includes standardized Managed Identity Credential support across languages, through which we add support to Azure Arc and Azure Service Fabric. This release also includes improvements to Visual Studio Code Credential, Device Code Credential and Interactive Browser Credential.
+
+### Form Recognizer
+
+We're releasing a new beta version of Form Recognizer. This version includes support for two new prebuilt recognition models for invoices and business cards, support for selection marks as a new fundamental form element, support for the bitmap image format in prebuilt model recognition and content recognition, language and locale arguments added to process document in different languages, and other additional properties added to response models.
 
 ## Release Notes
 
