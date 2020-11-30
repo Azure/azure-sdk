@@ -15,6 +15,7 @@ The Azure SDK team is pleased to make available the November 2020 client library
 - Azure Storage Blob
 - Azure Storage Data Lake
 - Azure Storage File Share
+- Azure Service Bus
 
 #### Updates
 
@@ -27,7 +28,6 @@ The Azure SDK team is pleased to make available the November 2020 client library
 - Azure Communication Chat
 - Azure Communication Common
 - Azure Communication SMS
-- Azure Service Bus
 - Azure Metrics Advisor
 - Azure Form Recognizer
 
@@ -36,18 +36,18 @@ The Azure SDK team is pleased to make available the November 2020 client library
 To install the packages, copy and paste the below into a terminal.
 
 ```bash
-$> npm install @azure/communication-administration@next
-$> npm install @azure/communication-chat@next
-$> npm install @azure/communication-common@next
-$> npm install @azure/communication-sms@next
 $> npm install @azure/identity
 $> npm install @azure/tables
 $> npm install @azure/storage-blob
 $> npm install @azure/storage-file-datalake
 $> npm install @azure/storage-file-share
+$> npm install @azure/service-bus
 $> npm install @azure/storage-queue@latest
 $> npm install @azure/event-hubs@latest
-$> npm install @azure/service-bus@next
+$> npm install @azure/communication-administration@next
+$> npm install @azure/communication-chat@next
+$> npm install @azure/communication-common@next
+$> npm install @azure/communication-sms@next
 $> npm install @azure/ai-metrics-advisor@next
 $> npm install @azure/ai-form-recognizer@next
 ```
@@ -57,51 +57,6 @@ $> npm install @azure/ai-form-recognizer@next
 If you have a bug or feature request for one of the libraries, please post an issue at the [azure-sdk-for-js repository](https://github.com/azure/azure-sdk-for-js/issues).
 
 ## Release highlights
-
-### Communication
-
-#### @azure/communication-administration [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-administration/CHANGELOG.md#100-beta3-2020-11-16)
-
-#### New Features on @azure/communication-administration@1.0.0-beta.3
-
-- Added support for long-running operations. See details under Breaking Changes.
-
-#### Breaking Changes on @azure/communication-administration@1.0.0-beta.3
-
-##### Model types
-
-- Renamed `CancelSearchOptions` to `CancelReservationOptions`.
-- Removed `GetReleaseOptions`.
-- Removed `GetSearchOptions`.
-- Replaced `CreateSearchOptions` with `BeginReservePhoneNumbersOptions`.
-- Replaced `PurchaseSearchOptions` with `BeginPurchaseReservationOptions`.
-- Replaced `ReleasePhoneNumbersOptions` with `BeginReleasePhoneNumbersOptions`.
-- Renamed `PhoneNumberSearch` to `PhoneNumberReservation`.
-
-##### `PhoneNumberReservation`
-
-- Renamed `searchId` property to `reservationId`.
-
-##### `PhoneNumberAdministrationClient`
-
-- Renamed `cancelSearch` to `cancelReservation`.
-- Removed `getRelease` and `GetReleaseOptions`.
-- Removed `getSearch` and `GetSearchOptions`.
-- Replaced `createSearch` with `beginReservePhoneNumbers` which returns a poller for the long-running operation.
-- Replaced `purchaseSearch` with `beginPurchaseReservation` which returns a poller for the long-running operation.
-- Replaced `releasePhoneNumbers` with `beginReleasePhoneNumbers` which returns a poller for the long-running operation.
-
-#### @azure/communication-chat [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-chat/CHANGELOG.md#100-beta3-2020-11-16)
-
-This release contains minor fixes.
-
-#### @azure/communication-common [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-common/CHANGELOG.md#100-beta3-2020-11-16)
-
-This release contains minor fixes.
-
-#### @azure/communication-sms [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-sms/CHANGELOG.md#100-beta3-2020-11-16)
-
-This release contains minor fixes.
 
 ### Identity
 
@@ -153,6 +108,23 @@ We are releasing to add support for new service features in Azure Storage Servic
 
 - Updated Azure Storage Service API version to 2020-02-10.
 
+### Service Bus
+
+#### @azure/service-bus [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md)
+
+This release marks the general availability of the `@azure/service-bus` package.
+
+- If you are using version 1.1.10 or lower and want to migrate to the latest version
+of this package please look at our [migration guide to move from Service Bus V1 to Service Bus V7](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/migrationguide.md).
+
+##### Breaking Changes on @azure/service-bus@7.0.0
+
+- For the breaking changes since version `7.0.0-preview.8`, check out the changelog: [link](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md#700-2020-11-23).
+
+##### New Features on @azure/service-bus@7.0.0-preview.8
+
+- For the new features we've provided through our preview versions, please check out the changelog: [link](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md#700-2020-11-23).
+
 ### Event Hubs
 
 #### @azure/event-hubs [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/CHANGELOG.md).
@@ -162,25 +134,6 @@ We're releasing an Azure Event Hubs client patch update with bug fixes.
 ##### Major Fixes on @azure/event-hubs@3.5.1
 
 - Fixes an issue where the `processEvents` handler passed to `EventHubConsumerClient.subscribe()` could ignore the `maxWaitTimeInSeconds` parameter after a disconnection, resulting in `processEvents` being invoked rapidly without events.
-
-### Service Bus
-
-#### @azure/service-bus [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md)
-
-This is the last preview version of the Azure Service Bus client library before releasing it for general availability later this month, this release includes improvements in error handling, various interface/method/type updates and internal improvements in terms of memory consumption.
-
-##### Breaking Changes on @azure/service-bus@7.0.0-preview.8
-
-- The `processError` passed to `Receiver.subscribe` now receives a `ProcessErrorArgs` instead of just an error. This parameter provides additional context that can make it simpler to distinguish errors that were thrown from your callback (via the `errorSource` member of `ProcessErrorArgs`) as well as giving you some information about the entity that generated the error.
-- The methods to complete, abandon, defer and deadletter a message along with the method to renew message lock have been moved from the message to the receiver. With this, we now have additional validation to ensure that a peeked message cannot be used with these methods.
-- Returned responses from the methods under the `ServiceBusAdministrationClient` now use a generic type `WithResponse<T>` for a cleaner API surface. The raw responses(`_response`) have been updated to return only the `{request, status, headers}`, properties such as `parsedHeaders`, `parsedBody` have been removed.
-- Removed `AmqpAnnotatedMessage`, `AmqpMessageHeaders`, `AmqpMessageProperties` interfaces in favour of the ones from `@azure/core-amqp`. This is part of the move from `@azure/core-amqp` version update from 1.1.x to 2.0.0. As part of this, `userId` will not be made available as part of `AmqpMessageProperties` until its type is fixed in the upstream `rhea` library.
-- Many other updates to methods, interfaces, types, and names based on user studies and internal reviews, more info at [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md#700-preview8-2020-11-04).
-
-##### New Features on @azure/service-bus@7.0.0-preview.8
-
-- A helper method parseServiceBusConnectionString has been added which validates and parses a given connection string for Azure Service Bus. You can use this to extract the namespace and entityPath details from the connection string.
-- Tracing, using [@azure/core-tracing](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/core/core-tracing/README.md), has been added for sending and receiving of messages.
 
 ### Metrics Advisor
 
@@ -196,6 +149,51 @@ This version 1.0.0-beta.2  incorporates feedback from UX Studies and Architectur
 ##### Breaking Changes on @azure/ai-metrics-advisor@1.0.0-beta.2
 
 - Various renames of types, methods, and properties to improve the API surface.  Please see the [CHANGELOG](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/metricsadvisor/ai-metrics-advisor/CHANGELOG.md) for more details.
+
+### Communication
+
+#### @azure/communication-administration [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-administration/CHANGELOG.md#100-beta3-2020-11-16)
+
+#### New Features on @azure/communication-administration@1.0.0-beta.3
+
+- Added support for long-running operations. See details under Breaking Changes.
+
+#### Breaking Changes on @azure/communication-administration@1.0.0-beta.3
+
+##### Model types
+
+- Renamed `CancelSearchOptions` to `CancelReservationOptions`.
+- Removed `GetReleaseOptions`.
+- Removed `GetSearchOptions`.
+- Replaced `CreateSearchOptions` with `BeginReservePhoneNumbersOptions`.
+- Replaced `PurchaseSearchOptions` with `BeginPurchaseReservationOptions`.
+- Replaced `ReleasePhoneNumbersOptions` with `BeginReleasePhoneNumbersOptions`.
+- Renamed `PhoneNumberSearch` to `PhoneNumberReservation`.
+
+##### `PhoneNumberReservation`
+
+- Renamed `searchId` property to `reservationId`.
+
+##### `PhoneNumberAdministrationClient`
+
+- Renamed `cancelSearch` to `cancelReservation`.
+- Removed `getRelease` and `GetReleaseOptions`.
+- Removed `getSearch` and `GetSearchOptions`.
+- Replaced `createSearch` with `beginReservePhoneNumbers` which returns a poller for the long-running operation.
+- Replaced `purchaseSearch` with `beginPurchaseReservation` which returns a poller for the long-running operation.
+- Replaced `releasePhoneNumbers` with `beginReleasePhoneNumbers` which returns a poller for the long-running operation.
+
+#### @azure/communication-chat [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-chat/CHANGELOG.md#100-beta3-2020-11-16)
+
+This release contains minor fixes.
+
+#### @azure/communication-common [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-common/CHANGELOG.md#100-beta3-2020-11-16)
+
+This release contains minor fixes.
+
+#### @azure/communication-sms [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-sms/CHANGELOG.md#100-beta3-2020-11-16)
+
+This release contains minor fixes.
 
 ### Form Recognizer
 
