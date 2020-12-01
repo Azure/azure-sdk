@@ -23,7 +23,8 @@ The Azure SDK team is pleased to announce our December 2020 client library relea
 
 #### Updates
 
-- _Add packages_
+- Management Library - App Services
+- Management Library - Resources
 
 #### Beta
 
@@ -82,6 +83,16 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 <dependency>
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-trafficmanager</artifactId>
+  <version>2.1.0</version>
+</dependency>
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-appservice</artifactId>
+  <version>2.1.0</version>
+</dependency>
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-resources</artifactId>
   <version>2.1.0</version>
 </dependency>
 ```
