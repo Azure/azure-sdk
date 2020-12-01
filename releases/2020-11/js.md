@@ -233,7 +233,7 @@ This beta package targets Azure Text Analytics API version  `3.1-preview.3`, and
 ##### New Features on @azure/ai-text-analytics@5.1.0-beta.3
 
 - Support for the new API for batch tasks processing through the `beginAnalyze` method. The currently supported tasks are Named Entity Recognition, Personally identifiable Information, and Key Phrase Extraction.
-- Support for the recognition of healthcare entities API with the introduction of the `beginAnalyzeHealthcare` method. Since the Health API is currently only available in a gated preview, you need to have your subscription on the service's allow list. Also, note that since this is a gated preview, AAD is not supported. For more information, see (the Text Analytics for Health documentation)[https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health?tabs=ner#request-access-to-the-public-preview].
+- Support for the recognition of healthcare entities API with the introduction of the `beginAnalyzeHealthcare` method. Since the Health API is currently only available in a gated preview, you need to have your subscription on the service's allow list. Also, note that since this is a gated preview, AAD is not supported. For more information, see [the Text Analytics for Health documentation](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health?tabs=ner#request-access-to-the-public-preview).
 
 ## Latest Releases
 
