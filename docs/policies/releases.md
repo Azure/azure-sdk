@@ -13,7 +13,12 @@ The following are mandatory actions required when releasing a new version of any
 
 ### 1) Language coverage
 
-We are committed to release at a minimum the following languages:
+Market data and customer engagement studies clearly indicate that a cloud provider's support of several programming languages developer experiences & tools (including SDKs) can heavily impact the customer's decision in favoring that cloud provider over others. 
+
+We’re really motivated to provide high quality SDKs to a great experience for the developer community when while interacting with Azure services.
+
+at the moment we are committed to build and support SDKs for Azure services covering these languages at a minimum:
+
 - Java
 - .Net
 - Python
@@ -21,22 +26,31 @@ We are committed to release at a minimum the following languages:
 
 Other supported languages are recommended to release along side these languages too, but can be delayed based on resourcing and customer needs.
 
-### 2) ChangeLogs & Porting Guides
+### 2) ChangeLogs & Migration Guides
 
 Facilitating a swift transition of the SDKs' users to the new version being released requires clear clarification and documentation of the changes from the pervious version. The type and granularity of the documentations depends on the type\scope of the release:
 
 #### Track 2 upgrade release
 
 This covers the case when we upgrade and existing Azure SDK to the new Track 2 SDKs standards. such release usually contains major modifications to the structure, interfaces and behavioral aspects of the existing SDKs. Such an update requires detailed and verbose porting guide to help the adopting users understand the benefits, changes and offerings of the new SDK version. The requirement here is to:
- - Create a porting\Migration guide for each language SDK.
- - Place that guide in the SDK repository preferably in the related Service folder.
- - An example porting guide can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md).
+
+ {% include requirement/MUST %} Create a Migration guide for each language SDK.
+
+ {% include requirement/MUST %} Include a "Benefits" section clearing explaining the advantages of migration to this version of the SDK.
+
+ {% include requirement/MUST %} Place that guide in the SDK repository preferably in the root of the
+
+An example porting guide can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md).
+
+(Please Note) Migration guides creation will be required to obtain sign off from the Archboard.
 
 #### Track 2 New version release
 
 Ensuring that a `CHANGELOG.md` file is both available and formatted appropriately is mandatory and will be used in automatically generating formatted release notes on each GitHub release.
 
-{% include requirement/MUST %} maintain a changelog for every package.
+{% include requirement/MUST %} maintain a changelog for every package. 
+
+{% include requirement/MUST %} `CHANGELOG.md` file should be added in the root folder of the library.
 
 {% include requirement/MUST %} name changelogs with all caps except for the extension, i.e. `CHANGELOG.md`.
 
@@ -98,7 +112,11 @@ Advertising our SDKs is key to increasing their adoption and getting their lates
 - working with the Azure service team for which you're building this version of the SDK to advertise the release through their official communication channels.
 - ensuring that you have Solid samples in the SDK repository demonstrating the use of this new version.
 
-### 4) Updating package manager references
+### 4) Payload Backwards Compatibility
+
+A manual migration test should be developed to ensure that payloads and data fed into previous version of the SDK are gracefully handled when fed to the new Track 2 SDKs.
+
+### 5) Updating package manager references
 
 When releasing any new version of an SDKs follow best practices of the language specific package managers to ensure that this new version's visibility is elevated and recommended by default to the users. Here's the guidance per language.
 
