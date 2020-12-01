@@ -18,7 +18,7 @@ We're glad to announce a new major release of our Identity package. This release
 
 ### Service Bus
 
-The new version 7 of the Service Bus libraries for C#, Python, Java and JavaScript provide the ability to share in some of the cross-service improvements made to the Azure development experience, such as using the new `@azure/identity` library to share a single authentication between clients and a unified diagnostics pipeline offering a common view of the activities across each of the client libraries. These libraries come with a single top level client called `ServiceBusClient` in contrast with multiple entry points from before, and a new `ServiceBusAdministrationClient` to perform CRUD operations on service bus entities. These libraries also include many updates, improvements, and a great deal of restructuring when compared to the previous versions, refer to the migration guides to hop on to the latest versions.
+The new version 7 of the Service Bus libraries for C#, Python, Java and JavaScript provide the ability to share in some of the cross-service improvements made to the Azure development experience, such as using the new Azure Identity library to share a single authentication between clients and a unified diagnostics pipeline offering a common view of the activities across each of the client libraries. These libraries come with a single top level client called `ServiceBusClient` in contrast with multiple entry points from before, and a new `ServiceBusAdministrationClient` to perform CRUD operations on service bus entities. These libraries also include many updates, improvements, and a great deal of restructuring when compared to the previous versions, refer to the migration guides to hop on to the latest versions.
 
 ### Form Recognizer
 
