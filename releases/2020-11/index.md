@@ -18,12 +18,7 @@ We're glad to announce a new major release of our Identity package. This release
 
 ### Service Bus
 
-Version 7 of the Azure Service Bus SDKs have now been released in all the four languages
-[C# - Nuget](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/7.0.0), [Python - pypi](https://pypi.org/project/azure-servicebus/7.0.0/), [Java](wait for the release), [JS/TS - npm](https://www.npmjs.com/package/@azure/service-bus/v/7.0.0).
-
-The latest set of packages are built using the new [Azure SDK guidelines](https://github.com/Azure/azure-sdk/blob/master/README.md) which gives the consistency across all Azure SDK client libraries. These libraries enable users leverage the Azure Service Bus messaging service in their applications and is our effort to make integrating Service Bus quick and painless, allowing you to quickly jumpstart your applications and get running.
-
-The new version 7 of the Service Bus libraries provide the ability to share in some of the cross-service improvements made to the Azure development experience, such as using the new `@azure/identity` library to share a single authentication between clients and a unified diagnostics pipeline offering a common view of the activities across each of the client libraries. These libraries come with a single top level client called `ServiceBusClient` in contrast with multiple entry points from before, and a new `ServiceBusAdministrationClient` to perform CRUD operations on service bus entities. These libraries also include many updates, improvements, and a great deal of restructuring when compared to the previous versions, refer to the migration guides to hop on to the latest versions.
+The new version 7 of the Service Bus libraries for C#, Python, Java and JavaScript provide the ability to share in some of the cross-service improvements made to the Azure development experience, such as using the new `@azure/identity` library to share a single authentication between clients and a unified diagnostics pipeline offering a common view of the activities across each of the client libraries. These libraries come with a single top level client called `ServiceBusClient` in contrast with multiple entry points from before, and a new `ServiceBusAdministrationClient` to perform CRUD operations on service bus entities. These libraries also include many updates, improvements, and a great deal of restructuring when compared to the previous versions, refer to the migration guides to hop on to the latest versions.
 
 ### Form Recognizer
 
