@@ -30,6 +30,7 @@ The Azure SDK team is pleased to make available the November 2020 client library
 - Azure Communication SMS
 - Azure Metrics Advisor
 - Azure Form Recognizer
+- Azure Text Analytics
 
 ## Installation Instructions
 
@@ -50,6 +51,7 @@ $> npm install @azure/communication-common@next
 $> npm install @azure/communication-sms@next
 $> npm install @azure/ai-metrics-advisor@next
 $> npm install @azure/ai-form-recognizer@next
+$> npm install @azure/ai-text-analytics@next
 ```
 
 ## Feedback
@@ -221,6 +223,17 @@ In addition to the above form recognition features, there is also a new set of m
   - A `modelId` property of `RecognizedForm` that contains the GUID of the specific submodel that was used to analyze the form and generate the result.
   - A `formTypeConfidence` property of `RecognizedForm` that represents the service's confidence that it chose  the correct submodel to use during analysis (and therefore the correct value of `formType`).
 - A `modelName` option for model training (both `beginTraining` and `beginCreateComposedModel`) that can specify a human-readable name for a model. The model name does not have to be unique, and because models are immutable it cannot be changed. The `modelName` field of `CustomFormModelInfo` and `CustomFormModel` will now contain the name of the model, if one was associated during model creation.
+
+### Text Analytics
+
+#### @azure/ai-text-analytics [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/CHANGELOG.md)
+
+This beta package targets Azure Text Analytics API version  `3.1-preview.3`, and introduces support for its new text analytics features, including:
+
+##### New Features on @azure/ai-text-analytics@5.1.0-beta.3
+
+- Support for the new API for batch tasks processing through the `beginAnalyze` method. Current list of supported tasks is Named Entity Recognition, Personally identifiable Information, and Key Phrase Extraction.
+- Support for the recognition of healthcare entities API with the introduction of the `beginAnalyzeHealthcare` method. Since the Health API is currently only available in a gated preview, you need to have your subscription on the service's allow list. Also, note that since this is a gated preview, AAD is not supported. For more information, see (the Text Analytics for Health documentation)[https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health?tabs=ner#request-access-to-the-public-preview].
 
 ## Latest Releases
 
