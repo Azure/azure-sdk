@@ -16,6 +16,15 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 
 We're glad to announce a new major release of our Identity package. This release includes standardized Managed Identity Credential support across languages, through which we add support to Azure Arc and Azure Service Fabric. This release also includes improvements to Visual Studio Code Credential, Device Code Credential and Interactive Browser Credential.
 
+### Service Bus
+
+Version 7 of the Azure Service Bus SDKs have now been released in all the four languages
+[C# - Nuget](https://www.nuget.org/packages/Azure.Messaging.ServiceBus/7.0.0), [Python - pypi](https://pypi.org/project/azure-servicebus/7.0.0/), [Java](wait for the release), [JS/TS - npm](https://www.npmjs.com/package/@azure/service-bus/v/7.0.0).
+
+The latest set of packages are built using the new [Azure SDK guidelines](https://github.com/Azure/azure-sdk/blob/master/README.md) which gives the consistency across all Azure SDK client libraries. These libraries enable users leverage the Azure Service Bus messaging service in their applications and is our effort to make integrating Service Bus quick and painless, allowing you to quickly jumpstart your applications and get running.
+
+The new version 7 of the Service Bus libraries provide the ability to share in some of the cross-service improvements made to the Azure development experience, such as using the new `@azure/identity` library to share a single authentication between clients and a unified diagnostics pipeline offering a common view of the activities across each of the client libraries. These libraries come with a single top level client called `ServiceBusClient` in contrast with multiple entry points from before, and a new `ServiceBusAdministrationClient` to perform CRUD operations on service bus entities. These libraries also include many updates, improvements and a great deal of restructuring when compared to the previous versions, refer to the migration guides to hop on to the latest versions and follow the links below for more info.
+
 ### Form Recognizer
 
 We're releasing a new beta version of Form Recognizer. This version includes support for two new prebuilt recognition models for invoices and business cards, support for selection marks as a new fundamental form element, support for the bitmap image format in prebuilt model recognition and content recognition, language and locale arguments added to process document in different languages, and other additional properties added to response models.
