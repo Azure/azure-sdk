@@ -37,12 +37,15 @@ The Azure SDK team is pleased to announce our November 2020 client library relea
 - Azure Form Recognizer
 - Azure Metrics Advisor
 - Azure Key Vault Administration
+- Azure Key Vault JCA Provider
 - Azure Key Vault Keys
 - Azure Tables
 - Azure Eventhubs
 - Azure Service Bus
+- Azure Spring Cloud
+- Azure Spring Boot
 - Azure Text Analytics
-- Microsoft Opentelemetry Exporter Azuremonitor
+- Microsoft Opentelemetry Exporter Azuremonitor  
 
 ## Installation Instructions
 
@@ -263,6 +266,105 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>microsoft-opentelemetry-exporter-azuremonitor</artifactId>
   <version>1.0.0-beta.2</version>
+</dependency>
+```
+To use Azure Spring Cloud starters and binders, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate.
+
+```xml
+ <dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-stream-binder-servicebus-queue</artifactId>
+  <version>2.0.0-beta.1</version> 
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-stream-binder-servicebus-topic</artifactId>
+  <version>2.0.0-beta.1</version> 
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-starter-cache</artifactId>
+  <version>2.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-starter-eventhubs-kafka</artifactId>
+  <version>2.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-stream-binder-eventhubs</artifactId>
+  <version>2.0.0-beta.1</version>
+</dependency>
+```
+
+To use Azure Spring Boot starters, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate.
+```xml
+<dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>azure-spring-boot-bom</artifactId>
+        <version>3.0.0-beta.1</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+</dependencyManagement>
+
+<dependencies>
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot-starter</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot-starter-active-directory</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot-starter-active-directory-b2c</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot-starter-cosmos</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot-starter-keyvault-secrets</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot-starter-servicebus-jms</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot-starter-storage</artifactId>
+    </dependency>
+</dependencies>
+```
+
+To use JCA Provider for Azure Key Vault, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate.
+```xml
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-jca</artifactId>
+  <version>1.0.0-beta.2</version> 
 </dependency>
 ```
 
@@ -512,6 +614,24 @@ and key phrases extraction) simultaneously in a list of document.
 - Renamed artifact to `microsoft-opentelemetry-exporter-azuremonitor`.
 - Replaced `instrumentationKey()` with `connectionString()` in the `AzureMonitorExporterBuilder`.
 
+### Azure Spring Cloud ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-cloud-autoconfigure/CHANGELOG.md#200-beta1-2020-11-18))
+
+#### Breaking Changes
+- Change group id from com.microsoft.azure to com.azure.spring.
+- Change artifact id from spring-cloud-azure-autoconfigure to azure-spring-cloud-autoconfigure.
+
+### Azure Spring Boot ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot/CHANGELOG.md#300-beta1-2020-11-18))
+
+#### Breaking Changes
+
+*   Update `com.azure` group id to `com.azure.spring`.
+*   Deprecated azure-spring-boot-metrics-starter.
+*   Change group id from `com.microsoft.azure` to `com.azure.spring`.
+
+### JCA Provider for Azure Key Vault ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-jca/CHANGELOG.md#100-beta2-2020-11-17))
+
+- Add support for PEM based certificates.
+  
 ## Need help
 
 - For reference documentation visit the [Azure SDK for Java documentation](https://azure.github.io/azure-sdk-for-java/).
