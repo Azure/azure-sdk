@@ -24,6 +24,9 @@ The new version 7 of the Service Bus libraries for C#, Python, Java and JavaScri
 
 We're releasing a new beta version of Form Recognizer. This version includes support for two new prebuilt recognition models for invoices and business cards, support for selection marks as a new fundamental form element, support for the bitmap image format in prebuilt model recognition and content recognition, language and locale arguments added to process document in different languages, and other additional properties added to response models.
 
+### Text Analytics
+
+We're releasing a new beta version of Text Analytics. This version includes support for batch task processing and for the recognition of  various healthcare entities such as medication name, dosage, and frequency.
 ## Release Notes
 
 * [All release notes](index.md)
