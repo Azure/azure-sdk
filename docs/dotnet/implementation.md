@@ -10,23 +10,71 @@ sidebar: general_sidebar
 
 ### The Service Client
 
-#### Service Client Constructors
-
-##### Creating Generated Client
-
-##### HttpPipeline
-
-##### Setting up Authentication
-
 #### Service Methods
 
-##### Calling Generated Code
+##### Using HttpPipeline {#dotnet-usage-httppipeline}
 
-##### Diagnostic Scopes
+The following example shows a typical way of using `HttpPipeline` to implement a service call method. The `HttpPipeline` will handle common HTTP requirements such as the user agent, logging, distributed tracing, retries, and proxy configuration.
 
-#### Service Method Return Types
+```csharp
+public virtual async Task<Response<ConfigurationSetting>> AddAsync(ConfigurationSetting setting, CancellationToken cancellationToken = default)
+{
+    if (setting == null) throw new ArgumentNullException(nameof(setting));
+    ... // validate other preconditions
 
-##### Creating Response Instances
+    // Use HttpPipeline _pipeline filed of the client type to create new HTTP request
+    using (Request request = _pipeline.CreateRequest()) {
+
+        // specify HTTP request line
+        request.Method = RequestMethod.Put;
+        request.Uri.Reset(_endpoint);
+        request.Uri.AppendPath(KvRoute, escape: false);
+        requast.Uri.AppendPath(key);
+
+        // add headers
+        request.Headers.Add(IfNoneMatchWildcard);
+        request.Headers.Add(MediaTypeKeyValueApplicationHeader);
+        request.Headers.Add(HttpHeader.Common.JsonContentType);
+        request.Headers.Add(HttpHeader.Common.CreateContentLength(content.Length));
+
+        // add content
+        ReadOnlyMemory<byte> content = Serialize(setting);
+        request.Content = HttpPipelineRequestContent.Create(content);
+
+        // send the request
+        var response = await Pipeline.SendRequestAsync(request).ConfigureAwait(false);
+
+        if (response.Status == 200) {
+            // deserialize content
+            Response<ConfigurationSetting> result = await CreateResponse(response, cancellationToken);
+        }
+        else
+        {
+            throw await response.CreateRequestFailedExceptionAsync(message);
+        }
+    }
+}
+```
+
+TODO: do we still want this code sample now that we're encouraging moving to Code Gen?
+
+For a more complete example, see the [configuration client](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/appconfiguration/Azure.Data.AppConfiguration/src/ConfigurationClient.cs) implementation.
+
+##### Using HttpPipelinePolicy
+
+The HTTP pipeline includes a number of policies that all requests pass through.  Examples of policies include setting required headers, authentication, generating a request ID, and implementing proxy authentication.  `HttpPipelinePolicy` is the base type of all policies (plugins) of the `HttpPipeline`. This section describes guidelines for designing custom policies.
+
+{% include requirement/MUST id="dotnet-http-pipeline-policy-inherit" %} inherit from `HttpPipelinePolicy` if the policy implementation calls asynchronous APIs.
+
+See an example [here](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/src/Pipeline/BearerTokenAuthenticationPolicy.cs).
+
+{% include requirement/MUST id="dotnet-sync-http-pipeline-policy-inherit" %} inherit from `HttpPipelineSynchronousPolicy` if the policy implementation calls only synchronous APIs.
+
+See an example [here](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/src/Pipeline/Internal/ClientRequestIdPolicy.cs).
+
+{% include requirement/MUST id="dotnet-http-pipeline-thread-safety" %} ensure `ProcessAsync` and `Process` methods are thread safe.
+
+`HttpMessage`, `Request`, and `Response` don't have to be thread-safe.
 
 #### Service Method Parameters
 
@@ -49,13 +97,7 @@ Just add the following to your project to include it:
 
 See remarks on the `Argument` class for more detail.
 
-#### Methods Returning Collections (Paging)
-
-#### Methods Invoking Long Running Operations
-
 ### Supporting Types
-
-#### Generated Model Types
 
 #### Enumeration-like structures {#dotnet-enums}
 
@@ -199,17 +241,11 @@ public partial readonly struct EncryptionAlgorithm : IEquatable<EncryptionAlgori
 
 {% include requirement/MUST id="dotnet-enums-values-test" %} define tests to ensure extensible enum properties and defined `Values` constants declare the same names and define the same values. See [here](https://github.com/Azure/azure-sdk-for-net/blob/322f6952e4946229949bd3375f5eb6120895fd2f/sdk/search/Azure.Search.Documents/tests/Models/LexicalAnalyzerNameTests.cs#L14-L29) for an example.
 
-### Exceptions
-
-#### Using Azure Core helpers to create exception instances
-
-### Authentication
-
-### Hierarchical Clients
-
-### Code Generation
-
 ## Library Implementation
+
+### Configuration
+
+TODO: Add discussion on configuration environment variables to parallel that of other languages
 
 ### Logging
 
@@ -311,7 +347,61 @@ internal sealed class AzureCoreEventSource : EventSource
 
 {% include draft.html content="Guidance coming soon ..." %}
 
-TODO: If we don't have this, we should probably take this part out.
+TODO: Add guidance for distributed tracing implementation
+
+### Serialization {#dotnet-usage-json}
+
+#### JSON Serialization
+
+{% include requirement/MUST id="dotnet-json-use-system-text-json" %} use [`System.Text.Json`](https://www.nuget.org/packages/System.Text.Json) package to write and read JSON content.
+
+{% include requirement/SHOULD id="dotnet-json-use-utf8jsonwriter" %} use `Utf8JsonWriter` to write JSON payloads:
+
+```csharp
+var json = new Utf8JsonWriter(writer);
+json.WriteStartObject();
+json.WriteString("value", setting.Value);
+json.WriteString("content_type", setting.ContentType);
+json.WriteEndObject();
+json.Flush();
+written = (int)json.BytesWritten;
+```
+
+{% include requirement/SHOULD id="dotnet-json-use-jsondocument" %} use `JsonDocument` to read JSON payloads:
+
+```csharp
+using (JsonDocument json = await JsonDocument.ParseAsync(content, default, cancellationToken).ConfigureAwait(false))
+{
+    JsonElement root = json.RootElement;
+
+    var setting = new ConfigurationSetting();
+
+    // required property
+    setting.Key = root.GetProperty("key").GetString();
+
+    // optional property
+    if (root.TryGetProperty("last_modified", out var lastModified)) {
+        if(lastModified.Type == JsonValueType.Null) {
+            setting.LastModified = null;
+        }
+        else {
+            setting.LastModified = DateTimeOffset.Parse(lastModified.GetString());
+        }
+    }
+    ...
+
+    return setting;
+}
+```
+
+{% include requirement/SHOULD id="dotnet-json-use-utf8jsonreader" %} consider using `Utf8JsonReader` to read JSON payloads.
+
+`Utf8JsonReader` is faster than `JsonDocument` but much less convenient to use.
+
+{% include requirement/MUST id="dotnet-json-serialization-resilience" %} make your serialization and deserialization code version resilient.
+
+Optional JSON properties should be deserialized into nullable model properties.
+
 
 ## Ecosystem Integration
 

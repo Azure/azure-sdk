@@ -10,17 +10,11 @@ sidebar: general_sidebar
 
 The following document describes .NET specific guidelines for designing Azure SDK client libraries. These guidelines complement general [.NET Framework Design Guidelines] with design considerations specific to the Azure SDK. These guidelines also expand on and simplify language-independent [General Azure SDK Guidelines][general-guidelines]. More specific guidelines take precedence over more general guidelines.
 
-TODO: link to aka.ms/fxdg3 with note about logging in to Safari Online.
-
 Currently, the document describes guidelines for client libraries exposing HTTP/REST services. It may be expanded in the future to cover other, non-REST, services.  
-
-TODO: say reach out to arch board.  Pull this out into a section with a section-header?
 
 Throughout this document, We'll use the client library for the [Azure Application Configuration service](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/appconfiguration/Azure.Data.AppConfiguration) to illustrate various design concepts.  
 
-TODO: Should we update this to reflect new guidelines, e.g. around naming, etc?
-
-TODO: Add one or two sentence roadmap of what you'll find in document, how it is structured.  Eg. API, focusing on the service client, considerations for packaging and releasing a library, and Azure Core types, and how they can be used in APIs
+TODO: Should we update this to reflect new guidelines, e.g. around naming, etc?  -- `Add` vs. `Create`
 
 ### Design Principles {#dotnet-principles}
 
@@ -28,7 +22,7 @@ The main value of the Azure SDK is **productivity** building applications with A
 
 **Idiomatic**
 
-* Azure SDK libraries follow [.NET Framework Design Guidelines](TODO Add Link).
+* Azure SDK libraries follow [.NET Framework Design Guidelines](TODO: Add Link).
 * Azure SDK libraries feel like designed by the designers of the .NET Standard libraries.
 * Azure SDK libraries version just like the .NET Standard libraries.
 
@@ -46,7 +40,7 @@ The main value of the Azure SDK is **productivity** building applications with A
 * Small number of concepts; small number of types; small number of members
 * Approachable by our users, not only by engineers designing the SDK components
 * Easy to find great _getting started_ guides and samples
-* Easy to acquire [TODO: Phase 2 - connect these to some concrete things, e.g. nuget packages]
+* Easy to acquire
 
 **Dependable**
 
@@ -64,11 +58,13 @@ At various points in this document, you can find a section with [the most common
 
 The guidelines provide a robust methodology for communicating with Azure services. The easiest way to ensure that your component meets these requirements is to use the [Azure.Core] package to call Azure services. Details of these helper APIs and their usage are described in the [Using HttpPipeline](#dotnet-usage-httppipeline) section.
 
-TODO: Do we need this section if we'll remove the general section?
-
 {% include requirement/MUST id="dotnet-general-use-http-pipeline" %} use `HttpPipeline` to implement all methods that call Azure REST services.
 
 The pipeline can be found in the [Azure.Core] package, and it takes care of many [General Azure SDK Guidelines][general-guidelines]. Details of the pipeline design and usage are described in section [Using HttpPipeline](#dotnet-usage-httppipeline) below. If you can't use the pipeline, you must implement [all the general requirements of Azure SDK]({{ "/general_azurecore.html" | relative_url }}) manually.
+
+### Support for non-HTTP Protocols
+
+TODO: Add this discussion
 
 ## Azure SDK API Design {#dotnet-api}
 
@@ -138,8 +134,6 @@ namespace Azure.Data.Configuration {
 
 You can find the full sources of [here](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/appconfiguration/Azure.Data.AppConfiguration/src/ConfigurationClient.cs).
 
-TODO: short transition - "how to achieve this shape" ... by following the rules below.
-
 {% include requirement/MUST id="dotnet-client-naming" %} name service client types with the _Client_ suffix.
 
 For example, the service client for the Application Configuration service is called `ConfigurationClient`.
@@ -153,8 +147,6 @@ For example, the service client for the Application Configuration service is cal
 TODO: Say immutability here?
 
 #### Service Client Constructors {#dotnet-client-ctor}
-
-TODO: short transition - in the Azure SDK, client constructors service this purpose.
 
 {% include requirement/MUST id="dotnet-client-constructor-minimal" %} provide a minimal constructor that takes only the parameters required to connect to the service.
 
@@ -170,10 +162,30 @@ public class ConfigurationClient {
 
 {% include requirement/MUST id="dotnet-client-constructor-overloads" %} provide constructor overloads that allow specifying additional options such as credentials, a custom HTTP pipeline, or advanced configuration.
 
-Custom pipeline and client-specific configuration are represented by an `options` parameter. The type of the parameter is typically a subclass of ```ClientOptions``` type. Guidelines for using `ClientOptions` can be found in [Using ClientOptions](#dotnet-usage-options) section below.
+Custom pipeline and client-specific configuration are represented by an `options` parameter. The type of the parameter is typically a subclass of ```ClientOptions``` type, shown below.
 
-TODO: See Auth section for more on credentials
-TODO: Use similar format for See More for ClientOptions
+##### ClientOptions {#dotnet-usage-options}
+
+{% include requirement/MUST id="dotnet-http-pipeline-options" %} name subclasses of ```ClientOptions``` by adding _Options_ suffix to the name of the client type the options subclass is configuring.
+
+```csharp
+// options for configuring ConfigurationClient
+public class ConfigurationClientOptions : ClientOptions {
+    ...
+}
+
+public class ConfigurationClient {
+
+    public ConfigurationClient(string connectionString, ConfigurationClientOptions options);
+    ...
+}
+```
+
+If the options type can be shared by multiple client types, name it with a plural or more general name.  For example, the `BlobClientsOptions` class can be used by `BlobClient`, `BlobContainerClient`, and `BlobAccountClient`.
+
+{% include requirement/MUSTNOT id="dotnet-options-no-default-constructor" %} have a default constructor on the options type.
+
+Each overload constructor should take at least `version` parameter to specify the service version. See [Versioning](#dotnet-service-version-option) guidelines for details.
 
 For example, the `ConfigurationClient` type and its public constructors look as follows:
 
@@ -185,6 +197,57 @@ public class ConfigurationClient {
 }
 ```
 
+##### Service Versions
+
+{% include requirement/MUST id="dotnet-versioning-highest-api" %} call the highest supported service API version by default.
+
+{% include requirement/MUST id="dotnet-versioning-select-api-version" %} allow the consumer to explicitly select a supported service API version when instantiating the service client.
+
+Use a constructor parameter called `version` on the client options type.
+
+* The `version` parameter must be the first parameter to all constructor overloads.
+* The `version` parameter must be required, and default to the latest supported service version.
+* The type of the `version` parameter must be `ServiceVersion`; an enum nested in the options type.
+* The `ServiceVersion` enum must use explicit values starting from 1.
+* `ServiceVersion` enum value 0 is reserved. When 0 is passed into APIs, ArgumentException should be thrown.
+
+For example, the following is a code snippet from the `ConfigurationClientOptions`:
+
+```csharp
+public class ConfigurationClientOptions : ClientOptions {
+
+    public ConfigurationClientOptions(ServiceVersion version = ServiceVersion.V2019_05_09) {
+        if (version == default)
+            throw new ArgumentException($"The service version {version} is not supported by this library.");
+        }
+    }
+
+    public enum ServiceVersion {
+        V2019_05_09 = 1,
+    }
+    ...
+}
+```
+
+{% include note.html content="Third-party reusable libraries shouldn't change behavior without an explicit decision by the developer.  When developing libraries that are based on the Azure SDK, lock the library to a specific service version to avoid changes in behavior." %}
+
+{% include requirement/MUSTNOT id="dotnet-versioning-feature-flags" %} force consumers to test service API versions to check support for a feature.  Use the _tester-doer_ .NET pattern to implement feature flags, or use `Nullable<T>`.
+
+For example, if the client library supports two service versions, only one of which can return batches, the consumer might write the following code:
+
+```csharp
+if (client.CanBatch) {
+    Response<SettingBatch> response = await client.GetBatch("some_key*");
+    Guid? Guid = response.Result.Guid;
+} else {
+    Response<ConfigurationSetting> response1 = await client.GetAsync("some_key1");
+    Response<ConfigurationSetting> response2 = await client.GetAsync("some_key2");
+    Response<ConfigurationSetting> response3 = await client.GetAsync("some_key3");
+}
+```
+
+##### Mocking
+
 {% include requirement/MUST id="dotnet-client-constructor-for-mocking" %} provide protected parameterless constructor for mocking.
 
 ```csharp
@@ -192,8 +255,6 @@ public class ConfigurationClient {
     protected ConfigurationClient();
 }
 ```
-
-TODO: move the following to implementation
 
 {% include requirement/MUSTNOT id="dotnet-client-constructor-use-params" %} reference virtual properties of the client class as parameters to other methods or constructors within the client constructor. This violates the [.NET Framework Constructor Design] because a field to which a virtual property refers may not be initialized yet, or a mocked virtual property may not be set up yet. Use parameters or local variables instead:
 
@@ -215,7 +276,7 @@ See [Support for Mocking](#dotnet-mocking) for details.
 
 #### Service Methods {#dotnet-client-methods}
 
-TODO: Short transition.  What is a service method?  e.g. _Service methods_ are the methods on the client that invoke operations on the service.
+ _Service methods_ are the methods on the client that invoke operations on the service.
 
 Here are the main service methods in the `ConfigurationClient`.  They meet all the guidelines that are discussed below.
 
@@ -244,6 +305,10 @@ Many developers want to port existing applications to the Cloud. These applicati
 
 {% include requirement/MUST id="dotnet-service-methods-naming" %} ensure that the names of the asynchronous and the synchronous variants differ only by the _Async_ suffix.
 
+##### Naming
+
+TODO: Add discussion to parallel method naming in other sections
+
 ##### Cancellation
 
 {% include requirement/MUST id="dotnet-service-methods-cancellation" %} ensure all service methods, both asynchronous and synchronous, take an optional `CancellationToken` parameter called _cancellationToken_.
@@ -260,21 +325,15 @@ Virtual methods are used to support mocking. See [Support for Mocking](#dotnet-m
 
 {% include requirement/MUST id="dotnet-service-methods-response-sync" %} return `Response<T>` or `Response` from synchronous methods.
 
-`T` represents the content of the response. For more information, see [Service Method Return Types](#dotnet-method-return).
+`T` represents the content of the response, as described below.
 
 {% include requirement/MUST id="dotnet-service-methods-response-async" %} return `Task<Response<T>>` or `Task<Response>` from asynchronous methods that make network requests.
 
 There are two possible return types from asynchronous methods: `Task` and `ValueTask`. Your code will be doing a network request in the majority of cases.  The `Task` variant is more appropriate for this use case. For more information, see [this blog post](https://devblogs.microsoft.com/dotnet/understanding-the-whys-whats-and-whens-of-valuetask/#user-content-should-every-new-asynchronous-api-return-valuetask--valuetasktresult).
 
-`T` represents the content of the response. For more information, see [Service Method Return Types](#dotnet-method-return).
+`T` represents the content of the response, as described below.
 
-##### Thread Safety
-
-{% include requirement/MUST id="dotnet-service-methods-thread-safety" %} be thread-safe. All public members of the client type must be safe to call from multiple threads concurrently.
-
-#### Service Method Return Types {#dotnet-method-return}
-
-As mentioned above, service methods will often return `Response<T>`. The `T` can be either an unstructured payload (e.g. bytes of a storage blob) or a _model type_ representing deserialized response content.
+The `T` can be either an unstructured payload (e.g. bytes of a storage blob) or a _model type_ representing deserialized response content.
 
 {% include requirement/MUST id="dotnet-service-return-unstructured-type" %} use one of the following return types to represent an unstructured payload:
 
@@ -284,11 +343,13 @@ As mentioned above, service methods will often return `Response<T>`. The `T` can
 
 {% include requirement/MUST id="dotnet-service-return-model-type" %} return a _model type_ if the content has a schema and can be deserialized.
 
-TODO: Say see model types for more information
+For more information, see [Model Types](#dotnet-model-types)
+
+##### Thread Safety
+
+{% include requirement/MUST id="dotnet-service-methods-thread-safety" %} be thread-safe. All public members of the client type must be safe to call from multiple threads concurrently.
 
 #### Service Method Parameters {#dotnet-parameters}
-
-TODO: Tighten this up for clarity.
 
 Service methods fall into two main groups when it comes to the number and complexity of parameters they accept:
 
@@ -298,7 +359,8 @@ Service methods fall into two main groups when it comes to the number and comple
 _Simple methods_ are methods that take up to six parameters, with most of the parameters being simple BCL primitives. _Complex methods_ are methods that take large number of parameters and typically correspond to REST APIs with complex request payloads.
 
 _Simple methods_ should follow standard .NET Design Guidelines for parameter list and overload design.
-TODO: Link to these
+
+TODO: Link to these guidelines in FDG3
 
 _Complex methods_ should use _option parameter_ to represent the request payload, and consider providing convenience simple overloads for most common scenarios.
 
@@ -337,7 +399,7 @@ TODO: There was a discussion here and the guidance was updated within the .NET t
 
 ##### Conditional Requests
 
-TODO: Discussion of this with simplified semantics with forward linking to discussion of `MatchConditions` in Azure Core section.
+TODO: Add discussion for this
 
 ##### Parameter Validation
 
@@ -372,13 +434,33 @@ public class ConfigurationClient {
 
 {% include requirement/MUST id="dotnet-pagination-ienumerable" %} return ```Pageable<T>``` or ```AsyncPageable<T>``` from service methods that return a collection of items.
 
-TODO: link to further discussion in Azure.Core section
-
 #### Methods Invoking Long Running Operations {#dotnet-longrunning}
 
 Some service operations, known as _Long Running Operations_ or _LROs_ take a long time (up to hours or days). Such operations do not return their result immediately, but rather are started, their progress is polled, and finally the result of the operation is retrieved.
 
 Azure.Core library exposes an abstract type called ```Operation<T>```, which represents such LROs and supports operations for polling and waiting for status changes, and retrieving the final operation result.  A service method invoking a long running operation will return a subclass of `Operation<T>`, as shown below.
+
+```csharp
+// the following type is located in Azure.Core
+public abstract class Operation<T> {
+
+    public abstract bool HasCompleted { get; }
+    public abstract bool HasValue { get; }
+
+    public abstract string Id { get; }
+
+    public abstract T Value { get; } // throws if CachedStatus != Succeeded
+    public abstract Response GetRawResponse();
+
+    public abstract Response UpdateStatus(CancellationToken cancellationToken = default);
+    public abstract ValueTask<Response> UpdateStatusAsync(CancellationToken cancellationToken = default);
+
+    public abstract ValueTask<Response<T>> WaitForCompletionAsync(CancellationToken cancellationToken = default);
+    public abstract ValueTask<Response<T>> WaitForCompletionAsync(TimeSpan pollingInterval, CancellationToken cancellationToken);
+}
+```
+
+Client libraries need to inherit from ```Operation<T>``` not only to implement all abstract members, but also to provide a constructor required to access an existing LRO (an LRO initiated by a different process).
 
 ```csharp
 public class CopyFromUriOperation : Operation<long> {
@@ -434,13 +516,11 @@ BlobBaseClient client = ...
 {% include requirement/MAY id="dotnet-lro-subclass" %} add additional APIs to subclasses of ```Operation<T>```.
 For example, some subclasses add a constructor allowing to create an operation instance from a previously saved operation ID. Also, some subclasses are more granular states besides the IsCompleted and HasValue states that are present on the base class.
 
-TODO: link to further discussion in Azure Core section, e.g. for more info, see `Operation<T>` in Azure Core section
-
 ### Supporting Types
 
 TODO: Short sentence of transition
 
-#### Model Types
+#### Model Types {#dotnet-model-types}
 
 This section describes guidelines for the design _model types_ and all their transitive closure of public dependencies (i.e. the _model graph_).  A model type is a representation of a REST service's resource.
 
@@ -509,6 +589,7 @@ TODO: Update link to FDG3
 For example, implement `IEquatable<T>`, `IComparable<T>`, `IEnumerable<T>`, etc. if applicable.
 
 {% include requirement/SHOULD id="dotnet-service-return-model-collections" %} use the following collection types for properties of model types:
+
 - ```IReadOnlyList<T>``` and ```IList<T>``` for most collections
 - ```IReadOnlyDictionary<T>``` and ```IDictionary<T>``` for lookup tables
 - ```T[]```, ```Memory<T>```, and ```ReadOnlyMemory<T>``` when low allocations and performance are critical
@@ -533,6 +614,7 @@ namespace Azure.Storage.Blobs.Models {
     ...
 }
 ```
+
 {% include requirement/SHOULD id="dotnet-service-editor-browsable-state" %} apply the `[EditorBrowsable(EditorBrowsableState.Never)]` attribute to methods on the model type that the user isn't meant to call.
 
 Adding this attribute will hide the methods from being shown with IntelliSense.  A user will almost never call `GetHashCode()` directly.  `Equals(object)` is almost never called if the type implements `IEquatable<T>` (which is preferred).  Hide the `ToString()` method if it isn't overridden.
@@ -551,6 +633,10 @@ public sealed class ConfigurationSetting : IEquatable<ConfigurationSetting> {
 {% include requirement/MUST id="dotnet-models-in-mocks" %} ensure all model types can be used in mocks.
 
 In practice, you need to provide public APIs to construct _model graphs_. See [Support for Mocking](#dotnet-mocking) for details.
+
+##### Model Type Naming
+
+TODO: Add this discussion
 
 #### Commonly Overlooked .NET Type Design Guidelines
 
@@ -648,11 +734,9 @@ If you think a new group should be added to the list, contact [adparch].
 
 See [model type guidelines](#dotnet-service-models-namespace) for details.
 
-TODO: This needs to be updated.
+TODO: This set of namespaces needs to be updated.
 
 ### Authentication {#dotnet-authentication}
-
-TODO: Review this section vs. the discussion in the constructor section and see if this division makes sense.
 
 The client library consumer should construct a service client using just the constructor.  After construction, service methods can be called successfully to invoke service operations.  The constructor parameters must take all parameters required to create a functioning client, including all information needed to authenticate with the service.
 
@@ -691,15 +775,11 @@ public BlobServiceClient(Uri uri, TokenCredential credential, BlobClientOptions 
 
 Currently, `Azure.Core` provides `TokenCredential` for OAuth style tokens, including MSI credentials.
 
-TODO: link to more info in the Azure.Core section.
-
 {% include requirement/MUST id="dotnet-auth-rolling-credentials" %} support changing credentials without having to create a new client instance.
 
 Credentials passed to the constructors must be read before every request (for example, by calling `TokenCredential.GetToken()`).
 
 {% include requirement/MUST id="dotnet-auth-arch-review" %} contact [adparch] if you want to add a new credential type.
-
-TODO: Update this with the correct new process
 
 {% include requirement/MAY id="dotnet-auth-connection-strings" %} offer a way to create credentials from a connection string only if the service offers a connection string via the Azure portal.
 
@@ -736,8 +816,6 @@ Review the [full sample](https://github.com/Azure/azure-sdk-for-net/blob/master/
 
 Model types shouldn't have public constructors.  Instances of the model are typically returned from the client library, and are not constructed by the consumer of the library.  Mock implementations need to create instances of model types.  Implement a static class called `<service>ModelFactory` in the same namespace as the model types:
 
-TODO: find a way to mention this in the model type section as well, as it's relevant there - it'd be great to have that be a one-stop shop for all guidelines around type design, rather than having to read through this whole document.
-
 ```csharp
 public static class ConfigurationModelFactory {
     public static ConfigurationSetting ConfigurationSetting(string key, string value, string label=default, string contentType=default, ETag eTag=default, DateTimeOffset? lastModified=default, bool? locked=default);
@@ -746,8 +824,6 @@ public static class ConfigurationModelFactory {
 ```
 
 {% include requirement/MUST id="dotnet-mocking-factory-builder-methods" %} hide older overloads and avoid ambiguity.
-
-TODO: Make it clear that this is about methods on the factory class.
 
 When read-only properties are added to models and factory methods must be added to optionally set these properties,
 you must hide the previous method and remove all default parameter values to avoid ambiguity:
@@ -763,7 +839,7 @@ public static class ConfigurationModelFactory {
 
 ### Hierarchical Clients
 
-TODO: Discussion
+TODO: Add Discussion
 
 ## Azure SDK Library Design
 
@@ -803,7 +879,7 @@ For detailed rules, see [.NET Breaking Changes](https://github.com/dotnet/runtim
 
 Breaking changes should happen rarely, if ever.  Register your intent to do a breaking change with [adparch]. You'll need to have a discussion with the language architect before approval.
 
-##### Client Version Numbers {#dotnet-versionnumbers}
+##### Package Version Numbers {#dotnet-versionnumbers}
 
 Consistent version number scheme allows consumers to determine what to expect from a new version of the library.
 
@@ -825,57 +901,6 @@ Use _-beta._N_ suffix for beta package versions. For example, _1.0.0-beta.2_.
 
 {% include requirement/MUST id="dotnet-version-change-on-release" %} select a version number greater than the highest version number of any other released Track 1 package for the service in any other scope or language.
 
-#### Service Versions
-
-{% include requirement/MUST id="dotnet-versioning-highest-api" %} call the highest supported service API version by default.
-
-{% include requirement/MUST id="dotnet-versioning-select-api-version" %} allow the consumer to explicitly select a supported service API version when instantiating the service client.
-
-Use a constructor parameter called `version` on the client options type.
-
-* The `version` parameter must be the first parameter to all constructor overloads.
-* The `version` parameter must be required, and default to the latest supported service version.
-* The type of the `version` parameter must be `ServiceVersion`; an enum nested in the options type.
-* The `ServiceVersion` enum must use explicit values starting from 1.
-* `ServiceVersion` enum value 0 is reserved. When 0 is passed into APIs, ArgumentException should be thrown.
-
-For example, the following is a code snippet from the `ConfigurationClientOptions`:
-
-```csharp
-public class ConfigurationClientOptions : ClientOptions {
-
-    public ConfigurationClientOptions(ServiceVersion version = ServiceVersion.V2019_05_09) {
-        if (version == default)
-            throw new ArgumentException($"The service version {version} is not supported by this library.");
-        }
-    }
-
-    public enum ServiceVersion {
-        V2019_05_09 = 1,
-    }
-    ...
-}
-```
-
-{% include note.html content="Third-party reusable libraries shouldn't change behavior without an explicit decision by the developer.  When developing libraries that are based on the Azure SDK, lock the library to a specific service version to avoid changes in behavior." %}
-
-{% include requirement/MUSTNOT id="dotnet-versioning-feature-flags" %} force consumers to test service API versions to check support for a feature.  Use the _tester-doer_ .NET pattern to implement feature flags, or use `Nullable<T>`.
-
-For example, if the client library supports two service versions, only one of which can return batches, the consumer might write the following code:
-
-```csharp
-if (client.CanBatch) {
-    Response<SettingBatch> response = await client.GetBatch("some_key*");
-    Guid? Guid = response.Result.Guid;
-} else {
-    Response<ConfigurationSetting> response1 = await client.GetAsync("some_key1");
-    Response<ConfigurationSetting> response2 = await client.GetAsync("some_key2");
-    Response<ConfigurationSetting> response3 = await client.GetAsync("some_key3");
-}
-```
-
-TODO: Consider previewing this discussion in the constructor section, or maybe it goes with ClientOptions?
-
 ### Dependencies {#dotnet-dependencies}
 
 {% include requirement/SHOULD id="dotnet-dependencies-minimize" %} minimize dependencies outside of the .NET Standard and `Azure.Core` packages.
@@ -892,59 +917,6 @@ package that is now a part of the .NET platform instead.
 
 {% include requirement/MUSTNOT id="dotnet-dependencies-exposing" %} publicly expose types from dependencies unless the types follow these guidelines as well.
 
-### Serialization {#dotnet-usage-json}
-
-#### JSON Serialization
-
-{% include requirement/MUST id="dotnet-json-use-system-text-json" %} use [`System.Text.Json`](https://www.nuget.org/packages/System.Text.Json) package to write and read JSON content.
-
-{% include requirement/SHOULD id="dotnet-json-use-utf8jsonwriter" %} use `Utf8JsonWriter` to write JSON payloads:
-
-```csharp
-var json = new Utf8JsonWriter(writer);
-json.WriteStartObject();
-json.WriteString("value", setting.Value);
-json.WriteString("content_type", setting.ContentType);
-json.WriteEndObject();
-json.Flush();
-written = (int)json.BytesWritten;
-```
-
-{% include requirement/SHOULD id="dotnet-json-use-jsondocument" %} use `JsonDocument` to read JSON payloads:
-
-```csharp
-using (JsonDocument json = await JsonDocument.ParseAsync(content, default, cancellationToken).ConfigureAwait(false))
-{
-    JsonElement root = json.RootElement;
-
-    var setting = new ConfigurationSetting();
-
-    // required property
-    setting.Key = root.GetProperty("key").GetString();
-
-    // optional property
-    if (root.TryGetProperty("last_modified", out var lastModified)) {
-        if(lastModified.Type == JsonValueType.Null) {
-            setting.LastModified = null;
-        }
-        else {
-            setting.LastModified = DateTimeOffset.Parse(lastModified.GetString());
-        }
-    }
-    ...
-
-    return setting;
-}
-```
-
-{% include requirement/SHOULD id="dotnet-json-use-utf8jsonreader" %} consider using `Utf8JsonReader` to read JSON payloads.
-
-`Utf8JsonReader` is faster than `JsonDocument` but much less convenient to use.
-
-{% include requirement/MUST id="dotnet-json-serialization-resilience" %} make your serialization and deserialization code version resilient.
-
-Optional JSON properties should be deserialized into nullable model properties.
-
 ### Documentation {#dotnet-documentation}
 
 {% include requirement/MUST id="dotnet-docs-document-everything" %} document every exposed (public or protected) type and member within your library's code.
@@ -953,134 +925,9 @@ Optional JSON properties should be deserialized into nullable model properties.
 
 See the [documentation guidelines]({{ site.baseurl }}/general_documentation.html) for language-independent guidelines for how to provide good documentation.
 
-TODO: put these here or put them in a better language-neutral section ... other languages have them inline.
-
 ## Azure Core Types {#dotnet-commontypes}
 
 The `Azure.Core` package provides common functionality for client libraries.  Documentation and usage examples can be found in the [azure/azure-sdk-for-net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/core/Azure.Core) repository.  This section discusses `Azure.Core` types and how to use them in Azure SDK API design.
-
-### ClientOptions {#dotnet-usage-options}
-
-TODO: One sentence overview of ClientOptions, and link back to where it's discussed in service client design
-
-{% include requirement/MUST id="dotnet-http-pipeline-options" %} name subclasses of ```ClientOptions``` by adding _Options_ suffix to the name of the client type the options subclass is configuring.
-
-```csharp
-// options for configuring ConfigurationClient
-public class ConfigurationClientOptions : ClientOptions {
-    ...
-}
-
-public class ConfigurationClient {
-
-    public ConfigurationClient(string connectionString, ConfigurationClientOptions options);
-    ...
-}
-```
-
-If the options type can be shared by multiple client types, name it with a plural or more general name.  For example, the `BlobClientsOptions` class can be used by `BlobClient`, `BlobContainerClient`, and `BlobAccountClient`.
-
-{% include requirement/MUSTNOT id="dotnet-options-no-default-constructor" %} have a default constructor on the options type.
-
-Each overload constructor should take at least `version` parameter to specify the service version. See [Versioning](#dotnet-service-version-option) guidelines for details.
-
-### Pageable\<T\> and AsyncPageable\<T\>
-
-TODO: Some discussion can go here.
-
-### Operation\<T\>
-
-```csharp
-// the following type is located in Azure.Core
-public abstract class Operation<T> {
-
-    public abstract bool HasCompleted { get; }
-    public abstract bool HasValue { get; }
-
-    public abstract string Id { get; }
-
-    public abstract T Value { get; } // throws if CachedStatus != Succeeded
-    public abstract Response GetRawResponse();
-
-    public abstract Response UpdateStatus(CancellationToken cancellationToken = default);
-    public abstract ValueTask<Response> UpdateStatusAsync(CancellationToken cancellationToken = default);
-
-    public abstract ValueTask<Response<T>> WaitForCompletionAsync(CancellationToken cancellationToken = default);
-    public abstract ValueTask<Response<T>> WaitForCompletionAsync(TimeSpan pollingInterval, CancellationToken cancellationToken);
-}
-```
-
-Client libraries need to inherit from ```Operation<T>``` not only to implement all abstract members, but also to provide a constructor required to access an existing LRO (an LRO initiated by a different process).
-
-TODO: New LRO implementation discussion can go here.
-
-### HttpPipeline {#dotnet-usage-httppipeline}
-
-TODO: Once sentence overview of HttpPipeline - would be great to link to further info on this, such as: 
-
-The following example shows a typical way of using `HttpPipeline` to implement a service call method. The `HttpPipeline` will handle common HTTP requirements such as the user agent, logging, distributed tracing, retries, and proxy configuration.
-
-```csharp
-public virtual async Task<Response<ConfigurationSetting>> AddAsync(ConfigurationSetting setting, CancellationToken cancellationToken = default)
-{
-    if (setting == null) throw new ArgumentNullException(nameof(setting));
-    ... // validate other preconditions
-
-    // Use HttpPipeline _pipeline filed of the client type to create new HTTP request
-    using (Request request = _pipeline.CreateRequest()) {
-
-        // specify HTTP request line
-        request.Method = RequestMethod.Put;
-        request.Uri.Reset(_endpoint);
-        request.Uri.AppendPath(KvRoute, escape: false);
-        requast.Uri.AppendPath(key);
-
-        // add headers
-        request.Headers.Add(IfNoneMatchWildcard);
-        request.Headers.Add(MediaTypeKeyValueApplicationHeader);
-        request.Headers.Add(HttpHeader.Common.JsonContentType);
-        request.Headers.Add(HttpHeader.Common.CreateContentLength(content.Length));
-
-        // add content
-        ReadOnlyMemory<byte> content = Serialize(setting);
-        request.Content = HttpPipelineRequestContent.Create(content);
-
-        // send the request
-        var response = await Pipeline.SendRequestAsync(request).ConfigureAwait(false);
-
-        if (response.Status == 200) {
-            // deserialize content
-            Response<ConfigurationSetting> result = await CreateResponse(response, cancellationToken);
-        }
-        else
-        {
-            throw await response.CreateRequestFailedExceptionAsync(message);
-        }
-    }
-}
-```
-
-TODO: do we still want this code sample now that we're encouraging moving to Code Gen?
-
-For a more complete example, see the [configuration client](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/appconfiguration/Azure.Data.AppConfiguration/src/ConfigurationClient.cs) implementation.
-
-### HttpPipelinePolicy
-
-TODO: One sentence overview of what this is, how it fits in the public API (e.g. advanced usage), and what are implementation details.
-
-The HTTP pipeline includes a number of policies that all requests pass through.  Examples of policies include setting required headers, authentication, generating a request ID, and implementing proxy authentication.  `HttpPipelinePolicy` is the base type of all policies (plugins) of the `HttpPipeline`. This section describes guidelines for designing custom policies.
-
-{% include requirement/MUST id="dotnet-http-pipeline-policy-inherit" %} inherit from `HttpPipelinePolicy` if the policy implementation calls asynchronous APIs.
-
-See an example [here](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/src/Pipeline/BearerTokenAuthenticationPolicy.cs).
-
-{% include requirement/MUST id="dotnet-sync-http-pipeline-policy-inherit" %} inherit from `HttpPipelineSynchronousPolicy` if the policy implementation calls only synchronous APIs.
-
-See an example [here](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/src/Pipeline/Internal/ClientRequestIdPolicy.cs).
-
-{% include requirement/MUST id="dotnet-http-pipeline-thread-safety" %} ensure `ProcessAsync` and `Process` methods are thread safe.
-
-`HttpMessage`, `Request`, and `Response` don't have to be thread-safe.
 
 ## Repository Guidelines {#dotnet-repository}
 
