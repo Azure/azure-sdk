@@ -26,7 +26,7 @@ We're releasing a new beta version of Form Recognizer. This version includes sup
 
 ### Text Analytics
 
-We're releasing a new beta version of Text Analytics. This version includes support for batch task processing and for the recognition of  various healthcare entities such as medication name, dosage, and frequency.
+We're releasing a new beta version of Text Analytics. This version includes support for batch task processing and for the recognition of various healthcare entities such as medication name, dosage, and frequency.
 ## Release Notes
 
 * [All release notes](index.md)
