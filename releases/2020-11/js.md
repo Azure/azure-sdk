@@ -119,7 +119,7 @@ of this package please look at our [migration guide to move from Service Bus V1 
 
 ##### Breaking Changes on @azure/service-bus@7.0.0
 
-- For the breaking changes since version `7.0.0-preview.8`, check out the changelog: [link](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md#700-2020-11-23).
+- For all the updates in version `7.0.0`(since version `1.1.x`), check out the changelog: [link](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md#700-2020-11-23)(also includes the breaking changes since version `7.0.0-preview.8`).
 
 ##### New Features on @azure/service-bus@7.0.0-preview.8
 
