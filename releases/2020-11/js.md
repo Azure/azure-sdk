@@ -58,6 +58,24 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
+### Service Bus
+
+#### @azure/service-bus [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md)
+
+This release marks the general availability of version 7 of the `@azure/service-bus` package.
+
+##### Breaking Changes on @azure/service-bus@7.0.0
+
+- Please see the [migration guide to move from Service Bus V1 to Service Bus V7](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/migrationguide.md) to understand the major breaking changes.
+- For all the updates in version `7.0.0`(since version `1.1.x`) across multiple previews, check out the [Service Bus changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md#700-2020-11-23)
+
+##### New Features on @azure/service-bus@7.0.0
+
+- A new `ServiceBusAdministrationClient` to perform operations like create/get/list/update/delete on queues/topics/subscriptions/rules. These were already available as part of a separate package `@azure/arm-servicebus` that uses Azure Resource Manager APIs but had the drawback of not supporting connection strings.
+- Ability to create a batch of messages with the smarter `ServiceBusSender.createBatch()` and `ServiceBusMessageBatch.tryAddMessage()` APIs. This will help you manage the messages to be sent in the most optimal way.
+- Ability to configure the retry policy used by the operations on the client, sender and receivers.
+- Ability to cancel async operations on the client, sender and receivers and the management operations using the abort signal from @azure/abort-controller.
+
 ### Identity
 
 #### @azure/identity [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/identity/identity/CHANGELOG.md)
@@ -73,12 +91,6 @@ We're glad to announce a new major release of our Identity package. This release
 - Added Active Directory Federation Services authority host support to the node credentials.
 - Added support for multiple clouds on `VisualStudioCodeCredential`.
 - Added support for authenticating with user assigned identities on Azure App Service.
-
-### Azure Tables
-
-#### @azure/data-tables [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/tables/data-tables/CHANGELOG.md).
-
-We're releasing a new preview of our Azure Tables library. System properties `odata.etag` and `Timestamp` are renamed to `etag` and `timestamp` to be more idiomatic with the JavaScript ecosystem.
 
 ### Azure Storage
 
@@ -108,24 +120,6 @@ We are releasing to add support for new service features in Azure Storage Servic
 
 - Updated Azure Storage Service API version to 2020-02-10.
 
-### Service Bus
-
-#### @azure/service-bus [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md)
-
-This release marks the general availability of version 7 of the `@azure/service-bus` package.
-
-##### Breaking Changes on @azure/service-bus@7.0.0
-
-- Please see the [migration guide to move from Service Bus V1 to Service Bus V7](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/migrationguide.md) to understand the major breaking changes.
-- For all the updates in version `7.0.0`(since version `1.1.x`) across multiple previews, check out the [Service Bus changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md#700-2020-11-23)
-
-##### New Features on @azure/service-bus@7.0.0
-
-- A new `ServiceBusAdministrationClient` to perform operations like create/get/list/update/delete on queues/topics/subscriptions/rules. These were already available as part of a separate package `@azure/arm-servicebus` that uses Azure Resource Manager APIs but had the drawback of not supporting connection strings.
-- Ability to create a batch of messages with the smarter `ServiceBusSender.createBatch()` and `ServiceBusMessageBatch.tryAddMessage()` APIs. This will help you manage the messages to be sent in the most optimal way.
-- Ability to configure the retry policy used by the operations on the client, sender and receivers.
-- Ability to cancel async operations on the client, sender and receivers and the management operations using the abort signal from @azure/abort-controller.
-
 ### Event Hubs
 
 #### @azure/event-hubs [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/CHANGELOG.md).
@@ -135,6 +129,12 @@ We're releasing an Azure Event Hubs client patch update with bug fixes.
 ##### Major Fixes on @azure/event-hubs@3.5.1
 
 - Fixes an issue where the `processEvents` handler passed to `EventHubConsumerClient.subscribe()` could ignore the `maxWaitTimeInSeconds` parameter after a disconnection, resulting in `processEvents` being invoked rapidly without events.
+
+### Azure Tables
+
+#### @azure/data-tables [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/tables/data-tables/CHANGELOG.md).
+
+We're releasing a new preview of our Azure Tables library. System properties `odata.etag` and `Timestamp` are renamed to `etag` and `timestamp` to be more idiomatic with the JavaScript ecosystem.
 
 ### Metrics Advisor
 
