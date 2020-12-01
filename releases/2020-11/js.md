@@ -15,6 +15,7 @@ The Azure SDK team is pleased to make available the November 2020 client library
 - Azure Storage Blob
 - Azure Storage Data Lake
 - Azure Storage File Share
+- Azure Service Bus
 
 #### Updates
 
@@ -27,7 +28,6 @@ The Azure SDK team is pleased to make available the November 2020 client library
 - Azure Communication Chat
 - Azure Communication Common
 - Azure Communication SMS
-- Azure Service Bus
 - Azure Metrics Advisor
 - Azure Form Recognizer
 
@@ -36,18 +36,18 @@ The Azure SDK team is pleased to make available the November 2020 client library
 To install the packages, copy and paste the below into a terminal.
 
 ```bash
-$> npm install @azure/communication-administration@next
-$> npm install @azure/communication-chat@next
-$> npm install @azure/communication-common@next
-$> npm install @azure/communication-sms@next
 $> npm install @azure/identity
 $> npm install @azure/tables
 $> npm install @azure/storage-blob
 $> npm install @azure/storage-file-datalake
 $> npm install @azure/storage-file-share
-$> npm install @azure/storage-queue@latest
-$> npm install @azure/event-hubs@latest
-$> npm install @azure/service-bus@next
+$> npm install @azure/service-bus
+$> npm install @azure/storage-queue
+$> npm install @azure/event-hubs
+$> npm install @azure/communication-administration@next
+$> npm install @azure/communication-chat@next
+$> npm install @azure/communication-common@next
+$> npm install @azure/communication-sms@next
 $> npm install @azure/ai-metrics-advisor@next
 $> npm install @azure/ai-form-recognizer@next
 ```
@@ -57,6 +57,99 @@ $> npm install @azure/ai-form-recognizer@next
 If you have a bug or feature request for one of the libraries, please post an issue at the [azure-sdk-for-js repository](https://github.com/azure/azure-sdk-for-js/issues).
 
 ## Release highlights
+
+### Service Bus
+
+#### @azure/service-bus [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md)
+
+This release marks the general availability of version 7 of the `@azure/service-bus` package.
+
+##### Breaking Changes on @azure/service-bus@7.0.0
+
+- Please see the [migration guide to move from Service Bus V1 to Service Bus V7](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/migrationguide.md) to understand the major breaking changes.
+- For all the updates in version `7.0.0`(since version `1.1.x`) across multiple previews, check out the [Service Bus changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md#700-2020-11-23)
+
+##### New Features on @azure/service-bus@7.0.0
+
+- A new `ServiceBusAdministrationClient` to perform operations like create/get/list/update/delete on queues/topics/subscriptions/rules. These were already available as part of a separate package `@azure/arm-servicebus` that uses Azure Resource Manager APIs but had the drawback of not supporting connection strings.
+- Ability to create a batch of messages with the smarter `ServiceBusSender.createBatch()` and `ServiceBusMessageBatch.tryAddMessage()` APIs. This will help you manage the messages to be sent in the most optimal way.
+- Ability to configure the retry policy used by the operations on the client, sender and receivers.
+- Ability to cancel async operations on the client, sender and receivers and the management operations using the abort signal from @azure/abort-controller.
+
+### Identity
+
+#### @azure/identity [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/identity/identity/CHANGELOG.md)
+
+We're glad to announce a new major release of our Identity package. This release includes standardized `ManagedIdentityCredential` support across languages, as well as improvements to `VisualStudioCodeCredential`, `DeviceCodeCredential` and `InteractiveBrowserCredential`.
+
+##### New Features on @azure/identity@1.2.0
+
+- A new dependency has been added: the Microsoft Authentication Library (MSAL). MSAL allows us to provide secure and reliable implementations for `InteractiveBrowserCredential` and `DeviceCodeCredential`.
+- `InteractiveBrowserCredential` now works for Node, which spawns the user's browser and connects via a browser-based auth code flow.
+- With 1.2, we've added support for Azure Arc to our Managed Identity credential.
+- Identity now supports Subject Name/Issuer (SNI) as part of authentication for ClientCertificateCredential.
+- Added Active Directory Federation Services authority host support to the node credentials.
+- Added support for multiple clouds on `VisualStudioCodeCredential`.
+- Added support for authenticating with user assigned identities on Azure App Service.
+
+### Azure Storage
+
+#### @azure/storage-blob [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/CHANGELOG.md)
+
+We are releasing to add support for new service features in Azure Storage Service API version 2020-02-10.
+
+##### New Features on @azure/storage-blob@12.3.0
+
+- Added `BlockBlobClient.uploadData(data: Buffer | Blob | ArrayBuffer | ArrayBufferView, options)` for parallel uploading. It's available in both Node.js and browsers.
+
+#### @azure/storage-file-datalake [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/CHANGELOG.md)
+
+##### Major Fixes on @azure/storage-file-datalake@12.2.0
+
+- Fixed an issue where `DataLakePathClient.move()` will give an `InvalidSourceUri` error when the copy source name contains characters that need to be URL encoded.
+
+#### @azure/storage-file-share [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/CHANGELOG.md)
+
+##### New Features on @azure/storage-file-share@12.3.0
+
+- Added `ShareClient.setProperties()`, which can be used to set both Share Tier and Share Quota.
+
+#### storage-queue [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/CHANGELOG.md)
+
+##### New Features on @azure/storage-queue@12.2.0
+
+- Updated Azure Storage Service API version to 2020-02-10.
+
+### Event Hubs
+
+#### @azure/event-hubs [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/CHANGELOG.md).
+
+We're releasing an Azure Event Hubs client patch update with bug fixes.
+
+##### Major Fixes on @azure/event-hubs@3.5.1
+
+- Fixes an issue where the `processEvents` handler passed to `EventHubConsumerClient.subscribe()` could ignore the `maxWaitTimeInSeconds` parameter after a disconnection, resulting in `processEvents` being invoked rapidly without events.
+
+### Azure Tables
+
+#### @azure/data-tables [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/tables/data-tables/CHANGELOG.md).
+
+We're releasing a new preview of our Azure Tables library. System properties `odata.etag` and `Timestamp` are renamed to `etag` and `timestamp` to be more idiomatic with the JavaScript ecosystem.
+
+### Metrics Advisor
+
+#### @azure/ai-metrics-advisor [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/metricsadvisor/ai-metrics-advisor/CHANGELOG.md)
+
+This version 1.0.0-beta.2  incorporates feedback from UX Studies and Architecture Board Review.
+
+##### New Features on @azure/ai-metrics-advisor@1.0.0-beta.2
+
+- Parameters of `Date` type now also accept strings
+- Handle potential new data feed source types gracefully
+
+##### Breaking Changes on @azure/ai-metrics-advisor@1.0.0-beta.2
+
+- Various renames of types, methods, and properties to improve the API surface.  Please see the [CHANGELOG](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/metricsadvisor/ai-metrics-advisor/CHANGELOG.md) for more details.
 
 ### Communication
 
@@ -102,100 +195,6 @@ This release contains minor fixes.
 #### @azure/communication-sms [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-sms/CHANGELOG.md#100-beta3-2020-11-16)
 
 This release contains minor fixes.
-
-### Identity
-
-#### @azure/identity [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/identity/identity/CHANGELOG.md)
-
-We're glad to announce a new major release of our Identity package. This release includes standardized `ManagedIdentityCredential` support across languages, as well as improvements to `VisualStudioCodeCredential`, `DeviceCodeCredential` and `InteractiveBrowserCredential`.
-
-##### New Features on @azure/identity@1.2.0
-
-- A new dependency has been added: the Microsoft Authentication Library (MSAL). MSAL allows us to provide secure and reliable implementations for `InteractiveBrowserCredential` and `DeviceCodeCredential`.
-- `InteractiveBrowserCredential` now works for Node, which spawns the user's browser and connects via a browser-based auth code flow.
-- With 1.2, we've added support for Azure Arc to our Managed Identity credential.
-- Identity now supports Subject Name/Issuer (SNI) as part of authentication for ClientCertificateCredential.
-- Added Active Directory Federation Services authority host support to the node credentials.
-- Added support for multiple clouds on `VisualStudioCodeCredential`.
-- Added support for authenticating with user assigned identities on Azure App Service.
-
-### Azure Tables
-
-#### @azure/data-tables [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/tables/data-tables/CHANGELOG.md).
-
-We're releasing a new preview of our Azure Tables library. System properties `odata.etag` and `Timestamp` are renamed to `etag` and `timestamp` to be more idiomatic with the JavaScript ecosystem.
-
-### Azure Storage
-
-#### @azure/storage-blob [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/CHANGELOG.md)
-
-We are releasing to add support for new service features in Azure Storage Service API version 2020-02-10.
-
-##### New Features on @azure/storage-blob@12.3.0
-
-- Added `BlockBlobClient.uploadData(data: Buffer | Blob | ArrayBuffer | ArrayBufferView, options)` for parallel uploading. It's available in both Node.js and browsers.
-
-#### @azure/storage-file-datalake [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/CHANGELOG.md)
-
-##### Major Fixes on @azure/storage-file-datalake@12.2.0
-
-- Fixed an issue where `DataLakePathClient.move()` will give an `InvalidSourceUri` error when the copy source name contains characters that need to be URL encoded.
-
-#### @azure/storage-file-share [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/CHANGELOG.md)
-
-##### New Features on @azure/storage-file-share@12.3.0
-
-- Added `ShareClient.setProperties()`, which can be used to set both Share Tier and Share Quota.
-
-#### storage-queue [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/CHANGELOG.md)
-
-##### New Features on @azure/storage-queue@12.2.0
-
-- Updated Azure Storage Service API version to 2020-02-10.
-
-### Event Hubs
-
-#### @azure/event-hubs [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/CHANGELOG.md).
-
-We're releasing an Azure Event Hubs client patch update with bug fixes.
-
-##### Major Fixes on @azure/event-hubs@3.5.1
-
-- Fixes an issue where the `processEvents` handler passed to `EventHubConsumerClient.subscribe()` could ignore the `maxWaitTimeInSeconds` parameter after a disconnection, resulting in `processEvents` being invoked rapidly without events.
-
-### Service Bus
-
-#### @azure/service-bus [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md)
-
-This is the last preview version of the Azure Service Bus client library before releasing it for general availability later this month, this release includes improvements in error handling, various interface/method/type updates and internal improvements in terms of memory consumption.
-
-##### Breaking Changes on @azure/service-bus@7.0.0-preview.8
-
-- The `processError` passed to `Receiver.subscribe` now receives a `ProcessErrorArgs` instead of just an error. This parameter provides additional context that can make it simpler to distinguish errors that were thrown from your callback (via the `errorSource` member of `ProcessErrorArgs`) as well as giving you some information about the entity that generated the error.
-- The methods to complete, abandon, defer and deadletter a message along with the method to renew message lock have been moved from the message to the receiver. With this, we now have additional validation to ensure that a peeked message cannot be used with these methods.
-- Returned responses from the methods under the `ServiceBusAdministrationClient` now use a generic type `WithResponse<T>` for a cleaner API surface. The raw responses(`_response`) have been updated to return only the `{request, status, headers}`, properties such as `parsedHeaders`, `parsedBody` have been removed.
-- Removed `AmqpAnnotatedMessage`, `AmqpMessageHeaders`, `AmqpMessageProperties` interfaces in favour of the ones from `@azure/core-amqp`. This is part of the move from `@azure/core-amqp` version update from 1.1.x to 2.0.0. As part of this, `userId` will not be made available as part of `AmqpMessageProperties` until its type is fixed in the upstream `rhea` library.
-- Many other updates to methods, interfaces, types, and names based on user studies and internal reviews, more info at [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md#700-preview8-2020-11-04).
-
-##### New Features on @azure/service-bus@7.0.0-preview.8
-
-- A helper method parseServiceBusConnectionString has been added which validates and parses a given connection string for Azure Service Bus. You can use this to extract the namespace and entityPath details from the connection string.
-- Tracing, using [@azure/core-tracing](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/core/core-tracing/README.md), has been added for sending and receiving of messages.
-
-### Metrics Advisor
-
-#### @azure/ai-metrics-advisor [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/metricsadvisor/ai-metrics-advisor/CHANGELOG.md)
-
-This version 1.0.0-beta.2  incorporates feedback from UX Studies and Architecture Board Review.
-
-##### New Features on @azure/ai-metrics-advisor@1.0.0-beta.2
-
-- Parameters of `Date` type now also accept strings
-- Handle potential new data feed source types gracefully
-
-##### Breaking Changes on @azure/ai-metrics-advisor@1.0.0-beta.2
-
-- Various renames of types, methods, and properties to improve the API surface.  Please see the [CHANGELOG](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/metricsadvisor/ai-metrics-advisor/CHANGELOG.md) for more details.
 
 ### Form Recognizer
 
