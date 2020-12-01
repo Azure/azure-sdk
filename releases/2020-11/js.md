@@ -42,8 +42,8 @@ $> npm install @azure/storage-blob
 $> npm install @azure/storage-file-datalake
 $> npm install @azure/storage-file-share
 $> npm install @azure/service-bus
-$> npm install @azure/storage-queue@latest
-$> npm install @azure/event-hubs@latest
+$> npm install @azure/storage-queue
+$> npm install @azure/event-hubs
 $> npm install @azure/communication-administration@next
 $> npm install @azure/communication-chat@next
 $> npm install @azure/communication-common@next
@@ -112,18 +112,19 @@ We are releasing to add support for new service features in Azure Storage Servic
 
 #### @azure/service-bus [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md)
 
-This release marks the general availability of the `@azure/service-bus` package.
-
-- If you are using version 1.1.10 or lower and want to migrate to the latest version
-of this package please look at our [migration guide to move from Service Bus V1 to Service Bus V7](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/migrationguide.md).
+This release marks the general availability of version 7 of the `@azure/service-bus` package.
 
 ##### Breaking Changes on @azure/service-bus@7.0.0
 
-- For all the updates in version `7.0.0`(since version `1.1.x`), check out the changelog: [link](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md#700-2020-11-23)(also includes the breaking changes since version `7.0.0-preview.8`).
+- Please see the [migration guide to move from Service Bus V1 to Service Bus V7](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/migrationguide.md) to understand the major breaking changes.
+- For all the updates in version `7.0.0`(since version `1.1.x`) across multiple previews, check out the [Service Bus changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md#700-2020-11-23)
 
-##### New Features on @azure/service-bus@7.0.0-preview.8
+##### New Features on @azure/service-bus@7.0.0
 
-- For the new features we've provided through our preview versions, please check out the changelog: [link](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md#700-2020-11-23).
+- A new `ServiceBusAdministrationClient` to perform operations like create/get/list/update/delete on queues/topics/subscriptions/rules. These were already available as part of a separate package `@azure/arm-servicebus` that uses Azure Resource Manager APIs but had the drawback of not supporting connection strings.
+- Ability to create a batch of messages with the smarter `ServiceBusSender.createBatch()` and `ServiceBusMessageBatch.tryAddMessage()` APIs. This will help you manage the messages to be sent in the most optimal way.
+- Ability to configure the retry policy used by the operations on the client, sender and receivers.
+- Ability to cancel async operations on the client, sender and receivers and the management operations using the abort signal from @azure/abort-controller.
 
 ### Event Hubs
 
