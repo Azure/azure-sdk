@@ -953,7 +953,7 @@ Optional JSON properties should be deserialized into nullable model properties.
 
 ### Implementing Subtypes of Operation<T> {#dotnet-implement-operation}
 
-{% include requirement/MUST id="dotnet-lro-return" %} check the value of ```HasCompleted``` in subclass implementations of ```UpdateStatus``` and ```UpdateStatusAsync``` and immediately return the result of ```GetRawResponse``` if it is true.
+{% include requirement/MUST id="dotnet-lro-return" %} check the value of `HasCompleted` in subclass implementations of `UpdateStatus` and `UpdateStatusAsync` and immediately return the result of `GetRawResponse` if it is true.
 
 ```csharp
 public override Response UpdateStatus(
@@ -971,13 +971,15 @@ private async Task<Response> UpdateStatusAsync(bool async, CancellationToken can
     {
         return GetRawResponse();
     }
+
+    // some service operation call here, which the above check avoids if the operation has already completed.
     ...
 ```
 
-{% include requirement/MUST id="dotnet-lro-return" %} throw from methods on ```Operation<T>``` subclasses in the following scenarios.
+{% include requirement/MUST id="dotnet-lro-return" %} throw from methods on `Operation<T>` subclasses in the following scenarios.
 
-* If an underlying service operation call from ```UpdateStatus```, ```WaitForCompletion```, or ```WaitForCompletionAsync``` throws, re-throw ```RequestFailedException``` or its subtype.
-* If the operation completes with a non-success result, throw ```RequestFailedException``` or its subtype from ```UpdateStatus```, ```WaitForCompletion```, or ```WaitForCompletionAsync```.
+* If an underlying service operation call from `UpdateStatus`, `WaitForCompletion`, or `WaitForCompletionAsync` throws, re-throw `RequestFailedException` or its subtype.
+* If the operation completes with a non-success result, throw `RequestFailedException` or its subtype from `UpdateStatus`, `WaitForCompletion`, or `WaitForCompletionAsync`.
   * Include any relevant error state information in the exception details.
 
 ```csharp
@@ -987,16 +989,16 @@ private async ValueTask<Response> UpdateStatusAsync(bool async, CancellationToke
 
         try
         {
-            Response<AnalyzeOperationResult> update = async
-                ? await _serviceClient.GetAnalyzeLayoutResultAsync(new Guid(Id), cancellationToken).ConfigureAwait(false)
-                : _serviceClient.GetAnalyzeLayoutResult(new Guid(Id), cancellationToken);
+            Response<ExampleOperationResult> update = async
+                ? await _serviceClient.GetExampleResultAsync(new Guid(Id), cancellationToken).ConfigureAwait(false)
+                : _serviceClient.GetExampleResult(new Guid(Id), cancellationToken);
 
             _response = update.GetRawResponse();
 
             if (update.Value.Status == OperationStatus.Succeeded)
             {
                 // we need to first assign a value and then mark the operation as completed to avoid race conditions
-                _value = ConvertValue(update.Value.AnalyzeResult.PageResults, update.Value.AnalyzeResult.ReadResults);
+                _value = ConvertValue(update.Value.ExampleResult.PageResults, update.Value.ExampleResult.ReadResults);
                 _hasCompleted = true;
             }
             else if (update.Value.Status == OperationStatus.Failed)
@@ -1046,17 +1048,17 @@ public override FooResult Value
 
 ```csharp
 // start the operation.
-var operation = await client.StartExampleOperationAsync(someParameter);
+ExampleOperation operation = await client.StartExampleOperationAsync(someParameter);
 
 if (!operation.HasCompleted)
 {
     // attempt to get the Value property before the operation has completed.
-    var myResult = operation.Value;  //throws InvalidOperationException.
+    ExampleOperationResult myResult = operation.Value;  //throws InvalidOperationException.
 }
 else if (!operation.HasValue)
 {
     // attempt to get the Value property after the operation has completed unsuccessfully.
-    var myResult = operation.Value;  //throws RequestFailedException.
+    ExampleOperationResult myResult = operation.Value;  //throws RequestFailedException.
 }
 ```
 
