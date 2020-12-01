@@ -42,7 +42,7 @@ This covers the case when we upgrade and existing Azure SDK to the new Track 2 S
 
 An example porting guide can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md).
 
-(Please Note) Migration guides creation will be required to obtain sign off from the Archboard.
+(Please Note) Migration guides creation will be required to obtain sign-off from the Archboard.
 
 #### Track 2 New version release
 
@@ -114,7 +114,7 @@ Advertising our SDKs is key to increasing their adoption and getting their lates
 
 ### 4) Payload Backwards Compatibility
 
-A manual migration test should be developed to ensure that payloads and data fed into previous version of the SDK are gracefully handled when fed to the new Track 2 SDKs.
+A manual migration test should be developed to ensure that payloads and data fed into the previous version of the SDK are gracefully handled when fed to the new Track 2 SDK.
 
 ### 5) Updating package manager references
 
