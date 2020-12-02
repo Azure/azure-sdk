@@ -976,9 +976,9 @@ var client = new ConfigurationClient(connectionString);
 
 {% include requirement/MUST id="dotnet-samples-build" %} make sure all the samples build and run as part of the CI process.
 
-## Commonly Overlooked .NET Type Design Guidelines
+## Commonly Overlooked .NET API Design Guidelines {#dotnet-appendix-overlookedguidelines}
 
-Some .NET Design Guidelines have been notoriously overlooked in earlier Track 1 Azure SDKs. This section serves as a way to highlight these guidelines to inform the design of Azure SDK types.
+Some .NET Design Guidelines have been notoriously overlooked in earlier Azure SDKs. This section serves as a way to highlight these guidelines.
 
 {% include requirement/SHOULDNOT id="dotnet-problems-too-many-types" %} have many types in the main namespace. Number of types is directly proportional to the perceived complexity of a library.
 
