@@ -12,8 +12,6 @@ The following document describes .NET specific guidelines for designing Azure SD
 
 Throughout this document, we'll use the client library for the [Azure Application Configuration service](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/appconfiguration/Azure.Data.AppConfiguration) to illustrate various design concepts.  
 
-TODO: Should we update this to reflect new guidelines, e.g. around method naming such as `Add` vs. `Create` (Or Phase 2?)
-
 ### Design Principles {#dotnet-principles}
 
 The main value of the Azure SDK is **productivity** building applications with Azure services. Other qualities, such as completeness, extensibility, and performance are important but secondary.  We ensure our customers can be highly productive when using our libraries by ensuring these libraries are:
