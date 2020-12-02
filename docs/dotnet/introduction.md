@@ -63,7 +63,8 @@ The pipeline can be found in the [Azure.Core] package, and it takes care of many
 ### Support for non-HTTP Protocols
 
 Currently, this document describes guidelines for client libraries exposing HTTP/REST services. It may be expanded in the future to cover other, non-REST, services.  If your service is not REST-based, please contact the Azure SDK Architecture Board for guidance.
-[TODO: Link to current arch board contact info.]
+
+TODO: Link to current arch board contact info.
 
 ## Azure SDK API Design {#dotnet-api}
 
