@@ -232,6 +232,33 @@ Filenames should be concise, but convey what role the file plays within the libr
 
 {% include requirement/MUSTNOT id="cpp-style-change-headers" %} substantially change the names exposed by the header in response to macros or other controls. For example, `NOMINMAX` or `WIN32_LEAN_AND_MEAN` from `<Windows.h>`.
 
+{% include requirement/SHOULD id="cpp-design-physical-include-quotes" %} include files using quotes (") for files within the package's library, and angle brackets (<>) for external dependencies. Consider unit tests, samples and any other code out of the package's library to be a reference for how the package's library is consumed, hence, include headers using angle brackets (<>) on this cases.
+
+{% highlight cpp %}
+// Including headers from within a package library like Azure Core
+#include "azure/core/context.hpp"
+#include "azure/core/http/http.hpp"
+
+#include <iostream>  // external
+#include <vector>
+
+// Including headers from the same package but outside the library (like tests or samples)
+#include <azure/core/context.hpp>
+#include <azure/core/http/http.hpp>
+
+#include <iostream>  // external
+#include <vector>
+
+// Including headers from another library (like Azure Storage including Azure Core)
+#include <azure/core/context.hpp>
+#include <azure/core/http/http.hpp>
+
+#include "azure/storage/blobs.hpp" // same package's library
+
+#include <iostream>  // external
+#include <vector>
+{% endhighlight %}
+
 ## Tooling
 
 We use a common build and test pipeline to provide for automatic distribution of client libraries.  To support this, we need common tooling.

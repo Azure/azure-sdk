@@ -269,10 +269,6 @@ template<class T>
 
 ## Physical Design
 
-> TODO: Move this to implementation or move the headers discussion from implementation here
-
-{% include requirement/SHOULD id="cpp-design-physical-include-quotes" %} include files using quotes (") for files within the same git repository, and angle brackets (<>) for external dependencies.
-
 {% include requirement/SHOULD id="cpp-design-physical-unnamed-namespace" %} declare all types that are only used within the same `.cpp` file in an unnamed namespace. For example:
 
 {% highlight cpp %}
