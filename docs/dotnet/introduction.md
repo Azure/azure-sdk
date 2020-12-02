@@ -50,7 +50,7 @@ The main value of the Azure SDK is **productivity** building applications with A
 
 {% include requirement/MUST id="dotnet-general-follow-framework-guidelines" %} follow the official [.NET Framework Design Guidelines].
 
-At various points in this document, you can find a section with [the most commonly overlooked guidelines](#dotnet-appendix-overlookedguidelines) in existing Azure SDK libraries.
+At the end of this document, you can find a section with [the most commonly overlooked guidelines](#dotnet-appendix-overlookedguidelines) in existing Azure SDK libraries.
 
 {% include requirement/MUST id="dotnet-general-follow-general-guidelines" %} follow the [General Azure SDK Guidelines][general-guidelines].
 
@@ -638,22 +638,6 @@ In practice, you need to provide public APIs to construct _model graphs_. See [S
 
 TODO: Add this discussion
 
-##### Commonly Overlooked .NET Type Design Guidelines
-
-Some .NET Design Guidelines have been notoriously overlooked in earlier Track 1 Azure SDKs. This section serves as a way to highlight these guidelines to inform the design of Azure SDK types.
-
-{% include requirement/SHOULDNOT id="dotnet-problems-too-many-types" %} have many types in the main namespace. Number of types is directly proportional to the perceived complexity of a library.
-
-{% include requirement/MUSTNOT id="dotnet-problems-abstractions" %} use abstractions unless the Azure SDK both returns and consumes the abstraction.  An abstraction is either an interface or abstract class.
-
-{% include requirement/MUSTNOT id="dotnet-problems-interfaces" %} use interfaces if you can use abstract classes. The only reasons to use an interface are: a) you need to "multiple-inherit", b) you want structs to implement an abstraction.
-
-{% include requirement/MUSTNOT id="dotnet-problems-generic-words" %} use generic words and terms for type names.  For example, do not use names like `OperationResponse` or `DataCollection`.
-
-{% include requirement/SHOULDNOT id="dotnet-problems-valid-values" %} use parameter types where it's not clear what valid values are supported.  For example, do not use strings but only accept certain values in the string.
-
-{% include requirement/MUSTNOT id="dotnet-problems-empty-types" %} have empty types (types with no members).
-
 #### Azure Core Types {#dotnet-commontypes}
 
 The `Azure.Core` package provides common functionality for client libraries.  Documentation and usage examples can be found in the [azure/azure-sdk-for-net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/core/Azure.Core) repository.
@@ -991,6 +975,22 @@ var client = new ConfigurationClient(connectionString);
 ````
 
 {% include requirement/MUST id="dotnet-samples-build" %} make sure all the samples build and run as part of the CI process.
+
+## Commonly Overlooked .NET Type Design Guidelines
+
+Some .NET Design Guidelines have been notoriously overlooked in earlier Track 1 Azure SDKs. This section serves as a way to highlight these guidelines to inform the design of Azure SDK types.
+
+{% include requirement/SHOULDNOT id="dotnet-problems-too-many-types" %} have many types in the main namespace. Number of types is directly proportional to the perceived complexity of a library.
+
+{% include requirement/MUSTNOT id="dotnet-problems-abstractions" %} use abstractions unless the Azure SDK both returns and consumes the abstraction.  An abstraction is either an interface or abstract class.
+
+{% include requirement/MUSTNOT id="dotnet-problems-interfaces" %} use interfaces if you can use abstract classes. The only reasons to use an interface are: a) you need to "multiple-inherit", b) you want structs to implement an abstraction.
+
+{% include requirement/MUSTNOT id="dotnet-problems-generic-words" %} use generic words and terms for type names.  For example, do not use names like `OperationResponse` or `DataCollection`.
+
+{% include requirement/SHOULDNOT id="dotnet-problems-valid-values" %} use parameter types where it's not clear what valid values are supported.  For example, do not use strings but only accept certain values in the string.
+
+{% include requirement/MUSTNOT id="dotnet-problems-empty-types" %} have empty types (types with no members).
 
 <!-- Links -->
 
