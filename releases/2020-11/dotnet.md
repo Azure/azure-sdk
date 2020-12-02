@@ -409,7 +409,7 @@ This release contains test improvements.
 
 #### Key Bug Fixes
 
-- Fix issue where if the type was not passed into the constructor, an exception would be thrown instead of defaulting to calling GetType().
+- Fix issue where if the type was not passed into the constructor, an exception would be thrown instead of defaulting to calling `GetType()`.
 
 ### System Memory Data (1.0.0) [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/System.Memory.Data/CHANGELOG.md#100-2020-11-03)
 
