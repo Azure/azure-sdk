@@ -152,8 +152,6 @@ using (JsonDocument json = await JsonDocument.ParseAsync(content, default, cance
 
 Optional JSON properties should be deserialized into nullable model properties.
 
-
-
 #### Enumeration-like structures {#dotnet-enums}
 
 As described in [general enumeration guidelines](introduction.md#dotnet-enums), you should use `enum` types whenever passing or deserializing a well-known set of values to or from the service.
@@ -406,7 +404,7 @@ TODO: Add guidance for distributed tracing implementation
 
 ### Telemetry
 
-TODO: User agent strings
+TODO: Add guidance regarding user agent strings
 
 ## Ecosystem Integration
 

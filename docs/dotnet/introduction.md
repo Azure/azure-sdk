@@ -143,7 +143,7 @@ For example, the service client for the Application Configuration service is cal
 
 {% include requirement/MUST id="dotnet-client-namespace" %} see [Namespace Naming](#dotnet-namespace-naming) guidelines for how to choose the namespace for the client types.
 
-TODO: Say immutability here?
+TODO: Mention client immutability here?
 
 #### Service Client Constructors {#dotnet-client-ctor}
 
@@ -163,7 +163,7 @@ public class ConfigurationClient {
 
 Custom pipeline and client-specific configuration are represented by an `options` parameter. The type of the parameter is typically a subclass of ```ClientOptions``` type, shown below.
 
-##### ClientOptions {#dotnet-usage-options}
+##### Using ClientOptions {#dotnet-usage-options}
 
 {% include requirement/MUST id="dotnet-http-pipeline-options" %} name subclasses of ```ClientOptions``` by adding _Options_ suffix to the name of the client type the options subclass is configuring.
 
@@ -517,8 +517,7 @@ TODO: Add discussion for this
 
 ### Supporting Types
 
-TODO: Short sentence of transition
-
+In addition to service client types, Azure SDK APIs provide and use other supporting types as well.
 
 #### Model Types {#dotnet-model-types}
 
@@ -636,19 +635,7 @@ In practice, you need to provide public APIs to construct _model graphs_. See [S
 
 ##### Model Type Naming
 
-TODO: Add this discussion
-
-#### Azure Core Types {#dotnet-commontypes}
-
-The `Azure.Core` package provides common functionality for client libraries.  Documentation and usage examples can be found in the [azure/azure-sdk-for-net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/core/Azure.Core) repository.
-
-#### Primitive Types
-
-{% include requirement/MUST id="dotnet-primitives-etag" %} use `Azure.ETag` to represent ETags.
-
-The `Azure.ETag` type is located in `Azure.Core` package.
-
-{% include requirement/MUST id="dotnet-primitives-uri" %} use `System.Uri` to represent URIs.
+TODO: Add this discussion to parallel other sections
 
 #### Enumerations
 
@@ -657,6 +644,18 @@ The `Azure.ETag` type is located in `Azure.Core` package.
 {% include requirement/MAY id="dotnet-enums-exception" %} use a `readonly struct` in place of an `enum` that declares well-known fields but can contain unknown values returned from the service, or user-defined values passed to the service.
 
 See [enumeration-like structure documentation](implementation.md#dotnet-enums) for implementation details.
+
+#### Using Azure Core Types {#dotnet-commontypes}
+
+The `Azure.Core` package provides common functionality for client libraries.  Documentation and usage examples can be found in the [azure/azure-sdk-for-net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/core/Azure.Core) repository.
+
+#### Using Primitive Types
+
+{% include requirement/MUST id="dotnet-primitives-etag" %} use `Azure.ETag` to represent ETags.
+
+The `Azure.ETag` type is located in `Azure.Core` package.
+
+{% include requirement/MUST id="dotnet-primitives-uri" %} use `System.Uri` to represent URIs.
 
 ### Exceptions {#dotnet-errors}
 
@@ -692,7 +691,7 @@ Don't introduce new exception types unless there's a programmatic scenario for h
 
 ### Authentication {#dotnet-authentication}
 
-The client library consumer should construct a service client using just the constructor.  After construction, service methods can be called successfully to invoke service operations.  The constructor parameters must take all parameters required to create a functioning client, including all information needed to authenticate with the service.
+The client library consumer should construct a service client using just the constructor.  After construction, service methods can successfully invoke service operations.  The constructor parameters must take all parameters required to create a functioning client, including all information needed to authenticate with the service.
 
 The general constructor pattern refers to _binding parameters_.
 
@@ -827,7 +826,7 @@ public static class ConfigurationModelFactory {
 
 ### Hierarchical Clients
 
-TODO: Add Discussion
+TODO: Add discussion of hierarchical clients
 
 ## Azure SDK Library Design
 
@@ -905,7 +904,11 @@ package that is now a part of the .NET platform instead.
 
 {% include requirement/MUSTNOT id="dotnet-dependencies-exposing" %} publicly expose types from dependencies unless the types follow these guidelines as well.
 
-### Documentation {#dotnet-documentation}
+### Native Code
+
+TODO: Add this discussion
+
+### Documentation Comments {#dotnet-documentation}
 
 {% include requirement/MUST id="dotnet-docs-document-everything" %} document every exposed (public or protected) type and member within your library's code.
 
@@ -915,15 +918,13 @@ See the [documentation guidelines]({{ site.baseurl }}/general_documentation.html
 
 ## Repository Guidelines {#dotnet-repository}
 
-### Open Source Development
-
 {% include requirement/MUST id="dotnet-general-repository" %} locate all source code and README in the [azure/azure-sdk-for-net] GitHub repository.
 
 {% include requirement/MUST id="dotnet-general-engsys" %} follow Azure SDK engineering systems guidelines for working in the [azure/azure-sdk-for-net] GitHub repository.
 
 ### Documentation Style
 
-TODO: Add links to doc style
+TODO: Add links to doc style guidance
 
 ### README {#dotnet-repository-readme}
 
