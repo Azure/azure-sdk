@@ -470,7 +470,7 @@ accessKey(String accessKey) within CommunicationIdentityClientBuilder.
 - Removed credential(CommunicationClientCredential credential) and replaced with
 accessKey(String accessKey) within CommunicationIdentityClientBuilder.
 
-### Azure Core 1.11.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/CHANGELOG.md#1.11.0-2020-11-24)
+### Azure Core 1.11.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/CHANGELOG.md#1110-2020-11-24)
 
 #### New Features
 
