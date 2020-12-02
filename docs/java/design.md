@@ -490,6 +490,8 @@ For example, MQTT over WebSockets provides the ability to add headers during the
 
 Consumers will use one or more _service clients_ to access Azure services, plus a set of model classes and other supporting types.  Both synchronous APIs and asynchronous APIs are supported.
 
+TODO: Consolidate this section with Network Requests section in the new structure.
+
 ### Async API
 
 {% include requirement/MUST id="java-async-client-name" %} offer an async service client named `<ServiceName>AsyncClient`. More than one service client may be offered for a single service.
@@ -516,6 +518,8 @@ Consumers will use one or more _service clients_ to access Azure services, plus 
 
 ## Service clients
 
+TODO: Consolidate this section with Client iInterface section in new structure.
+
 {% include requirement/MUST id="java-service-client-name" %} name service client types with the _Client_ suffix (for example, `ConfigurationClient`).
 
 {% include requirement/MUST id="java-service-client-annotation" %} annotate all service clients with the `@ServiceClient` annotation.
@@ -525,6 +529,8 @@ Consumers will use one or more _service clients_ to access Azure services, plus 
 {% include requirement/MUST id="java-service-client-immutable" %} ensure that all service client classes are immutable upon instantiation.
 
 {% include requirement/MUSTNOT id="java-service-client-constructors" %} provide any `public` or `protected` constructors in the service client, except where necessary to support mock testing. Keep visibility to a minimum.
+
+TODO: Group information regarding not using constructors and the corresponding correct approach to client creation.  
 
 {% include requirement/MUST id="java-service-client-method-naming" %} use standard JavaBean naming prefixes for all getters and setters that are not service methods.
 
@@ -823,6 +829,8 @@ If in common scenarios, users are likely to pass just a small subset of what the
 {% include requirement/MAY id="java-params-options-ctor" %} introduce constructor overloads for each combination of required arguments.
 
 ## Model classes
+
+TODO: Consolidate this section with Model Types section in new structure.
 
 Model classes are classes that consumers use to provide required information into client library methods, or to receive information from Azure services from client library methods. These classes typically represent the domain model.
 
