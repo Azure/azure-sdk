@@ -387,10 +387,10 @@ service with correct analysis of the document's content.
 
 #### Breaking Changes
 
-- Renamed GetRawMessage method to GetRawAmqpMessage.
-- Removed LinkCloseMode.
-- Rename ReceiveMode type to ServiceBusReceiveMode.
-- Remove ServiceBusFailureReason of Unauthorized in favor of using UnauthorizedAccessException.
+- Renamed `GetRawMessage` method to `GetRawAmqpMessage`.
+- Removed `LinkCloseMode`.
+- Rename `ReceiveMode` type to `ServiceBusReceiveMode`.
+- Remove `ServiceBusFailureReason` of `Unauthorized` in favor of using `UnauthorizedAccessException`.
 
 ### Service Bus (7.0.0-preview.9) [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md#700-preview9-2020-11-04)
 
