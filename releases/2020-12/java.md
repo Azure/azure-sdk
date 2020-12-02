@@ -10,11 +10,21 @@ The Azure SDK team is pleased to announce our December 2020 client library relea
 
 #### GA
 
-- _Add packages_
+- Management Library - CDN
+- Management Library - Container Instance
+- Management Library - Container Registry
+- Management Library - Event Hubs
+- Management Library - Private DNS
+- Management Library - Redis
+- Management Library - Service Bus
+- Management Library - Spring Cloud
+- Management Library - SQL
+- Management Library - Traffic Manager
 
 #### Updates
 
-- _Add packages_
+- Management Library - App Services
+- Management Library - Resources
 
 #### Beta
 
@@ -25,7 +35,75 @@ The Azure SDK team is pleased to announce our December 2020 client library relea
 To use the GA and beta libraries, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate. If you are using a different build tool, refer to its documentation on how to specify dependencies.
 
 ```xml
-<!-- Insert dependencies -->
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-cdn</artifactId>
+  <version>2.1.0</version>
+</dependency>
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-containerinstance</artifactId>
+  <version>2.1.0</version>
+</dependency>
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-containerregistry</artifactId>
+  <version>2.1.0</version>
+</dependency>
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-eventhubs</artifactId>
+  <version>2.1.0</version>
+</dependency>
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-privatedns</artifactId>
+  <version>2.1.0</version>
+</dependency>
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-redis</artifactId>
+  <version>2.1.0</version>
+</dependency>
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-servicebus</artifactId>
+  <version>2.1.0</version>
+</dependency>
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-appplatform</artifactId>
+  <version>2.1.0</version>
+</dependency>
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-sql</artifactId>
+  <version>2.1.0</version>
+</dependency>
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-trafficmanager</artifactId>
+  <version>2.1.0</version>
+</dependency>
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-appservice</artifactId>
+  <version>2.1.0</version>
+</dependency>
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-resources</artifactId>
+  <version>2.1.0</version>
+</dependency>
+```
+
+For resource management libraries, we also provide a wrapper package that contains all available services
+```xml
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager</artifactId>
+  <version>2.1.0</version>
+</dependency>
 ```
 
 ## Feedback
@@ -34,9 +112,11 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-### _Package name_
+### Management Libraries
 
-- Major changes only!
+We are excited to announce the GA releases of management libraries that follow the [Azure SDK Design Guidelines for Java](https://azure.github.io/azure-sdk/java/guidelines/). In addition, more management libraries are now in Public Preview to provide better Azure service coverage. These new libraries provide a higher-level, object-oriented API for managing Azure resources, that is optimized for ease of use, succinctness and consistency. You can find the list of new packages [on this page](https://azure.github.io/azure-sdk/releases/latest/java.html). Detailed documentation and code samples for these new libraries can be [found here](http://aka.ms/azsdk/java/mgmt)
+
+These new packages share the same groupId ``com.azures.resourcemanager`` and artifactId share the same prefix of ``azure-resourcemanager``
   
 ## Need help
 
