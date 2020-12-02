@@ -10,10 +10,10 @@ The Azure SDK team is pleased to announce our November 2020 client library relea
 
 #### Beta
 
-- Azure Communication Services Calling
-- Azure Communication Services Chat
-- Azure Communication Services Common
-- Azure Core
+- Azure Communication Services Calling (`AzureCommunicationCalling`)
+- Azure Communication Services Chat (`AzureCommunicationChat`)
+- Azure Communication Services Common (`AzureCommunication`)
+- Azure Core (`AzureCore`)
 
 ## Installation Instructions
 
@@ -45,13 +45,7 @@ Next, add each client library you wish to use in a target to the target's array 
         ...
         .target(
             name: "MyTarget",
-            dependencies: [
-                "AzureCommunication",
-                "AzureCommunicationCalling",
-                "AzureCommunicationChat",
-                "AzureCore",
-                ...
-            ]
+            dependencies: ["AzureCommunicationChat", ...]
         )
     ]
 ```
@@ -75,10 +69,7 @@ platform :ios, '12.0'
 use_frameworks!
 
 target 'MyTarget' do
-  pod 'AzureCommunication', '~> 1.0.0-beta.6'
-  pod 'AzureCommunicationCalling', '~> 1.0.0-beta.6'
   pod 'AzureCommunicationChat', '~> 1.0.0-beta.6'
-  pod 'AzureCore', '~> 1.0.0-beta.6'
   ...
 end
 ```
@@ -95,20 +86,22 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-### Azure Communication Services Calling
+### 1.0.0-beta.6 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/master/CHANGELOG.md#100-beta6-2020-11-23))
 
-#### 1.0.0-beta.6 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/master/CHANGELOG.md#100-beta6-2020-11-23))
+#### Azure Communication Services Calling
 
 ##### Key Bug Fixes
 
 - Fixed crash on calling `Call.hangup()`.
-- Fixed invalid values for `CFBundleVersion` and `CFBundleShortVersionString` in Info.plist.
+- Fixed invalid values for `CFBundleVersion` and `CFBundleShortVersionString` in `Info.plist`.
 
-#### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/master/CHANGELOG.md#100-beta5-2020-11-18))
+### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/master/CHANGELOG.md#100-beta5-2020-11-18))
+
+#### Azure Communication Services Calling
 
 ##### New features
 
-- Added Cocoapods specs for Azure Communication Services Calling.
+- Added a Cocoapods spec for this library.
 
 ##### Breaking Changes
 
@@ -124,39 +117,27 @@ If you have a bug or feature request for one of the libraries, please post an is
 - The `Call.hangup()` method now terminates a call if the call is in the Connecting or Ringing state.
 - The library was raising a `RemoteVideoStream Removed` event when app stopped rendering a stream. The library now also raises a follow-up `RemoteVideoStream Added` event once the stream is ready to be rendered again.
 
-### Azure Communication Services Chat
-
-#### 1.0.0-beta.6 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/master/CHANGELOG.md#100-beta6-2020-11-23))
-
-#### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/master/CHANGELOG.md#100-beta5-2020-11-18))
+#### Azure Communication Services Chat
 
 ##### New Features
 
-- Added Cocoapods specs for Azure Communication Services Common.
+- Added a Cocoapods spec for this library.
 
 ##### Breaking Changes
 
 - The `baseUrl` parameter has been renamed to `endpoint` in the `AzureCommunicationChatClient` initializers.
 
-### Azure Communication Services Common
-
-#### 1.0.0-beta.6 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/master/CHANGELOG.md#100-beta6-2020-11-23))
-
-#### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/master/CHANGELOG.md#100-beta5-2020-11-18))
+#### Azure Communication Services Common
 
 ##### New Features
 
-- Added Cocoapods specs for Azure Communication Services Common. 
+- Added a Cocoapods spec for this library. 
 
-### Azure Core
-
-#### 1.0.0-beta.6 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/master/CHANGELOG.md#100-beta6-2020-11-23))
-
-#### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/master/CHANGELOG.md#100-beta5-2020-11-18))
+#### Azure Core
 
 ##### New Features
 
-- Added Cocoapods specs for Azure Core.
+- Added a Cocoapods spec for this library.
 
 ## Need help
 
