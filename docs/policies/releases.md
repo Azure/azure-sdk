@@ -13,26 +13,26 @@ The following are mandatory actions required when releasing a new version of any
 
 ### 1) Language coverage
 
-Market data and customer engagement studies clearly indicate that a cloud provider's support of several programming languages developer experiences & tools (including SDKs) can heavily impact the customer's decision in favoring that cloud provider over others. 
+Market data and customer engagement studies clearly indicate that a cloud provider’s support of several programming languages and great developer experiences via SDK’s & tools can heavily impact a customer’s decision in choosing a cloud provider over others. In the same way, bad experiences both in getting started scenarios as well as total cost of ownership can drive customers away. It is important that Azure provides a uniform story for language coverage in its primary languages in order to raise customer confidence that they will be able to use any of Azure’s services in their solutions if they are using one of these languages. Customers feel that their language choice limits the services that they can choose to use easily from that language. The intent is that this is not a service by service evaluation of customer demand and more of an Azure platform statement that all of Azure’s services are easily usable in these primary languages.
 
-We’re really motivated to provide high quality SDKs to a great experience for the developer community when while interacting with Azure services.
+We’re motivated to provide high quality SDKs to deliver a great experience for Azure developers leveraging and interacting with Azure services.
 
-at the moment we are committed to build and support SDKs for Azure services covering these languages at a minimum:
+At the moment we are committed to building and supporting an SDK for each of these primary languages SDKs for all azure services:
 
 - Java
 - .Net
 - Python
 - TS/JS
 
-Other supported languages are recommended to release along side these languages too, but can be delayed based on resourcing and customer needs.
+We recommended supporting additional key languages depending on the business scenarios and critical customer demand. Non primary languages depend much more heavily on contributions from outside the Azure SDK team.
 
-### 2) ChangeLogs & Migration Guides
+### 2) Change logs & Migration Guides
 
 Facilitating a swift transition of the SDKs' users to the new version being released requires clear clarification and documentation of the changes from the pervious version. The type and granularity of the documentations depends on the type\scope of the release:
 
-#### Track 2 upgrade release
+#### New standards upgrade release
 
-This covers the case when we upgrade and existing Azure SDK to the new Track 2 SDKs standards. such release usually contains major modifications to the structure, interfaces and behavioral aspects of the existing SDKs. Such an update requires detailed and verbose porting guide to help the adopting users understand the benefits, changes and offerings of the new SDK version. The requirement here is to:
+This covers the case when we upgrade and existing Azure SDK to the new SDKs standards. such release usually contains major modifications to the structure, interfaces and behavioral aspects of the existing SDKs. Such an update requires detailed and verbose porting guide to help the adopting users understand the benefits, changes and offerings of the new SDK version. The requirement here is to:
 
  {% include requirement/MUST %} Create a Migration guide for each language SDK.
 
@@ -44,7 +44,7 @@ An example porting guide can be found [here](https://github.com/Azure/azure-sdk-
 
 (Please Note) Migration guides creation will be required to obtain sign-off from the Archboard.
 
-#### Track 2 New version release
+#### New version release
 
 Ensuring that a `CHANGELOG.md` file is both available and formatted appropriately is mandatory and will be used in automatically generating formatted release notes on each GitHub release.
 
@@ -114,7 +114,7 @@ Advertising our SDKs is key to increasing their adoption and getting their lates
 
 ### 4) Payload Backwards Compatibility
 
-A manual migration test should be developed to ensure that payloads and data fed into the previous version of the SDK are gracefully handled when fed to the new Track 2 SDK.
+A manual migration test should be developed to ensure that payloads and data fed into the previous version of the SDK are gracefully handled when fed to the new SDK.
 
 ### 5) Updating package manager references
 
