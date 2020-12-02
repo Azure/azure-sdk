@@ -10,10 +10,10 @@ The Azure SDK team is pleased to announce our November 2020 client library relea
 
 #### Beta
 
-- Azure Communication Services Calling (`AzureCommunicationCalling`)
-- Azure Communication Services Chat (`AzureCommunicationChat`)
-- Azure Communication Services Common (`AzureCommunication`)
-- Azure Core (`AzureCore`)
+- Azure Communication Services Calling
+- Azure Communication Services Chat
+- Azure Communication Services Common
+- Azure Core
 
 ## Installation Instructions
 
@@ -45,7 +45,12 @@ Next, add each client library you wish to use in a target to the target's array 
         ...
         .target(
             name: "MyTarget",
-            dependencies: ["AzureCommunicationChat", ...]
+            dependencies: [
+                "AzureCommunication",
+                "AzureCommunicationCalling",
+                "AzureCommunicationChat",
+                ...
+            ]
         )
     ]
 ```
@@ -69,6 +74,8 @@ platform :ios, '12.0'
 use_frameworks!
 
 target 'MyTarget' do
+  pod 'AzureCommunication', '~> 1.0.0-beta.6'
+  pod 'AzureCommunicationCalling', '~> 1.0.0-beta.6'
   pod 'AzureCommunicationChat', '~> 1.0.0-beta.6'
   ...
 end
