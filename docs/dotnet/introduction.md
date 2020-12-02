@@ -18,7 +18,7 @@ The main value of the Azure SDK is **productivity** building applications with A
 
 **Idiomatic**
 
-* Azure SDK libraries follow [.NET Framework Design Guidelines](TODO: Add Link).
+* Azure SDK libraries follow [.NET Framework Design Guidelines]().  TODO: Add link
 * Azure SDK libraries feel like designed by the designers of the .NET Standard libraries.
 * Azure SDK libraries version just like the .NET Standard libraries.
 
@@ -383,8 +383,6 @@ public class BlobCreateOptions {
 }
 ```
 
-TODO: Add "Do name the options parameter type name with the _Options_ suffix ... ?
-
 {% include requirement/MUST id="dotnet-params-complex" %} use the _options_ parameter pattern for complex service methods.
 
 {% include requirement/MAY id="dotnet-params-complex" %} use the _options_ parameter pattern for simple service methods that you expect to `grow` in the future.
@@ -394,6 +392,7 @@ TODO: Add "Do name the options parameter type name with the _Options_ suffix ...
 If in common scenarios, users are likely to pass just a small subset of what the _options_ parameter represents, consider adding an overload with a parameter list representing just this subset.
 
 TODO: There was a discussion here and the guidance was updated within the .NET team and across Java as well.  Update these to reflect those decisions?
+TODO: Add "Do name the options parameter type name with the _Options_ suffix ... ?
 
 ##### Parameter Validation
 
@@ -975,6 +974,8 @@ var client = new ConfigurationClient(connectionString);
 ````
 
 {% include requirement/MUST id="dotnet-samples-build" %} make sure all the samples build and run as part of the CI process.
+
+TODO: Update guidance on samples to reflect what we do in most places.
 
 ## Commonly Overlooked .NET API Design Guidelines {#dotnet-appendix-overlookedguidelines}
 
