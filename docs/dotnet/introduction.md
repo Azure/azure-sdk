@@ -10,11 +10,9 @@ sidebar: general_sidebar
 
 The following document describes .NET specific guidelines for designing Azure SDK client libraries. These guidelines complement general [.NET Framework Design Guidelines] with design considerations specific to the Azure SDK. These guidelines also expand on and simplify language-independent [General Azure SDK Guidelines][general-guidelines]. More specific guidelines take precedence over more general guidelines.
 
-Currently, the document describes guidelines for client libraries exposing HTTP/REST services. It may be expanded in the future to cover other, non-REST, services.  
+Throughout this document, we'll use the client library for the [Azure Application Configuration service](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/appconfiguration/Azure.Data.AppConfiguration) to illustrate various design concepts.  
 
-Throughout this document, We'll use the client library for the [Azure Application Configuration service](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/appconfiguration/Azure.Data.AppConfiguration) to illustrate various design concepts.  
-
-TODO: Should we update this to reflect new guidelines, e.g. around naming, etc?  -- `Add` vs. `Create`
+TODO: Should we update this to reflect new guidelines, e.g. around method naming such as `Add` vs. `Create` (Or Phase 2?)
 
 ### Design Principles {#dotnet-principles}
 
@@ -64,7 +62,8 @@ The pipeline can be found in the [Azure.Core] package, and it takes care of many
 
 ### Support for non-HTTP Protocols
 
-TODO: Add this discussion
+Currently, this document describes guidelines for client libraries exposing HTTP/REST services. It may be expanded in the future to cover other, non-REST, services.  If your service is not REST-based, please contact the Azure SDK Architecture Board for guidance.
+[TODO: Link to current arch board contact info.]
 
 ## Azure SDK API Design {#dotnet-api}
 
@@ -397,10 +396,6 @@ If in common scenarios, users are likely to pass just a small subset of what the
 
 TODO: There was a discussion here and the guidance was updated within the .NET team and across Java as well.  Update these to reflect those decisions?
 
-##### Conditional Requests
-
-TODO: Add discussion for this
-
 ##### Parameter Validation
 
 Service methods take two kinds of parameters: _service parameters_ and _client parameters_. _Service parameters_ are directly passed across the wire to the service.  _Client parameters_ are used within the client library and aren't passed directly to the service.
@@ -516,9 +511,14 @@ BlobBaseClient client = ...
 {% include requirement/MAY id="dotnet-lro-subclass" %} add additional APIs to subclasses of ```Operation<T>```.
 For example, some subclasses add a constructor allowing to create an operation instance from a previously saved operation ID. Also, some subclasses are more granular states besides the IsCompleted and HasValue states that are present on the base class.
 
+##### Conditional Request Methods
+
+TODO: Add discussion for this
+
 ### Supporting Types
 
 TODO: Short sentence of transition
+
 
 #### Model Types {#dotnet-model-types}
 
@@ -638,7 +638,7 @@ In practice, you need to provide public APIs to construct _model graphs_. See [S
 
 TODO: Add this discussion
 
-#### Commonly Overlooked .NET Type Design Guidelines
+##### Commonly Overlooked .NET Type Design Guidelines
 
 Some .NET Design Guidelines have been notoriously overlooked in earlier Track 1 Azure SDKs. This section serves as a way to highlight these guidelines to inform the design of Azure SDK types.
 
@@ -654,7 +654,11 @@ Some .NET Design Guidelines have been notoriously overlooked in earlier Track 1 
 
 {% include requirement/MUSTNOT id="dotnet-problems-empty-types" %} have empty types (types with no members).
 
-#### Using Primitive Types
+#### Azure Core Types {#dotnet-commontypes}
+
+The `Azure.Core` package provides common functionality for client libraries.  Documentation and usage examples can be found in the [azure/azure-sdk-for-net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/core/Azure.Core) repository.
+
+#### Primitive Types
 
 {% include requirement/MUST id="dotnet-primitives-etag" %} use `Azure.ETag` to represent ETags.
 
@@ -701,40 +705,6 @@ if (response.Status != 200) {
 {% include requirement/MUST id="dotnet-errors-use-response-failed-when-possible" %} use `RequestFailedException` or one of its subtypes where possible.
 
 Don't introduce new exception types unless there's a programmatic scenario for handling the new exception that's different than `RequestFailedException`
-
-### Namespaces {#dotnet-namespace-naming}
-
-{% include requirement/MUST id="dotnet-namespaces-naming" %} adhere to the following scheme when choosing a namespace: `Azure.<group>.<service>[.<feature>]`
-
-For example, `Azure.Storage.Blobs`.
-
-{% include requirement/MUST id="dotnet-namespaces-approved-list" %} use one of the following pre-approved namespace groups:
-
-- `Azure.AI` for artificial intelligence, including machine learning
-- `Azure.Analytics` for client libraries that gather or process analytics data
-- `Azure.Core` for libraries that aren't service specific
-- `Azure.Data` for client libraries that handle databases or structured data stores
-- `Azure.Diagnostics` for client libraries that gather data for diagnostics, including logging
-- `Azure.Identity` for authentication and authorization client libraries
-- `Azure.Iot` for client libraries dealing with the Internet of Things
-- `Azure.Management` for client libraries accessing the control plane (Azure Resource Manager)
-- `Azure.Media` for client libraries that deal with audio, video, or mixed reality
-- `Azure.Messaging` for client libraries that provide messaging services, such as push notifications or pub-sub.
-- `Azure.Search` for search technologies
-- `Azure.Security` for client libraries dealing with security
-- `Azure.Storage` for client libraries that handle unstructured data
-
-If you think a new group should be added to the list, contact [adparch].
-
-{% include requirement/MUST id="dotnet-namespaces-registration" %} register all namespaces with [adparch].
-
-{% include requirement/MUSTNOT id="dotnet-namespaces-location" %} place APIs in the second-level namespace (directly under the `Azure` namespace).
-
-{% include requirement/SHOULD id="dotnet-namespaces-models" %} consider placing model types in a `.Models` namespace if number of model types is or might become large.
-
-See [model type guidelines](#dotnet-service-models-namespace) for details.
-
-TODO: This set of namespaces needs to be updated.
 
 ### Authentication {#dotnet-authentication}
 
@@ -784,6 +754,40 @@ Credentials passed to the constructors must be read before every request (for ex
 {% include requirement/MAY id="dotnet-auth-connection-strings" %} offer a way to create credentials from a connection string only if the service offers a connection string via the Azure portal.
 
 Don't ask users to compose connection strings manually if they aren't available through the Azure portal. Connection strings are immutable.  It's impossible for an application to roll over credentials when using connection strings.
+
+### Namespaces {#dotnet-namespace-naming}
+
+{% include requirement/MUST id="dotnet-namespaces-naming" %} adhere to the following scheme when choosing a namespace: `Azure.<group>.<service>[.<feature>]`
+
+For example, `Azure.Storage.Blobs`.
+
+{% include requirement/MUST id="dotnet-namespaces-approved-list" %} use one of the following pre-approved namespace groups:
+
+- `Azure.AI` for artificial intelligence, including machine learning
+- `Azure.Analytics` for client libraries that gather or process analytics data
+- `Azure.Core` for libraries that aren't service specific
+- `Azure.Data` for client libraries that handle databases or structured data stores
+- `Azure.Diagnostics` for client libraries that gather data for diagnostics, including logging
+- `Azure.Identity` for authentication and authorization client libraries
+- `Azure.Iot` for client libraries dealing with the Internet of Things
+- `Azure.Management` for client libraries accessing the control plane (Azure Resource Manager)
+- `Azure.Media` for client libraries that deal with audio, video, or mixed reality
+- `Azure.Messaging` for client libraries that provide messaging services, such as push notifications or pub-sub.
+- `Azure.Search` for search technologies
+- `Azure.Security` for client libraries dealing with security
+- `Azure.Storage` for client libraries that handle unstructured data
+
+If you think a new group should be added to the list, contact [adparch].
+
+{% include requirement/MUST id="dotnet-namespaces-registration" %} register all namespaces with [adparch].
+
+{% include requirement/MUSTNOT id="dotnet-namespaces-location" %} place APIs in the second-level namespace (directly under the `Azure` namespace).
+
+{% include requirement/SHOULD id="dotnet-namespaces-models" %} consider placing model types in a `.Models` namespace if number of model types is or might become large.
+
+See [model type guidelines](#dotnet-service-models-namespace) for details.
+
+TODO: This set of namespaces needs to be updated.
 
 ### Support for Mocking {#dotnet-mocking}
 
@@ -925,17 +929,17 @@ package that is now a part of the .NET platform instead.
 
 See the [documentation guidelines]({{ site.baseurl }}/general_documentation.html) for language-independent guidelines for how to provide good documentation.
 
-## Azure Core Types {#dotnet-commontypes}
-
-The `Azure.Core` package provides common functionality for client libraries.  Documentation and usage examples can be found in the [azure/azure-sdk-for-net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/core/Azure.Core) repository.  This section discusses `Azure.Core` types and how to use them in Azure SDK API design.
-
 ## Repository Guidelines {#dotnet-repository}
 
-TODO: One sentence about why it's interesting that we develop these libraries Open Source.
+### Open Source Development
 
 {% include requirement/MUST id="dotnet-general-repository" %} locate all source code and README in the [azure/azure-sdk-for-net] GitHub repository.
 
 {% include requirement/MUST id="dotnet-general-engsys" %} follow Azure SDK engineering systems guidelines for working in the [azure/azure-sdk-for-net] GitHub repository.
+
+### Documentation Style
+
+TODO: Add links to doc style
 
 ### README {#dotnet-repository-readme}
 

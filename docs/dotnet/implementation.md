@@ -99,6 +99,61 @@ See remarks on the `Argument` class for more detail.
 
 ### Supporting Types
 
+#### Serialization {#dotnet-usage-json}
+
+##### JSON Serialization
+
+{% include requirement/MUST id="dotnet-json-use-system-text-json" %} use [`System.Text.Json`](https://www.nuget.org/packages/System.Text.Json) package to write and read JSON content.
+
+{% include requirement/SHOULD id="dotnet-json-use-utf8jsonwriter" %} use `Utf8JsonWriter` to write JSON payloads:
+
+```csharp
+var json = new Utf8JsonWriter(writer);
+json.WriteStartObject();
+json.WriteString("value", setting.Value);
+json.WriteString("content_type", setting.ContentType);
+json.WriteEndObject();
+json.Flush();
+written = (int)json.BytesWritten;
+```
+
+{% include requirement/SHOULD id="dotnet-json-use-jsondocument" %} use `JsonDocument` to read JSON payloads:
+
+```csharp
+using (JsonDocument json = await JsonDocument.ParseAsync(content, default, cancellationToken).ConfigureAwait(false))
+{
+    JsonElement root = json.RootElement;
+
+    var setting = new ConfigurationSetting();
+
+    // required property
+    setting.Key = root.GetProperty("key").GetString();
+
+    // optional property
+    if (root.TryGetProperty("last_modified", out var lastModified)) {
+        if(lastModified.Type == JsonValueType.Null) {
+            setting.LastModified = null;
+        }
+        else {
+            setting.LastModified = DateTimeOffset.Parse(lastModified.GetString());
+        }
+    }
+    ...
+
+    return setting;
+}
+```
+
+{% include requirement/SHOULD id="dotnet-json-use-utf8jsonreader" %} consider using `Utf8JsonReader` to read JSON payloads.
+
+`Utf8JsonReader` is faster than `JsonDocument` but much less convenient to use.
+
+{% include requirement/MUST id="dotnet-json-serialization-resilience" %} make your serialization and deserialization code version resilient.
+
+Optional JSON properties should be deserialized into nullable model properties.
+
+
+
 #### Enumeration-like structures {#dotnet-enums}
 
 As described in [general enumeration guidelines](introduction.md#dotnet-enums), you should use `enum` types whenever passing or deserializing a well-known set of values to or from the service.
@@ -241,7 +296,7 @@ public partial readonly struct EncryptionAlgorithm : IEquatable<EncryptionAlgori
 
 {% include requirement/MUST id="dotnet-enums-values-test" %} define tests to ensure extensible enum properties and defined `Values` constants declare the same names and define the same values. See [here](https://github.com/Azure/azure-sdk-for-net/blob/322f6952e4946229949bd3375f5eb6120895fd2f/sdk/search/Azure.Search.Documents/tests/Models/LexicalAnalyzerNameTests.cs#L14-L29) for an example.
 
-## Library Implementation
+## SDK Feature Implementation
 
 ### Configuration
 
@@ -349,59 +404,9 @@ internal sealed class AzureCoreEventSource : EventSource
 
 TODO: Add guidance for distributed tracing implementation
 
-### Serialization {#dotnet-usage-json}
+### Telemetry
 
-#### JSON Serialization
-
-{% include requirement/MUST id="dotnet-json-use-system-text-json" %} use [`System.Text.Json`](https://www.nuget.org/packages/System.Text.Json) package to write and read JSON content.
-
-{% include requirement/SHOULD id="dotnet-json-use-utf8jsonwriter" %} use `Utf8JsonWriter` to write JSON payloads:
-
-```csharp
-var json = new Utf8JsonWriter(writer);
-json.WriteStartObject();
-json.WriteString("value", setting.Value);
-json.WriteString("content_type", setting.ContentType);
-json.WriteEndObject();
-json.Flush();
-written = (int)json.BytesWritten;
-```
-
-{% include requirement/SHOULD id="dotnet-json-use-jsondocument" %} use `JsonDocument` to read JSON payloads:
-
-```csharp
-using (JsonDocument json = await JsonDocument.ParseAsync(content, default, cancellationToken).ConfigureAwait(false))
-{
-    JsonElement root = json.RootElement;
-
-    var setting = new ConfigurationSetting();
-
-    // required property
-    setting.Key = root.GetProperty("key").GetString();
-
-    // optional property
-    if (root.TryGetProperty("last_modified", out var lastModified)) {
-        if(lastModified.Type == JsonValueType.Null) {
-            setting.LastModified = null;
-        }
-        else {
-            setting.LastModified = DateTimeOffset.Parse(lastModified.GetString());
-        }
-    }
-    ...
-
-    return setting;
-}
-```
-
-{% include requirement/SHOULD id="dotnet-json-use-utf8jsonreader" %} consider using `Utf8JsonReader` to read JSON payloads.
-
-`Utf8JsonReader` is faster than `JsonDocument` but much less convenient to use.
-
-{% include requirement/MUST id="dotnet-json-serialization-resilience" %} make your serialization and deserialization code version resilient.
-
-Optional JSON properties should be deserialized into nullable model properties.
-
+TODO: User agent strings
 
 ## Ecosystem Integration
 
