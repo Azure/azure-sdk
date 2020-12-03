@@ -10,6 +10,8 @@ Once you've worked through an acceptable API design, you can start implementing 
 
 {% include requirement/SHOULD id="ts-should-use-template" %} use the [TypeScript client library template].
 
+TODO: Please add a discussion of how to use the Http Pipeline to implement a service method, if relevant, and on creating and adding custom policies to the pipeline.
+
 ## Configuration {#ts-configuration}
 
 When configuring your client library, particular care must be taken to ensure that the consumer of your client library can properly configure the connectivity to your Azure service both globally (along with other client libraries the consumer is using) and specifically with your client library.
@@ -192,6 +194,8 @@ Distributed tracing mechanisms allow the consumer to trace their code from front
 {% include requirement/MUST id="general-tracing-create-span-on-rest" %} create a new span (which must be a child of the per-method span) for each REST call that the client library makes.  This is generally done with the HTTP pipeline.
 
 Some of these requirements will be handled by the HTTP pipeline.  However, as a client library writer, you must handle the incoming context appropriately.  JavaScript doesn't have primitives similar to a local context.  As such, we must manually plumb parent span IDs into the library.
+
+TODO: Please add a discussion of how to set the user-agent string for implementation of the SDK Telemetry feature.
 
 ## Dependencies {#ts-dependencies}
 

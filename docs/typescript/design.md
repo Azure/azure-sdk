@@ -172,6 +172,9 @@ class ExampleClient {
 }
 ```
 
+TODO: Please add a section or guideline describing how to set the service version.
+TODO: Please add a mention of service client immutability, if it's applicable to JavaScript.
+
 ### Options {#ts-options}
 
 The guidelines in this section apply to options passed in options bags to clients, whether methods or constructors. When referring to option names, this means the key of the object users must use to specify that option when passing it into a method or constructor.
@@ -574,6 +577,16 @@ Polling configuration may be used only in the absence of relevant retry-after he
 {% include requirement/MUST id="ts-lro-progress-reporting" %} expose a progress reporting mechanism to the consumer if the service reports progress as part of the polling operation.  Language-dependent guidelines will present additional guidance on how to expose progress reporting in this case.
 
 {% include draft.html content="Long-running operations will use the <code>@azure/core-lro</code> package, which is an abstration that provides the above requirements" %}
+
+TODO: Please add a section on conditional request methods.
+
+TODO: Please add a section providing guidance on model types.
+
+TODO: Please add discussion similar to the [Model Type discussion from the General Guidelines](https://azure.github.io/azure-sdk/general_design.html#model-types), including the naming table if relevant to JS/TS, or an alternate one specific to JS/TS.  
+
+TODO: Please add a section on Azure Core type usage, which may simply link out to Azure Core documentation in the azure-sdk-for-js repo, if this is self-explanatory.
+
+TODO: Please add a section on extensible enums, if this is relevant to JS/TS.
 
 ## Support for non-HTTP protocols {#general-other-protocols}
 
