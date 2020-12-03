@@ -512,6 +512,8 @@ BlobBaseClient client = ...
 {% include requirement/MAY id="dotnet-lro-subclass" %} add additional APIs to subclasses of ```Operation<T>```.
 For example, some subclasses add a constructor allowing to create an operation instance from a previously saved operation ID. Also, some subclasses are more granular states besides the IsCompleted and HasValue states that are present on the base class.
 
+Guidelines for implementing `Operation<T>` can be found in [Implementing Subtypes of Operation<T>](#dotnet-implement-operation) section below.
+
 ### Supporting Mocking {#dotnet-mocking}
 
 All client libraries must support mocking. Here is an example of how the `ConfigurationClient` can be mocked using [Moq] (a popular .NET mocking library):
@@ -952,6 +954,117 @@ using (JsonDocument json = await JsonDocument.ParseAsync(content, default, cance
 {% include requirement/MUST id="dotnet-json-serialization-resilience" %} make your serialization and deserialization code version resilient.
 
 Optional JSON properties should be deserialized into nullable model properties.
+
+### Implementing Subtypes of Operation<T> {#dotnet-implement-operation}
+
+{% include requirement/MUST id="dotnet-lro-return" %} check the value of `HasCompleted` in subclass implementations of `UpdateStatus` and `UpdateStatusAsync` and immediately return the result of `GetRawResponse` if it is true.
+
+```csharp
+public override Response UpdateStatus(
+    CancellationToken cancellationToken = default) =>
+    UpdateStatusAsync(false, cancellationToken).EnsureCompleted();
+
+public override async ValueTask<Response> UpdateStatusAsync(
+    CancellationToken cancellationToken = default) =>
+    await UpdateStatusAsync(true, cancellationToken).ConfigureAwait(false);
+
+private async Task<Response> UpdateStatusAsync(bool async, CancellationToken cancellationToken)
+{
+    // Short-circuit when already completed (which improves mocking scenarios that won't have a client).
+    if (HasCompleted)
+    {
+        return GetRawResponse();
+    }
+
+    // some service operation call here, which the above check avoids if the operation has already completed.
+    ...
+```
+
+{% include requirement/MUST id="dotnet-lro-return" %} throw from methods on `Operation<T>` subclasses in the following scenarios.
+
+* If an underlying service operation call from `UpdateStatus`, `WaitForCompletion`, or `WaitForCompletionAsync` throws, re-throw `RequestFailedException` or its subtype.
+* If the operation completes with a non-success result, throw `RequestFailedException` or its subtype from `UpdateStatus`, `WaitForCompletion`, or `WaitForCompletionAsync`.
+  * Include any relevant error state information in the exception details.
+
+```csharp
+private async ValueTask<Response> UpdateStatusAsync(bool async, CancellationToken cancellationToken)
+{
+    ...
+
+        try
+        {
+            Response<ExampleOperationResult> update = async
+                ? await _serviceClient.GetExampleResultAsync(new Guid(Id), cancellationToken).ConfigureAwait(false)
+                : _serviceClient.GetExampleResult(new Guid(Id), cancellationToken);
+
+            _response = update.GetRawResponse();
+
+            if (update.Value.Status == OperationStatus.Succeeded)
+            {
+                // we need to first assign a value and then mark the operation as completed to avoid race conditions
+                _value = ConvertValue(update.Value.ExampleResult.PageResults, update.Value.ExampleResult.ReadResults);
+                _hasCompleted = true;
+            }
+            else if (update.Value.Status == OperationStatus.Failed)
+            {
+                _requestFailedException = await ClientCommon
+                    .CreateExceptionForFailedOperationAsync(async, _diagnostics, _response, update.Value.AnalyzeResult.Errors)
+                    .ConfigureAwait(false);
+                _hasCompleted = true;
+
+                // the operation didn't throw, but it completed with a non-success result.
+                throw _requestFailedException;
+            }
+        }
+        catch (Exception e)
+        {
+            scope.Failed(e);
+            throw;
+        }
+    }
+
+    return GetRawResponse();
+}
+```
+
+* If the ```Value``` property is evaluated after the operation failed (```HasValue``` is false and ```HasCompleted``` is true) throw the same exception as the one thrown when the operation failed.
+
+```csharp
+public override FooResult Value
+{
+    get
+    {
+        if (HasCompleted && !HasValue)
+#pragma warning disable CA1065 // Do not raise exceptions in unexpected locations
+
+            // throw the exception captured when the operation failed.
+            throw _requestFailedException;
+
+#pragma warning restore CA1065 // Do not raise exceptions in unexpected locations
+        else
+            return OperationHelpers.GetValue(ref _value);
+    }
+}
+```
+
+* If the ```Value``` property is evaluated before the operation is complete (```HasCompleted``` is false) throw ```InvalidOperationException```.
+  * The exception message should be: "The operation has not yet completed."
+
+```csharp
+// start the operation.
+ExampleOperation operation = await client.StartExampleOperationAsync(someParameter);
+
+if (!operation.HasCompleted)
+{
+    // attempt to get the Value property before the operation has completed.
+    ExampleOperationResult myResult = operation.Value;  //throws InvalidOperationException.
+}
+else if (!operation.HasValue)
+{
+    // attempt to get the Value property after the operation has completed unsuccessfully.
+    ExampleOperationResult myResult = operation.Value;  //throws RequestFailedException.
+}
+```
 
 ### Primitive Types
 
