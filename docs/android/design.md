@@ -102,15 +102,21 @@ We speak about using the client library in a cross-language manner within outbou
 
 #### Async clients
 
-> TODO: Revise
+{% include requirement/MUST id="android-async-sync-client" %} provide a sync client containing all non-streaming service methods.
 
-{% include requirement/MUSTNOT id="android-async-framework" %} use a third-party library to provide an async API.
+{% include requirement/MAY id="android-async-sync-client-streaming" %} include streaming service methods in the sync client if it makes sense in the context of the service.
+
+{% include requirement/MUST id="android-async-client" %} provide an async client containing all service methods.
 
 {% include requirement/MUSTNOT id="android-async-suffix" %} use the suffix `Async` in methods that do operations asynchronously. Let the fact the user has an instance of an 'async client' provide this context.
 
-{% include requirement/MUSTNOT id="android-async-multiple-methods" %} provide multiple asynchronous methods for a single REST endpoint, unless to provide overloaded methods to enable alternative or optional method parameters.
+{% include requirement/MUST id="android-async-client-completablefuture" %} return [android-retrofuture's](https://github.com/retrostreams/android-retrofuture) `CompletableFuture` from all non-streaming service methods. Do not use the JDK's `java.util.concurrent.CompletableFuture`, as this type is not available on all Android devices.
 
-{% include requirement/MUSTNOT id="android-async-use-azure-core" %} write custom APIs for streaming or async operations. Make use of the existing functionality offered in the Azure core library. Discuss proposed changes to the Azure core library with the [Architecture Board].
+{% include requirement/MUST id="android-async-client-callback" %} return `void` and accept a callback or delegate parameter to all streaming service methods.
+
+{% include requirement/MUST id="android-async-rxjava" %} additionally provide a separate library containing an RxJava-based async client containing all service methods. The RxJava-based API must be contained within a separate library from the main library with the suffix `-rx`, e.g. `azure-someservice-rx`.
+
+{% include requirement/MUSTNOT id="android-async-multiple-methods" %} provide multiple asynchronous methods for a single REST endpoint in the same library, unless to provide overloaded methods to enable alternative or optional method parameters.
 
 {% include requirement/MUSTNOT id="android-async-no-blocking" %} include blocking calls inside async client library code.
 

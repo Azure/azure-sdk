@@ -11,6 +11,7 @@ The Azure SDK team is pleased to announce our November 2020 client library relea
 #### GA
 
 - Storage
+- Azure Service Bus
 
 #### Updates
 
@@ -108,6 +109,12 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 
 <dependency>
   <groupId>com.azure</groupId>
+  <artifactId>azure-core</artifactId>
+  <version>1.11.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
   <artifactId>azure-core-amqp</artifactId>
   <version>1.7.0-beta.1</version>
 </dependency>
@@ -116,6 +123,24 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-core-amqp</artifactId>
   <version>1.7.0-beta.2</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-core-amqp</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-core-http-netty</artifactId>
+  <version>1.7.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-core-http-okhttp</artifactId>
+  <version>1.4.0</version>
 </dependency>
 
 <dependency>
@@ -144,12 +169,6 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 
 <dependency>
   <groupId>com.azure</groupId>
-  <artifactId>azure-messaging-servicebus</artifactId>
-  <version>7.0.0-beta.7</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure</groupId>
   <artifactId>azure-messaging-eventhubs</artifactId>
   <version>5.4.0-beta.1</version>
 </dependency>
@@ -158,6 +177,18 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-messaging-eventhubs-checkpointstore-blob</artifactId>
   <version>1.3.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-messaging-servicebus</artifactId>
+  <version>7.0.0-beta.7</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-messaging-servicebus</artifactId>
+  <version>7.0.0</version>
 </dependency>
 
 <dependency>
@@ -439,11 +470,48 @@ accessKey(String accessKey) within CommunicationIdentityClientBuilder.
 - Removed credential(CommunicationClientCredential credential) and replaced with
 accessKey(String accessKey) within CommunicationIdentityClientBuilder.
 
+### Azure Core 1.11.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/CHANGELOG.md#1110-2020-11-24)
+
+#### New Features
+
+- Added `BinaryData` which allows for a format agnostic representation of binary information and supports
+ `ObjectSerializer` for serialization and deserialization.
+- Added functionality to eagerly read HTTP response bodies into memory when they will be deserialized into a POJO.
+
 ### Azure Core Amqp 1.7.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-amqp/CHANGELOG.md#170-beta2-2020-11-10)
 
 #### New Features
 
 - Optionally enable idempotency of a send link to send AMQP messages with producer group id, producer owner level and producer sequence number in the message annotations.
+
+### Azure Core Amqp 2.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-amqp/CHANGELOG.md#200-2020-11-30)
+
+#### New Features
+- Added 'AmqpAddress' as a type to support 'AmqpMessageProperties#replyTo' and 'AmqpMessageProperties#to' properties.
+- Added 'AmqpMessageId' as a type to support 'AmqpMessageProperties#correlationId' and 'AmqpMessageProperties#messageId' 
+  properties.
+- Added static methods to instantiate 'AmqpMessageBody' for example 'AmqpMessageBody#fromData(byte[])'.
+
+### Breaking Changes
+- Changed  'AmqpMessageBody' from interface to a class. User can use 'getBodyType()' to know what is the 'AmqpBodyType' 
+  of the message.
+- Changed type of 'AmqpMessageProperties#correlationId' and 'AmqpMessageProperties#messageId' from 'String' 
+  to 'AmqpMessageId'.
+- Changed type of 'AmqpMessageProperties#replyTo' and 'AmqpMessageProperties#to' from 'String' to 'AmqpAddress'.
+- Removed copy constructor for 'AmqpAnnotatedMessage'.
+- Renamed 'AmqpBodyType' to 'AmqpMessageBodyType'.
+
+### Azure Core HTTP OkHttp 1.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-http-okhttp/CHANGELOG.md#140-2020-11-24)
+
+#### New Features
+
+- Added functionality to eagerly read HTTP response bodies into memory when they will be deserialized into a POJO.
+
+### Azure Core HTTP Netty 1.7.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-http-netty/CHANGELOG.md#170-2020-11-24)
+
+#### New Features
+
+- Added functionality to eagerly read HTTP response bodies into memory when they will be deserialized into a POJO.
 
 ### Azure Data Tables 12.0.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/tables/azure-data-tables/CHANGELOG.md#1200-beta3-2020-11-12)
 
@@ -499,6 +567,27 @@ accessKey(String accessKey) within CommunicationIdentityClientBuilder.
 #### Bug Fixes
 
 - `ServiceBusAdministrationClient`: Fixes serialization bug for creating and deserializing rules.
+
+### Azure Messaging Servicebus 7.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md#700-2020-11-30)
+
+#### New Features
+- Exposing enum 'ServiceBusFailureReason' in 'ServiceBusException' which contains set of well-known reasons for an
+  Service Bus operation failure that was the cause of an exception.
+- Added 'BinaryData' support to  'ServiceBusReceivedMessage' and 'ServiceBusMessage'. It provides an easy abstraction 
+  over many different ways that binary data can be represented. It also provides support for serialize and deserialize
+  Object.
+- Introducing 'ServiceBusProcessorClient': It provides a push-based mechanism that invokes the message processing 
+  callback when a message is received or the error handler when an error occurs when receiving messages. It supports 
+  auto-settlement of messages by default.
+
+#### Breaking Changes
+- Renamed all the 'peekMessageAt()' API to 'peekMessage()' in 'ServiceBusReceiverAsyncClient' and 
+  'ServiceBusReceiverClient'.
+- Rename 'getAmqpAnnotatedMessage()' to 'getRawAmqpMessage()' in 'ServiceBusReceivedMessage' and 'ServiceBusMessage'.
+
+#### Bug Fixes
+- Set the default 'prefetch' to 0 instead of 1 in both 'RECEIVE_AND_DELETE' and 'PEEK_LOCK' mode. User can set this 
+  value in builder.
 
 ### Azure Messaging Eventhub 5.4.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md#540-beta1-2020-11-12)
 

@@ -7,36 +7,50 @@ sidebar: general_sidebar
 
 The release policy for the Azure SDK accommodates the need to release different SDK packages based on the ship cycle of the underlying service.
 
-## Terms
+## Exit Criteria
 
-The terms "SDK", "SDK Component", "library" and "package" are used throughout this document and are defined in the [design guidelines](general_terminology.html).
+The following are mandatory actions required when releasing a new version of any service SDK.
 
-## Supported registries
+### 1) Language coverage
 
-We release client libraries to the following registries:
+Market data and customer engagement studies clearly indicate that a cloud provider’s support of several programming languages and great developer experiences via SDK’s & tools can heavily impact a customer’s decision in choosing a cloud provider over others. In the same way, bad experiences both in getting started scenarios as well as total cost of ownership can drive customers away. It is important that Azure provides a uniform story for language coverage in its primary languages in order to raise customer confidence that they will be able to use any of Azure’s services in their solutions if they are using one of these languages. Customers feel that their language choice limits the services that they can choose to use easily from that language. The intent is that this is not a service by service evaluation of customer demand and more of an Azure platform statement that all of Azure’s services are easily usable in these primary languages.
 
-- NuGet (.NET)
-- PyPi (Python)
-- npm (TypeScript)
-- Maven (Android, Java)
+We’re motivated to provide high quality SDKs to deliver a great experience for Azure developers leveraging and interacting with Azure services.
 
-We recommend that you use a package manager that supports these registries.
+At the moment we are committed to building and supporting an SDK for each of these primary languages SDKs for all azure services:
 
-## Git Tagging
+- Java
+- .Net
+- Python
+- TS/JS
 
-For language repositories which contain multiple packages, releases for each package are tagged in the format `<package-name>_<package-version>`.
+We recommended supporting additional key languages depending on the business scenarios and critical customer demand. Non primary languages depend much more heavily on contributions from outside the Azure SDK team.
 
-For language repositories where the repo is the primary shipping unit, the releases should be tagged in the format `<release-version>` (i.e. `1.0.0-beta.1`). If there are other secondary assets that also ship from the same repo then those assets should use an identifier for those assets and the version `<identifier-name>_<release-version>` (i.e. `tools_1.0.0-beta.1`).
+### 2) Change logs & Migration Guides
 
-## GitHub Releases
+Facilitating a swift transition of the SDKs' users to the new version being released requires clear clarification and documentation of the changes from the pervious version. The type and granularity of the documentations depends on the type\scope of the release:
 
-We use GitHub releases as a convenient place to put release notes. The change log and any additional notes will be available here. We automatically publish release notes to a GitHub release if the changelog guidance below is followed. No artifacts are published to the GitHub release. Instead, use a supported package registry.
+#### New standards upgrade release
 
-## ChangeLog Guidance
+This covers the case when we upgrade and existing Azure SDK to the new SDKs standards. such release usually contains major modifications to the structure, interfaces and behavioral aspects of the existing SDKs. Such an update requires detailed and verbose porting guide to help the adopting users understand the benefits, changes and offerings of the new SDK version. The requirement here is to:
 
-Ensuring that a `CHANGELOG.md` file is both available and formatted appropriately will result in automatically formatted release notes on each GitHub release.
+ {% include requirement/MUST %} Create a Migration guide for each language SDK.
 
-{% include requirement/MUST %} maintain a changelog for every package.
+ {% include requirement/MUST %} Include a "Benefits" section clearing explaining the advantages of migration to this version of the SDK.
+
+ {% include requirement/MUST %} Place that guide in the SDK repository preferably in the root of the
+
+An example porting guide can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md).
+
+(Please Note) Migration guides creation will be required to obtain sign-off from the Archboard.
+
+#### New version release
+
+Ensuring that a `CHANGELOG.md` file is both available and formatted appropriately is mandatory and will be used in automatically generating formatted release notes on each GitHub release.
+
+{% include requirement/MUST %} maintain a changelog for every package. 
+
+{% include requirement/MUST %} `CHANGELOG.md` file should be added in the root folder of the library.
 
 {% include requirement/MUST %} name changelogs with all caps except for the extension, i.e. `CHANGELOG.md`.
 
@@ -87,9 +101,63 @@ Example Changelog:
 
 For clarity, a `change log entry` is simply the header + content up to the next release header OR EOF. During release, if there exists a changelog entry with a version specifier _matching_ that of the currently releasing package, that changelog entry will be added as the body of the GitHub release.
 
-### Changelog Entries for GA releases
+#### Changelog Entries for GA releases
 
 When doing a switch from a beta to a GA release there are often very few changes which can be misleading to customers, as they might not think there are many changes. Instead when doing a GA release it is recommended that we either squash all the beta notes into the GA changelog entry or add a comment similar to `Includes all changes from X.Y.Z-beta.A to X.Y.Z.beta.B` so that it is clear that all those changes are included.
+
+### 3) Blogs & Samples
+
+Advertising our SDKs is key to increasing their adoption and getting their latest and greatest features to the hands of their users. the following steps should be taken once the new version is live:
+- Adding a blog entry on the [Azure SDK blog site](https://devblogs.microsoft.com/azure-sdk/) by contacting the [admins](mailto:azsdkblog@microsoft.com).
+- working with the Azure service team for which you're building this version of the SDK to advertise the release through their official communication channels.
+- ensuring that you have Solid samples in the SDK repository demonstrating the use of this new version.
+
+### 4) Payload Backwards Compatibility
+
+A manual migration test should be developed to ensure that payloads and data fed into the previous version of the SDK are gracefully handled when fed to the new SDK.
+
+### 5) Updating package manager references
+
+When releasing any new version of an SDKs follow best practices of the language specific package managers to ensure that this new version's visibility is elevated and recommended by default to the users. Here's the guidance per language.
+
+#### .Net
+TBD
+
+#### .Java
+TBD
+
+#### TS/JS
+TBD
+
+#### Python
+TBD
+
+## Terms
+
+The terms "SDK", "SDK Component", "library" and "package" are used throughout this document and are defined in the [design guidelines](general_terminology.html).
+
+## Supported registries
+
+We release client libraries to the following registries:
+
+- NuGet (.NET)
+- PyPi (Python)
+- npm (TypeScript)
+- Maven (Android, Java)
+
+We recommend that you use a package manager that supports these registries.
+
+## Git Tagging
+
+For language repositories which contain multiple packages, releases for each package are tagged in the format `<package-name>_<package-version>`.
+
+For language repositories where the repo is the primary shipping unit, the releases should be tagged in the format `<release-version>` (i.e. `1.0.0-beta.1`). If there are other secondary assets that also ship from the same repo then those assets should use an identifier for those assets and the version `<identifier-name>_<release-version>` (i.e. `tools_1.0.0-beta.1`).
+
+## GitHub Releases
+
+We use GitHub releases as a convenient place to put release notes. The change log and any additional notes will be available here. We automatically publish release notes to a GitHub release if the changelog guidance below is followed. No artifacts are published to the GitHub release. Instead, use a supported package registry.
+
+
 
 ## Release Cycle
 

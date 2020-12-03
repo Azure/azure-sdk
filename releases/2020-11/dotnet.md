@@ -11,9 +11,11 @@ The Azure SDK team is pleased to announce our November 2020 client library relea
 #### GA
 
 - Storage
+- Core AMQP
 - Digital Twins Core
 - Extensions Configuration Secrets
 - Identity
+- Service Bus
 - System Memory Data
 
 #### Updates
@@ -60,7 +62,7 @@ $> dotnet add package Azure.Communication.Chat --version 1.0.0-beta.3
 $> dotnet add package Azure.Communication.Common --version 1.0.0-beta.3
 $> dotnet add package Azure.Communication.Sms --version 1.0.0-beta.3
 
-$> dotnet add package Azure.Core.Amqp --version 1.0.0-beta.1
+$> dotnet add package Azure.Core.Amqp --version 1.0.0
 
 $> dotnet add package Azure.Data.Tables --version 3.0.0-beta.3
 
@@ -75,7 +77,7 @@ $> dotnet add package Azure.Messaging.EventGrid --version 4.0.0-beta.4
 $> dotnet add package Azure.Messaging.EventHubs --version 5.3.0-beta.4
 $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.3.0-beta.4
 
-$> dotnet add package Azure.Messaging.ServiceBus --version 7.0.0-preview.9
+$> dotnet add package Azure.Messaging.ServiceBus --version 7.0.0
 
 $> dotnet add package Azure.Search.Documents --version 11.2.0-beta.2
 
@@ -97,7 +99,7 @@ $> dotnet add package Microsoft.Extensions.Azure --version 1.1.0-beta.1
 
 $> dotnet add package Microsoft.OpenTelemetry.Exporter.AzureMonitor --version 1.0.0-beta.1
 
-$> dotnet add package System.Memory.Data --version 1.0.0
+$> dotnet add package System.Memory.Data --version 1.0.1
 ```
 
 ## Feedback
@@ -168,7 +170,11 @@ This release contains test improvements and documentation enhancements.
 
 Support for mocking all client methods that use models with internal constructors.
 
-### Core AMQP [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core.Amqp/CHANGELOG.md#100-beta1-2020-11-04)
+### Core AMQP (1.0.0) [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core.Amqp/CHANGELOG.md#100-2020-11-23)
+
+- General availability release of Azure.Core.Amqp.
+
+### Core AMQP (1.0.0-beta.1) [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core.Amqp/CHANGELOG.md#100-beta1-2020-11-04)
 
 #### New Features
 
@@ -377,7 +383,16 @@ service with correct analysis of the document's content.
 - Fixed issue where `ScoringProfile.FunctionAggregation` did not correctly handle null values ([#16570](https://github.com/Azure/azure-sdk-for-net/issues/16570)).
 - Fixed overly permissive date parsing on facets ([#16412](https://github.com/Azure/azure-sdk-for-net/issues/16412)).
 
-### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md#700-preview9-2020-11-04)
+### Service Bus (7.0.0) [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md#700-2020-11-23)
+
+#### Breaking Changes
+
+- Renamed `GetRawMessage` method to `GetRawAmqpMessage`.
+- Removed `LinkCloseMode`.
+- Rename `ReceiveMode` type to `ServiceBusReceiveMode`.
+- Remove `ServiceBusFailureReason` of `Unauthorized` in favor of using `UnauthorizedAccessException`.
+
+### Service Bus (7.0.0-preview.9) [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md#700-preview9-2020-11-04)
 
 #### Breaking Changes
 
@@ -390,7 +405,13 @@ service with correct analysis of the document's content.
 
 This release contains test improvements.
 
-### System Memory Data [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/System.Memory.Data/CHANGELOG.md#100-2020-11-03)
+### System Memory Data (1.0.1) [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/System.Memory.Data/CHANGELOG.md#101-2020-11-16)
+
+#### Key Bug Fixes
+
+- Fix issue where if the type was not passed into the constructor, an exception would be thrown instead of defaulting to calling `GetType()`.
+
+### System Memory Data (1.0.0) [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/System.Memory.Data/CHANGELOG.md#100-2020-11-03)
 
 - The general availability release of System.Memory.Data package.
 
