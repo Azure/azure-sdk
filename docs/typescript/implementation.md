@@ -91,6 +91,8 @@ The HTTP pipeline consists of a HTTP transport that is wrapped by multiple polic
 - Response downloader
 - Distributed tracing
 - Logging
+- 
+- TODO: If these policies are already implemented in Azure Core, does the library developer need to do this?  If not, please remove this guidance.
 
 {% include requirement/SHOULD id="general-implementing-use-core-policies" %} use the policy implementations in Azure Core whenever possible.  Do not try to "write your own" policy unless it is doing something unique to your service.  If you need another option to an existing policy, engage with the [Architecture Board] to add the option.
 
@@ -103,6 +105,8 @@ When implementing authentication, don't open up the consumer to security holes l
 If your service implements a non-standard credential system (that is, a credential system that is not supported by Azure Core), then you need to produce an authentication policy for the HTTP pipeline that can authenticate requests given the alternative credential types provided by the client library.
 
 {% include requirement/MUST id="general-implementing-auth-policy" %} provide a suitable authentication policy that authenticates the HTTP request in the HTTP pipeline when using non-standard credentials.  This includes custom connection strings, if supported.
+
+TODO: Would a code sample be helpful here?
 
 ## Native code {#general-native-code}
 
@@ -155,7 +159,7 @@ Client libraries must support robust logging mechanisms so that the consumer can
 * Error: `:error`
 * Warning: `:warning`
 * Info: `:info`
-* Verbpse: `:verbose`
+* Verbose: `:verbose`
 
 {% include requirement/MAY id="ts-logging-additional-channels" %} have additional log channels, for example, to log from separate components. However, these channels MUST still provide the three log levels from above for each subchannel.
 

@@ -116,6 +116,8 @@ export class ServiceClient {
 
 {% include requirement/MUST id="ts-apisurface-serviceclientconstructor" %} allow the consumer to construct a service client with the minimal information needed to connect and authenticate to the service.
 
+TODO: It would be nice to have a code sample here to ground this general guidelines in JS/TS specifics.
+
 {% include requirement/MUST id="ts-apisurface-standardized-verbs" %} standardize verb prefixes within a set of client libraries for a service (see [approved verbs](#ts-approved-verbs)).
 
 The service speaks about specific operations in a cross-language manner within outbound materials (such as documentation, blogs, and public speaking).  The service can't be consistent across languages if the same operation is referred to by different verbs in different languages.
@@ -199,12 +201,14 @@ Many services have a notion of retries and have various means to configure them.
 | maxRetryDelayInMs | number > 0 | Maximum delay between retries. For linear and exponential strategies, this effectively clamps the maximum amount of time between retries. |
 | tryTimeoutInMs | number > 0 | How long to wait for a particular retry to complete before giving up |
 
+TODO: Please add a code sample showing how these fit into a track 2 JS/TS library.
 
 {% include requirement/MUST id="ts-use-retry-strategies" %} support the following retry strategies:
 
 * `fixed`: retry after some duration, where the duration never changes.
 * `exponential`: retry after some duration, where the duration increases exponentially after each attempt.
 
+TODO: Are these implemented by default in Azure Core or does the API designer need to implement these?  If there is no action for the API Designer, let's take this out.
 
 ### Response formats {#ts-responses}
 
@@ -212,15 +216,25 @@ Requests to the service fall into two basic groups - methods that make a single 
 
 {% include requirement/MUST id="ts-return-logical-entities" %} optimize for returning the logical entity for a given request. The logical entity MUST represent the information needed in the 99%+ case.
 
+TODO: the above guideline is a little vague and I'm not sure how to concretely apply this in JS/TS.
+
 {% include requirement/MUST id="ts-return-expose-raw" %} *make it possible* for a developer to get access to the complete response, including the status line, headers, and body.
 
+TODO: a code sample to go with this might be nice, or a direct discussion of the typical response format and how to do this in JS/TS.  As an example of this, .NET discusses Response\<T\> in this section rather than the general guidelines, since Response\<T\> solves this problem for the API designer and then they don't have to think of another way to do it.
+
 {% include requirement/MUST id="ts-return-document-raw-stream" %} document how to access the raw and streamed response for a request (if exposed by the client library).  Include comprehensive samples.  We don't expect all methods to expose a streamed response.
+
+TODO: Should the above guideline go in the Samples section?
 
 For methods that combine multiple requests into a single call:
 
 {% include requirement/MUSTNOT id="general-return-no-headers-if-confusing" %} return headers and other per-request metadata unless it's obvious as to which specific HTTP request the methods return value corresponds to.
 
+TODO: It's unclear regarding the above that this is referring to the model type.  (Is it?)  An example of how we've solved this problem in existing Track 2 JS/TS APIs would be helpful here to make this guideline more actionable.  
+
 {% include requirement/MUST id="general-expose-data-for-composite-failures" %} provide enough information in failure cases for an application to take appropriate corrective action.
+
+TODO: Would the above guideline go better in the Exceptions & Errors section?  In the training, we say that exceptions should A) describe the problem and B) tell the developer how to solve the problem.
 
 {% include requirement/SHOULDNOT id="general-dont-use-value" %} use the following property names within a logical entity:
 
@@ -296,7 +310,11 @@ export interface ContainerGetPropertiesHeaders {
 
 {% include requirement/MUST id="ts-naming-subclients" %} prefix methods that create or vend subclients with `get` and suffix with `client`.  For example, `container.getBlobClient()`.
 
+TODO: Put the above with the discussion of hierarchical clients?
+
 {% include requirement/MUST id="ts-naming-options" %} suffix options bag parameters names with `Options`, and prefix with the name of the operation. For example, if an operation is called createItem, its options type must be called `CreateItemOptions`.
+
+TODO: A code sample here would help illustrate this.
 
 <a name="ts-example-naming"></a>
 The following are good examples of names for operations in a TypeScript client library:
@@ -327,9 +345,13 @@ The best way for consumers to work with cancellation is to think of cancellation
 - Children can time out sooner than their parent but can't extend the total time.
 - Cancellation can happen because of a timeout or an explicit request.
 
+TODO: Regarding the above discussion ... is it needed?  Could we just say the Azure SDK requires service calls to be cancellable and here are the rules for how to do it in JS/TS?  Please consider adding a code sample for this, and if there are implementation specifics for this, it might be nice to have them in the Implementation section (but the latter is technically out of scope for MQ).
+
 {% include requirement/MUST %} accept an `AbortSignalLike` parameter on all asynchronous calls. This type is provided by `@azure/abort-controller`.
 
 {% include requirement/SHOULD %} only check cancellation tokens on I/O calls (such as network requests and file loads).  Don't check the cancellation token between I/O calls within the client library (for example, when processing data between I/O calls).
+
+TODO: Does JS/TS use cancellation tokens?
 
 {% include requirement/MUSTNOT %} leak the underlying protocol transport implementation details to the consumer.  All types from the protocol transport implementation must be appropriately abstracted.
 
@@ -341,6 +363,8 @@ Azure services use different kinds of authentication schemes to allow clients to
 
 {% include requirement/MUST id="ts-apisurface-check-cancel-on-io-calls" %} use credential and authentication policy implementations from the Azure Core library where available.
 
+TODO: Please mention the specific type examples to make this more actionable.
+
 {% include requirement/MUST id="general-apisurface-no-leaking-implementation" %} provide credential types that can be used to fetch all data needed to authenticate a request to the service. Credential types should be non-blocking and atomic.  Use credential types from the `@azure/core-auth` library where possible.
 
 {% include requirement/MUST id="general-apisurface-auth-in-constructors" %} provide service client constructors or factories that accept any supported authentication credentials.
@@ -348,6 +372,8 @@ Azure services use different kinds of authentication schemes to allow clients to
 Client libraries may support connection strings __ONLY IF__ the service provides a connection string to users via the portal or other tooling. Connection strings are easily integrated into an application by copy/paste from the portal.  However, connection strings don't allow the credentials to be rotated within a running process.
 
 {% include requirement/MUSTNOT id="general-apisurface-no-connection-strings" %} support constructing a service client with a connection string unless such connection string is available within tooling (for copy/paste operations).
+
+TODO: Please make this section more actionable with regard to what JS/TS does specifically.
 
 ### Modern & Idiomatic JavaScript {#ts-modern-javascript}
 
@@ -576,7 +602,9 @@ Polling configuration may be used only in the absence of relevant retry-after he
 
 {% include requirement/MUST id="ts-lro-progress-reporting" %} expose a progress reporting mechanism to the consumer if the service reports progress as part of the polling operation.  Language-dependent guidelines will present additional guidance on how to expose progress reporting in this case.
 
-{% include draft.html content="Long-running operations will use the <code>@azure/core-lro</code> package, which is an abstration that provides the above requirements" %}
+{% include draft.html content="Long-running operations will use the <code>@azure/core-lro</code> package, which is an abstraction that provides the above requirements" %}
+
+TODO: If this is largely implemented for the API Designer, please include an example of how to use the Azure Core type in the public API.  It would be ideal to remove guidelines where the requirement has already been addressed for the API Designer in the type.
 
 TODO: Please add a section on conditional request methods.
 
