@@ -484,8 +484,8 @@ function Output-Latest-Versions($lang)
   $packageList = Get-Content $packagelistFile | ConvertFrom-Csv | Sort-Object Type, DisplayName, Package, GroupId
 
   # Only update libraries that have a type
-  $clientPackages = $packageList | Where-Object { $_.New -eq "true" }
-  $otherPackages = $packageList | Where-Object { $_.New -ne "true"  }
+  $clientPackages = $packageList | Where-Object { $_.New -eq "true" -and $_.Type }
+  $otherPackages = $packageList | Where-Object { $_.New -ne "true" -or !$_.Type }
 
   $LangFunction = "Update-$lang-Packages"
   &$LangFunction $clientPackages
@@ -499,9 +499,52 @@ function Output-Latest-Versions($lang)
   $packageList = $clientPackages + $otherPackages
   $packageList | ConvertTo-CSV -NoTypeInformation -UseQuotes Always | Out-File $packagelistFile -encoding ascii
 }
+$langs = @("java", "js", "dotnet", "python", "c", "cpp", "ios", "android")
+function CheckAll
+{
+  $serviceNames = @()
+  foreach ($lang in $langs) 
+  {
+    $packagelistFile = Join-Path $releaseFolder "$lang-packages.csv"
+    $packageList = Get-Content $packagelistFile | ConvertFrom-Csv | Sort-Object Type, DisplayName, Package, GroupId
+    $clientPackages = $packageList | Where-Object { $_.New -eq "true" -and $_.Type }
+
+    foreach ($pkg in $clientPackages)
+    {
+      $serviceNames += [PSCustomObject][ordered]@{
+        ServiceName = $pkg.ServiceName
+        Lang = $lang
+        PkgInfo = $pkg
+      }
+
+      if ($pkg.RepoPath -and $pkg.RepoPath -eq "NA")
+      {
+        Write-Warning "[$lang] $($pkg.Package) RepoPath set to $($pkg.RepoPath)" 
+      }
+
+      if (!$pkg.ServiceName)
+      {
+        Write-Warning "No ServiceName for [$lang] $($pkg.Package)"
+      }
+
+      if (!$pkg.DisplayName)
+      {
+        Write-Warning "No DisplayName for [$lang] $($pkg.Package)"
+      }
+    }
+  }
+
+  $serviceGroups = $serviceNames | Sort-Object ServiceName | Group-Object ServiceName 
+  Write-Host "Found $($serviceNames.Count) service name with $($serviceGroups.Count) unique names:"
+
+  $serviceGroups | Select-Object Name, @{Label="Langugages"; Expression={$_.Group.Lang | Sort-Object -Unique}}, Count, @{Label="Packages"; Expression={$_.Group.PkgInfo.Package}}
+}
 
 switch($language)
 {
+  "check" {
+    CheckAll
+  }
   "all" {
     Output-Latest-Versions "java"
     Output-Latest-Versions "js"
