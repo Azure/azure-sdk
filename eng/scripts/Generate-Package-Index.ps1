@@ -100,8 +100,8 @@ function Write-Markdown($lang)
   $packageList = Get-Content $packagelistFile | ConvertFrom-Csv | Sort-Object Type, DisplayName, Package, GroupId
   $packageList = $packageList | Where-Object { $_.Hide -ne "true" }
 
-  $clientPackageList = $packageList | Where-Object { $_.Type }
-  $otherPackages = $packageList | Where-Object { !$_.Type }
+  $clientPackageList = $packageList | Where-Object { $_.New -eq "true" }
+  $otherPackages = $packageList | Where-Object { !$_.New -ne "true" }
 
   $fileContent = Get-Heading
   $LangFunction = "Get-$lang-row"
