@@ -15,7 +15,7 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 - Azure Form Recognizer new beta release. This version includes support for two new prebuilt recognition models for invoices and business cards, and added support for several new features.
 - Azure Identity release. This release includes standardized Managed Identity Credential support across languages, with added support to Azure Arc and Azure Service Fabric. This release also includes improvements to Visual Studio Code Credential, Device Code Credential and Interactive Browser Credential.
 - Azure SDK for Go management plane beta 1 release: modules for compute, network, storage, key vault, and ARM resources
-- Azure Service Bus GA release. The new version 7 of the Service Bus libraries provide the ability to share in some of the cross-service improvements made to the Azure development experience. Read more in [this blog post](https://devblogs.microsoft.com/azure-sdk/november-2020-servicebus-ga/)
+- Azure Service Bus GA release. The new version 7 of the Service Bus libraries provide the ability to share in some of the cross-service improvements made to the Azure development experience. Read more in this blog post, [Announcing the new Azure Service Bus Client Libraries](https://devblogs.microsoft.com/azure-sdk/november-2020-servicebus-ga/).
 - Text Analytics new beta release. This version includes support for batch task processing and for the recognition of various healthcare entities such as medication name, dosage, and frequency.
 
 ## Release Notes
