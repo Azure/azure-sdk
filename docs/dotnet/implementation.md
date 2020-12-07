@@ -10,7 +10,11 @@ sidebar: general_sidebar
 
 ### The Service Client
 
+TODO: add a brief mention of the approach to implementing service clients.
+
 #### Service Methods
+
+TODO: Briefly introduce that service methods are implemented via an `HttpPipeline` instance.  Mention that much of this is done for you using code generation.
 
 ##### Using HttpPipeline {#dotnet-usage-httppipeline}
 
@@ -294,9 +298,11 @@ public partial readonly struct EncryptionAlgorithm : IEquatable<EncryptionAlgori
 
 {% include requirement/MUST id="dotnet-enums-values-test" %} define tests to ensure extensible enum properties and defined `Values` constants declare the same names and define the same values. See [here](https://github.com/Azure/azure-sdk-for-net/blob/322f6952e4946229949bd3375f5eb6120895fd2f/sdk/search/Azure.Search.Documents/tests/Models/LexicalAnalyzerNameTests.cs#L14-L29) for an example.
 
-### Long Running Operations (LRO)
+#### Using Azure Core Types
 
-### Implementing Subtypes of Operation<T> {#dotnet-implement-operation}
+##### Implementing Subtypes of Operation\<T\> {#dotnet-implement-operation}
+
+Subtypes of `Operation<T>` are returned from service client methods invoking long running operations.
 
 {% include requirement/MUST id="dotnet-lro-return" %} check the value of `HasCompleted` in subclass implementations of `UpdateStatus` and `UpdateStatusAsync` and immediately return the result of `GetRawResponse` if it is true.
 
