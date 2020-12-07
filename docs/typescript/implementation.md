@@ -10,6 +10,8 @@ Once you've worked through an acceptable API design, you can start implementing 
 
 {% include requirement/SHOULD id="ts-should-use-template" %} use the [TypeScript client library template].
 
+TODO: Please add a discussion of how to use the Http Pipeline to implement a service method, if relevant, and on creating and adding custom policies to the pipeline.
+
 ## Configuration {#ts-configuration}
 
 When configuring your client library, particular care must be taken to ensure that the consumer of your client library can properly configure the connectivity to your Azure service both globally (along with other client libraries the consumer is using) and specifically with your client library.
@@ -89,6 +91,8 @@ The HTTP pipeline consists of a HTTP transport that is wrapped by multiple polic
 - Response downloader
 - Distributed tracing
 - Logging
+- 
+- TODO: If these policies are already implemented in Azure Core, does the library developer need to do this?  If not, please remove this guidance.
 
 {% include requirement/SHOULD id="general-implementing-use-core-policies" %} use the policy implementations in Azure Core whenever possible.  Do not try to "write your own" policy unless it is doing something unique to your service.  If you need another option to an existing policy, engage with the [Architecture Board] to add the option.
 
@@ -101,6 +105,8 @@ When implementing authentication, don't open up the consumer to security holes l
 If your service implements a non-standard credential system (that is, a credential system that is not supported by Azure Core), then you need to produce an authentication policy for the HTTP pipeline that can authenticate requests given the alternative credential types provided by the client library.
 
 {% include requirement/MUST id="general-implementing-auth-policy" %} provide a suitable authentication policy that authenticates the HTTP request in the HTTP pipeline when using non-standard credentials.  This includes custom connection strings, if supported.
+
+TODO: Would a code sample be helpful here?
 
 ## Native code {#general-native-code}
 
@@ -153,7 +159,7 @@ Client libraries must support robust logging mechanisms so that the consumer can
 * Error: `:error`
 * Warning: `:warning`
 * Info: `:info`
-* Verbpse: `:verbose`
+* Verbose: `:verbose`
 
 {% include requirement/MAY id="ts-logging-additional-channels" %} have additional log channels, for example, to log from separate components. However, these channels MUST still provide the three log levels from above for each subchannel.
 
@@ -192,6 +198,8 @@ Distributed tracing mechanisms allow the consumer to trace their code from front
 {% include requirement/MUST id="general-tracing-create-span-on-rest" %} create a new span (which must be a child of the per-method span) for each REST call that the client library makes.  This is generally done with the HTTP pipeline.
 
 Some of these requirements will be handled by the HTTP pipeline.  However, as a client library writer, you must handle the incoming context appropriately.  JavaScript doesn't have primitives similar to a local context.  As such, we must manually plumb parent span IDs into the library.
+
+TODO: Please add a discussion of how to set the user-agent string for implementation of the SDK Telemetry feature.
 
 ## Dependencies {#ts-dependencies}
 
