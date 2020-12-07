@@ -6,11 +6,39 @@ folder: java
 sidebar: general_sidebar
 ---
 
-## Configuration
+## API Implementation
+
+### The Service Client
+
+#### Network requests
+
+Each supported language has an Azure Core library that contains common mechanisms for cross cutting concerns such as configuration and doing HTTP requests.
+
+{% include requirement/MUST id="java-network-use-http-pipeline" %} use the HTTP pipeline component within `azure-core` library for communicating to service REST endpoints.
+
+The HTTP pipeline consists of a HTTP transport that is wrapped by multiple policies. Each policy is a control point during which the pipeline can modify either the request and/or response. We prescribe a default set of policies to standardize how client libraries interact with Azure services. The order in the list is the most sensible order for implementation.
+
+{% include requirement/SHOULD id="java-network-azure-core-policies" %} use the policy implementations in Azure Core whenever possible. Do not try to "write your own" policy unless it is doing something unique to your service. If you need another option to an existing policy, engage with the [Architecture Board] to add the option.
+
+{% include requirement/MUST id="java-network-azure-core-policies-public" %} make all custom policies (HTTP or otherwise) available as public API. This enables developers who choose to implement their own pipeline to reuse the policy rather than write it themselves.
+
+#### Authentication
+
+When implementing authentication, don't open up the consumer to security holes like PII (personally identifiable information) leakage or credential leakage. Credentials are generally issued with a time limit, and must be refreshed periodically to ensure that the service connection continues to function as expected. Ensure your client library follows all current security recommendations and consider an independent security review of the client library to ensure you're not introducing potential security problems for the consumer.
+
+{% include requirement/MUSTNOT id="java-auth-persistence" %} persist, cache, or reuse security credentials. Security credentials should be considered short lived to cover both security concerns and credential refresh situations. 
+
+If your service implements a non-standard credential system (that is, a credential system that is not supported by Azure Core), then you need to produce an authentication policy for the HTTP pipeline that can authenticate requests given the alternative credential types provided by the client library.
+
+{% include requirement/MUST id="java-auth-policy-impl" %} provide a suitable authentication policy that authenticates the HTTP request in the HTTP pipeline when using non-standard credentials. This includes custom connection strings, if supported.
+
+## SDK Feature Implementation
+
+### Configuration
 
 When configuring your client library, particular care must be taken to ensure that the consumer of your client library can properly configure the connectivity to your Azure service both globally (along with other client libraries the consumer is using) and specifically with your client library.
 
-### Client configuration
+#### Client configuration
 
 {% include requirement/MUST id="java-config-global" %} use relevant global configuration settings either by default or when explicitly requested to by the user, for example by passing in a configuration object to a client constructor.
 
@@ -25,7 +53,7 @@ When configuring your client library, particular care must be taken to ensure th
 1. Log level, which must take effect immediately across the Azure SDK.
 2. Tracing on/off, which must take effect immediately across the Azure SDK.
 
-### Service-specific environment variables
+#### Service-specific environment variables
 
 {% include requirement/MUST id="java-envvars-prefix" %} prefix Azure-specific environment variables with `AZURE_`.
 
@@ -53,99 +81,7 @@ where _ServiceName_ is the canonical shortname without spaces, and _Configuratio
 
 {% include requirement/MUSTNOT id="java-envvars-posix-compliance" %} use non-alpha-numeric characters in your environment variable names with the exception of underscore. This ensures broad interoperability.
 
-## Parameter validation
-
-The service client will have several methods that perform requests on the service. _Service parameters_ are directly passed across the wire to an Azure service. _Client parameters_ are not passed directly to the service, but used within the client library to fulfill the request.  Examples of client parameters include values that are used to construct a URI, or a file that needs to be uploaded to storage.
-
-{% include requirement/MUST id="java-params-client-validation" %} validate client parameters.
-
-{% include requirement/MUSTNOT id="java-params-service-validation" %} validate service parameters. This includes null checks, empty strings, and other common validating conditions. Let the service validate any request parameters.
-
-{% include requirement/MUST id="java-params-devex" %} validate the developer experience when the service parameters are invalid to ensure appropriate error messages are generated by the service. If the developer experience is compromised due to service-side error messages, work with the service team to correct prior to release.
-
-## Network requests
-
-Each supported language has an Azure Core library that contains common mechanisms for cross cutting concerns such as configuration and doing HTTP requests.
-
-{% include requirement/MUST id="java-network-use-http-pipeline" %} use the HTTP pipeline component within `azure-core` library for communicating to service REST endpoints.
-
-The HTTP pipeline consists of a HTTP transport that is wrapped by multiple policies. Each policy is a control point during which the pipeline can modify either the request and/or response. We prescribe a default set of policies to standardize how client libraries interact with Azure services. The order in the list is the most sensible order for implementation.
-
-{% include requirement/MUST id="java-network-policies" %} implement the following policies in the HTTP pipeline:
-
-- Telemetry
-- Unique Request ID
-- Retry
-- Authentication
-- Response downloader
-- Distributed tracing
-- Logging
-
-{% include requirement/SHOULD id="java-network-azure-core-policies" %} use the policy implementations in Azure Core whenever possible. Do not try to "write your own" policy unless it is doing something unique to your service. If you need another option to an existing policy, engage with the [Architecture Board] to add the option.
-
-{% include requirement/MUST id="java-network-azure-core-policies-public" %} make all custom policies (HTTP or otherwise) available as public API. This enables developers who choose to implement their own pipeline to reuse the policy rather than write it themselves.
-
-## Authentication
-
-When implementing authentication, don't open up the consumer to security holes like PII (personally identifiable information) leakage or credential leakage. Credentials are generally issued with a time limit, and must be refreshed periodically to ensure that the service connection continues to function as expected. Ensure your client library follows all current security recommendations and consider an independent security review of the client library to ensure you're not introducing potential security problems for the consumer.
-
-{% include requirement/MUSTNOT id="java-auth-persistence" %} persist, cache, or reuse security credentials. Security credentials should be considered short lived to cover both security concerns and credential refresh situations. 
-
-If your service implements a non-standard credential system (that is, a credential system that is not supported by Azure Core), then you need to produce an authentication policy for the HTTP pipeline that can authenticate requests given the alternative credential types provided by the client library.
-
-{% include requirement/MUST id="java-auth-policy-impl" %} provide a suitable authentication policy that authenticates the HTTP request in the HTTP pipeline when using non-standard credentials. This includes custom connection strings, if supported.
-
-## Native code
-
-Native code plugins cause compatibility issues and require additional scrutiny. Certain languages compile to a machine-native format (for example, C or C++), whereas most modern languages opt to compile to an intermediary format to aid in cross-platform support.
-
-{% include requirement/MUSTNOT id="java-no-native-code" %} write platform-specific / native code.
-
-## Error handling
-
-Error handling is an important aspect of implementing a client library. It is the primary method by which problems are communicated to the consumer. There are two methods by which errors are reported to the consumer. Either the method throws an exception, or the method returns an error code (or value) as its return value, which the consumer must then check. In this section we refer to "producing an error" to mean returning an error value or throwing an exception, and "an error" to be the error value or exception object. 
-
-{% include requirement/SHOULD id="java-errors-prefer-exceptions" %} prefer the use of exceptions over returning an error value when producing an error.
-
-{% include requirement/MUST id="java-errors-http-request-failed" %} produce an error when any HTTP request fails with an HTTP status code that is not defined by the service/Swagger as a successful status code. These errors should also be logged as errors.
-
-{% include requirement/MUST id="java-errors-unchecked-exceptions" %} use unchecked exceptions for HTTP requests. Java offers checked and unchecked exceptions, where checked exceptions force the user to introduce verbose `try .. catch` code blocks and handle each specified exception. Unchecked exceptions avoid verbosity and improve scalability issues inherent with checked exceptions in large apps. 
-
-{% include requirement/MUST id="java-errors-include-request-response" %} ensure that the error produced contains the HTTP response (including status code and headers) and originating request (including URL, query parameters, and headers). 
-
-In the case of a higher-level method that produces multiple HTTP requests, either the last exception or an aggregate exception of all failures should be produced.
-
-{% include requirement/MUST id="java-errors-rich-info" %} ensure that if the service returns rich error information (via the response headers or body), the rich information must be available via the error produced in service-specific properties/fields.
-
-{% include requirement/MUSTNOT id="java-errors-no-new-errors" %} create a new error type when a language-specific error type will suffice. Use system-provided error types for validation.
-
-{% include requirement/MUST id="java-errors-system-errors" %} use the following standard Java exceptions for pre-condition checking:
-
-| Exception                       | When to use                                                    |
-|---------------------------------|----------------------------------------------------------------|
-| `IllegalArgumentException`      | When a method argument is non-null, but inappropriate          |
-| `IllegalStateException`         | When the object state means method invocation can't continue   |
-| `NullPointerException`          | When a method argument is `null` and `null` is unexpected      |
-| `UnsupportedOperationException` | When an object doesn't support method invocation               |
-
-{% include requirement/MUST id="java-errors-document" %} document the errors that are produced by each method (with the exception of commonly thrown errors that are generally not documented in the target language).
-
-{% include requirement/MUST id="java-errors-document-all" %} specify all checked and unchecked exceptions thrown in a method within the JavaDoc documentation on the method as `@throws` statements.
-
-{% include requirement/MUST id="java-errors-exception-tree" %} use the existing exception types present in the Azure core library for service request failures. Avoid creating new exception types. The following list outlines all available exception types (with indentation indicating exception type hierarchy):
-
-- `AzureException`: Never use directly. Throw a more specific subtype.
-  - `HttpResponseException`: Thrown when an unsuccessful response is received with http status code (e.g. 3XX, 4XX, 5XX) from the service request.
-    - `ClientAuthenticationException`: Thrown when there's a failure to authenticate against the service.
-    - `DecodeException`: Thrown when there's an error during response deserialization.
-    - `ResourceExistsException`: Thrown when an HTTP request tried to create an already existing resource.
-    - `ResourceModifiedException`: Thrown for invalid resource modification with status code of 4XX, typically 412 Conflict.
-    - `ResourceNotFoundException`: Thrown when a resource is not found, typically triggered by a 412 response (for PUT) or 404 (for GET/POST).
-    - `TooManyRedirectsException`: Thrown when an HTTP request has reached the maximum number of redirect attempts.
-  - `ServiceResponseException`: Thrown when the request was sent to the service, but the client library wasn't able to understand the response.
-  - `ServiceRequestException`: Thrown for an invalid response with custom error information.
-
-## Logging
+### Logging
 
 Client libraries must support robust logging mechanisms so that the consumer can adequately diagnose issues with the method calls and quickly determine whether the issue is in the consumer code, client library code, or service.
 
@@ -226,7 +162,7 @@ if (priority != null && priority < 0) {
 }
 ```
 
-## Distributed tracing
+### Distributed tracing
 
 Distributed tracing mechanisms allow the consumer to trace their code from frontend to backend.  The distributed tracing library creates spans - units of unique work.  Each span is in a parent-child relationship.  As you go deeper into the hierarchy of code, you create more spans.  These spans can then be exported to a suitable receiver as needed.  To keep track of the spans, a _distributed tracing context_ (called a context in the remainder of this section) is passed into each successive layer.  For more information on this topic, visit the [OpenTelemetry] topic on tracing.
 
@@ -269,36 +205,7 @@ public ConfigurationAsyncClient build() {
 
 Some of these requirements will be handled by the HTTP pipeline.  However, as a client library writer, you must handle the incoming context appropriately.
 
-## Dependencies
-
-Dependencies bring in many considerations that are often easily avoided by avoiding the 
-dependency. 
-
-- **Versioning** - Many programming languages do not allow a consumer to load multiple versions of the same package. So, if we have an client library that requires v3 of package Foo and the consumer wants to use v5 of package Foo, then the consumer cannot build their application. This means that client libraries should not have dependencies by default. 
-- **Size** - Consumer applications must be able to deploy as fast as possible into the cloud and move in various ways across networks. Removing additional code (like dependencies) improves deployment performance.
-- **Licensing** - You must be conscious of the licensing restrictions of a dependency and often provide proper attribution and notices when using them.
-- **Compatibility** - Often times you do not control a dependency and it may choose to evolve in a direction that is incompatible with your original use.
-- **Security** - If a security vulnerability is discovered in a dependency, it may be difficult or time consuming to get the vulnerability corrected if Microsoft does not control the dependency's code base.
-
-{% include requirement/MUST id="java-dependencies-azure-core" %} depend on the `com.azure.core` library for functionality that is common across all client libraries.  This library includes APIs for HTTP connectivity, global configuration, logging, and credential handling.
-
-{% include requirement/MUSTNOT id="java-dependencies-approved-list" %} be dependent on any other packages within the client library distribution package, with the exception of the following:
-
-{% include_relative approved_dependencies.md %}
-
-Dependency versions are purposefully not specified in this table. The definitive source for the dependency versions being used in all client libraries is [published in a separate document that is generated from the azure-sdk-for-java code repository](https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-java/staging/dependency-whitelist.html). Transitive dependencies of these libraries, or dependencies that are part of a family of dependencies, are allowed.  For example, `reactor-netty` is a child project of `reactor`.
-
-{% include requirement/MUSTNOT id="java-dependencies-archboard" %} introduce new dependencies on third-party libraries that are already referenced from the parent POM, without first discussing with the Architecture Board].
-
-{% include requirement/MUSTNOT id="java-dependencies-versions" %} specify or change dependency versions in your client library POM file. All dependency versioning must be [centralized through existing tooling](https://github.com/Azure/azure-sdk-for-java/blob/master/CONTRIBUTING.md#versions-and-versioning).
-
-{% include requirement/MUSTNOT id="java-dependencies-snapshot" %} include dependencies on external libraries that are -SNAPSHOT versions. All dependencies must be released versions.
-
-{% include requirement/SHOULD id="java-dependencies-vendoring" %} consider copying or linking required code into the client library in order to avoid taking a dependency on another package that could conflict with the ecosystem. Make sure that you are not violating any licensing agreements and consider the maintenance that will be required of the duplicated code. ["A little copying is better than a little dependency"][1] (YouTube).
-
-{% include requirement/MUSTNOT id="java-dependencies-concrete" %} depend on concrete logging, dependency injection, or configuration technologies (except as implemented in the `com.azure.core` library).  The client library will be used in applications that might be using the logging, DI, and configuration technologies of their choice.
-
-## Service-specific common library code
+### Service-specific common library code
 
 There are occasions when common code needs to be shared between several client libraries. For example, a set of cooperating client libraries may wish to share a set of exceptions or models.
 
