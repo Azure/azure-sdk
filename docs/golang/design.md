@@ -114,21 +114,21 @@ type WidgetClient struct {
 
 ## Service Client Constructors
 
-{% include requirement/MUST id="golang-client-constructors" %} provide two constructors in the following format that return a new instance of a service client type.
+{% include requirement/MUST id="golang-client-constructors" %} provide two constructors in the following format that return a new instance of a service client type.  Constructors MUST return the client instance by value.
 
 ```go
 // NewWidgetClient creates a new instance of WidgetClient with the specified values.  It uses the default pipeline configuration.
 // endpoint - The URI of the Widget.
 // cred - The credential used to authenticate with the Widget service.
 // options - Optional WidgetClient values.  Pass nil to accept default values.
-func NewWidgetClient(endpoint string, cred azcore.Credential, options *WidgetClientOptions) (*WidgetClient, error) {
+func NewWidgetClient(endpoint string, cred azcore.Credential, options *WidgetClientOptions) (WidgetClient, error) {
 	// ...
 }
 
 // NewWidgetClientWithPipeline creates a new instance of WidgetClient with the specified values and custom pipeline.
 // endpoint - The URI of the Widget.
 // p - The pipeline used to process HTTP requests and responses for this WidgetClient.
-func NewWidgetClientWithPipeline(endpoint string, p azcore.Pipeline) (*WidgetClient, error) {
+func NewWidgetClientWithPipeline(endpoint string, p azcore.Pipeline) (WidgetClient, error) {
 	// ...
 }
 ```
@@ -139,7 +139,7 @@ func NewWidgetClientWithPipeline(endpoint string, p azcore.Pipeline) (*WidgetCli
 // NewDefaultClient creates a new instance of WidgetClient with the specified values.  It uses the default endpoint and pipeline configuration.
 // cred - The credential used to authenticate with the Widget service.
 // options - Optional WidgetClient values.  Pass nil to accept default values.
-func NewDefaultClient(cred azcore.Credential, options *WidgetClientOptions) (*WidgetClient, error) {
+func NewDefaultClient(cred azcore.Credential, options *WidgetClientOptions) (WidgetClient, error) {
 
 }
 ```
@@ -160,7 +160,7 @@ Azure services use different kinds of authentication schemes to allow clients to
 
 ```go
 // NewWidgetClientFromConnectionString creates a new instance of WidgetClient with the specified values.  It uses the default pipeline configuration.
-func NewWidgetClientFromConnectionString(ctx context.Context, con string, options *WidgetClientOptions) (*WidgetClient, error) {
+func NewWidgetClientFromConnectionString(ctx context.Context, con string, options *WidgetClientOptions) (WidgetClient, error) {
 	// ...
 }
 ```
@@ -190,7 +190,7 @@ When implementing authentication, don't open up the consumer to security holes l
 
 ## Service Method Parameters
 
-{% include requirement/MUST id="golang-api-service-client-byref" %} ensure that all methods on client types pass their receiver by reference.
+{% include requirement/MUST id="golang-api-service-client-byref" %} ensure that all methods on client types pass their receiver by value.
 
 {% include requirement/MUST id="golang-api-context" %} accept a `context.Context` object as the first parameter to every method that performs any I/O operations.
 
@@ -220,7 +220,7 @@ type SetWidgetOptions struct {
 // ctx - The context used to control the lifetime of the request.
 // name - The name of the Widget to retrieve.
 // options - Any optional parameters.
-func (c *WidgetClient) GetWidget(ctx context.Context, name string, options *GetWidgetOptions) (*WidgetResponse, error) {
+func (c WidgetClient) GetWidget(ctx context.Context, name string, options *GetWidgetOptions) (WidgetResponse, error) {
 	// ...
 }
 ```
@@ -239,7 +239,7 @@ The service client will have several methods that perform requests on the servic
 
 Requests to the service fall into two basic groups: methods that make a single logical request, and methods that make a deterministic sequence of requests. An example of a _single logical request_ is a request that may be retried inside the operation. An example of a _deterministic sequence of requests_ is a paged operation.
 
-The _response envelope_ is a protocol neutral representation of a response. The response envelope may combine data from headers, body, and the HTTP response. For example, you may expose an `ETag` header as a property on the response envelope. `<Resource>Response` is the ‘response envelope’. It contains HTTP headers, the object (a deserialized object created from the response body), and the raw HTTP response.
+The _response envelope_ is a protocol neutral representation of a response. The response envelope may combine data from headers, body, and the HTTP response. For example, you may expose an `ETag` header as a property on the response envelope. `<Resource>Response` is the ‘response envelope’. It contains HTTP headers, the object (a deserialized object created from the response body), and the raw HTTP response.  Response envelopes MUST be returned by value.
 
 {% include requirement/MUST id="golang-response-logical-entity" %} return the response envelope for the normal form of a service method. The response envelope MUST represent the information needed in the 99%+ case.
 
@@ -264,7 +264,7 @@ type Widget struct {
 	Color WidgetColor
 }
 
-func (c *WidgetClient) GetWidget(ctx context.Context, name string, options *GetWidgetOptions) (*WidgetResponse, error) {
+func (c WidgetClient) GetWidget(ctx context.Context, name string, options *GetWidgetOptions) (WidgetResponse, error) {
 	// ...
 }
 ```
@@ -272,7 +272,7 @@ func (c *WidgetClient) GetWidget(ctx context.Context, name string, options *GetW
 {% include requirement/MUST id="golang-response-examples" %} provide examples on how to access the streamed response for a request, where exposed by the client library. We don’t expect all methods to expose a streamed response.
 
 ```go
-func (c *WidgetClient) GetBinaryResponse(ctx context.Context, name string, options GetBinaryResponseOptions) (*http.Response, error) {
+func (c WidgetClient) GetBinaryResponse(ctx context.Context, name string, options GetBinaryResponseOptions) (*http.Response, error) {
 	// ...
 }
 
@@ -309,7 +309,7 @@ type WidgetPager interface {
 	NextPage(context.Context) bool
 
 	// Page returns the current WidgetsPage.
-	PageResponse() *ListWidgetsResponse
+	PageResponse() ListWidgetsResponse
 
 	// Err returns the last error encountered while paging.
 	Err() error
@@ -324,7 +324,7 @@ type ListWidgetsResponse struct {
 {% include requirement/MUST id="golang-pagination-methods" %} use the prefix `List` in the method name for methods that return a Pager.  The `List` method creates the Pager but does NOT perform an IO operation.
 
 ```go
-func (c *WidgetClient) ListWidgets(options *ListWidgetOptions) WidgetPager {
+func (c WidgetClient) ListWidgets(options *ListWidgetOptions) WidgetPager {
 	// ...
 }
 
@@ -377,7 +377,7 @@ type WidgetPoller interface {
 	// FinalResponse performs a final GET to the service and returns the final response
 	// for the polling operation. If there is an error performing the final GET then an error is returned.
 	// If the final GET succeeded then the final WidgetResponse will be returned.
-	FinalResponse(context.Context) (*WidgetResponse, error)
+	FinalResponse(context.Context) (WidgetResponse, error)
 }
 ```
 
@@ -389,7 +389,7 @@ type WidgetPoller interface {
 // WidgetPollerResponse is the response envelope for operations that asynchronously return a Widget type.
 type WidgetPollerResponse struct {
 	// PollUntilDone will poll the service endpoint until a terminal state is reached or an error is received.
-	PollUntilDone func(context.Context, time.Duration) (*WidgetResponse, error)
+	PollUntilDone func(context.Context, time.Duration) (WidgetResponse, error)
 
 	// Poller contains an initialized WidgetPoller.
 	Poller WidgetPoller
@@ -399,7 +399,7 @@ type WidgetPollerResponse struct {
 }
 
 // BeginCreate creates a new widget with the specified name.
-func (c *WidgetClient) BeginCreate(ctx context.Context, name string, options *BeginCreateOptions) (*WidgetPollerResponse, error) {
+func (c WidgetClient) BeginCreate(ctx context.Context, name string, options *BeginCreateOptions) (WidgetPollerResponse, error) {
 	// ...
 }
 ```
@@ -409,7 +409,7 @@ func (c *WidgetClient) BeginCreate(ctx context.Context, name string, options *Be
 ```go
 // ResumeWidgetPoller creates a new WidgetPoller from the specified ResumtToken.
 // resumeToken - The value must come from a previous call to WidgetPoller.ResumeToken().
-func (c *WidgetClient) ResumeWidgetPoller(resumeToken string) WidgetPoller {
+func (c WidgetClient) ResumeWidgetPoller(resumeToken string) WidgetPoller {
 	// ...
 }
 ```
@@ -502,8 +502,8 @@ One of the key things we want to support is to allow consumers of the package to
 ```go
 // WidgetOperations contains the methods for the Widget group.
 type WidgetOperations interface {
-	BeginCreate(ctx context.Context, options *BeginCreateOptions) (*WidgetPollerResponse, error)
-	GetWidget(ctx context.Context, name string, options *GetWidgetOptions) (*WidgetResponse, error)
+	BeginCreate(ctx context.Context, options *BeginCreateOptions) (WidgetPollerResponse, error)
+	GetWidget(ctx context.Context, name string, options *GetWidgetOptions) (WidgetResponse, error)
 	ListWidgets(options *ListWidgetsOptions) (ListWidgetsPager, error)
 	// other methods...
 }
