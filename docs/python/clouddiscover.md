@@ -36,28 +36,40 @@ In order to discover which endpoints (DNS names and suffixes) are to be used whe
 
 A cloud configuration object consists of a map of service-name to service-specific-configuration-entry as per below:
 
-```json
+```jsonc
 {
-   "<service entry1>": {
-       "endpoint": "<url>",
-       "suffix": "<suffix>",
-       "audiences": [
-           "<optional audiences>"
-       ],
-       "tenant": "<optional tenant>",
-       "identityProvider": "<optional identity provider>"
-    },
-    "<service entry2>": {
-       "endpoint": "<url>",
-       "suffix": "<suffix>",
-       "audiences": [
-           "<optional audiences>"
-       ],
-       "tenant": "<optional tenant>",
-       "identityProvider": "<optional identity provider>"
-   }
+  "<service entry1>": {
+    "endpoint": "<url>",
+    "suffix": "<suffix>",
+    "authentication": {
+      "audiences": [
+        "<optional audiences>"
+      ],
+      "tenant": "<optional tenant>",
+      "identityProvider": "<optional identity provider>"
+    }
+  },
+  "<service entry2>": {
+    "endpoint": "<url>",
+    "suffix": "<suffix>",
+    "authentication": {
+      "audiences": [
+          "<optional audiences>"
+      ],
+      "tenant": "<optional tenant>",
+      "identityProvider": "<optional identity provider>"
+    }
+  }
 }
 ```
+
+
+|Property|Description|Example|
+|-|-|-|
+|endpoint|Absolute URL (including domain name) for the service. Used by multitenant services.|`https://management.microsoftazure.de`
+|suffix|Clouds specific domain suffix for the service. Used for single tenant services with unique hostname per instance/account.|`.vault.microsoftazure.de`
+|audiences|List of audiences for the given service|
+|tenant|
 
 where `<service entry>` is (currently) one of the following values:
 
