@@ -513,6 +513,10 @@ For example, some subclasses add a constructor allowing to create an operation i
 
 TODO: Add discussion for this
 
+##### Hierarchical Clients
+
+TODO: Add discussion of hierarchical clients
+
 ### Supporting Types
 
 In addition to service client types, Azure SDK APIs provide and use other supporting types as well.
@@ -821,10 +825,6 @@ public static class ConfigurationModelFactory {
     public static ConfigurationSetting ConfigurationSetting(string key, string value, string label=default, string contentType=default, ETag eTag=default, DateTimeOffset? lastModified=default, bool? locked=default, int? ttl=default);
 }
 ```
-
-### Hierarchical Clients
-
-TODO: Add discussion of hierarchical clients
 
 ## Azure SDK Library Design
 
