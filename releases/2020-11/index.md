@@ -12,21 +12,12 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 
 ## Release Highlights
 
-### Identity
+- Azure Form Recognizer new beta release. This version includes support for two new prebuilt recognition models for invoices and business cards, and added support for several new features.
+- Azure Identity release. This release includes standardized Managed Identity Credential support across languages, with added support to Azure Arc and Azure Service Fabric. This release also includes improvements to Visual Studio Code Credential, Device Code Credential and Interactive Browser Credential.
+- Azure SDK for Go management plane beta 1 release: modules for compute, network, storage, key vault, and ARM resources
+- Azure Service Bus GA release. The new version 7 of the Service Bus libraries provide the ability to share in some of the cross-service improvements made to the Azure development experience. Read more in this blog post, [Announcing the new Azure Service Bus Client Libraries](https://devblogs.microsoft.com/azure-sdk/november-2020-servicebus-ga/).
+- Text Analytics new beta release. This version includes support for batch task processing and for the recognition of various healthcare entities such as medication name, dosage, and frequency.
 
-We're glad to announce a new major release of our Identity package. This release includes standardized Managed Identity Credential support across languages, through which we add support to Azure Arc and Azure Service Fabric. This release also includes improvements to Visual Studio Code Credential, Device Code Credential and Interactive Browser Credential.
-
-### Service Bus
-
-The new version 7 of the Service Bus libraries for C#, Python, Java, and JavaScript provide the ability to share in some of the cross-service improvements made to the Azure development experience, such as using the new Azure Identity library to share a single authentication between clients and a unified diagnostics pipeline offering a common view of the activities across each of the client libraries. These libraries come with a single top-level client for send and receive operations in contrast with multiple entry points from before, and a new administration client to perform CRUD operations on service bus entities. This version also includes many updates, improvements, and a great deal of restructuring when compared to the previous versions, refer to the migration guides to hop on to the latest versions.
-
-### Form Recognizer
-
-We're releasing a new beta version of Form Recognizer. This version includes support for two new prebuilt recognition models for invoices and business cards, support for selection marks as a new fundamental form element, support for the bitmap image format in prebuilt model recognition and content recognition, language and locale arguments added to process document in different languages, and other additional properties added to response models.
-
-### Text Analytics
-
-We're releasing a new beta version of Text Analytics. This version includes support for batch task processing and for the recognition of various healthcare entities such as medication name, dosage, and frequency.
 ## Release Notes
 
 * [All release notes](index.md)
