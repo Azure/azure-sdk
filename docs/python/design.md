@@ -10,7 +10,7 @@ sidebar: general_sidebar
 
 ### Support for non-HTTP protocols
 
-TODO: In Introduction section, call out that API designers for non-REST based services to reach out to the arch board for guidance.
+TODO: In Introduction section, call out that API designers for non-HTTP based services to reach out to the arch board for guidance.
 
 The API surface of your client library must have the most thought as it is the primary interaction that the consumer has with your service.
 
@@ -57,7 +57,7 @@ TODO: Add an example of the basic API shape similar to what's shown in the code 
 - Common Namespace
 - Common Auth
 
-See [Azure SDK Core Shape slides](https://github.com/Azure/azure-sdk-pr/issues/440) for details.
+See Azure SDK Core Shape slides shown at **github.com/Azure/azure-sdk-pr/issues/440** for details.
 
 
 Your API surface will consist of one or more _service clients_ that the consumer will instantiate to connect to your service, plus a set of supporting types.
@@ -250,7 +250,7 @@ model.size = -1
 client.update_model(name='hello', size=4713, model=model)  
 ```
 
-TODO: If there are design considerations to call out that parallel the xxOptions parameters, please add those here.  e.g. per the [Python API Design Training Article](https://github.com/Azure/azure-sdk-pr/blob/master/training/azure-sdk-apis/getting-started/design-the-api/design-the-api-python.md#the-get-request) Anna put together, what should be positional parameters vs. kwargs?
+TODO: If there are design considerations to call out that parallel the xxOptions parameters, please add those here.  e.g. per the Python API Design Training Article Anna put together at **github.com/Azure/azure-sdk-pr/blob/master/training/azure-sdk-apis/getting-started/design-the-api/design-the-api-python.md#the-get-request**, what should be positional parameters vs. kwargs?
 
 #### Response formats
 
@@ -274,7 +274,7 @@ TODO: Please add a section on Conditional Requests - much of this is documented 
 
 {% include requirement/MUST id="python-models-repr-length" %} truncate the output of `__repr__` after 1024 characters.
 
-TODO: Please add discussion similar to the [Model Type discussion from the General Guidelines](https://azure.github.io/azure-sdk/general_design.html#model-types), including the naming table if relevant to Python, or an alternate one specific to Python.  Per the [Python API Design Training Article](https://github.com/Azure/azure-sdk-pr/blob/master/training/azure-sdk-apis/getting-started/design-the-api/design-the-api-python.md#the-get-request), when should a model type be replaced with a dictionary in the Azure SDK?
+TODO: Please add discussion similar to the [Model Type discussion from the General Guidelines](https://azure.github.io/azure-sdk/general_design.html#model-types), including the naming table if relevant to Python, or an alternate one specific to Python.  Per the Python API Design Training Article linked above, when should a model type be replaced with a dictionary in the Azure SDK?
 
 TODO: Please include a code sample for model types.
 
