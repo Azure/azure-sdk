@@ -63,14 +63,9 @@ function GetExistingTags($apiUrl)
   try
   {
     return (Invoke-RestMethod -Method "GET" -Uri "$apiUrl/git/refs/tags" -headers $GithubHeaders) 
-    #| ForEach-Object { $_.ref.Replace("refs/tags/", "") }
   }
   catch
   {
-    $statusCode = $_.Exception.Response.StatusCode.value__
-
-    Write-Host "Failed to retrieve tags from repository."
-    Write-Host "StatusCode:" $statusCode
     Write-Host $_
     exit(1)
   }
@@ -171,9 +166,21 @@ function GetLang($lang)
   }
   return $pkgLang
 }
+function GetLangCsvFileName($lang) {
+  if ($langMapping.ContainsKey($lang)) {
+    return Join-Path $releaseFolder "$lang-packages.csv"
+  }
+  foreach ($keys in $langMapping.Keys)
+  {
+    if ($langMapping[$key] -eq $lang) {
+      return Join-Path $releaseFolder "$key-packages.csv"
+    }
+  }
+  throw "Language $lang as it isn't in the language mapping."
+}
 
 $allVersions = @{}
-
+$allPackagesFromCSV = @{}
 function InitializeVersionInformation()
 {
   if ($allVersions.Count -gt 0) { 
@@ -182,8 +189,9 @@ function InitializeVersionInformation()
 
   foreach ($lang in $langMapping.Keys) 
   {
-    $packagelistFile = Join-Path $releaseFolder "$lang-packages.csv"
-    $packageList = Import-Csv $packagelistFile | Sort-Object Type, DisplayName, Package, GroupId
+    $packagelistFile = GetLangCsvFileName $lang
+    $packageList = Import-Csv $packagelistFile
+    $allPackagesFromCSV[(GetLang $lang)] = $packageList
     $packageList = $packageList | Where-Object { $_.New -eq "true" }
 
     if ($pkgFilter) {
@@ -310,7 +318,7 @@ function FindParentWorkItem($serviceName, $packageDisplayName)
 
   $azCmdStr = "az boards query $($parameters -join " ")"
   Write-Host $azCmdStr
-  $workItems = Invoke-Expression "$azCmdStr" | ConvertFrom-Json -AsHashtable
+  $workItems = Invoke-Expression "$azCmdStr" | ConvertFrom-Json -AsHashTable
 
   foreach ($wi in $workItems) {
     $localKey = BuildHashKey $wi.fields["Custom.ServiceName"] $wi.fields["Custom.PackageDisplayName"]
@@ -378,15 +386,14 @@ function FindPackageWorkItem($lang, $packageName, $version)
 
   $azCmdStr = "az boards query $($parameters -join " ")"
   Write-Host $azCmdStr
-  $workItems = Invoke-Expression "$azCmdStr" | ConvertFrom-Json -AsHashtable
+  $workItems = Invoke-Expression "$azCmdStr" | ConvertFrom-Json -AsHashTable
 
   foreach ($wi in $workItems)
   {
     $localKey = BuildHashKeyNoNull $wi.fields["Custom.Language"] $wi.fields["Custom.Package"] $wi.fields["Custom.PackageVersionMajorMinor"]
-    if (!$localKey) 
-    {
+    if (!$localKey) {
       $packageWorkItemWithoutKeyFields[$wi.id] = $wi
-      Write-Verbose "Found package [$($wi.id)] which is missing required fields language, package, or version."
+      Write-Host "Skipping package [$($wi.id)]$($wi.fields['System.Title']) which is missing required fields language, package, or version."
       continue 
     }
     if ($packageWorkItems.ContainsKey($localKey)) {
@@ -456,7 +463,7 @@ function CreateWorkItem($title, $type, $iteration, $area, $fields, $parentId)
 
   $azCmdStr = "az boards work-item create $($parameters -join " ")"
   Write-Host $azCmdStr
-  $workItem = Invoke-Expression "$azCmdStr" | ConvertFrom-Json -AsHashtable
+  $workItem = Invoke-Expression "$azCmdStr" | ConvertFrom-Json -AsHashTable
 
   if ($parentId) {
     $parameters = $commonParameters
@@ -469,6 +476,19 @@ function CreateWorkItem($title, $type, $iteration, $area, $fields, $parentId)
     Invoke-Expression $azCmdStr | Out-Null
   }
 
+  return $workItem
+}
+
+function ResetWorkItemState($workItem, $resetState = $null)
+{
+  if (!$resetState -or $resetState -eq "New") {
+    $resetState = "Next Release Unknown"
+  }
+  if ($workItem.fields["System.State"] -ne $resetState)
+  {
+    Write-Host "Resetting state for [$($workItem.id)] from '$($workItem.fields['System.State'])' to '$resetState'"
+    return UpdateWorkItem $workItem.id -state $resetState
+  }
   return $workItem
 }
 
@@ -489,14 +509,13 @@ function UpdateWorkItem($id, $fields, $title, $state)
 
   $azCmdStr = "az boards work-item update $($parameters -join " ")"
   Write-Host $azCmdStr
-  $workItem = Invoke-Expression "$azCmdStr" | ConvertFrom-Json -AsHashtable
+  $workItem = Invoke-Expression "$azCmdStr" | ConvertFrom-Json -AsHashTable
   return $workItem
 }
 
 function CreateOrUpdatePackageWorkItem($lang, $pkg, $version, $existingItem)
 {
   $pkgLang = GetLang $lang
-  $title = $pkgLang + " - " + $pkg.DisplayName
   $pkgName = $pkg.Package
   $pkgDisplayName = $pkg.DisplayName
   $pkgType = $pkg.Type
@@ -505,6 +524,7 @@ function CreateOrUpdatePackageWorkItem($lang, $pkg, $version, $existingItem)
   if (!$semver) { Write-Error "Version $version is not valid for $pkgName"; return }
   $verMajorMinor = "" + $semver.Major + "." + $semver.Minor
   $serviceName = $pkg.ServiceName
+  $title = $pkgLang + " - " + $pkg.DisplayName + " - " + $verMajorMinor
 
   $fields = @()
   $fields += "`"Language=${pkgLang}`""
@@ -528,21 +548,24 @@ function CreateOrUpdatePackageWorkItem($lang, $pkg, $version, $existingItem)
     if ($serviceName -ne $existingItem.fields["Custom.ServiceName"]) { $shouldUpdate = $true }
     if ($title -ne $existingItem.fields["System.Title"]) { $shouldUpdate = $true }
 
+    $beforeState = $existingItem.fields["System.State"]
+
     if ($shouldUpdate) {
-      # Need to set to In planning to be able to update
-      $existingItem = UpdateWorkItem $existingItem.id $fields -title $title -state "In Planning"
-      Write-Host "[$($existingItem.id)]$pkgLang - $pkgName ($verMajorMinor) - Updated"
+      # Need to set to New to be able to update
+      $existingItem = UpdateWorkItem $existingItem.id $fields -title $title -state "New"
+      Write-Host "[$($existingItem.id)]$pkgLang - $pkgName($verMajorMinor) - Updated"
     }
+    $existingItem = ResetWorkItemState $existingItem $beforeState
 
     $newparentItem = FindOrCreatePackageGroupParent $serviceName $pkgDisplayName
     UpdateWorkItemParent $existingItem $newParentItem
-
     return $existingItem
   }
 
   $parentItem = FindOrCreatePackageGroupParent $serviceName $pkgDisplayName
   $workItem = CreateWorkItem $title "Package" "Release" "Release" $fields $parentItem.id
-  Write-Host "[$($workItem.id)]$pkgLang - $pkgName ($verMajorMinor) - Created"
+  $workItem = ResetWorkItemState $workItem
+  Write-Host "[$($workItem.id)]$pkgLang - $pkgName($verMajorMinor) - Created"
   return $workItem
 }
 
@@ -562,7 +585,7 @@ function FindOrCreatePackageGroupParent($serviceName, $packageDisplayName)
   $workItem = CreateWorkItem $packageDisplayName "Epic" "Release" "Release" $fields $serviceParentItem.id
 
   $localKey = BuildHashKey $serviceName $packageDisplayName
-  Write-Host "[$($workItem.id)]$localKey - Created"
+  Write-Host "[$($workItem.id)]$localKey - Created Parent"
   $parentWorkItems[$localKey] = $workItem
   return $workItem 
 }
@@ -871,7 +894,7 @@ background-color:#f8f8f8;
 
 function UpdateShippedPackageVersion($pkgWorkItem, $versionsFromTags)
 {
-  $versionsForDebug = ($versionsFromTags | Foreach-Object { $_.RawVersion} ) -join ","
+  $versionsForDebug = ($versionsFromTags | Foreach-Object { $_.RawVersion }) -join ","
 #  Write-Host $versionsForDebug
   $fieldUpdates = @()
   $versionSet = @{}
@@ -943,20 +966,20 @@ function UpdateShippedPackageVersion($pkgWorkItem, $versionsFromTags)
 "@
   }
 
-  # If we shipped a version after we set "In Release" state then reset the state to "Not In Release"
-  if ($pkgWorkItem.fields["State"] -eq "In Release")
+  # If we shipped a version after we set "In Release" state then reset the state to "Next Release Unknown"
+  if ($pkgWorkItem.fields["System.State"] -eq "In Release")
   {
     $lastShippedDate = [DateTime]$versionList[0].Date
     $markedInReleaseDate = ([DateTime]$pkgWorkItem.fields["Microsoft.VSTS.Common.StateChangeDate"])
 
-    # We just shipped so lets set the state to "Not In Release"
+    # We just shipped so lets set the state to "Next Release Unknown"
     if ($markedInReleaseDate -le $lastShippedDate)
     {
       $fieldUpdates += @'
 {
   "op": "replace",
   "path": "/fields/State",
-  "value": "Not In Release"
+  "value": "Next Release Unknown"
 }
 '@
     }
@@ -1044,12 +1067,42 @@ function RefreshItems()
       $verInfo = $pkgInfo.VersionGroups[$verMajorMinor]
     }
     else {
-      #TODO: We should figure out if we can import workitem information into the csv file from this item.
-      Write-Warning "[$($pkgWI.id)]$pkgLang - $pkgName ($verMajorMinor) - Skipping as this looks like brand new package because we don't have any versioning information."
+      $pkgFromCsv = $allPackagesFromCSV[$pkgLang] | Where-Object { $pkgName -eq $_.Package }
+
+      # For java filter down to com.azure* groupId
+      if ($pkgLang -eq "Java") {
+        $pkgFromCsv = $pkgFromCsv | Where-Object { $_.GroupId -like "com.azure*" }
+      }
+
+      if ($pkgFromCsv -and $pkgFromCsv.Count -ne 0) {
+        if ($pkgFromCsv.Count -gt 1) {
+          Write-Warning "[$($pkgWI.id)]$pkgLang - $pkgName($verMajorMinor) - Detected new package with multiple matching package names in the csv, so skipping it."
+        }
+        else {
+          $csvEntry = $pkgFromCsv[0]
+          $csvEntry.New = $pkgWI.fields["Custom.PackageTypeNewLibrary"].ToLower()
+          $csvEntry.Type = $pkgWI.fields["Custom.PackageType"]
+          $csvEntry.DisplayName = $pkgWI.fields["Custom.PackageDisplayName"]
+          $csvEntry.ServiceName = $pkgWI.fields["Custom.ServiceName"]
+
+          # Need to figure out a way to set the RepoPath automatically
+          if (!$csvEntry.RepoPath) {
+            $csvEntry.RepoPath = "NA"
+          }
+
+          $packageListFile = GetLangCsvFileName $pkgLang
+          Write-Host "[$($pkgWI.id)]$pkgLang - $pkgName($verMajorMinor) - Detect new package so updating metadata for it in '$packageListFile'."
+          $allPackagesFromCSV[$pkgLang] | ConvertTo-CSV -NoTypeInformation -UseQuotes Always | Out-File $packageListFile -encoding ascii
+        }
+      }
+      else {
+        Write-Host "[$($pkgWI.id)]$pkgLang - $pkgName($verMajorMinor) - Skipping as this looks like brand new package that hasn't shipped so we don't have any versioning information."
+      }
       continue
     }
 
-    Write-Verbose "[$($pkgWI.id)]$pkgLang - $pkgName ($verMajorMinor)"
+    Write-Verbose "[$($pkgWI.id)]$pkgLang - $pkgName ($verMajorMinor) - '$($pkgWI.fields['System.State'])'"
+
     $updatedWI = CreateOrUpdatePackageWorkItem $pkgLang $pkgInfo.PackageInfo $verMajorMinor $pkgWI
     if ($verInfo) {
       UpdateShippedPackageVersion $updatedWI $verInfo.Versions
@@ -1066,8 +1119,10 @@ function RefreshItems()
         $verInfo = $allVersions[$pkgLang][$pkgName].VersionGroups[$verMajorMinor]
 
         $pkgWI = FindPackageWorkItem $pkgLang $pkgName $verMajorMinor
+        
         if (!$pkgWI) 
         {
+          #TODO: Look for older versions and if we have one use the AssignToFrom it. 
           $pkgWI = CreateOrUpdatePackageWorkItem $pkgLang $verInfo.PackageInfo $verMajorMinor
           Write-Verbose "[$($pkgWI.id)]$pkgLang - $pkgName ($verMajorMinor)"
           UpdateShippedPackageVersion $pkgWI $verInfo.Versions
