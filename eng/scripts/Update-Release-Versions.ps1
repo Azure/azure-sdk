@@ -1,7 +1,9 @@
 param (
   $language = "all",
-  $releaseFolder = "$PSScriptRoot\..\..\_data\releases\latest"
+  $releaseFolder = "$PSScriptRoot\..\..\_data\releases\latest",
+  $checkDocLinks = $true
 )
+Set-StrictMode -Version 3
 
 $releaseFolder = Resolve-Path $releaseFolder
 
@@ -20,7 +22,8 @@ function GetVersionWebContent($language, $package, $versionType="latest-ga")
   }
 }
 
-function CheckLink($url)
+$ProgressPreference = "SilentlyContinue"; # Disable invoke-webrequest progress dialog
+function CheckLink($url, $showWarningIfMissing=$true)
 {
   try
   {
@@ -30,27 +33,38 @@ function CheckLink($url)
   }
   catch
   {
-    Write-Warning "Invalid link $url"
+    if ($showWarningIfMissing) {
+      Write-Warning "Invalid link $url"
+    }
   }
   return $false
 }
 
-function UpdateDocLinks($lang, $pkg)
+function UpdateDocLinks($lang, $pkg, $skipIfNA = $false)
 {
+  if (!$checkDocLinks) {
+    return
+  }
+  if ($skipIfNA -and $pkg.MSDocs -eq "NA" -and $pkg.GHDocs -eq "NA") {
+    return
+  }
+
   if ($lang -eq "js") { $lang = "javascript" }
 
   $trimmedPackage = $pkg.Package -replace "@?azure[\.\-/]", ""
 
+  $suffix = ""
   if (!$pkg.VersionGA -and $pkg.VersionPreview) { $suffix = "-pre" }
 
-  $msdocvalid = CheckLink "https://docs.microsoft.com/${lang}/api/overview/azure/${trimmedPackage}-readme${suffix}/"
+  $msdocLink = "https://docs.microsoft.com/${lang}/api/overview/azure/${trimmedPackage}-readme${suffix}/"
+  $msdocvalid = CheckLink $msdocLink $false 
 
   if ($msdocvalid) {
     $pkg.MSDocs = ""
   }
   else {
     if ($pkg.MSDocs -eq "" -or $pkg.MSDocs -eq "NA") {
-      Write-Host "MSDoc link is not valid so marking as NA"
+      Write-Host "MSDoc link ($msdocLink) is not valid so marking as NA"
       $pkg.MSDocs = "NA"
     }
   }
@@ -58,14 +72,17 @@ function UpdateDocLinks($lang, $pkg)
   if ($lang -eq "javascript") { $ghformat = "azure-${trimmedPackage}/{1}" }
   elseif ($lang -eq "dotnet") { $ghformat = "{0}/{1}/api" }
 
+  $ghlink = ""
   $ghLinkFormat = "$azuresdkdocs/${lang}/${ghformat}/index.html"
 
   $ghdocvalid = ($pkg.VersionGA -or $pkg.VersionPreview)
   if ($pkg.VersionGA) {
-    $ghdocvalid = $ghdocvalid -and (CheckLink ($ghLinkFormat -f $pkg.Package, $pkg.VersionGA))
+    $ghlink = $ghLinkFormat -f $pkg.Package, $pkg.VersionGA
+    $ghdocvalid = $ghdocvalid -and (CheckLink $ghlink $false)
   }
   if ($pkg.VersionPreview) {
-    $ghdocvalid = $ghdocvalid -and (CheckLink ($ghLinkFormat -f $pkg.Package, $pkg.VersionPreview))
+    $ghlink = $ghLinkFormat -f $pkg.Package, $pkg.VersionPreview
+    $ghdocvalid = $ghdocvalid -and (CheckLink $ghlink $false)
   }
 
   if ($ghdocvalid) {
@@ -73,7 +90,7 @@ function UpdateDocLinks($lang, $pkg)
   }
   else {
     if ($pkg.GHDocs -eq "" -or $pkg.GHDocs -eq "NA") {
-      Write-Host "GHDoc link is not valid so marking as NA"
+      Write-Host "GHDoc link ($ghlink) is not valid so marking as NA"
       $pkg.GHDocs = "NA"
     }
   }
@@ -81,7 +98,9 @@ function UpdateDocLinks($lang, $pkg)
 function Check-java-links($pkg, $version)
 {
   $valid = $true;
-  $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-java/tree/{0}_{1}/sdk/{2}/{0}/" -f $pkg.Package, $version, $pkg.RepoPath))
+  if (!$pkg.RepoPath.StartsWith("http")) {
+    $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-java/tree/{0}_{1}/sdk/{2}/{0}/" -f $pkg.Package, $version, $pkg.RepoPath))
+  }
   $valid = $valid -and (CheckLink ("https://search.maven.org/artifact/{2}/{0}/{1}/jar/" -f $pkg.Package, $version, $pkg.GroupId))
   return $valid;
 }
@@ -131,7 +150,9 @@ function Check-js-links($pkg, $version)
 {
   $trimmedPackage = $pkg.Package.Replace("@azure/", "")
   $valid = $true;
-  $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-js/tree/{0}_{1}/sdk/{2}/{3}/" -f $pkg.Package, $version, $pkg.RepoPath, $trimmedPackage))
+  if (!$pkg.RepoPath.StartsWith("http")) {
+    $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-js/tree/{0}_{1}/sdk/{2}/{3}/" -f $pkg.Package, $version, $pkg.RepoPath, $trimmedPackage))
+  }
   $valid = $valid -and (CheckLink ("https://www.npmjs.com/package/{0}/v/{1}" -f $pkg.Package, $version))
   return $valid
 }
@@ -181,7 +202,9 @@ function Update-js-Packages($packageList)
 function Check-dotnet-links($pkg, $version)
 {
     $valid = $true;
-    $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-net/tree/{0}_{1}/sdk/{2}/{0}/" -f $pkg.Package, $version, $pkg.RepoPath))
+    if (!$pkg.RepoPath.StartsWith("http")) {
+      $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-net/tree/{0}_{1}/sdk/{2}/{0}/" -f $pkg.Package, $version, $pkg.RepoPath))
+    }
     $valid = $valid -and (CheckLink ("https://www.nuget.org/packages/{0}/{1}" -f $pkg.Package, $version))
     return $valid
 }
@@ -229,7 +252,9 @@ function Update-dotnet-Packages($packageList)
 function Check-python-links($pkg, $version) 
 {
     $valid = $true;
-    $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-python/tree/{0}_{1}/sdk/{2}/{0}/" -f $pkg.Package, $version, $pkg.RepoPath))
+    if (!$pkg.RepoPath.StartsWith("http")) {
+      $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-python/tree/{0}_{1}/sdk/{2}/{0}/" -f $pkg.Package, $version, $pkg.RepoPath))
+    }
     $valid = $valid -and (CheckLink ("https://pypi.org/project/{0}/{1}" -f $pkg.Package, $version))
     return $valid
 }
@@ -276,7 +301,9 @@ function Update-python-Packages($packageList)
 function Check-c-links($pkg, $version) 
 {
     $valid = $true;
-    $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-c/tree/{0}/sdk/{1}" -f $version, $pkg.RepoPath))
+    if (!$pkg.RepoPath.StartsWith("http")) {
+      $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-c/tree/{0}/sdk/{1}" -f $version, $pkg.RepoPath))
+    }
     $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-c/archive/{0}.zip" -f $version))
     return $valid
 }
@@ -323,7 +350,9 @@ function Update-c-Packages($packageList)
 function Check-cpp-links($pkg, $version)
 {
     $valid = $true;
-    $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-cpp/tree/{0}_{1}/sdk/{2}/{0}" -f $pkg.Package, $version, $pkg.RepoPath))
+    if (!$pkg.RepoPath.StartsWith("http")) {
+      $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-cpp/tree/{0}_{1}/sdk/{2}/{0}" -f $pkg.Package, $version, $pkg.RepoPath))
+    }
     $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-cpp/archive/{0}_{1}.zip" -f $pkg.Package, $version))
     return $valid
 }
@@ -370,7 +399,9 @@ function Update-cpp-Packages($packageList)
 function Check-android-links($pkg, $version)
 {
   $valid = $true;
-  $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-android/tree/{0}_{1}/sdk/{2}/{0}/" -f $pkg.Package, $version, $pkg.RepoPath))
+  if (!$pkg.RepoPath.StartsWith("http")) {
+    $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-android/tree/{0}_{1}/sdk/{2}/{0}/" -f $pkg.Package, $version, $pkg.RepoPath))
+  }
   $valid = $valid -and (CheckLink ("https://search.maven.org/artifact/{2}/{0}/{1}/aar/" -f $pkg.Package, $version, $pkg.GroupId))
   return $valid;
 }
@@ -419,7 +450,9 @@ function Update-android-Packages($packageList)
 function Check-ios-links($pkg, $version)
 {
   $valid = $true;
-  $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-ios/tree/{0}/sdk/{1}" -f $version, $pkg.RepoPath))
+  if (!$pkg.RepoPath.StartsWith("http")) {
+    $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-ios/tree/{0}/sdk/{1}" -f $version, $pkg.RepoPath))
+  }
   $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-ios/archive/{0}.zip" -f $version))
   return $valid
 }
@@ -463,21 +496,21 @@ function Update-ios-Packages($packageList)
   }
 }
 
-function Output-Latest-Versions($lang)
+function OutputVersions($lang)
 {
   $packagelistFile = Join-Path $releaseFolder "$lang-packages.csv"
-  $packageList = Get-Content $packagelistFile | ConvertFrom-Csv | Sort-Object Type, DisplayName, Package, GroupId
+  $packageList = Get-Content $packagelistFile | ConvertFrom-Csv | Sort-Object Type, DisplayName, Package, GroupId, ServiceName
 
-  # Only update libraries that have a type
-  $clientPackages = $packageList | Where-Object { $_.New -eq "true" }
-  $otherPackages = $packageList | Where-Object { $_.New -ne "true"  }
+  # Only update the unhidden new libraries
+  $clientPackages = $packageList | Where-Object { $_.Hide -ne "true" -and $_.New -eq "true" }
+  $otherPackages = $packageList | Where-Object { !($_.Hide -ne "true" -and $_.New -eq "true") }
 
   $LangFunction = "Update-$lang-Packages"
   &$LangFunction $clientPackages
 
   foreach($otherPackage in $otherPackages)
   {
-    UpdateDocLinks $lang $otherPackage
+    UpdateDocLinks $lang $otherPackage -skipIfNA $true
   }
 
   Write-Host "Writing $packagelistFile"
@@ -485,54 +518,75 @@ function Output-Latest-Versions($lang)
   $packageList | ConvertTo-CSV -NoTypeInformation -UseQuotes Always | Out-File $packagelistFile -encoding ascii
 }
 
-switch($language)
+function OutputAll($langs)
 {
-  "all" {
-    Output-Latest-Versions "java"
-    Output-Latest-Versions "js"
-    Output-Latest-Versions "dotnet"
-    Output-Latest-Versions "python"
-    Output-Latest-Versions "c"
-    Output-Latest-Versions "cpp"
-    # Output-Latest-Versions "android"
-    # Output-Latest-Versions "ios"
-    break
-  }
-  "java" {
-    Output-Latest-Versions $language
-    break
-  }
-  "js" {
-    Output-Latest-Versions $language
-    break
-  }
-  "dotnet" {
-    Output-Latest-Versions $language
-    break
-  }
-  "python" {
-    Output-Latest-Versions $language
-    break
-  }
-  "c" {
-    Output-Latest-Versions $language
-    break
-  }
-  "cpp" {
-    Output-Latest-Versions $language
-    break
-  }
-  "android" {
-    Output-Latest-Versions $language
-    break
-  }
-  "ios" {
-    Output-Latest-Versions $language
-    break
-  }
-  default {
-    Write-Host "Unrecognized Language: $language"
-    exit 1
+  foreach ($lang in $langs)
+  {
+    OutputVersions $lang
   }
 }
 
+function CheckAll($langs)
+{
+  $serviceNames = @()
+  foreach ($lang in $langs) 
+  {
+    $packagelistFile = Join-Path $releaseFolder "$lang-packages.csv"
+    $packageList = Get-Content $packagelistFile | ConvertFrom-Csv | Sort-Object Type, DisplayName, Package, GroupId, ServiceName
+    $clientPackages = $packageList | Where-Object { $_.New -eq "true" -and $_.Type }
+
+    foreach ($pkg in $clientPackages)
+    {
+      $serviceNames += [PSCustomObject][ordered]@{
+        ServiceName = $pkg.ServiceName
+        Lang = $lang
+        PkgInfo = $pkg
+      }
+
+      if ($pkg.RepoPath -and $pkg.RepoPath -eq "NA")
+      {
+        Write-Warning "[$lang] $($pkg.Package) RepoPath set to $($pkg.RepoPath)" 
+      }
+
+      if (!$pkg.ServiceName)
+      {
+        Write-Warning "No ServiceName for [$lang] $($pkg.Package)"
+      }
+
+      if (!$pkg.DisplayName)
+      {
+        Write-Warning "No DisplayName for [$lang] $($pkg.Package)"
+      }
+    }
+  }
+
+  $serviceGroups = $serviceNames | Sort-Object ServiceName | Group-Object ServiceName 
+  Write-Host "Found $($serviceNames.Count) service name with $($serviceGroups.Count) unique names:"
+
+  $serviceGroups | Select-Object Name, @{Label="Langugages"; Expression={$_.Group.Lang | Sort-Object -Unique}}, Count, @{Label="Packages"; Expression={$_.Group.PkgInfo.Package}}
+}
+
+$supportedLanguages = @(
+  "java", 
+  "js", 
+  "dotnet", 
+  "python", 
+  "c", 
+  "cpp"
+  #"ios",     - Doesn't have githubio version data so we cannot update
+  #"android"  - Doesn't have githubio version data so we cannot update
+  )
+
+if ($language -eq 'check') {
+  CheckAll $supportedLanguages
+}
+elseif ($language -eq 'all') {
+  OutputAll $supportedLanguages
+}
+elseif ($supportedLanguages -contains $language) {
+    OutputVersions $language
+}
+else {
+  Write-Error "Unrecognized Language: $language"
+  exit 1
+}

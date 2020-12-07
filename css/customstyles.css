@@ -160,6 +160,8 @@ table {
   max-width: 100%;
   margin-bottom: 20px;
   border: 1px solid #dedede;
+  width: 100%;
+  word-break: break-word;
 }
 
 table > thead > tr > th,
@@ -168,7 +170,7 @@ table > tfoot > tr > th,
 table > thead > tr > td,
 table > tbody > tr > td,
 table > tfoot > tr > td {
-  padding: 8px;
+  padding: 7px 0px 7px 0px;
   line-height: 1.42857143;
   vertical-align: top;
   border-top: 1px solid #ddd;
@@ -1325,8 +1327,13 @@ h4.panel-title {
 }
 
 .btn-preview {
+  align-items: center;
   background-color: #a9a9a9;
   border-color: #a9a9a9;
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: column;
+  margin-top: 4px;
 }
 
 .btn-preview:hover {
@@ -1338,4 +1345,37 @@ h4.panel-title {
   border-radius: 4px;
   margin-left: 3px;
   font-size: 10px;
+}
+
+.badge-preview {
+  margin-left: 0px;
+}
+
+.table-display-name-th {
+  width: 18rem;
+}
+
+.table-display-text-th {
+  padding: 7px;
+}
+
+.nav-language-filter {
+  background-color: #F9F9F9;
+  border: 1px solid #dedede;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.nav-language-filter-cell {
+  align-items: center;
+  display: flex;
+  flex:1;
+  justify-content: center;
+  padding: 7px 0 7px 0;
+}
+
+@media (max-width: 600px) {
+  .nav-language-filter {
+    flex-direction: column;
+  }
 }

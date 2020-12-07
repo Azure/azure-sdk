@@ -2,13 +2,17 @@ param (
   $language = "all",
   $folder =  "$PSScriptRoot\..\..\_data\releases\latest"
 )
+Set-StrictMode -Version 3
 
 function PackageEqual($pkg1, $pkg2) {
   if ($pkg1.Package -ne $pkg2.Package) {
     return $false
   }
-  if ($pkg1.GroupId -and $pkg2.GroupId -and $pkg1.GroupId -ne $pkg2.GroupId) {
-    return $false
+  if ($pkg1.PSObject.Members.Name -contains "GroupId" -and
+      $pkg2.PSObject.Members.Name -contains "GroupId") {
+    if ($pkg1.GroupId -and $pkg2.GroupId -and $pkg1.GroupId -ne $pkg2.GroupId) {
+      return $false
+    }
   }
   return $true
 }
@@ -112,12 +116,12 @@ function Write-Latest-Versions($lang)
   {
     $pkgEntries = $packageList | Where-Object { PackageEqual $_ $pkg }
 
-    if ($pkgEntries.Count -gt 1) {
-      Write-Error "Found $($pkgEntries.Count) package entries for $($pkg.Package + $pkg.GroupId)"
-    }
-    elseif ($pkgEntries.Count -eq 0) {
+    if (!$pkgEntries -or $pkgEntries.Count -eq 0) {
       # Add package
       $packageList += $pkg
+    } 
+    elseif ($pkgEntries.Count -gt 1) {
+      Write-Error "Found $($pkgEntries.Count) package entries for $($pkg.Package + $pkg.GroupId)"
     }
     else {
       # Update version of package
