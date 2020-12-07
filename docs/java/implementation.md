@@ -8,7 +8,7 @@ sidebar: general_sidebar
 
 ## API Implementation
 
-### The Service Client
+### Service Client
 
 #### Network requests
 
@@ -204,27 +204,6 @@ public ConfigurationAsyncClient build() {
 {%include requirement/MUST id="java-tracing-tracerproxy" %} use the Azure core `TracerProxy` API to set additional metadata that should be supplied along with the tracing span. In particular, use the `setAttribute(String key, String value, Context context)` method to set a new key/value pair on the tracing context.
 
 Some of these requirements will be handled by the HTTP pipeline.  However, as a client library writer, you must handle the incoming context appropriately.
-
-### Service-specific common library code
-
-There are occasions when common code needs to be shared between several client libraries. For example, a set of cooperating client libraries may wish to share a set of exceptions or models.
-
-{% include requirement/MUST id="java-commonlib-approval" %} gain [Architecture Board] approval prior to implementing a common library.
-
-{% include requirement/MUST id="java-commonlib-minimize-code" %} minimize the code within a common library. Code within the common library is available to the consumer of the client library and shared by multiple client libraries within the same namespace.
-
-{% include requirement/MUST id="java-commonlib-namespace" %} store the common library in the same namespace as the associated client libraries.
-
-A common library will only be approved if:
-
-* The consumer of the non-shared library will consume the objects within the common library directly, AND
-* The information will be shared between multiple client libraries.
-
-Let's take two examples:
-
-1. Implementing two Cognitive Services client libraries, we find a model is required that is produced by one Cognitive Services client library and consumed by another Coginitive Services client library, or the same model is produced by two client libraries. The consumer is required to do the passing of the model in their code, or may need to compare the model produced by one client library vs. that produced by another client library. This is a good candidate for choosing a common library.
-
-2. Two Cognitive Services client libraries throw an `ObjectNotFound` exception to indicate that an object was not detected in an image. The user might trap the exception, but otherwise will not operate on the exception. There is no linkage between the `ObjectNotFound` exception in each client library. This is not a good candidate for creation of a common library (although you may wish to place this exception in a common library if one exists for the namespace already). Instead, produce two different exceptions - one in each client library.
 
 ## Testing
 

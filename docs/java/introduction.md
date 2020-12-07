@@ -60,8 +60,6 @@ The Azure SDK should be designed to enhance the productivity of developers conne
 
 {% include requirement/MUST id="java-general-repository" %} locate all source code in the [azure/azure-sdk-for-java] GitHub repository.
 
-{% include requirement/MUST id="java-general-engsys" %} follow Azure SDK engineering systems guidelines for working in the [azure/azure-sdk-for-java] GitHub repository.
-
 ### Support for non-HTTP Protocols
 
 Currently, this document describes guidelines for client libraries exposing HTTP/REST services. It may be expanded in the future to cover other, non-REST, services. If your service is not REST-based, please contact the Azure SDK Architecture Board for guidance.
@@ -70,17 +68,13 @@ Currently, this document describes guidelines for client libraries exposing HTTP
 
 ## Azure SDK API Design {#java-api}
 
-The API surface of your client library must have the most thought as it is the primary interaction that the consumer has with your service.
+Azure services will be exposed to .NET developers as one or more *service client* types and a set of *supporting types*.
 
-### The Service Client
+### Service Client
 
-Your API surface consists of one or more _service clients_ that the consumer will instantiate to connect to your service, plus a set of supporting types.
+Service clients are the main starting points for developers calling Azure services with the Azure SDK. Each client library should have at least one client in its main namespace, so it’s easy to discover. The guidelines in this section describe patterns for the design of a service client.
 
 {% include requirement/MUST id="java-service-client-name" %} name service client types with the _Client_ suffix (for example, `ConfigurationClient`).
-
-{% include requirement/MUST id="java-network-sync-async" %} support both synchronous and asynchronous service clients.
-
-{% include requirement/MUST id="java-network-separate-packages" %} have separate service clients for sync and async APIs.  The consumer needs to identify which methods are async and which are sync.
 
 {% include requirement/MUST id="java-service-client-annotation" %} annotate all service clients with the `@ServiceClient` annotation.
 
@@ -92,7 +86,9 @@ Your API surface consists of one or more _service clients_ that the consumer wil
 
 {% include requirement/MUST id="java-service-client-method-naming" %} use standard JavaBean naming prefixes for all getters and setters that are not service methods.
 
-##### Sync API
+{% include requirement/MUST id="java-network-separate-packages" %} have separate service clients for sync and async APIs.  The consumer needs to identify which methods are async and which are sync.
+
+{% include requirement/MUST id="java-sync-client-name" %} offer a sync service client named `<ServiceName>Client`. More than one service client may be offered for a single service. An example of a sync client is shown below:
 
 ```java
 // Copyright (c) Microsoft Corporation. All rights reserved.
@@ -138,11 +134,9 @@ public final class <service_name>Client {
 
 Refer to the [ConfigurationClient class] for a fully built-out example of how a sync client should be constructed.
 
-{% include requirement/MUST id="java-sync-client-name" %} offer a sync service client named `<ServiceName>Client`. More than one service client may be offered for a single service.
-
 {% include requirement/MUSTNOT id="java-sync-cancellation" %} provide a sync API that accepts a cancellation token. Cancellation isn't a common pattern in Java.  Developers who need to cancel requests should use the async API instead.
 
-##### Async API Example
+{% include requirement/MUST id="java-async-client-name" %} offer an async service client named `<ServiceName>AsyncClient`. More than one service client may be offered for a single service. An example of an async client is shown below:
 
 ```java
 // Copyright (c) Microsoft Corporation. All rights reserved.
@@ -180,8 +174,6 @@ public final class <service_name>AsyncClient {
 
 Refer to the [ConfigurationAsyncClient class] for a fully built-out example of how an async client should be constructed.
 
-{% include requirement/MUST id="java-async-client-name" %} offer an async service client named `<ServiceName>AsyncClient`. More than one service client may be offered for a single service.
-
 {% include requirement/MUST id="java-async-framework" %} use [Project Reactor] to provide consumers with a high-quality async API.
 
 {% include requirement/MUSTNOT id="java-async-other-frameworks" %} use any other async APIs, such as `CompletableFuture` or [RxJava].
@@ -196,7 +188,7 @@ Refer to the [ConfigurationAsyncClient class] for a fully built-out example of h
 
 {% include requirement/MUSTNOT id="java-async-blocking" %} include blocking calls inside async client library code. Use [BlockHound] to detect blocking calls in async APIs.
 
-#### Service Client Builders
+##### Service Client Builders
 
 {% include requirement/MUST id="java-service-client-fluent-builder" %} offer a fluent builder API for constructing service clients named `<service_name>ClientBuilder`, which must support building a sync service client instance and an async service client instance (where appropriate). It must offer `buildClient()` and `buildAsyncClient()` API to create a synchronous and asynchronous service client instance, respectively:
 
@@ -291,7 +283,7 @@ public final class <service_name>ClientBuilder {
 
 {% include requirement/MUSTNOT id="java-service-client-builder-leakage" %} leak the underlying protocol transport implementation details to the consumer.  All types from the protocol transport implementation must be appropriately abstracted.
 
-#### Service API versions
+##### Service API versions
 
 The purposes of the client library is to communicate with an Azure service.  Azure services support multiple API versions.  To understand the capabilities of the service, the client library must be able to support multiple service API versions.
 
@@ -348,7 +340,7 @@ getFoo(a, Context)
 
 Don't include overloads that take `Context` in async clients.  Async clients use the [subscriber context built into Reactor Flux and Mono APIs][reactor-context].
 
-##### Service Method Return Types
+##### Return Types
 
 Requests to the service fall into two basic groups: methods that make a single logical request, and methods that make a deterministic sequence of requests.  An example of a *single logical request* is a request that may be retried inside the operation.  An example of a *deterministic sequence of requests* is a paged operation.
 
@@ -739,7 +731,7 @@ public static final class OperationStatus extends ExpandableStringEnum<Operation
 
 #### Using Azure Core Types
 
-> TODO
+The azure-core package provides common functionality for client libraries. Documentation and usage examples can be found in the [azure/azure-sdk-for-java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core/azure-core) repository.
 
 #### Using Primitive Types
 
@@ -892,7 +884,7 @@ CheckStyle checks ensure that classes within an `implementation` package aren't 
 
 ## Azure SDK Library Design
 
-### Maven
+### Packaging / Maven
 
 All client libraries for Java standardize on the Maven build tooling for build and dependency management. This section details the standard configuration that must be used in all client libraries.
 
@@ -920,7 +912,28 @@ All client libraries for Java standardize on the Maven build tooling for build a
 
 {% include requirement/MUSTNOT id="java-maven-developers" %} change the `developers` section of the POM file - it must only list a developer `id` of `microsoft` and a `name` of `Microsoft Corporation`.
 
-### Java 9 Modules
+#### Service-Specific Common Libraries
+
+There are occasions when common code needs to be shared between several client libraries. For example, a set of cooperating client libraries may wish to share a set of exceptions or models.
+
+{% include requirement/MUST id="java-commonlib-approval" %} gain [Architecture Board] approval prior to implementing a common library.
+
+{% include requirement/MUST id="java-commonlib-minimize-code" %} minimize the code within a common library. Code within the common library is available to the consumer of the client library and shared by multiple client libraries within the same namespace.
+
+{% include requirement/MUST id="java-commonlib-namespace" %} store the common library in the same namespace as the associated client libraries.
+
+A common library will only be approved if:
+
+* The consumer of the non-shared library will consume the objects within the common library directly, AND
+* The information will be shared between multiple client libraries.
+
+Let's take two examples:
+
+1. Implementing two Cognitive Services client libraries, we find a model is required that is produced by one Cognitive Services client library and consumed by another Coginitive Services client library, or the same model is produced by two client libraries. The consumer is required to do the passing of the model in their code, or may need to compare the model produced by one client library vs. that produced by another client library. This is a good candidate for choosing a common library.
+
+2. Two Cognitive Services client libraries throw an `ObjectNotFound` exception to indicate that an object was not detected in an image. The user might trap the exception, but otherwise will not operate on the exception. There is no linkage between the `ObjectNotFound` exception in each client library. This is not a good candidate for creation of a common library (although you may wish to place this exception in a common library if one exists for the namespace already). Instead, produce two different exceptions - one in each client library.
+
+#### Java 9 Modules
 
 Java 9 and later support the notion of a module. A module *exports* certain packages, and *requires* other modules. Any package that is exported can be used by other modules, and anything that is not exported is invisible at compile and run times. This is a far stronger form of encapsulation than has existed previously for Java. For the Azure SDK for Java, a client library will be repesented as one or more modules. Two good resources to understand modules are available on [oracle.com](https://www.oracle.com/corporate/features/understanding-java-9-modules.html) and [baeldung.com](https://www.baeldung.com/java-9-modularity).
 
@@ -1005,7 +1018,7 @@ Dependency versions are purposefully not specified in this table. The definitive
 
 {% include requirement/MUSTNOT id="java-dependencies-concrete" %} depend on concrete logging, dependency injection, or configuration technologies (except as implemented in the `com.azure.core` library).  The client library will be used in applications that might be using the logging, DI, and configuration technologies of their choice.
 
-## Native code
+### Native code
 
 Native code plugins cause compatibility issues and require additional scrutiny. Certain languages compile to a machine-native format (for example, C or C++), whereas most modern languages opt to compile to an intermediary format to aid in cross-platform support.
 
