@@ -72,6 +72,7 @@ function UpdateDocLinks($lang, $pkg, $skipIfNA = $false)
   if ($lang -eq "javascript") { $ghformat = "azure-${trimmedPackage}/{1}" }
   elseif ($lang -eq "dotnet") { $ghformat = "{0}/{1}/api" }
 
+  $ghlink = ""
   $ghLinkFormat = "$azuresdkdocs/${lang}/${ghformat}/index.html"
 
   $ghdocvalid = ($pkg.VersionGA -or $pkg.VersionPreview)
@@ -495,14 +496,14 @@ function Update-ios-Packages($packageList)
   }
 }
 
-function Output-Latest-Versions($lang)
+function OutputVersions($lang)
 {
   $packagelistFile = Join-Path $releaseFolder "$lang-packages.csv"
   $packageList = Get-Content $packagelistFile | ConvertFrom-Csv | Sort-Object Type, DisplayName, Package, GroupId, ServiceName
 
-  # Only update libraries that have a type
-  $clientPackages = $packageList | Where-Object { $_.New -eq "true" -and $_.Type }
-  $otherPackages = $packageList | Where-Object { $_.New -ne "true" -or !$_.Type }
+  # Only update the unhidden new libraries
+  $clientPackages = $packageList | Where-Object { $_.Hide -ne "true" -and $_.New -eq "true" }
+  $otherPackages = $packageList | Where-Object { !($_.Hide -ne "true" -and $_.New -eq "true") }
 
   $LangFunction = "Update-$lang-Packages"
   &$LangFunction $clientPackages
@@ -516,8 +517,16 @@ function Output-Latest-Versions($lang)
   $packageList = $clientPackages + $otherPackages
   $packageList | ConvertTo-CSV -NoTypeInformation -UseQuotes Always | Out-File $packagelistFile -encoding ascii
 }
-$langs = @("java", "js", "dotnet", "python", "c", "cpp", "ios", "android")
-function CheckAll
+
+function OutputAll($langs)
+{
+  foreach ($lang in $langs)
+  {
+    OutputVersions $lang
+  }
+}
+
+function CheckAll($langs)
 {
   $serviceNames = @()
   foreach ($lang in $langs) 
@@ -557,57 +566,27 @@ function CheckAll
   $serviceGroups | Select-Object Name, @{Label="Langugages"; Expression={$_.Group.Lang | Sort-Object -Unique}}, Count, @{Label="Packages"; Expression={$_.Group.PkgInfo.Package}}
 }
 
-switch($language)
-{
-  "check" {
-    CheckAll
-  }
-  "all" {
-    Output-Latest-Versions "java"
-    Output-Latest-Versions "js"
-    Output-Latest-Versions "dotnet"
-    Output-Latest-Versions "python"
-    Output-Latest-Versions "c"
-    Output-Latest-Versions "cpp"
-    # Output-Latest-Versions "android"
-    # Output-Latest-Versions "ios"
-    break
-  }
-  "java" {
-    Output-Latest-Versions $language
-    break
-  }
-  "js" {
-    Output-Latest-Versions $language
-    break
-  }
-  "dotnet" {
-    Output-Latest-Versions $language
-    break
-  }
-  "python" {
-    Output-Latest-Versions $language
-    break
-  }
-  "c" {
-    Output-Latest-Versions $language
-    break
-  }
-  "cpp" {
-    Output-Latest-Versions $language
-    break
-  }
-  "android" {
-    Output-Latest-Versions $language
-    break
-  }
-  "ios" {
-    Output-Latest-Versions $language
-    break
-  }
-  default {
-    Write-Host "Unrecognized Language: $language"
-    exit 1
-  }
-}
+$supportedLanguages = @(
+  "java", 
+  "js", 
+  "dotnet", 
+  "python", 
+  "c", 
+  "cpp"
+  #"ios",     - Doesn't have githubio version data so we cannot update
+  #"android"  - Doesn't have githubio version data so we cannot update
+  )
 
+if ($language -eq 'check') {
+  CheckAll $supportedLanguages
+}
+elseif ($language -eq 'all') {
+  OutputAll $supportedLanguages
+}
+elseif ($supportedLanguages -contains $language) {
+    OutputVersions $language
+}
+else {
+  Write-Error "Unrecognized Language: $language"
+  exit 1
+}
