@@ -947,7 +947,7 @@ function UpdateShippedPackageVersion($pkgWorkItem, $versionsFromTags)
   }
 
   # Full merged version set
-  $versionList = $versionSet.Values | Sort-Object Date -Descending
+  $versionList = $versionSet.Values | Sort-Object Date, Version -Descending
 
   $versionFieldUpdates = GetTextVersionFields $versionList $pkgWorkItem
 
