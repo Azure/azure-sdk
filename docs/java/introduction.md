@@ -180,8 +180,6 @@ Refer to the [ConfigurationAsyncClient class] for a fully built-out example of h
 
 {% include requirement/MUSTNOT id="java-async-suffix" %} use the suffix `Async` in methods that do operations asynchronously. Let the fact the user has an instance of an 'async client' provide this context.
 
-{% include requirement/MUSTNOT id="java-async-methods" %} provide multiple asynchronous methods for a single REST endpoint, unless to provide overloaded methods to enable alternative or optional method parameters.
-
 {% include requirement/MUSTNOT id="java-async-cancellation" %} provide API that accepts a cancellation token. Cancellation isn't a common pattern in Java. Developers who need to cancel requests unsubscribe from a publisher to cancel the request.
 
 {% include requirement/MUSTNOT id="java-async-streaming" %} write custom APIs for streaming or async operations. Make use of the existing functionality offered in the Azure core library. Discuss proposed changes to the Azure core library with the [Architecture Board].
@@ -279,13 +277,11 @@ public final class <service_name>ClientBuilder {
 
 {% include requirement/MUST id="java-client-construction" %} allow the consumer to construct a service client with the minimal information needed to connect and authenticate to the service.
 
-{% include requirement/MUST id="java-service-client-builder-validity" %} ensure the builder will instantiate a service client into a valid state.  Throw validation exceptions during fluent property calls, or as part of the `build*()` calls.
-
-{% include requirement/MUSTNOT id="java-service-client-builder-leakage" %} leak the underlying protocol transport implementation details to the consumer.  All types from the protocol transport implementation must be appropriately abstracted.
+{% include requirement/MUST id="java-service-client-builder-validity" %} ensure the builder will instantiate a service client into a valid state.  Throw an `IllegalStateException` when the user calls the `build*()` methods.
 
 ##### Service API versions
 
-The purposes of the client library is to communicate with an Azure service.  Azure services support multiple API versions.  To understand the capabilities of the service, the client library must be able to support multiple service API versions.
+The purposes of the client library is to communicate with an Azure service.  Azure services support multiple API versions. The client library must be able to support multiple service API versions.
 
 {% include requirement/MUST id="java-service-apiversion-1" %} only target generally available service API versions when releasing a GA version of the client library.
 
@@ -296,10 +292,6 @@ The purposes of the client library is to communicate with an Azure service.  Azu
 {% include requirement/MUST id="java-service-apiversion-3" %} target the latest public preview API version by default when releasing a public beta version of the client library.
 
 {% include requirement/MUST id="java-service-apiversion-4" %} include all service API versions that are supported by the client library in a `ServiceVersion` enumerated value.
-
-{% include requirement/MUST id="java-service-apiversion-6" %} ensure that the values of the `ServiceVersion` enumerated value "match" the version strings in the service Swagger definition.
-
-For the purposes of this requirement, semantic changes are allowed.  For instance, many version strings are based on SemVer, which allows dots and dashes.  However, these characters are not allowed in identifiers.  The developer **MUST** be able to clearly understand what service API version will be used when the service version is set to each value in the `ServiceVersion` enumerated value.
 
 #### Service Methods
 
@@ -729,13 +721,31 @@ public static final class OperationStatus extends ExpandableStringEnum<Operation
 }
 ```
 
+{% include requirement/MUST id="java-enums-future-growth" %} use `ExpandableStringEnum` provided by `azure-core` for enumerations if the values are known to expand in future.
+
+{% include requirement/MUST id="java-enums-no-future-growth" %} use an enum only if the enum values are known to not change like days of a week, months in a year etc.
+
 #### Using Azure Core Types
 
 The azure-core package provides common functionality for client libraries. Documentation and usage examples can be found in the [azure/azure-sdk-for-java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core/azure-core) repository.
 
 #### Using Primitive Types
 
-> TODO
+{% include requirement/MUST id="java-wrap-primitives" %} wrap primitive types where appropriate to represent a meaningful domain entity even if the model type contains a single field. For example, a phone number is just a string, but creating a new type to wrap primitive `String` type can be more informative and represents a domain concept. It may also provide stronger guarantees and validation than just the primitive type.
+
+```java
+public final class PhoneNumber {
+    private String phoneNumber;
+
+    public PhoneNumber setPhoneNumber(String phoneNumber) {
+        ...
+    }
+
+    public String getPhoneNumber() {
+        ...
+    } 
+}
+```
 
 ### Exceptions
 
@@ -880,7 +890,32 @@ CheckStyle checks ensure that classes within an `implementation` package aren't 
 
 ### Support for Mocking
 
-> TODO
+All client libraries must support mocking to enable non-live testing of service clients by customers.
+
+Below is an example of writing a mock unit test using the [Mockito framework](https://site.mockito.org/). For more details on using Mockito in the context of the Azure SDK for Java, refer to the [unit testing](https://github.com/Azure/azure-sdk-for-java/wiki/Unit-Testing) wiki documentation.
+
+```java
+public class UserPreferencesTest {
+    @Test
+    public void getThemeTest() {
+        // create a mock instance of client
+        ConfigurationClient configurationClient = mock(ConfigurationClient.class);
+
+        // mock the client response
+        when(configurationClient.getSetting("theme", null)).thenReturn(new ConfigurationSetting().setValue("light"));
+
+        // wire the mock client to UserPreferences
+        UserPreferences userPreferences = new UserPreferences(configurationClient);
+        
+        // assert the client response
+        assertEquals(Theme.LIGHT, userPreferences.getTheme());
+    }
+}
+```
+
+{% include requirement/MUSTNOT id="java-mock-io" %} perform I/O operations in static methods as mocking static methods without using PowerMock (which uses byte-code manipulation) is not possible.
+
+{% include requirement/MUST id="java-mock-static-methods" %} make static methods [pure functions](https://www.geeksforgeeks.org/pure-functions/).
 
 ## Azure SDK Library Design
 
