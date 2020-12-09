@@ -89,8 +89,6 @@ export class ServiceClient {
 
 {% include requirement/MUST id="ts-apisurface-serviceclientconstructor" %} allow the consumer to construct a service client with the minimal information needed to connect and authenticate to the service.
 
-TODO: It would be nice to have a code sample here to ground this general guidelines in JS/TS specifics.
-
 {% include requirement/MUST id="ts-apisurface-standardized-verbs" %} standardize verb prefixes within a set of client libraries for a service (see [approved verbs](#ts-approved-verbs)).
 
 The service speaks about specific operations in a cross-language manner within outbound materials (such as documentation, blogs, and public speaking).  The service can't be consistent across languages if the same operation is referred to by different verbs in different languages.
@@ -147,8 +145,13 @@ class ExampleClient {
 }
 ```
 
-TODO: Please add a section or guideline describing how to set the service version.
-TODO: Please add a mention of service client immutability, if it's applicable to JavaScript.
+### Service Versions {#ts-service-versions}
+
+{% include requirement/MUST id="ts-service-versions-use-latest} call the highest supported service API version by default.
+
+{% include requirement/MUST id="ts-service-versions-select-api-versiopn} allow the consumer to explicitly select a supported service API version when instantiating the client if multiple service versions are supported.
+
+{% include requirement/MUST id="ts-service-versions-use-client-options} provide a `serviceVersion` option in the client constructor's option bag for providing a service version. The type of this should be a string literal union with supported service versions. You may also provide a string enum with supported service versions.
 
 ### Options {#ts-options}
 
