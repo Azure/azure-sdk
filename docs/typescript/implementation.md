@@ -403,7 +403,7 @@ Tools such as [Webpack](https://webpack.js.org) use this key to discover the sta
 
 {% include requirement/MUST id="ts-package-json-browser" %} include a file map in the `browser` object if your library supports the browser and needs browser-specific module substitutions.
 
-For example, the following JSON snippet demonstrates the minimum requirements assuming you have a separate entrypoint for browsers.
+For example, the following JSON snippet demonstrates the minimum requirements, assuming you have a separate entrypoint for browsers.
 
 ```json
 {
@@ -456,7 +456,7 @@ An ESM distribution is consumed by tools such as [Webpack](https://webpack.js.or
 <a name="ts-browser-location"></a>
 {% include requirement/MUSTNOT id="ts-no-browser-bundle" %} include a browser bundle in your package. Shipping browser bundles is convenient for users but comes with some significant downsides too. For example, browser bundles must flatten the entire dependency tree and re-distribute all open source components it depends on. This requires ThirdPartyNotices.txt to be accurate which is a complex and error-prone. Security vulnerabilities in any dependency requires servicing the browser bundle as well.
 
-In practice, users working on production applications will likely be using a bundler. Moreover, modern bundlers are much easier to use relative to earlier incarnations, and generally speaking Azure SDK libaries will work out of the box in any popular options.
+In practice, users working on production applications will likely be using a bundler. Moreover, modern bundlers are much easier to use relative to earlier incarnation. Azure client libraries should work with most popular bundlers.
 
 ### Modules {#ts-modules}
 
