@@ -42,49 +42,22 @@ While consumers are fast at adopting new versions of TypeScript, version 3.1 is 
 
 {% include requirement/MUST id="ts-npm-dist-tag-next" %} tag generally available npm packages `latest`. Generally available packages may also be tagged `next` if they include the changes from the most recent beta.
 
-{% include requirement/MUST id="ts-namespace-in-browsers" %} use one of the appropriate namespaces (see below) for browser globals when producing UMD builds.
-
-In cases where namespaces are supported, the namespace should be named `Azure.<group>.<service>`. All consumer-facing APIs that are commonly used should exist within this namespace.  Here:
-
-- `<group>` is the group for the service (see the list above)
-- `<service>` is the service name represented as a single word
-
-{% include requirement/MUST id="ts-namespace-startswith" %} start the namespace with `Azure`.
-
-{% include requirement/MUST id="ts-namespace-camelcase" %} use camel-casing for elements of the namespace.
-
-A compressed service name is the service name without spaces.  It may further be shortened if the shortened version is well known in the community.  For example, "Azure Media Analytics" would have a compressed service name of "MediaAnalytics", and "Azure Service Bus" would become "ServiceBus".
-
-{% include requirement/MUST id="ts-namespace-names" %} use the following list as the group of services (if the target language supports namespaces):
+{% include requirement/MUST id="ts-npm-package-name-prefix" %} prefix your data plane package names with the kebab-case version of the appropriate namespace from the following table:
 
 {% include tables/data_namespaces.md %}
 
-{% include requirement/MUST id="ts-namespace-split-management-api" %} place the management (Azure Resource Manager) API in the "management" group.  Use the grouping `Azure.Management.<group>.<servicename>` for the namespace.  Since more services require control plane APIs than data plane APIs, other namespaces may be used explicitly for control plane only.  Data plane usage is by exception only.  Additional namespaces that can be used for control plane libraries include:
+For example, these package names meet the guidelines:
 
-{% include tables/mgmt_namespaces.md %}
+* `@azure/cosmos`
+* `@azure/storage-blob`
+* `@azure/digital-twins-core`
 
-Many `management` APIs don't have a data plane.  It's reasonable to place the management library in the `Azure.Management` namespace.  For example, use `Azure.Management.CostAnalysis`, not `Azure.Management.Management.CostAnalysis`.
+The following are examples that do not meet the guidelines:
 
-{% include requirement/MUSTNOT id="ts-namespace-avoid-ambiguity" %} choose similar names for clients that do different things.
+* `@microsoft/cosmos` (not in `@azure` scope).
+* `@azure/digitaltwins` (not kebab-cased).
 
-{% include requirement/MUST id="ts-namespace-register" %} register the chosen namespace with the [Architecture Board].  Open an issue to request the namespace.  See [the registered namespace list](registered_namespaces.html) for a list of the currently registered namespaces.
-
-These namespace examples meet the guidelines:
-
-- `Azure.Data.Cosmos`
-- `Azure.Identity.ActiveDirectory`
-- `Azure.IoT.DeviceProvisioning`
-- `Azure.Storage.Blob`
-- `Azure.Messaging.NotificationHubs` (the client library for Notification Hubs)
-- `Azure.Management.Messaging.NotificationHubs` (the management client for Notification Hubs)
-
-These examples that don't meet the guidelines:
-
-- `Microsoft.Azure.CosmosDB` (not in the Azure namespace, no grouping)
-- `Azure.MixedReality.Kinect` (invalid group)
-- `Azure.IoT.IoTHub.DeviceProvisioning` (too many levels)
-
-Contact the [Architecture Board] for advice if the appropriate group isn't obvious.  If you feel your service requires a new group, open a "Design Guidelines Change" request.
+{% include requirement/SHOULD id"ts-npm-package-name-follow-conventions" %} you should follow the casing conventions of any existing GA packages released in the `@azure` npm scope. It's not worth renaming a package just to align on naming conventions.
 
 ## The Client API {#ts-apisurface-serviceclient}
 
