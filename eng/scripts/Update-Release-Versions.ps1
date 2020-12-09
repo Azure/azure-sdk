@@ -70,7 +70,6 @@ function UpdateDocLinks($lang, $pkg, $skipIfNA = $false)
   }
   $ghformat = "{0}/{1}"
   if ($lang -eq "javascript") { $ghformat = "azure-${trimmedPackage}/{1}" }
-  elseif ($lang -eq "dotnet") { $ghformat = "{0}/{1}/api" }
 
   $ghlink = ""
   $ghLinkFormat = "$azuresdkdocs/${lang}/${ghformat}/index.html"
