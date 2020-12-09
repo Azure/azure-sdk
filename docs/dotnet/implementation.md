@@ -8,9 +8,11 @@ sidebar: general_sidebar
 
 ## API Implementation
 
+This section describes guidelines for implementing Azure SDK client libraries. Please note that some of these guidelines are automatically enforced by code generation tools. 
+
 ### The Service Client
 
-TODO: add a brief mention of the approach to implementing service clients.
+TODO: add a brief mention of the approach to implementing service clients. 
 
 #### Service Methods
 

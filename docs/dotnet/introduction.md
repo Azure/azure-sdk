@@ -8,9 +8,11 @@ sidebar: general_sidebar
 
 ## Introduction
 
-The following document describes .NET specific guidelines for designing Azure SDK client libraries. These guidelines complement general [.NET Framework Design Guidelines] with design considerations specific to the Azure SDK. These guidelines also expand on and simplify language-independent [General Azure SDK Guidelines][general-guidelines]. More specific guidelines take precedence over more general guidelines.
+The following document describes .NET specific guidelines for designing Azure SDK client libraries. These guidelines complement general [.NET Framework Design Guidelines](https://www.oreilly.com/library/view/framework-design-guidelines/9780135896457) with design considerations specific to the Azure SDK. These guidelines also expand on and simplify language-independent [General Azure SDK Guidelines][general-guidelines]. More specific guidelines take precedence over more general guidelines.
 
 Throughout this document, we'll use the client library for the [Azure Application Configuration service](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/appconfiguration/Azure.Data.AppConfiguration) to illustrate various design concepts.  
+
+Note that these guidelines were developed primarily for typical Azure REST services, i.e. stateless services with request-response based interaction model. Many of the guidelines in this document are more broadly applicable, but some might be specific to such REST services.
 
 ### Design Principles {#dotnet-principles}
 
@@ -18,7 +20,7 @@ The main value of the Azure SDK is **productivity** building applications with A
 
 **Idiomatic**
 
-* Azure SDK libraries follow [.NET Framework Design Guidelines]().  TODO: Add link
+* Azure SDK libraries follow [.NET Framework Design Guidelines](https://www.oreilly.com/library/view/framework-design-guidelines/9780135896457).
 * Azure SDK libraries feel like designed by the designers of the .NET Standard libraries.
 * Azure SDK libraries version just like the .NET Standard libraries.
 
@@ -46,7 +48,7 @@ The main value of the Azure SDK is **productivity** building applications with A
 
 ### General Guidelines {#dotnet-general}
 
-{% include requirement/MUST id="dotnet-general-follow-framework-guidelines" %} follow the official [.NET Framework Design Guidelines].
+{% include requirement/MUST id="dotnet-general-follow-framework-guidelines" %} follow the official [.NET Framework Design Guidelines](https://www.oreilly.com/library/view/framework-design-guidelines/9780135896457).
 
 At the end of this document, you can find a section with [the most commonly overlooked guidelines](#dotnet-appendix-overlookedguidelines) in existing Azure SDK libraries.
 
@@ -140,9 +142,12 @@ For example, the service client for the Application Configuration service is cal
 
 {% include requirement/MUST id="dotnet-client-type" %} make service clients classes (reference types), not structs (value types).
 
+{% include requirement/MUST id="dotnet-client-immutable" %} make service clients immutable. 
+
+Client instances are often shared between threads (stored in application statics) and it should be difficult, if not impossible, for one of these threads to affect others.
+
 {% include requirement/MUST id="dotnet-client-namespace" %} see [Namespace Naming](#dotnet-namespace-naming) guidelines for how to choose the namespace for the client types.
 
-TODO: Mention client immutability here?
 
 #### Service Client Constructors {#dotnet-client-ctor}
 
@@ -356,7 +361,7 @@ Service methods fall into two main groups when it comes to the number and comple
 
 _Simple methods_ are methods that take up to six parameters, with most of the parameters being simple BCL primitives. _Complex methods_ are methods that take large number of parameters and typically correspond to REST APIs with complex request payloads.
 
-_Simple methods_ should follow standard .NET Design Guidelines for parameter list and overload design.
+_Simple methods_ should follow standard [.NET Framework Design Guidelines](https://www.oreilly.com/library/view/framework-design-guidelines/9780135896457) for parameter list and overload design.
 
 TODO: Link to these guidelines in FDG3
 
@@ -581,11 +586,11 @@ Ensure you include an internal setter to allow for deserialization.  For more in
 
 {% include requirement/MUST id="dotnet-service-models-prefer-structs" %} ensure model types are structs, if they meet the criteria for being structs.
 
-Good candidates for struct are types that are small and immutable, especially if they are often stored in arrays. See [.NET Framework Design Guidelines](https://docs.microsoft.com/dotnet/standard/design-guidelines/choosing-between-class-and-struct) for details.
+Good candidates for struct are types that are small and immutable, especially if they are often stored in arrays. See [.NET Framework Design Guidelines](https://www.oreilly.com/library/view/framework-design-guidelines/9780135896457) for details.
 
 TODO: Update link to FDG3
 
-{% include requirement/SHOULD id="dotnet-service-models-basic-data-interfaces" %} implement basic data type interfaces on model types, per .NET Framework Design Guidelines.
+{% include requirement/SHOULD id="dotnet-service-models-basic-data-interfaces" %} implement basic data type interfaces on model types, per [.NET Framework Design Guidelines](https://www.oreilly.com/library/view/framework-design-guidelines/9780135896457).
 
 For example, implement `IEquatable<T>`, `IComparable<T>`, `IEnumerable<T>`, etc. if applicable.
 
@@ -595,7 +600,7 @@ For example, implement `IEquatable<T>`, `IComparable<T>`, `IEnumerable<T>`, etc.
 - ```IReadOnlyDictionary<T>``` and ```IDictionary<T>``` for lookup tables
 - ```T[]```, ```Memory<T>```, and ```ReadOnlyMemory<T>``` when low allocations and performance are critical
 
-Note that this guidance does not apply to input parameters. Input parameters representing collections should follow standard [.NET Design Guidelines](https://docs.microsoft.com/dotnet/standard/design-guidelines/parameter-design), e.g. use ```IEnumerable<T>``` is allowed.
+Note that this guidance does not apply to input parameters. Input parameters representing collections should follow standard [.NET Framework Design Guidelines](https://docs.microsoft.com/dotnet/standard/design-guidelines/parameter-design), e.g. use ```IEnumerable<T>``` is allowed.
 Also, this guidance does not apply to return types of service method calls. These should be using ```Pageable<T>``` and ```AsyncPageable<T>``` discussed in [Service Method Return Types](#dotnet-method-return).
 
 {% include requirement/MAY id="dotnet-service-models-namespace" %} place output model types in _.Models_ subnamespace to avoid cluttering the main namespace with too many types.
@@ -750,9 +755,11 @@ For example, `Azure.Storage.Blobs`.
 
 - `Azure.AI` for artificial intelligence, including machine learning
 - `Azure.Analytics` for client libraries that gather or process analytics data
+- `Azure.Communication` communication services
 - `Azure.Core` for libraries that aren't service specific
+- `Azure.Cosmos` for object database technologies
 - `Azure.Data` for client libraries that handle databases or structured data stores
-- `Azure.Diagnostics` for client libraries that gather data for diagnostics, including logging
+- `Azure.DigitalTwins` for DigitalTwins related technologies
 - `Azure.Identity` for authentication and authorization client libraries
 - `Azure.Iot` for client libraries dealing with the Internet of Things
 - `Azure.Management` for client libraries accessing the control plane (Azure Resource Manager)
@@ -979,7 +986,7 @@ TODO: Update guidance on samples to reflect what we do in most places.
 
 ## Commonly Overlooked .NET API Design Guidelines {#dotnet-appendix-overlookedguidelines}
 
-Some .NET Design Guidelines have been notoriously overlooked in earlier Azure SDKs. This section serves as a way to highlight these guidelines.
+Some [.NET Framework Design Guidelines](https://www.oreilly.com/library/view/framework-design-guidelines/9780135896457) have been notoriously overlooked in earlier Azure SDKs. This section serves as a way to highlight these guidelines.
 
 {% include requirement/SHOULDNOT id="dotnet-problems-too-many-types" %} have many types in the main namespace. Number of types is directly proportional to the perceived complexity of a library.
 
