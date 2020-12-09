@@ -28,7 +28,12 @@ The Azure SDK team is pleased to announce our December 2020 client library relea
 
 #### Beta
 
-- _Add packages_
+- Storage Library - Blobs
+- Storage Library - Blob Batch
+- Storage Library - Blob Cryptography
+- Storage Library - File Datalake
+- Storage Library - File Share
+- Storage Library - Queue
 
 ## Installation Instructions
 
@@ -95,6 +100,46 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <artifactId>azure-resourcemanager-resources</artifactId>
   <version>2.1.0</version>
 </dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-blob</artifactId>
+  <version>12.10.0-beta.1</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-blob-batch</artifactId>
+  <version>12.8.0-beta.1</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-blob-cryptography</artifactId>
+  <version>12..10.0-beta.1</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-common</artifactId>
+  <version>12.10.0-beta.1</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-file-datalake</artifactId>
+  <version>12.4.0-beta.1</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-file-share</artifactId>
+  <version>12.8.0-beta.1</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-queue</artifactId>
+  <version>12.8.0-beta.1</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-internal-avro</artifactId>
+  <version>12.0.2-beta.1</version>
+</dependency>
 ```
 
 For resource management libraries, we also provide a wrapper package that contains all available services
@@ -118,6 +163,42 @@ We are excited to announce the GA releases of management libraries that follow t
 
 These new packages share the same groupId ``com.azures.resourcemanager`` and artifactId share the same prefix of ``azure-resourcemanager``
   
+### Azure Storage Blob 12.10.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md#12100-beta1-2020-12-07)
+#### New Features
+- Exposed ClientOptions on all client builders, allowing users to set a custom application id and custom headers.
+- Added ability to get container client from blob clients and service client from container clients
+- Added a MetadataValidationPolicy to check for leading and trailing whitespace in metadata that would cause Auth failures.
+- Added support for the 2020-04-08 service version. 
+- Added support to upload block blob from URL.
+- Added lease ID parameter to Get and Set Blob Tags.
+- Added blob tags to BlobServiceClient.findBlobsByTags() result.
+
+#### Bug Fixes
+- Fixed a bug where the error message would not be displayed the exception message of a HEAD request.
+
+### Azure Storage File Datalake 12.4.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md#1240-beta1-2020-12-07)
+#### New Features
+- Added support to list paths on a directory.
+- Exposed ClientOptions on all client builders, allowing users to set a custom application id and custom headers.
+- Added a MetadataValidationPolicy to check for leading and trailing whitespace in metadata that would cause Auth failures.
+
+#### Bug Fixes
+- Fixed a bug where the error message would not be displayed the exception message of a HEAD request.
+
+### Azure Storage File Share 12.8.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/CHANGELOG.md#1280-beta1-2020-12-07)
+#### New Features
+- Exposed ClientOptions on all client builders, allowing users to set a custom application id and custom headers.
+- Added a MetadataValidationPolicy to check for leading and trailing whitespace in metadata that would cause Auth failures.
+- Added support for the 2020-04-08 service version. 
+- Added support for specifying enabled protocols on share creation
+- Added support for setting root squash on share creation and through set properties.
+
+#### Bug Fixes
+- Fixed a bug where snapshot would be appended to a share snapshot instead of sharesnapshot.
+- Fixed a bug where the sharesnapshot query parameter would be ignored in share and share file client builders.
+- Fixed a bug where the error message would not be displayed the exception message of a HEAD request.
+
+
 ## Need help
 
 - For reference documentation visit the [Azure SDK for Java documentation](https://azure.github.io/azure-sdk-for-java/).
