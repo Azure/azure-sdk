@@ -12,8 +12,6 @@ The following document describes .NET specific guidelines for designing Azure SD
 
 Throughout this document, we'll use the client library for the [Azure Application Configuration service](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/appconfiguration/Azure.Data.AppConfiguration) to illustrate various design concepts.  
 
-Note that these guidelines were developed primarily for typical Azure REST services, i.e. stateless services with request-response based interaction model. Many of the guidelines in this document are more broadly applicable, but some might be specific to such REST services.
-
 ### Design Principles {#dotnet-principles}
 
 The main value of the Azure SDK is **productivity** building applications with Azure services. Other qualities, such as completeness, extensibility, and performance are important but secondary.  We ensure our customers can be highly productive when using our libraries by ensuring these libraries are:
@@ -62,9 +60,7 @@ The pipeline can be found in the [Azure.Core] package, and it takes care of many
 
 ### Support for non-HTTP Protocols
 
-Currently, this document describes guidelines for client libraries exposing HTTP/REST services. It may be expanded in the future to cover other, non-REST, services.  If your service is not REST-based, please contact the Azure SDK Architecture Board for guidance.
-
-TODO: Link to current arch board contact info.
+This document contains guidelines developed primarily for typical Azure REST services, i.e. stateless services with request-response based interaction model. Many of the guidelines in this document are more broadly applicable, but some might be specific to such REST services.
 
 ## Azure SDK API Design {#dotnet-api}
 
