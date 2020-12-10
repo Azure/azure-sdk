@@ -114,9 +114,9 @@ function Write-Latest-Versions($lang)
 
   foreach ($pkg in $packages)
   {
-    $pkgEntries = $packageList | Where-Object { PackageEqual $_ $pkg }
+    $pkgEntries = $packageList.Where({ PackageEqual $_ $pkg })
 
-    if (!$pkgEntries -or $pkgEntries.Count -eq 0) {
+    if ($pkgEntries.Count -eq 0) {
       # Add package
       $packageList += $pkg
     } 
@@ -140,9 +140,9 @@ function Write-Latest-Versions($lang)
   # Clean out packages that are no longer in the query we use for the package manager
   foreach ($pkg in $packageList)
   {
-    $pkgEntries = $packages | Where-Object { PackageEqual $_ $pkg }
+    $pkgEntries = $packages.Where({ PackageEqual $_ $pkg })
 
-    if ($pkgEntries -and $pkgEntries.Count -ne 1) {
+    if ($pkgEntries.Count -ne 1) {
       Write-Host "Found package $($pkg.Package) in the CSV which could be removed"
     }
   }

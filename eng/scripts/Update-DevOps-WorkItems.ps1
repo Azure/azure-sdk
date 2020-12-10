@@ -1046,14 +1046,14 @@ function RefreshItems()
       $pkg = $pkgInfo.PackageInfo
     }
     else {
-      $pkgFromCsv = $allPackagesFromCSV[$pkgLang] | Where-Object { $pkgName -eq $_.Package }
+      $pkgFromCsv = $allPackagesFromCSV[$pkgLang].Where({ $pkgName -eq $_.Package })
 
       # For java filter down to com.azure* groupId
       if ($pkgLang -eq "Java") {
-        $pkgFromCsv = $pkgFromCsv | Where-Object { $_.GroupId -like "com.azure*" }
+        $pkgFromCsv = $pkgFromCsv.Where({ $_.GroupId -like "com.azure*" })
       }
 
-      if ($pkgFromCsv -and $pkgFromCsv.Count -ne 0) {
+      if ($pkgFromCsv.Count -ne 0) {
         if ($pkgFromCsv.Count -gt 1) {
           Write-Warning "[$($pkgWI.id)]$pkgLang - $pkgName($verMajorMinor) - Detected new package with multiple matching package names in the csv, so skipping it."
           continue

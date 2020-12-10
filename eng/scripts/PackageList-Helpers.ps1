@@ -44,8 +44,9 @@ function Get-PackageListForLanguage([string]$lang)
 
 function Get-PackageListSplit([Array]$packageList)
 {
-  $newPackages = $packageList | Where-Object { $_.Hide -ne "true" -and $_.New -eq "true" }
-  $otherPackages = $packageList | Where-Object { !($_.Hide -ne "true" -and $_.New -eq "true") }
+  $newPackages = $packageList.Where({ $_.Hide -ne "true" -and $_.New -eq "true" })
+  $otherPackages = $packageList.Where({ !($_.Hide -ne "true" -and $_.New -eq "true") })
+
   return ($newPackages, $otherPackages)
 }
 
