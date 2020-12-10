@@ -610,14 +610,14 @@ TODO: If this is largely implemented for the API Designer, please include an exa
 
 There are two patterns in use depending on whether `etag` is a member of the conceptual entity or not.
 
-{% include requirement/MUST id="ts-conditional-request-options-1" %} provide the following options in a method's options bag when the conceptual entity has an `etag` property:
+{% include requirement/MUST id="ts-conditional-request-options-1" %} provide the following options in a method's options bag when the model type has an `etag` property:
 
 * onlyIfChanged - sets the `if-match` header to the `etag`.
 * onlyIfUnchanged - sets the `if-none-match` header to the `etag`.
 * onlyIfMissing - sets the `if-none-match` header to `*`.
 * onlyIfPresent - sets the `if-match` header to `*`.
 
-{% include requirement/MUST id="ts-conditional-request-options-2" %} provide the following options in a method's options bag's `conditions` property when the conceptual entity does not have an `etag` property:
+{% include requirement/MUST id="ts-conditional-request-options-2" %} provide the following options in a method's options bag's `conditions` property when the model type does not have an `etag` property:
 
 * ifMatch - sets the `if-match` header to the value provided.
 * ifNoneMatch - sets the `if-none-match` header to the value provided.
