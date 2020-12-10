@@ -173,14 +173,14 @@ Refer to the [ConfigurationAsyncClient class] for a fully built-out example of h
 
 {% include requirement/MUSTNOT id="java-service-client-constructors" %} provide any `public` or `protected` constructors in the service client, except where necessary to support mock testing. Keep visibility to a minimum. Instantiation of the service client must always be through a service client builder.
 
-{% include requirement/MUST id="java-service-client-fluent-builder" %} offer a fluent builder API for constructing service clients named `<service_name>ClientBuilder`, which must support building a sync service client instance and an async service client instance (where appropriate). It must offer `buildClient()` and `buildAsyncClient()` API to create a synchronous and asynchronous service client instance, respectively:
+{% include requirement/MUST id="java-service-client-fluent-builder" %} offer a fluent builder API for constructing service clients named `<service_name>ClientBuilder`, which must support building a sync service client instance and an async service client instance (where appropriate). It must offer `buildClient()` and `buildAsyncClient()` API to create a synchronous and asynchronous service client instance, respectively. Shown in the first code sample below is a generalized template, and following that is a stripped-down example builder.
 
 ```java
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License.
-
 package com.azure.<group>.<service_name>;
 
+// Template of how a builder should look
 @ServiceClientBuilder(serviceClients = {<service_name>Client.class, <service_name>AsyncClient.class})
 public final class <service_name>ClientBuilder {
 
@@ -189,7 +189,7 @@ public final class <service_name>ClientBuilder {
 
     // public constructor - this is the only available front door to creating a service client instance
     public <service_name>ClientBuilder() {
-        builder = <service_name>AsyncClient.builder();
+        // any initialization necessary for the builder
     }
 
     // The buildClient() method returns a new instance of the sync client each time it is called
@@ -212,6 +212,65 @@ public final class <service_name>ClientBuilder {
         builder.<property>(<parameter>);
         return this;
     }
+}
+```
+
+```java
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License.
+package com.azure.data.appconfiguration;
+
+// concrete example of a builder
+@ServiceClientBuilder(serviceClients = {ConfigurationAsyncClient.class, ConfigurationClient.class})
+public final class ConfigurationClientBuilder {
+    private String endpoint;
+    private TokenCredential tokenCredential;
+    private ConfigurationServiceVersion version = ConfigurationServiceVersion.getLatest();
+    // other fields and its setters are omitted for brevity
+
+    // public constructor - this is the only available front door to creating a service client instance
+    public ConfigurationClientBuilder() {
+        // empty constructor
+    }
+
+    // The buildClient() method returns a new instance of the sync client each time it is called
+    public ConfigurationClient buildClient() {
+        // create an async client and pass that into the sync client for sync-over-async impl
+        return new ConfigurationClient(buildAsyncClient());
+    }
+
+    // The buildAsyncClient() method returns a new instance of the async client each time it is called
+    public ConfigurationAsyncClient buildAsyncClient() {
+        // configuration of pipeline, etc
+        HttpPipeline pipeline = buildOrGetHttpPipeline();
+
+        // instantiate new async client instance
+        return new ConfigurationAsyncClient(endpoint, pipeline, serviceVersion);
+    }
+
+    // fluent APIs, each returning 'this', and one for each parameter to configure
+
+    public ConfigurationClientBuilder endpoint(String endpoint) {
+        try {
+            new URL(endpoint);
+        } catch (MalformedURLException ex) {
+            throw logger.logExceptionAsWarning(new IllegalArgumentException("'endpoint' must be a valid URL"));
+        }
+        this.endpoint = endpoint;
+        return this;
+    }
+
+    public ConfigurationClientBuilder credential(TokenCredential tokenCredential) {
+        // token credential can not be null value
+        this.tokenCredential = Objects.requireNonNull(tokenCredential);
+        return this;
+    }
+
+    public ConfigurationClientBuilder serviceVersion(ConfigurationServiceVersion version) {
+        this.version = version;
+        return this;
+    }
+
 }
 ```
 
@@ -268,7 +327,7 @@ public final class <service_name>ClientBuilder {
 
 {% include requirement/MUST id="java-versioning-highest-api" %} call the highest supported service API version by default, and ensure this is clearly documented.
 
-{% include requirement/MUST id="java-versioning-select-api-version" %} allow the consumer to explicitly select a supported service API version when instantiating the service client.
+{% include requirement/MUST id="java-versioning-select-api-version" %} allow the consumer to explicitly select a supported service API version when instantiating the service client, as shown above in the [service client creation](#service-client-creation) section.
 
 Use a builder parameter called `serviceVersion` on the client builder type (as [specified above](#service-client-creation)).
 
@@ -461,9 +520,7 @@ If in common scenarios, users are likely to pass just a small subset of what the
 
 {% include requirement/MUST id="java-params-options-design" %} design options types with the same design guidance as given below for model class types, namely fluent setters for optional arguments, using the standard JavaBean naming convention of `get*`, `set*`, and `is*`. Additionally, there may be constructor overloads for each combination of required arguments.
 
-{% include requirement/MAY id="java-params-options-ctor" %} introduce constructor overloads for each combination of required arguments.
-
-> TODO code sample
+{% include requirement/MAY id="java-params-options-ctor" %} introduce constructor overloads for each combination of required arguments (in a similar manner to [required properties on model types](#java-models-constructors-args-required)).
 
 ##### Parameter Validation
 
@@ -636,15 +693,46 @@ The return value from a conditional operation must be carefully considered.  For
 
 #### Hierarchical Clients
 
-> TODO
+> TODO: Add discussion of hierarchical clients
 
 ### Supporting Types
 
 #### Model Types
 
-Model types are classes that developers of applications use to provide required information into, or to receive information from, Azure services.
+Model types are classes that developers of applications use to provide required information into, or to receive information from, Azure services. For example:
 
-> TODO code sample
+```java
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License.
+package com.azure.ai.textanalytics.models;
+
+@Fluent
+public final class PiiTaskParameters {
+    
+    // optional properties
+    private PiiTaskParametersDomain domain;
+    private String modelVersion = "latest";
+
+   // optional properties have getters and fluent setters
+    public PiiTaskParametersDomain getDomain() {
+        return this.domain;
+    }
+
+    public PiiTaskParameters setDomain(PiiTaskParametersDomain domain) {
+        this.domain = domain;
+        return this;
+    }
+   
+    public String getModelVersion() {
+        return this.modelVersion;
+    }
+
+    public PiiTaskParameters setModelVersion(String modelVersion) {
+        this.modelVersion = modelVersion;
+        return this;
+    }
+}
+```
 
 {% include requirement/MUSTNOT id="java-models-builder" %} offer a separate builder class for model classes.
 
@@ -654,7 +742,48 @@ Because model types can represent many different kinds of models, it is importan
 
 {% include requirement/MUST id="java-models-constructors-args" %} provide a no-args constructor if a model type has no required properties.
 
-{% include requirement/MUST id="java-models-constructors-args-required" %} provide one or more constructors with arguments, if a model type has required properties. If there are multiple mutually exclusive sets of supported required parameter, a constructor must be introduced for each of these.
+{% include requirement/MUST id="java-models-constructors-args-required" %} provide one or more constructors with arguments, if a model type has required properties. If there are multiple mutually exclusive sets of supported required parameter, a constructor must be introduced for each of these. For example:
+
+```java
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License.
+package com.azure.ai.textanalytics.models;
+
+public final class TextDocumentInput {
+
+    // required properties
+    private final String id;
+    private final String text;
+
+    // optional property
+    private String language;
+
+    // Constructor to enforce setting the required properties
+    public TextDocumentInput(String id, String text) {
+        this.id = Objects.requireNonNull(id, "'id' cannot be null");
+        this.text = Objects.requireNonNull(text, "'text' cannot be null");
+    }
+
+    // required properties only have getters
+    public String getId() {
+        return this.id;
+    }
+
+    public String getText() {
+        return this.text;
+    }
+
+    // optional property has both getter and fluent setter
+    public String getLanguage() {
+        return this.language;
+    }
+
+    public TextDocumentInput setLanguage(String language) {
+        this.language = language;
+        return this;
+    }
+}
+```
 
 {% include requirement/MUST id="java-models-fluent" %} provide a fluent setter API to configure the model class, where each `set` method should `return this`. This allows chaining of set operations.
 
