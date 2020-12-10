@@ -614,7 +614,7 @@ TODO: Please add discussion similar to the [Model Type discussion from the Gener
 
 ## Using Azure Core {#ts-core-types}
 
-{% include requirement/MUST id="ts-core-types-must %} make use of packages in Azure Core to provide behavior consistent across all Azure SDK libraries. This includes, but is not limited to:
+{% include requirement/MUST id="ts-core-types-must" %} make use of packages in Azure Core to provide behavior consistent across all Azure SDK libraries. This includes, but is not limited to:
 
 * `core-http` for http client, pipeline and related functionality
 * `logger` for logging
