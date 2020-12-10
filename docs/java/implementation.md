@@ -213,5 +213,97 @@ One of the key things we want to support is to allow consumers of the library to
 
 {% include requirement/MUST id="java-testing-params" %} parameterize all applicable unit tests to make use of all available HTTP clients and service versions. Parameterized runs of all tests must occur as part of live tests. Shorter runs, consisting of just Netty and the latest service version, can be run whenever PR validation occurs.
 
+## Java-Specific Guidance
+
+{% include requirement/MUSTNOT id="java-async-blocking" %} include blocking calls inside async client library code. Use [BlockHound] to detect blocking calls in async APIs.
+
+{% include requirement/MUSTNOT id="java-namespaces-implementation" %} allow implementation code (that is, code that doesn't form part of the public API) to be mistaken as public API. There are two valid arrangements for implementation code:
+
+1. Implementation classes can be placed within a subpackage named `implementation`.
+2. Implementation classes can be made package-private and placed within the same package as the consuming class.
+
+CheckStyle checks ensure that classes within an `implementation` package aren't exposed through public API.
+
+### Annotations
+
+A number of annotations are defined in the Azure core library. A few annotations enable runtime functionality.  Most of the annotations are used as part of the [Azure Java SDK code linting tools](#java-tooling).
+
+{% include requirement/MUST id="java-annotations-azure-core" %} use the Azure core library annotations outlined below in all applicable places. Use annotations eagerly as part of the initial code design.  The code linters will ensure continued conformance to some of the rules outlined in this specification.
+
+{% include requirement/MUSTNOT id="java-annotations-format" %} include spaces in annotation string values, unless the description below states it's allowed.
+
+#### Service interface
+
+A service interface defines the REST endpoints for a service, but isn't part of the public API.  It's hidden behind the service client class. For example, here is the service interface for one method within the `ConfigurationService`:
+
+```java
+@Host("{url}")
+@ServiceInterface("AppConfig")
+interface ConfigurationService {
+    @Get("kv/{key}")
+    @ExpectedResponses({200})
+    @UnexpectedResponseExceptionType(code = {404}, value = ResourceNotFoundException.class)
+    @UnexpectedResponseExceptionType(HttpResponseException.class)
+    Mono<Response<ConfigurationSetting>> getKeyValue(
+            @HostParam("url") String url, @PathParam("key") String key, @QueryParam("label") String label,
+            @QueryParam("$select") String fields, @HeaderParam("Accept-Datetime") String acceptDatetime,
+            @HeaderParam("If-Match") String ifMatch, @HeaderParam("If-None-Match") String ifNoneMatch,
+            Context context);
+    ...
+}
+```
+
+| Annotation | Location | Description |
+|:-----------|:---------|:------------|
+| `@ServiceInterface` | Service Interface | This interface represents a REST endpoint for the service.  The argument will be used as the service name in policies (such as telemetry and tracing). The argument must be short, alphanumeric, without spaces, and fit for public consumption. |
+| `@Host` | Service Interface | The host name of the REST service.  The `{url}` maps with the `@HostParam` annotation. |
+| `@<Method>` | Service Method | The HTTP method and endpoint used for the HTTP request. |
+| `@ExpectedResponses` | Service Method | The list of HTTP status codes that the method expects to receive on success. |
+| `@UnexpectedResponseExceptionType` | Method | Enables different exceptions to be thrown based on the status code returned. |
+| `@BodyParam` | Argument | Places this argument into the body of the outgoing HTTP request. |
+| `@HeaderParam` | Argument | Places this argument into the header of the outgoing HTTP request. |
+| `@PathParam` | Argument | Places the argument into the endpoint path. |
+| `@QueryParam` | Argument | Places the argument into the query string of the outgoing HTTP request. |
+
+When specifying strings, you may use `{argument}` to do string replacement from arguments.  For example, the `@PathParam("key")` annotation replaces the `{key}` segment in the method annotation in the above example.
+
+#### Service client
+
+Include the following annotations on the service client class.  For example, this code sample shows a sample class demonstrating the use of these two annotations:
+
+```java
+@ServiceClient(builder = ConfigurationAsyncClientBuilder.class, isAsync = true, service = ConfigurationService.class)
+public final class ConfigurationAsyncClient {
+
+    @ServiceMethod
+    public Mono<Response<ConfigurationSetting>> addSetting(String key, String value) {
+        ...
+    }
+}
+```
+
+| Annotation | Location | Description |
+|:-----------|:---------|:------------|
+| `@ServiceClient` | Service Client | Specifies the builder responsible for instantiating the service client, whether the API is asynchronous, and a reference back to the service interface (the interface annotated with `@ServiceInterface`). |
+| `@ServiceMethod` | Service Method | Placed on all service client methods that do network operations. |
+
+#### Service Client Builder
+
+The `@ServiceClientBuilder` annotation should be placed on any class that is responsible for instantiating service clients (that is, instantiating classes annotated with `@ServiceClient`). For example:
+
+```java
+@ServiceClientBuilder(serviceClients = {ConfigurationClient.class, ConfigurationAsyncClient.class})
+public final class ConfigurationClientBuilder { ... }
+```
+
+This builder states that it can build instances of `ConfigurationClient` and `ConfigurationAsyncClient`.
+
+#### Model Classes
+
+There are two annotations of note that should be applied on model classes, when applicable:
+
+* The `@Fluent` annotation is given to all model classes that are expected to provide a fluent API to end users.
+* The `@Immutable` annotation is given to all immutable classes.
+
 {% include refs.md %}
 {% include_relative refs.md %}
