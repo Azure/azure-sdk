@@ -1,11 +1,10 @@
 param (
   $language = "all",
-  $releaseFolder = "$PSScriptRoot\..\..\_data\releases\latest",
   $checkDocLinks = $true
 )
 Set-StrictMode -Version 3
 
-$releaseFolder = Resolve-Path $releaseFolder
+. (Join-Path $PSScriptRoot PackageList-Helpers.ps1)
 
 $azuresdkdocs = "https://azuresdkdocs.blob.core.windows.net/`$web"
 
@@ -64,7 +63,7 @@ function UpdateDocLinks($lang, $pkg, $skipIfNA = $false)
   }
   else {
     if ($pkg.MSDocs -eq "" -or $pkg.MSDocs -eq "NA") {
-      Write-Host "MSDoc link ($msdocLink) is not valid so marking as NA"
+      Write-Verbose "MSDoc link ($msdocLink) is not valid so marking as NA"
       $pkg.MSDocs = "NA"
     }
   }
@@ -89,7 +88,7 @@ function UpdateDocLinks($lang, $pkg, $skipIfNA = $false)
   }
   else {
     if ($pkg.GHDocs -eq "" -or $pkg.GHDocs -eq "NA") {
-      Write-Host "GHDoc link ($ghlink) is not valid so marking as NA"
+      Write-Verbose "GHDoc link ($ghlink) is not valid so marking as NA"
       $pkg.GHDocs = "NA"
     }
   }
@@ -497,12 +496,7 @@ function Update-ios-Packages($packageList)
 
 function OutputVersions($lang)
 {
-  $packagelistFile = Join-Path $releaseFolder "$lang-packages.csv"
-  $packageList = Get-Content $packagelistFile | ConvertFrom-Csv | Sort-Object Type, DisplayName, Package, GroupId, ServiceName
-
-  # Only update the unhidden new libraries
-  $clientPackages = $packageList | Where-Object { $_.Hide -ne "true" -and $_.New -eq "true" }
-  $otherPackages = $packageList | Where-Object { !($_.Hide -ne "true" -and $_.New -eq "true") }
+  $clientPackages, $otherPackages = Get-PackageListForLanguageSplit $lang
 
   $LangFunction = "Update-$lang-Packages"
   &$LangFunction $clientPackages
@@ -512,9 +506,7 @@ function OutputVersions($lang)
     UpdateDocLinks $lang $otherPackage -skipIfNA $true
   }
 
-  Write-Host "Writing $packagelistFile"
-  $packageList = $clientPackages + $otherPackages
-  $packageList | ConvertTo-CSV -NoTypeInformation -UseQuotes Always | Out-File $packagelistFile -encoding ascii
+  Set-PackageListForLanguage $lang ($clientPackages + $otherPackages)
 }
 
 function OutputAll($langs)
@@ -530,9 +522,7 @@ function CheckAll($langs)
   $serviceNames = @()
   foreach ($lang in $langs) 
   {
-    $packagelistFile = Join-Path $releaseFolder "$lang-packages.csv"
-    $packageList = Get-Content $packagelistFile | ConvertFrom-Csv | Sort-Object Type, DisplayName, Package, GroupId, ServiceName
-    $clientPackages = $packageList | Where-Object { $_.New -eq "true" -and $_.Type }
+    $clientPackages, $_ = Get-PackageListFromLanguageSplit $lang
 
     foreach ($pkg in $clientPackages)
     {
@@ -565,24 +555,13 @@ function CheckAll($langs)
   $serviceGroups | Select-Object Name, @{Label="Langugages"; Expression={$_.Group.Lang | Sort-Object -Unique}}, Count, @{Label="Packages"; Expression={$_.Group.PkgInfo.Package}}
 }
 
-$supportedLanguages = @(
-  "java", 
-  "js", 
-  "dotnet", 
-  "python", 
-  "c", 
-  "cpp"
-  #"ios",     - Doesn't have githubio version data so we cannot update
-  #"android"  - Doesn't have githubio version data so we cannot update
-  )
-
 if ($language -eq 'check') {
-  CheckAll $supportedLanguages
+  CheckAll $languageNameMapping.Keys
 }
 elseif ($language -eq 'all') {
-  OutputAll $supportedLanguages
+  OutputAll $languageNameMapping.Keys
 }
-elseif ($supportedLanguages -contains $language) {
+elseif ($languageNameMapping.ContainsKey($language)) {
     OutputVersions $language
 }
 else {

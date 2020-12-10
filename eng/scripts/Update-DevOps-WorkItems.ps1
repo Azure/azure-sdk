@@ -1,12 +1,13 @@
 [CmdletBinding()]
 param (
-  [string] $releaseFolder =  "$PSScriptRoot\..\..\_data\releases\latest",
   [string] $pkgFilter = $null,
   [bool] $updateAllVersions = $false, # When false only updates the versions in the preview and ga in csv
   [string] $github_pat = $env:GITHUB_PAT,
   [string] $devops_pat = $env:DEVOPS_PAT
 )
 Set-StrictMode -Version 3
+
+. (Join-Path $PSScriptRoot PackageList-Helpers.ps1)
 
 # Only needed to help avoid rate limiting for tag and date querying
 if ($github_pat) {
@@ -146,85 +147,63 @@ function GetPackageVersions($lang)
   return $packageVersions
 }
 
-$langMapping = @{
-    # c = "C" - -- These don't follow normal tagging rules
-    cpp = "C++"
-    dotnet = ".NET"
-    java = "Java"
-    js = "JavaScript"
-    python = "Python"
-    # go = "Go" -- No csv or tagging info
-    # ios = "iOS" -- These don't follow normal tagging rules
-    android = "Android"
-}
-
-function GetLang($lang)
-{
-  $pkgLang = $langMapping[$lang]
-  if (!$pkgLang) { 
-    $pkgLang = $lang
-  }
-  return $pkgLang
-}
-function GetLangCsvFileName($lang) {
-  if ($langMapping.ContainsKey($lang)) {
-    return Join-Path $releaseFolder "$lang-packages.csv"
-  }
-  foreach ($keys in $langMapping.Keys)
-  {
-    if ($langMapping[$key] -eq $lang) {
-      return Join-Path $releaseFolder "$key-packages.csv"
-    }
-  }
-  throw "Language $lang as it isn't in the language mapping."
-}
-
 $allVersions = @{}
 $allPackagesFromCSV = @{}
+
+$allLangPkgVersions = @{}
+function GetVersionGroupForPackage($lang, $pkg)
+{
+  $versions = @()
+
+  $langPkgVersions = $allLangPkgVersions[$lang]
+
+  # Consider adding the versions from the csv but we don't have a date for them currently
+  if ($langPkgVersions.ContainsKey($pkg.Package)) {
+    $versions += $langPkgVersions[$pkg.Package]
+  }
+  if ($pkg.VersionGA -and ($versions.Count -eq 0 -or $versions.RawVersion -notcontains $pkg.VersionGA)) {
+    $versions += ToSemVer $pkg.VersionGA
+  }
+  if ($pkg.VersionPreview -and ($versions.Count -eq 0 -or $versions.RawVersion -notcontains $pkg.VersionPreview)) {
+    $versions += ToSemVer $pkg.VersionPreview
+  }
+
+  $versions = SortSemVersions $versions
+
+  if ($versions.Count -eq 0) {
+    Write-Verbose "No versioning information for $lang - $($pkg.Package)"
+    continue
+  }
+  
+  $verGroups = $versions | Group-Object -Property Major, Minor
+
+  return $verGroups
+}
+
 function InitializeVersionInformation()
 {
   if ($allVersions.Count -gt 0) { 
     return
   }
 
-  foreach ($lang in $langMapping.Keys) 
+  foreach ($lang in $languageNameMapping.Keys) 
   {
-    $packagelistFile = GetLangCsvFileName $lang
-    $packageList = Import-Csv $packagelistFile
-    $allPackagesFromCSV[(GetLang $lang)] = $packageList
-    $packageList = $packageList | Where-Object { $_.New -eq "true" }
+    $langName = Get-LanguageName $lang
+    $packageList = Get-PackageListForLanguage $lang
+    $allPackagesFromCSV[$langName] = $packageList
+    $packageList, $_ = Get-PackageListSplit $packageList
 
     if ($pkgFilter) {
       $packageList = $packageList | Where-Object { $_.Package -like $pkgFilter }
     }
 
-    $langPkgVersions = GetPackageVersions $lang
-    Write-Verbose "Found $($langPkgVersions.Count) versions for language $lang"
+    $allLangPkgVersions[$langName] = GetPackageVersions $lang
+    Write-Verbose "Found $($allLangPkgVersions[$langName].Count) versions for language $langName"
 
     $packageSet = @{}
     foreach ($pkg in $packageList)
     {
-      $versions = @()
-
-      # Consider adding the versions from the csv but we don't have a date for them currently
-      if ($langPkgVersions.ContainsKey($pkg.Package)) {
-        $versions += $langPkgVersions[$pkg.Package]
-      }
-      if ($pkg.VersionGA -and ($versions.Count -eq 0 -or $versions.RawVersion -notcontains $pkg.VersionGA)) {
-        $versions += ToSemVer $pkg.VersionGA
-      }
-      if ($pkg.VersionPreview -and ($versions.Count -eq 0 -or $versions.RawVersion -notcontains $pkg.VersionPreview)) {
-        $versions += ToSemVer $pkg.VersionPreview
-      }
-
-      $versions = SortSemVersions $versions
-
-      if ($versions.Count -eq 0) {
-        Write-Verbose "No versioning information for $lang - $($pkg.Package)"
-        continue
-      }
-      
-      $verGroups = $versions | Group-Object -Property Major, Minor
+      $verGroups = GetVersionGroupForPackage $langName $pkg
   
       $pkgVerGroups = @{}
       foreach ($verGroup in $verGroups)
@@ -248,7 +227,7 @@ function InitializeVersionInformation()
         PackageInfo = $pkg
       }
     }
-    $allVersions[(GetLang $lang)] = $packageSet
+    $allVersions[$langName] = $packageSet
   }
 }
 function GetVersionInfo($pkgLang, $pkgName, $verMajorMinor)
@@ -305,7 +284,7 @@ function FindParentWorkItem($serviceName, $packageDisplayName)
   if ($serviceName) {
     $serviceCondition = "[ServiceName] = '${serviceName}'"
     if ($packageDisplayName) {
-      $serviceCondition += "AND [PackageDisplayName] = '${packageDisplayName}'"
+      $serviceCondition += " AND [PackageDisplayName] = '${packageDisplayName}'"
     }
   }
   else {
@@ -340,7 +319,7 @@ function FindParentWorkItem($serviceName, $packageDisplayName)
 
 $packageWorkItems = @{}
 $packageWorkItemWithoutKeyFields = @{}
-function FindPackageWorkItem($lang, $packageName, $version)
+function FindPackageWorkItem($lang, $packageName, $version, $outputCommand=$true)
 {
   $key = BuildHashKeyNoNull $lang $packageName $version
   if ($key -and $packageWorkItems.ContainsKey($key)) {
@@ -350,6 +329,7 @@ function FindPackageWorkItem($lang, $packageName, $version)
   $fields = @()
   $fields += "ID"
   $fields += "State"
+  $fields += "System.AssignedTo"
   $fields += "Microsoft.VSTS.Common.StateChangeDate"
   $fields += "Parent"
   $fields += "Language"
@@ -385,7 +365,9 @@ function FindPackageWorkItem($lang, $packageName, $version)
   $parameters += "--wiql", "`"${query}`""
 
   $azCmdStr = "az boards query $($parameters -join " ")"
-  Write-Host $azCmdStr
+  if ($outputCommand) {
+    Write-Host $azCmdStr
+  }
   $workItems = Invoke-Expression "$azCmdStr" | ConvertFrom-Json -AsHashTable
 
   foreach ($wi in $workItems)
@@ -515,7 +497,7 @@ function UpdateWorkItem($id, $fields, $title, $state)
 
 function CreateOrUpdatePackageWorkItem($lang, $pkg, $version, $existingItem)
 {
-  $pkgLang = GetLang $lang
+  $pkgLang = Get-LanguageName $lang
   $pkgName = $pkg.Package
   $pkgDisplayName = $pkg.DisplayName
   $pkgType = $pkg.Type
@@ -1019,19 +1001,11 @@ function PackageMatchesVersionGroup($pkg, $versionGroupToCheck)
   return $false
 }
 
-function GetWorkItemState($pkg, $versionGroupToCheck)
-{
-  if (PackageMatchesVersionGroup $pkg $versionGroupToCheck) {
-    return "In Release"
-  }
-  return "No Active Development"
-}
-
 function RefreshItems()
 {
   InitializeVersionInformation
-  FindParentWorkItem $null # Pass null to cache all service parents
-  FindPackageWorkItem $null # Pass null to cache all the package items
+  $null = FindParentWorkItem $null # Pass null to cache all service parents
+  $null = FindPackageWorkItem $null # Pass null to cache all the package items
   $allPackageWorkItems = $packageWorkItems.Values
   if ($pkgFilter) {
     $allPackageWorkItems = $allPackageWorkItems | Where-Object { $_.fields["Custom.Package"] -like $pkgFilter }
@@ -1061,10 +1035,15 @@ function RefreshItems()
     }
 
     $pkgInfo = GetVersionInfo $pkgLang $pkgName
-    $verInfo = $null
+    
+    $pkg = $null
+    $versions = $null
 
     if ($pkgInfo) {
-      $verInfo = $pkgInfo.VersionGroups[$verMajorMinor]
+      if ($pkgInfo.VersionGroups.ContainsKey($verMajorMinor)) {
+        $versions = $pkgInfo.VersionGroups[$verMajorMinor].Versions
+      }
+      $pkg = $pkgInfo.PackageInfo
     }
     else {
       $pkgFromCsv = $allPackagesFromCSV[$pkgLang] | Where-Object { $pkgName -eq $_.Package }
@@ -1077,35 +1056,49 @@ function RefreshItems()
       if ($pkgFromCsv -and $pkgFromCsv.Count -ne 0) {
         if ($pkgFromCsv.Count -gt 1) {
           Write-Warning "[$($pkgWI.id)]$pkgLang - $pkgName($verMajorMinor) - Detected new package with multiple matching package names in the csv, so skipping it."
+          continue
         }
         else {
           $csvEntry = $pkgFromCsv[0]
-          $csvEntry.New = $pkgWI.fields["Custom.PackageTypeNewLibrary"].ToString().ToLower()
+          $csvEntry.New = $pkgWI.fields["Custom.PackageTypeNewLibrary"]
           $csvEntry.Type = $pkgWI.fields["Custom.PackageType"]
           $csvEntry.DisplayName = $pkgWI.fields["Custom.PackageDisplayName"]
           $csvEntry.ServiceName = $pkgWI.fields["Custom.ServiceName"]
 
-          # Need to figure out a way to set the RepoPath automatically
+          if ($pkgWI.fields["Custm.PckageRepoPath"] -and !$csvEntry.RepoPath) {
+            $csvEntry.RepoPath = $pkgWI.fields["Custm.PckageRepoPath"]
+          }
+
           if (!$csvEntry.RepoPath) {
             $csvEntry.RepoPath = "NA"
           }
 
-          $packageListFile = GetLangCsvFileName $pkgLang
-          Write-Host "[$($pkgWI.id)]$pkgLang - $pkgName($verMajorMinor) - Detect new package so updating metadata for it in '$packageListFile'."
-          $allPackagesFromCSV[$pkgLang] | ConvertTo-CSV -NoTypeInformation -UseQuotes Always | Out-File $packageListFile -encoding ascii
+          Write-Host "[$($pkgWI.id)]$pkgLang - $pkgName($verMajorMinor) - Detected new package so updating metadata for it."
+          Set-PackageListForLanguage $pkgLang $allPackagesFromCSV[$pkgLang]
+
+          $verGroups = GetVersionGroupForPackage $pkgLang $csvEntry
+          if ($verGroups) {
+            foreach ($verGroup in $verGroups) {
+              if ($verGroup.Name.Replace(", ", ".") -eq $verMajorMinor) {
+                $versions = $verGroup.Group
+                break;
+              }
+            }
+          }
+          $pkg = $csvEntry
         }
       }
       else {
         Write-Host "[$($pkgWI.id)]$pkgLang - $pkgName($verMajorMinor) - Skipping as this looks like brand new package that hasn't shipped so we don't have any versioning information."
+        continue
       }
-      continue
     }
 
     Write-Verbose "[$($pkgWI.id)]$pkgLang - $pkgName ($verMajorMinor) - '$($pkgWI.fields['System.State'])'"
 
-    $updatedWI = CreateOrUpdatePackageWorkItem $pkgLang $pkgInfo.PackageInfo $verMajorMinor $pkgWI
-    if ($verInfo) {
-      UpdateShippedPackageVersion $updatedWI $verInfo.Versions
+    $updatedWI = CreateOrUpdatePackageWorkItem $pkgLang $pkg $verMajorMinor $pkgWI
+    if ($versions) {
+      UpdateShippedPackageVersion $updatedWI $versions
     }
   }
 
@@ -1118,11 +1111,11 @@ function RefreshItems()
       {
         $verInfo = $allVersions[$pkgLang][$pkgName].VersionGroups[$verMajorMinor]
 
-        $pkgWI = FindPackageWorkItem $pkgLang $pkgName $verMajorMinor
+        $pkgWI = FindPackageWorkItem $pkgLang $pkgName $verMajorMinor -outputCommand $false
         
         if (!$pkgWI) 
         {
-          #TODO: Look for older versions and if we have one use the AssignToFrom it. 
+          #TODO: Look for older versions and if we have one use the AssignTo it.
           $pkgWI = CreateOrUpdatePackageWorkItem $pkgLang $verInfo.PackageInfo $verMajorMinor
           Write-Verbose "[$($pkgWI.id)]$pkgLang - $pkgName ($verMajorMinor)"
           UpdateShippedPackageVersion $pkgWI $verInfo.Versions

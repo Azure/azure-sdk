@@ -1,8 +1,9 @@
 param (
-  $language = "all",
-  $folder =  "$PSScriptRoot\..\..\_data\releases\latest"
+  $language = "all"
 )
 Set-StrictMode -Version 3
+
+. (Join-Path $PSScriptRoot PackageList-Helpers.ps1)
 
 function PackageEqual($pkg1, $pkg2) {
   if ($pkg1.Package -ne $pkg2.Package) {
@@ -104,8 +105,7 @@ function Get-python-Packages
 
 function Write-Latest-Versions($lang)
 {
-  $packagelistFile = Join-Path $folder "$lang-packages.csv"
-  $packageList = Import-Csv $packagelistFile | Sort-Object Type, DisplayName, Package, GroupId
+  $packageList = Get-PackageListForLanguage $lang
 
   if ($null -eq $packageList) { $packageList = @() }
 
@@ -147,11 +147,7 @@ function Write-Latest-Versions($lang)
     }
   }
 
-  Write-Host "Writing $packagelistFile"
-  $clientPackages = $packageList | Where-Object { $_.New -eq "true" }
-  $otherPackages = $packageList | Where-Object { $_.New -ne "true" }
-  $packageList = $clientPackages + $otherPackages
-  $packageList | Export-Csv -NoTypeInformation $packagelistFile -UseQuotes Always
+  Set-PackageListForLanguage $lang $packageList
 }
 
 switch($language)
