@@ -606,7 +606,23 @@ Polling configuration may be used only in the absence of relevant retry-after he
 
 TODO: If this is largely implemented for the API Designer, please include an example of how to use the Azure Core type in the public API.  It would be ideal to remove guidelines where the requirement has already been addressed for the API Designer in the type.
 
-TODO: Please add a section on conditional request methods.
+## Conditional Request Methods {#ts-conditional-requests}
+
+There are two patterns in use depending on whether `etag` is a member of the conceptual entity or not.
+
+{% include requirement/MUST id="ts-conditional-request-options-1" %} provide the following options in a method's options bag when the conceptual entity has an `etag` property:
+
+* onlyIfChanged - sets the `if-match` header to the `etag`.
+* onlyIfUnchanged - sets the `if-none-match` header to the `etag`.
+* onlyIfMissing - sets the `if-none-match` header to `*`.
+* onlyIfPresent - sets the `if-match` header to `*`.
+
+{% include requirement/MUST id="ts-conditional-request-options-2" %} provide the following options in a method's options bag's `conditions` property when the conceptual entity does not have an `etag` property:
+
+* ifMatch - sets the `if-match` header to the value provided.
+* ifNoneMatch - sets the `if-none-match` header to the value provided.
+* ifModifiedSince - sets the `if-modified-since` header to the value provided
+* ifUnmodifiedSince - sets the `if-unmodified-since` header to the value provided.
 
 TODO: Please add a section providing guidance on model types.
 
