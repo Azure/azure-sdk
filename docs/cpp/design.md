@@ -538,30 +538,30 @@ Although object-orientated languages can eschew low-level pagination APIs in fav
 {% include requirement/MAY id="cpp-design-logical-client-enumerations-enumish-pattern" %} provide an 'extensible enum' pattern for storing service enumerations which provides reasonable constant values. This pattern stores the value as a string but provides public static member fields with the individual values for customer consumption. For example:
 
 {% highlight cpp %}
-#include <azure.hpp> // for Azure::Core::Details::LocaleInvariantCaseInsensitiveEqual
+#include <azure/core/strings.hpp> // for Azure::Core::Strings::LocaleInvariantCaseInsensitiveEqual
 #include <utility> // for std::move
 namespace Azure { namespace Group { namespace Service {
 
 // an "Extensible Enum" type
 class KeyType {
-    std::string m_Value;
+    std::string m_value;
 public:
     // Provide `explicit` conversion from string or types convertible to string:
-    explicit KeyType(const std::string& value) : m_Value(value) { }
-    explicit KeyType(std::string&& value) : m_Value(std::move(value)) { }
-    explicit KeyType(const char* value) : m_Value(value) { }
+    explicit KeyType(const std::string& value) : m_value(value) { }
+    explicit KeyType(std::string&& value) : m_value(std::move(value)) { }
+    explicit KeyType(const char* value) : m_value(value) { }
 
     // Provide an equality comparison. If the service treats the enumeration case insensitively,
     // use LocaleInvariantCaseInsensitiveEqual to prevent differing locale settings from affecting
     // the SDK's behavior:
     bool operator==(const KeyType& other) const noexcept {
-        return Azure::Core::Details::LocaleInvariantCaseInsensitiveEqual(m_Value, other.m_Value);
+        return Azure::Core::Strings::LocaleInvariantCaseInsensitiveEqual(m_value, other.m_value);
     }
 
     bool operator!=(const KeyType& other) const noexcept { return !(*this == other); }
 
     // Provide a "Get" accessor
-    const std::string& Get() const noexcept { return mValue; }
+    const std::string& Get() const noexcept { return m_value; }
 
     // Provide your example values as static const members
     const static KeyType Ec;
@@ -575,11 +575,11 @@ public:
 
 // in a .cpp file:
 namespace Azure { namespace Group { namespace Service {
-const KeyType KeyType::Ec = "EC";
-const KeyType KeyType::EcHsm = "EC-HSM";
-const KeyType KeyType::Rsa = "RSA";
-const KeyType KeyType::RsaHsm = "RSA-HSM";
-const KeyType KeyType::Oct = "oct";
+    const KeyType KeyType::Ec{"EC"};
+    const KeyType KeyType::EcHsm{"EC-HSM"};
+    const KeyType KeyType::Rsa{"RSA"};
+    const KeyType KeyType::RsaHsm{"RSA-HSM"};
+    const KeyType KeyType::Oct{"OCT"};
 }}} // namespace Azure::Group::Service
 {% endhighlight %}
 
