@@ -127,6 +127,46 @@ typedef struct az_iot_client {
 } az_iot_client;
 {% endhighlight %}
 
+{% include requirement/MUSTNOT id="clang-design-naming-struct-no-const" %} declare const fields within structs. Pointers to const are fine, however. For example:
+```c
+// bad
+typedef struct az_iot_client {
+    const int retry_timeout;
+    char* const api_version;
+} az_iot_client;
+
+// good
+typedef struct az_iot_client {
+    int retry_timeout;
+    char const * api_version;
+} az_iot_client;
+```
+
+The reason to avoid such members is that it makes it impossible to ever _reassign_ a variable of the struct type. For example:
+
+```c
+typedef struct az_iot_client {
+    int retry_timeout;
+    char const* const api_version;
+};
+
+az_iot_client az_iot_create_client() {
+    az_iot_client result = {4, "some version"};
+    return result;
+}
+
+void az_iot_client_do_operation(az_iot_client const * client);
+
+int main(void) {
+    az_iot_client client = az_iot_create_client();
+    az_iot_client_do_operation(&client);
+    // done, need to connect to some other service endpoint
+    client = az_iot_create_client(); // <--- does not compile
+    // do things with the other client
+}
+
+```
+
 ### Enums
 
 {% include requirement/MUST id="clang-design-naming-enum" %} use snake-casing to name enum types, and include the az_<svcname>_<shortenumname> prefix.
