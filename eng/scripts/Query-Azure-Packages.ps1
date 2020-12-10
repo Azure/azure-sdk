@@ -140,6 +140,9 @@ function Write-Latest-Versions($lang)
   # Clean out packages that are no longer in the query we use for the package manager
   foreach ($pkg in $packageList)
   {
+    # Skip the package entries that don't have a Package value as they are just placeholders
+    if ($pkg.Package -eq "") { continue }
+
     $pkgEntries = $packages.Where({ PackageEqual $_ $pkg })
 
     if ($pkgEntries.Count -ne 1) {
