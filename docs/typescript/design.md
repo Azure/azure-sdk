@@ -57,7 +57,7 @@ The following are examples that do not meet the guidelines:
 * `@microsoft/cosmos` (not in `@azure` scope).
 * `@azure/digitaltwins` (not kebab-cased).
 
-{% include requirement/SHOULD id"ts-npm-package-name-follow-conventions" %} you should follow the casing conventions of any existing GA packages released in the `@azure` npm scope. It's not worth renaming a package just to align on naming conventions.
+{% include requirement/SHOULD id="ts-npm-package-name-follow-conventions" %} you should follow the casing conventions of any existing GA packages released in the `@azure` npm scope. It's not worth renaming a package just to align on naming conventions.
 
 ## The Client API {#ts-apisurface-serviceclient}
 
@@ -147,11 +147,11 @@ class ExampleClient {
 
 ### Service Versions {#ts-service-versions}
 
-{% include requirement/MUST id="ts-service-versions-use-latest} call the highest supported service API version by default.
+{% include requirement/MUST id="ts-service-versions-use-latest" %} call the highest supported service API version by default.
 
-{% include requirement/MUST id="ts-service-versions-select-api-versiopn} allow the consumer to explicitly select a supported service API version when instantiating the client if multiple service versions are supported.
+{% include requirement/MUST id="ts-service-versions-select-api-version" %} allow the consumer to explicitly select a supported service API version when instantiating the client if multiple service versions are supported.
 
-{% include requirement/MUST id="ts-service-versions-use-client-options} provide a `serviceVersion` option in the client constructor's option bag for providing a service version. The type of this should be a string literal union with supported service versions. You may also provide a string enum with supported service versions.
+{% include requirement/MUST id="ts-service-versions-use-client-options" %} provide a `serviceVersion` option in the client constructor's option bag for providing a service version. The type of this should be a string literal union with supported service versions. You may also provide a string enum with supported service versions.
 
 ### Options {#ts-options}
 
@@ -287,8 +287,6 @@ export interface ContainerGetPropertiesHeaders {
 {% include requirement/MUST id="ts-naming-subclients" %} prefix methods that create or vend subclients with `get` and suffix with `client`.  For example, `container.getBlobClient()`.
 
 TODO: Put the above with the discussion of hierarchical clients?
-
-{% include requirement/MUST id="ts-naming-options" %} suffix options bag parameters names with `Options`, and prefix with the name of the operation. For example, if an operation is called createItem, its options type must be called `CreateItemOptions`.
 
 TODO: A code sample here would help illustrate this.
 
