@@ -63,7 +63,7 @@ Azure services are exposed to Java developers as one or more *service client* ty
 
 ### Service Client
 
-Service clients are the main starting points for developers calling Azure services with the Azure SDK. Each client library should have at least one client in its main namespace, so it’s easy to discover. The guidelines in this section describe patterns for the design of a service client.
+Service clients are the main starting points for developers calling Azure services with the Azure SDK. Each client library should have at least one client in its main namespace, so it’s easy to discover. The guidelines in this section describe patterns for the design of a service client, however, because in Java the guidelines below require both a synchronous and an asynchronous service client, the sections below are split into general guidance, followed by sync- and async-specific guidance.
 
 {% include requirement/MUST id="java-service-client-name" %} name service client types with the _Client_ suffix (for example, `ConfigurationClient`).
 
@@ -73,9 +73,9 @@ Service clients are the main starting points for developers calling Azure servic
 
 {% include requirement/MUST id="java-service-client-immutable" %} ensure that all service client classes are immutable upon instantiation.
 
-{% include requirement/MUSTNOT id="java-service-client-constructors" %} provide any `public` or `protected` constructors in the service client, except where necessary to support mock testing. Keep visibility to a minimum. Instantiation of the service client must always be through a service client builder.
+{% include requirement/MUST id="java-network-separate-packages" %} have separate service clients for sync and async APIs.
 
-{% include requirement/MUST id="java-network-separate-packages" %} have separate service clients for sync and async APIs.  The consumer needs to identify which methods are async and which are sync.
+#### Sync Service Clients
 
 {% include requirement/MUST id="java-sync-client-name" %} offer a sync service client named `<ServiceName>Client`. More than one service client may be offered for a single service. An example of a sync client is shown below:
 
@@ -123,6 +123,8 @@ public final class <service_name>Client {
 
 Refer to the [ConfigurationClient class] for a fully built-out example of how a sync client should be constructed.
 
+#### Async Service Clients
+
 {% include requirement/MUST id="java-async-client-name" %} offer an async service client named `<ServiceName>AsyncClient`. More than one service client may be offered for a single service. An example of an async client is shown below:
 
 ```java
@@ -167,7 +169,9 @@ Refer to the [ConfigurationAsyncClient class] for a fully built-out example of h
 
 {% include requirement/MUSTNOT id="java-async-streaming" %} write custom APIs for streaming or async operations. Make use of the existing functionality offered in the Azure core library. Discuss proposed changes to the Azure core library with the [Architecture Board]. Refer to the [Azure Core Types](#using-azure-core-types) section for more information.
 
-#### Service Client Builders
+#### Service Client Creation
+
+{% include requirement/MUSTNOT id="java-service-client-constructors" %} provide any `public` or `protected` constructors in the service client, except where necessary to support mock testing. Keep visibility to a minimum. Instantiation of the service client must always be through a service client builder.
 
 {% include requirement/MUST id="java-service-client-fluent-builder" %} offer a fluent builder API for constructing service clients named `<service_name>ClientBuilder`, which must support building a sync service client instance and an async service client instance (where appropriate). It must offer `buildClient()` and `buildAsyncClient()` API to create a synchronous and asynchronous service client instance, respectively:
 
@@ -256,23 +260,47 @@ public final class <service_name>ClientBuilder {
 
 {% include requirement/MUST id="java-service-client-builder-state" %} throw an `IllegalStateException` from the builder method when it receives mutually exclusive arguments.  The consumer is over-specifying builder arguments, some of which will necessarily be ignored. The error message in the exception must clearly outline the issue.
 
-{% include requirement/MUST id="java-client-construction" %} allow the consumer to construct a service client with the minimal information needed to connect and authenticate to the service.
+{% include requirement/MUST id="java-client-construction" %} allow the consumer to construct a service client with the minimal information needed to connect and [authenticate](#authentication) to the service.
 
-{% include requirement/MUST id="java-service-client-builder-validity" %} ensure the builder will instantiate a service client into a valid state.  Throw an `IllegalStateException` when the user calls the `build*()` methods.
+{% include requirement/MUST id="java-service-client-builder-validity" %} ensure the builder will instantiate a service client into a valid state.  Throw an `IllegalStateException` when the user calls the `build*()` methods with a configuration that is incomplete or invalid.
 
-##### Service API versions
+##### Service Versions
 
-The purposes of the client library is to communicate with an Azure service.  Azure services support multiple API versions. The client library must be able to support multiple service API versions.
+{% include requirement/MUST id="java-versioning-highest-api" %} call the highest supported service API version by default, and ensure this is clearly documented.
 
-{% include requirement/MUST id="java-service-apiversion-1" %} only target generally available service API versions when releasing a GA version of the client library.
+{% include requirement/MUST id="java-versioning-select-api-version" %} allow the consumer to explicitly select a supported service API version when instantiating the service client.
 
-{% include requirement/MUST id="java-service-apiversion-2" %} target the latest generally available service API version by default in GA versions of the client library.
+Use a builder parameter called `serviceVersion` on the client builder type (as [specified above](#service-client-creation)).
 
-{% include requirement/MUST id="java-service-apiversion-5" %} document the service API version that is used by default.
+For example, the following is a code snippet from the `ConfigurationServiceVersion`:
 
-{% include requirement/MUST id="java-service-apiversion-3" %} target the latest public preview API version by default when releasing a public beta version of the client library.
+```java
+public enum ConfigurationServiceVersion implements ServiceVersion {
+    V1_0("1.0");
 
-{% include requirement/MUST id="java-service-apiversion-4" %} include all service API versions that are supported by the client library in a `ServiceVersion` enumerated value.
+    private final String version;
+
+    ConfigurationServiceVersion(String version) {
+        this.version = version;
+    }
+
+    @Override
+    public String getVersion() {
+        return this.version;
+    }
+
+    /**
+     * Gets the latest service version supported by this client library
+     *
+     * @return the latest {@link ConfigurationServiceVersion}
+     */
+    public static ConfigurationServiceVersion getLatest() {
+        return V1_0;
+    }
+}
+```
+
+{% include note.html content="Third-party reusable libraries shouldn't change behavior without an explicit decision by the developer.  When developing libraries that are based on the Azure SDK, lock the library to a specific service version to avoid changes in behavior." %}
 
 #### Service Methods
 
@@ -434,6 +462,8 @@ If in common scenarios, users are likely to pass just a small subset of what the
 {% include requirement/MUST id="java-params-options-design" %} design options types with the same design guidance as given below for model class types, namely fluent setters for optional arguments, using the standard JavaBean naming convention of `get*`, `set*`, and `is*`. Additionally, there may be constructor overloads for each combination of required arguments.
 
 {% include requirement/MAY id="java-params-options-ctor" %} introduce constructor overloads for each combination of required arguments.
+
+> TODO code sample
 
 ##### Parameter Validation
 
