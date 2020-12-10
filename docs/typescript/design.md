@@ -608,7 +608,7 @@ TODO: If this is largely implemented for the API Designer, please include an exa
 
 ## Conditional Request Methods {#ts-conditional-requests}
 
-There are two patterns in use depending on whether `etag` is a member of the conceptual entity or not.
+There are two patterns in use depending on whether `etag` is a member of the model type or not.
 
 {% include requirement/MUST id="ts-conditional-request-options-1" %} provide the following options in a method's options bag when the model type has an `etag` property:
 
@@ -623,6 +623,8 @@ There are two patterns in use depending on whether `etag` is a member of the con
 * ifNoneMatch - sets the `if-none-match` header to the value provided.
 * ifModifiedSince - sets the `if-modified-since` header to the value provided
 * ifUnmodifiedSince - sets the `if-unmodified-since` header to the value provided.
+
+{% include requirement/MUST id="ts-conditional-request-no-dupe-options" %} throw an error if the user provides options from both option sets, for example passing `onlyIfChanged: true` and `ifMatch: "..."`. In some cases you may want to provide both sets of options, but it is not required or necessarily recommended.
 
 TODO: Please add a section providing guidance on model types.
 
