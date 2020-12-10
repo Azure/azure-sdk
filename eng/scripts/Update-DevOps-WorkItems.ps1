@@ -79,7 +79,7 @@ function ToSemVer($version, $shaUrl = $null)
   if ($version -match $SEMVER_REGEX)
   {
     $patch = if ($matches['patch']) { [int]$matches['patch'] } else { 0 }
-    if($null -eq $matches['prelabel']) {
+    if ($null -eq $matches['prelabel']) {
       # artifically provide these values for non-prereleases to enable easy sorting of them later than prereleases.
       $prelabel = "zzz"
       $prenumber = 999;
@@ -1080,7 +1080,7 @@ function RefreshItems()
         }
         else {
           $csvEntry = $pkgFromCsv[0]
-          $csvEntry.New = $pkgWI.fields["Custom.PackageTypeNewLibrary"].ToLower()
+          $csvEntry.New = $pkgWI.fields["Custom.PackageTypeNewLibrary"].ToString().ToLower()
           $csvEntry.Type = $pkgWI.fields["Custom.PackageType"]
           $csvEntry.DisplayName = $pkgWI.fields["Custom.PackageDisplayName"]
           $csvEntry.ServiceName = $pkgWI.fields["Custom.ServiceName"]
