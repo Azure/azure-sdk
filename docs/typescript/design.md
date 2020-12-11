@@ -630,7 +630,17 @@ TODO: Please add a section providing guidance on model types.
 
 TODO: Please add discussion similar to the [Model Type discussion from the General Guidelines](https://azure.github.io/azure-sdk/general_design.html#model-types), including the naming table if relevant to JS/TS, or an alternate one specific to JS/TS.  
 
-TODO: Please add a section on Azure Core type usage, which may simply link out to Azure Core documentation in the azure-sdk-for-js repo, if this is self-explanatory.
+## Using Azure Core {#ts-core-types}
+
+{% include requirement/MUST id="ts-core-types-must" %} make use of packages in Azure Core to provide behavior consistent across all Azure SDK libraries. This includes, but is not limited to:
+
+* `core-http` for http client, pipeline and related functionality
+* `logger` for logging
+* `core-tracing` for distributed tracing
+* `core-auth` for common auth interfaces
+* `core-lro` for long running operations
+
+See the [Azure Core readme](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/core) for more details.
 
 TODO: Please add a section on extensible enums, if this is relevant to JS/TS.
 
