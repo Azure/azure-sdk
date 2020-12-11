@@ -53,9 +53,7 @@ The main value of the Azure SDK is productivity. Other qualities, such as comple
 
 ### Support for non-HTTP Protocols
 
-Currently, this document describes guidelines for client libraries exposing HTTP services, with a small amount of guidance for AMQP-based services. If your service is not HTTP-based, please contact the Azure SDK Architecture Board for guidance.
-
-> TODO: Link to current arch board contact info.
+Currently, this document describes guidelines for client libraries exposing HTTP services, with a small amount of guidance for AMQP-based services. If your service is not HTTP-based, please contact the [Azure SDK Architecture Board](https://azure.github.io/azure-sdk/policies_reviewprocess.html) for guidance.
 
 ## Azure SDK API Design {#java-api}
 
@@ -63,7 +61,7 @@ Azure services are exposed to Java developers as one or more *service client* ty
 
 ### Service Client
 
-Service clients are the main starting points for developers calling Azure services with the Azure SDK. Each client library should have at least one client in its main namespace, so it’s easy to discover. The guidelines in this section describe patterns for the design of a service client, however, because in Java the guidelines below require both a synchronous and an asynchronous service client, the sections below are split into general guidance, followed by sync- and async-specific guidance.
+Service clients are the main starting points for developers calling Azure services with the Azure SDK. Each client library should have at least one client in its main namespace, so it’s easy to discover. The guidelines in this section describe patterns for the design of a service client. Because in Java both synchronous and asynchronous service clients are required, the sections below are organized into general service client guidance, followed by sync- and async-specific guidance.
 
 {% include requirement/MUST id="java-service-client-name" %} name service client types with the _Client_ suffix (for example, `ConfigurationClient`).
 
@@ -171,7 +169,7 @@ Refer to the [ConfigurationAsyncClient class] for a fully built-out example of h
 
 #### Service Client Creation
 
-{% include requirement/MUSTNOT id="java-service-client-constructors" %} provide any `public` or `protected` constructors in the service client, except where necessary to support mock testing. Keep visibility to a minimum. Instantiation of the service client must always be through a service client builder.
+{% include requirement/MUSTNOT id="java-service-client-constructors" %} provide any `public` or `protected` constructors in the service client, except where necessary to support mock testing. Keep visibility to a minimum by using package-private constructors that may only be called by types in the same package, and then enable instantiation of the service client through the [service client builder](#service-client-creation).
 
 {% include requirement/MUST id="java-service-client-fluent-builder" %} offer a fluent builder API for constructing service clients named `<service_name>ClientBuilder`, which must support building a sync service client instance and an async service client instance (where appropriate). It must offer `buildClient()` and `buildAsyncClient()` API to create a synchronous and asynchronous service client instance, respectively. Shown in the first code sample below is a generalized template, and following that is a stripped-down example builder.
 
@@ -187,7 +185,10 @@ public final class <service_name>ClientBuilder {
     // private fields for all settable parameters
     ...
 
-    // public constructor - this is the only available front door to creating a service client instance
+    // This is the public constructor used to create the service client, so a public access modifier
+    // makes sense here. This is required, and it is intended to prevent any public constructors
+    // in the service client itself, because we do not want to allow users to create a service client
+    // directly.
     public <service_name>ClientBuilder() {
         // any initialization necessary for the builder
     }
@@ -331,7 +332,7 @@ public final class ConfigurationClientBuilder {
 
 Use a builder parameter called `serviceVersion` on the client builder type (as [specified above](#service-client-creation)).
 
-For example, the following is a code snippet from the `ConfigurationServiceVersion`:
+{% include requirement/MUST id="java-versioning-service-version-spec" %} specify a service version as an enum implementing the `ServiceVersion` interface. For example, the following is a code snippet from the `ConfigurationServiceVersion`:
 
 ```java
 public enum ConfigurationServiceVersion implements ServiceVersion {
@@ -427,7 +428,7 @@ getFoo(a, Context)
 
 ##### Cancellation
 
-{% include requirement/MUSTNOT id="java-no-cancellation" %} provide any API that accepts a cancellation token, in both sync and async clients. Cancellation isn't a common pattern in Java.  Developers who need to cancel requests should use the async API instead, where they can unsubscribe from a publisher to cancel the request.
+{% include requirement/MUSTNOT id="java-no-cancellation" %} provide any API that accepts a cancellation token, in both sync and async clients. Cancellation isn't a common pattern in Java. Developers who use our client libraries, and who need to cancel requests, should use the async API instead, where they can unsubscribe from a publisher to cancel the request.
 
 ##### Return Types
 
@@ -885,11 +886,11 @@ public final class PhoneNumber {
 
 ### Exceptions
 
-Error handling is an important aspect of implementing a client library. It is the primary method by which problems are communicated to the consumer. There are two methods by which errors are reported to the consumer. Either the method throws an exception, or the method returns an error code (or value) as its return value, which the consumer must then check. In this section we refer to "producing an error" to mean throwing an exception, and "an error" to be the error value or exception object.
+Error handling is an important aspect of implementing a client library. It is the primary method by which problems are communicated to the consumer. We convey errors to developers by throwing appropriate exceptions from our service methods.
 
 {% include requirement/MUST id="java-errors-http-request-failed" %} throw an exception when any HTTP request fails with an HTTP status code that is not defined by the service/Swagger as a successful status code.
 
-{% include requirement/MUST id="java-errors-unchecked-exceptions" %} use unchecked exceptions. Java offers checked and unchecked exceptions, where checked exceptions force the user to introduce verbose `try .. catch` code blocks and handle each specified exception. Unchecked exceptions avoid verbosity and improve scalability issues inherent with checked exceptions in large apps. 
+{% include requirement/MUST id="java-errors-unchecked-exceptions" %} use unchecked exceptions. Java offers checked and unchecked exceptions, where checked exceptions force the user to introduce verbose `try .. catch` code blocks and handle each specified exception. Unchecked exceptions avoid verbosity and improve scalability issues inherent with checked exceptions in large apps.
 
 In the case of a higher-level method that produces multiple HTTP requests, either the last exception or an aggregate exception of all failures should be produced.
 
@@ -1032,11 +1033,13 @@ public class UserPreferencesTest {
 }
 ```
 
-{% include requirement/MUST id="java-mocking" %} support mocking to enable non-live testing of service clients by customers.
+{% include requirement/MUST id="java-mocking" %} support mocking to enable non-live testing of service clients (and by extension also model types, option types, etc) by customers.
 
 ## Azure SDK Library Design
 
 ### Packaging
+
+#### Maven
 
 All client libraries for Java standardize on the Maven build tooling for build and dependency management. This section details the standard configuration that must be used in all client libraries.
 
