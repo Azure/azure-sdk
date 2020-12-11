@@ -359,6 +359,23 @@ public enum ConfigurationServiceVersion implements ServiceVersion {
 }
 ```
 
+This can then be called by the developer as such:
+
+```java
+public class UserApplication {
+    public static void main(String args[]) {
+        ConfigurationClient client = new ConfigurationClientBuilder()
+            .credential(<tokenCredential>)
+            .endpoint("<endpoint>")
+            .serviceVersion(ConfigurationServiceVersion.V1_0) // set the version to V1
+            .buildClient();
+
+        // calls V1 service API
+        ConfigurationSetting setting = client.getConfigurationSetting("name", "label"); 
+    }
+}
+```
+
 {% include note.html content="Third-party reusable libraries shouldn't change behavior without an explicit decision by the developer.  When developing libraries that are based on the Azure SDK, lock the library to a specific service version to avoid changes in behavior." %}
 
 #### Service Methods
@@ -832,9 +849,15 @@ public static final class OperationStatus extends ExpandableStringEnum<Operation
 
 #### Using Azure Core Types
 
-The azure-core package provides common functionality for client libraries. Documentation and usage examples can be found in the [azure/azure-sdk-for-java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core/azure-core) repository.
+{% include requirement/MUST id="java-core-types-must" %} make use of packages in Azure Core to provide behavior consistent across all Azure SDK libraries. This includes, but is not limited to:
 
-> TODO enumerate some common types
+* `HttpClient`, `HttpPipeline`, `Response`, etc for http client, pipeline and related functionality
+* `ClientLogger` for logging
+* `PagedFlux` and `PagedIterable` for returning paged results
+* `SyncPoller` and `PollerFlux` for long running operations
+* `TokenCredential`, `AzureKeyCredential`, etc for common auth interfaces
+
+See the [Azure Core readme](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core/azure-core) for more details.
 
 #### Using Primitive Types
 
