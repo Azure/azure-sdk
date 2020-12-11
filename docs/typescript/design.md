@@ -606,7 +606,25 @@ Polling configuration may be used only in the absence of relevant retry-after he
 
 TODO: If this is largely implemented for the API Designer, please include an example of how to use the Azure Core type in the public API.  It would be ideal to remove guidelines where the requirement has already been addressed for the API Designer in the type.
 
-TODO: Please add a section on conditional request methods.
+## Conditional Request Methods {#ts-conditional-requests}
+
+There are two patterns in use depending on whether `etag` is a member of the model type or not.
+
+{% include requirement/MUST id="ts-conditional-request-options-1" %} provide the following options in a method's options bag when the model type has an `etag` property:
+
+* onlyIfChanged - sets the `if-match` header to the `etag`.
+* onlyIfUnchanged - sets the `if-none-match` header to the `etag`.
+* onlyIfMissing - sets the `if-none-match` header to `*`.
+* onlyIfPresent - sets the `if-match` header to `*`.
+
+{% include requirement/MUST id="ts-conditional-request-options-2" %} provide the following options in a method's options bag's `conditions` property when the model type does not have an `etag` property:
+
+* ifMatch - sets the `if-match` header to the value provided.
+* ifNoneMatch - sets the `if-none-match` header to the value provided.
+* ifModifiedSince - sets the `if-modified-since` header to the value provided
+* ifUnmodifiedSince - sets the `if-unmodified-since` header to the value provided.
+
+{% include requirement/MUST id="ts-conditional-request-no-dupe-options" %} throw an error if the user provides options from both option sets, for example passing `onlyIfChanged: true` and `ifMatch: "..."`. In some cases you may want to provide both sets of options, but it is not required or necessarily recommended.
 
 TODO: Please add a section providing guidance on model types.
 
