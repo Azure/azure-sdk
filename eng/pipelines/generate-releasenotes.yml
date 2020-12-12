@@ -1,0 +1,43 @@
+parameters:
+- name: BaseBranchName
+  type: string
+  default: $(Build.SourceBranchName)
+- name: Repos
+  type: object
+  default:
+    - azure-sdk-for-java
+    - azure-sdk-for-js
+    - azure-sdk-for-net
+    - azure-sdk-for-python
+
+trigger:
+- none
+
+pool:
+  vmImage: 'windows-2019'
+
+steps:
+  - ${{ each repo in parameters.Repos }}:
+    - pwsh: |
+        git clone --branch ${{ parameters.BaseBranchName }} "https://github.com/azure/${{ repo }}"
+      displayName: Clone ${{ repo }} repo
+
+    - task: PowerShell@2
+      displayName: 'Generate ReleaseNotes for the Release Period'
+      workingDirectory: $(System.DefaultWorkingDirectory)
+      inputs:
+        pwsh: true
+        filePath: $(System.DefaultWorkingDirectory)/eng/scripts/Generate-ReleaseNotes.ps1
+        arguments: > 
+          -RepositoryName ${{ repo }}
+          -BaseBranchName ${{ parameters.BaseBranchName }}
+
+    - template: $(System.DefaultWorkingDirectory)/eng/common/pipelines/templates/steps/create-pull-request.yml
+      parameters:
+        RepoName: azure-sdk
+        PRBranchName: CreateOrUpdateReleaseNotes
+        CommitMsg: "Create or Update Release Notes in ${{ repo }} for $(thisReleasePeriod) release"
+        PRTitle: "Create or Update Release Notes for ${{ repo }} for $(thisReleasePeriod) release"
+        PushArgs: -f
+        WorkingDirectory: $(System.DefaultWorkingDirectory)
+        ScriptDirectory: $(System.DefaultWorkingDirectory)/${{ repo }}/eng/common/scripts
