@@ -123,17 +123,19 @@ Follow the best practices below to ensure that the visibility of the new release
 Identify supported legacy libraries for the SDK you are releasing as early as possible <br>
 -	Note, we cannot deprecate GA libraries which were released less than 1 year ago per the [current Azure SLA](https://www.microsoft.com/EN-US/LICENSING/PRODUCT-LICENSING/PRODUCTS) 
 - Note,  We should direct users to the new library only if it is covering the legacy library specs. Make sure you confirm feature and performance parity at your arch board reviews.
--	Add all identified packages to the [Package Deprecation Plan](https://microsoft-my.sharepoint.com/:w:/p/elraikhm/ETPskYQ1MGxErAdJf5u0OaYBJjp6j1xBBQwuU74jmTx5xw?e=4b3oyj)
+-	Add all identified packages to the Package Deprecation Plan.
+For example,  https://github.com/Azure/azure-storage-net which would be one of the legacy packages for azure storage sdk. 
 
-For each legacy package in your list
--	Update the legacy package README with a link to the new package.
+For each legacy package in your Package Deprecation Plan
+-	Update the legacy library package README with a link to the new package.
 ```markdown
 Please note, a newer package is available [package name](https://dummylinktopackage.com/) as of [date-MM/YY]. We strongly encourage you to upgrade. 
 See [Migration Guide](https://dummylink.com/) for more details.
 ```
 -	Update the legacy Samples README with link to the new samples.
+Note, you can search for sample repositories under https://docs.microsoft.com/en-us/samples/browse/?products=azure 
 ```markdown
-Samples in this repository use older packages [list legacy package used]. We recommend that you get started using the new package here instead: <link>.
+Samples in this repository use older packages [list legacy package here]. We recommend that you get started using the new package here instead: <link>.
 ```
 -	Update the new package README with a link to the migration guides.
 ```markdown
@@ -141,10 +143,10 @@ This document covers [library name] [package name](https://dummylinktopackage.co
 If you're using an older package, we recommend that you upgrade your code.
 See [Migration Guide](https://dummylink.com/) for more details
 ```
--	Update package index files to hide legacy packages and identify legacy packages replacement
+-	Update package index files to identify legacy packages replacement
 ```markdown
 Go to https://github.com/Azure/azure-sdk/blob/master/_data/releases/latest/ and update [language]-packages.csv.
-Use Hide collumn to hide deprecated packages, use Notes collumn to clarify what is being replaced by the new package
+Use Notes column to clarify what is being replaced by the new package
 ```
 -	Make updates to the legacy packages in the package manager.
 Use the following message and follow programming language instructions
@@ -154,8 +156,8 @@ We strongly encourage you to upgrade. See [Migration Guide](https://dummylink.co
 ```
 Language|Instructions
 ----------|---------
-.Net|Follow instructions at [deprecating nuget packages](https://docs.microsoft.com/en-us/nuget/nuget-org/deprecate-packages) to deprecate the package with the message above.<br>Select all versions of the package you are deprecating.<br>Choose deprecation reason as "Other" because "Legacy" is for packages that are no longer maintained.
-Java | Update the project description in the pom file to include the deprecation message. Publish Update.
+.Net|Follow instructions at [deprecating NuGet packages](https://docs.microsoft.com/en-us/nuget/nuget-org/deprecate-packages) to deprecate the package with the message above.<br>Select all versions of the package you are deprecating.<br>Choose deprecation reason as "Other" because "Legacy" is for packages that are no longer maintained.
+Java | Update the project description in the POM file to include the deprecation message. Publish Update.
 TS/JS | Run the command `npm deprecate` which takes the package name and the deprecation message.
 Python | Publish an update to the package after updating the README.
   |  
