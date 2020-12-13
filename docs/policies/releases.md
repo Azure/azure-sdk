@@ -121,7 +121,7 @@ A manual migration test should be developed to ensure that payloads and data fed
 Follow the best practices below to ensure that the visibility of the new release is elevated.
 
 Identify supported legacy libraries for the SDK you are releasing as early as possible <br>
--	Note, we cannot deprecate GA libraries which were released less than 1 year ago per the [current Azure SLA](https://www.microsoft.com/EN-US/LICENSING/PRODUCT-LICENSING/PRODUCTS) 
+-	Note, we cannot deprecate GA libraries which were released less than 1 year ago per the [current Azure SLA](https://www.microsoft.com/LICENSING/PRODUCT-LICENSING/PRODUCTS) 
 - Note,  We should direct users to the new library only if it is covering the legacy library specs. Make sure you confirm feature and performance parity at your arch board reviews.
 -	Add all identified packages to the Package Deprecation Plan.
 For example,  https://github.com/Azure/azure-storage-net which would be one of the legacy packages for azure storage sdk. 
