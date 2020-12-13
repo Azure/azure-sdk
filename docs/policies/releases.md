@@ -144,7 +144,7 @@ See [Migration Guide](https://dummylink.com/) for more details
 -	Update package index files to hide legacy packages and identify legacy packages replacement
 ```markdown
 Go to https://github.com/Azure/azure-sdk/blob/master/_data/releases/latest/ and update [language]-packages.csv.
-Use Hide collumn to hide deprecated packages, use Notes collumn to clarify what is being replaced by the new package
+Use Hide collumn to hide deprecated packages, use Notes column to clarify what is being replaced by the new package
 ```
 -	Make updates to the legacy packages in the package manager.
 Use the following message and follow programming language instructions
