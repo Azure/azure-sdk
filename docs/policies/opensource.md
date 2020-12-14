@@ -76,16 +76,22 @@ Use the following rules to ensure that we can use CODEOWNERS for both GitHub and
 
 # Service teams
 /sdk/azconfig/   @person3 @person4
+
+# Example for a service that needs issues to be labeled
 # ServiceLabel: %KeyVault %Service Attention
 /sdk/keyvault/   @person5 @person6
+
+# Example for a service that needs PRs to be labeled
 # PRLabel: %label
 /sdk/servicebus/ @person7 @person8
 
+# Example for a service that needs both issues and PRs to be labeled
 # ServiceLabel: %label
 # PRLabel: %label
-/sdk/servicebus/ @person7 @person8
+/sdk/eventhubs/ @person7 @person8
 
-# Service that does not have the code in the repo
+# Example for service that does not have the code in the repo but wants issues to be labeled
+# Notice the use of the moniker /<NotInRepo>/
 # ServiceLabel: %label %Service Attention
 #/<NotInRepo>/ @person7 @person8
 
