@@ -26,15 +26,15 @@ The Azure SDK team is pleased to make available the December 2020 client library
 To install the packages, copy and paste the below into a terminal.
 
 ```bash
-$> npm install @azure/synapse-accesscontrol
-$> npm install @azure/synapse-artifacts
-$> npm install @azure/synapse-spark
-$> npm install @azure/synapse-managed-private-endpoints
-$> npm install @azure/synapse-monitoring
-$> npm install @azure/storage-blob
-$> npm install @azure/storage-file-share
-$> npm install @azure/storage-file-datalake
-$> npm install @azure/storage-queue
+$> npm install @azure/synapse-access-control@next
+$> npm install @azure/synapse-artifacts@next
+$> npm install @azure/synapse-spark@next
+$> npm install @azure/synapse-managed-private-endpoints@next
+$> npm install @azure/synapse-monitoring@next
+$> npm install @azure/storage-blob@next
+$> npm install @azure/storage-file-share@next
+$> npm install @azure/storage-file-datalake@next
+$> npm install @azure/storage-queue@next
 ```
 
 ## Feedback
@@ -43,36 +43,51 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
----
+### Synapse
 
-=== COPY THIS AND ADD THE INFORMATION OF YOUR PACKAGE: ===
+This is the first release of the Synapse packages to support the new Azure Synapse service. For more information about the Synapse service, please [visit the Microsoft Synapse homepage](https://azure.microsoft.com/en-us/services/synapse-analytics/).
 
-Keep in mind that:
+The packages released under the Synapse name are as follow:
 
-- Including the package name in the headers makes the URL links work for multiple packages.
-- The format of this file will be cleaned up once all of your proposals are in.
+- <https://www.npmjs.com/package/@azure/synapse-access-control/v/1.0.0-beta.1>
+- <https://www.npmjs.com/package/@azure/synapse-artifacts/v/1.0.0-beta.1>
+- <https://www.npmjs.com/package/@azure/synapse-spark/v/1.0.0-beta.1>
+- <https://www.npmjs.com/package/@azure/synapse-managed-private-endpoints/v/1.0.0-beta.1>
+- <https://www.npmjs.com/package/@azure/synapse-monitoring/v/1.0.0-beta.1>
 
----
+### Azure Storage
 
-### _Project name_ 
+#### @azure/storage-blob [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/CHANGELOG.md)
 
-#### @azure/_package-name_ [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/<service-folder>/<package-folder>/CHANGELOG.md)
+We are releasing to add support for new service features in Azure Storage Service API version 2020-04-08.
 
-(leave blank)
+##### New Features on @azure/storage-blob@12.4.0-beta.1
 
-##### Breaking Changes on @azure/_package-name_@_version_
+- Added a new interface `BlockBlobClient.syncUploadFromURL()` to support creating a new Block Blob where the contents of the blob are read from a given URL.
+- `BlobClient.setTags()` and `BlobClient.getTags()` now support the `LeaseAccessConditions` and `BlobServiceClient.findBlobsByTags()` will return all matching tags for each blob.
+- Added `generateSasUrl` to `BlobClient` and `ContainerClient` to generate a service-level SAS URI for the client.
+- Added `generateAccountSasUrl` to `BlobServiceClient` to generate an account-level SAS URI for the client.
 
-- _Add one or more, or remove the "Breaking Changes on ..." entire section._
+#### @azure/storage-file-datalake [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/CHANGELOG.md)
 
-##### New Features on @azure/_package-name_@_version_
+##### New Features on @azure/storage-blob@12.3.0-beta.1
 
-- _Add one or more, or remove the "New Features on ..." section._
+- Added `generateSasUrl` to `DataLakeFileSystemClient`, `DataLakeDirectoryClient` and `DataLakeFileClient` to generate a service-level SAS URI for the client.
+- Added `generateAccountSasUrl` to `DataLakeServiceClient` to generate an account-level SAS URI for the client.
 
-##### Major Fixes on @azure/_package-name_@_version_
+#### @azure/storage-file-share [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/CHANGELOG.md)
 
-- _Add one or more, or remove the "Major Fixes on ..." section._
+##### New Features on @azure/storage-file-share@12.4.0-beta.1
 
----
+- Share now supports for NFS. User can specify the `protocols` when creating a Share via `ShareClient.create()`. Also added an `rootSquash` option for NFS shares.
+- Added `generateSasUrl` to `ShareClient` and `ShareFileClient` to generate a service-level SAS URI for the client.
+- Added `generateAccountSasUrl` to `ShareServiceClient` to generate an account-level SAS URI for the client.
+
+#### storage-queue [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/CHANGELOG.md)
+
+##### New Features on @azure/storage-queue@12.3.0-beta.1
+- Added `generateSasUrl` to `QueueClient` to generate a service-level SAS URI for the client.
+- Added `generateAccountSasUrl` to `QueueServiceClient` to generate an account-level SAS URI for the client.
 
 ## Latest Releases
 
