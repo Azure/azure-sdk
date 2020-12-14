@@ -48,11 +48,11 @@ This is the first release of the Synapse packages to support the new [Azure Syna
 
 The packages released under the Synapse name are as follow:
 
-- [Azure Synapse Access Control](https://www.npmjs.com/package/@azure/synapse-access-control/v/1.0.0-beta.1)
-- [Azure Synapse Artifacts](https://www.npmjs.com/package/@azure/synapse-artifacts/v/1.0.0-beta.1)
-- [Azure Synapse Spark](https://www.npmjs.com/package/@azure/synapse-spark/v/1.0.0-beta.1)
-- [Azure Synapse Managed Private Endpoints](https://www.npmjs.com/package/@azure/synapse-managed-private-endpoints/v/1.0.0-beta.1)
-- [Azure Synapse Monitoring](https://www.npmjs.com/package/@azure/synapse-monitoring/v/1.0.0-beta.1)
+- Azure Synapse Access Control: [@azure/synapse-access-control](https://www.npmjs.com/package/@azure/synapse-access-control/v/1.0.0-beta.1)
+- Azure Synapse Artifacts: [@azure/synapse-artifacts](https://www.npmjs.com/package/@azure/synapse-artifacts/v/1.0.0-beta.1)
+- Azure Synapse Spark: [@azure/synapse-spark](https://www.npmjs.com/package/@azure/synapse-spark/v/1.0.0-beta.1)
+- Azure Synapse Managed Private Endpoints: [@azure/synapse-managed-private-endpoints](https://www.npmjs.com/package/@azure/synapse-managed-private-endpoints/v/1.0.0-beta.1)
+- Azure Synapse Monitoring: [@azure/synapse-monitoring](https://www.npmjs.com/package/@azure/synapse-monitoring/v/1.0.0-beta.1)
 
 ### Azure Storage
 
