@@ -76,9 +76,9 @@ Use the following rules to ensure that we can use CODEOWNERS for both GitHub and
 
 # Service teams
 /sdk/azconfig/   @person3 @person4
+# ServiceLabel: %KeyVault %Service Attention
 /sdk/keyvault/   @person5 @person6
 # PRLabel: %label
-# ServiceLabel: %KeyVault %Service Attention
 /sdk/servicebus/ @person7 @person8
 
 # ServiceLabel: %label
