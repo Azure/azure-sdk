@@ -10,7 +10,6 @@ The Azure SDK team is pleased to make available the December 2020 client library
 
 #### Beta
 
-- _Add packages_
 - Azure Synapse Access Control
 - Azure Synapse Artifacts
 - Azure Synapse Spark
@@ -45,7 +44,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Synapse
 
-This is the first release of the Synapse packages to support the new Azure Synapse service. For more information about the Synapse service, please [visit the Microsoft Synapse homepage](https://azure.microsoft.com/en-us/services/synapse-analytics/).
+This is the first release of the Synapse packages to support the new [Azure Synapse Analytics service](https://azure.microsoft.com/en-us/services/synapse-analytics/).
 
 The packages released under the Synapse name are as follow:
 
