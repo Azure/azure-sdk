@@ -11,9 +11,7 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 
 ## Release Highlights
 
-* Azure Synapse beta releases for Java/.net/JS/Python. It includes Access Control, Artifacts, Spark, Managed Private Endpoints and Monitoring packages.
-*
-*
+* This is the first release of the Synapse packages to support the new [Azure Synapse Analytics service](https://azure.microsoft.com/en-us/services/synapse-analytics/) for Java/.NET/JS/Python. It includes `Access Control`, `Artifacts`, `Spark`, `Managed Private Endpoints` and `Monitoring` packages.
 
 ## Release Notes
 
