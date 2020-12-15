@@ -2,13 +2,13 @@
 
 This guide is intended to assist in the migration to [name of Track 2 package here] from [name of Track 1 package here]. It will focus on side-by-side comparisons for similar operations between the two packages.
 
-Familiarity with the [name of Track 1 package here] package is assumed. For those new to the [service name here] client library for [language here .Net/JavaScript/Python/Java], please refer to the [README for name of Track 2 package here](add link to track 2 readme) for rather than this guide.
+Familiarity with the [name of Track 1 package here] package is assumed. For those new to the [service name here] client library for [language here .Net/JavaScript/Python/Java], please refer to the [README for name of Track 2 package here](add link to track 2 readme) rather than this guide.
 
 ## Table of contents
 
 ## Migration benefits
 
-A natural question to ask when considering whether or not to adopt a new version or library is what the benefits of doing so would be. As Azure has matured and been embraced by a more diverse group of developers, we have been focused on learning the patterns and practices to best support developer productivity and to understand the gaps that the .NET client libraries have.
+A natural question to ask when considering whether or not to adopt a new version or library is what the benefits of doing so would be. As Azure has matured and been embraced by a more diverse group of developers, we have been focused on learning the patterns and practices to best support developer productivity and to understand the gaps that the [language here .NET/JavaScript/Python/Java] client libraries have.
 
 There were several areas of consistent feedback expressed across the Azure client library ecosystem. One of the most important is that the client libraries for different Azure services have not had a consistent approach to organization, naming, and API structure. Additionally, many developers have felt that the learning curve was difficult, and the APIs did not offer a good, approachable, and consistent onboarding story for those learning Azure or exploring a specific Azure service.
 
@@ -48,12 +48,3 @@ Show how you would accomplish these both in Track 1 & 2, pointing out the key di
 ## Additional samples
 
 More examples can be found at [Samples for add package name here](Add link to samples here)
-
-
-
-
-
-
-
-
-
