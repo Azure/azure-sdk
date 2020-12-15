@@ -1,8 +1,8 @@
-# Guide for migrating to [name of Track 2 package here] from [name of Track 1 package here] 
+# Guide for migrating to [name of new package here] from [name of old package here] 
 
-This guide is intended to assist in the migration to [name of Track 2 package here] from [name of Track 1 package here]. It will focus on side-by-side comparisons for similar operations between the two packages.
+This guide is intended to assist in the migration to [name of new package here] from [name of old package here]. It will focus on side-by-side comparisons for similar operations between the two packages.
 
-Familiarity with the [name of Track 1 package here] package is assumed. For those new to the [service name here] client library for [language here .Net/JavaScript/Python/Java], please refer to the [README for name of Track 2 package here](add link to track 2 readme) rather than this guide.
+Familiarity with the [name of old package here] package is assumed. For those new to the [service name here] client library for [language here .Net/JavaScript/Python/Java], please refer to the [README for name of new package here](add link to new package readme) rather than this guide.
 
 ## Table of contents
 
@@ -24,13 +24,13 @@ The modern [add service name] client library also provides the ability to share 
 
 ### Performance improvements
 
-Use this section to advertise the performance improvements in Track 2 when compared to Track 1. Skip this section if no perf improvements are found yet.
+Use this section to advertise the performance improvements in new package when compared to the old one. Skip this section if no perf improvements are found yet.
 
 ## Important changes
 
 ### Package names and namespaces
 
-Note: This section is always applicable for .Net and Java, while being occasionally applicable to JavaScript and Python where we tend to re-use the Track 1 package name where possible. The concept of namespace does not apply to JavaScript, we use the "@azure" scope instead. Remove this section if not needed. Below example text is for .Net Event Hubs, tweak as needed.
+Note: This section is always applicable for .Net and Java, while being occasionally applicable to JavaScript and Python where we tend to re-use the old package name where possible. The concept of namespace does not apply to JavaScript, we use the "@azure" scope instead. Remove this section if not needed. Below example text is for .Net Event Hubs, tweak as needed.
 
 Package names and the namespace root for the modern Azure client libraries for .NET have changed. Each will follow the pattern Azure.[Area].[Service] where the legacy clients followed the pattern Microsoft.Azure.[Service]. This provides a quick and accessible means to help understand, at a glance, whether you are using the modern or legacy clients.
 
@@ -38,12 +38,12 @@ In the case of Event Hubs, the modern client libraries have packages and namespa
 
 ### Client hierarchy and constructors
 
-If there has been no change (other than naming) in client hierarchy or entry level classes, skip "hierarchy" from the header, otherwise talk about why the client hierarchy was changed. Compare code snippets for the client constructors for both Track 1 & 2, while pointing out differences and the reason behind them.
+If there has been no change (other than naming) in client hierarchy or entry level classes, skip "hierarchy" from the header, otherwise talk about why the client hierarchy was changed. Compare code snippets for the client constructors between the old and new packages, while pointing out differences and the reason behind them.
 
 ### Champion scenario 1
 
 Repeat this section for the common high level usage scenarios for this library.
-Show how you would accomplish these both in Track 1 & 2, pointing out the key differences, reasons and advantages.
+Show how you would accomplish these both in the old and new packages, pointing out the key differences, reasons and advantages.
 
 ## Additional samples
 
