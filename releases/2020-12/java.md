@@ -34,6 +34,9 @@ The Azure SDK team is pleased to announce our December 2020 client library relea
 - Storage Library - File Datalake
 - Storage Library - File Share
 - Storage Library - Queue
+- Synapse Library - Spark
+- Synapse Library - Access Control
+- Synapse Library - Artifacts
 
 ## Installation Instructions
 
@@ -140,6 +143,21 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <artifactId>azure-storage-internal-avro</artifactId>
   <version>12.0.2-beta.1</version>
 </dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-synapse-spark</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-synapse-accesscontrol</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-synapse-artifacts</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
 ```
 
 For resource management libraries, we also provide a wrapper package that contains all available services
@@ -198,6 +216,19 @@ These new packages share the same groupId ``com.azures.resourcemanager`` and art
 - Fixed a bug where the sharesnapshot query parameter would be ignored in share and share file client builders.
 - Fixed a bug where the error message would not be displayed the exception message of a HEAD request.
 
+### Synapse
+
+#### Spark [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/synapse/azure-analytics-synapse-spark/CHANGELOG.md)
+
+- Initial Release.
+
+#### Access Control [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/synapse/azure-analytics-synapse-accesscontrol/CHANGELOG.md)
+
+- Initial Release.
+
+#### Artifacts [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/synapse/azure-analytics-synapse-artifacts/CHANGELOG.md)
+
+- Initial release.
 
 ## Need help
 
