@@ -23,6 +23,9 @@ The Azure SDK team is pleased to announce our December 2020 client library relea
 
 #### Updates
 
+- Azure Cosmos
+- Azure Identity
+- Azure Spring Data Cosmos
 - Management Library - App Services
 - Management Library - Resources
 
@@ -140,6 +143,26 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <artifactId>azure-storage-internal-avro</artifactId>
   <version>12.0.2-beta.1</version>
 </dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-cosmos</artifactId>
+  <version>4.10.0</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-cosmos</artifactId>
+  <version>4.9.0</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-spring-data-cosmos</artifactId>
+  <version>3.2.0</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-identity</artifactId>
+  <version>1.2.1</version>
+</dependency>
 ```
 
 For resource management libraries, we also provide a wrapper package that contains all available services
@@ -198,6 +221,34 @@ These new packages share the same groupId ``com.azures.resourcemanager`` and art
 - Fixed a bug where the sharesnapshot query parameter would be ignored in share and share file client builders.
 - Fixed a bug where the error message would not be displayed the exception message of a HEAD request.
 
+### Azure Spring Data Cosmos 3.2.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md#320-2020-12-11)
+#### New Features
+- Updated Spring Data Commons version to 2.3.5.RELEASE.
+- Updated Spring Core version to 5.2.10.RELEASE.
+
+#### Key Bug Fixes
+- Fixed publishing of `spring.factories` file with released jar.
+- Fixed repository query with repeated parameters. 
+
+### Azure Cosmos 4.10.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-cosmos/CHANGELOG.md#4100-2020-12-14)
+#### New Features
+- Added Conflict API support.
+
+### Azure Cosmos 4.9.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-cosmos/CHANGELOG.md#490-2020-12-11)
+#### New Features
+- Added Beta API for Bulk Operations.
+- Added `getRegionsContacted` API in `CosmosDiagnostics`.
+- Added Diagnostics for `CosmosStoredProcedureResponse`.
+- Added trouble shooting guide links to `CosmosException`.
+
+#### Key Bug Fixes
+- Adding automatic retries on client-side transient failures on writes while possible with still being idempotent.
+- Fixed NPE on `getDiagnostics` for `CosmosStoredProcedureResponse`.
+- Fixed empty `resourceAddress` in `CosmosException`.
+
+### Azure Identity 1.2.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/identity/azure-identity/CHANGELOG.md#121-2020-12-08)
+#### Dependency Updates
+- Upgraded `azure-core` dependency to 1.11.0
 
 ## Need help
 
