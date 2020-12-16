@@ -230,6 +230,14 @@ These new packages share the same groupId ``com.azures.resourcemanager`` and art
 
 - Initial release.
 
+#### Managed Private Endpoints [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/synapse/azure-analytics-synapse-managedprivateendpoints/CHANGELOG.md)
+
+- Initial release.
+
+#### Monitoring [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/synapse/azure-analytics-synapse-monitoring/CHANGELOG.md)
+
+- Initial release.
+
 ## Need help
 
 - For reference documentation visit the [Azure SDK for Java documentation](https://azure.github.io/azure-sdk-for-java/).
