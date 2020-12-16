@@ -37,6 +37,8 @@ The Azure SDK team is pleased to announce our December 2020 client library relea
 - Synapse Library - Spark
 - Synapse Library - Access Control
 - Synapse Library - Artifacts
+- Synapse Library - Managed Private Endpoints
+- Synapse Library - Monitoring
 
 ## Installation Instructions
 
@@ -156,6 +158,16 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-synapse-artifacts</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-synapse-managedprivateendpoints</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-synapse-monitoring</artifactId>
   <version>1.0.0-beta.1</version>
 </dependency>
 ```
