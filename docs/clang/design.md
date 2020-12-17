@@ -127,6 +127,46 @@ typedef struct az_iot_client {
 } az_iot_client;
 {% endhighlight %}
 
+{% include requirement/MUSTNOT id="clang-design-naming-struct-no-const" %} declare const fields within structs. Pointers to const are fine, however. For example:
+```c
+// bad
+typedef struct az_iot_client {
+    const int retry_timeout;
+    char* const api_version;
+} az_iot_client;
+
+// good
+typedef struct az_iot_client {
+    int retry_timeout;
+    char const * api_version;
+} az_iot_client;
+```
+
+The reason to avoid such members is that it makes it impossible to ever _reassign_ a variable of the struct type. For example:
+
+```c
+typedef struct az_iot_client {
+    int retry_timeout;
+    char const* const api_version;
+};
+
+az_iot_client az_iot_create_client() {
+    az_iot_client result = {4, "some version"};
+    return result;
+}
+
+void az_iot_client_do_operation(az_iot_client const * client);
+
+int main(void) {
+    az_iot_client client = az_iot_create_client();
+    az_iot_client_do_operation(&client);
+    // done, need to connect to some other service endpoint
+    client = az_iot_create_client(); // <--- does not compile
+    // do things with the other client
+}
+
+```
+
 ### Enums
 
 {% include requirement/MUST id="clang-design-naming-enum" %} use snake-casing to name enum types, and include the az_<svcname>_<shortenumname> prefix.
@@ -202,6 +242,32 @@ static int64_t compute_hash(int32_t a, int32_t b) {
 {% endhighlight %}
 
 {% include requirement/SHOULD id="clang-design-naming-paramnames" %} use a meaningful name for parameters and local variable names.  Parameters and local variable names should be named as all lower-case words, separated by underscores (snake-casing).
+
+{% include requirement/MUSTNOT id="clang-design-const-parameters" %} use first level const for parameters or return types for function signatures. 
+Pointers to const are fine. First level const on function parameters do not provide any additional guarantees to the caller, and can be confusing. For example:
+
+This is not OK:
+```c
+const int az_iot_client_set_widget_id(az_iot_client *client, const int id);
+```
+
+Instead write:
+```c
+int az_iot_client_set_widget_id(az_iot_client *client, int id);
+```
+
+This is also not OK
+```c
+const int az_iot_client_get_widget_id(az_iot_client const *const client, int *const id);
+```
+
+Instead write:
+```c
+int az_iot_client_get(az_iot_client const *client, int *id);
+```
+
+Note: You may use first level const when _defining_ a function, if you want to ensure you don't modify the value. Similarly you may use first level const on
+definitions of inline functions (which are in headers).
 
 ### Callbacks
 

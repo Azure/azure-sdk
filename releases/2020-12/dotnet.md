@@ -19,6 +19,8 @@ The Azure SDK team is pleased to announce our December 2020 client library relea
 #### Beta
 
 - Storage
+- Synapse
+- Tables
 
 ## Installation Instructions
 
@@ -32,6 +34,14 @@ $> dotnet add package Azure.Storage.Common --version 12.7.0-beta.1
 $> dotnet add package Azure.Storage.Files.DataLake --version 12.6.0-beta.1
 $> dotnet add package Azure.Storage.Files.Shares --version 12.6.0-beta.1
 $> dotnet add package Azure.Storage.Queues --version 12.6.0-beta.1
+
+$> dotnet add package Azure.Analytics.Synapse.AccessControl --version 1.0.0-preview.2
+$> dotnet add package Azure.Analytics.Synapse.Artifacts --version 1.0.0-preview.4
+$> dotnet add package Azure.Analytics.Synapse.ManagedPrivateEndpoints --version 1.0.0-beta.1
+$> dotnet add package Azure.Analytics.Synapse.Monitoring --version 1.0.0-beta.1
+$> dotnet add package Azure.Analytics.Synapse.Spark --version 1.0.0-preview.2
+
+$> dotnet add package Azure.Data.Tables --version 3.0.0-beta.4
 ```
 
 ## Feedback
@@ -71,8 +81,37 @@ If you have a bug or feature request for one of the libraries, please [file an i
 #### Key Bug Fixes
 - Fixed bug where `QueueServiceClient.GetQueueClient()` and `QueueClient.WithClientSideEncryptionOptions()` created clients that could not generate a SAS from clients that could generate a SAS
 
-## Latest Releases
+### Azure Synapse Access Control [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/synapse/Azure.Analytics.Synapse.AccessControl/CHANGELOG.md)
 
+- This release contains bug fixes to improve quality.
+
+### Azure Synapse Artifacts [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/synapse/Azure.Analytics.Synapse.Artifacts/CHANGELOG.md)
+
+- Supports List/Get Synapse resources through data plane APIs
+- Make name as required parameter for NotebookResource and SqlScriptResource
+- Support Rename operations
+- Support CICD operations
+
+### Azure Synapse Managed Private Endpoints [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/synapse/Azure.Analytics.Synapse.ManagedPrivateEndpoints/CHANGELOG.md)
+
+- Initial release
+
+### Azure Synapse Monitoring [Changelog](htthttps://github.com/Azure/azure-sdk-for-net/blob/master/sdk/synapse/Azure.Analytics.Synapse.Monitoring/CHANGELOG.md)
+
+- Initial release
+
+### Azure Synapse Spark [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/synapse/Azure.Analytics.Synapse.Spark/CHANGELOG.md)
+
+- This release contains bug fixes to improve quality.
+
+
+### Tables [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/tables/Azure.Data.Tables/CHANGELOG.md)
+
+#### Key Bug Fixes
+- Fixed an issue with custom entity model serialization of the ETag property
+- Properly create secondary endpoint Uri for Azurite endpoints
+
+## Latest Releases
 View all the latest versions of .NET packages [here][dotnet-latest-releases].
 
 {% include refs.md %}

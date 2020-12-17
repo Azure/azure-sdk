@@ -42,49 +42,22 @@ While consumers are fast at adopting new versions of TypeScript, version 3.1 is 
 
 {% include requirement/MUST id="ts-npm-dist-tag-next" %} tag generally available npm packages `latest`. Generally available packages may also be tagged `next` if they include the changes from the most recent beta.
 
-{% include requirement/MUST id="ts-namespace-in-browsers" %} use one of the appropriate namespaces (see below) for browser globals when producing UMD builds.
-
-In cases where namespaces are supported, the namespace should be named `Azure.<group>.<service>`. All consumer-facing APIs that are commonly used should exist within this namespace.  Here:
-
-- `<group>` is the group for the service (see the list above)
-- `<service>` is the service name represented as a single word
-
-{% include requirement/MUST id="ts-namespace-startswith" %} start the namespace with `Azure`.
-
-{% include requirement/MUST id="ts-namespace-camelcase" %} use camel-casing for elements of the namespace.
-
-A compressed service name is the service name without spaces.  It may further be shortened if the shortened version is well known in the community.  For example, "Azure Media Analytics" would have a compressed service name of "MediaAnalytics", and "Azure Service Bus" would become "ServiceBus".
-
-{% include requirement/MUST id="ts-namespace-names" %} use the following list as the group of services (if the target language supports namespaces):
+{% include requirement/MUST id="ts-npm-package-name-prefix" %} prefix your data plane package names with the kebab-case version of the appropriate namespace from the following table:
 
 {% include tables/data_namespaces.md %}
 
-{% include requirement/MUST id="ts-namespace-split-management-api" %} place the management (Azure Resource Manager) API in the "management" group.  Use the grouping `Azure.Management.<group>.<servicename>` for the namespace.  Since more services require control plane APIs than data plane APIs, other namespaces may be used explicitly for control plane only.  Data plane usage is by exception only.  Additional namespaces that can be used for control plane libraries include:
+For example, these package names meet the guidelines:
 
-{% include tables/mgmt_namespaces.md %}
+* `@azure/cosmos`
+* `@azure/storage-blob`
+* `@azure/digital-twins-core`
 
-Many `management` APIs don't have a data plane.  It's reasonable to place the management library in the `Azure.Management` namespace.  For example, use `Azure.Management.CostAnalysis`, not `Azure.Management.Management.CostAnalysis`.
+The following are examples that do not meet the guidelines:
 
-{% include requirement/MUSTNOT id="ts-namespace-avoid-ambiguity" %} choose similar names for clients that do different things.
+* `@microsoft/cosmos` (not in `@azure` scope).
+* `@azure/digitaltwins` (not kebab-cased).
 
-{% include requirement/MUST id="ts-namespace-register" %} register the chosen namespace with the [Architecture Board].  Open an issue to request the namespace.  See [the registered namespace list](registered_namespaces.html) for a list of the currently registered namespaces.
-
-These namespace examples meet the guidelines:
-
-- `Azure.Data.Cosmos`
-- `Azure.Identity.ActiveDirectory`
-- `Azure.IoT.DeviceProvisioning`
-- `Azure.Storage.Blob`
-- `Azure.Messaging.NotificationHubs` (the client library for Notification Hubs)
-- `Azure.Management.Messaging.NotificationHubs` (the management client for Notification Hubs)
-
-These examples that don't meet the guidelines:
-
-- `Microsoft.Azure.CosmosDB` (not in the Azure namespace, no grouping)
-- `Azure.MixedReality.Kinect` (invalid group)
-- `Azure.IoT.IoTHub.DeviceProvisioning` (too many levels)
-
-Contact the [Architecture Board] for advice if the appropriate group isn't obvious.  If you feel your service requires a new group, open a "Design Guidelines Change" request.
+{% include requirement/SHOULD id="ts-npm-package-name-follow-conventions" %} you should follow the casing conventions of any existing GA packages released in the `@azure` npm scope. It's not worth renaming a package just to align on naming conventions.
 
 ## The Client API {#ts-apisurface-serviceclient}
 
@@ -115,8 +88,6 @@ export class ServiceClient {
 {% include requirement/MUST id="ts-apisurface-serviceclientnamespace" %} place service client types that the consumer is most likely to interact as a top-level export from your library.  That is, the service client type should be something that can be imported directly by the consumer.
 
 {% include requirement/MUST id="ts-apisurface-serviceclientconstructor" %} allow the consumer to construct a service client with the minimal information needed to connect and authenticate to the service.
-
-TODO: It would be nice to have a code sample here to ground this general guidelines in JS/TS specifics.
 
 {% include requirement/MUST id="ts-apisurface-standardized-verbs" %} standardize verb prefixes within a set of client libraries for a service (see [approved verbs](#ts-approved-verbs)).
 
@@ -174,8 +145,13 @@ class ExampleClient {
 }
 ```
 
-TODO: Please add a section or guideline describing how to set the service version.
-TODO: Please add a mention of service client immutability, if it's applicable to JavaScript.
+### Service Versions {#ts-service-versions}
+
+{% include requirement/MUST id="ts-service-versions-use-latest" %} call the highest supported service API version by default.
+
+{% include requirement/MUST id="ts-service-versions-select-api-version" %} allow the consumer to explicitly select a supported service API version when instantiating the client if multiple service versions are supported.
+
+{% include requirement/MUST id="ts-service-versions-use-client-options" %} provide a `serviceVersion` option in the client constructor's option bag for providing a service version. The type of this should be a string literal union with supported service versions. You may also provide a string enum with supported service versions.
 
 ### Options {#ts-options}
 
@@ -311,8 +287,6 @@ export interface ContainerGetPropertiesHeaders {
 {% include requirement/MUST id="ts-naming-subclients" %} prefix methods that create or vend subclients with `get` and suffix with `client`.  For example, `container.getBlobClient()`.
 
 TODO: Put the above with the discussion of hierarchical clients?
-
-{% include requirement/MUST id="ts-naming-options" %} suffix options bag parameters names with `Options`, and prefix with the name of the operation. For example, if an operation is called createItem, its options type must be called `CreateItemOptions`.
 
 TODO: A code sample here would help illustrate this.
 
@@ -606,13 +580,41 @@ Polling configuration may be used only in the absence of relevant retry-after he
 
 TODO: If this is largely implemented for the API Designer, please include an example of how to use the Azure Core type in the public API.  It would be ideal to remove guidelines where the requirement has already been addressed for the API Designer in the type.
 
-TODO: Please add a section on conditional request methods.
+## Conditional Request Methods {#ts-conditional-requests}
+
+There are two patterns in use depending on whether `etag` is a member of the model type or not.
+
+{% include requirement/MUST id="ts-conditional-request-options-1" %} provide the following options in a method's options bag when the model type has an `etag` property:
+
+* onlyIfChanged - sets the `if-match` header to the `etag`.
+* onlyIfUnchanged - sets the `if-none-match` header to the `etag`.
+* onlyIfMissing - sets the `if-none-match` header to `*`.
+* onlyIfPresent - sets the `if-match` header to `*`.
+
+{% include requirement/MUST id="ts-conditional-request-options-2" %} provide the following options in a method's options bag's `conditions` property when the model type does not have an `etag` property:
+
+* ifMatch - sets the `if-match` header to the value provided.
+* ifNoneMatch - sets the `if-none-match` header to the value provided.
+* ifModifiedSince - sets the `if-modified-since` header to the value provided
+* ifUnmodifiedSince - sets the `if-unmodified-since` header to the value provided.
+
+{% include requirement/MUST id="ts-conditional-request-no-dupe-options" %} throw an error if the user provides options from both option sets, for example passing `onlyIfChanged: true` and `ifMatch: "..."`. In some cases you may want to provide both sets of options, but it is not required or necessarily recommended.
 
 TODO: Please add a section providing guidance on model types.
 
 TODO: Please add discussion similar to the [Model Type discussion from the General Guidelines](https://azure.github.io/azure-sdk/general_design.html#model-types), including the naming table if relevant to JS/TS, or an alternate one specific to JS/TS.  
 
-TODO: Please add a section on Azure Core type usage, which may simply link out to Azure Core documentation in the azure-sdk-for-js repo, if this is self-explanatory.
+## Using Azure Core {#ts-core-types}
+
+{% include requirement/MUST id="ts-core-types-must" %} make use of packages in Azure Core to provide behavior consistent across all Azure SDK libraries. This includes, but is not limited to:
+
+* `core-http` for http client, pipeline and related functionality
+* `logger` for logging
+* `core-tracing` for distributed tracing
+* `core-auth` for common auth interfaces
+* `core-lro` for long running operations
+
+See the [Azure Core readme](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/core) for more details.
 
 TODO: Please add a section on extensible enums, if this is relevant to JS/TS.
 

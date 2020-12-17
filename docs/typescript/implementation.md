@@ -348,7 +348,7 @@ The following sections describe the package.json file that must be included with
   "main": "./dist/index.js",
   "module": "./dist-esm/index.js",
   "browser": {
-    "./dist-esm/src/index.js": "./browser/index.js"
+    "./dist-esm/src/index.js": "./dist-esm/src/index.browser.js"
   },
   "types": "./dist-esm/index.d.ts",
   "engine": {
@@ -401,15 +401,15 @@ Side effects are modifications to the runtime environment of the program. For ex
 
 Tools such as [Webpack](https://webpack.js.org) use this key to discover the static module graph of your application for optimization purposes.
 
-{% include requirement/MUST id="ts-package-json-browser" %} include a file map in the `browser` object if your library supports the browser.  The file map must include the `main` entry, and map it to the corresponding (unminified) browser code.
+{% include requirement/MUST id="ts-package-json-browser" %} include a file map in the `browser` object if your library supports the browser and needs browser-specific module substitutions.
 
-For example, the following JSON snippet demonstrates the minimum requirements:
+For example, the following JSON snippet demonstrates the minimum requirements, assuming you have a separate entrypoint for browsers.
 
 ```json
 {
     "main": "./dist/index.js",
     "browser": {
-        "./dist/index.js": "./dist/browser/index.js"
+        "./dist/index.js": "./dist/index.browser.js"
     }
 }
 ```
@@ -437,13 +437,7 @@ Modern npm packages often ship multiple source distributions targeting different
 
 The source code in your package helps developers debug your package. _Go-to-definition_ is a quick way to confirm how to use a function. Seeing useful names and readable source code in call stacks helps with debugging. We can aggressively optimize the build artifacts since users won't need to puzzle through the mangled code.
 
-{% include requirement/MUST id="ts-include-cjs" %} include a CommonJS (CJS) build in your package if you intend to support Node.
-
-{% include requirement/SHOULD id="ts-use-umd" %} distribute your package as a UMD module if you intend to support browsers.
-
-A UMD module is recommended even if your library isn't intended for the browser.  The overhead of UMD over CJS is slight and it will make an eventual move to the Web platform easier later.
-
-When building the CommonJS module, the library name must be under the `Azure` namespace.  Refer to the [namespace guidelines] to determine the correct namespace.
+{% include requirement/MUST id="ts-include-cjs" %} include a CommonJS (CJS) or UMD build in your package if you intend to support Node.
 
 {% include requirement/MUST id="ts-flatten-umd" %} flatten the CommonJS or UMD module.  [Rollup](https://rollupjs.org) is recommended for producing a flattened module.
 
@@ -456,13 +450,13 @@ The process of packing multiple modules into a single file is known as _flatteni
 An ESM distribution is consumed by tools such as [Webpack](https://webpack.js.org) that optimize the module graph. It should be "transpiled" to support the runtime versions you're targeting. Versions of Webpack before Webpack 4.0 produce better optimized bundles if the ESM build is flattened. However, flattening doesn't play so well with tree-shaking. The latest versions of Webpack do a better job when using an unflattened ESM build.
 
 
-{% include requirement/SHOULD id="ts-browser-umd" %} provide a browser build in UMD format for your library.
+<a name="ts-browser-umd"></a>
+<a name="ts-browser-umd-global-naming"></a>
+<a name="ts-browser-minify-umd"></a>
+<a name="ts-browser-location"></a>
+{% include requirement/MUSTNOT id="ts-no-browser-bundle" %} include a browser bundle in your package. Shipping browser bundles is convenient for users but comes with some significant downsides too. For example, browser bundles must flatten the entire dependency tree and re-distribute all open source components it depends on. This requires ThirdPartyNotices.txt to be accurate which is a complex and error-prone. Security vulnerabilities in any dependency requires servicing the browser bundle as well.
 
-{% include requirement/MUST id="ts-browser-umd-global-naming" %} name the UMD global according to the [namespace guidelines].
-
-{% include requirement/MUST id="ts-browser-minify-umd" %} provide both minified and non-minified versions, both with source mapping.
-
-{% include requirement/MUST id="ts-browser-location" %} lace browser builds in a top level `browser` folder. The name of the file should be the service name. Append `.min` to the name of minified files. For example, Storage Blob should have `storage-blob.min.js` and `storage-blob.js` under `./browser`.
+In practice, users working on production applications will likely be using a bundler. Moreover, modern bundlers are much easier to use relative to earlier incarnation. Azure client libraries should work with most popular bundlers.
 
 ### Modules {#ts-modules}
 
