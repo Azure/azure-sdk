@@ -12,9 +12,9 @@ function Invoke-AzBoardsCmd($subCmd, $parameters, $output = $true)
   return Invoke-Expression "$azCmdStr" | ConvertFrom-Json -AsHashTable
 }
 
-function LoginToAzureDevops([string]$devop_pat)
+function LoginToAzureDevops([string]$devops_pat)
 {
-  if (!$devop_pat) {
+  if (!$devops_pat) {
     return
   }
   $azCmdStr = "'$devops_pat' | az devops login $($ReleaseDevOpsOrgParameters -join ' ')"
@@ -796,9 +796,18 @@ function UpdatePackageVersions($pkgWorkItem, $plannedVersions, $shippedVersions)
 
   $body = "[" + ($fieldUpdates -join ',') + "]"
 
-  # Get a temp access token from the logged in az cli user for azure devops resource
-  $jwt_accessToken = (az account get-access-token --resource "499b84ac-1321-427f-aa17-267ca6975798" --query "accessToken" --output tsv)
-  $headers = @{ Authorization = "Bearer $jwt_accessToken" }
+  $headers = $null
+  if ($devops_pat) 
+  {
+    $encodedToken = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes([string]::Format("{0}:{1}", "", $devops_pat)))
+    $headers = @{ Authorization = "Basic $encodedToken" }
+  }
+  else 
+  {
+    # Get a temp access token from the logged in az cli user for azure devops resource
+    $jwt_accessToken = (az account get-access-token --resource "499b84ac-1321-427f-aa17-267ca6975798" --query "accessToken" --output tsv)
+    $headers = @{ Authorization = "Bearer $jwt_accessToken" }
+  }
   $response = Invoke-RestMethod -Method PATCH `
     -Uri "https://dev.azure.com/azure-sdk/_apis/wit/workitems/${id}?api-version=6.0" `
     -Headers $headers -Body $body -ContentType "application/json-patch+json"
