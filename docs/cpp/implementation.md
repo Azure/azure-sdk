@@ -8,25 +8,64 @@ sidebar: general_sidebar
 
 {% include draft.html content="The C++ Language guidelines are in DRAFT status" %}
 
+> TODO: This section needs to be driven by code in the Core library.
 
 ## API Implementation
 
+This section describes guidelines for implementing Azure SDK client libraries. Please note that some of these guidelines are automatically enforced by code generation tools. 
+
 ### Service Client
+
+> TODO: add a brief mention of the approach to implementing service clients. 
 
 #### Service Methods
 
+> TODO: Briefly introduce that service methods are implemented via an `HttpPipeline` instance.  Mention that much of this is done for you using code generation.
+
 ##### HttpPipeline
+
+The following example shows a typical way of using `HttpPipeline` to implement a service call method. The `HttpPipeline` will handle common HTTP requirements such as the user agent, logging, distributed tracing, retries, and proxy configuration.
+
+> TODO: Show an example of invoking the pipeline
+
 ##### HttpPipelinePolicy/Custom Policies
+
+The HTTP pipeline includes a number of policies that all requests pass through.  Examples of policies include setting required headers, authentication, generating a request ID, and implementing proxy authentication.  `HttpPipelinePolicy` is the base type of all policies (plugins) of the `HttpPipeline`. This section describes guidelines for designing custom policies.
+
+> TODO: Show how to customize a pipeline
 
 #### Service Method Parameters
 
+> TODO: This section needs to be driven by code in the Core library.
+
 ##### Parameter Validation
+
+In addition to [general parameter validation guidelines](introduction.md#cpp-parameters):
+
+> TODO: Briefly show common patterns for parameter validation
 
 ### Supporting Types
 
-#### Serialization
+> TODO: This section needs to be driven by code in the Core library.
+
+#### Serialization {#cpp-usage-json}
+
+> TODO: This section needs to be driven by code in the Core library.
+
+##### JSON Serialization
+
+> TODO: This section needs to be driven by code in the Core library.
 
 #### Enumeration-like Structs
+
+As described in [general enumeration guidelines](introduction.md#cpp-enums), you should use `enum` types whenever passing or deserializing a well-known set of values to or from the service.
+There may be times, however, where a `struct` is necessary to capture an extensible value from the service even if well-known values are defined,
+or to pass back to the service those same or other user-supplied values:
+
+- The value is retrieved and deserialized from service, and may contain a value not supported by the client library.
+- The value is roundtripped: the value is retrieved and deserialized from the service, and may later be serialized and sent back to the server.
+
+> TODO: Content in this section may need a new home.
 
 {% include requirement/MUST id="cpp-design-naming-enum" %} name `enum class`es and enumerators using **PascalCase**.
 
@@ -39,10 +78,49 @@ enum class PinState {
 };
 {% endhighlight %}
 
+#### Using Azure Core Types
+
+##### Implementing Subtypes of Operation\<T\> {#cpp-implement-operation}
+
+Subtypes of `Operation<T>` are returned from service client methods invoking long running operations.
+
+{% include requirement/MUST id="cpp-lro-return" %} check the value of `IsDone` in subclass implementations of `PollInternal` and `PollUntilDoneInternal` and immediately return the result of `GetRawResponse` if it is true.
+
+> TODO: Show an example implementation for Operation<T>.
+
+{% include requirement/MUST id="cpp-lro-return" %} throw from methods on `Operation<T>` subclasses in the following scenarios.
+
+- If an underlying service operation call from `Poll` or `PollUntilDone` throws, re-throw `RequestFailedException` or its subtype.
+- If the operation completes with a non-success result, throw `RequestFailedException` or its subtype from `Poll` or `PollUntilDone`.
+  - Include any relevant error state information in the exception message.
+
+> TODO: Show an example of how to handle errors.
+
+- If the ```Value``` property is evaluated after the operation failed (```HasValue``` is false and ```IsDone``` is true) throw the same exception as the one thrown when the operation failed.
+
+> TODO: Show an example of how to throw in this case.
+
+- If the ```Value``` property is evaluated before the operation is complete (```IsDone``` is false) throw ```TODO: What to throw```.
+  - The exception message should be: "The operation has not yet completed."
+
+> TODO: DO we want this behavior.  
+> TODO: Show an example of how to throw in this case.
+
 ### SDK Feature Implementation
 
 #### Configuration
+
+> TODO: This section needs to be driven by code in the Core library.
+
 #### Logging
+
+Request logging will be done automatically by the `HttpPipeline`.  If a client library needs to add custom logging, follow the [same guidelines](implementation.md#general-logging) and mechanisms as the pipeline logging mechanism.  If a client library wants to do custom logging, the designer of the library must ensure that the logging mechanism is pluggable in the same way as the `HttpPipeline` logging policy.
+
+{% include requirement/MUST id="dotnet-logging-follow-guidelines" %} follow [the logging section of the Azure SDK General Guidelines](implementation.md#general-logging) if logging directly (as opposed to through the `HttpPipeline`).
+
+##### C++ Logging specific details
+
+> TODO: This additional logging info may need a new home.
 
 Client libraries must support robust logging mechanisms so that the consumer can adequately diagnose issues with the method calls and quickly determine whether the issue is in the consumer code, client library code, or service.
 
@@ -92,8 +170,15 @@ In general, our advice to consumers of these libraries is to establish logging i
 
 {% include requirement/MUST id="cpp-logging-exceptions" %} log exceptions thrown as a `Warning` level message. If the log level set to `Verbose`, append stack trace information to the message.
 
-#### Distributed Tracing
+#### Distributed Tracing {#cpp-distributedtracing}
+
+{% include draft.html content="Guidance coming soon ..." %}
+
+> TODO: Add guidance for distributed tracing implementation
+
 #### Telemetry
+
+> TODO: Add guidance regarding user agent strings
 
 ### Testing
 
