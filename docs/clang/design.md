@@ -1,7 +1,7 @@
 ---
-title: "C Guidelines: Introduction"
+title: "Embedded C Azure SDK Design Guidelines"
 keywords: guidelines clang
-permalink: clang_introduction.html
+permalink: clang_design.html
 folder: clang
 sidebar: general_sidebar
 ---

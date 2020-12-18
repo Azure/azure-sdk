@@ -1,5 +1,5 @@
 ---
-title: "C Guidelines: Implementation"
+title: "Embedded C Guidelines: Implementation"
 keywords: guidelines clang
 permalink: clang_implementation.html
 folder: clang
