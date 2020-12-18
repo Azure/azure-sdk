@@ -1044,7 +1044,7 @@ switch (...) {
 
 {% include requirement/MUST id="cpp-docs-readme" %} have a README.md file in the component root folder.
 
-An example of a good `README.md` file can be found [here](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/azure-core/core/README.md).
+An example of a good `README.md` file can be found [here](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/core/azure-core/README.md).
 
 {% include requirement/MUST id="cpp-docs-readme-consumer" %} optimize the `README.md` for the consumer of the client library.
 
