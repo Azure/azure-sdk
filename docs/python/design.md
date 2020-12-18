@@ -48,7 +48,7 @@ from azure.exampleservice import AsyncExampleServiceClient
 
 ## Clients
 
-TODO: Add an example of the basic API shape similar to what's shown in the code sample [here](https://azure.github.io/azure-sdk/java_design.html#java-sync-client-shape) but with the equivalent in Python.  Please include code illustrations of the following areas:
+TODO: Add an example of the basic API shape similar to what's shown in the code sample <!--[here](https://azure.github.io/azure-sdk/java_design.html#java-sync-client-shape)--> but with the equivalent in Python.  Please include code illustrations of the following areas:
 
 - Service Client
 - Client Construction

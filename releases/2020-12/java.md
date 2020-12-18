@@ -37,6 +37,11 @@ The Azure SDK team is pleased to announce our December 2020 client library relea
 - Storage Library - File Datalake
 - Storage Library - File Share
 - Storage Library - Queue
+- Synapse Library - Spark
+- Synapse Library - Access Control
+- Synapse Library - Artifacts
+- Synapse Library - Managed Private Endpoints
+- Synapse Library - Monitoring
 
 ## Installation Instructions
 
@@ -163,6 +168,31 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <artifactId>azure-identity</artifactId>
   <version>1.2.1</version>
 </dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-synapse-spark</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-synapse-accesscontrol</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-synapse-artifacts</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-synapse-managedprivateendpoints</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-synapse-monitoring</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
 ```
 
 For resource management libraries, we also provide a wrapper package that contains all available services
@@ -249,6 +279,26 @@ These new packages share the same groupId ``com.azures.resourcemanager`` and art
 ### Azure Identity 1.2.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/identity/azure-identity/CHANGELOG.md#121-2020-12-08)
 #### Dependency Updates
 - Upgraded `azure-core` dependency to 1.11.0
+
+#### Synapse Spark [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/synapse/azure-analytics-synapse-spark/CHANGELOG.md#100-beta1-2020-12-08)
+
+- Initial Release.
+
+#### Synapse Access Control [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/synapse/azure-analytics-synapse-accesscontrol/CHANGELOG.md#100-beta1-2020-12-08)
+
+- Initial Release.
+
+#### Synapse Artifacts [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/synapse/azure-analytics-synapse-artifacts/CHANGELOG.md#100-beta1-2020-12-08)
+
+- Initial release.
+
+#### Synapse Managed Private Endpoints [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/synapse/azure-analytics-synapse-managedprivateendpoints/CHANGELOG.md#100-beta1-2020-12-15)
+
+- Initial release.
+
+#### Synapse Monitoring [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/synapse/azure-analytics-synapse-monitoring/CHANGELOG.md#100-beta1-2020-12-15)
+
+- Initial release.
 
 ## Need help
 

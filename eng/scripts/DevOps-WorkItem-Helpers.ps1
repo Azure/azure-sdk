@@ -12,9 +12,9 @@ function Invoke-AzBoardsCmd($subCmd, $parameters, $output = $true)
   return Invoke-Expression "$azCmdStr" | ConvertFrom-Json -AsHashTable
 }
 
-function LoginToAzureDevops([string]$devop_pat)
+function LoginToAzureDevops([string]$devops_pat)
 {
-  if (!$devop_pat) {
+  if (!$devops_pat) {
     return
   }
   $azCmdStr = "'$devops_pat' | az devops login $($ReleaseDevOpsOrgParameters -join ' ')"
@@ -136,6 +136,7 @@ function FindPackageWorkItem($lang, $packageName, $version, $outputCommand = $tr
   $fields += "PackageType"
   $fields += "PackageTypeNewLibrary"
   $fields += "PackageVersionMajorMinor"
+  $fields += "PackageRepoPath"
   $fields += "ServiceName"
   $fields += "Planned Packages"
   $fields += "Shipped Packages"
@@ -330,22 +331,25 @@ function CreateOrUpdatePackageWorkItem($lang, $pkg, $verMajorMinor, $existingIte
 
   if ($existingItem)
   {
-    $shouldUpdate = $false
+    $changedField = $null
 
-    if ($lang -ne $existingItem.fields["Custom.Language"]) { $shouldUpdate = $true }
-    if ($pkgName -ne $existingItem.fields["Custom.Package"]) { $shouldUpdate = $true }
-    if ($verMajorMinor -ne $existingItem.fields["Custom.PackageVersionMajorMinor"]) { $shouldUpdate = $true }
-    if ($pkgDisplayName -ne $existingItem.fields["Custom.PackageDisplayName"]) { $shouldUpdate = $true }
-    if ($pkgType -ne $existingItem.fields["Custom.PackageType"]) { $shouldUpdate = $true }
-    if ($pkgNewLibrary -ne $existingItem.fields["Custom.PackageTypeNewLibrary"]) { $shouldUpdate = $true }
-    if ($pkgRepoPath -ne $existingItem.fields["Custom.PackageRepoPath"]) { $shouldUpdate = $true }
-    if ($serviceName -ne $existingItem.fields["Custom.ServiceName"]) { $shouldUpdate = $true }
-    if ($title -ne $existingItem.fields["System.Title"]) { $shouldUpdate = $true }
-    if ($assignedTo -and $assignedTo -ne $existingItem.fields["System.AssignedTo"]) { $shouldUpdate = $true }
+    if ($lang -ne $existingItem.fields["Custom.Language"]) { $changedField = "Custom.Language" }
+    if ($pkgName -ne $existingItem.fields["Custom.Package"]) { $changedField = "Custom.Package" }
+    if ($verMajorMinor -ne $existingItem.fields["Custom.PackageVersionMajorMinor"]) { $changedField = "Custom.PackageVersionMajorMinor" }
+    if ($pkgDisplayName -ne $existingItem.fields["Custom.PackageDisplayName"]) { $changedField = "Custom.PackageDisplayName" }
+    if ($pkgType -ne $existingItem.fields["Custom.PackageType"]) { $changedField = "Custom.PackageType" }
+    if ($pkgNewLibrary -ne $existingItem.fields["Custom.PackageTypeNewLibrary"]) { $changedField = "Custom.PackageTypeNewLibrary" }
+    if ($pkgRepoPath -ne $existingItem.fields["Custom.PackageRepoPath"]) { $changedField = "Custom.PackageRepoPath" }
+    if ($serviceName -ne $existingItem.fields["Custom.ServiceName"]) { $changedField = "Custom.ServiceName" }
+    if ($title -ne $existingItem.fields["System.Title"]) { $changedField = "System.Title" }
+
+    if ($changedField) {
+      Write-Host "At least field $changedField ($($existingItem.fields[$field])) changed so updating."
+    }
 
     $beforeState = $existingItem.fields["System.State"]
 
-    if ($shouldUpdate) {
+    if ($changedField) {
       # Need to set to New to be able to update
       $existingItem = UpdateWorkItem -id $existingItem.id -fields $fields -title $title -state "New" -assignedTo $assignedTo -outputCommand $outputCommand
       Write-Host "[$($existingItem.id)]$lang - $pkgName($verMajorMinor) - Updated"
@@ -693,7 +697,7 @@ function UpdatePackageVersions($pkgWorkItem, $plannedVersions, $shippedVersions)
   {
     if (!$shippedVersionSet.ContainsKey($version.Version))
     {
-      $shippedVersionSet[$v.Version] = $version
+      $shippedVersionSet[$version.Version] = $version
       $updateShipped = $true
     }
   }
@@ -792,9 +796,18 @@ function UpdatePackageVersions($pkgWorkItem, $plannedVersions, $shippedVersions)
 
   $body = "[" + ($fieldUpdates -join ',') + "]"
 
-  # Get a temp access token from the logged in az cli user for azure devops resource
-  $jwt_accessToken = (az account get-access-token --resource "499b84ac-1321-427f-aa17-267ca6975798" --query "accessToken" --output tsv)
-  $headers = @{ Authorization = "Bearer $jwt_accessToken" }
+  $headers = $null
+  if ($devops_pat) 
+  {
+    $encodedToken = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes([string]::Format("{0}:{1}", "", $devops_pat)))
+    $headers = @{ Authorization = "Basic $encodedToken" }
+  }
+  else 
+  {
+    # Get a temp access token from the logged in az cli user for azure devops resource
+    $jwt_accessToken = (az account get-access-token --resource "499b84ac-1321-427f-aa17-267ca6975798" --query "accessToken" --output tsv)
+    $headers = @{ Authorization = "Bearer $jwt_accessToken" }
+  }
   $response = Invoke-RestMethod -Method PATCH `
     -Uri "https://dev.azure.com/azure-sdk/_apis/wit/workitems/${id}?api-version=6.0" `
     -Headers $headers -Body $body -ContentType "application/json-patch+json"
