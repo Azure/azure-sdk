@@ -145,14 +145,15 @@ entries:
         url: /ios_documentation.html
   - title: C Guidelines
     folderitems:
-      - title: Introduction
-        url: /clang_introduction.html
-      - title: API Design
+      - title: Design
         url: /clang_design.html
       - title: Implementation
         url: /clang_implementation.html
-      - title: Documentation
-        url: /clang_documentation.html
+        subfolders:
+            - title: API Documentation
+              subfolderitems:
+                - title: az_iot
+                  external_url: https://azure.github.io/azure-sdk-for-c/iot.html#az_iot
   - title: C++ Guidelines
     folderitems:
       - title: Design
