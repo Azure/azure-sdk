@@ -53,7 +53,7 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 [Design Guidelines for Android]: https://azure.github.io/azure-sdk/android_introduction.html
 [Design Guidelines for .NET]: https://azure.github.io/azure-sdk/dotnet_introduction.html
 [Design Guidelines for Go]: https://azure.github.io/azure-sdk/golang_introduction.html
-[Design Guidelines for C99]: https://azure.github.io/azure-sdk/clang_introduction.html
+[Design Guidelines for C99]: https://azure.github.io/azure-sdk/clang_design.html
 [Design Guidelines for C++]: https://azure.github.io/azure-sdk/cpp_introduction.html
 [Design Guidelines for iOS]: https://azure.github.io/azure-sdk/ios_introduction.html
 [Design Guidelines for Java]: https://azure.github.io/azure-sdk/java_introduction.html
