@@ -18,7 +18,7 @@ The API surface of your client library must have the most thought as it is the p
 
 These guidelines were written primarily with a HTTP based request/response in mind, but many general guidelines apply to other types of services as well. This includes, but is not limited to, packaging and naming, tools and project structures.
 
-Please contact @adparch for more guidance on non HTTP/REST based services. TODO JOHAN: update contact information.
+Please contact the [Azure SDK Architecture Board](https://azure.github.io/azure-sdk/policies_reviewprocess.html) for more guidance on non HTTP/REST based services.
 
 ## Azure SDK API Design
 
@@ -32,7 +32,7 @@ The service client is the primary entry point for users of the library. A servic
 
 {% include requirement/MUST id="python-client-naming" %} name service client types with a **Client** suffix.
 
-{% include requirement/MUST id="python-client-sync-async" %} provide separate sync and async clients. See the <link> TODO: JOHAN - point to the async section for more information.
+{% include requirement/MUST id="python-client-sync-async" %} provide separate sync and async clients. See the [Async Support](#async-support) section for more information.
 
 ```python
 # Yes
@@ -68,7 +68,7 @@ specific_api_version_client = ExampleClient('https://contoso.com/xmpl',
                                             api_version='1971-11-01')
 ```
 
-{% include requirement/MUST id="python-client-constructor-policy-arguments" %} accept optional default request options as keyword arguments and pass them along to its pipeline policies. See well-known policy arguments for more information. TODO: Johan, link to table...
+{% include requirement/MUST id="python-client-constructor-policy-arguments" %} accept optional default request options as keyword arguments and pass them along to its pipeline policies. See [Common service operation parameters(#common-service-operation-parameters) for more information.
 
 ```python
 # Change default number of retries to 18 and overall timeout to 2s.
@@ -78,7 +78,7 @@ client = ExampleClient('https://contoso.com/xmpl',
                        timeout=2)
 ```
 
-{% include requirement/MUST id="python-client-constructor-transport-argument" %} allow users to pass in a `transport` keyword-only argument that allows the caller to specify a specific transport instance. The default value should be the [`RequestsTransport`](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/1.1.1/azure.core.pipeline.transport.html?highlight=transport#azure.core.pipeline.transport.RequestsTransport) for synchronous clients and the [`AioHttpTransport`](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/1.1.1/azure.core.pipeline.transport.html?highlight=transport#azure.core.pipeline.transport.AioHttpTransport) for async clients. TODO: JOHAN, link to azure core transport and double-check names.
+{% include requirement/MUST id="python-client-constructor-transport-argument" %} allow users to pass in a `transport` keyword-only argument that allows the caller to specify a specific transport instance. The default value should be the [`RequestsTransport`](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/1.1.1/azure.core.pipeline.transport.html?highlight=transport#azure.core.pipeline.transport.RequestsTransport) for synchronous clients and the [`AioHttpTransport`](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/1.1.1/azure.core.pipeline.transport.html?highlight=transport#azure.core.pipeline.transport.AioHttpTransport) for async clients.
 
 
 {% include requirement/MUST id="python-client-connection-string" %} use a separate factory class method `from_connection_string` to create a client from a connection string (if the client supports connection strings). The `from_connection_string` factory method should take the same set of arguments (excluding information provided in the connection string) as the constructor. The constructor **must not** take a connection string, even if it means that using the `from_connection_string` is the only supported method to create an instance of the client.
@@ -125,15 +125,15 @@ TODO: JOHAN Fix up the example client...
 
 {% include requirement/MUST id="python-client-standardize-verbs" %} standardize verb prefixes outside the list of preferred verbs for a given service across language SDKs. If a verb is called `download` in one language, we should avoid naming it `fetch` in another.
 
-Methods that may take an indeterminate time to complete on the server are referred to as "long running operations". This generally maps back to long running service methods as defined in the Microsoft REST API guidelines TODO: Johan, add link.
+Methods that may take an indeterminate time to complete on the server are referred to as "long running operations". This generally maps back to long running service methods as defined in the [Microsoft REST API guidelines](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#13-long-running-operations).
 
-{% include requirement/MUST id="python-lro-prefix" %} prefix methods with `begin_` for long running operations. TODO: Johan link to LRO.
+{% include requirement/MUST id="python-lro-prefix" %} prefix methods with `begin_` for [long running operations](#methods-invoking-long-running-operations). 
 
 {% include requirement/MUST id="python-paged-prefix" %} prefix methods with `list_` for methods that lists instances. Do use a `list_` prefix even if the service API currently do not support server driven paging. This allows server driven paging to be added to the service API without introducing breaking changes in the client library.
 
 #### Parameters
 
-{% include requirement/MUST id="python-client-optional-arguments-keyword-only" %} provide optional operation-specific arguments as keyword only. See TODO: insert link for general guidance on positional vs. optional parameters here.
+{% include requirement/MUST id="python-client-optional-arguments-keyword-only" %} provide optional operation-specific arguments as keyword only. See [positional and keyword-only arguments] for more information.
 
 {% include requirement/MUST id="python-client-service-per-call-args" %} provide keyword-only arguments that override per-request policy options. The name of the parameters MUST mirror the name of the arguments provided in the client constructor or factory methods.
 
@@ -179,7 +179,7 @@ except ValueError:
 
 {% include requirement/MUST id="python-params-devex" %} validate the developer experience when the service parameters are invalid to ensure appropriate error messages are generated by the service. Work with the service team if the developer experience is compromised because of service-side error messages.
 
-{% include requirement/MUSTNOT id="python-client-parameter-validation" %} use `isinstance` to validate parameter value types other than for [built-in types](https://docs.python.org/3/library/stdtypes.html) (e.g. `str` etc). For other types, use structural type checks. TODO: JOHAN add reference to python coding guidelines for structural over instance checks.
+{% include requirement/MUSTNOT id="python-client-parameter-validation" %} use `isinstance` to validate parameter value types other than for [built-in types](https://docs.python.org/3/library/stdtypes.html) (e.g. `str` etc). For other types, use [structural type checking].
 
 ##### Common service operation parameters
 
@@ -233,19 +233,15 @@ thing.size = -1
 client.update_thing(name='hello', size=4713, thing=thing)  
 ```
 
-#### Overloads
-
-TODO: JOHAN Describe if @typing.overloads can be used and if so, when.
-
 #### Return types
 
 Requests to the service fall into two basic groups - methods that make a single logical request, or a deterministic sequence of requests. An example of a single logical request is a request that may be retried inside the operation. An example of a deterministic sequence of requests is a paged operation.
 
-The logical entity is a protocol neutral representation of a response. For HTTP, the logical entity may combine data from headers, body, and the status line. For example, you may wish to expose an `ETag` header as a property on the logical entity.
+The logical entity is a protocol neutral representation of a response. For HTTP, the logical entity may combine data from headers, body, and the status line. For example, you may wish to expose an `ETag` header as an `etag` attribute on the logical entity.
 
 {% include requirement/MUST id="python-response-logical-entity" %} optimize for returning the logical entity for a given request. The logical entity MUST represent the information needed in the 99%+ case.
 
-{% include requirement/MUST id="python-response-exception-on-failure" %} raise an exception if the method call failed to accomplish the user specified task. This includes both situations where the service actively responded with a failure as well as when no response was received. See <TODO: JOHAN link to exceptions.
+{% include requirement/MUST id="python-response-exception-on-failure" %} raise an exception if the method call failed to accomplish the user specified task. This includes both situations where the service actively responded with a failure as well as when no response was received. See [Exceptions](#exceptions) for more information.
 
 TODO: Please include a code sample for return types
 
@@ -268,8 +264,6 @@ for page_no, page in enumerate(client.list_things().by_page()):
     print(page_no, page)
 ```
 
-TODO: Johan, show continuation token usage...
-
 #### Methods invoking long running operations
 
 Service operations that take a long time (currently defined in the Microsoft REST API Guidelines as not completing in 0.5s in P99) to complete are modeled by services as long running operations. 
@@ -279,8 +273,6 @@ Python client libraries abstracts the long running operation using the long runn
 {% include requirement/MUST id="python-lro-poller" %} return an object that implements the [Poller protocol](#python-core-protocol-lro-poller) for long running operations.
 
 {% include requirement/MUST id="python-lro-poller" %} use a `begin_` prefix for all long running operations.
-
-TODO: Johan, show continuation token usage...
 
 #### Conditional requests
 
@@ -303,10 +295,6 @@ client.update_thing(thing, name='updatedName', match_condition=azure.core.MatchC
 # Uses the explicitly provided etag.
 client.update_thing(thing, name='updatedName2', match_condition=azure.core.MatchConditions.IfNotModified, etag='"igotthisetagfromsomewhereelse"')
 ```
-
-#### Module level functions
-
-TODO: Johan Describe when module level functions should be used.
 
 #### Hierarchical clients
 
@@ -340,10 +328,13 @@ Client libraries represent entities transferred to and from Azure services as mo
 
 Data within the model type can generally be split into two parts - data used to support one of the champion scenarios for the service, and less important data. Given a type `Foo`, the less important details can be gathered in a type called `FooDetails` and attached to `Foo` as the `details` attribute.
 
-In order to facilitate round-trip of responses (common in get resource -> conditionally modify resource -> set resource workflows) types should use the input model type (e.g. `ConfigurationSetting`) whenever possible. The `ConfigurationSetting` type should include both server generated (read-only) attributes even though they will be ignored when used as input to the set resource method. 
+In order to facilitate round-trip of responses (common in get resource -> conditionally modify resource -> set resource workflows) types should use the input model type (e.g. `ConfigurationSetting`) whenever possible. The `ConfigurationSetting` type should include both server generated (read-only) attributes even though they will be ignored when used as input to the set resource method.
 
 - `<model>Item` for each item in an enumeration if the enumeration returns a partial schema for the model. For example, GetBlobs() return an enumeration of BlobItem, which contains the blob name and metadata, but not the content of the blob.
-- `<operation>Result` for the result of an operation. The `<operation>` is tied to a specific service operation. If the same result can be used for multiple operations, use a suitable noun-verb phrase instead. For example, use `UploadBlobResult` for the result from `UploadBlob`, but `ContainerChangeResult` for results from the various methods that change a blob container. TODO: Johan, when should you just use a `dict`?
+- `<operation>Result` for the result of an operation. The `<operation>` is tied to a specific service operation. If the same result can be used for multiple operations, use a suitable noun-verb phrase instead. For example, use `UploadBlobResult` for the result from `UploadBlob`, but `ContainerChangeResult` for results from the various methods that change a blob container. 
+
+{% include requirement/MUST id="python-models-dict-result" %} use a simple Mapping (e.g. `dict`) rather than creating a `<operation>Result` class if the `<operation>Result` class is not used as an input parameter for other APIs.
+
 
 The following table enumerates the various models you might create:
 
@@ -360,8 +351,6 @@ The following table enumerates the various models you might create:
 
 {% include requirement/MUST id="python-models-repr-length" %} truncate the output of `__repr__` after 1024 characters.
 
-{% include requirement/MUST id="python-models-dict-result" %} use a simple Mapping (e.g. `dict`) rather than creating a `<operation>Result` class if the `<operation>Result` class is not used as an input parameter for other APIs.
-
 TODO: Please include a code sample for model types.
 
 #### Enumerations
@@ -374,7 +363,7 @@ class MyEnum(str, Enum):
     Two = 'two
 ```
 
-### Exceptions (errors)
+### Exceptions
 
 {% include requirement/SHOULD id="python-errors-azure-exceptions" %} prefer raising [existing exception types from the `azure-core`](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/1.9.0/index.html#azure-core-library-exceptions) package over creating new exception types.
 
@@ -469,9 +458,7 @@ Example:
 
 {% include requirement/MUST id="python-auth-credential-azure-core" %} use the credentials classes in `azure-core` whenever possible.
 
-{% include requirement/MAY  id="python-auth-service-credentials" %} add additional credential types if required by the service. Contact @adparch for guidance if you believe you have need to do so.
-
-TODO: update contact information for the architecture board to reflect the new process.
+{% include requirement/MAY  id="python-auth-service-credentials" %} add additional credential types if required by the service. Contact the [Azure SDK Architecture Board](https://azure.github.io/azure-sdk/policies_reviewprocess.html) for guidance if you believe you have need to do so.
 
 {% include requirement/MUST id="python-auth-service-support" %} support all authentication methods that the service supports.
 
