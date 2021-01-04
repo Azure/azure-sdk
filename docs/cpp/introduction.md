@@ -219,7 +219,7 @@ namespace Details {
 
 {% include requirement/MUST id="cpp-design-naming-variables-public-global" %} name namespace scope variables intended for user consumption with **PascalCase**.
 
-{% include requirement/MUST id="cpp-design-naming-variables-constants" %} name namespace scope `const` or `constexpr` variables intended for user consumption with **PascalCase** and a `c_` prefix.
+{% include requirement/MUST id="cpp-design-naming-variables-constants" %} name namespace scope `const` or `constexpr` variables intended for user consumption with **PascalCase**.
 
 {% include requirement/MUST id="cpp-design-naming-variables-public-global" %} name namespace scope non-constant variables intended only for internal consumption with a `g_` prefix followed by **camelCase**. For example, `g_applicationContext`. Note that all such cases will be in a `Details` namespace or an unnamed namespace.
 
@@ -230,9 +230,9 @@ namespace Details {
 
 namespace Azure { namespace Group { namespace Service {
 int PublicNamespaceScopeVariable; // these should be used sparingly
-const int c_PublicNamespaceScopeConstant = 42;
-constexpr int c_OtherPublicNamespaceScopeConstant = 42;
-constexpr char * c_PublicNamespaceScopeConstantPointer = nullptr; // const pointer to modifiable
+const int PublicNamespaceScopeConstant = 42;
+constexpr int OtherPublicNamespaceScopeConstant = 42;
+constexpr char * PublicNamespaceScopeConstantPointer = nullptr; // const pointer to modifiable
 
 void Function(int parameterName) {
     int localName;
