@@ -401,6 +401,7 @@ These new packages share the same groupId ``com.azures.resourcemanager`` and art
 #### Breaking Changes
 - Deprecate `AADAppRoleStatelessAuthenticationFilter` and `AADAuthenticationFilter`.
 - Change artifact id from `azure-active-directory-spring-boot-starter` to `azure-spring-boot-starter-active-directory`.
+- Change group id of `azure-spring-boot-starter-active-directory` from `com.microsoft.azure` to `com.azure.spring`.
 - Deprecate following `azure-spring-boot-starter-active-directory` configuration properties:
     ```
     spring.security.oauth2.client.provider.azure.*
