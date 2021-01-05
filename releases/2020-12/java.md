@@ -399,10 +399,10 @@ These new packages share the same groupId ``com.azures.resourcemanager`` and art
 
 ### Azure Spring Boot ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot/CHANGELOG.md#300-2020-12-30))
 #### Breaking Changes
-- Deprecate `AADAppRoleStatelessAuthenticationFilter` and `AADAuthenticationFilter`.
-- Change artifact id from `azure-active-directory-spring-boot-starter` to `azure-spring-boot-starter-active-directory`.
-- Change group id of `azure-spring-boot-starter-active-directory` from `com.microsoft.azure` to `com.azure.spring`.
-- Deprecate following `azure-spring-boot-starter-active-directory` configuration properties:
+- Deprecated `AADAppRoleStatelessAuthenticationFilter` and `AADAuthenticationFilter`.
+- Changed artifact id from `azure-active-directory-spring-boot-starter` to `azure-spring-boot-starter-active-directory`.
+- Changed group id of `azure-spring-boot-starter-active-directory` from `com.microsoft.azure` to `com.azure.spring`.
+- Deprecated `azure-spring-boot-starter-active-directory` configuration properties:
     ```
     spring.security.oauth2.client.provider.azure.*
     spring.security.oauth2.client.registration.azure.*
