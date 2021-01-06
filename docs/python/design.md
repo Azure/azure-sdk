@@ -97,7 +97,6 @@ class ExampleClientWithConnectionString(object):
         return cls(endpoint, credential, **kwargs)
 ```
 
-TODO: JOHAN Fix up the example client... 
 ```python
 {% include_relative _includes/example_client.py %}
 ```
@@ -220,6 +219,11 @@ class Thing(object):
         self.size = size
         self.description = description
 
+    def __repr__(self):
+        return json.dumps({
+            "name": self.name, "size": self.size, "description": self.description
+        })[:1024]
+
 class Client(object):
 
     def update_thing(self, name=None, size=None, thing=None): ...
@@ -243,7 +247,20 @@ The logical entity is a protocol neutral representation of a response. For HTTP,
 
 {% include requirement/MUST id="python-response-exception-on-failure" %} raise an exception if the method call failed to accomplish the user specified task. This includes both situations where the service actively responded with a failure as well as when no response was received. See [Exceptions](#exceptions) for more information.
 
-TODO: Please include a code sample for return types
+```python
+client = ComputeClient(...)
+
+try:
+    # Please note that there is no status code etc. as part of the response.
+    # If the call fails, you will get an exception that will include the status code
+    # (if the request was made) 
+    virtual_machine  = client.get_virtual_machine('example')
+    print(f'Virtual machine instance looks like this: {virtual_machine}')
+except azure.core.exceptions.ServiceRequestError as e:
+    print(f'Failed to make the request - feel free to retry. But the specifics are here: {e}')
+except azure.core.exceptions.ServiceResponseError as e:
+    print(f'The request was made, but the service responded with an error. Status code: {e.status_code}')
+```
 
 #### Methods returning collections (paging)
 
@@ -324,7 +341,7 @@ class ChildClient:
 
 #### Model types
 
-Client libraries represent entities transferred to and from Azure services as model types. Certain types are used for round-trips to the service. They can be sent to the service (as an addition or update operation) and retrieved from the service (as a get operation). These should be named according to the type. For example, a `ConfigurationSetting` in App Configuration, or an `Event` on Event Grid.
+Client libraries represent entities transferred to and from Azure services as model types. Certain types are used for round-trips to the service. They can be sent to the service (as an addition or update operation) and retrieved from the service (as a get operation). These should be named according to the type. For example, a `ConfigurationSetting` in App Configuration, or a `VirtualMachine` on for Azure Resource Manager.
 
 Data within the model type can generally be split into two parts - data used to support one of the champion scenarios for the service, and less important data. Given a type `Foo`, the less important details can be gathered in a type called `FooDetails` and attached to `Foo` as the `details` attribute.
 
@@ -343,7 +360,6 @@ The following table enumerates the various models you might create:
 |<model>|Secret|The full data for a resource
 |<model>Details|SecretDetails|Less important details about a resource. Attached to <model>.details|
 |<model>Item|SecretItem|A partial set of data returned for enumeration|
-|<operation>Options|AddSecretOptions|Optional parameters to a single operation|
 |<operation>Result|AddSecretResult|A partial or different set of data for a single operation|
 |<model><verb>Result|SecretChangeResult|A partial or different set of data for multiple operations on a model|
 
@@ -351,17 +367,46 @@ The following table enumerates the various models you might create:
 
 {% include requirement/MUST id="python-models-repr-length" %} truncate the output of `__repr__` after 1024 characters.
 
-TODO: Please include a code sample for model types.
+```python
+# An example of a model type. 
+class ConfigurationSetting(object):
+    """Model type representing a configuration setting
+    
+    :ivar name: The name of the setting
+    :vartype name: str
+    :ivar value: The value of the setting
+    :vartype value: object
+    """
+
+    def __init__(self, name, value):
+        # type: (str, object) -> None
+        self.name = name
+        self.value = value
+
+    def __repr__(self):
+        # type: () -> str
+        return json.dumps(self.__dict__)[:1024]
+```
 
 #### Enumerations
 
 {% include requirement/MUST id="python-models-enum-string" %} use extensible enumerations.
 
+{% include requirement/MUST id="python-models-enum-name-uppercase" %} use UPPERCASE names for enum names.
+
 ```python
-class MyEnum(str, Enum):
-    One = 'one
-    Two = 'two
+
+# Yes
+class MyGoodEnum(str, Enum):
+    ONE = 'one'
+    TWO = 'two'
+
+# No
+class MyBadEnum(str, Enum):
+    One = 'one' # No - using PascalCased name. 
+    two = 'two' # No - using all lower case name.
 ```
+
 
 ### Exceptions
 
@@ -461,8 +506,6 @@ Example:
 {% include requirement/MAY  id="python-auth-service-credentials" %} add additional credential types if required by the service. Contact the [Azure SDK Architecture Board](https://azure.github.io/azure-sdk/policies_reviewprocess.html) for guidance if you believe you have need to do so.
 
 {% include requirement/MUST id="python-auth-service-support" %} support all authentication methods that the service supports.
-
-TODO: please include a code sample for authentication
 
 ### Namespaces
 

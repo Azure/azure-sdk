@@ -5,3 +5,5 @@
 [Packaging]: python_implementation.html#packaging
 [HTTP pipeline]: python_implementation.html#azure-core
 [azure/azure-sdk-for-python]: https://github.com/azure/azure-sdk-for-python
+[positional and keyword-only arguments]: python_implementation.html#python-codestyle-long-args
+[structural type checking]: python_implementation/python_implementation.html#types-or-not
