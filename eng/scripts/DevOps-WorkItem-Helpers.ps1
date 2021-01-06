@@ -344,7 +344,7 @@ function CreateOrUpdatePackageWorkItem($lang, $pkg, $verMajorMinor, $existingIte
     if ($title -ne $existingItem.fields["System.Title"]) { $changedField = "System.Title" }
 
     if ($changedField) {
-      Write-Host "At least field $changedField ($($existingItem.fields[$field])) changed so updating."
+      Write-Host "At least field $changedField ($($existingItem.fields[$changedField])) changed so updating."
     }
 
     $beforeState = $existingItem.fields["System.State"]
