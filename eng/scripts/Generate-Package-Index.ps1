@@ -14,7 +14,7 @@ function MSDocLink($lang, $pkg)
   if ($pkg.MSDocs -ne "") { return "[docs]($($pkg.MSDocs))" }
 
   $msPackagePath = $pkg.Package -replace "@?azure[\.\-/]", ""
-  return "[docs](https://docs.microsoft.com/${lang}/api/overview/azure/${msPackagePath}-readme${suffix}/)"
+  return "[docs](https://docs.microsoft.com/${lang}/api/overview/azure/${msPackagePath}-readme/)"
 }
 
 function Get-Heading()
