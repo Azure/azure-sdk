@@ -345,7 +345,7 @@ function RefreshItems()
           $csvEntry.DisplayName = $pkgWI.fields["Custom.PackageDisplayName"]
           $csvEntry.ServiceName = $pkgWI.fields["Custom.ServiceName"]
 
-          if ($pkgWI.fields["Custom.PackageRepoPath"] -and !$csvEntry.RepoPath) {
+          if ($pkgWI.fields["Custom.PackageRepoPath"] -and ($null -eq $csvEntry.RepoPath -or "NA" -eq $csvEntry.RepoPath)) {
             $csvEntry.RepoPath = $pkgWI.fields["Custom.PackageRepoPath"]
           }
 
