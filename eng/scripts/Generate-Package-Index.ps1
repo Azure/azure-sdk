@@ -13,9 +13,6 @@ function MSDocLink($lang, $pkg)
   if ($pkg.MSDocs -eq "NA") { return "" }
   if ($pkg.MSDocs -ne "") { return "[docs]($($pkg.MSDocs))" }
 
-  $suffix = ""
-  if (!$pkg.VersionGA -and $pkg.VersionPreview) { $suffix = "-pre" }
-
   $msPackagePath = $pkg.Package -replace "@?azure[\.\-/]", ""
   return "[docs](https://docs.microsoft.com/${lang}/api/overview/azure/${msPackagePath}-readme${suffix}/)"
 }
