@@ -521,10 +521,12 @@ function OutputAll($langs)
 
 function CheckAll($langs)
 {
+  $foundIssues = $false
   $serviceNames = @()
   foreach ($lang in $langs) 
   {
     $clientPackages, $_ = Get-PackageListForLanguageSplit $lang
+    $csvFile = Get-LangCsvFilePath $lang 
 
     foreach ($pkg in $clientPackages)
     {
@@ -534,19 +536,25 @@ function CheckAll($langs)
         PkgInfo = $pkg
       }
 
-      if ($pkg.RepoPath -and $pkg.RepoPath -eq "NA")
+      if (!$pkg.RepoPath -or $pkg.RepoPath -eq "NA")
       {
-        Write-Warning "[$lang] $($pkg.Package) RepoPath set to $($pkg.RepoPath)" 
+        Write-Warning "No RepoPath set for package '$($pkg.Package)' in $csvFile."
+        Write-Host "Please set it to the service directory name where it is located. (i.e. <repo>\sdk\*service-directory-name*)."
+        $foundIssues = $true
       }
 
       if (!$pkg.ServiceName)
       {
-        Write-Warning "No ServiceName for [$lang] $($pkg.Package)"
+        Write-Warning "No ServiceName for '$($pkg.Package)' in $csvFile."
+        Write-Host "Please set the value to match the display name for the service that is use to align all the similar packages across languages."
+        $foundIssues = $true
       }
 
       if (!$pkg.DisplayName)
       {
-        Write-Warning "No DisplayName for [$lang] $($pkg.Package)"
+        Write-Warning "No DisplayName for '$($pkg.Package)' in $csvFile."
+        Write-Host "Please set the value to match the display name for the package that is used to align all the similar packages across languages."
+        $foundIssues = $true
       }
     }
   }
@@ -554,7 +562,12 @@ function CheckAll($langs)
   $serviceGroups = $serviceNames | Sort-Object ServiceName | Group-Object ServiceName 
   Write-Host "Found $($serviceNames.Count) service name with $($serviceGroups.Count) unique names:"
 
-  $serviceGroups | Select-Object Name, @{Label="Langugages"; Expression={$_.Group.Lang | Sort-Object -Unique}}, Count, @{Label="Packages"; Expression={$_.Group.PkgInfo.Package}}
+  $serviceGroups | Format-Table @{Label="Service Name"; Expression={$_.Name}}, @{Label="Langugages"; Expression={$_.Group.Lang | Sort-Object -Unique}}, Count, @{Label="Packages"; Expression={$_.Group.PkgInfo.Package}}
+
+  if ($foundIssues) {
+    Write-Error "Found one or more issues with data in the CSV files see the warnings above and fix as appropriate."
+    exit 1
+  }
 }
 
 if ($language -eq 'check') {

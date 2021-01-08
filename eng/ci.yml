@@ -37,6 +37,14 @@ steps:
   workingDirectory: azure-sdk
 
 - task: PowerShell@2
+  displayName: Verify CSV data contents
+  inputs:
+    pwsh: true
+    workingDirectory: azure-sdk
+    filePath: azure-sdk/eng/scripts/Update-Release-Versions.ps1 
+    arguments: "check"
+
+- task: PowerShell@2
   displayName: Verify site links
   inputs:
     pwsh: true
