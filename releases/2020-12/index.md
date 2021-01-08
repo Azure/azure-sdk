@@ -3,6 +3,7 @@ title: Azure SDK (December 2020)
 layout: post
 tags: release
 sidebar: releases_sidebar
+permalink: /releases/2020-12/index.html
 ---
 
 Thank you for your interest in the new Azure SDKs! We release new features, improvements, and bug fixes every month. Please subscribe to our [Azure SDK Blog RSS Feed](https://devblogs.microsoft.com/azure-sdk/feed) to get notified when a new release is available.
