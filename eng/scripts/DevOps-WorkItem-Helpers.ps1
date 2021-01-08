@@ -728,7 +728,7 @@ function UpdatePackageVersions($pkgWorkItem, $plannedVersions, $shippedVersions)
   $fieldUpdates = @()
   if ($updatePlanned)
   {
-    $plannedPackages = GetMDVersionValue ($plannedVersionSet.Values | Sort-Object Date, Version -Descending)
+    $plannedPackages = GetMDVersionValue ($plannedVersionSet.Values | Sort-Object {$_.Date -as [DateTime]}, Version -Descending)
     $fieldUpdates += @"
 {
   "op": "replace",
@@ -740,7 +740,7 @@ function UpdatePackageVersions($pkgWorkItem, $plannedVersions, $shippedVersions)
 
   if ($updateShipped)
   {
-    $newShippedVersions = $shippedVersionSet.Values | Sort-Object Date, Version -Descending
+    $newShippedVersions = $shippedVersionSet.Values | Sort-Object {$_.Date -as [DateTime]}, Version -Descending
     $shippedPackages = GetMDVersionValue $newShippedVersions
     $fieldUpdates += @"
 {
@@ -771,7 +771,7 @@ function UpdatePackageVersions($pkgWorkItem, $plannedVersions, $shippedVersions)
   }
 
   # Full merged version set
-  $versionList = $versionSet.Values | Sort-Object Date, Version -Descending
+  $versionList = $versionSet.Values | Sort-Object {$_.Date -as [DateTime]}, Version -Descending
 
   $versionFieldUpdates = GetTextVersionFields $versionList $pkgWorkItem
   if ($versionFieldUpdates.Count -gt 0)
