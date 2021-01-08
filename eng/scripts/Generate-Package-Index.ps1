@@ -14,7 +14,13 @@ function MSDocLink($lang, $pkg)
   if ($pkg.MSDocs -ne "") { return "[docs]($($pkg.MSDocs))" }
 
   $msPackagePath = $pkg.Package -replace "@?azure[\.\-/]", ""
-  return "[docs](https://docs.microsoft.com/${lang}/api/overview/azure/${msPackagePath}-readme/)"
+
+  # this suffix addition will continue to exist for .NET ONLY until the same overview path is allowed to exist 
+  # across multiple monikers
+  $suffix = ""
+  if (!$pkg.VersionGA -and $pkg.VersionPreview -and $lang -eq "dotnet") { $suffix = "-pre" }
+
+  return "[docs](https://docs.microsoft.com/${lang}/api/overview/azure/${msPackagePath}-readme${suffix}/)"
 }
 
 function Get-Heading()
