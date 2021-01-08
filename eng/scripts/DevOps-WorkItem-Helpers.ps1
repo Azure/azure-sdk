@@ -73,7 +73,7 @@ function FindParentWorkItem($serviceName, $packageDisplayName, $outputCommand = 
   foreach ($wi in $workItems) {
     $localKey = BuildHashKey $wi.fields["Custom.ServiceName"] $wi.fields["Custom.PackageDisplayName"]
     if (!$localKey) { continue }
-    if ($parentWorkItems.ContainsKey($localKey)) {
+    if ($parentWorkItems.ContainsKey($localKey) -and $parentWorkItems[$localKey].id -ne $wi.id) {
       Write-Warning "Already found parent [$($parentWorkItems[$localKey].id)] with key [$localKey], using that one instead of [$($wi.id)]."
     }
     else {
@@ -172,7 +172,7 @@ function FindPackageWorkItem($lang, $packageName, $version, $outputCommand = $tr
       Write-Host "Skipping package [$($wi.id)]$($wi.fields['System.Title']) which is missing required fields language, package, or version."
       continue 
     }
-    if ($packageWorkItems.ContainsKey($localKey)) {
+    if ($packageWorkItems.ContainsKey($localKey) -and $packageWorkItems[$localKey].id -ne $wi.id) {
       Write-Warning "Already found package [$($packageWorkItems[$localKey].id)] with key [$localKey], using that one instead of [$($wi.id)]."
     }
     else {

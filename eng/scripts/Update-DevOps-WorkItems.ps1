@@ -354,7 +354,7 @@ function RefreshItems()
             $csvEntry.RepoPath = "NA"
           }
 
-          Write-Host "[$($pkgWI.id)]$pkgLang - $pkgName($verMajorMinor) - Detected new package so updating metadata for it."
+          Write-Host "[$($pkgWI.id)]$pkgLang - $pkgName($verMajorMinor) - Detected new package so updating metadata for it in the CSV."
           Set-PackageListForLanguage $pkgLang $allPackagesFromCSV[$pkgLang]
 
           $verGroups = GetVersionGroupForPackage $pkgLang $csvEntry
@@ -370,7 +370,7 @@ function RefreshItems()
         }
       }
       else {
-        Write-Host "[$($pkgWI.id)]$pkgLang - $pkgName($verMajorMinor) - Skipping as this looks like brand new package that hasn't shipped so we don't have any versioning information."
+        Write-Host "Skipping '$($pkgWI.id) - $pkgLang - $pkgName($verMajorMinor)', as this looks like a brand new package that hasn't shipped so we don't have any versioning information in the CSV."
         continue
       }
     }
@@ -391,6 +391,23 @@ function RefreshItems()
       foreach ($verMajorMinor in $allVersions[$pkgLang][$pkgName].VersionGroups.Keys)
       {
         $verInfo = $allVersions[$pkgLang][$pkgName].VersionGroups[$verMajorMinor]
+
+        if (!$verInfo.PackageInfo.ServiceName)
+        {
+          Write-Warning "No ServiceName for '$pkgLang - $pkgName' in CSV so not creating a package work-item for it."
+          continue
+        }
+
+        if (!$verInfo.PackageInfo.DisplayName)
+        {
+          Write-Warning "No DisplayName for '$pkgLang - $pkgName' in CSV so not creating a package work-item for it."
+          continue
+        }
+        if (!$verInfo.PackageInfo.RepoPath -and $verInfo.PackageInfo.RepoPath -eq "NA")
+        {
+          Write-Warning "No RepoPath set for '$pkgLang - $pkgName' in CSV so not creating a package work-item for it."
+          continue
+        }
 
         $pkgWI = FindPackageWorkItem $pkgLang $pkgName $verMajorMinor -outputCommand $false
         

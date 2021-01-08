@@ -524,7 +524,7 @@ function CheckAll($langs)
   $serviceNames = @()
   foreach ($lang in $langs) 
   {
-    $clientPackages, $_ = Get-PackageListFromLanguageSplit $lang
+    $clientPackages, $_ = Get-PackageListForLanguageSplit $lang
 
     foreach ($pkg in $clientPackages)
     {
