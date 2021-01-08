@@ -52,8 +52,10 @@ function UpdateDocLinks($lang, $pkg, $skipIfNA = $false)
 
   $trimmedPackage = $pkg.Package -replace "@?azure[\.\-/]", ""
 
+  # this suffix addition will continue to exist for .NET ONLY until the same overview path is allowed to exist 
+  # across multiple monikers
   $suffix = ""
-  if (!$pkg.VersionGA -and $pkg.VersionPreview) { $suffix = "-pre" }
+  if (!$pkg.VersionGA -and $pkg.VersionPreview -and $lang -eq "dotnet") { $suffix = "-pre" }
 
   $msdocLink = "https://docs.microsoft.com/${lang}/api/overview/azure/${trimmedPackage}-readme${suffix}/"
   $msdocvalid = CheckLink $msdocLink $false 
