@@ -6,6 +6,7 @@ param (
   [string] $devops_pat = $env:DEVOPS_PAT
 )
 Set-StrictMode -Version 3
+$ErrorActionPreference = "Continue"
 
 . (Join-Path $PSScriptRoot PackageList-Helpers.ps1)
 . (Join-Path $PSScriptRoot DevOps-WorkItem-Helpers.ps1)
@@ -152,7 +153,7 @@ function GetVersionGroupForPackage($lang, $pkg)
     $versions += ToSemVer $pkg.VersionPreview
   }
 
-  $versions = SortSemVersions $versions
+  $versions = @(SortSemVersions $versions)
 
   if ($versions.Count -eq 0) {
     Write-Verbose "No versioning information for $lang - $($pkg.Package)"
@@ -345,8 +346,8 @@ function RefreshItems()
           $csvEntry.DisplayName = $pkgWI.fields["Custom.PackageDisplayName"]
           $csvEntry.ServiceName = $pkgWI.fields["Custom.ServiceName"]
 
-          if ($pkgWI.fields["Custm.PckageRepoPath"] -and !$csvEntry.RepoPath) {
-            $csvEntry.RepoPath = $pkgWI.fields["Custm.PckageRepoPath"]
+          if ($pkgWI.fields["Custom.PackageRepoPath"] -and ($null -eq $csvEntry.RepoPath -or "NA" -eq $csvEntry.RepoPath)) {
+            $csvEntry.RepoPath = $pkgWI.fields["Custom.PackageRepoPath"]
           }
 
           if (!$csvEntry.RepoPath) {

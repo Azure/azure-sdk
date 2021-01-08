@@ -20,6 +20,8 @@ The Azure SDK team is pleased to announce our December 2020 client library relea
 - Management Library - Spring Cloud
 - Management Library - SQL
 - Management Library - Traffic Manager
+- Spring Library - Spring Boot
+- Spring Library - Spring Cloud
 
 #### Updates
 
@@ -203,6 +205,96 @@ For resource management libraries, we also provide a wrapper package that contai
   <version>2.1.0</version>
 </dependency>
 ```
+To use Azure Spring Cloud starters and binders, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate.
+
+```xml
+ <dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-stream-binder-servicebus-queue</artifactId>
+  <version>2.0.0</version> 
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-stream-binder-servicebus-topic</artifactId>
+  <version>2.0.0</version> 
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-starter-cache</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-starter-eventhubs-kafka</artifactId>
+  <version>2.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-stream-binder-eventhubs</artifactId>
+  <version>2.0.0</version>
+</dependency>
+```
+
+To use Azure Spring Boot starters, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate.
+```xml
+<dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>azure-spring-boot-bom</artifactId>
+        <version>3.0.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+</dependencyManagement>
+
+<dependencies>
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot-starter</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot-starter-active-directory</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot-starter-active-directory-b2c</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot-starter-cosmos</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot-starter-keyvault-secrets</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot-starter-servicebus-jms</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot-starter-storage</artifactId>
+    </dependency>
+</dependencies>
+```
 
 ## Feedback
 
@@ -299,6 +391,50 @@ These new packages share the same groupId ``com.azures.resourcemanager`` and art
 #### Synapse Monitoring [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/synapse/azure-analytics-synapse-monitoring/CHANGELOG.md#100-beta1-2020-12-15)
 
 - Initial release.
+
+### Azure Spring Cloud ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-cloud-autoconfigure/CHANGELOG.md#200-2020-12-30))
+#### Breaking Changes
+- Deprecated the `spring.cloud.azure.managed-identity.client-id` property,
+  use `spring.cloud.azure.client-id` to set the managed identity id when using Managed Identity.
+
+### Azure Spring Boot ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot/CHANGELOG.md#300-2020-12-30))
+#### Breaking Changes
+- Deprecated `AADAppRoleStatelessAuthenticationFilter` and `AADAuthenticationFilter`.
+- Changed artifact id from `azure-active-directory-spring-boot-starter` to `azure-spring-boot-starter-active-directory`.
+- Changed group id of `azure-spring-boot-starter-active-directory` from `com.microsoft.azure` to `com.azure.spring`.
+- Deprecated `azure-spring-boot-starter-active-directory` configuration properties:
+    ```
+    spring.security.oauth2.client.provider.azure.*
+    spring.security.oauth2.client.registration.azure.*
+    azure.activedirectory.environment
+    azure.activedirectory.user-group.key
+    azure.activedirectory.user-group.value
+    azure.activedirectory.user-group.object-id-key
+    ```
+- Stop support of Azure Active Directory Endpoints.
+
+#### New Features
+- Support consent of multiple client registrations during user login.
+- Support on-demand client registrations.
+- Support the use of `@RegisteredOAuth2AuthorizedClient` annotation to get `OAuth2AuthorizedClient`.
+- Support access control through users' membership information.
+- Support on-behalf-of flow in the resource server.
+- Provide AAD specific token validation methods of audience validation and issuer validation.
+- Expose a flag `isPersonalAccount` in `AADOAuth2AuthenticatedPrincipal` to specify the account type in use: work account or personal account.
+- Enable loading transitive membership information from Microsoft Graph API.
+- Enable following `azure-spring-boot-starter-active-directory` configuration properties:
+    ```yaml
+    # Redirect URI of authorization server
+    azure.activedirectory.redirect-uri-template
+    # Refresh time of the cached JWK set before it expires, default value is 5 minutes.
+    azure.activedirectory.jwk-set-cache-refresh-time
+    # Logout redirect URI
+    azure.activedirectory.post-logout-redirect-uri
+    # base URI for authorization server, default value is "https://login.microsoftonline.com/"
+    azure.activedirectory.base-uri
+    # Membership URI of Microsoft Graph API to get users' group information, default value is "https://graph.microsoft.com/v1.0/me/memberOf"
+    azure.activedirectory.graph-membership-uri
+    ```
 
 ## Need help
 
