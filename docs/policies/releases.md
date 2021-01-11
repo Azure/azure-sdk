@@ -383,6 +383,20 @@ An iOS release includes a Tag and Release (e.g. [1.0.0-beta.2](https://github.co
 
 **GA Hotfix Release:** `1.0.0` -> `1.0.1`
 
+#### Go
+
+Go releases the source code of the repository in a single unit of source code. It does not ship packages to any package managers. Because the Go repo ships from the `master` branch, code going into the `master` branch must be in a completed state and ready to ship.
+
+A Go release includes a Tag and Release (e.g. [sdk/azcore/v0.13.0](https://github.com/Azure/azure-sdk-for-go/releases/tag/sdk/azcore/v0.13.0)) on GitHub and documentation in pkg.go.dev (e.g. [sdk/azcore](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore)).
+
+#### Incrementing after release (Go)
+
+**Preview release:** `sdk/<module path>/v0.1.0.` -> `v0.2.0`
+
+**GA Release:** `sdk/<module path>/v1.1.0` -> `v1.2.0`
+
+**GA Hotfix Release:** `v1.0.0` -> `v1.0.1`
+
 ## Beta Releases and GA Graduation
 
 The Azure SDK team may choose to create a beta release for several reasons:
