@@ -10,7 +10,9 @@ The Azure SDK team is pleased to announce our January 2021 client library releas
 
 #### GA
 
-- _Add packages_
+- Newtonsoft.Json support for Azure.Core
+- Newtonsoft.Json support for Microsoft.Spatial
+- System.Text.Json support for Microsoft.Spatial
 
 #### Updates
 
@@ -25,7 +27,9 @@ The Azure SDK team is pleased to announce our January 2021 client library releas
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
 ```bash
-$> dotnet install PACKAGE --version whatever
+$> dotnet add package Microsoft.Azure.Core.NewtonsoftJson --version 1.0.0
+$> dotnet add package Microsoft.Azure.Core.Spatial --version 1.0.0
+$> dotnet add package Microsoft.Azure.Core.Spatial.NewtonsoftJson --version 1.0.0
 ```
 
 ## Feedback
@@ -34,9 +38,17 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 ## Release highlights
 
-### _Package name_ 
+### Newtonsoft.Json support for Azure.Core [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.Core.NewtonsoftJson_1.0.0/sdk/core/Microsoft.Azure.Core.NewtonsoftJson/CHANGELOG.md)
 
-- Major changes only!!!
+- Initial release of Microsoft.Azure.Core.NewtonsoftJson to use Newtonsoft.Json for serialization.
+
+### Newtonsoft.Json support for Microsoft.Spatial [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.Core.Spatial.NewtonsoftJson_1.0.0/sdk/core/Microsoft.Azure.Core.Spatial.NewtonsoftJson/CHANGELOG.md)
+
+- Initial release of Microsoft.Azure.Core.Spatial.NewtonsoftJson to use Newtonsoft.Json to serialize supported Microsoft.Spatial types.
+
+### System.Text.Json support for Microsoft.Spatial [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.Core.Spatial_1.0.0/sdk/core/Microsoft.Azure.Core.Spatial/CHANGELOG.md)
+
+- Initial release of Microsoft.Azure.Core.Spatial to use `System.Text.Json` to serialize supported Microsoft.Spatial types.
 
 ## Latest Releases
 
