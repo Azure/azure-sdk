@@ -26,10 +26,10 @@ if ($publishRelease) {
   $yearGroup = $yml.entries.folders | Where-Object { $_.title -eq $yearGroupName }
 
   if (!$yearGroup) {
-    $yearGroup = [ordered]@{ title = "$yearGroupName"; folderitems = @() }
+    $yearGroup = [ordered]@{ title = "$yearGroupName"; folderitems = new-object "System.Collections.Generic.List[object]" }
 
     # insert in spot 1 as spot 0 is reserved for Latest
-    $yml.entries.folders.Insert(1, $yearGroup)
+    $yml.entries[0].folders.Insert(1, $yearGroup)
   }
 
   $monthGroupName = $releaseDate.ToString("MMMM")
