@@ -39,6 +39,7 @@ The Azure SDK team is pleased to announce our November 2020 client library relea
 - Key Vault Certificates
 - Key Vault Keys
 - Key Vault Secrets
+- Live Video Analytics on IoT Edge
 - Management Library - Communication
 - Metrics Advisor
 - Search Documents
@@ -71,6 +72,8 @@ $> dotnet add package Azure.DigitalTwins.Core --version 1.0.1
 $> dotnet add package Azure.Extensions.AspNetCore.Configuration.Secrets --version 1.0.2
 
 $> dotnet add package Azure.Identity --version 1.3.0
+
+$> dotnet add package Azure.Media.Analytics.Edge --version 1.0.0-beta.1
 
 $> dotnet add package Azure.Messaging.EventGrid --version 4.0.0-beta.4
 
@@ -348,6 +351,10 @@ service with correct analysis of the document's content.
 ### Key Vault Secrets [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/keyvault/Azure.Security.KeyVault.Secrets/CHANGELOG.md#420-beta3-2020-11-12)
 
 - This release contains bug fixes to improve quality.
+
+### Live Video Analyticos on IoT Edge [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/mediaservices/Azure.Media.Analytics.Edge/CHANGELOG.md#100-beta1-2020-12-11)
+
+- Initial release of [Live Video Analytics on IoT Edge](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/overview).
 
 ### Metrics Advisor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/CHANGELOG.md#100-beta2-2020-11-10)
 
