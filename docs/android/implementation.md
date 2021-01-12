@@ -255,7 +255,7 @@ This happens within azure-core by default, but users can configure this through 
 
 {% include requirement/MUST id="android-logging-exceptions" %} log thrown exceptions at the `Logger.warning` level. If the log level is set to `debug`, append stack trace information to the message.
 
-{% include requirement/MUST id="android-logging-log-and-throw" %} throw all exceptions created within the client library code through one of the logger APIs - `ClientLogger.logThrowableAsError()`, `ClientLogger.logExceptionAsError()` or `ClientLogger.logExceptionAsWarning()`.
+{% include requirement/MUST id="android-logging-log-and-throw" %} throw all exceptions created within the client library code through one of the logger APIs - `ClientLogger.logThrowableAsError()`, `ClientLogger.logThrowableAsWarning()`, `ClientLogger.logExceptionAsError()` or `ClientLogger.logExceptionAsWarning()`.
 
 For example:
 

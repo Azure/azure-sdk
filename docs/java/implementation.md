@@ -134,7 +134,7 @@ This happens within azure-core by default, but users can configure this through 
 
 {% include requirement/MUST id="java-logging-exceptions" %} log exceptions thrown as a `Warning` level message. If the log level set to `Verbose`, append stack trace information to the message.
 
-{% include requirement/MUST id="java-logging-log-and-throw" %} throw all exceptions created within the client library code through one of the logger APIs - `ClientLogger.logThrowableAsError()`, `ClientLogger.logExceptionAsError()` or `ClientLogger.logExceptionAsWarning()`.
+{% include requirement/MUST id="java-logging-log-and-throw" %} throw all exceptions created within the client library code through one of the logger APIs - `ClientLogger.logThrowableAsError()`, `ClientLogger.logThrowableAsWarning()`, `ClientLogger.logExceptionAsError()` or `ClientLogger.logExceptionAsWarning()`.
 
 For example:
 
