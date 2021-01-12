@@ -151,6 +151,11 @@ if (!file.exists()) {
     throw logger.logThrowableAsError(new IOException("File does not exist " + file.getName()));
 }
 
+// Log any Throwable as warning and throw the exception
+if (!file.exists()) {
+    throw logger.logThrowableAsWarning(new IOException("File does not exist " + file.getName()));
+}
+
 // Log a RuntimeException as error and throw the exception
 if (priority != null && priority < 0) {
     throw logger.logExceptionAsError(new IllegalArgumentException("'priority' cannot be a negative value. Please specify a zero or positive long value."));
