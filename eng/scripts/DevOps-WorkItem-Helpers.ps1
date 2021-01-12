@@ -148,7 +148,7 @@ function FindPackageWorkItem($lang, $packageName, $version, $outputCommand = $tr
   $query = "SELECT ${fieldList} FROM WorkItems WHERE [Work Item Type] = 'Package'"
 
   if (!$includeClosed -and !$lang) {
-    $query += " AND [State] <> 'No Active Development'"
+    $query += " AND [State] <> 'No Active Development' AND [PackageTypeNewLibrary] = true"
   }
   if ($lang) {
     $query += " AND [Language] = '${lang}'"
