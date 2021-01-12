@@ -47,11 +47,9 @@ If you have a bug or feature request for one of the libraries, please post an is
   - Fixed bug in accessing message properties triggering segmentation fault when the underlying C bytes are NULL (#15568).
 
 ### Event Hubs CheckpointStoreBlob [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/CHANGELOG.md#112-2021-01-11)
-
 - Fixed a bug that `BlobCheckpointStore.list_ownership` and `BlobCheckpointStore.list_checkpoints` triggering `KeyError` due to reading empty metadata of parent node when working with Data Lake enabled Blob Storage.
 
 ### Event Hubs CheckpointStoreBlob Async [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/CHANGELOG.md#112-2021-01-11)
-
 - Fixed a bug that `BlobCheckpointStore.list_ownership` and `BlobCheckpointStore.list_checkpoints` triggering `KeyError` due to reading empty metadata of parent node when working with Data Lake enabled Blob Storage.
 
 ## Latest Releases
