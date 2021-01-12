@@ -255,7 +255,7 @@ This happens within azure-core by default, but users can configure this through 
 
 {% include requirement/MUST id="android-logging-exceptions" %} log thrown exceptions at the `Logger.warning` level. If the log level is set to `debug`, append stack trace information to the message.
 
-{% include requirement/MUST id="android-logging-log-and-throw" %} throw all exceptions created within the client library code through the `ClientLogger.logAndThrow()` API.
+{% include requirement/MUST id="android-logging-log-and-throw" %} throw all exceptions created within the client library code through one of the logger APIs - `ClientLogger.logThrowableAsError()`, `ClientLogger.logExceptionAsError()` or `ClientLogger.logExceptionAsWarning()`.
 
 For example:
 
@@ -266,8 +266,20 @@ if (priority != null && priority < 0) {
 }
 
 // Good
+
+// Log any Throwable as error and throw the exception
+if (!file.exists()) {
+    throw logger.logThrowableAsError(new IOException("File does not exist " + file.getName()));
+}
+
+// Log a RuntimeException as error and throw the exception
 if (priority != null && priority < 0) {
-    logger.logAndThrow(new IllegalArgumentException("'priority' cannot be a negative value. Please specify a zero or positive long value."));
+    throw logger.logExceptionAsError(new IllegalArgumentException("'priority' cannot be a negative value. Please specify a zero or positive long value."));
+}
+
+// Log a RuntimeException as warning and throw the exception
+if (numberOfAttempts < retryPolicy.getMaxRetryCount()) {
+    throw logger.logExceptionAsWarning(new RetryableException("A transient error occurred. Another attempt will be made after " + retryPolicy.getDelay()));
 }
 ```
 
