@@ -40,11 +40,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#510b4-2021-01-12)
 
-- Bug fix to upgrade the minimum dependency of `azure-core`.
-
 ### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#310b2-2021-01-12)
-
-- Bug fix to upgrade the minimum dependency of `azure-core`.
 
 ## Latest Releases
 
