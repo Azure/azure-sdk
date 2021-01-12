@@ -23,6 +23,7 @@ The Azure SDK team is pleased to make available the November 2020 client library
 - Communication SMS
 - Service Bus
 - Search
+- Live Video Analytics on IoT Edge
 - Management Library - Communication
 - Metrics Advisor
 - Eventgrid
@@ -39,6 +40,7 @@ pip install azure-communication-chat --pre
 pip install azure-communication-sms --pre
 pip install azure-servicebus --pre
 pip install azure-search-documents --pre
+pip install azure-media-analytics-edge
 pip install azure-ai-metricsadvisor --pre
 pip install azure-eventgrid --pre
 pip install azure-storage-blob
@@ -93,6 +95,10 @@ This release contains minor bug fixes and improvements.
 ### Communication SMS [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-sms/CHANGELOG.md#100b4-2020-11-16)
 
 This release contains minor bug fixes and improvements.
+
+### Live Video Analyticos on IoT Edge [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/media/azure-media-analytics-edge/CHANGELOG.md#100b1)
+
+- Initial release of [Live Video Analytics on IoT Edge](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/overview).
 
 ### Management Library - Communication [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-mgmt-communication/CHANGELOG.md#100b4-2020-11-16)
 
