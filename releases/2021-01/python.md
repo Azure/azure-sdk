@@ -19,6 +19,8 @@ The Azure SDK team is pleased to make available the January 2021 client library 
 #### Beta
 
 - Tables
+- Text Analytics
+- Form Recognizer
 
 ## Installation Instructions
 
@@ -26,6 +28,8 @@ To install the latest beta version of the packages, copy and paste the following
 
 ```bash
 pip install azure-data-tables
+pip install azure-ai-textanalytics --pre
+pip install azure-ai-formrecognizer --pre
 ```
 
 ## Feedback
