@@ -23,7 +23,6 @@ The Azure SDK team is pleased to make available the January 2021 client library 
 
 #### Beta
 
-- OpenTelemetry Exporter Azure Monitor
 - Azure Data Tables
 - Azure Attestation
 - _Add packages_
