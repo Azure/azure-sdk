@@ -53,7 +53,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 ### Azure.Security.Attestation [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.Core.Spatial_1.0.0/sdk/attestation/Azure.Security.Attestation/CHANGELOG.md)
 
-  - Initial release of Azure.Security.Attestation to support data-plane operations of Microsoft Azure Attestation.
+  - Initial release of Azure.Security.Attestation Beta version to support data-plane operations of Microsoft Azure Attestation.
 
 ## Latest Releases
 
