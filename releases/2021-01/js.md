@@ -18,14 +18,14 @@ The Azure SDK team is pleased to make available the January 2021 client library 
 
 #### Beta
 
-- _Add packages_
+- Microsoft Azure Attestation
 
 ## Installation Instructions
 
 To install the packages, copy and paste the below into a terminal.
 
 ```bash
-$> npm install @azure/package-name
+$> npm install @azure/attestation
 ```
 
 ## Feedback
@@ -34,9 +34,9 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-### _Package name_
+### Attestation [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/attestation/attestation/CHANGELOG.md)
 
-- Major changes only!
+  - Initial release of attestation Beta version to support data-plane operations of Microsoft Azure Attestation.
 
 ## Latest Releases
 
