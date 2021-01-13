@@ -52,11 +52,11 @@ At the end of this document, you can find a section with [the most commonly over
 
 {% include requirement/MUST id="dotnet-general-follow-general-guidelines" %} follow the [General Azure SDK Guidelines][general-guidelines].
 
-The guidelines provide a robust methodology for communicating with Azure services. The easiest way to ensure that your component meets these requirements is to use the [Azure.Core] package to call Azure services. Details of these helper APIs and their usage are described in the [Using HttpPipeline](#dotnet-usage-httppipeline) section.
+The guidelines provide a robust methodology for communicating with Azure services. The easiest way to ensure that your component meets these requirements is to use the [Azure.Core] package to call Azure services. Details of these helper APIs and their usage are described in the [Using HttpPipeline](implementation.md#dotnet-usage-httppipeline) section.
 
 {% include requirement/MUST id="dotnet-general-use-http-pipeline" %} use `HttpPipeline` to implement all methods that call Azure REST services.
 
-The pipeline can be found in the [Azure.Core] package, and it takes care of many [General Azure SDK Guidelines][general-guidelines]. Details of the pipeline design and usage are described in section [Using HttpPipeline](#dotnet-usage-httppipeline) below. If you can't use the pipeline, you must implement [all the general requirements of Azure SDK]({{ "/general_azurecore.html" | relative_url }}) manually.
+The pipeline can be found in the [Azure.Core] package, and it takes care of many [General Azure SDK Guidelines][general-guidelines]. Details of the pipeline design and usage are described in section [Using HttpPipeline](implementation.md#dotnet-usage-httppipeline) below. If you can't use the pipeline, you must implement [all the general requirements of Azure SDK]({{ "/general_azurecore.html" | relative_url }}) manually.
 
 ### Support for non-HTTP Protocols
 
@@ -196,7 +196,7 @@ public class ConfigurationClient {
 }
 ```
 
-##### Service Versions
+##### Service Versions {#dotnet-service-version-option}
 
 {% include requirement/MUST id="dotnet-versioning-highest-api" %} call the highest supported service API version by default.
 
@@ -576,7 +576,7 @@ public sealed class ConfigurationSetting : IEquatable<ConfigurationSetting> {
 }
 ```
 
-Ensure you include an internal setter to allow for deserialization.  For more information, see [JSON Serialization](#dotnet-usage-json).
+Ensure you include an internal setter to allow for deserialization.  For more information, see [JSON Serialization](implementation.md#dotnet-usage-json).
 
 {% include requirement/MUST id="dotnet-service-models-prefer-structs" %} ensure model types are structs, if they meet the criteria for being structs.
 
@@ -593,7 +593,7 @@ For example, implement `IEquatable<T>`, `IComparable<T>`, `IEnumerable<T>`, etc.
 - ```T[]```, ```Memory<T>```, and ```ReadOnlyMemory<T>``` when low allocations and performance are critical
 
 Note that this guidance does not apply to input parameters. Input parameters representing collections should follow standard [.NET Framework Design Guidelines](https://www.oreilly.com/library/view/framework-design-guidelines/9780135896457/ch05.xhtml#sec5_8), e.g. use ```IEnumerable<T>``` is allowed.
-Also, this guidance does not apply to return types of service method calls. These should be using ```Pageable<T>``` and ```AsyncPageable<T>``` discussed in [Service Method Return Types](#dotnet-method-return).
+Also, this guidance does not apply to return types of service method calls. These should be using ```Pageable<T>``` and ```AsyncPageable<T>``` discussed in [Methods Returning Collections](#dotnet-paging).
 
 {% include requirement/MAY id="dotnet-service-models-namespace" %} place output model types in _.Models_ subnamespace to avoid cluttering the main namespace with too many types.
 

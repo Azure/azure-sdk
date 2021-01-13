@@ -304,7 +304,7 @@ public partial readonly struct EncryptionAlgorithm : IEquatable<EncryptionAlgori
 
 ##### Implementing Subtypes of Operation\<T\> {#dotnet-implement-operation}
 
-Subtypes of `Operation<T>` are returned from service client methods invoking long running operations.
+Subtypes of `Operation<T>` are returned from service client methods invoking long running operations (LROs), as described in [Methods Invoking Long Running Operations](introduction.md#dotnet-longrunning).
 
 {% include requirement/MUST id="dotnet-lro-return" %} check the value of `HasCompleted` in subclass implementations of `UpdateStatus` and `UpdateStatusAsync` and immediately return the result of `GetRawResponse` if it is true.
 
