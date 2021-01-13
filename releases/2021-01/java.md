@@ -18,7 +18,7 @@ The Azure SDK team is pleased to announce our January 2021 client library releas
 
 #### Beta
 
-- Azure.Security.Attestation (coming soon)
+- Microsoft Azure Attestation (coming soon)
 
 ## Installation Instructions
 
