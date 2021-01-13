@@ -15,6 +15,7 @@ The Azure SDK team is pleased to make available the January 2021 client library 
 #### Updates
 
 - Event Hubs
+- Service Bus
 
 #### Beta
 
@@ -31,6 +32,7 @@ pip install azure-data-tables
 pip install azure-eventhub
 pip install azure-eventhub-checkpointstoreblob
 pip install azure-eventhub-checkpointstoreblob-aio
+pip install azure-servicebus
 pip install azure-ai-textanalytics --pre
 pip install azure-ai-formrecognizer --pre
 ```
@@ -55,6 +57,14 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Event Hubs CheckpointStoreBlob Async [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/CHANGELOG.md#112-2021-01-11)
 - Fixed a bug that `BlobCheckpointStore.list_ownership` and `BlobCheckpointStore.list_checkpoints` triggering `KeyError` due to reading empty metadata of parent node when working with Data Lake enabled Blob Storage.
+
+### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/CHANGELOG.md#112-2021-01-11)
+- `forward_to` and `forward_dead_lettered_messages_to` will no longer cause authorization errors when used in `ServiceBusAdministrationClient` for queues and subscriptions (#15543).
+- Updated uAMQP dependency to 1.2.13.
+  - Fixed bug that macOS was unable to detect network error (#15473).
+  - Fixed bug that `uamqp.ReceiveClient` and `uamqp.ReceiveClientAsync` receive messages during connection establishment (#15555).
+  - Fixed bug where connection establishment on macOS with Clang 12 triggering unrecognized selector exception (#15567).
+  - Fixed bug in accessing message properties triggering segmentation fault when the underlying C bytes are NULL (#15568).
 
 ## Latest Releases
 
