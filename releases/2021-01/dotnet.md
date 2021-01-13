@@ -20,7 +20,7 @@ The Azure SDK team is pleased to announce our January 2021 client library releas
 
 #### Beta
 
-- _Add packages_
+- Azure.Security.Attestation
 
 ## Installation Instructions
 
@@ -30,6 +30,7 @@ To install any of our packages, please search for them via `Manage NuGet Package
 $> dotnet add package Microsoft.Azure.Core.NewtonsoftJson --version 1.0.0
 $> dotnet add package Microsoft.Azure.Core.Spatial --version 1.0.0
 $> dotnet add package Microsoft.Azure.Core.Spatial.NewtonsoftJson --version 1.0.0
+$> dotnet add package Azure.Security.Attestation --version 1.0.0-beta.1
 ```
 
 ## Feedback
@@ -49,6 +50,10 @@ If you have a bug or feature request for one of the libraries, please [file an i
 ### System.Text.Json support for Microsoft.Spatial [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.Core.Spatial_1.0.0/sdk/core/Microsoft.Azure.Core.Spatial/CHANGELOG.md)
 
 - Initial release of Microsoft.Azure.Core.Spatial to use `System.Text.Json` to serialize supported Microsoft.Spatial types.
+
+### Azure.Security.Attestation [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.Core.Spatial_1.0.0/sdk/attestation/Azure.Security.Attestation/CHANGELOG.md)
+
+  - Initial release of Azure.Security.Attestation to support data-plane operations of Microsoft Azure Attestation.
 
 ## Latest Releases
 
