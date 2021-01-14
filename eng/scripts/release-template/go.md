@@ -22,7 +22,7 @@ The Azure SDK team is pleased to make available the %%MMMM yyyy%% client library
 
 ## Installation Instructions
 
-To install any of our packages, copy and paste the following commands into a terminal:
+To install any of our modules, copy and paste the following commands into a terminal:
 
 ```bash
 $> 
