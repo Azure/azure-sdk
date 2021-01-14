@@ -11,9 +11,7 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 
 ## Release Highlights
 
-*
-*
-*
+* Azure Monitor Opentelemetry exporters second beta release which includes a namespace change from the old "microsoft" namespace to "azure" namespace.
 
 ## Release Notes
 
