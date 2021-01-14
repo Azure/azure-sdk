@@ -37,6 +37,7 @@ pip install azure-eventhub-checkpointstoreblob-aio
 pip install azure-servicebus
 pip install azure-ai-textanalytics --pre
 pip install azure-ai-formrecognizer --pre
+pip install azure-opentelemetry-exporter-azuremonitor --pre
 pip install azure-security-attestation --pre
 ```
 
