@@ -42,9 +42,9 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Azure Storage
 
-We are releasing to add support for new service features in Azure Storage Service API version 2020-04-08.
-
 #### @azure/storage-blob [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/CHANGELOG.md)
+
+We are releasing to add support for new service features in Azure Storage Service API version 2020-04-08.
 
 ##### New Features on @azure/storage-blob@12.4.0
 
