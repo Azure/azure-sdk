@@ -24,7 +24,9 @@ To install any of our packages, copy and paste the following commands into a ter
 ```bash
 git clone https://github.com/Azure/azure-sdk-for-cpp
 
-git checkout <tag_name>
+# git checkout <tag_name>
+# For example:
+git checkout azure-storage-blobs_12.0.0-beta.6
 ```
 
 ## Feedback
@@ -86,13 +88,13 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### azure-storage-common [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-common/CHANGELOG.md#1200-beta6-2020-01-14)
 
-### New Features
+#### New Features
 
 - Added new type `ContentHash`.
 - Added definition of `Metadata`.
 - Support setting account SAS permission with a raw string.
 
-### Breaking Changes
+#### Breaking Changes
 
 - Renamed `SharedKeyCredential` to `StorageSharedKeyCredential`.
 - Renamed `StorageSharedKeyCredential::UpdateAccountKey` to `Update`.
@@ -104,13 +106,13 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Moved `Base64Encode` and `Base64Decode` from the `Azure::Storage` namespace to `Azure::Core` and removed the string accepting overload of `Base64Encode`.
 - Renamed public constants so they no longer start with the prefix `c_`. For example, `c_InfiniteLeaseDuration` became `InfiniteLeaseDuration`.
 
-### Bug Fixes
+#### Bug Fixes
 
 - Fixed default EndpointSuffix when parsing a connection string.
 
 ### azure-storage-blobs [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/CHANGELOG.md#1200-beta6-2020-01-14)
 
-### New Features
+#### New Features
 
 - Added `CreateIfNotExists` and `DeleteIfExists` for blob containers and blobs.
 - Added `IsHierarchicalNamespaceEnabled` in `GetAccountInfoResult`.
@@ -119,7 +121,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Added `DeleteBlob` to `BlobContainerClient`.
 - Support setting blob SAS permission with a raw string.
 
-### Breaking Changes
+#### Breaking Changes
 
 - Renamed `AppendBlobAccessConditions::MaxSize` to `IfMaxSizeLessThanOrEqual`.
 - Renamed `AppendBlobAccessConditions::AppendPosition` to `IfAppendPositionEqual`.
@@ -187,12 +189,12 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### azure-storage-files-shares [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/CHANGELOG.md#1200-beta6-2020-01-14)
 
-### New Features
+#### New Features
 
 - Added support for `CreateIfNotExists` for Share and Directory clients, and `DeleteIfExists` for Share, Directory and File clients.
 - Support setting file SAS permission with a raw string.
 
-### Breaking Changes
+#### Breaking Changes
 
 - Removed constructors in clients that takes a `Azure::Identity::ClientSecretCredential`.
 - Removed Share Lease related APIs such as `ShareClient::AcquireLease` and `ReleaseLease` since they are not supported in recent service versions.
@@ -213,12 +215,12 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### azure-storage-files-datalake [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/CHANGELOG.md#1200-beta6-2020-01-14)
 
-### New Features
+#### New Features
 
 - Support setting DataLake SAS permission with a raw string.
 - Added support for `CreateIfNotExists` and `DeleteIfExists` for FileSystem, Path, Directory and File clients.
 
-### Breaking Changes
+#### Breaking Changes
 
 - Moved DataLake SAS into `Azure::Storage::Sas` namespace.
 - `EncrytionKeySha256` are changed to binary (`std::vector<uint8_t>`).
