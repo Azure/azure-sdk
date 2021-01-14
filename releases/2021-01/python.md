@@ -15,11 +15,11 @@ The Azure SDK team is pleased to make available the January 2021 client library 
 #### Updates
 
 - Event Hubs
-- Opentelemetry Azure Monitor
 - Service Bus
 
 #### Beta
 
+- Opentelemetry Azure Monitor
 - Tables
 - Text Analytics
 - Form Recognizer
