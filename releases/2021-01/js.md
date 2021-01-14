@@ -36,7 +36,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Microsoft Azure Attestation [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/attestation/attestation/CHANGELOG.md)
 
-  - Initial release of attestation Beta version to support data-plane operations of Microsoft Azure Attestation.
+  - Initial release of Microsoft Azure Attestation to support data-plane operations of Microsoft Azure Attestation.
 
 ## Latest Releases
 
