@@ -70,7 +70,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Microsoft Azure Attestation [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/attestation/azure-security-attestation/CHANGELOG.md#100b1-2020-12-09)
 
-  - Initial release of Microsoft Azure Attestation to support data-plane operations.
+  - Initial release of Azure Security Attestation to support data-plane operations.
 
 ## Latest Releases
 
