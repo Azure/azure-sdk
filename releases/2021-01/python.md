@@ -61,20 +61,11 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Opentelemetry Azure Monitor [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/monitor/azure-opentelemetry-exporter-azuremonitor/CHANGELOG.md#100b2-2021-01-13)
 - Breaking Changes
-  - Rename Azure Trace exporter class, only allow connection string configuration
-    ([#15349](https://github.com/Azure/azure-sdk-for-python/pull/15349))
-    
-  - OpenTelemetry Exporter use Resources API to retrieve cloud role props
-    ([#15816](https://github.com/Azure/azure-sdk-for-python/pull/15816))
-    
-  - Change span to envelope conversion to adhere to common schema and other languages
-    ([#15344](https://github.com/Azure/azure-sdk-for-python/pull/15344))
-    
-  - This library is renamed to `azure-opentelemetry-exporter-azuremonitor`.
-    ([#16030](https://github.com/Azure/azure-sdk-for-python/pull/16030))
-    
-  - Fix to only retry upon request error
-    ([#16087](https://github.com/Azure/azure-sdk-for-python/pull/16087))
+  - Rename Azure Trace exporter class, only allow connection string configuration. (#15349)
+  - OpenTelemetry Exporter use Resources API to retrieve cloud role props (#15816)
+  - Change span to envelope conversion to adhere to common schema and other languages. (#15344)
+  - This library is renamed to `azure-opentelemetry-exporter-azuremonitor`. (#16030)
+  - Fix to only retry upon request error. (#16087)
 
 ### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/CHANGELOG.md#701-2021-01-12)
 - `forward_to` and `forward_dead_lettered_messages_to` will no longer cause authorization errors when used in `ServiceBusAdministrationClient` for queues and subscriptions (#15543).
