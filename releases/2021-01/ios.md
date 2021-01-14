@@ -74,7 +74,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-### _Version_(_Link to Changelog_)
+### _Version_
 
 #### _Package name_
 
