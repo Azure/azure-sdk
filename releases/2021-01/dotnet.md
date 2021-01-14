@@ -21,7 +21,9 @@ The Azure SDK team is pleased to announce our January 2021 client library releas
 
 #### Beta
 
+- Azure.Security.Attestation
 - Azure.Storage.Blobs.ChangeFeed
+
 
 ## Installation Instructions
 
@@ -31,7 +33,7 @@ To install any of our packages, please search for them via `Manage NuGet Package
 $> dotnet add package Microsoft.Azure.Core.NewtonsoftJson --version 1.0.0
 $> dotnet add package Microsoft.Azure.Core.Spatial --version 1.0.0
 $> dotnet add package Microsoft.Azure.Core.Spatial.NewtonsoftJson --version 1.0.0
-
+$> dotnet add package Azure.Security.Attestation --version 1.0.0-beta.1
 $> dotnet add package Azure.Storage.Blobs --version 12.8.0
 $> dotnet add package Azure.Storage.Blobs.Batch --version 12.5.0
 $> dotnet add package Azure.Storage.Blobs.ChangeFeed --version 12.0.0-preview.8
@@ -58,6 +60,10 @@ If you have a bug or feature request for one of the libraries, please [file an i
 ### System.Text.Json support for Microsoft.Spatial [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.Core.Spatial_1.0.0/sdk/core/Microsoft.Azure.Core.Spatial/CHANGELOG.md)
 
 - Initial release of Microsoft.Azure.Core.Spatial to use `System.Text.Json` to serialize supported Microsoft.Spatial types.
+
+### Azure.Security.Attestation [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/attestation/Azure.Security.Attestation/CHANGELOG.md)
+
+  - Initial release of Azure.Security.Attestation Beta version to support data-plane operations of Microsoft Azure Attestation.
 
 ### Azure Storage Blobs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md)
 
