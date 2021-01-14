@@ -19,6 +19,7 @@ The Azure SDK team is pleased to make available the January 2021 client library 
 
 #### Beta
 
+- Opentelemetry Azure Monitor
 - Tables
 - Text Analytics
 - Form Recognizer
@@ -59,6 +60,14 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Event Hubs CheckpointStoreBlob Async [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/CHANGELOG.md#112-2021-01-11)
 - Fixed a bug that `BlobCheckpointStore.list_ownership` and `BlobCheckpointStore.list_checkpoints` triggering `KeyError` due to reading empty metadata of parent node when working with Data Lake enabled Blob Storage.
+
+### Opentelemetry Azure Monitor [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/monitor/azure-opentelemetry-exporter-azuremonitor/CHANGELOG.md#100b2-2021-01-13)
+- Breaking Changes
+  - Rename Azure Trace exporter class, only allow connection string configuration. (#15349)
+  - OpenTelemetry Exporter use Resources API to retrieve cloud role props (#15816)
+  - Change span to envelope conversion to adhere to common schema and other languages. (#15344)
+  - This library is renamed to `azure-opentelemetry-exporter-azuremonitor`. (#16030)
+  - Fix to only retry upon request error. (#16087)
 
 ### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/CHANGELOG.md#701-2021-01-12)
 - `forward_to` and `forward_dead_lettered_messages_to` will no longer cause authorization errors when used in `ServiceBusAdministrationClient` for queues and subscriptions (#15543).
