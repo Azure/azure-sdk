@@ -73,12 +73,9 @@ We're releasing a patch of the Service Bus client that includes some bug fixes.
 
 ##### Major Fixes on @azure/service-bus 7.0.1 and 7.0.2
 
-- Fix issue where `receiveMessages` might return fewer messages than were received, causing them to be potentially locked or lost.  
-  [#12772](https://github.com/Azure/azure-sdk-for-js/pull/12772) [#12908](https://github.com/Azure/azure-sdk-for-js/pull/12908) [#13073](https://github.com/Azure/azure-sdk-for-js/pull/13073)
-- [Bug Fix] Correlation Rule Filter with the "label" set using the `createRule()` method doesn't filter the messages to the subscription or when a subset of properties are set in the correlation filter.  
-  [#13069](https://github.com/Azure/azure-sdk-for-js/pull/13069)
-- [Bug Fix] Receiving messages from sessions in "receiveAndDelete" mode using the `subscribe()` method stops after receiving 2048 of them and leaves the receiver hanging. The bug has been fixed in [#13178](https://github.com/Azure/azure-sdk-for-js/pull/13178).  
- Also fixes the same issue that is seen with the `receiveMessages` API when large number of messages are requested or if the method is called in a loop.
+- Improved reliability of the `receiveMessages()` method on the receiver when dealing with large number of messages or slow network connectivity.
+- Resolved the issue of hanging receivers when receiving more than 2048 messages from sessions in `receiveAndDelete` mode.
+- Fix the use of correlation rule filter when a subset of properties are set.
 
 ### Azure Tables 
 
