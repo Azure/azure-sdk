@@ -22,6 +22,7 @@ The Azure SDK team is pleased to make available the January 2021 client library 
 - Tables
 - Text Analytics
 - Form Recognizer
+- Microsoft Azure Attestation
 
 ## Installation Instructions
 
@@ -35,6 +36,7 @@ pip install azure-eventhub-checkpointstoreblob-aio
 pip install azure-servicebus
 pip install azure-ai-textanalytics --pre
 pip install azure-ai-formrecognizer --pre
+pip install azure-security-attestation --pre
 ```
 
 ## Feedback
@@ -65,6 +67,10 @@ If you have a bug or feature request for one of the libraries, please post an is
   - Fixed bug that `uamqp.ReceiveClient` and `uamqp.ReceiveClientAsync` receive messages during connection establishment (#15555).
   - Fixed bug where connection establishment on macOS with Clang 12 triggering unrecognized selector exception (#15567).
   - Fixed bug in accessing message properties triggering segmentation fault when the underlying C bytes are NULL (#15568).
+
+### Microsoft Azure Attestation [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/attestation/azure-security-attestation/CHANGELOG.md#100b1-2020-12-09)
+
+  - Initial release of Azure Security Attestation to support data-plane operations.
 
 ## Latest Releases
 
