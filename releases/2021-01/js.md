@@ -32,7 +32,10 @@ The Azure SDK team is pleased to make available the January 2021 client library 
 To install the packages, copy and paste the below into a terminal.
 
 ```bash
-$> npm install @azure/package-name
+$> npm install @azure/storage-blob
+$> npm install @azure/storage-file-datalake
+$> npm install @azure/storage-file-share
+$> npm install @azure/storage-queue
 ```
 
 ## Feedback
@@ -101,6 +104,31 @@ We're releasing a new beta for our Azure Data Tables client that improces the pr
 
 - Fixed an issue that prevented the use of the SDK against the Azure Storage Emulator and `Azurite@3.9.0-table-alpha.1`
  [#13165](https://github.com/Azure/azure-sdk-for-js/pull/13165).
+
+### Azure Storage
+
+We are releasing to add support for new service features in Azure Storage Service API version 2020-04-08.
+
+#### @azure/storage-blob [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/CHANGELOG.md)
+
+##### New Features on @azure/storage-blob@12.4.0
+
+- Added a new `from(permissionLike)` function to `AccountSASPermissions`, `BlobSASPermissions` and `ContainerSASPermissions` for creating such permissions from raw permission-like objects. Addressed issue [9714](https://github.com/Azure/azure-sdk-for-js/issues/9714).
+
+#### @azure/storage-file-datalake [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/CHANGELOG.md)
+
+##### Major Fixes on @azure/storage-file-datalake@12.3.0
+
+- `DataLakePathClient.move()` now supports source and destination authenticated with SAS. Fixed bug [12758](https://github.com/Azure/azure-sdk-for-js/issues/12758).
+- Now you can get the functionality of the root directory via the `DataLakeDirectoryClient` created via `FileSystemClient.getDirectoryClient("")`. Fixed bug [12813](https://github.com/Azure/azure-sdk-for-js/issues/12813).
+
+#### storage-file-share [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/CHANGELOG.md)
+
+This release contains bug fixes to improve quality.
+
+#### storage-queue [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/CHANGELOG.md)
+
+This release contains bug fixes to improve quality.
 
 ## Latest Releases
 
