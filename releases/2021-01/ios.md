@@ -8,17 +8,10 @@ repository: azure/azure-sdk-for-ios
 
 The Azure SDK team is pleased to announce our January 2021 client library releases.
 
-#### GA
-
-- _Add packages_
-
-#### Updates
-
-- _Add packages_
-
 #### Beta
 
-- _Add packages_
+- Azure Communication Services Calling
+- Azure Communication Common
 
 ## Installation Instructions
 
@@ -37,13 +30,26 @@ Follow the example in [Importing Dependencies](https://swift.org/package-manager
 Open your project's `Package.swift` file and add a new package dependency to your project's `dependencies` section, specifying the clone URL of the repository and the version specifier you wish to use:
 
 ```swift
-// Insert dependencies here
+    dependencies: [
+        ...
+        .package(url: "https://github.com/Azure/azure-sdk-for-ios.git", from: "1.0.0-beta.7")
+    ],
 ```
 
 Next, add each client library you wish to use in a target to the target's array of `dependencies`:
 
 ```swift
-// Insert dependencies here
+    targets: [
+        ...
+        .target(
+            name: "MyTarget",
+            dependencies: [
+                "AzureCommunication",
+                "AzureCommunicationCalling",
+                ...
+            ]
+        )
+    ]
 ```
 
 ### Cocoapods
@@ -59,7 +65,16 @@ $ [sudo] gem install cocoapods
 To integrate one or more client libraries into your project using CocoaPods, specify them in your [Podfile](https://guides.cocoapods.org/using/the-podfile.html), providing the version specifier you wish to use. To ensure compatibility when using multiple client libraries in the same project, use the same version specifier for all Azure SDK client libraries within the project:
 
 ```ruby
-// Insert dependencies here
+platform :ios, '12.0'
+
+# Comment the next line if you don't want to use dynamic frameworks
+use_frameworks!
+
+target 'MyTarget' do
+  pod 'AzureCommunication', '~> 1.0.0-beta.7'
+  pod 'AzureCommunicationCalling', '~> 1.0.0-beta.7'
+  ...
+end
 ```
 
 Then, run the following command:
@@ -74,11 +89,34 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-### _Version_
+### 1.0.0-beta.7 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/master/CHANGELOG.md#100-beta7-2021-01-12))
 
-#### _Package name_
+#### Azure Communication Services Calling
 
-- Major changes only!
+##### New Features
+
+- Added the ability to set the Caller display name when initializing the library.
+
+##### Key Bug Fixes
+
+- Fixed an issue where `handlePushNotification` did not return `false` if the same payload had been processed already.
+- Improved logging to help identify the source of `hangup`-related issues.
+- Fixed an issue where the remote participant was still available after hangup/disconnect.
+
+#### Azure Communication Common
+
+##### New Features
+
+- Added a new communication identifier `MicrosoftTeamsUserIdentifier`, used to represent a Microsoft Teams user.
+- Introduced the new `CommunicationTokenRefreshOptions` type for specifying communication token refresh options.
+
+##### Breaking Changes
+
+- Renamed the type `CommunicationUserCredential` to `CommunicationTokenCredential`, as it represents a token.
+- The protocol `CommunicationTokenCredential` has likewise been renamed to `CommunicationTokenCredentialProviding`.
+- All types that conform to the `CommunicationIdentifier` protocol now use the suffix `Identifier`. For example, the `PhoneNumber` type used to represent a phone number identifier is now named `PhoneNumberIdentifier`.
+- Updated the `CommunicationTokenCredential` initializer that automatically refreshes the token to accept a single `CommunicationTokenRefreshOptions` object instead of multiple parameters.
+
 
 ## Need help
 
