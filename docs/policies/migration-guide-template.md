@@ -2,7 +2,7 @@
 
 This guide is intended to assist in the migration to [name of new package here] from [name of old package here]. It will focus on side-by-side comparisons for similar operations between the two packages.
 
-Familiarity with the [name of old package here] package is assumed. For those new to the [service name here] client library for [language here .Net/JavaScript/Python/Java], please refer to the [README for name of new package here](add link to new package readme) rather than this guide.
+We assume that you are familiar with the [name of old package here]. If not, then please refer to the [README for name of new package here](add link to new package readme) rather than this guide.
 
 ## Table of contents
 
@@ -12,19 +12,25 @@ A natural question to ask when considering whether or not to adopt a new version
 
 There were several areas of consistent feedback expressed across the Azure client library ecosystem. One of the most important is that the client libraries for different Azure services have not had a consistent approach to organization, naming, and API structure. Additionally, many developers have felt that the learning curve was difficult, and the APIs did not offer a good, approachable, and consistent onboarding story for those learning Azure or exploring a specific Azure service.
 
-To try and improve the development experience across Azure services, a set of uniform [design guidelines](https://azure.github.io/azure-sdk/general_introduction.html) was created for all languages to drive a consistent experience with established API patterns for all services. A set of [add language here-specific guidelines](add link to language specific guidelines here) was also introduced to ensure that [add language here] clients have a natural and idiomatic feel with respect to the [add language here] ecosystem. Further details are available in the guidelines for those interested.
+To try and improve the development experience across Azure services, a set of uniform [design guidelines](https://azure.github.io/azure-sdk/general_introduction.html) was created for all languages to drive a consistent experience with established API patterns for all services. A set of [add language here-specific guidelines](add link to language specific guidelines here) was also introduced to ensure that [add language here] clients have a natural and idiomatic feel with respect to the [add language here] ecosystem. The new [name of new package nere] follows these guidelines.
 
 ### Cross Service SDK improvements
 
 The modern [add service name] client library also provides the ability to share in some of the cross-service improvements made to the Azure development experience, such as 
-- using the new Azure.Identity library to share a single authentication approach between clients
-- a unified logging and diagnostics pipeline offering a common view of the activities across each of the client libraries
-- (In case of JS) use of promises rather than callbacks for a simplified programming experience
-- (In case of JS) use of async iterators in paging APIs
+- Using the new [Add the Identity package name here] library to share a single authentication approach between clients
+- A unified logging and diagnostics pipeline offering a common view of the activities across each of the client libraries
+- (In case of JS) Use of promises rather than callbacks for a simplified programming experience
+- (In case of JS) Use of async iterators in paging APIs
+- (In case of Java) A unified asynchronous programming model using [Project Reactor](https://projectreactor.io/).
+- (In case of Java) A unified way of creating clients via builders.
 
 ### Performance improvements
 
 Use this section to advertise the performance improvements in new package when compared to the old one. Skip this section if no perf improvements are found yet.
+
+### New features
+
+Use this section to advertise any new features in the new package when compared to the old one. Skip this section if no new features were added
 
 ## Important changes
 
