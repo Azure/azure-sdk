@@ -8,6 +8,48 @@ sidebar: general_sidebar
 
 ## Introduction
 
+### Design principles
+
+The Azure SDK should be designed to enhance the productivity of developers connecting to Azure services. Other qualities (such as completeness, extensibility, and performance) are important but secondary. Productivity is achieved by adhering to the principles described below:
+
+#### Idiomatic
+
+* The SDK should follow the general design guidelines and conventions for the target language. It should feel natural to a developer in the target language.
+* We embrace the ecosystem with its strengths and its flaws.
+* We work with the ecosystem to improve it for all developers.
+
+#### Consistent
+
+* Client libraries should be consistent within the language, consistent with the service and consistent between all target languages. In cases of conflict, consistency within the language is the highest priority and consistency between all target languages is the lowest priority.
+* Service-agnostic concepts such as logging, HTTP communication, and error handling should be consistent. The developer should not have to relearn service-agnostic concepts as they move between client libraries.
+* Consistency of terminology between the client library and the service is a good thing that aids in diagnosability.
+* All differences between the service and client library must have a good (articulated) reason for existing, rooted in idiomatic usage rather than whim.
+* The Azure SDK for each target language feels like a single product developed by a single team.
+* There should be feature parity across target languages. This is more important than feature parity with the service.
+
+#### Approachable
+
+* We are experts in the supported technologies so our customers, the developers, don't have to be.
+* Developers should find great documentation (hero tutorial, how to articles, samples, and API documentation) that makes it easy to be successful with the Azure service.
+* Getting off the ground should be easy through the use of predictable defaults that implement best practices. Think about progressive concept disclosure.
+* The SDK should be easily acquired through the most normal mechanisms in the target language and ecosystem.
+* Developers can be overwhelmed when learning new service concepts. The core use cases should be discoverable.
+
+#### Diagnosable
+
+* The developer should be able to understand what is going on.
+* It should be discoverable when and under what circumstances a network call is made.
+* Defaults are discoverable and their intent is clear.
+* Logging, tracing, and exception handling are fundamental and should be thoughtful.
+* Error messages should be concise, correlated with the service, actionable, and human readable. Ideally, the error message should lead the consumer to a useful action that they can take.
+* Integrating with the preferred debugger for the target language should be easy.
+
+#### Dependable
+
+* Breaking changes are more harmful to a user's experience than most new features and improvements are beneficial.
+* Incompatibilities should never be introduced deliberately without thorough review and very strong justification.
+* Do not rely on dependencies that can force our hand on compatibility.
+
 ### General guidelines
 
 The API surface of your client library must have the most thought as it is the primary interaction that the consumer has with your service.
@@ -19,6 +61,23 @@ The API surface of your client library must have the most thought as it is the p
 These guidelines were written primarily with a HTTP based request/response in mind, but many general guidelines apply to other types of services as well. This includes, but is not limited to, packaging and naming, tools and project structures.
 
 Please contact the [Azure SDK Architecture Board](https://azure.github.io/azure-sdk/policies_reviewprocess.html) for more guidance on non HTTP/REST based services.
+
+### Supported python versions
+
+{% include requirement/MUST id="python-general-version-support" %} support Python 2.7 and 3.5.3+.
+
+{% include requirement/SHOULD id="python-general-universal-pkg" %} provide a [universal package] that works on all supported versions of Python, unless there's a compelling reason to have separate Python2 and Python3 packages.  
+
+For example, if you depend on different external packages for Python2 and Python3, and neither external dependency is available for both Python versions.
+
+{% include requirement/MUST id="python-general-supply-sdist" %} provide both source distributions (`sdist`) and wheels.
+
+{% include requirement/MUST id="python-general-pypi" %} publish both source distributions (`sdist`) and wheels to PyPI.
+
+{% include requirement/MUST id="python-general-wheel-behavior" %} test correct behavior for both CPython and PyPy for [pure](https://packaging.python.org/guides/distributing-packages-using-setuptools/#id75) and [universal](https://packaging.python.org/guides/distributing-packages-using-setuptools/#universal-wheels) Python wheels. 
+
+For more information on packaging naming, see the [Packaging] section.
+
 
 ## Azure SDK API Design
 
@@ -51,22 +110,9 @@ class CosmosUrl(object) ...
 
 Only the minimal information needed to connect and interact with the service should be required in order to construct a client instance. All additional information should be optional and passed in as optional keyword-only arguments.
 
+##### Client configuration
+
 {% include requirement/MUST id="python-client-constructor-form" %} provide a constructor that takes positional binding parameters (for example, the name of, or a URL pointing to the service instance), a positional `credential` parameter, a `transport` keyword-only parameter, and keyword-only arguments (emulated using `**kwargs` for Python 2.7 support) for passing settings through to individual HTTP pipeline policies.
-
-{% include requirement/MUST id="python-client-constructor-api-version-argument" %} accept an optional `api_version` keyword-only argument of type string. If specified, the provided api version MUST be used when interacting with the service. If the parameter is not provided, the default value MUST be the latest non-preview API version understood by the client library (if there the service has a non-preview version) or the latest preview API version understood by the client library (if the service does not have any non-preview API versions yet). This parameter MUST be available even if there is only one API version understood by the service in order to allow library developers lock down the API version they expect to interact with the service with.
-
-```python
-from azure.identity import DefaultAzureCredential
-
-# By default, use the latest supported API version
-latest_known_version_client = ExampleClient('https://contoso.com/xmpl',
-                                            DefaultAzureCredential())
-
-# ...but allow the caller to specify a specific API version as welll
-specific_api_version_client = ExampleClient('https://contoso.com/xmpl', 
-                                            DefaultAzureCredential(),
-                                            api_version='1971-11-01')
-```
 
 {% include requirement/MUST id="python-client-constructor-policy-arguments" %} accept optional default request options as keyword arguments and pass them along to its pipeline policies. See [Common service operation parameters(#common-service-operation-parameters) for more information.
 
@@ -79,7 +125,6 @@ client = ExampleClient('https://contoso.com/xmpl',
 ```
 
 {% include requirement/MUST id="python-client-constructor-transport-argument" %} allow users to pass in a `transport` keyword-only argument that allows the caller to specify a specific transport instance. The default value should be the [`RequestsTransport`](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/1.1.1/azure.core.pipeline.transport.html?highlight=transport#azure.core.pipeline.transport.RequestsTransport) for synchronous clients and the [`AioHttpTransport`](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/1.1.1/azure.core.pipeline.transport.html?highlight=transport#azure.core.pipeline.transport.AioHttpTransport) for async clients.
-
 
 {% include requirement/MUST id="python-client-connection-string" %} use a separate factory class method `from_connection_string` to create a client from a connection string (if the client supports connection strings). The `from_connection_string` factory method should take the same set of arguments (excluding information provided in the connection string) as the constructor. The constructor **must not** take a connection string, even if it means that using the `from_connection_string` is the only supported method to create an instance of the client.
 
@@ -100,6 +145,32 @@ class ExampleClientWithConnectionString(object):
 ```python
 {% include_relative _includes/example_client.py %}
 ```
+
+#### Specifying the Service Version
+
+{% include requirement/MUST id="python-client-constructor-api-version-argument" %} accept an optional `api_version` keyword-only argument of type string. If specified, the provided api version MUST be used when interacting with the service. If the parameter is not provided, the default value MUST be the latest non-preview API version understood by the client library (if there the service has a non-preview version) or the latest preview API version understood by the client library (if the service does not have any non-preview API versions yet). This parameter MUST be available even if there is only one API version understood by the service in order to allow library developers lock down the API version they expect to interact with the service with.
+
+```python
+from azure.identity import DefaultAzureCredential
+
+# By default, use the latest supported API version
+latest_known_version_client = ExampleClient('https://contoso.com/xmpl',
+                                            DefaultAzureCredential())
+
+# ...but allow the caller to specify a specific API version as welll
+specific_api_version_client = ExampleClient('https://contoso.com/xmpl', 
+                                            DefaultAzureCredential(),
+                                            api_version='1971-11-01')
+```
+
+#### Additional constructor parameters
+
+|Name|Description|
+|-|-|
+|`credential`|Credentials to use when making service requests|
+|`application_id`|Name of the client application making the request. Used for telemetry|
+|`api_version`|API version to use when making service requests|
+|`transport`|Override the default HTTP transport|
 
 ### Service methods
 
@@ -129,6 +200,31 @@ Methods that may take an indeterminate time to complete on the server are referr
 {% include requirement/MUST id="python-lro-prefix" %} prefix methods with `begin_` for [long running operations](#methods-invoking-long-running-operations). 
 
 {% include requirement/MUST id="python-paged-prefix" %} prefix methods with `list_` for methods that lists instances. Do use a `list_` prefix even if the service API currently do not support server driven paging. This allows server driven paging to be added to the service API without introducing breaking changes in the client library.
+
+#### Return types
+
+Requests to the service fall into two basic groups - methods that make a single logical request, or a deterministic sequence of requests. An example of a single logical request is a request that may be retried inside the operation. An example of a deterministic sequence of requests is a paged operation.
+
+The logical entity is a protocol neutral representation of a response. For HTTP, the logical entity may combine data from headers, body, and the status line. For example, you may wish to expose an `ETag` header as an `etag` attribute on the logical entity.
+
+{% include requirement/MUST id="python-response-logical-entity" %} optimize for returning the logical entity for a given request. The logical entity MUST represent the information needed in the 99%+ case.
+
+{% include requirement/MUST id="python-response-exception-on-failure" %} raise an exception if the method call failed to accomplish the user specified task. This includes both situations where the service actively responded with a failure as well as when no response was received. See [Exceptions](#exceptions) for more information.
+
+```python
+client = ComputeClient(...)
+
+try:
+    # Please note that there is no status code etc. as part of the response.
+    # If the call fails, you will get an exception that will include the status code
+    # (if the request was made) 
+    virtual_machine  = client.get_virtual_machine('example')
+    print(f'Virtual machine instance looks like this: {virtual_machine}')
+except azure.core.exceptions.ServiceRequestError as e:
+    print(f'Failed to make the request - feel free to retry. But the specifics are here: {e}')
+except azure.core.exceptions.ServiceResponseError as e:
+    print(f'The request was made, but the service responded with an error. Status code: {e.status_code}')
+```
 
 #### Parameters
 
@@ -177,8 +273,6 @@ except ValueError:
 {% include requirement/MUSTNOT id="python-params-service-validation" %} validate service parameters. Don't do null checks, empty string checks, or other common validating conditions on service parameters. Let the service validate all request parameters. 
 
 {% include requirement/MUST id="python-params-devex" %} validate the developer experience when the service parameters are invalid to ensure appropriate error messages are generated by the service. Work with the service team if the developer experience is compromised because of service-side error messages.
-
-{% include requirement/MUSTNOT id="python-client-parameter-validation" %} use `isinstance` to validate parameter value types other than for [built-in types](https://docs.python.org/3/library/stdtypes.html) (e.g. `str` etc). For other types, use [structural type checking].
 
 ##### Common service operation parameters
 
@@ -235,31 +329,6 @@ thing.description = 'Updated'
 thing.size = -1
 # Will send a request to the service to update the model's size to 4713 and description to 'Updated'
 client.update_thing(name='hello', size=4713, thing=thing)  
-```
-
-#### Return types
-
-Requests to the service fall into two basic groups - methods that make a single logical request, or a deterministic sequence of requests. An example of a single logical request is a request that may be retried inside the operation. An example of a deterministic sequence of requests is a paged operation.
-
-The logical entity is a protocol neutral representation of a response. For HTTP, the logical entity may combine data from headers, body, and the status line. For example, you may wish to expose an `ETag` header as an `etag` attribute on the logical entity.
-
-{% include requirement/MUST id="python-response-logical-entity" %} optimize for returning the logical entity for a given request. The logical entity MUST represent the information needed in the 99%+ case.
-
-{% include requirement/MUST id="python-response-exception-on-failure" %} raise an exception if the method call failed to accomplish the user specified task. This includes both situations where the service actively responded with a failure as well as when no response was received. See [Exceptions](#exceptions) for more information.
-
-```python
-client = ComputeClient(...)
-
-try:
-    # Please note that there is no status code etc. as part of the response.
-    # If the call fails, you will get an exception that will include the status code
-    # (if the request was made) 
-    virtual_machine  = client.get_virtual_machine('example')
-    print(f'Virtual machine instance looks like this: {virtual_machine}')
-except azure.core.exceptions.ServiceRequestError as e:
-    print(f'Failed to make the request - feel free to retry. But the specifics are here: {e}')
-except azure.core.exceptions.ServiceResponseError as e:
-    print(f'The request was made, but the service responded with an error. Status code: {e.status_code}')
 ```
 
 #### Methods returning collections (paging)
@@ -363,10 +432,6 @@ The following table enumerates the various models you might create:
 |<operation>Result|AddSecretResult|A partial or different set of data for a single operation|
 |<model><verb>Result|SecretChangeResult|A partial or different set of data for multiple operations on a model|
 
-{% include requirement/MUST id="python-models-repr" %} implement `__repr__` for model types. The representation **must** include the type name and any key properties (that is, properties that help identify the model instance).
-
-{% include requirement/MUST id="python-models-repr-length" %} truncate the output of `__repr__` after 1024 characters.
-
 ```python
 # An example of a model type. 
 class ConfigurationSetting(object):
@@ -451,9 +516,9 @@ The `asyncio` library has been available since Python 3.4, and the `async`/`awai
 
 {% include requirement/MUST id="python-client-sync-async" %} provide both sync and async versions of your APIs
 
-{% include requirement/MUST id="python-client-async-keywords" %} use the `async`/`await` keywords (requires Python 3.5+). Don't use the [yield from coroutine or asyncio.coroutine](https://docs.python.org/3.4/library/asyncio-task.html) syntax.
+{% include requirement/MUST id="python-client-async-keywords" %} use the `async`/`await` keywords (requires Python 3.5+). Do not use the [yield from coroutine or asyncio.coroutine](https://docs.python.org/3.4/library/asyncio-task.html) syntax.
 
-{% include requirement/MUST id="python-client-separate-sync-async" %} provide two separate client classes for synchronous and asynchronous operations.  Don't combine async and sync operations in the same class.
+{% include requirement/MUST id="python-client-separate-sync-async" %} provide two separate client classes for synchronous and asynchronous operations.  Do not combine async and sync operations in the same class.
 
 ```python
 # Yes
@@ -492,6 +557,14 @@ Example:
 |Async|`azure.sampleservice.aio`|`azure-sampleservice-aio`|`azure.sampleservice.aio.SampleServiceClient`|
 
 {% include requirement/MUST id="python-client-namespace-sync" %} use the same namespace for the synchronous client as the synchronous version of the package with `.aio` appended.
+
+Example:
+
+```python
+from azure.storage.blob import BlobServiceClient # Sync client
+
+from azure.storage.blob.aio import BlobServiceClient # Async client
+```
 
 {% include requirement/SHOULD id="python-client-separate-async-pkg" %} ship a separate package for async support if the async version requires additional dependencies.
 
@@ -563,6 +636,25 @@ from azure.exampleservice import AsyncExampleServiceClient
 
 {% include requirement/MUST id="python-packaging-init" %} include `__init__.py` for the namespace(s) in sdists
 
+#### Service-specific common library code
+
+There are occasions when common code needs to be shared between several client libraries.  For example, a set of cooperating client libraries may wish to share a set of exceptions or models.
+
+{% include requirement/MUST id="python-commonlib-approval" %} gain [Architecture Board] approval prior to implementing a common library.
+
+{% include requirement/MUST id="python-commonlib-minimize-code" %} minimize the code within a common library.  Code within the common library is available to the consumer of the client library and shared by multiple client libraries within the same namespace.
+
+A common library will only be approved if:
+
+* The consumer of the non-shared library will consume the objects within the common library directly, AND
+* The information will be shared between multiple client libraries
+
+Let's take two examples:
+
+1. Implementing two Cognitive Services client libraries, we find that they both rely on the same business logic. This is a candidate for choosing a common library.
+
+2. Two Cognitive Services client libraries have models (data classes) that are the same in shape, but has no or minimal logic associated with them. This is not a good candidate for a shared library. Instead, implement two separate classes.
+
 ### Versioning
 
 {% include requirement/MUST id="python-versioning-semver" %} use [semantic versioning](https://semver.org) for your package.
@@ -577,7 +669,7 @@ Don't use pre-release segments other than the ones defined in [PEP440](https://w
 
 {% include requirement/MUST id="python-verioning-minor" %} increment the minor version if any new functionality is added to the package.
 
-{% include requirement/MUST id="python-versioning-apiversion" %} increment the minor version if the default REST API version is changed, even if there's no public API change to the library.
+{% include requirement/MUST id="python-versioning-apiversion" %} increment (at least) the minor version if the default REST API version is changed, even if there's no public API change to the library.
 
 {% include requirement/MUSTNOT id="python-versioning-api-major" %} increment the major version for a new REST API version unless it requires breaking API changes in the python library itself.
 
@@ -587,16 +679,31 @@ Don't use pre-release segments other than the ones defined in [PEP440](https://w
 
 The bar to make a breaking change is extremely high for GA client libraries.  We may create a new package with a different name to avoid diamond dependency issues.
 
-### Binary extensions
+### Dependencies
 
-{% include requirement/MUST id="python-native-approval" %} be approved by the [Architecture Board].
+{% include requirement/MUST id="python-dependencies-approved-list" %} only pick external dependencies from the following list of well known packages for shared functionality:
+
+{% include_relative approved_dependencies.md %}
+
+{% include requirement/MUSTNOT id="python-dependencies-external" %} use external dependencies outside the list of well known dependencies. To get a new dependency added, contact the [Architecture Board].
+
+{% include requirement/MUSTNOT id="python-dependencies-vendor" %} vendor dependencies unless approved by the [Architecture Board].
+
+When you vendor a dependency in Python, you include the source from another package as if it was part of your package.
+
+{% include requirement/MUSTNOT id="python-dependencies-pin-version" %} pin a specific version of a dependency unless that is the only way to work around a bug in said dependencies versioning scheme.
+
+Only applications are expected to pin exact dependencies. Libraries are not. A library should use a [compatible release](https://www.python.org/dev/peps/pep-0440/#compatible-release) identifier for the dependency.
+
+### Binary extensions (native code)
+
+{% include requirement/MUST id="python-native-approval" %} seek approval by the [Architecture Board] before implementing a binary extension.
 
 {% include requirement/MUST id="python-native-plat-support" %} support Windows, Linux (manylinux - see [PEP513](https://www.python.org/dev/peps/pep-0513/), [PEP571](https://www.python.org/dev/peps/pep-0571/)), and MacOS.  Support the earliest possible manylinux to maximize your reach.
 
 {% include requirement/MUST id="python-native-arch-support" %} support both x86 and x64 architectures.
 
-{% include requirement/MUST id="python-native-charset-support" %} support unicode and ASCII versions of CPython 2.7.
-
+{% include requirement/MUST id="python-native-charset-support" %} support both Unicode and ASCII versions of CPython 2.7.
 
 ## Repository Guidelines
 

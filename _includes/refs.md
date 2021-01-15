@@ -14,7 +14,7 @@
 [golang-guidelines]: {{ site.baseurl }}{% link docs/golang/introduction.md %}
 [ios-guidelines]: {{ site.baseurl }}{% link docs/ios/introduction.md %}
 [java-guidelines]: {{ site.baseurl }}{% link docs/java/introduction.md %}
-[python-guidelines]: {{ site.baseurl }}{% link docs/python/introduction.md %}
+[python-guidelines]: {{ site.baseurl }}{% link docs/python/design.md %}
 [typescript-guidelines]: {{ site.baseurl }}{% link docs/typescript/introduction.md %}
 
 [android-latest-releases]: {{ site.baseurl }}{% link releases/latest/android.md %}

@@ -22,64 +22,202 @@ Since the client library generally wraps one or more HTTP requests, it's importa
 - Unique Request ID
 - Retry (`azure.core.pipeline.policies.RetryPolicy` and `azure.core.pipeline.policies.AsyncRetryPolicy`)
 - Credentials
-- Response downloader
+- Response downloader (for streaming responses)
 - Distributed tracing
 - Logging (`azure.core.pipeline.policies.NetworkTraceLoggingPolicy`)
 
+TODO: Verify order of policies...
+
+```python
+
+from azure.core.pipeline import Pipeline
+
+from azure.core.pipeline.policies import (
+    BearerTokenCredentialPolicy,
+    ContentDecodePolicy,
+    DistributedTracingPolicy,
+    HeadersPolicy,
+    HttpLoggingPolicy,
+    NetworkTraceLoggingPolicy,
+    UserAgentPolicy,
+)
+
+class ExampleClient(object):
+
+    ...
+
+    def _create_pipeline(self, credential, base_url=None, **kwargs):
+        transport = kwargs.get('transport') or RequestsTransport(**kwargs)
+        
+        try:
+            policies = kwargs['policies']
+        except KeyError:
+            scope = base_url.strip("/") + "/.default"
+            if hasattr(credential, "get_token"):
+                credential_policy = BearerTokenCredentialPolicy(credential, scope)
+            else:
+                raise ValueError("Please provide an instance from azure-identity "
+                                "or a class that implement the 'get_token protocol")
+            policies = [
+                HeadersPolicy(**kwargs),
+                UserAgentPolicy(**kwargs),
+                credential_policy,
+                RetryPolicy(**kwargs),
+                HttpLoggingPolicy(**kwargs),
+                DistributedTracingPolicy(**kwargs),
+                ContentDecodePolicy(**kwargs),
+                NetworkTraceLoggingPolicy(**kwargs)
+            ]
+
+        return Pipeline(transport, policies)
+
+```
+
 ##### Custom policies
 
-#### Parameters
+Some services may require custom policies to be implemented. For example, custom policies may implement fall back to secondary endpoints during retry, request signing, or other specialized authentication techniques.
+
+{% include requirement/SHOULD id="python-pipeline-core-policies" %} use the policy implementations in `azure-core` whenever possible.
+
+{% include requirement/MUST id="python-custom-policy-review" %} review the proposed policy with the TODO: Azure SDK architecture board. There may already be an existing policy that can be modified/parameterized to satisfy your need.
+
+{% include requirement/MUST id="python-custom-policy-base-class" %} derive from [HTTPPolicy](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/1.9.0/azure.core.pipeline.policies.html#azure.core.pipeline.policies.HTTPPolicy)/[AsyncHTTPPolicy](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/1.9.0/azure.core.pipeline.policies.html#azure.core.pipeline.policies.AsyncHTTPPolicy) (if you need to make network calls) or [SansIOHTTPPolicy](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/1.9.0/azure.core.pipeline.policies.html#azure.core.pipeline.policies.SansIOHTTPPolicy) (if you do not). 
+
+{% include requirement/MUST id="python-custom-policy-thread-safe" %} ensure thread-safety for custom policies. A practical consequence of this is that you should keep any per-request or connection bookkeeping data in the context rather than in the policy instance itself.
+
+{% include requirement/MUST id="python-pipeline-document-policies" %} document any custom policies in your package. The documentation should make it clear how a user of your library is supposed to use the policy.
+
+{% include requirement/MUST id="python-pipeline-policy-namespace" %} add the policies to the `azure.<package name>.pipeline.policies` namespace.
+
+#### Service Method Parameters
 
 ##### Validation
 
+{% include requirement/MUSTNOT id="python-client-parameter-validation" %} use `isinstance` to validate parameter value types other than for [built-in types](https://docs.python.org/3/library/stdtypes.html) (e.g. `str` etc). For other types, use [structural type checking].
 
-## ---------
-## ---------
-## ---------
+### Supporting types
 
-## Configuration
+{% include requirement/MUST id="python-models-repr" %} implement `__repr__` for model types. The representation **must** include the type name and any key properties (that is, properties that help identify the model instance).
+
+{% include requirement/MUST id="python-models-repr-length" %} truncate the output of `__repr__` after 1024 characters.
+
+#### Serialization
+
+#### Extensible enumerations
+
+TODO: Add case insensitive enum metaclass to azure.core
+
+### SDK Feature implementation 
+
+#### Configuration
 
 {% include requirement/MUST id="python-envvars-global" %} honor the following environment variables for global configuration settings:
 
 {% include tables/environment_variables.md %}
 
+#### Logging
 
-## Dependencies
+{% include requirement/MUST id="python-logging-usage" %} use Pythons standard [logging module](https://docs.python.org/3/library/logging.html).
 
-{% include requirement/MUST id="python-dependencies-approved-list" %} only pick external dependencies from the following list of well known packages for shared functionality:
+{% include requirement/MUST id="python-logging-nameed-logger" %} provide a named logger for your library.
 
-{% include_relative approved_dependencies.md %}
+The logger for your package **must** use the name of the module. The library may provide additional child loggers. If child loggers are provided, document them.
 
-{% include requirement/MUSTNOT id="python-dependencies-external" %} use external dependencies outside the list of well known dependencies. To get a new dependency added, contact the [Architecture Board].
+For example:
+- Package name: `azure-someservice`
+- Module name: `azure.someservice`
+- Logger name: `azure.someservice`
+- Child logger: `azure.someservice.achild`
 
-{% include requirement/MUSTNOT id="python-dependencies-vendor" %} vendor dependencies unless approved by the [Architecture Board].
+These naming rules allow the consumer to enable logging for all Azure libraries, a specific client library, or a subset of a client library.
 
-When you vendor a dependency in Python, you include the source from another package as if it was part of your package.
+{% include requirement/MUST id="python-logging-error" %} use the `ERROR` logging level for failures where it's unlikely the application will recover (for example, out of memory).
 
-{% include requirement/MUSTNOT id="python-dependencies-pin-version" %} pin a specific version of a dependency unless that is the only way to work around a bug in said dependencies versioning scheme.
+{% include requirement/MUST id="python-logging-warn" %} use the `WARNING` logging level when a function fails to perform its intended task. The function should also raise an exception.
 
-Applications are expected to pin exact dependencies. Libraries aren't. A library should use a [compatible release](https://www.python.org/dev/peps/pep-0440/#compatible-release) identifier for the dependency.
+Don't include occurrences of self-healing events (for example, when a request will be automatically retried).
 
-## Service-specific common library code
+{% include requirement/MUST id="python-logging-info" %} use the `INFO` logging level when a function operates normally.
 
-There are occasions when common code needs to be shared between several client libraries.  For example, a set of cooperating client libraries may wish to share a set of exceptions or models.
+{% include requirement/MUST id="python-logging-debug" %} use the `DEBUG` logging level for detailed trouble shooting scenarios.
 
-{% include requirement/MUST id="python-commonlib-approval" %} gain [Architecture Board] approval prior to implementing a common library.
+The `DEBUG` logging level is intended for developers or system administrators to diagnose specific failures.
 
-{% include requirement/MUST id="python-commonlib-minimize-code" %} minimize the code within a common library.  Code within the common library is available to the consumer of the client library and shared by multiple client libraries within the same namespace.
+{% include requirement/MUSTNOT id="python-logging-sensitive-info" %} send sensitive information in log levels other than `DEBUG`.  For example, redact or remove account keys when logging headers.
 
-{% include requirement/MUST id="python-commonlib-namespace" %} store the common library in the same namespace as the associated client libraries.
+{% include requirement/MUST id="python-logging-request" %} log the request line, response line, and headers for an outgoing request as an `INFO` message.
 
-A common library will only be approved if:
+{% include requirement/MUST id="python-logging-cancellation" %} log an `INFO` message, if a service call is canceled.
 
-* The consumer of the non-shared library will consume the objects within the common library directly, AND
-* The information will be shared between multiple client libraries.
+{% include requirement/MUST id="python-logging-exceptions" %} log exceptions thrown as a `WARNING` level message. If the log level set to `DEBUG`, append stack trace information to the message.
 
-Let's take two examples:
+You can determine the logging level for a given logger by calling [`logging.Logger.isEnabledFor`](https://docs.python.org/3/library/logging.html#logging.Logger.isEnabledFor).
 
-1. Implementing two Cognitive Services client libraries, we find a model is required that is produced by one Cognitive Services client library and consumed by another Coginitive Services client library, or the same model is produced by two client libraries.  The consumer is required to do the passing of the model in their code, or may need to compare the model produced by one client library vs. that produced by another client library.  This is a good candidate for choosing a common library.
+#### Distributed tracing
 
-2. Two Cognitive Services client libraries throw an `ObjectNotFound` exception to indicate that an object was not detected in an image.  The user might trap the exception, but otherwise will not operate on the exception.  There is no linkage between the `ObjectNotFound` exception in each client library.  This is not a good candidate for creation of a common library (although you may wish to place this exception in a common library if one exists for the namespace already).  Instead, produce two different exceptions - one in each client library.
+> **DRAFT** section
+
+{% include requirement/MUST id="python-tracing-span-per-method" %} create a new trace span for each library method invocation. The easiest way to do so is by adding the distributed tracing decorator from `azure.core.tracing`.
+
+{% include requirement/MUST id="python-tracing-span-name" %} use `<package name>/<method name>` as the name of the span.
+
+{% include requirement/MUST id="python-tracing-span-per-call" %} create a new span for each outgoing network call. If using the HTTP pipeline, the new span is created for you.
+
+{% include requirement/MUST id="python-tracing-propagate" %} propagate tracing context on each outgoing service request.
+
+#### Telemetry
+
+Client library usage telemetry is used by service teams (not consumers) to monitor what SDK language, client library version, and language/platform info a client is using to call into their service. Clients can prepend additional information indicating the name and version of the client application.
+
+{% include requirement/MUST id="python-http-telemetry-useragent" %} send telemetry information in the [User-Agent header] using the following format:
+
+```
+[<application_id> ]azsdk-python-<package_name>/<package_version> <platform_info>
+```
+
+- `<application_id>`: optional application-specific string. May contain a slash, but must not contain a space. The string is supplied by the user of the client library, e.g. "AzCopy/10.0.4-Preview"
+- `<package_name>`: client library (distribution) package name as it appears to the developer, replacing slashes with dashes and removing the Azure indicator.  For example, "azure-keyvault-secrets" would specify "azsdk-python-keyvault-secrets".
+- `<package_version>`: the version of the package. Note: this is not the version of the service
+- `<platform_info>`: information about the currently executing language runtime and OS, e.g. "(NODE-VERSION v4.5.0; Windows_NT 10.0.14393)"
+
+For example, if we re-wrote `AzCopy` in Python using the Azure Blob Storage client library, we may end up with the following user-agent strings:
+
+- (Python) `AzCopy/10.0.4-Preview azsdk-python-storage/4.0.0 Python/3.7.3 (Ubuntu; Linux x86_64; rv:34.0)`
+
+The `azure.core.pipeline.policies.UserAgentPolicy` will provide this functionality if added to the HttpPipeline.
+
+{% include requirement/SHOULD id="python-azurecore-http-telemetry-dynamic" %} send additional (dynamic) telemetry information as a semi-colon separated set of key-value types in the `X-MS-AZSDK-Telemetry` header.  For example:
+
+```http
+X-MS-AZSDK-Telemetry: class=BlobClient;method=DownloadFile;blobType=Block
+```
+
+The content of the header is a semi-colon key=value list.  The following keys have specific meaning:
+
+* `class` is the name of the type within the client library that the consumer called to trigger the network operation.
+* `method` is the name of the method within the client library type that the consumer called to trigger the network operation.
+
+Any other keys that are used should be common across all client libraries for a specific service.  **DO NOT** include personally identifiable information (even encoded) in this header.  Services need to configure log gathering to capture the `X-MS-SDK-Telemetry` header in such a way that it can be queried through normal analytics systems.
+
+##### Considerations for clients not using the UserAgentPolicy from azure-core
+
+{% include requirement/MUST id="python-azurecore-http-telemetry-appid" %} allow the consumer of the library to set the application ID by passing in an `application_id` parameter to the service client constructor.  This allows the consumer to obtain cross-service telemetry for their app.
+
+{% include requirement/MUST id="python-azurecore-http-telemetry-appid-length" %} enforce that the application ID is no more than 24 characters in length.  Shorter application IDs allows service teams to include diagnostic information in the "platform information" section of the user agent, while still allowing the consumer to obtain telemetry information for their own application.
+
+### Testing
+
+{% include requirement/MUST id="python-testing-pytest" %} use [pytest](https://docs.pytest.org/en/latest/) as the test framework.
+
+{% include requirement/SHOULD id="python-testing-async" %} use [pytest-asyncio](https://github.com/pytest-dev/pytest-asyncio) for testing of async code.
+
+{% include requirement/MUST id="python-testing-live" %} make your scenario tests runnable against live services. Strongly consider using the [Python Azure-DevTools](https://github.com/Azure/azure-python-devtools) package for scenario tests.
+
+{% include requirement/MUST id="python-testing-record" %} provide recordings to allow running tests offline/without an Azure subscription
+
+{% include requirement/MUST id="python-testing-parallel" %} support simultaneous test runs in the same subscription.
+
+{% include requirement/MUST id="python-testing-independent" %} make each test case independent of other tests.
 
 ## Error handling
 
@@ -118,55 +256,17 @@ except azure.core.errors.ResourceNotFoundException:
     print("The resource doesn't exist... but that shouldn't be an exceptional case for an 'exists' method")
 ```
 
-## Logging
+## Recommended Tools
 
-{% include requirement/MUST id="python-logging-usage" %} use Pythons standard [logging module](https://docs.python.org/3/library/logging.html).
+{% include requirement/MUST id="python-tooling-pylint" %} use [pylint](https://www.pylint.org/) for your code. Use the pylintrc file in the [root of the repository](https://github.com/Azure/azure-sdk-for-python/blob/master/pylintrc).
 
-{% include requirement/MUST id="python-logging-nameed-logger" %} provide a named logger for your library.
+{% include requirement/MUST id="python-tooling-flake8" %} use [flake8-docstrings](https://gitlab.com/pycqa/flake8-docstrings) to verify doc comments.
 
-The logger for your package **must** use the name of the module. The library may provide additional child loggers. If child loggers are provided, document them.
+{% include requirement/MUST id="python-tooling-black" %} use [Black](https://black.readthedocs.io/en/stable/) for formatting your code.
 
-For example:
-- Package name: `azure-someservice`
-- Module name: `azure.someservice`
-- Logger name: `azure.someservice`
-- Child logger: `azure.someservice.achild`
+{% include requirement/SHOULD id="python-tooling-mypy" %} use [MyPy](https://mypy.readthedocs.io/en/latest/) to statically check the public surface area of your library.
 
-These naming rules allow the consumer to enable logging for all Azure libraries, a specific client library, or a subset of a client library.
-
-{% include requirement/MUST id="python-logging-error" %} use the `ERROR` logging level for failures where it's unlikely the application will recover (for example, out of memory).
-
-{% include requirement/MUST id="python-logging-warn" %} use the `WARNING` logging level when a function fails to perform its intended task. The function should also raise an exception.
-
-Don't include occurrences of self-healing events (for example, when a request will be automatically retried).
-
-{% include requirement/MUST id="python-logging-info" %} use the `INFO` logging level when a function operates normally.
-
-{% include requirement/MUST id="python-logging-debug" %} use the `DEBUG` logging level for detailed trouble shooting scenarios.
-
-The `DEBUG` logging level is intended for developers or system administrators to diagnose specific failures.
-
-{% include requirement/MUSTNOT id="python-logging-sensitive-info" %} send sensitive information in log levels other than `DEBUG`.  For example, redact or remove account keys when logging headers.
-
-{% include requirement/MUST id="python-logging-request" %} log the request line, response line, and headers for an outgoing request as an `INFO` message.
-
-{% include requirement/MUST id="python-logging-cancellation" %} log an `INFO` message, if a service call is canceled.
-
-{% include requirement/MUST id="python-logging-exceptions" %} log exceptions thrown as a `WARNING` level message. If the log level set to `DEBUG`, append stack trace information to the message.
-
-You can determine the logging level for a given logger by calling [`logging.Logger.isEnabledFor`](https://docs.python.org/3/library/logging.html#logging.Logger.isEnabledFor).
-
-## Distributed tracing
-
-> **DRAFT** section
-
-{% include requirement/MUST id="python-tracing-span-per-method" %} create a new trace span for each library method invocation. The easiest way to do so is by adding the distributed tracing decorator from `azure.core.tracing`.
-
-{% include requirement/MUST id="python-tracing-span-name" %} use `<package name>/<method name>` as the name of the span.
-
-{% include requirement/MUST id="python-tracing-span-per-call" %} create a new span for each outgoing network call. If using the HTTP pipeline, the new span is created for you.
-
-{% include requirement/MUST id="python-tracing-propagate" %} propagate tracing context on each outgoing service request.
+You don't need to check non-shipping code such as tests.
 
 ## Azure Core
 
@@ -177,16 +277,6 @@ The `azure-core` package provides common functionality for client libraries. Doc
 The HTTP pipeline is an HTTP transport that is wrapped by multiple policies. Each policy is a control point that can modify either the request or response. A default set of policies is provided to standardize how client libraries interact with Azure services.
 
 For more information on the Python implementation of the pipeline, see the [documentation](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/core/azure-core).
-
-#### Custom Policies
-
-Some services may require custom policies to be implemented. For example, custom policies may implement fall back to secondary endpoints during retry, request signing, or other specialized authentication techniques.
-
-{% include requirement/SHOULD id="python-pipeline-core-policies" %} use the policy implementations in `azure-core` whenever possible.
-
-{% include requirement/MUST id="python-pipeline-document-policies" %} document any custom policies in your package. The documentation should make it clear how a user of your library is supposed to use the policy.
-
-{% include requirement/MUST id="python-pipeline-policy-namespace" %} add the policies to the `azure.<package name>.pipeline.policies` namespace.
 
 ### Protocols
 
@@ -247,40 +337,6 @@ class ResponseHook(Protocol):
     __call__(self, headers, deserialized_response): -> None ...
 
 ```
-
-
-### REST API method versioning
-
-{% include requirement/MUST id="python-versioning-latest-service-api" %} use the latest service protocol version when making requests.
-
-{% include requirement/MUST id="python-versioning-select-service-api" %} allow a client application to specify an earlier version of the service protocol.
-
-
-## Testing
-
-{% include requirement/MUST id="python-testing-pytest" %} use [pytest](https://docs.pytest.org/en/latest/) as the test framework.
-
-{% include requirement/SHOULD id="python-testing-async" %} use [pytest-asyncio](https://github.com/pytest-dev/pytest-asyncio) for testing of async code.
-
-{% include requirement/MUST id="python-testing-live" %} make your scenario tests runnable against live services. Strongly consider using the [Python Azure-DevTools](https://github.com/Azure/azure-python-devtools) package for scenario tests.
-
-{% include requirement/MUST id="python-testing-record" %} provide recordings to allow running tests offline/without an Azure subscription
-
-{% include requirement/MUST id="python-testing-parallel" %} support simultaneous test runs in the same subscription.
-
-{% include requirement/MUST id="python-testing-independent" %} make each test case independent of other tests.
-
-## Recommended Tools
-
-{% include requirement/MUST id="python-tooling-pylint" %} use [pylint](https://www.pylint.org/) for your code. Use the pylintrc file in the [root of the repository](https://github.com/Azure/azure-sdk-for-python/blob/master/pylintrc).
-
-{% include requirement/MUST id="python-tooling-flake8" %} use [flake8-docstrings](https://gitlab.com/pycqa/flake8-docstrings) to verify doc comments.
-
-{% include requirement/MUST id="python-tooling-black" %} use [Black](https://black.readthedocs.io/en/stable/) for formatting your code.
-
-{% include requirement/SHOULD id="python-tooling-mypy" %} use [MyPy](https://mypy.readthedocs.io/en/latest/) to statically check the public surface area of your library.
-
-You don't need to check non-shipping code such as tests.
 
 ## Code style
 
@@ -373,6 +429,8 @@ class BadThing(object):
 ```
 
 {% include requirement/SHOULDNOT id="python-codestyle-long-args" %} have methods that require more than five positional parameters. Optional/flag parameters can be accepted using keyword-only arguments, or `**kwargs`.
+
+See TODO: insert link for general guidance on positional vs. optional parameters here.
 
 {% include requirement/MUST id="python-codestyle-optional-args" %} use keyword-only arguments for optional or less-often-used arguments for modules that only need to support Python 3.
 
