@@ -2,17 +2,17 @@
 
 This guide is intended to assist in the migration to [name of new package here] from [name of old package here]. It will focus on side-by-side comparisons for similar operations between the two packages.
 
-We assume that you are familiar with the [name of old package here]. If not, then please refer to the [README for name of new package here](add link to new package readme) rather than this guide.
+We assume that you are familiar with [name of old package here]. If not, please refer to the [README for name of new package here](add link to new package readme) rather than this guide.
 
 ## Table of contents
 
 ## Migration benefits
 
-A natural question to ask when considering whether or not to adopt a new version or library is what the benefits of doing so would be. As Azure has matured and been embraced by a more diverse group of developers, we have been focused on learning the patterns and practices to best support developer productivity and to understand the gaps that the [language here .NET/JavaScript/Python/Java] client libraries have.
+As Azure has matured and been embraced by a more diverse group of developers, we have been focused on learning the patterns and practices to best support developer productivity and to understand the gaps that the [language here .NET/JavaScript/Python/Java] client libraries have.
 
 There were several areas of consistent feedback expressed across the Azure client library ecosystem. One of the most important is that the client libraries for different Azure services have not had a consistent approach to organization, naming, and API structure. Additionally, many developers have felt that the learning curve was difficult, and the APIs did not offer a good, approachable, and consistent onboarding story for those learning Azure or exploring a specific Azure service.
 
-To try and improve the development experience across Azure services, a set of uniform [design guidelines](https://azure.github.io/azure-sdk/general_introduction.html) was created for all languages to drive a consistent experience with established API patterns for all services. A set of [add language here-specific guidelines](add link to language specific guidelines here) was also introduced to ensure that [add language here] clients have a natural and idiomatic feel with respect to the [add language here] ecosystem. The new [name of new package nere] follows these guidelines.
+To improve the development experience across Azure services, a set of uniform [design guidelines](https://azure.github.io/azure-sdk/general_introduction.html) was created for all languages to drive a consistent experience with established API patterns for all services. A set of [add language here-specific guidelines](add link to language specific guidelines here) was also introduced to ensure that [add language here] clients have a natural and idiomatic feel with respect to the [add language here] ecosystem. The new [name of new package nere] follows these guidelines.
 
 ### Cross Service SDK improvements
 
