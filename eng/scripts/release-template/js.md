@@ -6,27 +6,33 @@ sidebar: releases_sidebar
 repository: azure/azure-sdk-for-js
 ---
 
+<!--
+[pattern]: # (${PackageName}:${PackageVersion})
+-->
+
 The Azure SDK team is pleased to make available the %%MMMM yyyy%% client library release.
 
 #### GA
 
-- _Add packages_
+[pattern.ga]: # (- ${PackageFriendlyName})
 
 #### Updates
 
-- _Add packages_
+[pattern.patch]: # (- ${PackageFriendlyName})
 
 #### Beta
 
-- _Add packages_
+[pattern.beta]: # (- ${PackageFriendlyName})
 
 ## Installation Instructions
 
 To install the packages, copy and paste the below into a terminal.
 
 ```bash
-$> npm install @azure/package-name
+
 ```
+
+[pattern]: # ($> npm install ${PackageName}@${PackageVersion})
 
 ## Feedback
 
@@ -34,9 +40,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-### _Package name_
-
-- Major changes only!
+[pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
 ## Latest Releases
 
