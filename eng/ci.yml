@@ -7,7 +7,7 @@ resources:
       type: github
       name: Azure/azure-sdk-tools
       endpoint: azure
-      ref: refs/tags/azure-sdk-tools_20210106.1
+      ref: refs/tags/azure-sdk-tools_20210114.1
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -18,7 +18,7 @@ steps:
 
 - task: UseRubyVersion@0
   inputs:
-    versionSpec: '>= 2.4'
+    versionSpec: '2.7.2'
   displayName: Initialize Ruby
 
 - script: |
