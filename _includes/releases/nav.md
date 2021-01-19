@@ -7,4 +7,5 @@
   <div class="nav-language-filter-cell"><a href="#embedded-c">Embedded C</a></div>
   <div class="nav-language-filter-cell"><a href="#android">Android</a></div>
   <div class="nav-language-filter-cell"><a href="#ios">iOS</a></div>
+  <div class="nav-language-filter-cell"><a href="#go">Go</a></div>
 </div>

@@ -496,6 +496,55 @@ function Update-ios-Packages($packageList)
   }
 }
 
+function Check-go-links($pkg, $version) 
+{
+    $valid = $true;
+    if (!$pkg.RepoPath.StartsWith("http")) {
+      $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-go/tree/{0}/sdk/{1}" -f $version, $pkg.RepoPath))
+    }
+    $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-go/archive/{0}.zip" -f $version))
+    return $valid
+}
+function Update-go-Packages($packageList)
+{
+  foreach ($pkg in $packageList)
+  {
+    $version = GetVersionWebContent "go" $pkg.Package "latest-ga"
+    if ($null -eq $version) {
+      Write-Host "Skipping update for $($pkg.Package) as we don't have versiong info for it. "
+      continue;
+    }
+
+    if ($version -eq "") {
+      $pkg.VersionGA = ""
+    }
+    elseif (Check-go-links $pkg $version){
+      if ($pkg.VersionGA -ne $version) {
+        Write-Host "Updating VersionGA $($pkg.Package) from $($pkg.VersionGA) to $version"
+        $pkg.VersionGA = $version;
+      }
+    }
+    else {
+      Write-Warning "Not updating VersionGA for $($pkg.Package) because at least one associated URL is not valid!"
+    }
+
+    $version = GetVersionWebContent "go" $pkg.Package "latest-preview"
+    if ($version -eq "") {
+      $pkg.VersionPreview = ""
+    }
+    elseif (Check-go-links $pkg $version){
+      if ($pkg.VersionPreview -ne $version) {
+        Write-Host "Updating VersionPreview $($pkg.Package) from $($pkg.VersionPreview) to $version"
+        $pkg.VersionPreview = $version;
+      }
+    }
+    else {
+      Write-Warning "Not updating VersionPreview for $($pkg.Package) because at least one associated URL is not valid!"
+    }
+    UpdateDocLinks "go" $pkg
+  }
+}
+
 function OutputVersions($lang)
 {
   $clientPackages, $otherPackages = Get-PackageListForLanguageSplit $lang
