@@ -10,7 +10,8 @@ Use the guidelines in each section of this template to ensure consistency and re
 **Introduction**: The introduction appears directly under the title (H1) of your README.
 
 * **DO NOT** use an "Introduction" or "Overview" heading (H2) for this section.
-* First sentence: **Describe the service** briefly. You can usually use the first line of the service's docs landing page for this (Example: [Cosmos DB docs landing page](https://docs.microsoft.com/azure/cosmos-db/)).
+* First sentence: **Describe the service** briefly. You can usually use the first line of the service's docs landing page for this (Example: [Cosmos DB docs landing page](https://docs.microsoft.com/azure/cosmos-db/)). 
+* Include version of the service this library supports: "this library supports [X.Y version of the service] and below"
 * Next, add a **bulleted list** of the **most common tasks** supported by the package or library, prefaced with "Use the client library for [Product Name] to:". Then, provide code snippets for these tasks in the [Examples](#examples) section later in the document. Keep the task list short but include those tasks most developers need to perform with your package.
 * Include this set of links targeting your product's content at the bottom of the introduction, making any adjustments as necessary (for example, NuGet instead of PyPi):
 

@@ -1,9 +1,8 @@
 ---
-title: Azure SDK (December 2020)
+title: Azure SDK (January 2021)
 layout: post
 tags: release
 sidebar: releases_sidebar
-permalink: /releases/2020-12/index.html
 ---
 
 Thank you for your interest in the new Azure SDKs! We release new features, improvements, and bug fixes every month. Please subscribe to our [Azure SDK Blog RSS Feed](https://devblogs.microsoft.com/azure-sdk/feed) to get notified when a new release is available.
@@ -12,9 +11,11 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 
 ## Release Highlights
 
-* This is the first release of the Synapse packages to support the new [Azure Synapse Analytics service](https://azure.microsoft.com/en-us/services/synapse-analytics/) for Java/.NET/JS/Python. It includes `Access Control`, `Artifacts`, `Spark`, `Managed Private Endpoints` and `Monitoring` packages.
-
-## Release Notes
+* Azure Monitor Opentelemetry exporters second beta release which includes a namespace change from the old "microsoft" namespace to "azure" namespace.
+* Azure Storage is is adding support for new service features in Azure Storage Service API version 2020-04-08.
+* Azure Tables for JavaScript and TypeScript is releasing a new beta for our Azure Data Tables client that improves the precision of the dates being used in the package, and enables this client to communicate with the Azure Storage Emulator.
+* Added support for Cocoapods as a dependency manager for all Track 2 Azure SDKs for iOS.
+* We're also releasing a new beta client for Microsoft Azure Attestation.
 
 * [All release notes](index.md)
 * [.NET release notes](dotnet.md)
@@ -22,6 +23,5 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 * [JavaScript/TypeScript release notes](js.md)
 * [Python release notes](python.md)
 * [C++ release notes](cpp.md)
-* [Embedded C release notes](c.md)
 * [Android release notes](android.md)
 * [iOS release notes](ios.md)

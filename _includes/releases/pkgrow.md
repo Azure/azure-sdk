@@ -19,8 +19,8 @@
     {% assign msdocs_url = item.MSDocs %}
     {% if item.MSDocs == "" %}
         {% assign msdocs_url = msdocs_url_template | replace: 'item.Package', item.Package | replace: 'item.TrimmedPackage', trimmedPackage %}
-        {% if item.VersionGA == "" and item.VersionPreview != "" %}
-            {% assign msdocs_url = msdocs_url | append: '-pre' %}
+        {% if item.VersionGA == "" and item.VersionPreview != "" and pre_suffix.size > 0 %}
+            {% assign msdocs_url = msdocs_url | append: pre_suffix %}
         {% endif %}
     {% endif %}
 
