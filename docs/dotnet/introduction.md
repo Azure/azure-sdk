@@ -8,7 +8,7 @@ sidebar: general_sidebar
 
 ## Introduction
 
-The following document describes .NET specific guidelines for designing Azure SDK client libraries. These guidelines complement general [.NET Framework Design Guidelines](https://www.oreilly.com/library/view/framework-design-guidelines/9780135896457) with design considerations specific to the Azure SDK. These guidelines also expand on and simplify language-independent [General Azure SDK Guidelines][general-guidelines]. More specific guidelines take precedence over more general guidelines.
+The following document describes .NET specific guidelines for designing Azure SDK client libraries. These guidelines complement general [.NET Framework Design Guidelines](https://aka.ms/fxdg3) with design considerations specific to the Azure SDK. These guidelines also expand on and simplify language-independent [General Azure SDK Guidelines][general-guidelines]. More specific guidelines take precedence over more general guidelines.
 
 Throughout this document, we'll use the client library for the [Azure Application Configuration service](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/appconfiguration/Azure.Data.AppConfiguration) to illustrate various design concepts.  
 
@@ -18,7 +18,7 @@ The main value of the Azure SDK is **productivity** building applications with A
 
 **Idiomatic**
 
-* Azure SDK libraries follow [.NET Framework Design Guidelines](https://www.oreilly.com/library/view/framework-design-guidelines/9780135896457).
+* Azure SDK libraries follow [.NET Framework Design Guidelines](https://aka.ms/fxdg3).
 * Azure SDK libraries feel like designed by the designers of the .NET Standard libraries.
 * Azure SDK libraries version just like the .NET Standard libraries.
 
@@ -46,7 +46,7 @@ The main value of the Azure SDK is **productivity** building applications with A
 
 ### General Guidelines {#dotnet-general}
 
-{% include requirement/MUST id="dotnet-general-follow-framework-guidelines" %} follow the official [.NET Framework Design Guidelines](https://www.oreilly.com/library/view/framework-design-guidelines/9780135896457).
+{% include requirement/MUST id="dotnet-general-follow-framework-guidelines" %} follow the official [.NET Framework Design Guidelines](https://aka.ms/fxdg3).
 
 At the end of this document, you can find a section with [the most commonly overlooked guidelines](#dotnet-appendix-overlookedguidelines) in existing Azure SDK libraries.
 
@@ -306,7 +306,20 @@ Many developers want to port existing applications to the Cloud. These applicati
 
 ##### Naming
 
-TODO: Add discussion to parallel method naming in other sections
+Most methods in Azure SDK libraries should be named following the typical .NET method naming conventions. The Azure SDK Design Guidelines add special conventions for methods that access and manipulate server resources.
+
+{% include requirement/SHOULD id="general-client-standardize-verbs" %} use standard verbs for methods that access or manipulate server resources. 
+
+| Verb | Example | Usage |
+| `Create` | `BlobContainerClient.Create` | Creates a resource. Throws if the resource exists. |
+| `Set` | `BlobContainerClient.SetMetadata` | Creates or replaces a resource. |
+| `Update` | TBD | Updates a resource. Throws if the resource does not exist. Update methods might take a parameter controlling whether the update is a replace, merge, or other specific semantics. |
+| `Add` | `ConfigurationClient.AddConfigurationSetting` | Adds a resource to a resource collection or container. |
+| `Get<resource_name>` | `BlobContainerClient.GetAccessPolicy` | Retrieves a resource. Throws if the resource does not exist. |
+| `Get<resource_name_plural>` | `ConfigurationClient.GetConfigurationSettings` | Retrieves one or more resources. Returns empty set if no resources found. |
+| `Delete` | `BlobContainerClient.DeleteBlob` | Deletes one or more resources, or no-op if the resources do not exist. |
+| `Remove` | TBD | Remove a reference to a resource from a collection. This method doesn’t delete the actual resource, only the reference. |
+| `<resource_name>Exists` | TBD | Returns true if the resource exists, otherwise returns false. |
 
 ##### Cancellation
 
@@ -357,7 +370,7 @@ Service methods fall into two main groups when it comes to the number and comple
 
 _Simple methods_ are methods that take up to six parameters, with most of the parameters being simple BCL primitives. _Complex methods_ are methods that take large number of parameters and typically correspond to REST APIs with complex request payloads.
 
-_Simple methods_ should follow standard [.NET Framework Design Guidelines](https://learning.oreilly.com/library/view/framework-design-guidelines/9780135896457/ch05.xhtml) for parameter list and overload design.
+_Simple methods_ should follow standard [.NET Framework Design Guidelines](https:aka.ms/fxdg3/ch05.xhtml) for parameter list and overload design.
 
 _Complex methods_ should use _option parameter_ to represent the request payload, and consider providing convenience simple overloads for most common scenarios.
 
@@ -390,8 +403,7 @@ public class BlobCreateOptions {
 
 If in common scenarios, users are likely to pass just a small subset of what the _options_ parameter represents, consider adding an overload with a parameter list representing just this subset.
 
-TODO: There was a discussion here and the guidance was updated within the .NET team and across Java as well.  Update these to reflect those decisions?
-TODO: Add "Do name the options parameter type name with the _Options_ suffix ... ?
+{% include requirement/MAY id="dotnet-params-options" %} name the _option parameter_ type with the 'Options' suffix.
 
 ##### Parameter Validation
 
@@ -510,7 +522,16 @@ For example, some subclasses add a constructor allowing to create an operation i
 
 ##### Conditional Request Methods
 
-TODO: Add discussion for this
+Some services support conditional requests that are used to implement optimistic concurrency control. In Azure, optimistic concurency is typically implemented using If-Match headers and ETags. See [Managing Concurrency in Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/concurrency-manage?tabs=dotnet) as a good example. 
+
+{% include requirement/MUST id="dotnet-conditional-etag" %} use Azure.Core ETag to represent ETags.
+
+{% include requirement/MAY id="dotnet-conditional-matchcondition" %} take [MatchConditions](https://docs.microsoft.com/en-us/dotnet/api/azure.matchconditions?view=azure-dotnet), [RequestConditions](https://docs.microsoft.com/en-us/dotnet/api/azure.requestconditions?view=azure-dotnet), (or a custom subclass) as a parameter to conditional service call methods.
+
+```csharp
+```
+
+TODO: more guidelines comming. see https://github.com/Azure/azure-sdk/issues/2087
 
 ##### Hierarchical Clients
 
@@ -580,9 +601,9 @@ Ensure you include an internal setter to allow for deserialization.  For more in
 
 {% include requirement/MUST id="dotnet-service-models-prefer-structs" %} ensure model types are structs, if they meet the criteria for being structs.
 
-Good candidates for struct are types that are small and immutable, especially if they are often stored in arrays. See [.NET Framework Design Guidelines](https://www.oreilly.com/library/view/framework-design-guidelines/9780135896457/ch04.xhtml#sec4_2) for details.
+Good candidates for struct are types that are small and immutable, especially if they are often stored in arrays. See [.NET Framework Design Guidelines](https://aka.ms/fxdg3/ch04.xhtml#sec4_2) for details.
 
-{% include requirement/SHOULD id="dotnet-service-models-basic-data-interfaces" %} implement basic data type interfaces on model types, per [.NET Framework Design Guidelines](https://www.oreilly.com/library/view/framework-design-guidelines/9780135896457).
+{% include requirement/SHOULD id="dotnet-service-models-basic-data-interfaces" %} implement basic data type interfaces on model types, per [.NET Framework Design Guidelines](https://aka.ms/fxdg3).
 
 For example, implement `IEquatable<T>`, `IComparable<T>`, `IEnumerable<T>`, etc. if applicable.
 
@@ -592,7 +613,7 @@ For example, implement `IEquatable<T>`, `IComparable<T>`, `IEnumerable<T>`, etc.
 - ```IReadOnlyDictionary<T>``` and ```IDictionary<T>``` for lookup tables
 - ```T[]```, ```Memory<T>```, and ```ReadOnlyMemory<T>``` when low allocations and performance are critical
 
-Note that this guidance does not apply to input parameters. Input parameters representing collections should follow standard [.NET Framework Design Guidelines](https://www.oreilly.com/library/view/framework-design-guidelines/9780135896457/ch05.xhtml#sec5_8), e.g. use ```IEnumerable<T>``` is allowed.
+Note that this guidance does not apply to input parameters. Input parameters representing collections should follow standard [.NET Framework Design Guidelines](https://aka.ms/fxdg3/ch05.xhtml#sec5_8), e.g. use ```IEnumerable<T>``` is allowed.
 Also, this guidance does not apply to return types of service method calls. These should be using ```Pageable<T>``` and ```AsyncPageable<T>``` discussed in [Service Method Return Types](#dotnet-method-return).
 
 {% include requirement/MAY id="dotnet-service-models-namespace" %} place output model types in _.Models_ subnamespace to avoid cluttering the main namespace with too many types.
@@ -771,8 +792,6 @@ If you think a new group should be added to the list, contact [adparch].
 
 See [model type guidelines](#dotnet-service-models-namespace) for details.
 
-TODO: This set of namespaces needs to be updated.
-
 ### Support for Mocking {#dotnet-mocking}
 
 All client libraries must support mocking to enable non-live testing of service clients by customers.
@@ -903,7 +922,9 @@ package that is now a part of the .NET platform instead.
 
 ### Native Code
 
-TODO: Add this discussion
+Native dependencies introduce lots of complexities to .NET libraries and so they should be avoided. 
+
+{% include requirement/SHOULDNOT id="dotnet-problems-too-many-types" %} native dependencies.
 
 ### Documentation Comments {#dotnet-documentation}
 
@@ -956,6 +977,8 @@ description: Samples for the Azure.Data.AppConfiguration client library
 ---
 ```
 
+The `README.md` file should be written as a getting started guide. See [here](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/README.md) for a good example.
+
 {% include requirement/MUST id="dotnet-samples-readme-links" %} link to each of the samples files using a brief description as the link text.
 
 {% include requirement/MUST id="dotnet-samples-naming" %} have a sample file called `Sample1_HelloWorld.md`. All other samples are ordered from simplest to most complex using the `Sample<number>_` prefix.
@@ -978,7 +1001,7 @@ TODO: Update guidance on samples to reflect what we do in most places.
 
 ## Commonly Overlooked .NET API Design Guidelines {#dotnet-appendix-overlookedguidelines}
 
-Some [.NET Framework Design Guidelines](https://www.oreilly.com/library/view/framework-design-guidelines/9780135896457) have been notoriously overlooked in earlier Azure SDKs. This section serves as a way to highlight these guidelines.
+Some [.NET Framework Design Guidelines](https://aka.ms/fxdg3) have been notoriously overlooked in earlier Azure SDKs. This section serves as a way to highlight these guidelines.
 
 {% include requirement/SHOULDNOT id="dotnet-problems-too-many-types" %} have many types in the main namespace. Number of types is directly proportional to the perceived complexity of a library.
 
