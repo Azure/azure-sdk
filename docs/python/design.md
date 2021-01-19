@@ -172,6 +172,10 @@ specific_api_version_client = ExampleClient('https://contoso.com/xmpl',
 |`api_version`|API version to use when making service requests|
 |`transport`|Override the default HTTP transport|
 
+#### Client immutability
+
+{% include requirement/MUST id="python-client-immutable" %} design the client to be immutable. This does not mean that you need to use read-only properties (attributes are still acceptable), but rather that the there should not be any scenarios that require callers to change properties/attributes of the client.  
+
 ### Service methods
 
 #### Naming
@@ -477,7 +481,6 @@ class MyBadEnum(str, Enum):
     One = 'one' # No - using PascalCased name. 
     two = 'two' # No - using all lower case name.
 ```
-
 
 ### Exceptions
 
