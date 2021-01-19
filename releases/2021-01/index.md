@@ -16,6 +16,7 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 * Azure Tables for JavaScript and TypeScript is releasing a new beta for our Azure Data Tables client that improves the precision of the dates being used in the package, and enables this client to communicate with the Azure Storage Emulator.
 * Added support for Cocoapods as a dependency manager for all Track 2 Azure SDKs for iOS.
 * We're also releasing a new beta client for Microsoft Azure Attestation.
+* Java libraries upgraded to support Netty from `4.1.53.Final` to `4.1.54.Final` and `reactor-netty` from `0.9.13.RELEASE` to `0.9.15.RELEASE`.
 
 * [All release notes](index.md)
 * [.NET release notes](dotnet.md)
