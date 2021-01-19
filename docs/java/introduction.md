@@ -799,7 +799,7 @@ public final class TextDocumentInput {
 
 {% include requirement/MUST id="java-models-fluent" %} provide a fluent setter API to configure the model class, where each `set` method should `return this`. This allows chaining of set operations.
 
-{% include requirement/MUST id="java-models-fluent" %} override ALL `set` methods when extending a fluent type to return the extended type. This allows chaining of `set` operations on the sub-class.
+{% include requirement/MUST id="java-models-fluent" %} override all `set` methods when extending a fluent type to return the extended type. This allows chaining of `set` operations on the sub-class.
 
 ```java
 @Fluent
