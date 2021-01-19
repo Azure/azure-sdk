@@ -799,6 +799,45 @@ public final class TextDocumentInput {
 
 {% include requirement/MUST id="java-models-fluent" %} provide a fluent setter API to configure the model class, where each `set` method should `return this`. This allows chaining of set operations.
 
+{% include requirement/MUST id="java-models-fluent" %} override all `set` methods when extending a fluent type to return the extended type. This allows chaining of `set` operations on the sub-class.
+
+```java
+@Fluent
+public class SettlementOptions {
+    private ServiceBusTransactionContext transactionContext;
+
+    public ServiceBusTransactionContext getTransactionContext() {
+        return transactionContext;
+    }
+
+    public SettlementOptions setTransactionContext(ServiceBusTransactionContext transactionContext) {
+        this.transactionContext = transactionContext;
+        return this;
+    }
+}
+
+@Fluent
+public final AbandonOptions extends SettlementOptions {
+    private Map<String, Object> propertiesToModify;
+
+    public Map<String, Object> getPropertiesToModify() {
+        return propertiesToModify;
+    }
+
+    public AbandonOptions setPropertiesToModify(Map<String, Object> propertiesToModify) {
+        this.propertiesToModify = propertiesToModify;
+        return this;
+    }
+
+    // Override setter method of the parent class
+    @Override
+    public AbandonOptions setTransactionContext(ServiceBusTransactionContext transactionContext) {
+        super.setTransactionContext(transactionContext);
+        return this;
+    }
+}
+```
+
 {% include requirement/MUST id="java-models-fluent-annotation" %} apply the `@Fluent` annotation to the class.
 
 Fluent types must not be immutable.  Don't return a new instance on each setter call.
