@@ -226,6 +226,12 @@ except azure.core.exceptions.ServiceResponseError as e:
     print(f'The request was made, but the service responded with an error. Status code: {e.status_code}')
 ```
 
+##### Cancellation
+
+{% include requirement/MUST id="python-client-cancellation-sync-methods" %} provide an optional keyword argument `timeout` to allow callers to specify how long they are willing to wait for the method to complete. The `timeout` is in seconds, and should be honored to the best extent possible. 
+
+ {% include requirement/MUST id="python-client-cancellation-async-methods" %} use the standard [asyncio.Task.cancel](https://docs.python.org/3/library/asyncio-task.html#asyncio.Task.cancel) method to cancel async methods. 
+
 #### Parameters
 
 {% include requirement/MUST id="python-client-optional-arguments-keyword-only" %} provide optional operation-specific arguments as keyword only. See [positional and keyword-only arguments] for more information.
