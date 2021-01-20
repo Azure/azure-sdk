@@ -64,7 +64,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 ### Event Hubs CheckpointStoreBlob Async [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/CHANGELOG.md#112-2021-01-11)
 - Fixed a bug that `BlobCheckpointStore.list_ownership` and `BlobCheckpointStore.list_checkpoints` triggering `KeyError` due to reading empty metadata of parent node when working with Data Lake enabled Blob Storage.
 
-### Live Video Analyticos on IoT Edge [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/media/azure-media-analytics-edge/CHANGELOG.md#100b1)
+### Live Video Analytics on IoT Edge [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/media/azure-media-analytics-edge/CHANGELOG.md#100b1)
 
 - Initial release of [Live Video Analytics on IoT Edge](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/overview).
 
