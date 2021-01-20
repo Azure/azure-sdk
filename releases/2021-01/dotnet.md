@@ -25,6 +25,7 @@ The Azure SDK team is pleased to announce our January 2021 client library releas
 - Attestation
 - Authentication
 - Azure Storage Blobs ChangeFeed
+- Live Video Analytics on IoT Edge
 - Tables
 
 
@@ -35,6 +36,7 @@ To install any of our packages, please search for them via `Manage NuGet Package
 ```bash
 $> dotnet add package Azure.Data.Tables --version 3.0.0-beta.5
 $> dotnet add package Azure.Messaging.ServiceBus --version 7.0.1
+$> dotnet add package Azure.Media.Analytics.Edge --version 1.0.0-beta.1
 $> dotnet add package Azure.MixedReality.Authentication --version 1.0.0-preview.2
 $> dotnet add package Azure.Security.Attestation --version 1.0.0-beta.1
 $> dotnet add package Azure.Storage.Blobs --version 12.8.0
@@ -106,6 +108,11 @@ If you have a bug or feature request for one of the libraries, please [file an i
 #### New Features
 - GA all features from previous release.
 - Added support for `AzureSasCredential`. That allows SAS rotation for long living clients.
+
+
+### Live Video Analytics on IoT Edge [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/mediaservices/Azure.Media.Analytics.Edge/CHANGELOG.md#100-beta1-2020-12-11)
+
+- Initial release of [Live Video Analytics on IoT Edge](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/overview).
 
 ### Microsoft.Azure.ServiceBus [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Microsoft.Azure.ServiceBus/CHANGELOG.md#511-2021-01-12)
 
