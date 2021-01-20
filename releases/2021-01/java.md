@@ -36,6 +36,7 @@ The Azure SDK team is pleased to announce our January 2021 client library releas
 - Azure Eventhubs
 - Azure Form Recognizer
 - Azure Text Analytics
+- Azure Service Bus
 
 #### Beta
 
@@ -234,6 +235,12 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <artifactId>azure-ai-textanalytics</artifactId>
   <version>5.0.2</version>
 </dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-messaging-servicebus</artifactId>
+  <version>7.0.1</version>
+</dependency>
 ```
 
 ## Feedback
@@ -361,6 +368,9 @@ If you have a bug or feature request for one of the libraries, please post an is
 #### Breaking changes
 - Renamed artifact to `azure-opentelemetry-exporter-azuremonitor`.
 - Replaced `instrumentationKey()` with `connectionString()` in the `AzureMonitorExporterBuilder`.
+
+### Azure Service Bus 7.0.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md#701-2021-01-15)
+- Improve performance because by upgrading azure-core-amqp dependency to 2.0.1.
 
 ## Need help
 
