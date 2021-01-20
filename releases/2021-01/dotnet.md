@@ -35,8 +35,8 @@ To install any of our packages, please search for them via `Manage NuGet Package
 
 ```bash
 $> dotnet add package Azure.Data.Tables --version 3.0.0-beta.5
-$> dotnet add package Azure.Messaging.ServiceBus --version 7.0.1
 $> dotnet add package Azure.Media.Analytics.Edge --version 1.0.0-beta.1
+$> dotnet add package Azure.Messaging.ServiceBus --version 7.0.1
 $> dotnet add package Azure.MixedReality.Authentication --version 1.0.0-preview.2
 $> dotnet add package Azure.Security.Attestation --version 1.0.0-beta.1
 $> dotnet add package Azure.Storage.Blobs --version 12.8.0
