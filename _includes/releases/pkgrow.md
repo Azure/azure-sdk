@@ -42,12 +42,20 @@
 
     {% if item.VersionGA != "" %}
         {% assign url = ghdocs_url | replace: 'item.Version', item.VersionGA %}
-        {% include releases/pkgbadge.md label="ghdocs" url=url version=item.VersionGA %}
+        {% if docs_label != "" %}
+            {% include releases/pkgbadge.md label=docs_label url=url version=item.VersionGA %}
+        {% else %}
+            {% include releases/pkgbadge.md label="ghdocs" url=url version=item.VersionGA %}
+        {% endif %}
     {% endif %}
 
     {% if item.VersionPreview != "" %}
         {% assign url = ghdocs_url | replace: 'item.Version', item.VersionPreview %}
-        {% include releases/pkgbadge.md label="ghdocs" preview="true" url=url version=item.VersionPreview %}
+        {% if docs_label != "" %}
+            {% include releases/pkgbadge.md label=docs_label preview="true" url=url version=item.VersionPreview %}
+        {% else %}
+            {% include releases/pkgbadge.md label="ghdocs" preview="true" url=url version=item.VersionPreview %}
+        {% endif %}
     {% endif %}
   </td>
   <td>
