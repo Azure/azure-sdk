@@ -241,6 +241,24 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <artifactId>azure-messaging-servicebus</artifactId>
   <version>7.0.1</version>
 </dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-certificates</artifactId>
+  <version>4.1.4</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-keys</artifactId>
+  <version>4.2.4</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-secrets</artifactId>
+  <version>4.2.4</version>
+</dependency>
 ```
 
 ## Feedback
