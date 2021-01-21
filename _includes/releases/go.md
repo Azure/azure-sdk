@@ -3,7 +3,6 @@
 ## Go
 
 {% assign packages = site.data.releases.latest.go-packages %}
-{% assign godocs = true %}
 
 {{ description | replace: 'PackageCount', packages.size }}
 

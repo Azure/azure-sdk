@@ -42,11 +42,10 @@
 
     {% if item.VersionGA != "" %}
         {% assign url = ghdocs_url | replace: 'item.Version', item.VersionGA %}
-        {% if docs_label != "" %}
-            {% include releases/pkgbadge.md label=docs_label url=url version=item.VersionGA %}
-        {% else %}
-            {% include releases/pkgbadge.md label="ghdocs" url=url version=item.VersionGA %}
+        {% if docs_label == undefined || docs_label == "" %}
+            {% assign docs_label = "ghdocs" %}
         {% endif %}
+        {% include releases/pkgbadge.md label=docs_label url=url version=item.VersionGA %}
     {% endif %}
 
     {% if item.VersionPreview != "" %}
