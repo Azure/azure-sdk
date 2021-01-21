@@ -178,8 +178,8 @@ TODO
 ```go
 // GetWidgetOptions contains the optional parameters for the Widget.Get method.
 type GetWidgetOptions struct {
-	OptionalTag *string
-	OptionalLength *int
+	Tag *string
+	Length *int
 }
 
 // SetWidgetOptions contains the optional parameters for the Widget.Set method.
