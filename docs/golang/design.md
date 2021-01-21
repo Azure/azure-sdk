@@ -114,7 +114,7 @@ type WidgetClient struct {
 
 ## Service Client Constructors
 
-{% include requirement/MUST id="golang-client-constructors" %} provide two constructors in the following format that return a new instance of a service client type.
+{% include requirement/MUST id="golang-client-constructors" %} provide two constructors in the following format that return a new instance of a service client type.  Constructors MUST return the client instance by reference.
 
 ```go
 // NewWidgetClient creates a new instance of WidgetClient with the specified values.  It uses the default pipeline configuration.
@@ -138,8 +138,8 @@ func NewWidgetClientWithPipeline(endpoint string, p azcore.Pipeline) (*WidgetCli
 ```go
 // NewDefaultClient creates a new instance of WidgetClient with the specified values.  It uses the default endpoint and pipeline configuration.
 // cred - The credential used to authenticate with the Widget service.
-// options - Optional WidgetClient values.  Pass nil to accept default values.
-func NewDefaultClient(cred azcore.Credential, options *WidgetClientOptions) (*WidgetClient, error) {
+// options - Optional Client values.  Pass nil to accept default values.
+func NewDefaultClient(cred azcore.Credential, options *ClientOptions) (*WidgetClient, error) {
 
 }
 ```
@@ -160,7 +160,7 @@ Azure services use different kinds of authentication schemes to allow clients to
 
 ```go
 // NewWidgetClientFromConnectionString creates a new instance of WidgetClient with the specified values.  It uses the default pipeline configuration.
-func NewWidgetClientFromConnectionString(ctx context.Context, con string, options *WidgetClientOptions) (*WidgetClient, error) {
+func NewWidgetClientFromConnectionString(con string, options *WidgetClientOptions) (*WidgetClient, error) {
 	// ...
 }
 ```
@@ -220,7 +220,7 @@ type SetWidgetOptions struct {
 // ctx - The context used to control the lifetime of the request.
 // name - The name of the Widget to retrieve.
 // options - Any optional parameters.
-func (c *WidgetClient) GetWidget(ctx context.Context, name string, options *GetWidgetOptions) (*WidgetResponse, error) {
+func (c *WidgetClient) GetWidget(ctx context.Context, name string, options *GetWidgetOptions) (WidgetResponse, error) {
 	// ...
 }
 ```
@@ -239,7 +239,7 @@ The service client will have several methods that perform requests on the servic
 
 Requests to the service fall into two basic groups: methods that make a single logical request, and methods that make a deterministic sequence of requests. An example of a _single logical request_ is a request that may be retried inside the operation. An example of a _deterministic sequence of requests_ is a paged operation.
 
-The _response envelope_ is a protocol neutral representation of a response. The response envelope may combine data from headers, body, and the HTTP response. For example, you may expose an `ETag` header as a property on the response envelope. `<Resource>Response` is the ‘response envelope’. It contains HTTP headers, the object (a deserialized object created from the response body), and the raw HTTP response.
+The _response envelope_ is a protocol neutral representation of a response. The response envelope may combine data from headers, body, and the HTTP response. For example, you may expose an `ETag` header as a property on the response envelope. `<Resource>Response` is the ‘response envelope’. It contains HTTP headers, the object (a deserialized object created from the response body), and the raw HTTP response.  Response envelopes MUST be returned by value.
 
 {% include requirement/MUST id="golang-response-logical-entity" %} return the response envelope for the normal form of a service method. The response envelope MUST represent the information needed in the 99%+ case.
 
@@ -264,7 +264,7 @@ type Widget struct {
 	Color WidgetColor
 }
 
-func (c *WidgetClient) GetWidget(ctx context.Context, name string, options *GetWidgetOptions) (*WidgetResponse, error) {
+func (c *WidgetClient) GetWidget(ctx context.Context, name string, options *GetWidgetOptions) (WidgetResponse, error) {
 	// ...
 }
 ```
@@ -272,7 +272,7 @@ func (c *WidgetClient) GetWidget(ctx context.Context, name string, options *GetW
 {% include requirement/MUST id="golang-response-examples" %} provide examples on how to access the streamed response for a request, where exposed by the client library. We don’t expect all methods to expose a streamed response.
 
 ```go
-func (c *WidgetClient) GetBinaryResponse(ctx context.Context, name string, options GetBinaryResponseOptions) (*http.Response, error) {
+func (c *WidgetClient) GetBinaryResponse(ctx context.Context, name string, options *GetBinaryResponseOptions) (*http.Response, error) {
 	// ...
 }
 
@@ -309,7 +309,7 @@ type WidgetPager interface {
 	NextPage(context.Context) bool
 
 	// Page returns the current WidgetsPage.
-	PageResponse() *ListWidgetsResponse
+	PageResponse() ListWidgetsResponse
 
 	// Err returns the last error encountered while paging.
 	Err() error
@@ -377,7 +377,7 @@ type WidgetPoller interface {
 	// FinalResponse performs a final GET to the service and returns the final response
 	// for the polling operation. If there is an error performing the final GET then an error is returned.
 	// If the final GET succeeded then the final WidgetResponse will be returned.
-	FinalResponse(context.Context) (*WidgetResponse, error)
+	FinalResponse(context.Context) (WidgetResponse, error)
 }
 ```
 
@@ -389,7 +389,7 @@ type WidgetPoller interface {
 // WidgetPollerResponse is the response envelope for operations that asynchronously return a Widget type.
 type WidgetPollerResponse struct {
 	// PollUntilDone will poll the service endpoint until a terminal state is reached or an error is received.
-	PollUntilDone func(context.Context, time.Duration) (*WidgetResponse, error)
+	PollUntilDone func(context.Context, time.Duration) (WidgetResponse, error)
 
 	// Poller contains an initialized WidgetPoller.
 	Poller WidgetPoller
@@ -399,7 +399,7 @@ type WidgetPollerResponse struct {
 }
 
 // BeginCreate creates a new widget with the specified name.
-func (c *WidgetClient) BeginCreate(ctx context.Context, name string, options *BeginCreateOptions) (*WidgetPollerResponse, error) {
+func (c *WidgetClient) BeginCreate(ctx context.Context, name string, options *BeginCreateOptions) (WidgetPollerResponse, error) {
 	// ...
 }
 ```
@@ -409,7 +409,7 @@ func (c *WidgetClient) BeginCreate(ctx context.Context, name string, options *Be
 ```go
 // ResumeWidgetPoller creates a new WidgetPoller from the specified ResumtToken.
 // resumeToken - The value must come from a previous call to WidgetPoller.ResumeToken().
-func (c *WidgetClient) ResumeWidgetPoller(resumeToken string) WidgetPoller {
+func (c WidgetClient) ResumeWidgetPoller(resumeToken string) WidgetPoller {
 	// ...
 }
 ```
@@ -493,24 +493,11 @@ process(w)
 
 One of the key things we want to support is to allow consumers of the package to easily write repeatable unit-tests for their applications without activating a service. This allows them to reliably and quickly test their code without worrying about the vagaries of the underlying service implementation (including, for example, network conditions or service outages). Mocking is also helpful to simulate failures, edge cases, and hard to reproduce situations (for example: does code work on February 29th).
 
-{% include requirement/MUST id="golang-mock-interface-types" %} generate one interface type per operation group that contains all of the client type's exported methods.  The interface type name will be `<op_group_name>Operations`.
+{% include requirement/MUST id="golang-mock-friendly" %} generate types and methods that can be mocked to simulate a response from an Azure endpoint.
+
+{% include requirement/MUST id="golang-mock-procedure" %} document the tools and procedures recommended to generate client interfaces for mocking.
 
 {% include requirement/MUST id="golang-mock-lro-pages" %} generate interface types for LRO and pageable response types that contain all of the methods for their respective types.  The interface type name will be the same as the LRO/pageable response type name.
-
-{% include requirement/MUST id="golang-mock-interface-check" %} generate code to ensure that the interface definitions and their respective types have identical method declarations.  This is usually performed by assigning a nil pointer-to-type to a variable of the interface type.
-
-```go
-// WidgetOperations contains the methods for the Widget group.
-type WidgetOperations interface {
-	BeginCreate(ctx context.Context, options *BeginCreateOptions) (*WidgetPollerResponse, error)
-	GetWidget(ctx context.Context, name string, options *GetWidgetOptions) (*WidgetResponse, error)
-	ListWidgets(options *ListWidgetsOptions) (ListWidgetsPager, error)
-	// other methods...
-}
-
-// ensure client and interface definitions are in sync
-var _ WidgetOperations = (*WidgetClient)(nil)
-```
 
 {% include requirement/MUST id="golang-test-recordings" %} support HTTP request and response recording/playback via the pipeline.
 
