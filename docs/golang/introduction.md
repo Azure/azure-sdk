@@ -60,5 +60,9 @@ The Azure SDK should be designed to enhance the productivity of developers conne
 
 {% include requirement/MUST id="golang-general-engsys" %} follow Azure SDK engineering systems guidelines for working in the [azure/azure-sdk-for-go] GitHub repository.
 
+## Support for non-HTTP Protocols
+
+This document contains guidelines developed primarily for typical Azure REST services, i.e. stateless services with request-response based interaction model. Many of the guidelines in this document are more broadly applicable, but some might be specific to such REST services.
+
 {% include refs.md %}
 {% include_relative refs.md %}
