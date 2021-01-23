@@ -3,7 +3,7 @@ title: "TypeScript Guidelines: Introduction"
 keywords: guidelines typescript
 permalink: typescript_introduction.html
 folder: typescript
-sidebar: js_sidebar
+sidebar: general_sidebar
 ---
 
 The TypeScript guidelines are for the benefit of client library designers targeting service applications written in TypeScript for the benefit of both TypeScript and JavaScript.

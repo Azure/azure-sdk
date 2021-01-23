@@ -69,7 +69,7 @@ and [secret](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyva
 ### Identity
 - `AuthorizationCodeCredential` authenticates with a previously obtained
 authorization code. See Azure Active Directory's
-[authorization code documentation](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow)
+[authorization code documentation](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow)
 for more information about this authentication flow.
 - Multi-cloud support: client credentials accept the authority of an Azure Active
 Directory authentication endpoint as an `authority` keyword argument. Known

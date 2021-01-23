@@ -2,7 +2,6 @@
 <html>
 <head>
     {% include head.html %}
-    {% if sidebar %}
     <script>
         $(document).ready(function() {
             // Initialize navgoco with default options
@@ -34,6 +33,13 @@
 
         });
 
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
         $(document).ready(function() {
             $("#tg-sb-link").click(function() {
                 $("#tg-sb-sidebar").toggle();
@@ -43,12 +49,6 @@
                 $("#tg-sb-icon").toggleClass('fa-toggle-off');
             });
         });
-    </script>
-    {% endif %}
-    <script>
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-        })
     </script>
     {% if page.datatable == true %}
     <!-- Include the standard DataTables bits -->

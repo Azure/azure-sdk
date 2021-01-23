@@ -3,7 +3,7 @@ title: "iOS Guidelines: Introduction"
 keywords: guidelines ios
 permalink: ios_introduction.html
 folder: ios
-sidebar: ios_sidebar
+sidebar: general_sidebar
 ---
 
 {% include draft.html content="The iOS guidelines are in DRAFT status" %}

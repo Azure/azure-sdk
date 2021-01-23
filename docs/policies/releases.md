@@ -7,36 +7,50 @@ sidebar: general_sidebar
 
 The release policy for the Azure SDK accommodates the need to release different SDK packages based on the ship cycle of the underlying service.
 
-## Terms
+## Exit Criteria
 
-The terms "SDK", "SDK Component", "library" and "package" are used throughout this document and are defined in the [design guidelines](general_terminology.html).
+The following are mandatory actions required when releasing a new version of any service SDK.
 
-## Supported registries
+### 1) Language coverage
 
-We release client libraries to the following registries:
+Market data and customer engagement studies clearly indicate that a cloud provider’s support of several programming languages and great developer experiences via SDK’s & tools can heavily impact a customer’s decision in choosing a cloud provider over others. In the same way, bad experiences both in getting started scenarios as well as total cost of ownership can drive customers away. It is important that Azure provides a uniform story for language coverage in its primary languages in order to raise customer confidence that they will be able to use any of Azure’s services in their solutions if they are using one of these languages. Customers feel that their language choice limits the services that they can choose to use easily from that language. The intent is that this is not a service by service evaluation of customer demand and more of an Azure platform statement that all of Azure’s services are easily usable in these primary languages.
 
-- NuGet (.NET)
-- PyPi (Python)
-- npm (TypeScript)
-- Maven (Android, Java)
+We’re motivated to provide high quality SDKs to deliver a great experience for Azure developers leveraging and interacting with Azure services.
 
-We recommend that you use a package manager that supports these registries.
+At the moment we are committed to building and supporting an SDK for each of these primary languages SDKs for all azure services:
 
-## Git Tagging
+- Java
+- .Net
+- Python
+- TS/JS
 
-For language repositories which contain multiple packages, releases for each package are tagged in the format `<package-name>_<package-version>`.
+We recommended supporting additional key languages depending on the business scenarios and critical customer demand. Non primary languages depend much more heavily on contributions from outside the Azure SDK team.
 
-For language repositories where the repo is the primary shipping unit, the releases should be tagged in the format `<release-version>` (i.e. `1.0.0-preview.1`). If there are other secondary assets that also ship from the same repo then those assets should use an identifier for those assets and the version `<identifier-name>_<release-version>` (i.e. `tools_1.0.0-preview.1`). 
+### 2) Change logs & Migration Guides
 
-## GitHub Releases
+Facilitating a swift transition of the SDKs' users to the new version being released requires clear clarification and documentation of the changes from the pervious version. The type and granularity of the documentations depends on the type\scope of the release:
 
-We use GitHub releases as a convenient place to put release notes. The change log and any additional notes will be available here. We automatically publish release notes to a GitHub release if the changelog guidance below is followed. No artifacts are published to the GitHub release. Instead, use a supported package registry.
+#### New standards upgrade release
 
-## ChangeLog Guidance
+This covers the case when we upgrade and existing Azure SDK to the new SDKs standards. such release usually contains major modifications to the structure, interfaces and behavioral aspects of the existing SDKs. Such an update requires detailed and verbose porting guide to help the adopting users understand the benefits, changes and offerings of the new SDK version. The requirement here is to:
 
-Ensuring that a `CHANGELOG.md` file is both available and formatted appropriately will result in automatically formatted release notes on each GitHub release.
+ {% include requirement/MUST %} Create a Migration guide for each language SDK.
 
-{% include requirement/MUST %} maintain a changelog for every package.
+ {% include requirement/MUST %} Include a "Benefits" section clearing explaining the advantages of migration to this version of the SDK.
+
+ {% include requirement/MUST %} Place that guide in the SDK repository preferably in the root of the
+
+An example porting guide can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md).
+
+(Please Note) Migration guides creation will be required to obtain sign-off from the Archboard.
+
+#### New version release
+
+Ensuring that a `CHANGELOG.md` file is both available and formatted appropriately is mandatory and will be used in automatically generating formatted release notes on each GitHub release.
+
+{% include requirement/MUST %} maintain a changelog for every package. 
+
+{% include requirement/MUST %} `CHANGELOG.md` file should be added in the root folder of the library.
 
 {% include requirement/MUST %} name changelogs with all caps except for the extension, i.e. `CHANGELOG.md`.
 
@@ -87,11 +101,63 @@ Example Changelog:
 
 For clarity, a `change log entry` is simply the header + content up to the next release header OR EOF. During release, if there exists a changelog entry with a version specifier _matching_ that of the currently releasing package, that changelog entry will be added as the body of the GitHub release.
 
-The [JS ServiceBus SDK](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md) maintains a great changelog example. Given that changelog, this is what a [release](https://github.com/Azure/azure-sdk-for-js/releases/tag/%40azure%2Fservice-bus_1.0.0-preview.2) looks like.
+#### Changelog Entries for GA releases
 
-### Changelog Entries for GA releases
+When doing a switch from a beta to a GA release there are often very few changes which can be misleading to customers, as they might not think there are many changes. Instead when doing a GA release it is recommended that we either squash all the beta notes into the GA changelog entry or add a comment similar to `Includes all changes from X.Y.Z-beta.A to X.Y.Z.beta.B` so that it is clear that all those changes are included.
 
-When doing a switch from a preview to a GA release there are often very few changes which can be misleading to customers, as they might not think there are many changes. Instead when doing a GA release it is recommended that we either squash all the preview notes into the GA changelog entry or add a comment similar to `Includes all changes from X.Y.Z-preview.A to X.Y.Z.preview.B` so that it is clear that all those changes are included. 
+### 3) Blogs & Samples
+
+Advertising our SDKs is key to increasing their adoption and getting their latest and greatest features to the hands of their users. the following steps should be taken once the new version is live:
+- Adding a blog entry on the [Azure SDK blog site](https://devblogs.microsoft.com/azure-sdk/) by contacting the [admins](mailto:azsdkblog@microsoft.com).
+- working with the Azure service team for which you're building this version of the SDK to advertise the release through their official communication channels.
+- ensuring that you have Solid samples in the SDK repository demonstrating the use of this new version.
+
+### 4) Payload Backwards Compatibility
+
+A manual migration test should be developed to ensure that payloads and data fed into the previous version of the SDK are gracefully handled when fed to the new SDK.
+
+### 5) Updating package manager references
+
+When releasing any new version of an SDKs follow best practices of the language specific package managers to ensure that this new version's visibility is elevated and recommended by default to the users. Here's the guidance per language.
+
+#### .Net
+TBD
+
+#### .Java
+TBD
+
+#### TS/JS
+TBD
+
+#### Python
+TBD
+
+## Terms
+
+The terms "SDK", "SDK Component", "library" and "package" are used throughout this document and are defined in the [design guidelines](general_terminology.html).
+
+## Supported registries
+
+We release client libraries to the following registries:
+
+- NuGet (.NET)
+- PyPi (Python)
+- npm (TypeScript)
+- Maven (Android, Java)
+
+We recommend that you use a package manager that supports these registries.
+
+## Git Tagging
+
+For language repositories which contain multiple packages, releases for each package are tagged in the format `<package-name>_<package-version>`.
+
+For language repositories where the repo is the primary shipping unit, the releases should be tagged in the format `<release-version>` (i.e. `1.0.0-beta.1`). If there are other secondary assets that also ship from the same repo then those assets should use an identifier for those assets and the version `<identifier-name>_<release-version>` (i.e. `tools_1.0.0-beta.1`).
+
+## GitHub Releases
+
+We use GitHub releases as a convenient place to put release notes. The change log and any additional notes will be available here. We automatically publish release notes to a GitHub release if the changelog guidance below is followed. No artifacts are published to the GitHub release. Instead, use a supported package registry.
+
+
 
 ## Release Cycle
 
@@ -104,22 +170,26 @@ The release cycle of each SDK Component may vary based on the needs of the under
 
 ## Package Versioning
 
-The team makes every effort to follow [SemVer](https://semver.org/) for versioning. Because different languages have slightly different conventions for numbering, the way that preview releases are designated varies. In a nutshell, SemVer is defined as `Major.Minor.Patch`, where
+The team makes every effort to follow [SemVer](https://semver.org/) for versioning. In a nutshell, SemVer is defined as `Major.Minor.Patch`, where:
 
 - Changes to the major digit (1.X.Y to 2.X.Y) indicate that breaking changes have been introduced. Breaking changes are exceptional and require review and approval by the architecture board.
 - Increments to the minor digit (1.1.X to 1.2.X) indicate the addition of new apis or features.
 - Increments to the patch number (1.1.1 to 1.1.2) indicate a set of new compatible fixes.
 
-In addition to standard SemVer, the team occasionally releases a preview of a package to allow the community to dog food and give feedback on new features.
+In addition to the stable GA releases the team also has prereleases of a package to allow the community to try new features early and give feedback.
 
-- Dev: a build containing the most up-to-date changes based on the current master branch. Expect frequent and potentially breaking change in this release.
-- Preview: a release generated to get customer feedback before a GA. Preview releases are revised less often than dev. Preview releases may have breaking changes from the previous preview, but should not have breaking changes from the last GA release. Once a package has released to GA, any breaking changes require an exception and approval from the architecture board.
+- Alpha releases are sometimes referred to as dev releases and use a prerelease label that contains a date stamp similar to `-alpha-YYYYMMDD.r`. This ensures the versions are unique as they will often be published daily. These are often published to an isolated registry depending on the language ecosystem. These releases are based on the latest committed code changes and should not be used for production dependencies. They are very volatile and change from version-to-version. These are mostly useful for temporarily working around an issue or testing out the latest library changes. 
+- Beta releases use a prerelease label like `-beta.X` and are published to the most common public registry for each language ecosystem. These releases are less volatile and released less often then alpha releases.  These are usually used before releasing a new minor or major GA release. Beta releases may have breaking changes from the previous beta but should not have breaking changes from the last GA release. Once a package has released to GA, any breaking changes require an exception and approval from the architecture board.
+
+While all the languages follow the general versioning scheme, they each have slight differences based on their ecosystem, for those differences see the individual language sections below.
+
+NOTE: Given that alpha releases have versions based on the day they will often times have newer changes then beta releases. This means that if you want to consume the latest changes from an alpha release you need to take care and avoid accidently consuming the latest beta release. Each language section gives an example of how to consume the latest alpha version for each language ecosystem.
 
 ### Incrementing after release
 
 Immediately after a package ships the source definition of the package version should be incremented in source control. It's safer to have `N+1` in `master` than `N`. Package increment after release happens automatically as part of the release pipelines.
 
-**Preview Release:** Increment the preview number on the package (e.g. `1.0.0-preview.1` -> `1.0.0-preview.2`) appropriate to the versioning scheme for the language (see below for language-specific version formatting). Breaking changes are allowed between preview builds.
+**Beta Release:** Increment the beta number on the package (e.g. `1.0.0-beta.1` -> `1.0.0-beta.2`) appropriate to the versioning scheme for the language (see below for language-specific version formatting). Breaking changes are allowed between beta versions.
 
 **GA Release:** Some languages bump the minor and others bump the patch version please see specific guidelines below based on your language. Breaking changes (which might increment the major version number) are *not* allowed after a GA release without an exception and review by the architecture board.
 
@@ -142,30 +212,30 @@ Each language repo uses a badge for analysis of dependencies on `master` includi
 | Python | [![Dependencies](https://img.shields.io/badge/dependencies-analyzed-blue.svg)](https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-python/dependencies/dependencies.html) |
 | .NET | [![Dependencies](https://img.shields.io/badge/dependencies-analyzed-blue.svg)](https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-net/dependencies/dependencies.html) |
 
-Packages which depend on preview versions should pin specifically to the preview version on which they depend because preview releases may contain breaking changes.
+Packages which depend on beta versions should pin specifically to the beta version on which they depend because beta releases may contain breaking changes.
 
-Avoid source dependencies in projects and only use binary/package dependencies. If a package under development needs to incorporate changes from a package upon which it depends then it should use the nightly dev version of that package. That is, if Project B incorporates changes to Project A then Project B should consume the _Package_ from Project A that is released in the nightly feed.
+Packages should try to avoid source level dependencies to other projects that don't ship in the same pipeline and instead rely on binary/package dependencies. This is to help avoid accidently taking dependencies on new features in other libraries and enable each library to ship independent of the others in the repo. If new dependencies are required extra care should be taken to ship the lower level dependencies before shipping the higher level libraries to make sure the entire dependency chain is shipped. To help ensure we don't end up with broken dependency versions we have enabled Min/Max testing in each repo to ensure we test the lower end and the upper end of our dependency range for the dependencies our packages say they support. 
 
 #### Dependent packages in a Unified Pipeline
 
 In cases where packages have dependencies and are built in the same pipeline, dependency versions can track the current version of the packages on which they depend.
 
-For example, if Package A and Package B are built in the same Unified Pipeline and Package A is at version `1.0.0-preview.2`, Package B's dependency on Package A should track Package A's version  (i.e. `1.0.0-preview.2`) such that both packages can be built and released from the same pipeline.
+For example, if Package A and Package B are built in the same Unified Pipeline and Package A is at version `1.0.0-beta.2`, Package B's dependency on Package A should track Package A's version  (i.e. `1.0.0-beta.2`) such that both packages can be built and released from the same pipeline at the same time.
 
 ### Languages
 
 #### Python
 
-Python version numbers follow the guidance in [PEP 440](https://www.python.org/dev/peps/pep-0440/) for versioning Python packages. This means that regular releases follow the above specified SemVer format. Preview releases follow the [PEP 440 specification for pre-releases](https://www.python.org/dev/peps/pep-0440/#pre-releases):
+Python version numbers follow the guidance in [PEP 440](https://www.python.org/dev/peps/pep-0440/) for versioning Python packages. This means that regular releases follow the above specified SemVer format. Beta releases follow the [PEP 440 specification for pre-releases](https://www.python.org/dev/peps/pep-0440/#pre-releases):
 
-- `X.Y.Z.devYYYYMMDDrrr` (`rrr` is based on the number of builds performed on the given day and it is zero-padded with a valid range starting at 001 and ends at 999)
-- `X.Y.ZbN` (preview release using beta convention)
+- `X.Y.ZaYYYYMMDDrrr` (`rrr` is based on the number of builds performed on the given day and it is zero-padded with a valid range starting at 001 and ends at 999) used for daily alpha releases.
+- `X.Y.ZbN` used for beta releases.
 
-Preview packages will be published PyPi. Dev packages will be published to an isolated Azure DevOps feed.
+Beta packages will be published PyPi. Alpha packages will be published to the isolated [azure-sdk-for-python](https://dev.azure.com/azure-sdk/public/_packaging?_a=feed&feed=azure-sdk-for-python) DevOps feed. To consume an alpha package you should either pin to a specific version or use a version specifier like `"package-name">=X.Y.Za,<X.Y.Zb` to get the latest alpha release while avoiding any potential beta versions which might contain older changes.
 
 ##### Incrementing after release (Python)
 
-**Preview Release:**  `1.0.0b1` -> `1.0.0b2`
+**Beta Release:**  `1.0.0b1` -> `1.0.0b2`
 
 **GA Release:** `1.1.0` ->  `1.1.1`
 
@@ -185,14 +255,14 @@ Below are the guidelines for versions and tags to use:
 
 - GA releases will follow [SemVer](https://semver.org/) and the published package should have the tag `latest`.
   - If a hotfix is being shipped for a version older than the current GA version, then ensure that the hotfix gets no tags.  One way to do this is to use a dummy tag when publishing and deleting the tag afterwards.
-  - If a package has moved from preview to GA, ensure that the `next` tag is deleted.
-- Preview releases will use the format `X.Y.Z-preview.N` for version and the published package should have the tag `next`.
-  - Additionally, use the `@latest` tag **only** if the package has never had a GA release.
-- Daily releases will use the format `X.Y.Z-dev.YYYYMMDD.r` (`r` is based on the number of builds performed on the given day) and the published package will have the tag `dev`.
+  - If a package has moved from beta to GA, ensure that the `next` tag is deleted.
+- Beta releases will use the format `X.Y.Z-beta.N` for version and the published package should have the tag `next`.
+  - Additionally, use the `latest` tag **only** if the package has never had a GA release.
+- Daily alpha releases will use the format `X.Y.Z-alpha.YYYYMMDD.r` (`r` is based on the number of builds performed on the given day) and the latest published package will have the `dev` tag and published to npm. To consume a alpha package either pin to a specific version or use the `dev` tag as the version.
 
 ##### Incrementing after release (JS)
 
-**Preview Release:** `1.0.0-preview.1` -> `1.0.0-preview.2`
+**Beta Release:** `1.0.0-beta.1` -> `1.0.0-beta.2`
 
 **GA Release:** `1.1.0` -> `1.1.1`
 
@@ -204,7 +274,7 @@ Generally, customers are expected to use caret or tilde ranges. Caret ranges (e.
 
 In rare cases where a customer does not wish to take all bugfixes for a particular major/minor release (i.e. the tilde range `~X.Y.0` is not sufficient), but there is a critical fix necessary, we will publish a hotfix package in the format `X.Y.0-hotfix.N` where `N` increments with each successive hotfix. In this case it is expected that the customer will pin the particular hotfix version they wish to use in their `package.json`.
 
-In general, packages that have GA'd are not expected to have additional preview releases unless the underlying service releases preview functionality or the package undergoes significant churn as part of a major version change.
+In general, packages that have GA'd are not expected to have additional beta releases unless the underlying service releases preview functionality or the package undergoes significant churn as part of a major version change.
 
 Packages which depend on a released package should float to the latest compatible major version (e.g. `^1.0.0`). Because we're using SemVer only breaking changes alter the major version number and all minor and patch changes should be compatible. The version number should only be updated for a major version change.
 
@@ -220,16 +290,16 @@ rush update --full
 
 NuGet supports designating a package as 'pre-release'. In this ecosystem, pre-release packages will have daily build numbers in the format:
 
-- `X.Y.Z-dev.YYYYMMDD.r` (`r` is based on the number of builds done in a given day)
-- `X.Y.Z-preview.N`
+- `X.Y.Z-alpha.YYYYMMDD.r` (`r` is based on the number of builds done in a given day) for daily alpha releases.
+- `X.Y.Z-beta.N` for beta releases.
 
-Preview .NET packages will be published to NuGet with the pre-release designation. Dev packages will be published to an isolated Azure DevOps feed.
+Beta packages will be published to NuGet with the pre-release designation. Alpha packages will be published to the isolated [azure-sdk-for-net](https://dev.azure.com/azure-sdk/public/_packaging?_a=feed&feed=azure-sdk-for-net) DevOps feed. To consume an alpha package you should either pin to a specific version or use a version specifier like `X.Y.Z-alpha*` to get the latest alpha release while avoiding any potential beta versions which might contain older changes.
 
 #### Incrementing after release (.NET)
 
-**Preview Release:** `1.0.0-preview.1` -> `1.0.0-preview.2`
+**Beta Release:** `1.0.0-beta.1` -> `1.0.0-beta.2`
 
-**GA Release:** `1.1.0` -> `1.2.0-preview.1`
+**GA Release:** `1.1.0` -> `1.2.0-beta.1`
 
 **GA Hotfix Release:** `1.0.0` -> `1.0.1`
 
@@ -239,15 +309,14 @@ Preview .NET packages will be published to NuGet with the pre-release designatio
 
 Maven supports the [convention](https://cwiki.apache.org/confluence/display/MAVENOLD/Versioning) `MAJOR.MINOR.PATCH-QUALIFIER`, which doesn't support SemVer 2 sorting for pre-releases so we have to use a special convention based on their [versioning code](https://github.com/apache/maven/blob/master/maven-artifact/src/main/java/org/apache/maven/artifact/versioning/ComparableVersion.java). The preferred format for version numbers is:
 
-- `X.Y.Z-dev.YYYYMMDD.r` (`r` is based on the number of builds performed on the given day)
-- `X.Y.Z-beta.N` (preview release using beta convention)
+- `X.Y.Z-alpha.YYYYMMDD.r` (`r` is based on the number of builds performed on the given day) for daily alpha releases.
+- `X.Y.Z-beta.N` for beta releases.
 
-Preview Java packages are published directly to the Maven central registry. Dev packages will be published to an isolated Azure DevOps feed. Note that that dev packages sort as [newer
-then the preview as well as the GA version of the matching version](https://github.com/apache/maven/blob/master/maven-artifact/src/main/java/org/apache/maven/artifact/versioning/ComparableVersion.java#L423-L428) as such we should avoid ever publishing a dev package to maven central.
+Beta packages are published directly to the Maven central registry. Alpha packages will be published to the isolated [azure-sdk-for-java](https://dev.azure.com/azure-sdk/public/_packaging?_a=feed&feed=azure-sdk-for-java) DevOps feed. To consume an alpha package you should either pin to a specific version or use a version specifier like `(X.Y.Z-alpha, X.Y.Z-beta)` to get the latest alpha release while avoiding any potential beta versions which might contain older changes.
 
 #### Incrementing after release (Java)
 
-**Preview Release:** `1.0.0-beta.1` -> `1.0.0-beta.2`
+**Beta Release:** `1.0.0-beta.1` -> `1.0.0-beta.2`
 
 **GA Release:** `1.1.0` -> `1.2.0-beta.1`
 
@@ -255,15 +324,90 @@ then the preview as well as the GA version of the matching version](https://gith
 
 **Floating GA dependencies:** Use the exact version number to specify the lowest version of the package which contains the features upon which you depend.
 
-## Preview Releases and GA Graduation
+#### C++
 
-The Azure SDK team may choose to create a preview release for several reasons:
+C++ releases the source code of the package via releases on github. It currently does not ship packages to any package managers.
+
+A C++ release includes a Tag and Release (e.g. [azure-core_1.0.0-beta.1](https://github.com/Azure/azure-sdk-for-cpp/releases/tag/azure-core_1.0.0-beta.1)) on GitHub and documentation as GitHub Pages (e.g. [azure-core_1.0.0-beta.1](https://azuresdkdocs.blob.core.windows.net/$web/cpp/azure-core/1.0.0-beta.1/index.html)).
+
+#### Incrementing after release (C++)
+
+**Preview release:** `1.0.0-beta.1` -> `1.0.0-beta.2`
+
+**GA Release:** `1.1.0` -> `1.2.0-beta.1`
+
+**GA Hotfix Release:** `1.0.0` -> `1.0.1`
+
+#### Embedded C
+
+C99 releases the source code of the repository in a single unit of source code. It does not ship packages to any package managers. Because the C repo ships from the `master` branch, code going into the `master` branch must be in a completed state and ready to ship.
+
+An Embedded C release includes a Tag and Release (e.g. [1.0.0-preview.5](https://github.com/Azure/azure-sdk-for-c/releases/tag/1.0.0-preview.5)) on GitHub and documentation as GitHub Pages (e.g. [1.0.0-preview.5](https://azuresdkdocs.blob.core.windows.net/$web/c/az_core/1.0.0-preview.5/index.html)).
+
+#### Incrementing after release (Embedded C)
+
+**Preview release:** `1.0.0-beta.1` -> `1.0.0-beta.2`
+
+**GA Release:** `1.1.0` -> `1.2.0-beta.1`
+
+**GA Hotfix Release:** `1.0.0` -> `1.0.1`
+
+#### Android
+
+Maven supports the [convention](https://cwiki.apache.org/confluence/display/MAVENOLD/Versioning) `MAJOR.MINOR.PATCH-QUALIFIER`, which doesn't support SemVer 2 sorting for pre-releases so we have to use a special convention based on their [versioning code](https://github.com/apache/maven/blob/master/maven-artifact/src/main/java/org/apache/maven/artifact/versioning/ComparableVersion.java). The preferred format for version numbers is:
+
+- `X.Y.Z-alpha.YYYYMMDD.r` (`r` is based on the number of builds performed on the given day) for daily alpha releases.
+- `X.Y.Z-beta.N` for beta releases.
+
+Beta packages are published directly to the Maven central registry. Alpha packages will be published to the isolated [azure-sdk-for-android](https://dev.azure.com/azure-sdk/public/_packaging?_a=feed&feed=azure-sdk-for-android) DevOps feed. To consume an alpha package you should either pin to a specific version or use a version specifier like `(X.Y.Z-alpha, X.Y.Z-beta)` to get the latest alpha release while avoiding any potential beta versions which might contain older changes.
+
+#### Incrementing after release (Android)
+
+**Beta Release:** `1.0.0-beta.1` -> `1.0.0-beta.2`
+
+**GA Release:** `1.1.0` -> `1.2.0-beta.1`
+
+**GA Hotfix Release:** `1.0.0` -> `1.0.1`
+
+#### iOS
+
+iOS releases the source code of the repository in a single unit of source code. It supports only the Swift Package Manager and does not ship packages to any package registry. Because the iOS repo ships from the `master` branch, code going into the `master` branch must be in a completed state and ready to ship.
+
+An iOS release includes a Tag and Release (e.g. [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-ios/releases/tag/1.0.0-beta.2)) on GitHub and documentation as GitHub Pages.
+
+#### Incrementing after release (iOS)
+
+**Preview release:** `1.0.0-beta.1` -> `1.0.0-beta.2`
+
+**GA Release:** `1.1.0` -> `1.2.0-beta.1`
+
+**GA Hotfix Release:** `1.0.0` -> `1.0.1`
+
+#### Go
+
+Go releases the source code of the repository in a single unit of source code. It does not ship packages to any package managers. Because the Go repo ships from the `master` branch, code going into the `master` branch must be in a completed state and ready to ship.
+
+A Go release includes a Tag and Release (e.g. [sdk/azcore/v0.13.0](https://github.com/Azure/azure-sdk-for-go/releases/tag/sdk/azcore/v0.13.0)) on GitHub and documentation in pkg.go.dev (e.g. [sdk/azcore](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore@v0.13.0)). 
+
+Release tags for Go are made up of a `prefix` and a `version`. The `prefix` points to the module in the repository, while the `version` is the semantic import version for release. Read more about Go tags for release [here](https://github.com/golang/go/wiki/Modules#publishing-a-release).
+
+#### Incrementing after release (Go)
+
+**Preview release:** `sdk/<module path>/v0.1.0.` -> `v0.2.0`
+
+**GA Release:** `sdk/<module path>/v1.1.0` -> `v1.2.0`
+
+**GA Hotfix Release:** `v1.0.0` -> `v1.0.1`
+
+## Beta Releases and GA Graduation
+
+The Azure SDK team may choose to create a beta release for several reasons:
 
 - Service itself has features in preview and client library must be updated accordingly
 - Testing and receiving feedback on new API designs
 - Stress and performance testing for new SDK features is incomplete
 
-To create a preview, the release must:
+To create a beta, the release must:
 
 - Have initial documentation.
   - Full API documentation.
@@ -286,7 +430,7 @@ To create a preview, the release must:
 
 - Support for at least 2 languages.  Preferably, support one statically typed language (such as C# or Java) and one dynamically typed language (such as TypeScript or Python).
 
-To graduate to GA, a preview release must:
+To graduate to GA, a beta release must:
 
 - Support all four tier-1 languages (.NET, Java, Python, TypeScript) unless there is a good (and documented) reason to not include support for one of the languages.
 
@@ -294,7 +438,7 @@ To graduate to GA, a preview release must:
   - Conceptual documentation for how the service works.
   - Samples of common uses cases for the service.
 
-- Have a preview release available for at least one month to allow for community feedback.
+- Have a beta release available for at least one month to allow for community feedback.
 
 - Have no known critical bugs.
 

@@ -267,7 +267,7 @@ OAuth token authentication, obtained via Managed Security Identities (MSI) or Az
 {% include refs.md %}
 
 [User-Agent header]: https://tools.ietf.org/html/rfc7231#section-5.5.3
-[Transient fault handling]: https://docs.microsoft.com/en-us/azure/architecture/best-practices/transient-faults
+[Transient fault handling]: https://docs.microsoft.com/azure/architecture/best-practices/transient-faults
 [OpenTelemetry]: https://opentelemetry.io/
 [Azure Monitor]: https://azure.microsoft.com/services/monitor/
 [CIDR notation]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing

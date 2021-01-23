@@ -3,7 +3,7 @@ title: "Python Guidelines: Implementation"
 keywords: guidelines python
 permalink: python_implementation.html
 folder: python
-sidebar: python_sidebar
+sidebar: general_sidebar
 ---
 
 ## Configuration
@@ -68,9 +68,9 @@ Since the client library generally wraps one or more HTTP requests, it's importa
 
 {% include_relative approved_dependencies.md %}
 
-{% include requirement/MUSTNOT id="python-dependencies-external" %} use external dependencies outside the list of well known dependencies. To get a new dependency added, contact the [Architecture Board]. 
+{% include requirement/MUSTNOT id="python-dependencies-external" %} use external dependencies outside the list of well known dependencies. To get a new dependency added, contact the [Architecture Board].
 
-{% include requirement/MUSTNOT id="python-dependencies-vendor" %} vendor dependencies unless approved by the [Architecture Board].  
+{% include requirement/MUSTNOT id="python-dependencies-vendor" %} vendor dependencies unless approved by the [Architecture Board].
 
 When you vendor a dependency in Python, you include the source from another package as if it was part of your package.
 
@@ -140,7 +140,7 @@ except azure.core.errors.ResourceNotFoundException:
 
 {% include requirement/MUST id="python-errors-on-http-request-failed" %} produce an error when an HTTP request fails with an unsuccessful HTTP status code (as defined by the service).
 
-{% include requirement/MUST id="python-errors-include-request-response" %} include the HTTP response (status code and headers) and originating request (URL, query parameters, and headers) in the exception.  
+{% include requirement/MUST id="python-errors-include-request-response" %} include the HTTP response (status code and headers) and originating request (URL, query parameters, and headers) in the exception.
 
 For higher-level methods that use multiple HTTP requests, either the last exception or an aggregate exception of all failures should be produced.
 
@@ -267,9 +267,9 @@ class LROPoller(Protocol):
 
         :param timeout: How long to wait for operation to complete (in seconds). If not specified, there is no timeout.
         """
-    
+
     def done(self) -> boolean:
-        """ Check if long running operation has completed. 
+        """ Check if long running operation has completed.
         """
 
     def add_done_callback(self, func) -> None:
@@ -301,16 +301,16 @@ class Paged(Protocol, Iterable[T]):
 
 ```python
 class ResponseHook(Protocol):
-    
+
     __call__(self, headers, deserialized_response): -> None ...
 
 ```
 
 ## Versioning
 
-{% include requirement/MUST id="python-versioning-semver" %} use [semantic versioning](https://semver.org) for your package. 
+{% include requirement/MUST id="python-versioning-semver" %} use [semantic versioning](https://semver.org) for your package.
 
-{% include requirement/MUST id="python-versioning-beta" %} use the `bN` pre-release segment for [preview releases](https://www.python.org/dev/peps/pep-0440/#pre-releases). 
+{% include requirement/MUST id="python-versioning-beta" %} use the `bN` pre-release segment for [beta releases](https://www.python.org/dev/peps/pep-0440/#pre-releases).
 
 Don't use pre-release segments other than the ones defined in [PEP440](https://www.python.org/dev/peps/pep-0440) (`aN`, `bN`, `rcN`). Build tools, publication tools, and index servers may not sort the versions correctly.
 
@@ -354,7 +354,7 @@ The bar to make a breaking change is extremely high for GA client libraries.  We
 
 ### Binary extensions
 
-{% include requirement/MUST id="python-native-approval" %} be approved by the [Architecture Board]. 
+{% include requirement/MUST id="python-native-approval" %} be approved by the [Architecture Board].
 
 {% include requirement/MUST id="python-native-plat-support" %} support Windows, Linux (manylinux - see [PEP513](https://www.python.org/dev/peps/pep-0513/), [PEP571](https://www.python.org/dev/peps/pep-0571/)), and MacOS.  Support the earliest possible manylinux to maximize your reach.
 
@@ -366,7 +366,7 @@ The bar to make a breaking change is extremely high for GA client libraries.  We
 
 {% include requirement/MUST id="python-testing-pytest" %} use [pytest](https://docs.pytest.org/en/latest/) as the test framework.
 
-{% include requirement/SHOULD id="python-testing-async" %} use [pytest-asyncio](https://github.com/pytest-dev/pytest-asyncio) for testing of async code. 
+{% include requirement/SHOULD id="python-testing-async" %} use [pytest-asyncio](https://github.com/pytest-dev/pytest-asyncio) for testing of async code.
 
 {% include requirement/MUST id="python-testing-live" %} make your scenario tests runnable against live services. Strongly consider using the [Python Azure-DevTools](https://github.com/Azure/azure-python-devtools) package for scenario tests.
 

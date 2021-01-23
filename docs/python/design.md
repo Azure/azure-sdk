@@ -3,8 +3,14 @@ title: "Python Guidelines: API Design"
 keywords: guidelines python
 permalink: python_design.html
 folder: python
-sidebar: python_sidebar
+sidebar: general_sidebar
 ---
+
+## Introduction
+
+### Support for non-HTTP protocols
+
+TODO: In Introduction section, call out that API designers for non-HTTP based services to reach out to the arch board for guidance.
 
 The API surface of your client library must have the most thought as it is the primary interaction that the consumer has with your service.
 
@@ -42,6 +48,18 @@ from azure.exampleservice import AsyncExampleServiceClient
 
 ## Clients
 
+TODO: Add an example of the basic API shape similar to what's shown in the code sample <!--[here](https://azure.github.io/azure-sdk/java_design.html#java-sync-client-shape)--> but with the equivalent in Python.  Please include code illustrations of the following areas:
+
+- Service Client
+- Client Construction
+- Service Methods
+- Model Types
+- Common Namespace
+- Common Auth
+
+See Azure SDK Core Shape slides shown at **github.com/Azure/azure-sdk-pr/issues/440** for details.
+
+
 Your API surface will consist of one or more _service clients_ that the consumer will instantiate to connect to your service, plus a set of supporting types.
 
 {% include requirement/MUST id="python-client-naming" %} name service client types with a **Client** suffix.
@@ -71,6 +89,15 @@ The constructor **must not** take a connection string.
 {% include requirement/MUST id="python-client-connection-string" %} use a separate factory method `ExampleServiceClient.from_connection_string` to create a client from a connection string (if the client supports connection strings).
 
 The method **should** parse the connection string and pass the values to the constructor.  Provide a `from_connection_string` factory method only if the Azure portal exposes a connection string for your service.
+
+TODO: Please include a code sample here.
+
+TODO: Please include a code sample for setting the service version.
+
+
+TODO: If client configuration options are relevant to Python (e.g. does an API designer need to do something special to enable configuration of retries?  Or other client-specific options like we designed for Text Analytics?), please add a subsection on designing these here.
+
+TODO: Are clients immutable in Python as they are in other languages?  If so, please call that out in this or above Service Client section.
 
 ### Async support
 
@@ -223,6 +250,8 @@ model.size = -1
 client.update_model(name='hello', size=4713, model=model)  
 ```
 
+TODO: If there are design considerations to call out that parallel the xxOptions parameters, please add those here.  e.g. per the Python API Design Training Article Anna put together at **github.com/Azure/azure-sdk-pr/blob/master/training/azure-sdk-apis/getting-started/design-the-api/design-the-api-python.md#the-get-request**, what should be positional parameters vs. kwargs?
+
 #### Response formats
 
 Requests to the service fall into two basic groups - methods that make a single logical request, or a deterministic sequence of requests. An example of a single logical request is a request that may be retried inside the operation. An example of a deterministic sequence of requests is a paged operation.
@@ -233,7 +262,11 @@ The logical entity is a protocol neutral representation of a response. For HTTP,
 
 {% include requirement/MUST id="python-response-paged-protocol" %} return a value that implements the [Paged protocol](#python-core-protocol-paged) for operations that return collections. The [Paged protocol](#python-core-protocol-paged) allows the user to iterate through all items in a returned collection, and also provides a method that gives access to individual pages.
 
-{% include requirement/MUST id="python-lro-poller" %} return a value that implements the [Poller protocol](#python-core-protocol-lro-poller) for long running operations. 
+{% include requirement/MUST id="python-lro-poller" %} return a value that implements the [Poller protocol](#python-core-protocol-lro-poller) for long running operations.
+
+TODO: Please include a code sample for return types
+
+TODO: Please add a section on Conditional Requests - much of this is documented [here](https://azure.github.io/azure-sdk/general_design.html#conditional-requests), but could be made Python-specific as needed.
 
 ## Models
 
@@ -241,13 +274,27 @@ The logical entity is a protocol neutral representation of a response. For HTTP,
 
 {% include requirement/MUST id="python-models-repr-length" %} truncate the output of `__repr__` after 1024 characters.
 
+TODO: Please add discussion similar to the [Model Type discussion from the General Guidelines](https://azure.github.io/azure-sdk/general_design.html#model-types), including the naming table if relevant to Python, or an alternate one specific to Python.  Per the Python API Design Training Article linked above, when should a model type be replaced with a dictionary in the Azure SDK?
+
+TODO: Please include a code sample for model types.
+
+TODO: If you do anything specific to model extensible enums in Python that an API designer should know, please call this out.
+
 ## Authentication
 
 {% include requirement/MUST id="python-auth-credential-azure-core" %} use the credentials classes in `azure-core` whenever possible.
 
 {% include requirement/MAY  id="python-auth-service-credentials" %} add additional credential types if required by the service. Contact @adparch for guidance if you believe you have need to do so.
 
+TODO: update contact information for the architecture board to reflect the new process.
+
 {% include requirement/MUST id="python-auth-service-support" %} support all authentication methods that the service supports.
+
+TODO: please include a code sample for authentication
+
+## Repository Guidelines
+
+TODO: Please include a section on Python Samples.
 
 {% include refs.md %}
 {% include_relative refs.md %}

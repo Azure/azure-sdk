@@ -3,7 +3,7 @@ title: "Go Guidelines: Introduction"
 keywords: guidelines golang
 permalink: golang_introduction.html
 folder: golang
-sidebar: golang_sidebar
+sidebar: general_sidebar
 ---
 
 {% include draft.html content="The Go Language guidelines are in DRAFT status" %}
@@ -59,6 +59,10 @@ The Azure SDK should be designed to enhance the productivity of developers conne
 {% include requirement/MUST id="golang-general-repository" %} locate all source code in the [azure/azure-sdk-for-go] GitHub repository.
 
 {% include requirement/MUST id="golang-general-engsys" %} follow Azure SDK engineering systems guidelines for working in the [azure/azure-sdk-for-go] GitHub repository.
+
+## Support for non-HTTP Protocols
+
+This document contains guidelines developed primarily for typical Azure REST services, i.e. stateless services with request-response based interaction model. Many of the guidelines in this document are more broadly applicable, but some might be specific to such REST services.
 
 {% include refs.md %}
 {% include_relative refs.md %}

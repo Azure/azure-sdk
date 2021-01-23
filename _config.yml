@@ -1,5 +1,11 @@
 repository: azure/azure-sdk
 
+
+tipue_search:
+  include:
+    pages: true
+    posts: true
+
 # feed.xml
 title: Azure SDKs
 description: "The design guidelines and policies under which the Azure SDKs are designed and built."
@@ -19,7 +25,6 @@ output: web
 
 plugins:
   - jekyll-github-metadata
-  - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
   - jekyll-seo-tag
@@ -60,8 +65,6 @@ kramdown:
   hard_wrap: false
   syntax_highlighter: rouge
 
-paginate: 10
-paginate_path: /page:num/
 timezone: "US/Pacific"
 
 relative_links:
@@ -77,7 +80,7 @@ defaults:
       layout: "page"
       comments: false
       search: true
-      sidebar: home_sidebar
+      sidebar: general_sidebar
       topnav: topnav
   -
     scope:
@@ -87,11 +90,11 @@ defaults:
       layout: "post_redirect"
       comments: false
       search: true
-      sidebar: home_sidebar
+      sidebar: general_sidebar
       topnav: topnav
       permalink: /posts/:year-:month-:day/:title:output_ext
 
 sidebars:
-  - home_sidebar
+  - general_sidebar
 
 github: [metadata]

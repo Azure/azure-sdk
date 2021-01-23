@@ -16,7 +16,7 @@ The Azure SDK team is pleased to announce our %%MMMM yyyy%% client library relea
 
 - _Add packages_
 
-#### Preview
+#### Beta
 
 - _Add packages_
 
@@ -32,9 +32,7 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 
 If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/azure/azure-sdk-for-java/issues).
 
-## Changelog
-
-Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
+## Release highlights
 
 ### _Package name_
 

@@ -1,22 +1,24 @@
 {
-	"name": "Jekyll",
-	"dockerFile": "Dockerfile",
+    "name": "Jekyll",
+    "dockerFile": "Dockerfile",
 
-	// Set *default* container specific settings.json values on container create.
-	"settings": { 
-		"terminal.integrated.shell.linux": "/bin/bash"
-	},
+    // Set *default* container specific settings.json values on container create.
+    "settings": { 
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
 
-	// Add the IDs of extensions you want installed when the container is created.
-	"extensions": [],
+    // Extensions we want installed when the container is created.
+    "extensions": [
+        "docsmsft.docs-authoring-pack",
+        "github.vscode-pull-request-github"
+    ],
 
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [4000],
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    "forwardPorts": [4000],
 
-	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "bundle install",
+    // Install the bundle after the container is created.
+    "postCreateCommand": "bundle install",
 
-	// Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
-	// "remoteUser": "vscode"
-
+    // Do not run as root. See https://aka.ms/vscode-remote/containers/non-root.
+    "remoteUser": "vscode"
 }

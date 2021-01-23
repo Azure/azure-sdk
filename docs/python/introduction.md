@@ -3,7 +3,7 @@ title: "Python Guidelines: Introduction"
 keywords: guidelines python
 permalink: python_introduction.html
 folder: python
-sidebar: python_sidebar
+sidebar: general_sidebar
 ---
 
 ## Design principles

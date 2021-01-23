@@ -3,7 +3,7 @@ title: "Spring Guidelines"
 keywords: guidelines java spring
 permalink: java_spring.html
 folder: java
-sidebar: java_sidebar
+sidebar: general_sidebar
 ---
 
 Providing the Spring ecosystem with a first-class experience is of the utmost importance. The guidelines below are in addition to the [standard Java design guidelines](https://azure.github.io/azure-sdk/java_introduction.html), overriding the guidance as appropriate.

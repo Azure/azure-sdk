@@ -5,7 +5,7 @@
 {% if include.type == "all" %}
   {% assign packages = site.data.releases.latest.python-packages %}
 {% else %}
-  {% assign packages = site.data.releases.latest.python-packages | where: 'Type', include.type %}
+  {% assign packages = site.data.releases.latest.python-packages | where: 'Type', include.type | where: 'New', 'true' %}
 {% endif %}
 
 {{ description | replace: 'PackageCount', packages.size }}

@@ -10,8 +10,7 @@ resources:
       type: github
       name: Azure/azure-sdk-tools
       endpoint: azure
-      ref: refs/tags/azure-sdk-tools_20200615.1
-
+      ref: refs/tags/azure-sdk-tools_20210114.1
 
 steps:
 - checkout: self
@@ -29,6 +28,15 @@ steps:
     pwsh: true
     filePath: ./azure-sdk/eng/scripts/Update-Release-Versions.ps1
 
+- task: PowerShell@2
+  displayName: Update release DevOps work-items
+  inputs:
+    pwsh: true
+    filePath: ./azure-sdk/eng/scripts/Update-DevOps-WorkItems.ps1
+    arguments: >
+      -github_pat '$(azuresdk-github-pat)'
+      -devops_pat '$(azuresdk-azure-sdk-devops-release-work-item-pat)'
+
 - template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
   parameters:
     BaseBranchName: master
@@ -39,6 +47,7 @@ steps:
     PushArgs: -f
     WorkingDirectory: $(System.DefaultWorkingDirectory)/azure-sdk
     ScriptDirectory: $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts
+    PRLabels: 'auto-merge'
 
 - pwsh: |
     git clone https://$(azuresdk-github-pat)@github.com/MicrosoftDocs/azure-dev-docs-pr $(System.DefaultWorkingDirectory)/azure-dev-docs-pr

@@ -1,14 +1,19 @@
 param (
-  $language = "all",
-  $folder =  "$PSScriptRoot\..\..\_data\releases\latest"
+  $language = "all"
 )
+Set-StrictMode -Version 3
+
+. (Join-Path $PSScriptRoot PackageList-Helpers.ps1)
 
 function PackageEqual($pkg1, $pkg2) {
   if ($pkg1.Package -ne $pkg2.Package) {
     return $false
   }
-  if ($pkg1.GroupId -and $pkg2.GroupId -and $pkg1.GroupId -ne $pkg2.GroupId) {
-    return $false
+  if ($pkg1.PSObject.Members.Name -contains "GroupId" -and
+      $pkg2.PSObject.Members.Name -contains "GroupId") {
+    if ($pkg1.GroupId -and $pkg2.GroupId -and $pkg1.GroupId -ne $pkg2.GroupId) {
+      return $false
+    }
   }
   return $true
 }
@@ -37,6 +42,7 @@ function CreatePackage(
     MSDocs = "NA"
     GHDocs = "NA"
     Type = ""
+    New = "false"
     Hide = ""
     Notes = ""
   };
@@ -54,8 +60,8 @@ function Get-java-Packages
 function Get-dotnet-Packages
 {
   # Rest API docs
-  # https://docs.microsoft.com/en-us/nuget/api/search-query-service-resource
-  # https://docs.microsoft.com/en-us/nuget/consume-packages/finding-and-choosing-packages#search-syntax
+  # https://docs.microsoft.com/nuget/api/search-query-service-resource
+  # https://docs.microsoft.com/nuget/consume-packages/finding-and-choosing-packages#search-syntax
   $nugetQuery = Invoke-RestMethod "https://azuresearch-usnc.nuget.org/query?q=owner:azure-sdk&prerelease=true&semVerLevel=2.0.0&take=1000"
 
   Write-Host "Found $($nugetQuery.totalHits) nuget packages"
@@ -99,8 +105,7 @@ function Get-python-Packages
 
 function Write-Latest-Versions($lang)
 {
-  $packagelistFile = Join-Path $folder "$lang-packages.csv"
-  $packageList = Import-Csv $packagelistFile | Sort-Object Type, DisplayName, Package, GroupId
+  $packageList = Get-PackageListForLanguage $lang
 
   if ($null -eq $packageList) { $packageList = @() }
 
@@ -109,14 +114,14 @@ function Write-Latest-Versions($lang)
 
   foreach ($pkg in $packages)
   {
-    $pkgEntries = $packageList | Where-Object { PackageEqual $_ $pkg }
+    $pkgEntries = $packageList.Where({ PackageEqual $_ $pkg })
 
-    if ($pkgEntries.Count -gt 1) {
-      Write-Error "Found $($pkgEntries.Count) package entries for $($pkg.Package + $pkg.GroupId)"
-    }
-    elseif ($pkgEntries.Count -eq 0) {
+    if ($pkgEntries.Count -eq 0) {
       # Add package
       $packageList += $pkg
+    } 
+    elseif ($pkgEntries.Count -gt 1) {
+      Write-Error "Found $($pkgEntries.Count) package entries for $($pkg.Package + $pkg.GroupId)"
     }
     else {
       # Update version of package
@@ -135,18 +140,17 @@ function Write-Latest-Versions($lang)
   # Clean out packages that are no longer in the query we use for the package manager
   foreach ($pkg in $packageList)
   {
-    $pkgEntries = $packages | Where-Object { PackageEqual $_ $pkg }
+    # Skip the package entries that don't have a Package value as they are just placeholders
+    if ($pkg.Package -eq "") { continue }
 
-    if ($pkgEntries -and $pkgEntries.Count -ne 1) {
+    $pkgEntries = $packages.Where({ PackageEqual $_ $pkg })
+
+    if ($pkgEntries.Count -ne 1) {
       Write-Host "Found package $($pkg.Package) in the CSV which could be removed"
     }
   }
 
-  Write-Host "Writing $packagelistFile"
-  $clientPackages = $packageList | Where-Object { $_.Type }
-  $otherPackages = $packageList | Where-Object { !$_.Type }
-  $packageList = $clientPackages + $otherPackages
-  $packageList | Export-Csv -NoTypeInformation $packagelistFile -UseQuotes Always
+  Set-PackageListForLanguage $lang $packageList
 }
 
 switch($language)

@@ -16,7 +16,7 @@ The Azure SDK team is pleased to make available the %%MMMM yyyy%% client library
 
 - _Add packages_
 
-#### Preview
+#### Beta
 
 - _Add packages_
 
@@ -32,9 +32,7 @@ $> npm install @azure/package-name
 
 If you have a bug or feature request for one of the libraries, please post an issue at the [azure-sdk-for-js repository](https://github.com/azure/azure-sdk-for-js/issues)
 
-## Changelog
-
-Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
+## Release highlights
 
 ### _Package name_
 

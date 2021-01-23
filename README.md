@@ -8,8 +8,8 @@ The Azure SDK delivers a platform for developers to leverage the wide variety of
 | Android     |[Design Guidelines for Android] (Draft)      |                      |[azure-sdk-for-android Repository]| Coming Soon                      |
 | C# /.NET    |[Design Guidelines for .NET]                 |[.NET Packages]       |[azure-sdk-for-net Repository]    | [.NET Documentation]             |
 | Go          |[Design Guidelines for Go] (Draft)           |                      |[azure-sdk-for-go Repository]     | [Go Documentation]               |
-| C           |[Design Guidelines for C99] (Draft)          |                      |[azure-sdk-for-c Repository]      | Coming Soon                      |
-| C++         |[Design Guidelines for C++] (Draft)          |                      |[azure-sdk-for-cpp Repository]    | Coming Soon                      |
+| C           |[Design Guidelines for C99] (Draft)          |                      |[azure-sdk-for-c Repository]      | [C Documentation]                |
+| C++         |[Design Guidelines for C++] (Draft)          |                      |[azure-sdk-for-cpp Repository]    | [C++ Documentation]              |
 | iOS         |[Design Guidelines for iOS] (Draft)          |                      |[azure-sdk-for-ios Repository]    | Coming Soon                      |
 | Java        |[Design Guidelines for Java]                 |[Java Packages]       |[azure-sdk-for-java Repository]   | [Java Documentation]             |
 | JavaScript  |[Design Guidelines for TypeScript]           |[JavaScript Packages] |[azure-sdk-for-js Repository]     | [JavaScript Documentation]       |
@@ -53,7 +53,7 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 [Design Guidelines for Android]: https://azure.github.io/azure-sdk/android_introduction.html
 [Design Guidelines for .NET]: https://azure.github.io/azure-sdk/dotnet_introduction.html
 [Design Guidelines for Go]: https://azure.github.io/azure-sdk/golang_introduction.html
-[Design Guidelines for C99]: https://azure.github.io/azure-sdk/clang_introduction.html
+[Design Guidelines for C99]: https://azure.github.io/azure-sdk/clang_design.html
 [Design Guidelines for C++]: https://azure.github.io/azure-sdk/cpp_introduction.html
 [Design Guidelines for iOS]: https://azure.github.io/azure-sdk/ios_introduction.html
 [Design Guidelines for Java]: https://azure.github.io/azure-sdk/java_introduction.html
@@ -78,6 +78,8 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 [Java Documentation]: http://aka.ms/java-docs
 [JavaScript Documentation]: http://aka.ms/js-docs
 [Python Documentation]: https://aka.ms/python-docs
+[C Documentation]: https://aka.ms/c-docs
+[C++ Documentation]: https://aka.ms/cpp-docs
 
 [.NET Packages]: https://azure.github.io/azure-sdk/releases/latest/dotnet.html
 [Java Packages]: https://azure.github.io/azure-sdk/releases/latest/java.html
