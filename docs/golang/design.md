@@ -218,7 +218,7 @@ The service client will have several methods that perform requests on the servic
 
 {% include requirement/MUST id="golang-pagination-pagers" %} create Pager interface types with the name `<Resource>Pager` that are to be returned from their respective operations.
 
-{% include requirement/MUST id="golang-pagination-pagers-interface-page" %} expose methods `NextPage()`, `Page()`, and `Err()` on the `<Resource>Pager` type.
+{% include requirement/MUST id="golang-pagination-pagers-interface-page" %} expose methods `NextPage()`, `PageResponse()`, and `Err()` on the `<Resource>Pager` type.
 
 ```go
 // WidgetPager provides iteration over ListWidgets pages.
@@ -227,7 +227,7 @@ type WidgetPager interface {
 	// Returns false if there are no more pages or an error occurred.
 	NextPage(context.Context) bool
 
-	// Page returns the current WidgetsPage.
+	// PageResponse returns the current WidgetsPage.
 	PageResponse() ListWidgetsResponse
 
 	// Err returns the last error encountered while paging.
