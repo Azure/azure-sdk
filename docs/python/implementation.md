@@ -18,15 +18,15 @@ Since the client library generally wraps one or more HTTP requests, it's importa
 
 {% include requirement/SHOULD id="python-network-use-policies" %} include the following policies in the HTTP pipeline:
 
+- Unique Request ID (`azure.core.pipeline.policies.RequestIdPolicy`)
+- Headers (`azure.core.pipeline.policies.HeadersPolicy`)
 - Telemetry (`azure.core.pipeline.policies.UserAgentPolicy`)
-- Unique Request ID
+- Proxy (`azure.core.pipeline.policies.ProxyPolicy`)
+- Content decoding (`azure.core.pipeline.policies.ContentDecodePolicy`)
 - Retry (`azure.core.pipeline.policies.RetryPolicy` and `azure.core.pipeline.policies.AsyncRetryPolicy`)
-- Credentials
-- Response downloader (for streaming responses)
-- Distributed tracing
+- Credentials (e.g. `BearerTokenCredentialPolicy`, `AzureKeyCredentialPolicy`, etc)
+- Distributed tracing (`azure.core.pipeline.policies.DistributedTracingPolicy`)
 - Logging (`azure.core.pipeline.policies.NetworkTraceLoggingPolicy`)
-
-TODO: Verify order of policies...
 
 ```python
 
@@ -61,11 +61,11 @@ class ExampleClient(object):
             policies = [
                 HeadersPolicy(**kwargs),
                 UserAgentPolicy(**kwargs),
-                credential_policy,
+                ContentDecodePolicy(**kwargs),
                 RetryPolicy(**kwargs),
+                credential_policy,
                 HttpLoggingPolicy(**kwargs),
                 DistributedTracingPolicy(**kwargs),
-                ContentDecodePolicy(**kwargs),
                 NetworkTraceLoggingPolicy(**kwargs)
             ]
 
@@ -79,7 +79,7 @@ Some services may require custom policies to be implemented. For example, custom
 
 {% include requirement/SHOULD id="python-pipeline-core-policies" %} use the policy implementations in `azure-core` whenever possible.
 
-{% include requirement/MUST id="python-custom-policy-review" %} review the proposed policy with the TODO: Azure SDK architecture board. There may already be an existing policy that can be modified/parameterized to satisfy your need.
+{% include requirement/MUST id="python-custom-policy-review" %} review the proposed policy with the Azure SDK [Architecture Board]. There may already be an existing policy that can be modified/parameterized to satisfy your need.
 
 {% include requirement/MUST id="python-custom-policy-base-class" %} derive from [HTTPPolicy](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/1.9.0/azure.core.pipeline.policies.html#azure.core.pipeline.policies.HTTPPolicy)/[AsyncHTTPPolicy](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/1.9.0/azure.core.pipeline.policies.html#azure.core.pipeline.policies.AsyncHTTPPolicy) (if you need to make network calls) or [SansIOHTTPPolicy](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/1.9.0/azure.core.pipeline.policies.html#azure.core.pipeline.policies.SansIOHTTPPolicy) (if you do not). 
 
@@ -105,8 +105,19 @@ Some services may require custom policies to be implemented. For example, custom
 
 #### Extensible enumerations
 
-TODO: Add case insensitive enum metaclass to azure.core
+Any Enums defined in the SDK should be interchangable with case-insensitive strings. This is achieved by using the `CaseInsensitiveEnumMeta` class defined in `azure-core`.
 
+```python
+from enum import Enum
+from six import with_metaclass
+
+from azure.core import CaseInsensitiveEnumMeta
+
+class MyCustomEnum(with_metaclass(CaseInsensitiveEnumMeta, str, Enum)):
+    FOO = 'foo'
+    BAR = 'bar'
+
+```
 ### SDK Feature implementation 
 
 #### Configuration
@@ -178,7 +189,7 @@ Client library usage telemetry is used by service teams (not consumers) to monit
 - `<application_id>`: optional application-specific string. May contain a slash, but must not contain a space. The string is supplied by the user of the client library, e.g. "AzCopy/10.0.4-Preview"
 - `<package_name>`: client library (distribution) package name as it appears to the developer, replacing slashes with dashes and removing the Azure indicator.  For example, "azure-keyvault-secrets" would specify "azsdk-python-keyvault-secrets".
 - `<package_version>`: the version of the package. Note: this is not the version of the service
-- `<platform_info>`: information about the currently executing language runtime and OS, e.g. "(NODE-VERSION v4.5.0; Windows_NT 10.0.14393)"
+- `<platform_info>`: information about the currently executing language runtime and OS, e.g. "Python/3.8.4 (Windows-10-10.0.19041-SP0)"
 
 For example, if we re-wrote `AzCopy` in Python using the Azure Blob Storage client library, we may end up with the following user-agent strings:
 
@@ -204,20 +215,6 @@ Any other keys that are used should be common across all client libraries for a 
 {% include requirement/MUST id="python-azurecore-http-telemetry-appid" %} allow the consumer of the library to set the application ID by passing in an `application_id` parameter to the service client constructor.  This allows the consumer to obtain cross-service telemetry for their app.
 
 {% include requirement/MUST id="python-azurecore-http-telemetry-appid-length" %} enforce that the application ID is no more than 24 characters in length.  Shorter application IDs allows service teams to include diagnostic information in the "platform information" section of the user agent, while still allowing the consumer to obtain telemetry information for their own application.
-
-### Testing
-
-{% include requirement/MUST id="python-testing-pytest" %} use [pytest](https://docs.pytest.org/en/latest/) as the test framework.
-
-{% include requirement/SHOULD id="python-testing-async" %} use [pytest-asyncio](https://github.com/pytest-dev/pytest-asyncio) for testing of async code.
-
-{% include requirement/MUST id="python-testing-live" %} make your scenario tests runnable against live services. Strongly consider using the [Python Azure-DevTools](https://github.com/Azure/azure-python-devtools) package for scenario tests.
-
-{% include requirement/MUST id="python-testing-record" %} provide recordings to allow running tests offline/without an Azure subscription
-
-{% include requirement/MUST id="python-testing-parallel" %} support simultaneous test runs in the same subscription.
-
-{% include requirement/MUST id="python-testing-independent" %} make each test case independent of other tests.
 
 ## Error handling
 
@@ -255,8 +252,21 @@ try:
 except azure.core.errors.ResourceNotFoundException:
     print("The resource doesn't exist... but that shouldn't be an exceptional case for an 'exists' method")
 ```
+### Testing
 
-## Recommended Tools
+{% include requirement/MUST id="python-testing-pytest" %} use [pytest](https://docs.pytest.org/en/latest/) as the test framework.
+
+{% include requirement/SHOULD id="python-testing-async" %} use [pytest-asyncio](https://github.com/pytest-dev/pytest-asyncio) for testing of async code.
+
+{% include requirement/MUST id="python-testing-live" %} make your scenario tests runnable against live services. Strongly consider using the [Python Azure-DevTools](https://github.com/Azure/azure-python-devtools) package for scenario tests.
+
+{% include requirement/MUST id="python-testing-record" %} provide recordings to allow running tests offline/without an Azure subscription
+
+{% include requirement/MUST id="python-testing-parallel" %} support simultaneous test runs in the same subscription.
+
+{% include requirement/MUST id="python-testing-independent" %} make each test case independent of other tests.
+
+## Code Analysis and Style Tools
 
 {% include requirement/MUST id="python-tooling-pylint" %} use [pylint](https://www.pylint.org/) for your code. Use the pylintrc file in the [root of the repository](https://github.com/Azure/azure-sdk-for-python/blob/master/pylintrc).
 
