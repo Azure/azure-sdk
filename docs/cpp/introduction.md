@@ -137,7 +137,7 @@ _Service methods_ are the methods on the client that invoke operations on the se
 
 ##### Sync and Async
 
-The C++ sdk is designed for synchronous api calls. 
+The C++ SDK is designed for synchronous api calls. 
 
 {% include requirement/MUST id="cpp-design-client-sync-api" %} provide a synchronous programming model.
 
