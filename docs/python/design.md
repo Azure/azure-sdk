@@ -449,7 +449,7 @@ Data within the model type can generally be split into two parts - data used to 
 
 {% include requirement/MAY id="python-models-generated" %} expose models from the generated layer by adding to the root `__init__.py` (and `__all__`) if they otherwise meet the guidelines.
 
-{% include requirement/DONOT id="python-models-async" %} duplicate models between the root and `aio` namespace. This means models should not use any syntax incompatible with Python 2.7 (e.g. type hint syntax).
+{% include requirement/MUSTNOT id="python-models-async" %} duplicate models between the root and `aio` namespace. This means models should not use any syntax incompatible with Python 2.7 (e.g. type hint syntax).
 
 In order to facilitate round-trip of responses (common in get resource -> conditionally modify resource -> set resource workflows), output model types should use the input model type (e.g. `ConfigurationSetting`) whenever possible. The `ConfigurationSetting` type should include both server generated (read-only) attributes even though they will be ignored when used as input to the set resource method.
 
