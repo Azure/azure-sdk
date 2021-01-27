@@ -101,8 +101,6 @@ Some services may require custom policies to be implemented. For example, custom
 
 {% include requirement/MUST id="python-models-repr-length" %} truncate the output of `__repr__` after 1024 characters.
 
-#### Serialization
-
 #### Extensible enumerations
 
 Any Enums defined in the SDK should be interchangable with case-insensitive strings. This is achieved by using the `CaseInsensitiveEnumMeta` class defined in `azure-core`.
@@ -116,9 +114,9 @@ from azure.core import CaseInsensitiveEnumMeta
 class MyCustomEnum(with_metaclass(CaseInsensitiveEnumMeta, str, Enum)):
     FOO = 'foo'
     BAR = 'bar'
-
 ```
-### SDK Feature implementation 
+
+### SDK Feature implementation
 
 #### Configuration
 
@@ -165,8 +163,6 @@ The `DEBUG` logging level is intended for developers or system administrators to
 You can determine the logging level for a given logger by calling [`logging.Logger.isEnabledFor`](https://docs.python.org/3/library/logging.html#logging.Logger.isEnabledFor).
 
 #### Distributed tracing
-
-> **DRAFT** section
 
 {% include requirement/MUST id="python-tracing-span-per-method" %} create a new trace span for each library method invocation. The easiest way to do so is by adding the distributed tracing decorator from `azure.core.tracing`.
 
@@ -252,6 +248,7 @@ try:
 except azure.core.errors.ResourceNotFoundException:
     print("The resource doesn't exist... but that shouldn't be an exceptional case for an 'exists' method")
 ```
+
 ### Testing
 
 {% include requirement/MUST id="python-testing-pytest" %} use [pytest](https://docs.pytest.org/en/latest/) as the test framework.
