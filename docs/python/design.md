@@ -70,15 +70,6 @@ Please contact the [Azure SDK Architecture Board](https://azure.github.io/azure-
 
 For example, if you depend on different external packages for Python2 and Python3, and neither external dependency is available for both Python versions.
 
-{% include requirement/MUST id="python-general-supply-sdist" %} provide both source distributions (`sdist`) and wheels.
-
-{% include requirement/MUST id="python-general-pypi" %} publish both source distributions (`sdist`) and wheels to PyPI.
-
-{% include requirement/MUST id="python-general-wheel-behavior" %} test correct behavior for both CPython and PyPy for [pure](https://packaging.python.org/guides/distributing-packages-using-setuptools/#id75) and [universal](https://packaging.python.org/guides/distributing-packages-using-setuptools/#universal-wheels) Python wheels. 
-
-For more information on packaging naming, see the [Packaging](#packaging) section.
-
-
 ## Azure SDK API Design
 
 Your API surface will consist of one or more _service clients_ that the consumer will instantiate to connect to your service, plus a set of supporting types.
@@ -240,13 +231,13 @@ except azure.core.exceptions.ServiceResponseError as e:
     print(f'The request was made, but the service responded with an error. Status code: {e.status_code}')
 ```
 
-##### Cancellation
+#### Cancellation
 
-{% include requirement/MUST id="python-client-cancellation-sync-methods" %} provide an optional keyword argument `timeout` to allow callers to specify how long they are willing to wait for the method to complete. The `timeout` is in seconds, and should be honored to the best extent possible. 
+{% include requirement/MUST id="python-client-cancellation-sync-methods" %} provide an optional keyword argument `timeout` to allow callers to specify how long they are willing to wait for the method to complete. The `timeout` is in seconds, and should be honored to the best extent possible.
 
- {% include requirement/MUST id="python-client-cancellation-async-methods" %} use the standard [asyncio.Task.cancel](https://docs.python.org/3/library/asyncio-task.html#asyncio.Task.cancel) method to cancel async methods. 
+ {% include requirement/MUST id="python-client-cancellation-async-methods" %} use the standard [asyncio.Task.cancel](https://docs.python.org/3/library/asyncio-task.html#asyncio.Task.cancel) method to cancel async methods.
 
-#### Parameters
+### Service Method Parameters
 
 {% include requirement/MUST id="python-client-optional-arguments-keyword-only" %} provide optional operation-specific arguments as keyword only. See [positional and keyword-only arguments] for more information.
 
@@ -263,7 +254,7 @@ client = ExampleClient('https://contoso.com/xmpl', DefaultAzureCredential(), max
 client.do_stuff(timeout=32)
 ```
 
-##### Parameter validation
+#### Parameter validation
 
 The service client will have several methods that send requests to the service. **Service parameters** are directly passed across the wire to an Azure service. **Client parameters** aren't passed directly to the service, but used within the client library to fulfill the request. Parameters that are used to construct a URI, or a file to be uploaded are examples of client parameters.
 
@@ -356,7 +347,7 @@ client.update_thing(name='hello', size=4713, thing=thing)
 
 #### Methods returning collections (paging)
 
-Services may require multiple requests to retrieve the complete set of items in large collections. This is generally done by the service returning a partial result, and in the response providing a token or link that the client can use to retreive the next batch of responses in addition to the set of items.
+Services may require multiple requests to retrieve the complete set of items in large collections. This is generally done by the service returning a partial result, and in the response providing a token or link that the client can use to retrieve the next batch of responses in addition to the set of items.
 
 {% include requirement/MUST id="python-response-paged-protocol" %} return a value that implements the [Paged protocol](#python-core-protocol-paged) for operations that return collections. The [Paged protocol](#python-core-protocol-paged) allows the user to iterate through all items in a returned collection, and also provides a method that gives access to individual pages.
 
@@ -373,7 +364,7 @@ for page_no, page in enumerate(client.list_things().by_page()):
     print(page_no, page)
 ```
 
-{% include requirement/MAY id="python-response-paged-results" %} expose a `results_per_page` keyword-only parameter where supported by the service (e.g. an odata `$top` query parameter).
+{% include requirement/MAY id="python-response-paged-results" %} expose a `results_per_page` keyword-only parameter where supported by the service (e.g. an OData `$top` query parameter).
 
 {% include requirement/SHOULDNOT id="python-response-paged-continuation" %} expose a continuation parameter in the service operation API - this is supported in the `by_page()` function.
 
@@ -546,6 +537,61 @@ if not success:
     raise MyOwnErrorWithNoContext()
 ```
 
+### Authentication
+
+{% include requirement/MUST id="python-auth-credential-azure-core" %} use the credentials classes in `azure-core` whenever possible.
+
+{% include requirement/MUST id="python-auth-policy-azure-core" %} use authentication policy implementations in `azure-core` whenever possible.
+
+{% include requirement/MAY  id="python-auth-service-credentials" %} add additional credential types if required by the service. Contact the [Azure SDK Architecture Board](https://azure.github.io/azure-sdk/policies_reviewprocess.html) for guidance if you believe you have need to do so.
+
+{% include requirement/MUST id="python-auth-service-support" %} support all authentication methods that the service supports.
+
+### Namespaces
+
+In the guidelines below, the term "namespace" is used to denote a python package or module (i.e. something that you would `import` in your code). The term "distribution package" is used to describe the artifact you publish to and install from your package manager (i.e. something that you would `pip install`).
+
+{% include requirement/MUST id="python-namespaces-prefix" %} implement your library as a sub-package of the `azure` root namespace.
+
+> Note: You MUST NOT use `microsoft` as your root namespace. If you need to include `microsoft` in the namespace (e.g. because of policy requirements for extensions to other projects such as `opentelemetry`), you should concatenate it with the package specific namespace with an underscore (e.g. `microsoft_myservice`). You may still use `microsoft-myservice` as the distribution package name in this scenario.
+
+{% include requirement/MUST id="python-namespaces-naming" %} pick a package name that allows the consumer to tie the namespace to the service being used. As a default, use the compressed service name at the end of the namespace. The namespace does NOT change when the branding of the product changes. Avoid the use of marketing names that may change.
+
+A compressed service name is the service name without spaces. It may further be shortened if the shortened version is well known in the community. For example, “Azure Media Analytics” would have a compressed service name of `mediaanalytics`, and “Azure Service Bus” would become `servicebus`.  Separate words using an underscore if necessary. For example, `mediaanalytics` could be separated into `media_analytics`
+
+{% include requirement/MAY id="python-namespaces-grouping" %} include a group name segment in your namespace (for example, `azure.<group>.<servicename>`) if your service or family of services have common behavior (for example, shared authentication types).
+
+{% include requirement/MUST id="python-namespaces-grouping-dont-introduce-new-packages" %} avoid introducing new distribution packages that only differ in name. For existing packages, this means that you should not change the name of the package just to introduce a group name.
+
+If you want to use a group name segment, use one of the following groups:
+
+{% include tables/data_namespaces.md %}
+
+{% include requirement/MUST id="python-namespaces-mgmt" %} place management (Azure Resource Manager) APIs in the `mgmt` group. Use the grouping `azure.mgmt.<servicename>` for the namespace. Since more services require control plane APIs than data plane APIs, other namespaces may be used explicitly for control plane only.
+
+{% include requirement/MUST id="python-namespaces-register" %} register the chosen namespace with the [Architecture Board].  Open an issue to request the namespace.  See [the registered namespace list](registered_namespaces.html) for a list of the currently registered namespaces.
+
+{% include requirement/MUST id="python-namespaces-async" %} use an `.aio` suffix added to the namespace of the sync client for async clients.
+
+Example:
+
+```python
+# Yes:
+from azure.exampleservice.aio import ExampleServiceClient
+
+# No: Wrong namespace, wrong client name...
+from azure.exampleservice import AsyncExampleServiceClient
+```
+
+#### Example Namespaces
+
+Here are some examples of namespaces that meet these guidelines:
+
+- `azure.storage.blob`
+- `azure.keyvault.certificates`
+- `azure.ai.textanalytics`
+- `azure.mgmt.servicebus`
+
 ### Async support
 
 The `asyncio` library has been available since Python 3.4, and the `async`/`await` keywords were introduced in Python 3.5. Despite such availability, most Python developers aren't familiar with or comfortable using libraries that only provide asynchronous methods.
@@ -608,62 +654,6 @@ from azure.storage.blob.aio import BlobServiceClient # Async client
 
 {% include requirement/MUST id="python-client-async-http-stack" %} use [`aiohttp`](https://aiohttp.readthedocs.io/en/stable/) as the default HTTP stack for async operations. Use `azure.core.pipeline.transport.AioHttpTransport` as the default `transport` type for the async client.
 
-### Authentication
-
-{% include requirement/MUST id="python-auth-credential-azure-core" %} use the credentials classes in `azure-core` whenever possible.
-
-{% include requirement/MUST id="python-auth-policy-azure-core" %} use authentication policy implementations in `azure-core` whenever possible.
-
-{% include requirement/MAY  id="python-auth-service-credentials" %} add additional credential types if required by the service. Contact the [Azure SDK Architecture Board](https://azure.github.io/azure-sdk/policies_reviewprocess.html) for guidance if you believe you have need to do so.
-
-{% include requirement/MUST id="python-auth-service-support" %} support all authentication methods that the service supports.
-
-### Namespaces
-
-In the guidelines below, the term "namespace" is used to denote a python package or module (i.e. something that you would `import` in your code). The term "distribution package" is used to describe the artifact you publish to and install from your package manager (i.e. something that you would `pip install`).
-
-{% include requirement/MUST id="python-namespaces-prefix" %} implement your library as a sub-package of the `azure` root namespace.
-
-> Note: You MUST NOT use `microsoft` as your root namespace. If you need to include `microsoft` in the namespace (e.g. because of policy requirements for extensions to other projects such as `opentelemetry`), you should concatenate it with the package specific namespace with an underscore (e.g. `microsoft_myservice`). You may still use `microsoft-myservice` as the distribution package name in this scenario.
-
-{% include requirement/MUST id="python-namespaces-naming" %} pick a package name that allows the consumer to tie the namespace to the service being used. As a default, use the compressed service name at the end of the namespace. The namespace does NOT change when the branding of the product changes. Avoid the use of marketing names that may change.
-
-A compressed service name is the service name without spaces. It may further be shortened if the shortened version is well known in the community. For example, “Azure Media Analytics” would have a compressed service name of `mediaanalytics`, and “Azure Service Bus” would become `servicebus`.  Separate words using an underscore if necessary. For example, `mediaanalytics` could be separated into `media_analytics`
-
-{% include requirement/MAY id="python-namespaces-grouping" %} include a group name segment in your namespace (for example, `azure.<group>.<servicename>`) if your service or family of services have common behavior (for example, shared authentication types).
-
-{% include requirement/MUST id="python-namespaces-grouping-dont-introduce-new-packages" %} avoid introducing new distribution packages that only differ in name. For existing packages, this means that you should not change the name of the package just to introduce a group name.
-
-If you want to use a group name segment, use one of the following groups:
-
-{% include tables/data_namespaces.md %}
-
-{% include requirement/MUST id="python-namespaces-mgmt" %} place management (Azure Resource Manager) APIs in the `mgmt` group. Use the grouping `azure.mgmt.<servicename>` for the namespace. Since more services require control plane APIs than data plane APIs, other namespaces may be used explicitly for control plane only.
-
-{% include requirement/MUST id="python-namespaces-register" %} register the chosen namespace with the [Architecture Board].  Open an issue to request the namespace.  See [the registered namespace list](registered_namespaces.html) for a list of the currently registered namespaces.
-
-{% include requirement/MUST id="python-namespaces-async" %} use an `.aio` suffix added to the namespace of the sync client for async clients.
-
-Example:
-
-```python
-# Yes:
-from azure.exampleservice.aio import ExampleServiceClient
-
-# No: Wrong namespace, wrong client name...
-from azure.exampleservice import AsyncExampleServiceClient
-```
-
-#### Example Namespaces
-
-Here are some examples of namespaces that meet these guidelines:
-
-- `azure.storage.blob`
-- `azure.keyvault.certificates`
-- `azure.ai.textanalytics`
-- `azure.mgmt.servicebus`
-
-
 ## Azure SDK distribution packages
 
 ### Packaging
@@ -677,6 +667,12 @@ Here are some examples of namespaces that meet these guidelines:
 {% include requirement/MUST id="python-packaging-follow-repo-rules" %} follow the specific package guidance from the [azure-sdk-packaging wiki](https://github.com/Azure/azure-sdk-for-python/wiki/Azure-packaging)
 
 {% include requirement/MUST id="python-packaging-follow-python-rules" %} follow the [namespace package recommendations for Python 3.x](https://docs.python.org/3/reference/import.html#namespace-packages) for packages that only need to target 3.x.
+
+{% include requirement/MUST id="python-general-supply-sdist" %} provide both source distributions (`sdist`) and wheels.
+
+{% include requirement/MUST id="python-general-pypi" %} publish both source distributions (`sdist`) and wheels to PyPI.
+
+{% include requirement/MUST id="python-general-wheel-behavior" %} test correct behavior for both CPython and PyPy for [pure](https://packaging.python.org/guides/distributing-packages-using-setuptools/#id75) and [universal](https://packaging.python.org/guides/distributing-packages-using-setuptools/#universal-wheels) Python wheels. 
 
 {% include requirement/MUST id="python-packaging-nspkg" %} depend on `azure-nspkg` for Python 2.x.
 
@@ -703,7 +699,7 @@ Let's take two examples:
 
 2. Two Cognitive Services client libraries have models (data classes) that are the same in shape, but has no or minimal logic associated with them. This is not a good candidate for a shared library. Instead, implement two separate classes.
 
-### Versioning
+#### Versioning
 
 {% include requirement/MUST id="python-versioning-semver" %} use [semantic versioning](https://semver.org) for your package.
 
@@ -727,7 +723,7 @@ Don't use pre-release segments other than the ones defined in [PEP440](https://w
 
 The bar to make a breaking change is extremely high for GA client libraries.  We may create a new package with a different name to avoid diamond dependency issues.
 
-### Dependencies
+#### Dependencies
 
 {% include requirement/MUST id="python-dependencies-approved-list" %} only pick external dependencies from the following list of well known packages for shared functionality:
 
@@ -743,7 +739,7 @@ When you vendor a dependency in Python, you include the source from another pack
 
 Only applications are expected to pin exact dependencies. Libraries are not. A library should use a [compatible release](https://www.python.org/dev/peps/pep-0440/#compatible-release) identifier for the dependency.
 
-### Binary extensions (native code)
+#### Binary extensions (native code)
 
 {% include requirement/MUST id="python-native-approval" %} seek approval by the [Architecture Board] before implementing a binary extension.
 
@@ -753,9 +749,85 @@ Only applications are expected to pin exact dependencies. Libraries are not. A l
 
 {% include requirement/MUST id="python-native-charset-support" %} support both Unicode and ASCII versions of CPython 2.7.
 
+### Docstrings
+
+{% include requirement/MUST id="python-docstrings-pydocs" %} follow the [documentation guidelines](http://aka.ms/pydocs) unless explicitly overridden in this document.
+
+{% include requirement/MUST id="python-docstrings-all" %} provide docstrings for all public modules, types, and methods.
+
+{% include requirement/MUST id="python-docstrings-kwargs" %} document any `**kwargs` directly consumed by a method. You may refer to the signature of a called method if the `**kwargs` are passed through.
+
+Example:
+```python
+def request(method, url, headers, **kwargs): ...
+
+def get(*args, **kwargs):
+    "Calls `request` with the method "GET" and forwards all other arguments."
+    return request("GET", *args, **kwargs)
+```
+
+{% include requirement/MUST id="python-docstrings-exceptions" %} document exceptions that may be raised explicitly in the method and any exceptions raised by the called method.
+
+#### Code snippets
+
+{% include requirement/MUST id="python-snippets-include" %} include example code snippets alongside your library's code within the repository. The snippets should clearly and succinctly demonstrate the operations most developers need to perform with your library. Include snippets for every common operation, and especially for those that are complex or might otherwise be difficult for new users of your library. At a bare minimum, include snippets for the champion scenarios you've identified for the library.
+
+{% include requirement/MUST id="python-snippets-build" %} build and test your example code snippets using the repository's continuous integration (CI) to ensure they remain functional.
+
+{% include requirement/MUST id="python-snippets-docstrings" %} include the example code snippets in your library's docstrings so they appear in its API reference. If the language and its tools support it, ingest these snippets directly into the API reference from within the docstrings. Each sample should be a valid `pytest`.
+
+Use the `literalinclude` directive in Python docstrings to instruct Sphinx to [ingest the snippets automatically][1].
+
+{% include requirement/MUSTNOT id="python-snippets-combinations" %} combine more than one operation in a code snippet unless it's required for demonstrating the type or member, or it's *in addition to* existing snippets that demonstrate atomic operations. For example, a Cosmos DB code snippet should not include both account and container creation operations--create two different snippets, one for account creation, and one for container creation.
+
+Combined operations cause unnecessary friction for a library consumer by requiring knowledge of additional operations which might be outside their current focus. It requires them to first understand the tangential code surrounding the operation they're working on, then carefully extract just the code they need for their task. The developer can no longer simply copy and paste the code snippet into their project.
+
 ## Repository Guidelines
 
-TODO: Please include a section on Python Samples.
+### Documentation style
+
+There are several documentation deliverables that must be included in or as a companion to your client library. Beyond complete and helpful API documentation within the code itself (docstrings), you need a great README and other supporting documentation.
+
+* `README.md` - Resides in the root of your library's directory within the SDK repository; includes package installation and client library usage information. ([example][README-EXAMPLE])
+* `API reference` - Generated from the docstrings in your code; published on docs.microsoft.com. 
+* `Code snippets` - Short code examples that demonstrate single (atomic) operations for the champion scenarios you've identified for your library; included in your README, docstrings, and Quickstart. 
+* `Quickstart` - Article on docs.microsoft.com that is similar to but expands on the README content; typically written by your service's content developer. 
+* `Conceptual` - Long-form documentation like Quickstarts, Tutorials, How-to guides, and other content on docs.microsoft.com; typically written by your service's content developer. 
+
+{% include requirement/MUST id="python-docs-content-dev" %} include your service's content developer in the adparch review for your library. To find the content developer you should work with, check with your team's Program Manager.
+
+{% include requirement/MUST id="python-docs-contributor-guide" %} follow the [Azure SDK Contributors Guide]. (MICROSOFT INTERNAL)
+
+{% include requirement/MUST id="python-docs-style-guide" %} adhere to the specifications set forth in the Microsoft style guides when you write public-facing documentation. This applies to both long-form documentation like a README and the docstrings in your code. (MICROSOFT INTERNAL)
+
+* [Microsoft Writing Style Guide].
+* [Microsoft Cloud Style Guide].
+
+{% include requirement/SHOULD id="python-docs-into-silence" %} attempt to document your library into silence. Preempt developers' usage questions and minimize GitHub issues by clearly explaining your API in the docstrings. Include information on service limits and errors they might hit, and how to avoid and recover from those errors.
+
+As you write your code, *doc it so you never hear about it again.* The less questions you have to answer about your client library, the more time you have to build new features for your service.
+
+### Samples
+
+Code samples are small applications that demonstrate a certain feature that is relevant to the client library. Samples allow developers to quickly understand the full usage requirements of your client library. Code samples shouldn't be any more complex than they needed to demonstrate the feature. Don't write full applications. Samples should have a high signal to noise ratio between useful code and boilerplate code for non-related reasons.
+
+{% include requirement/MUST id="python-samples-include-them" %} include code samples alongside your library's code within the repository. The samples should clearly and succinctly demonstrate the code most developers need to write with your library. Include samples for all common operations. Pay attention to operations that are complex or might be difficult for new users of your library. Include samples for the champion scenarios you've identified for the library.
+
+{% include requirement/MUST id="python-samples-location" %} place code samples within the /samples directory within the client library root directory. The samples will be packaged into the resulting distribution package.
+
+{% include requirement/MUST id="python-samples-runnable" %} ensure that each sample file is runnable.
+
+{% include requirement/MUST id="python-samples-coding-style" %} use Python 3 conventions when creating samples. Do not include Python 2 compatibility code (e.g. using [`six`](https://six.readthedocs.io)) since that will distract from what you are trying to present. Avoid using features newer than the Python 3 baseline support. The current supported Python version is 3.6.
+
+{% include requirement/MUST id="python-samples-grafting" %} ensure that code samples can be easily grafted from the documentation into a users own application. For example, don't rely on variable declarations in other samples.
+
+{% include requirement/MUST id="python-samples-readability" %} write code samples for ease of reading and comprehension over code compactness and efficiency.
+
+{% include requirement/MUST id="python-samples-platform-support" %} ensure that samples can run in Windows, macOS, and Linux development environments.
+
+{% include requirement/MUSTNOT id="python-snippets-no-combinations" %} combine multiple operations in a code sample unless it's required for demonstrating the type or member. For example, a Cosmos DB code sample doesn't include both account and container creation operations. Create a sample for account creation, and another sample for container creation.
+
+Combined operations require knowledge of additional operations that might be outside their current focus. The developer must first understand the code surrounding the operation they're working on, and can't copy and paste the code sample into their project.
 
 {% include refs.md %}
 {% include_relative refs.md %}
