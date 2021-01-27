@@ -95,7 +95,7 @@ class ExampleClient(object):
         # type: (**Any) -> azure.core.ItemPaged[Thing]
         """List all things.
         
-        :rtype: ~azure.core.ItemPageable[~Thing]
+        :rtype: ~azure.core.ItemPaged[~Thing]
         """
         ...
         return azure.core.paging.ItemPaged(...)

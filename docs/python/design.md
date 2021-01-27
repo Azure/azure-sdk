@@ -14,7 +14,7 @@ The Azure SDK should be designed to enhance the productivity of developers conne
 
 #### Idiomatic
 
-* The SDK should follow the general design guidelines and conventions for the target language. It should feel natural to a developer in the target language.
+* The SDK should follow the design guidelines and conventions for the target language. It should feel natural to a developer in the target language.
 * We embrace the ecosystem with its strengths and its flaws.
 * We work with the ecosystem to improve it for all developers.
 
@@ -76,7 +76,7 @@ For example, if you depend on different external packages for Python2 and Python
 
 {% include requirement/MUST id="python-general-wheel-behavior" %} test correct behavior for both CPython and PyPy for [pure](https://packaging.python.org/guides/distributing-packages-using-setuptools/#id75) and [universal](https://packaging.python.org/guides/distributing-packages-using-setuptools/#universal-wheels) Python wheels. 
 
-For more information on packaging naming, see the [Packaging] section.
+For more information on packaging naming, see the [Packaging](#packaging) section.
 
 
 ## Azure SDK API Design
@@ -87,7 +87,7 @@ Your API surface will consist of one or more _service clients_ that the consumer
 
 The service client is the primary entry point for users of the library. A service client exposes one or more methods that allow them to interact with the service.
 
-{% include requirement/MUST id="python-client-namespace" %} expose the service clients the user is more likely to interact with from the root namespace of your package.
+{% include requirement/MUST id="python-client-namespace" %} expose the service clients the user is more likely to interact with from the root namespace of your package. Specialized service clients may be placed in sub-namespaces.
 
 {% include requirement/MUST id="python-client-naming" %} name service client types with a **Client** suffix.
 
@@ -104,17 +104,19 @@ class CosmosProxy(object) ...
 class CosmosUrl(object) ... 
 ```
 
-{% include requirement/MUST id="python-client-immutable" %} make the service client immutable.
+{% include requirement/MUST id="python-client-immutable" %} make the service client immutable. See the [Client Immutability](#client-immutability) section for more information.
 
 #### Constructors and factory methods
 
 Only the minimal information needed to connect and interact with the service should be required in order to construct a client instance. All additional information should be optional and passed in as optional keyword-only arguments.
 
+{% include requirement/MUSTNOT id="python-client-options-naming" %} use an "options bag" object to group optional parameters. Instead, pass as individual keyword-only arguments.
+
 ##### Client configuration
 
-{% include requirement/MUST id="python-client-constructor-form" %} provide a constructor that takes positional binding parameters (for example, the name of, or a URL pointing to the service instance), a positional `credential` parameter, a `transport` keyword-only parameter, and keyword-only arguments (emulated using `**kwargs` for Python 2.7 support) for passing settings through to individual HTTP pipeline policies.
+{% include requirement/MUST id="python-client-constructor-form" %} provide a constructor that takes positional binding parameters (for example, the name of, or a URL pointing to the service instance), a positional `credential` parameter, a `transport` keyword-only parameter, and keyword-only arguments (emulated using `**kwargs` for Python 2.7 support) for passing settings through to individual HTTP pipeline policies. See the [Authentication](#authentication) section for more information on the `credential` parameter.
 
-{% include requirement/MUST id="python-client-constructor-policy-arguments" %} accept optional default request options as keyword arguments and pass them along to its pipeline policies. See [Common service operation parameters(#common-service-operation-parameters) for more information.
+{% include requirement/MUST id="python-client-constructor-policy-arguments" %} accept optional default request options as keyword arguments and pass them along to its pipeline policies. See [Common service operation parameters](#common-service-operation-parameters) for more information.
 
 ```python
 # Change default number of retries to 18 and overall timeout to 2s.
@@ -126,9 +128,9 @@ client = ExampleClient('https://contoso.com/xmpl',
 
 {% include requirement/MUST id="python-client-constructor-transport-argument" %} allow users to pass in a `transport` keyword-only argument that allows the caller to specify a specific transport instance. The default value should be the [`RequestsTransport`](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/1.1.1/azure.core.pipeline.transport.html?highlight=transport#azure.core.pipeline.transport.RequestsTransport) for synchronous clients and the [`AioHttpTransport`](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/1.1.1/azure.core.pipeline.transport.html?highlight=transport#azure.core.pipeline.transport.AioHttpTransport) for async clients.
 
-{% include requirement/MUST id="python-client-connection-string" %} use a separate factory class method `from_connection_string` to create a client from a connection string (if the client supports connection strings). The `from_connection_string` factory method should take the same set of arguments (excluding information provided in the connection string) as the constructor. The constructor **must not** take a connection string, even if it means that using the `from_connection_string` is the only supported method to create an instance of the client.
+{% include requirement/MUST id="python-client-connection-string" %} use a separate factory classmethod `from_connection_string` to create a client from a connection string (if the client supports connection strings). The `from_connection_string` factory method should take the same set of arguments (excluding information provided in the connection string) as the constructor. The constructor **must not** take a connection string, even if it means that using the `from_connection_string` is the only supported method to create an instance of the client.
 
-The method **should** parse the connection string and pass the values along with any additional keyword-only arguments except `credential` to the constructor.  Only provide a `from_connection_string` factory method only if the Azure portal exposes a connection string for your service.
+The method **should** parse the connection string and pass the values along with any additional keyword-only arguments except `credential` to the constructor.  Only provide a `from_connection_string` factory method if the Azure portal exposes a connection string for your service.
 
 ```python
 class ExampleClientWithConnectionString(object):
@@ -148,7 +150,7 @@ class ExampleClientWithConnectionString(object):
 
 #### Specifying the Service Version
 
-{% include requirement/MUST id="python-client-constructor-api-version-argument" %} accept an optional `api_version` keyword-only argument of type string. If specified, the provided api version MUST be used when interacting with the service. If the parameter is not provided, the default value MUST be the latest non-preview API version understood by the client library (if there the service has a non-preview version) or the latest preview API version understood by the client library (if the service does not have any non-preview API versions yet). This parameter MUST be available even if there is only one API version understood by the service in order to allow library developers lock down the API version they expect to interact with the service with.
+{% include requirement/MUST id="python-client-constructor-api-version-argument-1" %} accept an optional `api_version` keyword-only argument of type string. If specified, the provided api version MUST be used when interacting with the service. If the parameter is not provided, the default value MUST be the latest non-preview API version understood by the client library (if there the service has a non-preview version) or the latest preview API version understood by the client library (if the service does not have any non-preview API versions yet). This parameter MUST be available even if there is only one API version understood by the service in order to allow library developers lock down the API version they expect to interact with the service with.
 
 ```python
 from azure.identity import DefaultAzureCredential
@@ -163,14 +165,22 @@ specific_api_version_client = ExampleClient('https://contoso.com/xmpl',
                                             api_version='1971-11-01')
 ```
 
+{% include requirement/MUST id="python-client-constructor-api-version-argument-2" %} document the service API version that is used by default.
+
+{% include requirement/MUST id="python-client-constructor-api-version-argument-3" %} document the service API version that a feature was introduced in where features are added in subsequent SDK releases targeting newer GA API versions.
+
+{% include requirement/MAY id="python-client-constructor-api-version-argument-4" %} validate the input `api_version` value against a list of supported API versions.
+
+{% include requirement/MAY id="python-client-constructor-api-version-argument-5" %} include all service API versions that are supported by the client library in a `ServiceVersion` enumerated value.
+
 #### Additional constructor parameters
 
 |Name|Description|
 |-|-|
-|`credential`|Credentials to use when making service requests|
+|`credential`|Credentials to use when making service requests (See [Authentication](#authentication))|
 |`application_id`|Name of the client application making the request. Used for telemetry|
-|`api_version`|API version to use when making service requests|
-|`transport`|Override the default HTTP transport|
+|`api_version`|API version to use when making service requests (See [Service Version](#specifying-the-service-version)) |
+|`transport`|Override the default HTTP transport (See [Client Configuration](#client-configuration))|
 
 #### Client immutability
 
@@ -180,7 +190,7 @@ specific_api_version_client = ExampleClient('https://contoso.com/xmpl',
 
 #### Naming
 
-{% include requirement/SHOULD id="python-client-service-verbs" %} prefer the usage one of the preferred verbs for method names.
+{% include requirement/SHOULD id="python-client-service-verbs" %} prefer the usage one of the preferred verbs for method names. You should have a good (articulated) reason to have an alternate verb for one of these operations.
 
 |Verb|Parameters|Returns|Comments|
 |-|-|-|-|
@@ -192,7 +202,7 @@ specific_api_version_client = ExampleClient('https://contoso.com/xmpl',
 |`append_\<noun>`|item|item|Add item to a collection. Item will be added last. |
 |`add_\<noun>`|index, item|item|Add item to a collection. Item will be added at the given index. |
 |`get_\<noun>`|key|item|Raises an exception if item doesn't exist |
-|`list_\<noun>`||`azure.core.Pageable[Item]`|Return an iterable of `Item`s. Returns an iterable with no items if no items exist (doesn't return `None` or throw)|
+|`list_\<noun>`||`azure.core.ItemPaged[Item]`|Return an iterable of `Item`s. Returns an iterable with no items if no items exist (doesn't return `None` or throw)|
 |`\<noun>\_exists`|key|`bool`|Return `True` if the item exists. Must raise an exception if the method failed to determine if the item exists (for example, the service returned an HTTP 503 response)|
 |`delete_\<noun>`|key|`None`|Delete an existing item. Must succeed even if item didn't exist.|
 |`remove_\<noun>`|key|removed item or `None`|Remove a reference to an item from a collection. This method doesn't delete the actual item, only the reference.|
@@ -209,7 +219,7 @@ Methods that may take an indeterminate time to complete on the server are referr
 
 Requests to the service fall into two basic groups - methods that make a single logical request, or a deterministic sequence of requests. An example of a single logical request is a request that may be retried inside the operation. An example of a deterministic sequence of requests is a paged operation.
 
-The logical entity is a protocol neutral representation of a response. For HTTP, the logical entity may combine data from headers, body, and the status line. For example, you may wish to expose an `ETag` header as an `etag` attribute on the logical entity.
+The logical entity is a protocol neutral representation of a response. For HTTP, the logical entity may combine data from headers, body, and the status line. For example, you may wish to expose an `ETag` header as an `etag` attribute on the logical entity. For more information see [Model Types](#model-types).
 
 {% include requirement/MUST id="python-response-logical-entity" %} optimize for returning the logical entity for a given request. The logical entity MUST represent the information needed in the 99%+ case.
 
@@ -241,6 +251,9 @@ except azure.core.exceptions.ServiceResponseError as e:
 {% include requirement/MUST id="python-client-optional-arguments-keyword-only" %} provide optional operation-specific arguments as keyword only. See [positional and keyword-only arguments] for more information.
 
 {% include requirement/MUST id="python-client-service-per-call-args" %} provide keyword-only arguments that override per-request policy options. The name of the parameters MUST mirror the name of the arguments provided in the client constructor or factory methods.
+For a full list of supported optional arguments used for pipeline policy and transport configuration (both at the client constructor and per service operation), see the [Azure Core developer documentation](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/core/azure-core/CLIENT_LIBRARY_DEVELOPER.md).
+
+{% include requirement/MUST id="python-client-service-args-conflict" %} qualify a service parameter name if it conflicts with any of the documented pipeline policy or transport configuration options used with all service operations and client constructors.
 
 ```python
 # Set the default number of retries to 18 and timeout to 2s for this client instance.
@@ -360,11 +373,17 @@ for page_no, page in enumerate(client.list_things().by_page()):
     print(page_no, page)
 ```
 
+{% include requirement/MAY id="python-response-paged-results" %} expose a `results_per_page` keyword-only parameter where supported by the service (e.g. an odata `$top` query parameter).
+
+{% include requirement/SHOULDNOT id="python-response-paged-continuation" %} expose a continuation parameter in the service operation API - this is supported in the `by_page()` function.
+
+
 #### Methods invoking long running operations
 
-Service operations that take a long time (currently defined in the Microsoft REST API Guidelines as not completing in 0.5s in P99) to complete are modeled by services as long running operations. 
+Service operations that take a long time (currently defined in the Microsoft REST API Guidelines as not completing in 0.5s in P99) to complete are modeled by services as long running operations.
 
 Python client libraries abstracts the long running operation using the long running operation Poller protocol](#python-core-protocol-lro-poller).
+In cases where a service API is not explicitly implemented as a long-running operation, but the common usage pattern requires a customer to sleep or poll a status - it's likely that these API's should still be represented in the SDK using the Poller protocol.
 
 {% include requirement/MUST id="python-lro-poller" %} return an object that implements the [Poller protocol](#python-core-protocol-lro-poller) for long running operations.
 
@@ -372,7 +391,7 @@ Python client libraries abstracts the long running operation using the long runn
 
 #### Conditional requests
 
-{% include requirement/MUST id="python-method-conditional-request" %} add a keyword-only `match_condition` parameter for service methods that support conditional requests.
+{% include requirement/MUST id="python-method-conditional-request" %} add a keyword-only `match_condition` parameter for service methods that support conditional requests. The parameter should support the `azure.core.MatchConditions` type defined in `azure-core` as input.
 
 {% include requirement/MUST id="python-method-conditional-request" %} add a keyword-only `etag` parameter for service methods that support conditional requests. For service methods that take a model instance that has an `etag` property, the explicit `etag` value passed in overrides the value in the model instance.
 
@@ -424,7 +443,15 @@ Client libraries represent entities transferred to and from Azure services as mo
 
 Data within the model type can generally be split into two parts - data used to support one of the champion scenarios for the service, and less important data. Given a type `Foo`, the less important details can be gathered in a type called `FooDetails` and attached to `Foo` as the `details` attribute.
 
-In order to facilitate round-trip of responses (common in get resource -> conditionally modify resource -> set resource workflows) types should use the input model type (e.g. `ConfigurationSetting`) whenever possible. The `ConfigurationSetting` type should include both server generated (read-only) attributes even though they will be ignored when used as input to the set resource method.
+{% include requirement/MUST id="python-models-input-dict" %} support dicts as alternative inputs to model types.
+
+{% include requirement/MUST id="python-models-input-constructor" %} craft a constructor for models that are intended to be instantiated by a user (i.e. non-result types) with minimal required information and optional information as keyword-only arguments.
+
+{% include requirement/MAY id="python-models-generated" %} expose models from the generated layer by adding to the root `__init__.py` (and `__all__`) if they otherwise meet the guidelines.
+
+{% include requirement/DONOT id="python-models-async" %} duplicate models between the root and `aio` namespace. This means models should not use any syntax incompatible with Python 2.7 (e.g. type hint syntax).
+
+In order to facilitate round-trip of responses (common in get resource -> conditionally modify resource -> set resource workflows), output model types should use the input model type (e.g. `ConfigurationSetting`) whenever possible. The `ConfigurationSetting` type should include both server generated (read-only) attributes even though they will be ignored when used as input to the set resource method.
 
 - `<model>Item` for each item in an enumeration if the enumeration returns a partial schema for the model. For example, GetBlobs() return an enumeration of BlobItem, which contains the blob name and metadata, but not the content of the blob.
 - `<operation>Result` for the result of an operation. The `<operation>` is tied to a specific service operation. If the same result can be used for multiple operations, use a suitable noun-verb phrase instead. For example, use `UploadBlobResult` for the result from `UploadBlob`, but `ContainerChangeResult` for results from the various methods that change a blob container. 
@@ -585,6 +612,8 @@ from azure.storage.blob.aio import BlobServiceClient # Async client
 
 {% include requirement/MUST id="python-auth-credential-azure-core" %} use the credentials classes in `azure-core` whenever possible.
 
+{% include requirement/MUST id="python-auth-policy-azure-core" %} use authentication policy implementations in `azure-core` whenever possible.
+
 {% include requirement/MAY  id="python-auth-service-credentials" %} add additional credential types if required by the service. Contact the [Azure SDK Architecture Board](https://azure.github.io/azure-sdk/policies_reviewprocess.html) for guidance if you believe you have need to do so.
 
 {% include requirement/MUST id="python-auth-service-support" %} support all authentication methods that the service supports.
@@ -624,6 +653,16 @@ from azure.exampleservice.aio import ExampleServiceClient
 # No: Wrong namespace, wrong client name...
 from azure.exampleservice import AsyncExampleServiceClient
 ```
+
+#### Example Namespaces
+
+Here are some examples of namespaces that meet these guidelines:
+
+- `azure.storage.blob`
+- `azure.keyvault.certificates`
+- `azure.ai.textanalytics`
+- `azure.mgmt.servicebus`
+
 
 ## Azure SDK distribution packages
 
