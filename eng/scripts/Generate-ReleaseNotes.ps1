@@ -3,47 +3,37 @@ param (
   [string]$BaseBranchName
 )
 
+$PATTERN_REGEX = "^\[pattern(\.(?<SectionName>\w+))?\]:\s#\s\((?<Pattern>.*)\)"
+
 $releasePeriod = Get-Date -Format "yyyy-MM"
 Write-Host "##vso[task.setvariable variable=thisReleasePeriod]$releasePeriod"
+
 $workingDirectory = Get-Location
+Write-Host "Working Directory $workingDirectory"
+
 $repoPath = Join-Path $workingDirectory $RepositoryName
+if (!(Test-Path $repoPath))
+{
+  Write-Error "Path [ $repoPath ] not found."
+  exit 1
+}
+Write-Host "Repo Path $repoPath"
+
 $commonScriptsPath = (Join-Path $repoPath eng common scripts)
 $commonScript = (Join-Path $commonScriptsPath common.ps1)
+Write-Host "Common Script $commonScript"
+
+. $commonScript
+$CsvMetaData = Get-CSVMetadata
+
 $collectChangelogPath = (Join-Path $commonScriptsPath Collect-ChangeLogs.ps1)
-$releaseFilePath = (Join-Path $workingDirectory releases $releasePeriod "$Language.md")
+$releaseFilePath = (Join-Path $workingDirectory azure-sdk releases $releasePeriod "${Language}.md")
 
 if (!(Test-Path $releaseFilePath)) 
 {
-  $releaseFilePath = (Join-Path $workingDirectory releases $releasePeriod "$LanguageShort.md")
+  $releaseFilePath = (Join-Path $workingDirectory releases $releasePeriod "${LanguageShort}.md")
 }
-
-if (!(Test-Path $repoPath))
-{
-  LogError "Path [ $repoPath ] not found."
-  exit 1
-}
-
-if (!(Test-Path $commonScript))
-{
-  LogError "Path [ $commonScript ] not found."
-  exit 1
-}
-
-if (!(Test-Path $collectChangelogPath))
-{
-  LogError "Path [ $collectChangelogPath ] not found."
-  exit 1
-}
-
-if (!(Test-Path $releaseFilePath))
-{
-  LogError "Path [ $releaseFilePath ] not found."
-  exit 1
-}
-
-. $commonScript
-$PATTERN_REGEX = "^\[pattern(\.(?<SectionName>\w+))?\]:\s#\s\((?<Pattern>.*)\)"
-$CsvMetaData = Get-CSVMetadata
+Write-Host "Release File Path $releaseFilePath"
 
 function Get-PackagesInfoFromFile ($releaseNotesLocation) 
 {

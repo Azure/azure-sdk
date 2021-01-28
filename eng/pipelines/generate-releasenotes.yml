@@ -36,7 +36,7 @@ steps:
       displayName: 'Generate ReleaseNotes for the Release Period'
       inputs:
         pwsh: true
-        workingDirectory: $(System.DefaultWorkingDirectory)/azure-sdk
+        workingDirectory: $(System.DefaultWorkingDirectory)
         filePath: $(System.DefaultWorkingDirectory)/azure-sdk/eng/scripts/Generate-ReleaseNotes.ps1
         arguments: > 
           -RepositoryName ${{ repo }}
