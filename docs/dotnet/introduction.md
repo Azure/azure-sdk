@@ -370,7 +370,7 @@ Service methods fall into two main groups when it comes to the number and comple
 
 _Simple methods_ are methods that take up to six parameters, with most of the parameters being simple BCL primitives. _Complex methods_ are methods that take large number of parameters and typically correspond to REST APIs with complex request payloads.
 
-_Simple methods_ should follow standard [.NET Framework Design Guidelines](https:aka.ms/fxdg3/ch05.xhtml) for parameter list and overload design.
+_Simple methods_ should follow standard [.NET Framework Design Guidelines](https:aka.ms/fxdg3) for parameter list and overload design.
 
 _Complex methods_ should use _option parameter_ to represent the request payload, and consider providing convenience simple overloads for most common scenarios.
 
@@ -531,7 +531,7 @@ Some services support conditional requests that are used to implement optimistic
 ```csharp
 ```
 
-TODO: more guidelines comming. see https://github.com/Azure/azure-sdk/issues/2087
+TODO: more guidelines comming. see https://github.com/Azure/azure-sdk/issues/2154
 
 ##### Hierarchical Clients
 
@@ -601,7 +601,7 @@ Ensure you include an internal setter to allow for deserialization.  For more in
 
 {% include requirement/MUST id="dotnet-service-models-prefer-structs" %} ensure model types are structs, if they meet the criteria for being structs.
 
-Good candidates for struct are types that are small and immutable, especially if they are often stored in arrays. See [.NET Framework Design Guidelines](https://aka.ms/fxdg3/ch04.xhtml#sec4_2) for details.
+Good candidates for struct are types that are small and immutable, especially if they are often stored in arrays. See [.NET Framework Design Guidelines](https://aka.ms/fxdg3) for details.
 
 {% include requirement/SHOULD id="dotnet-service-models-basic-data-interfaces" %} implement basic data type interfaces on model types, per [.NET Framework Design Guidelines](https://aka.ms/fxdg3).
 
@@ -613,7 +613,7 @@ For example, implement `IEquatable<T>`, `IComparable<T>`, `IEnumerable<T>`, etc.
 - ```IReadOnlyDictionary<T>``` and ```IDictionary<T>``` for lookup tables
 - ```T[]```, ```Memory<T>```, and ```ReadOnlyMemory<T>``` when low allocations and performance are critical
 
-Note that this guidance does not apply to input parameters. Input parameters representing collections should follow standard [.NET Framework Design Guidelines](https://www.oreilly.com/library/view/framework-design-guidelines/9780135896457/ch05.xhtml#sec5_8), e.g. use ```IEnumerable<T>``` is allowed.
+Note that this guidance does not apply to input parameters. Input parameters representing collections should follow standard [.NET Framework Design Guidelines](https://aka.ms/fxdg3), e.g. use ```IEnumerable<T>``` is allowed.
 Also, this guidance does not apply to return types of service method calls. These should be using ```Pageable<T>``` and ```AsyncPageable<T>``` discussed in [Methods Returning Collections](#dotnet-paging).
 
 {% include requirement/MAY id="dotnet-service-models-namespace" %} place output model types in _.Models_ subnamespace to avoid cluttering the main namespace with too many types.
