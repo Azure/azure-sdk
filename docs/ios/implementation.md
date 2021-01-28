@@ -14,9 +14,13 @@ This section describes guidelines for implementing Azure SDK client libraries. P
 
 ### Service Client
 
+> TODO: Add introductory sentence.
+
 #### Service Methods
 
-##### Network requests
+> TODO: Add introductory sentence.
+
+##### Using the HTTP Pipeline
 
 The Azure SDK team has provided an `AzureCore` library that contains common mechanisms for cross cutting concerns such as configuration and doing HTTP requests.
 
@@ -24,7 +28,7 @@ The Azure SDK team has provided an `AzureCore` library that contains common mech
 
 The HTTP pipeline consists of a HTTP transport that is wrapped by multiple policies. Each policy is a control point during which the pipeline can modify either the request and/or response. We prescribe a default set of policies to standardize how client libraries interact with Azure services.  The order in the list is the most sensible order for implementation.
 
-{% include requirement/MUST id="ios-requests-implement-policies" %} implement the following policies in the HTTP pipeline:
+{% include requirement/MUST id="ios-requests-implement-policies" %} include the following policies provided by `AzureCore` when constructing the HTTP pipeline:
 
 - Telemetry
 - Unique Request ID
@@ -37,11 +41,15 @@ The HTTP pipeline consists of a HTTP transport that is wrapped by multiple polic
 
 ### Supporting Types
 
+> TODO: Add introductory sentence.
+
 #### Model Types
 
 > TODO
 
 ## SDK Feature Implementation
+
+> TODO: Add introductory sentence.
 
 ### Configuration
 
@@ -60,7 +68,9 @@ When configuring your client library, particular care must be taken to ensure th
 {% include requirement/MUSTNOT id="general-config-behaviour-changes" %} change behavior based on configuration changes that occur after the client is constructed. Hierarchies of clients inherit parent client configuration unless explicitly changed or overridden. Exceptions to this requirement are as follows:
 
 1. Log level, which must take effect immediately across the Azure SDK.
-2. Tracing on/off, which must take effect immediately across the Azure SDK.
+2. Telemetry on/off, which must take effect immediately across the Azure SDK.
+
+> TODO: Update these guidelines to specify exactly how to do these things in Swift
 
 #### Service-specific configuration
 
@@ -136,12 +146,11 @@ logger.writeLog(for: "MyClient", withLevel: AzureCoreLogLevels.Verbose, message:
 
 ### Distributed tracing
 
-Distributed tracing is not common within the mobile ecosystem, so we don't expect that consumers will implement distributed tracing within a mobile app.  However, the consumer should not be prevented from implementing distributed tracing if they so desire.
-
-> TODO: What would we need to do to enable distributed tracing?
+Distributed tracing is uncommon in a mobile context. If you feel like you need to support distributed tracing, contact the [Azure SDK mobile team](mailto:azuresdkmobileteam@microsoft.com) for advice.
 
 ### Testing
 
+> TODO: Document how to write good tests with the existing XCTest framework.
 > TODO: Say something about mocking of the requests and how to design for it.
 
 {% include refs.md %}
