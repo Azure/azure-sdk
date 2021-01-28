@@ -161,7 +161,7 @@ function Write-GeneralReleaseNote ($releaseHighlights, $releaseFilePath)
 }
 
 $presentPkgsInfo = Get-PackagesInfoFromFile -releaseNotesLocation $releaseFilePath
-$incomingReleaseHighlights = &$collectChangelogPath
+$incomingReleaseHighlights = &$collectChangelogPath -Month (Get-Date -Format "MM")
 
 foreach ($key in $incomingReleaseHighlights.Keys)
 {
