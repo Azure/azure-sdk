@@ -31,7 +31,7 @@ $releaseFilePath = (Join-Path $workingDirectory azure-sdk releases $releasePerio
 
 if (!(Test-Path $releaseFilePath)) 
 {
-  $releaseFilePath = (Join-Path $workingDirectory releases $releasePeriod "${LanguageShort}.md")
+  $releaseFilePath = (Join-Path $workingDirectory azure-sdk releases $releasePeriod "${LanguageShort}.md")
 }
 Write-Host "Release File Path $releaseFilePath"
 
@@ -161,7 +161,7 @@ function Write-GeneralReleaseNote ($releaseHighlights, $releaseFilePath)
 }
 
 $presentPkgsInfo = Get-PackagesInfoFromFile -releaseNotesLocation $releaseFilePath
-$incomingReleaseHighlights = &$collectChangelogPath
+$incomingReleaseHighlights = &$collectChangelogPath -Month (Get-Date -Format "MM")
 
 foreach ($key in $incomingReleaseHighlights.Keys)
 {
