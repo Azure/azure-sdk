@@ -35,6 +35,8 @@ if (!(Test-Path $releaseFilePath))
 }
 Write-Host "Release File Path $releaseFilePath"
 
+Write-Host "##vso[task.setvariable variable=repoShortName]$LanguageShort"
+
 function Get-PackagesInfoFromFile ($releaseNotesLocation) 
 {
     $releaseNotesContent = Get-Content -Path $releaseNotesLocation
