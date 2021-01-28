@@ -12,30 +12,30 @@ $commonScript = (Join-Path $commonScriptsPath common.ps1)
 $collectChangelogPath = (Join-Path $commonScriptsPath Collect-ChangeLogs.ps1)
 $releaseFilePath = (Join-Path $workingDirectory releases $releasePeriod "$Language.md")
 
-if (!Test-Path $releaseFilePath) 
+if (!(Test-Path $releaseFilePath)) 
 {
   $releaseFilePath = (Join-Path $workingDirectory releases $releasePeriod "$LanguageShort.md")
 }
 
-if (!Test-Path $repoPath)
+if (!(Test-Path $repoPath))
 {
   LogError "Path [ $repoPath ] not found."
   exit 1
 }
 
-if (!Test-Path $commonScript)
+if (!(Test-Path $commonScript))
 {
   LogError "Path [ $commonScript ] not found."
   exit 1
 }
 
-if (!Test-Path $collectChangelogPath)
+if (!(Test-Path $collectChangelogPath))
 {
   LogError "Path [ $collectChangelogPath ] not found."
   exit 1
 }
 
-if (!Test-Path $releaseFilePath)
+if (!(Test-Path $releaseFilePath))
 {
   LogError "Path [ $releaseFilePath ] not found."
   exit 1
