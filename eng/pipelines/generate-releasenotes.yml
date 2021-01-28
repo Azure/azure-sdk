@@ -42,12 +42,12 @@ steps:
           -RepositoryName ${{ repo }}
           -BaseBranchName ${{ parameters.BaseBranchName }}
 
-    - template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
-      parameters:
-        RepoName: azure-sdk
-        PRBranchName: CreateOrUpdateReleaseNotes
-        CommitMsg: "Create or Update Release Notes in ${{ repo }} for $(thisReleasePeriod) release"
-        PRTitle: "Create or Update Release Notes for ${{ repo }} for $(thisReleasePeriod) release"
-        PushArgs: -f
-        WorkingDirectory: $(System.DefaultWorkingDirectory)/azure-sdk
-        ScriptDirectory: $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts
+  - template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
+    parameters:
+      RepoName: azure-sdk
+      PRBranchName: CreateOrUpdateReleaseNotes
+      CommitMsg: "Create or Update Release Notes for $(thisReleasePeriod) release"
+      PRTitle: "Create or Update Release Notes for $(thisReleasePeriod) release"
+      PushArgs: -f
+      WorkingDirectory: $(System.DefaultWorkingDirectory)/azure-sdk
+      ScriptDirectory: $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts
