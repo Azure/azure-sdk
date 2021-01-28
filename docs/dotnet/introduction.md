@@ -977,7 +977,7 @@ description: Samples for the Azure.Data.AppConfiguration client library
 ---
 ```
 
-The `README.md` file should be written as a getting started guide. See [here](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/README.md) for a good example.
+The `README.md` file should be written as a getting started guide. See [the ServiceBus README](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/README.md) for a good example.
 
 {% include requirement/MUST id="dotnet-samples-readme-links" %} link to each of the samples files using a brief description as the link text.
 
