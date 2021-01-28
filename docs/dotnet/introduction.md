@@ -370,7 +370,7 @@ Service methods fall into two main groups when it comes to the number and comple
 
 _Simple methods_ are methods that take up to six parameters, with most of the parameters being simple BCL primitives. _Complex methods_ are methods that take large number of parameters and typically correspond to REST APIs with complex request payloads.
 
-_Simple methods_ should follow standard [.NET Framework Design Guidelines](https:aka.ms/fxdg3) for parameter list and overload design.
+_Simple methods_ should follow standard [.NET Framework Design Guidelines](https://aka.ms/fxdg3) for parameter list and overload design.
 
 _Complex methods_ should use _option parameter_ to represent the request payload, and consider providing convenience simple overloads for most common scenarios.
 
