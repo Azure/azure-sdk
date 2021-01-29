@@ -54,4 +54,4 @@ Show how you would accomplish these both in the old and new packages, pointing o
 
 ## Additional samples
 
-More examples can be found at [Samples for add package name here](Add link to samples here)
+More examples can be found at (Add link to samples here with link text Samples for new package name)
