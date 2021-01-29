@@ -34,7 +34,7 @@ Facilitating a swift transition of the SDKs' users to the new version being rele
 
 This covers the case when we upgrade and existing Azure SDK to the new SDKs standards. such release usually contains major modifications to the structure, interfaces and behavioral aspects of the existing SDKs. Such an update requires detailed and verbose porting guide to help the adopting users understand the benefits, changes and offerings of the new SDK version. The requirement here is to:
 
- {% include requirement/MUST %} Create a Migration guide for each language SDK.
+ {% include requirement/MUST %} Create a Migration guide for each language SDK. Use the [Migration guide template](migration-guide-template.md) as a reference.
 
  {% include requirement/MUST %} Include a "Benefits" section clearing explaining the advantages of migration to this version of the SDK.
 
