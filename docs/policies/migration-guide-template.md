@@ -1,28 +1,29 @@
-# Guide for migrating to [name of new package here] from [name of old package here] 
+# Guide for migrating to (name of new package here) from (name of old package here)
 
-This guide is intended to assist in the migration to [name of new package here] from [name of old package here]. It will focus on side-by-side comparisons for similar operations between the two packages.
+This guide is intended to assist in the migration to (name of new package here) from (name of old package here). It will focus on side-by-side comparisons for similar operations between the two packages.
 
-We assume that you are familiar with [name of old package here]. If not, please refer to the [README for name of new package here](add link to new package readme) rather than this guide.
+We assume that you are familiar with (name of old package here). If not, please refer to the README for (link to the new package here with package name as link text) rather than this guide.
 
 ## Table of contents
 
 ## Migration benefits
 
-As Azure has matured and been embraced by a more diverse group of developers, we have been focused on learning the patterns and practices to best support developer productivity and to understand the gaps that the [language here .NET/JavaScript/Python/Java] client libraries have.
+As Azure has matured and been embraced by a more diverse group of developers, we have been focused on learning the patterns and practices to best support developer productivity and to understand the gaps that the (language here .NET/JavaScript/Python/Java) client libraries have.
 
 There were several areas of consistent feedback expressed across the Azure client library ecosystem. One of the most important is that the client libraries for different Azure services have not had a consistent approach to organization, naming, and API structure. Additionally, many developers have felt that the learning curve was difficult, and the APIs did not offer a good, approachable, and consistent onboarding story for those learning Azure or exploring a specific Azure service.
 
-To improve the development experience across Azure services, a set of uniform [design guidelines](https://azure.github.io/azure-sdk/general_introduction.html) was created for all languages to drive a consistent experience with established API patterns for all services. A set of [add language here-specific guidelines](add link to language specific guidelines here) was also introduced to ensure that [add language here] clients have a natural and idiomatic feel with respect to the [add language here] ecosystem. The new [name of new package nere] follows these guidelines.
+To improve the development experience across Azure services, a set of uniform [design guidelines](https://azure.github.io/azure-sdk/general_introduction.html) was created for all languages to drive a consistent experience with established API patterns for all services. A set of (add link to language specific guidelines here with link text like Java guidelines) was also introduced to ensure that (add language here) clients have a natural and idiomatic feel with respect to the (add language here) ecosystem. The new (name of new package here) follows these guidelines.
 
 ### Cross Service SDK improvements
 
-The modern [add service name] client library also provides the ability to share in some of the cross-service improvements made to the Azure development experience, such as 
-- Using the new [Add the Identity package name here] library to share a single authentication approach between clients
+The modern (add service name) client library also provides the ability to share in some of the cross-service improvements made to the Azure development experience, such as
+
+- Using the new (Add the Identity package name here in your language) library to share a single authentication approach between clients
 - A unified logging and diagnostics pipeline offering a common view of the activities across each of the client libraries
-- (In case of JS) Use of promises rather than callbacks for a simplified programming experience
-- (In case of JS) Use of async iterators in paging APIs
-- (In case of Java) A unified asynchronous programming model using [Project Reactor](https://projectreactor.io/).
-- (In case of Java) A unified way of creating clients via builders.
+- (Add this line only for JS) Use of promises rather than callbacks for a simplified programming experience
+- (Add this line only for JS) Use of async iterators in paging APIs
+- (Add this line only for Java) A unified asynchronous programming model using [Project Reactor](https://projectreactor.io/).
+- (Add this line only for Java) A unified way of creating clients via builders.
 
 ### Performance improvements
 
@@ -44,7 +45,7 @@ In the case of Event Hubs, the modern client libraries have packages and namespa
 
 ### Client hierarchy and constructors
 
-If there has been no change (other than naming) in client hierarchy or entry level classes, skip "hierarchy" from the header, otherwise talk about why the client hierarchy was changed. Compare code snippets for the client constructors between the old and new packages, while pointing out differences and the reason behind them.
+If there has been no change other than naming) in client hierarchy or entry level classes, skip "hierarchy" from the header, otherwise talkabout why the client hierarchy was changed. Compare code snippets for the client constructors between the old and new packages, while pointing out differences and the reason behind them.
 
 ### Champion scenario 1
 
