@@ -1,6 +1,8 @@
 param (
   [string]$RepositoryName,
-  [string]$BaseBranchName
+  [string]$BaseBranchName,
+  [string]$PrBranchName,
+  [string]$AuthToken
 )
 
 $PATTERN_REGEX = "^\[pattern(\.(?<SectionName>\w+))?\]:\s#\s\((?<Pattern>.*)\)"
@@ -26,18 +28,47 @@ Write-Host "Common Script $commonScript"
 . $commonScript
 $CsvMetaData = Get-CSVMetadata
 
-$collectChangelogPath = (Join-Path $commonScriptsPath Collect-ChangeLogs.ps1)
-$releaseFilePath = (Join-Path $workingDirectory azure-sdk releases $releasePeriod "${Language}.md")
+# Check to see if there is an Open PR for releasenotes updates
+try {
+    $existingPrs = Get-GitHubPullRequests -RepoOwner "Azure" -RepoName "azure-sdk" `
+    -Head "azure-sdk:${PrBranchName}" -Base "refs/heads/${BaseBranchName}" -AuthToken $AuthToken
+}
+catch
+{
+    LogError "Get-GitHubPullRequests failed with exception:`n$_"
+    exit 1
+}
+
+# Get Content from appriopriate releasenotes files
+$releaseFileName = "${Language}.md"
+$releaseFilePath = (Join-Path $workingDirectory azure-sdk releases $releasePeriod $releaseFileName)
 
 if (!(Test-Path $releaseFilePath)) 
 {
-  $releaseFilePath = (Join-Path $workingDirectory azure-sdk releases $releasePeriod "${LanguageShort}.md")
+    $releaseFileName = "${LanguageShort}.md"
+    $releaseFilePath = (Join-Path $workingDirectory azure-sdk releases $releasePeriod $releaseFileName)
 }
-Write-Host "Release File Path $releaseFilePath"
+LogDebug "Release File Path [ $releaseFilePath ]"
+$existingReleaseContent = Get-Content $releaseFilePath
 
-function Get-PackagesInfoFromFile ($releaseNotesLocation) 
+# Overwrite with file content in the open PR if it exists
+if (($existingPrs.Count -eq 1) -and ($existingPrs.title.Contains($releasePeriod)))
 {
-    $releaseNotesContent = Get-Content -Path $releaseNotesLocation
+    $existingPrSHA = $existingPrs.head.sha
+    $prFilePath = "https://github.com/Azure/azure-sdk/raw/${existingPrSHA}/releases/${releasePeriod}/${releaseFileName}"
+    LogDebug "File Path from open PR: [ $prFilePath ]"
+    try {
+        $existingReleaseContent = (Invoke-WebRequest -URI $prFilePath).Content
+    }
+    catch {
+        LogError "Invoke-WebRequest failed with exception:`n$_"
+    }
+}
+
+$collectChangelogPath = (Join-Path $commonScriptsPath Collect-ChangeLogs.ps1)
+
+function Get-PackagesInfoFromFile ($releaseNotesContent) 
+{
     $checkLine = $False
     $presentPkgInfo = @()
 
@@ -97,13 +128,12 @@ function Filter-ReleaseHighlights ($releaseHighlights)
     return $results
 }
 
-function Write-GeneralReleaseNote ($releaseHighlights, $releaseFilePath)
+function Write-GeneralReleaseNote ($releaseHighlights, $releaseNotesContent, $releaseFilePath)
 {
-    $releaseContent = Get-Content $releaseFilePath
     $newReleaseContent = @()
     $writingPaused = $False
 
-    foreach ($line in $releaseContent)
+    foreach ($line in $releaseNotesContent)
     {
         if ($line -match $PATTERN_REGEX)
         {
@@ -164,7 +194,7 @@ function Write-GeneralReleaseNote ($releaseHighlights, $releaseFilePath)
     Set-Content -Path $releaseFilePath -Value $newReleaseContent
 }
 
-$presentPkgsInfo = Get-PackagesInfoFromFile -releaseNotesLocation $releaseFilePath
+$presentPkgsInfo = Get-PackagesInfoFromFile -releaseNotesContent $existingReleaseContent
 $incomingReleaseHighlights = &$collectChangelogPath -Month (Get-Date -Format "MM")
 
 foreach ($key in $incomingReleaseHighlights.Keys)
@@ -180,7 +210,8 @@ $incomingReleaseHighlights = Filter-ReleaseHighlights -releaseHighlights $incomi
 
 Write-GeneralReleaseNote `
 -releaseHighlights $incomingReleaseHighlights `
--releaseFilePath $releaseFilePath `
+-releaseNotesContent $existingReleaseContent `
+-releaseFilePath $releaseFilePath
 
 
 
