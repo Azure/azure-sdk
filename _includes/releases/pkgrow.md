@@ -19,8 +19,8 @@
     {% assign msdocs_url = item.MSDocs %}
     {% if item.MSDocs == "" %}
         {% assign msdocs_url = msdocs_url_template | replace: 'item.Package', item.Package | replace: 'item.TrimmedPackage', trimmedPackage %}
-        {% if item.VersionGA == "" and item.VersionPreview != "" %}
-            {% assign msdocs_url = msdocs_url | append: '-pre' %}
+        {% if item.VersionGA == "" and item.VersionPreview != "" and pre_suffix.size > 0 %}
+            {% assign msdocs_url = msdocs_url | append: pre_suffix %}
         {% endif %}
     {% endif %}
 
@@ -42,12 +42,18 @@
 
     {% if item.VersionGA != "" %}
         {% assign url = ghdocs_url | replace: 'item.Version', item.VersionGA %}
-        {% include releases/pkgbadge.md label="ghdocs" url=url version=item.VersionGA %}
+        {% if docs_label == undefined || docs_label == "" %}
+            {% assign docs_label = "ghdocs" %}
+        {% endif %}
+        {% include releases/pkgbadge.md label=docs_label url=url version=item.VersionGA %}
     {% endif %}
 
     {% if item.VersionPreview != "" %}
         {% assign url = ghdocs_url | replace: 'item.Version', item.VersionPreview %}
-        {% include releases/pkgbadge.md label="ghdocs" preview="true" url=url version=item.VersionPreview %}
+        {% if docs_label == undefined || docs_label == "" %}
+            {% assign docs_label = "ghdocs" %}
+        {% endif %}
+        {% include releases/pkgbadge.md label=docs_label preview="true" url=url version=item.VersionPreview %}
     {% endif %}
   </td>
   <td>

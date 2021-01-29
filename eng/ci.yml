@@ -7,7 +7,7 @@ resources:
       type: github
       name: Azure/azure-sdk-tools
       endpoint: azure
-      ref: refs/tags/azure-sdk-tools_20200904.1
+      ref: refs/tags/azure-sdk-tools_20210114.1
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -18,7 +18,7 @@ steps:
 
 - task: UseRubyVersion@0
   inputs:
-    versionSpec: '>= 2.4'
+    versionSpec: '2.7.2'
   displayName: Initialize Ruby
 
 - script: |
@@ -35,6 +35,14 @@ steps:
     bundle exec jekyll build --future
   displayName: Build Site
   workingDirectory: azure-sdk
+
+- task: PowerShell@2
+  displayName: Verify CSV data contents
+  inputs:
+    pwsh: true
+    workingDirectory: azure-sdk
+    filePath: azure-sdk/eng/scripts/Update-Release-Versions.ps1 
+    arguments: "check"
 
 - task: PowerShell@2
   displayName: Verify site links

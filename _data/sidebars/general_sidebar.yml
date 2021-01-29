@@ -44,14 +44,10 @@ entries:
                   external_url: https://azure.github.io/azure-sdk-for-net/storage.html#azurestoragequeues
   - title: Java Guidelines
     folderitems:
-      - title: Introduction
+      - title: Design
         url: /java_introduction.html
-      - title: API Design
-        url: /java_design.html
       - title: Implementation
         url: /java_implementation.html
-      - title: Documentation
-        url: /java_documentation.html
       - title: Spring Guidelines
         url: /java_spring.html 
         subfolders:
@@ -149,24 +145,30 @@ entries:
         url: /ios_documentation.html
   - title: C Guidelines
     folderitems:
-      - title: Introduction
-        url: /clang_introduction.html
-      - title: API Design
+      - title: Design
         url: /clang_design.html
       - title: Implementation
         url: /clang_implementation.html
-      - title: Documentation
-        url: /clang_documentation.html
+        subfolders:
+            - title: API Documentation
+              subfolderitems:
+                - title: az_iot
+                  external_url: https://azure.github.io/azure-sdk-for-c/iot.html#az_iot
   - title: C++ Guidelines
     folderitems:
-      - title: Introduction
+      - title: Design
         url: /cpp_introduction.html
-      - title: API Design
-        url: /cpp_design.html
       - title: Implementation
         url: /cpp_implementation.html
-      - title: Documentation
-        url: /cpp_documentation.html
+        subfolders:
+            - title: API Documentation
+              subfolderitems:
+                - title: azure-storage-blob
+                  external_url: https://azure.github.io/azure-sdk-for-cpp/storage.html#azure-storage-blob
+                - title: azure-storage-file-datalake
+                  external_url: https://azure.github.io/azure-sdk-for-cpp/storage.html#azure-storage-file-datalake
+                - title: azure-storage-file-share
+                  external_url: https://azure.github.io/azure-sdk-for-cpp/storage.html#azure-storage-file-shares
   - title: Go Guidelines
     folderitems:
       - title: Introduction

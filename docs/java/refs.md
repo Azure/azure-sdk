@@ -16,5 +16,4 @@
 [ConfigurationAsyncClient class]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/appconfiguration/azure-data-appconfiguration/src/main/java/com/azure/data/appconfiguration/ConfigurationAsyncClient.java
 
 <!-- Intra-document references -->
-[separate service clients]: java_design.html#the-java-api
-[Pagination]: java_design.html#pagination
+[Pagination]: java_introduction.html#pagination

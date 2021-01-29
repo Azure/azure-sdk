@@ -8,7 +8,7 @@
 
 [general-guidelines]: {{ site.baseurl }}{% link docs/general/introduction.md %}
 [android-guidelines]: {{ site.baseurl }}{% link docs/android/introduction.md %}
-[clang-guidelines]: {{ site.baseurl }}{% link docs/clang/introduction.md %}
+[clang-guidelines]: {{ site.baseurl }}{% link docs/clang/design.md %}
 [cpp-guidelines]: {{ site.baseurl }}{% link docs/cpp/introduction.md %}
 [dotnet-guidelines]: {{ site.baseurl }}{% link docs/dotnet/introduction.md %}
 [golang-guidelines]: {{ site.baseurl }}{% link docs/golang/introduction.md %}
@@ -19,6 +19,7 @@
 
 [android-latest-releases]: {{ site.baseurl }}{% link releases/latest/android.md %}
 [dotnet-latest-releases]: {{ site.baseurl }}{% link releases/latest/dotnet.md %}
+[go-latest-releases]: {{ site.baseurl }}{% link releases/latest/go.md %}
 [ios-latest-releases]: {{ site.baseurl }}{% link releases/latest/ios.md %}
 [java-latest-releases]: {{ site.baseurl }}{% link releases/latest/java.md %}
 [js-latest-releases]: {{ site.baseurl }}{% link releases/latest/js.md %}

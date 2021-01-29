@@ -1,11 +1,10 @@
 param (
   $language = "all",
-  $releaseFolder = "$PSScriptRoot\..\..\_data\releases\latest",
   $checkDocLinks = $true
 )
 Set-StrictMode -Version 3
 
-$releaseFolder = Resolve-Path $releaseFolder
+. (Join-Path $PSScriptRoot PackageList-Helpers.ps1)
 
 $azuresdkdocs = "https://azuresdkdocs.blob.core.windows.net/`$web"
 
@@ -53,8 +52,10 @@ function UpdateDocLinks($lang, $pkg, $skipIfNA = $false)
 
   $trimmedPackage = $pkg.Package -replace "@?azure[\.\-/]", ""
 
+  # this suffix addition will continue to exist for .NET ONLY until the same overview path is allowed to exist 
+  # across multiple monikers
   $suffix = ""
-  if (!$pkg.VersionGA -and $pkg.VersionPreview) { $suffix = "-pre" }
+  if (!$pkg.VersionGA -and $pkg.VersionPreview -and $lang -eq "dotnet") { $suffix = "-pre" }
 
   $msdocLink = "https://docs.microsoft.com/${lang}/api/overview/azure/${trimmedPackage}-readme${suffix}/"
   $msdocvalid = CheckLink $msdocLink $false 
@@ -64,13 +65,12 @@ function UpdateDocLinks($lang, $pkg, $skipIfNA = $false)
   }
   else {
     if ($pkg.MSDocs -eq "" -or $pkg.MSDocs -eq "NA") {
-      Write-Host "MSDoc link ($msdocLink) is not valid so marking as NA"
+      Write-Verbose "MSDoc link ($msdocLink) is not valid so marking as NA"
       $pkg.MSDocs = "NA"
     }
   }
   $ghformat = "{0}/{1}"
   if ($lang -eq "javascript") { $ghformat = "azure-${trimmedPackage}/{1}" }
-  elseif ($lang -eq "dotnet") { $ghformat = "{0}/{1}/api" }
 
   $ghlink = ""
   $ghLinkFormat = "$azuresdkdocs/${lang}/${ghformat}/index.html"
@@ -90,7 +90,7 @@ function UpdateDocLinks($lang, $pkg, $skipIfNA = $false)
   }
   else {
     if ($pkg.GHDocs -eq "" -or $pkg.GHDocs -eq "NA") {
-      Write-Host "GHDoc link ($ghlink) is not valid so marking as NA"
+      Write-Verbose "GHDoc link ($ghlink) is not valid so marking as NA"
       $pkg.GHDocs = "NA"
     }
   }
@@ -496,14 +496,58 @@ function Update-ios-Packages($packageList)
   }
 }
 
+function Check-go-links($pkg, $version) 
+{
+    $valid = $true;
+    if (!$pkg.RepoPath.StartsWith("http")) {
+      $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-go/tree/{0}/sdk/{1}" -f $version, $pkg.RepoPath))
+    }
+    $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-go/archive/{0}.zip" -f $version))
+    return $valid
+}
+function Update-go-Packages($packageList)
+{
+  foreach ($pkg in $packageList)
+  {
+    $version = GetVersionWebContent "go" $pkg.Package "latest-ga"
+    if ($null -eq $version) {
+      Write-Host "Skipping update for $($pkg.Package) as we don't have versiong info for it. "
+      continue;
+    }
+
+    if ($version -eq "") {
+      $pkg.VersionGA = ""
+    }
+    elseif (Check-go-links $pkg $version){
+      if ($pkg.VersionGA -ne $version) {
+        Write-Host "Updating VersionGA $($pkg.Package) from $($pkg.VersionGA) to $version"
+        $pkg.VersionGA = $version;
+      }
+    }
+    else {
+      Write-Warning "Not updating VersionGA for $($pkg.Package) because at least one associated URL is not valid!"
+    }
+
+    $version = GetVersionWebContent "go" $pkg.Package "latest-preview"
+    if ($version -eq "") {
+      $pkg.VersionPreview = ""
+    }
+    elseif (Check-go-links $pkg $version){
+      if ($pkg.VersionPreview -ne $version) {
+        Write-Host "Updating VersionPreview $($pkg.Package) from $($pkg.VersionPreview) to $version"
+        $pkg.VersionPreview = $version;
+      }
+    }
+    else {
+      Write-Warning "Not updating VersionPreview for $($pkg.Package) because at least one associated URL is not valid!"
+    }
+    UpdateDocLinks "go" $pkg
+  }
+}
+
 function OutputVersions($lang)
 {
-  $packagelistFile = Join-Path $releaseFolder "$lang-packages.csv"
-  $packageList = Get-Content $packagelistFile | ConvertFrom-Csv | Sort-Object Type, DisplayName, Package, GroupId, ServiceName
-
-  # Only update the unhidden new libraries
-  $clientPackages = $packageList | Where-Object { $_.Hide -ne "true" -and $_.New -eq "true" }
-  $otherPackages = $packageList | Where-Object { !($_.Hide -ne "true" -and $_.New -eq "true") }
+  $clientPackages, $otherPackages = Get-PackageListForLanguageSplit $lang
 
   $LangFunction = "Update-$lang-Packages"
   &$LangFunction $clientPackages
@@ -513,9 +557,7 @@ function OutputVersions($lang)
     UpdateDocLinks $lang $otherPackage -skipIfNA $true
   }
 
-  Write-Host "Writing $packagelistFile"
-  $packageList = $clientPackages + $otherPackages
-  $packageList | ConvertTo-CSV -NoTypeInformation -UseQuotes Always | Out-File $packagelistFile -encoding ascii
+  Set-PackageListForLanguage $lang ($clientPackages + $otherPackages)
 }
 
 function OutputAll($langs)
@@ -528,12 +570,12 @@ function OutputAll($langs)
 
 function CheckAll($langs)
 {
+  $foundIssues = $false
   $serviceNames = @()
   foreach ($lang in $langs) 
   {
-    $packagelistFile = Join-Path $releaseFolder "$lang-packages.csv"
-    $packageList = Get-Content $packagelistFile | ConvertFrom-Csv | Sort-Object Type, DisplayName, Package, GroupId, ServiceName
-    $clientPackages = $packageList | Where-Object { $_.New -eq "true" -and $_.Type }
+    $clientPackages, $_ = Get-PackageListForLanguageSplit $lang
+    $csvFile = Get-LangCsvFilePath $lang 
 
     foreach ($pkg in $clientPackages)
     {
@@ -543,19 +585,25 @@ function CheckAll($langs)
         PkgInfo = $pkg
       }
 
-      if ($pkg.RepoPath -and $pkg.RepoPath -eq "NA")
+      if (!$pkg.RepoPath -or $pkg.RepoPath -eq "NA")
       {
-        Write-Warning "[$lang] $($pkg.Package) RepoPath set to $($pkg.RepoPath)" 
+        Write-Warning "No RepoPath set for package '$($pkg.Package)' in $csvFile."
+        Write-Host "Please set it to the service directory name where it is located. (i.e. <repo>\sdk\*service-directory-name*)."
+        $foundIssues = $true
       }
 
       if (!$pkg.ServiceName)
       {
-        Write-Warning "No ServiceName for [$lang] $($pkg.Package)"
+        Write-Warning "No ServiceName for '$($pkg.Package)' in $csvFile."
+        Write-Host "Please set the value to match the display name for the service that is use to align all the similar packages across languages."
+        $foundIssues = $true
       }
 
       if (!$pkg.DisplayName)
       {
-        Write-Warning "No DisplayName for [$lang] $($pkg.Package)"
+        Write-Warning "No DisplayName for '$($pkg.Package)' in $csvFile."
+        Write-Host "Please set the value to match the display name for the package that is used to align all the similar packages across languages."
+        $foundIssues = $true
       }
     }
   }
@@ -563,27 +611,21 @@ function CheckAll($langs)
   $serviceGroups = $serviceNames | Sort-Object ServiceName | Group-Object ServiceName 
   Write-Host "Found $($serviceNames.Count) service name with $($serviceGroups.Count) unique names:"
 
-  $serviceGroups | Select-Object Name, @{Label="Langugages"; Expression={$_.Group.Lang | Sort-Object -Unique}}, Count, @{Label="Packages"; Expression={$_.Group.PkgInfo.Package}}
-}
+  $serviceGroups | Format-Table @{Label="Service Name"; Expression={$_.Name}}, @{Label="Langugages"; Expression={$_.Group.Lang | Sort-Object -Unique}}, Count, @{Label="Packages"; Expression={$_.Group.PkgInfo.Package}}
 
-$supportedLanguages = @(
-  "java", 
-  "js", 
-  "dotnet", 
-  "python", 
-  "c", 
-  "cpp"
-  #"ios",     - Doesn't have githubio version data so we cannot update
-  #"android"  - Doesn't have githubio version data so we cannot update
-  )
+  if ($foundIssues) {
+    Write-Error "Found one or more issues with data in the CSV files see the warnings above and fix as appropriate."
+    exit 1
+  }
+}
 
 if ($language -eq 'check') {
-  CheckAll $supportedLanguages
+  CheckAll $languageNameMapping.Keys
 }
 elseif ($language -eq 'all') {
-  OutputAll $supportedLanguages
+  OutputAll $languageNameMapping.Keys
 }
-elseif ($supportedLanguages -contains $language) {
+elseif ($languageNameMapping.ContainsKey($language)) {
     OutputVersions $language
 }
 else {
