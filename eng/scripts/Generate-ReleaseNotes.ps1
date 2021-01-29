@@ -91,7 +91,7 @@ function Filter-ReleaseHighlights ($releaseHighlights)
         {
             continue
         }
-        $releaseHighlights[$key]["DisplayName"] = $DisplayName
+        $releaseHighlights[$key]["DisplayName"] = $packageMetaData.DisplayName
         $results.Add($key, $releaseHighlights[$key])
     }
     return $results
@@ -133,7 +133,11 @@ function Write-GeneralReleaseNote ($releaseHighlights, $releaseFilePath)
                     $newReleaseContent += $lineValue
                 }
             }
-            $newReleaseContent += ""
+            if (![System.String]::IsNullOrEmpty($newReleaseContent[$newReleaseContent.Count - 1]))
+            {
+                $newReleaseContent += ""
+            }
+
             if ($writingPaused)
             {
                 $newReleaseContent += "```````n"
