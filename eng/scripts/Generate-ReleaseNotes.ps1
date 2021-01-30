@@ -130,8 +130,9 @@ function Filter-ReleaseHighlights ($releaseHighlights)
 
 function Write-GeneralReleaseNote ($releaseHighlights, $releaseNotesContent, $releaseFilePath)
 {
-    $newReleaseContent = @()
-    $writingPaused = $False
+    [System.Collections.ArrayList]$newReleaseContent = @()
+    $insertPosition = $null
+    $arrayToInsert = @()
 
     foreach ($line in $releaseNotesContent)
     {
@@ -160,36 +161,42 @@ function Write-GeneralReleaseNote ($releaseHighlights, $releaseNotesContent, $re
                 $lineValue = $ExecutionContext.InvokeCommand.ExpandString($pattern)
                 if ([System.String]::IsNullOrEmpty($sectionName) -or $packageSemVer.VersionType -eq $sectionName)
                 {
-                    $newReleaseContent += $lineValue
+                    if ($null -ne $insertPosition)
+                    {
+                        $arrayToInsert += $lineValue
+                    }
+                    else
+                    {
+                        $newReleaseContent += $lineValue
+                    }
                 }
             }
+
+            if ($null -ne $insertPosition -and $null -ne $arrayToInsert)
+            {
+                $arrayToInsert += ""
+                $newReleaseContent.Insert($insertPosition, $arrayToInsert)
+                $insertPosition = $null
+                $arrayToInsert = $null
+            }
+
             if (![System.String]::IsNullOrEmpty($newReleaseContent[$newReleaseContent.Count - 1]))
             {
                 $newReleaseContent += ""
             }
-
-            if ($writingPaused)
-            {
-                $newReleaseContent += "```````n"
-                $writingPaused = $False
-            }
         }
 
-        if (![System.String]::IsNullOrEmpty($line) -and $writingPaused)
+        if (($null -ne $insertPosition) -and (![System.String]::IsNullOrEmpty($line)))
         {
-            $newReleaseContent += "```````n"
-            $writingPaused = $False
+            $insertPosition = $null
         }
 
         if ($line -eq "``````")
         {
-            $writingPaused = $True
+            $insertPosition = $newReleaseContent.Count - 1
         }
 
-        if (!$writingPaused)
-        {
-            $newReleaseContent += $line
-        }
+        $newReleaseContent += $line
     }
     Set-Content -Path $releaseFilePath -Value $newReleaseContent
 }
