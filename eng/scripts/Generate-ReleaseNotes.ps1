@@ -1,7 +1,7 @@
 param (
   [string]$RepositoryName,
   [string]$BaseBranchName,
-  [string]$PrBranchName,
+  [string]$PrBranchBase,
   [string]$AuthToken
 )
 
@@ -31,7 +31,7 @@ $CsvMetaData = Get-CSVMetadata
 # Check to see if there is an Open PR for releasenotes updates
 try {
     $existingPrs = Get-GitHubPullRequests -RepoOwner "Azure" -RepoName "azure-sdk" `
-    -Head "azure-sdk:${PrBranchName}" -Base "refs/heads/${BaseBranchName}" -AuthToken $AuthToken
+    -Head "azure-sdk:${PrBranchBase}$releasePeriod" -Base "refs/heads/${BaseBranchName}" -AuthToken $AuthToken
 }
 catch
 {

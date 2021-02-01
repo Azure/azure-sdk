@@ -2,7 +2,7 @@ parameters:
 - name: BaseBranchName
   type: string
   default: $(Build.SourceBranchName)
-- name: PrBranchName
+- name: PrBranchBase
   type: string
   default: "CreateOrUpdateReleaseNotes"
 - name: Repos
@@ -45,13 +45,13 @@ steps:
         arguments: > 
           -RepositoryName ${{ repo }}
           -BaseBranchName ${{ parameters.BaseBranchName }}
-          -PrBranchName ${{ parameters.PrBranchName }}
+          -PrBranchBase ${{ parameters.PrBranchBase }}
           -AuthToken $(azuresdk-github-pat)
 
   - template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
     parameters:
       RepoName: azure-sdk
-      PRBranchName: ${{ parameters.PrBranchName }}
+      PRBranchName: ${{ parameters.PrBranchBase }}$(thisReleasePeriod)
       CommitMsg: "Create or Update Release Notes for $(thisReleasePeriod) release"
       PRTitle: "Create or Update Release Notes for $(thisReleasePeriod) release"
       PushArgs: -f
