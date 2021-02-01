@@ -10,6 +10,7 @@
 | `management`     | Control Plane (Azure Resource Manager)                                    |
 | `media`          | Audio, video, or mixed reality                                            |
 | `messaging`      | Messaging services, like push notifications or pub-sub                    |
+| `quantum`        | Quantum computing technologies                                            |
 | `search`         | Search technologies                                                       |
 | `security`       | Security and cryptography                                                 |
 | `storage`        | Storage of unstructured data                                              |
