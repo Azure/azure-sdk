@@ -7,6 +7,7 @@ repository: azure/azure-sdk-for-net
 ---
 
 <!--
+
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
 
