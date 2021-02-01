@@ -101,11 +101,11 @@ class CosmosUrl(object) ...
 
 Only the minimal information needed to connect and interact with the service should be required in order to construct a client instance. All additional information should be optional and passed in as optional keyword-only arguments.
 
-{% include requirement/MUSTNOT id="python-client-options-naming" %} use an "options bag" object to group optional parameters. Instead, pass as individual keyword-only arguments.
-
 ##### Client configuration
 
 {% include requirement/MUST id="python-client-constructor-form" %} provide a constructor that takes positional binding parameters (for example, the name of, or a URL pointing to the service instance), a positional `credential` parameter, a `transport` keyword-only parameter, and keyword-only arguments (emulated using `**kwargs` for Python 2.7 support) for passing settings through to individual HTTP pipeline policies. See the [Authentication](#authentication) section for more information on the `credential` parameter.
+
+{% include requirement/MUSTNOT id="python-client-options-naming" %} use an "options bag" object to group optional parameters. Instead, pass as individual keyword-only arguments.
 
 {% include requirement/MUST id="python-client-constructor-policy-arguments" %} accept optional default request options as keyword arguments and pass them along to its pipeline policies. See [Common service operation parameters](#common-service-operation-parameters) for more information.
 
@@ -119,7 +119,7 @@ client = ExampleClient('https://contoso.com/xmpl',
 
 {% include requirement/MUST id="python-client-constructor-transport-argument" %} allow users to pass in a `transport` keyword-only argument that allows the caller to specify a specific transport instance. The default value should be the [`RequestsTransport`](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/1.1.1/azure.core.pipeline.transport.html?highlight=transport#azure.core.pipeline.transport.RequestsTransport) for synchronous clients and the [`AioHttpTransport`](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/1.1.1/azure.core.pipeline.transport.html?highlight=transport#azure.core.pipeline.transport.AioHttpTransport) for async clients.
 
-{% include requirement/MUST id="python-client-connection-string" %} use a separate factory classmethod `from_connection_string` to create a client from a connection string (if the client supports connection strings). The `from_connection_string` factory method should take the same set of arguments (excluding information provided in the connection string) as the constructor. The constructor **must not** take a connection string, even if it means that using the `from_connection_string` is the only supported method to create an instance of the client.
+{% include requirement/MUST id="python-client-connection-string" %} use a separate factory classmethod `from_connection_string` to create a client from a connection string (if the client supports connection strings). The `from_connection_string` factory method should take the same set of arguments (excluding information provided in the connection string) as the constructor. The constructor (`__init__` method) **must not** take a connection string, even if it means that using the `from_connection_string` is the only supported method to create an instance of the client.
 
 The method **should** parse the connection string and pass the values along with any additional keyword-only arguments except `credential` to the constructor.  Only provide a `from_connection_string` factory method if the Azure portal exposes a connection string for your service.
 
@@ -139,7 +139,9 @@ class ExampleClientWithConnectionString(object):
 {% include_relative _includes/example_client.py %}
 ```
 
-#### Specifying the Service Version
+{% include requirement/MAY id="python-client-constructor-from-url" %} use a separate factory classmethod `from_<resource type>_url` (e.g. `from_blob_url`) to create a client from a url (if the service relies on passing URLs to resources around - e.g. azure blob storage). The `from_url` factory method should take the same set of optional keyword arguments as the constructor.
+
+##### Specifying the Service Version
 
 {% include requirement/MUST id="python-client-constructor-api-version-argument-1" %} accept an optional `api_version` keyword-only argument of type string. If specified, the provided api version MUST be used when interacting with the service. If the parameter is not provided, the default value MUST be the latest non-preview API version understood by the client library (if there the service has a non-preview version) or the latest preview API version understood by the client library (if the service does not have any non-preview API versions yet). This parameter MUST be available even if there is only one API version understood by the service in order to allow library developers lock down the API version they expect to interact with the service with.
 
@@ -158,13 +160,13 @@ specific_api_version_client = ExampleClient('https://contoso.com/xmpl',
 
 {% include requirement/MUST id="python-client-constructor-api-version-argument-2" %} document the service API version that is used by default.
 
-{% include requirement/MUST id="python-client-constructor-api-version-argument-3" %} document the service API version that a feature was introduced in where features are added in subsequent SDK releases targeting newer GA API versions.
+{% include requirement/MUST id="python-client-constructor-api-version-argument-3" %} document in which API version a feature (function or parameter) was introduced in if not all service API versions support it.
 
 {% include requirement/MAY id="python-client-constructor-api-version-argument-4" %} validate the input `api_version` value against a list of supported API versions.
 
 {% include requirement/MAY id="python-client-constructor-api-version-argument-5" %} include all service API versions that are supported by the client library in a `ServiceVersion` enumerated value.
 
-#### Additional constructor parameters
+##### Additional constructor parameters
 
 |Name|Description|
 |-|-|
@@ -173,13 +175,13 @@ specific_api_version_client = ExampleClient('https://contoso.com/xmpl',
 |`api_version`|API version to use when making service requests (See [Service Version](#specifying-the-service-version)) |
 |`transport`|Override the default HTTP transport (See [Client Configuration](#client-configuration))|
 
-#### Client immutability
+##### Client immutability
 
 {% include requirement/MUST id="python-client-immutable" %} design the client to be immutable. This does not mean that you need to use read-only properties (attributes are still acceptable), but rather that the there should not be any scenarios that require callers to change properties/attributes of the client.  
 
-### Service methods
+#### Service methods
 
-#### Naming
+##### Naming
 
 {% include requirement/SHOULD id="python-client-service-verbs" %} prefer the usage one of the preferred verbs for method names. You should have a good (articulated) reason to have an alternate verb for one of these operations.
 
@@ -200,13 +202,11 @@ specific_api_version_client = ExampleClient('https://contoso.com/xmpl',
 
 {% include requirement/MUST id="python-client-standardize-verbs" %} standardize verb prefixes outside the list of preferred verbs for a given service across language SDKs. If a verb is called `download` in one language, we should avoid naming it `fetch` in another.
 
-Methods that may take an indeterminate time to complete on the server are referred to as "long running operations". This generally maps back to long running service methods as defined in the [Microsoft REST API guidelines](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#13-long-running-operations).
+{% include requirement/MUST id="python-lro-prefix" %} prefix methods with `begin_` for [long running operations](#methods-invoking-long-running-operations).
 
-{% include requirement/MUST id="python-lro-prefix" %} prefix methods with `begin_` for [long running operations](#methods-invoking-long-running-operations). 
+{% include requirement/MUST id="python-paged-prefix" %} prefix methods with `list_` for methods that enumerate (lists) resources
 
-{% include requirement/MUST id="python-paged-prefix" %} prefix methods with `list_` for methods that lists instances. Do use a `list_` prefix even if the service API currently do not support server driven paging. This allows server driven paging to be added to the service API without introducing breaking changes in the client library.
-
-#### Return types
+##### Return types
 
 Requests to the service fall into two basic groups - methods that make a single logical request, or a deterministic sequence of requests. An example of a single logical request is a request that may be retried inside the operation. An example of a deterministic sequence of requests is a paged operation.
 
@@ -231,13 +231,48 @@ except azure.core.exceptions.ServiceResponseError as e:
     print(f'The request was made, but the service responded with an error. Status code: {e.status_code}')
 ```
 
-#### Cancellation
+Do not return `None` or a `boolean` to indicate errors:
+
+```python
+# Yes
+try:
+    resource = client.create_resource(name)
+except azure.core.errors.ResourceExistsException:
+    print('Failed - we need to fix this!')
+
+# No
+resource = client.create_resource(name):
+if not resource:
+    print('Failed - we need to fix this!')
+```
+
+{% include requirement/MUSTNOT id="python-errors-normal-responses" %} throw an exception for "normal responses".
+
+Consider an `exists` method. The method **must** distinguish between the service returned a client error 404/NotFound and a failure to even make a request:
+
+```python
+# Yes
+try:
+    exists = client.resource_exists(name):
+    if not exists:
+        print("The resource doesn't exist...")
+except azure.core.errors.ServiceRequestError:
+    print("We don't know if the resource exists - so it was appropriate to throw an exception!")
+
+# No
+try:
+    client.resource_exists(name)
+except azure.core.errors.ResourceNotFoundException:
+    print("The resource doesn't exist... but that shouldn't be an exceptional case for an 'exists' method")
+```
+
+##### Cancellation
 
 {% include requirement/MUST id="python-client-cancellation-sync-methods" %} provide an optional keyword argument `timeout` to allow callers to specify how long they are willing to wait for the method to complete. The `timeout` is in seconds, and should be honored to the best extent possible.
 
  {% include requirement/MUST id="python-client-cancellation-async-methods" %} use the standard [asyncio.Task.cancel](https://docs.python.org/3/library/asyncio-task.html#asyncio.Task.cancel) method to cancel async methods.
 
-### Service Method Parameters
+#### Service Method Parameters
 
 {% include requirement/MUST id="python-client-optional-arguments-keyword-only" %} provide optional operation-specific arguments as keyword only. See [positional and keyword-only arguments] for more information.
 
@@ -254,7 +289,7 @@ client = ExampleClient('https://contoso.com/xmpl', DefaultAzureCredential(), max
 client.do_stuff(timeout=32)
 ```
 
-#### Parameter validation
+##### Parameter validation
 
 The service client will have several methods that send requests to the service. **Service parameters** are directly passed across the wire to an Azure service. **Client parameters** aren't passed directly to the service, but used within the client library to fulfill the request. Parameters that are used to construct a URI, or a file to be uploaded are examples of client parameters.
 
@@ -286,7 +321,7 @@ except ValueError:
 
 {% include requirement/MUSTNOT id="python-params-service-validation" %} validate service parameters. Don't do null checks, empty string checks, or other common validating conditions on service parameters. Let the service validate all request parameters. 
 
-{% include requirement/MUST id="python-params-devex" %} validate the developer experience when the service parameters are invalid to ensure appropriate error messages are generated by the service. Work with the service team if the developer experience is compromised because of service-side error messages.
+{% include requirement/MUST id="python-params-devex" %} verify that the developer experience when the service parameters are invalid to ensure appropriate error messages are generated by the service. Work with the service team if the developer experience is compromised because of service-side error messages.
 
 ##### Common service operation parameters
 
@@ -296,7 +331,6 @@ except ValueError:
 |-|-|-|-|
 |`timeout`|Timeout in seconds|All service methods|
 |`headers`|Custom headers to include in the service request|All requests|Headers are added to all requests made (directly or indirectly) by the method.|
-|`continuation_token`|Opaque token indicating the first page to retrieve. Retrieved from a previous `Paged` return value.|`list` operations.|
 |`client_request_id`|Caller specified identification of the request.|Service operations for services that allow the client to send a client-generated correlation ID.|Examples of this include `x-ms-client-request-id` headers.|The client library **must** use this value if provided, or generate a unique value for each request when not specified.|
 |`response_hook`|`callable` that is called with (response, headers) for each operation.|All service methods|
 
@@ -366,8 +400,21 @@ for page_no, page in enumerate(client.list_things().by_page()):
 
 {% include requirement/MAY id="python-response-paged-results" %} expose a `results_per_page` keyword-only parameter where supported by the service (e.g. an OData `$top` query parameter).
 
-{% include requirement/SHOULDNOT id="python-response-paged-continuation" %} expose a continuation parameter in the service operation API - this is supported in the `by_page()` function.
+{% include requirement/SHOULDNOT id="python-response-paged-continuation" %} expose a continuation parameter in the `list_` client method - this is supported in the `by_page()` function.
 
+```python
+client = ExampleClient(...)
+
+# No - don't pass in the continuation token directly to the method...
+for thing in client.list_things(continuation_token='...'):
+    print(thing)
+
+# Yes - provide a continuation_token to in the `by_page` method...
+for page in client.list_things().by_page(continuation_token='...'):
+    print(page)
+```
+
+{% include requirement/MUST id="python-paged-non-server-paged-list" %} return a value that implements the [Paged protocol](#python-core-protocol-paged) even if the service API currently do not support server driven paging. This allows server driven paging to be added to the service API without introducing breaking changes in the client library.
 
 #### Methods invoking long running operations
 
@@ -380,7 +427,7 @@ In cases where a service API is not explicitly implemented as a long-running ope
 
 {% include requirement/MUST id="python-lro-poller" %} use a `begin_` prefix for all long running operations.
 
-#### Conditional requests
+#### Conditional request methods
 
 {% include requirement/MUST id="python-method-conditional-request" %} add a keyword-only `match_condition` parameter for service methods that support conditional requests. The parameter should support the `azure.core.MatchConditions` type defined in `azure-core` as input.
 
@@ -448,7 +495,6 @@ In order to facilitate round-trip of responses (common in get resource -> condit
 - `<operation>Result` for the result of an operation. The `<operation>` is tied to a specific service operation. If the same result can be used for multiple operations, use a suitable noun-verb phrase instead. For example, use `UploadBlobResult` for the result from `UploadBlob`, but `ContainerChangeResult` for results from the various methods that change a blob container. 
 
 {% include requirement/MUST id="python-models-dict-result" %} use a simple Mapping (e.g. `dict`) rather than creating a `<operation>Result` class if the `<operation>Result` class is not used as an input parameter for other APIs.
-
 
 The following table enumerates the various models you might create:
 
@@ -672,7 +718,7 @@ from azure.storage.blob.aio import BlobServiceClient # Async client
 
 {% include requirement/MUST id="python-general-pypi" %} publish both source distributions (`sdist`) and wheels to PyPI.
 
-{% include requirement/MUST id="python-general-wheel-behavior" %} test correct behavior for both CPython and PyPy for [pure](https://packaging.python.org/guides/distributing-packages-using-setuptools/#id75) and [universal](https://packaging.python.org/guides/distributing-packages-using-setuptools/#universal-wheels) Python wheels. 
+{% include requirement/MUST id="python-general-wheel-behavior" %} test correct behavior for both CPython and PyPy for [pure](https://packaging.python.org/guides/distributing-packages-using-setuptools/#id75) and [universal](https://packaging.python.org/guides/distributing-packages-using-setuptools/#universal-wheels) Python wheels.
 
 {% include requirement/MUST id="python-packaging-nspkg" %} depend on `azure-nspkg` for Python 2.x.
 
@@ -699,7 +745,7 @@ Let's take two examples:
 
 2. Two Cognitive Services client libraries have models (data classes) that are the same in shape, but has no or minimal logic associated with them. This is not a good candidate for a shared library. Instead, implement two separate classes.
 
-#### Versioning
+### Versioning
 
 {% include requirement/MUST id="python-versioning-semver" %} use [semantic versioning](https://semver.org) for your package.
 
@@ -723,7 +769,7 @@ Don't use pre-release segments other than the ones defined in [PEP440](https://w
 
 The bar to make a breaking change is extremely high for GA client libraries.  We may create a new package with a different name to avoid diamond dependency issues.
 
-#### Dependencies
+### Dependencies
 
 {% include requirement/MUST id="python-dependencies-approved-list" %} only pick external dependencies from the following list of well known packages for shared functionality:
 
@@ -739,7 +785,7 @@ When you vendor a dependency in Python, you include the source from another pack
 
 Only applications are expected to pin exact dependencies. Libraries are not. A library should use a [compatible release](https://www.python.org/dev/peps/pep-0440/#compatible-release) identifier for the dependency.
 
-#### Binary extensions (native code)
+### Binary extensions (native code)
 
 {% include requirement/MUST id="python-native-approval" %} seek approval by the [Architecture Board] before implementing a binary extension.
 

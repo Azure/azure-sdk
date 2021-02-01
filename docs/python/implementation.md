@@ -89,19 +89,19 @@ Some services may require custom policies to be implemented. For example, custom
 
 {% include requirement/MUST id="python-pipeline-policy-namespace" %} add the policies to the `azure.<package name>.pipeline.policies` namespace.
 
-#### Service Method Parameters
+#### Service Methods
 
-##### Validation
+##### Parameter validation
 
 {% include requirement/MUSTNOT id="python-client-parameter-validation" %} use `isinstance` to validate parameter value types other than for [built-in types](https://docs.python.org/3/library/stdtypes.html) (e.g. `str` etc). For other types, use [structural type checking].
 
-### Supporting types
+#### Supporting types
 
 {% include requirement/MUST id="python-models-repr" %} implement `__repr__` for model types. The representation **must** include the type name and any key properties (that is, properties that help identify the model instance).
 
 {% include requirement/MUST id="python-models-repr-length" %} truncate the output of `__repr__` after 1024 characters.
 
-#### Extensible enumerations
+##### Extensible enumerations
 
 Any Enums defined in the SDK should be interchangable with case-insensitive strings. This is achieved by using the `CaseInsensitiveEnumMeta` class defined in `azure-core`.
 
@@ -212,44 +212,7 @@ Any other keys that are used should be common across all client libraries for a 
 
 {% include requirement/MUST id="python-azurecore-http-telemetry-appid-length" %} enforce that the application ID is no more than 24 characters in length.  Shorter application IDs allows service teams to include diagnostic information in the "platform information" section of the user agent, while still allowing the consumer to obtain telemetry information for their own application.
 
-## Error handling
-
-{% include requirement/MUST id="python-errors-exceptions" %} raise an exception if a method fails to perform its intended functionality. Don't return `None` or a `boolean` to indicate errors.
-
-```python
-# Yes
-try:
-    resource = client.create_resource(name)
-except azure.core.errors.ResourceExistsException:
-    print('Failed - we need to fix this!')
-
-# No
-resource = client.create_resource(name):
-if not resource:
-    print('Failed - we need to fix this!')
-```
-
-{% include requirement/MUSTNOT id="python-errors-normal-responses" %} throw an exception for "normal responses".
-
-Consider an `exists` method. The method **must** distinguish between the service returned a client error 404/NotFound and a failure to even make a request:
-
-```python
-# Yes
-try:
-    exists = client.resource_exists(name):
-    if not exists:
-        print("The resource doesn't exist...")
-except azure.core.errors.ServiceRequestError:
-    print("We don't know if the resource exists - so it was appropriate to throw an exception!")
-
-# No
-try:
-    client.resource_exists(name)
-except azure.core.errors.ResourceNotFoundException:
-    print("The resource doesn't exist... but that shouldn't be an exceptional case for an 'exists' method")
-```
-
-### Testing
+## Testing
 
 {% include requirement/MUST id="python-testing-pytest" %} use [pytest](https://docs.pytest.org/en/latest/) as the test framework.
 
@@ -275,7 +238,7 @@ except azure.core.errors.ResourceNotFoundException:
 
 You don't need to check non-shipping code such as tests.
 
-## Azure Core
+## Making use of Azure Core
 
 The `azure-core` package provides common functionality for client libraries. Documentation and usage examples can be found in the [azure/azure-sdk-for-python] repository.
 
@@ -286,6 +249,8 @@ The HTTP pipeline is an HTTP transport that is wrapped by multiple policies. Eac
 For more information on the Python implementation of the pipeline, see the [documentation](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/core/azure-core).
 
 ### Protocols
+
+Many of the protocols mandated by the design guidelines have default implementations in `azure-core`.
 
 #### LROPoller
 
@@ -321,20 +286,20 @@ class LROPoller(Protocol):
 
 `azure.core.LROPoller` implements the `LROPoller` protocol.
 
-#### Paged
+#### ItemPaged
 
 ```python
 T = TypeVar("T")
 class ByPagePaged(Protocol, Iterable[Iterable[T]]):
     continuation_token: "str"
 
-class Paged(Protocol, Iterable[T]):
+class ItemPaged(Protocol, Iterable[T]):
     continuation_token: "str"
 
     def by_page(self) -> ByPagePaged[T] ...
 ```
 
-`azure.core.Paged` implements the `Paged` protocol.
+`azure.core.Paged` implements the `ItemPaged` protocol.
 
 #### DiagnosticsResponseHook
 
@@ -345,7 +310,7 @@ class ResponseHook(Protocol):
 
 ```
 
-## Code style
+## Python language and code style
 
 {% include requirement/MUST id="python-codestyle-pep8" %} follow the general guidelines in [PEP8](https://www.python.org/dev/peps/pep-0008/) unless explicitly overridden in this document.
 
@@ -356,6 +321,31 @@ For example, no matter how common Reactive programming is in the Java community,
 {% include requirement/MUST id="python-codestyle-consistency" %} favor consistency with other Python components over other libraries for the same service.
 
 It's more likely that a developer will use many different libraries using the same language than a developer will use the same service from many different languages.
+
+### Error handling
+
+{% include requirement/MUST id="python-errors-use-chaining" %} use exception chaining to include the original source of the error when catching and raising new exceptions.
+
+```python
+# Yes:
+try:
+    # do something 
+    something()
+except:
+    # __context__ will be set correctly
+    raise MyOwnErrorWithNoContext()
+
+# No:
+success = True
+try:
+    # do something
+    something()
+except:
+    success = False
+if not success:
+    # __context__ is lost...
+    raise MyOwnErrorWithNoContext()
+```
 
 ### Naming conventions
 
