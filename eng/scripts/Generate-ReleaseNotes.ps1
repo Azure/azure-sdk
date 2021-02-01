@@ -50,6 +50,7 @@ if (!(Test-Path $releaseFilePath))
 }
 LogDebug "Release File Path [ $releaseFilePath ]"
 $existingReleaseContent = Get-Content $releaseFilePath
+$isSubsequentRun = $false
 
 # Overwrite with file content in the open PR if it exists
 if (($existingPrs.Count -eq 1) -and ($existingPrs.title.Contains($releasePeriod)))
@@ -63,6 +64,7 @@ if (($existingPrs.Count -eq 1) -and ($existingPrs.title.Contains($releasePeriod)
     catch {
         LogError "Invoke-WebRequest failed with exception:`n$_"
     }
+    $isSubsequentRun = $true
 }
 
 $collectChangelogPath = (Join-Path $commonScriptsPath Collect-ChangeLogs.ps1)
@@ -167,14 +169,28 @@ function Write-GeneralReleaseNote ($releaseHighlights, $releaseNotesContent, $re
                     }
                     else
                     {
-                        $newReleaseContent += $lineValue
+                        if ($isSubsequentRun -and [System.String]::IsNullOrEmpty($newReleaseContent[$newReleaseContent.Count - 1]))
+                        {
+                            $newReleaseContent.Insert($newReleaseContent[$newReleaseContent.Count - 1], $lineValue)
+                        }
+                        else {
+                            $newReleaseContent += $lineValue
+                        }
+                        
                     }
                 }
             }
 
             if ($null -ne $insertPosition -and ($arrayToInsert.Count -gt 0))
             {
-                $newReleaseContent.Insert($insertPosition, $arrayToInsert)
+                if ($isSubsequentRun -and [System.String]::IsNullOrEmpty($newReleaseContent[$insertPosition - 1]))
+                {
+                    $newReleaseContent.Insert($insertPosition - 1, $arrayToInsert)
+                }
+                else 
+                {
+                    $newReleaseContent.Insert($insertPosition, $arrayToInsert)
+                }
                 $insertPosition = $null
                 $arrayToInsert = $null
             }
