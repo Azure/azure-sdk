@@ -52,6 +52,8 @@ LogDebug "Release File Path [ $releaseFilePath ]"
 $existingReleaseContent = Get-Content $releaseFilePath
 $isSubsequentRun = $false
 
+$pathToDateOfLatestUpdates = (Join-Path $workingDirectory azure-sdk releases dateoflastupdate.txt)
+
 # Overwrite with file content in the open PR if it exists
 if (($existingPrs.Count -eq 1) -and ($existingPrs.title.Contains($releasePeriod)))
 {
@@ -217,7 +219,9 @@ function Write-GeneralReleaseNote ($releaseHighlights, $releaseNotesContent, $re
 }
 
 $presentPkgsInfo = Get-PackagesInfoFromFile -releaseNotesContent $existingReleaseContent
-$incomingReleaseHighlights = &$collectChangelogPath -Month (Get-Date -Format "MM")
+$dateOfLatestUpdates = Get-Content -Path $pathToDateOfLatestUpdates
+
+$incomingReleaseHighlights = &$collectChangelogPath -FromDate $dateOfLatestUpdates
 
 foreach ($key in $incomingReleaseHighlights.Keys)
 {
@@ -234,6 +238,8 @@ Write-GeneralReleaseNote `
 -releaseHighlights $incomingReleaseHighlights `
 -releaseNotesContent $existingReleaseContent `
 -releaseFilePath $releaseFilePath
+
+Set-Content -Path $pathToDateOfLatestUpdates -Value (Get-Date -Format "yyyy-MM-dd")
 
 
 
