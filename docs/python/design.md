@@ -139,7 +139,7 @@ class ExampleClientWithConnectionString(object):
 {% include_relative _includes/example_client.py %}
 ```
 
-{% include requirement/MAY id="python-client-constructor-from-url" %} use a separate factory classmethod `from_<resource type>_url` (e.g. `from_blob_url`) to create a client from a url (if the service relies on passing URLs to resources around - e.g. azure blob storage). The `from_url` factory method should take the same set of optional keyword arguments as the constructor.
+{% include requirement/MAY id="python-client-constructor-from-url" %} use a separate factory classmethod `from_<resource type>_url` (e.g. `from_blob_url`) to create a client from a URL (if the service relies on passing URLs to resources around - e.g. Azure Blob Storage). The `from_url` factory method should take the same set of optional keyword arguments as the constructor.
 
 ##### Specifying the Service Version
 
