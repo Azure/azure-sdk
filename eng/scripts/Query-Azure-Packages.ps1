@@ -114,7 +114,7 @@ function Write-Latest-Versions($lang)
 
   foreach ($pkg in $packages)
   {
-    $pkgEntries = $packageList.Where({ PackageEqual $_ $pkg })
+    $pkgEntries = $packageList.Where({ $_.Hide -ne "true" -and (PackageEqual $_ $pkg) })
 
     if ($pkgEntries.Count -eq 0) {
       # Add package
@@ -146,7 +146,7 @@ function Write-Latest-Versions($lang)
     $pkgEntries = $packages.Where({ PackageEqual $_ $pkg })
 
     if ($pkgEntries.Count -ne 1) {
-      Write-Host "Found package $($pkg.Package) in the CSV which could be removed"
+      Write-Verbose "Found package $($pkg.Package) in the CSV which could be removed"
     }
   }
 

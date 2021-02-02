@@ -711,7 +711,7 @@ function UpdatePackageVersions($pkgWorkItem, $plannedVersions, $shippedVersions)
     }
   }
 
-  foreach ($version in $plannedVersionSet.Keys)
+  foreach ($version in $plannedVersionSet.Keys.Clone())
   {
     if (!$versionSet.ContainsKey($version))
     {
