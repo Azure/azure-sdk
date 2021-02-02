@@ -143,7 +143,7 @@ class ExampleClientWithConnectionString(object):
 
 ##### Specifying the Service Version
 
-{% include requirement/MUST id="python-client-constructor-api-version-argument-1" %} accept an optional `api_version` keyword-only argument of type string. If specified, the provided api version MUST be used when interacting with the service. If the parameter is not provided, the default value MUST be the latest non-preview API version understood by the client library (if there the service has a non-preview version) or the latest preview API version understood by the client library (if the service does not have any non-preview API versions yet). This parameter MUST be available even if there is only one API version understood by the service in order to allow library developers lock down the API version they expect to interact with the service with.
+{% include requirement/MUST id="python-client-constructor-api-version-argument-1" %} accept an optional `api_version` keyword-only argument of type string. If specified, the provided api version MUST be used when interacting with the service. If the parameter is not provided, the default value MUST be the latest non-preview API version understood by the client library (if there the service has a non-preview version) or the latest preview API version understood by the client library (if the service does not have any non-preview API versions yet). This parameter MUST be available even if there is only one API version understood by the service in order to allow library developers to lock down the API version they expect to interact with the service with.
 
 ```python
 from azure.identity import DefaultAzureCredential
