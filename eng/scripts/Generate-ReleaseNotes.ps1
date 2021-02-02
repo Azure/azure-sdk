@@ -1,74 +1,45 @@
 param (
-  [string]$RepositoryName,
-  [string]$BaseBranchName,
-  [string]$PrBranchBase,
-  [string]$AuthToken
+  [string]$releasePeriod,
+  [string]$languageRepoDirectory,
+  [string]$releaseDirectory
 )
 
 $PATTERN_REGEX = "^\[pattern(\.(?<SectionName>\w+))?\]:\s#\s\((?<Pattern>.*)\)"
 
-$releasePeriod = Get-Date -Format "yyyy-MM"
-Write-Host "##vso[task.setvariable variable=thisReleasePeriod]$releasePeriod"
-
-$workingDirectory = Get-Location
-Write-Host "Working Directory $workingDirectory"
-
-$repoPath = Join-Path $workingDirectory $RepositoryName
-if (!(Test-Path $repoPath))
+if (!(Test-Path $LanguageRepoDirectory))
 {
-  Write-Error "Path [ $repoPath ] not found."
+  Write-Error "Path [ $LanguageRepoDirectory ] not found."
   exit 1
 }
-Write-Host "Repo Path $repoPath"
+Write-Host "Repo Path $LanguageRepoDirectory"
 
-$commonScriptsPath = (Join-Path $repoPath eng common scripts)
+$commonScriptsPath = (Join-Path $LanguageRepoDirectory eng common scripts)
 $commonScript = (Join-Path $commonScriptsPath common.ps1)
 Write-Host "Common Script $commonScript"
 
 . $commonScript
 $CsvMetaData = Get-CSVMetadata
 
-# Check to see if there is an Open PR for releasenotes updates
-try {
-    $existingPrs = Get-GitHubPullRequests -RepoOwner "Azure" -RepoName "azure-sdk" `
-    -Head "azure-sdk:${PrBranchBase}$releasePeriod" -Base "refs/heads/${BaseBranchName}" -AuthToken $AuthToken
-}
-catch
-{
-    LogError "Get-GitHubPullRequests failed with exception:`n$_"
-    exit 1
-}
-
-# Get Content from appriopriate releasenotes files
 $releaseFileName = "${Language}.md"
-$releaseFilePath = (Join-Path $workingDirectory azure-sdk releases $releasePeriod $releaseFileName)
+$releaseFilePath = (Join-Path $ReleaseDirectory $releasePeriod $releaseFileName)
 
 if (!(Test-Path $releaseFilePath)) 
 {
     $releaseFileName = "${LanguageShort}.md"
-    $releaseFilePath = (Join-Path $workingDirectory azure-sdk releases $releasePeriod $releaseFileName)
+    $releaseFilePath = (Join-Path $ReleaseDirectory $releasePeriod $releaseFileName)
 }
+
+if (!(Test-Path $releaseFilePath))
+{
+    LogError "Could not find release file for $Language at [ $releaseFilePath ]."
+    exit 1
+}
+
 LogDebug "Release File Path [ $releaseFilePath ]"
 $existingReleaseContent = Get-Content $releaseFilePath
-$isSubsequentRun = $false
 
-$pathToDateOfLatestUpdates = (Join-Path $workingDirectory azure-sdk releases dateoflastupdate.txt)
 
-# Overwrite with file content in the open PR if it exists
-if (($existingPrs.Count -eq 1) -and ($existingPrs.title.Contains($releasePeriod)))
-{
-    $existingPrSHA = $existingPrs.head.sha
-    $prFilePath = "https://github.com/Azure/azure-sdk/raw/${existingPrSHA}/releases/${releasePeriod}/${releaseFileName}"
-    LogDebug "File Path from open PR: [ $prFilePath ]"
-    try {
-        $existingReleaseContent = (Invoke-WebRequest -URI $prFilePath).Content
-    }
-    catch {
-        LogError "Invoke-WebRequest failed with exception:`n$_"
-    }
-    $isSubsequentRun = $true
-}
-
+$pathToDateOfLatestUpdates = (Join-Path $ReleaseDirectory dateoflastupdate.txt)
 $collectChangelogPath = (Join-Path $commonScriptsPath Collect-ChangeLogs.ps1)
 
 function Get-PackagesInfoFromFile ($releaseNotesContent) 
@@ -145,6 +116,12 @@ function Write-GeneralReleaseNote ($releaseHighlights, $releaseNotesContent, $re
             $sectionName = $matches["SectionName"]
             $pattern = $matches["Pattern"]
 
+            if ($newReleaseContent.Count -gt 0 -and 
+                [System.String]::IsNullOrEmpty($newReleaseContent[$newReleaseContent.Count - 1]))
+            {
+                $newReleaseContent.RemoveAt($newReleaseContent.Count - 1)
+            }
+
             foreach ($key in $releaseHighlights.Keys)
             {
                 $pkgInfo = $key.Split(":")
@@ -171,28 +148,14 @@ function Write-GeneralReleaseNote ($releaseHighlights, $releaseNotesContent, $re
                     }
                     else
                     {
-                        if ($isSubsequentRun -and [System.String]::IsNullOrEmpty($newReleaseContent[$newReleaseContent.Count - 1]))
-                        {
-                            $newReleaseContent.Insert($newReleaseContent[$newReleaseContent.Count - 1], $lineValue)
-                        }
-                        else {
-                            $newReleaseContent += $lineValue
-                        }
-                        
+                        $newReleaseContent += $lineValue
                     }
                 }
             }
 
             if ($null -ne $insertPosition -and ($arrayToInsert.Count -gt 0))
             {
-                if ($isSubsequentRun -and [System.String]::IsNullOrEmpty($newReleaseContent[$insertPosition - 1]))
-                {
-                    $newReleaseContent.Insert($insertPosition - 1, $arrayToInsert)
-                }
-                else 
-                {
-                    $newReleaseContent.Insert($insertPosition, $arrayToInsert)
-                }
+                $newReleaseContent.Insert($insertPosition, $arrayToInsert)
                 $insertPosition = $null
                 $arrayToInsert = $null
             }
@@ -219,7 +182,7 @@ function Write-GeneralReleaseNote ($releaseHighlights, $releaseNotesContent, $re
 }
 
 $presentPkgsInfo = Get-PackagesInfoFromFile -releaseNotesContent $existingReleaseContent
-$dateOfLatestUpdates = Get-Content -Path $pathToDateOfLatestUpdates
+$dateOfLatestUpdates = Get-Content -Path $pathToDateOfLatestUpdates -Raw
 
 $incomingReleaseHighlights = &$collectChangelogPath -FromDate $dateOfLatestUpdates
 
@@ -239,9 +202,4 @@ Write-GeneralReleaseNote `
 -releaseNotesContent $existingReleaseContent `
 -releaseFilePath $releaseFilePath
 
-Set-Content -Path $pathToDateOfLatestUpdates -Value (Get-Date -Format "yyyy-MM-dd")
-
-
-
-
-
+Set-Content -Path $pathToDateOfLatestUpdates -Value (Get-Date -Format "yyyy-MM-dd") -NoNewline

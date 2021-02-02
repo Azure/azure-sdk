@@ -31,6 +31,17 @@ steps:
   - checkout: self
   - checkout: azure-sdk-tools
 
+  - pwsh: |
+      $ErrorActionPreference = "Continue"
+      $releasePeriod = Get-Date -Format "yyyy-MM"
+      Write-Host "##vso[task.setvariable variable=ReleasePeriod]$releasePeriod"
+
+      git checkout "origin/${FullPrBranchName}" 2>&1 | Out-Null
+      $LASTEXITCODE = 0 # This ignores any error from git checkout
+      git status
+    displayName: Checkout Previous PRBranch if it exist.
+    workingDirectory: $(System.DefaultWorkingDirectory)/azure-sdk
+
   - ${{ each repo in parameters.Repos }}:
     - pwsh: |
         git clone --branch ${{ parameters.BaseBranchName }} "https://github.com/azure/${{ repo }}"
@@ -43,17 +54,16 @@ steps:
         workingDirectory: $(System.DefaultWorkingDirectory)
         filePath: $(System.DefaultWorkingDirectory)/azure-sdk/eng/scripts/Generate-ReleaseNotes.ps1
         arguments: > 
-          -RepositoryName ${{ repo }}
-          -BaseBranchName ${{ parameters.BaseBranchName }}
-          -PrBranchBase ${{ parameters.PrBranchBase }}
-          -AuthToken $(azuresdk-github-pat)
+          -releasePeriod $(ReleasePeriod)
+          -languageRepoDirectory $(System.DefaultWorkingDirectory)/${{ repo }}
+          -releaseDirectory $(System.DefaultWorkingDirectory)/azure-sdk/releases
 
   - template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
     parameters:
       RepoName: azure-sdk
-      PRBranchName: ${{ parameters.PrBranchBase }}$(thisReleasePeriod)
-      CommitMsg: "Create or Update Release Notes for $(thisReleasePeriod) release"
-      PRTitle: "Create or Update Release Notes for $(thisReleasePeriod) release"
-      PushArgs: -f
+      PROwner: Azure
+      PRBranchName: '${{ parameters.PrBranchBase }}_$(ReleasePeriod)'
+      CommitMsg: "Create or Update Release Notes for $(ReleasePeriod) release"
+      PRTitle: "Create or Update Release Notes for $(ReleasePeriod) release"
       WorkingDirectory: $(System.DefaultWorkingDirectory)/azure-sdk
       ScriptDirectory: $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts
