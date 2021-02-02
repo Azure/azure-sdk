@@ -7,6 +7,7 @@ repository: azure/azure-sdk-for-net
 ---
 
 <!--
+
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
 
@@ -47,3 +48,4 @@ If you have a bug or feature request for one of the libraries, please [file an i
 View all the latest versions of .NET packages [here][dotnet-latest-releases].
 
 {% include refs.md %}
+
