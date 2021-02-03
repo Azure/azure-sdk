@@ -124,8 +124,11 @@ function Write-Latest-Versions($lang)
     }
 
     if ($pkgEntries.Count -eq 0) {
-      # Add package
-      $packageList += $pkg
+      # alpha packages are not yet fully supported versions so skip adding them to the list yet.
+      if ($pkg.VersionPreview -notmatch "-alpha") {
+        # Add new package
+        $packageList += $pkg
+      }
     } 
     elseif ($pkgEntries.Count -gt 1) {
       Write-Error "Found $($pkgEntries.Count) package entries for $($pkg.Package + $pkg.GroupId)"
