@@ -356,7 +356,51 @@ TODO: Add sample
 
 ### Errors
 
-> TODO: Error handling (see general guidelines)
+Error handling is an important aspect of implementing a client library. It is the primary method by which problems are communicated to the consumer. There are two methods by which errors are reported to the consumer. Either the method throws an exception, or the method returns an error code (or value) as its return value, which the consumer must then check. In this section we refer to "producing an error" to mean returning an error value or throwing an exception, and "an error" to be the error value or exception object.
+
+{% include requirement/SHOULD id="android-errors-prefer-exceptions" %} prefer the use of exceptions over returning an error value when producing an error.
+
+{% include requirement/MUST id="android-errors-for-failed-request" %} produce an error when any HTTP request fails with an HTTP status code that is not defined by the service/Swagger as a successful status code. These errors should also be logged as errors.
+
+{% include requirement/MUST id="android-errors-use-unchecked-exceptions" %} use unchecked exceptions for HTTP requests. Java offers checked and unchecked exceptions, where checked exceptions force the user to introduce verbose `try .. catch` code blocks and handle each specified exception. Unchecked exceptions avoid verbosity and improve scalability issues inherent with checked exceptions in large apps.
+
+{% include requirement/MUST id="android-errors-contents" %} ensure that the error produced contains the HTTP response (including status code and headers) and originating request (including URL, query parameters, and headers).
+
+In the case of a higher-level method that produces multiple HTTP requests, either the last exception or an aggregate exception of all failures should be produced.
+
+{% include requirement/MUST id="android-errors-rich-info" %} ensure that if the service returns rich error information (via the response headers or body), the rich information must be available via the error produced in service-specific properties/fields.
+
+{% include requirement/MUSTNOT id="android-errors-no-new-types" %} create a new error type when a language-specific error type will suffice. Use system-provided error types for validation.
+
+{% include requirement/MUST id="android-errors-standard-types" %} use the following standard Java exceptions for pre-condition checking:
+
+| Exception                       | When to use                                                    |
+|---------------------------------|----------------------------------------------------------------|
+| `IllegalArgumentException`      | When a method argument is non-null, but inappropriate          |
+| `IllegalStateException`         | When the object state means method invocation can't continue   |
+| `NullPointerException`          | When a method argument is `null` and `null` is unexpected      |
+| `UnsupportedOperationException` | When an object doesn't support method invocation               |
+
+{% include requirement/MUST id="android-errors-documentation" %} document the errors that are produced by each method (with the exception of commonly thrown errors that are generally not documented in the target language).
+
+{% include requirement/MUST id="android-errors-javadoc" %} specify all checked and unchecked exceptions thrown in a method within the JavaDoc documentation on the method as `@throws` statements.
+
+{% include requirement/MUST id="android-errors-exception-tree" %} use the existing exception types present in the Azure core library for common failures related to sending requests to and receiving responses from the service. The following list outlines all available exception types (with indentation indicating exception type hierarchy):
+
+- `AzureException`: Never use directly. Throw a more specific subtype.
+  - `ReadTimeoutException`: Thrown when the server didn't send any data in the allotted amount of time.
+  - `ConnectException`: Thrown by the pipeline if a connection to a service fails or is refused remotely.
+  - `HttpRequestException`: Thrown when the HTTP status code (4xx, 5xx) indicates the request was unable to be processed by the service.
+    - `ServerException`: Thrown when there's a server error with status code of 5XX.
+    - `TooManyRedirectsException`: Thrown when an HTTP request has reached the maximum number of redirect attempts.
+  - `HttpResponseException`: Thrown when the request was sent to the service, but the client library wasn't able to understand the response.
+    - `DecodeException`: Thrown when there's an error during response deserialization.
+    - `ClientAuthenticationException`: Thrown when there's an invalid client request with status code of 4XX.
+    - `ResourceExistsException`: Thrown when an HTTP request tried to create an already existing resource.
+    - `ResourceModifiedException`: Thrown for invalid resource modification with status code of 4XX, typically 412 Conflict.
+    - `ResourceNotFoundException`: Thrown when a resource is not found, typically triggered by a 412 response (for PUT) or 404 (for GET/POST).
+
+{% include requirement/MAY id="android-errors-client-exception" %} provide a single exception type that inherits from `HttpResponseException` (or `AzureException` for non-HTTP services) to represent service-specific errors.
 
 > TBD: 
 > * Hook in to HockeyApp
@@ -400,6 +444,8 @@ When implementing authentication, don't open up the consumer to security holes l
 {% include requirement/MUSTNOT id="android-auth-no-token-persistence" %} persist, cache, or reuse security credentials. Security credentials should be considered short lived to cover both security concerns and credential refresh situations.
 
 If your service implements a non-standard credential system (that is, a credential system that is not supported by Azure Core), then you need to produce an authentication policy for the HTTP pipeline that can authenticate requests given the alternative credential types provided by the client library.
+
+{% include requirement/MUST id="android-auth-policy" %} provide a suitable authentication policy that authenticates the HTTP request in the HTTP pipeline when using non-standard credentials.
 
 ### Namespaces
 
@@ -452,7 +498,7 @@ Android developers need to concern themselves with the runtime environment they 
 
 {% include requirement/MUST id="android-library-support" %} support all versions of Android starting with API level 16 (Jelly Bean).
 
-{% include requirement/MUST id="android-swift-support" %} support Java 8 language features that do not require desugaring to work on older Android versions. For more information on the list of supported language features, please refer [Use Java 8 language features and APIs](https://developer.android.com/studio/write/java8-support#supported_features).
+{% include requirement/MUST id="android-swift-support" %} support Java 8 language features that do not require [desugaring](https://developer.android.com/studio/write/java8-support#library-desugaring) to work on older Android versions. For more information on the list of supported language features, please refer [Use Java 8 language features and APIs](https://developer.android.com/studio/write/java8-support#supported_features).
 
 ### Packaging
 
@@ -497,8 +543,11 @@ Let's take two examples:
 
 {% include_relative approved_dependencies.md %}
 
-> TODO:
-> * How can we use a common approved dependencies list.
+> TODO: How can we use a common approved dependencies list.
+
+> TODO: We should also have a guideline around use of AndroidX libraries. Or if they're treated the same as other external dependencies we should add them to the approved dependencies list.
+
+{% include requirement/MUSTNOT id="android-dependencies-versions" %} specify or change dependency versions in your client library Gradle file. All dependency versioning must be centralized through the common parent `build.gradle` file.
 
 {% include requirement/MUSTNOT id="android-dependencies-snapshot" %} include dependencies on pre-released or beta versions of external libraries. All dependencies must be approved for general use.
 
@@ -508,7 +557,11 @@ Let's take two examples:
 
 ### Native code
 
-Android supports the development of platform-specific native code in C++. These can cause compatibility issues across different versions of Android and platforms. You should only include such native code in the Android library if:
+Native code plugins cause compatibility issues and require additional scrutiny. Certain languages compile to a machine-native format (for example, C or C++), whereas most modern languages opt to compile to an intermediary format to aid in cross-platform support.
+
+{% include requirement/SHOULDNOT id="android-no-native-code" %} write platform-specific / native code. If you feel like you need to include native binaries in your library, contact the [Azure SDK mobile team](mailto:azuresdkmobileteam@microsoft.com) for advice.
+
+{% include requirement/MUST id="android-native-code-arch" %} include binaries for all common Android architectures if your library includes platform-specific / native code. You should only include such native code in the Android library if:
 
 * You distribute full source and it is compiled in the context of the customer code.
 * You hide the implementation code behind a Java-based facade.
