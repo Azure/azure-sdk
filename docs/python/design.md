@@ -139,11 +139,11 @@ class ExampleClientWithConnectionString(object):
 {% include_relative _includes/example_client.py %}
 ```
 
-{% include requirement/MAY id="python-client-constructor-from-url" %} use a separate factory classmethod `from_<resource type>_url` (e.g. `from_blob_url`) to create a client from a url (if the service relies on passing URLs to resources around - e.g. azure blob storage). The `from_url` factory method should take the same set of optional keyword arguments as the constructor.
+{% include requirement/MAY id="python-client-constructor-from-url" %} use a separate factory classmethod `from_<resource type>_url` (e.g. `from_blob_url`) to create a client from a URL (if the service relies on passing URLs to resources around - e.g. Azure Blob Storage). The `from_url` factory method should take the same set of optional keyword arguments as the constructor.
 
 ##### Specifying the Service Version
 
-{% include requirement/MUST id="python-client-constructor-api-version-argument-1" %} accept an optional `api_version` keyword-only argument of type string. If specified, the provided api version MUST be used when interacting with the service. If the parameter is not provided, the default value MUST be the latest non-preview API version understood by the client library (if there the service has a non-preview version) or the latest preview API version understood by the client library (if the service does not have any non-preview API versions yet). This parameter MUST be available even if there is only one API version understood by the service in order to allow library developers lock down the API version they expect to interact with the service with.
+{% include requirement/MUST id="python-client-constructor-api-version-argument-1" %} accept an optional `api_version` keyword-only argument of type string. If specified, the provided api version MUST be used when interacting with the service. If the parameter is not provided, the default value MUST be the latest non-preview API version understood by the client library (if there the service has a non-preview version) or the latest preview API version understood by the client library (if the service does not have any non-preview API versions yet). This parameter MUST be available even if there is only one API version understood by the service in order to allow library developers to lock down the API version they expect to interact with the service with.
 
 ```python
 from azure.identity import DefaultAzureCredential

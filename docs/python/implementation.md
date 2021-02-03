@@ -95,7 +95,7 @@ Some services may require custom policies to be implemented. For example, custom
 
 {% include requirement/MUSTNOT id="python-client-parameter-validation" %} use `isinstance` to validate parameter value types other than for [built-in types](https://docs.python.org/3/library/stdtypes.html) (e.g. `str` etc). For other types, use [structural type checking].
 
-#### Supporting types
+### Supporting types
 
 {% include requirement/MUST id="python-models-repr" %} implement `__repr__` for model types. The representation **must** include the type name and any key properties (that is, properties that help identify the model instance).
 
