@@ -114,7 +114,14 @@ function Write-Latest-Versions($lang)
 
   foreach ($pkg in $packages)
   {
-    $pkgEntries = $packageList.Where({ $_.Hide -ne "true" -and (PackageEqual $_ $pkg) })
+    $pkgEntries = $packageList.Where({ PackageEqual $_ $pkg })
+
+    # If pkgEntries is greater then one filter out the hidden packages
+    # as we have some cases were we have duplicates with the older one hidden
+    # this to allow us to have entries for when sdk's switched to track 2
+    if ($pkgEntries.Count -gt 1) {
+      $pkgEntries = $pkgEntries.Where({ $_.Hide -ne "true" })
+    }
 
     if ($pkgEntries.Count -eq 0) {
       # Add package
