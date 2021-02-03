@@ -7,6 +7,7 @@ repository: azure/azure-sdk-for-js
 ---
 
 <!--
+
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
 
