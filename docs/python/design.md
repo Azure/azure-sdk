@@ -187,7 +187,7 @@ specific_api_version_client = ExampleClient('https://contoso.com/xmpl',
 
 |Verb|Parameters|Returns|Comments|
 |-|-|-|-|
-|`create_\<noun>`|key, item, `[allow_overwrite=True]`|Created item|Create new item. Fails if item already exists.|
+|`create_\<noun>`|key, item, `[allow_overwrite=False]`|Created item|Create new item. Fails if item already exists.|
 |`upsert_\<noun>`|key, item|item|Create new item, or update existing item. Verb is primarily used in database-like services |
 |`set_\<noun>`|key, item|item|Create new item, or update existing item. Verb is primarily used for dictionary-like properties of a service |
 |`update_\<noun>`|key, partial item|item|Fails if item doesn't exist. |
@@ -383,6 +383,8 @@ client.update_thing(name='hello', size=4713, thing=thing)
 
 Services may require multiple requests to retrieve the complete set of items in large collections. This is generally done by the service returning a partial result, and in the response providing a token or link that the client can use to retrieve the next batch of responses in addition to the set of items.
 
+In Azure SDK for Python cilent libraries, this is exposed to users through the [Paged protocol](#python-core-protocol-paged). The Paged protocol optimizes for retrieving the full set of items rather than forcing users to deal with the underlying paging.
+
 {% include requirement/MUST id="python-response-paged-protocol" %} return a value that implements the [Paged protocol](#python-core-protocol-paged) for operations that return collections. The [Paged protocol](#python-core-protocol-paged) allows the user to iterate through all items in a returned collection, and also provides a method that gives access to individual pages.
 
 ```python
@@ -560,29 +562,6 @@ For higher-level methods that use multiple HTTP requests, either the last except
 
 {% include requirement/MUST id="python-errors-documentation" %} document the errors that are produced by each method. Don't document commonly thrown errors that wouldn't normally be documented in Python (e.g. `ValueError`, `TypeError`, `RuntimeError` etc.)
 
-{% include requirement/MUST id="python-errors-use-chaining" %} use exception chaining to include the original source of the error when catching and raising new exceptions.
-
-```python
-# Yes:
-try:
-    # do something 
-    something()
-except:
-    # __context__ will be set correctly
-    raise MyOwnErrorWithNoContext()
-
-# No:
-success = True
-try:
-    # do something
-    something()
-except:
-    success = False
-if not success:
-    # __context__ is lost...
-    raise MyOwnErrorWithNoContext()
-```
-
 ### Authentication
 
 {% include requirement/MUST id="python-auth-credential-azure-core" %} use the credentials classes in `azure-core` whenever possible.
@@ -704,7 +683,7 @@ from azure.storage.blob.aio import BlobServiceClient # Async client
 
 ### Packaging
 
-{% include requirement/MUST id="python-packaging-name" %} name your package after the namespace of your main client class.
+{% include requirement/MUST id="python-packaging-name" %} name your package after the namespace of your main client class. For example, if your main client class is in the `azure.data.tables` namespace, your package name should be azure-data-table.
 
 {% include requirement/MUST id="python-packaging-name-allowed-chars" %} use all lowercase in your package name with a dash (-) as a separator.
 
@@ -834,7 +813,7 @@ Combined operations cause unnecessary friction for a library consumer by requiri
 
 There are several documentation deliverables that must be included in or as a companion to your client library. Beyond complete and helpful API documentation within the code itself (docstrings), you need a great README and other supporting documentation.
 
-* `README.md` - Resides in the root of your library's directory within the SDK repository; includes package installation and client library usage information. ([example][README-EXAMPLE])
+* `README.md` - Resides in the root of your library's directory within the SDK repository; includes package installation and client library usage information. ([example][https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/appconfiguration/azure-appconfiguration/README.md])
 * `API reference` - Generated from the docstrings in your code; published on docs.microsoft.com. 
 * `Code snippets` - Short code examples that demonstrate single (atomic) operations for the champion scenarios you've identified for your library; included in your README, docstrings, and Quickstart. 
 * `Quickstart` - Article on docs.microsoft.com that is similar to but expands on the README content; typically written by your service's content developer. 

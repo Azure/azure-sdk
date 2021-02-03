@@ -284,7 +284,7 @@ class LROPoller(Protocol):
         ...
 ```
 
-`azure.core.LROPoller` implements the `LROPoller` protocol.
+`azure.core.polling.LROPoller` implements the `LROPoller` protocol.
 
 #### ItemPaged
 
@@ -299,7 +299,9 @@ class ItemPaged(Protocol, Iterable[T]):
     def by_page(self) -> ByPagePaged[T] ...
 ```
 
-`azure.core.Paged` implements the `ItemPaged` protocol.
+`azure.core.ItemPaged` implements the `ItemPaged` protocol.
+
+See the [ItemPaged](#PythonPagingDesign) protocol for additional information.
 
 #### DiagnosticsResponseHook
 
