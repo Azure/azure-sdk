@@ -80,6 +80,11 @@ _Service methods_ are the methods on the client that invoke operations on the se
 
 The Go idiom is to expose only synchronous methods.  This allows callers to implement asynchronous calls as appropriate for their use-case.
 
+{% include requirement/MUSTNOT id="golang-api-sync-only" %} create any goroutines inside an API call or return any channels which implies concurrent behavior.  This allows the consumer to control the concurrent implementation in a way that works best with their application.
+
+
+{% include requirement/SHOULD id="golang-api-async-helper" %} create higher-level abstractions that work asynchronously where appropriate, allowing consumers the ability to opt-in to the async behavior.
+
 ##### Naming
 
 {% include requirement/MUST id="golang-client-crud-verbs" %} prefer the use of the following terms for CRUD operations:
@@ -157,7 +162,7 @@ Model structures are types that consumers use to provide required information in
 
 ##### Cancellation
 
-TODO
+Cancellation is handled via the `context.Context` paramater, which is _always_ the first method parameter.  All APIs that perform I/O of any kind, sleep, or perform a significant amount of CPU-bound work _must_ take a `context.Context` as its first parameter.  Please see the documentation for [context](https://pkg.go.dev/context) for more information, including examples.
 
 ##### Thread Safety
 
