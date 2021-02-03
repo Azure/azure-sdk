@@ -600,9 +600,48 @@ There are two patterns in use depending on whether `etag` is a member of the mod
 
 {% include requirement/MUST id="ts-conditional-request-no-dupe-options" %} throw an error if the user provides options from both option sets, for example passing `onlyIfChanged: true` and `ifMatch: "..."`. In some cases you may want to provide both sets of options, but it is not required or necessarily recommended.
 
-TODO: Please add a section providing guidance on model types.
+## Model Types {#ts-model-types}
 
-TODO: Please add discussion similar to the [Model Type discussion from the General Guidelines](https://azure.github.io/azure-sdk/general_design.html#model-types), including the naming table if relevant to JS/TS, or an alternate one specific to JS/TS.  
+Client libraries represent entities transferred to and from Azure services as model types. Certain types are used for round-trips to the service. They can be sent to the service (as an addition or update operation) and retrieved from the service (as a get operation). These must be named according to the type. For example, a `ConfigurationSetting` in App Configuration, or an `Event` on Event Grid.
+
+{% include requirement/MUST id="ts-model-types-use-good-name" %} follow the above convention for types which round-trip to the service and represent a complete entity.
+
+Data within the model type can generally be split into two parts - data used to support one of the champion scenarios for the service, and less important data. Given a type `Foo`, the less important details can be gathered in a type called `FooDetails` and attached to `Foo` as the `details` property.
+
+For example:
+
+{% highlight typescript %}
+interface ConfigurationSettingDetails {
+    lastModifiedOn: Date;
+    receivedOn: Date;
+    etag: string;
+}
+
+interface ConfigurationSetting {
+    key: string;
+    value: string;
+    details: ConfigurationSettingDetails;
+}
+{% endhighlight %}
+
+{% include requirement/MAY id="ts-model-types-use-details" %} use `details` to separate commonly needed and less commonly needed properties. If you use this convention, you MUST follow these naming conventions.
+
+In cases where a partial schema is returned, use the following types:
+
+* `<model>Item` for each item in an enumeration if the enumeration returns a partial schema for the model. For example, `GetBlobs()` return an enumeration of `BlobItem`, which contains the blob name and metadata, but not the content of the blob.
+* `<operation>Result` for the result of an operation. The `<operation>` is tied to a specific service operation. If the same result can be used for multiple operations, use a suitable noun-verb phrase instead. For example, use `UploadBlobResult` for the result from `UploadBlob`, but `ContainerChangeResult` for results from the various methods that change a blob container. In cases where a result is just a primitive type, do not create a type alias for it - just use it directly, and do not follow these conventions.
+
+{% include requirement/MUST id="ts-model-types-partial-naming" %} follow the above naming conventions when partial schemas are returned.
+
+The following table enumerates the various models you might create:
+
+| Type | Example | Usage |
+| `<model>` | `Secret` | The full data for a resource |
+| `<model>Details` | `SecretDetails` | Less important details about a resource. Attached to `<model>.details` |
+| `<model>Item` | `SecretItem` | A partial set of data returned for enumeration |
+| `<operation>Options` | `AddSecretOptions` | Optional parameters to a single operation |
+| `<operation>Result` | `AddSecretResult` | A partial or different set of data for a single operation |
+| `<model><verb>Result` | `SecretChangeResult` | A partial or different set of data for multiple operations on a model |
 
 ## Using Azure Core {#ts-core-types}
 
