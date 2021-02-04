@@ -1,7 +1,8 @@
 param (
   [string]$releasePeriod,
   [string]$languageRepoDirectory,
-  [string]$releaseDirectory
+  [string]$releaseDirectory,
+  [string]$repoLanguage
 )
 
 $PATTERN_REGEX = "^\[pattern(\.(?<SectionName>\w+))?\]:\s#\s\((?<Pattern>.*)\)"
@@ -20,18 +21,12 @@ Write-Host "Common Script $commonScript"
 . $commonScript
 $CsvMetaData = Get-CSVMetadata
 
-$releaseFileName = "${Language}.md"
+$releaseFileName = "${repoLanguage}.md"
 $releaseFilePath = (Join-Path $ReleaseDirectory $releasePeriod $releaseFileName)
-
-if (!(Test-Path $releaseFilePath)) 
-{
-    $releaseFileName = "${LanguageShort}.md"
-    $releaseFilePath = (Join-Path $ReleaseDirectory $releasePeriod $releaseFileName)
-}
 
 if (!(Test-Path $releaseFilePath))
 {
-    LogError "Could not find release file for $Language at [ $releaseFilePath ]."
+    LogError "Could not find release file for $repoLanguage at [ $releaseFilePath ]."
     exit 1
 }
 
@@ -39,7 +34,7 @@ LogDebug "Release File Path [ $releaseFilePath ]"
 $existingReleaseContent = Get-Content $releaseFilePath
 
 
-$pathToDateOfLatestUpdates = (Join-Path $ReleaseDirectory dateoflastupdate.txt)
+$pathToDateOfLatestUpdates = (Join-Path $ReleaseDirectory dateoflastupdate.json)
 $collectChangelogPath = (Join-Path $commonScriptsPath Collect-ChangeLogs.ps1)
 
 function Get-PackagesInfoFromFile ($releaseNotesContent) 
@@ -62,11 +57,14 @@ function Get-PackagesInfoFromFile ($releaseNotesContent)
         if ($checkLine)
         {
             $pkgInfo = $line.Split(":")
-            $packageName = $pkgInfo[0]
-            $packageMetaData = $CsvMetaData | Where-Object { $_.Package -eq $packageName }
-            if ($packageMetaData.Count -gt 0)
+            if ($pkgInfo.Count -gt 0)
             {
-                $presentPkgInfo += $line
+                $packageName = $pkgInfo[0]
+                $packageMetaData = $CsvMetaData | Where-Object { $_.Package -eq $packageNam }
+                if ($packageMetaData.Count -gt 0)
+                {
+                    $presentPkgInfo += $line
+                }
             }
         }
     }
@@ -84,21 +82,20 @@ function Filter-ReleaseHighlights ($releaseHighlights)
         $releaseVersion = $keyInfo[1]
         $packageGroupId = $releaseHighlights[$key]["PackageProperties"].Group
 
-        $packageMetaData = $CsvMetaData | Where-Object { ($_.Package -eq $packageName) -and ($_.GroupId -eq $packageGroupId) }
+        $packageMetaData = $CsvMetaData | Where-Object { ($_.Package -eq $packageName) -and
+             ($_.GroupId -eq $packageGroupId) -and ($_.Hide -ne "true")}
 
-        if ($packageMetaData.Hide -eq "true")
+        if ($packageMetaData.Count -eq 1)
         {
-            continue
-        }
+            $sortedVersions = [AzureEngSemanticVersion]::SortVersionStrings(@($releaseVersion, $packageMetaData.VersionGA, $packageMetaData.VersionPreview))
 
-        $sortedVersions = [AzureEngSemanticVersion]::SortVersionStrings(@($releaseVersion, $packageMetaData.VersionGA, $packageMetaData.VersionPreview))
-
-        if ($sortedVersions[0] -eq $releaseVersion)
-        {
-            continue
+            if ($sortedVersions[0] -eq $releaseVersion)
+            {
+                continue
+            }
+            $releaseHighlights[$key]["DisplayName"] = $packageMetaData.DisplayName
+            $results.Add($key, $releaseHighlights[$key])
         }
-        $releaseHighlights[$key]["DisplayName"] = $packageMetaData.DisplayName
-        $results.Add($key, $releaseHighlights[$key])
     }
     return $results
 }
@@ -182,9 +179,15 @@ function Write-GeneralReleaseNote ($releaseHighlights, $releaseNotesContent, $re
 }
 
 $presentPkgsInfo = Get-PackagesInfoFromFile -releaseNotesContent $existingReleaseContent
-$dateOfLatestUpdates = Get-Content -Path $pathToDateOfLatestUpdates -Raw
+$dateOfLatestUpdatesJson = Get-Content -Path $pathToDateOfLatestUpdates | ConvertFrom-Json
 
-$incomingReleaseHighlights = &$collectChangelogPath -FromDate $dateOfLatestUpdates
+if ($null -eq $dateOfLatestUpdatesJson.$repoLanguage)
+{
+    LogError "Please make sure a valid date is present for [ $repoLanguage ] at [ $pathToDateOfLatestUpdates ]"
+    exit 1
+}
+
+$incomingReleaseHighlights = &$collectChangelogPath -FromDate $dateOfLatestUpdatesJson.$repoLanguage
 
 foreach ($key in @($incomingReleaseHighlights.Keys))
 {
@@ -202,4 +205,5 @@ Write-GeneralReleaseNote `
 -releaseNotesContent $existingReleaseContent `
 -releaseFilePath $releaseFilePath
 
-Set-Content -Path $pathToDateOfLatestUpdates -Value (Get-Date -Format "yyyy-MM-dd") -NoNewline
+$dateOfLatestUpdatesJson.$repoLanguage = (Get-Date -Format "yyyy-MM-dd")
+Set-Content -Path $pathToDateOfLatestUpdates -Value ($dateOfLatestUpdatesJson | ConvertTo-Json) -NoNewline
