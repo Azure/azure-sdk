@@ -123,7 +123,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Upgraded `azure-core-http-okhttp` dependency to `1.4.1`
 - Upgraded `azure-identity` dependency to `1.2.2`
 
-
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
 ## Need help
