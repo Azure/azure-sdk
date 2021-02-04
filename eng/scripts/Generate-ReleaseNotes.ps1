@@ -34,7 +34,7 @@ LogDebug "Release File Path [ $releaseFilePath ]"
 $existingReleaseContent = Get-Content $releaseFilePath
 
 
-$pathToDateOfLatestUpdates = (Join-Path $ReleaseDirectory dateoflastupdate.txt)
+$pathToDateOfLatestUpdates = (Join-Path $ReleaseDirectory dateoflastupdate.json)
 $collectChangelogPath = (Join-Path $commonScriptsPath Collect-ChangeLogs.ps1)
 
 function Get-PackagesInfoFromFile ($releaseNotesContent) 
@@ -179,25 +179,15 @@ function Write-GeneralReleaseNote ($releaseHighlights, $releaseNotesContent, $re
 }
 
 $presentPkgsInfo = Get-PackagesInfoFromFile -releaseNotesContent $existingReleaseContent
-$dateOfLatestUpdatesContent = Get-Content -Path $pathToDateOfLatestUpdates
+$dateOfLatestUpdatesJson = Get-Content -Path $pathToDateOfLatestUpdates | ConvertFrom-Json
 
-foreach ($line in $dateOfLatestUpdatesContent)
-{
-    $lineInfo = $line.Split(":")
-    $
-    if (($lineInfo.Count -gt 0) -and ($lineInfo[0] -eq $repoLanguage))
-    {
-        $dateOfLatestUpdates = $lineInfo[1]
-    }
-}
-
-if ($null -eq $dateOfLatestUpdates)
+if ($null -eq $dateOfLatestUpdates.$repoLanguage)
 {
     LogError "Please make sure a valid date is present for [ $repoLanguage ] at [ $pathToDateOfLatestUpdates ]"
     exit 1
 }
 
-$incomingReleaseHighlights = &$collectChangelogPath -FromDate $dateOfLatestUpdates
+$incomingReleaseHighlights = &$collectChangelogPath -FromDate $dateOfLatestUpdatesJson.$repoLanguage
 
 foreach ($key in @($incomingReleaseHighlights.Keys))
 {
@@ -215,4 +205,5 @@ Write-GeneralReleaseNote `
 -releaseNotesContent $existingReleaseContent `
 -releaseFilePath $releaseFilePath
 
-Set-Content -Path $pathToDateOfLatestUpdates -Value (Get-Date -Format "yyyy-MM-dd") -NoNewline
+$dateOfLatestUpdatesJson.$repoLanguage = (Get-Date -Format "yyyy-MM-dd")
+Set-Content -Path $pathToDateOfLatestUpdates -Value ($dateOfLatestUpdatesJson | ConvertTo-Json) -NoNewline
