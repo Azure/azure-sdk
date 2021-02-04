@@ -95,6 +95,21 @@ Keep in mind that:
 
 ---
 
+### Azure Identity
+
+#### @azure/identity [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/identity/identity/CHANGELOG.md)
+
+Identity is releasing a patch with a dependency fix and a bug fix, and a beta that includes MSAL 2.0 with PKCE support.
+
+##### Major Fixes on @azure/identity@1.2.3
+
+- Fixed Azure Stack support for the NodeJS version of the `InteractiveBrowserCredential`.
+- The 'keytar' dependency has been updated to the latest version.
+
+##### Breaking Changes on @azure/identity@1.2.4-beta.1
+
+- In this beta we've updated `InteractiveBrowserCredential` to use the Auth Code Flow with PKCE rather than Implicit Grant Flow by default in the browser, to better support browsers with enhanced security restrictions.
+
 ## Latest Releases
 
 View all the latest versions of JavaScript packages [here][js-latest-releases].
