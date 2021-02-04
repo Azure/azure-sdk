@@ -17,6 +17,10 @@ body {
 .requirement:active {
   text-decoration: none;
 }
+.requirement:focus {
+  /*avoid showing a border over the icon including the padding*/
+  outline: none !important;
+}
 
 .bs-callout {
   padding: 20px;
