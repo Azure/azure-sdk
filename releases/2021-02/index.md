@@ -11,9 +11,7 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 
 ## Release Highlights
 
-*
-*
-*
+* Azure Search Documents is releasing a new GA.
 
 ## Release Notes
 
