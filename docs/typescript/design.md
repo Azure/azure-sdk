@@ -6,60 +6,98 @@ folder: typescript
 sidebar: general_sidebar
 ---
 
-The API surface of your client library must have the most thought as it is the primary interaction that the consumer has with your service.
 
-## Platform Support {#ts-platform-support}
+## Introduction
 
-{% include requirement/MUST id="ts-node-support" %} support [all LTS versions of Node](https://github.com/nodejs/Release#release-schedule) and newer versions up to and including the latest release.
+The TypeScript guidelines are for the benefit of client library designers targeting service applications written in TypeScript for the benefit of both TypeScript and JavaScript.
 
-{% include requirement/MUST id="ts-browser-support" %} support the following browsers and versions:
+### Design principles
 
-* Apple Safari: latest two versions
-* Google Chrome: latest two versions
-* Microsoft Edge: all supported versions
-* Mozilla FireFox: latest two versions
+The Azure SDK should be designed to enhance the productivity of developers connecting to Azure services. Other qualities (such as completeness, extensibility, and performance) are important but secondary. Productivity is achieved by adhering to the principles described below:
 
-Use [caniuse.com](https://caniuse.com) to determine whether you can use a given platform feature in the runtime versions you support. Syntax support is provided by TypeScript.
+#### Idiomatic
 
-{% include requirement/SHOULDNOT id="ts-no-ie11-support" %} support IE11. If you have a business justification for IE11 support, contact the [Architecture Board].
+* The SDK should follow the general design guidelines and conventions for the target language. It should feel natural to a developer in the target language.
+* We embrace the ecosystem with its strengths and its flaws.
+* We work with the ecosystem to improve it for all developers.
 
-{% include requirement/MUST id="ts-support-ts" %} compile without errors on all versions of TypeScript greater than 3.1.
+#### Consistent
 
-While consumers are fast at adopting new versions of TypeScript, version 3.1 is used by Angular 7, which is still commonly used.  Supporting older versions of TypeScript can be a challenge. There are two general approaches:
+* Client libraries should be consistent within the language, consistent with the service and consistent between all target languages. In cases of conflict, consistency within the language is the highest priority and consistency between all target languages is the lowest priority.
+* Service-agnostic concepts such as logging, HTTP communication, and error handling should be consistent. The developer should not have to relearn service-agnostic concepts as they move between client libraries.
+* Consistency of terminology between the client library and the service is a good thing that aids in diagnosability.
+* All differences between the service and client library must have a good (articulated) reason for existing, rooted in idiomatic usage rather than whim.
+* The Azure SDK for each target language feels like a single product developed by a single team.
+* There should be feature parity across target languages. This is more important than feature parity with the service.
 
-1. Don't use new features.
-2. Use [`typesVersions`](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-1.html#version-selection-with-typesversions), which might require manual effort to produce typings compatible with older versions based on the new typings.
+#### Approachable
 
-{% include requirement/MUST id="ts-register-dropped-platforms" %} get approval from the [Architecture Board] to drop support for any platform (except IE11 and Node 6) even if support isn't required.
+* We are experts in the supported technologies so our customers, the developers, don't have to be.
+* Developers should find great documentation (hero tutorial, how to articles, samples, and API documentation) that makes it easy to be successful with the Azure service.
+* Getting off the ground should be easy through the use of predictable defaults that implement best practices. Think about progressive concept disclosure.
+* The SDK should be easily acquired through the most normal mechanisms in the target language and ecosystem.
+* Developers can be overwhelmed when learning new service concepts. The core use cases should be discoverable.
 
-## Namespaces, NPM Scopes, and Distribution Tags {#ts-namespace}
+#### Diagnosable
 
-{% include requirement/MUST id="ts-azure-scope" %} publish your library to the `@azure` npm scope.
+* The developer should be able to understand what is going on.
+* It should be discoverable when and under what circumstances a network call is made.
+* Defaults are discoverable and their intent is clear.
+* Logging, tracing, and exception handling are fundamental and should be thoughtful.
+* Error messages should be concise, correlated with the service, actionable, and human readable. Ideally, the error message should lead the consumer to a useful action that they can take.
+* Integrating with the preferred debugger for the target language should be easy.
 
-{% include requirement/MUST id="ts-namespace-serviceclient" %} pick a package name that allows the consumer to tie the namespace to the service being used.  As a default, use the compressed service name at the end of the namespace.  The namespace does **NOT** change when the branding of the product changes. Avoid the use of marketing names that may change.
+#### Dependable
 
-{% include requirement/MUST id="ts-npm-dist-tag-beta" %} tag beta packages with the npm distribution tag `next`. If there is no generally available release of this package, it should also be tagged `latest`.
+* Breaking changes are more harmful to a user's experience than most new features and improvements are beneficial.
+* Incompatibilities should never be introduced deliberately without thorough review and very strong justification.
+* Do not rely on dependencies that can force our hand on compatibility.
 
-{% include requirement/MUST id="ts-npm-dist-tag-next" %} tag generally available npm packages `latest`. Generally available packages may also be tagged `next` if they include the changes from the most recent beta.
+### General Guidelines
 
-{% include requirement/MUST id="ts-npm-package-name-prefix" %} prefix your data plane package names with the kebab-case version of the appropriate namespace from the following table:
+{% include requirement/MUST id="ts-follow-general-guidelines" %} follow the [General Azure SDK Guidelines].
 
-{% include tables/data_namespaces.md %}
+{% include requirement/MUST id="ts-repository-location" %} locate all source code in the [azure/azure-sdk-for-js] GitHub repository.
 
-For example, these package names meet the guidelines:
+{% include requirement/MUST id="ts-engineering-systems" %} follow Azure SDK engineering systems guidelines for working in the [azure/azure-sdk-for-js] GitHub repository.
 
-* `@azure/cosmos`
-* `@azure/storage-blob`
-* `@azure/digital-twins-core`
+{% include requirement/MUST id="ts-azure-scope" %} follow these guidelines if you publish your client library under the `@azure` scope in npm.
 
-The following are examples that do not meet the guidelines:
+{% include requirement/SHOULD id="ts-azure-scope-for-others" %} follow these guidelines even if you're not publishing an Azure library under the `@azure` scope.
 
-* `@microsoft/cosmos` (not in `@azure` scope).
-* `@azure/digitaltwins` (not kebab-cased).
+### Support for non-HTTP protocols {#general-other-protocols}
 
-{% include requirement/SHOULD id="ts-npm-package-name-follow-conventions" %} you should follow the casing conventions of any existing GA packages released in the `@azure` npm scope. It's not worth renaming a package just to align on naming conventions.
+Most Azure services expose a RESTful API over HTTPS.  However, a few services use other protocols, such as [AMQP](https://www.amqp.org/), [MQTT](http://mqtt.org/), or [WebRTC](https://webrtc.org/). In these cases, the operation of the protocol can be split into two phases:
 
-## The Client API {#ts-apisurface-serviceclient}
+* Per-connection (surrounding when the connection is initiated and terminated)
+* Per-operation (surrounding when an operation is sent through the open connection)
+
+The policies that are added to a HTTP request/response (authentication, unique request ID, telemetry, distributed tracing, and logging) are still valid on both a per-connection and per-operation basis.  However, the methods by which these policies are implemented are protocol dependent.
+
+{% include requirement/MUST id="general-other-protocols-pipeline-policies" %} implement as many of the policies as possible on a per-connection and per-operation basis.
+
+For example, MQTT over WebSockets provides the ability to add headers during the initiation of the WebSockets connection, so this is a good place to add authentication, telemetry, and distributed tracing policies.  However, MQTT has no metadata (the equivalent of HTTP headers), so per-operation policies are not possible.  AMQP, by contract, does have per-operation metadata.  Unique request ID, and distributed tracing headers can be provided on a per-operation basis with AMQP.
+
+{% include requirement/MUST id="general-other-protocols-consult-on-policies" %} consult the [Architecture Board] on policy decisions for non-HTTP protocols.  Implementation of all policies is expected.  If the protocol cannot support a policy, obtain an exception from the [Architecture Board].
+
+{% include requirement/MUST id="general-other-protocols-use-global-config" %} use the global configuration established in the Azure Core library to configure policies for non-HTTP protocols.  Consumers don't necessarily know what protocol is used by the client library.  They will expect the client library to honor global configuration that they have established for the entire Azure SDK.
+
+### Terminology
+
+AMD Module
+: A module format often used in the browser, for example as implemented by [RequireJS].
+
+[CommonJS][cjs] (CJS)
+: The module format of Node.js (`require`, `module.exports`).
+
+[ECMAScript Module][esm] (ES Module or ESM)
+: The standard import/export syntax defined in ECMAScript 6.
+
+{% include refs.md %}
+{% include_relative refs.md %}
+
+
+## Azure SDK API Design {#ts-apisurface-serviceclient}
 
 Your API surface will consist of one or more _service clients_ that the consumer will instantiate to connect to your service, plus a set of supporting types. The basic shape of JavaScript service clients is shown in the following example:
 
@@ -83,9 +121,11 @@ export class ServiceClient {
 }
 ```
 
-### Client constructors and factories
+### The Service Client
 
 {% include requirement/MUST id="ts-apisurface-serviceclientnamespace" %} place service client types that the consumer is most likely to interact as a top-level export from your library.  That is, the service client type should be something that can be imported directly by the consumer.
+
+#### Service Client Constructor
 
 {% include requirement/MUST id="ts-apisurface-serviceclientconstructor" %} allow the consumer to construct a service client with the minimal information needed to connect and authenticate to the service.
 
@@ -145,7 +185,7 @@ class ExampleClient {
 }
 ```
 
-### Service Versions {#ts-service-versions}
+##### Service Versions {#ts-service-versions}
 
 {% include requirement/MUST id="ts-service-versions-use-latest" %} call the highest supported service API version by default.
 
@@ -153,40 +193,9 @@ class ExampleClient {
 
 {% include requirement/MUST id="ts-service-versions-use-client-options" %} provide a `serviceVersion` option in the client constructor's option bag for providing a service version. The type of this should be a string literal union with supported service versions. You may also provide a string enum with supported service versions.
 
-### Options {#ts-options}
+#### Service Client Methods
 
-The guidelines in this section apply to options passed in options bags to clients, whether methods or constructors. When referring to option names, this means the key of the object users must use to specify that option when passing it into a method or constructor.
-
-{% include requirement/MUST id="ts-naming-options" %} name the type of the options bag as `<class name>Options` and `<method name>Options` for constructors and methods respectively.
-
-{% include requirement/MUST id="ts-options-abortSignal" %} name abort signal options `abortSignal`.
-
-{% include requirement/MUST id="ts-options-suffix-durations" %} suffix durations with `In<Unit>`. Unit should be `ms` for milliseconds, and otherwise the name of the unit. Examples include `timeoutInMs` and `delayInSeconds`.
-
-#### Retry-specific Options {#ts-retry-options}
-
-Many services have a notion of retries and have various means to configure them.
-
-{% include requirement/MUST id="ts-use-retry-option-names" %} use the option names specified in the table below
-
-| Option | Values | Usage | Other Names (informational) |
-|--------|-------|------|------|
-| retryMode | 'fixed', 'linear', 'exponential' | Used to specify the retry strategy |
-| maxRetries | number >= 0 | Number of times to retry. 0 effectively disables retrying. |
-| retryDelayInMs | number > 0 | Delay between retries. For linear and exponential strategies, this is the initial retry delay and increases thereafter based on the strategy used. |
-| maxRetryDelayInMs | number > 0 | Maximum delay between retries. For linear and exponential strategies, this effectively clamps the maximum amount of time between retries. |
-| tryTimeoutInMs | number > 0 | How long to wait for a particular retry to complete before giving up |
-
-TODO: Please add a code sample showing how these fit into a track 2 JS/TS library.
-
-{% include requirement/MUST id="ts-use-retry-strategies" %} support the following retry strategies:
-
-* `fixed`: retry after some duration, where the duration never changes.
-* `exponential`: retry after some duration, where the duration increases exponentially after each attempt.
-
-TODO: Are these implemented by default in Azure Core or does the API designer need to implement these?  If there is no action for the API Designer, let's take this out.
-
-### Response formats {#ts-responses}
+##### Response formats {#ts-responses}
 
 Requests to the service fall into two basic groups - methods that make a single logical request, or a deterministic sequence of requests.  An example of a *single logical request* is a request that may be retried inside the operation.  An example of a *deterministic sequence of requests* is a paged operation. The *logical entity* is a protocol neutral representation of a response. For HTTP, the logical entity may combine data from headers, the body, and the status line.  For example, you may add the `ETag` header as a property on the logical entity to the deserialized content from the body of the response.
 
@@ -260,8 +269,7 @@ export interface ContainerGetPropertiesHeaders {
   hasImmutabilityPolicy?: boolean;
 }
 ```
-
-### Client naming conventions {#ts-client-naming-conventions}
+##### Naming conventions {#ts-client-naming-conventions}
 
 {% include requirement/MUST id="ts-apisurface-serviceclientnaming" %} name service client types with the _Client_ suffix.
 
@@ -307,29 +315,46 @@ containerClient.createOrUpdate(); // use upsert
 containerClient.createBlobClient(); // should be `getBlobClient`.
 ```
 
-### Network requests {#ts-network-requests}
-
-When an application makes a network request, the network infrastructure (like routers) and the called service may take a long time to respond. In fact, the network infrastructure may never respond. A well-written application should **NEVER** give up its control to the network infrastructure or service.
-
-Consider the following examples. An orchestrator needs to stop a service because of a scaling operation, reconfiguration, or upgrading to a new version). The orchestrator typically notifies a running service instance by sending an interrupt signal. The service should stop as quickly as possible when it receives this signal. Similarly, when a web server receives a request, it may set a time limit indicating how much time it's allowing before giving a response to the user. A UI application may offer the user a cancel button when making a network request.
-
-The best way for consumers to work with cancellation is to think of cancellation objects as forming a tree. For example:
-
-- Cancelling a parent automatically cancels its children.
-- Children can time out sooner than their parent but can't extend the total time.
-- Cancellation can happen because of a timeout or an explicit request.
-
-TODO: Regarding the above discussion ... is it needed?  Could we just say the Azure SDK requires service calls to be cancellable and here are the rules for how to do it in JS/TS?  Please consider adding a code sample for this, and if there are implementation specifics for this, it might be nice to have them in the Implementation section (but the latter is technically out of scope for MQ).
+##### Cancellation with AbortController & AbortSignal
 
 {% include requirement/MUST %} accept an `AbortSignalLike` parameter on all asynchronous calls. This type is provided by `@azure/abort-controller`.
 
 {% include requirement/SHOULD %} only check cancellation tokens on I/O calls (such as network requests and file loads).  Don't check the cancellation token between I/O calls within the client library (for example, when processing data between I/O calls).
 
-TODO: Does JS/TS use cancellation tokens?
+#### Options {#ts-options}
 
-{% include requirement/MUSTNOT %} leak the underlying protocol transport implementation details to the consumer.  All types from the protocol transport implementation must be appropriately abstracted.
+The guidelines in this section apply to options passed in options bags to clients, whether methods or constructors. When referring to option names, this means the key of the object users must use to specify that option when passing it into a method or constructor.
 
-### Authentication
+{% include requirement/MUST id="ts-naming-options" %} name the type of the options bag as `<class name>Options` and `<method name>Options` for constructors and methods respectively.
+
+{% include requirement/MUST id="ts-options-abortSignal" %} name abort signal options `abortSignal`.
+
+{% include requirement/MUST id="ts-options-suffix-durations" %} suffix durations with `In<Unit>`. Unit should be `ms` for milliseconds, and otherwise the name of the unit. Examples include `timeoutInMs` and `delayInSeconds`.
+
+##### Retry-specific Options {#ts-retry-options}
+
+Many services have a notion of retries and have various means to configure them.
+
+{% include requirement/MUST id="ts-use-retry-option-names" %} use the option names specified in the table below
+
+| Option | Values | Usage | Other Names (informational) |
+|--------|-------|------|------|
+| retryMode | 'fixed', 'linear', 'exponential' | Used to specify the retry strategy |
+| maxRetries | number >= 0 | Number of times to retry. 0 effectively disables retrying. |
+| retryDelayInMs | number > 0 | Delay between retries. For linear and exponential strategies, this is the initial retry delay and increases thereafter based on the strategy used. |
+| maxRetryDelayInMs | number > 0 | Maximum delay between retries. For linear and exponential strategies, this effectively clamps the maximum amount of time between retries. |
+| tryTimeoutInMs | number > 0 | How long to wait for a particular retry to complete before giving up |
+
+TODO: Please add a code sample showing how these fit into a track 2 JS/TS library.
+
+{% include requirement/MUST id="ts-use-retry-strategies" %} support the following retry strategies:
+
+* `fixed`: retry after some duration, where the duration never changes.
+* `exponential`: retry after some duration, where the duration increases exponentially after each attempt.
+
+TODO: Are these implemented by default in Azure Core or does the API designer need to implement these?  If there is no action for the API Designer, let's take this out.
+
+#### Authentication
 
 Azure services use different kinds of authentication schemes to allow clients to access the service.  Conceptually, there are two entities responsible in this process: a credential and an authentication policy.  Credentials provide confidential authentication data.  Authentication policies use the data provided by a credential to authenticate requests to the service.
 
@@ -348,6 +373,197 @@ Client libraries may support connection strings __ONLY IF__ the service provides
 {% include requirement/MUSTNOT id="general-apisurface-no-connection-strings" %} support constructing a service client with a connection string unless such connection string is available within tooling (for copy/paste operations).
 
 TODO: Please make this section more actionable with regard to what JS/TS does specifically.
+
+#### Pagination {#ts-pagination}
+
+Most developers will want to process a list one item at a time. Higher-level APIs (for example, async iterators) are preferred in the majority of use cases.  Finer-grained control over handling paginated result sets is sometimes required (for example, to handle over-quota or throttling).
+
+{% include requirement/MUST id="ts-pagination-provide-list" %} provide a `list` method that returns a `PagedAsyncIterableIterator` from the module `@azure/core-paging`.
+
+{% include requirement/MUST id="ts-pagination-provide-bypage-settings" %} provide page-related settings to the `byPage()` iterator and not the per-item iterator.
+
+{% include requirement/MUST id="ts-pagination-take-continuationToken" %} take a `continuationToken` option in the `byPage()` method. You must rename other parameters that perform a similar function (for example, `nextMarker`).  If your page type has a continuation token, it must be named `continuationToken`.
+
+{% include requirement/MUST id="ts-pagination-take-maxpagesize" %} take a `maxPageSize` option in the `byPage()` method.
+
+An example of a paginating client:
+<a name="ts-example-pagination"></a>
+
+```javascript
+// usage
+const client = new ServiceClient()
+for await (const item of client.listItems()) {
+    console.log(item);
+}
+
+for await (const page of client.listItems().byPage({ maxPageSize: 50 })) {
+    console.log(page);
+}
+
+// implementation
+interface Item {
+    name: string;
+}
+
+interface Page {
+    continuationToken: string;
+    items: Item[];
+}
+
+class ServiceClient {
+    /* ... */
+    listItems(): PagedAsyncIterableIterator<Item, Page> {
+        async function* pages () { /* ... */ }
+        async function* items () {
+            for (const page of pages()) {
+                for (const item of page.items) {
+                    yield item;
+                }
+            }
+        }
+
+        const itemIter = items();
+
+        return {
+            next() {
+                return itemIter.next();
+                /* ... */
+            },
+            byPage() {
+                return pages();
+            },
+            [Symbol.asyncIterator]() { return this }
+        }
+    }
+}
+```
+
+{% include requirement/MUST id="general-pagination-paginate-lists" %} expose non-paginated list endpoints identically to paginated list endpoints. Users shouldn't need to appreciate the difference.
+
+{% include requirement/MUST id="general-pagination-distinct-types" %} use different types for entities returned from a `list` endpoint and a `get` endpoint if the returned entities have a different shape.  If both entities are the same form, use the same type.
+
+{% include note.html content="Services should return the same shape for entities from a <code>list</code> endpoint vs. a <code>get</code> endpoint unless there's a good reason for the difference.  Using the same type for both operations will make the API surface in the client library simpler." %}
+
+{% include requirement/MUSTNOT id="general-pagination-no-item-iterators" %} expose an iterator over individual items if it causes additional service requests.  Some services charge on a per-request basis. One `GET` per item is often too expensive when the data isn't used.
+
+{% include requirement/MUSTNOT id="general-pagination-support-toArray" %} expose an API to get a paginated collection into an array. Services may return many pages, which can lead to memory exhaustion in the application.
+
+#### Long Running Operations {#ts-lro}
+
+Long-running operations are operations which consist of an initial request to start the operation followed by polling to determine when the operation has completed or failed. Long-running
+operations in Azure tend to follow the [REST API guidelines for Long-running Operations][rest-lro], but there are exceptions.
+
+{% include requirement/MUST %} represent long-running operations with some object that encapsulates the polling and the operation status. This object, called a *poller*, must provide APIs for:
+
+1. querying the current operation state (either asynchronously, which may consult the service, or synchronously which must not)
+2. requesting an asynchronous notification when the operation has completed
+3. cancelling the operation if cancellation is supported by the service
+4. registering disinterest in the operation so polling stops
+5. triggering a poll operation manually (automatic polling must be disabled)
+6. progress reporting (if supported by the service)
+
+{% include requirement/MUST id="ts-lro-support-options" %} support the following polling configuration options:
+
+* `pollInterval`
+
+Polling configuration may be used only in the absence of relevant retry-after headers from service, and otherwise should be ignored.
+
+{% include requirement/MUST id="ts-lro-prefix-methods" %} prefix method names which return a poller with either `begin`.
+
+{% include requirement/MUST id="ts-lro-continuation" %} provide a way to instantiate a poller with the serialized state of another poller to begin where it left off, for example by passing the state as a parameter to the same method which started the operation, or by directly instantiating a poller with that state.
+
+{% include requirement/MUSTNOT id="ts-lro-cancellation" %} cancel the long-running operation when cancellation is requested via a cancellation token. The cancellation token is cancelling the polling operation and should not have any effect on the service.
+
+{% include requirement/MUST id="ts-lro-logging" %} log polling status at the `Info` level (including time to next retry)
+
+{% include requirement/MUST id="ts-lro-progress-reporting" %} expose a progress reporting mechanism to the consumer if the service reports progress as part of the polling operation.  Language-dependent guidelines will present additional guidance on how to expose progress reporting in this case.
+
+{% include draft.html content="Long-running operations will use the <code>@azure/core-lro</code> package, which is an abstraction that provides the above requirements" %}
+
+TODO: If this is largely implemented for the API Designer, please include an example of how to use the Azure Core type in the public API.  It would be ideal to remove guidelines where the requirement has already been addressed for the API Designer in the type.
+
+#### Conditional Request Methods {#ts-conditional-requests}
+
+There are two patterns in use depending on whether `etag` is a member of the model type or not.
+
+{% include requirement/MUST id="ts-conditional-request-options-1" %} provide the following options in a method's options bag when the model type has an `etag` property:
+
+* onlyIfChanged - sets the `if-match` header to the `etag`.
+* onlyIfUnchanged - sets the `if-none-match` header to the `etag`.
+* onlyIfMissing - sets the `if-none-match` header to `*`.
+* onlyIfPresent - sets the `if-match` header to `*`.
+
+{% include requirement/MUST id="ts-conditional-request-options-2" %} provide the following options in a method's options bag's `conditions` property when the model type does not have an `etag` property:
+
+* ifMatch - sets the `if-match` header to the value provided.
+* ifNoneMatch - sets the `if-none-match` header to the value provided.
+* ifModifiedSince - sets the `if-modified-since` header to the value provided
+* ifUnmodifiedSince - sets the `if-unmodified-since` header to the value provided.
+
+{% include requirement/MUST id="ts-conditional-request-no-dupe-options" %} throw an error if the user provides options from both option sets, for example passing `onlyIfChanged: true` and `ifMatch: "..."`. In some cases you may want to provide both sets of options, but it is not required or necessarily recommended.
+
+
+
+
+
+### Supporting Types
+
+#### Model Types {#ts-model-types}
+
+Client libraries represent entities transferred to and from Azure services as model types. Certain types are used for round-trips to the service. They can be sent to the service (as an addition or update operation) and retrieved from the service (as a get operation). These must be named according to the type. For example, a `ConfigurationSetting` in App Configuration, or an `Event` on Event Grid.
+
+{% include requirement/MUST id="ts-model-types-use-good-name" %} follow the above convention for types which round-trip to the service and represent a complete entity.
+
+Data within the model type can generally be split into two parts - data used to support one of the champion scenarios for the service, and less important data. Given a type `Foo`, the less important details can be gathered in a type called `FooDetails` and attached to `Foo` as the `details` property.
+
+For example:
+
+{% highlight typescript %}
+interface ConfigurationSettingDetails {
+    lastModifiedOn: Date;
+    receivedOn: Date;
+    etag: string;
+}
+
+interface ConfigurationSetting {
+    key: string;
+    value: string;
+    details: ConfigurationSettingDetails;
+}
+{% endhighlight %}
+
+{% include requirement/MAY id="ts-model-types-use-details" %} use `details` to separate commonly needed and less commonly needed properties. If you use this convention, you MUST follow these naming conventions.
+
+In cases where a partial schema is returned, use the following types:
+
+* `<model>Item` for each item in an enumeration if the enumeration returns a partial schema for the model. For example, `GetBlobs()` return an enumeration of `BlobItem`, which contains the blob name and metadata, but not the content of the blob.
+* `<operation>Result` for the result of an operation. The `<operation>` is tied to a specific service operation. If the same result can be used for multiple operations, use a suitable noun-verb phrase instead. For example, use `UploadBlobResult` for the result from `UploadBlob`, but `ContainerChangeResult` for results from the various methods that change a blob container. In cases where a result is just a primitive type, do not create a type alias for it - just use it directly, and do not follow these conventions.
+
+{% include requirement/MUST id="ts-model-types-partial-naming" %} follow the above naming conventions when partial schemas are returned.
+
+The following table enumerates the various models you might create:
+
+| Type | Example | Usage |
+| `<model>` | `Secret` | The full data for a resource |
+| `<model>Details` | `SecretDetails` | Less important details about a resource. Attached to `<model>.details` |
+| `<model>Item` | `SecretItem` | A partial set of data returned for enumeration |
+| `<operation>Options` | `AddSecretOptions` | Optional parameters to a single operation |
+| `<operation>Result` | `AddSecretResult` | A partial or different set of data for a single operation |
+| `<model><verb>Result` | `SecretChangeResult` | A partial or different set of data for multiple operations on a model |
+
+TODO: Please add a section on extensible enums, if this is relevant to JS/TS.
+
+#### Using Azure Core {#ts-core-types}
+
+{% include requirement/MUST id="ts-core-types-must" %} make use of packages in Azure Core to provide behavior consistent across all Azure SDK libraries. This includes, but is not limited to:
+
+* `core-http` for http client, pipeline and related functionality
+* `logger` for logging
+* `core-tracing` for distributed tracing
+* `core-auth` for common auth interfaces
+* `core-lro` for long running operations
+
+See the [Azure Core readme](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/core) for more details.
 
 ### Modern & Idiomatic JavaScript {#ts-modern-javascript}
 
@@ -472,207 +688,64 @@ Your `tsconfig.json` should look similar to the following example:
 
 {% include requirement/SHOULDNOT id="ts-no-const-enums" %} use `const enum`. `Const enum` requires global understanding of your program to compile properly. As a result, `const enum` can't be used with Babel 7, which otherwise supports TypeScript. Avoiding `const enum` will make sure your code can be compiled by any tool. Use regular enums instead.
 
-## Pagination {#ts-pagination}
 
-Most developers will want to process a list one item at a time. Higher-level APIs (for example, async iterators) are preferred in the majority of use cases.  Finer-grained control over handling paginated result sets is sometimes required (for example, to handle over-quota or throttling).
 
-{% include requirement/MUST id="ts-pagination-provide-list" %} provide a `list` method that returns a `PagedAsyncIterableIterator` from the module `@azure/core-paging`.
 
-{% include requirement/MUST id="ts-pagination-provide-bypage-settings" %} provide page-related settings to the `byPage()` iterator and not the per-item iterator.
 
-{% include requirement/MUST id="ts-pagination-take-continuationToken" %} take a `continuationToken` option in the `byPage()` method. You must rename other parameters that perform a similar function (for example, `nextMarker`).  If your page type has a continuation token, it must be named `continuationToken`.
+## Azure SDK Library Design
 
-{% include requirement/MUST id="ts-pagination-take-maxpagesize" %} take a `maxPageSize` option in the `byPage()` method.
+The API surface of your client library must have the most thought as it is the primary interaction that the consumer has with your service.
 
-An example of a paginating client:
-<a name="ts-example-pagination"></a>
+### Platform Support {#ts-platform-support}
 
-```javascript
-// usage
-const client = new ServiceClient()
-for await (const item of client.listItems()) {
-    console.log(item);
-}
+{% include requirement/MUST id="ts-node-support" %} support [all LTS versions of Node](https://github.com/nodejs/Release#release-schedule) and newer versions up to and including the latest release.
 
-for await (const page of client.listItems().byPage({ maxPageSize: 50 })) {
-    console.log(page);
-}
+{% include requirement/MUST id="ts-browser-support" %} support the following browsers and versions:
 
-// implementation
-interface Item {
-    name: string;
-}
+* Apple Safari: latest two versions
+* Google Chrome: latest two versions
+* Microsoft Edge: all supported versions
+* Mozilla FireFox: latest two versions
 
-interface Page {
-    continuationToken: string;
-    items: Item[];
-}
+Use [caniuse.com](https://caniuse.com) to determine whether you can use a given platform feature in the runtime versions you support. Syntax support is provided by TypeScript.
 
-class ServiceClient {
-    /* ... */
-    listItems(): PagedAsyncIterableIterator<Item, Page> {
-        async function* pages () { /* ... */ }
-        async function* items () {
-            for (const page of pages()) {
-                for (const item of page.items) {
-                    yield item;
-                }
-            }
-        }
+{% include requirement/SHOULDNOT id="ts-no-ie11-support" %} support IE11. If you have a business justification for IE11 support, contact the [Architecture Board].
 
-        const itemIter = items();
+{% include requirement/MUST id="ts-support-ts" %} compile without errors on all versions of TypeScript greater than 3.1.
 
-        return {
-            next() {
-                return itemIter.next();
-                /* ... */
-            },
-            byPage() {
-                return pages();
-            },
-            [Symbol.asyncIterator]() { return this }
-        }
-    }
-}
-```
+While consumers are fast at adopting new versions of TypeScript, version 3.1 is used by Angular 7, which is still commonly used.  Supporting older versions of TypeScript can be a challenge. There are two general approaches:
 
-{% include requirement/MUST id="general-pagination-paginate-lists" %} expose non-paginated list endpoints identically to paginated list endpoints. Users shouldn't need to appreciate the difference.
+1. Don't use new features.
+2. Use [`typesVersions`](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-1.html#version-selection-with-typesversions), which might require manual effort to produce typings compatible with older versions based on the new typings.
 
-{% include requirement/MUST id="general-pagination-distinct-types" %} use different types for entities returned from a `list` endpoint and a `get` endpoint if the returned entities have a different shape.  If both entities are the same form, use the same type.
+{% include requirement/MUST id="ts-register-dropped-platforms" %} get approval from the [Architecture Board] to drop support for any platform (except IE11 and Node 6) even if support isn't required.
 
-{% include note.html content="Services should return the same shape for entities from a <code>list</code> endpoint vs. a <code>get</code> endpoint unless there's a good reason for the difference.  Using the same type for both operations will make the API surface in the client library simpler." %}
+### Namespaces, NPM Scopes, and Distribution Tags {#ts-namespace}
 
-{% include requirement/MUSTNOT id="general-pagination-no-item-iterators" %} expose an iterator over individual items if it causes additional service requests.  Some services charge on a per-request basis. One `GET` per item is often too expensive when the data isn't used.
+{% include requirement/MUST id="ts-azure-scope" %} publish your library to the `@azure` npm scope.
 
-{% include requirement/MUSTNOT id="general-pagination-support-toArray" %} expose an API to get a paginated collection into an array. Services may return many pages, which can lead to memory exhaustion in the application.
+{% include requirement/MUST id="ts-namespace-serviceclient" %} pick a package name that allows the consumer to tie the namespace to the service being used.  As a default, use the compressed service name at the end of the namespace.  The namespace does **NOT** change when the branding of the product changes. Avoid the use of marketing names that may change.
 
-## Long Running Operations {#ts-lro}
+{% include requirement/MUST id="ts-npm-dist-tag-beta" %} tag beta packages with the npm distribution tag `next`. If there is no generally available release of this package, it should also be tagged `latest`.
 
-Long-running operations are operations which consist of an initial request to start the operation followed by polling to determine when the operation has completed or failed. Long-running
-operations in Azure tend to follow the [REST API guidelines for Long-running Operations][rest-lro], but there are exceptions.
+{% include requirement/MUST id="ts-npm-dist-tag-next" %} tag generally available npm packages `latest`. Generally available packages may also be tagged `next` if they include the changes from the most recent beta.
 
-{% include requirement/MUST %} represent long-running operations with some object that encapsulates the polling and the operation status. This object, called a *poller*, must provide APIs for:
+{% include requirement/MUST id="ts-npm-package-name-prefix" %} prefix your data plane package names with the kebab-case version of the appropriate namespace from the following table:
 
-1. querying the current operation state (either asynchronously, which may consult the service, or synchronously which must not)
-2. requesting an asynchronous notification when the operation has completed
-3. cancelling the operation if cancellation is supported by the service
-4. registering disinterest in the operation so polling stops
-5. triggering a poll operation manually (automatic polling must be disabled)
-6. progress reporting (if supported by the service)
+{% include tables/data_namespaces.md %}
 
-{% include requirement/MUST id="ts-lro-support-options" %} support the following polling configuration options:
+For example, these package names meet the guidelines:
 
-* `pollInterval`
+* `@azure/cosmos`
+* `@azure/storage-blob`
+* `@azure/digital-twins-core`
 
-Polling configuration may be used only in the absence of relevant retry-after headers from service, and otherwise should be ignored.
+The following are examples that do not meet the guidelines:
 
-{% include requirement/MUST id="ts-lro-prefix-methods" %} prefix method names which return a poller with either `begin`.
+* `@microsoft/cosmos` (not in `@azure` scope).
+* `@azure/digitaltwins` (not kebab-cased).
 
-{% include requirement/MUST id="ts-lro-continuation" %} provide a way to instantiate a poller with the serialized state of another poller to begin where it left off, for example by passing the state as a parameter to the same method which started the operation, or by directly instantiating a poller with that state.
-
-{% include requirement/MUSTNOT id="ts-lro-cancellation" %} cancel the long-running operation when cancellation is requested via a cancellation token. The cancellation token is cancelling the polling operation and should not have any effect on the service.
-
-{% include requirement/MUST id="ts-lro-logging" %} log polling status at the `Info` level (including time to next retry)
-
-{% include requirement/MUST id="ts-lro-progress-reporting" %} expose a progress reporting mechanism to the consumer if the service reports progress as part of the polling operation.  Language-dependent guidelines will present additional guidance on how to expose progress reporting in this case.
-
-{% include draft.html content="Long-running operations will use the <code>@azure/core-lro</code> package, which is an abstraction that provides the above requirements" %}
-
-TODO: If this is largely implemented for the API Designer, please include an example of how to use the Azure Core type in the public API.  It would be ideal to remove guidelines where the requirement has already been addressed for the API Designer in the type.
-
-## Conditional Request Methods {#ts-conditional-requests}
-
-There are two patterns in use depending on whether `etag` is a member of the model type or not.
-
-{% include requirement/MUST id="ts-conditional-request-options-1" %} provide the following options in a method's options bag when the model type has an `etag` property:
-
-* onlyIfChanged - sets the `if-match` header to the `etag`.
-* onlyIfUnchanged - sets the `if-none-match` header to the `etag`.
-* onlyIfMissing - sets the `if-none-match` header to `*`.
-* onlyIfPresent - sets the `if-match` header to `*`.
-
-{% include requirement/MUST id="ts-conditional-request-options-2" %} provide the following options in a method's options bag's `conditions` property when the model type does not have an `etag` property:
-
-* ifMatch - sets the `if-match` header to the value provided.
-* ifNoneMatch - sets the `if-none-match` header to the value provided.
-* ifModifiedSince - sets the `if-modified-since` header to the value provided
-* ifUnmodifiedSince - sets the `if-unmodified-since` header to the value provided.
-
-{% include requirement/MUST id="ts-conditional-request-no-dupe-options" %} throw an error if the user provides options from both option sets, for example passing `onlyIfChanged: true` and `ifMatch: "..."`. In some cases you may want to provide both sets of options, but it is not required or necessarily recommended.
-
-## Model Types {#ts-model-types}
-
-Client libraries represent entities transferred to and from Azure services as model types. Certain types are used for round-trips to the service. They can be sent to the service (as an addition or update operation) and retrieved from the service (as a get operation). These must be named according to the type. For example, a `ConfigurationSetting` in App Configuration, or an `Event` on Event Grid.
-
-{% include requirement/MUST id="ts-model-types-use-good-name" %} follow the above convention for types which round-trip to the service and represent a complete entity.
-
-Data within the model type can generally be split into two parts - data used to support one of the champion scenarios for the service, and less important data. Given a type `Foo`, the less important details can be gathered in a type called `FooDetails` and attached to `Foo` as the `details` property.
-
-For example:
-
-{% highlight typescript %}
-interface ConfigurationSettingDetails {
-    lastModifiedOn: Date;
-    receivedOn: Date;
-    etag: string;
-}
-
-interface ConfigurationSetting {
-    key: string;
-    value: string;
-    details: ConfigurationSettingDetails;
-}
-{% endhighlight %}
-
-{% include requirement/MAY id="ts-model-types-use-details" %} use `details` to separate commonly needed and less commonly needed properties. If you use this convention, you MUST follow these naming conventions.
-
-In cases where a partial schema is returned, use the following types:
-
-* `<model>Item` for each item in an enumeration if the enumeration returns a partial schema for the model. For example, `GetBlobs()` return an enumeration of `BlobItem`, which contains the blob name and metadata, but not the content of the blob.
-* `<operation>Result` for the result of an operation. The `<operation>` is tied to a specific service operation. If the same result can be used for multiple operations, use a suitable noun-verb phrase instead. For example, use `UploadBlobResult` for the result from `UploadBlob`, but `ContainerChangeResult` for results from the various methods that change a blob container. In cases where a result is just a primitive type, do not create a type alias for it - just use it directly, and do not follow these conventions.
-
-{% include requirement/MUST id="ts-model-types-partial-naming" %} follow the above naming conventions when partial schemas are returned.
-
-The following table enumerates the various models you might create:
-
-| Type | Example | Usage |
-| `<model>` | `Secret` | The full data for a resource |
-| `<model>Details` | `SecretDetails` | Less important details about a resource. Attached to `<model>.details` |
-| `<model>Item` | `SecretItem` | A partial set of data returned for enumeration |
-| `<operation>Options` | `AddSecretOptions` | Optional parameters to a single operation |
-| `<operation>Result` | `AddSecretResult` | A partial or different set of data for a single operation |
-| `<model><verb>Result` | `SecretChangeResult` | A partial or different set of data for multiple operations on a model |
-
-## Using Azure Core {#ts-core-types}
-
-{% include requirement/MUST id="ts-core-types-must" %} make use of packages in Azure Core to provide behavior consistent across all Azure SDK libraries. This includes, but is not limited to:
-
-* `core-http` for http client, pipeline and related functionality
-* `logger` for logging
-* `core-tracing` for distributed tracing
-* `core-auth` for common auth interfaces
-* `core-lro` for long running operations
-
-See the [Azure Core readme](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/core) for more details.
-
-TODO: Please add a section on extensible enums, if this is relevant to JS/TS.
-
-## Support for non-HTTP protocols {#general-other-protocols}
-
-Most Azure services expose a RESTful API over HTTPS.  However, a few services use other protocols, such as [AMQP](https://www.amqp.org/), [MQTT](http://mqtt.org/), or [WebRTC](https://webrtc.org/). In these cases, the operation of the protocol can be split into two phases:
-
-* Per-connection (surrounding when the connection is initiated and terminated)
-* Per-operation (surrounding when an operation is sent through the open connection)
-
-The policies that are added to a HTTP request/response (authentication, unique request ID, telemetry, distributed tracing, and logging) are still valid on both a per-connection and per-operation basis.  However, the methods by which these policies are implemented are protocol dependent.
-
-{% include requirement/MUST id="general-other-protocols-pipeline-policies" %} implement as many of the policies as possible on a per-connection and per-operation basis.
-
-For example, MQTT over WebSockets provides the ability to add headers during the initiation of the WebSockets connection, so this is a good place to add authentication, telemetry, and distributed tracing policies.  However, MQTT has no metadata (the equivalent of HTTP headers), so per-operation policies are not possible.  AMQP, by contract, does have per-operation metadata.  Unique request ID, and distributed tracing headers can be provided on a per-operation basis with AMQP.
-
-{% include requirement/MUST id="general-other-protocols-consult-on-policies" %} consult the [Architecture Board] on policy decisions for non-HTTP protocols.  Implementation of all policies is expected.  If the protocol cannot support a policy, obtain an exception from the [Architecture Board].
-
-{% include requirement/MUST id="general-other-protocols-use-global-config" %} use the global configuration established in the Azure Core library to configure policies for non-HTTP protocols.  Consumers don't necessarily know what protocol is used by the client library.  They will expect the client library to honor global configuration that they have established for the entire Azure SDK.
+{% include requirement/SHOULD id="ts-npm-package-name-follow-conventions" %} you should follow the casing conventions of any existing GA packages released in the `@azure` npm scope. It's not worth renaming a package just to align on naming conventions.
 
 {% include refs.md %}
 {% include_relative refs.md %}
