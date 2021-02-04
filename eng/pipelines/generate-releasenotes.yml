@@ -4,7 +4,7 @@ parameters:
   default: $(Build.SourceBranchName)
 - name: PrBranchName
   type: string
-  default: "CreateOrUpdateReleaseNotes"
+  default: "CreateOrUpdateReleaseNotesFor"
 - name: Repos
   type: object
   default:
@@ -32,20 +32,44 @@ steps:
   - checkout: azure-sdk-tools
 
   - pwsh: |
-      $ErrorActionPreference = "Continue"
       $releasePeriod = Get-Date -Format "yyyy-MM"
       Write-Host "##vso[task.setvariable variable=ReleasePeriod]$releasePeriod"
-
-      git checkout "origin/${{ parameters.PrBranchName }}_$releasePeriod"
-      $LASTEXITCODE = 0 # This ignores any error from git checkout
-      git status
-    displayName: Checkout Previous PRBranch if it exist.
-    workingDirectory: $(System.DefaultWorkingDirectory)/azure-sdk
+    displayName: Set Release Period Value
 
   - ${{ each repo in parameters.Repos }}:
     - pwsh: |
         git clone --branch ${{ parameters.BaseBranchName }} "https://github.com/azure/${{ repo }}"
       displayName: Clone ${{ repo }} repo
+
+    - pwsh: |
+        . (Join-Path $(System.DefaultWorkingDirectory) ${{ repo }} eng common scripts common.ps1)
+        Write-Host $Language
+        $languageValueUsed = $Language
+        Write-Host $languageValueUsed
+        $releaseFileName = "${languageValueUsed}.md"
+        $releaseFilePath =  (Join-Path $(System.DefaultWorkingDirectory) azure-sdk releases $(ReleasePeriod) $releaseFileName)
+        if (!(Test-Path $releaseFilePath))
+        {
+          $languageValueUsed = $LanguageShort
+          $releaseFileName = "$languageValueUsed.md"
+          $releaseFilePath =  (Join-Path $(System.DefaultWorkingDirectory) azure-sdk releases $(ReleasePeriod) $releaseFileName)
+          if (!(Test-Path $releaseFilePath))
+          {
+            LogError "Could not find release file for $languageValueUsed at [ $releaseFilePath ]."
+            exit 1
+          }
+        }
+        Write-Host "##vso[task.setvariable variable=LanguageValueUsed]$languageValueUsed"
+      displayName: Compute value to use for Language
+      workingDirectory: $(System.DefaultWorkingDirectory)/${{ repo }}
+
+    - pwsh: |
+        $ErrorActionPreference = "Continue"
+        git checkout "origin/${{ parameters.PrBranchName }}_$(LanguageValueUsed)_$(ReleasePeriod)" 2>&1 | Out-Null
+        $LASTEXITCODE = 0 # This ignores any error from git checkout
+        git status
+      displayName: Checkout Previous PRBranch if it exist.
+      workingDirectory: $(System.DefaultWorkingDirectory)/azure-sdk
 
     - task: PowerShell@2
       displayName: 'Generate ReleaseNotes for the Release Period'
@@ -57,13 +81,14 @@ steps:
           -releasePeriod $(ReleasePeriod)
           -languageRepoDirectory $(System.DefaultWorkingDirectory)/${{ repo }}
           -releaseDirectory $(System.DefaultWorkingDirectory)/azure-sdk/releases
+          -releaseFileName $(LanguageValueUsed)
 
-  - template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
-    parameters:
-      RepoName: azure-sdk
-      PROwner: Azure
-      PRBranchName: '${{ parameters.PrBranchName }}_$(ReleasePeriod)'
-      CommitMsg: "Create or Update Release Notes for $(ReleasePeriod) release"
-      PRTitle: "Create or Update Release Notes for $(ReleasePeriod) release"
-      WorkingDirectory: $(System.DefaultWorkingDirectory)/azure-sdk
-      ScriptDirectory: $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts
+    - template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
+      parameters:
+        RepoName: azure-sdk
+        PROwner: Azure
+        PRBranchName: '${{ parameters.PrBranchName }}_$(LanguageValueUsed)_$(ReleasePeriod)'
+        CommitMsg: "Create or Update Release Notes for $(LanguageValueUsed) $(ReleasePeriod) release"
+        PRTitle: "Create or Update Release Notes for $(LanguageValueUsed) $(ReleasePeriod) release"
+        WorkingDirectory: $(System.DefaultWorkingDirectory)/azure-sdk
+        ScriptDirectory: $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts
