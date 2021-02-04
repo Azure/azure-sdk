@@ -4,14 +4,18 @@ parameters:
   default: $(Build.SourceBranchName)
 - name: PrBranchName
   type: string
-  default: "CreateOrUpdateReleaseNotes"
+  default: "CreateOrUpdateReleaseNotesFor"
 - name: Repos
   type: object
   default:
-    - azure-sdk-for-java
-    - azure-sdk-for-js
-    - azure-sdk-for-net
-    - azure-sdk-for-python
+    azure-sdk-for-java:
+      Language: java
+    azure-sdk-for-js:
+      Language: js
+    azure-sdk-for-net:
+      Language: dotnet
+    azure-sdk-for-python:
+      Language: python
 
 trigger: none
 
@@ -28,24 +32,27 @@ resources:
       endpoint: azure
 
 steps:
-  - checkout: self
   - checkout: azure-sdk-tools
 
   - pwsh: |
-      $ErrorActionPreference = "Continue"
       $releasePeriod = Get-Date -Format "yyyy-MM"
       Write-Host "##vso[task.setvariable variable=ReleasePeriod]$releasePeriod"
-
-      git checkout "origin/${{ parameters.PrBranchName }}_$releasePeriod"
-      $LASTEXITCODE = 0 # This ignores any error from git checkout
-      git status
-    displayName: Checkout Previous PRBranch if it exist.
-    workingDirectory: $(System.DefaultWorkingDirectory)/azure-sdk
+    displayName: Set Release Period Value
 
   - ${{ each repo in parameters.Repos }}:
+    - checkout: self
+
     - pwsh: |
-        git clone --branch ${{ parameters.BaseBranchName }} "https://github.com/azure/${{ repo }}"
-      displayName: Clone ${{ repo }} repo
+        git clone --branch ${{ parameters.BaseBranchName }} "https://github.com/azure/${{ repo.key }}"
+      displayName: Clone ${{ repo.key }} repo
+
+    - pwsh: |
+        $ErrorActionPreference = "Continue"
+        git checkout "origin/${{ parameters.PrBranchName }}_${{ repo.value.Language }}_$(ReleasePeriod)" 2>&1 | Out-Null
+        $LASTEXITCODE = 0 # This ignores any error from git checkout
+        git status
+      displayName: Checkout Previous PRBranch if it exist.
+      workingDirectory: $(System.DefaultWorkingDirectory)/azure-sdk
 
     - task: PowerShell@2
       displayName: 'Generate ReleaseNotes for the Release Period'
@@ -55,15 +62,16 @@ steps:
         filePath: $(System.DefaultWorkingDirectory)/azure-sdk/eng/scripts/Generate-ReleaseNotes.ps1
         arguments: > 
           -releasePeriod $(ReleasePeriod)
-          -languageRepoDirectory $(System.DefaultWorkingDirectory)/${{ repo }}
+          -languageRepoDirectory $(System.DefaultWorkingDirectory)/${{ repo.key }}
           -releaseDirectory $(System.DefaultWorkingDirectory)/azure-sdk/releases
+          -releaseFileName ${{ repo.value.Language }}
 
-  - template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
-    parameters:
-      RepoName: azure-sdk
-      PROwner: Azure
-      PRBranchName: '${{ parameters.PrBranchName }}_$(ReleasePeriod)'
-      CommitMsg: "Create or Update Release Notes for $(ReleasePeriod) release"
-      PRTitle: "Create or Update Release Notes for $(ReleasePeriod) release"
-      WorkingDirectory: $(System.DefaultWorkingDirectory)/azure-sdk
-      ScriptDirectory: $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts
+    - template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
+      parameters:
+        RepoName: azure-sdk
+        PROwner: Azure
+        PRBranchName: '${{ parameters.PrBranchName }}_${{ repo.value.Language }}_$(ReleasePeriod)'
+        CommitMsg: "Create or Update Release Notes for ${{ repo.value.Language }} $(ReleasePeriod) release"
+        PRTitle: "Create or Update Release Notes for ${{ repo.value.Language }} $(ReleasePeriod) release"
+        WorkingDirectory: $(System.DefaultWorkingDirectory)/azure-sdk
+        ScriptDirectory: $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts
