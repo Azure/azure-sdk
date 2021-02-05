@@ -89,11 +89,29 @@ export class ServiceClient {
 }
 ```
 
+{% include requirement/MUST id="ts-apisurface-serviceclientnaming" %} name service client types with the _Client_ suffix.
+
+#### Client Hierarchies {#ts-client-hierarchy}
+
+Some Azure services store and manipulate resources organized in a hierarchy. For example, Azure Storage provides an account that contains zero or more containers, which in turn contain zero or more blobs.
+SDK libraries for such services might want to provide more than one client type representing various levels of the hierarchy. For example, the storage library provides `BlobServiceClient`, `BlobContainerClient`, and `BlobClient`.
+
+{% include requirement/MAY id="ts-client-hierarchy-clients" %} provide a client type corresponding to each level in a resource hierarchy.
+
+{% include requirement/MUST id="ts-client-hierarchy-get" %} provide a `<parent>.get<child>Client(...)` method to retrieve a client for the named child.
+
+For example, `BlobContainerClient` has a method `getBlobClient` returning an instance of `BlobClient`. The method must not make a network call to verify the existence of the child.
+Also, note that per general client constructor guidelines, all clients need to provide at least one public constructor.
+
+{% include requirement/MAY id="ts-client-hierarchy-create" %} provide method `<parent>.create<child>(...)` that creates a child resource.
+
+The method **should** return an instance of a client for the newly created child resource.
+
+{% include requirement/MAY id="ts-client-hierarchy-delete" %} provide method `<parent>.delete<child>(...)` that deletes a child resource.
+
 #### Service Client Constructor
 
 {% include requirement/MUST id="ts-apisurface-serviceclientconstructor" %} allow the consumer to construct a service client with the minimal information needed to connect and authenticate to the service.
-
-{% include requirement/MUST id="ts-apisurface-standardized-verbs" %} standardize verb prefixes within a set of client libraries for a service (see [approved verbs](#ts-approved-verbs)).
 
 The service speaks about specific operations in a cross-language manner within outbound materials (such as documentation, blogs, and public speaking).  The service can't be consistent across languages if the same operation is referred to by different verbs in different languages.
 
@@ -234,8 +252,6 @@ export interface ContainerGetPropertiesHeaders {
 }
 ```
 ##### Naming conventions {#ts-client-naming-conventions}
-
-{% include requirement/MUST id="ts-apisurface-serviceclientnaming" %} name service client types with the _Client_ suffix.
 
 {% include requirement/SHOULD id="ts-approved-verbs" %} use one of the approved verbs in the below table when referring to service operations.
 
