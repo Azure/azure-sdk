@@ -57,20 +57,7 @@ The main value of the Azure SDK is **productivity** building applications with A
 
 ### Support for non-HTTP protocols {#general-other-protocols}
 
-Most Azure services expose a RESTful API over HTTPS.  However, a few services use other protocols, such as [AMQP](https://www.amqp.org/), [MQTT](http://mqtt.org/), or [WebRTC](https://webrtc.org/). In these cases, the operation of the protocol can be split into two phases:
-
-* Per-connection (surrounding when the connection is initiated and terminated)
-* Per-operation (surrounding when an operation is sent through the open connection)
-
-The policies that are added to a HTTP request/response (authentication, unique request ID, telemetry, distributed tracing, and logging) are still valid on both a per-connection and per-operation basis.  However, the methods by which these policies are implemented are protocol dependent.
-
-{% include requirement/MUST id="general-other-protocols-pipeline-policies" %} implement as many of the policies as possible on a per-connection and per-operation basis.
-
-For example, MQTT over WebSockets provides the ability to add headers during the initiation of the WebSockets connection, so this is a good place to add authentication, telemetry, and distributed tracing policies.  However, MQTT has no metadata (the equivalent of HTTP headers), so per-operation policies are not possible.  AMQP, by contract, does have per-operation metadata.  Unique request ID, and distributed tracing headers can be provided on a per-operation basis with AMQP.
-
-{% include requirement/MUST id="general-other-protocols-consult-on-policies" %} consult the [Architecture Board] on policy decisions for non-HTTP protocols.  Implementation of all policies is expected.  If the protocol cannot support a policy, obtain an exception from the [Architecture Board].
-
-{% include requirement/MUST id="general-other-protocols-use-global-config" %} use the global configuration established in the Azure Core library to configure policies for non-HTTP protocols.  Consumers don't necessarily know what protocol is used by the client library.  They will expect the client library to honor global configuration that they have established for the entire Azure SDK.
+This document contains guidelines developed primarily for typical Azure REST services, i.e. stateless services with request-response based interaction model. Many of the guidelines in this document are more broadly applicable, but some might be specific to such REST services.
 
 ### Terminology
 
