@@ -61,7 +61,13 @@ This document contains guidelines developed primarily for typical Azure REST ser
 
 ## Azure SDK API Design {#ts-apisurface-serviceclient}
 
-Your API surface will consist of one or more _service clients_ that the consumer will instantiate to connect to your service, plus a set of supporting types. The basic shape of JavaScript service clients is shown in the following example:
+Azure services will be exposed to JS developers as one or more _service client_ types and a set of _supporting types_.
+
+### The Service Client
+
+Service clients are the main starting points for developers calling Azure services with the Azure SDK.  Each client library should have at least one client exported from the top level of its package, so it's easy to discover. The guidelines in this section describe patterns for the design of a service client.  
+
+The basic shape of JavaScript service clients is shown in the following example:
 
 ```javascript
 export class ServiceClient {
@@ -82,10 +88,6 @@ export class ServiceClient {
   getItemClient(itemName: string) { }
 }
 ```
-
-### The Service Client
-
-{% include requirement/MUST id="ts-apisurface-serviceclientnamespace" %} place service client types that the consumer is most likely to interact as a top-level export from your library.  That is, the service client type should be something that can be imported directly by the consumer.
 
 #### Service Client Constructor
 
