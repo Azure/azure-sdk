@@ -115,7 +115,6 @@ If you have a bug or feature request for one of the libraries, please post an is
   - Removed property username from ContainerRegistry
   - Removed max_tasks_per_node property on Pool and replaced it with task_slots_per_node
 
-
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
 ## Latest Releases
