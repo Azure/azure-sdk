@@ -2,7 +2,7 @@ param (
   [string]$releasePeriod,
   [string]$languageRepoDirectory,
   [string]$releaseDirectory,
-  [string]$repoLanguage
+  [string]$releaseFileName
 )
 
 $PATTERN_REGEX = "^\[pattern(\.(?<SectionName>\w+))?\]:\s#\s\((?<Pattern>.*)\)"
@@ -21,20 +21,12 @@ Write-Host "Common Script $commonScript"
 . $commonScript
 $CsvMetaData = Get-CSVMetadata
 
-$releaseFileName = "${repoLanguage}.md"
-$releaseFilePath = (Join-Path $ReleaseDirectory $releasePeriod $releaseFileName)
-
-if (!(Test-Path $releaseFilePath))
-{
-    LogError "Could not find release file for $repoLanguage at [ $releaseFilePath ]."
-    exit 1
-}
-
+$releaseFilePath = (Join-Path $ReleaseDirectory $releasePeriod "${releaseFileName}.md")
 LogDebug "Release File Path [ $releaseFilePath ]"
 $existingReleaseContent = Get-Content $releaseFilePath
 
 
-$pathToDateOfLatestUpdates = (Join-Path $ReleaseDirectory dateoflastupdate.json)
+$pathToDateOfLatestUpdates = (Join-Path $ReleaseDirectory "${releaseFileName}.lastupdated")
 $collectChangelogPath = (Join-Path $commonScriptsPath Collect-ChangeLogs.ps1)
 
 function Get-PackagesInfoFromFile ($releaseNotesContent) 
@@ -60,7 +52,7 @@ function Get-PackagesInfoFromFile ($releaseNotesContent)
             if ($pkgInfo.Count -gt 0)
             {
                 $packageName = $pkgInfo[0]
-                $packageMetaData = $CsvMetaData | Where-Object { $_.Package -eq $packageNam }
+                $packageMetaData = $CsvMetaData | Where-Object { $_.Package -eq $packageName }
                 if ($packageMetaData.Count -gt 0)
                 {
                     $presentPkgInfo += $line
@@ -74,6 +66,7 @@ function Get-PackagesInfoFromFile ($releaseNotesContent)
 function Filter-ReleaseHighlights ($releaseHighlights)
 {
     $results = @{}
+    $packagesRemoved = @()
 
     foreach ($key in $releaseHighlights.Keys)
     {
@@ -92,9 +85,15 @@ function Filter-ReleaseHighlights ($releaseHighlights)
             if ($sortedVersions[0] -eq $releaseVersion)
             {
                 continue
+                LogDebug "[ $packageName ] with version  [$releaseVersion ] was skipped because it has a newer release version than present in the package csv"
             }
             $releaseHighlights[$key]["DisplayName"] = $packageMetaData.DisplayName
             $results.Add($key, $releaseHighlights[$key])
+        }
+        else 
+        {
+            $packagesRemoved += $packageName
+            LogDebug "[ $packageName ] with version  [ $releaseVersion ] was skipped because there are duplicate versions in the package csv"
         }
     }
     return $results
@@ -179,15 +178,15 @@ function Write-GeneralReleaseNote ($releaseHighlights, $releaseNotesContent, $re
 }
 
 $presentPkgsInfo = Get-PackagesInfoFromFile -releaseNotesContent $existingReleaseContent
-$dateOfLatestUpdatesJson = Get-Content -Path $pathToDateOfLatestUpdates | ConvertFrom-Json
+$dateOfLatestUpdate = @(Get-Content -Path $pathToDateOfLatestUpdates)
 
-if ($null -eq $dateOfLatestUpdates.$repoLanguage)
+if ($dateOfLatestUpdate.Count -eq 0)
 {
-    LogError "Please make sure a valid date is present for [ $repoLanguage ] at [ $pathToDateOfLatestUpdates ]"
+    LogError "Please make sure a valid date is present for [ $releaseFileName ] at [ $pathToDateOfLatestUpdates ]"
     exit 1
 }
 
-$incomingReleaseHighlights = &$collectChangelogPath -FromDate $dateOfLatestUpdatesJson.$repoLanguage
+$incomingReleaseHighlights = &$collectChangelogPath -FromDate $dateOfLatestUpdate[0]
 
 foreach ($key in @($incomingReleaseHighlights.Keys))
 {
@@ -205,5 +204,4 @@ Write-GeneralReleaseNote `
 -releaseNotesContent $existingReleaseContent `
 -releaseFilePath $releaseFilePath
 
-$dateOfLatestUpdatesJson.$repoLanguage = (Get-Date -Format "yyyy-MM-dd")
-Set-Content -Path $pathToDateOfLatestUpdates -Value ($dateOfLatestUpdatesJson | ConvertTo-Json) -NoNewline
+Set-Content -Path $pathToDateOfLatestUpdates -Value (Get-Date -Format "yyyy-MM-dd") -NoNewline
