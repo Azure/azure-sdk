@@ -59,21 +59,6 @@ The main value of the Azure SDK is **productivity** building applications with A
 
 This document contains guidelines developed primarily for typical Azure REST services, i.e. stateless services with request-response based interaction model. Many of the guidelines in this document are more broadly applicable, but some might be specific to such REST services.
 
-### Terminology
-
-AMD Module
-: A module format often used in the browser, for example as implemented by [RequireJS].
-
-[CommonJS][cjs] (CJS)
-: The module format of Node.js (`require`, `module.exports`).
-
-[ECMAScript Module][esm] (ES Module or ESM)
-: The standard import/export syntax defined in ECMAScript 6.
-
-{% include refs.md %}
-{% include_relative refs.md %}
-
-
 ## Azure SDK API Design {#ts-apisurface-serviceclient}
 
 Your API surface will consist of one or more _service clients_ that the consumer will instantiate to connect to your service, plus a set of supporting types. The basic shape of JavaScript service clients is shown in the following example:
