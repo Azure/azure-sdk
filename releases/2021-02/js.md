@@ -128,7 +128,6 @@ Initial early preview release for MAA Data Plane SDK Demonstrates use of the mac
 ### Storage - Files Shares 12.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/storage-file-share_12.4.0/sdk/storage/@azure/storage-file-share/CHANGELOG.md#1240-2021-01-12)
 - This release contains bug fixes to improve quality.
 
-
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
 ## Latest Releases
