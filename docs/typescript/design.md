@@ -161,6 +161,24 @@ class ExampleClient {
 }
 ```
 
+##### Service Client Constructor Options {#ts-constructor-options}
+
+{% include requirement/MUST id="ts-constructor-options-naming" %} name the type of the options bag as `<class name>Options`.
+
+{% include requirement/MUST id="ts-constructor-options-use-pipeline-options" %} provide all standard pipeline options including the following:
+
+| Option           | Intent                                                             | 
+|------------------|--------------------------------------------------------------------|
+| httpClient       | Provide a custom http client implementation                |
+| keepAliveOptions | Disable keep-alive
+| proxyOptions     | Provide proxy host, port, username, and password |
+| redirectOptions  | Disable following redirects, configure maximum hops before giving up |
+| retryOptions     | Configure retry strategy, max number of retries, and retry delay |
+| userAgentOptions | Provide a custom user-agent prefix |
+
+
+{% include requirement/MUST id="ts-constructor-options-durations-suffix" %} suffix durations with `In<Unit>`. Unit should be `ms` for milliseconds, and otherwise the name of the unit. Examples include `timeoutInMs` and `delayInSeconds`.
+
 ##### Service Versions {#ts-service-versions}
 
 {% include requirement/MUST id="ts-service-versions-use-latest" %} call the highest supported service API version by default.
@@ -245,6 +263,7 @@ export interface ContainerGetPropertiesHeaders {
   hasImmutabilityPolicy?: boolean;
 }
 ```
+
 ##### Naming conventions {#ts-client-naming-conventions}
 
 {% include requirement/SHOULD id="ts-approved-verbs" %} use one of the approved verbs in the below table when referring to service operations.
@@ -295,38 +314,19 @@ containerClient.createBlobClient(); // should be `getBlobClient`.
 
 {% include requirement/SHOULD %} only check cancellation tokens on I/O calls (such as network requests and file loads).  Don't check the cancellation token between I/O calls within the client library (for example, when processing data between I/O calls).
 
-#### Options {#ts-options}
-
-The guidelines in this section apply to options passed in options bags to clients, whether methods or constructors. When referring to option names, this means the key of the object users must use to specify that option when passing it into a method or constructor.
+##### Service Client Method Options {#ts-method-options}
 
 {% include requirement/MUST id="ts-naming-options" %} name the type of the options bag as `<class name>Options` and `<method name>Options` for constructors and methods respectively.
 
-{% include requirement/MUST id="ts-options-abortSignal" %} name abort signal options `abortSignal`.
-
 {% include requirement/MUST id="ts-options-suffix-durations" %} suffix durations with `In<Unit>`. Unit should be `ms` for milliseconds, and otherwise the name of the unit. Examples include `timeoutInMs` and `delayInSeconds`.
 
-##### Retry-specific Options {#ts-retry-options}
+{% include requirement/MUST id="ts-method-options-use-operation-options" %} provide all standard operation options including the following:
 
-Many services have a notion of retries and have various means to configure them.
-
-{% include requirement/MUST id="ts-use-retry-option-names" %} use the option names specified in the table below
-
-| Option | Values | Usage | Other Names (informational) |
-|--------|-------|------|------|
-| retryMode | 'fixed', 'linear', 'exponential' | Used to specify the retry strategy |
-| maxRetries | number >= 0 | Number of times to retry. 0 effectively disables retrying. |
-| retryDelayInMs | number > 0 | Delay between retries. For linear and exponential strategies, this is the initial retry delay and increases thereafter based on the strategy used. |
-| maxRetryDelayInMs | number > 0 | Maximum delay between retries. For linear and exponential strategies, this effectively clamps the maximum amount of time between retries. |
-| tryTimeoutInMs | number > 0 | How long to wait for a particular retry to complete before giving up |
-
-TODO: Please add a code sample showing how these fit into a track 2 JS/TS library.
-
-{% include requirement/MUST id="ts-use-retry-strategies" %} support the following retry strategies:
-
-* `fixed`: retry after some duration, where the duration never changes.
-* `exponential`: retry after some duration, where the duration increases exponentially after each attempt.
-
-TODO: Are these implemented by default in Azure Core or does the API designer need to implement these?  If there is no action for the API Designer, let's take this out.
+| Option           | Intent                                                             | 
+|------------------|--------------------------------------------------------------------|
+| abortSignal      | Provide an abort signal for cancellation      |
+| requestOptions   | Provide custom headers, request timeout, and upload and download progress callbacks |
+| tracingOptions   | Provide distributing tracing span options e.g. parent span |
 
 #### Authentication
 
