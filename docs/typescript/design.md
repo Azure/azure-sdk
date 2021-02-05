@@ -113,12 +113,6 @@ The method **should** return an instance of a client for the newly created child
 
 {% include requirement/MUST id="ts-apisurface-serviceclientconstructor" %} allow the consumer to construct a service client with the minimal information needed to connect and authenticate to the service.
 
-The service speaks about specific operations in a cross-language manner within outbound materials (such as documentation, blogs, and public speaking).  The service can't be consistent across languages if the same operation is referred to by different verbs in different languages.
-
-{% include requirement/MUST id="ts-apisurface-supportallfeatures" %} support 100% of the features provided by the Azure service the client library represents.
-
-Gaps in functionality cause confusion and frustration among developers. A feature may be omitted if there isn't support on the platform. For example, a library that depends on local file system access may not work in a browser.
-
 {% include requirement/SHOULD id="ts-use-constructor-overloads" %} provide overloaded constructors for all client construction scenarios.
 
 Don't use static methods to construct a client unless an overload would be ambiguous.  Prefix the static method with `from` if you require a static constructor.
