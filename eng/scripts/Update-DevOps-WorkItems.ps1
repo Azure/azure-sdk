@@ -30,7 +30,7 @@ function GetVersionGroupForPackage($lang, $pkg)
     $versions += ToSemVer $pkg.VersionGA
   }
   if ($pkg.VersionPreview -and ($versions.Count -eq 0 -or $versions.RawVersion -notcontains $pkg.VersionPreview)) {
-    $versions += ToSemVEr $pkg.VersionPreview
+    $versions += ToSemVer $pkg.VersionPreview
   }
 
   $versions = @([AzureEngSemanticVersion]::SortVersions($versions))

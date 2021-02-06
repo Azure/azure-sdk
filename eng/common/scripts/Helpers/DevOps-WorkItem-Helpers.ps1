@@ -496,7 +496,6 @@ function GetMDVersionValue($versionlist)
 {
   $mdVersions = ""
   $mdFormat = "| {0} | {1} | {2} |`n"
-  $versionlist | ForEach-Object { $mdVersions += ($mdFormat -f $_.Type, $_.Version, $_.Date) }
 
   $htmlVersions = ""
   $htmlFormat = @"
@@ -507,7 +506,11 @@ function GetMDVersionValue($versionlist)
 </tr>
 
 "@
-  $versionlist | ForEach-Object { $htmlVersions += ($htmlFormat -f $_.Type, $_.Version, $_.Date) }
+
+  foreach ($version in $versionList) {
+    $mdVersions += ($mdFormat -f $version.Type, $version.Version, $version.Date)
+    $htmlVersions += ($htmlFormat -f $version.Type, $version.Version, $version.Date)
+  }
 
   $htmlTemplate = @"
 <div style='display:none;width:0;height:0;overflow:hidden;position:absolute;font-size:0;' id=__md>| Type | Version | Date |
@@ -778,7 +781,6 @@ function UpdatePackageVersions($pkgWorkItem, $plannedVersions, $shippedVersions)
   {
     $fieldUpdates += $versionFieldUpdates
   }
-
 
   # If no version files to update do nothing
   if ($fieldUpdates.Count -eq 0) {

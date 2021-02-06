@@ -1,16 +1,14 @@
 . (Join-Path $PSScriptRoot .. common scripts SemVer.ps1)
 
-if ($github_pat) {
+function GetCommitterDate($shaUrl)
+{
+  if (!$github_pat) {
+    throw "github_pat was not set so we cannot retrieve git tag information"
+  }
   $GithubHeaders = @{
     Authorization = "bearer ${github_pat}"
   }
-}
-else {
-  throw "github_pat was not passed so we cannot retrieve git tag informations"
-}
 
-function GetCommitterDate($shaUrl)
-{
   try
   {
     if (!$shaUrl -or $shaUrl -eq "Unknown") { return $null }
@@ -37,6 +35,13 @@ function GetCommitterDate($shaUrl)
 }
 function GetExistingTags($apiUrl)
 {
+  if (!$github_pat) {
+    throw "github_pat was not set so we cannot retrieve git tag information"
+  }
+  $GithubHeaders = @{
+    Authorization = "bearer ${github_pat}"
+  }
+
   try
   {
     return (Invoke-RestMethod -Method "GET" -Uri "$apiUrl/git/refs/tags" -headers $GithubHeaders) 
