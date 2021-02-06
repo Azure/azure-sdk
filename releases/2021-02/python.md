@@ -115,7 +115,6 @@ If you have a bug or feature request for one of the libraries, please post an is
   - Added operation DiskAccessesOperations.get_a_private_endpoint_connection
   - Added operation group DiskRestorePointOperations
 
-
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
 ## Latest Releases
