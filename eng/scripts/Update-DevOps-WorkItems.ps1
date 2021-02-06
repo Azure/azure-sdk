@@ -9,128 +9,8 @@ Set-StrictMode -Version 3
 $ErrorActionPreference = "Continue"
 
 . (Join-Path $PSScriptRoot PackageList-Helpers.ps1)
-. (Join-Path $PSScriptRoot DevOps-WorkItem-Helpers.ps1)
-
-# Only needed to help avoid rate limiting for tag and date querying
-if ($github_pat) {
-  $GithubHeaders = @{
-    Authorization = "bearer ${github_pat}"
-  }
-}
-
-function GetCommitterDate($shaUrl)
-{
-  try
-  {
-    if (!$shaUrl) { return $null }
-    $ProgressPreference = "SilentlyContinue"; # Disable invoke-webrequest progress dialog
-    $response = Invoke-WebRequest $shaUrl -headers $GithubHeaders
-    $content = $response.Content | ConvertFrom-Json -AsHashTable
-
-    # lightweight tags just point to a commit
-    if ($content["committer"] -and $content["committer"].date) {
-      return [System.DateTimeOffset]$content["committer"].date
-    }
-    # annotated tags point to tag
-    if ($content["tagger"] -and $content["tagger"].date) {
-      return [System.DateTimeOffset]$content["tagger"].date
-    }
-    return $null
-  }
-  catch
-  {
-    Write-Host "Failed to get date information for $shaUrl"
-    Write-Host $_
-    exit(1)
-  }
-}
-function GetExistingTags($apiUrl)
-{
-  try
-  {
-    return (Invoke-RestMethod -Method "GET" -Uri "$apiUrl/git/refs/tags" -headers $GithubHeaders) 
-  }
-  catch
-  {
-    Write-Host $_
-    exit(1)
-  }
-}
-
-# Regex inspired but simplifie from https://semver.org/#is-there-a-suggested-regular-expression-regex-to-check-a-semver-string
-$SEMVER_REGEX = "^(?<major>0|[1-9]\d*)\.(?<minor>0|[1-9]\d*)(\.(?<patch>0|[1-9]\d*))?(?:-?(?<prelabel>[a-zA-Z-]*)(?:\.?(?<prenumber>0|[1-9]\d*)))?$"
-
-function ToSemVer($version, $shaUrl = $null)
-{
-  if ($version -match $SEMVER_REGEX)
-  {
-    $patch = if ($matches['patch']) { [int]$matches['patch'] } else { 0 }
-    if ($null -eq $matches['prelabel']) {
-      # artifically provide these values for non-prereleases to enable easy sorting of them later than prereleases.
-      $prelabel = "zzz"
-      $prenumber = 999;
-      $isPre = $false;
-      $versionType = "GA"
-      if ($patch -ne 0) {
-        $versionType = "Patch"
-      }
-    }
-    else {
-      $prelabel = $matches["prelabel"]
-      $prenumber = [int]$matches["prenumber"]
-      $isPre = $true;
-      $versionType = "Beta"
-    }
-
-    New-Object PSObject -Property @{
-      Major = [int]$matches['major']
-      Minor = [int]$matches['minor']
-      Patch = $patch
-      PrereleaseLabel = $prelabel
-      PrereleaseNumber = $prenumber
-      IsPrerelease = $isPre
-      VersionType = $versionType
-      RawVersion = $version
-      ShaUrl = $shaUrl
-    }
-  }
-  else
-  {
-    return $null
-  }
-}
-
-function SortSemVersions($versions)
-{
-   return $versions | Sort-Object -Property Major, Minor, Patch, PrereleaseLabel, PrereleaseNumber -Descending
-}
-
-function GetPackageVersions($lang)
-{
-  $apiUrl = "https://api.github.com/repos/azure/azure-sdk-for-$lang"
-  if ($lang -eq "dotnet") { $apiUrl = "https://api.github.com/repos/azure/azure-sdk-for-net" }
-
-  $tags = GetExistingTags $apiUrl
-  $packageVersions = @{}
-
-  foreach ($tag in $tags)
-  {
-    $sp = $tag.ref.Replace("refs/tags/", "").Split('_')
-    if ($sp.Length -eq 2) 
-    {
-      $package = $sp[0]
-      $version = $sp[1]
-      if (!$packageVersions.ContainsKey($package)) {
-        $packageVersions.Add($package, @())
-      }
-      $sv = ToSemVer $version $tag.object.url
-      if ($null -ne $sv) {
-        $packageVersions[$package] += $sv
-      }
-    }
-  }
-  return $packageVersions
-}
+. (Join-Path $PSScriptRoot PackageVersion-Helpers.ps1)
+. (Join-Path $PSScriptRoot .. common scripts helpers DevOps-WorkItem-Helpers.ps1)
 
 $allVersions = @{}
 $allPackagesFromCSV = @{}
@@ -144,16 +24,16 @@ function GetVersionGroupForPackage($lang, $pkg)
 
   # Consider adding the versions from the csv but we don't have a date for them currently
   if ($langPkgVersions.ContainsKey($pkg.Package)) {
-    $versions += $langPkgVersions[$pkg.Package]
+    $versions += $langPkgVersions[$pkg.Package].Versions
   }
   if ($pkg.VersionGA -and ($versions.Count -eq 0 -or $versions.RawVersion -notcontains $pkg.VersionGA)) {
     $versions += ToSemVer $pkg.VersionGA
   }
   if ($pkg.VersionPreview -and ($versions.Count -eq 0 -or $versions.RawVersion -notcontains $pkg.VersionPreview)) {
-    $versions += ToSemVer $pkg.VersionPreview
+    $versions += ToSemVEr $pkg.VersionPreview
   }
 
-  $versions = @(SortSemVersions $versions)
+  $versions = @([AzureEngSemanticVersion]::SortVersions($versions))
 
   if ($versions.Count -eq 0) {
     Write-Verbose "No versioning information for $lang - $($pkg.Package)"
@@ -260,7 +140,7 @@ function ParseVersionsFromTags($versionsFromTags, $existingShippedVersionSet)
     # if we don't have a cached value or the cached value is Unknown look at the 
     # release tag to try and get a date
     if ($d -eq "Unknown") {
-      $shaDate = GetCommitterDate $v.ShaUrl
+      $shaDate = GetCommitterDate $v.TagShaUrl
       if ($shaDate) {
         $d = $shaDate.ToString("MM/dd/yyyy")
       }
@@ -300,19 +180,16 @@ function RefreshItems()
     $version = $pkgWI.fields["Custom.PackageVersionMajorMinor"]
 
     if (!$pkgLang -or !$pkgName -or !$version) {
-      Write-Warning "Skipping item $($pkgWI.id) becaue it doesn't have one or all of the required language, package, or version fields."
+      Write-Warning "Skipping item $($pkgWI.id) because it doesn't have one or all of the required language, package, or version fields."
       continue
     }
 
-    $semver = ToSemVer $version
-    if (!$semver) { 
+    if ($version -match "(?<major>\d+)\.(?<minor>\d+)") {
+      $verMajorMinor = "" + $matches["major"] + "." + $matches["minor"]
+    }
+    else {
       Write-Warning "Version for item $($pkgWI.id) is set to [$version] which is not a valid version. Skipping"
       continue
-    }
-
-    $verMajorMinor = "" + $semver.Major + "." + $semver.Minor
-    if ($semver.Patch -ne 0) {
-      Write-Host "Version for item $($pkgWI.id) has more then major and minor [$version] so stripping the version down to [$verMajorMinor]."
     }
 
     $pkgInfo = GetVersionInfo $pkgLang $pkgName
@@ -341,7 +218,7 @@ function RefreshItems()
         }
         else {
           $csvEntry = $pkgFromCsv[0]
-          $csvEntry.New = $pkgWI.fields["Custom.PackageTypeNewLibrary"]
+          $csvEntry.New = $pkgWI.fields["Custom.PackageTypeNewLibrary"].ToString().ToLower()
           $csvEntry.Type = $pkgWI.fields["Custom.PackageType"]
           $csvEntry.DisplayName = $pkgWI.fields["Custom.PackageDisplayName"]
           $csvEntry.ServiceName = $pkgWI.fields["Custom.ServiceName"]
@@ -354,7 +231,7 @@ function RefreshItems()
             $csvEntry.RepoPath = "NA"
           }
 
-          Write-Host "[$($pkgWI.id)]$pkgLang - $pkgName($verMajorMinor) - Detected new package so updating metadata for it in the CSV."
+          Write-Host "[$($pkgWI.id)]$pkgLang - $pkgName($verMajorMinor) - Detected new package in CSV with a release work item so updating metadata for it in the CSV to match release work item."
           Set-PackageListForLanguage $pkgLang $allPackagesFromCSV[$pkgLang]
 
           $verGroups = GetVersionGroupForPackage $pkgLang $csvEntry
@@ -370,8 +247,19 @@ function RefreshItems()
         }
       }
       else {
-        Write-Host "Skipping '$($pkgWI.id) - $pkgLang - $pkgName($verMajorMinor)', as this looks like a brand new package that hasn't shipped so we don't have any versioning information in the CSV."
-        continue
+        Write-Host "[$($pkgWI.id)] - $pkgLang - $pkgName($verMajorMinor) - Detected new package not in CSV file. Only normalizing release work item until release."
+
+        $pkg = [PSCustomObject][ordered]@{
+          Package = $pkgName
+          DisplayName = $pkgWI.fields["Custom.PackageDisplayName"]
+          ServiceName = $pkgWI.fields["Custom.ServiceName"]
+          RepoPath = $pkgWI.fields["Custom.PackageRepoPath"]
+          Type = $pkgWI.fields["Custom.PackageType"]
+          New = $pkgWI.fields["Custom.PackageTypeNewLibrary"].ToString().ToLower()
+        };
+        
+        #Write-Host "Skipping '$($pkgWI.id) - $pkgLang - $pkgName($verMajorMinor)', as this looks like a brand new package that hasn't shipped so we don't have any versioning information in the CSV."
+        #continue
       }
     }
 

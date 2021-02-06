@@ -1,15 +1,15 @@
-$releaseFolder =  Resolve-Path "$PSScriptRoot\..\..\_data\releases\latest"
+$releaseFolder = Resolve-Path "$PSScriptRoot\..\..\_data\releases\latest"
 
 $languageNameMapping = @{
-  # c = "C" - -- These don't follow normal tagging rules
+  c = "C" # -- These don't follow normal tagging rules
   cpp = "C++"
   dotnet = ".NET"
   java = "Java"
   js = "JavaScript"
   python = "Python"
-  # go = "Go" -- No csv or tagging info
-  # ios = "iOS" -- These don't follow normal tagging rules
-  # android = "Android" -- These don't follow normal tagging/githubio rules
+  go = "Go" # -- No csv or tagging info
+  ios = "iOS" # -- These don't follow normal tagging rules
+  android = "Android" # -- These don't follow normal tagging/githubio rules
 }
 
 function Get-LanguageName($lang)
