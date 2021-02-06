@@ -6,15 +6,14 @@ param (
   [string] $github_pat = $env:GITHUB_PAT
 )
 Set-StrictMode -Version 3
+$ProgressPreference = "SilentlyContinue"; # Disable invoke-webrequest progress dialog
 
 . (Join-Path $PSScriptRoot PackageList-Helpers.ps1)
 . (Join-Path $PSScriptRoot PackageVersion-Helpers.ps1)
 
-$azuresdkdocs = "https://azuresdkdocs.blob.core.windows.net/`$web"
-
 function GetVersionWebContent($language, $package, $versionType="latest-ga")
 {
-  $url = "$azuresdkdocs/$language/$package/versioning/$versionType"
+  $url = "https://azuresdkdocs.blob.core.windows.net/`$web/$language/$package/versioning/$versionType"
   try {
     $response = Invoke-WebRequest -MaximumRetryCount 3 $url
     return [string]$response.Content
@@ -25,7 +24,6 @@ function GetVersionWebContent($language, $package, $versionType="latest-ga")
   }
 }
 
-$ProgressPreference = "SilentlyContinue"; # Disable invoke-webrequest progress dialog
 function CheckLink($url, $showWarningIfMissing=$true)
 {
   try

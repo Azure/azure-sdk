@@ -5,6 +5,9 @@ if ($github_pat) {
     Authorization = "bearer ${github_pat}"
   }
 }
+else {
+  throw "github_pat was not passed so we cannot retrieve git tag informations"
+}
 
 function GetCommitterDate($shaUrl)
 {
