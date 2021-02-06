@@ -134,7 +134,6 @@ Initial early preview release for MAA Data Plane SDK Demonstrates use of the mac
 
 - Initial Release
 
-
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
 ## Latest Releases
