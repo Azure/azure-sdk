@@ -168,14 +168,14 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
     if ($version -eq "") {
       $pkg.VersionGA = ""
     }
-    elseif (CheckRequiredLinks $langLinkTemplates $pkg $version){
-      if ($pkg.VersionGA -ne $version) {
+    elseif ($pkg.VersionGA -ne $version) {
+      if (CheckRequiredLinks $langLinkTemplates $pkg $version){
         Write-Host "Updating VersionGA $($pkg.Package) from $($pkg.VersionGA) to $version"
         $pkg.VersionGA = $version;
       }
-    }
-    else {
-      Write-Warning "Not updating VersionGA for $($pkg.Package) because at least one associated URL is not valid!"
+      else {
+        Write-Warning "Not updating VersionGA for $($pkg.Package) because at least one associated URL is not valid!"
+      }
     }
 
     $version = $pkgVersion.LatestPreview
@@ -189,14 +189,14 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
     if ($version -eq "") {
       $pkg.VersionPreview = ""
     }
-    elseif (CheckRequiredlinks $langLinkTemplates $pkg $version){
-      if ($pkg.VersionPreview -ne $version) {
+    elseif ($pkg.VersionPreview -ne $version) {
+      if (CheckRequiredlinks $langLinkTemplates $pkg $version) {
         Write-Host "Updating VersionPreview $($pkg.Package) from $($pkg.VersionPreview) to $version"
         $pkg.VersionPreview = $version;
       }
-    }
-    else {
-      Write-Warning "Not updating VersionPreview for $($pkg.Package) because at least one associated URL is not valid!"
+      else {
+        Write-Warning "Not updating VersionPreview for $($pkg.Package) because at least one associated URL is not valid!"
+      }
     }
     CheckOptionalLinks $langLinkTemplates $pkg
   }
