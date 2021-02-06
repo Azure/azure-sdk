@@ -123,7 +123,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Updated `azure-core` to `1.12.0`.
 - Updated `azure-core-http-netty` to `1.7.1`.
 
-
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
 ## Need help
