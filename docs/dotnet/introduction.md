@@ -423,7 +423,7 @@ The _Options_ class is designed similarly to .NET custom attributes, where requi
 If in common scenarios, users are likely to pass just a small subset of what the _options_ parameter represents, consider adding an overload with a parameter list representing just this subset.
 
 ```csharp
-    // main overload using the options property bag
+    // main overload taking the options property bag
     public virtual Response<BlobInfo> CreateBlob(BlobCreateOptions options = null, CancellationToken cancellationToken = default);
 
     // simple overload with a subset of parameters of the options bag
@@ -676,7 +676,7 @@ In practice, you need to provide public APIs to construct _model graphs_. See [S
 
 ##### Model Type Naming
 
-TODO: Add this discussion to parallel other sections
+TODO: issue #2298
 
 #### Enumerations
 
@@ -965,7 +965,7 @@ See the [documentation guidelines]({{ site.baseurl }}/general_documentation.html
 
 ### Documentation Style
 
-TODO: Add documentation guidance
+TODO: issue #2338
 
 ### README {#dotnet-repository-readme}
 
