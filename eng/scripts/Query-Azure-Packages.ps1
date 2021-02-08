@@ -116,9 +116,19 @@ function Write-Latest-Versions($lang)
   {
     $pkgEntries = $packageList.Where({ PackageEqual $_ $pkg })
 
+    # If pkgEntries is greater then one filter out the hidden packages
+    # as we have some cases were we have duplicates with the older one hidden
+    # this to allow us to have entries for when sdk's switched to track 2
+    if ($pkgEntries.Count -gt 1) {
+      $pkgEntries = $pkgEntries.Where({ $_.Hide -ne "true" })
+    }
+
     if ($pkgEntries.Count -eq 0) {
-      # Add package
-      $packageList += $pkg
+      # alpha packages are not yet fully supported versions so skip adding them to the list yet.
+      if ($pkg.VersionPreview -notmatch "-alpha") {
+        # Add new package
+        $packageList += $pkg
+      }
     } 
     elseif ($pkgEntries.Count -gt 1) {
       Write-Error "Found $($pkgEntries.Count) package entries for $($pkg.Package + $pkg.GroupId)"
@@ -146,7 +156,7 @@ function Write-Latest-Versions($lang)
     $pkgEntries = $packages.Where({ PackageEqual $_ $pkg })
 
     if ($pkgEntries.Count -ne 1) {
-      Write-Host "Found package $($pkg.Package) in the CSV which could be removed"
+      Write-Verbose "Found package $($pkg.Package) in the CSV which could be removed"
     }
   }
 

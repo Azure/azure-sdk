@@ -70,58 +70,7 @@ The API surface of your client library must have the most thought as it is the p
 
 {% include requirement/SHOULDNOT id="cpp-design-naming-abbrev" %} use abbreviations unless necessary or when they are commonly used and understood.  For example, `az` is allowed since it is commonly used to mean `Azure`, and `iot` is used since it is a commonly understood industry term.  However, using `kv` for Key Vault would not be allowed since `kv` is not commonly used to refer to Key Vault.
 
-### Supported platforms
-
-{% include requirement/MUST id="cpp-platform-min" %} support the following platforms and associated compilers when implementing your client library.
-
-#### Windows
-
-| Operating System     | Version       | Architectures | Compiler Version                        | Notes
-|----------------------|---------------|---------------|-----------------------------------------|------
-| Windows Client       | 7 SP1+, 8.1   | x64, x86      | MSVC 14.16.x, MSVC 14.20x               |
-| Windows 10 Client    | Version 1607+ | x64, x86, ARM | MSVC 14.16.x, MSVC 14.20x               |
-| Windows 10 Client    | Version 1909+ | ARM64         | MSVC 14.20x                             |
-| Nano Server          | Version 1803+ | x64, ARM32    | MSVC 14.16.x, MSVC 14.20x               |
-| Windows Server       | 2012 R2+      | x64, x86      | MSVC 14.16.x, MSVC 14.20x               |
-
-#### Mac
-
-| Operating System                | Version       | Architectures | Compiler Version                        | Notes
-|---------------------------------|---------------|---------------|-----------------------------------------|------
-| macOS                           | 10.13+        | x64           | XCode 9.4.1                             |
-
-#### Linux
-
-| Operating System                | Version       | Architectures | Compiler Version                        | Notes
-|---------------------------------|---------------|---------------|-----------------------------------------|------
-| Red Hat Enterprise Linux <br> CentOS <br> Oracle Linux        | 7+            | x64           | gcc-4.8                                 | [Red Hat lifecycle](https://access.redhat.com/support/policy/updates/errata/) <br> [CentOS lifecycle](https://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d) <br> [Oracle Linux lifecycle](http://www.oracle.com/us/support/library/elsp-lifetime-069338.pdf)
-| Debian                          | 9+            | x64           | gcc-6.3                                 | [Debian lifecycle](https://wiki.debian.org/DebianReleases)
-| Ubuntu                          | 18.04, 16.04  | x64           | gcc-7.3                                 | [Ubuntu lifecycle](https://wiki.ubuntu.com/Releases)
-| Linux Mint                      | 18+           | x64           | gcc-7.3                                 | [Linux Mint lifecycle](https://www.linuxmint.com/download_all.php)
-| openSUSE                        | 15+           | x64           | gcc-7.5                                 | [OpenSUSE lifecycle](https://en.opensuse.org/Lifetime)
-| SUSE Enterprise Linux (SLES)    | 12 SP2+       | x64           | gcc-4.8                                 | [SUSE lifecycle](https://www.suse.com/lifecycle/)
-
-{% include requirement/SHOULD id="cpp-platform" %} support the following additional platforms and associated compilers when implementing your client library.
-
-
-{% include requirement/SHOULDNOT id="cpp-cpp-extensions" %} use compiler extensions.  Examples of extensions to avoid include:
-
-* [MSVC compiler extensions](https://docs.microsoft.com/cpp/build/reference/microsoft-extensions-to-c-and-cpp)
-* [clang language extensions](https://clang.llvm.org/docs/LanguageExtensions.html)
-* [GNU C compiler extensions](https://gcc.gnu.org/onlinedocs/gcc/C-Extensions.html)
-
-Use the appropriate options for each compiler to prevent the use of such extensions.
-
-{% include requirement/MUST id="cpp-cpp-options" %} use compiler flags to identify warnings:
-
-| Compiler                 | Compiler Flags   |
-|:-------------------------|------------------|
-| gcc                      | `-Wall -Wextra`  |
-| cpp and XCode            | `-Wall -Wextra`  |
-| MSVC                     | `/W4`            |
-
-When configuring your client library, particular care must be taken to ensure that the consumer of your client library can properly configure the connectivity to your Azure service both globally (along with other client libraries the consumer is using) and specifically with your client library.
-
+{% include requirement/MUST id="cpp-design-dependencies-adparch" %} consult the [Architecture Board] if you wish to use a dependency that is not on the list of approved dependencies.
 
 ### The Service Client {#cpp-client}
 
@@ -187,6 +136,12 @@ Use a constructor parameter called `version` on the client options type.
 _Service methods_ are the methods on the client that invoke operations on the service.
 
 ##### Sync and Async
+
+The C++ SDK is designed for synchronous api calls. 
+
+{% include requirement/MUST id="cpp-design-client-sync-api" %} provide a synchronous programming model.
+
+{% include requirement/MUSTNOT id="cpp-design-client-sync-api" %} provide an async programming model.
 
 > TODO: This section needs to be driven by code in the Core library.
 
@@ -281,6 +236,23 @@ The context should be further passed to all calls that take a context. DO NOT ch
 
 ##### Return Types
 
+{% include requirement/MUST id="cpp-design-client-return-types" %} return `Response<T>` or `Response` from synchronous methods.
+
+`T` represents the content of the response, as described below.
+
+The `T` can be either an unstructured payload (e.g. bytes of a storage blob) or a _model type_ representing deserialized response content.
+
+{% include requirement/MUST id="cpp-design-client-return-unstructured-type" %} use one of the following return types to represent an unstructured payload:
+
+> TODO: What type should be used for large streaming payloads?
+
+* `TODO` - for large payloads
+* `byte[]` - for small payloads
+
+{% include requirement/MUST id="cpp-design-client-return-model-type" %} return a _model type_ if the content has a schema and can be deserialized.
+
+For more information, see [Model Types](#cpp-model-types)
+
 Requests to the service fall into two basic groups - methods that make a single logical request, or a deterministic sequence of requests.  An example of a *single logical request* is a request that may be retried inside the operation.  An example of a *deterministic sequence of requests* is a paged operation.
 
 The *logical entity* is a protocol neutral representation of a response. For HTTP, the logical entity may combine data from headers, body and the status line. A common example is exposing an ETag header as a property on the logical entity in addition to any deserialized content from the body.
@@ -327,7 +299,7 @@ For methods that combine multiple requests into a single call:
 
 ##### Thread Safety
 
-> TODO: This section needs to be driven by code in the Core library.
+{% include requirement/MUST id="cpp-design-client-methods-thread-safety" %} be thread-safe. All public members of the client type must be safe to call from multiple threads concurrently.
 
 #### Service Method Parameters {#cpp-parameters}
 
@@ -357,16 +329,16 @@ Although object-orientated languages can eschew low-level pagination APIs in fav
 
 Some service operations, known as _Long Running Operations_ or _LROs_ take a long time (up to hours or days). Such operations do not return their result immediately, but rather are started, their progress is polled, and finally the result of the operation is retrieved.
 
-Azure::Core library exposes an abstract type called ```Operation<T>```, which represents such LROs and supports operations for polling and waiting for status changes, and retrieving the final operation result.  A service method invoking a long running operation will return a subclass of `Operation<T>`, as shown below.
+Azure::Core library exposes an abstract type called `Operation<T>`, which represents such LROs and supports operations for polling and waiting for status changes, and retrieving the final operation result.  A service method invoking a long running operation will return a subclass of `Operation<T>`, as shown below.
 
 > TODO: This section needs to be driven by code in the Core library.
 
 {% include requirement/MUST id="cpp-lro-prefix" %} name all methods that start an LRO with the `Start` prefix.
 
-{% include requirement/MUST id="cpp-lro-return" %} return a subclass of ```Operation<T>``` from LRO methods.
+{% include requirement/MUST id="cpp-lro-return" %} return a subclass of `Operation<T>` from LRO methods.
 
-{% include requirement/MAY id="cpp-lro-subclass" %} add additional APIs to subclasses of ```Operation<T>```.
-For example, some subclasses add a constructor allowing to create an operation instance from a previously saved operation ID. Also, some subclasses are more granular states besides the ```IsDone``` and ```HasValue``` states that are present on the base class.
+{% include requirement/MAY id="cpp-lro-subclass" %} add additional APIs to subclasses of `Operation<T>`.
+For example, some subclasses add a constructor allowing to create an operation instance from a previously saved operation ID. Also, some subclasses are more granular states besides the `IsDone` and `HasValue` states that are present on the base class.
 
 ##### Conditional Request Methods
 
@@ -384,6 +356,11 @@ In addition to service client types, Azure SDK APIs provide and use other suppor
 
 This section describes guidelines for the design _model types_ and all their transitive closure of public dependencies (i.e. the _model graph_).  A model type is a representation of a REST service's resource.
 
+
+{% include requirement/MUST id="cpp-design-model-public-getters" %} ensure model public properties are const if they aren't intended to be changed by the user.
+
+Most output-only models can be fully read-only. Models that are used as both outputs and inputs (i.e. received from and sent to the service) typically have a mixture of read-only and read-write properties.
+
 > TODO: This section needs to be driven by code in the Core library.
 
 ##### Model Type Naming
@@ -394,9 +371,9 @@ This section describes guidelines for the design _model types_ and all their tra
 
 > TODO: This section needs to be driven by code in the Core library.
 
-{% include requirement/MUST id="cpp-enums" %} use an `enum` for parameters, properties, and return types when values are known.
+{% include requirement/MUST id="cpp-design-enums" %} use an `enum` for parameters, properties, and return types when values are known.
 
-{% include requirement/MAY id="cpp-enums-exception" %} use a `struct` in place of an `enum` that declares well-known fields but can contain unknown values returned from the service, or user-defined values passed to the service.
+{% include requirement/MAY id="cpp-design-enums-exception" %} use a `struct` in place of an `enum class` that declares well-known fields but can contain unknown values returned from the service, or user-defined values passed to the service.
 
 See [enumeration-like structure documentation](implementation.md#cpp-enums) for implementation details.
 
@@ -720,10 +697,6 @@ dependency.
 {% include requirement/SHOULD id="cpp-dependencies-vendoring" %} consider copying or linking required code into the client library in order to avoid taking a dependency on another package that could conflict with the ecosystem. Make sure that you are not violating any licensing agreements and consider the maintenance that will be required of the duplicated code. ["A little copying is better than a little dependency"][1] (YouTube).
 
 {% include requirement/MUSTNOT id="cpp-dependencies-concrete" %} depend on concrete logging, dependency injection, or configuration technologies (except as implemented in the Azure Core library).  The client library will be used in applications that might be using the logging, DI, and configuration technologies of their choice.
-
-### Native Code
-
-> TODO: This section needs to be driven by code in the Core library.
 
 ### Documentation Comments {#cpp-documentation}
 

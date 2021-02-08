@@ -6,3 +6,4 @@
 {% include releases/c.md type="client" %}
 {% include releases/android.md type="client" %}
 {% include releases/ios.md type="client" %}
+{% include releases/go.md type="client" %}

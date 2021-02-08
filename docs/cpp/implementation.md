@@ -16,6 +16,8 @@ This section describes guidelines for implementing Azure SDK client libraries. P
 
 ### Service Client
 
+When configuring your client library, particular care must be taken to ensure that the consumer of your client library can properly configure the connectivity to your Azure service both globally (along with other client libraries the consumer is using) and specifically with your client library.
+
 > TODO: add a brief mention of the approach to implementing service clients. 
 
 #### Service Methods
@@ -195,8 +197,6 @@ Unlike many other programming languages, which have large runtimes, the C++ stan
 {% include requirement/MUST id="cpp-approved-dependencies" %} utilize the following libraries as needed for commonly required operations:
 
 {% include_relative approved_dependencies.md %}
-
-{% include requirement/MUST id="cpp-dependencies-adparch" %} consult the [Architecture Board] if you wish to use a dependency that is not on the list of approved dependencies.
 
 {% include requirement/MUSTNOT id="cpp-test-implicit-assign" %} use implicit assignment inside a test.  This is generally an accidental omission of the second `=` of the logical compare. The following is confusing and prone to error.
 
@@ -782,4 +782,53 @@ endif()
 
 {% include requirement/MUSTNOT id="cpp-tooling-cmake-no-samples-by-default" %} install samples by default.
 
+## Supported platforms
+
+{% include requirement/MUST id="cpp-platform-min" %} support the following platforms and associated compilers when implementing your client library.
+
+### Windows
+
+| Operating System     | Version       | Architectures | Compiler Version                        | Notes
+|----------------------|---------------|---------------|-----------------------------------------|------
+| Windows Client       | 7 SP1+, 8.1   | x64, x86      | MSVC 14.16.x, MSVC 14.20x               |
+| Windows 10 Client    | Version 1607+ | x64, x86, ARM | MSVC 14.16.x, MSVC 14.20x               |
+| Windows 10 Client    | Version 1909+ | ARM64         | MSVC 14.20x                             |
+| Nano Server          | Version 1803+ | x64, ARM32    | MSVC 14.16.x, MSVC 14.20x               |
+| Windows Server       | 2012 R2+      | x64, x86      | MSVC 14.16.x, MSVC 14.20x               |
+
+### Mac
+
+| Operating System                | Version       | Architectures | Compiler Version                        | Notes
+|---------------------------------|---------------|---------------|-----------------------------------------|------
+| macOS                           | 10.13+        | x64           | XCode 9.4.1                             |
+
+#### Linux
+
+| Operating System                | Version       | Architectures | Compiler Version                        | Notes
+|---------------------------------|---------------|---------------|-----------------------------------------|------
+| Red Hat Enterprise Linux <br> CentOS <br> Oracle Linux        | 7+            | x64           | gcc-4.8                                 | [Red Hat lifecycle](https://access.redhat.com/support/policy/updates/errata/) <br> [CentOS lifecycle](https://wiki.centos.org/FAQ/General#head-fe8a0be91ee3e7dea812e8694491e1dde5b75e6d) <br> [Oracle Linux lifecycle](http://www.oracle.com/us/support/library/elsp-lifetime-069338.pdf)
+| Debian                          | 9+            | x64           | gcc-6.3                                 | [Debian lifecycle](https://wiki.debian.org/DebianReleases)
+| Ubuntu                          | 18.04, 16.04  | x64           | gcc-7.3                                 | [Ubuntu lifecycle](https://wiki.ubuntu.com/Releases)
+| Linux Mint                      | 18+           | x64           | gcc-7.3                                 | [Linux Mint lifecycle](https://www.linuxmint.com/download_all.php)
+| openSUSE                        | 15+           | x64           | gcc-7.5                                 | [OpenSUSE lifecycle](https://en.opensuse.org/Lifetime)
+| SUSE Enterprise Linux (SLES)    | 12 SP2+       | x64           | gcc-4.8                                 | [SUSE lifecycle](https://www.suse.com/lifecycle/)
+
+{% include requirement/SHOULD id="cpp-platform" %} support the following additional platforms and associated compilers when implementing your client library.
+
+
+{% include requirement/SHOULDNOT id="cpp-cpp-extensions" %} use compiler extensions.  Examples of extensions to avoid include:
+
+* [MSVC compiler extensions](https://docs.microsoft.com/cpp/build/reference/microsoft-extensions-to-c-and-cpp)
+* [clang language extensions](https://clang.llvm.org/docs/LanguageExtensions.html)
+* [GNU C compiler extensions](https://gcc.gnu.org/onlinedocs/gcc/C-Extensions.html)
+
+Use the appropriate options for each compiler to prevent the use of such extensions.
+
+{% include requirement/MUST id="cpp-cpp-options" %} use compiler flags to identify warnings:
+
+| Compiler                 | Compiler Flags   |
+|:-------------------------|------------------|
+| gcc                      | `-Wall -Wextra`  |
+| cpp and XCode            | `-Wall -Wextra`  |
+| MSVC                     | `/W4`            |
 

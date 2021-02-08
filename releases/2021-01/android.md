@@ -8,17 +8,9 @@ repository: azure/azure-sdk-for-android
 
 The Azure SDK team is pleased to announce our January 2021 client library releases.
 
-#### GA
-
-- _Add packages_
-
-#### Updates
-
-- _Add packages_
-
 #### Beta
 
-- _Add packages_
+- Azure Core
 
 ## Installation Instructions
 
@@ -27,20 +19,31 @@ To use the latest GA and beta libraries, refer to the dependency information bel
 ### Gradle
 
 #### Java
+
 ```gradle
-// Insert dependencies
+dependencies {
+    ...
+    implementation "com.azure.android:azure-core:1.0.0-beta.3"
+}
 ```
 
 #### Kotlin
 
 ```gradle
-// Insert dependencies
+dependencies {
+    ...
+    implementation("com.azure.android:azure-core:1.0.0-beta.3")
+}
 ```
 
 ### Maven
 
 ```xml
-<!-- Insert dependencies -->
+<dependency>
+    <groupId>com.azure.android</groupId>
+    <artifactId>azure-core</artifactId>
+    <version>1.0.0-beta.3</version>
+</dependency>
 ```
 
 ## Feedback
@@ -49,10 +52,14 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-### _Package name_
+### Azure Core
 
-- Major changes only!
-  
+#### 1.0.0-beta.3 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/core/azure-core/CHANGELOG.md#100-beta3-2021-01-15))
+
+##### New Features
+
+- Added `ClientOptions`, `RequestOptions` and `TransportOptions`.
+
 ## Need help
 
 - For reference documentation visit the [Azure SDK for Android documentation](https://azure.github.io/azure-sdk-for-android/).

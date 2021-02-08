@@ -799,11 +799,52 @@ public final class TextDocumentInput {
 
 {% include requirement/MUST id="java-models-fluent" %} provide a fluent setter API to configure the model class, where each `set` method should `return this`. This allows chaining of set operations.
 
+{% include requirement/MUST id="java-models-fluent" %} override all `set` methods when extending a fluent type to return the extended type. This allows chaining of `set` operations on the sub-class.
+
+```java
+@Fluent
+public class SettlementOptions {
+    private ServiceBusTransactionContext transactionContext;
+
+    public ServiceBusTransactionContext getTransactionContext() {
+        return transactionContext;
+    }
+
+    public SettlementOptions setTransactionContext(ServiceBusTransactionContext transactionContext) {
+        this.transactionContext = transactionContext;
+        return this;
+    }
+}
+
+@Fluent
+public final AbandonOptions extends SettlementOptions {
+    private Map<String, Object> propertiesToModify;
+
+    public Map<String, Object> getPropertiesToModify() {
+        return propertiesToModify;
+    }
+
+    public AbandonOptions setPropertiesToModify(Map<String, Object> propertiesToModify) {
+        this.propertiesToModify = propertiesToModify;
+        return this;
+    }
+
+    // Override setter method of the parent class
+    @Override
+    public AbandonOptions setTransactionContext(ServiceBusTransactionContext transactionContext) {
+        super.setTransactionContext(transactionContext);
+        return this;
+    }
+}
+```
+
 {% include requirement/MUST id="java-models-fluent-annotation" %} apply the `@Fluent` annotation to the class.
 
 Fluent types must not be immutable.  Don't return a new instance on each setter call.
 
 {% include requirement/MUST id="java-models-javabeans" %} use the JavaBean naming convention of `get*`, `set*`, and `is*`.
+
+{% include requirement/MUST id="java-models-deserialize" %} include static methods if new model instances are required to be created from raw data. The static method names should be `from<dataformat>`. For example, to create an instance of `BinaryData` from a string, include a static method called `fromString` in `BinaryData` class.
 
 Model types sometimes exist only as an Azure service return type, and developers would never instantiate these. Often, these model types have API that is not user-friendly (in particular, overly complex constructors). It would be best for developers if they were never presented with this API in the first place, and we refer to these as 'undesirable public API'.
 
@@ -937,6 +978,8 @@ In addition to Azure Active Directory OAuth, services may provide custom authent
 {% include requirement/SHOULDNOT id="java-auth-credential-type-base" %} define custom credential types extending or implementing the TokenCredential abstraction from Azure Core. This is especially true in type safe languages where extending or implementing this abstraction would break the type safety of other service clients, allowing users to instantiate them with the custom credential of the wrong service.
 
 {% include requirement/MUST id="java-auth-credential-type-placement" %} define custom credential types in the same namespace and package as the client, or in a service group namespace and shared package, not in Azure Core or Azure Identity.
+
+{% include requirement/MUSTNOT id="java-auth-azure-identity-dependency" %} take compile-scope dependency on `azure-identity` library.
 
 {% include requirement/MUST id="java-auth-credential-type-prefix" %} prepend custom credential type names with the service name or service group name to provide clear context to its intended scope and usage.
 
