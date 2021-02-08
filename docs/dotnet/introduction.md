@@ -422,6 +422,15 @@ The _Options_ class is designed similarly to .NET custom attributes, where requi
 
 If in common scenarios, users are likely to pass just a small subset of what the _options_ parameter represents, consider adding an overload with a parameter list representing just this subset.
 
+```csharp
+    // main overload using the options property bag
+    public virtual Response<BlobInfo> CreateBlob(BlobCreateOptions options = null, CancellationToken cancellationToken = default);
+
+    // simple overload with a subset of parameters of the options bag
+    public virtual Response<BlobContainerInfo> CreateBlob(string blobName, CancellationToken cancellationToken = default);
+}
+```
+
 {% include requirement/MAY id="dotnet-params-options" %} name the _option parameter_ type with the 'Options' suffix.
 
 ##### Parameter Validation
@@ -882,7 +891,7 @@ Use the following target setting in the `.csproj` file:
 
 There are occasions when common code needs to be shared between several client libraries. For example, a set of cooperating client libraries may wish to share a set of exceptions or models.
 
-{% include requirement/MUST id="dotnet-commonlib-approval" %} gain [Architecture Board] approval prior to implementing a common library.
+{% include requirement/MUST id="dotnet-commonlib-approval" %} gain [Architecture Board] discuss how to design such common library.
 
 ### Versioning {#dotnet-versioning}
 
