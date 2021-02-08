@@ -412,6 +412,8 @@ public class BlobCreateOptions {
 }
 ```
 
+The _Options_ class is designed similarly to .NET custom attributes, where required service method parameters are modeled as _Options_ class constructor parameters and get-only properties, and optional parameters are get-set properties. 
+
 {% include requirement/MUST id="dotnet-params-complex" %} use the _options_ parameter pattern for complex service methods.
 
 {% include requirement/MAY id="dotnet-params-complex" %} use the _options_ parameter pattern for simple service methods that you expect to `grow` in the future.
@@ -545,14 +547,7 @@ Some services support conditional requests that are used to implement optimistic
 
 {% include requirement/MAY id="dotnet-conditional-matchcondition" %} take [MatchConditions](https://docs.microsoft.com/en-us/dotnet/api/azure.matchconditions?view=azure-dotnet), [RequestConditions](https://docs.microsoft.com/en-us/dotnet/api/azure.requestconditions?view=azure-dotnet), (or a custom subclass) as a parameter to conditional service call methods.
 
-```csharp
-```
-
 TODO: more guidelines comming. see https://github.com/Azure/azure-sdk/issues/2154
-
-##### Hierarchical Clients
-
-TODO: Add discussion of hierarchical clients
 
 ### Supporting Types
 
@@ -885,7 +880,9 @@ Use the following target setting in the `.csproj` file:
 
 #### Common Libraries
 
-TODO: add this discussion
+There are occasions when common code needs to be shared between several client libraries. For example, a set of cooperating client libraries may wish to share a set of exceptions or models.
+
+{% include requirement/MUST id="dotnet-commonlib-approval" %} gain [Architecture Board] approval prior to implementing a common library.
 
 ### Versioning {#dotnet-versioning}
 
@@ -959,7 +956,7 @@ See the [documentation guidelines]({{ site.baseurl }}/general_documentation.html
 
 ### Documentation Style
 
-TODO: Add links to doc style guidance
+TODO: Add documentation guidance
 
 ### README {#dotnet-repository-readme}
 
