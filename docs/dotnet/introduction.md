@@ -412,6 +412,8 @@ public class BlobCreateOptions {
 }
 ```
 
+The _Options_ class is designed similarly to .NET custom attributes, where required service method parameters are modeled as _Options_ class constructor parameters and get-only properties, and optional parameters are get-set properties. 
+
 {% include requirement/MUST id="dotnet-params-complex" %} use the _options_ parameter pattern for complex service methods.
 
 {% include requirement/MAY id="dotnet-params-complex" %} use the _options_ parameter pattern for simple service methods that you expect to `grow` in the future.
@@ -419,6 +421,15 @@ public class BlobCreateOptions {
 {% include requirement/MAY id="dotnet-params-complex" %} add simple overloads of methods using the _options_ parameter pattern.
 
 If in common scenarios, users are likely to pass just a small subset of what the _options_ parameter represents, consider adding an overload with a parameter list representing just this subset.
+
+```csharp
+    // main overload taking the options property bag
+    public virtual Response<BlobInfo> CreateBlob(BlobCreateOptions options = null, CancellationToken cancellationToken = default);
+
+    // simple overload with a subset of parameters of the options bag
+    public virtual Response<BlobContainerInfo> CreateBlob(string blobName, CancellationToken cancellationToken = default);
+}
+```
 
 {% include requirement/MAY id="dotnet-params-options" %} name the _option parameter_ type with the 'Options' suffix.
 
@@ -545,14 +556,7 @@ Some services support conditional requests that are used to implement optimistic
 
 {% include requirement/MAY id="dotnet-conditional-matchcondition" %} take [MatchConditions](https://docs.microsoft.com/en-us/dotnet/api/azure.matchconditions?view=azure-dotnet), [RequestConditions](https://docs.microsoft.com/en-us/dotnet/api/azure.requestconditions?view=azure-dotnet), (or a custom subclass) as a parameter to conditional service call methods.
 
-```csharp
-```
-
 TODO: more guidelines comming. see https://github.com/Azure/azure-sdk/issues/2154
-
-##### Hierarchical Clients
-
-TODO: Add discussion of hierarchical clients
 
 ### Supporting Types
 
@@ -672,7 +676,7 @@ In practice, you need to provide public APIs to construct _model graphs_. See [S
 
 ##### Model Type Naming
 
-TODO: Add this discussion to parallel other sections
+TODO: issue #2298
 
 #### Enumerations
 
@@ -885,7 +889,9 @@ Use the following target setting in the `.csproj` file:
 
 #### Common Libraries
 
-TODO: add this discussion
+There are occasions when common code needs to be shared between several client libraries. For example, a set of cooperating client libraries may wish to share a set of exceptions or models.
+
+{% include requirement/MUST id="dotnet-commonlib-approval" %} gain [Architecture Board] discuss how to design such common library.
 
 ### Versioning {#dotnet-versioning}
 
@@ -959,7 +965,7 @@ See the [documentation guidelines]({{ site.baseurl }}/general_documentation.html
 
 ### Documentation Style
 
-TODO: Add links to doc style guidance
+TODO: issue #2338
 
 ### README {#dotnet-repository-readme}
 
