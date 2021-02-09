@@ -11,7 +11,7 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 
 ## Release Highlights
 
-*
+* Metrics advisor libraries now have AAD support
 *
 *
 

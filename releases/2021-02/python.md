@@ -18,6 +18,7 @@ The Azure SDK team is pleased to make available the February 2021 client library
 
 #### Beta
 
+- Metrics Advisor
 - Synapse
 
 ## Installation Instructions
@@ -26,6 +27,7 @@ To install the latest beta version of the packages, copy and paste the following
 
 ```bash
 pip install azure-eventhub
+pip install azure-ai-metricsadvisor --pre
 pip install azure-synapse-managedprivateendpoints
 pip install azure-synapse-accesscontrol
 ```
@@ -45,6 +47,19 @@ and is useful when your network does not allow communicating to the standard Eve
   - `connection_verify` which allows for specifying the path to the custom CA_BUNDLE file of the SSL certificate which is used to authenticate
 the identity of the connection endpoint.
 - Updated uAMQP dependency to 1.2.14.
+
+### Metrics Advisor [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md)
+
+#### New Features
+
+- AAD support authentication
+- `MetricsAdvisorKeyCredential` support for rotating the subscription and api keys to update long-lived clients
+
+#### Breaking Changes
+
+- `list_dimension_values` has been renamed to `list_anomaly_dimension_values`
+- Update methods now return None
+- Updated DataFeed.metric_ids to be a dict rather than a list
 
 ### Synapse
 
