@@ -18,7 +18,7 @@ The Azure SDK team is pleased to make available the February 2021 client library
 
 #### Beta
 
-- _Add packages_
+- Synapse
 
 ## Installation Instructions
 
@@ -26,6 +26,8 @@ To install the latest beta version of the packages, copy and paste the following
 
 ```bash
 pip install azure-eventhub
+pip install azure-synapse-managedprivateendpoints
+pip install azure-synapse-accesscontrol
 ```
 
 ## Feedback
@@ -43,6 +45,12 @@ and is useful when your network does not allow communicating to the standard Eve
   - `connection_verify` which allows for specifying the path to the custom CA_BUNDLE file of the SSL certificate which is used to authenticate
 the identity of the connection endpoint.
 - Updated uAMQP dependency to 1.2.14.
+
+### Synapse
+
+#### Access Control [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/synapse/azure-synapse-accesscontrol/CHANGELOG.md)
+
+- Update to API version 2020-08-01
 
 ## Latest Releases
 
