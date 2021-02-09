@@ -20,7 +20,7 @@ We’re motivated to provide high quality SDKs to deliver a great experience for
 At the moment we are committed to building and supporting an SDK for each of these primary languages SDKs for all azure services:
 
 - Java
-- .Net
+- .NET
 - Python
 - TS/JS
 
