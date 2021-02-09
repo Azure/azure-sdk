@@ -20,6 +20,7 @@ To use the latest GA and beta libraries, refer to the dependency information bel
 ### Gradle
 
 #### Java
+
 ```gradle
 dependencies {
     ...
