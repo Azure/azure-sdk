@@ -10,11 +10,12 @@ The Azure SDK team is pleased to announce our February 2021 client library relea
 
 #### GA
 
-- _Add packages_
+- Azure Core AMQP
+- Azure Event Hubs
 
 #### Updates
 
-- _Add packages_
+- Azure Event Hubs Checkpoint Store for Storage Blob
 
 #### Beta
 
@@ -26,6 +27,23 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 
 ```xml
 <!-- Insert dependencies -->
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-core-amqp</artifactId>
+  <version>2.0.2</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-messaging-eventhubs</artifactId>
+  <version>5.5.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-messaging-eventhubs-checkpointstore-blob</artifactId>
+  <version>1.5.0</version>
+</dependency>
 ```
 
 ## Feedback
@@ -34,10 +52,23 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-### _Package name_
+### Azure Core Amqp 2.0.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-amqp/CHANGELOG.md#202-2021-02-05)
 
-- Major changes only!
-  
+#### New Features
+
+- Add support for connecting to an alternative hostname for the AMQP message broker.
+
+### Azure Messaging Event Hubs 5.5.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md#550-2020-02-15)
+
+#### New Features
+
+- Expose BinaryData in EventData.
+- Expose EventHubClientBuilder.customEndpointAddress to connect to an alternative endpoint.
+
+### Azure Messaging Event Hubs Checkpoint Store Blob 1.5.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md#150-2020-02-15)
+
+- Updates dependencies for azure-core-amqp and azure-storage-blob.
+
 ## Need help
 
 - For reference documentation visit the [Azure SDK for Java documentation](https://azure.github.io/azure-sdk-for-java/).
