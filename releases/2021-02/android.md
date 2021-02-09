@@ -18,8 +18,8 @@ The Azure SDK team is pleased to announce our February 2021 client library relea
 
 #### Beta
 
-- azure-communication-common:1.0.0-beta.5
-- azure-communication-chat:1.0.0-beta.5
+- Azure Communication Common for Android (1.0.0-beta.5)
+- Azure Communication Chat for Android (1.0.0-beta.5)
 
 ## Installation Instructions
 
