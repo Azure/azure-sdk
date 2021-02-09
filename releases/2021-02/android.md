@@ -18,7 +18,8 @@ The Azure SDK team is pleased to announce our February 2021 client library relea
 
 #### Beta
 
-- _Add packages_
+- azure-communication-common:1.0.0-beta.5
+- azure-communication-chat:1.0.0-beta.5
 
 ## Installation Instructions
 
@@ -28,19 +29,35 @@ To use the latest GA and beta libraries, refer to the dependency information bel
 
 #### Java
 ```gradle
-// Insert dependencies
+...
+implementation 'com.azure.android:azure-communication-common:1.0.0-beta.5'
+implementation 'com.azure.android:azure-communication-chat:1.0.0-beta.5'
 ```
 
 #### Kotlin
 
 ```gradle
-// Insert dependencies
+...
+implementation("com.azure.android:azure-communication-common:1.0.0-beta.5")
+implementation("com.azure.android:azure-communication-chat:1.0.0-beta.5")
 ```
 
 ### Maven
 
 ```xml
-<!-- Insert dependencies -->
+...
+<dependency>
+  <groupId>com.azure.android</groupId>
+  <artifactId>azure-communication-common</artifactId>
+  <version>1.0.0-beta.5</version>
+  <type>aar</type>
+</dependency>
+<dependency>
+  <groupId>com.azure.android</groupId>
+  <artifactId>azure-communication-chat</artifactId>
+  <version>1.0.0-beta.5</version>
+  <type>aar</type>
+</dependency>
 ```
 
 ## Feedback
