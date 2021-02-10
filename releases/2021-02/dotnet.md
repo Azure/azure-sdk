@@ -33,6 +33,8 @@ $> dotnet add package Azure.AI.MetricsAdvisor --version 1.0.0-beta.3
 $> dotnet add package Azure.Messaging.EventHubs
 $> dotnet add package Azure.Messaging.EventHubs.Processor
 
+$> dotnet add package Azure.Search.Documents
+
 $> dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.2
 $> dotnet add package Azure.AI.TextAnalytics --version 5.1.0-beta.4
 ```
