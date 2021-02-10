@@ -11,6 +11,7 @@ The Azure SDK team is pleased to announce our February 2021 client library relea
 #### GA
 
 - Event Hubs
+- Search
 
 #### Updates
 
@@ -69,6 +70,22 @@ If you have a bug or feature request for one of the libraries, please [file an i
 #### Key Bug Fixes
 
 - Upgraded the `Microsoft.Azure.Amqp` library to resolve crashes occurring in .NET 5.
+
+### Search [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md#1120-2021-02-10)
+
+#### New Features
+- Added setters for `MaxLength` and `MinLength` in `LengthTokenFilter`.
+- Added a public constructor for `SearchIndexingBufferedSender<T>`.
+- Added `IndexActionEventArgs<T>` to track indexing actions.
+- Added `IndexActionCompletedEventArgs<T>` to track the completion of an indexing action.
+- Added `IndexActionFailedEventArgs<T>` to track the failure of an indexing action.
+
+#### Breaking Changes
+
+- Renamed `SearchIndexingBufferedSenderOptions<T>.MaxRetries` to `SearchIndexingBufferedSenderOptions<T>.MaxRetriesPerIndexAction`.
+- Renamed `SearchIndexingBufferedSenderOptions<T>.MaxRetryDelay` to `SearchIndexingBufferedSenderOptions<T>.MaxThrottlingDelay`.
+- Renamed `SearchIndexingBufferedSenderOptions<T>.RetryDelay` to `SearchIndexingBufferedSenderOptions<T>.ThrottlingDelay`.
+- Removed the helper method `SearchClient.CreateIndexingBufferedSender<T>()`. Instead, callers are expected to use the public constructor of `SearchIndexingBufferedSender<T>`.
 
 ### Metrics Advisor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/CHANGELOG.md#100-beta3-2021-02-09)
 
