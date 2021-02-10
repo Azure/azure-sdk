@@ -76,7 +76,7 @@ If you have a bug or feature request for one of the libraries, please post an is
   - Fixed bug where connection establishment on macOS with Clang 12 triggering unrecognized selector exception (#15567).
   - Fixed bug in accessing message properties triggering segmentation fault when the underlying C bytes are NULL (#15568).
 
-### Opentelemetry Azure Monitor [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/monitor/azure-opentelemetry-exporter-azuremonitor/CHANGELOG.md#100b2-2021-01-13)
+### Opentelemetry Azure Monitor [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-opentelemetry-exporter-azuremonitor_1.0.0b2/sdk/monitor/azure-opentelemetry-exporter-azuremonitor/CHANGELOG.md)
 - Breaking Changes
   - Rename Azure Trace exporter class, only allow connection string configuration. (#15349)
   - OpenTelemetry Exporter use Resources API to retrieve cloud role props (#15816)
