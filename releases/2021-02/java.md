@@ -19,7 +19,9 @@ The Azure SDK team is pleased to announce our February 2021 client library relea
 
 #### Beta
 
-- _Add packages_
+- azure-communication-common (1.0.0-beta.4)
+- azure-communication-identity (1.0.0-beta.4)
+- azure-communication-chat (1.0.0-beta.4)
 
 ## Installation Instructions
 
@@ -43,6 +45,24 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-messaging-eventhubs-checkpointstore-blob</artifactId>
   <version>1.5.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-communication-common</artifactId>
+  <version>1.0.0-beta.4</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-communication-identity</artifactId>
+  <version>1.0.0-beta.4</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-communication-chat</artifactId>
+  <version>1.0.0-beta.4</version>
 </dependency>
 ```
 
