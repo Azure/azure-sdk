@@ -31,7 +31,6 @@ The Azure SDK team is pleased to make available the February 2021 client library
 - Azure Key Vault Secrets
 - Azure Key Vault Certificates
 - Azure Key Vault Admin
-- Azure Synapse
 - Azure Storage Blob
 - Azure File Datalake
 - Azure Event Grid
@@ -55,7 +54,6 @@ $> npm install @azure/keyvault-keys@next
 $> npm install @azure/keyvault-secrets@next
 $> npm install @azure/keyvault-certificates@next
 $> npm install @azure/keyvault-admin@next
-$> npm install @azure/synapse@next
 $> npm install @azure/storage-blob@next
 $> npm install @azure/storage-file-datalake@next
 $> npm install @azure/event-grid@next
