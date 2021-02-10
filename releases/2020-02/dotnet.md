@@ -22,6 +22,7 @@ The Azure SDK team is pleased to announce our February 2020 client library relea
 #### Preview
 
 - Text Analytics
+- Synapse
 
 ## Installation Instructions
 
@@ -47,6 +48,13 @@ To install any of our packages, please search for them via `Manage NuGet Package
     $> dotnet add package Azure.Storage.Files.DataLake --version 12.0.0-preview.9
     $> dotnet add package Azure.Storage.Files.Shares
     $> dotnet add package Azure.Storage.Queues
+
+    $> dotnet add package Azure.Analytics.Synapse.AccessControl --version 1.0.0-preview.3
+    $> dotnet add package Azure.Analytics.Synapse.Artifacts --version 1.0.0-preview.6
+    $> dotnet add package Azure.Analytics.Synapse.ManagedPrivateEndpoints --version 1.0.0-beta.2
+    $> dotnet add package Azure.Analytics.Synapse.Monitoring --version 1.0.0-beta.2
+    $> dotnet add package Azure.Analytics.Synapse.Spark --version 1.0.0-preview.4
+
 
 ## Feedback
 
@@ -88,6 +96,17 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Added ShareFileClient.ClearRangesAsync() API.
 - Added SMB parameters to File Copy APIs.
 - Added support for file leases.
+
+### Synapse Artifacts [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/synapse/Azure.Analytics.Synapse.Artifacts/CHANGELOG.md)
+- Changed APIs on SparkJobDefinitionClient and SqlScriptClient to provide a Long Running Operation (LRO) when operations can be long in duration.
+- Many models classes are now public.
+- Added BigDataPoolsClient, IntegrationRuntimesClient, SqlPoolsClient, WorkspaceClient and associated support types.
+- Supports List/Get Synapse resources through data plane APIs.
+- Support Rename operations.
+- Support CICD operations.
+
+### Synapse Spark [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/synapse/Azure.Analytics.Synapse.Spark/CHANGELOG.md)
+- Changed APIs on SparkBatchClient and SparkSessionClient to provide a Long Running Operation (LRO) when operations can be long in duration.
 
 ## Latest Releases
 
