@@ -8,17 +8,11 @@ repository: azure/azure-sdk-for-ios
 
 The Azure SDK team is pleased to announce our February 2021 client library releases.
 
-#### GA
-
-- _Add packages_
-
-#### Updates
-
-- _Add packages_
-
 #### Beta
 
-- _Add packages_
+- AzureCommunication
+- AzureCommunicationChat
+- AzureCommunicationCalling
 
 ## Installation Instructions
 
@@ -74,11 +68,53 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-### _Version_(_Link to Changelog_)
+### 1.0.0-beta.8 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/master/CHANGELOG.md#100-beta8-2021-02-09))
 
-#### _Package name_
 
-- Major changes only!
+#### Azure Communication Common Library
+
+##### Breaking Changes
+ - Renamed the type `CommunicationUserCredential` to `CommunicationTokenCredential`, as it represents a token.
+ - Communication identifier `MicrosoftTeamsUserIdentifier` property `identifier` renamed to `userId` since identifier was too generic.
+ - Communication identifier `MicrosoftTeamsUserIdentifier` property `id` renamed to `rawId` to represent full MRI.
+ - Communication identifier `PhoneNumberIdentifier` property `id` renamed to `rawId` to represent full MRI.
+ - Removed `CallingApplicationIdentifier` as it is currently unused by any service.
+ - The protocol `CommunicationTokenCredential` has likewise been renamed to `CommunicationTokenCredentialProviding`.
+ - All types that conform to the `CommunicationIdentifier` protocol now use the suffix `Identifier`. For example, the
+    `PhoneNumber` type used to represent a phone number identifier is now named `PhoneNumberIdentifier`.
+ - Updated the `CommunicationTokenCredential` initializer that automatically refreshes the token to accept a single
+    `CommunicationTokenRefreshOptions` object instead of multiple parameters.
+
+##### Key Bug Fixes
+- Removing `CommunicationUserCredentialPolicy`, this policy was a duplicate of cores `BearerTokenCredentialPolicy`.  
+  Communication now has new ability to create `BearerTokenCredentialPolicy` using the new `CommunicationPolicyTokenCredential`. 
+
+#### Azure Communication Calling
+
+##### New Features
+ - Added ability to join a Teams meeting.
+ - New event on `Call` `OnIsRecordingActiveChanged` to indicate when the recording has been started and stopped and new property `IsRecordingActive` to indicate if currently the recording is active or not.
+
+##### Key Bug Fixes
+ - Fix wrong `callId` on the incoming `Call` object https://github.com/Azure/Communication/issues/164
+ - When placing outgoing call or joining a group call event will be raised `OnCallsUpdated` when call list is updated.
+ - Throw IllegalArgumentException if null camera is passed to constructor of `LocalVideoStream`.
+ - Video freezing in landscape mode https://github.com/Azure/Communication/issues/128
+ - `RendererView` layout is off after a device rotation https://github.com/Azure/Communication/issues/127
+ - `RendererView` is blank when not added to the window right away https://github.com/Azure/Communication/issues/132
+ - `RendererView` Issues when joining a call with a reused `groupId` https://github.com/Azure/Communication/issues/111
+
+#### Azure Communication Chat Library
+
+##### New Features
+ - Introduced ChatClient and ChatThreadClient to split operations on threads and operations within a particular thread
+ - Create thread sets repeatability-Request-ID for idempotency if not provided
+ - Introduced MessageContent model to replace string content property
+
+##### Breaking Changes
+ - ChatThreadMember renamed to Participant, uses CommunicationUserIdentifier
+ - ChatMessage renamed to Message, uses CommunicationUserIdentifier
+ - ChatThread renamed to Thread, uses CommunicationUserIdentifier
 
 ## Need help
 
