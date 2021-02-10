@@ -19,9 +19,9 @@ The Azure SDK team is pleased to announce our February 2021 client library relea
 
 #### Beta
 
-- azure-communication-common (1.0.0-beta.4)
-- azure-communication-identity (1.0.0-beta.4)
-- azure-communication-chat (1.0.0-beta.4)
+- Azure Communication Common (1.0.0-beta.4)
+- Azure Communication Identity (1.0.0-beta.4)
+- Azure Communication Chat (1.0.0-beta.4)
 
 ## Installation Instructions
 
@@ -88,6 +88,32 @@ If you have a bug or feature request for one of the libraries, please post an is
 ### Azure Messaging Event Hubs Checkpoint Store Blob 1.5.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md#150-2020-02-15)
 
 - Updates dependencies for azure-core-amqp and azure-storage-blob.
+
+### Azure Communication Common  1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-common/CHANGELOG.md#100-beta4-2021-02-09)
+
+#### New Features
+
+- Added support for Microsoft Teams User identifier
+
+### Azure Communication Identity (1.0.0-beta.4) [ChangeLog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-identity/CHANGELOG.md#100-beta4-2021-02-09)
+
+#### New Features
+
+- Split Identity client into synchronous client and asynchronous client.
+- Added support for Azure Active Directory Authentication.
+
+### Azure Communication Chat (1.0.0-beta.4) [ChangeLog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-chat/CHANGELOG.md#100-beta4-2021-02-09)
+
+#### New Features
+
+- Added pagination support for listReadReceipts and listParticipants.
+- Added notifications for chat thread level changes.
+- Added support for html content in chat messages.
+
+### Azure Communication Administration is deprecated
+
+- Identity clients are moved to new package Azure Communication Identity.
+- Phone number adminstration will be moved into a new package Azure Communication Phone Numbers
 
 ## Need help
 
