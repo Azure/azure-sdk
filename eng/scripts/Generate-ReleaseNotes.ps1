@@ -63,10 +63,9 @@ function Get-PackagesInfoFromFile ($releaseNotesContent)
     return $presentPkgInfo
 }
 
-function Filter-ReleaseHighlights ($releaseHighlights)
+function FilterOut-UnreleasedPackages ($releaseHighlights)
 {
     $results = @{}
-    $packagesRemoved = @()
 
     foreach ($key in $releaseHighlights.Keys)
     {
@@ -82,7 +81,7 @@ function Filter-ReleaseHighlights ($releaseHighlights)
         {
             $sortedVersions = [AzureEngSemanticVersion]::SortVersionStrings(@($releaseVersion, $packageMetaData.VersionGA, $packageMetaData.VersionPreview))
 
-            if ($sortedVersions[0] -eq $releaseVersion)
+            if (($sortedVersions[0] -eq $releaseVersion) -and ($releaseVersion -ne $packageMetaData.VersionGA) -and ($releaseVersion -ne $packageMetaData.VersionPreview))
             {
                 continue
                 LogDebug "[ $packageName ] with version  [$releaseVersion ] was skipped because it has a newer release version than present in the package csv"
@@ -92,7 +91,6 @@ function Filter-ReleaseHighlights ($releaseHighlights)
         }
         else 
         {
-            $packagesRemoved += $packageName
             LogDebug "[ $packageName ] with version  [ $releaseVersion ] was skipped because there are duplicate versions in the package csv"
         }
     }
@@ -197,7 +195,7 @@ foreach ($key in @($incomingReleaseHighlights.Keys))
   }
 }
 
-$incomingReleaseHighlights = Filter-ReleaseHighlights -releaseHighlights $incomingReleaseHighlights
+$incomingReleaseHighlights = FilterOut-UnreleasedPackages -releaseHighlights $incomingReleaseHighlights
 
 Write-GeneralReleaseNote `
 -releaseHighlights $incomingReleaseHighlights `
