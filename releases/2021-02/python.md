@@ -10,7 +10,7 @@ The Azure SDK team is pleased to make available the February 2021 client library
 
 #### GA
 
-- _Add packages_
+- Search
 
 #### Updates
 
@@ -30,6 +30,7 @@ pip install azure-eventhub
 pip install azure-ai-metricsadvisor --pre
 pip install azure-synapse-managedprivateendpoints
 pip install azure-synapse-accesscontrol
+pip install azure-search-documents
 ```
 
 ## Feedback
@@ -66,6 +67,14 @@ the identity of the connection endpoint.
 #### Access Control [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/synapse/azure-synapse-accesscontrol/CHANGELOG.md)
 
 - Update to API version 2020-08-01
+
+### Search [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/CHANGELOG.md)
+
+#### Breaking Changes
+
+- `IndexDocumentsBatch` does not support `enqueue_action` any longer. `enqueue_actions` takes a single action too.
+- `max_retries` of `SearchIndexingBufferedSender` is renamed to `max_retries_per_action`.
+- `SearchClient` does not support `get_search_indexing_buffered_sender` any longer
 
 ## Latest Releases
 
