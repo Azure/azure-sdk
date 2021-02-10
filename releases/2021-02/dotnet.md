@@ -73,7 +73,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 - Changed APIs on SparkJobDefinitionClient and SqlScriptClient to provide a Long Running Operation (LRO) when operations can be long in duration.
 - Many models classes are now public.
 - Added BigDataPoolsClient, IntegrationRuntimesClient, SqlPoolsClient, WorkspaceClient and associated support types.
-- Supports List/Get Synapse resources through data plane APIs.
+- Support List/Get Synapse resources through data plane APIs.
 - Support Rename operations.
 - Support CICD operations.
 
