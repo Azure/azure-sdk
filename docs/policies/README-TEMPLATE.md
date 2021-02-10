@@ -132,4 +132,4 @@ If you'd like to contribute to this library, please read the [contributing guide
 
 [Java Readme Template](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/template/azure-sdk-template/README.md)
 
-[.Net Readme Template](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/template/Azure.Template/README.md)
+[.NET Readme Template](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/template/Azure.Template/README.md)
