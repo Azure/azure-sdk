@@ -93,7 +93,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 #### New Features
 
-- Added support for Microsoft Teams User identifier
+- Added support for Microsoft Teams User identifier.
 
 ### Azure Communication Identity (1.0.0-beta.4) [ChangeLog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-identity/CHANGELOG.md#100-beta4-2021-02-09)
 
@@ -113,7 +113,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 ### Azure Communication Administration is deprecated
 
 - Identity clients are moved to new package Azure Communication Identity.
-- Phone number adminstration will be moved into a new package Azure Communication Phone Numbers
+- Phone number adminstration will be moved into a new package Azure Communication Phone Numbers.
 
 ## Need help
 
