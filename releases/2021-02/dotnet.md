@@ -14,7 +14,7 @@ The Azure SDK team is pleased to announce our February 2021 client library relea
 
 #### Updates
 
-+- Synapse
+- Synapse
 
 #### Beta
 
