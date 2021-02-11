@@ -63,7 +63,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-### Event Hubs
+### Azure Event Hubs
 
 We're releasing a new GA for the Azure Event Hubs client with new features and a major fix.
 
@@ -134,7 +134,7 @@ We're releasing a new beta for the Text Analytics service including new features
 
 - The healthcare entities returned by `beginAnalyzeHealthcareEntities` are now organized as a directed graph where the edges represent a certain type of healthcare relationship between the source and target entities. Edges are stored in the `relatedEntities` property.
 
-### AI Metrics Advisor
+### Azure Metrics Advisor
 
 - We are releasing a new  preview version for metrics advisor with AAD support feature
 
