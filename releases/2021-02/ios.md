@@ -81,9 +81,7 @@ If you have a bug or feature request for one of the libraries, please post an is
  - All types that conform to the `CommunicationIdentifier` protocol now use the suffix `Identifier`. For example, the `PhoneNumber` type used to represent a phone number identifier is now named `PhoneNumberIdentifier`.
  - Updated the `CommunicationTokenCredential` initializer that automatically refreshes the token to accept a single
     `CommunicationTokenRefreshOptions` object instead of multiple parameters.
-
-##### Key Bug Fixes
-- Removing `CommunicationUserCredentialPolicy`, this policy was a duplicate of cores `BearerTokenCredentialPolicy`. Communication now has new ability to create `BearerTokenCredentialPolicy` using the new `CommunicationPolicyTokenCredential`. 
+- Removes `CommunicationUserCredentialPolicy`. This policy was a duplicate of `AzureCore.BearerTokenCredentialPolicy`. Communication now has new ability to create `BearerTokenCredentialPolicy` using the new `CommunicationPolicyTokenCredential`. 
 
 #### Azure Communication Calling
 
