@@ -65,7 +65,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 We're releasing a new GA for the Azure Event Hubs client with new features and a major fix.
 
-#### @azure/event-hubs [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/CHANGELOG.md)
+#### @azure/event-hubs [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/CHANGELOG.md#540-2021-02-09)
 
 ##### New Features in @azure/event-hubs@5.4.0
 
@@ -82,7 +82,7 @@ Identity is releasing a patch with a dependency fix and a bug fix, and a beta th
 
 #### @azure/identity [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/identity/identity/CHANGELOG.md)
 
-##### Major Fixes in @azure/identity@1.2.3
+##### Major Fixes in @azure/identity@1.2.3 ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/identity/identity/CHANGELOG.md#123-2021-02-09))
 
 - Fixed Azure Stack support for the NodeJS version of the `InteractiveBrowserCredential`.
 - The 'keytar' dependency has been updated to the latest version.
@@ -95,7 +95,7 @@ Identity is releasing a patch with a dependency fix and a bug fix, and a beta th
 
 We're releasing some beta updates for the clients of the Key Vault service with small updates and breaking changes only from the last beta updates released.
 
-#### @azure/keyvault-admin [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-admin/CHANGELOG.md)
+#### @azure/keyvault-admin [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-admin/CHANGELOG.md#400-beta2-2021-02-09)
 
 ##### Changes on @azure/keyvault-admin@4.0.0-beta.2
 
@@ -110,7 +110,7 @@ We're releasing some beta updates for the clients of the Key Vault service with 
 -  The logging of HTTP requests wasn't properly working - now it has been fixed and tests have been written that verify the fix.
 - Backup / Restore polling will now correctly propagate any errors to the awaited call.
 
-#### @azure/keyvault-keys [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-keys/CHANGELOG.md)
+#### @azure/keyvault-keys [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-keys/CHANGELOG.md#420-beta3-2021-02-09)
 
 ##### New Features on @azure/keyvault-keys@4.2.0-beta.3
 
@@ -122,26 +122,21 @@ We're releasing some beta updates for the clients of the Key Vault service with 
 
 We're releasing a new beta for the Text Analytics service including new features and some renamed properties and methods.
 
-#### @azure/ai-text-analytics [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/CHANGELOG.md)
+#### @azure/ai-text-analytics [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/CHANGELOG.md#510-beta4-2021-02-10)
 
 ##### New Features in @azure/ai-text-analytics@5.1.0-beta.4
 
-- A new option to control how the offset is calculated by the service, `stringIndexType`, is added to `analyzeSentiment`, `recognizeEntities`, `recognizePiiEntities`, and `beginAnalyzeHealthcareEntities`. Furthermore, `stringIndexType` is added to task types `RecognizeEntitiesAction` and `RecognizePiiEntitiesAction`, which are the types of input actions to the `beginAnalyzeBatchActions` method. For more information, see [the Text Analytics documentation](https://docs.microsoft.com/azure/cognitive-services/text-analytics/concepts/text-offsets#offsets-in-api-version-31-preview).
-- The poller for the `beginAnalyzeBatchActions` long-running operation gained the ability to return certain metadata information about the currently running operation (e.g., when the operation was created, will be expired, and last time it was updated, and also how many actions completed and failed so far). Also, the poller for `beginAnalyzeHealthcareEntities` gained a similar ability.
+- A new option to control how the offset is calculated by the service. For more information, see [the Text Analytics documentation](https://docs.microsoft.com/azure/cognitive-services/text-analytics/concepts/text-offsets#offsets-in-api-version-31-preview).
 
 ##### Breaking Changes on @azure/ai-text-analytics@5.1.0-beta.4
 
-- `beginAnalyzeHealthcare` is renamed to `beginAnalyzeHealthcareEntities`.
-- `beginAnalyze` is renamed to `beginAnalyzeBatchActions`.
-- The healthcare entities returned by `beginAnalyzeHealthcare` are now organized as a directed graph where the edges represent a certain type of healthcare relationship between the source and target entities. Edges are stored in the `relatedEntities` property.
-- The `links` property of `HealthcareEntity` is renamed to `dataSources`, a list of objects representing medical databases, where each object has `name` and `entityId` properties.
-- the words "operation" and "action" are used consistently in our names and documentation instead of "job" and "task" respectively.
+- The healthcare entities returned by `beginAnalyzeHealthcareEntities` are now organized as a directed graph where the edges represent a certain type of healthcare relationship between the source and target entities. Edges are stored in the `relatedEntities` property.
 
 ### Azure Form Recognizer
 
 We're releasing a new beta client for the Azure Form Recognizer service with an upgrade for one TypeScript type.
 
-#### @azure/ai-form-recognizer [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
+#### @azure/ai-form-recognizer [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md#310-beta2-2021-02-09)
 
 ##### Breaking Changes in @azure/ai-form-recognizer@3.1.0-beta.2
 
@@ -153,32 +148,32 @@ We released hot fix versions and also beta versions for new service features in 
 
 #### @azure/storage-blob [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/CHANGELOG.md)
 
-##### Major Fixes in @azure/storage-blob@12.4.1
+##### Major Fixes in @azure/storage-blob@12.4.1 ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/CHANGELOG.md#1241-2021-02-03))
 
 - Fixed a compile failure due to "Can't resolve 'crypto'" in Angular. [Issue #13267](https://github.com/Azure/azure-sdk-for-js/issues/13267).
 - Fixed an issue that the download stream returned by `BlobClient.download` won't release underlying resources unless it's fully consumed. [Isssue #11850](https://github.com/Azure/azure-sdk-for-js/issues/11850).
 
-##### New Features in @azure/storage-blob@12.5.0-beta.1
+##### New Features in @azure/storage-blob@12.5.0-beta.1 ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/CHANGELOG.md#1250-beta1-2021-02-09))
 
 - Now support Batch operations scoped to the Container level. You can use `ContainerClient.getBlobBatchClient()` to get such a `BlobBatchClient`.
 
 #### @azure/storage-file-datalake [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/CHANGELOG.md)
 
-##### Major Fixes in @azure/storage-file-datalake@12.3.1
+##### Major Fixes in @azure/storage-file-datalake@12.3.1 ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/CHANGELOG.md#1231-2021-02-03))
 
 - Fixed a compile failure due to "Can't resolve 'crypto'" in Angular. [Issue #13267](https://github.com/Azure/azure-sdk-for-js/issues/13267).
 
-##### New Features in @azure/storage-file-datalake@12.4.0-beta.1
+##### New Features in @azure/storage-file-datalake@12.4.0-beta.1 ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/CHANGELOG.md#1240-beta1-2021-02-09))
 
 - Added support for Container Soft Delete. You can restore a deleted filesystem via `DataLakeServiceClient.undeleteFileSystem()`. And the `DataLakeServiceClient.listFileSystems()` now support an `includeDeleted` option to include soft deleted filesystems in the response.
 
-#### storage-file-share [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/CHANGELOG.md)
+#### storage-file-share [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/CHANGELOG.md#1241-2021-02-03)
 
 ##### @azure/storage-file-share@12.4.1
 
 This release contains bug fixes to improve quality.
 
-#### storage-queue [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/CHANGELOG.md)
+#### storage-queue [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/CHANGELOG.md#1231-2021-02-03)
 
 ##### @azure/storage-queue@12.3.1
 
@@ -188,7 +183,7 @@ This release contains bug fixes to improve quality.
 
 We released a new beta package for the Event Grid service.
 
-#### @azure/eventgrid [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventgrid/eventgrid/CHANGELOG.md)
+#### @azure/eventgrid [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventgrid/eventgrid/CHANGELOG.md#300-beta3-2020-10-06)
 
 ##### Breaking changes in @azure/eventgrid@3.0.0-beta.3
 
