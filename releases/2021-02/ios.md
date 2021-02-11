@@ -83,8 +83,7 @@ If you have a bug or feature request for one of the libraries, please post an is
     `CommunicationTokenRefreshOptions` object instead of multiple parameters.
 
 ##### Key Bug Fixes
-- Removing `CommunicationUserCredentialPolicy`, this policy was a duplicate of cores `BearerTokenCredentialPolicy`.  
-  Communication now has new ability to create `BearerTokenCredentialPolicy` using the new `CommunicationPolicyTokenCredential`. 
+- Removing `CommunicationUserCredentialPolicy`, this policy was a duplicate of cores `BearerTokenCredentialPolicy`. Communication now has new ability to create `BearerTokenCredentialPolicy` using the new `CommunicationPolicyTokenCredential`. 
 
 #### Azure Communication Calling
 
