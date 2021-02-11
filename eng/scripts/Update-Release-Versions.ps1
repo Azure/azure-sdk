@@ -1,27 +1,29 @@
+[CmdletBinding()]
 param (
-  $language = "all",
-  $checkDocLinks = $true
+  [string]$language = "all",
+  [bool]$checkDocLinks = $true,
+  [bool]$compareTagVsGHIOVersions = $false,
+  [string] $github_pat = $env:GITHUB_PAT
 )
 Set-StrictMode -Version 3
+$ProgressPreference = "SilentlyContinue"; # Disable invoke-webrequest progress dialog
 
 . (Join-Path $PSScriptRoot PackageList-Helpers.ps1)
-
-$azuresdkdocs = "https://azuresdkdocs.blob.core.windows.net/`$web"
+. (Join-Path $PSScriptRoot PackageVersion-Helpers.ps1)
 
 function GetVersionWebContent($language, $package, $versionType="latest-ga")
 {
-  $url = "$azuresdkdocs/$language/$package/versioning/$versionType"
+  $url = "https://azuresdkdocs.blob.core.windows.net/`$web/$language/$package/versioning/$versionType"
   try {
     $response = Invoke-WebRequest -MaximumRetryCount 3 $url
     return [string]$response.Content
   }
   catch {
-    Write-Warning "Couldn't get version info for $url"
+    #Write-Warning "Couldn't get version info for $url"
     return $null
   }
 }
 
-$ProgressPreference = "SilentlyContinue"; # Disable invoke-webrequest progress dialog
 function CheckLink($url, $showWarningIfMissing=$true)
 {
   try
@@ -39,7 +41,34 @@ function CheckLink($url, $showWarningIfMissing=$true)
   return $false
 }
 
-function UpdateDocLinks($lang, $pkg, $skipIfNA = $false)
+function GetTemplateValue($linkTemplates, $templateName, $packageName = $null, $version = $null, $repoPath = $null, $groupId = $null)
+{
+  $replacedString = $linkTemplates[$templateName]
+
+  if ($packageName) {
+    $packageTrim = $linkTemplates["package_trim"]
+    $trimmedPackageName = $pkg.Package -replace "^$packageTrim", ""
+
+    $replacedString = $replacedString -replace "item.Package", $packageName
+    $replacedString = $replacedString -replace "item.TrimmedPackage", $trimmedPackageName
+  }
+
+  if ($version) {
+    $replacedString = $replacedString -replace "item.Version", $version
+  }
+
+  if ($repoPath) {
+    $replacedString = $replacedString -replace "item.RepoPath", $repoPath
+  }
+
+  if ($groupId) {
+    $replacedString = $replacedString -replace "item.GroupId", $groupId
+  }
+
+  return $replacedString
+ }
+
+function CheckOptionalLinks($linkTemplates, $pkg, $skipIfNA = $false) 
 {
   if (!$checkDocLinks) {
     return
@@ -48,17 +77,14 @@ function UpdateDocLinks($lang, $pkg, $skipIfNA = $false)
     return
   }
 
-  if ($lang -eq "js") { $lang = "javascript" }
+  $preSuffix = GetTemplateValue $linkTemplates "pre_suffix"
+  $msdocLink = GetTemplateValue $linkTemplates "msdocs_url_template" $pkg.Package 
 
-  $trimmedPackage = $pkg.Package -replace "@?azure[\.\-/]", ""
+  if (!$pkg.VersionGA -and $pkg.VersionPreview -and $preSuffix) { 
+    $msdocLink += $preSuffix 
+  }
 
-  # this suffix addition will continue to exist for .NET ONLY until the same overview path is allowed to exist 
-  # across multiple monikers
-  $suffix = ""
-  if (!$pkg.VersionGA -and $pkg.VersionPreview -and $lang -eq "dotnet") { $suffix = "-pre" }
-
-  $msdocLink = "https://docs.microsoft.com/${lang}/api/overview/azure/${trimmedPackage}-readme${suffix}/"
-  $msdocvalid = CheckLink $msdocLink $false 
+  $msdocvalid = CheckLink $msdocLink $false
 
   if ($msdocvalid) {
     $pkg.MSDocs = ""
@@ -69,19 +95,14 @@ function UpdateDocLinks($lang, $pkg, $skipIfNA = $false)
       $pkg.MSDocs = "NA"
     }
   }
-  $ghformat = "{0}/{1}"
-  if ($lang -eq "javascript") { $ghformat = "azure-${trimmedPackage}/{1}" }
-
-  $ghlink = ""
-  $ghLinkFormat = "$azuresdkdocs/${lang}/${ghformat}/index.html"
 
   $ghdocvalid = ($pkg.VersionGA -or $pkg.VersionPreview)
   if ($pkg.VersionGA) {
-    $ghlink = $ghLinkFormat -f $pkg.Package, $pkg.VersionGA
+    $ghlink = GetTemplateValue $linkTemplates "ghdocs_url_template" $pkg.Package $pkg.VersionGA
     $ghdocvalid = $ghdocvalid -and (CheckLink $ghlink $false)
   }
   if ($pkg.VersionPreview) {
-    $ghlink = $ghLinkFormat -f $pkg.Package, $pkg.VersionPreview
+    $ghlink = GetTemplateValue $linkTemplates "ghdocs_url_template" $pkg.Package $pkg.VersionPreview
     $ghdocvalid = $ghdocvalid -and (CheckLink $ghlink $false)
   }
 
@@ -95,466 +116,114 @@ function UpdateDocLinks($lang, $pkg, $skipIfNA = $false)
     }
   }
 }
-function Check-java-links($pkg, $version)
+function CheckRequiredLinks($linkTemplates, $pkg, $version) 
 {
+  $srcLink = GetTemplateValue $linkTemplates "source_url_template" $pkg.Package $version $pkg.RepoPath
   $valid = $true;
   if (!$pkg.RepoPath.StartsWith("http")) {
-    $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-java/tree/{0}_{1}/sdk/{2}/{0}/" -f $pkg.Package, $version, $pkg.RepoPath))
+    $valid = $valid -and (CheckLink $srcLink)
   }
-  $valid = $valid -and (CheckLink ("https://search.maven.org/artifact/{2}/{0}/{1}/jar/" -f $pkg.Package, $version, $pkg.GroupId))
-  return $valid;
-}
 
-function Update-java-Packages($packageList)
-{
-  foreach ($pkg in $packageList)
-  {
-    $version = GetVersionWebContent "java" $pkg.Package "latest-ga"
-
-    if ($null -eq $version) {
-      Write-Host "Skipping update for $($pkg.Package) as we don't have versiong info for it. "
-      continue;
-    }
-
-    if ($version -eq "") { 
-      $pkg.VersionGA = ""
-    }
-    elseif (Check-java-links $pkg $version) {
-      if ($pkg.VersionGA -ne $version) {
-        Write-Host "Updating VersionGA for $($pkg.Package) from $($pkg.VersionGA) to $version"
-        $pkg.VersionGA = $version
-      }
-    }
-    else {
-      Write-Warning "Not updating VersionGA for $($pkg.Package) because at least one associated URL is not valid!"
-    }
-
-    $version = GetVersionWebContent "java" $pkg.Package "latest-preview"
-    if ($version -eq "") {
-      $pkg.VersionPreview = ""
-    }
-    elseif (Check-java-links $pkg $version) {
-      if ($pkg.VersionPreview -ne $version) {
-        Write-Host "Updating VersionPreview for $($pkg.Package) from $($pkg.VersionPreview) to $version"
-        $pkg.VersionPreview = $version
-      }
-    }
-    else {
-      Write-Warning "Not updating VersionPreview for $($pkg.Package) because at least one associated URL is not valid!"
-    }
-    UpdateDocLinks "java" $pkg
+  # GroupId only exists for java so we need to test before we try and access
+  $groupId = $null
+  if ([bool]($pkg.PSobject.Properties.name -match "GroupId")) {
+    $groupId = $pkg.GroupId
   }
-}
 
-function Check-js-links($pkg, $version)
-{
-  $trimmedPackage = $pkg.Package.Replace("@azure/", "")
-  $valid = $true;
-  if (!$pkg.RepoPath.StartsWith("http")) {
-    $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-js/tree/{0}_{1}/sdk/{2}/{3}/" -f $pkg.Package, $version, $pkg.RepoPath, $trimmedPackage))
-  }
-  $valid = $valid -and (CheckLink ("https://www.npmjs.com/package/{0}/v/{1}" -f $pkg.Package, $version))
+  $pkgLink = GetTemplateValue $linkTemplates "package_url_template" $pkg.Package $version $pkg.RepoPath $groupId
+
+  $valid = $valid -and (CheckLink $pkgLink)
   return $valid
 }
-
-function Update-js-Packages($packageList)
+function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
 {
   foreach ($pkg in $packageList)
   {
-    $trimmedPackage = $pkg.Package.Replace("@azure/", "")
-    $version = GetVersionWebContent "javascript" "azure-${trimmedPackage}" "latest-ga"
+    if ($langVersions.ContainsKey($pkg.Package)) {
+      $pkgVersion = $langVersions[$pkg.Package]
+    }
+    elseif ($langVersions.ContainsKey("")) {
+      # Some repos use the same version for all packages so fall back to that case
+      $pkgVersion = $langVersions[""]
+    }
+    else {
+      Write-Host "Skipping update for $($pkg.Package) as we don't have versiong info for it. "
+      continue
+    }
 
-    if ($null -eq $version) {
+    $version = $pkgVersion.LatestGA
+
+    if ($null -eq $pkgVersion) {
       Write-Host "Skipping update for $($pkg.Package) as we don't have versiong info for it. "
       continue;
     }
 
-    if ($version -eq "") {
-      $pkg.VersionGA = "";
-    }
-    elseif (Check-js-links $pkg $version) {
-      if ($pkg.VersionGA -ne $version) {
-        Write-Host "Updating VersionGA $($pkg.Package) from $($pkg.VersionGA) to $version"
-        $pkg.VersionGA = $version;
+    if ($compareTagVsGHIOVersions) {
+      $versionFromGH = GetVersionWebContent $lang $pkg.Package "latest-ga"
+      if ($versionFromGH -and !$versionFromGH.StartsWith("0.") -and $version -ne $versionFromGH) {
+        Write-Warning "Version mismatch for [$($pkg.Package)] GHVersion=[$versionFromGH] TagVersion=[$version]"
       }
-    }
-    else {
-      Write-Warning "Not updating VersionGA for $($pkg.Package) because at least one associated URL is not valid!"
-    }
-
-    $version = GetVersionWebContent "javascript" "azure-${trimmedPackage}" "latest-preview"
-    if ($version -eq "") {
-      $pkg.VersionPreview = "";
-    }
-    elseif (Check-js-links $pkg $version) {
-      if ($pkg.VersionPreview -ne $version) {
-        Write-Host "Updating VersionPreview $($pkg.Package) from $($pkg.VersionPreview) to $version"
-        $pkg.VersionPreview = $version;
-      }
-    }
-    else {
-      Write-Warning "Not updating VersionPreview for $($pkg.Package) because at least one associated URL is not valid!"
-    }
-    UpdateDocLinks "javascript" $pkg
-  }
-}
-
-function Check-dotnet-links($pkg, $version)
-{
-    $valid = $true;
-    if (!$pkg.RepoPath.StartsWith("http")) {
-      $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-net/tree/{0}_{1}/sdk/{2}/{0}/" -f $pkg.Package, $version, $pkg.RepoPath))
-    }
-    $valid = $valid -and (CheckLink ("https://www.nuget.org/packages/{0}/{1}" -f $pkg.Package, $version))
-    return $valid
-}
-
-function Update-dotnet-Packages($packageList)
-{
-  foreach ($pkg in $packageList)
-  {
-    $version = GetVersionWebContent "dotnet" $pkg.Package "latest-ga"
-    if ($null -eq $version) {
-      Write-Host "Skipping update for $($pkg.Package) as we don't have versiong info for it. "
-      continue;
     }
 
     if ($version -eq "") {
       $pkg.VersionGA = ""
     }
-    elseif (Check-dotnet-links $pkg $version) {
-      if ($pkg.VersionGA -ne $version) {
+    elseif ($pkg.VersionGA -ne $version) {
+      if (CheckRequiredLinks $langLinkTemplates $pkg $version){
         Write-Host "Updating VersionGA $($pkg.Package) from $($pkg.VersionGA) to $version"
         $pkg.VersionGA = $version;
       }
-    }
-    else {
-      Write-Warning "Not updating VersionGA for $($pkg.Package) because at least one associated URL is not valid!"
+      else {
+        Write-Warning "Not updating VersionGA for $($pkg.Package) because at least one associated URL is not valid!"
+      }
     }
 
-    $version = GetVersionWebContent "dotnet" $pkg.Package "latest-preview"
+    $version = $pkgVersion.LatestPreview
+
+    if ($compareTagVsGHIOVersions) {
+      $versionFromGH = GetVersionWebContent $lang $pkg.Package "latest-preview"
+      if ($versionFromGH -and $version -ne $versionFromGH) {
+        Write-Warning "Version mismatch for [$($pkg.Package)] GHVersion=[$versionFromGH] TagVersion=[$version]"
+      }
+    }
     if ($version -eq "") {
       $pkg.VersionPreview = ""
     }
-    elseif (Check-dotnet-links $pkg $version) {
-      if ($pkg.VersionPreview -ne $version) {
+    elseif ($pkg.VersionPreview -ne $version) {
+      if (CheckRequiredlinks $langLinkTemplates $pkg $version) {
         Write-Host "Updating VersionPreview $($pkg.Package) from $($pkg.VersionPreview) to $version"
         $pkg.VersionPreview = $version;
       }
-    }
-    else {
-      Write-Warning "Not updating VersionPreview for $($pkg.Package) because at least one associated URL is not valid!"
-    }
-    UpdateDocLinks "dotnet" $pkg
-  }
-}
-
-function Check-python-links($pkg, $version) 
-{
-    $valid = $true;
-    if (!$pkg.RepoPath.StartsWith("http")) {
-      $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-python/tree/{0}_{1}/sdk/{2}/{0}/" -f $pkg.Package, $version, $pkg.RepoPath))
-    }
-    $valid = $valid -and (CheckLink ("https://pypi.org/project/{0}/{1}" -f $pkg.Package, $version))
-    return $valid
-}
-function Update-python-Packages($packageList)
-{
-  foreach ($pkg in $packageList)
-  {
-    $version = GetVersionWebContent "python" $pkg.Package "latest-ga"
-    if ($null -eq $version) {
-      Write-Host "Skipping update for $($pkg.Package) as we don't have versiong info for it. "
-      continue;
-    }
-
-    if ($version -eq "") {
-      $pkg.VersionGA = ""
-    }
-    elseif (Check-python-links $pkg $version){
-      if ($pkg.VersionGA -ne $version) {
-        Write-Host "Updating VersionGA $($pkg.Package) from $($pkg.VersionGA) to $version"
-        $pkg.VersionGA = $version;
+      else {
+        Write-Warning "Not updating VersionPreview for $($pkg.Package) because at least one associated URL is not valid!"
       }
     }
-    else {
-      Write-Warning "Not updating VersionGA for $($pkg.Package) because at least one associated URL is not valid!"
-    }
-
-    $version = GetVersionWebContent "python" $pkg.Package "latest-preview"
-    if ($version -eq "") {
-      $pkg.VersionPreview = ""
-    }
-    elseif (Check-python-links $pkg $version){
-      if ($pkg.VersionPreview -ne $version) {
-        Write-Host "Updating VersionPreview $($pkg.Package) from $($pkg.VersionPreview) to $version"
-        $pkg.VersionPreview = $version;
-      }
-    }
-    else {
-      Write-Warning "Not updating VersionPreview for $($pkg.Package) because at least one associated URL is not valid!"
-    }
-    UpdateDocLinks "python" $pkg
-  }
-}
-
-function Check-c-links($pkg, $version) 
-{
-    $valid = $true;
-    if (!$pkg.RepoPath.StartsWith("http")) {
-      $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-c/tree/{0}/sdk/{1}" -f $version, $pkg.RepoPath))
-    }
-    $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-c/archive/{0}.zip" -f $version))
-    return $valid
-}
-function Update-c-Packages($packageList)
-{
-  foreach ($pkg in $packageList)
-  {
-    $version = GetVersionWebContent "c" $pkg.Package "latest-ga"
-    if ($null -eq $version) {
-      Write-Host "Skipping update for $($pkg.Package) as we don't have versiong info for it. "
-      continue;
-    }
-
-    if ($version -eq "") {
-      $pkg.VersionGA = ""
-    }
-    elseif (Check-c-links $pkg $version){
-      if ($pkg.VersionGA -ne $version) {
-        Write-Host "Updating VersionGA $($pkg.Package) from $($pkg.VersionGA) to $version"
-        $pkg.VersionGA = $version;
-      }
-    }
-    else {
-      Write-Warning "Not updating VersionGA for $($pkg.Package) because at least one associated URL is not valid!"
-    }
-
-    $version = GetVersionWebContent "c" $pkg.Package "latest-preview"
-    if ($version -eq "") {
-      $pkg.VersionPreview = ""
-    }
-    elseif (Check-c-links $pkg $version){
-      if ($pkg.VersionPreview -ne $version) {
-        Write-Host "Updating VersionPreview $($pkg.Package) from $($pkg.VersionPreview) to $version"
-        $pkg.VersionPreview = $version;
-      }
-    }
-    else {
-      Write-Warning "Not updating VersionPreview for $($pkg.Package) because at least one associated URL is not valid!"
-    }
-    UpdateDocLinks "c" $pkg
-  }
-}
-
-function Check-cpp-links($pkg, $version)
-{
-    $valid = $true;
-    if (!$pkg.RepoPath.StartsWith("http")) {
-      $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-cpp/tree/{0}_{1}/sdk/{2}/{0}" -f $pkg.Package, $version, $pkg.RepoPath))
-    }
-    $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-cpp/archive/{0}_{1}.zip" -f $pkg.Package, $version))
-    return $valid
-}
-function Update-cpp-Packages($packageList)
-{
-  foreach ($pkg in $packageList)
-  {
-    $version = GetVersionWebContent "cpp" $pkg.Package "latest-ga"
-    if ($null -eq $version) {
-      Write-Host "Skipping update for $($pkg.Package) as we don't have versiong info for it. "
-      continue;
-    }
-
-    if ($version -eq "") {
-      $pkg.VersionGA = ""
-    }
-    elseif (Check-cpp-links $pkg $version){
-      if ($pkg.VersionGA -ne $version) {
-        Write-Host "Updating VersionGA $($pkg.Package) from $($pkg.VersionGA) to $version"
-        $pkg.VersionGA = $version;
-      }
-    }
-    else {
-      Write-Warning "Not updating VersionGA for $($pkg.Package) because at least one associated URL is not valid!"
-    }
-
-    $version = GetVersionWebContent "cpp" $pkg.Package "latest-preview"
-    if ($version -eq "") {
-      $pkg.VersionPreview = ""
-    }
-    elseif (Check-cpp-links $pkg $version){
-      if ($pkg.VersionPreview -ne $version) {
-        Write-Host "Updating VersionPreview $($pkg.Package) from $($pkg.VersionPreview) to $version"
-        $pkg.VersionPreview = $version;
-      }
-    }
-    else {
-      Write-Warning "Not updating VersionPreview for $($pkg.Package) because at least one associated URL is not valid!"
-    }
-    UpdateDocLinks "cpp" $pkg
-  }
-}
-
-function Check-android-links($pkg, $version)
-{
-  $valid = $true;
-  if (!$pkg.RepoPath.StartsWith("http")) {
-    $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-android/tree/{0}_{1}/sdk/{2}/{0}/" -f $pkg.Package, $version, $pkg.RepoPath))
-  }
-  $valid = $valid -and (CheckLink ("https://search.maven.org/artifact/{2}/{0}/{1}/aar/" -f $pkg.Package, $version, $pkg.GroupId))
-  return $valid;
-}
-
-function Update-android-Packages($packageList)
-{
-  foreach ($pkg in $packageList)
-  {
-    $version = GetVersionWebContent "android" $pkg.Package "latest-ga"
-
-    if ($null -eq $version) {
-      Write-Host "Skipping update for $($pkg.Package) as we don't have versiong info for it. "
-      continue;
-    }
-
-    if ($version -eq "") {
-      $pkg.VersionGA = ""
-    }
-    elseif (Check-android-links $pkg $version) {
-      if ($pkg.VersionGA -ne $version) {
-        Write-Host "Updating VersionGA for $($pkg.Package) from $($pkg.VersionGA) to $version"
-        $pkg.VersionGA = $version
-      }
-    }
-    else {
-      Write-Warning "Not updating VersionGA for $($pkg.Package) because at least one associated URL is not valid!"
-    }
-
-    $version = GetVersionWebContent "android" $pkg.Package "latest-preview"
-    if ($version -eq "") {
-      $pkg.VersionPreview = ""
-    }
-    elseif (Check-android-links $pkg $version) {
-      if ($pkg.VersionPreview -ne $version) {
-        Write-Host "Updating VersionPreview for $($pkg.Package) from $($pkg.VersionPreview) to $version"
-        $pkg.VersionPreview = $version
-      }
-    }
-    else {
-      Write-Warning "Not updating VersionPreview for $($pkg.Package) because at least one associated URL is not valid!"
-    }
-    UpdateDocLinks "android" $pkg
-  }
-}
-
-function Check-ios-links($pkg, $version)
-{
-  $valid = $true;
-  if (!$pkg.RepoPath.StartsWith("http")) {
-    $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-ios/tree/{0}/sdk/{1}" -f $version, $pkg.RepoPath))
-  }
-  $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-ios/archive/{0}.zip" -f $version))
-  return $valid
-}
-function Update-ios-Packages($packageList)
-{
-  foreach ($pkg in $packageList)
-  {
-    $version = GetVersionWebContent "ios" $pkg.Package "latest-ga"
-    if ($null -eq $version) {
-      Write-Host "Skipping update for $($pkg.Package) as we don't have versiong info for it. "
-      continue;
-    }
-
-    if ($version -eq "") {
-      $pkg.VersionGA = ""
-    }
-    elseif (Check-ios-links $pkg $version){
-      if ($pkg.VersionGA -ne $version) {
-        Write-Host "Updating VersionGA $($pkg.Package) from $($pkg.VersionGA) to $version"
-        $pkg.VersionGA = $version;
-      }
-    }
-    else {
-      Write-Warning "Not updating VersionGA for $($pkg.Package) because at least one associated URL is not valid!"
-    }
-
-    $version = GetVersionWebContent "ios" $pkg.Package "latest-preview"
-    if ($version -eq "") {
-      $pkg.VersionPreview = ""
-    }
-    elseif (Check-ios-links $pkg $version){
-      if ($pkg.VersionPreview -ne $version) {
-        Write-Host "Updating VersionPreview $($pkg.Package) from $($pkg.VersionPreview) to $version"
-        $pkg.VersionPreview = $version;
-      }
-    }
-    else {
-      Write-Warning "Not updating VersionPreview for $($pkg.Package) because at least one associated URL is not valid!"
-    }
-    UpdateDocLinks "ios" $pkg
-  }
-}
-
-function Check-go-links($pkg, $version) 
-{
-    $valid = $true;
-    if (!$pkg.RepoPath.StartsWith("http")) {
-      $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-go/tree/{0}/sdk/{1}" -f $version, $pkg.RepoPath))
-    }
-    $valid = $valid -and (CheckLink ("https://github.com/Azure/azure-sdk-for-go/archive/{0}.zip" -f $version))
-    return $valid
-}
-function Update-go-Packages($packageList)
-{
-  foreach ($pkg in $packageList)
-  {
-    $version = GetVersionWebContent "go" $pkg.Package "latest-ga"
-    if ($null -eq $version) {
-      Write-Host "Skipping update for $($pkg.Package) as we don't have versiong info for it. "
-      continue;
-    }
-
-    if ($version -eq "") {
-      $pkg.VersionGA = ""
-    }
-    elseif (Check-go-links $pkg $version){
-      if ($pkg.VersionGA -ne $version) {
-        Write-Host "Updating VersionGA $($pkg.Package) from $($pkg.VersionGA) to $version"
-        $pkg.VersionGA = $version;
-      }
-    }
-    else {
-      Write-Warning "Not updating VersionGA for $($pkg.Package) because at least one associated URL is not valid!"
-    }
-
-    $version = GetVersionWebContent "go" $pkg.Package "latest-preview"
-    if ($version -eq "") {
-      $pkg.VersionPreview = ""
-    }
-    elseif (Check-go-links $pkg $version){
-      if ($pkg.VersionPreview -ne $version) {
-        Write-Host "Updating VersionPreview $($pkg.Package) from $($pkg.VersionPreview) to $version"
-        $pkg.VersionPreview = $version;
-      }
-    }
-    else {
-      Write-Warning "Not updating VersionPreview for $($pkg.Package) because at least one associated URL is not valid!"
-    }
-    UpdateDocLinks "go" $pkg
+    CheckOptionalLinks $langLinkTemplates $pkg
   }
 }
 
 function OutputVersions($lang)
 {
+  Write-Host "Checking $lang for updates..."
   $clientPackages, $otherPackages = Get-PackageListForLanguageSplit $lang
 
-  $LangFunction = "Update-$lang-Packages"
-  &$LangFunction $clientPackages
+  $langVersions = GetPackageVersions $lang
+  $langLinkTemplates = @{ }
+
+  $releaseVariableFolder = Resolve-Path "$PSScriptRoot\..\..\_includes\releases\variables\"
+  $releaseVariableContent = Get-Content (Join-Path $releaseVariableFolder "$lang.md")
+  $releaseVariableContent | ForEach-Object {
+    if ($_ -match "{%\s*assign\s*(?<name>\S+)\s*=\s*`"(?<value>\S*)`"\s+%}") { 
+      $langLinkTemplates[$matches["name"]] = $matches["value"]
+      Write-Verbose ("" + $matches["name"] + " = [" + $matches["value"] + "]")
+    }
+  }
+
+  Update-Packages $lang $clientPackages $langVersions $langLinkTemplates
 
   foreach($otherPackage in $otherPackages)
   {
-    UpdateDocLinks $lang $otherPackage -skipIfNA $true
+    CheckOptionalLinks $langLinkTemplates $otherPackage -skipIfNA $true
   }
 
   Set-PackageListForLanguage $lang ($clientPackages + $otherPackages)
@@ -562,6 +231,7 @@ function OutputVersions($lang)
 
 function OutputAll($langs)
 {
+  $langs = $langs | Sort-Object
   foreach ($lang in $langs)
   {
     OutputVersions $lang

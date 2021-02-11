@@ -695,7 +695,7 @@ Removed ability to create a ShareLeaseClient for a Share or Share Snapshot. This
 and key phrases extraction) simultaneously in a list of document.
 - Currently, Azure Active Directory (AAD) is not supported in the Healthcare recognition feature.
 
-### Microsoft Opentelemetry Exporter Azuremonitor 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/monitor/azure-opentelemetry-exporter-azuremonitor/CHANGELOG.md#100-beta2-2020-11-10)
+### Microsoft Opentelemetry Exporter Azuremonitor 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-opentelemetry-exporter-azuremonitor_1.0.0-beta.2/sdk/monitor/azure-opentelemetry-exporter-azuremonitor/CHANGELOG.md)
 
 #### Breaking changes
 

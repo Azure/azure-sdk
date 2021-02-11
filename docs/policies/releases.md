@@ -20,7 +20,7 @@ We’re motivated to provide high quality SDKs to deliver a great experience for
 At the moment we are committed to building and supporting an SDK for each of these primary languages SDKs for all azure services:
 
 - Java
-- .Net
+- .NET
 - Python
 - TS/JS
 
@@ -120,10 +120,10 @@ A manual migration test should be developed to ensure that payloads and data fed
 
 When releasing any new version of an SDKs follow best practices of the language specific package managers to ensure that this new version's visibility is elevated and recommended by default to the users. Here's the guidance per language.
 
-#### .Net
+#### .NET
 TBD
 
-#### .Java
+#### Java
 TBD
 
 #### TS/JS
