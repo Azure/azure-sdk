@@ -69,8 +69,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 ## Release highlights
 
 ### 1.0.0-beta.8 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/master/CHANGELOG.md#100-beta8-2021-02-09))
-
-
 #### Azure Communication Common Library
 
 ##### Breaking Changes
