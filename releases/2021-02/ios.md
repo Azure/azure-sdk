@@ -80,8 +80,7 @@ If you have a bug or feature request for one of the libraries, please post an is
  - Communication identifier `PhoneNumberIdentifier` property `id` renamed to `rawId` to represent full MRI.
  - Removed `CallingApplicationIdentifier` as it is currently unused by any service.
  - The protocol `CommunicationTokenCredential` has likewise been renamed to `CommunicationTokenCredentialProviding`.
- - All types that conform to the `CommunicationIdentifier` protocol now use the suffix `Identifier`. For example, the
-    `PhoneNumber` type used to represent a phone number identifier is now named `PhoneNumberIdentifier`.
+ - All types that conform to the `CommunicationIdentifier` protocol now use the suffix `Identifier`. For example, the `PhoneNumber` type used to represent a phone number identifier is now named `PhoneNumberIdentifier`.
  - Updated the `CommunicationTokenCredential` initializer that automatically refreshes the token to accept a single
     `CommunicationTokenRefreshOptions` object instead of multiple parameters.
 
