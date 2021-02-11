@@ -89,15 +89,20 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 - Updates dependencies for azure-core-amqp and azure-storage-blob.
 
+### Azure Communication Administration will be deprecated
+
+- Identity client is moved to new package Azure Communication Identity.
+- Phone number adminstration will be moved into a new package Azure Communication Phone Numbers.
+
 ### Azure Communication Common 1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-common_1.0.0-beta.4/sdk/communication/azure-communication-common/CHANGELOG.md#100-beta4-2021-02-09)
 
 #### Breaking Changes
 
-- Renamed `CommunicationUserCredential` to `CommunicationTokenCredential`
-- Replaced constructor `CommunicationTokenCredential(TokenRefresher tokenRefresher, String initialToken, boolean refreshProactively)` and `CommunicationTokenCredential(TokenRefresher tokenRefresher)` with `CommunicationTokenCredential(CommunicationTokenRefreshOptions tokenRefreshOptions)`
-- Renamed `PhoneNumber` to `PhoneNumberIdentifier`
-- Renamed `CommunicationUser` to `CommunicationUserIdentifier`
-- Renamed `CallingApplication` to `CallingApplicationIdentifier`
+- Renamed `CommunicationUserCredential` to `CommunicationTokenCredential`.
+- Replaced constructor `CommunicationTokenCredential(TokenRefresher tokenRefresher, String initialToken, boolean refreshProactively)` and `CommunicationTokenCredential(TokenRefresher tokenRefresher)` with `CommunicationTokenCredential(CommunicationTokenRefreshOptions tokenRefreshOptions)`.
+- Renamed `PhoneNumber` to `PhoneNumberIdentifier`.
+- Renamed `CommunicationUser` to `CommunicationUserIdentifier`.
+- Renamed `CallingApplication` to `CallingApplicationIdentifier`.
 
 #### New Features
 
@@ -131,11 +136,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Added new model for messages and content types: `Text`, `Html`, `ParticipantAdded`, `ParticipantRemoved`, `TopicUpdated`.
 - Added new model for errors (`CommunicationError`).
 - Added notifications for 'ChatThread' level changes.
-
-### Azure Communication Administration will be deprecated
-
-- Identity client is moved to new package Azure Communication Identity.
-- Phone number adminstration will be moved into a new package Azure Communication Phone Numbers.
 
 ## Need help
 
