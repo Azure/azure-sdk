@@ -115,8 +115,8 @@ We're releasing some beta updates for the clients of the Key Vault service with 
 ##### New Features on @azure/keyvault-keys@4.2.0-beta.3
 
 - A new `createOctKey` method to support easily creating oct / oct-HSM keys.
-- `CryptographyClient` can now support "local only" mode by instantiating it with only a `JsonWebKey`, a new contructor overload was added to support this.
-- Users can now get the `keyId` property from a `CryptgraphyClient`.
+- `CryptographyClient` can now support "local only" mode by instantiating it with only a `JsonWebKey`, a new constructor overload was added to support this.
+- Users can now get the `keyId` property from a `CryptographyClient`.
 
 ### Azure Text Analytics
 
@@ -131,6 +131,16 @@ We're releasing a new beta for the Text Analytics service including new features
 ##### Breaking Changes on @azure/ai-text-analytics@5.1.0-beta.4
 
 - The healthcare entities returned by `beginAnalyzeHealthcareEntities` are now organized as a directed graph where the edges represent a certain type of healthcare relationship between the source and target entities. Edges are stored in the `relatedEntities` property.
+
+### AI Metrics Advisor
+
+- We are releasing a new  preview version for metrics advisor with AAD support feature
+
+#### @azure/ai-metrics-advisor [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/metricsadvisor/ai-metrics-advisor/CHANGELOG.md#100-beta3-2021-02-09)
+
+##### New Features in @azure/ai-metrics-advisor@1.0.0@beta.3
+
+- Metrics Advisor is releasing support for Azure Active Directory Authentication and support to rotate the API and Subscription Keys.
 
 ### Azure Form Recognizer
 
@@ -151,7 +161,7 @@ We released hot fix versions and also beta versions for new service features in 
 ##### Major Fixes in @azure/storage-blob@12.4.1 ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/CHANGELOG.md#1241-2021-02-03))
 
 - Fixed a compile failure due to "Can't resolve 'crypto'" in Angular. [Issue #13267](https://github.com/Azure/azure-sdk-for-js/issues/13267).
-- Fixed an issue that the download stream returned by `BlobClient.download` won't release underlying resources unless it's fully consumed. [Isssue #11850](https://github.com/Azure/azure-sdk-for-js/issues/11850).
+- Fixed an issue that the download stream returned by `BlobClient.download` won't release underlying resources unless it's fully consumed. [Issue #11850](https://github.com/Azure/azure-sdk-for-js/issues/11850).
 
 ##### New Features in @azure/storage-blob@12.5.0-beta.1 ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/CHANGELOG.md#1250-beta1-2021-02-09))
 
