@@ -89,7 +89,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 - Updates dependencies for azure-core-amqp and azure-storage-blob.
 
-### Azure Communication Common  1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-common_1.0.0-beta.4/sdk/communication/azure-communication-common/CHANGELOG.md#100-beta4-2021-02-09)
+### Azure Communication Common 1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-common_1.0.0-beta.4/sdk/communication/azure-communication-common/CHANGELOG.md#100-beta4-2021-02-09)
 
 #### Breaking Changes
 
@@ -103,7 +103,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 - Added `MicrosoftTeamsUserIdentifier`
 
-### Azure Communication Identity (1.0.0-beta.4) [ChangeLog](https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-identity_1.0.0-beta.4/sdk/communication/azure-communication-identity/CHANGELOG.md#100-beta4-2021-02-09)
+### Azure Communication Identity 1.0.0-beta.4 [ChangeLog](https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-identity_1.0.0-beta.4/sdk/communication/azure-communication-identity/CHANGELOG.md#100-beta4-2021-02-09)
 
 #### Breaking Changes
 
@@ -117,7 +117,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Added support for Azure Active Directory Authentication.
 - Added ability to create a user and issue token for it at the same time.
 
-### Azure Communication Chat (1.0.0-beta.4) [ChangeLog](https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-chat_1.0.0-beta.4/sdk/communication/azure-communication-chat/CHANGELOG.md#100-beta4-2021-02-09)
+### Azure Communication Chat 1.0.0-beta.4 [ChangeLog](https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-chat_1.0.0-beta.4/sdk/communication/azure-communication-chat/CHANGELOG.md#100-beta4-2021-02-09)
 
 #### Breaking Changes
 
