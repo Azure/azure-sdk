@@ -6,27 +6,33 @@ sidebar: releases_sidebar
 repository: azure/azure-sdk-for-net
 ---
 
+<!--
+[pattern]: # (${PackageName}:${PackageVersion})
+-->
+
 The Azure SDK team is pleased to announce our %%MMMM yyyy%% client library releases.
 
 #### GA
 
-- _Add packages_
+[pattern.ga]: # (- ${PackageFriendlyName})
 
 #### Updates
 
-- _Add packages_
+[pattern.patch]: # (- ${PackageFriendlyName})
 
 #### Beta
 
-- _Add packages_
+[pattern.beta]: # (- ${PackageFriendlyName})
 
 ## Installation Instructions
 
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
 ```bash
-$> dotnet install PACKAGE --version whatever
+
 ```
+
+[pattern]: # ($> dotnet install ${PackageName} --version ${PackageVersion})
 
 ## Feedback
 
@@ -34,9 +40,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 ## Release highlights
 
-### _Package name_ 
-
-- Major changes only!!!
+[pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
 ## Latest Releases
 
