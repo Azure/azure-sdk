@@ -93,7 +93,7 @@ If you have a bug or feature request for one of the libraries, please post an is
  - New event on `Call` `OnIsRecordingActiveChanged` to indicate when the recording has been started and stopped and new property `IsRecordingActive` to indicate if currently the recording is active or not.
 
 ##### Key Bug Fixes
- - Fix wrong `callId` on the incoming `Call` object https://github.com/Azure/Communication/issues/164
+ - Fix wrong `callId` on the incoming `Call` object.
  - When placing outgoing call or joining a group call event will be raised `OnCallsUpdated` when call list is updated.
  - Throw IllegalArgumentException if null camera is passed to constructor of `LocalVideoStream`.
  - Video freezing in landscape mode https://github.com/Azure/Communication/issues/128
