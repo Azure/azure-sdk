@@ -95,7 +95,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 ##### Key Bug Fixes
  - Fix wrong `callId` on the incoming `Call` object.
  - When placing outgoing call or joining a group call event will be raised `OnCallsUpdated` when call list is updated.
- - Throw IllegalArgumentException if null camera is passed to constructor of `LocalVideoStream`.
+ - Throw `IllegalArgumentException` if `null` camera is passed to constructor of `LocalVideoStream`.
  - Fixed video freezing in landscape mode.
  - `RendererView` layout is no longer off after a device rotation.
  - `RendererView` is no longer blank when not added to the window right away.
