@@ -32,7 +32,7 @@ $> dotnet add package Azure.Analytics.Synapse.AccessControl --version 1.0.0-prev
 $> dotnet add package Azure.Analytics.Synapse.Artifacts --version 1.0.0-preview.6
 $> dotnet add package Azure.Analytics.Synapse.ManagedPrivateEndpoints --version 1.0.0-beta.2
 $> dotnet add package Azure.Analytics.Synapse.Monitoring --version 1.0.0-beta.2
-$> dotnet add package Azure.Analytics.Synapse.Spark --version 1.0.0-preview.4
+$> dotnet add package Azure.Analytics.Synapse.Spark --version 1.0.0-preview.5
 ```
 
 ## Feedback
