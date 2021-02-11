@@ -18,13 +18,15 @@ The Azure SDK team is pleased to announce our February 2021 client library relea
 
 #### Beta
 
-- _Add packages_
+- Metrics Advisor
 
 ## Installation Instructions
 
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
 ```bash
+$> dotnet add package Azure.AI.MetricsAdvisor --version 1.0.0-beta.3
+
 $> dotnet add package Azure.Messaging.EventHubs
 $> dotnet add package Azure.Messaging.EventHubs.Processor
 ```
@@ -62,6 +64,24 @@ If you have a bug or feature request for one of the libraries, please [file an i
 #### Key Bug Fixes
 
 - Upgraded the `Microsoft.Azure.Amqp` library to resolve crashes occurring in .NET 5.
+
+### Metrics Advisor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/CHANGELOG.md#100-beta3-2021-02-09)
+
+#### New Features
+
+- Added support for AAD authentication in `MetricsAdvisorClient` and `MetricsAdvisorAdministrationClient`.
+
+#### Breaking Changes
+
+- The constructors of multiple classes, including `DataFeed`, `AnomalyDetectionConfiguration`, `AnomalyAlertConfiguration`, `EmailNotificationHook`, and `WebNotificationHook` are now parameterless. To see the full list of constructors affected, please check the Changelog.
+- Collection properties are not settable anymore.
+- `Create` and `Add` methods won't return the ID of the created entity anymore. A full object will be returned instead.
+
+#### Key Bug Fixes
+
+- Fixed a bug in which setting `WebNotificationHook.CertificatePassword` would actually set the property `Username` instead.
+- Fixed a bug in which an `ArgumentNullException` was thrown when getting a data feed from the service as a viewer.
+- Fixed a bug in which a data feed's administrators and viewers could not be set during creation.
 
 
 ## Latest Releases

@@ -20,6 +20,7 @@ The Azure SDK team is pleased to make available the February 2021 client library
 
 - Metrics Advisor
 - Synapse
+- Form Recognizer
 
 ## Installation Instructions
 
@@ -31,6 +32,7 @@ pip install azure-ai-metricsadvisor --pre
 pip install azure-synapse-managedprivateendpoints
 pip install azure-synapse-accesscontrol
 pip install azure-search-documents
+pip install azure-ai-formrecognizer --pre
 ```
 
 ## Feedback
@@ -75,6 +77,12 @@ the identity of the connection endpoint.
 - `IndexDocumentsBatch` does not support `enqueue_action` any longer. `enqueue_actions` takes a single action too.
 - `max_retries` of `SearchIndexingBufferedSender` is renamed to `max_retries_per_action`.
 - `SearchClient` does not support `get_search_indexing_buffered_sender` any longer
+
+### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#310b3-2021-02-09)
+
+- `Appearance` is renamed to `TextAppearance`.
+- `Style` is renamed to `TextStyle`.
+- Client property `api_version` is no longer exposed. Pass keyword argument `api_version` into the client to select the API version.
 
 ## Latest Releases
 
