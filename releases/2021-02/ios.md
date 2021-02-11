@@ -104,9 +104,9 @@ If you have a bug or feature request for one of the libraries, please post an is
 #### Azure Communication Chat Library
 
 ##### New Features
- - Introduced ChatClient and ChatThreadClient to split operations on threads and operations within a particular thread
- - Create thread sets repeatability-Request-ID for idempotency if not provided
- - Introduced MessageContent model to replace string content property
+ - Introduced `ChatClient` and `ChatThreadClient` to split operations on threads and operations within a particular thread.
+ - Create thread sets repeatability-Request-ID for idempotency if not provided.
+ - Introduced `MessageContent` model to replace string content property.
 
 ##### Breaking Changes
  - ChatThreadMember renamed to Participant, uses CommunicationUserIdentifier
