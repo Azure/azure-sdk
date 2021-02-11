@@ -28,8 +28,6 @@ The Azure SDK team is pleased to make available the February 2021 client library
 - Azure Form Recognizer
 - Azure Identity
 - Azure Key Vault Keys
-- Azure Key Vault Secrets
-- Azure Key Vault Certificates
 - Azure Key Vault Admin
 - Azure Storage Blob
 - Azure File Datalake
@@ -51,8 +49,6 @@ $> npm install @azure/ai-metrics-advisor@next
 $> npm install @azure/ai-form-recognizer@next
 $> npm install @azure/identity@next
 $> npm install @azure/keyvault-keys@next
-$> npm install @azure/keyvault-secrets@next
-$> npm install @azure/keyvault-certificates@next
 $> npm install @azure/keyvault-admin@next
 $> npm install @azure/storage-blob@next
 $> npm install @azure/storage-file-datalake@next
@@ -94,6 +90,33 @@ Identity is releasing a patch with a dependency fix and a bug fix, and a beta th
 ##### Changes in @azure/identity@1.2.4-beta.1
 
 - In this beta we've updated `InteractiveBrowserCredential` to use the Auth Code Flow with PKCE rather than Implicit Grant Flow by default in the browser, to better support browsers with enhanced security restrictions.
+
+### Azure Key Vault
+
+We're releasing some beta updates for the clients of the Key Vault service with small updates and breaking changes only from the last beta updates released.
+
+#### @azure/keyvault-admin [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-admin/CHANGELOG.md)
+
+##### Changes on @azure/keyvault-admin@4.0.0-beta.2
+
+- Backup and restore operations will now return a `BackupResult` and `RestoreResult` as appropriate.
+
+##### New Features on @azure/keyvault-admin@4.0.0-beta.2
+
+- In this beta release we added support for custom role definitions which includes creating, updating, and deleting custom role definitions.
+
+##### Major Fixes on @azure/keyvault-admin@4.0.0-beta.2
+
+-  The logging of HTTP requests wasn't properly working - now it has been fixed and tests have been written that verify the fix.
+- Backup / Restore polling will now correctly propagate any errors to the awaited call.
+
+#### @azure/keyvault-keys [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-keys/CHANGELOG.md)
+
+##### New Features on @azure/keyvault-keys@4.2.0-beta.3
+
+- A new `createOctKey` method to support easily creating oct / oct-HSM keys.
+- `CryptographyClient` can now support "local only" mode by instantiating it with only a `JsonWebKey`, a new contructor overload was added to support this.
+- Users can now get the `keyId` property from a `CryptgraphyClient`.
 
 ### Azure Text Analytics
 
