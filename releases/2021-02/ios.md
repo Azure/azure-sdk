@@ -109,9 +109,9 @@ If you have a bug or feature request for one of the libraries, please post an is
  - Introduced `MessageContent` model to replace string content property.
 
 ##### Breaking Changes
- - ChatThreadMember renamed to Participant, uses CommunicationUserIdentifier
- - ChatMessage renamed to Message, uses CommunicationUserIdentifier
- - ChatThread renamed to Thread, uses CommunicationUserIdentifier
+ - `ChatThreadMember` renamed to `Participant`, uses `CommunicationUserIdentifier`.
+ - `ChatMessage` renamed to `Message`, uses `CommunicationUserIdentifier`.
+ - `ChatThread` renamed to `Thread`, uses `CommunicationUserIdentifier`.
 
 ## Need help
 
