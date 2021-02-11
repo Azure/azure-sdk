@@ -105,7 +105,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Azure Communication Identity (1.0.0-beta.4) [ChangeLog](https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-identity_1.0.0-beta.4/sdk/communication/azure-communication-identity/CHANGELOG.md#100-beta4-2021-02-09)
 
-#### Breaking
+#### Breaking Changes
 
 - `pstn` token scope is removed.
 - `revokeTokens` now revoke all the currently issued tokens instead of revoking tokens issued prior to a given time.
@@ -119,14 +119,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Azure Communication Chat (1.0.0-beta.4) [ChangeLog](https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-chat_1.0.0-beta.4/sdk/communication/azure-communication-chat/CHANGELOG.md#100-beta4-2021-02-09)
 
-#### New Features
-
-- Added pagination support for listReadReceipts and listParticipants.
-- Added notifications for chat thread level changes.
-- Added support for html content in chat messages.
-
-### Azure Communication Administration will be deprecated
-
 #### Breaking Changes
 
 - Updated to azure-communication-common version 1.0.0-beta.4. Now uses `CommunicationUserIdentifier` and `CommunicationIdentifier` in place of `CommunicationUser`, and `CommunicationTokenCredential` instead of `CommunicationUserCredential`.
@@ -139,6 +131,11 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Added new model for messages and content types: `Text`, `Html`, `ParticipantAdded`, `ParticipantRemoved`, `TopicUpdated`.
 - Added new model for errors (`CommunicationError`).
 - Added notifications for 'ChatThread' level changes.
+
+### Azure Communication Administration will be deprecated
+
+- Identity client is moved to new package Azure Communication Identity.
+- Phone number adminstration will be moved into a new package Azure Communication Phone Numbers.
 
 ## Need help
 
