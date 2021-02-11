@@ -70,6 +70,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 - Upgraded the `Microsoft.Azure.Amqp` library to resolve crashes occurring in .NET 5.
 
 ### Synapse Artifacts [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/synapse/Azure.Analytics.Synapse.Artifacts/CHANGELOG.md)
+#### New Features
 - Changed APIs on SparkJobDefinitionClient and SqlScriptClient to provide a Long Running Operation (LRO) when operations can be long in duration.
 - Many models classes are now public.
 - Added BigDataPoolsClient, IntegrationRuntimesClient, SqlPoolsClient, WorkspaceClient and associated support types.
@@ -78,6 +79,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 - Support CICD operations.
 
 ### Synapse Spark [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/synapse/Azure.Analytics.Synapse.Spark/CHANGELOG.md)
+#### New Features
 - Changed APIs on SparkBatchClient and SparkSessionClient to provide a Long Running Operation (LRO) when operations can be long in duration.
 
 ## Latest Releases
