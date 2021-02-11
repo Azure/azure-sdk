@@ -56,7 +56,7 @@ $> npm install @azure/keyvault-certificates@next
 $> npm install @azure/keyvault-admin@next
 $> npm install @azure/storage-blob@next
 $> npm install @azure/storage-file-datalake@next
-$> npm install @azure/event-grid@next
+$> npm install @azure/eventgrid@next
 ```
 
 ## Feedback
@@ -82,9 +82,9 @@ We're releasing a new GA for the Azure Event Hubs client with new features and a
 
 ### Azure Identity
 
-#### @azure/identity [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/identity/identity/CHANGELOG.md)
-
 Identity is releasing a patch with a dependency fix and a bug fix, and a beta that includes MSAL 2.0 with PKCE support.
+
+#### @azure/identity [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/identity/identity/CHANGELOG.md)
 
 ##### Major Fixes in @azure/identity@1.2.3
 
@@ -95,7 +95,28 @@ Identity is releasing a patch with a dependency fix and a bug fix, and a beta th
 
 - In this beta we've updated `InteractiveBrowserCredential` to use the Auth Code Flow with PKCE rather than Implicit Grant Flow by default in the browser, to better support browsers with enhanced security restrictions.
 
+### Azure Text Analytics
+
+We're releasing a new beta for the Text Analytics service including new features and some renamed properties and methods.
+
+#### @azure/ai-text-analytics [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/CHANGELOG.md)
+
+##### New Features in @azure/ai-text-analytics@5.1.0-beta.4
+
+- A new option to control how the offset is calculated by the service, `stringIndexType`, is added to `analyzeSentiment`, `recognizeEntities`, `recognizePiiEntities`, and `beginAnalyzeHealthcareEntities`. Furthermore, `stringIndexType` is added to task types `RecognizeEntitiesAction` and `RecognizePiiEntitiesAction`, which are the types of input actions to the `beginAnalyzeBatchActions` method. For more information, see [the Text Analytics documentation](https://docs.microsoft.com/azure/cognitive-services/text-analytics/concepts/text-offsets#offsets-in-api-version-31-preview).
+- The poller for the `beginAnalyzeBatchActions` long-running operation gained the ability to return certain metadata information about the currently running operation (e.g., when the operation was created, will be expired, and last time it was updated, and also how many actions completed and failed so far). Also, the poller for `beginAnalyzeHealthcareEntities` gained a similar ability.
+
+##### Breaking Changes on @azure/ai-text-analytics@5.1.0-beta.4
+
+- `beginAnalyzeHealthcare` is renamed to `beginAnalyzeHealthcareEntities`.
+- `beginAnalyze` is renamed to `beginAnalyzeBatchActions`.
+- The healthcare entities returned by `beginAnalyzeHealthcare` are now organized as a directed graph where the edges represent a certain type of healthcare relationship between the source and target entities. Edges are stored in the `relatedEntities` property.
+- The `links` property of `HealthcareEntity` is renamed to `dataSources`, a list of objects representing medical databases, where each object has `name` and `entityId` properties.
+- the words "operation" and "action" are used consistently in our names and documentation instead of "job" and "task" respectively.
+
 ### Azure Form Recognizer
+
+We're releasing a new beta client for the Azure Form Recognizer service with an upgrade for one TypeScript type.
 
 #### @azure/ai-form-recognizer [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
 
@@ -139,6 +160,23 @@ This release contains bug fixes to improve quality.
 ##### @azure/storage-queue@12.3.1
 
 This release contains bug fixes to improve quality.
+
+### Azure Event Grid
+
+We released a new beta package for the Event Grid service.
+
+#### @azure/eventgrid [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventgrid/eventgrid/CHANGELOG.md)
+
+##### Breaking changes in @azure/eventgrid@3.0.0-beta.3
+
+- The type definitions for SMS events sent by Azure Communication Services have been renamed, to use the prefix "AcsSms" instead of "Acssms". If you are using TypeScript and explicitly referencing these interfaces, you will need to update your code to use the new names. The payload of the events is unchanged.
+- `EventGridSharedAccessCredential` has been removed, in favor of `AzureSASCredential`. Code which is using `EventGridSharedAccessCredential` should now use `AzureSASCredential` instead.
+- When constructing the client, you must now include the schema type your topic is configured to expect (one of "EventGrid", "CloudEvent" or "Custom").
+- The `sendEvents` methods have been collapsed into a single method on the client called `send` which uses the input schema that was configured on the client.
+
+##### New Features in @azure/eventgrid@3.0.0-beta.3
+
+- Added distributed tracing support. EventGridProducerClient will now create spans when sending events to Event Grid.
 
 ## Latest Releases
 
