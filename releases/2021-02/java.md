@@ -19,7 +19,9 @@ The Azure SDK team is pleased to announce our February 2021 client library relea
 
 #### Beta
 
-- _Add packages_
+- Azure Communication Common (1.0.0-beta.4)
+- Azure Communication Identity (1.0.0-beta.4)
+- Azure Communication Chat (1.0.0-beta.4)
 
 ## Installation Instructions
 
@@ -43,6 +45,24 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-messaging-eventhubs-checkpointstore-blob</artifactId>
   <version>1.5.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-communication-common</artifactId>
+  <version>1.0.0-beta.4</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-communication-identity</artifactId>
+  <version>1.0.0-beta.4</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-communication-chat</artifactId>
+  <version>1.0.0-beta.4</version>
 </dependency>
 ```
 
@@ -68,6 +88,54 @@ If you have a bug or feature request for one of the libraries, please post an is
 ### Azure Messaging Event Hubs Checkpoint Store Blob 1.5.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md#150-2020-02-15)
 
 - Updates dependencies for azure-core-amqp and azure-storage-blob.
+
+### Azure Communication Administration will be deprecated
+
+- Identity client is moved to new package Azure Communication Identity.
+- Phone number adminstration will be moved into a new package Azure Communication Phone Numbers.
+
+### Azure Communication Common 1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-common_1.0.0-beta.4/sdk/communication/azure-communication-common/CHANGELOG.md#100-beta4-2021-02-09)
+
+#### Breaking Changes
+
+- Renamed `CommunicationUserCredential` to `CommunicationTokenCredential`.
+- Replaced constructor `CommunicationTokenCredential(TokenRefresher tokenRefresher, String initialToken, boolean refreshProactively)` and `CommunicationTokenCredential(TokenRefresher tokenRefresher)` with `CommunicationTokenCredential(CommunicationTokenRefreshOptions tokenRefreshOptions)`.
+- Renamed `PhoneNumber` to `PhoneNumberIdentifier`.
+- Renamed `CommunicationUser` to `CommunicationUserIdentifier`.
+- Renamed `CallingApplication` to `CallingApplicationIdentifier`.
+
+#### New Features
+
+- Added `MicrosoftTeamsUserIdentifier`
+
+### Azure Communication Identity 1.0.0-beta.4 [ChangeLog](https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-identity_1.0.0-beta.4/sdk/communication/azure-communication-identity/CHANGELOG.md#100-beta4-2021-02-09)
+
+#### Breaking Changes
+
+- `pstn` token scope is removed.
+- `revokeTokens` now revoke all the currently issued tokens instead of revoking tokens issued prior to a given time.
+- `issueToken` returns an instance of `core.credential.AccessToken` instead of `CommunicationUserToken`.
+
+#### New Features
+
+- Added CommunicationIdentityClient and CommunicationIdentityAsyncClient (originally was part of the azure-communication-aministration package).
+- Added support for Azure Active Directory Authentication.
+- Added ability to create a user and issue token for it at the same time.
+
+### Azure Communication Chat 1.0.0-beta.4 [ChangeLog](https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-chat_1.0.0-beta.4/sdk/communication/azure-communication-chat/CHANGELOG.md#100-beta4-2021-02-09)
+
+#### Breaking Changes
+
+- Updated to azure-communication-common version 1.0.0-beta.4. Now uses `CommunicationUserIdentifier` and `CommunicationIdentifier` in place of `CommunicationUser`, and `CommunicationTokenCredential` instead of `CommunicationUserCredential`.
+- Removed `Priority` field from `ChatMessage`.
+
+#### New Features
+
+- Added support for `CreateChatThreadResult` and `AddChatParticipantsResult` to handle partial errors in batch calls.
+- Added pagination support for `listReadReceipts` and `listParticipants`.
+- Added new model for messages and content types: `Text`, `Html`, `ParticipantAdded`, `ParticipantRemoved`, `TopicUpdated`.
+- Added new model for errors (`CommunicationError`).
+- Added notifications for 'ChatThread' level changes.
 
 ## Need help
 
