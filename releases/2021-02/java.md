@@ -91,16 +91,31 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Azure Communication Common  1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-common/CHANGELOG.md#100-beta4-2021-02-09)
 
+#### Breaking Changes
+
+- Renamed `CommunicationUserCredential` to `CommunicationTokenCredential`
+- Replaced constructor `CommunicationTokenCredential(TokenRefresher tokenRefresher, String initialToken, boolean refreshProactively)` and `CommunicationTokenCredential(TokenRefresher tokenRefresher)` with `CommunicationTokenCredential(CommunicationTokenRefreshOptions tokenRefreshOptions)`
+- Renamed `PhoneNumber` to `PhoneNumberIdentifier`
+- Renamed `CommunicationUser` to `CommunicationUserIdentifier`
+- Renamed `CallingApplication` to `CallingApplicationIdentifier`
+
 #### New Features
 
-- Added support for Microsoft Teams User identifier.
+- Added `MicrosoftTeamsUserIdentifier`
 
 ### Azure Communication Identity (1.0.0-beta.4) [ChangeLog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-identity/CHANGELOG.md#100-beta4-2021-02-09)
 
+#### Breaking
+
+- `pstn` token scope is removed.
+- `revokeTokens` now revoke all the currently issued tokens instead of revoking tokens issued prior to a given time.
+- `issueToken` returns an instance of `core.credential.AccessToken` instead of `CommunicationUserToken`.
+
 #### New Features
 
-- Split Identity client into synchronous client and asynchronous client.
+- Added CommunicationIdentityClient and CommunicationIdentityAsyncClient (originally was part of the azure-communication-aministration package).
 - Added support for Azure Active Directory Authentication.
+- Added ability to create a user and issue token for it at the same time.
 
 ### Azure Communication Chat (1.0.0-beta.4) [ChangeLog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-chat/CHANGELOG.md#100-beta4-2021-02-09)
 
@@ -110,10 +125,20 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Added notifications for chat thread level changes.
 - Added support for html content in chat messages.
 
-### Azure Communication Administration is deprecated
+### Azure Communication Administration will be deprecated
 
-- Identity clients are moved to new package Azure Communication Identity.
-- Phone number adminstration will be moved into a new package Azure Communication Phone Numbers.
+#### Breaking Changes
+
+- Updated to azure-communication-common version 1.0.0-beta.4. Now uses `CommunicationUserIdentifier` and `CommunicationIdentifier` in place of `CommunicationUser`, and `CommunicationTokenCredential` instead of `CommunicationUserCredential`.
+- Removed `Priority` field from `ChatMessage`.
+
+#### New Features
+
+- Added support for `CreateChatThreadResult` and `AddChatParticipantsResult` to handle partial errors in batch calls.
+- Added pagination support for `listReadReceipts` and `listParticipants`.
+- Added new model for messages and content types: `Text`, `Html`, `ParticipantAdded`, `ParticipantRemoved`, `TopicUpdated`.
+- Added new model for errors (`CommunicationError`).
+- Added notifications for 'ChatThread' level changes.
 
 ## Need help
 
