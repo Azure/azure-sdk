@@ -11,6 +11,7 @@ The Azure SDK team is pleased to make available the February 2021 client library
 #### Beta
 
 - Azure Core
+- Azure Identity
 - Azure Storage Common
 - Azure Storage Blobs
 - Azure Storage Files Shares
@@ -54,6 +55,12 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Fixed computation of the token expiration time in `BearerTokenAuthenticationPolicy`.
 - Fixed compilation dependency issue for MacOS when consuming the SDK from VcPkg.
 - Fixed support for sending requests to endpoints with a custom port within the url on Windows when using the WinHttp transport.
+
+### azure-identity [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/identity/azure-identity/CHANGELOG.md#100-beta3-2021-02-02)
+
+#### Breaking Changes
+
+- `ClientSecretCredential ` constructor takes `ClientSecretCredentialOptions` struct instead of authority host string. `TokenCredentialOptions` struct has authority host string as data member.
 
 ### azure-storage-common [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-common/CHANGELOG.md#1200-beta8-2021-02-12)
 
