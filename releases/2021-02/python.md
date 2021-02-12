@@ -63,6 +63,7 @@ the identity of the connection endpoint.
 actions results in the same order.
 - Redesigned `begin_analyze_healthcare` and renamed it to `begin_analyze_healthcare_entities`. To help with navigation of related entities, we have also
 added property `related_entities` for each entity returned from this call.
+
 ### Azure Communication Administration will be deprecated
 
 - Identity client is moved to new package Azure Communication Identity.
