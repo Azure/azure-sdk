@@ -144,6 +144,12 @@ We're releasing a new beta for the Text Analytics service including new features
 
 - Metrics Advisor is releasing support for Azure Active Directory Authentication and support to rotate the API and Subscription Keys.
 
+##### Breaking Changes in @azure/ai-metrics-advisor@1.0.0@beta.3
+
+- Renamed a method `listDimensionValuesForDetectionConfig()` to `listAnomalyDimensionValues()`.
+- Changed the response types for update methods.
+- Added mapping of metric id to metric name in Datafeed object.
+
 ### Azure Form Recognizer
 
 We're releasing a new beta client for the Azure Form Recognizer service with an upgrade for one TypeScript type.
