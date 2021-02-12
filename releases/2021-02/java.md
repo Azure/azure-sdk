@@ -408,11 +408,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 #### Breaking Changes
 - Removed SearchIndexingBufferedSenderOptions<T> and SearchClient APIs which used it.
 
-#### Dependency updates
-
-- Updated `azure-core` to `1.13.0`.
-- Updated `azure-core-http-netty` to `1.8.0`.
-
 
 ### Azure Messaging Event Hubs 5.5.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md#550-2020-02-15)
 
@@ -431,7 +426,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Added support to lock on version id by specifying a consistent read control when opening a BlobInputStream.
 - Removed a deep copy in the general upload path to reduce memory consumption and increase perf
 - Added a deep copy immediately after calling BlobOutputStream.write to prevent overwriting data in the case of reusing a single buffer to write to an output stream
-
 
 ### Azure Storage Blob Batch 12.9.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-batch/CHANGELOG.md#1290-beta1-2021-02-10)
 - Added support for the 2020-06-12 service version. 
@@ -505,7 +499,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 - `getMsg()` renamed to `getMessage()` on `SparkStatementCancellationResult`
 - `setMsg()` renamed to `setMessage()` on `SparkStatementCancellationResult`
 
-
 ### Azure Core Tracing Opentelemetry 1.0.0-beta.7 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md#100-beta7-2021-02-05)
 
 #### Dependency Updates
@@ -537,21 +530,9 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Changed the type of `Locale` from `String` to `FormRecognizerLocale` in `RecognizeBusinessCardsOptions`, `RecognizeInvoicesOptions`, and `RecognizeReceiptsOptions`.
 - Changed the type of `Language` from `String` to `FormRecognizerLanguage` in `RecognizeContentOptions`.
 
-
-### Azure Ai Formrecognizer 3.0.5 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#305-2021-02-09)
-#### Dependency updates
-- Update dependency version, `azure-core` to `1.13.0`, `azure-core-http-netty` to `1.8.0` and `azure-identity` to `1.2.3`.
-
-
 ### Azure Core Management 1.1.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-management/CHANGELOG.md#111-2021-02-05)
 
 - Fixed long-running operation, PUT method, response 200 and Azure-AsyncOperation.
-
-
-### Azure Data Appconfiguration 1.1.9 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/appconfiguration/azure-data-appconfiguration/CHANGELOG.md#119-2021-02-10)
-#### Dependency updates
-- Update dependency version, `azure-core` to 1.13.0 and `azure-core-http-netty` to 1.8.0.
-
 
 ### Azure Communication Administration will be deprecated
 
