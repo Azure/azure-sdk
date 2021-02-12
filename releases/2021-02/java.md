@@ -16,14 +16,19 @@ The Azure SDK team is pleased to announce our February 2021 client library relea
 #### Updates
 
 - Azure Event Hubs Checkpoint Store for Storage Blob
-- Azure Key Vault Keys
+- Azure Security Key Vault Certificates
+- Azure Security Key Vault Keys
+- Azure Security Key Vault Secrets
 
 #### Beta
 
 - Azure Communication Common (1.0.0-beta.4)
 - Azure Communication Identity (1.0.0-beta.4)
 - Azure Communication Chat (1.0.0-beta.4)
-- Azure Key Vault Keys
+- Azure Security Key Vault Administration
+- Azure Security Key Vault Certificates
+- Azure Security Key Vault Keys
+- Azure Security Key Vault Secrets
 
 ## Installation Instructions
 
