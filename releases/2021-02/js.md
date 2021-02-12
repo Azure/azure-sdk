@@ -32,6 +32,7 @@ The Azure SDK team is pleased to make available the February 2021 client library
 - Azure Storage Blob
 - Azure File Datalake
 - Azure Event Grid
+- Azure Data Tables
 
 ## Installation Instructions
 
@@ -53,6 +54,7 @@ $> npm install @azure/keyvault-admin@next
 $> npm install @azure/storage-blob@next
 $> npm install @azure/storage-file-datalake@next
 $> npm install @azure/eventgrid@next
+$> npm install @azure/data-tables@next
 ```
 
 [pattern]: # ($> npm install ${PackageName}@${PackageVersion})
@@ -136,13 +138,13 @@ We're releasing a new beta for the Text Analytics service including new features
 
 ### Azure Metrics Advisor
 
-- We are releasing a new  preview version for metrics advisor with AAD support feature
+We are releasing a new  preview version for metrics advisor with AAD support feature
 
 #### @azure/ai-metrics-advisor [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/metricsadvisor/ai-metrics-advisor/CHANGELOG.md#100-beta3-2021-02-09)
 
 ##### New Features in @azure/ai-metrics-advisor@1.0.0@beta.3
 
-- Metrics Advisor is releasing support for Azure Active Directory Authentication and support to rotate the API and Subscription Keys.
+- Metrics Advisor is releasing support for Azure Active Directory Authentication and the rotation of the API and Subscription Keys.
 
 ##### Breaking Changes in @azure/ai-metrics-advisor@1.0.0@beta.3
 
@@ -168,8 +170,8 @@ We released hot fix versions and also beta versions for new service features in 
 
 ##### Major Fixes in @azure/storage-blob@12.4.1 ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/CHANGELOG.md#1241-2021-02-03))
 
-- Fixed a compile failure due to "Can't resolve 'crypto'" in Angular. [Issue #13267](https://github.com/Azure/azure-sdk-for-js/issues/13267).
-- Fixed an issue that the download stream returned by `BlobClient.download` won't release underlying resources unless it's fully consumed. [Issue #11850](https://github.com/Azure/azure-sdk-for-js/issues/11850).
+- Fixed a compile time failure in resolving the crypto module in Angular projects which got introduced in a previous update. 
+- Fixed an issue where the download stream returned by `BlobClient.download` method would not release underlying resources unless it's fully consumed.
 
 ##### New Features in @azure/storage-blob@12.5.0-beta.1 ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/CHANGELOG.md#1250-beta1-2021-02-09))
 
@@ -179,7 +181,7 @@ We released hot fix versions and also beta versions for new service features in 
 
 ##### Major Fixes in @azure/storage-file-datalake@12.3.1 ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/CHANGELOG.md#1231-2021-02-03))
 
-- Fixed a compile failure due to "Can't resolve 'crypto'" in Angular. [Issue #13267](https://github.com/Azure/azure-sdk-for-js/issues/13267).
+- Fixed a compile time failure in resolving the crypto module in Angular projects which got introduced in a previous update.
 
 ##### New Features in @azure/storage-file-datalake@12.4.0-beta.1 ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/CHANGELOG.md#1240-beta1-2021-02-09))
 
@@ -212,11 +214,10 @@ We released a new beta package for the Event Grid service.
 
 ##### New Features in @azure/eventgrid@3.0.0-beta.3
 
-- Added distributed tracing support. EventGridProducerClient will now create spans when sending events to Event Grid.
+- Added distributed tracing support. `EventGridProducerClient` will now create spans when sending events to Event Grid.
 
 ## Latest Releases
 
 View all the latest versions of JavaScript packages [here][js-latest-releases].
 
 {% include refs.md %}
-
