@@ -60,7 +60,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 ## Release highlights
 
-### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#310-beta2-2021-02-09)
+### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_3.1.0-beta.2/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#310-beta2-2021-02-09)
 
 #### Breaking Changes
 
@@ -71,7 +71,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 - Changed model type of `Locale` from `string` to `FormRecognizerLocale` in `RecognizeBusinessCardsOptions`, `RecognizeInvoicesOptions`, and `RecognizeReceiptsOptions`.
 - Changed model type of `Language` from `string` to `FormRecognizerLanguage` in `RecognizeContentOptions`.
 
-### Metrics Advisor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/CHANGELOG.md#100-beta3-2021-02-09)
+### Metrics Advisor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.MetricsAdvisor_1.0.0-beta.3/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/CHANGELOG.md#100-beta3-2021-02-09)
 
 #### New Features
 
@@ -89,7 +89,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 - Fixed a bug in which an `ArgumentNullException` was thrown when getting a data feed from the service as a viewer.
 - Fixed a bug in which a data feed's administrators and viewers could not be set during creation.
 
-### Text Analytics  [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#510-beta4-2021-02-10)
+### Text Analytics  [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.TextAnalytics_5.1.0-beta.4/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#510-beta4-2021-02-10)
 
 #### New Features
 
@@ -103,7 +103,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 - Analyze healthcare was redesigned. It can be accessed now by calling the `StartHealthcareEntities` and `StartHealthcareEntitiesAsync` methods. All operations now support result pagination. Renames and structure overall changed. For more information, please see the changelog notes.
 - Analyze operation batch was redesigned. It can be accessed now by calling the `StartAnalyzeBatchActions` and `StartAnalyzeBatchActionsAsync` methods. All operations now support result pagination. Renames and structure overall changed. For more information, please see the changelog notes.
 
-### EventGrid [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md#400-beta5-2021-02-09)
+### EventGrid [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventGrid_4.0.0-beta.5/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md#400-beta5-2021-02-09)
 
 #### New Features
 - Added `TryGetSystemEventData` that attempts to deserialize event data into a known system event.
@@ -116,7 +116,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 - Replaced use of `EventGridSasCredential` with `AzureSasCredential`.
 - Removed `GenerateSharedAccessSignature` in favor of `EventGridSasBuilder`.
 
-### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md)
+### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventHubs_5.3.0/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md#530-2021-02-09)
 
 #### New Features
 
@@ -128,7 +128,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 - Upgraded the `Microsoft.Azure.Amqp` library to resolve crashes occurring in .NET 5.
 
-### Event Hubs Processor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md)
+### Event Hubs Processor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventHubs.Processor_5.3.0/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md#530-2021-02-09)
 
 #### New Features
 
@@ -140,7 +140,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 - Upgraded the `Microsoft.Azure.Amqp` library to resolve crashes occurring in .NET 5.
 
-### ServiceBus [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md#710-2021-02-09)
+### ServiceBus [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.ServiceBus_7.1.0/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md#710-2021-02-09)
 
 #### Acknowledgments
 Thank you to our developer community members who helped to make the Service Bus client library better with their contributions to this release:
@@ -155,7 +155,7 @@ Thank you to our developer community members who helped to make the Service Bus 
 - Fixed an issue with the `ServiceBusProcessor` where closing and disposing or disposing multiple times resulted in an exception.  (A community contribution, courtesy of _[aarondandy](https://github.com/aarondandy)_)
 - Fixed issue with batch size calculation when using `ServiceBusMessageBatch`.
 
-### Search [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md#1120-2021-02-10)
+### Search [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Search.Documents_11.2.0/sdk/search/Azure.Search.Documents/CHANGELOG.md#1120-2021-02-10)
 
 #### New Features
 - Added setters for `MaxLength` and `MinLength` in `LengthTokenFilter`.
@@ -171,7 +171,7 @@ Thank you to our developer community members who helped to make the Service Bus 
 - Renamed `SearchIndexingBufferedSenderOptions<T>.RetryDelay` to `SearchIndexingBufferedSenderOptions<T>.ThrottlingDelay`.
 - Removed the helper method `SearchClient.CreateIndexingBufferedSender<T>()`. Instead, callers are expected to use the public constructor of `SearchIndexingBufferedSender<T>`.
 
-### Synapse Artifacts [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/synapse/Azure.Analytics.Synapse.Artifacts/CHANGELOG.md)
+### Synapse Artifacts [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.Synapse.Artifacts_1.0.0-preview.6/sdk/synapse/Azure.Analytics.Synapse.Artifacts/CHANGELOG.md#100-preview6-2021-02-10)
 
 #### New Features
 - Changed APIs on SparkJobDefinitionClient and SqlScriptClient to provide a Long Running Operation (LRO) when operations can be long in duration.
@@ -181,12 +181,12 @@ Thank you to our developer community members who helped to make the Service Bus 
 - Support Rename operations.
 - Support CICD operations.
 
-### Synapse Spark [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/synapse/Azure.Analytics.Synapse.Spark/CHANGELOG.md)
+### Synapse Spark [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.Synapse.Spark_1.0.0-preview.5/sdk/synapse/Azure.Analytics.Synapse.Spark/CHANGELOG.md#100-preview5-2021-02-11)
 
 #### New Features
 - Changed APIs on SparkBatchClient and SparkSessionClient to provide a Long Running Operation (LRO) when operations can be long in duration.
 
-### Key Vault [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/keyvault/Azure.Security.KeyVault.Secrets/CHANGELOG.md#420-beta4-2021-02-10)
+### Key Vault [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Secrets_4.2.0-beta.4/sdk/keyvault/Azure.Security.KeyVault.Secrets/CHANGELOG.md#420-beta4-2021-02-10)
 
 #### New features
 
