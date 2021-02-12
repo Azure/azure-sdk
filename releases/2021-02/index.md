@@ -11,7 +11,11 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 
 ## Release Highlights
 
-*
+
+* Java Cosmos Library is releasing a new GA
+  * Contains supports of Connection Endpoint Discovery feature which helps to reduce and spread-out high latency spikes. This release also exposes Beta APIs for Change Feed Pull model, resuming query from pre-split continuation token, and caching query plan for single partition queries with filters and orderby.
+* Java Azure Core library is releasing a new GA 
+  * Adds support to allow configurability of polling interval on Long Running Operation APIs and also introduces `HttpClientOptions` to allow reusability of `HttpClient` passed to SPIs and client builders.
 *
 *
 
