@@ -29,6 +29,7 @@ The Azure SDK team is pleased to announce our February 2021 client library relea
 - Azure Security Key Vault Certificates
 - Azure Security Key Vault Keys
 - Azure Security Key Vault Secrets
+- Azure Tables
 
 ## Installation Instructions
 
