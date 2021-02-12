@@ -19,6 +19,7 @@ The Azure SDK team is pleased to make available the February 2021 client library
 #### Beta
 
 - Form Recognizer
+- Text Analytics
 
 ## Installation Instructions
 
@@ -27,6 +28,7 @@ To install the latest beta version of the packages, copy and paste the following
 ```bash
 pip install azure-eventhub
 pip install azure-ai-formrecognizer --pre
+pip install azure-ai-textanalytics --pre
 ```
 
 ## Feedback
@@ -50,6 +52,13 @@ the identity of the connection endpoint.
 - `Appearance` is renamed to `TextAppearance`.
 - `Style` is renamed to `TextStyle`.
 - Client property `api_version` is no longer exposed. Pass keyword argument `api_version` into the client to select the API version.
+
+### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#510b5-2021-02-10)
+
+- Redesigned `begin_analyze` and renamed it to `begin_analyze_batch_actions`. Now takes as input a list of actions and documents, and returns the outputted
+actions results in the same order.
+- Redesigned `begin_analyze_healthcare` and renamed it to `begin_analyze_healthcare_entities`. To help with navigation of related entities, we have also
+added property `related_entities` for each entity returned from this call.
 
 ## Latest Releases
 
