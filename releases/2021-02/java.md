@@ -15,21 +15,22 @@ The Azure SDK team is pleased to announce our February 2021 client library relea
 - Azure Cosmos
 - Azure Search Documents
 - Azure Messaging Event Hubs
-- Azure Nessaging Eventhubs Checkpointstore Blob
-
+- Azure Messaging Eventhubs Checkpointstore Blob
 
 #### Updates
+- Azure AI Text Analytics
+- Azure AI Form Recognizer
 - Azure Core AMQP
 - Azure Core Serializer Json Jackson
 - Azure Core Serializer Json Gson
 - Azure Core Test
 - Azure Data Appconfiguration
 - Azure Identity
-- Azure AI Text Analytics
-- Azure AI Form Recognizer
 - Azure Messaging Service Bus
-- Azure Core Management
-
+- Azure Security Key Vault Certificates
+- Azure Security Key Vault Keys
+- Azure Security Key Vault Secrets
+- Management Library - Core
 
 #### Beta
 - Azure AI Form Recognizer
@@ -48,6 +49,10 @@ The Azure SDK team is pleased to announce our February 2021 client library relea
 - Azure Data Tables
 - Azure Identity
 - Azure Monitor Opentelemetry Exporter
+- Azure Security Key Vault Administration
+- Azure Security Key Vault Certificates
+- Azure Security Key Vault Keys
+- Azure Security Key Vault Secrets
 - Azure Storage Blob
 - Azure Storage Blob Batch
 - Azure Stroage Blob Cryptography
@@ -337,6 +342,54 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <artifactId>azure-messaging-eventhubs-checkpointstore-blob</artifactId>
   <version>1.5.0</version>
 </dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-data-tables</artifactId>
+  <version>12.0.0-beta.4</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-administration</artifactId>
+  <version>4.0.0-beta.4</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-certificates</artifactId>
+  <version>4.1.5</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-certificates</artifactId>
+  <version>4.3.0-beta.3</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-keys</artifactId>
+  <version>4.2.5</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-keys</artifactId>
+  <version>4.3.0-beta.4</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-secrets</artifactId>
+  <version>4.2.5</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-secrets</artifactId>
+  <version>4.3.0-beta.3</version>
+</dependency>
 ```
 
 ## Feedback
@@ -503,7 +556,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 ### Azure Communication Administration will be deprecated
 
 - Identity client is moved to new package Azure Communication Identity.
-- Phone number adminstration will be moved into a new package Azure Communication Phone Numbers.
+- Phone number administration will be moved into a new package Azure Communication Phone Numbers.
 
 ### Azure Communication Common 1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-common_1.0.0-beta.4/sdk/communication/azure-communication-common/CHANGELOG.md#100-beta4-2021-02-09)
 
@@ -613,6 +666,18 @@ Initial release of azure-quantum-jobs. See [Getting Started](https://github.com/
 
 ##### Analyze multiple actions
 - The word "action" are used consistently in our names and documentation instead of "task".
+
+### Azure Security Key Vault Keys 4.3.0-beta.4 [ChangeLog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md#430-beta4-2021-02-11)
+
+#### Key Bug Fixes
+
+- Fixed issue where cryptographic operations would be attempted locally for symmetric keys that were missing their key material ('k' component). 
+
+### Azure Security Key Vault Keys 4.2.5 [ChangeLog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md#425-2021-02-11)
+
+#### Key Bug Fixes
+
+- Fixed issue where cryptographic operations would be attempted locally for symmetric keys that were missing their key material ('k' component).
 
 ## Need help
 
