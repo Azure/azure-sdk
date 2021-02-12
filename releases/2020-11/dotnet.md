@@ -112,7 +112,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 - Initial release of Azure Monitor Exporter for [OpenTelemetry .NET](https://github.com/open-telemetry/opentelemetry-dotnet).
 
-### Communication Administration [Changelog](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.Synapse.Spark_1.0.0-preview.5/sdk/communication/Azure.Communication.Administration/CHANGELOG.md#100-beta3-2020-11-16)
+### Communication Administration [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.Administration_1.0.0-beta.3/sdk/communication/Azure.Communication.Administration/CHANGELOG.md#100-beta3-2020-11-16)
 
 #### New Features
 
