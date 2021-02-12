@@ -11,6 +11,7 @@ The Azure SDK team is pleased to announce our February 2021 client library relea
 #### GA
 
 - Event Hubs
+- Service Bus
 - Search
 
 #### Updates
@@ -22,6 +23,8 @@ The Azure SDK team is pleased to announce our February 2021 client library relea
 - Form Recognizer
 - Metrics Advisor
 - Text Analytics
+- Event Grid
+- Key Vault
 
 ## Installation Instructions
 
@@ -32,8 +35,10 @@ $> dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.2
 $> dotnet add package Azure.AI.MetricsAdvisor --version 1.0.0-beta.3
 $> dotnet add package Azure.AI.TextAnalytics --version 5.1.0-beta.4
 
+$> dotnet add package Azure.Messaging.EventGrid --version 4.0.0-beta.5
 $> dotnet add package Azure.Messaging.EventHubs
 $> dotnet add package Azure.Messaging.EventHubs.Processor
+$> dotnet add package Azure.Messaging.ServiceBus
 
 $> dotnet add package Azure.Search.Documents
 
@@ -42,6 +47,11 @@ $> dotnet add package Azure.Analytics.Synapse.Artifacts --version 1.0.0-preview.
 $> dotnet add package Azure.Analytics.Synapse.ManagedPrivateEndpoints --version 1.0.0-beta.2
 $> dotnet add package Azure.Analytics.Synapse.Monitoring --version 1.0.0-beta.2
 $> dotnet add package Azure.Analytics.Synapse.Spark --version 1.0.0-preview.5
+
+$> dotnet add package Azure.Security.KeyVault.Administration --version 4.0.0-beta.4
+$> dotnet add package Azure.Security.KeyVault.Certificates --version 4.2.0-beta.4
+$> dotnet add package Azure.Security.KeyVault.Keys --version 4.2.0-beta.4
+$> dotnet add package Azure.Security.KeyVault.Secrets --version 4.2.0-beta.4
 ```
 
 ## Feedback
@@ -93,6 +103,19 @@ If you have a bug or feature request for one of the libraries, please [file an i
 - Analyze healthcare was redesigned. It can be accessed now by calling the `StartHealthcareEntities` and `StartHealthcareEntitiesAsync` methods. All operations now support result pagination. Renames and structure overall changed. For more information, please see the changelog notes.
 - Analyze operation batch was redesigned. It can be accessed now by calling the `StartAnalyzeBatchActions` and `StartAnalyzeBatchActionsAsync` methods. All operations now support result pagination. Renames and structure overall changed. For more information, please see the changelog notes.
 
+### EventGrid [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md#400-beta5-2021-02-09)
+
+#### New Features
+- Added `TryGetSystemEventData` that attempts to deserialize event data into a known system event.
+- Added `EventGridSasBuilder` for constructing SAS tokens.
+- Added `SystemEventNames` that contain the names that will be stamped into the event Type for system events.
+
+#### Breaking Changes
+- Updated `GetData` method to always return `BinaryData` instead of `object`. It no longer deserializes system events.
+- Removed the `CloudEvent` constructor overload that took `BinaryData` and replaced with an overload that accepts `ReadOnlyMemory<byte>`
+- Replaced use of `EventGridSasCredential` with `AzureSasCredential`.
+- Removed `GenerateSharedAccessSignature` in favor of `EventGridSasBuilder`.
+
 ### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md)
 
 #### New Features
@@ -117,6 +140,21 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 - Upgraded the `Microsoft.Azure.Amqp` library to resolve crashes occurring in .NET 5.
 
+### ServiceBus [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md#710-2021-02-09)
+
+#### Acknowledgments
+Thank you to our developer community members who helped to make the Service Bus client library better with their contributions to this release:
+
+- Aaron Dandy _([GitHub](https://github.com/aarondandy))_
+
+#### Added
+- Added virtual keyword to all client properties to enable mocking scenarios.
+- Added `ServiceBusModelFactory.ServiceBusMessageBatch` to allow mocking a `ServiceBusMessageBatch`.
+
+#### Key Bug Fixes
+- Fixed an issue with the `ServiceBusProcessor` where closing and disposing or disposing multiple times resulted in an exception.  (A community contribution, courtesy of _[aarondandy](https://github.com/aarondandy)_)
+- Fixed issue with batch size calculation when using `ServiceBusMessageBatch`.
+
 ### Search [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md#1120-2021-02-10)
 
 #### New Features
@@ -134,6 +172,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 - Removed the helper method `SearchClient.CreateIndexingBufferedSender<T>()`. Instead, callers are expected to use the public constructor of `SearchIndexingBufferedSender<T>`.
 
 ### Synapse Artifacts [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/synapse/Azure.Analytics.Synapse.Artifacts/CHANGELOG.md)
+
 #### New Features
 - Changed APIs on SparkJobDefinitionClient and SqlScriptClient to provide a Long Running Operation (LRO) when operations can be long in duration.
 - Many models classes are now public.
@@ -143,8 +182,15 @@ If you have a bug or feature request for one of the libraries, please [file an i
 - Support CICD operations.
 
 ### Synapse Spark [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/synapse/Azure.Analytics.Synapse.Spark/CHANGELOG.md)
+
 #### New Features
 - Changed APIs on SparkBatchClient and SparkSessionClient to provide a Long Running Operation (LRO) when operations can be long in duration.
+
+### Key Vault [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/keyvault/Azure.Security.KeyVault.Secrets/CHANGELOG.md#420-beta4-2021-02-10)
+
+#### New features
+
+- Secure Key Release has been removed from this release.
 
 ## Latest Releases
 
