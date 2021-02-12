@@ -6,27 +6,33 @@ sidebar: releases_sidebar
 repository: azure/azure-sdk-for-java
 ---
 
+<!--
+[pattern]: # (${PackageName}:${PackageVersion})
+-->
+
 The Azure SDK team is pleased to announce our %%MMMM yyyy%% client library releases.
 
 #### GA
 
-- _Add packages_
+[pattern.ga]: # (- ${PackageFriendlyName})
 
 #### Updates
 
-- _Add packages_
+[pattern.patch]: # (- ${PackageFriendlyName})
 
 #### Beta
 
-- _Add packages_
+[pattern.beta]: # (- ${PackageFriendlyName})
 
 ## Installation Instructions
 
 To use the GA and beta libraries, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate. If you are using a different build tool, refer to its documentation on how to specify dependencies.
 
 ```xml
-<!-- Insert dependencies -->
+
 ```
+
+[pattern]: # (<dependency>`n  <groupId>${GroupId}</groupId>`n  <artifactId>${PackageName}</artifactId>`n  <version>${PackageVersion}</version>`n</dependency>`n`n)
 
 ## Feedback
 
@@ -34,10 +40,8 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-### _Package name_
+[pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
-- Major changes only!
-  
 ## Need help
 
 - For reference documentation visit the [Azure SDK for Java documentation](https://azure.github.io/azure-sdk-for-java/).

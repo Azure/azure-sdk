@@ -1,7 +1,7 @@
 ---
-title: "Go Guidelines: API Implementation"
+title: "Go Azure SDK Design Guidelines: Implementation"
 keywords: guidelines golang
-permalink: golang_design.html
+permalink: golang_implementation.html
 folder: golang
 sidebar: general_sidebar
 ---
@@ -62,15 +62,44 @@ TODO
 
 TODO
 
-#### Enumeration-like constants
+#### Constants as Enumerations
+
+{% include requirement/MUST id="golang-enum-type" %} define the enumeration's type to match the type sent/received over-the-wire (string is the most common example).
+
+{% include requirement/MUST id="golang-enum-value-naming" %} name all values with a prefix of the type's name.
+
+{% include requirement/MUST id="golang-enum-value-grouping" %} place all values for an enumerated type within their own `const` block, which is to immediately follow the type's declaration.
+
+{% include requirement/MUST id="golang-enum-type-values" %} define a function named `<EnumTypeName>Values()` that returns a slice containing all possible values for the enumeration.
+
+{% include requirement/MUST id="golang-enum-type-values" %} define a method named `ToPtr()` on the enumerated type that returns a pointer to the enum value.
+
+```go
+// WidgetColor specifies a Widget's color from the list of possible values.
+type WidgetColor string
+
+const (
+	WidgetColorBlue  WidgetColor = "blue"
+	WidgetColorGreen WidgetColor = "green"
+	WidgetColorRed   WidgetColor = "red"
+)
+
+// WidgetColorValues returns a slice of possible values for WidgetColor.
+func WidgetColorValues() []WidgetColor {
+	// ...
+}
+
+func (c WidgetColor) ToPtr() *WidgetColor {
+	return &c
+}
+
+```
+
+## SDK Feature Implementation
 
 TODO
 
-### SDK Feature Implementation
-
-TODO
-
-#### Configuration
+### Configuration
 
 {% include requirement/MUST id="golang-config-global" %} use relevant global configuration settings either by default or when explicitly requested to by the user, for example by passing in a configuration object to a client constructor.
 
@@ -85,7 +114,7 @@ TODO
 1. Log level, which must take effect immediately across the Azure SDK.
 2. Tracing on/off, which must take effect immediately across the Azure SDK.
 
-##### Configuration via Environment Variables
+#### Configuration via Environment Variables
 
 {% include requirement/MUST id="golang-envvars-prefix" %} prefix Azure-specific environment variables with `AZURE_`.
 
@@ -113,7 +142,7 @@ where _ServiceName_ is the canonical shortname without spaces, and _Configuratio
 
 {% include requirement/MUSTNOT id="golang-envvars-posix-compliance" %} use non-alpha-numeric characters in your environment variable names with the exception of underscore. This ensures broad interoperability.
 
-#### Logging
+### Logging
 
 Client libraries must support robust logging mechanisms so that the consumer can adequately diagnose issues with the method calls and quickly determine whether the issue is in the consumer code, client library code, or service.
 
@@ -125,7 +154,7 @@ Client libraries must support robust logging mechanisms so that the consumer can
 
 {% include requirement/MUSTNOT id="golang-log-exclude" %} log payloads or HTTP header/query parameter values that aren't on the allow list.  For header/query parameters not on the allow list use the value `<REDACTED>` in place of the real value.
 
-#### Distributed Tracing
+### Distributed Tracing
 
 {% include requirement/MUST id="golang-tracing-abstraction" %} abstract the underlying tracing facility, allowing consumers to use the tracing implementation of their choice.
 
@@ -135,7 +164,7 @@ Client libraries must support robust logging mechanisms so that the consumer can
 
 {% include requirement/MUST id="golang-tracing-propagate" %} propagate tracing context on each outgoing service request through the appropriate headers to support a tracing service like [Azure Monitor](https://azure.microsoft.com/services/monitor/) or [ZipKin](https://zipkin.io/).  This is generally done with the HTTP pipeline.
 
-#### Telemetry
+### Telemetry
 
 TODO
 

@@ -44,7 +44,7 @@ function BuildHashKey()
 }
 
 $parentWorkItems = @{}
-function FindParentWorkItem($serviceName, $packageDisplayName, $outputCommand = $true)
+function FindParentWorkItem($serviceName, $packageDisplayName, $outputCommand = $false)
 {
   $key = BuildHashKey $serviceName $packageDisplayName
   if ($key -and $parentWorkItems.ContainsKey($key)) {
@@ -356,12 +356,12 @@ function CreateOrUpdatePackageWorkItem($lang, $pkg, $verMajorMinor, $existingIte
     }
     $existingItem = ResetWorkItemState $existingItem $beforeState -outputCommand $outputCommand
 
-    $newparentItem = FindOrCreatePackageGroupParent $serviceName $pkgDisplayName -outputCommand $outputCommand
+    $newparentItem = FindOrCreatePackageGroupParent $serviceName $pkgDisplayName -outputCommand $false
     UpdateWorkItemParent $existingItem $newParentItem -outputCommand $outputCommand
     return $existingItem
   }
 
-  $parentItem = FindOrCreatePackageGroupParent $serviceName $pkgDisplayName -outputCommand $outputCommand
+  $parentItem = FindOrCreatePackageGroupParent $serviceName $pkgDisplayName -outputCommand $false
   $workItem = CreateWorkItem $title "Package" "Release" "Release" $fields $assignedTo $parentItem.id -outputCommand $outputCommand
   $workItem = ResetWorkItemState $workItem -outputCommand $outputCommand
   Write-Host "[$($workItem.id)]$lang - $pkgName($verMajorMinor) - Created"
@@ -496,7 +496,6 @@ function GetMDVersionValue($versionlist)
 {
   $mdVersions = ""
   $mdFormat = "| {0} | {1} | {2} |`n"
-  $versionlist | ForEach-Object { $mdVersions += ($mdFormat -f $_.Type, $_.Version, $_.Date) }
 
   $htmlVersions = ""
   $htmlFormat = @"
@@ -507,7 +506,11 @@ function GetMDVersionValue($versionlist)
 </tr>
 
 "@
-  $versionlist | ForEach-Object { $htmlVersions += ($htmlFormat -f $_.Type, $_.Version, $_.Date) }
+
+  foreach ($version in $versionList) {
+    $mdVersions += ($mdFormat -f $version.Type, $version.Version, $version.Date)
+    $htmlVersions += ($htmlFormat -f $version.Type, $version.Version, $version.Date)
+  }
 
   $htmlTemplate = @"
 <div style='display:none;width:0;height:0;overflow:hidden;position:absolute;font-size:0;' id=__md>| Type | Version | Date |
@@ -711,7 +714,7 @@ function UpdatePackageVersions($pkgWorkItem, $plannedVersions, $shippedVersions)
     }
   }
 
-  foreach ($version in $plannedVersionSet.Keys)
+  foreach ($version in @($plannedVersionSet.Keys))
   {
     if (!$versionSet.ContainsKey($version))
     {
@@ -778,7 +781,6 @@ function UpdatePackageVersions($pkgWorkItem, $plannedVersions, $shippedVersions)
   {
     $fieldUpdates += $versionFieldUpdates
   }
-
 
   # If no version files to update do nothing
   if ($fieldUpdates.Count -eq 0) {
