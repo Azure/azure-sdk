@@ -48,6 +48,11 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
+### Azure Communication Administration will be deprecated
+
+- Identity client is moved to new package Azure Communication Identity.
+- Phone number administration will be moved into a new package Azure Communication Phone Numbers.
+
 ### Azure Communication Common 1.0.0-beta.5 [ChangeLog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/communication-common_1.0.0-beta.5/sdk/communication/communication-common/CHANGELOG.md#100-beta5-2021-02-09)
 
 #### Breaking Changes

@@ -170,10 +170,11 @@ Thank you to our developer community members who helped to make the Service Bus 
 - Renamed `SearchIndexingBufferedSenderOptions<T>.MaxRetryDelay` to `SearchIndexingBufferedSenderOptions<T>.MaxThrottlingDelay`.
 - Renamed `SearchIndexingBufferedSenderOptions<T>.RetryDelay` to `SearchIndexingBufferedSenderOptions<T>.ThrottlingDelay`.
 - Removed the helper method `SearchClient.CreateIndexingBufferedSender<T>()`. Instead, callers are expected to use the public constructor of `SearchIndexingBufferedSender<T>`.
+
 ### Azure Communication Administration will be deprecated
 
 - Identity client is moved to new package Azure Communication Identity.
-- Phone number adminstration will be moved into a new package Azure Communication Phone Numbers.
+- Phone number administration will be moved into a new package Azure Communication Phone Numbers.
 
 ### Azure Communication Common 1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.Common_1.0.0-beta.4/sdk/communication/Azure.Communication.Common/CHANGELOG.md#100-beta4-2021-02-09)
 
