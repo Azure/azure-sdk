@@ -431,41 +431,33 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Added support for the 2020-06-12 service version. 
 - Added support to create a BlobBatchClient from a BlobContainerClient to perform container level operations.
 
-
 ### Azure Storage Blob Cryptography 12.11.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md#12110-beta1-2021-02-10)
 - Updated azure-storage-common and azure-storage-blob dependencies to add support for the 2020-06-12 service version. 
-
 
 ### Azure Storage Blob Nio 12.0.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-nio/CHANGELOG.md#1200-beta3-2021-02-10)
 - Added support for FileSystemProvider.checkAccess method
 - Added support for file key on AzureBasicFileAttributes and AzureBlobFileAttributes
 - Added support for SeekableByteChannel
 
-
 ### Azure Storage Common 12.11.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-common/CHANGELOG.md#12110-beta1-2021-02-10)
 - Added support to log retries 
 - Removed a deep copy in PayloadSizeGate
 - Fixed a bug that would throw if uploading using a stream that returned a number > 0 from available() after the stream had ended
 
-
 ### Azure Storage File Datalake 12.5.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md#1250-beta1-2021-02-10)
 - Added support for the 2020-06-12 service version. 
 - Added support to undelete a file system. 
 
-
 ### Azure Storage File Share 12.9.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/CHANGELOG.md#1290-beta1-2021-02-10)
 - Added support for the 2020-06-12 service version. 
 
-
 ### Azure Storage Queue 12.9.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/CHANGELOG.md#1290-beta1-2021-02-10)
 - Added support for the 2020-06-12 service version. 
-
 
 ### Azure Analytics Synapse Accesscontrol 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/synapse/azure-analytics-synapse-accesscontrol/CHANGELOG.md#100-beta2-2021-02-09)
 
 - Support specifying the service API version. (AutoRest update)
 - Send missing "Accept" request headers
-
 
 ### Azure Analytics Synapse Artifacts 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/synapse/azure-analytics-synapse-artifacts/CHANGELOG.md#100-beta2-2021-02-09)
 
@@ -477,18 +469,15 @@ If you have a bug or feature request for one of the libraries, please post an is
 - `isHaveLibraryRequirementsChanged()` and `setHaveLibraryRequirementsChanged()` methods on `BigDataPoolResourceInfo` are removed.
 - `getProjectConnectionManagers()` and `getPackageConnectionManagers()` now return `Map<String, Map<String, SsisExecutionParameter>>` instead of `Map<String, Object>`.
 
-
 ### Azure Analytics Synapse Managedprivateendpoints 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/synapse/azure-analytics-synapse-managedprivateendpoints/CHANGELOG.md#100-beta2-2021-02-09)
 
 - Support specifying the service API version. (AutoRest update)
 - Send missing "Accept" request headers
 
-
 ### Azure Analytics Synapse Monitoring 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/synapse/azure-analytics-synapse-monitoring/CHANGELOG.md#100-beta2-2021-02-09)
 
 - Support specifying the service API version. (AutoRest update)
 - Send missing "Accept" request headers
-
 
 ### Azure Analytics Synapse Spark 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/synapse/azure-analytics-synapse-spark/CHANGELOG.md#100-beta2-2021-02-09)
 
@@ -505,7 +494,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Updated versions of `opentelemetry-api` to `0.14.1` version.
   More detailed information about the new OpenTelemetry API version can be found in [OpenTelemetry changelog](https://github.com/open-telemetry/opentelemetry-java/blob/master/CHANGELOG.md#version-0141---2021-01-14)
 
-
 ### Azure Cosmos 4.12.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-cosmos/CHANGELOG.md#4120-2021-02-09)
 ##### New Features
 * Added connection endpoint rediscovery feature to help reduce and spread-out high latency spikes.
@@ -517,7 +505,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 * Fixed telemetry deserialization issue.
 * Skip session token for query plan, trigger and UDF.
 * Improved session timeout 404/1002 exception handling.
-
 
 ### Azure Resourcemanager Digitaltwins 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/digitaltwins/azure-resourcemanager-digitaltwins/CHANGELOG.md#100-beta1-2021-02-09)
 
@@ -586,20 +573,17 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 - Deprecated `HttpHeaders.put` and replaced with `HttpHeaders.set`.
 
-
 ### Azure Core Amqp 2.0.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-amqp/CHANGELOG.md#202-2021-02-05)
 
 #### New Features
 
 - Add support for connecting to an alternative hostname for the AMQP message broker.
 
-
 ### Azure Core Experimental 1.0.0-beta.10 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-experimental/CHANGELOG.md#100-beta10-2021-02-05)
 
 #### New Features
 
 - Added challenge based authentication support via `BearerTokenAuthenticationChallengePolicy` and `AccessTokenCache` classes.
-
 
 ### Azure Core Http Netty 1.8.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-http-netty/CHANGELOG.md#180-2021-02-05)
 
@@ -611,13 +595,11 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 - Fixed a bug where authenticated proxies would use different DNS resolution than non-authenticated proxies. [#17930](https://github.com/Azure/azure-sdk-for-java/issues/17930)
 
-
 ### Azure Core Http Okhttp 1.5.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-http-okhttp/CHANGELOG.md#150-2021-02-05)
 
 #### New Features
 
 - Exposed service provider interfaces used to create `HttpClient` instances.
-
 
 ### Azure Monitor Opentelemetry Exporter 1.0.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md#100-beta3-2021-02-09)
 
@@ -626,7 +608,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 #### Dependency Updates
 - Updated versions of `opentelemetry-api` and `opentelemetry-sdk` to `0.14.1` version.
-
 
 ### Azure Quantum Jobs 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/quantum/azure-quantum-jobs/CHANGELOG.md#100-beta1-2021-02-02)
 
