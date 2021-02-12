@@ -16,12 +16,20 @@ The Azure SDK team is pleased to announce our February 2021 client library relea
 #### Updates
 
 - Azure Event Hubs Checkpoint Store for Storage Blob
+- Azure Security Key Vault Certificates
+- Azure Security Key Vault Keys
+- Azure Security Key Vault Secrets
 
 #### Beta
 
 - Azure Communication Common (1.0.0-beta.4)
 - Azure Communication Identity (1.0.0-beta.4)
 - Azure Communication Chat (1.0.0-beta.4)
+- Azure Security Key Vault Administration
+- Azure Security Key Vault Certificates
+- Azure Security Key Vault Keys
+- Azure Security Key Vault Secrets
+- Azure Tables
 
 ## Installation Instructions
 
@@ -64,6 +72,54 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <artifactId>azure-communication-chat</artifactId>
   <version>1.0.0-beta.4</version>
 </dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-data-tables</artifactId>
+  <version>12.0.0-beta.4</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-administration</artifactId>
+  <version>4.0.0-beta.4</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-certificates</artifactId>
+  <version>4.1.5</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-certificates</artifactId>
+  <version>4.3.0-beta.3</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-keys</artifactId>
+  <version>4.2.5</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-keys</artifactId>
+  <version>4.3.0-beta.4</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-secrets</artifactId>
+  <version>4.2.5</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-secrets</artifactId>
+  <version>4.3.0-beta.3</version>
+</dependency>
 ```
 
 ## Feedback
@@ -92,7 +148,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 ### Azure Communication Administration will be deprecated
 
 - Identity client is moved to new package Azure Communication Identity.
-- Phone number adminstration will be moved into a new package Azure Communication Phone Numbers.
+- Phone number administration will be moved into a new package Azure Communication Phone Numbers.
 
 ### Azure Communication Common 1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-common_1.0.0-beta.4/sdk/communication/azure-communication-common/CHANGELOG.md#100-beta4-2021-02-09)
 
@@ -136,6 +192,18 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Added new model for messages and content types: `Text`, `Html`, `ParticipantAdded`, `ParticipantRemoved`, `TopicUpdated`.
 - Added new model for errors (`CommunicationError`).
 - Added notifications for 'ChatThread' level changes.
+
+### Azure Security Key Vault Keys 4.3.0-beta.4 [ChangeLog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md#430-beta4-2021-02-11)
+
+#### Key Bug Fixes
+
+- Fixed issue where cryptographic operations would be attempted locally for symmetric keys that were missing their key material ('k' component). 
+
+### Azure Security Key Vault Keys 4.2.5 [ChangeLog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md#425-2021-02-11)
+
+#### Key Bug Fixes
+
+- Fixed issue where cryptographic operations would be attempted locally for symmetric keys that were missing their key material ('k' component).
 
 ## Need help
 
