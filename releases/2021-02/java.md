@@ -15,7 +15,6 @@ The Azure SDK team is pleased to announce our February 2021 client library relea
 - Azure Cosmos
 - Azure Search Documents
 - Azure Messaging Event Hubs
-- Azure Messaging Eventhubs Checkpointstore Blob
 
 #### Updates
 - Azure AI Text Analytics
@@ -25,6 +24,7 @@ The Azure SDK team is pleased to announce our February 2021 client library relea
 - Azure Core Serializer Json Gson
 - Azure Core Test
 - Azure Data Appconfiguration
+- Azure Event Hubs Checkpoint Store for Storage Blob
 - Azure Identity
 - Azure Messaging Service Bus
 - Azure Security Key Vault Certificates
