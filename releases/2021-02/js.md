@@ -211,6 +211,16 @@ We released a new beta package for the Event Grid service.
 
 - Added distributed tracing support. `EventGridProducerClient` will now create spans when sending events to Event Grid.
 
+### Azure Data Tables
+
+We released a new beta package for the Data Tables service.
+
+#### @azure/data-tables [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/tables/data-tables/CHANGELOG.md#100-beta5-2021-02-09)
+
+##### Breaking changes in @azure/data-tables@1.0.0-beta.5
+
+- Migrated from  Core V1 (`@azure/core-http`) to Core v2 (`@azure/core-https` & `@azure/core-client`). With this change, the response types no longer contain the raw response `_response`. To access the raw response, an `onResponse` callback has to be passed in the request options bag.
+
 ## Latest Releases
 
 View all the latest versions of JavaScript packages [here][js-latest-releases].
