@@ -75,13 +75,14 @@ If you have a bug or feature request for one of the libraries, please post an is
 ##### New Features
 
 - Added a new `MicrosoftTeamsUserIdentifier` constructor that takes a non-null `CommunicationCloudEnvironment` parameter.
-- Added class `CommunicationCloudEnvironment`.
-- Added class `CommunicationCloudEnvironmentModel`.
-- Added class `CommunicationIdentifierSerializer`.
-- Added class `CommunicationIdentifierModel`.
-- Added class `MicrosoftTeamsUserIdentifierModel`.
-- Added class `PhoneNumberIdentifierModel`.
-- Added class `CommunicationUserIdentifierModel`.
+- Added the following classes:
+    - `CommunicationCloudEnvironment`
+    - `CommunicationCloudEnvironmentModel`
+    - `CommunicationIdentifierSerializer`
+    - `CommunicationIdentifierModel`
+    - `MicrosoftTeamsUserIdentifierModel`
+    - `PhoneNumberIdentifierModel`
+    - `CommunicationUserIdentifierModel`
 
 
 #### 1.0.0-beta.4 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/communication/azure-communication-common/CHANGELOG.md#100-beta4-2021-01-28))
