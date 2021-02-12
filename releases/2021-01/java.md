@@ -598,7 +598,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 - Azure Resource Manager Healthbot client library for Java. This package contains Microsoft Azure SDK for Healthbot Management SDK. Microsoft Healthcare Bot is a cloud platform that empowers developers in Healthcare organizations to build and deploy their compliant, AI-powered virtual health assistants and health bots, that help them improve processes and reduce costs. Package tag package-2020-12-08. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
-### Azure Opentelemetry Exporter Azuremonitor 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/monitor/azure-opentelemetry-exporter-azuremonitor/CHANGELOG.md#100-beta2-2021-01-12)
+### Azure Opentelemetry Exporter Azuremonitor 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-opentelemetry-exporter-azuremonitor_1.0.0-beta.2/sdk/monitor/azure-opentelemetry-exporter-azuremonitor/CHANGELOG.md#100-beta2-2021-01-12)
 #### Breaking changes
 - Renamed artifact to `azure-opentelemetry-exporter-azuremonitor`.
 - Replaced `instrumentationKey()` with `connectionString()` in the `AzureMonitorExporterBuilder`.

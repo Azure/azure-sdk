@@ -108,11 +108,11 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 ## Release highlights
 
-### Azure Monitor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/monitor/Microsoft.OpenTelemetry.Exporter.AzureMonitor/CHANGELOG.md#100-beta1-2020-11-06)
+### Azure Monitor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.OpenTelemetry.Exporter.AzureMonitor_1.0.0-beta.1/sdk/monitor/Microsoft.OpenTelemetry.Exporter.AzureMonitor/CHANGELOG.md#100-beta1-2020-11-06)
 
 - Initial release of Azure Monitor Exporter for [OpenTelemetry .NET](https://github.com/open-telemetry/opentelemetry-dotnet).
 
-### Communication Administration [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Administration/CHANGELOG.md#100-beta3-2020-11-16)
+### Communication Administration [Changelog](https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.Synapse.Spark_1.0.0-preview.5/sdk/communication/Azure.Communication.Administration/CHANGELOG.md#100-beta3-2020-11-16)
 
 #### New Features
 

@@ -37,7 +37,7 @@ Use this section to advertise any new features in the new package when compared 
 
 ### Package names and namespaces
 
-Note: This section is always applicable for .Net and Java, while being occasionally applicable to JavaScript and Python where we tend to re-use the old package name where possible. The concept of namespace does not apply to JavaScript, we use the "@azure" scope instead. Remove this section if not needed. Below example text is for .Net Event Hubs, tweak as needed.
+Note: This section is always applicable for .NET and Java, while being occasionally applicable to JavaScript and Python where we tend to re-use the old package name where possible. The concept of namespace does not apply to JavaScript, we use the "@azure" scope instead. Remove this section if not needed. Below example text is for .NET Event Hubs, tweak as needed.
 
 Package names and the namespace root for the modern Azure client libraries for .NET have changed. Each will follow the pattern Azure.[Area].[Service] where the legacy clients followed the pattern Microsoft.Azure.[Service]. This provides a quick and accessible means to help understand, at a glance, whether you are using the modern or legacy clients.
 
