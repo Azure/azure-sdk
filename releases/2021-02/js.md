@@ -76,10 +76,6 @@ We're releasing a new GA for the Azure Event Hubs client with new features and a
 - You can now specify custom endpoint address as a client constructor option to use when communicating with the Event Hubs service, which is useful when your network does not allow communicating to the standard Event Hubs endpoint.
 - Added a helper method `parseEventHubConnectionString` that can be used to validate and parse a given connection string for Azure Event Hubs.
 
-##### Major Fixes in @azure/event-hubs@5.4.0
-
-- Fixes an issue where the `RetryMode` enum for use when setting the RetryOptions.mode field in `EventHubConsumerClientOptions` or `EventHubClientOptions` wasn't exported by the package.
-
 ### Azure Identity
 
 Identity is releasing a patch with a dependency fix and a bug fix, and a beta that includes MSAL 2.0 with PKCE support.
@@ -88,12 +84,11 @@ Identity is releasing a patch with a dependency fix and a bug fix, and a beta th
 
 ##### Major Fixes in @azure/identity@1.2.3 ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/identity/identity/CHANGELOG.md#123-2021-02-09))
 
-- Fixed Azure Stack support for the NodeJS version of the `InteractiveBrowserCredential`.
-- The 'keytar' dependency has been updated to the latest version.
+- Fixed a bug that appeared while using `InteractiveBrowserCredential` to authenticate against Azure Stack from NodeJS (for local apps that would ask for authentication using a browser window). Azure Stack has specific authentication requirements that were missed on our previous `InteractiveBrowserCredential` release.
 
 ##### Changes in @azure/identity@1.2.4-beta.1
 
-- In this beta we've updated `InteractiveBrowserCredential` to use the Auth Code Flow with PKCE rather than Implicit Grant Flow by default in the browser, to better support browsers with enhanced security restrictions.
+- In this beta we've updated `InteractiveBrowserCredential` to use by default the [Auth Code Flow with PKCE](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow) rather than the [Implicit Grant Flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-implicit-grant-flow) to better support browsers with enhanced security restrictions.
 
 ### Azure Key Vault
 
