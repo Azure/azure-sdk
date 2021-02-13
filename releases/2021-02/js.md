@@ -65,6 +65,16 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
+### Azure Search Documents
+
+We're releasing a new GA for the Azure Search Documents client.
+
+#### @azure/search-documents [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/CHANGELOG.md#1110-2021-02-11)
+
+##### New Features in @azure/search-documents@11.1.0
+
+- Adds support for indexing search documents with intelligent batching, automatic flushing, and retries for failed indexing actions.
+
 ### Azure Event Hubs
 
 We're releasing a new GA for the Azure Event Hubs client with new features and a major fix.
