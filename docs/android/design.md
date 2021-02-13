@@ -150,8 +150,6 @@ Service methods are the methods on the client that invoke operations on the serv
 
 {% include requirement/MUSTNOT id="android-async-multiple-methods" %} provide multiple asynchronous methods for a single REST endpoint in the same library, unless to provide overloaded methods to enable alternative or optional method parameters.
 
-{% include requirement/MUSTNOT id="android-async-no-blocking" %} include blocking calls inside async client library code.
-
 ##### Naming
 
 {% include requirement/MUST id="android-client-verb-prefix" %} name service methods using a standardized set of verbs or verb prefixes within a set of client libraries for a service. Prefer the use of the following terms for CRUD operations:
@@ -369,6 +367,28 @@ Models are structures that consumers use to provide required information into cl
 
 > TODO
 
+#### Using Android-compatible Java APIs
+
+{% include requirement/MUST id="android-library-java-lang" %} write client libraries in Java. This avoids forcing customers to depend on the Kotlin runtime in their applications.
+
+{% include requirement/MUST id="android-library-java-version" %} write client libraries using Java 8 syntax. Java 8 syntax constructs will be down-leveled using [Java 8 language feature desugaring](https://developer.android.com/studio/write/java8-support#supported_features) provided by Android Gradle Plugin 3.0.0+. This includes use of the following Java 8 language features:
+
+* Lambda expressions
+* Method references
+* Type annotations (except `TYPE_USE` and `TYPE_PARAMETER`)
+* Default and static interface methods
+* Repeating annotations
+
+{% include requirement/MUSTNOT id="android-library-java-api" %} use Java 8+ APIs. Some such APIs are able to be down-leveled using [Java 8+ API desugaring](https://developer.android.com/studio/write/java8-support#library-desugaring) provided by Android Gradle Plugin 4.0.0+. However many developers may not be using a sufficiently updated version of the plugin, and library desugaring injects additional code into the customer's application, potentially increasing the APK size or method count. This includes use of the following Java 8+ APIs:
+
+* Sequential streams (`java.util.stream`)
+* `java.time`
+* `java.util.function`
+* Java 8+ additions to `java.util.{Map,Collection,Comparator}`
+* Optionals (`java.util.Optional`, `java.util.OptionalInt` and `java.util.OptionalDouble`)
+* Java 8+ additions to `java.util.concurrent.atomic` (new methods on `AtomicInteger`, `AtomicLong` and `AtomicReference`)
+* `ConcurrentHashMap`
+
 ### Exceptions
 
 Error handling is an important aspect of implementing a client library. It is the primary method by which problems are communicated to the consumer. We convey errors to developers by throwing appropriate exceptions from our service methods.
@@ -511,7 +531,11 @@ Here are some namespaces that do not meet the guidelines:
 
 ### Support for Mocking
 
-> TODO
+{% include requirement/MUST id="android-testing-stub-os" %} encapsulate access to Android OS APIs by way of an intermediate interface. This allows the runtime implementation to be swapped out for a test implementation in unit tests.
+
+{% include requirement/MUST id="android-testing-mocking" %} support mocking of network operations.
+
+> TODO: Say something about mocking of the requests and how to design for it.
 
 ## Azure SDK Library Design
 
@@ -521,7 +545,9 @@ Android developers need to concern themselves with the runtime environment they 
 
 {% include requirement/MUST id="android-library-support" %} support all versions of Android starting with API level 16 (Jelly Bean).
 
-{% include requirement/MUST id="android-swift-support" %} support Java 8 language features that do not require [desugaring](https://developer.android.com/studio/write/java8-support#library-desugaring) to work on older Android versions. For more information on the list of supported language features, please refer [Use Java 8 language features and APIs](https://developer.android.com/studio/write/java8-support#supported_features).
+{% include requirement/MUST id="android-library-java-lang" %} write client libraries in Java. This avoids forcing customers to depend on the Kotlin runtime in their applications.
+
+{% include requirement/MUST id="android-java8-support" %} support Java 8 language features that do not require [desugaring](https://developer.android.com/studio/write/java8-support#library-desugaring) to work on older Android versions. For more information on the list of supported language features, please refer [Use Java 8 language features and APIs](https://developer.android.com/studio/write/java8-support#supported_features).
 
 ### Packaging
 
@@ -648,7 +674,7 @@ Native code plugins cause compatibility issues and require additional scrutiny. 
 
 > TODO
 
-## Swift API Best Practices
+## Java Best Practices
 
 > TODO
 
