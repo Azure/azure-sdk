@@ -11,9 +11,10 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 
 ## Release Highlights
 
-*
-*
-*
+* Azure Search Documents is releasing a new GA.
+  * Adds support for indexing search documents with intelligent batching, automatic flushing, and retries for failed indexing actions.
+* Azure Event Hubs is releasing a new GA.
+  * You can now specify custom endpoint address as a client constructor option to use when communicating with the Event Hubs service, which is useful when your network does not allow communicating to the standard Event Hubs endpoint.
 
 ## Release Notes
 
