@@ -102,7 +102,7 @@ Identity is releasing a patch with a dependency fix and a bug fix, and a beta th
 
 - Fixed a bug that appeared while using `InteractiveBrowserCredential` to authenticate against Azure Stack from NodeJS (for local apps that would ask for authentication using a browser window). Azure Stack has specific authentication requirements that were missed on our previous `InteractiveBrowserCredential` release.
 
-##### Changes in @azure/identity@1.2.4-beta.1
+##### Changes in @azure/identity@1.2.4-beta.1 ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/identity/identity/CHANGELOG.md#124-beta1-2021-02-12))
 
 - In this beta we've updated `InteractiveBrowserCredential` to use by default the [Auth Code Flow with PKCE](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow) rather than the [Implicit Grant Flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-implicit-grant-flow) to better support browsers with enhanced security restrictions.
 
