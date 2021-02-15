@@ -1,52 +1,50 @@
-# Use scaped symbols if greater-than and/or lower-than symbols are required.
-#  - `&lt;`` for `<`
-#  - `&gt;` for `>`
+# <noun> needs to be scaped with \ because it's a html tag.
 entries:
-  - Verb: create_\&lt;noun&gt; #(create_\<noun>)
+  - Verb: create_\<noun>
     Parameters: key, item
     Returns: Created item
     Comments: Create new item. Fails if item already exists.
-  - Verb: upsert_\&lt;noun&gt; # (upsert_\<noun>)
+  - Verb: upsert_\<noun>
     Parameters: key, item
     Returns: item
     Comments: Create new item, or update existing item. Verb is primarily used in database-like services.
-  - Verb: set_\&lt;noun&gt; # (set_\<noun>)
+  - Verb: set_\<noun>
     Parameters: key, item
     Returns: item
     Comments: Create new item, or update existing item. Verb is primarily used for dictionary-like properties of a service.
-  - Verb: update_\&lt;noun&gt; # (update_\<noun>)
+  - Verb: update_\<noun>
     Parameters: key, partial item
     Returns: item
     Comments: Fails if item doesn't exist.
-  - Verb: replace_\&lt;noun&gt; # (replace_\<noun>)
+  - Verb: replace_\<noun>
     Parameters: ey, item
     Returns: item
     Comments: Replaces an existing item. Fails if the item doesn't exist.
-  - Verb: append_\&lt;noun&gt; # (append_\<noun>)
+  - Verb: append_\<noun>
     Parameters: item
     Returns: item
     Comments: Add item to a collection. Item will be added last.
-  - Verb: add_\&lt;noun&gt; # (add_\<noun>)
+  - Verb: add_\<noun>
     Parameters: index, item
     Returns: item
     Comments: Add item to a collection. Item will be added at the given index.
-  - Verb: get_\&lt;noun&gt; # (get_\<noun>)
+  - Verb: get_\<noun>
     Parameters: key
     Returns: item
     Comments: Raises an error if item doesn't exist.
-  - Verb: list_\&lt;noun&gt; # (list_\<noun>)
+  - Verb: list_\<noun>
     Parameters:
     Returns: Pageable[Item]
     Comments: Return an iterable of items. Returns iterable with no items if no items exist.
-  - Verb: \&lt;noun&gt;\_exists # (\<noun>\_exists)
+  - Verb: \<noun>_exists
     Parameters: key
     Returns: boolean`
     Comments: Return `True` if the item exists. Must raise an error if the method failed to determine if the item exists (for example, the service returned an HTTP 503 response).
-  - Verb: delete_\&lt;noun&gt; # (delete_\<noun>)
+  - Verb: delete_\<noun>
     Parameters: key
     Returns:
     Comments: Delete an existing item. Must succeed even if item didn't exist.
-  - Verb: remove_\&lt;noun&gt; # (remove_\<noun>)
+  - Verb: remove_\<noun>
     Parameters: key
     Returns: removed item
     Comments: Remove a reference to an item from a collection. This method doesn't delete the actual item, only the reference.

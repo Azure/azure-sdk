@@ -1383,3 +1383,68 @@ h4.panel-title {
 pre code {
   white-space: pre;
 }
+
+.standard-verbs-table-container {
+  margin-bottom: 10px;
+}
+
+.standard-verbs-table-row {
+  border: 1px solid #dedede;
+  display: flex;
+}
+
+.standard-verbs-table-cell-container {
+  flex: 1;
+  display: flex;
+}
+
+.standard-verbs-table-cell {
+  flex: 1;
+  padding: 7px 0 7px 3px;
+}
+
+/* Consider n rows in a table, pair is when `n mod 2 == 0`. Then the table would show a different style for each 2 rows */
+.standard-verbs-table-cell-pair {
+  background-color: #F9F9F9;
+}
+
+.standard-verbs-table-cell-verb {
+  color: rgb(221, 73, 110);
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.standard-verbs-table-cell-header {
+  background-color: #777;
+  border-bottom: 2px solid #ddd;
+  color: white;
+  font-weight: bold;
+}
+
+.standard-verbs-table-cell-comments {
+  flex: 2;
+}
+
+.standard-verbs-table-cell-mobile-header {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .standard-verbs-table-cell-header {
+    display: none;
+  }
+  
+  .standard-verbs-table-row {
+    flex-direction: column;
+  }
+  
+  .standard-verbs-table-cell {
+    border: 1px solid #ddd;
+    flex: 3;
+  }
+
+  .standard-verbs-table-cell-mobile-header {
+    display: block;
+    flex: 1;
+  }
+}
