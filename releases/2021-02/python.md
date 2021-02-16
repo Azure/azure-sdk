@@ -135,7 +135,7 @@ added property `related_entities` for each entity returned from this call.
 - Removed priority field (ChatMessage.Priority).
 - Renamed PhoneNumber to PhoneNumberIdentifier.
 
-### Key Vault Administration [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-administration/CHANGELOG.md#400b3-2021-02-09)
+### Key Vault Administration [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-keyvault-administration_4.0.0b3/sdk/keyvault/azure-keyvault-administration/CHANGELOG.md#400b3-2021-02-09)
 
 #### New Features
 - `KeyVaultAccessControlClient` supports managing custom role definitions
@@ -146,7 +146,7 @@ added property `related_entities` for each entity returned from this call.
 - Renamed `KeyVaultPermission` attributes
 - Renamed `KeyVaultRoleScope` enum values
 
-### Key Vault Keys [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md#440b1-2021-2-10)
+### Key Vault Keys [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-keyvault-keys_4.4.0b2/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md#440b1-2021-2-10)
 
 #### New Features
 - Support for Key Vault API version 7.2-preview
