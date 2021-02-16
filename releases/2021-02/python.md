@@ -57,7 +57,7 @@ and is useful when your network does not allow communicating to the standard Eve
 the identity of the connection endpoint.
 - Updated uAMQP dependency to 1.2.14.
 
-### Metrics Advisor [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md)
+### Metrics Advisor [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md#100b3-2021-02-09)
 
 #### New Features
 
@@ -72,11 +72,11 @@ the identity of the connection endpoint.
 
 ### Synapse
 
-#### Access Control [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/synapse/azure-synapse-accesscontrol/CHANGELOG.md)
+#### Access Control [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/synapse/azure-synapse-accesscontrol/CHANGELOG.md#050-2021-02-09)
 
 - Update to API version 2020-08-01
 
-### Search [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/CHANGELOG.md)
+### Search [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/CHANGELOG.md#1110-2021-02-10)
 
 #### Breaking Changes
 
