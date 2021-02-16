@@ -24,6 +24,8 @@ The Azure SDK team is pleased to make available the February 2021 client library
 - Text Analytics
 - Azure Communication Identity 1.0.0b4
 - Azure Communication Chat 1.0.0b4
+- Key Vault Administration
+- Key Vault Keys
 
 ## Installation Instructions
 
@@ -39,6 +41,8 @@ pip install azure-ai-formrecognizer --pre
 pip install azure-ai-textanalytics --pre
 pip install azure-communication-identity
 pip install --pre azure-communication-chat
+pip install azure-keyvault-administration
+pip install azure-keyvault-keys
 ```
 
 ## Feedback
@@ -130,6 +134,24 @@ added property `related_entities` for each entity returned from this call.
 - Uses `CommunicationUserIdentifier` and `CommunicationIdentifier` in place of `CommunicationUser`, and `CommunicationTokenCredential` instead of `CommunicationUserCredential`.
 - Removed priority field (ChatMessage.Priority).
 - Renamed PhoneNumber to PhoneNumberIdentifier.
+
+### Key Vault Administration [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-administration/CHANGELOG.md#400b3-2021-02-09)
+
+#### New Features
+- `KeyVaultAccessControlClient` supports managing custom role definitions
+
+#### Breaking Changes
+- Renamed `KeyVaultBackupClient.begin_full_backup()` to `.begin_backup()`
+- Renamed `KeyVaultBackupClient.begin_full_restore()` to `.begin_restore()`
+- Renamed `KeyVaultPermission` attributes
+- Renamed `KeyVaultRoleScope` enum values
+
+### Key Vault Keys [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md#440b1-2021-2-10)
+
+#### New Features
+- Support for Key Vault API version 7.2-preview
+([#16566](https://github.com/Azure/azure-sdk-for-python/pull/16566))
+- Updated default API version to 7.2-preview
 
 ## Latest Releases
 
