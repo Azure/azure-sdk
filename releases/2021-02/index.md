@@ -11,6 +11,7 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 
 ## Release Highlights
 
+* Metrics advisor libraries now have AAD authentication support. 
 * Azure Search Documents is releasing a new GA.
   * Adds support for indexing search documents with intelligent batching, automatic flushing, and retries for failed indexing actions.
 * Azure Event Hubs is releasing a new GA.
