@@ -171,6 +171,57 @@ Thank you to our developer community members who helped to make the Service Bus 
 - Renamed `SearchIndexingBufferedSenderOptions<T>.RetryDelay` to `SearchIndexingBufferedSenderOptions<T>.ThrottlingDelay`.
 - Removed the helper method `SearchClient.CreateIndexingBufferedSender<T>()`. Instead, callers are expected to use the public constructor of `SearchIndexingBufferedSender<T>`.
 
+### Azure Communication Administration will be deprecated
+
+- Identity client is moved to new package Azure Communication Identity.
+- Phone number administration will be moved into a new package Azure Communication Phone Numbers.
+
+### Azure Communication Common 1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.Common_1.0.0-beta.4/sdk/communication/Azure.Communication.Common/CHANGELOG.md#100-beta4-2021-02-09)
+
+#### New Features
+
+- Added MicrosoftTeamsUserIdentifier.
+
+#### Breaking Changes
+
+- Renamed CommunicationUserCredential to CommunicationTokenCredential.
+- Replaced CommunicationTokenCredential(bool refreshProactively, Func<CancellationToken, string> tokenRefresher,Func<CancellationToken, ValueTask<string>>? asyncTokenRefresher = null, string? initialToken = null). with CommunicationTokenCredential(CommunicationTokenRefreshOptions tokenRefreshOptions).
+- Renamed PhoneNumber to PhoneNumberIdentifier.
+- Renamed CommunicationUser to CommunicationUserIdentifier.
+- Removed CallingApplication.
+- Renamed Id to RawId in PhoneNumberIdentifier.
+
+### Azure Communication Identity 1.0.0-beta.4 [ChangeLog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.Identity_1.0.0-beta.4/sdk/communication/Azure.Communication.Identity/CHANGELOG.md#100-beta4-2021-02-09)
+
+### New Features
+
+- Added CommunicationIdentityClient (originally was part of the Azure.Communication.Administration package).
+- Added support to create CommunicationIdentityClient with TokenCredential.
+- Added support to create CommunicationIdentityClient with AzureKeyCredential.
+- Added ability to create a user and issue token for it at the same time.
+
+### Breaking Changes
+
+- CommunicationTokenScope.Pstn is removed.
+- CommunicationIdentityClient.RevokeTokens now revoke all the currently issued tokens instead of revoking tokens issued prior to a given time.
+- CommunicationIdentityClient.IssueToken returns an instance of `Azure.Core.AccessToken` instead of `CommunicationUserToken`.
+
+### Azure Communication Chat (1.0.0-beta.4) [ChangeLog](https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-chat_1.0.0-beta.4/sdk/communication/azure-communication-chat/CHANGELOG.md#100-beta4-2021-02-09)
+
+#### New Features
+
+- Added support for `CreateChatThreadResult` and `AddChatParticipantsResult` to handle partial errors in batch calls.
+- Added idempotency identifier parameter for chat creation calls.
+- Added pagination support for `GetReadReceipts`, `GetReadReceiptsAsync` and `GetParticipants`, `GetParticipantsAsync`.
+- Added new model for messages and content types: `Text`, `Html`, `ParticipantAdded`, `ParticipantRemoved`, `TopicUpdated`.
+- Added new model for errors (`CommunicationError`).
+- Added notifications for thread level changes.
+
+#### Breaking Changes
+
+- Updated to Azure.Communication.Common version 1.0.0-beta.4. Now uses `CommunicationUserIdentifier` and `CommunicationIdentifier` in place of `CommunicationUser`, and `CommunicationTokenCredential` instead of `CommunicationUserCredential`.
+- Removed `Priority` field from `ChatMessage`.
+
 ### Synapse Artifacts [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.Synapse.Artifacts_1.0.0-preview.6/sdk/synapse/Azure.Analytics.Synapse.Artifacts/CHANGELOG.md#100-preview6-2021-02-10)
 
 #### New Features
