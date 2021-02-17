@@ -135,7 +135,7 @@ added property `related_entities` for each entity returned from this call.
 - Removed priority field (ChatMessage.Priority).
 - Renamed PhoneNumber to PhoneNumberIdentifier.
 
-### Azure Eventgrid 2.0.0b5 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventgrid/azure-eventgrid/CHANGELOG.md#200b5-2021-02-10)
+### Azure Eventgrid 2.0.0b5 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-eventgrid_2.0.0b5/sdk/eventgrid/azure-eventgrid/CHANGELOG.md#200b5-2021-02-10)
 
 - `EventGridSharedAccessSignatureCredential` is deprecated in favor of `AzureSasCredential`.
 - `azure.eventgrid.models` namespace along with all the models in it are now removed. `azure.eventgrid.SystemEventNames` can be used to get the event model type mapping.
@@ -144,7 +144,7 @@ added property `related_entities` for each entity returned from this call.
 - `EventGridConsumer`is now removed. Please see the samples to see how events can be deserialized.
 - `CustomEvent` model is removed. Dictionaries must be used to send a custom schema.
 
-### Azure Monitor Opentelemetry Exporter 1.0.0b3 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md#100b3-2021-02-11)
+### Azure Monitor Opentelemetry Exporter 1.0.0b3 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-monitor-opentelemetry-exporter_1.0.0b3/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md#100b3-2021-02-11)
 
 - The package `azure-opentelemetry-exporter-azuremonitor` has been renamed to `azure-monitor-opentelemetry-exporter`
 - Removed `ExporterOptions` to favor keyword only args.
