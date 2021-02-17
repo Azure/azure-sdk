@@ -137,7 +137,6 @@ added property `related_entities` for each entity returned from this call.
 
 ### Azure Eventgrid 2.0.0b5 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventgrid/azure-eventgrid/CHANGELOG.md#200b5-2021-02-10)
 
-### Breaking Changes
 - `EventGridSharedAccessSignatureCredential` is deprecated in favor of `AzureSasCredential`.
 - `azure.eventgrid.models` namespace along with all the models in it are now removed. `azure.eventgrid.SystemEventNames` can be used to get the event model type mapping.
 - `topic_hostname` is renamed to `endpoint` in the `EventGridPublisherClient`.
@@ -147,7 +146,6 @@ added property `related_entities` for each entity returned from this call.
 
 ### Azure Monitor Opentelemetry Exporter 1.0.0b3 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md#100b3-2021-02-11)
 
-### Breaking Changes
 - The package `azure-opentelemetry-exporter-azuremonitor` has been renamed to `azure-monitor-opentelemetry-exporter`
 - Removed `ExporterOptions` to favor keyword only args.
 
