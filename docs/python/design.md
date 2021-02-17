@@ -60,7 +60,7 @@ The API surface of your client library must have the most thought as it is the p
 
 These guidelines were written primarily with a HTTP based request/response in mind, but many general guidelines apply to other types of services as well. This includes, but is not limited to, packaging and naming, tools and project structures.
 
-Please contact the [Azure SDK Architecture Board](https://azure.github.io/azure-sdk/policies_reviewprocess.html) for more guidance on non HTTP/REST based services.
+Please contact the [Azure SDK Architecture Board] for more guidance on non HTTP/REST based services.
 
 ### Supported python versions
 
@@ -383,9 +383,9 @@ client.update_thing(name='hello', size=4713, thing=thing)
 
 Services may require multiple requests to retrieve the complete set of items in large collections. This is generally done by the service returning a partial result, and in the response providing a token or link that the client can use to retrieve the next batch of responses in addition to the set of items.
 
-In Azure SDK for Python cilent libraries, this is exposed to users through the [Paged protocol](#python-core-protocol-paged). The Paged protocol optimizes for retrieving the full set of items rather than forcing users to deal with the underlying paging.
+In Azure SDK for Python cilent libraries, this is exposed to users through the [ItemPaged protocol](#python-core-protocol-paged). The `ItemPaged` protocol optimizes for retrieving the full set of items rather than forcing users to deal with the underlying paging.
 
-{% include requirement/MUST id="python-response-paged-protocol" %} return a value that implements the [Paged protocol](#python-core-protocol-paged) for operations that return collections. The [Paged protocol](#python-core-protocol-paged) allows the user to iterate through all items in a returned collection, and also provides a method that gives access to individual pages.
+{% include requirement/MUST id="python-response-paged-protocol" %} return a value that implements the [ItemPaged protocol](#python-core-protocol-paged) for operations that return collections. The [ItemPaged protocol](#python-core-protocol-paged) allows the user to iterate through all items in a returned collection, and also provides a method that gives access to individual pages.
 
 ```python
 client = ExampleClient(...)
@@ -416,13 +416,13 @@ for page in client.list_things().by_page(continuation_token='...'):
     print(page)
 ```
 
-{% include requirement/MUST id="python-paged-non-server-paged-list" %} return a value that implements the [Paged protocol](#python-core-protocol-paged) even if the service API currently do not support server driven paging. This allows server driven paging to be added to the service API without introducing breaking changes in the client library.
+{% include requirement/MUST id="python-paged-non-server-paged-list" %} return a value that implements the [ItemPaged protocol](#python-core-protocol-paged) even if the service API currently do not support server driven paging. This allows server driven paging to be added to the service API without introducing breaking changes in the client library.
 
 #### Methods invoking long running operations
 
-Service operations that take a long time (currently defined in the Microsoft REST API Guidelines as not completing in 0.5s in P99) to complete are modeled by services as long running operations.
+Service operations that take a long time (currently defined in the [Microsoft REST API Guidelines](https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#141-principles) as not completing in 0.5s in P99) to complete are modeled by services as long running operations.
 
-Python client libraries abstracts the long running operation using the long running operation Poller protocol](#python-core-protocol-lro-poller).
+Python client libraries abstracts the long running operation using the [Long running operation Poller protocol](#python-core-protocol-lro-poller).
 In cases where a service API is not explicitly implemented as a long-running operation, but the common usage pattern requires a customer to sleep or poll a status - it's likely that these API's should still be represented in the SDK using the Poller protocol.
 
 {% include requirement/MUST id="python-lro-poller" %} return an object that implements the [Poller protocol](#python-core-protocol-lro-poller) for long running operations.
@@ -502,7 +502,7 @@ The following table enumerates the various models you might create:
 
 |Type|Example|Usage|
 |-|-|
-|<model>|Secret|The full data for a resource
+|<model>|Secret|The full data for a resource|
 |<model>Details|SecretDetails|Less important details about a resource. Attached to <model>.details|
 |<model>Item|SecretItem|A partial set of data returned for enumeration|
 |<operation>Result|AddSecretResult|A partial or different set of data for a single operation|
@@ -554,7 +554,7 @@ class MyBadEnum(str, Enum):
 
 {% include requirement/MUSTNOT id="python-errors-use-standard-exceptions" %} create new exception types when a [built-in exception type](https://docs.python.org/3/library/exceptions.html) will suffice.
 
-{% include requirement/SHOULDNOT id="python-errors-new-exceptions" %} create a new exception type unless the developer can remediate the error by doing something different.  Specialized exception types related to service operation failures should be based on existing exception types from the [`azure-core`](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/1.9.0/index.html#azure-core-library-exceptions) package.
+{% include requirement/SHOULDNOT id="python-errors-new-exceptions" %} create a new exception type unless the developer can handle the error programmatically.  Specialized exception types related to service operation failures should be based on existing exception types from the [`azure-core`](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/1.9.0/index.html#azure-core-library-exceptions) package.
 
 For higher-level methods that use multiple HTTP requests, either the last exception or an aggregate exception of all failures should be produced.
 
@@ -568,7 +568,7 @@ For higher-level methods that use multiple HTTP requests, either the last except
 
 {% include requirement/MUST id="python-auth-policy-azure-core" %} use authentication policy implementations in `azure-core` whenever possible.
 
-{% include requirement/MAY  id="python-auth-service-credentials" %} add additional credential types if required by the service. Contact the [Azure SDK Architecture Board](https://azure.github.io/azure-sdk/policies_reviewprocess.html) for guidance if you believe you have need to do so.
+{% include requirement/MAY  id="python-auth-service-credentials" %} add additional credential types if required by the service. Contact the [Azure SDK Architecture Board] for guidance if you believe you have need to do so.
 
 {% include requirement/MUST id="python-auth-service-support" %} support all authentication methods that the service supports.
 
@@ -594,7 +594,7 @@ If you want to use a group name segment, use one of the following groups:
 
 {% include requirement/MUST id="python-namespaces-mgmt" %} place management (Azure Resource Manager) APIs in the `mgmt` group. Use the grouping `azure.mgmt.<servicename>` for the namespace. Since more services require control plane APIs than data plane APIs, other namespaces may be used explicitly for control plane only.
 
-{% include requirement/MUST id="python-namespaces-register" %} register the chosen namespace with the [Architecture Board].  Open an issue to request the namespace.  See [the registered namespace list](registered_namespaces.html) for a list of the currently registered namespaces.
+{% include requirement/MUST id="python-namespaces-register" %} register the chosen namespace with the [Architecture Board].  Open an [issue] to request the namespace.  See [the registered namespace list](registered_namespaces.html) for a list of the currently registered namespaces.
 
 {% include requirement/MUST id="python-namespaces-async" %} use an `.aio` suffix added to the namespace of the sync client for async clients.
 
@@ -683,7 +683,7 @@ from azure.storage.blob.aio import BlobServiceClient # Async client
 
 ### Packaging
 
-{% include requirement/MUST id="python-packaging-name" %} name your package after the namespace of your main client class. For example, if your main client class is in the `azure.data.tables` namespace, your package name should be azure-data-table.
+{% include requirement/MUST id="python-packaging-name" %} name your package after the namespace of your main client class. For example, if your main client class is in the `azure.data.tables` namespace, your package name should be azure-data-tables.
 
 {% include requirement/MUST id="python-packaging-name-allowed-chars" %} use all lowercase in your package name with a dash (-) as a separator.
 
@@ -724,7 +724,7 @@ Let's take two examples:
 
 2. Two Cognitive Services client libraries have models (data classes) that are the same in shape, but has no or minimal logic associated with them. This is not a good candidate for a shared library. Instead, implement two separate classes.
 
-### Versioning
+### Package Versioning
 
 {% include requirement/MUST id="python-versioning-semver" %} use [semantic versioning](https://semver.org) for your package.
 
@@ -778,7 +778,7 @@ Only applications are expected to pin exact dependencies. Libraries are not. A l
 
 {% include requirement/MUST id="python-docstrings-pydocs" %} follow the [documentation guidelines](http://aka.ms/pydocs) unless explicitly overridden in this document.
 
-{% include requirement/MUST id="python-docstrings-all" %} provide docstrings for all public modules, types, and methods.
+{% include requirement/MUST id="python-docstrings-all" %} provide docstrings for all public modules, types, constants and functions.
 
 {% include requirement/MUST id="python-docstrings-kwargs" %} document any `**kwargs` directly consumed by a method. You may refer to the signature of a called method if the `**kwargs` are passed through.
 
@@ -804,8 +804,6 @@ def get(*args, **kwargs):
 Use the `literalinclude` directive in Python docstrings to instruct Sphinx to [ingest the snippets automatically][1].
 
 {% include requirement/MUSTNOT id="python-snippets-combinations" %} combine more than one operation in a code snippet unless it's required for demonstrating the type or member, or it's *in addition to* existing snippets that demonstrate atomic operations. For example, a Cosmos DB code snippet should not include both account and container creation operations--create two different snippets, one for account creation, and one for container creation.
-
-Combined operations cause unnecessary friction for a library consumer by requiring knowledge of additional operations which might be outside their current focus. It requires them to first understand the tangential code surrounding the operation they're working on, then carefully extract just the code they need for their task. The developer can no longer simply copy and paste the code snippet into their project.
 
 ## Repository Guidelines
 
@@ -850,9 +848,9 @@ Code samples are small applications that demonstrate a certain feature that is r
 
 {% include requirement/MUST id="python-samples-platform-support" %} ensure that samples can run in Windows, macOS, and Linux development environments.
 
-{% include requirement/MUSTNOT id="python-snippets-no-combinations" %} combine multiple operations in a code sample unless it's required for demonstrating the type or member. For example, a Cosmos DB code sample doesn't include both account and container creation operations. Create a sample for account creation, and another sample for container creation.
+{% include requirement/MUSTNOT id="python-snippets-no-combinations" %} combine multiple scenarios in a code sample unless it's required for demonstrating the type or member. For example, a Cosmos DB code sample doesn't include both account and container creation operations. Create a sample for account creation, and another sample for container creation.
 
-Combined operations require knowledge of additional operations that might be outside their current focus. The developer must first understand the code surrounding the operation they're working on, and can't copy and paste the code sample into their project.
+Combined scenarios require knowledge of additional operations that might be outside their current focus. The developer must first understand the code surrounding the scenario they're working on, and can't copy and paste the code sample into their project.
 
 {% include refs.md %}
 {% include_relative refs.md %}

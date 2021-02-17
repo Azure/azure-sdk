@@ -56,8 +56,9 @@ class ExampleClient(object):
             if hasattr(credential, "get_token"):
                 credential_policy = BearerTokenCredentialPolicy(credential, scope)
             else:
-                raise ValueError("Please provide an instance from azure-identity "
-                                "or a class that implement the 'get_token protocol")
+                raise ValueError(
+                    "Please provide an instance from azure-identity or a class that implement the 'get_token protocol"
+                )
             policies = [
                 HeadersPolicy(**kwargs),
                 UserAgentPolicy(**kwargs),
@@ -218,7 +219,7 @@ Any other keys that are used should be common across all client libraries for a 
 
 {% include requirement/SHOULD id="python-testing-async" %} use [pytest-asyncio](https://github.com/pytest-dev/pytest-asyncio) for testing of async code.
 
-{% include requirement/MUST id="python-testing-live" %} make your scenario tests runnable against live services. Strongly consider using the [Python Azure-DevTools](https://github.com/Azure/azure-python-devtools) package for scenario tests.
+{% include requirement/MUST id="python-testing-live" %} make your scenario tests runnable against live services. Strongly consider using the [Python Azure-DevTools](https://github.com/Azure/azure-sdk-for-python/tree/master/tools/azure-devtools) package for scenario tests.
 
 {% include requirement/MUST id="python-testing-record" %} provide recordings to allow running tests offline/without an Azure subscription
 
@@ -514,7 +515,7 @@ azure.exampleservice.some_internal_module
 
 {% include requirement/MUST id="python-codestyle-pep484" %} provide type hints [PEP484](https://www.python.org/dev/peps/pep-0484/) for publicly documented classes and functions.
 
-- See the [suggested syntax for Python 2.7 and 2.7-3.x straddling code](https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code) for guidance for Python 2.7 compatible code.
+- See the [suggested syntax for Python 2.7 and 2.7-3.x straddling code](https://www.python.org/dev/peps/pep-0484/#suggested-syntax-for-python-2-7-and-straddling-code) for guidance for Python 2.7 compatible code. Do not do this for code that is Python 3 specific (e.g. `async` clients.)
 
 ### Threading
 

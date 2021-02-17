@@ -1,5 +1,7 @@
 [Zen of Python]: https://www.python.org/dev/peps/pep-0020/
 [universal package]: https://packaging.python.org/guides/distributing-packages-using-setuptools/#id75
+[Architecture board]: https://azure.github.io/azure-sdk/policies_reviewprocess.html
+[issue]: https://github.com/azure/azure-sdk/issues
 
 <!-- Intra-document links -->
 [Packaging]: python_implementation.html#packaging
