@@ -22,10 +22,10 @@ The Azure SDK team is pleased to make available the February 2021 client library
 - Synapse
 - Form Recognizer
 - Text Analytics
-- Azure Communication Identity 1.0.0b4
-- Azure Communication Chat 1.0.0b4
-- Azure EventGrid 2.0.0b5
-- Azure Monitor Opentelemetry Exporter 1.0.0b3
+- Azure Communication Identity
+- Azure Communication Chat
+- Azure EventGrid
+- Azure Monitor Opentelemetry Exporter
 
 ## Installation Instructions
 
