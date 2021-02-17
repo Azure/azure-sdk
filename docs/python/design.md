@@ -82,7 +82,7 @@ The service client is the primary entry point for users of the library. A servic
 
 {% include requirement/MUST id="python-client-naming" %} name service client types with a **Client** suffix.
 
-{% include requirement/MUST id="python-client-sync-async" %} provide separate sync and async clients. See the [Async Support](#async-support) section for more information.
+{% include requirement/MUST id="python-client-sync-async-separate-clients" %} provide separate sync and async clients. See the [Async Support](#async-support) section for more information.
 
 ```python
 # Yes
@@ -177,7 +177,7 @@ specific_api_version_client = ExampleClient('https://contoso.com/xmpl',
 
 ##### Client immutability
 
-{% include requirement/MUST id="python-client-immutable" %} design the client to be immutable. This does not mean that you need to use read-only properties (attributes are still acceptable), but rather that the there should not be any scenarios that require callers to change properties/attributes of the client.  
+{% include requirement/MUST id="python-client-immutable-design" %} design the client to be immutable. This does not mean that you need to use read-only properties (attributes are still acceptable), but rather that the there should not be any scenarios that require callers to change properties/attributes of the client.  
 
 #### Service methods
 
@@ -427,13 +427,13 @@ In cases where a service API is not explicitly implemented as a long-running ope
 
 {% include requirement/MUST id="python-lro-poller" %} return an object that implements the [Poller protocol](#python-core-protocol-lro-poller) for long running operations.
 
-{% include requirement/MUST id="python-lro-poller" %} use a `begin_` prefix for all long running operations.
+{% include requirement/MUST id="python-lro-poller-begin-naming" %} use a `begin_` prefix for all long running operations.
 
 #### Conditional request methods
 
 {% include requirement/MUST id="python-method-conditional-request" %} add a keyword-only `match_condition` parameter for service methods that support conditional requests. The parameter should support the `azure.core.MatchConditions` type defined in `azure-core` as input.
 
-{% include requirement/MUST id="python-method-conditional-request" %} add a keyword-only `etag` parameter for service methods that support conditional requests. For service methods that take a model instance that has an `etag` property, the explicit `etag` value passed in overrides the value in the model instance.
+{% include requirement/MUST id="python-method-conditional-request-etag" %} add a keyword-only `etag` parameter for service methods that support conditional requests. For service methods that take a model instance that has an `etag` property, the explicit `etag` value passed in overrides the value in the model instance.
 
 ```python
 class Thing(object):
@@ -744,7 +744,7 @@ Don't use pre-release segments other than the ones defined in [PEP440](https://w
 
 {% include requirement/MUST id="python-versioning-major" %} increment the major version if there are breaking changes in the package. Breaking changes require prior approval from the [Architecture Board].
 
-{% include requirement/MUST id="python-versioning-major" %} select a version number greater than the highest version number of any other released Track 1 package for the service in any other scope or language.
+{% include requirement/MUST id="python-versioning-major-cross-languages" %} select a version number greater than the highest version number of any other released Track 1 package for the service in any other scope or language.
 
 The bar to make a breaking change is extremely high for GA client libraries.  We may create a new package with a different name to avoid diamond dependency issues.
 
