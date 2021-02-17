@@ -58,9 +58,9 @@ The Azure SDK should be designed to enhance the productivity of developers conne
 
 {% include requirement/MUST id="golang-general-follow-general-guidelines" %} follow the [General Azure SDK Guidelines].
 
-{% include requirement/MUST id="golang-general-repository" %} locate all source code in the [azure/azure-sdk-for-go] GitHub repository.
+{% include requirement/MUST id="golang-general-use-azcore-pipeline" %} use `azcore.Pipeline` to implement all methods that call Azure REST services.
 
-{% include requirement/MUST id="golang-general-engsys" %} follow Azure SDK engineering systems guidelines for working in the [azure/azure-sdk-for-go] GitHub repository.
+{% include requirement/MUST id="golang-general-idiomatic-code" %} write idiomatic Go code.  If you're not familiar with the language, a great place to start is https://golang.org/doc/effective_go.  Do **NOT** simply attempt to translate your language of choice into Go.
 
 ### Support for non-HTTP Protocols
 
@@ -669,11 +669,9 @@ TODO
 
 ## Repository Guidelines
 
-TODO
+{% include requirement/MUST id="golang-general-repository" %} locate all source code in the [azure/azure-sdk-for-go] GitHub repository.
 
-### OSS Repos
-
-TODO
+{% include requirement/MUST id="golang-general-engsys" %} follow Azure SDK engineering systems guidelines for working in the [azure/azure-sdk-for-go] GitHub repository.
 
 ### Documentation Style
 
