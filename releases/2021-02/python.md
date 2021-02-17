@@ -145,6 +145,11 @@ added property `related_entities` for each entity returned from this call.
 - `EventGridConsumer`is now removed. Please see the samples to see how events can be deserialized.
 - `CustomEvent` model is removed. Dictionaries must be used to send a custom schema.
 
+### Azure Monitor Opentelemetry Exporter 1.0.0b3 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md#100b3-2021-02-11)
+
+### Breaking Changes
+- The package `azure-opentelemetry-exporter-azuremonitor` has been renamed to `azure-monitor-opentelemetry-exporter`
+- Removed `ExporterOptions` to favor keyword only args.
 
 ## Latest Releases
 
