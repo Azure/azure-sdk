@@ -24,6 +24,8 @@ The Azure SDK team is pleased to make available the February 2021 client library
 - Text Analytics
 - Azure Communication Identity 1.0.0b4
 - Azure Communication Chat 1.0.0b4
+- Azure EventGrid 2.0.0b5
+- Azure Monitor Opentelemetry Exporter 1.0.0b3
 
 ## Installation Instructions
 
@@ -39,6 +41,8 @@ pip install azure-ai-formrecognizer --pre
 pip install azure-ai-textanalytics --pre
 pip install azure-communication-identity
 pip install --pre azure-communication-chat
+pip install azure-eventgrid --pre
+pip install azure-monitor-opentelemetry-exporter --pre
 ```
 
 ## Feedback
@@ -130,6 +134,17 @@ added property `related_entities` for each entity returned from this call.
 - Uses `CommunicationUserIdentifier` and `CommunicationIdentifier` in place of `CommunicationUser`, and `CommunicationTokenCredential` instead of `CommunicationUserCredential`.
 - Removed priority field (ChatMessage.Priority).
 - Renamed PhoneNumber to PhoneNumberIdentifier.
+
+### Azure Eventgrid 2.0.0b5 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventgrid/azure-eventgrid/CHANGELOG.md#200b5-2021-02-10)
+
+### Breaking Changes
+- `EventGridSharedAccessSignatureCredential` is deprecated in favor of `AzureSasCredential`.
+- `azure.eventgrid.models` namespace along with all the models in it are now removed. `azure.eventgrid.SystemEventNames` can be used to get the event model type mapping.
+- `topic_hostname` is renamed to `endpoint` in the `EventGridPublisherClient`.
+- `azure.eventgrid.generate_shared_access_signature` method is now renamed to `generate_sas`.
+- `EventGridConsumer`is now removed. Please see the samples to see how events can be deserialized.
+- `CustomEvent` model is removed. Dictionaries must be used to send a custom schema.
+
 
 ## Latest Releases
 
