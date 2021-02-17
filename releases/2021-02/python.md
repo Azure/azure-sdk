@@ -41,8 +41,8 @@ pip install azure-ai-formrecognizer --pre
 pip install azure-ai-textanalytics --pre
 pip install azure-communication-identity
 pip install --pre azure-communication-chat
-pip install azure-keyvault-administration
-pip install azure-keyvault-keys
+pip install azure-keyvault-administration --pre
+pip install azure-keyvault-keys --pre
 ```
 
 ## Feedback
