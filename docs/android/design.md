@@ -446,7 +446,7 @@ Azure services use different kinds of authentication schemes to allow clients to
 
 {% include requirement/MUST id="android-auth-provide-credential-types" %} define a public custom credential type which enables clients to authenticate requests using the custom scheme.
 
-{% include requirement/SHOULDNOT id="android-auth-credential-type-base" %} define custom credential types extending or implementing abstractions from Azure Core. This is especially true in type safe languages where extending or implementing this abstraction would break the type safety of other service clients, allowing users to instantiate them with the custom credential of the wrong service.
+{% include requirement/SHOULDNOT id="android-auth-credential-type-base" %} define custom credential types extending or implementing abstractions from Azure Core.
 
 {% include requirement/MUST id="android-auth-credentials" %} provide credential types that can be used to fetch all data needed to authenticate a request to the service. If using a service-specific credential type, the implementation must be non-blocking and atomic.
 
