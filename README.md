@@ -50,7 +50,7 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 [![Github.io linkchecker](https://img.shields.io/azure-devops/build/azure-sdk/internal/1620?label=github.io%20linkchecker)](https://dev.azure.com/azure-sdk/internal/_build/latest?definitionId=1620&branchName=master)
 
 [General Design Guidelines]: https://azure.github.io/azure-sdk/general_introduction.html
-[Design Guidelines for Android]: https://azure.github.io/azure-sdk/android_introduction.html
+[Design Guidelines for Android]: https://azure.github.io/azure-sdk/android_design.html
 [Design Guidelines for .NET]: https://azure.github.io/azure-sdk/dotnet_introduction.html
 [Design Guidelines for Go]: https://azure.github.io/azure-sdk/golang_introduction.html
 [Design Guidelines for C99]: https://azure.github.io/azure-sdk/clang_design.html
