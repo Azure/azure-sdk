@@ -72,8 +72,6 @@ Service clients are the main starting points for developers calling Azure servic
 
 {% include requirement/MUST id="android-async-sync-client" %} provide a sync client containing all non-streaming service methods.
 
-{% include requirement/MAY id="android-async-sync-client-streaming" %} include streaming service methods in the sync client if it makes sense in the context of the service.
-
 {% include requirement/MUST id="android-async-client" %} provide an async client containing all service methods.
 
 {% include requirement/MUST id="android-service-client-name" %} name service client types with the _Client_ suffix (e.g. `ConfigurationClient`) for sync clients. Async clients should use the _AsyncClient_ suffix (e.g. `ConfigurationAsyncClient`).
