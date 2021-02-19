@@ -80,7 +80,6 @@
         $(window).bind("load", function () {
             let requeriments = $('.requirement');
             requeriments.each(function (index, element) {
-                console.log(index);
                 $(element).css("z-index", requeriments.length - index);
             });
         });
