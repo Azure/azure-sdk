@@ -118,19 +118,7 @@ A manual migration test should be developed to ensure that payloads and data fed
 
 ### 5) Updating package manager references
 
-When releasing any new version of an SDKs follow best practices of the language specific package managers to ensure that this new version's visibility is elevated and recommended by default to the users. Here's the guidance per language.
-
-#### .NET
-TBD
-
-#### Java
-TBD
-
-#### TS/JS
-TBD
-
-#### Python
-TBD
+When releasing any new version of an SDK follow best practices of the language specific package managers to ensure that this new version's visibility is elevated and recommended by default to the users.
 
 ## Terms
 
