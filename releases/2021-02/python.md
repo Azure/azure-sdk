@@ -10,7 +10,7 @@ The Azure SDK team is pleased to make available the February 2021 client library
 
 #### GA
 
-- _Add packages_
+- Search
 
 #### Updates
 
@@ -18,10 +18,14 @@ The Azure SDK team is pleased to make available the February 2021 client library
 
 #### Beta
 
+- Metrics Advisor
+- Synapse
 - Form Recognizer
 - Text Analytics
-- Azure Communication Identity 1.0.0b4
-- Azure Communication Chat 1.0.0b4
+- Azure Communication Identity
+- Azure Communication Chat
+- Azure EventGrid
+- Azure Monitor Opentelemetry Exporter
 
 ## Installation Instructions
 
@@ -29,10 +33,16 @@ To install the latest beta version of the packages, copy and paste the following
 
 ```bash
 pip install azure-eventhub
+pip install azure-ai-metricsadvisor --pre
+pip install azure-synapse-managedprivateendpoints
+pip install azure-synapse-accesscontrol
+pip install azure-search-documents
 pip install azure-ai-formrecognizer --pre
 pip install azure-ai-textanalytics --pre
 pip install azure-communication-identity
 pip install --pre azure-communication-chat
+pip install azure-eventgrid --pre
+pip install azure-monitor-opentelemetry-exporter --pre
 ```
 
 ## Feedback
@@ -41,7 +51,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/CHANGELOG.md#530-2021-02-08)
+### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-eventhub_5.3.0/sdk/eventhub/azure-eventhub/CHANGELOG.md#530-2021-02-08)
 
 - Added a `parse_connection_string` method which parses a connection string into a properties bag, `EventHubConnectionStringProperties`, containing its component parts.
 - The constructor and `from_connection_string` method of `EventHubConsumerClient` and `EventHubProducerClient` now accept two new optional arguments:
@@ -51,13 +61,40 @@ and is useful when your network does not allow communicating to the standard Eve
 the identity of the connection endpoint.
 - Updated uAMQP dependency to 1.2.14.
 
-### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#310b3-2021-02-09)
+### Metrics Advisor [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-metricsadvisor_1.0.0b3/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md#100b3-2021-02-09)
+
+#### New Features
+
+- AAD authentication support
+- `MetricsAdvisorKeyCredential` support for rotating the subscription and api keys to update long-lived clients
+
+#### Breaking Changes
+
+- `list_dimension_values` has been renamed to `list_anomaly_dimension_values`
+- Update methods now return None
+- Updated DataFeed.metric_ids to be a dict rather than a list
+
+### Synapse
+
+#### Access Control [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-synapse-accesscontrol_0.5.0/sdk/synapse/azure-synapse-accesscontrol/CHANGELOG.md#050-2021-02-09)
+
+- Update to API version 2020-08-01
+
+### Search [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-search-documents_11.1.0/sdk/search/azure-search-documents/CHANGELOG.md#1110-2021-02-10)
+
+#### Breaking Changes
+
+- `IndexDocumentsBatch` does not support `enqueue_action` any longer. `enqueue_actions` takes a single action too.
+- `max_retries` of `SearchIndexingBufferedSender` is renamed to `max_retries_per_action`.
+- `SearchClient` does not support `get_search_indexing_buffered_sender` any longer
+
+### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.1.0b3/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#310b3-2021-02-09)
 
 - `Appearance` is renamed to `TextAppearance`.
 - `Style` is renamed to `TextStyle`.
 - Client property `api_version` is no longer exposed. Pass keyword argument `api_version` into the client to select the API version.
 
-### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#510b5-2021-02-10)
+### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-textanalytics_5.1.0b5/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#510b5-2021-02-10)
 
 - Redesigned `begin_analyze` and renamed it to `begin_analyze_batch_actions`. Now takes as input a list of actions and documents, and returns the outputted
 actions results in the same order.
@@ -97,6 +134,20 @@ added property `related_entities` for each entity returned from this call.
 - Uses `CommunicationUserIdentifier` and `CommunicationIdentifier` in place of `CommunicationUser`, and `CommunicationTokenCredential` instead of `CommunicationUserCredential`.
 - Removed priority field (ChatMessage.Priority).
 - Renamed PhoneNumber to PhoneNumberIdentifier.
+
+### Azure Eventgrid 2.0.0b5 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-eventgrid_2.0.0b5/sdk/eventgrid/azure-eventgrid/CHANGELOG.md#200b5-2021-02-10)
+
+- `EventGridSharedAccessSignatureCredential` is deprecated in favor of `AzureSasCredential`.
+- `azure.eventgrid.models` namespace along with all the models in it are now removed. `azure.eventgrid.SystemEventNames` can be used to get the event model type mapping.
+- `topic_hostname` is renamed to `endpoint` in the `EventGridPublisherClient`.
+- `azure.eventgrid.generate_shared_access_signature` method is now renamed to `generate_sas`.
+- `EventGridConsumer`is now removed. Please see the samples to see how events can be deserialized.
+- `CustomEvent` model is removed. Dictionaries must be used to send a custom schema.
+
+### Azure Monitor Opentelemetry Exporter 1.0.0b3 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-monitor-opentelemetry-exporter_1.0.0b3/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md#100b3-2021-02-11)
+
+- The package `azure-opentelemetry-exporter-azuremonitor` has been renamed to `azure-monitor-opentelemetry-exporter`
+- Removed `ExporterOptions` to favor keyword only args.
 
 ## Latest Releases
 

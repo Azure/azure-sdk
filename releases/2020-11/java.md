@@ -441,7 +441,7 @@ Supported locales include support EN-US, EN-AU, EN-CA, EN-GB, EN-IN.
 - Renamed Feedback api's from `createMetricFeedback`, `getMetricFeedback` and `listMetricFeedbacks` 
 to `addFeedback`, `getFeedback` and `listFeedback` respectively.
 
-### Azure Communication Administration 1.0.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-administration/CHANGELOG.md#100-beta3-2020-11-16)
+### Azure Communication Administration 1.0.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-administration_1.0.0-beta.3/sdk/communication/azure-communication-administration/CHANGELOG.md#100-beta3-2020-11-16)
 
 #### New Features
 

@@ -7,7 +7,7 @@
 [rest-lro]: https://github.com/microsoft/api-guidelines/blob/vNext/Guidelines.md#13-long-running-operations
 
 [general-guidelines]: {{ site.baseurl }}{% link docs/general/introduction.md %}
-[android-guidelines]: {{ site.baseurl }}{% link docs/android/introduction.md %}
+[android-guidelines]: {{ site.baseurl }}{% link docs/android/design.md %}
 [clang-guidelines]: {{ site.baseurl }}{% link docs/clang/design.md %}
 [cpp-guidelines]: {{ site.baseurl }}{% link docs/cpp/introduction.md %}
 [dotnet-guidelines]: {{ site.baseurl }}{% link docs/dotnet/introduction.md %}
