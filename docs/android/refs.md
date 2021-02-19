@@ -7,6 +7,8 @@
 [Azure Monitor]: https://azure.microsoft.com/services/monitor/
 [azure-sdk-for-android/parent/pom.xml]: https://github.com/Azure/azure-sdk-for-android/blob/master/parent/pom.xml
 [azure/azure-sdk-for-android]: https://github.com/Azure/azure-sdk-for-android
+[logging-general-guidelines]: https://azure.github.io/azure-sdk/general_implementation.html#logging
+[Azure Core]: https://github.com/Azure/azure-sdk-for-android/tree/master/sdk/core/azure-core
 [1]: https://www.youtube.com/watch?v=PAAkCSZUG1c&t=9m28s
 
 <!-- Example Links -->

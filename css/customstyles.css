@@ -11,11 +11,16 @@ body {
 .requirement {
   /* margin-left: -34px; */
   margin-right: 8px;
+  position: relative;
 }
 
 .requirement:hover,
 .requirement:active {
   text-decoration: none;
+}
+.requirement:focus {
+  /*avoid showing a border over the icon including the padding*/
+  outline: none !important;
 }
 
 .bs-callout {
@@ -99,7 +104,8 @@ h3[id],
 h4[id],
 h5[id],
 h6[id],
-dt[id] {
+dt[id],
+.requirement {
   padding-top: 60px;
   margin-top: -40px;
 }
