@@ -297,21 +297,9 @@ function RefreshItems()
           continue
         }
 
-        $pkgWI = FindPackageWorkItem $pkgLang $pkgName $verMajorMinor -outputCommand $false
-        
-        if (!$pkgWI) 
-        {
-          # Copy the assignedto from the latest version if one exists
-          $latestVersionItem = FindLatestPackageWorkItem -lang $pkgLang -packageName $pkgName -outputCommand $false
-          $assignedTo = $null
-          if ($latestVersionItem -and $latestVersionItem.fields["System.AssignedTo"]) {
-            $assignedTo = $latestVersionItem.fields["System.AssignedTo"]["uniqueName"]
-          }
-          
-          $pkgWI = CreateOrUpdatePackageWorkItem (Get-LanguageName $pkgLang) $verInfo.PackageInfo $verMajorMinor -assignedTo $assignedTo
-          Write-Verbose "[$($pkgWI.id)]$pkgLang - $pkgName ($verMajorMinor)"
-          UpdateShippedPackageVersions $pkgWI $verInfo.Versions
-        }
+        $pkgWI = FindOrCreateClonePackageWorkItem $pkgLang $pkgName $verMajorMinor -outputCommand $false
+        Write-Verbose "[$($pkgWI.id)]$pkgLang - $pkgName ($verMajorMinor)"
+        UpdateShippedPackageVersions $pkgWI $verInfo.Versions
       }
     }
   }
