@@ -255,7 +255,7 @@ Thank you to our developer community members who helped to make the Service Bus 
 ### Azure Storage Blobs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md#1290-beta1-2021-02-09)
 
 #### Key Bug Fixes
-- Fixed bug where `BlobBaseClient.CanGenerateSasUri`, `BlobContainerClient.CanGenerateSasUri`, `BlobServiceClient.CanGenerateSasUri` were mockable
+- Fixed bug where `BlobBaseClient.CanGenerateSasUri`, `BlobContainerClient.CanGenerateSasUri`, `BlobServiceClient.CanGenerateSasUri` were not mockable
 
 ### Azure Storage Blobs Batch [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md#1260-beta1-2021-02-09)
 
@@ -273,12 +273,12 @@ Thank you to our developer community members who helped to make the Service Bus 
 - Added support for listing deleted file systems and restoring deleted file systems (available in storage service version 2020-06-12 and newer).
 
 #### Key Bug Fixes
-- Fixed bug where `DataLakeFileSystemClient.CanGenerateSasUri`, `DataLakeDirectoryClient.CanGenerateSasUri`, `DataLakeFileClient.CanGenerateSasUri`, `DataLakePathClient.CanGenerateSasUri`, `DataLakeServiceClient.CanGenerateSasUri` were mockable
+- Fixed bug where `DataLakeFileSystemClient.CanGenerateSasUri`, `DataLakeDirectoryClient.CanGenerateSasUri`, `DataLakeFileClient.CanGenerateSasUri`, `DataLakePathClient.CanGenerateSasUri`, `DataLakeServiceClient.CanGenerateSasUri` were not mockable
 
 ### Azure Storage Files Shares [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md#1270-beta1-2021-02-09)
 
 #### Key Bug Fixes
-- - Fixed bug where `ShareFileClient.CanGenerateSasUri`, `ShareDirectoryClient.CanGenerateSasUri`, `ShareClient.CanGenerateSasUri`, `ShareServiceClient.CanGenerateSasUri` were mockable
+- - Fixed bug where `ShareFileClient.CanGenerateSasUri`, `ShareDirectoryClient.CanGenerateSasUri`, `ShareClient.CanGenerateSasUri`, `ShareServiceClient.CanGenerateSasUri` were not mockable
 
 ### Azure Storage Queues [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Queues/CHANGELOG.md#1270-beta1-2021-02-09)
 
@@ -286,7 +286,7 @@ Thank you to our developer community members who helped to make the Service Bus 
 - Added `MessageDecodingFailed` event to `QueueClientOptions`.
 
 #### Key Bug Fixes
-- Fixed bug where `QueueClient.CanGenerateSasUri` and `QueueServiceClient.CanGenerateSasUri` were mockable.
+- Fixed bug where `QueueClient.CanGenerateSasUri` and `QueueServiceClient.CanGenerateSasUri` were not mockable.
 
 ## Latest Releases
 
