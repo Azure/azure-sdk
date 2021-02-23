@@ -25,6 +25,7 @@ The Azure SDK team is pleased to announce our February 2021 client library relea
 - Text Analytics
 - Event Grid
 - Key Vault
+- Storage
 
 ## Installation Instructions
 
@@ -52,6 +53,14 @@ $> dotnet add package Azure.Security.KeyVault.Administration --version 4.0.0-bet
 $> dotnet add package Azure.Security.KeyVault.Certificates --version 4.2.0-beta.4
 $> dotnet add package Azure.Security.KeyVault.Keys --version 4.2.0-beta.4
 $> dotnet add package Azure.Security.KeyVault.Secrets --version 4.2.0-beta.4
+
+$> dotnet add package Azure.Storage.Blobs --version 12.9.0-beta.1
+$> dotnet add package Azure.Storage.Blobs.Batch --version 12.6.0-beta.1
+$> dotnet add package Azure.Storage.Blobs.ChangeFeed --version 12.0.0-preview.9
+$> dotnet add package Azure.Storage.Common --version 12.8.0-beta.1
+$> dotnet add package Azure.Storage.Files.DataLake --version 12.7.0-beta.1
+$> dotnet add package Azure.Storage.Files.Shares --version 12.7.0-beta.1
+$> dotnet add package Azure.Storage.Queues --version 12.7.0-beta.1
 ```
 
 ## Feedback
@@ -242,6 +251,42 @@ Thank you to our developer community members who helped to make the Service Bus 
 #### New features
 
 - Secure Key Release has been removed from this release.
+
+### Azure Storage Blobs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md#1290-beta1-2021-02-09)
+
+#### Key Bug Fixes
+- Fixed bug where `BlobBaseClient.CanGenerateSasUri`, `BlobContainerClient.CanGenerateSasUri`, `BlobServiceClient.CanGenerateSasUri` were not mockable
+
+### Azure Storage Blobs Batch [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md#1260-beta1-2021-02-09)
+
+#### New Features
+- Added support for Batch Scoping subrequests to a specific container (`BlobBatchClient(BlobContainerClient)`, `BlobContainerClient.GetBlobBatchClient()`) (available in storage service version 2020-06-12 and newer).
+
+### Azure Storage Common [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Common/CHANGELOG.md#1280-beta1-2021-02-09)
+
+#### Key Bug Fixes
+- Aligned storage URL parsing with other platforms.
+
+### Azure Storage Files DataLake [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md#1270-beta1-2021-02-09)
+
+#### New Features
+- Added support for listing deleted file systems and restoring deleted file systems (available in storage service version 2020-06-12 and newer).
+
+#### Key Bug Fixes
+- Fixed bug where `DataLakeFileSystemClient.CanGenerateSasUri`, `DataLakeDirectoryClient.CanGenerateSasUri`, `DataLakeFileClient.CanGenerateSasUri`, `DataLakePathClient.CanGenerateSasUri`, `DataLakeServiceClient.CanGenerateSasUri` were not mockable
+
+### Azure Storage Files Shares [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md#1270-beta1-2021-02-09)
+
+#### Key Bug Fixes
+- - Fixed bug where `ShareFileClient.CanGenerateSasUri`, `ShareDirectoryClient.CanGenerateSasUri`, `ShareClient.CanGenerateSasUri`, `ShareServiceClient.CanGenerateSasUri` were not mockable
+
+### Azure Storage Queues [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Queues/CHANGELOG.md#1270-beta1-2021-02-09)
+
+#### New Features
+- Added `MessageDecodingFailed` event to `QueueClientOptions`.
+
+#### Key Bug Fixes
+- Fixed bug where `QueueClient.CanGenerateSasUri` and `QueueServiceClient.CanGenerateSasUri` were not mockable.
 
 ## Latest Releases
 
