@@ -68,3 +68,25 @@ function Set-PackageListForLanguage([string]$lang, [Array]$packageList)
   $sortedPackages = $new + $other
   $sortedPackages | ConvertTo-CSV -NoTypeInformation -UseQuotes Always | Out-File $packagelistFile -encoding ascii
 }
+
+function Get-CombinedPackageList($pkgFilter)
+{
+  $allPackages = @()
+  foreach ($lang in $languageNameMapping.Keys)
+  {
+    $mappedLang = $languageNameMapping[$lang]
+    $clientPkgs, $_ = Get-PackageListForLanguageSplit $lang
+
+    foreach ($pkg in $clientPkgs) {
+      if ($pkgFilter -and $pkg.Package -notmatch $pkgFilter) { continue }
+
+      $pkg | Add-Member -NotePropertyName "Language" -NotePropertyValue $mappedLang
+      $pkg | Add-Member -NotePropertyName "PlannedVersion" -NotePropertyValue ""
+      $pkg | Add-Member -NotePropertyName "PlannedDate" -NotePropertyValue ""
+
+      $allPackages += $pkg
+    }
+  }
+
+  return $allPackages | Select-Object "Language", "Package", "DisplayName", "ServiceName", "PlannedVersion", "PlannedDate", "RepoPath", "Type", "New" | Sort-Object "Language", "Package"
+}
