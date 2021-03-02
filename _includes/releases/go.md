@@ -6,6 +6,8 @@
 
 {{ description | replace: 'PackageCount', packages.size }}
 
+{% include releases/tabs.md lang="go" active=include.type %}
+
 {% include releases/variables/go.md %}
 
 {% include releases/pkgtable.md %}
