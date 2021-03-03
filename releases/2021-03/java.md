@@ -1007,7 +1007,6 @@ This is a Public Preview version, so breaking changes are possible in subsequent
 [read_me]: https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/remoterendering/azure-mixedreality-remoterendering/README.md
 [samples]: https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/remoterendering/azure-mixedreality-remoterendering/src/samples/java/com/azure/mixedreality/remoterendering
 
-
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
 ## Need help
