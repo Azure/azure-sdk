@@ -42,11 +42,20 @@ steps:
   - pwsh: |
       if (!(Test-Path (Join-Path $(System.DefaultWorkingDirectory) azure-sdk eng releases $(ReleasePeriod))))
       {
-        Write-Host "##vso[task.setvariable variable=GenerateReleaseStructure]True"
+        Write-Host "##vso[task.setvariable variable=CopyReleaseTemplates]True"
       }
-    displayName: Decided if to Generate Release Structure
 
-  - ${{ if eq(variables['GenerateReleaseStructure'], 'True') }}:
+      # Publish release on package publish day of every month
+      $currentDate = Get-Date
+      $firstDayOfMonth = Get-Date $currentDate -Day 1
+      if ($currentDate.DayOfWeek -eq 2 -and (($currentDate - $firstDayOfMonth).Days -le 7))
+      {
+        Write-Host "##vso[task.setvariable variable=PublishRelease]True"
+      }
+      $MonthlyReleaseDate = 
+    displayName: Decided if and how to Generate Release Structure
+
+  - ${{ if eq(variables['CopyReleaseTemplates'], 'True') }}:
     - task: PowerShell@2
       displayName: 'Generate Release Structure'
       inputs:
@@ -56,39 +65,61 @@ steps:
           -ReleaseDateString "$(ReleasePeriod)"
           -PublishRelease $False
 
-  - ${{ each repo in parameters.Repos }}:
-    - checkout: self
-
-    - pwsh: |
-        git clone --branch ${{ parameters.BaseBranchName }} "https://github.com/azure/${{ repo.key }}"
-      displayName: Clone ${{ repo.key }} repo
-
-    - pwsh: |
-        $ErrorActionPreference = "Continue"
-        git checkout "origin/${{ parameters.PrBranchName }}_${{ repo.value.Language }}_$(ReleasePeriod)" 2>&1 | Out-Null
-        $LASTEXITCODE = 0 # This ignores any error from git checkout
-        git status
-      displayName: Checkout Previous PRBranch if it exist.
-      workingDirectory: $(System.DefaultWorkingDirectory)/azure-sdk
-
+  - ${{ if eq(variables['PublishRelease'], 'True') }}:
     - task: PowerShell@2
-      displayName: 'Generate ReleaseNotes for the Release Period'
+      displayName: 'Generate Release Structure'
       inputs:
         pwsh: true
-        workingDirectory: $(System.DefaultWorkingDirectory)
-        filePath: $(System.DefaultWorkingDirectory)/azure-sdk/eng/scripts/Generate-ReleaseNotes.ps1
+        filePath: $(System.DefaultWorkingDirectory)/azure-sdk/eng/scripts/Generate-Release-Structure.ps1
         arguments: > 
-          -releasePeriod $(ReleasePeriod)
-          -languageRepoDirectory $(System.DefaultWorkingDirectory)/${{ repo.key }}
-          -releaseDirectory $(System.DefaultWorkingDirectory)/azure-sdk/releases
-          -releaseFileName ${{ repo.value.Language }}
+          -ReleaseDateString "$(ReleasePeriod)"
+          -PublishRelease $True
 
+  - ${{ if or(eq(variables['CopyReleaseTemplates'], 'True'), eq(variables['PublishRelease'], 'True') }}:
     - template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
-      parameters:
-        RepoName: azure-sdk
-        PROwner: Azure
-        PRBranchName: '${{ parameters.PrBranchName }}_${{ repo.value.Language }}_$(ReleasePeriod)'
-        CommitMsg: "Create or Update Release Notes for ${{ repo.value.Language }} $(ReleasePeriod) release"
-        PRTitle: "Create or Update Release Notes for ${{ repo.value.Language }} $(ReleasePeriod) release"
-        WorkingDirectory: $(System.DefaultWorkingDirectory)/azure-sdk
-        ScriptDirectory: $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts
+    parameters:
+      RepoName: azure-sdk
+      PRBranchName: AddReleaseStructure
+      CommitMsg: "Add new release folder structure"
+      PRTitle: "Add new release folder structure"
+      PushArgs: -f
+      WorkingDirectory: $(System.DefaultWorkingDirectory)/azure-sdk
+      ScriptDirectory: $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts
+
+  - ${{ if and(ne(variables['CopyReleaseTemplates'], 'True'), ne(variables['PublishRelease'], 'True') }}:
+    - ${{ each repo in parameters.Repos }}:
+      - checkout: self
+
+      - pwsh: |
+          git clone --branch ${{ parameters.BaseBranchName }} "https://github.com/azure/${{ repo.key }}"
+        displayName: Clone ${{ repo.key }} repo
+
+      - pwsh: |
+          $ErrorActionPreference = "Continue"
+          git checkout "origin/${{ parameters.PrBranchName }}_${{ repo.value.Language }}_$(ReleasePeriod)" 2>&1 | Out-Null
+          $LASTEXITCODE = 0 # This ignores any error from git checkout
+          git status
+        displayName: Checkout Previous PRBranch if it exist.
+        workingDirectory: $(System.DefaultWorkingDirectory)/azure-sdk
+
+      - task: PowerShell@2
+        displayName: 'Generate ReleaseNotes for the Release Period'
+        inputs:
+          pwsh: true
+          workingDirectory: $(System.DefaultWorkingDirectory)
+          filePath: $(System.DefaultWorkingDirectory)/azure-sdk/eng/scripts/Generate-ReleaseNotes.ps1
+          arguments: > 
+            -releasePeriod $(ReleasePeriod)
+            -languageRepoDirectory $(System.DefaultWorkingDirectory)/${{ repo.key }}
+            -releaseDirectory $(System.DefaultWorkingDirectory)/azure-sdk/releases
+            -releaseFileName ${{ repo.value.Language }}
+
+      - template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
+        parameters:
+          RepoName: azure-sdk
+          PROwner: Azure
+          PRBranchName: '${{ parameters.PrBranchName }}_${{ repo.value.Language }}_$(ReleasePeriod)'
+          CommitMsg: "Create or Update Release Notes for ${{ repo.value.Language }} $(ReleasePeriod) release"
+          PRTitle: "Create or Update Release Notes for ${{ repo.value.Language }} $(ReleasePeriod) release"
+          WorkingDirectory: $(System.DefaultWorkingDirectory)/azure-sdk
+          ScriptDirectory: $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts
