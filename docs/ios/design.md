@@ -732,15 +732,82 @@ Only support Objective-C and Swift 4 if you have a business justification for do
 
 #### Swift Package Manager
 
-> TODO
+[Swift Package manager link](https://swift.org/package-manager/) is the offical distribution channel for Swift packages created and endorsed by Apple. Accordingly, this is the primary distribution channel for the Azure SDK for iOS.
+
+{% include requirement/MUST id="ios-spm-packageswift" %} support Swift Package Manager release by registering the module in the `Package.swift` file located at the root of the repository.
+
+{% include requirement/MUST id="ios-spm-target" %} include a target in the `Package.swift` file that matches the names of the module.
+
+{% include requirement/MUST id="ios-spm-test-target" %} include a test target in the `Package.swift` file that matches the names of the module with the `Tests` suffix.
+
+For example, to register the "AzureCatHerding" service:
+
+{% highlight swift %}
+let package = Package(
+    name: "AzureSDK",
+    platforms: [...],
+    products: [
+        ...,
+        .library(name: "AzureCatHerding", targets: ["AzureCatHerding"])
+    ],
+    dependencies: [...],
+    targets: [
+        ...,
+        .target(
+            name: "AzureCatHerding",
+            dependencies: [],
+            path: "sdk/catherding/AzureCatHerding",
+            exclude: ["Source/Supporting Files"],
+            sources: ["Source"]
+        ),
+        .testTarget(
+            name: "AzureCatHerdingTests",
+            dependencies: ["AzureCatHerding"],
+            path: "sdk/catherding/AzureCatHerding",
+            exclude: [
+                "Tests/Info.plist",
+                ...
+            ],
+            sources: ["Tests"]
+        )
+    ],
+    swiftLanguageVersions: [...]
+)
+{% endhighlight %}
+
+{% include requirement/MUST id="ios-spm-private-preview" %} provide private previews via Swift Package Manager.
+
+{% include requirement/MAY id="ios-spm-binary" %} publish a module as a precompiled binary framework rather than source. This is appropriate for Objective-C-based libraries or closed-source libraries.
+
+The following apply when publishing a pre-compiled framework:
+
+{% include requirement/MUST id="ios-spm-xcframework" %} publish the framework in `.xcframework` format, as this is the only format that is compatbile with XCode version 12.3+.
+
+{% include requirement/MAY id="ios-spm-framework" %} also publish the framework in `.framework` format for compatibility with older versions of XCode or iOS, if there is business justification for doing so.
 
 #### CocoaPods
 
-> TODO
+[CocoaPods](https://cocoapods.org/) is a popular, community-supported dependency manager for Swift and Objective-C libraries.
+
+{% include requirement/MUST id="ios-cocoapods" %} support CocoaPods release by including a podspec file at the root of the repository.
+
+{% include requirement/MUST id="ios-cocoapods-json" %} specify the podspec in JSON format.
+
+{% include requirement/MUST id="ios-cocoapods-podspec-name" %} name the podspec according to the following format: `<ModuleName>.podspec.json`.
+
+{% include requirement/MUSTNOT id="ios-cocoapods-multiple-podspec" %} create multiple podspecs for the same logical package.
+
+{% include requirement/MUSTNOT id="ios-cocoapods-support-scenarios" %} complicate the podspec to support customer support scenarios for older versions of XCode or iOS. Instead, customers should be directed to use Carthage.
+
+{% include requirement/MAY id="ios-cocoapods-private-preview" %} release private preview libraries by publishing private podspecs.
 
 #### Carthage
 
-> TODO
+[Carthage](https://github.com/Carthage/Carthage) is a community-supported dependency manager for Swift and Objective-C that builds binary frameworks without modifying project structure. Unlike CocoaPods and Swift Package Manager, Carthage requires no special metadata files.
+
+{% include requirement/SHOULD id="ios-carthage-examples" %} include examples in the libary's README.md file for directions on how to integrate the library using Carthage.
+
+{% include requirement/SHOULD id="ios-carthage-support-scenarios" %} provide specific guidance for customer support scenarios where business justifcation exists. An example would be supporting older versions of iOS or XCode that are not possible with Swift Package Manager or CocoaPods.
 
 #### Service-Specific Common Libraries
 
@@ -830,21 +897,20 @@ iOS supports the development of platform-specific native code in C++.  These can
 
 ### Documentation
 
-{% include requirement/MUST id="ios-jazzy-docs" %} ensure that anybody can clone the Azure SDK repo and execute `jazzy javadoc:javadoc` to generate the full and complete JavaDoc output for the code, without any need for additional processing steps.
+{% include requirement/MUST id="ios-jazzy-docs" %} ensure that anybody can clone the Azure SDK repo and execute `jazzy <library>` to generate the full and complete docs for the code, without any need for additional processing steps.
 
-{% include requirement/MUST id="java-javadoc-full-docs" %} include descriptive text of the method, as well as all parameters, the returned value (if any), all checked exceptions, as well as all unchecked exceptions. Failing to document unchecked exceptions means that users do not have any indication of how they can handle exceptional circumstnaces.
+{% include requirement/MUST id="ios-jazzy-full-docs" %} include descriptive text of the method, as well as all parameters, the returned value (if any), and error thrown.
 
-{% include requirement/MUST id="java-javadoc-samples" %} include code samples in all class-level JavaDoc, and in relevant method-level JavaDoc.
+{% include requirement/MUST id="ios-jazzy-samples" %} include code samples in all class-level docs, and in relevant method-level docs.
 
-{% include requirement/MUSTNOT id="java-javadoc-hard-coding" %} hard-code the sample within the JavaDoc (where it may become stale). Put code samples in `/src/samples/java` and use the available tooling to reference them.
+{% include requirement/MUSTNOT id="ios-jazzy-hard-coding" %} hard-code the sample within the doc (where it may become stale). Put code samples in `/src/samples/ios` and use the available tooling to reference them.
 
-{% include requirement/MUST id="java-javadoc-naming-samples" %} follow the naming convention outlined below for naming samples tags:
+{% include requirement/MUST id="ios-jazzy-naming-samples" %} follow the naming convention outlined below for naming samples tags:
 
- * If a new instance of the class is created through build() method of a builder or through constructor: `<packagename>.<classname>.instantiation`
+ * If a new instance of the class is created through `init()` constructor: `<packagename>.<classname>.instantiation`
  * For other methods in the class: `<packagename>.<classname>.<methodName>`
  * For overloaded methods, or methods with arguments: `<packagename>.<classname>.<methodName>#<argType1>-<argType2>`
  * Camel casing for the method name and argument types is valid, but not required.
-> TODO
 
 ## Repository Guidelines
 
