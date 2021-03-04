@@ -67,7 +67,6 @@ If you have a bug or feature request for one of the libraries, please [file an i
 - ExampleId attribute in label APIs could not hold int values
 - ArmTokenParameter parameter name had a typo
 
-
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
 ## Latest Releases
