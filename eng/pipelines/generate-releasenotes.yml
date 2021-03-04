@@ -39,6 +39,23 @@ steps:
       Write-Host "##vso[task.setvariable variable=ReleasePeriod]$releasePeriod"
     displayName: Set Release Period Value
 
+  - pwsh: |
+      if (!(Test-Path (Join-Path $(System.DefaultWorkingDirectory) azure-sdk eng releases $(ReleasePeriod))))
+      {
+        Write-Host "##vso[task.setvariable variable=GenerateReleaseStructure]True"
+      }
+    displayName: Decided if to Generate Release Structure
+
+  - ${{ if eq(variables['GenerateReleaseStructure'], 'True') }}:
+    - task: PowerShell@2
+      displayName: 'Generate Release Structure'
+      inputs:
+        pwsh: true
+        filePath: $(System.DefaultWorkingDirectory)/azure-sdk/eng/scripts/Generate-Release-Structure.ps1
+        arguments: > 
+          -ReleaseDateString "$(ReleasePeriod)"
+          -PublishRelease $False
+
   - ${{ each repo in parameters.Repos }}:
     - checkout: self
 
