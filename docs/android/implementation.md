@@ -23,10 +23,6 @@ CheckStyle checks ensure that classes within an `implementation` package aren’
 
 {% include requirement/MUST id="java-async-blocking" %} include blocking calls inside async client library code.
 
-#### Annotations
-
-> TODO: Determine which client and method annotations will be supported.
-
 ##### Using the HTTP Pipeline
 
 The Azure SDK team has provided an [Azure Core] library that contains common mechanisms for cross cutting concerns such as configuration and doing HTTP requests.
@@ -45,6 +41,38 @@ The HTTP pipeline consists of a HTTP transport that is wrapped by multiple polic
 - Logging
 
 {% include requirement/SHOULD id="ios-requests-use-azure-core-impl" %} use the policy implementations in Azure Core whenever possible.  Do not try to "write your own" policy unless it is doing something unique to your service. If you need another option to an existing policy, engage with the [Architecture Board] to add the option.
+
+#### Annotations
+
+Include the following annotations on the service client class. For example, this code sample shows a sample class demonstrating the use of these two annotations:
+
+```java
+@ServiceClient(builder = ConfigurationAsyncClientBuilder.class, isAsync = true, service = ConfigurationService.class)
+public final class ConfigurationAsyncClient {
+    @ServiceMethod(returns = ReturnType.COLLECTION)
+    public Mono<Response<ConfigurationSetting>> addSetting(String key, String value) {
+        ...
+    }
+}
+```
+
+| Annotation | Location | Description |
+|:-----------|:---------|:------------|
+| `@ServiceClient` | Service Client | Specifies the builder responsible for instantiating the service client, whether the API is asynchronous, and a reference back to the service interface (the interface annotated with `@ServiceInterface`). |
+| `@ServiceMethod` | Service Method | Placed on all service client methods that do network operations. |
+
+#### Service Client Builder
+
+##### Annotations
+
+The `@ServiceClientBuilder` annotation should be placed on any class that is responsible for instantiating service clients (that is, instantiating classes annotated with `@ServiceClient`). For example:
+
+```java
+@ServiceClientBuilder(serviceClients = {ConfigurationClient.class, ConfigurationAsyncClient.class})
+public final class ConfigurationClientBuilder { ... }
+```
+
+This builder states that it can build instances of `ConfigurationClient` and `ConfigurationAsyncClient`.
 
 ### Supporting Types
 
@@ -69,7 +97,7 @@ When configuring your client library, particular care must be taken to ensure th
 
 ### Logging
 
-Client libraries must support robust logging mechanisms so that the consumer can adequately diagnose issues with the method calls and quickly determine whether the issue is in the consumer code, client library code, or service.
+Client libraries must make use of the robust logging mechanisms in Azure Core, so that the consumers can adequately diagnose issues with method calls and quickly determine whether the issue is in the consumer code, client library code, or service.
 
 Request logging will be done automatically by the `HttpPipeline`. If a client library needs to add custom logging, follow the same guidelines and mechanisms as the pipeline logging mechanism. If a client library wants to do custom logging, the designer of the library must ensure that the logging mechanism is pluggable in the same way as the `HttpPipeline` logging policy.
 
@@ -79,25 +107,21 @@ Request logging will be done automatically by the `HttpPipeline`. If a client li
 
 {% include requirement/MUST id="android-logging-clientlogger" %} use the `ClientLogger` API provided within Azure Core as the sole logging API throughout all client libraries. Internally, `ClientLogger` logs to the Android Logcat buffer.
 
+> TODO: Determine if we want ClientLogger to wrap SLF4J like it's Java counterpart.
+
 {% include requirement/MUST id="android-logging-create-new" %} create a new instance of a `ClientLogger` per instance of all relevant classes. For example, the code below will create a `ClientLogger` instance for the `ConfigurationAsyncClient`:
 
 ```java
 public final class ConfigurationAsyncClient {
     private final ClientLogger logger = new ClientLogger(ConfigurationAsyncClient.class);
 
-    // example call to a service
-    public void setSetting(ConfigurationSetting setting) {
-        return service.setKey(serviceEndpoint, setting.key(), setting.label(), setting, getETagValue(setting.etag()), null, new CallbackWithHeader<ConfigurationSetting>() {
-            @Override
-            public void onSuccess(Response<ConfigurationSetting> response) {
-                logger.info("Set ConfigurationSetting - {}", response.value());
-            }
-
-            @Override
-            public void onError(Response<ConfigurationSetting> errorResponse) {
-                logger.warning("Failed to set ConfigurationSetting - {}", setting, errorResponse.getMessage());
-            }
-        });
+    // Example call to a service.
+    public Response<String> setSetting(ConfigurationSetting setting) {
+        Response<String> response = service.setKey(serviceEndpoint, setting.key(), setting.label(), setting, getETagValue(setting.etag()), null);
+        
+        logger.info("Set ConfigurationSetting - {}", response.value());
+        
+        return response;
     }
 }
 ```

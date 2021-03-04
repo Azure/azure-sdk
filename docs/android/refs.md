@@ -1,10 +1,9 @@
 <!-- Project Links -->
-[Project Reactor]: http://projectreactor.io
-[reactor-context]: https://projectreactor.io/docs/core/release/reference/#context
+[RetroFuture]: https://github.com/retrostreams/android-retrofuture
 [RxJava]: https://github.com/ReactiveX/RxJava
-[BlockHound]: https://github.com/reactor/BlockHound
-[OpenTelemetry]: https://opentelemetry.io
-[Azure Monitor]: https://azure.microsoft.com/services/monitor/
+[ThreeTenABP]: https://github.com/JakeWharton/ThreeTenABP
+[TypeDef]: https://developer.android.com/studio/write/annotations#enum-annotations
+[Java 8 supported features]: https://developer.android.com/studio/write/java8-support#supported_features
 [azure-sdk-for-android/parent/pom.xml]: https://github.com/Azure/azure-sdk-for-android/blob/master/parent/pom.xml
 [azure/azure-sdk-for-android]: https://github.com/Azure/azure-sdk-for-android
 [logging-general-guidelines]: https://azure.github.io/azure-sdk/general_implementation.html#logging
@@ -12,8 +11,7 @@
 [1]: https://www.youtube.com/watch?v=PAAkCSZUG1c&t=9m28s
 
 <!-- Example Links -->
-[ConfigurationClient class]: https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/appconfiguration/azure-data-appconfiguration/src/main/java/com/azure/data/appconfiguration/ConfigurationClient.java
-[ConfigurationAsyncClient class]: https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/appconfiguration/azure-data-appconfiguration/src/main/java/com/azure/data/appconfiguration/ConfigurationAsyncClient.java
+<!-- TODO: Add links for sync and async clients -->
 
 <!-- Intra-document references -->
 [separate service clients]: android_design.html#the-java-api
