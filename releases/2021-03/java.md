@@ -1007,7 +1007,6 @@ This is the initial stable release of Azure Mixed Reality Authentication library
 ### Resource Management - SQL 2.2.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-sql_2.2.0/sdk/resourcemanager/azure-resourcemanager-sql/CHANGELOG.md#220-2021-02-24)
 - Updated core dependency from resources
 
-
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
 ## Need help
