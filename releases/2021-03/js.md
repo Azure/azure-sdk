@@ -52,7 +52,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 ### Core - Abort Controller 1.0.3 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/abort-controller_1.0.3/sdk/core/@azure/abort-controller/CHANGELOG.md#103-2021-02-23)
 Support Typescript version < 3.6 by down-leveling the type definition files. ([PR 12793](https://github.com/Azure/azure-sdk-for-js/pull/12793))
 
-
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
 ## Latest Releases
