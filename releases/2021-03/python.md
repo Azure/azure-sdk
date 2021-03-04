@@ -17,6 +17,7 @@ azure-mgmt-deviceupdate:1.0.0b1
 azure-mgmt-datadog:1.0.0b3
 azure-keyvault-keys:4.4.0b1
 azure-keyvault-keys:4.4.0b2
+azure-mgmt-containerservice:15.0.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -29,6 +30,7 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Storage - Blobs
 - Resource Management - Resources
 - Resource Management - Cosmos DB
+- Resource Management - Container Service
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -60,6 +62,7 @@ $> pip install azure-mgmt-deviceupdate==1.0.0b1
 $> pip install azure-mgmt-datadog==1.0.0b3
 $> pip install azure-keyvault-keys==4.4.0b1
 $> pip install azure-keyvault-keys==4.4.0b2
+$> pip install azure-mgmt-containerservice==15.0.0
 
 ```
 
@@ -359,6 +362,36 @@ Key Vault, so users can easily access the key's `name`, `vault_url`, and `versio
 #### Fixed
 - API versions older than 7.2-preview no longer raise `ImportError` when
   performing async operations ([#16680](https://github.com/Azure/azure-sdk-for-python/pull/16680))
+
+### Resource Management - Container Service 15.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-containerservice_15.0.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md#1500-2021-03-03)
+**Features**
+
+  - Model ManagedClusterPropertiesAutoScalerProfile has a new parameter max_node_provision_time
+  - Model ManagedClusterPodIdentityProfile has a new parameter allow_network_plugin_kubenet
+  - Model KubeletConfig has a new parameter container_log_max_size_mb
+  - Model KubeletConfig has a new parameter pod_max_pids
+  - Model KubeletConfig has a new parameter container_log_max_files
+  - Model SysctlConfig has a new parameter net_core_rmem_default
+  - Model SysctlConfig has a new parameter net_core_wmem_default
+  - Model Components1Q1Og48SchemasManagedclusterAllof1 has a new parameter azure_portal_fqdn
+  - Model Components1Q1Og48SchemasManagedclusterAllof1 has a new parameter fqdn_subdomain
+  - Model ManagedCluster has a new parameter azure_portal_fqdn
+  - Model ManagedCluster has a new parameter fqdn_subdomain
+  - Model ManagedClusterAgentPoolProfile has a new parameter kubelet_disk_type
+  - Model ManagedClusterAgentPoolProfile has a new parameter enable_encryption_at_host
+  - Model ManagedClusterAgentPoolProfile has a new parameter node_public_ip_prefix_id
+  - Model ManagedClusterAgentPoolProfileProperties has a new parameter kubelet_disk_type
+  - Model ManagedClusterAgentPoolProfileProperties has a new parameter enable_encryption_at_host
+  - Model ManagedClusterAgentPoolProfileProperties has a new parameter node_public_ip_prefix_id
+  - Model AgentPool has a new parameter kubelet_disk_type
+  - Model AgentPool has a new parameter enable_encryption_at_host
+  - Model AgentPool has a new parameter node_public_ip_prefix_id
+  - Added operation group MaintenanceConfigurationsOperations
+
+**Breaking changes**
+
+  - Model SysctlConfig no longer has parameter net_ipv4_tcp_rmem
+  - Model SysctlConfig no longer has parameter net_ipv4_tcp_wmem
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
