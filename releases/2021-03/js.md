@@ -9,6 +9,7 @@ repository: azure/azure-sdk-for-js
 <!--
 @azure/identity:1.2.4-beta.1
 @azure/abort-controller:1.0.3
+@azure/abort-controller:1.0.4
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -20,6 +21,7 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 [pattern.ga]: # (- ${PackageFriendlyName})
 
 #### Updates
+- Core - Abort Controller
 - Core - Abort Controller
 
 [pattern.patch]: # (- ${PackageFriendlyName})
@@ -36,6 +38,7 @@ To install the packages, copy and paste the below into a terminal.
 ```bash
 $> npm install @azure/identity@1.2.4-beta.1
 $> npm install @azure/abort-controller@1.0.3
+$> npm install @azure/abort-controller@1.0.4
 
 ```
 
@@ -51,6 +54,9 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Core - Abort Controller 1.0.3 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/abort-controller_1.0.3/sdk/core/@azure/abort-controller/CHANGELOG.md#103-2021-02-23)
 Support Typescript version < 3.6 by down-leveling the type definition files. ([PR 12793](https://github.com/Azure/azure-sdk-for-js/pull/12793))
+### Core - Abort Controller 1.0.4 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/abort-controller_1.0.4/sdk/core/@azure/abort-controller/CHANGELOG.md#104-2021-03-04)
+Fixes issue [13985](https://github.com/Azure/azure-sdk-for-js/issues/13985) where abort event listeners that removed themselves when invoked could prevent other event listeners from being invoked.
+
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
