@@ -393,7 +393,6 @@ Key Vault, so users can easily access the key's `name`, `vault_url`, and `versio
   - Model SysctlConfig no longer has parameter net_ipv4_tcp_rmem
   - Model SysctlConfig no longer has parameter net_ipv4_tcp_wmem
 
-
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
 ## Latest Releases
