@@ -62,7 +62,6 @@ steps:
         pwsh: true
         filePath: $(System.DefaultWorkingDirectory)/azure-sdk/eng/scripts/Generate-Release-Structure.ps1
         arguments: > 
-          -ReleaseDateString "$(ReleasePeriod)"
           -PublishRelease $False
 
   - ${{ if eq(variables['PublishRelease'], 'True') }}:
@@ -72,7 +71,6 @@ steps:
         pwsh: true
         filePath: $(System.DefaultWorkingDirectory)/azure-sdk/eng/scripts/Generate-Release-Structure.ps1
         arguments: > 
-          -ReleaseDateString "$(ReleasePeriod)"
           -PublishRelease $True
 
   - ${{ if or(eq(variables['CopyReleaseTemplates'], 'True'), eq(variables['PublishRelease'], 'True') }}:

@@ -23,6 +23,12 @@ $CsvMetaData = Get-CSVMetadata
 
 $releaseFilePath = (Join-Path $ReleaseDirectory $releasePeriod "${releaseFileName}.md")
 LogDebug "Release File Path [ $releaseFilePath ]"
+
+if (!(Test-Path $releaseFilePath))
+{
+    $PSScriptRoot\Generate-Release-Structure.ps1
+}
+
 $existingReleaseContent = Get-Content $releaseFilePath
 
 
