@@ -12,19 +12,21 @@ param(
   [string]$packageDisplayName = $null,
   [string]$packageRepoPath = "NA",
   [string]$packageType = "client",
-  [string]$packageNewLibrary = "true"
+  [string]$packageNewLibrary = "true",
+  [string]$devops_pat = $env:DEVOPS_PAT
 )
+#Requires -Version 6.0
 Set-StrictMode -Version 3
 
-if (!(Get-Command az)) {
+if (!(Get-Command az -ErrorAction SilentlyContinue)) {
   Write-Host 'You must have the Azure CLI installed: https://aka.ms/azure-cli'
   exit 1
 }
 
 az extension show -n azure-devops > $null
 if (!$?){
-  Write-Host 'You must have the azure-devops extension run `az extension add --name azure-devops`'
-  exit 1
+  Write-Host 'Installing azure-devops extension'
+  az extension add --name azure-devops
 }
 
 . (Join-Path $PSScriptRoot SemVer.ps1)
@@ -104,4 +106,5 @@ if (!$workItem) {
 Write-Host "Marking item [$($workItem.id)]$($workItem.fields['System.Title']) as '$state' for '$releaseType'"
 $updatedWI = UpdatePackageWorkItemReleaseState -id $workItem.id -state "In Release" -releaseType $releaseType -outputCommand $false
 $updatedWI = UpdatePackageVersions $workItem -plannedVersions $plannedVersions
-Write-Host "https://dev.azure.com/azure-sdk/Release/_workitems/edit/$($updatedWI.id)/"
+
+Write-Host "Release tracking item is at https://dev.azure.com/azure-sdk/Release/_workitems/edit/$($updatedWI.id)/"
