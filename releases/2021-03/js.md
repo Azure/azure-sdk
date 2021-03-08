@@ -57,7 +57,6 @@ Support Typescript version < 3.6 by down-leveling the type definition files. ([P
 ### Core - Abort Controller 1.0.4 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/abort-controller_1.0.4/sdk/core/@azure/abort-controller/CHANGELOG.md#104-2021-03-04)
 Fixes issue [13985](https://github.com/Azure/azure-sdk-for-js/issues/13985) where abort event listeners that removed themselves when invoked could prevent other event listeners from being invoked.
 
-
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
 ## Latest Releases
