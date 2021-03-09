@@ -44,7 +44,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Synapse
 
-Synapse packages top Python 3.5 support.
+Synapse packages stop Python 3.5 support.
 
 #### Artifacts [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-synapse-artifacts_0.5.0/sdk/synapse/azure-synapse-artifacts/CHANGELOG.md)
 
