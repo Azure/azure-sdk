@@ -22,13 +22,17 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 
 #### Beta
 
-[pattern.beta]: # (- ${PackageFriendlyName})
+- Identity
+- Tables
 
 ## Installation Instructions
 
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
 ```bash
+
+$> dotnet add package Azure.Identity
+$> dotnet add package Azure.Data.Tables
 
 ```
 
@@ -40,7 +44,8 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 ## Release highlights
 
-[pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
+- Identity [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Identity_1.4.0-beta.4/sdk/identity/Azure.Identity/CHANGELOG.md)
+- Tables [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.Tables_12.0.0-beta.6/sdk/tables/Azure.Data.Tables/CHANGELOG.md)
 
 ## Latest Releases
 
