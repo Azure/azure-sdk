@@ -11,6 +11,7 @@ Azure.MixedReality.Authentication:1.0.0
 Azure.MixedReality.RemoteRendering:1.0.0-beta.3
 Azure.MixedReality.ObjectAnchors.Conversion:0.1.0-beta.1
 Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring:3.2.0-preview.4
+Azure.Core:1.10.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -19,6 +20,7 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 
 #### GA
 - Azure Mixed Reality Authentication
+- Core
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -42,6 +44,7 @@ $> dotnet install Azure.MixedReality.Authentication --version 1.0.0
 $> dotnet install Azure.MixedReality.RemoteRendering --version 1.0.0-beta.3
 $> dotnet install Azure.MixedReality.ObjectAnchors.Conversion --version 0.1.0-beta.1
 $> dotnet install Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring --version 3.2.0-preview.4
+$> dotnet install Azure.Core --version 1.10.0
 
 ```
 
@@ -66,6 +69,9 @@ If you have a bug or feature request for one of the libraries, please [file an i
 #### Fixed
 - ExampleId attribute in label APIs could not hold int values
 - ArmTokenParameter parameter name had a typo
+### Core 1.10.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.10.0/sdk/core/Azure.Core/CHANGELOG.md#1100-2021-03-09)
+- Added `CloudEvent` type based on the [CloudEvent spec](https://github.com/cloudevents/spec/blob/master/spec.md).
+
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
