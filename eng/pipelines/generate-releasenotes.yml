@@ -37,13 +37,6 @@ steps:
   - pwsh: |
       $releasePeriod = Get-Date -Format "yyyy-MM"
       Write-Host "##vso[task.setvariable variable=ReleasePeriod]$releasePeriod"
-    displayName: Set Release Period Value
-
-  - pwsh: |
-      if (!(Test-Path (Join-Path $(System.DefaultWorkingDirectory) azure-sdk eng releases $(ReleasePeriod))))
-      {
-        Write-Host "##vso[task.setvariable variable=CopyReleaseTemplates]True"
-      }
 
       # Publish release on package publish day of every month
       $currentDate = Get-Date
@@ -52,28 +45,17 @@ steps:
       {
         Write-Host "##vso[task.setvariable variable=PublishRelease]True"
       }
-      $MonthlyReleaseDate = 
     displayName: Decided if and how to Generate Release Structure
-
-  - ${{ if eq(variables['CopyReleaseTemplates'], 'True') }}:
-    - task: PowerShell@2
-      displayName: 'Generate Release Structure'
-      inputs:
-        pwsh: true
-        filePath: $(System.DefaultWorkingDirectory)/azure-sdk/eng/scripts/Generate-Release-Structure.ps1
-        arguments: > 
-          -PublishRelease $False
 
   - ${{ if eq(variables['PublishRelease'], 'True') }}:
     - task: PowerShell@2
-      displayName: 'Generate Release Structure'
+      displayName: 'Publish Release'
       inputs:
         pwsh: true
         filePath: $(System.DefaultWorkingDirectory)/azure-sdk/eng/scripts/Generate-Release-Structure.ps1
         arguments: > 
           -PublishRelease $True
 
-  - ${{ if or(eq(variables['CopyReleaseTemplates'], 'True'), eq(variables['PublishRelease'], 'True') }}:
     - template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
     parameters:
       RepoName: azure-sdk
@@ -84,7 +66,7 @@ steps:
       WorkingDirectory: $(System.DefaultWorkingDirectory)/azure-sdk
       ScriptDirectory: $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts
 
-  - ${{ if and(ne(variables['CopyReleaseTemplates'], 'True'), ne(variables['PublishRelease'], 'True') }}:
+  - ${{ if ne(variables['PublishRelease'], 'True') }}:
     - ${{ each repo in parameters.Repos }}:
       - checkout: self
 
