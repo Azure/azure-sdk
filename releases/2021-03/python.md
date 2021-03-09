@@ -22,14 +22,14 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 
 #### Beta
 
-[pattern.beta]: # (- ${PackageFriendlyName})
+- Device Update
 
 ## Installation Instructions
 
 To install the latest beta version of the packages, copy and paste the following commands into a terminal:
 
 ```bash
-
+pip install azure-iot-deviceupdate --pre
 ```
 
 [pattern]: # ($> pip install ${PackageName}==${PackageVersion})
@@ -40,7 +40,9 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-[pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
+### Device Update [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/deviceupdate/azure-iot-deviceupdate/CHANGELOG.md#100b1-2021-03-03)
+
+- Initial release
 
 ## Latest Releases
 
