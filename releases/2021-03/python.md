@@ -29,7 +29,7 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 To install the latest beta version of the packages, copy and paste the following commands into a terminal:
 
 ```bash
-pip install azure-servicebus
+$> pip install azure-servicebus==7.1.0
 ```
 
 ## Feedback
@@ -38,7 +38,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-### Service Bus 7.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/CHANGELOG.md#710-2021-03-09)
+### Service Bus 7.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.1.0/sdk/servicebus/azure-servicebus/CHANGELOG.md#710-2021-03-09)
 
 This version will be the last version to officially support Python 3.5, future versions will require Python 2.7 or Python 3.6+.
 
