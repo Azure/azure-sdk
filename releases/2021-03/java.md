@@ -1091,7 +1091,6 @@ This is the initial stable release of Azure Mixed Reality Authentication library
 * `withTargetType(models.StorageTargetType)` was added
 * `withBlobNfs(models.BlobNfsTarget)` was added
 
-
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
 ## Need help
