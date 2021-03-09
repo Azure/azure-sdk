@@ -327,16 +327,9 @@ Most methods in Azure SDK libraries should be named following the typical .NET m
 
 {% include requirement/SHOULD id="general-client-standardize-verbs" %} use standard verbs for methods that access or manipulate server resources. 
 
-| Verb | Example | Usage |
-| `Create` | `BlobContainerClient.Create` | Creates a resource. Throws if the resource exists. |
-| `Set` | `BlobContainerClient.SetMetadata` | Creates or replaces a resource. |
-| `Update` | TBD | Updates a resource. Throws if the resource does not exist. Update methods might take a parameter controlling whether the update is a replace, merge, or other specific semantics. |
-| `Add` | `ConfigurationClient.AddConfigurationSetting` | Adds a resource to a resource collection or container. |
-| `Get<resource_name>` | `BlobContainerClient.GetAccessPolicy` | Retrieves a resource. Throws if the resource does not exist. |
-| `Get<resource_name_plural>` | `ConfigurationClient.GetConfigurationSettings` | Retrieves one or more resources. Returns empty set if no resources found. |
-| `Delete` | `BlobContainerClient.DeleteBlob` | Deletes one or more resources, or no-op if the resources do not exist. |
-| `Remove` | TBD | Remove a reference to a resource from a collection. This method doesn’t delete the actual resource, only the reference. |
-| `<resource_name>Exists` | TBD | Returns true if the resource exists, otherwise returns false. |
+<!-- The table data is in yaml format on _data/tables/net_standard_verbs -->
+{% assign data = site.data.tables.net_standard_verbs.entries %}
+{% include tables/standard_verbs_template.html %}
 
 ##### Cancellation
 
