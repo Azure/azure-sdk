@@ -19,6 +19,18 @@ azure-keyvault-keys:4.4.0b1
 azure-keyvault-keys:4.4.0b2
 azure-mgmt-containerservice:15.0.0
 azure-core:1.12.0
+azure-mgmt-resourcemover:1.1.0b1
+azure-eventgrid:2.0.0
+azure-synapse-monitoring:0.2.0
+azure-identity:1.6.0b2
+azure-synapse-managedprivateendpoints:0.3.0
+azure-synapse-artifacts:0.5.0
+azure-eventhub:5.3.1
+azure-eventhub-checkpointstoreblob-aio:1.1.3
+azure-synapse-spark:0.5.0
+azure-eventhub-checkpointstoreblob:1.1.3
+azure-synapse-accesscontrol:0.6.0
+azure-servicebus:7.1.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -33,10 +45,20 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Resource Management - Cosmos DB
 - Resource Management - Container Service
 - Core
+- Event Grid
+- Synapse - Monitoring
+- Synapse - Managed Private Endpoints
+- Synapse - Artifacts
+- Synapse - Spark
+- Synapse - AccessControl
+- Service Bus
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
 #### Updates
+- Event Hubs
+- Event Hubs - Azure Blob Storage Checkpoint Store AIO
+- Event Hubs - Azure Blob Storage Checkpoint Store
 
 [pattern.patch]: # (- ${PackageFriendlyName})
 
@@ -46,6 +68,8 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Resource Management - Datadog
 - Key Vault - Keys
 - Key Vault - Keys
+- Resource Management - Resource Mover
+- Identity
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -66,6 +90,18 @@ $> pip install azure-keyvault-keys==4.4.0b1
 $> pip install azure-keyvault-keys==4.4.0b2
 $> pip install azure-mgmt-containerservice==15.0.0
 $> pip install azure-core==1.12.0
+$> pip install azure-mgmt-resourcemover==1.1.0b1
+$> pip install azure-eventgrid==2.0.0
+$> pip install azure-synapse-monitoring==0.2.0
+$> pip install azure-identity==1.6.0b2
+$> pip install azure-synapse-managedprivateendpoints==0.3.0
+$> pip install azure-synapse-artifacts==0.5.0
+$> pip install azure-eventhub==5.3.1
+$> pip install azure-eventhub-checkpointstoreblob-aio==1.1.3
+$> pip install azure-synapse-spark==0.5.0
+$> pip install azure-eventhub-checkpointstoreblob==1.1.3
+$> pip install azure-synapse-accesscontrol==0.6.0
+$> pip install azure-servicebus==7.1.0
 
 ```
 
@@ -407,6 +443,106 @@ This version will be the last version to officially support Python 3.5, future v
 #### Bug Fixes
 
 - Disable retry in stream downloading. (thanks to @jochen-ott-by @hoffmann for the contribution)  #16723
+
+### Resource Management - Resource Mover 1.1.0b1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-resourcemover_1.1.0b1/sdk/resourcemover/azure-mgmt-resourcemover/CHANGELOG.md#110b1-2021-03-09)
+* version number change
+
+### Event Grid 2.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-eventgrid_2.0.0/sdk/eventgrid/azure-eventgrid/CHANGELOG.md#200-2021-03-09)
+**Breaking Changes**
+  - `~azure.eventgrid.CloudEvent` is now removed in favor of `~azure.core.messaging.CloudEvent`.
+  - All the `SystemEventNames` related to Azure Communication Service starting with `ACS****` are renamed to `Acs***` to honor pascal case.
+
+  **Features**
+  - Added support for two new `SystemEvents` - `ServiceBusDeadletterMessagesAvailablePeriodicNotificationsEventData` and `ServiceBusActiveMessagesAvailablePeriodicNotificationsEventData`
+
+### Synapse - Monitoring 0.2.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-synapse-monitoring_0.2.0/sdk/synapse/azure-synapse-monitoring/CHANGELOG.md#020-2021-03-09)
+* Internal bugfixes (re-generated with latest generator)
+* Stop Python 3.5 support
+
+### Identity 1.6.0b2 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-identity_1.6.0b2/sdk/identity/azure-identity/CHANGELOG.md#160b2-2021-03-09)
+#### Breaking Changes
+> These changes do not impact the API of stable versions such as 1.5.0.
+> Only code written against a beta version such as 1.6.0b1 may be affected.
+- Renamed `CertificateCredential` keyword argument `certificate_bytes` to
+  `certificate_data`
+- Credentials accepting keyword arguments `allow_unencrypted_cache` and
+  `enable_persistent_cache` to configure persistent caching accept a
+  `cache_persistence_options` argument instead whose value should be an
+  instance of `TokenCachePersistenceOptions`. For example:
+  ```
+  # before (e.g. in 1.6.0b1):
+  DeviceCodeCredential(enable_persistent_cache=True, allow_unencrypted_cache=True)
+  
+  # after:
+  cache_options = TokenCachePersistenceOptions(allow_unencrypted_storage=True)
+  DeviceCodeCredential(cache_persistence_options=cache_options)
+  ```
+  
+  See the documentation and samples for more details.
+  
+#### Added
+- New class `TokenCachePersistenceOptions` configures persistent caching
+- The `AuthenticationRequiredError.claims` property provides any additional
+  claims required by a user credential's `authenticate()` method
+
+### Synapse - Managed Private Endpoints 0.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-synapse-managedprivateendpoints_0.3.0/sdk/synapse/azure-synapse-managedprivateendpoints/CHANGELOG.md#030-2021-03-09)
+* Internal bugfixes (re-generated with latest generator)
+* Stop Python 3.5 support
+
+### Synapse - Artifacts 0.5.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-synapse-artifacts_0.5.0/sdk/synapse/azure-synapse-artifacts/CHANGELOG.md#050-2021-03-09)
+** Features **
+
+- Add library operations
+- Change create_or_update_sql_script, delete_sql_script, rename_sql_script to long running operations
+
+** Breaking changes **
+
+- Stop Python 3.5 support
+
+### Event Hubs 5.3.1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-eventhub_5.3.1/sdk/eventhub/azure-eventhub/CHANGELOG.md#531-2021-03-09)
+This version will be the last version to officially support Python 3.5, future versions will require Python 2.7 or Python 3.6+.
+
+**Bug fixes**
+
+- Sending empty `event_data_batch` will be a no-op now instead of raising error.
+
+### Event Hubs - Azure Blob Storage Checkpoint Store AIO 1.1.3 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-eventhub-checkpointstoreblob-aio_1.1.3/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/CHANGELOG.md#113-2021-03-09)
+This version will be the last version to officially support Python 3.5, future versions will require Python 2.7 or Python 3.6+.
+
+**Bug fixes**
+- Updated vendor azure-storage-blob dependency to v12.7.1.
+  - Fixed storage blob authentication failure due to request date header too old (#16192).
+
+### Synapse - Spark 0.5.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-synapse-spark_0.5.0/sdk/synapse/azure-synapse-spark/CHANGELOG.md#050-2021-03-09)
+* Internal bugfixes (re-generated with latest generator)
+* Stop Python 3.5 support
+
+### Event Hubs - Azure Blob Storage Checkpoint Store 1.1.3 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-eventhub-checkpointstoreblob_1.1.3/sdk/eventhub/azure-eventhub-checkpointstoreblob/CHANGELOG.md#113-2021-03-09)
+This version will be the last version to officially support Python 3.5, future versions will require Python 2.7 or Python 3.6+.
+
+**Bug fixes**
+- Updated vendor azure-storage-blob dependency to v12.7.1.
+  - Fixed storage blob authentication failure due to request date header too old (#16192).
+
+### Synapse - AccessControl 0.6.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-synapse-accesscontrol_0.6.0/sdk/synapse/azure-synapse-accesscontrol/CHANGELOG.md#060-2021-03-09)
+* Internal bugfixes (re-generated with latest generator)
+* Stop Python 3.5 support
+
+### Service Bus 7.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-servicebus_7.1.0/sdk/servicebus/azure-servicebus/CHANGELOG.md#710-2021-03-09)
+This version will be the last version to officially support Python 3.5, future versions will require Python 2.7 or Python 3.6+.
+
+**New Features**
+
+* Updated the following methods so that lists and single instances of Mapping representations are accepted for corresponding strongly-typed object arguments (PR #14807, thanks @bradleydamato):
+  - `update_queue`, `update_topic`, `update_subscription`, and `update_rule` on `ServiceBusAdministrationClient` accept Mapping representations of `QueueProperties`, `TopicProperties`, `SubscriptionProperties`, and `RuleProperties`, respectively.
+  - `send_messages` and `schedule_messages` on both sync and async versions of `ServiceBusSender` accept a list of or single instance of Mapping representations of `ServiceBusMessage`.
+  - `add_message` on `ServiceBusMessageBatch` now accepts a Mapping representation of `ServiceBusMessage`.
+
+**BugFixes**
+
+* Operations failing due to `uamqp.errors.LinkForceDetach` caused by no activity on the connection for 10 minutes will now be retried internally except for the session receiver case.
+* `uamqp.errors.AMQPConnectionError` errors with condition code `amqp:unknown-error` are now categorized into `ServiceBusConnectionError` instead of the general `ServiceBusError`.
+* The `update_*` methods on `ServiceBusManagementClient` will now raise a `TypeError` rather than an `AttributeError` in the case of unsupported input type.
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
