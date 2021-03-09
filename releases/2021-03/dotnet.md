@@ -18,7 +18,7 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 
 #### Updates
 
-[pattern.patch]: # (- ${PackageFriendlyName})
+- Event Hubs
 
 #### Beta
 
@@ -29,7 +29,8 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
 ```bash
-
+$> dotnet add package Azure.Messaging.EventHubs
+$> dotnet add package Azure.Messaging.EventHubs.Processor
 ```
 
 [pattern]: # ($> dotnet install ${PackageName} --version ${PackageVersion})
@@ -40,7 +41,13 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 ## Release highlights
 
-[pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
+### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventHubs_5.3.1/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md#531-2021-03-09)
+
+- Minor bug fixes and enhancements.
+
+### Event Hubs Processor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventHubs.Processor_5.3.1/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md#531-2021-03-09)
+
+- Minor bug fixes and enhancements.
 
 ## Latest Releases
 
