@@ -45,6 +45,8 @@ azure-resourcemanager-netapp:1.0.0-beta.1
 azure-resourcemanager-redisenterprise:1.0.0-beta.2
 azure-resourcemanager-redisenterprise:1.0.0-beta.1
 azure-resourcemanager-sql:2.2.0
+azure-resourcemanager-datadog:1.0.0-beta.1
+azure-resourcemanager-storagecache:1.0.0-beta.2
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -98,6 +100,8 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 - Resource Management - NetApp Files
 - Resource Management - Redis Enterprise
 - Resource Management - Redis Enterprise
+- azure-resourcemanager-datadog
+- Resource Management - Storage Cache
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -369,6 +373,20 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId></groupId>
   <artifactId>azure-resourcemanager-sql</artifactId>
   <version>2.2.0</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-resourcemanager-datadog</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-resourcemanager-storagecache</artifactId>
+  <version>1.0.0-beta.2</version>
 </dependency>
 
 
@@ -1006,6 +1024,73 @@ This is the initial stable release of Azure Mixed Reality Authentication library
 
 ### Resource Management - SQL 2.2.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-sql_2.2.0/sdk/resourcemanager/azure-resourcemanager-sql/CHANGELOG.md#220-2021-02-24)
 - Updated core dependency from resources
+### azure-resourcemanager-datadog 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-datadog_1.0.0-beta.1/sdk/datadog/azure-resourcemanager-datadog/CHANGELOG.md#100-beta1-2021-03-08)
+- Azure Resource Manager MicrosoftDatadog client library for Java. This package contains Microsoft Azure SDK for MicrosoftDatadog Management SDK.  Package tag package-2020-02-preview. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### Resource Management - Storage Cache 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-storagecache_1.0.0-beta.2/sdk/storagecache/azure-resourcemanager-storagecache/CHANGELOG.md#100-beta2-2021-03-08)
+- Azure Resource Manager StorageCache client library for Java. This package contains Microsoft Azure SDK for StorageCache Management SDK. A Storage Cache provides scalable caching service for NAS clients, serving data from either NFSv3 or Blob at-rest storage (referred to as "Storage Targets"). These operations allow you to manage Caches. Package tag package-2021-03. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+#### Breaking Change
+
+* `models.ClfsTargetProperties` was removed
+
+* `models.Nfs3TargetProperties` was removed
+
+* `models.StorageTargetProperties` was removed
+
+* `models.UnknownTargetProperties` was removed
+
+##### `models.UnknownTarget` was modified
+
+* `withUnknownMap(java.util.Map)` was removed
+* `unknownMap()` was removed
+
+#### New Feature
+
+* `models.Condition` was added
+
+* `models.BlobNfsTarget` was added
+
+##### `models.StorageTarget` was modified
+
+* `blobNfs()` was added
+* `targetType()` was added
+* `dnsRefresh(com.azure.core.util.Context)` was added
+* `dnsRefresh()` was added
+
+##### `models.CacheHealth` was modified
+
+* `conditions()` was added
+
+##### `models.StorageTarget$Update` was modified
+
+* `withTargetType(models.StorageTargetType)` was added
+* `withBlobNfs(models.BlobNfsTarget)` was added
+
+##### `models.CacheNetworkSettings` was modified
+
+* `dnsSearchDomain()` was added
+* `withDnsSearchDomain(java.lang.String)` was added
+* `dnsServers()` was added
+* `ntpServer()` was added
+* `withDnsServers(java.util.List)` was added
+* `withNtpServer(java.lang.String)` was added
+
+##### `models.UnknownTarget` was modified
+
+* `withAttributes(java.util.Map)` was added
+* `attributes()` was added
+
+##### `models.StorageTargets` was modified
+
+* `dnsRefresh(java.lang.String,java.lang.String,java.lang.String)` was added
+* `dnsRefresh(java.lang.String,java.lang.String,java.lang.String,com.azure.core.util.Context)` was added
+
+##### `models.StorageTarget$Definition` was modified
+
+* `withTargetType(models.StorageTargetType)` was added
+* `withBlobNfs(models.BlobNfsTarget)` was added
+
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
