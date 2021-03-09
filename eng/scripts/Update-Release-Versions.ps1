@@ -148,7 +148,7 @@ function GetFirstGADate($pkgVersion, $pkg)
       Write-Verbose "Found other package entry for '$($pkg.Package)'";
       for ($i = 0; $i -lt $gaVersions.Count; $i++) {
         if ($otherPackage[0].VersionGA -eq $gaVersions[$i].RawVersion) {
-          Write-Host "Found older package entry for '$($pkg.Package)' GA version of $($otherPackage[0].VersionGA) so picking the next GA for first GA date."
+          Write-Verbose "Found older package entry for '$($pkg.Package)' GA version of $($otherPackage[0].VersionGA) so picking the next GA for first GA date."
           $gaIndex = ($i - 1)
         }
       }
@@ -198,7 +198,7 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
     }
 
     if ($pkg.VersionGA -and $pkg.Type -eq "client") {
-      if ([bool]($pkg.PSobject.Properties.name -match "FirstGADate")) { #-and !$pkg.FirstGADate) {
+      if ([bool]($pkg.PSobject.Properties.name -match "FirstGADate") -and !$pkg.FirstGADate) {
         $pkg.FirstGADate = GetFirstGADate $pkgVersion $pkg
       }
     }
