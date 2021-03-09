@@ -18,6 +18,7 @@ azure-mgmt-datadog:1.0.0b3
 azure-keyvault-keys:4.4.0b1
 azure-keyvault-keys:4.4.0b2
 azure-mgmt-containerservice:15.0.0
+azure-core:1.12.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -31,6 +32,7 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Resource Management - Resources
 - Resource Management - Cosmos DB
 - Resource Management - Container Service
+- Core
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -63,6 +65,7 @@ $> pip install azure-mgmt-datadog==1.0.0b3
 $> pip install azure-keyvault-keys==4.4.0b1
 $> pip install azure-keyvault-keys==4.4.0b2
 $> pip install azure-mgmt-containerservice==15.0.0
+$> pip install azure-core==1.12.0
 
 ```
 
@@ -392,6 +395,19 @@ Key Vault, so users can easily access the key's `name`, `vault_url`, and `versio
 
   - Model SysctlConfig no longer has parameter net_ipv4_tcp_rmem
   - Model SysctlConfig no longer has parameter net_ipv4_tcp_wmem
+### Core 1.12.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-core_1.12.0/sdk/core/azure-core/CHANGELOG.md#1120-2021-03-08)
+This version will be the last version to officially support Python 3.5, future versions will require Python 2.7 or Python 3.6+.
+
+#### Features
+
+- Added `azure.core.messaging.CloudEvent` model that follows the cloud event spec.
+- Added `azure.core.serialization.NULL` sentinel value
+- Improve `repr`s for `HttpRequest` and `HttpResponse`s  #16972
+
+#### Bug Fixes
+
+- Disable retry in stream downloading. (thanks to @jochen-ott-by @hoffmann for the contribution)  #16723
+
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
