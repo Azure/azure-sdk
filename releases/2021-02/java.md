@@ -399,6 +399,12 @@ To use Azure Spring Cloud starters and binders, refer to the Maven dependency in
 ```xml
 <dependency>
   <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-starter-eventhubs-kafka</artifactId>
+  <version>2.2.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
   <artifactId>azure-spring-cloud-stream-binder-eventhubs</artifactId>
   <version>2.2.0</version>
 </dependency>
@@ -424,12 +430,6 @@ To use Azure Spring Cloud starters and binders, refer to the Maven dependency in
 <dependency>
   <groupId>com.azure.spring</groupId>
   <artifactId>azure-spring-cloud-starter-cache</artifactId>
-  <version>2.2.0</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-cloud-starter-eventhubs-kafka</artifactId>
   <version>2.2.0</version>
 </dependency>
 
