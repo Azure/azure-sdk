@@ -85,7 +85,7 @@ Fixes issue [13985](https://github.com/Azure/azure-sdk-for-js/issues/13985) wher
 
 ### Azure Communication Administration is deprecated
 
-- Phone number administration will be moved into a new package Azure Communication Phone Numbers.
+- `PhoneNumberAdministrationClient` is moved into the new package @azure/communication-phone-numbers and replaced by `PhoneNumbersClient`.
 
 ### Azure Communication Phone Numbers 1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-phone-numbers/CHANGELOG.md#100-beta4-2021-03-09)
 
