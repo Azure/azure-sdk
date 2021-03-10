@@ -74,7 +74,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-### Azure Communication Administration was deprecated
+### Azure Communication Administration is deprecated
 
 - Phone number administration will be moved into a new package Azure Communication Phone Numbers.
 

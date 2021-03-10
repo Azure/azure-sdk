@@ -35,7 +35,7 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
 ```bash
-$> otnet add package Azure.Communication.Chat --version 1.0.0-beta.5
+$> dotnet add package Azure.Communication.Chat --version 1.0.0-beta.5
 $> dotnet add package Azure.Communication.Common --version 1.0.0-beta.5
 $> dotnet add package Azure.Communication.Identity --version 1.0.0-beta.5
 $> dotnet add package Azure.Communication.PhoneNumbers --version 1.0.0-beta.5
@@ -53,15 +53,15 @@ If you have a bug or feature request for one of the libraries, please [file an i
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
 
-### Azure Communication Administration was deprecated
+### Azure Communication Administration is deprecated
 
-- Phone number administration will be moved into a new package Azure Communication Phone Numbers.
+- `PhoneNumberAdministrationClient` is moved into the new package `Azure.Communication.PhoneNumbers` and replaced by `PhoneNumberClient`.
 
 ### Azure Communication Phone Numbers 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.PhoneNumbers/CHANGELOG.md#100-beta5-2021-03-09)
 
 #### New Features
 
-- Added `PhoneNumberAdministrationClient` (originally was part of the `Azure.Communication.Administration` package).
+- Added `PhoneNumbersClient` (originally was part of the `Azure.Communication.Administration` package).
 - Added support for Azure Active Directory Authentication.
 
 #### Breaking Changes
@@ -69,10 +69,6 @@ If you have a bug or feature request for one of the libraries, please [file an i
 - `PhoneNumberAdministrationClient` has been replaced with `PhoneNumbersClient`, which has the same functionality but different APIs. To learn more about how PhoneNumbersClient works, refer to the [README.md](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.PhoneNumbers/README.md)
 
 ### Azure Communication Chat 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Chat/CHANGELOG.md#100-beta5-2021-03-09)
-
-#### New Features
-
-- Added unit test and live test coverage.
 
 #### Breaking Changes
 

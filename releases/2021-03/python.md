@@ -46,7 +46,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-### Azure Communication Administration was deprecated
+### Azure Communication Administration is deprecated
 - Phone number administration will be moved into a new package Azure Communication Phone Numbers.
 
 ### Azure Communication Phone Numbers 1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md#100b4-2021-03-09)
