@@ -397,6 +397,12 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 To use Azure Spring Cloud starters and binders, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate.
 
 ```xml
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-stream-binder-eventhubs</artifactId>
+  <version>2.2.0</version>
+</dependency>
+
  <dependency>
   <groupId>com.azure.spring</groupId>
   <artifactId>azure-spring-cloud-stream-binder-servicebus-queue</artifactId>
@@ -427,37 +433,35 @@ To use Azure Spring Cloud starters and binders, refer to the Maven dependency in
   <version>2.2.0</version>
 </dependency>
 
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-cloud-stream-binder-eventhubs</artifactId>
-  <version>2.2.0</version>
-</dependency>
-
 <dependency> 
     <groupId>com.microsoft.azure</groupId>  
     <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>  
     <version>1.2.8</version> 
-  </dependency>  
-  <dependency> 
-    <groupId>com.microsoft.azure</groupId>  
-    <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>  
-    <version>1.2.8</version> 
-  </dependency>  
-  <dependency> 
-    <groupId>com.microsoft.azure</groupId>  
-    <artifactId>spring-cloud-azure-feature-management</artifactId>  
-    <version>1.2.8</version> 
-  </dependency>  
-  <dependency> 
-    <groupId>com.microsoft.azure</groupId>  
-    <artifactId>spring-cloud-azure-feature-management-web</artifactId>  
-    <version>1.2.8</version> 
-  </dependency>  
-  <dependency> 
-    <groupId>com.microsoft.azure</groupId>  
-    <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>  
-    <version>1.2.8</version> 
-  </dependency> 
+</dependency>  
+
+<dependency> 
+  <groupId>com.microsoft.azure</groupId>  
+  <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>  
+  <version>1.2.8</version> 
+</dependency>  
+
+<dependency> 
+  <groupId>com.microsoft.azure</groupId>  
+  <artifactId>spring-cloud-azure-feature-management</artifactId>  
+  <version>1.2.8</version> 
+</dependency>  
+
+<dependency> 
+  <groupId>com.microsoft.azure</groupId>  
+  <artifactId>spring-cloud-azure-feature-management-web</artifactId>  
+  <version>1.2.8</version> 
+</dependency>  
+
+<dependency> 
+  <groupId>com.microsoft.azure</groupId>  
+  <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>  
+  <version>1.2.8</version> 
+</dependency> 
 ```
 
 To use Azure Spring Boot starters, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate.
@@ -475,16 +479,6 @@ To use Azure Spring Boot starters, refer to the Maven dependency information bel
 </dependencyManagement>
 
 <dependencies>
-    <dependency>
-      <groupId>com.azure.spring</groupId>
-      <artifactId>azure-spring-boot</artifactId>
-    </dependency>
-    
-    <dependency>
-      <groupId>com.azure.spring</groupId>
-      <artifactId>azure-spring-boot-starter</artifactId>
-    </dependency>
-    
     <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>azure-spring-boot-starter-active-directory</artifactId>
