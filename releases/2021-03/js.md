@@ -66,7 +66,7 @@ Fixes issue [13985](https://github.com/Azure/azure-sdk-for-js/issues/13985) wher
 - Updated the Latest service version to 7.2.
 - Added a `certificateKeyId?: string` secret property to use instead of the deprecated `keyId?: URL` and removed `"lib": ["dom"]` from `tsconfig.json`
 
-### Key Vault - Keys 4.2.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/keyvault-keys_4.2.0-beta.4/sdk/keyvault/@azure/keyvault-keys/CHANGELOG.md#420-beta4-2021-03-09)
+### Key Vault - Keys 4.2.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/keyvault-keys_4.2.0-beta.4/sdk/keyvault/keyvault-keys/CHANGELOG.md#420-beta4-2021-03-09)
 - Updated the Latest service version to 7.2.
 - Added `curve` to `createKeyOptions` to be used when creating an `EC` key.
 - Deprecated the current `encrypt` and `decrypt` methods in favor of the more flexible overloads that take an `{Encrypt|Decrypt}Parameters` and allow passing in algorithm specific parameters. This enables support for the various AES algorithms used in Managed HSM. The deprecated methods continue to function and there's no timeline for their removal.
