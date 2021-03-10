@@ -29,7 +29,6 @@ The Azure SDK team is pleased to announce our February 2021 client library relea
 - Azure Data Appconfiguration
 - Azure Event Hubs Checkpoint Store for Storage Blob
 - Azure Identity
-- Azure Key Vault JCA Provider
 - Azure Messaging Service Bus
 - Azure Security Key Vault Certificates
 - Azure Security Key Vault Keys
@@ -52,6 +51,7 @@ The Azure SDK team is pleased to announce our February 2021 client library relea
 - Azure Core Tracing Opentelemetry
 - Azure Data Tables
 - Azure Identity
+- Azure Key Vault JCA Provider
 - Azure Monitor Opentelemetry Exporter
 - Azure Security Key Vault Administration
 - Azure Security Key Vault Certificates
@@ -779,7 +779,7 @@ Initial release of azure-quantum-jobs. See [Getting Started](https://github.com/
 ### New Features
  - Support `ServiceBusMessageConverter` as a bean to support customize `ObjectMapper`.
 
-### Azure Spring Boot ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot/CHANGELOG.md#300-beta1-2020-11-18))
+### Azure Spring Boot ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot/CHANGELOG.md#320-2021-03-03))
 
 ### Breaking Changes
 - Remove `azure.activedirectory.b2c.oidc-enabled` property.
