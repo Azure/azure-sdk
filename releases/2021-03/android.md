@@ -30,6 +30,14 @@ To use the latest GA and beta libraries, refer to the dependency information bel
 #### Java
 
 ```gradle
+allprojects {
+    repositories {
+        ...
+        maven {
+            url 'https://trouterpublicpackages.z13.web.core.windows.net'
+        }
+    }
+
 dependencies {
     ...
     implementation 'com.azure.android:azure-communication-chat:1.0.0-beta.7'
@@ -40,6 +48,13 @@ dependencies {
 #### Kotlin
 
 ```gradle
+allprojects {
+    repositories {
+        ...
+        maven {
+            url 'https://trouterpublicpackages.z13.web.core.windows.net'
+        }
+    }
 dependencies {
     ...
     implementation("com.azure.android:azure-communication-chat:1.0.0-beta.7")
@@ -50,6 +65,13 @@ dependencies {
 ### Maven
 
 ```xml
+<repositories>
+    ...
+    <repository>
+        <id>troutersource</id>
+        <url>https://trouterpublicpackages.z13.web.core.windows.net</url>
+    </repository>
+</repositories>
 ...
 <dependency>
   <groupId>com.azure.android</groupId>
