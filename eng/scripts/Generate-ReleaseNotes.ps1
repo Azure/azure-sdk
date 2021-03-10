@@ -19,7 +19,7 @@ $commonScript = (Join-Path $commonScriptsPath common.ps1)
 Write-Host "Common Script $commonScript"
 
 . $commonScript
-$CsvMetaData = Get-CSVMetadata
+$CsvMetaData = Get-CSVMetadata -MetadataUri "https://raw.githubusercontent.com/azure-sdk/azure-sdk/PackageVersionUpdates/_data/releases/latest/${releaseFileName}-packages.csv"
 
 $releaseFilePath = (Join-Path $ReleaseDirectory $releasePeriod "${releaseFileName}.md")
 LogDebug "Release File Path [ $releaseFilePath ]"
@@ -203,9 +203,13 @@ foreach ($key in @($incomingReleaseHighlights.Keys))
 
 $incomingReleaseHighlights = FilterOut-UnreleasedPackages -releaseHighlights $incomingReleaseHighlights
 
-Write-GeneralReleaseNote `
--releaseHighlights $incomingReleaseHighlights `
--releaseNotesContent $existingReleaseContent `
--releaseFilePath $releaseFilePath
 
-Set-Content -Path $pathToDateOfLatestUpdates -Value (Get-Date -Format "yyyy-MM-dd") -NoNewline
+if ($incomingReleaseHighlights.Count -gt 0)
+{
+    Write-GeneralReleaseNote `
+    -releaseHighlights $incomingReleaseHighlights `
+    -releaseNotesContent $existingReleaseContent `
+    -releaseFilePath $releaseFilePath
+
+    Set-Content -Path $pathToDateOfLatestUpdates -Value (Get-Date -Format "yyyy-MM-dd") -NoNewline
+}
