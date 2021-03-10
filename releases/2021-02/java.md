@@ -50,8 +50,8 @@ The Azure SDK team is pleased to announce our February 2021 client library relea
 - Azure Core Tracing Opentelemetry
 - Azure Data Tables
 - Azure Identity
-- Azure Key Vault JCA Provider
 - Azure Monitor Opentelemetry Exporter
+- Azure Security Key Vault JCA
 - Azure Security Key Vault Administration
 - Azure Security Key Vault Certificates
 - Azure Security Key Vault Keys
