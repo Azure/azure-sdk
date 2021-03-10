@@ -1151,7 +1151,7 @@ This is the initial stable release of Azure Mixed Reality Authentication library
 
 ### Azure Communication Administration is deprecated
 
-- Phone number administration will be moved into a new package Azure Communication Phone Numbers.
+- `PhoneNumberAdministrationClient` and `PhoneNumberAdministrationAsyncClient` is moved into the new package `azure-communication-phoneNumbers` and replaced by `PhoneNumbersClient` and `PhoneNumbersAsyncClient`, respectively.
 
 ### Azure Communication Phone Numbers 1.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md#100-beta6-2021-03-09)
 
@@ -1164,10 +1164,6 @@ This is the initial stable release of Azure Mixed Reality Authentication library
 
 - `PhoneNumberAsyncClient` has been replaced with `PhoneNumbersAsyncClient`, which has the same functionality but different APIs. To learn more about how PhoneNumbersAsyncClient works, refer to the [README.md](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-phonenumbers/README.md).
 - `PhoneNumberClient` has been replaced with `PhoneNumbersClient`, which has the same functionality but different APIs. To learn more about how PhoneNumbersClient works, refer to the [README.md](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-phonenumbers/README.md).
-
-
-
-
 
 ### Azure Communication Common 1.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-common/CHANGELOG.md#100-beta6-2021-03-09)
 
@@ -1182,8 +1178,7 @@ This is the initial stable release of Azure Mixed Reality Authentication library
 
 #### New Features
 
-- Updated azure-communication-chat version
-
+- Updated azure-communication-chat version.
 
 ### Azure Communication Identity 1.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-identity/CHANGELOG.md#100-beta6-2021-03-09)
 
@@ -1199,17 +1194,16 @@ This is the initial stable release of Azure Mixed Reality Authentication library
 `CommunicationIdentityClient.createUserAndTokenWithResponse` and `CommunicationIdentityAsyncClient.createUserAndTokenWithResponse`.
 - `CommunicationUserIdentifierWithTokenResult` class has been renamed to `CommunicationUserIdentifierAndToken`.
 
-
 ### Azure Communication SMS 1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-sms/CHANGELOG.md#100-beta4-2021-03-09)
 
 #### New Features
 
-- Added Azure Active Directory authentication support
+- Added Azure Active Directory authentication support.
 - Support for creating SmsClient with TokenCredential.
 - Added support for 1:N SMS messaging.
 - Added support for tagging SMS messages.
 - Send method series in SmsClient are idempotent under retry policy.
-- Added `SmsOptions`
+- Added `SmsOptions`.
 
 #### Breaking Changes
 
