@@ -31,6 +31,7 @@ azure-synapse-spark:0.5.0
 azure-eventhub-checkpointstoreblob:1.1.3
 azure-synapse-accesscontrol:0.6.0
 azure-servicebus:7.1.0
+azure-ai-textanalytics:5.1.0b6
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -70,6 +71,7 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Key Vault - Keys
 - Resource Management - Resource Mover
 - Identity
+- Text Analytics
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -102,6 +104,7 @@ $> pip install azure-synapse-spark==0.5.0
 $> pip install azure-eventhub-checkpointstoreblob==1.1.3
 $> pip install azure-synapse-accesscontrol==0.6.0
 $> pip install azure-servicebus==7.1.0
+$> pip install azure-ai-textanalytics==5.1.0b6
 
 ```
 
@@ -543,6 +546,27 @@ This version will be the last version to officially support Python 3.5, future v
 * Operations failing due to `uamqp.errors.LinkForceDetach` caused by no activity on the connection for 10 minutes will now be retried internally except for the session receiver case.
 * `uamqp.errors.AMQPConnectionError` errors with condition code `amqp:unknown-error` are now categorized into `ServiceBusConnectionError` instead of the general `ServiceBusError`.
 * The `update_*` methods on `ServiceBusManagementClient` will now raise a `TypeError` rather than an `AttributeError` in the case of unsupported input type.
+
+### Text Analytics 5.1.0b6 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-textanalytics_5.1.0b6/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#510b6-2021-03-09)
+**Breaking Changes**
+- By default, we now target the service's `v3.1-preview.4` endpoint through enum value `TextAnalyticsApiVersion.V3_1_PREVIEW`
+- Removed property `related_entities` on `HealthcareEntity` and added `entity_relations` onto the document response level for healthcare
+- Renamed properties `aspect` and `opinions` to `target` and `assessments` respectively in class `MinedOpinion`.
+- Renamed classes `AspectSentiment` and `OpinionSentiment` to `TargetSentiment` and `AssessmentSentiment` respectively.
+
+**New Features**
+- Added `RecognizeLinkedEntitiesAction` as a supported action type for `begin_analyze_batch_actions`.
+- Added parameter `categories_filter` to the `recognize_pii_entities` client method.
+- Added enum `PiiEntityCategoryType`.
+- Add property `normalized_text` to `HealthcareEntity`. This property is a normalized version of the `text` property that already
+exists on the `HealthcareEntity`
+- Add property `assertion` onto `HealthcareEntity`. This contains assertions about the entity itself, i.e. if the entity represents a diagnosis,
+is this diagnosis conditional on a symptom?
+
+**Known Issues**
+
+- `begin_analyze_healthcare_entities` is currently in gated preview and can not be used with AAD credentials. For more information, see [the Text Analytics for Health documentation](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health?tabs=ner#request-access-to-the-public-preview).
+- At time of this SDK release, the service is not respecting the value passed through `model_version` to `begin_analyze_healthcare_entities`, it only uses the latest model.
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
