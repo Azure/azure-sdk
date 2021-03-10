@@ -15,6 +15,9 @@ The Azure SDK team is pleased to announce our February 2021 client library relea
 - Azure Cosmos
 - Azure Search Documents
 - Azure Messaging Event Hubs
+- Spring Library - Spring Appconfiguration
+- Spring Library - Spring Boot
+- Spring Library - Spring Cloud
 
 #### Updates
 - Azure AI Text Analytics
@@ -26,6 +29,7 @@ The Azure SDK team is pleased to announce our February 2021 client library relea
 - Azure Data Appconfiguration
 - Azure Event Hubs Checkpoint Store for Storage Blob
 - Azure Identity
+- Azure Key Vault JCA Provider
 - Azure Messaging Service Bus
 - Azure Security Key Vault Certificates
 - Azure Security Key Vault Keys
@@ -391,7 +395,136 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <version>4.3.0-beta.3</version>
 </dependency>
 ```
+To use Azure Spring Cloud starters and binders, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate.
 
+```xml
+ <dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-stream-binder-servicebus-queue</artifactId>
+  <version>2.2.0</version> 
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-stream-binder-servicebus-topic</artifactId>
+  <version>2.2.0</version> 
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-starter-cache</artifactId>
+  <version>2.2.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-starter-eventhubs-kafka</artifactId>
+  <version>2.2.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-stream-binder-eventhubs</artifactId>
+  <version>2.2.0</version>
+</dependency>
+```
+
+To use Azure Spring Boot starters, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate.
+```xml
+<dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>azure-spring-boot-bom</artifactId>
+        <version>3.2.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+</dependencyManagement>
+
+<dependencies>
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot-starter</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot-starter-active-directory</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot-starter-active-directory-b2c</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot-starter-cosmos</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot-starter-keyvault-secrets</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot-starter-servicebus-jms</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot-starter-storage</artifactId>
+    </dependency>
+</dependencies>
+```
+
+To use Azure Spring appconfiguration , refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate.
+```xml
+<dependencies>
+ <dependency> 
+    <groupId>com.microsoft.azure</groupId>  
+    <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>  
+    <version>1.2.8</version> 
+  </dependency>  
+  <dependency> 
+    <groupId>com.microsoft.azure</groupId>  
+    <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>  
+    <version>1.2.8</version> 
+  </dependency>  
+  <dependency> 
+    <groupId>com.microsoft.azure</groupId>  
+    <artifactId>spring-cloud-azure-feature-management</artifactId>  
+    <version>1.2.8</version> 
+  </dependency>  
+  <dependency> 
+    <groupId>com.microsoft.azure</groupId>  
+    <artifactId>spring-cloud-azure-feature-management-web</artifactId>  
+    <version>1.2.8</version> 
+  </dependency>  
+  <dependency> 
+    <groupId>com.microsoft.azure</groupId>  
+    <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>  
+    <version>1.2.8</version> 
+  </dependency> 
+</dependencies>
+```
+
+To use JCA Provider for Azure Key Vault, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate.
+```xml
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-jca</artifactId>
+  <version>1.0.0-beta.4</version> 
+</dependency>
+```
 ## Feedback
 
 If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/azure/azure-sdk-for-java/issues).
@@ -641,6 +774,30 @@ Initial release of azure-quantum-jobs. See [Getting Started](https://github.com/
 
 - Fixed issue where cryptographic operations would be attempted locally for symmetric keys that were missing their key material ('k' component).
 
+### Azure Spring Cloud ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-cloud-autoconfigure/CHANGELOG.md#220-2021-03-03))
+
+### New Features
+ - Support `ServiceBusMessageConverter` as a bean to support customize `ObjectMapper`.
+
+### Azure Spring Boot ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot/CHANGELOG.md#300-beta1-2020-11-18))
+
+### Breaking Changes
+- Remove `azure.activedirectory.b2c.oidc-enabled` property.
+- Add `azure.activedirectory.b2c.login-flow` property. 
+- Change the type of `azure.activedirectory.b2c.user-flows` to map and below is the new structure:
+    ```yaml
+    azure:
+      activedirectory:
+        b2c:
+          login-flow: ${your-login-user-flow-key}               # default to sign-up-or-sign-in, will look up the user-flows map with provided key.
+          user-flows:
+            ${your-user-flow-key}: ${your-user-flow-name-defined-on-azure-portal}
+    ```
+- Require new property of `spring.jms.servicebus.pricing-tier` to set pricing tier of Azure Service Bus. Supported values are `premium`, `standard` and `basic`.
+### New Features
+- Enable MessageConverter bean customization.
+- Update the underpinning JMS library for the Premium pricing tier of Service Bus to JMS 2.0.
+  
 ## Need help
 
 - For reference documentation visit the [Azure SDK for Java documentation](https://azure.github.io/azure-sdk-for-java/).
