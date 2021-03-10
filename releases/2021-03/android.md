@@ -127,7 +127,7 @@ If you have a bug or feature request for one of the libraries, please post an is
     -  stopRealtimeNotifications`
     - `on(chatEventId, listenerId, listener)`
     - `off(chatEventId, listenerId)`
-- Add a sample chat app under folder samples for testing and playing around chat functionality purpose.
+- Added a sample chat app under the folder `samples` with the purpose of testing and playing around with the chat functionality.
 
 ##### Breaking Changes
 
