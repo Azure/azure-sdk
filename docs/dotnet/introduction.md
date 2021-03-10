@@ -541,6 +541,22 @@ BlobBaseClient client = ...
 {% include requirement/MAY id="dotnet-lro-subclass" %} add additional APIs to subclasses of ```Operation<T>```.
 For example, some subclasses add a constructor allowing to create an operation instance from a previously saved operation ID. Also, some subclasses are more granular states besides the IsCompleted and HasValue states that are present on the base class.
 
+{% include requirement/MUST id="dotnet-lro-constructor-for-mocking" %} provide protected parameterless constructor for mocking in subclasses of ```Operation<T>```.
+
+```csharp
+public class CopyFromUriOperation {
+    protected CopyFromUriOperation();
+}
+```
+
+{% include requirement/MUST id="dotnet-lro-mocking-properties" %} make all properties virtual to allow mocking.
+
+```csharp
+public class CopyFromUriOperation {
+    public virtual Uri SourceUri { get; }
+}
+```
+
 ##### Conditional Request Methods
 
 Some services support conditional requests that are used to implement optimistic concurrency control. In Azure, optimistic concurency is typically implemented using If-Match headers and ETags. See [Managing Concurrency in Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/concurrency-manage?tabs=dotnet) as a good example. 
@@ -832,6 +848,31 @@ Review the [full sample](https://github.com/Azure/azure-sdk-for-net/blob/master/
 {% include requirement/MUST id="dotnet-mocking-constructor" %} provide protected parameterless constructor for mocking.
 
 {% include requirement/MUST id="dotnet-mocking-virtual-method" %} make all service methods virtual.
+
+{% include requirement/MUST id="dotnet-mocking-virtual-getclient-method" %} make methods returning other clients virtual.
+
+```csharp
+public class BlobContainerClient
+{
+    public virtual BlobClient GetBlobClient();
+}
+```
+
+{% include requirement/MUST id="dotnet-mocking-extensions" %} use instance methods instead of extension methods when defined in the same assembly. The instance methods are simpler to mock.
+
+```csharp
+public class BlobContainerClient
+{
+    // This method is possible to mock
+    public virtual AppendBlobClient GetAppendBlobClient() {}
+}
+
+public class BlobContainerClientExtensions
+{
+    // This method is impossible to mock
+    public static AppendBlobClient GetAppendBlobClient(this BlobContainerClient containerClient) {}
+}
+```
 
 {% include requirement/MUST id="dotnet-mocking-factory-builder" %} provide factory or builder for constructing model graphs returned from virtual service methods.
 
