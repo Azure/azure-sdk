@@ -14,7 +14,8 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 
 #### Updates
 
-- _Add packages_
+- Azure Communication Services Chat
+- Azure Communication Services Common
 
 #### Beta
 
@@ -27,20 +28,42 @@ To use the latest GA and beta libraries, refer to the dependency information bel
 ### Gradle
 
 #### Java
+
 ```gradle
-// Insert dependencies
+dependencies {
+    ...
+    implementation 'com.azure.android:azure-communication-chat:1.0.0-beta.7'
+    implementation 'com.azure.android:azure-communication-common:1.0.0-beta.7'
+}
 ```
 
 #### Kotlin
 
 ```gradle
-// Insert dependencies
+dependencies {
+    ...
+    implementation("com.azure.android:azure-communication-chat:1.0.0-beta.7")
+    implementation("com.azure.android:azure-communication-common:1.0.0-beta.7")
+}
 ```
 
 ### Maven
 
 ```xml
-<!-- Insert dependencies -->
+...
+<dependency>
+  <groupId>com.azure.android</groupId>
+  <artifactId>azure-communication-chat</artifactId>
+  <version>1.0.0-beta.7</version>
+  <type>aar</type>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.android</groupId>
+  <artifactId>azure-communication-common</artifactId>
+  <version>1.0.0-beta.7</version>
+  <type>aar</type>
+</dependency>
 ```
 
 ## Feedback
@@ -49,10 +72,38 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-### _Package name_
+### Azure Communication Services Chat
+#### 1.0.0-beta.7 ([Change log](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/communication/azure-communication-chat/CHANGELOG.md#100-beta7-2021-03-09))
+#### New features
+- Support real time notifications with new methods in ChatClient/ChatAsyncClient: 
+    - startRealtimeNotifications
+    - stopRealtimeNotifications
+    - on(chatEventId, listenerId, listener) 
+    - off(chatEventId, listenerId) 
+- Add a sample chat app under folder samples for testing and playing around chat functionality purpose.
 
-- Major changes only!
+#### Breaking Changes
+- Change remove participant API to /chat/threads/{chatThreadId}/participants/:remove
+- user id in following classes changed from type CommunicationUserIdentifier to type CommunicationIdentifierModel.
+- property initiator in ChatMessageContent renamed to initiatorCommunicationIdentifier.
+- property senderId in ChatMessage and ChatMessageReadReceipt renamed to senderCommunicationIdentifier.
+- property identifier in ChatParticipant renamed to communicationIdentifier.
+- property createdBy in ChatThread renamed to createdByCommunicationIdentifier.
+- repeatability-Request-ID in header renamed to repeatability-Request-Id.
   
+
+
+### Azure Communication Services Common
+#### 1.0.0-beta.7 ([Change Log](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/communication/azure-communication-common/CHANGELOG.md#100-beta7-2021-03-09))
+
+#### New Features
+- Introduce new class `CommunicationAccessToken`.
+#### Breaking Changes
+- Credential `getToken` returns the newly added `CommunicationAccessToken` object instead of `AccessToken`.
+- Renamed 'getRefreshProactively' to 'isRefreshProactively' in 'CommunicationTokenRefreshOptions'
+- Removed constructor 'MicrosoftTeamsUserIdentifier(String userId, boolean isAnonymous, CommunicationCloudEnvironment cloudEnvironment)' in 'MicrosoftTeamsUserIdentifier'
+- A few classes are made final 'CommunicationTokenCredential', 'CommunicationTokenRefreshOptions', 'CommunicationUserIdentifier', 'MicrosoftTeamsUserIdentifier', 'PhoneNumberIdentifier', 'UnknownIdentifier', 'CommunicationAccessToken'
+
 ## Need help
 
 - For reference documentation visit the [Azure SDK for Android documentation](https://azure.github.io/azure-sdk-for-android/).
