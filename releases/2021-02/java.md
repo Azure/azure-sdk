@@ -406,6 +406,12 @@ To use Azure Spring Cloud starters and binders, refer to the Maven dependency in
 
 <dependency>
   <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-starter-storage-queue</artifactId>
+  <version>2.2.0</version> 
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
   <artifactId>azure-spring-cloud-stream-binder-servicebus-topic</artifactId>
   <version>2.2.0</version> 
 </dependency>
