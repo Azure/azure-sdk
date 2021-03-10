@@ -12,6 +12,7 @@ Azure.MixedReality.RemoteRendering:1.0.0-beta.3
 Azure.MixedReality.ObjectAnchors.Conversion:0.1.0-beta.1
 Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring:3.2.0-preview.4
 Azure.Core:1.10.0
+Azure.AI.FormRecognizer:3.1.0-beta.3
 Azure.AI.TextAnalytics:5.1.0-beta.5
 Azure.Data.Tables:12.0.0-beta.6
 Azure.Data.AppConfiguration:1.1.0-beta.1
@@ -39,6 +40,7 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 #### Beta
 - Azure Remote Rendering
 - Azure Object Anchors Conversion
+- Form Recognizer
 - LUIS - Authoring
 - Text Analytics
 - Tables
@@ -59,6 +61,7 @@ $> dotnet install Azure.MixedReality.Authentication --version 1.0.0
 $> dotnet install Azure.MixedReality.RemoteRendering --version 1.0.0-beta.3
 $> dotnet install Azure.MixedReality.ObjectAnchors.Conversion --version 0.1.0-beta.1
 $> dotnet install Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring --version 3.2.0-preview.4
+$> dotnet install Azure.AI.FormRecognizer --version 3.1.0-beta.3
 $> dotnet install Azure.AI.TextAnalytics --version 5.1.0-beta.5
 $> dotnet install Azure.Data.Tables --version 12.0.0-beta.6
 $> dotnet install Azure.Data.AppConfiguration --version 1.1.0-beta.1
@@ -84,6 +87,10 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 ### Azure Object Anchors Conversion 0.1.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.MixedReality.ObjectAnchors.Conversion_0.1.0-beta.1/sdk/objectanchors/Azure.MixedReality.ObjectAnchors.Conversion/CHANGELOG.md#010-beta1-2021-02-26)
 - Initial client
+
+### Form Recognizer 3.1.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_3.1.0-beta.3/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#310-beta3-2021-03-09)
+#### New features
+- Added protected constructors for mocking to `Operation` types, such as `TrainingOperation` and `RecognizeContentOperation`.
 
 ### Identity 1.4.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Identity_1.4.0-beta.4/sdk/identity/Azure.Identity/CHANGELOG.md)
 - Added the `[Serializable]` attribute to all custom exception types.
