@@ -231,7 +231,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 #### Breaking Changes
 
 - Updated `CommunicationTokenRefreshOptions(bool refreshProactively, Func<CancellationToken, string> tokenRefresher,  Func<CancellationToken, ValueTask<string>> asyncTokenRefresher = null, string initialToken = null)`
-to `CommunicationTokenRefreshOptions(bool refreshProactively, Func<CancellationToken, string> tokenRefresher)`. `asyncTokenRefresher` and `initialToken` are updated to become public properties.
+to `CommunicationTokenRefreshOptions(bool refreshProactively, Func<CancellationToken, string> tokenRefresher)`. `AsyncTokenRefresher` and `InitialToken` are updated to become public properties.
 
 ### Azure Communication Identity 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Identity/CHANGELOG.md#100-beta5-2021-03-09)
 
@@ -245,7 +245,7 @@ to `CommunicationTokenRefreshOptions(bool refreshProactively, Func<CancellationT
 #### New Features
 
 - Added support to create SmsClient with AzureKeyCredential.
-- Support for creating SmsClient with TokenCredential.
+- Added support to create SmsClient with TokenCredential.
 - Added support for 1:N SMS messaging.
 - Added support for tagging SMS messages.
 - Send method series in SmsClient are idempotent under retry policy.
