@@ -15,9 +15,8 @@ The Azure SDK team is pleased to announce our February 2021 client library relea
 - Azure Cosmos
 - Azure Search Documents
 - Azure Messaging Event Hubs
-- Spring Library - Spring Appconfiguration
-- Spring Library - Spring Boot
-- Spring Library - Spring Cloud
+- Azure Spring Boot
+- Azure Spring Cloud
 
 #### Updates
 - Azure AI Text Analytics
@@ -433,6 +432,32 @@ To use Azure Spring Cloud starters and binders, refer to the Maven dependency in
   <artifactId>azure-spring-cloud-stream-binder-eventhubs</artifactId>
   <version>2.2.0</version>
 </dependency>
+
+<dependency> 
+    <groupId>com.microsoft.azure</groupId>  
+    <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>  
+    <version>1.2.8</version> 
+  </dependency>  
+  <dependency> 
+    <groupId>com.microsoft.azure</groupId>  
+    <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>  
+    <version>1.2.8</version> 
+  </dependency>  
+  <dependency> 
+    <groupId>com.microsoft.azure</groupId>  
+    <artifactId>spring-cloud-azure-feature-management</artifactId>  
+    <version>1.2.8</version> 
+  </dependency>  
+  <dependency> 
+    <groupId>com.microsoft.azure</groupId>  
+    <artifactId>spring-cloud-azure-feature-management-web</artifactId>  
+    <version>1.2.8</version> 
+  </dependency>  
+  <dependency> 
+    <groupId>com.microsoft.azure</groupId>  
+    <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>  
+    <version>1.2.8</version> 
+  </dependency> 
 ```
 
 To use Azure Spring Boot starters, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate.
@@ -489,37 +514,6 @@ To use Azure Spring Boot starters, refer to the Maven dependency information bel
       <groupId>com.azure.spring</groupId>
       <artifactId>azure-spring-boot-starter-storage</artifactId>
     </dependency>
-</dependencies>
-```
-
-To use Azure Spring appconfiguration , refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate.
-```xml
-<dependencies>
- <dependency> 
-    <groupId>com.microsoft.azure</groupId>  
-    <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>  
-    <version>1.2.8</version> 
-  </dependency>  
-  <dependency> 
-    <groupId>com.microsoft.azure</groupId>  
-    <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>  
-    <version>1.2.8</version> 
-  </dependency>  
-  <dependency> 
-    <groupId>com.microsoft.azure</groupId>  
-    <artifactId>spring-cloud-azure-feature-management</artifactId>  
-    <version>1.2.8</version> 
-  </dependency>  
-  <dependency> 
-    <groupId>com.microsoft.azure</groupId>  
-    <artifactId>spring-cloud-azure-feature-management-web</artifactId>  
-    <version>1.2.8</version> 
-  </dependency>  
-  <dependency> 
-    <groupId>com.microsoft.azure</groupId>  
-    <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>  
-    <version>1.2.8</version> 
-  </dependency> 
 </dependencies>
 ```
 
