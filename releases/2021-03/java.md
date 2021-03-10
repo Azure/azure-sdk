@@ -47,6 +47,8 @@ azure-resourcemanager-redisenterprise:1.0.0-beta.1
 azure-resourcemanager-sql:2.2.0
 azure-resourcemanager-datadog:1.0.0-beta.1
 azure-resourcemanager-storagecache:1.0.0-beta.2
+azure-ai-textanalytics:5.0.4
+azure-analytics-synapse-artifacts:1.0.0-beta.3
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -85,6 +87,7 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 #### Updates
 - Digital Twins - Core
 - SDK - Bill of Materials
+- Text Analytics
 
 [pattern.patch]: # (- ${PackageFriendlyName})
 
@@ -102,6 +105,7 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 - Resource Management - Redis Enterprise
 - azure-resourcemanager-datadog
 - Resource Management - Storage Cache
+- Synapse - Artifacts
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -387,6 +391,20 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId></groupId>
   <artifactId>azure-resourcemanager-storagecache</artifactId>
   <version>1.0.0-beta.2</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-ai-textanalytics</artifactId>
+  <version>5.0.4</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-analytics-synapse-artifacts</artifactId>
+  <version>1.0.0-beta.3</version>
 </dependency>
 
 
@@ -1090,6 +1108,13 @@ This is the initial stable release of Azure Mixed Reality Authentication library
 
 * `withTargetType(models.StorageTargetType)` was added
 * `withBlobNfs(models.BlobNfsTarget)` was added
+### Text Analytics 5.0.4 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.0.4/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#504-2021-03-09)
+#### Dependency updates
+- Update dependency version, `azure-core` to 1.14.0 and `azure-core-http-netty` to 1.9.0.
+
+### Synapse - Artifacts 1.0.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-analytics-synapse-artifacts_1.0.0-beta.3/sdk/synapse/azure-analytics-synapse-artifacts/CHANGELOG.md#100-beta3-2021-03-09)
+- Add new APIs in `LibraryClient` and `LibraryAsyncClient`
+
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
