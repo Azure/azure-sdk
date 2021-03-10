@@ -578,13 +578,13 @@ is this diagnosis conditional on a symptom?
 
 
 ### Azure Communication Administration is deprecated
-- Phone number administration will be moved into a new package Azure Communication Phone Numbers.
+- Phone number administration will be moved intothe new package `azure-communication-phonenumbers`.
 
 ### Azure Communication Phone Numbers 1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md#100b4-2021-03-09)
 
 ##### New Features 
 
-- Added `PhoneNumbersAdministrationClient` (originally was part of the `azure.communication.administration` package).
+- Added `PhoneNumbersClient` (originally was part of the `azure.communication.administration` package).
 
 ### Azure Communication Chat 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-chat/CHANGELOG.md#100b5-2021-03-09)
 
