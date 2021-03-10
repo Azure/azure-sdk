@@ -24,7 +24,6 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 
 #### Updates
 - Core - Abort Controller
-- Core - Abort Controller
 
 [pattern.patch]: # (- ${PackageFriendlyName})
 
