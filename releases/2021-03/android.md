@@ -100,10 +100,17 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ##### Breaking Changes
 
-- Credential `getToken` returns the newly added `CommunicationAccessToken` object instead of `AccessToken`.
-- Renamed 'getRefreshProactively' to 'isRefreshProactively' in 'CommunicationTokenRefreshOptions'
-- Removed constructor 'MicrosoftTeamsUserIdentifier(String userId, boolean isAnonymous, CommunicationCloudEnvironment cloudEnvironment)' in 'MicrosoftTeamsUserIdentifier'
-- A few classes are made final 'CommunicationTokenCredential', 'CommunicationTokenRefreshOptions', 'CommunicationUserIdentifier', 'MicrosoftTeamsUserIdentifier', 'PhoneNumberIdentifier', 'UnknownIdentifier', 'CommunicationAccessToken'
+- Credential `getToken` now returns the newly added `CommunicationAccessToken` object instead of `AccessToken`.
+- Renamed `getRefreshProactively` to `isRefreshProactively` in 'CommunicationTokenRefreshOptions'.
+- Removed constructor `MicrosoftTeamsUserIdentifier(String userId, boolean isAnonymous, CommunicationCloudEnvironment cloudEnvironment)` in `MicrosoftTeamsUserIdentifier`.
+- Made the following classes final:
+    - `CommunicationAccessToken`
+    - `CommunicationTokenCredential`
+    - `CommunicationTokenRefreshOptions`
+    - `CommunicationUserIdentifier`
+    - `MicrosoftTeamsUserIdentifier`
+    - `PhoneNumberIdentifier`
+    - `UnknownIdentifier`
 
 ##### New Features
 
