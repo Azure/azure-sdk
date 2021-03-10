@@ -114,7 +114,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ##### New Features
 
-- Introduce new class `CommunicationAccessToken`.
+- Introduced a new class: `CommunicationAccessToken`.
 
 ### Azure Communication Services Chat
 
