@@ -122,11 +122,11 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ##### New Features
 
-- Support real time notifications with new methods in ChatClient/ChatAsyncClient: 
-    - startRealtimeNotifications
-    - stopRealtimeNotifications
-    - on(chatEventId, listenerId, listener) 
-    - off(chatEventId, listenerId) 
+- Added support for real time notifications with new methods in `ChatClient` /`ChatAsyncClient`:
+    - `startRealtimeNotifications`
+    -  stopRealtimeNotifications`
+    - `on(chatEventId, listenerId, listener)`
+    - `off(chatEventId, listenerId)`
 - Add a sample chat app under folder samples for testing and playing around chat functionality purpose.
 
 ##### Breaking Changes
