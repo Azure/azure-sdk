@@ -91,7 +91,7 @@ Fixes issue [13985](https://github.com/Azure/azure-sdk-for-js/issues/13985) wher
 
 #### Breaking Changes
 
--  Removed `dist-browser` from the output folders. To bundle the Azure SDK libraries, please read our bundling guide: [link](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md)
+-  Removed `dist-browser` from the output folders. To bundle the Azure SDK libraries, please read our [bundling guide.](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md)
 
 ### Azure Communication Chat 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-chat/CHANGELOG.md#100-beta5-2021-03-09)
 
@@ -116,7 +116,7 @@ Fixes issue [13985](https://github.com/Azure/azure-sdk-for-js/issues/13985) wher
 - `CommunicationIdentityClient` method `createUserWithToken` renamed to `createUserAndToken`.
 - Renamed `CommunicationIdentityOptions` to `CommunicationIdentityClientOptions`.
 - Removed `_response` from returned models.
-- Removed `dist-browser` from the output folders. To bundle the Azure SDK libraries, please read our bundling guide: [link](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md).
+- Removed `dist-browser` from the output folders. To bundle the Azure SDK libraries, please read our [bundling guide.](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md).
 
 ### Azure Communication SMS 1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-sms/CHANGELOG.md#100-beta4-2021-03-09)
 
