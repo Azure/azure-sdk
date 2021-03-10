@@ -120,7 +120,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 #### 1.0.0-beta.7 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/communication/azure-communication-chat/CHANGELOG.md#100-beta7-2021-03-09))
 
-##### Added
+##### New Features
 
 - Support real time notifications with new methods in ChatClient/ChatAsyncClient: 
     - startRealtimeNotifications
