@@ -7,7 +7,7 @@ repository: azure/azure-sdk-for-js
 ---
 
 <!--
-@azure/identity:1.2.4-beta.1
+@azure/identity:1.2.4
 @azure/abort-controller:1.0.3
 @azure/abort-controller:1.0.4
 @azure/keyvault-secrets:4.2.0-beta.3
@@ -23,12 +23,12 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 [pattern.ga]: # (- ${PackageFriendlyName})
 
 #### Updates
+- Identity
 - Core - Abort Controller
 
 [pattern.patch]: # (- ${PackageFriendlyName})
 
 #### Beta
-- Identity
 - Key Vault - Secrets
 - Key Vault - Keys
 
@@ -39,7 +39,7 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 To install the packages, copy and paste the below into a terminal.
 
 ```bash
-$> npm install @azure/identity@1.2.4-beta.1
+$> npm install @azure/identity@1.2.4
 $> npm install @azure/abort-controller@1.0.3
 $> npm install @azure/abort-controller@1.0.4
 $> npm install @azure/keyvault-secrets@4.2.0-beta.3
@@ -54,8 +54,10 @@ $> npm install @azure/keyvault-keys@4.2.0-beta.4
 If you have a bug or feature request for one of the libraries, please post an issue at the [azure-sdk-for-js repository](https://github.com/azure/azure-sdk-for-js/issues)
 
 ## Release highlights
-### Identity 1.2.4-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/identity_1.2.4-beta.1/sdk/identity/identity/CHANGELOG.md#124-beta1-2021-02-12)
-- Breaking Change: Updated `InteractiveBrowserCredential` to use the Auth Code Flow with PKCE rather than Implicit Grant Flow by default in the browser, to better support browsers with enhanced security restrictions. A new file was added to provide more information about this credential [here](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/identity/identity/interactive-browser-credential.md).
+### Identity 1.2.4 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/da08c62c46e40271482c3ae957e04caf7bd2be2d/sdk/identity/identity/CHANGELOG.md#124-2021-03-08)
+This release doesn't have the changes from `1.2.4-beta.1`. Those will be present in the next beta release.
+- Bug fix: Now if the `managedIdentityClientId` optional parameter is provided to `DefaultAzureCredential`, it will be properly passed through to the underlying `ManagedIdentityCredential`. Related to customer issue: [13872](https://github.com/Azure/azure-sdk-for-js/issues/13872).
+- Bug fix: `ManagedIdentityCredential` now also properly handles `EHOSTUNREACH` errors. Fixes issue [13894](https://github.com/Azure/azure-sdk-for-js/issues/13894).
 
 ### Core - Abort Controller 1.0.3 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/abort-controller_1.0.3/sdk/core/abort-controller/CHANGELOG.md#103-2021-02-23)
 Support Typescript version < 3.6 by down-leveling the type definition files. ([PR 12793](https://github.com/Azure/azure-sdk-for-js/pull/12793))
