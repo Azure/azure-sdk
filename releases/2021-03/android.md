@@ -131,13 +131,16 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ##### Breaking Changes
 
-- Change remove participant API to /chat/threads/{chatThreadId}/participants/:remove
-- user id in following classes changed from type CommunicationUserIdentifier to type CommunicationIdentifierModel.
-- property initiator in ChatMessageContent renamed to initiatorCommunicationIdentifier.
-- property senderId in ChatMessage and ChatMessageReadReceipt renamed to senderCommunicationIdentifier.
-- property identifier in ChatParticipant renamed to communicationIdentifier.
-- property createdBy in ChatThread renamed to createdByCommunicationIdentifier.
-- repeatability-Request-ID in header renamed to repeatability-Request-Id.
+- Changed `userId` from the type `CommunicationUserIdentifier` to `CommunicationIdentifierModel` in the following classes:
+    - `ChatMessage`
+    - `ChatMessageContent`
+    - `ChatMessageReadReceipt`
+    - `ChatParticipant`
+    - `ChatThread`
+- Renamed property `initiator` to `initiatorCommunicationIdentifier` in `ChatMessageContent`.
+- Renamed `senderId` to `senderCommunicationIdentifier` in `ChatMessage` and `ChatMessageReadReceipt`.
+- Renamed `identifier` to `communicationIdentifier` in `ChatParticipant`.
+- Renamed `createdBy` to `createdByCommunicationIdentifier` in `ChatThread`.
   
 ## Need help
 
