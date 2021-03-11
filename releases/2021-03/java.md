@@ -49,6 +49,8 @@ azure-resourcemanager-datadog:1.0.0-beta.1
 azure-resourcemanager-storagecache:1.0.0-beta.2
 azure-ai-textanalytics:5.0.4
 azure-analytics-synapse-artifacts:1.0.0-beta.3
+azure-search-documents:11.3.0
+azure-ai-textanalytics:5.1.0-beta.5
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -81,6 +83,7 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 - Resource Management - Traffic Manager
 - Resource Management - Service Bus
 - Resource Management - SQL
+- Cognitive Search
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -111,6 +114,7 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 - Azure Communication Chat
 - Azure Communication Phone Numbers
 - Azure Communication SMS
+- Text Analytics
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -441,6 +445,20 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <artifactId>azure-communication-sms</artifactId>
   <version>1.0.0-beta.4</version>
 </dependency>
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-search-documents</artifactId>
+  <version>11.3.0</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-ai-textanalytics</artifactId>
+  <version>5.1.0-beta.5</version>
+</dependency>
+
 
 
 ```
@@ -1210,6 +1228,46 @@ This is the initial stable release of Azure Mixed Reality Authentication library
 - Updated `public Mono<SendSmsResponse> sendMessage(PhoneNumberIdentifier from, PhoneNumberIdentifier to, String message)` to `public Mono<SendSmsResponse> send(String from, String to, String message)`.
 - Updated `public Mono<Response<SendSmsResponse>> sendMessageWithResponse(PhoneNumberIdentifier from,List<PhoneNumberIdentifier> to, String message, SendSmsOptions smsOptions, Context context)` to `Mono<Response<SmsSendResult>> sendWithResponse(String from, String to, String message, SmsSendOptions options, Context context)`.
 - Replaced `SendSmsResponse` with `SmsSendResult`.
+### Cognitive Search 11.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-search-documents_11.3.0/sdk/search/azure-search-documents/CHANGELOG.md#1130-2021-03-10)
+#### Dependency Updates
+
+- Updated `azure-core` from `1.13.0` to `1.14.0`.
+- Updated Jackson from `2.11.3` ro `2.12.1`.
+- Updated Reactor from `3.3.12.RELEASE` to `3.4.3`.
+- Updated Reactor Netty from `0.9.15.RELEASE` to `1.0.4`.
+
+### Text Analytics 5.1.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.1.0-beta.5/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#510-beta5-2021-03-10)
+- We are now targeting the service's v3.1-preview.4 API as the default instead of v3.1-preview.3.
+
+#### New features
+- Added a new property `categoriesFilter` to `RecognizePiiEntitiesOptions`. The PII entity recognition endpoint will return 
+  the result with categories only match the given `categoriesFilter` list. 
+- Added `normalizedText` property to `HealthcareEntity`.
+- `AnalyzeHealthcareEntitiesResult` now exposes the property `entityRelations`, which is a list of `HealthcareEntityRelation`.
+- Added `HealthcareEntityRelation` class which will determine all the different relations between the entities as `Roles`.
+- Added `HealthcareEntityRelationRole`, which exposes `name` and `entity` of type `String` and `HealthcareEntity` respectively.
+- `beginAnalyzeBatchActions` can now process recognize linked entities actions.
+- `recognizePiiEntities` takes a new option, `categoriesFilter`, that specifies a list of PII categories to return.
+- Added new classes, `RecognizeLinkedEntitiesActionResult`, `PiiEntityCategory`.
+
+#### Breaking changes
+- Removed `PiiEntity` constructor and `PiiEntity`'s `category` property is no longer a type of `EntityCategory` but use a new introduced type `PiiEntityCategory`.
+- Replace `isNegated` by `HealthcareEntityAssertion` to `HealthcareEntity` which further exposes `EntityAssociation`, `EntityCertainity` and `EntityConditionality`.
+- Renamed classes,
+  `AspectSentiment` to `TargetSentiment`, `OpinionSentiment` to `AssesssmentSentiment`, `MinedOpinion` to `SentenceOpinion`.
+- Renamed
+  `SentenceSentiment`'s method, `getMinedOpinions()` to `getOpinions()`.
+  `MinedOpinion`'s methods, `getAspect()` to `getTarget()`, `getOpinions()` to `getAssessments()`.
+- Removed property, `relatedEntities` from `HealthcareEntity`.
+- Removed constructors, 
+  `SentenceSentiment(String text, TextSentiment sentiment, SentimentConfidenceScores confidenceScores, IterableStream<MinedOpinion> minedOpinions, int offset)`,
+  `AspectSentiment(String text, TextSentiment sentiment, int offset, SentimentConfidenceScores confidenceScores)`,
+  `OpinionSentiment(String text, TextSentiment sentiment, int offset, boolean isNegated, SentimentConfidenceScores confidenceScores)`
+
+#### Known Issues
+- `beginAnalyzeHealthcareEntities` is currently in gated preview and can not be used with AAD credentials. 
+  For more information, see [the Text Analytics for Health documentation](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health?tabs=ner#request-access-to-the-public-preview).
+
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
