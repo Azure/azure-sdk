@@ -622,7 +622,6 @@ is this diagnosis conditional on a symptom?
 - Send method takes in strings for phone numbers instead of `PhoneNumberIdentifier`.
 - Send method returns a list of `SmsSendResult`s instead of a `SendSmsResponse`.
 
-
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
 ## Latest Releases
