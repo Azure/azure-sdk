@@ -42,7 +42,7 @@ Open your project's `Package.swift` file and add a new package dependency to you
 ```swift
     dependencies: [
         ...
-        .package(url: "https://github.com/Azure/azure-sdk-for-ios.git", from: "1.0.0-beta.8")
+        .package(url: "https://github.com/Azure/azure-sdk-for-ios.git", from: "1.0.0-beta.9")
     ],
 ```
 
