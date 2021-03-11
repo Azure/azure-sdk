@@ -21,7 +21,7 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 - Azure Communication Services Calling
 - Azure Communication Services Chat
 - Azure Communication Services Common
-- _Add packages_
+
 
 ## Installation Instructions
 
@@ -137,12 +137,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 #### Key Bug Fixes
 - `OnCallsUpdated` event is raised when the call collection on `CallAgent` is updated for outgoing calls.
 - `Hold` and `Resume` of an active call is fixed. 
-
-### _Version_(_Link to Changelog_)
-
-#### _Package name_
-
-- Major changes only!
 
 ## Need help
 
