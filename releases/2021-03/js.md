@@ -12,6 +12,10 @@ repository: azure/azure-sdk-for-js
 @azure/abort-controller:1.0.4
 @azure/keyvault-secrets:4.2.0-beta.3
 @azure/keyvault-keys:4.2.0-beta.4
+@azure/storage-file-share:12.5.0
+@azure/storage-blob:12.5.0
+@azure/storage-file-datalake:12.4.0
+@azure/storage-queue:12.4.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -19,6 +23,10 @@ repository: azure/azure-sdk-for-js
 The Azure SDK team is pleased to make available the March 2021 client library release.
 
 #### GA
+- Storage - Files Shares
+- Storage - Blobs
+- Storage - Files Data Lake
+- Storage - Queues
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -53,6 +61,10 @@ $> npm install @azure/communication-common@next
 $> npm install @azure/communication-identity@next
 $> npm install @azure/communication-chat@next
 $> npm install @azure/communication-phone-numbers@next
+$> npm install @azure/storage-file-share@12.5.0
+$> npm install @azure/storage-blob@12.5.0
+$> npm install @azure/storage-file-datalake@12.4.0
+$> npm install @azure/storage-queue@12.4.0
 $> npm install @azure/communication-sms@next
 ```
 
@@ -132,6 +144,18 @@ Fixes issue [13985](https://github.com/Azure/azure-sdk-for-js/issues/13985) wher
 - `SendRequest` renamed to `SmsSendRequest`.
 - `SendOptions` renamed to `SmsSendOptions` and now has an additional field `tag` to add a custom tag to delivery reports (when enabled).
 - `send` no longer returns `RestResponse`, now returns an array of `SmsSendResults`. This contains fields to validate success/failure of each sent message.
+### Storage - Files Shares 12.5.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/storage-file-share_12.5.0/sdk/storage/@azure/storage-file-share/CHANGELOG.md#1250-2021-03-10)
+- Updated Azure Storage Service API version to 2020-06-12.
+
+### Storage - Blobs 12.5.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/storage-blob_12.5.0/sdk/storage/@azure/storage-blob/CHANGELOG.md#1250-2021-03-10)
+- Includes all features released in 12.5.0-beta.1.
+
+### Storage - Files Data Lake 12.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/storage-file-datalake_12.4.0/sdk/storage/@azure/storage-file-datalake/CHANGELOG.md#1240-2021-03-10)
+- Includes all features released in 12.4.0-beta.1.
+
+### Storage - Queues 12.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/storage-queue_12.4.0/sdk/storage/@azure/storage-queue/CHANGELOG.md#1240-2021-03-10)
+- Updated Azure Storage Service API version to 2020-06-12.
+
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
