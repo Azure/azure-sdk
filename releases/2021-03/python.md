@@ -578,7 +578,7 @@ is this diagnosis conditional on a symptom?
 
 
 ### Azure Communication Administration is deprecated
-- Phone number administration will be moved intothe new package `azure-communication-phonenumbers`.
+- Phone number administration is moved into the new package `azure-communication-phonenumbers`.
 
 ### Azure Communication Phone Numbers 1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md#100b4-2021-03-09)
 
