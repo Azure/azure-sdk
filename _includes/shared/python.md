@@ -1,4 +1,4 @@
-{% include releases/header.md %}
+{% include shared/header.md %}
 
 ## Python
 
@@ -10,8 +10,8 @@
 
 {{ description | replace: 'PackageCount', packages.size }}
 
-{% include releases/tabs.md lang="python" active=include.type %}
+{% include shared/tabs.md lang="python" active=include.type %}
 
-{% include releases/variables/python.md %}
+{% include shared/variables/python.md %}
 
-{% include releases/pkgtable.md %}
+{% include {{page.scope}}/pkgtable.md %}

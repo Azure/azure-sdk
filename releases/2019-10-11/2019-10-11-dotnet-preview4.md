@@ -84,4 +84,4 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 See [Nov Release](..\2019-11\dotnet.html)
 
-{% include refs.md %}
+{% include shared/refs.md %}

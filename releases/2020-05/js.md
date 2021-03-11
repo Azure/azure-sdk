@@ -65,4 +65,4 @@ If you know beforehand that your messages would fit under the message size restr
 
 View all the latest versions of JavaScript packages [here][js-latest-releases].
 
-{% include refs.md %}
+{% include shared/refs.md %}

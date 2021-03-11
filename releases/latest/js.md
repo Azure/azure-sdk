@@ -5,5 +5,5 @@ tags: javascript typescript
 sidebar: releases_sidebar
 header: true
 ---
-{% include releases/js.md type="client" %}
-{% include refs.md %}
+{% include shared/js.md type="client" %}
+{% include shared/refs.md %}

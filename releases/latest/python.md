@@ -5,5 +5,5 @@ tags: python
 sidebar: releases_sidebar
 header: true
 ---
-{% include releases/python.md type="client" %}
-{% include refs.md %}
+{% include shared/python.md type="client" %}
+{% include shared/refs.md %}

@@ -6,10 +6,10 @@ sidebar: releases_sidebar
 header: true
 ---
 {% capture description %} 
-For general documentation on how to use the managment libraries, please see visit [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt). 
+For general documentation on how to use the management libraries, please see visit [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt). 
 
 Code samples for those libraries can be found [here](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/resourcemanager/docs/SAMPLE.md)
 {% endcapture %}
 
-{% include releases/java.md type="mgmt" %}
-{% include refs.md %}
+{% include shared/java.md type="mgmt" %}
+{% include shared/refs.md %}

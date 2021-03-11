@@ -660,11 +660,11 @@ Azure services use different kinds of authentication schemes to allow clients to
 
 {% include requirement/MUST id="ios-auth-provide-client-initializer" %} provide service client initializers that accept all supported credential types. The credential must be provided as the first parameter to the initializer and must be named `credential`.
 
-{% include requirement/MUST id="ios-auth-validate-credentials"%} validate all credential objects passed to service client initializers by calling the `validate()` method defined by the `Credential` protocol.
+{% include requirement/MUST id="ios-auth-validate-credentials" %} validate all credential objects passed to service client initializers by calling the `validate()` method defined by the `Credential` protocol.
 
 Client libraries may support providing credential data via a connection string __ONLY IF__ the service provides a connection string to users via the portal or other tooling. Connection strings are generally good for getting started as they are easily integrated into an application by copy/paste from the portal. However, connection strings are considered a lesser form of authentication because the credentials cannot be rotated within a running process.
 
-{% include requirement/MAY id="ios-auth-connection-strings"%} provide a service client initializer that accepts a connection string if appropriate. The connection string must be provided as the first parameter to the initializer and must be named `connectionString`. When supporting connection strings, the documentation must include a warning that building credentials such as connection strings into a consumer-facing application is inherently insecure.
+{% include requirement/MAY id="ios-auth-connection-strings" %} provide a service client initializer that accepts a connection string if appropriate. The connection string must be provided as the first parameter to the initializer and must be named `connectionString`. When supporting connection strings, the documentation must include a warning that building credentials such as connection strings into a consumer-facing application is inherently insecure.
 
 {% include requirement/MUSTNOT id="ios-auth-connection-strings-only" %} support initializing a service client with a connection string unless such connection string is available within tooling (for copy/paste operations).
 
@@ -816,5 +816,5 @@ iOS supports the development of platform-specific native code in C++.  These can
 
 > TODO
 
-{% include refs.md %}
+{% include shared/refs.md %}
 {% include_relative refs.md %}

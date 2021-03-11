@@ -9,5 +9,5 @@ header: true
 There are PackageCount total Azure library packages published to npm from the [azure-sdk account](https://www.npmjs.com/~azure-sdk).
 {% endcapture %}
 
-{% include releases/js.md type="all" %}
-{% include refs.md %}
+{% include shared/js.md type="all" %}
+{% include shared/refs.md %}

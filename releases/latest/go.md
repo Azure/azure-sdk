@@ -5,5 +5,5 @@ tags: go
 sidebar: releases_sidebar
 header: true
 ---
-{% include releases/go.md type="client" %}
-{% include refs.md %}
+{% include shared/go.md type="client" %}
+{% include shared/refs.md %}

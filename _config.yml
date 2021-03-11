@@ -81,7 +81,21 @@ defaults:
       comments: false
       search: true
       sidebar: general_sidebar
+      scope: releases
+      scope_path: latest/
       topnav: topnav
+  -
+    scope:
+      path: "roadmap"
+      type: "pages"
+    values:
+      layout: "page"
+      comments: false
+      search: true
+      sidebar: general_sidebar
+      topnav: topnav
+      scope: roadmap
+      scope_path: ""
   -
     scope:
       path: ""

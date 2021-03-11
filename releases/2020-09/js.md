@@ -175,4 +175,4 @@ We're releasing the first beta version of the new Azure Tables client, following
 
 View all the [latest versions of JavaScript packages][js-latest-releases].
 
-{% include refs.md %}
+{% include shared/refs.md %}

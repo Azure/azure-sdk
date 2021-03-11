@@ -9,6 +9,6 @@ header: true
 There are PackageCount total Azure library packages published to nuget from the [azure-sdk account](https://www.nuget.org/profiles/azure-sdk).
 {% endcapture %}
 
-{% include releases/dotnet.md type="all" %}
-{% include refs.md %}
+{% include shared/dotnet.md type="all" %}
+{% include shared/refs.md %}
 

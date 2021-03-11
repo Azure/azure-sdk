@@ -9,5 +9,5 @@ header: true
 There are PackageCount total Azure library packages published to PyPI from the [azure-sdk account](https://pypi.org/user/azure-sdk/).
 {% endcapture %}
 
-{% include releases/python.md type="all" %}
-{% include refs.md %}
+{% include shared/python.md type="all" %}
+{% include shared/refs.md %}

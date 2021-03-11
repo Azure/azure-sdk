@@ -60,6 +60,6 @@ Use the `literalinclude` directive in Python docstrings to instruct Sphinx to [i
 
 Combined operations cause unnecessary friction for a library consumer by requiring knowledge of additional operations which might be outside their current focus. It requires them to first understand the tangential code surrounding the operation they're working on, then carefully extract just the code they need for their task. The developer can no longer simply copy and paste the code snippet into their project.
 
-{% include refs.md %}
+{% include shared/refs.md %}
 {% include_relative refs.md %}
 [1]: http://www.sphinx-doc.org/en/1.5/markup/code.html#includes

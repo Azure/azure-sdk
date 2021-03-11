@@ -274,4 +274,4 @@ Here are some of the highlights:
 
 View all the latest versions of Java packages [here][java-latest-releases].
 
-{% include refs.md %}
+{% include shared/refs.md %}

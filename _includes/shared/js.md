@@ -1,4 +1,4 @@
-{% include releases/header.md %}
+{% include shared/header.md %}
 
 ## JavaScript
 
@@ -10,8 +10,8 @@
 
 {{ description | replace: 'PackageCount', packages.size }}
 
-{% include releases/tabs.md lang="js" active=include.type %}
+{% include shared/tabs.md lang="js" active=include.type %}
 
-{% include releases/variables/js.md %}
+{% include shared/variables/js.md %}
 
-{% include releases/pkgtable.md %}
+{% include {{page.scope}}/pkgtable.md %}

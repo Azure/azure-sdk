@@ -120,7 +120,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 View all the latest versions of .NET packages [here][dotnet-latest-releases].
 
-{% include refs.md %}
+{% include shared/refs.md %}
 
   [keyvault-certificates]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Certificates_4.0.2/sdk/keyvault/Azure.Security.KeyVault.Certificates/CHANGELOG.md#402-2020-03-18
   [keyvault-keys]: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.KeyVault.Keys_4.0.3/sdk/keyvault/Azure.Security.KeyVault.Keys/CHANGELOG.md#403-2020-03-18

@@ -1,4 +1,4 @@
-{% include releases/header.md %}
+{% include shared/header.md %}
 
 ## Embedded C
 
@@ -6,6 +6,6 @@
 
 {{ description | replace: 'PackageCount', packages.size }}
 
-{% include releases/variables/c.md %}
+{% include shared/variables/c.md %}
 
-{% include releases/pkgtable.md %}
+{% include {{page.scope}}/pkgtable.md %}

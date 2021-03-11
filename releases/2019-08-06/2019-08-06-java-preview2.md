@@ -102,4 +102,4 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 
 See [Nov Release]({{site.baseurl}}{% link releases/2019-11/2019-11-java.md %})
 
-{% include refs.md %}
+{% include shared/refs.md %}

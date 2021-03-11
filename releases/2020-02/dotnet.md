@@ -93,4 +93,4 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 View all the latest versions of .NET packages [here][dotnet-latest-releases].
 
-{% include refs.md %}
+{% include shared/refs.md %}

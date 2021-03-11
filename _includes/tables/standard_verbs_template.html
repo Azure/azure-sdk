@@ -11,9 +11,9 @@
     {% for item in data %}
     {% assign mod = forloop.index0 | modulo:2 %}
     {% if mod == 0 %}
-    {% include tables/standard_verbs_row.html perRowCellStyle="standard-verbs-table-cell-pair"%}
+    {% include tables/standard_verbs_row.html perRowCellStyle="standard-verbs-table-cell-pair" %}
     {% else %}
-    {% include tables/standard_verbs_row.html perRowStyle=""%}
+    {% include tables/standard_verbs_row.html perRowStyle="" %}
     {% endif %}
     {% endfor %}
 </div>

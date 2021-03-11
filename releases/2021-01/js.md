@@ -108,4 +108,4 @@ This beta client provides the following functionality for the Microsoft Azure At
 
 View all the latest versions of JavaScript packages [here][js-latest-releases].
 
-{% include refs.md %}
+{% include shared/refs.md %}

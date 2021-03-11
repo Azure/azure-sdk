@@ -124,4 +124,4 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 View all the latest versions of Python packages [here][python-latest-releases].
 
-{% include refs.md %}
+{% include shared/refs.md %}

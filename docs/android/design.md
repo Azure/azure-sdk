@@ -466,7 +466,7 @@ Azure services use different kinds of authentication schemes to allow clients to
 
 Client libraries may support providing credential data via a connection string __ONLY IF__ the service provides a connection string to users via the portal or other tooling. Connection strings are generally good for getting started as they are easily integrated into an application by copy/paste from the portal. However, connection strings are considered a lesser form of authentication because the credentials cannot be rotated within a running process.
 
-{% include requirement/MAY id="android-auth-connection-strings"%} provide a service client initializer that accepts a connection string if appropriate. The connection string must be provided as the first parameter to the initializer and must be named `connectionString`. When supporting connection strings, the documentation must include a warning that building credentials such as connection strings into a consumer-facing application is inherently insecure.
+{% include requirement/MAY id="android-auth-connection-strings" %} provide a service client initializer that accepts a connection string if appropriate. The connection string must be provided as the first parameter to the initializer and must be named `connectionString`. When supporting connection strings, the documentation must include a warning that building credentials such as connection strings into a consumer-facing application is inherently insecure.
 
 {% include requirement/MUSTNOT id="android-auth-connection-strings-only" %} support initializing a service client with a connection string unless such connection string is available within tooling (for copy/paste operations).
 
@@ -680,5 +680,5 @@ Native code plugins cause compatibility issues and require additional scrutiny. 
 
 > TODO
 
-{% include refs.md %}
+{% include shared/refs.md %}
 {% include_relative refs.md %}

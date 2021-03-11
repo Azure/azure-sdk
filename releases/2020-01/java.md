@@ -172,4 +172,4 @@ For more details, please see the detailed [changelog](https://github.com/Azure/a
 
 View all the latest versions of Java packages [here][java-latest-releases].
 
-{% include refs.md %}
+{% include shared/refs.md %}

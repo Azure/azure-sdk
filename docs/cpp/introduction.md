@@ -1037,5 +1037,5 @@ The contributor guide (`CONTRIBUTING.md`) should be a separate file linked to fr
 
 <!-- Links -->
 
-{% include refs.md %}
+{% include shared/refs.md %}
 {% include_relative refs.md %}

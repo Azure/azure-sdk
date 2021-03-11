@@ -183,5 +183,5 @@ As of November 2018, all existing Android apps are required to target API level 
 
 {% include requirement/MUST id="android-library-proguard" %} use `consumerProguardFiles` if you include a Proguard configuration in the library.
 
-{% include refs.md %}
+{% include shared/refs.md %}
 {% include_relative refs.md %}

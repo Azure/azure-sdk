@@ -265,7 +265,7 @@ As outlined above, writing tests that we can run constantly is critical for conf
 
 {% include requirement/MUST id="general-testing-13" %} provide clear documentation on how users should instantiate the client library such that it can be mocked.
 
-{% include refs.md %}
+{% include shared/refs.md %}
 
 [OpenTelemetry]: https://opentelemetry.io
 [Azure Monitor]: https://azure.microsoft.com/services/monitor/

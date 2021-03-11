@@ -1,4 +1,4 @@
-{% include releases/header.md %}
+{% include shared/header.md %}
 
 ## Go
 
@@ -6,6 +6,6 @@
 
 {{ description | replace: 'PackageCount', packages.size }}
 
-{% include releases/variables/go.md %}
+{% include shared/variables/go.md %}
 
-{% include releases/pkgtable.md %}
+{% include {{page.scope}}/pkgtable.md %}

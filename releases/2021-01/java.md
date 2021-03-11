@@ -720,4 +720,4 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 View all the latest versions of Java packages [here][java-latest-releases].
 
-{% include refs.md %}
+{% include shared/refs.md %}

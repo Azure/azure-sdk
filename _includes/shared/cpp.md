@@ -1,4 +1,4 @@
-{% include releases/header.md %}
+{% include shared/header.md %}
 
 ## C++
 
@@ -6,6 +6,6 @@
 
 {{ description | replace: 'PackageCount', packages.size }}
 
-{% include releases/variables/cpp.md %}
+{% include shared/variables/cpp.md %}
 
-{% include releases/pkgtable.md %}
+{% include {{page.scope}}/pkgtable.md %}

@@ -292,4 +292,4 @@ Thank you to our developer community members who helped to make the Service Bus 
 
 View all the latest versions of .NET packages [here][dotnet-latest-releases].
 
-{% include refs.md %}
+{% include shared/refs.md %}

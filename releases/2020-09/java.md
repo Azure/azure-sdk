@@ -640,4 +640,4 @@ service's v3.1-preview.1 and above API. To get this support pass `includeOpinion
 
 View all the latest versions of Java packages [here][java-latest-releases].
 
-{% include refs.md %}
+{% include shared/refs.md %}

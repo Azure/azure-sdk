@@ -5,5 +5,5 @@ tags: c++
 sidebar: releases_sidebar
 header: true
 ---
-{% include releases/cpp.md type="client" %}
-{% include refs.md %}
+{% include shared/cpp.md type="client" %}
+{% include shared/refs.md %}

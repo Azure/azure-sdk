@@ -29,8 +29,8 @@ given package ecosystem as well as by reading release tags from our mono repos. 
 
 ## Link templates
 
-In order to produce standard links without storing them all in the csv file we use [link templates](https://github.com/Azure/azure-sdk/tree/master/_includes/releases/variables) for each language in variable md files used by our jekyll site. 
-We also parse those templates in our automation so that when updating we ensure the links are valid. As an example here are the [link templates](https://raw.githubusercontent.com/Azure/azure-sdk/master/_includes/releases/variables/java.md) we currently use:
+In order to produce standard links without storing them all in the csv file we use [link templates](https://github.com/Azure/azure-sdk/tree/master/_includes/shared/variables) for each language in variable md files used by our jekyll site. 
+We also parse those templates in our automation so that when updating we ensure the links are valid. As an example here are the [link templates](https://raw.githubusercontent.com/Azure/azure-sdk/master/_includes/shared/variables/java.md) we currently use:
 
 ```
 {% assign package_label = "maven" %}

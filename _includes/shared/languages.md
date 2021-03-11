@@ -1,0 +1,9 @@
+{% include shared/dotnet.md type="client" %}
+{% include shared/java.md type="client" %}
+{% include shared/js.md type="client" %}
+{% include shared/python.md type="client" %}
+{% include shared/cpp.md type="client" %}
+{% include shared/c.md type="client" %}
+{% include shared/android.md type="client" %}
+{% include shared/ios.md type="client" %}
+{% include shared/go.md type="client" %}

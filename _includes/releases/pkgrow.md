@@ -7,12 +7,12 @@
     {% assign package_url = package_url_template | replace: 'item.Package', item.Package | replace: 'item.TrimmedPackage', trimmedPackage | replace: 'item.GroupId', item.GroupId | replace: 'item.RepoPath', item.RepoPath %}
     {% if item.VersionGA != "" %}
         {% assign url = package_url | replace: 'item.Version', item.VersionGA  %}
-        {% include releases/pkgbadge.md  label=package_label url=url version=item.VersionGA %}
+        {% include shared/pkgbadge.md  label=package_label url=url version=item.VersionGA %}
     {% endif %}
 
     {% if item.VersionPreview != "" %}
         {% assign url = package_url | replace: 'item.Version', item.VersionPreview  %}
-        {% include releases/pkgbadge.md  label=package_label preview="true" url=url version=item.VersionPreview %}
+        {% include shared/pkgbadge.md  label=package_label preview="true" url=url version=item.VersionPreview %}
     {% endif %}
   </td>
   <td>
@@ -26,12 +26,12 @@
 
     {% if item.VersionGA != "" %}
         {% assign url = msdocs_url | replace: 'item.Version', item.VersionGA %}
-        {% include releases/pkgbadge.md label="msdocs" url=url version=item.VersionGA %}
+        {% include shared/pkgbadge.md label="msdocs" url=url version=item.VersionGA %}
     {% endif %}
 
     {% if item.VersionGA == "" and item.VersionPreview != "" %}
         {% assign url = msdocs_url | replace: 'item.Version', item.VersionPreview %}
-        {% include releases/pkgbadge.md label="msdocs" preview="true" url=url version=item.VersionPreview %}
+        {% include shared/pkgbadge.md label="msdocs" preview="true" url=url version=item.VersionPreview %}
     {% endif %}
   </td>
   <td>
@@ -45,7 +45,7 @@
         {% if docs_label == undefined || docs_label == "" %}
             {% assign docs_label = "ghdocs" %}
         {% endif %}
-        {% include releases/pkgbadge.md label=docs_label url=url version=item.VersionGA %}
+        {% include shared/pkgbadge.md label=docs_label url=url version=item.VersionGA %}
     {% endif %}
 
     {% if item.VersionPreview != "" %}
@@ -53,7 +53,7 @@
         {% if docs_label == undefined || docs_label == "" %}
             {% assign docs_label = "ghdocs" %}
         {% endif %}
-        {% include releases/pkgbadge.md label=docs_label preview="true" url=url version=item.VersionPreview %}
+        {% include shared/pkgbadge.md label=docs_label preview="true" url=url version=item.VersionPreview %}
     {% endif %}
   </td>
   <td>
@@ -65,12 +65,12 @@
 
     {% if item.VersionGA != "" %}
         {% assign url = source_url | replace: 'item.Version', item.VersionGA %}
-        {% include releases/pkgbadge.md label="github" url=url version=item.VersionGA %}
+        {% include shared/pkgbadge.md label="github" url=url version=item.VersionGA %}
     {% endif %}
 
     {% if item.VersionPreview != "" %}
         {% assign url = source_url | replace: 'item.Version', item.VersionPreview %}
-        {% include releases/pkgbadge.md label="github" preview="true" url=url version=item.VersionPreview %}
+        {% include shared/pkgbadge.md label="github" preview="true" url=url version=item.VersionPreview %}
     {% endif %}
   </td>
   <td class="table-display-text-th">{{ item.Notes }}</td>

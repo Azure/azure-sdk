@@ -1,4 +1,4 @@
-{% include releases/header.md %}
+{% include shared/header.md %}
 
 ## Java
 
@@ -10,8 +10,8 @@
 
 {{ description | replace: 'PackageCount', packages.size }}
 
-{% include releases/tabs.md lang="java" active=include.type %}
+{% include shared/tabs.md lang="java" active=include.type %}
 
-{% include releases/variables/java.md %}
+{% include shared/variables/java.md %}
 
-{% include releases/pkgtable.md %}
+{% include {{page.scope}}/pkgtable.md %}

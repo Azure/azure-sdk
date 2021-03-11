@@ -5,5 +5,5 @@ tags: android
 sidebar: releases_sidebar
 header: true
 ---
-{% include releases/android.md type="client" %}
-{% include refs.md %}
+{% include shared/android.md type="client" %}
+{% include shared/refs.md %}

@@ -179,4 +179,4 @@ To get started with these new libraries, please see the [quickstart guide here](
 
 View all the latest versions of .NET packages [here][dotnet-latest-releases].
 
-{% include refs.md %}
+{% include shared/refs.md %}

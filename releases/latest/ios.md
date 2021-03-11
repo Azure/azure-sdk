@@ -5,5 +5,5 @@ tags: ios
 sidebar: releases_sidebar
 header: true
 ---
-{% include releases/ios.md type="client" %}
-{% include refs.md %}
+{% include shared/ios.md type="client" %}
+{% include shared/refs.md %}

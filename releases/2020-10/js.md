@@ -139,4 +139,4 @@ Updated Azure Storage Service API version to 2020-02-10.
 
 View all the latest versions of JavaScript packages [here][js-latest-releases].
 
-{% include refs.md %}
+{% include shared/refs.md %}

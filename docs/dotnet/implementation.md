@@ -580,5 +580,5 @@ public static IAzureClientBuilder<SecretClient, SecretClientOptions> AddSecretCl
 
 <!-- Links -->
 
-{% include refs.md %}
+{% include shared/refs.md %}
 {% include_relative refs.md %}

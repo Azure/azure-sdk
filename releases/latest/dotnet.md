@@ -5,5 +5,5 @@ tags: dotnet
 sidebar: releases_sidebar
 header: true
 ---
-{% include releases/dotnet.md type="client" %}
-{% include refs.md %}
+{% include shared/dotnet.md type="client" %}
+{% include shared/refs.md %}

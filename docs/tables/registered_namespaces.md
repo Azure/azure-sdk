@@ -30,7 +30,7 @@ We represent the namespace in a standard form (each element is all lower case an
 
 To register a new namespace, contact the [Architecture Board].
 
-{% include refs.md %}
+{% include shared/refs.md %}
 
 <!-- Service Links -->
 [App Configuration]: https://azure.microsoft.com/services/app-configuration/

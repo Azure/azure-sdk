@@ -1,4 +1,4 @@
-{% include releases/header.md %}
+{% include shared/header.md %}
 
 ## iOS
 
@@ -6,6 +6,6 @@
 
 {{ description | replace: 'PackageCount', packages.size }}
 
-{% include releases/variables/ios.md %}
+{% include shared/variables/ios.md %}
 
-{% include releases/pkgtable.md %}
+{% include {{page.scope}}/pkgtable.md %}

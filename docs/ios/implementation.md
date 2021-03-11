@@ -153,5 +153,5 @@ Distributed tracing is uncommon in a mobile context. If you feel like you need t
 > TODO: Document how to write good tests with the existing XCTest framework.
 > TODO: Say something about mocking of the requests and how to design for it.
 
-{% include refs.md %}
+{% include shared/refs.md %}
 {% include_relative refs.md %}

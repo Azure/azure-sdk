@@ -375,4 +375,4 @@ For example, MQTT over WebSockets provides the ability to add headers during the
 
 {% include requirement/MUST id="general-proto-config" %} use the global configuration established in the Azure Core library to configure policies for non-HTTP protocols.  Consumers don't necessarily know what protocol is used by the client library.  They will expect the client library to honor global configuration that they have established for the entire Azure SDK.
 
-{% include refs.md %}
+{% include shared/refs.md %}

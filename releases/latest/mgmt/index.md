@@ -3,7 +3,7 @@ title: Azure SDK Latest Releases
 layout: default
 sidebar: releases_sidebar
 ---
-{% include releases/header.md %}
-{% include releases/nav.md %}
-{% include releases/languages.md %}
-{% include refs.md %}
+{% include shared/header.md %}
+{% include shared/nav.md %}
+{% include shared/languages.md %}
+{% include shared/refs.md %}

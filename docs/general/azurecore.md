@@ -264,7 +264,7 @@ OAuth token authentication, obtained via Managed Security Identities (MSI) or Az
 
 {% include requirement/MUST id="azurecore-auth-token-credential" %} provide a token credential type that can fetch an OAuth-compatible token needed to authenticate a request to the service in a non-blocking atomic manner.
 
-{% include refs.md %}
+{% include shared/refs.md %}
 
 [User-Agent header]: https://tools.ietf.org/html/rfc7231#section-5.5.3
 [Transient fault handling]: https://docs.microsoft.com/azure/architecture/best-practices/transient-faults

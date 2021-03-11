@@ -1,4 +1,4 @@
-{% include releases/header.md %}
+{% include shared/header.md %}
 
 ## .NET
 
@@ -10,8 +10,8 @@
 
 {{ description | replace: 'PackageCount', packages.size }}
 
-{% include releases/tabs.md lang="dotnet" active=include.type %}
+{% include shared/tabs.md lang="dotnet" active=include.type %}
 
-{% include releases/variables/dotnet.md %}
+{% include shared/variables/dotnet.md %}
 
-{% include releases/pkgtable.md %}
+{% include {{page.scope}}/pkgtable.md %}

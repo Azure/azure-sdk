@@ -81,4 +81,4 @@ authority is for Azure Public Cloud, `login.microsoftonline.com`
 
 See [Nov Release](..\2019-11\python.html)
 
-{% include refs.md %}
+{% include shared/refs.md %}

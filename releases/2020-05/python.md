@@ -108,4 +108,4 @@ document containing blank pages is analyzed by the recognize custom form methods
 
 View all the latest versions of Python packages [here][python-latest-releases].
 
-{% include refs.md %}
+{% include shared/refs.md %}

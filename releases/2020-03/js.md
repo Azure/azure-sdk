@@ -62,4 +62,4 @@ This release contains bug fixes to improve quality.
 
 View all the latest versions of JavaScript packages [here][js-latest-releases].
 
-{% include refs.md %}
+{% include shared/refs.md %}

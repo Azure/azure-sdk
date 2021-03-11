@@ -1,4 +1,4 @@
-{% include releases/header.md %}
+{% include shared/header.md %}
 
 ## Android
 
@@ -6,6 +6,6 @@
 
 {{ description | replace: 'PackageCount', packages.size }}
 
-{% include releases/variables/android.md %}
+{% include shared/variables/android.md %}
 
-{% include releases/pkgtable.md %}
+{% include {{page.scope}}/pkgtable.md %}
