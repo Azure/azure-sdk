@@ -92,4 +92,4 @@ We are releasing to add support for new service features in Azure Storage Servic
 
 View all the latest versions of JavaScript packages [here][js-latest-releases].
 
-{% include shared/refs.md %}
+{% include refs.md %}

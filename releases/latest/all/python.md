@@ -10,4 +10,4 @@ There are PackageCount total Azure library packages published to PyPI from the [
 {% endcapture %}
 
 {% include shared/python.md type="all" %}
-{% include shared/refs.md %}
+{% include refs.md %}

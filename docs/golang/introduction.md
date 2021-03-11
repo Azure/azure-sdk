@@ -707,5 +707,5 @@ Code examples are small functions that demonstrate a certain feature that is rel
 
 Combined operations require knowledge of additional operations that might be outside the user’s current focus. The developer must first understand the code surrounding the operation they’re working on and can’t copy and paste the code example into their project.
 
-{% include shared/refs.md %}
+{% include refs.md %}
 {% include_relative refs.md %}

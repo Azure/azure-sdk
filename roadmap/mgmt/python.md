@@ -12,4 +12,4 @@ Code samples for those libraries can be found [here](https://docs.microsoft.com/
 {% endcapture %}
 
 {% include shared/python.md type="mgmt" %}
-{% include shared/refs.md %}
+{% include refs.md %}

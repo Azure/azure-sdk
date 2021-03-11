@@ -142,4 +142,4 @@ We have another preview for you containing API changes for a generally improved 
 
 View all the latest versions of JavaScript packages [here][js-latest-releases].
 
-{% include shared/refs.md %}
+{% include refs.md %}

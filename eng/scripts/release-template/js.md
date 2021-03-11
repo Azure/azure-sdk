@@ -46,4 +46,4 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 View all the latest versions of JavaScript packages [here][js-latest-releases].
 
-{% include shared/refs.md %}
+{% include refs.md %}

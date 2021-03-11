@@ -75,4 +75,4 @@ We are excited to announce the GA releases of management libraries that follow t
 
 View all the latest versions of Python packages [here][python-latest-releases].
 
-{% include shared/refs.md %}
+{% include refs.md %}

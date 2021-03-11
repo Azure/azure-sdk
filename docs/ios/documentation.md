@@ -98,6 +98,6 @@ theme: apple
 
 Replace the `YourWorkspaceName`, `YourSchemeName`, and `Folder_Name_where_all_code_resides` appropriately for the project.
 
-{% include shared/refs.md %}
+{% include refs.md %}
 {% include_relative refs.md %}
 

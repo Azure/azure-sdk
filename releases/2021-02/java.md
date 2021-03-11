@@ -653,4 +653,4 @@ Initial release of azure-quantum-jobs. See [Getting Started](https://github.com/
 
 View all the latest versions of Java packages [here][java-latest-releases].
 
-{% include shared/refs.md %}
+{% include refs.md %}

@@ -680,5 +680,5 @@ Native code plugins cause compatibility issues and require additional scrutiny. 
 
 > TODO
 
-{% include shared/refs.md %}
+{% include refs.md %}
 {% include_relative refs.md %}

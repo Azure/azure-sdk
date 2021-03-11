@@ -73,5 +73,5 @@ AMD Module
 [ECMAScript Module][esm] (ES Module or ESM)
 : The standard import/export syntax defined in ECMAScript 6.
 
-{% include shared/refs.md %}
+{% include refs.md %}
 {% include_relative refs.md %}

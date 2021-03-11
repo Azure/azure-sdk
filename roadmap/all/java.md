@@ -6,5 +6,5 @@ sidebar: releases_sidebar
 header: true
 ---
 {% include shared/java.md type="all" %}
-{% include shared/refs.md %}
+{% include refs.md %}
 

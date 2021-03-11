@@ -310,4 +310,4 @@ the search client library module name and namespace.
 
 View all the latest versions of Java packages [here][java-latest-releases].
 
-{% include shared/refs.md %}
+{% include refs.md %}

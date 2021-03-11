@@ -43,4 +43,4 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 See [Nov Release]({{site.baseurl}}{% link releases/2019-11/2019-11-dotnet.md %})
 
-{% include shared/refs.md %}
+{% include refs.md %}

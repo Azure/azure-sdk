@@ -7,4 +7,4 @@ permalink: /releases/latest/index.html
 {% include shared/header.md %}
 {% include shared/nav.md %}
 {% include shared/languages.md %}
-{% include shared/refs.md %}
+{% include refs.md %}

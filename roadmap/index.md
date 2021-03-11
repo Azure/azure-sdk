@@ -6,4 +6,4 @@ sidebar: releases_sidebar
 {% include shared/header.md %}
 {% include shared/nav.md %}
 {% include shared/languages.md %}
-{% include shared/refs.md %}
+{% include refs.md %}

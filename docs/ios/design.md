@@ -816,5 +816,5 @@ iOS supports the development of platform-specific native code in C++.  These can
 
 > TODO
 
-{% include shared/refs.md %}
+{% include refs.md %}
 {% include_relative refs.md %}

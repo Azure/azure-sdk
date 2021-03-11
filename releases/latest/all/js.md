@@ -10,4 +10,4 @@ There are PackageCount total Azure library packages published to npm from the [a
 {% endcapture %}
 
 {% include shared/js.md type="all" %}
-{% include shared/refs.md %}
+{% include refs.md %}

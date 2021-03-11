@@ -852,5 +852,5 @@ Code samples are small applications that demonstrate a certain feature that is r
 
 Combined scenarios require knowledge of additional operations that might be outside their current focus. The developer must first understand the code surrounding the scenario they're working on, and can't copy and paste the code sample into their project.
 
-{% include shared/refs.md %}
+{% include refs.md %}
 {% include_relative refs.md %}

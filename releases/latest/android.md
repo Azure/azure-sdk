@@ -6,4 +6,4 @@ sidebar: releases_sidebar
 header: true
 ---
 {% include shared/android.md type="client" %}
-{% include shared/refs.md %}
+{% include refs.md %}

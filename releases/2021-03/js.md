@@ -208,4 +208,4 @@ Fixes issue [13985](https://github.com/Azure/azure-sdk-for-js/issues/13985) wher
 
 View all the latest versions of JavaScript packages [here][js-latest-releases].
 
-{% include shared/refs.md %}
+{% include refs.md %}

@@ -529,5 +529,5 @@ Examples: [`asyncio.loop.call_soon_threadsafe`](https://docs.python.org/3/librar
 
 You may do your own thread management if the thread isn't exposed to the caller in any way. For example, the `LROPoller` implementation uses a background poller thread.
 
-{% include shared/refs.md %}
+{% include refs.md %}
 {% include_relative refs.md %}

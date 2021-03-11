@@ -52,6 +52,6 @@ Each requirement in this document is labelled and color-coded to show the relati
 
 {% include requirement/MAY %} consider this advice if appropriate to your situation.  No notification to the architecture board is required.
 
-{% include shared/refs.md %}
+{% include refs.md %}
 
 [Progressive Disclosure]: https://www.nngroup.com/articles/progressive-disclosure/

@@ -95,4 +95,4 @@ These clients can be accessed by navigating down the client hierarchy, or instan
 
 See [Nov Release]({{site.baseurl}}{% link releases/2019-11/2019-11-python.md %})
 
-{% include shared/refs.md %}
+{% include refs.md %}

@@ -12,4 +12,4 @@ Code samples for those libraries can be found [here](https://github.com/Azure/az
 {% endcapture %}
 
 {% include shared/java.md type="mgmt" %}
-{% include shared/refs.md %}
+{% include refs.md %}

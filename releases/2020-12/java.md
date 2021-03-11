@@ -448,4 +448,4 @@ These new packages share the same groupId ``com.azures.resourcemanager`` and art
 
 View all the latest versions of Java packages [here][java-latest-releases].
 
-{% include shared/refs.md %}
+{% include refs.md %}

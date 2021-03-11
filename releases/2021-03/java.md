@@ -901,4 +901,4 @@ This is the initial release of Azure Device Update for IoT Hub library.
 
 View all the latest versions of Java packages [here][java-latest-releases].
 
-{% include shared/refs.md %}
+{% include refs.md %}

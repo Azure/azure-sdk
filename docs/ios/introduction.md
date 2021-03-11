@@ -64,5 +64,5 @@ The Azure SDK should be designed to enhance the productivity of developers conne
 
 The intent is to ensure that the client library is idiomatic in Swift applications. The library should not make specific accommodations to support Objective-C applications.
 
-{% include shared/refs.md %}
+{% include refs.md %}
 {% include_relative refs.md %}

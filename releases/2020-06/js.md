@@ -128,4 +128,4 @@ This is the first GA release version of the Text Analytics library.
 
 View all the latest versions of JavaScript packages [here][js-latest-releases].
 
-{% include shared/refs.md %}
+{% include refs.md %}

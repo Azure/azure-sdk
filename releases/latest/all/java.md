@@ -10,5 +10,5 @@ There are PackageCount total Azure library packages published to maven central f
 {% endcapture %}
 
 {% include shared/java.md type="all" %}
-{% include shared/refs.md %}
+{% include refs.md %}
 

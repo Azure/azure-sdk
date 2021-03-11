@@ -175,4 +175,4 @@ added property `related_entities` for each entity returned from this call.
 
 View all the latest versions of Python packages [here][python-latest-releases].
 
-{% include shared/refs.md %}
+{% include refs.md %}

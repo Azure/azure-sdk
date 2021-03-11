@@ -161,4 +161,4 @@ SearchIndexDocumentBatchingClient supports handling document indexing actions in
 View all the latest versions of Python packages [here][python-latest-releases].
 
 
-{% include shared/refs.md %}
+{% include refs.md %}

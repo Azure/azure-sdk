@@ -223,4 +223,4 @@ to `Task<Response<SmsSendResult>> SendAsync(string from, string to, string messa
 
 View all the latest versions of .NET packages [here][dotnet-latest-releases].
 
-{% include shared/refs.md %}
+{% include refs.md %}

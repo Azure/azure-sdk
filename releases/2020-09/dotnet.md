@@ -275,4 +275,4 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 ## Latest Releases
 
 View all the latest versions of .NET packages [here][dotnet-latest-releases].
-{% include shared/refs.md %}
+{% include refs.md %}

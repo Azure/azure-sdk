@@ -168,4 +168,4 @@ While an API is in preview or after it is in GA, changes to APIs are not always 
 
 When the library developers indicate they’re ready to release, these should be reviewed by the architect as part of final signoff before GA. Libraries should not be released as GA (or updated to GA) if there are unresolved “APIChange” labels without a corresponding “ArchApproved” label. Once final review is requested, all “APIChange” labels will be responded to within 5 working days.
 
-{% include shared/refs.md %}
+{% include refs.md %}

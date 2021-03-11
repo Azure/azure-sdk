@@ -107,4 +107,4 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 View all the latest versions of Android packages [here][android-latest-releases].
 
-{% include shared/refs.md %}
+{% include refs.md %}

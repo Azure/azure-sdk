@@ -150,4 +150,4 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 
 See [Nov Release](..\2019-11\java.html)
 
-{% include shared/refs.md %}
+{% include refs.md %}

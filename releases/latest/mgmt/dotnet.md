@@ -6,4 +6,4 @@ sidebar: releases_sidebar
 header: true
 ---
 {% include shared/dotnet.md type="mgmt" %}
-{% include shared/refs.md %}
+{% include refs.md %}

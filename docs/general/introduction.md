@@ -56,4 +56,4 @@ The Azure SDK should be designed to enhance the productivity of developers conne
 * Do not rely on dependencies that can force our hand on compatibility.
 
 
-{% include shared/refs.md %}
+{% include refs.md %}

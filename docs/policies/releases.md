@@ -440,4 +440,4 @@ To graduate to GA, a beta release must:
 
 - Receive final design sign-off from service team.
 
-{% include shared/refs.md %}
+{% include refs.md %}

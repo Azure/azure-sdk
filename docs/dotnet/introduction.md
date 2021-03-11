@@ -1076,5 +1076,5 @@ Some [.NET Framework Design Guidelines](https://aka.ms/fxdg3) have been notoriou
 
 <!-- Links -->
 
-{% include shared/refs.md %}
+{% include refs.md %}
 {% include_relative refs.md %}

@@ -49,5 +49,5 @@ Combined operations cause unnecessary friction for a library consumer by requiri
 
 {% include requirement/SHOULD id="ts-need-browser-samples" %} have browser samples tailored for browser scenarios.  You need not duplicate all samples for browsers.
 
-{% include shared/refs.md %}
+{% include refs.md %}
 {% include_relative refs.md %}

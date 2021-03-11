@@ -114,4 +114,4 @@ If you have a bug or feature request for one of the libraries, please [file an i
 ## Latest Releases
 View all the latest versions of .NET packages [here][dotnet-latest-releases].
 
-{% include shared/refs.md %}
+{% include refs.md %}

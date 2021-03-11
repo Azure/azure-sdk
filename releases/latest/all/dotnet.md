@@ -10,5 +10,5 @@ There are PackageCount total Azure library packages published to nuget from the 
 {% endcapture %}
 
 {% include shared/dotnet.md type="all" %}
-{% include shared/refs.md %}
+{% include refs.md %}
 

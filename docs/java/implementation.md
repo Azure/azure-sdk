@@ -208,5 +208,5 @@ public ConfigurationAsyncClient build() {
 
 > TODO refer to cases where this is done in Java today
 
-{% include shared/refs.md %}
+{% include refs.md %}
 {% include_relative refs.md %}

@@ -168,4 +168,4 @@ You can find the list of new packages [on this page](https://azure.github.io/azu
 
 View all the latest versions of Python packages [here][python-latest-releases].
 
-{% include shared/refs.md %}
+{% include refs.md %}

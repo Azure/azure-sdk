@@ -1306,5 +1306,5 @@ Using a consistent set of naming patterns across all client libraries will ensur
 
 {% include requirement/MUSTNOT id="java-interface-i-prefix" %} name interface types with an 'I' prefix, e.g. `ISearchClient`. Instead, do not have any prefix for an interface, preferring `SearchClient` as the name for the interface type in this case.
 
-{% include shared/refs.md %}
+{% include refs.md %}
 {% include_relative refs.md %}

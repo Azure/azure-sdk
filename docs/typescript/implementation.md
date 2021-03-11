@@ -466,5 +466,5 @@ In practice, users working on production applications will likely be using a bun
 
 Azure packages authored using TypeScript export standard ES6 modules. As Node doesn't support ES6 modules natively, authoring ES6 modules for consumption in Node has a bit of friction. Most notably, a commonJS package can only import a single value.
 
-{% include shared/refs.md %}
+{% include refs.md %}
 {% include_relative refs.md %}
