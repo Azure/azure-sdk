@@ -1151,7 +1151,7 @@ This is the initial stable release of Azure Mixed Reality Authentication library
 
 ### Azure Communication Administration is deprecated
 
-- `PhoneNumberAdministrationClient` and `PhoneNumberAdministrationAsyncClient` is moved into the new package `azure-communication-phoneNumbers` and replaced by `PhoneNumbersClient` and `PhoneNumbersAsyncClient`, respectively.
+- `PhoneNumberAdministrationClient` and `PhoneNumberAdministrationAsyncClient` is moved into the new package `azure-communication-phonenumbers` and replaced by `PhoneNumbersClient` and `PhoneNumbersAsyncClient`, respectively.
 
 ### Azure Communication Phone Numbers 1.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md#100-beta6-2021-03-09)
 
