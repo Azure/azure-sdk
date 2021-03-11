@@ -42,7 +42,6 @@ dependencies {
     ...
     implementation 'com.azure.android:azure-communication-chat:1.0.0-beta.7'
     implementation 'com.azure.android:azure-communication-common:1.0.0-beta.7'
-    implementation 'com.microsoft.trouter:client-android:0.0.1-beta.1'
 }
 ```
 
@@ -60,7 +59,6 @@ dependencies {
     ...
     implementation("com.azure.android:azure-communication-chat:1.0.0-beta.7")
     implementation("com.azure.android:azure-communication-common:1.0.0-beta.7")
-    implementation("com.microsoft.trouter:client-android:0.0.1-beta.1")
 }
 ```
 
@@ -85,12 +83,6 @@ dependencies {
   <groupId>com.azure.android</groupId>
   <artifactId>azure-communication-common</artifactId>
   <version>1.0.0-beta.7</version>
-  <type>aar</type>
-</dependency>
-<dependency>
-  <groupId>com.microsoft.trouter</groupId>
-  <artifactId>client-android</artifactId>
-  <version>0.0.1-beta.1</version>
   <type>aar</type>
 </dependency>
 ```
