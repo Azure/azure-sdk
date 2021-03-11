@@ -65,14 +65,6 @@ dependencies {
 ### Maven
 
 ```xml
-<repositories>
-    ...
-    <repository>
-        <id>troutersource</id>
-        <url>https://trouterpublicpackages.z13.web.core.windows.net</url>
-    </repository>
-</repositories>
-...
 <dependency>
   <groupId>com.azure.android</groupId>
   <artifactId>azure-communication-chat</artifactId>
