@@ -32,6 +32,7 @@ azure-eventhub-checkpointstoreblob:1.1.3
 azure-synapse-accesscontrol:0.6.0
 azure-servicebus:7.1.0
 azure-ai-textanalytics:5.1.0b6
+azure-iot-deviceupdate:1.0.0b1
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -66,6 +67,7 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 #### Beta
 - azure-mgmt-servicefabricmanagedclusters
 - azure-mgmt-deviceupdate
+- azure-iot-deviceupdate
 - Resource Management - Datadog
 - Key Vault - Keys
 - Key Vault - Keys
@@ -110,10 +112,10 @@ $> pip install azure-synapse-accesscontrol==0.6.0
 $> pip install azure-servicebus==7.1.0
 $> pip install azure-ai-textanalytics==5.1.0b6
 $> pip install azure-communication-identity
-$> pip install azure-communication-chat 
+$> pip install azure-communication-chat
 $> pip install azure-communication-sms
 $> pip install azure-communication-phonenumbers
-
+$> pip install azure-iot-deviceupdate==1.0.0b1
 ```
 
 [pattern]: # ($> pip install ${PackageName}==${PackageVersion})
@@ -400,9 +402,9 @@ If you have a bug or feature request for one of the libraries, please post an is
   - Added 128-, 192-, and 256-bit AES-GCM, AES-CBC, and AES-CBCPAD encryption
     algorithms to `EncryptionAlgorithm`
   - Added 128- and 192-bit AES-KW key wrapping algorithms to `KeyWrapAlgorithm`
-  - `CryptographyClient`'s `encrypt` method accepts `iv` and 
+  - `CryptographyClient`'s `encrypt` method accepts `iv` and
     `additional_authenticated_data` keyword arguments
-  - `CryptographyClient`'s `decrypt` method accepts `iv`, 
+  - `CryptographyClient`'s `decrypt` method accepts `iv`,
     `additional_authenticated_data`, and `authentication_tag` keyword arguments
   - Added `iv`, `aad`, and `tag` properties to `EncryptResult`
 - Added method `parse_key_vault_key_id` that parses out a full ID returned by
@@ -483,14 +485,14 @@ This version will be the last version to officially support Python 3.5, future v
   ```
   # before (e.g. in 1.6.0b1):
   DeviceCodeCredential(enable_persistent_cache=True, allow_unencrypted_cache=True)
-  
+
   # after:
   cache_options = TokenCachePersistenceOptions(allow_unencrypted_storage=True)
   DeviceCodeCredential(cache_persistence_options=cache_options)
   ```
-  
+
   See the documentation and samples for more details.
-  
+
 #### Added
 - New class `TokenCachePersistenceOptions` configures persistent caching
 - The `AuthenticationRequiredError.claims` property provides any additional
@@ -582,13 +584,13 @@ is this diagnosis conditional on a symptom?
 
 ### Azure Communication Phone Numbers 1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md#100b4-2021-03-09)
 
-##### New Features 
+##### New Features
 
 - Added `PhoneNumbersClient` (originally was part of the `azure.communication.administration` package).
 
 ### Azure Communication Chat 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-chat/CHANGELOG.md#100b5-2021-03-09)
 
-##### New Features 
+##### New Features
 
 - Removed nullable references from method signatures.
 
@@ -622,6 +624,9 @@ is this diagnosis conditional on a symptom?
 - Send method takes in strings for phone numbers instead of `PhoneNumberIdentifier`.
 - Send method returns a list of `SmsSendResult`s instead of a `SendSmsResponse`.
 
+### Device Update 1.0.0b1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/deviceupdate/azure-iot-deviceupdate/CHANGELOG.md#100b1-2021-03-03)
+
+* Initial Release
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
