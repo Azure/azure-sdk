@@ -804,7 +804,7 @@ For example, `Azure.Storage.Blobs`.
 - `Azure.Data` for client libraries that handle databases or structured data stores
 - `Azure.DigitalTwins` for DigitalTwins related technologies
 - `Azure.Identity` for authentication and authorization client libraries
-- `Azure.Iot` for client libraries dealing with the Internet of Things
+- `Azure.IoT` for client libraries dealing with the Internet of Things
 - `Azure.Management` for client libraries accessing the control plane (Azure Resource Manager)
 - `Azure.Media` for client libraries that deal with audio, video, or mixed reality
 - `Azure.Messaging` for client libraries that provide messaging services, such as push notifications or pub-sub.
