@@ -7,13 +7,13 @@ sidebar: general_sidebar
 
 # Producing Release Notes
 
-Each release cycle, we produce release notes for every language. This process is partly automated. The [azure-sdk - generate-release-notes](https://dev.azure.com/azure-sdk/internal/_build?definitionId=2359) runs at 12:30PM every weekday and produces pull requests with titles of the form **(Create or Update Release Notes for {Language} {YYYY-MM} release)** for dotnet, java, js, and python. Below are instructions for updating/reviewing the PRs before merging.
+Each release cycle, we produce release notes for every language. This process is partly automated. The `azure-sdk - generate-release-notes` once every weekday and produces pull requests with titles of the form **(Create or Update Release Notes for {Language} {YYYY-MM} release)** for dotnet, java, js, and python. Below are instructions for updating/reviewing the PRs before merging.
 
 - The **engineering leads** for the released packages should make sure they have been picked up by the automation and that the entry is correct.
   - To prevent the conflicts between the automation and manual edits, instead of pushing new commits you should make code suggestion on the PR, then allow the release manager to take care of merging everything in.
   - Feel free to suggest edits to individual `Release Highlights` sections as you see fit.
   - Suggest new release entries that should be added to the PR if it has not already been added by the automation (it most likely will be). 
-  - If there are packages that should be in the release that don't appear it is probably because this automation runs at 12:30PM every weekday. If you released you package after 12:30PM you should wait till 12:30PM the next day, by then the automation would have picked it up.
+  - If there are packages that should be in the release that don't appear it is probably because this automation runs once every weekday. Your package should generally get picked up by the automation within 24 hours.
 
 - The **release manager** should remove all entries for packages that should not be in the release period, review and merge the pull request.
   - Entries will have to be removed from the `Release Highlights`, `Installation Instructions` as well as the `Updates`, `Beta` or, `GA` sections as the case may be. 
