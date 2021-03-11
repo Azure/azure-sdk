@@ -135,6 +135,7 @@ function Write-GeneralReleaseNote ($releaseHighlights, $releaseNotesContent, $re
                 }
 
                 $changelogUrl = $releaseHighlights[$key]["ChangelogUrl"]
+                $GroupId = $releaseHighlights[$key]["PackageProperties"].Group
                 $changelogUrl = "(${changelogUrl})"
                 $highlightsBody = ($releaseHighlights[$key]["Content"] | Out-String).Trim()
                 $packageSemVer = [AzureEngSemanticVersion]::ParseVersionString($PackageVersion)
