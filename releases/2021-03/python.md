@@ -19,8 +19,7 @@ azure-core:1.12.0
 azure-identity:1.6.0b2
 azure-storage-blob:12.8.0
 azure-storage-file-datalake:12.3.0
-azure-keyvault-keys:4.4.0b1
-azure-keyvault-keys:4.4.0b2
+azure-keyvault-keys:4.4.0b3
 azure-synapse-managedprivateendpoints:0.3.0
 azure-synapse-artifacts:0.5.0
 azure-synapse-spark:0.5.0
@@ -34,7 +33,6 @@ azure-eventhub-checkpointstoreblob:1.1.3
 azure-servicebus:7.1.0
 azure-ai-textanalytics:5.1.0b6
 azure-iot-deviceupdate:1.0.0b1
-azure-keyvault-keys:4.4.0b3
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -67,7 +65,6 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - azure-iot-deviceupdate
 - Resource Management - Datadog
 - Key Vault - Keys
-- Key Vault - Keys
 - Resource Management - Resource Mover
 - Identity
 - Event Hubs
@@ -81,7 +78,6 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Azure Communication Chat
 - Azure Communication Phone Numbers
 - Azure Communication SMS
-- Key Vault - Keys
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -111,8 +107,7 @@ $> pip install azure-eventhub-checkpointstoreblob==1.1.3
 $> pip install azure-eventhub-checkpointstoreblob-aio==1.1.3
 $> pip install azure-identity==1.6.0b2
 $> pip install azure-iot-deviceupdate==1.0.0b1
-$> pip install azure-keyvault-keys==4.4.0b1
-$> pip install azure-keyvault-keys==4.4.0b2
+$> pip install azure-keyvault-keys==4.4.0b3
 $> pip install azure-storage-blob==12.8.0
 $> pip install azure-storage-file-datalake==12.3.0
 $> pip install azure-servicebus==7.1.0
@@ -120,7 +115,6 @@ $> pip install azure-synapse-accesscontrol==0.6.0
 $> pip install azure-synapse-artifacts==0.5.0
 $> pip install azure-synapse-managedprivateendpoints==0.3.0
 $> pip install azure-synapse-monitoring==0.2.0
-$> pip install azure-keyvault-keys==4.4.0b3
 $> pip install azure-synapse-spark==0.5.0
 ```
 
@@ -517,30 +511,12 @@ This version will be the last version to officially support Python 3.5, future v
 - The `AuthenticationRequiredError.claims` property provides any additional
   claims required by a user credential's `authenticate()` method
 
-### Key Vault - Keys 4.4.0b1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-keyvault-keys_4.4.0b1/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md#440b1-2021-2-10)
-#### Changed
-- Key Vault API version 7.2-preview is now the default
-- Updated msrest requirement to >=0.6.21
-
+### Key Vault - Keys 4.4.0b3 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-keyvault-keys_4.4.0b3/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md#440b3-2021-3-11)
 #### Added
-- Support for Key Vault API version 7.2-preview
-([#16566](https://github.com/Azure/azure-sdk-for-python/pull/16566))
-  - Added `oct_hsm` to `KeyType`
-  - Added 128-, 192-, and 256-bit AES-GCM, AES-CBC, and AES-CBCPAD encryption
-    algorithms to `EncryptionAlgorithm`
-  - Added 128- and 192-bit AES-KW key wrapping algorithms to `KeyWrapAlgorithm`
-  - `CryptographyClient`'s `encrypt` method accepts `iv` and
-    `additional_authenticated_data` keyword arguments
-  - `CryptographyClient`'s `decrypt` method accepts `iv`,
-    `additional_authenticated_data`, and `authentication_tag` keyword arguments
-  - Added `iv`, `aad`, and `tag` properties to `EncryptResult`
-- Added method `parse_key_vault_key_id` that parses out a full ID returned by
-Key Vault, so users can easily access the key's `name`, `vault_url`, and `version`.
-
-### Key Vault - Keys 4.4.0b2 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-keyvault-keys_4.4.0b2/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md#440b2-2021-2-10)
-#### Fixed
-- API versions older than 7.2-preview no longer raise `ImportError` when
-  performing async operations ([#16680](https://github.com/Azure/azure-sdk-for-python/pull/16680))
+- `CryptographyClient` will perform all operations locally if initialized with
+  the `.from_jwk` factory method
+  ([#16565](https://github.com/Azure/azure-sdk-for-python/pull/16565))
+- Added requirement for six>=1.12.0
 
 ### Storage - Blobs 12.8.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-storage-blob_12.8.0/sdk/storage/azure-storage-blob/CHANGELOG.md#1280-2021-03-01)
 **Stable release of preview features**
@@ -648,12 +624,6 @@ This version will be the last version to officially support Python 3.5, future v
 ** Breaking changes **
 
 - Stop Python 3.5 support
-### Key Vault - Keys 4.4.0b3 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-keyvault-keys_4.4.0b3/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md#440b3-2021-3-11)
-#### Added
-- `CryptographyClient` will perform all operations locally if initialized with
-  the `.from_jwk` factory method
-  ([#16565](https://github.com/Azure/azure-sdk-for-python/pull/16565))
-- Added requirement for six>=1.12.0
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
