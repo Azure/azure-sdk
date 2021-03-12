@@ -16,6 +16,7 @@ repository: azure/azure-sdk-for-js
 @azure/storage-blob:12.5.0
 @azure/storage-file-datalake:12.4.0
 @azure/storage-queue:12.4.0
+@azure/cosmos:3.10.2
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -33,6 +34,7 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 #### Updates
 - Identity
 - Core - Abort Controller
+- Cosmos DB
 
 [pattern.patch]: # (- ${PackageFriendlyName})
 
@@ -65,6 +67,7 @@ $> npm install @azure/storage-file-share@12.5.0
 $> npm install @azure/storage-blob@12.5.0
 $> npm install @azure/storage-file-datalake@12.4.0
 $> npm install @azure/storage-queue@12.4.0
+$> npm install @azure/cosmos@3.10.2
 $> npm install @azure/communication-sms@next
 ```
 
@@ -155,6 +158,9 @@ Fixes issue [13985](https://github.com/Azure/azure-sdk-for-js/issues/13985) wher
 
 ### Storage - Queues 12.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/storage-queue_12.4.0/sdk/storage/@azure/storage-queue/CHANGELOG.md#1240-2021-03-10)
 - Updated Azure Storage Service API version to 2020-06-12.
+
+### Cosmos DB 3.10.2 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/cosmos_3.10.2/sdk/cosmosdb/cosmos/CHANGELOG.md#3102-2021-03-11)
+- BUGFIX: Fixes @azure/identity dependency in dev deps.
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
