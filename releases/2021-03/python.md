@@ -107,6 +107,7 @@ $> pip install azure-identity==1.6.0b2
 $> pip install azure-synapse-managedprivateendpoints==0.3.0
 $> pip install azure-synapse-artifacts==0.5.0
 $> pip install azure-eventhub==5.3.1
+$> pip install azure-eventhub==5.4.0b1
 $> pip install azure-eventhub-checkpointstoreblob-aio==1.1.3
 $> pip install azure-synapse-spark==0.5.0
 $> pip install azure-eventhub-checkpointstoreblob==1.1.3
