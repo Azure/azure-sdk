@@ -34,6 +34,7 @@ azure-eventhub-checkpointstoreblob:1.1.3
 azure-servicebus:7.1.0
 azure-ai-textanalytics:5.1.0b6
 azure-iot-deviceupdate:1.0.0b1
+azure-keyvault-keys:4.4.0b3
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -80,6 +81,7 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Azure Communication Chat
 - Azure Communication Phone Numbers
 - Azure Communication SMS
+- Key Vault - Keys
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -118,6 +120,7 @@ $> pip install azure-synapse-accesscontrol==0.6.0
 $> pip install azure-synapse-artifacts==0.5.0
 $> pip install azure-synapse-managedprivateendpoints==0.3.0
 $> pip install azure-synapse-monitoring==0.2.0
+$> pip install azure-keyvault-keys==4.4.0b3
 $> pip install azure-synapse-spark==0.5.0
 ```
 
@@ -645,6 +648,13 @@ This version will be the last version to officially support Python 3.5, future v
 ** Breaking changes **
 
 - Stop Python 3.5 support
+### Key Vault - Keys 4.4.0b3 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-keyvault-keys_4.4.0b3/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md#440b3-2021-3-11)
+#### Added
+- `CryptographyClient` will perform all operations locally if initialized with
+  the `.from_jwk` factory method
+  ([#16565](https://github.com/Azure/azure-sdk-for-python/pull/16565))
+- Added requirement for six>=1.12.0
+
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
