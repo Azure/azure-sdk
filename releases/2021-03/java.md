@@ -1224,7 +1224,6 @@ This is the initial stable release of Azure Mixed Reality Authentication library
 - `beginAnalyzeHealthcareEntities` is currently in gated preview and can not be used with AAD credentials. 
   For more information, see [the Text Analytics for Health documentation](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health?tabs=ner#request-access-to-the-public-preview).
 
-
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
 ## Need help
