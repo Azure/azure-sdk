@@ -124,294 +124,253 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 
 ```xml
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-eventgrid</artifactId>
   <version>1.0.0-beta.2</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-resources</artifactId>
   <version>2.2.0</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-eventhubs</artifactId>
   <version>2.2.0</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-redis</artifactId>
   <version>2.2.0</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure</groupId>
   <artifactId>azure-mixedreality-remoterendering</artifactId>
   <version>1.0.0-beta.1</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-iothub</artifactId>
   <version>1.0.0-beta.1</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-containerservice</artifactId>
   <version>2.2.0</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-storagecache</artifactId>
   <version>1.0.0-beta.1</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-network</artifactId>
   <version>2.2.0</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure</groupId>
   <artifactId>azure-digitaltwins-core</artifactId>
   <version>1.0.3</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-dns</artifactId>
   <version>2.2.0</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-compute</artifactId>
   <version>2.2.0</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-search</artifactId>
   <version>2.2.0</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-cosmos</artifactId>
   <version>2.2.0</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-mediaservices</artifactId>
   <version>1.0.0-beta.2</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager</artifactId>
   <version>2.2.0</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-storage</artifactId>
   <version>2.2.0</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-hybridkubernetes</artifactId>
   <version>1.0.0-beta.1</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-msi</artifactId>
   <version>2.2.0</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure</groupId>
   <artifactId>azure-sdk-bom</artifactId>
   <version>1.0.2</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure</groupId>
   <artifactId>azure-mixedreality-authentication</artifactId>
   <version>1.0.0-beta.1</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-containerinstance</artifactId>
   <version>2.2.0</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-appplatform</artifactId>
   <version>2.2.0</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-authorization</artifactId>
   <version>2.2.0</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-keyvault</artifactId>
   <version>2.2.0</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-appservice</artifactId>
   <version>2.2.0</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-cdn</artifactId>
   <version>2.2.0</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-privatedns</artifactId>
   <version>2.2.0</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-containerregistry</artifactId>
   <version>2.2.0</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-digitaltwins</artifactId>
   <version>1.0.0-beta.1</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-monitor</artifactId>
   <version>2.2.0</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure</groupId>
   <artifactId>azure-mixedreality-authentication</artifactId>
   <version>1.0.0</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-trafficmanager</artifactId>
   <version>2.2.0</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-servicebus</artifactId>
   <version>2.2.0</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-netapp</artifactId>
   <version>1.0.0-beta.1</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-redisenterprise</artifactId>
   <version>1.0.0-beta.2</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-redisenterprise</artifactId>
   <version>1.0.0-beta.1</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-sql</artifactId>
   <version>2.2.0</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-datadog</artifactId>
   <version>1.0.0-beta.1</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-storagecache</artifactId>
   <version>1.0.0-beta.2</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure</groupId>
   <artifactId>azure-ai-textanalytics</artifactId>
   <version>5.0.4</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure</groupId>
   <artifactId>azure-analytics-synapse-artifacts</artifactId>
   <version>1.0.0-beta.3</version>
 </dependency>
@@ -447,19 +406,16 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 </dependency>
 
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure</groupId>
   <artifactId>azure-search-documents</artifactId>
   <version>11.3.0</version>
 </dependency>
 
-
 <dependency>
-  <groupId></groupId>
+  <groupId>com.azure</groupId>
   <artifactId>azure-ai-textanalytics</artifactId>
   <version>5.1.0-beta.5</version>
 </dependency>
-
-
 
 ```
 
