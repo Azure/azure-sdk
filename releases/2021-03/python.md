@@ -74,6 +74,7 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Key Vault - Keys
 - Resource Management - Resource Mover
 - Identity
+- Event Hubs
 - Text Analytics
 - Azure Communication Identity
 - Azure Communication Chat
