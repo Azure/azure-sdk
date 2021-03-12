@@ -1,6 +1,6 @@
 <table>
 <tr>
-  <th class="table-display-text-th table-display-name-th">Service</th>
+  <th class="table-display-text-th table-display-name-th">Name</th>
   <th>Current Version</th>
   <th>Next GA</th>
   <th>Status</th>

@@ -1,23 +1,23 @@
 {% if item.Hide != "true" %}
 
-    {% assign versions = item.PlannedVersions | split: "|" %}
-    {% for version in versions %}
-        {% assign versionParts = version | split: "," %}
-        {% assign versionNumber = versionParts[0] %}
-        {% assign versionDateParts = versionParts[1] | split: "/" %}
-        {% assign versionDateQuarter = versionDateParts[0] | divided_by: 3.0 | ceil %}
-        {% capture versionDateString %}Q{{versionDateQuarter}}-{{versionDateParts[2]}}{% endcapture %}
+{% assign versions = item.PlannedVersions | split: "|" %}
+{% for version in versions %}
+    {% assign versionParts = version | split: "," %}
+    {% assign versionNumber = versionParts[0] %}
+    {% assign versionDateParts = versionParts[1] | split: "/" %}
+    {% assign versionDateQuarter = versionDateParts[0] | divided_by: 3.0 | ceil %}
+    {% capture versionDateString %}Q{{versionDateQuarter}}-{{versionDateParts[2]}}{% endcapture %}
 
-        {% if forloop.last %}
-            {% unless versionNumber contains "beta" %}
-                {% assign gaDate = versionDateString %}
-            {% endunless%}
-        {% endif %}
-    {% endfor %}
+    {% if forloop.last %}
+        {% unless versionNumber contains "b" || versionNumber contains "p" %}
+            {% assign gaDate = versionDateString %}
+        {% endunless%}
+    {% endif %}
+{% endfor %}
 
 <tr>
-    <td class="table-display-text-th">{{ item.DisplayName }}</td>
-    <td>
+<td class="table-display-text-th">{{ item.DisplayName }}</td>
+<td>
     {% assign trimmedPackage = item.Package | remove: package_trim %}
     
     {% assign package_url = package_url_template | replace: 'item.Package', item.Package | replace: 'item.TrimmedPackage', trimmedPackage | replace: 'item.GroupId', item.GroupId | replace: 'item.RepoPath', item.RepoPath %}
@@ -31,17 +31,17 @@
         <br/>    
         {{item.Notes}}
     {% endif %}
-    </td>
-    <td>{{ gaDate }}</td>
-    <td>
+</td>
+<td>{{ gaDate }}</td>
+<td>
 
-{% if item.VersionGA != "" %}
-    GA
-{% elsif item.VersionPreview != "" %}
-    Public Preview
-{% else %}
-    In Development
-{% endif%}
+    {% if item.VersionGA != "" %}
+        GA
+    {% elsif item.VersionPreview != "" %}
+        Public Preview
+    {% else %}
+        In Development
+    {% endif%}
 </td>
 
 </tr>

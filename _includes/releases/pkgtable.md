@@ -1,6 +1,6 @@
 <table>
 <tr>
-  <th class="table-display-text-th table-display-name-th">Display Name</th>
+  <th class="table-display-text-th table-display-name-th">Name</th>
   <th>Package</th>
   <th>Microsoft Docs</th>
   {% if docs_header_label == undefined || docs_header_label == "" %}
