@@ -26,6 +26,7 @@ azure-identity:1.6.0b2
 azure-synapse-managedprivateendpoints:0.3.0
 azure-synapse-artifacts:0.5.0
 azure-eventhub:5.3.1
+azure-eventhub:5.4.0b1
 azure-eventhub-checkpointstoreblob-aio:1.1.3
 azure-synapse-spark:0.5.0
 azure-eventhub-checkpointstoreblob:1.1.3
