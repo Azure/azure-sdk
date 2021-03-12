@@ -11,7 +11,7 @@ Each release cycle, we produce release notes for every language. This process is
 
 - The **engineering leads** for the released packages should make sure they have been picked up by the automation and that the entry is correct.
   - To prevent the conflicts between the automation and manual edits, instead of pushing new commits you should make code suggestion on the PR, then allow the release manager to take care of merging everything in.
-  - Feel free to suggest edits to individual `Release Highlights` sections as you see fit.
+  - Feel free to suggest edits to individual `Release Highlights` sections as you see fit. Suggestions should use the github suggest feature instead of manually pushing new commits. 
   - Suggest new release entries that should be added to the PR if it has not already been added by the automation (it most likely will be). 
   - If there are packages that should be in the release that don't appear it is probably because this automation runs once every weekday. Your package should generally get picked up by the automation within 24 hours.
 
@@ -76,4 +76,3 @@ You may optionally provide social media outreach for out-of-band releases.  Cont
 ## Where do I go if I need help?
 
 The _Azure SDK release manager_ is best place to start when you need help with a release. They manage the Release channel in the Azure SDK Teams team.  If you need help you can post a message in that Teams channel here: <https://aka.ms/azsdk/teams/release>
-
