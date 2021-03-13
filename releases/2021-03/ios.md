@@ -104,14 +104,11 @@ If you have a bug or feature request for one of the libraries, please post an is
 ### 1.0.0-beta.9 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/master/CHANGELOG.md#100-beta9-2021-03-10))
 #### Azure Communication
 ##### Breaking Changes
-- Removal of `CommunicationCloudEnvironment.fromModel()` method
-- Removal of label `identifier` in `CommunicationUserIdentifier` and `UnknownIdentifier`
-- `CommunicationIdentifierModel` and `CommunicationIdentifierSerializer` are no longer part of the communication package, they have been moved to AzureCommunicationChat
+- **Remove `CommunicationCloudEnvironment.fromModel()` method from Azure Communication package**.
+- **Remove `identifier` label in `CommunicationUserIdentifier` and `UnknownIdentifier` from Azure Communication package**.
+- `CommunicationIdentifierModel` and `CommunicationIdentifierSerializer` are **no longer part of the Azure Communication package*, they have been moved to `AzureCommunicationChat` package.
 
 #### Azure Communication Chat
-
-### New Features
-- Introduction of  a new struct `CommunicationIdentifierModel` to repesent a union type that is either a `communicationUser`, `phoneNumber`, or `microsoftTeamsUser`.
 
 ##### Breaking Changes
 - On `ChatClient` `create(thread)` method, renamed `repeatabilityRequestID` to `repeatabilityRequestId`
