@@ -8,14 +8,6 @@ repository: azure/azure-sdk-for-android
 
 The Azure SDK team is pleased to announce our March 2021 client library releases.
 
-#### GA
-
-- _Add packages_
-
-#### Updates
-
-- _Add packages_
-
 #### Beta
 
 - Azure Communication Services Chat
