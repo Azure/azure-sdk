@@ -11,7 +11,7 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 
 ## Release Highlights
 
-*
+* The first stable release of the client library for Azure EventGrid v4.0 is now released.
 *
 *
 
