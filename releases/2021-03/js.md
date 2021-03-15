@@ -156,7 +156,7 @@ Fixes issue [13985](https://github.com/Azure/azure-sdk-for-js/issues/13985) wher
 ### Storage - Files Data Lake 12.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/storage-file-datalake_12.4.0/sdk/storage/storage-file-datalake/CHANGELOG.md#1240-2021-03-10)
 - Includes all features released in 12.4.0-beta.1.
 
-### Storage - Queues 12.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/storage-queue_12.4.0/sdk/storage/@azure/storage-queue/CHANGELOG.md#1240-2021-03-10)
+### Storage - Queues 12.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/storage-queue_12.4.0/sdk/storage/storage-queue/CHANGELOG.md#1240-2021-03-10)
 - Updated Azure Storage Service API version to 2020-06-12.
 
 ### Cosmos DB 3.10.2 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/cosmos_3.10.2/sdk/cosmosdb/cosmos/CHANGELOG.md#3102-2021-03-11)
