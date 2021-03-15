@@ -147,7 +147,7 @@ Fixes issue [13985](https://github.com/Azure/azure-sdk-for-js/issues/13985) wher
 - `SendRequest` renamed to `SmsSendRequest`.
 - `SendOptions` renamed to `SmsSendOptions` and now has an additional field `tag` to add a custom tag to delivery reports (when enabled).
 - `send` no longer returns `RestResponse`, now returns an array of `SmsSendResults`. This contains fields to validate success/failure of each sent message.
-### Storage - Files Shares 12.5.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/storage-file-share_12.5.0/sdk/storage/@azure/storage-file-share/CHANGELOG.md#1250-2021-03-10)
+### Storage - Files Shares 12.5.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/storage-file-share_12.5.0/sdk/storage/storage-file-share/CHANGELOG.md#1250-2021-03-10)
 - Updated Azure Storage Service API version to 2020-06-12.
 
 ### Storage - Blobs 12.5.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/storage-blob_12.5.0/sdk/storage/@azure/storage-blob/CHANGELOG.md#1250-2021-03-10)
