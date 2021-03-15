@@ -11,9 +11,8 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 
 ## Release Highlights
 
-* This release is the the last version to officially support Python 3.5, future versions of Python packages will require Python 2.7 or Python 3.6+.
 * Event grid 4.0.0 is GAed
-*
+* This release is the the last version to officially support Python 3.5, future versions of Python packages will require Python 2.7 or Python 3.6+.
 
 ## Release Notes
 
