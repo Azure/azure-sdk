@@ -20,11 +20,11 @@ azure-identity:1.6.0b2
 azure-storage-blob:12.8.0
 azure-storage-file-datalake:12.3.0
 azure-keyvault-keys:4.4.0b3
-azure-synapse-managedprivateendpoints:0.3.0
-azure-synapse-artifacts:0.5.0
-azure-synapse-spark:0.5.0
-azure-synapse-monitoring:0.2.0
 azure-synapse-accesscontrol:0.6.0
+azure-synapse-artifacts:0.5.0
+azure-synapse-managedprivateendpoints:0.3.0
+azure-synapse-monitoring:0.2.0
+azure-synapse-spark:0.5.0
 azure-eventgrid:4.0.0
 azure-eventhub:5.3.1
 azure-eventhub:5.4.0b1
