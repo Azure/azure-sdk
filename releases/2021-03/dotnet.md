@@ -168,17 +168,8 @@ If you have a bug or feature request for one of the libraries, please [file an i
 - Added `AddSyncToken` to `ConfigurationClient` to be able to provide external synchronization tokens.
 
 ### Event Hubs 5.3.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventHubs_5.3.1/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md#531-2021-03-09)
-#### Changes
 
-##### Key Bug Fixes
-
-- Fixed an issue where long-lived credentials (more than 49 days) were overflowing refresh timer limits and being rejected.
-
-- Added detection and recovery for a race condition that occurred when the Event Hubs service closed a connection or link after the client had validated its state and was performing an operation; this will now be properly retried with a fresh connection/link.
-
-- Extended retry scenarios to include generic I/O exceptions, as they are typically transient network failures.
-
-- Extended retry scenarios to include authorization failures, as the Event Hubs services do not differentiate between authentication and authorization, callers cannot reason about whether an `Unauthorized` return from an operation indicates that the call will never succeed or may trigger a credential renewal that may allow success.
+- Minor bug fixes and enhancements.
 
 ### Event Hubs - Event Processor 5.3.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventHubs.Processor_5.3.1/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md#531-2021-03-09)
 
