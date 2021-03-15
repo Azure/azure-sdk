@@ -553,7 +553,7 @@ For example, `Azure::Storage::Blobs` or `Azure::Storage::Files::Shares`
 - `Azure::Data` for client libraries that handle databases or structured data stores
 - `Azure::DigitalTwins` for DigitalTwins related technologies
 - `Azure::Identity` for authentication and authorization client libraries
-- `Azure::Iot` for client libraries dealing with the Internet of Things
+- `Azure::IoT` for client libraries dealing with the Internet of Things
 - `Azure::Management` for client libraries accessing the control plane (Azure Resource Manager)
 - `Azure::Media` for client libraries that deal with audio, video, or mixed reality
 - `Azure::Messaging` for client libraries that provide messaging services, such as push notifications or pub-sub.
@@ -616,7 +616,7 @@ Here are some examples of namespaces that meet these guidelines:
 
 - `Azure::Data::Cosmos`
 - `Azure::Identity::ActiveDirectory`
-- `Azure::Iot::DeviceProvisioning`
+- `Azure::IoT::DeviceProvisioning`
 - `Azure::Storage::Blobs`
 - `Azure::Messaging::NotificationHubs` (the client library for Notification Hubs)
 - `Azure::Management::Messaging::NotificationHubs` (the management library for Notification Hubs)
@@ -625,7 +625,7 @@ Here are some namespaces that do not meet the guidelines:
 
 - `microsoft::azure::CosmosDB` (not in the `Azure` namespace and does not use grouping, uses lowercase letters)
 - `azure::mixed_reality::kinect` (the grouping is not in the approved list and uses snake_case)
-- `Azure::Iot::IotHub::DeviceProvisioning` (too many levels in the group)
+- `Azure::IoT::IoTHub::DeviceProvisioning` (too many levels in the group)
 
 ### Support for Mocking {#cpp-mocking}
 
