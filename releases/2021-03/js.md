@@ -150,7 +150,7 @@ Fixes issue [13985](https://github.com/Azure/azure-sdk-for-js/issues/13985) wher
 ### Storage - Files Shares 12.5.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/storage-file-share_12.5.0/sdk/storage/storage-file-share/CHANGELOG.md#1250-2021-03-10)
 - Updated Azure Storage Service API version to 2020-06-12.
 
-### Storage - Blobs 12.5.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/storage-blob_12.5.0/sdk/storage/@azure/storage-blob/CHANGELOG.md#1250-2021-03-10)
+### Storage - Blobs 12.5.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/storage-blob_12.5.0/sdk/storage/storage-blob/CHANGELOG.md#1250-2021-03-10)
 - Includes all features released in 12.5.0-beta.1.
 
 ### Storage - Files Data Lake 12.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/storage-file-datalake_12.4.0/sdk/storage/storage-file-datalake/CHANGELOG.md#1240-2021-03-10)
