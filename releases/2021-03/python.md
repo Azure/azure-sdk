@@ -7,6 +7,16 @@ repository: azure/azure-sdk-for-python
 ---
 
 <!--
+azure-ai-textanalytics:5.1.0b6
+azure-core:1.12.0
+azure-eventgrid:4.0.0
+azure-eventhub:5.3.1
+azure-eventhub:5.4.0b1
+azure-eventhub-checkpointstoreblob-aio:1.1.3
+azure-eventhub-checkpointstoreblob:1.1.3
+azure-identity:1.6.0b2
+azure-iot-deviceupdate:1.0.0b1
+azure-keyvault-keys:4.4.0b3
 azure-mgmt-cosmosdb:6.1.0
 azure-mgmt-containerservice:15.0.0
 azure-mgmt-datadog:1.0.0b3
@@ -15,26 +25,14 @@ azure-mgmt-resource:16.0.0
 azure-mgmt-resourcemover:1.1.0b1
 azure-mgmt-servicefabricmanagedclusters:1.0.0b1
 azure-mgmt-web:2.0.0
-azure-core:1.12.0
-azure-identity:1.6.0b2
+azure-servicebus:7.1.0
 azure-storage-blob:12.8.0
 azure-storage-file-datalake:12.3.0
-azure-keyvault-keys:4.4.0b3
 azure-synapse-accesscontrol:0.6.0
 azure-synapse-artifacts:0.5.0
 azure-synapse-managedprivateendpoints:0.3.0
 azure-synapse-monitoring:0.2.0
 azure-synapse-spark:0.5.0
-azure-eventgrid:4.0.0
-azure-eventhub:5.3.1
-azure-eventhub:5.4.0b1
-azure-eventhub-checkpointstoreblob-aio:1.1.3
-azure-eventhub-checkpointstoreblob:1.1.3
-azure-servicebus:7.1.0
-azure-ai-textanalytics:5.1.0b6
-azure-iot-deviceupdate:1.0.0b1
-azure-keyvault-keys:4.4.0b1
-azure-keyvault-keys:4.4.0b2
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
