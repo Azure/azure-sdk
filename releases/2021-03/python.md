@@ -33,6 +33,7 @@ azure-synapse-artifacts:0.5.0
 azure-synapse-managedprivateendpoints:0.3.0
 azure-synapse-monitoring:0.2.0
 azure-synapse-spark:0.5.0
+azure-data-tables:12.0.0b5
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -77,6 +78,7 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Synapse - Managed Private Endpoints
 - Synapse - Monitoring
 - Synapse - Spark
+- Tables
 - Text Analytics
 
 [pattern.beta]: # (- ${PackageFriendlyName})
@@ -116,6 +118,7 @@ $> pip install azure-synapse-artifacts==0.5.0
 $> pip install azure-synapse-managedprivateendpoints==0.3.0
 $> pip install azure-synapse-monitoring==0.2.0
 $> pip install azure-synapse-spark==0.5.0
+$> pip install azure-data-tables==12.0.0b5
 ```
 
 [pattern]: # ($> pip install ${PackageName}==${PackageVersion})
@@ -616,6 +619,16 @@ This version will be the last version to officially support Python 3.5, future v
 * The `update_*` methods on `ServiceBusManagementClient` will now raise a `TypeError` rather than an `AttributeError` in the case of unsupported input type.
 
 ### Synapse - Artifacts 0.5.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-synapse-artifacts_0.5.0/sdk/synapse/azure-synapse-artifacts/CHANGELOG.md#050-2021-03-09)
+** Features **
+
+- Add library operations
+- Change create_or_update_sql_script, delete_sql_script, rename_sql_script to long running operations
+
+** Breaking changes **
+
+- Stop Python 3.5 support
+
+### Tables 12.0.0b5 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-data-tables_12.0.0b5/sdk/tables/azure-data-tables/CHANGELOG.md#12.0.0b5-2020-03-09)
 ** Features **
 
 - Add library operations
