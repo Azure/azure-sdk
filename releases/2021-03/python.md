@@ -52,36 +52,34 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 #### Updates
 - Resource Management - Cosmos DB
 - Core
-- Storage - Blobs
-- Storage - Files Data Lake
 - Event Hubs
 - Event Hubs - Azure Blob Storage Checkpoint Store AIO
 - Event Hubs - Azure Blob Storage Checkpoint Store
+- Storage - Blobs
+- Storage - Files Data Lake
 - Service Bus
 
 [pattern.patch]: # (- ${PackageFriendlyName})
 
 #### Beta
-- azure-mgmt-deviceupdate
-- azure-mgmt-servicefabricmanagedclusters
-- azure-iot-deviceupdate
-- Resource Management - Datadog
-- Key Vault - Keys
-- Resource Management - Resource Mover
-- Identity
-- Event Hubs
-- Text Analytics
-- Synapse - Monitoring
-- Synapse - Managed Private Endpoints
-- Synapse - Artifacts
-- Synapse - Spark
-- Synapse - AccessControl
 - Azure Communication Identity
 - Azure Communication Chat
 - Azure Communication Phone Numbers
 - Azure Communication SMS
+- azure-mgmt-deviceupdate
+- azure-mgmt-servicefabricmanagedclusters
+- azure-iot-deviceupdate
+- Event Hubs
 - Key Vault - Keys
-- Key Vault - Keys
+- Identity
+- Resource Management - Datadog
+- Resource Management - Resource Mover
+- Synapse - AccessControl
+- Synapse - Artifacts
+- Synapse - Managed Private Endpoints
+- Synapse - Monitoring
+- Synapse - Spark
+- Text Analytics
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -90,14 +88,6 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 To install the latest beta version of the packages, copy and paste the following commands into a terminal:
 
 ```bash
-$> pip install azure-mgmt-containerservice==15.0.0
-$> pip install azure-mgmt-cosmosdb==6.1.0
-$> pip install azure-mgmt-datadog==1.0.0b3
-$> pip install azure-mgmt-deviceupdate==1.0.0b1
-$> pip install azure-mgmt-resource==16.0.0
-$> pip install azure-mgmt-resourcemover==1.1.0b1
-$> pip install azure-mgmt-servicefabricmanagedclusters==1.0.0b1
-$> pip install azure-mgmt-web==2.0.0
 $> pip install azure-ai-textanalytics==5.1.0b6
 $> pip install azure-communication-identity
 $> pip install azure-communication-chat
@@ -112,6 +102,14 @@ $> pip install azure-eventhub-checkpointstoreblob-aio==1.1.3
 $> pip install azure-identity==1.6.0b2
 $> pip install azure-iot-deviceupdate==1.0.0b1
 $> pip install azure-keyvault-keys==4.4.0b3
+$> pip install azure-mgmt-containerservice==15.0.0
+$> pip install azure-mgmt-cosmosdb==6.1.0
+$> pip install azure-mgmt-datadog==1.0.0b3
+$> pip install azure-mgmt-deviceupdate==1.0.0b1
+$> pip install azure-mgmt-resource==16.0.0
+$> pip install azure-mgmt-resourcemover==1.1.0b1
+$> pip install azure-mgmt-servicefabricmanagedclusters==1.0.0b1
+$> pip install azure-mgmt-web==2.0.0
 $> pip install azure-storage-blob==12.8.0
 $> pip install azure-storage-file-datalake==12.3.0
 $> pip install azure-servicebus==7.1.0
@@ -119,8 +117,6 @@ $> pip install azure-synapse-accesscontrol==0.6.0
 $> pip install azure-synapse-artifacts==0.5.0
 $> pip install azure-synapse-managedprivateendpoints==0.3.0
 $> pip install azure-synapse-monitoring==0.2.0
-$> pip install azure-keyvault-keys==4.4.0b1
-$> pip install azure-keyvault-keys==4.4.0b2
 $> pip install azure-synapse-spark==0.5.0
 ```
 
@@ -131,6 +127,185 @@ $> pip install azure-synapse-spark==0.5.0
 If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/azure/azure-sdk-for-python/issues).
 
 ## Release highlights
+### Text Analytics 5.1.0b6 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-textanalytics_5.1.0b6/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#510b6-2021-03-09)
+**Breaking Changes**
+- By default, we now target the service's `v3.1-preview.4` endpoint through enum value `TextAnalyticsApiVersion.V3_1_PREVIEW`
+- Removed property `related_entities` on `HealthcareEntity` and added `entity_relations` onto the document response level for healthcare
+- Renamed properties `aspect` and `opinions` to `target` and `assessments` respectively in class `MinedOpinion`.
+- Renamed classes `AspectSentiment` and `OpinionSentiment` to `TargetSentiment` and `AssessmentSentiment` respectively.
+
+**New Features**
+- Added `RecognizeLinkedEntitiesAction` as a supported action type for `begin_analyze_batch_actions`.
+- Added parameter `categories_filter` to the `recognize_pii_entities` client method.
+- Added enum `PiiEntityCategoryType`.
+- Add property `normalized_text` to `HealthcareEntity`. This property is a normalized version of the `text` property that already
+exists on the `HealthcareEntity`
+- Add property `assertion` onto `HealthcareEntity`. This contains assertions about the entity itself, i.e. if the entity represents a diagnosis,
+is this diagnosis conditional on a symptom?
+
+**Known Issues**
+
+- `begin_analyze_healthcare_entities` is currently in gated preview and can not be used with AAD credentials. For more information, see [the Text Analytics for Health documentation](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health?tabs=ner#request-access-to-the-public-preview).
+- At time of this SDK release, the service is not respecting the value passed through `model_version` to `begin_analyze_healthcare_entities`, it only uses the latest model.
+
+### Azure Communication Administration is deprecated
+- Phone number administration is moved into the new package `azure-communication-phonenumbers`.
+
+### Azure Communication Phone Numbers 1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md#100b4-2021-03-09)
+
+##### New Features
+
+- Added `PhoneNumbersClient` (originally was part of the `azure.communication.administration` package).
+
+### Azure Communication Chat 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-chat/CHANGELOG.md#100b5-2021-03-09)
+
+##### New Features
+
+- Removed nullable references from method signatures.
+
+#### Breaking Changes
+
+- Added support for communication identifiers instead of raw strings.
+- Changed return type of `create_chat_thread`: `ChatThreadClient -> CreateChatThreadResult`
+- Changed return types `add_participants`: `None -> list[(ChatThreadParticipant, CommunicationError)]`
+- Added check for failure in `add_participant`
+
+### Azure Communication Identity 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-identity/CHANGELOG.md#100b5-2021-03-09)
+
+#### Breaking Changes
+
+- CommunicationIdentityClient's (synchronous and asynchronous) `issue_token` function is now renamed to `get_token`.
+- The CommunicationIdentityClient constructor uses type `TokenCredential` and `AsyncTokenCredential` for the credential parameter.
+
+### Azure Communication SMS 1.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-sms/CHANGELOG.md#100b5-2021-03-09)
+
+### New Features
+
+- Added support for Azure Active Directory authentication.
+- Added support for 1:N SMS messaging.
+- Added support for SMS idempotency.
+- Send method series in SmsClient are idempotent under retry policy.
+- Added support for tagging SMS messages.
+- The SmsClient constructor uses type `TokenCredential` and `AsyncTokenCredential` for the credential parameter.
+
+#### Breaking Changes
+
+- Send method takes in strings for phone numbers instead of `PhoneNumberIdentifier`.
+- Send method returns a list of `SmsSendResult`s instead of a `SendSmsResponse`.
+
+### Core 1.12.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-core_1.12.0/sdk/core/azure-core/CHANGELOG.md#1120-2021-03-08)
+This version will be the last version to officially support Python 3.5, future versions will require Python 2.7 or Python 3.6+.
+
+#### Features
+
+- Added `azure.core.messaging.CloudEvent` model that follows the cloud event spec.
+- Added `azure.core.serialization.NULL` sentinel value
+- Improve `repr`s for `HttpRequest` and `HttpResponse`s  #16972
+
+#### Bug Fixes
+
+- Disable retry in stream downloading. (thanks to @jochen-ott-by @hoffmann for the contribution)  #16723
+
+### Device Update 1.0.0b1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/deviceupdate/azure-iot-deviceupdate/CHANGELOG.md#100b1-2021-03-03)
+
+* Initial Release
+
+### Event Grid 4.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-eventgrid_4.0.0/sdk/eventgrid/azure-eventgrid/CHANGELOG.md#400-2021-03-09)
+**Notes**
+This is the first stable release of our efforts to create a user-friendly and Pythonic client library for Azure EventGrid. Users migrating from `v1.x` are advised to view the [migration guide](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventgrid/azure-eventgrid/migration_guide.md)
+
+**New Features**
+- `azure-eventgrid` package now supports `azure.core.messaging.CloudEvent` which honors the CNCF CloudEvent spec.
+- `azure.eventgrid.SystemEventNames` can be used to get the event model type mapping for system events.
+- Implements the `EventGridPublisherClient` for the publish flow for EventGrid Events, CloudEvents and Custom schema events.
+
+**Breaking Changes**
+- `azure.eventgrid.models` namespace along with all the models in it are now removed.:
+  - JSON documentation on the events is available here: https://docs.microsoft.com/azure/event-grid/system-topics
+  - `azure.eventgrid.SystemEventNames` provides the list of available events name for easy switching.
+- `azure.eventgrid.event_grid_client.EventGridClient` is now removed in favor of `azure.eventgrid.EventGridPublisherClient`.
+- `azure.eventgrid.event_grid_client.EventGridClientConfiguration` is now removed.
+
+
+### Event Hubs 5.3.1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-eventhub_5.3.1/sdk/eventhub/azure-eventhub/CHANGELOG.md#531-2021-03-09)
+This version will be the last version to officially support Python 3.5, future versions will require Python 2.7 or Python 3.6+.
+
+**Bug fixes**
+
+- Sending empty `event_data_batch` will be a no-op now instead of raising error.
+
+### Event Hubs 5.4.0b1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/feature/eventhub%2Fidempotent-producer/sdk/eventhub/azure-eventhub/CHANGELOG.md#540b1-2021-03-09)
+
+This version and all future versions will require Python 2.7 or Python 3.6+, Python 3.5 is no longer supported.
+
+#### New Features
+
+- Added support for idempotent publishing which is supported by the service to endeavor to reduce the number of duplicate
+  events that are published.
+  - `EventHubProducerClient` constructor accepts two new parameters for idempotent publishing:
+    - `enable_idempotent_partitions`: A boolean value to tell the `EventHubProducerClient` whether to enable idempotency.
+    - `partition_config`: The set of configurations that can be specified to influence publishing behavior
+     specific to the configured Event Hub partition.
+  - Introduced a new method `get_partition_publishing_properties` on `EventHubProducerClient` to inspect the information
+    about the state of publishing for a partition.
+  - Introduced a new property `published_sequence_number` on `EventData` to get the publishing sequence number assigned
+    to the event at the time it was successfully published.
+  - Introduced a new property `starting_published_sequence_number` on `EventDataBatch` to get the publishing sequence
+    number assigned to the first event in the batch at the time the batch was successfully published.
+  - Introduced a new class `azure.eventhub.PartitionPublishingConfiguration` which is a set of configurations that can be
+    specified to influence the behavior when publishing directly to an Event Hub partition.
+
+#### Notes
+
+- Updated uAMQP dependency to 1.2.15.
+
+### Event Hubs - Azure Blob Storage Checkpoint Store AIO 1.1.3 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-eventhub-checkpointstoreblob-aio_1.1.3/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/CHANGELOG.md#113-2021-03-09)
+This version will be the last version to officially support Python 3.5, future versions will require Python 2.7 or Python 3.6+.
+
+**Bug fixes**
+- Updated vendor azure-storage-blob dependency to v12.7.1.
+  - Fixed storage blob authentication failure due to request date header too old (#16192).
+
+### Event Hubs - Azure Blob Storage Checkpoint Store 1.1.3 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-eventhub-checkpointstoreblob_1.1.3/sdk/eventhub/azure-eventhub-checkpointstoreblob/CHANGELOG.md#113-2021-03-09)
+This version will be the last version to officially support Python 3.5, future versions will require Python 2.7 or Python 3.6+.
+
+**Bug fixes**
+- Updated vendor azure-storage-blob dependency to v12.7.1.
+  - Fixed storage blob authentication failure due to request date header too old (#16192).
+
+### Identity 1.6.0b2 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-identity_1.6.0b2/sdk/identity/azure-identity/CHANGELOG.md#160b2-2021-03-09)
+#### Breaking Changes
+> These changes do not impact the API of stable versions such as 1.5.0.
+> Only code written against a beta version such as 1.6.0b1 may be affected.
+- Renamed `CertificateCredential` keyword argument `certificate_bytes` to
+  `certificate_data`
+- Credentials accepting keyword arguments `allow_unencrypted_cache` and
+  `enable_persistent_cache` to configure persistent caching accept a
+  `cache_persistence_options` argument instead whose value should be an
+  instance of `TokenCachePersistenceOptions`. For example:
+  ```
+  # before (e.g. in 1.6.0b1):
+  DeviceCodeCredential(enable_persistent_cache=True, allow_unencrypted_cache=True)
+
+  # after:
+  cache_options = TokenCachePersistenceOptions(allow_unencrypted_storage=True)
+  DeviceCodeCredential(cache_persistence_options=cache_options)
+  ```
+
+  See the documentation and samples for more details.
+
+#### Added
+- New class `TokenCachePersistenceOptions` configures persistent caching
+- The `AuthenticationRequiredError.claims` property provides any additional
+  claims required by a user credential's `authenticate()` method
+
+### Key Vault - Keys 4.4.0b3 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-keyvault-keys_4.4.0b3/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md#440b3-2021-3-11)
+#### Added
+- `CryptographyClient` will perform all operations locally if initialized with
+  the `.from_jwk` factory method
+  ([#16565](https://github.com/Azure/azure-sdk-for-python/pull/16565))
+- Added requirement for six>=1.12.0
+
 ### Resource Management - Container Service 15.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-containerservice_15.0.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md#1500-2021-03-03)
 **Features**
 
@@ -408,122 +583,6 @@ If you have a bug or feature request for one of the libraries, please post an is
   - Removed operation WebAppsOperations.get_app_settings_key_vault_references
   - Removed operation WebAppsOperations.get_app_setting_key_vault_reference
 
-### Text Analytics 5.1.0b6 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-textanalytics_5.1.0b6/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#510b6-2021-03-09)
-**Breaking Changes**
-- By default, we now target the service's `v3.1-preview.4` endpoint through enum value `TextAnalyticsApiVersion.V3_1_PREVIEW`
-- Removed property `related_entities` on `HealthcareEntity` and added `entity_relations` onto the document response level for healthcare
-- Renamed properties `aspect` and `opinions` to `target` and `assessments` respectively in class `MinedOpinion`.
-- Renamed classes `AspectSentiment` and `OpinionSentiment` to `TargetSentiment` and `AssessmentSentiment` respectively.
-
-**New Features**
-- Added `RecognizeLinkedEntitiesAction` as a supported action type for `begin_analyze_batch_actions`.
-- Added parameter `categories_filter` to the `recognize_pii_entities` client method.
-- Added enum `PiiEntityCategoryType`.
-- Add property `normalized_text` to `HealthcareEntity`. This property is a normalized version of the `text` property that already
-exists on the `HealthcareEntity`
-- Add property `assertion` onto `HealthcareEntity`. This contains assertions about the entity itself, i.e. if the entity represents a diagnosis,
-is this diagnosis conditional on a symptom?
-
-**Known Issues**
-
-- `begin_analyze_healthcare_entities` is currently in gated preview and can not be used with AAD credentials. For more information, see [the Text Analytics for Health documentation](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health?tabs=ner#request-access-to-the-public-preview).
-- At time of this SDK release, the service is not respecting the value passed through `model_version` to `begin_analyze_healthcare_entities`, it only uses the latest model.
-
-### Azure Communication Administration is deprecated
-- Phone number administration is moved into the new package `azure-communication-phonenumbers`.
-
-### Azure Communication Phone Numbers 1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md#100b4-2021-03-09)
-
-##### New Features
-
-- Added `PhoneNumbersClient` (originally was part of the `azure.communication.administration` package).
-
-### Azure Communication Chat 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-chat/CHANGELOG.md#100b5-2021-03-09)
-
-##### New Features
-
-- Removed nullable references from method signatures.
-
-#### Breaking Changes
-
-- Added support for communication identifiers instead of raw strings.
-- Changed return type of `create_chat_thread`: `ChatThreadClient -> CreateChatThreadResult`
-- Changed return types `add_participants`: `None -> list[(ChatThreadParticipant, CommunicationError)]`
-- Added check for failure in `add_participant`
-
-### Azure Communication Identity 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-identity/CHANGELOG.md#100b5-2021-03-09)
-
-#### Breaking Changes
-
-- CommunicationIdentityClient's (synchronous and asynchronous) `issue_token` function is now renamed to `get_token`.
-- The CommunicationIdentityClient constructor uses type `TokenCredential` and `AsyncTokenCredential` for the credential parameter.
-
-### Azure Communication SMS 1.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-sms/CHANGELOG.md#100b5-2021-03-09)
-
-### New Features
-
-- Added support for Azure Active Directory authentication.
-- Added support for 1:N SMS messaging.
-- Added support for SMS idempotency.
-- Send method series in SmsClient are idempotent under retry policy.
-- Added support for tagging SMS messages.
-- The SmsClient constructor uses type `TokenCredential` and `AsyncTokenCredential` for the credential parameter.
-
-#### Breaking Changes
-
-- Send method takes in strings for phone numbers instead of `PhoneNumberIdentifier`.
-- Send method returns a list of `SmsSendResult`s instead of a `SendSmsResponse`.
-
-### Core 1.12.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-core_1.12.0/sdk/core/azure-core/CHANGELOG.md#1120-2021-03-08)
-This version will be the last version to officially support Python 3.5, future versions will require Python 2.7 or Python 3.6+.
-
-#### Features
-
-- Added `azure.core.messaging.CloudEvent` model that follows the cloud event spec.
-- Added `azure.core.serialization.NULL` sentinel value
-- Improve `repr`s for `HttpRequest` and `HttpResponse`s  #16972
-
-#### Bug Fixes
-
-- Disable retry in stream downloading. (thanks to @jochen-ott-by @hoffmann for the contribution)  #16723
-
-### Device Update 1.0.0b1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/deviceupdate/azure-iot-deviceupdate/CHANGELOG.md#100b1-2021-03-03)
-
-* Initial Release
-
-### Identity 1.6.0b2 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-identity_1.6.0b2/sdk/identity/azure-identity/CHANGELOG.md#160b2-2021-03-09)
-#### Breaking Changes
-> These changes do not impact the API of stable versions such as 1.5.0.
-> Only code written against a beta version such as 1.6.0b1 may be affected.
-- Renamed `CertificateCredential` keyword argument `certificate_bytes` to
-  `certificate_data`
-- Credentials accepting keyword arguments `allow_unencrypted_cache` and
-  `enable_persistent_cache` to configure persistent caching accept a
-  `cache_persistence_options` argument instead whose value should be an
-  instance of `TokenCachePersistenceOptions`. For example:
-  ```
-  # before (e.g. in 1.6.0b1):
-  DeviceCodeCredential(enable_persistent_cache=True, allow_unencrypted_cache=True)
-
-  # after:
-  cache_options = TokenCachePersistenceOptions(allow_unencrypted_storage=True)
-  DeviceCodeCredential(cache_persistence_options=cache_options)
-  ```
-
-  See the documentation and samples for more details.
-
-#### Added
-- New class `TokenCachePersistenceOptions` configures persistent caching
-- The `AuthenticationRequiredError.claims` property provides any additional
-  claims required by a user credential's `authenticate()` method
-
-### Key Vault - Keys 4.4.0b3 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-keyvault-keys_4.4.0b3/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md#440b3-2021-3-11)
-#### Added
-- `CryptographyClient` will perform all operations locally if initialized with
-  the `.from_jwk` factory method
-  ([#16565](https://github.com/Azure/azure-sdk-for-python/pull/16565))
-- Added requirement for six>=1.12.0
-
 ### Storage - Blobs 12.8.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-storage-blob_12.8.0/sdk/storage/azure-storage-blob/CHANGELOG.md#1280-2021-03-01)
 **Stable release of preview features**
 - Added `ContainerClient.exists()` method
@@ -541,69 +600,6 @@ This version will be the last version to officially support Python 3.5, future v
 **Fixes**
 - Fixed `DatalakeServiceClient` context manager/session closure issue (#15358)
 - `PurePosixPath` is now handled correctly if passed as a path (#16159)
-
-### Event Grid 4.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-eventgrid_4.0.0/sdk/eventgrid/azure-eventgrid/CHANGELOG.md#400-2021-03-09)
-**Notes**
-This is the first stable release of our efforts to create a user-friendly and Pythonic client library for Azure EventGrid. Users migrating from `v1.x` are advised to view the [migration guide](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventgrid/azure-eventgrid/migration_guide.md)
-
-**New Features**
-- `azure-eventgrid` package now supports `azure.core.messaging.CloudEvent` which honors the CNCF CloudEvent spec.
-- `azure.eventgrid.SystemEventNames` can be used to get the event model type mapping for system events.
-- Implements the `EventGridPublisherClient` for the publish flow for EventGrid Events, CloudEvents and Custom schema events.
-
-**Breaking Changes**
-- `azure.eventgrid.models` namespace along with all the models in it are now removed.:
-  - JSON documentation on the events is available here: https://docs.microsoft.com/azure/event-grid/system-topics
-  - `azure.eventgrid.SystemEventNames` provides the list of available events name for easy switching.
-- `azure.eventgrid.event_grid_client.EventGridClient` is now removed in favor of `azure.eventgrid.EventGridPublisherClient`.
-- `azure.eventgrid.event_grid_client.EventGridClientConfiguration` is now removed.
-
-
-### Event Hubs 5.3.1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-eventhub_5.3.1/sdk/eventhub/azure-eventhub/CHANGELOG.md#531-2021-03-09)
-This version will be the last version to officially support Python 3.5, future versions will require Python 2.7 or Python 3.6+.
-
-**Bug fixes**
-
-- Sending empty `event_data_batch` will be a no-op now instead of raising error.
-
-### Event Hubs 5.4.0b1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/feature/eventhub%2Fidempotent-producer/sdk/eventhub/azure-eventhub/CHANGELOG.md#540b1-2021-03-09)
-
-This version and all future versions will require Python 2.7 or Python 3.6+, Python 3.5 is no longer supported.
-
-#### New Features
-
-- Added support for idempotent publishing which is supported by the service to endeavor to reduce the number of duplicate
-  events that are published.
-  - `EventHubProducerClient` constructor accepts two new parameters for idempotent publishing:
-    - `enable_idempotent_partitions`: A boolean value to tell the `EventHubProducerClient` whether to enable idempotency.
-    - `partition_config`: The set of configurations that can be specified to influence publishing behavior
-     specific to the configured Event Hub partition.
-  - Introduced a new method `get_partition_publishing_properties` on `EventHubProducerClient` to inspect the information
-    about the state of publishing for a partition.
-  - Introduced a new property `published_sequence_number` on `EventData` to get the publishing sequence number assigned
-    to the event at the time it was successfully published.
-  - Introduced a new property `starting_published_sequence_number` on `EventDataBatch` to get the publishing sequence
-    number assigned to the first event in the batch at the time the batch was successfully published.
-  - Introduced a new class `azure.eventhub.PartitionPublishingConfiguration` which is a set of configurations that can be
-    specified to influence the behavior when publishing directly to an Event Hub partition.
-
-#### Notes
-
-- Updated uAMQP dependency to 1.2.15.
-
-### Event Hubs - Azure Blob Storage Checkpoint Store AIO 1.1.3 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-eventhub-checkpointstoreblob-aio_1.1.3/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/CHANGELOG.md#113-2021-03-09)
-This version will be the last version to officially support Python 3.5, future versions will require Python 2.7 or Python 3.6+.
-
-**Bug fixes**
-- Updated vendor azure-storage-blob dependency to v12.7.1.
-  - Fixed storage blob authentication failure due to request date header too old (#16192).
-
-### Event Hubs - Azure Blob Storage Checkpoint Store 1.1.3 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-eventhub-checkpointstoreblob_1.1.3/sdk/eventhub/azure-eventhub-checkpointstoreblob/CHANGELOG.md#113-2021-03-09)
-This version will be the last version to officially support Python 3.5, future versions will require Python 2.7 or Python 3.6+.
-
-**Bug fixes**
-- Updated vendor azure-storage-blob dependency to v12.7.1.
-  - Fixed storage blob authentication failure due to request date header too old (#16192).
 
 ### Service Bus 7.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-servicebus_7.1.0/sdk/servicebus/azure-servicebus/CHANGELOG.md#710-2021-03-09)
 This version will be the last version to officially support Python 3.5, future versions will require Python 2.7 or Python 3.6+.
@@ -630,32 +626,6 @@ This version will be the last version to officially support Python 3.5, future v
 ** Breaking changes **
 
 - Stop Python 3.5 support
-
-### Key Vault - Keys 4.4.0b1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-keyvault-keys_4.4.0b1/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md#440b1-2021-2-10)
-#### Changed
-- Key Vault API version 7.2-preview is now the default
-- Updated msrest requirement to >=0.6.21
-
-#### Added
-- Support for Key Vault API version 7.2-preview
-([#16566](https://github.com/Azure/azure-sdk-for-python/pull/16566))
-  - Added `oct_hsm` to `KeyType`
-  - Added 128-, 192-, and 256-bit AES-GCM, AES-CBC, and AES-CBCPAD encryption
-    algorithms to `EncryptionAlgorithm`
-  - Added 128- and 192-bit AES-KW key wrapping algorithms to `KeyWrapAlgorithm`
-  - `CryptographyClient`'s `encrypt` method accepts `iv` and 
-    `additional_authenticated_data` keyword arguments
-  - `CryptographyClient`'s `decrypt` method accepts `iv`, 
-    `additional_authenticated_data`, and `authentication_tag` keyword arguments
-  - Added `iv`, `aad`, and `tag` properties to `EncryptResult`
-- Added method `parse_key_vault_key_id` that parses out a full ID returned by
-Key Vault, so users can easily access the key's `name`, `vault_url`, and `version`.
-
-### Key Vault - Keys 4.4.0b2 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-keyvault-keys_4.4.0b2/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md#440b2-2021-2-10)
-#### Fixed
-- API versions older than 7.2-preview no longer raise `ImportError` when
-  performing async operations ([#16680](https://github.com/Azure/azure-sdk-for-python/pull/16680))
-
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
