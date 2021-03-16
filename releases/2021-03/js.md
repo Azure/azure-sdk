@@ -51,6 +51,7 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Azure Communication SMS
 - Event Hubs
 - Azure Data Tables
+- Azure Text Analytics
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
