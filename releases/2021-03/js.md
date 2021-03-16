@@ -98,6 +98,12 @@ This release doesn't have the changes from `1.2.4-beta.1`. Those will be present
 Support Typescript version < 3.6 by down-leveling the type definition files. ([PR 12793](https://github.com/Azure/azure-sdk-for-js/pull/12793))
 ### Core - Abort Controller 1.0.4 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/abort-controller_1.0.4/sdk/core/abort-controller/CHANGELOG.md#104-2021-03-04)
 Fixes issue [13985](https://github.com/Azure/azure-sdk-for-js/issues/13985) where abort event listeners that removed themselves when invoked could prevent other event listeners from being invoked.
+
+### Core - Rest Pipeline 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/core-rest-pipeline_1.0.0/sdk/core/core-rest-pipeline/CHANGELOG.md)
+- Includes all changes in 1.0.0-beta.2 @azure/core-rest-pipeline package
+
+### Core - Client 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/core-client_1.0.0/sdk/core/core-client/CHANGELOG.md)
+- Includes all changes in 1.0.0-beta.2 @azure/core-client package
 ### Key Vault - Secrets 4.2.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/keyvault-secrets_4.2.0-beta.3/sdk/keyvault/keyvault-secrets/CHANGELOG.md#420-beta3-2021-03-09)
 - Updated the Latest service version to 7.2.
 - Added a `certificateKeyId?: string` secret property to use instead of the deprecated `keyId?: URL` and removed `"lib": ["dom"]` from `tsconfig.json`
