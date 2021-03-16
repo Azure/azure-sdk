@@ -169,7 +169,6 @@ Fixes issue [13985](https://github.com/Azure/azure-sdk-for-js/issues/13985) wher
 ### Cosmos DB 3.10.3 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/cosmos_3.10.3/sdk/cosmosdb/cosmos/CHANGELOG.md#3103-2021-03-12)
 - BUGFIX: Removes direct dependency on @azure/identity while retaining compatibility.
 
-
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
 ## Latest Releases
