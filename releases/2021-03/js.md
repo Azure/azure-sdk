@@ -25,6 +25,7 @@ repository: azure/azure-sdk-for-js
 The Azure SDK team is pleased to make available the March 2021 client library release.
 
 #### GA
+- Core v2
 - Storage - Files Shares
 - Storage - Blobs
 - Storage - Files Data Lake
