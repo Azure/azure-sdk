@@ -620,7 +620,7 @@ This version will be the last version to officially support Python 3.5, future v
 * The `update_*` methods on `ServiceBusManagementClient` will now raise a `TypeError` rather than an `AttributeError` in the case of unsupported input type.
 
 ### Synapse - Artifacts 0.5.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-synapse-artifacts_0.5.0/sdk/synapse/azure-synapse-artifacts/CHANGELOG.md#050-2021-03-09)
-** Features **
+**New Features **
 
 - Add library operations
 - Change create_or_update_sql_script, delete_sql_script, rename_sql_script to long running operations
