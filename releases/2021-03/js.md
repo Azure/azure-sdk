@@ -35,7 +35,7 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 #### Updates
 - Identity
 - Core - Abort Controller
-- Cosmos DB
+- Cosmos Db
 - Cosmos DB
 
 [pattern.patch]: # (- ${PackageFriendlyName})
