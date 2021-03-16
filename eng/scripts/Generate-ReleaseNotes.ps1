@@ -19,10 +19,16 @@ $commonScript = (Join-Path $commonScriptsPath common.ps1)
 Write-Host "Common Script $commonScript"
 
 . $commonScript
-$CsvMetaData = Get-CSVMetadata
+$CsvMetaData = Get-CSVMetadata -MetadataUri "https://raw.githubusercontent.com/azure-sdk/azure-sdk/PackageVersionUpdates/_data/releases/latest/${releaseFileName}-packages.csv"
 
 $releaseFilePath = (Join-Path $ReleaseDirectory $releasePeriod "${releaseFileName}.md")
 LogDebug "Release File Path [ $releaseFilePath ]"
+
+if (!(Test-Path $releaseFilePath))
+{
+    $PSScriptRoot\Generate-Release-Structure.ps1 -releaseFileName "${releaseFileName}.md"
+}
+
 $existingReleaseContent = Get-Content $releaseFilePath
 
 
@@ -129,6 +135,7 @@ function Write-GeneralReleaseNote ($releaseHighlights, $releaseNotesContent, $re
                 }
 
                 $changelogUrl = $releaseHighlights[$key]["ChangelogUrl"]
+                $GroupId = $releaseHighlights[$key]["PackageProperties"].Group
                 $changelogUrl = "(${changelogUrl})"
                 $highlightsBody = ($releaseHighlights[$key]["Content"] | Out-String).Trim()
                 $packageSemVer = [AzureEngSemanticVersion]::ParseVersionString($PackageVersion)
@@ -197,9 +204,13 @@ foreach ($key in @($incomingReleaseHighlights.Keys))
 
 $incomingReleaseHighlights = FilterOut-UnreleasedPackages -releaseHighlights $incomingReleaseHighlights
 
-Write-GeneralReleaseNote `
--releaseHighlights $incomingReleaseHighlights `
--releaseNotesContent $existingReleaseContent `
--releaseFilePath $releaseFilePath
 
-Set-Content -Path $pathToDateOfLatestUpdates -Value (Get-Date -Format "yyyy-MM-dd") -NoNewline
+if ($incomingReleaseHighlights.Count -gt 0)
+{
+    Write-GeneralReleaseNote `
+    -releaseHighlights $incomingReleaseHighlights `
+    -releaseNotesContent $existingReleaseContent `
+    -releaseFilePath $releaseFilePath
+
+    Set-Content -Path $pathToDateOfLatestUpdates -Value (Get-Date -Format "yyyy-MM-dd") -NoNewline
+}

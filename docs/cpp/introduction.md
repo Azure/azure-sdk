@@ -102,7 +102,7 @@ client configuration options based on how the client library was built.
 2. Tracing on/off, which must take effect immediately across the Azure SDK.
 
 {% include requirement/MUSTNOT id="cpp-config-noruntime" %} use client library specific runtime
-configuration such as environment variables or a config file. Keep in mind that many IOT devices
+configuration such as environment variables or a config file. Keep in mind that many IoT devices
 won't have a filesystem or an "environment block" to read from.
 
 ##### Using ClientOptions {#cpp-usage-options}
@@ -553,7 +553,9 @@ For example, `Azure::Storage::Blobs` or `Azure::Storage::Files::Shares`
 - `Azure::Data` for client libraries that handle databases or structured data stores
 - `Azure::DigitalTwins` for DigitalTwins related technologies
 - `Azure::Identity` for authentication and authorization client libraries
-- `Azure::Iot` for client libraries dealing with the Internet of Things
+- `Azure::IoT` for client libraries dealing with the Internet of Things.
+    - Use `Iot` for Pascal cased compound words, such as `IotClient`, otherwise follow language conventions.
+    - Do not use `IoT` more than once in a namespace.
 - `Azure::Management` for client libraries accessing the control plane (Azure Resource Manager)
 - `Azure::Media` for client libraries that deal with audio, video, or mixed reality
 - `Azure::Messaging` for client libraries that provide messaging services, such as push notifications or pub-sub.
@@ -616,7 +618,7 @@ Here are some examples of namespaces that meet these guidelines:
 
 - `Azure::Data::Cosmos`
 - `Azure::Identity::ActiveDirectory`
-- `Azure::Iot::DeviceProvisioning`
+- `Azure::IoT::DeviceProvisioning`
 - `Azure::Storage::Blobs`
 - `Azure::Messaging::NotificationHubs` (the client library for Notification Hubs)
 - `Azure::Management::Messaging::NotificationHubs` (the management library for Notification Hubs)
@@ -625,7 +627,7 @@ Here are some namespaces that do not meet the guidelines:
 
 - `microsoft::azure::CosmosDB` (not in the `Azure` namespace and does not use grouping, uses lowercase letters)
 - `azure::mixed_reality::kinect` (the grouping is not in the approved list and uses snake_case)
-- `Azure::Iot::IotHub::DeviceProvisioning` (too many levels in the group)
+- `Azure::IoT::IoTHub::DeviceProvisioning` (too many levels in the group)
 
 ### Support for Mocking {#cpp-mocking}
 

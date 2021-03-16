@@ -11,8 +11,14 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 
 ## Release Highlights
 
-* Event grid 4.0.0 is GAed
+* Python Event grid 4.0.0 is GAed
 * This release is the the last version to officially support Python 3.5, future versions of Python packages will require Python 2.7 or Python 3.6+.
+* Java Event Grid Library is releasing a first ever GA.
+* Java Azure Core library is releasing a new GA.
+  * Adds default interface APIs to `SerializerAdapter`, `ObjectSerializer` and `Tracer` classes and introduces `CloudEventModel` which conforms to the [Cloud Event Specification](https://github.com/cloudevents/spec/blob/v1.0.1/spec.md).
+* Java Cosmos Library is releasing a new GA.
+  * Introduces the beta feature of Throughput Control which allows Client side RU Limiting and adds the Beta APIs for `FeedRange` based query and `Conditional` Patch.
+* Java libraries upgraded to support Jackson from `2.11.3` to `2.12.1`, `reactor-core` from `3.3.12.RELEASE` to `3.4.3`, and `reactor-netty` from `0.9.15.RELEASE` to `1.0.4`.
 
 ## Release Notes
 

@@ -18,7 +18,10 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 
 #### Beta
 
-- _Add packages_
+- Azure Communication Services Calling
+- Azure Communication Services Chat
+- Azure Communication Services Common
+
 
 ## Installation Instructions
 
@@ -37,13 +40,27 @@ To add the Azure SDK for iOS to your application, follow the example in [Importi
 Open your project's `Package.swift` file and add a new package dependency to your project's `dependencies` section, specifying the clone URL of the repository and the version specifier you wish to use:
 
 ```swift
-// Insert dependencies here
+    dependencies: [
+        ...
+        .package(url: "https://github.com/Azure/azure-sdk-for-ios.git", from: "1.0.0-beta.9")
+    ],
 ```
 
 Next, add each client library you wish to use in a target to the target's array of `dependencies`:
 
 ```swift
-// Insert dependencies here
+    targets: [
+        ...
+        .target(
+            name: "MyTarget",
+            dependencies: [
+                "AzureCommunication",
+                "AzureCommunicationCalling",
+                "AzureCommunicationChat"
+                ...
+            ]
+        )
+    ]
 ```
 
 ### Cocoapods
@@ -59,7 +76,17 @@ $ [sudo] gem install cocoapods
 To integrate one or more client libraries into your project using CocoaPods, specify them in your [Podfile](https://guides.cocoapods.org/using/the-podfile.html), providing the version specifier you wish to use. To ensure compatibility when using multiple client libraries in the same project, use the same version specifier for all Azure SDK client libraries within the project:
 
 ```ruby
-// Insert dependencies here
+platform :ios, '12.0'
+
+# Comment the next line if you don't want to use dynamic frameworks
+use_frameworks!
+
+target 'MyTarget' do
+    pod 'AzureCommunication', '~> 1.0.0-beta.9'
+    pod 'AzureCommunicationCalling', '~> 1.0.0-beta.9'
+    pod 'AzureCommunicationChat', '~> 1.0.0-beta.9'
+    ...
+end
 ```
 
 Then, run the following command:
@@ -74,11 +101,39 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-### _Version_(_Link to Changelog_)
+### 1.0.0-beta.9 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/master/CHANGELOG.md#100-beta9-2021-03-10))
+#### Azure Communication
+##### Breaking Changes
+- **Remove `CommunicationCloudEnvironment.fromModel()` method from Azure Communication package**.
+- **Remove `identifier` label in `CommunicationUserIdentifier` and `UnknownIdentifier` from Azure Communication package**.
+- `CommunicationIdentifierModel` and `CommunicationIdentifierSerializer` are **no longer part of the Azure Communication package*, they have been moved to `AzureCommunicationChat` package.
 
-#### _Package name_
+#### Azure Communication Chat
 
-- Major changes only!
+##### Breaking Changes
+- On `ChatClient` `create(thread)` method, renamed `repeatabilityRequestID` to `repeatabilityRequestId`
+- `ChatThreadClient` `remove(participant)` method now accepts `CommunicationIdentifier` instead of a string
+- For `Participant` renamed `user` property to `id`
+
+#### Azure Communication Calling
+
+### New Features
+- SDK is now shipped as a XCFramework instead of a FAT framework created using `lipo`.
+- Improved caching of objects. 
+- Added new call state `Hold` when a remote participant puts the call on hold.
+
+##### Breaking Changes
+- `Renderer` renamed to `VideoStreamRenderer`.
+- `AudioDeviceInfo` removed from `DeviceManager`, please use iOS system API's in your application to switch between audio devices.
+- `CallAgent` raises a new event `onIncomingCall` when a new incoming call is received. 
+- `CallAgent` raises a new event `onCallEnded` event is raised when the incoming call wasn't answered.
+- `Accept` and `Reject` can now be done on `IncomingCall` object and removed from `Call` object.
+- For parsing of push notification payload `IncomingCallPushNotification` has been renamed to `PushNotificationInfo`.
+- `CallerInfo` class created which provides information about the caller in an incoming call. Can be retrieved from `IncomingCall` and `Call` objects. 
+
+#### Key Bug Fixes
+- `OnCallsUpdated` event is raised when the call collection on `CallAgent` is updated for outgoing calls.
+- `Hold` and `Resume` of an active call is fixed. 
 
 ## Need help
 
