@@ -82,8 +82,6 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Synapse - Spark
 - Tables
 - Text Analytics
-- Key Vault - Keys
-- Key Vault - Keys
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
