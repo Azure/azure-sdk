@@ -590,7 +590,7 @@ This version will be the last version to officially support Python 3.5, future v
 - Added `ContainerClient.exists()` method
 - Added container SAS support for blob batch operations
 
-**Fixes**
+**Bug Fixes**
 - Fixed `delete_blob()` method signature (#15891)
 - Fixed Content-MD5 throwing when passed (#15919)
 
