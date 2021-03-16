@@ -302,7 +302,7 @@ This version will be the last version to officially support Python 3.5, future v
   claims required by a user credential's `authenticate()` method
 
 ### Key Vault - Keys 4.4.0b3 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-keyvault-keys_4.4.0b3/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md#440b3-2021-3-11)
-#### Added
+#### New Features
 - `CryptographyClient` will perform all operations locally if initialized with
   the `.from_jwk` factory method
   ([#16565](https://github.com/Azure/azure-sdk-for-python/pull/16565))
