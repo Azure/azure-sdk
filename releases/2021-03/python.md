@@ -296,7 +296,7 @@ This version will be the last version to officially support Python 3.5, future v
 
   See the documentation and samples for more details.
 
-#### Added
+#### New Features
 - New class `TokenCachePersistenceOptions` configures persistent caching
 - The `AuthenticationRequiredError.claims` property provides any additional
   claims required by a user credential's `authenticate()` method
