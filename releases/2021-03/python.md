@@ -223,7 +223,7 @@ This is the first stable release of our efforts to create a user-friendly and Py
 - Implements the `EventGridPublisherClient` for the publish flow for EventGrid Events, CloudEvents and Custom schema events.
 
 **Breaking Changes**
-- `azure.eventgrid.models` namespace along with all the models in it are now removed.:
+- `azure.eventgrid.models` namespace along with all the models in it are now removed:
   - JSON documentation on the events is available here: https://docs.microsoft.com/azure/event-grid/system-topics
   - `azure.eventgrid.SystemEventNames` provides the list of available events name for easy switching.
 - `azure.eventgrid.event_grid_client.EventGridClient` is now removed in favor of `azure.eventgrid.EventGridPublisherClient`.
