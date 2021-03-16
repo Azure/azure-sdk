@@ -428,7 +428,7 @@ This version will be the last version to officially support Python 3.5, future v
 * Initial Release
 
 ### Resource Management - Web 2.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-web_2.0.0/sdk/appservice/azure-mgmt-web/CHANGELOG.md#200-2021-02-25)
-**Features**
+**New Features**
 
   - Model Usage has a new parameter system_data
   - Model StaticSiteFunctionOverviewARMResource has a new parameter system_data
