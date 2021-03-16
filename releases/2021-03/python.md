@@ -199,7 +199,7 @@ is this diagnosis conditional on a symptom?
 ### Core 1.12.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-core_1.12.0/sdk/core/azure-core/CHANGELOG.md#1120-2021-03-08)
 This version will be the last version to officially support Python 3.5, future versions will require Python 2.7 or Python 3.6+.
 
-#### Features
+#### New Features
 
 - Added `azure.core.messaging.CloudEvent` model that follows the cloud event spec.
 - Added `azure.core.serialization.NULL` sentinel value
