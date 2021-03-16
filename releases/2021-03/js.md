@@ -73,7 +73,8 @@ $> npm install @azure/storage-file-datalake@12.4.0
 $> npm install @azure/storage-queue@12.4.0
 $> npm install @azure/cosmos@3.10.2
 $> npm install @azure/cosmos@3.10.3
-$> npm install @azure/communication-sms@next
+$> npm install @azure/communication-sms@1.0.0-beta.4
+$> npm install @azure/event-hubs@5.5.0-beta.1
 ```
 
 [pattern]: # ($> npm install ${PackageName}@${PackageVersion})
