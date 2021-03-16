@@ -2282,7 +2282,6 @@ This is a Public Preview version, so breaking changes are possible in subsequent
 ### Azure Identity Spring 1.2.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-identity-spring_1.2.0/sdk/spring/azure-identity-spring/CHANGELOG.md#120-2021-03-03)
 
 
-
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
 ## Need help
