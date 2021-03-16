@@ -63,10 +63,10 @@ $> npm install @azure/abort-controller@1.0.3
 $> npm install @azure/abort-controller@1.0.4
 $> npm install @azure/keyvault-secrets@4.2.0-beta.3
 $> npm install @azure/keyvault-keys@4.2.0-beta.4
-$> npm install @azure/communication-common@next
-$> npm install @azure/communication-identity@next
-$> npm install @azure/communication-chat@next
-$> npm install @azure/communication-phone-numbers@next
+$> npm install @azure/communication-common@1.0.0-beta.6
+$> npm install @azure/communication-identity@1.0.0-beta.5
+$> npm install @azure/communication-chat@1.0.0-beta.5
+$> npm install @azure/communication-phone-numbers@1.0.0-beta.4
 $> npm install @azure/storage-file-share@12.5.0
 $> npm install @azure/storage-blob@12.5.0
 $> npm install @azure/storage-file-datalake@12.4.0
@@ -75,6 +75,7 @@ $> npm install @azure/cosmos@3.10.2
 $> npm install @azure/cosmos@3.10.3
 $> npm install @azure/communication-sms@1.0.0-beta.4
 $> npm install @azure/event-hubs@5.5.0-beta.1
+$> npm install @azure/data-tables@12.0.0-beta.1
 ```
 
 [pattern]: # ($> npm install ${PackageName}@${PackageVersion})
@@ -88,7 +89,8 @@ If you have a bug or feature request for one of the libraries, please post an is
 This release doesn't have the changes from `1.2.4-beta.1`. Those will be present in the next beta release.
 - Bug fix: Now if the `managedIdentityClientId` optional parameter is provided to `DefaultAzureCredential`, it will be properly passed through to the underlying `ManagedIdentityCredential`. Related to customer issue: [13872](https://github.com/Azure/azure-sdk-for-js/issues/13872).
 - Bug fix: `ManagedIdentityCredential` now also properly handles `EHOSTUNREACH` errors. Fixes issue [13894](https://github.com/Azure/azure-sdk-for-js/issues/13894).
-
+### Event Hubs 5.5.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/event-hubs_5.5.0-beta.1/sdk/eventhub/event-hubs/CHANGELOG.md)
+- Adds support for enabling idempotent partition event publishing with the EventHubProducerClient.
 ### Core - Abort Controller 1.0.3 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/abort-controller_1.0.3/sdk/core/abort-controller/CHANGELOG.md#103-2021-02-23)
 Support Typescript version < 3.6 by down-leveling the type definition files. ([PR 12793](https://github.com/Azure/azure-sdk-for-js/pull/12793))
 ### Core - Abort Controller 1.0.4 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/abort-controller_1.0.4/sdk/core/abort-controller/CHANGELOG.md#104-2021-03-04)
@@ -170,6 +172,9 @@ Fixes issue [13985](https://github.com/Azure/azure-sdk-for-js/issues/13985) wher
 
 ### Cosmos DB 3.10.3 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/cosmos_3.10.3/sdk/cosmosdb/cosmos/CHANGELOG.md#3103-2021-03-12)
 - BUGFIX: Removes direct dependency on @azure/identity while retaining compatibility.
+### Azure Data Tables 12.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/%40azure/data-tables_12.0.0-beta.1/sdk/tables/data-tables/CHANGELOG.md#1200-beta1-2021-03-09)
+- Exclude browser unsupported headers when building a Batch request in the browser [#13955)](https://github.com/Azure/azure-sdk-for-js/pull/13955)
+- Make connection string keys case-insensitive [#13954](https://github.com/Azure/azure-sdk-for-js/pull/13954)
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
