@@ -388,7 +388,7 @@ This version will be the last version to officially support Python 3.5, future v
 * Initial Release
 
 ### Resource Management - Resources 16.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-resource_16.0.0/sdk/resources/azure-mgmt-resource/CHANGELOG.md#1600-2021-02-26)
-**Features**
+**New Features**
 
   - Model ParameterDefinitionsValueMetadata has a new parameter strong_type
   - Model ParameterDefinitionsValueMetadata has a new parameter assign_permissions
