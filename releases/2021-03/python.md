@@ -384,7 +384,7 @@ This version will be the last version to officially support Python 3.5, future v
   - Removed operation group MonitoredResourcesOperations
   - Removed operation group LinkedResourcesOperations
 
-### azure-mgmt-deviceupdate 1.0.0b1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-deviceupdate_1.0.0b1/sdk/deviceupdate/azure-mgmt-deviceupdate/CHANGELOG.md#100b1-2021-03-02)
+### Resource Manaement -Device Update 1.0.0b1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-deviceupdate_1.0.0b1/sdk/deviceupdate/azure-mgmt-deviceupdate/CHANGELOG.md#100b1-2021-03-02)
 * Initial Release
 
 ### Resource Management - Resources 16.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-resource_16.0.0/sdk/resources/azure-mgmt-resource/CHANGELOG.md#1600-2021-02-26)
