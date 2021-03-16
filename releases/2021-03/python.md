@@ -215,7 +215,7 @@ This version will be the last version to officially support Python 3.5, future v
 
 ### Event Grid 4.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-eventgrid_4.0.0/sdk/eventgrid/azure-eventgrid/CHANGELOG.md#400-2021-03-09)
 **Notes**
-This is the first stable release of our efforts to create a user-friendly and Pythonic client library for Azure EventGrid. Users migrating from `v1.x` are advised to view the [migration guide](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventgrid/azure-eventgrid/migration_guide.md)
+This is the first stable release of our efforts to create a user-friendly and Python client library for Azure EventGrid. Users migrating from `v1.x` are advised to view the [migration guide](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventgrid/azure-eventgrid/migration_guide.md)
 
 **New Features**
 - `azure-eventgrid` package now supports `azure.core.messaging.CloudEvent` which honors the CNCF CloudEvent spec.
