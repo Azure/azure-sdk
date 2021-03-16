@@ -2,7 +2,8 @@ param (
   [string]$releaseDateString = "",
   [string]$releaseTemplate = "$PSScriptRoot\release-template",
   [string]$releaseRootFolder = "$PSScriptRoot\..\..\releases",
-  [bool]$publishRelease = $false
+  [bool]$publishRelease = $false,
+  [string]$releaseFileName = "*"
 )
 
 if ($releaseDateString -eq "") {
@@ -48,7 +49,7 @@ else {
   }
 
   ### Copy template files for ones that don't exist
-  foreach ($file in (Get-ChildItem $releaseTemplate/*)) {
+  foreach ($file in (Get-ChildItem $releaseTemplate/$releaseFileName)) {
     $newFile = Join-Path $releasefolder $file.Name
     if (Test-Path $newFile) {
       Write-Host "Skipping $newFile because it already exists"
@@ -59,7 +60,7 @@ else {
   }
 
   ### Update template files with date
-  foreach ($file in (Get-ChildItem $releaseFolder)) {
+  foreach ($file in (Get-ChildItem $releaseFolder/$releaseFileName)) {
     $fileContent = Get-Content $file
 
     $fileContent = $fileContent | ForEach-Object {

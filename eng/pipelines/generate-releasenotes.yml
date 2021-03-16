@@ -73,5 +73,6 @@ steps:
         PRBranchName: '${{ parameters.PrBranchName }}_${{ repo.value.Language }}_$(ReleasePeriod)'
         CommitMsg: "Create or Update Release Notes for ${{ repo.value.Language }} $(ReleasePeriod) release"
         PRTitle: "Create or Update Release Notes for ${{ repo.value.Language }} $(ReleasePeriod) release"
+        PRBody: "Use this PR for $(ReleasePeriod) ${{ repo.value.Language }} release notes update. See [Producing Release Notes](https://github.com/Azure/azure-sdk/blob/master/docs/policies/releasenotes.md#producing-release-notes)"
         WorkingDirectory: $(System.DefaultWorkingDirectory)/azure-sdk
         ScriptDirectory: $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts

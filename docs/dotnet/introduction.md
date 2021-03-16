@@ -327,16 +327,9 @@ Most methods in Azure SDK libraries should be named following the typical .NET m
 
 {% include requirement/SHOULD id="general-client-standardize-verbs" %} use standard verbs for methods that access or manipulate server resources. 
 
-| Verb | Example | Usage |
-| `Create` | `BlobContainerClient.Create` | Creates a resource. Throws if the resource exists. |
-| `Set` | `BlobContainerClient.SetMetadata` | Creates or replaces a resource. |
-| `Update` | TBD | Updates a resource. Throws if the resource does not exist. Update methods might take a parameter controlling whether the update is a replace, merge, or other specific semantics. |
-| `Add` | `ConfigurationClient.AddConfigurationSetting` | Adds a resource to a resource collection or container. |
-| `Get<resource_name>` | `BlobContainerClient.GetAccessPolicy` | Retrieves a resource. Throws if the resource does not exist. |
-| `Get<resource_name_plural>` | `ConfigurationClient.GetConfigurationSettings` | Retrieves one or more resources. Returns empty set if no resources found. |
-| `Delete` | `BlobContainerClient.DeleteBlob` | Deletes one or more resources, or no-op if the resources do not exist. |
-| `Remove` | TBD | Remove a reference to a resource from a collection. This method doesn’t delete the actual resource, only the reference. |
-| `<resource_name>Exists` | TBD | Returns true if the resource exists, otherwise returns false. |
+<!-- The table data is in yaml format on _data/tables/net_standard_verbs -->
+{% assign data = site.data.tables.net_standard_verbs.entries %}
+{% include tables/standard_verbs_template.html %}
 
 ##### Cancellation
 
@@ -547,6 +540,22 @@ BlobBaseClient client = ...
 
 {% include requirement/MAY id="dotnet-lro-subclass" %} add additional APIs to subclasses of ```Operation<T>```.
 For example, some subclasses add a constructor allowing to create an operation instance from a previously saved operation ID. Also, some subclasses are more granular states besides the IsCompleted and HasValue states that are present on the base class.
+
+{% include requirement/MUST id="dotnet-lro-constructor-for-mocking" %} provide protected parameterless constructor for mocking in subclasses of ```Operation<T>```.
+
+```csharp
+public class CopyFromUriOperation {
+    protected CopyFromUriOperation();
+}
+```
+
+{% include requirement/MUST id="dotnet-lro-mocking-properties" %} make all properties virtual to allow mocking.
+
+```csharp
+public class CopyFromUriOperation {
+    public virtual Uri SourceUri { get; }
+}
+```
 
 ##### Conditional Request Methods
 
@@ -795,7 +804,9 @@ For example, `Azure.Storage.Blobs`.
 - `Azure.Data` for client libraries that handle databases or structured data stores
 - `Azure.DigitalTwins` for DigitalTwins related technologies
 - `Azure.Identity` for authentication and authorization client libraries
-- `Azure.Iot` for client libraries dealing with the Internet of Things
+- `Azure.IoT` for client libraries dealing with the Internet of Things. 
+    - Use `Iot` for Pascal cased compound words, such as `IotClient`, otherwise follow language conventions.
+    - Do not use `IoT` more than once in a namespace.
 - `Azure.Management` for client libraries accessing the control plane (Azure Resource Manager)
 - `Azure.Media` for client libraries that deal with audio, video, or mixed reality
 - `Azure.Messaging` for client libraries that provide messaging services, such as push notifications or pub-sub.
@@ -839,6 +850,31 @@ Review the [full sample](https://github.com/Azure/azure-sdk-for-net/blob/master/
 {% include requirement/MUST id="dotnet-mocking-constructor" %} provide protected parameterless constructor for mocking.
 
 {% include requirement/MUST id="dotnet-mocking-virtual-method" %} make all service methods virtual.
+
+{% include requirement/MUST id="dotnet-mocking-virtual-getclient-method" %} make methods returning other clients virtual.
+
+```csharp
+public class BlobContainerClient
+{
+    public virtual BlobClient GetBlobClient();
+}
+```
+
+{% include requirement/MUST id="dotnet-mocking-extensions" %} use instance methods instead of extension methods when defined in the same assembly. The instance methods are simpler to mock.
+
+```csharp
+public class BlobContainerClient
+{
+    // This method is possible to mock
+    public virtual AppendBlobClient GetAppendBlobClient() {}
+}
+
+public class BlobContainerClientExtensions
+{
+    // This method is impossible to mock
+    public static AppendBlobClient GetAppendBlobClient(this BlobContainerClient containerClient) {}
+}
+```
 
 {% include requirement/MUST id="dotnet-mocking-factory-builder" %} provide factory or builder for constructing model graphs returned from virtual service methods.
 

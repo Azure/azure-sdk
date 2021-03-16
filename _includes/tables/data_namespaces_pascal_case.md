@@ -6,7 +6,7 @@
 | `Diagnostics`    | Gathering data for diagnosing issues                                      |
 | `DigitalTwins`   | Digital Twins, digital representations of physical spaces and IoT devices |
 | `Identity`       | Authentication and authorization                                          |
-| `Iot`            | Internet of things                                                        |
+| `IoT`            | Internet of Things                                                        |
 | `Management`     | Control Plane (Azure Resource Manager)                                    |
 | `Media`          | Audio, video, or mixed reality                                            |
 | `Messaging`      | Messaging services, like push notifications or pub-sub                    |

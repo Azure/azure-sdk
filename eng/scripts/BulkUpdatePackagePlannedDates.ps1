@@ -75,6 +75,6 @@ foreach ($pkg in $packageList) {
     )
 
   $pkgWI = FindOrCreateClonePackageWorkItem $pkg.Language $packageInfo $verMajorMinor -outputCommand $false
-  UpdatePackageVersions $pkgWI -plannedVersions $plannedVersions
+  $pkgWI = UpdatePackageVersions $pkgWI -plannedVersions $plannedVersions
   Write-Host "https://dev.azure.com/azure-sdk/Release/_workitems/edit/$($pkgWI.id)/"
 }

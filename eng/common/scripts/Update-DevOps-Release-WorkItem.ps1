@@ -89,7 +89,7 @@ if (!$workItem) {
   if (!$packageInfo.ServiceName) {
     Write-Host "We need a package service name to be used in various places and it should be consistent across languages for similar packages."
     while (($readInput = Read-Host -Prompt "Input the service name") -eq "") { }
-    $packageInfo.ServiceName = $readInput 
+    $packageInfo.ServiceName = $readInput
   }
   Write-Host "  ServiceName: $($packageInfo.ServiceName)"
   Write-Host "  PackageType: $packageType"
@@ -103,5 +103,5 @@ if (!$workItem) {
 }
 Write-Host "Marking item [$($workItem.id)]$($workItem.fields['System.Title']) as '$state' for '$releaseType'"
 $updatedWI = UpdatePackageWorkItemReleaseState -id $workItem.id -state "In Release" -releaseType $releaseType -outputCommand $false
-UpdatePackageVersions $workItem -plannedVersions $plannedVersions
+$updatedWI = UpdatePackageVersions $workItem -plannedVersions $plannedVersions
 Write-Host "https://dev.azure.com/azure-sdk/Release/_workitems/edit/$($updatedWI.id)/"

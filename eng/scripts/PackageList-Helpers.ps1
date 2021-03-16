@@ -15,14 +15,15 @@ $languageNameMapping = @{
 function Get-LanguageName($lang)
 {
   $pkgLang = $languageNameMapping[$lang]
-  if (!$pkgLang) { 
+  if (!$pkgLang) {
     $pkgLang = $lang
   }
   return $pkgLang
 }
 
-function Get-LangCsvFilePath($lang) 
+function Get-LangCsvFilePath($lang)
 {
+  $lang = $lang.ToLower()
   if ($languageNameMapping.ContainsKey($lang)) {
     return Join-Path $releaseFolder "$lang-packages.csv"
   }
@@ -55,7 +56,7 @@ function Get-PackageListForLanguageSplit([string]$lang)
   return Get-PackageListSplit (Get-PackageListForLanguage $lang)
 }
 
-function Set-PackageListForLanguage([string]$lang, [Array]$packageList) 
+function Set-PackageListForLanguage([string]$lang, [Array]$packageList)
 {
   $packagelistFile = Get-LangCsvFilePath $lang
   Write-Host "Writing $packagelistFile"
@@ -89,4 +90,39 @@ function Get-CombinedPackageList($pkgFilter)
   }
 
   return $allPackages | Select-Object "Language", "Package", "DisplayName", "ServiceName", "PlannedVersion", "PlannedDate", "RepoPath", "Type", "New" | Sort-Object "Language", "Package"
+}
+
+function Add-NewFieldToAll($field, $afterField)
+{
+  foreach ($lang in $languageNameMapping.Keys)
+  {
+    Add-NewFieldToLanguage $lang $field $afterField
+  }
+}
+
+function Add-NewFieldToLanguage($lang, $field, $afterField = $null, $fieldDefaultValue="")
+{
+  $packageList = Get-PackageListForLanguage $lang
+
+  $updatedPackageList = @()
+  foreach ($pkg in $packageList)
+  {
+    $orderedPkg = [ordered]@{ }
+
+    foreach ($prop in $pkg.PSObject.Properties.Name)
+    {
+      $orderedPkg[$prop] = $pkg.$prop
+      if ($afterField -eq $prop)
+      {
+        $orderedPkg[$field] = $fieldDefaultValue
+      }
+    }
+    if (!$afterField) {
+      $orderedPkg[$field] = $fieldDefaultValue
+    }
+
+    $updatedPackageList += [pscustomobject]$orderedPkg
+  }
+
+  Set-PackageListForLanguage $lang $updatedPackageList
 }

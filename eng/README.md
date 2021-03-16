@@ -22,6 +22,7 @@ given package ecosystem as well as by reading release tags from our mono repos. 
   - `mgmt` - This is used to represent a management plane library.
   - `spring` - This is a special classification only for Java that represents the spring libraries.
 - `New` - This field is set to true for any of our newer libraries that now following the guidelines outlined in this repo. 
+- `PlannedVersions` - This field will list a set of versions combined with estimated dates in the format of `[version1],[date1]|[version2],[date2]|[version3],[date3]` with version in the format of `X.Y.Z[bN|-beta.N]` and date in the format of `MM/dd/yyyy`. These dates are intended to be displayed on a roadmap page. 
 - `FirstGADate` - This field is used to identify the date of when a new package shipped its first GA. 
 - `Hide` - This field will determine whether we hide this package from various places like the package index, docs, as well as automated updates. The value is either true to hide or empty to not hide. This is useful to filter older packages that are still on the package managers, but we don't want to promote or display anywhere.
 - `Notes` - This is an open field that can be used to add any particular notes for a given package that will be displayed in the package index. Commonly used to call out other packages that will be replaced by it.
