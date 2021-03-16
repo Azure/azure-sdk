@@ -178,7 +178,7 @@ to `Task<Response<SmsSendResult>> SendAsync(string from, string to, string messa
 ### Tables 12.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.Tables_12.0.0-beta.6/sdk/tables/Azure.Data.Tables/CHANGELOG.md#1200-beta6-2021-03-09)
 #### Changed
 
-- Changed major version number to 12 to indicate this is the latest Tables package across all legacy versions and for cross language consistency.
+- Changed major version number to 12 to indicate this is the latest Tables package across all legacy versions and for cross-language consistency.
 - `TableClient` and `TableServiceClient` now accept `AzureSasCredential` for SAS token scenarios rather than requiring developers to build the URI manually.
 
 #### Key Bug Fixes
@@ -187,7 +187,7 @@ to `Task<Response<SmsSendResult>> SendAsync(string from, string to, string messa
 
 #### Added
 
-- Added TableUriBuilder
+- Added `TableUriBuilder`
 - Added a constructor to `TableSasBuilder` and `TableAccountSasBuilder` that accepts a Uri with a Sas token
 
 ### Identity 1.4.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Identity_1.4.0-beta.4/sdk/identity/Azure.Identity/CHANGELOG.md#140-beta4-2021-03-09)

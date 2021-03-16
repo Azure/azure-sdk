@@ -11,7 +11,7 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 
 ## Release Highlights
 
-*
+* `Azure Communication Phone Numbers` has added support for Azure Active Directory Authentication.
 *
 *
 
