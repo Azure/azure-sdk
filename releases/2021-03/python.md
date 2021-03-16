@@ -56,9 +56,9 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Event Hubs - Azure Blob Storage Checkpoint Store AIO
 - Event Hubs - Azure Blob Storage Checkpoint Store
 - Resource Management - Cosmos DB
+- Service Bus
 - Storage - Blobs
 - Storage - Files Data Lake
-- Service Bus
 
 [pattern.patch]: # (- ${PackageFriendlyName})
 
