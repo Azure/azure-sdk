@@ -63,6 +63,7 @@ To install the packages, copy and paste the below into a terminal.
 $> npm install @azure/identity@1.2.4
 $> npm install @azure/abort-controller@1.0.3
 $> npm install @azure/abort-controller@1.0.4
+$> npm install @azure/ai-text-analytics@5.1.0-beta.5
 $> npm install @azure/keyvault-secrets@4.2.0-beta.3
 $> npm install @azure/keyvault-keys@4.2.0-beta.4
 $> npm install @azure/communication-common@1.0.0-beta.6
