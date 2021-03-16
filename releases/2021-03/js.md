@@ -179,6 +179,17 @@ Fixes issue [13985](https://github.com/Azure/azure-sdk-for-js/issues/13985) wher
 - Exclude browser unsupported headers when building a Batch request in the browser [#13955)](https://github.com/Azure/azure-sdk-for-js/pull/13955)
 - Make connection string keys case-insensitive [#13954](https://github.com/Azure/azure-sdk-for-js/pull/13954)
 
+### Azure Text Analytics 5.1.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/CHANGELOG.md#510-beta5-2021-03-11)
+
+##### New Features 
+
+- Targets the service's v3.1-preview.4 API as the default instead of v3.1-preview.3.
+- `beginAnalyzeHealthcareEntities` returns a list of relations between healthcare entities.
+- `recognizePiiEntities` takes a new option, categoriesFilter, that specifies a list of Pii categories to return.
+
+#### Breaking Changes 
+
+- Aspects in opinions mining are now called targets and each individual opinion is now called an assessment. The new naming simplifies the naming of different parts of the response.
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
 ## Latest Releases
