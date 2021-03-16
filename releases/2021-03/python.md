@@ -98,6 +98,7 @@ $> pip install azure-communication-chat
 $> pip install azure-communication-sms
 $> pip install azure-communication-phonenumbers
 $> pip install azure-core==1.12.0
+$> pip install azure-data-tables==12.0.0b5
 $> pip install azure-eventgrid==4.0.0
 $> pip install azure-eventhub==5.3.1
 $> pip install azure-eventhub==5.4.0b1
@@ -122,9 +123,6 @@ $> pip install azure-synapse-artifacts==0.5.0
 $> pip install azure-synapse-managedprivateendpoints==0.3.0
 $> pip install azure-synapse-monitoring==0.2.0
 $> pip install azure-synapse-spark==0.5.0
-$> pip install azure-keyvault-keys==4.4.0b1
-$> pip install azure-keyvault-keys==4.4.0b2
-$> pip install azure-data-tables==12.0.0b5
 ```
 
 [pattern]: # ($> pip install ${PackageName}==${PackageVersion})
@@ -232,7 +230,6 @@ This is the first stable release of our efforts to create a user-friendly and Py
   - `azure.eventgrid.SystemEventNames` provides the list of available events name for easy switching.
 - `azure.eventgrid.event_grid_client.EventGridClient` is now removed in favor of `azure.eventgrid.EventGridPublisherClient`.
 - `azure.eventgrid.event_grid_client.EventGridClientConfiguration` is now removed.
-
 
 ### Event Hubs 5.3.1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-eventhub_5.3.1/sdk/eventhub/azure-eventhub/CHANGELOG.md#531-2021-03-09)
 This version will be the last version to officially support Python 3.5, future versions will require Python 2.7 or Python 3.6+.
@@ -643,31 +640,6 @@ This version will be the last version to officially support Python 3.5, future v
 ** Breaking changes **
 
 - Stop Python 3.5 support
-### Key Vault - Keys 4.4.0b1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-keyvault-keys_4.4.0b1/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md#440b1-2021-2-10)
-#### Changed
-- Key Vault API version 7.2-preview is now the default
-- Updated msrest requirement to >=0.6.21
-
-#### Added
-- Support for Key Vault API version 7.2-preview
-([#16566](https://github.com/Azure/azure-sdk-for-python/pull/16566))
-  - Added `oct_hsm` to `KeyType`
-  - Added 128-, 192-, and 256-bit AES-GCM, AES-CBC, and AES-CBCPAD encryption
-    algorithms to `EncryptionAlgorithm`
-  - Added 128- and 192-bit AES-KW key wrapping algorithms to `KeyWrapAlgorithm`
-  - `CryptographyClient`'s `encrypt` method accepts `iv` and 
-    `additional_authenticated_data` keyword arguments
-  - `CryptographyClient`'s `decrypt` method accepts `iv`, 
-    `additional_authenticated_data`, and `authentication_tag` keyword arguments
-  - Added `iv`, `aad`, and `tag` properties to `EncryptResult`
-- Added method `parse_key_vault_key_id` that parses out a full ID returned by
-Key Vault, so users can easily access the key's `name`, `vault_url`, and `version`.
-
-### Key Vault - Keys 4.4.0b2 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-keyvault-keys_4.4.0b2/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md#440b2-2021-2-10)
-#### Fixed
-- API versions older than 7.2-preview no longer raise `ImportError` when
-  performing async operations ([#16680](https://github.com/Azure/azure-sdk-for-python/pull/16680))
-
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
