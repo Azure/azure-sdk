@@ -48,6 +48,7 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Azure Communication Chat
 - Azure Communication Phone Numbers
 - Azure Communication SMS
+- Event Hubs
 - Azure Data Tables
 
 [pattern.beta]: # (- ${PackageFriendlyName})
