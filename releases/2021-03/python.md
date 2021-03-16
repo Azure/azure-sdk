@@ -359,7 +359,7 @@ This version will be the last version to officially support Python 3.5, future v
   - Model DatabaseAccountCreateUpdateParameters has a new parameter network_acl_bypass_resource_ids
 
 ### Resource Management - Datadog 1.0.0b3 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-datadog_1.0.0b3/sdk/datadog/azure-mgmt-datadog/CHANGELOG.md#100b3-2021-03-02)
-**Features**
+**New Features**
 
   - Model DatadogOrganizationProperties has a new parameter application_key
   - Model DatadogOrganizationProperties has a new parameter redirect_uri
