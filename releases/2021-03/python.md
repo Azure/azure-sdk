@@ -43,19 +43,19 @@ azure-keyvault-keys:4.4.0b2
 The Azure SDK team is pleased to make available the March 2021 client library release.
 
 #### GA
+- Event Grid
 - Resource Management - Container Service
 - Resource Management - Resources
 - Resource Management - Web
-- Event Grid
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
 #### Updates
-- Resource Management - Cosmos DB
 - Core
 - Event Hubs
 - Event Hubs - Azure Blob Storage Checkpoint Store AIO
 - Event Hubs - Azure Blob Storage Checkpoint Store
+- Resource Management - Cosmos DB
 - Storage - Blobs
 - Storage - Files Data Lake
 - Service Bus
@@ -131,12 +131,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 ### Text Analytics 5.1.0b6 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-textanalytics_5.1.0b6/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#510b6-2021-03-09)
-**Breaking Changes**
-- By default, we now target the service's `v3.1-preview.4` endpoint through enum value `TextAnalyticsApiVersion.V3_1_PREVIEW`
-- Removed property `related_entities` on `HealthcareEntity` and added `entity_relations` onto the document response level for healthcare
-- Renamed properties `aspect` and `opinions` to `target` and `assessments` respectively in class `MinedOpinion`.
-- Renamed classes `AspectSentiment` and `OpinionSentiment` to `TargetSentiment` and `AssessmentSentiment` respectively.
-
 **New Features**
 - Added `RecognizeLinkedEntitiesAction` as a supported action type for `begin_analyze_batch_actions`.
 - Added parameter `categories_filter` to the `recognize_pii_entities` client method.
@@ -145,6 +139,12 @@ If you have a bug or feature request for one of the libraries, please post an is
 exists on the `HealthcareEntity`
 - Add property `assertion` onto `HealthcareEntity`. This contains assertions about the entity itself, i.e. if the entity represents a diagnosis,
 is this diagnosis conditional on a symptom?
+
+**Breaking Changes**
+- By default, we now target the service's `v3.1-preview.4` endpoint through enum value `TextAnalyticsApiVersion.V3_1_PREVIEW`
+- Removed property `related_entities` on `HealthcareEntity` and added `entity_relations` onto the document response level for healthcare
+- Renamed properties `aspect` and `opinions` to `target` and `assessments` respectively in class `MinedOpinion`.
+- Renamed classes `AspectSentiment` and `OpinionSentiment` to `TargetSentiment` and `AssessmentSentiment` respectively.
 
 **Known Issues**
 
