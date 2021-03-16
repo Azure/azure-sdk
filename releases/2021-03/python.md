@@ -53,8 +53,8 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 #### Updates
 - Core
 - Event Hubs
-- Event Hubs - Azure Blob Storage Checkpoint Store AIO
 - Event Hubs - Azure Blob Storage Checkpoint Store
+- Event Hubs - Azure Blob Storage Checkpoint Store AIO
 - Resource Management - Cosmos DB
 - Service Bus
 - Storage - Blobs
@@ -71,8 +71,8 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - azure-mgmt-servicefabricmanagedclusters
 - azure-iot-deviceupdate
 - Event Hubs
-- Key Vault - Keys
 - Identity
+- Key Vault - Keys
 - Resource Management - Datadog
 - Resource Management - Resource Mover
 - Synapse - AccessControl
@@ -113,9 +113,9 @@ $> pip install azure-mgmt-resource==16.0.0
 $> pip install azure-mgmt-resourcemover==1.1.0b1
 $> pip install azure-mgmt-servicefabricmanagedclusters==1.0.0b1
 $> pip install azure-mgmt-web==2.0.0
+$> pip install azure-servicebus==7.1.0
 $> pip install azure-storage-blob==12.8.0
 $> pip install azure-storage-file-datalake==12.3.0
-$> pip install azure-servicebus==7.1.0
 $> pip install azure-synapse-accesscontrol==0.6.0
 $> pip install azure-synapse-artifacts==0.5.0
 $> pip install azure-synapse-managedprivateendpoints==0.3.0
