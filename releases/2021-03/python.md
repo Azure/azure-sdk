@@ -630,7 +630,7 @@ This version will be the last version to officially support Python 3.5, future v
 - Stop Python 3.5 support
 
 ### Tables 12.0.0b5 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-data-tables_12.0.0b5/sdk/tables/azure-data-tables/CHANGELOG.md#12.0.0b5-2020-03-09)
-** Features **
+**New Features **
 
 - Add library operations
 - Change create_or_update_sql_script, delete_sql_script, rename_sql_script to long running operations
