@@ -182,7 +182,7 @@ is this diagnosis conditional on a symptom?
 
 ### Azure Communication SMS 1.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-sms/CHANGELOG.md#100b5-2021-03-09)
 
-### New Features
+#### New Features
 
 - Added support for Azure Active Directory authentication.
 - Added support for 1:N SMS messaging.
