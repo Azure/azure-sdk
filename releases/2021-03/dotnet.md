@@ -26,31 +26,30 @@ Azure.Identity:1.4.0-beta.4
 The Azure SDK team is pleased to announce our March 2021 client library releases.
 
 #### GA
-- Azure Mixed Reality Authentication
 - Core
-- Communication Chat
-- Communication Common
-- Communication Identity
-- Communication Phone Numbers
-- Communication SMS
+- Event Grid
+- Azure Mixed Reality Authentication
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
 #### Updates
+- App Configuration
 - Event Hubs
 - Event Hubs - Event Processor
 
 [pattern.patch]: # (- ${PackageFriendlyName})
 
 #### Beta
-- Azure Remote Rendering
-- Azure Object Anchors Conversion
+- Communication Chat
+- Communication Common
+- Communication Identity
+- Communication Phone Numbers
+- Communication SMS
 - Form Recognizer
-- LUIS - Authoring
-- Text Analytics
-- Tables
-- App Configuration
 - Identity
+- Service Bus
+- Tables
+- Text Analytics
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -59,25 +58,22 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
 ```bash
-$> dotnet install Azure.Core --version 1.10.0
-$> dotnet add package Azure.Data.Tables --version 12.0.0-beta.6
-$> dotnet add package Azure.Identity --version 1.4.0-beta.4
-$> dotnet install Azure.MixedReality.Authentication --version 1.0.0
-$> dotnet install Azure.MixedReality.RemoteRendering --version 1.0.0-beta.3
-$> dotnet install Azure.MixedReality.ObjectAnchors.Conversion --version 0.1.0-beta.1
-$> dotnet install Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring --version 3.2.0-preview.4
-$> dotnet install Azure.AI.FormRecognizer --version 3.1.0-beta.3
-$> dotnet install Azure.AI.TextAnalytics --version 5.1.0-beta.5
-$> dotnet install Azure.Data.Tables --version 12.0.0-beta.6
-$> dotnet install Azure.Data.AppConfiguration --version 1.1.0-beta.1
-$> dotnet install Azure.Messaging.EventHubs --version 5.3.1
-$> dotnet install Azure.Messaging.EventHubs.Processor --version 5.3.1
-$> dotnet install Azure.Identity --version 1.4.0-beta.4
+$> dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.3
+$> dotnet add package Azure.AI.TextAnalytics --version 5.1.0-beta.5
 $> dotnet add package Azure.Communication.Chat --version 1.0.0-beta.5
 $> dotnet add package Azure.Communication.Common --version 1.0.0-beta.5
 $> dotnet add package Azure.Communication.Identity --version 1.0.0-beta.5
 $> dotnet add package Azure.Communication.PhoneNumbers --version 1.0.0-beta.5
 $> dotnet add package Azure.Communication.SMS --version 1.0.0-beta.5
+$> dotnet add package Azure.Core --version 1.10.0
+$> dotnet add package Azure.Data.AppConfiguration --version 1.1.0-beta.1
+$> dotnet add package Azure.Data.Tables --version 12.0.0-beta.6
+$> dotnet add package Azure.Identity --version 1.4.0-beta.4
+$> dotnet add package Azure.Messaging.EventHubs --version 5.3.1
+$> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.3.1
+$> dotnet add package Azure.MixedReality.Authentication --version 1.0.0
+$> dotnet add package Azure.MixedReality.RemoteRendering --version 1.0.0-beta.3
+$> dotnet add package Azure.MixedReality.ObjectAnchors.Conversion --version 0.1.0-beta.1
 ```
 
 [pattern]: # ($> dotnet install ${PackageName} --version ${PackageVersion})
@@ -87,37 +83,9 @@ $> dotnet add package Azure.Communication.SMS --version 1.0.0-beta.5
 If you have a bug or feature request for one of the libraries, please [file an issue in our repo](https://github.com/Azure/azure-sdk-for-net/issues/new/choose).
 
 ## Release highlights
-### Azure Mixed Reality Authentication 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.MixedReality.Authentication_1.0.0/sdk/mixedreality/Azure.MixedReality.Authentication/CHANGELOG.md#100-2021-02-23)
-- First stable release.
-
-### Azure Remote Rendering 1.0.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.MixedReality.RemoteRendering_1.0.0-beta.3/sdk/remoterendering/Azure.MixedReality.RemoteRendering/CHANGELOG.md#100-beta3-2021-02-24)
-- Allow the STS endpoint to be customized.
-- Changed constructors to align with guidance.
-
-### Azure Object Anchors Conversion 0.1.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.MixedReality.ObjectAnchors.Conversion_0.1.0-beta.1/sdk/objectanchors/Azure.MixedReality.ObjectAnchors.Conversion/CHANGELOG.md#010-beta1-2021-02-26)
-- Initial client
-
 ### Form Recognizer 3.1.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_3.1.0-beta.3/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#310-beta3-2021-03-09)
 #### New features
 - Added protected constructors for mocking to `Operation` types, such as `TrainingOperation` and `RecognizeContentOperation`.
-
-### Identity 1.4.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Identity_1.4.0-beta.4/sdk/identity/Azure.Identity/CHANGELOG.md)
-- Added the `[Serializable]` attribute to all custom exception types.
-- Update the default value of ExcludeSharedTokenCacheCredential on DefaultAzureCredentialsOptions to true, to exclude the SharedTokenCacheCredential from the DefaultAzureCredential by default. See BREAKING_CHANGES.md
-
-### Tables 12.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.Tables_12.0.0-beta.6/sdk/tables/Azure.Data.Tables/CHANGELOG.md)
-- Changed major version number to 12 to indicate this is the latest Tables package across all legacy versions and for cross language consistency.
-- TableClient and TableServiceClient now accept AzureSasCredential for SAS token scenarios rather than requiring developers to build the URI manually.
-- Added TableUriBuilder
-- Added a constructor to TableSasBuilder and TableAccountSasBuilder that accepts a Uri with a Sas token
-- Fixed an issue that prevented start/end row key and partition key values from being used in Sas tokens
-
-### LUIS - Authoring 3.2.0-preview.4 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring_3.2.0-preview.4/sdk/cognitiveservices/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/CHANGELOG.md#320-preview4-2021-02-25)
-#### Fixed
-- ExampleId attribute in label APIs could not hold int values
-- ArmTokenParameter parameter name had a typo
-### Core 1.10.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.10.0/sdk/core/Azure.Core/CHANGELOG.md#1100-2021-03-09)
-- Added `CloudEvent` type based on the [CloudEvent spec](https://github.com/cloudevents/spec/blob/master/spec.md).
 
 ### Text Analytics 5.1.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.TextAnalytics_5.1.0-beta.5/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#510-beta5-2021-03-09)
 #### New features
@@ -143,63 +111,9 @@ If you have a bug or feature request for one of the libraries, please [file an i
 #### Fixes
 - `RecognizePiiEntities` and `TextAnalyticsActions.RecognizePiiEntitiesOptions` were always passing `PiiEntityDomainType.PHI`. Now, it is only passed when requested by the user [19086](https://github.com/Azure/azure-sdk-for-net/issues/19086).
 
-### Tables 12.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.Tables_12.0.0-beta.6/sdk/tables/Azure.Data.Tables/CHANGELOG.md#1200-beta6-2021-03-09)
-#### Changed
-
-- Changed major version number to 12 to indicate this is the latest Tables package across all legacy versions and for cross language consistency.
-- `TableClient` and `TableServiceClient` now accept `AzureSasCredential` for SAS token scenarios rather than requiring developers to build the URI manually.
-
-#### Key Bug Fixes
-
-- Fixed an issue that prevented start/end row key and partition key values from being used in Sas tokens
-
-#### Added
-
-- Added TableUriBuilder
-- Added a constructor to `TableSasBuilder` and `TableAccountSasBuilder` that accepts a Uri with a Sas token
-
-### App Configuration 1.1.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.AppConfiguration_1.1.0-beta.1/sdk/appconfiguration/Azure.Data.AppConfiguration/CHANGELOG.md#110-beta1-2021-03-09)
-#### Changes
-
-##### New Features
-
-- Added `SecretReferenceConfigurationSetting` type to represent a configuration setting that references a KeyVault Secret. 
-- Added `FeatureFlagConfigurationSetting` type to represent a configuration setting that controls a feature flag.
-- Added `AddSyncToken` to `ConfigurationClient` to be able to provide external synchronization tokens.
-
-### Event Hubs 5.3.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventHubs_5.3.1/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md#531-2021-03-09)
-
-- Minor bug fixes and enhancements.
-
-### Event Hubs - Event Processor 5.3.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventHubs.Processor_5.3.1/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md#531-2021-03-09)
-
-- Minor bug fixes and enhancements.
-
-### Identity 1.4.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Identity_1.4.0-beta.4/sdk/identity/Azure.Identity/CHANGELOG.md#140-beta4-2021-03-09)
-#### Fixes and Improvements
-
-- Added the `[Serializable]` attribute to all custom exception types.
-
-#### Breaking Changes
-
-- Update the default value of `ExcludeSharedTokenCacheCredential` on `DefaultAzureCredentialsOptions` to true, to exclude the `SharedTokenCacheCredential` from the `DefaultAzureCredential` by default. See [BREAKING_CHANGES.md](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/identity/Azure.Identity/BREAKING_CHANGES.md#140)
-
-[pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
-
 ### Azure Communication Administration is deprecated
 
-- `PhoneNumberAdministrationClient` is moved into the new package `Azure.Communication.PhoneNumbers` and replaced by `PhoneNumberClient`.
-
-### Azure Communication Phone Numbers 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.PhoneNumbers/CHANGELOG.md#100-beta5-2021-03-09)
-
-#### New Features
-
-- Added `PhoneNumbersClient` (originally was part of the `Azure.Communication.Administration` package).
-- Added support for Azure Active Directory Authentication.
-
-#### Breaking Changes
-
-- `PhoneNumberAdministrationClient` has been replaced with `PhoneNumbersClient`, which has the same functionality but different APIs. To learn more about how PhoneNumbersClient works, refer to the [README.md](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.PhoneNumbers/README.md)
+- `PhoneNumberAdministrationClient` has moved into the new package `Azure.Communication.PhoneNumbers` and been replaced by `PhoneNumberClient`.
 
 ### Azure Communication Chat 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Chat/CHANGELOG.md#100-beta5-2021-03-09)
 
@@ -222,6 +136,17 @@ to `CommunicationTokenRefreshOptions(bool refreshProactively, Func<CancellationT
 - `CommunicationIdentityClient.IssueToken` and `CommunicationIdentityClient.IssueTokenAsync` are renamed to `GetToken` and `GetTokenAsync`, respectively
 - `CommunicationIdentityClient.CreateUserWithToken` and `CommunicationIdentityClient.CreateUserWithTokenAsync` are renamed to `CreateUserAndToken` and `CreateUserAndTokenAsync`, respectively. Their return value is also changed from `Tuple<CommunicationUserIdentifier, string>` to `CommunicationUserIdentifierAndToken`.
 
+### Azure Communication Phone Numbers 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.PhoneNumbers/CHANGELOG.md#100-beta5-2021-03-09)
+
+#### New Features
+
+- Added `PhoneNumbersClient` (originally was part of the `Azure.Communication.Administration` package).
+- Added support for Azure Active Directory Authentication.
+
+#### Breaking Changes
+
+- `PhoneNumberAdministrationClient` has been replaced with `PhoneNumbersClient`, which has the same functionality but different APIs. To learn more about how PhoneNumbersClient works, refer to the [README.md](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.PhoneNumbers/README.md)
+
 ### Azure Communication SMS 1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Sms/CHANGELOG.md#100-beta4-2021-03-09)
 
 #### New Features
@@ -237,6 +162,62 @@ to `CommunicationTokenRefreshOptions(bool refreshProactively, Func<CancellationT
 - Updated `Task<Response<SendSmsResponse>> SendAsync(PhoneNumberIdentifier from, PhoneNumberIdentifier to, string message, SendSmsOptions sendSmsOptions = null, CancellationToken cancellationToken = default)`
 to `Task<Response<SmsSendResult>> SendAsync(string from, string to, string message, SmsSendOptions options = default)`
 - Replaced `SendSmsResponse` with `SmsSendResult`
+
+### Core 1.10.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.10.0/sdk/core/Azure.Core/CHANGELOG.md#1100-2021-03-09)
+- Added `CloudEvent` type based on the [CloudEvent spec](https://github.com/cloudevents/spec/blob/master/spec.md).
+
+### App Configuration 1.1.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.AppConfiguration_1.1.0-beta.1/sdk/appconfiguration/Azure.Data.AppConfiguration/CHANGELOG.md#110-beta1-2021-03-09)
+#### Changes
+
+##### New Features
+
+- Added `SecretReferenceConfigurationSetting` type to represent a configuration setting that references a KeyVault Secret. 
+- Added `FeatureFlagConfigurationSetting` type to represent a configuration setting that controls a feature flag.
+- Added `AddSyncToken` to `ConfigurationClient` to be able to provide external synchronization tokens.
+
+### Tables 12.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.Tables_12.0.0-beta.6/sdk/tables/Azure.Data.Tables/CHANGELOG.md#1200-beta6-2021-03-09)
+#### Changed
+
+- Changed major version number to 12 to indicate this is the latest Tables package across all legacy versions and for cross language consistency.
+- `TableClient` and `TableServiceClient` now accept `AzureSasCredential` for SAS token scenarios rather than requiring developers to build the URI manually.
+
+#### Key Bug Fixes
+
+- Fixed an issue that prevented start/end row key and partition key values from being used in Sas tokens
+
+#### Added
+
+- Added TableUriBuilder
+- Added a constructor to `TableSasBuilder` and `TableAccountSasBuilder` that accepts a Uri with a Sas token
+
+### Identity 1.4.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Identity_1.4.0-beta.4/sdk/identity/Azure.Identity/CHANGELOG.md#140-beta4-2021-03-09)
+#### Fixes and Improvements
+
+- Added the `[Serializable]` attribute to all custom exception types.
+
+#### Breaking Changes
+
+- Update the default value of `ExcludeSharedTokenCacheCredential` on `DefaultAzureCredentialsOptions` to true, to exclude the `SharedTokenCacheCredential` from the `DefaultAzureCredential` by default. See [BREAKING_CHANGES.md](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/identity/Azure.Identity/BREAKING_CHANGES.md#140)
+
+### Event Hubs 5.3.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventHubs_5.3.1/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md#531-2021-03-09)
+
+- Minor bug fixes and enhancements.
+
+### Event Hubs - Event Processor 5.3.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventHubs.Processor_5.3.1/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md#531-2021-03-09)
+
+- Minor bug fixes and enhancements.
+
+### Azure Mixed Reality Authentication 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.MixedReality.Authentication_1.0.0/sdk/mixedreality/Azure.MixedReality.Authentication/CHANGELOG.md#100-2021-02-23)
+- First stable release.
+
+### Azure Remote Rendering 1.0.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.MixedReality.RemoteRendering_1.0.0-beta.3/sdk/remoterendering/Azure.MixedReality.RemoteRendering/CHANGELOG.md#100-beta3-2021-02-24)
+- Allow the STS endpoint to be customized.
+- Changed constructors to align with guidance.
+
+### Azure Object Anchors Conversion 0.1.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.MixedReality.ObjectAnchors.Conversion_0.1.0-beta.1/sdk/objectanchors/Azure.MixedReality.ObjectAnchors.Conversion/CHANGELOG.md#010-beta1-2021-02-26)
+- Initial client
+
+[pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
 ## Latest Releases
 
