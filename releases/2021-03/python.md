@@ -599,7 +599,7 @@ This version will be the last version to officially support Python 3.5, future v
 - Added support for `DatalakeServiceClient.undelete_filesystem()`
 - Added support for `DirectoryClient.exists()`, `FileClient.exists()` and `FileSystemClient.exists()`
 
-**Fixes**
+**Bug Fixes**
 - Fixed `DatalakeServiceClient` context manager/session closure issue (#15358)
 - `PurePosixPath` is now handled correctly if passed as a path (#16159)
 
