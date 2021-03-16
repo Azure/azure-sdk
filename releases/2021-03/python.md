@@ -339,7 +339,7 @@ This version will be the last version to officially support Python 3.5, future v
   - Model SysctlConfig no longer has parameter net_ipv4_tcp_wmem
 
 ### Resource Management - Cosmos DB 6.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-cosmosdb_6.1.0/sdk/cosmos/azure-mgmt-cosmosdb/CHANGELOG.md#610-2021-03-02)
-**Features**
+**New Features**
 
   - Model DatabaseAccountGetResults has a new parameter network_acl_bypass
   - Model DatabaseAccountGetResults has a new parameter backup_policy
