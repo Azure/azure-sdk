@@ -20,6 +20,7 @@ repository: azure/azure-sdk-for-js
 @azure/storage-queue:12.4.0
 @azure/cosmos:3.10.2
 @azure/cosmos:3.10.3
+@azure/ai-text-analytics:5.1.0-beta.5
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
 
