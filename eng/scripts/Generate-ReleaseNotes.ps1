@@ -26,7 +26,7 @@ LogDebug "Release File Path [ $releaseFilePath ]"
 
 if (!(Test-Path $releaseFilePath))
 {
-    $PSScriptRoot\Generate-Release-Structure.ps1 -releaseFileName "${releaseFileName}.md"
+    &(Join-Path $PSScriptRoot Generate-Release-Structure.ps1) -releaseFileName "${releaseFileName}.md"
 }
 
 $existingReleaseContent = Get-Content $releaseFilePath
