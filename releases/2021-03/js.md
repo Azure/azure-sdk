@@ -38,6 +38,8 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 #### Updates
 - Identity
 - Core - Abort Controller
+- Core - Client
+- Core - Rest-Pipeline
 - Cosmos Db
 - Cosmos DB
 
