@@ -1,3 +1,4 @@
+[CmdletBinding()]
 param (
   $language = "all"
 )
@@ -18,7 +19,7 @@ function PackageEqual($pkg1, $pkg2) {
   return $true
 }
 function CreatePackage(
-  [string]$package, 
+  [string]$package,
   [string]$version,
   [string]$groupId = ""
 )
@@ -86,8 +87,15 @@ function Get-js-Packages
     $from += $npmQuery.objects.Count
   } while ($npmQuery.objects.Count -ne 0);
 
-  Write-Host "Found $($npmPackages.Count) npm packages"
-  $packages = $npmPackages | Foreach-Object { CreatePackage $_.name $_.version }
+  $publishedPackages = $npmPackages | Where-Object { $_.publisher.username -eq "azure-sdk" }
+  $otherPackages = $npmPackages | Where-Object { $_.publisher.username -ne "azure-sdk" }
+
+  foreach ($otherPackage in $otherPackages) {
+    Write-Verbose "Not updating package $($otherPackage.name) because the publisher is $($otherPackage.publisher.username) and not azure-sdk"
+  }
+
+  Write-Host "Found $($publishedPackages.Count) npm packages"
+  $packages = $publishedPackages | Foreach-Object { CreatePackage $_.name $_.version }
   return $packages
 }
 
@@ -129,7 +137,7 @@ function Write-Latest-Versions($lang)
         # Add new package
         $packageList += $pkg
       }
-    } 
+    }
     elseif ($pkgEntries.Count -gt 1) {
       Write-Error "Found $($pkgEntries.Count) package entries for $($pkg.Package + $pkg.GroupId)"
     }
