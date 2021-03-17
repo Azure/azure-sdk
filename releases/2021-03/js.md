@@ -10,7 +10,10 @@ repository: azure/azure-sdk-for-js
 @azure/identity:1.2.4
 @azure/abort-controller:1.0.3
 @azure/abort-controller:1.0.4
+@azure/core-client@1.0.0
+@azure/core-rest-pipeline@1.0.0
 @azure/keyvault-secrets:4.2.0-beta.3
+
 @azure/keyvault-keys:4.2.0-beta.4
 @azure/storage-file-share:12.5.0
 @azure/storage-blob:12.5.0
