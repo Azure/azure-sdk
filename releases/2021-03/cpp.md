@@ -18,14 +18,12 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 To install any of our packages, copy and paste the following commands into a terminal:
 
 ```bash
-# From Vcpkg
-vcpkg install azure-storage-blobs-cpp
 
 # From Source
 git clone https://github.com/Azure/azure-sdk-for-cpp
 # git checkout <tag_name>
 # For example:
-git checkout azure-storage-blobs_12.0.0-beta.8
+git checkout azure-core_1.0.0-beta.7
 ```
 
 ## Feedback
