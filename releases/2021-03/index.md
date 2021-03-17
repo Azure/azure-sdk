@@ -20,6 +20,8 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
   * Introduces the beta feature of Throughput Control which allows Client side RU Limiting and adds the Beta APIs for `FeedRange` based query and `Conditional` Patch.
 * Java libraries upgraded to support Jackson from `2.11.3` to `2.12.1`, `reactor-core` from `3.3.12.RELEASE` to `3.4.3`, and `reactor-netty` from `0.9.15.RELEASE` to `1.0.4`.
 * `Azure Communication Phone Numbers` has added support for Azure Active Directory Authentication.
+* JS Azure Core Client 1.0.0 is GA and Azure Core Rest Pipeline 1.0.0 is GA
+    * This is the next generation of Azure.Core, which is the foundation of all other SDK libraries. The new version features a more modular design, allows easier customization of the request pipeline, improves the performance of majority usages.
 
 ## Release Notes
 
