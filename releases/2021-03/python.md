@@ -36,6 +36,10 @@ azure-synapse-spark:0.5.0
 azure-data-tables:12.0.0b5
 azure-keyvault-keys:4.4.0b1
 azure-keyvault-keys:4.4.0b2
+azure-mgmt-rdbms:8.1.0b1
+azure-mgmt-attestation:1.0.0
+azure-mgmt-netapp:2.0.0
+azure-mgmt-automation:1.1.0b1
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -47,6 +51,8 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Resource Management - Container Service
 - Resource Management - Resources
 - Resource Management - Web
+- Resource Management - Attestation
+- Resource Management - NetApp
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -82,6 +88,8 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Synapse - Spark
 - Tables
 - Text Analytics
+- Resource Management - Rdbms
+- Resource Management - Automation
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -120,6 +128,10 @@ $> pip install azure-synapse-accesscontrol==0.6.0
 $> pip install azure-synapse-artifacts==0.5.0
 $> pip install azure-synapse-managedprivateendpoints==0.3.0
 $> pip install azure-synapse-monitoring==0.2.0
+$> pip install azure-mgmt-rdbms==8.1.0b1
+$> pip install azure-mgmt-attestation==1.0.0
+$> pip install azure-mgmt-netapp==2.0.0
+$> pip install azure-mgmt-automation==1.1.0b1
 $> pip install azure-synapse-spark==0.5.0
 ```
 
@@ -638,6 +650,37 @@ This version will be the last version to officially support Python 3.5, future v
 ** Breaking changes **
 
 - Stop Python 3.5 support
+### Resource Management - Rdbms 8.1.0b1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-rdbms_8.1.0b1/sdk/rdbms/azure-mgmt-rdbms/CHANGELOG.md#810b1-2021-03-17)
+**Features**
+
+  - Added operation ServerSecurityAlertPoliciesOperations.list_by_server
+
+### Resource Management - Attestation 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-attestation_1.0.0/sdk/attestation/azure-mgmt-attestation/CHANGELOG.md#100-2021-03-16)
+* GA release
+
+### Resource Management - NetApp 2.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-netapp_2.0.0/sdk/netapp/azure-mgmt-netapp/CHANGELOG.md#200-2021-03-16)
+**Features**
+
+  - Model Volume has a new parameter ldap_enabled
+  - Model Backup has a new parameter volume_name
+  - Model ActiveDirectory has a new parameter allow_local_nfs_users_with_ldap
+  - Model BackupPatch has a new parameter volume_name
+  - Added operation BackupsOperations.begin_update
+  - Added operation group VolumeBackupStatusOperations
+
+**Breaking changes**
+
+  - Model SnapshotPolicyDetails no longer has parameter name_properties_name
+  - Model SnapshotPolicyPatch no longer has parameter name_properties_name
+  - Model Volume no longer has parameter name_properties_name
+  - Model SnapshotPolicy no longer has parameter name_properties_name
+  - Removed operation BackupsOperations.update
+
+### Resource Management - Automation 1.1.0b1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-automation_1.1.0b1/sdk/automation/azure-mgmt-automation/CHANGELOG.md#110b1-2021-03-16)
+**Features**
+
+  - Model SoftwareUpdateConfigurationCollectionItem has a new parameter tasks
+
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
