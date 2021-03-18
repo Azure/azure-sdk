@@ -69,6 +69,7 @@ $> dotnet add package Azure.Core --version 1.10.0
 $> dotnet add package Azure.Data.AppConfiguration --version 1.1.0-beta.1
 $> dotnet add package Azure.Data.Tables --version 12.0.0-beta.6
 $> dotnet add package Azure.Identity --version 1.4.0-beta.4
+$> dotnet add package Azure.Messaging.EventGrid --version 4.0.0
 $> dotnet add package Azure.Messaging.EventHubs --version 5.3.1
 $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.3.1
 $> dotnet add package Azure.MixedReality.Authentication --version 1.0.0
@@ -198,6 +199,20 @@ to `Task<Response<SmsSendResult>> SendAsync(string from, string to, string messa
 #### Breaking Changes
 
 - Update the default value of `ExcludeSharedTokenCacheCredential` on `DefaultAzureCredentialsOptions` to true, to exclude the `SharedTokenCacheCredential` from the `DefaultAzureCredential` by default. See [BREAKING_CHANGES.md](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/identity/Azure.Identity/BREAKING_CHANGES.md#140)
+
+### Event Grid 4.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventGrid_4.0.0/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md#400-2021-03-09)
+
+#### Changes
+
+##### New Features
+
+Added single send overloads to allow sending a single event for each event type.
+
+#### Breaking Changes
+
+- Moved `CloudEvent` into `Azure.Core` package.
+- Changed custom events to be represented as `BinaryData` rather than `Object`s.
+- Removed `Serializer` option from `EventGridPublisherOptions` as serialization can be customized through `BinaryData`.
 
 ### Event Hubs 5.3.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventHubs_5.3.1/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md#531-2021-03-09)
 
