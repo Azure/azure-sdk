@@ -210,7 +210,7 @@ function OutputVersions($lang)
   $langVersions = GetPackageVersions $lang
   $langLinkTemplates = @{ }
 
-  $releaseVariableFolder = Resolve-Path "$PSScriptRoot\..\..\_includes\releases\variables\"
+  $releaseVariableFolder = Resolve-Path "$PSScriptRoot\..\..\_includes\shared\variables\"
   $releaseVariableContent = Get-Content (Join-Path $releaseVariableFolder "$lang.md")
   $releaseVariableContent | ForEach-Object {
     if ($_ -match "{%\s*assign\s*(?<name>\S+)\s*=\s*`"(?<value>\S*)`"\s+%}") { 

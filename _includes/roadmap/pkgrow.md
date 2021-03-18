@@ -23,25 +23,17 @@
     
     {% if item.VersionGA != "" %}
         {% assign url = package_url | replace: 'item.Version', item.VersionGA  %}
-        {% include shared/pkgbadge.md  label=package_label url=url version=item.VersionGA %}
-    {% elsif item.VersionPreview != "" %}
+        <a href="{{url}}" target="_blank">{{item.VersionGA}}</a>        
+    {% endif %}
+</td>
+<td>
+    {% if item.VersionGA != "" %}
         {% assign url = package_url | replace: 'item.Version', item.VersionPreview  %}
-        {% include shared/pkgbadge.md  label=package_label preview="true" url=url version=item.VersionPreview %}
-        <br/>    
-        {{item.Notes}}
+        <a href="{{url}}" target="_blank">{{item.VersionPreview}}</a>
     {% endif %}
 </td>
 <td>{{ gaDate }}</td>
-<td>
-
-    {% if item.VersionGA != "" %}
-        GA
-    {% elsif item.VersionPreview != "" %}
-        Public Preview
-    {% else %}
-        In Development
-    {% endif%}
-</td>
+<td style="max-width: 100px">{{item.Notes}}</td>
 
 </tr>
 {% endif %}

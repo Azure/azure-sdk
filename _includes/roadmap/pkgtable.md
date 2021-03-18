@@ -1,9 +1,10 @@
 <table>
 <tr>
   <th class="table-display-text-th table-display-name-th">Name</th>
-  <th>Current Version</th>
+  <th>Latest GA</th>
+  <th>Latest Beta</th>
   <th>Next GA</th>
-  <th>Status</th>
+  <th>Notes</th>
 </tr>
 <tbody id="myTable">
 
@@ -16,5 +17,6 @@
 {% include {{page.scope}}/pkgrow.md %}
 
 {% endfor %}
+
 </tbody>
 </table>
