@@ -70,6 +70,7 @@ $> dotnet add package Azure.Data.AppConfiguration --version 1.1.0-beta.1
 $> dotnet add package Azure.Data.Tables --version 12.0.0-beta.6
 $> dotnet add package Azure.Identity --version 1.4.0-beta.4
 $> dotnet add package Azure.Messaging.EventGrid --version 4.0.0
+$> dotnet add package Microsoft.Azure.Messaging.EventGrid.CloudNativeCloudEvents --version 1.0.0-beta.1
 $> dotnet add package Azure.Messaging.EventHubs --version 5.3.1
 $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.3.1
 $> dotnet add package Azure.MixedReality.Authentication --version 1.0.0
@@ -139,7 +140,7 @@ to `CommunicationTokenRefreshOptions(bool refreshProactively, Func<CancellationT
 
 ### Azure Communication Phone Numbers 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.PhoneNumbers/CHANGELOG.md#100-beta5-2021-03-09)
 
-#### New Features
+#### New features
 
 - Added `PhoneNumbersClient` (originally was part of the `Azure.Communication.Administration` package).
 - Added support for Azure Active Directory Authentication.
@@ -150,7 +151,7 @@ to `CommunicationTokenRefreshOptions(bool refreshProactively, Func<CancellationT
 
 ### Azure Communication SMS 1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Sms/CHANGELOG.md#100-beta4-2021-03-09)
 
-#### New Features
+#### New features
 
 - Added support to create SmsClient with AzureKeyCredential.
 - Added support to create SmsClient with TokenCredential.
@@ -170,7 +171,7 @@ to `Task<Response<SmsSendResult>> SendAsync(string from, string to, string messa
 ### App Configuration 1.1.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.AppConfiguration_1.1.0-beta.1/sdk/appconfiguration/Azure.Data.AppConfiguration/CHANGELOG.md#110-beta1-2021-03-09)
 #### Changes
 
-##### New Features
+##### New features
 
 - Added `SecretReferenceConfigurationSetting` type to represent a configuration setting that references a KeyVault Secret. 
 - Added `FeatureFlagConfigurationSetting` type to represent a configuration setting that controls a feature flag.
@@ -192,6 +193,7 @@ to `Task<Response<SmsSendResult>> SendAsync(string from, string to, string messa
 - Added a constructor to `TableSasBuilder` and `TableAccountSasBuilder` that accepts a Uri with a Sas token
 
 ### Identity 1.4.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Identity_1.4.0-beta.4/sdk/identity/Azure.Identity/CHANGELOG.md#140-beta4-2021-03-09)
+
 #### Fixes and Improvements
 
 - Added the `[Serializable]` attribute to all custom exception types.
@@ -202,17 +204,21 @@ to `Task<Response<SmsSendResult>> SendAsync(string from, string to, string messa
 
 ### Event Grid 4.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventGrid_4.0.0/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md#400-2021-03-09)
 
-#### Changes
+#### New features
 
-##### New Features
-
-Added single send overloads to allow sending a single event for each event type.
+- Added single send overloads to allow sending a single event for each event type.
 
 #### Breaking Changes
 
 - Moved `CloudEvent` into `Azure.Core` package.
 - Changed custom events to be represented as `BinaryData` rather than `Object`s.
 - Removed `Serializer` option from `EventGridPublisherOptions` as serialization can be customized through `BinaryData`.
+
+### EventGrid CloudNativeCloudEvents [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.Messaging.EventGrid.CloudNativeCloudEvents_1.0.0-beta.1/sdk/eventgrid/Microsoft.Azure.Messaging.EventGrid.CloudNativeCloudEvents/CHANGELOG.md)
+
+#### New features
+
+- Added Bridge library to allow sending CloudNative CloudEvents using Azure Event Grid.
 
 ### Event Hubs 5.3.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventHubs_5.3.1/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md#531-2021-03-09)
 
