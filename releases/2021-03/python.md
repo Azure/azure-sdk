@@ -40,6 +40,7 @@ azure-mgmt-rdbms:8.1.0b1
 azure-mgmt-attestation:1.0.0
 azure-mgmt-netapp:2.0.0
 azure-mgmt-automation:1.1.0b1
+azure-mgmt-databox:1.0.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -53,6 +54,7 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Resource Management - Web
 - Resource Management - Attestation
 - Resource Management - NetApp
+- Resource Management - Data Box
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -132,6 +134,7 @@ $> pip install azure-mgmt-rdbms==8.1.0b1
 $> pip install azure-mgmt-attestation==1.0.0
 $> pip install azure-mgmt-netapp==2.0.0
 $> pip install azure-mgmt-automation==1.1.0b1
+$> pip install azure-mgmt-databox==1.0.0
 $> pip install azure-synapse-spark==0.5.0
 ```
 
@@ -680,6 +683,9 @@ This version will be the last version to officially support Python 3.5, future v
 **Features**
 
   - Model SoftwareUpdateConfigurationCollectionItem has a new parameter tasks
+
+### Resource Management - Data Box 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-databox_1.0.0/sdk/databox/azure-mgmt-databox/CHANGELOG.md#100-2021-03-18)
+- GA release
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
