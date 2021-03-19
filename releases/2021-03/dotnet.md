@@ -48,8 +48,6 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 - Communication Identity
 - Communication Phone Numbers
 - Communication SMS
-- Event Hubs
-- Event Hubs - Event Processor
 - Form Recognizer
 - Identity
 - Service Bus
@@ -77,9 +75,7 @@ $> dotnet add package Azure.Data.AppConfiguration --version 1.1.0-beta.1
 $> dotnet add package Azure.Data.Tables --version 12.0.0-beta.6
 $> dotnet add package Azure.Identity --version 1.4.0-beta.4
 $> dotnet add package Azure.Messaging.EventHubs --version 5.3.1
-$> dotnet add package Azure.Messaging.EventHubs --version 5.4.0-beta.1
 $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.3.1
-$> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.4.0-beta.1
 $> dotnet add package Azure.MixedReality.Authentication --version 1.0.0
 $> dotnet add package Azure.MixedReality.RemoteRendering --version 1.0.0-beta.3
 $> dotnet add package Azure.MixedReality.ObjectAnchors.Conversion --version 0.1.0-beta.1
@@ -217,21 +213,9 @@ to `Task<Response<SmsSendResult>> SendAsync(string from, string to, string messa
 
 - Minor bug fixes and enhancements.
 
-### Event Hubs 5.4.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventHubs_5.4.0-beta.1/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md#540-beta1-2021-03-17)
-#### Changes
-
-##### New Features
-
-- Returned the idempotent publishing feature to the public API surface.
-
 ### Event Hubs - Event Processor 5.3.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventHubs.Processor_5.3.1/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md#531-2021-03-09)
 
 - Minor bug fixes and enhancements.
-
-### Event Hubs - Event Processor 5.4.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventHubs.Processor_5.4.0-beta.1/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md#540-beta1-2021-03-17)
-#### Changes
-
-- Updating package bindings for `Azure.Messaging.EventHubs` to synchronize on v5.4.0-beta.1.
 
 ### Azure Mixed Reality Authentication 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.MixedReality.Authentication_1.0.0/sdk/mixedreality/Azure.MixedReality.Authentication/CHANGELOG.md#100-2021-02-23)
 - First stable release.
