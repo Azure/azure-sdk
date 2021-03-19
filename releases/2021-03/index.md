@@ -22,9 +22,9 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 * 'Azure Communication Phone Numbers' library has added support for Azure Active Directory Authentication.
 * JS Azure Core Client 1.0.0 is GA and Azure Core Rest Pipeline 1.0.0 is GA
     * This is the next generation of Azure.Core, which is the foundation of all other SDK libraries. The new version features a more modular design, allows easier customization of the request pipeline, improves the performance of majority usages.
+* JS Event Grid version 4.0.0 is GAed
 * .NET 'Event Grid' library is releasing its next stable release - 4.0.0
 * .NET 'Mixed Reality Authentication' library is releasing its first stable release - 1.0.0
-
 ## Release Notes
 
 * [All release notes](index.md)
