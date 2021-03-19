@@ -120,6 +120,11 @@ If you have a bug or feature request for one of the libraries, please [file an i
 #### Fixes
 - `RecognizePiiEntities` and `TextAnalyticsActions.RecognizePiiEntitiesOptions` were always passing `PiiEntityDomainType.PHI`. Now, it is only passed when requested by the user [19086](https://github.com/Azure/azure-sdk-for-net/issues/19086).
 
+### Synapse - Artifacts 1.0.0-preview.7 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.Synapse.Artifacts_1.0.0-preview.7/sdk/synapse/Azure.Analytics.Synapse.Artifacts/CHANGELOG.md#100-preview7-2021-03-17)
+#### Added
+- Many models classes now have public getters.
+- Added new `LibraryClient` and associated support types.
+
 ### Azure Communication Administration is deprecated
 
 - `PhoneNumberAdministrationClient` has moved into the new package `Azure.Communication.PhoneNumbers` and been replaced by `PhoneNumberClient`.
@@ -237,11 +242,6 @@ to `Task<Response<SmsSendResult>> SendAsync(string from, string to, string messa
 
 ### Azure Object Anchors Conversion 0.1.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.MixedReality.ObjectAnchors.Conversion_0.1.0-beta.1/sdk/objectanchors/Azure.MixedReality.ObjectAnchors.Conversion/CHANGELOG.md#010-beta1-2021-02-26)
 - Initial client
-
-### Synapse - Artifacts 1.0.0-preview.7 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.Synapse.Artifacts_1.0.0-preview.7/sdk/synapse/Azure.Analytics.Synapse.Artifacts/CHANGELOG.md#100-preview7-2021-03-17)
-#### Added
-- Many models classes now have public getters.
-- Added new `LibraryClient` and associated support types.
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
