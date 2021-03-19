@@ -41,6 +41,7 @@ azure-mgmt-attestation:1.0.0
 azure-mgmt-netapp:2.0.0
 azure-mgmt-automation:1.1.0b1
 azure-mgmt-databox:1.0.0
+azure-mgmt-rdbms:8.1.0b2
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -92,6 +93,7 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Text Analytics
 - Resource Management - Rdbms
 - Resource Management - Automation
+- Resource Management - Rdbms
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -135,6 +137,7 @@ $> pip install azure-mgmt-attestation==1.0.0
 $> pip install azure-mgmt-netapp==2.0.0
 $> pip install azure-mgmt-automation==1.1.0b1
 $> pip install azure-mgmt-databox==1.0.0
+$> pip install azure-mgmt-rdbms==8.1.0b2
 $> pip install azure-synapse-spark==0.5.0
 ```
 
@@ -686,6 +689,12 @@ This version will be the last version to officially support Python 3.5, future v
 
 ### Resource Management - Data Box 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-databox_1.0.0/sdk/databox/azure-mgmt-databox/CHANGELOG.md#100-2021-03-18)
 - GA release
+
+### Resource Management - Rdbms 8.1.0b2 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-rdbms_8.1.0b2/sdk/rdbms/azure-mgmt-rdbms/CHANGELOG.md#810b2-2021-03-19)
+**Features**
+
+  - Model Server has a new parameter source_subscription_id
+  - Model Server has a new parameter source_resource_group_name
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
