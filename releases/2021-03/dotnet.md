@@ -81,7 +81,7 @@ $> dotnet add package Azure.MixedReality.RemoteRendering --version 1.0.0-beta.3
 $> dotnet add package Azure.MixedReality.ObjectAnchors.Conversion --version 0.1.0-beta.1
 ```
 
-[pattern]: # ($> dotnet install ${PackageName} --version ${PackageVersion})
+[pattern]: # ($> dotnet add package ${PackageName} --version ${PackageVersion})
 
 ## Feedback
 
