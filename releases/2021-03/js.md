@@ -21,6 +21,8 @@ repository: azure/azure-sdk-for-js
 @azure/cosmos:3.10.2
 @azure/cosmos:3.10.3
 @azure/ai-text-analytics:5.1.0-beta.5
+@azure/eventgrid:4.0.0
+
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
 
@@ -32,6 +34,7 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Storage - Blobs
 - Storage - Files Data Lake
 - Storage - Queues
+- Event Grid
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -84,6 +87,7 @@ $> npm install @azure/cosmos@3.10.2
 $> npm install @azure/cosmos@3.10.3
 $> npm install @azure/communication-sms@1.0.0-beta.4
 $> npm install @azure/event-hubs@5.5.0-beta.1
+$> npm install @azure/eventgrid@4.0.0
 $> npm install @azure/data-tables@12.0.0-beta.1
 ```
 
@@ -202,6 +206,18 @@ Fixes issue [13985](https://github.com/Azure/azure-sdk-for-js/issues/13985) wher
 #### Breaking Changes 
 
 - Aspects in opinions mining are now called targets and each individual opinion is now called an assessment. The new naming simplifies the naming of different parts of the response.
+
+### Event Grid 4.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/eventgrid_4.0.0/sdk/eventgrid/eventgrid/CHANGELOG.md#400-2021-03-17)
+- Update version to 4.0.0 to align with other EventGrid SDKs
+
+#### Breaking Changes
+
+- `EventGridConsumer` no longer applies any conversions to the `data` property of system events. The interfaces that describe the data payload of each
+  system event has been updated to reflect this. The most visible impact of this change is that some properties of events are no longer converted into JavaScript `Date` objects, and instead are kepts as strings which contain ISO 8601 timestamps.
+- Related to the above, `EventGridConsumer` no longer accepts a set of custom converters that can be used to further transform the `data` property of a specific event type when deserializing events.
+- The interfaces which describe the shape of the `data` member of system events have been updated so that properties always included in the event are not typed as optional.
+
+
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
 ## Latest Releases
