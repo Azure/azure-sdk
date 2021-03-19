@@ -436,31 +436,31 @@ To use Azure Spring Cloud starters and binders, refer to the Maven dependency in
 <dependency> 
     <groupId>com.microsoft.azure</groupId>  
     <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>  
-    <version>1.2.8</version> 
+    <version>1.2.9</version> 
 </dependency>  
 
 <dependency> 
   <groupId>com.microsoft.azure</groupId>  
   <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>  
-  <version>1.2.8</version> 
+  <version>1.2.9</version> 
 </dependency>  
 
 <dependency> 
   <groupId>com.microsoft.azure</groupId>  
   <artifactId>spring-cloud-azure-feature-management</artifactId>  
-  <version>1.2.8</version> 
+  <version>1.2.9</version> 
 </dependency>  
 
 <dependency> 
   <groupId>com.microsoft.azure</groupId>  
   <artifactId>spring-cloud-azure-feature-management-web</artifactId>  
-  <version>1.2.8</version> 
+  <version>1.2.9</version> 
 </dependency>  
 
 <dependency> 
   <groupId>com.microsoft.azure</groupId>  
   <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>  
-  <version>1.2.8</version> 
+  <version>1.2.9</version> 
 </dependency> 
 ```
 
