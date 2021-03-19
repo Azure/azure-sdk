@@ -19,6 +19,9 @@ Azure.Data.AppConfiguration:1.1.0-beta.1
 Azure.Messaging.EventHubs:5.3.1
 Azure.Messaging.EventHubs.Processor:5.3.1
 Azure.Identity:1.4.0-beta.4
+Azure.Messaging.EventHubs:5.4.0-beta.1
+Azure.Analytics.Synapse.Artifacts:1.0.0-preview.7
+Azure.Messaging.EventHubs.Processor:5.4.0-beta.1
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -48,6 +51,7 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 - Form Recognizer
 - Identity
 - Service Bus
+- Synapse - Artifacts
 - Tables
 - Text Analytics
 
@@ -60,6 +64,7 @@ To install any of our packages, please search for them via `Manage NuGet Package
 ```bash
 $> dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.3
 $> dotnet add package Azure.AI.TextAnalytics --version 5.1.0-beta.5
+$> dotnet add package Azure.Analytics.Synapse.Artifacts --version 1.0.0-preview.7
 $> dotnet add package Azure.Communication.Chat --version 1.0.0-beta.5
 $> dotnet add package Azure.Communication.Common --version 1.0.0-beta.5
 $> dotnet add package Azure.Communication.Identity --version 1.0.0-beta.5
@@ -78,7 +83,7 @@ $> dotnet add package Azure.MixedReality.RemoteRendering --version 1.0.0-beta.3
 $> dotnet add package Azure.MixedReality.ObjectAnchors.Conversion --version 0.1.0-beta.1
 ```
 
-[pattern]: # ($> dotnet install ${PackageName} --version ${PackageVersion})
+[pattern]: # ($> dotnet add package ${PackageName} --version ${PackageVersion})
 
 ## Feedback
 
@@ -112,6 +117,11 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 #### Fixes
 - `RecognizePiiEntities` and `TextAnalyticsActions.RecognizePiiEntitiesOptions` were always passing `PiiEntityDomainType.PHI`. Now, it is only passed when requested by the user [19086](https://github.com/Azure/azure-sdk-for-net/issues/19086).
+
+### Synapse - Artifacts 1.0.0-preview.7 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.Synapse.Artifacts_1.0.0-preview.7/sdk/synapse/Azure.Analytics.Synapse.Artifacts/CHANGELOG.md#100-preview7-2021-03-17)
+#### Added
+- Many models classes now have public getters.
+- Added new `LibraryClient` and associated support types.
 
 ### Azure Communication Administration is deprecated
 
