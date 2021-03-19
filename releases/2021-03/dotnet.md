@@ -48,14 +48,14 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 - Communication Identity
 - Communication Phone Numbers
 - Communication SMS
+- Event Hubs
+- Event Hubs - Event Processor
 - Form Recognizer
 - Identity
 - Service Bus
+- Synapse - Artifacts
 - Tables
 - Text Analytics
-- Event Hubs
-- Synapse - Artifacts
-- Event Hubs - Event Processor
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -66,6 +66,7 @@ To install any of our packages, please search for them via `Manage NuGet Package
 ```bash
 $> dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.3
 $> dotnet add package Azure.AI.TextAnalytics --version 5.1.0-beta.5
+$> dotnet add package Azure.Analytics.Synapse.Artifacts --version 1.0.0-preview.7
 $> dotnet add package Azure.Communication.Chat --version 1.0.0-beta.5
 $> dotnet add package Azure.Communication.Common --version 1.0.0-beta.5
 $> dotnet add package Azure.Communication.Identity --version 1.0.0-beta.5
@@ -76,12 +77,11 @@ $> dotnet add package Azure.Data.AppConfiguration --version 1.1.0-beta.1
 $> dotnet add package Azure.Data.Tables --version 12.0.0-beta.6
 $> dotnet add package Azure.Identity --version 1.4.0-beta.4
 $> dotnet add package Azure.Messaging.EventHubs --version 5.3.1
+$> dotnet add package Azure.Messaging.EventHubs --version 5.4.0-beta.1
 $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.3.1
+$> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.4.0-beta.1
 $> dotnet add package Azure.MixedReality.Authentication --version 1.0.0
 $> dotnet add package Azure.MixedReality.RemoteRendering --version 1.0.0-beta.3
-$> dotnet install Azure.Messaging.EventHubs --version 5.4.0-beta.1
-$> dotnet install Azure.Analytics.Synapse.Artifacts --version 1.0.0-preview.7
-$> dotnet install Azure.Messaging.EventHubs.Processor --version 5.4.0-beta.1
 $> dotnet add package Azure.MixedReality.ObjectAnchors.Conversion --version 0.1.0-beta.1
 ```
 
@@ -212,9 +212,21 @@ to `Task<Response<SmsSendResult>> SendAsync(string from, string to, string messa
 
 - Minor bug fixes and enhancements.
 
+### Event Hubs 5.4.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventHubs_5.4.0-beta.1/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md#540-beta1-2021-03-17)
+#### Changes
+
+##### New Features
+
+- Returned the idempotent publishing feature to the public API surface.
+
 ### Event Hubs - Event Processor 5.3.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventHubs.Processor_5.3.1/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md#531-2021-03-09)
 
 - Minor bug fixes and enhancements.
+
+### Event Hubs - Event Processor 5.4.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventHubs.Processor_5.4.0-beta.1/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md#540-beta1-2021-03-17)
+#### Changes
+
+- Updating package bindings for `Azure.Messaging.EventHubs` to synchronize on v5.4.0-beta.1.
 
 ### Azure Mixed Reality Authentication 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.MixedReality.Authentication_1.0.0/sdk/mixedreality/Azure.MixedReality.Authentication/CHANGELOG.md#100-2021-02-23)
 - First stable release.
@@ -225,23 +237,11 @@ to `Task<Response<SmsSendResult>> SendAsync(string from, string to, string messa
 
 ### Azure Object Anchors Conversion 0.1.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.MixedReality.ObjectAnchors.Conversion_0.1.0-beta.1/sdk/objectanchors/Azure.MixedReality.ObjectAnchors.Conversion/CHANGELOG.md#010-beta1-2021-02-26)
 - Initial client
-### Event Hubs 5.4.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventHubs_5.4.0-beta.1/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md#540-beta1-2021-03-17)
-#### Changes
-
-##### New Features
-
-- Returned the idempotent publishing feature to the public API surface.
 
 ### Synapse - Artifacts 1.0.0-preview.7 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.Synapse.Artifacts_1.0.0-preview.7/sdk/synapse/Azure.Analytics.Synapse.Artifacts/CHANGELOG.md#100-preview7-2021-03-17)
 #### Added
 - Many models classes now have public getters.
 - Added new `LibraryClient` and associated support types.
-
-### Event Hubs - Event Processor 5.4.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventHubs.Processor_5.4.0-beta.1/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md#540-beta1-2021-03-17)
-#### Changes
-
-- Updating package bindings for `Azure.Messaging.EventHubs` to synchronize on v5.4.0-beta.1.
-
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
