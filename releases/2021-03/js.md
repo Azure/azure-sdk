@@ -22,6 +22,7 @@ repository: azure/azure-sdk-for-js
 @azure/cosmos:3.10.3
 @azure/ai-text-analytics:5.1.0-beta.5
 @azure/eventgrid:4.0.0
+@azure/core-rest-pipeline:1.0.1
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -45,6 +46,7 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Core - Rest-Pipeline
 - Cosmos Db
 - Cosmos DB
+- Core Rest Pipeline
 
 [pattern.patch]: # (- ${PackageFriendlyName})
 
@@ -88,6 +90,7 @@ $> npm install @azure/cosmos@3.10.3
 $> npm install @azure/communication-sms@1.0.0-beta.4
 $> npm install @azure/event-hubs@5.5.0-beta.1
 $> npm install @azure/eventgrid@4.0.0
+$> npm install @azure/core-rest-pipeline@1.0.1
 $> npm install @azure/data-tables@12.0.0-beta.1
 ```
 
@@ -216,6 +219,9 @@ Fixes issue [13985](https://github.com/Azure/azure-sdk-for-js/issues/13985) wher
   system event has been updated to reflect this. The most visible impact of this change is that some properties of events are no longer converted into JavaScript `Date` objects, and instead are kepts as strings which contain ISO 8601 timestamps.
 - Related to the above, `EventGridConsumer` no longer accepts a set of custom converters that can be used to further transform the `data` property of a specific event type when deserializing events.
 - The interfaces which describe the shape of the `data` member of system events have been updated so that properties always included in the event are not typed as optional.
+
+### Core Rest Pipeline 1.0.1 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-rest-pipeline_1.0.1/sdk/core/core-rest-pipeline/CHANGELOG.md#101-2021-03-18)
+- Fixed an issue where `timeout` and `abortSignal` of requests was not honored on Node after requests had already been issued to the server. [PR 14359](https://github.com/Azure/azure-sdk-for-js/pull/14359)
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
