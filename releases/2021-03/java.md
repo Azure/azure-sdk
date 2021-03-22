@@ -118,6 +118,9 @@ azure-spring-boot:3.2.0
 azure-spring-integration-eventhubs:2.2.0
 azure-spring-integration-servicebus:2.2.0
 azure-identity-spring:1.2.0
+azure-storage-file-datalake:12.4.1
+azure-storage-common:12.10.1
+azure-storage-blob:12.10.1
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -203,6 +206,9 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 - Core - AMQP
 - Form Recognizer
 - Event Hubs - Azure Blob Storage Checkpoint Store
+- Storage - Files Data Lake
+- Storage - Common
+- Storage - Blobs
 
 [pattern.patch]: # (- ${PackageFriendlyName})
 
@@ -1016,6 +1022,27 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId></groupId>
   <artifactId>azure-identity-spring</artifactId>
   <version>1.2.0</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-storage-file-datalake</artifactId>
+  <version>12.4.1</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-storage-common</artifactId>
+  <version>12.10.1</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-storage-blob</artifactId>
+  <version>12.10.1</version>
 </dependency>
 
 
@@ -2280,6 +2307,16 @@ This is a Public Preview version, so breaking changes are possible in subsequent
  - Support `ServiceBusMessageConverter` as a bean to support customize `ObjectMapper`.
 
 ### Azure Identity Spring 1.2.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-identity-spring_1.2.0/sdk/spring/azure-identity-spring/CHANGELOG.md#120-2021-03-03)
+### Storage - Files Data Lake 12.4.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-file-datalake_12.4.1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md#1241-2021-03-19)
+- Updated `azure-storage-blob` version to `12.10.1` to pickup fixes for blob output stream.
+
+### Storage - Common 12.10.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-common_12.10.1/sdk/storage/azure-storage-common/CHANGELOG.md#12101-2021-03-19)
+- Removed a deep copy in PayloadSizeGate
+
+### Storage - Blobs 12.10.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob_12.10.1/sdk/storage/azure-storage-blob/CHANGELOG.md#12101-2021-03-19)
+- Removed a deep copy in the general upload path to reduce memory consumption and increase perf
+- Added a deep copy immediately after calling BlobOutputStream.write to prevent overwriting data in the case of reusing a single buffer to write to an output stream
+
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
