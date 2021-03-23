@@ -23,6 +23,7 @@ repository: azure/azure-sdk-for-js
 @azure/ai-text-analytics:5.1.0-beta.5
 @azure/eventgrid:4.0.0
 @azure/core-rest-pipeline:1.0.1
+@azure/communication-common:1.0.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -37,6 +38,7 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Storage - Queues
 - Event Grid
 - Azure Communication Common
+- Communication Common
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -91,6 +93,7 @@ $> npm install @azure/communication-sms@1.0.0-beta.4
 $> npm install @azure/event-hubs@5.5.0-beta.1
 $> npm install @azure/eventgrid@4.0.0
 $> npm install @azure/core-rest-pipeline@1.0.1
+$> npm install @azure/communication-common@1.0.0
 $> npm install @azure/data-tables@12.0.0-beta.1
 ```
 
@@ -222,6 +225,9 @@ Fixes issue [13985](https://github.com/Azure/azure-sdk-for-js/issues/13985) wher
 
 ### Core Rest Pipeline 1.0.1 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-rest-pipeline_1.0.1/sdk/core/core-rest-pipeline/CHANGELOG.md#101-2021-03-18)
 - Fixed an issue where `timeout` and `abortSignal` of requests was not honored on Node after requests had already been issued to the server. [PR 14359](https://github.com/Azure/azure-sdk-for-js/pull/14359)
+
+### Communication Common 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/communication-common_1.0.0/sdk/communication/communication-common/CHANGELOG.md#100-2021-03-22)
+Updated `@azure/communication-common` version.
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
