@@ -77,7 +77,7 @@ $> npm install @azure/abort-controller:1.0.4
 $> npm install @azure/ai-text-analytics@5.1.0-beta.5
 $> npm install @azure/keyvault-secrets@4.2.0-beta.3
 $> npm install @azure/keyvault-keys@4.2.0-beta.4
-$> npm install @azure/communication-common@1.0.0-beta.6
+$> npm install @azure/communication-common@1.0.0
 $> npm install @azure/communication-identity@1.0.0-beta.5
 $> npm install @azure/communication-chat@1.0.0-beta.5
 $> npm install @azure/communication-phone-numbers@1.0.0-beta.4
