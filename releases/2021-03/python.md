@@ -42,6 +42,8 @@ azure-mgmt-netapp:2.0.0
 azure-mgmt-automation:1.1.0b1
 azure-mgmt-databox:1.0.0
 azure-mgmt-rdbms:8.1.0b2
+azure-mgmt-databricks:1.0.0
+azure-mgmt-datadog:1.0.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -56,6 +58,8 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Resource Management - Attestation
 - Resource Management - NetApp
 - Resource Management - Data Box
+- Resource Management - Databricks
+- Resource Management - Datadog
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -138,6 +142,8 @@ $> pip install azure-mgmt-netapp==2.0.0
 $> pip install azure-mgmt-automation==1.1.0b1
 $> pip install azure-mgmt-databox==1.0.0
 $> pip install azure-mgmt-rdbms==8.1.0b2
+$> pip install azure-mgmt-databricks==1.0.0
+$> pip install azure-mgmt-datadog==1.0.0
 $> pip install azure-synapse-spark==0.5.0
 ```
 
@@ -695,6 +701,17 @@ This version will be the last version to officially support Python 3.5, future v
 
   - Model Server has a new parameter source_subscription_id
   - Model Server has a new parameter source_resource_group_name
+
+### Resource Management - Databricks 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-databricks_1.0.0/sdk/databricks/azure-mgmt-databricks/CHANGELOG.md#100-2021-03-19)
+- GA release
+
+### Resource Management - Datadog 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-datadog_1.0.0/sdk/datadog/azure-mgmt-datadog/CHANGELOG.md#100-2021-03-22)
+**Features**
+
+  - Model DatadogAgreementResource has a new parameter system_data
+  - Model MonitoringTagRules has a new parameter system_data
+  - Model DatadogSingleSignOnResource has a new parameter system_data
+  - Model DatadogMonitorResource has a new parameter system_data
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
