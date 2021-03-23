@@ -121,6 +121,39 @@ azure-identity-spring:1.2.0
 azure-storage-file-datalake:12.4.1
 azure-storage-common:12.10.1
 azure-storage-blob:12.10.1
+azure-spring-cloud-storage:2.3.0
+azure-spring-boot-starter:3.3.0
+azure-spring-cloud-starter-servicebus:2.3.0
+azure-spring-integration-servicebus:2.3.0
+azure-resourcemanager-communication:1.0.0-beta.1
+azure-spring-boot-starter-active-directory-b2c:3.3.0
+azure-spring-cloud-context:2.3.0
+azure-spring-cloud-telemetry:2.3.0
+azure-spring-cloud-stream-binder-servicebus-queue:2.3.0
+azure-spring-cloud-starter-eventhubs-kafka:2.3.0
+azure-spring-cloud-starter-cache:2.3.0
+azure-spring-cloud-starter-eventhubs:2.3.0
+azure-spring-cloud-stream-binder-eventhubs:2.3.0
+azure-spring-cloud-messaging:2.3.0
+azure-spring-cloud-starter-storage-queue:2.3.0
+azure-security-keyvault-jca:1.0.0-beta.5
+azure-spring-integration-eventhubs:2.3.0
+azure-identity-spring:1.3.0
+azure-spring-boot-starter-cosmos:3.3.0
+azure-resourcemanager-apimanagement:1.0.0-beta.1
+azure-spring-integration-storage-queue:2.3.0
+azure-spring-boot-starter-storage:3.3.0
+azure-spring-cloud-stream-binder-test:2.3.0
+azure-spring-boot-starter-keyvault-secrets:3.3.0
+azure-spring-integration-core:2.3.0
+azure-spring-cloud-stream-binder-servicebus-topic:2.3.0
+azure-spring-cloud-autoconfigure:2.3.0
+azure-spring-cloud-stream-binder-servicebus-core:2.3.0
+azure-spring-integration-test:2.3.0
+azure-spring-boot-starter-active-directory:3.3.0
+azure-spring-boot:3.3.0
+azure-spring-boot-starter-servicebus-jms:3.3.0
+azure-spring-boot-starter-keyvault-certificates:3.0.0-beta.5
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -195,6 +228,35 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 - Azure Spring Cloud Integration Event Hubs
 - Azure Spring Cloud Integration Service Bus
 - Azure Identity Spring
+- Azure Spring Cloud Storage
+- Azure Spring Boot Starter
+- Azure Spring Cloud Starter Service bus
+- Azure Spring Cloud Integration Service Bus
+- Azure Spring Boot Starter Active Directory B2C
+- Azure Spring Cloud Context
+- Azure Spring Cloud Telemetry
+- Azure Spring Cloud Stream Binder Service bus Queue
+- Azure Spring Cloud Starter Event Hubs Kafka
+- Azure Spring Cloud Starter Cache
+- Azure Spring Cloud Starter Event Hubs
+- Azure Spring Cloud Stream Binder Event Hubs
+- Azure Spring Cloud Messaging
+- Azure Spring Cloud Starter Storage Queue
+- Azure Spring Cloud Integration Event Hubs
+- Azure Identity Spring
+- Azure Spring Boot Starter Cosmos
+- Azure Spring Cloud Integration Storage Queue
+- Azure Spring Boot Starter Storage
+- Azure Spring Cloud Stream Binder Test
+- Azure Spring Boot Starter Key Vault Secrets
+- Azure Spring Cloud Integration Core
+- Azure Spring Cloud Stream Binder Service bus Topic
+- Azure Spring Cloud Autoconfigure
+- Azure Spring Cloud Stream Binder Service bus Core
+- Azure Spring Cloud Integration Test
+- Azure Spring Boot Starter Active Directory
+- Azure Spring Boot AutoConfigure
+- Azure Spring Boot Starter Service bus Jms
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -255,6 +317,10 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 - Communication Identity
 - Tables
 - Communication Common
+- azure-resourcemanager-communication
+- Key Vault - JCA
+- azure-resourcemanager-apimanagement
+- Azure Spring Boot Starter Key Vault Certificates
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -1043,6 +1109,237 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId></groupId>
   <artifactId>azure-storage-blob</artifactId>
   <version>12.10.1</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-spring-cloud-storage</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-spring-boot-starter</artifactId>
+  <version>3.3.0</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-spring-cloud-starter-servicebus</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-spring-integration-servicebus</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-resourcemanager-communication</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-spring-boot-starter-active-directory-b2c</artifactId>
+  <version>3.3.0</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-spring-cloud-context</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-spring-cloud-telemetry</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-spring-cloud-stream-binder-servicebus-queue</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-spring-cloud-starter-eventhubs-kafka</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-spring-cloud-starter-cache</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-spring-cloud-starter-eventhubs</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-spring-cloud-stream-binder-eventhubs</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-spring-cloud-messaging</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-spring-cloud-starter-storage-queue</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-security-keyvault-jca</artifactId>
+  <version>1.0.0-beta.5</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-spring-integration-eventhubs</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-identity-spring</artifactId>
+  <version>1.3.0</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-spring-boot-starter-cosmos</artifactId>
+  <version>3.3.0</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-resourcemanager-apimanagement</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-spring-integration-storage-queue</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-spring-boot-starter-storage</artifactId>
+  <version>3.3.0</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-spring-cloud-stream-binder-test</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-spring-boot-starter-keyvault-secrets</artifactId>
+  <version>3.3.0</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-spring-integration-core</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-spring-cloud-stream-binder-servicebus-topic</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-spring-cloud-autoconfigure</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-spring-cloud-stream-binder-servicebus-core</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-spring-integration-test</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-spring-boot-starter-active-directory</artifactId>
+  <version>3.3.0</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-spring-boot</artifactId>
+  <version>3.3.0</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-spring-boot-starter-servicebus-jms</artifactId>
+  <version>3.3.0</version>
+</dependency>
+
+
+<dependency>
+  <groupId></groupId>
+  <artifactId>azure-spring-boot-starter-keyvault-certificates</artifactId>
+  <version>3.0.0-beta.5</version>
 </dependency>
 
 
@@ -2316,6 +2613,154 @@ This is a Public Preview version, so breaking changes are possible in subsequent
 ### Storage - Blobs 12.10.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob_12.10.1/sdk/storage/azure-storage-blob/CHANGELOG.md#12101-2021-03-19)
 - Removed a deep copy in the general upload path to reduce memory consumption and increase perf
 - Added a deep copy immediately after calling BlobOutputStream.write to prevent overwriting data in the case of reusing a single buffer to write to an output stream
+
+### Azure Spring Cloud Storage 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-storage_2.3.0/sdk/spring/azure-spring-cloud-storage/CHANGELOG.md#230-2021-03-22)
+#### New Features
+- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
+
+### Azure Spring Boot Starter 3.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot-starter_3.3.0/sdk/spring/azure-spring-boot-starter/CHANGELOG.md#330-2021-03-22)
+#### New Features
+- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
+
+### Azure Spring Cloud Starter Service bus 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-starter-servicebus_2.3.0/sdk/spring/azure-spring-cloud-starter-servicebus/CHANGELOG.md#230-2021-03-22)
+- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
+
+### Azure Spring Cloud Integration Service Bus 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-integration-servicebus_2.3.0/sdk/spring/azure-spring-integration-servicebus/CHANGELOG.md#230-2021-03-22)
+#### New Features
+- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
+- Upgrade to `Spring Integration` [5.4.4](https://github.com/spring-projects/spring-integration/releases/tag/v5.4.4).
+
+### azure-resourcemanager-communication 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-communication_1.0.0-beta.1/sdk/communication/azure-resourcemanager-communication/CHANGELOG.md#100-beta1-2021-03-23)
+- Azure Resource Manager Communication client library for Java. This package contains Microsoft Azure SDK for Communication Management SDK. REST API for Azure Communication Services. Package tag package-2020-08-20. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### Azure Spring Boot Starter Active Directory B2C 3.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot-starter-active-directory-b2c_3.3.0/sdk/spring/azure-spring-boot-starter-active-directory-b2c/CHANGELOG.md#330-2021-03-22)
+#### New Features
+- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
+- Upgrade to `Spring Security` [5.4.5](https://github.com/spring-projects/spring-security/releases/tag/5.4.5).
+
+### Azure Spring Cloud Context 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-context_2.3.0/sdk/spring/azure-spring-cloud-context/CHANGELOG.md#230-2021-03-22)
+#### New Features
+- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
+
+### Azure Spring Cloud Telemetry 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-telemetry_2.3.0/sdk/spring/azure-spring-cloud-telemetry/CHANGELOG.md#230-2021-03-22)
+#### New Features
+- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
+
+### Azure Spring Cloud Stream Binder Service bus Queue 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-stream-binder-servicebus-queue_2.3.0/sdk/spring/azure-spring-cloud-stream-binder-servicebus-queue/CHANGELOG.md#230-2021-03-22)
+#### New Features
+- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
+- Support setting service-bus message-id ([#20005](https://github.com/Azure/azure-sdk-for-java/issues/20005)).
+
+### Azure Spring Cloud Starter Event Hubs Kafka 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-starter-eventhubs-kafka_2.3.0/sdk/spring/azure-spring-cloud-starter-eventhubs-kafka/CHANGELOG.md#230-2021-03-22)
+#### New Features
+- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
+
+### Azure Spring Cloud Starter Cache 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-starter-cache_2.3.0/sdk/spring/azure-spring-cloud-starter-cache/CHANGELOG.md#230-2021-03-22)
+#### New Features
+- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
+
+### Azure Spring Cloud Starter Event Hubs 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-starter-eventhubs_2.3.0/sdk/spring/azure-spring-cloud-starter-eventhubs/CHANGELOG.md#230-2021-03-22)
+#### New Features
+- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
+- Upgrade to `azure-messaging-eventhubs` [5.6.0](https://github.com/azure-sdk/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md#560-2021-03-10).
+
+### Azure Spring Cloud Stream Binder Event Hubs 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-stream-binder-eventhubs_2.3.0/sdk/spring/azure-spring-cloud-stream-binder-eventhubs/CHANGELOG.md#230-2021-03-22)
+#### New Features
+- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
+- Upgrade to `azure-messaging-eventhubs` [5.6.0](https://github.com/azure-sdk/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md#560-2021-03-10).
+
+### Azure Spring Cloud Messaging 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-messaging_2.3.0/sdk/spring/azure-spring-cloud-messaging/CHANGELOG.md#230-2021-03-22)
+#### New Features
+- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
+
+### Azure Spring Cloud Starter Storage Queue 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-starter-storage-queue_2.3.0/sdk/spring/azure-spring-cloud-starter-storage-queue/CHANGELOG.md#230-2021-03-22)
+#### New Features
+- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
+
+### Key Vault - JCA 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-jca_1.0.0-beta.5/sdk/keyvault/azure-security-keyvault-jca/CHANGELOG.md#100-beta5-2021-03-22)
+
+
+### Azure Spring Cloud Integration Event Hubs 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-integration-eventhubs_2.3.0/sdk/spring/azure-spring-integration-eventhubs/CHANGELOG.md#230-2021-03-22)
+#### New Features
+- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
+- Upgrade to `Spring Integration` [5.4.4](https://github.com/spring-projects/spring-integration/releases/tag/v5.4.4).
+
+### Azure Identity Spring 1.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-identity-spring_1.3.0/sdk/spring/azure-identity-spring/CHANGELOG.md#130-2021-03-22)
+#### New Features
+- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
+
+### Azure Spring Boot Starter Cosmos 3.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot-starter-cosmos_3.3.0/sdk/spring/azure-spring-boot-starter-cosmos/CHANGELOG.md#330-2021-03-22)
+#### New Features
+- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
+- Upgrade to `azure-spring-data-cosmos` [3.5.0](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md#350-2021-03-11)
+
+### azure-resourcemanager-apimanagement 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-apimanagement_1.0.0-beta.1/sdk/apimanagement/azure-resourcemanager-apimanagement/CHANGELOG.md#100-beta1-2021-03-23)
+- Azure Resource Manager ApiManagement client library for Java. This package contains Microsoft Azure SDK for ApiManagement Management SDK. ApiManagement Client. Package tag package-2020-12. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### Azure Spring Cloud Integration Storage Queue 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-integration-storage-queue_2.3.0/sdk/spring/azure-spring-integration-storage-queue/CHANGELOG.md#230-2021-03-22)
+#### New Features
+- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
+- Upgrade to `Spring Integration` [5.4.4](https://github.com/spring-projects/spring-integration/releases/tag/v5.4.4).
+
+### Azure Spring Boot Starter Storage 3.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot-starter-storage_3.3.0/sdk/spring/azure-spring-boot-starter-storage/CHANGELOG.md#330-2021-03-22)
+#### New Features
+- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
+
+### Azure Spring Cloud Stream Binder Test 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-stream-binder-test_2.3.0/sdk/spring/azure-spring-cloud-stream-binder-test/CHANGELOG.md#230-2021-03-22)
+#### New Features
+- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
+
+### Azure Spring Boot Starter Key Vault Secrets 3.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot-starter-keyvault-secrets_3.3.0/sdk/spring/azure-spring-boot-starter-keyvault-secrets/CHANGELOG.md#330-2021-03-22)
+#### New Features
+- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
+
+### Azure Spring Cloud Integration Core 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-integration-core_2.3.0/sdk/spring/azure-spring-integration-core/CHANGELOG.md#230-2021-03-22)
+#### New Features
+- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
+- Upgrade to `Spring Integration` [5.4.4](https://github.com/spring-projects/spring-integration/releases/tag/v5.4.4).
+
+### Azure Spring Cloud Stream Binder Service bus Topic 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-stream-binder-servicebus-topic_2.3.0/sdk/spring/azure-spring-cloud-stream-binder-servicebus-topic/CHANGELOG.md#230-2021-03-22)
+#### New Features
+- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
+- Support setting service-bus message-id ([#20005](https://github.com/Azure/azure-sdk-for-java/issues/20005)).
+
+### Azure Spring Cloud Autoconfigure 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-autoconfigure_2.3.0/sdk/spring/azure-spring-cloud-autoconfigure/CHANGELOG.md#230-2021-03-22)
+- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
+
+### Azure Spring Cloud Stream Binder Service bus Core 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-stream-binder-servicebus-core_2.3.0/sdk/spring/azure-spring-cloud-stream-binder-servicebus-core/CHANGELOG.md#230-2021-03-22)
+#### New Features
+- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
+
+### Azure Spring Cloud Integration Test 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-integration-test_2.3.0/sdk/spring/azure-spring-integration-test/CHANGELOG.md#230-2021-03-22)
+#### New Features
+- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
+- Upgrade to `Spring Integration` [5.4.4](https://github.com/spring-projects/spring-integration/releases/tag/v5.4.4).
+
+### Azure Spring Boot Starter Active Directory 3.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot-starter-active-directory_3.3.0/sdk/spring/azure-spring-boot-starter-active-directory/CHANGELOG.md#330-2021-03-22)
+#### New Features
+- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
+- Upgrade to `Spring Security` [5.4.5](https://github.com/spring-projects/spring-security/releases/tag/5.4.5).
+- Support creating `GrantedAuthority` by "roles" claim from id-token for web application.
+
+### Azure Spring Boot AutoConfigure 3.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot_3.3.0/sdk/spring/azure-spring-boot/CHANGELOG.md#330-2021-03-22)
+#### New Features
+Updated to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
+
+#### Key Bug Fixes
+- Fix bug of using closed `MessageProducer` and `MessageConsumer` when a link is force detached in azure-spring-boot-starter-servicebus-jms.
+
+#### New Features
+- Support creating `GrantedAuthority` by "roles" claim of id-token for web application in azure-spring-boot-starter-active-directory.
+
+### Azure Spring Boot Starter Service bus Jms 3.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot-starter-servicebus-jms_3.3.0/sdk/spring/azure-spring-boot-starter-servicebus-jms/CHANGELOG.md#330-2021-03-22)
+#### New Features
+- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
+#### Key Bug Fixes
+- Fix bug of using closed `MessageProducer` and `MessageConsumer` when a link is force detached.
+
+### Azure Spring Boot Starter Key Vault Certificates 3.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot-starter-keyvault-certificates_3.0.0-beta.5/sdk/spring/azure-spring-boot-starter-keyvault-certificates/CHANGELOG.md#300-beta5-2021-03-22)
+#### New Features
+- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
