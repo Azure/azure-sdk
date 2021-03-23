@@ -36,6 +36,7 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Storage - Files Data Lake
 - Storage - Queues
 - Event Grid
+- Azure Communication Common
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -53,7 +54,6 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 #### Beta
 - Key Vault - Secrets
 - Key Vault - Keys
-- Azure Communication Common
 - Azure Communication Identity
 - Azure Communication Chat
 - Azure Communication Phone Numbers
@@ -147,11 +147,11 @@ Fixes issue [13985](https://github.com/Azure/azure-sdk-for-js/issues/13985) wher
 - Swap the parameter order in `ChatThreadClient` constructor.
 - Generates `repeatabilityRequestId` if not populated in `createChatThread` operation.
 
-### Azure Communication Common 1.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-common/CHANGELOG.md#100-beta6-2021-03-09)
+### Azure Communication Common 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-common/CHANGELOG.md#100-2021-03-22)
 
 ##### New Features 
 
-- Updated @azure/communication-common version.
+- Updated @azure/communication-common GA version.
 
 ### Azure Communication Identity 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-identity/CHANGELOG.md#100-beta5-2021-03-09)
 
