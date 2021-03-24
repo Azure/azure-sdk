@@ -24,6 +24,9 @@ Azure.Analytics.Synapse.Artifacts:1.0.0-preview.7
 Azure.Messaging.EventHubs.Processor:5.4.0-beta.1
 Azure.IoT.DeviceUpdate:1.0.0-beta.2
 Azure.Core:1.11.0
+Microsoft.Azure.WebJobs.Extensions.EventGrid:3.0.0-beta.1
+Azure.Messaging.EventGrid:4.1.0
+Microsoft.Azure.WebJobs.Extensions.ServiceBus:5.0.0-beta.1
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -33,6 +36,7 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 #### GA
 - Azure Mixed Reality Authentication
 - Core
+- Event Grid
 - Event Grid
 
 [pattern.ga]: # (- ${PackageFriendlyName})
@@ -57,6 +61,8 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 - Tables
 - Text Analytics
 - IoT Device Update
+- WebJobs Extensions - Event Grid
+- WebJobs Extensions - Service Bus
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -85,6 +91,9 @@ $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.3.1
 $> dotnet add package Azure.MixedReality.Authentication --version 1.0.0
 $> dotnet add package Azure.MixedReality.ObjectAnchors.Conversion --version 0.1.0-beta.1
 $> dotnet add package Azure.MixedReality.RemoteRendering --version 1.0.0-beta.3
+$> dotnet add package Microsoft.Azure.WebJobs.Extensions.EventGrid --version 3.0.0-beta.1
+$> dotnet add package Azure.Messaging.EventGrid --version 4.1.0
+$> dotnet add package Microsoft.Azure.WebJobs.Extensions.ServiceBus --version 5.0.0-beta.1
 $> dotnet add package Azure.IoT.DeviceUpdate --version 1.0.0-beta.2
 ```
 
@@ -268,6 +277,19 @@ to `Task<Response<SmsSendResult>> SendAsync(string from, string to, string messa
 
 ### IoT Device Update 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.IoT.DeviceUpdate_1.0.0-beta.2/sdk/deviceupdate/Azure.Iot.DeviceUpdate/CHANGELOG.md#100-beta2-2021-04-06)
 * Update root namespace from Azure.Iot.DeviceUpdate to Azure.IoT.DeviceUpdate
+### WebJobs Extensions - Event Grid 3.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.WebJobs.Extensions.EventGrid_3.0.0-beta.1/sdk/eventgrid/Microsoft.Azure.WebJobs.Extensions.EventGrid/CHANGELOG.md#300-beta1-2021-03-23)
+- The initial release of Microsoft.Azure.WebJobs.Extensions.EventGrid 3.0.0
+
+### Event Grid 4.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventGrid_4.1.0/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md#410-2021-03-23)
+#### New Features
+- Added new Azure Communication Services system events.
+
+#### Fixed
+- Fixed system mapping for `AcsChatParticipantAddedToThread` and `AcsChatParticipantRemovedFromThread`.
+
+### WebJobs Extensions - Service Bus 5.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.0.0-beta.1/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md#500-beta1-2021-03-23)
+- The initial release of Microsoft.Azure.WebJobs.Extensions.ServiceBus 5.0.0
+
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
