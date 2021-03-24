@@ -22,6 +22,8 @@ Azure.Identity:1.4.0-beta.4
 Azure.Messaging.EventHubs:5.4.0-beta.1
 Azure.Analytics.Synapse.Artifacts:1.0.0-preview.7
 Azure.Messaging.EventHubs.Processor:5.4.0-beta.1
+Azure.IoT.DeviceUpdate:1.0.0-beta.2
+Azure.Core:1.11.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -29,9 +31,9 @@ Azure.Messaging.EventHubs.Processor:5.4.0-beta.1
 The Azure SDK team is pleased to announce our March 2021 client library releases.
 
 #### GA
+- Azure Mixed Reality Authentication
 - Core
 - Event Grid
-- Azure Mixed Reality Authentication
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -54,6 +56,7 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 - Synapse - Artifacts
 - Tables
 - Text Analytics
+- IoT Device Update
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -71,6 +74,7 @@ $> dotnet add package Azure.Communication.Identity --version 1.0.0-beta.5
 $> dotnet add package Azure.Communication.PhoneNumbers --version 1.0.0-beta.5
 $> dotnet add package Azure.Communication.SMS --version 1.0.0-beta.5
 $> dotnet add package Azure.Core --version 1.10.0
+$> dotnet add package Azure.Core --version 1.11.0
 $> dotnet add package Azure.Data.AppConfiguration --version 1.1.0-beta.1
 $> dotnet add package Azure.Data.Tables --version 12.0.0-beta.6
 $> dotnet add package Azure.Identity --version 1.4.0-beta.4
@@ -79,8 +83,9 @@ $> dotnet add package Microsoft.Azure.Messaging.EventGrid.CloudNativeCloudEvents
 $> dotnet add package Azure.Messaging.EventHubs --version 5.3.1
 $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.3.1
 $> dotnet add package Azure.MixedReality.Authentication --version 1.0.0
-$> dotnet add package Azure.MixedReality.RemoteRendering --version 1.0.0-beta.3
 $> dotnet add package Azure.MixedReality.ObjectAnchors.Conversion --version 0.1.0-beta.1
+$> dotnet add package Azure.MixedReality.RemoteRendering --version 1.0.0-beta.3
+$> dotnet add package Azure.IoT.DeviceUpdate --version 1.0.0-beta.2
 ```
 
 [pattern]: # ($> dotnet add package ${PackageName} --version ${PackageVersion})
@@ -178,6 +183,19 @@ to `Task<Response<SmsSendResult>> SendAsync(string from, string to, string messa
 ### Core 1.10.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.10.0/sdk/core/Azure.Core/CHANGELOG.md#1100-2021-03-09)
 - Added `CloudEvent` type based on the [CloudEvent spec](https://github.com/cloudevents/spec/blob/master/spec.md).
 
+### Core 1.11.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.11.0/sdk/core/Azure.Core/CHANGELOG.md#1110-2021-03-22)
+#### Added
+
+- `Operation` base class for operations that do not return a value.
+- Added `Content` property to `Response` which returns the body of the response as a `BinaryData` if the body is buffered.
+- `AzureNamedKeyCredential` has been implemented to cover scenarios where services require that a shared key name and the key value be used as a component of the algorithm to form the authorization token.
+
+#### Key Bug Fixes
+
+- Check the `JsonIgnoreAttribute.Condition` property added in .NET 5 when discovering members with `JsonObjectSerializer`.
+- `ETag` now returns `string.Empty` if it is constructed with a null value.
+- Keep-Alive connections are recycled every 300 seconds to observe DNS changes.
+
 ### App Configuration 1.1.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.AppConfiguration_1.1.0-beta.1/sdk/appconfiguration/Azure.Data.AppConfiguration/CHANGELOG.md#110-beta1-2021-03-09)
 #### Changes
 
@@ -247,6 +265,9 @@ to `Task<Response<SmsSendResult>> SendAsync(string from, string to, string messa
 
 ### Azure Object Anchors Conversion 0.1.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.MixedReality.ObjectAnchors.Conversion_0.1.0-beta.1/sdk/objectanchors/Azure.MixedReality.ObjectAnchors.Conversion/CHANGELOG.md#010-beta1-2021-02-26)
 - Initial client
+
+### IoT Device Update 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.IoT.DeviceUpdate_1.0.0-beta.2/sdk/deviceupdate/Azure.Iot.DeviceUpdate/CHANGELOG.md#100-beta2-2021-04-06)
+* Update root namespace from Azure.Iot.DeviceUpdate to Azure.IoT.DeviceUpdate
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
