@@ -35,7 +35,7 @@ As you write your code, *doc it so you never hear about it again.* The less ques
 
 {% include requirement/MUST id="python-docstrings-kwargs" %} document any `**kwargs` directly consumed by a method. You may refer to the signature of a called method if the `**kwargs` are passed through.
 
-{% include requirement/MUST id="python-docstrings-kwargs" %} add a ref link to [core options](https://aka.ms/azsdk/python/options) to provide introduction for shared options if they are supported in the method.
+{% include requirement/MUST id="python-docstrings-kwargs" %} add a ref link to [core options](https://aka.ms/azsdk/python/options) to provide introduction for shared options if they are supported in the method. e.g. For more options see [core options](https://aka.ms/azsdk/python/options).
 
 Example:
 ```python
