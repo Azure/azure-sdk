@@ -24,6 +24,8 @@ repository: azure/azure-sdk-for-js
 @azure/eventgrid:4.0.0
 @azure/core-rest-pipeline:1.0.1
 @azure/communication-common:1.0.0
+@azure/eventgrid:4.1.0
+@azure/cosmos:3.10.4
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -39,6 +41,7 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Event Grid
 - Azure Communication Common
 - Communication Common
+- Event Grid
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -50,6 +53,7 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Cosmos Db
 - Cosmos DB
 - Core Rest Pipeline
+- Cosmos DB
 
 [pattern.patch]: # (- ${PackageFriendlyName})
 
@@ -94,6 +98,8 @@ $> npm install @azure/event-hubs@5.5.0-beta.1
 $> npm install @azure/eventgrid@4.0.0
 $> npm install @azure/core-rest-pipeline@1.0.1
 $> npm install @azure/communication-common@1.0.0
+$> npm install @azure/eventgrid@4.1.0
+$> npm install @azure/cosmos@3.10.4
 $> npm install @azure/data-tables@12.0.0-beta.1
 ```
 
@@ -228,6 +234,19 @@ Fixes issue [13985](https://github.com/Azure/azure-sdk-for-js/issues/13985) wher
 
 ### Communication Common 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/communication-common_1.0.0/sdk/communication/communication-common/CHANGELOG.md#100-2021-03-22)
 Updated `@azure/communication-common` version.
+
+### Event Grid 4.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/eventgrid_4.1.0/sdk/eventgrid/eventgrid/CHANGELOG.md#410-2021-03-23)
+- The system event names `Microsoft.Communication.ChatParticipantAddedToThread` and `Microsoft.Communication.ChatParticipantRemovedFromThread` have been removed, and
+  `Microsoft.Communication.ChatThreadParticipantAdded` and `Microsoft.Communication.ChatThreadParticipantRemoved` have been added. The old names did not match the
+  the type names that Azure Communication Services was using for these events. TypeScript users will now see compliation errors if they are calling `isSystemEvent` with
+  either `Microsoft.Communication.ChatParticipantAddedToThread` or `Microsoft.Communication.ChatParticipantRemovedFromThread` as the event name. To fix these issues,
+  replace all uses of `Microsoft.Communication.ChatParticipantAddedToThread` with `Microsoft.Communication.ChatThreadParticipantAdded` and
+  `Microsoft.Communication.ChatParticipantRemovedFromThread` with `Microsoft.Communication.ChatThreadParticipantRemoved`.
+
+- Add `Microsoft.Communications.RecordingFileStatusUpdated` system event.
+
+### Cosmos DB 3.10.4 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/cosmos_3.10.4/sdk/cosmosdb/cosmos/CHANGELOG.md#3104-2021-03-23)
+- FEATURE: Adds Bulk continueOnError option
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
