@@ -44,6 +44,7 @@ azure-mgmt-databox:1.0.0
 azure-mgmt-rdbms:8.1.0b2
 azure-mgmt-databricks:1.0.0
 azure-mgmt-datadog:1.0.0
+azure-eventgrid:4.1.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -60,6 +61,7 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Resource Management - Data Box
 - Resource Management - Databricks
 - Resource Management - Datadog
+- Event Grid
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -144,6 +146,7 @@ $> pip install azure-mgmt-databox==1.0.0
 $> pip install azure-mgmt-rdbms==8.1.0b2
 $> pip install azure-mgmt-databricks==1.0.0
 $> pip install azure-mgmt-datadog==1.0.0
+$> pip install azure-eventgrid==4.1.0
 $> pip install azure-synapse-spark==0.5.0
 ```
 
@@ -712,6 +715,10 @@ This version will be the last version to officially support Python 3.5, future v
   - Model MonitoringTagRules has a new parameter system_data
   - Model DatadogSingleSignOnResource has a new parameter system_data
   - Model DatadogMonitorResource has a new parameter system_data
+
+### Event Grid 4.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-eventgrid_4.1.0/sdk/eventgrid/azure-eventgrid/CHANGELOG.md#410-2021-03-23)
+**New Features**
+  - Added new SystemEventNames `AcsChatThreadParticipantRemovedEventName`, `AcsChatThreadParticipantAddedEventName` and `AcsRecordingFileStatusUpdatedEventName`.
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
