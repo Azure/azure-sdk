@@ -4,17 +4,18 @@ param(
   [string]$CSVPath = $null,
   [string]$pkgFilter = $null
 )
+#Requires -Version 6.0
 Set-StrictMode -Version 3
 
-if (!(Get-Command az)) {
+if (!(Get-Command az -ErrorAction SilentlyContinue)) {
   Write-Host 'You must have the Azure CLI installed: https://aka.ms/azure-cli'
   exit 1
 }
 
 az extension show -n azure-devops > $null
 if (!$?){
-  Write-Host 'You must have the azure-devops extension run `az extension add --name azure-devops`'
-  exit 1
+  Write-Host 'Installing azure-devops extension'
+  az extension add --name azure-devops
 }
 
 . (Join-Path $PSScriptRoot .. common scripts SemVer.ps1)
