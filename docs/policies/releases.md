@@ -54,7 +54,14 @@ Ensuring that a `CHANGELOG.md` file is both available and formatted appropriatel
 
 {% include requirement/MUST %} name changelogs with all caps except for the extension, i.e. `CHANGELOG.md`.
 
-{% include requirement/MUST %} follow the format below:
+{% include requirement/MUST %} follow the format below. Be sure to include the following headers that will be automatically added to your release notes:
+
+- New Features - Adding a new API or feature
+- Breaking Changes - Changes to an existing API or changes to the behavior of an existing API
+- Key Bug Fixes - Major bug fixes that require a customer to do something, bug fixes that come from multiple up-votes in github or that are motivated by customer feedback
+- Security Fixes - Any security fix, no matter how small
+
+Release Notes general guidance is taken from <https://azure.github.io/azure-sdk/policies_releasenotes.html#whats-a-developer-impacting-change>
 
 ```markdown
 # Release History
@@ -77,18 +84,18 @@ Example Changelog:
 # Release History
 
 ## 12.1.0 (Unreleased)
-### Added
+### New Features
 - check to enforce TokenCredential is used only over HTTPS
 
-### Changed
+### Breaking Changes
 - Support using SAS token from connection string
 
-### Fixed
+### Key Bug Fixes
 - Issue where AccountName on BlobUriBuilder would not be populated
   for non-IP style Uris ([#8638](https://github.com/Azure/azure-sdk-for-net/issues/8638))
 
 ## 12.0.0 (2019-11-25)
-### Breaking Change
+### Breaking Changes
 - Added support for the new low-priority node type.
 
 ### Renamed
@@ -97,7 +104,7 @@ Example Changelog:
 - Parallel upload/download performance improvements
 ```
 
-{% include requirement/SHOULD %} link to GitHub issues (full URL) that were fixed in that release going forward (i.e. do not backfill older issues). See example above under the `### Fixed` heading.
+{% include requirement/SHOULD %} link to GitHub issues (full URL) that were fixed in that release going forward (i.e. do not backfill older issues). See example above under the `### KeyBugFixes` heading.
 
 For clarity, a `change log entry` is simply the header + content up to the next release header OR EOF. During release, if there exists a changelog entry with a version specifier _matching_ that of the currently releasing package, that changelog entry will be added as the body of the GitHub release.
 
