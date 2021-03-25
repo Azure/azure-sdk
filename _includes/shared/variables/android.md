@@ -1,4 +1,4 @@
-{% assign package_label = "maven" %}
+{% assign package_label = "Maven" %}
 {% assign package_trim = "azure-" %}
 {% assign pre_suffix = "" %}
 {% assign package_url_template = "https://search.maven.org/artifact/item.GroupId/item.Package/item.Version/aar" %}

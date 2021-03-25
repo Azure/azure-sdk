@@ -14,7 +14,7 @@
 
 {% for item in packages %}
 
-{% include {{page.scope}}/pkgrow.md %}
+{% include releases/pkgrow.md %}
 
 {% endfor %}
 </tbody>

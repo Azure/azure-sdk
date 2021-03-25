@@ -1,4 +1,4 @@
-{% assign package_label = "nuget" %}
+{% assign package_label = "NuGet" %}
 {% assign package_trim = "Azure." %}
 {% assign pre_suffix = "-pre" %}
 {% assign package_url_template = "https://www.nuget.org/packages/item.Package/item.Version" %}

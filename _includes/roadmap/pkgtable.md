@@ -8,13 +8,9 @@
 </tr>
 <tbody id="myTable">
 
-{% if page.scope == "roadmap" %}
-    {% assign packages = packages | where_exp: "item", "item.PlannedVersions != ''" %}
-{% endif %}
-
 {% for item in packages %}
 
-{% include {{page.scope}}/pkgrow.md %}
+{% include roadmap/pkgrow.md %}
 
 {% endfor %}
 

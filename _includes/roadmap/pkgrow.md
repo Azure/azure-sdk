@@ -15,25 +15,11 @@
 {% endfor %}
 
 <tr>
-<td class="table-display-text-th">{{ item.DisplayName }}</td>
-<td>
-    {% assign trimmedPackage = item.Package | remove: package_trim %}
-    
-    {% assign package_url = package_url_template | replace: 'item.Package', item.Package | replace: 'item.TrimmedPackage', trimmedPackage | replace: 'item.GroupId', item.GroupId | replace: 'item.RepoPath', item.RepoPath %}
-    
-    {% if item.VersionGA != "" %}
-        {% assign url = package_url | replace: 'item.Version', item.VersionGA  %}
-        <a href="{{url}}" target="_blank">{{item.VersionGA}}</a>        
-    {% endif %}
-</td>
-<td>
-    {% if item.VersionGA != "" %}
-        {% assign url = package_url | replace: 'item.Version', item.VersionPreview  %}
-        <a href="{{url}}" target="_blank">{{item.VersionPreview}}</a>
-    {% endif %}
-</td>
-<td>{{ gaDate }}</td>
-<td style="max-width: 100px">{{item.Notes}}</td>
-
+    <td class="table-display-text-th">{{ item.DisplayName }}</td>
+    <td>{% include roadmap/links.md version="VersionGA" %}</td>
+    <td>{% include roadmap/links.md version="VersionPreview" %}</td>
+    <td>{{ gaDate }}</td>
+    <td style="max-width: 100px">{{item.Notes}}</td>
 </tr>
+
 {% endif %}

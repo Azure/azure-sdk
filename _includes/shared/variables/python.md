@@ -1,4 +1,4 @@
-{% assign package_label = "pypi" %}
+{% assign package_label = "PyPI" %}
 {% assign package_trim = "azure-" %}
 {% assign pre_suffix = "" %}
 {% assign package_url_template = "https://pypi.org/project/item.Package/item.Version" %}
