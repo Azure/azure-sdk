@@ -37,7 +37,6 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 - Azure Communication Chat
 - Azure Communication Common
 - Azure Communication Identity
-- Azure Communication Phone Numbers
 - Azure Communication SMS
 
 [pattern.ga]: # (- ${PackageFriendlyName})
@@ -50,6 +49,10 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 [pattern.patch]: # (- ${PackageFriendlyName})
 
 #### Beta
+- Azure Communication Chat
+- Azure Communication Common
+- Azure Communication Identity
+- Azure Communication SMS
 - Azure Communication Phone Numbers
 - Form Recognizer
 - Identity
