@@ -70,6 +70,10 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 - Azure AI Text Analytics
 - Azure Analytics Synapse Artifacts
 - Azure Communication Phone Numbers
+- Azure Communication Common 
+- Azure Communication Identity
+- Azure Communication Chat
+- Azure Communication SMS
 - Azure Core Experimental
 - Azure Core Serializer Avro Apache
 - Azure Core Tracing Opentelemetry
