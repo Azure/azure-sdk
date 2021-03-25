@@ -52,8 +52,8 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 - Azure Communication Chat
 - Azure Communication Common
 - Azure Communication Identity
-- Azure Communication SMS
 - Azure Communication Phone Numbers
+- Azure Communication SMS
 - Form Recognizer
 - Identity
 - Service Bus
@@ -73,10 +73,14 @@ $> dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.3
 $> dotnet add package Azure.AI.TextAnalytics --version 5.1.0-beta.5
 $> dotnet add package Azure.Analytics.Synapse.Artifacts --version 1.0.0-preview.7
 $> dotnet add package Azure.Communication.Chat --version 1.0.0
+$> dotnet add package Azure.Communication.Chat --version 1.0.0-beta.5
 $> dotnet add package Azure.Communication.Common --version 1.0.0
+$> dotnet add package Azure.Communication.Common --version 1.0.0-beta.5
 $> dotnet add package Azure.Communication.Identity --version 1.0.0
+$> dotnet add package Azure.Communication.Identity --version 1.0.0-beta.5
 $> dotnet add package Azure.Communication.PhoneNumbers --version 1.0.0-beta.6
 $> dotnet add package Azure.Communication.SMS --version 1.0.0
+$> dotnet add package Azure.Communication.SMS --version 1.0.0-beta.4
 $> dotnet add package Azure.Core --version 1.10.0
 $> dotnet add package Azure.Core --version 1.11.0
 $> dotnet add package Azure.Data.AppConfiguration --version 1.1.0-beta.1
