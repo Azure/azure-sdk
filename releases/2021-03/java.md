@@ -842,6 +842,20 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 </dependency>
 
 
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-spring-data-cosmos</artifactId>
+  <version>3.5.1</version>
+</dependency>
+
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-resourcegraph</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+
 </dependency>
 ```
 
