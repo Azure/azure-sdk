@@ -10,6 +10,10 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 
 #### GA
 
+- Azure Communication Common 
+- Azure Communication Identity
+- Azure Communication Chat
+- Azure Communication SMS
 - Azure Core
 - Azure Core HTTP Nettty
 - Azure Core HTTP OkHttp
@@ -65,11 +69,7 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 - Azure AI Form Recognizer
 - Azure AI Text Analytics
 - Azure Analytics Synapse Artifacts
-- Azure Communication Common 
-- Azure Communication Identity
-- Azure Communication Chat
 - Azure Communication Phone Numbers
-- Azure Communication SMS
 - Azure Core Experimental
 - Azure Core Serializer Avro Apache
 - Azure Core Tracing Opentelemetry
@@ -80,6 +80,7 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 - Azure Security Key Vault Certificates
 - Azure Security Key Vault Keys
 - Azure Security Key Vault Secrets
+- Resource Management - Communication
 - Resource Management - Event Grid
 - Resource Management - IoT Hub
 - Resource Management - Storage Cache
@@ -447,43 +448,37 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-communication-chat</artifactId>
-  <version>1.0.0-beta.6</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-communication-chat</artifactId>
-  <version>1.0.0-beta.5</version>
+  <version>1.0.0</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-communication-common</artifactId>
-  <version>1.0.0-beta.6</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-communication-common</artifactId>
-  <version>1.0.0-beta.5</version>
+  <version>1.0.0</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-communication-identity</artifactId>
-  <version>1.0.0-beta.6</version>
+  <version>1.0.0</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-communication-phonenumbers</artifactId>
-  <version>1.0.0-beta.6</version>
+  <version>1.0.0-beta.7</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-communication-sms</artifactId>
-  <version>1.0.0-beta.4</version>
+  <version>1.0.0</version>
+</dependency>
+
+<dependency>
+    <groupId>com.azure.resourcemanager</groupId>
+    <artifactId>azure-resourcemanager-communication</artifactId>
+    <version>1.0.0-beta.1</version>
 </dependency>
 
 <dependency>
@@ -728,6 +723,26 @@ This is the initial release of Azure Device Update for IoT Hub library.
 
 - Azure Resource Manager AzureDigitalTwins client library for Java. This package contains Microsoft Azure SDK for AzureDigitalTwins Management SDK. Azure Digital Twins Client for managing DigitalTwinsInstance. Package tag package-2020-12. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
+### Azure Communication Chat 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-chat/CHANGELOG.md#100-2021-03-29)
+**Includes all changes from 1.0.0-beta.1 to  1.0.0.beta.5**
+
+#### Breaking Changes
+- Renamed `ChatThread` to `ChatThreadProperties`
+- Renamed `ChatThreadInfo` to `ChatThreadItem`
+- Renamed `repeatabilityRequestId` to `idempotencyToken`
+- SendMessage returns `SendChatMessageResult` instead of string ID
+- Renamed `CommunicationError` to `ChatError`
+- Renamed `CommunicationErrorResponse` to `ChatErrorResponse`
+- Moved `getChatThread` to `ChatThreadClient` and renamed to `getProperties`
+- Removed `AddChatParticipantsOptions`
+- Changed `addParticipants` to take `Iterable<ChatParticipant>` instead of `AddChatParticipantsOptions`
+- Added `context` parameter to the max overloads of `listParticipants`, `listReadReceipts`
+- `CreateChatThreadOptions` constructor now requires `topic`
+- Removed `setTopic` from `CreateChatThreadOptions`
+
+#### Added
+- Added `ChatThreadClientBuilder` 
+
 ### Azure Communication Chat 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-chat/CHANGELOG.md#100-beta5-2021-03-02)
 
 #### Breaking Changes
@@ -737,6 +752,14 @@ This is the initial release of Azure Device Update for IoT Hub library.
 - ChatThread - `createdBy` renamed to `createdByCommunicationIdentifier`, changed type to `CommunicationIdentifier`.
 - ChatMessageContent - `initiator` renamed to `initiatorCommunicationIdentifier`, changed type to `CommunicationIdentifier`.
 
+### Azure Communication Common 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-common/CHANGELOG.md#100-2021-03-29)
+**Includes all changes from 1.0.0-beta.1 to  1.0.0.beta.6**
+
+#### Breaking Changes
+- Updated `CommunicationCloudEnvironment(String environmentValue)` constructor to `CommunicationCloudEnvironment()`.
+- Updated `public CommunicationCloudEnvironment fromString(String environmentValue)` to `public static CommunicationCloudEnvironment fromString(String environmentValue)`.
+- Renamed `TokenRefresher.getTokenAsync()` to `TokenRefresher.getToken()`.
+
 ### Azure Communication Common 1.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-common/CHANGELOG.md#100-beta6-2021-03-09)
 
 #### Breaking Changes
@@ -744,6 +767,9 @@ This is the initial release of Azure Device Update for IoT Hub library.
 - Constructor for `CommunicationCloudEnvironment` has been removed and now to set an environment value, the `fromString()` method must be called
 - `CommunicationCloudEnvironment`, `CommunicationTokenRefreshOptions `, `CommunicationUserIdentifier`, `MicrosoftTeamsUserIdentifier`,
 `PhoneNumberIdentifier`, `UnknownIdentifier`, are all final classes now.
+
+### Azure Communication Identity 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-identity/CHANGELOG.md#100-2021-03-29)
+**Includes all changes from 1.0.0-beta.1 to  1.0.0.beta.6**
 
 ### Azure Communication Identity 1.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-identity/CHANGELOG.md#100-beta6-2021-03-09)
 
@@ -757,6 +783,34 @@ This is the initial release of Azure Device Update for IoT Hub library.
 `CommunicationIdentityClient.createUserAndTokenWithResponse` and `CommunicationIdentityAsyncClient.createUserAndTokenWithResponse`.
 - `CommunicationUserIdentifierWithTokenResult` class has been renamed to `CommunicationUserIdentifierAndToken`.
 
+### Azure Communication Phonenumbers 1.0.0-beta.7 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md#100-beta7-2021-03-29)
+
+#### Added
+- Added `PollerFlux<PhoneNumberOperation, PhoneNumberSearchResult> beginSearchAvailablePhoneNumbers(String countryCode, PhoneNumberType phoneNumberType, PhoneNumberAssignmentType assignmentType, PhoneNumberCapabilities capabilities)` in PhoneNumbersAsyncClient.
+- Added `PagedIterable<PurchasedPhoneNumber> listPurchasedPhoneNumbers()` in PhoneNumbersClient.
+- Added `SyncPoller<PhoneNumberOperation, PhoneNumberSearchResult> beginSearchAvailablePhoneNumbers(String countryCode, PhoneNumberType phoneNumberType, PhoneNumberAssignmentType assignmentType, PhoneNumberCapabilities capabilities)` in PhoneNumbersClient.
+- Added `SyncPoller<PhoneNumberOperation, PurchasePhoneNumbersResult> beginPurchasePhoneNumbers(String searchId)` in PhoneNumbersClient.
+- Added `SyncPoller<PhoneNumberOperation, ReleasePhoneNumberResult> beginReleasePhoneNumber(String phoneNumber)` in PhoneNumbersClient.
+- Added `SyncPoller<PhoneNumberOperation, PurchasedPhoneNumber> beginUpdatePhoneNumberCapabilities(String phoneNumber, PhoneNumberCapabilities capabilities)` in PhoneNumbersClient.
+- Added `PurchasePhoneNumbersResult`.
+- Added `ReleasePhoneNumbersResult`.
+
+#### Breaking Changes
+- Renamed `AcquiredPhoneNumber` to `PurchasedPhoneNumber`.
+- Renamed `PhoneNumbersAsyncClient.getPhoneNumber` and `PhoneNumbersClient.getPhoneNumber` to `PhoneNumbersAsyncClient.getPurchasedPhoneNumber` and `PhoneNumbersClient.getPurchasedPhoneNumber`.
+- Renamed `PhoneNumbersAsyncClient.getPhoneNumberWithResponse` and `PhoneNumbersClient.getPhoneNumberWithResponse` to
+`PhoneNumbersAsyncClient.getPurchasedPhoneNumberWithResponse` and `PhoneNumbersClient.getPurchasedPhoneNumberWithResponse`.
+- Renamed `PhoneNumbersAsyncClient.listPhoneNumbers` and `PhoneNumbersClient.listPhoneNumbers` to `PhoneNumbersAsyncClient.listPurchasedPhoneNumbers` and `PhoneNumbersClient.listPurchasedPhoneNumbers`.
+- Updated `PollerFlux<PhoneNumberOperation, Void> beginPurchasePhoneNumbers` to `PollerFlux<PhoneNumberOperation, PurchasePhoneNumbersResult> beginPurchasePhoneNumbers` in `PhoneNumbersAsyncClient`.
+- Updated `PollerFlux<PhoneNumberOperation, Void> beginReleasePhoneNumber` to `public PollerFlux<PhoneNumberOperation, ReleasePhoneNumberResult> beginReleasePhoneNumber` in `PhoneNumbersAsyncClient`.
+- Updated `SyncPoller<PhoneNumberOperation, Void> beginPurchasePhoneNumbers` to ` SyncPoller<PhoneNumberOperation, PurchasePhoneNumbersResult> beginPurchasePhoneNumbers` in `PhoneNumbersClient`.
+- Updated `SyncPoller<PhoneNumberOperation, Void> beginReleasePhoneNumber` to `SyncPoller<PhoneNumberOperation, ReleasePhoneNumberResult> beginReleasePhoneNumber` in `PhoneNumbersClient`.
+- Updated `PollerFlux<PhoneNumberOperation, PurchasedPhoneNumber> beginUpdatePhoneNumberCapabilities(String phoneNumber, PhoneNumberCapabilitiesRequest capabilitiesUpdateRequest)` to `PollerFlux<PhoneNumberOperation, PurchasedPhoneNumber> beginUpdatePhoneNumberCapabilities(String phoneNumber, PhoneNumberCapabilities capabilities)`.
+- Updated `SyncPoller<PhoneNumberOperation, PurchasedPhoneNumber> beginUpdatePhoneNumberCapabilities(String phoneNumber, PhoneNumberCapabilitiesRequest capabilitiesUpdateRequest)` to `SyncPoller<PhoneNumberOperation, PurchasedPhoneNumber> beginUpdatePhoneNumberCapabilities(String phoneNumber, PhoneNumberCapabilities capabilities)`.
+- Removed `CommunicationError`.
+- Removed `PhoneNumberCapabilitiesRequest`.
+- Moved `ReservationStatus` to the `models` folder.
+
 ### Azure Communication Phonenumbers 1.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md#100-beta6-2021-03-09)
 
 #### Added
@@ -766,6 +820,12 @@ This is the initial release of Azure Device Update for IoT Hub library.
 #### Breaking Changes
 - PhoneNumberAsyncClient has been replaced with PhoneNumbersAsyncClient, which has the same functionality but different APIs. To learn more about how PhoneNumbersAsyncClient works, refer to the [README.md][https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-phonenumbers/README.md].
 - PhoneNumberClient has been replaced with PhoneNumbersClient, which has the same functionality but different APIs. To learn more about how PhoneNumbersClient works, refer to the [README.md][https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-phonenumbers/README.md].
+
+### Azure Communication SMS 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-sms/CHANGELOG.md#100-2021-03-29)
+**Includes all changes from 1.0.0-beta.1 to  1.0.0.beta.4**
+
+#### Breaking Change
+- Changed the return type of the batch `Send` in `SmsClient` and `SmsAsyncClient` to `PagedIterable<SmsSendResult>` and `PagedFlux<SmsSendResult>`, respectively.
 
 ### Azure Communication Sms 1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-sms/CHANGELOG.md#100-beta4-2021-03-09)
 
@@ -781,6 +841,11 @@ This is the initial release of Azure Device Update for IoT Hub library.
 - Updated `public Mono<SendSmsResponse> sendMessage(PhoneNumberIdentifier from, PhoneNumberIdentifier to, String message)` to `public Mono<SendSmsResponse> send(String from, String to, String message)`.
 - Updated `public Mono<Response<SendSmsResponse>> sendMessageWithResponse(PhoneNumberIdentifier from,List<PhoneNumberIdentifier> to, String message, SendSmsOptions smsOptions, Context context)` to `Mono<Response<SmsSendResult>> sendWithResponse(String from, String to, String message, SmsSendOptions options, Context context)`.
 - Replaced `SendSmsResponse` with `SmsSendResult`.
+
+### Azure Resourcemanager Communication 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-resourcemanager-communication/CHANGELOG.md#100-beta1-2021-03-23)
+
+#### Added
+- Azure Resource Manager Communication client library for Java. This package contains Microsoft Azure SDK for Communication Management SDK. REST API for Azure Communication Services. Package tag package-2020-08-20. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
 ### Azure Core Experimental 1.0.0-beta.11 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-experimental/CHANGELOG.md#100-beta11-2021-03-08)
 
