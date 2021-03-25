@@ -69,10 +69,10 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 - Azure AI Form Recognizer
 - Azure AI Text Analytics
 - Azure Analytics Synapse Artifacts
-- Azure Communication Phone Numbers
+- Azure Communication Chat
 - Azure Communication Common 
 - Azure Communication Identity
-- Azure Communication Chat
+- Azure Communication Phone Numbers
 - Azure Communication SMS
 - Azure Core Experimental
 - Azure Core Serializer Avro Apache
@@ -457,14 +457,32 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 
 <dependency>
   <groupId>com.azure</groupId>
+  <artifactId>azure-communication-chat</artifactId>
+  <version>1.0.0-beta.5</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
   <artifactId>azure-communication-common</artifactId>
   <version>1.0.0</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
+  <artifactId>azure-communication-common</artifactId>
+  <version>1.0.0-beta.6</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
   <artifactId>azure-communication-identity</artifactId>
   <version>1.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-communication-identity</artifactId>
+  <version>1.0.0-beta.6</version>
 </dependency>
 
 <dependency>
@@ -477,6 +495,12 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-communication-sms</artifactId>
   <version>1.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-communication-sms</artifactId>
+  <version>1.0.0-beta.4</version>
 </dependency>
 
 <dependency>
