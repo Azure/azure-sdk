@@ -45,6 +45,8 @@ azure-mgmt-rdbms:8.1.0b2
 azure-mgmt-databricks:1.0.0
 azure-mgmt-datadog:1.0.0
 azure-eventgrid:4.1.0
+azure-mgmt-extendedlocation:1.0.0b1
+azure-mgmt-deviceupdate:1.0.0b2
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -100,6 +102,8 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Resource Management - Rdbms
 - Resource Management - Automation
 - Resource Management - Rdbms
+- azure-mgmt-extendedlocation
+- azure-mgmt-deviceupdate
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -147,6 +151,8 @@ $> pip install azure-mgmt-rdbms==8.1.0b2
 $> pip install azure-mgmt-databricks==1.0.0
 $> pip install azure-mgmt-datadog==1.0.0
 $> pip install azure-eventgrid==4.1.0
+$> pip install azure-mgmt-extendedlocation==1.0.0b1
+$> pip install azure-mgmt-deviceupdate==1.0.0b2
 $> pip install azure-synapse-spark==0.5.0
 ```
 
@@ -719,6 +725,16 @@ This version will be the last version to officially support Python 3.5, future v
 ### Event Grid 4.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-eventgrid_4.1.0/sdk/eventgrid/azure-eventgrid/CHANGELOG.md#410-2021-03-23)
 **New Features**
   - Added new SystemEventNames `AcsChatThreadParticipantRemovedEventName`, `AcsChatThreadParticipantAddedEventName` and `AcsRecordingFileStatusUpdatedEventName`.
+
+### azure-mgmt-extendedlocation 1.0.0b1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-extendedlocation_1.0.0b1/sdk/extendedlocation/azure-mgmt-extendedlocation/CHANGELOG.md#100b1-2021-03-25)
+* Initial Release
+
+### azure-mgmt-deviceupdate 1.0.0b2 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-deviceupdate_1.0.0b2/sdk/deviceupdate/azure-mgmt-deviceupdate/CHANGELOG.md#100b2-2021-03-24)
+**Breaking changes**
+
+  - Removed operation InstancesOperations.list_by_subscription
+  - Model ErrorResponse has a new signature
+  - Model ErrorDefinition has a new signature
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
