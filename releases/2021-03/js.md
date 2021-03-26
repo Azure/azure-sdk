@@ -41,6 +41,9 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Storage - Queues
 - Event Grid
 - Azure Communication Common
+- Azure Communication Chat
+- Azure Communication Identity
+- Azure Communication SMS
 - Communication Common
 - Event Grid
 
@@ -61,8 +64,9 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 #### Beta
 - Key Vault - Secrets
 - Key Vault - Keys
-- Azure Communication Identity
+- Azure Communication Common
 - Azure Communication Chat
+- Azure Communication Identity
 - Azure Communication Phone Numbers
 - Azure Communication SMS
 - Event Hubs
@@ -85,10 +89,14 @@ $> npm install @azure/abort-controller:1.0.4
 $> npm install @azure/ai-text-analytics@5.1.0-beta.5
 $> npm install @azure/keyvault-secrets@4.2.0-beta.3
 $> npm install @azure/keyvault-keys@4.2.0-beta.4
-$> npm install @azure/communication-common@1.0.0
+$> npm install @azure/communication-common@1.0.0-beta.5
 $> npm install @azure/communication-identity@1.0.0-beta.5
 $> npm install @azure/communication-chat@1.0.0-beta.5
 $> npm install @azure/communication-phone-numbers@1.0.0-beta.4
+$> npm install @azure/communication-common@1.0.0
+$> npm install @azure/communication-identity@1.0.0
+$> npm install @azure/communication-chat@1.0.0
+$> npm install @azure/communication-phone-numbers@1.0.0-beta.5
 $> npm install @azure/storage-file-share@12.5.0
 $> npm install @azure/storage-blob@12.5.0
 $> npm install @azure/storage-file-datalake@12.4.0
@@ -99,7 +107,6 @@ $> npm install @azure/communication-sms@1.0.0-beta.4
 $> npm install @azure/event-hubs@5.5.0-beta.1
 $> npm install @azure/eventgrid@4.0.0
 $> npm install @azure/core-rest-pipeline@1.0.1
-$> npm install @azure/communication-common@1.0.0
 $> npm install @azure/eventgrid@4.1.0
 $> npm install @azure/cosmos@3.10.4
 $> npm install @azure/identity@2.0.0-beta.1
@@ -144,11 +151,34 @@ Fixes issue [13985](https://github.com/Azure/azure-sdk-for-js/issues/13985) wher
 
 - `PhoneNumberAdministrationClient` is moved into the new package @azure/communication-phone-numbers and replaced by `PhoneNumbersClient`.
 
+### Azure Communication Phone Numbers 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-phone-numbers/CHANGELOG.md#100-beta5-2021-03-29)
+
+#### Breaking Changes
+
+- Renamed `AcquiredPhoneNumber` to `PurchasedPhoneNumber`.
+- Renamed `getPhoneNumber` to `getPurchasedPhoneNumber` on `PhoneNumbersClient`.
+- Renamed `listPhoneNumbers` to `listPurchasedPhoneNumbers` on `PhoneNumbersClient`.
+- Replaced `VoidResult` with method specific interfaces `PurchasePhoneNumbersResult` and `ReleasePhoneNumberResult`.
+
 ### Azure Communication Phone Numbers 1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-phone-numbers/CHANGELOG.md#100-beta4-2021-03-09)
 
 #### Breaking Changes
 
 -  Removed `dist-browser` from the output folders. To bundle the Azure SDK libraries, please read our [bundling guide.](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md)
+
+### Azure Communication Chat 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-chat/CHANGELOG.md#100-2021-03-29)
+
+**Includes all changes from 1.0.0-beta.1 to  1.0.0.beta.5**
+
+#### Breaking Changes
+
+- Renamed `url` to `endpoint` in the constructors of `ChatClient` and `ChatThreadClient`.
+- Renamed `ChatThread` model to `ChatThreadProperties`. Renamed `GetChatThread` operation to `GetProperties` and move to `ChatThreadClient`.
+- Renamed `ChatThreadInfo` model to `ChatThreadItem`.
+- Renamed parameter `repeatabilityRequestId` to `idempotencyToken`.
+- Uses `ChatError` instead of `CommunicationError` in operation result.
+- Move `participants` from `CreateChatThreadRequest` to `CreateChatThreadOptions`
+- Updated to @azure/communication-signaling@1.0.0-beta.3.
 
 ### Azure Communication Chat 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-chat/CHANGELOG.md#100-beta5-2021-03-09)
 
@@ -161,9 +191,27 @@ Fixes issue [13985](https://github.com/Azure/azure-sdk-for-js/issues/13985) wher
 
 ### Azure Communication Common 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-common/CHANGELOG.md#100-2021-03-22)
 
+**Includes all changes from 1.0.0-beta.1 to  1.0.0.beta.5**
+
 ##### New Features 
 
 - Updated @azure/communication-common GA version.
+
+### Azure Communication Common 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-common/CHANGELOG.md#100-beta5-2021-02-09)
+
+##### Breaking Changes  
+
+- Removed `CallingApplicationIdentifier` and `isCallingApplicationIdentifier`.
+- Removed `id` from `CommunicationUserIdentifier`.
+- Renamed `id` to `rawId` in `PhoneNumberIdentifier`.
+- Renamed `id` to `rawId` in `MicrosoftTeamsUserIdentifier`.
+- Replaced `abortSignal?` argument in `CommunicationTokenCredential.getToken` with `options?: CommunicationGetTokenOptions`.
+
+### Azure Communication Identity 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-identity/CHANGELOG.md#100-2021-03-29)
+
+**Includes all changes from 1.0.0-beta.1 to  1.0.0.beta.5**
+
+- Stable release of `@azure/communication-identity`.
 
 ### Azure Communication Identity 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-identity/CHANGELOG.md#100-beta5-2021-03-09)
 
@@ -175,6 +223,12 @@ Fixes issue [13985](https://github.com/Azure/azure-sdk-for-js/issues/13985) wher
 - Removed `_response` from returned models.
 - Removed `dist-browser` from the output folders. To bundle the Azure SDK libraries, please read our [bundling guide.](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md).
 
+### Azure Communication SMS 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-sms/CHANGELOG.md#100-2021-03-29)
+
+**Includes all changes from 1.0.0-beta.1 to  1.0.0.beta.4**
+
+- Stable release of `@azure/communication-sms`.
+
 ### Azure Communication SMS 1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-sms/CHANGELOG.md#100-beta4-2021-03-09)
 
 ##### New Features 
@@ -183,12 +237,13 @@ Fixes issue [13985](https://github.com/Azure/azure-sdk-for-js/issues/13985) wher
 - Added support for 1:N SMS messaging.
 - Added support for tagging SMS messages.
 - `send` method in `SmsClient` is idempotent under retry policy.
-- 
+
 #### Breaking Changes 
 
 - `SendRequest` renamed to `SmsSendRequest`.
 - `SendOptions` renamed to `SmsSendOptions` and now has an additional field `tag` to add a custom tag to delivery reports (when enabled).
 - `send` no longer returns `RestResponse`, now returns an array of `SmsSendResults`. This contains fields to validate success/failure of each sent message.
+
 ### Storage - Files Shares 12.5.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/storage-file-share_12.5.0/sdk/storage/storage-file-share/CHANGELOG.md#1250-2021-03-10)
 - Updated Azure Storage Service API version to 2020-06-12.
 
