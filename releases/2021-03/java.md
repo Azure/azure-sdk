@@ -856,6 +856,20 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 </dependency>
 
 
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-changeanalysis</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-delegatednetwork</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+
 </dependency>
 ```
 
