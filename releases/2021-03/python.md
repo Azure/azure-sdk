@@ -64,6 +64,9 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Resource Management - Databricks
 - Resource Management - Datadog
 - Event Grid
+- Azure Communication Identity
+- Azure Communication Chat
+- Azure Communication SMS
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -187,11 +190,37 @@ is this diagnosis conditional on a symptom?
 ### Azure Communication Administration is deprecated
 - Phone number administration is moved into the new package `azure-communication-phonenumbers`.
 
+### Azure Communication Phone Numbers 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md#100b5-2021-03-29)
+
+#### Breaking Changes
+
+- Renamed AcquiredPhoneNumber to PurchasedPhoneNumber
+- Renamed PhoneNumbersClient.get_phone_number and PhoneNumbersAsyncClient.get_phone_number to PhoneNumbersClient.get_purchased_phone_number
+and PhoneNumbersAsyncClient.get_purchased_phone_number
+- Renamed PhoneNumbersClient.list_acquired_phone_numbers and PhoneNumbersAsyncClient.list_acquired_phone_numbers to PhoneNumbersClient.list_purchased_phone_numbers
+and PhoneNumbersAsyncClient.list_purchased_phone_numbers
+
 ### Azure Communication Phone Numbers 1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md#100b4-2021-03-09)
 
 ##### New Features
 
 - Added `PhoneNumbersClient` (originally was part of the `azure.communication.administration` package).
+
+### Azure Communication Chat 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-chat/CHANGELOG.md#100-2021-03-29)
+
+**Includes all changes from 1.0.0-beta.1 to  1.0.0.beta.5**
+
+### Breaking Changes
+
+- Renamed `ChatThread` to `ChatThreadProperties`.
+- Renamed `get_chat_thread` to `get_properties`.
+- Moved `get_properties` under `ChatThreadClient`.
+- Renamed `ChatThreadInfo` to `ChatThreadItem`.
+- Removed `ChatThreadClient.add_participant` method.
+- Renamed `repeatability_request_id` to `idempotency_token`.
+- Changed return type of `send_message` to `SendChatMessageResult`.
+- Replaced `CommunicationError` with `ChatError`.
+- Refactored `CommunicationTokenCredential` constructor to accept `token` instead of `CommunicationTokenRefreshOptions`.
 
 ### Azure Communication Chat 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-chat/CHANGELOG.md#100b5-2021-03-09)
 
@@ -206,12 +235,23 @@ is this diagnosis conditional on a symptom?
 - Changed return types `add_participants`: `None -> list[(ChatThreadParticipant, CommunicationError)]`
 - Added check for failure in `add_participant`
 
+### Azure Communication Identity 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-identity/CHANGELOG.md#100-2021-03-29)
+
+**Includes all changes from 1.0.0-beta.1 to  1.0.0.beta.5**
+- Stable release of `azure-communication-identity`.
+
 ### Azure Communication Identity 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-identity/CHANGELOG.md#100b5-2021-03-09)
 
 #### Breaking Changes
 
 - CommunicationIdentityClient's (synchronous and asynchronous) `issue_token` function is now renamed to `get_token`.
 - The CommunicationIdentityClient constructor uses type `TokenCredential` and `AsyncTokenCredential` for the credential parameter.
+
+### Azure Communication SMS 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-sms/CHANGELOG.md#100-2021-03-29)
+
+**Includes all changes from 1.0.0-beta.1 to  1.0.0.beta.6**
+
+- Stable release of `azure-communication-sms`.
 
 ### Azure Communication SMS 1.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-sms/CHANGELOG.md#100b5-2021-03-09)
 
