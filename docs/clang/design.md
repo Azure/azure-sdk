@@ -342,7 +342,7 @@ target_compile_definitions(az_widgets PUBLIC CAT_BUFFER_SIZE=${AZ_WIDGETS_SIDE_B
 client configuration options based on how the client library was built.
 
 {% include requirement/MUSTNOT id="clang-config-noruntime" %} use client library specific runtime 
-configuration such as environment variables or a config file. Keep in mind that many IOT devices
+configuration such as environment variables or a config file. Keep in mind that many IoT devices
 won't have a filesystem or an "environment block" to read from.
 
 ##### Setting the Service Version
