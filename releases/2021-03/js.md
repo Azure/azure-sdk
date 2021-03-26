@@ -27,6 +27,9 @@ repository: azure/azure-sdk-for-js
 @azure/eventgrid:4.1.0
 @azure/cosmos:3.10.4
 @azure/identity:2.0.0-beta.1
+@azure/core-rest-pipeline:1.0.2
+@azure/app-configuration:1.1.1
+@azure/cosmos:3.10.5
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -57,6 +60,9 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Cosmos Db
 - Cosmos DB
 - Core Rest Pipeline
+- Cosmos DB
+- Core Rest Pipeline
+- App Configuration
 - Cosmos DB
 
 [pattern.patch]: # (- ${PackageFriendlyName})
@@ -110,6 +116,9 @@ $> npm install @azure/core-rest-pipeline@1.0.1
 $> npm install @azure/eventgrid@4.1.0
 $> npm install @azure/cosmos@3.10.4
 $> npm install @azure/identity@2.0.0-beta.1
+$> npm install @azure/core-rest-pipeline@1.0.2
+$> npm install @azure/app-configuration@1.1.1
+$> npm install @azure/cosmos@3.10.5
 $> npm install @azure/data-tables@12.0.0-beta.1
 ```
 
@@ -345,6 +354,17 @@ This update marks the preview for the first major version update of the `@azure/
 - `DefaultAzureCredential`'s implementation for browsers is simplified to throw the `BrowserNotSupportedError` in its constructor. Previously, we relied on getting the same error from trying to instantiate the different  credentials that `DefaultAzureCredential` supports in Node.js.
   - As before, please use only the `InteractiveBrowserCredential` in your browser applications.
 - For the `InteractiveBrowserCredential` for node, replaced the use of the `express` module with a native http server for Node, shrinking the resulting identity module considerably.
+
+### Core Rest Pipeline 1.0.2 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-rest-pipeline_1.0.2/sdk/core/core-rest-pipeline/CHANGELOG.md#102-2021-03-25)
+- Fixed an issue where chunked HTTP responses would sometimes be decoded incorrectly when multibyte characters were used. [PR 14517](https://github.com/Azure/azure-sdk-for-js/pull/14517)
+
+### App Configuration 1.1.1 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/app-configuration_1.1.1/sdk/appconfiguration/app-configuration/CHANGELOG.md#111-2021-03-25)
+- Fix issues with `select`ing fields to be returned from `listConfigurationSettings`, `listConfigurationRevisions`
+  and `getConfigurationSetting` where `last_modified` and `content_type` could not properly be passed in.
+  [PR #13258](https://github.com/Azure/azure-sdk-for-js/pull/13258)
+
+### Cosmos DB 3.10.5 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/cosmos_3.10.5/sdk/cosmosdb/cosmos/CHANGELOG.md#3105-2021-03-25)
+- BUGFIX: Pins node-abort-controller version as we depend on a type in v1.2.0.
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
