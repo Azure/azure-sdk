@@ -3,11 +3,11 @@ name: Azure Static Web Apps CI/CD
 on:
   push:
     branches:
-      - roadmap
+      - roadmap4
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
-      - roadmap
+      - roadmap4
 
 jobs:
   build_and_deploy_job:
