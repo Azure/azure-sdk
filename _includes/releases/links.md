@@ -12,11 +12,13 @@
 
 {% if version != "" %}
     {% assign url = package_url | replace: 'item.Version', version  %}
+    <div>
     {% include releases/pkgbadge.md  label=package_label url=url version=version preview=include.preview %}
-
+    </div>
+    <div>
     {% assign url = source_url | replace: 'item.Version', version %}
     {% include releases/pkgbadge.md label="Code" url=url version=version preview=include.preview %}
-    
+    &nbsp;|&nbsp;
     {% if include.version == "VersionGA" %}
         {% assign msdocs_url = item.MSDocs %}
         {% if item.MSDocs == "" %}
@@ -36,4 +38,5 @@
         {% assign url = ghdocs_url | replace: 'item.Version', version %}
         {% include releases/pkgbadge.md label="Docs" url=url version=version preview="true" %}        
     {% endif %}
+    </div>
 {% endif %}
