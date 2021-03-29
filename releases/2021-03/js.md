@@ -30,6 +30,10 @@ repository: azure/azure-sdk-for-js
 @azure/core-rest-pipeline:1.0.2
 @azure/app-configuration:1.1.1
 @azure/cosmos:3.10.5
+@azure/communication-phone-numbers:1.0.0-beta.5
+@azure/communication-chat:1.0.0
+@azure/communication-identity:1.0.0
+@azure/communication-sms:1.0.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -49,6 +53,9 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Azure Communication SMS
 - Communication Common
 - Event Grid
+- Communication Chat
+- Communication Identity
+- Communication Sms
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -79,6 +86,7 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Azure Data Tables
 - Azure Text Analytics
 - Identity
+- Communication Phone Numbers
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -119,6 +127,10 @@ $> npm install @azure/identity@2.0.0-beta.1
 $> npm install @azure/core-rest-pipeline@1.0.2
 $> npm install @azure/app-configuration@1.1.1
 $> npm install @azure/cosmos@3.10.5
+$> npm install @azure/communication-phone-numbers@1.0.0-beta.5
+$> npm install @azure/communication-chat@1.0.0
+$> npm install @azure/communication-identity@1.0.0
+$> npm install @azure/communication-sms@1.0.0
 $> npm install @azure/data-tables@12.0.0-beta.1
 ```
 
@@ -365,6 +377,31 @@ This update marks the preview for the first major version update of the `@azure/
 
 ### Cosmos DB 3.10.5 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/cosmos_3.10.5/sdk/cosmosdb/cosmos/CHANGELOG.md#3105-2021-03-25)
 - BUGFIX: Pins node-abort-controller version as we depend on a type in v1.2.0.
+
+### Communication Phone Numbers 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/communication-phone-numbers_1.0.0-beta.5/sdk/communication/communication-phone-numbers/CHANGELOG.md#100-beta5-2021-03-29)
+#### Breaking Changes
+
+- Renamed `AcquiredPhoneNumber` to `PurchasedPhoneNumber`.
+- Renamed `getPhoneNumber` to `getPurchasedPhoneNumber` on `PhoneNumbersClient`.
+- Renamed `listPhoneNumbers` to `listPurchasedPhoneNumbers` on `PhoneNumbersClient`.
+- Replaced `VoidResult` with method specific interfaces `PurchasePhoneNumbersResult` and `ReleasePhoneNumberResult`.
+
+### Communication Chat 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/communication-chat_1.0.0/sdk/communication/communication-chat/CHANGELOG.md#100-2021-03-29)
+#### Breaking Changes
+
+- Renamed `url` to `endpoint` in the constructors of `ChatClient` and `ChatThreadClient`.
+- Renamed `ChatThread` model to `ChatThreadProperties`. Renamed `GetChatThread` operation to `GetProperties` and move to `ChatThreadClient`.
+- Renamed `ChatThreadInfo` model to `ChatThreadItem`.
+- Renamed parameter `repeatabilityRequestId` to `idempotencyToken`.
+- Uses `ChatError` instead of `CommunicationError` in operation result.
+- Move `participants` from `CreateChatThreadRequest` to `CreateChatThreadOptions`
+- Updated to @azure/communication-signaling@1.0.0-beta.3.
+
+### Communication Identity 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/communication-identity_1.0.0/sdk/communication/communication-identity/CHANGELOG.md#100-2021-03-29)
+- Stable release of `@azure/communication-identity`.
+
+### Communication Sms 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/communication-sms_1.0.0/sdk/communication/communication-sms/CHANGELOG.md#100-2021-03-29)
+- Stable release of `@azure/communication-sms`.
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
