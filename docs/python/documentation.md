@@ -62,4 +62,4 @@ Combined operations cause unnecessary friction for a library consumer by requiri
 
 {% include refs.md %}
 {% include_relative refs.md %}
-[1]: http://www.sphinx-doc.org/en/1.5/markup/code.html#includes
+[1]: https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html?highlight=literalinclude#directive-literalinclude
