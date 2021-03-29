@@ -47,6 +47,9 @@ azure-mgmt-datadog:1.0.0
 azure-eventgrid:4.1.0
 azure-mgmt-extendedlocation:1.0.0b1
 azure-mgmt-deviceupdate:1.0.0b2
+azure-mgmt-privatedns:1.0.0
+azure-mgmt-timeseriesinsights:1.0.0
+azure-mgmt-powerbidedicated:1.0.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -67,6 +70,9 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Azure Communication Identity
 - Azure Communication Chat
 - Azure Communication SMS
+- Resource Management - Private DNS
+- Resource Management - Time Series Insights
+- Resource Management - Power BI Dedicated
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -156,6 +162,9 @@ $> pip install azure-mgmt-datadog==1.0.0
 $> pip install azure-eventgrid==4.1.0
 $> pip install azure-mgmt-extendedlocation==1.0.0b1
 $> pip install azure-mgmt-deviceupdate==1.0.0b2
+$> pip install azure-mgmt-privatedns==1.0.0
+$> pip install azure-mgmt-timeseriesinsights==1.0.0
+$> pip install azure-mgmt-powerbidedicated==1.0.0
 $> pip install azure-synapse-spark==0.5.0
 ```
 
@@ -775,6 +784,43 @@ This version will be the last version to officially support Python 3.5, future v
   - Removed operation InstancesOperations.list_by_subscription
   - Model ErrorResponse has a new signature
   - Model ErrorDefinition has a new signature
+
+### Resource Management - Private DNS 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-privatedns_1.0.0/sdk/network/azure-mgmt-privatedns/CHANGELOG.md#100-2021-03-25)
+- GA release
+
+### Resource Management - Time Series Insights 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-timeseriesinsights_1.0.0/sdk/timeseriesinsights/azure-mgmt-timeseriesinsights/CHANGELOG.md#100-2021-03-26)
+**Features**
+
+  - Model EventHubEventSourceUpdateParameters has a new parameter kind
+  - Model IoTHubEventSourceUpdateParameters has a new parameter kind
+  - Model Gen1EnvironmentUpdateParameters has a new parameter kind
+  - Model EventSourceUpdateParameters has a new parameter kind
+  - Model Gen2EnvironmentUpdateParameters has a new parameter kind
+  - Model EnvironmentUpdateParameters has a new parameter kind
+
+**Breaking changes**
+
+  - Operation AccessPoliciesOperations.update has a new signature
+  - Operation EventSourcesOperations.update has a new signature
+  - Operation EnvironmentsOperations.begin_update has a new signature
+  - Operation ReferenceDataSetsOperations.update has a new signature
+  - Operation AccessPoliciesOperations.update has a new signature
+
+### Resource Management - Power BI Dedicated 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-powerbidedicated_1.0.0/sdk/powerbidedicated/azure-mgmt-powerbidedicated/CHANGELOG.md#100-2021-03-26)
+**Features**
+
+  - Model DedicatedCapacityProperties has a new parameter mode
+  - Model DedicatedCapacityMutableProperties has a new parameter mode
+  - Model DedicatedCapacityUpdateParameters has a new parameter mode
+  - Model DedicatedCapacity has a new parameter system_data
+  - Model DedicatedCapacity has a new parameter mode
+  - Model Resource has a new parameter system_data
+  - Added operation group AutoScaleVCoresOperations
+
+**Breaking changes**
+
+  - Model Resource no longer has parameter sku
+  - Model ErrorResponse has a new signature
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
