@@ -45,7 +45,7 @@ def get(*args, **kwargs):
     :param str method-param: The method-param parameter
     :keyword int method-kwarg: The optional method-kwarg parameter
 
-    For additional request configuration options, please see [core options](https://aka.ms/azsdk/python/options).
+    For additional request configuration options, please see https://aka.ms/azsdk/python/options.
     """
     return request("GET", *args, **kwargs)
 ```
