@@ -7,7 +7,7 @@ Here are the stages of a typical package lifecycle (for major versions)
 1.	**Pre-release/Preview/Beta** – A new SDK is available for early access and feedback purposes and should not be used in production.  
 The preview version support is limited to GitHub issues and response time is not guaranteed. Preview releases live typically for less than 1 year , after which either retired or released to GA.
 
-2.	**Active** - The SDKs are Generally Available and fully supported, will receive new feature updates, as well as bug and security fixes.  
+2.	**Active** - The SDKs are generally available and fully supported, will receive new feature updates, as well as bug and security fixes.  
 The major version will remain active for at least 12 months from the release date. Compatible updates for the major release are provided through minor versions, or patch versions.  
 Customers encouraged to use the latest minor version, and only the latest minor version will get fixes and updates.  
 
