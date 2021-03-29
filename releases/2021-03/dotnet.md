@@ -27,6 +27,11 @@ Azure.Core:1.11.0
 Microsoft.Azure.WebJobs.Extensions.EventGrid:3.0.0-beta.1
 Azure.Messaging.EventGrid:4.1.0
 Microsoft.Azure.WebJobs.Extensions.ServiceBus:5.0.0-beta.1
+Azure.Communication.Identity:1.0.0
+Azure.Communication.Chat:1.0.0
+Azure.Communication.PhoneNumbers:1.0.0-beta.6
+Azure.Communication.Sms:1.0.0
+Azure.Communication.Common:1.0.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -38,6 +43,10 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 - Core
 - Event Grid
 - Event Grid
+- Communication Identity
+- Communication Chat
+- Communication SMS
+- Communication Common
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -63,6 +72,7 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 - IoT Device Update
 - WebJobs Extensions - Event Grid
 - WebJobs Extensions - Service Bus
+- Communication Phone Numbers
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -94,6 +104,11 @@ $> dotnet add package Azure.MixedReality.RemoteRendering --version 1.0.0-beta.3
 $> dotnet add package Microsoft.Azure.WebJobs.Extensions.EventGrid --version 3.0.0-beta.1
 $> dotnet add package Azure.Messaging.EventGrid --version 4.1.0
 $> dotnet add package Microsoft.Azure.WebJobs.Extensions.ServiceBus --version 5.0.0-beta.1
+$> dotnet add package Azure.Communication.Identity --version 1.0.0
+$> dotnet add package Azure.Communication.Chat --version 1.0.0
+$> dotnet add package Azure.Communication.PhoneNumbers --version 1.0.0-beta.6
+$> dotnet add package Azure.Communication.Sms --version 1.0.0
+$> dotnet add package Azure.Communication.Common --version 1.0.0
 $> dotnet add package Azure.IoT.DeviceUpdate --version 1.0.0-beta.2
 ```
 
@@ -289,6 +304,51 @@ to `Task<Response<SmsSendResult>> SendAsync(string from, string to, string messa
 
 ### WebJobs Extensions - Service Bus 5.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.0.0-beta.1/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md#500-beta1-2021-03-23)
 - The initial release of Microsoft.Azure.WebJobs.Extensions.ServiceBus 5.0.0
+
+### Communication Identity 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.Identity_1.0.0/sdk/communication/Azure.Communication.Identity/CHANGELOG.md#100-2021-03-29)
+Updated `Azure.Communication.Identity` version.
+
+### Communication Chat 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.Chat_1.0.0/sdk/communication/Azure.Communication.Chat/CHANGELOG.md#100-2021-03-29)
+#### Breaking Changes
+
+- Renamed client constructors URL variable to `endpoint`.
+- Renamed `ChatThread` model to `ChatThreadProperties`.
+- Renamed `GetChatThread` operation to `GetPropertie`s and moved it to `ChatThreadClient`.
+- Renamed `ChatThreadInfo` model to `ChatThreadItem`.
+- Renamed `GetChatThreadsInfo` operation to `GetChatThreads`.
+- Made `AddParticipant` throw exception when request fails.
+- Renamed parameter `repeatabilityRequestId` to `idempotencyToken`.
+- Updated `SendMessage` to use `SendChatMessageResult` instead of `string` for the request result.
+- Exposed the list of `invalidparticipants` directly and removed `AddChatParticipantsErrors` and `CreateChatThreadErrors` models for `AddChatParticipantsResult` and `CreateChatThreadResult`.
+
+#### Added
+
+- Made list of participants optional for `CreateChatThread`.
+- Made `ChatThreadClient` constructor public.
+
+### Communication Phone Numbers 1.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.PhoneNumbers_1.0.0-beta.6/sdk/communication/Azure.Communication.PhoneNumbers/CHANGELOG.md#100-beta6-2021-03-29)
+#### Added
+- Added protected constructor to PurchasePhoneNumbersOperation and ReleasePhoneNumberOperation for mocking.
+
+#### Breaking Changes
+- All models are moved from Azure.Communication.PhoneNumbers.Models namespace to Azure.Communication.PhoneNumbers.
+- AcquiredPhoneNumber class is renamed to PurchasedPhoneNumber.
+- PhoneNumbersClient methods renamed:
+  - GetPhoneNumber -> GetPurchasedPhoneNumber.
+  - GetPhoneNumberAsync -> GetPurchasedPhoneNumberAsync.
+  - GetPhoneNumbers -> GetPurchasedPhoneNumbers.
+  - GetPhoneNumbersAsync -> GetPurchasedPhoneNumbersAsync.
+- PhoneNumbersModelFactory static method AcquiredPhoneNumber is renamed to PurchasedPhoneNumber.
+- PurchasePhoneNumbersOperation and ReleasePhoneNumberOperation extend Operation instead of Operation<Response>.
+- Removed PhoneNumberOperationStatus and PhoneNumberOperationType.
+- Renamed ISOCurrencySymbol property to IsoCurrencySymbol in PhoneNumberCost.
+- Renamed threeLetterISOCountryName parameter to twoLetterIsoCountryName in PhoneNumbersClient.StartSearchAvailablePhoneNumbers and PhoneNumbersClient.StartSearchAvailablePhoneNumbersAsync.
+
+### Communication SMS 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.Sms_1.0.0/sdk/communication/Azure.Communication.Sms/CHANGELOG.md#100-2021-03-29)
+Updated `Azure.Communication.Sms` version.
+
+### Communication Common 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.Common_1.0.0/sdk/communication/Azure.Communication.Common/CHANGELOG.md#100-2021-03-29)
+Updated `Azure.Communication.Common` version.
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
