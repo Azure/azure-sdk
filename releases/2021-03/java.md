@@ -562,6 +562,342 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-ai-textanalytics</artifactId>
   <version>5.1.0-beta.5</version>
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-communication</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-file-share</artifactId>
+  <version>12.9.0-beta.2</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-starter-servicebus</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-context</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-telemetry</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-communication-chat</artifactId>
+  <version>1.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-integration-eventhubs</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-starter-eventhubs</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-stream-binder-servicebus-queue</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-core-serializer-json-jackson</artifactId>
+  <version>1.2.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-messaging</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-changeanalysis</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-integration-servicebus</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-common</artifactId>
+  <version>12.11.0-beta.2</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-identity-spring</artifactId>
+  <version>1.3.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-core</artifactId>
+  <version>1.14.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-jca</artifactId>
+  <version>1.0.0-beta.5</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-boot-starter-cosmos</artifactId>
+  <version>3.3.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-delegatednetwork</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-stream-binder-eventhubs</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-integration-core</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-stream-binder-servicebus-core</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-stream-binder-servicebus-topic</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-integration-storage-queue</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-boot-starter-keyvault-secrets</artifactId>
+  <version>3.3.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-blob</artifactId>
+  <version>12.11.0-beta.2</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-boot-starter-active-directory</artifactId>
+  <version>3.3.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-starter-storage-queue</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-storage</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-cosmos</artifactId>
+  <version>4.13.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-starter-cache</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-blob-cryptography</artifactId>
+  <version>12.11.0-beta.2</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-blob</artifactId>
+  <version>12.10.2</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-communication-identity</artifactId>
+  <version>1.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-file-datalake</artifactId>
+  <version>12.4.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-boot-starter-servicebus-jms</artifactId>
+  <version>3.3.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-resourcegraph</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-boot</artifactId>
+  <version>3.3.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-spring-data-cosmos</artifactId>
+  <version>3.5.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-stream-binder-test</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-starter-eventhubs-kafka</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-autoconfigure</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-boot-starter-keyvault-certificates</artifactId>
+  <version>3.0.0-beta.5</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-blob-batch</artifactId>
+  <version>12.9.0-beta.2</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-boot-starter-storage</artifactId>
+  <version>3.3.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-integration-test</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-file-datalake</artifactId>
+  <version>12.5.0-beta.2</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-common</artifactId>
+  <version>12.10.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-boot-starter</artifactId>
+  <version>3.3.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-apimanagement</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-blob</artifactId>
+  <version>12.10.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-blob-nio</artifactId>
+  <version>12.0.0-beta.4</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-boot-starter-active-directory-b2c</artifactId>
+  <version>3.3.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-communication-sms</artifactId>
+  <version>1.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-queue</artifactId>
+  <version>12.9.0-beta.2</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-communication-common</artifactId>
+  <version>1.0.0</version>
+</dependency>
+
 </dependency>
 ```
 
