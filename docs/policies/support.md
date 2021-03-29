@@ -11,7 +11,7 @@ The preview version support is limited to GitHub issues and response time is not
 The major version will remain active for at least 12 months from the release date. Compatible updates for the major release are provided through minor versions, or patch versions.  
 Customers encouraged to use the latest minor version, and only the latest minor version will get fixes and updates.  
 
-3.	**Maintenance**- Typically, maintenance mode is announced at the same time as the next major version is transitioned to GA/Active,  
+3.	**Maintenance** - Typically, maintenance mode is announced at the same time as the next major version is transitioned to Active,  
 after which the releases will only address the most critical bug fixes and security fixes for at least another 12 months.  
 
 4.	**Released to the community** –SDK will no longer receive updates from Microsoft unless specified otherwise in the separate customer agreement.  
