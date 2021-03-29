@@ -9,7 +9,7 @@ The preview version support is limited to GitHub issues and response time is not
 
 2.	**Active** - The SDKs are generally available and fully supported, will receive new feature updates, as well as bug and security fixes.  
 The major version will remain active for at least 12 months from the release date. Compatible updates for the major release are provided through minor versions, or patch versions.  
-Customers encouraged to use the latest minor version, and only the latest minor version will get fixes and updates.  
+Customers are encouraged to use the latest version as that is the version that will get fixes and updates.  
 
 3.	**Maintenance** - Typically, maintenance mode is announced at the same time as the next major version is transitioned to Active,  
 after which the releases will only address the most critical bug fixes and security fixes for at least another 12 months.  
