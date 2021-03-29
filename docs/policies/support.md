@@ -14,7 +14,7 @@ Customers encouraged to use the latest minor version, and only the latest minor 
 3.	**Maintenance** - Typically, maintenance mode is announced at the same time as the next major version is transitioned to Active,  
 after which the releases will only address the most critical bug fixes and security fixes for at least another 12 months.  
 
-4.	**Released to the community** –SDK will no longer receive updates from Microsoft unless specified otherwise in the separate customer agreement.  
+4.	**Released to the community** - SDK will no longer receive updates from Microsoft unless otherwise specified in the separate customer agreement.  
 The package will remain available via public package managers and the GitHub repo, which can be maintained by the community.  
 
 You can check the lifecycle stage for your package at [this page](https://azure.github.io/azure-sdk/releases/latest/index.html)  
