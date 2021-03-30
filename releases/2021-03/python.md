@@ -50,6 +50,9 @@ azure-mgmt-deviceupdate:1.0.0b2
 azure-mgmt-privatedns:1.0.0
 azure-mgmt-timeseriesinsights:1.0.0
 azure-mgmt-powerbidedicated:1.0.0
+azure-mgmt-cdn:11.0.0
+azure-mgmt-support:6.0.0
+azure-mgmt-communication:1.0.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -73,6 +76,9 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Resource Management - Private DNS
 - Resource Management - Time Series Insights
 - Resource Management - Power BI Dedicated
+- Resource Management - Content Delivery Network
+- Resource Management - Support
+- Resource Management - Communication
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -165,6 +171,9 @@ $> pip install azure-mgmt-deviceupdate==1.0.0b2
 $> pip install azure-mgmt-privatedns==1.0.0
 $> pip install azure-mgmt-timeseriesinsights==1.0.0
 $> pip install azure-mgmt-powerbidedicated==1.0.0
+$> pip install azure-mgmt-cdn==11.0.0
+$> pip install azure-mgmt-support==6.0.0
+$> pip install azure-mgmt-communication==1.0.0
 $> pip install azure-synapse-spark==0.5.0
 ```
 
@@ -821,6 +830,41 @@ This version will be the last version to officially support Python 3.5, future v
 
   - Model Resource no longer has parameter sku
   - Model ErrorResponse has a new signature
+
+### Resource Management - Content Delivery Network 11.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-cdn_11.0.0/sdk/cdn/azure-mgmt-cdn/CHANGELOG.md#1100-2021-03-29)
+**Features**
+
+  - Model ManagedRuleSetDefinition has a new parameter system_data
+  - Model Resource has a new parameter system_data
+
+**Breaking changes**
+
+  - Operation SecurityPoliciesOperations.begin_patch has a new signature
+  - Operation RuleSetsOperations.begin_create has a new signature
+  - Model RouteUpdatePropertiesParameters no longer has parameter optimization_type
+  - Model CustomerCertificateParameters no longer has parameter thumbprint
+  - Model CustomerCertificateParameters no longer has parameter subject
+  - Model CustomerCertificateParameters no longer has parameter expiration_date
+  - Model RouteProperties no longer has parameter optimization_type
+  - Model Route no longer has parameter optimization_type
+  - Model RouteUpdateParameters no longer has parameter optimization_type
+  - Operation LogAnalyticsOperations.get_log_analytics_metrics has a new signature
+  - Model ManagedCertificateParameters has a new signature
+
+### Resource Management - Support 6.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-support_6.0.0/sdk/support/azure-mgmt-support/CHANGELOG.md#600-2021-03-29)
+- GA release
+
+### Resource Management - Communication 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-communication_1.0.0/sdk/communication/azure-mgmt-communication/CHANGELOG.md#100-2021-03-29)
+**Features**
+
+  - Model CommunicationServiceResource has a new parameter system_data
+  - Model Operation has a new parameter action_type
+  - Model Operation has a new parameter is_data_action
+  - Added operation CommunicationServiceOperations.check_name_availability
+
+**Breaking changes**
+
+  - Model Operation no longer has parameter properties
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
