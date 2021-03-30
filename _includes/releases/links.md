@@ -16,9 +16,9 @@
     {% include releases/pkgbadge.md  label=package_label url=url version=version preview=include.preview %}
     </div>
     <div>
-    {% assign url = source_url | replace: 'item.Version', version %}
-    {% include releases/pkgbadge.md label="Code" url=url version=version preview=include.preview %}
-    &nbsp;|&nbsp;
+    {% assign code_url = source_url | replace: 'item.Version', version %}
+    {% include releases/pkgbadge.md label="Code" url=code_url version=version preview=include.preview %}
+
     {% if include.version == "VersionGA" %}
         {% assign msdocs_url = item.MSDocs %}
         {% if item.MSDocs == "" %}
@@ -27,16 +27,25 @@
                 {% assign msdocs_url = msdocs_url | append: pre_suffix %}
             {% endif %}
         {% endif %}
-        {% assign url = msdocs_url | replace: 'item.Version', version %}
-        {% include releases/pkgbadge.md label="Docs" url=url version=version %}  
+        {% assign msdocs_url = msdocs_url | replace: 'item.Version', version %}
+        {% if code_url != "" and code_url != "NA" and msdocs_url != "" and msdocs_url != "NA" %}
+            &nbsp;|&nbsp;
+        {% endif %}
+        {% include releases/pkgbadge.md label="Docs" url=msdocs_url version=version %}  
     {% else %}
         {% assign ghdocs_url = item.GHDocs %}
         {% if item.GHDocs == "" %}
             {% assign ghdocs_url = ghdocs_url_template | replace: 'item.Package', item.Package | replace: 'item.TrimmedPackage', trimmedPackage %}
         {% endif %}
     
-        {% assign url = ghdocs_url | replace: 'item.Version', version %}
-        {% include releases/pkgbadge.md label="Docs" url=url version=version preview="true" %}        
+        {% assign ghdocs_url = ghdocs_url | replace: 'item.Version', version %}
+         {% if code_url != "" and code_url != "NA" and ghdocs_url != "" and ghdocs_url != "NA" %}
+            &nbsp;|&nbsp;
+        {% endif %}
+        {% include releases/pkgbadge.md label="Docs" url=ghdocs_url version=version preview="true" %}        
     {% endif %}
     </div>
+    {% if item.Support != "" and include.version == "VersionGA" %}
+        <div>Support: <a href="https://aka.ms/azsdk/policies/support">{{ item.Support | capitalize }}</a></div>
+    {% endif %}    
 {% endif %}
