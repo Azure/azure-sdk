@@ -571,47 +571,47 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 To use **Azure Spring Boot** starters, refer to the Maven dependency information below, which may be copied into your projects Maven pom.xml file as appropriate.
 ```xml
 <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>com.azure.spring</groupId>
-        <artifactId>azure-spring-boot-bom</artifactId>
-        <version>3.3.0</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
+  <dependencies>
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot-bom</artifactId>
+      <version>3.3.0</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+  </dependencies>
 </dependencyManagement>
 
 <dependencies>
-    <dependency>
-      <groupId>com.azure.spring</groupId>
-      <artifactId>azure-spring-boot-starter-active-directory</artifactId>
-    </dependency>
+  <dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>azure-spring-boot-starter-active-directory</artifactId>
+  </dependency>
     
-    <dependency>
-      <groupId>com.azure.spring</groupId>
-      <artifactId>azure-spring-boot-starter-active-directory-b2c</artifactId>
-    </dependency>
-    
-    <dependency>
-      <groupId>com.azure.spring</groupId>
-      <artifactId>azure-spring-boot-starter-cosmos</artifactId>
-    </dependency>
-    
-    <dependency>
-      <groupId>com.azure.spring</groupId>
-      <artifactId>azure-spring-boot-starter-keyvault-secrets</artifactId>
-    </dependency>
-    
-    <dependency>
-      <groupId>com.azure.spring</groupId>
-      <artifactId>azure-spring-boot-starter-servicebus-jms</artifactId>
-    </dependency>
-    
-    <dependency>
-      <groupId>com.azure.spring</groupId>
-      <artifactId>azure-spring-boot-starter-storage</artifactId>
-    </dependency>
+  <dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>azure-spring-boot-starter-active-directory-b2c</artifactId>
+  </dependency>
+  
+  <dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>azure-spring-boot-starter-cosmos</artifactId>
+  </dependency>
+  
+  <dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>azure-spring-boot-starter-keyvault-secrets</artifactId>
+  </dependency>
+  
+  <dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>azure-spring-boot-starter-servicebus-jms</artifactId>
+  </dependency>
+  
+  <dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>azure-spring-boot-starter-storage</artifactId>
+  </dependency>
 </dependencies>
 ```
 
@@ -987,6 +987,25 @@ This is the initial release of Azure Device Update for IoT Hub library.
 #### Known Issues
 - `beginAnalyzeHealthcareEntities` is currently in gated preview and can not be used with AAD credentials.
   For more information, see [the Text Analytics for Health documentation](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health?tabs=ner#request-access-to-the-public-preview).
+
+### Azure Spring Boot [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot/CHANGELOG.md#330-2021-03-22)
+
+#### New features
+- Upgraded to Spring Boot [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
+- Upgraded to Spring Security [5.4.5](https://github.com/spring-projects/spring-security/releases/tag/5.4.5).
+- Upgraded to `azure-spring-data-cosmos` [3.5.0](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md#350-2021-03-11).
+- Supported creating `GrantedAuthority` by "roles" claim of id-token for web application in `azure-spring-boot-starter-active-directory`.
+
+#### Bug fixes
+- Fix bug of using closed `MessageProducer` and `MessageConsumer` when a link is force detached in `azure-spring-boot-starter-servicebus-jms`.
+
+### Azure Spring Cloud [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-cloud-autoconfigure/CHANGELOG.md#230-2021-03-22)
+
+#### New features
+- Upgraded to Spring Boot [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
+- Upgraded to Spring Integration [5.4.4](https://github.com/spring-projects/spring-integration/releases/tag/v5.4.4).
+- Tested with Spring Cloud [2020.0.1](https://spring.io/blog/2021/01/28/spring-cloud-2020-0-1-aka-ilford-is-available).
+- Supported setting Service Bus message ID ([#200005](https://github.com/Azure/azure-sdk-for-java/issues/20005)).
 
 
 ## Need help
