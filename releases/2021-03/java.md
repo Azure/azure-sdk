@@ -22,6 +22,8 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 - Azure Messaging Event Hubs
 - Azure Messaging Event Grid
 - Azure Messaging Service Bus
+- Azure Spring Boot
+- Azure Spring Cloud
 - Resource Management - Core
 - Resource Management - Resources
 - Resource Management - Event Hubs
@@ -78,6 +80,7 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 - Azure Monitor Opentelemetry Exporter
 - Azure Security Key Vault Administration
 - Azure Security Key Vault Certificates
+- Azure Security Key Vault JCA
 - Azure Security Key Vault Keys
 - Azure Security Key Vault Secrets
 - Resource Management - Event Grid
@@ -562,6 +565,103 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-ai-textanalytics</artifactId>
   <version>5.1.0-beta.5</version>
+</dependency>
+```
+
+To use **Azure Spring Boot** starters, refer to the Maven dependency information below, which may be copied into your projects Maven pom.xml file as appropriate.
+```xml
+<dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.azure.spring</groupId>
+        <artifactId>azure-spring-boot-bom</artifactId>
+        <version>3.3.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+</dependencyManagement>
+
+<dependencies>
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot-starter-active-directory</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot-starter-active-directory-b2c</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot-starter-cosmos</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot-starter-keyvault-secrets</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot-starter-servicebus-jms</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot-starter-storage</artifactId>
+    </dependency>
+</dependencies>
+```
+
+To use **Azure Spring Cloud** starters and binders, refer to the Maven dependency information below, which may be copied into your projects Maven pom.xml file as appropriate.
+
+```xml
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-starter-eventhubs-kafka</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-stream-binder-eventhubs</artifactId>
+  <version>2.3.0</version>
+</dependency>
+
+ <dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-stream-binder-servicebus-queue</artifactId>
+  <version>2.3.0</version> 
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-stream-binder-servicebus-topic</artifactId>
+  <version>2.3.0</version> 
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-starter-storage-queue</artifactId>
+  <version>2.3.0</version> 
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-starter-cache</artifactId>
+  <version>2.3.0</version>
+</dependency>
+```
+
+To use JCA Provider for Azure Key Vault, refer to the Maven dependency information below, which may be copied into your projects Maven pom.xml file as appropriate.
+
+```xml
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-jca</artifactId>
+  <version>1.0.0-beta.5</version> 
 </dependency>
 ```
 
