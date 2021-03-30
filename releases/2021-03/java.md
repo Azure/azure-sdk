@@ -100,6 +100,29 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 To use the GA and beta libraries, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate. If you are using a different build tool, refer to its documentation on how to specify dependencies.
 
 ```xml
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-communication-chat</artifactId>
+  <version>1.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-communication-common</artifactId>
+  <version>1.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-communication-identity</artifactId>
+  <version>1.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-communication-sms</artifactId>
+  <version>1.0.0</version>
+</dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
@@ -452,31 +475,13 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-communication-chat</artifactId>
-  <version>1.0.0</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-communication-chat</artifactId>
   <version>1.0.0-beta.5</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-communication-common</artifactId>
-  <version>1.0.0</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-communication-common</artifactId>
   <version>1.0.0-beta.6</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-communication-identity</artifactId>
-  <version>1.0.0</version>
 </dependency>
 
 <dependency>
@@ -489,12 +494,6 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-communication-phonenumbers</artifactId>
   <version>1.0.0-beta.7</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-communication-sms</artifactId>
-  <version>1.0.0</version>
 </dependency>
 
 <dependency>
@@ -755,21 +754,18 @@ This is the initial release of Azure Device Update for IoT Hub library.
 **Includes all changes from 1.0.0-beta.1 to  1.0.0.beta.5**
 
 #### Breaking Changes
-- Renamed `ChatThread` to `ChatThreadProperties`
-- Renamed `ChatThreadInfo` to `ChatThreadItem`
-- Renamed `repeatabilityRequestId` to `idempotencyToken`
-- SendMessage returns `SendChatMessageResult` instead of string ID
-- Renamed `CommunicationError` to `ChatError`
-- Renamed `CommunicationErrorResponse` to `ChatErrorResponse`
+- Renamed `ChatThread` to `ChatThreadProperties` , `ChatThreadInfo` to `ChatThreadItem`, `repeatabilityRequestId` to `idempotencyToken`
+ , `CommunicationError` to `ChatError` and `CommunicationErrorResponse` to `ChatErrorResponse`.
+- `SendMessage` returns `SendChatMessageResult` instead of string `ID`.
 - Moved `getChatThread` to `ChatThreadClient` and renamed to `getProperties`
 - Removed `AddChatParticipantsOptions`
 - Changed `addParticipants` to take `Iterable<ChatParticipant>` instead of `AddChatParticipantsOptions`
-- Added `context` parameter to the max overloads of `listParticipants`, `listReadReceipts`
 - `CreateChatThreadOptions` constructor now requires `topic`
 - Removed `setTopic` from `CreateChatThreadOptions`
 
 #### Added
-- Added `ChatThreadClientBuilder` 
+- Added `ChatThreadClientBuilder`
+- Added `context` parameter to the max overloads of `listParticipants`, `listReadReceipts`
 
 ### Azure Communication Chat 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-chat/CHANGELOG.md#100-beta5-2021-03-02)
 
