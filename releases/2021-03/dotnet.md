@@ -32,6 +32,12 @@ Azure.Communication.Chat:1.0.0
 Azure.Communication.PhoneNumbers:1.0.0-beta.6
 Azure.Communication.Sms:1.0.0
 Azure.Communication.Common:1.0.0
+Azure.Storage.Queues:12.6.1
+Azure.Storage.Files.DataLake:12.6.1
+Azure.Storage.Files.Shares:12.6.1
+Azure.Storage.Common:12.7.1
+Azure.Storage.Blobs.Batch:12.5.1
+Azure.Storage.Blobs:12.8.1
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -54,6 +60,12 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 - App Configuration
 - Event Hubs
 - Event Hubs - Event Processor
+- Storage - Queues
+- Storage - Files Data Lake
+- Storage - Files Shares
+- Storage - Common
+- Storage - Blobs Batch
+- Storage - Blobs
 
 [pattern.patch]: # (- ${PackageFriendlyName})
 
@@ -109,6 +121,12 @@ $> dotnet add package Azure.Communication.Chat --version 1.0.0
 $> dotnet add package Azure.Communication.PhoneNumbers --version 1.0.0-beta.6
 $> dotnet add package Azure.Communication.Sms --version 1.0.0
 $> dotnet add package Azure.Communication.Common --version 1.0.0
+$> dotnet add package Azure.Storage.Queues --version 12.6.1
+$> dotnet add package Azure.Storage.Files.DataLake --version 12.6.1
+$> dotnet add package Azure.Storage.Files.Shares --version 12.6.1
+$> dotnet add package Azure.Storage.Common --version 12.7.1
+$> dotnet add package Azure.Storage.Blobs.Batch --version 12.5.1
+$> dotnet add package Azure.Storage.Blobs --version 12.8.1
 $> dotnet add package Azure.IoT.DeviceUpdate --version 1.0.0-beta.2
 ```
 
@@ -349,6 +367,24 @@ Updated `Azure.Communication.Sms` version.
 
 ### Communication Common 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.Common_1.0.0/sdk/communication/Azure.Communication.Common/CHANGELOG.md#100-2021-03-29)
 Updated `Azure.Communication.Common` version.
+
+### Storage - Queues 12.6.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Queues_12.6.1/sdk/storage/Azure.Storage.Queues/CHANGELOG.md#1261-2021-03-29)
+- Fixed bug where ClientDiagnostics's DiagnosticListener was leaking resources.
+
+### Storage - Files Data Lake 12.6.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Files.DataLake_12.6.1/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md#1261-2021-03-29)
+- Fixed bug where ClientDiagnostics's DiagnosticListener was leaking resources.
+
+### Storage - Files Shares 12.6.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Files.Shares_12.6.1/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md#1261-2021-03-29)
+- Fixed bug where ClientDiagnostics's DiagnosticListener was leaking resources.
+
+### Storage - Common 12.7.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Common_12.7.1/sdk/storage/Azure.Storage.Common/CHANGELOG.md#1271-2021-03-29)
+- This release contains bug fixes to improve quality.
+
+### Storage - Blobs Batch 12.5.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Blobs.Batch_12.5.1/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md#1251-2021-03-29)
+- Fixed bug where ClientDiagnostics's DiagnosticListener was leaking resources.
+
+### Storage - Blobs 12.8.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Blobs_12.8.1/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md#1281-2021-03-29)
+- Fixed bug where ClientDiagnostics's DiagnosticListener was leaking resources.
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
