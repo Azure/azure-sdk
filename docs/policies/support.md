@@ -38,7 +38,7 @@ The Azure SDK will not guarantee support of dependencies that reached their end 
 Below is a list of common Azure SDK dependencies for your reference: 
 
 **Operating Systems:** Windows 10, macOS-10.15 , Linux (tested on Ubuntu 18.04) 
-For Mobile development: iOS version 13+, Android API level 21+
+For Mobile development, please find IOS supported platforms [here](https://azure.github.io/azure-sdk/ios_design.html#ios-library-support), and Android supported platforms [here](https://azure.github.io/azure-sdk/android_design.html)
 
 **Runtime:** 
 * Any platforms supporting .NET Standard 2.0. Tested on .NET Framework 4.6.1 and .NET Core 2.1, .NET 5.0, see test configuration [here](https://github.com/Azure/azure-sdk-for-net/blob/master/eng/pipelines/templates/stages/platform-matrix.json)  
@@ -46,7 +46,8 @@ For Mobile development: iOS version 13+, Android API level 21+
 * JS/TS: Node 8.x,10.x,12.x,14.x , see test configuration [here](https://github.com/Azure/azure-sdk-for-js/blob/master/eng/pipelines/templates/stages/platform-matrix.json)  
 * Python 3.5+, 2.7 , see test configuration [here](https://github.com/Azure/azure-sdk-for-python/blob/master/eng/pipelines/templates/stages/platform-matrix.json)  
 * Go runtime– we support 2 latest major Go releases, refer to  https://golang.org/doc/devel/release.html for more details.”
+* For C, refer to the list of supported platforms and compilers [here](https://azure.github.io/azure-sdk/clang_design.html)
 
 ### **Support**:
 Customers with support plan can open the Azure Support ticket [here](https://azure.microsoft.com/en-us/support/create-ticket/)  
-We also use [GitHub Issues](https://github.com/Azure/azure-sdk) to track bugs and feature requests. GitHub issues are free, but may take a longer time to process.   
+You can open a GitHub ussues [in the Azure SDK GitHub repositories](https://github.com/Azure/azure-sdk/blob/master/README.md)  to track bugs and feature requests. GitHub issues are free, but may take a longer time to process.   
