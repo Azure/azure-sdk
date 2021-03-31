@@ -38,6 +38,8 @@ Azure.Storage.Files.Shares:12.6.1
 Azure.Storage.Common:12.7.1
 Azure.Storage.Blobs.Batch:12.5.1
 Azure.Storage.Blobs:12.8.1
+Azure.Quantum.Jobs:1.0.0-beta.2
+Azure.IoT.ModelsRepository:1.0.0-preview.2
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -85,6 +87,8 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 - WebJobs Extensions - Event Grid
 - WebJobs Extensions - Service Bus
 - Communication Phone Numbers
+- Azure.Quantum.Jobs
+- Azure.Iot.ModelsRepository
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -127,6 +131,8 @@ $> dotnet add package Azure.Storage.Files.Shares --version 12.6.1
 $> dotnet add package Azure.Storage.Common --version 12.7.1
 $> dotnet add package Azure.Storage.Blobs.Batch --version 12.5.1
 $> dotnet add package Azure.Storage.Blobs --version 12.8.1
+$> dotnet add package Azure.Quantum.Jobs --version 1.0.0-beta.2
+$> dotnet add package Azure.IoT.ModelsRepository --version 1.0.0-preview.2
 $> dotnet add package Azure.IoT.DeviceUpdate --version 1.0.0-beta.2
 ```
 
@@ -385,6 +391,14 @@ Updated `Azure.Communication.Common` version.
 
 ### Storage - Blobs 12.8.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Blobs_12.8.1/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md#1281-2021-03-29)
 - Fixed bug where ClientDiagnostics's DiagnosticListener was leaking resources.
+
+### Azure.Quantum.Jobs 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Quantum.Jobs_1.0.0-beta.2/sdk/quantum/Azure.Quantum.Jobs/CHANGELOG.md#100-beta2-2021-03-30)
+- Fixed a bug where the client was unable to authenticate using Interactive or Service Principal credentials (issue #19588)
+
+### Azure.Iot.ModelsRepository 1.0.0-preview.2 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.IoT.ModelsRepository_1.0.0-preview.2/sdk/modelsrepository/Azure.IoT.ModelsRepository/CHANGELOG.md#100-preview2-2021-03-30)
+#### Breaking changes
+
+- Changing the package namespace from `Azure.Iot.ModelsRepository` to `Azure.IoT.ModelsRepository`
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
