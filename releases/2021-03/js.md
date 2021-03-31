@@ -34,6 +34,13 @@ repository: azure/azure-sdk-for-js
 @azure/communication-chat:1.0.0
 @azure/communication-identity:1.0.0
 @azure/communication-sms:1.0.0
+@azure/core-http:1.2.4
+@azure/core-auth:1.3.0
+@azure/core-client:1.1.0
+@azure/core-amqp:2.2.0
+@azure/core-lro:1.0.4
+@azure/core-rest-pipeline:1.0.3
+@azure/core-tracing:1.0.0-preview.11
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -56,6 +63,9 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Communication Chat
 - Communication Identity
 - Communication Sms
+- Core - Auth
+- Core - Client
+- Core - AMQP
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -71,6 +81,9 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Core Rest Pipeline
 - App Configuration
 - Cosmos DB
+- Core - HTTP
+- Core - LRO
+- Core Rest Pipeline
 
 [pattern.patch]: # (- ${PackageFriendlyName})
 
@@ -87,6 +100,7 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Azure Text Analytics
 - Identity
 - Communication Phone Numbers
+- Core - Tracing
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -131,6 +145,13 @@ $> npm install @azure/communication-phone-numbers@1.0.0-beta.5
 $> npm install @azure/communication-chat@1.0.0
 $> npm install @azure/communication-identity@1.0.0
 $> npm install @azure/communication-sms@1.0.0
+$> npm install @azure/core-http@1.2.4
+$> npm install @azure/core-auth@1.3.0
+$> npm install @azure/core-client@1.1.0
+$> npm install @azure/core-amqp@2.2.0
+$> npm install @azure/core-lro@1.0.4
+$> npm install @azure/core-rest-pipeline@1.0.3
+$> npm install @azure/core-tracing@1.0.0-preview.11
 $> npm install @azure/data-tables@12.0.0-beta.1
 ```
 
@@ -402,6 +423,56 @@ This update marks the preview for the first major version update of the `@azure/
 
 ### Communication Sms 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/communication-sms_1.0.0/sdk/communication/communication-sms/CHANGELOG.md#100-2021-03-29)
 - Stable release of `@azure/communication-sms`.
+
+### Core - HTTP 1.2.4 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-http_1.2.4/sdk/core/core-http/CHANGELOG.md#124-2021-03-30)
+- Rewrote `bearerTokenAuthenticationPolicy` to use a new backend that refreshes tokens only when they're about to expire and not multiple times before. This fixes the issue: [13369](https://github.com/Azure/azure-sdk-for-js/issues/13369).
+
+#### Breaking Changes
+
+- Updated @azure/core-tracing to version `1.0.0-preview.11`. See [@azure/core-tracing CHANGELOG](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/core/core-tracing/CHANGELOG.md) for details about breaking changes with tracing.
+
+### Core - Auth 1.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-auth_1.3.0/sdk/core/core-auth/CHANGELOG.md#130-2021-03-30)
+- Adds the `AzureNamedKeyCredential` class which supports credential rotation and a corresponding `NamedKeyCredential` interface to support the use of static string-based names and keys in Azure clients.
+- Adds the `isNamedKeyCredential` and `isSASCredential` typeguard functions similar to the existing `isTokenCredential`.
+
+### Core - Client 1.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-client_1.1.0/sdk/core/core-client/CHANGELOG.md#110-2021-03-30)
+#### Breaking Changes
+
+- If the response body is empty and the mapper for it says it is nullable, then a null is returned.
+- Updated @azure/core-tracing to version `1.0.0-preview.11`. See [@azure/core-tracing CHANGELOG](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/core/core-tracing/CHANGELOG.md) for details about breaking changes with tracing.
+
+### Core - AMQP 2.2.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-amqp_2.2.0/sdk/core/core-amqp/CHANGELOG.md#220-2021-03-30)
+- Updates `translateError` to convert non-object type parameters to errors.
+  The parameter will be part of the error's `message` property unless the parameter is null or undefined.
+  Fixes issue [14499](https://github.com/Azure/azure-sdk-for-js/issues/14499).
+
+- Addresses issue [9988](https://github.com/Azure/azure-sdk-for-js/issues/9988)
+  by updating the following operations to accept an `abortSignal` to allow cancellation:
+  - CbsClient.init()
+  - CbsClient.negotiateClaim()
+  - RequestResponseLink.create()
+- Exporting `StandardAbortMessage` that is the standard error message accompanying the `AbortError`.
+
+### Core - LRO 1.0.4 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-lro_1.0.4/sdk/core/core-lro/CHANGELOG.md#104-2021-03-30)
+- Bug fix: Fix an issue where we might return stale state if the `update` implementation reassigns `operation.state`.
+
+#### Breaking Changes
+
+- Updated @azure/core-tracing to version `1.0.0-preview.11`. See [@azure/core-tracing CHANGELOG](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/core/core-tracing/CHANGELOG.md) for details about breaking changes with tracing.
+
+### Core Rest Pipeline 1.0.3 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-rest-pipeline_1.0.3/sdk/core/core-rest-pipeline/CHANGELOG.md#103-2021-03-30)
+#### Breaking Changes
+
+- Updated @azure/core-tracing to version `1.0.0-preview.11`. See [@azure/core-tracing CHANGELOG](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/core/core-tracing/CHANGELOG.md) for details about breaking changes with tracing.
+
+### Core - Tracing 1.0.0-preview.11 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-tracing_1.0.0-preview.11/sdk/core/core-tracing/CHANGELOG.md#100-preview11-2021-03-30)
+#### Breaking Changes
+
+- Update @azure/core-tracing to version 1.0.0-preview.11. This brings core-tracing up to date with @opentelemetry/api@1.0.0-rc.0.
+  There are two scenarios that will require changes if you are using tracing:
+  - Previously, you would pass a parent span using the `OperationOptions.tracingOptions.spanOptions.parentSpan` property. This has been
+    changed so that you now specify a parent `Context` using the `OperationOptions.tracingOptions.tracingContext` property instead.
+  - The status code for Spans is no longer of type `CanonicalCode`. Instead, it's now `SpanStatusCode`, which also has a smaller range of values.
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
