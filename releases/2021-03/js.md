@@ -80,7 +80,6 @@ The Azure SDK team is pleased to make available the March 2021 client library re
 - Cosmos DB
 - Core Rest Pipeline
 - App Configuration
-- Cosmos DB
 - Core - HTTP
 - Core - LRO
 - Core Rest Pipeline
