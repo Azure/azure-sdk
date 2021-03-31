@@ -48,13 +48,12 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 
 #### GA
 - Azure Mixed Reality Authentication
+- Communication Chat
+- Communication Common
+- Communication Identity
+- Communication SMS
 - Core
 - Event Grid
-- Event Grid
-- Communication Identity
-- Communication Chat
-- Communication SMS
-- Communication Common
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -62,16 +61,18 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 - App Configuration
 - Event Hubs
 - Event Hubs - Event Processor
-- Storage - Queues
+- Storage - Blobs
+- Storage - Blobs Batch
+- Storage - Common
 - Storage - Files Data Lake
 - Storage - Files Shares
-- Storage - Common
-- Storage - Blobs Batch
-- Storage - Blobs
+- Storage - Queues
 
 [pattern.patch]: # (- ${PackageFriendlyName})
 
 #### Beta
+- Azure.Iot.ModelsRepository
+- Azure.Quantum.Jobs
 - Communication Chat
 - Communication Common
 - Communication Identity
@@ -79,16 +80,13 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 - Communication SMS
 - Form Recognizer
 - Identity
+- IoT Device Update
 - Service Bus
 - Synapse - Artifacts
 - Tables
 - Text Analytics
-- IoT Device Update
 - WebJobs Extensions - Event Grid
 - WebJobs Extensions - Service Bus
-- Communication Phone Numbers
-- Azure.Quantum.Jobs
-- Azure.Iot.ModelsRepository
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -101,39 +99,39 @@ $> dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.3
 $> dotnet add package Azure.AI.TextAnalytics --version 5.1.0-beta.5
 $> dotnet add package Azure.Analytics.Synapse.Artifacts --version 1.0.0-preview.7
 $> dotnet add package Azure.Communication.Chat --version 1.0.0-beta.5
+$> dotnet add package Azure.Communication.Chat --version 1.0.0
 $> dotnet add package Azure.Communication.Common --version 1.0.0-beta.5
+$> dotnet add package Azure.Communication.Common --version 1.0.0
 $> dotnet add package Azure.Communication.Identity --version 1.0.0-beta.5
+$> dotnet add package Azure.Communication.Identity --version 1.0.0
 $> dotnet add package Azure.Communication.PhoneNumbers --version 1.0.0-beta.5
+$> dotnet add package Azure.Communication.PhoneNumbers --version 1.0.0-beta.6
 $> dotnet add package Azure.Communication.SMS --version 1.0.0-beta.5
+$> dotnet add package Azure.Communication.Sms --version 1.0.0
 $> dotnet add package Azure.Core --version 1.10.0
 $> dotnet add package Azure.Core --version 1.11.0
 $> dotnet add package Azure.Data.AppConfiguration --version 1.1.0-beta.1
 $> dotnet add package Azure.Data.Tables --version 12.0.0-beta.6
 $> dotnet add package Azure.Identity --version 1.4.0-beta.4
+$> dotnet add package Azure.IoT.DeviceUpdate --version 1.0.0-beta.2
+$> dotnet add package Azure.IoT.ModelsRepository --version 1.0.0-preview.2
 $> dotnet add package Azure.Messaging.EventGrid --version 4.0.0
+$> dotnet add package Azure.Messaging.EventGrid --version 4.1.0
 $> dotnet add package Microsoft.Azure.Messaging.EventGrid.CloudNativeCloudEvents --version 1.0.0-beta.1
 $> dotnet add package Azure.Messaging.EventHubs --version 5.3.1
 $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.3.1
 $> dotnet add package Azure.MixedReality.Authentication --version 1.0.0
 $> dotnet add package Azure.MixedReality.ObjectAnchors.Conversion --version 0.1.0-beta.1
 $> dotnet add package Azure.MixedReality.RemoteRendering --version 1.0.0-beta.3
-$> dotnet add package Microsoft.Azure.WebJobs.Extensions.EventGrid --version 3.0.0-beta.1
-$> dotnet add package Azure.Messaging.EventGrid --version 4.1.0
-$> dotnet add package Microsoft.Azure.WebJobs.Extensions.ServiceBus --version 5.0.0-beta.1
-$> dotnet add package Azure.Communication.Identity --version 1.0.0
-$> dotnet add package Azure.Communication.Chat --version 1.0.0
-$> dotnet add package Azure.Communication.PhoneNumbers --version 1.0.0-beta.6
-$> dotnet add package Azure.Communication.Sms --version 1.0.0
-$> dotnet add package Azure.Communication.Common --version 1.0.0
-$> dotnet add package Azure.Storage.Queues --version 12.6.1
+$> dotnet add package Azure.Storage.Blobs --version 12.8.1
+$> dotnet add package Azure.Storage.Blobs.Batch --version 12.5.1
+$> dotnet add package Azure.Storage.Common --version 12.7.1
 $> dotnet add package Azure.Storage.Files.DataLake --version 12.6.1
 $> dotnet add package Azure.Storage.Files.Shares --version 12.6.1
-$> dotnet add package Azure.Storage.Common --version 12.7.1
-$> dotnet add package Azure.Storage.Blobs.Batch --version 12.5.1
-$> dotnet add package Azure.Storage.Blobs --version 12.8.1
+$> dotnet add package Azure.Storage.Queues --version 12.6.1
 $> dotnet add package Azure.Quantum.Jobs --version 1.0.0-beta.2
-$> dotnet add package Azure.IoT.ModelsRepository --version 1.0.0-preview.2
-$> dotnet add package Azure.IoT.DeviceUpdate --version 1.0.0-beta.2
+$> dotnet add package Microsoft.Azure.WebJobs.Extensions.EventGrid --version 3.0.0-beta.1
+$> dotnet add package Microsoft.Azure.WebJobs.Extensions.ServiceBus --version 5.0.0-beta.1
 ```
 
 [pattern]: # ($> dotnet add package ${PackageName} --version ${PackageVersion})
