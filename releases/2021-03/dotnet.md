@@ -54,6 +54,10 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 - Communication SMS
 - Core
 - Event Grid
+- Azure Communication Chat
+- Azure Communication Common
+- Azure Communication Identity
+- Azure Communication SMS
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -71,13 +75,11 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 [pattern.patch]: # (- ${PackageFriendlyName})
 
 #### Beta
-- Azure.Iot.ModelsRepository
-- Azure.Quantum.Jobs
-- Communication Chat
-- Communication Common
-- Communication Identity
-- Communication Phone Numbers
-- Communication SMS
+- Azure Communication Chat
+- Azure Communication Common
+- Azure Communication Identity
+- Azure Communication Phone Numbers
+- Azure Communication SMS
 - Form Recognizer
 - Identity
 - IoT Device Update
@@ -98,16 +100,15 @@ To install any of our packages, please search for them via `Manage NuGet Package
 $> dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.3
 $> dotnet add package Azure.AI.TextAnalytics --version 5.1.0-beta.5
 $> dotnet add package Azure.Analytics.Synapse.Artifacts --version 1.0.0-preview.7
-$> dotnet add package Azure.Communication.Chat --version 1.0.0-beta.5
 $> dotnet add package Azure.Communication.Chat --version 1.0.0
-$> dotnet add package Azure.Communication.Common --version 1.0.0-beta.5
+$> dotnet add package Azure.Communication.Chat --version 1.0.0-beta.5
 $> dotnet add package Azure.Communication.Common --version 1.0.0
-$> dotnet add package Azure.Communication.Identity --version 1.0.0-beta.5
+$> dotnet add package Azure.Communication.Common --version 1.0.0-beta.5
 $> dotnet add package Azure.Communication.Identity --version 1.0.0
-$> dotnet add package Azure.Communication.PhoneNumbers --version 1.0.0-beta.5
+$> dotnet add package Azure.Communication.Identity --version 1.0.0-beta.5
 $> dotnet add package Azure.Communication.PhoneNumbers --version 1.0.0-beta.6
-$> dotnet add package Azure.Communication.SMS --version 1.0.0-beta.5
-$> dotnet add package Azure.Communication.Sms --version 1.0.0
+$> dotnet add package Azure.Communication.SMS --version 1.0.0
+$> dotnet add package Azure.Communication.SMS --version 1.0.0-beta.4
 $> dotnet add package Azure.Core --version 1.10.0
 $> dotnet add package Azure.Core --version 1.11.0
 $> dotnet add package Azure.Data.AppConfiguration --version 1.1.0-beta.1
@@ -178,50 +179,89 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 - `PhoneNumberAdministrationClient` has moved into the new package `Azure.Communication.PhoneNumbers` and been replaced by `PhoneNumberClient`.
 
+### Azure Communication Chat 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Chat/CHANGELOG.md#100-2021-03-29)
+**Includes all changes from 1.0.0-beta.1 to  1.0.0.beta.5**
+
+#### Breaking Changes
+- Renamed client constructors URL variable to `endpoint`.
+- Renamed `ChatThread` model to `ChatThreadProperties`.
+- Renamed `GetChatThread` operation to `GetPropertie`s and moved it to `ChatThreadClient`.
+- Renamed `ChatThreadInfo` model to `ChatThreadItem`.
+- Renamed `GetChatThreadsInfo` operation to `GetChatThreads`.
+- Made `AddParticipant` throw exception when request fails.
+- Renamed parameter `repeatabilityRequestId` to `idempotencyToken`.
+- Updated `SendMessage` to use `SendChatMessageResult` instead of `string` for the request result.
+- Exposed the list of `invalidparticipants` directly and removed `AddChatParticipantsErrors` and `CreateChatThreadErrors` models for `AddChatParticipantsResult` and `CreateChatThreadResult`.
+
+#### Added
+- Made list of participants optional for `CreateChatThread`.
+- Made `ChatThreadClient` constructor public.
+
 ### Azure Communication Chat 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Chat/CHANGELOG.md#100-beta5-2021-03-09)
 
 #### Breaking Changes
-
 - Added support for communication identifiers instead of raw strings.
 - Removed support for nullable reference types.
+
+### Azure Communication Common 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Common/CHANGELOG.md#100-2021-03-29)
+**Includes all changes from 1.0.0-beta.1 to  1.0.0.beta.5**
 
 ### Azure Communication Common  1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Common/CHANGELOG.md#100-beta5-2021-03-09)
 
 #### Breaking Changes
-
 - Updated `CommunicationTokenRefreshOptions(bool refreshProactively, Func<CancellationToken, string> tokenRefresher,  Func<CancellationToken, ValueTask<string>> asyncTokenRefresher = null, string initialToken = null)`
 to `CommunicationTokenRefreshOptions(bool refreshProactively, Func<CancellationToken, string> tokenRefresher)`. `AsyncTokenRefresher` and `InitialToken` are updated to become public properties.
+
+### Azure Communication Identity 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Identity/CHANGELOG.md#100-2021-03-29)
+**Includes all changes from 1.0.0-beta.1 to  1.0.0.beta.5**
 
 ### Azure Communication Identity 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Identity/CHANGELOG.md#100-beta5-2021-03-09)
 
 #### Breaking Changes
-
-- `CommunicationIdentityClient.IssueToken` and `CommunicationIdentityClient.IssueTokenAsync` are renamed to `GetToken` and `GetTokenAsync`, respectively
+- `CommunicationIdentityClient.IssueToken` and `CommunicationIdentityClient.IssueTokenAsync` are renamed to `GetToken` and `GetTokenAsync`, respectively.
 - `CommunicationIdentityClient.CreateUserWithToken` and `CommunicationIdentityClient.CreateUserWithTokenAsync` are renamed to `CreateUserAndToken` and `CreateUserAndTokenAsync`, respectively. Their return value is also changed from `Tuple<CommunicationUserIdentifier, string>` to `CommunicationUserIdentifierAndToken`.
+
+### Azure Communication Phone Numbers 1.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.PhoneNumbers/CHANGELOG.md#100-beta6-2021-03-29)
+
+### Added
+- Added protected constructor to `PurchasePhoneNumbersOperation` and `ReleasePhoneNumberOperation` for mocking.
+
+### Breaking Changes
+- All models are moved from `Azure.Communication.PhoneNumbers.Models` namespace to `Azure.Communication.PhoneNumbers`.
+- `AcquiredPhoneNumber` class is renamed to `PurchasedPhoneNumber`.
+- `PhoneNumbersClient` methods renamed:
+  - `GetPhoneNumber` -> `GetPurchasedPhoneNumber`.
+  - `GetPhoneNumberAsync` -> `GetPurchasedPhoneNumberAsync`.
+  - `GetPhoneNumbers` -> `GetPurchasedPhoneNumbers`.
+  - `GetPhoneNumbersAsyn`c -> `GetPurchasedPhoneNumbersAsync`.
+- `PhoneNumbersModelFactory` static method `AcquiredPhoneNumber` is renamed to `PurchasedPhoneNumber`.
+- `PurchasePhoneNumbersOperation` and `ReleasePhoneNumberOperation` extend `Operation` instead of `Operation<Response>`.
+- Removed `PhoneNumberOperationStatus` and `PhoneNumberOperationType`.
+- Renamed `ISOCurrencySymbol` property to `IsoCurrencySymbol` in `PhoneNumberCost`.
+- Renamed `threeLetterISOCountryName` parameter to `twoLetterIsoCountryName`` in `PhoneNumbersClient.StartSearchAvailablePhoneNumbers` and `PhoneNumbersClient.StartSearchAvailablePhoneNumbersAsync`.
 
 ### Azure Communication Phone Numbers 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.PhoneNumbers/CHANGELOG.md#100-beta5-2021-03-09)
 
 #### New features
-
 - Added `PhoneNumbersClient` (originally was part of the `Azure.Communication.Administration` package).
 - Added support for Azure Active Directory Authentication.
 
 #### Breaking Changes
-
 - `PhoneNumberAdministrationClient` has been replaced with `PhoneNumbersClient`, which has the same functionality but different APIs. To learn more about how PhoneNumbersClient works, refer to the [README.md](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.PhoneNumbers/README.md)
+
+### Azure Communication SMS 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Sms/CHANGELOG.md#100-2021-03-29)
+**Includes all changes from 1.0.0-beta.1 to  1.0.0.beta4**
 
 ### Azure Communication SMS 1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Sms/CHANGELOG.md#100-beta4-2021-03-09)
 
 #### New features
-
-- Added support to create SmsClient with AzureKeyCredential.
-- Added support to create SmsClient with TokenCredential.
+- Added support to create `SmsClient` with `AzureKeyCredential`.
+- Added support to create `SmsClient` with `TokenCredential`.
 - Added support for 1:N SMS messaging.
 - Added support for tagging SMS messages.
-- Send method series in SmsClient are idempotent under retry policy.
+- Send method series in `SmsClient` are idempotent under retry policy.
 
 #### Breaking Changes
-
 - Updated `Task<Response<SendSmsResponse>> SendAsync(PhoneNumberIdentifier from, PhoneNumberIdentifier to, string message, SendSmsOptions sendSmsOptions = null, CancellationToken cancellationToken = default)`
 to `Task<Response<SmsSendResult>> SendAsync(string from, string to, string message, SmsSendOptions options = default)`
 - Replaced `SendSmsResponse` with `SmsSendResult`
