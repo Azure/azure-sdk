@@ -7,7 +7,7 @@ repository: azure/azure-sdk-for-python
 ---
 
 <!--
-[pattern]: # (${PackageName}:${PackageVersion})
+[pattern.head]: # (${PackageName}:${PackageVersion})
 -->
 
 The Azure SDK team is pleased to make available the %%MMMM yyyy%% client library release.
@@ -32,7 +32,7 @@ To install the latest beta version of the packages, copy and paste the following
 
 ```
 
-[pattern]: # ($> pip install ${PackageName}==${PackageVersion})
+[pattern.install]: # ($> pip install ${PackageName}==${PackageVersion})
 
 ## Feedback
 
@@ -40,7 +40,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-[pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
+[pattern.highlights]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
 ## Latest Releases
 

@@ -7,7 +7,7 @@ repository: azure/azure-sdk-for-net
 ---
 
 <!--
-[pattern]: # (${PackageName}:${PackageVersion})
+[pattern.head]: # (${PackageName}:${PackageVersion})
 -->
 
 The Azure SDK team is pleased to announce our %%MMMM yyyy%% client library releases.
@@ -32,7 +32,7 @@ To install any of our packages, please search for them via `Manage NuGet Package
 
 ```
 
-[pattern]: # ($> dotnet add package ${PackageName} --version ${PackageVersion})
+[pattern.install]: # ($> dotnet add package ${PackageName} --version ${PackageVersion})
 
 ## Feedback
 
@@ -40,7 +40,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 ## Release highlights
 
-[pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
+[pattern.highlights]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
 ## Latest Releases
 

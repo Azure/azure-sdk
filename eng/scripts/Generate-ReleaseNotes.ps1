@@ -182,6 +182,59 @@ function Write-GeneralReleaseNote ($releaseHighlights, $releaseNotesContent, $re
     Set-Content -Path $releaseFilePath -Value $newReleaseContent
 }
 
+function Write-HeadSection ($releaseHighlights, $releaseNotesContent, $releaseFilePath)
+{
+    $releaseNotesContent = $releaseNotesContent -as [System.Collections.ArrayList]
+    $allPackagesSorted = $CsvMetaData | Sort-Object -Property ServiceName, Package
+
+    for($i = 0; $i -lt $releaseNotesContent.Count; $i++)
+    {
+        $line = $releaseNotesContent[$i]
+        if ($line.StartsWith('<!--'))
+        {
+            $startIndex = $i + 1
+        }
+
+        if (($line -match $PATTERN_REGEX) -and ($Matches["SectionName"] -eq "head"))
+        {
+            $endIndex = $i - 1
+            $allPackageNames = $allPackagesSorted.Package
+            foreach ($item in $releaseHighlights.Keys) 
+            {
+                Write-Host $item
+                $insertIndex = $startIndex
+                $packageA = (@($item -split ":"))[0] # The package from the collected changelogs
+                for ($j = $startIndex; $j -le $endIndex; $j++)
+                {
+                    $packageB = (@($releaseNotesContent[$j] -split ":"))[0] # The package from the line in the file
+                    $packageASortPosition = [Array]::IndexOf($allPackageNames, $packageA)
+                    $packageBSortPosition = if ([System.String]::IsNullOrEmpty($packageB)) { 
+                        -1
+                    }
+                    elseif ([Array]::IndexOf($allPackageNames, $packageB) -gt $packageBSortPosition) {
+                        [Array]::IndexOf($allPackageNames, $packageB) 
+                    }
+
+                    if ($packageASortPosition -gt $packageBSortPosition)
+                    {
+                        $insertIndex = $j + 1
+                    }
+                }
+                if ([System.String]::IsNullOrEmpty($releaseNotesContent[$startIndex]))
+                {
+                    $startIndex++
+                }
+                $releaseNotesContent.Insert($insertIndex, $item)
+                $endIndex++
+            }
+
+            $releaseNotesContent.Insert($i, "")
+            break
+        }
+    }
+    return $releaseNotesContent
+}
+
 $presentPkgsInfo = Get-PackagesInfoFromFile -releaseNotesContent $existingReleaseContent
 $dateOfLatestUpdate = @(Get-Content -Path $pathToDateOfLatestUpdates)
 
