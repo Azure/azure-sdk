@@ -104,7 +104,7 @@ Example Changelog:
 - Parallel upload/download performance improvements
 ```
 
-{% include requirement/SHOULD %} link to GitHub issues (full URL) that were fixed in that release going forward (i.e. do not backfill older issues). See example above under the `### KeyBugFixes` heading.
+{% include requirement/SHOULD %} link to GitHub issues (full URL) that were fixed in that release going forward (i.e. do not backfill older issues). See example above under the `### Key Bug Fixes` heading.
 
 For clarity, a `change log entry` is simply the header + content up to the next release header OR EOF. During release, if there exists a changelog entry with a version specifier _matching_ that of the currently releasing package, that changelog entry will be added as the body of the GitHub release.
 
