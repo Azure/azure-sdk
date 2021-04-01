@@ -50,4 +50,4 @@ For Mobile development, please find IOS supported platforms [here](https://azure
 
 ### **Support**:
 Customers with support plan can open the Azure Support ticket [here](https://azure.microsoft.com/en-us/support/create-ticket/)  
-You can open a GitHub ussues [in the Azure SDK GitHub repositories](https://github.com/Azure/azure-sdk/blob/master/README.md)  to track bugs and feature requests. GitHub issues are free, but may take a longer time to process.   
+You can open a GitHub issues [in the Azure SDK GitHub repositories](https://github.com/Azure/azure-sdk/blob/master/README.md)  to track bugs and feature requests. GitHub issues are free, but may take a longer time to process.   
