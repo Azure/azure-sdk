@@ -12,21 +12,15 @@ repository: azure/azure-sdk-for-js
 @azure/communication-identity:1.0.0
 @azure/core-rest-pipeline:1.0.3
 @azure/core-lro:1.0.4
-@azure/app-configuration:1.1.1
-@azure/core-rest-pipeline:1.0.1
 @azure/communication-common:1.0.0
 @azure/core-client:1.1.0
 @azure/communication-chat:1.0.0
 @azure/identity:2.0.0-beta.1
-@azure/core-rest-pipeline:1.0.2
 @azure/core-http:1.2.4
 @azure/communication-sms:1.0.0
 @azure/core-amqp:2.2.0
 @azure/service-bus:7.0.4
 @azure/core-tracing:1.0.0-preview.11
-@azure/cosmos:3.10.4
-@azure/cosmos:3.10.5
-@azure/eventgrid:4.1.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -41,19 +35,14 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Communication Chat
 - Communication Sms
 - Core - AMQP
-- Event Grid
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
 #### Updates
 - Core Rest Pipeline
 - Core - LRO
-- App Configuration
-- Core Rest Pipeline
-- Core Rest Pipeline
 - Core - HTTP
 - Service Bus
-- Cosmos DB
 - Cosmos DB
 
 [pattern.patch]: # (- ${PackageFriendlyName})
@@ -75,8 +64,6 @@ $> npm install @azure/core-auth@1.3.0
 $> npm install @azure/communication-identity@1.0.0
 $> npm install @azure/core-rest-pipeline@1.0.3
 $> npm install @azure/core-lro@1.0.4
-$> npm install @azure/app-configuration@1.1.1
-$> npm install @azure/core-rest-pipeline@1.0.1
 $> npm install @azure/communication-common@1.0.0
 $> npm install @azure/core-client@1.1.0
 $> npm install @azure/communication-chat@1.0.0
@@ -87,9 +74,6 @@ $> npm install @azure/communication-sms@1.0.0
 $> npm install @azure/core-amqp@2.2.0
 $> npm install @azure/service-bus@7.0.4
 $> npm install @azure/core-tracing@1.0.0-preview.11
-$> npm install @azure/cosmos@3.10.4
-$> npm install @azure/cosmos@3.10.5
-$> npm install @azure/eventgrid@4.1.0
 
 ```
 
@@ -126,14 +110,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 #### Breaking Changes
 
 - Updated @azure/core-tracing to version `1.0.0-preview.11`. See [@azure/core-tracing CHANGELOG](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/core/core-tracing/CHANGELOG.md) for details about breaking changes with tracing.
-
-### App Configuration 1.1.1 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/app-configuration_1.1.1/sdk/appconfiguration/app-configuration/CHANGELOG.md#111-2021-03-25)
-- Fix issues with `select`ing fields to be returned from `listConfigurationSettings`, `listConfigurationRevisions`
-  and `getConfigurationSetting` where `last_modified` and `content_type` could not properly be passed in.
-  [PR #13258](https://github.com/Azure/azure-sdk-for-js/pull/13258)
-
-### Core Rest Pipeline 1.0.1 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-rest-pipeline_1.0.1/sdk/core/core-rest-pipeline/CHANGELOG.md#101-2021-03-18)
-- Fixed an issue where `timeout` and `abortSignal` of requests was not honored on Node after requests had already been issued to the server. [PR 14359](https://github.com/Azure/azure-sdk-for-js/pull/14359)
 
 ### Communication Common 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/communication-common_1.0.0/sdk/communication/communication-common/CHANGELOG.md#100-2021-03-22)
 Updated `@azure/communication-common` version.
@@ -195,9 +171,6 @@ This update marks the preview for the first major version update of the `@azure/
   - As before, please use only the `InteractiveBrowserCredential` in your browser applications.
 - For the `InteractiveBrowserCredential` for node, replaced the use of the `express` module with a native http server for Node, shrinking the resulting identity module considerably.
 
-### Core Rest Pipeline 1.0.2 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-rest-pipeline_1.0.2/sdk/core/core-rest-pipeline/CHANGELOG.md#102-2021-03-25)
-- Fixed an issue where chunked HTTP responses would sometimes be decoded incorrectly when multibyte characters were used. [PR 14517](https://github.com/Azure/azure-sdk-for-js/pull/14517)
-
 ### Core - HTTP 1.2.4 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-http_1.2.4/sdk/core/core-http/CHANGELOG.md#124-2021-03-30)
 - Rewrote `bearerTokenAuthenticationPolicy` to use a new backend that refreshes tokens only when they're about to expire and not multiple times before. This fixes the issue: [13369](https://github.com/Azure/azure-sdk-for-js/issues/13369).
 
@@ -247,23 +220,6 @@ This update marks the preview for the first major version update of the `@azure/
   - Previously, you would pass a parent span using the `OperationOptions.tracingOptions.spanOptions.parentSpan` property. This has been
     changed so that you now specify a parent `Context` using the `OperationOptions.tracingOptions.tracingContext` property instead.
   - The status code for Spans is no longer of type `CanonicalCode`. Instead, it's now `SpanStatusCode`, which also has a smaller range of values.
-
-### Cosmos DB 3.10.4 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/cosmos_3.10.4/sdk/cosmosdb/cosmos/CHANGELOG.md#3104-2021-03-23)
-- FEATURE: Adds Bulk continueOnError option.
-
-### Cosmos DB 3.10.5 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/cosmos_3.10.5/sdk/cosmosdb/cosmos/CHANGELOG.md#3105-2021-03-25)
-- BUGFIX: Pins node-abort-controller version as we depend on a type in v1.2.0.
-
-### Event Grid 4.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/eventgrid_4.1.0/sdk/eventgrid/eventgrid/CHANGELOG.md#410-2021-03-23)
-- The system event names `Microsoft.Communication.ChatParticipantAddedToThread` and `Microsoft.Communication.ChatParticipantRemovedFromThread` have been removed, and
-  `Microsoft.Communication.ChatThreadParticipantAdded` and `Microsoft.Communication.ChatThreadParticipantRemoved` have been added. The old names did not match the
-  the type names that Azure Communication Services was using for these events. TypeScript users will now see compliation errors if they are calling `isSystemEvent` with
-  either `Microsoft.Communication.ChatParticipantAddedToThread` or `Microsoft.Communication.ChatParticipantRemovedFromThread` as the event name. To fix these issues,
-  replace all uses of `Microsoft.Communication.ChatParticipantAddedToThread` with `Microsoft.Communication.ChatThreadParticipantAdded` and
-  `Microsoft.Communication.ChatParticipantRemovedFromThread` with `Microsoft.Communication.ChatThreadParticipantRemoved`.
-
-- Add `Microsoft.Communications.RecordingFileStatusUpdated` system event.
-
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
