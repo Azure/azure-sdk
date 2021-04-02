@@ -94,6 +94,15 @@ azure-spring-data-cosmos:3.5.1
 azure-spring-cloud-starter-servicebus:2.3.0
 azure-spring-boot-starter-servicebus-jms:3.3.0
 azure-spring-cloud-telemetry:2.3.0
+azure-core-test:1.6.1
+azure-core:1.15.0
+azure-core-experimental:1.0.0-beta.12
+azure-core-serializer-avro-apache:1.0.0-beta.9
+azure-core-management:1.2.1
+azure-core-tracing-opentelemetry:1.0.0-beta.9
+azure-core-serializer-json-gson:1.1.1
+azure-core-serializer-json-jackson:1.2.2
+azure-core-http-okhttp:1.6.1
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -158,6 +167,7 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Azure Spring Cloud Starter Service bus
 - Azure Spring Boot Starter Service bus Jms
 - Azure Spring Cloud Telemetry
+- Core
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -170,6 +180,11 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Storage - Blobs
 - Storage - Common
 - Spring Data Cosmos
+- Core - Test
+- Management - Core
+- Core Serializer GSON JSON
+- Core Serializer Jackson JSON
+- Core - HTTP OkHttp
 
 [pattern.patch]: # (- ${PackageFriendlyName})
 
@@ -196,6 +211,9 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Storage - Files Data Lake
 - Azure Spring Boot Starter Key Vault Certificates
 - Resource Management - Delegated Network
+- Core Experimental
+- Core Serializer Apache Avro
+- Tracing OpenTelemetry Plugin
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -726,6 +744,60 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <version>2.3.0</version>
 </dependency>
 
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-core-test</artifactId>
+  <version>1.6.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-core</artifactId>
+  <version>1.15.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-core-experimental</artifactId>
+  <version>1.0.0-beta.12</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-core-serializer-avro-apache</artifactId>
+  <version>1.0.0-beta.9</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-core-management</artifactId>
+  <version>1.2.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-core-tracing-opentelemetry</artifactId>
+  <version>1.0.0-beta.9</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-core-serializer-json-gson</artifactId>
+  <version>1.1.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-core-serializer-json-jackson</artifactId>
+  <version>1.2.2</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-core-http-okhttp</artifactId>
+  <version>1.6.1</version>
+</dependency>
+
 
 ```
 
@@ -1221,6 +1293,89 @@ Updated `azure-communication-identity` version
 ### Azure Spring Cloud Telemetry 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-telemetry_2.3.0/sdk/spring/azure-spring-cloud-telemetry/CHANGELOG.md#230-2021-03-22)
 #### New Features
 - Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
+
+### Core - Test 1.6.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-core-test_1.6.1/sdk/core/azure-core-test/CHANGELOG.md#161-2021-04-02)
+#### Dependency Updates
+
+- Upgraded `azure-core` from `1.14.0` to `1.15.0`.
+
+### Core 1.15.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-core_1.15.0/sdk/core/azure-core/CHANGELOG.md#1150-2021-04-02)
+#### New Features
+
+- Added `Binary.toByteBuffer` which returns a read-only view of the `BinaryData`.
+- Added `ProxyOptions.fromConfiguration(Configuration, boolean)` which allows for configuring if the returned proxy
+  is resolved.
+- Added a default `JsonSerializer` implementation which is optionally used when creating a `JsonSerializer` with
+  `JsonSerializerProviders` by passing the flag `useDefaultIfAbset`.
+- Added the ability to configure HTTP logging level without making code changes by configuring environment property
+  `AZURE_HTTP_LOG_DETAIL_LEVEL`.
+- Added constructor overloads to `PagedFlux` which allows for the paging implements to consume the `byPage` page size value.
+- Added `AzureNamedKey` and `AzureNamedKeyCredential` to support authentication using a named key.
+- Added overloads to `SerializerAdapter` which use `byte[]` instead of `String` or `InputStream`/`OutputStream`.
+
+#### Bug Fixes
+
+- Fixed a bug where Unix timestamps were not being properly deserialized to `OffsetDateTime`.
+- Fixed edge cases where response bodies would be eagerly read into a `byte[]` when they shouldn't.
+
+#### Dependency Updates
+
+- Upgraded Jackson from `2.12.1` to `2.12.2`.
+- Upgraded Netty from `4.1.59.Final` to `4.1.60.Final`.
+
+### Core Experimental 1.0.0-beta.12 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-core-experimental_1.0.0-beta.12/sdk/core/azure-core-experimental/CHANGELOG.md#100-beta12-2021-04-02)
+#### New Features
+
+- Added positional coordinate getter to `GeoBoundingBox`.
+- Overloaded `toString` for `GeoBoundingBox` and `GeoPosition`.
+- Added `getOuterRing` to `GeoPolygon`.
+- Added `DynamicRequest` and `DynamicResponse` to enable making REST API calls without a service client.
+
+#### Breaking Changes
+
+- Removed `GeoArray` from public API.
+- Changed `GeoBoundingBox` constructor to use `double` instead of `Double` when including altitude values.
+- Renamed `GeoLine` to `GeoLineString` and `GeoLineCollection` to `GeoLineStringCollection`.
+- Changed `getCoordinates` of `GeoLineString` and `GeoLinearRing` to return `List` instead of `GeoArray`.
+- Removed `getCoordinates` from `GeoLineStringCollection`, `GeoPointCollection`, `GeoPolygon`, and `GeoPolygonCollection`.
+
+#### Dependency Updates
+
+- Upgraded `azure-core` from `1.14.0` to `1.15.0`.
+
+### Core Serializer Apache Avro 1.0.0-beta.9 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-core-serializer-avro-apache_1.0.0-beta.9/sdk/core/azure-core-serializer-avro-apache/CHANGELOG.md#100-beta9-2021-04-02)
+#### Dependency Updates
+
+- Upgraded `azure-core` from `1.14.0` to `1.15.0`.
+
+### Management - Core 1.2.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-core-management_1.2.1/sdk/core/azure-core-management/CHANGELOG.md#121-2021-04-02)
+#### Dependency Updates
+
+- Upgraded `azure-core` from `1.14.0` to `1.15.0`.
+
+### Tracing OpenTelemetry Plugin 1.0.0-beta.9 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-core-tracing-opentelemetry_1.0.0-beta.9/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md#100-beta9-2021-04-02)
+#### Dependency Updates
+
+- Upgraded `azure-core` from `1.14.0` to `1.15.0`.
+
+### Core Serializer GSON JSON 1.1.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-core-serializer-json-gson_1.1.1/sdk/core/azure-core-serializer-json-gson/CHANGELOG.md#111-2021-04-02)
+#### Dependency Updates
+
+- Upgraded `azure-core` from `1.14.0` to `1.15.0`.
+
+### Core Serializer Jackson JSON 1.2.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-core-serializer-json-jackson_1.2.2/sdk/core/azure-core-serializer-json-jackson/CHANGELOG.md#122-2021-04-02)
+#### Dependency Updates
+
+- Upgraded `azure-core` from `1.14.1` to `1.15.0`.
+
+### Core - HTTP OkHttp 1.6.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-core-http-okhttp_1.6.1/sdk/core/azure-core-http-okhttp/CHANGELOG.md#161-2021-04-02)
+#### Bug Fixes
+
+- Fixed a bug where a proxy's address is only resolved during construction of the client, now it is resolved per connection. [#19497](https://github.com/Azure/azure-sdk-for-java/issues/19497)
+
+#### Dependency Updates
+
+- Upgraded `azure-core` from `1.14.0` to `1.15.0`.
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
