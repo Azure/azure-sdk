@@ -9,6 +9,7 @@ repository: azure/azure-sdk-for-net
 <!--
 Azure.Core:1.12.0
 Azure.IoT.DeviceUpdate:1.0.0-beta.2
+Azure.Storage.Common:12.7.2
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -21,6 +22,7 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 [pattern.ga]: # (- ${PackageFriendlyName})
 
 #### Updates
+- Storage - Common
 
 [pattern.patch]: # (- ${PackageFriendlyName})
 
@@ -36,6 +38,7 @@ To install any of our packages, please search for them via `Manage NuGet Package
 ```bash
 $> dotnet add package Azure.Core --version 1.12.0
 $> dotnet add package Azure.IoT.DeviceUpdate --version 1.0.0-beta.2
+$> dotnet add package Azure.Storage.Common --version 12.7.2
 
 ```
 
@@ -53,6 +56,9 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 ### IoT Device Update 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.IoT.DeviceUpdate_1.0.0-beta.2/sdk/deviceupdate/Azure.Iot.DeviceUpdate/CHANGELOG.md#100-beta2-2021-04-06)
 * Update root namespace from Azure.Iot.DeviceUpdate to Azure.IoT.DeviceUpdate
+
+### Storage - Common 12.7.2 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Common_12.7.2/sdk/storage/Azure.Storage.Common/CHANGELOG.md#1272-2021-04-02)
+- Fixed bug in SasQueryParameters causing services (ss) reorder when parsing externally provided URI.
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
