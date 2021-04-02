@@ -1,21 +1,21 @@
-{% assign trimmedPackage = item.Package | remove: package_trim %}
-
-{% assign package_url = package_url_template | replace: 'item.Package', item.Package | replace: 'item.TrimmedPackage', trimmedPackage | replace: 'item.GroupId', item.GroupId | replace: 'item.RepoPath', item.RepoPath %}
-
 {% assign version = item[include.version] %}
 
-{% if item.RepoPath == "NA" or item.RepoPath contains "http" %}
-    {% assign source_url = item.RepoPath %}
-{% else %}
-    {% assign source_url = source_url_template | replace: 'item.Package', item.Package | replace: 'item.TrimmedPackage', trimmedPackage | replace: 'item.RepoPath', item.RepoPath %}
-{% endif %}
-
 {% if version != "" %}
+
+    
+    
     {% assign url = package_url | replace: 'item.Version', version  %}
     <div>
     {% include releases/pkgbadge.md  label=package_label url=url version=version preview=include.preview %}
     </div>
     <div>
+
+    {% if item.RepoPath == "NA" or item.RepoPath contains "http" %}
+        {% assign source_url = item.RepoPath %}
+    {% else %}
+        {% assign source_url = source_url_template | replace: 'item.Package', item.Package | replace: 'item.TrimmedPackage', trimmedPackage | replace: 'item.RepoPath', item.RepoPath %}
+    {% endif %}
+    
     {% assign code_url = source_url | replace: 'item.Version', version %}
     {% include releases/pkgbadge.md label="Code" url=code_url version=version preview=include.preview %}
 

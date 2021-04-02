@@ -8,4 +8,4 @@
 
 {% include releases/variables/ios.md %}
 
-{% include releases/pkgtable.md %}
+{% include releases/pkgtable.md type=include.type %}

@@ -5,13 +5,12 @@
   <th scope="col">Stable</th>
   <th scope="col">Beta</th>
   <th scope="col">Next Stable</th>
-  <th class="table-notes-th" scope="col">Notes</th>
 </tr>
 <tbody id="myTable">
 
 {% for item in packages %}
 
-{% include releases/pkgrow.md %}
+{% include releases/pkgrow.md type=include.type %}
 
 {% endfor %}
 

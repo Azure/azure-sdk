@@ -1,5 +1,9 @@
 {% if item.Hide != "true" %}
 
+{% assign trimmedPackage = item.Package | remove: package_trim %}
+    
+{% assign package_url = package_url_template | replace: 'item.Package', item.Package | replace: 'item.TrimmedPackage', trimmedPackage | replace: 'item.GroupId', item.GroupId | replace: 'item.RepoPath', item.RepoPath %}
+
 {% assign versions = item.PlannedVersions | split: "|" %}
 {% for version in versions %}
     {% if forloop.last %}
@@ -15,12 +19,14 @@
 {% endfor %}
 
 <tr scope="row">
-    <td class="table-display-text-th" title="{{ item.Package }}">{{ item.DisplayName }}</td>
+    <td title="{{ item.Package }}">
+        <div>{{ item.DisplayName }} {% if include.type == "all" and item.New == "true" %}<i>(New)</i>{%endif%}</div>
+        <div><small class="text-muted">{{item.Package}}</small></div>
+        <div>{% include releases/replace.md %}</div>
+    </td>
     <td>{% include releases/links.md version="VersionGA" %}</td>
     <td>{% include releases/links.md version="VersionPreview" preview="true" %}</td>
     <td class="text-nowrap">{{ gaDate }}</td>
-    <td style="max-width: 100px">{{item.Notes}}</td>
 </tr>
 
 {% endif %}
-
