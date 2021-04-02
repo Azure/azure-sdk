@@ -31,6 +31,7 @@ azure-mgmt-communication:1.0.0
 azure-mgmt-rdbms:8.1.0b2
 azure-mgmt-frontdoor:1.0.0
 azure-mgmt-powerbidedicated:1.0.0
+azure-core:1.13.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -53,6 +54,7 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Resource Management - Communication
 - Resource Management - Frontdoor
 - Resource Management - Power BI Dedicated
+- Core
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -102,6 +104,7 @@ $> pip install azure-mgmt-communication==1.0.0
 $> pip install azure-mgmt-rdbms==8.1.0b2
 $> pip install azure-mgmt-frontdoor==1.0.0
 $> pip install azure-mgmt-powerbidedicated==1.0.0
+$> pip install azure-core==1.13.0
 
 ```
 
@@ -296,6 +299,21 @@ Key Vault, so users can easily access the key's `name`, `vault_url`, and `versio
 
   - Model Resource no longer has parameter sku
   - Model ErrorResponse has a new signature
+
+### Core 1.13.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-core_1.13.0/sdk/core/azure-core/CHANGELOG.md#1130-2021-04-02)
+Azure core requires Python 2.7 or Python 3.6+ since this release.
+
+#### New Features
+
+- Added `azure.core.utils.parse_connection_string` function to parse connection strings across SDKs, with common validation and support for case insensitive keys.
+- Supported adding custom policies  #16519
+- Added `~azure.core.tracing.Link` that should be used while passing `Links` to  `AbstractSpan`.
+- `AbstractSpan` constructor can now take in additional keyword only args.
+
+#### Bug fixes
+
+- Make NetworkTraceLoggingPolicy show the auth token in plain text. #14191
+- Fixed RetryPolicy overriding default connection timeout with an extreme value #17481
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
