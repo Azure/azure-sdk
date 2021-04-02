@@ -26,6 +26,7 @@ repository: azure/azure-sdk-for-js
 @azure/eventgrid:4.0.0
 @azure/eventgrid:4.1.0
 @azure/cosmos:3.10.4
+ @azure/cosmos@3.10.5
 @azure/app-configuration:1.1.1
 
 [pattern]: # (${PackageName}:${PackageVersion})
