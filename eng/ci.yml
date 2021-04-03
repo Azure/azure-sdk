@@ -7,7 +7,7 @@ resources:
       type: github
       name: Azure/azure-sdk-tools
       endpoint: azure
-      ref: refs/tags/azure-sdk-tools_20210114.1
+      ref: refs/heads/CachingSupport
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -41,7 +41,7 @@ steps:
   inputs:
     pwsh: true
     workingDirectory: azure-sdk
-    filePath: azure-sdk/eng/scripts/Update-Release-Versions.ps1 
+    filePath: azure-sdk/eng/scripts/Update-Release-Versions.ps1
     arguments: "check"
 
 - task: PowerShell@2
@@ -49,8 +49,9 @@ steps:
   inputs:
     pwsh: true
     workingDirectory: azure-sdk
-    filePath: azure-sdk-tools/eng/common/scripts/Verify-Links.ps1 
+    filePath: azure-sdk-tools/eng/common/scripts/Verify-Links.ps1
     arguments: >
       -urls ./_site/index.html
       -ignoreLinksFile ./eng/ignore-links.txt
+      -inputCacheFile "https://azuresdkartifacts.blob.core.windows.net/verify-links-cache/verify-links-cache.txt"
       -devOpsLogging:$true
