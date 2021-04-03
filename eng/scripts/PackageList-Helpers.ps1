@@ -126,3 +126,61 @@ function Add-NewFieldToLanguage($lang, $field, $afterField = $null, $fieldDefaul
 
   Set-PackageListForLanguage $lang $updatedPackageList
 }
+
+function PackageEqual($pkg1, $pkg2) {
+  if ($pkg1.Package -ne $pkg2.Package) {
+    return $false
+  }
+  if ($pkg1.PSObject.Members.Name -contains "GroupId" -and
+      $pkg2.PSObject.Members.Name -contains "GroupId") {
+    if ($pkg1.GroupId -and $pkg2.GroupId -and $pkg1.GroupId -ne $pkg2.GroupId) {
+      return $false
+    }
+  }
+  return $true
+}
+
+function FindMatchingPackage($pkg, $packageList)
+{
+  $pkgEntries = $packageList.Where({ PackageEqual $_ $pkg })
+
+  # If pkgEntries is greater then one filter out the hidden packages
+  # as we have some cases were we have duplicates with the older one hidden
+  # this is to allow us to have entries for when sdk's switched to track 2
+  if ($pkgEntries.Count -gt 1) {
+    $pkgEntries = $pkgEntries.Where({ $_.Hide -ne "true" })
+  }
+
+  if ($pkgEntries.Count -gt 1) {
+    Write-Host "Found $($pkgEntries.Count) package entries for $($pkg.Package) selecting the first one."
+    return $pkgEntries[0]
+  }
+  elseif ($pkgEntries.Count -eq 0) {
+    return $null
+  }
+  else {
+    return $pkgEntries[0]
+  }
+}
+
+function CopyOverFieldValues($copyFromReleaseFolder, $field)
+{
+  foreach ($lang in $languageNameMapping.Keys)
+  {
+    $releaseFolder = $copyFromReleaseFolder
+    $pl1 = Get-PackageListForLanguage $lang
+    $releaseFolder = Resolve-Path "$PSScriptRoot\..\..\_data\releases\latest"
+    $pl2 = Get-PackageListForLanguage $lang
+
+    foreach ($p1 in $pl1)
+    {
+      $p2 = FindMatchingPackage $p1 $pl2
+
+      if ($p2) {
+        $p2.$field = $p1.$field
+      }
+    }
+
+    Set-PackageListForLanguage $lang $pl2
+  }
+}

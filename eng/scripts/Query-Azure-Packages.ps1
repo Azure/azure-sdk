@@ -5,19 +5,6 @@ param (
 Set-StrictMode -Version 3
 
 . (Join-Path $PSScriptRoot PackageList-Helpers.ps1)
-
-function PackageEqual($pkg1, $pkg2) {
-  if ($pkg1.Package -ne $pkg2.Package) {
-    return $false
-  }
-  if ($pkg1.PSObject.Members.Name -contains "GroupId" -and
-      $pkg2.PSObject.Members.Name -contains "GroupId") {
-    if ($pkg1.GroupId -and $pkg2.GroupId -and $pkg1.GroupId -ne $pkg2.GroupId) {
-      return $false
-    }
-  }
-  return $true
-}
 function CreatePackage(
   [string]$package,
   [string]$version,
@@ -122,35 +109,25 @@ function Write-Latest-Versions($lang)
 
   foreach ($pkg in $packages)
   {
-    $pkgEntries = $packageList.Where({ PackageEqual $_ $pkg })
+    $pkgEntry = FindMatchingPackage $pkg $packageList
 
-    # If pkgEntries is greater then one filter out the hidden packages
-    # as we have some cases were we have duplicates with the older one hidden
-    # this to allow us to have entries for when sdk's switched to track 2
-    if ($pkgEntries.Count -gt 1) {
-      $pkgEntries = $pkgEntries.Where({ $_.Hide -ne "true" })
-    }
-
-    if ($pkgEntries.Count -eq 0) {
+    if (!$pkgEntry) {
       # alpha packages are not yet fully supported versions so skip adding them to the list yet.
       if ($pkg.VersionPreview -notmatch "-alpha") {
         # Add new package
         $packageList += $pkg
       }
     }
-    elseif ($pkgEntries.Count -gt 1) {
-      Write-Error "Found $($pkgEntries.Count) package entries for $($pkg.Package + $pkg.GroupId)"
-    }
     else {
       # Update version of package
       if ($pkg.VersionGA) {
-        $pkgEntries[0].VersionGA = $pkg.VersionGA
-        if ($pkgEntries[0].VersionGA -gt $pkgEntries[0].VersionPreview) {
-          $pkgEntries[0].VersionPreview = ""
+        $pkgEntry.VersionGA = $pkg.VersionGA
+        if ($pkgEntry.VersionGA -gt $pkgEntry.VersionPreview) {
+          $pkgEntry.VersionPreview = ""
         }
       }
       else {
-        $pkgEntries[0].VersionPreview = $pkg.VersionPreview
+        $pkgEntry.VersionPreview = $pkg.VersionPreview
       }
     }
   }
@@ -161,9 +138,9 @@ function Write-Latest-Versions($lang)
     # Skip the package entries that don't have a Package value as they are just placeholders
     if ($pkg.Package -eq "") { continue }
 
-    $pkgEntries = $packages.Where({ PackageEqual $_ $pkg })
+    $pkgEntry = FindMatchingPackage $pkg $packageList
 
-    if ($pkgEntries.Count -ne 1) {
+    if (!$pkgEntry) {
       Write-Verbose "Found package $($pkg.Package) in the CSV which could be removed"
     }
   }
