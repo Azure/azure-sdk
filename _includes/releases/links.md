@@ -1,9 +1,6 @@
 {% assign version = item[include.version] %}
 
 {% if version != "" %}
-
-    
-    
     {% assign url = package_url | replace: 'item.Version', version  %}
     <div>
     {% include releases/pkgbadge.md  label=package_label url=url version=version preview=include.preview %}
