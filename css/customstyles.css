@@ -1,11 +1,10 @@
 body {
   font-size: 15px;
-  padding-top: 65px;
 }
 
 #tg-sb-content {
   /* This is the header (50px) + header-bottom-margin (20px) */
-  margin-top: 70px;
+  /* margin-top: 30px; */
 }
 
 .requirement {
@@ -98,13 +97,7 @@ body {
 }
 
 /* make room for the nav bar */
-h1[id],
-h2[id],
-h3[id],
-h4[id],
-h5[id],
-h6[id],
-dt[id],
+h1[id]
 .requirement {
   padding-top: 60px;
   margin-top: -40px;
@@ -690,7 +683,7 @@ h5 {
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
-  background-color: #248ec2;
+  background-color: #0071c5;
   color: white;
 }
 
@@ -1333,13 +1326,14 @@ h4.panel-title {
 }
 
 .btn-preview {
-  align-items: center;
   background-color: #a9a9a9;
   border-color: #a9a9a9;
+  /*
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
   flex-flow: column;
-  margin-top: 4px;
+  margin-top: 4px;*/
 }
 
 .btn-preview:hover {
@@ -1358,7 +1352,7 @@ h4.panel-title {
 }
 
 .table-display-name-th {
-  width: 18rem;
+  min-width: 20rem;
 }
 
 .table-display-text-th {
@@ -1457,4 +1451,8 @@ pre code {
     display: block;
     flex: 1;
   }
+}
+
+.replacement{
+  margin-top: 5px;
 }

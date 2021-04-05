@@ -1,20 +1,18 @@
-<table>
+
+<table class="table table-bordered">
 <tr>
-  <th class="table-display-text-th table-display-name-th">Display Name</th>
-  <th>Package</th>
-  <th>Microsoft Docs</th>
-  {% if docs_header_label == undefined || docs_header_label == "" %}
-    {% assign docs_header_label = "GitHub Docs" %}
-  {% endif %}
-  <th>{{ docs_header_label }}</th>
-  <th>Source</th>
-  <th class="table-display-text-th">Notes</th>
+  <th class="table-display-text-th table-display-name-th" scope="col">Name</th>
+  <th scope="col">Stable</th>
+  <th scope="col">Beta</th>
+  <th scope="col">Next Stable</th>
 </tr>
 <tbody id="myTable">
+
 {% for item in packages %}
 
-{% include releases/pkgrow.md %}
+{% include releases/pkgrow.md type=include.type %}
 
 {% endfor %}
+
 </tbody>
 </table>
