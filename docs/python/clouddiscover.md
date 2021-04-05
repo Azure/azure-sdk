@@ -2,7 +2,7 @@
 
 There are multiple Azure Cloud instances. This includes well-known cloud instances such as Public Azure, Azure China Cloud, Azure Government Cloud etc. It also includes private cloud instances that are managed by our customers. An example of this is Azure Stack.
 
-The clouds differ in which endpoints to use when connecting to it. Finding exactly which endpoints to use is challenging for users. This applies both for public clouds and private instances. For private cloud instances, Microsoft does not know the specific endpoints used by the cloud instance. Additionally cloud instances may or may not be reachable from public internet. 
+The clouds differ in which endpoints to use when connecting to it. Finding exactly which endpoints to use is challenging for users. This applies both for public clouds and private instances. For private cloud instances, Microsoft does not know the specific endpoints used by the cloud instance. Additionally cloud instances may or may not be reachable from public internet.
 
 In order to discover which endpoints (DNS names and suffixes) are to be used when connecting to a specific cloud, a discovery endpoint has been introduced. This reduces the amount of information a developer needs in order to connect to a given cloud to knowing a single endpoint.
 
@@ -20,15 +20,17 @@ In order to discover which endpoints (DNS names and suffixes) are to be used whe
 
 * Well-known (public) cloud configurations MUST be built-in to the client libraries for each language. Each well-known cloud configuration has a "simple name" in addition to a set of key/value pairs representing endpoints and suffixes for known services.
 
-> The built-in cloud configurations SHOULD be defined in azure core.
+> The built-in cloud configurations MUST be defined in azure core.
 
 > The simple cloud name MAY be a string or an enum value.
 
-> The cloud configuration instance MAY be represented by a custom type in strongly typed lanugages.
+> The cloud configuration instance MAY be represented by a custom type in strongly typed languages.
 
-* In addition to the well-known cloud configurations, it MUST be possible to construct a custom cloud configuration instance for a specific cloud (e.g. Azure Stack).
+* In addition to the well-known cloud configurations, it MUST be possible to construct a custom cloud configuration for a specific cloud instance (e.g. Azure Stack).
 
-* It MUST be possible (and documented how) to load a configuration from the returned information in ARM's discovery endpoint.
+* The core library MUST provide a mechanism to list well-known cloud instance names.
+
+* It MUST be possible (and documented how) to load a configuration from the returned information in ARM's discovery endpoint. Unknown configuration data retrieved from the ARM discovery endpoint (e.g. configuration data associated with new services) MUST be ignored.
 
 > A canonical use-case for this is to, given the metadata configuration endpoint for a given cloud, download the configuration data to a local file.
 
@@ -63,13 +65,12 @@ A cloud configuration object consists of a map of service-name to service-specif
 }
 ```
 
-
 |Property|Description|Example|
 |-|-|-|
 |endpoint|Absolute URL (including domain name) for the service. Used by multitenant services.|`https://management.microsoftazure.de`
 |suffix|Clouds specific domain suffix for the service. Used for single tenant services with unique hostname per instance/account.|`.vault.microsoftazure.de`
 |audiences|List of audiences for the given service|
-|tenant|
+|tenant|Tenant used to authenticate the given service|
 
 where `<service entry>` is (currently) one of the following values:
 
@@ -88,11 +89,13 @@ where `<service entry>` is (currently) one of the following values:
 |`sqlServer`||
 |`storage`||
 
-None of the properties in a service configuration entry are required as they differ between different services. 
+None of the properties in a service configuration entry are required as they differ between different services.
 
 > Note that this format differs from the raw json exposed by the discovery endpoint. The endpoint discovery response is not structured on a per-service basis, which makes it harder to evolve the set of metadata in the response.
 
 > A given language can choose to expose the configuration as a dictionary or as a strongly typed class.
+
+* It MUST be possible to persist and load configuration objects.
 
 ## Service specific client library guidance
 
@@ -127,9 +130,10 @@ Given that more configuration settings can be added over time, you may run into 
 
 * Adding a new required configuration property for a given method/API is a breaking change. 
 
-## Example usage 
+## Example usage
 
 ### Python
+
 ```python
 from azure.core import CloudConfiguration
 
@@ -166,4 +170,3 @@ creds = azure.identity.DefaultAzureCredential(cloud_configuration='PublicAzure')
 ## Issues
 
 * Only updated client libraries will pick up the ambient default settings. This problem will fade over time as new client library versions are made aware of ambient settings.
-
