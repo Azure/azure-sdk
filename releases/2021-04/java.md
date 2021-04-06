@@ -103,6 +103,8 @@ azure-core-tracing-opentelemetry:1.0.0-beta.9
 azure-core-serializer-json-gson:1.1.1
 azure-core-serializer-json-jackson:1.2.2
 azure-core-http-okhttp:1.6.1
+azure-ai-formrecognizer:3.1.0-beta.3
+azure-ai-textanalytics:5.0.5
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -185,6 +187,7 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Core Serializer GSON JSON
 - Core Serializer Jackson JSON
 - Core - HTTP OkHttp
+- Text Analytics
 
 [pattern.patch]: # (- ${PackageFriendlyName})
 
@@ -214,6 +217,7 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Core Experimental
 - Core Serializer Apache Avro
 - Tracing OpenTelemetry Plugin
+- Form Recognizer
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -798,6 +802,18 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <version>1.6.1</version>
 </dependency>
 
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-ai-formrecognizer</artifactId>
+  <version>3.1.0-beta.3</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-ai-textanalytics</artifactId>
+  <version>5.0.5</version>
+</dependency>
+
 
 ```
 
@@ -1376,6 +1392,18 @@ Updated `azure-communication-identity` version
 #### Dependency Updates
 
 - Upgraded `azure-core` from `1.14.0` to `1.15.0`.
+
+### Form Recognizer 3.1.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_3.1.0-beta.3/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#310-beta3-2021-04-06)
+- Defaults to the latest supported API version, which currently is `2.1-preview.3`.
+- Added property `Pages` to `RecognizeReceiptsOptions`, `RecognizeInvoicesOptions`, `RecognizeBusinessCardsOptions`
+  and `RecognizeCustomFormOptions` to specify the page numbers to analyze.
+- Added support for `FormContentType` `image/bmp` when analyzing custom forms.
+- Added support for pre-built ID documents recognition.
+- Added property `ReadingOrder` to `RecognizeContentOptions` to specify the order in which recognized text lines are returned.
+
+### Text Analytics 5.0.5 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.0.5/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#505-2021-04-06)
+#### Dependency updates
+- Update dependency version, `azure-core` to 1.15.0 and `azure-core-http-netty` to 1.9.1.
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
