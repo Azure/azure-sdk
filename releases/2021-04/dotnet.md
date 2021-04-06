@@ -15,6 +15,8 @@ Azure.Messaging.EventHubs.Processor:5.4.0
 Azure.Security.Attestation:1.0.0-beta.2
 Azure.AI.TextAnalytics:5.1.0-beta.6
 Azure.Data.Tables:12.0.0-beta.7
+Azure.Analytics.Synapse.Artifacts:1.0.0-preview.8
+Azure.Data.AppConfiguration:1.1.0-beta.2
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -38,6 +40,8 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Attestation
 - Text Analytics
 - Tables
+- Synapse - Artifacts
+- App Configuration
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -54,6 +58,8 @@ $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.4.0
 $> dotnet add package Azure.Security.Attestation --version 1.0.0-beta.2
 $> dotnet add package Azure.AI.TextAnalytics --version 5.1.0-beta.6
 $> dotnet add package Azure.Data.Tables --version 12.0.0-beta.7
+$> dotnet add package Azure.Analytics.Synapse.Artifacts --version 1.0.0-preview.8
+$> dotnet add package Azure.Data.AppConfiguration --version 1.1.0-beta.2
 
 ```
 
@@ -150,6 +156,18 @@ Thank you to our developer community members who helped to make Azure Tables bet
 #### Changed
 
 - Removed the `Timestamp` property from the serialized entity when sending it to the service as it is ignored by the service (A community contribution, courtesy of _[joelverhagen](https://github.com/joelverhagen)_)
+
+### Synapse - Artifacts 1.0.0-preview.8 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.Synapse.Artifacts_1.0.0-preview.8/sdk/synapse/Azure.Analytics.Synapse.Artifacts/CHANGELOG.md#100-preview8-2021-04-06)
+#### Added
+- Many additional model classes
+
+#### Changed
+- Exposed Serialization and Deserialization methods.
+
+### App Configuration 1.1.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.AppConfiguration_1.1.0-beta.2/sdk/appconfiguration/Azure.Data.AppConfiguration/CHANGELOG.md#110-beta2-2021-04-06)
+#### Breaking changes
+
+- The `AddSyncToken` method renamed to `UpdateSyncToken`.
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
