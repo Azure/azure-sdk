@@ -12,6 +12,7 @@ Azure.IoT.DeviceUpdate:1.0.0-beta.2
 Azure.Storage.Common:12.7.2
 Azure.Messaging.EventHubs:5.4.0
 Azure.Messaging.EventHubs.Processor:5.4.0
+Azure.Security.Attestation:1.0.0-beta.2
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -32,6 +33,7 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 
 #### Beta
 - IoT Device Update
+- Attestation
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -45,6 +47,7 @@ $> dotnet add package Azure.IoT.DeviceUpdate --version 1.0.0-beta.2
 $> dotnet add package Azure.Storage.Common --version 12.7.2
 $> dotnet add package Azure.Messaging.EventHubs --version 5.4.0
 $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.4.0
+$> dotnet add package Azure.Security.Attestation --version 1.0.0-beta.2
 
 ```
 
@@ -107,6 +110,11 @@ Thank you to our developer community members who helped to make the Event Hubs c
 ##### Key Bug Fixes
 
 - The AMQP library used for transport has been updated, fixing several issues including a potential unobserved   `ObjectDisposedException` that could cause the host process to crash.  _(see: [release notes](https://github.com/Azure/azure-amqp/releases/tag/v2.4.13))_
+
+### Attestation 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.Attestation_1.0.0-beta.2/sdk/attestation/Azure.Security.Attestation/CHANGELOG.md#100-beta2-2021-04-06)
+- Fixed bug #19708, handle JSON values that are not just simple integers.
+- Fixed bug #18183, Significant cleanup of README.md.
+- Fixed bug #18739, reference the readme.md file in the azure-rest-apis directory instead of referencing the attestation JSON file directly. Also updated to the most recent version of the dataplane swagger files.
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
