@@ -105,6 +105,9 @@ azure-core-serializer-json-jackson:1.2.2
 azure-core-http-okhttp:1.6.1
 azure-ai-formrecognizer:3.1.0-beta.3
 azure-ai-textanalytics:5.0.5
+azure-search-documents:11.4.0-beta.1
+azure-cosmos:4.14.0
+azure-ai-textanalytics:5.1.0-beta.6
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -170,6 +173,7 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Azure Spring Boot Starter Service bus Jms
 - Azure Spring Cloud Telemetry
 - Core
+- Cosmos DB
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -218,6 +222,8 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Core Serializer Apache Avro
 - Tracing OpenTelemetry Plugin
 - Form Recognizer
+- Cognitive Search
+- Text Analytics
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -814,6 +820,24 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <version>5.0.5</version>
 </dependency>
 
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-search-documents</artifactId>
+  <version>11.4.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-cosmos</artifactId>
+  <version>4.14.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-ai-textanalytics</artifactId>
+  <version>5.1.0-beta.6</version>
+</dependency>
+
 
 ```
 
@@ -1404,6 +1428,46 @@ Updated `azure-communication-identity` version
 ### Text Analytics 5.0.5 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.0.5/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#505-2021-04-06)
 #### Dependency updates
 - Update dependency version, `azure-core` to 1.15.0 and `azure-core-http-netty` to 1.9.1.
+
+### Cognitive Search 11.4.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-search-documents_11.4.0-beta.1/sdk/search/azure-search-documents/CHANGELOG.md#1140-beta1-2021-04-06)
+#### New Features
+
+- Clients now default to using service version `2020-06-30-Preview`.
+- Added support for `Edm.GeographyPoint` in `FieldBuilder` when property has type `GeoPoint`.
+- Added support for geography based filtering in `SearchFilter` when `GeoPosition`, `GeoPoint`, `GeoLineString`, or
+  `GeoPolygon` are used as formatting arguments.
+- Added support for Normalizers in `SearchField` and `SearchIndex` with `CustomNormalizer` and `LexicalNormalizer`.
+- Added new skills `CustomEntityLookupSkill` and `DocumentExtractionSkill` and new skill versions for 
+  `KeyPhraseExtractionSkill` and `LanguageDetectionSkill`.
+- Added support for the ADLS Gen 2 Indexer data source type.
+- Added skillset counts to `SearchServiceCounters`.  
+- Added additional log messages to `SearchIndexingBufferedSender` and `SearchIndexingBufferedAsyncSender`.
+
+#### Dependency Updates
+
+- Updated `azure-core` from `1.14.0` to `1.15.0`.
+- Updated Jackson from `2.12.1` to `2.12.2`.
+
+#### Breaking Changes
+
+- Updated Jackson annotations to include `required = true` when service must receive or return the property.
+
+### Cosmos DB 4.14.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-cosmos_4.14.0/sdk/cosmos/azure-cosmos/CHANGELOG.md#4140-2021-04-06)
+##### New Features
+* General Availability for `readMany()` API in `CosmosAsyncContainer` and `CosmosContainer`.
+* General Availability for `handle()` API in `CosmosPagedFlux` and `CosmosPagedIterable`.
+* Upgraded Jackson to patch version 2.12.2.
+* Exposed `getDocumentUsage` and `getDocumentCountUsage()` APIs in `FeedResponse` to retrieve document count metadata.
+
+##### Key Bug Fixes
+* Allowed `CosmosPagedFlux#handle()` and `CosmosPagedIterable#handle()` API for chaining.
+* Removed `AfterBurner` module usage from `CosmosException` causing the warning logs.
+* Fixed issue of duplicate processing of items on the same Change Feed Processor instance.
+* Return `RequestTimeoutException` on client side timeout for write operations.
+
+### Text Analytics 5.1.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.1.0-beta.6/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#510-beta6-2021-04-06)
+#### Breaking changes
+- Removed the input parameter `Context` from non-max-overload healthcare synchronous API, `beginAnalyzeHealthcareEntities()`.
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
