@@ -21,6 +21,10 @@ repository: azure/azure-sdk-for-js
 @azure/core-amqp:2.2.0
 @azure/service-bus:7.0.4
 @azure/core-tracing:1.0.0-preview.11
+@azure/keyvault-admin:4.0.0-beta.3
+@azure/keyvault-keys:4.2.0-beta.5
+@azure/keyvault-certificates:4.2.0-beta.3
+@azure/keyvault-secrets:4.2.0-beta.4
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -51,6 +55,10 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Communication Phone Numbers
 - Identity
 - Core - Tracing
+- Key Vault - Administration
+- Key Vault - Keys
+- Key Vault - Certificates
+- Key Vault - Secrets
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -74,6 +82,10 @@ $> npm install @azure/communication-sms@1.0.0
 $> npm install @azure/core-amqp@2.2.0
 $> npm install @azure/service-bus@7.0.4
 $> npm install @azure/core-tracing@1.0.0-preview.11
+$> npm install @azure/keyvault-admin@4.0.0-beta.3
+$> npm install @azure/keyvault-keys@4.2.0-beta.5
+$> npm install @azure/keyvault-certificates@4.2.0-beta.3
+$> npm install @azure/keyvault-secrets@4.2.0-beta.4
 
 ```
 
@@ -220,6 +232,43 @@ This update marks the preview for the first major version update of the `@azure/
   - Previously, you would pass a parent span using the `OperationOptions.tracingOptions.spanOptions.parentSpan` property. This has been
     changed so that you now specify a parent `Context` using the `OperationOptions.tracingOptions.tracingContext` property instead.
   - The status code for Spans is no longer of type `CanonicalCode`. Instead, it's now `SpanStatusCode`, which also has a smaller range of values.
+### Key Vault - Administration 4.0.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/keyvault-admin_4.0.0-beta.3/sdk/keyvault/keyvault-admin/CHANGELOG.md#400-beta3-2021-04-06)
+- Updated the Latest service version to 7.2.
+- Long Running Operations will now use the `status` field to determine whether the operation failed.
+- Improved tracing across the various KeyVault libraries. By switching to a consistent naming convention, ensuring spans are always closed appropriately, and setting the correct status when an operation errors developers can expect an improved experience when enabling distributed tracing.
+  - We now ensure tracing spans are properly closed with an appropriate status when an operation throws an exception.
+  - If a traced operation throws an exception we will now properly record the exception message in the tracing span.
+  - Finally, naming conventions have been standardized across the KeyVault libraries taking the format of `Azure.KeyVault.<PACKAGE NAME>.<CLIENT NAME>`.
+- Fixed an issue where retrying a failed initial Key Vault request may result in an empty body.
+
+### Key Vault - Keys 4.2.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/keyvault-keys_4.2.0-beta.5/sdk/keyvault/keyvault-keys/CHANGELOG.md#420-beta5-2021-04-06)
+- Added local cryptography support for encryption / decryption for `A128CBCPAD`, `A192CBCPAD`, and `A256CBCPAD`.
+- For AES-CBC encryption we will now generate an IV if the user did not pass it in, making `iv` optional for those parameters.
+- Improved tracing across the various KeyVault libraries. By switching to a consistent naming convention, ensuring spans are always closed appropriately, and setting the correct status when an operation errors developers can expect an improved experience when enabling distributed tracing.
+  - We now ensure tracing spans are properly closed with an appropriate status when an operation throws an exception.
+  - If a traced operation throws an exception we will now properly record the exception message in the tracing span.
+  - Finally, naming conventions have been standardized across the KeyVault libraries taking the format of `Azure.KeyVault.<PACKAGE NAME>.<CLIENT NAME>`.
+- Fixed an issue where retrying a failed initial Key Vault request may result in an empty body.
+- [Breaking] Removed the now unused `LocalCryptographyAlgorithmName` type (Added in 4.2.0-beta.1 to support `LocalCryptographyClient` and unused since 4.2.0-beta.4)
+- Updated `CryptographyClient` to ensure that any local cryptography error is properly handled. We will now try to perform the operation locally where we can but fallback to KeyVault if the local operation fails.
+
+### Key Vault - Certificates 4.2.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/keyvault-certificates_4.2.0-beta.3/sdk/keyvault/keyvault-certificates/CHANGELOG.md#420-beta3-2021-04-06)
+- Updated the Latest service version to 7.2.
+- Added a sample demonstrating how to import PFX / PEM certificates.
+- Fixed an issue where importing a certificate incorrectly required a Subject or Subject Alternative Name.
+- Improved tracing across the various KeyVault libraries. By switching to a consistent naming convention, ensuring spans are always closed appropriately, and setting the correct status when an operation errors developers can expect an improved experience when enabling distributed tracing.
+  - We now ensure tracing spans are properly closed with an appropriate status when an operation throws an exception.
+  - If a traced operation throws an exception we will now properly record the exception message in the tracing span.
+  - Finally, naming conventions have been standardized across the KeyVault libraries taking the format of `Azure.KeyVault.<PACKAGE NAME>.<CLIENT NAME>`.
+- Fixed an issue where retrying a failed initial Key Vault request may result in an empty body.
+
+### Key Vault - Secrets 4.2.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/keyvault-secrets_4.2.0-beta.4/sdk/keyvault/keyvault-secrets/CHANGELOG.md#420-beta4-2021-04-06)
+- Improved tracing across the various KeyVault libraries. By switching to a consistent naming convention, ensuring spans are always closed appropriately, and setting the correct status when an operation errors developers can expect an improved experience when enabling distributed tracing.
+  - We now ensure tracing spans are properly closed with an appropriate status when an operation throws an exception.
+  - If a traced operation throws an exception we will now properly record the exception message in the tracing span.
+  - Finally, naming conventions have been standardized across the KeyVault libraries taking the format of `Azure.KeyVault.<PACKAGE NAME>.<CLIENT NAME>`.
+- Fixed an issue where retrying a failed initial Key Vault request may result in an empty body.
+
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
