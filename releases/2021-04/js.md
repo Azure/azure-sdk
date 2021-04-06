@@ -25,6 +25,9 @@ repository: azure/azure-sdk-for-js
 @azure/keyvault-keys:4.2.0-beta.5
 @azure/keyvault-certificates:4.2.0-beta.3
 @azure/keyvault-secrets:4.2.0-beta.4
+@azure/event-hubs:5.5.0
+@azure/ai-form-recognizer:3.1.0-beta.3
+@azure/app-configuration:1.2.0-beta.1
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -39,6 +42,7 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Communication Chat
 - Communication Sms
 - Core - AMQP
+- Event Hubs
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -59,6 +63,8 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Key Vault - Keys
 - Key Vault - Certificates
 - Key Vault - Secrets
+- Form Recognizer
+- App Configuration
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -86,6 +92,9 @@ $> npm install @azure/keyvault-admin@4.0.0-beta.3
 $> npm install @azure/keyvault-keys@4.2.0-beta.5
 $> npm install @azure/keyvault-certificates@4.2.0-beta.3
 $> npm install @azure/keyvault-secrets@4.2.0-beta.4
+$> npm install @azure/event-hubs@5.5.0
+$> npm install @azure/ai-form-recognizer@3.1.0-beta.3
+$> npm install @azure/app-configuration@1.2.0-beta.1
 
 ```
 
@@ -268,6 +277,39 @@ This update marks the preview for the first major version update of the `@azure/
   - If a traced operation throws an exception we will now properly record the exception message in the tracing span.
   - Finally, naming conventions have been standardized across the KeyVault libraries taking the format of `Azure.KeyVault.<PACKAGE NAME>.<CLIENT NAME>`.
 - Fixed an issue where retrying a failed initial Key Vault request may result in an empty body.
+
+### Event Hubs 5.5.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/event-hubs_5.5.0/sdk/eventhub/event-hubs/CHANGELOG.md#550-2021-04-06)
+- Updates the methods on the `CheckpointStore` interface to accept
+  an optional `options` parameter that can be used to pass in an
+  `abortSignal` and `tracingOptions`.
+
+#### New features:
+
+- Allows passing `NamedKeyCredential` and `SASCredential` as the credential type to `EventHubConsumerClient` and `EventHubProducerClient`.
+  These credential types support rotation via their `update` methods and are an alternative to using the `SharedAccessKeyName/SharedAccessKey` or `SharedAccessSignature` properties in a connection string.
+
+#### Tracing updates
+
+- Tracing options for `EventDataBatch.tryAdd` now match the shape of `OperationOptions`.
+
+### Form Recognizer 3.1.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/ai-form-recognizer_3.1.0-beta.3/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md#310-beta3-2021-04-06)
+- Split `FormField` into several different interfaces. This should not cause any API compatibility issues except in certain edge cases (undefined `valueType`), but should result in more accurate type refinement when dealing with FormField values and should significantly improve documentation and code hinting of these values through IntelliSense.
+- Added support for recognizing identity documents (such as driver licenses and passports) through the `beginRecognizeIdDocuments` method and its URL-based counterpart `beginRecognizeIdDocumentsFromUrl`. The identity document model is prebuilt and may be used without training a model.
+- Introduced two new form field value types: `"gender"` and `"country"`. These value types appear in the identity document recognition responses.
+  - The `"gender"` value type signifies the gender or sex of an individual and is represented by a string that is one of three values: "M", "F", or "X".
+  - The `"country"` value type indicates a specific country and is represented by a three-letter country code string (ISO 3166-1 alpha-3).
+- Added support for the `pages` option to all form recognition methods (custom forms and all prebuilt models). This option works the same as in the content recognition methods, and allows for the specification of which pages within a multi-page document (PDF or TIFF formats) should be considered during analysis and included in the response.
+- Added support for a `readingOrder` option to the content recognition methods. This option enables you to control the algorithm that the service uses to determine how recognized lines of text should be ordered.
+- Custom model recognition now supports bitmap images through the "image/bmp" content-type (content recognition and all prebuilt models already support this content type).
+- Migrated to the 2.1-preview.3 Form Recognizer service endpoint for all REST API calls.
+
+### App Configuration 1.2.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/app-configuration_1.2.0-beta.1/sdk/appconfiguration/app-configuration/CHANGELOG.md#120-beta1-2021-04-06)
+#### New Features
+
+- New `SecretReferenceConfigurationSetting` and `FeatureFlagConfigurationSetting`types to represent configuration settings that references KeyVault Secret reference and feature flag respectively.
+  [#14342](https://github.com/Azure/azure-sdk-for-js/pull/14342)
+- Added `updateSyncToken` method to `AppConfigurationClient` to be able to provide external synchronization tokens.
+  [#14507](https://github.com/Azure/azure-sdk-for-js/pull/14507)
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
