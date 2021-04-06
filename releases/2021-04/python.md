@@ -32,6 +32,9 @@ azure-mgmt-rdbms:8.1.0b2
 azure-mgmt-frontdoor:1.0.0
 azure-mgmt-powerbidedicated:1.0.0
 azure-core:1.13.0
+azure-search-documents:11.2.0b1
+azure-appconfiguration:1.2.0b1
+azure-synapse-artifacts:0.6.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -55,6 +58,7 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Resource Management - Frontdoor
 - Resource Management - Power BI Dedicated
 - Core
+- Synapse - Artifacts
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -72,6 +76,8 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Key Vault - Keys
 - azure-mgmt-extendedlocation
 - Resource Management - Rdbms
+- Cognitive Search
+- App Configuration
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -105,6 +111,9 @@ $> pip install azure-mgmt-rdbms==8.1.0b2
 $> pip install azure-mgmt-frontdoor==1.0.0
 $> pip install azure-mgmt-powerbidedicated==1.0.0
 $> pip install azure-core==1.13.0
+$> pip install azure-search-documents==11.2.0b1
+$> pip install azure-appconfiguration==1.2.0b1
+$> pip install azure-synapse-artifacts==0.6.0
 
 ```
 
@@ -314,6 +323,24 @@ Azure core requires Python 2.7 or Python 3.6+ since this release.
 
 - Make NetworkTraceLoggingPolicy show the auth token in plain text. #14191
 - Fixed RetryPolicy overriding default connection timeout with an extreme value #17481
+
+### Cognitive Search 11.2.0b1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-search-documents_11.2.0b1/sdk/search/azure-search-documents/CHANGELOG.md#1120b1-2021-04-06)
+#### New features
+
+- Added new data source type ADLS gen2  #16852
+- Added normalizer support  #17579
+
+### App Configuration 1.2.0b1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-appconfiguration_1.2.0b1/sdk/appconfiguration/azure-appconfiguration/CHANGELOG.md#120b1-2021-04-06)
+#### Features
+
+- Adds method `update_sync_token` to include sync tokens from EventGrid notifications.
+- Added `SecretReferenceConfigurationSetting` type to represent a configuration setting that references a KeyVault Secret.
+Added `FeatureFlagConfigurationSetting` type to represent a configuration setting that controls a feature flag.
+
+### Synapse - Artifacts 0.6.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-synapse-artifacts_0.6.0/sdk/synapse/azure-synapse-artifacts/CHANGELOG.md#060-2021-04-06)
+#### New Features
+
+- Add ADF support
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
