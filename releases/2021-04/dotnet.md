@@ -13,6 +13,8 @@ Azure.Storage.Common:12.7.2
 Azure.Messaging.EventHubs:5.4.0
 Azure.Messaging.EventHubs.Processor:5.4.0
 Azure.Security.Attestation:1.0.0-beta.2
+Azure.AI.TextAnalytics:5.1.0-beta.6
+Azure.Data.Tables:12.0.0-beta.7
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -34,6 +36,8 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 #### Beta
 - IoT Device Update
 - Attestation
+- Text Analytics
+- Tables
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -48,6 +52,8 @@ $> dotnet add package Azure.Storage.Common --version 12.7.2
 $> dotnet add package Azure.Messaging.EventHubs --version 5.4.0
 $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.4.0
 $> dotnet add package Azure.Security.Attestation --version 1.0.0-beta.2
+$> dotnet add package Azure.AI.TextAnalytics --version 5.1.0-beta.6
+$> dotnet add package Azure.Data.Tables --version 12.0.0-beta.7
 
 ```
 
@@ -115,6 +121,35 @@ Thank you to our developer community members who helped to make the Event Hubs c
 - Fixed bug #19708, handle JSON values that are not just simple integers.
 - Fixed bug #18183, Significant cleanup of README.md.
 - Fixed bug #18739, reference the readme.md file in the azure-rest-apis directory instead of referencing the attestation JSON file directly. Also updated to the most recent version of the dataplane swagger files.
+
+### Text Analytics 5.1.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.TextAnalytics_5.1.0-beta.6/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#510-beta6-2021-04-06)
+#### New features
+- Add overloads to `ExtractKeyPhrasesBatch` and `ExtractKeyPhrasesBatchAsync` to on `TextAnalyticsClient` to accept `ExtractKeyPhrasesOptions` and hid the previous methods (non-breaking change).
+- Add overloads to `RecognizeEntitiesBatch` and `RecognizeEntitiesBatchAsync` to on `TextAnalyticsClient` to accept `RecognizeEntitiesOptions` and hid the previous methods (non-breaking change).
+- Add overloads to `RecognizeLinkedEntitiesBatch` and `RecognizeLinkedEntitiesBatch` to on `TextAnalyticsClient` to accept `RecognizeLinkedEntitiesOptions` and hid the previous methods (non-breaking change).
+
+#### Breaking changes
+- Renamed `TotalActions` to `ActionsTotal`.
+
+### Tables 12.0.0-beta.7 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.Tables_12.0.0-beta.7/sdk/tables/Azure.Data.Tables/CHANGELOG.md#1200-beta7-2021-04-06)
+#### Acknowledgments
+
+Thank you to our developer community members who helped to make Azure Tables better with their contributions to this release:
+
+- Joel Verhagen _([GitHub](https://github.com/joelverhagen))_
+
+#### Added
+
+- Added the `TableErrorCode` type which allows comparison of the `ErrorCode` on `RequestFailedException`s thrown from client operations with a known error value.
+- `TableEntity` and custom entity types now support `BinaryData` properties.
+
+#### Key Bug Fixes
+
+- Fixed handling of paging headers when Table Storage returned a `x-ms-continuation-NextPartitionKey` but no `x-ms-continuation-NextRowKey`. This was causing an HTTP 400 on the subsequent page query (A community contribution, courtesy of _[joelverhagen](https://github.com/joelverhagen)_)
+
+#### Changed
+
+- Removed the `Timestamp` property from the serialized entity when sending it to the service as it is ignored by the service (A community contribution, courtesy of _[joelverhagen](https://github.com/joelverhagen)_)
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
