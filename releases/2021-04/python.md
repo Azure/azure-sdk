@@ -36,6 +36,12 @@ azure-search-documents:11.2.0b1
 azure-appconfiguration:1.2.0b1
 azure-synapse-artifacts:0.6.0
 azure-data-tables:12.0.0b6
+azure-ai-formrecognizer:3.1.0b4
+azure-containerregistry:1.0.0b1
+azure-ai-translation-nspkg:1.0.0
+azure-keyvault-keys:4.4.0b4
+azure-ai-translation-document:1.0.0b1
+azure-identity:1.6.0b3
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -60,6 +66,7 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Resource Management - Power BI Dedicated
 - Core
 - Synapse - Artifacts
+- azure-ai-translation-nspkg
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -80,6 +87,11 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Cognitive Search
 - App Configuration
 - Tables
+- Form Recognizer
+- azure-containerregistry
+- Key Vault - Keys
+- azure-ai-translation-document
+- Identity
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -117,6 +129,12 @@ $> pip install azure-search-documents==11.2.0b1
 $> pip install azure-appconfiguration==1.2.0b1
 $> pip install azure-synapse-artifacts==0.6.0
 $> pip install azure-data-tables==12.0.0b6
+$> pip install azure-ai-formrecognizer==3.1.0b4
+$> pip install azure-containerregistry==1.0.0b1
+$> pip install azure-ai-translation-nspkg==1.0.0
+$> pip install azure-keyvault-keys==4.4.0b4
+$> pip install azure-ai-translation-document==1.0.0b1
+$> pip install azure-identity==1.6.0b3
 
 ```
 
@@ -349,6 +367,50 @@ Added `FeatureFlagConfigurationSetting` type to represent a configuration settin
 * Updated deserialization of datetime fields in entities to support preservation of the service format with additional decimal place.
 * Passing a string parameter into a query filter will now be escaped to protect against injection.
 * Fixed bug in incrementing retries in async retry policy
+
+### Form Recognizer 3.1.0b4 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.1.0b4/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#310b4-2021-04-06)
+**New features**
+
+- New methods `begin_recognize_id_documents` and `begin_recognize_id_documents_from_url` introduced to the SDK. Use these methods to recognize data from identity documents.
+- New field value types "gender" and "country" described in the `FieldValueType` enum.
+- Content-type `image/bmp` now supported by custom forms and training methods.
+- Added keyword argument `pages` for business cards, receipts, custom forms, and invoices 
+to specify which page to process of the document.
+- Added keyword argument `reading_order` to `begin_recognize_content` and `begin_recognize_content_from_url`.
+
+**Dependency Updates**
+
+- Bumped `msrest` requirement from `0.6.12` to `0.6.21`.
+
+### azure-containerregistry 1.0.0b1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-containerregistry_1.0.0b1/sdk/containerregistry/azure-containerregistry/CHANGELOG.md#100b1-2021-04-06)
+* First release of the Azure Container Registry library for Python
+
+### azure-ai-translation-nspkg 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-translation-nspkg_1.0.0/sdk/translation/azure-ai-translation-nspkg/CHANGELOG.md#100-2021-04-06)
+
+
+### Key Vault - Keys 4.4.0b4 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-keyvault-keys_4.4.0b4/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md#440b4-2021-04-06)
+#### Added
+- `CryptographyClient` can perform AES-CBCPAD encryption and decryption locally
+  ([#17762](https://github.com/Azure/azure-sdk-for-python/pull/17762))
+
+### azure-ai-translation-document 1.0.0b1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-translation-document_1.0.0b1/sdk/translation/azure-ai-translation-document/CHANGELOG.md#100b1-2021-04-06)
+This is the first beta package of the azure-ai-translation-document client library that targets the Document Translation 
+service version `1.0-preview.1`. This package's documentation and samples demonstrate the new API.
+
+### Identity 1.6.0b3 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-identity_1.6.0b3/sdk/identity/azure-identity/CHANGELOG.md#160b3-2021-04-06)
+#### Breaking Changes
+> These changes do not impact the API of stable versions such as 1.5.0.
+> Only code written against a beta version such as 1.6.0b1 may be affected.
+- Removed property `AuthenticationRequiredError.error_details`
+
+#### Fixed
+- Credentials consistently retry token requests after connection failures, or
+  when instructed to by a Retry-After header
+- ManagedIdentityCredential caches tokens correctly
+
+#### Added
+- `InteractiveBrowserCredential` functions in more WSL environments
+  ([#17615](https://github.com/Azure/azure-sdk-for-python/issues/17615))
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
