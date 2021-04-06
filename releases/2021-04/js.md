@@ -28,6 +28,7 @@ repository: azure/azure-sdk-for-js
 @azure/event-hubs:5.5.0
 @azure/ai-form-recognizer:3.1.0-beta.3
 @azure/app-configuration:1.2.0-beta.1
+@azure/search-documents:11.2.0-beta.1
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -65,6 +66,7 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Key Vault - Secrets
 - Form Recognizer
 - App Configuration
+- Cognitive Search
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -95,6 +97,7 @@ $> npm install @azure/keyvault-secrets@4.2.0-beta.4
 $> npm install @azure/event-hubs@5.5.0
 $> npm install @azure/ai-form-recognizer@3.1.0-beta.3
 $> npm install @azure/app-configuration@1.2.0-beta.1
+$> npm install @azure/search-documents@11.2.0-beta.1
 
 ```
 
@@ -310,6 +313,11 @@ This update marks the preview for the first major version update of the `@azure/
   [#14342](https://github.com/Azure/azure-sdk-for-js/pull/14342)
 - Added `updateSyncToken` method to `AppConfigurationClient` to be able to provide external synchronization tokens.
   [#14507](https://github.com/Azure/azure-sdk-for-js/pull/14507)
+
+### Cognitive Search 11.2.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/search-documents_11.2.0-beta.1/sdk/search/search-documents/CHANGELOG.md#1120-beta1-2021-04-06)
+- Added Support for new skills such as `CustomEntityLookupSkill`, `DocumentExtractionSkill`, etc. Please refer [#14620](https://github.com/Azure/azure-sdk-for-js/pull/14620) for further details.
+- Added Support for new datasource `adlsgen2`. Please refer [#14620](https://github.com/Azure/azure-sdk-for-js/pull/14620) for further details.
+- Added Support for normalizers `LexicalNormalizer` & `CustomNormalizer`. Please refer [#14620](https://github.com/Azure/azure-sdk-for-js/pull/14620) for further details.
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
