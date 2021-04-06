@@ -17,6 +17,8 @@ Azure.AI.TextAnalytics:5.1.0-beta.6
 Azure.Data.Tables:12.0.0-beta.7
 Azure.Analytics.Synapse.Artifacts:1.0.0-preview.8
 Azure.Data.AppConfiguration:1.1.0-beta.2
+Azure.AI.Translation.Document:1.0.0-beta.1
+Azure.Search.Documents:11.3.0-beta.1
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -42,6 +44,8 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Tables
 - Synapse - Artifacts
 - App Configuration
+- Azure.AI.Translation.Document
+- Cognitive Search
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -60,6 +64,8 @@ $> dotnet add package Azure.AI.TextAnalytics --version 5.1.0-beta.6
 $> dotnet add package Azure.Data.Tables --version 12.0.0-beta.7
 $> dotnet add package Azure.Analytics.Synapse.Artifacts --version 1.0.0-preview.8
 $> dotnet add package Azure.Data.AppConfiguration --version 1.1.0-beta.2
+$> dotnet add package Azure.AI.Translation.Document --version 1.0.0-beta.1
+$> dotnet add package Azure.Search.Documents --version 11.3.0-beta.1
 
 ```
 
@@ -168,6 +174,18 @@ Thank you to our developer community members who helped to make Azure Tables bet
 #### Breaking changes
 
 - The `AddSyncToken` method renamed to `UpdateSyncToken`.
+
+### Azure.AI.Translation.Document 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Translation.Document_1.0.0-beta.1/sdk/translation/Azure.AI.Translation.Document/CHANGELOG.md#100-beta1-2021-04-06)
+This is the first beta package of the Azure.AI.Translation.Document client library that targets the service version `1.0-preview.1`.
+This package's documentation and samples demonstrate the new API.
+
+### Cognitive Search 11.3.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Search.Documents_11.3.0-beta.1/sdk/search/Azure.Search.Documents/CHANGELOG.md#1130-beta1-2021-04-06)
+#### Added
+- Added support for [`Azure.Core.GeoJson`](https://docs.microsoft.com/dotnet/api/azure.core.geojson) types in `SearchDocument`, `SearchFilter` and `FieldBuilder`.
+- Added [`EventSource`](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource) based logging. Event source name is **Azure-Search-Documents**. Current set of events are focused on tuning batch sizes for [`SearchIndexingBufferedSender`](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchindexingbufferedsender-1).
+- Added [`CustomEntityLookupSkill`](https://docs.microsoft.com/azure/search/cognitive-search-skill-custom-entity-lookup) and [`DocumentExtractionSkill`](https://docs.microsoft.com/azure/search/cognitive-search-skill-document-extraction). Added `DefaultCountryHint` in [`LanguageDetectionSkill`](https://docs.microsoft.com/azure/search/cognitive-search-skill-language-detection).
+- Added [`LexicalNormalizer`](https://docs.microsoft.com/azure/search/search-normalizers#predefined-normalizers) to include predefined set of normalizers. See [here](https://docs.microsoft.com/azure/search/search-normalizers) for more details on search normalizers. Added `Normalizer` as a [`SearchField`](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchfield) in an index definition.
+- Added support for Azure Data Lake Storage Gen2 - [`AdlsGen2`](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) in [`SearchIndexerDataSourceType`](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype).
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
