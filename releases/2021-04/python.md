@@ -35,6 +35,7 @@ azure-core:1.13.0
 azure-search-documents:11.2.0b1
 azure-appconfiguration:1.2.0b1
 azure-synapse-artifacts:0.6.0
+azure-data-tables:12.0.0b6
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -78,6 +79,7 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Resource Management - Rdbms
 - Cognitive Search
 - App Configuration
+- Tables
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -114,6 +116,7 @@ $> pip install azure-core==1.13.0
 $> pip install azure-search-documents==11.2.0b1
 $> pip install azure-appconfiguration==1.2.0b1
 $> pip install azure-synapse-artifacts==0.6.0
+$> pip install azure-data-tables==12.0.0b6
 
 ```
 
@@ -341,6 +344,11 @@ Added `FeatureFlagConfigurationSetting` type to represent a configuration settin
 #### New Features
 
 - Add ADF support
+
+### Tables 12.0.0b6 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-data-tables_12.0.0b6/sdk/tables/azure-data-tables/CHANGELOG.md#1200b6-2021-04-06)
+* Updated deserialization of datetime fields in entities to support preservation of the service format with additional decimal place.
+* Passing a string parameter into a query filter will now be escaped to protect against injection.
+* Fixed bug in incrementing retries in async retry policy
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
