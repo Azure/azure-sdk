@@ -49,5 +49,5 @@ For Mobile development, please find IOS supported platforms [here](https://azure
 * For C, refer to the list of supported platforms and compilers [here](https://azure.github.io/azure-sdk/clang_design.html)
 
 ### **Support**:
-Customers with support plan can open the Azure Support ticket [here](https://azure.microsoft.com/en-us/support/create-ticket/)  
-You can open a GitHub issues [in the Azure SDK GitHub repositories](https://github.com/Azure/azure-sdk/blob/master/README.md)  to track bugs and feature requests. GitHub issues are free, but may take a longer time to process.   
+Customers with a support plan can open an Azure Support ticket [here](https://azure.microsoft.com/en-us/support/create-ticket/)  
+You can open GitHub issues [in the Azure SDK GitHub repositories](https://github.com/Azure/azure-sdk/blob/master/README.md) to track bugs and feature requests. GitHub issues are free, but may take a longer time to process.   
