@@ -42,6 +42,9 @@ azure-ai-translation-nspkg:1.0.0
 azure-keyvault-keys:4.4.0b4
 azure-ai-translation-document:1.0.0b1
 azure-identity:1.6.0b3
+azure-monitor-opentelemetry-exporter:1.0.0b4
+azure-mgmt-compute:20.0.0
+azure-core-tracing-opentelemetry:1.0.0b9
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -67,6 +70,7 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Core
 - Synapse - Artifacts
 - azure-ai-translation-nspkg
+- Resource Management - Compute
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -92,6 +96,8 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Key Vault - Keys
 - azure-ai-translation-document
 - Identity
+- Monitor OpenTelemetry Exporter
+- Core Tracing Opentelemetry
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -135,6 +141,9 @@ $> pip install azure-ai-translation-nspkg==1.0.0
 $> pip install azure-keyvault-keys==4.4.0b4
 $> pip install azure-ai-translation-document==1.0.0b1
 $> pip install azure-identity==1.6.0b3
+$> pip install azure-monitor-opentelemetry-exporter==1.0.0b4
+$> pip install azure-mgmt-compute==20.0.0
+$> pip install azure-core-tracing-opentelemetry==1.0.0b9
 
 ```
 
@@ -411,6 +420,47 @@ service version `1.0-preview.1`. This package's documentation and samples demons
 #### Added
 - `InteractiveBrowserCredential` functions in more WSL environments
   ([#17615](https://github.com/Azure/azure-sdk-for-python/issues/17615))
+
+### Monitor OpenTelemetry Exporter 1.0.0b4 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-monitor-opentelemetry-exporter_1.0.0b4/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md#100b4-2021-04-06)
+**Features**
+  - Add `from_connection_string` method to instantiate exporters
+      ([#16818](https://github.com/Azure/azure-sdk-for-python/pull/16818))
+
+  - Remove support for Python 3.5
+      ([#17747](https://github.com/Azure/azure-sdk-for-python/pull/17747))
+
+### Resource Management - Compute 20.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-compute_20.0.0/sdk/compute/azure-mgmt-compute/CHANGELOG.md#2000-2021-04-06)
+**Features**
+
+  - Model PurchasePlan has a new parameter promotion_code
+  - Model DiskUpdate has a new parameter supports_hibernation
+  - Model DiskUpdate has a new parameter property_updates_in_progress
+  - Model SnapshotUpdate has a new parameter supports_hibernation
+  - Model DiskRestorePoint has a new parameter supports_hibernation
+  - Model DiskEncryptionSetUpdate has a new parameter identity
+  - Model DiskEncryptionSetUpdate has a new parameter rotation_to_latest_key_version_enabled
+  - Model CloudServiceProperties has a new parameter allow_model_override
+  - Model LoadBalancerConfiguration has a new parameter id
+  - Model CloudServiceInstanceView has a new parameter private_ids
+  - Model Snapshot has a new parameter supports_hibernation
+  - Model DiskEncryptionSet has a new parameter last_key_rotation_timestamp
+  - Model DiskEncryptionSet has a new parameter rotation_to_latest_key_version_enabled
+  - Model Disk has a new parameter security_profile
+  - Model Disk has a new parameter supports_hibernation
+  - Model Disk has a new parameter property_updates_in_progress
+  - Added operation group CloudServiceOperatingSystemsOperations
+
+**Breaking changes**
+
+  - Parameter name of model LoadBalancerConfiguration is now required
+  - Parameter properties of model LoadBalancerConfiguration is now required
+  - Parameter frontend_ip_configurations of model LoadBalancerConfigurationProperties is now required
+  - Parameter name of model LoadBalancerFrontendIPConfiguration is now required
+  - Parameter properties of model LoadBalancerFrontendIPConfiguration is now required
+
+### Core Tracing Opentelemetry 1.0.0b9 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-core-tracing-opentelemetry_1.0.0b9/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md#100b9-2021-04-06)
+- Updated opentelemetry-api to version 1.0.0
+- `Link` and `SpanKind` can now be added while creating the span instance.
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
