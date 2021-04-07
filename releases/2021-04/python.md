@@ -80,12 +80,9 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 [pattern.patch]: # (- ${PackageFriendlyName})
 
 #### Beta
-- Key Vault - Keys
-- Key Vault - Keys
 - azure-mgmt-deviceupdate
 - Resource Management - Automation
 - Resource Management - Rdbms
-- Key Vault - Keys
 - azure-mgmt-extendedlocation
 - Resource Management - Rdbms
 - Cognitive Search
@@ -106,8 +103,6 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 To install the latest beta version of the packages, copy and paste the following commands into a terminal:
 
 ```bash
-$> pip install azure-keyvault-keys==4.4.0b1
-$> pip install azure-keyvault-keys==4.4.0b3
 $> pip install azure-mgmt-datadog==1.0.0
 $> pip install azure-mgmt-netapp==2.0.0
 $> pip install azure-mgmt-databricks==1.0.0
@@ -119,7 +114,6 @@ $> pip install azure-mgmt-databox==1.0.0
 $> pip install azure-mgmt-support==6.0.0
 $> pip install azure-mgmt-attestation==1.0.0
 $> pip install azure-mgmt-timeseriesinsights==1.0.0
-$> pip install azure-keyvault-keys==4.4.0b2
 $> pip install azure-common==1.1.27
 $> pip install azure-mgmt-marketplaceordering==1.1.0
 $> pip install azure-mgmt-cdn==11.0.0
@@ -154,33 +148,6 @@ $> pip install azure-core-tracing-opentelemetry==1.0.0b9
 If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/azure/azure-sdk-for-python/issues).
 
 ## Release highlights
-### Key Vault - Keys 4.4.0b1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-keyvault-keys_4.4.0b1/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md#440b1-2021-2-10)
-#### Changed
-- Key Vault API version 7.2-preview is now the default
-- Updated msrest requirement to >=0.6.21
-
-#### Added
-- Support for Key Vault API version 7.2-preview
-([#16566](https://github.com/Azure/azure-sdk-for-python/pull/16566))
-  - Added `oct_hsm` to `KeyType`
-  - Added 128-, 192-, and 256-bit AES-GCM, AES-CBC, and AES-CBCPAD encryption
-    algorithms to `EncryptionAlgorithm`
-  - Added 128- and 192-bit AES-KW key wrapping algorithms to `KeyWrapAlgorithm`
-  - `CryptographyClient`'s `encrypt` method accepts `iv` and 
-    `additional_authenticated_data` keyword arguments
-  - `CryptographyClient`'s `decrypt` method accepts `iv`, 
-    `additional_authenticated_data`, and `authentication_tag` keyword arguments
-  - Added `iv`, `aad`, and `tag` properties to `EncryptResult`
-- Added method `parse_key_vault_key_id` that parses out a full ID returned by
-Key Vault, so users can easily access the key's `name`, `vault_url`, and `version`.
-
-### Key Vault - Keys 4.4.0b3 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-keyvault-keys_4.4.0b3/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md#440b3-2021-3-11)
-#### Added
-- `CryptographyClient` will perform all operations locally if initialized with
-  the `.from_jwk` factory method
-  ([#16565](https://github.com/Azure/azure-sdk-for-python/pull/16565))
-- Added requirement for six>=1.12.0
-
 ### Resource Management - Datadog 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-datadog_1.0.0/sdk/datadog/azure-mgmt-datadog/CHANGELOG.md#100-2021-03-22)
 **Features**
 
@@ -256,11 +223,6 @@ Key Vault, so users can easily access the key's `name`, `vault_url`, and `versio
   - Operation EnvironmentsOperations.begin_update has a new signature
   - Operation ReferenceDataSetsOperations.update has a new signature
   - Operation AccessPoliciesOperations.update has a new signature
-
-### Key Vault - Keys 4.4.0b2 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-keyvault-keys_4.4.0b2/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md#440b2-2021-2-10)
-#### Fixed
-- API versions older than 7.2-preview no longer raise `ImportError` when
-  performing async operations ([#16680](https://github.com/Azure/azure-sdk-for-python/pull/16680))
 
 ### Common 1.1.27 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-common_1.1.27/sdk/core/azure-common/CHANGELOG.md#1127-2021-03-23)
 - Deprecate JSON and auth file client factory  #15075
