@@ -49,6 +49,7 @@ azure-servicebus:7.1.1
 azure-eventhub-checkpointstoreblob-aio:1.1.4
 azure-eventhub-checkpointstoreblob:1.1.4
 azure-eventhub:5.4.0
+azure-eventgrid:4.1.1
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -83,6 +84,7 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Service Bus
 - Event Hubs - Azure Blob Storage Checkpoint Store AIO
 - Event Hubs - Azure Blob Storage Checkpoint Store
+- Event Grid
 
 [pattern.patch]: # (- ${PackageFriendlyName})
 
@@ -148,6 +150,7 @@ $> pip install azure-servicebus==7.1.1
 $> pip install azure-eventhub-checkpointstoreblob-aio==1.1.4
 $> pip install azure-eventhub-checkpointstoreblob==1.1.4
 $> pip install azure-eventhub==5.4.0
+$> pip install azure-eventgrid==4.1.1
 
 ```
 
@@ -475,6 +478,10 @@ This version follows from version 5.3.1, rather than 5.4.0b1 so that the preview
 **Notes**
 
 - Updated azure-core dependency to 1.13.0.
+
+### Event Grid 4.1.1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-eventgrid_4.1.1/sdk/eventgrid/azure-eventgrid/CHANGELOG.md#411-2021-04-07)
+**Bug Fixes**
+  - Improved the `repr` on `EventGridEvent` to show more meaningful text.
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
