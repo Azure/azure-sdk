@@ -29,6 +29,9 @@ repository: azure/azure-sdk-for-js
 @azure/ai-form-recognizer:3.1.0-beta.3
 @azure/app-configuration:1.2.0-beta.1
 @azure/search-documents:11.2.0-beta.1
+@azure/synapse-artifacts:1.0.0-beta.4
+@azure/container-registry:1.0.0-beta.1
+@azure/data-tables:12.0.0-beta.2
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -67,6 +70,9 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Form Recognizer
 - App Configuration
 - Cognitive Search
+- Synapse - Artifacts
+- Container Registry
+- Tables
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -98,6 +104,9 @@ $> npm install @azure/event-hubs@5.5.0
 $> npm install @azure/ai-form-recognizer@3.1.0-beta.3
 $> npm install @azure/app-configuration@1.2.0-beta.1
 $> npm install @azure/search-documents@11.2.0-beta.1
+$> npm install @azure/synapse-artifacts@1.0.0-beta.4
+$> npm install @azure/container-registry@1.0.0-beta.1
+$> npm install @azure/data-tables@12.0.0-beta.2
 
 ```
 
@@ -318,6 +327,20 @@ This update marks the preview for the first major version update of the `@azure/
 - Added Support for new skills such as `CustomEntityLookupSkill`, `DocumentExtractionSkill`, etc. Please refer [#14620](https://github.com/Azure/azure-sdk-for-js/pull/14620) for further details.
 - Added Support for new datasource `adlsgen2`. Please refer [#14620](https://github.com/Azure/azure-sdk-for-js/pull/14620) for further details.
 - Added Support for normalizers `LexicalNormalizer` & `CustomNormalizer`. Please refer [#14620](https://github.com/Azure/azure-sdk-for-js/pull/14620) for further details.
+
+### Synapse - Artifacts 1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/synapse-artifacts_1.0.0-beta.4/sdk/synapse/synapse-artifacts/CHANGELOG.md#100-beta4-2021-04-06)
+- Adds ADF support
+- Consume latest Code Generator changes
+
+### Container Registry 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/container-registry_1.0.0-beta.1/sdk/containerregistry/container-registry/CHANGELOG.md#100-beta1-2021-04-06)
+- Initial version of Azure Container Registry client SDK library.
+- This release is a preview of our efforts to create a client library that is user friendly and
+  idiomatic to the JavaScript ecosystem. The reasons for most of the changes in this update can be found in the
+  [Azure SDK Design Guidelines for TypeScript](https://azure.github.io/azure-sdk/typescript_introduction.html).
+
+### Tables 12.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/data-tables_12.0.0-beta.2/sdk/tables/data-tables/CHANGELOG.md#1200-beta2-2021-04-06)
+- Update open-telemetry dependency to 1.0.0-rc.0 [#14208](https://github.com/Azure/azure-sdk-for-js/pull/14208)
+- Update @azure/core-client and @azure/core-rest-pipeline dependencies to 1.0.0 [#14318](https://github.com/Azure/azure-sdk-for-js/pull/14318)
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
