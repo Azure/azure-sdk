@@ -53,25 +53,24 @@ azure-servicebus:7.1.1
 The Azure SDK team is pleased to make available the April 2021 client library release.
 
 #### GA
-- Resource Management - Datadog
-- Resource Management - NetApp
-- Resource Management - Databricks
-- Resource Management - Alerts Management
-- Resource Management - Data Box
-- Resource Management - Support
-- Resource Management - Attestation
-- Resource Management - Time Series Insights
-- Resource Management - Marketplace Ordering
-- Resource Management - Content Delivery Network
-- Event Grid
-- Resource Management - Private DNS
-- Resource Management - Communication
-- Resource Management - Frontdoor
-- Resource Management - Power BI Dedicated
 - Core
-- Synapse - Artifacts
-- azure-ai-translation-nspkg
+- Event Grid
+- Resource Management - Alerts Management
+- Resource Management - Attestation
+- Resource Management - Communication
 - Resource Management - Compute
+- Resource Management - Content Delivery Network
+- Resource Management - Data Box
+- Resource Management - Databricks
+- Resource Management - Datadog
+- Resource Management - Frontdoor
+- Resource Management - Marketplace Ordering
+- Resource Management - NetApp
+- Resource Management - Power BI Dedicated
+- Resource Management - Private DNS
+- Resource Management - Support
+- Resource Management - Time Series Insights
+- Synapse - Artifacts
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -82,21 +81,21 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 [pattern.patch]: # (- ${PackageFriendlyName})
 
 #### Beta
+- App Configuration
+- Cognitive Search
+- Container Registry
+- Core Tracing Opentelemetry
 - azure-mgmt-deviceupdate
+- azure-mgmt-extendedlocation
+- Form Recognizer
+- Identity
+- Key Vault - Keys
+- Monitor OpenTelemetry Exporter
 - Resource Management - Automation
 - Resource Management - Rdbms
-- azure-mgmt-extendedlocation
 - Resource Management - Rdbms
-- Cognitive Search
-- App Configuration
 - Tables
-- Form Recognizer
-- azure-containerregistry
-- Key Vault - Keys
 - azure-ai-translation-document
-- Identity
-- Monitor OpenTelemetry Exporter
-- Core Tracing Opentelemetry
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -133,7 +132,6 @@ $> pip install azure-synapse-artifacts==0.6.0
 $> pip install azure-data-tables==12.0.0b6
 $> pip install azure-ai-formrecognizer==3.1.0b4
 $> pip install azure-containerregistry==1.0.0b1
-$> pip install azure-ai-translation-nspkg==1.0.0
 $> pip install azure-keyvault-keys==4.4.0b4
 $> pip install azure-ai-translation-document==1.0.0b1
 $> pip install azure-identity==1.6.0b3
@@ -358,9 +356,6 @@ to specify which page to process of the document.
 
 ### azure-containerregistry 1.0.0b1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-containerregistry_1.0.0b1/sdk/containerregistry/azure-containerregistry/CHANGELOG.md#100b1-2021-04-06)
 * First release of the Azure Container Registry library for Python
-
-### azure-ai-translation-nspkg 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-translation-nspkg_1.0.0/sdk/translation/azure-ai-translation-nspkg/CHANGELOG.md#100-2021-04-06)
-
 
 ### Key Vault - Keys 4.4.0b4 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-keyvault-keys_4.4.0b4/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md#440b4-2021-04-06)
 #### Added
