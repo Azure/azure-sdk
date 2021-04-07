@@ -22,6 +22,7 @@ Azure.Search.Documents:11.3.0-beta.1
 Azure.AI.FormRecognizer:3.1.0-beta.4
 Azure.Identity:1.4.0-beta.5
 Azure.Core.Amqp:1.1.0-beta.1
+Microsoft.Azure.WebJobs.Extensions.EventHubs:5.0.0-beta.4
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -52,6 +53,7 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Form Recognizer
 - Identity
 - Core - AMQP
+- WebJobs Extensions - Event Hubs
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -74,6 +76,7 @@ $> dotnet add package Azure.Search.Documents --version 11.3.0-beta.1
 $> dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.4
 $> dotnet add package Azure.Identity --version 1.4.0-beta.5
 $> dotnet add package Azure.Core.Amqp --version 1.1.0-beta.1
+$> dotnet add package Microsoft.Azure.WebJobs.Extensions.EventHubs --version 5.0.0-beta.4
 $> dotnet add package Azure.Storage.Common --version 12.7.2
 ```
 
@@ -230,6 +233,11 @@ Thank you to our developer community members who helped to make Azure Identity b
 ### Core - AMQP 1.1.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core.Amqp_1.1.0-beta.1/sdk/core/Azure.Core.Amqp/CHANGELOG.md#110-beta1-2021-04-06)
 #### Added
 - Added support for Sequence and Value body messages.
+
+### WebJobs Extensions - Event Hubs 5.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.WebJobs.Extensions.EventHubs_5.0.0-beta.4/sdk/eventhub/Microsoft.Azure.WebJobs.Extensions.EventHubs/CHANGELOG.md#500-beta4-2021-04-06)
+#### Changes
+
+- Single dispatch triggers were disabled.
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
