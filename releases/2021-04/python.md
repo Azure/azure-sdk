@@ -45,6 +45,7 @@ azure-identity:1.6.0b3
 azure-monitor-opentelemetry-exporter:1.0.0b4
 azure-mgmt-compute:20.0.0
 azure-core-tracing-opentelemetry:1.0.0b9
+azure-servicebus:7.1.1
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -76,6 +77,7 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 
 #### Updates
 - Common
+- Service Bus
 
 [pattern.patch]: # (- ${PackageFriendlyName})
 
@@ -138,6 +140,7 @@ $> pip install azure-identity==1.6.0b3
 $> pip install azure-monitor-opentelemetry-exporter==1.0.0b4
 $> pip install azure-mgmt-compute==20.0.0
 $> pip install azure-core-tracing-opentelemetry==1.0.0b9
+$> pip install azure-servicebus==7.1.1
 
 ```
 
@@ -423,6 +426,19 @@ service version `1.0-preview.1`. This package's documentation and samples demons
 ### Core Tracing Opentelemetry 1.0.0b9 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-core-tracing-opentelemetry_1.0.0b9/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md#100b9-2021-04-06)
 - Updated opentelemetry-api to version 1.0.0
 - `Link` and `SpanKind` can now be added while creating the span instance.
+
+### Service Bus 7.1.1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-servicebus_7.1.1/sdk/servicebus/azure-servicebus/CHANGELOG.md#711-2021-04-07)
+This version and all future versions will require Python 2.7 or Python 3.6+, Python 3.5 is no longer supported.
+
+**New Features**
+
+* Updated `forward_to` and `forward_dead_lettered_messages_to` parameters in `create_queue`, `update_queue`, `create_subscription`, and `update_subscription` methods on sync and async `ServiceBusAdministrationClient` to accept entities as well, rather than only full paths. In the case that an entity is passed in, it is assumed that the entity exists within the same namespace used for constructing the `ServiceBusAdministrationClient`.
+
+**Bug Fixes**
+
+* Updated uAMQP dependency to 1.3.0.
+  - Fixed bug that sending message of large size triggering segmentation fault when the underlying socket connection is lost (#13739, #14543).
+  - Fixed bug in link flow control where link credit and delivery count should be calculated based on per message instead of per transfer frame (#16934).
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
