@@ -108,6 +108,12 @@ azure-ai-textanalytics:5.0.5
 azure-search-documents:11.4.0-beta.1
 azure-cosmos:4.14.0
 azure-ai-textanalytics:5.1.0-beta.6
+azure-analytics-synapse-accesscontrol:1.0.0-beta.3
+azure-analytics-synapse-monitoring:1.0.0-beta.3
+azure-spring-data-cosmos:3.6.0
+azure-analytics-synapse-spark:1.0.0-beta.3
+azure-analytics-synapse-managedprivateendpoints:1.0.0-beta.3
+azure-analytics-synapse-artifacts:1.0.0-beta.4
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -174,6 +180,7 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Azure Spring Cloud Telemetry
 - Core
 - Cosmos DB
+- Spring Data Cosmos
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -224,6 +231,11 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Form Recognizer
 - Cognitive Search
 - Text Analytics
+- Synapse - AccessControl
+- Synapse - Monitoring
+- Synapse - Spark
+- Synapse - Managed Private Endpoints
+- Synapse - Artifacts
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -836,6 +848,42 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-ai-textanalytics</artifactId>
   <version>5.1.0-beta.6</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-analytics-synapse-accesscontrol</artifactId>
+  <version>1.0.0-beta.3</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-analytics-synapse-monitoring</artifactId>
+  <version>1.0.0-beta.3</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-spring-data-cosmos</artifactId>
+  <version>3.6.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-analytics-synapse-spark</artifactId>
+  <version>1.0.0-beta.3</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-analytics-synapse-managedprivateendpoints</artifactId>
+  <version>1.0.0-beta.3</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-analytics-synapse-artifacts</artifactId>
+  <version>1.0.0-beta.4</version>
 </dependency>
 
 
@@ -1468,6 +1516,62 @@ Updated `azure-communication-identity` version
 ### Text Analytics 5.1.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.1.0-beta.6/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#510-beta6-2021-04-06)
 #### Breaking changes
 - Removed the input parameter `Context` from non-max-overload healthcare synchronous API, `beginAnalyzeHealthcareEntities()`.
+
+### Synapse - AccessControl 1.0.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-analytics-synapse-accesscontrol_1.0.0-beta.3/sdk/synapse/azure-analytics-synapse-accesscontrol/CHANGELOG.md#100-beta3-2021-04-06)
+#### Breaking Changes
+- `listRoleAssignmentsWithResponse()` now returns `RoleAssignmentsListRoleAssignmentsResponse`
+
+#### Dependency Updates
+- Update azure-core to 1.15.0
+
+### Synapse - Monitoring 1.0.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-analytics-synapse-monitoring_1.0.0-beta.3/sdk/synapse/azure-analytics-synapse-monitoring/CHANGELOG.md#100-beta3-2021-04-06)
+#### Dependency Updates
+- Update azure-core to 1.15.0
+
+### Spring Data Cosmos 3.6.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-data-cosmos_3.6.0/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md#360-2021-04-06)
+##### New Features
+* Updated `azure-cosmos` to version 4.14.0.
+
+### Synapse - Spark 1.0.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-analytics-synapse-spark_1.0.0-beta.3/sdk/synapse/azure-analytics-synapse-spark/CHANGELOG.md#100-beta3-2021-04-06)
+#### Breaking Changes
+- Remove `SparkServiceVersion` class
+
+#### Dependency Updates
+- Update azure-core to 1.15.0
+
+### Synapse - Managed Private Endpoints 1.0.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-analytics-synapse-managedprivateendpoints_1.0.0-beta.3/sdk/synapse/azure-analytics-synapse-managedprivateendpoints/CHANGELOG.md#100-beta3-2021-04-06)
+#### Dependency Updates
+- Update azure-core to 1.15.0
+
+### Synapse - Artifacts 1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-analytics-synapse-artifacts_1.0.0-beta.4/sdk/synapse/azure-analytics-synapse-artifacts/CHANGELOG.md#100-beta4-2021-04-06)
+#### New Features
+- Update with Azure Data Factory(ADF) swagger changes/2019-06-01-preview
+
+#### Breaking Changes
+- `DataFlowDebugSessionClient#createDataFlowDebugSessionWithResponse()` now returns `DataFlowDebugSessionsCreateDataFlowDebugSessionResponse`
+- `DataFlowDebugSessionClient#executeCommandWithResponse()` now returns `DataFlowDebugSessionsExecuteCommandResponse`
+- `LibraryAsyncClient#getOperationResultWithResponse()` now returns `Mono<Response<LibraryResource>>`
+- `LibraryAsyncClient#getOperationResult()` now returns `Mono<Response<LibraryResource>>`
+- `LibraryClient#getOperationResultWithResponse()` now returns `Response<LibraryResource>`
+- `LibraryClient#getOperationResult()` now returns `Response<LibraryResource>`
+- `AvroDataset.avroCompressionCodec` property is now of type `Object`
+- `CommonDataServiceForAppsLinkedService.servicePrincipalCredentialType` property is now of type `Object`
+- `DatasetDeflateCompression.level` property is now of type `Object`
+- `DatasetGZipCompression.level` property is now of type `Object`
+- `DatasetZipDeflateCompression.level` property is now of type `Object`
+- `DelimitedTextDataset.compressionCoded` property is now of type `CompressionCodec`
+- `DelimitedTextDataset.compressionLevel` property is now of type `Object`
+- `DynamicsCrmLinkedService.servicePrincipalCredentialType` property is now of type `Object`
+- `DynamicsLinkedService.hostName` property is now of type `Object`
+- `DynamicsLinkedService.port` property is now of type `Object`
+- `DynamicsLinkedService.serviceUri` property is now of type `Object`
+- `DynamicsLinkedService.organizationName` property is now of type `Object`
+- `ParquetDataset.compressionCodec` property is now of type `Object`
+- `RerunTumblingWindowTrigger.maxCurrency` property is renamed to `rerunCurrency`
+- `WaitActivity.waitTimeInSeconds` property is now of type `Object`
+
+#### Dependency Updates
+- Update azure-core to 1.15.0
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
