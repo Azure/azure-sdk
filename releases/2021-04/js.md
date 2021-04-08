@@ -40,11 +40,11 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 
 #### GA
 - Core - Auth
-- Communication Identity
-- Communication Common
+- Azure Communication Chat
+- Azure Communication Common
+- Azure Communication Identity
+- Azure Communication SMS
 - Core - Client
-- Communication Chat
-- Communication Sms
 - Core - AMQP
 - Event Hubs
 
@@ -60,7 +60,7 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 [pattern.patch]: # (- ${PackageFriendlyName})
 
 #### Beta
-- Communication Phone Numbers
+- Azure Communication Phone Numbers
 - Identity
 - Core - Tracing
 - Key Vault - Administration
@@ -116,8 +116,29 @@ $> npm install @azure/data-tables@12.0.0-beta.2
 
 If you have a bug or feature request for one of the libraries, please post an issue at the [azure-sdk-for-js repository](https://github.com/azure/azure-sdk-for-js/issues)
 
+### Core - Auth 1.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-auth_1.3.0/sdk/core/core-auth/CHANGELOG.md#130-2021-03-30)
+- Adds the `AzureNamedKeyCredential` class which supports credential rotation and a corresponding `NamedKeyCredential` interface to support the use of static string-based names and keys in Azure clients.
+- Adds the `isNamedKeyCredential` and `isSASCredential` typeguard functions similar to the existing `isTokenCredential`.
+
+### Azure Communication Chat 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/communication-chat_1.0.0/sdk/communication/communication-chat/CHANGELOG.md#100-2021-03-29)
+#### Breaking Changes
+
+- Renamed `url` to `endpoint` in the constructors of `ChatClient` and `ChatThreadClient`.
+- Renamed `ChatThread` model to `ChatThreadProperties`. Renamed `GetChatThread` operation to `GetProperties` and move to `ChatThreadClient`.
+- Renamed `ChatThreadInfo` model to `ChatThreadItem`.
+- Renamed parameter `repeatabilityRequestId` to `idempotencyToken`.
+- Uses `ChatError` instead of `CommunicationError` in operation result.
+- Move `participants` from `CreateChatThreadRequest` to `CreateChatThreadOptions`
+- Updated to @azure/communication-signaling@1.0.0-beta.3.
+
+### Azure Communication Common 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/communication-common_1.0.0/sdk/communication/communication-common/CHANGELOG.md#100-2021-03-22)
+Updated `@azure/communication-common` version.
+
+### Azure Communication Identity 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/communication-identity_1.0.0/sdk/communication/communication-identity/CHANGELOG.md#100-2021-03-29)
+- Stable release of `@azure/communication-identity`.
+
 ## Release highlights
-### Communication Phone Numbers 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/communication-phone-numbers_1.0.0-beta.5/sdk/communication/communication-phone-numbers/CHANGELOG.md#100-beta5-2021-03-29)
+### Azure Communication Phone Numbers 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/communication-phone-numbers_1.0.0-beta.5/sdk/communication/communication-phone-numbers/CHANGELOG.md#100-beta5-2021-03-29)
 #### Breaking Changes
 
 - Renamed `AcquiredPhoneNumber` to `PurchasedPhoneNumber`.
@@ -125,12 +146,8 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Renamed `listPhoneNumbers` to `listPurchasedPhoneNumbers` on `PhoneNumbersClient`.
 - Replaced `VoidResult` with method specific interfaces `PurchasePhoneNumbersResult` and `ReleasePhoneNumberResult`.
 
-### Core - Auth 1.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-auth_1.3.0/sdk/core/core-auth/CHANGELOG.md#130-2021-03-30)
-- Adds the `AzureNamedKeyCredential` class which supports credential rotation and a corresponding `NamedKeyCredential` interface to support the use of static string-based names and keys in Azure clients.
-- Adds the `isNamedKeyCredential` and `isSASCredential` typeguard functions similar to the existing `isTokenCredential`.
-
-### Communication Identity 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/communication-identity_1.0.0/sdk/communication/communication-identity/CHANGELOG.md#100-2021-03-29)
-- Stable release of `@azure/communication-identity`.
+### Azure Communication SMS 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/communication-sms_1.0.0/sdk/communication/communication-sms/CHANGELOG.md#100-2021-03-29)
+- Stable release of `@azure/communication-sms`.
 
 ### Core Rest Pipeline 1.0.3 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-rest-pipeline_1.0.3/sdk/core/core-rest-pipeline/CHANGELOG.md#103-2021-03-30)
 #### Breaking Changes
@@ -144,25 +161,11 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 - Updated @azure/core-tracing to version `1.0.0-preview.11`. See [@azure/core-tracing CHANGELOG](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/core/core-tracing/CHANGELOG.md) for details about breaking changes with tracing.
 
-### Communication Common 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/communication-common_1.0.0/sdk/communication/communication-common/CHANGELOG.md#100-2021-03-22)
-Updated `@azure/communication-common` version.
-
 ### Core - Client 1.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-client_1.1.0/sdk/core/core-client/CHANGELOG.md#110-2021-03-30)
 #### Breaking Changes
 
 - If the response body is empty and the mapper for it says it is nullable, then a null is returned.
 - Updated @azure/core-tracing to version `1.0.0-preview.11`. See [@azure/core-tracing CHANGELOG](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/core/core-tracing/CHANGELOG.md) for details about breaking changes with tracing.
-
-### Communication Chat 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/communication-chat_1.0.0/sdk/communication/communication-chat/CHANGELOG.md#100-2021-03-29)
-#### Breaking Changes
-
-- Renamed `url` to `endpoint` in the constructors of `ChatClient` and `ChatThreadClient`.
-- Renamed `ChatThread` model to `ChatThreadProperties`. Renamed `GetChatThread` operation to `GetProperties` and move to `ChatThreadClient`.
-- Renamed `ChatThreadInfo` model to `ChatThreadItem`.
-- Renamed parameter `repeatabilityRequestId` to `idempotencyToken`.
-- Uses `ChatError` instead of `CommunicationError` in operation result.
-- Move `participants` from `CreateChatThreadRequest` to `CreateChatThreadOptions`
-- Updated to @azure/communication-signaling@1.0.0-beta.3.
 
 ### Identity 2.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/identity_2.0.0-beta.1/sdk/identity/identity/CHANGELOG.md#200-beta1-2021-03-24)
 This update marks the preview for the first major version update of the `@azure/identity` package since the first stable version was released in October, 2019. This is mainly driven by the improvements we are making for the `InteractiveBrowserCredential` when used in browser applications by updating it to use the new `@azure/msal-browser` which is replacing the older `msal` package.
@@ -210,9 +213,6 @@ This update marks the preview for the first major version update of the `@azure/
 #### Breaking Changes
 
 - Updated @azure/core-tracing to version `1.0.0-preview.11`. See [@azure/core-tracing CHANGELOG](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/core/core-tracing/CHANGELOG.md) for details about breaking changes with tracing.
-
-### Communication Sms 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/communication-sms_1.0.0/sdk/communication/communication-sms/CHANGELOG.md#100-2021-03-29)
-- Stable release of `@azure/communication-sms`.
 
 ### Core - AMQP 2.2.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-amqp_2.2.0/sdk/core/core-amqp/CHANGELOG.md#220-2021-03-30)
 - Updates `translateError` to convert non-object type parameters to errors.
