@@ -131,7 +131,11 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Azure Spring Cloud Messaging
 - Azure Spring Boot Starter Active Directory
 - Resource Management - Key Vault
-- Communication Sms
+- Azure Communication Chat
+- Azure Communication Common
+- Azure Communication Identity
+- Azure Communication SMS
+- Resource Management - Communication
 - Resource Management - Cognitive Search
 - Resource Management - Storage
 - Resource Management - Resources
@@ -161,9 +165,7 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Resource Management - Authorization
 - Resource Management - Container Service
 - Azure Spring Cloud Integration Event Hubs
-- Communication Chat
 - Azure Spring Cloud Integration Service Bus
-- Communication Identity
 - Azure Spring Cloud Starter Cache
 - Resource Management - Managed Service Identity
 - Azure Spring Cloud Stream Binder Service bus Queue
@@ -177,14 +179,12 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Azure Spring Cloud Integration Storage Queue
 - Resource Management - Compute
 - Azure Spring Cloud Stream Binder Service bus Core
-- Communication Common
 - Azure Spring Cloud Starter Service bus
 - Azure Spring Boot Starter Service bus Jms
 - Azure Spring Cloud Telemetry
 - Core
 - Cosmos DB
 - Spring Data Cosmos
-- Resource Management - Communication
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -211,18 +211,18 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Storage - Blobs NIO
 - Resource Management - Api Management
 - Resource Management - Log Analytics
+- Resource Management - Communication
 - Storage - Internal Avro
 - Storage - Blobs Cryptography
 - Storage - Files Shares
 - Storage - Blobs Batch
 - Resource Management - Change Analysis
-- Resource Management - Communication
 - Resource Management - Resource Graph
 - Storage - Common
 - azure-cosmos-spark_3-1_2-12
 - Storage - Queues
 - azure-iot-modelsrepository
-- azure-communication-phonenumbers
+- Azure Communication Phone Numbers
 - Storage - Blobs
 - Resource Management - Datadog
 - Key Vault - JCA
@@ -306,8 +306,38 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 
 <dependency>
   <groupId>com.azure</groupId>
+  <artifactId>azure-communication-chat</artifactId>
+  <version>1.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-communication-common</artifactId>
+  <version>1.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-communication-identity</artifactId>
+  <version>1.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
   <artifactId>azure-communication-sms</artifactId>
   <version>1.0.0</version>
+</dependency>
+
+<dependency>
+    <groupId>com.azure.resourcemanager</groupId>
+    <artifactId>azure-resourcemanager-communication</artifactId>
+    <version>1.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-communication-phonenumbers</artifactId>
+  <version>1.0.0-beta.7</version>
 </dependency>
 
 <dependency>
@@ -443,12 +473,6 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 </dependency>
 
 <dependency>
-  <groupId>com.azure.resourcemanager</groupId>
-  <artifactId>azure-resourcemanager-communication</artifactId>
-  <version>1.0.0-beta.1</version>
-</dependency>
-
-<dependency>
   <groupId>com.azure.spring</groupId>
   <artifactId>azure-spring-boot-starter-keyvault-secrets</artifactId>
   <version>3.3.0</version>
@@ -539,12 +563,6 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 </dependency>
 
 <dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-communication-phonenumbers</artifactId>
-  <version>1.0.0-beta.7</version>
-</dependency>
-
-<dependency>
   <groupId>com.azure.spring</groupId>
   <artifactId>azure-spring-boot-starter-active-directory-b2c</artifactId>
   <version>3.3.0</version>
@@ -611,21 +629,9 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 </dependency>
 
 <dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-communication-chat</artifactId>
-  <version>1.0.0</version>
-</dependency>
-
-<dependency>
   <groupId>com.azure.spring</groupId>
   <artifactId>azure-spring-integration-servicebus</artifactId>
   <version>2.3.0</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-communication-identity</artifactId>
-  <version>1.0.0</version>
 </dependency>
 
 <dependency>
@@ -740,12 +746,6 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure.spring</groupId>
   <artifactId>azure-spring-cloud-stream-binder-servicebus-core</artifactId>
   <version>2.3.0</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-communication-common</artifactId>
-  <version>1.0.0</version>
 </dependency>
 
 <dependency>
@@ -904,13 +904,6 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <version>1.0.0-beta.2</version>
 </dependency>
 
-<dependency>
-  <groupId>com.azure.resourcemanager</groupId>
-  <artifactId>azure-resourcemanager-communication</artifactId>
-  <version>1.0.0</version>
-</dependency>
-
-
 ```
 
 [pattern]: # (<dependency>`n  <groupId>${GroupId}</groupId>`n  <artifactId>${PackageName}</artifactId>`n  <version>${PackageVersion}</version>`n</dependency>`n)
@@ -955,9 +948,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Made AzurePath.toBlobClient public
 - Added support for Azurite
 - Change FileSystem configuration to accept an endpoint and credential types instead of a string for the account name, key, and token
-
-### Communication Sms 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-sms_1.0.0/sdk/communication/azure-communication-sms/CHANGELOG.md#100-2021-03-29)
-Updated `azure-communication-sms` version
 
 ### Resource Management - Api Management 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-apimanagement_1.0.0-beta.1/sdk/apimanagement/azure-resourcemanager-apimanagement/CHANGELOG.md#100-beta1-2021-03-23)
 - Azure Resource Manager ApiManagement client library for Java. This package contains Microsoft Azure SDK for ApiManagement Management SDK. ApiManagement Client. Package tag package-2020-12. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
@@ -1071,9 +1061,6 @@ Updated to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/
 #### New Features
 - Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
 - Upgrade to `Spring Integration` [5.4.4](https://github.com/spring-projects/spring-integration/releases/tag/v5.4.4).
-
-### Resource Management - Communication 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-communication_1.0.0-beta.1/sdk/communication/azure-resourcemanager-communication/CHANGELOG.md#100-beta1-2021-03-23)
-- Azure Resource Manager Communication client library for Java. This package contains Microsoft Azure SDK for Communication Management SDK. REST API for Azure Communication Services. Package tag package-2020-08-20. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
 ### Azure Spring Boot Starter Key Vault Secrets 3.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot-starter-keyvault-secrets_3.3.0/sdk/spring/azure-spring-boot-starter-keyvault-secrets/CHANGELOG.md#330-2021-03-22)
 #### New Features
@@ -1193,7 +1180,46 @@ String messageText = body.toString();
 
 - N/A
 
-### azure-communication-phonenumbers 1.0.0-beta.7 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-phonenumbers_1.0.0-beta.7/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md#100-beta7-2021-03-29)
+### Azure Communication Chat 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-chat_1.0.0/sdk/communication/azure-communication-chat/CHANGELOG.md#100-2021-03-29)
+#### Breaking Changes
+
+- Renamed `ChatThread` to `ChatThreadProperties`
+- Renamed `ChatThreadInfo` to `ChatThreadItem`
+- Renamed `repeatabilityRequestId` to `idempotencyToken`
+- SendMessage returns `SendChatMessageResult` instead of string ID
+- Renamed `CommunicationError` to `ChatError`
+- Renamed `CommunicationErrorResponse` to `ChatErrorResponse`
+- Moved `getChatThread` to `ChatThreadClient` and renamed to `getProperties`
+- Removed `AddChatParticipantsOptions`
+- Changed `addParticipants` to take `Iterable<ChatParticipant>` instead of `AddChatParticipantsOptions`
+- Added `context` parameter to the max overloads of `listParticipants`, `listReadReceipts`
+- `CreateChatThreadOptions` constructor now requires `topic`
+- Removed `setTopic` from `CreateChatThreadOptions`
+
+#### Added
+
+- Added `ChatThreadClientBuilder`
+
+### Azure Communication Common 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-common_1.0.0/sdk/communication/azure-communication-common/CHANGELOG.md#100-2021-03-29)
+#### Breaking Changes
+- Updated `CommunicationCloudEnvironment(String environmentValue)` constructor to `CommunicationCloudEnvironment()`.
+- Updated `public CommunicationCloudEnvironment fromString(String environmentValue)` to `public static CommunicationCloudEnvironment fromString(String environmentValue)`.
+- Renamed `TokenRefresher.getTokenAsync()` to `TokenRefresher.getToken()`.
+
+### Azure Communication Identity 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-identity_1.0.0/sdk/communication/azure-communication-identity/CHANGELOG.md#100-2021-03-29)
+Updated `azure-communication-identity` version
+
+### Azure Communication SMS 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-sms_1.0.0/sdk/communication/azure-communication-sms/CHANGELOG.md#100-2021-03-29)
+Updated `azure-communication-sms` version
+
+### Resource Management - Communication 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-communication_1.0.0/sdk/communication/azure-resourcemanager-communication/CHANGELOG.md#100-2021-04-08)
+- Azure Resource Manager Communication client library for Java. This package contains Microsoft Azure SDK for Communication Management SDK. REST API for Azure Communication Services. Package tag package-2020-08-20. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+#### Breaking Change
+
+* `models.ErrorAdditionalInfo` was removed
+
+### Azure Communication Phone Numbers 1.0.0-beta.7 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-phonenumbers_1.0.0-beta.7/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md#100-beta7-2021-03-29)
 #### Added
 - Added `PollerFlux<PhoneNumberOperation, PhoneNumberSearchResult> beginSearchAvailablePhoneNumbers(String countryCode, PhoneNumberType phoneNumberType, PhoneNumberAssignmentType assignmentType, PhoneNumberCapabilities capabilities)` in PhoneNumbersAsyncClient.
 - Added `PagedIterable<PurchasedPhoneNumber> listPurchasedPhoneNumbers()` in PhoneNumbersClient.
@@ -1219,6 +1245,9 @@ PhoneNumbersAsyncClient.getPurchasedPhoneNumberWithResponse and PhoneNumbersClie
 - Removed `CommunicationError`.
 - Removed `PhoneNumberCapabilitiesRequest`.
 - Moved `ReservationStatus` to the `models` folder.
+
+### Resource Management - Communication 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-communication_1.0.0-beta.1/sdk/communication/azure-resourcemanager-communication/CHANGELOG.md#100-beta1-2021-03-23)
+- Azure Resource Manager Communication client library for Java. This package contains Microsoft Azure SDK for Communication Management SDK. REST API for Azure Communication Services. Package tag package-2020-08-20. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
 ### Azure Spring Boot Starter Active Directory B2C 3.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot-starter-active-directory-b2c_3.3.0/sdk/spring/azure-spring-boot-starter-active-directory-b2c/CHANGELOG.md#330-2021-03-22)
 #### New Features
@@ -1281,33 +1310,10 @@ PhoneNumbersAsyncClient.getPurchasedPhoneNumberWithResponse and PhoneNumbersClie
 - Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
 - Upgrade to `Spring Integration` [5.4.4](https://github.com/spring-projects/spring-integration/releases/tag/v5.4.4).
 
-### Communication Chat 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-chat_1.0.0/sdk/communication/azure-communication-chat/CHANGELOG.md#100-2021-03-29)
-#### Breaking Changes
-
-- Renamed `ChatThread` to `ChatThreadProperties`
-- Renamed `ChatThreadInfo` to `ChatThreadItem`
-- Renamed `repeatabilityRequestId` to `idempotencyToken`
-- SendMessage returns `SendChatMessageResult` instead of string ID
-- Renamed `CommunicationError` to `ChatError`
-- Renamed `CommunicationErrorResponse` to `ChatErrorResponse`
-- Moved `getChatThread` to `ChatThreadClient` and renamed to `getProperties`
-- Removed `AddChatParticipantsOptions`
-- Changed `addParticipants` to take `Iterable<ChatParticipant>` instead of `AddChatParticipantsOptions`
-- Added `context` parameter to the max overloads of `listParticipants`, `listReadReceipts`
-- `CreateChatThreadOptions` constructor now requires `topic`
-- Removed `setTopic` from `CreateChatThreadOptions`
-
-#### Added
-
-- Added `ChatThreadClientBuilder`
-
 ### Azure Spring Cloud Integration Service Bus 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-integration-servicebus_2.3.0/sdk/spring/azure-spring-integration-servicebus/CHANGELOG.md#230-2021-03-22)
 #### New Features
 - Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
 - Upgrade to `Spring Integration` [5.4.4](https://github.com/spring-projects/spring-integration/releases/tag/v5.4.4).
-
-### Communication Identity 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-identity_1.0.0/sdk/communication/azure-communication-identity/CHANGELOG.md#100-2021-03-29)
-Updated `azure-communication-identity` version
 
 ### Azure Spring Cloud Starter Cache 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-starter-cache_2.3.0/sdk/spring/azure-spring-cloud-starter-cache/CHANGELOG.md#230-2021-03-22)
 #### New Features
@@ -1382,12 +1388,6 @@ Updated `azure-communication-identity` version
 ### Azure Spring Cloud Stream Binder Service bus Core 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-stream-binder-servicebus-core_2.3.0/sdk/spring/azure-spring-cloud-stream-binder-servicebus-core/CHANGELOG.md#230-2021-03-22)
 #### New Features
 - Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
-
-### Communication Common 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-common_1.0.0/sdk/communication/azure-communication-common/CHANGELOG.md#100-2021-03-29)
-#### Breaking Changes
-- Updated `CommunicationCloudEnvironment(String environmentValue)` constructor to `CommunicationCloudEnvironment()`.
-- Updated `public CommunicationCloudEnvironment fromString(String environmentValue)` to `public static CommunicationCloudEnvironment fromString(String environmentValue)`.
-- Renamed `TokenRefresher.getTokenAsync()` to `TokenRefresher.getToken()`.
 
 ### Spring Data Cosmos 3.5.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-data-cosmos_3.5.1/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md#351-2021-03-24)
 ##### Key Bug Fixes
@@ -1825,14 +1825,6 @@ Updated `azure-communication-identity` version
 * `sku()` was added
 * `etag()` was added
 * `location()` was added
-
-### Resource Management - Communication 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-communication_1.0.0/sdk/communication/azure-resourcemanager-communication/CHANGELOG.md#100-2021-04-08)
-- Azure Resource Manager Communication client library for Java. This package contains Microsoft Azure SDK for Communication Management SDK. REST API for Azure Communication Services. Package tag package-2020-08-20. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
-
-#### Breaking Change
-
-* `models.ErrorAdditionalInfo` was removed
-
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
