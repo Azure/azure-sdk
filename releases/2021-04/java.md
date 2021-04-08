@@ -116,6 +116,7 @@ azure-analytics-synapse-managedprivateendpoints:1.0.0-beta.3
 azure-analytics-synapse-artifacts:1.0.0-beta.4
 azure-resourcemanager-synapse:1.0.0-beta.1
 azure-resourcemanager-costmanagement:1.0.0-beta.2
+azure-resourcemanager-communication:1.0.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -183,6 +184,7 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Core
 - Cosmos DB
 - Spring Data Cosmos
+- Resource Management - Communication
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -900,6 +902,12 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-costmanagement</artifactId>
   <version>1.0.0-beta.2</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-communication</artifactId>
+  <version>1.0.0</version>
 </dependency>
 
 
@@ -1817,6 +1825,13 @@ Updated `azure-communication-identity` version
 * `sku()` was added
 * `etag()` was added
 * `location()` was added
+
+### Resource Management - Communication 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-communication_1.0.0/sdk/communication/azure-resourcemanager-communication/CHANGELOG.md#100-2021-04-08)
+- Azure Resource Manager Communication client library for Java. This package contains Microsoft Azure SDK for Communication Management SDK. REST API for Azure Communication Services. Package tag package-2020-08-20. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+#### Breaking Change
+
+* `models.ErrorAdditionalInfo` was removed
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
