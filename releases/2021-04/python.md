@@ -53,6 +53,7 @@ azure-eventgrid:4.1.1
 azure-mgmt-datamigration:9.0.0
 azure-mgmt-synapse:2.0.0
 azure-mgmt-containerservice:15.1.0
+azure-core-tracing-opencensus:1.0.0b7
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -114,6 +115,7 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Resource Management - Rdbms
 - Tables
 - azure-ai-translation-document
+- Core Tracing Opencensus
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -168,6 +170,7 @@ $> pip install azure-eventgrid==4.1.1
 $> pip install azure-mgmt-datamigration==9.0.0
 $> pip install azure-mgmt-synapse==2.0.0
 $> pip install azure-mgmt-containerservice==15.1.0
+$> pip install azure-core-tracing-opencensus==1.0.0b7
 
 ```
 
@@ -594,6 +597,9 @@ This version follows from version 5.3.1, rather than 5.4.0b1 so that the preview
   - Added operation ManagedClustersOperations.get_command_result
   - Added operation ManagedClustersOperations.begin_run_command
   - Added operation ManagedClustersOperations.get_os_options
+
+### Core Tracing Opencensus 1.0.0b7 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-core-tracing-opencensus_1.0.0b7/sdk/core/azure-core-tracing-opencensus/CHANGELOG.md#100b7-2021-04-08)
+- `Link` and `SpanKind` can now be added while creating the span instance.
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
