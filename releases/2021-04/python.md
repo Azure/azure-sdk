@@ -50,6 +50,9 @@ azure-eventhub-checkpointstoreblob-aio:1.1.4
 azure-eventhub-checkpointstoreblob:1.1.4
 azure-eventhub:5.4.0
 azure-eventgrid:4.1.1
+azure-mgmt-datamigration:9.0.0
+azure-mgmt-synapse:2.0.0
+azure-mgmt-containerservice:15.1.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -76,6 +79,9 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Resource Management - Time Series Insights
 - Synapse - Artifacts
 - Event Hubs
+- Resource Management - Data Migration
+- Resource Management - Synapse
+- Resource Management - Container Service
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -151,6 +157,9 @@ $> pip install azure-eventhub-checkpointstoreblob-aio==1.1.4
 $> pip install azure-eventhub-checkpointstoreblob==1.1.4
 $> pip install azure-eventhub==5.4.0
 $> pip install azure-eventgrid==4.1.1
+$> pip install azure-mgmt-datamigration==9.0.0
+$> pip install azure-mgmt-synapse==2.0.0
+$> pip install azure-mgmt-containerservice==15.1.0
 
 ```
 
@@ -482,6 +491,64 @@ This version follows from version 5.3.1, rather than 5.4.0b1 so that the preview
 ### Event Grid 4.1.1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-eventgrid_4.1.1/sdk/eventgrid/azure-eventgrid/CHANGELOG.md#411-2021-04-07)
 **Bug Fixes**
   - Improved the `repr` on `EventGridEvent` to show more meaningful text.
+
+### Resource Management - Data Migration 9.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-datamigration_9.0.0/sdk/datamigration/azure-mgmt-datamigration/CHANGELOG.md#900-2021-04-07)
+**Features**
+
+  - Model AvailableServiceSku has a new parameter sku
+
+**Breaking changes**
+
+  - Operation ServiceTasksOperations.update has a new signature
+  - Operation TasksOperations.create_or_update has a new signature
+  - Operation TasksOperations.update has a new signature
+  - Operation FilesOperations.create_or_update has a new signature
+  - Operation FilesOperations.update has a new signature
+  - Operation TasksOperations.update has a new signature
+  - Operation TasksOperations.create_or_update has a new signature
+  - Operation ServiceTasksOperations.update has a new signature
+  - Operation FilesOperations.update has a new signature
+  - Operation FilesOperations.create_or_update has a new signature
+  - Operation ServicesOperations.check_children_name_availability has a new signature
+  - Operation ServicesOperations.check_name_availability has a new signature
+  - Operation ServiceTasksOperations.create_or_update has a new signature
+  - Model AvailableServiceSku no longer has parameter available_service_sku
+
+### Resource Management - Synapse 2.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-synapse_2.0.0/sdk/synapse/azure-mgmt-synapse/CHANGELOG.md#200-2021-04-07)
+**Features**
+
+  - Model WorkspacePatchInfo has a new parameter public_network_access
+  - Model Workspace has a new parameter public_network_access
+
+**Breaking changes**
+
+  - Model WorkspacePatchInfo no longer has parameter network_settings
+  - Model Workspace no longer has parameter network_settings
+
+### Resource Management - Container Service 15.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-containerservice_15.1.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md#1510-2021-04-07)
+**Features**
+
+  - Model Components1Q1Og48SchemasManagedclusterAllof1 has a new parameter private_link_resources
+  - Model Components1Q1Og48SchemasManagedclusterAllof1 has a new parameter disable_local_accounts
+  - Model Components1Q1Og48SchemasManagedclusterAllof1 has a new parameter http_proxy_config
+  - Model ManagedClusterPodIdentity has a new parameter binding_selector
+  - Model ManagedClusterAgentPoolProfileProperties has a new parameter gpu_instance_profile
+  - Model ManagedClusterAgentPoolProfileProperties has a new parameter enable_fips
+  - Model ManagedClusterAgentPoolProfileProperties has a new parameter os_sku
+  - Model AgentPool has a new parameter gpu_instance_profile
+  - Model AgentPool has a new parameter enable_fips
+  - Model AgentPool has a new parameter os_sku
+  - Model ManagedCluster has a new parameter extended_location
+  - Model ManagedCluster has a new parameter private_link_resources
+  - Model ManagedCluster has a new parameter disable_local_accounts
+  - Model ManagedCluster has a new parameter http_proxy_config
+  - Model ManagedClusterAgentPoolProfile has a new parameter gpu_instance_profile
+  - Model ManagedClusterAgentPoolProfile has a new parameter enable_fips
+  - Model ManagedClusterAgentPoolProfile has a new parameter os_sku
+  - Model ManagedClusterWindowsProfile has a new parameter enable_csi_proxy
+  - Added operation ManagedClustersOperations.get_command_result
+  - Added operation ManagedClustersOperations.begin_run_command
+  - Added operation ManagedClustersOperations.get_os_options
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
