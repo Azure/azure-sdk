@@ -19,6 +19,27 @@ Azure.Data.AppConfiguration:1.1.0-beta.1
 Azure.Messaging.EventHubs:5.3.1
 Azure.Messaging.EventHubs.Processor:5.3.1
 Azure.Identity:1.4.0-beta.4
+Azure.Messaging.EventHubs:5.4.0-beta.1
+Azure.Analytics.Synapse.Artifacts:1.0.0-preview.7
+Azure.Messaging.EventHubs.Processor:5.4.0-beta.1
+Azure.IoT.DeviceUpdate:1.0.0-beta.2
+Azure.Core:1.11.0
+Microsoft.Azure.WebJobs.Extensions.EventGrid:3.0.0-beta.1
+Azure.Messaging.EventGrid:4.1.0
+Microsoft.Azure.WebJobs.Extensions.ServiceBus:5.0.0-beta.1
+Azure.Communication.Identity:1.0.0
+Azure.Communication.Chat:1.0.0
+Azure.Communication.PhoneNumbers:1.0.0-beta.6
+Azure.Communication.Sms:1.0.0
+Azure.Communication.Common:1.0.0
+Azure.Storage.Queues:12.6.1
+Azure.Storage.Files.DataLake:12.6.1
+Azure.Storage.Files.Shares:12.6.1
+Azure.Storage.Common:12.7.1
+Azure.Storage.Blobs.Batch:12.5.1
+Azure.Storage.Blobs:12.8.1
+Azure.Quantum.Jobs:1.0.0-beta.2
+Azure.IoT.ModelsRepository:1.0.0-preview.2
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -26,9 +47,17 @@ Azure.Identity:1.4.0-beta.4
 The Azure SDK team is pleased to announce our March 2021 client library releases.
 
 #### GA
+- Azure Mixed Reality Authentication
+- Communication Chat
+- Communication Common
+- Communication Identity
+- Communication SMS
 - Core
 - Event Grid
-- Azure Mixed Reality Authentication
+- Azure Communication Chat
+- Azure Communication Common
+- Azure Communication Identity
+- Azure Communication SMS
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -36,20 +65,30 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 - App Configuration
 - Event Hubs
 - Event Hubs - Event Processor
+- Storage - Blobs
+- Storage - Blobs Batch
+- Storage - Common
+- Storage - Files Data Lake
+- Storage - Files Shares
+- Storage - Queues
 
 [pattern.patch]: # (- ${PackageFriendlyName})
 
 #### Beta
-- Communication Chat
-- Communication Common
-- Communication Identity
-- Communication Phone Numbers
-- Communication SMS
+- Azure Communication Chat
+- Azure Communication Common
+- Azure Communication Identity
+- Azure Communication Phone Numbers
+- Azure Communication SMS
 - Form Recognizer
 - Identity
+- IoT Device Update
 - Service Bus
+- Synapse - Artifacts
 - Tables
 - Text Analytics
+- WebJobs Extensions - Event Grid
+- WebJobs Extensions - Service Bus
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -60,23 +99,43 @@ To install any of our packages, please search for them via `Manage NuGet Package
 ```bash
 $> dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.3
 $> dotnet add package Azure.AI.TextAnalytics --version 5.1.0-beta.5
+$> dotnet add package Azure.Analytics.Synapse.Artifacts --version 1.0.0-preview.7
+$> dotnet add package Azure.Communication.Chat --version 1.0.0
 $> dotnet add package Azure.Communication.Chat --version 1.0.0-beta.5
+$> dotnet add package Azure.Communication.Common --version 1.0.0
 $> dotnet add package Azure.Communication.Common --version 1.0.0-beta.5
+$> dotnet add package Azure.Communication.Identity --version 1.0.0
 $> dotnet add package Azure.Communication.Identity --version 1.0.0-beta.5
-$> dotnet add package Azure.Communication.PhoneNumbers --version 1.0.0-beta.5
-$> dotnet add package Azure.Communication.SMS --version 1.0.0-beta.5
+$> dotnet add package Azure.Communication.PhoneNumbers --version 1.0.0-beta.6
+$> dotnet add package Azure.Communication.SMS --version 1.0.0
+$> dotnet add package Azure.Communication.SMS --version 1.0.0-beta.4
 $> dotnet add package Azure.Core --version 1.10.0
+$> dotnet add package Azure.Core --version 1.11.0
 $> dotnet add package Azure.Data.AppConfiguration --version 1.1.0-beta.1
 $> dotnet add package Azure.Data.Tables --version 12.0.0-beta.6
 $> dotnet add package Azure.Identity --version 1.4.0-beta.4
+$> dotnet add package Azure.IoT.DeviceUpdate --version 1.0.0-beta.2
+$> dotnet add package Azure.IoT.ModelsRepository --version 1.0.0-preview.2
+$> dotnet add package Azure.Messaging.EventGrid --version 4.0.0
+$> dotnet add package Azure.Messaging.EventGrid --version 4.1.0
+$> dotnet add package Microsoft.Azure.Messaging.EventGrid.CloudNativeCloudEvents --version 1.0.0-beta.1
 $> dotnet add package Azure.Messaging.EventHubs --version 5.3.1
 $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.3.1
 $> dotnet add package Azure.MixedReality.Authentication --version 1.0.0
-$> dotnet add package Azure.MixedReality.RemoteRendering --version 1.0.0-beta.3
 $> dotnet add package Azure.MixedReality.ObjectAnchors.Conversion --version 0.1.0-beta.1
+$> dotnet add package Azure.MixedReality.RemoteRendering --version 1.0.0-beta.3
+$> dotnet add package Azure.Storage.Blobs --version 12.8.1
+$> dotnet add package Azure.Storage.Blobs.Batch --version 12.5.1
+$> dotnet add package Azure.Storage.Common --version 12.7.1
+$> dotnet add package Azure.Storage.Files.DataLake --version 12.6.1
+$> dotnet add package Azure.Storage.Files.Shares --version 12.6.1
+$> dotnet add package Azure.Storage.Queues --version 12.6.1
+$> dotnet add package Azure.Quantum.Jobs --version 1.0.0-beta.2
+$> dotnet add package Microsoft.Azure.WebJobs.Extensions.EventGrid --version 3.0.0-beta.1
+$> dotnet add package Microsoft.Azure.WebJobs.Extensions.ServiceBus --version 5.0.0-beta.1
 ```
 
-[pattern]: # ($> dotnet install ${PackageName} --version ${PackageVersion})
+[pattern]: # ($> dotnet add package ${PackageName} --version ${PackageVersion})
 
 ## Feedback
 
@@ -111,54 +170,98 @@ If you have a bug or feature request for one of the libraries, please [file an i
 #### Fixes
 - `RecognizePiiEntities` and `TextAnalyticsActions.RecognizePiiEntitiesOptions` were always passing `PiiEntityDomainType.PHI`. Now, it is only passed when requested by the user [19086](https://github.com/Azure/azure-sdk-for-net/issues/19086).
 
+### Synapse - Artifacts 1.0.0-preview.7 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.Synapse.Artifacts_1.0.0-preview.7/sdk/synapse/Azure.Analytics.Synapse.Artifacts/CHANGELOG.md#100-preview7-2021-03-17)
+#### Added
+- Many models classes now have public getters.
+- Added new `LibraryClient` and associated support types.
+
 ### Azure Communication Administration is deprecated
 
 - `PhoneNumberAdministrationClient` has moved into the new package `Azure.Communication.PhoneNumbers` and been replaced by `PhoneNumberClient`.
 
+### Azure Communication Chat 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Chat/CHANGELOG.md#100-2021-03-29)
+**Includes all changes from 1.0.0-beta.1 to  1.0.0.beta.5**
+
+#### Breaking Changes
+- Renamed client constructors URL variable to `endpoint`.
+- Renamed `ChatThread` model to `ChatThreadProperties`.
+- Renamed `GetChatThread` operation to `GetPropertie`s and moved it to `ChatThreadClient`.
+- Renamed `ChatThreadInfo` model to `ChatThreadItem`.
+- Renamed `GetChatThreadsInfo` operation to `GetChatThreads`.
+- Made `AddParticipant` throw exception when request fails.
+- Renamed parameter `repeatabilityRequestId` to `idempotencyToken`.
+- Updated `SendMessage` to use `SendChatMessageResult` instead of `string` for the request result.
+- Exposed the list of `invalidparticipants` directly and removed `AddChatParticipantsErrors` and `CreateChatThreadErrors` models for `AddChatParticipantsResult` and `CreateChatThreadResult`.
+
+#### Added
+- Made list of participants optional for `CreateChatThread`.
+- Made `ChatThreadClient` constructor public.
+
 ### Azure Communication Chat 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Chat/CHANGELOG.md#100-beta5-2021-03-09)
 
 #### Breaking Changes
-
 - Added support for communication identifiers instead of raw strings.
 - Removed support for nullable reference types.
+
+### Azure Communication Common 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Common/CHANGELOG.md#100-2021-03-29)
+**Includes all changes from 1.0.0-beta.1 to  1.0.0.beta.5**
 
 ### Azure Communication Common  1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Common/CHANGELOG.md#100-beta5-2021-03-09)
 
 #### Breaking Changes
-
 - Updated `CommunicationTokenRefreshOptions(bool refreshProactively, Func<CancellationToken, string> tokenRefresher,  Func<CancellationToken, ValueTask<string>> asyncTokenRefresher = null, string initialToken = null)`
 to `CommunicationTokenRefreshOptions(bool refreshProactively, Func<CancellationToken, string> tokenRefresher)`. `AsyncTokenRefresher` and `InitialToken` are updated to become public properties.
+
+### Azure Communication Identity 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Identity/CHANGELOG.md#100-2021-03-29)
+**Includes all changes from 1.0.0-beta.1 to  1.0.0.beta.5**
 
 ### Azure Communication Identity 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Identity/CHANGELOG.md#100-beta5-2021-03-09)
 
 #### Breaking Changes
-
-- `CommunicationIdentityClient.IssueToken` and `CommunicationIdentityClient.IssueTokenAsync` are renamed to `GetToken` and `GetTokenAsync`, respectively
+- `CommunicationIdentityClient.IssueToken` and `CommunicationIdentityClient.IssueTokenAsync` are renamed to `GetToken` and `GetTokenAsync`, respectively.
 - `CommunicationIdentityClient.CreateUserWithToken` and `CommunicationIdentityClient.CreateUserWithTokenAsync` are renamed to `CreateUserAndToken` and `CreateUserAndTokenAsync`, respectively. Their return value is also changed from `Tuple<CommunicationUserIdentifier, string>` to `CommunicationUserIdentifierAndToken`.
+
+### Azure Communication Phone Numbers 1.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.PhoneNumbers/CHANGELOG.md#100-beta6-2021-03-29)
+
+### Added
+- Added protected constructor to `PurchasePhoneNumbersOperation` and `ReleasePhoneNumberOperation` for mocking.
+
+### Breaking Changes
+- All models are moved from `Azure.Communication.PhoneNumbers.Models` namespace to `Azure.Communication.PhoneNumbers`.
+- `AcquiredPhoneNumber` class is renamed to `PurchasedPhoneNumber`.
+- `PhoneNumbersClient` methods renamed:
+  - `GetPhoneNumber` -> `GetPurchasedPhoneNumber`.
+  - `GetPhoneNumberAsync` -> `GetPurchasedPhoneNumberAsync`.
+  - `GetPhoneNumbers` -> `GetPurchasedPhoneNumbers`.
+  - `GetPhoneNumbersAsyn`c -> `GetPurchasedPhoneNumbersAsync`.
+- `PhoneNumbersModelFactory` static method `AcquiredPhoneNumber` is renamed to `PurchasedPhoneNumber`.
+- `PurchasePhoneNumbersOperation` and `ReleasePhoneNumberOperation` extend `Operation` instead of `Operation<Response>`.
+- Removed `PhoneNumberOperationStatus` and `PhoneNumberOperationType`.
+- Renamed `ISOCurrencySymbol` property to `IsoCurrencySymbol` in `PhoneNumberCost`.
+- Renamed `threeLetterISOCountryName` parameter to `twoLetterIsoCountryName`` in `PhoneNumbersClient.StartSearchAvailablePhoneNumbers` and `PhoneNumbersClient.StartSearchAvailablePhoneNumbersAsync`.
 
 ### Azure Communication Phone Numbers 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.PhoneNumbers/CHANGELOG.md#100-beta5-2021-03-09)
 
-#### New Features
-
+#### New features
 - Added `PhoneNumbersClient` (originally was part of the `Azure.Communication.Administration` package).
 - Added support for Azure Active Directory Authentication.
 
 #### Breaking Changes
-
 - `PhoneNumberAdministrationClient` has been replaced with `PhoneNumbersClient`, which has the same functionality but different APIs. To learn more about how PhoneNumbersClient works, refer to the [README.md](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.PhoneNumbers/README.md)
+
+### Azure Communication SMS 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Sms/CHANGELOG.md#100-2021-03-29)
+**Includes all changes from 1.0.0-beta.1 to  1.0.0.beta4**
 
 ### Azure Communication SMS 1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Sms/CHANGELOG.md#100-beta4-2021-03-09)
 
-#### New Features
-
-- Added support to create SmsClient with AzureKeyCredential.
-- Added support to create SmsClient with TokenCredential.
+#### New features
+- Added support to create `SmsClient` with `AzureKeyCredential`.
+- Added support to create `SmsClient` with `TokenCredential`.
 - Added support for 1:N SMS messaging.
 - Added support for tagging SMS messages.
-- Send method series in SmsClient are idempotent under retry policy.
+- Send method series in `SmsClient` are idempotent under retry policy.
 
 #### Breaking Changes
-
 - Updated `Task<Response<SendSmsResponse>> SendAsync(PhoneNumberIdentifier from, PhoneNumberIdentifier to, string message, SendSmsOptions sendSmsOptions = null, CancellationToken cancellationToken = default)`
 to `Task<Response<SmsSendResult>> SendAsync(string from, string to, string message, SmsSendOptions options = default)`
 - Replaced `SendSmsResponse` with `SmsSendResult`
@@ -166,10 +269,23 @@ to `Task<Response<SmsSendResult>> SendAsync(string from, string to, string messa
 ### Core 1.10.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.10.0/sdk/core/Azure.Core/CHANGELOG.md#1100-2021-03-09)
 - Added `CloudEvent` type based on the [CloudEvent spec](https://github.com/cloudevents/spec/blob/master/spec.md).
 
+### Core 1.11.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.11.0/sdk/core/Azure.Core/CHANGELOG.md#1110-2021-03-22)
+#### Added
+
+- `Operation` base class for operations that do not return a value.
+- Added `Content` property to `Response` which returns the body of the response as a `BinaryData` if the body is buffered.
+- `AzureNamedKeyCredential` has been implemented to cover scenarios where services require that a shared key name and the key value be used as a component of the algorithm to form the authorization token.
+
+#### Key Bug Fixes
+
+- Check the `JsonIgnoreAttribute.Condition` property added in .NET 5 when discovering members with `JsonObjectSerializer`.
+- `ETag` now returns `string.Empty` if it is constructed with a null value.
+- Keep-Alive connections are recycled every 300 seconds to observe DNS changes.
+
 ### App Configuration 1.1.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.AppConfiguration_1.1.0-beta.1/sdk/appconfiguration/Azure.Data.AppConfiguration/CHANGELOG.md#110-beta1-2021-03-09)
 #### Changes
 
-##### New Features
+##### New features
 
 - Added `SecretReferenceConfigurationSetting` type to represent a configuration setting that references a KeyVault Secret. 
 - Added `FeatureFlagConfigurationSetting` type to represent a configuration setting that controls a feature flag.
@@ -191,6 +307,7 @@ to `Task<Response<SmsSendResult>> SendAsync(string from, string to, string messa
 - Added a constructor to `TableSasBuilder` and `TableAccountSasBuilder` that accepts a Uri with a Sas token
 
 ### Identity 1.4.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Identity_1.4.0-beta.4/sdk/identity/Azure.Identity/CHANGELOG.md#140-beta4-2021-03-09)
+
 #### Fixes and Improvements
 
 - Added the `[Serializable]` attribute to all custom exception types.
@@ -198,6 +315,24 @@ to `Task<Response<SmsSendResult>> SendAsync(string from, string to, string messa
 #### Breaking Changes
 
 - Update the default value of `ExcludeSharedTokenCacheCredential` on `DefaultAzureCredentialsOptions` to true, to exclude the `SharedTokenCacheCredential` from the `DefaultAzureCredential` by default. See [BREAKING_CHANGES.md](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/identity/Azure.Identity/BREAKING_CHANGES.md#140)
+
+### Event Grid 4.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventGrid_4.0.0/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md#400-2021-03-09)
+
+#### New features
+
+- Added single send overloads to allow sending a single event for each event type.
+
+#### Breaking Changes
+
+- Moved `CloudEvent` into `Azure.Core` package.
+- Changed custom events to be represented as `BinaryData` rather than `Object`s.
+- Removed `Serializer` option from `EventGridPublisherOptions` as serialization can be customized through `BinaryData`.
+
+### EventGrid CloudNativeCloudEvents [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.Messaging.EventGrid.CloudNativeCloudEvents_1.0.0-beta.1/sdk/eventgrid/Microsoft.Azure.Messaging.EventGrid.CloudNativeCloudEvents/CHANGELOG.md)
+
+#### New features
+
+- Added Bridge library to allow sending CloudNative CloudEvents using Azure Event Grid.
 
 ### Event Hubs 5.3.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventHubs_5.3.1/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md#531-2021-03-09)
 
@@ -216,6 +351,93 @@ to `Task<Response<SmsSendResult>> SendAsync(string from, string to, string messa
 
 ### Azure Object Anchors Conversion 0.1.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.MixedReality.ObjectAnchors.Conversion_0.1.0-beta.1/sdk/objectanchors/Azure.MixedReality.ObjectAnchors.Conversion/CHANGELOG.md#010-beta1-2021-02-26)
 - Initial client
+
+### IoT Device Update 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.IoT.DeviceUpdate_1.0.0-beta.2/sdk/deviceupdate/Azure.Iot.DeviceUpdate/CHANGELOG.md#100-beta2-2021-04-06)
+* Update root namespace from Azure.Iot.DeviceUpdate to Azure.IoT.DeviceUpdate
+### WebJobs Extensions - Event Grid 3.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.WebJobs.Extensions.EventGrid_3.0.0-beta.1/sdk/eventgrid/Microsoft.Azure.WebJobs.Extensions.EventGrid/CHANGELOG.md#300-beta1-2021-03-23)
+- The initial release of Microsoft.Azure.WebJobs.Extensions.EventGrid 3.0.0
+
+### Event Grid 4.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventGrid_4.1.0/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md#410-2021-03-23)
+#### New Features
+- Added new Azure Communication Services system events.
+
+#### Fixed
+- Fixed system mapping for `AcsChatParticipantAddedToThread` and `AcsChatParticipantRemovedFromThread`.
+
+### WebJobs Extensions - Service Bus 5.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.0.0-beta.1/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md#500-beta1-2021-03-23)
+- The initial release of Microsoft.Azure.WebJobs.Extensions.ServiceBus 5.0.0
+
+### Communication Identity 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.Identity_1.0.0/sdk/communication/Azure.Communication.Identity/CHANGELOG.md#100-2021-03-29)
+Updated `Azure.Communication.Identity` version.
+
+### Communication Chat 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.Chat_1.0.0/sdk/communication/Azure.Communication.Chat/CHANGELOG.md#100-2021-03-29)
+#### Breaking Changes
+
+- Renamed client constructors URL variable to `endpoint`.
+- Renamed `ChatThread` model to `ChatThreadProperties`.
+- Renamed `GetChatThread` operation to `GetPropertie`s and moved it to `ChatThreadClient`.
+- Renamed `ChatThreadInfo` model to `ChatThreadItem`.
+- Renamed `GetChatThreadsInfo` operation to `GetChatThreads`.
+- Made `AddParticipant` throw exception when request fails.
+- Renamed parameter `repeatabilityRequestId` to `idempotencyToken`.
+- Updated `SendMessage` to use `SendChatMessageResult` instead of `string` for the request result.
+- Exposed the list of `invalidparticipants` directly and removed `AddChatParticipantsErrors` and `CreateChatThreadErrors` models for `AddChatParticipantsResult` and `CreateChatThreadResult`.
+
+#### Added
+
+- Made list of participants optional for `CreateChatThread`.
+- Made `ChatThreadClient` constructor public.
+
+### Communication Phone Numbers 1.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.PhoneNumbers_1.0.0-beta.6/sdk/communication/Azure.Communication.PhoneNumbers/CHANGELOG.md#100-beta6-2021-03-29)
+#### Added
+- Added protected constructor to PurchasePhoneNumbersOperation and ReleasePhoneNumberOperation for mocking.
+
+#### Breaking Changes
+- All models are moved from Azure.Communication.PhoneNumbers.Models namespace to Azure.Communication.PhoneNumbers.
+- AcquiredPhoneNumber class is renamed to PurchasedPhoneNumber.
+- PhoneNumbersClient methods renamed:
+  - GetPhoneNumber -> GetPurchasedPhoneNumber.
+  - GetPhoneNumberAsync -> GetPurchasedPhoneNumberAsync.
+  - GetPhoneNumbers -> GetPurchasedPhoneNumbers.
+  - GetPhoneNumbersAsync -> GetPurchasedPhoneNumbersAsync.
+- PhoneNumbersModelFactory static method AcquiredPhoneNumber is renamed to PurchasedPhoneNumber.
+- PurchasePhoneNumbersOperation and ReleasePhoneNumberOperation extend Operation instead of Operation<Response>.
+- Removed PhoneNumberOperationStatus and PhoneNumberOperationType.
+- Renamed ISOCurrencySymbol property to IsoCurrencySymbol in PhoneNumberCost.
+- Renamed threeLetterISOCountryName parameter to twoLetterIsoCountryName in PhoneNumbersClient.StartSearchAvailablePhoneNumbers and PhoneNumbersClient.StartSearchAvailablePhoneNumbersAsync.
+
+### Communication SMS 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.Sms_1.0.0/sdk/communication/Azure.Communication.Sms/CHANGELOG.md#100-2021-03-29)
+Updated `Azure.Communication.Sms` version.
+
+### Communication Common 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.Common_1.0.0/sdk/communication/Azure.Communication.Common/CHANGELOG.md#100-2021-03-29)
+Updated `Azure.Communication.Common` version.
+
+### Storage - Queues 12.6.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Queues_12.6.1/sdk/storage/Azure.Storage.Queues/CHANGELOG.md#1261-2021-03-29)
+- Fixed bug where ClientDiagnostics's DiagnosticListener was leaking resources.
+
+### Storage - Files Data Lake 12.6.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Files.DataLake_12.6.1/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md#1261-2021-03-29)
+- Fixed bug where ClientDiagnostics's DiagnosticListener was leaking resources.
+
+### Storage - Files Shares 12.6.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Files.Shares_12.6.1/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md#1261-2021-03-29)
+- Fixed bug where ClientDiagnostics's DiagnosticListener was leaking resources.
+
+### Storage - Common 12.7.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Common_12.7.1/sdk/storage/Azure.Storage.Common/CHANGELOG.md#1271-2021-03-29)
+- This release contains bug fixes to improve quality.
+
+### Storage - Blobs Batch 12.5.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Blobs.Batch_12.5.1/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md#1251-2021-03-29)
+- Fixed bug where ClientDiagnostics's DiagnosticListener was leaking resources.
+
+### Storage - Blobs 12.8.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Blobs_12.8.1/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md#1281-2021-03-29)
+- Fixed bug where ClientDiagnostics's DiagnosticListener was leaking resources.
+
+### Azure.Quantum.Jobs 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Quantum.Jobs_1.0.0-beta.2/sdk/quantum/Azure.Quantum.Jobs/CHANGELOG.md#100-beta2-2021-03-30)
+- Fixed a bug where the client was unable to authenticate using Interactive or Service Principal credentials (issue #19588)
+
+### Azure.Iot.ModelsRepository 1.0.0-preview.2 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.IoT.ModelsRepository_1.0.0-preview.2/sdk/modelsrepository/Azure.IoT.ModelsRepository/CHANGELOG.md#100-preview2-2021-03-30)
+#### Breaking changes
+
+- Changing the package namespace from `Azure.Iot.ModelsRepository` to `Azure.IoT.ModelsRepository`
+
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 

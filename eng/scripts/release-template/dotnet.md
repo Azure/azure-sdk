@@ -32,7 +32,7 @@ To install any of our packages, please search for them via `Manage NuGet Package
 
 ```
 
-[pattern]: # ($> dotnet install ${PackageName} --version ${PackageVersion})
+[pattern]: # ($> dotnet add package ${PackageName} --version ${PackageVersion})
 
 ## Feedback
 

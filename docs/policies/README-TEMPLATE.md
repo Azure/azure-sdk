@@ -33,7 +33,7 @@ Use the guidelines in each section of this template to ensure consistency and re
 
   * If the CI validation fails because of link verification for a link to a file or section present in your PR and not in the master but will be a valid link after the PR is merged to master, then you can put the link as a comment like this `Here are some [samples]<!--(https://github.com/azure-sdk-for-python/blob/master/samples.json)--> to look at.` (Note you can also put a TODO in the comment if you like). Then in a follow-up PR you can remove the comment to get the link you wanted. 
 
-* **DO NOT** use locale in the urls like `en-us`. For example use `https://docs.microsoft.com/dotnet/api/azure.storage.blobs` instead of `https://docs.microsoft.com/dotnet/api/azure.storage.blobs`
+* **DO NOT** use locale in the urls like `en-us`. For example use `https://docs.microsoft.com/dotnet/api/azure.storage.blobs` instead of `https://docs.microsoft.com/en-us/dotnet/api/azure.storage.blobs`
 
 * **DO NOT** use version numbers in the links as the version numbers will often be missed when releasing new versions thus point to the wrong thing or not exist at all. Instead avoid linking directly to versioned information. If you still need a link you should first try to link to a page that contains all the versions so someone can choose or link to the latest which may be out of sync with the content but should usually remain valid.
 
