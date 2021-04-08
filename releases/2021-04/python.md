@@ -60,6 +60,9 @@ azure-mgmt-containerservice:15.1.0
 The Azure SDK team is pleased to make available the April 2021 client library release.
 
 #### GA
+- Azure Communication Identity
+- Azure Communication Chat
+- Azure Communication SMS
 - Core
 - Event Grid
 - Resource Management - Alerts Management
@@ -96,6 +99,7 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 
 #### Beta
 - App Configuration
+- Azure Communication Phone Numbers
 - Cognitive Search
 - Container Registry
 - Core Tracing Opentelemetry
@@ -118,6 +122,10 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 To install the latest beta version of the packages, copy and paste the following commands into a terminal:
 
 ```bash
+$> pip install azure-communication-identity
+$> pip install azure-communication-chat
+$> pip install azure-communication-sms
+$> pip install azure-communication-phonenumbers
 $> pip install azure-mgmt-datadog==1.0.0
 $> pip install azure-mgmt-netapp==2.0.0
 $> pip install azure-mgmt-databricks==1.0.0
@@ -170,6 +178,43 @@ $> pip install azure-mgmt-containerservice==15.1.0
 If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/azure/azure-sdk-for-python/issues).
 
 ## Release highlights
+### Azure Communication Phone Numbers 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md#100b5-2021-03-29)
+
+#### Breaking Changes
+
+- Renamed `AcquiredPhoneNumber` to `PurchasedPhoneNumber`
+- Renamed `PhoneNumbersClient.get_phone_number` and `PhoneNumbersAsyncClient.get_phone_number` to `PhoneNumbersClient.get_purchased_phone_number`
+and `PhoneNumbersAsyncClient.get_purchased_phone_number`
+-` Renamed PhoneNumbersClient.list_acquired_phone_numbers` and `PhoneNumbersAsyncClient.list_acquired_phone_numbers` to `PhoneNumbersClient.list_purchased_phone_numbers`
+and `PhoneNumbersAsyncClient.list_purchased_phone_numbers`
+
+### Azure Communication Chat 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-chat/CHANGELOG.md#100-2021-03-29)
+
+**Includes all changes from 1.0.0-beta.1 to  1.0.0.beta.5**
+
+### Breaking Changes
+
+- Renamed `ChatThread` to `ChatThreadProperties`.
+- Renamed `get_chat_thread` to `get_properties`.
+- Moved `get_properties` under `ChatThreadClient`.
+- Renamed `ChatThreadInfo` to `ChatThreadItem`.
+- Removed `ChatThreadClient.add_participant` method.
+- Renamed `repeatability_request_id` to `idempotency_token`.
+- Changed return type of `send_message` to `SendChatMessageResult`.
+- Replaced `CommunicationError` with `ChatError`.
+- Refactored `CommunicationTokenCredential` constructor to accept `token` instead of `CommunicationTokenRefreshOptions`.
+
+### Azure Communication Identity 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-identity/CHANGELOG.md#100-2021-03-29)
+
+**Includes all changes from 1.0.0-beta.1 to  1.0.0.beta.5**
+- Stable release of `azure-communication-identity`.
+
+### Azure Communication SMS 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-sms/CHANGELOG.md#100-2021-03-29)
+
+**Includes all changes from 1.0.0-beta.1 to  1.0.0.beta.6**
+
+- Stable release of `azure-communication-sms`.
+
 ### Resource Management - Datadog 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-datadog_1.0.0/sdk/datadog/azure-mgmt-datadog/CHANGELOG.md#100-2021-03-22)
 **Features**
 
