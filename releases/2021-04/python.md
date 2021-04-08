@@ -65,13 +65,14 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Azure Communication Chat
 - Azure Communication SMS
 - Core
-- Event Grid
 - Resource Management - Alerts Management
 - Resource Management - Attestation
 - Resource Management - Communication
 - Resource Management - Compute
+- Resource Management - Container Service
 - Resource Management - Content Delivery Network
 - Resource Management - Data Box
+- Resource Management - Data Migration
 - Resource Management - Databricks
 - Resource Management - Datadog
 - Resource Management - Frontdoor
@@ -81,20 +82,18 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Resource Management - Private DNS
 - Resource Management - Support
 - Resource Management - Time Series Insights
+- Resource Management - Synapse
 - Synapse - Artifacts
 - Event Hubs
-- Resource Management - Data Migration
-- Resource Management - Synapse
-- Resource Management - Container Service
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
 #### Updates
 - Common
-- Service Bus
 - Event Hubs - Azure Blob Storage Checkpoint Store AIO
 - Event Hubs - Azure Blob Storage Checkpoint Store
 - Event Grid
+- Service Bus
 
 [pattern.patch]: # (- ${PackageFriendlyName})
 
@@ -103,19 +102,18 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Azure Communication Phone Numbers
 - Cognitive Search
 - Container Registry
+- Core Tracing Opencensus
 - Core Tracing Opentelemetry
-- azure-mgmt-deviceupdate
-- azure-mgmt-extendedlocation
+- Device Update
+- Extended Location
 - Form Recognizer
 - Identity
 - Key Vault - Keys
 - Monitor OpenTelemetry Exporter
 - Resource Management - Automation
 - Resource Management - Rdbms
-- Resource Management - Rdbms
 - Tables
-- azure-ai-translation-document
-- Core Tracing Opencensus
+- Translation Document
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -124,53 +122,51 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 To install the latest beta version of the packages, copy and paste the following commands into a terminal:
 
 ```bash
+$> pip install azure-ai-formrecognizer==3.1.0b4
+$> pip install azure-ai-translation-document==1.0.0b1
+$> pip install azure-appconfiguration==1.2.0b1
+$> pip install azure-common==1.1.27
 $> pip install azure-communication-identity
 $> pip install azure-communication-chat
 $> pip install azure-communication-sms
 $> pip install azure-communication-phonenumbers
-$> pip install azure-mgmt-datadog==1.0.0
-$> pip install azure-mgmt-netapp==2.0.0
-$> pip install azure-mgmt-databricks==1.0.0
-$> pip install azure-mgmt-deviceupdate==1.0.0b2
-$> pip install azure-mgmt-alertsmanagement==1.0.0
-$> pip install azure-mgmt-automation==1.1.0b1
-$> pip install azure-mgmt-rdbms==8.1.0b1
-$> pip install azure-mgmt-databox==1.0.0
-$> pip install azure-mgmt-support==6.0.0
-$> pip install azure-mgmt-attestation==1.0.0
-$> pip install azure-mgmt-timeseriesinsights==1.0.0
-$> pip install azure-common==1.1.27
-$> pip install azure-mgmt-marketplaceordering==1.1.0
-$> pip install azure-mgmt-cdn==11.0.0
-$> pip install azure-mgmt-extendedlocation==1.0.0b1
-$> pip install azure-eventgrid==4.1.0
-$> pip install azure-mgmt-privatedns==1.0.0
-$> pip install azure-mgmt-communication==1.0.0
-$> pip install azure-mgmt-rdbms==8.1.0b2
-$> pip install azure-mgmt-frontdoor==1.0.0
-$> pip install azure-mgmt-powerbidedicated==1.0.0
-$> pip install azure-core==1.13.0
-$> pip install azure-search-documents==11.2.0b1
-$> pip install azure-appconfiguration==1.2.0b1
-$> pip install azure-synapse-artifacts==0.6.0
-$> pip install azure-data-tables==12.0.0b6
-$> pip install azure-ai-formrecognizer==3.1.0b4
 $> pip install azure-containerregistry==1.0.0b1
-$> pip install azure-keyvault-keys==4.4.0b4
-$> pip install azure-ai-translation-document==1.0.0b1
-$> pip install azure-identity==1.6.0b3
-$> pip install azure-monitor-opentelemetry-exporter==1.0.0b4
-$> pip install azure-mgmt-compute==20.0.0
-$> pip install azure-core-tracing-opentelemetry==1.0.0b9
-$> pip install azure-servicebus==7.1.1
-$> pip install azure-eventhub-checkpointstoreblob-aio==1.1.4
-$> pip install azure-eventhub-checkpointstoreblob==1.1.4
-$> pip install azure-eventhub==5.4.0
-$> pip install azure-eventgrid==4.1.1
-$> pip install azure-mgmt-datamigration==9.0.0
-$> pip install azure-mgmt-synapse==2.0.0
-$> pip install azure-mgmt-containerservice==15.1.0
+$> pip install azure-core==1.13.0
 $> pip install azure-core-tracing-opencensus==1.0.0b7
+$> pip install azure-core-tracing-opentelemetry==1.0.0b9
+$> pip install azure-data-tables==12.0.0b6
+$> pip install azure-eventhub==5.4.0
+$> pip install azure-eventhub-checkpointstoreblob==1.1.4
+$> pip install azure-eventhub-checkpointstoreblob-aio==1.1.4
+$> pip install azure-eventgrid==4.1.1
+$> pip install azure-identity==1.6.0b3
+$> pip install azure-keyvault-keys==4.4.0b4
+$> pip install azure-mgmt-alertsmanagement==1.0.0
+$> pip install azure-mgmt-attestation==1.0.0
+$> pip install azure-mgmt-automation==1.1.0b1
+$> pip install azure-mgmt-cdn==11.0.0
+$> pip install azure-mgmt-communication==1.0.0
+$> pip install azure-mgmt-compute==20.0.0
+$> pip install azure-mgmt-containerservice==15.1.0
+$> pip install azure-mgmt-databricks==1.0.0
+$> pip install azure-mgmt-datadog==1.0.0
+$> pip install azure-mgmt-datamigration==9.0.0
+$> pip install azure-mgmt-deviceupdate==1.0.0b2
+$> pip install azure-mgmt-extendedlocation==1.0.0b1
+$> pip install azure-mgmt-frontdoor==1.0.0
+$> pip install azure-mgmt-marketplaceordering==1.1.0
+$> pip install azure-mgmt-netapp==2.0.0
+$> pip install azure-mgmt-rdbms==8.1.0b2
+$> pip install azure-mgmt-databox==1.0.0
+$> pip install azure-mgmt-powerbidedicated==1.0.0
+$> pip install azure-mgmt-privatedns==1.0.0
+$> pip install azure-mgmt-support==6.0.0
+$> pip install azure-mgmt-timeseriesinsights==1.0.0
+$> pip install azure-mgmt-synapse==2.0.0
+$> pip install azure-monitor-opentelemetry-exporter==1.0.0b4
+$> pip install azure-search-documents==11.2.0b1
+$> pip install azure-servicebus==7.1.1
+$> pip install azure-synapse-artifacts==0.6.0
 
 ```
 
@@ -247,7 +243,7 @@ and `PhoneNumbersAsyncClient.list_purchased_phone_numbers`
 ### Resource Management - Databricks 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-databricks_1.0.0/sdk/databricks/azure-mgmt-databricks/CHANGELOG.md#100-2021-03-19)
 - GA release
 
-### azure-mgmt-deviceupdate 1.0.0b2 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-deviceupdate_1.0.0b2/sdk/deviceupdate/azure-mgmt-deviceupdate/CHANGELOG.md#100b2-2021-03-24)
+### Resource Management - Device Update 1.0.0b2 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-deviceupdate_1.0.0b2/sdk/deviceupdate/azure-mgmt-deviceupdate/CHANGELOG.md#100b2-2021-03-24)
 **Breaking changes**
 
   - Removed operation InstancesOperations.list_by_subscription
@@ -261,11 +257,6 @@ and `PhoneNumbersAsyncClient.list_purchased_phone_numbers`
 **Features**
 
   - Model SoftwareUpdateConfigurationCollectionItem has a new parameter tasks
-
-### Resource Management - Rdbms 8.1.0b1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-rdbms_8.1.0b1/sdk/rdbms/azure-mgmt-rdbms/CHANGELOG.md#810b1-2021-03-17)
-**Features**
-
-  - Added operation ServerSecurityAlertPoliciesOperations.list_by_server
 
 ### Resource Management - Data Box 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-databox_1.0.0/sdk/databox/azure-mgmt-databox/CHANGELOG.md#100-2021-03-18)
 - GA release
@@ -324,12 +315,8 @@ and `PhoneNumbersAsyncClient.list_purchased_phone_numbers`
   - Operation LogAnalyticsOperations.get_log_analytics_metrics has a new signature
   - Model ManagedCertificateParameters has a new signature
 
-### azure-mgmt-extendedlocation 1.0.0b1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-extendedlocation_1.0.0b1/sdk/extendedlocation/azure-mgmt-extendedlocation/CHANGELOG.md#100b1-2021-03-25)
+### Resource Management - Extended Location 1.0.0b1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-extendedlocation_1.0.0b1/sdk/extendedlocation/azure-mgmt-extendedlocation/CHANGELOG.md#100b1-2021-03-25)
 * Initial Release
-
-### Event Grid 4.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-eventgrid_4.1.0/sdk/eventgrid/azure-eventgrid/CHANGELOG.md#410-2021-03-23)
-**New Features**
-  - Added new SystemEventNames `AcsChatThreadParticipantRemovedEventName`, `AcsChatThreadParticipantAddedEventName` and `AcsRecordingFileStatusUpdatedEventName`.
 
 ### Resource Management - Private DNS 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-privatedns_1.0.0/sdk/network/azure-mgmt-privatedns/CHANGELOG.md#100-2021-03-25)
 - GA release
@@ -423,7 +410,7 @@ to specify which page to process of the document.
 
 - Bumped `msrest` requirement from `0.6.12` to `0.6.21`.
 
-### azure-containerregistry 1.0.0b1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-containerregistry_1.0.0b1/sdk/containerregistry/azure-containerregistry/CHANGELOG.md#100b1-2021-04-06)
+### Container Registry 1.0.0b1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-containerregistry_1.0.0b1/sdk/containerregistry/azure-containerregistry/CHANGELOG.md#100b1-2021-04-06)
 * First release of the Azure Container Registry library for Python
 
 ### Key Vault - Keys 4.4.0b4 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-keyvault-keys_4.4.0b4/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md#440b4-2021-04-06)
@@ -431,7 +418,7 @@ to specify which page to process of the document.
 - `CryptographyClient` can perform AES-CBCPAD encryption and decryption locally
   ([#17762](https://github.com/Azure/azure-sdk-for-python/pull/17762))
 
-### azure-ai-translation-document 1.0.0b1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-translation-document_1.0.0b1/sdk/translation/azure-ai-translation-document/CHANGELOG.md#100b1-2021-04-06)
+### Translation Document 1.0.0b1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-translation-document_1.0.0b1/sdk/translation/azure-ai-translation-document/CHANGELOG.md#100b1-2021-04-06)
 This is the first beta package of the azure-ai-translation-document client library that targets the Document Translation 
 service version `1.0-preview.1`. This package's documentation and samples demonstrate the new API.
 
