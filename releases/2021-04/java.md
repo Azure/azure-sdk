@@ -117,6 +117,7 @@ azure-analytics-synapse-artifacts:1.0.0-beta.4
 azure-resourcemanager-synapse:1.0.0-beta.1
 azure-resourcemanager-costmanagement:1.0.0-beta.2
 azure-resourcemanager-communication:1.0.0
+azure-resourcemanager-resourcehealth:1.0.0-beta.1
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -242,6 +243,7 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Synapse - Artifacts
 - azure-resourcemanager-synapse
 - Resource Management - Cost Management
+- azure-resourcemanager-resourcehealth
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -903,6 +905,12 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <artifactId>azure-resourcemanager-costmanagement</artifactId>
   <version>1.0.0-beta.2</version>
 </dependency>
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-resourcehealth</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
 
 ```
 
@@ -1825,6 +1833,9 @@ PhoneNumbersAsyncClient.getPurchasedPhoneNumberWithResponse and PhoneNumbersClie
 * `sku()` was added
 * `etag()` was added
 * `location()` was added
+### azure-resourcemanager-resourcehealth 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-resourcehealth_1.0.0-beta.1/sdk/resourcehealth/azure-resourcemanager-resourcehealth/CHANGELOG.md#100-beta1-2021-04-08)
+- Azure Resource Manager ResourceHealth client library for Java. This package contains Microsoft Azure SDK for ResourceHealth Management SDK. The Resource Health Client. Package tag package-2018-07-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
