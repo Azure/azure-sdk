@@ -61,8 +61,8 @@ azure-core-tracing-opencensus:1.0.0b7
 The Azure SDK team is pleased to make available the April 2021 client library release.
 
 #### GA
-- Azure Communication Identity
 - Azure Communication Chat
+- Azure Communication Identity
 - Azure Communication SMS
 - Core
 - Resource Management - Alerts Management
@@ -90,8 +90,8 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 
 #### Updates
 - Common
-- Event Hubs - Azure Blob Storage Checkpoint Store AIO
 - Event Hubs - Azure Blob Storage Checkpoint Store
+- Event Hubs - Azure Blob Storage Checkpoint Store AIO
 - Event Grid
 - Service Bus
 
