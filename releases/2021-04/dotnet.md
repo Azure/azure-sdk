@@ -19,6 +19,10 @@ Azure.Analytics.Synapse.Artifacts:1.0.0-preview.8
 Azure.Data.AppConfiguration:1.1.0-beta.2
 Azure.AI.Translation.Document:1.0.0-beta.1
 Azure.Search.Documents:11.3.0-beta.1
+Azure.AI.FormRecognizer:3.1.0-beta.4
+Azure.Identity:1.4.0-beta.5
+Azure.Core.Amqp:1.1.0-beta.1
+Microsoft.Azure.WebJobs.Extensions.EventHubs:5.0.0-beta.4
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -42,10 +46,14 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Attestation
 - Azure.AI.Translation.Document
 - Cognitive Search
+- Core - AMQP
+- Form Recognizer
+- Identity
 - IoT Device Update
 - Synapse - Artifacts
 - Tables
 - Text Analytics
+- WebJobs Extensions - Event Hubs
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -54,18 +62,22 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
 ```bash
+$> dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.4
 $> dotnet add package Azure.AI.TextAnalytics --version 5.1.0-beta.6
 $> dotnet add package Azure.AI.Translation.Document --version 1.0.0-beta.1
 $> dotnet add package Azure.Analytics.Synapse.Artifacts --version 1.0.0-preview.8
 $> dotnet add package Azure.Core --version 1.12.0
+$> dotnet add package Azure.Core.Amqp --version 1.1.0-beta.1
 $> dotnet add package Azure.Data.AppConfiguration --version 1.1.0-beta.2
 $> dotnet add package Azure.Data.Tables --version 12.0.0-beta.7
+$> dotnet add package Azure.Identity --version 1.4.0-beta.5
 $> dotnet add package Azure.IoT.DeviceUpdate --version 1.0.0-beta.2
 $> dotnet add package Azure.Messaging.EventHubs --version 5.4.0
 $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.4.0
-$> dotnet add package Azure.Security.Attestation --version 1.0.0-beta.2
 $> dotnet add package Azure.Search.Documents --version 11.3.0-beta.1
+$> dotnet add package Azure.Security.Attestation --version 1.0.0-beta.2
 $> dotnet add package Azure.Storage.Common --version 12.7.2
+$> dotnet add package Microsoft.Azure.WebJobs.Extensions.EventHubs --version 5.0.0-beta.4
 ```
 
 [pattern]: # ($> dotnet add package ${PackageName} --version ${PackageVersion})
@@ -185,6 +197,47 @@ This package's documentation and samples demonstrate the new API.
 - Added [`CustomEntityLookupSkill`](https://docs.microsoft.com/azure/search/cognitive-search-skill-custom-entity-lookup) and [`DocumentExtractionSkill`](https://docs.microsoft.com/azure/search/cognitive-search-skill-document-extraction). Added `DefaultCountryHint` in [`LanguageDetectionSkill`](https://docs.microsoft.com/azure/search/cognitive-search-skill-language-detection).
 - Added [`LexicalNormalizer`](https://docs.microsoft.com/azure/search/search-normalizers#predefined-normalizers) to include predefined set of normalizers. See [here](https://docs.microsoft.com/azure/search/search-normalizers) for more details on search normalizers. Added `Normalizer` as a [`SearchField`](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchfield) in an index definition.
 - Added support for Azure Data Lake Storage Gen2 - [`AdlsGen2`](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) in [`SearchIndexerDataSourceType`](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype).
+
+### Form Recognizer 3.1.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_3.1.0-beta.4/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#310-beta4-2021-04-06)
+#### New Features
+- Added support for pre-built passports and US driver licenses recognition with the `StartRecognizeIdDocuments` API.
+- Expanded the set of document languages that can be provided to the `StartRecognizeContent` API.
+- Added property `Pages` to `RecognizeBusinessCardsOptions`, `RecognizeCustomFormsOptions`, `RecognizeInvoicesOptions`, and `RecognizeReceiptsOptions` to specify the page numbers to recognize.
+- Added property `ReadingOrder` to `RecognizeContentOptions` to specify the order in which recognized text lines are returned.
+
+#### Breaking changes
+- The client defaults to the latest supported service version, which currently is `2.1-preview.3`.
+- `StartRecognizeCustomForms` now throws a `RequestFailedException` when an invalid file is passed.
+
+### Identity 1.4.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Identity_1.4.0-beta.5/sdk/identity/Azure.Identity/CHANGELOG.md#140-beta5-2021-04-06)
+#### Acknowledgments
+
+Thank you to our developer community members who helped to make Azure Identity better with their contributions to this release:
+
+- Marco Mansi _([GitHub](https://github.com/olandese))_
+
+#### New Features
+
+- Added `AzurePowerShellCredential` to `DefaultAzureCredential` (A community contribution, courtesy of _[olandese](https://github.com/olandese))_
+
+#### Fixes and improvements
+
+- When logging is enabled, the log output from MSAL is also logged.
+- Fixed an issue where an account credential fails to load from the cache when EnableGuestTenantAuthentication is true and the account found in the cache has multiple matching tenantIds ([#18276](https://github.com/Azure/azure-sdk-for-net/issues/18276)).
+- Fixed deadlock issue in `InteractiveBrowserCredential` when running in a UI application ([#18418](https://github.com/Azure/azure-sdk-for-net/issues/18418)).
+
+#### Breaking Changes
+
+- `TokenCache` class is moved removed from the public API surface and has been replaced by `TokenCachePersistenceOptions` for configuration of disk based persistence of the token cache.
+
+### Core - AMQP 1.1.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core.Amqp_1.1.0-beta.1/sdk/core/Azure.Core.Amqp/CHANGELOG.md#110-beta1-2021-04-06)
+#### Added
+- Added support for Sequence and Value body messages.
+
+### WebJobs Extensions - Event Hubs 5.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.WebJobs.Extensions.EventHubs_5.0.0-beta.4/sdk/eventhub/Microsoft.Azure.WebJobs.Extensions.EventHubs/CHANGELOG.md#500-beta4-2021-04-06)
+#### Changes
+
+- Single dispatch triggers were disabled.
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
