@@ -23,6 +23,8 @@ Azure.AI.FormRecognizer:3.1.0-beta.4
 Azure.Identity:1.4.0-beta.5
 Azure.Core.Amqp:1.1.0-beta.1
 Microsoft.Azure.WebJobs.Extensions.EventHubs:5.0.0-beta.4
+System.Memory.Data:1.0.2
+Azure.Core:1.13.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -33,11 +35,13 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Core
 - Event Hubs
 - Event Hubs - Event Processor
+- Core
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
 #### Updates
 - Storage - Common
+- System Memory Data
 
 [pattern.patch]: # (- ${PackageFriendlyName})
 
@@ -77,6 +81,8 @@ $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.4.0
 $> dotnet add package Azure.Search.Documents --version 11.3.0-beta.1
 $> dotnet add package Azure.Security.Attestation --version 1.0.0-beta.2
 $> dotnet add package Azure.Storage.Common --version 12.7.2
+$> dotnet add package System.Memory.Data --version 1.0.2
+$> dotnet add package Azure.Core --version 1.13.0
 $> dotnet add package Microsoft.Azure.WebJobs.Extensions.EventHubs --version 5.0.0-beta.4
 ```
 
@@ -238,6 +244,15 @@ Thank you to our developer community members who helped to make Azure Identity b
 #### Changes
 
 - Single dispatch triggers were disabled.
+
+### System Memory Data 1.0.2 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/System.Memory.Data_1.0.2/sdk/core/System.Memory.Data/CHANGELOG.md#102-2021-04-07)
+- Add System.Text.Encodings.Web dependency
+
+### Core 1.13.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.13.0/sdk/core/Azure.Core/CHANGELOG.md#1130-2021-04-07)
+#### Key Bug Fixes
+
+- Fixed `NotSupportedException` when running using Blazor in the browser.
+- Disable the response caching and enable the streaming when running using Blazor in the browser.
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
