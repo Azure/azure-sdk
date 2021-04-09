@@ -28,21 +28,21 @@ We recommended supporting additional key languages depending on the business sce
 
 ### 2) Change logs & Migration Guides
 
-Facilitating a swift transition of the SDKs' users to the new version being released requires clear clarification and documentation of the changes from the pervious version. The type and granularity of the documentations depends on the type\scope of the release:
+Facilitating a swift transition of the SDKs' users to the new version being released requires clear clarification and documentation of the changes from the previous version. The type and granularity of the documentation depends on the type and scope of the release:
 
 #### New standards upgrade release
 
-This covers the case when we upgrade and existing Azure SDK to the new SDKs standards. such release usually contains major modifications to the structure, interfaces and behavioral aspects of the existing SDKs. Such an update requires detailed and verbose porting guide to help the adopting users understand the benefits, changes and offerings of the new SDK version. The requirement here is to:
+This covers the case when we upgrade and existing Azure SDK to the new SDKs standards. Such a release usually contains major modifications to the structure, interfaces and behavioral aspects of the existing SDKs. Such an update requires a detailed and verbose porting guide to help the adopting users understand the benefits, changes and offerings of the new SDK version. The requirement here is to:
 
  {% include requirement/MUST %} Create a Migration guide for each language SDK. Use the [Migration guide template](migration-guide-template.md) as a reference.
 
  {% include requirement/MUST %} Include a "Benefits" section clearing explaining the advantages of migration to this version of the SDK.
 
- {% include requirement/MUST %} Place that guide in the SDK repository preferably in the root of the
+ {% include requirement/MUST %} Place that guide in the SDK repository preferably in the root of the directory that contains the service.
 
 An example porting guide can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md).
 
-(Please Note) Migration guides creation will be required to obtain sign-off from the Archboard.
+(Please Note) Migration guide creation will be required to obtain sign-off from the Archboard.
 
 #### New version release
 
@@ -54,56 +54,7 @@ Ensuring that a `CHANGELOG.md` file is both available and formatted appropriatel
 
 {% include requirement/MUST %} name changelogs with all caps except for the extension, i.e. `CHANGELOG.md`.
 
-{% include requirement/MUST %} follow the format below:
-
-```markdown
-# Release History
-
-## <versionSpecifier> (Release Marker)
-- <content. Do not introduce another header at the same level as the versionSpecifier>
-
-...
-## <older versionSpecifier> (Release Date)
-- <content/changes for the older release>
-
-... older release details trail off into history below
-```
-
-General guidance is taken from https://keepachangelog.com/en/1.0.0/
-
-Example Changelog:
-
-```markdown
-# Release History
-
-## 12.1.0 (Unreleased)
-### Added
-- check to enforce TokenCredential is used only over HTTPS
-
-### Changed
-- Support using SAS token from connection string
-
-### Fixed
-- Issue where AccountName on BlobUriBuilder would not be populated
-  for non-IP style Uris ([#8638](https://github.com/Azure/azure-sdk-for-net/issues/8638))
-
-## 12.0.0 (2019-11-25)
-### Breaking Change
-- Added support for the new low-priority node type.
-
-### Renamed
-- Number of operations and models to better align with other client
-  libraries and the .NET Framework Design Guidelines
-- Parallel upload/download performance improvements
-```
-
-{% include requirement/SHOULD %} link to GitHub issues (full URL) that were fixed in that release going forward (i.e. do not backfill older issues). See example above under the `### Fixed` heading.
-
-For clarity, a `change log entry` is simply the header + content up to the next release header OR EOF. During release, if there exists a changelog entry with a version specifier _matching_ that of the currently releasing package, that changelog entry will be added as the body of the GitHub release.
-
-#### Changelog Entries for GA releases
-
-When doing a switch from a beta to a GA release there are often very few changes which can be misleading to customers, as they might not think there are many changes. Instead when doing a GA release it is recommended that we either squash all the beta notes into the GA changelog entry or add a comment similar to `Includes all changes from X.Y.Z-beta.A to X.Y.Z.beta.B` so that it is clear that all those changes are included.
+{% include requirement/MUST %} follow the format in the guidelines section below [Change Logs](#change-logs).
 
 ### 3) Blogs & Samples
 
@@ -145,7 +96,75 @@ For language repositories where the repo is the primary shipping unit, the relea
 
 We use GitHub releases as a convenient place to put release notes. The change log and any additional notes will be available here. We automatically publish release notes to a GitHub release if the changelog guidance below is followed. No artifacts are published to the GitHub release. Instead, use a supported package registry.
 
+## Change Logs
 
+Every library should contain a file exactly named `CHANGELOG.md` in the folder for each library. Generally in `sdk/<service>/<package>` folder. 
+
+In order for consistency across our SDKs and to enable automation to validate and parse these changelogs the files must use the following format.
+
+```markdown
+# Release History
+
+## <version X.Y.Z[-beta.N]> (<Unreleased|YYYY-MM-DD>)
+### Features Added
+- <for new features to be called out in release notes>
+ 
+### Breaking Changes
+- <for changes to be called out in release notes including>
+- <Changed: for changes that break existing functionality>
+- <Deprecated: for soon-to-be removed features>
+- <Removed: for now removed features>
+ 
+### Key Bugs Fixed
+- <for important bug fixes to be called out in release notes>
+- <Security: for any security fixes>
+ 
+### Fixed
+- <for any bug fixes that are not important enough to include in release notes>
+ 
+...
+## <older version> (<Release Date>)
+- <content/changes for the older release>
+
+... older release details trail off into history below
+```
+In order to automatically pull the relevant content (see mentions of release notes above) from the change log entries to produce our release notes the formatting of the headers needs to exactly match the format above (i.e. `### Features Added`, `### Breaking Changes`, `### Key Bugs Fixed`). For more details on the general release notes see the [Release Notes Guidance](https://azure.github.io/azure-sdk/policies_releasenotes.html#whats-a-developer-impacting-change).
+
+For more information on general change log guidelines see https://keepachangelog.com/en/1.0.0/.
+
+Example change log:
+
+```markdown
+# Release History
+
+## 12.1.0 (Unreleased)
+### Features Added
+- check to enforce TokenCredential is used only over HTTPS
+
+### Breaking Changes
+- Support using SAS token from connection string
+
+### Key Bugs Fixed
+- Issue where AccountName on BlobUriBuilder would not be populated
+  for non-IP style Uris ([#8638](https://github.com/Azure/azure-sdk-for-net/issues/8638))
+
+## 12.0.0 (2019-11-25)
+### Breaking Changes
+- Added support for the new low-priority node type.
+- Number of operations and models to better align with other client
+  libraries and the .NET Framework Design Guidelines
+  
+### Fixed
+- Parallel upload/download performance improvements
+```
+
+{% include requirement/SHOULD %} link to GitHub issues (full URL) that were fixed in that release going forward (i.e. do not backfill older issues). See example above under the `### Key Bugs Fixed` heading.
+
+For clarity, a `change log entry` is simply the header + content up to the next release header OR EOF. During release, if there exists a changelog entry with a version specifier _matching_ that of the currently releasing package, that changelog entry will be added as the body of the GitHub release.
+
+#### Changelog Entries for GA releases
+
+When doing a switch from a beta to a GA release there are often very few changes which can be misleading to customers, as they might not think there are many changes. Instead when doing a GA release it is recommended that we either squash all the beta notes into the GA changelog entry or add a comment similar to `Includes all changes from X.Y.Z-beta.A to X.Y.Z.beta.B` so that it is clear that all those changes are included.
 
 ## Release Cycle
 
