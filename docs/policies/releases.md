@@ -162,7 +162,7 @@ Example change log:
 
 For clarity, a `change log entry` is simply the header + content up to the next release header OR EOF. During release, if there exists a changelog entry with a version specifier _matching_ that of the currently releasing package, that changelog entry will be added as the body of the GitHub release.
 
-#### Changelog Entries for GA releases
+### Changelog Entries for GA releases
 
 When doing a switch from a beta to a GA release there are often very few changes which can be misleading to customers, as they might not think there are many changes. Instead when doing a GA release it is recommended that we either squash all the beta notes into the GA changelog entry or add a comment similar to `Includes all changes from X.Y.Z-beta.A to X.Y.Z.beta.B` so that it is clear that all those changes are included.
 
