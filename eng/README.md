@@ -26,7 +26,8 @@ given package ecosystem as well as by reading release tags from our mono repos. 
 - `FirstGADate` - This field is used to identify the date of when a new package shipped its first GA. 
 - `Support` - This field is used to identify the level of support for the given package. See the [support guidelines](https://azure.github.io/azure-sdk/policies_support.html#package-lifecycle) for more details but this field should contain `active`, `maintenance`, or `community`, if the value is empty it generally implies unknown or `beta` support level. 
 - `Hide` - This field will determine whether we hide this package from various places like the package index, docs, as well as automated updates. The value is either true to hide or empty to not hide. This is useful to filter older packages that are still on the package managers, but we don't want to promote or display anywhere.
-- `Notes` - This is an open field that can be used to add any particular notes for a given package that will be displayed in the package index. Commonly used to call out other packages that will be replaced by it.
+- `Replace` - This field is used the store the package name for the related older (replaces) or newer (replaced by) package. The value should be the exact name of the package (for java it should be `groupdid\artifactid`). If there are multiple then they should be separated by a comma (`,`). 
+- `Notes` - This is an open field that can be used to add any particular notes for a given package.
 
 ## Link templates
 
