@@ -56,11 +56,6 @@ Ensuring that a `CHANGELOG.md` file is both available and formatted appropriatel
 
 {% include requirement/MUST %} follow the format below. Be sure to include the following headers that will be automatically added to your release notes:
 
-- New Features - Adding a new API or feature
-- Breaking Changes - Changes to an existing API or changes to the behavior of an existing API
-- Key Bug Fixes - Major bug fixes that require a customer to do something, bug fixes that come from multiple up-votes in github or that are motivated by customer feedback
-- Security Fixes - Any security fix, no matter how small
-
 Release Notes general guidance is taken from <https://azure.github.io/azure-sdk/policies_releasenotes.html#whats-a-developer-impacting-change>
 
 ```markdown
@@ -69,6 +64,22 @@ Release Notes general guidance is taken from <https://azure.github.io/azure-sdk/
 ## <versionSpecifier> (Release Marker)
 - <content. Do not introduce another header at the same level as the versionSpecifier>
 
+### Features Added
+- <for new features to be called out in release notes>
+ 
+### Breaking Changes
+- <for changes to be called out in release notes including>
+- <Changed: for changes that break existing functionality>
+- <Deprecated: for soon-to-be removed features>
+- <Removed: for now removed features>
+ 
+### Key Bugs Fixed
+- <for important bug fixes to be called out in release notes>
+- <Security: for any security fixes>
+ 
+### Fixed
+- <for any bug fixes>
+ 
 ...
 ## <older versionSpecifier> (Release Date)
 - <content/changes for the older release>
@@ -84,23 +95,23 @@ Example Changelog:
 # Release History
 
 ## 12.1.0 (Unreleased)
-### New Features
+### Features Added
 - check to enforce TokenCredential is used only over HTTPS
 
 ### Breaking Changes
 - Support using SAS token from connection string
 
-### Key Bug Fixes
+### Key Bugs Fixed
 - Issue where AccountName on BlobUriBuilder would not be populated
   for non-IP style Uris ([#8638](https://github.com/Azure/azure-sdk-for-net/issues/8638))
 
 ## 12.0.0 (2019-11-25)
 ### Breaking Changes
 - Added support for the new low-priority node type.
-
-### Renamed
 - Number of operations and models to better align with other client
   libraries and the .NET Framework Design Guidelines
+  
+ ### Fixed
 - Parallel upload/download performance improvements
 ```
 
