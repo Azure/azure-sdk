@@ -77,7 +77,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Moved `Azure::Core::Http::Request` to its own header file from `http.hpp` to `inc/azure/core/http/raw_response.hpp`.
 - Moved `Azure::Core::Http::HttpStatusCode` to its own header file from `http.hpp` to `inc/azure/core/http/http_status_code.hpp`.
 
-
 ### azure-identity [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/identity/azure-identity/CHANGELOG.md#100-beta5-2021-04-07)
 
 #### New Features
