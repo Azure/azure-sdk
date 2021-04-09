@@ -54,7 +54,7 @@ Ensuring that a `CHANGELOG.md` file is both available and formatted appropriatel
 
 {% include requirement/MUST %} name changelogs with all caps except for the extension, i.e. `CHANGELOG.md`.
 
-{% include requirement/MUST %} follow the [Change Logs](#change-logs) section below for how to format the file.
+{% include requirement/MUST %} follow the format in the guidelines section below [Change Logs](#change-logs).
 
 ### 3) Blogs & Samples
 
