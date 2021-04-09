@@ -118,6 +118,13 @@ azure-resourcemanager-synapse:1.0.0-beta.1
 azure-resourcemanager-costmanagement:1.0.0-beta.2
 azure-resourcemanager-communication:1.0.0
 azure-resourcemanager-resourcehealth:1.0.0-beta.1
+azure-resourcemanager-frontdoor:1.0.0-beta.1
+azure-resourcemanager-postgresql:1.0.0
+azure-resourcemanager-databricks:1.0.0-beta.1
+azure-resourcemanager-eventgrid:1.0.0
+azure-resourcemanager-databoxedge:1.0.0-beta.1
+azure-resourcemanager-mysql:1.0.0
+azure-resourcemanager-mediaservices:1.0.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -186,6 +193,10 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Core
 - Cosmos DB
 - Spring Data Cosmos
+- Resource Management - PostgreSQL
+- Resource Management - Event Grid
+- Resource Management - MySQL
+- Resource Management - Media Services
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -244,6 +255,9 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - azure-resourcemanager-synapse
 - Resource Management - Cost Management
 - azure-resourcemanager-resourcehealth
+- azure-resourcemanager-frontdoor
+- azure-resourcemanager-databricks
+- azure-resourcemanager-databoxedge
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -909,6 +923,48 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-resourcehealth</artifactId>
   <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-frontdoor</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-postgresql</artifactId>
+  <version>1.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-databricks</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-eventgrid</artifactId>
+  <version>1.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-databoxedge</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-mysql</artifactId>
+  <version>1.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-mediaservices</artifactId>
+  <version>1.0.0</version>
 </dependency>
 
 
@@ -1835,6 +1891,121 @@ PhoneNumbersAsyncClient.getPurchasedPhoneNumberWithResponse and PhoneNumbersClie
 * `location()` was added
 ### azure-resourcemanager-resourcehealth 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-resourcehealth_1.0.0-beta.1/sdk/resourcehealth/azure-resourcemanager-resourcehealth/CHANGELOG.md#100-beta1-2021-04-08)
 - Azure Resource Manager ResourceHealth client library for Java. This package contains Microsoft Azure SDK for ResourceHealth Management SDK. The Resource Health Client. Package tag package-2018-07-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-frontdoor 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-frontdoor_1.0.0-beta.1/sdk/frontdoor/azure-resourcemanager-frontdoor/CHANGELOG.md#100-beta1-2021-04-09)
+- Azure Resource Manager FrontDoor client library for Java. This package contains Microsoft Azure SDK for FrontDoor Management SDK. FrontDoor Client. Package tag package-2020-11. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### Resource Management - PostgreSQL 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-postgresql_1.0.0/sdk/postgresql/azure-resourcemanager-postgresql/CHANGELOG.md#100-2021-04-09)
+- Azure Resource Manager PostgreSql client library for Java. This package contains Microsoft Azure SDK for PostgreSql Management SDK. The Microsoft Azure management API provides create, read, update, and delete functionality for Azure PostgreSQL resources including servers, databases, firewall rules, VNET rules, security alert policies, log files and configurations with new business model. Package tag package-2020-01-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+#### Breaking Change
+
+* `models.ErrorAdditionalInfo` was removed
+
+#### New Feature
+
+* `models.ServerSecurityAlertPolicyListResult` was added
+
+##### `models.ServerSecurityAlertPolicies` was modified
+
+* `listByServer(java.lang.String,java.lang.String)` was added
+* `listByServer(java.lang.String,java.lang.String,com.azure.core.util.Context)` was added
+
+### azure-resourcemanager-databricks 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-databricks_1.0.0-beta.1/sdk/databricks/azure-resourcemanager-databricks/CHANGELOG.md#100-beta1-2021-04-08)
+- Azure Resource Manager Databricks client library for Java. This package contains Microsoft Azure SDK for Databricks Management SDK. ARM Databricks. Package tag package-2018-04-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### Resource Management - Event Grid 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-eventgrid_1.0.0/sdk/eventgrid/azure-resourcemanager-eventgrid/CHANGELOG.md#100-2021-04-09)
+- Azure Resource Manager EventGrid client library for Java. This package contains Microsoft Azure SDK for EventGrid Management SDK. Azure EventGrid Management Client. Package tag package-2020-06. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-databoxedge 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-databoxedge_1.0.0-beta.1/sdk/databoxedge/azure-resourcemanager-databoxedge/CHANGELOG.md#100-beta1-2021-04-09)
+- Azure Resource Manager DataBoxEdge client library for Java. This package contains Microsoft Azure SDK for DataBoxEdge Management SDK.  Package tag package-2019-08. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### Resource Management - MySQL 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-mysql_1.0.0/sdk/mysql/azure-resourcemanager-mysql/CHANGELOG.md#100-2021-04-09)
+- Azure Resource Manager MySql client library for Java. This package contains Microsoft Azure SDK for MySql Management SDK. The Microsoft Azure management API provides create, read, update, and delete functionality for Azure MySQL resources including servers, databases, firewall rules, VNET rules, log files and configurations with new business model. Package tag package-2020-01-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+#### Breaking Change
+
+* `models.ErrorAdditionalInfo` was removed
+
+#### New Feature
+
+* `models.ServerSecurityAlertPolicyListResult` was added
+
+##### `models.ServerSecurityAlertPolicies` was modified
+
+* `listByServer(java.lang.String,java.lang.String,com.azure.core.util.Context)` was added
+* `listByServer(java.lang.String,java.lang.String)` was added
+
+### Resource Management - Media Services 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-mediaservices_1.0.0/sdk/mediaservices/azure-resourcemanager-mediaservices/CHANGELOG.md#100-2021-04-09)
+- Azure Resource Manager MediaServices client library for Java. This package contains Microsoft Azure SDK for MediaServices Management SDK. This Swagger was generated by the API Framework. Package tag package-2020-05. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+#### Breaking Change
+
+* `MediaservicesManager` was removed
+
+* `models.CreatedByType` was removed
+
+* `MediaservicesManager$Configurable` was removed
+
+* `models.SystemData` was removed
+
+##### `models.MediaService` was modified
+
+* `models.SystemData systemData()` -> `com.azure.core.management.SystemData systemData()`
+
+##### `models.AssetFilter` was modified
+
+* `models.SystemData systemData()` -> `com.azure.core.management.SystemData systemData()`
+
+##### `models.LiveEvent` was modified
+
+* `models.SystemData systemData()` -> `com.azure.core.management.SystemData systemData()`
+
+##### `models.AccountFilter` was modified
+
+* `models.SystemData systemData()` -> `com.azure.core.management.SystemData systemData()`
+
+##### `models.Asset` was modified
+
+* `models.SystemData systemData()` -> `com.azure.core.management.SystemData systemData()`
+
+##### `models.StreamingLocator` was modified
+
+* `models.SystemData systemData()` -> `com.azure.core.management.SystemData systemData()`
+
+##### `models.StreamingPolicy` was modified
+
+* `models.SystemData systemData()` -> `com.azure.core.management.SystemData systemData()`
+
+##### `models.StreamingEndpoint` was modified
+
+* `models.SystemData systemData()` -> `com.azure.core.management.SystemData systemData()`
+
+##### `models.ContentKeyPolicy` was modified
+
+* `models.SystemData systemData()` -> `com.azure.core.management.SystemData systemData()`
+
+##### `models.Job` was modified
+
+* `models.SystemData systemData()` -> `com.azure.core.management.SystemData systemData()`
+
+##### `models.Transform` was modified
+
+* `models.SystemData systemData()` -> `com.azure.core.management.SystemData systemData()`
+
+#### New Feature
+
+* `MediaServicesManager` was added
+
+* `MediaServicesManager$Configurable` was added
+
+##### `models.JpgFormat` was modified
+
+* `withFilenamePattern(java.lang.String)` was added
+
+##### `models.PngFormat` was modified
+
+* `withFilenamePattern(java.lang.String)` was added
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
