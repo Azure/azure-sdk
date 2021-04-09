@@ -99,15 +99,8 @@ If you have a bug or feature request for one of the libraries, please [file an i
 - Fixed bug in SasQueryParameters causing services (ss) reorder when parsing externally provided URI.
 
 ### Event Hubs 5.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventHubs_5.4.0/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md#540-2021-04-05)
-#### Acknowledgments
 
-Thank you to our developer community members who helped to make the Event Hubs client libraries better with their contributions to this release:
-
-- Daniel Marbach _([GitHub](https://github.com/danielmarbach))_
-
-#### Changes
-
-##### New Features
+#### New Features
 
 - The Event Hubs clients now support shared key and shared access signature authentication using the `AzureNamedKeyCredential` and `AzureSasCredential` types in addition to the connection string.  Use of the credential allows the shared key or SAS to be updated without the need to create a new Event Hubs client.
 
@@ -117,26 +110,19 @@ Thank you to our developer community members who helped to make the Event Hubs c
 
 - Multiple enhancements were made to the transport paths for publishing and reading events to reduce memory allocations and increase performance.  (A community contribution, courtesy of _[danielmarbach](https://github.com/danielmarbach))_
 
-##### Key Bug Fixes
+#### Key Bug Fixes
 
 - The AMQP library used for transport has been updated, fixing several issues including a potential unobserved   `ObjectDisposedException` that could cause the host process to crash.  _(see: [release notes](https://github.com/Azure/azure-amqp/releases/tag/v2.4.13))_
 
 ### Event Hubs - Event Processor 5.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventHubs.Processor_5.4.0/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md#540-2021-04-05)
-#### Acknowledgments
 
-Thank you to our developer community members who helped to make the Event Hubs client libraries better with their contributions to this release:
-
-- Daniel Marbach _([GitHub](https://github.com/danielmarbach))_
-
-#### Changes
-
-##### New Features
+#### New Features
 
 - The `EventProcessorClient` now supports shared key and shared access signature authentication using the `AzureNamedKeyCredential` and `AzureSasCredential` types in addition to the connection string.  Use of the credential allows the shared key or SAS to be updated without the need to create a new processor.
 
 - Multiple enhancements were made to the AMQP transport paths for reading events to reduce memory allocations and increase performance.  (A community contribution, courtesy of _[danielmarbach](https://github.com/danielmarbach))_
 
-##### Key Bug Fixes
+#### Key Bug Fixes
 
 - The AMQP library used for transport has been updated, fixing several issues including a potential unobserved   `ObjectDisposedException` that could cause the host process to crash.  _(see: [release notes](https://github.com/Azure/azure-amqp/releases/tag/v2.4.13))_
 
