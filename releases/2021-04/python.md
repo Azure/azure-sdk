@@ -119,6 +119,7 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Monitor OpenTelemetry Exporter
 - Resource Management - Automation
 - Resource Management - Rdbms
+- Service Bus
 - Tables
 - Translation Document
 
