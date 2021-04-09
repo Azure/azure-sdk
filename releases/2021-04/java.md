@@ -125,6 +125,7 @@ azure-resourcemanager-eventgrid:1.0.0
 azure-resourcemanager-databoxedge:1.0.0-beta.1
 azure-resourcemanager-mysql:1.0.0
 azure-resourcemanager-mediaservices:1.0.0
+azure-resourcemanager-automation:1.0.0-beta.1
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -258,6 +259,7 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - azure-resourcemanager-frontdoor
 - azure-resourcemanager-databricks
 - azure-resourcemanager-databoxedge
+- azure-resourcemanager-automation
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -965,6 +967,12 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-mediaservices</artifactId>
   <version>1.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-automation</artifactId>
+  <version>1.0.0-beta.1</version>
 </dependency>
 
 
@@ -2006,6 +2014,9 @@ PhoneNumbersAsyncClient.getPurchasedPhoneNumberWithResponse and PhoneNumbersClie
 ##### `models.PngFormat` was modified
 
 * `withFilenamePattern(java.lang.String)` was added
+
+### azure-resourcemanager-automation 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-automation_1.0.0-beta.1/sdk/automation/azure-resourcemanager-automation/CHANGELOG.md#100-beta1-2021-04-09)
+- Azure Resource Manager Automation client library for Java. This package contains Microsoft Azure SDK for Automation Management SDK. Automation Client. Package tag package-2019-06. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
