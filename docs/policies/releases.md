@@ -102,7 +102,6 @@ Every library should contain a file exactly named `CHANGELOG.md` in the folder f
 
 In order for consistency across our SDKs and to enable automation to validate and parse these changelogs the files must use the following format.
 
-
 ```markdown
 # Release History
 
