@@ -33,11 +33,10 @@ Microsoft.Azure.CognitiveServices.Vision.ComputerVision:7.0.0
 The Azure SDK team is pleased to announce our April 2021 client library releases.
 
 #### GA
+- Computer Vision
 - Core
 - Event Hubs
 - Event Hubs - Event Processor
-- Core
-- Computer Vision
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -73,6 +72,7 @@ $> dotnet add package Azure.AI.TextAnalytics --version 5.1.0-beta.6
 $> dotnet add package Azure.AI.Translation.Document --version 1.0.0-beta.1
 $> dotnet add package Azure.Analytics.Synapse.Artifacts --version 1.0.0-preview.8
 $> dotnet add package Azure.Core --version 1.12.0
+$> dotnet add package Azure.Core --version 1.13.0
 $> dotnet add package Azure.Core.Amqp --version 1.1.0-beta.1
 $> dotnet add package Azure.Data.AppConfiguration --version 1.1.0-beta.2
 $> dotnet add package Azure.Data.Tables --version 12.0.0-beta.7
@@ -83,10 +83,9 @@ $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.4.0
 $> dotnet add package Azure.Search.Documents --version 11.3.0-beta.1
 $> dotnet add package Azure.Security.Attestation --version 1.0.0-beta.2
 $> dotnet add package Azure.Storage.Common --version 12.7.2
-$> dotnet add package System.Memory.Data --version 1.0.2
-$> dotnet add package Azure.Core --version 1.13.0
 $> dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 7.0.0
 $> dotnet add package Microsoft.Azure.WebJobs.Extensions.EventHubs --version 5.0.0-beta.4
+$> dotnet add package System.Memory.Data --version 1.0.2
 ```
 
 [pattern]: # ($> dotnet add package ${PackageName} --version ${PackageVersion})
