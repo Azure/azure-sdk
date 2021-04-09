@@ -33,10 +33,15 @@ Microsoft.Azure.CognitiveServices.Vision.ComputerVision:7.0.0
 The Azure SDK team is pleased to announce our April 2021 client library releases.
 
 #### GA
+- Azure Communication Chat
+- Azure Communication Common
+- Azure Communication Identity
+- Azure Communication SMS
 - Computer Vision
 - Core
 - Event Hubs
 - Event Hubs - Event Processor
+- Resource Management - Communication
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -50,6 +55,7 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - App Configuration
 - Attestation
 - Azure.AI.Translation.Document
+- Azure Communication Phone Numbers
 - Cognitive Search
 - Core - AMQP
 - Form Recognizer
@@ -71,6 +77,11 @@ $> dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.4
 $> dotnet add package Azure.AI.TextAnalytics --version 5.1.0-beta.6
 $> dotnet add package Azure.AI.Translation.Document --version 1.0.0-beta.1
 $> dotnet add package Azure.Analytics.Synapse.Artifacts --version 1.0.0-preview.8
+$> dotnet add package Azure.Communication.Chat --version 1.0.0
+$> dotnet add package Azure.Communication.Common --version 1.0.0
+$> dotnet add package Azure.Communication.Identity --version 1.0.0
+$> dotnet add package Azure.Communication.PhoneNumbers --version 1.0.0-beta.6
+$> dotnet add package Azure.Communication.SMS --version 1.0.0
 $> dotnet add package Azure.Core --version 1.12.0
 $> dotnet add package Azure.Core --version 1.13.0
 $> dotnet add package Azure.Core.Amqp --version 1.1.0-beta.1
@@ -80,6 +91,7 @@ $> dotnet add package Azure.Identity --version 1.4.0-beta.5
 $> dotnet add package Azure.IoT.DeviceUpdate --version 1.0.0-beta.2
 $> dotnet add package Azure.Messaging.EventHubs --version 5.4.0
 $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.4.0
+$> dotnet add package Azure.ResourceManager.Communication --version 1.0.0
 $> dotnet add package Azure.Search.Documents --version 11.3.0-beta.1
 $> dotnet add package Azure.Security.Attestation --version 1.0.0-beta.2
 $> dotnet add package Azure.Storage.Common --version 12.7.2
@@ -269,6 +281,62 @@ Supports v3.2 Cognitive Services Computer Vision API endpoints.
 * Updated the Tags visual feature for Analyze Image operation and the Tag Image operation
 * Updated the error response format
 
+### Azure Communication Chat 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Chat/CHANGELOG.md#100-2021-03-29)
+**Includes all changes from 1.0.0-beta.1 to  1.0.0.beta.5**
+
+#### Breaking Changes
+- Renamed client constructors URL variable to `endpoint`.
+- Renamed `ChatThread` model to `ChatThreadProperties`.
+- Renamed `GetChatThread` operation to `GetPropertie`s and moved it to `ChatThreadClient`.
+- Renamed `ChatThreadInfo` model to `ChatThreadItem`.
+- Renamed `GetChatThreadsInfo` operation to `GetChatThreads`.
+- Made `AddParticipant` throw exception when request fails.
+- Renamed parameter `repeatabilityRequestId` to `idempotencyToken`.
+- Updated `SendMessage` to use `SendChatMessageResult` instead of `string` for the request result.
+- Exposed the list of `invalidparticipants` directly and removed `AddChatParticipantsErrors` and `CreateChatThreadErrors` models for `AddChatParticipantsResult` and `CreateChatThreadResult`.
+
+#### Added
+- Made list of participants optional for `CreateChatThread`.
+- Made `ChatThreadClient` constructor public.
+
+### Azure Communication Common 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Common/CHANGELOG.md#100-2021-03-29)
+**Includes all changes from 1.0.0-beta.1 to  1.0.0.beta.5**
+
+### Azure Communication Identity 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Identity/CHANGELOG.md#100-2021-03-29)
+**Includes all changes from 1.0.0-beta.1 to  1.0.0.beta.5**
+
+### Azure Communication Phone Numbers 1.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.PhoneNumbers/CHANGELOG.md#100-beta6-2021-03-29)
+
+### Added
+- Added protected constructor to `PurchasePhoneNumbersOperation` and `ReleasePhoneNumberOperation` for mocking.
+
+### Breaking Changes
+- All models are moved from `Azure.Communication.PhoneNumbers.Models` namespace to `Azure.Communication.PhoneNumbers`.
+- `AcquiredPhoneNumber` class is renamed to `PurchasedPhoneNumber`.
+- `PhoneNumbersClient` methods renamed:
+  - `GetPhoneNumber` -> `GetPurchasedPhoneNumber`.
+  - `GetPhoneNumberAsync` -> `GetPurchasedPhoneNumberAsync`.
+  - `GetPhoneNumbers` -> `GetPurchasedPhoneNumbers`.
+  - `GetPhoneNumbersAsyn`c -> `GetPurchasedPhoneNumbersAsync`.
+- `PhoneNumbersModelFactory` static method `AcquiredPhoneNumber` is renamed to `PurchasedPhoneNumber`.
+- `PurchasePhoneNumbersOperation` and `ReleasePhoneNumberOperation` extend `Operation` instead of `Operation<Response>`.
+- Removed `PhoneNumberOperationStatus` and `PhoneNumberOperationType`.
+- Renamed `ISOCurrencySymbol` property to `IsoCurrencySymbol` in `PhoneNumberCost`.
+- Renamed `threeLetterISOCountryName` parameter to `twoLetterIsoCountryName`` in `PhoneNumbersClient.StartSearchAvailablePhoneNumbers` and `PhoneNumbersClient.StartSearchAvailablePhoneNumbersAsync`.
+
+### Azure Communication SMS 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Sms/CHANGELOG.md#100-2021-03-29)
+**Includes all changes from 1.0.0-beta.1 to  1.0.0.beta4**
+
+### Resource Management - Communication 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.ResourceManager.Communication/CHANGELOG.md#100-2021-03-29)
+This is the first stable release of the management library for `Azure Communication Services`. 
+
+Minor changes since the public preview release:
+- `CheckNameAvailability` has been added
+- `CommunicationServiceResource` Update now requires a `CommunicationServiceResource` parameter instead of a `TaggedResource`
+- `RegenerateKeyParameters` is now a required parameter to `RegenerateKey`
+- `CommunicationServiceResource` now includes the property `SystemData`
+- `OperationList` has been changed to use the common type for its response
+- `ErrorResponse` has been changed to use the common type for `ErrorResponse`
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
