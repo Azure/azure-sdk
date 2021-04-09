@@ -25,6 +25,7 @@ Azure.Core.Amqp:1.1.0-beta.1
 Microsoft.Azure.WebJobs.Extensions.EventHubs:5.0.0-beta.4
 System.Memory.Data:1.0.2
 Azure.Core:1.13.0
+Microsoft.Azure.CognitiveServices.Vision.ComputerVision:7.0.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -36,6 +37,7 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Event Hubs
 - Event Hubs - Event Processor
 - Core
+- Computer Vision
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -83,6 +85,7 @@ $> dotnet add package Azure.Security.Attestation --version 1.0.0-beta.2
 $> dotnet add package Azure.Storage.Common --version 12.7.2
 $> dotnet add package System.Memory.Data --version 1.0.2
 $> dotnet add package Azure.Core --version 1.13.0
+$> dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 7.0.0
 $> dotnet add package Microsoft.Azure.WebJobs.Extensions.EventHubs --version 5.0.0-beta.4
 ```
 
@@ -253,6 +256,19 @@ Thank you to our developer community members who helped to make Azure Identity b
 
 - Fixed `NotSupportedException` when running using Blazor in the browser.
 - Disable the response caching and enable the streaming when running using Blazor in the browser.
+
+### Computer Vision 7.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.CognitiveServices.Vision.ComputerVision_7.0.0/sdk/cognitiveservices/Vision.ComputerVision/CHANGELOG.md#700-2021-04-12)
+Supports v3.2 Cognitive Services Computer Vision API endpoints.
+
+#### Added
+
+* Added model versioning support
+
+#### Changed
+
+* Updated the Adult visual feature for Analyze Image operation
+* Updated the Tags visual feature for Analyze Image operation and the Tag Image operation
+* Updated the error response format
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
