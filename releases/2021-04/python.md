@@ -70,11 +70,14 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Azure Communication SMS
 - Core
 - Resource Management - Alerts Management
+- Resource Management - App Platform
 - Resource Management - Attestation
+- Resource Management - Azure Stack
 - Resource Management - Communication
 - Resource Management - Compute
 - Resource Management - Container Service
 - Resource Management - Content Delivery Network
+- Resource Management - Custom Providers
 - Resource Management - Data Box
 - Resource Management - Data Migration
 - Resource Management - Databricks
@@ -89,9 +92,6 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Resource Management - Synapse
 - Synapse - Artifacts
 - Event Hubs
-- Resource Management - Custom Providers
-- Resource Management - Azure Stack
-- Resource Management - App Platform
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -150,12 +150,15 @@ $> pip install azure-eventgrid==4.1.1
 $> pip install azure-identity==1.6.0b3
 $> pip install azure-keyvault-keys==4.4.0b4
 $> pip install azure-mgmt-alertsmanagement==1.0.0
+$> pip install azure-mgmt-appplatform==6.0.0
 $> pip install azure-mgmt-attestation==1.0.0
 $> pip install azure-mgmt-automation==1.1.0b1
+$> pip install azure-mgmt-azurestack==1.0.0
 $> pip install azure-mgmt-cdn==11.0.0
 $> pip install azure-mgmt-communication==1.0.0
 $> pip install azure-mgmt-compute==20.0.0
 $> pip install azure-mgmt-containerservice==15.1.0
+$> pip install azure-mgmt-customproviders==1.0.0
 $> pip install azure-mgmt-databricks==1.0.0
 $> pip install azure-mgmt-datadog==1.0.0
 $> pip install azure-mgmt-datamigration==9.0.0
@@ -176,9 +179,6 @@ $> pip install azure-search-documents==11.2.0b1
 $> pip install azure-servicebus==7.1.1
 $> pip install azure-servicebus==7.2.0b1
 $> pip install azure-synapse-artifacts==0.6.0
-$> pip install azure-mgmt-customproviders==1.0.0
-$> pip install azure-mgmt-azurestack==1.0.0
-$> pip install azure-mgmt-appplatform==6.0.0
 
 ```
 
@@ -349,6 +349,14 @@ to specify which page to process of the document.
 ### Resource Management - Alerts Management 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-alertsmanagement_1.0.0/sdk/alertsmanagement/azure-mgmt-alertsmanagement/CHANGELOG.md#100-2021-03-16)
 - GA release
 
+### Resource Management - App Platform 6.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-appplatform_6.0.0/sdk/appplatform/azure-mgmt-appplatform/CHANGELOG.md#600-2021-04-08)
+**Features**
+
+  - Model MonitoringSettingProperties has a new parameter app_insights_agent_versions
+  - Model MonitoringSettingProperties has a new parameter app_insights_sampling_rate
+  - Model AppResourceProperties has a new parameter enable_end_to_end_tls
+  - Model NetworkProfile has a new parameter required_traffics
+
 ### Resource Management - Attestation 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-attestation_1.0.0/sdk/attestation/azure-mgmt-attestation/CHANGELOG.md#100-2021-03-16)
 * GA release
 
@@ -356,6 +364,22 @@ to specify which page to process of the document.
 **Features**
 
   - Model SoftwareUpdateConfigurationCollectionItem has a new parameter tasks
+
+### Resource Management - Azure Stack 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-azurestack_1.0.0/sdk/azurestack/azure-mgmt-azurestack/CHANGELOG.md#100-2021-04-08)
+**Features**
+
+  - Model Registration has a new parameter system_data
+  - Model Registration has a new parameter kind
+  - Model TrackedResource has a new parameter system_data
+  - Model TrackedResource has a new parameter kind
+  - Model CustomerSubscription has a new parameter system_data
+  - Model Product has a new parameter system_data
+  - Added operation RegistrationsOperations.enable_remote_management
+  - Added operation group LinkedSubscriptionsOperations
+
+**Breaking changes**
+
+  - Operation ProductsOperations.get_products has a new signature
 
 ### Resource Management - Communication 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-communication_1.0.0/sdk/communication/azure-mgmt-communication/CHANGELOG.md#100-2021-03-29)
 **Features**
@@ -442,6 +466,9 @@ to specify which page to process of the document.
   - Model RouteUpdateParameters no longer has parameter optimization_type
   - Operation LogAnalyticsOperations.get_log_analytics_metrics has a new signature
   - Model ManagedCertificateParameters has a new signature
+
+### Resource Management - Custom Providers 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-customproviders_1.0.0/sdk/customproviders/azure-mgmt-customproviders/CHANGELOG.md#100-2021-04-08)
+- GA release
 
 ### Resource Management - Data Box 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-databox_1.0.0/sdk/databox/azure-mgmt-databox/CHANGELOG.md#100-2021-03-18)
 - GA release
@@ -612,33 +639,6 @@ This version and all future versions will require Python 2.7 or Python 3.6+, Pyt
 ### Translation Document 1.0.0b1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-translation-document_1.0.0b1/sdk/translation/azure-ai-translation-document/CHANGELOG.md#100b1-2021-04-06)
 This is the first beta package of the azure-ai-translation-document client library that targets the Document Translation 
 service version `1.0-preview.1`. This package's documentation and samples demonstrate the new API.
-
-### Resource Management - Custom Providers 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-customproviders_1.0.0/sdk/customproviders/azure-mgmt-customproviders/CHANGELOG.md#100-2021-04-08)
-- GA release
-
-### Resource Management - Azure Stack 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-azurestack_1.0.0/sdk/azurestack/azure-mgmt-azurestack/CHANGELOG.md#100-2021-04-08)
-**Features**
-
-  - Model Registration has a new parameter system_data
-  - Model Registration has a new parameter kind
-  - Model TrackedResource has a new parameter system_data
-  - Model TrackedResource has a new parameter kind
-  - Model CustomerSubscription has a new parameter system_data
-  - Model Product has a new parameter system_data
-  - Added operation RegistrationsOperations.enable_remote_management
-  - Added operation group LinkedSubscriptionsOperations
-
-**Breaking changes**
-
-  - Operation ProductsOperations.get_products has a new signature
-
-### Resource Management - App Platform 6.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-appplatform_6.0.0/sdk/appplatform/azure-mgmt-appplatform/CHANGELOG.md#600-2021-04-08)
-**Features**
-
-  - Model MonitoringSettingProperties has a new parameter app_insights_agent_versions
-  - Model MonitoringSettingProperties has a new parameter app_insights_sampling_rate
-  - Model AppResourceProperties has a new parameter enable_end_to_end_tls
-  - Model NetworkProfile has a new parameter required_traffics
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
