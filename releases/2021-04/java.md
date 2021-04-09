@@ -126,6 +126,7 @@ azure-resourcemanager-databoxedge:1.0.0-beta.1
 azure-resourcemanager-mysql:1.0.0
 azure-resourcemanager-mediaservices:1.0.0
 azure-resourcemanager-automation:1.0.0-beta.1
+azure-data-appconfiguration:1.2.0-beta.1
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -260,6 +261,7 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - azure-resourcemanager-databricks
 - azure-resourcemanager-databoxedge
 - azure-resourcemanager-automation
+- App Configuration
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -973,6 +975,12 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-automation</artifactId>
   <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-data-appconfiguration</artifactId>
+  <version>1.2.0-beta.1</version>
 </dependency>
 
 
@@ -2017,6 +2025,21 @@ PhoneNumbersAsyncClient.getPurchasedPhoneNumberWithResponse and PhoneNumbersClie
 
 ### azure-resourcemanager-automation 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-automation_1.0.0-beta.1/sdk/automation/azure-resourcemanager-automation/CHANGELOG.md#100-beta1-2021-04-09)
 - Azure Resource Manager Automation client library for Java. This package contains Microsoft Azure SDK for Automation Management SDK. Automation Client. Package tag package-2019-06. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### App Configuration 1.2.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-data-appconfiguration_1.2.0-beta.1/sdk/appconfiguration/azure-data-appconfiguration/CHANGELOG.md#120-beta1-2021-04-09)
+#### New Features
+- Added updateSyncToken() to be able to provide external synchronization tokens to both
+  `ConfigurationAsyncClient` and `ConfigurationClient` clients.
+- Added new `SecretReferenceConfigurationSetting` and `FeatureFlagConfigurationSetting`
+  types to represent configuration settings that references KeyVault Secret reference and
+  feature flag respectively.
+- Added new convenience overload APIs that take `ConfigurationSetting`:
+  `addConfigurationSetting(ConfigurationSetting setting)`
+  `getConfigurationSetting(ConfigurationSetting setting)`
+  `setConfigurationSetting(ConfigurationSetting setting)`
+  `deleteConfigurationSetting(ConfigurationSetting setting)`
+  `setReadOnly(ConfigurationSetting setting, boolean isReadOnly)`
+- Added a new method that accepts `ClientOptions` in `ConfigurationClientBuilder`.
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
