@@ -46,6 +46,7 @@ azure-monitor-opentelemetry-exporter:1.0.0b4
 azure-mgmt-compute:20.0.0
 azure-core-tracing-opentelemetry:1.0.0b9
 azure-servicebus:7.1.1
+azure-servicebus:7.2.0b1
 azure-eventhub-checkpointstoreblob-aio:1.1.4
 azure-eventhub-checkpointstoreblob:1.1.4
 azure-eventhub:5.4.0
