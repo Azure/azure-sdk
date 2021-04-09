@@ -174,6 +174,7 @@ $> pip install azure-mgmt-synapse==2.0.0
 $> pip install azure-monitor-opentelemetry-exporter==1.0.0b4
 $> pip install azure-search-documents==11.2.0b1
 $> pip install azure-servicebus==7.1.1
+$> pip install azure-servicebus==7.2.0b1
 $> pip install azure-synapse-artifacts==0.6.0
 $> pip install azure-mgmt-customproviders==1.0.0
 $> pip install azure-mgmt-azurestack==1.0.0
