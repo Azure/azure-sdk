@@ -30,6 +30,11 @@ In order to discover which endpoints (DNS names and suffixes) are to be used whe
 
 * The core library MUST provide a mechanism to list well-known cloud instance names.
 
+```python
+for known_cloud in azure.core.clouds.well_known:
+  print(known_cloud)
+```
+
 * It MUST be possible (and documented how) to load a configuration from the returned information in ARM's discovery endpoint. Unknown configuration data retrieved from the ARM discovery endpoint (e.g. configuration data associated with new services) MUST be ignored.
 
 > A canonical use-case for this is to, given the metadata configuration endpoint for a given cloud, download the configuration data to a local file.
@@ -40,15 +45,21 @@ A cloud configuration object consists of a map of service-name to service-specif
 
 ```jsonc
 {
+  "global": {
+    "endpoint": "<url>",
+    "authentication": {
+      "audiences": [
+        "<optional audiences>"
+      ]
+    }
+  },
   "<service entry1>": {
     "endpoint": "<url>",
     "suffix": "<suffix>",
     "authentication": {
       "audiences": [
         "<optional audiences>"
-      ],
-      "tenant": "<optional tenant>",
-      "identityProvider": "<optional identity provider>"
+      ]
     }
   },
   "<service entry2>": {
@@ -57,9 +68,7 @@ A cloud configuration object consists of a map of service-name to service-specif
     "authentication": {
       "audiences": [
           "<optional audiences>"
-      ],
-      "tenant": "<optional tenant>",
-      "identityProvider": "<optional identity provider>"
+      ]
     }
   }
 }
@@ -76,20 +85,21 @@ where `<service entry>` is (currently) one of the following values:
 
 |Name|Notes|
 |-|-|
-|`acr`|Azure Container Registry|
-|`authentication`||
+|`global`|Global per-cloud configuration (e.g. auth endpoint etc.). Required|
 |`batch`|Batch service endpoint|
-|`dataLakeCatalogAndJob`||
-|`dataLakeFileSystem`||
-|`microsoftGraph`||
+|`containerRegistry`|Azure Container Registry|
+|`dataLakeAnalyticsCatalogAndJob`||
+|`dataLakeStorageFileSystem`||
+|`graph`||
 |`keyvault`||
 |`media`|Media services service endpoint|
 |`portal`|Portal address|
 |`resourceManager`||
-|`sqlServer`||
+|`sql`||
+|`sqlManagement`||
 |`storage`||
 
-None of the properties in a service configuration entry are required as they differ between different services.
+None of then individual properties in a service configuration entry are required as they differ between different services (e.g. a service can have a well-known endpoint or a suffix, but it never has both)
 
 > Note that this format differs from the raw json exposed by the discovery endpoint. The endpoint discovery response is not structured on a per-service basis, which makes it harder to evolve the set of metadata in the response.
 
@@ -135,11 +145,11 @@ Given that more configuration settings can be added over time, you may run into 
 ### Python
 
 ```python
-from azure.core import CloudConfiguration
+from azure.core.clouds import CloudConfiguration
 
 # In order to default to switch all default values to match the expected configuration for
 # the Azure China Cloud.
-azure.core.settings.set_default_cloud('AzureChinaCloud')
+azure.core.settings.cloud_configuration = 'AzureChinaCloud'
 
 creds = azure.identity.DefaultAzureCredential() # We will use the Azure China Cloud's authority (https://login.chinacloudapi.cn) since that is what is configured as the default cloud.
 
@@ -153,11 +163,14 @@ public_azure_creds = azure.identity.DefaultAzureCredential(authority='https://lo
 # I can also specify a full cloud configuration object:
 # In order to default to switch all default values to match the expected configuration for
 # the Azure China Cloud.
-config: typing.Mapping[str, CloudConfiguration] = CloudConfiguration.load(requests.get('https://azurestackinstance1.contoso.com/discover'.json()))
-azure.core.settings.set_default_cloud(config['AzureStack'])
+azure.core.settings.cloud_configuration = azure.core.clouds.well_known['AzureChinaCloud']
 
 # ...or pass in a custom cloud configuration instance into a method
-creds = azure.identity.DefaultAzureCredential(cloud_configuration=config['AzureStackInstance2'])
+config: typing.Mapping[str, CloudConfiguration] = {
+  data['name']: CloudConfiguration.from_metadata_dict(data)
+  for data in requests.get('https://azurestackinstance1.contoso.com/discover?api-version=2019-05-01'.json()
+}
+creds = azure.identity.DefaultAzureCredential(cloud_configuration=config['AzureStackInstance1'])
 
 # ...or by name
 creds = azure.identity.DefaultAzureCredential(cloud_configuration='PublicAzure')
@@ -167,6 +180,63 @@ creds = azure.identity.DefaultAzureCredential(cloud_configuration='PublicAzure')
 
 * Over time metadata can be added for a given service/new services may be added. Client libraries that depend on the new metadata can set the minimum version of the azure core dependency to ensure that the new metadata is available for well-known clouds.
 
+* New service entries are added to azure-core on demand (i.e. when a client library needs new configuration values)
+
 ## Issues
 
 * Only updated client libraries will pick up the ambient default settings. This problem will fade over time as new client library versions are made aware of ambient settings.
+
+## Appendix
+
+### Cloud configuration schema
+
+```json-schema
+{   
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$id": "https://example.com/cloudconfig.schema.json",
+    "title": "Azure Cloud Configuration",
+    "description": "Endpoint and authentication information for azure cloud instances",
+    "type": "object",
+    "required": [
+        "global"
+    ],
+    "properties": {
+        "global": {
+            "$ref": "#/$defs/CloudConfiguration"
+        }
+    },
+    "additionalProperties": {
+        "$ref": "#/$defs/CloudConfiguration"
+    },
+    "$defs": {
+        "CloudConfiguration": {
+            "type": "object",
+            "properties": {
+                "endpoint": {
+                    "type": "string"
+                },
+                "suffix": {
+                    "type": "string"
+                },
+                "authentication": {
+                    "type": "object",
+                    "required": [ "audiences" ],
+                    "properties": {
+                        "audiences": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "CloudConfigurations": {
+            "required": [
+                "global"
+            ]
+        }
+    }
+}
+```
