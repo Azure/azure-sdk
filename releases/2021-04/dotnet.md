@@ -26,6 +26,13 @@ Microsoft.Azure.WebJobs.Extensions.EventHubs:5.0.0-beta.4
 System.Memory.Data:1.0.2
 Azure.Core:1.13.0
 Microsoft.Azure.CognitiveServices.Vision.ComputerVision:7.0.0
+Azure.Storage.Files.Shares:12.7.0-beta.3
+Azure.Storage.Blobs:12.9.0-beta.3
+Azure.Storage.Blobs.Batch:12.6.0-beta.3
+Azure.Storage.Common:12.8.0-beta.3
+Azure.Storage.Blobs.ChangeFeed:12.0.0-preview.11
+Azure.Storage.Queues:12.7.0-beta.3
+Azure.Storage.Files.DataLake:12.7.0-beta.3
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -65,6 +72,13 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Tables
 - Text Analytics
 - WebJobs Extensions - Event Hubs
+- Storage - Files Shares
+- Storage - Blobs
+- Storage - Blobs Batch
+- Storage - Common
+- Storage - Blobs ChangeFeed
+- Storage - Queues
+- Storage - Files Data Lake
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -97,6 +111,13 @@ $> dotnet add package Azure.Security.Attestation --version 1.0.0-beta.2
 $> dotnet add package Azure.Storage.Common --version 12.7.2
 $> dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 7.0.0
 $> dotnet add package Microsoft.Azure.WebJobs.Extensions.EventHubs --version 5.0.0-beta.4
+$> dotnet add package Azure.Storage.Files.Shares --version 12.7.0-beta.3
+$> dotnet add package Azure.Storage.Blobs --version 12.9.0-beta.3
+$> dotnet add package Azure.Storage.Blobs.Batch --version 12.6.0-beta.3
+$> dotnet add package Azure.Storage.Common --version 12.8.0-beta.3
+$> dotnet add package Azure.Storage.Blobs.ChangeFeed --version 12.0.0-preview.11
+$> dotnet add package Azure.Storage.Queues --version 12.7.0-beta.3
+$> dotnet add package Azure.Storage.Files.DataLake --version 12.7.0-beta.3
 $> dotnet add package System.Memory.Data --version 1.0.2
 ```
 
@@ -337,6 +358,27 @@ Minor changes since the public preview release:
 - `CommunicationServiceResource` now includes the property `SystemData`
 - `OperationList` has been changed to use the common type for its response
 - `ErrorResponse` has been changed to use the common type for `ErrorResponse`
+### Storage - Files Shares 12.7.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Files.Shares_12.7.0-beta.3/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md#1270-beta3-2021-04-09)
+- This release contains bug fixes to improve quality.
+
+### Storage - Blobs 12.9.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Blobs_12.9.0-beta.3/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md#1290-beta3-2021-04-09)
+- This release contains bug fixes to improve quality.
+
+### Storage - Blobs Batch 12.6.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Blobs.Batch_12.6.0-beta.3/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md#1260-beta3-2021-04-09)
+- This release contains bug fixes to improve quality.
+
+### Storage - Common 12.8.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Common_12.8.0-beta.3/sdk/storage/Azure.Storage.Common/CHANGELOG.md#1280-beta3-2021-04-09)
+- Fixed bug in SasQueryParameters causing services (ss) reorder when parsing externally provided URI.
+
+### Storage - Blobs ChangeFeed 12.0.0-preview.11 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.11/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md#1200-preview11-2021-04-09)
+- This release contains bug fixes to improve quality.
+
+### Storage - Queues 12.7.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Queues_12.7.0-beta.3/sdk/storage/Azure.Storage.Queues/CHANGELOG.md#1270-beta3-2021-04-09)
+- This preview contains bug fixes to improve quality.
+
+### Storage - Files Data Lake 12.7.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Files.DataLake_12.7.0-beta.3/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md#1270-beta3-2021-04-09)
+- Aligned storage URL parsing with other platforms.
+
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
