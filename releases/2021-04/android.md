@@ -211,11 +211,11 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 #### 1.0.0-beta.4 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/core/azure-core-credential/CHANGELOG.md#100-beta4-2021-03-18))
 
-##### Breaking Changes
+##### New Features
 
-- Initial release.
+- Initial release. This library provides shared primitives, abstractions, and helpers for authentication and authorization.
 
-### Azure Core Http
+### Azure Core HTTP
 
 #### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/core/azure-core-http/CHANGELOG.md#100-beta5-2021-03-26))
 
@@ -225,39 +225,29 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 #### 1.0.0-beta.4 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/core/azure-core-http/CHANGELOG.md#100-beta4-2021-03-18))
 
-##### Breaking Changes
+##### New Features
 
-- Initial release.
+- Initial release. This library provides shared primitives, abstractions, and helpers for concrete `HttpClient` implementations used in the Android Azure SDK client libraries.
 
-### Azure Core Http HttpUrlConnection
+### Azure Core HTTP HttpUrlConnection
 
 #### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/core/azure-core-http-httpurlconnection/CHANGELOG.md#100-beta5-2021-03-26))
 
 #### 1.0.0-beta.4 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/core/azure-core-http-httpurlconnection/CHANGELOG.md#100-beta4-2021-03-18))
 
-##### Breaking Changes
+##### New Features
 
-- Initial release.
+- Initial release. This library provides an implementation of the Azure Core HTTP's `HttpClient` using `HttpUrlConnection`.
 
-### Azure Core Http OkHttp
-
-#### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/core/azure-core-http-okhttp/CHANGELOG.md#100-beta5-2021-03-26))
-
-#### 1.0.0-beta.4 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/core/azure-core-http-okhttp/CHANGELOG.md#100-beta4-2021-03-18))
-
-##### Breaking Changes
-
-- Initial release.
-
-### Azure Core Http OkHttp
+### Azure Core HTTP OkHttp
 
 #### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/core/azure-core-http-okhttp/CHANGELOG.md#100-beta5-2021-03-26))
 
 #### 1.0.0-beta.4 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/core/azure-core-http-okhttp/CHANGELOG.md#100-beta4-2021-03-18))
 
-##### Breaking Changes
+##### New Features
 
-- Initial release.
+- Initial release. This library provides an implementation of the Azure Core HTTP's `HttpClient` using `HttpUrlConnection`.
 
 ### Azure Core Jackson
 
@@ -269,9 +259,9 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 #### 1.0.0-beta.4 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/core/azure-core-jackson/CHANGELOG.md#100-beta4-2021-03-18))
 
-##### Breaking Changes
+##### New Features
 
-- Initial release.
+- Initial release. This library provides support for serialization and deserialization using Jackson
 
 ### Azure Core Logging
 
@@ -283,11 +273,11 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 #### 1.0.0-beta.4 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/core/azure-core-logging/CHANGELOG.md#100-beta4-2021-03-18))
 
-##### Breaking Changes
+##### New Features
 
-- Initial release.
+- Initial release. This libraries provides shared primitives, abstractions, and helpers for logging in Android Azure SDK client libraries.
 
-### Azure Core Rest
+### Azure Core REST
 
 #### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/core/azure-core-rest/CHANGELOG.md#100-beta5-2021-03-26))
 
@@ -297,9 +287,9 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 #### 1.0.0-beta.4 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/core/azure-core-rest/CHANGELOG.md#100-beta4-2021-03-18))
 
-##### Breaking Changes
+##### New Features
 
-- Initial release.
+- Initial release. This library provides client abstractions to make HTTP REST Calls.
 
 ### Azure Core Test
 
@@ -311,9 +301,9 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 #### 1.0.0-beta.4 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/core/azure-core-test/CHANGELOG.md#100-beta4-2021-03-18))
 
-##### Breaking Changes
+##### New Features
 
-- Initial release.
+- Initial release. This library contains classes used to test Azure SDK client libraries.
 
 ## Need help
 
