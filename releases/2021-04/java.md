@@ -127,6 +127,10 @@ azure-resourcemanager-mysql:1.0.0
 azure-resourcemanager-mediaservices:1.0.0
 azure-resourcemanager-automation:1.0.0-beta.1
 azure-data-appconfiguration:1.2.0-beta.1
+azure-security-keyvault-administration:4.0.0-beta.6
+azure-security-keyvault-secrets:4.3.0-beta.5
+azure-security-keyvault-keys:4.3.0-beta.6
+azure-security-keyvault-certificates:4.2.0-beta.5
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -262,6 +266,10 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - azure-resourcemanager-databoxedge
 - azure-resourcemanager-automation
 - App Configuration
+- Key Vault - Administration
+- Key Vault - Secrets
+- Key Vault - Keys
+- Key Vault - Certificates
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -981,6 +989,30 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-data-appconfiguration</artifactId>
   <version>1.2.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-administration</artifactId>
+  <version>4.0.0-beta.6</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-secrets</artifactId>
+  <version>4.3.0-beta.5</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-keys</artifactId>
+  <version>4.3.0-beta.6</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-certificates</artifactId>
+  <version>4.2.0-beta.5</version>
 </dependency>
 
 
@@ -2040,6 +2072,52 @@ PhoneNumbersAsyncClient.getPurchasedPhoneNumberWithResponse and PhoneNumbersClie
   `deleteConfigurationSetting(ConfigurationSetting setting)`
   `setReadOnly(ConfigurationSetting setting, boolean isReadOnly)`
 - Added a new method that accepts `ClientOptions` in `ConfigurationClientBuilder`.
+
+### Key Vault - Administration 4.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-administration_4.0.0-beta.6/sdk/keyvault/azure-security-keyvault-administration/CHANGELOG.md#400-beta6-2021-04-09)
+#### New features
+- Added support for service version `7.2`.
+- Added support to specify whether or not a pipeline policy should be added per call or per retry.
+
+### Key Vault - Secrets 4.3.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-secrets_4.3.0-beta.5/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md#430-beta5-2021-04-09)
+#### New features
+- Added support for service version `7.2`.
+- Added support to specify whether or not a pipeline policy should be added per call or per retry.
+
+#### Breaking Changes
+- Changed `KeyVaultSecretIdentifier` so it is instantiated via its constructor as opposed to via a `parse()` factory method.
+
+### Key Vault - Keys 4.3.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-keys_4.3.0-beta.6/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md#430-beta6-2021-04-09)
+#### Breaking Changes
+- Renamed `EncryptOptions` to `EncryptParameters`.
+- Renamed `DecryptOptions` to `DecryptParameters`.
+- Changed `KeyVaultKeyIdentifier` so it is instantiated via its constructor as opposed to via a `parse()` factory method.
+- Removed the following classes:
+    - `LocalCryptographyAsyncClient`
+    - `LocalCryptographyClient`
+    - `LocalCryptographyClientBuilder`
+    - `LocalKeyEncryptionKeyClient`
+    - `LocalKeyEncryptionKeyAsyncClient`
+    - `LocalKeyEncryptionKeyClientBuilder`
+
+#### New features
+- Added support for service version `7.2`.
+- Made all `JsonWebKey` properties settable.
+- Added support to specify whether or not a pipeline policy should be added per call or per retry.
+- Added convenience class `CreateOctKeyOptions`.
+- Added support for building local-only cryptography clients by providing a `JsonWebKey` for local operations:
+    - `CryptograhpyClientBuilder.jsonWebKey(JsonWebKey)`
+- Added support for building local-only key encryption key clients by providing a `JsonWebKey` for local operations:
+    - `KeyEncryptionKeyClientBuilder.buildKeyEncryptionKey(JsonWebKey)`
+    - `KeyEncryptionKeyClientBuilder.buildAsyncKeyEncryptionKey(JsonWebKey)`
+- `CryptograhpyClientBuilder.keyIdentifier(String)` now throws a `NullPointerException` if a `null` value is provided as an argument.
+
+### Key Vault - Certificates 4.2.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-certificates_4.2.0-beta.5/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md#420-beta5-2021-04-09)
+#### New features
+- Added support for service version `7.2`.
+- Added support to specify whether or not a pipeline policy should be added per call or per retry.
+
+#### Breaking Changes
+- Changed `KeyVaultCertificateIdentifier` so it is instantiated via its constructor as opposed to via a `parse()` factory method.
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
