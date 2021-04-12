@@ -51,8 +51,8 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - IoT Device Update
 - Synapse - Artifacts
 - Tables
-- Translation Document
 - Text Analytics
+- Translation Document
 - WebJobs Extensions - Event Hubs
 
 [pattern.beta]: # (- ${PackageFriendlyName})
