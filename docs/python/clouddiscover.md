@@ -99,7 +99,7 @@ where `<service entry>` is (currently) one of the following values:
 |`sqlManagement`||
 |`storage`||
 
-None of then individual properties in a service configuration entry are required as they differ between different services (e.g. a service can have a well-known endpoint or a suffix, but it never has both)
+None of the individual properties in a service configuration entry are required as they differ between different services (e.g. a service can have a well-known endpoint or a suffix, but it never has both)
 
 > Note that this format differs from the raw json exposed by the discovery endpoint. The endpoint discovery response is not structured on a per-service basis, which makes it harder to evolve the set of metadata in the response.
 
