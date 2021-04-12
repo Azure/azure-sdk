@@ -44,7 +44,6 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 #### Beta
 - App Configuration
 - Attestation
-- Azure.AI.Translation.Document
 - Cognitive Search
 - Core - AMQP
 - Form Recognizer
@@ -53,6 +52,7 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Synapse - Artifacts
 - Tables
 - Text Analytics
+- Translation Document
 - WebJobs Extensions - Event Hubs
 
 [pattern.beta]: # (- ${PackageFriendlyName})
@@ -172,7 +172,7 @@ Thank you to our developer community members who helped to make Azure Tables bet
 
 - The `AddSyncToken` method renamed to `UpdateSyncToken`.
 
-### Azure.AI.Translation.Document 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Translation.Document_1.0.0-beta.1/sdk/translation/Azure.AI.Translation.Document/CHANGELOG.md#100-beta1-2021-04-06)
+### Translation Document 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Translation.Document_1.0.0-beta.1/sdk/translation/Azure.AI.Translation.Document/CHANGELOG.md#100-beta1-2021-04-06)
 This is the first beta package of the Azure.AI.Translation.Document client library that targets the service version `1.0-preview.1`.
 This package's documentation and samples demonstrate the new API.
 
