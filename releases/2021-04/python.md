@@ -82,9 +82,11 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Resource Management - Custom Providers
 - Resource Management - Data Box
 - Resource Management - Data Migration
+- Resource Management - Data Share
 - Resource Management - Databricks
 - Resource Management - Datadog
 - Resource Management - Frontdoor
+- Resource Management - HANA on Azure
 - Resource Management - Marketplace Ordering
 - Resource Management - NetApp
 - Resource Management - Power BI Dedicated
@@ -94,8 +96,6 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Resource Management - Synapse
 - Synapse - Artifacts
 - Event Hubs
-- Resource Management - Data Share
-- Resource Management - HANA on Azure
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -166,9 +166,11 @@ $> pip install azure-mgmt-customproviders==1.0.0
 $> pip install azure-mgmt-databricks==1.0.0
 $> pip install azure-mgmt-datadog==1.0.0
 $> pip install azure-mgmt-datamigration==9.0.0
+$> pip install azure-mgmt-datashare==1.0.0
 $> pip install azure-mgmt-deviceupdate==1.0.0b2
 $> pip install azure-mgmt-extendedlocation==1.0.0b1
 $> pip install azure-mgmt-frontdoor==1.0.0
+$> pip install azure-mgmt-hanaonazure==1.0.0
 $> pip install azure-mgmt-marketplaceordering==1.1.0
 $> pip install azure-mgmt-netapp==2.0.0
 $> pip install azure-mgmt-rdbms==8.1.0b2
@@ -183,8 +185,6 @@ $> pip install azure-search-documents==11.2.0b1
 $> pip install azure-servicebus==7.1.1
 $> pip install azure-servicebus==7.2.0b1
 $> pip install azure-synapse-artifacts==0.6.0
-$> pip install azure-mgmt-datashare==1.0.0
-$> pip install azure-mgmt-hanaonazure==1.0.0
 
 ```
 
@@ -501,6 +501,57 @@ to specify which page to process of the document.
   - Operation ServiceTasksOperations.create_or_update has a new signature
   - Model AvailableServiceSku no longer has parameter available_service_sku
 
+### Resource Management - Data Share 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-datashare_1.0.0/sdk/datashare/azure-mgmt-datashare/CHANGELOG.md#100-2021-04-12)
+**Features**
+
+  - Model BlobContainerDataSetMapping has a new parameter system_data
+  - Model SqlDWTableDataSet has a new parameter system_data
+  - Model ADLSGen1FolderDataSet has a new parameter system_data
+  - Model KustoDatabaseDataSetMapping has a new parameter system_data
+  - Model ConsumerSourceDataSet has a new parameter system_data
+  - Model ScheduledTrigger has a new parameter system_data
+  - Model DataSet has a new parameter system_data
+  - Model KustoClusterDataSetMapping has a new parameter system_data
+  - Model BlobDataSet has a new parameter system_data
+  - Model SynchronizationSetting has a new parameter system_data
+  - Model BlobFolderDataSetMapping has a new parameter system_data
+  - Model OperationMetaMetricSpecification has a new parameter fill_gap_with_zero
+  - Model ConsumerInvitation has a new parameter expiration_date
+  - Model ConsumerInvitation has a new parameter system_data
+  - Model ProviderShareSubscription has a new parameter expiration_date
+  - Model ProviderShareSubscription has a new parameter system_data
+  - Model ProxyDto has a new parameter system_data
+  - Model BlobFolderDataSet has a new parameter system_data
+  - Model ADLSGen2FolderDataSet has a new parameter system_data
+  - Model ScheduledSynchronizationSetting has a new parameter system_data
+  - Model SqlDBTableDataSet has a new parameter system_data
+  - Model Trigger has a new parameter system_data
+  - Model ADLSGen2FileDataSetMapping has a new parameter system_data
+  - Model BlobContainerDataSet has a new parameter system_data
+  - Model BlobDataSetMapping has a new parameter system_data
+  - Model DefaultDto has a new parameter system_data
+  - Model DataSetMapping has a new parameter system_data
+  - Model KustoDatabaseDataSet has a new parameter system_data
+  - Model ShareSubscription has a new parameter expiration_date
+  - Model ShareSubscription has a new parameter system_data
+  - Model KustoClusterDataSet has a new parameter system_data
+  - Model SqlDBTableDataSetMapping has a new parameter system_data
+  - Model SqlDWTableDataSetMapping has a new parameter system_data
+  - Model Account has a new parameter system_data
+  - Model Share has a new parameter system_data
+  - Model Invitation has a new parameter expiration_date
+  - Model Invitation has a new parameter system_data
+  - Model ADLSGen2FileSystemDataSetMapping has a new parameter system_data
+  - Model ADLSGen2FolderDataSetMapping has a new parameter system_data
+  - Model ADLSGen2FileDataSet has a new parameter system_data
+  - Model ADLSGen1FileDataSet has a new parameter system_data
+  - Model ADLSGen2FileSystemDataSet has a new parameter system_data
+  - Added operation ProviderShareSubscriptionsOperations.adjust
+
+**Breaking changes**
+
+  - Operation ProviderShareSubscriptionsOperations.reinstate has a new signature
+
 ### Resource Management - Databricks 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-databricks_1.0.0/sdk/databricks/azure-mgmt-databricks/CHANGELOG.md#100-2021-03-19)
 - GA release
 
@@ -524,6 +575,11 @@ to specify which page to process of the document.
 
 ### Resource Management - Frontdoor 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-frontdoor_1.0.0/sdk/network/azure-mgmt-frontdoor/CHANGELOG.md#100-2021-03-26)
 - GA release
+
+### Resource Management - HANA on Azure 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-hanaonazure_1.0.0/sdk/hanaonazure/azure-mgmt-hanaonazure/CHANGELOG.md#100-2021-04-12)
+**Breaking changes**
+
+  - Model ErrorResponse has a new signature
 
 ### Resource Management - Marketplace Ordering 1.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-marketplaceordering_1.1.0/sdk/marketplaceordering/azure-mgmt-marketplaceordering/CHANGELOG.md#110-2021-03-17)
 **Features**
@@ -645,62 +701,6 @@ This version and all future versions will require Python 2.7 or Python 3.6+, Pyt
 ### Translation Document 1.0.0b1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-translation-document_1.0.0b1/sdk/translation/azure-ai-translation-document/CHANGELOG.md#100b1-2021-04-06)
 This is the first beta package of the azure-ai-translation-document client library that targets the Document Translation 
 service version `1.0-preview.1`. This package's documentation and samples demonstrate the new API.
-
-### Resource Management - Data Share 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-datashare_1.0.0/sdk/datashare/azure-mgmt-datashare/CHANGELOG.md#100-2021-04-12)
-**Features**
-
-  - Model BlobContainerDataSetMapping has a new parameter system_data
-  - Model SqlDWTableDataSet has a new parameter system_data
-  - Model ADLSGen1FolderDataSet has a new parameter system_data
-  - Model KustoDatabaseDataSetMapping has a new parameter system_data
-  - Model ConsumerSourceDataSet has a new parameter system_data
-  - Model ScheduledTrigger has a new parameter system_data
-  - Model DataSet has a new parameter system_data
-  - Model KustoClusterDataSetMapping has a new parameter system_data
-  - Model BlobDataSet has a new parameter system_data
-  - Model SynchronizationSetting has a new parameter system_data
-  - Model BlobFolderDataSetMapping has a new parameter system_data
-  - Model OperationMetaMetricSpecification has a new parameter fill_gap_with_zero
-  - Model ConsumerInvitation has a new parameter expiration_date
-  - Model ConsumerInvitation has a new parameter system_data
-  - Model ProviderShareSubscription has a new parameter expiration_date
-  - Model ProviderShareSubscription has a new parameter system_data
-  - Model ProxyDto has a new parameter system_data
-  - Model BlobFolderDataSet has a new parameter system_data
-  - Model ADLSGen2FolderDataSet has a new parameter system_data
-  - Model ScheduledSynchronizationSetting has a new parameter system_data
-  - Model SqlDBTableDataSet has a new parameter system_data
-  - Model Trigger has a new parameter system_data
-  - Model ADLSGen2FileDataSetMapping has a new parameter system_data
-  - Model BlobContainerDataSet has a new parameter system_data
-  - Model BlobDataSetMapping has a new parameter system_data
-  - Model DefaultDto has a new parameter system_data
-  - Model DataSetMapping has a new parameter system_data
-  - Model KustoDatabaseDataSet has a new parameter system_data
-  - Model ShareSubscription has a new parameter expiration_date
-  - Model ShareSubscription has a new parameter system_data
-  - Model KustoClusterDataSet has a new parameter system_data
-  - Model SqlDBTableDataSetMapping has a new parameter system_data
-  - Model SqlDWTableDataSetMapping has a new parameter system_data
-  - Model Account has a new parameter system_data
-  - Model Share has a new parameter system_data
-  - Model Invitation has a new parameter expiration_date
-  - Model Invitation has a new parameter system_data
-  - Model ADLSGen2FileSystemDataSetMapping has a new parameter system_data
-  - Model ADLSGen2FolderDataSetMapping has a new parameter system_data
-  - Model ADLSGen2FileDataSet has a new parameter system_data
-  - Model ADLSGen1FileDataSet has a new parameter system_data
-  - Model ADLSGen2FileSystemDataSet has a new parameter system_data
-  - Added operation ProviderShareSubscriptionsOperations.adjust
-
-**Breaking changes**
-
-  - Operation ProviderShareSubscriptionsOperations.reinstate has a new signature
-
-### Resource Management - HANA on Azure 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-hanaonazure_1.0.0/sdk/hanaonazure/azure-mgmt-hanaonazure/CHANGELOG.md#100-2021-04-12)
-**Breaking changes**
-
-  - Model ErrorResponse has a new signature
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
