@@ -109,7 +109,7 @@ None of then individual properties in a service configuration entry are required
 
 ## Service specific client library guidance
 
-* Service specific client libraries that have baked-in cloud-specific defaults MUST accept a cloud configuration instance in the constructor (or equivalent) for the service client instance. Client libraries MAY also accept a a simple cloud name.
+* Service specific client libraries that have baked-in cloud-specific defaults MUST accept a cloud configuration instance in the constructor (or equivalent) for the service client instance. Client libraries MAY also accept a simple cloud name.
 
 > Examples of cloud specific defaults include hostnames (for services sharing a common DNS name, such as ARM) and host name suffixes (for client libraries that concatenate a "simple" service name with a suffix to build the full DNS name to connect to).
 
