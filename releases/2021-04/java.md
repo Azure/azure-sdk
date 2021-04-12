@@ -131,6 +131,11 @@ azure-security-keyvault-administration:4.0.0-beta.6
 azure-security-keyvault-secrets:4.3.0-beta.5
 azure-security-keyvault-keys:4.3.0-beta.6
 azure-security-keyvault-certificates:4.2.0-beta.5
+azure-resourcemanager-resourcemover:1.0.0-beta.1
+azure-resourcemanager-datafactory:1.0.0-beta.1
+azure-resourcemanager-kubernetesconfiguration:1.0.0-beta.1
+azure-resourcemanager-hdinsight:1.0.0-beta.2
+azure-resourcemanager-advisor:1.0.0-beta.1
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -270,6 +275,11 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Key Vault - Secrets
 - Key Vault - Keys
 - Key Vault - Certificates
+- azure-resourcemanager-resourcemover
+- azure-resourcemanager-datafactory
+- azure-resourcemanager-kubernetesconfiguration
+- Resource Management - HDInsight
+- azure-resourcemanager-advisor
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -1013,6 +1023,36 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-security-keyvault-certificates</artifactId>
   <version>4.2.0-beta.5</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-resourcemover</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-datafactory</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-kubernetesconfiguration</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-hdinsight</artifactId>
+  <version>1.0.0-beta.2</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-advisor</artifactId>
+  <version>1.0.0-beta.1</version>
 </dependency>
 
 
@@ -2118,6 +2158,236 @@ PhoneNumbersAsyncClient.getPurchasedPhoneNumberWithResponse and PhoneNumbersClie
 
 #### Breaking Changes
 - Changed `KeyVaultCertificateIdentifier` so it is instantiated via its constructor as opposed to via a `parse()` factory method.
+
+### azure-resourcemanager-resourcemover 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-resourcemover_1.0.0-beta.1/sdk/resourcemover/azure-resourcemanager-resourcemover/CHANGELOG.md#100-beta1-2021-04-12)
+- Azure Resource Manager ResourceMover client library for Java. This package contains Microsoft Azure SDK for ResourceMover Management SDK. A first party Azure service orchestrating the move of Azure resources from one Azure region to another or between zones within a region. Package tag package-2021-01-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-datafactory 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-datafactory_1.0.0-beta.1/sdk/datafactory/azure-resourcemanager-datafactory/CHANGELOG.md#100-beta1-2021-04-12)
+- Azure Resource Manager DataFactory client library for Java. This package contains Microsoft Azure SDK for DataFactory Management SDK. The Azure Data Factory V2 management API provides a RESTful set of web services that interact with Azure Data Factory V2 services. Package tag package-2018-06. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-kubernetesconfiguration 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-kubernetesconfiguration_1.0.0-beta.1/sdk/kubernetesconfiguration/azure-resourcemanager-kubernetesconfiguration/CHANGELOG.md#100-beta1-2021-04-12)
+- Azure Resource Manager SourceControlConfiguration client library for Java. This package contains Microsoft Azure SDK for SourceControlConfiguration Management SDK. KubernetesConfiguration Client. Package tag package-2021-03. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### Resource Management - HDInsight 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-hdinsight_1.0.0-beta.2/sdk/hdinsight/azure-resourcemanager-hdinsight/CHANGELOG.md#100-beta2-2021-04-12)
+- Azure Resource Manager HDInsight client library for Java. This package contains Microsoft Azure SDK for HDInsight Management SDK. HDInsight Management Client. Package tag package-2018-06-preview. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+#### Breaking Change
+
+##### `models.Extensions` was modified
+
+* `create(java.lang.String,java.lang.String,java.lang.String,fluent.models.ExtensionInner)` was removed
+* `create(java.lang.String,java.lang.String,java.lang.String,fluent.models.ExtensionInner,com.azure.core.util.Context)` was removed
+* `models.Extension get(java.lang.String,java.lang.String,java.lang.String)` -> `models.ClusterMonitoringResponse get(java.lang.String,java.lang.String,java.lang.String)`
+
+##### `models.Usage` was modified
+
+* `java.lang.Integer currentValue()` -> `java.lang.Long currentValue()`
+* `withCurrentValue(java.lang.Integer)` was removed
+* `withLimit(java.lang.Integer)` was removed
+* `java.lang.Integer limit()` -> `java.lang.Long limit()`
+
+##### `models.VmSizeCompatibilityFilter` was modified
+
+* `vmsizes()` was removed
+* `withVmsizes(java.util.List)` was removed
+
+##### `models.CapabilitiesResult` was modified
+
+* `vmSizeFilters()` was removed
+* `vmSizes()` was removed
+
+##### `models.VersionSpec` was modified
+
+* `java.lang.String isDefault()` -> `java.lang.Boolean isDefault()`
+* `withIsDefault(java.lang.String)` was removed
+
+##### `models.Extension` was modified
+
+* `innerModel()` was removed
+* `java.lang.String workspaceId()` -> `java.lang.String workspaceId()`
+* `java.lang.String primaryKey()` -> `java.lang.String primaryKey()`
+
+##### `models.ApplicationGetHttpsEndpoint` was modified
+
+* `withLocation(java.lang.String)` was removed
+* `withPublicPort(java.lang.Integer)` was removed
+
+#### New Feature
+
+* `models.AsyncOperationResult` was added
+
+* `models.VmSizeProperty` was added
+
+* `models.ServiceSpecification` was added
+
+* `models.NameAvailabilityCheckRequestParameters` was added
+
+* `models.Dimension` was added
+
+* `models.ValidationErrorInfo` was added
+
+* `models.ClusterCreateValidationResult` was added
+
+* `models.MetricSpecifications` was added
+
+* `models.ExcludedServicesConfig` was added
+
+* `models.OperationProperties` was added
+
+* `models.NameAvailabilityCheckResult` was added
+
+* `models.ClusterCreateRequestValidationParameters` was added
+
+* `models.AaddsResourceDetails` was added
+
+* `models.UpdateClusterIdentityCertificateParameters` was added
+
+##### `models.VirtualMachines` was modified
+
+* `getAsyncOperationStatus(java.lang.String,java.lang.String,java.lang.String)` was added
+* `getAsyncOperationStatusWithResponse(java.lang.String,java.lang.String,java.lang.String,com.azure.core.util.Context)` was added
+
+##### `models.Role` was modified
+
+* `encryptDataDisks()` was added
+* `withEncryptDataDisks(java.lang.Boolean)` was added
+* `withVMGroupName(java.lang.String)` was added
+* `vMGroupName()` was added
+
+##### `models.Extensions` was modified
+
+* `getAzureAsyncOperationStatusWithResponse(java.lang.String,java.lang.String,java.lang.String,java.lang.String,com.azure.core.util.Context)` was added
+* `create(java.lang.String,java.lang.String,java.lang.String,models.Extension)` was added
+* `create(java.lang.String,java.lang.String,java.lang.String,models.Extension,com.azure.core.util.Context)` was added
+* `getAzureAsyncOperationStatus(java.lang.String,java.lang.String,java.lang.String,java.lang.String)` was added
+
+##### `models.KafkaRestProperties` was modified
+
+* `configurationOverride()` was added
+* `withConfigurationOverride(java.util.Map)` was added
+
+##### `models.ApplicationGetEndpoint` was modified
+
+* `privateIpAddress()` was added
+* `withPrivateIpAddress(java.lang.String)` was added
+
+##### `models.Cluster` was modified
+
+* `rotateDiskEncryptionKey(models.ClusterDiskEncryptionParameters)` was added
+* `executeScriptActions(models.ExecuteScriptActionParameters)` was added
+* `rotateDiskEncryptionKey(models.ClusterDiskEncryptionParameters,com.azure.core.util.Context)` was added
+* `updateIdentityCertificate(models.UpdateClusterIdentityCertificateParameters,com.azure.core.util.Context)` was added
+* `updateGatewaySettings(models.UpdateGatewaySettingsParameters,com.azure.core.util.Context)` was added
+* `getGatewaySettingsWithResponse(com.azure.core.util.Context)` was added
+* `getGatewaySettings()` was added
+* `updateGatewaySettings(models.UpdateGatewaySettingsParameters)` was added
+* `updateIdentityCertificate(models.UpdateClusterIdentityCertificateParameters)` was added
+* `executeScriptActions(models.ExecuteScriptActionParameters,com.azure.core.util.Context)` was added
+
+##### `models.BillingResponseListResult` was modified
+
+* `vmSizesWithEncryptionAtHost()` was added
+* `vmSizeProperties()` was added
+
+##### `models.Usage` was modified
+
+* `withCurrentValue(java.lang.Long)` was added
+* `withLimit(java.lang.Long)` was added
+
+##### `models.Locations` was modified
+
+* `validateClusterCreateRequestWithResponse(java.lang.String,models.ClusterCreateRequestValidationParameters,com.azure.core.util.Context)` was added
+* `checkNameAvailabilityWithResponse(java.lang.String,models.NameAvailabilityCheckRequestParameters,com.azure.core.util.Context)` was added
+* `getAzureAsyncOperationStatus(java.lang.String,java.lang.String)` was added
+* `checkNameAvailability(java.lang.String,models.NameAvailabilityCheckRequestParameters)` was added
+* `getAzureAsyncOperationStatusWithResponse(java.lang.String,java.lang.String,com.azure.core.util.Context)` was added
+* `validateClusterCreateRequest(java.lang.String,models.ClusterCreateRequestValidationParameters)` was added
+
+##### `models.ClusterIdentityUserAssignedIdentities` was modified
+
+* `withTenantId(java.lang.String)` was added
+* `tenantId()` was added
+
+##### `models.VmSizeCompatibilityFilter` was modified
+
+* `osType()` was added
+* `computeIsolationSupported()` was added
+* `espApplied()` was added
+* `withVMSizes(java.util.List)` was added
+* `withOsType(java.util.List)` was added
+* `vMSizes()` was added
+* `withComputeIsolationSupported(java.lang.String)` was added
+* `withEspApplied(java.lang.String)` was added
+
+##### `models.OperationDisplay` was modified
+
+* `withDescription(java.lang.String)` was added
+* `description()` was added
+
+##### `models.CapabilitiesResult` was modified
+
+* `vmsizes()` was added
+* `vmsizeFilters()` was added
+
+##### `models.VersionSpec` was modified
+
+* `withIsDefault(java.lang.Boolean)` was added
+
+##### `models.StorageAccount` was modified
+
+* `withSaskey(java.lang.String)` was added
+* `withFileshare(java.lang.String)` was added
+* `fileshare()` was added
+* `saskey()` was added
+
+##### `models.ConnectivityEndpoint` was modified
+
+* `privateIpAddress()` was added
+* `withPrivateIpAddress(java.lang.String)` was added
+
+##### `models.Operation` was modified
+
+* `properties()` was added
+
+##### `models.Extension` was modified
+
+* `withPrimaryKey(java.lang.String)` was added
+* `validate()` was added
+* `withWorkspaceId(java.lang.String)` was added
+
+##### `models.ApplicationGetHttpsEndpoint` was modified
+
+* `privateIpAddress()` was added
+* `withPrivateIpAddress(java.lang.String)` was added
+
+##### `models.Clusters` was modified
+
+* `getAzureAsyncOperationStatusWithResponse(java.lang.String,java.lang.String,java.lang.String,com.azure.core.util.Context)` was added
+* `updateIdentityCertificate(java.lang.String,java.lang.String,models.UpdateClusterIdentityCertificateParameters)` was added
+* `getAzureAsyncOperationStatus(java.lang.String,java.lang.String,java.lang.String)` was added
+* `updateIdentityCertificate(java.lang.String,java.lang.String,models.UpdateClusterIdentityCertificateParameters,com.azure.core.util.Context)` was added
+
+##### `models.ScriptActions` was modified
+
+* `getExecutionAsyncOperationStatusWithResponse(java.lang.String,java.lang.String,java.lang.String,com.azure.core.util.Context)` was added
+* `getExecutionAsyncOperationStatus(java.lang.String,java.lang.String,java.lang.String)` was added
+
+##### `models.ClusterGetProperties` was modified
+
+* `excludedServicesConfig()` was added
+* `storageProfile()` was added
+* `withStorageProfile(models.StorageProfile)` was added
+* `clusterHdpVersion()` was added
+* `withExcludedServicesConfig(models.ExcludedServicesConfig)` was added
+* `withClusterHdpVersion(java.lang.String)` was added
+
+##### `models.Applications` was modified
+
+* `getAzureAsyncOperationStatusWithResponse(java.lang.String,java.lang.String,java.lang.String,java.lang.String,com.azure.core.util.Context)` was added
+* `getAzureAsyncOperationStatus(java.lang.String,java.lang.String,java.lang.String,java.lang.String)` was added
+
+### azure-resourcemanager-advisor 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-advisor_1.0.0-beta.1/sdk/advisor/azure-resourcemanager-advisor/CHANGELOG.md#100-beta1-2021-04-12)
+- Azure Resource Manager Advisor client library for Java. This package contains Microsoft Azure SDK for Advisor Management SDK. REST APIs for Azure Advisor. Package tag package-2020-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
