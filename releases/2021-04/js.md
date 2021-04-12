@@ -32,6 +32,7 @@ repository: azure/azure-sdk-for-js
 @azure/synapse-artifacts:1.0.0-beta.4
 @azure/container-registry:1.0.0-beta.1
 @azure/data-tables:12.0.0-beta.2
+@azure/core-lro:1.0.5
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -56,6 +57,7 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Core - HTTP
 - Service Bus
 - Cosmos DB
+- Core - LRO
 
 [pattern.patch]: # (- ${PackageFriendlyName})
 
@@ -107,6 +109,7 @@ $> npm install @azure/search-documents@11.2.0-beta.1
 $> npm install @azure/synapse-artifacts@1.0.0-beta.4
 $> npm install @azure/container-registry@1.0.0-beta.1
 $> npm install @azure/data-tables@12.0.0-beta.2
+$> npm install @azure/core-lro@1.0.5
 
 ```
 
@@ -341,6 +344,9 @@ This update marks the preview for the first major version update of the `@azure/
 ### Tables 12.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/data-tables_12.0.0-beta.2/sdk/tables/data-tables/CHANGELOG.md#1200-beta2-2021-04-06)
 - Update open-telemetry dependency to 1.0.0-rc.0 [#14208](https://github.com/Azure/azure-sdk-for-js/pull/14208)
 - Update @azure/core-client and @azure/core-rest-pipeline dependencies to 1.0.0 [#14318](https://github.com/Azure/azure-sdk-for-js/pull/14318)
+
+### Core - LRO 1.0.5 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-lro_1.0.5/sdk/core/core-lro/CHANGELOG.md#105-2021-04-12)
+- No functionality changes from 1.0.4. This release is to correct an issue where 1.0.4 shipped with modules in the wrong format (cjs instead of es6.)
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
