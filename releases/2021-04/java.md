@@ -8,92 +8,48 @@ repository: azure/azure-sdk-for-java
 
 <!--
 azure-resourcemanager-trafficmanager:2.3.0
-azure-spring-boot-starter:3.3.0
-azure-spring-cloud-stream-binder-eventhubs:2.3.0
 azure-resourcemanager-monitor:2.3.0
-azure-spring-cloud-messaging:2.3.0
-azure-spring-boot-starter-active-directory:3.3.0
 azure-cosmos-spark_3-1_2-12:4.0.0-alpha.1
 azure-resourcemanager-keyvault:2.3.0
-azure-storage-blob-nio:12.0.0-beta.4
 azure-communication-sms:1.0.0
 azure-resourcemanager-apimanagement:1.0.0-beta.1
 azure-resourcemanager-search:2.3.0
 azure-resourcemanager-storage:2.3.0
 azure-resourcemanager-loganalytics:1.0.0-beta.2
 azure-resourcemanager-resources:2.3.0
-azure-spring-cloud-starter-eventhubs:2.3.0
-azure-spring-cloud-autoconfigure:2.3.0
-azure-storage-internal-avro:12.0.3-beta.2
-azure-storage-blob-cryptography:12.11.0-beta.2
 azure-resourcemanager-cosmos:2.3.0
-azure-spring-boot:3.3.0
-azure-spring-cloud-starter-storage-queue:2.3.0
 azure-core:1.14.1
 azure-resourcemanager:2.3.0
-azure-storage-file-share:12.9.0-beta.2
 azure-resourcemanager-privatedns:2.3.0
-azure-storage-blob-batch:12.9.0-beta.2
 azure-resourcemanager-network:2.3.0
 azure-resourcemanager-cdn:2.3.0
-azure-storage-blob:12.10.2
 azure-resourcemanager-changeanalysis:1.0.0-beta.1
-azure-spring-integration-core:2.3.0
 azure-resourcemanager-communication:1.0.0-beta.1
-azure-spring-boot-starter-keyvault-secrets:3.3.0
-azure-storage-file-datalake:12.4.1
 azure-resourcemanager-resourcegraph:1.0.0-beta.1
 azure-resourcemanager-containerinstance:2.3.0
-azure-spring-boot-starter-storage:3.3.0
 azure-core-serializer-json-jackson:1.2.1
-azure-storage-common:12.11.0-beta.2
 azure-cosmos:4.13.1
 azure-resourcemanager-servicebus:2.3.0
-azure-spring-cloud-storage:2.3.0
 azure-resourcemanager-eventhubs:2.3.0
 azure-resourcemanager-containerregistry:2.3.0
 azure-cosmos-spark_3-1_2-12:4.0.0-beta.1
-azure-storage-queue:12.9.0-beta.2
-azure-iot-modelsrepository:1.0.0-beta.1
 azure-communication-phonenumbers:1.0.0-beta.7
-azure-spring-boot-starter-active-directory-b2c:3.3.0
-azure-storage-blob:12.11.0-beta.2
 azure-resourcemanager-appplatform:2.3.0
-azure-identity-spring:1.3.0
 azure-resourcemanager-appservice:2.3.0
 azure-resourcemanager-dns:2.3.0
-azure-spring-integration-test:2.3.0
 azure-resourcemanager-datadog:1.0.0-beta.2
 azure-resourcemanager-authorization:2.3.0
 azure-resourcemanager-containerservice:2.3.0
-azure-spring-integration-eventhubs:2.3.0
 azure-communication-chat:1.0.0
-azure-spring-integration-servicebus:2.3.0
 azure-communication-identity:1.0.0
-azure-spring-cloud-starter-cache:2.3.0
 azure-resourcemanager-msi:2.3.0
-azure-security-keyvault-jca:1.0.0-beta.5
-azure-spring-cloud-stream-binder-servicebus-queue:2.3.0
-azure-spring-boot-starter-cosmos:3.3.0
-azure-spring-cloud-stream-binder-servicebus-topic:2.3.0
-azure-storage-file-datalake:12.5.0-beta.2
-azure-storage-blob:12.10.1
-azure-spring-boot-starter-keyvault-certificates:3.0.0-beta.5
 azure-resourcemanager-sql:2.3.0
 azure-resourcemanager-redis:2.3.0
 azure-spring-cloud-context:2.3.0
-azure-storage-common:12.10.1
-azure-spring-cloud-stream-binder-test:2.3.0
-azure-spring-cloud-starter-eventhubs-kafka:2.3.0
 azure-resourcemanager-delegatednetwork:1.0.0-beta.1
 azure-spring-integration-storage-queue:2.3.0
 azure-resourcemanager-compute:2.3.0
-azure-spring-cloud-stream-binder-servicebus-core:2.3.0
 azure-communication-common:1.0.0
-azure-spring-data-cosmos:3.5.1
-azure-spring-cloud-starter-servicebus:2.3.0
-azure-spring-boot-starter-servicebus-jms:3.3.0
-azure-spring-cloud-telemetry:2.3.0
 azure-core-test:1.6.1
 azure-core:1.15.0
 azure-core-experimental:1.0.0-beta.12
@@ -270,33 +226,9 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 </dependency>
 
 <dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-boot-starter</artifactId>
-  <version>3.3.0</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-cloud-stream-binder-eventhubs</artifactId>
-  <version>2.3.0</version>
-</dependency>
-
-<dependency>
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-monitor</artifactId>
   <version>2.3.0</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-cloud-messaging</artifactId>
-  <version>2.3.0</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-boot-starter-active-directory</artifactId>
-  <version>3.3.0</version>
 </dependency>
 
 <dependency>
@@ -309,12 +241,6 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-keyvault</artifactId>
   <version>2.3.0</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-storage-blob-nio</artifactId>
-  <version>12.0.0-beta.4</version>
 </dependency>
 
 <dependency>
@@ -402,12 +328,6 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 </dependency>
 
 <dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-storage-blob-cryptography</artifactId>
-  <version>12.11.0-beta.2</version>
-</dependency>
-
-<dependency>
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-cosmos</artifactId>
   <version>2.3.0</version>
@@ -438,21 +358,9 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 </dependency>
 
 <dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-storage-file-share</artifactId>
-  <version>12.9.0-beta.2</version>
-</dependency>
-
-<dependency>
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-privatedns</artifactId>
   <version>2.3.0</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-storage-blob-batch</artifactId>
-  <version>12.9.0-beta.2</version>
 </dependency>
 
 <dependency>
@@ -468,33 +376,9 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 </dependency>
 
 <dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-storage-blob</artifactId>
-  <version>12.10.2</version>
-</dependency>
-
-<dependency>
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-changeanalysis</artifactId>
   <version>1.0.0-beta.1</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-integration-core</artifactId>
-  <version>2.3.0</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-boot-starter-keyvault-secrets</artifactId>
-  <version>3.3.0</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-storage-file-datalake</artifactId>
-  <version>12.4.1</version>
 </dependency>
 
 <dependency>
@@ -510,21 +394,9 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 </dependency>
 
 <dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-boot-starter-storage</artifactId>
-  <version>3.3.0</version>
-</dependency>
-
-<dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-core-serializer-json-jackson</artifactId>
   <version>1.2.1</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-storage-common</artifactId>
-  <version>12.11.0-beta.2</version>
 </dependency>
 
 <dependency>
@@ -536,12 +408,6 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 <dependency>
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-servicebus</artifactId>
-  <version>2.3.0</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-cloud-storage</artifactId>
   <version>2.3.0</version>
 </dependency>
 
@@ -564,39 +430,9 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 </dependency>
 
 <dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-storage-queue</artifactId>
-  <version>12.9.0-beta.2</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-iot-modelsrepository</artifactId>
-  <version>1.0.0-beta.1</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-boot-starter-active-directory-b2c</artifactId>
-  <version>3.3.0</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-storage-blob</artifactId>
-  <version>12.11.0-beta.2</version>
-</dependency>
-
-<dependency>
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-appplatform</artifactId>
   <version>2.3.0</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-identity-spring</artifactId>
-  <version>1.3.0</version>
 </dependency>
 
 <dependency>
@@ -608,12 +444,6 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 <dependency>
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-dns</artifactId>
-  <version>2.3.0</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-integration-test</artifactId>
   <version>2.3.0</version>
 </dependency>
 
@@ -636,69 +466,9 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 </dependency>
 
 <dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-integration-eventhubs</artifactId>
-  <version>2.3.0</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-integration-servicebus</artifactId>
-  <version>2.3.0</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-cloud-starter-cache</artifactId>
-  <version>2.3.0</version>
-</dependency>
-
-<dependency>
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-msi</artifactId>
   <version>2.3.0</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-security-keyvault-jca</artifactId>
-  <version>1.0.0-beta.5</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-cloud-stream-binder-servicebus-queue</artifactId>
-  <version>2.3.0</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-boot-starter-cosmos</artifactId>
-  <version>3.3.0</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-cloud-stream-binder-servicebus-topic</artifactId>
-  <version>2.3.0</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-storage-file-datalake</artifactId>
-  <version>12.5.0-beta.2</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-storage-blob</artifactId>
-  <version>12.10.1</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-boot-starter-keyvault-certificates</artifactId>
-  <version>3.0.0-beta.5</version>
 </dependency>
 
 <dependency>
@@ -714,39 +484,9 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 </dependency>
 
 <dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-cloud-context</artifactId>
-  <version>2.3.0</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-storage-common</artifactId>
-  <version>12.10.1</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-cloud-stream-binder-test</artifactId>
-  <version>2.3.0</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-cloud-starter-eventhubs-kafka</artifactId>
-  <version>2.3.0</version>
-</dependency>
-
-<dependency>
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-delegatednetwork</artifactId>
   <version>1.0.0-beta.1</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-integration-storage-queue</artifactId>
-  <version>2.3.0</version>
 </dependency>
 
 <dependency>
@@ -765,24 +505,6 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-spring-data-cosmos</artifactId>
   <version>3.5.1</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-cloud-starter-servicebus</artifactId>
-  <version>2.3.0</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-boot-starter-servicebus-jms</artifactId>
-  <version>3.3.0</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-cloud-telemetry</artifactId>
-  <version>2.3.0</version>
 </dependency>
 
 <dependency>
@@ -977,6 +699,12 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 </dependency>
 
 <dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-data-appconfiguration</artifactId>
+    <version>1.1.11</version>
+</dependency>
+
+<dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-security-keyvault-administration</artifactId>
   <version>4.0.0-beta.6</version>
@@ -998,6 +726,24 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-security-keyvault-certificates</artifactId>
   <version>4.2.0-beta.5</version>
+</dependency>
+
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-security-keyvault-secrets</artifactId>
+    <version>4.2.7</version>
+</dependency>
+
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-security-keyvault-keys</artifactId>
+    <version>4.2.7</version>
+</dependency>
+
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-security-keyvault-certificates</artifactId>
+    <version>4.1.7/version>
 </dependency>
 
 <dependency>
