@@ -99,6 +99,7 @@ azure-resourcemanager-azurestackhci:1.0.0-beta.1
 azure-core-amqp:2.0.4
 azure-resourcemanager-consumption:1.0.0-beta.1
 azure-resourcemanager-azurestack:1.0.0-beta.1
+azure-resourcemanager-commerce:1.0.0-beta.1
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -211,6 +212,7 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Resource Management - Azurestackhci
 - Resource Management - Consumption
 - Resource Management - Azurestack
+- azure-resourcemanager-commerce
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -815,6 +817,12 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 <dependency>
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-azurestack</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-commerce</artifactId>
   <version>1.0.0-beta.1</version>
 </dependency>
 
@@ -1535,6 +1543,9 @@ String messageText = body.toString();
 
 ### azure-resourcemanager-azurestack 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-azurestack_1.0.0-beta.1/sdk/azurestack/azure-resourcemanager-azurestack/CHANGELOG.md#100-beta1-2021-04-12)
 - Azure Resource Manager AzureStack client library for Java. This package contains Microsoft Azure SDK for AzureStack Management SDK. Azure Stack. Package tag package-preview-2020-06. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-commerce 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-commerce_1.0.0-beta.1/sdk/commerce/azure-resourcemanager-commerce/CHANGELOG.md#100-beta1-2021-04-13)
+- Azure Resource Manager Usage client library for Java. This package contains Microsoft Azure SDK for Usage Management SDK.  Package tag package-2015-06-preview. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
