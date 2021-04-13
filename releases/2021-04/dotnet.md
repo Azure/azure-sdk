@@ -83,7 +83,7 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Storage - Blobs ChangeFeed
 - Storage - Queues
 - Storage - Files Data Lake
-- Azure.Iot.ModelsRepository
+- Azure.IoT.ModelsRepository
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -140,8 +140,8 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 - Added `HttpPipeline.CreateHttpMessagePropertiesScope` that can be used to inject scoped properties into `HttpMessage`.
 
-### IoT Device Update 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.IoT.DeviceUpdate_1.0.0-beta.2/sdk/deviceupdate/Azure.Iot.DeviceUpdate/CHANGELOG.md#100-beta2-2021-04-06)
-* Update root namespace from Azure.Iot.DeviceUpdate to Azure.IoT.DeviceUpdate
+### IoT Device Update 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.IoT.DeviceUpdate_1.0.0-beta.2/sdk/deviceupdate/Azure.IoT.DeviceUpdate/CHANGELOG.md#100-beta2-2021-04-06)
+* Update root namespace from Azure.IoT.DeviceUpdate to Azure.IoT.DeviceUpdate
 
 ### Storage - Common 12.7.2 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Common_12.7.2/sdk/storage/Azure.Storage.Common/CHANGELOG.md#1272-2021-04-02)
 - Fixed bug in SasQueryParameters causing services (ss) reorder when parsing externally provided URI.
@@ -372,7 +372,7 @@ Minor changes since the public preview release:
 ### Storage - Files Data Lake 12.7.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Files.DataLake_12.7.0-beta.3/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md#1270-beta3-2021-04-09)
 - Aligned storage URL parsing with other platforms.
 
-### Azure.Iot.ModelsRepository 1.0.0-preview.3 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.IoT.ModelsRepository_1.0.0-preview.3/sdk/modelsrepository/Azure.IoT.ModelsRepository/CHANGELOG.md#100-preview3-2021-04-12)
+### Azure.IoT.ModelsRepository 1.0.0-preview.3 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.IoT.ModelsRepository_1.0.0-preview.3/sdk/modelsrepository/Azure.IoT.ModelsRepository/CHANGELOG.md#100-preview3-2021-04-12)
 - Updated core dependencies to bring in security vulnerability fixes that are addressed in `Azure.Core v1.13.0` and `System.Memory.Data v1.0.2`
 
 ### Digital Twins - Core 1.2.2 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.DigitalTwins.Core_1.2.2/sdk/digitaltwins/Azure.DigitalTwins.Core/CHANGELOG.md#122-2021-04-12)
