@@ -7,7 +7,7 @@ repository: azure/azure-sdk-for-java
 ---
 
 <!--
-[pattern.head]: # (${PackageName}:${PackageVersion})
+[pattern]: # (${PackageName}:${PackageVersion})
 -->
 
 The Azure SDK team is pleased to announce our %%MMMM yyyy%% client library releases.
@@ -30,9 +30,9 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 
 ```xml
 
-```
+[pattern]: # (<dependency>`n  <groupId>${GroupId}</groupId>`n  <artifactId>${PackageName}</artifactId>`n  <version>${PackageVersion}</version>`n</dependency>`n)
 
-[pattern.install]: # (<dependency>`n  <groupId>${GroupId}</groupId>`n  <artifactId>${PackageName}</artifactId>`n  <version>${PackageVersion}</version>`n</dependency>`n)
+```
 
 ## Feedback
 
@@ -40,7 +40,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-[pattern.highlights]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
+[pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
 ## Need help
 

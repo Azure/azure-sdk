@@ -7,68 +7,6 @@ param (
 
 $PATTERN_REGEX = "^\[pattern(\.(?<SectionName>\w+))?\]:\s#\s\((?<Pattern>.*)\)"
 
-if (!(Test-Path $LanguageRepoDirectory))
-{
-  Write-Error "Path [ $LanguageRepoDirectory ] not found."
-  exit 1
-}
-Write-Host "Repo Path $LanguageRepoDirectory"
-
-$commonScriptsPath = (Join-Path $LanguageRepoDirectory eng common scripts)
-$commonScript = (Join-Path $commonScriptsPath common.ps1)
-Write-Host "Common Script $commonScript"
-
-. $commonScript
-$CsvMetaData = Get-CSVMetadata -MetadataUri "https://raw.githubusercontent.com/azure-sdk/azure-sdk/PackageVersionUpdates/_data/releases/latest/${releaseFileName}-packages.csv"
-
-$releaseFilePath = (Join-Path $ReleaseDirectory $releasePeriod "${releaseFileName}.md")
-LogDebug "Release File Path [ $releaseFilePath ]"
-
-if (!(Test-Path $releaseFilePath))
-{
-    &(Join-Path $PSScriptRoot Generate-Release-Structure.ps1) -releaseFileName "${releaseFileName}.md"
-}
-
-$existingReleaseContent = Get-Content $releaseFilePath
-
-
-$pathToDateOfLatestUpdates = (Join-Path $ReleaseDirectory "${releaseFileName}.lastupdated")
-$collectChangelogPath = (Join-Path $commonScriptsPath Collect-ChangeLogs.ps1)
-
-function Get-PackagesInfoFromFile ($releaseNotesContent) 
-{
-    $checkLine = $False
-    $presentPkgInfo = @()
-
-    foreach ($line in $releaseNotesContent)
-    {
-        $line = $line.Trim()
-        if ($line.StartsWith("<!--"))
-        {
-            $checkLine = $True
-            continue
-        }
-        if ($line.EndsWith("-->"))
-        {
-            break
-        }
-        if ($checkLine)
-        {
-            $pkgInfo = $line.Split(":")
-            if ($pkgInfo.Count -gt 0)
-            {
-                $packageName = $pkgInfo[0]
-                $packageMetaData = $CsvMetaData | Where-Object { $_.Package -eq $packageName }
-                if ($packageMetaData.Count -gt 0)
-                {
-                    $presentPkgInfo += $line
-                }
-            }
-        }
-    }
-    return $presentPkgInfo
-}
-
 function FilterOut-UnreleasedPackages ($releaseHighlights)
 {
     $results = @{}
@@ -103,139 +41,134 @@ function FilterOut-UnreleasedPackages ($releaseHighlights)
     return $results
 }
 
-function Write-GeneralReleaseNote ($releaseHighlights, $releaseNotesContent, $releaseFilePath)
+function UpdateRelatedYaml ($existingYamlContent, $releaseHighlights, $pathToRelatedYaml)
 {
-    [System.Collections.ArrayList]$newReleaseContent = @()
-    $insertPosition = $null
-    $arrayToInsert = @()
+    foreach ($key in $releaseHighlights.Keys)
+    {
+        $pkgInfo = $key.Split(":")
+        $packageName = $pkgInfo[0]
+        $packageVersion = $pkgInfo[1]
+        $packageFriendlyName = $releaseHighlights[$key]["DisplayName"]
 
-    foreach ($line in $releaseNotesContent)
+        if ($null -eq $packageFriendlyName)
+        {
+            $packageFriendlyName = $packageName
+        }
+        $changelogUrl = $releaseHighlights[$key]["ChangelogUrl"]
+        $GroupId = $releaseHighlights[$key]["PackageProperties"].Group
+        $highlightsBody = ($releaseHighlights[$key]["Content"] | Out-String).Trim()
+
+        $newEntry = [ordered]@{}
+        $newEntry.Add("name", $packageName)
+        $newEntry.Add("version", $packageVersion)
+        $newEntry.Add("groupId", $GroupId)
+        $existingYamlContent.processed.Add($newEntry)
+        $existingYamlContent.install.Add($newEntry)
+
+        $packageSemVer = [AzureEngSemanticVersion]::ParseVersionString($PackageVersion)
+        if ($packageSemVer.VersionType -eq "GA")
+        {
+            $existingYamlContent.ga.Add($packageFriendlyName)
+        }
+        if ($packageSemVer.VersionType -eq "Beta")
+        {
+            $existingYamlContent.beta.Add($packageFriendlyName)
+        }
+        if ($packageSemVer.VersionType -eq "Patch")
+        {
+            $existingYamlContent.patch.Add($packageFriendlyName)
+        }
+
+        $newEntry.Add("changelogUrl", $changelogUrl)
+        $newEntry.Add("content", $highlightsBody)
+        $existingYamlContent.highlights.Add($newEntry)
+    }
+    Set-Content -Path $pathToRelatedYaml -Value (ConvertTo-Yaml $existingYamlContent)
+}
+
+function Write-GeneralReleaseNote ($existingYamlContent, $releaseFilePath, $releaseTemplatePath)
+{
+    $templateContent = Get-Content -Path $releaseTemplatePath
+    $newReleaseContent = @()
+    foreach ($line in $templateContent)
     {
         if ($line -match $PATTERN_REGEX)
         {
             $sectionName = $matches["SectionName"]
             $pattern = $matches["Pattern"]
-
-            if ($newReleaseContent.Count -gt 0 -and 
-                [System.String]::IsNullOrEmpty($newReleaseContent[$newReleaseContent.Count - 1]))
-            {
-                $newReleaseContent.RemoveAt($newReleaseContent.Count - 1)
+            $sectionYaml = $existingYamlContent[$sectionName] | Sort-Object
+            
+            if ($sectionYaml.name -ne $null) {
+                $sectionYaml =  $sectionYaml | Sort-Object -Property name
             }
 
-            foreach ($key in $releaseHighlights.Keys)
+            $sectionMd= @()
+
+            foreach ($item in $existingYamlContent[$sectionName])
             {
-                $pkgInfo = $key.Split(":")
-                $packageName = $pkgInfo[0]
-                $packageVersion = $pkgInfo[1]
-                $packageFriendlyName = $releaseHighlights[$key]["DisplayName"]
+                $packageName = $item.name
+                $packageVersion = $item.version
+                $packageFriendlyName = $item
 
                 if ($null -eq $packageFriendlyName)
                 {
                     $packageFriendlyName = $packageName
                 }
-
-                $changelogUrl = $releaseHighlights[$key]["ChangelogUrl"]
-                $GroupId = $releaseHighlights[$key]["PackageProperties"].Group
-                $changelogUrl = "(${changelogUrl})"
-                $highlightsBody = ($releaseHighlights[$key]["Content"] | Out-String).Trim()
-                $packageSemVer = [AzureEngSemanticVersion]::ParseVersionString($PackageVersion)
-                
+                $changelogUrl = $item.changelog
+                $GroupId = $item.groupId
+                $highlightsBody = $item.content
                 $lineValue = $ExecutionContext.InvokeCommand.ExpandString($pattern)
-                if ([System.String]::IsNullOrEmpty($sectionName) -or $packageSemVer.VersionType -eq $sectionName)
-                {
-                    if ($null -ne $insertPosition)
-                    {
-                        $arrayToInsert += $lineValue
-                    }
-                    else
-                    {
-                        $newReleaseContent += $lineValue
-                    }
-                }
+                $sectionMd += $lineValue
             }
-
-            if ($null -ne $insertPosition -and ($arrayToInsert.Count -gt 0))
-            {
-                $newReleaseContent.Insert($insertPosition, $arrayToInsert)
-                $insertPosition = $null
-                $arrayToInsert = $null
-            }
-
-            if (![System.String]::IsNullOrEmpty($newReleaseContent[$newReleaseContent.Count - 1]))
-            {
-                $newReleaseContent += ""
-            }
+            $newReleaseContent += $sectionMd
         }
-
-        if (($null -ne $insertPosition) -and (![System.String]::IsNullOrEmpty($line)))
-        {
-            $insertPosition = $null
-        }
-
-        if ($line -eq "``````")
-        {
-            $insertPosition = $newReleaseContent.Count - 1
-        }
-
         $newReleaseContent += $line
     }
+
     Set-Content -Path $releaseFilePath -Value $newReleaseContent
+
 }
 
-function Write-HeadSection ($releaseHighlights, $releaseNotesContent, $releaseFilePath)
+if (!(Test-Path $LanguageRepoDirectory))
 {
-    $releaseNotesContent = $releaseNotesContent -as [System.Collections.ArrayList]
-    $allPackagesSorted = $CsvMetaData | Sort-Object -Property ServiceName, Package
+  Write-Error "Path [ $LanguageRepoDirectory ] not found."
+  exit 1
+}
+Write-Host "Repo Path $LanguageRepoDirectory"
 
-    for($i = 0; $i -lt $releaseNotesContent.Count; $i++)
-    {
-        $line = $releaseNotesContent[$i]
-        if ($line.StartsWith('<!--'))
-        {
-            $startIndex = $i + 1
-        }
+$commonScriptsPath = (Join-Path $LanguageRepoDirectory eng common scripts)
+$commonScript = (Join-Path $commonScriptsPath common.ps1)
+Write-Host "Common Script $commonScript"
 
-        if (($line -match $PATTERN_REGEX) -and ($Matches["SectionName"] -eq "head"))
-        {
-            $endIndex = $i - 1
-            $allPackageNames = $allPackagesSorted.Package
-            foreach ($item in $releaseHighlights.Keys) 
-            {
-                Write-Host $item
-                $insertIndex = $startIndex
-                $packageA = (@($item -split ":"))[0] # The package from the collected changelogs
-                for ($j = $startIndex; $j -le $endIndex; $j++)
-                {
-                    $packageB = (@($releaseNotesContent[$j] -split ":"))[0] # The package from the line in the file
-                    $packageASortPosition = [Array]::IndexOf($allPackageNames, $packageA)
-                    $packageBSortPosition = if ([System.String]::IsNullOrEmpty($packageB)) { 
-                        -1
-                    }
-                    elseif ([Array]::IndexOf($allPackageNames, $packageB) -gt $packageBSortPosition) {
-                        [Array]::IndexOf($allPackageNames, $packageB) 
-                    }
+. $commonScript
+$CsvMetaData = Get-CSVMetadata -MetadataUri "https://raw.githubusercontent.com/azure-sdk/azure-sdk/PackageVersionUpdates/_data/releases/latest/${releaseFileName}-packages.csv"
 
-                    if ($packageASortPosition -gt $packageBSortPosition)
-                    {
-                        $insertIndex = $j + 1
-                    }
-                }
-                if ([System.String]::IsNullOrEmpty($releaseNotesContent[$startIndex]))
-                {
-                    $startIndex++
-                }
-                $releaseNotesContent.Insert($insertIndex, $item)
-                $endIndex++
-            }
+$releaseTemplatePath = (Join-Path $ReleaseDirectory ".." eng scripts release-template "${releaseFileName}.md")
+$releaseFilePath = (Join-Path $ReleaseDirectory $releasePeriod "${releaseFileName}.md")
+$pathToRelatedYaml = (Join-Path $ReleaseDirectory $releasePeriod "${releaseFileName}.yaml")
+LogDebug "Release File Path [ $releaseFilePath ]"
+LogDebug "Related Yaml File Path [ $pathToRelatedYaml ]"
 
-            $releaseNotesContent.Insert($i, "")
-            break
-        }
-    }
-    return $releaseNotesContent
+if (!(Test-Path $pathToRelatedYaml))
+{
+    Set-Content -Path $pathToRelatedYaml -Value @("processed:","ga:","patch:","beta:","install:", "highlights:")
 }
 
-$presentPkgsInfo = Get-PackagesInfoFromFile -releaseNotesContent $existingReleaseContent
+# Install Powershell Yaml
+$ProgressPreference = "SilentlyContinue"
+if ((Get-PSRepository).Where({$_.Name -eq "PSGallery"}).Count -eq 0)
+{
+    Register-PSRepository -Default -ErrorAction:SilentlyContinue
+}
+
+if ((Get-Module -ListAvailable -Name powershell-yaml).Where({ $_.Version -eq "0.4.2"} ).Count -eq 0)
+{
+    Install-Module -Name powershell-yaml -RequiredVersion 0.4.2 -Force -Scope CurrentUser
+}
+
+$existingYamlContent = ConvertFrom-Yaml (Get-Content $pathToRelatedYaml -Raw) -Ordered
+$pathToDateOfLatestUpdates = (Join-Path $ReleaseDirectory "${releaseFileName}.lastupdated")
+$collectChangelogPath = (Join-Path $commonScriptsPath Collect-ChangeLogs.ps1)
 $dateOfLatestUpdate = @(Get-Content -Path $pathToDateOfLatestUpdates)
 
 if ($dateOfLatestUpdate.Count -eq 0)
@@ -248,7 +181,7 @@ $incomingReleaseHighlights = &$collectChangelogPath -FromDate $dateOfLatestUpdat
 
 foreach ($key in @($incomingReleaseHighlights.Keys))
 {
-  $presentKey = $presentPkgsInfo | Where-Object { $_ -eq $key }
+  $presentKey = $existingYamlContent.processed | Where-Object { ($_.name + ':' + $_.version) -eq $key }
   if ($presentKey.Count -gt 0)
   {
     $incomingReleaseHighlights.Remove($key)
@@ -257,13 +190,17 @@ foreach ($key in @($incomingReleaseHighlights.Keys))
 
 $incomingReleaseHighlights = FilterOut-UnreleasedPackages -releaseHighlights $incomingReleaseHighlights
 
-
 if ($incomingReleaseHighlights.Count -gt 0)
 {
-    Write-GeneralReleaseNote `
+    $existingYamlContent = UpdateRelatedYaml `
     -releaseHighlights $incomingReleaseHighlights `
-    -releaseNotesContent $existingReleaseContent `
-    -releaseFilePath $releaseFilePath
+    -existingYamlContent $existingYamlContent `
+    -pathToRelatedYaml $pathToRelatedYaml
+
+    Write-GeneralReleaseNote `
+    -existingYamlContent $existingYamlContent `
+    -releaseFilePath $releaseFilePath `
+    -releaseTemplatePath $releaseTemplatePath
 
     Set-Content -Path $pathToDateOfLatestUpdates -Value (Get-Date -Format "yyyy-MM-dd") -NoNewline
 }

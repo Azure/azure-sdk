@@ -30,9 +30,9 @@ To install the packages, copy and paste the below into a terminal.
 
 ```bash
 
-```
-
 [pattern.install]: # ($> npm install ${PackageName}@${PackageVersion})
+
+```
 
 ## Feedback
 

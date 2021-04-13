@@ -30,9 +30,9 @@ To install the latest beta version of the packages, copy and paste the following
 
 ```bash
 
-```
-
 [pattern.install]: # ($> pip install ${PackageName}==${PackageVersion})
+
+```
 
 ## Feedback
 

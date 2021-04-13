@@ -6,10 +6,6 @@ sidebar: releases_sidebar
 repository: azure/azure-sdk-for-net
 ---
 
-<!--
-[pattern.head]: # (${PackageName}:${PackageVersion})
--->
-
 The Azure SDK team is pleased to announce our %%MMMM yyyy%% client library releases.
 
 #### GA
@@ -30,9 +26,9 @@ To install any of our packages, please search for them via `Manage NuGet Package
 
 ```bash
 
-```
-
 [pattern.install]: # ($> dotnet add package ${PackageName} --version ${PackageVersion})
+
+```
 
 ## Feedback
 
