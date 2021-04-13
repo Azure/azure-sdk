@@ -143,67 +143,37 @@ azure-resourcemanager-advisor:1.0.0-beta.1
 The Azure SDK team is pleased to announce our April 2021 client library releases.
 
 #### GA
-- Resource Management - Traffic Manager
-- Azure Spring Boot Starter
-- Azure Spring Cloud Stream Binder Event Hubs
-- Resource Management - Monitor
-- Azure Spring Cloud Messaging
-- Azure Spring Boot Starter Active Directory
-- Resource Management - Key Vault
 - Azure Communication Chat
 - Azure Communication Common
 - Azure Communication Identity
 - Azure Communication SMS
+- Azure Core
+- Azure Cosmos DB
+- Azure Spring Data Cosmos
+- Resource Management - Traffic Manager
+- Resource Management - Monitor
+- Resource Management - Key Vault
 - Resource Management - Communication
 - Resource Management - Cognitive Search
 - Resource Management - Storage
 - Resource Management - Resources
-- Azure Spring Cloud Starter Event Hubs
-- Azure Spring Cloud Autoconfigure
 - Resource Management - Cosmos DB
-- Azure Spring Boot AutoConfigure
-- Azure Spring Cloud Starter Storage Queue
-- Resource Management
 - Resource Management - Private DNS
 - Resource Management - Network
 - Resource Management - Content Delivery Network
-- Azure Spring Cloud Integration Core
-- Azure Spring Boot Starter Key Vault Secrets
 - Resource Management - Container Instances
-- Azure Spring Boot Starter Storage
 - Resource Management - Service Bus
-- Azure Spring Cloud Storage
 - Resource Management - Event Hubs
 - Resource Management - Container Registry
-- Azure Spring Boot Starter Active Directory B2C
 - Resource Management - Spring Cloud
-- Azure Identity Spring
 - Resource Management - App Service
 - Resource Management - DNS
-- Azure Spring Cloud Integration Test
 - Resource Management - Authorization
 - Resource Management - Container Service
-- Azure Spring Cloud Integration Event Hubs
-- Azure Spring Cloud Integration Service Bus
-- Azure Spring Cloud Starter Cache
 - Resource Management - Managed Service Identity
-- Azure Spring Cloud Stream Binder Service bus Queue
-- Azure Spring Boot Starter Cosmos
-- Azure Spring Cloud Stream Binder Service bus Topic
 - Resource Management - SQL
 - Resource Management - Redis
-- Azure Spring Cloud Context
-- Azure Spring Cloud Stream Binder Test
-- Azure Spring Cloud Starter Event Hubs Kafka
-- Azure Spring Cloud Integration Storage Queue
 - Resource Management - Compute
-- Azure Spring Cloud Stream Binder Service bus Core
-- Azure Spring Cloud Starter Service bus
-- Azure Spring Boot Starter Service bus Jms
-- Azure Spring Cloud Telemetry
-- Core
-- Cosmos DB
-- Spring Data Cosmos
 - Resource Management - PostgreSQL
 - Resource Management - Event Grid
 - Resource Management - MySQL
@@ -212,74 +182,64 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 [pattern.ga]: # (- ${PackageFriendlyName})
 
 #### Updates
-- Core
-- Storage - Blobs
-- Storage - Files Data Lake
-- Core Serializer Jackson JSON
-- Cosmos DB
-- Storage - Blobs
-- Storage - Common
-- Spring Data Cosmos
-- Core - Test
-- Management - Core
-- Core Serializer GSON JSON
-- Core Serializer Jackson JSON
-- Core - HTTP OkHttp
-- Text Analytics
+- Azure Core
+- Azure Core Serializer Jackson JSON
+- Azure Cosmos DB
+- Azure Spring Data Cosmos
+- Azure Core - Test
+- Azure Core Serializer GSON JSON
+- Azure Core Serializer Jackson JSON
+- Azure Core - HTTP OkHttp
+- Azure AI Text Analytics
+- Azure AI Form Recognizer
+- Azure App Configuration
+- Azure Key Vault - Administration
+- Azure Key Vault - Secrets
+- Azure Key Vault - Keys
+- Azure Key Vault - Certificates
+- Resouce Management - Core
 
 [pattern.patch]: # (- ${PackageFriendlyName})
 
 #### Beta
-- azure-cosmos-spark_3-1_2-12
+- Azure Cosmos Spark
 - Storage - Blobs NIO
+- Azure Communication Phone Numbers
+- Azure Core Experimental
+- Azure Core Serializer Apache Avro
+- Azure Tracing OpenTelemetry Plugin
+- Azure AI Form Recognizer
+- Azure Cognitive Search
+- Azure AI Text Analytics
+- Azure Synapse - AccessControl
+- Azure Synapse - Monitoring
+- Azure Synapse - Spark
+- Azure Synapse - Managed Private Endpoints
+- Azure Synapse - Artifacts
+- Azure App Configuration
+- Azure Key Vault - Administration
+- Azure Key Vault - Secrets
+- Azure Key Vault - Keys
+- Azure Key Vault - Certificates
+- Resource Management - Datadog
+- Resource Management - Delegated Network
 - Resource Management - Api Management
 - Resource Management - Log Analytics
 - Resource Management - Communication
-- Storage - Internal Avro
-- Storage - Blobs Cryptography
-- Storage - Files Shares
-- Storage - Blobs Batch
 - Resource Management - Change Analysis
 - Resource Management - Resource Graph
-- Storage - Common
-- azure-cosmos-spark_3-1_2-12
-- Storage - Queues
-- azure-iot-modelsrepository
-- Azure Communication Phone Numbers
-- Storage - Blobs
-- Resource Management - Datadog
-- Key Vault - JCA
-- Storage - Files Data Lake
-- Azure Spring Boot Starter Key Vault Certificates
-- Resource Management - Delegated Network
-- Core Experimental
-- Core Serializer Apache Avro
-- Tracing OpenTelemetry Plugin
-- Form Recognizer
-- Cognitive Search
-- Text Analytics
-- Synapse - AccessControl
-- Synapse - Monitoring
-- Synapse - Spark
-- Synapse - Managed Private Endpoints
-- Synapse - Artifacts
-- azure-resourcemanager-synapse
+- Resource Management - Synapse
 - Resource Management - Cost Management
-- azure-resourcemanager-resourcehealth
-- azure-resourcemanager-frontdoor
-- azure-resourcemanager-databricks
-- azure-resourcemanager-databoxedge
-- azure-resourcemanager-automation
-- App Configuration
-- Key Vault - Administration
-- Key Vault - Secrets
-- Key Vault - Keys
-- Key Vault - Certificates
-- azure-resourcemanager-resourcemover
-- azure-resourcemanager-datafactory
-- azure-resourcemanager-kubernetesconfiguration
+- Resource Management - Resource Health
+- Resource Management - Frontdoor
+- Resource Management - Databricks
+- Resource Management - Databoxedge
+- Resource Management - Automation
+- Resource Management - Resourcemover
+- Resource Management - Datafactory
+- Resource Management - Kubernetesconfiguration
 - Resource Management - HDInsight
-- azure-resourcemanager-advisor
+- Resource Management - Advisor
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -1065,6 +1025,76 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/azure/azure-sdk-for-java/issues).
 
 ## Release highlights
+
+### Azure Communication Chat 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-chat_1.0.0/sdk/communication/azure-communication-chat/CHANGELOG.md#100-2021-03-29)
+#### Breaking Changes
+
+- Renamed `ChatThread` to `ChatThreadProperties`
+- Renamed `ChatThreadInfo` to `ChatThreadItem`
+- Renamed `repeatabilityRequestId` to `idempotencyToken`
+- SendMessage returns `SendChatMessageResult` instead of string ID
+- Renamed `CommunicationError` to `ChatError`
+- Renamed `CommunicationErrorResponse` to `ChatErrorResponse`
+- Moved `getChatThread` to `ChatThreadClient` and renamed to `getProperties`
+- Removed `AddChatParticipantsOptions`
+- Changed `addParticipants` to take `Iterable<ChatParticipant>` instead of `AddChatParticipantsOptions`
+- Added `context` parameter to the max overloads of `listParticipants`, `listReadReceipts`
+- `CreateChatThreadOptions` constructor now requires `topic`
+- Removed `setTopic` from `CreateChatThreadOptions`
+
+#### Added
+
+- Added `ChatThreadClientBuilder`
+
+### Azure Communication Common 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-common_1.0.0/sdk/communication/azure-communication-common/CHANGELOG.md#100-2021-03-29)
+#### Breaking Changes
+- Updated `CommunicationCloudEnvironment(String environmentValue)` constructor to `CommunicationCloudEnvironment()`.
+- Updated `public CommunicationCloudEnvironment fromString(String environmentValue)` to `public static CommunicationCloudEnvironment fromString(String environmentValue)`.
+- Renamed `TokenRefresher.getTokenAsync()` to `TokenRefresher.getToken()`.
+
+### Azure Communication Identity 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-identity_1.0.0/sdk/communication/azure-communication-identity/CHANGELOG.md#100-2021-03-29)
+Updated `azure-communication-identity` version
+
+### Azure Communication SMS 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-sms_1.0.0/sdk/communication/azure-communication-sms/CHANGELOG.md#100-2021-03-29)
+Updated `azure-communication-sms` version
+
+### Core 1.15.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-core_1.15.0/sdk/core/azure-core/CHANGELOG.md#1150-2021-04-02)
+#### New Features
+
+- Added `Binary.toByteBuffer` which returns a read-only view of the `BinaryData`.
+- Added `ProxyOptions.fromConfiguration(Configuration, boolean)` which allows for configuring if the returned proxy
+is resolved.
+- Added a default `JsonSerializer` implementation which is optionally used when creating a `JsonSerializer` with
+`JsonSerializerProviders` by passing the flag `useDefaultIfAbset`.
+- Added the ability to configure HTTP logging level without making code changes by configuring environment property
+`AZURE_HTTP_LOG_DETAIL_LEVEL`.
+- Added constructor overloads to `PagedFlux` which allows for the paging implements to consume the `byPage` page size value.
+- Added `AzureNamedKey` and `AzureNamedKeyCredential` to support authentication using a named key.
+- Added overloads to `SerializerAdapter` which use `byte[]` instead of `String` or `InputStream`/`OutputStream`.
+
+#### Bug Fixes
+
+- Fixed a bug where Unix timestamps were not being properly deserialized to `OffsetDateTime`.
+- Fixed edge cases where response bodies would be eagerly read into a `byte[]` when they shouldn't.
+
+#### Dependency Updates
+
+- Upgraded Jackson from `2.12.1` to `2.12.2`.
+- Upgraded Netty from `4.1.59.Final` to `4.1.60.Final`.
+
+### Cosmos DB 4.14.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-cosmos_4.14.0/sdk/cosmos/azure-cosmos/CHANGELOG.md#4140-2021-04-06)
+##### New Features
+* General Availability for `readMany()` API in `CosmosAsyncContainer` and `CosmosContainer`.
+* General Availability for `handle()` API in `CosmosPagedFlux` and `CosmosPagedIterable`.
+* Upgraded Jackson to patch version 2.12.2.
+* Exposed `getDocumentUsage` and `getDocumentCountUsage()` APIs in `FeedResponse` to retrieve document count metadata.
+
+##### Key Bug Fixes
+* Allowed `CosmosPagedFlux#handle()` and `CosmosPagedIterable#handle()` API for chaining.
+* Removed `AfterBurner` module usage from `CosmosException` causing the warning logs.
+* Fixed issue of duplicate processing of items on the same Change Feed Processor instance.
+* Return `RequestTimeoutException` on client side timeout for write operations.
+
 ### Resource Management - Traffic Manager 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-trafficmanager_2.3.0/sdk/resourcemanager/azure-resourcemanager-trafficmanager/CHANGELOG.md#230-2021-03-30)
 - Updated core dependency from resources
 
@@ -1178,12 +1208,6 @@ Updated to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/
 ### Azure Spring Cloud Starter Storage Queue 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-starter-storage-queue_2.3.0/sdk/spring/azure-spring-cloud-starter-storage-queue/CHANGELOG.md#230-2021-03-22)
 #### New Features
 - Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
-
-### Core 1.14.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-core_1.14.1/sdk/core/azure-core/CHANGELOG.md#1141-2021-03-19)
-#### Bug Fixes
-
-- Fix a bug where `ClassNotFoundException` or `MethodNotFoundException` was thrown when Jackson 2.11 is resolved
-  instead of Jackson 2.12. [#19897](https://github.com/Azure/azure-sdk-for-java/issues/19897)
 
 ### Resource Management 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager_2.3.0/sdk/resourcemanager/azure-resourcemanager/CHANGELOG.md#230-2021-03-30)
 - Added client-side validation for `getByResourceGroup`, `listByResourceGroup`, `deleteByResourceGroup` methods.
@@ -1314,55 +1338,6 @@ QueueMessageItem message = queueClient.receiveMessage();
 BinaryData body = message.getBody();
 String messageText = body.toString();
 ```
-
-### azure-iot-modelsrepository 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-iot-modelsrepository_1.0.0-beta.1/sdk/modelsrepository/azure-iot-modelsrepository/CHANGELOG.md#100-beta1-2021-03-30)
-#### New features
-
-- Initial preview of Azure Models Repository SDK
-
-#### Breaking changes
-
-- N/A
-
-#### Added
-
-- N/A
-
-#### Fixes and improvements
-
-- N/A
-
-### Azure Communication Chat 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-chat_1.0.0/sdk/communication/azure-communication-chat/CHANGELOG.md#100-2021-03-29)
-#### Breaking Changes
-
-- Renamed `ChatThread` to `ChatThreadProperties`
-- Renamed `ChatThreadInfo` to `ChatThreadItem`
-- Renamed `repeatabilityRequestId` to `idempotencyToken`
-- SendMessage returns `SendChatMessageResult` instead of string ID
-- Renamed `CommunicationError` to `ChatError`
-- Renamed `CommunicationErrorResponse` to `ChatErrorResponse`
-- Moved `getChatThread` to `ChatThreadClient` and renamed to `getProperties`
-- Removed `AddChatParticipantsOptions`
-- Changed `addParticipants` to take `Iterable<ChatParticipant>` instead of `AddChatParticipantsOptions`
-- Added `context` parameter to the max overloads of `listParticipants`, `listReadReceipts`
-- `CreateChatThreadOptions` constructor now requires `topic`
-- Removed `setTopic` from `CreateChatThreadOptions`
-
-#### Added
-
-- Added `ChatThreadClientBuilder`
-
-### Azure Communication Common 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-common_1.0.0/sdk/communication/azure-communication-common/CHANGELOG.md#100-2021-03-29)
-#### Breaking Changes
-- Updated `CommunicationCloudEnvironment(String environmentValue)` constructor to `CommunicationCloudEnvironment()`.
-- Updated `public CommunicationCloudEnvironment fromString(String environmentValue)` to `public static CommunicationCloudEnvironment fromString(String environmentValue)`.
-- Renamed `TokenRefresher.getTokenAsync()` to `TokenRefresher.getToken()`.
-
-### Azure Communication Identity 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-identity_1.0.0/sdk/communication/azure-communication-identity/CHANGELOG.md#100-2021-03-29)
-Updated `azure-communication-identity` version
-
-### Azure Communication SMS 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-sms_1.0.0/sdk/communication/azure-communication-sms/CHANGELOG.md#100-2021-03-29)
-Updated `azure-communication-sms` version
 
 ### Resource Management - Communication 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-communication_1.0.0/sdk/communication/azure-resourcemanager-communication/CHANGELOG.md#100-2021-04-08)
 - Azure Resource Manager Communication client library for Java. This package contains Microsoft Azure SDK for Communication Management SDK. REST API for Azure Communication Services. Package tag package-2020-08-20. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
@@ -1563,30 +1538,6 @@ PhoneNumbersAsyncClient.getPurchasedPhoneNumberWithResponse and PhoneNumbersClie
 
 - Upgraded `azure-core` from `1.14.0` to `1.15.0`.
 
-### Core 1.15.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-core_1.15.0/sdk/core/azure-core/CHANGELOG.md#1150-2021-04-02)
-#### New Features
-
-- Added `Binary.toByteBuffer` which returns a read-only view of the `BinaryData`.
-- Added `ProxyOptions.fromConfiguration(Configuration, boolean)` which allows for configuring if the returned proxy
-  is resolved.
-- Added a default `JsonSerializer` implementation which is optionally used when creating a `JsonSerializer` with
-  `JsonSerializerProviders` by passing the flag `useDefaultIfAbset`.
-- Added the ability to configure HTTP logging level without making code changes by configuring environment property
-  `AZURE_HTTP_LOG_DETAIL_LEVEL`.
-- Added constructor overloads to `PagedFlux` which allows for the paging implements to consume the `byPage` page size value.
-- Added `AzureNamedKey` and `AzureNamedKeyCredential` to support authentication using a named key.
-- Added overloads to `SerializerAdapter` which use `byte[]` instead of `String` or `InputStream`/`OutputStream`.
-
-#### Bug Fixes
-
-- Fixed a bug where Unix timestamps were not being properly deserialized to `OffsetDateTime`.
-- Fixed edge cases where response bodies would be eagerly read into a `byte[]` when they shouldn't.
-
-#### Dependency Updates
-
-- Upgraded Jackson from `2.12.1` to `2.12.2`.
-- Upgraded Netty from `4.1.59.Final` to `4.1.60.Final`.
-
 ### Core Experimental 1.0.0-beta.12 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-core-experimental_1.0.0-beta.12/sdk/core/azure-core-experimental/CHANGELOG.md#100-beta12-2021-04-02)
 #### New Features
 
@@ -1675,19 +1626,6 @@ PhoneNumbersAsyncClient.getPurchasedPhoneNumberWithResponse and PhoneNumbersClie
 #### Breaking Changes
 
 - Updated Jackson annotations to include `required = true` when service must receive or return the property.
-
-### Cosmos DB 4.14.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-cosmos_4.14.0/sdk/cosmos/azure-cosmos/CHANGELOG.md#4140-2021-04-06)
-##### New Features
-* General Availability for `readMany()` API in `CosmosAsyncContainer` and `CosmosContainer`.
-* General Availability for `handle()` API in `CosmosPagedFlux` and `CosmosPagedIterable`.
-* Upgraded Jackson to patch version 2.12.2.
-* Exposed `getDocumentUsage` and `getDocumentCountUsage()` APIs in `FeedResponse` to retrieve document count metadata.
-
-##### Key Bug Fixes
-* Allowed `CosmosPagedFlux#handle()` and `CosmosPagedIterable#handle()` API for chaining.
-* Removed `AfterBurner` module usage from `CosmosException` causing the warning logs.
-* Fixed issue of duplicate processing of items on the same Change Feed Processor instance.
-* Return `RequestTimeoutException` on client side timeout for write operations.
 
 ### Text Analytics 5.1.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.1.0-beta.6/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#510-beta6-2021-04-06)
 #### Breaking changes
