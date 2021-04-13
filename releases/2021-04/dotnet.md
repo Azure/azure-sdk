@@ -34,6 +34,7 @@ Azure.Storage.Blobs.ChangeFeed:12.0.0-preview.11
 Azure.Storage.Queues:12.7.0-beta.3
 Azure.Storage.Files.DataLake:12.7.0-beta.3
 Azure.IoT.ModelsRepository:1.0.0-preview.3
+Azure.DigitalTwins.Core:1.2.2
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -56,6 +57,7 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 #### Updates
 - Storage - Common
 - System Memory Data
+- Digital Twins - Core
 
 [pattern.patch]: # (- ${PackageFriendlyName})
 
@@ -121,6 +123,7 @@ $> dotnet add package Azure.Storage.Blobs.ChangeFeed --version 12.0.0-preview.11
 $> dotnet add package Azure.Storage.Queues --version 12.7.0-beta.3
 $> dotnet add package Azure.Storage.Files.DataLake --version 12.7.0-beta.3
 $> dotnet add package Azure.IoT.ModelsRepository --version 1.0.0-preview.3
+$> dotnet add package Azure.DigitalTwins.Core --version 1.2.2
 $> dotnet add package System.Memory.Data --version 1.0.2
 ```
 
@@ -383,6 +386,11 @@ Minor changes since the public preview release:
 - Aligned storage URL parsing with other platforms.
 
 ### Azure.Iot.ModelsRepository 1.0.0-preview.3 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.IoT.ModelsRepository_1.0.0-preview.3/sdk/modelsrepository/Azure.IoT.ModelsRepository/CHANGELOG.md#100-preview3-2021-04-12)
+- Updated core dependencies to bring in security vulnerability fixes that are addressed in `Azure.Core v1.13.0` and `System.Memory.Data v1.0.2`
+
+### Digital Twins - Core 1.2.2 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.DigitalTwins.Core_1.2.2/sdk/digitaltwins/Azure.DigitalTwins.Core/CHANGELOG.md#122-2021-04-12)
+#### Fixes and improvements
+
 - Updated core dependencies to bring in security vulnerability fixes that are addressed in `Azure.Core v1.13.0` and `System.Memory.Data v1.0.2`
 
 
