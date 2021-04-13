@@ -61,6 +61,7 @@ azure-mgmt-appplatform:6.0.0
 azure-mgmt-datashare:1.0.0
 azure-mgmt-hanaonazure:1.0.0
 azure-mgmt-healthcareapis:1.0.0
+azure-search-documents:11.2.0b2
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -128,6 +129,7 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Service Bus
 - Tables
 - Translation Document
+- Cognitive Search
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -188,6 +190,7 @@ $> pip install azure-search-documents==11.2.0b1
 $> pip install azure-servicebus==7.1.1
 $> pip install azure-servicebus==7.2.0b1
 $> pip install azure-synapse-artifacts==0.6.0
+$> pip install azure-search-documents==11.2.0b2
 
 ```
 
@@ -710,6 +713,11 @@ This version and all future versions will require Python 2.7 or Python 3.6+, Pyt
 ### Translation Document 1.0.0b1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-translation-document_1.0.0b1/sdk/translation/azure-ai-translation-document/CHANGELOG.md#100b1-2021-04-06)
 This is the first beta package of the azure-ai-translation-document client library that targets the Document Translation 
 service version `1.0-preview.1`. This package's documentation and samples demonstrate the new API.
+
+### Cognitive Search 11.2.0b2 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-search-documents_11.2.0b2/sdk/search/azure-search-documents/CHANGELOG.md#1120b2-2021-04-13)
+#### New features
+
+- Added support for semantic search    #17638
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
