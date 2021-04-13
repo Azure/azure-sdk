@@ -11,10 +11,12 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 
 ## Release Highlights
 
-*
-*
-*
-
+-  Azure Communication Client Libraries for Java are generally available.
+-  Azure Cosmos DB client library for Java is releasing a new GA.
+- Java Azure Core library is releasing a new GA.
+    - Introduces authentication support using a named key via `AzureNamedKey` and `AzureNamedKeyCredential`. 
+    - Adds `Binary.toByteBuffer` which returns a read-only view of the `BinaryData` and `ProxyOptions.fromConfiguration(Configuration, boolean)` which allows for configuring if the returned proxy
+    
 ## Release Notes
 
 * [All release notes](index.md)
