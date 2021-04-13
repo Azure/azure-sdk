@@ -60,6 +60,7 @@ azure-mgmt-azurestack:1.0.0
 azure-mgmt-appplatform:6.0.0
 azure-mgmt-datashare:1.0.0
 azure-mgmt-hanaonazure:1.0.0
+azure-mgmt-healthcareapis:1.0.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -96,6 +97,7 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Resource Management - Synapse
 - Synapse - Artifacts
 - Event Hubs
+- Resource Management - Healthcare APIs
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -185,6 +187,7 @@ $> pip install azure-search-documents==11.2.0b1
 $> pip install azure-servicebus==7.1.1
 $> pip install azure-servicebus==7.2.0b1
 $> pip install azure-synapse-artifacts==0.6.0
+$> pip install azure-mgmt-healthcareapis==1.0.0
 
 ```
 
@@ -701,6 +704,12 @@ This version and all future versions will require Python 2.7 or Python 3.6+, Pyt
 ### Translation Document 1.0.0b1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-translation-document_1.0.0b1/sdk/translation/azure-ai-translation-document/CHANGELOG.md#100b1-2021-04-06)
 This is the first beta package of the azure-ai-translation-document client library that targets the Document Translation 
 service version `1.0-preview.1`. This package's documentation and samples demonstrate the new API.
+
+### Resource Management - Healthcare APIs 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-healthcareapis_1.0.0/sdk/healthcareapis/azure-mgmt-healthcareapis/CHANGELOG.md#100-2021-04-12)
+**Features**
+
+  - Model ServicesDescription has a new parameter system_data
+  - Model ServicesProperties has a new parameter acr_configuration
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
