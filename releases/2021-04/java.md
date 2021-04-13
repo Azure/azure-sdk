@@ -136,6 +136,13 @@ azure-resourcemanager-datafactory:1.0.0-beta.1
 azure-resourcemanager-kubernetesconfiguration:1.0.0-beta.1
 azure-resourcemanager-hdinsight:1.0.0-beta.2
 azure-resourcemanager-advisor:1.0.0-beta.1
+azure-resourcemanager-appconfiguration:1.0.0-beta.1
+azure-resourcemanager-avs:1.0.0-beta.1
+azure-resourcemanager-attestation:1.0.0-beta.1
+azure-resourcemanager-azurestackhci:1.0.0-beta.1
+azure-core-amqp:2.0.4
+azure-resourcemanager-consumption:1.0.0-beta.1
+azure-resourcemanager-azurestack:1.0.0-beta.1
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -150,6 +157,7 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Azure Core
 - Azure Cosmos DB
 - Azure Spring Data Cosmos
+- Azure EventGrid
 - Resource Management - Traffic Manager
 - Resource Management - Monitor
 - Resource Management - Key Vault
@@ -183,13 +191,14 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 
 #### Updates
 - Azure Core
+- Azure Core AMQP
 - Azure Core Serializer Jackson JSON
-- Azure Cosmos DB
-- Azure Spring Data Cosmos
 - Azure Core - Test
 - Azure Core Serializer GSON JSON
 - Azure Core Serializer Jackson JSON
 - Azure Core - HTTP OkHttp
+- Azure Cosmos DB
+- Azure Spring Data Cosmos
 - Azure AI Text Analytics
 - Azure AI Form Recognizer
 - Azure App Configuration
@@ -240,6 +249,12 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Resource Management - Kubernetesconfiguration
 - Resource Management - HDInsight
 - Resource Management - Advisor
+- Resource Management - Appconfiguration
+- Resource Management - Avs
+- Resource Management - Attestation
+- Resource Management - Azurestackhci
+- Resource Management - Consumption
+- Resource Management - Azurestack
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -1015,6 +1030,48 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <version>1.0.0-beta.1</version>
 </dependency>
 
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-appconfiguration</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-avs</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-attestation</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-azurestackhci</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-core-amqp</artifactId>
+  <version>2.0.4</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-consumption</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-azurestack</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
 
 ```
 
@@ -1098,38 +1155,14 @@ is resolved.
 ### Resource Management - Traffic Manager 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-trafficmanager_2.3.0/sdk/resourcemanager/azure-resourcemanager-trafficmanager/CHANGELOG.md#230-2021-03-30)
 - Updated core dependency from resources
 
-### Azure Spring Boot Starter 3.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot-starter_3.3.0/sdk/spring/azure-spring-boot-starter/CHANGELOG.md#330-2021-03-22)
-#### New Features
-- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
-
-### Azure Spring Cloud Stream Binder Event Hubs 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-stream-binder-eventhubs_2.3.0/sdk/spring/azure-spring-cloud-stream-binder-eventhubs/CHANGELOG.md#230-2021-03-22)
-#### New Features
-- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
-- Upgrade to `azure-messaging-eventhubs` [5.6.0](https://github.com/azure-sdk/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md#560-2021-03-10).
-
 ### Resource Management - Monitor 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-monitor_2.3.0/sdk/resourcemanager/azure-resourcemanager-monitor/CHANGELOG.md#230-2021-03-30)
 - Updated core dependency from resources
-
-### Azure Spring Cloud Messaging 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-messaging_2.3.0/sdk/spring/azure-spring-cloud-messaging/CHANGELOG.md#230-2021-03-22)
-#### New Features
-- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
-
-### Azure Spring Boot Starter Active Directory 3.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot-starter-active-directory_3.3.0/sdk/spring/azure-spring-boot-starter-active-directory/CHANGELOG.md#330-2021-03-22)
-#### New Features
-- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
-- Upgrade to `Spring Security` [5.4.5](https://github.com/spring-projects/spring-security/releases/tag/5.4.5).
-- Support creating `GrantedAuthority` by "roles" claim from id-token for web application.
 
 ### azure-cosmos-spark_3-1_2-12 4.0.0-alpha.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-cosmos-spark_3-1_2-12_4.0.0-alpha.1/sdk/cosmos/azure-cosmos-spark_3-1_2-12/CHANGELOG.md#400-alpha1-2021-03-17)
 * Cosmos DB Spark 3.1.1 Connector Test Release.
 
 ### Resource Management - Key Vault 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-keyvault_2.3.0/sdk/resourcemanager/azure-resourcemanager-keyvault/CHANGELOG.md#230-2021-03-30)
 - Updated core dependency from resources
-
-### Storage - Blobs NIO 12.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob-nio_12.0.0-beta.4/sdk/storage/azure-storage-blob-nio/CHANGELOG.md#1200-beta4-2021-03-29)
-- Made AzurePath.toBlobClient public
-- Added support for Azurite
-- Change FileSystem configuration to accept an endpoint and credential types instead of a string for the account name, key, and token
 
 ### Resource Management - Api Management 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-apimanagement_1.0.0-beta.1/sdk/apimanagement/azure-resourcemanager-apimanagement/CHANGELOG.md#100-beta1-2021-03-23)
 - Azure Resource Manager ApiManagement client library for Java. This package contains Microsoft Azure SDK for ApiManagement Management SDK. ApiManagement Client. Package tag package-2020-12. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
@@ -1177,49 +1210,15 @@ is resolved.
 - Added method overload of `getById` and `deleteById` in `GenericResources` to take `apiVersion` parameters. It is always recommended for user to provide the `apiVersion` parameter for consistency across service versions.
 - Supported `TagOperations`
 
-### Azure Spring Cloud Starter Event Hubs 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-starter-eventhubs_2.3.0/sdk/spring/azure-spring-cloud-starter-eventhubs/CHANGELOG.md#230-2021-03-22)
-#### New Features
-- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
-- Upgrade to `azure-messaging-eventhubs` [5.6.0](https://github.com/azure-sdk/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md#560-2021-03-10).
-
-### Azure Spring Cloud Autoconfigure 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-autoconfigure_2.3.0/sdk/spring/azure-spring-cloud-autoconfigure/CHANGELOG.md#230-2021-03-22)
-- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
-
-### Storage - Internal Avro 12.0.3-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-internal-avro_12.0.3-beta.2/sdk/storage/azure-storage-internal-avro/CHANGELOG.md#1203-beta2-2021-03-29)
-- Update `azure-storage-common` to version `12.11.0-beta.2`
-
-### Storage - Blobs Cryptography 12.11.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob-cryptography_12.11.0-beta.2/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md#12110-beta2-2021-03-29)
-- Update `azure-storage-blob` to version `12.11.0-beta.2`
-
 ### Resource Management - Cosmos DB 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-cosmos_2.3.0/sdk/resourcemanager/azure-resourcemanager-cosmos/CHANGELOG.md#230-2021-03-30)
 - Updated `api-version` to `2021-03-15`
 - Removed `PrivateEndpointConnectionAutoGenerated` and `PrivateLinkServiceConnectionStatePropertyAutoGenerated`, they are duplicate class of `PrivateEndpointConnection` and `PrivateLinkServiceConnectionStateProperty`, respectively.
 
-### Azure Spring Boot AutoConfigure 3.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot_3.3.0/sdk/spring/azure-spring-boot/CHANGELOG.md#330-2021-03-22)
-#### New Features
-Updated to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
-
-#### Key Bug Fixes
-- Fix bug of using closed `MessageProducer` and `MessageConsumer` when a link is force detached in azure-spring-boot-starter-servicebus-jms.
-
-#### New Features
-- Support creating `GrantedAuthority` by "roles" claim of id-token for web application in azure-spring-boot-starter-active-directory.
-
-### Azure Spring Cloud Starter Storage Queue 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-starter-storage-queue_2.3.0/sdk/spring/azure-spring-cloud-starter-storage-queue/CHANGELOG.md#230-2021-03-22)
-#### New Features
-- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
-
 ### Resource Management 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager_2.3.0/sdk/resourcemanager/azure-resourcemanager/CHANGELOG.md#230-2021-03-30)
 - Added client-side validation for `getByResourceGroup`, `listByResourceGroup`, `deleteByResourceGroup` methods.
 
-### Storage - Files Shares 12.9.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-file-share_12.9.0-beta.2/sdk/storage/azure-storage-file-share/CHANGELOG.md#1290-beta2-2021-03-29)
-- Updated azure-storage-common and azure-core dependencies.
-
 ### Resource Management - Private DNS 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-privatedns_2.3.0/sdk/resourcemanager/azure-resourcemanager-privatedns/CHANGELOG.md#230-2021-03-30)
 - Updated core dependency from resources
-
-### Storage - Blobs Batch 12.9.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob-batch_12.9.0-beta.2/sdk/storage/azure-storage-blob-batch/CHANGELOG.md#1290-beta2-2021-03-29)
-- Update `azure-storage-blob` to version `12.11.0-beta.2`
 
 ### Resource Management - Network 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-network_2.3.0/sdk/resourcemanager/azure-resourcemanager-network/CHANGELOG.md#230-2021-03-30)
 - Supported `PrivateEndpoint` and `PrivateDnsZone`
@@ -1227,23 +1226,8 @@ Updated to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/
 ### Resource Management - Content Delivery Network 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-cdn_2.3.0/sdk/resourcemanager/azure-resourcemanager-cdn/CHANGELOG.md#230-2021-03-30)
 - Updated core dependency from resources
 
-### Storage - Blobs 12.10.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob_12.10.2/sdk/storage/azure-storage-blob/CHANGELOG.md#12102-2021-03-26)
-- Fixed a bug where BlobInputStream would not use request conditions when doing the initial getProperties call in openInputStream.
-
 ### Resource Management - Change Analysis 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-changeanalysis_1.0.0-beta.1/sdk/changeanalysis/azure-resourcemanager-changeanalysis/CHANGELOG.md#100-beta1-2021-03-26)
 - Azure Resource Manager AzureChangeAnalysis client library for Java. This package contains Microsoft Azure SDK for AzureChangeAnalysis Management SDK.  Package tag package-2021-04-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
-
-### Azure Spring Cloud Integration Core 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-integration-core_2.3.0/sdk/spring/azure-spring-integration-core/CHANGELOG.md#230-2021-03-22)
-#### New Features
-- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
-- Upgrade to `Spring Integration` [5.4.4](https://github.com/spring-projects/spring-integration/releases/tag/v5.4.4).
-
-### Azure Spring Boot Starter Key Vault Secrets 3.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot-starter-keyvault-secrets_3.3.0/sdk/spring/azure-spring-boot-starter-keyvault-secrets/CHANGELOG.md#330-2021-03-22)
-#### New Features
-- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
-
-### Storage - Files Data Lake 12.4.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-file-datalake_12.4.1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md#1241-2021-03-19)
-- Updated `azure-storage-blob` version to `12.10.1` to pickup fixes for blob output stream.
 
 ### Resource Management - Resource Graph 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-resourcegraph_1.0.0-beta.1/sdk/resourcegraph/azure-resourcemanager-resourcegraph/CHANGELOG.md#100-beta1-2021-03-24)
 - Azure Resource Manager ResourceGraph client library for Java. This package contains Microsoft Azure SDK for ResourceGraph Management SDK. Azure Resource Graph API Reference. Package tag package-2021-03. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
@@ -1252,18 +1236,11 @@ Updated to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/
 ### Resource Management - Container Instances 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-containerinstance_2.3.0/sdk/resourcemanager/azure-resourcemanager-containerinstance/CHANGELOG.md#230-2021-03-30)
 - Updated core dependency from resources
 
-### Azure Spring Boot Starter Storage 3.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot-starter-storage_3.3.0/sdk/spring/azure-spring-boot-starter-storage/CHANGELOG.md#330-2021-03-22)
-#### New Features
-- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
-
 ### Core Serializer Jackson JSON 1.2.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-core-serializer-json-jackson_1.2.1/sdk/core/azure-core-serializer-json-jackson/CHANGELOG.md#121-2021-03-19)
 #### Bug Fixes
 
 - Fix a bug where `ClassNotFoundException` or `MethodNotFoundException` was thrown when Jackson 2.11 is resolved
   instead of Jackson 2.12. [#19897](https://github.com/Azure/azure-sdk-for-java/issues/19897)
-
-### Storage - Common 12.11.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-common_12.11.0-beta.2/sdk/storage/azure-storage-common/CHANGELOG.md#12110-beta2-2021-03-29)
-- Update `azure-core` to version `1.14.1`
 
 ### Cosmos DB 4.13.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-cosmos_4.13.1/sdk/cosmos/azure-cosmos/CHANGELOG.md#4131-2021-03-22)
 ##### Key Bug Fixes
@@ -1276,10 +1253,6 @@ Updated to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/
 - Parameter of `regenerateKey` method changed from `Policykey` to `KeyType`
 - Removed class `Policykey`, use `RegenerateKeysParameters` class instead
 - Class `SkuName`, `SkuTier`, `UnavailableReason` changed to enum
-
-### Azure Spring Cloud Storage 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-storage_2.3.0/sdk/spring/azure-spring-cloud-storage/CHANGELOG.md#230-2021-03-22)
-#### New Features
-- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
 
 ### Resource Management - Event Hubs 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-eventhubs_2.3.0/sdk/resourcemanager/azure-resourcemanager-eventhubs/CHANGELOG.md#230-2021-03-30)
 - Updated core dependency from resources
@@ -1357,53 +1330,17 @@ String messageText = body.toString();
 - Added `PurchasePhoneNumbersResult`.
 - Added `ReleasePhoneNumbersResult`.
 
-#### Breaking Changes
-- Renamed AcquiredPhoneNumber to PurchasedPhoneNumber.
-- Renamed PhoneNumbersAsyncClient.getPhoneNumber and PhoneNumbersClient.getPhoneNumber to PhoneNumbersAsyncClient.getPurchasedPhoneNumber and PhoneNumbersClient.getPurchasedPhoneNumber.
-- Renamed PhoneNumbersAsyncClient.getPhoneNumberWithResponse and PhoneNumbersClient.getPhoneNumberWithResponse to
-PhoneNumbersAsyncClient.getPurchasedPhoneNumberWithResponse and PhoneNumbersClient.getPurchasedPhoneNumberWithResponse.
-- Renamed PhoneNumbersAsyncClient.listPhoneNumbers and PhoneNumbersClient.listPhoneNumbers to PhoneNumbersAsyncClient.listPurchasedPhoneNumbers and PhoneNumbersClient.listPurchasedPhoneNumbers.
-- Updated `PollerFlux<PhoneNumberOperation, Void> beginPurchasePhoneNumbers` to `PollerFlux<PhoneNumberOperation, PurchasePhoneNumbersResult> beginPurchasePhoneNumbers` in PhoneNumbersAsyncClient.
-- Updated `PollerFlux<PhoneNumberOperation, Void> beginReleasePhoneNumber` to `public PollerFlux<PhoneNumberOperation, ReleasePhoneNumberResult> beginReleasePhoneNumber` in PhoneNumbersAsyncClient.
-- Updated `SyncPoller<PhoneNumberOperation, Void> beginPurchasePhoneNumbers` to ` SyncPoller<PhoneNumberOperation, PurchasePhoneNumbersResult> beginPurchasePhoneNumbers` in PhoneNumbersClient.
-- Updated `SyncPoller<PhoneNumberOperation, Void> beginReleasePhoneNumber` to `SyncPoller<PhoneNumberOperation, ReleasePhoneNumberResult> beginReleasePhoneNumber` in PhoneNumbersClient.
-- Updated `PollerFlux<PhoneNumberOperation, PurchasedPhoneNumber> beginUpdatePhoneNumberCapabilities(String phoneNumber, PhoneNumberCapabilitiesRequest capabilitiesUpdateRequest)` to `PollerFlux<PhoneNumberOperation, PurchasedPhoneNumber> beginUpdatePhoneNumberCapabilities(String phoneNumber, PhoneNumberCapabilities capabilities)`.
-- Updated `SyncPoller<PhoneNumberOperation, PurchasedPhoneNumber> beginUpdatePhoneNumberCapabilities(String phoneNumber, PhoneNumberCapabilitiesRequest capabilitiesUpdateRequest)` to `SyncPoller<PhoneNumberOperation, PurchasedPhoneNumber> beginUpdatePhoneNumberCapabilities(String phoneNumber, PhoneNumberCapabilities capabilities)`.
-- Removed `CommunicationError`.
-- Removed `PhoneNumberCapabilitiesRequest`.
-- Moved `ReservationStatus` to the `models` folder.
-
 ### Resource Management - Communication 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-communication_1.0.0-beta.1/sdk/communication/azure-resourcemanager-communication/CHANGELOG.md#100-beta1-2021-03-23)
 - Azure Resource Manager Communication client library for Java. This package contains Microsoft Azure SDK for Communication Management SDK. REST API for Azure Communication Services. Package tag package-2020-08-20. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
-### Azure Spring Boot Starter Active Directory B2C 3.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot-starter-active-directory-b2c_3.3.0/sdk/spring/azure-spring-boot-starter-active-directory-b2c/CHANGELOG.md#330-2021-03-22)
-#### New Features
-- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
-- Upgrade to `Spring Security` [5.4.5](https://github.com/spring-projects/spring-security/releases/tag/5.4.5).
-
-### Storage - Blobs 12.11.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob_12.11.0-beta.2/sdk/storage/azure-storage-blob/CHANGELOG.md#12110-beta2-2021-03-29)
-- Fixed a bug where downloading would throw a NPE on large downloads due to a lack of eTag.
-- Fixed a bug where more data would be buffered in buffered upload than expected due to Reactor's concatMap operator.
-- Added upload and download methods on BlobClient and BlobAsyncClient that work with BinaryData.
-- Fixed a bug that ignored the page size when calling PagedIterable.byPage(pageSize)
-
 ### Resource Management - Spring Cloud 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-appplatform_2.3.0/sdk/resourcemanager/azure-resourcemanager-appplatform/CHANGELOG.md#230-2021-03-30)
 - Updated core dependency from resources
-
-### Azure Identity Spring 1.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-identity-spring_1.3.0/sdk/spring/azure-identity-spring/CHANGELOG.md#130-2021-03-22)
-#### New Features
-- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
 
 ### Resource Management - App Service 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-appservice_2.3.0/sdk/resourcemanager/azure-resourcemanager-appservice/CHANGELOG.md#230-2021-03-30)
 - Updated core dependency from resources
 
 ### Resource Management - DNS 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-dns_2.3.0/sdk/resourcemanager/azure-resourcemanager-dns/CHANGELOG.md#230-2021-03-30)
 - Updated core dependency from resources
-
-### Azure Spring Cloud Integration Test 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-integration-test_2.3.0/sdk/spring/azure-spring-integration-test/CHANGELOG.md#230-2021-03-22)
-#### New Features
-- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
-- Upgrade to `Spring Integration` [5.4.4](https://github.com/spring-projects/spring-integration/releases/tag/v5.4.4).
 
 ### Resource Management - Datadog 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-datadog_1.0.0-beta.2/sdk/datadog/azure-resourcemanager-datadog/CHANGELOG.md#100-beta2-2021-03-30)
 - Azure Resource Manager MicrosoftDatadog client library for Java. This package contains Microsoft Azure SDK for MicrosoftDatadog Management SDK.  Package tag package-2021-03. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
@@ -1449,56 +1386,11 @@ PhoneNumbersAsyncClient.getPurchasedPhoneNumberWithResponse and PhoneNumbersClie
 ### Resource Management - Managed Service Identity 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-msi_2.3.0/sdk/resourcemanager/azure-resourcemanager-msi/CHANGELOG.md#230-2021-03-30)
 - Updated core dependency from resources
 
-### Key Vault - JCA 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-jca_1.0.0-beta.5/sdk/keyvault/azure-security-keyvault-jca/CHANGELOG.md#100-beta5-2021-03-22)
-
-
-### Azure Spring Cloud Stream Binder Service bus Queue 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-stream-binder-servicebus-queue_2.3.0/sdk/spring/azure-spring-cloud-stream-binder-servicebus-queue/CHANGELOG.md#230-2021-03-22)
-#### New Features
-- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
-- Support setting service-bus message-id ([#20005](https://github.com/Azure/azure-sdk-for-java/issues/20005)).
-
-### Azure Spring Boot Starter Cosmos 3.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot-starter-cosmos_3.3.0/sdk/spring/azure-spring-boot-starter-cosmos/CHANGELOG.md#330-2021-03-22)
-#### New Features
-- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
-- Upgrade to `azure-spring-data-cosmos` [3.5.0](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md#350-2021-03-11)
-
-### Azure Spring Cloud Stream Binder Service bus Topic 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-stream-binder-servicebus-topic_2.3.0/sdk/spring/azure-spring-cloud-stream-binder-servicebus-topic/CHANGELOG.md#230-2021-03-22)
-#### New Features
-- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
-- Support setting service-bus message-id ([#20005](https://github.com/Azure/azure-sdk-for-java/issues/20005)).
-
-### Storage - Files Data Lake 12.5.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-file-datalake_12.5.0-beta.2/sdk/storage/azure-storage-file-datalake/CHANGELOG.md#1250-beta2-2021-03-29)
-- Fixed a bug where files/directories in root directories could not be renamed.
-- Fixed a bug where more data would be buffered in buffered upload than expected due to Reactor's concatMap operator.
-
-### Storage - Blobs 12.10.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob_12.10.1/sdk/storage/azure-storage-blob/CHANGELOG.md#12101-2021-03-19)
-- Removed a deep copy in the general upload path to reduce memory consumption and increase perf
-- Added a deep copy immediately after calling BlobOutputStream.write to prevent overwriting data in the case of reusing a single buffer to write to an output stream
-
-### Azure Spring Boot Starter Key Vault Certificates 3.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot-starter-keyvault-certificates_3.0.0-beta.5/sdk/spring/azure-spring-boot-starter-keyvault-certificates/CHANGELOG.md#300-beta5-2021-03-22)
-#### New Features
-- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
-
 ### Resource Management - SQL 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-sql_2.3.0/sdk/resourcemanager/azure-resourcemanager-sql/CHANGELOG.md#230-2021-03-30)
 - Updated core dependency from resources
 
 ### Resource Management - Redis 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-redis_2.3.0/sdk/resourcemanager/azure-resourcemanager-redis/CHANGELOG.md#230-2021-03-30)
 - Updated core dependency from resources
-
-### Azure Spring Cloud Context 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-context_2.3.0/sdk/spring/azure-spring-cloud-context/CHANGELOG.md#230-2021-03-22)
-#### New Features
-- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
-
-### Storage - Common 12.10.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-common_12.10.1/sdk/storage/azure-storage-common/CHANGELOG.md#12101-2021-03-19)
-- Removed a deep copy in PayloadSizeGate
-
-### Azure Spring Cloud Stream Binder Test 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-stream-binder-test_2.3.0/sdk/spring/azure-spring-cloud-stream-binder-test/CHANGELOG.md#230-2021-03-22)
-#### New Features
-- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
-
-### Azure Spring Cloud Starter Event Hubs Kafka 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-starter-eventhubs-kafka_2.3.0/sdk/spring/azure-spring-cloud-starter-eventhubs-kafka/CHANGELOG.md#230-2021-03-22)
-#### New Features
-- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
 
 ### Resource Management - Delegated Network 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-delegatednetwork_1.0.0-beta.1/sdk/delegatednetwork/azure-resourcemanager-delegatednetwork/CHANGELOG.md#100-beta1-2021-03-26)
 - Azure Resource Manager DelegatedNetwork client library for Java. This package contains Microsoft Azure SDK for DelegatedNetwork Management SDK. DNC web api provides way to create, get and delete dnc controller. Package tag package-2021-03-15. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
@@ -1512,26 +1404,9 @@ PhoneNumbersAsyncClient.getPurchasedPhoneNumberWithResponse and PhoneNumbersClie
 - Updated `api-version` to `2021-03-01`
 - Corrected class type for `EncryptionImages`, `GalleryImageVersionStorageProfile`, `GalleryImageVersionUpdate`, `ImageDataDisk`, `ManagedDiskParameters`, `VirtualMachineScaleSetManagedDiskParameters`
 
-### Azure Spring Cloud Stream Binder Service bus Core 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-stream-binder-servicebus-core_2.3.0/sdk/spring/azure-spring-cloud-stream-binder-servicebus-core/CHANGELOG.md#230-2021-03-22)
-#### New Features
-- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
-
 ### Spring Data Cosmos 3.5.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-data-cosmos_3.5.1/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md#351-2021-03-24)
 ##### Key Bug Fixes
 * Updated `azure-cosmos` to hotfix version 4.13.1.
-
-### Azure Spring Cloud Starter Service bus 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-starter-servicebus_2.3.0/sdk/spring/azure-spring-cloud-starter-servicebus/CHANGELOG.md#230-2021-03-22)
-- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
-
-### Azure Spring Boot Starter Service bus Jms 3.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot-starter-servicebus-jms_3.3.0/sdk/spring/azure-spring-boot-starter-servicebus-jms/CHANGELOG.md#330-2021-03-22)
-#### New Features
-- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
-#### Key Bug Fixes
-- Fix bug of using closed `MessageProducer` and `MessageConsumer` when a link is force detached.
-
-### Azure Spring Cloud Telemetry 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-telemetry_2.3.0/sdk/spring/azure-spring-cloud-telemetry/CHANGELOG.md#230-2021-03-22)
-#### New Features
-- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
 
 ### Core - Test 1.6.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-core-test_1.6.1/sdk/core/azure-core-test/CHANGELOG.md#161-2021-04-02)
 #### Dependency Updates
@@ -1696,225 +1571,12 @@ PhoneNumbersAsyncClient.getPurchasedPhoneNumberWithResponse and PhoneNumbersClie
 #### Breaking Change
 
 * `models.ReportConfigFilterAutoGenerated` was removed
-
 * `models.ExportTimePeriod` was removed
-
 * `models.ExportDatasetConfiguration` was removed
-
 * `models.ForecastDataset` was removed
-
 * `models.ReportConfigDatasetAutoGenerated` was removed
-
 * `models.ExportDataset` was removed
 
-##### `models.View$Update` was modified
-
-* `withDataset(models.ReportConfigDataset)` was removed
-
-##### `models.View` was modified
-
-* `dataset()` was removed
-
-##### `models.Export` was modified
-
-* `nextRunTimeEstimate()` was removed
-* `runHistory()` was removed
-
-##### `models.ExportExecution` was modified
-
-* `models.ExecutionType executionType()` -> `models.ExecutionType executionType()`
-* `models.CommonExportProperties runSettings()` -> `models.CommonExportProperties runSettings()`
-* `java.lang.String fileName()` -> `java.lang.String fileName()`
-* `java.lang.String submittedBy()` -> `java.lang.String submittedBy()`
-* `etag()` was removed
-* `java.time.OffsetDateTime processingStartTime()` -> `java.time.OffsetDateTime processingStartTime()`
-* `models.ExecutionStatus status()` -> `models.ExecutionStatus status()`
-* `type()` was removed
-* `error()` was removed
-* `java.time.OffsetDateTime submittedTime()` -> `java.time.OffsetDateTime submittedTime()`
-* `name()` was removed
-* `id()` was removed
-* `java.time.OffsetDateTime processingEndTime()` -> `java.time.OffsetDateTime processingEndTime()`
-* `innerModel()` was removed
-
-##### `models.ForecastDefinition` was modified
-
-* `models.ForecastDataset dataset()` -> `models.QueryDataset dataset()`
-* `withDataset(models.ForecastDataset)` was removed
-
-##### `models.QueryFilter` was modified
-
-* `dimension()` was removed
-* `withTag(models.QueryComparisonExpression)` was removed
-* `withNot(models.QueryFilter)` was removed
-* `tag()` was removed
-* `withDimension(models.QueryComparisonExpression)` was removed
-* `not()` was removed
-
-##### `models.Export$Update` was modified
-
-* `withRunHistory(fluent.models.ExportExecutionListResultInner)` was removed
-
-##### `models.ExportDefinition` was modified
-
-* `withDataSet(models.ExportDataset)` was removed
-* `withTimePeriod(models.ExportTimePeriod)` was removed
-* `models.ExportTimePeriod timePeriod()` -> `models.QueryTimePeriod timePeriod()`
-* `models.ExportDataset dataSet()` -> `models.QueryDatasetAutoGenerated dataSet()`
-
-##### `models.View$Definition` was modified
-
-* `withDataset(models.ReportConfigDataset)` was removed
-
-##### `models.CommonExportProperties` was modified
-
-* `models.ExportDefinition definition()` -> `models.ExportDefinition definition()`
-* `innerModel()` was removed
-* `runHistory()` was removed
-* `models.ExportDeliveryInfo deliveryInfo()` -> `models.ExportDeliveryInfo deliveryInfo()`
-* `nextRunTimeEstimate()` was removed
-* `models.FormatType format()` -> `models.FormatType format()`
-
-##### `models.Exports` was modified
-
-* `listWithResponse(java.lang.String,java.lang.String,com.azure.core.util.Context)` was removed
-* `getByIdWithResponse(java.lang.String,java.lang.String,com.azure.core.util.Context)` was removed
-* `getWithResponse(java.lang.String,java.lang.String,java.lang.String,com.azure.core.util.Context)` was removed
-
-##### `models.Export$Definition` was modified
-
-* `withRunHistory(fluent.models.ExportExecutionListResultInner)` was removed
-
-##### `models.ReportConfigFilter` was modified
-
-* `withNot(models.ReportConfigFilter)` was removed
-* `dimension()` was removed
-* `tag()` was removed
-* `not()` was removed
-* `withDimension(models.ReportConfigComparisonExpression)` was removed
-* `withTag(models.ReportConfigComparisonExpression)` was removed
-
-##### `models.ExportProperties` was modified
-
-* `withRunHistory(fluent.models.ExportExecutionListResultInner)` was removed
-* `fluent.models.CommonExportPropertiesInner withFormat(models.FormatType)` -> `models.CommonExportProperties withFormat(models.FormatType)`
-* `fluent.models.CommonExportPropertiesInner withDefinition(models.ExportDefinition)` -> `models.CommonExportProperties withDefinition(models.ExportDefinition)`
-* `fluent.models.CommonExportPropertiesInner withDeliveryInfo(models.ExportDeliveryInfo)` -> `models.CommonExportProperties withDeliveryInfo(models.ExportDeliveryInfo)`
-* `withRunHistory(fluent.models.ExportExecutionListResultInner)` was removed
-
-#### New Feature
-
-* `models.GenerateReservationDetailsReports` was added
-
-* `models.GenerateReservationDetailsReportsByBillingProfileIdHeaders` was added
-
-* `models.GenerateReservationDetailsReportsByBillingAccountIdResponse` was added
-
-* `models.Status` was added
-
-* `models.Setting` was added
-
-* `models.GenerateReservationDetailsReportsByBillingAccountIdHeaders` was added
-
-* `models.OperationStatusType` was added
-
-* `models.QueryFilterAutoGenerated` was added
-
-* `models.ProxySettingResource` was added
-
-* `models.GenerateReservationDetailsReportsByBillingProfileIdResponse` was added
-
-* `models.Settings` was added
-
-* `models.SettingsListResult` was added
-
-* `models.OperationStatus` was added
-
-* `models.QueryDatasetAutoGenerated` was added
-
-##### `CostManagementManager` was modified
-
-* `settings()` was added
-* `generateReservationDetailsReports()` was added
-
-##### `models.View$Update` was modified
-
-* `withDataSet(models.ReportConfigDataset)` was added
-
-##### `models.View` was modified
-
-* `currency()` was added
-* `includeMonetaryCommitment()` was added
-* `dataSet()` was added
-* `dateRange()` was added
-
-##### `models.Export` was modified
-
-* `executeWithResponse(com.azure.core.util.Context)` was added
-* `execute()` was added
-
-##### `models.ExportExecution` was modified
-
-* `withSubmittedBy(java.lang.String)` was added
-* `tags()` was added
-* `withSubmittedTime(java.time.OffsetDateTime)` was added
-* `withExecutionType(models.ExecutionType)` was added
-* `withRunSettings(models.CommonExportProperties)` was added
-* `validate()` was added
-* `withStatus(models.ExecutionStatus)` was added
-* `withProcessingStartTime(java.time.OffsetDateTime)` was added
-* `withFileName(java.lang.String)` was added
-* `withProcessingEndTime(java.time.OffsetDateTime)` was added
-
-##### `models.ForecastDefinition` was modified
-
-* `withDataset(models.QueryDataset)` was added
-
-##### `models.QueryFilter` was modified
-
-* `withTags(models.QueryComparisonExpression)` was added
-* `dimensions()` was added
-* `withDimensions(models.QueryComparisonExpression)` was added
-* `tags()` was added
-
-##### `models.ExportDefinition` was modified
-
-* `withTimePeriod(models.QueryTimePeriod)` was added
-* `withDataSet(models.QueryDatasetAutoGenerated)` was added
-
-##### `models.View$Definition` was modified
-
-* `withDataSet(models.ReportConfigDataset)` was added
-
-##### `models.CommonExportProperties` was modified
-
-* `validate()` was added
-* `withDeliveryInfo(models.ExportDeliveryInfo)` was added
-* `withFormat(models.FormatType)` was added
-* `withDefinition(models.ExportDefinition)` was added
-
-##### `models.Exports` was modified
-
-* `getWithResponse(java.lang.String,java.lang.String,com.azure.core.util.Context)` was added
-* `getByIdWithResponse(java.lang.String,com.azure.core.util.Context)` was added
-* `listWithResponse(java.lang.String,com.azure.core.util.Context)` was added
-
-##### `models.ReportConfigFilter` was modified
-
-* `tagKey()` was added
-* `dimensions()` was added
-* `withDimensions(models.ReportConfigComparisonExpression)` was added
-* `tags()` was added
-* `withTagKey(models.ReportConfigComparisonExpression)` was added
-* `tagValue()` was added
-* `withTags(models.ReportConfigComparisonExpression)` was added
-* `withTagValue(models.ReportConfigComparisonExpression)` was added
-
-##### `models.QueryResult` was modified
-
-* `sku()` was added
-* `etag()` was added
-* `location()` was added
 ### azure-resourcemanager-resourcehealth 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-resourcehealth_1.0.0-beta.1/sdk/resourcehealth/azure-resourcemanager-resourcehealth/CHANGELOG.md#100-beta1-2021-04-08)
 - Azure Resource Manager ResourceHealth client library for Java. This package contains Microsoft Azure SDK for ResourceHealth Management SDK. The Resource Health Client. Package tag package-2018-07-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
@@ -1968,61 +1630,13 @@ PhoneNumbersAsyncClient.getPurchasedPhoneNumberWithResponse and PhoneNumbersClie
 #### Breaking Change
 
 * `MediaservicesManager` was removed
-
 * `models.CreatedByType` was removed
-
 * `MediaservicesManager$Configurable` was removed
-
 * `models.SystemData` was removed
-
-##### `models.MediaService` was modified
-
-* `models.SystemData systemData()` -> `com.azure.core.management.SystemData systemData()`
-
-##### `models.AssetFilter` was modified
-
-* `models.SystemData systemData()` -> `com.azure.core.management.SystemData systemData()`
-
-##### `models.LiveEvent` was modified
-
-* `models.SystemData systemData()` -> `com.azure.core.management.SystemData systemData()`
-
-##### `models.AccountFilter` was modified
-
-* `models.SystemData systemData()` -> `com.azure.core.management.SystemData systemData()`
-
-##### `models.Asset` was modified
-
-* `models.SystemData systemData()` -> `com.azure.core.management.SystemData systemData()`
-
-##### `models.StreamingLocator` was modified
-
-* `models.SystemData systemData()` -> `com.azure.core.management.SystemData systemData()`
-
-##### `models.StreamingPolicy` was modified
-
-* `models.SystemData systemData()` -> `com.azure.core.management.SystemData systemData()`
-
-##### `models.StreamingEndpoint` was modified
-
-* `models.SystemData systemData()` -> `com.azure.core.management.SystemData systemData()`
-
-##### `models.ContentKeyPolicy` was modified
-
-* `models.SystemData systemData()` -> `com.azure.core.management.SystemData systemData()`
-
-##### `models.Job` was modified
-
-* `models.SystemData systemData()` -> `com.azure.core.management.SystemData systemData()`
-
-##### `models.Transform` was modified
-
-* `models.SystemData systemData()` -> `com.azure.core.management.SystemData systemData()`
 
 #### New Feature
 
 * `MediaServicesManager` was added
-
 * `MediaServicesManager$Configurable` was added
 
 ##### `models.JpgFormat` was modified
@@ -2051,6 +1665,23 @@ PhoneNumbersAsyncClient.getPurchasedPhoneNumberWithResponse and PhoneNumbersClie
   `setReadOnly(ConfigurationSetting setting, boolean isReadOnly)`
 - Added a new method that accepts `ClientOptions` in `ConfigurationClientBuilder`.
 
+### Key Vault - Keys 4.2.7 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-keys_4.2.7/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md#427-2021-04-08)
+#### Breaking Changes
+##### Behavioral Changes
+- NullPointerExceptions thrown by client builders when setting configuration properties are now properly logger at the ERROR level.
+
+
+### Key Vault - Secrets 4.2.7 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-keys_4.2.7/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md#427-2021-04-08)
+#### Breaking Changes
+##### Behavioral Changes
+- NullPointerExceptions thrown by client builders when setting configuration properties are now properly logger at the ERROR level.
+
+
+### Key Vault - Certificates 4.1.7 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-keys_4.2.7/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md#417-2021-04-08)
+#### Breaking Changes
+##### Behavioral Changes
+- NullPointerExceptions thrown by client builders when setting configuration properties are now properly logger at the ERROR level.
+
 ### Key Vault - Administration 4.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-administration_4.0.0-beta.6/sdk/keyvault/azure-security-keyvault-administration/CHANGELOG.md#400-beta6-2021-04-09)
 #### New features
 - Added support for service version `7.2`.
@@ -2063,6 +1694,7 @@ PhoneNumbersAsyncClient.getPurchasedPhoneNumberWithResponse and PhoneNumbersClie
 
 #### Breaking Changes
 - Changed `KeyVaultSecretIdentifier` so it is instantiated via its constructor as opposed to via a `parse()` factory method.
+
 
 ### Key Vault - Keys 4.3.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-keys_4.3.0-beta.6/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md#430-beta6-2021-04-09)
 #### Breaking Changes
@@ -2109,223 +1741,54 @@ PhoneNumbersAsyncClient.getPurchasedPhoneNumberWithResponse and PhoneNumbersClie
 ### Resource Management - HDInsight 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-hdinsight_1.0.0-beta.2/sdk/hdinsight/azure-resourcemanager-hdinsight/CHANGELOG.md#100-beta2-2021-04-12)
 - Azure Resource Manager HDInsight client library for Java. This package contains Microsoft Azure SDK for HDInsight Management SDK. HDInsight Management Client. Package tag package-2018-06-preview. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
-#### Breaking Change
-
-##### `models.Extensions` was modified
-
-* `create(java.lang.String,java.lang.String,java.lang.String,fluent.models.ExtensionInner)` was removed
-* `create(java.lang.String,java.lang.String,java.lang.String,fluent.models.ExtensionInner,com.azure.core.util.Context)` was removed
-* `models.Extension get(java.lang.String,java.lang.String,java.lang.String)` -> `models.ClusterMonitoringResponse get(java.lang.String,java.lang.String,java.lang.String)`
-
-##### `models.Usage` was modified
-
-* `java.lang.Integer currentValue()` -> `java.lang.Long currentValue()`
-* `withCurrentValue(java.lang.Integer)` was removed
-* `withLimit(java.lang.Integer)` was removed
-* `java.lang.Integer limit()` -> `java.lang.Long limit()`
-
-##### `models.VmSizeCompatibilityFilter` was modified
-
-* `vmsizes()` was removed
-* `withVmsizes(java.util.List)` was removed
-
-##### `models.CapabilitiesResult` was modified
-
-* `vmSizeFilters()` was removed
-* `vmSizes()` was removed
-
-##### `models.VersionSpec` was modified
-
-* `java.lang.String isDefault()` -> `java.lang.Boolean isDefault()`
-* `withIsDefault(java.lang.String)` was removed
-
-##### `models.Extension` was modified
-
-* `innerModel()` was removed
-* `java.lang.String workspaceId()` -> `java.lang.String workspaceId()`
-* `java.lang.String primaryKey()` -> `java.lang.String primaryKey()`
-
-##### `models.ApplicationGetHttpsEndpoint` was modified
-
-* `withLocation(java.lang.String)` was removed
-* `withPublicPort(java.lang.Integer)` was removed
-
 #### New Feature
 
 * `models.AsyncOperationResult` was added
-
 * `models.VmSizeProperty` was added
-
 * `models.ServiceSpecification` was added
-
 * `models.NameAvailabilityCheckRequestParameters` was added
-
 * `models.Dimension` was added
-
 * `models.ValidationErrorInfo` was added
-
 * `models.ClusterCreateValidationResult` was added
-
 * `models.MetricSpecifications` was added
-
 * `models.ExcludedServicesConfig` was added
-
 * `models.OperationProperties` was added
-
 * `models.NameAvailabilityCheckResult` was added
-
 * `models.ClusterCreateRequestValidationParameters` was added
-
 * `models.AaddsResourceDetails` was added
-
 * `models.UpdateClusterIdentityCertificateParameters` was added
 
-##### `models.VirtualMachines` was modified
-
-* `getAsyncOperationStatus(java.lang.String,java.lang.String,java.lang.String)` was added
-* `getAsyncOperationStatusWithResponse(java.lang.String,java.lang.String,java.lang.String,com.azure.core.util.Context)` was added
-
-##### `models.Role` was modified
-
-* `encryptDataDisks()` was added
-* `withEncryptDataDisks(java.lang.Boolean)` was added
-* `withVMGroupName(java.lang.String)` was added
-* `vMGroupName()` was added
-
-##### `models.Extensions` was modified
-
-* `getAzureAsyncOperationStatusWithResponse(java.lang.String,java.lang.String,java.lang.String,java.lang.String,com.azure.core.util.Context)` was added
-* `create(java.lang.String,java.lang.String,java.lang.String,models.Extension)` was added
-* `create(java.lang.String,java.lang.String,java.lang.String,models.Extension,com.azure.core.util.Context)` was added
-* `getAzureAsyncOperationStatus(java.lang.String,java.lang.String,java.lang.String,java.lang.String)` was added
-
-##### `models.KafkaRestProperties` was modified
-
-* `configurationOverride()` was added
-* `withConfigurationOverride(java.util.Map)` was added
-
-##### `models.ApplicationGetEndpoint` was modified
-
-* `privateIpAddress()` was added
-* `withPrivateIpAddress(java.lang.String)` was added
-
-##### `models.Cluster` was modified
-
-* `rotateDiskEncryptionKey(models.ClusterDiskEncryptionParameters)` was added
-* `executeScriptActions(models.ExecuteScriptActionParameters)` was added
-* `rotateDiskEncryptionKey(models.ClusterDiskEncryptionParameters,com.azure.core.util.Context)` was added
-* `updateIdentityCertificate(models.UpdateClusterIdentityCertificateParameters,com.azure.core.util.Context)` was added
-* `updateGatewaySettings(models.UpdateGatewaySettingsParameters,com.azure.core.util.Context)` was added
-* `getGatewaySettingsWithResponse(com.azure.core.util.Context)` was added
-* `getGatewaySettings()` was added
-* `updateGatewaySettings(models.UpdateGatewaySettingsParameters)` was added
-* `updateIdentityCertificate(models.UpdateClusterIdentityCertificateParameters)` was added
-* `executeScriptActions(models.ExecuteScriptActionParameters,com.azure.core.util.Context)` was added
-
-##### `models.BillingResponseListResult` was modified
-
-* `vmSizesWithEncryptionAtHost()` was added
-* `vmSizeProperties()` was added
-
-##### `models.Usage` was modified
-
-* `withCurrentValue(java.lang.Long)` was added
-* `withLimit(java.lang.Long)` was added
-
-##### `models.Locations` was modified
-
-* `validateClusterCreateRequestWithResponse(java.lang.String,models.ClusterCreateRequestValidationParameters,com.azure.core.util.Context)` was added
-* `checkNameAvailabilityWithResponse(java.lang.String,models.NameAvailabilityCheckRequestParameters,com.azure.core.util.Context)` was added
-* `getAzureAsyncOperationStatus(java.lang.String,java.lang.String)` was added
-* `checkNameAvailability(java.lang.String,models.NameAvailabilityCheckRequestParameters)` was added
-* `getAzureAsyncOperationStatusWithResponse(java.lang.String,java.lang.String,com.azure.core.util.Context)` was added
-* `validateClusterCreateRequest(java.lang.String,models.ClusterCreateRequestValidationParameters)` was added
-
-##### `models.ClusterIdentityUserAssignedIdentities` was modified
-
-* `withTenantId(java.lang.String)` was added
-* `tenantId()` was added
-
-##### `models.VmSizeCompatibilityFilter` was modified
-
-* `osType()` was added
-* `computeIsolationSupported()` was added
-* `espApplied()` was added
-* `withVMSizes(java.util.List)` was added
-* `withOsType(java.util.List)` was added
-* `vMSizes()` was added
-* `withComputeIsolationSupported(java.lang.String)` was added
-* `withEspApplied(java.lang.String)` was added
-
-##### `models.OperationDisplay` was modified
-
-* `withDescription(java.lang.String)` was added
-* `description()` was added
-
-##### `models.CapabilitiesResult` was modified
-
-* `vmsizes()` was added
-* `vmsizeFilters()` was added
-
-##### `models.VersionSpec` was modified
-
-* `withIsDefault(java.lang.Boolean)` was added
-
-##### `models.StorageAccount` was modified
-
-* `withSaskey(java.lang.String)` was added
-* `withFileshare(java.lang.String)` was added
-* `fileshare()` was added
-* `saskey()` was added
-
-##### `models.ConnectivityEndpoint` was modified
-
-* `privateIpAddress()` was added
-* `withPrivateIpAddress(java.lang.String)` was added
-
-##### `models.Operation` was modified
-
-* `properties()` was added
-
-##### `models.Extension` was modified
-
-* `withPrimaryKey(java.lang.String)` was added
-* `validate()` was added
-* `withWorkspaceId(java.lang.String)` was added
-
-##### `models.ApplicationGetHttpsEndpoint` was modified
-
-* `privateIpAddress()` was added
-* `withPrivateIpAddress(java.lang.String)` was added
-
-##### `models.Clusters` was modified
-
-* `getAzureAsyncOperationStatusWithResponse(java.lang.String,java.lang.String,java.lang.String,com.azure.core.util.Context)` was added
-* `updateIdentityCertificate(java.lang.String,java.lang.String,models.UpdateClusterIdentityCertificateParameters)` was added
-* `getAzureAsyncOperationStatus(java.lang.String,java.lang.String,java.lang.String)` was added
-* `updateIdentityCertificate(java.lang.String,java.lang.String,models.UpdateClusterIdentityCertificateParameters,com.azure.core.util.Context)` was added
-
-##### `models.ScriptActions` was modified
-
-* `getExecutionAsyncOperationStatusWithResponse(java.lang.String,java.lang.String,java.lang.String,com.azure.core.util.Context)` was added
-* `getExecutionAsyncOperationStatus(java.lang.String,java.lang.String,java.lang.String)` was added
-
-##### `models.ClusterGetProperties` was modified
-
-* `excludedServicesConfig()` was added
-* `storageProfile()` was added
-* `withStorageProfile(models.StorageProfile)` was added
-* `clusterHdpVersion()` was added
-* `withExcludedServicesConfig(models.ExcludedServicesConfig)` was added
-* `withClusterHdpVersion(java.lang.String)` was added
-
-##### `models.Applications` was modified
-
-* `getAzureAsyncOperationStatusWithResponse(java.lang.String,java.lang.String,java.lang.String,java.lang.String,com.azure.core.util.Context)` was added
-* `getAzureAsyncOperationStatus(java.lang.String,java.lang.String,java.lang.String,java.lang.String)` was added
 
 ### azure-resourcemanager-advisor 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-advisor_1.0.0-beta.1/sdk/advisor/azure-resourcemanager-advisor/CHANGELOG.md#100-beta1-2021-04-12)
 - Azure Resource Manager Advisor client library for Java. This package contains Microsoft Azure SDK for Advisor Management SDK. REST APIs for Azure Advisor. Package tag package-2020-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-appconfiguration 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-appconfiguration_1.0.0-beta.1/sdk/appconfiguration/azure-resourcemanager-appconfiguration/CHANGELOG.md#100-beta1-2021-04-12)
+- Azure Resource Manager AppConfiguration client library for Java. This package contains Microsoft Azure SDK for AppConfiguration Management SDK.  Package tag package-2020-06-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-avs 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-avs_1.0.0-beta.1/sdk/avs/azure-resourcemanager-avs/CHANGELOG.md#100-beta1-2021-04-13)
+- Azure Resource Manager Avs client library for Java. This package contains Microsoft Azure SDK for Avs Management SDK. Azure VMware Solution API. Package tag package-2020-03-20. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-attestation 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-attestation_1.0.0-beta.1/sdk/attestation/azure-resourcemanager-attestation/CHANGELOG.md#100-beta1-2021-04-12)
+- Azure Resource Manager Attestation client library for Java. This package contains Microsoft Azure SDK for Attestation Management SDK. Various APIs for managing resources in attestation service. This primarily encompasses per-provider management. Package tag package-2020-10-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-azurestackhci 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-azurestackhci_1.0.0-beta.1/sdk/azurestackhci/azure-resourcemanager-azurestackhci/CHANGELOG.md#100-beta1-2021-04-12)
+- Azure Resource Manager AzureStackHci client library for Java. This package contains Microsoft Azure SDK for AzureStackHci Management SDK. Azure Stack HCI management service. Package tag package-2020-10. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### Core - AMQP 2.0.4 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-core-amqp_2.0.4/sdk/core/azure-core-amqp/CHANGELOG.md#204-2021-04-12)
+#### Bug Fixes
+
+- Fixed recovery of AMQP connection and receiver after a disconnect or a transient error occurs.
+- Closing AMQP sender/receiver when it is no longer authorized.
+- Fixed bug where the same endpoint state would not be emitted.
+- Decreased the number of duplicated and verbose logs.
+- Fixed NullPointerExceptions where there is no connection to initialize.
+- Fixed issue with contending threads trying to use the same drain loop via 'wip' in ReactorDispatcher.
+
+### azure-resourcemanager-consumption 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-consumption_1.0.0-beta.1/sdk/consumption/azure-resourcemanager-consumption/CHANGELOG.md#100-beta1-2021-04-13)
+- Azure Resource Manager Consumption client library for Java. This package contains Microsoft Azure SDK for Consumption Management SDK. Consumption management client provides access to consumption resources for Azure Enterprise Subscriptions. Package tag package-2019-10. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-azurestack 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-azurestack_1.0.0-beta.1/sdk/azurestack/azure-resourcemanager-azurestack/CHANGELOG.md#100-beta1-2021-04-12)
+- Azure Resource Manager AzureStack client library for Java. This package contains Microsoft Azure SDK for AzureStack Management SDK. Azure Stack. Package tag package-preview-2020-06. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
