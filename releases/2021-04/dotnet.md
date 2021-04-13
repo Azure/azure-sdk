@@ -23,6 +23,18 @@ Azure.AI.FormRecognizer:3.1.0-beta.4
 Azure.Identity:1.4.0-beta.5
 Azure.Core.Amqp:1.1.0-beta.1
 Microsoft.Azure.WebJobs.Extensions.EventHubs:5.0.0-beta.4
+System.Memory.Data:1.0.2
+Azure.Core:1.13.0
+Microsoft.Azure.CognitiveServices.Vision.ComputerVision:7.0.0
+Azure.Storage.Files.Shares:12.7.0-beta.3
+Azure.Storage.Blobs:12.9.0-beta.3
+Azure.Storage.Blobs.Batch:12.6.0-beta.3
+Azure.Storage.Common:12.8.0-beta.3
+Azure.Storage.Blobs.ChangeFeed:12.0.0-preview.11
+Azure.Storage.Queues:12.7.0-beta.3
+Azure.Storage.Files.DataLake:12.7.0-beta.3
+Azure.IoT.ModelsRepository:1.0.0-preview.3
+Azure.DigitalTwins.Core:1.2.2
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -30,20 +42,30 @@ Microsoft.Azure.WebJobs.Extensions.EventHubs:5.0.0-beta.4
 The Azure SDK team is pleased to announce our April 2021 client library releases.
 
 #### GA
+- Azure Communication Chat
+- Azure Communication Common
+- Azure Communication Identity
+- Azure Communication SMS
+- Computer Vision
 - Core
 - Event Hubs
 - Event Hubs - Event Processor
+- Resource Management - Communication
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
 #### Updates
 - Storage - Common
+- System Memory Data
+- Digital Twins - Core
 
 [pattern.patch]: # (- ${PackageFriendlyName})
 
 #### Beta
 - App Configuration
 - Attestation
+- Azure.AI.Translation.Document
+- Azure Communication Phone Numbers
 - Cognitive Search
 - Core - AMQP
 - Form Recognizer
@@ -54,6 +76,14 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Text Analytics
 - Translation Document
 - WebJobs Extensions - Event Hubs
+- Storage - Files Shares
+- Storage - Blobs
+- Storage - Blobs Batch
+- Storage - Common
+- Storage - Blobs ChangeFeed
+- Storage - Queues
+- Storage - Files Data Lake
+- Azure.Iot.ModelsRepository
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -66,7 +96,13 @@ $> dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.4
 $> dotnet add package Azure.AI.TextAnalytics --version 5.1.0-beta.6
 $> dotnet add package Azure.AI.Translation.Document --version 1.0.0-beta.1
 $> dotnet add package Azure.Analytics.Synapse.Artifacts --version 1.0.0-preview.8
+$> dotnet add package Azure.Communication.Chat --version 1.0.0
+$> dotnet add package Azure.Communication.Common --version 1.0.0
+$> dotnet add package Azure.Communication.Identity --version 1.0.0
+$> dotnet add package Azure.Communication.PhoneNumbers --version 1.0.0-beta.6
+$> dotnet add package Azure.Communication.SMS --version 1.0.0
 $> dotnet add package Azure.Core --version 1.12.0
+$> dotnet add package Azure.Core --version 1.13.0
 $> dotnet add package Azure.Core.Amqp --version 1.1.0-beta.1
 $> dotnet add package Azure.Data.AppConfiguration --version 1.1.0-beta.2
 $> dotnet add package Azure.Data.Tables --version 12.0.0-beta.7
@@ -74,10 +110,22 @@ $> dotnet add package Azure.Identity --version 1.4.0-beta.5
 $> dotnet add package Azure.IoT.DeviceUpdate --version 1.0.0-beta.2
 $> dotnet add package Azure.Messaging.EventHubs --version 5.4.0
 $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.4.0
+$> dotnet add package Azure.ResourceManager.Communication --version 1.0.0
 $> dotnet add package Azure.Search.Documents --version 11.3.0-beta.1
 $> dotnet add package Azure.Security.Attestation --version 1.0.0-beta.2
 $> dotnet add package Azure.Storage.Common --version 12.7.2
+$> dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 7.0.0
 $> dotnet add package Microsoft.Azure.WebJobs.Extensions.EventHubs --version 5.0.0-beta.4
+$> dotnet add package Azure.Storage.Files.Shares --version 12.7.0-beta.3
+$> dotnet add package Azure.Storage.Blobs --version 12.9.0-beta.3
+$> dotnet add package Azure.Storage.Blobs.Batch --version 12.6.0-beta.3
+$> dotnet add package Azure.Storage.Common --version 12.8.0-beta.3
+$> dotnet add package Azure.Storage.Blobs.ChangeFeed --version 12.0.0-preview.11
+$> dotnet add package Azure.Storage.Queues --version 12.7.0-beta.3
+$> dotnet add package Azure.Storage.Files.DataLake --version 12.7.0-beta.3
+$> dotnet add package Azure.IoT.ModelsRepository --version 1.0.0-preview.3
+$> dotnet add package Azure.DigitalTwins.Core --version 1.2.2
+$> dotnet add package System.Memory.Data --version 1.0.2
 ```
 
 [pattern]: # ($> dotnet add package ${PackageName} --version ${PackageVersion})
@@ -224,6 +272,113 @@ Thank you to our developer community members who helped to make Azure Identity b
 #### Changes
 
 - Single dispatch triggers were disabled.
+
+### System Memory Data 1.0.2 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/System.Memory.Data_1.0.2/sdk/core/System.Memory.Data/CHANGELOG.md#102-2021-04-07)
+- Add System.Text.Encodings.Web dependency
+
+### Core 1.13.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.13.0/sdk/core/Azure.Core/CHANGELOG.md#1130-2021-04-07)
+#### Key Bug Fixes
+
+- Fixed `NotSupportedException` when running using Blazor in the browser.
+- Disable the response caching and enable the streaming when running using Blazor in the browser.
+
+### Computer Vision 7.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.CognitiveServices.Vision.ComputerVision_7.0.0/sdk/cognitiveservices/Vision.ComputerVision/CHANGELOG.md#700-2021-04-12)
+Supports v3.2 Cognitive Services Computer Vision API endpoints.
+
+#### Added
+
+* Added model versioning support
+
+#### Changed
+
+* Updated the Adult visual feature for Analyze Image operation
+* Updated the Tags visual feature for Analyze Image operation and the Tag Image operation
+* Updated the error response format
+
+### Azure Communication Chat 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Chat/CHANGELOG.md#100-2021-03-29)
+**Includes all changes from 1.0.0-beta.1 to  1.0.0.beta.5**
+
+#### Breaking Changes
+- Renamed client constructors URL variable to `endpoint`.
+- Renamed `ChatThread` model to `ChatThreadProperties`.
+- Renamed `GetChatThread` operation to `GetPropertie`s and moved it to `ChatThreadClient`.
+- Renamed `ChatThreadInfo` model to `ChatThreadItem`.
+- Renamed `GetChatThreadsInfo` operation to `GetChatThreads`.
+- Made `AddParticipant` throw exception when request fails.
+- Renamed parameter `repeatabilityRequestId` to `idempotencyToken`.
+- Updated `SendMessage` to use `SendChatMessageResult` instead of `string` for the request result.
+- Exposed the list of `invalidparticipants` directly and removed `AddChatParticipantsErrors` and `CreateChatThreadErrors` models for `AddChatParticipantsResult` and `CreateChatThreadResult`.
+
+#### Added
+- Made list of participants optional for `CreateChatThread`.
+- Made `ChatThreadClient` constructor public.
+
+### Azure Communication Common 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Common/CHANGELOG.md#100-2021-03-29)
+**Includes all changes from 1.0.0-beta.1 to  1.0.0.beta.5**
+
+### Azure Communication Identity 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Identity/CHANGELOG.md#100-2021-03-29)
+**Includes all changes from 1.0.0-beta.1 to  1.0.0.beta.5**
+
+### Azure Communication Phone Numbers 1.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.PhoneNumbers/CHANGELOG.md#100-beta6-2021-03-29)
+
+### Added
+- Added protected constructor to `PurchasePhoneNumbersOperation` and `ReleasePhoneNumberOperation` for mocking.
+
+### Breaking Changes
+- All models are moved from `Azure.Communication.PhoneNumbers.Models` namespace to `Azure.Communication.PhoneNumbers`.
+- `AcquiredPhoneNumber` class is renamed to `PurchasedPhoneNumber`.
+- `PhoneNumbersClient` methods renamed:
+  - `GetPhoneNumber` -> `GetPurchasedPhoneNumber`.
+  - `GetPhoneNumberAsync` -> `GetPurchasedPhoneNumberAsync`.
+  - `GetPhoneNumbers` -> `GetPurchasedPhoneNumbers`.
+  - `GetPhoneNumbersAsyn`c -> `GetPurchasedPhoneNumbersAsync`.
+- `PhoneNumbersModelFactory` static method `AcquiredPhoneNumber` is renamed to `PurchasedPhoneNumber`.
+- `PurchasePhoneNumbersOperation` and `ReleasePhoneNumberOperation` extend `Operation` instead of `Operation<Response>`.
+- Removed `PhoneNumberOperationStatus` and `PhoneNumberOperationType`.
+- Renamed `ISOCurrencySymbol` property to `IsoCurrencySymbol` in `PhoneNumberCost`.
+- Renamed `threeLetterISOCountryName` parameter to `twoLetterIsoCountryName`` in `PhoneNumbersClient.StartSearchAvailablePhoneNumbers` and `PhoneNumbersClient.StartSearchAvailablePhoneNumbersAsync`.
+
+### Azure Communication SMS 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Sms/CHANGELOG.md#100-2021-03-29)
+**Includes all changes from 1.0.0-beta.1 to  1.0.0.beta4**
+
+### Resource Management - Communication 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.ResourceManager.Communication/CHANGELOG.md#100-2021-03-29)
+This is the first stable release of the management library for `Azure Communication Services`. 
+
+Minor changes since the public preview release:
+- `CheckNameAvailability` has been added
+- `CommunicationServiceResource` Update now requires a `CommunicationServiceResource` parameter instead of a `TaggedResource`
+- `RegenerateKeyParameters` is now a required parameter to `RegenerateKey`
+- `CommunicationServiceResource` now includes the property `SystemData`
+- `OperationList` has been changed to use the common type for its response
+- `ErrorResponse` has been changed to use the common type for `ErrorResponse`
+### Storage - Files Shares 12.7.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Files.Shares_12.7.0-beta.3/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md#1270-beta3-2021-04-09)
+- This release contains bug fixes to improve quality.
+
+### Storage - Blobs 12.9.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Blobs_12.9.0-beta.3/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md#1290-beta3-2021-04-09)
+- This release contains bug fixes to improve quality.
+
+### Storage - Blobs Batch 12.6.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Blobs.Batch_12.6.0-beta.3/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md#1260-beta3-2021-04-09)
+- This release contains bug fixes to improve quality.
+
+### Storage - Common 12.8.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Common_12.8.0-beta.3/sdk/storage/Azure.Storage.Common/CHANGELOG.md#1280-beta3-2021-04-09)
+- Fixed bug in SasQueryParameters causing services (ss) reorder when parsing externally provided URI.
+
+### Storage - Blobs ChangeFeed 12.0.0-preview.11 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.11/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md#1200-preview11-2021-04-09)
+- This release contains bug fixes to improve quality.
+
+### Storage - Queues 12.7.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Queues_12.7.0-beta.3/sdk/storage/Azure.Storage.Queues/CHANGELOG.md#1270-beta3-2021-04-09)
+- This preview contains bug fixes to improve quality.
+
+### Storage - Files Data Lake 12.7.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Files.DataLake_12.7.0-beta.3/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md#1270-beta3-2021-04-09)
+- Aligned storage URL parsing with other platforms.
+
+### Azure.Iot.ModelsRepository 1.0.0-preview.3 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.IoT.ModelsRepository_1.0.0-preview.3/sdk/modelsrepository/Azure.IoT.ModelsRepository/CHANGELOG.md#100-preview3-2021-04-12)
+- Updated core dependencies to bring in security vulnerability fixes that are addressed in `Azure.Core v1.13.0` and `System.Memory.Data v1.0.2`
+
+### Digital Twins - Core 1.2.2 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.DigitalTwins.Core_1.2.2/sdk/digitaltwins/Azure.DigitalTwins.Core/CHANGELOG.md#122-2021-04-12)
+#### Fixes and improvements
+
+- Updated core dependencies to bring in security vulnerability fixes that are addressed in `Azure.Core v1.13.0` and `System.Memory.Data v1.0.2`
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
