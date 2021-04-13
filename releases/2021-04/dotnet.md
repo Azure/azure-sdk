@@ -141,7 +141,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 - Added `HttpPipeline.CreateHttpMessagePropertiesScope` that can be used to inject scoped properties into `HttpMessage`.
 
 ### IoT Device Update 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.IoT.DeviceUpdate_1.0.0-beta.2/sdk/deviceupdate/Azure.IoT.DeviceUpdate/CHANGELOG.md#100-beta2-2021-04-06)
-* Update root namespace from Azure.IoT.DeviceUpdate to Azure.IoT.DeviceUpdate
+* Update root namespace from Azure.Iot.DeviceUpdate to Azure.IoT.DeviceUpdate
 
 ### Storage - Common 12.7.2 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Common_12.7.2/sdk/storage/Azure.Storage.Common/CHANGELOG.md#1272-2021-04-02)
 - Fixed bug in SasQueryParameters causing services (ss) reorder when parsing externally provided URI.

@@ -295,7 +295,7 @@ to `Task<Response<SmsSendResult>> SendAsync(string from, string to, string messa
 - Initial client
 
 ### IoT Device Update 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.IoT.DeviceUpdate_1.0.0-beta.2/sdk/deviceupdate/Azure.IoT.DeviceUpdate/CHANGELOG.md#100-beta2-2021-04-06)
-* Update root namespace from Azure.IoT.DeviceUpdate to Azure.IoT.DeviceUpdate
+* Update root namespace from Azure.Iot.DeviceUpdate to Azure.IoT.DeviceUpdate
 ### WebJobs Extensions - Event Grid 3.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.WebJobs.Extensions.EventGrid_3.0.0-beta.1/sdk/eventgrid/Microsoft.Azure.WebJobs.Extensions.EventGrid/CHANGELOG.md#300-beta1-2021-03-23)
 - The initial release of Microsoft.Azure.WebJobs.Extensions.EventGrid 3.0.0
 
