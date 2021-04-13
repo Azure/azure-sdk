@@ -136,6 +136,13 @@ azure-resourcemanager-datafactory:1.0.0-beta.1
 azure-resourcemanager-kubernetesconfiguration:1.0.0-beta.1
 azure-resourcemanager-hdinsight:1.0.0-beta.2
 azure-resourcemanager-advisor:1.0.0-beta.1
+azure-resourcemanager-appconfiguration:1.0.0-beta.1
+azure-resourcemanager-avs:1.0.0-beta.1
+azure-resourcemanager-attestation:1.0.0-beta.1
+azure-resourcemanager-azurestackhci:1.0.0-beta.1
+azure-core-amqp:2.0.4
+azure-resourcemanager-consumption:1.0.0-beta.1
+azure-resourcemanager-azurestack:1.0.0-beta.1
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -226,6 +233,7 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Core Serializer Jackson JSON
 - Core - HTTP OkHttp
 - Text Analytics
+- Core - AMQP
 
 [pattern.patch]: # (- ${PackageFriendlyName})
 
@@ -280,6 +288,12 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - azure-resourcemanager-kubernetesconfiguration
 - Resource Management - HDInsight
 - azure-resourcemanager-advisor
+- azure-resourcemanager-appconfiguration
+- azure-resourcemanager-avs
+- azure-resourcemanager-attestation
+- azure-resourcemanager-azurestackhci
+- azure-resourcemanager-consumption
+- azure-resourcemanager-azurestack
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -1052,6 +1066,48 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 <dependency>
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-advisor</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-appconfiguration</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-avs</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-attestation</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-azurestackhci</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-core-amqp</artifactId>
+  <version>2.0.4</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-consumption</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-azurestack</artifactId>
   <version>1.0.0-beta.1</version>
 </dependency>
 
@@ -2388,6 +2444,34 @@ PhoneNumbersAsyncClient.getPurchasedPhoneNumberWithResponse and PhoneNumbersClie
 
 ### azure-resourcemanager-advisor 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-advisor_1.0.0-beta.1/sdk/advisor/azure-resourcemanager-advisor/CHANGELOG.md#100-beta1-2021-04-12)
 - Azure Resource Manager Advisor client library for Java. This package contains Microsoft Azure SDK for Advisor Management SDK. REST APIs for Azure Advisor. Package tag package-2020-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-appconfiguration 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-appconfiguration_1.0.0-beta.1/sdk/appconfiguration/azure-resourcemanager-appconfiguration/CHANGELOG.md#100-beta1-2021-04-12)
+- Azure Resource Manager AppConfiguration client library for Java. This package contains Microsoft Azure SDK for AppConfiguration Management SDK.  Package tag package-2020-06-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-avs 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-avs_1.0.0-beta.1/sdk/avs/azure-resourcemanager-avs/CHANGELOG.md#100-beta1-2021-04-13)
+- Azure Resource Manager Avs client library for Java. This package contains Microsoft Azure SDK for Avs Management SDK. Azure VMware Solution API. Package tag package-2020-03-20. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-attestation 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-attestation_1.0.0-beta.1/sdk/attestation/azure-resourcemanager-attestation/CHANGELOG.md#100-beta1-2021-04-12)
+- Azure Resource Manager Attestation client library for Java. This package contains Microsoft Azure SDK for Attestation Management SDK. Various APIs for managing resources in attestation service. This primarily encompasses per-provider management. Package tag package-2020-10-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-azurestackhci 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-azurestackhci_1.0.0-beta.1/sdk/azurestackhci/azure-resourcemanager-azurestackhci/CHANGELOG.md#100-beta1-2021-04-12)
+- Azure Resource Manager AzureStackHci client library for Java. This package contains Microsoft Azure SDK for AzureStackHci Management SDK. Azure Stack HCI management service. Package tag package-2020-10. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### Core - AMQP 2.0.4 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-core-amqp_2.0.4/sdk/core/azure-core-amqp/CHANGELOG.md#204-2021-04-12)
+#### Bug Fixes
+
+- Fixed recovery of AMQP connection and receiver after a disconnect or a transient error occurs.
+- Closing AMQP sender/receiver when it is no longer authorized.
+- Fixed bug where the same endpoint state would not be emitted.
+- Decreased the number of duplicated and verbose logs.
+- Fixed NullPointerExceptions where there is no connection to initialize.
+- Fixed issue with contending threads trying to use the same drain loop via 'wip' in ReactorDispatcher.
+
+### azure-resourcemanager-consumption 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-consumption_1.0.0-beta.1/sdk/consumption/azure-resourcemanager-consumption/CHANGELOG.md#100-beta1-2021-04-13)
+- Azure Resource Manager Consumption client library for Java. This package contains Microsoft Azure SDK for Consumption Management SDK. Consumption management client provides access to consumption resources for Azure Enterprise Subscriptions. Package tag package-2019-10. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-azurestack 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-azurestack_1.0.0-beta.1/sdk/azurestack/azure-resourcemanager-azurestack/CHANGELOG.md#100-beta1-2021-04-12)
+- Azure Resource Manager AzureStack client library for Java. This package contains Microsoft Azure SDK for AzureStack Management SDK. Azure Stack. Package tag package-preview-2020-06. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
