@@ -100,6 +100,9 @@ azure-core-amqp:2.0.4
 azure-resourcemanager-consumption:1.0.0-beta.1
 azure-resourcemanager-azurestack:1.0.0-beta.1
 azure-resourcemanager-commerce:1.0.0-beta.1
+azure-resourcemanager-batchai:1.0.0-beta.1
+azure-resourcemanager-billing:1.0.0-beta.1
+azure-resourcemanager-signalr:1.0.0-beta.1
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -213,6 +216,9 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Resource Management - Consumption
 - Resource Management - Azurestack
 - azure-resourcemanager-commerce
+- azure-resourcemanager-batchai
+- azure-resourcemanager-billing
+- azure-resourcemanager-signalr
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -823,6 +829,24 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 <dependency>
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-commerce</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-batchai</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-billing</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-signalr</artifactId>
   <version>1.0.0-beta.1</version>
 </dependency>
 
@@ -1546,6 +1570,15 @@ String messageText = body.toString();
 
 ### azure-resourcemanager-commerce 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-commerce_1.0.0-beta.1/sdk/commerce/azure-resourcemanager-commerce/CHANGELOG.md#100-beta1-2021-04-13)
 - Azure Resource Manager Usage client library for Java. This package contains Microsoft Azure SDK for Usage Management SDK.  Package tag package-2015-06-preview. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-batchai 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-batchai_1.0.0-beta.1/sdk/batchai/azure-resourcemanager-batchai/CHANGELOG.md#100-beta1-2021-04-14)
+- Azure Resource Manager BatchAI client library for Java. This package contains Microsoft Azure SDK for BatchAI Management SDK. The Azure BatchAI Management API. Package tag package-2018-05. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-billing 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-billing_1.0.0-beta.1/sdk/billing/azure-resourcemanager-billing/CHANGELOG.md#100-beta1-2021-04-13)
+- Azure Resource Manager Billing client library for Java. This package contains Microsoft Azure SDK for Billing Management SDK. Billing client provides access to billing resources for Azure subscriptions. Package tag package-2020-05. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-signalr 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-signalr_1.0.0-beta.1/sdk/signalr/azure-resourcemanager-signalr/CHANGELOG.md#100-beta1-2021-04-14)
+- Azure Resource Manager SignalR client library for Java. This package contains Microsoft Azure SDK for SignalR Management SDK. REST API for Azure SignalR Service. Package tag package-2021-04-01-preview. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
