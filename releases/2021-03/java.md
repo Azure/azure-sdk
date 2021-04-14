@@ -821,7 +821,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 - Azure Resource Manager MicrosoftDatadog client library for Java. This package contains Microsoft Azure SDK for MicrosoftDatadog Management SDK.  Package tag package-2020-02-preview. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
-### Azure Iot Deviceupdate 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/deviceupdate/azure-iot-deviceupdate/CHANGELOG.md#100-beta1-2021-03-02)
+### Azure IoT DeviceUpdate 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/deviceupdate/azure-iot-deviceupdate/CHANGELOG.md#100-beta1-2021-03-02)
 This is the initial release of Azure Device Update for IoT Hub library.
 
 ### Azure Resourcemanager Digitaltwins 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/digitaltwins/azure-resourcemanager-digitaltwins/CHANGELOG.md#100-beta1-2021-03-02)
@@ -908,9 +908,9 @@ This is the initial release of Azure Device Update for IoT Hub library.
     - `authenticationRecord` enables initializing a credential with an `AuthenticationRecord` returned from a prior call to `Authenticate`
     - `disableAutomaticAuthentication` disables automatic user interaction causing the credential to throw an `AuthenticationRequiredException` when interactive authentication is necessary.
 
-### Azure Resourcemanager Iothub 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/iothub/azure-resourcemanager-iothub/CHANGELOG.md#100-beta1-2021-03-02)
+### Azure Resourcemanager IoT Hub 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/iothub/azure-resourcemanager-iothub/CHANGELOG.md#100-beta1-2021-03-02)
 
-- Azure Resource Manager IotHub client library for Java. This package contains Microsoft Azure SDK for IotHub Management SDK. Use this API to manage the IoT hubs in your Azure subscription. Package tag package-2020-03. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+- Azure Resource Manager IoT Hub client library for Java. This package contains Microsoft Azure SDK for IoT Hub Management SDK. Use this API to manage the IoT hubs in your Azure subscription. Package tag package-2020-03. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
 ### Azure Security Keyvault Administration 4.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-administration/CHANGELOG.md#400-beta5-2021-03-12)
 

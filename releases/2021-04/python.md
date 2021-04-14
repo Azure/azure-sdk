@@ -60,6 +60,8 @@ azure-mgmt-azurestack:1.0.0
 azure-mgmt-appplatform:6.0.0
 azure-mgmt-datashare:1.0.0
 azure-mgmt-hanaonazure:1.0.0
+azure-mgmt-healthcareapis:1.0.0
+azure-search-documents:11.2.0b2
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -87,6 +89,7 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Resource Management - Datadog
 - Resource Management - Frontdoor
 - Resource Management - HANA on Azure
+- Resource Management - Healthcare APIs
 - Resource Management - Marketplace Ordering
 - Resource Management - NetApp
 - Resource Management - Power BI Dedicated
@@ -126,6 +129,7 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Service Bus
 - Tables
 - Translation Document
+- Cognitive Search
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -171,6 +175,7 @@ $> pip install azure-mgmt-deviceupdate==1.0.0b2
 $> pip install azure-mgmt-extendedlocation==1.0.0b1
 $> pip install azure-mgmt-frontdoor==1.0.0
 $> pip install azure-mgmt-hanaonazure==1.0.0
+$> pip install azure-mgmt-healthcareapis==1.0.0
 $> pip install azure-mgmt-marketplaceordering==1.1.0
 $> pip install azure-mgmt-netapp==2.0.0
 $> pip install azure-mgmt-rdbms==8.1.0b2
@@ -185,6 +190,7 @@ $> pip install azure-search-documents==11.2.0b1
 $> pip install azure-servicebus==7.1.1
 $> pip install azure-servicebus==7.2.0b1
 $> pip install azure-synapse-artifacts==0.6.0
+$> pip install azure-search-documents==11.2.0b2
 
 ```
 
@@ -581,6 +587,12 @@ to specify which page to process of the document.
 
   - Model ErrorResponse has a new signature
 
+### Resource Management - Healthcare APIs 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-healthcareapis_1.0.0/sdk/healthcareapis/azure-mgmt-healthcareapis/CHANGELOG.md#100-2021-04-12)
+**Features**
+
+  - Model ServicesDescription has a new parameter system_data
+  - Model ServicesProperties has a new parameter acr_configuration
+
 ### Resource Management - Marketplace Ordering 1.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-marketplaceordering_1.1.0/sdk/marketplaceordering/azure-mgmt-marketplaceordering/CHANGELOG.md#110-2021-03-17)
 **Features**
 
@@ -701,6 +713,11 @@ This version and all future versions will require Python 2.7 or Python 3.6+, Pyt
 ### Translation Document 1.0.0b1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-translation-document_1.0.0b1/sdk/translation/azure-ai-translation-document/CHANGELOG.md#100b1-2021-04-06)
 This is the first beta package of the azure-ai-translation-document client library that targets the Document Translation 
 service version `1.0-preview.1`. This package's documentation and samples demonstrate the new API.
+
+### Cognitive Search 11.2.0b2 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-search-documents_11.2.0b2/sdk/search/azure-search-documents/CHANGELOG.md#1120b2-2021-04-13)
+#### New features
+
+- Added support for semantic search    #17638
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
