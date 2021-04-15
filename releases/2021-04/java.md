@@ -103,6 +103,11 @@ azure-resourcemanager-commerce:1.0.0-beta.1
 azure-resourcemanager-batchai:1.0.0-beta.1
 azure-resourcemanager-billing:1.0.0-beta.1
 azure-resourcemanager-signalr:1.0.0-beta.1
+azure-containers-containerregistry:1.0.0-beta.1
+azure-resourcemanager-customerinsights:1.0.0-beta.1
+azure-resourcemanager-datamigration:1.0.0-beta.1
+azure-resourcemanager-cognitiveservices:1.0.0-beta.1
+azure-resourcemanager-databox:1.0.0-beta.1
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -219,6 +224,11 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - azure-resourcemanager-batchai
 - azure-resourcemanager-billing
 - azure-resourcemanager-signalr
+- azure-containers-containerregistry
+- azure-resourcemanager-customerinsights
+- azure-resourcemanager-datamigration
+- azure-resourcemanager-cognitiveservices
+- azure-resourcemanager-databox
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -847,6 +857,36 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 <dependency>
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-signalr</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-containers-containerregistry</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-customerinsights</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-datamigration</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-cognitiveservices</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-databox</artifactId>
   <version>1.0.0-beta.1</version>
 </dependency>
 
@@ -1579,6 +1619,21 @@ String messageText = body.toString();
 
 ### azure-resourcemanager-signalr 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-signalr_1.0.0-beta.1/sdk/signalr/azure-resourcemanager-signalr/CHANGELOG.md#100-beta1-2021-04-14)
 - Azure Resource Manager SignalR client library for Java. This package contains Microsoft Azure SDK for SignalR Management SDK. REST API for Azure SignalR Service. Package tag package-2021-04-01-preview. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-containers-containerregistry 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-containers-containerregistry_1.0.0-beta.1/sdk/containerregistry/azure-containers-containerregistry/CHANGELOG.md#100-beta1-2021-04-14)
+- Initial release. Please see the README and wiki for information on the new design.
+
+### azure-resourcemanager-customerinsights 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-customerinsights_1.0.0-beta.1/sdk/customerinsights/azure-resourcemanager-customerinsights/CHANGELOG.md#100-beta1-2021-04-14)
+- Azure Resource Manager CustomerInsights client library for Java. This package contains Microsoft Azure SDK for CustomerInsights Management SDK. The Azure Customer Insights management API provides a RESTful set of web services that interact with Azure Customer Insights service to manage your resources. The API has entities that capture the relationship between an end user and the Azure Customer Insights service. Package tag package-2017-04. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-datamigration 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-datamigration_1.0.0-beta.1/sdk/datamigration/azure-resourcemanager-datamigration/CHANGELOG.md#100-beta1-2021-04-14)
+- Azure Resource Manager DataMigration client library for Java. This package contains Microsoft Azure SDK for DataMigration Management SDK. Data Migration Client. Package tag package-2018-04-19. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-cognitiveservices 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-cognitiveservices_1.0.0-beta.1/sdk/cognitiveservices/azure-resourcemanager-cognitiveservices/CHANGELOG.md#100-beta1-2021-04-14)
+- Azure Resource Manager CognitiveServices client library for Java. This package contains Microsoft Azure SDK for CognitiveServices Management SDK. Cognitive Services Management Client. Package tag package-2017-04. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-databox 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-databox_1.0.0-beta.1/sdk/databox/azure-resourcemanager-databox/CHANGELOG.md#100-beta1-2021-04-14)
+- Azure Resource Manager DataBox client library for Java. This package contains Microsoft Azure SDK for DataBox Management SDK.  Package tag package-2021-03. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
