@@ -41,7 +41,7 @@ However, in the release notes we do want to list critical changes for customers.
 
 * *New Features* - Adding a new API or feature
 * *Breaking Changes* - Changes to an existing API or changes to the behavior of an existing API
-* *Key Bug Fixes* - Major bug fixes that require a customer to do something, bug fixes that come from multiple up-votes in github or that are motivated by customer feedback
+* *Key Bugs Fixed* - Major bug fixes that require a customer to do something, bug fixes that come from multiple up-votes in github or that are motivated by customer feedback
 * *Security Fixes* - Any security fix, no matter how small
 
 For example, "fixed a bug in which the event processor would stop working if you received no events for 30 minutes" does not qualify.  The customer does not need to do anything, and it's fairly likely they have not bumped into this error.  However, "Added a new overload to the constructor to support AzureAD credentials" would definitely be a good thing to include.
