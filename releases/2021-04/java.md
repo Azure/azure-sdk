@@ -108,6 +108,10 @@ azure-resourcemanager-customerinsights:1.0.0-beta.1
 azure-resourcemanager-datamigration:1.0.0-beta.1
 azure-resourcemanager-cognitiveservices:1.0.0-beta.1
 azure-resourcemanager-databox:1.0.0-beta.1
+azure-resourcemanager-devspaces:1.0.0-beta.1
+azure-resourcemanager-healthcareapis:1.0.0-beta.1
+azure-resourcemanager-devtestlabs:1.0.0-beta.1
+azure-resourcemanager-hanaonazure:1.0.0-beta.1
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -229,6 +233,10 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - azure-resourcemanager-datamigration
 - azure-resourcemanager-cognitiveservices
 - azure-resourcemanager-databox
+- azure-resourcemanager-devspaces
+- azure-resourcemanager-healthcareapis
+- azure-resourcemanager-devtestlabs
+- azure-resourcemanager-hanaonazure
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -887,6 +895,30 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 <dependency>
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-databox</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-devspaces</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-healthcareapis</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-devtestlabs</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-hanaonazure</artifactId>
   <version>1.0.0-beta.1</version>
 </dependency>
 
@@ -1634,6 +1666,18 @@ String messageText = body.toString();
 
 ### azure-resourcemanager-databox 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-databox_1.0.0-beta.1/sdk/databox/azure-resourcemanager-databox/CHANGELOG.md#100-beta1-2021-04-14)
 - Azure Resource Manager DataBox client library for Java. This package contains Microsoft Azure SDK for DataBox Management SDK.  Package tag package-2021-03. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-devspaces 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-devspaces_1.0.0-beta.1/sdk/devspaces/azure-resourcemanager-devspaces/CHANGELOG.md#100-beta1-2021-04-15)
+- Azure Resource Manager DevSpaces client library for Java. This package contains Microsoft Azure SDK for DevSpaces Management SDK. Dev Spaces Client. Package tag package-2019-04-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-healthcareapis 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-healthcareapis_1.0.0-beta.1/sdk/healthcareapis/azure-resourcemanager-healthcareapis/CHANGELOG.md#100-beta1-2021-04-15)
+- Azure Resource Manager HealthcareApis client library for Java. This package contains Microsoft Azure SDK for HealthcareApis Management SDK. Azure Healthcare APIs Client. Package tag package-2021-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-devtestlabs 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-devtestlabs_1.0.0-beta.1/sdk/devtestlabs/azure-resourcemanager-devtestlabs/CHANGELOG.md#100-beta1-2021-04-15)
+- Azure Resource Manager DevTestLabs client library for Java. This package contains Microsoft Azure SDK for DevTestLabs Management SDK. The DevTest Labs Client. Package tag package-2018-09. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-hanaonazure 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-hanaonazure_1.0.0-beta.1/sdk/hanaonazure/azure-resourcemanager-hanaonazure/CHANGELOG.md#100-beta1-2021-04-15)
+- Azure Resource Manager Hana client library for Java. This package contains Microsoft Azure SDK for Hana Management SDK. HANA on Azure Client. Package tag package-2017-11. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
