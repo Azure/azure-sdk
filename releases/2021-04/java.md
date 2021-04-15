@@ -112,6 +112,7 @@ azure-resourcemanager-devspaces:1.0.0-beta.1
 azure-resourcemanager-healthcareapis:1.0.0-beta.1
 azure-resourcemanager-devtestlabs:1.0.0-beta.1
 azure-resourcemanager-hanaonazure:1.0.0-beta.1
+azure-resourcemanager-hybridcompute:1.0.0-beta.1
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -237,6 +238,7 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - azure-resourcemanager-healthcareapis
 - azure-resourcemanager-devtestlabs
 - azure-resourcemanager-hanaonazure
+- azure-resourcemanager-hybridcompute
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -919,6 +921,12 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 <dependency>
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-hanaonazure</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-hybridcompute</artifactId>
   <version>1.0.0-beta.1</version>
 </dependency>
 
@@ -1678,6 +1686,9 @@ String messageText = body.toString();
 
 ### azure-resourcemanager-hanaonazure 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-hanaonazure_1.0.0-beta.1/sdk/hanaonazure/azure-resourcemanager-hanaonazure/CHANGELOG.md#100-beta1-2021-04-15)
 - Azure Resource Manager Hana client library for Java. This package contains Microsoft Azure SDK for Hana Management SDK. HANA on Azure Client. Package tag package-2017-11. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-hybridcompute 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-hybridcompute_1.0.0-beta.1/sdk/hybridcompute/azure-resourcemanager-hybridcompute/CHANGELOG.md#100-beta1-2021-04-15)
+- Azure Resource Manager HybridCompute client library for Java. This package contains Microsoft Azure SDK for HybridCompute Management SDK. The Hybrid Compute Management Client. Package tag package-preview-2021-03. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
