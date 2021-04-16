@@ -118,6 +118,7 @@ azure-resourcemanager-maintenance:1.0.0-beta.1
 azure-resourcemanager-mariadb:1.0.0-beta.1
 azure-resourcemanager-machinelearningservices:1.0.0-beta.1
 azure-resourcemanager-servicefabric:1.0.0-beta.1
+azure-ai-anomalydetector:3.0.0-beta.2
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -249,6 +250,7 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - azure-resourcemanager-mariadb
 - azure-resourcemanager-machinelearningservices
 - azure-resourcemanager-servicefabric
+- Anomaly Detector
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -968,6 +970,12 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-servicefabric</artifactId>
   <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-ai-anomalydetector</artifactId>
+  <version>3.0.0-beta.2</version>
 </dependency>
 
 
@@ -1744,6 +1752,11 @@ String messageText = body.toString();
 
 ### azure-resourcemanager-servicefabric 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-servicefabric_1.0.0-beta.1/sdk/servicefabric/azure-resourcemanager-servicefabric/CHANGELOG.md#100-beta1-2021-04-16)
 - Azure Resource Manager ServiceFabric client library for Java. This package contains Microsoft Azure SDK for ServiceFabric Management SDK. Service Fabric Management Client. Package tag package-2019-03. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### Anomaly Detector 3.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-anomalydetector_3.0.0-beta.2/sdk/anomalydetector/azure-ai-anomalydetector/CHANGELOG.md#300-beta2-2021-04-16)
+#### New Features
+
+- Add support for multivariate anomaly detection
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
