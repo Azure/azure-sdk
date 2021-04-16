@@ -35,6 +35,7 @@ Azure.Storage.Queues:12.7.0-beta.3
 Azure.Storage.Files.DataLake:12.7.0-beta.3
 Azure.IoT.ModelsRepository:1.0.0-preview.3
 Azure.DigitalTwins.Core:1.2.2
+Azure.AI.AnomalyDetector:3.0.0-preview.3
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -84,6 +85,7 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Storage - Queues
 - Storage - Files Data Lake
 - Azure.IoT.ModelsRepository
+- Anomaly Detector
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -125,6 +127,7 @@ $> dotnet add package Azure.Storage.Queues --version 12.7.0-beta.3
 $> dotnet add package Azure.Storage.Files.DataLake --version 12.7.0-beta.3
 $> dotnet add package Azure.IoT.ModelsRepository --version 1.0.0-preview.3
 $> dotnet add package Azure.DigitalTwins.Core --version 1.2.2
+$> dotnet add package Azure.AI.AnomalyDetector --version 3.0.0-preview.3
 $> dotnet add package System.Memory.Data --version 1.0.2
 ```
 
@@ -379,6 +382,22 @@ Minor changes since the public preview release:
 #### Fixes and improvements
 
 - Updated core dependencies to bring in security vulnerability fixes that are addressed in `Azure.Core v1.13.0` and `System.Memory.Data v1.0.2`
+
+### Anomaly Detector 3.0.0-preview.3 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.AnomalyDetector_3.0.0-preview.3/sdk/anomalydetector/Azure.AI.AnomalyDetector/CHANGELOG.md#300-preview3-2021-04-15)
+#### Breaking Changes
+
+-  Now `TimeSeriesPoint.Timestamp` property is nullable
+- `TimeSeriesPoint(System.DateTimeOffset timestamp, float value)` constructor now takes only float type parameter.
+
+## New Features
+
+- Added operation `AnomalyDetectorClient.ListMultivariateModelAsync` and `AnomalyDetectorClient.ListMultivariateModel`
+- Added operation `AnomalyDetectorClient.TrainMultivariateModelAsync` and `AnomalyDetectorClient.TrainMultivariateModel`
+- Added operation `AnomalyDetectorClient.DetectAnomalyAsync` and `AnomalyDetectorClient.DetectAnomaly`
+- Added operation `AnomalyDetectorClient.GetDetectionResultAsync` and `AnomalyDetectorClient.GetDetectionResult`
+- Added operation `AnomalyDetectorClient.GetMultivariateModelAsync` and `AnomalyDetectorClient.GetMultivariateModel`
+- Added operation `AnomalyDetectorClient.ExportModelAsync` and `AnomalyDetectorClient.ExportModel`
+- Added operation `AnomalyDetectorClient.DeleteMultivariateModelAsync` and `AnomalyDetectorClient.DeleteMultivariateModel`
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
