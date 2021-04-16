@@ -62,6 +62,8 @@ azure-mgmt-datashare:1.0.0
 azure-mgmt-hanaonazure:1.0.0
 azure-mgmt-healthcareapis:1.0.0
 azure-search-documents:11.2.0b2
+azure-mgmt-hybridcompute:7.0.0
+azure-mgmt-dns:8.0.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -99,6 +101,8 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Resource Management - Synapse
 - Synapse - Artifacts
 - Event Hubs
+- Resource Management - Hybrid Compute
+- Resource Management - DNS
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -191,6 +195,8 @@ $> pip install azure-servicebus==7.1.1
 $> pip install azure-servicebus==7.2.0b1
 $> pip install azure-synapse-artifacts==0.6.0
 $> pip install azure-search-documents==11.2.0b2
+$> pip install azure-mgmt-hybridcompute==7.0.0
+$> pip install azure-mgmt-dns==8.0.0
 
 ```
 
@@ -718,6 +724,33 @@ service version `1.0-preview.1`. This package's documentation and samples demons
 #### New features
 
 - Added support for semantic search    #17638
+
+### Resource Management - Hybrid Compute 7.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-hybridcompute_7.0.0/sdk/hybridcompute/azure-mgmt-hybridcompute/CHANGELOG.md#700-2021-04-15)
+**Features**
+
+  - Model MachineUpdateProperties has a new parameter private_link_scope_resource_id
+  - Model MachineUpdateProperties has a new parameter parent_cluster_resource_id
+  - Model MachineProperties has a new parameter private_link_scope_resource_id
+  - Model MachineProperties has a new parameter parent_cluster_resource_id
+  - Model MachineProperties has a new parameter detected_properties
+  - Added operation group PrivateLinkResourcesOperations
+  - Added operation group PrivateEndpointConnectionsOperations
+  - Added operation group PrivateLinkScopesOperations
+
+**Breaking changes**
+
+  - Operation MachinesOperations.delete has a new signature
+  - Operation MachinesOperations.get has a new signature
+  - Model ErrorDetail has a new signature
+  - Model OperationValue has a new signature
+  - Model Machine has a new signature
+  - Model MachineExtension has a new signature
+  - Model MachineExtensionInstanceViewStatus has a new signature
+  - Model MachineUpdate has a new signature
+  - Model MachineExtensionUpdate has a new signature
+
+### Resource Management - DNS 8.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-dns_8.0.0/sdk/network/azure-mgmt-dns/CHANGELOG.md#800-2021-04-14)
+- GA release
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
