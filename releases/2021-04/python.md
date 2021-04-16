@@ -64,6 +64,7 @@ azure-mgmt-healthcareapis:1.0.0
 azure-search-documents:11.2.0b2
 azure-mgmt-hybridcompute:7.0.0
 azure-mgmt-dns:8.0.0
+azure-ai-anomalydetector:3.0.0b3
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -134,6 +135,7 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Tables
 - Translation Document
 - Cognitive Search
+- Anomaly Detector
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -197,6 +199,7 @@ $> pip install azure-synapse-artifacts==0.6.0
 $> pip install azure-search-documents==11.2.0b2
 $> pip install azure-mgmt-hybridcompute==7.0.0
 $> pip install azure-mgmt-dns==8.0.0
+$> pip install azure-ai-anomalydetector==3.0.0b3
 
 ```
 
@@ -751,6 +754,16 @@ service version `1.0-preview.1`. This package's documentation and samples demons
 
 ### Resource Management - DNS 8.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-dns_8.0.0/sdk/network/azure-mgmt-dns/CHANGELOG.md#800-2021-04-14)
 - GA release
+
+### Anomaly Detector 3.0.0b3 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-anomalydetector_3.0.0b3/sdk/anomalydetector/azure-ai-anomalydetector/CHANGELOG.md#300b3-2021-04-16)
+**Features**
+  - Added operation AnomalyDetectorClientOperationsMixin.list_multivariate_model
+  - Added operation AnomalyDetectorClientOperationsMixin.train_multivariate_model
+  - Added operation AnomalyDetectorClientOperationsMixin.detect_anomaly
+  - Added operation AnomalyDetectorClientOperationsMixin.get_detection_result
+  - Added operation AnomalyDetectorClientOperationsMixin.get_multivariate_model
+  - Added operation AnomalyDetectorClientOperationsMixin.export_model
+  - Added operation AnomalyDetectorClientOperationsMixin.delete_multivariate_model
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
