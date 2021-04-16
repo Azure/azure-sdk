@@ -119,6 +119,13 @@ azure-resourcemanager-mariadb:1.0.0-beta.1
 azure-resourcemanager-machinelearningservices:1.0.0-beta.1
 azure-resourcemanager-servicefabric:1.0.0-beta.1
 azure-ai-anomalydetector:3.0.0-beta.2
+azure-storage-queue:12.9.0-beta.3
+azure-storage-blob-nio:12.0.0-beta.5
+azure-storage-blob:12.11.0-beta.3
+azure-storage-common:12.11.0-beta.3
+azure-storage-file-share:12.9.0-beta.3
+azure-storage-blob-batch:12.9.0-beta.3
+azure-storage-file-datalake:12.5.0-beta.3
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -251,6 +258,13 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - azure-resourcemanager-machinelearningservices
 - azure-resourcemanager-servicefabric
 - Anomaly Detector
+- Storage - Queues
+- Storage - Blobs NIO
+- Storage - Blobs
+- Storage - Common
+- Storage - Files Shares
+- Storage - Blobs Batch
+- Storage - Files Data Lake
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -976,6 +990,48 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-ai-anomalydetector</artifactId>
   <version>3.0.0-beta.2</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-queue</artifactId>
+  <version>12.9.0-beta.3</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-blob-nio</artifactId>
+  <version>12.0.0-beta.5</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-blob</artifactId>
+  <version>12.11.0-beta.3</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-common</artifactId>
+  <version>12.11.0-beta.3</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-file-share</artifactId>
+  <version>12.9.0-beta.3</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-blob-batch</artifactId>
+  <version>12.9.0-beta.3</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-file-datalake</artifactId>
+  <version>12.5.0-beta.3</version>
 </dependency>
 
 
@@ -1757,6 +1813,29 @@ String messageText = body.toString();
 #### New Features
 
 - Add support for multivariate anomaly detection
+
+### Storage - Queues 12.9.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-queue_12.9.0-beta.3/sdk/storage/azure-storage-queue/CHANGELOG.md#1290-beta3-2021-04-16)
+- Updated azure-storage-common dependencies.
+
+### Storage - Blobs NIO 12.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob-nio_12.0.0-beta.5/sdk/storage/azure-storage-blob-nio/CHANGELOG.md#1200-beta5-2021-04-16)
+- Fixed a bug where a file would be determined to be a directory if another file with the same prefix exists
+
+### Storage - Blobs 12.11.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob_12.11.0-beta.3/sdk/storage/azure-storage-blob/CHANGELOG.md#12110-beta3-2021-04-16)
+- Fixed a bug where BlobOutputStream would lock up if the inner uploadWithResponse call is cancelled for any reason.
+- Fixed a bug where BlobOutputStream could hang when writing in a tight loop because the inner FluxSink would buffer in an unbounded manner. This would cause memory issues especially if the heap size was set to less than the size of the data being uploaded.
+- Fixed a bug where a null check was placed on the wrong parameter of the InputStream constructor for BlobParallelUploadOptions
+
+### Storage - Common 12.11.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-common_12.11.0-beta.3/sdk/storage/azure-storage-common/CHANGELOG.md#12110-beta3-2021-04-16)
+- Fixed a bug where connection strings with unencoded SAS's would result in URL exceptions.
+
+### Storage - Files Shares 12.9.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-file-share_12.9.0-beta.3/sdk/storage/azure-storage-file-share/CHANGELOG.md#1290-beta3-2021-04-16)
+- Updated azure-storage-common dependencies.
+
+### Storage - Blobs Batch 12.9.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob-batch_12.9.0-beta.3/sdk/storage/azure-storage-blob-batch/CHANGELOG.md#1290-beta3-2021-04-16)
+- Update `azure-storage-blob` to version `12.11.0-beta.3`
+
+### Storage - Files Data Lake 12.5.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-file-datalake_12.5.0-beta.3/sdk/storage/azure-storage-file-datalake/CHANGELOG.md#1250-beta3-2021-04-16)
+- Updated `azure-storage-blob` version to `12.11.0-beta.3` to pickup fixes for blob output stream.
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
