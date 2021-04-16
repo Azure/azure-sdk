@@ -115,6 +115,9 @@ azure-resourcemanager-hanaonazure:1.0.0-beta.1
 azure-resourcemanager-hybridcompute:1.0.0-beta.1
 azure-resourcemanager-logic:1.0.0-beta.1
 azure-resourcemanager-maintenance:1.0.0-beta.1
+azure-resourcemanager-mariadb:1.0.0-beta.1
+azure-resourcemanager-machinelearningservices:1.0.0-beta.1
+azure-resourcemanager-servicefabric:1.0.0-beta.1
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -243,6 +246,9 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - azure-resourcemanager-hybridcompute
 - azure-resourcemanager-logic
 - azure-resourcemanager-maintenance
+- azure-resourcemanager-mariadb
+- azure-resourcemanager-machinelearningservices
+- azure-resourcemanager-servicefabric
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -943,6 +949,24 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 <dependency>
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-maintenance</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-mariadb</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-machinelearningservices</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-servicefabric</artifactId>
   <version>1.0.0-beta.1</version>
 </dependency>
 
@@ -1711,6 +1735,15 @@ String messageText = body.toString();
 
 ### azure-resourcemanager-maintenance 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-maintenance_1.0.0-beta.1/sdk/maintenance/azure-resourcemanager-maintenance/CHANGELOG.md#100-beta1-2021-04-16)
 - Azure Resource Manager Maintenance client library for Java. This package contains Microsoft Azure SDK for Maintenance Management SDK. Maintenance Client. Package tag package-2020-04. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-mariadb 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-mariadb_1.0.0-beta.1/sdk/mariadb/azure-resourcemanager-mariadb/CHANGELOG.md#100-beta1-2021-04-16)
+- Azure Resource Manager MariaDB client library for Java. This package contains Microsoft Azure SDK for MariaDB Management SDK. The Microsoft Azure management API provides create, read, update, and delete functionality for Azure MariaDB resources including servers, databases, firewall rules, VNET rules, log files and configurations with new business model. Package tag package-2020-01-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-machinelearningservices 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-machinelearningservices_1.0.0-beta.1/sdk/machinelearningservices/azure-resourcemanager-machinelearningservices/CHANGELOG.md#100-beta1-2021-04-16)
+- Azure Resource Manager MachineLearningServices client library for Java. This package contains Microsoft Azure SDK for MachineLearningServices Management SDK. These APIs allow end users to operate on Azure Machine Learning Workspace resources. Package tag package-2021-04-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-servicefabric 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-servicefabric_1.0.0-beta.1/sdk/servicefabric/azure-resourcemanager-servicefabric/CHANGELOG.md#100-beta1-2021-04-16)
+- Azure Resource Manager ServiceFabric client library for Java. This package contains Microsoft Azure SDK for ServiceFabric Management SDK. Service Fabric Management Client. Package tag package-2019-03. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
