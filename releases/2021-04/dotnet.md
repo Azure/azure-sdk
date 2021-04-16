@@ -386,7 +386,7 @@ Minor changes since the public preview release:
 ### Anomaly Detector 3.0.0-preview.3 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.AnomalyDetector_3.0.0-preview.3/sdk/anomalydetector/Azure.AI.AnomalyDetector/CHANGELOG.md#300-preview3-2021-04-15)
 #### Breaking Changes
 
--  Now `TimeSeriesPoint.Timestamp` property is nullable
+- `TimeSeriesPoint.Timestamp` property is now nullable.
 - `TimeSeriesPoint(System.DateTimeOffset timestamp, float value)` constructor now takes only float type parameter.
 
 ## New Features
