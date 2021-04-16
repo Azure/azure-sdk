@@ -113,6 +113,8 @@ azure-resourcemanager-healthcareapis:1.0.0-beta.1
 azure-resourcemanager-devtestlabs:1.0.0-beta.1
 azure-resourcemanager-hanaonazure:1.0.0-beta.1
 azure-resourcemanager-hybridcompute:1.0.0-beta.1
+azure-resourcemanager-logic:1.0.0-beta.1
+azure-resourcemanager-maintenance:1.0.0-beta.1
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -239,6 +241,8 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - azure-resourcemanager-devtestlabs
 - azure-resourcemanager-hanaonazure
 - azure-resourcemanager-hybridcompute
+- azure-resourcemanager-logic
+- azure-resourcemanager-maintenance
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -927,6 +931,18 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 <dependency>
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-hybridcompute</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-logic</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-maintenance</artifactId>
   <version>1.0.0-beta.1</version>
 </dependency>
 
@@ -1689,6 +1705,12 @@ String messageText = body.toString();
 
 ### azure-resourcemanager-hybridcompute 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-hybridcompute_1.0.0-beta.1/sdk/hybridcompute/azure-resourcemanager-hybridcompute/CHANGELOG.md#100-beta1-2021-04-15)
 - Azure Resource Manager HybridCompute client library for Java. This package contains Microsoft Azure SDK for HybridCompute Management SDK. The Hybrid Compute Management Client. Package tag package-preview-2021-03. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-logic 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-logic_1.0.0-beta.1/sdk/logic/azure-resourcemanager-logic/CHANGELOG.md#100-beta1-2021-04-16)
+- Azure Resource Manager Logic client library for Java. This package contains Microsoft Azure SDK for Logic Management SDK. REST API for Azure Logic Apps. Package tag package-2019-05. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-maintenance 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-maintenance_1.0.0-beta.1/sdk/maintenance/azure-resourcemanager-maintenance/CHANGELOG.md#100-beta1-2021-04-16)
+- Azure Resource Manager Maintenance client library for Java. This package contains Microsoft Azure SDK for Maintenance Management SDK. Maintenance Client. Package tag package-2020-04. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
