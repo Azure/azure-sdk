@@ -6,33 +6,67 @@ sidebar: releases_sidebar
 repository: azure/azure-sdk-for-java
 ---
 
-<!--
-[pattern]: # (${PackageName}:${PackageVersion})
--->
-
 The Azure SDK team is pleased to announce our %%MMMM yyyy%% client library releases.
 
-#### GA
+{% assign packages = site.data.package_data.%%yyyy-MM%%.java['newEntries'] | where: "versionType" , "GA" | sort: 'service' | sort: 'friendlyName' %}
+{% if packages.size > 0 %}
+<p>{{ '#### GA' | markdownify }}</p>
+{% endif %}
+<ul>
+{% for package in packages %}
+    <li>
+    {{ package.friendlyName }}
+    </li>
+{% endfor %}
+</ul>
 
-[pattern.ga]: # (- ${PackageFriendlyName})
+{% assign packages = site.data.package_data.%%yyyy-MM%%.java['newEntries'] | where: "versionType", "Patch" | sort: 'service' | sort: 'friendlyName' %}
+{% if packages.size > 0 %}
+{{ '#### Updates' | markdownify }}
+{% endif %}
+<ul>
+{% for package in packages %}
+    <li>
+    {{ package.friendlyName }}
+    </li>
+{% endfor %}
+</ul>
 
-#### Updates
-
-[pattern.patch]: # (- ${PackageFriendlyName})
-
-#### Beta
-
-[pattern.beta]: # (- ${PackageFriendlyName})
+{% assign packages = site.data.package_data.%%yyyy-MM%%.java['newEntries'] | where: "versionType", "Beta" | sort: 'service' | sort: 'friendlyName' %}
+{% if packages.size > 0 %}
+<p>{{ '#### Beta' | markdownify }}</p>
+{% endif %}
+<ul>
+{% for package in packages %}
+    <li>
+    {{ package.friendlyName }}
+    </li>
+{% endfor %}
+</ul>
 
 ## Installation Instructions
 
 To use the GA and beta libraries, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate. If you are using a different build tool, refer to its documentation on how to specify dependencies.
 
-```xml
+{% assign packages = site.data.package_data.%%yyyy-MM%%.java['newEntries'] | sort: 'service' | sort: 'name' %}
+{%- capture install_instructions -%}
+{% for package in packages %}
+    {%- capture install_instruction -%}
+<dependency>
+{{ "  " }}<groupId>{{ package.groupId }}</groupId>
+{{ "  " }}<artifactId>{{ package.name }}</artifactId>
+{{ "  " }}<version>{{ package.version }}</version>
+</dependency>
+{{""}}
+    {%- endcapture -%}
+    {{ install_instruction }}
+{% endfor %}
+{%- endcapture -%}
 
 ```
-
-[pattern]: # (<dependency>`n  <groupId>${GroupId}</groupId>`n  <artifactId>${PackageName}</artifactId>`n  <version>${PackageVersion}</version>`n</dependency>`n)
+{{ install_instructions | rstrip }}
+```
+{: .language-xml}
 
 ## Feedback
 
@@ -40,7 +74,10 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-[pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
+{% for package in packages %}
+### {{ package.friendlyName }} {{ package.version }} [Changelog]({{ package.changelogUrl }})
+<p>{{ package.content | markdownify }}</p>
+{% endfor %}
 
 ## Need help
 
