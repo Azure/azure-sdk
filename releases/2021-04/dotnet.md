@@ -56,16 +56,18 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 [pattern.ga]: # (- ${PackageFriendlyName})
 
 #### Updates
+- Digital Twins - Core
 - Storage - Common
 - System Memory Data
-- Digital Twins - Core
 
 [pattern.patch]: # (- ${PackageFriendlyName})
 
 #### Beta
+- Anomaly Detector
 - App Configuration
 - Attestation
 - Azure.AI.Translation.Document
+- Azure.IoT.ModelsRepository
 - Azure Communication Phone Numbers
 - Cognitive Search
 - Core - AMQP
@@ -73,19 +75,17 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Identity
 - IoT Device Update
 - Synapse - Artifacts
+- Storage - Files Shares
+- Storage - Blobs
+- Storage - Blobs Batch
+- Storage - Blobs ChangeFeed
+- Storage - Common
+- Storage - Files Data Lake
+- Storage - Queues
 - Tables
 - Text Analytics
 - Translation Document
 - WebJobs Extensions - Event Hubs
-- Storage - Files Shares
-- Storage - Blobs
-- Storage - Blobs Batch
-- Storage - Common
-- Storage - Blobs ChangeFeed
-- Storage - Queues
-- Storage - Files Data Lake
-- Azure.IoT.ModelsRepository
-- Anomaly Detector
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -94,6 +94,7 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
 ```bash
+$> dotnet add package Azure.AI.AnomalyDetector --version 3.0.0-preview.3
 $> dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.4
 $> dotnet add package Azure.AI.TextAnalytics --version 5.1.0-beta.6
 $> dotnet add package Azure.AI.Translation.Document --version 1.0.0-beta.1
@@ -108,26 +109,25 @@ $> dotnet add package Azure.Core --version 1.13.0
 $> dotnet add package Azure.Core.Amqp --version 1.1.0-beta.1
 $> dotnet add package Azure.Data.AppConfiguration --version 1.1.0-beta.2
 $> dotnet add package Azure.Data.Tables --version 12.0.0-beta.7
+$> dotnet add package Azure.DigitalTwins.Core --version 1.2.2
 $> dotnet add package Azure.Identity --version 1.4.0-beta.5
 $> dotnet add package Azure.IoT.DeviceUpdate --version 1.0.0-beta.2
+$> dotnet add package Azure.IoT.ModelsRepository --version 1.0.0-preview.3
 $> dotnet add package Azure.Messaging.EventHubs --version 5.4.0
 $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.4.0
 $> dotnet add package Azure.ResourceManager.Communication --version 1.0.0
 $> dotnet add package Azure.Search.Documents --version 11.3.0-beta.1
 $> dotnet add package Azure.Security.Attestation --version 1.0.0-beta.2
-$> dotnet add package Azure.Storage.Common --version 12.7.2
-$> dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 7.0.0
-$> dotnet add package Microsoft.Azure.WebJobs.Extensions.EventHubs --version 5.0.0-beta.4
-$> dotnet add package Azure.Storage.Files.Shares --version 12.7.0-beta.3
 $> dotnet add package Azure.Storage.Blobs --version 12.9.0-beta.3
 $> dotnet add package Azure.Storage.Blobs.Batch --version 12.6.0-beta.3
-$> dotnet add package Azure.Storage.Common --version 12.8.0-beta.3
 $> dotnet add package Azure.Storage.Blobs.ChangeFeed --version 12.0.0-preview.11
-$> dotnet add package Azure.Storage.Queues --version 12.7.0-beta.3
+$> dotnet add package Azure.Storage.Common --version 12.7.2
+$> dotnet add package Azure.Storage.Common --version 12.8.0-beta.3
 $> dotnet add package Azure.Storage.Files.DataLake --version 12.7.0-beta.3
-$> dotnet add package Azure.IoT.ModelsRepository --version 1.0.0-preview.3
-$> dotnet add package Azure.DigitalTwins.Core --version 1.2.2
-$> dotnet add package Azure.AI.AnomalyDetector --version 3.0.0-preview.3
+$> dotnet add package Azure.Storage.Files.Shares --version 12.7.0-beta.3
+$> dotnet add package Azure.Storage.Queues --version 12.7.0-beta.3
+$> dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 7.0.0
+$> dotnet add package Microsoft.Azure.WebJobs.Extensions.EventHubs --version 5.0.0-beta.4
 $> dotnet add package System.Memory.Data --version 1.0.2
 ```
 
