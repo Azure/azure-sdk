@@ -126,6 +126,8 @@ azure-storage-common:12.11.0-beta.3
 azure-storage-file-share:12.9.0-beta.3
 azure-storage-blob-batch:12.9.0-beta.3
 azure-storage-file-datalake:12.5.0-beta.3
+azure-storage-blob-cryptography:12.11.0-beta.3
+azure-storage-internal-avro:12.0.3-beta.3
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -265,6 +267,8 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Storage - Files Shares
 - Storage - Blobs Batch
 - Storage - Files Data Lake
+- Storage - Blobs Cryptography
+- Storage - Internal Avro
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -1032,6 +1036,18 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-storage-file-datalake</artifactId>
   <version>12.5.0-beta.3</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-blob-cryptography</artifactId>
+  <version>12.11.0-beta.3</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-storage-internal-avro</artifactId>
+  <version>12.0.3-beta.3</version>
 </dependency>
 
 
@@ -1836,6 +1852,12 @@ String messageText = body.toString();
 
 ### Storage - Files Data Lake 12.5.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-file-datalake_12.5.0-beta.3/sdk/storage/azure-storage-file-datalake/CHANGELOG.md#1250-beta3-2021-04-16)
 - Updated `azure-storage-blob` version to `12.11.0-beta.3` to pickup fixes for blob output stream.
+
+### Storage - Blobs Cryptography 12.11.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob-cryptography_12.11.0-beta.3/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md#12110-beta3-2021-04-16)
+- Update `azure-storage-blob` to version `12.11.0-beta.3`
+
+### Storage - Internal Avro 12.0.3-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-internal-avro_12.0.3-beta.3/sdk/storage/azure-storage-internal-avro/CHANGELOG.md#1203-beta3-2021-04-16)
+- Update `azure-storage-common` to version `12.11.0-beta.3`
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
