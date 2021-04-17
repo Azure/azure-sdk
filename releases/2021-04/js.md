@@ -33,6 +33,7 @@ repository: azure/azure-sdk-for-js
 @azure/container-registry:1.0.0-beta.1
 @azure/data-tables:12.0.0-beta.2
 @azure/core-lro:1.0.5
+@azure/ai-anomaly-detector:3.0.0-beta.3
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -75,6 +76,7 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Synapse - Artifacts
 - Container Registry
 - Tables
+- Anomaly Detector
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -110,6 +112,7 @@ $> npm install @azure/synapse-artifacts@1.0.0-beta.4
 $> npm install @azure/container-registry@1.0.0-beta.1
 $> npm install @azure/data-tables@12.0.0-beta.2
 $> npm install @azure/core-lro@1.0.5
+$> npm install @azure/ai-anomaly-detector@3.0.0-beta.3
 
 ```
 
@@ -347,6 +350,9 @@ This update marks the preview for the first major version update of the `@azure/
 
 ### Core - LRO 1.0.5 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-lro_1.0.5/sdk/core/core-lro/CHANGELOG.md#105-2021-04-12)
 - No functionality changes from 1.0.4. This release is to correct an issue where 1.0.4 shipped with modules in the wrong format (cjs instead of es6.)
+
+### Anomaly Detector 3.0.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/ai-anomaly-detector_3.0.0-beta.3/sdk/anomalydetector/ai-anomaly-detector/CHANGELOG.md#300-beta3-2021-04-16)
+- Introduced the following new APIs related to Mutivariate Models:trainMultivariateModel, getMultivariateModel, deleteMultivariateModel, detectAnomaly, getDetectionResult, exportModel, listMultivariateModel, listMultivariateModelNext.
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
