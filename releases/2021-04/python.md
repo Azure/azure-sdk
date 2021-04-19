@@ -65,6 +65,7 @@ azure-search-documents:11.2.0b2
 azure-mgmt-hybridcompute:7.0.0
 azure-mgmt-dns:8.0.0
 azure-ai-anomalydetector:3.0.0b3
+azure-mgmt-resource:16.1.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -104,6 +105,7 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Event Hubs
 - Resource Management - Hybrid Compute
 - Resource Management - DNS
+- Resource Management - Resources
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -200,6 +202,7 @@ $> pip install azure-search-documents==11.2.0b2
 $> pip install azure-mgmt-hybridcompute==7.0.0
 $> pip install azure-mgmt-dns==8.0.0
 $> pip install azure-ai-anomalydetector==3.0.0b3
+$> pip install azure-mgmt-resource==16.1.0
 
 ```
 
@@ -764,6 +767,11 @@ service version `1.0-preview.1`. This package's documentation and samples demons
   - Added operation AnomalyDetectorClientOperationsMixin.get_multivariate_model
   - Added operation AnomalyDetectorClientOperationsMixin.export_model
   - Added operation AnomalyDetectorClientOperationsMixin.delete_multivariate_model
+
+### Resource Management - Resources 16.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-resource_16.1.0/sdk/resources/azure-mgmt-resource/CHANGELOG.md#1610-2021-04-16)
+**Features**
+
+  - Model ManagedServiceIdentity has a new parameter tenant_id
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
