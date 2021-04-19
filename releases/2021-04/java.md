@@ -128,6 +128,23 @@ azure-storage-blob-batch:12.9.0-beta.3
 azure-storage-file-datalake:12.5.0-beta.3
 azure-storage-blob-cryptography:12.11.0-beta.3
 azure-storage-internal-avro:12.0.3-beta.3
+azure-spring-boot-starter-keyvault-secrets:3.4.0
+azure-spring-boot-starter-servicebus-jms:3.4.0
+azure-resourcemanager-kusto:1.0.0-beta.2
+azure-spring-integration-eventhubs:2.4.0
+azure-spring-boot:3.4.0
+azure-spring-boot-starter-cosmos:3.4.0
+azure-spring-integration-servicebus:2.4.0
+azure-spring-boot-starter-active-directory:3.4.0
+azure-spring-boot-starter-storage:3.4.0
+azure-identity-spring:1.4.0
+azure-spring-boot-starter-active-directory-b2c:3.4.0
+azure-resourcemanager-support:1.0.0-beta.1
+azure-resourcemanager-peering:1.0.0-beta.1
+azure-security-keyvault-jca:1.0.0-beta.6
+azure-spring-cloud-stream-binder-servicebus-core:2.4.0
+azure-spring-boot-starter:3.4.0
+azure-spring-integration-core:2.4.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -171,6 +188,19 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Resource Management - Event Grid
 - Resource Management - MySQL
 - Resource Management - Media Services
+- Azure Spring Boot Starter Key Vault Secrets
+- Azure Spring Boot Starter Service bus Jms
+- Azure Spring Cloud Integration Event Hubs
+- Azure Spring Boot AutoConfigure
+- Azure Spring Boot Starter Cosmos
+- Azure Spring Cloud Integration Service Bus
+- Azure Spring Boot Starter Active Directory
+- Azure Spring Boot Starter Storage
+- Azure Identity Spring
+- Azure Spring Boot Starter Active Directory B2C
+- Azure Spring Cloud Stream Binder Service bus Core
+- Azure Spring Boot Starter
+- Azure Spring Cloud Integration Core
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -269,6 +299,10 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Storage - Files Data Lake
 - Storage - Blobs Cryptography
 - Storage - Internal Avro
+- Resource Management - Kusto
+- azure-resourcemanager-support
+- azure-resourcemanager-peering
+- Key Vault - JCA
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -1048,6 +1082,108 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure</groupId>
   <artifactId>azure-storage-internal-avro</artifactId>
   <version>12.0.3-beta.3</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-boot-starter-keyvault-secrets</artifactId>
+  <version>3.4.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-boot-starter-servicebus-jms</artifactId>
+  <version>3.4.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-kusto</artifactId>
+  <version>1.0.0-beta.2</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-integration-eventhubs</artifactId>
+  <version>2.4.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-boot</artifactId>
+  <version>3.4.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-boot-starter-cosmos</artifactId>
+  <version>3.4.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-integration-servicebus</artifactId>
+  <version>2.4.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-boot-starter-active-directory</artifactId>
+  <version>3.4.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-boot-starter-storage</artifactId>
+  <version>3.4.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-identity-spring</artifactId>
+  <version>1.4.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-boot-starter-active-directory-b2c</artifactId>
+  <version>3.4.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-support</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-peering</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-security-keyvault-jca</artifactId>
+  <version>1.0.0-beta.6</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-stream-binder-servicebus-core</artifactId>
+  <version>2.4.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-boot-starter</artifactId>
+  <version>3.4.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-integration-core</artifactId>
+  <version>2.4.0</version>
 </dependency>
 
 
@@ -1858,6 +1994,141 @@ String messageText = body.toString();
 
 ### Storage - Internal Avro 12.0.3-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-internal-avro_12.0.3-beta.3/sdk/storage/azure-storage-internal-avro/CHANGELOG.md#1203-beta3-2021-04-16)
 - Update `azure-storage-common` to version `12.11.0-beta.3`
+
+### Azure Spring Boot Starter Key Vault Secrets 3.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot-starter-keyvault-secrets_3.4.0/sdk/spring/azure-spring-boot-starter-keyvault-secrets/CHANGELOG.md#340-2021-04-19)
+#### Key Bug Fixes
+- Fix bug of Keyvault refresh Timer task blocking application termination. ([#20014](https://github.com/Azure/azure-sdk-for-java/pull/20014))
+
+### Azure Spring Boot Starter Service bus Jms 3.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot-starter-servicebus-jms_3.4.0/sdk/spring/azure-spring-boot-starter-servicebus-jms/CHANGELOG.md#340-2021-04-19)
+
+
+### Resource Management - Kusto 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-kusto_1.0.0-beta.2/sdk/kusto/azure-resourcemanager-kusto/CHANGELOG.md#100-beta2-2021-04-19)
+- Azure Resource Manager Kusto client library for Java. This package contains Microsoft Azure SDK for Kusto Management SDK. The Azure Kusto management API provides a RESTful set of web services that interact with Azure Kusto services to manage your clusters and databases. The API enables you to create, update, and delete clusters and databases. Package tag package-2021-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+#### New Feature
+
+* `models.ScriptListResult` was added
+
+* `models.OperationResult` was added
+
+* `models.Script$DefinitionStages` was added
+
+* `models.Script` was added
+
+* `models.TableLevelSharingProperties` was added
+
+* `models.ScriptCheckNameRequest` was added
+
+* `models.Script$Update` was added
+
+* `models.Scripts` was added
+
+* `models.Script$Definition` was added
+
+* `models.Status` was added
+
+* `models.Script$UpdateStages` was added
+
+* `models.OperationsResults` was added
+
+##### `models.AttachedDatabaseConfiguration` was modified
+
+* `tableLevelSharingProperties()` was added
+
+##### `models.Cluster$Definition` was modified
+
+* `withIfMatch(java.lang.String)` was added
+* `withIfNoneMatch(java.lang.String)` was added
+
+##### `KustoManager` was modified
+
+* `operationsResults()` was added
+* `scripts()` was added
+
+##### `models.EventHubDataConnection` was modified
+
+* `withManagedIdentityResourceId(java.lang.String)` was added
+* `managedIdentityResourceId()` was added
+
+##### `models.Cluster$Update` was modified
+
+* `withIfMatch(java.lang.String)` was added
+
+##### `models.AttachedDatabaseConfiguration$Definition` was modified
+
+* `withTableLevelSharingProperties(models.TableLevelSharingProperties)` was added
+
+##### `models.AttachedDatabaseConfiguration$Update` was modified
+
+* `withTableLevelSharingProperties(models.TableLevelSharingProperties)` was added
+
+##### `models.Cluster` was modified
+
+* `addLanguageExtensions(models.LanguageExtensionsList)` was added
+* `listLanguageExtensions(com.azure.core.util.Context)` was added
+* `etag()` was added
+* `stop(com.azure.core.util.Context)` was added
+* `listLanguageExtensions()` was added
+* `listFollowerDatabases()` was added
+* `diagnoseVirtualNetwork()` was added
+* `detachFollowerDatabases(fluent.models.FollowerDatabaseDefinitionInner)` was added
+* `start()` was added
+* `removeLanguageExtensions(models.LanguageExtensionsList)` was added
+* `detachFollowerDatabases(fluent.models.FollowerDatabaseDefinitionInner,com.azure.core.util.Context)` was added
+* `diagnoseVirtualNetwork(com.azure.core.util.Context)` was added
+* `stop()` was added
+* `removeLanguageExtensions(models.LanguageExtensionsList,com.azure.core.util.Context)` was added
+* `listFollowerDatabases(com.azure.core.util.Context)` was added
+* `start(com.azure.core.util.Context)` was added
+* `addLanguageExtensions(models.LanguageExtensionsList,com.azure.core.util.Context)` was added
+
+### Azure Spring Cloud Integration Event Hubs 2.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-integration-eventhubs_2.4.0/sdk/spring/azure-spring-integration-eventhubs/CHANGELOG.md#240-2021-04-19)
+
+
+### Azure Spring Boot AutoConfigure 3.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot_3.4.0/sdk/spring/azure-spring-boot/CHANGELOG.md#340-2021-04-19)
+#### Key Bug Fixes
+- Fix bug of Keyvault refresh Timer task blocking application termination. ([#20014](https://github.com/Azure/azure-sdk-for-java/pull/20014))
+- Fix bug that user-name-attribute cannot be configured. ([#20209](https://github.com/Azure/azure-sdk-for-java/issues/20209))
+
+### Azure Spring Boot Starter Cosmos 3.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot-starter-cosmos_3.4.0/sdk/spring/azure-spring-boot-starter-cosmos/CHANGELOG.md#340-2021-04-19)
+
+
+### Azure Spring Cloud Integration Service Bus 2.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-integration-servicebus_2.4.0/sdk/spring/azure-spring-integration-servicebus/CHANGELOG.md#240-2021-04-19)
+
+
+### Azure Spring Boot Starter Active Directory 3.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot-starter-active-directory_3.4.0/sdk/spring/azure-spring-boot-starter-active-directory/CHANGELOG.md#340-2021-04-19)
+#### Key Bug Fixes
+- Fix bug that user-name-attribute cannot be configured. ([#20209](https://github.com/Azure/azure-sdk-for-java/issues/20209))
+
+### Azure Spring Boot Starter Storage 3.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot-starter-storage_3.4.0/sdk/spring/azure-spring-boot-starter-storage/CHANGELOG.md#340-2021-04-19)
+
+
+### Azure Identity Spring 1.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-identity-spring_1.4.0/sdk/spring/azure-identity-spring/CHANGELOG.md#140-2021-04-19)
+
+
+### Azure Spring Boot Starter Active Directory B2C 3.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot-starter-active-directory-b2c_3.4.0/sdk/spring/azure-spring-boot-starter-active-directory-b2c/CHANGELOG.md#340-2021-04-19)
+
+
+### azure-resourcemanager-support 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-support_1.0.0-beta.1/sdk/support/azure-resourcemanager-support/CHANGELOG.md#100-beta1-2021-04-19)
+- Azure Resource Manager Support client library for Java. This package contains Microsoft Azure SDK for Support Management SDK. Microsoft Azure Support Resource Provider. Package tag package-2020-04. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-peering 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-peering_1.0.0-beta.1/sdk/peering/azure-resourcemanager-peering/CHANGELOG.md#100-beta1-2021-04-19)
+- Azure Resource Manager Peering client library for Java. This package contains Microsoft Azure SDK for Peering Management SDK. Peering Client. Package tag package-2021-01-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### Key Vault - JCA 1.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-jca_1.0.0-beta.6/sdk/keyvault/azure-security-keyvault-jca/CHANGELOG.md#100-beta6-2021-04-19)
+#### Breaking Changes
+ - Remove configurable property of azure.keyvault.aad-authentication-url which is configured according to azure.keyvault.uri automatically [#20530](https://github.com/Azure/azure-sdk-for-java/pull/20530)
+
+### Azure Spring Cloud Stream Binder Service bus Core 2.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-stream-binder-servicebus-core_2.4.0/sdk/spring/azure-spring-cloud-stream-binder-servicebus-core/CHANGELOG.md#240-2021-04-19)
+
+
+### Azure Spring Boot Starter 3.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot-starter_3.4.0/sdk/spring/azure-spring-boot-starter/CHANGELOG.md#340-2021-04-19)
+#### Key Bug Fixes
+- Fix bug of Keyvault refresh Timer task blocking application termination. ([#20014](https://github.com/Azure/azure-sdk-for-java/pull/20014))
+- Fix bug that user-name-attribute cannot be configured. ([#20209](https://github.com/Azure/azure-sdk-for-java/issues/20209))
+
+### Azure Spring Cloud Integration Core 2.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-integration-core_2.4.0/sdk/spring/azure-spring-integration-core/CHANGELOG.md#240-2021-04-19)
+
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
