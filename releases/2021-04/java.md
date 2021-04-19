@@ -145,6 +145,7 @@ azure-security-keyvault-jca:1.0.0-beta.6
 azure-spring-cloud-stream-binder-servicebus-core:2.4.0
 azure-spring-boot-starter:3.4.0
 azure-spring-integration-core:2.4.0
+azure-resourcemanager-subscription:1.0.0-beta.1
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -303,6 +304,7 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - azure-resourcemanager-support
 - azure-resourcemanager-peering
 - Key Vault - JCA
+- azure-resourcemanager-subscription
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -1184,6 +1186,12 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure.spring</groupId>
   <artifactId>azure-spring-integration-core</artifactId>
   <version>2.4.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-subscription</artifactId>
+  <version>1.0.0-beta.1</version>
 </dependency>
 
 
@@ -2129,6 +2137,9 @@ String messageText = body.toString();
 
 ### Azure Spring Cloud Integration Core 2.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-integration-core_2.4.0/sdk/spring/azure-spring-integration-core/CHANGELOG.md#240-2021-04-19)
 
+
+### azure-resourcemanager-subscription 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-subscription_1.0.0-beta.1/sdk/subscription/azure-resourcemanager-subscription/CHANGELOG.md#100-beta1-2021-04-19)
+- Azure Resource Manager Subscription client library for Java. This package contains Microsoft Azure SDK for Subscription Management SDK. The subscription client. Package tag package-2020-09. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
