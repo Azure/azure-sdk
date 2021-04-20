@@ -8,6 +8,10 @@ repository: azure/azure-sdk-for-android
 
 The Azure SDK team is pleased to announce our April 2021 client library releases.
 
+#### GA
+
+- Azure Communication Services Common
+
 #### Beta
 
 - Azure Communication Services Chat
@@ -33,6 +37,7 @@ To use the latest GA and beta libraries, refer to the dependency information bel
 ```gradle
 dependencies {
     ...
+    implementation 'com.azure.android:azure-communication-common:1.0.0'
     implementation 'com.azure.android:azure-communication-chat:1.0.0-beta.8'
     implementation 'com.azure.android:azure-communication-common:1.0.0-beta.8'
     implementation 'com.azure.android:azure-core:1.0.0-beta.5'
@@ -52,6 +57,7 @@ dependencies {
 ```gradle
 dependencies {
     ...
+    implementation("com.azure.android:azure-communication-common:1.0.0")
     implementation("com.azure.android:azure-communication-chat:1.0.0-beta.8")
     implementation("com.azure.android:azure-communication-common:1.0.0-beta.8")
     implementation("com.azure.android:azure-core:1.0.0-beta.5")
@@ -69,6 +75,12 @@ dependencies {
 ### Maven
 
 ```xml
+<dependency>
+    <groupId>com.azure.android</groupId>
+    <artifactId>azure-communication-common</artifactId>
+    <version>1.0.0</version>
+    <type>aar</type>
+</dependency>
 <dependency>
     <groupId>com.azure.android</groupId>
     <artifactId>azure-communication-chat</artifactId>
@@ -142,6 +154,11 @@ dependencies {
 If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/azure/azure-sdk-for-android/issues).
 
 ## Release highlights
+
+### Azure Communication Services Common
+
+#### 1.0.0 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/communication/azure-communication-common/CHANGELOG.md#100-2021-04-20))
+- Release GA version; includes all changes from 1.0.0-beta.1 to 1.0.0.beta.8.
 
 ### Azure Communication Services Chat
 
