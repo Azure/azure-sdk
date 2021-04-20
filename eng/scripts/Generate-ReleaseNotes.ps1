@@ -5,8 +5,6 @@ param (
   [string]$releaseFileName
 )
 
-$PATTERN_REGEX = "^\[pattern(\.(?<SectionName>\w+))?\]:\s#\s\((?<Pattern>.*)\)"
-
 # Filters out packages if the versions are not found in the packages.csv file.
 # Also appends DisplayName and ServiceName to the releaseHighlights
 function FilterOut-UnreleasedPackages ($releaseHighlights)

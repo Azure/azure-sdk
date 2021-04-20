@@ -1,0 +1,709 @@
+oldEntries:
+- name: Microsoft.Azure.Messaging.EventGrid.CloudNativeCloudEvents
+  version: 1.0.0-beta.1
+- name: Azure.Storage.Blobs
+  version: 12.8.1
+- name: Azure.AI.Translation.Document
+  version: 1.0.0-beta.1
+- name: Azure.Messaging.EventHubs.Processor
+  version: 5.4.0-beta.1
+- name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  version: 5.0.0-beta.1
+- name: Azure.DigitalTwins.Core
+  version: 1.2.2
+- name: Azure.Storage.Files.Shares
+  version: 12.7.0-beta.3
+- name: Azure.Storage.Queues
+  version: 12.6.1
+- name: Azure.IoT.ModelsRepository
+  version: 1.0.0-preview.3
+- name: Azure.Messaging.EventHubs.Processor
+  version: 5.4.0
+- name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  version: 5.0.0-beta.2
+- name: Azure.Search.Documents
+  version: 11.3.0-beta.2
+- name: Azure.Core
+  version: 1.12.0
+- name: System.Memory.Data
+  version: 1.0.2
+- name: Azure.Analytics.Synapse.Artifacts
+  version: 1.0.0-preview.7
+- name: Azure.Analytics.Synapse.Artifacts
+  version: 1.0.0-preview.8
+- name: Azure.Core
+  version: 1.11.0
+- name: Azure.IoT.DeviceUpdate
+  version: 1.0.0-beta.2
+- name: Azure.Storage.Blobs.Batch
+  version: 12.6.0-beta.3
+- name: Azure.Messaging.EventGrid
+  version: 4.1.0
+- name: Azure.Core.Experimental
+  version: 0.1.0-preview.11
+- name: Azure.Storage.Files.DataLake
+  version: 12.6.1
+- name: Azure.Communication.Sms
+  version: 1.0.0
+- name: Azure.Security.Attestation
+  version: 1.0.0-beta.2
+- name: Azure.Messaging.ServiceBus
+  version: 7.2.0-beta.2
+- name: Azure.Storage.Blobs.ChangeFeed
+  version: 12.0.0-preview.11
+- name: Azure.Storage.Common
+  version: 12.7.1
+- name: Azure.Communication.Chat
+  version: 1.0.0
+- name: Microsoft.Azure.CognitiveServices.Vision.ComputerVision
+  version: 7.0.0
+- name: Azure.AI.TextAnalytics
+  version: 5.1.0-beta.6
+- name: Azure.Core
+  version: 1.13.0
+- name: Azure.Storage.Files.Shares
+  version: 12.6.1
+- name: Azure.IoT.ModelsRepository
+  version: 1.0.0-preview.2
+- name: Azure.Messaging.EventHubs
+  version: 5.4.0-beta.1
+- name: Azure.Storage.Queues
+  version: 12.7.0-beta.3
+- name: Azure.Data.Tables
+  version: 12.0.0-beta.7
+- name: Azure.Communication.Common
+  version: 1.0.0
+- name: Azure.Core.Amqp
+  version: 1.1.0-beta.1
+- name: Azure.Storage.Common
+  version: 12.7.2
+- name: Azure.Data.AppConfiguration
+  version: 1.1.0-beta.2
+- name: Azure.Quantum.Jobs
+  version: 1.0.0-beta.2
+- name: Azure.Identity
+  version: 1.4.0-beta.5
+- name: Azure.Communication.Identity
+  version: 1.0.0
+- name: Azure.AI.FormRecognizer
+  version: 3.1.0-beta.4
+- name: Azure.Communication.PhoneNumbers
+  version: 1.0.0-beta.6
+- name: Azure.Storage.Files.DataLake
+  version: 12.7.0-beta.3
+- name: Azure.Storage.Common
+  version: 12.8.0-beta.3
+- name: Azure.Storage.Blobs
+  version: 12.9.0-beta.3
+- name: Microsoft.Azure.WebJobs.Extensions.EventHubs
+  version: 5.0.0-beta.4
+- name: Azure.Messaging.EventHubs
+  version: 5.4.0
+- name: Azure.ResourceManager.Communication
+  version: 1.0.0
+- name: Azure.AI.AnomalyDetector
+  version: 3.0.0-preview.3
+- name: Azure.Search.Documents
+  version: 11.3.0-beta.1
+- name: Azure.Storage.Blobs.Batch
+  version: 12.5.1
+- name: Azure.Containers.ContainerRegistry
+  version: 1.0.0-beta.1
+- name: Microsoft.Azure.WebJobs.Extensions.EventGrid
+  version: 3.0.0-beta.1
+- name: Microsoft.Azure.CognitiveServices.Vision.Face
+  version: 2.7.0-preview.1
+- name: Azure.AI.FormRecognizer
+  version: 3.0.1
+newEntries:
+- name: Microsoft.Azure.Messaging.EventGrid.CloudNativeCloudEvents
+  version: 1.0.0-beta.1
+  service: 
+  versionType: Beta
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.Messaging.EventGrid.CloudNativeCloudEvents_1.0.0-beta.1/sdk/eventgrid/Microsoft.Azure.Messaging.EventGrid.CloudNativeCloudEvents/CHANGELOG.md#100-beta1-2021-03-17
+  content: |-
+    #### Added
+
+    - Bridge library to allow sending CloudNative CloudEvents using Azure Event Grid.
+- name: Azure.Storage.Blobs
+  version: 12.8.1
+  service: 
+  versionType: Patch
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Blobs_12.8.1/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md#1281-2021-03-29
+  content: "- Fixed bug where ClientDiagnostics's DiagnosticListener was leaking resources."
+- name: Azure.AI.Translation.Document
+  version: 1.0.0-beta.1
+  service: 
+  versionType: Beta
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.Translation.Document_1.0.0-beta.1/sdk/translation/Azure.AI.Translation.Document/CHANGELOG.md#100-beta1-2021-04-06
+  content: |-
+    This is the first beta package of the Azure.AI.Translation.Document client library that targets the service version `1.0-preview.1`.
+    This package's documentation and samples demonstrate the new API.
+- name: Azure.Messaging.EventHubs.Processor
+  version: 5.4.0-beta.1
+  service: 
+  versionType: Beta
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventHubs.Processor_5.4.0-beta.1/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md#540-beta1-2021-03-17
+  content: |-
+    #### Changes
+
+    - Updating package bindings for `Azure.Messaging.EventHubs` to synchronize on v5.4.0-beta.1.
+- name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  version: 5.0.0-beta.1
+  service: 
+  versionType: Beta
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.0.0-beta.1/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md#500-beta1-2021-03-23
+  content: '- The initial release of Microsoft.Azure.WebJobs.Extensions.ServiceBus 5.0.0'
+- name: Azure.DigitalTwins.Core
+  version: 1.2.2
+  service: 
+  versionType: Patch
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.DigitalTwins.Core_1.2.2/sdk/digitaltwins/Azure.DigitalTwins.Core/CHANGELOG.md#122-2021-04-12
+  content: |-
+    #### Fixes and improvements
+
+    - Updated core dependencies to bring in security vulnerability fixes that are addressed in `Azure.Core v1.13.0` and `System.Memory.Data v1.0.2`
+- name: Azure.Storage.Files.Shares
+  version: 12.7.0-beta.3
+  service: 
+  versionType: Beta
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Files.Shares_12.7.0-beta.3/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md#1270-beta3-2021-04-09
+  content: '- This release contains bug fixes to improve quality.'
+- name: Azure.Storage.Queues
+  version: 12.6.1
+  service: 
+  versionType: Patch
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Queues_12.6.1/sdk/storage/Azure.Storage.Queues/CHANGELOG.md#1261-2021-03-29
+  content: "- Fixed bug where ClientDiagnostics's DiagnosticListener was leaking resources."
+- name: Azure.IoT.ModelsRepository
+  version: 1.0.0-preview.3
+  service: 
+  versionType: Beta
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.IoT.ModelsRepository_1.0.0-preview.3/sdk/modelsrepository/Azure.IoT.ModelsRepository/CHANGELOG.md#100-preview3-2021-04-12
+  content: '- Updated core dependencies to bring in security vulnerability fixes that are addressed in `Azure.Core v1.13.0` and `System.Memory.Data v1.0.2`'
+- name: Azure.Messaging.EventHubs.Processor
+  version: 5.4.0
+  service: 
+  versionType: GA
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventHubs.Processor_5.4.0/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md#540-2021-04-05
+  content: |-
+    #### Acknowledgments
+
+    Thank you to our developer community members who helped to make the Event Hubs client libraries better with their contributions to this release:
+
+    - Daniel Marbach _([GitHub](https://github.com/danielmarbach))_
+
+    #### Changes
+
+    ##### New Features
+
+    - The `EventProcessorClient` now supports shared key and shared access signature authentication using the `AzureNamedKeyCredential` and `AzureSasCredential` types in addition to the connection string.  Use of the credential allows the shared key or SAS to be updated without the need to create a new processor.
+
+    - Multiple enhancements were made to the AMQP transport paths for reading events to reduce memory allocations and increase performance.  (A community contribution, courtesy of _[danielmarbach](https://github.com/danielmarbach))_
+
+    ##### Key Bug Fixes
+
+    - The AMQP library used for transport has been updated, fixing several issues including a potential unobserved   `ObjectDisposedException` that could cause the host process to crash.  _(see: [release notes](https://github.com/Azure/azure-amqp/releases/tag/v2.4.13))_
+- name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  version: 5.0.0-beta.2
+  service: 
+  versionType: Beta
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.0.0-beta.2/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md#500-beta2-2021-04-07
+  content: |-
+    #### Added
+    - Add AAD support
+
+    #### Breaking Changes
+    - Changed the API signatures for the methods in `MessagingProvider`.
+    - Added `receiver` parameter to `MessageProcessor` constructor.
+    - Added `client` parameter to `SessionMessageProcessor` constructor.
+- name: Azure.Search.Documents
+  version: 11.3.0-beta.2
+  service: 
+  versionType: Beta
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Search.Documents_11.3.0-beta.2/sdk/search/Azure.Search.Documents/CHANGELOG.md#1130-beta2-2021-04-12
+  content: |-
+    #### Added
+    - Added support for [Semantic Search](https://docs.microsoft.com/azure/search/semantic-search-overview)
+- name: Azure.Core
+  version: 1.12.0
+  service: 
+  versionType: GA
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.12.0/sdk/core/Azure.Core/CHANGELOG.md#1120-2021-04-06
+  content: |-
+    #### Added
+
+    - Added `HttpPipeline.CreateHttpMessagePropertiesScope` that can be used to inject scoped properties into `HttpMessage`.
+- name: System.Memory.Data
+  version: 1.0.2
+  service: 
+  versionType: Patch
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/System.Memory.Data_1.0.2/sdk/core/System.Memory.Data/CHANGELOG.md#102-2021-04-07
+  content: '- Add System.Text.Encodings.Web dependency'
+- name: Azure.Analytics.Synapse.Artifacts
+  version: 1.0.0-preview.7
+  service: 
+  versionType: Beta
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.Synapse.Artifacts_1.0.0-preview.7/sdk/synapse/Azure.Analytics.Synapse.Artifacts/CHANGELOG.md#100-preview7-2021-03-17
+  content: |-
+    #### Added
+    - Many models classes now have public getters.
+    - Added new `LibraryClient` and associated support types.
+- name: Azure.Analytics.Synapse.Artifacts
+  version: 1.0.0-preview.8
+  service: 
+  versionType: Beta
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.Synapse.Artifacts_1.0.0-preview.8/sdk/synapse/Azure.Analytics.Synapse.Artifacts/CHANGELOG.md#100-preview8-2021-04-06
+  content: |-
+    #### Added
+    - Many additional model classes
+
+    #### Changed
+    - Exposed Serialization and Deserialization methods.
+- name: Azure.Core
+  version: 1.11.0
+  service: 
+  versionType: GA
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.11.0/sdk/core/Azure.Core/CHANGELOG.md#1110-2021-03-22
+  content: |-
+    #### Added
+
+    - `Operation` base class for operations that do not return a value.
+    - Added `Content` property to `Response` which returns the body of the response as a `BinaryData` if the body is buffered.
+    - `AzureNamedKeyCredential` has been implemented to cover scenarios where services require that a shared key name and the key value be used as a component of the algorithm to form the authorization token.
+
+    #### Key Bug Fixes
+
+    - Check the `JsonIgnoreAttribute.Condition` property added in .NET 5 when discovering members with `JsonObjectSerializer`.
+    - `ETag` now returns `string.Empty` if it is constructed with a null value.
+    - Keep-Alive connections are recycled every 300 seconds to observe DNS changes.
+- name: Azure.IoT.DeviceUpdate
+  version: 1.0.0-beta.2
+  service: 
+  versionType: Beta
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.IoT.DeviceUpdate_1.0.0-beta.2/sdk/deviceupdate/Azure.Iot.DeviceUpdate/CHANGELOG.md#100-beta2-2021-04-06
+  content: '* Update root namespace from Azure.Iot.DeviceUpdate to Azure.IoT.DeviceUpdate'
+- name: Azure.Storage.Blobs.Batch
+  version: 12.6.0-beta.3
+  service: 
+  versionType: Beta
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Blobs.Batch_12.6.0-beta.3/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md#1260-beta3-2021-04-09
+  content: '- This release contains bug fixes to improve quality.'
+- name: Azure.Messaging.EventGrid
+  version: 4.1.0
+  service: 
+  versionType: GA
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventGrid_4.1.0/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md#410-2021-03-23
+  content: |-
+    #### New Features
+    - Added new Azure Communication Services system events.
+
+    #### Fixed
+    - Fixed system mapping for `AcsChatParticipantAddedToThread` and `AcsChatParticipantRemovedFromThread`.
+- name: Azure.Core.Experimental
+  version: 0.1.0-preview.11
+  service: 
+  versionType: Beta
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core.Experimental_0.1.0-preview.11/sdk/core/Azure.Core.Experimental/CHANGELOG.md#010-preview11-2021-03-22
+  content: |-
+    #### New Features
+    - Improved debugging experience for `JsonData`.
+    - `JsonData` can be used with `JsonSerializer`
+- name: Azure.Storage.Files.DataLake
+  version: 12.6.1
+  service: 
+  versionType: Patch
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Files.DataLake_12.6.1/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md#1261-2021-03-29
+  content: "- Fixed bug where ClientDiagnostics's DiagnosticListener was leaking resources."
+- name: Azure.Communication.Sms
+  version: 1.0.0
+  service: 
+  versionType: GA
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.Sms_1.0.0/sdk/communication/Azure.Communication.Sms/CHANGELOG.md#100-2021-03-29
+  content: Updated `Azure.Communication.Sms` version.
+- name: Azure.Security.Attestation
+  version: 1.0.0-beta.2
+  service: 
+  versionType: Beta
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.Attestation_1.0.0-beta.2/sdk/attestation/Azure.Security.Attestation/CHANGELOG.md#100-beta2-2021-04-06
+  content: "#### Fixed\r\n - [19708](https://github.com/Azure/azure-sdk-for-net/issues/19708), handle JSON values that are not just simple integers.\r\n - [18183](https://github.com/Azure/azure-sdk-for-net/issues/18183), Significant cleanup of README.md.\r\n - [18739](https://github.com/Azure/azure-sdk-for-net/issues/18739), reference the readme.md file in the azure-rest-apis directory instead of referencing the attestation JSON file directly. Also updated to the most recent version of the dataplane swagger files.\r\n\r\n#### Breaking Change\r\n- It is no longer necessary to manually Base64Url encode the AttestationPolicy property in the StoredAttestationPolicy model. \r\nThis dramatically simplifies the user experience for interacting with the saved attestation policies - developers can treat attestation policies as string values.\r\n- The `SecuredAttestationToken` and `UnsecuredAttestationToken` parameters have been removed from the APIs which took them. Instead those APIs directly take the underlying type.\r\n\r\nBefore:\r\n``` C#\r\n    string attestationPolicy = \"version=1.0; authorizationrules{=> permit();}; issuancerules{};\";\r\n\r\n    var policyTokenSigner = TestEnvironment.PolicyCertificate0;\r\n\r\n    AttestationToken policySetToken = new SecuredAttestationToken(\r\n        new StoredAttestationPolicy { AttestationPolicy = attestationPolicy, },\r\n        TestEnvironment.PolicySigningKey0,\r\n        policyTokenSigner);\r\n\r\n    var setResult = client.SetPolicy(AttestationType.SgxEnclave, policySetToken);\r\n```\r\n\r\nAfter:\r\n``` C#\r\n    string attestationPolicy = \"version=1.0; authorizationrules{=> permit();}; issuancerules{};\";\r\n    var setResult = client.SetPolicy(AttestationType.SgxEnclave,\r\n        attestationPolicy,\r\n        TestEnvironment.PolicySigningKey0, policyTokenSigner);\r\n```\r\n\r\n\r\n- The `GetPolicy` API has been changed to directly return the policy requested instead of a `StoredAttestationPolicy` object.\r\n  \r\nBefore:\r\n``` C#\r\n    var policyResult = await client.GetPolicyAsync(AttestationType.SgxEnclave);\r\n    var result = policyResult.Value.AttestationPolicy;\r\n```\r\n\r\nAfter:\r\n```C# Snippet:GetPolicy\r\nvar client = new AttestationAdministrationClient(new Uri(endpoint), new DefaultAzureCredential());\r\n\r\nvar policyResult = await client.GetPolicyAsync(AttestationType.SgxEnclave);\r\nvar result = policyResult.Value;\r\n```\r\n\r\nThe net result of these changes is a significant reduction in the complexity of interacting with the attestation administration APIs."
+- name: Azure.Messaging.ServiceBus
+  version: 7.2.0-beta.2
+  service: 
+  versionType: Beta
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.ServiceBus_7.2.0-beta.2/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md#720-beta2-2021-04-07
+  content: |-
+    #### Acknowledgments
+    Thank you to our developer community members who helped to make the Service Bus client library better with their contributions to this release:
+
+    - Daniel Marbach _([GitHub](https://github.com/danielmarbach))_
+    - Mikael Kolkinn _([GitHub](https://github.com/mikaelkolkinn))_
+
+    #### Added
+    - Updated dependency on Azure.Core.Amqp to support Value/Sequence AMQP message bodies.
+    - Updated dependency on Microsoft.Azure.Amqp to benefit from a performance enhancement involving message settlement.
+    - Added `OnProcessMessageAsync` and `OnProcessErrorAsync` methods to help with mocking scenarios involving the processor.
+    - Added the ability to construct a `ServiceBusClient` and `ServiceBusAdministrationClient` using the `AzureNamedKeyCredential` and `AzureSasCredential` types to allow for updating credentials for long-lived clients.
+    - Added the ability to cancel receive operations which allows `StopProcessingAsync` calls on the processor to complete more quickly. (A community contribution, courtesy of _[danielmarbach](https://github.com/danielmarbach))_
+
+    #### Fixed
+    - Multiple enhancements were made to the transport paths for publishing and reading events to reduce memory allocations and increase performance. (A community contribution, courtesy of _[danielmarbach](https://github.com/danielmarbach))_
+    - Fixed an issue where constructing a new `CreateRuleOption` from a `RuleProperties` would fail if the `CorrelationId` was null. (A community contribution, courtesy of _[mikaelkolkinn](https://github.com/mikaelkolkinn))_
+- name: Azure.Storage.Blobs.ChangeFeed
+  version: 12.0.0-preview.11
+  service: 
+  versionType: Beta
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.11/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md#1200-preview11-2021-04-09
+  content: '- This release contains bug fixes to improve quality.'
+- name: Azure.Storage.Common
+  version: 12.7.1
+  service: 
+  versionType: Patch
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Common_12.7.1/sdk/storage/Azure.Storage.Common/CHANGELOG.md#1271-2021-03-29
+  content: '- This release contains bug fixes to improve quality.'
+- name: Azure.Communication.Chat
+  version: 1.0.0
+  service: 
+  versionType: GA
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.Chat_1.0.0/sdk/communication/Azure.Communication.Chat/CHANGELOG.md#100-2021-03-29
+  content: |-
+    #### Breaking Changes
+
+    - Renamed client constructors URL variable to `endpoint`.
+    - Renamed `ChatThread` model to `ChatThreadProperties`.
+    - Renamed `GetChatThread` operation to `GetPropertie`s and moved it to `ChatThreadClient`.
+    - Renamed `ChatThreadInfo` model to `ChatThreadItem`.
+    - Renamed `GetChatThreadsInfo` operation to `GetChatThreads`.
+    - Made `AddParticipant` throw exception when request fails.
+    - Renamed parameter `repeatabilityRequestId` to `idempotencyToken`.
+    - Updated `SendMessage` to use `SendChatMessageResult` instead of `string` for the request result.
+    - Exposed the list of `invalidparticipants` directly and removed `AddChatParticipantsErrors` and `CreateChatThreadErrors` models for `AddChatParticipantsResult` and `CreateChatThreadResult`.
+
+    #### Added
+
+    - Made list of participants optional for `CreateChatThread`.
+    - Made `ChatThreadClient` constructor public.
+- name: Microsoft.Azure.CognitiveServices.Vision.ComputerVision
+  version: 7.0.0
+  service: 
+  versionType: GA
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.CognitiveServices.Vision.ComputerVision_7.0.0/sdk/cognitiveservices/Vision.ComputerVision/CHANGELOG.md#700-2021-04-12
+  content: |-
+    Supports v3.2 Cognitive Services Computer Vision API endpoints.
+
+    #### Added
+
+    * Added model versioning support
+
+    #### Changed
+
+    * Updated the Adult visual feature for Analyze Image operation
+    * Updated the Tags visual feature for Analyze Image operation and the Tag Image operation
+    * Updated the error response format
+- name: Azure.AI.TextAnalytics
+  version: 5.1.0-beta.6
+  service: 
+  versionType: Beta
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.TextAnalytics_5.1.0-beta.6/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#510-beta6-2021-04-06
+  content: |-
+    #### New features
+    - Add overloads to `ExtractKeyPhrasesBatch` and `ExtractKeyPhrasesBatchAsync` to on `TextAnalyticsClient` to accept `ExtractKeyPhrasesOptions` and hid the previous methods (non-breaking change).
+    - Add overloads to `RecognizeEntitiesBatch` and `RecognizeEntitiesBatchAsync` to on `TextAnalyticsClient` to accept `RecognizeEntitiesOptions` and hid the previous methods (non-breaking change).
+    - Add overloads to `RecognizeLinkedEntitiesBatch` and `RecognizeLinkedEntitiesBatch` to on `TextAnalyticsClient` to accept `RecognizeLinkedEntitiesOptions` and hid the previous methods (non-breaking change).
+
+    #### Breaking changes
+    - Renamed `TotalActions` to `ActionsTotal`.
+- name: Azure.Core
+  version: 1.13.0
+  service: 
+  versionType: GA
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.13.0/sdk/core/Azure.Core/CHANGELOG.md#1130-2021-04-07
+  content: |-
+    #### Key Bug Fixes
+
+    - Fixed `NotSupportedException` when running using Blazor in the browser.
+    - Disable the response caching and enable the streaming when running using Blazor in the browser.
+- name: Azure.Storage.Files.Shares
+  version: 12.6.1
+  service: 
+  versionType: Patch
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Files.Shares_12.6.1/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md#1261-2021-03-29
+  content: "- Fixed bug where ClientDiagnostics's DiagnosticListener was leaking resources."
+- name: Azure.IoT.ModelsRepository
+  version: 1.0.0-preview.2
+  service: 
+  versionType: Beta
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.IoT.ModelsRepository_1.0.0-preview.2/sdk/modelsrepository/Azure.IoT.ModelsRepository/CHANGELOG.md#100-preview2-2021-03-30
+  content: |-
+    #### Breaking changes
+
+    - Changing the package namespace from `Azure.Iot.ModelsRepository` to `Azure.IoT.ModelsRepository`
+- name: Azure.Messaging.EventHubs
+  version: 5.4.0-beta.1
+  service: 
+  versionType: Beta
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventHubs_5.4.0-beta.1/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md#540-beta1-2021-03-17
+  content: |-
+    #### Changes
+
+    ##### New Features
+
+    - Returned the idempotent publishing feature to the public API surface.
+- name: Azure.Storage.Queues
+  version: 12.7.0-beta.3
+  service: 
+  versionType: Beta
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Queues_12.7.0-beta.3/sdk/storage/Azure.Storage.Queues/CHANGELOG.md#1270-beta3-2021-04-09
+  content: '- This preview contains bug fixes to improve quality.'
+- name: Azure.Data.Tables
+  version: 12.0.0-beta.7
+  service: 
+  versionType: Beta
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.Tables_12.0.0-beta.7/sdk/tables/Azure.Data.Tables/CHANGELOG.md#1200-beta7-2021-04-06
+  content: |-
+    #### Acknowledgments
+
+    Thank you to our developer community members who helped to make Azure Tables better with their contributions to this release:
+
+    - Joel Verhagen _([GitHub](https://github.com/joelverhagen))_
+
+    #### Added
+
+    - Added the `TableErrorCode` type which allows comparison of the `ErrorCode` on `RequestFailedException`s thrown from client operations with a known error value.
+    - `TableEntity` and custom entity types now support `BinaryData` properties.
+
+    #### Key Bug Fixes
+
+    - Fixed handling of paging headers when Table Storage returned a `x-ms-continuation-NextPartitionKey` but no `x-ms-continuation-NextRowKey`. This was causing an HTTP 400 on the subsequent page query (A community contribution, courtesy of _[joelverhagen](https://github.com/joelverhagen)_)
+
+    #### Changed
+
+    - Removed the `Timestamp` property from the serialized entity when sending it to the service as it is ignored by the service (A community contribution, courtesy of _[joelverhagen](https://github.com/joelverhagen)_)
+- name: Azure.Communication.Common
+  version: 1.0.0
+  service: 
+  versionType: GA
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.Common_1.0.0/sdk/communication/Azure.Communication.Common/CHANGELOG.md#100-2021-03-29
+  content: Updated `Azure.Communication.Common` version.
+- name: Azure.Core.Amqp
+  version: 1.1.0-beta.1
+  service: 
+  versionType: Beta
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core.Amqp_1.1.0-beta.1/sdk/core/Azure.Core.Amqp/CHANGELOG.md#110-beta1-2021-04-06
+  content: |-
+    #### Added
+    - Added support for Sequence and Value body messages.
+- name: Azure.Storage.Common
+  version: 12.7.2
+  service: 
+  versionType: Patch
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Common_12.7.2/sdk/storage/Azure.Storage.Common/CHANGELOG.md#1272-2021-04-02
+  content: '- Fixed bug in SasQueryParameters causing services (ss) reorder when parsing externally provided URI.'
+- name: Azure.Data.AppConfiguration
+  version: 1.1.0-beta.2
+  service: 
+  versionType: Beta
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.AppConfiguration_1.1.0-beta.2/sdk/appconfiguration/Azure.Data.AppConfiguration/CHANGELOG.md#110-beta2-2021-04-06
+  content: |-
+    #### Breaking changes
+
+    - The `AddSyncToken` method renamed to `UpdateSyncToken`.
+- name: Azure.Quantum.Jobs
+  version: 1.0.0-beta.2
+  service: 
+  versionType: Beta
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Quantum.Jobs_1.0.0-beta.2/sdk/quantum/Azure.Quantum.Jobs/CHANGELOG.md#100-beta2-2021-03-30
+  content: '- Fixed a bug where the client was unable to authenticate using Interactive or Service Principal credentials (issue #19588)'
+- name: Azure.Identity
+  version: 1.4.0-beta.5
+  service: 
+  versionType: Beta
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Identity_1.4.0-beta.5/sdk/identity/Azure.Identity/CHANGELOG.md#140-beta5-2021-04-06
+  content: |-
+    #### Acknowledgments
+
+    Thank you to our developer community members who helped to make Azure Identity better with their contributions to this release:
+
+    - Marco Mansi _([GitHub](https://github.com/olandese))_
+
+    #### New Features
+
+    - Added `AzurePowerShellCredential` to `DefaultAzureCredential` (A community contribution, courtesy of _[olandese](https://github.com/olandese))_
+
+    #### Fixes and improvements
+
+    - When logging is enabled, the log output from MSAL is also logged.
+    - Fixed an issue where an account credential fails to load from the cache when EnableGuestTenantAuthentication is true and the account found in the cache has multiple matching tenantIds ([#18276](https://github.com/Azure/azure-sdk-for-net/issues/18276)).
+    - Fixed deadlock issue in `InteractiveBrowserCredential` when running in a UI application ([#18418](https://github.com/Azure/azure-sdk-for-net/issues/18418)).
+
+    #### Breaking Changes
+
+    - `TokenCache` class is moved removed from the public API surface and has been replaced by `TokenCachePersistenceOptions` for configuration of disk based persistence of the token cache.
+- name: Azure.Communication.Identity
+  version: 1.0.0
+  service: 
+  versionType: GA
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.Identity_1.0.0/sdk/communication/Azure.Communication.Identity/CHANGELOG.md#100-2021-03-29
+  content: Updated `Azure.Communication.Identity` version.
+- name: Azure.AI.FormRecognizer
+  version: 3.1.0-beta.4
+  service: 
+  versionType: Beta
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_3.1.0-beta.4/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#310-beta4-2021-04-06
+  content: |-
+    #### New Features
+    - Added support for pre-built passports and US driver licenses recognition with the `StartRecognizeIdDocuments` API.
+    - Expanded the set of document languages that can be provided to the `StartRecognizeContent` API.
+    - Added property `Pages` to `RecognizeBusinessCardsOptions`, `RecognizeCustomFormsOptions`, `RecognizeInvoicesOptions`, and `RecognizeReceiptsOptions` to specify the page numbers to recognize.
+    - Added property `ReadingOrder` to `RecognizeContentOptions` to specify the order in which recognized text lines are returned.
+
+    #### Breaking changes
+    - The client defaults to the latest supported service version, which currently is `2.1-preview.3`.
+    - `StartRecognizeCustomForms` now throws a `RequestFailedException` when an invalid file is passed.
+- name: Azure.Communication.PhoneNumbers
+  version: 1.0.0-beta.6
+  service: 
+  versionType: Beta
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.PhoneNumbers_1.0.0-beta.6/sdk/communication/Azure.Communication.PhoneNumbers/CHANGELOG.md#100-beta6-2021-03-29
+  content: |-
+    #### Added
+    - Added protected constructor to PurchasePhoneNumbersOperation and ReleasePhoneNumberOperation for mocking.
+
+    #### Breaking Changes
+    - All models are moved from Azure.Communication.PhoneNumbers.Models namespace to Azure.Communication.PhoneNumbers.
+    - AcquiredPhoneNumber class is renamed to PurchasedPhoneNumber.
+    - PhoneNumbersClient methods renamed:
+      - GetPhoneNumber -> GetPurchasedPhoneNumber.
+      - GetPhoneNumberAsync -> GetPurchasedPhoneNumberAsync.
+      - GetPhoneNumbers -> GetPurchasedPhoneNumbers.
+      - GetPhoneNumbersAsync -> GetPurchasedPhoneNumbersAsync.
+    - PhoneNumbersModelFactory static method AcquiredPhoneNumber is renamed to PurchasedPhoneNumber.
+    - PurchasePhoneNumbersOperation and ReleasePhoneNumberOperation extend Operation instead of Operation<Response>.
+    - Removed PhoneNumberOperationStatus and PhoneNumberOperationType.
+    - Renamed ISOCurrencySymbol property to IsoCurrencySymbol in PhoneNumberCost.
+    - Renamed threeLetterISOCountryName parameter to twoLetterIsoCountryName in PhoneNumbersClient.StartSearchAvailablePhoneNumbers and PhoneNumbersClient.StartSearchAvailablePhoneNumbersAsync.
+- name: Azure.Storage.Files.DataLake
+  version: 12.7.0-beta.3
+  service: 
+  versionType: Beta
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Files.DataLake_12.7.0-beta.3/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md#1270-beta3-2021-04-09
+  content: '- Aligned storage URL parsing with other platforms.'
+- name: Azure.Storage.Common
+  version: 12.8.0-beta.3
+  service: 
+  versionType: Beta
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Common_12.8.0-beta.3/sdk/storage/Azure.Storage.Common/CHANGELOG.md#1280-beta3-2021-04-09
+  content: '- Fixed bug in SasQueryParameters causing services (ss) reorder when parsing externally provided URI.'
+- name: Azure.Storage.Blobs
+  version: 12.9.0-beta.3
+  service: 
+  versionType: Beta
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Blobs_12.9.0-beta.3/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md#1290-beta3-2021-04-09
+  content: '- This release contains bug fixes to improve quality.'
+- name: Microsoft.Azure.WebJobs.Extensions.EventHubs
+  version: 5.0.0-beta.4
+  service: 
+  versionType: Beta
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.WebJobs.Extensions.EventHubs_5.0.0-beta.4/sdk/eventhub/Microsoft.Azure.WebJobs.Extensions.EventHubs/CHANGELOG.md#500-beta4-2021-04-06
+  content: |-
+    #### Changes
+
+    - Single dispatch triggers were disabled.
+- name: Azure.Messaging.EventHubs
+  version: 5.4.0
+  service: 
+  versionType: GA
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventHubs_5.4.0/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md#540-2021-04-05
+  content: |-
+    #### Acknowledgments
+
+    Thank you to our developer community members who helped to make the Event Hubs client libraries better with their contributions to this release:
+
+    - Daniel Marbach _([GitHub](https://github.com/danielmarbach))_
+
+    #### Changes
+
+    ##### New Features
+
+    - The Event Hubs clients now support shared key and shared access signature authentication using the `AzureNamedKeyCredential` and `AzureSasCredential` types in addition to the connection string.  Use of the credential allows the shared key or SAS to be updated without the need to create a new Event Hubs client.
+
+    - The `Properties` collection used by `EventData` is now lazily allocated, avoiding memory bloat when not used.
+
+    - The `SystemProperties` collection used by `EventData` will not use a shared empty set for events that have not been read from the Event Hubs service, reducing memory allocation.
+
+    - Multiple enhancements were made to the transport paths for publishing and reading events to reduce memory allocations and increase performance.  (A community contribution, courtesy of _[danielmarbach](https://github.com/danielmarbach))_
+
+    ##### Key Bug Fixes
+
+    - The AMQP library used for transport has been updated, fixing several issues including a potential unobserved   `ObjectDisposedException` that could cause the host process to crash.  _(see: [release notes](https://github.com/Azure/azure-amqp/releases/tag/v2.4.13))_
+- name: Azure.ResourceManager.Communication
+  version: 1.0.0
+  service: 
+  versionType: GA
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.ResourceManager.Communication_1.0.0/sdk/communication/Azure.ResourceManager.Communication/CHANGELOG.md#100-2021-03-29
+  content: "This is the first stable release of the management library for Azure Communication Services. \r\n\r\nMinor changes since the public preview release:\r\n- CheckNameAvailability has been added\r\n- CommunicationServiceResource Update now requires a CommunicationServiceResource parameter instead of a TaggedResource\r\n- RegenerateKeyParameters is now a required parameter to RegenerateKey\r\n- CommunicationServiceResource now includes the property SystemData\r\n- OperationList has been changed to use the common type for its response\r\n- ErrorResponse has been changed to use the common type for ErrorResponse"
+- name: Azure.AI.AnomalyDetector
+  version: 3.0.0-preview.3
+  service: 
+  versionType: Beta
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.AnomalyDetector_3.0.0-preview.3/sdk/anomalydetector/Azure.AI.AnomalyDetector/CHANGELOG.md#300-preview3-2021-04-15
+  content: |-
+    #### Breaking Changes
+
+    -  Now `TimeSeriesPoint.Timestamp` property is nullable
+    - `TimeSeriesPoint(System.DateTimeOffset timestamp, float value)` constructor now takes only float type parameter.
+
+    ## New Features
+
+    - Added operation `AnomalyDetectorClient.ListMultivariateModelAsync` and `AnomalyDetectorClient.ListMultivariateModel`
+    - Added operation `AnomalyDetectorClient.TrainMultivariateModelAsync` and `AnomalyDetectorClient.TrainMultivariateModel`
+    - Added operation `AnomalyDetectorClient.DetectAnomalyAsync` and `AnomalyDetectorClient.DetectAnomaly`
+    - Added operation `AnomalyDetectorClient.GetDetectionResultAsync` and `AnomalyDetectorClient.GetDetectionResult`
+    - Added operation `AnomalyDetectorClient.GetMultivariateModelAsync` and `AnomalyDetectorClient.GetMultivariateModel`
+    - Added operation `AnomalyDetectorClient.ExportModelAsync` and `AnomalyDetectorClient.ExportModel`
+    - Added operation `AnomalyDetectorClient.DeleteMultivariateModelAsync` and `AnomalyDetectorClient.DeleteMultivariateModel`
+- name: Azure.Search.Documents
+  version: 11.3.0-beta.1
+  service: 
+  versionType: Beta
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Search.Documents_11.3.0-beta.1/sdk/search/Azure.Search.Documents/CHANGELOG.md#1130-beta1-2021-04-06
+  content: |-
+    #### Added
+    - Added support for [`Azure.Core.GeoJson`](https://docs.microsoft.com/dotnet/api/azure.core.geojson) types in `SearchDocument`, `SearchFilter` and `FieldBuilder`.
+    - Added [`EventSource`](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource) based logging. Event source name is **Azure-Search-Documents**. Current set of events are focused on tuning batch sizes for [`SearchIndexingBufferedSender`](https://docs.microsoft.com/dotnet/api/azure.search.documents.searchindexingbufferedsender-1).
+    - Added [`CustomEntityLookupSkill`](https://docs.microsoft.com/azure/search/cognitive-search-skill-custom-entity-lookup) and [`DocumentExtractionSkill`](https://docs.microsoft.com/azure/search/cognitive-search-skill-document-extraction). Added `DefaultCountryHint` in [`LanguageDetectionSkill`](https://docs.microsoft.com/azure/search/cognitive-search-skill-language-detection).
+    - Added [`LexicalNormalizer`](https://docs.microsoft.com/azure/search/search-normalizers#predefined-normalizers) to include predefined set of normalizers. See [here](https://docs.microsoft.com/azure/search/search-normalizers) for more details on search normalizers. Added `Normalizer` as a [`SearchField`](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchfield) in an index definition.
+    - Added support for Azure Data Lake Storage Gen2 - [`AdlsGen2`](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) in [`SearchIndexerDataSourceType`](https://docs.microsoft.com/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype).
+- name: Azure.Storage.Blobs.Batch
+  version: 12.5.1
+  service: 
+  versionType: Patch
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Blobs.Batch_12.5.1/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md#1251-2021-03-29
+  content: "- Fixed bug where ClientDiagnostics's DiagnosticListener was leaking resources."
+- name: Azure.Containers.ContainerRegistry
+  version: 1.0.0-beta.1
+  service: 
+  versionType: Beta
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Containers.ContainerRegistry_1.0.0-beta.1/sdk/containerregistry/Azure.Containers.ContainerRegistry/CHANGELOG.md#100-beta1-2021-04-06
+  content: '- Started changelog to capture release notes.'
+- name: Microsoft.Azure.WebJobs.Extensions.EventGrid
+  version: 3.0.0-beta.1
+  service: 
+  versionType: Beta
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.WebJobs.Extensions.EventGrid_3.0.0-beta.1/sdk/eventgrid/Microsoft.Azure.WebJobs.Extensions.EventGrid/CHANGELOG.md#300-beta1-2021-03-23
+  content: '- The initial release of Microsoft.Azure.WebJobs.Extensions.EventGrid 3.0.0'
+- name: Microsoft.Azure.CognitiveServices.Vision.Face
+  version: 2.7.0-preview.1
+  service: 
+  versionType: Beta
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.CognitiveServices.Vision.Face_2.7.0-preview.1/sdk/cognitiveservices/Vision.Face/CHANGELOG.md#270-preview1-2021-03-25
+  content: '- Add support for new detection model `detection_03`, new recognition model `recognition_04`, and new mask attribute model'
+- name: Azure.AI.FormRecognizer
+  version: 3.0.1
+  service: 
+  versionType: Patch
+  changelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_3.0.1/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#301-2021-04-09
+  content: |-
+    #### Key Bug Fixes
+    - Updated dependency versions.
+
