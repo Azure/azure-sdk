@@ -146,6 +146,23 @@ azure-spring-cloud-stream-binder-servicebus-core:2.4.0
 azure-spring-boot-starter:3.4.0
 azure-spring-integration-core:2.4.0
 azure-resourcemanager-subscription:1.0.0-beta.1
+azure-spring-cloud-starter-storage-queue:2.4.0
+azure-spring-integration-test:2.4.0
+azure-spring-integration-storage-queue:2.4.0
+azure-spring-cloud-starter-servicebus:2.4.0
+azure-spring-cloud-stream-binder-eventhubs:2.4.0
+azure-spring-cloud-telemetry:2.4.0
+azure-spring-cloud-stream-binder-servicebus-topic:2.4.0
+azure-spring-cloud-starter-eventhubs:2.4.0
+azure-spring-cloud-stream-binder-servicebus-queue:2.4.0
+azure-spring-cloud-storage:2.4.0
+azure-spring-cloud-context:2.4.0
+azure-spring-cloud-autoconfigure:2.4.0
+azure-spring-boot-starter-keyvault-certificates:3.0.0-beta.6
+azure-spring-cloud-starter-cache:2.4.0
+azure-spring-cloud-messaging:2.4.0
+azure-spring-cloud-stream-binder-test:2.4.0
+azure-spring-cloud-starter-eventhubs-kafka:2.4.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -202,6 +219,22 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Azure Spring Cloud Stream Binder Service bus Core
 - Azure Spring Boot Starter
 - Azure Spring Cloud Integration Core
+- Azure Spring Cloud Starter Storage Queue
+- Azure Spring Cloud Integration Test
+- Azure Spring Cloud Integration Storage Queue
+- Azure Spring Cloud Starter Service bus
+- Azure Spring Cloud Stream Binder Event Hubs
+- Azure Spring Cloud Telemetry
+- Azure Spring Cloud Stream Binder Service bus Topic
+- Azure Spring Cloud Starter Event Hubs
+- Azure Spring Cloud Stream Binder Service bus Queue
+- Azure Spring Cloud Storage
+- Azure Spring Cloud Context
+- Azure Spring Cloud Autoconfigure
+- Azure Spring Cloud Starter Cache
+- Azure Spring Cloud Messaging
+- Azure Spring Cloud Stream Binder Test
+- Azure Spring Cloud Starter Event Hubs Kafka
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -305,6 +338,7 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - azure-resourcemanager-peering
 - Key Vault - JCA
 - azure-resourcemanager-subscription
+- Azure Spring Boot Starter Key Vault Certificates
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -1192,6 +1226,108 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-subscription</artifactId>
   <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-starter-storage-queue</artifactId>
+  <version>2.4.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-integration-test</artifactId>
+  <version>2.4.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-integration-storage-queue</artifactId>
+  <version>2.4.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-starter-servicebus</artifactId>
+  <version>2.4.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-stream-binder-eventhubs</artifactId>
+  <version>2.4.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-telemetry</artifactId>
+  <version>2.4.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-stream-binder-servicebus-topic</artifactId>
+  <version>2.4.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-starter-eventhubs</artifactId>
+  <version>2.4.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-stream-binder-servicebus-queue</artifactId>
+  <version>2.4.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-storage</artifactId>
+  <version>2.4.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-context</artifactId>
+  <version>2.4.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-autoconfigure</artifactId>
+  <version>2.4.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-boot-starter-keyvault-certificates</artifactId>
+  <version>3.0.0-beta.6</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-starter-cache</artifactId>
+  <version>2.4.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-messaging</artifactId>
+  <version>2.4.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-stream-binder-test</artifactId>
+  <version>2.4.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-starter-eventhubs-kafka</artifactId>
+  <version>2.4.0</version>
 </dependency>
 
 
@@ -2140,6 +2276,57 @@ String messageText = body.toString();
 
 ### azure-resourcemanager-subscription 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-subscription_1.0.0-beta.1/sdk/subscription/azure-resourcemanager-subscription/CHANGELOG.md#100-beta1-2021-04-19)
 - Azure Resource Manager Subscription client library for Java. This package contains Microsoft Azure SDK for Subscription Management SDK. The subscription client. Package tag package-2020-09. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### Azure Spring Cloud Starter Storage Queue 2.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-starter-storage-queue_2.4.0/sdk/spring/azure-spring-cloud-starter-storage-queue/CHANGELOG.md#240-2021-04-19)
+
+
+### Azure Spring Cloud Integration Test 2.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-integration-test_2.4.0/sdk/spring/azure-spring-integration-test/CHANGELOG.md#240-2021-04-19)
+
+
+### Azure Spring Cloud Integration Storage Queue 2.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-integration-storage-queue_2.4.0/sdk/spring/azure-spring-integration-storage-queue/CHANGELOG.md#240-2021-04-19)
+
+
+### Azure Spring Cloud Starter Service bus 2.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-starter-servicebus_2.4.0/sdk/spring/azure-spring-cloud-starter-servicebus/CHANGELOG.md#240-2021-04-19)
+
+
+### Azure Spring Cloud Stream Binder Event Hubs 2.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-stream-binder-eventhubs_2.4.0/sdk/spring/azure-spring-cloud-stream-binder-eventhubs/CHANGELOG.md#240-2021-04-19)
+
+
+### Azure Spring Cloud Telemetry 2.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-telemetry_2.4.0/sdk/spring/azure-spring-cloud-telemetry/CHANGELOG.md#240-2021-04-19)
+
+
+### Azure Spring Cloud Stream Binder Service bus Topic 2.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-stream-binder-servicebus-topic_2.4.0/sdk/spring/azure-spring-cloud-stream-binder-servicebus-topic/CHANGELOG.md#240-2021-04-19)
+
+
+### Azure Spring Cloud Starter Event Hubs 2.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-starter-eventhubs_2.4.0/sdk/spring/azure-spring-cloud-starter-eventhubs/CHANGELOG.md#240-2021-04-19)
+
+
+### Azure Spring Cloud Stream Binder Service bus Queue 2.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-stream-binder-servicebus-queue_2.4.0/sdk/spring/azure-spring-cloud-stream-binder-servicebus-queue/CHANGELOG.md#240-2021-04-19)
+
+
+### Azure Spring Cloud Storage 2.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-storage_2.4.0/sdk/spring/azure-spring-cloud-storage/CHANGELOG.md#240-2021-04-19)
+
+
+### Azure Spring Cloud Context 2.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-context_2.4.0/sdk/spring/azure-spring-cloud-context/CHANGELOG.md#240-2021-04-19)
+
+
+### Azure Spring Cloud Autoconfigure 2.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-autoconfigure_2.4.0/sdk/spring/azure-spring-cloud-autoconfigure/CHANGELOG.md#240-2021-04-19)
+
+
+### Azure Spring Boot Starter Key Vault Certificates 3.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot-starter-keyvault-certificates_3.0.0-beta.6/sdk/spring/azure-spring-boot-starter-keyvault-certificates/CHANGELOG.md#300-beta6-2021-04-19)
+- Remove configurable property of azure.keyvault.aad-authentication-url which is configured according to azure.keyvault.uri automatically [#20530](https://github.com/Azure/azure-sdk-for-java/pull/20530)
+
+### Azure Spring Cloud Starter Cache 2.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-starter-cache_2.4.0/sdk/spring/azure-spring-cloud-starter-cache/CHANGELOG.md#240-2021-04-19)
+
+
+### Azure Spring Cloud Messaging 2.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-messaging_2.4.0/sdk/spring/azure-spring-cloud-messaging/CHANGELOG.md#240-2021-04-19)
+
+
+### Azure Spring Cloud Stream Binder Test 2.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-stream-binder-test_2.4.0/sdk/spring/azure-spring-cloud-stream-binder-test/CHANGELOG.md#240-2021-04-19)
+
+
+### Azure Spring Cloud Starter Event Hubs Kafka 2.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-starter-eventhubs-kafka_2.4.0/sdk/spring/azure-spring-cloud-starter-eventhubs-kafka/CHANGELOG.md#240-2021-04-19)
+
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
