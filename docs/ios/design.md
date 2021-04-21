@@ -23,7 +23,6 @@ The main value of the Azure SDK is productivity. Other qualities, such as comple
 * The SDK should follow the general design guidelines and conventions for iOS libraries written in Swift, as described in the [Swift API design guidelines](https://swift.org/documentation/api-design-guidelines/). It should feel natural to a Swift developer.
 * We embrace the ecosystem with its strengths and its flaws.
 * We use industry-standard tooling like SwiftLint and SwiftFormat to ensure our code follows a consistent style with the rest of the ecosystem and to avoid bikeshedding about stylistic choices.
-* Azure SDK libraries version together as a single entity. Swift package manager embraces a "one repo = one package" model, so all libraries are released each time a release is created.
 
 **Consistent**
 
@@ -33,29 +32,27 @@ The main value of the Azure SDK is productivity. Other qualities, such as comple
 
 **Approachable**
 
-* Small number of steps to get started; power knobs for advanced users
-* Small number of concepts; small number of types; small number of members
-* Approachable by our users, not by engineers designing the SDK components
-* Easy to find great _getting started_ guides and samples
-* Easy to acquire
+* Small number of steps to get started; power knobs for advanced users.
+* Small number of concepts; small number of types; small number of members.
+* Approachable by our users, not by engineers designing the SDK components.
+* Easy to find great _getting started_ guides and samples.
+* Easy to acquire.
 
 **Dependable**
 
-* 100% backward compatible
-* Great logging and error messages
-* Predictable support lifecycle, feature coverage, and quality
+* 100% backward compatible.
+* Great logging and error messages.
+* Predictable support lifecycle, feature coverage, and quality.
 
 ### General Guidelines
 
 {% include requirement/MUST id="ios-general-follow-general-guidelines" %} follow the [General Azure SDK Guidelines].
 
-{% include requirement/MUST id="ios-general-repository" %} locate all source code in the [Azure/azure-sdk-for-ios] GitHub repository.
-
 {% include requirement/SHOULD id="ios-language-swift" %} write the client library in Swift 5.
 
 {% include requirement/MAY id="ios-language-objc" %} write the client library in Objective-C.
 
-The intent is to ensure that the client library is idiomatic in Swift applications. The library is not required to make specific accommodations to support Objective-C applications.
+The intent is to ensure that the client library is idiomatic in Swift applications. The library need not make specific accommodations to support Objective-C applications. Libraries written in Objective-C should prioritze being idiomatic in their Swift usage.
 
 ### Support for non-HTTP Protocols
 
@@ -126,15 +123,15 @@ public final class ConfigurationClient: PipelineClient, PageableClient {
 
 {% include requirement/MUST id="ios-service-client-immutable" %} ensure that all service client classes are immutable upon instantiation.
 
-{% include requirement/SHOULD id="ios-service-client-feature-support" %} support only those features provided by the Azure service that would make sense for a mobile app would access. Mobile apps are inherently consumer applications, and only a subset of Azure services and features are intended for use by consumer applications. While completeness is valuable and gaps in functionality can cause frustration, a smaller binary size and an opinionated stance of only providing consumer-facing functionality will make our libraries easier and more desirable for app developers to use.
+{% include requirement/SHOULD id="ios-service-client-feature-support" %} support only those features provided by the Azure service that would make sense for a mobile app to access. Mobile apps are inherently consumer applications, and only a subset of Azure services and features are intended for use by consumer applications. While completeness is valuable and gaps in functionality can cause frustration, a smaller binary size and an opinionated stance of only providing consumer-facing functionality will make our libraries easier and more desirable for app developers to use.
 
-{% include requirement/MUST id="ios-service-client-mobile-consistency" %} provide a public API whose shape matches the public API shape provided in the equivalent Android (Java) library as closely as possible. Clients should have the same names and provide the same functionality in their public APIs, and while method naming should be idiomatic to each platform, consistency in naming between the two platforms is the next most important consideration.
+{% include requirement/MUST id="ios-service-client-mobile-consistency" %} provide a public API whose shape matches the public API shape provided in the equivalent Android library as closely as possible. Clients should have the same names and provide the same functionality as their public APIs, and while method naming should be idiomatic to each platform, consistency in naming between the two platforms is the next most important consideration.
 
 #### Service Client Creation
 
 {% include requirement/MUST id="ios-client-initializer-minimal" %} allow the consumer to initialize a service client with the minimal information needed to connect and authenticate to the service.
 
-{% include requirement/MUST id="ios-client-options-parameter" %} accept all optional initializer arguments via an [options struct](#option-parameters) provided as a single, final parameter named `options`. Do not accept individual initializer options as separate parameters.
+{% include requirement/MUST id="ios-client-options-parameter" %} accept all optional initializer arguments via an [options struct](#option-parameters) provided as a single, final parameter labeled `withOptions`. Do not accept individual initializer options as separate parameters.
 
 {% include requirement/MUST id="ios-client-multiple-inits" %} provide unambiguous initializers and parameter labels for all client initialization scenarios. Do not use the `_` syntax to avoid requiring parameter labels. For example:
 
@@ -251,9 +248,9 @@ Service methods are the methods on the client that invoke operations on the serv
 
 {% include requirement/MUSTNOT id="ios-async-use-azure-core" %} write custom APIs for streaming or async operations. Make use of the existing functionality offered in the Azure Core library. Discuss proposed changes to the Azure Core library with the [Architecture Board].
 
-##### Callbacks
+##### Closures
 
-{% include requirement/MUST id="ios-network-callback-final" %} accept a callback as the final parameter for service methods, allowing developers to take advantage of Swift's trailing closure syntax. For example:
+{% include requirement/MUST id="ios-network-closure-final" %} accept a closure as the final parameter for service methods, allowing developers to take advantage of Swift's trailing closure syntax. For example:
 
 {% highlight swift %}
 // Library code
@@ -281,17 +278,17 @@ client.get(configurationSetting: "FooSetting") { result, httpResponse in
 }
 {% endhighlight %}
 
-{% include requirement/SHOULD id="ios-network-callback-single" %} accept only a single callback for any given service method.
+{% include requirement/SHOULD id="ios-network-closure-single" %} accept only a single closure for any given service method.
 
-Providing a method that accepts multiple callbacks leads to unnecessarily cluttered code, and only the final callback parameter can make use of the trailing closure syntax.
+Providing a method that accepts multiple closure leads to unnecessarily cluttered code, and only the final callback parameter can make use of the trailing closure syntax.
 
-{% include requirement/MUST id="ios-network-callback-suffix" %} use the suffix `Handler` for all callback parameter names, e.g. `completionHandler`, `progressHandler`.
+{% include requirement/MUST id="ios-network-closure-suffix" %} use the suffix `Handler` for all closure parameter names, e.g. `completionHandler`, `progressHandler`.
 
-{% include requirement/SHOULD id="ios-network-callback-type" %} use `HTTPResultHandler` as the type of the callback to expose both the result (or error) and the response data.
+{% include requirement/SHOULD id="ios-network-closure-type" %} use `HTTPResultHandler` as the type of the closure to expose both the result (or error) and the raw response data.
 
 ##### Delegates
 
-{% include requirement/MAY id="ios-network-delegate" %} provide a delegate protocol that the developer can conform to instead of a callback parameter for service methods where use of the delegate would improve clarity and/or reduce clutter. For such methods, you may either accept the delegate as the final parameter or provide a property on the client to which the delegate can be attached. For example:
+{% include requirement/MAY id="ios-network-delegate" %} provide a delegate protocol that the developer can conform to instead of a closure parameter for service methods where use of the delegate would improve clarity and/or reduce clutter. For such methods, you may either accept the delegate as the final parameter or provide a property on the client to which the delegate can be attached. For example:
 
 {% highlight swift %}
 // Library code
@@ -370,7 +367,7 @@ Protocols that describe what something is should read as nouns (e.g. `Collection
 
 The name of the delegating object is commonly used as as the prefix. For example, a `ConfigurationSettingDelegate` protocol used to notify about events coming from `ConfigurationSetting` objects might define delegate methods that start with `configurationSetting`, e.g. `configurationSetting(_:didChangeFrom:to:)`, `configurationSettingDidClear(_:)`.
 
-{% include requirement/SHOULD id="ios-network-delegate-method-param" %} accept the delegating object as the first unnamed parameter to delegate methods when using the delegating object's name as the prefix for the delegate method.
+{% include requirement/SHOULD id="ios-network-delegate-method-param" %} accept the delegating object as the first unnamed parameter to delegate methods when using the delegating object's name as the prefix for the delegate method. This parameter should use the `_` syntax for its external label.
 
 {% include requirement/MUST id="ios-network-delegate-method-impls" %} provide empty (do-nothing) default implementations for all delegate methods.
 
@@ -396,7 +393,7 @@ The name of the delegating object is commonly used as as the prefix. For example
 
 {% include requirement/MUST id="ios-service-client-method-parameter-name" %} provide unambiguous parameter labels for all client methods. Avoid using the `_` syntax to avoid requiring parameter labels for client methods.
 
-{% include requirement/MAY id="ios-service-client-method-parameter-unnamed" %} use the `_` syntax to avoid requiring a parameter label for the first parameter of delegate methods and other scenarios where doing so is idiomatic to Swift naming conventions.
+{% include requirement/SHOULD id="ios-service-client-method-parameter-unnamed" %} use the `_` syntax to avoid requiring a parameter label for the first parameter of delegate methods and other scenarios where doing so is idiomatic to Swift naming conventions.
 
 {% include requirement/SHOULD id="ios-service-client-flexibility" %} remain flexible and use names best suited for developer experience. Don't let the naming rules result in non-idiomatic naming patterns. For example, naming methods `download(blob:)` and `upload(blob:)` provides more semantic meaning and would be more idiomatic than naming them `get(blob:)` and `put(blob:)`.
 
@@ -438,7 +435,7 @@ For methods that combine multiple requests into a single call:
 
 {% include requirement/MUSTNOT id="ios-request-options" %} accept options used for customization of a service client method call as individual optional parameters.
 
-{% include requirement/MUST id="ios-request-options-single" %} accept a single `Options` struct as an optional parameter for all service client methods.
+{% include requirement/MUST id="ios-request-options-single" %} accept a single `Options` struct as an optional parameter for all service client methods. This parameter should be labeled `withOptions`.
 
 {% include requirement/MUST id="ios-request-options-object" %} provide an immutable struct named with the suffix `Options` to allow for customization of each service client method call. This struct must have an initializer that accepts all possible options for the method call as optional parameters, with defaults for each parameter. For example:
 
@@ -578,7 +575,61 @@ client.listConfigurationSettings(...) { result, _ in
 
 {% include requirement/MUST id="ios-pagination-async-support" %} return a `PagedCollection` from service client methods that expose a collection of results, regardless of whether the collection is paginated or non-paginated. This ensures that paginated and non-paginated collections are accessed and operate the same way. Users should not need to appreciate the difference.
 
-> TODO: Add an example of a service client method that returns a `PagedCollection`
+{% highlight swift %}
+public func listCats(
+    withOptions options: ListCatOptions? = nil,
+    completionHandler: @escaping HTTPResultHandler<PagedCollection<Cat>>
+) {
+    ...
+    // Construct request
+    let urlTemplate = "/cat/list"
+    ...
+    client.request(request, context: context) { result, httpResponse in
+        ...
+        switch result {
+        case .success:
+            guard let statusCode = httpResponse?.statusCode else {
+                let noStatusCodeError = AzureError.client("Expected a status code in response but didn't find one.")
+                dispatchQueue.async {
+                    completionHandler(.failure(noStatusCodeError), httpResponse)
+                }
+                return
+            }
+            if [
+                200
+            ].contains(statusCode) {
+                do {
+                    let decoder = JSONDecoder()
+                    let codingKeys = PagedCodingKeys(
+                        items: "value",
+                        continuationToken: "nextLink"
+                    )
+                    let paged = try PagedCollection<Cat>(
+                        client: self.client,
+                        request: request,
+                        context: context,
+                        data: data,
+                        codingKeys: codingKeys,
+                        decoder: decoder
+                    )
+                    dispatchQueue.async {
+                        completionHandler(.success(paged), httpResponse)
+                    }
+                } catch {
+                    dispatchQueue.async {
+                        completionHandler(.failure(AzureError.client("Decoding error.", error)), httpResponse)
+                    }
+                }
+            }
+        ...
+        case let .failure(error):
+            dispatchQueue.async {
+                completionHandler(.failure(error), httpResponse)
+            }
+        }
+    }
+}
+{% endhighlight %}
 
 {% include requirement/MUST id="ios-pagination-distinct-types" %} use the same type for entities returned from a list operation vs. a get operation if those operations return different views of the same result. For example a list operation may provide only a minimal representation of each result, with the expectation that a get operation must be performed for each result to access the full representation. If the representations are compatible, reuse the same type for both the list and the get operation. Otherwise, it is permissable to use distinct types for each operation.
 
@@ -690,8 +741,6 @@ Swift uses modules to group related types into a single distributable package. G
 
 {% include requirement/MAY id="ios-service-client-module-subpackage" %} break a single library into sub-modules where appropriate (for example, when a service provides multiple distinct feature sets which can be used independently). When doing so, you must include a feature suffix (for example, `AzureStorageBlob`) in the module name.
 
-> TODO: Document module groups (e.g. 'communication') and their relation to modules
-
 #### Example Modules
 
 > TODO
@@ -722,19 +771,17 @@ For example, as of writing, iOS 14.4.0 has just been released.  We expect suppor
 
 {% include requirement/MUST id="ios-platform-support" %} support iPhone and iPad form factors.
 
-{% include requirement/SHOULD id="ios-opt-platform-support" %} support other Apple platforms such as WatchOS and TvOS.
+{% include requirement/SHOULD id="ios-opt-platform-support" %} support other Apple platforms such as MacOS, WatchOS and TvOS.
 
 Only support Objective-C and Swift 4 if you have a business justification for doing so. One such justification would be to package C++ code, which is only accessible via Objective-C. Optimize for applications written using Swift 5.
-
-{% include requirement/MUST id="ios-library-same-libraries" %} release all clients within a single distributable package.
 
 ### Packaging
 
 #### Swift Package Manager
 
-[Swift Package manager link](https://swift.org/package-manager/) is the offical distribution channel for Swift packages created and endorsed by Apple. Accordingly, this is the primary distribution channel for the Azure SDK for iOS.
+[Swift Package manager link](https://swift.org/package-manager/) is the offical distribution channel for Swift packages created and endorsed by Apple. Accordingly, this is the primary distribution channel for the Azure SDK for iOS. Swift Package Manager follows a "one-repo-one-version" model that is not conducive to working in a mono-repo that hosts multiple independently versioning packages. To work around this limitation while preserving the benefits of working in a mono-repo, each service branch that is supported on Swift Package Manager is mirrored to its own repo that Swift Package Manager users target to acquire necessary packages.
 
-{% include requirement/MUST id="ios-spm-packageswift" %} support Swift Package Manager release by registering the module in the `Package.swift` file located at the root of the repository.
+{% include requirement/MUST id="ios-spm-packageswift" %} support Swift Package Manager by supplying a `Package.swift` manifest at the root of the service directory.
 
 {% include requirement/MUST id="ios-spm-target" %} include a target in the `Package.swift` file that matches the names of the module.
 
@@ -775,7 +822,7 @@ let package = Package(
 )
 {% endhighlight %}
 
-{% include requirement/MUST id="ios-spm-private-preview" %} provide private previews via Swift Package Manager.
+{% include requirement/MUSTNOT id="ios-spm-private-preview" %} provide private previews via Swift Package Manager.
 
 {% include requirement/MAY id="ios-spm-binary" %} publish a module as a precompiled binary framework rather than source. This is appropriate for Objective-C-based libraries or closed-source libraries.
 
@@ -789,7 +836,7 @@ The following apply when publishing a pre-compiled framework:
 
 [CocoaPods](https://cocoapods.org/) is a popular, community-supported dependency manager for Swift and Objective-C libraries.
 
-{% include requirement/MUST id="ios-cocoapods" %} support CocoaPods release by including a podspec file at the root of the repository.
+{% include requirement/MUST id="ios-cocoapods" %} support CocoaPods release by including a podspec file at the root of the service directory.
 
 {% include requirement/MUST id="ios-cocoapods-json" %} specify the podspec in JSON format.
 
@@ -797,9 +844,9 @@ The following apply when publishing a pre-compiled framework:
 
 {% include requirement/MUSTNOT id="ios-cocoapods-multiple-podspec" %} create multiple podspecs for the same logical package.
 
-{% include requirement/MUSTNOT id="ios-cocoapods-support-scenarios" %} complicate the podspec to support customer support scenarios for older versions of XCode or iOS. Instead, customers should be directed to use Carthage.
+{% include requirement/MUSTNOT id="ios-cocoapods-support-scenarios" %} complicate the podspec to support customer support scenarios for older versions of XCode or iOS.
 
-{% include requirement/MAY id="ios-cocoapods-private-preview" %} release private preview libraries by publishing private podspecs.
+{% include requirement/MAY id="ios-cocoapods-private-preview" %} release private preview libraries or support older mechanisms by publishing private podspecs to the [Azure Private Podspecs](https://github.com/Azure/AzurePrivatePodspecs) repository. **Note** This repository is _public_ and thus not appropriate for non-public services.
 
 #### Carthage
 
@@ -816,8 +863,6 @@ There are occasions when common code needs to be shared between several client l
 {% include requirement/MUST id="general-commonlib-approval" %} gain [Architecture Board] approval prior to implementing a common library.
 
 {% include requirement/MUST id="general-commonlib-minimize-code" %} minimize the code within a common library.  Code within the common library is available to the consumer of the client library and shared by multiple client libraries within the same namespace.
-
-The common library should use the `Common` suffix.  For example, if Azure Storage has a common library, it would be called `AzureStorageCommon`.
 
 A common library will only be approved if:
 
@@ -842,17 +887,17 @@ Let's take two examples:
 
 {% include requirement/MUST id="ios-versioning-enum-latest" %} offer a `latest` option on the enum that returns the latest service version. If a consumer doesn't specify a service version the `latest` value will be used.
 
-{% include requirement/MUST id="ios-versioning-enum--value-naming" %} use the version naming used by the service itself in naming the version values in the enum, stripping any non alphanumeric characters such as `_` and `-`. The standard approach takes the form `V<year>_<month>_<day>`, such as For example, apiVersion `2019_01_01_preview` would translate to `20190101preview`. Being consistent with the service naming enables easier cross-referencing between service versions and the availability of features in the client library.
+{% include requirement/MUST id="ios-versioning-enum--value-naming" %} use the version naming used by the service itself in naming the version values in the enum, stripping any non alphanumeric characters such as `_` and `-`. The standard approach takes the form `<year>_<month>_<day>`. For example, apiVersion `2019_01_01_preview` would translate to `20190101preview`. Being consistent with the service naming enables easier cross-referencing between service versions and the availability of features in the client library.
 
 #### Client Version Numbers
 
 Consistent version number scheme allows consumers to determine what to expect from a new version of the library.
 
-{% include requiment/MUST id="ios-versioning-one-version" %} use a single version across all modules of the Azure SDK for iOS. This is because Swift Package Manager follows the "one repo = one package" philosophy.
-
 {% include requirement/MUST id="ios-versioning-semver" %} use [semantic versioning](https://semver.org) for the Azure SDK.
 
 {% include requirement/MUST id="ios-versioning-beta" %} use the `-beta.N` pre-release suffix for beta releases. For beta releases, you need only increment the beta number regardless of the type of change in the SDK, regardless of whether it is breaking or not.
+
+{% include requirement/MUST id="ios-version-beta-dependencies" %} target specific versions of beta dependencies to ensure that subsequent, incompatible versions do not break. The is because beta versions do not follow semantic versioning. 
 
 {% include requirement/MUST id="ios-versioning-changes" %} change the version number if *anything* changes in the Azure SDK.
 
@@ -879,7 +924,7 @@ The bar to make a breaking change is extremely high for GA client libraries. We 
 > TODO:
 > * How can we use a common approved dependencies list.
 
-{% include requirement/MUSTNOT id="ios-dependencies-snapshot" %} include dependencies on pre-released or beta versions of external libraries. All dependencies must be approved for general use.
+{% include requirement/MUSTNOT id="ios-dependencies-snapshot" %} take dependencies on pre-released or beta versions of external libraries. All dependencies must be approved for general use.
 
 {% include requirement/SHOULD id="ios-dependencies-vendoring" %} consider copying or linking required code into the client library in order to avoid taking a dependency on another package that could conflict with the ecosystem. Make sure that you are not violating any licensing agreements and consider the maintenance that will be required of the duplicated code. ["A little copying is better than a little dependency"][1] (YouTube).
 
@@ -913,6 +958,16 @@ iOS supports the development of platform-specific native code in C++.  These can
  * Camel casing for the method name and argument types is valid, but not required.
 
 ## Repository Guidelines
+
+{% include requirement/MUST id="ios-general-repository" %} locate all source code in the [Azure/azure-sdk-for-ios] GitHub repository.
+
+{% include requirement/MUST id="ios-spm-repository-name" %} name mirror repositories for Swift Package Manager releases in accordance with the format `SwiftPM_<PackageName>` (ex: `SwiftPM-AzureCatHerding`).
+
+{% include requirement/MUSTNOT id="ios-spm-repository-contributions" %} manage issues or accept pull requests to Swift Package Manager mirror repositories. All contributions should be make to the [mono-repo](https://github.com/Azure/azure-sdk-for-ios).
+
+{% include requirement/MUST id="ios-mono-repo-release-tags" %} tag releases in the mono-repo according to the format `<PackageName>_<version>`.
+
+{% include requirement/MUST id="ios-mirror-repo-release-tags" %} tag releases in the Swift Package Manager mirror repos according to the format `<version>`. A tag to a Swift Package Manager mirror repository must always be accompanied by a corresponding tag in the mono-repo.
 
 ### Documentation
 
