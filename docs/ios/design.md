@@ -868,6 +868,8 @@ There are occasions when common code needs to be shared between several client l
 
 {% include requirement/MUST id="general-commonlib-minimize-code" %} minimize the code within a common library.  Code within the common library is available to the consumer of the client library and shared by multiple client libraries within the same namespace.
 
+{% include requirement/SHOULD id="general-commonlib-suffix" %} use the `Common` suffix for the common library. For example, if Azure Storage has a common library, it would be called `AzureStorageCommon`.
+
 A common library will only be approved if:
 
 * The consumer of the non-shared library will consume the objects within the common library directly, AND
