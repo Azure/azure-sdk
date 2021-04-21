@@ -9,7 +9,7 @@ param (
 # Also appends DisplayName and ServiceName to the releaseHighlights
 function FilterOut-UnreleasedPackages ($releaseHighlights)
 {
-    $results = @{}
+    $results = @()
 
     foreach ($key in $releaseHighlights.Keys)
     {
@@ -18,8 +18,8 @@ function FilterOut-UnreleasedPackages ($releaseHighlights)
         $releaseVersion = $keyInfo[1]
         $packageGroupId = $releaseHighlights[$key]["PackageProperties"].Group
 
-        $packageMetaData = $CsvMetaData | Where-Object { ($_.Package -eq $packageName) -and
-             ($_.GroupId -eq $packageGroupId) -and ($_.Hide -ne "true")}
+        $packageMetaData = $CsvMetaData.Where({ ($_.Package -eq $packageName) -and
+             ($_.GroupId -eq $packageGroupId) -and ($_.Hide -ne "true") })
 
         if ($packageMetaData.Count -eq 1)
         {
@@ -30,9 +30,30 @@ function FilterOut-UnreleasedPackages ($releaseHighlights)
                 continue
                 LogDebug "[ $packageName ] with version  [$releaseVersion ] was skipped because it has a newer release version than present in the package csv"
             }
-            $releaseHighlights[$key]["DisplayName"] = $packageMetaData.DisplayName
-            $releaseHighlights[$key]["ServiceName"] = $packageMetaData.ServiceName
-            $results.Add($key, $releaseHighlights[$key])
+            $packageSemVer = [AzureEngSemanticVersion]::ParseVersionString($releaseVersion)
+            
+            $entry = [ordered]@{
+                Name = $packageName
+                Version = $releaseVersion
+                DisplayName = $packageMetaData.DisplayName
+                ServiceName = $packageMetaData.ServiceName
+                VersionType = $packageSemVer.VersionType
+                Hidden = $false
+                ChangelogUrl = $releaseHighlights[$key].ChangelogUrl
+                ChangelogContent = ($releaseHighlights[$key].Content | Out-String).Trim()
+            }
+
+            if (!$entry.DisplayName)
+            {
+                $entry.DisplayName = $entry.Name
+            }
+
+            if (!$packageGroupId)
+            {
+                $entry.Add("GroupId", $packageGroupId)
+            }
+
+            $results += $entry
         }
         else 
         {
@@ -40,60 +61,6 @@ function FilterOut-UnreleasedPackages ($releaseHighlights)
         }
     }
     return $results
-}
-
-function UpdateRelatedYaml ($existingYamlContent, $releaseHighlights, $pathToRelatedYaml)
-{
-    if ($null -eq $existingYamlContent.oldEntries)
-    {
-        $existingYamlContent.oldEntries = New-Object "System.Collections.Generic.List[System.Collections.Specialized.OrderedDictionary]"
-    }
-
-    if ($null -eq $existingYamlContent.newEntries)
-    {
-        $existingYamlContent.newEntries = New-Object "System.Collections.Generic.List[System.Collections.Specialized.OrderedDictionary]"
-    }
-
-    foreach ($key in $releaseHighlights.Keys)
-    {
-        $pkgInfo = $key.Split(":")
-        $packageName = $pkgInfo[0]
-        $packageVersion = $pkgInfo[1]
-        $packageFriendlyName = $releaseHighlights[$key]["DisplayName"]
-
-        if ($null -eq $packageFriendlyName)
-        {
-            $packageFriendlyName = $packageName
-        }
-        $changelogUrl = $releaseHighlights[$key]["ChangelogUrl"]
-        $groupId = $releaseHighlights[$key]["PackageProperties"].Group
-        $service = $releaseHighlights[$key]["ServiceName"]
-        $highlightsBody = ($releaseHighlights[$key]["Content"] | Out-String).Trim()
-        $packageSemVer = [AzureEngSemanticVersion]::ParseVersionString($PackageVersion)
-
-        $newEntry = New-Object "System.Collections.Specialized.OrderedDictionary"
-        $oldEntry = New-Object "System.Collections.Specialized.OrderedDictionary"
-
-        $newEntry.Add("name", $packageName)
-        $oldEntry.Add("name", $packageName)
-
-        $newEntry.Add("version", $packageVersion)
-        $oldEntry.Add("version", $packageVersion)
-        if ($null -ne $GroupId)
-        {
-            $newEntry.Add("groupId", $GroupId)
-            $oldEntry.Add("groupId", $GroupId)
-        }
-
-        $existingYamlContent.oldEntries.Add($oldEntry)
-
-        $newEntry.Add("service", $service)
-        $newEntry.Add("versionType", $packageSemVer.VersionType)
-        $newEntry.Add("changelogUrl", $changelogUrl)
-        $newEntry.Add("content", $highlightsBody)
-        $existingYamlContent.newEntries.Add($newEntry)
-    }
-    Set-Content -Path $pathToRelatedYaml -Value (ConvertTo-Yaml $existingYamlContent)
 }
 
 if (!(Test-Path $LanguageRepoDirectory))
@@ -112,7 +79,7 @@ $CsvMetaData = Get-CSVMetadata -MetadataUri "https://raw.githubusercontent.com/a
 
 $releaseTemplatePath = (Join-Path $ReleaseDirectory ".." eng scripts release-template "${releaseFileName}.md")
 $releaseFilePath = (Join-Path $ReleaseDirectory $releasePeriod "${releaseFileName}.md")
-$pathToRelatedYaml = (Join-Path $ReleaseDirectory ".." _data package_data $releasePeriod "${releaseFileName}.yaml")
+$pathToRelatedYaml = (Join-Path $ReleaseDirectory ".." _data package_data $releasePeriod "${releaseFileName}.yml")
 LogDebug "Release Template Path [ $releaseTemplatePath ]"
 LogDebug "Release File Path [ $releaseFilePath ]"
 LogDebug "Related Yaml File Path [ $pathToRelatedYaml ]"
@@ -125,7 +92,7 @@ if (!(Test-Path $releaseFilePath))
 if (!(Test-Path $pathToRelatedYaml))
 {
     New-Item -Path $pathToRelatedYaml -Force
-    Set-Content -Path $pathToRelatedYaml -Value @("oldEntries:","newEntries:")
+    Set-Content -Path $pathToRelatedYaml -Value @("entries:")
 }
 
 # Install Powershell Yaml
@@ -141,35 +108,24 @@ if ((Get-Module -ListAvailable -Name powershell-yaml).Where({ $_.Version -eq "0.
 }
 
 $existingYamlContent = ConvertFrom-Yaml (Get-Content $pathToRelatedYaml -Raw) -Ordered
-$pathToDateOfLatestUpdates = (Join-Path $ReleaseDirectory "${releaseFileName}.lastupdated")
 $collectChangelogPath = (Join-Path $commonScriptsPath Collect-ChangeLogs.ps1)
-$dateOfLatestUpdate = @(Get-Content -Path $pathToDateOfLatestUpdates)
 
-if ($dateOfLatestUpdate.Count -eq 0)
-{
-    LogError "Please make sure a valid date is present for [ $releaseFileName ] at [ $pathToDateOfLatestUpdates ]"
-    exit 1
-}
-
-$incomingReleaseHighlights = &$collectChangelogPath -FromDate $dateOfLatestUpdate[0]
+$incomingReleaseHighlights = &$collectChangelogPath -FromDate [Datetime]$releasePeriod
 
 foreach ($key in @($incomingReleaseHighlights.Keys))
 {
-  $presentKey = $existingYamlContent.oldEntries | Where-Object { ($_.name + ':' + $_.version) -eq $key }
+  $presentKey = $existingYamlContent.entries.Where( { ($_.name + ':' + $_.version) -eq $key } )
   if ($presentKey.Count -gt 0)
   {
     $incomingReleaseHighlights.Remove($key)
   }
 }
 
-$incomingReleaseHighlights = FilterOut-UnreleasedPackages -releaseHighlights $incomingReleaseHighlights
+$filteredReleaseHighlights = FilterOut-UnreleasedPackages -releaseHighlights $incomingReleaseHighlights
 
-if ($incomingReleaseHighlights.Count -gt 0)
+foreach ($entry in $filteredReleaseHighlights)
 {
-    UpdateRelatedYaml `
-    -releaseHighlights $incomingReleaseHighlights `
-    -existingYamlContent $existingYamlContent `
-    -pathToRelatedYaml $pathToRelatedYaml
-
-    Set-Content -Path $pathToDateOfLatestUpdates -Value (Get-Date -Format "yyyy-MM-dd") -NoNewline
+    $existingYamlContent.entries += $entry
 }
+
+Set-Content -Path $pathToRelatedYaml -Value (ConvertTo-Yaml $existingYamlContent)

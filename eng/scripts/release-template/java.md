@@ -8,54 +8,21 @@ repository: azure/azure-sdk-for-java
 
 The Azure SDK team is pleased to announce our %%MMMM yyyy%% client library releases.
 
-{% assign packages = site.data.package_data.%%yyyy-MM%%.java['newEntries'] | where: "versionType" , "GA" | sort: 'service' | sort: 'friendlyName' %}
-{% if packages.size > 0 %}
-<p>{{ '#### GA' | markdownify }}</p>
-{% endif %}
-<ul>
-{% for package in packages %}
-    <li>
-    {{ package.friendlyName }}
-    </li>
-{% endfor %}
-</ul>
-
-{% assign packages = site.data.package_data.%%yyyy-MM%%.java['newEntries'] | where: "versionType", "Patch" | sort: 'service' | sort: 'friendlyName' %}
-{% if packages.size > 0 %}
-{{ '#### Updates' | markdownify }}
-{% endif %}
-<ul>
-{% for package in packages %}
-    <li>
-    {{ package.friendlyName }}
-    </li>
-{% endfor %}
-</ul>
-
-{% assign packages = site.data.package_data.%%yyyy-MM%%.java['newEntries'] | where: "versionType", "Beta" | sort: 'service' | sort: 'friendlyName' %}
-{% if packages.size > 0 %}
-<p>{{ '#### Beta' | markdownify }}</p>
-{% endif %}
-<ul>
-{% for package in packages %}
-    <li>
-    {{ package.friendlyName }}
-    </li>
-{% endfor %}
-</ul>
+{% assign allPackages = site.data.package_data.%%yyyy-MM%%.java['entries'] | where: "Hidden" , false | sort: 'ServiceName' %}
+{% include package_display_names.md %}
 
 ## Installation Instructions
 
 To use the GA and beta libraries, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate. If you are using a different build tool, refer to its documentation on how to specify dependencies.
 
-{% assign packages = site.data.package_data.%%yyyy-MM%%.java['newEntries'] | sort: 'service' | sort: 'name' %}
+{% assign packages = allPackagesSortedByName = allPackages | sort: 'Name' %}
 {%- capture install_instructions -%}
-{% for package in packages %}
+{% for package in allPackagesSortedByName %}
     {%- capture install_instruction -%}
 <dependency>
-{{ "  " }}<groupId>{{ package.groupId }}</groupId>
-{{ "  " }}<artifactId>{{ package.name }}</artifactId>
-{{ "  " }}<version>{{ package.version }}</version>
+{{ "  " }}<groupId>{{ package.GroupId }}</groupId>
+{{ "  " }}<artifactId>{{ package.Name }}</artifactId>
+{{ "  " }}<version>{{ package.Version }}</version>
 </dependency>
 {{""}}
     {%- endcapture -%}
@@ -74,10 +41,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-{% for package in packages %}
-### {{ package.friendlyName }} {{ package.version }} [Changelog]({{ package.changelogUrl }})
-<p>{{ package.content | markdownify }}</p>
-{% endfor %}
+{% include release_highlights.md %}
 
 ## Need help
 

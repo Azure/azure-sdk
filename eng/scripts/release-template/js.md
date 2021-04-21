@@ -8,51 +8,18 @@ repository: azure/azure-sdk-for-js
 
 The Azure SDK team is pleased to make available the %%MMMM yyyy%% client library release.
 
-{% assign packages = site.data.package_data.%%yyyy-MM%%.js['newEntries'] | where: "versionType" , "GA" | sort: 'service' | sort: 'friendlyName' %}
-{% if packages.size > 0 %}
-<p>{{ '#### GA' | markdownify }}</p>
-{% endif %}
-<ul>
-{% for package in packages %}
-    <li>
-    {{ package.friendlyName }}
-    </li>
-{% endfor %}
-</ul>
-
-{% assign packages = site.data.package_data.%%yyyy-MM%%.js['newEntries'] | where: "versionType", "Patch" | sort: 'service' | sort: 'friendlyName' %}
-{% if packages.size > 0 %}
-{{ '#### Updates' | markdownify }}
-{% endif %}
-<ul>
-{% for package in packages %}
-    <li>
-    {{ package.friendlyName }}
-    </li>
-{% endfor %}
-</ul>
-
-{% assign packages = site.data.package_data.%%yyyy-MM%%.js['newEntries'] | where: "versionType", "Beta" | sort: 'service' | sort: 'friendlyName' %}
-{% if packages.size > 0 %}
-<p>{{ '#### Beta' | markdownify }}</p>
-{% endif %}
-<ul>
-{% for package in packages %}
-    <li>
-    {{ package.friendlyName }}
-    </li>
-{% endfor %}
-</ul>
+{% assign allPackages = site.data.package_data.%%yyyy-MM%%.js['entries'] | where: "Hidden" , false | sort: 'ServiceName' %}
+{% include package_display_names.md %}
 
 ## Installation Instructions
 
 To install the packages, copy and paste the below into a terminal.
 
-{% assign packages = site.data.package_data.%%yyyy-MM%%.js['newEntries'] | sort: 'service' | sort: 'name' %}
+{% assign allPackagesSortedByName = allPackages | sort: 'Name' %}
 {%- capture install_instructions -%}
-{% for package in packages %}
+{% for package in allPackagesSortedByName %}
     {%- capture install_instruction -%}
-    $> npm install {{ package.name }}@{{ package.version }}
+    $> npm install {{ package.Name }}@{{ package.Version }}
     {%- endcapture -%}
     {{ install_instruction }}
 {% endfor %}
@@ -68,10 +35,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-{% for package in packages %}
-### {{ package.friendlyName }} {{ package.version }} [Changelog]({{ package.changelogUrl }})
-<p>{{ package.content | markdownify }}</p>
-{% endfor %}
+{% include release_highlights.md %}
 
 ## Latest Releases
 
