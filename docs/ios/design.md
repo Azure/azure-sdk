@@ -769,6 +769,10 @@ For example, as of writing, iOS 14.4.0 has just been released.  We expect suppor
 
 {% include requirement/MAY id="ios-objc-support" %} support Objective-C.
 
+{% include requirement/MUST id="ios-arch-support" %} support all architectures in $ARCH_STANDARD.
+
+{% include requirement/MUST id="ios-bitcode-enabled" %} support bitcode enabled.
+
 {% include requirement/MUST id="ios-platform-support" %} support iPhone and iPad form factors.
 
 {% include requirement/SHOULD id="ios-opt-platform-support" %} support other Apple platforms such as MacOS, WatchOS and TvOS.
