@@ -163,6 +163,16 @@ azure-spring-cloud-starter-cache:2.4.0
 azure-spring-cloud-messaging:2.4.0
 azure-spring-cloud-stream-binder-test:2.4.0
 azure-spring-cloud-starter-eventhubs-kafka:2.4.0
+azure-resourcemanager-powerbidedicated:1.0.0-beta.1
+azure-resourcemanager-notificationhubs:1.0.0-beta.1
+azure-resourcemanager-applicationinsights:1.0.0-beta.1
+azure-resourcemanager-timeseriesinsights:1.0.0-beta.1
+azure-resourcemanager-changeanalysis:1.0.0
+azure-resourcemanager-storageimportexport:1.0.0-beta.1
+azure-resourcemanager-redisenterprise:1.0.0
+azure-resourcemanager-deploymentmanager:1.0.0-beta.1
+azure-resourcemanager-streamanalytics:1.0.0-beta.1
+azure-resourcemanager-marketplaceordering:1.0.0-beta.1
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -235,6 +245,8 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Azure Spring Cloud Messaging
 - Azure Spring Cloud Stream Binder Test
 - Azure Spring Cloud Starter Event Hubs Kafka
+- Resource Management - Change Analysis
+- Resource Management - Redis Enterprise
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -339,6 +351,14 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Key Vault - JCA
 - azure-resourcemanager-subscription
 - Azure Spring Boot Starter Key Vault Certificates
+- azure-resourcemanager-powerbidedicated
+- azure-resourcemanager-notificationhubs
+- azure-resourcemanager-applicationinsights
+- azure-resourcemanager-timeseriesinsights
+- azure-resourcemanager-storageimportexport
+- azure-resourcemanager-deploymentmanager
+- azure-resourcemanager-streamanalytics
+- azure-resourcemanager-marketplaceordering
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -1328,6 +1348,66 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <groupId>com.azure.spring</groupId>
   <artifactId>azure-spring-cloud-starter-eventhubs-kafka</artifactId>
   <version>2.4.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-powerbidedicated</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-notificationhubs</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-applicationinsights</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-timeseriesinsights</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-changeanalysis</artifactId>
+  <version>1.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-storageimportexport</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-redisenterprise</artifactId>
+  <version>1.0.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-deploymentmanager</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-streamanalytics</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-marketplaceordering</artifactId>
+  <version>1.0.0-beta.1</version>
 </dependency>
 
 
@@ -2327,6 +2407,44 @@ String messageText = body.toString();
 
 ### Azure Spring Cloud Starter Event Hubs Kafka 2.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-starter-eventhubs-kafka_2.4.0/sdk/spring/azure-spring-cloud-starter-eventhubs-kafka/CHANGELOG.md#240-2021-04-19)
 
+
+### azure-resourcemanager-powerbidedicated 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-powerbidedicated_1.0.0-beta.1/sdk/powerbidedicated/azure-resourcemanager-powerbidedicated/CHANGELOG.md#100-beta1-2021-04-20)
+- Azure Resource Manager PowerBIDedicated client library for Java. This package contains Microsoft Azure SDK for PowerBIDedicated Management SDK. PowerBI Dedicated Web API provides a RESTful set of web services that enables users to create, retrieve, update, and delete Power BI dedicated capacities. Package tag package-2021-01-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-notificationhubs 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-notificationhubs_1.0.0-beta.1/sdk/notificationhubs/azure-resourcemanager-notificationhubs/CHANGELOG.md#100-beta1-2021-04-20)
+- Azure Resource Manager NotificationHubs client library for Java. This package contains Microsoft Azure SDK for NotificationHubs Management SDK. Azure NotificationHub client. Package tag package-2017-04. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-applicationinsights 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-applicationinsights_1.0.0-beta.1/sdk/applicationinsights/azure-resourcemanager-applicationinsights/CHANGELOG.md#100-beta1-2021-04-20)
+- Azure Resource Manager ApplicationInsights client library for Java. This package contains Microsoft Azure SDK for ApplicationInsights Management SDK. Composite Swagger for Application Insights Management Client. Package tag package-2020-10-20. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-timeseriesinsights 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-timeseriesinsights_1.0.0-beta.1/sdk/timeseriesinsights/azure-resourcemanager-timeseriesinsights/CHANGELOG.md#100-beta1-2021-04-21)
+- Azure Resource Manager TimeSeriesInsights client library for Java. This package contains Microsoft Azure SDK for TimeSeriesInsights Management SDK. Time Series Insights client. Package tag package-2020-05-15. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### Resource Management - Change Analysis 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-changeanalysis_1.0.0/sdk/changeanalysis/azure-resourcemanager-changeanalysis/CHANGELOG.md#100-2021-04-21)
+- Azure Resource Manager AzureChangeAnalysis client library for Java. This package contains Microsoft Azure SDK for AzureChangeAnalysis Management SDK.  Package tag package-2021-04-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+#### Breaking Change
+
+* `models.ErrorAdditionalInfo` was removed
+
+### azure-resourcemanager-storageimportexport 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-storageimportexport_1.0.0-beta.1/sdk/storageimportexport/azure-resourcemanager-storageimportexport/CHANGELOG.md#100-beta1-2021-04-20)
+- Azure Resource Manager StorageImportExport client library for Java. This package contains Microsoft Azure SDK for StorageImportExport Management SDK. The Storage Import/Export Resource Provider API. Package tag package-preview-2021-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### Resource Management - Redis Enterprise 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-redisenterprise_1.0.0/sdk/redisenterprise/azure-resourcemanager-redisenterprise/CHANGELOG.md#100-2021-04-21)
+- Azure Resource Manager RedisEnterprise client library for Java. This package contains Microsoft Azure SDK for RedisEnterprise Management SDK. REST API for managing Redis Enterprise resources in Azure. Package tag package-2021-03. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+#### Breaking Change
+
+* `models.ErrorAdditionalInfo` was removed
+
+### azure-resourcemanager-deploymentmanager 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-deploymentmanager_1.0.0-beta.1/sdk/deploymentmanager/azure-resourcemanager-deploymentmanager/CHANGELOG.md#100-beta1-2021-04-20)
+- Azure Resource Manager Deployment client library for Java. This package contains Microsoft Azure SDK for Deployment Management SDK. REST APIs for orchestrating deployments using the Azure Deployment Manager (ADM). See https://docs.microsoft.com/azure/azure-resource-manager/deployment-manager-overview for more information. Package tag package-2019-11-01-preview. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-streamanalytics 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-streamanalytics_1.0.0-beta.1/sdk/streamanalytics/azure-resourcemanager-streamanalytics/CHANGELOG.md#100-beta1-2021-04-21)
+- Azure Resource Manager StreamAnalytics client library for Java. This package contains Microsoft Azure SDK for StreamAnalytics Management SDK. Stream Analytics Client. Package tag package-2020-03-preview. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-marketplaceordering 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-marketplaceordering_1.0.0-beta.1/sdk/marketplaceordering/azure-resourcemanager-marketplaceordering/CHANGELOG.md#100-beta1-2021-04-21)
+- Azure Resource Manager MarketplaceOrdering client library for Java. This package contains Microsoft Azure SDK for MarketplaceOrdering Management SDK. REST API for MarketplaceOrdering Agreements. Package tag package-2021-01-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
