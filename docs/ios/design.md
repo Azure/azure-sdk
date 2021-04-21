@@ -55,7 +55,7 @@ The main value of the Azure SDK is productivity. Other qualities, such as comple
 
 {% include requirement/MAY id="ios-language-objc" %} write the client library in Objective-C.
 
-The intent is to ensure that the client library is idiomatic in Swift applications. The library should not make specific accommodations to support Objective-C applications.
+The intent is to ensure that the client library is idiomatic in Swift applications. The library is not required to make specific accommodations to support Objective-C applications.
 
 ### Support for non-HTTP Protocols
 
