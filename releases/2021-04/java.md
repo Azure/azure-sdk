@@ -173,6 +173,7 @@ azure-resourcemanager-redisenterprise:1.0.0
 azure-resourcemanager-deploymentmanager:1.0.0-beta.1
 azure-resourcemanager-streamanalytics:1.0.0-beta.1
 azure-resourcemanager-marketplaceordering:1.0.0-beta.1
+azure-resourcemanager-batch:1.0.0-beta.1
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -359,6 +360,7 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - azure-resourcemanager-deploymentmanager
 - azure-resourcemanager-streamanalytics
 - azure-resourcemanager-marketplaceordering
+- azure-resourcemanager-batch
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -1410,6 +1412,12 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <version>1.0.0-beta.1</version>
 </dependency>
 
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-batch</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
 
 ```
 
@@ -2445,6 +2453,9 @@ String messageText = body.toString();
 
 ### azure-resourcemanager-marketplaceordering 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-marketplaceordering_1.0.0-beta.1/sdk/marketplaceordering/azure-resourcemanager-marketplaceordering/CHANGELOG.md#100-beta1-2021-04-21)
 - Azure Resource Manager MarketplaceOrdering client library for Java. This package contains Microsoft Azure SDK for MarketplaceOrdering Management SDK. REST API for MarketplaceOrdering Agreements. Package tag package-2021-01-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-batch 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-batch_1.0.0-beta.1/sdk/batch/azure-resourcemanager-batch/CHANGELOG.md#100-beta1-2021-04-21)
+- Azure Resource Manager Batch client library for Java. This package contains Microsoft Azure SDK for Batch Management SDK.  Package tag package-2021-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
