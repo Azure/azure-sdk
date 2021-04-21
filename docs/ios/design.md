@@ -761,7 +761,19 @@ iOS developers need to concern themselves with the runtime environment they are 
 * The last patch build for the previous minor release.
 * The last patch build for the previous major release.
 
-For example, as of writing, iOS 14.4.0 has just been released.  We expect support for 13.7.0 (the last patch release in the previous major release), iOS 14.3.0 (the last patch release in the previous minor release). While 14.4.0 is the only patch release in the current minor release, we would also support any other patch releases for the current minor release.
+{% include requirement/MUST id="ipados-library-support" %} support the following versions of iPadOS:
+
+* All currently available patch builds in the minor release
+* The last patch build for the previous minor release.
+* The last patch build for the previous major release.
+
+{% include requirement/SHOULD id="macos-library-support" %} support MacOS in order to permit customers to use our libraries within Apple universal apps. Support the following versions of macOS: 
+
+* All currently available patch builds in the minor release
+* The last patch build for the previous minor release.
+* The last patch build for the previous major release.
+
+{% include requirement/MAY id="otheros-library-support" %} support other platforms such as watchOS and tvOS.
 
 {% include requirement/MUST id="ios-swift-support" %} support Swift 5.  This ensures the maximum ABI compatibility going forward.
 
@@ -774,8 +786,6 @@ For example, as of writing, iOS 14.4.0 has just been released.  We expect suppor
 {% include requirement/MUST id="ios-bitcode-enabled" %} support bitcode enabled.
 
 {% include requirement/MUST id="ios-platform-support" %} support iPhone and iPad form factors.
-
-{% include requirement/SHOULD id="ios-opt-platform-support" %} support other Apple platforms such as MacOS, WatchOS and TvOS.
 
 Only support Objective-C and Swift 4 if you have a business justification for doing so. One such justification would be to package C++ code, which is only accessible via Objective-C. Optimize for applications written using Swift 5.
 
