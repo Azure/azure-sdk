@@ -177,6 +177,10 @@ azure-resourcemanager-batch:1.0.0-beta.1
 azure-resourcemanager-datalakeanalytics:1.0.0-beta.1
 azure-resourcemanager-operationsmanagement:1.0.0-beta.1
 azure-resourcemanager-policyinsights:1.0.0-beta.1
+azure-resourcemanager-labservices:1.0.0-beta.1
+azure-resourcemanager-datalakestore:1.0.0-beta.1
+azure-resourcemanager-iotcentral:1.0.0-beta.1
+azure-resourcemanager-vmwarecloudsimple:1.0.0-beta.1
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -367,6 +371,10 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - azure-resourcemanager-datalakeanalytics
 - azure-resourcemanager-operationsmanagement
 - azure-resourcemanager-policyinsights
+- azure-resourcemanager-labservices
+- azure-resourcemanager-datalakestore
+- azure-resourcemanager-iotcentral
+- azure-resourcemanager-vmwarecloudsimple
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -1442,6 +1450,30 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <version>1.0.0-beta.1</version>
 </dependency>
 
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-labservices</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-datalakestore</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-iotcentral</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-vmwarecloudsimple</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
 
 ```
 
@@ -2489,6 +2521,18 @@ String messageText = body.toString();
 
 ### azure-resourcemanager-policyinsights 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-policyinsights_1.0.0-beta.1/sdk/policyinsights/azure-resourcemanager-policyinsights/CHANGELOG.md#100-beta1-2021-04-22)
 - Azure Resource Manager PolicyInsights client library for Java. This package contains Microsoft Azure SDK for PolicyInsights Management SDK.  Package tag package-2021-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-labservices 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-labservices_1.0.0-beta.1/sdk/labservices/azure-resourcemanager-labservices/CHANGELOG.md#100-beta1-2021-04-22)
+- Azure Resource Manager ManagedLabs client library for Java. This package contains Microsoft Azure SDK for ManagedLabs Management SDK. The Managed Labs Client. Package tag package-2018-10. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-datalakestore 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-datalakestore_1.0.0-beta.1/sdk/datalakestore/azure-resourcemanager-datalakestore/CHANGELOG.md#100-beta1-2021-04-22)
+- Azure Resource Manager DataLakeStore client library for Java. This package contains Microsoft Azure SDK for DataLakeStore Management SDK. Creates an Azure Data Lake Store account management client. Package tag package-2016-11. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-iotcentral 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-iotcentral_1.0.0-beta.1/sdk/iotcentral/azure-resourcemanager-iotcentral/CHANGELOG.md#100-beta1-2021-04-22)
+- Azure Resource Manager IotCentral client library for Java. This package contains Microsoft Azure SDK for IotCentral Management SDK. Use this API to manage IoT Central Applications in your Azure subscription. Package tag package-2018-09-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-vmwarecloudsimple 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-vmwarecloudsimple_1.0.0-beta.1/sdk/vmwarecloudsimple/azure-resourcemanager-vmwarecloudsimple/CHANGELOG.md#100-beta1-2021-04-22)
+- Azure Resource Manager VMwareCloudSimple client library for Java. This package contains Microsoft Azure SDK for VMwareCloudSimple Management SDK. Description of the new service. Package tag package-2019-04-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
