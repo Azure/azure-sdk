@@ -48,7 +48,7 @@ function FilterOut-UnreleasedPackages ($releaseHighlights)
                 $entry.DisplayName = $entry.Name
             }
 
-            if (!$packageGroupId)
+            if ($packageGroupId)
             {
                 $entry.Add("GroupId", $packageGroupId)
             }
@@ -79,7 +79,7 @@ $CsvMetaData = Get-CSVMetadata -MetadataUri "https://raw.githubusercontent.com/a
 
 $releaseTemplatePath = (Join-Path $ReleaseDirectory ".." eng scripts release-template "${releaseFileName}.md")
 $releaseFilePath = (Join-Path $ReleaseDirectory $releasePeriod "${releaseFileName}.md")
-$pathToRelatedYaml = (Join-Path $ReleaseDirectory ".." _data package_data $releasePeriod "${releaseFileName}.yml")
+$pathToRelatedYaml = (Join-Path $ReleaseDirectory ".." _data releases $releasePeriod "${releaseFileName}.yml")
 LogDebug "Release Template Path [ $releaseTemplatePath ]"
 LogDebug "Release File Path [ $releaseFilePath ]"
 LogDebug "Related Yaml File Path [ $pathToRelatedYaml ]"
@@ -122,6 +122,11 @@ foreach ($key in @($incomingReleaseHighlights.Keys))
 }
 
 $filteredReleaseHighlights = FilterOut-UnreleasedPackages -releaseHighlights $incomingReleaseHighlights
+
+if ($null -eq $existingYamlContent.entries)
+{
+    $existingYamlContent.entries = New-Object "System.Collections.Generic.List[System.Collections.Specialized.OrderedDictionary]"
+}
 
 foreach ($entry in $filteredReleaseHighlights)
 {
