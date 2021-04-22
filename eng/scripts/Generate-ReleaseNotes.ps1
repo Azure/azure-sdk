@@ -97,15 +97,9 @@ if (!(Test-Path $pathToRelatedYaml))
 
 # Install Powershell Yaml
 $ProgressPreference = "SilentlyContinue"
-if ((Get-PSRepository).Where({$_.Name -eq "PSGallery"}).Count -eq 0)
-{
-    Register-PSRepository -Default -ErrorAction:SilentlyContinue
-}
-
-if ((Get-Module -ListAvailable -Name powershell-yaml).Where({ $_.Version -eq "0.4.2"} ).Count -eq 0)
-{
-    Install-Module -Name powershell-yaml -RequiredVersion 0.4.2 -Force -Scope CurrentUser
-}
+$ToolsFeed = "https://pkgs.dev.azure.com/azure-sdk/public/_packaging/azure-sdk-tools/nuget/v2"
+Register-PSRepository -Name azure-sdk-tools-feed -SourceLocation $ToolsFeed -PublishLocation $ToolsFeed -InstallationPolicy Trusted -ErrorAction SilentlyContinue
+Install-Module -Repository azure-sdk-tools-feed powershell-yaml
 
 $existingYamlContent = ConvertFrom-Yaml (Get-Content $pathToRelatedYaml -Raw) -Ordered
 $collectChangelogPath = (Join-Path $commonScriptsPath Collect-ChangeLogs.ps1)
