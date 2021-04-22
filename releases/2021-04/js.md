@@ -34,6 +34,8 @@ repository: azure/azure-sdk-for-js
 @azure/data-tables:12.0.0-beta.2
 @azure/core-lro:1.0.5
 @azure/ai-anomaly-detector:3.0.0-beta.3
+@azure/cosmos:3.11.0
+@azure-rest/core-client:1.0.0-beta.1
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -49,6 +51,7 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Core - Client
 - Core - AMQP
 - Event Hubs
+- Cosmos DB
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -77,6 +80,7 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Container Registry
 - Tables
 - Anomaly Detector
+- @azure-rest/core-client
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -113,6 +117,8 @@ $> npm install @azure/container-registry@1.0.0-beta.1
 $> npm install @azure/data-tables@12.0.0-beta.2
 $> npm install @azure/core-lro@1.0.5
 $> npm install @azure/ai-anomaly-detector@3.0.0-beta.3
+$> npm install @azure/cosmos@3.11.0
+$> npm install @azure-rest/core-client@1.0.0-beta.1
 
 ```
 
@@ -353,6 +359,12 @@ This update marks the preview for the first major version update of the `@azure/
 
 ### Anomaly Detector 3.0.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/ai-anomaly-detector_3.0.0-beta.3/sdk/anomalydetector/ai-anomaly-detector/CHANGELOG.md#300-beta3-2021-04-16)
 - Introduced the following new APIs related to Mutivariate Models:trainMultivariateModel, getMultivariateModel, deleteMultivariateModel, detectAnomaly, getDetectionResult, exportModel, listMultivariateModel, listMultivariateModelNext.
+
+### Cosmos DB 3.11.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/cosmos_3.11.0/sdk/cosmosdb/cosmos/CHANGELOG.md#3110-2021-04-21)
+- FEATURE: Internal client update. No user facing changes, but major version bump to be safe.
+
+### @azure-rest/core-client 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure-rest/core-client_1.0.0-beta.1/sdk/core-rest/core-client/CHANGELOG.md#100-beta1-2021-04-22)
+- First release of package, see README.md for details.
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
