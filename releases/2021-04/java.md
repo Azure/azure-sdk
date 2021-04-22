@@ -174,6 +174,9 @@ azure-resourcemanager-deploymentmanager:1.0.0-beta.1
 azure-resourcemanager-streamanalytics:1.0.0-beta.1
 azure-resourcemanager-marketplaceordering:1.0.0-beta.1
 azure-resourcemanager-batch:1.0.0-beta.1
+azure-resourcemanager-datalakeanalytics:1.0.0-beta.1
+azure-resourcemanager-operationsmanagement:1.0.0-beta.1
+azure-resourcemanager-policyinsights:1.0.0-beta.1
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -361,6 +364,9 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - azure-resourcemanager-streamanalytics
 - azure-resourcemanager-marketplaceordering
 - azure-resourcemanager-batch
+- azure-resourcemanager-datalakeanalytics
+- azure-resourcemanager-operationsmanagement
+- azure-resourcemanager-policyinsights
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -1418,6 +1424,24 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <version>1.0.0-beta.1</version>
 </dependency>
 
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-datalakeanalytics</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-operationsmanagement</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-policyinsights</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
 
 ```
 
@@ -2456,6 +2480,15 @@ String messageText = body.toString();
 
 ### azure-resourcemanager-batch 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-batch_1.0.0-beta.1/sdk/batch/azure-resourcemanager-batch/CHANGELOG.md#100-beta1-2021-04-21)
 - Azure Resource Manager Batch client library for Java. This package contains Microsoft Azure SDK for Batch Management SDK.  Package tag package-2021-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-datalakeanalytics 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-datalakeanalytics_1.0.0-beta.1/sdk/datalakeanalytics/azure-resourcemanager-datalakeanalytics/CHANGELOG.md#100-beta1-2021-04-22)
+- Azure Resource Manager DataLakeAnalytics client library for Java. This package contains Microsoft Azure SDK for DataLakeAnalytics Management SDK. Creates an Azure Data Lake Analytics account management client. Package tag package-2016-11. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-operationsmanagement 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-operationsmanagement_1.0.0-beta.1/sdk/operationsmanagement/azure-resourcemanager-operationsmanagement/CHANGELOG.md#100-beta1-2021-04-21)
+- Azure Resource Manager OperationsManagement client library for Java. This package contains Microsoft Azure SDK for OperationsManagement Management SDK. Operations Management Client. Package tag package-2015-11-preview. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-resourcemanager-policyinsights 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-policyinsights_1.0.0-beta.1/sdk/policyinsights/azure-resourcemanager-policyinsights/CHANGELOG.md#100-beta1-2021-04-22)
+- Azure Resource Manager PolicyInsights client library for Java. This package contains Microsoft Azure SDK for PolicyInsights Management SDK.  Package tag package-2021-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
