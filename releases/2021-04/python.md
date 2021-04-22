@@ -67,6 +67,8 @@ azure-mgmt-dns:8.0.0
 azure-ai-anomalydetector:3.0.0b3
 azure-mgmt-resource:16.1.0
 azure-mgmt-keyvault:9.0.0
+azure-mgmt-automanage:1.0.0b2
+azure-mgmt-maintenance:1.0.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -108,6 +110,7 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Resource Management - DNS
 - Resource Management - Resources
 - Resource Management - KeyVault
+- Resource Management - Maintenance
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -140,6 +143,7 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Translation Document
 - Cognitive Search
 - Anomaly Detector
+- Resource Management - Automanage
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -206,6 +210,8 @@ $> pip install azure-mgmt-dns==8.0.0
 $> pip install azure-ai-anomalydetector==3.0.0b3
 $> pip install azure-mgmt-resource==16.1.0
 $> pip install azure-mgmt-keyvault==9.0.0
+$> pip install azure-mgmt-automanage==1.0.0b2
+$> pip install azure-mgmt-maintenance==1.0.0
 
 ```
 
@@ -803,6 +809,25 @@ service version `1.0-preview.1`. This package's documentation and samples demons
 **Breaking changes**
 
   - Model PrivateLinkServiceConnectionState no longer has parameter action_required
+
+### Resource Management - Automanage 1.0.0b2 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-automanage_1.0.0b2/sdk/automanage/azure-mgmt-automanage/CHANGELOG.md#100b2-2021-04-21)
+- Fix dependency for package
+
+### Resource Management - Maintenance 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-maintenance_1.0.0/sdk/maintenance/azure-mgmt-maintenance/CHANGELOG.md#100-2021-04-20)
+**Features**
+
+  - Model Resource has a new parameter system_data
+  - Model ApplyUpdate has a new parameter system_data
+  - Model ConfigurationAssignment has a new parameter system_data
+  - Model Operation has a new parameter is_data_action
+  - Model MaintenanceConfiguration has a new parameter system_data
+  - Model MaintenanceConfiguration has a new parameter install_patches
+  - Added operation ConfigurationAssignmentsOperations.get_parent
+  - Added operation ConfigurationAssignmentsOperations.get
+  - Added operation ApplyUpdatesOperations.list
+  - Added operation group ConfigurationAssignmentsWithinSubscriptionOperations
+  - Added operation group ApplyUpdateForResourceGroupOperations
+  - Added operation group MaintenanceConfigurationsForResourceGroupOperations
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
