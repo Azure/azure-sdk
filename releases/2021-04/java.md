@@ -181,6 +181,8 @@ azure-resourcemanager-labservices:1.0.0-beta.1
 azure-resourcemanager-datalakestore:1.0.0-beta.1
 azure-resourcemanager-iotcentral:1.0.0-beta.1
 azure-resourcemanager-vmwarecloudsimple:1.0.0-beta.1
+azure-messaging-webpubsub:1.0.0-beta.1
+azure-spring-cloud-dependencies:2.4.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -255,6 +257,7 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Azure Spring Cloud Starter Event Hubs Kafka
 - Resource Management - Change Analysis
 - Resource Management - Redis Enterprise
+- Azure Spring Cloud Dependencies
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -375,6 +378,7 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - azure-resourcemanager-datalakestore
 - azure-resourcemanager-iotcentral
 - azure-resourcemanager-vmwarecloudsimple
+- azure-messaging-webpubsub
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -1474,6 +1478,18 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <version>1.0.0-beta.1</version>
 </dependency>
 
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-messaging-webpubsub</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-dependencies</artifactId>
+  <version>2.4.0</version>
+</dependency>
+
 
 ```
 
@@ -2533,6 +2549,20 @@ String messageText = body.toString();
 
 ### azure-resourcemanager-vmwarecloudsimple 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-vmwarecloudsimple_1.0.0-beta.1/sdk/vmwarecloudsimple/azure-resourcemanager-vmwarecloudsimple/CHANGELOG.md#100-beta1-2021-04-22)
 - Azure Resource Manager VMwareCloudSimple client library for Java. This package contains Microsoft Azure SDK for VMwareCloudSimple Management SDK. Description of the new service. Package tag package-2019-04-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-messaging-webpubsub 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-messaging-webpubsub_1.0.0-beta.1/sdk/webpubsub/azure-messaging-webpubsub/CHANGELOG.md#100-beta1-2021-04-22)
+Version 1.0.0-beta.1 is a preview of our efforts in creating a client library for Azure Web PubSub that is 
+developer-friendly, idiomatic to the Java ecosystem, and as consistent across different languages and platforms as 
+possible. The principles that guide our efforts can be found in the 
+[Azure SDK Design Guidelines for Java](https://azure.github.io/azure-sdk/java_introduction.html).
+
+- Initial release. Please see the README and wiki for information on using the new library.
+
+### Azure Spring Cloud Dependencies 2.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-dependencies_2.4.0/sdk/boms/azure-spring-cloud-dependencies/CHANGELOG.md#240-2021-04-23)
+#### Breaking Changes
+- Update `com.azure` group id to `com.azure.spring`.
+- Update `spring-cloud-azure-dependencies` artifact id to `azure-spring-cloud-dependencies`.
+- Remove `spring-boot-dependencies` and `spring-cloud-dependencies` dependencies.
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
