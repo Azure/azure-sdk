@@ -93,7 +93,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-### 1.0.0-beta.6 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/master/CHANGELOG.md#100-beta6-2020-11-23))
+### 1.0.0-beta.6 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/1.0.0-beta.6/CHANGELOG.md#100-beta6-2020-11-23))
 
 #### Azure Communication Services Calling
 
@@ -102,7 +102,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Fixed crash on calling `Call.hangup()`.
 - Fixed invalid values for `CFBundleVersion` and `CFBundleShortVersionString` in `Info.plist`.
 
-### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/master/CHANGELOG.md#100-beta5-2020-11-18))
+### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/1.0.0-beta.5/CHANGELOG.md#100-beta5-2020-11-18))
 
 #### Azure Communication Services Calling
 
