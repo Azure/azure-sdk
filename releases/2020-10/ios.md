@@ -64,19 +64,19 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Azure Communication Services Chat
 
-#### 1.0.0-beta.2 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/master/CHANGELOG.md#100-beta2-2020-10-05))
+#### 1.0.0-beta.2 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/1.0.0-beta.2/CHANGELOG.md#100-beta2-2020-10-05))
 
 - Initial Preview release for Azure Communication Services Chat
 
 ### Azure Communication Services Common
 
-#### 1.0.0-beta.1 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/master/CHANGELOG.md#100-beta1-2020-09-21))
+#### 1.0.0-beta.1 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/1.0.0-beta.2/CHANGELOG.md#100-beta1-2020-09-21))
 
 - Initial Preview release for Azure Communication Services Common
 
 ### Azure Core
 
-#### 1.0.0-beta.1 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/master/CHANGELOG.md#100-beta1-2020-09-21))
+#### 1.0.0-beta.1 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/1.0.0-beta.2/CHANGELOG.md#100-beta1-2020-09-21))
 
 - Initial Preview release for Azure Core
 
