@@ -77,10 +77,8 @@ Write-Host "Common Script $commonScript"
 . $commonScript
 $CsvMetaData = Get-CSVMetadata -MetadataUri "https://raw.githubusercontent.com/azure-sdk/azure-sdk/PackageVersionUpdates/_data/releases/latest/${releaseFileName}-packages.csv"
 
-$releaseTemplatePath = (Join-Path $ReleaseDirectory ".." eng scripts release-template "${releaseFileName}.md")
 $releaseFilePath = (Join-Path $ReleaseDirectory $releasePeriod "${releaseFileName}.md")
 $pathToRelatedYaml = (Join-Path $ReleaseDirectory ".." _data releases $releasePeriod "${releaseFileName}.yml")
-LogDebug "Release Template Path [ $releaseTemplatePath ]"
 LogDebug "Release File Path [ $releaseFilePath ]"
 LogDebug "Related Yaml File Path [ $pathToRelatedYaml ]"
 
@@ -106,13 +104,16 @@ $collectChangelogPath = (Join-Path $commonScriptsPath Collect-ChangeLogs.ps1)
 
 $incomingReleaseHighlights = &$collectChangelogPath -FromDate [Datetime]$releasePeriod
 
-foreach ($key in @($incomingReleaseHighlights.Keys))
+if($existingYamlContent.entries)
 {
-  $presentKey = $existingYamlContent.entries.Where( { ($_.name + ':' + $_.version) -eq $key } )
-  if ($presentKey.Count -gt 0)
-  {
-    $incomingReleaseHighlights.Remove($key)
-  }
+    foreach ($key in @($incomingReleaseHighlights.Keys))
+    {
+        $presentKey = $existingYamlContent.entries.Where( { ($_.name + ':' + $_.version) -eq $key } )
+        if ($presentKey.Count -gt 0)
+        {
+            $incomingReleaseHighlights.Remove($key)
+        }
+    }
 }
 
 $filteredReleaseHighlights = FilterOut-UnreleasedPackages -releaseHighlights $incomingReleaseHighlights

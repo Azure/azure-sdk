@@ -8,7 +8,7 @@ repository: azure/azure-sdk-for-net
 
 The Azure SDK team is pleased to announce our %%MMMM yyyy%% client library releases.
 
-{% assign allPackages = site.data.package_data.%%yyyy-MM%%.dotnet['entries'] | where: "Hidden" , false | sort: 'ServiceName' %}
+{% assign allPackages = site.data.releases.%%yyyy-MM%%.dotnet['entries'] | where: "Hidden" , false | sort: 'ServiceName' %}
 {% include package_display_names.md %}
 
 ## Installation Instructions

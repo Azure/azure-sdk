@@ -8,7 +8,7 @@ repository: azure/azure-sdk-for-js
 
 The Azure SDK team is pleased to make available the %%MMMM yyyy%% client library release.
 
-{% assign allPackages = site.data.package_data.%%yyyy-MM%%.js['entries'] | where: "Hidden" , false | sort: 'ServiceName' %}
+{% assign allPackages = site.data.releases.%%yyyy-MM%%.js['entries'] | where: "Hidden" , false | sort: 'ServiceName' %}
 {% include package_display_names.md %}
 
 ## Installation Instructions
