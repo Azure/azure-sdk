@@ -69,6 +69,7 @@ azure-mgmt-resource:16.1.0
 azure-mgmt-keyvault:9.0.0
 azure-mgmt-automanage:1.0.0b2
 azure-mgmt-maintenance:1.0.0
+azure-mgmt-managedservices:6.0.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -111,6 +112,7 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Resource Management - Resources
 - Resource Management - KeyVault
 - Resource Management - Maintenance
+- Resource Management - Managed Services
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -212,6 +214,7 @@ $> pip install azure-mgmt-resource==16.1.0
 $> pip install azure-mgmt-keyvault==9.0.0
 $> pip install azure-mgmt-automanage==1.0.0b2
 $> pip install azure-mgmt-maintenance==1.0.0
+$> pip install azure-mgmt-managedservices==6.0.0
 
 ```
 
@@ -828,6 +831,11 @@ service version `1.0-preview.1`. This package's documentation and samples demons
   - Added operation group ConfigurationAssignmentsWithinSubscriptionOperations
   - Added operation group ApplyUpdateForResourceGroupOperations
   - Added operation group MaintenanceConfigurationsForResourceGroupOperations
+
+### Resource Management - Managed Services 6.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-managedservices_6.0.0/sdk/managedservices/azure-mgmt-managedservices/CHANGELOG.md#600-2021-04-22)
+**Features**
+
+  - Added operation group MarketplaceRegistrationDefinitionsWithoutScopeOperations
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
