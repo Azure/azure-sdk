@@ -70,6 +70,7 @@ azure-mgmt-keyvault:9.0.0
 azure-mgmt-automanage:1.0.0b2
 azure-mgmt-maintenance:1.0.0
 azure-mgmt-managedservices:6.0.0
+azure-messaging-nspkg:1.0.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -113,6 +114,7 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Resource Management - KeyVault
 - Resource Management - Maintenance
 - Resource Management - Managed Services
+- azure-messaging-nspkg
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -215,6 +217,7 @@ $> pip install azure-mgmt-keyvault==9.0.0
 $> pip install azure-mgmt-automanage==1.0.0b2
 $> pip install azure-mgmt-maintenance==1.0.0
 $> pip install azure-mgmt-managedservices==6.0.0
+$> pip install azure-messaging-nspkg==1.0.0
 
 ```
 
@@ -836,6 +839,9 @@ service version `1.0-preview.1`. This package's documentation and samples demons
 **Features**
 
   - Added operation group MarketplaceRegistrationDefinitionsWithoutScopeOperations
+
+### azure-messaging-nspkg 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-messaging-nspkg_1.0.0/sdk/nspkg/azure-messaging-nspkg/CHANGELOG.md#100-2021-04-23)
+- Initial Release
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
