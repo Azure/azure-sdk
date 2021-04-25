@@ -71,6 +71,7 @@ azure-mgmt-automanage:1.0.0b2
 azure-mgmt-maintenance:1.0.0
 azure-mgmt-managedservices:6.0.0
 azure-messaging-nspkg:1.0.0
+azure-mgmt-peering:1.0.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -115,6 +116,7 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Resource Management - Maintenance
 - Resource Management - Managed Services
 - azure-messaging-nspkg
+- Resource Management - Peering
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -218,6 +220,7 @@ $> pip install azure-mgmt-automanage==1.0.0b2
 $> pip install azure-mgmt-maintenance==1.0.0
 $> pip install azure-mgmt-managedservices==6.0.0
 $> pip install azure-messaging-nspkg==1.0.0
+$> pip install azure-mgmt-peering==1.0.0
 
 ```
 
@@ -842,6 +845,36 @@ service version `1.0-preview.1`. This package's documentation and samples demons
 
 ### azure-messaging-nspkg 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-messaging-nspkg_1.0.0/sdk/nspkg/azure-messaging-nspkg/CHANGELOG.md#100-2021-04-23)
 - Initial Release
+
+### Resource Management - Peering 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-peering_1.0.0/sdk/peering/azure-mgmt-peering/CHANGELOG.md#100-2021-04-25)
+**Features**
+
+  - Model PeerAsn has a new parameter peer_contact_info
+  - Added operation group PeeringServicePrefixesOperations
+
+**Breaking changes**
+
+  - Operation PrefixesOperations.list_by_peering_service has a new signature
+  - Operation PeeringServiceLocationsOperations.list has a new signature
+  - Operation LegacyPeeringsOperations.list has a new signature
+  - Model DirectConnection no longer has parameter error_message
+  - Model DirectConnection no longer has parameter microsoft_tracking_id
+  - Model PeeringServicePrefix no longer has parameter events
+  - Model PeeringServicePrefix no longer has parameter error_message
+  - Model PeeringServicePrefix no longer has parameter peering_service_prefix_key
+  - Model ExchangeConnection no longer has parameter error_message
+  - Model PeerAsn no longer has parameter error_message
+  - Model PeerAsn no longer has parameter peer_contact_detail
+  - Model PeeringService no longer has parameter sku
+  - Model ErrorResponse has a new signature
+  - Removed operation PrefixesOperations.delete
+  - Removed operation PrefixesOperations.create_or_update
+  - Removed operation PrefixesOperations.get
+  - Removed operation group CdnPeeringPrefixesOperations
+  - Removed operation group ReceivedRoutesOperations
+  - Removed operation group RegisteredAsnsOperations
+  - Removed operation group PeeringServiceCountriesOperations
+  - Removed operation group RegisteredPrefixesOperations
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
