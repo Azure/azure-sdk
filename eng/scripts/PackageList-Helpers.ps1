@@ -70,7 +70,7 @@ function Set-PackageListForLanguage([string]$lang, [Array]$packageList)
   $sortedPackages | ConvertTo-CSV -NoTypeInformation -UseQuotes Always | Out-File $packagelistFile -encoding ascii
 }
 
-function Get-CombinedPackageList($pkgFilter)
+function Get-CombinedPackageListForPlannedVersions($pkgFilter)
 {
   $allPackages = @()
   foreach ($lang in $languageNameMapping.Keys)
@@ -85,11 +85,24 @@ function Get-CombinedPackageList($pkgFilter)
       $pkg | Add-Member -NotePropertyName "PlannedVersion" -NotePropertyValue ""
       $pkg | Add-Member -NotePropertyName "PlannedDate" -NotePropertyValue ""
 
+      # Create an entry for each planned package
+      if ($pkg.PlannedVersions) {
+        $plannedVersions = $pkg.PlannedVersions.Split("|").Trim().Where({ $_ })
+
+        foreach ($plannedVersion in $plannedVersions)
+        {
+          $pkgPlannedVersion = $pkg.PSObject.Copy()
+          $pkgPlannedVersion.PlannedVersion, $pkgPlannedVersion.PlannedDate = $plannedVersion.Split(",")
+          $allPackages += $pkgPlannedVersion
+        }
+      }
+
       $allPackages += $pkg
     }
   }
 
-  return $allPackages | Select-Object "Language", "Package", "DisplayName", "ServiceName", "PlannedVersion", "PlannedDate", "RepoPath", "Type", "New" | Sort-Object "Language", "Package"
+  $latestVersion = @{label="LatestVersion"; expression={ if ($_.VersionGA) { $_.VersionGA } else { $_.VersionPreview }}}
+  return $allPackages | Select-Object "Language", "Package", "DisplayName", "ServiceName", "PlannedVersion", "PlannedDate", $latestVersion, "RepoPath", "Type", "New" | Sort-Object "Language", "Package"
 }
 
 function Add-NewFieldToAll($field, $afterField)

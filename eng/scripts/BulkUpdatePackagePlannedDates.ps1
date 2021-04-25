@@ -22,6 +22,8 @@ if (!$?){
 . (Join-Path $PSScriptRoot .. common scripts Helpers DevOps-WorkItem-Helpers.ps1)
 . (Join-Path $PSScriptRoot PackageList-Helpers.ps1)
 
+$unchangedPkgList = Get-CombinedPackageListForPlannedVersions $pkgFilter
+
 if (!$CSVPath)
 {
   $CSVPath = "plannedpackages_$([System.IO.Path]::GetRandomFileName()).csv"
@@ -35,20 +37,44 @@ if (!$CSVPath)
   Write-Host "   row and only update the PlannedVersion and PlannedDate for each row."
   Write-Host " - Delete or leave Planned fields empty for any packages you don't want to add planned dates."
   Write-Host "Once done editing save the file and close excel..."
-  $pkgList = Get-CombinedPackageList $pkgFilter
-  $pkgList | ConvertTo-CSV -NoTypeInformation -UseQuotes Always | Out-File $CSVPath -encoding ascii
+  $unchangedPkgList | ConvertTo-CSV -NoTypeInformation -UseQuotes Always | Out-File $CSVPath -encoding ascii
 
   Start-Process -wait excel -argumentlist $CSVPath
 }
 
-$packageList = Get-Content $CSVPath | ConvertFrom-Csv | Where-Object { $_.PlannedDate -and $_.PlannedVersion }
+$changedPkgList = Get-Content $CSVPath | ConvertFrom-Csv | Where-Object {
+  if (!$_.PlannedDate -or !$_.PlannedVersion) {
+    return $false
+  }
 
-if (!$packageList -or $packageList.Count -eq 0) {
+  $pkgName = $_.Package
+  $pkgPlannedVersion = $_.PlannedVersion
+  $pkgPlannedDate = $_.PlannedDate
+  $parsedVersion = new-object AzureEngSemanticVersion($pkgPlannedVersion)
+  if (!$parsedVersion.IsSemVerFormat) {
+    Write-Host "Skipping update for $pkgName as the version format is incorrect $pkgPlannedVersion"
+    return $false
+  }
+
+  $matchingPkg = $unchangedPkgList.Where({
+    if ($pkgName -ne $_.Package) { return $false }
+    if (($pkgPlannedDate-as [DateTime]) -ne ($_.PlannedDate -as [DateTime])) { return $false }
+    if ($pkgPlannedVersion -ne $_.PlannedVersion) { return $false }
+    return $true
+  })
+  if ($matchingPkg.Count -gt 0) {
+    return $false
+  }
+  Write-Host "$pkgName has changes $pkgPlannedVersion $pkgPlannedDate"
+  return $true
+}
+
+if (!$changedPkgList -or $changedPkgList.Count -eq 0) {
   Write-Host "Didn't find any packages with a planned version and date in [$CSVPath]."
   exit 0
 }
 
-foreach ($pkg in $packageList) {
+foreach ($pkg in $changedPkgList) {
   Write-Host "Updating package $($pkg.Package) with planned version $($pkg.PlannedVersion) on $($pkg.PlannedDate)"
 
   $plannedVersion = [AzureEngSemanticVersion]::ParseVersionString($pkg.PlannedVersion)

@@ -851,6 +851,15 @@ Review the [full sample](https://github.com/Azure/azure-sdk-for-net/blob/master/
 
 {% include requirement/MUST id="dotnet-mocking-virtual-method" %} make all service methods virtual.
 
+{% include requirement/MUST id="dotnet-mocking-virtual-properties" %} make all properties virtual.
+
+```csharp
+    public class BlobContainerClient {
+        public virtual string Name { get; }
+        public virtual Uri Uri { get; }
+    }
+```
+
 {% include requirement/MUST id="dotnet-mocking-virtual-getclient-method" %} make methods returning other clients virtual.
 
 ```csharp

@@ -35,6 +35,7 @@ Azure.Storage.Queues:12.7.0-beta.3
 Azure.Storage.Files.DataLake:12.7.0-beta.3
 Azure.IoT.ModelsRepository:1.0.0-preview.3
 Azure.DigitalTwins.Core:1.2.2
+Azure.AI.AnomalyDetector:3.0.0-preview.3
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -55,16 +56,18 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 [pattern.ga]: # (- ${PackageFriendlyName})
 
 #### Updates
+- Digital Twins - Core
 - Storage - Common
 - System Memory Data
-- Digital Twins - Core
 
 [pattern.patch]: # (- ${PackageFriendlyName})
 
 #### Beta
+- Anomaly Detector
 - App Configuration
 - Attestation
 - Azure.AI.Translation.Document
+- Azure.IoT.ModelsRepository
 - Azure Communication Phone Numbers
 - Cognitive Search
 - Core - AMQP
@@ -72,18 +75,17 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Identity
 - IoT Device Update
 - Synapse - Artifacts
+- Storage - Files Shares
+- Storage - Blobs
+- Storage - Blobs Batch
+- Storage - Blobs ChangeFeed
+- Storage - Common
+- Storage - Files Data Lake
+- Storage - Queues
 - Tables
 - Text Analytics
 - Translation Document
 - WebJobs Extensions - Event Hubs
-- Storage - Files Shares
-- Storage - Blobs
-- Storage - Blobs Batch
-- Storage - Common
-- Storage - Blobs ChangeFeed
-- Storage - Queues
-- Storage - Files Data Lake
-- Azure.IoT.ModelsRepository
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -92,6 +94,7 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
 ```bash
+$> dotnet add package Azure.AI.AnomalyDetector --version 3.0.0-preview.3
 $> dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.4
 $> dotnet add package Azure.AI.TextAnalytics --version 5.1.0-beta.6
 $> dotnet add package Azure.AI.Translation.Document --version 1.0.0-beta.1
@@ -106,25 +109,25 @@ $> dotnet add package Azure.Core --version 1.13.0
 $> dotnet add package Azure.Core.Amqp --version 1.1.0-beta.1
 $> dotnet add package Azure.Data.AppConfiguration --version 1.1.0-beta.2
 $> dotnet add package Azure.Data.Tables --version 12.0.0-beta.7
+$> dotnet add package Azure.DigitalTwins.Core --version 1.2.2
 $> dotnet add package Azure.Identity --version 1.4.0-beta.5
 $> dotnet add package Azure.IoT.DeviceUpdate --version 1.0.0-beta.2
+$> dotnet add package Azure.IoT.ModelsRepository --version 1.0.0-preview.3
 $> dotnet add package Azure.Messaging.EventHubs --version 5.4.0
 $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.4.0
 $> dotnet add package Azure.ResourceManager.Communication --version 1.0.0
 $> dotnet add package Azure.Search.Documents --version 11.3.0-beta.1
 $> dotnet add package Azure.Security.Attestation --version 1.0.0-beta.2
-$> dotnet add package Azure.Storage.Common --version 12.7.2
-$> dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 7.0.0
-$> dotnet add package Microsoft.Azure.WebJobs.Extensions.EventHubs --version 5.0.0-beta.4
-$> dotnet add package Azure.Storage.Files.Shares --version 12.7.0-beta.3
 $> dotnet add package Azure.Storage.Blobs --version 12.9.0-beta.3
 $> dotnet add package Azure.Storage.Blobs.Batch --version 12.6.0-beta.3
-$> dotnet add package Azure.Storage.Common --version 12.8.0-beta.3
 $> dotnet add package Azure.Storage.Blobs.ChangeFeed --version 12.0.0-preview.11
-$> dotnet add package Azure.Storage.Queues --version 12.7.0-beta.3
+$> dotnet add package Azure.Storage.Common --version 12.7.2
+$> dotnet add package Azure.Storage.Common --version 12.8.0-beta.3
 $> dotnet add package Azure.Storage.Files.DataLake --version 12.7.0-beta.3
-$> dotnet add package Azure.IoT.ModelsRepository --version 1.0.0-preview.3
-$> dotnet add package Azure.DigitalTwins.Core --version 1.2.2
+$> dotnet add package Azure.Storage.Files.Shares --version 12.7.0-beta.3
+$> dotnet add package Azure.Storage.Queues --version 12.7.0-beta.3
+$> dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 7.0.0
+$> dotnet add package Microsoft.Azure.WebJobs.Extensions.EventHubs --version 5.0.0-beta.4
 $> dotnet add package System.Memory.Data --version 1.0.2
 ```
 
@@ -140,7 +143,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 - Added `HttpPipeline.CreateHttpMessagePropertiesScope` that can be used to inject scoped properties into `HttpMessage`.
 
-### IoT Device Update 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.IoT.DeviceUpdate_1.0.0-beta.2/sdk/deviceupdate/Azure.IoT.DeviceUpdate/CHANGELOG.md#100-beta2-2021-04-06)
+### IoT Device Update 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.IoT.DeviceUpdate_1.0.0-beta.2/sdk/deviceupdate/Azure.Iot.DeviceUpdate/CHANGELOG.md#100-beta2-2021-04-06)
 * Update root namespace from Azure.Iot.DeviceUpdate to Azure.IoT.DeviceUpdate
 
 ### Storage - Common 12.7.2 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Common_12.7.2/sdk/storage/Azure.Storage.Common/CHANGELOG.md#1272-2021-04-02)
@@ -379,6 +382,22 @@ Minor changes since the public preview release:
 #### Fixes and improvements
 
 - Updated core dependencies to bring in security vulnerability fixes that are addressed in `Azure.Core v1.13.0` and `System.Memory.Data v1.0.2`
+
+### Anomaly Detector 3.0.0-preview.3 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.AnomalyDetector_3.0.0-preview.3/sdk/anomalydetector/Azure.AI.AnomalyDetector/CHANGELOG.md#300-preview3-2021-04-15)
+#### Breaking Changes
+
+- `TimeSeriesPoint.Timestamp` property is now nullable.
+- `TimeSeriesPoint(System.DateTimeOffset timestamp, float value)` constructor now takes only float type parameter.
+
+## New Features
+
+- Added operation `AnomalyDetectorClient.ListMultivariateModelAsync` and `AnomalyDetectorClient.ListMultivariateModel`
+- Added operation `AnomalyDetectorClient.TrainMultivariateModelAsync` and `AnomalyDetectorClient.TrainMultivariateModel`
+- Added operation `AnomalyDetectorClient.DetectAnomalyAsync` and `AnomalyDetectorClient.DetectAnomaly`
+- Added operation `AnomalyDetectorClient.GetDetectionResultAsync` and `AnomalyDetectorClient.GetDetectionResult`
+- Added operation `AnomalyDetectorClient.GetMultivariateModelAsync` and `AnomalyDetectorClient.GetMultivariateModel`
+- Added operation `AnomalyDetectorClient.ExportModelAsync` and `AnomalyDetectorClient.ExportModel`
+- Added operation `AnomalyDetectorClient.DeleteMultivariateModelAsync` and `AnomalyDetectorClient.DeleteMultivariateModel`
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
