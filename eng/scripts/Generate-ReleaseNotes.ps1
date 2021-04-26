@@ -102,7 +102,7 @@ Install-Module -Repository azure-sdk-tools-feed powershell-yaml
 $existingYamlContent = ConvertFrom-Yaml (Get-Content $pathToRelatedYaml -Raw) -Ordered
 $collectChangelogPath = (Join-Path $commonScriptsPath Collect-ChangeLogs.ps1)
 
-$incomingReleaseHighlights = &$collectChangelogPath -FromDate [Datetime]$releasePeriod
+$incomingReleaseHighlights = &$collectChangelogPath -FromDate ([Datetime]$releasePeriod)
 
 if($existingYamlContent.entries)
 {
