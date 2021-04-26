@@ -45,9 +45,7 @@ azure-communication-identity:1.0.0
 azure-resourcemanager-msi:2.3.0
 azure-resourcemanager-sql:2.3.0
 azure-resourcemanager-redis:2.3.0
-azure-spring-cloud-context:2.3.0
 azure-resourcemanager-delegatednetwork:1.0.0-beta.1
-azure-spring-integration-storage-queue:2.3.0
 azure-resourcemanager-compute:2.3.0
 azure-communication-common:1.0.0
 azure-core-test:1.6.1
@@ -87,6 +85,44 @@ azure-security-keyvault-administration:4.0.0-beta.6
 azure-security-keyvault-secrets:4.3.0-beta.5
 azure-security-keyvault-keys:4.3.0-beta.6
 azure-security-keyvault-certificates:4.2.0-beta.5
+azure-security-keyvault-jca:1.0.0-beta.6
+spring-cloud-azure-appconfiguration-config-web:1.3.0
+spring-cloud-azure-appconfiguration-config:1.3.0
+spring-cloud-azure-feature-management-web:1.3.0
+spring-cloud-azure-feature-management:1.3.0
+spring-cloud-starter-azure-appconfiguration-config:1.3.0
+azure-identity-spring:1.4.0
+azure-spring-boot-bom:3.4.0
+azure-spring-boot-starter-active-directory-b2c:3.4.0
+azure-spring-boot-starter-active-directory:3.4.0
+azure-spring-boot-starter-cosmos:3.4.0
+azure-spring-boot-starter-keyvault-certificates:3.0.0-beta.6
+azure-spring-boot-starter-keyvault-secrets:3.4.0
+azure-spring-boot-starter-servicebus-jms:3.4.0
+azure-spring-boot-starter-storage:3.4.0
+azure-spring-boot-starter:3.4.0
+azure-spring-boot:3.4.0
+azure-spring-cloud-dependencies:2.4.0
+azure-spring-cloud-autoconfigure:2.4.0
+azure-spring-cloud-context:2.4.0
+azure-spring-cloud-messaging:2.4.0
+azure-spring-cloud-starter-cache:2.4.0
+azure-spring-cloud-starter-eventhubs-kafka:2.4.0
+azure-spring-cloud-starter-eventhubs:2.4.0
+azure-spring-cloud-starter-servicebus:2.4.0
+azure-spring-cloud-starter-storage-queue:2.4.0
+azure-spring-cloud-storage:2.4.0
+azure-spring-cloud-stream-binder-eventhubs:2.4.0
+azure-spring-cloud-stream-binder-servicebus-core:2.4.0
+azure-spring-cloud-stream-binder-servicebus-queue:2.4.0
+azure-spring-cloud-stream-binder-servicebus-topic:2.4.0
+azure-spring-cloud-stream-binder-test:2.4.0
+azure-spring-cloud-telemetry:2.4.0
+azure-spring-integration-core:2.4.0
+azure-spring-integration-eventhubs:2.4.0
+azure-spring-integration-servicebus:2.4.0
+azure-spring-integration-storage-queue:2.4.0
+azure-spring-integration-test:2.4.0
 azure-resourcemanager-resourcemover:1.0.0-beta.1
 azure-resourcemanager-datafactory:1.0.0-beta.1
 azure-resourcemanager-kubernetesconfiguration:1.0.0-beta.1
@@ -114,6 +150,8 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Azure Cosmos DB
 - Azure Spring Data Cosmos
 - Azure EventGrid
+- Azure Spring Boot
+- Azure Spring Cloud
 - Resource Management - Traffic Manager
 - Resource Management - Monitor
 - Resource Management - Key Vault
@@ -186,6 +224,7 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Azure Key Vault - Secrets
 - Azure Key Vault - Keys
 - Azure Key Vault - Certificates
+- Azure Key Vault - JCA
 - Resource Management - Datadog
 - Resource Management - Delegated Network
 - Resource Management - Api Management
@@ -310,18 +349,6 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 </dependency>
 
 <dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-cloud-starter-eventhubs</artifactId>
-  <version>2.3.0</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-cloud-autoconfigure</artifactId>
-  <version>2.3.0</version>
-</dependency>
-
-<dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-storage-internal-avro</artifactId>
   <version>12.0.3-beta.2</version>
@@ -330,18 +357,6 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 <dependency>
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-cosmos</artifactId>
-  <version>2.3.0</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-boot</artifactId>
-  <version>3.3.0</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-cloud-starter-storage-queue</artifactId>
   <version>2.3.0</version>
 </dependency>
 
@@ -492,12 +507,6 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
 <dependency>
   <groupId>com.azure.resourcemanager</groupId>
   <artifactId>azure-resourcemanager-compute</artifactId>
-  <version>2.3.0</version>
-</dependency>
-
-<dependency>
-  <groupId>com.azure.spring</groupId>
-  <artifactId>azure-spring-cloud-stream-binder-servicebus-core</artifactId>
   <version>2.3.0</version>
 </dependency>
 
@@ -817,8 +826,114 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <artifactId>azure-resourcemanager-azurestack</artifactId>
   <version>1.0.0-beta.1</version>
 </dependency>
+```
 
+To use **Azure Spring Boot** starters, refer to the Maven dependency information below, which may be copied into your projects Maven pom.xml file as appropriate.
+```xml
+<dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-boot-bom</artifactId>
+      <version>3.4.0</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+  </dependencies>
+</dependencyManagement>
 
+<dependencies>
+  <dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>azure-spring-boot-starter-active-directory</artifactId>
+  </dependency>
+    
+  <dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>azure-spring-boot-starter-active-directory-b2c</artifactId>
+  </dependency>
+  
+  <dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>azure-spring-boot-starter-cosmos</artifactId>
+  </dependency>
+  
+  <dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>azure-spring-boot-starter-keyvault-secrets</artifactId>
+  </dependency>
+  
+  <dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>azure-spring-boot-starter-servicebus-jms</artifactId>
+  </dependency>
+  
+  <dependency>
+    <groupId>com.azure.spring</groupId>
+    <artifactId>azure-spring-boot-starter-storage</artifactId>
+  </dependency>
+</dependencies>
+```
+
+To use **Azure Spring Cloud** starters and binders, refer to the Maven dependency information below, which may be copied into your projects Maven pom.xml file as appropriate.
+
+```xml
+<dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>com.azure.spring</groupId>
+      <artifactId>azure-spring-cloud-dependencies</artifactId>
+      <version>2.4.0</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+  </dependencies>
+</dependencyManagement>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-starter-eventhubs-kafka</artifactId>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-stream-binder-eventhubs</artifactId>
+</dependency>
+
+ <dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-stream-binder-servicebus-queue</artifactId>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-stream-binder-servicebus-topic</artifactId>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-starter-storage-queue</artifactId>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.spring</groupId>
+  <artifactId>azure-spring-cloud-starter-cache</artifactId>
+</dependency>
+
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
+</dependency>
+
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
+</dependency>
+
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
+</dependency>
 ```
 
 [pattern]: # (<dependency>`n  <groupId>${GroupId}</groupId>`n  <artifactId>${PackageName}</artifactId>`n  <version>${PackageVersion}</version>`n</dependency>`n)
@@ -1115,20 +1230,6 @@ String messageText = body.toString();
 ### Resource Management - Container Service 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-containerservice_2.3.0/sdk/resourcemanager/azure-resourcemanager-containerservice/CHANGELOG.md#230-2021-03-30)
 - Updated core dependency from resources
 
-### Azure Spring Cloud Integration Event Hubs 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-integration-eventhubs_2.3.0/sdk/spring/azure-spring-integration-eventhubs/CHANGELOG.md#230-2021-03-22)
-#### New Features
-- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
-- Upgrade to `Spring Integration` [5.4.4](https://github.com/spring-projects/spring-integration/releases/tag/v5.4.4).
-
-### Azure Spring Cloud Integration Service Bus 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-integration-servicebus_2.3.0/sdk/spring/azure-spring-integration-servicebus/CHANGELOG.md#230-2021-03-22)
-#### New Features
-- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
-- Upgrade to `Spring Integration` [5.4.4](https://github.com/spring-projects/spring-integration/releases/tag/v5.4.4).
-
-### Azure Spring Cloud Starter Cache 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-starter-cache_2.3.0/sdk/spring/azure-spring-cloud-starter-cache/CHANGELOG.md#230-2021-03-22)
-#### New Features
-- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
-
 ### Resource Management - Managed Service Identity 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-msi_2.3.0/sdk/resourcemanager/azure-resourcemanager-msi/CHANGELOG.md#230-2021-03-30)
 - Updated core dependency from resources
 
@@ -1140,11 +1241,6 @@ String messageText = body.toString();
 
 ### Resource Management - Delegated Network 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-delegatednetwork_1.0.0-beta.1/sdk/delegatednetwork/azure-resourcemanager-delegatednetwork/CHANGELOG.md#100-beta1-2021-03-26)
 - Azure Resource Manager DelegatedNetwork client library for Java. This package contains Microsoft Azure SDK for DelegatedNetwork Management SDK. DNC web api provides way to create, get and delete dnc controller. Package tag package-2021-03-15. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
-
-### Azure Spring Cloud Integration Storage Queue 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-integration-storage-queue_2.3.0/sdk/spring/azure-spring-integration-storage-queue/CHANGELOG.md#230-2021-03-22)
-#### New Features
-- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
-- Upgrade to `Spring Integration` [5.4.4](https://github.com/spring-projects/spring-integration/releases/tag/v5.4.4).
 
 ### Resource Management - Compute 2.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-compute_2.3.0/sdk/resourcemanager/azure-resourcemanager-compute/CHANGELOG.md#230-2021-03-30)
 - Updated `api-version` to `2021-03-01`
@@ -1475,6 +1571,11 @@ String messageText = body.toString();
 #### Breaking Changes
 - Changed `KeyVaultCertificateIdentifier` so it is instantiated via its constructor as opposed to via a `parse()` factory method.
 
+### Key Vault - JCA 1.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-jca_1.0.0-beta.6/sdk/keyvault/azure-security-keyvault-jca/CHANGELOG.md#100-beta6-2021-04-19)
+#### Breaking Changes
+- Remove configurable property of azure.keyvault.aad-authentication-url which is configured according to azure.keyvault.uri automatically [#20530](https://github.com/Azure/azure-sdk-for-java/pull/20530)
+
+
 ### azure-resourcemanager-resourcemover 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-resourcemover_1.0.0-beta.1/sdk/resourcemover/azure-resourcemanager-resourcemover/CHANGELOG.md#100-beta1-2021-04-12)
 - Azure Resource Manager ResourceMover client library for Java. This package contains Microsoft Azure SDK for ResourceMover Management SDK. A first party Azure service orchestrating the move of Azure resources from one Azure region to another or between zones within a region. Package tag package-2021-01-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
@@ -1536,6 +1637,16 @@ String messageText = body.toString();
 ### azure-resourcemanager-azurestack 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-azurestack_1.0.0-beta.1/sdk/azurestack/azure-resourcemanager-azurestack/CHANGELOG.md#100-beta1-2021-04-12)
 - Azure Resource Manager AzureStack client library for Java. This package contains Microsoft Azure SDK for AzureStack Management SDK. Azure Stack. Package tag package-preview-2020-06. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
+### Azure Spring Boot [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot_3.4.0/sdk/spring/azure-spring-boot/CHANGELOG.md#340-2021-04-19)
+
+#### Key Bug Fixes
+- Fix bug of Keyvault refresh Timer task blocking application termination. ([#20014](https://github.com/Azure/azure-sdk-for-java/pull/20014))
+- Fix bug that user-name-attribute cannot be configured. ([#20209](https://github.com/Azure/azure-sdk-for-java/issues/20209))
+
+### Azure Spring Cloud [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-starter-azure-appconfiguration-config_1.3.0/sdk/appconfiguration/spring-cloud-starter-azure-appconfiguration-config/CHANGELOG.md#130-2021-04-19)
+
+#### New Features
+- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
