@@ -6,33 +6,28 @@ sidebar: releases_sidebar
 repository: azure/azure-sdk-for-js
 ---
 
-<!--
-[pattern]: # (${PackageName}:${PackageVersion})
--->
-
 The Azure SDK team is pleased to make available the %%MMMM yyyy%% client library release.
 
-#### GA
-
-[pattern.ga]: # (- ${PackageFriendlyName})
-
-#### Updates
-
-[pattern.patch]: # (- ${PackageFriendlyName})
-
-#### Beta
-
-[pattern.beta]: # (- ${PackageFriendlyName})
+{% assign allPackages = site.data.releases.%%yyyy-MM%%.js['entries'] | where: "Hidden" , false | sort: 'ServiceName' %}
+{% include package_display_names.md %}
 
 ## Installation Instructions
 
 To install the packages, copy and paste the below into a terminal.
 
-```bash
-
+{% assign allPackagesSortedByName = allPackages | sort: 'Name' %}
+{%- capture install_instructions -%}
+{% for package in allPackagesSortedByName %}
+    {%- capture install_instruction -%}
+    $> npm install {{ package.Name }}@{{ package.Version }}
+    {%- endcapture -%}
+    {{ install_instruction }}
+{% endfor %}
+{%- endcapture -%}
 ```
-
-[pattern]: # ($> npm install ${PackageName}@${PackageVersion})
+{{ install_instructions | rstrip }}
+```
+{: .language-bash}
 
 ## Feedback
 
@@ -40,7 +35,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-[pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
+{% include release_highlights.md %}
 
 ## Latest Releases
 
