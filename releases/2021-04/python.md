@@ -72,6 +72,7 @@ azure-mgmt-maintenance:1.0.0
 azure-mgmt-managedservices:6.0.0
 azure-messaging-nspkg:1.0.0
 azure-mgmt-peering:1.0.0
+azure-mgmt-kusto:2.0.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -117,6 +118,7 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Resource Management - Managed Services
 - azure-messaging-nspkg
 - Resource Management - Peering
+- Resource Management - Kusto
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -221,6 +223,7 @@ $> pip install azure-mgmt-maintenance==1.0.0
 $> pip install azure-mgmt-managedservices==6.0.0
 $> pip install azure-messaging-nspkg==1.0.0
 $> pip install azure-mgmt-peering==1.0.0
+$> pip install azure-mgmt-kusto==2.0.0
 
 ```
 
@@ -875,6 +878,20 @@ service version `1.0-preview.1`. This package's documentation and samples demons
   - Removed operation group RegisteredAsnsOperations
   - Removed operation group PeeringServiceCountriesOperations
   - Removed operation group RegisteredPrefixesOperations
+
+### Resource Management - Kusto 2.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-kusto_2.0.0/sdk/kusto/azure-mgmt-kusto/CHANGELOG.md#200-2021-04-26)
+**Features**
+
+  - Model EventHubDataConnection has a new parameter managed_identity_resource_id
+  - Model Cluster has a new parameter etag
+  - Model AttachedDatabaseConfiguration has a new parameter table_level_sharing_properties
+  - Added operation group ScriptsOperations
+  - Added operation group OperationsResultsOperations
+
+**Breaking changes**
+
+  - Operation ClustersOperations.begin_update has a new signature
+  - Operation ClustersOperations.begin_create_or_update has a new signature
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
