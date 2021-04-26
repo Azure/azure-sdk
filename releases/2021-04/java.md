@@ -919,6 +919,21 @@ To use **Azure Spring Cloud** starters and binders, refer to the Maven dependenc
   <groupId>com.azure.spring</groupId>
   <artifactId>azure-spring-cloud-starter-cache</artifactId>
 </dependency>
+
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
+</dependency>
+
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
+</dependency>
+
+<dependency>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
+</dependency>
 ```
 
 [pattern]: # (<dependency>`n  <groupId>${GroupId}</groupId>`n  <artifactId>${PackageName}</artifactId>`n  <version>${PackageVersion}</version>`n</dependency>`n)
@@ -1627,6 +1642,11 @@ String messageText = body.toString();
 #### Key Bug Fixes
 - Fix bug of Keyvault refresh Timer task blocking application termination. ([#20014](https://github.com/Azure/azure-sdk-for-java/pull/20014))
 - Fix bug that user-name-attribute cannot be configured. ([#20209](https://github.com/Azure/azure-sdk-for-java/issues/20209))
+
+### Azure Spring Cloud [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/spring-cloud-starter-azure-appconfiguration-config_1.3.0/sdk/appconfiguration/spring-cloud-starter-azure-appconfiguration-config/CHANGELOG.md#130-2021-04-19)
+
+#### New Features
+- Upgrade to `Spring Boot` [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
 
