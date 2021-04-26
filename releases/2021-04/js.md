@@ -37,6 +37,8 @@ repository: azure/azure-sdk-for-js
 @azure/cosmos:3.11.0
 @azure-rest/core-client:1.0.0-beta.1
 @azure-rest/ai-document-translator:1.0.0-beta.1
+@azure/web-pubsub-express:1.0.0-beta.1
+@azure/web-pubsub:1.0.0-beta.1
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -83,6 +85,8 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Anomaly Detector
 - @azure-rest/core-client
 - @azure-rest/ai-document-translator
+- Azure Web Pubsub CloudEvents Handlers for Express
+- Azure Web Pubsub
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -122,6 +126,8 @@ $> npm install @azure/ai-anomaly-detector@3.0.0-beta.3
 $> npm install @azure/cosmos@3.11.0
 $> npm install @azure-rest/core-client@1.0.0-beta.1
 $> npm install @azure-rest/ai-document-translator@1.0.0-beta.1
+$> npm install @azure/web-pubsub-express@1.0.0-beta.1
+$> npm install @azure/web-pubsub@1.0.0-beta.1
 
 ```
 
@@ -371,6 +377,12 @@ This update marks the preview for the first major version update of the `@azure/
 
 ### @azure-rest/ai-document-translator 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure-rest/ai-document-translator_1.0.0-beta.1/sdk/documenttranslator/ai-document-translator-rest/CHANGELOG.md#100-beta1-2021-04-22)
 - First release of package, see README.md for details.
+
+### Azure Web Pubsub CloudEvents Handlers for Express 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/web-pubsub-express_1.0.0-beta.1/sdk/web-pubsub/web-pubsub-express/CHANGELOG.md#100-beta1-2021-04-23)
+This is the first release of the @azure/web-pubsub-express package.
+
+### Azure Web Pubsub 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/web-pubsub_1.0.0-beta.1/sdk/web-pubsub/web-pubsub/CHANGELOG.md#100-beta1-2021-04-23)
+This is the first release of the @azure/web-pubsub package.
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
