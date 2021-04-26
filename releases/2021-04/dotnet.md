@@ -36,6 +36,7 @@ Azure.Storage.Files.DataLake:12.7.0-beta.3
 Azure.IoT.ModelsRepository:1.0.0-preview.3
 Azure.DigitalTwins.Core:1.2.2
 Azure.AI.AnomalyDetector:3.0.0-preview.3
+Azure.Messaging.WebPubSub:1.0.0-beta.1
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -86,6 +87,7 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Text Analytics
 - Translation Document
 - WebJobs Extensions - Event Hubs
+- Azure.Messaging.WebPubSub
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -128,6 +130,7 @@ $> dotnet add package Azure.Storage.Files.Shares --version 12.7.0-beta.3
 $> dotnet add package Azure.Storage.Queues --version 12.7.0-beta.3
 $> dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 7.0.0
 $> dotnet add package Microsoft.Azure.WebJobs.Extensions.EventHubs --version 5.0.0-beta.4
+$> dotnet add package Azure.Messaging.WebPubSub --version 1.0.0-beta.1
 $> dotnet add package System.Memory.Data --version 1.0.2
 ```
 
@@ -398,6 +401,9 @@ Minor changes since the public preview release:
 - Added operation `AnomalyDetectorClient.GetMultivariateModelAsync` and `AnomalyDetectorClient.GetMultivariateModel`
 - Added operation `AnomalyDetectorClient.ExportModelAsync` and `AnomalyDetectorClient.ExportModel`
 - Added operation `AnomalyDetectorClient.DeleteMultivariateModelAsync` and `AnomalyDetectorClient.DeleteMultivariateModel`
+
+### Azure.Messaging.WebPubSub 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.WebPubSub_1.0.0-beta.1/sdk/webpubsub/Azure.Messaging.WebPubSub/CHANGELOG.md#100-beta1-2021-04-23)
+- Initial beta release.
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
