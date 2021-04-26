@@ -1,0 +1,923 @@
+entries:
+- Name: azure-data-tables
+  Version: 12.0.0b6
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-data-tables_12.0.0b6/sdk/tables/azure-data-tables/CHANGELOG.md#1200b6-2021-04-06
+  ChangelogContent: |-
+    * Updated deserialization of datetime fields in entities to support preservation of the service format with additional decimal place.
+    * Passing a string parameter into a query filter will now be escaped to protect against injection.
+    * Fixed bug in incrementing retries in async retry policy
+- Name: azure-eventhub
+  Version: 5.4.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-eventhub_5.4.0/sdk/eventhub/azure-eventhub/CHANGELOG.md#540-2021-04-07
+  ChangelogContent: |-
+    This version follows from version 5.3.1, rather than 5.4.0b1 so that the preview idempotent producer feature is not included.
+
+    **New Features**
+
+    - Added support for using `azure.core.credentials.AzureSasCredential` as credential for authenticating producer and consumer clients.
+    - Updated `list_ownership`, `claim_ownership`, `update_checkpoint`, `list_checkpoints` on sync and async `CheckpointStore` to support taking `**kwargs`.
+      - WARNING: Implementing a custom checkpointstore that does not support taking `**kwargs` in the methods listed previously will result in the following pylint error: `W0221: Parameters differ from overridden ________ method (arguments-differ)`.
+    - Updated `update_checkpoint` on sync and async `PartitionContext` to support taking `**kwargs`.
+
+    **Bug Fixes**
+
+    * Updated uAMQP dependency to 1.3.0.
+      - Fixed bug that sending message of large size triggering segmentation fault when the underlying socket connection is lost (#13739, #14543).
+      - Fixed bug in link flow control where link credit and delivery count should be calculated based on per message instead of per transfer frame (#16934).
+
+    **Notes**
+
+    - Updated azure-core dependency to 1.13.0.
+- Name: azure-mgmt-synapse
+  Version: 2.0.0
+  DisplayName: Resource Management - Synapse
+  ServiceName: Synapse Analytics
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-synapse_2.0.0/sdk/synapse/azure-mgmt-synapse/CHANGELOG.md#200-2021-04-07
+  ChangelogContent: |-
+    **Features**
+
+      - Model WorkspacePatchInfo has a new parameter public_network_access
+      - Model Workspace has a new parameter public_network_access
+
+    **Breaking changes**
+
+      - Model WorkspacePatchInfo no longer has parameter network_settings
+      - Model Workspace no longer has parameter network_settings
+- Name: azure-search-documents
+  Version: 11.2.0b2
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-search-documents_11.2.0b2/sdk/search/azure-search-documents/CHANGELOG.md#1120b2-2021-04-13
+  ChangelogContent: |-
+    #### New features
+
+    - Added support for semantic search    #17638
+- Name: azure-mgmt-datamigration
+  Version: 9.0.0
+  DisplayName: Resource Management - Data Migration
+  ServiceName: Database Migration Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-datamigration_9.0.0/sdk/datamigration/azure-mgmt-datamigration/CHANGELOG.md#900-2021-04-07
+  ChangelogContent: |-
+    **Features**
+
+      - Model AvailableServiceSku has a new parameter sku
+
+    **Breaking changes**
+
+      - Operation ServiceTasksOperations.update has a new signature
+      - Operation TasksOperations.create_or_update has a new signature
+      - Operation TasksOperations.update has a new signature
+      - Operation FilesOperations.create_or_update has a new signature
+      - Operation FilesOperations.update has a new signature
+      - Operation TasksOperations.update has a new signature
+      - Operation TasksOperations.create_or_update has a new signature
+      - Operation ServiceTasksOperations.update has a new signature
+      - Operation FilesOperations.update has a new signature
+      - Operation FilesOperations.create_or_update has a new signature
+      - Operation ServicesOperations.check_children_name_availability has a new signature
+      - Operation ServicesOperations.check_name_availability has a new signature
+      - Operation ServiceTasksOperations.create_or_update has a new signature
+      - Model AvailableServiceSku no longer has parameter available_service_sku
+- Name: azure-mgmt-maintenance
+  Version: 1.0.0
+  DisplayName: Resource Management - Maintenance
+  ServiceName: Maintenance
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-maintenance_1.0.0/sdk/maintenance/azure-mgmt-maintenance/CHANGELOG.md#100-2021-04-20
+  ChangelogContent: |-
+    **Features**
+
+      - Model Resource has a new parameter system_data
+      - Model ApplyUpdate has a new parameter system_data
+      - Model ConfigurationAssignment has a new parameter system_data
+      - Model Operation has a new parameter is_data_action
+      - Model MaintenanceConfiguration has a new parameter system_data
+      - Model MaintenanceConfiguration has a new parameter install_patches
+      - Added operation ConfigurationAssignmentsOperations.get_parent
+      - Added operation ConfigurationAssignmentsOperations.get
+      - Added operation ApplyUpdatesOperations.list
+      - Added operation group ConfigurationAssignmentsWithinSubscriptionOperations
+      - Added operation group ApplyUpdateForResourceGroupOperations
+      - Added operation group MaintenanceConfigurationsForResourceGroupOperations
+- Name: azure-mgmt-automanage
+  Version: 1.0.0b2
+  DisplayName: Resource Management - Automanage
+  ServiceName: Automanage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-automanage_1.0.0b2/sdk/automanage/azure-mgmt-automanage/CHANGELOG.md#100b2-2021-04-21
+  ChangelogContent: '- Fix dependency for package'
+- Name: azure-ai-translation-document
+  Version: 1.0.0b1
+  DisplayName: Document Translation
+  ServiceName: Translator
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-translation-document_1.0.0b1/sdk/translation/azure-ai-translation-document/CHANGELOG.md#100b1-2021-04-06
+  ChangelogContent: "This is the first beta package of the azure-ai-translation-document client library that targets the Document Translation \r\nservice version `1.0-preview.1`. This package's documentation and samples demonstrate the new API."
+- Name: azure-ai-formrecognizer
+  Version: 3.1.0b4
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.1.0b4/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#310b4-2021-04-06
+  ChangelogContent: "**New features**\r\n\r\n- New methods `begin_recognize_id_documents` and `begin_recognize_id_documents_from_url` introduced to the SDK. Use these methods to recognize data from identity documents.\r\n- New field value types \"gender\" and \"country\" described in the `FieldValueType` enum.\r\n- Content-type `image/bmp` now supported by custom forms and training methods.\r\n- Added keyword argument `pages` for business cards, receipts, custom forms, and invoices \r\nto specify which page to process of the document.\r\n- Added keyword argument `reading_order` to `begin_recognize_content` and `begin_recognize_content_from_url`.\r\n\r\n**Dependency Updates**\r\n\r\n- Bumped `msrest` requirement from `0.6.12` to `0.6.21`."
+- Name: azure-eventhub-checkpointstoreblob
+  Version: 1.1.4
+  DisplayName: Event Hubs - Azure Blob Storage Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-eventhub-checkpointstoreblob_1.1.4/sdk/eventhub/azure-eventhub-checkpointstoreblob/CHANGELOG.md#114-2021-04-07
+  ChangelogContent: |-
+    This version and all future versions will require Python 2.7 or Python 3.6+, Python 3.5 is no longer supported.
+
+    **New features**
+    - Updated `list_ownership`, `claim_ownership`, `update_checkpoint`, `list_checkpoints` on `BlobCheckpointStore` to support taking `**kwargs`.
+- Name: azure-core-tracing-opentelemetry
+  Version: 1.0.0b9
+  DisplayName: Core Tracing Opentelemetry
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-core-tracing-opentelemetry_1.0.0b9/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md#100b9-2021-04-06
+  ChangelogContent: |-
+    - Updated opentelemetry-api to version 1.0.0
+    - `Link` and `SpanKind` can now be added while creating the span instance.
+- Name: azure-mgmt-customproviders
+  Version: 1.0.0
+  DisplayName: Resource Management - Custom Providers
+  ServiceName: Custom Providers
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-customproviders_1.0.0/sdk/customproviders/azure-mgmt-customproviders/CHANGELOG.md#100-2021-04-08
+  ChangelogContent: '- GA release'
+- Name: azure-storage-queue
+  Version: 12.1.6
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-storage-queue_12.1.6/sdk/storage/azure-storage-queue/CHANGELOG.md#1216-2021-04-20
+  ChangelogContent: |-
+    **Fixes**
+    - Make `AccountName`, `AccountKey` etc. in conn_str case insensitive
+    - Fixed unclosed `ThreadPoolExecutor` (#8955)
+- Name: azure-mgmt-appplatform
+  Version: 6.0.0
+  DisplayName: Resource Management - App Platform
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-appplatform_6.0.0/sdk/appplatform/azure-mgmt-appplatform/CHANGELOG.md#600-2021-04-08
+  ChangelogContent: |-
+    **Features**
+
+      - Model MonitoringSettingProperties has a new parameter app_insights_agent_versions
+      - Model MonitoringSettingProperties has a new parameter app_insights_sampling_rate
+      - Model AppResourceProperties has a new parameter enable_end_to_end_tls
+      - Model NetworkProfile has a new parameter required_traffics
+- Name: azure-mgmt-maps
+  Version: 1.0.0
+  DisplayName: Resource Management - Maps
+  ServiceName: Maps
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-maps_1.0.0/sdk/maps/azure-mgmt-maps/CHANGELOG.md#100-2021-04-23
+  ChangelogContent: '- GA release'
+- Name: azure-containerregistry
+  Version: 1.0.0b1
+  DisplayName: azure-containerregistry
+  ServiceName: containerregistry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-containerregistry_1.0.0b1/sdk/containerregistry/azure-containerregistry/CHANGELOG.md#100b1-2021-04-06
+  ChangelogContent: '* First release of the Azure Container Registry library for Python'
+- Name: azure-search-documents
+  Version: 11.2.0b1
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-search-documents_11.2.0b1/sdk/search/azure-search-documents/CHANGELOG.md#1120b1-2021-04-06
+  ChangelogContent: |-
+    #### New features
+
+    - Added new data source type ADLS gen2  #16852
+    - Added normalizer support  #17579
+- Name: azure-mgmt-hybridcompute
+  Version: 7.0.0
+  DisplayName: Resource Management - Hybrid Compute
+  ServiceName: Hybrid Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-hybridcompute_7.0.0/sdk/hybridcompute/azure-mgmt-hybridcompute/CHANGELOG.md#700-2021-04-15
+  ChangelogContent: |-
+    **Features**
+
+      - Model MachineUpdateProperties has a new parameter private_link_scope_resource_id
+      - Model MachineUpdateProperties has a new parameter parent_cluster_resource_id
+      - Model MachineProperties has a new parameter private_link_scope_resource_id
+      - Model MachineProperties has a new parameter parent_cluster_resource_id
+      - Model MachineProperties has a new parameter detected_properties
+      - Added operation group PrivateLinkResourcesOperations
+      - Added operation group PrivateEndpointConnectionsOperations
+      - Added operation group PrivateLinkScopesOperations
+
+    **Breaking changes**
+
+      - Operation MachinesOperations.delete has a new signature
+      - Operation MachinesOperations.get has a new signature
+      - Model ErrorDetail has a new signature
+      - Model OperationValue has a new signature
+      - Model Machine has a new signature
+      - Model MachineExtension has a new signature
+      - Model MachineExtensionInstanceViewStatus has a new signature
+      - Model MachineUpdate has a new signature
+      - Model MachineExtensionUpdate has a new signature
+- Name: azure-storage-file-datalake
+  Version: 12.3.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-storage-file-datalake_12.3.1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md#1231-2021-04-20
+  ChangelogContent: |-
+    **Fixes**
+    - Fixed `recursive=True` on file deletion
+    - Make `AccountName`, `AccountKey` etc. in conn_str case insensitive
+    - Fixed `downloader.chunks()` return chunks in different size (#9419, #15648)
+    - Optimized memory usage for datalake file uploads large chunks (#16890)
+    - Fixed unclosed `ThreadPoolExecutor` (#8955)
+
+    **New Features**
+    - Added `get_account_information()` API
+- Name: azure-mgmt-cosmosdb
+  Version: 6.2.0
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-cosmosdb_6.2.0/sdk/cosmos/azure-mgmt-cosmosdb/CHANGELOG.md#620-2021-04-06
+  ChangelogContent: |-
+    **Features**
+
+      - Model DatabaseAccountUpdateParameters has a new parameter default_identity
+      - Model DatabaseAccountCreateUpdateParameters has a new parameter default_identity
+      - Model DatabaseAccountGetResults has a new parameter default_identity
+- Name: azure-mgmt-datashare
+  Version: 1.0.0
+  DisplayName: Resource Management - Data Share
+  ServiceName: Data Share
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-datashare_1.0.0/sdk/datashare/azure-mgmt-datashare/CHANGELOG.md#100-2021-04-12
+  ChangelogContent: |-
+    **Features**
+
+      - Model BlobContainerDataSetMapping has a new parameter system_data
+      - Model SqlDWTableDataSet has a new parameter system_data
+      - Model ADLSGen1FolderDataSet has a new parameter system_data
+      - Model KustoDatabaseDataSetMapping has a new parameter system_data
+      - Model ConsumerSourceDataSet has a new parameter system_data
+      - Model ScheduledTrigger has a new parameter system_data
+      - Model DataSet has a new parameter system_data
+      - Model KustoClusterDataSetMapping has a new parameter system_data
+      - Model BlobDataSet has a new parameter system_data
+      - Model SynchronizationSetting has a new parameter system_data
+      - Model BlobFolderDataSetMapping has a new parameter system_data
+      - Model OperationMetaMetricSpecification has a new parameter fill_gap_with_zero
+      - Model ConsumerInvitation has a new parameter expiration_date
+      - Model ConsumerInvitation has a new parameter system_data
+      - Model ProviderShareSubscription has a new parameter expiration_date
+      - Model ProviderShareSubscription has a new parameter system_data
+      - Model ProxyDto has a new parameter system_data
+      - Model BlobFolderDataSet has a new parameter system_data
+      - Model ADLSGen2FolderDataSet has a new parameter system_data
+      - Model ScheduledSynchronizationSetting has a new parameter system_data
+      - Model SqlDBTableDataSet has a new parameter system_data
+      - Model Trigger has a new parameter system_data
+      - Model ADLSGen2FileDataSetMapping has a new parameter system_data
+      - Model BlobContainerDataSet has a new parameter system_data
+      - Model BlobDataSetMapping has a new parameter system_data
+      - Model DefaultDto has a new parameter system_data
+      - Model DataSetMapping has a new parameter system_data
+      - Model KustoDatabaseDataSet has a new parameter system_data
+      - Model ShareSubscription has a new parameter expiration_date
+      - Model ShareSubscription has a new parameter system_data
+      - Model KustoClusterDataSet has a new parameter system_data
+      - Model SqlDBTableDataSetMapping has a new parameter system_data
+      - Model SqlDWTableDataSetMapping has a new parameter system_data
+      - Model Account has a new parameter system_data
+      - Model Share has a new parameter system_data
+      - Model Invitation has a new parameter expiration_date
+      - Model Invitation has a new parameter system_data
+      - Model ADLSGen2FileSystemDataSetMapping has a new parameter system_data
+      - Model ADLSGen2FolderDataSetMapping has a new parameter system_data
+      - Model ADLSGen2FileDataSet has a new parameter system_data
+      - Model ADLSGen1FileDataSet has a new parameter system_data
+      - Model ADLSGen2FileSystemDataSet has a new parameter system_data
+      - Added operation ProviderShareSubscriptionsOperations.adjust
+
+    **Breaking changes**
+
+      - Operation ProviderShareSubscriptionsOperations.reinstate has a new signature
+- Name: azure-mgmt-kusto
+  Version: 2.0.0
+  DisplayName: Resource Management - Kusto
+  ServiceName: Data Explorer
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-kusto_2.0.0/sdk/kusto/azure-mgmt-kusto/CHANGELOG.md#200-2021-04-26
+  ChangelogContent: |-
+    **Features**
+
+      - Model EventHubDataConnection has a new parameter managed_identity_resource_id
+      - Model Cluster has a new parameter etag
+      - Model AttachedDatabaseConfiguration has a new parameter table_level_sharing_properties
+      - Added operation group ScriptsOperations
+      - Added operation group OperationsResultsOperations
+
+    **Breaking changes**
+
+      - Operation ClustersOperations.begin_update has a new signature
+      - Operation ClustersOperations.begin_create_or_update has a new signature
+- Name: azure-mgmt-changeanalysis
+  Version: 1.0.0
+  DisplayName: azure-mgmt-changeanalysis
+  ServiceName: ""
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-changeanalysis_1.0.0/sdk/changeanalysis/azure-mgmt-changeanalysis/CHANGELOG.md#100-2021-04-06
+  ChangelogContent: -GA release
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b4
+  DisplayName: Monitor OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-monitor-opentelemetry-exporter_1.0.0b4/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md#100b4-2021-04-06
+  ChangelogContent: |-
+    **Features**
+      - Add `from_connection_string` method to instantiate exporters
+          ([#16818](https://github.com/Azure/azure-sdk-for-python/pull/16818))
+
+      - Remove support for Python 3.5
+          ([#17747](https://github.com/Azure/azure-sdk-for-python/pull/17747))
+- Name: azure-mgmt-databoxedge
+  Version: 1.0.0
+  DisplayName: Resource Management - Data Box Edge
+  ServiceName: Stack Edge
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-databoxedge_1.0.0/sdk/databoxedge/azure-mgmt-databoxedge/CHANGELOG.md#100-2021-04-22
+  ChangelogContent: |-
+    **Features**
+
+      - Model Share has a new parameter system_data
+      - Model NodeList has a new parameter next_link
+      - Model Operation has a new parameter is_data_action
+      - Model IoTRole has a new parameter system_data
+      - Model IoTRole has a new parameter compute_resource
+      - Model Order has a new parameter shipment_type
+      - Model Order has a new parameter system_data
+      - Model Role has a new parameter system_data
+      - Model DataBoxEdgeDevice has a new parameter kind
+      - Model DataBoxEdgeDevice has a new parameter edge_profile
+      - Model DataBoxEdgeDevice has a new parameter identity
+      - Model DataBoxEdgeDevice has a new parameter resource_move_details
+      - Model DataBoxEdgeDevice has a new parameter system_data
+      - Model StorageAccountCredential has a new parameter system_data
+      - Model UpdateSummary has a new parameter last_download_job_status
+      - Model UpdateSummary has a new parameter last_completed_install_job_id
+      - Model UpdateSummary has a new parameter total_time_in_minutes
+      - Model UpdateSummary has a new parameter last_completed_download_job_id
+      - Model UpdateSummary has a new parameter last_install_job_status
+      - Model UpdateSummary has a new parameter updates
+      - Model UpdateSummary has a new parameter system_data
+      - Model DataBoxEdgeDeviceExtendedInfo has a new parameter channel_integrity_key_name
+      - Model DataBoxEdgeDeviceExtendedInfo has a new parameter channel_integrity_key_version
+      - Model DataBoxEdgeDeviceExtendedInfo has a new parameter key_vault_sync_status
+      - Model DataBoxEdgeDeviceExtendedInfo has a new parameter client_secret_store_id
+      - Model DataBoxEdgeDeviceExtendedInfo has a new parameter device_secrets
+      - Model DataBoxEdgeDeviceExtendedInfo has a new parameter client_secret_store_url
+      - Model FileEventTrigger has a new parameter system_data
+      - Model DataBoxEdgeSku has a new parameter shipment_types
+      - Model Alert has a new parameter system_data
+      - Model Container has a new parameter system_data
+      - Model User has a new parameter system_data
+      - Model Trigger has a new parameter system_data
+      - Model NetworkSettings has a new parameter system_data
+      - Model PeriodicTimerEventTrigger has a new parameter system_data
+      - Model BandwidthSchedule has a new parameter system_data
+      - Model OrderStatus has a new parameter tracking_information
+      - Model StorageAccount has a new parameter system_data
+      - Model DataBoxEdgeDevicePatch has a new parameter identity
+      - Model DataBoxEdgeDevicePatch has a new parameter edge_profile
+      - Added operation DevicesOperations.generate_certificate
+      - Added operation DevicesOperations.update_extended_information
+      - Added operation OrdersOperations.list_dc_access_code
+      - Added operation group AddonsOperations
+      - Added operation group MonitoringConfigOperations
+
+    **Breaking changes**
+
+      - Operation UsersOperations.list_by_data_box_edge_device has a new signature
+      - Parameter data_policy of model StorageAccount is now required
+      - Model SkuInformation no longer has parameter resource_type
+      - Model SkuInformation no longer has parameter capabilities
+      - Model SkuInformation no longer has parameter size
+      - Model DataBoxEdgeSku no longer has parameter restrictions
+      - Model ResourceTypeSku has a new signature
+- Name: azure-mgmt-azurestack
+  Version: 1.0.0
+  DisplayName: Resource Management - Azure Stack
+  ServiceName: Stack
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-azurestack_1.0.0/sdk/azurestack/azure-mgmt-azurestack/CHANGELOG.md#100-2021-04-08
+  ChangelogContent: |-
+    **Features**
+
+      - Model Registration has a new parameter system_data
+      - Model Registration has a new parameter kind
+      - Model TrackedResource has a new parameter system_data
+      - Model TrackedResource has a new parameter kind
+      - Model CustomerSubscription has a new parameter system_data
+      - Model Product has a new parameter system_data
+      - Added operation RegistrationsOperations.enable_remote_management
+      - Added operation group LinkedSubscriptionsOperations
+
+    **Breaking changes**
+
+      - Operation ProductsOperations.get_products has a new signature
+- Name: azure-mgmt-dns
+  Version: 8.0.0
+  DisplayName: Resource Management - DNS
+  ServiceName: DNS
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-dns_8.0.0/sdk/network/azure-mgmt-dns/CHANGELOG.md#800-2021-04-14
+  ChangelogContent: '- GA release'
+- Name: azure-storage-file-share
+  Version: 12.4.2
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-storage-file-share_12.4.2/sdk/storage/azure-storage-file-share/CHANGELOG.md#1242-2021-04-20
+  ChangelogContent: |-
+    **Fixes**
+    - Make `AccountName`, `AccountKey` etc. in conn_str case insensitive
+    - Fixed `downloader.chunks()` return chunks in different size (#9419, #15648)
+    - Fixed unclosed `ThreadPoolExecutor` (#8955)
+- Name: azure-identity
+  Version: 1.6.0b3
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-identity_1.6.0b3/sdk/identity/azure-identity/CHANGELOG.md#160b3-2021-04-06
+  ChangelogContent: |-
+    #### Breaking Changes
+    > These changes do not impact the API of stable versions such as 1.5.0.
+    > Only code written against a beta version such as 1.6.0b1 may be affected.
+    - Removed property `AuthenticationRequiredError.error_details`
+
+    #### Fixed
+    - Credentials consistently retry token requests after connection failures, or
+      when instructed to by a Retry-After header
+    - ManagedIdentityCredential caches tokens correctly
+
+    #### Added
+    - `InteractiveBrowserCredential` functions in more WSL environments
+      ([#17615](https://github.com/Azure/azure-sdk-for-python/issues/17615))
+- Name: azure-mgmt-loganalytics
+  Version: 9.0.0
+  DisplayName: Resource Management - Log Analytics
+  ServiceName: Log Analytics
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-loganalytics_9.0.0/sdk/loganalytics/azure-mgmt-loganalytics/CHANGELOG.md#900-2021-04-06
+  ChangelogContent: |-
+    **Features**
+
+      - Model WorkspacePatch has a new parameter created_date
+      - Model WorkspacePatch has a new parameter features
+      - Model WorkspacePatch has a new parameter modified_date
+      - Model WorkspacePatch has a new parameter force_cmk_for_query
+      - Model Cluster has a new parameter last_modified_date
+      - Model Cluster has a new parameter billing_type
+      - Model Cluster has a new parameter is_double_encryption_enabled
+      - Model Cluster has a new parameter is_availability_zones_enabled
+      - Model Cluster has a new parameter created_date
+      - Model Cluster has a new parameter capacity_reservation_properties
+      - Model Cluster has a new parameter associated_workspaces
+      - Model Table has a new parameter is_troubleshooting_allowed
+      - Model Table has a new parameter last_troubleshoot_date
+      - Model Table has a new parameter is_troubleshoot_enabled
+      - Model Identity has a new parameter user_assigned_identities
+      - Model ClusterPatch has a new parameter identity
+      - Model KeyVaultProperties has a new parameter key_rsa_size
+      - Model Workspace has a new parameter created_date
+      - Model Workspace has a new parameter features
+      - Model Workspace has a new parameter modified_date
+      - Model Workspace has a new parameter force_cmk_for_query
+
+    **Breaking changes**
+
+      - Model Cluster no longer has parameter next_link
+      - Model ErrorResponse has a new signature
+- Name: azure-servicebus
+  Version: 7.1.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-servicebus_7.1.1/sdk/servicebus/azure-servicebus/CHANGELOG.md#711-2021-04-07
+  ChangelogContent: |-
+    This version and all future versions will require Python 2.7 or Python 3.6+, Python 3.5 is no longer supported.
+
+    **New Features**
+
+    * Updated `forward_to` and `forward_dead_lettered_messages_to` parameters in `create_queue`, `update_queue`, `create_subscription`, and `update_subscription` methods on sync and async `ServiceBusAdministrationClient` to accept entities as well, rather than only full paths. In the case that an entity is passed in, it is assumed that the entity exists within the same namespace used for constructing the `ServiceBusAdministrationClient`.
+
+    **Bug Fixes**
+
+    * Updated uAMQP dependency to 1.3.0.
+      - Fixed bug that sending message of large size triggering segmentation fault when the underlying socket connection is lost (#13739, #14543).
+      - Fixed bug in link flow control where link credit and delivery count should be calculated based on per message instead of per transfer frame (#16934).
+- Name: azure-eventgrid
+  Version: 4.1.1
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-eventgrid_4.1.1/sdk/eventgrid/azure-eventgrid/CHANGELOG.md#411-2021-04-07
+  ChangelogContent: |-
+    **Bug Fixes**
+      - Improved the `repr` on `EventGridEvent` to show more meaningful text.
+- Name: azure-mgmt-storagesync
+  Version: 1.0.0
+  DisplayName: Resource Management - Storage Sync
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-storagesync_1.0.0/sdk/storage/azure-mgmt-storagesync/CHANGELOG.md#100-2021-04-07
+  ChangelogContent: '- GA release'
+- Name: azure-mgmt-storage
+  Version: 17.1.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-storage_17.1.0/sdk/storage/azure-mgmt-storage/CHANGELOG.md#1710-2021-04-13
+  ChangelogContent: |-
+    **Features**
+
+      - Model StorageAccountKey has a new parameter creation_time
+      - Model StorageAccountUpdateParameters has a new parameter sas_policy
+      - Model StorageAccountUpdateParameters has a new parameter key_policy
+      - Model StorageAccountCreateParameters has a new parameter sas_policy
+      - Model StorageAccountCreateParameters has a new parameter key_policy
+      - Model StorageAccount has a new parameter sas_policy
+      - Model StorageAccount has a new parameter key_policy
+      - Model StorageAccount has a new parameter key_creation_time
+- Name: azure-mgmt-containerservice
+  Version: 15.1.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-containerservice_15.1.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md#1510-2021-04-07
+  ChangelogContent: |-
+    **Features**
+
+      - Model Components1Q1Og48SchemasManagedclusterAllof1 has a new parameter private_link_resources
+      - Model Components1Q1Og48SchemasManagedclusterAllof1 has a new parameter disable_local_accounts
+      - Model Components1Q1Og48SchemasManagedclusterAllof1 has a new parameter http_proxy_config
+      - Model ManagedClusterPodIdentity has a new parameter binding_selector
+      - Model ManagedClusterAgentPoolProfileProperties has a new parameter gpu_instance_profile
+      - Model ManagedClusterAgentPoolProfileProperties has a new parameter enable_fips
+      - Model ManagedClusterAgentPoolProfileProperties has a new parameter os_sku
+      - Model AgentPool has a new parameter gpu_instance_profile
+      - Model AgentPool has a new parameter enable_fips
+      - Model AgentPool has a new parameter os_sku
+      - Model ManagedCluster has a new parameter extended_location
+      - Model ManagedCluster has a new parameter private_link_resources
+      - Model ManagedCluster has a new parameter disable_local_accounts
+      - Model ManagedCluster has a new parameter http_proxy_config
+      - Model ManagedClusterAgentPoolProfile has a new parameter gpu_instance_profile
+      - Model ManagedClusterAgentPoolProfile has a new parameter enable_fips
+      - Model ManagedClusterAgentPoolProfile has a new parameter os_sku
+      - Model ManagedClusterWindowsProfile has a new parameter enable_csi_proxy
+      - Added operation ManagedClustersOperations.get_command_result
+      - Added operation ManagedClustersOperations.begin_run_command
+      - Added operation ManagedClustersOperations.get_os_options
+- Name: azure-mgmt-compute
+  Version: 20.0.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-compute_20.0.0/sdk/compute/azure-mgmt-compute/CHANGELOG.md#2000-2021-04-06
+  ChangelogContent: |-
+    **Features**
+
+      - Model PurchasePlan has a new parameter promotion_code
+      - Model DiskUpdate has a new parameter supports_hibernation
+      - Model DiskUpdate has a new parameter property_updates_in_progress
+      - Model SnapshotUpdate has a new parameter supports_hibernation
+      - Model DiskRestorePoint has a new parameter supports_hibernation
+      - Model DiskEncryptionSetUpdate has a new parameter identity
+      - Model DiskEncryptionSetUpdate has a new parameter rotation_to_latest_key_version_enabled
+      - Model CloudServiceProperties has a new parameter allow_model_override
+      - Model LoadBalancerConfiguration has a new parameter id
+      - Model CloudServiceInstanceView has a new parameter private_ids
+      - Model Snapshot has a new parameter supports_hibernation
+      - Model DiskEncryptionSet has a new parameter last_key_rotation_timestamp
+      - Model DiskEncryptionSet has a new parameter rotation_to_latest_key_version_enabled
+      - Model Disk has a new parameter security_profile
+      - Model Disk has a new parameter supports_hibernation
+      - Model Disk has a new parameter property_updates_in_progress
+      - Added operation group CloudServiceOperatingSystemsOperations
+
+    **Breaking changes**
+
+      - Parameter name of model LoadBalancerConfiguration is now required
+      - Parameter properties of model LoadBalancerConfiguration is now required
+      - Parameter frontend_ip_configurations of model LoadBalancerConfigurationProperties is now required
+      - Parameter name of model LoadBalancerFrontendIPConfiguration is now required
+      - Parameter properties of model LoadBalancerFrontendIPConfiguration is now required
+- Name: azure-core-tracing-opencensus
+  Version: 1.0.0b7
+  DisplayName: Core Tracing Opencensus
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-core-tracing-opencensus_1.0.0b7/sdk/core/azure-core-tracing-opencensus/CHANGELOG.md#100b7-2021-04-08
+  ChangelogContent: '- `Link` and `SpanKind` can now be added while creating the span instance.'
+- Name: azure-appconfiguration
+  Version: 1.2.0b1
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-appconfiguration_1.2.0b1/sdk/appconfiguration/azure-appconfiguration/CHANGELOG.md#120b1-2021-04-06
+  ChangelogContent: |-
+    #### Features
+
+    - Adds method `update_sync_token` to include sync tokens from EventGrid notifications.
+    - Added `SecretReferenceConfigurationSetting` type to represent a configuration setting that references a KeyVault Secret.
+    Added `FeatureFlagConfigurationSetting` type to represent a configuration setting that controls a feature flag.
+- Name: azure-mgmt-managedservices
+  Version: 6.0.0
+  DisplayName: Resource Management - Managed Services
+  ServiceName: Managed Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-managedservices_6.0.0/sdk/managedservices/azure-mgmt-managedservices/CHANGELOG.md#600-2021-04-22
+  ChangelogContent: |-
+    **Features**
+
+      - Added operation group MarketplaceRegistrationDefinitionsWithoutScopeOperations
+- Name: azure-ai-translation-nspkg
+  Version: 1.0.0
+  DisplayName: azure-ai-translation-nspkg
+  ServiceName: ""
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-translation-nspkg_1.0.0/sdk/translation/azure-ai-translation-nspkg/CHANGELOG.md#100-2021-04-06
+  ChangelogContent: ""
+- Name: azure-mgmt-webpubsub
+  Version: 1.0.0b1
+  DisplayName: azure-mgmt-webpubsub
+  ServiceName: ""
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-webpubsub_1.0.0b1/sdk/webpubsub/azure-mgmt-webpubsub/CHANGELOG.md#100b1-2021-04-16
+  ChangelogContent: '* Initial Release'
+- Name: azure-mgmt-keyvault
+  Version: 9.0.0
+  DisplayName: Resource Management - KeyVault
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-keyvault_9.0.0/sdk/keyvault/azure-mgmt-keyvault/CHANGELOG.md#900-2021-04-19
+  ChangelogContent: |-
+    **Features**
+
+      - Model DeletedVaultProperties has a new parameter purge_protection_enabled
+      - Model Operation has a new parameter is_data_action
+      - Model Vault has a new parameter system_data
+      - Model ManagedHsmProperties has a new parameter scheduled_purge_date
+      - Model ManagedHsmProperties has a new parameter public_network_access
+      - Model ManagedHsmProperties has a new parameter network_acls
+      - Model ManagedHsmProperties has a new parameter private_endpoint_connections
+      - Model VaultProperties has a new parameter provisioning_state
+      - Model PrivateLinkServiceConnectionState has a new parameter actions_required
+      - Model ManagedHsmResource has a new parameter system_data
+      - Model ManagedHsm has a new parameter system_data
+      - Model PrivateEndpointConnection has a new parameter etag
+      - Added operation ManagedHsmsOperations.get_deleted
+      - Added operation ManagedHsmsOperations.list_deleted
+      - Added operation ManagedHsmsOperations.begin_purge_deleted
+      - Added operation PrivateEndpointConnectionsOperations.list_by_resource
+      - Added operation group SecretsOperations
+      - Added operation group MHSMPrivateLinkResourcesOperations
+      - Added operation group KeysOperations
+      - Added operation group MHSMPrivateEndpointConnectionsOperations
+
+    **Breaking changes**
+
+      - Model PrivateLinkServiceConnectionState no longer has parameter action_required
+- Name: azure-storage-blob
+  Version: 12.8.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-storage-blob_12.8.1/sdk/storage/azure-storage-blob/CHANGELOG.md#1281-2021-04-20
+  ChangelogContent: "**Fixes**\r\n- Fixed retry on large block upload \r\n- Make `AccountName`, `AccountKey` etc. in conn_str case insensitive\r\n- Fixed downloader.chunks() return chunks in different size (#9419, #15648)\r\n- Enabled `exists()` for CPK encrypted blobs (#18041)\r\n- Fixed the ability to upload from a generator (#17418)\r\n- Fixed unclosed `ThreadPoolExecutor` (#8955)\r\n- Fixed retries for blob download streams (#18164, #17974, #10572 (comment))\r\n- Added chunk streaming docstrings and samples (#17149, #11009)\r\n- Added retry for blob download (#17974, #10572)\r\n- Fixed encryption algorithm hardcoded setting (#17835)"
+- Name: azure-ai-anomalydetector
+  Version: 3.0.0b3
+  DisplayName: Anomaly Detector
+  ServiceName: Anomaly Detector
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-anomalydetector_3.0.0b3/sdk/anomalydetector/azure-ai-anomalydetector/CHANGELOG.md#300b3-2021-04-16
+  ChangelogContent: |-
+    **Features**
+      - Added operation AnomalyDetectorClientOperationsMixin.list_multivariate_model
+      - Added operation AnomalyDetectorClientOperationsMixin.train_multivariate_model
+      - Added operation AnomalyDetectorClientOperationsMixin.detect_anomaly
+      - Added operation AnomalyDetectorClientOperationsMixin.get_detection_result
+      - Added operation AnomalyDetectorClientOperationsMixin.get_multivariate_model
+      - Added operation AnomalyDetectorClientOperationsMixin.export_model
+      - Added operation AnomalyDetectorClientOperationsMixin.delete_multivariate_model
+- Name: azure-keyvault-keys
+  Version: 4.4.0b4
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-keyvault-keys_4.4.0b4/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md#440b4-2021-04-06
+  ChangelogContent: |-
+    #### Added
+    - `CryptographyClient` can perform AES-CBCPAD encryption and decryption locally
+      ([#17762](https://github.com/Azure/azure-sdk-for-python/pull/17762))
+- Name: azure-mgmt-hanaonazure
+  Version: 1.0.0
+  DisplayName: Resource Management - HANA on Azure
+  ServiceName: SAP HANA on Azure
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-hanaonazure_1.0.0/sdk/hanaonazure/azure-mgmt-hanaonazure/CHANGELOG.md#100-2021-04-12
+  ChangelogContent: |-
+    **Breaking changes**
+
+      - Model ErrorResponse has a new signature
+- Name: azure-communication-phonenumbers
+  Version: 1.0.0
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-communication-phonenumbers_1.0.0/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md#100-2021-04-26
+  ChangelogContent: '- Stable release of `azure-communication-phonenumbers`.'
+- Name: azure-messaging-nspkg
+  Version: 1.0.0
+  DisplayName: azure-messaging-nspkg
+  ServiceName: ""
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-messaging-nspkg_1.0.0/sdk/nspkg/azure-messaging-nspkg/CHANGELOG.md#100-2021-04-23
+  ChangelogContent: '- Initial Release'
+- Name: azure-core
+  Version: 1.13.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-core_1.13.0/sdk/core/azure-core/CHANGELOG.md#1130-2021-04-02
+  ChangelogContent: |-
+    Azure core requires Python 2.7 or Python 3.6+ since this release.
+
+    #### New Features
+
+    - Added `azure.core.utils.parse_connection_string` function to parse connection strings across SDKs, with common validation and support for case insensitive keys.
+    - Supported adding custom policies  #16519
+    - Added `~azure.core.tracing.Link` that should be used while passing `Links` to  `AbstractSpan`.
+    - `AbstractSpan` constructor can now take in additional keyword only args.
+
+    #### Bug fixes
+
+    - Make NetworkTraceLoggingPolicy show the auth token in plain text. #14191
+    - Fixed RetryPolicy overriding default connection timeout with an extreme value #17481
+- Name: azure-mgmt-resource
+  Version: 16.1.0
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-resource_16.1.0/sdk/resources/azure-mgmt-resource/CHANGELOG.md#1610-2021-04-16
+  ChangelogContent: |-
+    **Features**
+
+      - Model ManagedServiceIdentity has a new parameter tenant_id
+- Name: azure-synapse-artifacts
+  Version: 0.6.0
+  DisplayName: Synapse - Artifacts
+  ServiceName: Synapse Analytics
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-synapse-artifacts_0.6.0/sdk/synapse/azure-synapse-artifacts/CHANGELOG.md#060-2021-04-06
+  ChangelogContent: |-
+    #### New Features
+
+    - Add ADF support
+- Name: azure-mgmt-hybridnetwork
+  Version: 1.0.0b1
+  DisplayName: azure-mgmt-hybridnetwork
+  ServiceName: ""
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-hybridnetwork_1.0.0b1/sdk/hybridnetwork/azure-mgmt-hybridnetwork/CHANGELOG.md#100b1-2021-04-20
+  ChangelogContent: '* Initial Release'
+- Name: azure-mgmt-healthcareapis
+  Version: 1.0.0
+  DisplayName: Resource Management - Healthcare APIs
+  ServiceName: API for FHIR
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-healthcareapis_1.0.0/sdk/healthcareapis/azure-mgmt-healthcareapis/CHANGELOG.md#100-2021-04-12
+  ChangelogContent: |-
+    **Features**
+
+      - Model ServicesDescription has a new parameter system_data
+      - Model ServicesProperties has a new parameter acr_configuration
+- Name: azure-mgmt-peering
+  Version: 1.0.0
+  DisplayName: Resource Management - Peering
+  ServiceName: Peering Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-peering_1.0.0/sdk/peering/azure-mgmt-peering/CHANGELOG.md#100-2021-04-25
+  ChangelogContent: |-
+    **Features**
+
+      - Model PeerAsn has a new parameter peer_contact_info
+      - Added operation group PeeringServicePrefixesOperations
+
+    **Breaking changes**
+
+      - Operation PrefixesOperations.list_by_peering_service has a new signature
+      - Operation PeeringServiceLocationsOperations.list has a new signature
+      - Operation LegacyPeeringsOperations.list has a new signature
+      - Model DirectConnection no longer has parameter error_message
+      - Model DirectConnection no longer has parameter microsoft_tracking_id
+      - Model PeeringServicePrefix no longer has parameter events
+      - Model PeeringServicePrefix no longer has parameter error_message
+      - Model PeeringServicePrefix no longer has parameter peering_service_prefix_key
+      - Model ExchangeConnection no longer has parameter error_message
+      - Model PeerAsn no longer has parameter error_message
+      - Model PeerAsn no longer has parameter peer_contact_detail
+      - Model PeeringService no longer has parameter sku
+      - Model ErrorResponse has a new signature
+      - Removed operation PrefixesOperations.delete
+      - Removed operation PrefixesOperations.create_or_update
+      - Removed operation PrefixesOperations.get
+      - Removed operation group CdnPeeringPrefixesOperations
+      - Removed operation group ReceivedRoutesOperations
+      - Removed operation group RegisteredAsnsOperations
+      - Removed operation group PeeringServiceCountriesOperations
+      - Removed operation group RegisteredPrefixesOperations
+- Name: azure-eventhub-checkpointstoreblob-aio
+  Version: 1.1.4
+  DisplayName: Event Hubs - Azure Blob Storage Checkpoint Store AIO
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-eventhub-checkpointstoreblob-aio_1.1.4/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/CHANGELOG.md#114-2021-04-07
+  ChangelogContent: |-
+    This version and all future versions will require Python 2.7 or Python 3.6+, Python 3.5 is no longer supported.
+
+    **New features**
+    - Updated `list_ownership`, `claim_ownership`, `update_checkpoint`, `list_checkpoints` on `BlobCheckpointStore` to support taking `**kwargs`.
+
