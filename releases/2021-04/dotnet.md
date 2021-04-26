@@ -37,6 +37,11 @@ Azure.IoT.ModelsRepository:1.0.0-preview.3
 Azure.DigitalTwins.Core:1.2.2
 Azure.AI.AnomalyDetector:3.0.0-preview.3
 Azure.Messaging.WebPubSub:1.0.0-beta.1
+Azure.Containers.ContainerRegistry:1.0.0-beta.1
+Azure.Messaging.ServiceBus:7.2.0-beta.2
+Microsoft.Azure.WebJobs.Extensions.ServiceBus:5.0.0-beta.2
+Microsoft.Azure.ServiceBus:5.1.3
+Azure.AI.FormRecognizer:3.0.1
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -60,6 +65,8 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Digital Twins - Core
 - Storage - Common
 - System Memory Data
+- Service Bus
+- Form Recognizer
 
 [pattern.patch]: # (- ${PackageFriendlyName})
 
@@ -88,6 +95,9 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Translation Document
 - WebJobs Extensions - Event Hubs
 - Azure.Messaging.WebPubSub
+- Container Registry
+- Service Bus
+- WebJobs Extensions - Service Bus
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -131,6 +141,11 @@ $> dotnet add package Azure.Storage.Queues --version 12.7.0-beta.3
 $> dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 7.0.0
 $> dotnet add package Microsoft.Azure.WebJobs.Extensions.EventHubs --version 5.0.0-beta.4
 $> dotnet add package Azure.Messaging.WebPubSub --version 1.0.0-beta.1
+$> dotnet add package Azure.Containers.ContainerRegistry --version 1.0.0-beta.1
+$> dotnet add package Azure.Messaging.ServiceBus --version 7.2.0-beta.2
+$> dotnet add package Microsoft.Azure.WebJobs.Extensions.ServiceBus --version 5.0.0-beta.2
+$> dotnet add package Microsoft.Azure.ServiceBus --version 5.1.3
+$> dotnet add package Azure.AI.FormRecognizer --version 3.0.1
 $> dotnet add package System.Memory.Data --version 1.0.2
 ```
 
@@ -404,6 +419,43 @@ Minor changes since the public preview release:
 
 ### Azure.Messaging.WebPubSub 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.WebPubSub_1.0.0-beta.1/sdk/webpubsub/Azure.Messaging.WebPubSub/CHANGELOG.md#100-beta1-2021-04-23)
 - Initial beta release.
+
+### Container Registry 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Containers.ContainerRegistry_1.0.0-beta.1/sdk/containerregistry/Azure.Containers.ContainerRegistry/CHANGELOG.md#100-beta1-2021-04-06)
+- Started changelog to capture release notes.
+
+### Service Bus 7.2.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.ServiceBus_7.2.0-beta.2/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md#720-beta2-2021-04-07)
+#### Acknowledgments
+Thank you to our developer community members who helped to make the Service Bus client library better with their contributions to this release:
+
+- Daniel Marbach _([GitHub](https://github.com/danielmarbach))_
+- Mikael Kolkinn _([GitHub](https://github.com/mikaelkolkinn))_
+
+#### Added
+- Updated dependency on Azure.Core.Amqp to support Value/Sequence AMQP message bodies.
+- Updated dependency on Microsoft.Azure.Amqp to benefit from a performance enhancement involving message settlement.
+- Added `OnProcessMessageAsync` and `OnProcessErrorAsync` methods to help with mocking scenarios involving the processor.
+- Added the ability to construct a `ServiceBusClient` and `ServiceBusAdministrationClient` using the `AzureNamedKeyCredential` and `AzureSasCredential` types to allow for updating credentials for long-lived clients.
+- Added the ability to cancel receive operations which allows `StopProcessingAsync` calls on the processor to complete more quickly. (A community contribution, courtesy of _[danielmarbach](https://github.com/danielmarbach))_
+
+#### Fixed
+- Multiple enhancements were made to the transport paths for publishing and reading events to reduce memory allocations and increase performance. (A community contribution, courtesy of _[danielmarbach](https://github.com/danielmarbach))_
+- Fixed an issue where constructing a new `CreateRuleOption` from a `RuleProperties` would fail if the `CorrelationId` was null. (A community contribution, courtesy of _[mikaelkolkinn](https://github.com/mikaelkolkinn))_
+
+### WebJobs Extensions - Service Bus 5.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.0.0-beta.2/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md#500-beta2-2021-04-07)
+#### Added
+- Add AAD support
+
+#### Breaking Changes
+- Changed the API signatures for the methods in `MessagingProvider`.
+- Added `receiver` parameter to `MessageProcessor` constructor.
+- Added `client` parameter to `SessionMessageProcessor` constructor.
+
+### Service Bus 5.1.3 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.ServiceBus_5.1.3/sdk/servicebus/Microsoft.Azure.ServiceBus/CHANGELOG.md#513-2021-04-15)
+Update package description to include pointer to the new Azure.Messaging.ServiceBus package and the migration guide.
+
+### Form Recognizer 3.0.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_3.0.1/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#301-2021-04-09)
+#### Key Bug Fixes
+- Updated dependency versions.
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
