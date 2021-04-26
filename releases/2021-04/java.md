@@ -183,6 +183,7 @@ azure-resourcemanager-iotcentral:1.0.0-beta.1
 azure-resourcemanager-vmwarecloudsimple:1.0.0-beta.1
 azure-messaging-webpubsub:1.0.0-beta.1
 azure-spring-cloud-dependencies:2.4.0
+azure-resourcemanager-managedapplications:1.0.0-beta.1
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -379,6 +380,7 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - azure-resourcemanager-iotcentral
 - azure-resourcemanager-vmwarecloudsimple
 - azure-messaging-webpubsub
+- azure-resourcemanager-managedapplications
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -1490,6 +1492,12 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <version>2.4.0</version>
 </dependency>
 
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-managedapplications</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
 
 ```
 
@@ -2563,6 +2571,9 @@ possible. The principles that guide our efforts can be found in the
 - Update `com.azure` group id to `com.azure.spring`.
 - Update `spring-cloud-azure-dependencies` artifact id to `azure-spring-cloud-dependencies`.
 - Remove `spring-boot-dependencies` and `spring-cloud-dependencies` dependencies.
+
+### azure-resourcemanager-managedapplications 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-managedapplications_1.0.0-beta.1/sdk/managedapplications/azure-resourcemanager-managedapplications/CHANGELOG.md#100-beta1-2021-04-26)
+- Azure Resource Manager Application client library for Java. This package contains Microsoft Azure SDK for Application Management SDK. ARM applications. Package tag package-managedapplications-2018-06. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
