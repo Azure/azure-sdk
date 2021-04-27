@@ -2216,4 +2216,24 @@ entries:
       `setReadOnly(ConfigurationSetting setting, boolean isReadOnly)`
     - Added a new method that accepts `ClientOptions` in `ConfigurationClientBuilder`.
   GroupId: com.azure
+- Name: azure-communication-phonenumbers
+  Version: 1.0.0
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-phonenumbers_1.0.0/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md#100-2021-04-26
+  ChangelogContent: '- Update version'
+  GroupId: com.azure
+- Name: azure-cosmos
+  Version: 4.15.0-beta.2
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-cosmos_4.15.0-beta.2/sdk/cosmos/azure-cosmos/CHANGELOG.md#4150-beta2-2021-04-26
+  ChangelogContent: |-
+    ##### Key Bug Fixes
+    * No changes from previous version, releasing for compatibility issues with cosmos encryption modules.
+  GroupId: com.azure
 
