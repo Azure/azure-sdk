@@ -73,6 +73,7 @@ azure-mgmt-managedservices:6.0.0
 azure-messaging-nspkg:1.0.0
 azure-mgmt-peering:1.0.0
 azure-mgmt-kusto:2.0.0
+azure-communication-phonenumbers:1.0.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -119,6 +120,7 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - azure-messaging-nspkg
 - Resource Management - Peering
 - Resource Management - Kusto
+- Communication Phone Numbers
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -224,6 +226,7 @@ $> pip install azure-mgmt-managedservices==6.0.0
 $> pip install azure-messaging-nspkg==1.0.0
 $> pip install azure-mgmt-peering==1.0.0
 $> pip install azure-mgmt-kusto==2.0.0
+$> pip install azure-communication-phonenumbers==1.0.0
 
 ```
 
@@ -892,6 +895,9 @@ service version `1.0-preview.1`. This package's documentation and samples demons
 
   - Operation ClustersOperations.begin_update has a new signature
   - Operation ClustersOperations.begin_create_or_update has a new signature
+
+### Communication Phone Numbers 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-communication-phonenumbers_1.0.0/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md#100-2021-04-26)
+- Stable release of `azure-communication-phonenumbers`.
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
