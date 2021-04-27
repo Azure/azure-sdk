@@ -6,33 +6,28 @@ sidebar: releases_sidebar
 repository: azure/azure-sdk-for-net
 ---
 
-<!--
-[pattern]: # (${PackageName}:${PackageVersion})
--->
-
 The Azure SDK team is pleased to announce our %%MMMM yyyy%% client library releases.
 
-#### GA
-
-[pattern.ga]: # (- ${PackageFriendlyName})
-
-#### Updates
-
-[pattern.patch]: # (- ${PackageFriendlyName})
-
-#### Beta
-
-[pattern.beta]: # (- ${PackageFriendlyName})
+{% assign allPackages = site.data.releases.%%yyyy-MM%%.dotnet['entries'] | where: "Hidden" , false | sort: 'ServiceName' %}
+{% include package_display_names.md %}
 
 ## Installation Instructions
 
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
-```bash
-
+{% assign allPackagesSortedByName = allPackages | sort: 'Name' %}
+{%- capture install_instructions -%}
+{% for package in allPackagesSortedByName %}
+    {%- capture install_instruction -%}
+    $> dotnet add package {{ package.Name }} --version {{ package.Version }}
+    {%- endcapture -%}
+    {{ install_instruction }}
+{% endfor %}
+{%- endcapture -%}
 ```
-
-[pattern]: # ($> dotnet add package ${PackageName} --version ${PackageVersion})
+{{ install_instructions | rstrip }}
+```
+{: .language-bash}
 
 ## Feedback
 
@@ -40,7 +35,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 ## Release highlights
 
-[pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
+{% include release_highlights.md %}
 
 ## Latest Releases
 

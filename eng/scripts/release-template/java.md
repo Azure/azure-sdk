@@ -6,33 +6,34 @@ sidebar: releases_sidebar
 repository: azure/azure-sdk-for-java
 ---
 
-<!--
-[pattern]: # (${PackageName}:${PackageVersion})
--->
-
 The Azure SDK team is pleased to announce our %%MMMM yyyy%% client library releases.
 
-#### GA
-
-[pattern.ga]: # (- ${PackageFriendlyName})
-
-#### Updates
-
-[pattern.patch]: # (- ${PackageFriendlyName})
-
-#### Beta
-
-[pattern.beta]: # (- ${PackageFriendlyName})
+{% assign allPackages = site.data.releases.%%yyyy-MM%%.java['entries'] | where: "Hidden" , false | sort: 'ServiceName' %}
+{% include package_display_names.md %}
 
 ## Installation Instructions
 
 To use the GA and beta libraries, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate. If you are using a different build tool, refer to its documentation on how to specify dependencies.
 
-```xml
+{% assign packages = allPackagesSortedByName = allPackages | sort: 'Name' %}
+{%- capture install_instructions -%}
+{% for package in allPackagesSortedByName %}
+    {%- capture install_instruction -%}
+<dependency>
+{{ "  " }}<groupId>{{ package.GroupId }}</groupId>
+{{ "  " }}<artifactId>{{ package.Name }}</artifactId>
+{{ "  " }}<version>{{ package.Version }}</version>
+</dependency>
+{{""}}
+    {%- endcapture -%}
+    {{ install_instruction }}
+{% endfor %}
+{%- endcapture -%}
 
 ```
-
-[pattern]: # (<dependency>`n  <groupId>${GroupId}</groupId>`n  <artifactId>${PackageName}</artifactId>`n  <version>${PackageVersion}</version>`n</dependency>`n)
+{{ install_instructions | rstrip }}
+```
+{: .language-xml}
 
 ## Feedback
 
@@ -40,7 +41,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-[pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
+{% include release_highlights.md %}
 
 ## Need help
 

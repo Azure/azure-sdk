@@ -4,7 +4,7 @@ parameters:
   default: $(Build.SourceBranchName)
 - name: PrBranchName
   type: string
-  default: "CreateOrUpdateReleaseNotesFor"
+  default: "CreateOrUpdateReleaseDataFor"
 - name: Repos
   type: object
   default:
