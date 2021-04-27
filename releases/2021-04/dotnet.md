@@ -54,21 +54,21 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Azure Communication Common
 - Azure Communication Identity
 - Azure Communication SMS
+- Communication Phone Numbers
 - Computer Vision
 - Core
 - Event Hubs
 - Event Hubs - Event Processor
 - Resource Management - Communication
-- Communication Phone Numbers
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
 #### Updates
 - Digital Twins - Core
+- Form Recognizer
+- Service Bus
 - Storage - Common
 - System Memory Data
-- Service Bus
-- Form Recognizer
 
 [pattern.patch]: # (- ${PackageFriendlyName})
 
@@ -78,12 +78,15 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Attestation
 - Azure.AI.Translation.Document
 - Azure.IoT.ModelsRepository
+- Azure.Messaging.WebPubSub
 - Azure Communication Phone Numbers
 - Cognitive Search
+- Container Registry
 - Core - AMQP
 - Form Recognizer
 - Identity
 - IoT Device Update
+- Service Bus
 - Synapse - Artifacts
 - Storage - Files Shares
 - Storage - Blobs
@@ -96,9 +99,6 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Text Analytics
 - Translation Document
 - WebJobs Extensions - Event Hubs
-- Azure.Messaging.WebPubSub
-- Container Registry
-- Service Bus
 - WebJobs Extensions - Service Bus
 
 [pattern.beta]: # (- ${PackageFriendlyName})
@@ -110,6 +110,7 @@ To install any of our packages, please search for them via `Manage NuGet Package
 ```bash
 $> dotnet add package Azure.AI.AnomalyDetector --version 3.0.0-preview.3
 $> dotnet add package Azure.AI.FormRecognizer --version 3.1.0-beta.4
+$> dotnet add package Azure.AI.FormRecognizer --version 3.0.1
 $> dotnet add package Azure.AI.TextAnalytics --version 5.1.0-beta.6
 $> dotnet add package Azure.AI.Translation.Document --version 1.0.0-beta.1
 $> dotnet add package Azure.Analytics.Synapse.Artifacts --version 1.0.0-preview.8
@@ -117,7 +118,9 @@ $> dotnet add package Azure.Communication.Chat --version 1.0.0
 $> dotnet add package Azure.Communication.Common --version 1.0.0
 $> dotnet add package Azure.Communication.Identity --version 1.0.0
 $> dotnet add package Azure.Communication.PhoneNumbers --version 1.0.0-beta.6
+$> dotnet add package Azure.Communication.PhoneNumbers --version 1.0.0
 $> dotnet add package Azure.Communication.SMS --version 1.0.0
+$> dotnet add package Azure.Containers.ContainerRegistry --version 1.0.0-beta.1
 $> dotnet add package Azure.Core --version 1.12.0
 $> dotnet add package Azure.Core --version 1.13.0
 $> dotnet add package Azure.Core.Amqp --version 1.1.0-beta.1
@@ -129,6 +132,8 @@ $> dotnet add package Azure.IoT.DeviceUpdate --version 1.0.0-beta.2
 $> dotnet add package Azure.IoT.ModelsRepository --version 1.0.0-preview.3
 $> dotnet add package Azure.Messaging.EventHubs --version 5.4.0
 $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.4.0
+$> dotnet add package Azure.Messaging.ServiceBus --version 7.2.0-beta.2
+$> dotnet add package Azure.Messaging.WebPubSub --version 1.0.0-beta.1
 $> dotnet add package Azure.ResourceManager.Communication --version 1.0.0
 $> dotnet add package Azure.Search.Documents --version 11.3.0-beta.1
 $> dotnet add package Azure.Security.Attestation --version 1.0.0-beta.2
@@ -141,14 +146,9 @@ $> dotnet add package Azure.Storage.Files.DataLake --version 12.7.0-beta.3
 $> dotnet add package Azure.Storage.Files.Shares --version 12.7.0-beta.3
 $> dotnet add package Azure.Storage.Queues --version 12.7.0-beta.3
 $> dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 7.0.0
-$> dotnet add package Microsoft.Azure.WebJobs.Extensions.EventHubs --version 5.0.0-beta.4
-$> dotnet add package Azure.Messaging.WebPubSub --version 1.0.0-beta.1
-$> dotnet add package Azure.Containers.ContainerRegistry --version 1.0.0-beta.1
-$> dotnet add package Azure.Messaging.ServiceBus --version 7.2.0-beta.2
-$> dotnet add package Microsoft.Azure.WebJobs.Extensions.ServiceBus --version 5.0.0-beta.2
 $> dotnet add package Microsoft.Azure.ServiceBus --version 5.1.3
-$> dotnet add package Azure.AI.FormRecognizer --version 3.0.1
-$> dotnet add package Azure.Communication.PhoneNumbers --version 1.0.0
+$> dotnet add package Microsoft.Azure.WebJobs.Extensions.EventHubs --version 5.0.0-beta.4
+$> dotnet add package Microsoft.Azure.WebJobs.Extensions.ServiceBus --version 5.0.0-beta.2
 $> dotnet add package System.Memory.Data --version 1.0.2
 ```
 
