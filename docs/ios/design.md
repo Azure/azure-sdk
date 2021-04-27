@@ -50,9 +50,11 @@ The main value of the Azure SDK is productivity. Other qualities, such as comple
 
 {% include requirement/SHOULD id="ios-language-swift" %} write the client library in Swift 5.
 
-{% include requirement/MAY id="ios-language-objc" %} write the client library in Objective-C.
+{% include requirement/MUST id="ios-language-swift-idiomatic" %} ensure the library is idiomatic in its Swift usage.
 
-The intent is to ensure that the client library is idiomatic in Swift applications. The library need not make specific accommodations to support Objective-C applications. Libraries written in Objective-C should prioritze being idiomatic in their Swift usage.
+{% include requirement/MAY id="ios-language-objc" %} write the client library in Objective-C. Libraries written in Objective-C must prioritze being idiomatic in their Swift usage. The library need not be idiomatic in its Objective-C usage.
+
+{% include requirement/SHOULDNOT id="ios-language-objc-compatibility" %} make specific accommodations to support Objective-C applications, unless a business case exists.
 
 ### Support for non-HTTP Protocols
 
