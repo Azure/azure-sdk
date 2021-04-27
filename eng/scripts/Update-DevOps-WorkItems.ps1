@@ -268,17 +268,15 @@ function RefreshItems()
     Write-Verbose "[$($pkgWI.id)]$pkgLang - $pkgName ($verMajorMinor) - '$($pkgWI.fields['System.State'])'"
 
     $updatedWI = CreateOrUpdatePackageWorkItem (Get-LanguageName $pkgLang) $pkg $verMajorMinor $pkgWI
-    if ($versions) {
-      $updatedWI = UpdateShippedPackageVersions $updatedWI $versions
+    $updatedWI = UpdateShippedPackageVersions $updatedWI $versions
 
-      # Collect all the versions
-      if (!$allVersionValues.ContainsKey($pkgLang)) {
-        $allVersionValues[$pkgLang] = @{}
-      }
-      $allVersionValues[$pkgLang][$pkgName] += $($updatedWI.fields["Custom.PackageBetaVersions"]) + "|"
-      $allVersionValues[$pkgLang][$pkgName] += $($updatedWI.fields["Custom.PackageGAVersion"]) + "|"
-      $allVersionValues[$pkgLang][$pkgName] += $($updatedWI.fields["Custom.PackagePatchVersions"]) + "|"
+    # Collect all the versions
+    if (!$allVersionValues.ContainsKey($pkgLang)) {
+      $allVersionValues[$pkgLang] = @{}
     }
+    $allVersionValues[$pkgLang][$pkgName] += $($updatedWI.fields["Custom.PackageBetaVersions"]) + "|"
+    $allVersionValues[$pkgLang][$pkgName] += $($updatedWI.fields["Custom.PackageGAVersion"]) + "|"
+    $allVersionValues[$pkgLang][$pkgName] += $($updatedWI.fields["Custom.PackagePatchVersions"]) + "|"
   }
 
   ## Loop over all packages in csv
