@@ -42,6 +42,7 @@ Azure.Messaging.ServiceBus:7.2.0-beta.2
 Microsoft.Azure.WebJobs.Extensions.ServiceBus:5.0.0-beta.2
 Microsoft.Azure.ServiceBus:5.1.3
 Azure.AI.FormRecognizer:3.0.1
+Azure.Communication.PhoneNumbers:1.0.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -58,6 +59,7 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Event Hubs
 - Event Hubs - Event Processor
 - Resource Management - Communication
+- Communication Phone Numbers
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -146,6 +148,7 @@ $> dotnet add package Azure.Messaging.ServiceBus --version 7.2.0-beta.2
 $> dotnet add package Microsoft.Azure.WebJobs.Extensions.ServiceBus --version 5.0.0-beta.2
 $> dotnet add package Microsoft.Azure.ServiceBus --version 5.1.3
 $> dotnet add package Azure.AI.FormRecognizer --version 3.0.1
+$> dotnet add package Azure.Communication.PhoneNumbers --version 1.0.0
 $> dotnet add package System.Memory.Data --version 1.0.2
 ```
 
@@ -456,6 +459,9 @@ Update package description to include pointer to the new Azure.Messaging.Service
 ### Form Recognizer 3.0.1 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.FormRecognizer_3.0.1/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#301-2021-04-09)
 #### Key Bug Fixes
 - Updated dependency versions.
+
+### Communication Phone Numbers 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Communication.PhoneNumbers_1.0.0/sdk/communication/Azure.Communication.PhoneNumbers/CHANGELOG.md#100-2021-04-26)
+Updated `Azure.Communication.PhoneNumbers` version.
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
