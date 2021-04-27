@@ -39,6 +39,7 @@ repository: azure/azure-sdk-for-js
 @azure-rest/ai-document-translator:1.0.0-beta.1
 @azure/web-pubsub-express:1.0.0-beta.1
 @azure/web-pubsub:1.0.0-beta.1
+@azure/communication-phone-numbers:1.0.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -55,6 +56,7 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Core - AMQP
 - Event Hubs
 - Cosmos DB
+- Communication Phone Numbers
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -128,6 +130,7 @@ $> npm install @azure-rest/core-client@1.0.0-beta.1
 $> npm install @azure-rest/ai-document-translator@1.0.0-beta.1
 $> npm install @azure/web-pubsub-express@1.0.0-beta.1
 $> npm install @azure/web-pubsub@1.0.0-beta.1
+$> npm install @azure/communication-phone-numbers@1.0.0
 
 ```
 
@@ -383,6 +386,9 @@ This is the first release of the @azure/web-pubsub-express package.
 
 ### Azure Web Pubsub 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/web-pubsub_1.0.0-beta.1/sdk/web-pubsub/web-pubsub/CHANGELOG.md#100-beta1-2021-04-23)
 This is the first release of the @azure/web-pubsub package.
+
+### Communication Phone Numbers 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/communication-phone-numbers_1.0.0/sdk/communication/communication-phone-numbers/CHANGELOG.md#100-2021-04-26)
+- Update version to 1.0.0
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
