@@ -184,6 +184,10 @@ azure-resourcemanager-vmwarecloudsimple:1.0.0-beta.1
 azure-messaging-webpubsub:1.0.0-beta.1
 azure-spring-cloud-dependencies:2.4.0
 azure-resourcemanager-managedapplications:1.0.0-beta.1
+azure-cosmos-encryption:1.0.0-beta.3
+azure-resourcemanager-mixedreality:1.0.0-beta.1
+azure-cosmos:4.15.0-beta.2
+azure-communication-phonenumbers:1.0.0
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -259,6 +263,7 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - Resource Management - Change Analysis
 - Resource Management - Redis Enterprise
 - Azure Spring Cloud Dependencies
+- Communication Phone Numbers
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -381,6 +386,9 @@ The Azure SDK team is pleased to announce our April 2021 client library releases
 - azure-resourcemanager-vmwarecloudsimple
 - azure-messaging-webpubsub
 - azure-resourcemanager-managedapplications
+- azure-cosmos-encryption
+- azure-resourcemanager-mixedreality
+- Cosmos DB
 
 [pattern.beta]: # (- ${PackageFriendlyName})
 
@@ -1498,6 +1506,30 @@ To use the GA and beta libraries, refer to the Maven dependency information belo
   <version>1.0.0-beta.1</version>
 </dependency>
 
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-cosmos-encryption</artifactId>
+  <version>1.0.0-beta.3</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure.resourcemanager</groupId>
+  <artifactId>azure-resourcemanager-mixedreality</artifactId>
+  <version>1.0.0-beta.1</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-cosmos</artifactId>
+  <version>4.15.0-beta.2</version>
+</dependency>
+
+<dependency>
+  <groupId>com.azure</groupId>
+  <artifactId>azure-communication-phonenumbers</artifactId>
+  <version>1.0.0</version>
+</dependency>
+
 
 ```
 
@@ -2574,6 +2606,20 @@ possible. The principles that guide our efforts can be found in the
 
 ### azure-resourcemanager-managedapplications 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-managedapplications_1.0.0-beta.1/sdk/managedapplications/azure-resourcemanager-managedapplications/CHANGELOG.md#100-beta1-2021-04-26)
 - Azure Resource Manager Application client library for Java. This package contains Microsoft Azure SDK for Application Management SDK. ARM applications. Package tag package-managedapplications-2018-06. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### azure-cosmos-encryption 1.0.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-cosmos-encryption_1.0.0-beta.3/sdk/cosmos/azure-cosmos-encryption/CHANGELOG.md#100-beta3-2021-04-26)
+##### New Features
+* Todo
+
+### azure-resourcemanager-mixedreality 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-mixedreality_1.0.0-beta.1/sdk/mixedreality/azure-resourcemanager-mixedreality/CHANGELOG.md#100-beta1-2021-04-27)
+- Azure Resource Manager MixedReality client library for Java. This package contains Microsoft Azure SDK for MixedReality Management SDK. Mixed Reality Client. Package tag package-2021-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+### Cosmos DB 4.15.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-cosmos_4.15.0-beta.2/sdk/cosmos/azure-cosmos/CHANGELOG.md#4150-beta2-2021-04-26)
+##### Key Bug Fixes
+* No changes from previous version, releasing for compatibility issues with cosmos encryption modules.
+
+### Communication Phone Numbers 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-phonenumbers_1.0.0/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md#100-2021-04-26)
+- Update version
 
 
 [pattern]: # (### ${PackageFriendlyName} ${PackageVersion} [Changelog]${ChangelogUrl}`n${HighlightsBody}`n)
