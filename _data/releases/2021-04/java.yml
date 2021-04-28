@@ -2256,4 +2256,15 @@ entries:
     ##### New Features
     * Todo
   GroupId: com.azure
+- Name: azure-messaging-webpubsub
+  Version: 1.0.0-beta.2
+  DisplayName: Web PubSub
+  ServiceName: Web PubSub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-messaging-webpubsub_1.0.0-beta.2/sdk/webpubsub/azure-messaging-webpubsub/CHANGELOG.md#100-beta2-2021-04-27
+  ChangelogContent: |-
+    #### Bug Fixes
+    - Fixed issue with generating token that included only the last role in the input list.
+  GroupId: com.azure
 
