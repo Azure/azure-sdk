@@ -7,17 +7,15 @@ sidebar: general_sidebar
 
 # Producing Release Notes
 
-Each release cycle, we produce release notes for every language. This process is partly automated. The `azure-sdk - generate-release-notes` once every weekday and produces pull requests with titles of the form **(Create or Update Release Notes for {Language} {YYYY-MM} release)** for dotnet, java, js, and python. Below are instructions for updating/reviewing the PRs before merging.
+Each release cycle, we produce release notes for every language. This process is partly automated. The `azure-sdk - generate-release-notes` once every weekday and produces pull requests with titles of the form **({Language} release notes for the {YYYY-MM} release)** for dotnet, java, js, and python. Below are instructions for updating/reviewing the PRs before merging.
 
 - The **engineering leads** for the released packages should make sure they have been picked up by the automation and that the entry is correct.
-  - To prevent the conflicts between the automation and manual edits, instead of pushing new commits you should make code suggestion on the PR, then allow the release manager to take care of merging everything in.
-  - Feel free to suggest edits to individual `Release Highlights` sections as you see fit. Suggestions should use the github suggest feature instead of manually pushing new commits. 
-  - Suggest new release entries that should be added to the PR if it has not already been added by the automation (it most likely will be). 
+  - You can update the generated data at `_data/releases/YYYY-MM/{language}.yml` by pushing changes to the PR.
+  - Suggest new release entries that should be added to the PR if it has not already been added by the automation (it most likely will be).
   - If there are packages that should be in the release that don't appear it is probably because this automation runs once every weekday. Your package should generally get picked up by the automation within 24 hours.
 
-- The **release manager** should remove all entries for packages that should not be in the release period, review and merge the pull request.
-  - Entries will have to be removed from the `Release Highlights`, `Installation Instructions` as well as the `Updates`, `Beta` or, `GA` sections as the case may be. 
-  -  **Do not** remove the entries inside the HTML comments `<!--  -->` as that will cause the automation to re-add the entry on the next run. 
+- The **release manager** should hide all entries for packages that should not be in the release period, review and merge the pull request.
+  - Entries can be hidden by setting the `Hidden` field to `true`.
   - After code complete, the release manager will do a final editorial pass before linking the release notes into the table of contents.
 
 Release notes are part of the release and must be ready for final edit by the "Code Complete" date.
