@@ -2516,4 +2516,35 @@ entries:
     #### Breaking Changes
     - Removed the `exportKey()` operation from `KeyAsyncClient` and `KeyClient`, as it is not yet supported in the current service version.
   GroupId: com.azure
+- Name: azure-messaging-eventgrid
+  Version: 4.2.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-messaging-eventgrid_4.2.0/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md#420-2021-04-07
+  ChangelogContent: |-
+    #### Dependency Updates
+    - Update `azure-core` dependency to `1.15.0`.
+    - Update `azure-core-http-netty` dependency to `1.9.1`.
+  GroupId: com.azure
+- Name: azure-core-http-netty
+  Version: 1.9.1
+  DisplayName: Core - HTTP Netty
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-core-http-netty_1.9.1/sdk/core/azure-core-http-netty/CHANGELOG.md#191-2021-04-02
+  ChangelogContent: |-
+    #### Bug Fixes
+
+    - Fixed a bug where a proxy's address is only resolved during construction of the client, now it is resolved per connection. [#19497](https://github.com/Azure/azure-sdk-for-java/issues/19497)
+    - Fixed a bug where `Proxy Authentication Required` bubbled back up to a `RetryPolicy` leading to more time taken to
+      connect to a proxy when authentication information was supplied. [#19415](https://github.com/Azure/azure-sdk-for-java/issues/19415)
+
+    #### Dependency Updates
+
+    - Upgraded `azure-core` from `1.14.0` to `1.15.0`.
+    - Upgraded Netty from `4.1.59.Final` to `4.1.60.Final`.
+  GroupId: com.azure
 
