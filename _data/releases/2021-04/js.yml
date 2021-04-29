@@ -254,4 +254,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/communication-phone-numbers_1.0.0/sdk/communication/communication-phone-numbers/CHANGELOG.md#100-2021-04-26
   ChangelogContent: '- Update version to 1.0.0'
+- Name: '@azure/core-amqp'
+  Version: 2.3.0
+  DisplayName: Core - AMQP
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-amqp_2.3.0/sdk/core/core-amqp/CHANGELOG.md#230-2021-04-29
+  ChangelogContent: |-
+    - Updates `AmqpAnnotatedMessage` to identify the AMQP section where body data was decoded from. [PR 14703](https://github.com/Azure/azure-sdk-for-js/pull/14703).
+
+    - Adds `CancellableAsyncLock` as an alternative to `AsyncLock` that supports cancellation via the abort signal. [PR 14844](https://github.com/Azure/azure-sdk-for-js/pull/14844).
 
