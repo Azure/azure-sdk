@@ -7,12 +7,13 @@ sidebar: general_sidebar
 
 # Producing Release Notes
 
-Each release cycle, we produce release notes for every language. This process is partly automated. The `azure-sdk - generate-release-notes` once every weekday and produces pull requests with titles of the form **({Language} release notes for the {YYYY-MM} release)** for dotnet, java, js, and python. Below are instructions for updating/reviewing the PRs before merging.
+Each release cycle, we produce release notes for every language. This process is partly automated. Our automation runs regularly and produces pull requests with titles of the form **({Language} release notes for the {YYYY-MM} release)** for dotnet, java, js, and python. Below are instructions for updating/reviewing the PRs before merging.
 
 - The **engineering leads** for the released packages should make sure they have been picked up by the automation and that the entry is correct.
-  - You can update the generated data at `_data/releases/YYYY-MM/{language}.yml` by pushing changes to the PR.
+  - You can update the generated data at `_data/releases/YYYY-MM/{language}.yml` by adding github style suggestions to the PR that the release driver can commit to the PR when reviewed.
   - Suggest new release entries that should be added to the PR if it has not already been added by the automation (it most likely will be).
   - If there are packages that should be in the release that don't appear it is probably because this automation runs once every weekday. Your package should generally get picked up by the automation within 24 hours.
+  - The generated data in `_data/releases/YYYY-MM/{language}.yml` is pulled into the proper sections in the corresponding markdown file at `releases/YYYY-MM/{language}.md` by the Jekyll engine.
 
 - The **release manager** should hide all entries for packages that should not be in the release period, review and merge the pull request.
   - Entries can be hidden by setting the `Hidden` field to `true`.
