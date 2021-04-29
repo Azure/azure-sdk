@@ -2502,4 +2502,18 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager_2.4.0/sdk/resourcemanager/azure-resourcemanager/CHANGELOG.md#240-2021-04-28
   ChangelogContent: '- Updated parameter of `SupportsBatchCreation.create` from `List<Creatable<ResourceT>>` to `List<? extends Creatable<ResourceT>>`'
   GroupId: com.azure.resourcemanager
+- Name: azure-security-keyvault-keys
+  Version: 4.3.0-beta.7
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-keys_4.3.0-beta.7/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md#430-beta7-2021-04-29
+  ChangelogContent: |-
+    #### Bug fixes
+    - Fixed issue that prevented setting tags on keys when creating or importing them.
+
+    #### Breaking Changes
+    - Removed the `exportKey()` operation from `KeyAsyncClient` and `KeyClient`, as it is not yet supported in the current service version.
+  GroupId: com.azure
 
