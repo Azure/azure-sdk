@@ -2704,4 +2704,15 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-internal-avro_12.0.3/sdk/storage/azure-storage-internal-avro/CHANGELOG.md#1203-2021-04-29
   ChangelogContent: '- Update `azure-storage-common` to version `12.11.0`'
   GroupId: com.azure
+- Name: azure-communication-phonenumbers
+  Version: 1.0.1
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-phonenumbers_1.0.1/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md#101-2021-04-30
+  ChangelogContent: |-
+    #### Bug fixes
+    - Remove dependency on unreleased azure-communication-common version
+  GroupId: com.azure
 
