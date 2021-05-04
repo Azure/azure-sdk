@@ -312,6 +312,18 @@ function CheckAll($langs)
         Write-Host "Please set the value to match the display name for the package that is used to align all the similar packages across languages."
         $foundIssues = $true
       }
+
+      if ($pkg.Type.Tolower() -cne $pkg.Type) {
+        Write-Warning "The Type field needs to be all lowercase for '$($pkg.Package)' in $csvFile."
+        Write-Host "Please update the CSV to change the Type field from '$($pkg.Type)' equal to $($pkg.Type.ToLower())."
+        $foundIssues = $true
+      }
+
+      if ($pkg.New.Tolower() -cne $pkg.New) {
+        Write-Warning "The New field needs to be all lowercase for '$($pkg.Package)' in $csvFile."
+        Write-Host "Please update the CSV to change the New field from '$($pkg.New)' equal to $($pkg.New.ToLower())."
+        $foundIssues = $true
+      }
     }
   }
 
