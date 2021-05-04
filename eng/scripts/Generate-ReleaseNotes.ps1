@@ -82,11 +82,6 @@ $pathToRelatedYaml = (Join-Path $ReleaseDirectory ".." _data releases $releasePe
 LogDebug "Release File Path [ $releaseFilePath ]"
 LogDebug "Related Yaml File Path [ $pathToRelatedYaml ]"
 
-if (!(Test-Path $releaseFilePath))
-{
-    &(Join-Path $PSScriptRoot Generate-Release-Structure.ps1) -releaseFileName "${releaseFileName}.md"
-}
-
 if (!(Test-Path $pathToRelatedYaml))
 {
     New-Item -Path $pathToRelatedYaml -Force
@@ -129,3 +124,8 @@ foreach ($entry in $filteredReleaseHighlights)
 }
 
 Set-Content -Path $pathToRelatedYaml -Value (ConvertTo-Yaml $existingYamlContent)
+
+if (!(Test-Path $releaseFilePath) -and $existingYamlContent.entries.Count -gt 0)
+{
+    &(Join-Path $PSScriptRoot Generate-Release-Structure.ps1) -releaseFileName "${releaseFileName}.md" -ExcludeFileNames @()
+}
