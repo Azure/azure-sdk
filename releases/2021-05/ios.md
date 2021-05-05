@@ -10,6 +10,7 @@ The Azure SDK team is pleased to announce our May 2021 client library releases.
 
 #### GA
 
+- Azure Communication Services Calling
 - _Add packages_
 
 #### Updates
@@ -37,13 +38,26 @@ To add the Azure SDK for iOS to your application, follow the example in [Importi
 Open your project's `Package.swift` file and add a new package dependency to your project's `dependencies` section, specifying the clone URL of the repository and the version specifier you wish to use:
 
 ```swift
-// Insert dependencies here
+    dependencies: [
+        ...
+        .package(url: "https://github.com/Azure/azure-sdk-for-ios.git", from: "1.0.0")
+    ],
 ```
 
 Next, add each client library you wish to use in a target to the target's array of `dependencies`:
 
 ```swift
-// Insert dependencies here
+    targets: [
+        ...
+        .target(
+            name: "MyTarget",
+            dependencies: [
+                "AzureCommunication",
+                "AzureCommunicationCalling"
+                ...
+            ]
+        )
+    ]
 ```
 
 ### Cocoapods
@@ -59,7 +73,15 @@ $ [sudo] gem install cocoapods
 To integrate one or more client libraries into your project using CocoaPods, specify them in your [Podfile](https://guides.cocoapods.org/using/the-podfile.html), providing the version specifier you wish to use. To ensure compatibility when using multiple client libraries in the same project, use the same version specifier for all Azure SDK client libraries within the project:
 
 ```ruby
-// Insert dependencies here
+platform :ios, '12.0'
+
+# Comment the next line if you don't want to use dynamic frameworks
+use_frameworks!
+
+target 'MyTarget' do
+    pod 'AzureCommunicationCalling', '1.0.1'
+    ...
+end
 ```
 
 Then, run the following command:
@@ -74,11 +96,21 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-### _Version_(_Link to Changelog_)
+### 1.0.1 ([Changelog][Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/master/sdk/communication/AzureCommunicationCalling/CHANGELOG.md#101-2021-05-03))
 
-#### _Package name_
+#### Azure Communication Calling
 
-- Major changes only!
+- [iOS] Missing required key bundle version for 1.0.0 https://github.com/Azure/Communication/issues/278.
+
+### 1.0.0 ([Changelog][Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/master/sdk/communication/AzureCommunicationCalling/CHANGELOG.md#100-2021-04-27))
+
+#### Azure Communication Calling
+
+This is the first General Availability (GA) release.
+
+##### Breaking changes
+- Video removed/added event are not raised when application stops rendering an incoming video.
+- Teams interop and all other preview APIs are no longer available in the mainstream SDK drop. Please use libraries marked with the -beta suffix for these features.
 
 ## Need help
 
