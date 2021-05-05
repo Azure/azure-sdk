@@ -67,4 +67,22 @@ entries:
     - Change artifact id from `spring-cloud-azure-appconfiguration-config-web` to `azure-spring-cloud-appconfiguration-config-web`.
     - Added a new Push based Refresh method. Two Spring Actuator endpoints have been added `appconfiguration-refresh` and `appconfiguration-refresh-bus`. The first triggers the cache to reset on configurations on an application. The second triggers a refresh on all instaces subscribed to the same Service Bus.
   GroupId: com.azure.spring
+- Name: azure-cosmos-spark_3-1_2-12
+  Version: 4.0.0-beta.3
+  DisplayName: azure-cosmos-spark_3-1_2-12
+  ServiceName: ""
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-cosmos-spark_3-1_2-12_4.0.0-beta.3/sdk/cosmos/azure-cosmos-spark_3-1_2-12/CHANGELOG.md#400-beta3-2021-05-05
+  ChangelogContent: |-
+    * Cosmos DB Spark 3.1.1 Connector Preview `4.0.0-beta.3` Release.
+    ##### Configuration Renames
+    * Renamed data source name "cosmos.items" to "cosmos.oltp".
+    * Renamed data source name "cosmos.changeFeed" to "cosmos.oltp.changeFeed".
+    * Configuration renamed. See [Configuration-Reference](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-cosmos-spark_3-1_2-12/docs/configuration-reference.md) for more details.
+
+    ##### Key Bug Fixes
+    * Added validation for all config-settings with a name starting with "spark.cosmos."
+    * Fixed a bug in bulk write causing hang.
+  GroupId: com.azure.cosmos.spark
 
