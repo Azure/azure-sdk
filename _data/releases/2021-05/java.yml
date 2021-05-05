@@ -1,2 +1,70 @@
-entries: []
+entries:
+- Name: azure-spring-cloud-starter-appconfiguration-config
+  Version: 2.0.0-beta.1
+  DisplayName: azure-spring-cloud-starter-appconfiguration-config
+  ServiceName: ""
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-starter-appconfiguration-config_2.0.0-beta.1/sdk/appconfiguration/azure-spring-cloud-starter-appconfiguration-config/CHANGELOG.md#200-beta1-2021-05-04
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Change group id from `com.microsoft.azure` to `com.azure.spring`.
+    - Change artifact id from `spring-cloud-azure-appconfiguration-config` to `azure-spring-cloud-starter-appconfiguration-config`.
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-feature-management-web
+  Version: 2.0.0-beta.1
+  DisplayName: azure-spring-cloud-feature-management-web
+  ServiceName: ""
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-feature-management-web_2.0.0-beta.1/sdk/appconfiguration/azure-spring-cloud-feature-management-web/CHANGELOG.md#200-beta1-2021-05-04
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Change group id from `com.microsoft.azure` to `com.azure.spring`.
+    - Change artifact id from `spring-cloud-azure-feature-management-web` to `azure-spring-cloud-feature-management-web`.
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-feature-management
+  Version: 2.0.0-beta.1
+  DisplayName: azure-spring-cloud-feature-management
+  ServiceName: ""
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-feature-management_2.0.0-beta.1/sdk/appconfiguration/azure-spring-cloud-feature-management/CHANGELOG.md#200-beta1-2021-05-04
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Change group id from `com.microsoft.azure` to `com.azure.spring`.
+    - Change artifact id from `spring-cloud-azure-feature-management` to `azure-spring-cloud-feature-management`.
+    - New Targeting Feature filter has been added.
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-appconfiguration-config
+  Version: 2.0.0-beta.1
+  DisplayName: azure-spring-cloud-appconfiguration-config
+  ServiceName: ""
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-appconfiguration-config_2.0.0-beta.1/sdk/appconfiguration/azure-spring-cloud-appconfiguration-config/CHANGELOG.md#200-beta1-2021-05-04
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Change group id from `com.microsoft.azure` to `com.azure.spring`.
+    - Change artifact id from `spring-cloud-azure-appconfiguration-config` to `azure-spring-cloud-appconfiguration-config`.
+    - Format and options of library configuration has completely changed. See Readme in Starter
+    - Use of a Watch Key is now required see `spring.cloud.azure.appconfiguration.stores[0].monitoring.triggers`
+    - Added support for JSON content type
+    - Feature Management config loading is no longer on by default.
+    - Users can now select multiple groups of keys from one store see `spring.cloud.azure.appconfiguration.stores[0].selects`. Same default select happens as before.
+    - By default, `spring.profiles.active` is used as the label of all filters. This can be overridden using selects. If no profile is set `\0` is used i.e. `(No Label)
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-appconfiguration-config-web
+  Version: 2.0.0-beta.1
+  DisplayName: azure-spring-cloud-appconfiguration-config-web
+  ServiceName: ""
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-appconfiguration-config-web_2.0.0-beta.1/sdk/appconfiguration/azure-spring-cloud-appconfiguration-config-web/CHANGELOG.md#200-beta1-2021-05-04
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Change group id from `com.microsoft.azure` to `com.azure.spring`.
+    - Change artifact id from `spring-cloud-azure-appconfiguration-config-web` to `azure-spring-cloud-appconfiguration-config-web`.
+    - Added a new Push based Refresh method. Two Spring Actuator endpoints have been added `appconfiguration-refresh` and `appconfiguration-refresh-bus`. The first triggers the cache to reset on configurations on an application. The second triggers a refresh on all instaces subscribed to the same Service Bus.
+  GroupId: com.azure.spring
 
