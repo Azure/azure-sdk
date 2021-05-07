@@ -43,4 +43,12 @@ entries:
     #### Fixed
 
     - Consider more mapper types as primitive thus requires wrapping
+- Name: '@azure/cosmos'
+  Version: 3.11.1
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/cosmos_3.11.1/sdk/cosmosdb/cosmos/CHANGELOG.md#3111-2021-05-06
+  ChangelogContent: '- BUGFIX: Import URL from Browser/Node shim rather than built-in module.'
 
