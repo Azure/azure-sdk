@@ -17,4 +17,30 @@ entries:
 
     - Rewrote `bearerTokenAuthenticationPolicy` to use a new backend that refreshes tokens only when they're about to expire and not multiple times before. This is based on a similar fix implemented on `@azure/core-http@1.2.4` ([PR with the changes](https://github.com/Azure/azure-sdk-for-js/pull/14223)). This fixes the issue: [13369](https://github.com/Azure/azure-sdk-for-js/issues/13369).
     - Delay loading of NO_PROXY environment variable until when request pipeline is being created. This fixes [issue 14873](https://github.com/Azure/azure-sdk-for-js/issues/14873)
+- Name: '@azure/core-util'
+  Version: 1.0.0-beta.1
+  DisplayName: Azure Core Utils
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-util_1.0.0-beta.1/sdk/core/core-util/CHANGELOG.md#100-beta1-2021-05-06
+  ChangelogContent: |-
+    #### Features Added
+
+    - First release of package. This package is intended to provide various shared utility functions for client SDK packages.
+- Name: '@azure/core-client'
+  Version: 1.1.1
+  DisplayName: Core - Client
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-client_1.1.1/sdk/core/core-client/CHANGELOG.md#111-2021-05-06
+  ChangelogContent: |-
+    #### Features Added
+
+    - Expose `allowInsecureConnection` in `ServiceClientOptions` and `OperationRequestOptions` to allow operation requests to HTTP endpoints
+
+    #### Fixed
+
+    - Consider more mapper types as primitive thus requires wrapping
 
