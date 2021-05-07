@@ -1,2 +1,13 @@
-entries: []
+entries:
+- Name: Azure.Core
+  Version: 1.14.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.14.0/sdk/core/Azure.Core/CHANGELOG.md#1140-2021-05-11
+  ChangelogContent: |-
+    #### Added
+
+    - Added additional methods to `BearerTokenAuthenticationPolicy`, which enables creation of authentication policies that can handle challenges.
 
