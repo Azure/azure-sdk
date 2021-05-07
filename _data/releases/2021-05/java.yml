@@ -85,4 +85,17 @@ entries:
     * Added validation for all config-settings with a name starting with "spark.cosmos."
     * Fixed a bug in bulk write causing hang.
   GroupId: com.azure.cosmos.spark
+- Name: azure-core-amqp
+  Version: 2.0.5
+  DisplayName: Core - AMQP
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-core-amqp_2.0.5/sdk/core/azure-core-amqp/CHANGELOG.md#205-2021-05-07
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Upgraded `azure-core` from `1.15.0` to `1.16.0`.
+    - Upgraded Reactor from `3.4.3` to `3.4.5`.
+  GroupId: com.azure
 
