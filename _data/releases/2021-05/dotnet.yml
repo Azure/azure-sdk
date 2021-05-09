@@ -1,0 +1,24 @@
+entries:
+- Name: Azure.Core
+  Version: 1.14.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.14.0/sdk/core/Azure.Core/CHANGELOG.md#1140-2021-05-11
+  ChangelogContent: |-
+    #### Added
+
+    - Added additional methods to `BearerTokenAuthenticationPolicy`, which enables creation of authentication policies that can handle challenges.
+- Name: Azure.Security.Attestation
+  Version: 1.0.0
+  DisplayName: Attestation
+  ServiceName: Attestation
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Security.Attestation_1.0.0/sdk/attestation/Azure.Security.Attestation/CHANGELOG.md#100-2021-05-11
+  ChangelogContent: |-
+    #### Changed
+
+    - Final changes for Azure Attestation Service for .Net, including API review feedback. Mostly code cleanups, but significant improvements to the `AttestationToken` class.
+
