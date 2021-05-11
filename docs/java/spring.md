@@ -18,7 +18,7 @@ Providing the Spring ecosystem with a first-class experience is of the utmost im
 
 ### Maven
 
-{% include requirement/MUST id="java-spring-maven-groupid" %} use the group ID of `com.azure`.
+{% include requirement/MUST id="java-spring-maven-groupid" %} use the group ID of `com.azure.spring`.
 
 {% include requirement/MUST id="java-spring-maven-artifactid" %} specify the `artifactId` to be of the form `azure-spring-boot-starter-<group>-<service>[-<feature>]`, for example, `azure-spring-boot-starter-storage-blob` or `azure-spring-boot-starter-security-keyvault-secrets`.
 
