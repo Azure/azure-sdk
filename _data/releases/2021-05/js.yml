@@ -104,4 +104,28 @@ entries:
 
     - Added new System Events: "Microsoft.PolicyInsights.PolicyStateCreated", "Microsoft.PolicyInsights.PolicyStateChanged", "Microsoft.PolicyInsights.PolicyStateDeleted",
       "Microsoft.Storage.AsyncOperationInitiated", "Microsoft.Storage.BlobTierChanged".
+- Name: '@azure/container-registry'
+  Version: 1.0.0-beta.2
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/container-registry_1.0.0-beta.2/sdk/containerregistry/container-registry/CHANGELOG.md#100-beta2-2021-05-11
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new properties to allow easier interaction with other docker tools:
+      - `loginServer` in `ContainerRegistryClient`.
+      - `fullyQualifiedName` in `ContainerRepository`
+    - Added support for anonymous access. See [the service documentation](https://docs.microsoft.com/azure/container-registry/container-registry-faq#how-do-i-enable-anonymous-pull-access) for more information.
+
+    #### Breaking Changes
+
+    The public API surface of this library has been re-designed. Notable changes include
+
+    - Removed: `ContainerRepositoryClient`. Operations on repositories are now grouped in `ContainerRepository` type and operations on artifacts are now in `RegistryArtifact` type. Some `*Options` types are also renamed accordingly.
+    - Renamed: `endpoint` property is renamed to `registryUrl`.
+    - Renamed: `listRepositories()` is renamed to `listRepositoryNames()` in `ContainerRegistryClient`.
+    - Renamed: "RegistryArtifact" in property or function names replaced by "Manifest".
+    - Renamed: `*OrderBy` values is now capitalized as `timeDesc` and `timeAsc`. Previously they are all in lower case.
 
