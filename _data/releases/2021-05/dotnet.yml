@@ -54,4 +54,86 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Data.Tables_12.0.0-beta.8/sdk/tables/Azure.Data.Tables/CHANGELOG.md#1200-beta8-2021-05-11
   ChangelogContent: "#### Breaking Changes\r\n\r\n- Eliminated the `TableTransactionalBatch` type and added the `TableTransactionAction` type.\r\n  - Submitting a batch transaction is now accomplished via the `TableClient.SubmitTransaction` or `TableClient.SubmitTransactionAsync` methods which accepts\r\n    an `IEnumerable<TableTransactionAction>`.\r\n- `TableClient.SubmitTransaction` and `TableClient.SubmitTransactionAsync` now return `Response<IReadOnlyList<Response>>` rather than `TableBatchResponse`.\r\n  - `TableBatchResponse.GetResponseForEntity` is no longer necessary as the responses can now be correlated directly between the `Response<IReadOnlyList<Response>>`\r\n    and the list of `TableTransactionAction`s provided to the submit method.\r\n    \r\n#### Changed\r\n- Failed batch transaction operations now throw `TableTransactionFailedException` which contains a `FailedTransactionActionIndex` property to indicate which \r\n`TableTransactionAction` caused the failure.\r\n  \r\n#### Added\r\n\r\n- Added `TableOdataFilter` to assist with odata string filter quoting and escaping.\r\n\r\n#### Key Bug Fixes\r\n\r\n- Merge operations no longer fail for Cosmos table endpoints."
+- Name: Azure.Analytics.Synapse.AccessControl
+  Version: 1.0.0-preview.4
+  DisplayName: Synapse - AccessControl
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.Synapse.AccessControl_1.0.0-preview.4/sdk/synapse/Azure.Analytics.Synapse.AccessControl/CHANGELOG.md#100-preview4-2021-05-11
+  ChangelogContent: |-
+    #### Key Bug Fixes
+    - Updated dependency versions.
+- Name: Azure.Analytics.Synapse.Artifacts
+  Version: 1.0.0-preview.9
+  DisplayName: Synapse - Artifacts
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.Synapse.Artifacts_1.0.0-preview.9/sdk/synapse/Azure.Analytics.Synapse.Artifacts/CHANGELOG.md#100-preview9-2021-05-11
+  ChangelogContent: |-
+    #### Key Bug Fixes
+    - Updated dependency versions.
+    - Improved deserialization of optional parameters (https://github.com/Azure/azure-sdk-for-net/issues/20051)
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.4.1
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.EventHubs.Processor_5.4.1/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md#541-2021-05-11
+  ChangelogContent: |-
+    #### Changes
+
+    ##### New Features
+
+    - The processor will now perform validation of core configuration and permissions at startup, in order to attempt to detect unrecoverable problems more deterministically.  Validation is non-blocking and will not delay claiming of partitions.  One important note is that validation should be considered point-in-time and best effort; it is not meant to replace monitoring of error handler activity.
+
+    - Partition initialization has been moved to a background operation.  This will allow partitions to be more efficiently managed and speed up ownership claims, especially when using the `LoadBalancingStrategy.Greedy` configuration or when the processor is recovering from some error conditions.
+
+    ##### Key Bug Fixes
+
+    - Dependencies have been updated to resolve security warnings for CVE-2021-26701. _(The Event Hubs client library does not make use of the vulnerable components, directly or indirectly)_
+
+    - The processor will no longer inappropriately determine that it should attempt to steal partitions from itself or when the load is balanced but there is an uneven ownership distribution.  Previously, stealing was attempted but no candidates were found, leading to log spam but no interruption in processing.
+- Name: Azure.Search.Documents
+  Version: 11.3.0-beta.2
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Search.Documents_11.3.0-beta.2/sdk/search/Azure.Search.Documents/CHANGELOG.md#1130-beta2-2021-05-11
+  ChangelogContent: |-
+    #### Added
+    - Added support for [Semantic Search](https://docs.microsoft.com/azure/search/semantic-search-overview).
+- Name: Azure.Analytics.Synapse.Spark
+  Version: 1.0.0-preview.6
+  DisplayName: Synapse - Spark
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.Synapse.Spark_1.0.0-preview.6/sdk/synapse/Azure.Analytics.Synapse.Spark/CHANGELOG.md#100-preview6-2021-05-11
+  ChangelogContent: |-
+    #### Key Bug Fixes
+    - Updated dependency versions.
+- Name: Azure.Analytics.Synapse.Monitoring
+  Version: 1.0.0-beta.3
+  DisplayName: Synapse - Monitoring
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.Synapse.Monitoring_1.0.0-beta.3/sdk/synapse/Azure.Analytics.Synapse.Monitoring/CHANGELOG.md#100-beta3-2021-05-11
+  ChangelogContent: |-
+    #### Key Bug Fixes
+    - Updated dependency versions.
+- Name: Azure.Analytics.Synapse.ManagedPrivateEndpoints
+  Version: 1.0.0-beta.3
+  DisplayName: Synapse - Managed Private Endpoints
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.Synapse.ManagedPrivateEndpoints_1.0.0-beta.3/sdk/synapse/Azure.Analytics.Synapse.ManagedPrivateEndpoints/CHANGELOG.md#100-beta3-2021-05-11
+  ChangelogContent: |-
+    #### Key Bug Fixes
+    - Updated dependency versions.
 
