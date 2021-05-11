@@ -42,7 +42,7 @@ entries:
     - Dependencies have been updated to resolve security warnings for CVE-2021-26701. _(The Event Hubs client library does not make use of the vulnerable components, directly or indirectly)_
 
 
-    - Event Hubs client types will now react more deterministically when a shared connection was closed while still in use.  Previously, the exception surfaced varied based on internal state.  Now, an `EventHubsException` with `FailureReason.ClientClosed` and an appropriate message will be thrown.
+    - Event Hubs client types will now surface a consistent exception when a shared connection was closed while still in use.
 
     - `EventProcessor<TPartition>` will no longer inappropriately determine that it should attempt to steal partitions from itself or when the load is balanced but there is an uneven ownership distribution.  Previously, stealing was attempted but no candidates were found, leading to log spam but no interruption in processing.
 - Name: Azure.Data.Tables
