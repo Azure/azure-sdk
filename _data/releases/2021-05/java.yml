@@ -259,4 +259,54 @@ entries:
     - Updated `azure-core-http-netty` from `1.9.1` to `1.9.2`.
     - Updated `azure-core-serializer-json-jackson` from `1.2.2` to `1.2.3`.
   GroupId: com.azure
+- Name: azure-messaging-eventhubs
+  Version: 5.7.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-messaging-eventhubs_5.7.1/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md#571-2021-05-10
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Update `azure-core` dependency to `1.16.0`.
+    - Update `azure-core-amqp` dependency to `2.0.5`.
+  GroupId: com.azure
+- Name: azure-search-documents
+  Version: 11.3.2
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-search-documents_11.3.2/sdk/search/azure-search-documents/CHANGELOG.md#1132-2021-05-11
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Updated `azure-core` from `1.15.0` to `1.16.0`.
+    - Updated `azure-core-http-netty` from `1.9.1` to `1.9.2`.
+    - Updated `azure-core-serializer-json-jackson` from `1.2.2` to `1.2.3`.
+  GroupId: com.azure
+- Name: azure-communication-sms
+  Version: 1.0.1
+  DisplayName: Communication Sms
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-sms_1.0.1/sdk/communication/azure-communication-sms/CHANGELOG.md#101-2021-05-11
+  ChangelogContent: |-
+    #### Bug Fixes
+    - Fixing bugs to support idempotency.
+  GroupId: com.azure
+- Name: azure-messaging-eventhubs-checkpointstore-blob
+  Version: 1.7.0
+  DisplayName: Event Hubs - Azure Blob Storage Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-messaging-eventhubs-checkpointstore-blob_1.7.0/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md#170-2021-05-10
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Update `azure-messaging-eventhubs` dependency to `5.7.1`.
+  GroupId: com.azure
 
