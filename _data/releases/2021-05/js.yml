@@ -51,4 +51,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/cosmos_3.11.1/sdk/cosmosdb/cosmos/CHANGELOG.md#3111-2021-05-06
   ChangelogContent: '- BUGFIX: Import URL from Browser/Node shim rather than built-in module.'
+- Name: '@azure/search-documents'
+  Version: 11.2.0-beta.2
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/search-documents_11.2.0-beta.2/sdk/search/search-documents/CHANGELOG.md#1120-beta2-2021-05-11
+  ChangelogContent: |-
+    - Added Support for Semantic Search and introduced new properties in `SearchOptions`, `SearchRequest`, `SearchResult` and `SearchDocumentsResult` objects.
+    - Added support for Knowledge Store feature through the new `SearchIndexerKnowledgeStore` in the `SearchIndexerSkillset` object.
+    - The `skillsetCounter` property in `ServiceCounters` object has been made optional.
 
