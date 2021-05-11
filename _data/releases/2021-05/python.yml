@@ -91,4 +91,26 @@ entries:
       - Model MapsAccountUpdateParameters has a new signature
       - Model MapsAccountProperties has a new signature
       - Removed operation group PrivateAtlasesOperations
+- Name: azure-search-documents
+  Version: 11.2.0b3
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-search-documents_11.2.0b3/sdk/search/azure-search-documents/CHANGELOG.md#1120b3-2021-05-11
+  ChangelogContent: |-
+    #### New features
+
+    - Added support for knowledge store    #18461
+- Name: azure-synapse-artifacts
+  Version: 0.7.0
+  DisplayName: Synapse - Artifacts
+  ServiceName: Synapse Analytics
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-synapse-artifacts_0.7.0/sdk/synapse/azure-synapse-artifacts/CHANGELOG.md#070-2021-05-11
+  ChangelogContent: |-
+    #### Bug fixes
+
+    - Enable poller when starting a long running operation    #18184
 
