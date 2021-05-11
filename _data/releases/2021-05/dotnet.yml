@@ -43,7 +43,6 @@ entries:
 
 
     - Event Hubs client types will now surface a consistent exception when a shared connection was closed while still in use.
-
 - Name: Azure.Data.Tables
   Version: 12.0.0-beta.8
   DisplayName: Tables
@@ -134,3 +133,38 @@ entries:
   ChangelogContent: |-
     #### Key Bug Fixes
     - Updated dependency versions.
+- Name: Azure.Containers.ContainerRegistry
+  Version: 1.0.0-beta.2
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Containers.ContainerRegistry_1.0.0-beta.2/sdk/containerregistry/Azure.Containers.ContainerRegistry/CHANGELOG.md#100-beta2-2021-05-11
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for accessing ACR anonymously via two new constructors on `ContainerRegistryClient`.
+    - Added caching of the ACR refresh token during the authentication token exchange to reduce per operation network calls to the service.
+    - Updated API to have a single client as an entry point, `ContainerRegistryClient`, with two helper classes, `ContainerRepository` and `RegistryArtifact`, for resource-specific service calls.
+    - Added strongly typed string constants for `ArtifactArchitecture` and `ArtifactOperatingSystem`.
+    - Renamed methods operating on a manifest to have `Manifest` in their names.
+
+    #### Breaking Changes
+    - Removed `ContainerRepositoryClient`.
+    - Renamed `GetRepositories` to `GetRepositoryNames` on `ContainerRegistryClient`.
+- Name: Azure.Storage.ConfidentialLedger
+  Version: 1.0.0-beta.1
+  DisplayName: ConfidentialLedger
+  ServiceName: ConfidentialLedger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.ConfidentialLedger_1.0.0-beta.1/sdk/confidentialledger/Azure.Storage.ConfidentialLedger/CHANGELOG.md#100-beta1-2021-05-11
+  ChangelogContent: '- Initial package'
+- Name: Azure.MixedReality.ObjectAnchors.Conversion
+  Version: 0.2.0-beta.1
+  DisplayName: Azure Object Anchors Conversion
+  ServiceName: Mixed Reality
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.MixedReality.ObjectAnchors.Conversion_0.2.0-beta.1/sdk/objectanchors/Azure.MixedReality.ObjectAnchors.Conversion/CHANGELOG.md#020-beta1-2021-05-11
+  ChangelogContent: '- Added error codes to AssetConversionProperties'
+
