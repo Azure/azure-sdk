@@ -86,7 +86,7 @@ entries:
 
     - `EventProcessor<TPartition>` will now perform validation of core configuration and permissions at startup, in order to attempt to detect unrecoverable problems more deterministically.
 
-- Partition initialization for `EventProcessor<TPartition>` has been optimized for better performance.
+    - Partition initialization for `EventProcessor<TPartition>` has been optimized for better performance.
 
     ##### Key Bug Fixes
 
