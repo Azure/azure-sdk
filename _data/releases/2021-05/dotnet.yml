@@ -41,7 +41,6 @@ entries:
 
     - Dependencies have been updated to resolve security warnings for CVE-2021-26701. _(The Event Hubs client library does not make use of the vulnerable components, directly or indirectly)_
 
-    - Event Hubs client types will now consider some additional exception types as transient when they occur in the context of opening an AMQP connection or link; this allows the client to attempt recovery by discarding the faulted connection and attempting to create a new one.
 
     - Event Hubs client types will now react more deterministically when a shared connection was closed while still in use.  Previously, the exception surfaced varied based on internal state.  Now, an `EventHubsException` with `FailureReason.ClientClosed` and an appropriate message will be thrown.
 
