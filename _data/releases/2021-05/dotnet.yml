@@ -44,7 +44,6 @@ entries:
 
     - Event Hubs client types will now surface a consistent exception when a shared connection was closed while still in use.
 
-    - `EventProcessor<TPartition>` will no longer inappropriately determine that it should attempt to steal partitions from itself or when the load is balanced but there is an uneven ownership distribution.  Previously, stealing was attempted but no candidates were found, leading to log spam but no interruption in processing.
 - Name: Azure.Data.Tables
   Version: 12.0.0-beta.8
   DisplayName: Tables
