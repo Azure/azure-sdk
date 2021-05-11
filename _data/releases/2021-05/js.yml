@@ -62,4 +62,46 @@ entries:
     - Added Support for Semantic Search and introduced new properties in `SearchOptions`, `SearchRequest`, `SearchResult` and `SearchDocumentsResult` objects.
     - Added support for Knowledge Store feature through the new `SearchIndexerKnowledgeStore` in the `SearchIndexerSkillset` object.
     - The `skillsetCounter` property in `ServiceCounters` object has been made optional.
+- Name: '@azure/cosmos'
+  Version: 3.11.2
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/cosmos_3.11.2/sdk/cosmosdb/cosmos/CHANGELOG.md#3112-2021-05-11
+  ChangelogContent: '- BUGFIX: Cache https client between requests.'
+- Name: '@azure/service-bus'
+  Version: 7.1.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/service-bus_7.1.0/sdk/servicebus/service-bus/CHANGELOG.md#710-2021-05-11
+  ChangelogContent: |-
+    #### New Features
+
+    - Adds support for passing `NamedKeyCredential` as the credential type to `ServiceBusClient` and `ServiceBusAdminstrationClient`. Also adds support for passing `SASCredential` to `ServiceBusClient`.
+      These credential types support rotation via their `update` methods and are an alternative to using the `SharedAccessKeyName/SharedAccessKey` or `SharedAccessSignature` properties in a connection string.
+      Resolves [#11891](https://github.com/Azure/azure-sdk-for-js/issues/11891).
+
+    #### Bug fixes
+
+    - [Bug Fix] `expiresAtUtc` is `Invalid Date` in the received message when the ttl is not defined. Has been fixed in [#13543](https://github.com/Azure/azure-sdk-for-js/pull/13543)
+    - Some of the queue properties such as "forwardTo" and "autoDeleteOnIdle" were not being set as requested through the `ServiceBusAdministrationClient.createQueue` method because of a bug w.r.t the ordering of XML properties. The issue has been fixed in [#14692](https://github.com/Azure/azure-sdk-for-js/pull/14692).
+    - Settling messages now use the `retryOptions` passed to `ServiceBusClient`, making it more resilient against network failures.
+      [PR#14867](https://github.com/Azure/azure-sdk-for-js/pull/14867)
+    - Fixes an issue where receiver link recovery/creation could fail, resulting in a receiver that was no longer receiving messages.
+      [PR#15098](https://github.com/Azure/azure-sdk-for-js/pull/15098)
+- Name: '@azure/eventgrid'
+  Version: 4.2.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/eventgrid_4.2.0/sdk/eventgrid/eventgrid/CHANGELOG.md#420-2021-05-11
+  ChangelogContent: |-
+    #### New Features
+
+    - Added new System Events: "Microsoft.PolicyInsights.PolicyStateCreated", "Microsoft.PolicyInsights.PolicyStateChanged", "Microsoft.PolicyInsights.PolicyStateDeleted",
+      "Microsoft.Storage.AsyncOperationInitiated", "Microsoft.Storage.BlobTierChanged".
 
