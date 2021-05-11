@@ -41,7 +41,6 @@ entries:
 
     - Dependencies have been updated to resolve security warnings for CVE-2021-26701. _(The Event Hubs client library does not make use of the vulnerable components, directly or indirectly)_
 
-
     - Event Hubs client types will now surface a consistent exception when a shared connection was closed while still in use.
 - Name: Azure.Data.Tables
   Version: 12.0.0-beta.8
@@ -91,7 +90,6 @@ entries:
     ##### Key Bug Fixes
 
     - Dependencies have been updated to resolve security warnings for CVE-2021-26701. _(The Event Hubs client library does not make use of the vulnerable components, directly or indirectly)_
-
 - Name: Azure.Search.Documents
   Version: 11.3.0-beta.2
   DisplayName: Cognitive Search
