@@ -35,7 +35,7 @@ entries:
 
     - `EventProcessor<TPartition>` will now perform validation of core configuration and permissions at startup, in order to attempt to detect unrecoverable problems more deterministically.
 
-    - Partition initialization for `EventProcessor<TPartition>` has been moved to a background operation.  This will allow partitions to be more efficiently managed and speed up ownership claims, especially when using the `LoadBalancingStrategy.Greedy` configuration or when the processor is recovering from some error conditions.
+    - Partition initialization for `EventProcessor<TPartition>` has been optimized for better performance.
 
     ##### Key Bug Fixes
 
