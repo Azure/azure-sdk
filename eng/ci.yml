@@ -26,6 +26,8 @@ steps:
   displayName: Cache gems
 
 - script: |
+    ruby --version
+    gem install bundler
     bundle install
   displayName: Install project dependencies
   workingDirectory: azure-sdk
