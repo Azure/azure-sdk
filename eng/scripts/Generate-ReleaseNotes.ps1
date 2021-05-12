@@ -1,46 +1,65 @@
 param (
   [string]$releasePeriod,
-  [string]$languageRepoDirectory,
+  [string]$commonScriptPath,
   [string]$releaseDirectory,
-  [string]$releaseFileName
+  [string]$repoLanguage,
+  [string]$changedPackagesPath
 )
 
-# Filters out packages if the versions are not found in the packages.csv file.
-# Also appends DisplayName and ServiceName to the releaseHighlights
-function FilterOut-UnreleasedPackages ($releaseHighlights)
+function GetReleaseNotesData ($changedPackages)
 {
-    $results = @()
-
-    foreach ($key in $releaseHighlights.Keys)
+    $entries = New-Object "System.Collections.Generic.List[System.Collections.Specialized.OrderedDictionary]"
+    foreach ($package in $changedPackages)
     {
-        $keyInfo = $key.Split(":")
-        $packageName = $keyInfo[0]
-        $releaseVersion = $keyInfo[1]
-        $packageGroupId = $releaseHighlights[$key]["PackageProperties"].Group
-
-        $packageMetaData = $CsvMetaData.Where({ ($_.Package -eq $packageName) -and
-             ($_.GroupId -eq $packageGroupId) -and ($_.Hide -ne "true") })
-
-        if ($packageMetaData.Count -eq 1)
+        if ($package.Language -ne $repoLanguage)
         {
-            $sortedVersions = [AzureEngSemanticVersion]::SortVersionStrings(@($releaseVersion, $packageMetaData.VersionGA, $packageMetaData.VersionPreview))
+            continue
+        }
 
-            if (($sortedVersions[0] -eq $releaseVersion) -and ($releaseVersion -ne $packageMetaData.VersionGA) -and ($releaseVersion -ne $packageMetaData.VersionPreview))
+        $changelogBlobLink = "$($package.SourceUrl)/CHANGELOG.md"
+        $changelogRawLink = $changelogBlobLink -replace "https://github.com/(.*)/(tree|blob)", "https://raw.githubusercontent.com/`$1"
+        try
+        { 
+            $changelogContent = Invoke-RestMethod -Method GET -Uri $changelogRawLink -MaximumRetryCount 2
+        }
+        catch
+        {
+            # Skip if the changelog Url is invalid
+            LogWarning "Failed to get content from ${changelogRawLink}"
+            LogWarning "ReleaseNotes will not be collected for $($package.Package) : $($package.UpdatedVersion). Please add entry manually."
+            continue
+        }
+
+        $changeLogEntries = Get-ChangeLogEntriesFromContent -changeLogContent $changelogContent
+        $updatedVersionEntry = $changeLogEntries[$package.UpdatedVersion]
+
+        if ($updatedVersionEntry)
+        {
+            $packageSemVer = [AzureEngSemanticVersion]::ParseVersionString($package.UpdatedVersion)
+            $releaseEntryContent = @()
+
+            if ($changeLogEntry.ReleaseContent)
             {
-                continue
-                LogDebug "[ $packageName ] with version  [$releaseVersion ] was skipped because it has a newer release version than present in the package csv"
+                # Bumping all MD headers by one level to fit in with the release template structure.
+                $changeLogEntry.ReleaseContent | %{
+                    $line = $_
+                    if ($line.StartsWith("#"))
+                    {
+                        $line = "#${line}"
+                    }
+                    $releaseEntryContent += $line
+                }
             }
-            $packageSemVer = [AzureEngSemanticVersion]::ParseVersionString($releaseVersion)
 
             $entry = [ordered]@{
-                Name = $packageName
-                Version = $releaseVersion
-                DisplayName = $packageMetaData.DisplayName
-                ServiceName = $packageMetaData.ServiceName
+                Name = $package.Package
+                Version = $package.UpdatedVersion
+                DisplayName = $package.DisplayName
+                ServiceName = $package.ServiceName
                 VersionType = $packageSemVer.VersionType
                 Hidden = $false
-                ChangelogUrl = $releaseHighlights[$key].ChangelogUrl
-                ChangelogContent = ($releaseHighlights[$key].Content | Out-String).Trim()
+                ChangelogUrl = $changelogBlobLink
+                ChangelogContent = ($releaseEntryContent | Out-String).Trim()
             }
 
             if (!$entry.DisplayName)
@@ -48,36 +67,20 @@ function FilterOut-UnreleasedPackages ($releaseHighlights)
                 $entry.DisplayName = $entry.Name
             }
 
-            if ($packageGroupId)
+            if ($package.PSObject.Members.Name -contains "GroupId")
             {
-                $entry.Add("GroupId", $packageGroupId)
+                $entry.Add("GroupId", $package.GroupId)
             }
-
-            $results += $entry
-        }
-        else
-        {
-            LogDebug "[ $packageName ] with version  [ $releaseVersion ] was skipped because there are duplicate versions in the package csv"
+            $entries.Add($entry)
         }
     }
-    return $results
+    return $entries
 }
 
-if (!(Test-Path $LanguageRepoDirectory))
-{
-  Write-Error "Path [ $LanguageRepoDirectory ] not found."
-  exit 1
-}
-Write-Host "Repo Path $LanguageRepoDirectory"
+. (Join-Path $commonScriptPath ChangeLog-Operations.ps1)
+. (Join-Path $commonScriptPath SemVer.ps1)
 
-$commonScriptsPath = (Join-Path $LanguageRepoDirectory eng common scripts)
-$commonScript = (Join-Path $commonScriptsPath common.ps1)
-Write-Host "Common Script $commonScript"
-
-. $commonScript
-$CsvMetaData = Get-CSVMetadata -MetadataUri "https://raw.githubusercontent.com/azure-sdk/azure-sdk/PackageVersionUpdates/_data/releases/latest/${releaseFileName}-packages.csv"
-
-$pathToRelatedYaml = (Join-Path $ReleaseDirectory ".." _data releases $releasePeriod "${releaseFileName}.yml")
+$pathToRelatedYaml = (Join-Path $ReleaseDirectory ".." _data releases $releasePeriod "${repoLanguage}.yml")
 LogDebug "Related Yaml File Path [ $pathToRelatedYaml ]"
 
 if (!(Test-Path $pathToRelatedYaml))
@@ -93,32 +96,28 @@ Register-PSRepository -Name azure-sdk-tools-feed -SourceLocation $ToolsFeed -Pub
 Install-Module -Repository azure-sdk-tools-feed powershell-yaml
 
 $existingYamlContent = ConvertFrom-Yaml (Get-Content $pathToRelatedYaml -Raw) -Ordered
-$collectChangelogPath = (Join-Path $commonScriptsPath Collect-ChangeLogs.ps1)
 
-$incomingReleaseHighlights = &$collectChangelogPath -FromDate ([Datetime]$releasePeriod)
+$changedPackages = Get-Content -Path $changedPackagesPath | ConvertFrom-Json
+$incomingReleaseEntries = GetReleaseNotesData -changedPackages $changedPackages
+$filteredEntries = New-Object "System.Collections.Generic.List[System.Collections.Specialized.OrderedDictionary]"
 
 if($existingYamlContent.entries)
 {
-    foreach ($key in @($incomingReleaseHighlights.Keys))
+    foreach ($entry in $incomingReleaseEntries)
     {
-        $presentKey = $existingYamlContent.entries.Where( { ($_.name + ':' + $_.version) -eq $key } )
+        $presentKey = $existingYamlContent.entries.Where( { ($_.name -eq $entry.name) -and ($_.version -eq $entry.version) } )
         if ($presentKey.Count -gt 0)
         {
-            $incomingReleaseHighlights.Remove($key)
+            continue
         }
+        $filteredEntries.Add($entry)
     }
 }
-
-$filteredReleaseHighlights = FilterOut-UnreleasedPackages -releaseHighlights $incomingReleaseHighlights
-
-if ($null -eq $existingYamlContent.entries)
+else 
 {
-    $existingYamlContent.entries = New-Object "System.Collections.Generic.List[System.Collections.Specialized.OrderedDictionary]"
+    $filteredEntries = $incomingReleaseEntries
 }
 
-foreach ($entry in $filteredReleaseHighlights)
-{
-    $existingYamlContent.entries += $entry
-}
+$existingYamlContent.entries = $filteredEntries
 
 Set-Content -Path $pathToRelatedYaml -Value (ConvertTo-Yaml $existingYamlContent)
