@@ -27,7 +27,7 @@ steps:
 
 - task: UseRubyVersion@0
   inputs:
-    versionSpec: '>= 2.7'
+    versionSpec: '2.7.x'
   displayName: Initialize Ruby
 
 - script: |
