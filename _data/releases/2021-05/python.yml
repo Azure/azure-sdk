@@ -239,4 +239,18 @@ entries:
   ChangelogContent: |-
     **New Features**
       - Added new event names to the `SystemEventNames` enum.
+- Name: azure-containerregistry
+  Version: 1.0.0b2
+  DisplayName: azure-containerregistry
+  ServiceName: containerregistry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-containerregistry_1.0.0b2/sdk/containerregistry/azure-containerregistry/CHANGELOG.md#100b2-2021-05-11
+  ChangelogContent: |-
+    * Rename `DeletedRepositoryResult` to `DeleteRepositoryResult`
+    * Rename `DeletedRepositoryResult.deleted_registry_artifact_digests` to `deleted_manifests`
+    * Rename `TagProperties` to `ArtifactTagProperties`
+    * Rename `ContentPermissions` to `ContentProperties`
+    * Rename `content_permissions` attributes on `TagProperties`, `RepositoryProperties`, and `RegistryArtifactProperties` to `writeable_properties`.
+    * Adds anonymous access capabilities to client by passing in `None` to credential.
 
