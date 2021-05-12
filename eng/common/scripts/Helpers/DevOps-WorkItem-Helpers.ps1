@@ -107,9 +107,7 @@ function FindLatestPackageWorkItem($lang, $packageName, $outputCommand = $true)
       continue
     }
 
-    # Note this only does string sorting which is enough for our current usages
-    # if we need absolute sorting at some point we would need to parse these versions
-    if ($wi.fields["Custom.PackageVersionMajorMinor"] -gt $latestWI.fields["Custom.PackageVersionMajorMinor"]) {
+    if (($wi.fields["Custom.PackageVersionMajorMinor"] -as [Version]) -gt ($latestWI.fields["Custom.PackageVersionMajorMinor"] -as [Version])) {
       $latestWI = $wi
     }
   }
@@ -165,8 +163,8 @@ function FindPackageWorkItem($lang, $packageName, $version, $outputCommand = $tr
 
   $workItems = Invoke-AzBoardsCmd "query" $parameters $outputCommand
 
-  if ($workItems -and $workItems.Count -eq 1000) {
-    Write-Warning "Retrieved the max of 1000 items so item list might not be complete."
+  if ($workItems -and $workItems.Count -gt 1000) {
+    Write-Warning "Retrieved $($workItems.Count) work items which might cause some paging issues given the query is generally limited to 1000."
   }
 
   foreach ($wi in $workItems)
@@ -316,8 +314,13 @@ function FindOrCreateClonePackageWorkItem($lang, $pkg, $verMajorMinor, $allowPro
         $pkg.RepoPath = $pkg.fields["Custom.PackageRepoPath"]
       }
 
-      $extraFields += "`"Generated=" + $latestVersionItem.fields["Custom.Generated"] + "`""
-      $extraFields += "`"RoadmapState=" +  $latestVersionItem.fields["Custom.RoadmapState"] + "`""
+      if ($latestVersionItem.fields["Custom.Generated"]) {
+        $extraFields += "`"Generated=" + $latestVersionItem.fields["Custom.Generated"] + "`""
+      }
+
+      if ($latestVersionItem.fields["Custom.RoadmapState"]) {
+        $extraFields += "`"RoadmapState=" +  $latestVersionItem.fields["Custom.RoadmapState"] + "`""
+      }
     }
 
     if ($allowPrompt) {
