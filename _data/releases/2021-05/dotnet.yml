@@ -339,4 +339,12 @@ entries:
   ChangelogContent: |-
     - Added ability to specify server timeout.
     - Deprecated property AccountSasBuilder.Version, so when generating SAS will always use the latest Storage Service SAS version.
+- Name: Azure.Identity
+  Version: 1.4.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Identity_1.4.0/sdk/identity/Azure.Identity/CHANGELOG.md#140-2021-05-12
+  ChangelogContent: "#### New Features\r\n\r\n- By default, the MSAL Public Client Client Capabilities are populated with \"CP1\" to enable support for [Continuous Access Evaluation (CAE)](https://docs.microsoft.com/azure/active-directory/develop/app-resilience-continuous-access-evaluation).\r\nThis indicates to AAD that your application is CAE ready and can handle the CAE claim challenge. This capability can be disabled, if necessary, by either setting an `AppContext` switch named \"Azure.Identity.DisableCP1\" to `true` or by setting the environment variable;\r\n\"AZURE_IDENTITY_DISABLE_CP1\" to \"true\". Note: AppContext switches can also be configured via configuration like below:\r\n  \r\n```xml  \r\n<ItemGroup>\r\n    <RuntimeHostConfigurationOption Include=\"Azure.Identity.DisableCP1\" Value=\"true\" />\r\n</ItemGroup> \r\n  ```\r\n#### Fixes and improvements\r\n\r\n- The Microsoft Authentication Library (MSAL) dependency versions have been updated to the latest\r\n    - Microsoft.Identity.Client version 4.30.1, Microsoft.Identity.Client.Extensions.Msal version 2.18.4."
 
