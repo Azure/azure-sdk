@@ -229,4 +229,14 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-confidentialledger_1.0.0b1/sdk/confidentialledger/azure-confidentialledger/CHANGELOG.md#100b1-2021-05-12
   ChangelogContent: '- This is the initial release of the Azure Confidential Ledger library.'
+- Name: azure-eventgrid
+  Version: 4.2.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-eventgrid_4.2.0/sdk/eventgrid/azure-eventgrid/CHANGELOG.md#420-2021-05-12
+  ChangelogContent: |-
+    **New Features**
+      - Added new event names to the `SystemEventNames` enum.
 
