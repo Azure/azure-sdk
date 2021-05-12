@@ -41,33 +41,6 @@ function CheckLink($url, $showWarningIfMissing=$true)
   return $false
 }
 
-function GetTemplateValue($linkTemplates, $templateName, $packageName = $null, $version = $null, $repoPath = $null, $groupId = $null)
-{
-  $replacedString = $linkTemplates[$templateName]
-
-  if ($packageName) {
-    $packageTrim = $linkTemplates["package_trim"]
-    $trimmedPackageName = $pkg.Package -replace "^$packageTrim", ""
-
-    $replacedString = $replacedString -replace "item.Package", $packageName
-    $replacedString = $replacedString -replace "item.TrimmedPackage", $trimmedPackageName
-  }
-
-  if ($version) {
-    $replacedString = $replacedString -replace "item.Version", $version
-  }
-
-  if ($repoPath) {
-    $replacedString = $replacedString -replace "item.RepoPath", $repoPath
-  }
-
-  if ($groupId) {
-    $replacedString = $replacedString -replace "item.GroupId", $groupId
-  }
-
-  return $replacedString
- }
-
 function CheckOptionalLinks($linkTemplates, $pkg, $skipIfNA = $false)
 {
   if (!$checkDocLinks) {
@@ -77,8 +50,8 @@ function CheckOptionalLinks($linkTemplates, $pkg, $skipIfNA = $false)
     return
   }
 
-  $preSuffix = GetTemplateValue $linkTemplates "pre_suffix"
-  $msdocLink = GetTemplateValue $linkTemplates "msdocs_url_template" $pkg.Package
+  $preSuffix = GetLinkTemplateValue $linkTemplates "pre_suffix"
+  $msdocLink = GetLinkTemplateValue $linkTemplates "msdocs_url_template" $pkg.Package
 
   if (!$pkg.VersionGA -and $pkg.VersionPreview -and $preSuffix) {
     $msdocLink += $preSuffix
@@ -98,11 +71,11 @@ function CheckOptionalLinks($linkTemplates, $pkg, $skipIfNA = $false)
 
   $ghdocvalid = ($pkg.VersionGA -or $pkg.VersionPreview)
   if ($pkg.VersionGA) {
-    $ghlink = GetTemplateValue $linkTemplates "ghdocs_url_template" $pkg.Package $pkg.VersionGA
+    $ghlink = GetLinkTemplateValue $linkTemplates "ghdocs_url_template" $pkg.Package $pkg.VersionGA
     $ghdocvalid = $ghdocvalid -and (CheckLink $ghlink $false)
   }
   if ($pkg.VersionPreview) {
-    $ghlink = GetTemplateValue $linkTemplates "ghdocs_url_template" $pkg.Package $pkg.VersionPreview
+    $ghlink = GetLinkTemplateValue $linkTemplates "ghdocs_url_template" $pkg.Package $pkg.VersionPreview
     $ghdocvalid = $ghdocvalid -and (CheckLink $ghlink $false)
   }
 
@@ -119,7 +92,7 @@ function CheckOptionalLinks($linkTemplates, $pkg, $skipIfNA = $false)
 
 function CheckRequiredLinks($linkTemplates, $pkg, $version)
 {
-  $srcLink = GetTemplateValue $linkTemplates "source_url_template" $pkg.Package $version $pkg.RepoPath
+  $srcLink = GetLinkTemplateValue $linkTemplates "source_url_template" $pkg.Package $version $pkg.RepoPath
   $valid = $true;
   if (!$pkg.RepoPath.StartsWith("http")) {
     $valid = $valid -and (CheckLink $srcLink)
@@ -131,7 +104,7 @@ function CheckRequiredLinks($linkTemplates, $pkg, $version)
     $groupId = $pkg.GroupId
   }
 
-  $pkgLink = GetTemplateValue $linkTemplates "package_url_template" $pkg.Package $version $pkg.RepoPath $groupId
+  $pkgLink = GetLinkTemplateValue $linkTemplates "package_url_template" $pkg.Package $version $pkg.RepoPath $groupId
 
   $valid = $valid -and (CheckLink $pkgLink)
   return $valid
@@ -245,16 +218,7 @@ function OutputVersions($lang)
   $clientPackages, $global:otherPackages = Get-PackageListForLanguageSplit $lang
 
   $langVersions = GetPackageVersions $lang
-  $langLinkTemplates = @{ }
-
-  $releaseVariableFolder = Resolve-Path "$PSScriptRoot\..\..\_includes\releases\variables\"
-  $releaseVariableContent = Get-Content (Join-Path $releaseVariableFolder "$lang.md")
-  $releaseVariableContent | ForEach-Object {
-    if ($_ -match "{%\s*assign\s*(?<name>\S+)\s*=\s*`"(?<value>\S*)`"\s+%}") {
-      $langLinkTemplates[$matches["name"]] = $matches["value"]
-      Write-Verbose ("" + $matches["name"] + " = [" + $matches["value"] + "]")
-    }
-  }
+  $langLinkTemplates = GetLinkTemplates $lang
 
   Update-Packages $lang $clientPackages $langVersions $langLinkTemplates
 

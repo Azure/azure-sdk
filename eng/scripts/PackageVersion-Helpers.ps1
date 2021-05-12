@@ -2,11 +2,14 @@
 
 function GetCommitterDate($shaUrl)
 {
+  $GithubHeaders = @{}
   if (!$github_pat) {
-    throw "github_pat was not set so we cannot retrieve git tag information"
+    Write-Warning "github_pat was not set so retrieving tag information might be rate-limited"
   }
-  $GithubHeaders = @{
-    Authorization = "bearer ${github_pat}"
+  else {
+    $GithubHeaders = @{
+      Authorization = "bearer ${github_pat}"
+    }
   }
 
   try
@@ -33,13 +36,17 @@ function GetCommitterDate($shaUrl)
     return $null
   }
 }
+
 function GetExistingTags($apiUrl)
 {
+  $GithubHeaders = @{}
   if (!$github_pat) {
-    throw "github_pat was not set so we cannot retrieve git tag information"
+    Write-Warning "github_pat was not set so retrieving tag information might be rate-limited"
   }
-  $GithubHeaders = @{
-    Authorization = "bearer ${github_pat}"
+  else {
+    $GithubHeaders = @{
+      Authorization = "bearer ${github_pat}"
+    }
   }
 
   try
