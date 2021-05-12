@@ -129,4 +129,96 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-purview-scanning_1.0.0b1/sdk/purview/azure-purview-scanning/CHANGELOG.md#100b1-2021-05-11
   ChangelogContent: '- This is the initial release of the Azure Purview Scanning library.'
+- Name: azure-mgmt-cosmosdb
+  Version: 6.3.0b1
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-cosmosdb_6.3.0b1/sdk/cosmos/azure-mgmt-cosmosdb/CHANGELOG.md#630b1-2021-05-10
+  ChangelogContent: |-
+    **Features**
+
+      - Model CassandraKeyspaceGetResults has a new parameter identity
+      - Model TableCreateUpdateParameters has a new parameter identity
+      - Model CassandraTableGetResults has a new parameter identity
+      - Model MongoDBDatabaseGetResults has a new parameter identity
+      - Model SqlStoredProcedureGetResults has a new parameter identity
+      - Model TableGetResults has a new parameter identity
+      - Model SqlTriggerGetResults has a new parameter identity
+      - Model SqlTriggerCreateUpdateParameters has a new parameter identity
+      - Model SqlContainerGetResults has a new parameter identity
+      - Model SqlUserDefinedFunctionCreateUpdateParameters has a new parameter identity
+      - Model SqlContainerCreateUpdateParameters has a new parameter identity
+      - Model PeriodicModeProperties has a new parameter backup_storage_redundancy
+      - Model MongoDBCollectionCreateUpdateParameters has a new parameter identity
+      - Model SqlDatabaseCreateUpdateParameters has a new parameter identity
+      - Model GremlinGraphCreateUpdateParameters has a new parameter identity
+      - Model GremlinGraphGetResults has a new parameter identity
+      - Model GremlinDatabaseCreateUpdateParameters has a new parameter identity
+      - Model ThroughputSettingsUpdateParameters has a new parameter identity
+      - Model MongoDBDatabaseCreateUpdateParameters has a new parameter identity
+      - Model ThroughputSettingsGetResults has a new parameter identity
+      - Model CassandraKeyspaceCreateUpdateParameters has a new parameter identity
+      - Model SqlStoredProcedureCreateUpdateParameters has a new parameter identity
+      - Model MongoDBCollectionGetResults has a new parameter identity
+      - Model CassandraTableCreateUpdateParameters has a new parameter identity
+      - Model SqlUserDefinedFunctionGetResults has a new parameter identity
+      - Model SqlDatabaseGetResults has a new parameter identity
+      - Model ARMResourceProperties has a new parameter identity
+      - Model GremlinDatabaseGetResults has a new parameter identity
+      - Model DatabaseAccountGetResults has a new parameter instance_id
+      - Model DatabaseAccountGetResults has a new parameter restore_parameters
+      - Model DatabaseAccountGetResults has a new parameter system_data
+      - Model DatabaseAccountGetResults has a new parameter create_mode
+      - Added operation SqlResourcesOperations.begin_create_update_sql_role_assignment
+      - Added operation SqlResourcesOperations.begin_retrieve_continuous_backup_information
+      - Added operation SqlResourcesOperations.begin_delete_sql_role_assignment
+      - Added operation SqlResourcesOperations.begin_create_update_sql_role_definition
+      - Added operation SqlResourcesOperations.list_sql_role_definitions
+      - Added operation SqlResourcesOperations.begin_delete_sql_role_definition
+      - Added operation SqlResourcesOperations.list_sql_role_assignments
+      - Added operation SqlResourcesOperations.get_sql_role_assignment
+      - Added operation SqlResourcesOperations.get_sql_role_definition
+      - Added operation group CassandraDataCentersOperations
+      - Added operation group RestorableSqlContainersOperations
+      - Added operation group CassandraClustersOperations
+      - Added operation group RestorableMongodbResourcesOperations
+      - Added operation group RestorableMongodbDatabasesOperations
+      - Added operation group RestorableDatabaseAccountsOperations
+      - Added operation group RestorableMongodbCollectionsOperations
+      - Added operation group CosmosDBManagementClientOperationsMixin
+      - Added operation group RestorableSqlResourcesOperations
+      - Added operation group ServiceOperations
+      - Added operation group RestorableSqlDatabasesOperations
+
+    **Breaking changes**
+
+      - Model DatabaseAccountCreateUpdateParameters has a new signature
+- Name: azure-mgmt-billing
+  Version: 6.0.0
+  DisplayName: Resource Management - Billing
+  ServiceName: Cost Management + Billing
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-billing_6.0.0/sdk/billing/azure-mgmt-billing/CHANGELOG.md#600-2021-05-12
+  ChangelogContent: |-
+    **Features**
+
+      - Model InvoiceSectionListResult has a new parameter total_count
+      - Model OperationDisplay has a new parameter description
+      - Model BillingSubscriptionsListResult has a new parameter total_count
+      - Model BillingAccountUpdateRequest has a new parameter notification_email_address
+      - Model EnrollmentAccount has a new parameter account_owner_email
+      - Model CustomerListResult has a new parameter total_count
+      - Model Operation has a new parameter is_data_action
+      - Model BillingAccount has a new parameter notification_email_address
+      - Model AddressDetails has a new parameter middle_name
+      - Model BillingProfile has a new parameter tags
+      - Model EnrollmentPolicies has a new parameter marketplace_enabled
+      - Added operation group ReservationsOperations
+
+    **Breaking changes**
+
+      - Model EnrollmentPolicies no longer has parameter marketplaces_enabled
 
