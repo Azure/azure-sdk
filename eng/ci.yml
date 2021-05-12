@@ -25,8 +25,8 @@ steps:
     path: $(BUNDLE_PATH)
   displayName: Cache gems
 
-- task: UseRubyVersion@0
-  displayName: Initialize Ruby
+#- task: UseRubyVersion@0
+#  displayName: Initialize Ruby
 
 - script: |
     gem install bundler
