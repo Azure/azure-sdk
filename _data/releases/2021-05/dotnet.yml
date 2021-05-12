@@ -99,7 +99,8 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Search.Documents_11.3.0-beta.2/sdk/search/Azure.Search.Documents/CHANGELOG.md#1130-beta2-2021-05-11
   ChangelogContent: |-
     #### Added
-    - Added support for [Semantic Search](https://docs.microsoft.com/azure/search/semantic-search-overview).
+    - Added support for [Semantic Search](https://docs.microsoft.com/azure/search/semantic-search-overview), which is a collection of query-related capabilities that add semantic relevance and language understanding to search results.
+    - Added support for [Knowledge Store](https://docs.microsoft.com/azure/search/knowledge-store-concept-intro), which is a feature of Azure Cognitive Search that persists output from an AI enrichment pipeline for independent analysis or downstream processing.
 - Name: Azure.Analytics.Synapse.Spark
   Version: 1.0.0-preview.6
   DisplayName: Synapse - Spark
@@ -260,4 +261,3 @@ entries:
     #### Changed
 
     - Updated dependency versions
-
