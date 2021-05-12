@@ -17,10 +17,12 @@ if (!(Get-Command az -ErrorAction SilentlyContinue)) {
   exit 1
 }
 
-az account show *> $null
-if (!$?) {
-  Write-Host 'Running az login...'
-  az login *> $null
+if (!$devops_pat) {
+  az account show *> $null
+  if (!$?) {
+    Write-Host 'Running az login...'
+    az login *> $null
+  }
 }
 
 az extension show -n azure-devops *> $null
