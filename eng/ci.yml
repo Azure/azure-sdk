@@ -29,8 +29,8 @@ steps:
   displayName: Initialize Ruby
 
 - script: |
-    gem install jekyll bundler
-  displayName: Install jekyll and bundler
+    gem install bundler
+  displayName: Install bundler
   workingDirectory: azure-sdk
 
 - script: |
