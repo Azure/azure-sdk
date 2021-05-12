@@ -128,4 +128,20 @@ entries:
     - Renamed: `listRepositories()` is renamed to `listRepositoryNames()` in `ContainerRegistryClient`.
     - Renamed: "RegistryArtifact" in property or function names replaced by "Manifest".
     - Renamed: `*OrderBy` values is now capitalized as `timeDesc` and `timeAsc`. Previously they are all in lower case.
+- Name: '@azure-rest/purview-scanning'
+  Version: 1.0.0-beta.1
+  DisplayName: Azure Purview Scanning
+  ServiceName: Azure Purview Scanning
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure-rest/purview-scanning_1.0.0-beta.1/sdk/purview/purview-scanning-rest/CHANGELOG.md#100-beta1-2021-05-11
+  ChangelogContent: '- First release of package, see README.md for details.'
+- Name: '@azure-rest/purview-catalog'
+  Version: 1.0.0-beta.1
+  DisplayName: Azure Purview Catalog
+  ServiceName: Azure Purview Catalog
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure-rest/purview-catalog_1.0.0-beta.1/sdk/purview/purview-catalog-rest/CHANGELOG.md#100-beta1-2021-05-11
+  ChangelogContent: '- First release of package, see README.md for details.'
 
