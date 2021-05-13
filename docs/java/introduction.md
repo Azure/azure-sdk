@@ -536,7 +536,7 @@ If in common scenarios, users are likely to pass just a small subset of what the
 
 {% include requirement/MUST id="java-params-complex-withResponse" %} use the _options_ parameter type, if it exists, for all `*WithResponse` methods. If no _options_ parameter type exists, do not create one solely for the `*WithResponse` method.
 
-{% include requirement/MUST id="java-params-options-package" %} place all options types in a root-level `options` package, to make options types distinct from service clients and model types.
+{% include requirement/MUST id="java-params-options-package" %} place all options types in a root-level `models` package, to prevent too many root-level packages and to make use of the existing `models` package used by other model types.
 
 {% include requirement/MUST id="java-params-options-design" %} design options types with the same design guidance as given below for model class types, namely fluent setters for optional arguments, using the standard JavaBean naming convention of `get*`, `set*`, and `is*`. Additionally, there may be constructor overloads for each combination of required arguments.
 
@@ -865,7 +865,7 @@ Examples of situations where this is applicable include when there are construct
 
 Enumerations in Java are extremely convenient, but used improperly can lead to breaking changes to the API. This is because often the Java compiler is configured to fail if not all enum values are listed in a switch statement, so with the addition of a new enum value, users will encounter breaking builds when updating their dependency to a newer version. Because of this, the Java azure-core ships with the `ExpandableStringEnum` that is the suggested means through which enumerations are exposed. Whilst not technically a Java enumeration, it can be treated as such in much the same way, without concerns about breaking changes from adding new values. It is also more user-friendly when new values are introduced on the service side before a library update has been shipped, as users can manually create their own values within the context of a single `ExpandableStringEnum`.
 
-{% include requirement/MUSTNOT id="java-enums" %} define Java enum types for parameters, properties, and return types, except when values are fixed and will never change over time.
+{% include requirement/MUSTNOT id="java-enums" %} define Java enum types for parameters, properties, and return types, except in two scenarios: 1) when values are fixed and will never change over time, or 2) when the enum is used as an input-only enum and therefore the likelihood of users running into breaking changes (i.e. when they must `switch` over all values) is low.
 
 {% include requirement/MUST id="java-naming-enum-uppercase" %} use all upper-case names for enum (and `ExpandableStringEnum`) values. `EnumType.FOO` and `EnumType.TWO_WORDS` are valid, whereas `EnumType.Foo` and `EnumType.twoWords` are not.
 
