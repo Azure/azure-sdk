@@ -347,4 +347,12 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Identity_1.4.0/sdk/identity/Azure.Identity/CHANGELOG.md#140-2021-05-12
   ChangelogContent: "#### New Features\r\n\r\n- By default, the MSAL Public Client Client Capabilities are populated with \"CP1\" to enable support for [Continuous Access Evaluation (CAE)](https://docs.microsoft.com/azure/active-directory/develop/app-resilience-continuous-access-evaluation).\r\nThis indicates to AAD that your application is CAE ready and can handle the CAE claim challenge. This capability can be disabled, if necessary, by either setting an `AppContext` switch named \"Azure.Identity.DisableCP1\" to `true` or by setting the environment variable;\r\n\"AZURE_IDENTITY_DISABLE_CP1\" to \"true\". Note: AppContext switches can also be configured via configuration like below:\r\n  \r\n```xml  \r\n<ItemGroup>\r\n    <RuntimeHostConfigurationOption Include=\"Azure.Identity.DisableCP1\" Value=\"true\" />\r\n</ItemGroup> \r\n  ```\r\n#### Fixes and improvements\r\n\r\n- The Microsoft Authentication Library (MSAL) dependency versions have been updated to the latest\r\n    - Microsoft.Identity.Client version 4.30.1, Microsoft.Identity.Client.Extensions.Msal version 2.18.4."
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.2.0-beta.3
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.ServiceBus_7.2.0-beta.3/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md#720-beta3-2021-05-12
+  ChangelogContent: "#### Added\r\n* Added `SubQueue` option to `ServiceBusProcessorOptions` to allow for processing the deadletter queue\r\n* Added Verbose event source events for the following scenarios that previously had Error events which resulted in unnecessary noise in application logs: \r\n  * Accepting a session times out because there are no sessions available.\r\n  * TaskCanceledException occurs while stopping the processor."
 
