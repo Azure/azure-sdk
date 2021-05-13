@@ -2,7 +2,7 @@
 
 To use the GA and beta libraries, refer to the Maven dependency information below, which may be copied into your projects Maven `pom.xml` file as appropriate. If you are using a different build tool, refer to its documentation on how to specify dependencies.
 
-{% assign packages = allPackagesSortedByName = allPackages | sort: 'Name' %}
+{% assign allPackagesSortedByName = allPackages | sort: 'Name' %}
 {%- capture install_instructions -%}
 {% for package in allPackagesSortedByName %}
     {%- capture install_instruction -%}

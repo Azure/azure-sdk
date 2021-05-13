@@ -5,4 +5,4 @@ tags: java azure
 sidebar: releases_sidebar
 repository: azure/azure-sdk-for-java
 ---
-{% include releases/notes/java.md language="java" data="%%yyyy-MM%%" date="%%MMMM yyyy%%" %}
+{% include releases/notes/common.md language="java" data="%%yyyy-MM%%" date="%%MMMM yyyy%%" %}
