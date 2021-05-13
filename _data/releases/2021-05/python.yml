@@ -1,0 +1,380 @@
+entries:
+- Name: azure-mgmt-elastic
+  Version: 1.0.0b1
+  DisplayName: azure-mgmt-elastic
+  ServiceName: ""
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-elastic_1.0.0b1/sdk/elastic/azure-mgmt-elastic/CHANGELOG.md#100b1-2021-05-08
+  ChangelogContent: '* Initial Release'
+- Name: azure-mgmt-maintenance
+  Version: 2.0.0
+  DisplayName: Resource Management - Maintenance
+  ServiceName: Maintenance
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-maintenance_2.0.0/sdk/maintenance/azure-mgmt-maintenance/CHANGELOG.md#200-2021-05-08
+  ChangelogContent: |-
+    **Breaking changes**
+
+      - Model MaintenanceConfiguration no longer has parameter install_patches
+      - Removed operation ConfigurationAssignmentsOperations.get
+      - Removed operation ConfigurationAssignmentsOperations.get_parent
+      - Removed operation group ConfigurationAssignmentsWithinSubscriptionOperations
+- Name: azure-mgmt-extendedlocation
+  Version: 1.0.0b2
+  DisplayName: azure-mgmt-extendedlocation
+  ServiceName: ""
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-extendedlocation_1.0.0b2/sdk/extendedlocation/azure-mgmt-extendedlocation/CHANGELOG.md#100b2-2021-05-06
+  ChangelogContent: '* Remove v2020_07_15_privatepreview'
+- Name: azure-agrifood-nspkg
+  Version: 1.0.0
+  DisplayName: azure-agrifood-nspkg
+  ServiceName: ""
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-agrifood-nspkg_1.0.0/sdk/nspkg/azure-agrifood-nspkg/CHANGELOG.md#100-2021-05-07
+  ChangelogContent: '* Initial Release'
+- Name: azure-security-attestation
+  Version: 1.0.0b2
+  DisplayName: Attestation
+  ServiceName: Attestation
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-security-attestation_1.0.0b2/sdk/attestation/azure-security-attestation/CHANGELOG.md#100b2-2021-05-11
+  ChangelogContent: |-
+    #### Features Added
+
+    - Preliminary implementation of a Track 2 SDK for the attestation service.
+
+    #### Breaking Changes
+
+    - Complete reimplementation of the API surface, follows the API patterns already
+    established for the attestation service.
+- Name: azure-mgmt-videoanalyzer
+  Version: 1.0.0b1
+  DisplayName: azure-mgmt-videoanalyzer
+  ServiceName: ""
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-videoanalyzer_1.0.0b1/sdk/videoanalyzer/azure-mgmt-videoanalyzer/CHANGELOG.md#100b1-2021-05-11
+  ChangelogContent: '* Initial Release'
+- Name: azure-mgmt-maps
+  Version: 2.0.0
+  DisplayName: Resource Management - Maps
+  ServiceName: Maps
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-maps_2.0.0/sdk/maps/azure-mgmt-maps/CHANGELOG.md#200-2021-05-08
+  ChangelogContent: |-
+    **Features**
+
+      - Model CreatorUpdateParameters has a new parameter storage_units
+      - Model CreatorUpdateParameters has a new parameter provisioning_state
+      - Model MapsOperations has a new parameter next_link
+      - Model CreatorList has a new parameter next_link
+      - Model MapsAccountKeys has a new parameter secondary_key_last_updated
+      - Model MapsAccountKeys has a new parameter primary_key_last_updated
+      - Model MapsAccount has a new parameter kind
+      - Model MapsAccounts has a new parameter next_link
+
+    **Breaking changes**
+
+      - Operation AccountsOperations.create_or_update has a new signature
+      - Operation CreatorsOperations.create_or_update has a new signature
+      - Parameter properties of model Creator is now required
+      - Parameter sku of model MapsAccount is now required
+      - Model CreatorProperties has a new required parameter storage_units
+      - Model MapsAccountKeys no longer has parameter id
+      - Model MapsAccountUpdateParameters has a new signature
+      - Model MapsAccountProperties has a new signature
+      - Removed operation group PrivateAtlasesOperations
+- Name: azure-search-documents
+  Version: 11.2.0b3
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-search-documents_11.2.0b3/sdk/search/azure-search-documents/CHANGELOG.md#1120b3-2021-05-11
+  ChangelogContent: |-
+    #### New features
+
+    - Added support for knowledge store    #18461
+- Name: azure-synapse-artifacts
+  Version: 0.7.0
+  DisplayName: Synapse - Artifacts
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-synapse-artifacts_0.7.0/sdk/synapse/azure-synapse-artifacts/CHANGELOG.md#070-2021-05-11
+  ChangelogContent: |-
+    #### Bug fixes
+
+    - Enable poller when starting a long running operation    #18184
+- Name: azure-purview-catalog
+  Version: 1.0.0b1
+  DisplayName: Purview Catalog
+  ServiceName: Purview Catalog
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-purview-catalog_1.0.0b1/sdk/purview/azure-purview-catalog/CHANGELOG.md#100b1-2021-05-11
+  ChangelogContent: '- This is the initial release of the Azure Purview Catalog library.'
+- Name: azure-purview-scanning
+  Version: 1.0.0b1
+  DisplayName: Purview Scanning
+  ServiceName: Purview Scanning
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-purview-scanning_1.0.0b1/sdk/purview/azure-purview-scanning/CHANGELOG.md#100b1-2021-05-11
+  ChangelogContent: '- This is the initial release of the Azure Purview Scanning library.'
+- Name: azure-mgmt-cosmosdb
+  Version: 6.3.0b1
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-cosmosdb_6.3.0b1/sdk/cosmos/azure-mgmt-cosmosdb/CHANGELOG.md#630b1-2021-05-10
+  ChangelogContent: |-
+    **Features**
+
+      - Model CassandraKeyspaceGetResults has a new parameter identity
+      - Model TableCreateUpdateParameters has a new parameter identity
+      - Model CassandraTableGetResults has a new parameter identity
+      - Model MongoDBDatabaseGetResults has a new parameter identity
+      - Model SqlStoredProcedureGetResults has a new parameter identity
+      - Model TableGetResults has a new parameter identity
+      - Model SqlTriggerGetResults has a new parameter identity
+      - Model SqlTriggerCreateUpdateParameters has a new parameter identity
+      - Model SqlContainerGetResults has a new parameter identity
+      - Model SqlUserDefinedFunctionCreateUpdateParameters has a new parameter identity
+      - Model SqlContainerCreateUpdateParameters has a new parameter identity
+      - Model PeriodicModeProperties has a new parameter backup_storage_redundancy
+      - Model MongoDBCollectionCreateUpdateParameters has a new parameter identity
+      - Model SqlDatabaseCreateUpdateParameters has a new parameter identity
+      - Model GremlinGraphCreateUpdateParameters has a new parameter identity
+      - Model GremlinGraphGetResults has a new parameter identity
+      - Model GremlinDatabaseCreateUpdateParameters has a new parameter identity
+      - Model ThroughputSettingsUpdateParameters has a new parameter identity
+      - Model MongoDBDatabaseCreateUpdateParameters has a new parameter identity
+      - Model ThroughputSettingsGetResults has a new parameter identity
+      - Model CassandraKeyspaceCreateUpdateParameters has a new parameter identity
+      - Model SqlStoredProcedureCreateUpdateParameters has a new parameter identity
+      - Model MongoDBCollectionGetResults has a new parameter identity
+      - Model CassandraTableCreateUpdateParameters has a new parameter identity
+      - Model SqlUserDefinedFunctionGetResults has a new parameter identity
+      - Model SqlDatabaseGetResults has a new parameter identity
+      - Model ARMResourceProperties has a new parameter identity
+      - Model GremlinDatabaseGetResults has a new parameter identity
+      - Model DatabaseAccountGetResults has a new parameter instance_id
+      - Model DatabaseAccountGetResults has a new parameter restore_parameters
+      - Model DatabaseAccountGetResults has a new parameter system_data
+      - Model DatabaseAccountGetResults has a new parameter create_mode
+      - Added operation SqlResourcesOperations.begin_create_update_sql_role_assignment
+      - Added operation SqlResourcesOperations.begin_retrieve_continuous_backup_information
+      - Added operation SqlResourcesOperations.begin_delete_sql_role_assignment
+      - Added operation SqlResourcesOperations.begin_create_update_sql_role_definition
+      - Added operation SqlResourcesOperations.list_sql_role_definitions
+      - Added operation SqlResourcesOperations.begin_delete_sql_role_definition
+      - Added operation SqlResourcesOperations.list_sql_role_assignments
+      - Added operation SqlResourcesOperations.get_sql_role_assignment
+      - Added operation SqlResourcesOperations.get_sql_role_definition
+      - Added operation group CassandraDataCentersOperations
+      - Added operation group RestorableSqlContainersOperations
+      - Added operation group CassandraClustersOperations
+      - Added operation group RestorableMongodbResourcesOperations
+      - Added operation group RestorableMongodbDatabasesOperations
+      - Added operation group RestorableDatabaseAccountsOperations
+      - Added operation group RestorableMongodbCollectionsOperations
+      - Added operation group CosmosDBManagementClientOperationsMixin
+      - Added operation group RestorableSqlResourcesOperations
+      - Added operation group ServiceOperations
+      - Added operation group RestorableSqlDatabasesOperations
+
+    **Breaking changes**
+
+      - Model DatabaseAccountCreateUpdateParameters has a new signature
+- Name: azure-mgmt-billing
+  Version: 6.0.0
+  DisplayName: Resource Management - Billing
+  ServiceName: Cost Management + Billing
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-billing_6.0.0/sdk/billing/azure-mgmt-billing/CHANGELOG.md#600-2021-05-12
+  ChangelogContent: |-
+    **Features**
+
+      - Model InvoiceSectionListResult has a new parameter total_count
+      - Model OperationDisplay has a new parameter description
+      - Model BillingSubscriptionsListResult has a new parameter total_count
+      - Model BillingAccountUpdateRequest has a new parameter notification_email_address
+      - Model EnrollmentAccount has a new parameter account_owner_email
+      - Model CustomerListResult has a new parameter total_count
+      - Model Operation has a new parameter is_data_action
+      - Model BillingAccount has a new parameter notification_email_address
+      - Model AddressDetails has a new parameter middle_name
+      - Model BillingProfile has a new parameter tags
+      - Model EnrollmentPolicies has a new parameter marketplace_enabled
+      - Added operation group ReservationsOperations
+
+    **Breaking changes**
+
+      - Model EnrollmentPolicies no longer has parameter marketplaces_enabled
+- Name: azure-confidentialledger
+  Version: 1.0.0b1
+  DisplayName: Confidential Ledger
+  ServiceName: Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-confidentialledger_1.0.0b1/sdk/confidentialledger/azure-confidentialledger/CHANGELOG.md#100b1-2021-05-12
+  ChangelogContent: '- This is the initial release of the Azure Confidential Ledger library.'
+- Name: azure-eventgrid
+  Version: 4.2.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-eventgrid_4.2.0/sdk/eventgrid/azure-eventgrid/CHANGELOG.md#420-2021-05-12
+  ChangelogContent: |-
+    **New Features**
+      - Added new event names to the `SystemEventNames` enum.
+- Name: azure-containerregistry
+  Version: 1.0.0b2
+  DisplayName: azure-containerregistry
+  ServiceName: containerregistry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-containerregistry_1.0.0b2/sdk/containerregistry/azure-containerregistry/CHANGELOG.md#100b2-2021-05-11
+  ChangelogContent: |-
+    * Rename `DeletedRepositoryResult` to `DeleteRepositoryResult`
+    * Rename `DeletedRepositoryResult.deleted_registry_artifact_digests` to `deleted_manifests`
+    * Rename `TagProperties` to `ArtifactTagProperties`
+    * Rename `ContentPermissions` to `ContentProperties`
+    * Rename `content_permissions` attributes on `TagProperties`, `RepositoryProperties`, and `RegistryArtifactProperties` to `writeable_properties`.
+    * Adds anonymous access capabilities to client by passing in `None` to credential.
+- Name: azure-mgmt-loganalytics
+  Version: 10.0.0
+  DisplayName: Resource Management - Log Analytics
+  ServiceName: Log Analytics
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-loganalytics_10.0.0/sdk/loganalytics/azure-mgmt-loganalytics/CHANGELOG.md#1000-2021-05-13
+  ChangelogContent: |-
+    **Features**
+
+      - Model WorkspacePatch has a new parameter cluster_resource_id
+      - Model WorkspacePatch has a new parameter immediate_purge_data_on30_days
+      - Model WorkspacePatch has a new parameter enable_data_export
+      - Model WorkspacePatch has a new parameter enable_log_access_using_only_resource_permissions
+      - Model Workspace has a new parameter cluster_resource_id
+      - Model Workspace has a new parameter immediate_purge_data_on30_days
+      - Model Workspace has a new parameter enable_data_export
+      - Model Workspace has a new parameter enable_log_access_using_only_resource_permissions
+
+    **Breaking changes**
+
+      - Model WorkspacePatch no longer has parameter features
+      - Model Table no longer has parameter is_troubleshooting_allowed
+      - Model Table no longer has parameter is_troubleshoot_enabled
+      - Model Table no longer has parameter last_troubleshoot_date
+      - Model WorkspaceSku no longer has parameter max_capacity_reservation_level
+      - Model Workspace no longer has parameter features
+- Name: azure-mgmt-resource
+  Version: 17.0.0
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-resource_17.0.0/sdk/resources/azure-mgmt-resource/CHANGELOG.md#1700-2021-05-13
+  ChangelogContent: |-
+    **Features**
+
+      - Model Provider has a new parameter provider_authorization_consent_state
+      - Model TemplateSpec has a new parameter metadata
+      - Model GenericResourceExpanded has a new parameter extended_location
+      - Model Resource has a new parameter extended_location
+      - Model TemplateSpecVersion has a new parameter ui_form_definition
+      - Model TemplateSpecVersion has a new parameter metadata
+      - Model TemplateSpecVersion has a new parameter linked_templates
+      - Model TemplateSpecVersion has a new parameter main_template
+      - Model WhatIfChange has a new parameter unsupported_reason
+      - Model GenericResource has a new parameter extended_location
+      - Added operation ProvidersOperations.provider_permissions
+
+    **Breaking changes**
+
+      - Operation ProvidersOperations.register has a new signature
+      - Model TemplateSpecVersion no longer has parameter template
+      - Model TemplateSpecVersion no longer has parameter artifacts
+- Name: azure-identity
+  Version: 1.6.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-identity_1.6.0/sdk/identity/azure-identity/CHANGELOG.md#160-2021-05-13
+  ChangelogContent: |-
+    This is the last version to support Python 3.5. The next version will require
+    Python 2.7 or 3.6+.
+
+    #### Added
+    - `AzurePowerShellCredential` authenticates as the identity logged in to Azure
+      PowerShell. This credential is part of `DefaultAzureCredential` by default
+      but can be disabled by a keyword argument:
+      `DefaultAzureCredential(exclude_powershell_credential=True)`
+      ([#17341](https://github.com/Azure/azure-sdk-for-python/issues/17341))
+
+    #### Fixed
+    - `AzureCliCredential` raises `CredentialUnavailableError` when the CLI times out,
+      and kills timed out subprocesses
+    - Reduced retry delay for `ManagedIdentityCredential` on Azure VMs
+- Name: azure-core
+  Version: 1.14.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-core_1.14.0/sdk/core/azure-core/CHANGELOG.md#1140-2021-05-13
+  ChangelogContent: |-
+    #### New Features
+
+    - Added `azure.core.credentials.AzureNamedKeyCredential` credential #17548.
+    - Added `decompress` parameter for `stream_download` method. If it is set to `False`, will not do decompression upon the stream.    #17920
+- Name: azure-data-tables
+  Version: 12.0.0b7
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-data-tables_12.0.0b7/sdk/tables/azure-data-tables/CHANGELOG.md#1200b7-2021-05-11
+  ChangelogContent: |-
+    **Breaking**
+    * The `account_url` parameter in the client constructors has been renamed to `endpoint`.
+    * The `TableEntity` object now acts exclusively like a dictionary, and no longer supports key access via attributes.
+    * Metadata of an entity is now accessed via `TableEntity.metadata` attribute rather than a method.
+    * Removed explicit `LinearRetry` and `ExponentialRetry` in favor of keyword parameter.
+    * Renamed `filter` parameter in query APIs to `query_filter`.
+    * The `location_mode` attribute on clients is now read-only. This has been added as a keyword parameter to the constructor.
+    * The `TableItem.table_name` has been renamed to `TableItem.name`.
+    * Removed the `TableClient.create_batch` method along with the `TableBatchOperations` object. The transactional batching is now supported via a simple Python list of tuples.
+    * `TableClient.send_batch` has been renamed to `TableClient.submit_transaction`.
+    * Removed `BatchTransactionResult` object in favor of returning an iterable of batched entities with returned metadata.
+    * Removed Batching context-manager behavior
+    * `EntityProperty` is now a NampedTuple, and can be represented by a tuple of `(entity, EdmType)`.
+    * Renamed `EntityProperty.type` to `EntityProperty.edm_type`.
+    * `BatchErrorException` has been renamed to `TableTransactionError`.
+    * The `location_mode` is no longer a public attribute on the Clients.
+    * The only supported credentials are `AzureNamedKeyCredential`, `AzureSasCredential`, or authentication by connection string
+    * Removed `date` and `api_version` from the `TableItem` class.
+
+    **Fixes**
+    * Fixed issue with Cosmos merge operations.
+    * Removed legacy Storage policies from pipeline.
+    * Removed unused legacy client-side encryption attributes from client classes.
+    * Fixed sharing of pipeline between service/table clients.
+    * Added support for Azurite storage emulator
+    * Throws a `RequestTooLargeError` on transaction requests that return a 413 error code
+    * Added support for Int64 and Binary types in query filters
+    * Added support for `select` keyword parameter to `TableClient.get_entity()`.
+    * On `update_entity` and `delete_entity` if no `etag` is supplied via kwargs, the `etag` in the entity will be used if it is in the entity.
