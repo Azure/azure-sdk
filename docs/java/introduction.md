@@ -73,8 +73,6 @@ There exists a distinction that must be made clear with service clients: not all
 
 {% include requirement/MUST id="java-service-client-immutable" %} ensure that all service client classes are immutable and stateless upon instantiation.
 
-{% include requirement/MUSTNOT id="java-service-client-overuse" %} overuse the _Client_ suffix for classes that do not meet the expectations for a service client.
-
 {% include requirement/MUST id="java-network-separate-packages" %} have separate service clients for sync and async APIs.
 
 #### Sync Service Clients
@@ -378,7 +376,7 @@ public class UserApplication {
 
 #### Service Methods
 
-Service methods are the methods on the client that invoke operations on the service.
+Service methods are methods that invoke operations on a service. They are commonly found on classes suffixed with `Client`, but can also be found on other resource classes that are vended by a client.
 
 {% include requirement/MUSTNOT id="java-async-suffix" %} use the suffix `Async` in methods that do operations asynchronously. Let the fact the user has an instance of an 'async client' provide this context.
 
@@ -424,9 +422,7 @@ Clients often have non-service methods, for accessing details such as the servic
 
 {% include requirement/MUST id="java-service-client-method-naming" %} use standard JavaBean naming prefixes for all methods that are not service methods.
 
-{% include requirement/MUST id="java-service-client-vend-prefix" %} prefix methods in sync clients that create or vend sub-clients with `get` and suffix with `Client`. For example, `container.getBlobClient()`.
-
-{% include requirement/MUST id="java-service-async-client-vend-prefix" %} prefix methods in async clients that create or vend sub-clients with `get` and suffix with `AsyncClient`. For example, `container.getBlobAsyncClient()`.
+{% include requirement/MUST id="java-service-client-vend-prefix" %} prefix methods in sync clients that create or vend sub-clients with `get` and suffix with `Client`. For example, `container.getBlobClient()`. Similarly, prefix methods in async clients that create or vend sub-clients with `get` and suffix with `AsyncClient`. For example, `container.getBlobAsyncClient()`. Keep in mind the guidance in the [service client](#service-client) section, as it cannot be assumed that the `Client` suffix applies to another client-like class vended by a client. The `Client` suffix is only applicable in certain situations, and therefore, methods should not be named `get*Client` if the type is not a client.
 
 ##### Cancellation
 
@@ -556,7 +552,7 @@ Common parameter validations include null checks, empty string checks, and range
 
 #### Methods Returning Collections (Paging)
 
-Many Azure REST APIs return collections of data in batches or pages. A client library will expose such APIs as special enumerable types `PagedIterable<T>` or `PagedFlux<T>`, for synchronous and asynchronous APIs, respectively. These types are located in the [azure-core library](#using-azure-core-types).
+Many Azure REST APIs return collections of data in batches or pages. A client library will expose such APIs as special enumerable types `PagedIterable<T>` or `PagedFlux<T>` (or one of their parent types), for synchronous and asynchronous APIs, respectively. These types are located in the [azure-core library](#using-azure-core-types).
 
 {% include requirement/MUST id="java-pagination-pagediterable" %} return `PagedIterable<T>` from service methods in synchronous that return a collection of items. For example, the configuration service **sync** client should offer the following API:
 
@@ -653,7 +649,7 @@ public final class <service_name>AsyncClient {
 
 {% include requirement/MUST id="java-lro-prefix" %} prefix method names which return a poller with the `begin` prefix.
 
-{% include requirement/MUST id="java-lro-continuation" %} provide a way to instantiate a poller with the serialized state of another poller to begin where it left off, for example by passing the state as a parameter to the same method which started the operation (or an overload).
+{% include requirement/MUST id="java-lro-continuation" %} provide a way to instantiate a poller with the serialized state of another poller to begin where it left off, for example by passing the state as a parameter to the same method which started the operation, or by directly instantiating a poller with that state.
 
 {% include requirement/MUSTNOT id="java-lro-no-void-terminal-state" %} specify any poller (`SyncPoller` or `PollerFlux`) with a terminal state (i.e. the `U` in `SyncPoller<T, U>` or `PollerFlux<T, U>`) as being `void`. This does not benefit users, as it is typically their desire to inspect the terminal state for some quality, and by being void we are making this inspection more difficult than necessary.
 
