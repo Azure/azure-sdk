@@ -355,4 +355,39 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Messaging.ServiceBus_7.2.0-beta.3/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md#720-beta3-2021-05-12
   ChangelogContent: "#### Added\r\n* Added `SubQueue` option to `ServiceBusProcessorOptions` to allow for processing the deadletter queue\r\n* Added Verbose event source events for the following scenarios that previously had Error events which resulted in unnecessary noise in application logs: \r\n  * Accepting a session times out because there are no sessions available.\r\n  * TaskCanceledException occurs while stopping the processor."
+- Name: Azure.Analytics.Purview.Scanning
+  Version: 1.0.0-beta.1
+  DisplayName: Purview Scanning
+  ServiceName: Purview Scanning
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.Purview.Scanning_1.0.0-beta.1/sdk/purview/Azure.Analytics.Purview.Scanning/CHANGELOG.md#100-beta1-2021-05-12
+  ChangelogContent: |-
+    #### New Features
+
+    - Initial preview release of the Purview Scanning client library for .NET
+- Name: Azure.Analytics.Purview.Catalog
+  Version: 1.0.0-beta.1
+  DisplayName: Purview Catalog
+  ServiceName: Purview Catalog
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.Purview.Catalog_1.0.0-beta.1/sdk/purview/Azure.Analytics.Purview.Catalog/CHANGELOG.md#100-beta1-2021-05-12
+  ChangelogContent: |-
+    #### New Features
+
+    - Initial preview release of the Azure Purview Catalog client library for .NET
+- Name: Microsoft.Azure.WebJobs.Extensions.EventGrid
+  Version: 3.0.0-beta.2
+  DisplayName: WebJobs Extensions - Event Grid
+  ServiceName: WebJobs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.WebJobs.Extensions.EventGrid_3.0.0-beta.2/sdk/eventgrid/Microsoft.Azure.WebJobs.Extensions.EventGrid/CHANGELOG.md#300-beta2-2021-05-11
+  ChangelogContent: |-
+    #### Changes
+
+    ##### New Features
+
+    - Binding to the `CloudEvent` type is now supported.
 
