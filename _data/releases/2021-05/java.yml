@@ -597,4 +597,99 @@ entries:
 
     * `systemData()` was added
   GroupId: com.azure.resourcemanager
+- Name: azure-storage-common
+  Version: 12.12.0-beta.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-common_12.12.0-beta.1/sdk/storage/azure-storage-common/CHANGELOG.md#12120-beta1-2021-05-13
+  ChangelogContent: '- Fixed bug in Utility.convertStreamToByteBuffer where variable updates would happen incorrectly if we hit the end of stream.'
+  GroupId: com.azure
+- Name: azure-storage-queue
+  Version: 12.10.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-queue_12.10.0-beta.1/sdk/storage/azure-storage-queue/CHANGELOG.md#12100-beta1-2021-05-13
+  ChangelogContent: '- Added support for the 2020-08-04 service version.'
+  GroupId: com.azure
+- Name: azure-storage-blob
+  Version: 12.12.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob_12.12.0-beta.1/sdk/storage/azure-storage-blob/CHANGELOG.md#12120-beta1-2021-05-13
+  ChangelogContent: |-
+    - Added support for the 2020-08-04 service version.
+    - Deprecated support to undelete a blob container to a new name.
+  GroupId: com.azure
+- Name: azure-storage-file-share
+  Version: 12.10.0-beta.1
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-file-share_12.10.0-beta.1/sdk/storage/azure-storage-file-share/CHANGELOG.md#12100-beta1-2021-05-13
+  ChangelogContent: |-
+    - Added support for the 2020-08-04 service version.
+    - Added back ability to create a ShareLeaseClient for a Share or Share Snapshot.
+    - Added upload() overloads to ShareFileClient supporting large ranges and parallel upload.
+    - Deprecated old upload() overloads on ShareFileClient that only supported single Put Range operations, replacing them
+    with uploadRange() methods.
+  GroupId: com.azure
+- Name: azure-cosmos
+  Version: 4.15.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-cosmos_4.15.0/sdk/cosmos/azure-cosmos/CHANGELOG.md#4150-2021-05-12
+  ChangelogContent: |-
+    ##### New Features
+    * Added `backendLatencyInMs` in `CosmosDiagnostics` for `DIRECT` connection mode.
+    * Added `retryContext` in `CosmosDiagnostics` for query operations.
+
+    ##### Key Bug Fixes
+    * Fixed ignored `HttpClient` decoder configuration issue.
+    * Fixed incorrect connection mode issue in `CosmosDiagnostics`.
+    * Fixed issue with handling collisions in the effective partition key.
+    * Fixed `CosmosQueryRequestOptions` NPE in `readAllItems` API.
+  GroupId: com.azure
+- Name: azure-storage-blob-batch
+  Version: 12.10.0-beta.1
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob-batch_12.10.0-beta.1/sdk/storage/azure-storage-blob-batch/CHANGELOG.md#12100-beta1-2021-05-13
+  ChangelogContent: '- Added support for the 2020-08-04 service version.'
+  GroupId: com.azure
+- Name: azure-storage-blob-cryptography
+  Version: 12.12.0-beta.1
+  DisplayName: Storage - Blobs Cryptography
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-blob-cryptography_12.12.0-beta.1/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md#12120-beta1-2021-05-13
+  ChangelogContent: |-
+    - Added support for specifying an encryption scope.
+    - Added support for the 2020-08-04 service version.
+  GroupId: com.azure
+- Name: azure-storage-file-datalake
+  Version: 12.6.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-storage-file-datalake_12.6.0-beta.1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md#1260-beta1-2021-05-13
+  ChangelogContent: |-
+    - Added support for the 2020-08-04 service version.
+    - Added support to undelete a file or directory
+    - Added support to list deletedPaths
+    - Added support to get/set service properties
+    - Deprecated support to undelete a file system to a new name.
+  GroupId: com.azure
 
