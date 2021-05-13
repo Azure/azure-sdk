@@ -34,16 +34,15 @@ The release notes consist of four sections:
 
 ## What's a "developer impacting change"?
 
-We don't want to advertise every single bug fix as most of them do not impact the way customers think about developing the client.  The change log provides an exhaustive list of changes.  We don't need to duplicate it.
+We don't want to advertise every single bug fix as most of them do not impact the way customers think about developing the client.  The [change log](https://azure.github.io/azure-sdk/policies_releases.html#change-logs) provides an exhaustive list of changes.  We don't need to duplicate it.
 
-However, in the release notes we do want to list critical changes for customers. A critical change is one that the developer would either need to know or want to know. Use the following section headers (*Security Fixes, Breaking Changes, New Featues, and Key Bug Fixes*) for the defined critical changes:
+However, in the release notes we do want to list critical changes for customers. A critical change is one that the developer would either need to know or want to know. Use the following section headers (`Features Added`, `Breaking Changes`, and `Key Bugs Fixed`) for the defined critical changes:
 
-* *New Features* - Adding a new API or feature
-* *Breaking Changes* - Changes to an existing API or changes to the behavior of an existing API
-* *Key Bug Fixes* - Major bug fixes that require a customer to do something, bug fixes that come from multiple up-votes in github or that are motivated by customer feedback
-* *Security Fixes* - Any security fix, no matter how small
+* *Features Added* - For new features to be called out in release notes
+* *Breaking Changes* - For changes to be called out in release notes including, changes that break existing functionality, soon-to-be removed features, now removed features
+* *Key Bugs Fixed* - For important bug fixes to be called out in release notes, including any security fixes
 
-For example, "fixed a bug in which the event processor would stop working if you received no events for 30 minutes" does not qualify.  The customer does not need to do anything, and it's fairly likely they have not bumped into this error.  However, "Added a new overload to the constructor to support AzureAD credentials" would definitely be a good thing to include.
+For example, "fixed a bug in which the event processor would stop working if you received no events for 30 minutes" does not qualify.  While you may list this under the `Fixed` heading in the changelog, the customer does not need to do anything, and it's fairly likely they have not bumped into this error, so this shouldn't be listed under the `Key Bugs Fixed` heading.  However, "Added a new overload to the constructor to support AzureAD credentials" would definitely be a good thing to include.
 
 Ensure the release notes are written from the perspective of the user.   We don't want to tell them about a new change without ALSO telling them how to take advantage of the change with either a link to the documentation or a short snippet of code.
 
