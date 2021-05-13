@@ -307,4 +307,26 @@ entries:
       - Operation ProvidersOperations.register has a new signature
       - Model TemplateSpecVersion no longer has parameter template
       - Model TemplateSpecVersion no longer has parameter artifacts
+- Name: azure-identity
+  Version: 1.6.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-identity_1.6.0/sdk/identity/azure-identity/CHANGELOG.md#160-2021-05-13
+  ChangelogContent: |-
+    This is the last version to support Python 3.5. The next version will require
+    Python 2.7 or 3.6+.
+
+    #### Added
+    - `AzurePowerShellCredential` authenticates as the identity logged in to Azure
+      PowerShell. This credential is part of `DefaultAzureCredential` by default
+      but can be disabled by a keyword argument:
+      `DefaultAzureCredential(exclude_powershell_credential=True)`
+      ([#17341](https://github.com/Azure/azure-sdk-for-python/issues/17341))
+
+    #### Fixed
+    - `AzureCliCredential` raises `CredentialUnavailableError` when the CLI times out,
+      and kills timed out subprocesses
+    - Reduced retry delay for `ManagedIdentityCredential` on Azure VMs
 
