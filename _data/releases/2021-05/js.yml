@@ -191,3 +191,19 @@ entries:
     - Removed token persistence through `@azure/msal-node-extensions`, as its machine-code components have the same problems as `keytar`. This functionality will similarly be reintroduced through a separate extension package in the future.
     - Removed `authenticationRecord`, `disableAutomaticAuthentication` and `authenticate()` from the credential `UsernamePasswordCredential`. While MSAL does support this, allowing `authenticationRecord` arguably could result in users authenticating through an account other than the one they're specifying with the username and the password.
 
+- Name: '@azure/web-pubsub-express'
+  Version: 1.0.0-beta.1
+  DisplayName: Azure Web Pubsub CloudEvents Handlers for Express
+  ServiceName: Azure Web PubSub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/web-pubsub-express_1.0.0-beta.1/sdk/web-pubsub/web-pubsub-express/CHANGELOG.md#100-beta1-2021-04-23
+  ChangelogContent: This is the first release of the @azure/web-pubsub-express package.
+- Name: '@azure/web-pubsub'
+  Version: 1.0.0-beta.1
+  DisplayName: Azure Web Pubsub
+  ServiceName: Azure Web PubSub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/web-pubsub_1.0.0-beta.1/sdk/web-pubsub/web-pubsub/CHANGELOG.md#100-beta1-2021-04-23
+  ChangelogContent: This is the first release of the @azure/web-pubsub package.
