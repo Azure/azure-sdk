@@ -10,11 +10,11 @@ The Azure SDK team is pleased to announce our May 2021 client library releases.
 
 #### GA
 
+- Azure Communication Services Calling
 - Azure Communication Services Common
 
 #### Beta
 
-- Azure Communication Services Chat
 - Azure Core
 
 ## Installation Instructions
@@ -145,17 +145,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Answering an incoming call with video now properly renders the caller's video stream.
 - `OnRemoteParticipantsUpdated` event no longer updates the participant state to `Idle` when the participant is `InLobby`.
 - Speaking Change Listeners are no longer triggered unexpectedly.
-
-### Azure Communication Services Chat
-
-#### 1.0.0-beta.12 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/master/sdk/communication/AzureCommunicationChat/CHANGELOG.md#100-beta12-2021-05-03))
-
-##### Breaking Changes
-- Changed the way in which options are instantiated for the following classes: `CreateChatThreadOptions`, `DeleteChatThreadOptions`,  `ListChatThreadsOptions`, `AddChatParticipantsOptions`, `DeleteChatMessageOptions`, `GetChatMessageOptions`, `GetChatThreadPropertiesOptions`, `ListChatMessagesOptions`, `ListChatParticipantsOptions`, `ListChatReadReceiptsOptions`, `RemoveChatParticipantOptions`, `SendChatMessageOptions`, `SendChatReadReceiptOptions`, `SendTypingNotificationOptions`, `UpdateChatMessageOptions`, `UpdateChatThreadPropertiesOptions`.
-    - old: `let options = Chat.CreatChatThreadOptions()`
-    - new: `let options = CreateChatThreadOptions()`
-- Renamed `CommunicationError` to `ChatError`
-- Removed following classes:  `CreateChatThreadResult`, `CreateChatThreadRequest`, `ChatMessage`, `ChatMessageContent`, `ChatParticipant`, `ChatMessageReadReceipt`, `ChatThreadProperties`.
 
 ### Azure Communication Services Common
 
