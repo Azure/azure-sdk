@@ -36,7 +36,7 @@ Package Repository
 : Each client library is published separately to the appropriate language-specific package repository.  For example, we distribute JavaScript libraries to [npmjs.org](https://npmjs.org) (also known as the NPM Registry), and Python libraries to [PyPI](https://pypi.org/).  These releases are performed exclusively by the Azure SDK engineering systems team.  Consumers install packages using a package manager.  For example, a JavaScript consumer might use yarn, npm, or similar, whereas a Python consumer will use `pip` to install packages into their project.
 
 Progressive Concept Disclosure
-: The first interaction with the client library should not rely on advanced service concepts.  As the consumer of the library becomes more adept, we expose the concepts necessary at the point at which the consumer needs those concepts for implementation. [Progressive Disclosure] was first discussed by the Nielson Norman Groupas an approach to designing better user interfaces.
+: The first interaction with the client library should not rely on advanced service concepts.  As the consumer of the library becomes more adept, we expose the concepts necessary at the point at which the consumer needs those concepts for implementation. [Progressive Disclosure] was first discussed by the Nielson Norman Group as an approach to designing better user interfaces.
 
 ## Requirements
 

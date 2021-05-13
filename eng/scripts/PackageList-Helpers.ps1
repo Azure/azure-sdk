@@ -197,3 +197,53 @@ function CopyOverFieldValues($copyFromReleaseFolder, $field)
     Set-PackageListForLanguage $lang $pl2
   }
 }
+
+function GetLinkTemplates($lang)
+{
+  $langLinkTemplates = @{}
+  $releaseVariableFolder = Resolve-Path "$PSScriptRoot\..\..\_includes\releases\variables"
+  $releaseVariableContent = Get-Content (Join-Path $releaseVariableFolder "$lang.md")
+
+  foreach ($line in $releaseVariableContent)
+  {
+    if ($line -match "{%\s*assign\s*(?<name>\S+)\s*=\s*`"(?<value>\S*)`"\s+%}") 
+    {
+      $langLinkTemplates[$matches["name"]] = $matches["value"]
+      Write-Verbose ("" + $matches["name"] + " = [" + $matches["value"] + "]")
+    }
+  }
+
+  return $langLinkTemplates
+}
+
+function GetLinkTemplateValue($linkTemplates, $templateName, $packageName = $null, $version = $null, $repoPath = $null, $groupId = $null)
+{
+  $replacedString = $linkTemplates[$templateName]
+
+  if ($repoPath) {
+    if ($repoPath.StartsWith("http") -and $templateName.Contains("source")) {
+      $replacedString = $repoPath
+    }
+    else {
+      $replacedString = $replacedString -replace "item.RepoPath", $repoPath
+    }
+  }
+
+  if ($packageName) {
+    $packageTrim = $linkTemplates["package_trim"]
+    $trimmedPackageName = $pkg.Package -replace "^$packageTrim", ""
+
+    $replacedString = $replacedString -replace "item.Package", $packageName
+    $replacedString = $replacedString -replace "item.TrimmedPackage", $trimmedPackageName
+  }
+
+  if ($version) {
+    $replacedString = $replacedString -replace "item.Version", $version
+  }
+
+  if ($groupId) {
+    $replacedString = $replacedString -replace "item.GroupId", $groupId
+  }
+
+  return $replacedString
+ }
