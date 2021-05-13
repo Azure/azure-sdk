@@ -31,7 +31,7 @@ function FilterOut-UnreleasedPackages ($releaseHighlights)
                 LogDebug "[ $packageName ] with version  [$releaseVersion ] was skipped because it has a newer release version than present in the package csv"
             }
             $packageSemVer = [AzureEngSemanticVersion]::ParseVersionString($releaseVersion)
-            
+
             $entry = [ordered]@{
                 Name = $packageName
                 Version = $releaseVersion
@@ -55,7 +55,7 @@ function FilterOut-UnreleasedPackages ($releaseHighlights)
 
             $results += $entry
         }
-        else 
+        else
         {
             LogDebug "[ $packageName ] with version  [ $releaseVersion ] was skipped because there are duplicate versions in the package csv"
         }
@@ -77,9 +77,7 @@ Write-Host "Common Script $commonScript"
 . $commonScript
 $CsvMetaData = Get-CSVMetadata -MetadataUri "https://raw.githubusercontent.com/azure-sdk/azure-sdk/PackageVersionUpdates/_data/releases/latest/${releaseFileName}-packages.csv"
 
-$releaseFilePath = (Join-Path $ReleaseDirectory $releasePeriod "${releaseFileName}.md")
 $pathToRelatedYaml = (Join-Path $ReleaseDirectory ".." _data releases $releasePeriod "${releaseFileName}.yml")
-LogDebug "Release File Path [ $releaseFilePath ]"
 LogDebug "Related Yaml File Path [ $pathToRelatedYaml ]"
 
 if (!(Test-Path $pathToRelatedYaml))
@@ -124,8 +122,3 @@ foreach ($entry in $filteredReleaseHighlights)
 }
 
 Set-Content -Path $pathToRelatedYaml -Value (ConvertTo-Yaml $existingYamlContent)
-
-if (!(Test-Path $releaseFilePath) -and $existingYamlContent.entries.Count -gt 0)
-{
-    &(Join-Path $PSScriptRoot Generate-Release-Structure.ps1) -releaseFileName "${releaseFileName}.md" -ExcludeFileNames @()
-}

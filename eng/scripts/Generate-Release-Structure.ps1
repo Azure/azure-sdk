@@ -4,7 +4,7 @@ param (
   [string]$releaseRootFolder = "$PSScriptRoot\..\..\releases",
   [bool]$publishRelease = $false,
   [string]$releaseFileName = "*",
-  [string[]]$ExcludeFileNames = @("dotnet.md", "java.md", "js.md", "python.md")
+  [string[]]$ExcludeFileNames = @()
 )
 
 if ($releaseDateString -eq "") {
@@ -67,7 +67,7 @@ else {
     $fileContent = $fileContent | ForEach-Object {
       if ($_ -match "%%(?<format>.*?)%%") {
         try {
-          $_ -replace $matches[0], $releaseDate.ToString($matches["format"]) 
+          $_ -replace $matches[0], $releaseDate.ToString($matches["format"])
         }
         catch {
           Write-Host ("Date format " + $matches["format"] + " in file $file is invalid.")
