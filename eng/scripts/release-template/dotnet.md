@@ -5,4 +5,4 @@ tags: dotnet azure
 sidebar: releases_sidebar
 repository: azure/azure-sdk-for-net
 ---
-{% include releases/notes/dotnet.md data="%%yyyy-MM%%" date="%%MMMM yyyy%%" %}
+{% include releases/notes/common.md language="dotnet" data="%%yyyy-MM%%" date="%%MMMM yyyy%%" %}
