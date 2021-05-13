@@ -400,4 +400,201 @@ entries:
     - Enabled support for anonymous access.
     - Improved samples and readme.
   GroupId: com.azure
+- Name: azure-resourcemanager-netapp
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - NetApp Files
+  ServiceName: NetApp Files
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-netapp_1.0.0-beta.3/sdk/netapp/azure-resourcemanager-netapp/CHANGELOG.md#100-beta3-2021-05-13
+  ChangelogContent: |-
+    - Azure Resource Manager NetAppFiles client library for Java. This package contains Microsoft Azure SDK for NetAppFiles Management SDK. Microsoft NetApp Files Azure Resource Provider specification. Package tag package-netapp-2021-02-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+    #### Breaking Change
+
+    * `models.VolumeBackupStatus` was removed
+
+    ##### `NetAppFilesManager` was modified
+
+    * `volumeBackupStatus()` was removed
+
+    ##### `models.Backup` was modified
+
+    * `java.lang.String backupType()` -> `models.BackupType backupType()`
+
+    ##### `models.BackupsList` was modified
+
+    * `innerModel()` was removed
+    * `java.util.List value()` -> `java.util.List value()`
+
+    ##### `models.BackupPatch` was modified
+
+    * `java.lang.String backupType()` -> `models.BackupType backupType()`
+
+    ##### `models.AccountBackups` was modified
+
+    * `models.BackupsList list(java.lang.String,java.lang.String)` -> `com.azure.core.http.rest.PagedIterable list(java.lang.String,java.lang.String)`
+    * `listWithResponse(java.lang.String,java.lang.String,com.azure.core.util.Context)` was removed
+
+    #### New Feature
+
+    * `models.BackupType` was added
+
+    ##### `models.Backup` was modified
+
+    * `useExistingSnapshot()` was added
+
+    ##### `models.Backups` was modified
+
+    * `getStatusWithResponse(java.lang.String,java.lang.String,java.lang.String,java.lang.String,com.azure.core.util.Context)` was added
+    * `getStatus(java.lang.String,java.lang.String,java.lang.String,java.lang.String)` was added
+
+    ##### `models.VolumePatchPropertiesDataProtection` was modified
+
+    * `snapshot()` was added
+    * `withSnapshot(models.VolumeSnapshotProperties)` was added
+
+    ##### `models.BackupsList` was modified
+
+    * `validate()` was added
+    * `withValue(java.util.List)` was added
+
+    ##### `models.BackupPatch` was modified
+
+    * `withUseExistingSnapshot(java.lang.Boolean)` was added
+    * `useExistingSnapshot()` was added
+
+    ##### `models.Backup$Update` was modified
+
+    * `withUseExistingSnapshot(java.lang.Boolean)` was added
+
+    ##### `models.AccountBackups` was modified
+
+    * `list(java.lang.String,java.lang.String,com.azure.core.util.Context)` was added
+
+    ##### `models.Backup$Definition` was modified
+
+    * `withUseExistingSnapshot(java.lang.Boolean)` was added
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-maintenance
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Maintenance
+  ServiceName: Maintenance
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-maintenance_1.0.0-beta.2/sdk/maintenance/azure-resourcemanager-maintenance/CHANGELOG.md#100-beta2-2021-05-13
+  ChangelogContent: |-
+    - Azure Resource Manager Maintenance client library for Java. This package contains Microsoft Azure SDK for Maintenance Management SDK. Azure Maintenance Management Client. Package tag package-2021-05. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+    #### Breaking Change
+
+    ##### `MaintenanceManager` was modified
+
+    * `fluent.MaintenanceClient serviceClient()` -> `fluent.MaintenanceManagementClient serviceClient()`
+
+    #### New Feature
+
+    * `models.PublicMaintenanceConfigurations` was added
+
+    * `models.ListApplyUpdate` was added
+
+    * `models.Visibility` was added
+
+    * `models.ApplyUpdateForResourceGroups` was added
+
+    * `models.MaintenanceConfigurationsForResourceGroups` was added
+
+    ##### `models.ApplyUpdate` was modified
+
+    * `systemData()` was added
+
+    ##### `models.MaintenanceConfiguration$Definition` was modified
+
+    * `withTimeZone(java.lang.String)` was added
+    * `withVisibility(models.Visibility)` was added
+    * `withDuration(java.lang.String)` was added
+    * `withRecurEvery(java.lang.String)` was added
+    * `withExpirationDateTime(java.lang.String)` was added
+    * `withStartDateTime(java.lang.String)` was added
+
+    ##### `MaintenanceManager` was modified
+
+    * `maintenanceConfigurationsForResourceGroups()` was added
+    * `publicMaintenanceConfigurations()` was added
+    * `applyUpdateForResourceGroups()` was added
+
+    ##### `models.ConfigurationAssignment` was modified
+
+    * `systemData()` was added
+
+    ##### `models.Operation` was modified
+
+    * `isDataAction()` was added
+
+    ##### `models.ApplyUpdates` was modified
+
+    * `list()` was added
+    * `list(com.azure.core.util.Context)` was added
+
+    ##### `models.MaintenanceConfiguration` was modified
+
+    * `expirationDateTime()` was added
+    * `timeZone()` was added
+    * `duration()` was added
+    * `systemData()` was added
+    * `visibility()` was added
+    * `recurEvery()` was added
+    * `startDateTime()` was added
+
+    ##### `models.MaintenanceConfiguration$Update` was modified
+
+    * `withDuration(java.lang.String)` was added
+    * `withRecurEvery(java.lang.String)` was added
+    * `withStartDateTime(java.lang.String)` was added
+    * `withExpirationDateTime(java.lang.String)` was added
+    * `withVisibility(models.Visibility)` was added
+    * `withTimeZone(java.lang.String)` was added
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-confluent
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Confluent
+  ServiceName: Confluent
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-confluent_1.0.0-beta.2/sdk/confluent/azure-resourcemanager-confluent/CHANGELOG.md#100-beta2-2021-05-13
+  ChangelogContent: |-
+    - Azure Resource Manager Confluent client library for Java. This package contains Microsoft Azure SDK for Confluent Management SDK.  Package tag package-2021-03-01-preview. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+    #### Breaking Change
+
+    * `models.OrganizationResourcePropertiesUserDetail` was removed
+
+    * `models.OrganizationResourcePropertiesOfferDetail` was removed
+
+    * `models.OrganizationResourceProperties` was removed
+
+    ##### `models.OrganizationResource$DefinitionStages` was modified
+
+    * Stage 3, 4 was added
+
+    ##### `models.OrganizationResource$Definition` was modified
+
+    * `withProvisioningState(models.ProvisionState)` was removed
+
+    #### New Feature
+
+    * `models.Validations` was added
+
+    ##### `ConfluentManager` was modified
+
+    * `validations()` was added
+
+    ##### `models.OrganizationResource` was modified
+
+    * `systemData()` was added
+
+    ##### `models.ConfluentAgreementResource` was modified
+
+    * `systemData()` was added
+  GroupId: com.azure.resourcemanager
 
