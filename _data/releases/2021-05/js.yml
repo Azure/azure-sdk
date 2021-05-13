@@ -160,4 +160,34 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure-rest/core-client_1.0.0-beta.2/sdk/core-rest/core-client/CHANGELOG.md#100-beta2-2021-05-12
   ChangelogContent: '- Add CertificateCredential to support client certificate authentication. [#15172](https://github.com/Azure/azure-sdk-for-js/pull/15172)'
+- Name: '@azure-rest/confidential-ledger'
+  Version: 1.0.0-beta.2
+  DisplayName: Azure Confidential Ledger
+  ServiceName: Azure Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure-rest/confidential-ledger_1.0.0-beta.2/sdk/confidentialledger/confidential-ledger-rest/CHANGELOG.md#100-beta2-2021-05-12
+  ChangelogContent: '- First release of package, see README.md for details.'
+- Name: '@azure/identity'
+  Version: 2.0.0-beta.3
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/identity_2.0.0-beta.3/sdk/identity/identity/CHANGELOG.md#200-beta3-2021-05-12
+  ChangelogContent: |-
+    #### New features
+
+    - Azure Identity for JavaScript no longer carries any native dependencies (neither ordinary, peer, nor optional dependencies). Previous distributions of `@azure/identity` carried an optional dependency on `keytar`, which caused issues for some users in restrictive environments.
+    - Updated the `@azure/msal-node` dependency to version `^1.0.2`, which allows cancelling of an ongoing `getToken()` operation on `DeviceCodeCredential`.
+    - Fixed issue with the logging of success messages on the `DefaultAzureCredential` and the `ChainedTokenCredential`. These messages will now mention the internal credential that succeeded.
+    - `AuthenticationRequiredError` (introduced in 2.0.0-beta.1) now has the same impact on `ChainedTokenCredential` as the `CredentialUnavailableError` which is to allow the next credential in the chain to be tried.
+    - `ManagedIdentityCredential` now retries with exponential back-off when a request for a token fails with a 404 status code on environments with available IMDS endpoints.
+    - Added an `AzurePowerShellCredential` which will use the authenticated user session from the `Az.Account` PowerShell module. This credential will attempt to use PowerShell Core by calling `pwsh`, and on Windows it will fall back to Windows PowerShell (`powershell`) if PowerShell Core is not available.
+
+    #### Breaking changes from 2.0.0-beta.1
+
+    - Removed `VisualStudioCodeCredential`, as it requires us to list `keytar` as an optional dependency. `keytar` containes machine-code components that are difficult to build in certain environments, so this credential will be offered through a separate extension package in the future.
+    - Removed token persistence through `@azure/msal-node-extensions`, as its machine-code components have the same problems as `keytar`. This functionality will similarly be reintroduced through a separate extension package in the future.
+    - Removed `authenticationRecord`, `disableAutomaticAuthentication` and `authenticate()` from the credential `UsernamePasswordCredential`. While MSAL does support this, allowing `authenticationRecord` arguably could result in users authenticating through an account other than the one they're specifying with the username and the password.
 
