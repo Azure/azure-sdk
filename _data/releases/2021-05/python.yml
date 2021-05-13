@@ -329,4 +329,16 @@ entries:
     - `AzureCliCredential` raises `CredentialUnavailableError` when the CLI times out,
       and kills timed out subprocesses
     - Reduced retry delay for `ManagedIdentityCredential` on Azure VMs
+- Name: azure-core
+  Version: 1.14.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-core_1.14.0/sdk/core/azure-core/CHANGELOG.md#1140-2021-05-13
+  ChangelogContent: |-
+    #### New Features
+
+    - Added `azure.core.credentials.AzureNamedKeyCredential` credential #17548.
+    - Added `decompress` parameter for `stream_download` method. If it is set to `False`, will not do decompression upon the stream.    #17920
 
