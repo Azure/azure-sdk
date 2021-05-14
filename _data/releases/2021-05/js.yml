@@ -251,4 +251,25 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/web-pubsub_1.0.0-beta.1/sdk/web-pubsub/web-pubsub/CHANGELOG.md#100-beta1-2021-04-23
   ChangelogContent: This is the first release of the @azure/web-pubsub package.
+- Name: '@azure/storage-blob'
+  Version: 12.6.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/storage-blob_12.6.0-beta.1/sdk/storage/storage-blob/CHANGELOG.md#1260-beta1-2021-05-14
+  ChangelogContent: |-
+    - Updated Azure Storage Service API version to 2020-08-04.
+    - Restoring deleted container doesn't support renaming anymore, deprecated `destinationContainerName` in `ServiceUndeleteContainerOptions` for `BlobServiceClient.undeleteContainer()`.
+- Name: '@azure/storage-file-datalake'
+  Version: 12.5.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/storage-file-datalake_12.5.0-beta.1/sdk/storage/storage-file-datalake/CHANGELOG.md#1250-beta1-2021-05-14
+  ChangelogContent: |-
+    - Updated Azure Storage Service API version to 2020-08-04.
+    - Added support for Path Soft Delete. You can list the deleted paths via `DataLakeFileSystemClient.listDeletedPaths()`, and restore a deleted path via `DataLakeFileSystemClient.undeletePath()`.
+    - Restoring deleted FileSystem doesn't support renaming anymore, deprecated `destinationFileSystemName` in `ServiceUndeleteFileSystemOptions` for `DataLakeServiceClient.undeleteFileSystem()`.
 
