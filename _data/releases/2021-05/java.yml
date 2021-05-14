@@ -726,4 +726,233 @@ entries:
     ##### New Features
     * Todo
   GroupId: com.azure
+- Name: azure-resourcemanager-appconfiguration
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-appconfiguration_1.0.0-beta.2/sdk/appconfiguration/azure-resourcemanager-appconfiguration/CHANGELOG.md#100-beta2-2021-05-14
+  ChangelogContent: |-
+    - Azure Resource Manager AppConfiguration client library for Java. This package contains Microsoft Azure SDK for AppConfiguration Management SDK.  Package tag package-2021-03-01-preview. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+    #### Breaking Change
+
+    * `models.ListKeyValueParameters` was removed
+
+    ##### `models.ConfigurationStore$Update` was modified
+
+    * `withPublicNetworkAccess(models.PublicNetworkAccess)` was removed
+
+    ##### `models.ConfigurationStoreUpdateParameters` was modified
+
+    * `publicNetworkAccess()` was removed
+    * `withPublicNetworkAccess(models.PublicNetworkAccess)` was removed
+
+    ##### `models.ConfigurationStore` was modified
+
+    * `listKeyValue(models.ListKeyValueParameters)` was removed
+    * `listKeyValueWithResponse(models.ListKeyValueParameters,com.azure.core.util.Context)` was removed
+
+    ##### `models.ConfigurationStores` was modified
+
+    * `listKeyValue(java.lang.String,java.lang.String,models.ListKeyValueParameters)` was removed
+    * `listKeyValueWithResponse(java.lang.String,java.lang.String,models.ListKeyValueParameters,com.azure.core.util.Context)` was removed
+
+    #### New Feature
+
+    * `models.KeyValue$Definition` was added
+
+    * `models.KeyValue$UpdateStages` was added
+
+    * `models.ServiceSpecification` was added
+
+    * `models.OperationProperties` was added
+
+    * `models.KeyValues` was added
+
+    * `models.LogSpecification` was added
+
+    * `models.MetricDimension` was added
+
+    * `models.KeyValueListResult` was added
+
+    * `models.KeyValue$Update` was added
+
+    * `models.KeyValue$DefinitionStages` was added
+
+    * `models.MetricSpecification` was added
+
+    ##### `models.ConfigurationStore$Update` was modified
+
+    * `withDisableLocalAuth(java.lang.Boolean)` was added
+
+    ##### `models.ConfigurationStoreUpdateParameters` was modified
+
+    * `withDisableLocalAuth(java.lang.Boolean)` was added
+    * `disableLocalAuth()` was added
+
+    ##### `models.OperationDefinition` was modified
+
+    * `properties()` was added
+    * `isDataAction()` was added
+    * `origin()` was added
+
+    ##### `models.ConfigurationStore` was modified
+
+    * `systemData()` was added
+    * `disableLocalAuth()` was added
+
+    ##### `AppConfigurationManager` was modified
+
+    * `keyValues()` was added
+
+    ##### `models.ConfigurationStore$Definition` was modified
+
+    * `withDisableLocalAuth(java.lang.Boolean)` was added
+
+    ##### `models.KeyValue` was modified
+
+    * `refresh(com.azure.core.util.Context)` was added
+    * `type()` was added
+    * `refresh()` was added
+    * `name()` was added
+    * `id()` was added
+    * `update()` was added
+  GroupId: com.azure.resourcemanager
+- Name: azure-data-tables
+  Version: 12.0.0-beta.7
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-data-tables_12.0.0-beta.7/sdk/tables/azure-data-tables/CHANGELOG.md#1200-beta7-2021-05-15
+  ChangelogContent: |-
+    #### New Features
+
+    - Added `getAccessPolicy()` and `setAccessPolicy()` to `TableClient` and `TableAsyncClient`.
+    - Added `getProperties()`, `setProperties()` and `getStatistics()` to `TableServiceClient` and `TableServiceAsyncClient`.
+    - Added the following models:
+        - `TableAccessPolicy`
+        - `TableServiceCorsRule`
+        - `TableServiceGeoReplication`
+        - `TableServiceGeoReplicationStatus`
+        - `TableServiceLogging`
+        - `TableServiceMetrics`
+        - `TableServiceProperties`
+        - `TableServiceRetentionPolicy`
+        - `TableServiceStatistics`
+        - `TableSignedIdentifier`
+
+    #### Breaking Changes
+
+    - Renamed `create()` and `delete()` methods to `createTable()` and `deleteTable()` on `TableClient` and `TableAsyncClient`. Also made `createTable()` and its variants return a `TableItem`.
+    - Removed `deleteEntity(String partitionKey, String rowKey, String eTag)` and added `deleteEntity(TableEntity tableEntity)` in both `TableClient` and `TableAsyncClient`.
+    - Made it so that when deleting a table or entity that does not exist, the resulting `404` error gets swallowed instead of thrown.
+    - Removed public APIs supporting the use of `TableEntity` subclasses.
+    - Made the following classes `final`:
+        - `TableEntity`
+        - `TableItem`
+        - `TableClient`
+        - `TableServiceClient`
+        - `TableServiceAsyncClient`
+        - `TableClientBuilder`
+        - `TableServiceClientBuilder`.
+    - Removed method overloads that used `timeout`, except in the maximal overload for a method (the `withResponse` variant).
+    - Ensured that all timeout usages are client-side and not server-side.
+    - Made `createTable()` and `createTableIfNotExists()` in `TableServiceClient` and `TableServiceAsyncClient` return a `TableClient` and `TableAsyncClient` respectively.
+    - Made select in `ListEntitiesOptions` a `List` of `Strings` instead of a single `String`. Did the same for select in `getEntity()` and `getEntityWithResponse()` in `TableClient` and `TableAsyncClient`.
+    - Replaced `retryOptions(RequestRetryOptions)` with `retryPolicy(RetryPolicy)` in `TableClientBuilder` and `TableServiceClientBuilder`.
+    - Removed `TableSharedKeyCredential` in favor of using Azure Core's `AzureNamedKeyCredential`.
+    - Replaced `TableSharedKeyCredentialPolicy` with `AzureNamedKeyCredentialPolicy`.
+    - Renamed `UpdateMode` to `TableEntityUpdateMode`.
+    - Renamed `TablesServiceVersion` to `TableServiceVersion`.
+    - Renamed `getTableUrl()` and `getApiVersion()` to `getTableEndpoint()` and `getServiceVersion()` respectively, in `TableClient` and `TableAsyncClient`.
+    - Renamed `getServiceUrl()` and `getApiVersion()` to `getServiceEndpoint()` and `getServiceVersion()` respectively, in `TableClient` and `TableAsyncClient`.
+    - Renamed `addProperties()` to `setProperties()` in `TableEntity`. Also made `setProperties()` replace the contents of properties map with those of the argument, instead of adding them to the existing properties.
+    - Removed dependency on `azure-storage-common` and added direct dependency on `azure-core-http-netty`.
+
+    #### Bug Fixes
+
+    - Merge operations no longer fail for Cosmos table endpoints.
+    - Fixed issue with `TablesJacksonSerializer` where it could not handle HTTP responses with empty bodies.
+
+    #### Dependency Updates
+    - Upgraded `azure-core` dependency to `1.16.0`.
+  GroupId: com.azure
+- Name: azure-security-keyvault-certificates
+  Version: 4.2.0-beta.6
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-certificates_4.2.0-beta.6/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md#420-beta6-2021-05-15
+  ChangelogContent: |-
+    #### Dependency Updates
+    - Upgraded `azure-core` dependency to `1.16.0`
+    - Upgraded `azure-core-http-netty` dependency to `1.9.2`
+    - Upgraded `azure-core-http-okhttp` dependency to `1.6.2`
+    - Upgraded `azure-identity` dependency to `1.3.0`
+  GroupId: com.azure
+- Name: azure-security-keyvault-administration
+  Version: 4.0.0-beta.7
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-administration_4.0.0-beta.7/sdk/keyvault/azure-security-keyvault-administration/CHANGELOG.md#400-beta7-2021-05-15
+  ChangelogContent: |-
+    #### New features
+
+    - Added support for creating, retrieving, updating and deleting custom role definitions.
+
+    #### Breaking Changes
+
+    - Added the public `KeyVaultAdministrationException`, which will be thrown in place of an exception with the same name in the `implementation` package.
+
+    ##### Behavioral Changes
+
+    #### Dependency Updates
+    - Upgraded `azure-core` dependency to `1.16.0`
+    - Upgraded `azure-core-http-netty` dependency to `1.9.2`
+    - Upgraded `azure-core-http-okhttp` dependency to `1.6.2`
+    - Upgraded `azure-identity` dependency to `1.3.0`
+  GroupId: com.azure
+- Name: azure-security-keyvault-keys
+  Version: 4.3.0-beta.8
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-keys_4.3.0-beta.8/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md#430-beta8-2021-05-15
+  ChangelogContent: |-
+    #### Dependency Updates
+    - Upgraded `azure-core` dependency to `1.16.0`
+    - Upgraded `azure-core-http-netty` dependency to `1.9.2`
+    - Upgraded `azure-core-http-okhttp` dependency to `1.6.2`
+    - Upgraded `azure-identity` dependency to `1.3.0`
+  GroupId: com.azure
+- Name: azure-resourcemanager-botservice
+  Version: 1.0.0-beta.1
+  DisplayName: azure-resourcemanager-botservice
+  ServiceName: ""
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-botservice_1.0.0-beta.1/sdk/botservice/azure-resourcemanager-botservice/CHANGELOG.md#100-beta1-2021-05-14
+  ChangelogContent: '- Azure Resource Manager BotService client library for Java. This package contains Microsoft Azure SDK for BotService Management SDK. Azure Bot Service is a platform for creating smart conversational agents. Package tag package-2021-03-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).'
+  GroupId: com.azure.resourcemanager
+- Name: azure-security-keyvault-secrets
+  Version: 4.3.0-beta.6
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-secrets_4.3.0-beta.6/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md#430-beta6-2021-05-15
+  ChangelogContent: |-
+    #### Dependency Updates
+    - Upgraded `azure-core` dependency to `1.16.0`
+    - Upgraded `azure-core-http-netty` dependency to `1.9.2`
+    - Upgraded `azure-core-http-okhttp` dependency to `1.6.2`
+    - Upgraded `azure-identity` dependency to `1.3.0`
+  GroupId: com.azure
 
