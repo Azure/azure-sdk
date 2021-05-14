@@ -767,4 +767,14 @@ entries:
 
     **Fixes**
     - Fixed initiating `PathProperties` problem (#18490)
+- Name: azure-storage-file-share
+  Version: 12.5.0b1
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-storage-file-share_12.5.0b1/sdk/storage/azure-storage-file-share/CHANGELOG.md#1250b1-2021-05-12
+  ChangelogContent: |-
+    **New features**
+    - Added support for lease operation on a share, eg. acquire_lease
 
