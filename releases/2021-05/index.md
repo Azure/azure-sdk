@@ -11,7 +11,7 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 
 ## Release Highlights
 
-*
+* Azure SDK for Python (Conda) **Preview** is released in [Microsoft channel](https://anaconda.org/microsoft)
 *
 *
 
