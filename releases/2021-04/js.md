@@ -12,10 +12,14 @@ repository: azure/azure-sdk-for-js
 @azure/communication-identity:1.0.0
 @azure/core-rest-pipeline:1.0.3
 @azure/core-lro:1.0.4
+@azure/core-lro:1.0.5
 @azure/communication-common:1.0.0
 @azure/core-client:1.1.0
 @azure/communication-chat:1.0.0
 @azure/identity:2.0.0-beta.1
+@azure/identity:2.0.0-beta.2
+@azure/identity:1.3.0
+@azure/cosmos:3.10.6
 @azure/core-http:1.2.4
 @azure/communication-sms:1.0.0
 @azure/core-amqp:2.2.0
@@ -32,6 +36,7 @@ repository: azure/azure-sdk-for-js
 @azure/synapse-artifacts:1.0.0-beta.4
 @azure/container-registry:1.0.0-beta.1
 @azure/data-tables:12.0.0-beta.2
+@azure/ai-anomaly-detector:3.0.0-beta.3
 
 [pattern]: # (${PackageName}:${PackageVersion})
 -->
@@ -47,6 +52,8 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 - Core - Client
 - Core - AMQP
 - Event Hubs
+- Identity
+- Cosmos
 
 [pattern.ga]: # (- ${PackageFriendlyName})
 
@@ -60,6 +67,7 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 [pattern.patch]: # (- ${PackageFriendlyName})
 
 #### Beta
+- Anomaly Detector
 - Azure Communication Phone Numbers
 - Identity
 - Core - Tracing
@@ -81,15 +89,21 @@ The Azure SDK team is pleased to make available the April 2021 client library re
 To install the packages, copy and paste the below into a terminal.
 
 ```bash
+$> npm install @azure/ai-anomaly-detector@3.0.0-beta.3
 $> npm install @azure/communication-phone-numbers@1.0.0-beta.5
 $> npm install @azure/core-auth@1.3.0
 $> npm install @azure/communication-identity@1.0.0
 $> npm install @azure/core-rest-pipeline@1.0.3
 $> npm install @azure/core-lro@1.0.4
+$> npm install @azure/core-lro@1.0.5
 $> npm install @azure/communication-common@1.0.0
 $> npm install @azure/core-client@1.1.0
 $> npm install @azure/communication-chat@1.0.0
 $> npm install @azure/identity@2.0.0-beta.1
+$> npm install @azure/identity@2.0.0-beta.2
+$> npm install @azure/identity@1.3.0
+$> npm install @azure/cosmos@3.10.6
+$> npm install @azure/cosmos@3.11.0
 $> npm install @azure/core-rest-pipeline@1.0.2
 $> npm install @azure/core-http@1.2.4
 $> npm install @azure/communication-sms@1.0.0
@@ -116,6 +130,8 @@ $> npm install @azure/data-tables@12.0.0-beta.2
 
 If you have a bug or feature request for one of the libraries, please post an issue at the [azure-sdk-for-js repository](https://github.com/azure/azure-sdk-for-js/issues)
 
+### Anomaly Detector 3.0.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/ai-anomaly-detector_3.0.0-beta.3/sdk/anomalydetector/ai-anomaly-detector/CHANGELOG.md#300-beta3-2021-04-16)
+- Introduced the following new APIs related to Mutivariate Models:trainMultivariateModel, getMultivariateModel, deleteMultivariateModel, detectAnomaly, getDetectionResult, exportModel, listMultivariateModel, listMultivariateModelNext.
 ### Core - Auth 1.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-auth_1.3.0/sdk/core/core-auth/CHANGELOG.md#130-2021-03-30)
 - Adds the `AzureNamedKeyCredential` class which supports credential rotation and a corresponding `NamedKeyCredential` interface to support the use of static string-based names and keys in Azure clients.
 - Adds the `isNamedKeyCredential` and `isSASCredential` typeguard functions similar to the existing `isTokenCredential`.
@@ -161,12 +177,21 @@ Updated `@azure/communication-common` version.
 
 - Updated @azure/core-tracing to version `1.0.0-preview.11`. See [@azure/core-tracing CHANGELOG](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/core/core-tracing/CHANGELOG.md) for details about breaking changes with tracing.
 
+### Core - LRO 1.0.5 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-lro_1.0.5/sdk/core/core-lro/CHANGELOG.md#105-2021-04-12)
+- No functionality changes from 1.0.4. This release is to correct an issue where 1.0.4 shipped with modules in the wrong format (cjs instead of es6.)
+
 ### Core - Client 1.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-client_1.1.0/sdk/core/core-client/CHANGELOG.md#110-2021-03-30)
 #### Breaking Changes
 
 - If the response body is empty and the mapper for it says it is nullable, then a null is returned.
 - Updated @azure/core-tracing to version `1.0.0-preview.11`. See [@azure/core-tracing CHANGELOG](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/core/core-tracing/CHANGELOG.md) for details about breaking changes with tracing.
 
+### CosmosDB - 3.10.6 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/cosmos_3.10.6/sdk/cosmosdb/cosmos/CHANGELOG.md#3106-2021-04-14)
+#### Bugfix
+- Adds partitionKey parameter to `container.conflicts.delete`'
+
+### Cosmos DB 3.11.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/cosmos_3.11.0/sdk/cosmosdb/cosmos/CHANGELOG.md#3110-2021-04-21)
+- FEATURE: Internal client update. No user facing changes, but major version bump to be safe.
 ### Identity 2.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/identity_2.0.0-beta.1/sdk/identity/identity/CHANGELOG.md#200-beta1-2021-03-24)
 This update marks the preview for the first major version update of the `@azure/identity` package since the first stable version was released in October, 2019. This is mainly driven by the improvements we are making for the `InteractiveBrowserCredential` when used in browser applications by updating it to use the new `@azure/msal-browser` which is replacing the older `msal` package.
 
@@ -206,6 +231,22 @@ This update marks the preview for the first major version update of the `@azure/
 - `DefaultAzureCredential`'s implementation for browsers is simplified to throw the `BrowserNotSupportedError` in its constructor. Previously, we relied on getting the same error from trying to instantiate the different  credentials that `DefaultAzureCredential` supports in Node.js.
   - As before, please use only the `InteractiveBrowserCredential` in your browser applications.
 - For the `InteractiveBrowserCredential` for node, replaced the use of the `express` module with a native http server for Node, shrinking the resulting identity module considerably.
+
+### Identity 2.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/identity_2.0.0-beta.2/sdk/identity/identity/CHANGELOG.md#200-beta2-2021-04-06)
+
+#### Breaking Changes
+-  Renamed errors `CredentialUnavailable` to `CredentialUnavailableError`, and `AuthenticationRequired` to `AuthenticationRequiredError`, to align with the naming convention used for error classes in the Azure SDKs in JavaScript.
+- Added `clientId` to the `AuthenticationRecord` type, alongsides the `tenantId` that this interface already had. Together they can be used to re-authenticate after recovering a previously serialized `AuthenticationRecord`.
+- The `serialize()` method on the `AuthenticationRecord` object that allows an authenticated account to be stored as a string and re-used in another credential at any time, is removed in favor of a standalone function `serializeAuthenticationRecord` similar to how we have the `deserializeAuthenticationRecord` function.
+- `serializeAuthenticationRecord` now serializes into a JSON string with camel case properties. This makes it re-usable across languages.
+- Removed the interface `PersistentCredentialOptions` (introduced in `2.0.0-beta.1`) and instead inlined the options for the persistent cache feature in the options of individual credentials.
+- Added properties `scopes` and `getTokenOptions` to the AuthenticationRequired error. These properties hold the values used by the `getToken()` method on your credential to fetch the access token. You should pass these to the `authenticate()` method on your credential if you wanted to do manual authentication after catching the `AuthenticationRequired` error.
+- `InteractiveBrowserCredential` no longer supports [Implicit Grant Flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-implicit-grant-flow) and will only support [Auth Code Flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow) instead. Therefore the `flow` option introduced in `1.2.4-beta.1` has been removed. More information from the documentation on Implicit Grant Flow:
+> With the plans for [third party cookies to be removed from browsers](https://docs.microsoft.com/azure/active-directory/develop/reference-third-party-cookies-spas), the **implicit grant flow is no longer a suitable authentication method**. The [silent SSO features](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-implicit-grant-flow#getting-access-tokens-silently-in-the-background) of the implicit flow do not work without third party cookies, causing applications to break when they attempt to get a new token. We strongly recommend that all new applications use the authorization code flow that now supports single page apps in place of the implicit flow, and that [existing single page apps begin migrating to the authorization code flow](https://docs.microsoft.com/azure/active-directory/develop/migrate-spa-implicit-to-auth-code) as well.
+
+### Identity 1.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/identity_1.3.0/sdk/identity/identity/CHANGELOG.md#130-2021-04-05)
+#### Tracing Changes
+    - Updated @azure/core-tracing to version `1.0.0-preview.11`. See [@azure/core-tracing CHANGELOG](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/core/core-tracing/CHANGELOG.md) for details about breaking changes with tracing.
 
 ### Core - HTTP 1.2.4 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-http_1.2.4/sdk/core/core-http/CHANGELOG.md#124-2021-03-30)
 - Rewrote `bearerTokenAuthenticationPolicy` to use a new backend that refreshes tokens only when they're about to expire and not multiple times before. This fixes the issue: [13369](https://github.com/Azure/azure-sdk-for-js/issues/13369).
