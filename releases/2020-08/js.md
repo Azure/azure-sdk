@@ -121,7 +121,7 @@ We have another preview for you containing API changes for a generally improved 
   - NEW: `createReceiver(<queue-name>)` and `createReceiver(<queue-name>, {receiveMode: "receiveAndDelete"})`
 
 - Added Async iterable iterators with pagination support for all the listing methods like `getQueues()`, `getTopics()`, `getQueuesRuntimeInfo()`, etc. and renamed them to use the `list` verb (becoming `listQueues()`, `listTopics()`, `listQueuesRuntimeProperties()`, etc. respectively).
-  - Please refer to the examples in the `samples` folder - [listingEntities](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/samples/typescript/src/advanced/listingEntities.ts)
+  - Please refer to the examples in the `samples` folder - [listingEntities](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/samples/v7/typescript/src/advanced/listingEntities.ts)
 - `receiveMessages()`'s optional `maxWaitTimeInMs` parameter now controls how long to wait for the _first_ message, rather than how long to wait for an entire set of messages. This change allows for a faster return of messages to your application.
 - `userProperties` attribute under the `ServiceBusMessage`(and `ReceivedMessage`, `ReceivedMessageWithLock`) has been renamed to `properties`. The same change has been made to the `userProperties` attribute in the correlation-rule filter.
 - The terms `RuntimeInfo` and `Description` have been replaced with `RuntimeProperties` and `Properties` to better align with guidelines around the kind of suffixes we use for naming methods and interfaces.
