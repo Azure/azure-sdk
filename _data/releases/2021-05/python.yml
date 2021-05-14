@@ -753,4 +753,18 @@ entries:
       - Removed operation group CassandraDataCentersOperations
       - Removed operation group RestorableSqlDatabasesOperations
       - Removed operation group ServiceOperations
+- Name: azure-storage-file-datalake
+  Version: 12.4.0b1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-storage-file-datalake_12.4.0b1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md#1240b1-2021-05-12
+  ChangelogContent: |-
+    **New features**
+    - Added support `set_service_properties()`,`get_service_properties()` on `DataLakeServiceClient`
+    - Added support for `list_deleted_paths()` on `FileSystemClient`
+
+    **Fixes**
+    - Fixed initiating `PathProperties` problem (#18490)
 
