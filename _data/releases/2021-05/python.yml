@@ -441,7 +441,7 @@ entries:
     - Added models for all the generated API types.
     - Documentation cleanup for several APIs.
 
-    #### Breaking Changes
+    **Breaking changes**
 
     - Creating the `StoredAttestationPolicy` model type means that the `attestation_policy`
         kwargs parameter for the constructor has been replaced with a positional `policy` parameter. As a result of this change, this code:
