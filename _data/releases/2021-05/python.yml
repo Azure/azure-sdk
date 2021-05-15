@@ -45,11 +45,11 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-security-attestation_1.0.0b2/sdk/attestation/azure-security-attestation/CHANGELOG.md#100b2-2021-05-11
   ChangelogContent: |-
-    #### Features Added
+    **New features**
 
     - Preliminary implementation of a Track 2 SDK for the attestation service.
 
-    #### Breaking Changes
+    **Breaking changes**
 
     - Complete reimplementation of the API surface, follows the API patterns already
     established for the attestation service.
@@ -69,7 +69,7 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-maps_2.0.0/sdk/maps/azure-mgmt-maps/CHANGELOG.md#200-2021-05-08
   ChangelogContent: |-
-    **Features**
+    **New features**
 
       - Model CreatorUpdateParameters has a new parameter storage_units
       - Model CreatorUpdateParameters has a new parameter provisioning_state
@@ -99,7 +99,7 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-search-documents_11.2.0b3/sdk/search/azure-search-documents/CHANGELOG.md#1120b3-2021-05-11
   ChangelogContent: |-
-    #### New features
+    **New features**
 
     - Added support for knowledge store    #18461
 - Name: azure-synapse-artifacts
@@ -110,7 +110,7 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-synapse-artifacts_0.7.0/sdk/synapse/azure-synapse-artifacts/CHANGELOG.md#070-2021-05-11
   ChangelogContent: |-
-    #### Bug fixes
+    **Bug fixes**
 
     - Enable poller when starting a long running operation    #18184
 - Name: azure-purview-catalog
@@ -137,7 +137,7 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-cosmosdb_6.3.0b1/sdk/cosmos/azure-mgmt-cosmosdb/CHANGELOG.md#630b1-2021-05-10
   ChangelogContent: |-
-    **Features**
+    **New features**
 
       - Model CassandraKeyspaceGetResults has a new parameter identity
       - Model TableCreateUpdateParameters has a new parameter identity
@@ -203,7 +203,7 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-billing_6.0.0/sdk/billing/azure-mgmt-billing/CHANGELOG.md#600-2021-05-12
   ChangelogContent: |-
-    **Features**
+    **New features**
 
       - Model InvoiceSectionListResult has a new parameter total_count
       - Model OperationDisplay has a new parameter description
@@ -237,7 +237,7 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-eventgrid_4.2.0/sdk/eventgrid/azure-eventgrid/CHANGELOG.md#420-2021-05-12
   ChangelogContent: |-
-    **New Features**
+    **New features**
       - Added new event names to the `SystemEventNames` enum.
 - Name: azure-containerregistry
   Version: 1.0.0b2
@@ -261,7 +261,7 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-loganalytics_10.0.0/sdk/loganalytics/azure-mgmt-loganalytics/CHANGELOG.md#1000-2021-05-13
   ChangelogContent: |-
-    **Features**
+    **New features**
 
       - Model WorkspacePatch has a new parameter cluster_resource_id
       - Model WorkspacePatch has a new parameter immediate_purge_data_on30_days
@@ -288,7 +288,7 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-resource_17.0.0/sdk/resources/azure-mgmt-resource/CHANGELOG.md#1700-2021-05-13
   ChangelogContent: |-
-    **Features**
+    **New features**
 
       - Model Provider has a new parameter provider_authorization_consent_state
       - Model TemplateSpec has a new parameter metadata
@@ -318,14 +318,14 @@ entries:
     This is the last version to support Python 3.5. The next version will require
     Python 2.7 or 3.6+.
 
-    #### Added
+    **New features**
     - `AzurePowerShellCredential` authenticates as the identity logged in to Azure
       PowerShell. This credential is part of `DefaultAzureCredential` by default
       but can be disabled by a keyword argument:
       `DefaultAzureCredential(exclude_powershell_credential=True)`
       ([#17341](https://github.com/Azure/azure-sdk-for-python/issues/17341))
 
-    #### Fixed
+    **Bug fixes**
     - `AzureCliCredential` raises `CredentialUnavailableError` when the CLI times out,
       and kills timed out subprocesses
     - Reduced retry delay for `ManagedIdentityCredential` on Azure VMs
@@ -337,7 +337,7 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-core_1.14.0/sdk/core/azure-core/CHANGELOG.md#1140-2021-05-13
   ChangelogContent: |-
-    #### New Features
+    **New features**
 
     - Added `azure.core.credentials.AzureNamedKeyCredential` credential #17548.
     - Added `decompress` parameter for `stream_download` method. If it is set to `False`, will not do decompression upon the stream.    #17920
@@ -349,7 +349,8 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-data-tables_12.0.0b7/sdk/tables/azure-data-tables/CHANGELOG.md#1200b7-2021-05-11
   ChangelogContent: |-
-    **Breaking**
+    **Breaking changes**
+
     * The `account_url` parameter in the client constructors has been renamed to `endpoint`.
     * The `TableEntity` object now acts exclusively like a dictionary, and no longer supports key access via attributes.
     * Metadata of an entity is now accessed via `TableEntity.metadata` attribute rather than a method.
@@ -368,7 +369,8 @@ entries:
     * The only supported credentials are `AzureNamedKeyCredential`, `AzureSasCredential`, or authentication by connection string
     * Removed `date` and `api_version` from the `TableItem` class.
 
-    **Fixes**
+    **Bug fixes**
+
     * Fixed issue with Cosmos merge operations.
     * Removed legacy Storage policies from pipeline.
     * Removed unused legacy client-side encryption attributes from client classes.
@@ -388,13 +390,13 @@ entries:
   ChangelogContent: |-
     The preview features related to AMQPAnnotatedMessage introduced in 7.2.0b1 are not included in this version.
 
-    **New Features**
+    **New features**
 
     * Added support for using `azure.core.credentials.AzureNamedKeyCredential` as credential for authenticating the clients.
     * Support for using `azure.core.credentials.AzureSasCredential` as credential for authenticating the clients is now GA.
     * `ServiceBusAdministrationClient.update_*` methods now accept keyword arguments to override the properties specified in the model instance.
 
-    **Bug Fixes**
+    **Bug fixes**
 
     * Fixed a bug where `update_queue` and `update_subscription` methods were mutating the properties `forward_to` and `forward_dead_lettered_messages_to` of the model instance when those properties are entities instead of full paths.
     * Improved the `repr` on `ServiceBusMessage` and `ServiceBusReceivedMessage` to show more meaningful text.
@@ -413,11 +415,11 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-eventhub_5.5.0/sdk/eventhub/azure-eventhub/CHANGELOG.md#550-2021-05-13
   ChangelogContent: |-
-    **New Features**
+    **New features**
 
     - Added support for using `azure.core.credentials.AzureNamedKeyCredential` as credential for authenticating producer and consumer clients.
 
-    **Bug Fixes**
+    **Bug fixes**
 
     - Fixed bug that custom user agent string should be put in front of the built-in user agent string instead of being appended.
     - Updated uAMQP dependency to 1.4.0.
