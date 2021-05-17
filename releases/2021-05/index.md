@@ -11,9 +11,7 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 
 ## Release Highlights
 
-*
-*
-*
+- Azure Communication Services Calling and Azure Communication Services Common are generally available.
 
 ## Release Notes
 
