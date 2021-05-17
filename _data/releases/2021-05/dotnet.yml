@@ -432,4 +432,14 @@ entries:
 
     - The `AzureKeyVaultConfigurationProvider` was made public.
     - The `KeyVaultSecretManager.GetData` method was added to allow customizing the way secrets are turned into configuration values.
+- Name: Azure.Analytics.Synapse.Artifacts
+  Version: 1.0.0-preview.10
+  DisplayName: Synapse - Artifacts
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.Synapse.Artifacts_1.0.0-preview.10/sdk/synapse/Azure.Analytics.Synapse.Artifacts/CHANGELOG.md#100-preview10-2021-05-13
+  ChangelogContent: |-
+    #### Key Bug Fixes
+    - LibraryRestClient.Append method nows includes comp parameter (https://github.com/Azure/azure-rest-api-specs/pull/13841)
 
