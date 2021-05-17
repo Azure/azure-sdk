@@ -997,4 +997,20 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-maps_1.0.0-beta.1/sdk/maps/azure-resourcemanager-maps/CHANGELOG.md#100-beta1-2021-05-17
   ChangelogContent: '- Azure Resource Manager AzureMaps client library for Java. This package contains Microsoft Azure SDK for AzureMaps Management SDK. Azure Maps. Package tag package-2021-02. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).'
   GroupId: com.azure.resourcemanager
+- Name: azure-cosmos-spark_3-1_2-12
+  Version: 4.0.0
+  DisplayName: azure-cosmos-spark_3-1_2-12
+  ServiceName: ""
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-cosmos-spark_3-1_2-12_4.0.0/sdk/cosmos/azure-cosmos-spark_3-1_2-12/CHANGELOG.md#400-2021-05-14
+  ChangelogContent: |-
+    ##### Configuration Renames
+    * Renamed data source name `cosmos.changeFeed` to `cosmos.oltp.changeFeed`, See [PR](https://github.com/Azure/azure-sdk-for-java/pull/21184).
+
+    ##### Key Bug Fixes
+    * Fixed a bug in bulk write when using Gateway mode that could cause job failures during partition splits
+    * Improved the client-side throughput control algorithm to allow saturating the allowed throughput
+    * Added debug-level logging to help client-side throughput control investigations
+  GroupId: com.azure.cosmos.spark
 
