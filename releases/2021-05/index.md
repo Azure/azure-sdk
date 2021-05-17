@@ -16,6 +16,7 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 - Azure Communication Phone Numbers SDK for JS released GA for the first time, with version 1.0.0
 - Azure EventGrid SDK for JS has released new GA version. It has added new System Events: `Microsoft.PolicyInsights.PolicyStateCreated`, `Microsoft.PolicyInsights.PolicyStateChanged`, `Microsoft.PolicyInsights.PolicyStateDeleted`, `Microsoft.Storage.AsyncOperationInitiated`, `Microsoft.Storage.BlobTierChanged`.
 - Azure Servicebus SDK for JS has released new GA version. It has added support for passing `NamedKeyCredential` as the credential type to `ServiceBusClient` and `ServiceBusAdminstrationClient`and for passing `SASCredential` to `ServiceBusClient`. It also has a couple of bug fixes.
+- Azure Communication Services Calling and Azure Communication Services Common are generally available.
 
 ## Release Notes
 
