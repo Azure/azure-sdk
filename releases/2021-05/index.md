@@ -11,9 +11,17 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 
 ## Release Highlights
 
-*
-*
-*
+- Azure Cosmos DB client library for Java is releasing a new GA.
+    - Adds `backendLatencyInMs` in `CosmosDiagnostics` for `DIRECT` connection mode and `retryContext` in `CosmosDiagnostics` for query operations.
+- Java Azure Core library is releasing a new GA.
+    - Adds support for Challenge Based Authentication in BearerTokenAuthenticationPolicy.
+    - Updated logic to eagerly read response bodies to include return types void and Void.
+- Java Azure Messaging EventGrid library is releasing a new GA.
+    - Adds new Storage system events `StorageAsyncOperationInitiatedEventData`,  `StorageBlobTierChangedEventData` and new Policy Insights system events `PolicyInsightsPolicyStateCreatedEventData`, `PolicyInsightsPolicyStateChangedEventData`,  `PolicyInsightsPolicyStateDeletedEventData`.
+- Java Azure Identity library is releasing a new GA.
+    - Adds support for Continuous Access Evaluation (CAE)
+    - Adds `AzurePowerShellCredential` to support authentication using Powershell on development platforms.
+- Releasing an initial preview/beta SDK release of Azure Purview Scanning, Azure Purview Catalog, Azure FarmBeats, Azure Confidential Ledger
 
 ## Release Notes
 
