@@ -390,4 +390,55 @@ entries:
     ##### New Features
 
     - Binding to the `CloudEvent` type is now supported.
+- Name: Azure.Extensions.AspNetCore.DataProtection.Keys
+  Version: 1.0.3
+  DisplayName: ASP.NET Extension - DataProtection Keys
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Extensions.AspNetCore.DataProtection.Keys_1.0.3/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Keys/CHANGELOG.md#103-2021-05-14
+  ChangelogContent: |-
+    #### Changes
 
+    - Dependency versions updated.
+- Name: Azure.Extensions.AspNetCore.DataProtection.Blobs
+  Version: 1.2.1
+  DisplayName: ASP.NET Extension - DataProtection Blobs
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Extensions.AspNetCore.DataProtection.Blobs_1.2.1/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Blobs/CHANGELOG.md#121-2021-05-14
+  ChangelogContent: |-
+    #### Changes
+
+    - Dependency versions updated.
+
+    ##### Key Bug Fixes
+
+    - Fixed a bug where referencing an existing empty blob resulted in a failure.
+- Name: Azure.Extensions.AspNetCore.Configuration.Secrets
+  Version: 1.1.0
+  DisplayName: ASP.NET Extension - Configuration Secrets
+  ServiceName: Extensions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Extensions.AspNetCore.Configuration.Secrets_1.1.0/sdk/extensions/Azure.Extensions.AspNetCore.Configuration.Secrets/CHANGELOG.md#110-2021-05-14
+  ChangelogContent: |-
+    #### Changes
+
+    - Dependency versions updated.
+
+    #### Added
+
+    - The `AzureKeyVaultConfigurationProvider` was made public.
+    - The `KeyVaultSecretManager.GetData` method was added to allow customizing the way secrets are turned into configuration values.
+- Name: Azure.Analytics.Synapse.Artifacts
+  Version: 1.0.0-preview.10
+  DisplayName: Synapse - Artifacts
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Analytics.Synapse.Artifacts_1.0.0-preview.10/sdk/synapse/Azure.Analytics.Synapse.Artifacts/CHANGELOG.md#100-preview10-2021-05-13
+  ChangelogContent: |-
+    #### Key Bug Fixes
+    - LibraryRestClient.Append method now includes comp parameter (https://github.com/Azure/azure-rest-api-specs/pull/13841)
