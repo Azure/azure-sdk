@@ -42,7 +42,7 @@
                     <ul class="dropdown-menu">
                         {% if folder.guidelines %}
                         {% for folderitem in topnav_guidelines.folders %}
-                        <li><a href="{{folderitem.folderitems[0].url}}" rel="noopener">{{folderitem.title}}</a></li>
+                        <li><a href="{{folderitem.folderitems[0].url | relative_url}}" rel="noopener">{{folderitem.title}}</a></li>
                         {% endfor %}
                         {% else %}
                         {% for folderitem in folder.folderitems %}
