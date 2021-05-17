@@ -779,3 +779,94 @@ entries:
   ChangelogContent: |-
     **New features**
     - Added support for lease operation on a share, eg. acquire_lease
+- Name: azure-mgmt-network
+  Version: 19.0.0
+  DisplayName: Resource Management - Network
+  ServiceName: Virtual Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-network_19.0.0/sdk/network/azure-mgmt-network/CHANGELOG.md#1900-2021-05-14
+  ChangelogContent: |-
+    **Features**
+
+      - Model ApplicationGatewayTrustedClientCertificate has a new parameter validated_cert_data
+      - Model ApplicationGatewayTrustedClientCertificate has a new parameter client_cert_issuer_dn
+      - Model VirtualNetwork has a new parameter flow_timeout_in_minutes
+      - Model FrontendIPConfiguration has a new parameter gateway_load_balancer
+      - Model IPAddressAvailabilityResult has a new parameter is_platform_reserved
+      - Model CustomIpPrefix has a new parameter custom_ip_prefix_parent
+      - Model CustomIpPrefix has a new parameter failed_reason
+      - Model CustomIpPrefix has a new parameter child_custom_ip_prefixes
+      - Model CustomIpPrefix has a new parameter authorization_message
+      - Model CustomIpPrefix has a new parameter signed_message
+      - Model VirtualNetworkPeering has a new parameter peering_sync_level
+      - Model VirtualNetworkPeering has a new parameter resource_guid
+      - Model VirtualNetworkPeering has a new parameter do_not_verify_remote_gateways
+      - Model VirtualNetworkPeering has a new parameter type
+      - Model VirtualNetworkPeering has a new parameter remote_virtual_network_address_space
+      - Model Subnet has a new parameter application_gateway_ip_configurations
+      - Model Subnet has a new parameter type
+      - Model LoadBalancingRule has a new parameter backend_address_pools
+      - Model EffectiveNetworkSecurityGroupAssociation has a new parameter network_manager
+      - Model BastionHost has a new parameter sku
+      - Model VirtualNetworkGateway has a new parameter extended_location
+      - Model VirtualNetworkGateway has a new parameter nat_rules
+      - Model VirtualNetworkGateway has a new parameter enable_bgp_route_translation_for_nat
+      - Model NetworkInterface has a new parameter workload_type
+      - Model NetworkInterface has a new parameter private_link_service
+      - Model NetworkInterface has a new parameter nic_type
+      - Model NetworkInterface has a new parameter migration_phase
+      - Model Delegation has a new parameter type
+      - Model PublicIPPrefix has a new parameter nat_gateway
+      - Model VirtualNetworkGatewayConnection has a new parameter egress_nat_rules
+      - Model VirtualNetworkGatewayConnection has a new parameter ingress_nat_rules
+      - Model NetworkInterfaceIPConfiguration has a new parameter gateway_load_balancer
+      - Model NetworkInterfaceIPConfiguration has a new parameter type
+      - Model AvailablePrivateEndpointType has a new parameter display_name
+      - Model PublicIPAddress has a new parameter delete_option
+      - Model PublicIPAddress has a new parameter nat_gateway
+      - Model PublicIPAddress has a new parameter service_public_ip_address
+      - Model PublicIPAddress has a new parameter linked_public_ip_address
+      - Model PublicIPAddress has a new parameter migration_phase
+      - Model VirtualHub has a new parameter preferred_routing_gateway
+      - Model BackendAddressPool has a new parameter tunnel_interfaces
+      - Model ServiceTagInformationPropertiesFormat has a new parameter state
+      - Added operation LoadBalancersOperations.begin_swap_public_ip_addresses
+      - Added operation group VirtualNetworkGatewayNatRulesOperations
+
+    **Breaking changes**
+
+      - Operation VirtualNetworkPeeringsOperations.begin_create_or_update has a new signature
+      - Model VirtualNetworkGateway no longer has parameter virtual_network_extended_location
+- Name: azure-mgmt-iothub
+  Version: 2.0.0
+  DisplayName: Resource Management - IoT Hub
+  ServiceName: IoT Hub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-iothub_2.0.0/sdk/iothub/azure-mgmt-iothub/CHANGELOG.md#200-2021-05-14
+  ChangelogContent: |-
+    **Features**
+
+      - Model EndpointHealthData has a new parameter last_send_attempt_time
+      - Model EndpointHealthData has a new parameter last_known_error_time
+      - Model EndpointHealthData has a new parameter last_known_error
+      - Model EndpointHealthData has a new parameter last_successful_send_attempt_time
+      - Model ImportDevicesRequest has a new parameter identity
+      - Model ImportDevicesRequest has a new parameter configurations_blob_name
+      - Model ImportDevicesRequest has a new parameter include_configurations
+      - Model RoutingServiceBusTopicEndpointProperties has a new parameter identity
+      - Model RoutingStorageContainerProperties has a new parameter identity
+      - Model StorageEndpointProperties has a new parameter identity
+      - Model IotHubDescription has a new parameter identity
+      - Model IotHubProperties has a new parameter network_rule_sets
+      - Model ExportDevicesRequest has a new parameter identity
+      - Model ExportDevicesRequest has a new parameter configurations_blob_name
+      - Model ExportDevicesRequest has a new parameter include_configurations
+      - Model RoutingServiceBusQueueEndpointProperties has a new parameter identity
+      - Model RoutingEventHubProperties has a new parameter identity
+
+    **Breaking changes**
+
+      - Operation IotHubResourceOperations.create_event_hub_consumer_group has a new signature
+
