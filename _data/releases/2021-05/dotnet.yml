@@ -455,4 +455,37 @@ entries:
     ##### Key Bug Fixes
 
     - Fixes an issues where keys returned from `AzureKeyVaultConfigurationProvider` were case sensitive.
+- Name: Azure.AI.TextAnalytics
+  Version: 5.1.0-beta.7
+  DisplayName: Text Analytics
+  ServiceName: Text Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.AI.TextAnalytics_5.1.0-beta.7/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#510-beta7-2021-05-18
+  ChangelogContent: |-
+    #### New features
+    - Added property `DisableServiceLogs` to `TextAnalyticsRequestOptions`.
+    - Added support for Sentiment Analysis as an action type for `StartAnalyzeBatchActions`.
+    - Changed type of `IncludeOpinionMining` to `bool?`.
+
+    #### Breaking changes
+    - The client defaults to the latest supported service version, which currently is `3.1-preview.5`.
+    - Renamed type `TextElementsV8` to `TextElementV8` in model `StringIndexType`.
+- Name: Microsoft.Azure.WebJobs.Extensions.EventHubs
+  Version: 5.0.0-beta.5
+  DisplayName: WebJobs Extensions - Event Hubs
+  ServiceName: WebJobs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Microsoft.Azure.WebJobs.Extensions.EventHubs_5.0.0-beta.5/sdk/eventhub/Microsoft.Azure.WebJobs.Extensions.EventHubs/CHANGELOG.md#500-beta5-2021-05-11
+  ChangelogContent: |-
+    #### Changes
+
+    ##### Key Bug Fixes
+
+    - The web proxy specified in configuration is now respected.
+
+    ##### New Features
+
+    - Added support for specifying `accountName` or `blobServiceUri` for the checkpoint connection.
 
