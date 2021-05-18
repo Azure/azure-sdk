@@ -303,4 +303,26 @@ entries:
     #### New Features
 
     - Enable encoding the body of a message to the 'value' or 'sequence' sections (via AmqpAnnotatedMessage.bodyType). Using this encoding is not required but does allow you to take advantage of native AMQP serialization for supported primitives or sequences.
+- Name: '@azure/ai-text-analytics'
+  Version: 5.1.0-beta.6
+  DisplayName: Text Analytics
+  ServiceName: Text Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/ai-text-analytics_5.1.0-beta.6/sdk/textanalytics/ai-text-analytics/CHANGELOG.md#510-beta6-2021-05-18
+  ChangelogContent: |-
+    #### New Features
+
+    - We are now targeting the service's v3.1-preview.5 API as the default instead of v3.1-preview.4.
+    - `beginAnalyzeActions` adds support for analyze sentiment actions.
+    - `disableServiceLogs` parameter is added to most actions in `beginAnalyzeActions` that controls service-side logging.
+
+    #### Breaking Changes
+
+    - `beginAnalyzeBatchActions` was renamed to `beginAnalyzeActions`.
+    - `TextElements_v8` is renamed to `TextElement_v8` in model `StringIndexType`.
+
+    #### Key Bug Fixes
+
+    - Results of entity linking actions were not returned correctly by `beginAnalyzeActions` and that is now fixed.
 
