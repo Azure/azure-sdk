@@ -1150,4 +1150,22 @@ entries:
 
     * `withIdentity(models.ArmIdentity)` was added
   GroupId: com.azure.resourcemanager
+- Name: azure-digitaltwins-core
+  Version: 1.1.0
+  DisplayName: Digital Twins - Core
+  ServiceName: IoT
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-digitaltwins-core_1.1.0/sdk/digitaltwins/azure-digitaltwins-core/CHANGELOG.md#110-2021-05-17
+  ChangelogContent: |-
+    #### Fixes and improvements
+
+    - Fixed a bug where string tokens that start with a numeric values would transform into number type after payload serialization.
+    - Upgraded `reactor-core` dependency from `3.3.12.RELEASE` to `3.4.3`
+    - Upgraded `jackson-annotations` dependency from `2.12.1` to `2.12.2`
+    - Upgraded `azure-core` dependency from `1.13.0` to `1.16.0`
+      - [azure-core changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/CHANGELOG.md#1160-2021-05-07)
+    - Upgraded `azure-core-serializer-json-jackson` dependency from `1.1.2` to `1.2.3`
+      - [azure-core-serializer-json-jackson changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-serializer-json-jackson/CHANGELOG.md#123-2021-05-07)
+  GroupId: com.azure
 
