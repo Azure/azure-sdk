@@ -12,7 +12,7 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 ## Release Highlights
 
 - SDK for JS has released new low level client packages for these services - Azure Purview Scanning, Azure Purview Catalog, Azure Confidential Ledger and Azure Document Translator
-- SDK for JS has released new libraries for the new Azure Web PubSub service, one of them specifically for Express. Azure Web PubSub is a new service for real-time messaging using WebSockets and the publish-subscribe pattern
+- SDK for JS has released new libraries for the new Azure Web PubSub service, one of them specifically for Express. Azure Web PubSub is a new service for real-time messaging using WebSockets and the publish-subscribe pattern.
 - Azure Communication Phone Numbers SDK for JS released GA for the first time, with version 1.0.0
 - Azure EventGrid SDK for JS has released new GA version. It has added new Storage System Events: `Microsoft.PolicyInsights.PolicyStateCreated`, `Microsoft.PolicyInsights.PolicyStateChanged`, `Microsoft.PolicyInsights.PolicyStateDeleted`, `Microsoft.Storage.AsyncOperationInitiated`, `Microsoft.Storage.BlobTierChanged`.
 - Azure Servicebus SDK for JS has released new GA version. It has added support for passing `NamedKeyCredential` as the credential type to `ServiceBusClient` and `ServiceBusAdminstrationClient`and for passing `SASCredential` to `ServiceBusClient`. It also has a couple of bug fixes.
