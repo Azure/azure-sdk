@@ -7,23 +7,32 @@ resources:
       type: github
       name: Azure/azure-sdk-tools
       endpoint: azure
-      ref: refs/tags/azure-sdk-tools_20210114.1
+      ref: refs/tags/azure-sdk-tools_20210422.2
 
 pool:
   vmImage: 'ubuntu-latest'
+
+variables:
+  BUNDLE_PATH: $(Pipeline.Workspace)/.bundle
 
 steps:
 - checkout: self
 - checkout: azure-sdk-tools
 
+- task: Cache@2
+  inputs:
+    key: 'gems | "$(Agent.OS)" | $(Build.SourcesDirectory)/azure-sdk/Gemfile | $(Build.SourcesDirectory)/azure-sdk/Gemfile.lock'
+    path: $(BUNDLE_PATH)
+  displayName: Cache gems
+
 - task: UseRubyVersion@0
   inputs:
-    versionSpec: '2.7.2'
+    versionSpec: '2.7.x'
   displayName: Initialize Ruby
 
 - script: |
-    gem install jekyll bundler
-  displayName: Install jekyll and bundler
+    gem install bundler
+  displayName: Install bundler
   workingDirectory: azure-sdk
 
 - script: |
@@ -41,7 +50,7 @@ steps:
   inputs:
     pwsh: true
     workingDirectory: azure-sdk
-    filePath: azure-sdk/eng/scripts/Update-Release-Versions.ps1 
+    filePath: azure-sdk/eng/scripts/Update-Release-Versions.ps1
     arguments: "check"
 
 - task: PowerShell@2
@@ -49,8 +58,9 @@ steps:
   inputs:
     pwsh: true
     workingDirectory: azure-sdk
-    filePath: azure-sdk-tools/eng/common/scripts/Verify-Links.ps1 
+    filePath: azure-sdk-tools/eng/common/scripts/Verify-Links.ps1
     arguments: >
       -urls ./_site/index.html
       -ignoreLinksFile ./eng/ignore-links.txt
+      -inputCacheFile "https://azuresdkartifacts.blob.core.windows.net/verify-links-cache/verify-links-cache.txt"
       -devOpsLogging:$true

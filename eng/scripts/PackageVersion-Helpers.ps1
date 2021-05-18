@@ -2,11 +2,14 @@
 
 function GetCommitterDate($shaUrl)
 {
+  $GithubHeaders = @{}
   if (!$github_pat) {
-    throw "github_pat was not set so we cannot retrieve git tag information"
+    Write-Warning "github_pat was not set so retrieving tag information might be rate-limited"
   }
-  $GithubHeaders = @{
-    Authorization = "bearer ${github_pat}"
+  else {
+    $GithubHeaders = @{
+      Authorization = "bearer ${github_pat}"
+    }
   }
 
   try
@@ -33,18 +36,22 @@ function GetCommitterDate($shaUrl)
     return $null
   }
 }
+
 function GetExistingTags($apiUrl)
 {
+  $GithubHeaders = @{}
   if (!$github_pat) {
-    throw "github_pat was not set so we cannot retrieve git tag information"
+    Write-Warning "github_pat was not set so retrieving tag information might be rate-limited"
   }
-  $GithubHeaders = @{
-    Authorization = "bearer ${github_pat}"
+  else {
+    $GithubHeaders = @{
+      Authorization = "bearer ${github_pat}"
+    }
   }
 
   try
   {
-    return (Invoke-RestMethod -Method "GET" -Uri "$apiUrl/git/refs/tags" -headers $GithubHeaders) 
+    return (Invoke-RestMethod -Method "GET" -Uri "$apiUrl/git/refs/tags" -headers $GithubHeaders)
   }
   catch
   {
@@ -87,7 +94,7 @@ function GetPackageVersions($lang, $tagSplit = "_")
       $package = $sp[0]
       $version = $sp[1]
     }
-    else 
+    else
     {
       $package = ""
       $version = $tagName
@@ -120,7 +127,7 @@ function GetPackageVersions($lang, $tagSplit = "_")
     $versions = [AzureEngSemanticVersion]::SortVersions($pkgVersion.Versions)
 
     $pkgVersion.LatestPreview = $versions[0].RawVersion
-    $gaVersions = @($versions | Where-Object { !$_.IsPrerelease -and $_.Major -gt 0})
+    $gaVersions = @($versions | Where-Object { !$_.IsPrerelease -and $_.Major -gt 0 })
     if ($gaVersions.Count -ne 0)
     {
       $pkgVersion.LatestGA = $gaVersions[0].RawVersion

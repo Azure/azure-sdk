@@ -155,7 +155,7 @@ This version 1.0.0-beta.2  incorporates feedback from UX Studies and Architectur
 
 ### Communication
 
-#### @azure/communication-administration [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-administration/CHANGELOG.md#100-beta3-2020-11-16)
+#### @azure/communication-administration [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/@azure/communication-administration_1.0.0-beta.3/sdk/communication/communication-administration/CHANGELOG.md#100-beta3-2020-11-16)
 
 #### New Features on @azure/communication-administration@1.0.0-beta.3
 

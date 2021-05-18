@@ -138,7 +138,10 @@ When doing any releases outside of master extra caution needs to be taken to ens
 
 Under some circumstances we may need to service a specific version of the code with a hotfix and in these cases we should create a branch with the name `hotfix/<hotfix name>`, where `<hotfix name>` should have at least the name of the package or service and a short description or version number with it. That branch should be created from the git release tag that points at the specific version we want to hotfix and pushed to the main repository.
 
-```
+```bash
+# If you need help finding the exact case-sensitive tag name:
+git tag -l <package-name>*
+
 git checkout -b hotfix/<hotfix name> <package-name>_<package-version>
 git push upstream hotfix/<hotfix name>
 ```
@@ -147,6 +150,6 @@ After you have the main hotfix branch created you should use your usual workflow
 
 After the changes are merged into the `hotfix/<hotfix name>` branch the same release process we use for master can be used to produce a release out of that branch but when you queue the build be sure to set the branch name to the `hotfix/<hotfix name>`.
 
-If the changes were not cherry-picked from `master` and they are needed there then merge (`git merge hotfix/<hotfix name>`) them from your `hotfix/<hotfix name>` branch into `master`. When merging accept the version numbers from `master`.
+If the changes were not cherry-picked from `master` and they are needed there then merge (`git merge hotfix/<hotfix name>`) them from your `hotfix/<hotfix name>` branch into `master`. When merging accept the version numbers from `master` and make sure CHANGELOG entries are sorted by date then version.
 
 Once the hotfix has been released and any changes merged back to `master` then you should delete the `hotfix/<hotfix name>` branch, it can always be recreated in the future from the last release tag if needed.

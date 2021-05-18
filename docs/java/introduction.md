@@ -955,6 +955,10 @@ In the case of a higher-level method that produces multiple HTTP requests, eithe
   - `ServiceResponseException`: Thrown when the request was sent to the service, but the client library wasn't able to understand the response.
   - `ServiceRequestException`: Thrown for an invalid response with custom error information.
 
+{% include requirement/MUST id="java-errors-new-exceptions" %} extend from one of the above exceptions defined in azure-core when defining a new service-specific exception. Do not extend from `RuntimeException` directly.
+
+{% include requirement/MUST id="java-errors-exception-public" %} define exception type in a public package if the exception is thrown from a public API. Do not throw an exception that is defined as package-private or is defined in `implementation` package.
+
 ### Authentication
 
 Azure services use a variety of different authentication schemes to allow clients to access the service.  Conceptually, there are two entities responsible in this process: a credential and an authentication policy.  Credentials provide confidential authentication data.  Authentication policies use the data provided by a credential to authenticate requests to the service.
@@ -1033,7 +1037,6 @@ Many `management` APIs do not have a data plane because they deal with managemen
 
 Here are some examples of namespaces that meet these guidelines:
 
-- `com.azure.data.cosmos`
 - `com.azure.identity.activedirectory`
 - `com.azure.iot.deviceprovisioning`
 - `com.azure.storage.blob`
@@ -1043,7 +1046,7 @@ Here are some examples of namespaces that meet these guidelines:
 Here are some namespaces that do not meet the guidelines:
 
 - `com.microsoft.azure.cosmosdb` (not in the `com.azure` namespace and does not use grouping)
-- `com.azure.mixedreality.kinect` (the grouping is not in the approved list)
+- `com.azure.cognitiveservice.vision` (the grouping `cognitiveservice` is not in the approved list)
 
 ### Support for Mocking
 

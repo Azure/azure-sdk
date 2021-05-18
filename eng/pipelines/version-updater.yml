@@ -1,6 +1,3 @@
-trigger:
-- master
-
 pool:
   vmImage: 'windows-2019'
 
@@ -10,7 +7,7 @@ resources:
       type: github
       name: Azure/azure-sdk-tools
       endpoint: azure
-      ref: refs/tags/azure-sdk-tools_20210114.1
+      ref: refs/tags/azure-sdk-tools_20210422.2
 
 steps:
 - checkout: self
@@ -39,9 +36,15 @@ steps:
       -github_pat '$(azuresdk-github-pat)'
       -devops_pat '$(azuresdk-azure-sdk-devops-release-work-item-pat)'
 
+- pwsh: |
+    $defaultBranch = (git remote show origin | Out-String) -replace "(?ms).*HEAD branch: (\w+).*", '$1'
+    echo "##vso[task.setvariable variable=DefaultBranch]$defaultBranch"
+  displayName: Setup default branch
+  workingDirectory: $(System.DefaultWorkingDirectory)/azure-sdk
+
 - template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
   parameters:
-    BaseBranchName: master
+    BaseBranchName: $(DefaultBranch)
     RepoName: azure-sdk
     PRBranchName: PackageVersionUpdates
     CommitMsg: "Update package index with latest published versions"
@@ -63,9 +66,15 @@ steps:
     arguments: >
       -outputFolder $(System.DefaultWorkingDirectory)/azure-dev-docs-pr/articles/includes/
 
+- pwsh: |
+    $defaultBranch = (git remote show origin | Out-String) -replace "(?ms).*HEAD branch: (\w+).*", '$1'
+    echo "##vso[task.setvariable variable=DefaultBranch]$defaultBranch"
+  displayName: Setup default branch
+  workingDirectory: $(System.DefaultWorkingDirectory)/azure-dev-docs-pr
+
 - template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
   parameters:
-    BaseBranchName: master
+    BaseBranchName: $(DefaultBranch)
     RepoOwner: MicrosoftDocs
     RepoName: azure-dev-docs-pr
     PRBranchName: PackageIndexUpdates
@@ -88,9 +97,15 @@ steps:
       -language dotnet
       -outputFolder $(System.DefaultWorkingDirectory)/dotnet-docs/docs/azure/includes/
 
+- pwsh: |
+    $defaultBranch = (git remote show origin | Out-String) -replace "(?ms).*HEAD branch: (\w+).*", '$1'
+    echo "##vso[task.setvariable variable=DefaultBranch]$defaultBranch"
+  displayName: Setup default branch
+  workingDirectory: $(System.DefaultWorkingDirectory)/dotnet-docs
+
 - template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
   parameters:
-    BaseBranchName: master
+    BaseBranchName: $(DefaultBranch)
     RepoOwner: dotnet
     RepoName: docs
     PRBranchName: PackageIndexUpdates

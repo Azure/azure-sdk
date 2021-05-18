@@ -392,18 +392,9 @@ Service methods are the methods on the client that invoke operations on the serv
 
 {% include requirement/MUST id="android-client-verb-prefix" %} name service methods using a standardized set of verbs or verb prefixes within a set of client libraries for a service. Prefer the use of the following terms for CRUD operations:
 
-|Verb              | Parameters        | Returns                 |Comments                                                                                                                |
-|------------------|-------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------|
-| `upsert<noun>`   | key, item         | Updated or created item | Create new item or update existing item. Verb is primarily used in database-like services.                             |
-| `set<noun>`      | key, item         | Updated or created item | Create new item or update existing item. Verb is primarily used for dictionary-like properties of a service.           |
-| `create<noun>`   | key, item         | Created item            | Create new item. Fails if item already exists.                                                                         |
-| `update<noun>`   | key, partial item | Updated item            | Fails if item doesn't exist.                                                                                           |
-| `replace<noun>`  | key, item         | Replace existing item   | Completely replaces an existing item. Fails if the item doesn't exist.                                                 |
-| `delete<noun>`   | key               | Deleted item, or `null` | Delete an existing item. Will succeed even if item didn't exist. Deleted item may be returned, if service supports it. |
-| `add<noun>`      | index, item       | Added item              | Add item to a collection. Item will be added last, or into the index position specified.                               |
-| `get<noun>`      | key               | Item                    | Will return `null` if item doesn't exist.                                                                              |
-| `list<noun>`     |                   | Items                   | Return list of items. Returns empty list if no items exist.                                                            |
-| `<noun>Exists`   | key               | `boolean`               | Return `true` if the item exists.                                                                                      |
+<!-- The table data is in yaml format on _data/tables/android_standard_verbs -->
+{% assign data = site.data.tables.android_standard_verbs.entries %}
+{% include tables/standard_verbs_template.html %}
 
 {% include requirement/SHOULD id="android-service-client-flexibility" %} remain flexible and use names best suited for developer experience.  Don't let the naming rules result in non-idiomatic naming patterns.  For example, Java developers prefer `list` operations over `getAll` operations.
 

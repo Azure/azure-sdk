@@ -89,7 +89,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-### 1.0.0-beta.7 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/master/CHANGELOG.md#100-beta7-2021-01-12))
+### 1.0.0-beta.7 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/1.0.0-beta.7/CHANGELOG.md#100-beta7-2021-01-12))
 
 #### Azure Communication Services Calling
 

@@ -60,7 +60,9 @@ The Azure SDK should be designed to enhance the productivity of developers conne
 
 {% include requirement/MUST id="ios-general-engsys" %} follow Azure SDK engineering systems guidelines for working in the [Azure/azure-sdk-for-ios] GitHub repository.
 
-{% include requirement/MUST id="ios-language" %} write the client library in Swift 5.
+{% include requirement/SHOULD id="ios-language-swift" %} write the client library in Swift 5.
+
+{% include requirement/MAY id="ios-language-objc" %} write the client library in Objective-C.
 
 The intent is to ensure that the client library is idiomatic in Swift applications. The library should not make specific accommodations to support Objective-C applications.
 

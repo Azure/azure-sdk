@@ -41,34 +41,7 @@ function CheckLink($url, $showWarningIfMissing=$true)
   return $false
 }
 
-function GetTemplateValue($linkTemplates, $templateName, $packageName = $null, $version = $null, $repoPath = $null, $groupId = $null)
-{
-  $replacedString = $linkTemplates[$templateName]
-
-  if ($packageName) {
-    $packageTrim = $linkTemplates["package_trim"]
-    $trimmedPackageName = $pkg.Package -replace "^$packageTrim", ""
-
-    $replacedString = $replacedString -replace "item.Package", $packageName
-    $replacedString = $replacedString -replace "item.TrimmedPackage", $trimmedPackageName
-  }
-
-  if ($version) {
-    $replacedString = $replacedString -replace "item.Version", $version
-  }
-
-  if ($repoPath) {
-    $replacedString = $replacedString -replace "item.RepoPath", $repoPath
-  }
-
-  if ($groupId) {
-    $replacedString = $replacedString -replace "item.GroupId", $groupId
-  }
-
-  return $replacedString
- }
-
-function CheckOptionalLinks($linkTemplates, $pkg, $skipIfNA = $false) 
+function CheckOptionalLinks($linkTemplates, $pkg, $skipIfNA = $false)
 {
   if (!$checkDocLinks) {
     return
@@ -77,11 +50,11 @@ function CheckOptionalLinks($linkTemplates, $pkg, $skipIfNA = $false)
     return
   }
 
-  $preSuffix = GetTemplateValue $linkTemplates "pre_suffix"
-  $msdocLink = GetTemplateValue $linkTemplates "msdocs_url_template" $pkg.Package 
+  $preSuffix = GetLinkTemplateValue $linkTemplates "pre_suffix"
+  $msdocLink = GetLinkTemplateValue $linkTemplates "msdocs_url_template" $pkg.Package
 
-  if (!$pkg.VersionGA -and $pkg.VersionPreview -and $preSuffix) { 
-    $msdocLink += $preSuffix 
+  if (!$pkg.VersionGA -and $pkg.VersionPreview -and $preSuffix) {
+    $msdocLink += $preSuffix
   }
 
   $msdocvalid = CheckLink $msdocLink $false
@@ -98,11 +71,11 @@ function CheckOptionalLinks($linkTemplates, $pkg, $skipIfNA = $false)
 
   $ghdocvalid = ($pkg.VersionGA -or $pkg.VersionPreview)
   if ($pkg.VersionGA) {
-    $ghlink = GetTemplateValue $linkTemplates "ghdocs_url_template" $pkg.Package $pkg.VersionGA
+    $ghlink = GetLinkTemplateValue $linkTemplates "ghdocs_url_template" $pkg.Package $pkg.VersionGA
     $ghdocvalid = $ghdocvalid -and (CheckLink $ghlink $false)
   }
   if ($pkg.VersionPreview) {
-    $ghlink = GetTemplateValue $linkTemplates "ghdocs_url_template" $pkg.Package $pkg.VersionPreview
+    $ghlink = GetLinkTemplateValue $linkTemplates "ghdocs_url_template" $pkg.Package $pkg.VersionPreview
     $ghdocvalid = $ghdocvalid -and (CheckLink $ghlink $false)
   }
 
@@ -116,9 +89,10 @@ function CheckOptionalLinks($linkTemplates, $pkg, $skipIfNA = $false)
     }
   }
 }
-function CheckRequiredLinks($linkTemplates, $pkg, $version) 
+
+function CheckRequiredLinks($linkTemplates, $pkg, $version)
 {
-  $srcLink = GetTemplateValue $linkTemplates "source_url_template" $pkg.Package $version $pkg.RepoPath
+  $srcLink = GetLinkTemplateValue $linkTemplates "source_url_template" $pkg.Package $version $pkg.RepoPath
   $valid = $true;
   if (!$pkg.RepoPath.StartsWith("http")) {
     $valid = $valid -and (CheckLink $srcLink)
@@ -130,11 +104,42 @@ function CheckRequiredLinks($linkTemplates, $pkg, $version)
     $groupId = $pkg.GroupId
   }
 
-  $pkgLink = GetTemplateValue $linkTemplates "package_url_template" $pkg.Package $version $pkg.RepoPath $groupId
+  $pkgLink = GetLinkTemplateValue $linkTemplates "package_url_template" $pkg.Package $version $pkg.RepoPath $groupId
 
   $valid = $valid -and (CheckLink $pkgLink)
   return $valid
 }
+
+function GetFirstGADate($pkgVersion, $pkg)
+{
+  $gaVersions = @($pkgVersion.Versions | Where-Object { !$_.IsPrerelease -and $_.Major -gt 0 })
+  if ($gaVersions.Count -gt 0) {
+    $gaIndex = $gaVersions.Count - 1;
+    $otherPackage = @($global:otherPackages | Where-Object { $_.Package -eq $pkg.Package })
+
+    if ($otherPackage.Count -gt 0 -and $otherPackage[0].VersionGA) {
+      Write-Verbose "Found other package entry for '$($pkg.Package)'";
+      for ($i = 0; $i -lt $gaVersions.Count; $i++) {
+        if ($otherPackage[0].VersionGA -eq $gaVersions[$i].RawVersion) {
+          Write-Verbose "Found older package entry for '$($pkg.Package)' GA version of $($otherPackage[0].VersionGA) so picking the next GA for first GA date."
+          $gaIndex = ($i - 1)
+        }
+      }
+    }
+    if ($gaIndex -lt 0) { return "" }
+    $gaVersion = $gaVersions[$gaIndex]
+
+    $committeDate = GetCommitterDate $gaVersion.TagShaUrl;
+
+    if ($committeDate) {
+      $committeDate = $committeDate.ToString("MM/dd/yyyy")
+      Write-Host "For package '$($pkg.Package)' picking GA '$($gaVersion.RawVersion)' shipped on '$committeDate' as the first new GA date."
+      return $committeDate
+    }
+  }
+  return ""
+}
+
 function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
 {
   foreach ($pkg in $packageList)
@@ -165,6 +170,11 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
       }
     }
 
+    if ($pkg.VersionGA -and $pkg.Type -eq "client") {
+      if ([bool]($pkg.PSobject.Properties.name -match "FirstGADate") -and !$pkg.FirstGADate) {
+        $pkg.FirstGADate = GetFirstGADate $pkgVersion $pkg
+      }
+    }
     if ($version -eq "") {
       $pkg.VersionGA = ""
     }
@@ -205,19 +215,10 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
 function OutputVersions($lang)
 {
   Write-Host "Checking $lang for updates..."
-  $clientPackages, $otherPackages = Get-PackageListForLanguageSplit $lang
+  $clientPackages, $global:otherPackages = Get-PackageListForLanguageSplit $lang
 
   $langVersions = GetPackageVersions $lang
-  $langLinkTemplates = @{ }
-
-  $releaseVariableFolder = Resolve-Path "$PSScriptRoot\..\..\_includes\releases\variables\"
-  $releaseVariableContent = Get-Content (Join-Path $releaseVariableFolder "$lang.md")
-  $releaseVariableContent | ForEach-Object {
-    if ($_ -match "{%\s*assign\s*(?<name>\S+)\s*=\s*`"(?<value>\S*)`"\s+%}") { 
-      $langLinkTemplates[$matches["name"]] = $matches["value"]
-      Write-Verbose ("" + $matches["name"] + " = [" + $matches["value"] + "]")
-    }
-  }
+  $langLinkTemplates = GetLinkTemplates $lang
 
   Update-Packages $lang $clientPackages $langVersions $langLinkTemplates
 
@@ -242,10 +243,10 @@ function CheckAll($langs)
 {
   $foundIssues = $false
   $serviceNames = @()
-  foreach ($lang in $langs) 
+  foreach ($lang in $langs)
   {
     $clientPackages, $_ = Get-PackageListForLanguageSplit $lang
-    $csvFile = Get-LangCsvFilePath $lang 
+    $csvFile = Get-LangCsvFilePath $lang
 
     foreach ($pkg in $clientPackages)
     {
@@ -275,10 +276,22 @@ function CheckAll($langs)
         Write-Host "Please set the value to match the display name for the package that is used to align all the similar packages across languages."
         $foundIssues = $true
       }
+
+      if ($pkg.Type.Tolower() -cne $pkg.Type) {
+        Write-Warning "The Type field needs to be all lowercase for '$($pkg.Package)' in $csvFile."
+        Write-Host "Please update the CSV to change the Type field from '$($pkg.Type)' equal to $($pkg.Type.ToLower())."
+        $foundIssues = $true
+      }
+
+      if ($pkg.New.Tolower() -cne $pkg.New) {
+        Write-Warning "The New field needs to be all lowercase for '$($pkg.Package)' in $csvFile."
+        Write-Host "Please update the CSV to change the New field from '$($pkg.New)' equal to $($pkg.New.ToLower())."
+        $foundIssues = $true
+      }
     }
   }
 
-  $serviceGroups = $serviceNames | Sort-Object ServiceName | Group-Object ServiceName 
+  $serviceGroups = $serviceNames | Sort-Object ServiceName | Group-Object ServiceName
   Write-Host "Found $($serviceNames.Count) service name with $($serviceGroups.Count) unique names:"
 
   $serviceGroups | Format-Table @{Label="Service Name"; Expression={$_.Name}}, @{Label="Langugages"; Expression={$_.Group.Lang | Sort-Object -Unique}}, Count, @{Label="Packages"; Expression={$_.Group.PkgInfo.Package}}
