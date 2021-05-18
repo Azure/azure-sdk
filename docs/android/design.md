@@ -289,8 +289,6 @@ public final class ConfigurationClientBuilder {
 
 `endpoint` may be renamed if a more user-friendly name can be justified. For example, a blob storage library developer may consider using `new BlobClientBuilder.blobUrl(..)`. In this case, the `endpoint` API should be removed.
 
-{% include requirement/MUST id="android-client-options-parameter" %} accept all optional arguments for client creation via an [options object](#Using ClientOptions) provided as a single parameter named `clientOptions`. Do not accept individual optional arguments as separate parameters.
-
 {% include requirement/MUST id="android-client-constructor-minimal" %} allow the consumer to construct a service client with the minimal information needed to connect and [authenticate](#authentication) to the service.
 
 {% include requirement/MUST id="android-service-client-builder-validity" %} ensure the builder will instantiate a service client into a valid state. Throw an `IllegalStateException` when the user calls the `build*()` methods with a configuration that is incomplete or invalid.
@@ -501,6 +499,8 @@ public class CreateBlobOptions {
 {% include requirement/MAY id="android-params-simple-overloads" %} add simple overloads of methods using the _options_ parameter pattern.
 
 If in common scenarios, users are likely to pass just a small subset of what the _options_ parameter represents, consider adding an overload with a parameter list representing just this subset.
+
+{% include requirement/MUST id="android-request-options-classes-extend" %} make _options_ objects used to define options passed to execute a method call extend from Azure Core's `RequestOptions` class.
 
 {% include requirement/MUSTNOT id="android-params-complex-overloads" %} introduce method overloads that take a subset of the parameters as well as the _options_ parameter, except for parameters that are for client-side use only (e.g. `Context`).
 
