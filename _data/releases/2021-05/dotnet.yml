@@ -442,4 +442,17 @@ entries:
   ChangelogContent: |-
     #### Key Bug Fixes
     - LibraryRestClient.Append method now includes comp parameter (https://github.com/Azure/azure-rest-api-specs/pull/13841)
+- Name: Azure.Extensions.AspNetCore.Configuration.Secrets
+  Version: 1.2.1
+  DisplayName: ASP.NET Extension - Configuration Secrets
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Extensions.AspNetCore.Configuration.Secrets_1.2.1/sdk/extensions/Azure.Extensions.AspNetCore.Configuration.Secrets/CHANGELOG.md#121-2021-05-18
+  ChangelogContent: |-
+    #### Changes
+
+    ##### Key Bug Fixes
+
+    - Fixes an issues where keys returned from `AzureKeyVaultConfigurationProvider` were case sensitive.
 
