@@ -12,8 +12,8 @@ This section describes guidelines for implementing Azure SDK client libraries. P
 
 {% include requirement/MUSTNOT id="android-implementation" %} allow implementation code (that is, code that doesn't form part of the public API) to be mistaken as public API. There are two valid arrangements for implementation code, which in order of preference are the following:
 
-- Implementation classes can be made package-private and placed within the same package as the consuming class.
-- Implementation classes can be placed within a subpackage named `implementation`.
+1. Implementation classes can be made package-private and placed within the same package as the consuming class.
+2. Implementation classes can be placed within a subpackage named `implementation`.
 
 CheckStyle checks ensure that classes within an `implementation` package aren’t exposed through public API, but it is better that the API not be public in the first place, so preferring to have package-private is the better approach where practicable.
 
@@ -82,8 +82,8 @@ This builder states that it can build instances of `ConfigurationClient` and `Co
 
 There are two annotations of note that should be applied on model classes, when applicable:
 
-- The `@Fluent` annotation is applied to all model classes that are expected to provide a fluent API to end users.
-- The `@Immutable` annotation is applied to all immutable classes.
+* The `@Fluent` annotation is applied to all model classes that are expected to provide a fluent API to end users.
+* The `@Immutable` annotation is applied to all immutable classes.
 
 > TODO: Include the @HeaderCollection annotation.
 
@@ -161,9 +161,6 @@ if (numberOfAttempts < retryPolicy.getMaxRetryCount()) {
 }
 ```
 
-> TBD:
-> * Hook in to HockeyApp
-
 ### Distributed tracing
 
 Distributed tracing is uncommon in a mobile context. If you feel like you need to support distributed tracing, contact the [Azure SDK mobile team](mailto:azuresdkmobileteam@microsoft.com) for advice.
@@ -182,14 +179,14 @@ One of the key things we want to support is to allow consumers of the library to
 
 Android developers need to concern themselves with the runtime environment they are running in. The Android ecosystem is fragmented, with a wide variety of runtimes deployed.
 
-{% include requirement/MUST id="android-library-sync-support" %} support at least Android API level 16 and later (Jelly Bean). This value can be found in your project's top level `build.gradle` file as `minSdkVersion`.
+{% include requirement/MUST id="android-library-sync-support" %} support at least Android API level 15 and later (Ice Cream Sandwich). This value can be found in your project's top level `build.gradle` file as `minSdkVersion`.
 
 There are two things that are of concern when discussing the minimum API level to choose:
 
 1. The minimum API level that Google supports.
 2. The reach of selecting a particular API level.
 
-We require the minimum API level that Google supports that reaches the most Android devices while still allowing for the use of widely adopted tools by the developer community, such as popular HTTP clients or serialization libraries. We have currently landed on API level 16, which covers about 99.8% of all Android devices (as of January of 2021). The reach of a particular API level can be found when clicking "Help me choose" in Android Studio's "Create New Project" screen, after selecting the type of project to create.
+We require the minimum API level that Google supports that reaches the most Android devices while still allowing for the use of widely adopted tools by the developer community, such as popular HTTP clients or serialization libraries. We have currently landed on API level 15, which covers more than 99.8% of all Android devices (as of May 2021). The reach of a particular API level can be found when clicking "Help me choose" in Android Studio's "Create New Project" screen, after selecting the type of project to create.
 
 {% include requirement/MUST id="android-library-target-sdk-version" %} set the `targetSdkVersion` to be API level 26 or higher in your project's top level `build.gradle` file.
 
