@@ -46,8 +46,8 @@ For Mobile development, please check the [IOS supported platforms](https://azure
 
 **Runtime:**
 
-- Any platforms supporting .NET Standard 2.0. Tested on .NET Framework 4.6.1 and .NET Core 2.1, .NET 5.0, see test configuration [here](https://github.com/Azure/azure-sdk-for-net/blob/master/eng/pipelines/templates/stages/platform-matrix.json)
-- Java: Java 8 , Java 11, see test configuration [here](https://github.com/Azure/azure-sdk-for-java/blob/master/eng/pipelines/templates/stages/platform-matrix.json)
+- Any platforms supporting .NET Standard 2.0. Tested on .NET Framework 4.6.1 and .NET Core 2.1, .NET 5.0
+- Java: Java 8 , Java 11
 - JS/TS:
   - Node.js: [LTS versions of Node.js](https://nodejs.org/about/releases/) including not just the ones in Active status, but also the ones in Maintainence status.
   - Browsers:
@@ -55,9 +55,16 @@ For Mobile development, please check the [IOS supported platforms](https://azure
     - Google Chrome: latest two versions
     - Microsoft Edge: all supported versions
     - Mozilla FireFox: latest two versions
-- Python 3.5+, 2.7 , see test configuration [here](https://github.com/Azure/azure-sdk-for-python/blob/master/eng/pipelines/templates/stages/platform-matrix.json)
+- Python 3.5+, 2.7
 - Go runtime– we support 2 latest major Go releases, refer to https://golang.org/doc/devel/release.html for more details.”
 - For C, refer to the list of supported platforms and compilers [here](https://azure.github.io/azure-sdk/clang_design.html)
+
+**Test configurations:**
+
+- [.NET test configuration](https://github.com/Azure/azure-sdk-for-java/blob/master/eng/pipelines/templates/stages/platform-matrix.json)
+- [Java test configuration](https://github.com/Azure/azure-sdk-for-java/blob/master/eng/pipelines/templates/stages/platform-matrix.json)
+- [JavaScript test configuration](https://github.com/Azure/azure-sdk-for-js/blob/master/eng/pipelines/templates/stages/platform-matrix.json)
+- [Python test configuration](https://github.com/Azure/azure-sdk-for-python/blob/master/eng/pipelines/templates/stages/platform-matrix.json)
 
 ### **Support**:
 
