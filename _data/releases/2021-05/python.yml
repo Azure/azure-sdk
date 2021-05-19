@@ -895,4 +895,40 @@ entries:
     - Added enums `EntityConditionality`, `EntityCertainty`, and `EntityAssociation`.
     - Added `AnalyzeSentimentAction` as a supported action type for `begin_analyze_batch_actions`.
     - Added kwarg `disable_service_logs`. If set to true, you opt-out of having your text input logged on the service side for troubleshooting.
+- Name: azure-mgmt-digitaltwins
+  Version: 6.0.0
+  DisplayName: Resource Management - Digital Twins
+  ServiceName: Digital Twins
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-digitaltwins_6.0.0/sdk/digitaltwins/azure-mgmt-digitaltwins/CHANGELOG.md#600-2021-05-18
+  ChangelogContent: '- GA release'
+- Name: azure-mgmt-hybridkubernetes
+  Version: 1.0.0
+  DisplayName: Resource Management - Hybrid Kubernetes
+  ServiceName: Hybrid Kubernetes
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-hybridkubernetes_1.0.0/sdk/hybridkubernetes/azure-mgmt-hybridkubernetes/CHANGELOG.md#100-2021-05-19
+  ChangelogContent: |-
+    **Features**
+
+      - Model ConnectedCluster has a new parameter system_data
+
+    **Breaking changes**
+
+      - Model ConnectedCluster no longer has parameter aad_profile
+      - Removed operation ConnectedClusterOperations.list_cluster_user_credentials
+      - Model ConnectedClusterPatch has a new signature
+- Name: azure-mgmt-resource
+  Version: 18.0.0
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-resource_18.0.0/sdk/resources/azure-mgmt-resource/CHANGELOG.md#1800-2021-05-19
+  ChangelogContent: |-
+    **Breaking changes**
+
+      - Operation ResourceGroupsOperations.begin_delete has a new signature
 
