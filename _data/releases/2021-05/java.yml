@@ -1206,4 +1206,13 @@ entries:
     - Updated `azure-core-http-netty` from `1.9.1` to `1.9.2`.
     - Updated `azure-core-serializer-json-jackson` from `1.2.2` to `1.2.3`.
   GroupId: com.azure
+- Name: azure-ai-textanalytics
+  Version: 5.1.0-beta.7
+  DisplayName: Text Analytics
+  ServiceName: Text Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.1.0-beta.7/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#510-beta7-2021-05-19
+  ChangelogContent: "#### Features Added\r\n- Added property `disableServiceLogs` to all endpoints' options bag\r\n- Added support for `Sentiment Analysis` as an action type for the `beginAnalyzeActions` API.\r\n  \r\n#### Breaking Changes\r\n- We are now targeting the service's v3.1-preview.5 API as the default instead of v3.1-preview.4.\r\n- Removed `batch` keyword from the model names, `AnalyzeBatchActionsResult`, `AnalyzeBatchActionsOperationDetail`, \r\n  `AnalyzeBatchActionOptions` and the related method names, such as renamed `beginAnalyzeBatchActions` to `beginAnalyzeActions`.\r\n- Renamed the static final String type `TEXT_ELEMENTS_V8` to `TEXT_ELEMENT_V8` in the `StringIndexType` class.\r\n\r\n#### Key Bug Fixed\r\n- Fixed `NullPointerException` for passing value `null` to options tasks in the `TextAnalyticsActions`."
+  GroupId: com.azure
 
