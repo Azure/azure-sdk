@@ -1168,4 +1168,42 @@ entries:
     - Upgraded `azure-core-serializer-json-jackson` dependency from `1.1.2` to `1.2.3`
       - [azure-core-serializer-json-jackson changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-serializer-json-jackson/CHANGELOG.md#123-2021-05-07)
   GroupId: com.azure
+- Name: azure-ai-formrecognizer
+  Version: 3.0.8
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-formrecognizer_3.0.8/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#308-2021-05-13
+  ChangelogContent: |-
+    #### Dependency Updates
+    - Updated `azure-core` from `1.15.0` to `1.16.0`.
+    - Updated `azure-core-http-netty` from `1.9.1` to `1.9.2`.
+    - Updated `azure-core-serializer-json-jackson` from `1.2.2` to `1.2.3`.
+  GroupId: com.azure
+- Name: azure-data-appconfiguration
+  Version: 1.1.12
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-data-appconfiguration_1.1.12/sdk/appconfiguration/azure-data-appconfiguration/CHANGELOG.md#1112-2021-05-18
+  ChangelogContent: |-
+    #### Dependency Updates
+    - Updated `azure-core` from `1.15.0` to `1.16.0`.
+    - Updated `azure-core-http-netty` from `1.9.1` to `1.9.2`.
+  GroupId: com.azure
+- Name: azure-ai-textanalytics
+  Version: 5.0.6
+  DisplayName: Text Analytics
+  ServiceName: Text Analytics
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-ai-textanalytics_5.0.6/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#506-2021-05-13
+  ChangelogContent: |-
+    #### Dependency Updates
+    - Updated `azure-core` from `1.15.0` to `1.16.0`.
+    - Updated `azure-core-http-netty` from `1.9.1` to `1.9.2`.
+    - Updated `azure-core-serializer-json-jackson` from `1.2.2` to `1.2.3`.
+  GroupId: com.azure
 
