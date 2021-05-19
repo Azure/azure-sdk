@@ -55,7 +55,7 @@ For Mobile development, please check the [IOS supported platforms](https://azure
 
 **Test configurations:**
 
-Below are the test configurations covering different operating systems and runtimes. You may see some outgoing versions for which we drop support or incoming versions that we don't officially support yet. Please see the details in the previous section for the officially supported set.
+Below are the test configurations covering different operating systems and runtimes. You may see some outgoing versions for which we are dropping support or incoming versions that we don't officially support yet. Please see the details in the previous section for the officially supported set.
 
 - [.NET test configuration](https://github.com/Azure/azure-sdk-for-java/blob/master/eng/pipelines/templates/stages/platform-matrix.json)
 - [Java test configuration](https://github.com/Azure/azure-sdk-for-java/blob/master/eng/pipelines/templates/stages/platform-matrix.json)
