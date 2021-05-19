@@ -48,13 +48,7 @@ For Mobile development, please check the [IOS supported platforms](https://azure
 
 - Any platforms supporting .NET Standard 2.0. Tested on .NET Framework 4.6.1 and .NET Core 2.1, .NET 5.0
 - Java: Java 8 , Java 11
-- JS/TS:
-  - Node.js: [LTS versions of Node.js](https://nodejs.org/about/releases/) including not just the ones in Active status, but also the ones in Maintainence status.
-  - Browsers:
-    - Apple Safari: latest two versions
-    - Google Chrome: latest two versions
-    - Microsoft Edge: all supported versions
-    - Mozilla FireFox: latest two versions
+- Node.js: [LTS versions of Node.js](https://nodejs.org/about/releases/) including not just the ones in Active status, but also the ones in Maintainence status.
 - Python 3.5+, 2.7
 - Go runtime– we support 2 latest major Go releases, refer to https://golang.org/doc/devel/release.html for more details.”
 - For C, refer to the list of supported platforms and compilers [here](https://azure.github.io/azure-sdk/clang_design.html)
