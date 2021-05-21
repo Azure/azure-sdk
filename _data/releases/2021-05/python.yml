@@ -1035,4 +1035,48 @@ entries:
       - Model BotProperties has a new parameter is_isolated
       - Model BotProperties has a new parameter is_cmek_enabled
       - Added operation group HostSettingsOperations
+- Name: azure-mgmt-portal
+  Version: 1.0.0
+  DisplayName: azure-mgmt-portal
+  ServiceName: ""
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-portal_1.0.0/sdk/portal/azure-mgmt-portal/CHANGELOG.md#100-2021-05-21
+  ChangelogContent: |-
+    **Features**
+
+      - Model MarkdownPartMetadata has a new parameter additional_properties
+      - Model DashboardPartMetadata has a new parameter additional_properties
+- Name: azure-mgmt-serialconsole
+  Version: 1.0.0
+  DisplayName: Resource Management - Serial Console
+  ServiceName: Serial Console
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-serialconsole_1.0.0/sdk/serialconsole/azure-mgmt-serialconsole/CHANGELOG.md#100-2021-05-20
+  ChangelogContent: |-
+    **Features**
+
+      - Added operation group SerialPortsOperations
+- Name: azure-mgmt-managementgroups
+  Version: 1.0.0
+  DisplayName: Resource Management - Management Groups
+  ServiceName: Management Groups
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-mgmt-managementgroups_1.0.0/sdk/managementgroups/azure-mgmt-managementgroups/CHANGELOG.md#100-2021-05-21
+  ChangelogContent: |-
+    **Features**
+
+      - Model ManagementGroupDetails has a new parameter path
+      - Model ManagementGroupDetails has a new parameter management_group_ancestors
+      - Model ManagementGroupDetails has a new parameter management_group_ancestors_chain
+
+    **Breaking changes**
+
+      - Operation ManagementGroupSubscriptionsOperations.get_subscriptions_under_management_group has a new signature
+      - Operation ManagementGroupsOperations.list has a new signature
+      - Operation EntitiesOperations.list has a new signature
+      - Operation ManagementGroupsOperations.get_descendants has a new signature
+      - Model ManagementGroup no longer has parameter path
 
