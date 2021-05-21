@@ -1236,4 +1236,15 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot-bom_2.5.0/sdk/boms/azure-spring-boot-bom/CHANGELOG.md#250-2021-05-20
   ChangelogContent: ""
   GroupId: com.azure.spring
+- Name: azure-cosmos
+  Version: 4.16.0-beta.1
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-cosmos_4.16.0-beta.1/sdk/cosmos/azure-cosmos/CHANGELOG.md#4160-beta1-2021-05-20
+  ChangelogContent: |-
+    ##### Key Bug Fixes
+    * No changes from previous version, releasing for compatibility issues with cosmos encryption modules.
+  GroupId: com.azure
 
