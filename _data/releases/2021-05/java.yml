@@ -1227,4 +1227,13 @@ entries:
 
     - Address breaking behavior change where previously `null` could be passed down for `context` parameter to synchronous APIs prior to version `1.0.2` but after `1.0.2` that behavior was changed. `null` can again be passed for the `context` parameter and the SDK will behave as was expected before. In these scenarios `Context.NONE` will be used as the default value.
   GroupId: com.azure
+- Name: azure-spring-boot-bom
+  Version: 2.5.0
+  DisplayName: Azure Spring Boot BOM
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot-bom_2.5.0/sdk/boms/azure-spring-boot-bom/CHANGELOG.md#250-2021-05-20
+  ChangelogContent: ""
+  GroupId: com.azure.spring
 
