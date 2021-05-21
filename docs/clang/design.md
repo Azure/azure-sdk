@@ -231,20 +231,11 @@ void az_keyvault_client_destroy_http_handler_pipeline(az_keyvault_client* self,
 
 {% include requirement/MUST id="clang-apisurface-standardized-verbs" %} standardize verb prefixes within a set of client libraries for a service.  The service must be able to speak about a specific operation in a cross-language manner within outbound materials (such as documentation, blogs, and public speaking). They cannot do this if the same operation is referred to by different verbs in different languages.  The following verbs are preferred for CRUD operations:
 
-| Verb                                             | Parameters        | Returns                 | Comments                                                                                                    |
-| ------------------------------------------------ | ----------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------- |
-| az\_\<shortname>\_\<objname>\__insert_\_\<noun>  | key, item         | Updated or created item | Create new item or update existing item. Verb is primarily used in database-like services                   |
-| az\_\<shortname>\_\<objname>\__set_\_\<noun>     | key, item         | Updated or created item | Create new item or update existing item. Verb is primarily used for dictionary-like properties of a service |
-| az\_\<shortname>\_\<objname>\__create_\_\<noun>  | key, item         | Created item            | Create new item. Fails if item already exists.                                                              |
-| az\_\<shortname>\_\<objname>\__update_\_\<noun>  | key, partial item | Updated item            | Fails if item does not exist.                                                                               |
-| az\_\<shortname>\_\<objname>\__replace_\_\<noun> | key, item         | Replace existing item   | Completely replaces an existing item. Fails if the item does not exist.                                     |
-| az\_\<shortname>\_\<objname>\__delete_\_\<noun>  | key               | None                    | Delete an existing item. Will succeed even if item did not exist.                                           |
-| az\_\<shortname>\_\<objname>\__append_\_\<noun>  | item              | Appended item           | Add item to a collection. Item will be added last.                                                          |
-| az\_\<shortname>\_\<objname>\__add_\_\<noun>     | index, item       | Added item              | Add item to a collection. Item will be added on the given position.                                         |
-| az\_\<shortname>\_\<objname>\__remove_\_\<noun>  | key               | None or removed item    | Remove item from a collection.                                                                              |
-| az\_\<shortname>\_\<objname>\__get_\_\<noun>     | key               | Item                    | Will return None if item does not exist                                                                     |
-| az\_\<shortname>\_\<objname>\__list_\_\<noun>    |                   | array of items          | Return list of items. Returns empty list if no items exist                                                  |
-| az\_\<shortname>\_\<objname>\__exists_\_\<noun>  | key               | boolean                 | Return True if the item exists.                                                                             |
+> __Note__: The `prefix` in below table is `az_<shortname>_<objname>`
+
+<!-- The table data is in yaml format on _data/tables/clang_standard_verbs -->
+{% assign data = site.data.tables.clang_standard_verbs.entries %}
+{% include tables/standard_verbs_template.html %}
 
 Some examples:
 
