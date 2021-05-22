@@ -1247,4 +1247,17 @@ entries:
     ##### Key Bug Fixes
     * No changes from previous version, releasing for compatibility issues with cosmos encryption modules.
   GroupId: com.azure
+- Name: azure-cosmos-encryption
+  Version: 1.0.0-beta.5
+  DisplayName: azure-cosmos-encryption
+  ServiceName: ""
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-cosmos-encryption_1.0.0-beta.5/sdk/cosmos/azure-cosmos-encryption/CHANGELOG.md#100-beta5-2021-05-20
+  ChangelogContent: |-
+    ##### New Features
+    * Added type in EncryptionKeyWrapMetadata constructor.
+    * Added validation for partition key on encrypted field during Container creation.
+    * Exposed policyFormatVersion in ClientEncryptionPolicy.
+  GroupId: com.azure
 
