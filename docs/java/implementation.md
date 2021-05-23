@@ -41,7 +41,7 @@ public final class ConfigurationAsyncClient {
 | Annotation | Location | Description |
 |:-----------|:---------|:------------|
 | `@ServiceClient` | Service Client | Specifies the builder responsible for instantiating the service client, whether the API is asynchronous, and a reference back to the service interface (the interface annotated with `@ServiceInterface`). |
-| `@ServiceMethod` | Service Method | Placed on all service client methods that do network operations. |
+| `@ServiceMethod` | Service Method | Placed on all methods that do network operations, regardless of whether it is a client class or not. |
 
 #### Service Client Builder
 
