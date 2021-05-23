@@ -1260,4 +1260,16 @@ entries:
     * Added validation for partition key on encrypted field during Container creation.
     * Exposed policyFormatVersion in ClientEncryptionPolicy.
   GroupId: com.azure
+- Name: azure-media-videoanalyzer-edge
+  Version: 1.0.0-beta.1
+  DisplayName: Azure Video Analyzer Edge
+  ServiceName: Video Analyzer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-media-videoanalyzer-edge_1.0.0-beta.1/sdk/videoanalyzer/azure-media-videoanalyzer-edge/CHANGELOG.md#100-beta1-2021-05-19
+  ChangelogContent: |-
+    Version 1.0.0-beta.1 is a preview of our efforts in creating a library for Azure Video Analyzer Edge.
+
+    - Initial release. Please see the README and wiki for information on using the new library.
+  GroupId: com.azure
 
