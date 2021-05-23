@@ -861,7 +861,10 @@ Examples of situations where this is applicable include when there are construct
 
 Enumerations in Java are extremely convenient, but used improperly can lead to breaking changes to the API. This is because often the Java compiler is configured to fail if not all enum values are listed in a switch statement, so with the addition of a new enum value, users will encounter breaking builds when updating their dependency to a newer version. Because of this, the Java azure-core ships with the `ExpandableStringEnum` that is the suggested means through which enumerations are exposed. Whilst not technically a Java enumeration, it can be treated as such in much the same way, without concerns about breaking changes from adding new values. It is also more user-friendly when new values are introduced on the service side before a library update has been shipped, as users can manually create their own values within the context of a single `ExpandableStringEnum`.
 
-{% include requirement/MUSTNOT id="java-enums" %} define Java enum types for parameters, properties, and return types, except in two scenarios: 1) when values are fixed and will never change over time, or 2) when the enum is used as an input-only enum and therefore the likelihood of users running into breaking changes (i.e. when they must `switch` over all values) is low.
+{% include requirement/MUSTNOT id="java-enums" %} define Java enum types for parameters, properties, and return types, except in two scenarios: 
+
+1) When values are fixed and will never change over time, or,
+2) When the enum is used as an input-only enum and therefore the likelihood of users running into breaking changes (i.e. when they must `switch` over all values) is low.
 
 {% include requirement/MUST id="java-naming-enum-uppercase" %} use all upper-case names for enum (and `ExpandableStringEnum`) values. `EnumType.FOO` and `EnumType.TWO_WORDS` are valid, whereas `EnumType.Foo` and `EnumType.twoWords` are not.
 
@@ -1028,7 +1031,7 @@ In Java, the namespace should be named `com.azure.<group>.<service>[.<feature>]`
 
 If the client library does not seem to fit into the group list, contact the [Architecture Board] to discuss the namespace requirements.
 
-{% include requirement/MUST id="java-namespaces-management" %} place the management (Azure Resource Manager) API in the `resourcemanager` group.  Use the grouping `<AZURE>.resourcemanager.<service>` for the namespace. Management plane libraries do not have a `<group>`.
+{% include requirement/MUST id="java-namespaces-management" %} place the management (Azure Resource Manager) API in the `resourcemanager` group.  Use the grouping `com.azure.resourcemanager.<service>` for the namespace. Management plane libraries do not have a `<group>`.
 
 {% include requirement/MUST id="java-namespaces-registration" %} register the chosen namespace with the [Architecture Board].  Open an issue to request the namespace.  See [the registered namespace list](registered_namespaces.html) for a list of the currently registered namespaces.
 
