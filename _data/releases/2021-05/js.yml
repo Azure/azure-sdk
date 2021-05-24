@@ -272,4 +272,102 @@ entries:
     - Updated Azure Storage Service API version to 2020-08-04.
     - Added support for Path Soft Delete. You can list the deleted paths via `DataLakeFileSystemClient.listDeletedPaths()`, and restore a deleted path via `DataLakeFileSystemClient.undeletePath()`.
     - Restoring deleted FileSystem doesn't support renaming anymore, deprecated `destinationFileSystemName` in `ServiceUndeleteFileSystemOptions` for `DataLakeServiceClient.undeleteFileSystem()`.
+- Name: '@azure/data-tables'
+  Version: 12.0.0-beta.3
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/data-tables_12.0.0-beta.3/sdk/tables/data-tables/CHANGELOG.md#1200-beta3-2021-05-17
+  ChangelogContent: |-
+    - Update and Upsert operations have "merge" as default update mode. [#14956](https://github.com/Azure/azure-sdk-for-js/pull/14956)
+    - Expose Table Service url as a public client property. [#14956](https://github.com/Azure/azure-sdk-for-js/pull/14956)
+    - Make list and get entity methods have a default template type of `Record` for better UX. [#14956](https://github.com/Azure/azure-sdk-for-js/pull/14956)
+
+    #### Breaking Changes
+
+    - Enable Type conversion of `DateTime -> Date` and `Int64 -> bigint` by default. Allow disabling type conversion with `disableTypeConversion` option in the get and list operations. [#15307](https://github.com/Azure/azure-sdk-for-js/pull/15307)
+    - Node.js v8 support is dropped as it has reached end of life [#15307](https://github.com/Azure/azure-sdk-for-js/pull/15307)
+    - Rename Batch to Transaction and redesign submitTransaction to provide a more declarative interface. [#15250](https://github.com/Azure/azure-sdk-for-js/pull/15250)
+    - createTable and deleteTable don't throw on 409 or 404 respectively. Return type becomes `Promise<void>`. [#14956](https://github.com/Azure/azure-sdk-for-js/pull/14956)
+    - Clean up method options. [#14956](https://github.com/Azure/azure-sdk-for-js/pull/14956)
+    - Remove continuation tokens from options on list methods. [#14956](https://github.com/Azure/azure-sdk-for-js/pull/14956)
+- Name: '@azure/service-bus'
+  Version: 7.2.0-beta.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/service-bus_7.2.0-beta.1/sdk/servicebus/service-bus/CHANGELOG.md#720-beta1-2021-05-18
+  ChangelogContent: |-
+    #### New Features
+
+    - Enable encoding the body of a message to the 'value' or 'sequence' sections (via AmqpAnnotatedMessage.bodyType). Using this encoding is not required but does allow you to take advantage of native AMQP serialization for supported primitives or sequences.
+- Name: '@azure/ai-text-analytics'
+  Version: 5.1.0-beta.6
+  DisplayName: Text Analytics
+  ServiceName: Text Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/ai-text-analytics_5.1.0-beta.6/sdk/textanalytics/ai-text-analytics/CHANGELOG.md#510-beta6-2021-05-18
+  ChangelogContent: |-
+    #### New Features
+
+    - We are now targeting the service's v3.1-preview.5 API as the default instead of v3.1-preview.4.
+    - `beginAnalyzeActions` adds support for analyze sentiment actions.
+    - `disableServiceLogs` parameter is added to most actions in `beginAnalyzeActions` that controls service-side logging.
+
+    #### Breaking Changes
+
+    - `beginAnalyzeBatchActions` was renamed to `beginAnalyzeActions`.
+    - `TextElements_v8` is renamed to `TextElement_v8` in model `StringIndexType`.
+
+    #### Key Bug Fixes
+
+    - Results of entity linking actions were not returned correctly by `beginAnalyzeActions` and that is now fixed.
+- Name: '@azure/web-pubsub'
+  Version: 1.0.0-beta.2
+  DisplayName: Web PubSub
+  ServiceName: Web PubSub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/web-pubsub_1.0.0-beta.2/sdk/web-pubsub/web-pubsub/CHANGELOG.md#100-beta2-2021-05-19
+  ChangelogContent: Remove "url" dependency
+- Name: '@azure/core-client'
+  Version: 1.1.2
+  DisplayName: Core - Client
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-client_1.1.2/sdk/core/core-client/CHANGELOG.md#112-2021-05-20
+  ChangelogContent: '- Fixed an issue to check for the mandatory parameter in the header and query values. [PR 15278](https://github.com/Azure/azure-sdk-for-js/pull/15278)'
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.1.0-beta.2
+  DisplayName: Core Rest Pipeline
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-rest-pipeline_1.1.0-beta.2/sdk/core/core-rest-pipeline/CHANGELOG.md#110-beta2-2021-05-20
+  ChangelogContent: |-
+    - Fixed an issue to set the `Content-Length` header correctly when using multibyte characters. [PR 15314](https://github.com/Azure/azure-sdk-for-js/pull/15314)
+
+    #### Fixed
+
+    - Fixed an issue where tracing spans were not setting a status correctly (on success or error) which results in the span status being `UNSET`. In addition, we will now capture the HTTP status code when a request fails in the tracing span. [PR 15061](https://github.com/Azure/azure-sdk-for-js/pull/15061)
+- Name: '@azure/video-analyzer-edge'
+  Version: 1.0.0-beta.1
+  DisplayName: Azure Video Analyzer Edge
+  ServiceName: Video Analyzer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/video-analyzer-edge_1.0.0-beta.1/sdk/videoanalyzer/video-analyzer-edge/CHANGELOG.md#100-beta1-2021-05-20
+  ChangelogContent: Initial release
+- Name: '@azure/cosmos'
+  Version: 3.11.3
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/cosmos_3.11.3/sdk/cosmosdb/cosmos/CHANGELOG.md#3113-2021-05-21
+  ChangelogContent: '- BUGFIX: Sanitize user endpoint URLs for AAD DataPlane RBAC token generation.'
 
