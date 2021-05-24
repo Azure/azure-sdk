@@ -585,4 +585,52 @@ entries:
     #### Key Bug Fixes
     - The web proxy specified in configuration is now respected.
     - Binding to JObject is now supported.
+- Name: Azure.Storage.Queues
+  Version: 12.6.2
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Queues_12.6.2/sdk/storage/Azure.Storage.Queues/CHANGELOG.md#1262-2021-05-20
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Storage.Common
+  Version: 12.7.3
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Common_12.7.3/sdk/storage/Azure.Storage.Common/CHANGELOG.md#1273-2021-05-20
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.5.2
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Blobs.Batch_12.5.2/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md#1252-2021-05-20
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Storage.Files.DataLake
+  Version: 12.6.2
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Files.DataLake_12.6.2/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md#1262-2021-05-20
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Storage.Files.Shares
+  Version: 12.6.2
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Files.Shares_12.6.2/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md#1262-2021-05-20
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Storage.Blobs
+  Version: 12.8.4
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/blob/Azure.Storage.Blobs_12.8.4/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md#1284-2021-05-20
+  ChangelogContent: '- Fixed bug where Client Side Encryption during large transactions (greater than max int value) would throw an exception.'
 
