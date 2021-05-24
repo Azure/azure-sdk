@@ -1272,4 +1272,517 @@ entries:
 
     - Initial release. Please see the README and wiki for information on using the new library.
   GroupId: com.azure
+- Name: azure-spring-cloud-starter-storage-queue
+  Version: 2.5.0
+  DisplayName: Azure Spring Cloud Starter Storage Queue
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-starter-storage-queue_2.5.0/sdk/spring/azure-spring-cloud-starter-storage-queue/CHANGELOG.md#250-2021-05-24
+  ChangelogContent: |-
+    #### New Features
+    - Upgrade to [spring-boot-dependencies:2.4.5](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.4.5/spring-boot-dependencies-2.4.5.pom).
+    - Upgrade to [spring-cloud-dependencies:2020.0.2](https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.2/spring-cloud-dependencies-2020.0.2.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-boot-starter-cosmos
+  Version: 3.5.0
+  DisplayName: Azure Spring Boot Starter Cosmos
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot-starter-cosmos_3.5.0/sdk/spring/azure-spring-boot-starter-cosmos/CHANGELOG.md#350-2021-05-24
+  ChangelogContent: |-
+    #### New Features
+    - Upgrade to [spring-boot-dependencies:2.4.5](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.4.5/spring-boot-dependencies-2.4.5.pom).
+    - Upgrade to [spring-cloud-dependencies:2020.0.2](https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.2/spring-cloud-dependencies-2020.0.2.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-starter-eventhubs-kafka
+  Version: 2.5.0
+  DisplayName: Azure Spring Cloud Starter Event Hubs Kafka
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-starter-eventhubs-kafka_2.5.0/sdk/spring/azure-spring-cloud-starter-eventhubs-kafka/CHANGELOG.md#250-2021-05-24
+  ChangelogContent: |-
+    #### New Features
+    - Upgrade to [spring-boot-dependencies:2.4.5](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.4.5/spring-boot-dependencies-2.4.5.pom).
+    - Upgrade to [spring-cloud-dependencies:2020.0.2](https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.2/spring-cloud-dependencies-2020.0.2.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-boot-starter-active-directory
+  Version: 3.5.0
+  DisplayName: Azure Spring Boot Starter Active Directory
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot-starter-active-directory_3.5.0/sdk/spring/azure-spring-boot-starter-active-directory/CHANGELOG.md#350-2021-05-24
+  ChangelogContent: |-
+    #### New Features
+    - Upgrade to [spring-boot-dependencies:2.4.5](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.4.5/spring-boot-dependencies-2.4.5.pom).
+    - Upgrade to [spring-cloud-dependencies:2020.0.2](https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.2/spring-cloud-dependencies-2020.0.2.pom).
+    - Enable property azure.activedirectory.redirect-uri-template.([#21116](https://github.com/Azure/azure-sdk-for-java/issues/21116))
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-starter-cache
+  Version: 2.5.0
+  DisplayName: Azure Spring Cloud Starter Cache
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-starter-cache_2.5.0/sdk/spring/azure-spring-cloud-starter-cache/CHANGELOG.md#250-2021-05-24
+  ChangelogContent: |-
+    #### New Features
+    - Upgrade to [spring-boot-dependencies:2.4.5](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.4.5/spring-boot-dependencies-2.4.5.pom).
+    - Upgrade to [spring-cloud-dependencies:2020.0.2](https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.2/spring-cloud-dependencies-2020.0.2.pom).
+  GroupId: com.azure.spring
+- Name: azure-security-keyvault-jca
+  Version: 1.0.0-beta.7
+  DisplayName: Key Vault - JCA
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-security-keyvault-jca_1.0.0-beta.7/sdk/keyvault/azure-security-keyvault-jca/CHANGELOG.md#100-beta7-2021-05-24
+  ChangelogContent: |-
+    #### New Features
+    - Add "module-info.java".
+  GroupId: com.azure
+- Name: azure-spring-boot-starter-storage
+  Version: 3.5.0
+  DisplayName: Azure Spring Boot Starter Storage
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot-starter-storage_3.5.0/sdk/spring/azure-spring-boot-starter-storage/CHANGELOG.md#350-2021-05-24
+  ChangelogContent: |-
+    #### New Features
+    - Upgrade to [spring-boot-dependencies:2.4.5](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.4.5/spring-boot-dependencies-2.4.5.pom).
+    - Upgrade to [spring-cloud-dependencies:2020.0.2](https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.2/spring-cloud-dependencies-2020.0.2.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-boot-starter-keyvault-secrets
+  Version: 3.5.0
+  DisplayName: Azure Spring Boot Starter Key Vault Secrets
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot-starter-keyvault-secrets_3.5.0/sdk/spring/azure-spring-boot-starter-keyvault-secrets/CHANGELOG.md#350-2021-05-24
+  ChangelogContent: |-
+    #### New Features
+    - Upgrade to [spring-boot-dependencies:2.4.5](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.4.5/spring-boot-dependencies-2.4.5.pom).
+    - Upgrade to [spring-cloud-dependencies:2020.0.2](https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.2/spring-cloud-dependencies-2020.0.2.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-telemetry
+  Version: 2.5.0
+  DisplayName: Azure Spring Cloud Telemetry
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-telemetry_2.5.0/sdk/spring/azure-spring-cloud-telemetry/CHANGELOG.md#250-2021-05-24
+  ChangelogContent: |-
+    #### New Features
+    - Upgrade to [spring-boot-dependencies:2.4.5](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.4.5/spring-boot-dependencies-2.4.5.pom).
+    - Upgrade to [spring-cloud-dependencies:2020.0.2](https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.2/spring-cloud-dependencies-2020.0.2.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-messaging
+  Version: 2.5.0
+  DisplayName: Azure Spring Cloud Messaging
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-messaging_2.5.0/sdk/spring/azure-spring-cloud-messaging/CHANGELOG.md#250-2021-05-24
+  ChangelogContent: |-
+    #### New Features
+    - Upgrade to [spring-boot-dependencies:2.4.5](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.4.5/spring-boot-dependencies-2.4.5.pom).
+    - Upgrade to [spring-cloud-dependencies:2020.0.2](https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.2/spring-cloud-dependencies-2020.0.2.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-integration-test
+  Version: 2.5.0
+  DisplayName: Azure Spring Cloud Integration Test
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-integration-test_2.5.0/sdk/spring/azure-spring-integration-test/CHANGELOG.md#250-2021-05-24
+  ChangelogContent: |-
+    #### New Features
+    - Upgrade to [spring-boot-dependencies:2.4.5](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.4.5/spring-boot-dependencies-2.4.5.pom).
+    - Upgrade to [spring-cloud-dependencies:2020.0.2](https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.2/spring-cloud-dependencies-2020.0.2.pom).
+  GroupId: com.azure.spring
+- Name: azure-resourcemanager-cognitiveservices
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-cognitiveservices_1.0.0-beta.2/sdk/cognitiveservices/azure-resourcemanager-cognitiveservices/CHANGELOG.md#100-beta2-2021-05-24
+  ChangelogContent: |-
+    - Azure Resource Manager CognitiveServices client library for Java. This package contains Microsoft Azure SDK for CognitiveServices Management SDK. Cognitive Services Management Client. Package tag package-2021-04. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+    #### Breaking Change
+
+    * `models.OperationEntity` was removed
+
+    * `models.CheckDomainAvailabilityResult` was removed
+
+    * `models.CognitiveServicesAccount` was removed
+
+    * `models.ResourceSkusResult` was removed
+
+    * `models.CheckSkuAvailabilityResultList` was removed
+
+    * `models.CognitiveServicesAccountSkuChangeInfo` was removed
+
+    * `models.CognitiveServicesAccountListResult` was removed
+
+    * `models.CognitiveServicesAccountApiProperties` was removed
+
+    * `models.CognitiveServicesAccountKeys` was removed
+
+    * `models.CognitiveServicesResourceAndSku` was removed
+
+    * `models.OperationEntityListResult` was removed
+
+    * `models.CheckSkuAvailabilityResult` was removed
+
+    * `models.OperationDisplayInfo` was removed
+
+    * `models.UsagesResult` was removed
+
+    * `models.CognitiveServicesAccount$Update` was removed
+
+    * `models.CognitiveServicesAccountEnumerateSkusResult` was removed
+
+    * `models.CognitiveServicesAccountProperties` was removed
+
+    * `models.CognitiveServicesAccount$DefinitionStages` was removed
+
+    * `models.IdentityType` was removed
+
+    * `models.CognitiveServicesAccount$UpdateStages` was removed
+
+    * `models.CognitiveServicesAccount$Definition` was removed
+
+    ##### `models.ResourceProviders` was modified
+
+    * `models.CheckDomainAvailabilityResult checkDomainAvailability(models.CheckDomainAvailabilityParameter)` -> `models.DomainAvailability checkDomainAvailability(models.CheckDomainAvailabilityParameter)`
+    * `models.CheckSkuAvailabilityResultList checkSkuAvailability(java.lang.String,models.CheckSkuAvailabilityParameter)` -> `models.SkuAvailabilityListResult checkSkuAvailability(java.lang.String,models.CheckSkuAvailabilityParameter)`
+
+    ##### `models.Accounts` was modified
+
+    * `com.azure.core.http.rest.Response deleteByIdWithResponse(java.lang.String,com.azure.core.util.Context)` -> `void deleteByIdWithResponse(java.lang.String,com.azure.core.util.Context)`
+    * `getUsages(java.lang.String,java.lang.String)` was removed
+    * `getUsagesWithResponse(java.lang.String,java.lang.String,java.lang.String,com.azure.core.util.Context)` was removed
+    * `models.CognitiveServicesAccountEnumerateSkusResult listSkus(java.lang.String,java.lang.String)` -> `models.AccountSkuListResult listSkus(java.lang.String,java.lang.String)`
+    * `models.CognitiveServicesAccountKeys regenerateKey(java.lang.String,java.lang.String,models.RegenerateKeyParameters)` -> `models.ApiKeys regenerateKey(java.lang.String,java.lang.String,models.RegenerateKeyParameters)`
+    * `deleteWithResponse(java.lang.String,java.lang.String,com.azure.core.util.Context)` was removed
+    * `models.CognitiveServicesAccount$DefinitionStages$Blank define(java.lang.String)` -> `models.Account$DefinitionStages$Blank define(java.lang.String)`
+    * `models.CognitiveServicesAccountKeys listKeys(java.lang.String,java.lang.String)` -> `models.ApiKeys listKeys(java.lang.String,java.lang.String)`
+    * `models.CognitiveServicesAccount getByResourceGroup(java.lang.String,java.lang.String)` -> `models.Account getByResourceGroup(java.lang.String,java.lang.String)`
+    * `models.CognitiveServicesAccount getById(java.lang.String)` -> `models.Account getById(java.lang.String)`
+
+    ##### `models.PrivateEndpointConnections` was modified
+
+    * `deleteWithResponse(java.lang.String,java.lang.String,java.lang.String,com.azure.core.util.Context)` was removed
+    * `com.azure.core.http.rest.Response deleteByIdWithResponse(java.lang.String,com.azure.core.util.Context)` -> `void deleteByIdWithResponse(java.lang.String,com.azure.core.util.Context)`
+
+    ##### `models.UserAssignedIdentity` was modified
+
+    * `withClientId(java.lang.String)` was removed
+    * `withPrincipalId(java.lang.String)` was removed
+
+    ##### `models.Identity` was modified
+
+    * `models.IdentityType type()` -> `models.ResourceIdentityType type()`
+    * `withType(models.IdentityType)` was removed
+
+    #### New Feature
+
+    * `models.AzureEntityResource` was added
+
+    * `models.OperationListResult` was added
+
+    * `models.ActionType` was added
+
+    * `models.UsageListResult` was added
+
+    * `models.SkuAvailabilityListResult` was added
+
+    * `models.AccountProperties` was added
+
+    * `models.ApiProperties` was added
+
+    * `models.ApiKeys` was added
+
+    * `models.DeletedAccounts` was added
+
+    * `models.DomainAvailability` was added
+
+    * `models.Origin` was added
+
+    * `models.ThrottlingRule` was added
+
+    * `models.Operation` was added
+
+    * `models.OperationDisplay` was added
+
+    * `models.SkuChangeInfo` was added
+
+    * `models.QuotaLimit` was added
+
+    * `models.Account$UpdateStages` was added
+
+    * `models.ResourceIdentityType` was added
+
+    * `models.PrivateEndpointConnectionProvisioningState` was added
+
+    * `models.ResourceSkuListResult` was added
+
+    * `models.SkuAvailability` was added
+
+    * `models.RequestMatchPattern` was added
+
+    * `models.Account$Definition` was added
+
+    * `models.Account$Update` was added
+
+    * `models.AccountListResult` was added
+
+    * `models.AccountSku` was added
+
+    * `models.Account` was added
+
+    * `models.CallRateLimit` was added
+
+    * `models.AccountSkuListResult` was added
+
+    * `models.Account$DefinitionStages` was added
+
+    ##### `CognitiveServicesManager` was modified
+
+    * `deletedAccounts()` was added
+
+    ##### `models.Sku` was modified
+
+    * `capacity()` was added
+    * `family()` was added
+    * `withFamily(java.lang.String)` was added
+    * `withSize(java.lang.String)` was added
+    * `withTier(models.SkuTier)` was added
+    * `size()` was added
+    * `withCapacity(java.lang.Integer)` was added
+
+    ##### `models.Accounts` was modified
+
+    * `listUsagesWithResponse(java.lang.String,java.lang.String,java.lang.String,com.azure.core.util.Context)` was added
+    * `listUsages(java.lang.String,java.lang.String)` was added
+    * `delete(java.lang.String,java.lang.String,com.azure.core.util.Context)` was added
+
+    ##### `models.ResourceSkuRestrictions` was modified
+
+    * `withRestrictionInfo(models.ResourceSkuRestrictionInfo)` was added
+    * `withValues(java.util.List)` was added
+    * `withReasonCode(models.ResourceSkuRestrictionsReasonCode)` was added
+    * `withType(models.ResourceSkuRestrictionsType)` was added
+
+    ##### `models.PrivateEndpointConnectionProperties` was modified
+
+    * `provisioningState()` was added
+
+    ##### `models.ResourceSkuRestrictionInfo` was modified
+
+    * `withLocations(java.util.List)` was added
+    * `withZones(java.util.List)` was added
+
+    ##### `models.PrivateEndpointConnections` was modified
+
+    * `delete(java.lang.String,java.lang.String,java.lang.String,com.azure.core.util.Context)` was added
+
+    ##### `models.KeyVaultProperties` was modified
+
+    * `identityClientId()` was added
+    * `withIdentityClientId(java.lang.String)` was added
+
+    ##### `models.MetricName` was modified
+
+    * `withValue(java.lang.String)` was added
+    * `withLocalizedValue(java.lang.String)` was added
+
+    ##### `models.Usage` was modified
+
+    * `withNextResetTime(java.lang.String)` was added
+    * `withQuotaPeriod(java.lang.String)` was added
+    * `withUnit(models.UnitType)` was added
+    * `withCurrentValue(java.lang.Double)` was added
+    * `withName(models.MetricName)` was added
+    * `withLimit(java.lang.Double)` was added
+
+    ##### `models.Identity` was modified
+
+    * `withType(models.ResourceIdentityType)` was added
+
+    ##### `models.PrivateEndpointConnection` was modified
+
+    * `systemData()` was added
+
+    ##### `models.UserOwnedStorage` was modified
+
+    * `identityClientId()` was added
+    * `withIdentityClientId(java.lang.String)` was added
+  GroupId: com.azure.resourcemanager
+- Name: azure-spring-cloud-stream-binder-test
+  Version: 2.5.0
+  DisplayName: Azure Spring Cloud Stream Binder Test
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-stream-binder-test_2.5.0/sdk/spring/azure-spring-cloud-stream-binder-test/CHANGELOG.md#250-2021-05-24
+  ChangelogContent: |-
+    #### New Features
+    - Upgrade to [spring-boot-dependencies:2.4.5](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.4.5/spring-boot-dependencies-2.4.5.pom).
+    - Upgrade to [spring-cloud-dependencies:2020.0.2](https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.2/spring-cloud-dependencies-2020.0.2.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-stream-binder-servicebus-core
+  Version: 2.5.0
+  DisplayName: Azure Spring Cloud Stream Binder Service bus Core
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-stream-binder-servicebus-core_2.5.0/sdk/spring/azure-spring-cloud-stream-binder-servicebus-core/CHANGELOG.md#250-2021-05-24
+  ChangelogContent: |-
+    #### New Features
+    - Upgrade to [spring-boot-dependencies:2.4.5](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.4.5/spring-boot-dependencies-2.4.5.pom).
+    - Upgrade to [spring-cloud-dependencies:2020.0.2](https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.2/spring-cloud-dependencies-2020.0.2.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-stream-binder-servicebus-queue
+  Version: 2.5.0
+  DisplayName: Azure Spring Cloud Stream Binder Service bus Queue
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-stream-binder-servicebus-queue_2.5.0/sdk/spring/azure-spring-cloud-stream-binder-servicebus-queue/CHANGELOG.md#250-2021-05-24
+  ChangelogContent: |-
+    #### New Features
+    - Upgrade to [spring-boot-dependencies:2.4.5](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.4.5/spring-boot-dependencies-2.4.5.pom).
+    - Upgrade to [spring-cloud-dependencies:2020.0.2](https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.2/spring-cloud-dependencies-2020.0.2.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-boot
+  Version: 3.5.0
+  DisplayName: Azure Spring Boot AutoConfigure
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot_3.5.0/sdk/spring/azure-spring-boot/CHANGELOG.md#350-2021-05-24
+  ChangelogContent: |-
+    #### New Features
+    - Add `AADB2CTrustedIssuerRepository` to manage the trusted issuer in AAD B2C.
+    - Enable property azure.activedirectory.redirect-uri-template. ([#21116](https://github.com/Azure/azure-sdk-for-java/issues/21116))
+
+    #### Key Bug Fixes
+    - Fix the issue [#21036](https://github.com/Azure/azure-sdk-for-java/issues/21036) where the AAD B2C starter cannot fetch the OpenID Connect metadata document via issuer.
+    - Deprecate *addB2CIssuer*, *addB2CUserFlowIssuers*, *createB2CUserFlowIssuer* methods in `AADTrustedIssuerRepository`.
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-context
+  Version: 2.5.0
+  DisplayName: Azure Spring Cloud Context
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-context_2.5.0/sdk/spring/azure-spring-cloud-context/CHANGELOG.md#250-2021-05-24
+  ChangelogContent: |-
+    #### New Features
+    - Upgrade to [spring-boot-dependencies:2.4.5](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.4.5/spring-boot-dependencies-2.4.5.pom).
+    - Upgrade to [spring-cloud-dependencies:2020.0.2](https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.2/spring-cloud-dependencies-2020.0.2.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-boot-starter
+  Version: 3.5.0
+  DisplayName: Azure Spring Boot Starter
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot-starter_3.5.0/sdk/spring/azure-spring-boot-starter/CHANGELOG.md#350-2021-05-24
+  ChangelogContent: |-
+    #### New Features
+    - Upgrade to [spring-boot-dependencies:2.4.5](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.4.5/spring-boot-dependencies-2.4.5.pom).
+    - Upgrade to [spring-cloud-dependencies:2020.0.2](https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.2/spring-cloud-dependencies-2020.0.2.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-storage
+  Version: 2.5.0
+  DisplayName: Azure Spring Cloud Storage
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-storage_2.5.0/sdk/spring/azure-spring-cloud-storage/CHANGELOG.md#250-2021-05-24
+  ChangelogContent: |-
+    #### New Features
+    - Upgrade to [spring-boot-dependencies:2.4.5](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.4.5/spring-boot-dependencies-2.4.5.pom).
+    - Upgrade to [spring-cloud-dependencies:2020.0.2](https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.2/spring-cloud-dependencies-2020.0.2.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-integration-servicebus
+  Version: 2.5.0
+  DisplayName: Azure Spring Cloud Integration Service Bus
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-integration-servicebus_2.5.0/sdk/spring/azure-spring-integration-servicebus/CHANGELOG.md#250-2021-05-24
+  ChangelogContent: |-
+    #### New Features
+    - Upgrade to [spring-boot-dependencies:2.4.5](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.4.5/spring-boot-dependencies-2.4.5.pom).
+    - Upgrade to [spring-cloud-dependencies:2020.0.2](https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.2/spring-cloud-dependencies-2020.0.2.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-autoconfigure
+  Version: 2.5.0
+  DisplayName: Azure Spring Cloud Autoconfigure
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-autoconfigure_2.5.0/sdk/spring/azure-spring-cloud-autoconfigure/CHANGELOG.md#250-2021-05-24
+  ChangelogContent: |-
+    #### New Features
+    - Upgrade to [spring-boot-dependencies:2.4.5](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.4.5/spring-boot-dependencies-2.4.5.pom).
+    - Upgrade to [spring-cloud-dependencies:2020.0.2](https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.2/spring-cloud-dependencies-2020.0.2.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-integration-eventhubs
+  Version: 2.5.0
+  DisplayName: Azure Spring Cloud Integration Event Hubs
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-integration-eventhubs_2.5.0/sdk/spring/azure-spring-integration-eventhubs/CHANGELOG.md#250-2021-05-24
+  ChangelogContent: |-
+    #### New Features
+    - Upgrade to [spring-boot-dependencies:2.4.5](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.4.5/spring-boot-dependencies-2.4.5.pom).
+    - Upgrade to [spring-cloud-dependencies:2020.0.2](https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.2/spring-cloud-dependencies-2020.0.2.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-starter-eventhubs
+  Version: 2.5.0
+  DisplayName: Azure Spring Cloud Starter Event Hubs
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-starter-eventhubs_2.5.0/sdk/spring/azure-spring-cloud-starter-eventhubs/CHANGELOG.md#250-2021-05-24
+  ChangelogContent: |-
+    #### New Features
+    - Upgrade to [spring-boot-dependencies:2.4.5](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.4.5/spring-boot-dependencies-2.4.5.pom).
+    - Upgrade to [spring-cloud-dependencies:2020.0.2](https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.2/spring-cloud-dependencies-2020.0.2.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-boot-starter-servicebus-jms
+  Version: 3.5.0
+  DisplayName: Azure Spring Boot Starter Service bus Jms
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot-starter-servicebus-jms_3.5.0/sdk/spring/azure-spring-boot-starter-servicebus-jms/CHANGELOG.md#350-2021-05-24
+  ChangelogContent: |-
+    #### New Features
+    - Upgrade to [spring-boot-dependencies:2.4.5](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.4.5/spring-boot-dependencies-2.4.5.pom).
+    - Upgrade to [spring-cloud-dependencies:2020.0.2](https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.2/spring-cloud-dependencies-2020.0.2.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-stream-binder-eventhubs
+  Version: 2.5.0
+  DisplayName: Azure Spring Cloud Stream Binder Event Hubs
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-stream-binder-eventhubs_2.5.0/sdk/spring/azure-spring-cloud-stream-binder-eventhubs/CHANGELOG.md#250-2021-05-24
+  ChangelogContent: |-
+    #### New Features
+    - Upgrade to [spring-boot-dependencies:2.4.5](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.4.5/spring-boot-dependencies-2.4.5.pom).
+    - Upgrade to [spring-cloud-dependencies:2020.0.2](https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.2/spring-cloud-dependencies-2020.0.2.pom).
+  GroupId: com.azure.spring
 
