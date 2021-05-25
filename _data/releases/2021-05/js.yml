@@ -370,4 +370,23 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/cosmos_3.11.3/sdk/cosmosdb/cosmos/CHANGELOG.md#3113-2021-05-21
   ChangelogContent: '- BUGFIX: Sanitize user endpoint URLs for AAD DataPlane RBAC token generation.'
+- Name: '@azure/communication-network-traversal'
+  Version: 1.0.0-beta.1
+  DisplayName: '@azure/communication-network-traversal'
+  ServiceName: ""
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/communication-network-traversal_1.0.0-beta.1/sdk/communication/communication-network-traversal/CHANGELOG.md#100-beta1-2021-05-24
+  ChangelogContent: |-
+    The first preview of the Azure Communication Relay Client has the following features:
+
+    - get a Relay Configuration by creating a CommunicationRelayClient
+
+
+    #### Added
+
+    - Added CommunicationRelayClient in preview.
+    - Added CommunicationRelayClient.getRelayConfiguration in preview.
+
+    #### Breaking Changes
 
