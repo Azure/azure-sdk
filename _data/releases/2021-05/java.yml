@@ -1870,4 +1870,105 @@ entries:
     - Upgrade to [spring-boot-dependencies:2.4.5](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.4.5/spring-boot-dependencies-2.4.5.pom).
     - Upgrade to [spring-cloud-dependencies:2020.0.2](https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.2/spring-cloud-dependencies-2020.0.2.pom).
   GroupId: com.azure.spring
+- Name: azure-spring-cloud-dependencies
+  Version: 2.5.0
+  DisplayName: Azure Spring Cloud Dependencies
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-cloud-dependencies_2.5.0/sdk/boms/azure-spring-cloud-dependencies/CHANGELOG.md#250-2021-05-24
+  ChangelogContent: ""
+  GroupId: com.azure.spring
+- Name: azure-resourcemanager-videoanalyzer
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Video Analyzer
+  ServiceName: Video Analyzer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-videoanalyzer_1.0.0-beta.2/sdk/videoanalyzer/azure-resourcemanager-videoanalyzer/CHANGELOG.md#100-beta2-2021-05-25
+  ChangelogContent: '- Azure Resource Manager Video Analyzer client library for Java. This package contains Microsoft Azure SDK for Video Analyzer Management SDK. Azure Video Analyzer provides a platform for you to build intelligent video applications that span the edge and the cloud. Package tag package-2021-05-01-preview. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).'
+  GroupId: com.azure.resourcemanager
+- Name: azure-media-videoanalyzer-edge
+  Version: 1.0.0-beta.3
+  DisplayName: Azure Video Analyzer Edge
+  ServiceName: Video Analyzer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-media-videoanalyzer-edge_1.0.0-beta.3/sdk/videoanalyzer/azure-media-videoanalyzer-edge/CHANGELOG.md#100-beta3-2021-05-24
+  ChangelogContent: '- Updated the title and description of the package and updates to readme.'
+  GroupId: com.azure
+- Name: azure-spring-boot-bom
+  Version: 3.5.0
+  DisplayName: Azure Spring Boot BOM
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot-bom_3.5.0/sdk/boms/azure-spring-boot-bom/CHANGELOG.md#350-2021-05-24
+  ChangelogContent: ""
+  GroupId: com.azure.spring
+- Name: azure-resourcemanager-resourcegraph
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Resource Graph
+  ServiceName: Resource Graph
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-resourcegraph_1.0.0-beta.2/sdk/resourcegraph/azure-resourcemanager-resourcegraph/CHANGELOG.md#100-beta2-2021-05-24
+  ChangelogContent: |-
+    - Azure Resource Manager ResourceGraph client library for Java. This package contains Microsoft Azure SDK for ResourceGraph Management SDK. Azure Resource Graph API Reference. Package tag package-preview-2021-03. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
+
+    #### New Feature
+
+    * `models.ResourcesHistoryRequest` was added
+
+    * `models.ResourceSnapshotData` was added
+
+    * `models.ResourcesHistoryRequestOptions` was added
+
+    * `models.DateTimeInterval` was added
+
+    * `models.ChangeCategory` was added
+
+    * `models.ResourceChangeDetailsRequestParameters` was added
+
+    * `models.ResourceChangeData` was added
+
+    * `models.ResourceChangeDataAfterSnapshot` was added
+
+    * `models.ResourcePropertyChange` was added
+
+    * `models.ResourceChangesRequestParameters` was added
+
+    * `models.ResourcesHistoryRequestOptionsResultFormat` was added
+
+    * `models.ChangeType` was added
+
+    * `models.ResourceChangesRequestParametersInterval` was added
+
+    * `models.ResourceChangeDataBeforeSnapshot` was added
+
+    * `models.PropertyChangeType` was added
+
+    * `models.ResourceChangeList` was added
+
+    ##### `models.ResourceProviders` was modified
+
+    * `resourceChangeDetails(models.ResourceChangeDetailsRequestParameters)` was added
+    * `resourceChangeDetailsWithResponse(models.ResourceChangeDetailsRequestParameters,com.azure.core.util.Context)` was added
+    * `resourceChanges(models.ResourceChangesRequestParameters)` was added
+    * `resourcesHistoryWithResponse(models.ResourcesHistoryRequest,com.azure.core.util.Context)` was added
+    * `resourcesHistory(models.ResourcesHistoryRequest)` was added
+    * `resourceChangesWithResponse(models.ResourceChangesRequestParameters,com.azure.core.util.Context)` was added
+  GroupId: com.azure.resourcemanager
+- Name: azure-spring-boot-starter-keyvault-certificates
+  Version: 3.0.0-beta.7
+  DisplayName: Azure Spring Boot Starter Key Vault Certificates
+  ServiceName: Spring Boot
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-spring-boot-starter-keyvault-certificates_3.0.0-beta.7/sdk/spring/azure-spring-boot-starter-keyvault-certificates/CHANGELOG.md#300-beta7-2021-05-24
+  ChangelogContent: |-
+    #### New Features
+    - Upgrade to [spring-boot-dependencies:2.4.5](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.4.5/spring-boot-dependencies-2.4.5.pom).
+    - Upgrade to [spring-cloud-dependencies:2020.0.2](https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.2/spring-cloud-dependencies-2020.0.2.pom).
+  GroupId: com.azure.spring
 
