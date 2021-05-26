@@ -1639,4 +1639,29 @@ entries:
 
       - Operation VirtualMachineScaleSetsOperations.get has a new signature
       - Model PurchasePlan no longer has parameter promotion_code
+- Name: azure-ai-formrecognizer
+  Version: 3.1.0
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-formrecognizer_3.1.0/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#310-2021-05-26
+  ChangelogContent: |-
+    This version of the SDK defaults to the latest supported API version, which currently is v2.1
+
+    Note: this version will be the last to officially support Python 3.5, future versions will require Python 2.7 or Python 3.6+
+
+    **Breaking Changes**
+
+    - `begin_recognize_id_documents` renamed to `begin_recognize_identity_documents`.
+    - `begin_recognize_id_documents_from_url` renamed to `begin_recognize_identity_documents_from_url`.
+    - The model `TextAppearance` now includes the properties `style_name` and `style_confidence` that were part of the `TextStyle` object.
+    - Removed the model `TextStyle`.
+    - Removed field value types "gender" and "country" from the `FieldValueType` enum.
+    - Added field value type "countryRegion" to the `FieldValueType` enum.
+    - Renamed field name for identity documents from "Country" to "CountryRegion".
+
+    **New features**
+
+    - Added `to_dict` and `from_dict` methods to all of the models
 
