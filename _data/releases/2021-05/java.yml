@@ -2003,4 +2003,19 @@ entries:
     - Make `FormLine`, `FormPage`, `FormTable`, `FormSelectionMark`, `TextAppearance`, `CustomFormModel`, `CustomFormModelInfo`, `CustomFormModelProperties`
       `CustomFormSubmodel`, `TrainingDocumentInfo` model class immutable.
   GroupId: com.azure
+- Name: azure-cosmos-spark_3-1_2-12
+  Version: 4.1.0
+  DisplayName: azure-cosmos-spark_3-1_2-12
+  ServiceName: ""
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-cosmos-spark_3-1_2-12_4.1.0/sdk/cosmos/azure-cosmos-spark_3-1_2-12/CHANGELOG.md#410-2021-05-27
+  ChangelogContent: |-
+    ##### New Features
+    * Added support for bulk deletes via `spark.cosmos.write.strategy` `ItemDelete` or `ItemDeleteIfNotModified`
+    * Added support for enforcing custom queries via `spark.cosmos.read.customQuery`. Custom queries will be sent to the Cosmos backend instead of dynamically generating the query from predicate push-downs.
+
+    ##### Key Bug Fixes
+    * Fixes an issue resulting in invalid query plans when using string filter operators (StartsWith, EndsWith, Contains)
+  GroupId: com.azure.cosmos.spark
 
