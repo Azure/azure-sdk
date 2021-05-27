@@ -1664,4 +1664,16 @@ entries:
     **New features**
 
     - Added `to_dict` and `from_dict` methods to all of the models
+- Name: azure-cognitiveservices-vision-computervision
+  Version: 0.9.0
+  DisplayName: Computer Vision
+  ServiceName: Computer Vision
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/blob/azure-cognitiveservices-vision-computervision_0.9.0/sdk/cognitiveservices/azure-cognitiveservices-vision-computervision/CHANGELOG.md#090-2021-05-31
+  ChangelogContent: |-
+    **Breaking changes**
+
+      - Operation ComputerVisionClientOperationsMixin.read has a new signature
+      - Operation ComputerVisionClientOperationsMixin.read_in_stream has a new signature
 
