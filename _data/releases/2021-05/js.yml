@@ -430,4 +430,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure-rest/agrifood-farming_1.0.0-beta.1/sdk/agrifood/agrifood-farming-rest/CHANGELOG.md#100-beta1-2021-05-26
   ChangelogContent: '- First release of package, see README.md for details.'
+- Name: '@azure/iot-modelsrepository'
+  Version: 1.0.0-beta.1
+  DisplayName: '@azure/iot-modelsrepository'
+  ServiceName: ""
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/iot-modelsrepository_1.0.0-beta.1/sdk/iot/iot-modelsrepository/CHANGELOG.md#100-beta1-2021-05-27
+  ChangelogContent: |-
+    With [#14863](https://github.com/Azure/azure-sdk-for-js/pull/14863), this is the first release of the @azure/iot-modelsrepository package.
+
+    This package contains the `ModelsRepositoryClient` to talk to the Azure Models Repository service, with initial support for getting models. Additionally, helper functions for working with DTMIs are provided.
 
