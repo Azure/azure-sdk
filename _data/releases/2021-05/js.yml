@@ -406,4 +406,12 @@ entries:
     - Removed the `KnownStyleName`, `KnownSelectionMarkState`, and `KnownKeyValueType` enums, as they represent simple string enums. The `styleName`, `state`, and `valueType` properties (respectively) now have strong string-enum types.
     - Added the `KnownFormLocale` enum to access the well-known possible values of form locales (the `locale` property of the options parameters for prebuilt model recognition).
     - Migrated to the 2.1 Form Recognizer service endpoint for all REST API calls.
+- Name: '@azure-rest/core-client'
+  Version: 1.0.0-beta.3
+  DisplayName: rest-core-client
+  ServiceName: core-rest
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure-rest/core-client_1.0.0-beta.3/sdk/core-rest/core-client/CHANGELOG.md#100-beta3-2021-05-26
+  ChangelogContent: '- Set Date in query string parameters as ISO string. [#15209](https://github.com/Azure/azure-sdk-for-js/pull/15209)'
 
