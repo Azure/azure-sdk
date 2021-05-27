@@ -2018,4 +2018,56 @@ entries:
     ##### Key Bug Fixes
     * Fixes an issue resulting in invalid query plans when using string filter operators (StartsWith, EndsWith, Contains)
   GroupId: com.azure.cosmos.spark
+- Name: azure-communication-sms
+  Version: 1.0.2
+  DisplayName: Communication Sms
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-sms_1.0.2/sdk/communication/azure-communication-sms/CHANGELOG.md#102-2021-05-27
+  ChangelogContent: '- Dependency versions updated.'
+  GroupId: com.azure
+- Name: azure-communication-chat
+  Version: 1.0.1
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-chat_1.0.1/sdk/communication/azure-communication-chat/CHANGELOG.md#101-2021-05-27
+  ChangelogContent: '- Dependency versions updated.'
+  GroupId: com.azure
+- Name: azure-communication-phonenumbers
+  Version: 1.0.2
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-phonenumbers_1.0.2/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md#102-2021-05-27
+  ChangelogContent: '- Dependency versions updated.'
+  GroupId: com.azure
+- Name: azure-communication-identity
+  Version: 1.1.0
+  DisplayName: Communication Identity
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-identity_1.1.0/sdk/communication/azure-communication-identity/CHANGELOG.md#110-2021-05-27
+  ChangelogContent: |-
+    #### Added
+    - New exception `IdentityErrorResponseException` was added for more descriptive server error messages.
+    - Dependency versions updated.
+  GroupId: com.azure
+- Name: azure-communication-common
+  Version: 1.0.1
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-communication-common_1.0.1/sdk/communication/azure-communication-common/CHANGELOG.md#101-2021-05-27
+  ChangelogContent: |-
+    - Dependency versions updated.
+
+    #### Bug Fixes
+    - Fixed bug with AzureKeyCredential authentication
+  GroupId: com.azure
 
