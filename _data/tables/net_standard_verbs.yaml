@@ -1,0 +1,34 @@
+# <noun> needs to be scaped with \ because it's a html tag.
+entries:
+  - Verb: Create
+    Parameters: key, item
+    Returns: Created item
+    Comments: Creates a resource. Throws if the resource exists.
+  - Verb: Set
+    Parameters: key, item
+    Returns:
+    Comments: Creates or replaces a resource.
+  - Verb: Update
+    Parameters: key, item
+    Returns: item
+    Comments: Updates a resource. Throws if the resource does not exist. Update methods might take a parameter controlling whether the update is a replace, merge, or other specific semantics.
+  - Verb: Get\<resource_name>
+    Parameters: key
+    Returns: item
+    Comments: Retrieves a resource. Throws if the resource does not exist.
+  - Verb: Get\<resource_name_plural>
+    Parameters: key, item
+    Returns: item
+    Comments: Retrieves one or more resources. Returns empty set if no resources found.
+  - Verb: Delete
+    Parameters: item
+    Returns: item
+    Comments: Deletes one or more resources, or no-op if the resources do not exist.
+  - Verb: Remove
+    Parameters: index, item
+    Returns: item
+    Comments: Remove a reference to a resource from a collection. This method doesn’t delete the actual resource, only the reference.
+  - Verb: \<resource_name>Exists
+    Parameters: key
+    Returns: item
+    Comments: Returns true if the resource exists, otherwise returns false.

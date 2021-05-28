@@ -1,5 +1,5 @@
 ---
-title: Azure SDK Latest Releases
+title: Azure SDK Releases
 layout: default
 sidebar: releases_sidebar
 ---

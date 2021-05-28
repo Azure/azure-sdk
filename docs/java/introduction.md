@@ -63,6 +63,8 @@ Azure services are exposed to Java developers as one or more *service client* ty
 
 Service clients are the main starting points for developers calling Azure services with the Azure SDK. Each client library should have at least one client in its main namespace, so it’s easy to discover. The guidelines in this section describe patterns for the design of a service client. Because in Java both synchronous and asynchronous service clients are required, the sections below are organized into general service client guidance, followed by sync- and async-specific guidance.
 
+There exists a distinction that must be made clear with service clients: not all classes that perform HTTP (or otherwise) requests to a service are automatically designated as a service client. A service client designation is only applied to classes that are able to be directly constructed because they are uniquely represented on the service. Additionally, a service client designation is only applied if there is a specific scenario that applies where the direct creation of the client is appropriate. If a resource can not be uniquely identified or there is no need for direct creation of the type, then the service client designation should not apply.
+
 {% include requirement/MUST id="java-service-client-name" %} name service client types with the _Client_ suffix (for example, `ConfigurationClient`).
 
 {% include requirement/MUST id="java-service-client-annotation" %} annotate all service clients with the `@ServiceClient` annotation.
@@ -374,9 +376,7 @@ public class UserApplication {
 
 #### Service Methods
 
-Service methods are the methods on the client that invoke operations on the service.
-
-{% include requirement/MUST id="java-service-client-method-naming" %} use standard JavaBean naming prefixes for all methods that are not service methods.
+Service methods are methods that invoke operations on a service. They are commonly found on classes suffixed with `Client`, but can also be found on other resource classes that are vended by a client.
 
 {% include requirement/MUSTNOT id="java-async-suffix" %} use the suffix `Async` in methods that do operations asynchronously. Let the fact the user has an instance of an 'async client' provide this context.
 
@@ -397,10 +397,6 @@ Service methods are the methods on the client that invoke operations on the serv
 
 {% include requirement/SHOULD id="java-service-client-flexibility" %} remain flexible and use names best suited for developer experience.  Don't let the naming rules result in non-idiomatic naming patterns.  For example, Java developers prefer `list` operations over `getAll` operations.
 
-{% include requirement/MUST id="java-service-client-vend-prefix" %} prefix methods in sync clients that create or vend subclients with `get` and suffix with `Client`. For example, `container.getBlobClient()`.
-
-{% include requirement/MUST id="java-service-async-client-vend-prefix" %} prefix methods in async clients that create or vend subclients with `get` and suffix with `AsyncClient`. For example, `container.getBlobAsyncClient()`.
-
 One of the Azure Core types is `com.azure.core.util.Context`, which acts as an append-only key-value map, and which by default is empty. The `Context` allows end users of the API to modify the outgoing requests to Azure on a per-method call basis, for example to enable distributed tracing.
 
 {% include requirement/MUST id="java-service-client-context" %} provide an overload method that takes a `com.azure.core.util.Context` argument for each service operation **in sync clients only**. The `Context` argument must be the last argument into the service method (except where `varargs` are used). If a service method has multiple overloads, only the 'maximal' overloads need to have the `Context` argument. A maximal overload is one that has a full set of arguments.  It may not be necessary to offer a 'Context overload' in all cases.  We prefer a minimal API surface, but `Context` must always be supported.
@@ -419,6 +415,14 @@ getFoo(a, Context)
 ```
 
 {% include requirement/MUSTNOT id="java-service-client-context-async" %} include overloads that take `Context` in async clients.  Async clients use the [subscriber context built into Reactor Flux and Mono APIs][reactor-context].
+
+#### Non-Service Methods
+
+Clients often have non-service methods, for accessing details such as the service version, http pipeline, and so on. There may also be API that offers users the ability to create specialized sub-clients. These sub-clients 
+
+{% include requirement/MUST id="java-service-client-method-naming" %} use standard JavaBean naming prefixes for all methods that are not service methods.
+
+{% include requirement/MUST id="java-service-client-vend-prefix" %} prefix methods in sync clients that create or vend sub-clients with `get` and suffix with `Client`. For example, `container.getBlobClient()`. Similarly, prefix methods in async clients that create or vend sub-clients with `get` and suffix with `AsyncClient`. For example, `container.getBlobAsyncClient()`. Keep in mind the guidance in the [service client](#service-client) section, as it cannot be assumed that the `Client` suffix applies to another client-like class vended by a client. The `Client` suffix is only applicable in certain situations, and therefore, methods should not be named `get*Client` if the type is not a client.
 
 ##### Cancellation
 
@@ -528,7 +532,7 @@ If in common scenarios, users are likely to pass just a small subset of what the
 
 {% include requirement/MUST id="java-params-complex-withResponse" %} use the _options_ parameter type, if it exists, for all `*WithResponse` methods. If no _options_ parameter type exists, do not create one solely for the `*WithResponse` method.
 
-{% include requirement/MUST id="java-params-options-package" %} place all options types in a root-level `options` package, to make options types distinct from service clients and model types.
+{% include requirement/MUST id="java-params-options-package" %} place all options types in a root-level `models` package, to prevent too many root-level packages and to make use of the existing `models` package used by other model types.
 
 {% include requirement/MUST id="java-params-options-design" %} design options types with the same design guidance as given below for model class types, namely fluent setters for optional arguments, using the standard JavaBean naming convention of `get*`, `set*`, and `is*`. Additionally, there may be constructor overloads for each combination of required arguments.
 
@@ -548,8 +552,7 @@ Common parameter validations include null checks, empty string checks, and range
 
 #### Methods Returning Collections (Paging)
 
-Many Azure REST APIs return collections of data in batches or pages. A client library will expose such APIs as special enumerable types `PagedIterable<T>` or `PagedFlux<T>`, for synchronous and asynchronous APIs, respectively.
-These types are located in the [azure-core library](#using-azure-core-types).
+Many Azure REST APIs return collections of data in batches or pages. A client library will expose such APIs as special enumerable types `PagedIterable<T>` or `PagedFlux<T>` (or one of their parent types), for synchronous and asynchronous APIs, respectively. These types are located in the [azure-core library](#using-azure-core-types).
 
 {% include requirement/MUST id="java-pagination-pagediterable" %} return `PagedIterable<T>` from service methods in synchronous that return a collection of items. For example, the configuration service **sync** client should offer the following API:
 
@@ -648,7 +651,7 @@ public final class <service_name>AsyncClient {
 
 {% include requirement/MUST id="java-lro-continuation" %} provide a way to instantiate a poller with the serialized state of another poller to begin where it left off, for example by passing the state as a parameter to the same method which started the operation, or by directly instantiating a poller with that state.
 
-> TODO this rehydration guidance is being written based on recent development efforts and will be updated soon
+{% include requirement/MUSTNOT id="java-lro-no-void-terminal-state" %} specify any poller (`SyncPoller` or `PollerFlux`) with a terminal state (i.e. the `U` in `SyncPoller<T, U>` or `PollerFlux<T, U>`) as being `void`. This does not benefit users, as it is typically their desire to inspect the terminal state for some quality, and by being void we are making this inspection more difficult than necessary.
 
 #### Conditional Request Methods
 
@@ -846,6 +849,8 @@ Fluent types must not be immutable.  Don't return a new instance on each setter 
 
 {% include requirement/MUST id="java-models-deserialize" %} include static methods if new model instances are required to be created from raw data. The static method names should be `from<dataformat>`. For example, to create an instance of `BinaryData` from a string, include a static method called `fromString` in `BinaryData` class.
 
+{% include requirement/MUSTNOT id="java-models-collection-mutability" %} copy collection-based results, or wrap collection-related return types with unmodifiable wrappers. If a user calls a method `public List<String> getFoos()`, they should feel entitled to modify this collection as their needs fit. These modifications should be applied back to the model that supplied the collection in the first place. In places where this will impact the correct operation of the model type (i.e. where the types of values is constrained), it is acceptable to copy the collection or to wrap it as an unmodifiable type, provided that this is clearly documented in the related JavaDoc.
+
 Model types sometimes exist only as an Azure service return type, and developers would never instantiate these. Often, these model types have API that is not user-friendly (in particular, overly complex constructors). It would be best for developers if they were never presented with this API in the first place, and we refer to these as 'undesirable public API'.
 
 {% include requirement/MUST id="java-models-interface" %} put model classes that are intended as service return types only, and which have undesirable public API into the `.implementation.models` package. In its place, an interface should be put into the public-facing `.models` package, and it should be this type that is returned through the public API to end users. 
@@ -854,9 +859,14 @@ Examples of situations where this is applicable include when there are construct
 
 #### Enumerations
 
-{% include requirement/MUST id="java-enums" %} use an `enum` for parameters, properties, and return types when values are known.
+Enumerations in Java are extremely convenient, but used improperly can lead to breaking changes to the API. This is because often the Java compiler is configured to fail if not all enum values are listed in a switch statement, so with the addition of a new enum value, users will encounter breaking builds when updating their dependency to a newer version. Because of this, the Java azure-core ships with the `ExpandableStringEnum` that is the suggested means through which enumerations are exposed. Whilst not technically a Java enumeration, it can be treated as such in much the same way, without concerns about breaking changes from adding new values. It is also more user-friendly when new values are introduced on the service side before a library update has been shipped, as users can manually create their own values within the context of a single `ExpandableStringEnum`.
 
-{% include requirement/MUST id="java-naming-enum-uppercase" %} use all upper-case names for enum (and 'expandable' enum) values. `EnumType.FOO` and `EnumType.TWO_WORDS` are valid, whereas `EnumType.Foo` and `EnumType.twoWords` are not.
+{% include requirement/MUSTNOT id="java-enums" %} define Java enum types for parameters, properties, and return types, except in two scenarios: 
+
+1) When values are fixed and will never change over time, or,
+2) When the enum is used as an input-only enum and therefore the likelihood of users running into breaking changes (i.e. when they must `switch` over all values) is low.
+
+{% include requirement/MUST id="java-naming-enum-uppercase" %} use all upper-case names for enum (and `ExpandableStringEnum`) values. `EnumType.FOO` and `EnumType.TWO_WORDS` are valid, whereas `EnumType.Foo` and `EnumType.twoWords` are not.
 
 {% include requirement/MAY id="java-expandable-enums" %} use the `ExpandableStringEnum` type provided by azure-core to define an enum-like API that declares well-known fields but which can also contain unknown values returned from the service, or user-defined values passed to the service. An example expandable enum, taken from azure-core's `OperationStatus` type, is shown below:
 
@@ -878,10 +888,6 @@ public static final class OperationStatus extends ExpandableStringEnum<Operation
     }
 }
 ```
-
-{% include requirement/MUST id="java-enums-no-future-growth" %} use an enum only if the enum values are known to not change like days of a week, months in a year etc.
-
-{% include requirement/MUST id="java-enums-future-growth" %} use `ExpandableStringEnum` provided by `azure-core` for enumerations if the values are known to expand in future.
 
 #### Using Azure Core Types
 
@@ -955,6 +961,10 @@ In the case of a higher-level method that produces multiple HTTP requests, eithe
   - `ServiceResponseException`: Thrown when the request was sent to the service, but the client library wasn't able to understand the response.
   - `ServiceRequestException`: Thrown for an invalid response with custom error information.
 
+{% include requirement/MUST id="java-errors-new-exceptions" %} extend from one of the above exceptions defined in azure-core when defining a new service-specific exception. Do not extend from `RuntimeException` directly.
+
+{% include requirement/MUST id="java-errors-exception-public" %} define exception type in a public package if the exception is thrown from a public API. Do not throw an exception that is defined as package-private or is defined in `implementation` package.
+
 ### Authentication
 
 Azure services use a variety of different authentication schemes to allow clients to access the service.  Conceptually, there are two entities responsible in this process: a credential and an authentication policy.  Credentials provide confidential authentication data.  Authentication policies use the data provided by a credential to authenticate requests to the service.
@@ -1021,11 +1031,7 @@ In Java, the namespace should be named `com.azure.<group>.<service>[.<feature>]`
 
 If the client library does not seem to fit into the group list, contact the [Architecture Board] to discuss the namespace requirements.
 
-{% include requirement/MUST id="java-namespaces-management" %} place the management (Azure Resource Manager) API in the `management` group.  Use the grouping `<AZURE>.resourcemanager.<group>.<service>` for the namespace. Since more services require control plane APIs than data plane APIs, other namespaces may be used explicitly for control plane only.  Data plane usage is by exception only.  Additional namespaces that can be used for control plane SDKs include:
-
-{% include tables/mgmt_namespaces.md %}
-
-Many `management` APIs do not have a data plane because they deal with management of the Azure account. Place the management library in the `com.azure.resourcemanager` namespace.  For example, use `com.azure.resourcemanager.costanalysis` instead of `com.azure.resourcemanager.management.costanalysis`.
+{% include requirement/MUST id="java-namespaces-management" %} place the management (Azure Resource Manager) API in the `resourcemanager` group.  Use the grouping `com.azure.resourcemanager.<service>` for the namespace. Management plane libraries do not have a `<group>`.
 
 {% include requirement/MUST id="java-namespaces-registration" %} register the chosen namespace with the [Architecture Board].  Open an issue to request the namespace.  See [the registered namespace list](registered_namespaces.html) for a list of the currently registered namespaces.
 
@@ -1033,17 +1039,16 @@ Many `management` APIs do not have a data plane because they deal with managemen
 
 Here are some examples of namespaces that meet these guidelines:
 
-- `com.azure.data.cosmos`
 - `com.azure.identity.activedirectory`
 - `com.azure.iot.deviceprovisioning`
 - `com.azure.storage.blob`
 - `com.azure.messaging.notificationhubs` (the client library for Notification Hubs)
-- `com.azure.resourcemanager.messaging.notificationhubs` (the management library for Notification Hubs)
+- `com.azure.resourcemanager.notificationhubs` (the management library for Notification Hubs)
 
 Here are some namespaces that do not meet the guidelines:
 
 - `com.microsoft.azure.cosmosdb` (not in the `com.azure` namespace and does not use grouping)
-- `com.azure.mixedreality.kinect` (the grouping is not in the approved list)
+- `com.azure.cognitiveservice.vision` (the grouping `cognitiveservice` is not in the approved list)
 
 ### Support for Mocking
 

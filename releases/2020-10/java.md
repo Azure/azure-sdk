@@ -558,7 +558,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Fixed a bug where calling `UrlBuilder.parse` could result in an exception. [#15013](https://github.com/Azure/azure-sdk-for-java/issues/15013)
 - Changed `ContinuablePagedIterable` implementation to use a custom iterable to prevent additional, unrequested pages from being retrieved. [#15575](https://github.com/Azure/azure-sdk-for-java/issues/15575)
 
-### Azure Core Amqp 1.6.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/release/azure-core-amqp_1.6.0/sdk/core/azure-core-amqp/CHANGELOG.md#160-2020-10-12)
+### Azure Core Amqp 1.6.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-core-amqp_1.6.0/sdk/core/azure-core-amqp/CHANGELOG.md#160-2020-10-12)
 
 #### New Features
 - Added peer certificate verification options when connecting to an AMQP endpoint.

@@ -1,0 +1,50 @@
+# <noun> must be escaped with \ because it's an html tag.
+entries:
+  - Verb: __prefix___insert\_\<noun>
+    Parameters: key, item
+    Returns: Updated or created item
+    Comments: Create new item or update existing item. Verb is primarily used in database-like services.
+  - Verb: __prefix___set\_\<noun>
+    Parameters: key, item
+    Returns: Updated or created item
+    Comments: Create new item or update existing item. Verb is primarily used for dictionary-like properties of a service.
+  - Verb: __prefix___create\_\<noun>
+    Parameters: key, item
+    Returns: Created item
+    Comments: Create new item. Fails if item already exists.
+  - Verb: __prefix___update\_\<noun>
+    Parameters: key, partial item
+    Returns: Updated item
+    Comments: Fails if item does not exist.
+  - Verb: __prefix___replace\_\<noun>
+    Parameters: key, item
+    Returns: Replace existing item
+    Comments: Completely replaces an existing item. Fails if the item does not exist.
+  - Verb: __prefix___delete\_\<noun>
+    Parameters: key
+    Returns: None
+    Comments: Delete an existing item. Will succeed even if item did not exist.
+  - Verb: __prefix___append\_\<noun>
+    Parameters: item
+    Returns: Appended item
+    Comments: Add item to a collection. Item will be added last.
+  - Verb: __prefix___add\_\<noun>
+    Parameters: index, item
+    Returns: Added item
+    Comments: Add item to a collection. Item will be added on the given position.
+  - Verb: __prefix___remove\_\<noun>
+    Parameters: key
+    Returns: None or removed item
+    Comments: Remove item from a collection.
+  - Verb: __prefix___get\_\<noun>
+    Parameters: key
+    Returns: Item
+    Comments: Will return None if item does not exist.
+  - Verb: __prefix___list\_\<noun>
+    Parameters:
+    Returns: array of items
+    Comments: 	Return list of items. Returns empty list if no items exist.
+  - Verb: __prefix___exists\_\<noun>
+    Parameters: key
+    Returns: boolean
+    Comments: Return True if the item exists.

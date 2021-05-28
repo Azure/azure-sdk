@@ -2,7 +2,9 @@ param (
   [string]$releaseDateString = "",
   [string]$releaseTemplate = "$PSScriptRoot\release-template",
   [string]$releaseRootFolder = "$PSScriptRoot\..\..\releases",
-  [bool]$publishRelease = $false
+  [bool]$publishRelease = $false,
+  [string]$releaseFileName = "*",
+  [string[]]$ExcludeFileNames = @()
 )
 
 if ($releaseDateString -eq "") {
@@ -48,7 +50,7 @@ else {
   }
 
   ### Copy template files for ones that don't exist
-  foreach ($file in (Get-ChildItem $releaseTemplate/*)) {
+  foreach ($file in (Get-ChildItem $releaseTemplate/$releaseFileName -Exclude $ExcludeFileNames)) {
     $newFile = Join-Path $releasefolder $file.Name
     if (Test-Path $newFile) {
       Write-Host "Skipping $newFile because it already exists"
@@ -59,13 +61,13 @@ else {
   }
 
   ### Update template files with date
-  foreach ($file in (Get-ChildItem $releaseFolder)) {
+  foreach ($file in (Get-ChildItem $releaseFolder/$releaseFileName)) {
     $fileContent = Get-Content $file
 
     $fileContent = $fileContent | ForEach-Object {
       if ($_ -match "%%(?<format>.*?)%%") {
         try {
-          $_ -replace $matches[0], $releaseDate.ToString($matches["format"]) 
+          $_ -replace $matches[0], $releaseDate.ToString($matches["format"])
         }
         catch {
           Write-Host ("Date format " + $matches["format"] + " in file $file is invalid.")

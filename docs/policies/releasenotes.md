@@ -7,11 +7,17 @@ sidebar: general_sidebar
 
 # Producing Release Notes
 
-Each release cycle, we produce release notes for every language.  To do this:
+Each release cycle, we produce release notes for every language. This process is partly automated. Our automation runs regularly and produces pull requests with titles of the form **({Language} release notes for the {YYYY-MM} release)** for dotnet, java, js, and python. Below are instructions for updating/reviewing the PRs before merging.
 
-* The release manager (within the PM organization) will create a new folder within the `/releases` directory of the `azure/azure-sdk` repository (named in `YYYY-MM` format) and create the necessary files.
-* The engineering leads for the packages being released are responsible for ensuring the details of the release notes are filled in via the normal PR process.
-* The release manager will review the release notes, merging PRs.  After code complete, the release manager will do a final editorial pass before linking the release notes into the table of contents.
+- The **engineering leads** for the released packages should make sure they have been picked up by the automation and that the entry is correct.
+  - You can update the generated data at `_data/releases/YYYY-MM/{language}.yml` by adding github style suggestions to the PR that the release driver can commit to the PR when reviewed.
+  - Suggest new release entries that should be added to the PR if it has not already been added by the automation (it most likely will be).
+  - If there are packages that should be in the release that don't appear it is probably because the automation has not run since the package was released. Your package should generally get picked up by the automation within 24 hours.
+  - The generated data in `_data/releases/YYYY-MM/{language}.yml` is pulled into the proper sections in the corresponding markdown file at `releases/YYYY-MM/{language}.md` by the Jekyll engine. Once changes to the yml file is merged into master you can see the content pulled into the github.io site at `https://azure.github.io/azure-sdk/releases/YYYY-MM/{language}.html`
+
+- The **release manager** should hide all entries for packages that should not be in the release period, review and merge the pull request.
+  - Entries can be hidden by setting the `Hidden` field to `true`.
+  - After code complete, the release manager will do a final editorial pass before linking the release notes into the table of contents.
 
 Release notes are part of the release and must be ready for final edit by the "Code Complete" date.
 
@@ -28,16 +34,15 @@ The release notes consist of four sections:
 
 ## What's a "developer impacting change"?
 
-We don't want to advertise every single bug fix as most of them do not impact the way customers think about developing the client.  The change log provides an exhaustive list of changes.  We don't need to duplicate it.
+We don't want to advertise every single bug fix as most of them do not impact the way customers think about developing the client.  The [change log](https://azure.github.io/azure-sdk/policies_releases.html#change-logs) provides an exhaustive list of changes.  We don't need to duplicate it.
 
-However, in the release notes we do want to list critical changes for customers. A critical change is one that the developer would either need to know or want to know. Use the following section headers (*Security Fixes, Breaking Changes, New Featues, and Key Bug Fixes*) for the defined critical changes:
+However, in the release notes we do want to list critical changes for customers. A critical change is one that the developer would either need to know or want to know. Use the following section headers (`Features Added`, `Breaking Changes`, and `Key Bugs Fixed`) for the defined critical changes:
 
-* *New Features* - Adding a new API or feature
-* *Breaking Changes* - Changes to an existing API or changes to the behavior of an existing API
-* *Key Bug Fixes* - Major bug fixes that require a customer to do something, bug fixes that come from multiple up-votes in github or that are motivated by customer feedback
-* *Security Fixes* - Any security fix, no matter how small
+* *Features Added* - For new features to be called out in release notes
+* *Breaking Changes* - For changes to be called out in release notes including, changes that break existing functionality, soon-to-be removed features, now removed features
+* *Key Bugs Fixed* - For important bug fixes to be called out in release notes, including any security fixes
 
-For example, "fixed a bug in which the event processor would stop working if you received no events for 30 minutes" does not qualify.  The customer does not need to do anything, and it's fairly likely they have not bumped into this error.  However, "Added a new overload to the constructor to support AzureAD credentials" would definitely be a good thing to include.
+For example, "fixed a bug in which the event processor would stop working if you received no events for 30 minutes" does not qualify.  While you may list this under the `Fixed` heading in the changelog, the customer does not need to do anything, and it's fairly likely they have not bumped into this error, so this shouldn't be listed under the `Key Bugs Fixed` heading.  However, "Added a new overload to the constructor to support AzureAD credentials" would definitely be a good thing to include.
 
 Ensure the release notes are written from the perspective of the user.   We don't want to tell them about a new change without ALSO telling them how to take advantage of the change with either a link to the documentation or a short snippet of code.
 
@@ -69,4 +74,3 @@ You may optionally provide social media outreach for out-of-band releases.  Cont
 ## Where do I go if I need help?
 
 The _Azure SDK release manager_ is best place to start when you need help with a release. They manage the Release channel in the Azure SDK Teams team.  If you need help you can post a message in that Teams channel here: <https://aka.ms/azsdk/teams/release>
-

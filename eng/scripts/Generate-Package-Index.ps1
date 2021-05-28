@@ -5,22 +5,28 @@ param (
 )
 Set-StrictMode -Version 3
 
+. (Join-Path $PSScriptRoot PackageList-Helpers.ps1)
+
 $releaseFolder = Resolve-Path $releaseFolder
 $outputFolder = Resolve-Path $outputFolder
 
-function MSDocLink($lang, $pkg) 
+function MSDocLink($pkg, $linkTemplates) 
 {
   if ($pkg.MSDocs -eq "NA") { return "" }
-  if ($pkg.MSDocs -ne "") { return "[docs]($($pkg.MSDocs))" }
+  if ($pkg.MSDocs -ne "") { 
+    $msdoclink = $pkg.MSDocs
+  }
+  else {
+    $preSuffix = GetLinkTemplateValue $linkTemplates "pre_suffix"
+    $msdoclink = GetLinkTemplateValue $linkTemplates "msdocs_url_template" $pkg.Package
 
-  $msPackagePath = $pkg.Package -replace "@?azure[\.\-/]", ""
-
-  # this suffix addition will continue to exist for .NET ONLY until the same overview path is allowed to exist 
-  # across multiple monikers
-  $suffix = ""
-  if (!$pkg.VersionGA -and $pkg.VersionPreview -and $lang -eq "dotnet") { $suffix = "-pre" }
-
-  return "[docs](https://docs.microsoft.com/${lang}/api/overview/azure/${msPackagePath}-readme${suffix}/)"
+    if (!$pkg.VersionGA -and $pkg.VersionPreview -and $preSuffix) {
+      $msdoclink += $preSuffix
+    }
+  }
+  # Make relative link
+  $msdoclink = $msdoclink -replace "https://docs.microsoft.com(/en-us)?", ""
+  return "[docs]($msdoclink)"
 }
 
 function Get-Heading()
@@ -28,11 +34,13 @@ function Get-Heading()
  return  "| Name | Package | Docs | Source |" + [System.Environment]::NewLine + 
          "| ---- | ------- | ---- | ------ |" + [System.Environment]::NewLine
 }
-function Get-Row($pkg, $lang, $packageFormat, $sourceFormat)
+
+function Get-Row($pkg, $linkTemplates)
 {
+  $MDLinkFormat = "{0} [{1}]({2})"
+  $srcLabel = "GitHub"
+  $pkgLabel = GetLinkTemplateValue $linkTemplates "package_label"
   $displayName = $pkg.DisplayName
-  $docs = MSDocLink $lang $pkg
-  $docs = $docs -replace "https://docs.microsoft.com(/en-us)?", ""
 
   $version = $pkg.VersionGA
   if ($version -eq "") { $version = $pkg.VersionPreview }
@@ -42,63 +50,47 @@ function Get-Row($pkg, $lang, $packageFormat, $sourceFormat)
     return
   }
 
-  if ($pkg.VersionGA -ne "" -and $pkg.VersionPreview -ne "") {
-    $package = $packageFormat -f $pkg.Package, $pkg.VersionGA
-    $package += "<br>"
-    $package += $packageFormat -f $pkg.Package, $pkg.VersionPreview
+  # GroupId only exists for java so we need to test before we try and access
+  $groupId = $null
+  if ([bool]($pkg.PSobject.Properties.name -match "GroupId")) {
+    $groupId = $pkg.GroupId
+  }
 
-    $source = $sourceFormat -f $pkg.Package, $pkg.VersionGA, $pkg.RepoPath
-    $source += "<br>"
-    $source += $sourceFormat -f $pkg.Package, $pkg.VersionPreview, $pkg.RepoPath
+  if ($pkg.VersionGA -ne "" -and $pkg.VersionPreview -ne "") {
+    $pkgLink = GetLinkTemplateValue $linkTemplates "package_url_template" $pkg.Package $pkg.VersionGA $pkg.RepoPath $groupId
+    $package = $MDLinkFormat -f $pkgLabel, $pkg.VersionGA, $pkgLink
+    $package += "<br>"
+    $pkgLink = GetLinkTemplateValue $linkTemplates "package_url_template" $pkg.Package $pkg.VersionPreview $pkg.RepoPath $groupId
+    $package += $MDLinkFormat -f $pkgLabel, $pkg.VersionPreview, $pkgLink
+
+    $srcLink = GetLinkTemplateValue $linkTemplates "source_url_template" $pkg.Package $pkg.VersionGA $pkg.RepoPath
+    $source = $MDLinkFormat -f $srcLabel, $pkg.VersionGA, $srcLink
+    if (!$pkg.RepoPath.StartsWith("http")) {
+      $source += "<br>"
+      $srcLink = GetLinkTemplateValue $linkTemplates "source_url_template" $pkg.Package $pkg.VersionPreview $pkg.RepoPath
+      $source += $MDLinkFormat -f $srcLabel, $pkg.VersionPreview, $srcLink
+    }
   }
   else {
-    $package = $packageFormat -f $pkg.Package, $version
-    $source = $sourceFormat -f $pkg.Package, $version, $pkg.RepoPath
+    $pkgLink = GetLinkTemplateValue $linkTemplates "package_url_template" $pkg.Package $version $pkg.RepoPath $groupId
+    $package = $MDLinkFormat -f $pkgLabel, $version, $pkgLink
+
+    $srcLink = GetLinkTemplateValue $linkTemplates "source_url_template" $pkg.Package $version $pkg.RepoPath
+    $source = $MDLinkFormat -f $srcLabel, $version, $srcLink
   }
 
   if ($pkg.RepoPath -eq "NA") {
     $source = ""
   }
-  elseif ($pkg.RepoPath.StartsWith("http")) {
-    $source = "GitHub [${version}]($($pkg.RepoPath))"
-  }
+
+  $docs = MSDocLink $pkg $linkTemplates
 
   return "| ${displayName} | ${package} | ${docs} | ${source} |" + [System.Environment]::NewLine
 }
 
-function Get-java-row($pkg)
-{
-  $groupId = $pkg.GroupId
-  $packageFormat = "maven [{1}](https://search.maven.org/artifact/${groupId}/{0}/{1}/jar/)"
-  $sourceFormat = "GitHub [{1}](https://github.com/Azure/azure-sdk-for-java/tree/{0}_{1}/sdk/{2}/{0}/)"
-  
-  return Get-Row $pkg "java" $packageFormat $sourceFormat
-}
-
-function Get-js-row($pkg)
-{
-  $packageFormat = "npm [{1}](https://www.npmjs.com/package/{0}/v/{1})"
-  $trimmedPackage = $pkg.Package -replace "^@azure/", ""
-  $sourceFormat = "GitHub [{1}](https://github.com/Azure/azure-sdk-for-js/tree/{0}_{1}/sdk/{2}/${trimmedPackage}/)"
-  return Get-Row $pkg "javascript" $packageFormat $sourceFormat
-}
-
-function Get-dotnet-row($pkg)
-{
-  $packageFormat = "NuGet [{1}](https://www.nuget.org/packages/{0}/{1})"
-  $sourceFormat = "GitHub [{1}](https://github.com/Azure/azure-sdk-for-net/tree/{0}_{1}/sdk/{2}/{0}/)"
-  return Get-Row $pkg "dotnet" $packageFormat $sourceFormat
-}
-
-function Get-python-row($pkg)
-{
-  $packageFormat = "pypi [{1}](https://pypi.org/project/{0}/{1})"
-  $sourceFormat = "GitHub [{1}](https://github.com/Azure/azure-sdk-for-python/tree/{0}_{1}/sdk/{2}/{0}/)"
-  return Get-Row $pkg "python" $packageFormat $sourceFormat
-}
-
 function Write-Markdown($lang)
 {
+  $langLinkTemplates = GetLinkTemplates $lang
   $packagelistFile = Join-Path $releaseFolder "$lang-packages.csv"
   $packageList = Get-Content $packagelistFile | ConvertFrom-Csv | Sort-Object Type, DisplayName, Package, GroupId
   $packageList = $packageList | Where-Object { $_.Hide -ne "true" }
@@ -107,10 +99,9 @@ function Write-Markdown($lang)
   $otherPackages = $packageList | Where-Object { !$_.New -ne "true" }
 
   $fileContent = Get-Heading
-  $LangFunction = "Get-$lang-row"
   foreach($pkg in $clientPackageList)
   {
-    $fileContent += &$LangFunction $pkg 
+    $fileContent += Get-Row $pkg $langLinkTemplates
   }
   $fileLang = $lang
   if ($lang -eq "js") { 
@@ -126,7 +117,7 @@ function Write-Markdown($lang)
   $allFileContent = Get-Heading
   foreach($pkg in $allPackageList)
   {
-    $allFileContent += &$LangFunction $pkg
+    $allFileContent += Get-Row $pkg $langLinkTemplates
   }
 
   $allMdfile = Join-Path $outputFolder "$fileLang-all.md"

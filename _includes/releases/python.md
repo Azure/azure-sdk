@@ -14,4 +14,4 @@
 
 {% include releases/variables/python.md %}
 
-{% include releases/pkgtable.md %}
+{% include releases/pkgtable.md type=include.type %}

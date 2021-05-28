@@ -56,7 +56,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-### Communication Administration [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-administration/CHANGELOG.md#100b3-2020-11-16)
+### Communication Administration [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-communication-administration_1.0.0b3/sdk/communication/azure-communication-administration/CHANGELOG.md#100b3-2020-11-16)
 
 #### New Features
 
