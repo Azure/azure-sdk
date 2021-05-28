@@ -9,6 +9,9 @@ resources:
       endpoint: azure
       ref: refs/tags/azure-sdk-tools_20210527.1
 
+variables:
+  ChangedPackagesFilePath: $(Build.StagingDirectory)/ChangedPackages.json
+
 steps:
 - checkout: self
 - checkout: azure-sdk-tools
@@ -26,6 +29,7 @@ steps:
     filePath: ./azure-sdk/eng/scripts/Update-Release-Versions.ps1
     arguments: >
       -github_pat '$(azuresdk-github-pat)'
+      -changedPackagesPath $(ChangedPackagesFilePath)
 
 - task: PowerShell@2
   displayName: Update release DevOps work-items
@@ -53,6 +57,12 @@ steps:
     WorkingDirectory: $(System.DefaultWorkingDirectory)/azure-sdk
     ScriptDirectory: $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts
     PRLabels: 'auto-merge'
+
+- template: template/steps/generate-releasenotes.yml
+  parameters:
+    ChangedPackagesPath: $(ChangedPackagesFilePath)
+    DefaultBranch: $(DefaultBranch)
+    CommonScriptPath: $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts
 
 - pwsh: |
     git clone https://$(azuresdk-github-pat)@github.com/MicrosoftDocs/azure-dev-docs-pr $(System.DefaultWorkingDirectory)/azure-dev-docs-pr
