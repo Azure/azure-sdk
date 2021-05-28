@@ -2070,4 +2070,15 @@ entries:
     #### Bug Fixes
     - Fixed bug with AzureKeyCredential authentication
   GroupId: com.azure
+- Name: azure-verticals-agrifood-farming
+  Version: 1.0.0-beta.2
+  DisplayName: azure-verticals-agrifood-farming
+  ServiceName: ""
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/blob/azure-verticals-agrifood-farming_1.0.0-beta.2/sdk/farmbeats/azure-verticals-agrifood-farming/CHANGELOG.md#100-beta2-2021-05-27
+  ChangelogContent: |-
+    - Update README with more service documentation.
+    - Update body parameter names (https://github.com/Azure/azure-rest-api-specs/pull/14408).
+  GroupId: com.azure
 
