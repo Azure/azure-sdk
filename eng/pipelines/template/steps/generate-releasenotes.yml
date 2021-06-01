@@ -32,7 +32,8 @@ steps:
   - ${{ each repo in parameters.Repos }}:
     - pwsh: |
         $ErrorActionPreference = "Continue"
-        git reset --hard ${{ parameters.DefaultBranch }}
+        git log --graph --pretty=format:'%C(auto)%h%d %s %Creset%C(green)//%an %cr%Creset' -20
+        git reset --hard ${{ parameters.DefaultBranch }} --
         git checkout "origin/${{ parameters.PrBranchName }}_${{ repo.value.Language }}_$(ReleasePeriod)" 2>&1 | Out-Null
         $LASTEXITCODE = 0 # This ignores any error from git checkout
         git status
@@ -65,5 +66,5 @@ steps:
         ScriptDirectory: $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts
 
   - pwsh: |
-      git reset --hard ${{ parameters.DefaultBranch }}
+      git reset --hard ${{ parameters.DefaultBranch }} --
     displayName: Reset to default branch
