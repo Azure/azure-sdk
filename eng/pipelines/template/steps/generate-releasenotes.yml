@@ -5,9 +5,6 @@ parameters:
 - name: ChangedPackagesPath
   type: string
   default: ""
-- name: DefaultBranch
-  type: string
-  default: ""
 - name: PrBranchName
   type: string
   default: "CreateOrUpdateReleaseDataFor"
@@ -32,7 +29,8 @@ steps:
   - ${{ each repo in parameters.Repos }}:
     - pwsh: |
         $ErrorActionPreference = "Continue"
-        git reset --hard ${{ parameters.DefaultBranch }}
+        git log --graph --pretty=format:'%C(auto)%h%d %s %Creset%C(green)//%an %cr%Creset' -20
+        git reset --hard $(Build.SourceBranch)
         git checkout "origin/${{ parameters.PrBranchName }}_${{ repo.value.Language }}_$(ReleasePeriod)" 2>&1 | Out-Null
         $LASTEXITCODE = 0 # This ignores any error from git checkout
         git status
@@ -56,7 +54,7 @@ steps:
       parameters:
         RepoName: azure-sdk
         PROwner: Azure
-        BaseBranchName: ${{ parameters.DefaultBranch }}
+        BaseBranchName: $(Build.SourceBranch)
         PRBranchName: '${{ parameters.PrBranchName }}_${{ repo.value.Language }}_$(ReleasePeriod)'
         CommitMsg: "${{ repo.value.Language }} release notes for the $(ReleasePeriod) release"
         PRTitle: "${{ repo.value.Language }} release notes for the $(ReleasePeriod) release"
@@ -65,5 +63,5 @@ steps:
         ScriptDirectory: $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts
 
   - pwsh: |
-      git reset --hard ${{ parameters.DefaultBranch }}
+      git reset --hard $(Build.SourceBranch)
     displayName: Reset to default branch

@@ -61,7 +61,6 @@ steps:
 - template: template/steps/generate-releasenotes.yml
   parameters:
     ChangedPackagesPath: $(ChangedPackagesFilePath)
-    DefaultBranch: $(DefaultBranch)
     CommonScriptPath: $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts
 
 - pwsh: |
