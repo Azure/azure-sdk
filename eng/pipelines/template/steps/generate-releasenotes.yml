@@ -33,6 +33,8 @@ steps:
     - pwsh: |
         $ErrorActionPreference = "Continue"
         git reset --hard origin/${{ parameters.DefaultBranch }}
+        git remote -v
+        git branch --all
         git checkout "azure-sdk-fork/${{ parameters.PrBranchName }}_${{ repo.value.Language }}_$(ReleasePeriod)" 2>&1 | Out-Null
         $LASTEXITCODE = 0 # This ignores any error from git checkout
         git status
