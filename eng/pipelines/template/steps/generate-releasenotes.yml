@@ -33,9 +33,10 @@ steps:
     - pwsh: |
         $ErrorActionPreference = "Continue"
         git reset --hard origin/${{ parameters.DefaultBranch }}
-        git remote -v
-        git branch --all
-        git checkout "azure-sdk-fork/${{ parameters.PrBranchName }}_${{ repo.value.Language }}_$(ReleasePeriod)" 2>&1 | Out-Null
+        git fetch azure-sdk-fork
+        $fullPRBranchName = "${{ parameters.PrBranchName }}_${{ repo.value.Language }}_$(ReleasePeriod)"
+        echo "##vso[task.setvariable variable=FullPrBranchName]$fullPRBranchName"
+        git checkout -b $fullPRBranchName azure-sdk-fork/$fullPRBranchName 2>&1 | Out-Null
         $LASTEXITCODE = 0 # This ignores any error from git checkout
         git status
       displayName: Checkout Previous PRBranch if it exist.
@@ -58,7 +59,7 @@ steps:
       parameters:
         RepoName: azure-sdk
         BaseBranchName: ${{ parameters.DefaultBranch }}
-        PRBranchName: '${{ parameters.PrBranchName }}_${{ repo.value.Language }}_$(ReleasePeriod)'
+        PRBranchName: $(FullPrBranchName)
         CommitMsg: "${{ repo.value.Language }} release notes for the $(ReleasePeriod) release"
         PRTitle: "${{ repo.value.Language }} release notes for the $(ReleasePeriod) release"
         PRBody: "This is an automated pull request to gather the ${{ repo.value.Language }} release notes for the $(ReleasePeriod) release. See [Producing Release Notes](https://github.com/Azure/azure-sdk/blob/master/docs/policies/releasenotes.md#producing-release-notes) for details of the processing."
@@ -67,5 +68,5 @@ steps:
 
   - pwsh: |
       $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts/Delete-RemoteBranches.ps1 -RepoOwner "azure-sdk" `
-      -RepoName "azure-sdk" -BranchPrefix '${{ parameters.PrBranchName }}' -AuthToken $(azuresdk-github-pat)
+      -RepoOwnerTwo "Azure" -RepoName "azure-sdk" -BranchPrefix '${{ parameters.PrBranchName }}' -AuthToken $(azuresdk-github-pat)
     displayName: Clean Up Stale Branches
