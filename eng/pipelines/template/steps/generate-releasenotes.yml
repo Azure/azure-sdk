@@ -28,6 +28,11 @@ steps:
       $releasePeriod = Get-Date -Format "yyyy-MM"
       Write-Host "##vso[task.setvariable variable=ReleasePeriod]$releasePeriod"
     displayName: Set Release Period Value
+  
+  - pwsh: |
+      $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts/Delete-RemoteBranches.ps1 -RepoOwner "azure-sdk" `
+      -RepoOwnerTwo "Azure" -RepoName "azure-sdk" -BranchPrefix '${{ parameters.PrBranchName }}' -AuthToken $(azuresdk-github-pat)
+    displayName: Clean Up Stale Branches
 
   - ${{ each repo in parameters.Repos }}:
     - pwsh: |
@@ -65,8 +70,3 @@ steps:
         PRBody: "This is an automated pull request to gather the ${{ repo.value.Language }} release notes for the $(ReleasePeriod) release. See [Producing Release Notes](https://github.com/Azure/azure-sdk/blob/master/docs/policies/releasenotes.md#producing-release-notes) for details of the processing."
         WorkingDirectory: $(System.DefaultWorkingDirectory)/azure-sdk
         ScriptDirectory: $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts
-
-  - pwsh: |
-      $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts/Delete-RemoteBranches.ps1 -RepoOwner "azure-sdk" `
-      -RepoOwnerTwo "Azure" -RepoName "azure-sdk" -BranchPrefix '${{ parameters.PrBranchName }}' -AuthToken $(azuresdk-github-pat)
-    displayName: Clean Up Stale Branches
