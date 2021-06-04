@@ -60,7 +60,7 @@ The API surface of your client library must have the most thought as it is the p
 
 These guidelines were written primarily with a HTTP based request/response in mind, but many general guidelines apply to other types of services as well. This includes, but is not limited to, packaging and naming, tools and project structures.
 
-Please contact the [Azure SDK Architecture Board] for more guidance on non HTTP/REST based services.
+Please contact the [Architecture board] for more guidance on non HTTP/REST based services.
 
 ### Supported python versions
 
