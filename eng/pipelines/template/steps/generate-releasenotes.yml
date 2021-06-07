@@ -38,7 +38,7 @@ steps:
     - pwsh: |
         $ErrorActionPreference = "Continue"
 
-        $RemoteName = azure-sdk-fork
+        $RemoteName = "azure-sdk-fork"
         $PRBranchName = "${{ parameters.PrBranchName }}_${{ repo.value.Language }}_$(ReleasePeriod)"
         Write-Host "##vso[task.setvariable variable=PRBranchName]$PRBranchName"
 
