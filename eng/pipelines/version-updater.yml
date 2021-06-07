@@ -42,7 +42,7 @@ steps:
 
 - pwsh: |
     # Some steps, like release notes, require this remote all the time so lets always setup even if there are no changes
-    git add remote azure-sdk-fork "https://$(azuresdk-github-pat)@github.com/azure-sdk/azure-sdk.git"
+    git remote add azure-sdk-fork "https://$(azuresdk-github-pat)@github.com/azure-sdk/azure-sdk.git"
   displayName: Setup azure-sdk-fork remote
   workingDirectory: $(System.DefaultWorkingDirectory)/azure-sdk
 
