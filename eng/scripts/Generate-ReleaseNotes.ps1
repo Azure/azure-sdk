@@ -38,10 +38,10 @@ function GetReleaseNotesData ($changedPackages)
             $packageSemVer = [AzureEngSemanticVersion]::ParseVersionString($package.UpdatedVersion)
             $releaseEntryContent = @()
 
-            if ($changeLogEntry.ReleaseContent)
+            if ($updatedVersionEntry.ReleaseContent)
             {
                 # Bumping all MD headers by one level to fit in with the release template structure.
-                $changeLogEntry.ReleaseContent | %{
+                $updatedVersionEntry.ReleaseContent | %{
                     $line = $_
                     if ($line.StartsWith("#"))
                     {
