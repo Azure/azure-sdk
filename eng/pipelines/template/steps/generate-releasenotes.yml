@@ -28,7 +28,7 @@ steps:
       $releasePeriod = Get-Date -Format "yyyy-MM"
       Write-Host "##vso[task.setvariable variable=ReleasePeriod]$releasePeriod"
     displayName: Set Release Period Value
-  
+
   - pwsh: |
       $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts/Delete-RemoteBranches.ps1 -RepoOwner "azure-sdk" `
       -ForkRepoOwner "Azure" -RepoName "azure-sdk" -BranchPrefix '${{ parameters.PrBranchName }}' -AuthToken $(azuresdk-github-pat)
@@ -37,13 +37,27 @@ steps:
   - ${{ each repo in parameters.Repos }}:
     - pwsh: |
         $ErrorActionPreference = "Continue"
-        git reset --hard origin/${{ parameters.DefaultBranch }}
-        git fetch azure-sdk-fork
-        $fullPRBranchName = "${{ parameters.PrBranchName }}_${{ repo.value.Language }}_$(ReleasePeriod)"
-        echo "##vso[task.setvariable variable=FullPrBranchName]$fullPRBranchName"
-        git checkout -b $fullPRBranchName azure-sdk-fork/$fullPRBranchName 2>&1 | Out-Null
-        $LASTEXITCODE = 0 # This ignores any error from git checkout
-        git status
+
+        $RemoteName = azure-sdk-fork
+        $PRBranchName = "${{ parameters.PrBranchName }}_${{ repo.value.Language }}_$(ReleasePeriod)"
+        Write-Host "##vso[task.setvariable variable=PRBranchName]$PRBranchName"
+
+        # Fetch and checkout remote branch if it already exists otherwise create a new branch.
+        git ls-remote --exit-code --heads $RemoteName $PRBranchName
+        if ($LASTEXITCODE -eq 0) {
+          Write-Host "git fetch $RemoteName $PRBranchName"
+          git fetch $RemoteName $PRBranchName
+
+          Write-Host "git checkout $PRBranchName."
+          git checkout $PRBranchName
+        }
+        else {
+          # Reset back to the head of default so we can build on top of that if the branch doesn't already exist.
+          git reset --hard origin/${{ parameters.DefaultBranch }}
+
+          Write-Host "git checkout -b $PRBranchName."
+          git checkout -b $PRBranchName
+        }
       displayName: Checkout Previous PRBranch if it exist.
       workingDirectory: $(System.DefaultWorkingDirectory)/azure-sdk
 
@@ -53,7 +67,7 @@ steps:
         pwsh: true
         workingDirectory: $(System.DefaultWorkingDirectory)
         filePath: $(System.DefaultWorkingDirectory)/azure-sdk/eng/scripts/Generate-ReleaseNotes.ps1
-        arguments: > 
+        arguments: >
           -releasePeriod $(ReleasePeriod)
           -commonScriptPath ${{ parameters.CommonScriptPath }}
           -releaseDirectory $(System.DefaultWorkingDirectory)/azure-sdk/releases
@@ -64,7 +78,7 @@ steps:
       parameters:
         RepoName: azure-sdk
         BaseBranchName: ${{ parameters.DefaultBranch }}
-        PRBranchName: $(FullPrBranchName)
+        PRBranchName: $(PRBranchName)
         CommitMsg: "${{ repo.value.Language }} release notes for the $(ReleasePeriod) release"
         PRTitle: "${{ repo.value.Language }} release notes for the $(ReleasePeriod) release"
         PRBody: "This is an automated pull request to gather the ${{ repo.value.Language }} release notes for the $(ReleasePeriod) release. See [Producing Release Notes](https://github.com/Azure/azure-sdk/blob/master/docs/policies/releasenotes.md#producing-release-notes) for details of the processing."

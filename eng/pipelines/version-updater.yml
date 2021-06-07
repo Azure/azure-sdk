@@ -41,6 +41,12 @@ steps:
       -devops_pat '$(azuresdk-azure-sdk-devops-release-work-item-pat)'
 
 - pwsh: |
+    # Some steps, like release notes, require this remote all the time so lets always setup even if there are no changes
+    git add remote azure-sdk-fork "https://$(azuresdk-github-pat)@github.com/azure-sdk/azure-sdk.git"
+  displayName: Setup azure-sdk-fork remote
+  workingDirectory: $(System.DefaultWorkingDirectory)/azure-sdk
+
+- pwsh: |
     $defaultBranch = (git remote show origin | Out-String) -replace "(?ms).*HEAD branch: (\w+).*", '$1'
     echo "##vso[task.setvariable variable=DefaultBranch]$defaultBranch"
   displayName: Setup default branch
