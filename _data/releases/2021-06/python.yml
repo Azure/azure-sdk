@@ -1,207 +1,183 @@
 entries:
-- Name: azure-appconfiguration
-  Version: 1.2.0b2
-  DisplayName: App Configuration
-  ServiceName: App Configuration
-  VersionType: Beta
-  Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration_1.2.0b2/sdk/appconfiguration/azure-appconfiguration//CHANGELOG.md
-  ChangelogContent: |-
-    #### Features
-    - Adds context manager functionality to the sync and async `AzureAppConfigurationClient`s.
-
-    #### Fixes
-    - Fixes a deserialization bug for `FeatureFlagConfigurationSetting` and `SecretReferenceConfigurationSetting`.
-- Name: azure-search-documents
-  Version: 11.2.0
-  DisplayName: Cognitive Search
-  ServiceName: Search
+- Name: azure-core
+  Version: 1.15.0
+  DisplayName: Core
+  ServiceName: Core
   VersionType: GA
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.2.0/sdk/search/azure-search-documents//CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.15.0/sdk/core/azure-core//CHANGELOG.md
   ChangelogContent: |-
-    This version will be the last version to officially support Python 3.5, future versions will require Python 2.7 or Python 3.6+.
+    #### New Features
 
-    **New features**
+    - Added `BearerTokenCredentialPolicy.on_challenge` and `.authorize_request` to allow subclasses to optionally handle authentication challenges
 
-    - Added support for knowledge store    #18461
-    - Added new data source type ADLS gen2  #16852
-- Name: azure-communication-identity
-  Version: 1.0.1
-  DisplayName: Communication Identity
-  ServiceName: Communication
-  VersionType: Patch
-  Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-identity_1.0.1/sdk/communication/azure-communication-identity//CHANGELOG.md
-  ChangelogContent: |-
     #### Bug Fixes
-    - Fixed async client to use async bearer token credential policy instead of sync policy.
-- Name: azure-communication-phonenumbers
-  Version: 1.0.1
-  DisplayName: Communication Phone Numbers
-  ServiceName: Communication
-  VersionType: Patch
-  Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-phonenumbers_1.0.1/sdk/communication/azure-communication-phonenumbers//CHANGELOG.md
-  ChangelogContent: |-
-    #### Bug Fixes
-    - Fixed async client to use async bearer token credential policy instead of sync policy.
-- Name: azure-communication-sms
-  Version: 1.0.1
-  DisplayName: Communication Sms
-  ServiceName: Communication
-  VersionType: Patch
-  Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-sms_1.0.1/sdk/communication/azure-communication-sms//CHANGELOG.md
-  ChangelogContent: |-
-    #### Bug Fixes
-    - Fixed async client to use async bearer token credential policy instead of sync policy.
-- Name: azure-containerregistry
-  Version: 1.0.0b3
-  DisplayName: Container Registry
-  ServiceName: containerregistry
-  VersionType: Beta
-  Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-containerregistry_1.0.0b3/sdk/containerregistry/azure-containerregistry//CHANGELOG.md
-  ChangelogContent: |-
-    * Removes `DeleteRepositoryResult`. `ContainerRegistryClient.delete_repository` now returns `None`
-    * Removed `writeable_properties` objects, placing `can_delete/read/write/list` properties on the immediate `Repository/Tag/ArtifactManifestProperties` objects
-    * Removed `ContainerRepository` and `RegistryArtifact` classes. The methods for acting on a repository and a registry artifact are now contained in the `ContainerRegistryClient` object.
-    * Parses refresh token expiration time from returned JWT.
-    * The `delete_repository` and `get_repository` methods parameters have been renamed from `repository_name` to `repository`.
-- Name: azure-ai-translation-document
-  Version: 1.0.0b2
-  DisplayName: Document Translation
-  ServiceName: Translator
-  VersionType: Beta
-  Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-document_1.0.0b2/sdk/translation/azure-ai-translation-document//CHANGELOG.md
-  ChangelogContent: "This version of the SDK defaults to the latest supported service version, which currently is v1.0\r\n\r\n**Breaking changes**\r\n\r\n- `create_translation_job` was removed and replaced with `begin_translation` which follows a long-running operation (LRO)\r\napproach. The client method now returns a `DocumentTranslationLROPoller` (or `AsyncDocumentTranslationLROPoller`) to begin the \r\nlong-running operation. A call to `.result()` can be made on the poller object to wait until the translation is complete. \r\nSee the [README](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/translation/azure-ai-translation-document/README.md) for more information about LROs.\r\n- Upon completion of the LRO, `begin_translation` now returns a pageable of `DocumentStatusResult`. All job-level metadata can still\r\nbe found on `poller.details`.\r\n- `has_completed` has been removed from `JobStatusResult` and `DocumentStatusResult`. Use `poller.done()` to check if the \r\ntranslation has completed.\r\n- Client method `wait_until_done` has been removed. Use `poller.result()` to wait for the LRO to complete.\r\n- Client method `list_submitted_jobs` has been renamed to `list_all_translation_statuses`.\r\n- Client method `get_job_status` has been renamed to `get_translation_status`.\r\n- Client method `cancel_job` has been renamed to `cancel_translation`.\r\n- Parameter `job_id` was renamed to `translation_id` for `get_translation_status`, `cancel_translation`, `list_all_document_statuses`, and `get_document_status`.\r\n- `JobStatusResult` has been renamed to `TranslationStatusResult`.\r\n- `DocumentStatusResult` property `translate_to` has been renamed to `translated_to`\r\n\r\n**New features**\r\n\r\n- Authentication using `azure-identity` credentials now supported.\r\n  - see the [Azure Identity documentation](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/README.md) for more information.\r\n- Added paging and filtering options to `list_all_document_statuses` and `list_submitted_jobs`.\r\n- The input to `begin_translation` now accepts either the parameter `inputs` as a `List[DocumentTranslationInput]` to\r\nperform multiple translations, or the parameters `source_url`, `target_url`, and `target_language_code` to perform a\r\nsingle translation of your documents.\r\n\r\n**Dependency updates**\r\n\r\n- Package requires [azure-core](https://pypi.org/project/azure-core/) version 1.14.0 or greater."
-- Name: azure-ai-formrecognizer
-  Version: 3.1.1
-  DisplayName: Form Recognizer
-  ServiceName: Form Recognizer
-  VersionType: Patch
-  Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.1.1/sdk/formrecognizer/azure-ai-formrecognizer//CHANGELOG.md
-  ChangelogContent: |-
-    **Bug Fixes**
 
-    - Handles invoices that do not have sub-line item fields detected.
-- Name: azure-identity
-  Version: 1.7.0b1
-  DisplayName: Identity
-  ServiceName: Identity
-  VersionType: Beta
-  Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.7.0b1/sdk/identity/azure-identity//CHANGELOG.md
-  ChangelogContent: |-
-    Beginning with this release, this library requires Python 2.7 or 3.6+.
-
-    #### Added
-    - `VisualStudioCodeCredential` gets its default tenant and authority
-      configuration from VS Code user settings
-      ([#14808](https://github.com/Azure/azure-sdk-for-python/issues/14808))
-- Name: azure-ai-metricsadvisor
-  Version: 1.0.0b4
-  DisplayName: Metrics Advisor
-  ServiceName: Metrics Advisor
-  VersionType: Beta
-  Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-metricsadvisor_1.0.0b4/sdk/metricsadvisor/azure-ai-metricsadvisor//CHANGELOG.md
-  ChangelogContent: |-
-    **New Features**
-
-    - Added `AzureLogAnalyticsDataFeedSource` and `AzureEventHubsDataFeedSource`
-    - Update method now returns the updated object
-    - Added DatasourceCredentials and DatasourceCredential operations
-    - Added authentication type support for data feed
-
-    **Breaking Changes**
-
-    - Delete methods now take positional only argument as id
-    - `update_subscription_key` and `update_api_key` are merged into one method `update_key`
-    - Removed `DataFeedOptions` and moved all its properties to the `DataFeed` model
-
-    - Deprecated:
-      - `HttpRequestDataFeed`
-      - `ElasticsearchDataFeed`
-
-    - Renamed
-      - `AzureApplicationInsightsDataFeed` -> `AzureApplicationInsightsDataFeedSource`
-      - `AzureBlobDataFeed` -> `AzureBlobDataFeedSource`
-      - `AzureCosmosDBDataFeed` -> `AzureCosmosDbDataFeedSource`
-      - `AzureDataExplorerDataFeed` -> `AzureDataExplorerDataFeedSource`
-      - `AzureTableDataFeed` -> `AzureTableDataFeedSource`
-      - `InfluxDBDataFeed` -> `InfluxDbDataFeedSource`
-      - `MySqlDataFeed` -> `MySqlDataFeedSource`
-      - `PostgreSqlDataFeed` -> `PostgreSqlDataFeedSource`
-      - `SQLServerDataFeed` -> `SqlServerDataFeedSource`
-      - `MongoDBDataFeed` -> `MongoDbDataFeedSource`
-      - `AzureDataLakeStorageGen2DataFeed` -> `AzureDataLakeStorageGen2DataFeedSource`
-
-    **Dependency Updates**
-
-    - Bump `msrest` requirement from `0.6.12` to `0.6.21`
-- Name: azure-servicebus
-  Version: 7.3.0
-  DisplayName: Service Bus
-  ServiceName: Service Bus
+    - Retry policies don't sleep after operations time out
+    - The `from_dict` methhod in the `CloudEvent` can now convert a datetime string to datetime object when microsecond exceeds the python limitation
+- Name: azure-mgmt-cognitiveservices
+  Version: 12.0.0
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
   VersionType: GA
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.3.0/sdk/servicebus/azure-servicebus//CHANGELOG.md
-  ChangelogContent: |-
-    **New Features**
-
-    - Support for sending AMQP annotated message which allows full access to the AMQP message fields is now GA.
-      - Introduced new namespace `azure.servicebus.amqp`.
-      - Introduced new classes `azure.servicebus.amqp.AmqpMessageHeader` and `azure.servicebus.amqp.AmqpMessageProperties` for accessing amqp header and properties.
-
-    **Breaking Changes from 7.2.0b1**
-      - Renamed and moved `azure.servicebus.AMQPAnnotatedMessage` to `azure.servicebus.amqp.AmqpAnnotatedMessage`.
-      - Renamed and moved `azure.servicebus.AMQPMessageBodyType` to `azure.servicebus.amqp.AmqpMessageBodyType`.
-      - `AmqpAnnotatedMessage.header` returns `azure.servicebus.amqp.AmqpMessageHeader` instead of `uamqp.message.MessageHeader`.
-      - `AmqpAnnotatedMessage.properties` returns `azure.servicebus.amqp.AmqpMessageProperties` instead of `uamqp.message.MessageProperties`.
-      - `raw_amqp_message` on `ServiceBusMessage` and `ServiceBusReceivedMessage` is now a read-only property instead of an instance variable.
-
-    **Bug Fixes**
-
-    * Fixed a bug that `ServiceBusReceiver` iterator stops iteration after recovery from connection error (#18795).
-- Name: azure-mgmt-costmanagement
-  Version: 2.0.0
-  DisplayName: Resource Management - Cost Management
-  ServiceName: Cost Management
-  VersionType: GA
-  Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-costmanagement_2.0.0/sdk/costmanagement/azure-mgmt-costmanagement//CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cognitiveservices_12.0.0/sdk/cognitiveservices/azure-mgmt-cognitiveservices//CHANGELOG.md
   ChangelogContent: |-
     **Features**
 
-      - Model QueryResult has a new parameter sku
-      - Model QueryResult has a new parameter e_tag
-      - Model QueryResult has a new parameter location
-      - Model View has a new parameter date_range
-      - Model View has a new parameter data_set
-      - Model View has a new parameter include_monetary_commitment
-      - Model View has a new parameter currency
-      - Model ExportExecution has a new parameter tags
-      - Added operation group GenerateReservationDetailsReportOperations
-      - Added operation group SettingsOperations
+      - Model UserOwnedStorage has a new parameter identity_client_id
+      - Model Sku has a new parameter family
+      - Model Sku has a new parameter capacity
+      - Model Sku has a new parameter size
+      - Model PrivateEndpointConnection has a new parameter location
+      - Model PrivateEndpointConnection has a new parameter system_data
+      - Model PrivateEndpointConnection has a new parameter etag
+      - Model PrivateEndpointConnectionProperties has a new parameter provisioning_state
+      - Model KeyVaultProperties has a new parameter identity_client_id
+      - Model PrivateLinkServiceConnectionState has a new parameter actions_required
+      - Added operation PrivateEndpointConnectionsOperations.begin_create_or_update
+      - Added operation PrivateEndpointConnectionsOperations.begin_delete
+      - Added operation AccountsOperations.list_usages
+      - Added operation AccountsOperations.begin_delete
+      - Added operation AccountsOperations.get
+      - Added operation AccountsOperations.begin_create
+      - Added operation AccountsOperations.begin_update
+      - Added operation group DeletedAccountsOperations
 
     **Breaking changes**
 
-      - Parameter recurrence of model ExportSchedule is now required
-      - Operation ExportsOperations.list has a new signature
-      - Operation ExportsOperations.get has a new signature
-      - Model Export no longer has parameter run_history
-      - Model Export no longer has parameter next_run_time_estimate
-      - Model View no longer has parameter dataset
-      - Model ExportExecution no longer has parameter e_tag
-      - Model ExportExecution no longer has parameter error
-      - Model CommonExportProperties no longer has parameter run_history
-      - Model CommonExportProperties no longer has parameter next_run_time_estimate
-      - Model ExportProperties no longer has parameter run_history
-      - Model ExportProperties no longer has parameter next_run_time_estimate
-      - Model QueryFilter has a new signature
-      - Model ReportConfigFilter has a new signature
+      - Model PrivateLinkServiceConnectionState no longer has parameter action_required
+      - Removed operation PrivateEndpointConnectionsOperations.create_or_update
+      - Removed operation PrivateEndpointConnectionsOperations.delete
+      - Removed operation AccountsOperations.delete
+      - Removed operation AccountsOperations.create
+      - Removed operation AccountsOperations.get_usages
+      - Removed operation AccountsOperations.update
+      - Removed operation AccountsOperations.get_properties
+- Name: azure-mgmt-hdinsight
+  Version: 8.0.0
+  DisplayName: Resource Management - HDInsight
+  ServiceName: HDInsight
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-hdinsight_8.0.0/sdk/hdinsight/azure-mgmt-hdinsight//CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+      - Model Role has a new parameter encrypt_data_disks
+      - Model Role has a new parameter vm_group_name
+      - Model VmSizeCompatibilityFilter has a new parameter esp_applied
+      - Model VmSizeCompatibilityFilter has a new parameter os_type
+      - Model VmSizeCompatibilityFilter has a new parameter vm_sizes
+      - Model VmSizeCompatibilityFilter has a new parameter compute_isolation_supported
+      - Model ClusterGetProperties has a new parameter cluster_hdp_version
+      - Model ClusterGetProperties has a new parameter excluded_services_config
+      - Model ClusterGetProperties has a new parameter storage_profile
+      - Model Operation has a new parameter properties
+      - Model StorageAccount has a new parameter saskey
+      - Model StorageAccount has a new parameter fileshare
+      - Model CapabilitiesResult has a new parameter vmsizes
+      - Model CapabilitiesResult has a new parameter vmsize_filters
+      - Model ConnectivityEndpoint has a new parameter private_ip_address
+      - Model ApplicationGetEndpoint has a new parameter private_ip_address
+      - Model BillingResponseListResult has a new parameter vm_sizes_with_encryption_at_host
+      - Model BillingResponseListResult has a new parameter vm_size_properties
+      - Model OperationDisplay has a new parameter description
+      - Model ApplicationGetHttpsEndpoint has a new parameter private_ip_address
+      - Model ComponentsC51Ht8SchemasClusteridentityPropertiesUserassignedidentitiesAdditionalproperties has a new parameter tenant_id
+      - Model KafkaRestProperties has a new parameter configuration_override
+      - Added operation VirtualMachinesOperations.get_async_operation_status
+      - Added operation ApplicationsOperations.get_azure_async_operation_status
+      - Added operation LocationsOperations.get_azure_async_operation_status
+      - Added operation LocationsOperations.check_name_availability
+      - Added operation LocationsOperations.validate_cluster_create_request
+      - Added operation ExtensionsOperations.get_azure_async_operation_status
+      - Added operation ExtensionsOperations.get_azure_monitor_status
+      - Added operation ExtensionsOperations.begin_disable_azure_monitor
+      - Added operation ExtensionsOperations.begin_enable_azure_monitor
+      - Added operation ClustersOperations.get_azure_async_operation_status
+      - Added operation ClustersOperations.begin_update_identity_certificate
+      - Added operation ScriptActionsOperations.get_execution_async_operation_status
+
+    **Breaking changes**
+
+      - Model VmSizeCompatibilityFilter no longer has parameter vmsizes
+      - Model CapabilitiesResult no longer has parameter vm_size_filters
+      - Model CapabilitiesResult no longer has parameter vm_sizes
+- Name: azure-mgmt-media
+  Version: 7.0.0
+  DisplayName: Resource Management - Media Services
+  ServiceName: Media Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-media_7.0.0/sdk/media/azure-mgmt-media//CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+      - Model Asset has a new parameter system_data
+      - Model StreamingPolicy has a new parameter system_data
+      - Model Operation has a new parameter action_type
+      - Model Operation has a new parameter is_data_action
+      - Model JobInputAsset has a new parameter input_definitions
+      - Model AccountFilter has a new parameter system_data
+      - Model FaceDetectorPreset has a new parameter mode
+      - Model FaceDetectorPreset has a new parameter blur_type
+      - Model LiveEvent has a new parameter system_data
+      - Model MediaService has a new parameter key_delivery
+      - Model MediaService has a new parameter system_data
+      - Model Job has a new parameter system_data
+      - Model StreamingLocator has a new parameter system_data
+      - Model StreamingEndpoint has a new parameter system_data
+      - Model ContentKeyPolicy has a new parameter system_data
+      - Model JobInputClip has a new parameter input_definitions
+      - Model JobInputHttp has a new parameter input_definitions
+      - Model MetricSpecification has a new parameter lock_aggregation_type
+      - Model MetricSpecification has a new parameter supported_time_grain_types
+      - Model MetricSpecification has a new parameter source_mdm_namespace
+      - Model MetricSpecification has a new parameter source_mdm_account
+      - Model MetricSpecification has a new parameter enable_regional_mdm_account
+      - Model AssetFilter has a new parameter system_data
+      - Model Transform has a new parameter system_data
+
+    **Breaking changes**
+
+      - Removed operation MediaservicesOperations.get_by_subscription
+- Name: azure-mgmt-resourcemover
+  Version: 1.1.0b2
+  DisplayName: Resource Management - Resource Mover
+  ServiceName: Resource Mover
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resourcemover_1.1.0b2/sdk/resourcemover/azure-mgmt-resourcemover//CHANGELOG.md
+  ChangelogContent: '- Models rename'
+- Name: azure-mgmt-servicefabric
+  Version: 1.0.0
+  DisplayName: Resource Management - Service Fabric
+  ServiceName: Service Fabric
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-servicefabric_1.0.0/sdk/servicefabric/azure-mgmt-servicefabric//CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+      - Model ManagedCluster has a new parameter addon_features
+      - Model ManagedClusterUpdateParameters has a new parameter addon_features
+      - Added operation group ManagedclusterOperations
+      - Added operation group ApplicationOperations
+      - Added operation group NodetypeOperations
+
+    **Breaking changes**
+
+      - Operation ApplicationTypesOperations.create_or_update has a new signature
+      - Operation NodeTypesOperations.begin_delete_node has a new signature
+      - Operation NodeTypesOperations.begin_reimage has a new signature
+      - Operation NodeTypesOperations.begin_restart has a new signature
+      - Operation NodeTypesOperations.begin_restart has a new signature
+      - Operation NodeTypesOperations.begin_reimage has a new signature
+      - Operation NodeTypesOperations.begin_delete_node has a new signature
+      - Operation ApplicationTypesOperations.create_or_update has a new signature
+      - Model ManagedCluster no longer has parameter cluster_upgrade_description
+      - Model ManagedCluster no longer has parameter cluster_upgrade_mode
+      - Model ManagedClusterUpdateParameters no longer has parameter cluster_upgrade_description
+      - Model ManagedClusterUpdateParameters no longer has parameter cluster_upgrade_mode
 
