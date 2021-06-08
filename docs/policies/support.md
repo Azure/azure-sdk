@@ -36,9 +36,11 @@ Package lifecycle may vary across different target platforms. Refer to the targe
 
 ### **Azure SDK dependencies**
 
-The Azure SDK libraries depend on Azure Service REST API, programming language runtime, OS, and third-party libraries.  
+The Azure SDK libraries depend on Azure Service REST API, programming language runtime, OS, and third-party libraries.
 
-> The Azure SDK libraries will not guarantee support of dependencies that reached their end of life. Dropping support for such dependencies will be done without increasing the major version of the libraries.
+> The Azure SDK libraries will not be guaranteed to work on platforms and with other dependencies that have reached their end of life. Dropping support for such dependencies may be done without increasing the major version of the Azure SDK libraries.
+
+We strongly recommend migration to supported platforms and other dependencies to be eligible for technical support. We will make reasonable efforts to support the Azure SDK libraries with dependencies that have been deprecated less than six months prior, unless security or other considerations require otherwise.
 
 Below is a list of common Azure SDK dependencies for your reference:
 
