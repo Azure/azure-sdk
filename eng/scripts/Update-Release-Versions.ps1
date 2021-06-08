@@ -4,7 +4,8 @@ param (
   [bool]$checkDocLinks = $true,
   [bool]$compareTagVsGHIOVersions = $false,
   [string]$github_pat = $env:GITHUB_PAT,
-  [string]$changedPackagesPath = ""
+  [string]$changedPackagesPath = "",
+  [string]$inputCacheFile = "https://azuresdkartifacts.blob.core.windows.net/verify-links-cache/verify-links-cache.txt"
 )
 Set-StrictMode -Version 3
 $ProgressPreference = "SilentlyContinue"; # Disable invoke-webrequest progress dialog
@@ -25,21 +26,56 @@ function GetVersionWebContent($language, $package, $versionType="latest-ga")
   }
 }
 
-function CheckLink($url, $showWarningIfMissing=$true)
+$checkedLinks = @{}
+function CheckLink($link, $showWarningIfMissing=$true)
 {
+  if ($checkedLinks.Count -eq 0 -and $inputCacheFile)
+  {
+    $cacheContent = ""
+    if ($inputCacheFile.StartsWith("http")) {
+      try {
+        $response = Invoke-WebRequest -Uri $inputCacheFile
+        $cacheContent = $response.Content
+      }
+      catch {
+        $statusCode = $_.Exception.Response.StatusCode.value__
+        Write-Error "Failed to read cache file from  page [$statusCode] $inputCacheFile"
+      }
+    }
+    elseif (Test-Path $inputCacheFile) {
+      $cacheContent = Get-Content $inputCacheFile -Raw
+    }
+    $goodLinks = $cacheContent.Split("`n").Where({ $_.Trim() -ne "" -and !$_.StartsWith("#") })
+
+    foreach ($goodLink in $goodLinks) {
+      $checkedLinks[$goodLink] = $true
+    }
+    Write-Verbose "$($checkedLinks.Count) good links from cache"
+  }
+
+  if ($checkedLinks.ContainsKey($link)) {
+    if ($showWarningIfMissing -and !$checkedLinks[$link]) {
+      Write-Warning "Invalid link $link"
+    }
+    return $checkedLinks[$link]
+  }
+
   try
   {
-    #Write-Host "Checking $url"
-    Invoke-WebRequest -Uri $url
-    return $true
+    Write-Verbose "Checking $link"
+    Invoke-WebRequest -Uri $link
+    $checkedLinks[$link] = $true
+    return $checkedLinks[$link]
   }
   catch
   {
     if ($showWarningIfMissing) {
-      Write-Warning "Invalid link $url"
+      Write-Warning "Invalid link $link"
     }
   }
-  return $false
+  $checkedLinks[$link] = $false
+  return $checkedLinks[$link]
+
 }
 
 function CheckOptionalLinks($linkTemplates, $pkg, $skipIfNA = $false)
@@ -47,46 +83,49 @@ function CheckOptionalLinks($linkTemplates, $pkg, $skipIfNA = $false)
   if (!$checkDocLinks) {
     return
   }
-  if ($skipIfNA -and $pkg.MSDocs -eq "NA" -and $pkg.GHDocs -eq "NA") {
-    return
-  }
 
-  $preSuffix = GetLinkTemplateValue $linkTemplates "pre_suffix"
-  $msdocLink = GetLinkTemplateValue $linkTemplates "msdocs_url_template" $pkg.Package
+  if (!$skipIfNA -or $pkg.MSDocs -eq "")
+  {
+    $preSuffix = GetLinkTemplateValue $linkTemplates "pre_suffix"
+    $msdocLink = GetLinkTemplateValue $linkTemplates "msdocs_url_template" $pkg.Package
 
-  if (!$pkg.VersionGA -and $pkg.VersionPreview -and $preSuffix) {
-    $msdocLink += $preSuffix
-  }
+    if (!$pkg.VersionGA -and $pkg.VersionPreview -and $preSuffix) {
+      $msdocLink += $preSuffix
+    }
 
-  $msdocvalid = CheckLink $msdocLink $false
+    $msdocvalid = CheckLink $msdocLink $false
 
-  if ($msdocvalid) {
-    $pkg.MSDocs = ""
-  }
-  else {
-    if ($pkg.MSDocs -eq "" -or $pkg.MSDocs -eq "NA") {
-      Write-Verbose "MSDoc link ($msdocLink) is not valid so marking as NA"
-      $pkg.MSDocs = "NA"
+    if ($msdocvalid) {
+      $pkg.MSDocs = ""
+    }
+    else {
+      if ($pkg.MSDocs -eq "" -or $pkg.MSDocs -eq "NA") {
+        Write-Verbose "MSDoc link ($msdocLink) is not valid so marking as NA"
+        $pkg.MSDocs = "NA"
+      }
     }
   }
 
-  $ghdocvalid = ($pkg.VersionGA -or $pkg.VersionPreview)
-  if ($pkg.VersionGA) {
-    $ghlink = GetLinkTemplateValue $linkTemplates "ghdocs_url_template" $pkg.Package $pkg.VersionGA
-    $ghdocvalid = $ghdocvalid -and (CheckLink $ghlink $false)
-  }
-  if ($pkg.VersionPreview) {
-    $ghlink = GetLinkTemplateValue $linkTemplates "ghdocs_url_template" $pkg.Package $pkg.VersionPreview
-    $ghdocvalid = $ghdocvalid -and (CheckLink $ghlink $false)
-  }
+  if (!$skipIfNA -or $pkg.GHDocs -eq "")
+  {
+    $ghdocvalid = ($pkg.VersionGA -or $pkg.VersionPreview)
+    if ($pkg.VersionGA) {
+      $ghlink = GetLinkTemplateValue $linkTemplates "ghdocs_url_template" $pkg.Package $pkg.VersionGA
+      $ghdocvalid = $ghdocvalid -and (CheckLink $ghlink $false)
+    }
+    if ($pkg.VersionPreview) {
+      $ghlink = GetLinkTemplateValue $linkTemplates "ghdocs_url_template" $pkg.Package $pkg.VersionPreview
+      $ghdocvalid = $ghdocvalid -and (CheckLink $ghlink $false)
+    }
 
-  if ($ghdocvalid) {
-    $pkg.GHDocs = ""
-  }
-  else {
-    if ($pkg.GHDocs -eq "" -or $pkg.GHDocs -eq "NA") {
-      Write-Verbose "GHDoc link ($ghlink) is not valid so marking as NA"
-      $pkg.GHDocs = "NA"
+    if ($ghdocvalid) {
+      $pkg.GHDocs = ""
+    }
+    else {
+      if ($pkg.GHDocs -eq "" -or $pkg.GHDocs -eq "NA") {
+        Write-Verbose "GHDoc link ($ghlink) is not valid so marking as NA"
+        $pkg.GHDocs = "NA"
+      }
     }
   }
 }
@@ -190,7 +229,7 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
         $sourceUrl = GetLinkTemplateValue $langLinkTemplates "source_url_template" $pkg.Package $version $pkg.RepoPath
         $updatedGAPackage | Add-Member -NotePropertyName "UpdatedVersion" -NotePropertyValue $version
         $updatedGAPackage | Add-Member -NotePropertyName "SourceUrl" -NotePropertyValue $sourceUrl
-        $updatedGAPackage | Add-Member -NotePropertyName "Language" -NotePropertyValue $lang 
+        $updatedGAPackage | Add-Member -NotePropertyName "Language" -NotePropertyValue $lang
         $updatedPackages += $updatedGAPackage
       }
       else {
@@ -218,7 +257,7 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
         $sourceUrl = GetLinkTemplateValue $langLinkTemplates "source_url_template" $pkg.Package $version $pkg.RepoPath
         $updatedPreviewPackage | Add-Member -NotePropertyName "UpdatedVersion" -NotePropertyValue $version
         $updatedPreviewPackage | Add-Member -NotePropertyName "SourceUrl" -NotePropertyValue $sourceUrl
-        $updatedPreviewPackage | Add-Member -NotePropertyName "Language" -NotePropertyValue $lang 
+        $updatedPreviewPackage | Add-Member -NotePropertyName "Language" -NotePropertyValue $lang
         $updatedPackages += $updatedPreviewPackage
       }
       else {
@@ -240,7 +279,8 @@ function OutputVersions($lang)
 
   $updatedPackages = Update-Packages $lang $clientPackages $langVersions $langLinkTemplates
 
-  foreach($otherPackage in $otherPackages)
+  Write-Host "Checking doc links for other packages"
+  foreach ($otherPackage in $otherPackages)
   {
     CheckOptionalLinks $langLinkTemplates $otherPackage -skipIfNA $true
   }
@@ -259,6 +299,7 @@ function OutputAll($langs)
     $updatedPackages += OutputVersions $lang
   }
   if ($changedPackagesPath) {
+    Write-Host "Writing updated packages to $changedPackagesPath"
     $updatedPackages | ConvertTo-Json | Out-File $changedPackagesPath -Encoding ascii
   }
 }
@@ -333,7 +374,11 @@ elseif ($language -eq 'all') {
   OutputAll $languageNameMapping.Keys
 }
 elseif ($languageNameMapping.ContainsKey($language)) {
-    OutputVersions $language
+  $updatedPackages = OutputVersions $language
+  if ($changedPackagesPath) {
+    Write-Host "Writing updated packages to $changedPackagesPath"
+    $updatedPackages | ConvertTo-Json | Out-File $changedPackagesPath -Encoding ascii
+  }
 }
 else {
   Write-Error "Unrecognized Language: $language"
