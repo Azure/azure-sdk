@@ -6,7 +6,7 @@ sidebar: releases_sidebar
 header: true
 ---
 {% capture description %}
-There are PackageCount total Azure library packages published to XXXX in repo link
+The list of packages can also found at [central package repo here](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk)
 
 {% endcapture %}
 
