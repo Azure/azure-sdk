@@ -140,7 +140,8 @@ function Add-NewFieldToLanguage($lang, $field, $afterField = $null, $fieldDefaul
   Set-PackageListForLanguage $lang $updatedPackageList
 }
 
-function PackageEqual($pkg1, $pkg2) {
+function PackageEqual($pkg1, $pkg2)
+{
   if ($pkg1.Package -ne $pkg2.Package) {
     return $false
   }
@@ -151,6 +152,52 @@ function PackageEqual($pkg1, $pkg2) {
     }
   }
   return $true
+}
+
+function GetPackageKey($pkg)
+{
+  $pkgKey = $pkg.Package
+  if ($pkg.PSObject.Members.Name -contains "GroupId" -and $pkg.GroupId) {
+    $pkgKey = $pkg.GroupId + ":" + $pkgKey
+  }
+  return $pkgKey
+}
+
+function GetPackageLookup($packageList)
+{
+  $packageLookup = @{}
+
+  foreach ($pkg in $packageList)
+  {
+    $pkgKey = GetPackageKey $pkg
+
+    # We want to prefer updating non-hidden packages but if there is only
+    # a hidden entry then we will return that
+    if (!$packageLookup.ContainsKey($pkgKey) -or $packageLookup[$pkgKey].Hide -eq "true")
+    {
+      $packageLookup[$pkgKey] = $pkg
+    }
+    else
+    {
+      # Warn if there are more then one non-hidden package
+      if ($pkg.Hide -ne "true") {
+        Write-Host "Found more than one package entry for $($pkg.Package) selecting the first non-hidden one."
+      }
+    }
+  }
+
+  return $packageLookup
+}
+
+function LookupMatchingPackage($pkg, $packageLookup)
+{
+  $pkgKey = GetPackageKey $pkg
+
+  if ($packageLookup.ContainsKey($pkgKey))
+  {
+    return $packageLookup[$pkgKey]
+  }
+  return $null
 }
 
 function FindMatchingPackage($pkg, $packageList)
@@ -206,7 +253,7 @@ function GetLinkTemplates($lang)
 
   foreach ($line in $releaseVariableContent)
   {
-    if ($line -match "{%\s*assign\s*(?<name>\S+)\s*=\s*`"(?<value>\S*)`"\s+%}") 
+    if ($line -match "{%\s*assign\s*(?<name>\S+)\s*=\s*`"(?<value>\S*)`"\s+%}")
     {
       $langLinkTemplates[$matches["name"]] = $matches["value"]
       Write-Verbose ("" + $matches["name"] + " = [" + $matches["value"] + "]")
