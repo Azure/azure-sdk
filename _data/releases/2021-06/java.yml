@@ -1,0 +1,155 @@
+entries:
+- Name: azure-core
+  Version: 1.17.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core_1.17.0/sdk/core/azure-core//CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `AsyncCloseable` interface to support closing resources asynchronously.
+    - Added GeoJSON classes to the models package.
+    - Added `createRetriableDownloadFlux` to `FluxUtil`.
+    - Added `HttpRange` to the http package.
+    - Added the ability to terminate paging using a custom predicate in `ContinuablePagedFlux`.
+    - Added `getPollInterval` to `PollerFlux`.
+    - Added `setResponseTimeout` and `setReadTimeout` to `HttpClientOptions`.
+    - Added support for the `JsonFlatten` annotation to target fields.
+
+    #### Dependency Updates
+
+    - Upgraded Jackson from `2.12.2` to `2.12.3`.
+    - Upgraded Reactor from `3.4.5` to `3.4.6`.
+  GroupId: com.azure
+- Name: azure-core-http-netty
+  Version: 1.10.0
+  DisplayName: Core - HTTP Netty
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-netty_1.10.0/sdk/core/azure-core-http-netty//CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Upgraded `azure-core` from `1.16.0` to `1.17.0`.
+    - Upgraded Netty from `4.1.63.Final` to `4.1.65.Final`.
+    - Upgraded Reactor Netty from `1.0.6` to `1.0.7`.
+  GroupId: com.azure
+- Name: azure-core-http-okhttp
+  Version: 1.7.0
+  DisplayName: Core - HTTP OkHttp
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-okhttp_1.7.0/sdk/core/azure-core-http-okhttp//CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Upgraded `azure-core` from `1.16.0` to `1.17.0`.
+  GroupId: com.azure
+- Name: azure-core-test
+  Version: 1.6.3
+  DisplayName: Core - Test
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-test_1.6.3/sdk/core/azure-core-test//CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Updated JUnit 5 test status logging to only long when `AZURE_TEST_DEBUG` is `true` instead of always logging.
+
+    #### Dependency Updates
+
+    - Upgraded `azure-core` from `1.16.0` to `1.17.0`.
+    - Upgraded JUnit 5 from `5.7.1` to `5.7.2`.
+  GroupId: com.azure
+- Name: azure-core-experimental
+  Version: 1.0.0-beta.14
+  DisplayName: Core Experimental
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-experimental_1.0.0-beta.14/sdk/core/azure-core-experimental//CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed `geojson` package and GeoJSON classes.
+
+    #### Dependency Updates
+
+    - Upgraded `azure-core` from `1.16.0` to `1.17.0`.
+  GroupId: com.azure
+- Name: azure-core-serializer-avro-apache
+  Version: 1.0.0-beta.11
+  DisplayName: Core Serializer Apache Avro
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-serializer-avro-apache_1.0.0-beta.11/sdk/core/azure-core-serializer-avro-apache//CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Upgraded `azure-core` from `1.16.0` to `1.17.0`.
+  GroupId: com.azure
+- Name: azure-core-serializer-json-gson
+  Version: 1.1.3
+  DisplayName: Core Serializer GSON JSON
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-serializer-json-gson_1.1.3/sdk/core/azure-core-serializer-json-gson//CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Upgraded `azure-core` from `1.16.0` to `1.17.0`.
+  GroupId: com.azure
+- Name: azure-core-serializer-json-jackson
+  Version: 1.2.4
+  DisplayName: Core Serializer Jackson JSON
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-serializer-json-jackson_1.2.4/sdk/core/azure-core-serializer-json-jackson//CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Updated `azure-core` from `1.16.0` to `1.17.0`.
+    - Updated Jackson from `2.12.2` to `2.12.3`.
+  GroupId: com.azure
+- Name: azure-messaging-eventhubs-checkpointstore-blob
+  Version: 1.7.1
+  DisplayName: Event Hubs - Azure Blob Storage Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs-checkpointstore-blob_1.7.1/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob//CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Update `azure-storage-blob` to `12.11.1`.
+  GroupId: com.azure
+- Name: azure-core-tracing-opentelemetry
+  Version: 1.0.0-beta.11
+  DisplayName: Tracing OpenTelemetry Plugin
+  ServiceName: Plugin
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-tracing-opentelemetry_1.0.0-beta.11/sdk/core/azure-core-tracing-opentelemetry//CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Upgraded `azure-core` from `1.16.0` to `1.17.0`.
+  GroupId: com.azure
+- Name: azure-core-management
+  Version: 1.3.0
+  DisplayName: Management - Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-management_1.3.0/sdk/core/azure-core-management//CHANGELOG.md
+  ChangelogContent: "#### Features Added\r\n\r\n- Added Support for Challenge Based Authentication in `ArmChallengeAuthenticationPolicy`.\r\n  \r\n#### Fixed\r\n\r\n- Fixed bug in `ManagementErrorDeserializer`. ([#21615](https://github.com/Azure/azure-sdk-for-java/issues/21615))\r\n\r\n#### Dependency Updates\r\n\r\n- Upgraded `azure-core` from `1.16.0` to `1.17.0`."
+  GroupId: com.azure
+
