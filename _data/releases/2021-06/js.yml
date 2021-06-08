@@ -1,103 +1,32 @@
 entries:
-- Name: '@azure/app-configuration'
-  Version: 1.2.0-beta.2
-  DisplayName: App Configuration
-  ServiceName: App Configuration
+- Name: '@azure/video-analyzer-edge'
+  Version: 1.0.0-beta.2
+  DisplayName: Azure Video Analyzer Edge
+  ServiceName: Video Analyzer
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.2.0-beta.2/sdk/appconfiguration/app-configuration//CHANGELOG.md
-  ChangelogContent: |-
-    - With [#15136](https://github.com/Azure/azure-sdk-for-js/pull/15136), if the key of a feature flag(setting with `contentType="application/vnd.microsoft.appconfig.ff+json;charset=utf-8"`) doesn't start with `".appconfig.featureflag/"` (featureFlagPrefix), SDK adds the prefix before sending the request.
-    - New design for feature flags and secret references,
-      - New types for FeatureFlag and SecretReference - `ConfigurationSetting<FeatureFlagValue>` and `ConfigurationSetting<SecretReferenceValue>`
-      - Upon using `getConfigurationSetting`(or add/update), use `parseFeatureFlag` and `parseSecretReference` methods to access the properties(to translate `ConfigurationSetting` into the types above).
-      - Helper method `isFeatureFlag` (and `isSecretReference`) checks the contentType and return boolean values.
-- Name: '@azure/search-documents'
-  Version: 11.2.0
-  DisplayName: Cognitive Search
-  ServiceName: Search
-  VersionType: GA
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/video-analyzer-edge_1.0.0-beta.2/sdk/videoanalyzer/video-analyzer-edge//CHANGELOG.md
+  ChangelogContent: Update the title and description of the package and updates to readme.
+- Name: '@azure/core-http'
+  Version: 1.2.5
+  DisplayName: Core - HTTP
+  ServiceName: Core
+  VersionType: Patch
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_11.2.0/sdk/search/search-documents//CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_1.2.5/sdk/core/core-http//CHANGELOG.md
   ChangelogContent: |-
-    The list of changes in 11.2.0 since 11.1.0 & 11.2.0-beta.2 are provided below:
+    #### Fixed
 
-    **Changes since 11.1.0**
-
-    - Added support for Knowledge Store feature through the new `SearchIndexerKnowledgeStore` in the `SearchIndexerSkillset` object.
-    - The `skillsetCounter` property in `ServiceCounters` object has been made optional.
-    - Added Support for new datasource `adlsgen2`. Please refer [#14620](https://github.com/Azure/azure-sdk-for-js/pull/14620) for further details.
-    - Added Support for new skills such as `CustomEntityLookupSkill`, `DocumentExtractionSkill`, etc. Please refer [#14620](https://github.com/Azure/azure-sdk-for-js/pull/14620) for further details.
-
-    **Changes since 11.2.0-beta.2**
-
-    - Removed Support for Semantic Search and introduced new properties in `SearchOptions`, `SearchRequest`, `SearchResult` and `SearchDocumentsResult` objects.
-    - Removed Support for normalizers `LexicalNormalizer` & `CustomNormalizer`. Please refer [#14620](https://github.com/Azure/azure-sdk-for-js/pull/14620) for further details.
-- Name: '@azure/container-registry'
-  Version: 1.0.0-beta.3
-  DisplayName: Container Registry
-  ServiceName: Container Registry
+    - Delay loading of NO_PROXY environment variable until when request pipeline is being created. This fixes [issue 14873](https://github.com/Azure/azure-sdk-for-js/issues/14873)
+    - Fixed an issue where tracing spans were not setting a status correctly (on success or error) which results in the span status being `UNSET`. In addition, we will now capture the HTTP status code when a request fails in the tracing span. [PR 15061](https://github.com/Azure/azure-sdk-for-js/pull/15061)
+    - Fix packaging issue [PR 15286](https://github.com/Azure/azure-sdk-for-js/pull/15286)
+    - Improve the sanitizer to handle recursive objects [PR 15426](https://github.com/Azure/azure-sdk-for-js/pull/15426)
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.1.0-beta.3
+  DisplayName: Core Rest Pipeline
+  ServiceName: Core
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/container-registry_1.0.0-beta.3/sdk/containerregistry/container-registry//CHANGELOG.md
-  ChangelogContent: |-
-    #### Breaking Changes
-
-    - Split `ContentProperties` into separate `*WriteableProperties` types because they can have different properties.
-    - Add new type `ArtifactManifestPlatform` for manifest list in `ArtifactManifestProperties`. The property has been renamed to `relatedArtifacts`.
-    - Flatten `writeableProperties` in `*Properties` types.
-    - Rename `endpointUrl` to `endpoint` in `ContainerRegistryClient`.
-    - Change known os and arch types to enum so the known values can be used in string comparisons
-    - Update `*OrderBy` values from `"timeAsc"/"timeDesc"` to `"lastUpdatedOnAscending"/"lastUpdatedOnDescending"`
-    - Rename `listTags` to `listTagProperties` and `listManifests` to `listManifestProperties`
-    - Rename `set*Properties` function names to `update*Properties`
-
-    #### Features Added
-
-    - Add `authenticationScope` properties to `ContainerRegistryClientOptions` to support national clouds.
-    - Add `continuationToken` to paging response types.
-
-    #### Bug Fixes
-
-    - The expiry time is now retrieved from the ACR refresh token, instead of hard-coded three hours later from `Date.now()`.
-- Name: '@azure/eventgrid'
-  Version: 4.3.0
-  DisplayName: Event Grid
-  ServiceName: Event Grid
-  VersionType: GA
-  Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventgrid/eventgrid/CHANGELOG.md
-  ChangelogContent: |-
-    #### New Features
-
-    - Added new System Event: `Microsoft.Storage.BlobInventoryPolicyCompleted`
-
-    #### Key Bug Fixes
-
-    - The `Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListeners` event was incorrectly listed with the name of `Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener`.
-      This has been corrected. When using TypeScript, you will need to replace any calls to `isSystemEvent("Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener")` with
-      `isSystemEvent("Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListeners")`.
-- Name: '@azure/ai-metrics-advisor'
-  Version: 1.0.0-beta.4
-  DisplayName: Metrics Advisor
-  ServiceName: Metrics Advisor
-  VersionType: Beta
-  Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-metrics-advisor_1.0.0-beta.4/sdk/metricsadvisor/ai-metrics-advisor//CHANGELOG.md
-  ChangelogContent: |-
-    #### New Features
-
-    - Added support for `Azure Log Analytics` DataFeed source and `Azure EventHubs` DataFeed source
-    - Added datasource credential API support to client
-    - Added authentication type support for data feed
-    - Added property `splitAlertByDimensions` to `AnomalyAlertConfiguration` model
-    - Added properties`value` and `expectedValue` to `DataPointAnomaly` and `valueOfRootNode` and `expectedValueOfRootNode` to `AnomalyIncident`
-
-    #### Breaking Changes
-
-    - Updated Patch types for all update methods
-    - Replaced `updateSubscriptionKey` and `updateApiKey` into one method `updateKey`
-    - Removed support for `HttpRequestDataFeed` and `ElasticsearchDataFeed` source type
-    - Removed `DataSourceParameter` property and serialized `DataSourceParameter` properties for all datafeed sources into `DataFeedSource` types
-    - Renamed `AlertSnoozeCondition` to `MetricAnomalyAlertSnoozeCondition` and `MetricAlertConditions` to `MetricAnomalyAlertConditions`
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.1.0-beta.3/sdk/core/core-rest-pipeline//CHANGELOG.md
+  ChangelogContent: '- Merged `bearerTokenChallengeAuthenticationPolicy` into `bearerTokenAuthenticationPolicy`. This will keep the functionality of `bearerTokenAuthenticationPolicy`, but also adds the `challengeCallbacks` feature.'
 
