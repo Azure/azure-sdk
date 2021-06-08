@@ -1,18 +1,122 @@
 entries:
-- Name: azure-appconfiguration
-  Version: 1.2.0b2
-  DisplayName: App Configuration
-  ServiceName: App Configuration
+- Name: azure-containerregistry
+  Version: 1.0.0b3
+  DisplayName: azure-containerregistry
+  ServiceName: containerregistry
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration_1.2.0b2/sdk/appconfiguration/azure-appconfiguration//CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-containerregistry_1.0.0b3/sdk/containerregistry/azure-containerregistry//CHANGELOG.md
   ChangelogContent: ""
-- Name: azure-identity
-  Version: 1.7.0b1
-  DisplayName: Identity
-  ServiceName: Identity
+- Name: azure-search-documents
+  Version: 11.2.0
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.2.0/sdk/search/azure-search-documents//CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-communication-identity
+  Version: 1.0.1
+  DisplayName: Communication Identity
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-identity_1.0.1/sdk/communication/azure-communication-identity//CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-communication-phonenumbers
+  Version: 1.0.1
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-phonenumbers_1.0.1/sdk/communication/azure-communication-phonenumbers//CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-communication-sms
+  Version: 1.0.1
+  DisplayName: Communication Sms
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-sms_1.0.1/sdk/communication/azure-communication-sms//CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-core
+  Version: 1.15.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.15.0/sdk/core/azure-core//CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-translation-document
+  Version: 1.0.0b2
+  DisplayName: Document Translation
+  ServiceName: Translator
   VersionType: Beta
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.7.0b1/sdk/identity/azure-identity//CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-document_1.0.0b2/sdk/translation/azure-ai-translation-document//CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-metricsadvisor
+  Version: 1.0.0b4
+  DisplayName: Metrics Advisor
+  ServiceName: Metrics Advisor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-metricsadvisor_1.0.0b4/sdk/metricsadvisor/azure-ai-metricsadvisor//CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-servicebus
+  Version: 7.3.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.3.0/sdk/servicebus/azure-servicebus//CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-cognitiveservices
+  Version: 12.0.0
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cognitiveservices_12.0.0/sdk/cognitiveservices/azure-mgmt-cognitiveservices//CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-costmanagement
+  Version: 2.0.0
+  DisplayName: Resource Management - Cost Management
+  ServiceName: Cost Management
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-costmanagement_2.0.0/sdk/costmanagement/azure-mgmt-costmanagement//CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-hdinsight
+  Version: 8.0.0
+  DisplayName: Resource Management - HDInsight
+  ServiceName: HDInsight
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-hdinsight_8.0.0/sdk/hdinsight/azure-mgmt-hdinsight//CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-media
+  Version: 7.0.0
+  DisplayName: Resource Management - Media Services
+  ServiceName: Media Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-media_7.0.0/sdk/media/azure-mgmt-media//CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-resourcemover
+  Version: 1.1.0b2
+  DisplayName: Resource Management - Resource Mover
+  ServiceName: Resource Mover
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resourcemover_1.1.0b2/sdk/resourcemover/azure-mgmt-resourcemover//CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-servicefabric
+  Version: 1.0.0
+  DisplayName: Resource Management - Service Fabric
+  ServiceName: Service Fabric
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-servicefabric_1.0.0/sdk/servicefabric/azure-mgmt-servicefabric//CHANGELOG.md
   ChangelogContent: ""
 
