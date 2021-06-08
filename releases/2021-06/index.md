@@ -11,19 +11,24 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 
 ## Release Highlights
 
-*
-*
-*
+- Video Analyzer SDKs released a first beta. The client SDKs allow you to interact with the direct methods of a Video Analyzer edge module. These SDKs are designed to be used with the Azure IoT Hub SDKs. They support constructing objects that represent the direct methods that can then be sent to the edge module using the IoT Hub SDKs
+- FarmBeats SDKs released a first beta. The client SDKs allow AgriFood companies to build intelligent digital agriculture solutions. The users can -
+  - Create & update farmers, farms, fields, seasonal fields and boundaries.
+  - Ingest satellite and weather data for areas of interest.
+  - Ingest farm operations data covering tilling, planting, harvesting and application of farm inputs.
+- Form Recognizer SDK for JS released a new GA version 3.1.0. This General Availability (GA) release marks the stability of the changes introduced in package versions 3.1.0-beta.1 through 3.1.0-beta.3.
+- Communication Relay has released a first beta for JS package @azure/communication-network-traversal. Azure Communication Network Traversal is managing tokens for Azure Communication Services.
+- Cognitive Search SDK for JS has released a new GA version 11.2.0.
 
 ## Release Notes
 
-* [All release notes](index.md)
-* [.NET release notes](dotnet.md)
-* [Java release notes](java.md)
-* [JavaScript/TypeScript release notes](js.md)
-* [Python release notes](python.md)
-* [C++ release notes](cpp.md)
-* [Embedded C release notes](c.md)
-* [Android release notes](android.md)
-* [iOS release notes](ios.md)
-* [Go release notes](go.md)
+- [All release notes](index.md)
+- [.NET release notes](dotnet.md)
+- [Java release notes](java.md)
+- [JavaScript/TypeScript release notes](js.md)
+- [Python release notes](python.md)
+- [C++ release notes](cpp.md)
+- [Embedded C release notes](c.md)
+- [Android release notes](android.md)
+- [iOS release notes](ios.md)
+- [Go release notes](go.md)
