@@ -176,4 +176,32 @@ entries:
     #### Bug Fixes
 
     - The expiry time is now retrieved from the ACR refresh token, instead of hard-coded three hours later from `Date.now()`.
+- Name: '@azure/core-amqp'
+  Version: 3.0.0
+  DisplayName: Core - AMQP
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_3.0.0/sdk/core/core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking changes
+
+    - Updates the `rhea-promise` and `rhea` dependencies to version 2.x. `rhea` contains a breaking change that changes deserialization of timestamps from numbers to Date objects.
+    - Removes the `AsyncLock` and `defaultLock` exports. `defaultCancellableLock` should be used instead.
+- Name: '@azure/data-tables'
+  Version: 12.0.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/data-tables_12.0.0/sdk/tables/data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for generating SAS tokens using an `AzureNamedKeyCredential` [#15564](https://github.com/Azure/azure-sdk-for-js/pull/15564)
+    - Use @azure/core-auth `AzureSASCredendial` [#15564](https://github.com/Azure/azure-sdk-for-js/pull/15564)
+    - Fix submit transaction issue [15403](https://github.com/Azure/azure-sdk-for-js/issues/15403) when sending multiple transactions. [#15493](https://github.com/Azure/azure-sdk-for-js/pull/15493)
+    - Fix date serialization on `getAccessPolicy` and `setAccessPolicy` Table client methods. [#15633](https://github.com/Azure/azure-sdk-for-js/pull/15633)
+
+    #### Breaking Changes
+
+    - Use @azure/core-auth `AzureNamedKeyCredential` [#15529](https://github.com/Azure/azure-sdk-for-js/pull/15529)
 
