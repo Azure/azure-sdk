@@ -180,4 +180,111 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.Tables_12.0.0/sdk/tables/Azure.Data.Tables//CHANGELOG.md
   ChangelogContent: '- Added `GenerateSasUri` methods to both `TableClient` and `TableServiceClient`.'
+- Name: Azure.Storage.Queues
+  Version: 12.7.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.7.0/sdk/storage/Azure.Storage.Queues/CHANGELOG.md
+  ChangelogContent: |-
+    - Includes all features from 12.7.0-beta.4.
+    - This release contains bug fixes to improve quality.
+- Name: Azure.Monitor.Query
+  Version: 1.0.0-beta.1
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.Query_1.0.0-beta.1/sdk/monitor/Azure.Monitor.Query/CHANGELOG.md
+  ChangelogContent: '- First beta release of Azure.Monitor.Query'
+- Name: Azure.Storage.Blobs.ChangeFeed
+  Version: 12.0.0-preview.13
+  DisplayName: Storage - Blobs ChangeFeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.13/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.6.0
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.6.0/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
+  ChangelogContent: '- Includes all features from 12.6.0-beta.4.'
+- Name: Azure.Security.ConfidentialLedger
+  Version: 1.0.0-beta.2
+  DisplayName: ConfidentialLedger
+  ServiceName: ConfidentialLedger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.ConfidentialLedger_1.0.0-beta.2/sdk/confidentialledger/Azure.Security.ConfidentialLedger/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - The namespace of the client has changed to Azure.Security.ConfidentialLedger
+- Name: Azure.Storage.Common
+  Version: 12.8.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.8.0/sdk/storage/Azure.Storage.Common/CHANGELOG.md
+  ChangelogContent: |-
+    - Includes all features from 12.8.0-beta.4.
+    - This release contains bug fixes to improve quality.
+- Name: Azure.Core
+  Version: 1.15.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.15.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Types to represent `GeoJson` primitives.
+
+    #### Changed
+
+    - `Response.Content` no longer throws `InvalidOperationException` when the response is backed by a `MemoryStream` with a non publicly visible buffer.
+- Name: Azure.Storage.Blobs
+  Version: 12.9.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.9.0/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    - Includes all features from 12.9.0-beta.4.
+    - Fixed bug where BlobClient.DownloadStreaming or BlobClient.DownloadData could corrupt data on retry.
+    - Fixed bug where specifying "*" as IfMatch condition could lead to inconsistend read in BlobClient.DownloadTo.
+    - Fixed bug where specifying conditions in BlobBaseClient.OpenRead could override allowModifications flag in BlobOpenReadOptions leading to inconsistent read.
+    - Fixed bug where BlobProperties.IsLatestVersion from BlobBaseClient.GetProperties did not set the value (defaulted to false).
+    - Fixed bug where reading blob with Client Side Encryption enabled results in high CPU.
+- Name: Azure.Storage.Files.DataLake
+  Version: 12.7.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.DataLake_12.7.0/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md
+  ChangelogContent: |-
+    - Includes all features from 12.7.0-beta.4
+    - Fixed bug where DataLakeFileClient.Read could corrupt data on retry.
+    - Fixed bug where specifying "*" as IfMatch condition could lead to inconsistend read in DataLakeFileClient.ReadTo.
+    - Fixed bug where specifying conditions in DataLakeFileClient.OpenRead could override allowModifications flag in DataLakeOpenReadOptions leading to inconsistent read.
+- Name: Azure.Storage.Files.Shares
+  Version: 12.7.0
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.Shares_12.7.0/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    - Includes all features from 12.7.0-beta.4.
+    - Fixed bug where specifying conditions in ShareFileClient.OpenRead could override allowModifications flag in ShareFileOpenReadOptions leading to inconsistent read.
+    - Fixed bug where retry during streaming of ShareFileClient.Download result could lead to inconsistent read.
 
