@@ -34,7 +34,7 @@ entries:
   VersionType: Beta
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.5.0-beta.1/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
-  ChangelogContent: |-
+  ChangelogContent: |2-
 
     ### New Features
 
@@ -53,8 +53,6 @@ entries:
     - The `EventProcessor<TPartition>` will now properly respect another another consumer stealing ownership of a partition when the service forcibly terminates the active link in the background.  Previously, the client did not observe the error directly and attempted to recover the faulted link which reasserted ownership and caused the partition to "bounce" between owners until a load balancing cycle completed.
 
     - The `EventProcessor<TPartition>` will now be less aggressive when considering whether or not to steal a partition, doing so only when it will correct an imbalance and preferring the status quo when the overall distribution would not change.  This will help reduce event duplication due to partitions moving between owners.
-
-
 - Name: Azure.Security.ConfidentialLedger
   Version: 1.0.0-beta.2
   DisplayName: ConfidentialLedger
@@ -286,3 +284,4 @@ entries:
 
     - Added `LoginHint` property to `InteractiveBrowserCredentialOptions` which allows a user name to be pre-selected for interactive logins. Setting this option skips the account selection prompt and immediately attempts to login with the specified account.
     - Added `AuthorizationCodeCredentialOptions` which allows for configuration of a ReplyUri.
+
