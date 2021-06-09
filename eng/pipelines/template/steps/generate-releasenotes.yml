@@ -68,7 +68,7 @@ steps:
         arguments: >
           -releasePeriod $(ReleasePeriod)
           -commonScriptPath $(AzureSDKToolsScriptsPath)
-          -releaseDirectory $(AzureSDKReleaseNotesClonePath)/releases
+          -releaseDirectory $(AzureSDKReleaseNotesClonePath)/_data/releases
           -repoLanguage ${{ repo.value.Language }}
           -github_pat '$(azuresdk-github-pat)'
 
