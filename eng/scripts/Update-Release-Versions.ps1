@@ -170,7 +170,7 @@ function GetFirstGADate($pkgVersion, $pkg)
     if ($gaIndex -lt 0) { return "" }
     $gaVersion = $gaVersions[$gaIndex]
 
-    $committeDate = GetCommitterDate $gaVersion.TagShaUrl;
+    $committeDate = $gaVersion.Date
 
     if ($committeDate) {
       $committeDate = $committeDate.ToString("MM/dd/yyyy")
@@ -186,6 +186,7 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
   $updatedPackages = @()
   foreach ($pkg in $packageList)
   {
+    $pkgVersion = $null
     if ($langVersions.ContainsKey($pkg.Package)) {
       $pkgVersion = $langVersions[$pkg.Package]
     }
@@ -193,13 +194,9 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
       # Some repos use the same version for all packages so fall back to that case
       $pkgVersion = $langVersions[""]
     }
-    else {
-      Write-Host "Skipping update for $($pkg.Package) as we don't have version info for it. "
-      continue
-    }
 
     if ($null -eq $pkgVersion) {
-      Write-Host "Skipping update for $($pkg.Package) as we don't have version info for it. "
+      Write-Verbose "Skipping update for $($pkg.Package) as we don't have version info for it. "
       continue;
     }
 
@@ -274,7 +271,7 @@ function OutputVersions($lang)
   Write-Host "Checking $lang for updates..."
   $clientPackages, $global:otherPackages = Get-PackageListForLanguageSplit $lang
 
-  $langVersions = GetPackageVersions $lang
+  $langVersions = GetPackageVersions $lang -afterDate ([DateTime]::Now.AddMonths(-3))
   $langLinkTemplates = GetLinkTemplates $lang
 
   $updatedPackages = Update-Packages $lang $clientPackages $langVersions $langLinkTemplates

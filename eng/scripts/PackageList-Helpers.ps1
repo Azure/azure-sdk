@@ -43,6 +43,11 @@ function Get-PackageListForLanguage([string]$lang)
   return $packageList
 }
 
+function Get-PackageLookupForLanguage([string]$lang)
+{
+  return GetPackageLookup (Get-PackageListForLanguage $lang)
+}
+
 function Get-PackageListSplit([Array]$packageList)
 {
   $newPackages = $packageList.Where({ $_.Hide -ne "true" -and $_.New -eq "true" })
@@ -157,9 +162,16 @@ function PackageEqual($pkg1, $pkg2)
 function GetPackageKey($pkg)
 {
   $pkgKey = $pkg.Package
-  if ($pkg.PSObject.Members.Name -contains "GroupId" -and $pkg.GroupId) {
-    $pkgKey = $pkg.GroupId + ":" + $pkgKey
+  $groupId = $null
+
+  if ($pkg.PSObject.Members.Name -contains "GroupId") {
+    $groupId = $pkg.GroupId
   }
+
+  if ($groupId) {
+    $pkgKey = "${groupId}:${pkgKey}"
+  }
+
   return $pkgKey
 }
 
@@ -278,7 +290,7 @@ function GetLinkTemplateValue($linkTemplates, $templateName, $packageName = $nul
 
   if ($packageName) {
     $packageTrim = $linkTemplates["package_trim"]
-    $trimmedPackageName = $pkg.Package -replace "^$packageTrim", ""
+    $trimmedPackageName = $packageName -replace "^$packageTrim", ""
 
     $replacedString = $replacedString -replace "item.Package", $packageName
     $replacedString = $replacedString -replace "item.TrimmedPackage", $trimmedPackageName
