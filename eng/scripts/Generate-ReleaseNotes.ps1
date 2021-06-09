@@ -131,7 +131,7 @@ foreach ($packageName in $updatedPackageSet.Keys)
     {
       $entry = GetReleaseNotesData $packageName $packageVersion.RawVersion $pkgMetadata
       if ($entry) {
-        Write-Host "Added `$pkgKey` to the release note entries"
+        Write-Host "Added '$pkgKey' to the release note entries"
         $existingYamlContent.entries += $entry
       }
     }
