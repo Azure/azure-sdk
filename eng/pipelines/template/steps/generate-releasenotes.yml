@@ -1,13 +1,4 @@
 parameters:
-- name: CommonScriptPath
-  type: string
-  default: ""
-- name: ChangedPackagesPath
-  type: string
-  default: ""
-- name: DefaultBranch
-  type: string
-  default: ""
 - name: PrBranchName
   type: string
   default: "CreateOrUpdateReleaseDataFor"
@@ -30,9 +21,16 @@ steps:
     displayName: Set Release Period Value
 
   - pwsh: |
-      $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts/Delete-RemoteBranches.ps1 -RepoOwner "azure-sdk" `
+      $(AzureSDKToolsScriptsPath)/Delete-RemoteBranches.ps1 -RepoOwner "azure-sdk" `
       -ForkRepoOwner "Azure" -RepoName "azure-sdk" -BranchPrefix '${{ parameters.PrBranchName }}' -AuthToken $(azuresdk-github-pat)
     displayName: Clean Up Stale Branches
+
+  - pwsh: |
+      git clone https://github.com/Azure/azure-sdk.git $(AzureSDKReleaseNotesClonePath)
+      cd $(AzureSDKReleaseNotesClonePath)
+      git remote add azure-sdk-fork "https://$(azuresdk-github-pat)@github.com/azure-sdk/azure-sdk.git"
+    displayName: Clone azure-sdk for release notes
+    condition: and(succeeded(), ne(variables['AzureSDKReleaseNotesClonePath'], variables['AzureSDKClonePath']))
 
   - ${{ each repo in parameters.Repos }}:
     - pwsh: |
@@ -53,34 +51,34 @@ steps:
         }
         else {
           # Reset back to the head of default so we can build on top of that if the branch doesn't already exist.
-          git reset --hard origin/${{ parameters.DefaultBranch }}
+          git reset --hard origin/$(DefaultBranch)
 
           Write-Host "git checkout -b $PRBranchName."
           git checkout -b $PRBranchName
         }
       displayName: Checkout Previous PRBranch if it exist.
-      workingDirectory: $(System.DefaultWorkingDirectory)/azure-sdk
+      workingDirectory: $(AzureSDKReleaseNotesClonePath)
 
     - task: PowerShell@2
       displayName: 'Generate ReleaseNotes for the Release Period'
       inputs:
         pwsh: true
         workingDirectory: $(System.DefaultWorkingDirectory)
-        filePath: $(System.DefaultWorkingDirectory)/azure-sdk/eng/scripts/Generate-ReleaseNotes.ps1
+        filePath: $(AzureSDKClonePath)/eng/scripts/Generate-ReleaseNotes.ps1
         arguments: >
           -releasePeriod $(ReleasePeriod)
-          -commonScriptPath ${{ parameters.CommonScriptPath }}
-          -releaseDirectory $(System.DefaultWorkingDirectory)/azure-sdk/releases
+          -commonScriptPath $(AzureSDKToolsScriptsPath)
+          -releaseDirectory $(AzureSDKClonePath)/releases
           -repoLanguage ${{ repo.value.Language }}
-          -changedPackagesPath ${{ parameters.ChangedPackagesPath }}
+          -github_pat '$(azuresdk-github-pat)'
 
     - template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
       parameters:
         RepoName: azure-sdk
-        BaseBranchName: ${{ parameters.DefaultBranch }}
+        BaseBranchName: $(DefaultBranch)
         PRBranchName: $(PRBranchName)
         CommitMsg: "${{ repo.value.Language }} release notes for the $(ReleasePeriod) release"
         PRTitle: "${{ repo.value.Language }} release notes for the $(ReleasePeriod) release"
         PRBody: "This is an automated pull request to gather the ${{ repo.value.Language }} release notes for the $(ReleasePeriod) release. See [Producing Release Notes](https://github.com/Azure/azure-sdk/blob/master/docs/policies/releasenotes.md#producing-release-notes) for details of the processing."
-        WorkingDirectory: $(System.DefaultWorkingDirectory)/azure-sdk
-        ScriptDirectory: $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts
+        WorkingDirectory: $(AzureSDKReleaseNotesClonePath)
+        ScriptDirectory: $(AzureSDKToolsScriptsPath)

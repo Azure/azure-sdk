@@ -170,7 +170,7 @@ function GetFirstGADate($pkgVersion, $pkg)
     if ($gaIndex -lt 0) { return "" }
     $gaVersion = $gaVersions[$gaIndex]
 
-    $committeDate = GetCommitterDate $gaVersion.TagShaUrl;
+    $committeDate = $gaVersion.Date
 
     if ($committeDate) {
       $committeDate = $committeDate.ToString("MM/dd/yyyy")
