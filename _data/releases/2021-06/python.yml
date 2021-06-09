@@ -212,4 +212,273 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-rdbms_8.1.0/sdk/rdbms/azure-mgmt-rdbms//CHANGELOG.md
   ChangelogContent: '- New models and operations for mariadb'
+- Name: azure-mgmt-cognitiveservices
+  Version: 12.0.0
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cognitiveservices_12.0.0/sdk/cognitiveservices/azure-mgmt-cognitiveservices/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model UserOwnedStorage has a new parameter identity_client_id
+    - Model Sku has a new parameter family
+    - Model Sku has a new parameter capacity
+    - Model Sku has a new parameter size
+    - Model PrivateEndpointConnection has a new parameter location
+    - Model PrivateEndpointConnection has a new parameter system_data
+    - Model PrivateEndpointConnection has a new parameter etag
+    - Model PrivateEndpointConnectionProperties has a new parameter provisioning_state
+    - Model KeyVaultProperties has a new parameter identity_client_id
+    - Model PrivateLinkServiceConnectionState has a new parameter actions_required
+    - Added operation PrivateEndpointConnectionsOperations.begin_create_or_update
+    - Added operation PrivateEndpointConnectionsOperations.begin_delete
+    - Added operation AccountsOperations.list_usages
+    - Added operation AccountsOperations.begin_delete
+    - Added operation AccountsOperations.get
+    - Added operation AccountsOperations.begin_create
+    - Added operation AccountsOperations.begin_update
+    - Added operation group DeletedAccountsOperations
+
+    **Breaking changes**
+
+    - Model PrivateLinkServiceConnectionState no longer has parameter action_required
+    - Removed operation PrivateEndpointConnectionsOperations.create_or_update
+    - Removed operation PrivateEndpointConnectionsOperations.delete
+    - Removed operation AccountsOperations.delete
+    - Removed operation AccountsOperations.create
+    - Removed operation AccountsOperations.get_usages
+    - Removed operation AccountsOperations.update
+    - Removed operation AccountsOperations.get_properties
+- Name: azure-mgmt-cognitiveservices
+  Version: 7.0.0
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cognitiveservices_7.0.0/sdk/cognitiveservices/azure-mgmt-cognitiveservices/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model PrivateEndpointConnectionProperties has a new parameter provisioning_state
+    - Model PrivateLinkServiceConnectionState has a new parameter actions_required
+    - Model UserOwnedStorage has a new parameter identity_client_id
+    - Model KeyVaultProperties has a new parameter identity_client_id
+    - Model PrivateEndpointConnection has a new parameter system_data
+    - Model PrivateEndpointConnection has a new parameter etag
+    - Model PrivateEndpointConnection has a new parameter location
+    - Added operation AccountsOperations.get
+    - Added operation AccountsOperations.list_usages
+    - Added operation group DeletedAccountsOperations
+
+    **Breaking changes**
+
+    - Operation PrivateEndpointConnectionsOperations.create_or_update has a new signature
+    - Model PrivateLinkServiceConnectionState no longer has parameter action_required
+    - Removed operation AccountsOperations.get_usages
+    - Removed operation AccountsOperations.get_properties
+    - Model Sku has a new signature
+- Name: azure-mgmt-media
+  Version: 7.0.0
+  DisplayName: Resource Management - Media Services
+  ServiceName: Media Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-media_7.0.0/sdk/media/azure-mgmt-media/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model Asset has a new parameter system_data
+    - Model StreamingPolicy has a new parameter system_data
+    - Model Operation has a new parameter action_type
+    - Model Operation has a new parameter is_data_action
+    - Model JobInputAsset has a new parameter input_definitions
+    - Model AccountFilter has a new parameter system_data
+    - Model FaceDetectorPreset has a new parameter mode
+    - Model FaceDetectorPreset has a new parameter blur_type
+    - Model LiveEvent has a new parameter system_data
+    - Model MediaService has a new parameter key_delivery
+    - Model MediaService has a new parameter system_data
+    - Model Job has a new parameter system_data
+    - Model StreamingLocator has a new parameter system_data
+    - Model StreamingEndpoint has a new parameter system_data
+    - Model ContentKeyPolicy has a new parameter system_data
+    - Model JobInputClip has a new parameter input_definitions
+    - Model JobInputHttp has a new parameter input_definitions
+    - Model MetricSpecification has a new parameter lock_aggregation_type
+    - Model MetricSpecification has a new parameter supported_time_grain_types
+    - Model MetricSpecification has a new parameter source_mdm_namespace
+    - Model MetricSpecification has a new parameter source_mdm_account
+    - Model MetricSpecification has a new parameter enable_regional_mdm_account
+    - Model AssetFilter has a new parameter system_data
+    - Model Transform has a new parameter system_data
+
+    **Breaking changes**
+
+    - Removed operation MediaservicesOperations.get_by_subscription
+- Name: azure-mgmt-media
+  Version: 4.0.0
+  DisplayName: Resource Management - Media Services
+  ServiceName: Media Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-media_4.0.0/sdk/media/azure-mgmt-media/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model Operation has a new parameter is_data_action
+    - Model Operation has a new parameter action_type
+    - Model MediaService has a new parameter key_delivery
+    - Model MetricSpecification has a new parameter supported_time_grain_types
+    - Model MetricSpecification has a new parameter source_mdm_namespace
+    - Model MetricSpecification has a new parameter source_mdm_account
+    - Model MetricSpecification has a new parameter enable_regional_mdm_account
+
+    **Breaking changes**
+
+    - Removed operation MediaservicesOperations.get_by_subscription
+- Name: azure-core
+  Version: 1.15.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.15.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### New Features
+
+    - Added `BearerTokenCredentialPolicy.on_challenge` and `.authorize_request` to allow subclasses to optionally handle authentication challenges
+
+    #### Bug Fixes
+
+    - Retry policies don't sleep after operations time out
+    - The `from_dict` methhod in the `CloudEvent` can now convert a datetime string to datetime object when microsecond exceeds the python limitation
+- Name: azure-mgmt-hdinsight
+  Version: 8.0.0
+  DisplayName: Resource Management - HDInsight
+  ServiceName: HDInsight
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-hdinsight_8.0.0/sdk/hdinsight/azure-mgmt-hdinsight/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model Role has a new parameter encrypt_data_disks
+    - Model Role has a new parameter vm_group_name
+    - Model VmSizeCompatibilityFilter has a new parameter esp_applied
+    - Model VmSizeCompatibilityFilter has a new parameter os_type
+    - Model VmSizeCompatibilityFilter has a new parameter vm_sizes
+    - Model VmSizeCompatibilityFilter has a new parameter compute_isolation_supported
+    - Model ClusterGetProperties has a new parameter cluster_hdp_version
+    - Model ClusterGetProperties has a new parameter excluded_services_config
+    - Model ClusterGetProperties has a new parameter storage_profile
+    - Model Operation has a new parameter properties
+    - Model StorageAccount has a new parameter saskey
+    - Model StorageAccount has a new parameter fileshare
+    - Model CapabilitiesResult has a new parameter vmsizes
+    - Model CapabilitiesResult has a new parameter vmsize_filters
+    - Model ConnectivityEndpoint has a new parameter private_ip_address
+    - Model ApplicationGetEndpoint has a new parameter private_ip_address
+    - Model BillingResponseListResult has a new parameter vm_sizes_with_encryption_at_host
+    - Model BillingResponseListResult has a new parameter vm_size_properties
+    - Model OperationDisplay has a new parameter description
+    - Model ApplicationGetHttpsEndpoint has a new parameter private_ip_address
+    - Model ComponentsC51Ht8SchemasClusteridentityPropertiesUserassignedidentitiesAdditionalproperties has a new parameter tenant_id
+    - Model KafkaRestProperties has a new parameter configuration_override
+    - Added operation VirtualMachinesOperations.get_async_operation_status
+    - Added operation ApplicationsOperations.get_azure_async_operation_status
+    - Added operation LocationsOperations.get_azure_async_operation_status
+    - Added operation LocationsOperations.check_name_availability
+    - Added operation LocationsOperations.validate_cluster_create_request
+    - Added operation ExtensionsOperations.get_azure_async_operation_status
+    - Added operation ExtensionsOperations.get_azure_monitor_status
+    - Added operation ExtensionsOperations.begin_disable_azure_monitor
+    - Added operation ExtensionsOperations.begin_enable_azure_monitor
+    - Added operation ClustersOperations.get_azure_async_operation_status
+    - Added operation ClustersOperations.begin_update_identity_certificate
+    - Added operation ScriptActionsOperations.get_execution_async_operation_status
+
+    **Breaking changes**
+
+    - Model VmSizeCompatibilityFilter no longer has parameter vmsizes
+    - Model CapabilitiesResult no longer has parameter vm_size_filters
+    - Model CapabilitiesResult no longer has parameter vm_sizes
+- Name: azure-mgmt-hdinsight
+  Version: 3.0.0
+  DisplayName: Resource Management - HDInsight
+  ServiceName: HDInsight
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-hdinsight_3.0.0/sdk/hdinsight/azure-mgmt-hdinsight/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model VmSizeCompatibilityFilter has a new parameter vm_sizes
+    - Model VmSizeCompatibilityFilter has a new parameter compute_isolation_supported
+    - Model VmSizeCompatibilityFilter has a new parameter os_type
+    - Model VmSizeCompatibilityFilter has a new parameter esp_applied
+    - Model CapabilitiesResult has a new parameter vmsizes
+    - Model CapabilitiesResult has a new parameter vmsize_filters
+    - Model KafkaRestProperties has a new parameter configuration_override
+    - Model StorageAccount has a new parameter saskey
+    - Model StorageAccount has a new parameter fileshare
+    - Model Role has a new parameter vm_group_name
+    - Model ApplicationGetHttpsEndpoint has a new parameter private_ip_address
+    - Added operation LocationsOperations.validate_cluster_create_request
+    - Added operation LocationsOperations.check_name_availability
+    - Added operation LocationsOperations.get_azure_async_operation_status
+    - Added operation ApplicationsOperations.get_azure_async_operation_status
+    - Added operation ExtensionsOperations.get_azure_monitor_status
+    - Added operation ExtensionsOperations.disable_azure_monitor
+    - Added operation ExtensionsOperations.enable_azure_monitor
+    - Added operation ExtensionsOperations.get_azure_async_operation_status
+    - Added operation ClustersOperations.update_identity_certificate
+    - Added operation ClustersOperations.get_azure_async_operation_status
+    - Added operation VirtualMachinesOperations.get_async_operation_status
+    - Added operation ScriptActionsOperations.get_execution_async_operation_status
+
+    **Breaking changes**
+
+    - Model VmSizeCompatibilityFilter no longer has parameter vmsizes
+    - Model CapabilitiesResult no longer has parameter vm_size_filters
+    - Model CapabilitiesResult no longer has parameter vm_sizes
+- Name: azure-mgmt-resourcemover
+  Version: 1.1.0b2
+  DisplayName: Resource Management - Resource Mover
+  ServiceName: Resource Mover
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resourcemover_1.1.0b2/sdk/resourcemover/azure-mgmt-resourcemover/CHANGELOG.md
+  ChangelogContent: '- Models rename'
+- Name: azure-mgmt-servicefabric
+  Version: 1.0.0
+  DisplayName: Resource Management - Service Fabric
+  ServiceName: Service Fabric
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-servicefabric_1.0.0/sdk/servicefabric/azure-mgmt-servicefabric/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model ManagedCluster has a new parameter addon_features
+    - Model ManagedClusterUpdateParameters has a new parameter addon_features
+    - Added operation group ManagedclusterOperations
+    - Added operation group ApplicationOperations
+    - Added operation group NodetypeOperations
+
+    **Breaking changes**
+
+    - Operation ApplicationTypesOperations.create_or_update has a new signature
+    - Operation NodeTypesOperations.begin_delete_node has a new signature
+    - Operation NodeTypesOperations.begin_reimage has a new signature
+    - Operation NodeTypesOperations.begin_restart has a new signature
+    - Operation NodeTypesOperations.begin_restart has a new signature
+    - Operation NodeTypesOperations.begin_reimage has a new signature
+    - Operation NodeTypesOperations.begin_delete_node has a new signature
+    - Operation ApplicationTypesOperations.create_or_update has a new signature
+    - Model ManagedCluster no longer has parameter cluster_upgrade_description
+    - Model ManagedCluster no longer has parameter cluster_upgrade_mode
+    - Model ManagedClusterUpdateParameters no longer has parameter cluster_upgrade_description
+    - Model ManagedClusterUpdateParameters no longer has parameter cluster_upgrade_mode
 
