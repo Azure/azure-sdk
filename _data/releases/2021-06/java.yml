@@ -176,4 +176,190 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-management_1.3.0/sdk/core/azure-core-management//CHANGELOG.md
   ChangelogContent: "#### Features Added\r\n\r\n- Added Support for Challenge Based Authentication in `ArmChallengeAuthenticationPolicy`.\r\n  \r\n#### Fixed\r\n\r\n- Fixed bug in `ManagementErrorDeserializer`. ([#21615](https://github.com/Azure/azure-sdk-for-java/issues/21615))\r\n\r\n#### Dependency Updates\r\n\r\n- Upgraded `azure-core` from `1.16.0` to `1.17.0`."
   GroupId: com.azure
+- Name: azure-storage-blob-nio
+  Version: 12.0.0-beta.7
+  DisplayName: Storage - Blobs NIO
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-nio_12.0.0-beta.7/sdk/storage/azure-storage-blob-nio/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+    - Updated `azure-storage-blob` to version `12.12.0`
+  GroupId: com.azure
+- Name: azure-communication-common
+  Version: 1.0.2
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-common_1.0.2/sdk/communication/azure-communication-common/CHANGELOG.md
+  ChangelogContent: Updated `azure-communication-common` version
+  GroupId: com.azure
+- Name: azure-storage-common
+  Version: 12.12.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-common_12.12.0/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: '- GA release'
+  GroupId: com.azure
+- Name: azure-storage-blob-cryptography
+  Version: 12.12.0
+  DisplayName: Storage - Blobs Cryptography
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-cryptography_12.12.0/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md
+  ChangelogContent: '- GA release'
+  GroupId: com.azure
+- Name: azure-storage-blob
+  Version: 12.12.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob_12.12.0/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: '- GA release'
+  GroupId: com.azure
+- Name: azure-search-documents
+  Version: 11.4.0
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.4.0/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added the ability to configure Knowledge Store in skillsets.
+    - Added factory method to `SynonymMap` to enable creation from a file.
+    - Added support for `Edm.GeographyPoint` in `FieldBuilder` when property has type `GeoPoint`.
+    - Added support for geography based filtering in `SearchFilter` when `GeoPosition`, `GeoPoint`, `GeoLineString`, or
+    `GeoPolygon` are used as formatting arguments.
+    - Added new skills `CustomEntityLookupSkill` and `DocumentExtractionSkill` and new skill versions for
+    `KeyPhraseExtractionSkill` and `LanguageDetectionSkill`.
+    - Added support for the ADLS Gen 2 Indexer data source type.
+    - Added skillset counts to `SearchServiceCounters`.
+    - Added additional log messages to `SearchIndexingBufferedSender` and `SearchIndexingBufferedAsyncSender`.
+
+    #### Breaking Changes
+
+    - Removed support for service version `2020-06-30-Preview`. Default version is now `2020-06-30`.
+    - Removed Semantic Search capability to `SearchClient` and `SearchAsyncClient`.
+    - Removed support for Normalizers in `SearchField` and `SearchIndex` with `CustomNormalizer` and `LexicalNormalizer`.
+
+    #### Dependency Updates
+
+    - Updated `azure-core` from `1.16.0` to `1.17.0`.
+    - Updated `azure-core-http-netty` from `1.9.2` to `1.10.0`.
+    - Updated `azure-core-serializer-json-jackson` from `1.2.3` to `1.2.4`.
+    - Updated Jackson from `2.12.2` to `2.12.3`.
+    - Updated Reactor from `3.4.5` to `3.4.6`.
+    - Updated Reactor Netty from `1.0.6` to `1.0.7`.
+  GroupId: com.azure
+- Name: azure-communication-sms
+  Version: 1.0.3
+  DisplayName: Communication Sms
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-sms_1.0.3/sdk/communication/azure-communication-sms/CHANGELOG.md
+  ChangelogContent: Updated `azure-communication-sms` version
+  GroupId: com.azure
+- Name: azure-messaging-eventgrid
+  Version: 4.4.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventgrid_4.4.0/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### New Features
+    - Added new Storage system event `StorageBlobInventoryPolicyCompletedEventData`.
+    - Added new attributes `contentLocation` and `metadataLocation` to `AcsRecordingChunkInfoProperties`.
+
+    #### Dependency Updates
+    - Update `azure-core` dependency to `1.17.0`.
+    - Update `azure-core-http-netty` dependency to `1.10.0`.
+  GroupId: com.azure
+- Name: azure-storage-blob-changefeed
+  Version: 12.0.0-beta.7
+  DisplayName: Storage - Blobs Changefeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-changefeed_12.0.0-beta.7/sdk/storage/azure-storage-blob-changefeed/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency updates
+
+    - Updated blob dependency to 12.12.0
+  GroupId: com.azure
+- Name: azure-communication-identity
+  Version: 1.1.1
+  DisplayName: Communication Identity
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-identity_1.1.1/sdk/communication/azure-communication-identity/CHANGELOG.md
+  ChangelogContent: Updated `azure-communication-identity` version
+  GroupId: com.azure
+- Name: azure-messaging-eventhubs-checkpointstore-blob
+  Version: 1.7.1
+  DisplayName: Event Hubs - Azure Blob Storage Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs-checkpointstore-blob_1.7.1/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Update `azure-storage-blob` to `12.11.1`.
+  GroupId: com.azure
+- Name: azure-storage-file-datalake
+  Version: 12.6.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-datalake_12.6.0/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: '- GA release'
+  GroupId: com.azure
+- Name: azure-storage-blob-batch
+  Version: 12.10.0
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-batch_12.10.0/sdk/storage/azure-storage-blob-batch/CHANGELOG.md
+  ChangelogContent: '- GA release'
+  GroupId: com.azure
+- Name: azure-storage-file-share
+  Version: 12.10.0
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-share_12.10.0/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: '- GA release'
+  GroupId: com.azure
+- Name: azure-storage-queue
+  Version: 12.10.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-queue_12.10.0/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: '- GA release'
+  GroupId: com.azure
+- Name: azure-communication-phonenumbers
+  Version: 1.0.3
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-phonenumbers_1.0.3/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md
+  ChangelogContent: Updated `azure-communication-phonenumbers` version
+  GroupId: com.azure
 
