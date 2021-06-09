@@ -136,4 +136,44 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.5.0/sdk/storage/storage-queue//CHANGELOG.md
   ChangelogContent: '- Updated Azure Storage Service API version to 2020-08-04.'
+- Name: '@azure/video-analyzer-edge'
+  Version: 1.0.0-beta.2
+  DisplayName: Azure Video Analyzer Edge
+  ServiceName: Video Analyzer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/video-analyzer-edge_1.0.0-beta.2/sdk/videoanalyzer/video-analyzer-edge/CHANGELOG.md
+  ChangelogContent: Update the title and description of the package and updates to readme.
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.1.0-beta.3
+  DisplayName: Core Rest Pipeline
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.1.0-beta.3/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: '- Merged `bearerTokenChallengeAuthenticationPolicy` into `bearerTokenAuthenticationPolicy`. This will keep the functionality of `bearerTokenAuthenticationPolicy`, but also adds the `challengeCallbacks` feature.'
+- Name: '@azure/monitor-query'
+  Version: 1.0.0-beta.1
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.0.0-beta.1/sdk/monitor/monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    - Initial release of the monitor-query library, allowing you to query Log Analytics Workspaces
+    for logs and metrics.
+- Name: '@azure/core-http'
+  Version: 1.2.5
+  DisplayName: Core - HTTP
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_1.2.5/sdk/core/core-http/CHANGELOG.md
+  ChangelogContent: |-
+    #### Fixed
+
+    - Delay loading of NO_PROXY environment variable until when request pipeline is being created. This fixes [issue 14873](https://github.com/Azure/azure-sdk-for-js/issues/14873)
+    - Fixed an issue where tracing spans were not setting a status correctly (on success or error) which results in the span status being `UNSET`. In addition, we will now capture the HTTP status code when a request fails in the tracing span. [PR 15061](https://github.com/Azure/azure-sdk-for-js/pull/15061)
+    - Fix packaging issue [PR 15286](https://github.com/Azure/azure-sdk-for-js/pull/15286)
+    - Improve the sanitizer to handle recursive objects [PR 15426](https://github.com/Azure/azure-sdk-for-js/pull/15426)
 
