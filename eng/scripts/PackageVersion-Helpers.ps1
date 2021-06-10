@@ -129,6 +129,7 @@ function GetPackageVersions($lang, [DateTime]$afterDate = [DateTime]::Now.AddMon
     {
       $sp = $tagName -split $tagSplit
       if ($sp.Length -ne 2) {
+        Write-Verbose "Failed to split tag correctly in language '$lang' with tag '$tagName'."
         continue
       }
 
@@ -143,41 +144,18 @@ function GetPackageVersions($lang, [DateTime]$afterDate = [DateTime]::Now.AddMon
 
     if (!$packageVersions.ContainsKey($package)) {
       $packageVersions.Add($package, [PSCustomObject]@{
-        LatestGA = ""
-        LatestPreview = ""
+        Package = $package
         Versions = @()
       });
     }
 
     $sv = ToSemVer $version $tag.Date
-    if ($null -ne $sv) {
+    if ($sv) {
       $packageVersions[$package].Versions += $sv
     }
     else {
-      Write-Verbose "Failed to parse version number '$version' for package '$package' in language '$lang' with tag '$tag'."
+      Write-Verbose "Failed to parse version number '$version' for package '$package' in language '$lang' with tag '$tagName'."
     }
-  }
-
-  foreach ($package in $packageVersions.Keys)
-  {
-    $pkgVersion = $packageVersions[$package]
-    if ($pkgVersion.Versions.Count -eq 0) {
-      Write-Host "Found no versions for package [$package] for language [$lang]."
-      continue
-    }
-    $versions = [AzureEngSemanticVersion]::SortVersions($pkgVersion.Versions)
-
-    $pkgVersion.LatestPreview = $versions[0].RawVersion
-    $gaVersions = @($versions | Where-Object { !$_.IsPrerelease -and $_.Major -gt 0 })
-    if ($gaVersions.Count -ne 0)
-    {
-      $pkgVersion.LatestGA = $gaVersions[0].RawVersion
-      if ($pkgVersion.LatestGA -eq $pkgVersion.LatestPreview) {
-        $pkgVersion.LatestPreview = ""
-      }
-    }
-    $pkgVersion.Versions = $versions
-    Write-Verbose "[$lang - $package] GA: '$($pkgVersion.LatestGA)', Preview: '$($pkgVersion.LatestPreview)', Versions: $versions"
   }
   return $packageVersions
 }

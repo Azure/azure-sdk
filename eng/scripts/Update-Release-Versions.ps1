@@ -4,8 +4,8 @@ param (
   [bool]$checkDocLinks = $true,
   [bool]$compareTagVsGHIOVersions = $false,
   [string]$github_pat = $env:GITHUB_PAT,
-  [string]$changedPackagesPath = "",
-  [string]$inputCacheFile = "https://azuresdkartifacts.blob.core.windows.net/verify-links-cache/verify-links-cache.txt"
+  [string]$inputCacheFile = "https://azuresdkartifacts.blob.core.windows.net/verify-links-cache/verify-links-cache.txt",
+  [int]$numMonthsForReleaseTags = 1
 )
 Set-StrictMode -Version 3
 $ProgressPreference = "SilentlyContinue"; # Disable invoke-webrequest progress dialog
@@ -151,12 +151,11 @@ function CheckRequiredLinks($linkTemplates, $pkg, $version)
   return $valid
 }
 
-function GetFirstGADate($pkgVersion, $pkg)
+function GetFirstGADate($pkgVersion, $pkg, $gaVersions)
 {
-  $gaVersions = @($pkgVersion.Versions | Where-Object { !$_.IsPrerelease -and $_.Major -gt 0 })
   if ($gaVersions.Count -gt 0) {
     $gaIndex = $gaVersions.Count - 1;
-    $otherPackage = @($global:otherPackages | Where-Object { $_.Package -eq $pkg.Package })
+    $otherPackage = $global:otherPackages.Where({ $_.Package -eq $pkg.Package })
 
     if ($otherPackage.Count -gt 0 -and $otherPackage[0].VersionGA) {
       Write-Verbose "Found other package entry for '$($pkg.Package)'";
@@ -169,10 +168,9 @@ function GetFirstGADate($pkgVersion, $pkg)
     }
     if ($gaIndex -lt 0) { return "" }
     $gaVersion = $gaVersions[$gaIndex]
-
     $committeDate = $gaVersion.Date
 
-    if ($committeDate) {
+    if ($committeDate -is [DateTime]) {
       $committeDate = $committeDate.ToString("MM/dd/yyyy")
       Write-Host "For package '$($pkg.Package)' picking GA '$($gaVersion.RawVersion)' shipped on '$committeDate' as the first new GA date."
       return $committeDate
@@ -183,7 +181,6 @@ function GetFirstGADate($pkgVersion, $pkg)
 
 function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
 {
-  $updatedPackages = @()
   foreach ($pkg in $packageList)
   {
     $pkgVersion = $null
@@ -200,7 +197,27 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
       continue;
     }
 
-    $version = $pkgVersion.LatestGA
+    # Compute the latest versions based on the current versions plus any new versions
+    # from the tags taking into account the tag versions don't contain all the versions
+    # that have ever shipped.
+    $latestGA = $pkg.VersionGA
+    $latestPreview = $pkg.VersionPreview
+    $versions = $pkgVersion.Versions
+    if ($latestGA -and $versions.RawVersion -notcontains $latestGA) { $versions += (ToSemVer $latestGA) }
+    if ($latestPreview -and $versions.RawVersion -notcontains $latestPreview) { $versions += (ToSemVer $latestPreview) }
+    $versions = [AzureEngSemanticVersion]::SortVersions($versions)
+
+    $latestPreview = $versions[0].RawVersion
+    $gaVersions = $versions.Where({ !$_.IsPrerelease -and $_.Major -gt 0 })
+    if ($gaVersions.Count -ne 0)
+    {
+      $latestGA = $gaVersions[0].RawVersion
+      if ($latestGA -eq $latestPreview) {
+        $latestPreview = ""
+      }
+    }
+
+    $version = $latestGA
 
     if ($compareTagVsGHIOVersions) {
       $versionFromGH = GetVersionWebContent $lang $pkg.Package "latest-ga"
@@ -211,7 +228,7 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
 
     if ($pkg.VersionGA -and $pkg.Type -eq "client") {
       if ([bool]($pkg.PSobject.Properties.name -match "FirstGADate") -and !$pkg.FirstGADate) {
-        $pkg.FirstGADate = GetFirstGADate $pkgVersion $pkg
+        $pkg.FirstGADate = GetFirstGADate $pkgVersion $pkg $gaVersions
       }
     }
     if ($version -eq "") {
@@ -221,20 +238,13 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
       if (CheckRequiredLinks $langLinkTemplates $pkg $version){
         Write-Host "Updating VersionGA $($pkg.Package) from $($pkg.VersionGA) to $version"
         $pkg.VersionGA = $version;
-
-        $updatedGAPackage = $pkg.PSObject.Copy()
-        $sourceUrl = GetLinkTemplateValue $langLinkTemplates "source_url_template" $pkg.Package $version $pkg.RepoPath
-        $updatedGAPackage | Add-Member -NotePropertyName "UpdatedVersion" -NotePropertyValue $version
-        $updatedGAPackage | Add-Member -NotePropertyName "SourceUrl" -NotePropertyValue $sourceUrl
-        $updatedGAPackage | Add-Member -NotePropertyName "Language" -NotePropertyValue $lang
-        $updatedPackages += $updatedGAPackage
       }
       else {
         Write-Warning "Not updating VersionGA for $($pkg.Package) because at least one associated URL is not valid!"
       }
     }
 
-    $version = $pkgVersion.LatestPreview
+    $version = $latestPreview
 
     if ($compareTagVsGHIOVersions) {
       $versionFromGH = GetVersionWebContent $lang $pkg.Package "latest-preview"
@@ -249,13 +259,6 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
       if (CheckRequiredlinks $langLinkTemplates $pkg $version) {
         Write-Host "Updating VersionPreview $($pkg.Package) from $($pkg.VersionPreview) to $version"
         $pkg.VersionPreview = $version;
-
-        $updatedPreviewPackage = $pkg.PSObject.Copy()
-        $sourceUrl = GetLinkTemplateValue $langLinkTemplates "source_url_template" $pkg.Package $version $pkg.RepoPath
-        $updatedPreviewPackage | Add-Member -NotePropertyName "UpdatedVersion" -NotePropertyValue $version
-        $updatedPreviewPackage | Add-Member -NotePropertyName "SourceUrl" -NotePropertyValue $sourceUrl
-        $updatedPreviewPackage | Add-Member -NotePropertyName "Language" -NotePropertyValue $lang
-        $updatedPackages += $updatedPreviewPackage
       }
       else {
         Write-Warning "Not updating VersionPreview for $($pkg.Package) because at least one associated URL is not valid!"
@@ -263,7 +266,6 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
     }
     CheckOptionalLinks $langLinkTemplates $pkg
   }
-  return $updatedPackages
 }
 
 function OutputVersions($lang)
@@ -271,10 +273,10 @@ function OutputVersions($lang)
   Write-Host "Checking $lang for updates..."
   $clientPackages, $global:otherPackages = Get-PackageListForLanguageSplit $lang
 
-  $langVersions = GetPackageVersions $lang -afterDate ([DateTime]::Now.AddMonths(-3))
+  $langVersions = GetPackageVersions $lang -afterDate ([DateTime]::Now.AddMonths(-1 * $numMonthsForReleaseTags))
   $langLinkTemplates = GetLinkTemplates $lang
 
-  $updatedPackages = Update-Packages $lang $clientPackages $langVersions $langLinkTemplates
+  Update-Packages $lang $clientPackages $langVersions $langLinkTemplates
 
   Write-Host "Checking doc links for other packages"
   foreach ($otherPackage in $otherPackages)
@@ -283,21 +285,14 @@ function OutputVersions($lang)
   }
 
   Set-PackageListForLanguage $lang ($clientPackages + $otherPackages)
-
-  return $updatedPackages
 }
 
 function OutputAll($langs)
 {
-  $updatedPackages = @()
   $langs = $langs | Sort-Object
   foreach ($lang in $langs)
   {
-    $updatedPackages += OutputVersions $lang
-  }
-  if ($changedPackagesPath) {
-    Write-Host "Writing updated packages to $changedPackagesPath"
-    $updatedPackages | ConvertTo-Json | Out-File $changedPackagesPath -Encoding ascii
+    OutputVersions $lang
   }
 }
 
@@ -371,11 +366,7 @@ elseif ($language -eq 'all') {
   OutputAll $languageNameMapping.Keys
 }
 elseif ($languageNameMapping.ContainsKey($language)) {
-  $updatedPackages = OutputVersions $language
-  if ($changedPackagesPath) {
-    Write-Host "Writing updated packages to $changedPackagesPath"
-    $updatedPackages | ConvertTo-Json | Out-File $changedPackagesPath -Encoding ascii
-  }
+  OutputVersions $language
 }
 else {
   Write-Error "Unrecognized Language: $language"
