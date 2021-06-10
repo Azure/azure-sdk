@@ -406,4 +406,16 @@ entries:
     - Added expiration time for the jwt tokens.
     - Added more samples and documentation.
   GroupId: com.azure
+- Name: azure-data-appconfiguration
+  Version: 1.1.13
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-appconfiguration_1.1.13/sdk/appconfiguration/azure-data-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+    - Updated `azure-core` from `1.16.0` to `1.17.0`.
+    - Updated `azure-core-http-netty` from `1.9.2` to `1.10.0`.
+  GroupId: com.azure
 
