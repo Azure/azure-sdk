@@ -110,7 +110,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Moved `AzureCommunicationChatClient.ApiVersion` to `AzureCommunicationChatClientOptions.ApiVersion`.
 - Renamed `CommunicationError` to `ChatError`.
 - Removed following classes:  `CreateChatThreadResult`, `CreateChatThreadRequest`, `ChatMessage`, `ChatMessageContent`, `ChatParticipant`, `ChatMessageReadReceipt`, `ChatThreadProperties`.
-- Removed Any type in TrouterEventUtil, and create a new enum TrouterEvent
+- Removed Any type in TrouterEventUtil, and create a new enum TrouterEvent.
 - Signaling event handlers now only accept a single enum argument, `TrouterEvent` instead of type Any and a ChatEventId. This eliminates the need to cast event payloads. Instead, developers can simply using a switch/case statement on the relevant `TrouterEvent` values.
 - The TrouterEventUtil.create method now returns the strongly-typed enum `TrouterEvent` instead of Any.
 
