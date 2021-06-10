@@ -20,7 +20,7 @@ The Azure SDK team is pleased to make available the June 2021 client library rel
 #### Beta
 
 - Azure Key Vault Common
-- Azure Key Vault
+- Azure Key Vault Keys
 
 ## Installation Instructions
 
