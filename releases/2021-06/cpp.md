@@ -94,8 +94,6 @@ No API changes since `1.0.0-beta.6`.
 ### azure-security-keyvault-common [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/keyvault/azure-security-keyvault-common/CHANGELOG.md#400-beta3-2021-06-08)
 
 No breaking changes or new features added. Includes only implementation enhancements.
-
-
 ### azure-security-keyvault-keys [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md#400-beta3-2021-06-08)
 
 #### Breaking Changes
