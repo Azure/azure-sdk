@@ -32,7 +32,7 @@ To install any of our packages, copy and paste the following commands into a ter
 git clone https://github.com/Azure/azure-sdk-for-cpp
 # git checkout <tag_name>
 # For example:
-git checkout azure-security-keyvault-keys_4.0.0-beta.1
+git checkout azure-storage-blobs_12.0.0
 ```
 
 ## Feedback
