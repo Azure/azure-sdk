@@ -5,12 +5,24 @@ parameters:
 - name: Repos
   type: object
   default:
+    azure-sdk-for-android:
+      Language: android
+    # C repo doesn't currently support the correct tagging and changelog format
+    # azure-sdk-for-c:
+    #   Language: c
+    azure-sdk-for-cpp:
+      Language: cpp
+    azure-sdk-for-net:
+      Language: dotnet
+    # Go repo doesn't currently follow the changelog guidelines
+    # azure-sdk-for-go:
+    #   Language: go
+    azure-sdk-for-ios:
+      Language: ios
     azure-sdk-for-java:
       Language: java
     azure-sdk-for-js:
       Language: js
-    azure-sdk-for-net:
-      Language: dotnet
     azure-sdk-for-python:
       Language: python
 
@@ -56,11 +68,11 @@ steps:
           Write-Host "git checkout -b $PRBranchName."
           git checkout -b $PRBranchName
         }
-      displayName: Checkout Previous PRBranch if it exist.
+      displayName: '${{ repo.value.Language }} Checkout Previous PRBranch if it exist.'
       workingDirectory: $(AzureSDKReleaseNotesClonePath)
 
     - task: PowerShell@2
-      displayName: 'Generate ReleaseNotes for the Release Period'
+      displayName: '${{ repo.value.Language }} Generate ReleaseNotes for the Release Period'
       inputs:
         pwsh: true
         workingDirectory: $(System.DefaultWorkingDirectory)

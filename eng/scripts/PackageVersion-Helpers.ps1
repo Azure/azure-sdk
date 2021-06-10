@@ -55,6 +55,7 @@ function GetLatestTags($repo, [DateTime]$afterDate = [DateTime]::Now.AddMonths(-
     $tags = @()
     do {
       $done = $true
+      Write-Verbose "Checking for tags in $repo with date $afterDate"
       $response = (Invoke-RestMethod -Method "POST" -Uri "https://api.github.com/graphql" -Headers $GithubHeaders -Body $queryBody)
 
       if ($response.psobject.members.name -contains "errors" -and $response.errors.message) {
@@ -81,12 +82,14 @@ function GetLatestTags($repo, [DateTime]$afterDate = [DateTime]::Now.AddMonths(-
         }
 
         if ($tagDate -ge $afterDate) {
+          Write-Verbose "Found $($tagNode.name) in repo $repo with date ${tagDate}"
           $tags += [PSCustomObject]@{
             Tag = $tagNode.name
             Date = $tagDate
           }
         }
         else {
+          Write-Verbose "Skipping tag $($tagNode.name) in repo $repo with date ${tagDate} because it is before ${afterDate}"
           $done = $true
           break
         }
