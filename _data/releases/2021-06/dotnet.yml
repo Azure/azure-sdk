@@ -207,14 +207,6 @@ entries:
     - Fixed bug where DataLakeFileClient.Read could corrupt data on retry.
     - Fixed bug where specifying "*" as IfMatch condition could lead to inconsistend read in DataLakeFileClient.ReadTo.
     - Fixed bug where specifying conditions in DataLakeFileClient.OpenRead could override allowModifications flag in DataLakeOpenReadOptions leading to inconsistent read.
-- Name: Azure.Data.Tables
-  Version: 12.0.0
-  DisplayName: Tables
-  ServiceName: Tables
-  VersionType: GA
-  Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.Tables_12.0.0/sdk/tables/Azure.Data.Tables/CHANGELOG.md
-  ChangelogContent: '- Added `GenerateSasUri` methods to both `TableClient` and `TableServiceClient`.'
 - Name: Azure.Storage.Queues
   Version: 12.7.0
   DisplayName: Storage - Queues
