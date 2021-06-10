@@ -288,4 +288,27 @@ entries:
     #### Bug fixes
 
     - Fixes issue [#13500](https://github.com/Azure/azure-sdk-for-js/issues/13500) where a `TypeError: Cannot read property '_process' of undefined` could be thrown in rare cases.
+- Name: '@azure/attestation'
+  Version: 1.0.0-beta.3
+  DisplayName: Attestation
+  ServiceName: Attestation
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/attestation_1.0.0-beta.3/sdk/attestation/attestation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    #### Breaking Changes
+
+    - Essentially completely rewritten. All existing functionality has been replaced.
+    - Removed `policy` property on `AttestationClient` object, because it has been replaced.
+    - Removed `policy.reset` and `policy.set`, replaced with the `resetPolicy` and `setPolicy` methods on the `AttestationAdministrationClient`.
+    - Removed `policy.get`, replaced with the `getPolicy` method of the new  `AttestationAdministrationClient` client object.
+    - Removed `attestation.attestSgxEnclave`, `attestation.attestOpenEnclave`, `attestation.attestTpm`, and `attestation` property from attestationClient, replaced with `attestSgxEnclave`, `attestOpenEnclave` and `attestTpm`.
+    - Removed `metadataConfiguration` and `signingCertificates` properties from attestationClient.
+    - Removed `metadataConfiguration.get()` method, replaced with `client.getOpenIdMetadata()`.
+    - Removed `signingCertificates.get()` method, replaced with `client.getAttestationSigners()`. The return value for `getAttestationSigners()` is an array of `AttestationSigner` objects,
+    each of which has two properties: `key_id` and `certificates`. `key_id`
+    reflects the `kid` JSON Web Key attribute, and `certificates` is the **decoded** `x5c` attribute
+    in the JSON Web Key.
 
