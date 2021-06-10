@@ -33,7 +33,7 @@ Open your project's `Package.swift` file and add a new package dependency to you
 // swift-tools-version:5.3
     dependencies: [
         ...
-        .package(name: "AzureCore", url: "https://github.com/Azure/SwiftPM-AzureCore.git", from: "1.0.0-beta.12")
+        .package(name: "AzureCommunicationChat", url: "https://github.com/Azure/SwiftPM-AzureCommunicationChat.git", from: "1.0.0-beta.12")
     ],
 ```
 
@@ -44,7 +44,7 @@ Next, add each client library you wish to use in a target to the target's array 
         ...
         .target(
             name: "MyTarget",
-            dependencies: ["AzureCore", ...])
+            dependencies: ["AzureCommunicationChat", ...])
     ]
 )
 ```
@@ -62,7 +62,16 @@ $ [sudo] gem install cocoapods
 To integrate one or more client libraries into your project using CocoaPods, specify them in your [Podfile](https://guides.cocoapods.org/using/the-podfile.html), providing the version specifier you wish to use. To ensure compatibility when using multiple client libraries in the same project, use the same version specifier for all Azure SDK client libraries within the project:
 
 ```ruby
-// Insert dependencies here
+platform :ios, '12.0'
+
+# Comment the next line if you don't want to use dynamic frameworks
+use_frameworks!
+
+target 'MyTarget' do
+    pod 'AzureCommunicationCalling', '1.1.0-beta.1'
+    pod 'AzureCommunicationChat', '1.0.0-beta.12'
+    ...
+end
 ```
 
 Then, run the following command:
@@ -90,8 +99,8 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Support for starting a recording by an ACS endpoint.
 
 ##### Bug fixes
-- [iOS] ACSRendererView layout is off after a device rotation https://github.com/Azure/Communication/issues/127.
-- [iOS] Resizing issue for animating streams https://github.com/Azure/Communication/issues/262.
+- Fix issue where layout was off after a device rotation.
+- Fix resizing issue for animating streams.
 - Creating multiple CallAgents with same token will throw error.
 
 ### Azure Communication Services Chat
