@@ -542,4 +542,17 @@ entries:
     - Model VmSizeCompatibilityFilter no longer has parameter vmsizes
     - Model CapabilitiesResult no longer has parameter vm_size_filters
     - Model CapabilitiesResult no longer has parameter vm_sizes
+- Name: azure-eventgrid
+  Version: 4.3.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventgrid_4.3.0/sdk/eventgrid/azure-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    **New Features**
+    - Added new event names related to blob inventory to the `SystemEventNames` enum.
+
+    **Bug Fixes**
+    - Replaced the `ServiceBusDeadletterMessagesAvailableWithNoListenerEventName` with the right value.
 
