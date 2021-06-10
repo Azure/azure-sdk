@@ -373,4 +373,23 @@ entries:
     - Upgraded Jackson from `2.12.2` to `2.12.3`.
     - Upgraded Reactor from `3.4.5` to `3.4.6`.
   GroupId: com.azure
+- Name: azure-ai-formrecognizer
+  Version: 3.1.1
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_3.1.1/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bug Fixes
+
+    - Fixed invoices and other recognition operations to avoid Null Pointer Exception when data returned with no
+    sub-line item fields detected.
+    - Fixed invoices and other recognition operations that return a `FormField` with `text`
+    and no `boundingBox` or `page` information.
+
+    #### Dependency updates
+    - Updated azure-core to 1.17.0.
+    - Updated azure-core-http-netty to 1.10.0.
+  GroupId: com.azure
 
