@@ -1,0 +1,49 @@
+entries:
+- Name: AzureCommunicationCalling
+  Version: 1.1.0-beta.1
+  DisplayName: Communication Calling
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationCalling_1.1.0-beta.1/sdk/communication/AzureCommunicationCalling/CHANGELOG.md
+  ChangelogContent: |-
+    Azure Communication Calling iOS SDK version `1.1.0-beta.1`.
+
+    #### New features
+    - Support for CallKit (**Preview mode**)
+    - Use the api `createCallAgentWithCallKitOptions` to create `CallAgent` with `CallKit` enabled and SDK will report to `CallKit` about incoming call , outgoing calls and all other call operations like `mute`, `unmute`, `hold`, `resume` as part of the API calls.
+    - When the app is in the killed state and incoming call is received use the api `reportToCallKit`.
+
+    - `CallAgent` and `CallClient` now has `dispose` API to explicitly delete the objects instead of relying on ARC.
+
+    - Get CorrelationId from `CallInfo` object in `Call` to get the id required for recording feature.
+
+    - Support to start recording by an ACS endpoint.
+
+    #### Bug fixes
+    - [iOS] ACSRendererView layout is off after a device rotation https://github.com/Azure/Communication/issues/127.
+    - [iOS] Resizing issue for animating streams https://github.com/Azure/Communication/issues/262.
+    - Creating multiple CallAgents with same token will throw error.
+
+    -----------
+- Name: AzureCommunicationChat
+  Version: 1.0.0-beta.12
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationChat_1.0.0-beta.12/sdk/communication/AzureCommunicationChat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Changed the way in which options are instantiated for the following classes: `CreateChatThreadOptions`, `DeleteChatThreadOptions`,  `ListChatThreadsOptions`, `AddChatParticipantsOptions`, `DeleteChatMessageOptions`, `GetChatMessageOptions`, `GetChatThreadPropertiesOptions`, `ListChatMessagesOptions`, `ListChatParticipantsOptions`, `ListChatReadReceiptsOptions`, `RemoveChatParticipantOptions`, `SendChatMessageOptions`, `SendChatReadReceiptOptions`, `SendTypingNotificationOptions`, `UpdateChatMessageOptions`, `UpdateChatThreadPropertiesOptions`.
+    - old:
+    `let options = Chat.CreatChatThreadOptions()`
+    - new:
+    `let options = CreateChatThreadOptions()`
+    - Moved `AzureCommunicationChatClient.ApiVersion` to `AzureCommunicationChatClientOptions.ApiVersion`.
+    - Renamed `CommunicationError` to `ChatError`
+    - Removed following classes:  `CreateChatThreadResult`, `CreateChatThreadRequest`, `ChatMessage`, `ChatMessageContent`, `ChatParticipant`, `ChatMessageReadReceipt`, `ChatThreadProperties`.
+    - Removed Any type in TrouterEventUtil, and create a new enum TrouterEvent
+    - Signaling event handlers now only accept a single enum argument, `TrouterEvent` instead of type Any and a ChatEventId. This eliminates the need to cast event payloads. Instead, developers can simply using a switch/case statement on the relevant `TrouterEvent` values.
+    - The TrouterEventUtil.create method now returns the strongly-typed enum `TrouterEvent` instead of Any.
+
