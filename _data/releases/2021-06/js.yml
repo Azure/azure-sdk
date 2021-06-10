@@ -333,4 +333,12 @@ entries:
     - ServiceBusSender could throw an error (`TypeError: Cannot read property 'maxMessageSize' of undefined`) if a link was being restarted while calling sendMessages().
     [PR#15409](https://github.com/Azure/azure-sdk-for-js/pull/15409)
     - Fixes issue [#13500](https://github.com/Azure/azure-sdk-for-js/issues/13500) where a `TypeError: Cannot read property '_process' of undefined` could be thrown in rare cases.
+- Name: '@azure/cosmos'
+  Version: 3.11.4
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_3.11.4/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: '- BUGFIX: Correctly failover to new regions when regional DNS has gone offline.'
 
