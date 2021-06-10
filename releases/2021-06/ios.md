@@ -89,7 +89,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 - `CallAgent` and `CallClient` now has `dispose` API to explicitly delete the objects instead of relying on ARC.
 
 - Get CorrelationId from `CallInfo` object in `Call` to get the id required for recording feature. 
-
 - Support to start recording by an ACS endpoint.
 
 ##### Bug fixes
