@@ -555,4 +555,25 @@ entries:
 
     **Bug Fixes**
     - Replaced the `ServiceBusDeadletterMessagesAvailableWithNoListenerEventName` with the right value.
+- Name: azure-storage-file-datalake
+  Version: 12.4.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.4.0/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    **New features**
+    - Added support `set_service_properties()`,`get_service_properties()` on `DataLakeServiceClient`
+    - Added support for `list_deleted_paths()` on `FileSystemClient`
+- Name: azure-storage-file-share
+  Version: 12.5.0
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.5.0/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    **New features**
+    - Added support for lease operation on a share, eg. acquire_lease
 
