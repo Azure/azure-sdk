@@ -34,7 +34,7 @@ entries:
   VersionType: Beta
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.5.0-beta.1/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
-  ChangelogContent: |2-
+  ChangelogContent: |-
     ### Features Added
     - When stopping, the `EventProcessor<TPartition>` will now attempt to aggressively abort the connection to avoid blocking on timeouts.  This should significantly help reduce the amount of time the processor takes to stop in many scenarios. _(Based on a community prototype contribution, courtesy of [danielmarbach](https://github.com/danielmarbach))_
     - When the `EventProcessor<TPartition>` detects a partition being stolen outside of a load balancing cycle, it will immediately surrender ownership rather than waiting for a load balancing cycle to confirm the ownership change.  This will help reduce event duplication from overlapping ownership of partitions.
