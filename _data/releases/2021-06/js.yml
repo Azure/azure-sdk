@@ -277,4 +277,15 @@ entries:
   ChangelogContent: |-
     With [#14863](https://github.com/Azure/azure-sdk-for-js/pull/14863), this is the first release of the @azure/iot-modelsrepository package.
     This package contains the `ModelsRepositoryClient` to talk to the Azure Models Repository service, with initial support for getting models. Additionally, helper functions for working with DTMIs are provided.```
+- Name: '@azure/event-hubs'
+  Version: 5.5.2
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.5.2/sdk/eventhub/event-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bug fixes
+
+    - Fixes issue [#13500](https://github.com/Azure/azure-sdk-for-js/issues/13500) where a `TypeError: Cannot read property '_process' of undefined` could be thrown in rare cases.
 
