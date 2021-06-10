@@ -87,7 +87,6 @@ If you have a bug or feature request for one of the libraries, please post an is
   - When the app is in the killed state and incoming call is received use the api `reportToCallKit`.
 
 - `CallAgent` and `CallClient` now has `dispose` API to explicitly delete the objects instead of relying on ARC.
-
 - Get CorrelationId from `CallInfo` object in `Call` to get the id required for recording feature. 
 - Support to start recording by an ACS endpoint.
 
