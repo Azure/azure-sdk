@@ -88,7 +88,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 - `CallAgent` and `CallClient` now have `dispose` APIs to explicitly delete these objects instead of relying on ARC.
 - Get `CorrelationId` from the `CallInfo` object in a `Call` to get the id required for the recording feature.
-- Support to start recording by an ACS endpoint.
+- Support for starting a recording by an ACS endpoint.
 
 ##### Bug fixes
 - [iOS] ACSRendererView layout is off after a device rotation https://github.com/Azure/Communication/issues/127.
