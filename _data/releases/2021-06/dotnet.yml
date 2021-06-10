@@ -295,4 +295,12 @@ entries:
     #### Key Bugs Fixed
 
     - Fixed an issue which would result in calls to `TableClient.Delete`, `TableClient.DeleteAsync`, `TableClient.DeleteEntity`, `TableClient.DeleteEntityAsync` throwing a `NullReferenceException` if the client was constructed with the `TableClient(string connectionString, string tableName, TableClientOptions options)` constructor.
+- Name: Azure.Data.Tables
+  Version: 12.0.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.Tables_12.0.0/sdk/tables/Azure.Data.Tables/CHANGELOG.md
+  ChangelogContent: '- Added `GenerateSasUri` methods to both `TableClient` and `TableServiceClient`.'
 
