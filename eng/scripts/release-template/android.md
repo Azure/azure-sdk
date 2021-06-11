@@ -5,4 +5,4 @@ tags: android azure
 sidebar: releases_sidebar
 repository: azure/azure-sdk-for-android
 ---
-{% include releases/notes/common.md language="android" data="%%yyyy-MM%%" date="%%MMMM yyyy%%" %}
+{% include releases/notes/common.md language="android" date="%%yyyy-MM%%" displayDate="%%MMMM yyyy%%" %}

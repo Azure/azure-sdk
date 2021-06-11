@@ -8,7 +8,6 @@ To use the latest GA and beta libraries, refer to the dependency information bel
 {% for package in allPackagesSortedByName %}
     {%- capture gradle_java_install_instruction -%}
 {{ "    " }}implementation '{{ package.GroupId }}:{{ package.Name }}:{{ package.Version }}'
-{{""}}
     {%- endcapture -%}
     {{ gradle_java_install_instruction }}
 {% endfor %}
@@ -18,7 +17,6 @@ To use the latest GA and beta libraries, refer to the dependency information bel
 {% for package in allPackagesSortedByName %}
     {%- capture gradle_kotlin_install_instruction -%}
 {{ "    " }}implementation("{{ package.GroupId }}:{{ package.Name }}:{{ package.Version }}")
-{{""}}
     {%- endcapture -%}
     {{ gradle_kotlin_install_instruction }}
 {% endfor %}
@@ -32,7 +30,6 @@ To use the latest GA and beta libraries, refer to the dependency information bel
 {{ "    " }}<artifactId>{{ package.Name }}</artifactId>
 {{ "    " }}<version>{{ package.Version }}</version>
 </dependency>
-{{""}}
     {%- endcapture -%}
     {{ maven_install_instruction }}
 {% endfor %}
