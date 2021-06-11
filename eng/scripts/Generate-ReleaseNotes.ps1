@@ -3,7 +3,7 @@ param (
   [string]$releasePeriod,
   [string]$repoLanguage,
   [string]$commonScriptPath,
-  [string]$releaseDirectory = "$PSScriptRoot\..\..\_data\releases",
+  [string]$releaseDirectory = (Resolve-Path "$PSScriptRoot\..\..\_data\releases"),
   [string]$github_pat = $env:GITHUB_PAT
 )
 
@@ -83,10 +83,13 @@ function GetReleaseNotesData ($packageName, $packageVersion, $packageMetadata)
 $pathToRelatedYaml = (Join-Path $ReleaseDirectory $releasePeriod "${repoLanguage}.yml")
 LogDebug "Related Yaml File Path [ $pathToRelatedYaml ]"
 
-if (!(Test-Path $pathToRelatedYaml))
+if (Test-Path $pathToRelatedYaml)
 {
-  New-Item -Path $pathToRelatedYaml -Force
-  Set-Content -Path $pathToRelatedYaml -Value @("entries:")
+  $yamlContent = Get-Content $pathToRelatedYaml -Raw
+}
+else
+{
+  $yamlContent = "entries:"
 }
 
 # Install Powershell Yaml
@@ -95,7 +98,7 @@ $ToolsFeed = "https://pkgs.dev.azure.com/azure-sdk/public/_packaging/azure-sdk-t
 Register-PSRepository -Name azure-sdk-tools-feed -SourceLocation $ToolsFeed -PublishLocation $ToolsFeed -InstallationPolicy Trusted -ErrorAction SilentlyContinue
 Install-Module -Repository azure-sdk-tools-feed powershell-yaml
 
-$existingYamlContent = ConvertFrom-Yaml (Get-Content $pathToRelatedYaml -Raw) -Ordered
+$existingYamlContent = ConvertFrom-Yaml $yamlContent -Ordered
 if (!$existingYamlContent.entries)
 {
   $existingYamlContent.entries = New-Object "System.Collections.Generic.List[System.Collections.Specialized.OrderedDictionary]"
@@ -109,9 +112,8 @@ foreach ($packageName in $updatedPackageSet.Keys)
 {
   Write-Verbose "Checking release notes for $packageName"
   $pkgKey = $packageName
-  if ($repoLanguage -eq "java") {
-    $pkgKey = "com.azure:${pkgKey}"
-  }
+  if ($repoLanguage -eq "java") { $pkgKey = "com.azure:${pkgKey}" }
+  if ($repoLanguage -eq "android") { $pkgKey = "com.azure.android:${pkgKey}" }
   $pkgMetadata = $languageMetadata[$pkgKey]
 
   if (!$pkgMetadata) {
@@ -138,4 +140,12 @@ foreach ($packageName in $updatedPackageSet.Keys)
   }
 }
 
-Set-Content -Path $pathToRelatedYaml -Value (ConvertTo-Yaml $existingYamlContent)
+if ($existingYamlContent.entries.Count -gt 0)
+{
+  Write-Host "Writing release notes for $repoLanguage to $pathToRelatedYaml"
+  Set-Content -Path $pathToRelatedYaml -Value (ConvertTo-Yaml $existingYamlContent)
+}
+else
+{
+  Write-Host "No release notes for $repoLanguage so not writing $pathToRelatedYaml"
+}
