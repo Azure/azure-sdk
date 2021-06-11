@@ -5,4 +5,4 @@ tags: python azure
 sidebar: releases_sidebar
 repository: azure/azure-sdk-for-python
 ---
-{% include releases/notes/common.md language="python" data="2021-06" date="%%MMMM yyyy%%" %}
+{% include releases/notes/common.md language="python" date="2021-06" displayDate="June 2021" %}

@@ -62,20 +62,15 @@ else {
 
   ### Update template files with date
   foreach ($file in (Get-ChildItem $releaseFolder/$releaseFileName)) {
-    $fileContent = Get-Content $file
+    $fileContent = Get-Content $file -Raw
 
-    $fileContent = $fileContent | ForEach-Object {
-      if ($_ -match "%%(?<format>.*?)%%") {
-        try {
-          $_ -replace $matches[0], $releaseDate.ToString($matches["format"])
-        }
-        catch {
-          Write-Host ("Date format " + $matches["format"] + " in file $file is invalid.")
-        }
-      } else {
-        $_
-      }
+    $dateFormats = [regex]::Matches($fileContent, "%%(?<format>.*?)%%")
+
+    foreach ($dateFormatMatch in $dateFormats)
+    {
+      $fileContent = $fileContent -replace $dateFormatMatch.Groups[0], $releaseDate.ToString($dateFormatMatch.Groups["format"])
     }
-    $fileContent | Set-Content $file
+
+    $fileContent | Set-Content $file -NoNewline
   }
 }
