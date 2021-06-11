@@ -56,7 +56,8 @@ function GetReleaseNotesData ($packageName, $packageVersion, $packageMetadata)
       }
     }
   }
-  elseif ($updatedVersionEntry.ReleaseContent)
+  
+  if (($releaseEntryContent.Count -eq 0) -and $updatedVersionEntry.ReleaseContent)
   {
       # Bumping all MD headers by one level to fit in with the release template structure.
       $releaseEntryContent += BumpUpMDHeaders -content $updatedVersionEntry.ReleaseContent
