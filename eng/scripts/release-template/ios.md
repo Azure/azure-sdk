@@ -28,22 +28,31 @@ To install the latest GA and beta libraries, we recommend you use the [Swift Pac
 
 To add the Azure SDK for iOS to your application, follow the instructions in [Adding Package Dependencies to Your App](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app):
 
-With your project open in Xcode 11 or later, select **File > Swift Packages > Add Package Dependency...** Enter the clone URL of this repository: *https://github.com/Azure/azure-sdk-for-ios.git* and click **Next**. For the version rule, specify the exact version or version range you wish to use with your application and click **Next**. Finally, place a checkmark next to each client library you wish to use with your application, ensure your application target is selected in the **Add to target** dropdown, and click **Finish**.
+With your project open in Xcode 11 or later, select **File > Swift Packages > Add Package Dependency...** Enter the clone URL of the Swift Package Manager mirror repository for the library you wish to include (it will have the form `SwiftPM-<NAME>`, i.e.: *https://github.com/Azure/SwiftPM-AzureCore.git*) and click **Next**. For the version rule, specify the exact version or version range you wish to use with your application and click **Next**. Finally, place a checkmark next to each client library you wish to use with your application, ensure your application target is selected in the **Add to target** dropdown, and click **Finish**.
 
 ### Swift CLI
 
 To add the Azure SDK for iOS to your application, follow the example in [Importing Dependencies](https://swift.org/package-manager/#importing-dependencies):
 
-Open your project's `Package.swift` file and add a new package dependency to your project's `dependencies` section, specifying the clone URL of the repository and the version specifier you wish to use:
+Open your project's `Package.swift` file and add a new package dependency to your project's `dependencies` section, specifying the clone URL of the Swift Package Manager mirror repository and the version specifier you wish to use:
 
 ```swift
-// Insert dependencies here
+// swift-tools-version:5.3
+dependencies: [
+    ...
+    .package(name: "AzureCore", url: "https://github.com/Azure/SwiftPM-AzureCore.git", from: "1.0.0-beta.12")
+]
 ```
 
 Next, add each client library you wish to use in a target to the target's array of `dependencies`:
 
 ```swift
-// Insert dependencies here
+targets: [
+    ...
+    .target(
+        name: "MyTarget",
+        dependencies: ["AzureCore", ...])
+]
 ```
 
 ### Cocoapods
@@ -59,7 +68,13 @@ $ [sudo] gem install cocoapods
 To integrate one or more client libraries into your project using CocoaPods, specify them in your [Podfile](https://guides.cocoapods.org/using/the-podfile.html), providing the version specifier you wish to use. To ensure compatibility when using multiple client libraries in the same project, use the same version specifier for all Azure SDK client libraries within the project:
 
 ```ruby
-// Insert dependencies here
+platform :ios, '12.0'
+# Comment the next line if you don't want to use dynamic frameworks
+use_frameworks!
+target 'MyTarget' do
+    pod 'AzureCore', '1.0.0-beta.12'
+    ...
+end
 ```
 
 Then, run the following command:
