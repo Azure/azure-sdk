@@ -16,7 +16,7 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
   - Create & update farmers, farms, fields, seasonal fields and boundaries.
   - Ingest satellite and weather data for areas of interest.
   - Ingest farm operations data covering tilling, planting, harvesting and application of farm inputs.
-- Form Recognizer SDK for JS released a new GA version 3.1.0. This General Availability (GA) release marks the stability of the changes introduced in package versions 3.1.0-beta.1 through 3.1.0-beta.3.
+- Form Recognizer SDK for JS (`@azure/ai-form-recognizer`) released a new GA version: 3.1.0. This General Availability (GA) release marks the stability of the changes introduced in package versions 3.1.0-beta.1 through 3.1.0-beta.3.
 - Communication Relay has released a first beta for JS package @azure/communication-network-traversal. Azure Communication Network Traversal is managing tokens for Azure Communication Services.
 - Monitor Query (`@azure/monitor-query`) has released 1.0.0-beta.1, which allows you to query Log Analytics Workspaces for logs and metrics.
 - Models Repository service has released a first beta for JS package @azure/iot-modelsrepository. This package contains the `ModelsRepositoryClient` to talk to the Azure Models Repository service, with initial support for getting models and helper functions for working with DTMIs.
