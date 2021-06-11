@@ -18,7 +18,13 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
   - Ingest farm operations data covering tilling, planting, harvesting and application of farm inputs.
 - Form Recognizer SDK for JS released a new GA version 3.1.0. This General Availability (GA) release marks the stability of the changes introduced in package versions 3.1.0-beta.1 through 3.1.0-beta.3.
 - Communication Relay has released a first beta for JS package @azure/communication-network-traversal. Azure Communication Network Traversal is managing tokens for Azure Communication Services.
+- Monitor Query has released a first beta for JS package, which allows you to query Log Analytics Workspaces for logs and metrics.
+- Models Repository service has released a first beta for JS package @azure/iot-modelsrepository. This package contains the `ModelsRepositoryClient` to talk to the Azure Models Repository service, with initial support for getting models and helper functions for working with DTMIs.
 - Cognitive Search SDK for JS has released a new GA version 11.2.0.
+- Eventgrid SDK for JS has released a new GA version 4.3.0.
+- Storage has released new GA versions for @azure/storage-file-share, @azure/storage-blob, @azure/storage-file-datalake, @azure/storage-queue SDKs with Azure Storage Service API version 2020-08-04.
+- Tables SDK for JS has released a new GA version 12.0.0. It has fixes for transaction issues when there are multiple transactions and date serializations, added support for generating SAS tokens.
+- Service Bus SDK for JS has released a new GA version 7.2.0. It enables encoding the body of a message, which allows you to take advantage of native AMQP serialization for supported primitives or sequences.It improves cancellation support when sending messages or initializing a connection to the service. This version has a few bug fixes too.
 
 ## Release Notes
 
