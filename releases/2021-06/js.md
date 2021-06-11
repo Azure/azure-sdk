@@ -5,4 +5,4 @@ tags: javascript typescript azure
 sidebar: releases_sidebar
 repository: azure/azure-sdk-for-js
 ---
-{% include releases/notes/common.md language="js" data="2021-06" date="%%MMMM yyyy%%" %}
+{% include releases/notes/common.md language="js" date="2021-06" displayDate="June 2021" %}
