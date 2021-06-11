@@ -22,7 +22,7 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 - Models Repository service has released a first beta for JS package @azure/iot-modelsrepository. This package contains the `ModelsRepositoryClient` to talk to the Azure Models Repository service, with initial support for getting models and helper functions for working with DTMIs.
 - Cognitive Search SDK for JS has released a new GA version 11.2.0.
 - Eventgrid SDK for JS has released a new GA version 4.3.0.
-- Storage has released new GA versions for @azure/storage-file-share, @azure/storage-blob, @azure/storage-file-datalake, @azure/storage-queue SDKs with Azure Storage Service API version 2020-08-04.
+- Storage has released new GA versions for `@azure/storage-file-share`, `@azure/storage-blob`, `@azure/storage-file-datalake`, `@azure/storage-queue` SDKs with Azure Storage Service API version 2020-08-04.
 - Tables SDK for JS (`@azure/data-tables`) has released a new GA version: 12.0.0. It has fixes for transaction issues when there are multiple transactions and date serializations, added support for generating SAS tokens.
 - Service Bus SDK for JS has released a new GA version: 7.2.0. It enables encoding the body of a message using native AMQP serialization for supported primitives or sequences. In addition, cancellation support has been improved when sending messages or initializing a connection to the service.
 
