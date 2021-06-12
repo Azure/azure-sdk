@@ -524,4 +524,18 @@ entries:
     * Improved behavior when `CosmosClientBuilder.userAgentSuffix` exceeds 64 characters. Now `userAgentSuffix` will be honored as long as total userAgent value is less than 256 characters or truncated to fit the 256 characters limited.
     * Fixed issue when using client-side throughput control in combination with bulk upserts, previously resulting in unnecessarily upserting documents multiple times in some cases when getting throttled.
   GroupId: com.azure
+- Name: azure-core-amqp
+  Version: 2.2.0
+  DisplayName: Core - AMQP
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-amqp_2.2.0/sdk/core/azure-core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### New Features
+    - Adding support for AMQP data types SEQUENCE and VALUE.
+
+    #### Dependency Updates
+    - Upgraded `azure-core` dependency to `1.15.0`.
+  GroupId: com.azure
 
