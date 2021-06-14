@@ -41,34 +41,34 @@ for known_cloud in azure.core.clouds.well_known:
 
 ### Cloud configuration properties
 
-A cloud configuration object consists of a map of service-name to service-specific-configuration-entry as per below:
+A cloud configuration object consists of a common `authentication` sections plus a map of service-name to service-specific-configuration-entry as per below:
 
 ```jsonc
 {
-  "global": {
-    "endpoint": "<url>",
-    "authentication": {
-      "audiences": [
-        "<optional audiences>"
-      ]
-    }
+  "authentication": {
+    "loginEndpoint": "<url>",
+    "audiences": [
+      "<optional audiences>"
+    ]
   },
-  "<service entry1>": {
-    "endpoint": "<url>",
-    "suffix": "<suffix>",
-    "authentication": {
-      "audiences": [
-        "<optional audiences>"
-      ]
-    }
-  },
-  "<service entry2>": {
-    "endpoint": "<url>",
-    "suffix": "<suffix>",
-    "authentication": {
-      "audiences": [
-          "<optional audiences>"
-      ]
+  "services": {
+    "<service entry1>": {
+      "endpoint": "<url>",
+      "suffix": "<suffix>",
+      "authentication": {
+        "scopes": [
+          "<optional scopes>"
+        ]
+      }
+    },
+    "<service entry2>": {
+      "endpoint": "<url>",
+      "suffix": "<suffix>",
+      "authentication": {
+        "scopes": [
+            "<optional scopes>"
+        ]
+      }
     }
   }
 }
@@ -85,11 +85,11 @@ where `<service entry>` is (currently) one of the following values:
 
 |Name|Notes|
 |-|-|
-|`global`|Global per-cloud configuration (e.g. auth endpoint etc.). Required|
 |`batch`|Batch service endpoint|
 |`containerRegistry`|Azure Container Registry|
 |`dataLakeAnalyticsCatalogAndJob`||
 |`dataLakeStorageFileSystem`||
+|`gallery`||
 |`graph`||
 |`keyvault`||
 |`media`|Media services service endpoint|
@@ -126,8 +126,8 @@ The order of precedence is (in order of decreasing specificity):
 
 * Explicitly provided configuration value from cloud_configuration parameter provided when creating the client.
 * Ambient default cloud (if supported) explicitly set by the application.
-* Endpoint specific environment variables (e.g. `AZURE_AUTHORITY_HOST`)
-* Cloud specified in the `AZURE_CLOUD` environment variable. 
+* Endpoint specific environment variables (i.e. `AZURE_AUTHORITY_HOST`)
+* Cloud specified in the `AZURE_CLOUD` environment variable.
 * Final fallback, corresponding Public Azure's settings (built in to the client library)
 
 ### Missing configuration properties
@@ -168,7 +168,7 @@ azure.core.settings.cloud_configuration = azure.core.clouds.well_known['AzureChi
 # ...or pass in a custom cloud configuration instance into a method
 config: typing.Mapping[str, CloudConfiguration] = {
   data['name']: CloudConfiguration.from_metadata_dict(data)
-  for data in requests.get('https://azurestackinstance1.contoso.com/discover?api-version=2019-05-01'.json()
+  for data in requests.get('https://some.cloud.instance/metadata/endpoints?api-version=2019-05-01 '.json()
 }
 creds = azure.identity.DefaultAzureCredential(cloud_configuration=config['AzureStackInstance1'])
 
@@ -198,17 +198,42 @@ creds = azure.identity.DefaultAzureCredential(cloud_configuration='PublicAzure')
     "description": "Endpoint and authentication information for azure cloud instances",
     "type": "object",
     "required": [
-        "global"
+        "authentication",
+        "services"
     ],
     "properties": {
-        "global": {
-            "$ref": "#/$defs/CloudConfiguration"
+        "authentication": {
+            "$ref": "#/$defs/Authentication"
+        },
+        "services": {
+          "additionalProperties": {
+              "$ref": "#/$defs/CloudConfiguration"
+          }
         }
     },
-    "additionalProperties": {
-        "$ref": "#/$defs/CloudConfiguration"
-    },
     "$defs": {
+        "Authentication": {
+            "type": "object",
+            "required": [ "loginEndpoint", "audiences", "tenant" ],
+            "properties": {
+                "loginEndpoint: {
+                    "type": "string"
+                },
+                "audiences": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "tenant: {
+                    "type": "string"
+                },
+                "identityProvider: {
+                    "default": "AAD",
+                    "type": "string"
+                }
+            }
+        },
         "CloudConfiguration": {
             "type": "object",
             "properties": {
@@ -218,24 +243,13 @@ creds = azure.identity.DefaultAzureCredential(cloud_configuration='PublicAzure')
                 "suffix": {
                     "type": "string"
                 },
-                "authentication": {
-                    "type": "object",
-                    "required": [ "audiences" ],
-                    "properties": {
-                        "audiences": {
-                            "type": "array",
-                            "items": {
-                                "type": "string"
-                            }
-                        }
-                    }
+                "scopes" : {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 }
             }
-        },
-        "CloudConfigurations": {
-            "required": [
-                "global"
-            ]
         }
     }
 }
