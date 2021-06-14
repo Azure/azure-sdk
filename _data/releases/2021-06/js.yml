@@ -358,4 +358,16 @@ entries:
     #### Fixed
 
     - BUGFIX: Adds another failover condition.
+- Name: '@azure/core-http'
+  Version: 1.2.6
+  DisplayName: Core - HTTP
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_1.2.6/sdk/core/core-http/CHANGELOG.md
+  ChangelogContent: |-
+    #### Key Bugs Fixed
+
+    - Fixed an issue of lost properties when flattening array in deserialization [issue 15653](https://github.com/azure/azure-sdk-for-js/issues/15653)
+    - Fixed an issue of incorrect minimum version of tslib [issue 15697](https://github.com/Azure/azure-sdk-for-js/issues/15697)
 
