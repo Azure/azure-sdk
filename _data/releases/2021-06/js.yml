@@ -474,4 +474,40 @@ entries:
 
     - Fixed a bug with `beginDeleteSecret` and `beginRecoverDeletedSecret` in which unknown service errors wouldn't bubble up properly to the end users.
     - Renamed the `KeyVaultSecretId` to `KeyVaultSecretIdentifier`, and exported a method to parse Key Vault Secret Ids: `parseKeyVaultSecretIdentifier`.
+- Name: '@azure/monitor-query'
+  Version: 1.0.0-beta.2
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.0.0-beta.2/sdk/monitor/monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    - Fixing issue using non-commercial clouds, where it wasn't possible to pass in an endpoint and custom
+    scope, both of which are needed.
+    [PR#15705](https://github.com/Azure/azure-sdk-for-js/pull/15705)
+    - Adding a mitigation for LogsQueryClient.queryLogsBatch() where an invalidly encoded response could lead
+    to no results being surfaced to the user. This should allow for the result to be properly parsed.
+    [PR#15718](https://github.com/Azure/azure-sdk-for-js/pull/15718)
+- Name: '@azure/keyvault-admin'
+  Version: 4.0.1
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-admin_4.0.1/sdk/keyvault/keyvault-admin/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bug Fixes
+
+    - Fixed an issue where bundling could fail when importing this library due to an incorrectly set import.
+- Name: '@azure/keyvault-keys'
+  Version: 4.2.1
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-keys_4.2.1/sdk/keyvault/keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bug Fixes
+
+    - Fixed an issue where bundling could fail when importing this library due to an incorrectly set import.
 
