@@ -46,7 +46,7 @@ function GetReleaseNotesData ($packageName, $packageVersion, $packageMetadata)
 
   if ($updatedVersionEntry.Sections.Keys.Count -gt 0)
   {
-    $sectionsToPull = @("Features Added","Breaking Changes","Key Bugs Fixed","Fixed")
+    $sectionsToPull = @("Features Added","Breaking Changes","Key Bugs Fixed")
     foreach ($key in $updatedVersionEntry.Sections.Keys) 
     {
       if ($key -in $sectionsToPull)
