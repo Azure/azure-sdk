@@ -564,4 +564,92 @@ entries:
     if response.token.get_body().deprecated_tee != 'sgx':
     print("Unexpected tee claim in token")
     ```
+- Name: azure-mgmt-hdinsight
+  Version: 3.0.0
+  DisplayName: Resource Management - HDInsight
+  ServiceName: HDInsight
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-hdinsight_3.0.0/sdk/hdinsight/azure-mgmt-hdinsight/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model VmSizeCompatibilityFilter has a new parameter vm_sizes
+    - Model VmSizeCompatibilityFilter has a new parameter compute_isolation_supported
+    - Model VmSizeCompatibilityFilter has a new parameter os_type
+    - Model VmSizeCompatibilityFilter has a new parameter esp_applied
+    - Model CapabilitiesResult has a new parameter vmsizes
+    - Model CapabilitiesResult has a new parameter vmsize_filters
+    - Model KafkaRestProperties has a new parameter configuration_override
+    - Model StorageAccount has a new parameter saskey
+    - Model StorageAccount has a new parameter fileshare
+    - Model Role has a new parameter vm_group_name
+    - Model ApplicationGetHttpsEndpoint has a new parameter private_ip_address
+    - Added operation LocationsOperations.validate_cluster_create_request
+    - Added operation LocationsOperations.check_name_availability
+    - Added operation LocationsOperations.get_azure_async_operation_status
+    - Added operation ApplicationsOperations.get_azure_async_operation_status
+    - Added operation ExtensionsOperations.get_azure_monitor_status
+    - Added operation ExtensionsOperations.disable_azure_monitor
+    - Added operation ExtensionsOperations.enable_azure_monitor
+    - Added operation ExtensionsOperations.get_azure_async_operation_status
+    - Added operation ClustersOperations.update_identity_certificate
+    - Added operation ClustersOperations.get_azure_async_operation_status
+    - Added operation VirtualMachinesOperations.get_async_operation_status
+    - Added operation ScriptActionsOperations.get_execution_async_operation_status
+
+    **Breaking changes**
+
+    - Model VmSizeCompatibilityFilter no longer has parameter vmsizes
+    - Model CapabilitiesResult no longer has parameter vm_size_filters
+    - Model CapabilitiesResult no longer has parameter vm_sizes
+- Name: azure-mgmt-cognitiveservices
+  Version: 7.0.0
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cognitiveservices_7.0.0/sdk/cognitiveservices/azure-mgmt-cognitiveservices/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model PrivateEndpointConnectionProperties has a new parameter provisioning_state
+    - Model PrivateLinkServiceConnectionState has a new parameter actions_required
+    - Model UserOwnedStorage has a new parameter identity_client_id
+    - Model KeyVaultProperties has a new parameter identity_client_id
+    - Model PrivateEndpointConnection has a new parameter system_data
+    - Model PrivateEndpointConnection has a new parameter etag
+    - Model PrivateEndpointConnection has a new parameter location
+    - Added operation AccountsOperations.get
+    - Added operation AccountsOperations.list_usages
+    - Added operation group DeletedAccountsOperations
+
+    **Breaking changes**
+
+    - Operation PrivateEndpointConnectionsOperations.create_or_update has a new signature
+    - Model PrivateLinkServiceConnectionState no longer has parameter action_required
+    - Removed operation AccountsOperations.get_usages
+    - Removed operation AccountsOperations.get_properties
+    - Model Sku has a new signature
+- Name: azure-mgmt-media
+  Version: 4.0.0
+  DisplayName: Resource Management - Media Services
+  ServiceName: Media Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-media_4.0.0/sdk/media/azure-mgmt-media/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model Operation has a new parameter is_data_action
+    - Model Operation has a new parameter action_type
+    - Model MediaService has a new parameter key_delivery
+    - Model MetricSpecification has a new parameter supported_time_grain_types
+    - Model MetricSpecification has a new parameter source_mdm_namespace
+    - Model MetricSpecification has a new parameter source_mdm_account
+    - Model MetricSpecification has a new parameter enable_regional_mdm_account
+
+    **Breaking changes**
+
+    - Removed operation MediaservicesOperations.get_by_subscription
 
