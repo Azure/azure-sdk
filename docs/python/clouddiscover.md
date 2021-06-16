@@ -46,18 +46,15 @@ A cloud configuration object consists of a common `authentication` sections plus
 ```jsonc
 {
   "authentication": {
-    "loginEndpoint": "<url>",
-    "audiences": [
-      "<optional audiences>"
-    ]
+    "loginEndpoint": "<url>"
   },
   "services": {
     "<service entry1>": {
       "endpoint": "<url>",
       "suffix": "<suffix>",
       "authentication": {
-        "scopes": [
-          "<optional scopes>"
+        "audiences": [
+          "<optional audiences>"
         ]
       }
     },
@@ -65,8 +62,8 @@ A cloud configuration object consists of a common `authentication` sections plus
       "endpoint": "<url>",
       "suffix": "<suffix>",
       "authentication": {
-        "scopes": [
-            "<optional scopes>"
+        "audiences": [
+            "<optional audiences>"
         ]
       }
     }
@@ -243,7 +240,7 @@ creds = azure.identity.DefaultAzureCredential(cloud_configuration='PublicAzure')
                 "suffix": {
                     "type": "string"
                 },
-                "scopes" : {
+                "audiences" : {
                   "type": "array",
                   "items": {
                     "type": "string"
