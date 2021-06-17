@@ -301,4 +301,65 @@ entries:
   ChangelogContent: |-
     #### Key Bug Fixes
     - Fix issue when parsing CloudEvent schema subscription validation request.
+- Name: Azure.Security.KeyVault.Administration
+  Version: 4.0.0
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Administration_4.0.0/sdk/keyvault/Azure.Security.KeyVault.Administration/CHANGELOG.md
+  ChangelogContent: |-
+    - Initial release of `KeyVaultAccessControlClient` to managed role assignments and definitions for Managed HSM.
+    - Initial release of `KeyVaultBackupClient` to backup and restore Managed HSM.
+- Name: Azure.Security.KeyVault.Keys
+  Version: 4.2.0
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Keys_4.2.0/sdk/keyvault/Azure.Security.KeyVault.Keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Changed default service version to "7.2".
+    - Added `KeyVaultKeyIdentifier` to parse certificate URIs.
+    - Added local-only support for `CryptographyClient` using only a `JsonWebKey` using `LocalCryptographyClientOptions`.
+    - Added `CreateEcKeyOptions` class and associated `KeyClient.CreateEcKey` and `CreateEcKeyAsync` methods.
+    - Added `KeyType.OctHsm` to support "oct-HSM" key operations to support Managed HSM.
+    - Added AES-GCM and AES-CBC support for encrypting and decrypting, including new `Encrypt` and `Decrypt` overloads.
+- Name: Azure.Security.KeyVault.Certificates
+  Version: 4.2.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Certificates_4.2.0/sdk/keyvault/Azure.Security.KeyVault.Certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Changed default service version to "7.2".
+    - Added `KeyVaultCertificateIdentifier` to parse certificate URIs.
+    - Added `CertificateClient.DownloadCertificate` and `DownloadCertificateAsync` to download an `X509Certificate2` with private key.
+- Name: Azure.Security.KeyVault.Secrets
+  Version: 4.2.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Secrets_4.2.0/sdk/keyvault/Azure.Security.KeyVault.Secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Changed default service version to "7.2".
+    - Added `KeyVaultSecretIdentifier` to parse certificate URIs.
+- Name: Azure.Core.Amqp
+  Version: 1.1.0
+  DisplayName: Core - AMQP
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core.Amqp_1.1.0/sdk/core/Azure.Core.Amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Added
+    - General availability for Sequence and Value body messages.
 
