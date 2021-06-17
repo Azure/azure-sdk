@@ -525,4 +525,16 @@ entries:
     #### Key Bugs Fixed
 
     - Fixes the location of types definition in package.json
+- Name: '@azure/core-client'
+  Version: 1.1.3
+  DisplayName: Core - Client
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-client_1.1.3/sdk/core/core-client/CHANGELOG.md
+  ChangelogContent: |-
+    #### Key Bugs Fixed
+
+    - Fix an issue of lost properties when flattening array in deserialization [issue 15653](https://github.com/azure/azure-sdk-for-js/issues/15653)
+    - Fix an issue with appending query parameters while constructing the url. Please refer [Issue #1035](https://github.com/Azure/autorest.typescript/issues/1035) for more details.
 
