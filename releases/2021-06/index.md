@@ -13,7 +13,7 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 
 - Azure Communication Services Chat for Android has released it's first GA version: `1.0.0`.
 - Cognitive Search SDK for all Tier 1 languages (Java, JS/TS, .NET, Python) have released new GA versions.
-- Communication Relay has released a first beta for JS package @azure/communication-network-traversal. Azure Communication Network Traversal is managing tokens for Azure Communication Services.
+- Communication Relay has released a first beta for JS package `@azure/communication-network-traversal`. Azure Communication Network Traversal is managing tokens for Azure Communication Services.
 - Eventgrid SDK for all Tier 1 languages (Java, JS/TS, .NET, Python) have released new GA versions.
 - FarmBeats SDKs released a first beta. The client SDKs allow AgriFood companies to build intelligent digital agriculture solutions. The users can:
   - Create & update farmers, farms, fields, seasonal fields and boundaries.
