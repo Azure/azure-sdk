@@ -352,4 +352,14 @@ entries:
 
     - Changed default service version to "7.2".
     - Added `KeyVaultSecretIdentifier` to parse certificate URIs.
+- Name: Azure.Core.Amqp
+  Version: 1.1.0
+  DisplayName: Core - AMQP
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core.Amqp_1.1.0/sdk/core/Azure.Core.Amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Added
+    - General availability for Sequence and Value body messages.
 
