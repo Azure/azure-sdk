@@ -20,7 +20,7 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
   - Ingest satellite and weather data for areas of interest.
   - Ingest farm operations data covering tilling, planting, harvesting and application of farm inputs.
 - Form Recognizer SDK for JS (`@azure/ai-form-recognizer`) released a new GA version: `3.1.0`. This General Availability (GA) release marks the stability of the changes introduced in package versions `3.1.0-beta.1` through `3.1.0-beta.3`.
-- Key Vault SDKs for all Tier 1 languages (Java, JS/TS, .NET, Python) have released new GA versions.
+- Key Vault SDKs for all Tier 1 languages (Java, JS/TS, .NET, Python) have released new GA versions. Additionally, Key Vault Administration has released it's first GA version: `4.0.0`.
 - Models Repository service has released a first beta for JS package `@azure/iot-modelsrepository`. This package contains the `ModelsRepositoryClient` to talk to the Azure Models Repository service, with initial support for getting models and helper functions for working with DTMIs.
 - Monitor Query (`@azure/monitor-query`) has released `1.0.0-beta.1`, which allows you to query Log Analytics Workspaces for logs and metrics.
 - Service Bus SDK for JS has released a new GA version: `7.2.0`. It enables encoding the body of a message using native AMQP serialization for supported primitives or sequences. In addition, cancellation support has been improved when sending messages or initializing a connection to the service.
