@@ -25,7 +25,7 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 - Monitor Query (`@azure/monitor-query`) has released `1.0.0-beta.1`, which allows you to query Log Analytics Workspaces for logs and metrics.
 - Service Bus SDK for JS has released a new GA version: `7.2.0`. It enables encoding the body of a message using native AMQP serialization for supported primitives or sequences. In addition, cancellation support has been improved when sending messages or initializing a connection to the service.
 - Storage has released new GA versions for `@azure/storage-file-share`, `@azure/storage-blob`, `@azure/storage-file-datalake`, `@azure/storage-queue` SDKs with Azure Storage Service API version `2020-08-04`.
-- Tables SDK for all Tier 1 languages (Java, JS/TS, .NET, Python) has released a new GA version: `12.0.0`.
+- Tables SDK for all Tier 1 languages (Java, JS/TS, .NET, Python) has released its first Track 2 GA version: `12.0.0`.
 - Video Analyzer SDKs released a first beta. The client SDKs allow you to interact with the direct methods of a Video Analyzer edge module. These SDKs are designed to be used with the Azure IoT Hub SDKs. They support constructing objects that represent the direct methods that can then be sent to the edge module using the IoT Hub SDKs
 
 ## Release Notes
