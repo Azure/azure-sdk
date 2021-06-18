@@ -10,7 +10,7 @@ Use the guidelines in each section of this template to ensure consistency and re
 **Introduction**: The introduction appears directly under the title (H1) of your README.
 
 * **DO NOT** use an "Introduction" or "Overview" heading (H2) for this section.
-* First sentence: **Describe the service** briefly. You can usually use the first line of the service's docs landing page for this (Example: [Cosmos DB docs landing page](https://docs.microsoft.com/azure/cosmos-db/)). 
+* First sentence: **Describe the service** briefly. You can usually use the first line of the service's docs landing page for this (Example: [Cosmos DB docs landing page](https://docs.microsoft.com/azure/cosmos-db/)).
 * Include version of the service this library supports: "this library supports [X.Y version of the service] and below"
 * Next, add a **bulleted list** of the **most common tasks** supported by the package or library, prefaced with "Use the client library for [Product Name] to:". Then, provide code snippets for these tasks in the [Examples](#examples) section later in the document. Keep the task list short but include those tasks most developers need to perform with your package.
 * Include this set of links targeting your product's content at the bottom of the introduction, making any adjustments as necessary (for example, NuGet instead of PyPi):
@@ -27,11 +27,11 @@ Use the guidelines in each section of this template to ensure consistency and re
 
 ## Link Guidelines
 
-* **DO NOT** use relative links to other files in the source repository. While relative links work well when browsing directly on github they tend to break when we consume the content in other places, such as docs, samples, package managers, etc. For this reason the guidance is to use links to master in all our MD files in the repo as this will help ensure that links work in other contexts.
+* **DO NOT** use relative links to other files in the source repository. While relative links work well when browsing directly on github they tend to break when we consume the content in other places, such as docs, samples, package managers, etc. For this reason the guidance is to use links to main in all our MD files in the repo as this will help ensure that links work in other contexts.
 
-  * Given we own the publishing pipeline for docs we will transform master links to links based on release tags to help ensure the links remain over time and point at exact versions of the content when the docs were published. 
+  * Given we own the publishing pipeline for docs we will transform main links to links based on release tags to help ensure the links remain over time and point at exact versions of the content when the docs were published.
 
-  * If the CI validation fails because of link verification for a link to a file or section present in your PR and not in the master but will be a valid link after the PR is merged to master, then you can put the link as a comment like this `Here are some [samples]<!--(https://github.com/azure-sdk-for-python/blob/master/samples.json)--> to look at.` (Note you can also put a TODO in the comment if you like). Then in a follow-up PR you can remove the comment to get the link you wanted. 
+  * If the CI validation fails because of link verification for a link to a file or section present in your PR and not in the main but will be a valid link after the PR is merged to main, then you can put the link as a comment like this `Here are some [samples]<!--(https://github.com/azure-sdk-for-python/blob/main/samples.json)--> to look at.` (Note you can also put a TODO in the comment if you like). Then in a follow-up PR you can remove the comment to get the link you wanted.
 
 * **DO NOT** use locale in the urls like `en-us`. For example use `https://docs.microsoft.com/dotnet/api/azure.storage.blobs` instead of `https://docs.microsoft.com/en-us/dotnet/api/azure.storage.blobs`
 
@@ -41,7 +41,7 @@ Use the guidelines in each section of this template to ensure consistency and re
 
 * **DO** use `https` instead of `http` for links to ensure we are linking to secure servers.
 
-* **DO** think about the longevity of your links and be sure to pick links we believe will remain stable and around for a long time. So no temporary links or links that point to moving targets like a repository branch which may not contain the files in the same locations over time. 
+* **DO** think about the longevity of your links and be sure to pick links we believe will remain stable and around for a long time. So no temporary links or links that point to moving targets like a repository branch which may not contain the files in the same locations over time.
 
 ## Getting started
 
