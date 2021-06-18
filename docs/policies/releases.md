@@ -48,7 +48,7 @@ An example porting guide can be found [here](https://github.com/Azure/azure-sdk-
 
 Ensuring that a `CHANGELOG.md` file is both available and formatted appropriately is mandatory and will be used in automatically generating formatted release notes on each GitHub release.
 
-{% include requirement/MUST %} maintain a changelog for every package. 
+{% include requirement/MUST %} maintain a changelog for every package.
 
 {% include requirement/MUST %} `CHANGELOG.md` file should be added in the root folder of the library.
 
@@ -98,7 +98,7 @@ We use GitHub releases as a convenient place to put release notes. The change lo
 
 ## Change Logs
 
-Every library should contain a file exactly named `CHANGELOG.md` in the folder for each library. Generally in `sdk/<service>/<package>` folder. 
+Every library should contain a file exactly named `CHANGELOG.md` in the folder for each library. Generally in `sdk/<service>/<package>` folder.
 
 In order for consistency across our SDKs and to enable automation to validate and parse these changelogs the files must use the following format.
 
@@ -108,20 +108,20 @@ In order for consistency across our SDKs and to enable automation to validate an
 ## <version X.Y.Z[-beta.N]> (<Unreleased|YYYY-MM-DD>)
 ### Features Added
 - <for new features to be called out in release notes>
- 
+
 ### Breaking Changes
 - <for changes to be called out in release notes including>
 - <Changed: for changes that break existing functionality>
 - <Deprecated: for soon-to-be removed features>
 - <Removed: for now removed features>
- 
+
 ### Key Bugs Fixed
 - <for important bug fixes to be called out in release notes>
 - <Security: for any security fixes>
- 
+
 ### Fixed
 - <for any bug fixes that are not important enough to include in release notes>
- 
+
 ...
 ## <older version> (<Release Date>)
 - <content/changes for the older release>
@@ -153,7 +153,7 @@ Example change log:
 - Added support for the new low-priority node type.
 - Number of operations and models to better align with other client
   libraries and the .NET Framework Design Guidelines
-  
+
 ### Fixed
 - Parallel upload/download performance improvements
 ```
@@ -185,7 +185,7 @@ The team makes every effort to follow [SemVer](https://semver.org/) for versioni
 
 In addition to the stable GA releases the team also has prereleases of a package to allow the community to try new features early and give feedback.
 
-- Alpha releases are sometimes referred to as dev releases and use a prerelease label that contains a date stamp similar to `-alpha-YYYYMMDD.r`. This ensures the versions are unique as they will often be published daily. These are often published to an isolated registry depending on the language ecosystem. These releases are based on the latest committed code changes and should not be used for production dependencies. They are very volatile and change from version-to-version. These are mostly useful for temporarily working around an issue or testing out the latest library changes. 
+- Alpha releases are sometimes referred to as dev releases and use a prerelease label that contains a date stamp similar to `-alpha-YYYYMMDD.r`. This ensures the versions are unique as they will often be published daily. These are often published to an isolated registry depending on the language ecosystem. These releases are based on the latest committed code changes and should not be used for production dependencies. They are very volatile and change from version-to-version. These are mostly useful for temporarily working around an issue or testing out the latest library changes.
 - Beta releases use a prerelease label like `-beta.X` and are published to the most common public registry for each language ecosystem. These releases are less volatile and released less often then alpha releases.  These are usually used before releasing a new minor or major GA release. Beta releases may have breaking changes from the previous beta but should not have breaking changes from the last GA release. Once a package has released to GA, any breaking changes require an exception and approval from the architecture board.
 
 While all the languages follow the general versioning scheme, they each have slight differences based on their ecosystem, for those differences see the individual language sections below.
@@ -194,7 +194,7 @@ NOTE: Given that alpha releases have versions based on the day they will often t
 
 ### Incrementing after release
 
-Immediately after a package ships the source definition of the package version should be incremented in source control. It's safer to have `N+1` in `master` than `N`. Package increment after release happens automatically as part of the release pipelines.
+Immediately after a package ships the source definition of the package version should be incremented in source control. It's safer to have `N+1` in `main` than `N`. Package increment after release happens automatically as part of the release pipelines.
 
 **Beta Release:** Increment the beta number on the package (e.g. `1.0.0-beta.1` -> `1.0.0-beta.2`) appropriate to the versioning scheme for the language (see below for language-specific version formatting). Breaking changes are allowed between beta versions.
 
@@ -210,7 +210,7 @@ For example, if Packages B and C depend on Package A at `1.0.0` and then Package
 
 Packages should not upgrade dependencies immediately after every release. Packages should only upgrade if there is a need. That is, after a package releases (e.g. Package A), other packages which depend on that package (e.g. Package B and Package C) do not  immediately update to require the latest released version of the released package. Later, if either Package B or C needs features in a newer version of Package A then both Packages B and C should be modified to point to the same newer version of Package A.
 
-Each language repo uses a badge for analysis of dependencies on `master` including highlights for inconsistent dependencies.
+Each language repo uses a badge for analysis of dependencies on `main` including highlights for inconsistent dependencies.
 
 | Component | Build Status |
 | -------------------- | -------------------- |
@@ -221,7 +221,7 @@ Each language repo uses a badge for analysis of dependencies on `master` includi
 
 Packages which depend on beta versions should pin specifically to the beta version on which they depend because beta releases may contain breaking changes.
 
-Packages should try to avoid source level dependencies to other projects that don't ship in the same pipeline and instead rely on binary/package dependencies. This is to help avoid accidently taking dependencies on new features in other libraries and enable each library to ship independent of the others in the repo. If new dependencies are required extra care should be taken to ship the lower level dependencies before shipping the higher level libraries to make sure the entire dependency chain is shipped. To help ensure we don't end up with broken dependency versions we have enabled Min/Max testing in each repo to ensure we test the lower end and the upper end of our dependency range for the dependencies our packages say they support. 
+Packages should try to avoid source level dependencies to other projects that don't ship in the same pipeline and instead rely on binary/package dependencies. This is to help avoid accidently taking dependencies on new features in other libraries and enable each library to ship independent of the others in the repo. If new dependencies are required extra care should be taken to ship the lower level dependencies before shipping the higher level libraries to make sure the entire dependency chain is shipped. To help ensure we don't end up with broken dependency versions we have enabled Min/Max testing in each repo to ensure we test the lower end and the upper end of our dependency range for the dependencies our packages say they support.
 
 #### Dependent packages in a Unified Pipeline
 
@@ -347,7 +347,7 @@ A C++ release includes a Tag and Release (e.g. [azure-core_1.0.0-beta.1](https:/
 
 #### Embedded C
 
-C99 releases the source code of the repository in a single unit of source code. It does not ship packages to any package managers. Because the C repo ships from the `master` branch, code going into the `master` branch must be in a completed state and ready to ship.
+C99 releases the source code of the repository in a single unit of source code. It does not ship packages to any package managers. Because the C repo ships from the `main` branch, code going into the `main` branch must be in a completed state and ready to ship.
 
 An Embedded C release includes a Tag and Release (e.g. [1.0.0-preview.5](https://github.com/Azure/azure-sdk-for-c/releases/tag/1.0.0-preview.5)) on GitHub and documentation as GitHub Pages (e.g. [1.0.0-preview.5](https://azuresdkdocs.blob.core.windows.net/$web/c/az_core/1.0.0-preview.5/index.html)).
 
@@ -378,7 +378,7 @@ Beta packages are published directly to the Maven central registry. Alpha packag
 
 #### iOS
 
-iOS releases the source code of the repository in a single unit of source code. It supports only the Swift Package Manager and does not ship packages to any package registry. Because the iOS repo ships from the `master` branch, code going into the `master` branch must be in a completed state and ready to ship.
+iOS releases the source code of the repository in a single unit of source code. It supports only the Swift Package Manager and does not ship packages to any package registry. Because the iOS repo ships from the `main` branch, code going into the `main` branch must be in a completed state and ready to ship.
 
 An iOS release includes a Tag and Release (e.g. [1.0.0-beta.2](https://github.com/Azure/azure-sdk-for-ios/releases/tag/1.0.0-beta.2)) on GitHub and documentation as GitHub Pages.
 
@@ -392,9 +392,9 @@ An iOS release includes a Tag and Release (e.g. [1.0.0-beta.2](https://github.co
 
 #### Go
 
-Go releases the source code of the repository in a single unit of source code. It does not ship packages to any package managers. Because the Go repo ships from the `master` branch, code going into the `master` branch must be in a completed state and ready to ship.
+Go releases the source code of the repository in a single unit of source code. It does not ship packages to any package managers. Because the Go repo ships from the `main` branch, code going into the `main` branch must be in a completed state and ready to ship.
 
-A Go release includes a Tag and Release (e.g. [sdk/azcore/v0.13.0](https://github.com/Azure/azure-sdk-for-go/releases/tag/sdk/azcore/v0.13.0)) on GitHub and documentation in pkg.go.dev (e.g. [sdk/azcore](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore@v0.13.0)). 
+A Go release includes a Tag and Release (e.g. [sdk/azcore/v0.13.0](https://github.com/Azure/azure-sdk-for-go/releases/tag/sdk/azcore/v0.13.0)) on GitHub and documentation in pkg.go.dev (e.g. [sdk/azcore](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore@v0.13.0)).
 
 Release tags for Go are made up of a `prefix` and a `version`. The `prefix` points to the module in the repository, while the `version` is the semantic import version for release. Read more about Go tags for release [here](https://github.com/golang/go/wiki/Modules#publishing-a-release).
 
