@@ -568,7 +568,7 @@ For higher-level methods that use multiple HTTP requests, either the last except
 
 {% include requirement/MUST id="python-auth-policy-azure-core" %} use authentication policy implementations in `azure-core` whenever possible.
 
-{% include requirement/MAY  id="python-auth-service-credentials" %} add additional credential types if required by the service. Contact the [Azure SDK Architecture Board] for guidance if you believe you have need to do so.
+{% include requirement/MAY  id="python-auth-service-credentials" %} add additional credential types if required by the service. Contact the [Architecture board] for guidance if you believe you have need to do so.
 
 {% include requirement/MUST id="python-auth-service-support" %} support all authentication methods that the service supports.
 
