@@ -588,4 +588,140 @@ entries:
     - Update `azure-core` dependency to `1.17.0`.
     - Update `azure-core-amqp` dependency to `2.2.0`.
   GroupId: com.azure
+- Name: azure-security-keyvault-secrets
+  Version: 4.3.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-secrets_4.3.0/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Changed default service version to `7.2`.
+    - Added `KeyVaultSecretIdentifier` to parse secret URLs.
+
+    #### Changes since 4.3.0-beta.6
+
+    ##### Bug Fixes
+    - Ensured that `RetryPolicy` and `HttpLogOptions` use a default implementation when creating Key Vault clients if not set or set to `null`.
+
+    ##### Breaking Changes
+    - Removed service method overloads that take a `pollingInterval`, since `PollerFlux` and `SyncPoller` objects allow for setting this value directly on them.
+
+    ##### Non-Breaking Changes
+    - Renamed `secretId` to `sourceId` in `KeyVaultSecretIdentifier`.
+    - `KeyVaultSecretIdentifier` can now be used to parse any Key Vault identifier.
+    - Added the `@ServiceMethod` annotation to all public methods that call the Key Vault service in `SecretClient` and `SecretAsyncClient`.
+  GroupId: com.azure
+- Name: azure-security-keyvault-certificates
+  Version: 4.2.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-certificates_4.2.0/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Changed default service version to `7.2`.
+    - Added `KeyVaultCertificateIdentifier` to parse certificate URLs.
+
+    #### Changes since 4.2.0-beta.6
+
+    ##### Bug Fixes
+    - Ensured that `RetryPolicy` and `HttpLogOptions` use a default implementation when creating Key Vault clients if not set or set to `null`.
+
+    ##### New Features
+    - `KeyVaultCertificateIdentifier` can now be used to parse any Key Vault identifier.
+
+    ##### Breaking Changes
+    - Removed service method overloads that take a `pollingInterval`, since `PollerFlux` and `SyncPoller` objects allow for setting this value directly on them.
+
+    ##### Non-Breaking Changes
+    - Renamed `certificateId` to `sourceId` in `KeyVaultCertificateIdentifier`.
+    - Added the `@ServiceMethod` annotation to all public methods that call the Key Vault service in `CertificateClient` and `CertificateAsyncClient`.
+  GroupId: com.azure
+- Name: azure-security-keyvault-administration
+  Version: 4.0.0
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-administration_4.0.0/sdk/keyvault/azure-security-keyvault-administration/CHANGELOG.md
+  ChangelogContent: |-
+    - Initial release of `KeyVaultAccessControlClient` and `KeyVaultAccessControlAsyncClient` to manage role assignments and definitions for Managed HSM.
+    - Initial release of `KeyVaultBackupClient` and `KeyVaultBackupAsyncClient` to backup and restore Managed HSM.
+
+    #### Features Added
+    - Changed default service version to `7.2`.
+    - Added `KeyVaultKeyIdentifier` to parse key URLs.
+    - Added local-only support for `CryptographyClient` and `CryptographyAsyncClient` by providing a `JsonWebKey` during client creation.
+    - Added `KeyType.OCT-HSM` to support oct-HSM key operations to support Managed HSM.
+    - Added the `CreateOctKeyOptions` class and associated `createOctKey()` methods.
+    - Added AES-GCM and AES-CBC support for encrypting and decrypting, including new `Encrypt` and `Decrypt` overloads.
+    - Added the ability to set a public exponent on RSA keys during creation.
+    - Made all getters for properties of a `JsonWebKey` public.
+
+    #### Changes since 4.0.0-beta.7
+
+    ##### Bug Fixes
+    - Ensured that `RetryPolicy` and `HttpLogOptions` use a default implementation when creating Key Vault clients if not set or set to `null`.
+
+    ##### Breaking Changes
+    - Renamed `beginSelectiveRestore()` to `beginSelectiveKeyRestore()` in `KeyVaultBackupClient` and `KeyVaultBackupAsyncClient`. Made the aforementioned operation return the new `KeyVaultSelectiveKeyRestoreOperation` instead of a `KeyVaultRestoreOperation`.
+    - Changed the final return type of `beginRestore()` and `beginSelectiveKeyRestore()`'s poller types from `Void` to the new `KeyVaultRestoreResult` and `KeyVaultSelectiveKeyRestoreResult`, respectively.
+    - `KeyVaultBackupClient` and `KeyVaultBackupAsyncClient`'s long-running operations now throw a `RuntimeException` when cancellation is attempted, as it is not currently supported.
+    - Made `KeyVaultRoleDefinition` flat, as opposed to it having a `KeyVaultRoleDefinitionProperties` member with more properties inside of it.
+    - Moved `roleScope` from `KeyVaultRoleAssignment` to `KeyVaultRoleAssignmentProperties` and renamed it to `scope`.
+    - Moved `SetRoleDefinitionOptions` from the `options` package to the `models` package.
+    - Removed `roleType` from `SetRoleDefinitionOptions`.
+    - Removed service method overloads that take a `pollingInterval`, since `PollerFlux` and `SyncPoller` objects allow for setting this value directly on them.
+    - Delete methods on the `KeyVaultAccessControlClient` now return a `void` or `Mono<Void>` and ignore HTTP `404`s.
+    - Renamed `jobId` and `getJobId()` to `operationId` and `getOperationId()` in `KeyVaultLongRunningOperation` and its children classes.
+    - Made the following classes `final`:
+    - `KeyVaultDataAction`
+    - `KeyVaultRoleDefinitionType`
+    - `KeyVaultRoleType`
+    - `SetRoleDefinitionOptions`
+  GroupId: com.azure
+- Name: azure-security-keyvault-keys
+  Version: 4.3.0
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-keys_4.3.0/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Changed default service version to `7.2`.
+    - Added `KeyVaultKeyIdentifier` to parse key URLs.
+    - Added local-only support for `CryptographyClient` and `CryptographyAsyncClient` by providing a `JsonWebKey` during client creation.
+    - Added `KeyType.OCT-HSM` to support oct-HSM key operations to support Managed HSM.
+    - Added the `CreateOctKeyOptions` class and associated `createOctKey()` methods.
+    - Added AES-GCM and AES-CBC support for encrypting and decrypting, including new `Encrypt` and `Decrypt` overloads.
+    - Added the ability to set a public exponent on RSA keys during creation.
+    - Made all getters for properties of a `JsonWebKey` public.
+
+    #### Changes since 4.3.0-beta.8
+
+    ##### Bug Fixes
+    - Ensured that `RetryPolicy` and `HttpLogOptions` use a default implementation when creating Key Vault clients if not set or set to `null`.
+
+    ##### New Features
+    - Added `createOctKey()` and `createOctKeyWithResponse()` to `KeyClient` and `KeyAsyncClient`.
+    - Added factory methods for RSA algorithms in `DecryptParameters` and `EncryptParameters`:
+    - `createRsa15Parameters()`
+    - `createRsaOaepParameters()`
+    - `createRsaOaep256Parameters()`
+
+    ##### Breaking Changes
+    - Removed `EXPORT` from the `KeyOperation` enum.
+    - Re-ordered parameters in the `EncryptResult` constructor to show `authenticationTag` before `additionalAuthenticatedData` to align with classes like `DecryptParameters`.
+    - Removed service method overloads that take a `pollingInterval`, since `PollerFlux` and `SyncPoller` objects allow for setting this value directly on them.
+    - Moved `EncryptParameters` and `DecryptParameters` from the `cryptography` package to the `cryptography.models` package and made them both `final`.
+
+    ##### Non-Breaking
+    - Renamed `keyId` to `sourceId` in `KeyVaultKeyIdentifier`.
+    - `KeyVaultKeyIdentifier` can now be used to parse any Key Vault identifier.
+    - Added the `@ServiceMethod` annotation to all public methods that call the Key Vault service in `KeyClient`, `KeyAsyncClient`, `CryptographyClient` and `CryptographyAsyncClient`.
+  GroupId: com.azure
 
