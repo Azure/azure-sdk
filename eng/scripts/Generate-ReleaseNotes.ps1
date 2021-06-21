@@ -1,6 +1,7 @@
 [CmdletBinding()]
 param (
   [string]$releasePeriod,
+  [DateTime]$releaseStartDate,
   [string]$repoLanguage,
   [string]$commonScriptPath,
   [string]$releaseDirectory = (Resolve-Path "$PSScriptRoot\..\..\_data\releases"),
@@ -47,16 +48,16 @@ function GetReleaseNotesData ($packageName, $packageVersion, $packageMetadata)
   if ($updatedVersionEntry.Sections.Keys.Count -gt 0)
   {
     $sectionsToPull = @("Features Added","Breaking Changes","Key Bugs Fixed")
-    foreach ($key in $updatedVersionEntry.Sections.Keys) 
+    foreach ($key in $updatedVersionEntry.Sections.Keys)
     {
       if ($key -in $sectionsToPull)
       {
-        $releaseEntryContent += "####${key}" 
+        $releaseEntryContent += "####${key}"
         $releaseEntryContent += BumpUpMDHeaders -content $updatedVersionEntry.Sections[$key]
       }
     }
   }
-  
+
   if (($releaseEntryContent.Count -eq 0) -and $updatedVersionEntry.ReleaseContent)
   {
       # Bumping all MD headers by one level to fit in with the release template structure.
@@ -124,7 +125,7 @@ if (!$existingYamlContent.entries)
 }
 
 $langLinkTemplates = GetLinkTemplates $repoLanguage
-$updatedPackageSet = GetPackageVersions $repoLanguage $releasePeriod
+$updatedPackageSet = GetPackageVersions $repoLanguage $releaseStartDate
 $languageMetadata = Get-PackageLookupForLanguage $repoLanguage
 
 foreach ($packageName in $updatedPackageSet.Keys)
