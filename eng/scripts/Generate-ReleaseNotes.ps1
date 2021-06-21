@@ -163,6 +163,11 @@ foreach ($packageName in $updatedPackageSet.Keys)
 if ($existingYamlContent.entries.Count -gt 0)
 {
   Write-Host "Writing release notes for $repoLanguage to $pathToRelatedYaml"
+
+  $yamlDirectory = Split-Path $pathToRelatedYaml -Parent
+  if (!(Test-Path $yamlDirectory)) {
+    New-Item -Type Directory $yamlDirectory > $null
+  }
   Set-Content -Path $pathToRelatedYaml -Value (ConvertTo-Yaml $existingYamlContent)
 }
 else
