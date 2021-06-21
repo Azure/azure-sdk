@@ -44,17 +44,23 @@ function GetReleaseNotesData ($packageName, $packageVersion, $packageMetadata)
   $packageSemVer = [AzureEngSemanticVersion]::ParseVersionString($packageVersion)
   $releaseEntryContent = @()
 
-  if ($updatedVersionEntry.ReleaseContent)
+  if ($updatedVersionEntry.Sections.Keys.Count -gt 0)
   {
-    # Bumping all MD headers by one level to fit in with the release template structure.
-    $updatedVersionEntry.ReleaseContent | ForEach-Object {
-      $line = $_
-      if ($line.StartsWith("#"))
+    $sectionsToPull = @("Features Added","Breaking Changes","Key Bugs Fixed")
+    foreach ($key in $updatedVersionEntry.Sections.Keys) 
+    {
+      if ($key -in $sectionsToPull)
       {
-        $line = "#${line}"
+        $releaseEntryContent += "####${key}" 
+        $releaseEntryContent += BumpUpMDHeaders -content $updatedVersionEntry.Sections[$key]
       }
-      $releaseEntryContent += $line
     }
+  }
+  
+  if (($releaseEntryContent.Count -eq 0) -and $updatedVersionEntry.ReleaseContent)
+  {
+      # Bumping all MD headers by one level to fit in with the release template structure.
+      $releaseEntryContent += BumpUpMDHeaders -content $updatedVersionEntry.ReleaseContent
   }
 
   $entry = [ordered]@{
@@ -78,6 +84,19 @@ function GetReleaseNotesData ($packageName, $packageVersion, $packageMetadata)
     $entry.Add("GroupId", $packageMetadata.GroupId)
   }
   return $entry
+}
+function BumpUpMDHeaders($content)
+{
+    $result = @()
+    foreach ($line in $content)
+    {
+        if ($line.StartsWith("#"))
+        {
+            $line = "#${line}"
+        }
+        $result += $line
+    }
+    return $result
 }
 
 $pathToRelatedYaml = (Join-Path $ReleaseDirectory $releasePeriod "${repoLanguage}.yml")
