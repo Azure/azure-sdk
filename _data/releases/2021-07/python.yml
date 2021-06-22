@@ -1,0 +1,108 @@
+entries:
+- Name: azure-mgmt-containerservice
+  Version: 16.0.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_16.0.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model ManagedClusterAgentPoolProfile has a new parameter enable_ultra_ssd
+    - Model ManagedClusterAPIServerAccessProfile has a new parameter enable_private_cluster_public_fqdn
+    - Model AgentPool has a new parameter enable_ultra_ssd
+    - Model ManagedClusterAgentPoolProfileProperties has a new parameter enable_ultra_ssd
+    - Added operation ManagedClustersOperations.list_outbound_network_dependencies_endpoints
+
+    **Breaking changes**
+
+    - Operation ManagedClustersOperations.list_cluster_admin_credentials has a new signature
+    - Operation ManagedClustersOperations.list_cluster_monitoring_user_credentials has a new signature
+    - Operation ManagedClustersOperations.list_cluster_user_credentials has a new signature
+- Name: azure-mgmt-containerservice
+  Version: 12.0.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_12.0.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model ManagedClusterAPIServerAccessProfile has a new parameter enable_private_cluster_public_fqdn
+    - Model AgentPool has a new parameter enable_ultra_ssd
+    - Model ManagedClusterAgentPoolProfile has a new parameter enable_ultra_ssd
+    - Model ManagedClusterAgentPoolProfileProperties has a new parameter enable_ultra_ssd
+    - Added operation ManagedClustersOperations.list_outbound_network_dependencies_endpoints
+
+    **Breaking changes**
+
+    - Operation ManagedClustersOperations.list_cluster_admin_credentials has a new signature
+    - Operation ManagedClustersOperations.list_cluster_monitoring_user_credentials has a new signature
+    - Operation ManagedClustersOperations.list_cluster_user_credentials has a new signature
+- Name: azure-mgmt-sql
+  Version: 3.0.0
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-sql_3.0.0/sdk/sql/azure-mgmt-sql/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model Server has a new parameter federated_client_id
+    - Model Server has a new parameter restrict_outbound_network_access
+    - Model ServerUpdate has a new parameter federated_client_id
+    - Model ServerUpdate has a new parameter restrict_outbound_network_access
+    - Model BackupShortTermRetentionPolicy has a new parameter diff_backup_interval_in_hours
+
+    **Breaking changes**
+
+    - Operation ReplicationLinksOperations.get has a new signature
+- Name: azure-mgmt-sql
+  Version: 0.29.0
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-sql_0.29.0/sdk/sql/azure-mgmt-sql/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model ServerUpdate has a new parameter restrict_outbound_network_access
+    - Model ServerUpdate has a new parameter federated_client_id
+    - Model Server has a new parameter restrict_outbound_network_access
+    - Model Server has a new parameter federated_client_id
+    - Model BackupShortTermRetentionPolicy has a new parameter diff_backup_interval_in_hours
+
+    **Breaking changes**
+
+    - Operation ReplicationLinksOperations.get has a new signature
+    - Operation BackupShortTermRetentionPoliciesOperations.create_or_update has a new signature
+    - Operation BackupShortTermRetentionPoliciesOperations.update has a new signature
+- Name: azure-mgmt-netapp
+  Version: 4.0.0
+  DisplayName: Resource Management - NetApp
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-netapp_4.0.0/sdk/netapp/azure-mgmt-netapp/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model ExportPolicyRule has a new parameter chown_mode
+    - Model BackupStatus has a new parameter last_transfer_size
+    - Model BackupStatus has a new parameter total_transfer_bytes
+    - Model BackupStatus has a new parameter last_transfer_type
+    - Model Volume has a new parameter cool_access
+    - Model Volume has a new parameter unix_permissions
+    - Model Volume has a new parameter coolness_period
+    - Model CapacityPool has a new parameter cool_access
+    - Model ActiveDirectory has a new parameter administrators
+    - Added operation BackupsOperations.get_volume_restore_status
+
+    **Breaking changes**
+
+    - Operation NetAppResourceOperations.check_file_path_availability has a new signature
+
