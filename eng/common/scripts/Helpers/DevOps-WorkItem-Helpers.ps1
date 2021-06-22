@@ -43,7 +43,7 @@ function Invoke-Query($fields, $wiql, $output = $true)
     -Headers $headers -Body $body -ContentType "application/json" | ConvertTo-Json -Depth 10 | ConvertFrom-Json -AsHashTable
 
   if (!$response.workItems) {
-    Write-Warning "Query returned no items"
+    Write-Warning "Query returned no items. $wiql"
     return ,@()
   }
 
