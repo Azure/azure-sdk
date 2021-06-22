@@ -4,7 +4,7 @@ entries:
   DisplayName: Communication Common
   ServiceName: Communication
   VersionType: Patch
-  Hidden: false
+  Hidden: true
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-communication-common_1.0.1/sdk/communication/azure-communication-common/CHANGELOG.md
   ChangelogContent: |-
     #### Dependency Updates
@@ -15,7 +15,7 @@ entries:
   DisplayName: Communication Chat
   ServiceName: Communication
   VersionType: GA
-  Hidden: false
+  Hidden: true
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-communication-chat_1.0.0/sdk/communication/azure-communication-chat/CHANGELOG.md
   ChangelogContent: |-
     #### New Features
@@ -111,4 +111,3 @@ entries:
     #### Dependency Updates
     - Updated `com.azure.android.core` from `1.0.0-beta.5` to `1.0.0-beta.6`.
   GroupId: com.azure.android
-
