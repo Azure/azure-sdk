@@ -1,0 +1,125 @@
+entries:
+- Name: azure-mgmt-containerservice
+  Version: 16.0.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_16.0.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model ManagedClusterAgentPoolProfile has a new parameter enable_ultra_ssd
+    - Model ManagedClusterAPIServerAccessProfile has a new parameter enable_private_cluster_public_fqdn
+    - Model AgentPool has a new parameter enable_ultra_ssd
+    - Model ManagedClusterAgentPoolProfileProperties has a new parameter enable_ultra_ssd
+    - Added operation ManagedClustersOperations.list_outbound_network_dependencies_endpoints
+
+    **Breaking changes**
+
+    - Operation ManagedClustersOperations.list_cluster_admin_credentials has a new signature
+    - Operation ManagedClustersOperations.list_cluster_monitoring_user_credentials has a new signature
+    - Operation ManagedClustersOperations.list_cluster_user_credentials has a new signature
+- Name: azure-mgmt-sql
+  Version: 3.0.0
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-sql_3.0.0/sdk/sql/azure-mgmt-sql/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model Server has a new parameter federated_client_id
+    - Model Server has a new parameter restrict_outbound_network_access
+    - Model ServerUpdate has a new parameter federated_client_id
+    - Model ServerUpdate has a new parameter restrict_outbound_network_access
+    - Model BackupShortTermRetentionPolicy has a new parameter diff_backup_interval_in_hours
+
+    **Breaking changes**
+
+    - Operation ReplicationLinksOperations.get has a new signature
+- Name: azure-mgmt-netapp
+  Version: 4.0.0
+  DisplayName: Resource Management - NetApp
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-netapp_4.0.0/sdk/netapp/azure-mgmt-netapp/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model ExportPolicyRule has a new parameter chown_mode
+    - Model BackupStatus has a new parameter last_transfer_size
+    - Model BackupStatus has a new parameter total_transfer_bytes
+    - Model BackupStatus has a new parameter last_transfer_type
+    - Model Volume has a new parameter cool_access
+    - Model Volume has a new parameter unix_permissions
+    - Model Volume has a new parameter coolness_period
+    - Model CapacityPool has a new parameter cool_access
+    - Model ActiveDirectory has a new parameter administrators
+    - Added operation BackupsOperations.get_volume_restore_status
+
+    **Breaking changes**
+
+    - Operation NetAppResourceOperations.check_file_path_availability has a new signature
+- Name: azure-mgmt-cosmosdb
+  Version: 6.4.0
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cosmosdb_6.4.0/sdk/cosmos/azure-mgmt-cosmosdb/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model ContinuousModeBackupPolicy has a new parameter migration_state
+    - Model DatabaseAccountGetResults has a new parameter restore_parameters
+    - Model DatabaseAccountGetResults has a new parameter analytical_storage_configuration
+    - Model DatabaseAccountGetResults has a new parameter system_data
+    - Model DatabaseAccountGetResults has a new parameter instance_id
+    - Model DatabaseAccountGetResults has a new parameter disable_local_auth
+    - Model DatabaseAccountGetResults has a new parameter create_mode
+    - Model BackupPolicy has a new parameter migration_state
+    - Model DatabaseAccountCreateUpdateParameters has a new parameter analytical_storage_configuration
+    - Model DatabaseAccountCreateUpdateParameters has a new parameter restore_parameters
+    - Model DatabaseAccountCreateUpdateParameters has a new parameter disable_local_auth
+    - Model DatabaseAccountCreateUpdateParameters has a new parameter create_mode
+    - Model PeriodicModeBackupPolicy has a new parameter migration_state
+    - Model DatabaseAccountUpdateParameters has a new parameter analytical_storage_configuration
+    - Model DatabaseAccountUpdateParameters has a new parameter disable_local_auth
+    - Added operation SqlResourcesOperations.begin_retrieve_continuous_backup_information
+    - Added operation group RestorableMongodbDatabasesOperations
+    - Added operation group RestorableDatabaseAccountsOperations
+    - Added operation group RestorableSqlDatabasesOperations
+    - Added operation group RestorableSqlContainersOperations
+    - Added operation group RestorableMongodbResourcesOperations
+    - Added operation group RestorableMongodbCollectionsOperations
+    - Added operation group RestorableSqlResourcesOperations
+- Name: azure-mgmt-appconfiguration
+  Version: 2.0.0
+  DisplayName: Resource Management - App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-appconfiguration_2.0.0/sdk/appconfiguration/azure-mgmt-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model OperationDefinition has a new parameter properties
+    - Model OperationDefinition has a new parameter is_data_action
+    - Model OperationDefinition has a new parameter origin
+    - Model KeyValue has a new parameter id
+    - Model KeyValue has a new parameter type
+    - Model KeyValue has a new parameter name
+    - Model ConfigurationStore has a new parameter system_data
+    - Model ConfigurationStore has a new parameter disable_local_auth
+    - Model ConfigurationStoreUpdateParameters has a new parameter disable_local_auth
+    - Added operation group KeyValuesOperations
+
+    **Breaking changes**
+
+    - Model Resource no longer has parameter location
+    - Model Resource no longer has parameter tags
+    - Removed operation ConfigurationStoresOperations.list_key_value
+
