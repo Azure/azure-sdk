@@ -362,4 +362,17 @@ entries:
   ChangelogContent: |-
     #### Added
     - General availability for Sequence and Value body messages.
+- Name: Azure.Messaging.EventGrid
+  Version: 4.4.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventGrid_4.4.0/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added public constructor and settable property for `SubscriptionValidationResponse`.
+
+    #### Key Bugs Fixed
+    - Fix issue where ARM system event data could not be deserialized into their strongly typed models.
 
