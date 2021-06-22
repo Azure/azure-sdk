@@ -122,4 +122,72 @@ entries:
     - Model Resource no longer has parameter location
     - Model Resource no longer has parameter tags
     - Removed operation ConfigurationStoresOperations.list_key_value
+- Name: azure-mgmt-appconfiguration
+  Version: 0.7.0
+  DisplayName: Resource Management - App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-appconfiguration_0.7.0/sdk/appconfiguration/azure-mgmt-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model OperationDefinition has a new parameter is_data_action
+    - Model OperationDefinition has a new parameter properties
+    - Model OperationDefinition has a new parameter origin
+    - Model ConfigurationStore has a new parameter disable_local_auth
+    - Model ConfigurationStore has a new parameter system_data
+    - Model KeyValue has a new parameter id
+    - Model KeyValue has a new parameter type
+    - Model KeyValue has a new parameter name
+    - Model ConfigurationStoreUpdateParameters has a new parameter disable_local_auth
+    - Added operation group KeyValuesOperations
+
+    **Breaking changes**
+
+    - Model Resource no longer has parameter location
+    - Model Resource no longer has parameter tags
+    - Removed operation ConfigurationStoresOperations.list_key_value
+- Name: azure-mgmt-sql
+  Version: 0.29.0
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: GA
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-sql_0.29.0/sdk/sql/azure-mgmt-sql/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model ServerUpdate has a new parameter restrict_outbound_network_access
+    - Model ServerUpdate has a new parameter federated_client_id
+    - Model Server has a new parameter restrict_outbound_network_access
+    - Model Server has a new parameter federated_client_id
+    - Model BackupShortTermRetentionPolicy has a new parameter diff_backup_interval_in_hours
+
+    **Breaking changes**
+
+    - Operation ReplicationLinksOperations.get has a new signature
+    - Operation BackupShortTermRetentionPoliciesOperations.create_or_update has a new signature
+    - Operation BackupShortTermRetentionPoliciesOperations.update has a new signature
+- Name: azure-mgmt-containerservice
+  Version: 12.0.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_12.0.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model ManagedClusterAPIServerAccessProfile has a new parameter enable_private_cluster_public_fqdn
+    - Model AgentPool has a new parameter enable_ultra_ssd
+    - Model ManagedClusterAgentPoolProfile has a new parameter enable_ultra_ssd
+    - Model ManagedClusterAgentPoolProfileProperties has a new parameter enable_ultra_ssd
+    - Added operation ManagedClustersOperations.list_outbound_network_dependencies_endpoints
+
+    **Breaking changes**
+
+    - Operation ManagedClustersOperations.list_cluster_admin_credentials has a new signature
+    - Operation ManagedClustersOperations.list_cluster_monitoring_user_credentials has a new signature
+    - Operation ManagedClustersOperations.list_cluster_user_credentials has a new signature
 
