@@ -96,4 +96,23 @@ entries:
     #### Features Added
 
     - Updated to use the GA version of CloudEvents SDK.
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.2.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.2.0/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Acknowledgments
+    Thank you to our developer community members who helped to make the Service Bus client library better with their contributions to this release:
+
+    - Jason Dryhurst-Smith _([GitHub](https://github.com/jasond-s))_
+    - Oscar Cabrero _([GitHub](https://github.com/oscarcabrero))_
+
+    #### Fixed
+
+    - The retry policy used by clients will no longer overflow the `TimeSpan` maximum when using an `Exponential` strategy with a large number of retries and long delay set.
+
+    - The name of the property displayed in the `ArgumentOutOfRangeException` in the `MaxDeliveryCount` property in `SubscriptionProperties` was updated to use the correct property name.  (A community contribution, courtesy of _[oscarcabrero](https://github.com/oscarcabrero))_
 
