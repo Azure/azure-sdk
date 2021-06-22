@@ -85,4 +85,15 @@ entries:
     - Changed default service version to "7.2".
     - Added `KeyVaultCertificateIdentifier` to parse certificate URIs.
     - Added `CertificateClient.DownloadCertificate` and `DownloadCertificateAsync` to download an `X509Certificate2` with private key.
+- Name: Microsoft.Azure.Messaging.EventGrid.CloudNativeCloudEvents
+  Version: 1.0.0-beta.2
+  DisplayName: 'CloudNative CloudEvents with Event Grid '
+  ServiceName: eventgrid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.Messaging.EventGrid.CloudNativeCloudEvents_1.0.0-beta.2/sdk/eventgrid/Microsoft.Azure.Messaging.EventGrid.CloudNativeCloudEvents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Updated to use the GA version of CloudEvents SDK.
 
