@@ -28,8 +28,26 @@ parameters:
 
 steps:
   - pwsh: |
-      $releasePeriod = Get-Date -Format "yyyy-MM"
-      Write-Host "##vso[task.setvariable variable=ReleasePeriod]$releasePeriod"
+      $today = Get-Date
+      $firstDayOfMonth = $today.AddDays(-1 * $today.Day + 1)
+      $secondFridayOfMonth = $firstDayOfMonth.AddDays(([System.DayOfWeek]::Friday - $firstDayOfMonth.DayOfWeek + 7) % 7 + 7)
+
+      # Move to next month's release period but still collect notes from the second friday fo this month.
+      if ($today -gt $secondFridayOfMonth) {
+        $releasePeriod = $firstDayOfMonth.AddMonths(1)
+        $releaseStartDate = $secondFridayOfMonth
+      }
+      else {
+        # Take the second friday of last month as start date
+        $firstDayOfLastMonth = $firstDayOfMonth.AddMonths(-1)
+        $secondFridayOfLastMonth = $firstDayOfLastMonth.AddDays(([System.DayOfWeek]::Friday - $firstDayOfLastMonth.DayOfWeek + 7) % 7 + 7)
+
+        $releasePeriod = $firstDayOfMonth
+        $releaseStartDate = $secondFridayOfLastMonth
+      }
+
+      Write-Host "##vso[task.setvariable variable=ReleasePeriod]$($releasePeriod.ToString('yyyy-MM'))"
+      Write-Host "##vso[task.setvariable variable=ReleaseStartDate]$($releaseStartDate.ToString('yyyy-MM-dd'))"
     displayName: Set Release Period Value
 
   - pwsh: |
@@ -79,6 +97,7 @@ steps:
         filePath: $(AzureSDKClonePath)/eng/scripts/Generate-ReleaseNotes.ps1
         arguments: >
           -releasePeriod $(ReleasePeriod)
+          -releaseStartDate $(ReleaseStartDate)
           -commonScriptPath $(AzureSDKToolsScriptsPath)
           -releaseDirectory $(AzureSDKReleaseNotesClonePath)/_data/releases
           -repoLanguage ${{ repo.value.Language }}
