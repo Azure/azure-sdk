@@ -60,7 +60,7 @@ The API surface of your client library must have the most thought as it is the p
 
 These guidelines were written primarily with a HTTP based request/response in mind, but many general guidelines apply to other types of services as well. This includes, but is not limited to, packaging and naming, tools and project structures.
 
-Please contact the [Azure SDK Architecture Board] for more guidance on non HTTP/REST based services.
+Please contact the [Architecture board] for more guidance on non HTTP/REST based services.
 
 ### Supported python versions
 
@@ -568,7 +568,7 @@ For higher-level methods that use multiple HTTP requests, either the last except
 
 {% include requirement/MUST id="python-auth-policy-azure-core" %} use authentication policy implementations in `azure-core` whenever possible.
 
-{% include requirement/MAY  id="python-auth-service-credentials" %} add additional credential types if required by the service. Contact the [Azure SDK Architecture Board] for guidance if you believe you have need to do so.
+{% include requirement/MAY  id="python-auth-service-credentials" %} add additional credential types if required by the service. Contact the [Architecture board] for guidance if you believe you have need to do so.
 
 {% include requirement/MUST id="python-auth-service-support" %} support all authentication methods that the service supports.
 
