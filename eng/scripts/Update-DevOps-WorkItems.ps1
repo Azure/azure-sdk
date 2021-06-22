@@ -158,7 +158,7 @@ function ParseVersionsFromTags($versionsFromTags, $existingShippedVersionSet)
     }
     # if we don't have a cached value or the cached value is Unknown look at the
     # release tag to try and get a date
-    if ($d -eq "Unknown") {
+    if ($d -eq "Unknown" -and $v.Date -is [DateTime]) {
       $d = $v.Date.ToString("MM/dd/yyyy")
     }
     $versionList += New-Object PSObject -Property @{
