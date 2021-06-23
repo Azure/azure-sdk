@@ -130,4 +130,12 @@ entries:
     - Fix binding for DateTime parameters
     - Avoid exception that occurred when a function settles messages and `AutoCompleteMessages` is true for multiple dispatch functions.
     - Avoid null reference exception that could occur when no messages are available for a multiple dispatch function.
+- Name: Azure.Storage.Blobs
+  Version: 12.9.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.9.1/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: '- Added optimization to unwrap encryption key once for DownloadTo and OpenRead when Client Side Encryption is enabled.'
 
