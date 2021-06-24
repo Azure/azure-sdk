@@ -40,7 +40,7 @@ This covers the case when we upgrade and existing Azure SDK to the new SDKs stan
 
  {% include requirement/MUST %} Place that guide in the SDK repository preferably in the root of the directory that contains the service.
 
-An example porting guide can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md).
+An example porting guide can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md).
 
 (Please Note) Migration guide creation will be required to obtain sign-off from the Archboard.
 

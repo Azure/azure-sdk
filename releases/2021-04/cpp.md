@@ -34,7 +34,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-### azure-core [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/core/azure-core/CHANGELOG.md#100-beta8-2021-04-07)
+### azure-core [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/core/azure-core/CHANGELOG.md#100-beta8-2021-04-07)
 
 #### New Features
 
@@ -77,7 +77,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Moved `Azure::Core::Http::Request` to its own header file from `http.hpp` to `inc/azure/core/http/raw_response.hpp`.
 - Moved `Azure::Core::Http::HttpStatusCode` to its own header file from `http.hpp` to `inc/azure/core/http/http_status_code.hpp`.
 
-### azure-identity [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/identity/azure-identity/CHANGELOG.md#100-beta5-2021-04-07)
+### azure-identity [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/identity/azure-identity/CHANGELOG.md#100-beta5-2021-04-07)
 
 #### New Features
 
@@ -87,13 +87,13 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 - Removed `Azure::Identity::PackageVersion`.
 
-### azure-security-keyvault-common [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/keyvault/azure-security-keyvault-common/CHANGELOG.md#400-beta1-2021-04-07)
+### azure-security-keyvault-common [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/keyvault/azure-security-keyvault-common/CHANGELOG.md#400-beta1-2021-04-07)
 
 #### New Features
 
 - KeyVaultException.
 
-### azure-security-keyvault-keys [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md#400-beta1-2021-04-07)
+### azure-security-keyvault-keys [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md#400-beta1-2021-04-07)
 
 #### New Features
 

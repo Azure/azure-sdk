@@ -50,7 +50,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 ## Release highlights
 
-### Azure Storage Blobs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md)
+### Azure Storage Blobs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md)
 
 #### New Features
 - Added support for Lease Id for `SetBlobTags()` and `GetBlobTags()` supported in storage service version 2020-04-08.
@@ -61,13 +61,13 @@ If you have a bug or feature request for one of the libraries, please [file an i
 #### Key Bug Fixes
 - Fixed bug where `BlobContainerClient.GetBlobClient()`, `BlobContainerClient.GetParentServiceClient()`, `BlobServiceClient.GetBlobContainerClient()`, `BlobBaseClient.WithClientSideEncryptionOptions()`, `BlobBaseClient.GetParentBlobContainerClient()`, `BlobBaseClient.WithSnapshot()` and `BlobBaseClient.WithVersion()` created clients that could not generate a SAS from clients that could generate a SAS
 
-### Azure Storage Files DataLake [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md)
+### Azure Storage Files DataLake [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md)
 
 #### Key Bug Fixes
 - Fixed bug where `DataLakeServiceClient.GetFileSystemClient()`, `DataLakeFileSystemClient.GetFileClient()`, `DataLakeFileSystemClient.GetDirectoryClient()`,
 `DataLakeDirectoryClient.GetSubDirectoryClient()` and `DataLakeFileClient.GetFileClient()` created clients that could not generate a SAS from clients that could generate a SAS.
 
-### Azure Storage Files Shares [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md)
+### Azure Storage Files Shares [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md)
 
 #### New Features
 - Added support for Share Enable Protocol (`ShareCreateOptions.Protocols`, `ShareProperties.Protocols`) supported in storage service version 2020-04-08.
@@ -76,36 +76,36 @@ If you have a bug or feature request for one of the libraries, please [file an i
 #### Key Bug Fixes
 - Fixed bug where `ShareServiceClient.GetShareClient()`, `ShareClient.GetDirectoryClient()`, `ShareClient.GetRootDirectoryClient()`, `ShareClient.WithSnapshot()`, `ShareDirectoryClient.GetSubDirectoryClient()` and `ShareDirectoryClient.GetFileClient()` created clients that could not generate a SAS from clients that could generate a SAS
 
-### Azure Storage Queues [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Queues/CHANGELOG.md)
+### Azure Storage Queues [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Queues/CHANGELOG.md)
 
 #### Key Bug Fixes
 - Fixed bug where `QueueServiceClient.GetQueueClient()` and `QueueClient.WithClientSideEncryptionOptions()` created clients that could not generate a SAS from clients that could generate a SAS
 
-### Azure Synapse Access Control [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/synapse/Azure.Analytics.Synapse.AccessControl/CHANGELOG.md)
+### Azure Synapse Access Control [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/synapse/Azure.Analytics.Synapse.AccessControl/CHANGELOG.md)
 
 - This release contains bug fixes to improve quality.
 
-### Azure Synapse Artifacts [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/synapse/Azure.Analytics.Synapse.Artifacts/CHANGELOG.md)
+### Azure Synapse Artifacts [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/synapse/Azure.Analytics.Synapse.Artifacts/CHANGELOG.md)
 
 - Supports List/Get Synapse resources through data plane APIs
 - Make name as required parameter for NotebookResource and SqlScriptResource
 - Support Rename operations
 - Support CICD operations
 
-### Azure Synapse Managed Private Endpoints [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/synapse/Azure.Analytics.Synapse.ManagedPrivateEndpoints/CHANGELOG.md)
+### Azure Synapse Managed Private Endpoints [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/synapse/Azure.Analytics.Synapse.ManagedPrivateEndpoints/CHANGELOG.md)
 
 - Initial release
 
-### Azure Synapse Monitoring [Changelog](htthttps://github.com/Azure/azure-sdk-for-net/blob/master/sdk/synapse/Azure.Analytics.Synapse.Monitoring/CHANGELOG.md)
+### Azure Synapse Monitoring [Changelog](htthttps://github.com/Azure/azure-sdk-for-net/blob/main/sdk/synapse/Azure.Analytics.Synapse.Monitoring/CHANGELOG.md)
 
 - Initial release
 
-### Azure Synapse Spark [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/synapse/Azure.Analytics.Synapse.Spark/CHANGELOG.md)
+### Azure Synapse Spark [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/synapse/Azure.Analytics.Synapse.Spark/CHANGELOG.md)
 
 - This release contains bug fixes to improve quality.
 
 
-### Tables [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/tables/Azure.Data.Tables/CHANGELOG.md)
+### Tables [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/tables/Azure.Data.Tables/CHANGELOG.md)
 
 #### Key Bug Fixes
 - Fixed an issue with custom entity model serialization of the ETag property

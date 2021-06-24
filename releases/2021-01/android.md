@@ -54,7 +54,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Azure Core
 
-#### 1.0.0-beta.3 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/core/azure-core/CHANGELOG.md#100-beta3-2021-01-15))
+#### 1.0.0-beta.3 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/main/sdk/core/azure-core/CHANGELOG.md#100-beta3-2021-01-15))
 
 ##### New Features
 

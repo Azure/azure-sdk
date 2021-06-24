@@ -62,30 +62,30 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Storage
 
-#### Blob [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/CHANGELOG.md)
+#### Blob [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/CHANGELOG.md)
 
 ##### New Features
 - Added support for Blob Tags, Blob Versioning, Quick Query, Jumbo Blobs, and more
 - Added convenience method `createIfNotExists` for `ContainerClient`, `AppendBlobClient`, and `PageBlobClient`
 - Added convenience method `deleteIfExists` for `ContainerClient` and `BlobClients`
 
-#### Blob ChangeFeed [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob-changefeed/CHANGELOG.md)
+#### Blob ChangeFeed [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob-changefeed/CHANGELOG.md)
 
 ##### New Features
 - Added a preview version of this library to support change feed
 
-#### File DataLake [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/CHANGELOG.md)
+#### File DataLake [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-file-datalake/CHANGELOG.md)
 
 ##### New Features
 - Block size is increased to 4 GB max
 - Added more mapping for Blob and DFS endpoints
 
-#### File Share [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/CHANGELOG.md)
+#### File Share [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-file-share/CHANGELOG.md)
 
 ##### New Features
 - Supports 4 TB files
 
-### Search ([CHANGELOG](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/CHANGELOG.md#1100-2020-07-06))
+### Search ([CHANGELOG](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/search/search-documents/CHANGELOG.md#1100-2020-07-06))
 
 This is the first stable GA release of the Cognitive Search library.
 
@@ -97,13 +97,13 @@ This is the first stable GA release of the Cognitive Search library.
 - In `ServiceCounters`, the `skillsetCounter` property has been removed.
 - Modified the names of several properties. Please refer [#9321](https://github.com/Azure/azure-sdk-for-js/issues/9321) for a detailed list of renames.
 
-### App Configuration ([CHANGELOG](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/appconfiguration/app-configuration/CHANGELOG.md#110-2020-07-07))
+### App Configuration ([CHANGELOG](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/appconfiguration/app-configuration/CHANGELOG.md#110-2020-07-07))
 
 #### New Features
 
 - Added browser support for the latest versions of Chrome, Edge and Firefox.
 
-### Event Hubs ([CHANGELOG](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/CHANGELOG.md#530-preview1-2020-07-07))
+### Event Hubs ([CHANGELOG](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/eventhub/event-hubs/CHANGELOG.md#530-preview1-2020-07-07))
 
 We have released two versions of the Event Hubs library this time. An update to the stable version with bug fixes, and a preview version with new features.
 
@@ -115,7 +115,7 @@ We have released two versions of the Event Hubs library this time. An update to 
 
 - The preview version 5.3.0-preview.1 now supports configuring `loadBalancingOptions` when constructing the `EventHubConsumerClient` for more control over performance tuning while load balancing.
 
-### Form Recognizer ([CHANGELOG](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md#100-preview4-2020-07-07))
+### Form Recognizer ([CHANGELOG](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md#100-preview4-2020-07-07))
 
 #### New Features
 
@@ -131,7 +131,7 @@ We have released two versions of the Event Hubs library this time. An update to 
 - Rename `includeTextDetails` to `includeTextContent` in custom form and receipt recognition options to be consistent with other languages.
 - Rename properties `requestedOn` to `trainingStartedOn` and `completedOn` to `trainingCompletedOn` in `CustomFormModel` and `CustomFormModelInfo` types.
 
-### Service Bus ([CHANGELOG](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md#700-preview4-2020-07-07))
+### Service Bus ([CHANGELOG](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/servicebus/service-bus/CHANGELOG.md#700-preview4-2020-07-07))
 
 #### New Features
 

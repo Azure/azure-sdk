@@ -58,15 +58,15 @@ We are excited to announce the GA releases of management libraries that follow t
 
 ### Synapse
 
-#### Managed Private Endpoints [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/synapse/azure-synapse-managedprivateendpoints/CHANGELOG.md)
+#### Managed Private Endpoints [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/synapse/azure-synapse-managedprivateendpoints/CHANGELOG.md)
 
 - Initial Release
 
-#### Monitoring [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/synapse/azure-synapse-monitoring/CHANGELOG.md)
+#### Monitoring [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/synapse/azure-synapse-monitoring/CHANGELOG.md)
 
 - Initial Release
 
-#### Artifacts [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/synapse/azure-synapse-artifacts/CHANGELOG.md)
+#### Artifacts [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/synapse/azure-synapse-artifacts/CHANGELOG.md)
 
 - Add Workspace git repo management operations
 - Add rename method for data flow, dataset, linked service, notebook, pipeline, spark job definition, sql script operations

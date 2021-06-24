@@ -55,7 +55,7 @@ npm install @azure/storage-blob-changefeed@next
 
 If you have a bug or feature request for one of the libraries, please post an issue at the [azure-sdk-for-js repository](https://github.com/azure/azure-sdk-for-js/issues)
 
-### Azure Form Recognizer ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md))
+### Azure Form Recognizer ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md))
 
 We are pleased to announce the general availability (GA) of the `@azure/ai-form-recognizer` package version 3.0.0.
 
@@ -69,32 +69,32 @@ We are pleased to announce the general availability (GA) of the `@azure/ai-form-
 
 - Reverted the workaround for axios where the Content-Length header is removed before the request is passed to underlying http client. The workaround leads to HMAC signature miss-match for users using http clients like the default node http client which do not set the header themselves.
 
-#### New Features in Azure Storage Blob ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/CHANGELOG.md))
+#### New Features in Azure Storage Blob ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/CHANGELOG.md))
 
 - Supported [Tags Conditional Operations](https://docs.microsoft.com/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations#tags-conditional-operations). Now you can specify conditions against the tags on a blob resource for several read and write operations.
 - The Static Website Service now supports a DefaultIndexDocumentPath for a global HTTP 200 route within the static website. You can get it by `BlobServiceClient.getProperties()` and set it via `blobServiceClient.setProperties()`.
 - High level upload functions `BlockBlobClient.uploadFile()`, `BlockBlobClient.uploadStream()` and `BlockBlobClient.uploadBrowserData()` now support setting tier like `Hot`, `Cool` or `Archive` via the `tier` option.
 
-#### New Features in Azure Data Lake Storage ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/CHANGELOG.md))
+#### New Features in Azure Data Lake Storage ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-file-datalake/CHANGELOG.md))
 
 - Supported Query Blob Contents. Added a new API `DataLakeFileClient.query()`. This API applies a simple Structured Query Language (SQL) statement on a blob's contents and returns only the queried subset of the data. You can also call Query Blob Contents to query the contents of a version or snapshot. Learn more at [Query Blob Content REST API](https://docs.microsoft.com/rest/api/storageservices/query-blob-contents)
 
-#### New Features in Azure Storage File Share ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/CHANGELOG.md))
+#### New Features in Azure Storage File Share ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-file-share/CHANGELOG.md))
 
 - Supported share soft delete. Added `undeleteShare` to `ShareServiceClient`. `listShares` now can return deleted shares. Note: share soft delete only take effect on accounts with share soft delete feature enabled.
 
-#### New Features in Azure Storage Blob Change Feed ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob-changefeed/CHANGELOG.md))
+#### New Features in Azure Storage Blob Change Feed ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob-changefeed/CHANGELOG.md))
 
 - Added new constructor overloads for the `BlobChangeFeedClient` to support initializing with storage account credentials.
 
-### Azure Event Hubs ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/CHANGELOG.md))
+### Azure Event Hubs ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/eventhub/event-hubs/CHANGELOG.md))
 
 #### New Features
 
 - Added `loadBalancingOptions` to the `EventHubConsumerClient` to add control around how aggressively the client claims partitions while load balancing.
 - Support a new key-value pair in the connection string for the Shared Access Signature. The key to use is `SharedAccessSignature`.
 
-#### Azure Event Grid ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventgrid/eventgrid/CHANGELOG.md))
+#### Azure Event Grid ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/eventgrid/eventgrid/CHANGELOG.md))
 
 We're releasing a new preview for the Azure Event Grid client, with some API improvements. This release is a preview of our efforts to create a client library that is user friendly and idiomatic to the JavaScript ecosystem. The reasons for most of the changes in this update can be found in the [Azure SDK Design Guidelines for TypeScript](https://azure.github.io/azure-sdk/typescript_introduction.html).
 
@@ -112,12 +112,12 @@ For Key Vault Keys, Secrets and Certificates packages, we are releasing a beta f
 
 #### Changelogs
 
-- [Key Vault Keys](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-keys/CHANGELOG.md)
-- [Key Vault Secrets](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-secrets/CHANGELOG.md)
-- [Key Vault Certificates](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-certificates/CHANGELOG.md)
-- [Key Vault Administration](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-admin/CHANGELOG.md)
+- [Key Vault Keys](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/keyvault/keyvault-keys/CHANGELOG.md)
+- [Key Vault Secrets](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/keyvault/keyvault-secrets/CHANGELOG.md)
+- [Key Vault Certificates](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/keyvault/keyvault-certificates/CHANGELOG.md)
+- [Key Vault Administration](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/keyvault/keyvault-admin/CHANGELOG.md)
 
-### Azure Service Bus ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md))
+### Azure Service Bus ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/servicebus/service-bus/CHANGELOG.md))
 
 We're releasing a new preview for the Azure Service Bus, with some API changes and new features.
 
@@ -150,18 +150,18 @@ We're releasing a new preview for the Azure Service Bus, with some API changes a
     - `AuthorizationRule.accessRights` type has been changed to be a string union with the available rights.
 
 #### New Features
-  
+
 - Support a new key-value pair in the connection string for the Shared Access Signature. The key to use is `SharedAccessSignature`.
 - Added a new field `amqpAnnotatedMessage` to the received message which will hold the received
   message in its raw form, complete with all parts of the message as per the [AMQP spec](https://www.amqp.org/sites/amqp.org/files/amqp.pdf).
 - Added `ServiceBusAdministrationClient.ruleExists()`
 - Options to create a queue and topic now support `enableExpress` boolean property. `enableExpress` indicates whether Express Entities are enabled on a queue or topic. An express queue holds a message in memory temporarily before writing it to persistent storage.
 
-### Azure Tables ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/tables/data-tables/CHANGELOG.md))
+### Azure Tables ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/tables/data-tables/CHANGELOG.md))
 
 We're releasing the first beta version of the new Azure Tables client, following our [guidelines](https://azure.github.io/azure-sdk/typescript_introduction.html) which ensures it is idiomatic, consistent, and diagnosable. It supports essential operations of the service, such as creating and deleting tables, as well as querying, creating, reading, updating and deleting entities.
 
-### Azure Text Analytics ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/CHANGELOG.md))
+### Azure Text Analytics ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/textanalytics/ai-text-analytics/CHANGELOG.md))
 
 ##### New Features
 

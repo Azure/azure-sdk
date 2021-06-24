@@ -102,18 +102,18 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Azure Communication Services Calling
 
-#### 1.0.1 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/master/sdk/communication/AzureCommunicationCalling/CHANGELOG.md#101-2021-05-03))
+#### 1.0.1 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/main/sdk/communication/AzureCommunicationCalling/CHANGELOG.md#101-2021-05-03))
 
 ##### Bug fixes
 - Missing required key bundle version for `1.0.0`.
 
-#### 1.0.0 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/master/sdk/communication/AzureCommunicationCalling/CHANGELOG.md#100-2021-04-27))
+#### 1.0.0 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/main/sdk/communication/AzureCommunicationCalling/CHANGELOG.md#100-2021-04-27))
 
 ##### Breaking changes
 - Video removed/added event are not raised when application stops rendering an incoming video.
 - Teams interop and all other preview APIs are no longer available in the mainstream SDK drop. Please use libraries marked with the -beta suffix for these features.
 
-#### 1.0.0-beta.12 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/master/sdk/communication/AzureCommunicationCalling/CHANGELOG.md#100-beta12-2021-04-13))
+#### 1.0.0-beta.12 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/main/sdk/communication/AzureCommunicationCalling/CHANGELOG.md#100-beta12-2021-04-13))
 
 ##### New features
 - A `DeviceManager` instance can be obtained irrespective of `CallAgent` creation.
@@ -148,13 +148,13 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Azure Communication Services Common
 
-#### 1.0.0 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/master/sdk/communication/AzureCommunicationCommon/CHANGELOG.md#100-2021-04-26))
+#### 1.0.0 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/main/sdk/communication/AzureCommunicationCommon/CHANGELOG.md#100-2021-04-26))
 
 #### Breaking Changes
 
 - `AzureCommunication` has been renamed `AzureCommunicationCommon`.
 
-#### 1.0.0-beta.12 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/master/sdk/communication/AzureCommunicationCommon/CHANGELOG.md#100-beta12-2021-04-26))
+#### 1.0.0-beta.12 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/main/sdk/communication/AzureCommunicationCommon/CHANGELOG.md#100-beta12-2021-04-26))
 
 ##### Breaking Changes
 
@@ -162,9 +162,9 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Azure Core
 
-#### 1.0.0-beta.12 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/master/sdk/core/AzureCore/CHANGELOG.md#100-beta12-2021-04-22))
+#### 1.0.0-beta.12 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/main/sdk/core/AzureCore/CHANGELOG.md#100-beta12-2021-04-22))
 
-#### 1.0.0-beta.11 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/master/sdk/core/AzureCore/CHANGELOG.md#100-beta11-2021-04-07))
+#### 1.0.0-beta.11 ([Changelog](https://github.com/Azure/azure-sdk-for-ios/blob/main/sdk/core/AzureCore/CHANGELOG.md#100-beta11-2021-04-07))
 
 ## Need help
 
