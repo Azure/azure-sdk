@@ -66,7 +66,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Azure Communication Services Common
 
-#### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/communication/azure-communication-common/CHANGELOG.md#100-beta5-2021-02-08))
+#### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/main/sdk/communication/azure-communication-common/CHANGELOG.md#100-beta5-2021-02-08))
 
 ##### Breaking Changes
 
@@ -86,7 +86,7 @@ If you have a bug or feature request for one of the libraries, please post an is
     - `CommunicationUserIdentifierModel`
 
 
-#### 1.0.0-beta.4 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/communication/azure-communication-common/CHANGELOG.md#100-beta4-2021-01-28))
+#### 1.0.0-beta.4 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/main/sdk/communication/azure-communication-common/CHANGELOG.md#100-beta4-2021-01-28))
 
 ##### Breaking Changes
 
@@ -101,7 +101,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Azure Communication Services Chat
 
-#### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/communication/azure-communication-chat/CHANGELOG.md#100-beta5-2021-02-08))
+#### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/main/sdk/communication/azure-communication-chat/CHANGELOG.md#100-beta5-2021-02-08))
 
 ##### New Features
 
@@ -125,7 +125,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Renamed `retrieveNextParticipantsPages` to `listChatParticipantsNext`.
 - Renamed `retrieveNextReceiptsPages` to `listChatReadReceiptsNext`.
 
-#### 1.0.0-beta.4 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/communication/azure-communication-chat/CHANGELOG.md#100-beta4-skipped))
+#### 1.0.0-beta.4 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/main/sdk/communication/azure-communication-chat/CHANGELOG.md#100-beta4-skipped))
 
 ##### New Features
 
@@ -138,13 +138,13 @@ If you have a bug or feature request for one of the libraries, please post an is
     - `ChatMessageType`
 
 ##### Breaking Changes
-    
+
 - `ChatMessage` properties are now all required.
 - `ChatMessage` type is no longer a `String` type but an extendable `Enum` type: `ChatMessageType`.
 - `ChatMessage` content is no longer a `String` type but an object of type `ChatMessageContent`.
 - All `OffsetDateTime` properties are now in RFC3339 format instead of ISO8601 format.
 
-#### 1.0.0-beta.3 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/communication/azure-communication-chat/CHANGELOG.md#100-beta4-skipped))
+#### 1.0.0-beta.3 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/main/sdk/communication/azure-communication-chat/CHANGELOG.md#100-beta4-skipped))
 
 ##### Breaking Changes
 

@@ -91,7 +91,7 @@ The HTTP pipeline consists of a HTTP transport that is wrapped by multiple polic
 - Response downloader
 - Distributed tracing
 - Logging
-- 
+-
 - TODO: If these policies are already implemented in Azure Core, does the library developer need to do this?  If not, please remove this guidance.
 
 {% include requirement/SHOULD id="general-implementing-use-core-policies" %} use the policy implementations in Azure Core whenever possible.  Do not try to "write your own" policy unless it is doing something unique to your service.  If you need another option to an existing policy, engage with the [Architecture Board] to add the option.
@@ -366,7 +366,7 @@ The following sections describe the package.json file that must be included with
   "devDependencies": { /* ... */ },,
   "dependencies": { /* ... */ },
   "repository": "github:Azure/azure-sdk",
-  "homepage": "https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus",
+  "homepage": "https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/servicebus/service-bus",
   "bugs": {
     "url": "https://github.com/Azure/azure-sdk-for-js/issues"
   },

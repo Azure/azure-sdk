@@ -55,10 +55,10 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 
 - This release contains bug fixes to improve quality.
 
-### Storage File DataLake ([Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md))
+### Storage File DataLake ([Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/storage/azure-storage-file-datalake/CHANGELOG.md))
 - Async APIs are now supported.
 
-### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#100b2-2020-02-11)
+### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#100b2-2020-02-11)
 
 - The single text, module-level operations have been removed from the client library.  Use the batching methods for optimal performance in production environments.
 - New credential class `TextAnalyticsApiKeyCredential("<api_key>")` must be used if authenticating with an API key. It provides an `update_key()` method which allows you to update the API key for long-lived clients. Passing the API key as a string is no longer supported.

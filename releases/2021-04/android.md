@@ -145,7 +145,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Azure Communication Services Chat
 
-#### 1.0.0-beta.8 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/communication/azure-communication-chat/CHANGELOG.md#100-beta8-2021-03-29))
+#### 1.0.0-beta.8 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/main/sdk/communication/azure-communication-chat/CHANGELOG.md#100-beta8-2021-03-29))
 
 ##### Breaking Changes
 
@@ -169,7 +169,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Azure Communication Services Common
 
-#### 1.0.0-beta.8 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/communication/azure-communication-common/CHANGELOG.md#100-beta8-2021-03-29))
+#### 1.0.0-beta.8 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/main/sdk/communication/azure-communication-common/CHANGELOG.md#100-beta8-2021-03-29))
 
 ##### Breaking Changes
 
@@ -180,13 +180,13 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Azure Core
 
-#### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/core/azure-core/CHANGELOG.md#100-beta5-2021-03-26))
+#### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/main/sdk/core/azure-core/CHANGELOG.md#100-beta5-2021-03-26))
 
 ##### Breaking Changes
 
 - Removed the `azure-core.properties` file.
 
-#### 1.0.0-beta.4 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/core/azure-core/CHANGELOG.md#100-beta4-2021-03-18))
+#### 1.0.0-beta.4 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/main/sdk/core/azure-core/CHANGELOG.md#100-beta4-2021-03-18))
 
 ##### Breaking Changes
 
@@ -203,13 +203,13 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Azure Core Credential
 
-#### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/core/azure-core-credential/CHANGELOG.md#100-beta5-2021-03-26))
+#### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/main/sdk/core/azure-core-credential/CHANGELOG.md#100-beta5-2021-03-26))
 
 ##### Breaking Changes
 
 - Removed the `azure-core.properties` file.
 
-#### 1.0.0-beta.4 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/core/azure-core-credential/CHANGELOG.md#100-beta4-2021-03-18))
+#### 1.0.0-beta.4 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/main/sdk/core/azure-core-credential/CHANGELOG.md#100-beta4-2021-03-18))
 
 ##### New Features
 
@@ -217,13 +217,13 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Azure Core HTTP
 
-#### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/core/azure-core-http/CHANGELOG.md#100-beta5-2021-03-26))
+#### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/main/sdk/core/azure-core-http/CHANGELOG.md#100-beta5-2021-03-26))
 
 ##### Breaking Changes
 
 - Removed the `azure-core.properties` file.
 
-#### 1.0.0-beta.4 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/core/azure-core-http/CHANGELOG.md#100-beta4-2021-03-18))
+#### 1.0.0-beta.4 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/main/sdk/core/azure-core-http/CHANGELOG.md#100-beta4-2021-03-18))
 
 ##### New Features
 
@@ -231,9 +231,9 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Azure Core HTTP HttpUrlConnection
 
-#### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/core/azure-core-http-httpurlconnection/CHANGELOG.md#100-beta5-2021-03-26))
+#### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/main/sdk/core/azure-core-http-httpurlconnection/CHANGELOG.md#100-beta5-2021-03-26))
 
-#### 1.0.0-beta.4 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/core/azure-core-http-httpurlconnection/CHANGELOG.md#100-beta4-2021-03-18))
+#### 1.0.0-beta.4 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/main/sdk/core/azure-core-http-httpurlconnection/CHANGELOG.md#100-beta4-2021-03-18))
 
 ##### New Features
 
@@ -241,9 +241,9 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Azure Core HTTP OkHttp
 
-#### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/core/azure-core-http-okhttp/CHANGELOG.md#100-beta5-2021-03-26))
+#### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/main/sdk/core/azure-core-http-okhttp/CHANGELOG.md#100-beta5-2021-03-26))
 
-#### 1.0.0-beta.4 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/core/azure-core-http-okhttp/CHANGELOG.md#100-beta4-2021-03-18))
+#### 1.0.0-beta.4 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/main/sdk/core/azure-core-http-okhttp/CHANGELOG.md#100-beta4-2021-03-18))
 
 ##### New Features
 
@@ -251,13 +251,13 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Azure Core Jackson
 
-#### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/core/azure-core-jackson/CHANGELOG.md#100-beta5-2021-03-26))
+#### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/main/sdk/core/azure-core-jackson/CHANGELOG.md#100-beta5-2021-03-26))
 
 ##### Breaking Changes
 
 - Removed the `azure-core.properties` file.
 
-#### 1.0.0-beta.4 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/core/azure-core-jackson/CHANGELOG.md#100-beta4-2021-03-18))
+#### 1.0.0-beta.4 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/main/sdk/core/azure-core-jackson/CHANGELOG.md#100-beta4-2021-03-18))
 
 ##### New Features
 
@@ -265,13 +265,13 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Azure Core Logging
 
-#### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/core/azure-core-logging/CHANGELOG.md#100-beta5-2021-03-26))
+#### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/main/sdk/core/azure-core-logging/CHANGELOG.md#100-beta5-2021-03-26))
 
 ##### Breaking Changes
 
 - Removed the `azure-core.properties` file.
 
-#### 1.0.0-beta.4 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/core/azure-core-logging/CHANGELOG.md#100-beta4-2021-03-18))
+#### 1.0.0-beta.4 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/main/sdk/core/azure-core-logging/CHANGELOG.md#100-beta4-2021-03-18))
 
 ##### New Features
 
@@ -279,13 +279,13 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Azure Core REST
 
-#### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/core/azure-core-rest/CHANGELOG.md#100-beta5-2021-03-26))
+#### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/main/sdk/core/azure-core-rest/CHANGELOG.md#100-beta5-2021-03-26))
 
 ##### Breaking Changes
 
 - Removed the `azure-core.properties` file.
 
-#### 1.0.0-beta.4 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/core/azure-core-rest/CHANGELOG.md#100-beta4-2021-03-18))
+#### 1.0.0-beta.4 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/main/sdk/core/azure-core-rest/CHANGELOG.md#100-beta4-2021-03-18))
 
 ##### New Features
 
@@ -293,13 +293,13 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Azure Core Test
 
-#### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/core/azure-core-test/CHANGELOG.md#100-beta5-2021-03-26))
+#### 1.0.0-beta.5 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/main/sdk/core/azure-core-test/CHANGELOG.md#100-beta5-2021-03-26))
 
 ##### Breaking Changes
 
 - Removed the `azure-core.properties` file.
 
-#### 1.0.0-beta.4 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/core/azure-core-test/CHANGELOG.md#100-beta4-2021-03-18))
+#### 1.0.0-beta.4 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/main/sdk/core/azure-core-test/CHANGELOG.md#100-beta4-2021-03-18))
 
 ##### New Features
 

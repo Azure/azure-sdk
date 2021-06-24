@@ -369,7 +369,7 @@ public class UserApplication {
             .buildClient();
 
         // calls V1 service API
-        ConfigurationSetting setting = client.getConfigurationSetting("name", "label"); 
+        ConfigurationSetting setting = client.getConfigurationSetting("name", "label");
     }
 }
 ```
@@ -408,7 +408,7 @@ getFoo(x, y)
 getFoo(x, y, z) // maximal overload
 getFoo(a)       // maximal overload
 
-// this will result in the following two methods being required 
+// this will result in the following two methods being required
 // (replacing the two maximal overloads above)
 getFoo(x, y, z, Context)
 getFoo(a, Context)
@@ -418,7 +418,7 @@ getFoo(a, Context)
 
 #### Non-Service Methods
 
-Clients often have non-service methods, for accessing details such as the service version, http pipeline, and so on. There may also be API that offers users the ability to create specialized sub-clients. These sub-clients 
+Clients often have non-service methods, for accessing details such as the service version, http pipeline, and so on. There may also be API that offers users the ability to create specialized sub-clients. These sub-clients
 
 {% include requirement/MUST id="java-service-client-method-naming" %} use standard JavaBean naming prefixes for all methods that are not service methods.
 
@@ -723,7 +723,7 @@ package com.azure.ai.textanalytics.models;
 
 @Fluent
 public final class PiiTaskParameters {
-    
+
     // optional properties
     private PiiTaskParametersDomain domain;
     private String modelVersion = "latest";
@@ -737,7 +737,7 @@ public final class PiiTaskParameters {
         this.domain = domain;
         return this;
     }
-   
+
     public String getModelVersion() {
         return this.modelVersion;
     }
@@ -853,7 +853,7 @@ Fluent types must not be immutable.  Don't return a new instance on each setter 
 
 Model types sometimes exist only as an Azure service return type, and developers would never instantiate these. Often, these model types have API that is not user-friendly (in particular, overly complex constructors). It would be best for developers if they were never presented with this API in the first place, and we refer to these as 'undesirable public API'.
 
-{% include requirement/MUST id="java-models-interface" %} put model classes that are intended as service return types only, and which have undesirable public API into the `.implementation.models` package. In its place, an interface should be put into the public-facing `.models` package, and it should be this type that is returned through the public API to end users. 
+{% include requirement/MUST id="java-models-interface" %} put model classes that are intended as service return types only, and which have undesirable public API into the `.implementation.models` package. In its place, an interface should be put into the public-facing `.models` package, and it should be this type that is returned through the public API to end users.
 
 Examples of situations where this is applicable include when there are constructors or setters on a type which receive implementation types, or when a type should be immutable but needs to be mutable internally. The interface should have the model type name, and the implementation (within `.implementation.models`) should be named `<interfaceName>Impl`.
 
@@ -861,7 +861,7 @@ Examples of situations where this is applicable include when there are construct
 
 Enumerations in Java are extremely convenient, but used improperly can lead to breaking changes to the API. This is because often the Java compiler is configured to fail if not all enum values are listed in a switch statement, so with the addition of a new enum value, users will encounter breaking builds when updating their dependency to a newer version. Because of this, the Java azure-core ships with the `ExpandableStringEnum` that is the suggested means through which enumerations are exposed. Whilst not technically a Java enumeration, it can be treated as such in much the same way, without concerns about breaking changes from adding new values. It is also more user-friendly when new values are introduced on the service side before a library update has been shipped, as users can manually create their own values within the context of a single `ExpandableStringEnum`.
 
-{% include requirement/MUSTNOT id="java-enums" %} define Java enum types for parameters, properties, and return types, except in two scenarios: 
+{% include requirement/MUSTNOT id="java-enums" %} define Java enum types for parameters, properties, and return types, except in two scenarios:
 
 1) When values are fixed and will never change over time, or,
 2) When the enum is used as an input-only enum and therefore the likelihood of users running into breaking changes (i.e. when they must `switch` over all values) is low.
@@ -899,7 +899,7 @@ public static final class OperationStatus extends ExpandableStringEnum<Operation
 * `SyncPoller` and `PollerFlux` for long running operations
 * `TokenCredential`, `AzureKeyCredential`, etc for common auth interfaces
 
-See the [Azure Core readme](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core/azure-core) for more details.
+See the [Azure Core readme](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/core/azure-core) for more details.
 
 #### Using Primitive Types
 
@@ -921,7 +921,7 @@ public final class PhoneNumber {
 
     public String getPhoneNumber() {
         ...
-    } 
+    }
 }
 ```
 
@@ -1068,7 +1068,7 @@ public class UserPreferencesTest {
 
         // wire the mock client to UserPreferences
         UserPreferences userPreferences = new UserPreferences(configurationClient);
-        
+
         // assert the client response
         assertEquals(Theme.LIGHT, userPreferences.getTheme());
     }
@@ -1192,7 +1192,7 @@ Use `-beta.N` suffix for beta package versions. For example, `1.0.0-beta.2`.
 
 Dependencies bring in many considerations that are often easily avoided by avoiding the dependency.
 
-- **Versioning** - Many programming languages do not allow a consumer to load multiple versions of the same package. So, if we have an client library that requires v3 of package Foo and the consumer wants to use v5 of package Foo, then the consumer cannot build their application. This means that client libraries should not have dependencies by default. 
+- **Versioning** - Many programming languages do not allow a consumer to load multiple versions of the same package. So, if we have an client library that requires v3 of package Foo and the consumer wants to use v5 of package Foo, then the consumer cannot build their application. This means that client libraries should not have dependencies by default.
 - **Size** - Consumer applications must be able to deploy as fast as possible into the cloud and move in various ways across networks. Removing additional code (like dependencies) improves deployment performance.
 - **Licensing** - You must be conscious of the licensing restrictions of a dependency and often provide proper attribution and notices when using them.
 - **Compatibility** - Often times you do not control a dependency and it may choose to evolve in a direction that is incompatible with your original use.
@@ -1208,7 +1208,7 @@ Dependency versions are purposefully not specified in this table. The definitive
 
 {% include requirement/MUSTNOT id="java-dependencies-archboard" %} introduce new dependencies on third-party libraries that are already referenced from the parent POM, without first discussing with the Architecture Board].
 
-{% include requirement/MUSTNOT id="java-dependencies-versions" %} specify or change dependency versions in your client library POM file. All dependency versioning must be [centralized through existing tooling](https://github.com/Azure/azure-sdk-for-java/blob/master/CONTRIBUTING.md#versions-and-versioning).
+{% include requirement/MUSTNOT id="java-dependencies-versions" %} specify or change dependency versions in your client library POM file. All dependency versioning must be [centralized through existing tooling](https://github.com/Azure/azure-sdk-for-java/blob/main/CONTRIBUTING.md#versions-and-versioning).
 
 {% include requirement/MUSTNOT id="java-dependencies-snapshot" %} include dependencies on external libraries that are -SNAPSHOT versions. All dependencies must be released versions.
 

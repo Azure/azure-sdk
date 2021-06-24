@@ -124,17 +124,17 @@ If you have a bug or feature request for one of the libraries, please post an is
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
 ### App Configuration
-- SettingSelector takes a filter instead of taking a list of strings. For more details. please see the [App Configuration](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/appconfiguration/azure-data-appconfiguration/CHANGELOG.md#101-2020-01-07).
+- SettingSelector takes a filter instead of taking a list of strings. For more details. please see the [App Configuration](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/appconfiguration/azure-data-appconfiguration/CHANGELOG.md#101-2020-01-07).
 
 ### Event Hubs
 - The Event Hub connection is reestablished when a transient failure is encountered.
 - Error handling in `EventProcessor` is broken out and handled in several scenarios.
-- For more details, please see the [EventHubs changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md#501-2020-01-07).
-  
+- For more details, please see the [EventHubs changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md#501-2020-01-07).
+
 ### Keyvault (Secrets, Keys, Certificates)
-- Updated dependency. For more details. please see the [KeyVault Secrets](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md#402-2020-01-07)
-- Fixes the logic of `getKeyId()` method in `KeyEncryptionKeyClient` and `KeyEncryptionKeyAsyncClient` to ensure key id is available in all scenarios. For more details. please see the [KeyVault Keys](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md#402-2020-01-07)
-- Updated dependency. For more details. please see the [KeyVault Certificates](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md#400-2020-01-07)
+- Updated dependency. For more details. please see the [KeyVault Secrets](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md#402-2020-01-07)
+- Fixes the logic of `getKeyId()` method in `KeyEncryptionKeyClient` and `KeyEncryptionKeyAsyncClient` to ensure key id is available in all scenarios. For more details. please see the [KeyVault Keys](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md#402-2020-01-07)
+- Updated dependency. For more details. please see the [KeyVault Certificates](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md#400-2020-01-07)
 
 ### Storage (Blobs, Files, Queues)
 - Adding generateSas methods on all the storage clients to make it more discoverable to the user.
@@ -148,7 +148,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - The first preview with new API design for the `azure-ai-textanalytics` client library
 - It uses the Text Analytics service `v3.0-preview.1` API.
 - New namespace/package name:
-    - The namespace/package name for Azure Text Analytics client library has changed from 
+    - The namespace/package name for Azure Text Analytics client library has changed from
     `com.microsoft.azure.cognitiveservices.language.textanalytics` to `com.azure.ai.textanalytics`
 - Added support for:
   - Subscription key and AAD authentication for both synchronous and asynchronous clients.
@@ -158,8 +158,8 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
   - Personally identifiable information entities recognition.
   - Key phrases extraction.
   - Analyze sentiment APIs including analysis for mixed sentiment.
-  
-For more details, please see the detailed [changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#100-beta1-2020-01-09).
+
+For more details, please see the detailed [changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#100-beta1-2020-01-09).
 
 ## Need help?
 * For reference documentation visit the [Azure SDK for Java documentation](https://azure.github.io/azure-sdk-for-java/).

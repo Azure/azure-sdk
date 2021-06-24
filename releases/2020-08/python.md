@@ -54,17 +54,17 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
-### Identity [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/CHANGELOG.md)
+### Identity [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/identity/azure-identity/CHANGELOG.md)
 
 #### Breaking Changes
 - User authentication and cache configuration APIs added since 1.4.0b1 have been removed (see the full changelog for details). They will return in 1.5.0b1.
 - Renamed `VSCodeCredential` to `VisualStudioCodeCredential`
 
-### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#500-2020-07-27)
+### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#500-2020-07-27)
 
 - Re-released GA version 1.0.0 under new version 5.0.0
 
-### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/CHANGELOG.md)
+### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/servicebus/azure-servicebus/CHANGELOG.md)
 
 #### New Features
 
@@ -88,7 +88,7 @@ As before, please refer to the official changelog for a more complete enumeratio
 - Renamed `idle_timeout` in `get_<queue/subscription>_receiver()` to `max_wait_time` to normalize with naming elsewhere.
 - Updated uAMQP dependency to 1.2.10 such that the receiver does not shut down when generator times out, and can be received from again.
 
-### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#300b1-2020-08-11)
+### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#300b1-2020-08-11)
 
 #### Breaking changes
 
@@ -103,7 +103,7 @@ As before, please refer to the official changelog for a more complete enumeratio
 `value_type` are described in the enum `FieldValueType`
 
 
-### Search [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/CHANGELOG.md)
+### Search [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/search/azure-search-documents/CHANGELOG.md)
 
 #### New Features
 
@@ -113,7 +113,7 @@ SearchIndexDocumentBatchingClient supports handling document indexing actions in
 
 ### Storage
 
-#### Blob [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md)
+#### Blob [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/storage/azure-storage-blob/CHANGELOG.md)
 
 ##### New Features
 - GA of v12.4.0, includes features from all preview versions
@@ -127,13 +127,13 @@ SearchIndexDocumentBatchingClient supports handling document indexing actions in
 - Fixed `blob_samples_query` bug
 - Support batch delete empty blob list
 
-#### File DataLake [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md)
+#### File DataLake [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/storage/azure-storage-file-datalake/CHANGELOG.md)
 
 ##### New Features
 - GA of v12.1.1, includes features from all preview versions
 - Added `query_file` API to enable users to select/project on DataLake file data by providing simple query expressions.
 
-#### File Share [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/CHANGELOG.md)
+#### File Share [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/storage/azure-storage-file-share/CHANGELOG.md)
 
 ##### New Features
 - GA of v12.2.0, includes features from all preview versions.
@@ -142,11 +142,11 @@ SearchIndexDocumentBatchingClient supports handling document indexing actions in
 ### Key Vault
 
 - All Key Vault libraries now target the service's 7.1 API version
-#### Keys [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md#420-2020-08-11)
-#### Secrets [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-secrets/CHANGELOG.md#420-2020-08-11)
-#### Certificates [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-certificates/CHANGELOG.md#420-2020-08-11)
+#### Keys [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md#420-2020-08-11)
+#### Secrets [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/keyvault/azure-keyvault-secrets/CHANGELOG.md#420-2020-08-11)
+#### Certificates [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/keyvault/azure-keyvault-certificates/CHANGELOG.md#420-2020-08-11)
 
-### Cosmos DB [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/CHANGELOG.md#410-2020-08-10)
+### Cosmos DB [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/cosmos/azure-cosmos/CHANGELOG.md#410-2020-08-10)
 
 - Added deprecation warning for "lazy" indexing mode. The backend no longer allows creating containers with this mode and will set them to consistent instead.
 - Various bug fixes.

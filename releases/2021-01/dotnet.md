@@ -58,31 +58,31 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 ## Release highlights
 
-### Attestation [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/attestation/Azure.Security.Attestation/CHANGELOG.md)
+### Attestation [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/attestation/Azure.Security.Attestation/CHANGELOG.md)
 
 - Initial release of Azure.Security.Attestation Beta version to support data-plane operations of Microsoft Azure Attestation.
 
-### Authentication [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/mixedreality/Azure.MixedReality.Authentication/CHANGELOG.md#100-preview2-2021-01-12)
+### Authentication [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/mixedreality/Azure.MixedReality.Authentication/CHANGELOG.md#100-preview2-2021-01-12)
 
 - Configured with shared source.
 
-### Azure Storage Blobs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md)
+### Azure Storage Blobs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md)
 
 #### New Features
 - GA all features in previous release.
 - Added support for `AzureSasCredential`. That allows SAS rotation for long living clients.
 
-### Azure Storage Blobs ChangeFeed [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md)
+### Azure Storage Blobs ChangeFeed [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md)
 
 #### Key Bug Fixes
 - Fixed bug where we couldn't handle `BlobChangeFeedEvent.EventData.ClientRequestIds` that were not GUIDs
 
-### Azure Storage Common [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Common/CHANGELOG.md)
+### Azure Storage Common [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Common/CHANGELOG.md)
 
 #### Key Bug Fixes
 - Fixed bug where parsing the connection string only accept lowercase values
 
-### Azure Storage Files DataLake [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md)
+### Azure Storage Files DataLake [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md)
 
 #### New Features
 - GA all features in previous release.
@@ -94,7 +94,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 - Fixed bug where `DataLakePathClient.SetPermissions()`, `DataLakeFileClient.SetPermissions()`, and `DataLakeDirectoryClient.SetPermissions()` could not just set `Owner` or `Group`.
 - Fixed bug where `DataLakeDirectoryClient` initialized with a `Uri` would throw a null exception when `GetPaths()` was called.
 
-### Azure Storage Files Shares [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md)
+### Azure Storage Files Shares [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md)
 
 #### New Features
 - GA all features from previous release.
@@ -103,7 +103,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 #### Key Bug Fixes
 - Fixed bug where the `Stream` returned by `ShareFileClient.OpenRead()` would return a different Length after calls to `Seek()`.
 
-### Azure Storage Queues [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Queues/CHANGELOG.md)
+### Azure Storage Queues [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Queues/CHANGELOG.md)
 
 #### New Features
 - GA all features from previous release.
@@ -114,7 +114,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 - Initial release of [Live Video Analytics on IoT Edge](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/overview).
 
-### Microsoft.Azure.ServiceBus [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Microsoft.Azure.ServiceBus/CHANGELOG.md#511-2021-01-12)
+### Microsoft.Azure.ServiceBus [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Microsoft.Azure.ServiceBus/CHANGELOG.md#511-2021-01-12)
 
 - Update dependency of Microsoft.Azure.Amqp to version 2.4.9.
 
@@ -126,10 +126,10 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 - Initial release of Microsoft.Azure.Core.Spatial.NewtonsoftJson to use Newtonsoft.Json to serialize supported Microsoft.Spatial types.
 
-### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md#701-2021-01-12)
+### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md#701-2021-01-12)
 
 #### Key Bug Fixes
-- Fixed race condition that could occur when using the same `ServiceBusSessionReceiverOptions` instance 
+- Fixed race condition that could occur when using the same `ServiceBusSessionReceiverOptions` instance
 for several receivers.
 - Increased the authorization refresh buffer to make it less likely that authorization will expire.
 
@@ -137,7 +137,7 @@ for several receivers.
 
 - Initial release of Microsoft.Azure.Core.Spatial to use `System.Text.Json` to serialize supported Microsoft.Spatial types.
 
-### Tables [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/tables/Azure.Data.Tables/CHANGELOG.md#300-beta5-2021-01-12)
+### Tables [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/tables/Azure.Data.Tables/CHANGELOG.md#300-beta5-2021-01-12)
 
 #### Key Bug Fixes
 - Fixed an issue which transposed the values used for EndPartitionKey and StartRowKey in the generated Sas token Uri

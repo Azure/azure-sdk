@@ -38,7 +38,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-### azure-core [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/core/azure-core/CHANGELOG.md#100-beta6-2021-02-09)
+### azure-core [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/core/azure-core/CHANGELOG.md#100-beta6-2021-02-09)
 
 #### New Features
 
@@ -56,27 +56,27 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Fixed compilation dependency issue for MacOS when consuming the SDK from VcPkg.
 - Fixed support for sending requests to endpoints with a custom port within the url on Windows when using the WinHttp transport.
 
-### azure-identity [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/identity/azure-identity/CHANGELOG.md#100-beta3-2021-02-02)
+### azure-identity [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/identity/azure-identity/CHANGELOG.md#100-beta3-2021-02-02)
 
 #### Breaking Changes
 
 - `ClientSecretCredential ` constructor takes `ClientSecretCredentialOptions` struct instead of authority host string. `TokenCredentialOptions` struct has authority host string as data member.
 
-### azure-storage-common [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-common/CHANGELOG.md#1200-beta8-2021-02-12)
+### azure-storage-common [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/storage/azure-storage-common/CHANGELOG.md#1200-beta8-2021-02-12)
 
 #### Breaking Changes
 
 - Removed the `Azure::Storage::Md5` class from `crypt.hpp`. Use the type from `Azure::Core::Cryptography` namespace instead, from `azure/core/cryptography/hash.hpp`.
 - Renamed `Crc64` to `Crc64Hash` and change it to derive from the `Azure::Core::Cryptography::Hash` class.
 
-### azure-storage-blobs [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/CHANGELOG.md#1200-beta8-2021-02-12)
+### azure-storage-blobs [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/storage/azure-storage-blobs/CHANGELOG.md#1200-beta8-2021-02-12)
 
 #### Breaking Changes
 
 - Removed `BreakBlobLeaseResult::Leasetime`.
 - Moved `Azure::Core::Context` out of options bag of each API, and make it the last optional parameter.
 
-### azure-storage-files-shares [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/CHANGELOG.md#1200-beta8-2021-02-12)
+### azure-storage-files-shares [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/storage/azure-storage-files-shares/CHANGELOG.md#1200-beta8-2021-02-12)
 
 #### New Features
 
@@ -109,7 +109,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Removed `LeaseTime` in results returned by lease operations. Also removed `LeaseId` in `ShareBreakLeaseResult`.
 - Moved `Azure::Core::Context` out of options bag of each API, and make it the last optional parameter.
 
-### azure-storage-files-datalake [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/CHANGELOG.md#1200-beta8-2021-02-12)
+### azure-storage-files-datalake [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/storage/azure-storage-files-datalake/CHANGELOG.md#1200-beta8-2021-02-12)
 
 #### Breaking Changes
 

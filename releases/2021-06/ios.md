@@ -88,7 +88,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Azure Communication Services Calling
 
-#### 1.1.0-beta.1(https://github.com/Azure/azure-sdk-for-ios/blob/master/sdk/communication/AzureCommunicationCalling/CHANGELOG.md#110-beta1-2021-06-04)
+#### 1.1.0-beta.1(https://github.com/Azure/azure-sdk-for-ios/blob/main/sdk/communication/AzureCommunicationCalling/CHANGELOG.md#110-beta1-2021-06-04)
 
 ##### New features
 - Support for CallKit (**Preview mode**)
@@ -105,13 +105,13 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Azure Communication Services Chat
 
-#### 1.0.0-beta.12(https://github.com/Azure/azure-sdk-for-ios/blob/master/sdk/communication/AzureCommunicationChat/CHANGELOG.md#100-beta12-2021-06-07)
+#### 1.0.0-beta.12(https://github.com/Azure/azure-sdk-for-ios/blob/main/sdk/communication/AzureCommunicationChat/CHANGELOG.md#100-beta12-2021-06-07)
 
 ##### Breaking Changes
 - Changed the way in which options are instantiated for the following classes: `CreateChatThreadOptions`, `DeleteChatThreadOptions`,  `ListChatThreadsOptions`, `AddChatParticipantsOptions`, `DeleteChatMessageOptions`, `GetChatMessageOptions`, `GetChatThreadPropertiesOptions`, `ListChatMessagesOptions`, `ListChatParticipantsOptions`, `ListChatReadReceiptsOptions`, `RemoveChatParticipantOptions`, `SendChatMessageOptions`, `SendChatReadReceiptOptions`, `SendTypingNotificationOptions`, `UpdateChatMessageOptions`, `UpdateChatThreadPropertiesOptions`.
     - old:
         `let options = Chat.CreatChatThreadOptions()`
-    - new:  
+    - new:
         `let options = CreateChatThreadOptions()`
 - Moved `AzureCommunicationChatClient.ApiVersion` to `AzureCommunicationChatClientOptions.ApiVersion`.
 - Renamed `CommunicationError` to `ChatError`.

@@ -208,7 +208,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Added `SecretReferenceConfigurationSetting` type to represent a configuration setting that references a KeyVault Secret.
 Added `FeatureFlagConfigurationSetting` type to represent a configuration setting that controls a feature flag.
 
-### Azure Communication Chat 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-chat/CHANGELOG.md#100-2021-03-29)
+### Azure Communication Chat 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/communication/azure-communication-chat/CHANGELOG.md#100-2021-03-29)
 
 **Includes all changes from 1.0.0-beta.1 to  1.0.0.beta.5**
 
@@ -224,12 +224,12 @@ Added `FeatureFlagConfigurationSetting` type to represent a configuration settin
 - Replaced `CommunicationError` with `ChatError`.
 - Refactored `CommunicationTokenCredential` constructor to accept `token` instead of `CommunicationTokenRefreshOptions`.
 
-### Azure Communication Identity 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-identity/CHANGELOG.md#100-2021-03-29)
+### Azure Communication Identity 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/communication/azure-communication-identity/CHANGELOG.md#100-2021-03-29)
 
 **Includes all changes from 1.0.0-beta.1 to  1.0.0.beta.5**
 - Stable release of `azure-communication-identity`.
 
-### Azure Communication Phone Numbers 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md#100b5-2021-03-29)
+### Azure Communication Phone Numbers 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md#100b5-2021-03-29)
 
 #### Breaking Changes
 
@@ -239,7 +239,7 @@ and `PhoneNumbersAsyncClient.get_purchased_phone_number`
 -` Renamed PhoneNumbersClient.list_acquired_phone_numbers` and `PhoneNumbersAsyncClient.list_acquired_phone_numbers` to `PhoneNumbersClient.list_purchased_phone_numbers`
 and `PhoneNumbersAsyncClient.list_purchased_phone_numbers`
 
-### Azure Communication SMS 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-sms/CHANGELOG.md#100-2021-03-29)
+### Azure Communication SMS 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/communication/azure-communication-sms/CHANGELOG.md#100-2021-03-29)
 
 **Includes all changes from 1.0.0-beta.1 to  1.0.0.beta.6**
 
@@ -322,7 +322,7 @@ This version and all future versions will require Python 2.7 or Python 3.6+, Pyt
 - New methods `begin_recognize_id_documents` and `begin_recognize_id_documents_from_url` introduced to the SDK. Use these methods to recognize data from identity documents.
 - New field value types "gender" and "country" described in the `FieldValueType` enum.
 - Content-type `image/bmp` now supported by custom forms and training methods.
-- Added keyword argument `pages` for business cards, receipts, custom forms, and invoices 
+- Added keyword argument `pages` for business cards, receipts, custom forms, and invoices
 to specify which page to process of the document.
 - Added keyword argument `reading_order` to `begin_recognize_content` and `begin_recognize_content_from_url`.
 
@@ -711,7 +711,7 @@ This version and all future versions will require Python 2.7 or Python 3.6+, Pyt
 * Fixed bug in incrementing retries in async retry policy
 
 ### Translation Document 1.0.0b1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-ai-translation-document_1.0.0b1/sdk/translation/azure-ai-translation-document/CHANGELOG.md#100b1-2021-04-06)
-This is the first beta package of the azure-ai-translation-document client library that targets the Document Translation 
+This is the first beta package of the azure-ai-translation-document client library that targets the Document Translation
 service version `1.0-preview.1`. This package's documentation and samples demonstrate the new API.
 
 ### Cognitive Search 11.2.0b2 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-search-documents_11.2.0b2/sdk/search/azure-search-documents/CHANGELOG.md#1120b2-2021-04-13)

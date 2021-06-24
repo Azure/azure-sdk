@@ -69,7 +69,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 A new set of management libraries that follow the [Azure SDK Design Guidelines for Python](https://azure.github.io/azure-sdk/python/guidelines/) are now in Public Preview. These new libraries provide a number of core capabilities that are shared amongst all Azure SDKs, including the intuitive Azure Identity library, an HTTP Pipeline with custom policies, error-handling, distributed tracing, and much more.
 You can find the list of new packages [on this page](https://azure.github.io/azure-sdk/releases/latest/python.html). Documentation and code samples for these new libraries can be found [here](https://azure.github.io/azure-sdk-for-python)
 
-### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/CHANGELOG.md)
+### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/servicebus/azure-servicebus/CHANGELOG.md)
 
 #### New Features
 
@@ -86,7 +86,7 @@ You can find the list of new packages [on this page](https://azure.github.io/azu
   `schedule()` -> `schedule_messages()`
   `send()` ->  `send_messages()`
 
-### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/CHANGELOG.md)
+### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/eventhub/azure-eventhub/CHANGELOG.md)
 
 #### New Features
 
@@ -99,14 +99,14 @@ You can find the list of new packages [on this page](https://azure.github.io/azu
      may result in idle partitions not being claimed for longer time.
 - Added enum class `azure.eventhub.LoadBalancingStrategy` for `load_balancing_strategy`.
 
-### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#100b4-2020-07-07)
+### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#100b4-2020-07-07)
 
 #### Breaking changes
 
 - `begin_recognize_receipts` and `begin_recognize_receipts_from_url` now return a list of `RecognizedForm`
 - Model and property renaming detailed in changelog
 
-### Identity [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/CHANGELOG.md)
+### Identity [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/identity/azure-identity/CHANGELOG.md)
 
 #### New Features
 
@@ -114,7 +114,7 @@ You can find the list of new packages [on this page](https://azure.github.io/azu
 - Added `VSCodeCredential`, which authenticates as the user signed in to Visual Studio Code's Azure Account extension.
 - The optional persistent cache for `DeviceCodeCredential` and `InteractiveBrowserCredential` is supported on Linux and macOS.
 
-### Search [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/CHANGELOG.md)
+### Search [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/search/azure-search-documents/CHANGELOG.md)
 
 #### New Features
 
@@ -141,7 +141,7 @@ You can find the list of new packages [on this page](https://azure.github.io/azu
 
 ### Storage
 
-#### Blob [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md)
+#### Blob [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/storage/azure-storage-blob/CHANGELOG.md)
 
 ##### New Features
 - Added `query_blob` API to enable users to select/project on block blob or block blob snapshot data by providing simple query expressions
@@ -149,17 +149,17 @@ You can find the list of new packages [on this page](https://azure.github.io/azu
 - Added `set_blob_tags`, `get_blob_tags`, and `find_blobs_by_tags` to acquire blobs based on blob tags
 - Block size is increased to 4GB at maximum, max single put size is increased to 5GB
 
-#### Blob ChangeFeed [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob-changefeed/CHANGELOG.md)
+#### Blob ChangeFeed [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/storage/azure-storage-blob-changefeed/CHANGELOG.md)
 
 ##### New Features
 - Added a preview version of this library to support change feed
 
-#### File DataLake [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md)
+#### File DataLake [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/storage/azure-storage-file-datalake/CHANGELOG.md)
 
 ##### New Features
 - Block size is increased to 4 GB max and max single put increased to 5 GB
 
-#### File Share [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/CHANGELOG.md)
+#### File Share [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/storage/azure-storage-file-share/CHANGELOG.md)
 
 ##### New Features
 - Added `undelete_share` on FileShareServiceClient

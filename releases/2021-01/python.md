@@ -49,7 +49,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/CHANGELOG.md#521-2021-01-11)
+### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/eventhub/azure-eventhub/CHANGELOG.md#521-2021-01-11)
 - Updated `azure.eventhub.extension.__init__.py` to be compatible with pkgutil-style namespace (PR #13210, thanks @pjachowi).
 - Updated uAMQP dependency to 1.2.13
   - Added support for Python 3.9.
@@ -58,17 +58,17 @@ If you have a bug or feature request for one of the libraries, please post an is
   - Fixed bug where connection establishment on macOS with Clang 12 triggering unrecognized selector exception (#15567).
   - Fixed bug in accessing message properties triggering segmentation fault when the underlying C bytes are NULL (#15568).
 
-### Event Hubs CheckpointStoreBlob [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/CHANGELOG.md#112-2021-01-11)
+### Event Hubs CheckpointStoreBlob [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/CHANGELOG.md#112-2021-01-11)
 - Fixed a bug that `BlobCheckpointStore.list_ownership` and `BlobCheckpointStore.list_checkpoints` triggering `KeyError` due to reading empty metadata of parent node when working with Data Lake enabled Blob Storage.
 
-### Event Hubs CheckpointStoreBlob Async [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/CHANGELOG.md#112-2021-01-11)
+### Event Hubs CheckpointStoreBlob Async [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/CHANGELOG.md#112-2021-01-11)
 - Fixed a bug that `BlobCheckpointStore.list_ownership` and `BlobCheckpointStore.list_checkpoints` triggering `KeyError` due to reading empty metadata of parent node when working with Data Lake enabled Blob Storage.
 
-### Live Video Analytics on IoT Edge [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/media/azure-media-analytics-edge/CHANGELOG.md#100b1)
+### Live Video Analytics on IoT Edge [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/media/azure-media-analytics-edge/CHANGELOG.md#100b1)
 
 - Initial release of [Live Video Analytics on IoT Edge](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/overview).
 
-### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/CHANGELOG.md#701-2021-01-12)
+### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/servicebus/azure-servicebus/CHANGELOG.md#701-2021-01-12)
 - `forward_to` and `forward_dead_lettered_messages_to` will no longer cause authorization errors when used in `ServiceBusAdministrationClient` for queues and subscriptions (#15543).
 - Updated uAMQP dependency to 1.2.13.
   - Fixed bug that macOS was unable to detect network error (#15473).
@@ -84,7 +84,7 @@ If you have a bug or feature request for one of the libraries, please post an is
   - This library is renamed to `azure-opentelemetry-exporter-azuremonitor`. (#16030)
   - Fix to only retry upon request error. (#16087)
 
-### Microsoft Azure Attestation [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/attestation/azure-security-attestation/CHANGELOG.md#100b1-2020-12-09)
+### Microsoft Azure Attestation [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/attestation/azure-security-attestation/CHANGELOG.md#100b1-2020-12-09)
 
   - Initial release of Azure Security Attestation to support data-plane operations.
 

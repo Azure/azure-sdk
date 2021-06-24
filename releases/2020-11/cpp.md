@@ -34,7 +34,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-### azure-core [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/core/azure-core/CHANGELOG.md#100-beta3-2020-11-11)
+### azure-core [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/core/azure-core/CHANGELOG.md#100-beta3-2020-11-11)
 
 #### New Features
 - Added `strings.hpp` with `Azure::Core::Strings::LocaleInvariantCaseInsensitiveEqual` and `Azure::Core::Strings::ToLower`.
@@ -80,14 +80,14 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Validate HTTP headers for invalid characters.
 - Calling `Cancel()` from context now throws `OperationCanceledException`.
 
-### azure-identity [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/identity/azure-identity/CHANGELOG.md#100-beta1-2020-11-11)
+### azure-identity [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/identity/azure-identity/CHANGELOG.md#100-beta1-2020-11-11)
 
 #### New Features
 
 - Support for Client Secret Credential.
 - Support for Environment Credential.
 
-### azure-storage-common [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-common/CHANGELOG.md#1200-beta5-2020-11-13)
+### azure-storage-common [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/storage/azure-storage-common/CHANGELOG.md#1200-beta5-2020-11-13)
 
 #### Breaking Changes
 
@@ -103,7 +103,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 - Remove support for specifying SAS version.
 
-### azure-storage-blobs [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/CHANGELOG.md#1200-beta5-2020-11-13)
+### azure-storage-blobs [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/storage/azure-storage-blobs/CHANGELOG.md#1200-beta5-2020-11-13)
 
 #### New Features
 
@@ -124,7 +124,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Remove support for specifying SAS version.
 
 
-### azure-storage-files-shares [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/CHANGELOG.md#1200-beta5-2020-11-13)
+### azure-storage-files-shares [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/storage/azure-storage-files-shares/CHANGELOG.md#1200-beta5-2020-11-13)
 
 #### Breaking Changes
 
@@ -134,7 +134,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Renamed `Azure::Storage::Files::Shares::ServiceClient` to `Azure::Storage::Files::Shares::ShareServiceClient`.
 
 
-### azure-storage-files-datalake [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/CHANGELOG.md#1200-beta5-2020-11-13)
+### azure-storage-files-datalake [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/storage/azure-storage-files-datalake/CHANGELOG.md#1200-beta5-2020-11-13)
 
 #### Breaking Changes
 

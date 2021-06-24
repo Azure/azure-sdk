@@ -5,15 +5,15 @@
 [BlockHound]: https://github.com/reactor/BlockHound
 [OpenTelemetry]: https://opentelemetry.io
 [Azure Monitor]: https://azure.microsoft.com/services/monitor/
-[azure-sdk-for-android/parent/pom.xml]: https://github.com/Azure/azure-sdk-for-android/blob/master/parent/pom.xml
+[azure-sdk-for-android/parent/pom.xml]: https://github.com/Azure/azure-sdk-for-android/blob/main/parent/pom.xml
 [azure/azure-sdk-for-android]: https://github.com/Azure/azure-sdk-for-android
 [logging-general-guidelines]: https://azure.github.io/azure-sdk/general_implementation.html#logging
-[Azure Core]: https://github.com/Azure/azure-sdk-for-android/tree/master/sdk/core/azure-core
+[Azure Core]: https://github.com/Azure/azure-sdk-for-android/tree/main/sdk/core/azure-core
 [1]: https://www.youtube.com/watch?v=PAAkCSZUG1c&t=9m28s
 
 <!-- Example Links -->
-[ConfigurationClient class]: https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/appconfiguration/azure-data-appconfiguration/src/main/java/com/azure/data/appconfiguration/ConfigurationClient.java
-[ConfigurationAsyncClient class]: https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/appconfiguration/azure-data-appconfiguration/src/main/java/com/azure/data/appconfiguration/ConfigurationAsyncClient.java
+[ConfigurationClient class]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/appconfiguration/azure-data-appconfiguration/src/main/java/com/azure/data/appconfiguration/ConfigurationClient.java
+[ConfigurationAsyncClient class]: https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/appconfiguration/azure-data-appconfiguration/src/main/java/com/azure/data/appconfiguration/ConfigurationAsyncClient.java
 
 <!-- Intra-document references -->
 [separate service clients]: android_design.html#the-java-api

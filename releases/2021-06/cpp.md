@@ -41,18 +41,18 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-### azure-core [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/core/azure-core/CHANGELOG.md#100-2021-06-04)
+### azure-core [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/core/azure-core/CHANGELOG.md#100-2021-06-04)
 
 #### Bug Fixes
 
 - Make `RequestFailedException` copiable so it can be propagated across thread.
 - By default, add `x-ms-request-id` header to the allow list of headers to log.
 
-### azure-identity [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/identity/azure-identity/CHANGELOG.md#100-2021-06-04)
+### azure-identity [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/identity/azure-identity/CHANGELOG.md#100-2021-06-04)
 
 No API changes since `1.0.0-beta.6`.
 
-### azure-storage-blobs [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/CHANGELOG.md#1200-2021-06-08)
+### azure-storage-blobs [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/storage/azure-storage-blobs/CHANGELOG.md#1200-2021-06-08)
 
 #### Other Changes and Improvements
 
@@ -60,7 +60,7 @@ No API changes since `1.0.0-beta.6`.
 - Fixed a read consistency issue.
 
 
-### azure-storage-files-shares [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/CHANGELOG.md#1200-2021-06-08)
+### azure-storage-files-shares [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/storage/azure-storage-files-shares/CHANGELOG.md#1200-2021-06-08)
 
 #### Breaking Changes
 
@@ -72,14 +72,14 @@ No API changes since `1.0.0-beta.6`.
 - Fixed a read consistency issue.
 
 
-### azure-storage-common [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-common/CHANGELOG.md#1200-2021-06-08)
+### azure-storage-common [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/storage/azure-storage-common/CHANGELOG.md#1200-2021-06-08)
 
 #### Other Changes and Improvements
 
 - Fixed a filename encoding issue.
 
 
-### azure-storage-files-datalake [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/CHANGELOG.md#1200-2021-06-08)
+### azure-storage-files-datalake [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/storage/azure-storage-files-datalake/CHANGELOG.md#1200-2021-06-08)
 
 #### Breaking Changes
 
@@ -91,10 +91,10 @@ No API changes since `1.0.0-beta.6`.
 - Updated some samples.
 - Fixed a read consistency issue.
 
-### azure-security-keyvault-common [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/keyvault/azure-security-keyvault-common/CHANGELOG.md#400-beta3-2021-06-08)
+### azure-security-keyvault-common [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/keyvault/azure-security-keyvault-common/CHANGELOG.md#400-beta3-2021-06-08)
 
 No breaking changes or new features added. Includes only implementation enhancements.
-### azure-security-keyvault-keys [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md#400-beta3-2021-06-08)
+### azure-security-keyvault-keys [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md#400-beta3-2021-06-08)
 
 #### Breaking Changes
 
