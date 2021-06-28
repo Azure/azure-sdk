@@ -325,4 +325,12 @@ entries:
     > Only code written against a beta version such as 4.4.0b1 may be affected.
     - `parse_key_vault_key_id` and `KeyVaultResourceId` have been replaced by a
     `KeyVaultKeyIdentifier` class, which can be initialized with a key ID
+- Name: azure-mgmt-baremetalinfrastructure
+  Version: 1.0.0b2
+  DisplayName: Resource Management - Bare Metal Infrastructure
+  ServiceName: Bare Metal
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-baremetalinfrastructure_1.0.0b2/sdk/baremetalinfrastructure/azure-mgmt-baremetalinfrastructure/CHANGELOG.md
+  ChangelogContent: '* Fix dependencies'
 
