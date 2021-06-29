@@ -333,4 +333,17 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-baremetalinfrastructure_1.0.0b2/sdk/baremetalinfrastructure/azure-mgmt-baremetalinfrastructure/CHANGELOG.md
   ChangelogContent: '* Fix dependencies'
+- Name: azure-mgmt-azurestackhci
+  Version: 6.1.0b1
+  DisplayName: Resource Management - Azure Stack HCI
+  ServiceName: Stack HCI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-azurestackhci_6.1.0b1/sdk/azurestackhci/azure-mgmt-azurestackhci/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model Cluster has a new parameter cloud_management_endpoint
+    - Added operation group ArcSettingsOperations
+    - Added operation group ExtensionsOperations
 
