@@ -291,4 +291,16 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-common_1.0.3/sdk/communication/azure-communication-common/CHANGELOG.md
   ChangelogContent: Updated `azure-communication-common` version
   GroupId: com.azure
+- Name: azure-security-keyvault-jca
+  Version: 1.0.0
+  DisplayName: Key Vault - JCA
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-jca_1.0.0/sdk/keyvault/azure-security-keyvault-jca/CHANGELOG.md
+  ChangelogContent: |-
+    #### New Features
+    - Load JRE key store certificates to AzureKeyVault key store. ([#21845](https://github.com/Azure/azure-sdk-for-java/pull/21845))
+    - Support properties of azure.cert-path.well-known and azure.cert-path.custom to support load cert from file system. ([#21947](https://github.com/Azure/azure-sdk-for-java/pull/21947))
+  GroupId: com.azure
 
