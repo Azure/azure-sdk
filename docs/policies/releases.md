@@ -115,12 +115,12 @@ In order for consistency across our SDKs and to enable automation to validate an
 - <Deprecated: for soon-to-be removed features>
 - <Removed: for now removed features>
 
-### Key Bugs Fixed
+### Bugs Fixed
 - <for important bug fixes to be called out in release notes>
 - <Security: for any security fixes>
 
-### Fixed
-- <for any bug fixes that are not important enough to include in release notes>
+### Other Changes
+- <for any bug fixes or other changes that are not important enough to include in release notes>
 
 ...
 ## <older version> (<Release Date>)
@@ -128,7 +128,7 @@ In order for consistency across our SDKs and to enable automation to validate an
 
 ... older release details trail off into history below
 ```
-In order to automatically pull the relevant content (see mentions of release notes above) from the change log entries to produce our release notes the formatting of the headers needs to exactly match the format above (i.e. `### Features Added`, `### Breaking Changes`, `### Key Bugs Fixed`). For more details on the general release notes see the [Release Notes Guidance](https://azure.github.io/azure-sdk/policies_releasenotes.html#whats-a-developer-impacting-change).
+In order to automatically pull the relevant content (see mentions of release notes above) from the change log entries to produce our release notes the formatting of the headers needs to exactly match the format above (i.e. `### Features Added`, `### Breaking Changes`, `### Bugs Fixed`). For more details on the general release notes see the [Release Notes Guidance](https://azure.github.io/azure-sdk/policies_releasenotes.html#whats-a-developer-impacting-change).
 
 For more information on general change log guidelines see [keep a changelog](https://keepachangelog.com/en/1.0.0/).
 
@@ -144,7 +144,7 @@ Example change log:
 ### Breaking Changes
 - Support using SAS token from connection string
 
-### Key Bugs Fixed
+### Bugs Fixed
 - Issue where AccountName on BlobUriBuilder would not be populated
   for non-IP style Uris ([#8638](https://github.com/Azure/azure-sdk-for-net/issues/8638))
 
@@ -154,11 +154,11 @@ Example change log:
 - Number of operations and models to better align with other client
   libraries and the .NET Framework Design Guidelines
 
-### Fixed
+### Other Changes
 - Parallel upload/download performance improvements
 ```
 
-{% include requirement/SHOULD %} link to GitHub issues (full URL) that were fixed in that release going forward (i.e. do not backfill older issues). See example above under the `### Key Bugs Fixed` heading.
+{% include requirement/SHOULD %} link to GitHub issues (full URL) that were fixed in that release going forward (i.e. do not backfill older issues). See example above under the `### Bugs Fixed` heading.
 
 For clarity, a `change log entry` is simply the header + content up to the next release header OR EOF. During release, if there exists a changelog entry with a version specifier _matching_ that of the currently releasing package, that changelog entry will be added as the body of the GitHub release.
 
