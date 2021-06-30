@@ -211,13 +211,13 @@ To use Azure Spring Cloud starters and binders, refer to the Maven dependency in
  <dependency>
   <groupId>com.azure.spring</groupId>
   <artifactId>azure-spring-cloud-stream-binder-servicebus-queue</artifactId>
-  <version>2.0.0</version> 
+  <version>2.0.0</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure.spring</groupId>
   <artifactId>azure-spring-cloud-stream-binder-servicebus-topic</artifactId>
-  <version>2.0.0</version> 
+  <version>2.0.0</version>
 </dependency>
 
 <dependency>
@@ -258,37 +258,37 @@ To use Azure Spring Boot starters, refer to the Maven dependency information bel
       <groupId>com.azure.spring</groupId>
       <artifactId>azure-spring-boot</artifactId>
     </dependency>
-    
+
     <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>azure-spring-boot-starter</artifactId>
     </dependency>
-    
+
     <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>azure-spring-boot-starter-active-directory</artifactId>
     </dependency>
-    
+
     <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>azure-spring-boot-starter-active-directory-b2c</artifactId>
     </dependency>
-    
+
     <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>azure-spring-boot-starter-cosmos</artifactId>
     </dependency>
-    
+
     <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>azure-spring-boot-starter-keyvault-secrets</artifactId>
     </dependency>
-    
+
     <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>azure-spring-boot-starter-servicebus-jms</artifactId>
     </dependency>
-    
+
     <dependency>
       <groupId>com.azure.spring</groupId>
       <artifactId>azure-spring-boot-starter-storage</artifactId>
@@ -307,13 +307,13 @@ If you have a bug or feature request for one of the libraries, please post an is
 We are excited to announce the GA releases of management libraries that follow the [Azure SDK Design Guidelines for Java](https://azure.github.io/azure-sdk/java/guidelines/). In addition, more management libraries are now in Public Preview to provide better Azure service coverage. These new libraries provide a higher-level, object-oriented API for managing Azure resources, that is optimized for ease of use, succinctness and consistency. You can find the list of new packages [on this page](https://azure.github.io/azure-sdk/releases/latest/java.html). Detailed documentation and code samples for these new libraries can be [found here](http://aka.ms/azsdk/java/mgmt)
 
 These new packages share the same groupId ``com.azures.resourcemanager`` and artifactId share the same prefix of ``azure-resourcemanager``
-  
-### Azure Storage Blob 12.10.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md#12100-beta1-2020-12-07)
+
+### Azure Storage Blob 12.10.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/storage/azure-storage-blob/CHANGELOG.md#12100-beta1-2020-12-07)
 #### New Features
 - Exposed ClientOptions on all client builders, allowing users to set a custom application id and custom headers.
 - Added ability to get container client from blob clients and service client from container clients
 - Added a MetadataValidationPolicy to check for leading and trailing whitespace in metadata that would cause Auth failures.
-- Added support for the 2020-04-08 service version. 
+- Added support for the 2020-04-08 service version.
 - Added support to upload block blob from URL.
 - Added lease ID parameter to Get and Set Blob Tags.
 - Added blob tags to BlobServiceClient.findBlobsByTags() result.
@@ -321,7 +321,7 @@ These new packages share the same groupId ``com.azures.resourcemanager`` and art
 #### Bug Fixes
 - Fixed a bug where the error message would not be displayed the exception message of a HEAD request.
 
-### Azure Storage File Datalake 12.4.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md#1240-beta1-2020-12-07)
+### Azure Storage File Datalake 12.4.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/storage/azure-storage-file-datalake/CHANGELOG.md#1240-beta1-2020-12-07)
 #### New Features
 - Added support to list paths on a directory.
 - Exposed ClientOptions on all client builders, allowing users to set a custom application id and custom headers.
@@ -330,11 +330,11 @@ These new packages share the same groupId ``com.azures.resourcemanager`` and art
 #### Bug Fixes
 - Fixed a bug where the error message would not be displayed the exception message of a HEAD request.
 
-### Azure Storage File Share 12.8.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/CHANGELOG.md#1280-beta1-2020-12-07)
+### Azure Storage File Share 12.8.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/storage/azure-storage-file-share/CHANGELOG.md#1280-beta1-2020-12-07)
 #### New Features
 - Exposed ClientOptions on all client builders, allowing users to set a custom application id and custom headers.
 - Added a MetadataValidationPolicy to check for leading and trailing whitespace in metadata that would cause Auth failures.
-- Added support for the 2020-04-08 service version. 
+- Added support for the 2020-04-08 service version.
 - Added support for specifying enabled protocols on share creation
 - Added support for setting root squash on share creation and through set properties.
 
@@ -343,20 +343,20 @@ These new packages share the same groupId ``com.azures.resourcemanager`` and art
 - Fixed a bug where the sharesnapshot query parameter would be ignored in share and share file client builders.
 - Fixed a bug where the error message would not be displayed the exception message of a HEAD request.
 
-### Azure Spring Data Cosmos 3.2.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md#320-2020-12-11)
+### Azure Spring Data Cosmos 3.2.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md#320-2020-12-11)
 #### New Features
 - Updated Spring Data Commons version to 2.3.5.RELEASE.
 - Updated Spring Core version to 5.2.10.RELEASE.
 
 #### Key Bug Fixes
 - Fixed publishing of `spring.factories` file with released jar.
-- Fixed repository query with repeated parameters. 
+- Fixed repository query with repeated parameters.
 
-### Azure Cosmos 4.10.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-cosmos/CHANGELOG.md#4100-2020-12-14)
+### Azure Cosmos 4.10.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos/CHANGELOG.md#4100-2020-12-14)
 #### New Features
 - Added Conflict API support.
 
-### Azure Cosmos 4.9.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-cosmos/CHANGELOG.md#490-2020-12-11)
+### Azure Cosmos 4.9.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos/CHANGELOG.md#490-2020-12-11)
 #### New Features
 - Added Beta API for Bulk Operations.
 - Added `getRegionsContacted` API in `CosmosDiagnostics`.
@@ -368,36 +368,36 @@ These new packages share the same groupId ``com.azures.resourcemanager`` and art
 - Fixed NPE on `getDiagnostics` for `CosmosStoredProcedureResponse`.
 - Fixed empty `resourceAddress` in `CosmosException`.
 
-### Azure Identity 1.2.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/identity/azure-identity/CHANGELOG.md#121-2020-12-08)
+### Azure Identity 1.2.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/identity/azure-identity/CHANGELOG.md#121-2020-12-08)
 #### Dependency Updates
 - Upgraded `azure-core` dependency to 1.11.0
 
-#### Synapse Spark [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/synapse/azure-analytics-synapse-spark/CHANGELOG.md#100-beta1-2020-12-08)
+#### Synapse Spark [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/synapse/azure-analytics-synapse-spark/CHANGELOG.md#100-beta1-2020-12-08)
 
 - Initial Release.
 
-#### Synapse Access Control [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/synapse/azure-analytics-synapse-accesscontrol/CHANGELOG.md#100-beta1-2020-12-08)
+#### Synapse Access Control [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/synapse/azure-analytics-synapse-accesscontrol/CHANGELOG.md#100-beta1-2020-12-08)
 
 - Initial Release.
 
-#### Synapse Artifacts [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/synapse/azure-analytics-synapse-artifacts/CHANGELOG.md#100-beta1-2020-12-08)
+#### Synapse Artifacts [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/synapse/azure-analytics-synapse-artifacts/CHANGELOG.md#100-beta1-2020-12-08)
 
 - Initial release.
 
-#### Synapse Managed Private Endpoints [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/synapse/azure-analytics-synapse-managedprivateendpoints/CHANGELOG.md#100-beta1-2020-12-15)
+#### Synapse Managed Private Endpoints [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/synapse/azure-analytics-synapse-managedprivateendpoints/CHANGELOG.md#100-beta1-2020-12-15)
 
 - Initial release.
 
-#### Synapse Monitoring [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/synapse/azure-analytics-synapse-monitoring/CHANGELOG.md#100-beta1-2020-12-15)
+#### Synapse Monitoring [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/synapse/azure-analytics-synapse-monitoring/CHANGELOG.md#100-beta1-2020-12-15)
 
 - Initial release.
 
-### Azure Spring Cloud ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-cloud-autoconfigure/CHANGELOG.md#200-2020-12-30))
+### Azure Spring Cloud ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-autoconfigure/CHANGELOG.md#200-2020-12-30))
 #### Breaking Changes
 - Deprecated the `spring.cloud.azure.managed-identity.client-id` property,
   use `spring.cloud.azure.client-id` to set the managed identity id when using Managed Identity.
 
-### Azure Spring Boot ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot/CHANGELOG.md#300-2020-12-30))
+### Azure Spring Boot ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot/CHANGELOG.md#300-2020-12-30))
 #### Breaking Changes
 - Deprecated `AADAppRoleStatelessAuthenticationFilter` and `AADAuthenticationFilter`.
 - Changed artifact id from `azure-active-directory-spring-boot-starter` to `azure-spring-boot-starter-active-directory`.

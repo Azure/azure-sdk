@@ -1,89 +1,115 @@
+[CmdletBinding()]
 param (
   [string]$releasePeriod,
-  [string]$languageRepoDirectory,
-  [string]$releaseDirectory,
-  [string]$releaseFileName
+  [DateTime]$releaseStartDate,
+  [string]$repoLanguage,
+  [string]$commonScriptPath,
+  [string]$releaseDirectory = (Resolve-Path "$PSScriptRoot\..\..\_data\releases"),
+  [string]$github_pat = $env:GITHUB_PAT
 )
 
-# Filters out packages if the versions are not found in the packages.csv file.
-# Also appends DisplayName and ServiceName to the releaseHighlights
-function FilterOut-UnreleasedPackages ($releaseHighlights)
-{
-    $results = @()
+. (Join-Path $commonScriptPath ChangeLog-Operations.ps1)
+. (Join-Path $commonScriptPath SemVer.ps1)
+. (Join-Path $PSScriptRoot PackageList-Helpers.ps1)
+. (Join-Path $PSScriptRoot PackageVersion-Helpers.ps1)
 
-    foreach ($key in $releaseHighlights.Keys)
+function GetReleaseNotesData ($packageName, $packageVersion, $packageMetadata)
+{
+  $sourceUrl = GetLinkTemplateValue $langLinkTemplates "source_url_template" $packageName $packageVersion $packageMetadata.RepoPath
+  if (!$sourceUrl.EndsWith("/")) { $sourceUrl += "/" }
+  $changelogBlobLink = "${sourceUrl}CHANGELOG.md"
+  $changelogRawLink = $changelogBlobLink -replace "https://github.com/(.*)/(tree|blob)", "https://raw.githubusercontent.com/`$1"
+  try
+  {
+    $changelogContent = Invoke-RestMethod -Method GET -Uri $changelogRawLink -MaximumRetryCount 2
+  }
+  catch
+  {
+    # Skip if the changelog Url is invalid
+    LogWarning "Failed to get content from ${changelogRawLink}"
+    LogWarning "ReleaseNotes will not be collected for $packageName : $packageVersion. Please add entry manually."
+    return $null
+  }
+
+  $changeLogEntries = Get-ChangeLogEntriesFromContent -changeLogContent $changelogContent
+  $updatedVersionEntry = $changeLogEntries[$packageVersion]
+
+  if (!$updatedVersionEntry)
+  {
+    # Skip if the changelog Url is invalid
+    LogWarning "Failed to get find matching change log entry from from ${changelogRawLink}"
+    LogWarning "ReleaseNotes will not be collected for $packageName : $packageVersion. Please add entry manually."
+    return $null
+  }
+
+  $packageSemVer = [AzureEngSemanticVersion]::ParseVersionString($packageVersion)
+  $releaseEntryContent = @()
+
+  if ($updatedVersionEntry.Sections.Keys.Count -gt 0)
+  {
+    $sectionsToPull = @("Features Added","Breaking Changes","Key Bugs Fixed")
+    foreach ($key in $updatedVersionEntry.Sections.Keys)
     {
-        $keyInfo = $key.Split(":")
-        $packageName = $keyInfo[0]
-        $releaseVersion = $keyInfo[1]
-        $packageGroupId = $releaseHighlights[$key]["PackageProperties"].Group
-
-        $packageMetaData = $CsvMetaData.Where({ ($_.Package -eq $packageName) -and
-             ($_.GroupId -eq $packageGroupId) -and ($_.Hide -ne "true") })
-
-        if ($packageMetaData.Count -eq 1)
-        {
-            $sortedVersions = [AzureEngSemanticVersion]::SortVersionStrings(@($releaseVersion, $packageMetaData.VersionGA, $packageMetaData.VersionPreview))
-
-            if (($sortedVersions[0] -eq $releaseVersion) -and ($releaseVersion -ne $packageMetaData.VersionGA) -and ($releaseVersion -ne $packageMetaData.VersionPreview))
-            {
-                continue
-                LogDebug "[ $packageName ] with version  [$releaseVersion ] was skipped because it has a newer release version than present in the package csv"
-            }
-            $packageSemVer = [AzureEngSemanticVersion]::ParseVersionString($releaseVersion)
-
-            $entry = [ordered]@{
-                Name = $packageName
-                Version = $releaseVersion
-                DisplayName = $packageMetaData.DisplayName
-                ServiceName = $packageMetaData.ServiceName
-                VersionType = $packageSemVer.VersionType
-                Hidden = $false
-                ChangelogUrl = $releaseHighlights[$key].ChangelogUrl
-                ChangelogContent = ($releaseHighlights[$key].Content | Out-String).Trim()
-            }
-
-            if (!$entry.DisplayName)
-            {
-                $entry.DisplayName = $entry.Name
-            }
-
-            if ($packageGroupId)
-            {
-                $entry.Add("GroupId", $packageGroupId)
-            }
-
-            $results += $entry
-        }
-        else
-        {
-            LogDebug "[ $packageName ] with version  [ $releaseVersion ] was skipped because there are duplicate versions in the package csv"
-        }
+      if ($key -in $sectionsToPull)
+      {
+        $releaseEntryContent += "####${key}"
+        $releaseEntryContent += BumpUpMDHeaders -content $updatedVersionEntry.Sections[$key]
+      }
     }
-    return $results
-}
+  }
 
-if (!(Test-Path $LanguageRepoDirectory))
+  if (($releaseEntryContent.Count -eq 0) -and $updatedVersionEntry.ReleaseContent)
+  {
+      # Bumping all MD headers by one level to fit in with the release template structure.
+      $releaseEntryContent += BumpUpMDHeaders -content $updatedVersionEntry.ReleaseContent
+  }
+
+  $entry = [ordered]@{
+    Name = $packageName
+    Version = $packageVersion
+    DisplayName = $packageMetadata.DisplayName
+    ServiceName = $packageMetadata.ServiceName
+    VersionType = $packageSemVer.VersionType
+    Hidden = $false
+    ChangelogUrl = $changelogBlobLink
+    ChangelogContent = ($releaseEntryContent | % { $_.Trim() } | Out-String).Trim()
+  }
+
+  if (!$entry.DisplayName)
+  {
+    $entry.DisplayName = $entry.Name
+  }
+
+  if ($packageMetadata.PSObject.Members.Name -contains "GroupId")
+  {
+    $entry.Add("GroupId", $packageMetadata.GroupId)
+  }
+  return $entry
+}
+function BumpUpMDHeaders($content)
 {
-  Write-Error "Path [ $LanguageRepoDirectory ] not found."
-  exit 1
+    $result = @()
+    foreach ($line in $content)
+    {
+        if ($line.StartsWith("#"))
+        {
+            $line = "#${line}"
+        }
+        $result += $line
+    }
+    return $result
 }
-Write-Host "Repo Path $LanguageRepoDirectory"
 
-$commonScriptsPath = (Join-Path $LanguageRepoDirectory eng common scripts)
-$commonScript = (Join-Path $commonScriptsPath common.ps1)
-Write-Host "Common Script $commonScript"
-
-. $commonScript
-$CsvMetaData = Get-CSVMetadata -MetadataUri "https://raw.githubusercontent.com/azure-sdk/azure-sdk/PackageVersionUpdates/_data/releases/latest/${releaseFileName}-packages.csv"
-
-$pathToRelatedYaml = (Join-Path $ReleaseDirectory ".." _data releases $releasePeriod "${releaseFileName}.yml")
+$pathToRelatedYaml = (Join-Path $ReleaseDirectory $releasePeriod "${repoLanguage}.yml")
 LogDebug "Related Yaml File Path [ $pathToRelatedYaml ]"
 
-if (!(Test-Path $pathToRelatedYaml))
+if (Test-Path $pathToRelatedYaml)
 {
-    New-Item -Path $pathToRelatedYaml -Force
-    Set-Content -Path $pathToRelatedYaml -Value @("entries:")
+  $yamlContent = Get-Content $pathToRelatedYaml -Raw
+}
+else
+{
+  $yamlContent = "entries:"
 }
 
 # Install Powershell Yaml
@@ -92,33 +118,59 @@ $ToolsFeed = "https://pkgs.dev.azure.com/azure-sdk/public/_packaging/azure-sdk-t
 Register-PSRepository -Name azure-sdk-tools-feed -SourceLocation $ToolsFeed -PublishLocation $ToolsFeed -InstallationPolicy Trusted -ErrorAction SilentlyContinue
 Install-Module -Repository azure-sdk-tools-feed powershell-yaml
 
-$existingYamlContent = ConvertFrom-Yaml (Get-Content $pathToRelatedYaml -Raw) -Ordered
-$collectChangelogPath = (Join-Path $commonScriptsPath Collect-ChangeLogs.ps1)
-
-$incomingReleaseHighlights = &$collectChangelogPath -FromDate ([Datetime]$releasePeriod)
-
-if($existingYamlContent.entries)
+$existingYamlContent = ConvertFrom-Yaml $yamlContent -Ordered
+if (!$existingYamlContent.entries)
 {
-    foreach ($key in @($incomingReleaseHighlights.Keys))
+  $existingYamlContent.entries = New-Object "System.Collections.Generic.List[System.Collections.Specialized.OrderedDictionary]"
+}
+
+$langLinkTemplates = GetLinkTemplates $repoLanguage
+$updatedPackageSet = GetPackageVersions $repoLanguage $releaseStartDate
+$languageMetadata = Get-PackageLookupForLanguage $repoLanguage
+
+foreach ($packageName in $updatedPackageSet.Keys)
+{
+  Write-Verbose "Checking release notes for $packageName"
+  $pkgKey = $packageName
+  if ($repoLanguage -eq "java") { $pkgKey = "com.azure:${pkgKey}" }
+  if ($repoLanguage -eq "android") { $pkgKey = "com.azure.android:${pkgKey}" }
+  $pkgMetadata = $languageMetadata[$pkgKey]
+
+  if (!$pkgMetadata) {
+    Write-Host "Skipped package '$pkgKey' because it doesn't contain metadata in the csv file."
+    continue
+  }
+
+  if ($pkgMetadata.New -ne "true" -or $pkgMetadata.Hide -eq "true") {
+    Write-Host "Skipped package '$pkgKey' because it is not new ($($pkgMetadata.Hide)) or it is marked as hidden ($($pkgMetadata.Hide))"
+    continue
+  }
+
+  foreach ($packageVersion in $updatedPackageSet[$packageName].Versions)
+  {
+    $presentKey = $existingYamlContent.entries.Where({ ($_.name -eq $packageName) -and ($_.version -eq $packageVersion.RawVersion) })
+    if ($presentKey.Count -eq 0)
     {
-        $presentKey = $existingYamlContent.entries.Where( { ($_.name + ':' + $_.version) -eq $key } )
-        if ($presentKey.Count -gt 0)
-        {
-            $incomingReleaseHighlights.Remove($key)
-        }
+      $entry = GetReleaseNotesData $packageName $packageVersion.RawVersion $pkgMetadata
+      if ($entry) {
+        Write-Host "Added '$pkgKey' to the release note entries"
+        $existingYamlContent.entries += $entry
+      }
     }
+  }
 }
 
-$filteredReleaseHighlights = FilterOut-UnreleasedPackages -releaseHighlights $incomingReleaseHighlights
-
-if ($null -eq $existingYamlContent.entries)
+if ($existingYamlContent.entries.Count -gt 0)
 {
-    $existingYamlContent.entries = New-Object "System.Collections.Generic.List[System.Collections.Specialized.OrderedDictionary]"
-}
+  Write-Host "Writing release notes for $repoLanguage to $pathToRelatedYaml"
 
-foreach ($entry in $filteredReleaseHighlights)
+  $yamlDirectory = Split-Path $pathToRelatedYaml -Parent
+  if (!(Test-Path $yamlDirectory)) {
+    New-Item -Type Directory $yamlDirectory > $null
+  }
+  Set-Content -Path $pathToRelatedYaml -Value (ConvertTo-Yaml $existingYamlContent)
+}
+else
 {
-    $existingYamlContent.entries += $entry
+  Write-Host "No release notes for $repoLanguage so not writing $pathToRelatedYaml"
 }
-
-Set-Content -Path $pathToRelatedYaml -Value (ConvertTo-Yaml $existingYamlContent)

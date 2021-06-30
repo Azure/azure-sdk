@@ -12,6 +12,77 @@ function Invoke-AzBoardsCmd($subCmd, $parameters, $output = $true)
   return Invoke-Expression "$azCmdStr" | ConvertFrom-Json -AsHashTable
 }
 
+function Invoke-Query($fields, $wiql, $output = $true)
+{
+  #POST https://dev.azure.com/{organization}/{project}/{team}/_apis/wit/wiql?timePrecision={timePrecision}&$top={$top}&api-version=6.1-preview.2
+
+  $body = @"
+{
+  "query": "$wiql"
+}
+"@
+
+  if ($output) {
+    Write-Host "Executing query $wiql"
+  }
+
+  $headers = $null
+  if (Get-Variable -Name "devops_pat" -ValueOnly -ErrorAction "Ignore")
+  {
+    $encodedToken = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes([string]::Format("{0}:{1}", "", $devops_pat)))
+    $headers = @{ Authorization = "Basic $encodedToken" }
+  }
+  else
+  {
+    # Get a temp access token from the logged in az cli user for azure devops resource
+    $jwt_accessToken = (az account get-access-token --resource "499b84ac-1321-427f-aa17-267ca6975798" --query "accessToken" --output tsv)
+    $headers = @{ Authorization = "Bearer $jwt_accessToken" }
+  }
+  $response = Invoke-RestMethod -Method POST `
+    -Uri "https://dev.azure.com/azure-sdk/Release/_apis/wit/wiql/?`$top=10000&api-version=6.0" `
+    -Headers $headers -Body $body -ContentType "application/json" | ConvertTo-Json -Depth 10 | ConvertFrom-Json -AsHashTable
+
+  if (!$response.workItems) {
+    Write-Warning "Query returned no items. $wiql"
+    return ,@()
+  }
+
+  $workItems = @()
+  $i = 0
+  do
+  {
+    $idBatch = @()
+    while ($idBatch.Count -lt 200 -and $i -lt $response.workItems.Count)
+    {
+      $idBatch += $response.workItems[$i].id
+      $i++
+    }
+
+    $uri = "https://dev.azure.com/azure-sdk/Release/_apis/wit/workitems?ids=$($idBatch -join ',')&fields=$($fields -join ',')&api-version=6.0"
+
+    Write-Verbose "Pulling work items $uri "
+
+    $batchResponse = Invoke-RestMethod -Method GET -Uri $uri `
+      -Headers $headers -ContentType "application/json" -MaximumRetryCount 3 | ConvertTo-Json -Depth 10 | ConvertFrom-Json -AsHashTable
+
+      if ($batchResponse.value)
+      {
+        $batchResponse.value | % { $workItems += $_ }
+      }
+      else
+      {
+        Write-Warning "Batch return no items from $uri"
+      }
+  }
+  while ($i -lt $response.workItems.Count)
+
+  if ($output) {
+    Write-Host "Query return $($workItems.Count) items"
+  }
+
+  return $workItems
+}
+
 function LoginToAzureDevops([string]$devops_pat)
 {
   if (!$devops_pat) {
@@ -64,13 +135,14 @@ function FindParentWorkItem($serviceName, $packageDisplayName, $outputCommand = 
     $serviceCondition = "[ServiceName] <> ''"
   }
 
-  $parameters = $ReleaseDevOpsCommonParametersWithProject
-  $parameters += "--wiql"
-  $parameters += "`"SELECT [ID], [ServiceName], [PackageDisplayName], [Parent] FROM WorkItems WHERE [Work Item Type] = 'Epic' AND ${serviceCondition}`""
+  $query = "SELECT [ID], [ServiceName], [PackageDisplayName], [Parent] FROM WorkItems WHERE [Work Item Type] = 'Epic' AND ${serviceCondition}"
 
-  $workItems = Invoke-AzBoardsCmd "query" $parameters $outputCommand
+  $fields = @("System.Id", "Custom.ServiceName", "Custom.PackageDisplayName", "System.Parent")
 
-  foreach ($wi in $workItems) {
+  $workItems = Invoke-Query $fields $query $outputCommand
+
+  foreach ($wi in $workItems)
+  {
     $localKey = BuildHashKey $wi.fields["Custom.ServiceName"] $wi.fields["Custom.PackageDisplayName"]
     if (!$localKey) { continue }
     if ($parentWorkItems.ContainsKey($localKey) -and $parentWorkItems[$localKey].id -ne $wi.id) {
@@ -122,26 +194,26 @@ function FindPackageWorkItem($lang, $packageName, $version, $outputCommand = $tr
   }
 
   $fields = @()
-  $fields += "ID"
-  $fields += "State"
+  $fields += "System.ID"
+  $fields += "System.State"
   $fields += "System.AssignedTo"
-  $fields += "Parent"
-  $fields += "Language"
-  $fields += "Package"
-  $fields += "PackageDisplayName"
-  $fields += "Title"
-  $fields += "PackageType"
-  $fields += "PackageTypeNewLibrary"
-  $fields += "PackageVersionMajorMinor"
-  $fields += "PackageRepoPath"
-  $fields += "ServiceName"
-  $fields += "Planned Packages"
-  $fields += "Shipped Packages"
-  $fields += "PackageBetaVersions"
-  $fields += "PackageGAVersion"
-  $fields += "PackagePatchVersions"
-  $fields += "Generated"
-  $fields += "RoadmapState"
+  $fields += "System.Parent"
+  $fields += "Custom.Language"
+  $fields += "Custom.Package"
+  $fields += "Custom.PackageDisplayName"
+  $fields += "System.Title"
+  $fields += "Custom.PackageType"
+  $fields += "Custom.PackageTypeNewLibrary"
+  $fields += "Custom.PackageVersionMajorMinor"
+  $fields += "Custom.PackageRepoPath"
+  $fields += "Custom.ServiceName"
+  $fields += "Custom.PlannedPackages"
+  $fields += "Custom.ShippedPackages"
+  $fields += "Custom.PackageBetaVersions"
+  $fields += "Custom.PackageGAVersion"
+  $fields += "Custom.PackagePatchVersions"
+  $fields += "Custom.Generated"
+  $fields += "Custom.RoadmapState"
 
   $fieldList = ($fields | ForEach-Object { "[$_]"}) -join ", "
   $query = "SELECT ${fieldList} FROM WorkItems WHERE [Work Item Type] = 'Package'"
@@ -158,14 +230,8 @@ function FindPackageWorkItem($lang, $packageName, $version, $outputCommand = $tr
   if ($version) {
     $query += " AND [PackageVersionMajorMinor] = '${version}'"
   }
-  $parameters = $ReleaseDevOpsCommonParametersWithProject
-  $parameters += "--wiql", "`"${query}`""
 
-  $workItems = Invoke-AzBoardsCmd "query" $parameters $outputCommand
-
-  if ($workItems -and $workItems.Count -gt 1000) {
-    Write-Warning "Retrieved $($workItems.Count) work items which might cause some paging issues given the query is generally limited to 1000."
-  }
+  $workItems = Invoke-Query $fields $query $outputCommand
 
   foreach ($wi in $workItems)
   {

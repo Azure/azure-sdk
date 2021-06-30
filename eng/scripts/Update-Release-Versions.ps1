@@ -3,7 +3,9 @@ param (
   [string]$language = "all",
   [bool]$checkDocLinks = $true,
   [bool]$compareTagVsGHIOVersions = $false,
-  [string] $github_pat = $env:GITHUB_PAT
+  [string]$github_pat = $env:GITHUB_PAT,
+  [string]$inputCacheFile = "https://azuresdkartifacts.blob.core.windows.net/verify-links-cache/verify-links-cache.txt",
+  [int]$numMonthsForReleaseTags = 1
 )
 Set-StrictMode -Version 3
 $ProgressPreference = "SilentlyContinue"; # Disable invoke-webrequest progress dialog
@@ -24,21 +26,56 @@ function GetVersionWebContent($language, $package, $versionType="latest-ga")
   }
 }
 
-function CheckLink($url, $showWarningIfMissing=$true)
+$checkedLinks = @{}
+function CheckLink($link, $showWarningIfMissing=$true)
 {
+  if ($checkedLinks.Count -eq 0 -and $inputCacheFile)
+  {
+    $cacheContent = ""
+    if ($inputCacheFile.StartsWith("http")) {
+      try {
+        $response = Invoke-WebRequest -Uri $inputCacheFile
+        $cacheContent = $response.Content
+      }
+      catch {
+        $statusCode = $_.Exception.Response.StatusCode.value__
+        Write-Error "Failed to read cache file from  page [$statusCode] $inputCacheFile"
+      }
+    }
+    elseif (Test-Path $inputCacheFile) {
+      $cacheContent = Get-Content $inputCacheFile -Raw
+    }
+    $goodLinks = $cacheContent.Split("`n").Where({ $_.Trim() -ne "" -and !$_.StartsWith("#") })
+
+    foreach ($goodLink in $goodLinks) {
+      $checkedLinks[$goodLink] = $true
+    }
+    Write-Verbose "$($checkedLinks.Count) good links from cache"
+  }
+
+  if ($checkedLinks.ContainsKey($link)) {
+    if ($showWarningIfMissing -and !$checkedLinks[$link]) {
+      Write-Warning "Invalid link $link"
+    }
+    return $checkedLinks[$link]
+  }
+
   try
   {
-    #Write-Host "Checking $url"
-    Invoke-WebRequest -Uri $url
-    return $true
+    Write-Verbose "Checking $link"
+    Invoke-WebRequest -Uri $link
+    $checkedLinks[$link] = $true
+    return $checkedLinks[$link]
   }
   catch
   {
     if ($showWarningIfMissing) {
-      Write-Warning "Invalid link $url"
+      Write-Warning "Invalid link $link"
     }
   }
-  return $false
+  $checkedLinks[$link] = $false
+  return $checkedLinks[$link]
+
 }
 
 function CheckOptionalLinks($linkTemplates, $pkg, $skipIfNA = $false)
@@ -46,46 +83,49 @@ function CheckOptionalLinks($linkTemplates, $pkg, $skipIfNA = $false)
   if (!$checkDocLinks) {
     return
   }
-  if ($skipIfNA -and $pkg.MSDocs -eq "NA" -and $pkg.GHDocs -eq "NA") {
-    return
-  }
 
-  $preSuffix = GetLinkTemplateValue $linkTemplates "pre_suffix"
-  $msdocLink = GetLinkTemplateValue $linkTemplates "msdocs_url_template" $pkg.Package
+  if (!$skipIfNA -or $pkg.MSDocs -eq "")
+  {
+    $preSuffix = GetLinkTemplateValue $linkTemplates "pre_suffix"
+    $msdocLink = GetLinkTemplateValue $linkTemplates "msdocs_url_template" $pkg.Package
 
-  if (!$pkg.VersionGA -and $pkg.VersionPreview -and $preSuffix) {
-    $msdocLink += $preSuffix
-  }
+    if (!$pkg.VersionGA -and $pkg.VersionPreview -and $preSuffix) {
+      $msdocLink += $preSuffix
+    }
 
-  $msdocvalid = CheckLink $msdocLink $false
+    $msdocvalid = CheckLink $msdocLink $false
 
-  if ($msdocvalid) {
-    $pkg.MSDocs = ""
-  }
-  else {
-    if ($pkg.MSDocs -eq "" -or $pkg.MSDocs -eq "NA") {
-      Write-Verbose "MSDoc link ($msdocLink) is not valid so marking as NA"
-      $pkg.MSDocs = "NA"
+    if ($msdocvalid) {
+      $pkg.MSDocs = ""
+    }
+    else {
+      if ($pkg.MSDocs -eq "" -or $pkg.MSDocs -eq "NA") {
+        Write-Verbose "MSDoc link ($msdocLink) is not valid so marking as NA"
+        $pkg.MSDocs = "NA"
+      }
     }
   }
 
-  $ghdocvalid = ($pkg.VersionGA -or $pkg.VersionPreview)
-  if ($pkg.VersionGA) {
-    $ghlink = GetLinkTemplateValue $linkTemplates "ghdocs_url_template" $pkg.Package $pkg.VersionGA
-    $ghdocvalid = $ghdocvalid -and (CheckLink $ghlink $false)
-  }
-  if ($pkg.VersionPreview) {
-    $ghlink = GetLinkTemplateValue $linkTemplates "ghdocs_url_template" $pkg.Package $pkg.VersionPreview
-    $ghdocvalid = $ghdocvalid -and (CheckLink $ghlink $false)
-  }
+  if (!$skipIfNA -or $pkg.GHDocs -eq "")
+  {
+    $ghdocvalid = ($pkg.VersionGA -or $pkg.VersionPreview)
+    if ($pkg.VersionGA) {
+      $ghlink = GetLinkTemplateValue $linkTemplates "ghdocs_url_template" $pkg.Package $pkg.VersionGA
+      $ghdocvalid = $ghdocvalid -and (CheckLink $ghlink $false)
+    }
+    if ($pkg.VersionPreview) {
+      $ghlink = GetLinkTemplateValue $linkTemplates "ghdocs_url_template" $pkg.Package $pkg.VersionPreview
+      $ghdocvalid = $ghdocvalid -and (CheckLink $ghlink $false)
+    }
 
-  if ($ghdocvalid) {
-    $pkg.GHDocs = ""
-  }
-  else {
-    if ($pkg.GHDocs -eq "" -or $pkg.GHDocs -eq "NA") {
-      Write-Verbose "GHDoc link ($ghlink) is not valid so marking as NA"
-      $pkg.GHDocs = "NA"
+    if ($ghdocvalid) {
+      $pkg.GHDocs = ""
+    }
+    else {
+      if ($pkg.GHDocs -eq "" -or $pkg.GHDocs -eq "NA") {
+        Write-Verbose "GHDoc link ($ghlink) is not valid so marking as NA"
+        $pkg.GHDocs = "NA"
+      }
     }
   }
 }
@@ -107,15 +147,15 @@ function CheckRequiredLinks($linkTemplates, $pkg, $version)
   $pkgLink = GetLinkTemplateValue $linkTemplates "package_url_template" $pkg.Package $version $pkg.RepoPath $groupId
 
   $valid = $valid -and (CheckLink $pkgLink)
+
   return $valid
 }
 
-function GetFirstGADate($pkgVersion, $pkg)
+function GetFirstGADate($pkgVersion, $pkg, $gaVersions)
 {
-  $gaVersions = @($pkgVersion.Versions | Where-Object { !$_.IsPrerelease -and $_.Major -gt 0 })
   if ($gaVersions.Count -gt 0) {
     $gaIndex = $gaVersions.Count - 1;
-    $otherPackage = @($global:otherPackages | Where-Object { $_.Package -eq $pkg.Package })
+    $otherPackage = $global:otherPackages.Where({ $_.Package -eq $pkg.Package })
 
     if ($otherPackage.Count -gt 0 -and $otherPackage[0].VersionGA) {
       Write-Verbose "Found other package entry for '$($pkg.Package)'";
@@ -128,10 +168,9 @@ function GetFirstGADate($pkgVersion, $pkg)
     }
     if ($gaIndex -lt 0) { return "" }
     $gaVersion = $gaVersions[$gaIndex]
+    $committeDate = $gaVersion.Date
 
-    $committeDate = GetCommitterDate $gaVersion.TagShaUrl;
-
-    if ($committeDate) {
+    if ($committeDate -is [DateTime]) {
       $committeDate = $committeDate.ToString("MM/dd/yyyy")
       Write-Host "For package '$($pkg.Package)' picking GA '$($gaVersion.RawVersion)' shipped on '$committeDate' as the first new GA date."
       return $committeDate
@@ -144,6 +183,7 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
 {
   foreach ($pkg in $packageList)
   {
+    $pkgVersion = $null
     if ($langVersions.ContainsKey($pkg.Package)) {
       $pkgVersion = $langVersions[$pkg.Package]
     }
@@ -151,17 +191,33 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
       # Some repos use the same version for all packages so fall back to that case
       $pkgVersion = $langVersions[""]
     }
-    else {
-      Write-Host "Skipping update for $($pkg.Package) as we don't have versiong info for it. "
-      continue
-    }
-
-    $version = $pkgVersion.LatestGA
 
     if ($null -eq $pkgVersion) {
-      Write-Host "Skipping update for $($pkg.Package) as we don't have versiong info for it. "
+      Write-Verbose "Skipping update for $($pkg.Package) as we don't have version info for it. "
       continue;
     }
+
+    # Compute the latest versions based on the current versions plus any new versions
+    # from the tags taking into account the tag versions don't contain all the versions
+    # that have ever shipped.
+    $latestGA = $pkg.VersionGA
+    $latestPreview = $pkg.VersionPreview
+    $versions = $pkgVersion.Versions
+    if ($latestGA -and $versions.RawVersion -notcontains $latestGA) { $versions += (ToSemVer $latestGA) }
+    if ($latestPreview -and $versions.RawVersion -notcontains $latestPreview) { $versions += (ToSemVer $latestPreview) }
+    $versions = [AzureEngSemanticVersion]::SortVersions($versions)
+
+    $latestPreview = $versions[0].RawVersion
+    $gaVersions = $versions.Where({ !$_.IsPrerelease -and $_.Major -gt 0 })
+    if ($gaVersions.Count -ne 0)
+    {
+      $latestGA = $gaVersions[0].RawVersion
+      if ($latestGA -eq $latestPreview) {
+        $latestPreview = ""
+      }
+    }
+
+    $version = $latestGA
 
     if ($compareTagVsGHIOVersions) {
       $versionFromGH = GetVersionWebContent $lang $pkg.Package "latest-ga"
@@ -172,7 +228,7 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
 
     if ($pkg.VersionGA -and $pkg.Type -eq "client") {
       if ([bool]($pkg.PSobject.Properties.name -match "FirstGADate") -and !$pkg.FirstGADate) {
-        $pkg.FirstGADate = GetFirstGADate $pkgVersion $pkg
+        $pkg.FirstGADate = GetFirstGADate $pkgVersion $pkg $gaVersions
       }
     }
     if ($version -eq "") {
@@ -188,7 +244,7 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
       }
     }
 
-    $version = $pkgVersion.LatestPreview
+    $version = $latestPreview
 
     if ($compareTagVsGHIOVersions) {
       $versionFromGH = GetVersionWebContent $lang $pkg.Package "latest-preview"
@@ -217,12 +273,13 @@ function OutputVersions($lang)
   Write-Host "Checking $lang for updates..."
   $clientPackages, $global:otherPackages = Get-PackageListForLanguageSplit $lang
 
-  $langVersions = GetPackageVersions $lang
+  $langVersions = GetPackageVersions $lang -afterDate ([DateTime]::Now.AddMonths(-1 * $numMonthsForReleaseTags))
   $langLinkTemplates = GetLinkTemplates $lang
 
   Update-Packages $lang $clientPackages $langVersions $langLinkTemplates
 
-  foreach($otherPackage in $otherPackages)
+  Write-Host "Checking doc links for other packages"
+  foreach ($otherPackage in $otherPackages)
   {
     CheckOptionalLinks $langLinkTemplates $otherPackage -skipIfNA $true
   }
@@ -309,7 +366,7 @@ elseif ($language -eq 'all') {
   OutputAll $languageNameMapping.Keys
 }
 elseif ($languageNameMapping.ContainsKey($language)) {
-    OutputVersions $language
+  OutputVersions $language
 }
 else {
   Write-Error "Unrecognized Language: $language"

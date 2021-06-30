@@ -521,13 +521,13 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
-### Azure Ai Textanalytics 5.1.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#510-beta2-2020-10-06)
+### Azure Ai Textanalytics 5.1.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#510-beta2-2020-10-06)
 #### Breaking changes
 - Removed property `length` from `CategorizedEntity`, `SentenceSentiment`, `LinkedEntityMatch`, `AspectSentiment`,
 `OpinionSentiment`, and `PiiEntity` because the length information can be accessed from the text property itself
  using the string's length property.
 
-### Azure Ai Metrics advisor 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md#100-beta1-2020-10-07)
+### Azure Ai Metrics advisor 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md#100-beta1-2020-10-07)
 
 #### New Features:
 - Initial preview release of Metrics advisor.
@@ -538,14 +538,14 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Authentication with API key supported using `MetricsAdvisorKeyCredential("<subscription_key>", "<api_key>")`.
 - Reactive streams support using [Project Reactor](https://projectreactor.io/).
 
-### Azure Core Test 1.5.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-test/CHANGELOG.md#150-2020-10-01)
+### Azure Core Test 1.5.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core-test/CHANGELOG.md#150-2020-10-01)
 
 #### New Features
 
 - Enhanced playback recording to use test class name plus test name to identify records.
 
 
-### Azure Core 1.9.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/CHANGELOG.md#190-2020-10-01)
+### Azure Core 1.9.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core/CHANGELOG.md#190-2020-10-01)
 
 #### New Features
 
@@ -564,25 +564,25 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Added peer certificate verification options when connecting to an AMQP endpoint.
 
 #### Breaking Changes
-- Removed `BinaryData` type which was used for `AmqpAnnotatedMessage`. 
+- Removed `BinaryData` type which was used for `AmqpAnnotatedMessage`.
 
 
-### Azure Core Experimental 1.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-experimental/CHANGELOG.md#100-beta6-2020-10-06)
+### Azure Core Experimental 1.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core-experimental/CHANGELOG.md#100-beta6-2020-10-06)
 
 #### New Features
 - Added `BinaryData` abstraction to represent binary data and supports serialization through `ObjectSerializer`.
 
-### Azure Core Experimental 1.0.0-beta.7 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-experimental/CHANGELOG.md#100-beta7-2020-10-08)
+### Azure Core Experimental 1.0.0-beta.7 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core-experimental/CHANGELOG.md#100-beta7-2020-10-08)
 
 #### New Features
 - Added APIs to `JsonPatchDocument` which accept pre-serialized JSON.
 
-### Azure Core Experimental 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-experimental/CHANGELOG.md#100-beta5-2020-10-01)
+### Azure Core Experimental 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core-experimental/CHANGELOG.md#100-beta5-2020-10-01)
 
 #### New Features
 - Added `JsonPatchDocument` to support JSON Patch functionality.
 
-### Azure Data Tables 12.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/tables/azure-data-tables/CHANGELOG.md#1200-beta2-2020-10-06)
+### Azure Data Tables 12.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/tables/azure-data-tables/CHANGELOG.md#1200-beta2-2020-10-06)
 
 #### New Features
 
@@ -601,24 +601,24 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - The `TableClient.updateEntity(entity)` method was mistakenly performing an upsert operation rather than an update.
 - The `TableAsyncClient.updateEntity(entity)` method always returned an empty result.
 
-### Azure Digitaltwins Core 1.0.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/digitaltwins/azure-digitaltwins-core/CHANGELOG.md#100-beta3-2020-10-01)
+### Azure Digitaltwins Core 1.0.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/digitaltwins/azure-digitaltwins-core/CHANGELOG.md#100-beta3-2020-10-01)
 
 #### Bug Fixes
 - Fixed issue with pagination APIs that support max-item-count where the item count was not respected from the second page forward.
 
-### Azure Identity 1.2.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/identity/azure-identity/CHANGELOG.md#120-beta2-2020-10-06)
+### Azure Identity 1.2.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/identity/azure-identity/CHANGELOG.md#120-beta2-2020-10-06)
 
 #### New Features
 - Added the methods `pfxCertificate(InputStream certificate, String clientCertificatePassword)` and `pemCertificate(InputStream certificate)` in `ClientCertificateCredentialBuilder`.
 - Added `includeX5c(boolean)` method in `ClientCertificateCredentialBuilder` to enable subject name / issuer based authentication.
 - Added a default `challengeConsumer` in `DeviceCodeCredentialBuilder` which prints the device code information to console. The `challengeConsumer` configuration is no longer required in `DeviceCodeCredentialBuilder`.
 
-### Azure EventHubs 5.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md#530-2020-10-12)
+### Azure EventHubs 5.3.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md#530-2020-10-12)
 #### New Features
 - Add `clientOptions` to `EventHubClientBuilder` to support for setting user's application id in the user-agent property
 of the amqp connection.
 
-### Azure Search Documents 11.2.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/search/azure-search-documents/CHANGELOG.md#1120-beta2-2020-10-06)
+### Azure Search Documents 11.2.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/search/azure-search-documents/CHANGELOG.md#1120-beta2-2020-10-06)
 
 #### New Features
 
@@ -637,7 +637,7 @@ of the amqp connection.
 - Renamed `getSearchBatchClient` to `getSearchIndexingBufferedSender` in `SearchClient`.
 - Renamed `onActionRemoved` to `onActionSent`.
 
-### Azure Security Keyvault Administration 4.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-administration/CHANGELOG.md#400-beta2-2020-10-09)
+### Azure Security Keyvault Administration 4.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/keyvault/azure-security-keyvault-administration/CHANGELOG.md#400-beta2-2020-10-09)
 
 #### New Features
 - Added the new public APIs `getBackupOperation` and `getRestoreOperation` for querying the status of long-running operations in `KeyVaultBackupClient` and `KeyVaultBackupAsyncClient`.
@@ -652,7 +652,7 @@ of the amqp connection.
         - `beginSelectiveRestore(String, String, String, String, Duration)`
 - Added support for `com.azure.core.util.ClientOptions` in client builders.
 
-### Azure Security Keyvault Certificates 4.2.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md#420-beta2-2020-10-09)
+### Azure Security Keyvault Certificates 4.2.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md#420-beta2-2020-10-09)
 
 #### New Features
 - Added `KeyVaultCertificateIdentifier`.
@@ -669,7 +669,7 @@ of the amqp connection.
         - `beginRecoverDeletedCertificate(String, Duration)`
 - Added support for `com.azure.core.util.ClientOptions` in client builders.
 
-### Azure Security Keyvault Keys 4.3.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md#430-beta2-2020-10-09)
+### Azure Security Keyvault Keys 4.3.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md#430-beta2-2020-10-09)
 
 #### New Features
 - Added `KeyVaultKeyIdentifier`.
@@ -686,7 +686,7 @@ of the amqp connection.
 - Fixed an issue that prevented the `tags` and `managed` members of `KeyProperties` from getting populated when retrieving a single key using `KeyClient`, `KeyAsyncClient`, `CryptographyClient` and `CryptographyAsyncClient`.
 
 
-### Azure Security Keyvault Secrets 4.3.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md#430-beta2-2020-10-09)
+### Azure Security Keyvault Secrets 4.3.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md#430-beta2-2020-10-09)
 
 #### New Features
 - Added `KeyVaultSecretIdentifier`.
@@ -699,7 +699,7 @@ of the amqp connection.
         - `beginRecoverDeletedSecret(String, Duration)`
 - Added support for `com.azure.core.util.ClientOptions` in client builders.
 
-### Azure Storage Blob 12.9.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md#1290-beta1-2020-10-01)
+### Azure Storage Blob 12.9.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/storage/azure-storage-blob/CHANGELOG.md#1290-beta1-2020-10-01)
 #### New Features
 - Added support for the 2020-02-10 service version.
 - Added support to specify Arrow Output Serialization when querying a blob.
@@ -714,12 +714,12 @@ of the amqp connection.
 - Fixed a bug where a custom application id in HttpLogOptions would not be added to the User Agent String.
 - Fixed a bug where BlockBlobOutputStream would not handle certain errors.
 
-### Azure Storage Blob 12.9.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md#1290-beta2-2020-10-08)
+### Azure Storage Blob 12.9.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/storage/azure-storage-blob/CHANGELOG.md#1290-beta2-2020-10-08)
 #### New Features
 - Added support to specify whether or not a pipeline policy should be added per call or per retry.
 
 
-### Azure Storage Blob Cryptography 12.9.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md#1290-beta1-2020-10-01)
+### Azure Storage Blob Cryptography 12.9.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md#1290-beta1-2020-10-01)
 #### New Features
 - Added support to set BlobParallelUploadOptions.computeMd5 so the service can perform an md5 verification.
 - Added support to specify 'requiresEncryption' on the EncryptedBlobClientBuilder to specify whether or not to enforce that the blob is encrypted on download.
@@ -728,7 +728,7 @@ of the amqp connection.
 - Fixed a bug where the TokenCredential scope would be incorrect for custom URLs.
 - Fixed a bug where a custom application id in HttpLogOptions would not be added to the User Agent String.
 
-### Azure Storage File Datalake 12.3.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md#1230-beta1-2020-10-01)
+### Azure Storage File Datalake 12.3.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/storage/azure-storage-file-datalake/CHANGELOG.md#1230-beta1-2020-10-01)
 #### New Features
 - Added support for the 2020-02-10 service version.
 - Added support for setting, modifying, and removing ACLs recursively.
@@ -746,7 +746,7 @@ of the amqp connection.
 - Fixed a bug where a custom application id in HttpLogOptions would not be added to the User Agent String.
 
 
-### Azure Storage File Share 12.7.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/CHANGELOG.md#1270-beta1-2020-10-01)
+### Azure Storage File Share 12.7.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/storage/azure-storage-file-share/CHANGELOG.md#1270-beta1-2020-10-01)
 #### New Features
 - Added support for the 2020-02-10 service version.
 - Added support to getFileRanges on a previous snapshot by adding the getFileRangesDiff API.
@@ -760,7 +760,7 @@ of the amqp connection.
 - Fixed a bug that would cause auth failures when building a client by passing an endpoint which had a sas token with protocol set to https,http
 - Fixed a bug where a custom application id in HttpLogOptions would not be added to the User Agent String.
 
-### Azure Storage Queue 12.7.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/CHANGELOG.md#1270-beta1-2020-10-01)
+### Azure Storage Queue 12.7.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/storage/azure-storage-queue/CHANGELOG.md#1270-beta1-2020-10-01)
 #### New Features
 - Added support for the 2020-02-10 service version.
 
@@ -778,7 +778,7 @@ of the amqp connection.
 
 - Major changes only!
 
-### Azure Storage Blob [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md)
+### Azure Storage Blob [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/storage/azure-storage-blob/CHANGELOG.md)
 
 #### New Features
 - Added support to undelete a container.
@@ -793,7 +793,7 @@ of the amqp connection.
 - Fixed a bug where a custom application ID in `HttpLogOptions` would not be added to the User Agent String.
 - Fixed a bug where `BlockBlobOutputStream` would not handle certain errors.
 
-### Azure Storage File DataLake [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md)
+### Azure Storage File DataLake [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/storage/azure-storage-file-datalake/CHANGELOG.md)
 
 #### New Features
 - Added support for setting, modifying, and removing ACLs recursively.
@@ -809,7 +809,7 @@ of the amqp connection.
 - Fixed a bug where an empty string would be sent with the x-ms-properties header when metadata was null or empty.
 - Fixed a bug where a custom application id in HttpLogOptions would not be added to the User Agent String.
 
-### Azure Storage File Share [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/CHANGELOG.md)
+### Azure Storage File Share [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/storage/azure-storage-file-share/CHANGELOG.md)
 
 #### New Features
 - Added support for the 2020-02-10 service version.

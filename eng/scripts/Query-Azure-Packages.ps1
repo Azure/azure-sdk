@@ -107,18 +107,26 @@ function Write-Latest-Versions($lang)
   $LangFunction = "Get-$lang-Packages"
   $packages = &$LangFunction
 
+  $packageLookup = GetPackageLookup $packageList
+
   foreach ($pkg in $packages)
   {
-    $pkgEntry = FindMatchingPackage $pkg $packageList
+    $pkgEntry = LookupMatchingPackage $pkg $packageLookup
 
     if (!$pkgEntry) {
       # alpha packages are not yet fully supported versions so skip adding them to the list yet.
       if ($pkg.VersionPreview -notmatch "-alpha") {
         # Add new package
         $packageList += $pkg
+        Write-Host "Adding new package $($pkg.Package)"
       }
     }
     else {
+      # For new packages let the Update-Release-Versions script update the versions
+      if ($pkgEntry.New -eq "true") {
+        continue
+      }
+
       # Update version of package
       if ($pkg.VersionGA) {
         $pkgEntry.VersionGA = $pkg.VersionGA
@@ -138,7 +146,7 @@ function Write-Latest-Versions($lang)
     # Skip the package entries that don't have a Package value as they are just placeholders
     if ($pkg.Package -eq "") { continue }
 
-    $pkgEntry = FindMatchingPackage $pkg $packageList
+    $pkgEntry = LookupMatchingPackage $pkg $packageLookup
 
     if (!$pkgEntry) {
       Write-Verbose "Found package $($pkg.Package) in the CSV which could be removed"

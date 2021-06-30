@@ -53,9 +53,9 @@ Detailed change logs are linked to in the Quick Links below. Here are some criti
 ### Key Vault
 
 - Restructured the `Certificate`, `Key`, and `Secret` models. For more specific details, see the respective
-[certificate](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-certificates/CHANGELOG.md),
-[key](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md),
-and [secret](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-secrets/CHANGELOG.md) changelogs.
+[certificate](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/keyvault/azure-keyvault-certificates/CHANGELOG.md),
+[key](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md),
+and [secret](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/keyvault/azure-keyvault-secrets/CHANGELOG.md) changelogs.
 - Both async and sync versions of `create_certificate` return pollers now that poll on the certificate's successful creation
 
 ### Storage

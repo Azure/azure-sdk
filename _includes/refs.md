@@ -27,5 +27,5 @@
 [cpp-latest-releases]: {{ site.baseurl }}{% link releases/latest/cpp.md %}
 [c-latest-releases]: {{ site.baseurl }}{% link releases/latest/c.md %}
 
-[README-EXAMPLE]: https://github.com/Azure/azure-sdk/blob/master/docs/policies/README-EXAMPLE.md
-[README-TEMPLATE]: https://github.com/Azure/azure-sdk/blob/master/docs/policies/README-TEMPLATE.md
+[README-EXAMPLE]: https://github.com/Azure/azure-sdk/blob/main/docs/policies/README-EXAMPLE.md
+[README-TEMPLATE]: https://github.com/Azure/azure-sdk/blob/main/docs/policies/README-TEMPLATE.md

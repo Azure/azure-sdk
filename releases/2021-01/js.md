@@ -42,7 +42,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Azure Storage
 
-#### @azure/storage-blob [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/CHANGELOG.md)
+#### @azure/storage-blob [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/CHANGELOG.md)
 
 We are releasing to add support for new service features in Azure Storage Service API version 2020-04-08.
 
@@ -50,24 +50,24 @@ We are releasing to add support for new service features in Azure Storage Servic
 
 - Added a new `from(permissionLike)` function to `AccountSASPermissions`, `BlobSASPermissions` and `ContainerSASPermissions` for creating such permissions from raw permission-like objects. Addressed issue [9714](https://github.com/Azure/azure-sdk-for-js/issues/9714).
 
-#### @azure/storage-file-datalake [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/CHANGELOG.md)
+#### @azure/storage-file-datalake [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-file-datalake/CHANGELOG.md)
 
 ##### Major Fixes on @azure/storage-file-datalake@12.3.0
 
 - `DataLakePathClient.move()` now supports source and destination authenticated with SAS. Fixed bug [12758](https://github.com/Azure/azure-sdk-for-js/issues/12758).
 - Now you can get the functionality of the root directory via the `DataLakeDirectoryClient` created via `FileSystemClient.getDirectoryClient("")`. Fixed bug [12813](https://github.com/Azure/azure-sdk-for-js/issues/12813).
 
-#### storage-file-share [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/CHANGELOG.md)
+#### storage-file-share [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-file-share/CHANGELOG.md)
 
 This release contains bug fixes to improve quality.
 
-#### storage-queue [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/CHANGELOG.md)
+#### storage-queue [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-queue/CHANGELOG.md)
 
 This release contains bug fixes to improve quality.
 
 ### Azure Service Bus
 
-#### @azure/service-bus [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md)
+#### @azure/service-bus [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/servicebus/service-bus/CHANGELOG.md)
 
 We're releasing a patch of the Service Bus client that includes some bug fixes.
 
@@ -77,9 +77,9 @@ We're releasing a patch of the Service Bus client that includes some bug fixes.
 - Resolved the issue of hanging receivers when receiving more than 2048 messages from sessions in `receiveAndDelete` mode.
 - Fix the use of correlation rule filter when a subset of properties are set.
 
-### Azure Tables 
+### Azure Tables
 
-#### @azure/data-tables [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/tables/data-tables/CHANGELOG.md)
+#### @azure/data-tables [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/tables/data-tables/CHANGELOG.md)
 
 We're releasing a new beta for our Azure Data Tables client that improves the precision of the dates being used in the package, and enables this client to communicate with the Azure Storage Emulator.
 
@@ -94,7 +94,7 @@ We're releasing a new beta for our Azure Data Tables client that improves the pr
 
 ### Azure Attestation
 
-#### @azure/attestation [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/attestation/attestation/CHANGELOG.md)
+#### @azure/attestation [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/attestation/attestation/CHANGELOG.md)
 
 We're introducing our JavaScript and TypeScript client for Microsoft Azure Attestation through an initial beta release.
 

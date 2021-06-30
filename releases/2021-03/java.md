@@ -67,7 +67,7 @@ The Azure SDK team is pleased to announce our March 2021 client library releases
 - Azure AI Form Recognizer
 - Azure AI Text Analytics
 - Azure Analytics Synapse Artifacts
-- Azure Communication Common 
+- Azure Communication Common
 - Azure Communication Identity
 - Azure Communication Chat
 - Azure Communication Phone Numbers
@@ -587,27 +587,27 @@ To use **Azure Spring Boot** starters, refer to the Maven dependency information
     <groupId>com.azure.spring</groupId>
     <artifactId>azure-spring-boot-starter-active-directory</artifactId>
   </dependency>
-    
+
   <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>azure-spring-boot-starter-active-directory-b2c</artifactId>
   </dependency>
-  
+
   <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>azure-spring-boot-starter-cosmos</artifactId>
   </dependency>
-  
+
   <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>azure-spring-boot-starter-keyvault-secrets</artifactId>
   </dependency>
-  
+
   <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>azure-spring-boot-starter-servicebus-jms</artifactId>
   </dependency>
-  
+
   <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>azure-spring-boot-starter-storage</artifactId>
@@ -633,19 +633,19 @@ To use **Azure Spring Cloud** starters and binders, refer to the Maven dependenc
  <dependency>
   <groupId>com.azure.spring</groupId>
   <artifactId>azure-spring-cloud-stream-binder-servicebus-queue</artifactId>
-  <version>2.3.0</version> 
+  <version>2.3.0</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure.spring</groupId>
   <artifactId>azure-spring-cloud-stream-binder-servicebus-topic</artifactId>
-  <version>2.3.0</version> 
+  <version>2.3.0</version>
 </dependency>
 
 <dependency>
   <groupId>com.azure.spring</groupId>
   <artifactId>azure-spring-cloud-starter-storage-queue</artifactId>
-  <version>2.3.0</version> 
+  <version>2.3.0</version>
 </dependency>
 
 <dependency>
@@ -661,7 +661,7 @@ To use JCA Provider for Azure Key Vault, refer to the Maven dependency informati
 <dependency>
   <groupId>com.azure</groupId>
   <artifactId>azure-security-keyvault-jca</artifactId>
-  <version>1.0.0-beta.5</version> 
+  <version>1.0.0-beta.5</version>
 </dependency>
 ```
 
@@ -674,7 +674,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 ## Release highlights
 
 
-### Azure Core 1.14.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/CHANGELOG.md#1140-2021-03-08)
+### Azure Core 1.14.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core/CHANGELOG.md#1140-2021-03-08)
 
 #### New Features
 - Added `Class<T>` overloads of `BinaryData.toObject` and `BinaryData.toObjectAsync`.
@@ -687,23 +687,23 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Added default interface API `SerializerAdapter.serializeIterable` which handles serializing generic collections.
 - Added `CloudEvent` model which conforms to the [Cloud Event Specification](https://github.com/cloudevents/spec/blob/v1.0.1/spec.md).
 
-### Azure Messaging Servicebus 7.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md#710-2021-03-10)
+### Azure Messaging Servicebus 7.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md#710-2021-03-10)
 #### Bug Fixes
 - Continue to receive messages regardless of user not settling the received message in PEEK_LOCK mode [#19247](https://github.com/Azure/azure-sdk-for-java/issues/19247).
 - Update to end the trace span regardless of the scope instance type for process operation tracing spans.
 - Removed logs that leaked secrets when connection string is invalid. [#19249](https://github.com/Azure/azure-sdk-for-java/issues/19249)
 
-### Azure Event Grid 4.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md#400-2020-03-11)
+### Azure Event Grid 4.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md#400-2020-03-11)
 
 ### New Features
 - added `sendEvent` to `EventGridPublisherClient` and `EventGridPublisherAsyncClient` to send a single event.
 
-### Azure Core Management 1.2.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-management/CHANGELOG.md#120-2021-03-08)
+### Azure Core Management 1.2.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core-management/CHANGELOG.md#120-2021-03-08)
 
 #### New Features
 - Added `SystemData`.
 
-### Azure Cosmos 4.13.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-cosmos/CHANGELOG.md#4130-2021-03-11)
+### Azure Cosmos 4.13.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos/CHANGELOG.md#4130-2021-03-11)
 
 #### New Features
 * Added `Diagnostics` for queries.
@@ -718,7 +718,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 * Fixed issue with `resourceToken` usage in `Gateway` connection mode.
 * Fixed issues with point operations with permissions in `Gateway` connection mode.
 
-### Azure Spring Data Cosmos 3.5.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md#350-2021-03-11)
+### Azure Spring Data Cosmos 3.5.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md#350-2021-03-11)
 
 #### New Features
 * Added support for `org.springframework.data.domain.Persistable` entity type.
@@ -729,11 +729,11 @@ If you have a bug or feature request for one of the libraries, please post an is
 * Fixed issue when using automatic id generation with the auditable framework.
 * Fixed query deserialization issue with `@query` annotated queries.
 
-### Azure Messaging Eventhubs 5.6.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md#560-2021-03-10)
+### Azure Messaging Eventhubs 5.6.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md#560-2021-03-10)
 #### Bug Fixes
 - Update to end the trace span regardless of the scope instance type for process operation tracing spans.
 
-### Azure Core Amqp 2.0.3 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-amqp/CHANGELOG.md#203-2021-03-09)
+### Azure Core Amqp 2.0.3 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core-amqp/CHANGELOG.md#203-2021-03-09)
 
 #### Bug Fixes
 - Fixed a bug where using a proxy the SSL peer hostname was set incorrect.
@@ -797,7 +797,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 ### Resource Management - Private DNS 2.2.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-resourcemanager-privatedns_2.2.0/sdk/resourcemanager/azure-resourcemanager-privatedns/CHANGELOG.md#220-2021-02-24)
 - Improved performance on `PrivateDnsZone` update
 
-### Azure Resourcemanager Storagecache 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storagecache/azure-resourcemanager-storagecache/CHANGELOG.md#100-beta2-2021-03-08)
+### Azure Resourcemanager Storagecache 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/storagecache/azure-resourcemanager-storagecache/CHANGELOG.md#100-beta2-2021-03-08)
 
 - Azure Resource Manager StorageCache client library for Java. This package contains Microsoft Azure SDK for StorageCache Management SDK. A Storage Cache provides scalable caching service for NAS clients, serving data from either NFSv3 or Blob at-rest storage (referred to as "Storage Targets"). These operations allow you to manage Caches. Package tag package-2021-03. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
@@ -807,28 +807,28 @@ If you have a bug or feature request for one of the libraries, please post an is
 #### New Feature
 * `models.Condition` and `models.BlobNfsTarget` were added.
 
-### Azure Analytics Synapse Artifacts 1.0.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/synapse/azure-analytics-synapse-artifacts/CHANGELOG.md#100-beta3-2021-03-09)
+### Azure Analytics Synapse Artifacts 1.0.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/synapse/azure-analytics-synapse-artifacts/CHANGELOG.md#100-beta3-2021-03-09)
 
 - Add new APIs in `LibraryClient` and `LibraryAsyncClient`
 
-### Azure Data Tables 12.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/tables/azure-data-tables/CHANGELOG.md#1200-beta5-2021-03-10)
+### Azure Data Tables 12.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/tables/azure-data-tables/CHANGELOG.md#1200-beta5-2021-03-10)
 
 #### New Features
 - Added support to specify whether or not a pipeline policy should be added per call or per retry.
 - Added support for passing Azure Core's `ClientOptions` to client builders.
 
-### Azure Resourcemanager Datadog 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/datadog/azure-resourcemanager-datadog/CHANGELOG.md#100-beta1-2021-03-08)
+### Azure Resourcemanager Datadog 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/datadog/azure-resourcemanager-datadog/CHANGELOG.md#100-beta1-2021-03-08)
 
 - Azure Resource Manager MicrosoftDatadog client library for Java. This package contains Microsoft Azure SDK for MicrosoftDatadog Management SDK.  Package tag package-2020-02-preview. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
-### Azure IoT DeviceUpdate 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/deviceupdate/azure-iot-deviceupdate/CHANGELOG.md#100-beta1-2021-03-02)
+### Azure IoT DeviceUpdate 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/deviceupdate/azure-iot-deviceupdate/CHANGELOG.md#100-beta1-2021-03-02)
 This is the initial release of Azure Device Update for IoT Hub library.
 
-### Azure Resourcemanager Digitaltwins 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/digitaltwins/azure-resourcemanager-digitaltwins/CHANGELOG.md#100-beta1-2021-03-02)
+### Azure Resourcemanager Digitaltwins 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/digitaltwins/azure-resourcemanager-digitaltwins/CHANGELOG.md#100-beta1-2021-03-02)
 
 - Azure Resource Manager AzureDigitalTwins client library for Java. This package contains Microsoft Azure SDK for AzureDigitalTwins Management SDK. Azure Digital Twins Client for managing DigitalTwinsInstance. Package tag package-2020-12. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
-### Azure Communication Chat 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-chat/CHANGELOG.md#100-beta5-2021-03-02)
+### Azure Communication Chat 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/communication/azure-communication-chat/CHANGELOG.md#100-beta5-2021-03-02)
 
 #### Breaking Changes
 - ChatMessage - `senderId` renamed to `senderCommunicationIdentifier`, changed type to `CommunicationIdentifier`.
@@ -837,7 +837,7 @@ This is the initial release of Azure Device Update for IoT Hub library.
 - ChatThread - `createdBy` renamed to `createdByCommunicationIdentifier`, changed type to `CommunicationIdentifier`.
 - ChatMessageContent - `initiator` renamed to `initiatorCommunicationIdentifier`, changed type to `CommunicationIdentifier`.
 
-### Azure Communication Common 1.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-common/CHANGELOG.md#100-beta6-2021-03-09)
+### Azure Communication Common 1.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/communication/azure-communication-common/CHANGELOG.md#100-beta6-2021-03-09)
 
 #### Breaking Changes
 - Renamed `CommunicationTokenRefreshOptions.getRefreshProactively()` to `CommunicationTokenRefreshOptions.isRefreshProactively()`
@@ -845,7 +845,7 @@ This is the initial release of Azure Device Update for IoT Hub library.
 - `CommunicationCloudEnvironment`, `CommunicationTokenRefreshOptions `, `CommunicationUserIdentifier`, `MicrosoftTeamsUserIdentifier`,
 `PhoneNumberIdentifier`, `UnknownIdentifier`, are all final classes now.
 
-### Azure Communication Identity 1.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-identity/CHANGELOG.md#100-beta6-2021-03-09)
+### Azure Communication Identity 1.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/communication/azure-communication-identity/CHANGELOG.md#100-beta6-2021-03-09)
 
 #### Added
 - Added a retryPolicy() chain method to the `CommunicationIdentityClientBuilder`.
@@ -857,17 +857,17 @@ This is the initial release of Azure Device Update for IoT Hub library.
 `CommunicationIdentityClient.createUserAndTokenWithResponse` and `CommunicationIdentityAsyncClient.createUserAndTokenWithResponse`.
 - `CommunicationUserIdentifierWithTokenResult` class has been renamed to `CommunicationUserIdentifierAndToken`.
 
-### Azure Communication Phonenumbers 1.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md#100-beta6-2021-03-09)
+### Azure Communication Phonenumbers 1.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md#100-beta6-2021-03-09)
 
 #### Added
 - Added PhoneNumbersClient and PhoneNumbersAsyncClient (originally was part of the azure.communication.administration package).
 - Added support for Azure Active Directory Authentication.
 
 #### Breaking Changes
-- PhoneNumberAsyncClient has been replaced with PhoneNumbersAsyncClient, which has the same functionality but different APIs. To learn more about how PhoneNumbersAsyncClient works, refer to the [README.md][https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-phonenumbers/README.md].
-- PhoneNumberClient has been replaced with PhoneNumbersClient, which has the same functionality but different APIs. To learn more about how PhoneNumbersClient works, refer to the [README.md][https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-phonenumbers/README.md].
+- PhoneNumberAsyncClient has been replaced with PhoneNumbersAsyncClient, which has the same functionality but different APIs. To learn more about how PhoneNumbersAsyncClient works, refer to the [README.md][https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/communication/azure-communication-phonenumbers/README.md].
+- PhoneNumberClient has been replaced with PhoneNumbersClient, which has the same functionality but different APIs. To learn more about how PhoneNumbersClient works, refer to the [README.md][https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/communication/azure-communication-phonenumbers/README.md].
 
-### Azure Communication Sms 1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/communication/azure-communication-sms/CHANGELOG.md#100-beta4-2021-03-09)
+### Azure Communication Sms 1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/communication/azure-communication-sms/CHANGELOG.md#100-beta4-2021-03-09)
 
 #### Added
 - Added Azure Active Directory authentication support
@@ -882,7 +882,7 @@ This is the initial release of Azure Device Update for IoT Hub library.
 - Updated `public Mono<Response<SendSmsResponse>> sendMessageWithResponse(PhoneNumberIdentifier from,List<PhoneNumberIdentifier> to, String message, SendSmsOptions smsOptions, Context context)` to `Mono<Response<SmsSendResult>> sendWithResponse(String from, String to, String message, SmsSendOptions options, Context context)`.
 - Replaced `SendSmsResponse` with `SmsSendResult`.
 
-### Azure Core Experimental 1.0.0-beta.11 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-experimental/CHANGELOG.md#100-beta11-2021-03-08)
+### Azure Core Experimental 1.0.0-beta.11 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core-experimental/CHANGELOG.md#100-beta11-2021-03-08)
 
 #### New Features
 - Added `ARMChallengeAuthenticationPolicy` as an implementation of `BearerTokenAuthenticationChallengePolicy`.
@@ -890,15 +890,15 @@ This is the initial release of Azure Device Update for IoT Hub library.
 #### Breaking Changes
 - Modified implementations of `onBeforeRequest` and `onChallenge` in `BearerTokenAuthenticationChallengePolicy`.
 
-### Azure Resourcemanager Redisenterprise 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/redisenterprise/azure-resourcemanager-redisenterprise/CHANGELOG.md#100-beta2-2021-03-02)
+### Azure Resourcemanager Redisenterprise 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/redisenterprise/azure-resourcemanager-redisenterprise/CHANGELOG.md#100-beta2-2021-03-02)
 
 - Azure Resource Manager RedisEnterprise client library for Java. This package contains Microsoft Azure SDK for RedisEnterprise Management SDK. REST API for managing Redis Enterprise resources in Azure. Package tag package-2021-03. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
-### Azure Resourcemanager Hybridkubernetes 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/hybridkubernetes/azure-resourcemanager-hybridkubernetes/CHANGELOG.md#100-beta1-2021-03-01)
+### Azure Resourcemanager Hybridkubernetes 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/hybridkubernetes/azure-resourcemanager-hybridkubernetes/CHANGELOG.md#100-beta1-2021-03-01)
 
 - Azure Resource Manager HybridKubernetes client library for Java. This package contains Microsoft Azure SDK for HybridKubernetes Management SDK. Hybrid Kubernetes Client. Package tag package-2021-03-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
-### Azure Identity 1.3.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/identity/azure-identity/CHANGELOG.md#130-beta2-2021-03-10)
+### Azure Identity 1.3.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/identity/azure-identity/CHANGELOG.md#130-beta2-2021-03-10)
 
 #### New Features
 - Added the support to enable and configure Persistent Token Cache via `TokenCachePersistenceOptions` API on `InteractiveBrowserCredentialBuilder`, `AuthorizationCodeCredentialBuilder`, `UsernamePasswordCredentialBuilder`, `DeviceCodeCredentialBuilderBuilder` `ClientSecretCredentialBuilder`, `ClientCertificateCredentialBuilder` and `SharedTokenCacheCredentialBuilder`.
@@ -908,21 +908,21 @@ This is the initial release of Azure Device Update for IoT Hub library.
     - `authenticationRecord` enables initializing a credential with an `AuthenticationRecord` returned from a prior call to `Authenticate`
     - `disableAutomaticAuthentication` disables automatic user interaction causing the credential to throw an `AuthenticationRequiredException` when interactive authentication is necessary.
 
-### Azure Resourcemanager IoT Hub 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/iothub/azure-resourcemanager-iothub/CHANGELOG.md#100-beta1-2021-03-02)
+### Azure Resourcemanager IoT Hub 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/iothub/azure-resourcemanager-iothub/CHANGELOG.md#100-beta1-2021-03-02)
 
 - Azure Resource Manager IoT Hub client library for Java. This package contains Microsoft Azure SDK for IoT Hub Management SDK. Use this API to manage the IoT hubs in your Azure subscription. Package tag package-2020-03. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
-### Azure Security Keyvault Administration 4.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-administration/CHANGELOG.md#400-beta5-2021-03-12)
+### Azure Security Keyvault Administration 4.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/keyvault/azure-security-keyvault-administration/CHANGELOG.md#400-beta5-2021-03-12)
 
 #### Changed
 - Changed logging level in `onRequest` and `onSuccess` calls for service operations from `INFO` to `VERBOSE`.
 
-### Azure Security Keyvault Certificates 4.2.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md#420-beta4-2021-03-12)
+### Azure Security Keyvault Certificates 4.2.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md#420-beta4-2021-03-12)
 
 #### Changed
 - Changed logging level in `onRequest` and `onSuccess` calls for service operations from `INFO` to `VERBOSE`.
 
-### Azure Security Keyvault Keys 4.3.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md#430-beta5-2021-03-12)
+### Azure Security Keyvault Keys 4.3.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md#430-beta5-2021-03-12)
 
 #### Breaking Changes
 - Removed local support for encryption and decryption using AESGCM, as per guidance of Microsoft's cryptography board. Remote encryption and decryption using said algorithm is still supported.
@@ -935,18 +935,18 @@ This is the initial release of Azure Device Update for IoT Hub library.
 - Fixed issue where `JsonWebKey` byte array contents would get serialized/deserialized using Base64 instead of URL-safe Base64.
 - Fixed issue where properties of responses received when using a `CryptographyClient` for encryption/decryption were not populated on the `EncryptResult` and `DecryptResult` classes.
 
-### Azure Security Keyvault Secrets 4.3.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md#430-beta4-2021-03-12)
+### Azure Security Keyvault Secrets 4.3.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md#430-beta4-2021-03-12)
 
 #### Changed
 - Changed logging level in `onRequest` and `onSuccess` calls for service operations from `INFO` to `VERBOSE`.
 
-### Azure Monitor Opentelemetry Exporter 1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md#100-beta4-2021-03-10)
+### Azure Monitor Opentelemetry Exporter 1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md#100-beta4-2021-03-10)
 
 #### New Features
 - `AzureMonitorExporterBuilder` now supports reading connection string from `APPLICATIONINSIGHTS_CONNECTION_STRING
 ` environment variable.
 
-### Azure Resourcemanager Netapp 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/netapp/azure-resourcemanager-netapp/CHANGELOG.md#100-beta2-2021-03-15)
+### Azure Resourcemanager Netapp 1.0.0-beta.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/netapp/azure-resourcemanager-netapp/CHANGELOG.md#100-beta2-2021-03-15)
 
 - Azure Resource Manager NetAppFiles client library for Java. This package contains Microsoft Azure SDK for NetAppFiles Management SDK. Microsoft NetApp Files Azure Resource Provider specification. Package tag package-netapp-2020-12-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
@@ -956,7 +956,7 @@ This is the initial release of Azure Device Update for IoT Hub library.
 #### New Feature
 * `models.BackupStatus` and `models.VolumeBackupStatus` were added.
 
-### Azure Ai Textanalytics 5.1.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#510-beta5-2021-03-10)
+### Azure Ai Textanalytics 5.1.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#510-beta5-2021-03-10)
 - We are now targeting the service's v3.1-preview.4 API as the default instead of v3.1-preview.3.
 
 #### New features
@@ -988,18 +988,18 @@ This is the initial release of Azure Device Update for IoT Hub library.
 - `beginAnalyzeHealthcareEntities` is currently in gated preview and can not be used with AAD credentials.
   For more information, see [the Text Analytics for Health documentation](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health?tabs=ner#request-access-to-the-public-preview).
 
-### Azure Spring Boot [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot/CHANGELOG.md#330-2021-03-22)
+### Azure Spring Boot [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot/CHANGELOG.md#330-2021-03-22)
 
 #### New features
 - Upgraded to Spring Boot [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
 - Upgraded to Spring Security [5.4.5](https://github.com/spring-projects/spring-security/releases/tag/5.4.5).
-- Upgraded to `azure-spring-data-cosmos` [3.5.0](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md#350-2021-03-11).
+- Upgraded to `azure-spring-data-cosmos` [3.5.0](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md#350-2021-03-11).
 - Supported creating `GrantedAuthority` by "roles" claim of id-token for web application in `azure-spring-boot-starter-active-directory`.
 
 #### Bug fixes
 - Fix bug of using closed `MessageProducer` and `MessageConsumer` when a link is force detached in `azure-spring-boot-starter-servicebus-jms`.
 
-### Azure Spring Cloud [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-cloud-autoconfigure/CHANGELOG.md#230-2021-03-22)
+### Azure Spring Cloud [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-autoconfigure/CHANGELOG.md#230-2021-03-22)
 
 #### New features
 - Upgraded to Spring Boot [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).

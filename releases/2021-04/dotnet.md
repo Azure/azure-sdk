@@ -319,7 +319,7 @@ Supports v3.2 Cognitive Services Computer Vision API endpoints.
 * Updated the Tags visual feature for Analyze Image operation and the Tag Image operation
 * Updated the error response format
 
-### Azure Communication Chat 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Chat/CHANGELOG.md#100-2021-03-29)
+### Azure Communication Chat 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.Communication.Chat/CHANGELOG.md#100-2021-03-29)
 **Includes all changes from 1.0.0-beta.1 to  1.0.0.beta.5**
 
 #### Breaking Changes
@@ -337,13 +337,13 @@ Supports v3.2 Cognitive Services Computer Vision API endpoints.
 - Made list of participants optional for `CreateChatThread`.
 - Made `ChatThreadClient` constructor public.
 
-### Azure Communication Common 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Common/CHANGELOG.md#100-2021-03-29)
+### Azure Communication Common 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.Communication.Common/CHANGELOG.md#100-2021-03-29)
 **Includes all changes from 1.0.0-beta.1 to  1.0.0.beta.5**
 
-### Azure Communication Identity 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Identity/CHANGELOG.md#100-2021-03-29)
+### Azure Communication Identity 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.Communication.Identity/CHANGELOG.md#100-2021-03-29)
 **Includes all changes from 1.0.0-beta.1 to  1.0.0.beta.5**
 
-### Azure Communication Phone Numbers 1.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.PhoneNumbers/CHANGELOG.md#100-beta6-2021-03-29)
+### Azure Communication Phone Numbers 1.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.Communication.PhoneNumbers/CHANGELOG.md#100-beta6-2021-03-29)
 
 ### Added
 - Added protected constructor to `PurchasePhoneNumbersOperation` and `ReleasePhoneNumberOperation` for mocking.
@@ -362,11 +362,11 @@ Supports v3.2 Cognitive Services Computer Vision API endpoints.
 - Renamed `ISOCurrencySymbol` property to `IsoCurrencySymbol` in `PhoneNumberCost`.
 - Renamed `threeLetterISOCountryName` parameter to `twoLetterIsoCountryName`` in `PhoneNumbersClient.StartSearchAvailablePhoneNumbers` and `PhoneNumbersClient.StartSearchAvailablePhoneNumbersAsync`.
 
-### Azure Communication SMS 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Sms/CHANGELOG.md#100-2021-03-29)
+### Azure Communication SMS 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.Communication.Sms/CHANGELOG.md#100-2021-03-29)
 **Includes all changes from 1.0.0-beta.1 to  1.0.0.beta4**
 
-### Resource Management - Communication 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.ResourceManager.Communication/CHANGELOG.md#100-2021-03-29)
-This is the first stable release of the management library for `Azure Communication Services`. 
+### Resource Management - Communication 1.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.ResourceManager.Communication/CHANGELOG.md#100-2021-03-29)
+This is the first stable release of the management library for `Azure Communication Services`.
 
 Minor changes since the public preview release:
 - `CheckNameAvailability` has been added

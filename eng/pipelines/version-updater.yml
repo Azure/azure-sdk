@@ -7,7 +7,12 @@ resources:
       type: github
       name: Azure/azure-sdk-tools
       endpoint: azure
-      ref: refs/tags/azure-sdk-tools_20210422.2
+      ref: refs/tags/azure-sdk-tools_20210604.1
+
+variables:
+  AzureSDKClonePath: $(System.DefaultWorkingDirectory)/azure-sdk
+  AzureSDKReleaseNotesClonePath: $(System.DefaultWorkingDirectory)/azure-sdk-notes
+  AzureSDKToolsScriptsPath: $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts
 
 steps:
 - checkout: self
@@ -17,13 +22,13 @@ steps:
   displayName: Update packages from package manager
   inputs:
     pwsh: true
-    filePath: ./azure-sdk/eng/scripts/Query-Azure-Packages.ps1
+    filePath: $(AzureSDKClonePath)/eng/scripts/Query-Azure-Packages.ps1
 
 - task: PowerShell@2
   displayName: Update packages from sdk release data
   inputs:
     pwsh: true
-    filePath: ./azure-sdk/eng/scripts/Update-Release-Versions.ps1
+    filePath: $(AzureSDKClonePath)/eng/scripts/Update-Release-Versions.ps1
     arguments: >
       -github_pat '$(azuresdk-github-pat)'
 
@@ -31,16 +36,22 @@ steps:
   displayName: Update release DevOps work-items
   inputs:
     pwsh: true
-    filePath: ./azure-sdk/eng/scripts/Update-DevOps-WorkItems.ps1
+    filePath: $(AzureSDKClonePath)/eng/scripts/Update-DevOps-WorkItems.ps1
     arguments: >
       -github_pat '$(azuresdk-github-pat)'
       -devops_pat '$(azuresdk-azure-sdk-devops-release-work-item-pat)'
 
 - pwsh: |
+    # Some steps, like release notes, require this remote all the time so lets always setup even if there are no changes
+    git remote add azure-sdk-fork "https://$(azuresdk-github-pat)@github.com/azure-sdk/azure-sdk.git"
+  displayName: Setup azure-sdk-fork remote
+  workingDirectory: $(AzureSDKClonePath)
+
+- pwsh: |
     $defaultBranch = (git remote show origin | Out-String) -replace "(?ms).*HEAD branch: (\w+).*", '$1'
     echo "##vso[task.setvariable variable=DefaultBranch]$defaultBranch"
   displayName: Setup default branch
-  workingDirectory: $(System.DefaultWorkingDirectory)/azure-sdk
+  workingDirectory: $(AzureSDKClonePath)
 
 - template: eng/common/pipelines/templates/steps/create-pull-request.yml@azure-sdk-tools
   parameters:
@@ -50,9 +61,11 @@ steps:
     CommitMsg: "Update package index with latest published versions"
     PRTitle: "Update package index with latest published versions"
     PushArgs: -f
-    WorkingDirectory: $(System.DefaultWorkingDirectory)/azure-sdk
-    ScriptDirectory: $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts
+    WorkingDirectory: $(AzureSDKClonePath)
+    ScriptDirectory: $(AzureSDKToolsScriptsPath)
     PRLabels: 'auto-merge'
+
+- template: template/steps/generate-releasenotes.yml
 
 - pwsh: |
     git clone https://$(azuresdk-github-pat)@github.com/MicrosoftDocs/azure-dev-docs-pr $(System.DefaultWorkingDirectory)/azure-dev-docs-pr
@@ -62,7 +75,7 @@ steps:
   displayName: Generate all package index markdown files
   inputs:
     pwsh: true
-    filePath: ./azure-sdk/eng/scripts/Generate-Package-Index.ps1
+    filePath: $(AzureSDKClonePath)/eng/scripts/Generate-Package-Index.ps1
     arguments: >
       -outputFolder $(System.DefaultWorkingDirectory)/azure-dev-docs-pr/articles/includes/
 
@@ -82,7 +95,7 @@ steps:
     PRTitle: "Update package index with latest published versions"
     PushArgs: -f
     WorkingDirectory: $(System.DefaultWorkingDirectory)/azure-dev-docs-pr
-    ScriptDirectory: $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts
+    ScriptDirectory: $(AzureSDKToolsScriptsPath)
 
 - pwsh: |
     git clone https://github.com/dotnet/docs $(System.DefaultWorkingDirectory)/dotnet-docs
@@ -92,7 +105,7 @@ steps:
   displayName: Generate dotnet package index markdown files
   inputs:
     pwsh: true
-    filePath: ./azure-sdk/eng/scripts/Generate-Package-Index.ps1
+    filePath: $(AzureSDKClonePath)/eng/scripts/Generate-Package-Index.ps1
     arguments: >
       -language dotnet
       -outputFolder $(System.DefaultWorkingDirectory)/dotnet-docs/docs/azure/includes/
@@ -113,4 +126,4 @@ steps:
     PRTitle: "Update package index with latest published versions"
     PushArgs: -f
     WorkingDirectory: $(System.DefaultWorkingDirectory)/dotnet-docs
-    ScriptDirectory: $(System.DefaultWorkingDirectory)/azure-sdk-tools/eng/common/scripts
+    ScriptDirectory: $(AzureSDKToolsScriptsPath)

@@ -28,7 +28,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-### azure-sdk-for-c [Changelog](https://github.com/Azure/azure-sdk-for-c/blob/master/CHANGELOG.md#110-beta2-2020-11-11)
+### azure-sdk-for-c [Changelog](https://github.com/Azure/azure-sdk-for-c/blob/main/CHANGELOG.md#110-beta2-2020-11-11)
 
 #### New Features
 

@@ -206,7 +206,7 @@ For methods that combine multiple requests into a single call:
 
 {% include requirement/MUSTNOT id="general-return-no-headers-if-confusing" %} return headers and other per-request metadata unless it's obvious as to which specific HTTP request the methods return value corresponds to.
 
-TODO: It's unclear regarding the above that this is referring to the model type.  (Is it?)  An example of how we've solved this problem in existing Track 2 JS/TS APIs would be helpful here to make this guideline more actionable.  
+TODO: It's unclear regarding the above that this is referring to the model type.  (Is it?)  An example of how we've solved this problem in existing Track 2 JS/TS APIs would be helpful here to make this guideline more actionable.
 
 {% include requirement/MUST id="general-expose-data-for-composite-failures" %} provide enough information in failure cases for an application to take appropriate corrective action.
 
@@ -653,7 +653,7 @@ The following table enumerates the various models you might create:
 * `core-auth` for common auth interfaces
 * `core-lro` for long running operations
 
-See the [Azure Core readme](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/core) for more details.
+See the [Azure Core readme](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/core) for more details.
 
 TODO: Please add a section on extensible enums, if this is relevant to JS/TS.
 

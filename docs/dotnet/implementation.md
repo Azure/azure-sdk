@@ -8,11 +8,11 @@ sidebar: general_sidebar
 
 ## API Implementation
 
-This section describes guidelines for implementing Azure SDK client libraries. Please note that some of these guidelines are automatically enforced by code generation tools. 
+This section describes guidelines for implementing Azure SDK client libraries. Please note that some of these guidelines are automatically enforced by code generation tools.
 
 ### The Service Client
 
-TODO: add a brief mention of the approach to implementing service clients. 
+TODO: add a brief mention of the approach to implementing service clients.
 
 #### Service Methods
 
@@ -64,7 +64,7 @@ public virtual async Task<Response<ConfigurationSetting>> AddAsync(Configuration
 
 TODO: do we still want this code sample now that we're encouraging moving to Code Gen?
 
-For a more complete example, see the [configuration client](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/appconfiguration/Azure.Data.AppConfiguration/src/ConfigurationClient.cs) implementation.
+For a more complete example, see the [configuration client](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/appconfiguration/Azure.Data.AppConfiguration/src/ConfigurationClient.cs) implementation.
 
 ##### Using HttpPipelinePolicy
 
@@ -72,11 +72,11 @@ The HTTP pipeline includes a number of policies that all requests pass through. 
 
 {% include requirement/MUST id="dotnet-http-pipeline-policy-inherit" %} inherit from `HttpPipelinePolicy` if the policy implementation calls asynchronous APIs.
 
-See an example [here](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/src/Pipeline/BearerTokenAuthenticationPolicy.cs).
+See an example [here](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/src/Pipeline/BearerTokenAuthenticationPolicy.cs).
 
 {% include requirement/MUST id="dotnet-sync-http-pipeline-policy-inherit" %} inherit from `HttpPipelineSynchronousPolicy` if the policy implementation calls only synchronous APIs.
 
-See an example [here](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/src/Pipeline/Internal/ClientRequestIdPolicy.cs).
+See an example [here](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/src/Pipeline/Internal/ClientRequestIdPolicy.cs).
 
 {% include requirement/MUST id="dotnet-http-pipeline-thread-safety" %} ensure `ProcessAsync` and `Process` methods are thread safe.
 
@@ -482,15 +482,15 @@ Sample `EventSource` declaration:
 internal sealed class AzureCoreEventSource : EventSource
 {
     private const string EventSourceName = "Azure-Core";
-    
+
     // Having event ids defined as const makes it easy to keep track of them
     private const int MessageSentEventId = 0;
     private const int ClientClosingEventId = 1;
-    
+
     public static AzureCoreEventSource Shared { get; } = new AzureCoreEventSource();
-    
+
     private AzureCoreEventSource() : base(EventSourceName, EventSourceSettings.Default, AzureEventSourceListener.TraitName, AzureEventSourceListener.TraitValue) { }
-    
+
     [NonEvent]
     public void MessageSent(Guid clientId, string messageBody)
     {
@@ -500,20 +500,20 @@ internal sealed class AzureCoreEventSource : EventSource
             MessageSent(clientId.ToString("N"), messageBody);
         }
     }
-    
+
     // In this example we don't do any expensive parameter formatting so we can avoid extra method and IsEnabled check
-    
+
     [Event(ClientClosingEventId, Level = EventLevel.Informational, Message = "Client {0} is closing the connection.")]
     public void ClientClosing(string clientId)
     {
         WriteEvent(ClientClosingEventId, clientId);
     }
-    
+
     [Event(MessageSentEventId, Level = EventLevel.Informational, Message = "Client {0} sent message with body '{1}'")]
     private void MessageSent(string clientId, string messageBody)
     {
         WriteEvent(MessageSentEventId, clientId, messageBody);
-    }    
+    }
 }
 ```
 
@@ -531,7 +531,7 @@ TODO: Add guidance regarding user agent strings
 
 ### Integration with ASP.NET Core
 
-All Azure client libraries ship with a set of extension methods that provide integration with ASP.NET Core applications by registering clients with DependencyInjection container, flowing Azure SDK logs to ASP.NET Core logging subsystem and providing ability to use configuration subsystem for client configuration (for more examples see https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/core/Microsoft.Extensions.Azure)
+All Azure client libraries ship with a set of extension methods that provide integration with ASP.NET Core applications by registering clients with DependencyInjection container, flowing Azure SDK logs to ASP.NET Core logging subsystem and providing ability to use configuration subsystem for client configuration (for more examples see https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/core/Microsoft.Extensions.Azure)
 
 {% include requirement/MUST id="dotnet-builder-class-name" %} provide a single `*ClientBuilderExtensions` class for every Azure SDK client library that contains client types. Name of the type should use the same prefix as the `*ClientOptions` class used across the library. For example: `SecretClientBuilderExtensions`, `BlobClientBuilderExtensions`
 
@@ -555,7 +555,7 @@ public static IAzureClientBuilder<ConfigurationClient, ConfigurationClientOption
 }
 ```
 
-{% include requirement/MUST id="dotnet-client-builder-overload-tokencredential" %} provide extension method for `IAzureClientFactoryBuilderWithCredential` interface for constructors that take `TokenCredentials`. Extension method should take same set of parameters as constructor except the `TokenCredential` and call into `builder.RegisterClientFactory` overload that provides the token credential as part of factory lambda. 
+{% include requirement/MUST id="dotnet-client-builder-overload-tokencredential" %} provide extension method for `IAzureClientFactoryBuilderWithCredential` interface for constructors that take `TokenCredentials`. Extension method should take same set of parameters as constructor except the `TokenCredential` and call into `builder.RegisterClientFactory` overload that provides the token credential as part of factory lambda.
 
 Sample implementation:
 

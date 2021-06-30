@@ -153,40 +153,40 @@ If you have a bug or feature request for one of the libraries, please [file an i
 - Replaced `ReleasePhoneNumbersAsync` with `StartReleasePhoneNumbersAsync` which returns a poller for the long-running operation.
 - Replaced `ReleasePhoneNumbers` with `StartReleasePhoneNumbers` which is a long-running operation.
 
-### Communication Chat [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Chat/CHANGELOG.md#100-beta3-2020-11-16)
+### Communication Chat [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.Communication.Chat/CHANGELOG.md#100-beta3-2020-11-16)
 
 #### New Features
 
 - Support for mocking all client methods that use models with internal constructors.
 - Added unit test for pagination.
 
-### Communication Common [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Common/CHANGELOG.md#100-beta3-2020-11-16)
+### Communication Common [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.Communication.Common/CHANGELOG.md#100-beta3-2020-11-16)
 
 This release contains test improvements and documentation enhancements.
 
-### Communication SMS [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.Communication.Sms/CHANGELOG.md#100-beta3-2020-11-16)
+### Communication SMS [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.Communication.Sms/CHANGELOG.md#100-beta3-2020-11-16)
 
 #### New Features
 
 Support for mocking all client methods that use models with internal constructors.
 
-### Core AMQP (1.0.0) [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core.Amqp/CHANGELOG.md#100-2020-11-23)
+### Core AMQP (1.0.0) [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core.Amqp/CHANGELOG.md#100-2020-11-23)
 
 - General availability release of Azure.Core.Amqp.
 
-### Core AMQP (1.0.0-beta.1) [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core.Amqp/CHANGELOG.md#100-beta1-2020-11-04)
+### Core AMQP (1.0.0-beta.1) [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core.Amqp/CHANGELOG.md#100-beta1-2020-11-04)
 
 #### New Features
 
 - Added AMQP models.
 
-### Core NewtonsoftJson [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Microsoft.Azure.Core.NewtonsoftJson/CHANGELOG.md#100-preview2-2020-11-10)
+### Core NewtonsoftJson [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Microsoft.Azure.Core.NewtonsoftJson/CHANGELOG.md#100-preview2-2020-11-10)
 
 #### New Features
 
 - `Newtonsoft.Json.JsonConverter` implementation for the `ETag`.
 
-### Digital Twins Core [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/digitaltwins/Azure.DigitalTwins.Core/CHANGELOG.md#101-2020-11-04)
+### Digital Twins Core [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/digitaltwins/Azure.DigitalTwins.Core/CHANGELOG.md#101-2020-11-04)
 
 #### New Features
 
@@ -196,13 +196,13 @@ Support for mocking all client methods that use models with internal constructor
 
 - Removed logic to determine authorization scope based on digital twins instance URI.
 
-### Event Grid [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md#400-beta4-2020-11-10)
+### Event Grid [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md#400-beta4-2020-11-10)
 
 #### Key Bug Fixes
 
 - Fixed bug where missing required properties on CloudEvent would cause deserialization to fail.
 
-### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md#530-beta4-2020-11-10)
+### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md#530-beta4-2020-11-10)
 
 This release contains a collection of minor bug fixes, performance improvements, and documentation enhancements.
 
@@ -210,11 +210,11 @@ This release contains a collection of minor bug fixes, performance improvements,
 
 - Connection strings can now be parsed into their key/value pairs using the `EventHubsConnectionStringProperties` class.
 
-### Event Hubs Processor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md#530-beta4-2020-11-10)
+### Event Hubs Processor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md#530-beta4-2020-11-10)
 
 This release contains a collection of minor bug fixes, performance improvements, and documentation enhancements.
 
-### Extensions Azure [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/extensions/Microsoft.Extensions.Azure/CHANGELOG.md#110-beta1-2020-11-10)
+### Extensions Azure [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/extensions/Microsoft.Extensions.Azure/CHANGELOG.md#110-beta1-2020-11-10)
 
 #### New Features
 
@@ -222,13 +222,13 @@ This release contains a collection of minor bug fixes, performance improvements,
 - The `AzureEventSourceLogForwarder` class that allows manual control over the log forwarding.
 - The `AddAzureClientsCore` extension method.
 
-### Extensions Configuration Secrets [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/extensions/Azure.Extensions.AspNetCore.Configuration.Secrets/CHANGELOG.md#102-2020-11-10)
+### Extensions Configuration Secrets [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/extensions/Azure.Extensions.AspNetCore.Configuration.Secrets/CHANGELOG.md#102-2020-11-10)
 
 #### New Features
 
 - Added an overload of `AddAzureKeyVault` that takes an `AzureKeyVaultConfigurationOptions` parameter and allows specifying the reload interval.
 
-### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#310-beta1-2020-11-23)
+### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#310-beta1-2020-11-23)
 
 This release of the SDK defaults to the latest supported API version, which currently is v2.1-preview.2
 
@@ -241,12 +241,12 @@ training/recognizing custom forms (labeled only).
 - Support for creating composed models from a collection of existing models (trained with labels).
 - A `ModelName` property added for model training that can specify a human-readable name for a model.
 - Support for the bitmap image format (with content type "image/bmp") in prebuilt model recognition and content recognition.
-- A `locale` keyword argument added for all prebuilt model methods, allowing for the specification of a document's origin to assist the 
+- A `locale` keyword argument added for all prebuilt model methods, allowing for the specification of a document's origin to assist the
 service with correct analysis of the document's content.
 - A `language` keyword argument added for the content recognition method `StartRecognizeContent()` that specifies which language to process the document in.
 - Additional properties added to response models - see Changelog for detailed information.
 
-### Identity [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/identity/Azure.Identity/CHANGELOG.md#130-2020-11-12)
+### Identity [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/CHANGELOG.md#130-2020-11-12)
 
 #### New Features
 
@@ -264,7 +264,7 @@ service with correct analysis of the document's content.
 - Fix issue with `AzureCliCredential` incorrectly parsing expires on property returned from `az account get-access-token` ([#15801](https://github.com/Azure/azure-sdk-for-net/issues/15801)).
 - Fix cache loading issue in `SharedTokenCacheCredential` on Linux ([#12939](https://github.com/Azure/azure-sdk-for-net/issues/12939)).
 
-### Key Vault Administration [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/keyvault/Azure.Security.KeyVault.Administration/CHANGELOG.md#400-beta3-2020-11-12)
+### Key Vault Administration [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/keyvault/Azure.Security.KeyVault.Administration/CHANGELOG.md#400-beta3-2020-11-12)
 
 #### Breaking Changes
 
@@ -272,13 +272,13 @@ service with correct analysis of the document's content.
 - Changed `NotActions` and `NotDataActions` to `DenyActions` and `DenyDataActions` respectively.
 - Consolidated `KeyVaultAccessControlClientOptions` and `KeyVaultBackupClientOptions` into `KeyVaultAdministrationClientOptions`.
 
-### Key Vault Certificates [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/keyvault/Azure.Security.KeyVault.Certificates/CHANGELOG.md#420-beta3-2020-11-12)
+### Key Vault Certificates [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/keyvault/Azure.Security.KeyVault.Certificates/CHANGELOG.md#420-beta3-2020-11-12)
 
 #### New Features
 
 - Documentation improvements.
 
-### Key Vault Keys [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/keyvault/Azure.Security.KeyVault.Keys/CHANGELOG.md#420-beta3-2020-11-12)
+### Key Vault Keys [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/keyvault/Azure.Security.KeyVault.Keys/CHANGELOG.md#420-beta3-2020-11-12)
 
 #### New Features
 
@@ -286,7 +286,7 @@ service with correct analysis of the document's content.
 - Added support for AES-CBC and AES-GCM - locally when possible on the client.
 - Added support for key export on Managed HSM, including early preview support for Secure Key Release.
 
-### Azure Storage Blobs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md)
+### Azure Storage Blobs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md)
 
 #### New Features
 - GA all features in previous release.
@@ -302,7 +302,7 @@ service with correct analysis of the document's content.
 - Fixed bug where Blobs SDK couldn't handle SASs with start and expiry time in format other than yyyy-MM-ddTHH:mm:ssZ.
 - Fixed bug where `BlobContainerClient.SetAccessPolicy()` would throw an exception if signed identifier permissions were not in the correct order.
 
-### Azure Storage Files DataLake [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md)
+### Azure Storage Files DataLake [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md)
 
 #### New Features
 - GA all features in previous release.
@@ -317,7 +317,7 @@ service with correct analysis of the document's content.
 - Fixed bug where `DataLakeFileSystem.SetAccessPolicy()` would throw an exception if signed identifier permissions were not in the correct order.
 - Fixed bug where DataLake SDK couldn't handle SASs with start and expiry time in format other than yyyy-MM-ddTHH:mm:ssZ.
 
-### Azure Storage Files Shares [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md)
+### Azure Storage Files Shares [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md)
 
 #### New Features
 - GA all features from previous release.
@@ -334,7 +334,7 @@ service with correct analysis of the document's content.
 - Fixed bug where `ShareDirectoryClient.Exists()`, `.DeleteIfExists()` and `ShareFileClient.Exists()`, `.DeleteIfExists()` would thrown an exception when the directory or file's parent directory didn't exist.
 - Fixed bug where File Share SDK coudn't handle SASs with start and expiry time in format other than yyyy-MM-ddTHH:mm:ssZ.
 
-### Azure Storage Queues [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Queues/CHANGELOG.md)
+### Azure Storage Queues [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Queues/CHANGELOG.md)
 
 #### New Features
 - GA all features from previous release.
@@ -345,11 +345,11 @@ service with correct analysis of the document's content.
 - Fixed a bug where `QueueServiceClient.SetProperties` and `QueueService.GetProperties` where the creating/parsing XML Service Queue Properties CorsRules incorrectly causing Invalid XML Errors
 - Fixed bug where Queues SDK coudn't handle SASs with start and expiry time in format other than yyyy-MM-ddTHH:mm:ssZ.
 
-### Key Vault Secrets [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/keyvault/Azure.Security.KeyVault.Secrets/CHANGELOG.md#420-beta3-2020-11-12)
+### Key Vault Secrets [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/keyvault/Azure.Security.KeyVault.Secrets/CHANGELOG.md#420-beta3-2020-11-12)
 
 - This release contains bug fixes to improve quality.
 
-### Metrics Advisor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/CHANGELOG.md#100-beta2-2020-11-10)
+### Metrics Advisor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/CHANGELOG.md#100-beta2-2020-11-10)
 
 #### New Features
 
@@ -370,7 +370,7 @@ service with correct analysis of the document's content.
 - Fixed a bug in sync and async `UpdateDataFeed` methods where a `RequestFailedException` was thrown if a data feed without custom `DataFeedMissingDataPointFillType` was updated.
 - Fixed a bug in sync and async `UpdateAlertConfiguration` methods where a `RequestFailedException` was thrown if a configuration with only one `MetricAnomalyAlertConfiguration` was updated.
 
-### Search Documents [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md#1120-beta2-2020-11-10)
+### Search Documents [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/search/Azure.Search.Documents/CHANGELOG.md#1120-beta2-2020-11-10)
 
 #### New Features
 
@@ -383,7 +383,7 @@ service with correct analysis of the document's content.
 - Fixed issue where `ScoringProfile.FunctionAggregation` did not correctly handle null values ([#16570](https://github.com/Azure/azure-sdk-for-net/issues/16570)).
 - Fixed overly permissive date parsing on facets ([#16412](https://github.com/Azure/azure-sdk-for-net/issues/16412)).
 
-### Service Bus (7.0.0) [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md#700-2020-11-23)
+### Service Bus (7.0.0) [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md#700-2020-11-23)
 
 #### Breaking Changes
 
@@ -392,7 +392,7 @@ service with correct analysis of the document's content.
 - Rename `ReceiveMode` type to `ServiceBusReceiveMode`.
 - Remove `ServiceBusFailureReason` of `Unauthorized` in favor of using `UnauthorizedAccessException`.
 
-### Service Bus (7.0.0-preview.9) [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md#700-preview9-2020-11-04)
+### Service Bus (7.0.0-preview.9) [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md#700-preview9-2020-11-04)
 
 #### Breaking Changes
 
@@ -401,21 +401,21 @@ service with correct analysis of the document's content.
 - Removed `ServiceBusSenderOptions`.
 - Removed `TransactionEntityPath` from `ServiceBusSender`.
 
-### Management Library - Communication [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/communication/Azure.ResourceManager.Communication/CHANGELOG.md#100-beta3-2020-11-16)
+### Management Library - Communication [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/communication/Azure.ResourceManager.Communication/CHANGELOG.md#100-beta3-2020-11-16)
 
 This release contains test improvements.
 
-### System Memory Data (1.0.1) [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/System.Memory.Data/CHANGELOG.md#101-2020-11-16)
+### System Memory Data (1.0.1) [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/System.Memory.Data/CHANGELOG.md#101-2020-11-16)
 
 #### Key Bug Fixes
 
 - Fix issue where if the type was not passed into the constructor, an exception would be thrown instead of defaulting to calling `GetType()`.
 
-### System Memory Data (1.0.0) [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/System.Memory.Data/CHANGELOG.md#100-2020-11-03)
+### System Memory Data (1.0.0) [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/System.Memory.Data/CHANGELOG.md#100-2020-11-03)
 
 - The general availability release of System.Memory.Data package.
 
-### Tables [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/tables/Azure.Data.Tables/CHANGELOG.md#300-beta3-2020-11-12)
+### Tables [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/tables/Azure.Data.Tables/CHANGELOG.md#300-beta3-2020-11-12)
 
 #### New Features
 
@@ -423,7 +423,7 @@ This release contains test improvements.
 - Added support for some numeric type coercion for TableEntity properties.
 - Added TryGetFailedEntityFromException method on TablesTransactionalBatch to extract the entity that caused a batch failure from a RequestFailedException.
 
-### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#510-beta3-2020-11-19)
+### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#510-beta3-2020-11-19)
 
 #### New Features
 - Added support for new asynchronous Text Analytics for Health API. Note this is a currently in a gated preview where AAD is not supported. More information [here](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health?tabs=ner#request-access-to-the-public-preview).

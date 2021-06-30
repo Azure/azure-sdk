@@ -94,7 +94,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
-### Azure Storage Blobs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md)
+### Azure Storage Blobs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md)
 
 #### New Features
 - Added support for Container Soft Delete.
@@ -106,7 +106,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Fixed bug in where Stream returned from `AppendBlobClient.OpenWrite()`, `BlockBlobClient.OpenWrite()`, and `PageBlobClient.OpenWrite()` did not flush while disposing preventing compatibility with using keyword.
 - Fixed bug where Listing Blobs with `BlobTraits.Metadata` would return `BlobItems` with null metadata instead of an empty dictionary if no metadata was present.
 
-### Azure Storage Files DataLake [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md)
+### Azure Storage Files DataLake [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md)
 
 #### New Features
 - Added support for Directory SAS.
@@ -121,7 +121,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Fixed bug where Stream returned from `DataLakeFileClient.OpenWrite()` did not flush while disposing preventing compatibility with using keyword.
 - Fixed bug where `DataLakeDirectoryClient.Rename()` and `DataLakeDirectoryFileClient.Rename()` couldn't handle source paths with special characters.
 
-### Azure Storage Files Shares [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md)
+### Azure Storage Files Shares [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md)
 
 #### New Features
 - Added support for 4 TB Files
@@ -134,12 +134,12 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Fixed bug causing `ShareAccessPolicy.StartsOn` and `.ExpiresOn` to crash the process.
 - Fixed bug where Stream returned from `ShareFileClient.OpenWrite()` did not flush while disposing preventing compatibility with using keyword.
 
-### Core Experimental [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core.Experimental/CHANGELOG.md#010-preview6-2020-10-06)
+### Core Experimental [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core.Experimental/CHANGELOG.md#010-preview6-2020-10-06)
 
 #### Breaking Changes
 - `BinaryData`: Change return type of `FromObjectAsync` from `Task<T>` to `ValueTask<T>`.
 
-### Event Grid [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md#400-beta3-2020-10-06)
+### Event Grid [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md#400-beta3-2020-10-06)
 
 #### New Features
 - Added TraceParent/TraceState into CloudEvent extension attributes.
@@ -152,13 +152,13 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### Key Bug Fixes
 - Fixed a bug where we were not parsing the Topic when parsing into EventGridEvents.
 
-### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md)
+### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md)
 
 #### New Features
 - `EventData` has been integrated with the new Schema Registry service, via use of the `SchemaRegistryAvroObjectSerializer` with the `BodyAsBinaryData` member.
 - The `EventHubProducerClient` now offers the ability to opt-into idempotent publishing, reducing the potential for duplication when a publishing operation encounters timeouts or other transient failures.
 
-### Event Hubs Processor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md)
+### Event Hubs Processor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md)
 
 #### New Features
 - `EventData` has been integrated with the new Schema Registry service, via use of the `SchemaRegistryAvroObjectSerializer` with the `BodyAsBinaryData` member.
@@ -166,7 +166,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 ### Key Vault
 - Bug fixes and performance improvements.
 
-### Identity [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/identity/Azure.Identity/CHANGELOG.md#130-beta2-2020-10-07)
+### Identity [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/CHANGELOG.md#130-beta2-2020-10-07)
 
 #### New Features
 - Update `DeviceCodeCredential` to output device code information and authentication instructions in the console, in the case no `deviceCodeCallback` is specified.
@@ -176,7 +176,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### Breaking Changes
 - Replaced `DeviceCodeCredential` constructor overload taking `deviceCodeCallback` and `DeviceCodeCredentialOptions` with constructor taking only `DeviceCodeCredentialOptions`.
 
-### Metrics Advisor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/CHANGELOG.md#100-beta1-2020-10-08)
+### Metrics Advisor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/CHANGELOG.md#100-beta1-2020-10-08)
 
 - This is the first beta of the `Azure.AI.MetricsAdvisor` client library.
 
@@ -184,7 +184,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - Initial release of Azure Monitor Exporter for [OpenTelemetry .NET](https://github.com/open-telemetry/opentelemetry-dotnet)
 
-### Search Documents [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md#1120-beta1-2020-10-09)
+### Search Documents [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/search/Azure.Search.Documents/CHANGELOG.md#1120-beta1-2020-10-09)
 
 #### New Features
 - Add `SearchIndexingBufferedSender<T>` to make indexing lots of documents fast and easy.
@@ -196,7 +196,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Support deserializing null values during deserialization of skills ([#15108](https://github.com/Azure/azure-sdk-for-net/issues/15108)).
 - Fixed issues preventing mocking clients or initializing all models.
 
-### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md#700-preview8-2020-10-06)
+### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md#700-preview8-2020-10-06)
 
 #### New Features
 - Added `AcceptSessionAsync` that accepts a specific session based on session ID.
@@ -212,27 +212,27 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Support packages for Microsoft.Spatial
 
-#### Microsoft.Azure.Core.Spatial [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Microsoft.Azure.Core.Spatial/CHANGELOG.md#100-beta1-2020-10-08)
+#### Microsoft.Azure.Core.Spatial [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Microsoft.Azure.Core.Spatial/CHANGELOG.md#100-beta1-2020-10-08)
 
 - Added `MicrosoftSpatialGeoJsonConverter` to serialize `Microsoft.Spatial.GeometryPoint` objects.
 
-#### Microsoft.Azure.Core.Spatial.NewtonsoftJson [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Microsoft.Azure.Core.Spatial.NewtonsoftJson/CHANGELOG.md#100-beta1-2020-10-08)
+#### Microsoft.Azure.Core.Spatial.NewtonsoftJson [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Microsoft.Azure.Core.Spatial.NewtonsoftJson/CHANGELOG.md#100-beta1-2020-10-08)
 
 - Added `NewtonsoftJsonMicrosoftSpatialGeoJsonConverter` to serialize `Microsoft.Spatial.GeographyPoint` objects.
 
-### Tables [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/tables/Azure.Data.Tables/CHANGELOG.md#300-beta2-2020-10-06)
+### Tables [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/tables/Azure.Data.Tables/CHANGELOG.md#300-beta2-2020-10-06)
 
 #### New Features
 - Implemented batch operations.
 - `TableClient`'s `GetEntity` method now exposes the `select` query option to allow for more efficient existence checks for a table entity.
 
-### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#510-beta2-2020-10-06)
+### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#510-beta2-2020-10-06)
 
 #### Breaking changes
 - Removed property `Length` from the library as it can be obtained by calling `Length` on the `Text` property of types `CategorizedEntity`, `SentenceSentiment`, `LinkedEntityMatch`, `AspectSentiment`, `OpinionSentiment`, and `PiiEntity`.
 
 ### New Management Libraries
-A new set of management libraries that follow the [Azure SDK Design Guidelines for .NET](https://azure.github.io/azure-sdk/dotnet_introduction.html) and based on [Azure.Core libraries](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/core/Azure.Core) are now in Public Preview. These new libraries provide a number of core capabilities that are shared amongst all Azure SDKs, including the intuitive Azure Identity library, an HTTP Pipeline with custom policies, error-handling, distributed tracing, and much more. You can find the list of new packages [on this page](https://aka.ms/azsdk/releases).
+A new set of management libraries that follow the [Azure SDK Design Guidelines for .NET](https://azure.github.io/azure-sdk/dotnet_introduction.html) and based on [Azure.Core libraries](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/core/Azure.Core) are now in Public Preview. These new libraries provide a number of core capabilities that are shared amongst all Azure SDKs, including the intuitive Azure Identity library, an HTTP Pipeline with custom policies, error-handling, distributed tracing, and much more. You can find the list of new packages [on this page](https://aka.ms/azsdk/releases).
 
 To get started with these new libraries, please see the [quickstart guide here](http://aka.ms/azsdk/net/mgmt). These new libraries can be identifed by namespaces that start with `Azure.ResourceManager`, e.g. `Azure.ResourceManager.Network`
 

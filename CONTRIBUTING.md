@@ -15,7 +15,7 @@ Here's the general contribution process:
 1. Fork this repo
 1. Create a new branch
 1. Commit your changes to that branch
-1. Do a PR from your fork/branch to azure-sdk/master.
+1. Do a PR from your fork/branch to azure-sdk/main.
 
 ## Codespaces
 
