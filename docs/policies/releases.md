@@ -130,7 +130,7 @@ In order for consistency across our SDKs and to enable automation to validate an
 ```
 In order to automatically pull the relevant content (see mentions of release notes above) from the change log entries to produce our release notes the formatting of the headers needs to exactly match the format above (i.e. `### Features Added`, `### Breaking Changes`, `### Key Bugs Fixed`). For more details on the general release notes see the [Release Notes Guidance](https://azure.github.io/azure-sdk/policies_releasenotes.html#whats-a-developer-impacting-change).
 
-For more information on general change log guidelines see https://keepachangelog.com/en/1.0.0/.
+For more information on general change log guidelines see [keep a changelog](https://keepachangelog.com/en/1.0.0/).
 
 Example change log:
 
