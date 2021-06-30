@@ -12,8 +12,8 @@ This section describes guidelines for implementing Azure SDK client libraries. P
 
 {% include requirement/MUSTNOT id="android-implementation" %} allow implementation code (that is, code that doesn't form part of the public API) to be mistaken as public API. There are two valid arrangements for implementation code, which in order of preference are the following:
 
-- Implementation classes can be made package-private and placed within the same package as the consuming class.
-- Implementation classes can be placed within a subpackage named `implementation`.
+1. Implementation classes can be made package-private and placed within the same package as the consuming class.
+2. Implementation classes can be placed within a subpackage named `implementation`.
 
 CheckStyle checks ensure that classes within an `implementation` package aren’t exposed through public API, but it is better that the API not be public in the first place, so preferring to have package-private is the better approach where practicable.
 
@@ -22,10 +22,6 @@ CheckStyle checks ensure that classes within an `implementation` package aren’
 #### Async Service Client
 
 {% include requirement/MUST id="java-async-blocking" %} include blocking calls inside async client library code.
-
-#### Annotations
-
-> TODO: Determine which client and method annotations will be supported.
 
 ##### Using the HTTP Pipeline
 
@@ -46,6 +42,38 @@ The HTTP pipeline consists of a HTTP transport that is wrapped by multiple polic
 
 {% include requirement/SHOULD id="ios-requests-use-azure-core-impl" %} use the policy implementations in Azure Core whenever possible.  Do not try to "write your own" policy unless it is doing something unique to your service. If you need another option to an existing policy, engage with the [Architecture Board] to add the option.
 
+#### Annotations
+
+Include the following annotations on the service client class. For example, this code sample shows a sample class demonstrating the use of these two annotations:
+
+```java
+@ServiceClient(builder = ConfigurationAsyncClientBuilder.class, isAsync = true, service = ConfigurationService.class)
+public final class ConfigurationAsyncClient {
+    @ServiceMethod(returns = ReturnType.COLLECTION)
+    public Mono<Response<ConfigurationSetting>> addSetting(String key, String value) {
+        ...
+    }
+}
+```
+
+| Annotation | Location | Description |
+|:-----------|:---------|:------------|
+| `@ServiceClient` | Service Client | Specifies the builder responsible for instantiating the service client, whether the API is asynchronous, and a reference back to the service interface (the interface annotated with `@ServiceInterface`). |
+| `@ServiceMethod` | Service Method | Placed on all service client methods that do network operations. |
+
+#### Service Client Builder
+
+##### Annotations
+
+The `@ServiceClientBuilder` annotation should be placed on any class that is responsible for instantiating service clients (that is, instantiating classes annotated with `@ServiceClient`). For example:
+
+```java
+@ServiceClientBuilder(serviceClients = {ConfigurationClient.class, ConfigurationAsyncClient.class})
+public final class ConfigurationClientBuilder { ... }
+```
+
+This builder states that it can build instances of `ConfigurationClient` and `ConfigurationAsyncClient`.
+
 ### Supporting Types
 
 #### Model Types
@@ -54,8 +82,8 @@ The HTTP pipeline consists of a HTTP transport that is wrapped by multiple polic
 
 There are two annotations of note that should be applied on model classes, when applicable:
 
-- The `@Fluent` annotation is applied to all model classes that are expected to provide a fluent API to end users.
-- The `@Immutable` annotation is applied to all immutable classes.
+* The `@Fluent` annotation is applied to all model classes that are expected to provide a fluent API to end users.
+* The `@Immutable` annotation is applied to all immutable classes.
 
 > TODO: Include the @HeaderCollection annotation.
 
@@ -69,7 +97,7 @@ When configuring your client library, particular care must be taken to ensure th
 
 ### Logging
 
-Client libraries must support robust logging mechanisms so that the consumer can adequately diagnose issues with the method calls and quickly determine whether the issue is in the consumer code, client library code, or service.
+Client libraries must make use of the robust logging mechanisms in Azure Core, so that the consumers can adequately diagnose issues with method calls and quickly determine whether the issue is in the consumer code, client library code, or service.
 
 Request logging will be done automatically by the `HttpPipeline`. If a client library needs to add custom logging, follow the same guidelines and mechanisms as the pipeline logging mechanism. If a client library wants to do custom logging, the designer of the library must ensure that the logging mechanism is pluggable in the same way as the `HttpPipeline` logging policy.
 
@@ -79,25 +107,21 @@ Request logging will be done automatically by the `HttpPipeline`. If a client li
 
 {% include requirement/MUST id="android-logging-clientlogger" %} use the `ClientLogger` API provided within Azure Core as the sole logging API throughout all client libraries. Internally, `ClientLogger` logs to the Android Logcat buffer.
 
+> TODO: Determine if we want ClientLogger to wrap SLF4J like it's Java counterpart.
+
 {% include requirement/MUST id="android-logging-create-new" %} create a new instance of a `ClientLogger` per instance of all relevant classes. For example, the code below will create a `ClientLogger` instance for the `ConfigurationAsyncClient`:
 
 ```java
 public final class ConfigurationAsyncClient {
     private final ClientLogger logger = new ClientLogger(ConfigurationAsyncClient.class);
 
-    // example call to a service
-    public void setSetting(ConfigurationSetting setting) {
-        return service.setKey(serviceEndpoint, setting.key(), setting.label(), setting, getETagValue(setting.etag()), null, new CallbackWithHeader<ConfigurationSetting>() {
-            @Override
-            public void onSuccess(Response<ConfigurationSetting> response) {
-                logger.info("Set ConfigurationSetting - {}", response.value());
-            }
-
-            @Override
-            public void onError(Response<ConfigurationSetting> errorResponse) {
-                logger.warning("Failed to set ConfigurationSetting - {}", setting, errorResponse.getMessage());
-            }
-        });
+    // Example call to a service.
+    public Response<String> setSetting(ConfigurationSetting setting) {
+        Response<String> response = service.setKey(serviceEndpoint, setting.key(), setting.label(), setting, getETagValue(setting.etag()), null);
+        
+        logger.info("Set ConfigurationSetting - {}", response.value());
+        
+        return response;
     }
 }
 ```
@@ -137,9 +161,6 @@ if (numberOfAttempts < retryPolicy.getMaxRetryCount()) {
 }
 ```
 
-> TBD:
-> * Hook in to HockeyApp
-
 ### Distributed tracing
 
 Distributed tracing is uncommon in a mobile context. If you feel like you need to support distributed tracing, contact the [Azure SDK mobile team](mailto:azuresdkmobileteam@microsoft.com) for advice.
@@ -158,14 +179,14 @@ One of the key things we want to support is to allow consumers of the library to
 
 Android developers need to concern themselves with the runtime environment they are running in. The Android ecosystem is fragmented, with a wide variety of runtimes deployed.
 
-{% include requirement/MUST id="android-library-sync-support" %} support at least Android API level 16 and later (Jelly Bean). This value can be found in your project's top level `build.gradle` file as `minSdkVersion`.
+{% include requirement/MUST id="android-library-sync-support" %} support at least Android API level 15 and later (Ice Cream Sandwich). This value can be found in your project's top level `build.gradle` file as `minSdkVersion`.
 
 There are two things that are of concern when discussing the minimum API level to choose:
 
 1. The minimum API level that Google supports.
 2. The reach of selecting a particular API level.
 
-We require the minimum API level that Google supports that reaches the most Android devices while still allowing for the use of widely adopted tools by the developer community, such as popular HTTP clients or serialization libraries. We have currently landed on API level 16, which covers about 99.8% of all Android devices (as of January of 2021). The reach of a particular API level can be found when clicking "Help me choose" in Android Studio's "Create New Project" screen, after selecting the type of project to create.
+We require the minimum API level that Google supports that reaches the most Android devices while still allowing for the use of widely adopted tools by the developer community, such as popular HTTP clients or serialization libraries. We have currently landed on API level 15, which covers more than 99.8% of all Android devices (as of May 2021). The reach of a particular API level can be found when clicking "Help me choose" in Android Studio's "Create New Project" screen, after selecting the type of project to create.
 
 {% include requirement/MUST id="android-library-target-sdk-version" %} set the `targetSdkVersion` to be API level 26 or higher in your project's top level `build.gradle` file.
 
