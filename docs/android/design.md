@@ -78,7 +78,7 @@ Service clients are the main starting points for developers calling Azure servic
 
 {% include requirement/MUST id="android-network-separate-packages" %} have separate service clients for sync and async APIs.
 
-{% include requirement/SHOULD id="android-service-client-feature-support" %} support only those features provided by the Azure service that would make sense to access from a mobile app. Mobile apps are inherently end-user facing applications, and only a subset of Azure services and features are intended for use by these type of applications. While completeness is valuable and gaps in functionality can cause frustration, a smaller binary size and an opinionated stance of only providing end-user facing functionality will make our libraries easier and more desirable for app developers to use.
+{% include requirement/SHOULD id="android-service-client-feature-support" %} support only those features provided by the Azure service that would make sense to access from a mobile app. Mobile apps are inherently end-user facing applications, and only a subset of Azure services and features are intended for use by these type of applications. While completeness is valuable and gaps in functionality can cause frustration, a smaller binary size and an opinionated stance of only providing end user facing functionality will make our libraries easier and more desirable for app developers to use.
 
 {% include requirement/MUST id="android-service-client-mobile-consistency" %} provide a public API whose shape matches the public API shape provided in the equivalent iOS library as closely as possible. Clients should have the same names and provide the same functionality in their public APIs, and while method naming should be idiomatic to each platform, consistency in naming between the two platforms is the next most important consideration.
 
@@ -122,7 +122,7 @@ public final class <service_name>Client {
 }
 ```
 
-> TODO: Link concrete example of a sync client class from the Android repository.
+Refer to the [ChatClient class] for a fully built-out example of how a sync client should be constructed.
 
 #### Async Service Clients
 
@@ -165,7 +165,7 @@ public final class <service_name>AsyncClient {
 }
 ```
 
-> TODO: Link concrete example of an async client class from the Android repository.
+Refer to the [ChatAsyncClient class] for a fully built-out example of how a sync client should be constructed.
 
 {% include requirement/MUST id="android-async-framework" %} use [Android retro future's][RetroFuture] `CompletableFuture` to provide consumers with a high-quality async API.
 
@@ -367,7 +367,7 @@ getFoo(x, y, z, Context)
 getFoo(a, Context)
 ```
 
-{% include requirement/MUSTNOT id="java-service-client-context-async" %} include overloads that take `Context` in async clients.  Async clients use the [subscriber context built into Reactor Flux and Mono APIs][reactor-context].
+{% include requirement/MUSTNOT id="android-service-client-context-async" %} include overloads that take `Context` in async clients.  Async clients use the [subscriber context built into Reactor Flux and Mono APIs][reactor-context].
 
 ##### Naming
 
@@ -426,7 +426,7 @@ For methods that combine multiple requests into a single call:
 
 #### Service Method Parameters
 
-{% include requirement/MUST id="android-required-and-optional-method-parameters" %} accept all arguments required to or execute a method call as individual parameters to the method. An argument is considered required if it is flagged as such in the service's API spec or if the library author deems it to be essential to the developer experience of the client API.
+{% include requirement/MUST id="android-required-and-optional-method-parameters" %} accept all arguments required to execute a method call as individual parameters to the method. An argument is considered required if it is flagged as such in the service's API spec or if the library author deems it to be essential to the developer experience of the client API.
 
 ##### Option Parameters
 
@@ -499,8 +499,6 @@ public class CreateBlobOptions {
 {% include requirement/MAY id="android-params-simple-overloads" %} add simple overloads of methods using the _options_ parameter pattern.
 
 If in common scenarios, users are likely to pass just a small subset of what the _options_ parameter represents, consider adding an overload with a parameter list representing just this subset.
-
-{% include requirement/MUST id="android-request-options-classes-extend" %} make _options_ objects used to define options passed to execute a method call extend from Azure Core's `RequestOptions` class.
 
 {% include requirement/MUSTNOT id="android-params-complex-overloads" %} introduce method overloads that take a subset of the parameters as well as the _options_ parameter, except for parameters that are for client-side use only (e.g. `Context`).
 
@@ -804,7 +802,7 @@ Examples of situations where this is applicable include when there are construct
 
 {% include requirement/MUST id="android-naming-enum-uppercase" %} use all upper-case names for enum (and 'expandable' enum) values. `EnumType.FOO` and `EnumType.TWO_WORDS` are valid, whereas `EnumType.Foo` and `EnumType.twoWords` are not.
 
-{% include requirement/MAY id="android-expandable-enums" %} use the `ExpandableStringEnum` type provided by Azure Core to define an enum-like API that declares well-known fields but which can also contain unknown values returned from the service, or user-defined values passed to the service. An example expandable enum, taken from Azure Core's `OperationStatus` type, is shown below:
+{% include requirement/MAY id="android-expandable-enums" %} use the `ExpandableStringEnum` type provided by Azure Core to define an enum-like API that declares well-known fields but which can also contain unknown values returned from the service, or user-defined values passed to the service. An example expandable enum is shown below:
 
 ```java
 public static final class OperationStatus extends ExpandableStringEnum<OperationStatus> {
@@ -825,7 +823,7 @@ public static final class OperationStatus extends ExpandableStringEnum<Operation
 }
 ```
 
-{% include requirement/MUST id="java-enums-no-future-growth" %} use an enum only if the enum values are known to not change like days of a week, months in a year etc.
+{% include requirement/MUST id="android-enums-no-future-growth" %} use an `enum` only if the enum values are known to not change like days of a week, months in a year etc.
 
 {% include requirement/MUST id="android-enums-future-growth" %} use `ExpandableStringEnum` provided by Azure Core for enumerations if the values are known to expand in future.
 
@@ -1028,7 +1026,7 @@ All client libraries must support mocking to enable non-live testing of service 
 
 Below is an example of writing a mock unit test using the [Mockito framework][Mockito]. For more details on using Mockito in the context of the Azure SDK for Android, refer to the [unit testing][Unit testing wiki] wiki documentation.
 
-> TODO: Replace Java wiki entry for unit testingwith one for Android.
+> TODO: Replace Java wiki entry for unit testing with one for Android.
 
 ```java
 public class UserPreferencesTest {
