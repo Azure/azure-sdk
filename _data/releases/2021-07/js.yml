@@ -225,4 +225,37 @@ entries:
     #### New Features
 
     - Changed TS compilation target to ES2017 in order to produce smaller bundles and use more native platform features
+- Name: '@azure/core-client'
+  Version: 1.2.1
+  DisplayName: Core - Client
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-client_1.2.1/sdk/core/core-client/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Moved `allowInsecureConnection` from `ServiceClientOptions` to `CommonClientOptions` [issue 15938](https://github.com/azure/azure-sdk-for-js/issues/15938)
+- Name: '@azure/core-http'
+  Version: 2.0.0
+  DisplayName: Core - HTTP
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_2.0.0/sdk/core/core-http/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Changed TS compilation target to ES2017 in order to produce smaller bundles and use more native platform features.
+    - Added support for the `Retry-After` header on responses with status code 503, Service Unavailable.
+    - Added support for multiple retries on the `ThrottlingRetryPolicy` (up to 3 by default).
+
+    #### Breaking Changes
+
+    - Updated @azure/core-tracing to version `1.0.0-preview.12`. See [@azure/core-tracing CHANGELOG](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/core/core-tracing/CHANGELOG.md) for details about breaking changes with tracing.
+
+    #### Fixed
+
+    - Fixed an issue where `proxySettings` does not work when there is username but no password [Issue 15720](https://github.com/Azure/azure-sdk-for-js/issues/15720)
+    - Throttling retry policy respects abort signal [#15796](https://github.com/Azure/azure-sdk-for-js/issues/15796)
 
