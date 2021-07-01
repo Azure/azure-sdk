@@ -138,4 +138,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.9.1/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
   ChangelogContent: '- Added optimization to unwrap encryption key once for DownloadTo and OpenRead when Client Side Encryption is enabled.'
+- Name: Azure.Core
+  Version: 1.16.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.16.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Changed
+
+    - Added `TenantId` to the properties on `TokenRequestContext` to enable multi-tenant support in Azure.Identity.
 
