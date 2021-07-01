@@ -47,12 +47,13 @@ function GetReleaseNotesData ($packageName, $packageVersion, $packageMetadata)
 
   if ($updatedVersionEntry.Sections.Keys.Count -gt 0)
   {
-    $sectionsToPull = @("Features Added","Breaking Changes","Key Bugs Fixed")
+    # Keeping both "Key Bugs Fixed" and "Bugs Fixed" for now to give people time to switch based on the recent guideline change
+    $sectionsToPull = @("Features Added","Breaking Changes","Key Bugs Fixed","Bugs Fixed")
     foreach ($key in $updatedVersionEntry.Sections.Keys)
     {
       if ($key -in $sectionsToPull)
       {
-        $releaseEntryContent += "####${key}"
+        $releaseEntryContent += "#### ${key}"
         $releaseEntryContent += BumpUpMDHeaders -content $updatedVersionEntry.Sections[$key]
       }
     }
