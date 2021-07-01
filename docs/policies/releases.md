@@ -116,7 +116,7 @@ In order for consistency across our SDKs and to enable automation to validate an
 - <Removed: for now removed features>
 
 ### Bugs Fixed
-- <for important bug fixes to be called out in release notes>
+- <for important bug fixes to be called out in release notes, especially for fixes that the developer will notice or need to react to in some way>
 - <Security: for any security fixes>
 
 ### Other Changes

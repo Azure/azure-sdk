@@ -38,11 +38,11 @@ We don't want to advertise every single bug fix as most of them do not impact th
 
 However, in the release notes we do want to list critical changes for customers. A critical change is one that the developer would either need to know or want to know. Use the following section headers (`Features Added`, `Breaking Changes`, and `Bugs Fixed`) for the defined critical changes:
 
-* *Features Added* - For new features to be called out in release notes
-* *Breaking Changes* - For changes to be called out in release notes including, changes that break existing functionality, soon-to-be removed features, now removed features
-* *Bugs Fixed* - For important bug fixes to be called out in release notes, including any security fixes
+* *Features Added* - For new features to be called out in release notes. 
+* *Breaking Changes* - For any changes that the will break the customer in some way, such as breaking existing functionality, soon-to-be removed features, or now removed features. 
+* *Bugs Fixed* - For important bug fixes to be called out in release notes, including any security fixes. Include things that the customer would likely notice or need to react to in some way. 
 
-For example, "fixed a bug in which the event processor would stop working if you received no events for 30 minutes" does not qualify.  While you may list this under the `Other Changes` heading in the changelog, the customer does not need to do anything, and it's fairly likely they have not bumped into this error, so this shouldn't be listed under the `Bugs Fixed` heading.  However, "Added a new overload to the constructor to support AzureAD credentials" would definitely be a good thing to include.
+For example, "The name of the property displayed in the ArgumentOutOfRangeException in the MaxDeliveryCount property in SubscriptionProperties was updated to use the correct property name." does not qualify as an important bug fix so shouldn't be listed under `Bugs Fixed` but can be listed under `Other Changes`.  However, "Added a new overload to the constructor to support AzureAD credentials" would be a good thing to include under `Features Added`.
 
 Ensure the release notes are written from the perspective of the user.   We don't want to tell them about a new change without ALSO telling them how to take advantage of the change with either a link to the documentation or a short snippet of code.
 
