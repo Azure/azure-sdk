@@ -1,0 +1,23 @@
+entries:
+- Name: azure-core
+  Version: 1.1.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.1.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a memory leak issue in `Base64Encode()`. (A community contribution, courtesy of _[jorgen](https://github.com/jorgen)_)
+
+    #### Other Changes
+
+    - Made internal-only changes to support the Azure Key Vault client library.
+
+    #### Acknowledgments
+
+    Thank you to our developer community members who helped to make Azure Core better with their contributions to this release:
+
+    - Jorgen Lind _([GitHub](https://github.com/jorgen))_
+
