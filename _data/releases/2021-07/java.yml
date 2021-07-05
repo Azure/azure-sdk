@@ -464,4 +464,15 @@ entries:
 
     - Upgraded `azure-core` from `1.17.0` to `1.18.0`.
   GroupId: com.azure
+- Name: azure-security-keyvault-jca
+  Version: 1.0.1
+  DisplayName: Key Vault - JCA
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-jca_1.0.1/sdk/keyvault/azure-security-keyvault-jca/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bug Fixes
+    - Fixed bug: Not get certificates from Key Vault when `azure.keyvault.jca.certificates-refresh-interval` is not set. [#22666](https://github.com/Azure/azure-sdk-for-java/pull/22666)
+  GroupId: com.azure
 
