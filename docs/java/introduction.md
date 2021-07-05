@@ -374,6 +374,8 @@ public class UserApplication {
 }
 ```
 
+{% include requirement/MUST id="java-versioning-latest-service-property" %} return the latest stable API version for the service that is supported by the client using the enum's `getLatest()` method.
+
 #### Service Methods
 
 Service methods are methods that invoke operations on a service. They are commonly found on classes suffixed with `Client`, but can also be found on other resource classes that are vended by a client.
@@ -418,7 +420,7 @@ getFoo(a, Context)
 
 #### Non-Service Methods
 
-Clients often have non-service methods, for accessing details such as the service version, http pipeline, and so on. There may also be API that offers users the ability to create specialized sub-clients. These sub-clients
+Clients often have non-service methods, for accessing details such as the service version, http pipeline, and so on. There may also be API that offers users the ability to create specialized sub-clients.
 
 {% include requirement/MUST id="java-service-client-method-naming" %} use standard JavaBean naming prefixes for all methods that are not service methods.
 
@@ -993,7 +995,7 @@ In addition to Azure Active Directory OAuth, services may provide custom authent
 
 {% include requirement/MUST id="java-auth-credential-type-prefix" %} prepend custom credential type names with the service name or service group name to provide clear context to its intended scope and usage.
 
-{% include requirement/MUST id="java-auth-credential-type-suffix" %} append Credential to the end of the custom credential type name. Note this must be singular not plural.
+{% include requirement/MUST id="java-auth-credential-type-suffix" %} append `Credential` to the end of the custom credential type name. Note this must be singular not plural.
 
 {% include requirement/MUST id="java-auth-provide-credential-constructor" %} define a constructor or factory for the custom credential type which takes in ALL data needed for the custom authentication protocol.
 
