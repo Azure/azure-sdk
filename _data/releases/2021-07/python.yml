@@ -461,4 +461,86 @@ entries:
     - The `LogQueryRequest` object now takes in a `workspace_id` and `additional_workspaces` instead of `workspace`.
     - `aggregation` param is now a list instead of a string in the `query` method.
     - `duration` must now be provided as a timedelta instead of a string.
+- Name: azure-security-attestation
+  Version: 1.0.0
+  DisplayName: Attestation
+  ServiceName: Attestation
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-security-attestation_1.0.0/sdk/attestation/azure-security-attestation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    Sample cleanup - instead of using `ClientSecretCredentials`, the samples now use
+    DefaultAzureCredential.
+
+    #### Breaking Changes
+
+    * TPM attestation takes a JSON string parameter and returns a JSON string parameter.
+    * `TPMAttestationRequest` and `TPMAttestationResponse` type were removed.
+    * `confirmation` attribute removed from `AttestationResult` type.
+    * The `AttestationSigningKey` type was removed, replaced with a `signing_key` and
+    `signing_certificate` kwargs parameter.
+    * All certificates and keys accepted and returned by the SDK are now PEM encoded
+    strings instead of DER encoded arrays of bytes for easier manipulation and
+    interoperability.
+    * Removed `AttestationResponse` type, token value merged into `AttestationResult`,
+    `PolicyResult`, etc.
+    * Removed `TokenValidationOptions` type and merged the validation options into
+    keyword arguments on the APIs which validate returned tokens. Those keyword
+    arguments can also be specified on the Client classes to simplify individual
+    API invocations.
+    * Renamed `instance_url` parameter to the constructors to `endpoint`.
+    * Many optional fields in `AttestationResult` were made non-optional.
+    * `AttestationToken._validate_token` is made internal-only, and now returns `None`.
+    * The caller provided `validation_callback` now must throw exceptions on invalid
+    tokens rather than returning `False`.
+    * Removed the `AttestationData` type, instead the `attest_xxx` APIs take two sets
+    of parameters: `inittime_data` and `inittime_json` and `runtime_data` and `runtime_json`.
+    if the `_json` value is set, the value of the parameter is an array of UTF8 encoded
+    JSON values, if the `_data` value is set, the value of the parameter is an array
+    of bytes.
+    * The `get_policy` API now returns a `Tuple[str, AttestationToken]` to simplify
+    the consumption experience.
+    * The `get_policy_management_certificates` API also returns a `Tuple[list[list[string]], AttestationToken]` to simplify the consumption experience. Note that each of the entries
+    in the list is a PEM encoded X.509 certificate.
+
+    To call into the attest APIs if you care about the attestation policy and token,
+    you can write:
+
+    ```python
+    policy, token = attest_client.get_policy(AttestationType.SGX_ENCLAVE)
+    ```
+
+    If you only care about the policy, you can write any of the following:
+
+    ```python
+    policy, _ = attest_client.get_policy(AttestationType.SGX_ENCLAVE)
+    ```
+
+    or
+
+    ```python
+    policy = attest_client.get_policy(AttestationType.SGX_ENCLAVE)[0]
+    ```
+
+    or
+
+    ```python
+    response = attest_client.get_policy(AttestationType.SGX_ENCLAVE)
+    policy = response[0]
+    ```
+
+    * The `AttestationToken` class no longer inherits from `Generic`.
+    * The `attest_sgx_enclave`, and `attest_openenclave` APIs now return a tuple of
+    `AttestationResult`, `AttestationToken`, similar to the `get_policy` API.
+    * The `set_policy`, `reset_policy`, `add_policy_management_certificate`, and `remove_policy_management_certificate` APIs all return a tuple.
+    * The `AttestationToken.get_body()` API was renamed `AttestationToken.body()`
+    * Several time related properties were renamed to be consistent with the usage from
+    keyvault:
+    * The `expiration_time` property on `AttestationToken` was renamed to `expires`.
+    * The `issuance_time` property on `AttestationToken` was renamed to `issued_on`.
+    * The `not_before_time` property on `AttestationToken` was renamed to `not_before`.
+    * The `StoredAttestationPolicy` model type has been removed. To validate the attestation policy hash, use the `AttestationPolicyToken` model object instead.
+    * The `get_openidmetadata` API has been renamed `get_open_id_metadata`.
 
