@@ -435,4 +435,16 @@ entries:
     - `admin_emails` has been renamed to `admins` in `NotificationHook`
     - `admin_emails` has been renamed to `admins` in `DataFeedOptions`
     - `viewer_emails` has been renamed to `viewers` in `DataFeedOptions`
+- Name: azure-appconfiguration
+  Version: 1.2.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration_1.2.0/sdk/appconfiguration/azure-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Adds `FeatureFlagConfigurationSetting` and `SecretReferenceConfigurationSetting` models
+    * `AzureAppConfigurationClient` can now be used as a context manager.
+    * Adds `update_sync_token` to update sync tokens from Event Grid notifications.
 
