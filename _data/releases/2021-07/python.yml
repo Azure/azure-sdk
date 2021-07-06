@@ -416,4 +416,23 @@ entries:
     - Model ServerForUpdate no longer has parameter storage_profile
     - Model ServerForUpdate no longer has parameter ha_enabled
     - Model CapabilityProperties has a new signature
+- Name: azure-ai-metricsadvisor
+  Version: 1.0.0
+  DisplayName: Metrics Advisor
+  ServiceName: Metrics Advisor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-metricsadvisor_1.0.0/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Changed
+    - `DetectionConditionsOperator` -> `DetectionConditionOperator`
+    - `cross_conditions_operator` -> `condition_operator`
+    - `AnomalyAlert.created_on` -> `AnomalyAlert.created_time`
+    - `AnomalyAlert.modified_on` -> `AnomalyAlert.modified_time`
+    - `Anomaly.created_on` -> `Anomaly.created_time`
+    - `admin_emails` has been renamed to `admins` in `NotificationHook`
+    - `admin_emails` has been renamed to `admins` in `DataFeedOptions`
+    - `viewer_emails` has been renamed to `viewers` in `DataFeedOptions`
 
