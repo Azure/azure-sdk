@@ -4,16 +4,16 @@ There are multiple Azure Cloud instances. This includes well-known cloud instanc
 
 The clouds differ in which endpoints to use when connecting to it. Finding exactly which endpoints to use is challenging for users. This applies both for public clouds and private instances. For private cloud instances, Microsoft does not know the specific endpoints used by the cloud instance. Additionally cloud instances may or may not be reachable from public internet.
 
-In order to discover which endpoints (DNS names and suffixes) are to be used when connecting to a specific cloud, a discovery endpoint has been introduced. This reduces the amount of information a developer needs in order to connect to a given cloud to knowing a single endpoint.
+To discover which endpoints (DNS names and suffixes) are to be used when connecting to a specific cloud, a discovery endpoint will be introduced. This reduces the amount of information a developer needs to connect to a given cloud to knowing a single endpoint.
 
 ## Goals
 
-* Simplify configuring for a client connecting to public clouds other than Public Azure.
+* Simplify configuring for a client connecting to clouds other than Public Azure.
 * Allow use of configuration data retrieved from cloud configuration discovery endpoint for private cloud instances.
 
 ## Non-goals
 
-* Automatically discover which cloud an application runs in and default libraries to use that by default.
+* Automatically discover which cloud an application runs in and set that as a default for libraries to use.
 * Change in requirements for client libraries to always accept a simple name (e.g. storage account name) in addition to full endpoint information when constructing clients.
 
 ## Core capabilities
