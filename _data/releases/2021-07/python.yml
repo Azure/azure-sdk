@@ -615,4 +615,39 @@ entries:
     - Changed: renamed `HealthcareEntityRelationType` to `HealthcareEntityRelation`
     - Changed: renamed `PiiEntityCategoryType` to `PiiEntityCategory`
     - Changed: renamed `PiiEntityDomainType` to `PiiEntityDomain`
+- Name: azure-eventhub
+  Version: 5.6.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.6.0/sdk/eventhub/azure-eventhub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for sending AMQP annotated message which allows full access to the AMQP message fields.
+    - Introduced new namespace `azure.eventhub.amqp`.
+    - Added new enum class `azure.eventhub.amqp.AmqpMessageBodyType` to represent the body type of the message which includes:
+    - `DATA`: The body of message consists of one or more data sections and each section contains opaque binary data.
+    - `SEQUENCE`: The body of message consists of one or more sequence sections and each section contains an arbitrary number of structured data elements.
+    - `VALUE`: The body of message consists of one amqp-value section and the section contains a single AMQP value.
+    - Introduced new class `azure.eventhub.amqp.AmqpAnnotatedMessage` for accessing low-level amqp message sections which can be instantiated for sending.
+    - Introduced new classes `azure.eventhub.amqp.AmqpMessageHeader` and `azure.eventhub.amqp.AmqpMessageProperties` for accessing amqp header and properties.
+    - Added new property `body_type` on `azure.eventhub.EventData` which returns `azure.eventhub.amqp.AmqpMessageBodyType`.
+    - Added new read-only property `raw_amqp_message` on `azure.eventhub.EventData` which returns `azure.eventhub.amqp.AmqpAnnotatedMessage`.
+- Name: azure-servicebus
+  Version: 7.3.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.3.1/sdk/servicebus/azure-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Fixed
+
+    - Fixed a bug that when setting `ServiceBusMessage.partition_key`, input value should be not validated against `session_id` of None (PR #19233, thanks @bishnu-shb).
+    - Fixed a bug that setting `ServiceBusMessage.time_to_live` causes OverflowError error on Ubuntu 20.04.
+    - Fixed a bug that `AmqpAnnotatedProperties.creation_time` and `AmqpAnnotatedProperties.absolute_expiry_time` should be calculated in the unit of milliseconds instead of seconds.
+    - Updated uAMQP dependency to 1.4.1.
+    - Fixed a bug that attributes creation_time, absolute_expiry_time and group_sequence on MessageProperties should be compatible with integer types on Python 2.7.
 
