@@ -133,8 +133,6 @@ foreach ($packageName in $updatedPackageSet.Keys)
 {
   Write-Verbose "Checking release notes for $packageName"
   $pkgKey = $packageName
-  if ($repoLanguage -eq "java") { $pkgKey = "com.azure:${pkgKey}" }
-  if ($repoLanguage -eq "android") { $pkgKey = "com.azure.android:${pkgKey}" }
   $pkgMetadata = $languageMetadata[$pkgKey]
 
   if (!$pkgMetadata) {
