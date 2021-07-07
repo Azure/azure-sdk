@@ -161,4 +161,15 @@ entries:
     - All section properties of the `AmqpAnnotatedMessage` are now lazily allocated to reflect that they are defined as optional in the AMQP specification, section 3.2.
 
     - The `HasSection` method has been added to `AmqpAnnotatedMessage` to allow inspecting the property for a section to determine if it is populated without triggering an allocation.
+- Name: Azure.Data.Tables
+  Version: 12.1.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.Tables_12.1.0/sdk/tables/Azure.Data.Tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support for Azure Active Directory (AAD) authorization has been added to `TableServiceClient` and `TableClient`. This enables use of `TokenCredential` credentials. Note: Only Azure Storage API endpoints currently support AAD authorization.
 
