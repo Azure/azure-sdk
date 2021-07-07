@@ -495,4 +495,17 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-mixedreality-authentication_1.1.0/sdk/mixedreality/azure-mixedreality-authentication/CHANGELOG.md
   ChangelogContent: Updated dependencies.
   GroupId: com.azure
+- Name: azure-core
+  Version: 1.19.0-beta.1
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core_1.19.0-beta.1/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `RequestOptions` for protocol methods
+    - Added support for `BinaryData` type as the request body or response body in `RestProxy`
+  GroupId: com.azure
 
