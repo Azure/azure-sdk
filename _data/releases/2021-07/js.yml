@@ -316,4 +316,25 @@ entries:
     - The `include-render` header can now be specified via `QueryLogsOption.includeVisualization`, allowing
     visualization information to be returned in `QueryLogsResult.visualization`. The results are currently
     unmodeled and reflect the underlying JSON structure.
+- Name: '@azure/app-configuration'
+  Version: 1.2.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/app-configuration_1.2.0/sdk/appconfiguration/app-configuration/CHANGELOG.md
+  ChangelogContent: "#### Features Added\r\n\r\n- Special configuration settings - feature flag and secret reference are now supported. \U0001F389\r\n\r\n- For types, use `ConfigurationSetting<FeatureFlagValue>` and `ConfigurationSetting<SecretReferenceValue>`.\r\n- Use `parseFeatureFlag` and `parseSecretReference` methods to parse the configuration settings into feature flag and secret reference respectively.\r\n\r\n- With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details."
+- Name: '@azure/ai-text-analytics'
+  Version: 5.1.0
+  DisplayName: Text Analytics
+  ServiceName: Text Analytics
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-text-analytics_5.1.0/sdk/textanalytics/ai-text-analytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `PiiEntityDomainType` was renamed to `PiiEntityDomain`.
+    - `domain` property of `RecognizePiiEntitiesAction` was renamed to `domainFilter`.
+    - `beginAnalyzeActions` is now limited to accept up to one action only per type.
 
