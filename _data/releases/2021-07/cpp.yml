@@ -1,0 +1,79 @@
+entries:
+- Name: azure-core
+  Version: 1.1.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.1.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a memory leak issue in `Base64Encode()`. (A community contribution, courtesy of _[jorgen](https://github.com/jorgen)_)
+
+    #### Other Changes
+
+    - Made internal-only changes to support the Azure Key Vault client library.
+
+    #### Acknowledgments
+
+    Thank you to our developer community members who helped to make Azure Core better with their contributions to this release:
+
+    - Jorgen Lind _([GitHub](https://github.com/jorgen))_
+- Name: azure-identity
+  Version: 1.1.0-beta.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-identity_1.1.0-beta.1/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ManagedIdentityCredential`.
+
+    #### Bugs Fixed
+
+    - Fixed minor memory leak when obtaining a token.
+- Name: azure-storage-blobs
+  Version: 12.0.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-blobs_12.0.1/sdk/storage/azure-storage-blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bug Fixes
+
+    - Fixed a bug where transactional MD5 hash was treated as blob MD5 hash when downloading partial blob.
+- Name: azure-storage-files-datalake
+  Version: 12.0.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-datalake_12.0.1/sdk/storage/azure-storage-files-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bug Fixes
+
+    - Fixed a bug where transactional MD5 hash was treated as blob MD5 hash when downloading partial blob.
+- Name: azure-storage-files-shares
+  Version: 12.0.1
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-shares_12.0.1/sdk/storage/azure-storage-files-shares/CHANGELOG.md
+  ChangelogContent: No API changes since `12.0.0`.
+- Name: azure-storage-common
+  Version: 12.0.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-common_12.0.1/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bug Fixes
+
+    - Fixed a memory leak issue while parsing XML.
+
