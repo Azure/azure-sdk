@@ -437,4 +437,69 @@ entries:
     #### Features Added
 
     - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+- Name: '@azure/data-tables'
+  Version: 12.1.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/data-tables_12.1.0/sdk/tables/data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    - Support for Azure Active Directory (AAD) authorization has been added to `TableServiceClient` and `TableClient`. This enables use of `TokenCredential` credentials. Note: Only Azure Storage API endpoints currently support AAD authorization. [#15852](https://github.com/Azure/azure-sdk-for-js/pull/15852)
+- Name: '@azure/search-documents'
+  Version: 11.3.0-beta.1
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_11.3.0-beta.1/sdk/search/search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+
+    - Regenerated the search SDK with the latest swaggers that includes the following changes:
+
+    - Support for `TokenCredential` has been added. With this addition, the Search SDK supports authentication via AAD.
+    - Identity types - `SearchIndexerDataNoneIdentity` & `SearchIndexerDataUserAssignedIdentity` have been added.
+    - The following new skills have been added:
+    - SentimentSkill(V3)
+    - EntityLinkingSkill(V3)
+    - EntityRecognitionSkill(V3)
+    - PIIDetectionSkill
+    - A new property `lineEnding` has been added to the skill `OcrSkill`.
+- Name: '@azure/service-bus'
+  Version: 7.3.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.3.0/sdk/servicebus/service-bus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+
+    #### Key Bugs Fixed
+
+    - Fixed a bug that could lead to message loss  in certain conditions when using `receiver.receiveMessages()`.
+    [PR#15989](https://github.com/Azure/azure-sdk-for-js/pull/15989)
+- Name: '@azure/event-hubs'
+  Version: 5.6.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.6.0/sdk/eventhub/event-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+
+    - Adds the `contentType`, `correlationId`, and `messageId` AMQP properties as top-level fields on `EventData` and `ReceivedEventData`.
+
+    - Enable encoding the body of a message to the 'value' or 'sequence' sections (via AmqpAnnotatedMessage.bodyType). Using this encoding is not required but does allow you to take advantage of native AMQP serialization for supported primitives or sequences.
+
+    More information about the AMQP message body type can be found in the AMQP specification: [link](https://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-messaging-v1.0-os.html#section-message-format)
 
