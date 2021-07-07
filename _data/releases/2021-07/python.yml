@@ -346,4 +346,201 @@ entries:
     - Model Cluster has a new parameter cloud_management_endpoint
     - Added operation group ArcSettingsOperations
     - Added operation group ExtensionsOperations
+- Name: azure-core
+  Version: 1.16.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.16.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add new ***provisional*** methods `send_request` onto the `azure.core.PipelineClient` and `azure.core.AsyncPipelineClient`. This method takes in
+    requests and sends them through our pipelines.
+    - Add new ***provisional*** module `azure.core.rest`. `azure.core.rest` is our new public simple HTTP library in `azure.core` that users will use to create requests, and consume responses.
+    - Add new ***provisional*** errors `StreamConsumedError`, `StreamClosedError`, and `ResponseNotReadError` to `azure.core.exceptions`. These errors
+    are thrown if you mishandle streamed responses from the provisional `azure.core.rest` module
+
+    #### Fixed
+
+    - Improved error message in the `from_dict` method of `CloudEvent` when a wrong schema is sent.
+- Name: azure-mgmt-rdbms
+  Version: 9.0.0
+  DisplayName: Resource Management - Rdbms
+  ServiceName: Database for MySQL/PostgreSQL
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-rdbms_9.0.0/sdk/rdbms/azure-mgmt-rdbms/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model ServerVersionCapability has a new parameter status
+    - Model Server has a new parameter network
+    - Model Server has a new parameter backup
+    - Model Server has a new parameter storage
+    - Model Server has a new parameter system_data
+    - Model Server has a new parameter high_availability
+    - Model Server has a new parameter minor_version
+    - Model Server has a new parameter source_server_resource_id
+    - Model Database has a new parameter system_data
+    - Model StorageProfile has a new parameter storage_autogrow
+    - Model StorageProfile has a new parameter geo_redundant_backup
+    - Model VcoreCapability has a new parameter status
+    - Model Configuration has a new parameter system_data
+    - Model StorageEditionCapability has a new parameter status
+    - Model FirewallRule has a new parameter system_data
+    - Model ServerForUpdate has a new parameter create_mode
+    - Model ServerForUpdate has a new parameter backup
+    - Model ServerForUpdate has a new parameter high_availability
+    - Model ServerForUpdate has a new parameter storage
+    - Model StorageMBCapability has a new parameter status
+    - Added operation GetPrivateDnsZoneSuffixOperations.execute
+    - Added operation ConfigurationsOperations.begin_put
+
+    **Breaking changes**
+
+    - Operation ServersOperations.begin_restart has a new signature
+    - Model Server no longer has parameter byok_enforcement
+    - Model Server no longer has parameter public_network_access
+    - Model Server no longer has parameter display_name
+    - Model Server no longer has parameter ha_state
+    - Model Server no longer has parameter private_dns_zone_arguments
+    - Model Server no longer has parameter source_server_name
+    - Model Server no longer has parameter storage_profile
+    - Model Server no longer has parameter source_resource_group_name
+    - Model Server no longer has parameter delegated_subnet_arguments
+    - Model Server no longer has parameter source_subscription_id
+    - Model Server no longer has parameter ha_enabled
+    - Model Server no longer has parameter standby_availability_zone
+    - Model ServerForUpdate no longer has parameter storage_profile
+    - Model ServerForUpdate no longer has parameter ha_enabled
+    - Model CapabilityProperties has a new signature
+- Name: azure-ai-metricsadvisor
+  Version: 1.0.0
+  DisplayName: Metrics Advisor
+  ServiceName: Metrics Advisor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-metricsadvisor_1.0.0/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Changed
+    - `DetectionConditionsOperator` -> `DetectionConditionOperator`
+    - `cross_conditions_operator` -> `condition_operator`
+    - `AnomalyAlert.created_on` -> `AnomalyAlert.created_time`
+    - `AnomalyAlert.modified_on` -> `AnomalyAlert.modified_time`
+    - `Anomaly.created_on` -> `Anomaly.created_time`
+    - `admin_emails` has been renamed to `admins` in `NotificationHook`
+    - `admin_emails` has been renamed to `admins` in `DataFeedOptions`
+    - `viewer_emails` has been renamed to `viewers` in `DataFeedOptions`
+- Name: azure-appconfiguration
+  Version: 1.2.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-appconfiguration_1.2.0/sdk/appconfiguration/azure-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Adds `FeatureFlagConfigurationSetting` and `SecretReferenceConfigurationSetting` models
+    * `AzureAppConfigurationClient` can now be used as a context manager.
+    * Adds `update_sync_token` to update sync tokens from Event Grid notifications.
+- Name: azure-monitor-query
+  Version: 1.0.0b2
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-query_1.0.0b2/sdk/monitor/azure-monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `workspaces`, `workspace_ids`, `qualified_names` and `azure_resource_ids` are now merged into a single `additional_workspaces` list in the query API.
+    - The `LogQueryRequest` object now takes in a `workspace_id` and `additional_workspaces` instead of `workspace`.
+    - `aggregation` param is now a list instead of a string in the `query` method.
+    - `duration` must now be provided as a timedelta instead of a string.
+- Name: azure-security-attestation
+  Version: 1.0.0
+  DisplayName: Attestation
+  ServiceName: Attestation
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-security-attestation_1.0.0/sdk/attestation/azure-security-attestation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    Sample cleanup - instead of using `ClientSecretCredentials`, the samples now use
+    DefaultAzureCredential.
+
+    #### Breaking Changes
+
+    * TPM attestation takes a JSON string parameter and returns a JSON string parameter.
+    * `TPMAttestationRequest` and `TPMAttestationResponse` type were removed.
+    * `confirmation` attribute removed from `AttestationResult` type.
+    * The `AttestationSigningKey` type was removed, replaced with a `signing_key` and
+    `signing_certificate` kwargs parameter.
+    * All certificates and keys accepted and returned by the SDK are now PEM encoded
+    strings instead of DER encoded arrays of bytes for easier manipulation and
+    interoperability.
+    * Removed `AttestationResponse` type, token value merged into `AttestationResult`,
+    `PolicyResult`, etc.
+    * Removed `TokenValidationOptions` type and merged the validation options into
+    keyword arguments on the APIs which validate returned tokens. Those keyword
+    arguments can also be specified on the Client classes to simplify individual
+    API invocations.
+    * Renamed `instance_url` parameter to the constructors to `endpoint`.
+    * Many optional fields in `AttestationResult` were made non-optional.
+    * `AttestationToken._validate_token` is made internal-only, and now returns `None`.
+    * The caller provided `validation_callback` now must throw exceptions on invalid
+    tokens rather than returning `False`.
+    * Removed the `AttestationData` type, instead the `attest_xxx` APIs take two sets
+    of parameters: `inittime_data` and `inittime_json` and `runtime_data` and `runtime_json`.
+    if the `_json` value is set, the value of the parameter is an array of UTF8 encoded
+    JSON values, if the `_data` value is set, the value of the parameter is an array
+    of bytes.
+    * The `get_policy` API now returns a `Tuple[str, AttestationToken]` to simplify
+    the consumption experience.
+    * The `get_policy_management_certificates` API also returns a `Tuple[list[list[string]], AttestationToken]` to simplify the consumption experience. Note that each of the entries
+    in the list is a PEM encoded X.509 certificate.
+
+    To call into the attest APIs if you care about the attestation policy and token,
+    you can write:
+
+    ```python
+    policy, token = attest_client.get_policy(AttestationType.SGX_ENCLAVE)
+    ```
+
+    If you only care about the policy, you can write any of the following:
+
+    ```python
+    policy, _ = attest_client.get_policy(AttestationType.SGX_ENCLAVE)
+    ```
+
+    or
+
+    ```python
+    policy = attest_client.get_policy(AttestationType.SGX_ENCLAVE)[0]
+    ```
+
+    or
+
+    ```python
+    response = attest_client.get_policy(AttestationType.SGX_ENCLAVE)
+    policy = response[0]
+    ```
+
+    * The `AttestationToken` class no longer inherits from `Generic`.
+    * The `attest_sgx_enclave`, and `attest_openenclave` APIs now return a tuple of
+    `AttestationResult`, `AttestationToken`, similar to the `get_policy` API.
+    * The `set_policy`, `reset_policy`, `add_policy_management_certificate`, and `remove_policy_management_certificate` APIs all return a tuple.
+    * The `AttestationToken.get_body()` API was renamed `AttestationToken.body()`
+    * Several time related properties were renamed to be consistent with the usage from
+    keyvault:
+    * The `expiration_time` property on `AttestationToken` was renamed to `expires`.
+    * The `issuance_time` property on `AttestationToken` was renamed to `issued_on`.
+    * The `not_before_time` property on `AttestationToken` was renamed to `not_before`.
+    * The `StoredAttestationPolicy` model type has been removed. To validate the attestation policy hash, use the `AttestationPolicyToken` model object instead.
+    * The `get_openidmetadata` API has been renamed `get_open_id_metadata`.
 
