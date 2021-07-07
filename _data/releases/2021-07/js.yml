@@ -303,4 +303,17 @@ entries:
     #### Other Changes
 
     - Update methods now return the updated object
+- Name: '@azure/monitor-query'
+  Version: 1.0.0-beta.3
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.0.0-beta.3/sdk/monitor/monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - The `include-render` header can now be specified via `QueryLogsOption.includeVisualization`, allowing
+    visualization information to be returned in `QueryLogsResult.visualization`. The results are currently
+    unmodeled and reflect the underlying JSON structure.
 
