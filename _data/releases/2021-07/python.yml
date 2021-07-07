@@ -566,4 +566,28 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     * Fixes a bug where `credential_scopes` keyword on `ContainerRegistryClient` was not passed through and the client could not authenticate with foreign clouds.
+- Name: azure-ai-translation-document
+  Version: 1.0.0b3
+  DisplayName: Document Translation
+  ServiceName: Translator
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-document_1.0.0b3/sdk/translation/azure-ai-translation-document/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking changes
+
+    - `TranslationStatusResult` was renamed to `TranslationStatus`.
+    - `DocumentStatusResult` was renamed to `DocumentStatus`.
+    - `get_document_formats` was renamed to `get_supported_document_formats`.
+    - `get_glossary_formats` was renamed to `get_supported_glossary_formats`.
+- Name: azure-data-tables
+  Version: 12.1.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-data-tables_12.1.0/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Storage Accounts only: `TableClient` and `TableServiceClient`s can now use `azure-identity` credentials for authentication. Note: A `TableClient` authenticated with a `TokenCredential` cannot use the `get_table_access_policy` or `set_table_access_policy` methods.
 
