@@ -502,4 +502,15 @@ entries:
     - Enable encoding the body of a message to the 'value' or 'sequence' sections (via AmqpAnnotatedMessage.bodyType). Using this encoding is not required but does allow you to take advantage of native AMQP serialization for supported primitives or sequences.
 
     More information about the AMQP message body type can be found in the AMQP specification: [link](https://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-messaging-v1.0-os.html#section-message-format)
+- Name: '@azure/keyvault-keys'
+  Version: 4.2.2
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-keys_4.2.2/sdk/keyvault/keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Key Bugs Fixed
+
+    - Fixed an issue where `CryptographyClient.signData` and `CryptographyClient.verifyData` convenience methods would fail to find a valid hashing algorithm when using Elliptic Curve keys.
 
