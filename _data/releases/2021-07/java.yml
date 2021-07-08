@@ -2711,4 +2711,113 @@ entries:
     #### Dependency Updates
     - Pinned `json-smart` dependency to 2.4.7
   GroupId: com.azure
+- Name: azure-data-appconfiguration
+  Version: 1.2.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-appconfiguration_1.2.0/sdk/appconfiguration/azure-data-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - `SecretReferenceConfigurationSetting` and `FeatureFlagConfigurationSetting` are able to update the strongly-type
+    properties of setting when changing the setting's `value`, vice versa.
+  GroupId: com.azure
+- Name: azure-ai-metricsadvisor
+  Version: 1.0.0
+  DisplayName: Metrics Advisor
+  ServiceName: Metrics Advisor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-metricsadvisor_1.0.0/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features added
+
+    - Added `getAdmins` and `setAdmins` methods to `NotificationHook` model
+    - Added the `getMeasureType` and `setMeasureType` to `MetricBoundaryCondition` model
+    - Added `getViewers` and `setViewers` methods to `DataFeedOptions` model
+
+    #### Breaking changes
+
+    - Removed the prefix `Anomaly` from all Alert Configuration APIs
+    - Removed the prefix `MetricAnomaly` from all Detection Configuration APIs
+    - Renamed `MetricAnomalyAlertConfiguration` to `MetricAlertConfiguration`
+    - Renamed `DetectionConditionsOperator` to `DetectionConditionOperator`
+    - Renamed the `getDimensionsToSplitAlert` method in the model `AnomalyAlertConfiguration` to `getDimensionsToSplitAlert`
+    - Renamed the `setDimensionsToSplitAlert` method in the model `AnomalyAlertConfiguration` to `setDimensionsToSplitAlert`
+    - Updated the model getter and setter methods for primitive types to use corresponding reference types
+    - Renamed `setCrossConditionOperator` method in all detection configuration condition models to `setConditionOperator`
+    - Renamed `getCrossConditionOperator` method in all detection configuration condition models to `getConditionOperator`
+    - Updated the constructors of `DataFeedMetric`, `DataFeedDimension`, `ChangeThresholdCondition`, `HardThresholdCondition`, `SmartDetectionCondition`, `SeverityCondition`, `MetricAnomalyAlertSnoozeCondition` and `TopNGroupScope` to take required parameters.
+    - Removed `SingleBoundaryCondition` model
+    - Removed `setSingleBoundary` and `setBothBoundary` methods in `MetricBoundaryCondition` model
+    - Replaced `listAnomalies` API with `listAnomaliesForAlert` and `listAnomaliesForDetectionConfig`
+    - Replaced `listIncidents` API with `listIncidentsForAlert` and `listIncidentsForDetectionConfig`
+  GroupId: com.azure
+- Name: azure-data-tables
+  Version: 12.1.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-tables_12.1.0/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for Azure Active Directory (AAD) authorization to `TableServiceClient` and `TableClient`. This enables the use of `TokenCredential` credentials in client builders. Note: Only Azure Storage API endpoints currently support AAD authorization.
+
+    #### Bugs fixed
+    - Fixed issue where HTTP headers set in a `ClientOptions` object passed to a client builder would not be set on a client instantiated by said builder.
+    - Fixed an issue where a `connectionString` with an account name and key would override a `sasToken`'s authentication settings in client builders.
+    - Fixed an issue that made `TableClient.listEntities()` and `TableServiceClient.listTables()` throw a `ClassCastException` when passing a non-null value for `timeout`.
+  GroupId: com.azure
+- Name: azure-ai-textanalytics
+  Version: 5.1.0
+  DisplayName: Text Analytics
+  ServiceName: Text Analytics
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.1.0/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Changed behavior in `beginAnalyzeActions` API where now accepts up to one action only per action type.
+    An `IllegalArgumentException` is raised if multiple actions of the same type are passed.
+    - Replaced
+    `AnalyzeActionsResultPagedFlux` to `PagedFlux<AnalyzeActionsResult>`,
+    `AnalyzeActionsResultPagedIterable` to `PagedIterable<AnalyzeActionsResult>`,
+    `AnalyzeHealthcareEntitiesPagedFlux` to `PagedFlux<AnalyzeHealthcareEntitiesResultCollection>`,
+    `AnalyzeHealthcareEntitiesPagedIterable` to `PagedIterable<AnalyzeHealthcareEntitiesResultCollection>`.
+    - Deprecated `analyzeSentimentBatch***` APIs with type `TextAnalyticsRequestOptions` option bag below. The same
+    functionalities can be done in the APIs with `AnalyzeSentimentOptions` instead:
+    `AnalyzeSentimentResultCollection analyzeSentimentBatch(Iterable<String> documents, String language, TextAnalyticsRequestOptions options)`,
+    `Response<AnalyzeSentimentResultCollection> analyzeSentimentBatchWithResponse(Iterable<TextDocumentInput> documents, TextAnalyticsRequestOptions options, Context context)`,
+    `Mono<Response<AnalyzeSentimentResultCollection>> analyzeSentimentBatchWithResponse(Iterable<TextDocumentInput> documents, TextAnalyticsRequestOptions options)`,
+    `Mono<AnalyzeSentimentResultCollection> analyzeSentimentBatch(Iterable<String> documents, String language, TextAnalyticsRequestOptions options)`
+    - Removed `StringIndexType`. This SDK will keep using UTF-16 code unit as the default encoding.
+    - Removed type `ExtractKeyPhrasesOptions`, `RecognizeEntitiesOptions`, `RecognizeLinkedEntitiesOptions` and respective exposures.
+    - Removed the property `statistics` from `AnalyzeActionsResult` as it is not currently returned by the service even if
+    the user passes `includeStatistics` = `true`.
+    - Removed constructors, but to use the private setter accessor to assign the additional properties:
+    `CategorizedEntity(String text, EntityCategory category, String subcategory, double confidenceScore, int offset)`,
+    `LinkedEntity(String name, IterableStream<LinkedEntityMatch> matches, String languages, String dataSourceEntityId, String url, String dataSource, String bingEntitySearchApiId)`,
+    `LinkedEntityMatch(String text, double confidenceScore, int offset)`
+    - Renamed type `PiiEntityDomainType` to `PiiEntityDomain`.
+    - Renamed `AnalyzeActionResult`'s property `recognizeEntitiesActionResults` to `recognizeEntitiesResults` which dropped the keyword `Action`.
+    This change applied to all the other `***ActionResults` properties as well.
+    - Renamed property name `result` to `documentsResults` in `AnalyzeSentimentActionResult`, `ExtractKeyPhrasesActionResult`,
+    `RecognizeEntitiesActionResult`, `RecognizeLinkedEntitiesActionResult`, and `RecognizePiiEntitiesActionResult`.
+    - Renamed the enum values in `PiiEntityCategory` by separating words with the underscore character.
+    - Renamed the methods in `AnalyzeActionsOperationDetail`,
+    `getActionsFailed()` to `getFailedCount()`,
+    `getActionsInProgress()` to `getInProgressCount()`,
+    `getActionsInTotal()` to `getTotalCount()`,
+    `getActionsSucceeded()` to `getSucceededCount()`.
+    - `TextAnalyticsActions` now takes `***Action` types, instead of `***Options` types. Renamed The getter and setter method names
+    based on the new type names. Replacing types show as follows:
+    - `ExtractKeyPhrasesOption` changed to new type `ExtractKeyPhrasesAction`.
+    - `RecognizeEntitiesOption` changed to new type `RecognizeEntitiesAction`.
+    - `RecognizePiiEntitiesOption` changed to new type `RecognizePiiEntitiesAction`.
+    - `RecognizeLinkedEntitiesOption` changed to new type `RecognizeLinkedEntitiesAction`.
+    - `AnalyzeSentimentOption` changed to new type `AnalyzeSentimentAction`.
+    - Changed enum types `EntityCertainty` and `EntityConditionality` to `ExpandableStringEnum` types.
+  GroupId: com.azure
 
