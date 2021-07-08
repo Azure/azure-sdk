@@ -194,7 +194,7 @@ entries:
 
     - The `EventProcessor<TPartition>` will now properly respect another another consumer stealing ownership of a partition when the service forcibly terminates the active link in the background.  Previously, the client did not observe the error directly and attempted to recover the faulted link which reasserted ownership and caused the partition to "bounce" between owners until a load balancing cycle completed.
 
-   - The `EventHubConsumerClient` and `PartitionReceiver` will now properly surface an exception when another another consumer stealing ownership of a partition when the service forcibly terminates the active link in the background.  Previously, the client did not observe the error directly and did not make callers attempted to recover the faulted link which reasserted ownership and caused the partition to "bounce" between owners until a load balancing cycle completed.
+    - The `EventHubConsumerClient` and `PartitionReceiver` will now properly surface an exception when another another consumer stealing ownership of a partition when the service forcibly terminates the active link in the background.  Previously, the client did not observe the error directly and did not make callers attempted to recover the faulted link which reasserted ownership and caused the partition to "bounce" between owners until a load balancing cycle completed.
 - Name: Azure.AI.Translation.Document
   Version: 1.0.0-beta.3
   DisplayName: Document Translation
