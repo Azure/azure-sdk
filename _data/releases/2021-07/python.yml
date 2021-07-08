@@ -590,4 +590,81 @@ entries:
   ChangelogContent: |-
     #### Features Added
     * Storage Accounts only: `TableClient` and `TableServiceClient`s can now use `azure-identity` credentials for authentication. Note: A `TableClient` authenticated with a `TokenCredential` cannot use the `get_table_access_policy` or `set_table_access_policy` methods.
+- Name: azure-ai-textanalytics
+  Version: 5.1.0
+  DisplayName: Text Analytics
+  ServiceName: Text Analytics
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-textanalytics_5.1.0/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `catagories_filter` to `RecognizePiiEntitiesAction`
+    - Added `HealthcareEntityCategory`
+    - Added AAD support for the `begin_analyze_healthcare_entities` methods.
+
+    #### Breaking Changes
+
+    - Changed: the response structure of `being_analyze_actions`. Now, we return a list of results, where each result is a list of the action results for the document, in the order the documents and actions were passed.
+    - Changed: `begin_analyze_actions` now accepts a single action per type. A `ValueError` is raised if duplicate actions are passed.
+    - Removed: `AnalyzeActionsType`
+    - Removed: `AnalyzeActionsResult`
+    - Removed: `AnalyzeActionsError`
+    - Removed: `HealthcareEntityRelationRoleType`
+    - Changed: renamed `HealthcareEntityRelationType` to `HealthcareEntityRelation`
+    - Changed: renamed `PiiEntityCategoryType` to `PiiEntityCategory`
+    - Changed: renamed `PiiEntityDomainType` to `PiiEntityDomain`
+- Name: azure-eventhub
+  Version: 5.6.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.6.0/sdk/eventhub/azure-eventhub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for sending AMQP annotated message which allows full access to the AMQP message fields.
+    - Introduced new namespace `azure.eventhub.amqp`.
+    - Added new enum class `azure.eventhub.amqp.AmqpMessageBodyType` to represent the body type of the message which includes:
+    - `DATA`: The body of message consists of one or more data sections and each section contains opaque binary data.
+    - `SEQUENCE`: The body of message consists of one or more sequence sections and each section contains an arbitrary number of structured data elements.
+    - `VALUE`: The body of message consists of one amqp-value section and the section contains a single AMQP value.
+    - Introduced new class `azure.eventhub.amqp.AmqpAnnotatedMessage` for accessing low-level amqp message sections which can be instantiated for sending.
+    - Introduced new classes `azure.eventhub.amqp.AmqpMessageHeader` and `azure.eventhub.amqp.AmqpMessageProperties` for accessing amqp header and properties.
+    - Added new property `body_type` on `azure.eventhub.EventData` which returns `azure.eventhub.amqp.AmqpMessageBodyType`.
+    - Added new read-only property `raw_amqp_message` on `azure.eventhub.EventData` which returns `azure.eventhub.amqp.AmqpAnnotatedMessage`.
+- Name: azure-servicebus
+  Version: 7.3.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.3.1/sdk/servicebus/azure-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Fixed
+
+    - Fixed a bug that when setting `ServiceBusMessage.partition_key`, input value should be not validated against `session_id` of None (PR #19233, thanks @bishnu-shb).
+    - Fixed a bug that setting `ServiceBusMessage.time_to_live` causes OverflowError error on Ubuntu 20.04.
+    - Fixed a bug that `AmqpAnnotatedProperties.creation_time` and `AmqpAnnotatedProperties.absolute_expiry_time` should be calculated in the unit of milliseconds instead of seconds.
+    - Updated uAMQP dependency to 1.4.1.
+    - Fixed a bug that attributes creation_time, absolute_expiry_time and group_sequence on MessageProperties should be compatible with integer types on Python 2.7.
+- Name: azure-mgmt-compute
+  Version: 22.0.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_22.0.0/sdk/compute/azure-mgmt-compute/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model RestorePointSourceMetadata has a new parameter location
+    - Added operation DiskRestorePointOperations.begin_revoke_access
+    - Added operation DiskRestorePointOperations.begin_grant_access
+
+    **Breaking changes**
+
+    - Model PublicIPAddressSku has a new signature
 
