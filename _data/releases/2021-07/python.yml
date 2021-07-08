@@ -686,4 +686,16 @@ entries:
     #### Bugs Fixed
     - `azure.identity.aio.ManagedIdentityCredential` is an async context manager
     that closes its underlying transport session at the end of a `with` block
+- Name: azure-keyvault-keys
+  Version: 4.5.0b1
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-keys_4.5.0b1/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Key Vault API version 7.3-preview is now the default
+    - `KeyClient` has a `get_random_bytes` method for getting a requested number of random
+    bytes from a managed HSM
 
