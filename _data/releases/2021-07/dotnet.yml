@@ -222,7 +222,7 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.TextAnalytics_5.1.0/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md
   ChangelogContent: |-
    #### Features Added
-     - Added support for service version `3.0`. This can be specified in the `TextAnalyticsClientOptions` object under the `ServiceVersion` enum. By default the SDK targets latest supported service version.
+    - Added support for service version `3.0`. This can be specified in the `TextAnalyticsClientOptions` object under the `ServiceVersion` enum. By default the SDK targets latest supported service version.
     - Added AAD support for the `StartAnalyzeHealthcareEntities` methods.
     - Added value `None` to enum `PiiEntityDomainType` to allow user to specify no domain.
     - Added new overload methods to all `xxActions` types that take a `xxOptions` object to facilitate a transition from a singular method to an actions method.
