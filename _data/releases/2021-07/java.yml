@@ -2854,4 +2854,110 @@ entries:
     - Fixed a bug that does not create respect properties when creating Subscription Rule with CorrelationFilter. Issue [21299](https://github.com/Azure/azure-sdk-for-java/issues/21299).
     - Fixed a but that causes the settlement API not to return or throw error if retry timeout is long enough. Issue [22299](https://github.com/Azure/azure-sdk-for-java/issues/22299).
   GroupId: com.azure
+- Name: azure-resourcemanager-consumption
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Consumption
+  ServiceName: Consumption
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-consumption_1.0.0-beta.2/sdk/consumption/azure-resourcemanager-consumption/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    ##### `models.ReservationRecommendationsListResult` was modified
+
+    * `totalCost()` was added
+
+    ##### `ConsumptionManager$Configurable` was modified
+
+    * `withScope(java.lang.String)` was added
+
+    ##### `models.ModernReservationRecommendation` was modified
+
+    * `resourceType()` was added
+    * `etag()` was added
+    * `subscriptionId()` was added
+  GroupId: com.azure.resourcemanager
+- Name: azure-ai-formrecognizer
+  Version: 3.1.2
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_3.1.2/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other changes
+    - Updated test infrastructure to remove dependency on network call recorded data.
+
+    ##### Dependency Updates
+    - Updated `azure-core` to `1.18.0`.
+    - Updated `azure-core-http-netty` to `1.10.1`.
+  GroupId: com.azure
+- Name: azure-monitor-query
+  Version: 1.0.0-beta.2
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-query_1.0.0-beta.2/sdk/monitor/azure-monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+    - Upgraded `azure-core` from `1.17.0` to `1.18.0`.
+    - Upgraded `azure-core-http-netty` from `1.10.0` to `1.10.1`.
+  GroupId: com.azure
+- Name: azure-resourcemanager-appconfiguration
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-appconfiguration_1.0.0-beta.3/sdk/appconfiguration/azure-resourcemanager-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    ##### `models.ConfigurationStore$Update` was modified
+
+    * `withPublicNetworkAccess(models.PublicNetworkAccess)` was added
+
+    ##### `models.ConfigurationStoreUpdateParameters` was modified
+
+    * `publicNetworkAccess()` was added
+    * `withPublicNetworkAccess(models.PublicNetworkAccess)` was added
+
+    ##### `AppConfigurationManager$Configurable` was modified
+
+    * `withScope(java.lang.String)` was added
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-signalr
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - SignalR
+  ServiceName: SignalR
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-signalr_1.0.0-beta.2/sdk/signalr/azure-resourcemanager-signalr/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    ##### `SignalRManager$Configurable` was modified
+
+    * `withScope(java.lang.String)` was added
+
+    ##### `models.SignalRResource$Definition` was modified
+
+    * `withDisableLocalAuth(java.lang.Boolean)` was added
+    * `withPublicNetworkAccess(java.lang.String)` was added
+    * `withDisableAadAuth(java.lang.Boolean)` was added
+
+    ##### `models.SignalRResource` was modified
+
+    * `disableLocalAuth()` was added
+    * `publicNetworkAccess()` was added
+    * `disableAadAuth()` was added
+
+    ##### `models.SignalRResource$Update` was modified
+
+    * `withDisableAadAuth(java.lang.Boolean)` was added
+    * `withPublicNetworkAccess(java.lang.String)` was added
+    * `withDisableLocalAuth(java.lang.Boolean)` was added
+  GroupId: com.azure.resourcemanager
 
