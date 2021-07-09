@@ -354,3 +354,15 @@ entries:
   ChangelogContent: |-
     #### Added
     - General availability for Sequence and Value body messages.
+- Name: Azure.Search.Documents
+  Version: 11.4.0-beta.1
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Search.Documents_11.4.0-beta.1/sdk/search/Azure.Search.Documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Support for additional/enhanced skills - [EntityLinkingSkill](https://docs.microsoft.com/azure/search/cognitive-search-skill-entity-linking-v3), [EntityRecognitionSkill](https://docs.microsoft.com/azure/search/cognitive-search-skill-entity-recognition-v3), [PiiDetectionSkill](https://docs.microsoft.com/azure/search/cognitive-search-skill-pii-detection), [SentimentSkill](https://docs.microsoft.com/azure/search/cognitive-search-skill-sentiment-v3)
+    - Use managed identities in Azure Active Directory with [SearchIndexerDataIdentity](https://docs.microsoft.com/azure/search/search-howto-managed-identities-data-sources)
+
