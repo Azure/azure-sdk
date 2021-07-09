@@ -2820,4 +2820,38 @@ entries:
     - `AnalyzeSentimentOption` changed to new type `AnalyzeSentimentAction`.
     - Changed enum types `EntityCertainty` and `EntityConditionality` to `ExpandableStringEnum` types.
   GroupId: com.azure
+- Name: azure-cosmos
+  Version: 4.17.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos_4.17.0/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    ##### New Features
+    * Adjust `MicroBatchSize` dynamically based on throttling rate in `BulkExecutor`.
+
+    ##### Key Bug Fixes
+    * Fixed an issue with AAD authentication in `Strong` and `BoundedStaleness` in direct mode.
+    * Fixed an issue where `ChangeFeedProcessor` was resuming from zero continuation token for new partitions on partition splits.
+  GroupId: com.azure
+- Name: azure-messaging-servicebus
+  Version: 7.3.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-servicebus_7.3.0/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for receiving dead-letter queue (DLQ) for `ServiceBusProcessorClient` and session receiver using `subQueue`
+    - Added support for configuring `maxAutoLockRenewDuration` for `ServiceBusProcessorClient` in `ServiceBusClientBuilder`.
+    - Added support for using `AzureSasCredential` and `AzureNamedKeyCredential` to access a service bus in `ServiceBusClientBuilder`.
+    - Exposing `ServiceBusClientBuilder.crossEntityTransaction()` for cross entity transactions support.
+    - Exposing `AmqpMessageBody#value` and `AmqpMessageBody#sequence` to support value and sequence amqp types.
+
+    #### Bugs Fixed
+    - Fixed a bug that does not create respect properties when creating Subscription Rule with CorrelationFilter. Issue [21299](https://github.com/Azure/azure-sdk-for-java/issues/21299).
+    - Fixed a but that causes the settlement API not to return or throw error if retry timeout is long enough. Issue [22299](https://github.com/Azure/azure-sdk-for-java/issues/22299).
+  GroupId: com.azure
 
