@@ -211,35 +211,35 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.TextAnalytics_5.1.0/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md
   ChangelogContent: |-
-   #### Features Added
-    - Added support for service version `3.0`. This can be specified in the `TextAnalyticsClientOptions` object under the `ServiceVersion` enum. By default the SDK targets latest supported service version.
-    - Added AAD support for the `StartAnalyzeHealthcareEntities` methods.
-    - Added value `None` to enum `PiiEntityDomainType` to allow user to specify no domain.
-    - Added new overload methods to all `xxActions` types that take a `xxOptions` object to facilitate a transition from a singular method to an actions method.
-    - The parameter `CategoriesFilter` in `RecognizePiiEntitiesActions` has been enabled for `StartAnalyzeActions` methods.
-    #### Breaking changes
-    - Changed behavior in `StartAnalyzeActions` and `StartAnalyzeActionsAsync` where now accepts a single action per action type. An `ArgumentException` is raised if duplicate actions are passed.
-    - Changed type `RecognizePiiEntitiesOptions.DomainFilter` from `PiiEntityDomainType?` to `PiiEntityDomainType`.
-    - Changed type `AnalyzeActionsOptions.IncludeStatistics` from `bool` to `bool?`.
-    - Renamed `StartAnalyzeBatchActions` to `StartAnalyzeActions`.
-    - Renamed `AnalyzeBatchActionsOperation` to `AnalyzeActionsOperation`.
-    - Renamed `AnalyzeBatchActionsResult` to `AnalyzeActionsResult`.
-    - Renamed `AnalyzeBatchActionsOptions` to `AnalyzeActionsOptions`.
-    - `TextAnalyticsActions` now takes `xxAction` types, instead of `xxOptions` types. Renames and types are as follow:
-    - `ExtractKeyPhrasesOptions` changed to new type `ExtractKeyPhrasesActions`.
-    - `RecognizeEntitiesOptions` changed to new type `RecognizeEntitiesActions`.
-    - `RecognizePiiEntitiesOptions` changed to new type `RecognizePiiEntitiesActions`.
-    - `RecognizeLinkedEntitiesOptions` changed to new type `RecognizeLinkedEntitiesActions`.
-    - `AnalyzeSentimentOptions` changed to new type `AnalyzeSentimentActions`.
-    - Renamed type `TextAnalyticsActionDetails` to `TextAnalyticsActionResult`.
-    - Renamed type `PiiEntityDomainType` to `PiiEntityDomain`.
-    - Renamed type `Results` to `DocumentsResults` in `AnalyzeSentimentActionResult`, `ExtractKeyPhrasesActionResult`, `RecognizeEntitiesActionResult`, `RecognizeLinkedEntitiesActionResult`, and `RecognizePiiEntitiesActionResult`.
-    - Renamed all types under `AnalyzeActionsResult` from `xxActionsResults` to ``xxResults`.
-    - Removed property `Statistics` from `AnalyzeActionsResult` as it is not currently returned by the service even if the user passes `IncludeStatistics  = true`.
-    - Removed property `StringIndexType` from `TextAnalyticsRequestOptions`. This SDK will keep using `UTF-16` code unit as the default encoding.
-    - Removed type `ExtractKeyPhrasesOptions` and respective exposure.
-    - Removed type `RecognizeEntitiesOptions` and respective exposure.
-    - Removed type `RecognizeLinkedEntitiesOptions` and respective exposure.
+    #### Features Added
+     - Added support for service version `3.0`. This can be specified in the `TextAnalyticsClientOptions` object under the `ServiceVersion` enum. By default the SDK targets latest supported service version.
+     - Added AAD support for the `StartAnalyzeHealthcareEntities` methods.
+     - Added value `None` to enum `PiiEntityDomainType` to allow user to specify no domain.
+     - Added new overload methods to all `xxActions` types that take a `xxOptions` object to facilitate a transition from a singular method to an actions method.
+     - The parameter `CategoriesFilter` in `RecognizePiiEntitiesActions` has been enabled for `StartAnalyzeActions` methods.
+     #### Breaking changes
+     - Changed behavior in `StartAnalyzeActions` and `StartAnalyzeActionsAsync` where now accepts a single action per action type. An `ArgumentException` is raised if duplicate actions are passed.
+     - Changed type `RecognizePiiEntitiesOptions.DomainFilter` from `PiiEntityDomainType?` to `PiiEntityDomainType`.
+     - Changed type `AnalyzeActionsOptions.IncludeStatistics` from `bool` to `bool?`.
+     - Renamed `StartAnalyzeBatchActions` to `StartAnalyzeActions`.
+     - Renamed `AnalyzeBatchActionsOperation` to `AnalyzeActionsOperation`.
+     - Renamed `AnalyzeBatchActionsResult` to `AnalyzeActionsResult`.
+     - Renamed `AnalyzeBatchActionsOptions` to `AnalyzeActionsOptions`.
+     - `TextAnalyticsActions` now takes `xxAction` types, instead of `xxOptions` types. Renames and types are as follow:
+     - `ExtractKeyPhrasesOptions` changed to new type `ExtractKeyPhrasesActions`.
+     - `RecognizeEntitiesOptions` changed to new type `RecognizeEntitiesActions`.
+     - `RecognizePiiEntitiesOptions` changed to new type `RecognizePiiEntitiesActions`.
+     - `RecognizeLinkedEntitiesOptions` changed to new type `RecognizeLinkedEntitiesActions`.
+     - `AnalyzeSentimentOptions` changed to new type `AnalyzeSentimentActions`.
+     - Renamed type `TextAnalyticsActionDetails` to `TextAnalyticsActionResult`.
+     - Renamed type `PiiEntityDomainType` to `PiiEntityDomain`.
+     - Renamed type `Results` to `DocumentsResults` in `AnalyzeSentimentActionResult`, `ExtractKeyPhrasesActionResult`, `RecognizeEntitiesActionResult`, `RecognizeLinkedEntitiesActionResult`, and `RecognizePiiEntitiesActionResult`.
+     - Renamed all types under `AnalyzeActionsResult` from `xxActionsResults` to ``xxResults`.
+     - Removed property `Statistics` from `AnalyzeActionsResult` as it is not currently returned by the service even if the user passes `IncludeStatistics  = true`.
+     - Removed property `StringIndexType` from `TextAnalyticsRequestOptions`. This SDK will keep using `UTF-16` code unit as the default encoding.
+     - Removed type `ExtractKeyPhrasesOptions` and respective exposure.
+     - Removed type `RecognizeEntitiesOptions` and respective exposure.
+     - Removed type `RecognizeLinkedEntitiesOptions` and respective exposure.
 - Name: Azure.Data.AppConfiguration
   Version: 1.1.0
   DisplayName: App Configuration
@@ -390,3 +390,14 @@ entries:
     #### Breaking Changes
 
     - Renamed `MaxBatchSize` to `MaxEventBatchSize` in `EventHubsOptions`.
+- Name: Azure.Core.Amqp
+  Version: 1.1.0
+  DisplayName: Core - AMQP
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core.Amqp_1.1.0/sdk/core/Azure.Core.Amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Added
+    - General availability for Sequence and Value body messages.
+
