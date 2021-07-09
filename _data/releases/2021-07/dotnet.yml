@@ -62,16 +62,6 @@ entries:
     - Changed `KeyVaultBackupClient.StartSelectiveRestore` and `StartSelectiveRestoreAsync` to `StartSelectiveKeyRestore` and `StartSelectiveKeyRestoreAsync`.
     - Return only a `Response` from `KeyVaultAccessControlClient.DeleteRoleAssignment` and `DeleteRoleAssignmentAsync`. HTTP 404 responses no longer throw a `RequestFailedException`.
     - Return only a `Response` from `KeyVaultAccessControlClient.DeleteRoleDefinition` and `DeleteRoleDefinitionAsync`. HTTP 404 responses no longer throw a `RequestFailedException`.
-- Name: Azure.Core.Amqp
-  Version: 1.1.0
-  DisplayName: Core - AMQP
-  ServiceName: Core
-  VersionType: GA
-  Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core.Amqp_1.1.0/sdk/core/Azure.Core.Amqp/CHANGELOG.md
-  ChangelogContent: |-
-    #### Added
-    - General availability for Sequence and Value body messages.
 - Name: Azure.Security.KeyVault.Certificates
   Version: 4.2.0
   DisplayName: Key Vault - Certificates
