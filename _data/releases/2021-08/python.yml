@@ -1,0 +1,15 @@
+entries:
+- Name: azure-mgmt-appplatform
+  Version: 6.1.0
+  DisplayName: Resource Management - App Platform
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-appplatform_6.1.0/sdk/appplatform/azure-mgmt-appplatform/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model UserSourceInfo has a new parameter custom_container
+    - Model MetricDimension has a new parameter to_be_exported_for_shoebox
+    - Model DeploymentSettings has a new parameter resource_requests
+
