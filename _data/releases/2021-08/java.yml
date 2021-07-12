@@ -216,4 +216,29 @@ entries:
 
     * `withScope(java.lang.String)` was added
   GroupId: com.azure.resourcemanager
+- Name: azure-messaging-eventhubs
+  Version: 5.9.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs_5.9.0/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add additional fields to `EventData`. `getContentType()`, `getCorrelationId()`, `getMessageId()` and the corresponding setters were added.
+    - Add `EventData.getRawAmqpMessage()`. Data in `EventData.getSystemProperties()` is backed by `AmqpAnnotatedMessage` but are read-only.
+  GroupId: com.azure
+- Name: azure-messaging-eventhubs-checkpointstore-blob
+  Version: 1.8.1
+  DisplayName: Event Hubs - Azure Blob Storage Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs-checkpointstore-blob_1.8.1/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Update `azure-messaging-eventhubs` dependency to `5.9.0`.
+  GroupId: com.azure
 
