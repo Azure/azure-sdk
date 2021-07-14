@@ -84,4 +84,15 @@ entries:
     - Model TrackedResource no longer has parameter e_tag
     - Removed operation VaultsOperations.create_or_update
     - Removed operation VaultsOperations.update
+- Name: azure-mgmt-sql
+  Version: 0.29.1
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-sql_0.29.1/sdk/sql/azure-mgmt-sql/CHANGELOG.md
+  ChangelogContent: |-
+    **Fixed bugs**
+
+    - Fixed parameters in create_or_update of OutboundFirewallRulesOperations
 
