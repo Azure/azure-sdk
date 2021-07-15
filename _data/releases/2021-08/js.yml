@@ -60,4 +60,23 @@ entries:
     #### Key Bugs Fixed
 
     - Fixed an issue with `HEAD` HTTP Requests. Destroyed the response before resolving the promise which will ensure that the code does not hang up. Please refer [#1037](https://github.com/Azure/autorest.typescript/issues/1037) for more details.
+- Name: '@azure/core-tracing'
+  Version: 1.0.0-preview.13
+  DisplayName: Core - Tracing
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-tracing_1.0.0-preview.13/sdk/core/core-tracing/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for disabling distributed tracing using the AZURE_TRACING_DISABLED environment variable.
+
+    #### Breaking Changes
+
+    - Removed `TestTracer` and `TestSpan` from public API and into `@azure/test-utils`. [PR #16315](https://github.com/Azure/azure-sdk-for-js/pull/16315)
+    - `TestTracer` and `TestSpan` are intended for test support when used by other Azure packages and not intended for use by end users.
+    - Removed `setTracer`, @azure/core-tracing will now rely on the `trace` API to fetch a tracer from the global tracer provider. [PR #16347](https://github.com/Azure/azure-sdk-for-js/pull/16347)
+    - If you are using `setTracer`, please use `trace.setGlobalTracerProvider(provider)` instead as described in the OpenTelemetry documentation.
+    - Removed `NoOpTracer` and `NoOpSpan` from the public API. Please use `trace.wrapSpanContext(INVALID_SPAN_CONTEXT)` from `@opentelemetry/api` instead. [PR #16315](https://github.com/Azure/azure-sdk-for-js/pull/16315)
 
