@@ -127,4 +127,33 @@ entries:
     #### Features Added
     - Support for additional/enhanced skills - [EntityLinkingSkill](https://docs.microsoft.com/azure/search/cognitive-search-skill-entity-linking-v3), [EntityRecognitionSkill](https://docs.microsoft.com/azure/search/cognitive-search-skill-entity-recognition-v3), [PiiDetectionSkill](https://docs.microsoft.com/azure/search/cognitive-search-skill-pii-detection), [SentimentSkill](https://docs.microsoft.com/azure/search/cognitive-search-skill-sentiment-v3)
     - Use managed identities in Azure Active Directory with [SearchIndexerDataIdentity](https://docs.microsoft.com/azure/search/search-howto-managed-identities-data-sources)
+- Name: Azure.Messaging.WebPubSub
+  Version: 1.0.0-beta.2
+  DisplayName: WebPubSub
+  ServiceName: webpubsub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.WebPubSub_1.0.0-beta.2/sdk/webpubsub/Azure.Messaging.WebPubSub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for [RequestOptions](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/ProtocolMethods.md#using-requestoptions-to-customize-behavior) on protocol methods.
+    - Added support for API management with `ReverseProxyEndpoint` option. https://github.com/Azure/azure-webpubsub/issues/194 describes how to integrate with the API Management service.
+    - Removed dependency on `System.IdentityModel.Tokens.Jwt`.
+
+    #### Bugs Fixed
+    - https://github.com/Azure/azure-webpubsub/issues/166
+    - https://github.com/Azure/azure-webpubsub/issues/90
+- Name: Microsoft.Azure.WebJobs.Extensions.WebPubSub
+  Version: 1.0.0-beta.2
+  DisplayName: WebJobs Extensions - WebPubSub
+  ServiceName: webpubsub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.WebPubSub_1.0.0-beta.2/sdk/webpubsub/Microsoft.Azure.WebJobs.Extensions.WebPubSub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `WebPubSubRequest` input binding to support Static Web Apps.
+
+    #### Bugs Fixed
+    - Fixed exceptions when the library is used in Static Web Apps.
 
