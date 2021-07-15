@@ -64,11 +64,11 @@ This document contains guidelines developed primarily for typical Azure REST ser
 
 ## Azure SDK API Design {#dotnet-api}
 
-Azure services will be exposed to .NET developers as one or more _service client_ types and a set of _supporting types_.
+Azure services are exposed to .NET developers as one or more _service client_ types and a set of _supporting types_.  The supporting types may include _operation group clients_, which give structure to the API by organizing groups of related service operations, and _model types_, which represent resources on the service.
 
 ### The Service Client {#dotnet-client}
 
-Service clients are the main starting points for developers calling Azure services with the Azure SDK.  Each client library should have at least one client in its main namespace, so it's easy to discover. The guidelines in this section describe patterns for the design of a service client.
+Service clients are the main starting points for developers calling Azure services with the Azure SDK.  Each client library should have at least one client in its main namespace, so it's easy to discover.  A user can dot-into the service’s namespace with Intellisense, search for the suffix “Client”, and quickly find the type they’ll need to get started communicating with the service over the network.  The guidelines in this section describe patterns for the design of a service client.
 
 A service client should have the same shape as this code snippet:
 
@@ -271,6 +271,21 @@ public class ConfigurationClient {
 In mocks, using the virtual property instead of the parameter requires the property to be mocked to return the value before the constructor is called when the mock is created. In [Moq] this requires using the delegate parameter to create the mock, which may not be an obvious workaround.
 
 See [Support for Mocking](#dotnet-mocking) for details.
+
+#### Operation Group Clients {#dotnet-operation-group-clients}
+
+There are two kinds of clients: _service clients_ and _operation group clients_. Service clients can be instantiated. Operation group clients can only be created by calling factory methods on other clients (most commonly on service clients).
+
+As discussed above, the [service client](#dotnet-client) is the entry point to the API for an Azure service -- from it, library users can invoke all functionality the service provides and can easily implement the most common scenarios.  Where it will clarify or simplify an API's design, groups of service calls can be organized around smaller types called _operation group clients_.  For example, an operation group client can group functionality related to a service resource, along with state that identifies a unique resource instance.  Alternatively, an operation group client can group calls related to a functional area of the service, such as the [ServiceBusSender](https://docs.microsoft.com/dotnet/api/azure.messaging.servicebus.servicebussender) and [ServiceBusReceiver](https://docs.microsoft.com/dotnet/api/azure.messaging.servicebus.servicebussessionreceiver) types.
+
+{% include requirement/MUST id="dotnet-service-client-entry-point" %} use service clients to indicate the starting point(s) for the most common customer scenarios.
+{% include requirement/SHOULD id="dotnet-use-operation-group-clients" %} use operation group clients to group operations related to a service resource or functional area of a service to improve API usability.
+
+{% include requirement/MUST id="dotnet-operation-group-client-factory-methods" %} provide factory methods to create an operation group client. A method that creates an operation group client must have the suffix `Client`, for example, `cosmos.GetDatabaseClient();`.
+{% include requirement/MUST id="dotnet-service-client-entry-point" %} use the `HttpPipeline` that belongs to the type providing the factory method to make network calls to the service from the operation group client.
+{% include requirement/SHOULDNOT id="dotnet-operation-group-client-no-constructor" %} provide a public constructor on an operation group client.
+
+In the rare instances where an operation group client and a model type might share the same name, choose a different name for one of them following the [.NET Framework Guidelines](https://aka.ms/fxdg3) on naming classes.
 
 #### Service Methods {#dotnet-client-methods}
 
