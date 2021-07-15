@@ -144,24 +144,6 @@ Client instances are often shared between threads (stored in application statics
 
 {% include requirement/MUST id="dotnet-client-namespace" %} see [Namespace Naming](#dotnet-namespace-naming) guidelines for how to choose the namespace for the client types.
 
-#### Client Hierarchies {#dotnet-client-hierarchy}
-
-Some Azure services store and manipulate resources organized in a hierarchy. For example, Azure Storage provides an account that contains zero or more containers, which in turn contain zero or more blobs.
-SDK libraries for such services might want to provide more than one client type representing various levels of the hierarchy. For example, the storage library provides `BlobServiceClient`, `BlobContainerClient`, and `BlobClient`.
-
-{% include requirement/MAY id="dotnet-client-hierarchy-clients" %} provide a client type corresponding to each level in a resource hierarchy.
-
-{% include requirement/MUST id="dotnet-client-hierarchy-get" %} provide a `<parent>.Get<child>Client(...)` method to retrieve a client for the named child.
-
-For example, `BlobContainerClient` has a method [`GetBlobClient`](https://docs.microsoft.com/en-us/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobclient?view=azure-dotnet#Azure_Storage_Blobs_BlobContainerClient_GetBlobClient_System_String_) returning an instance of `BlobClient`. The method must not make a network call to verify the existence of the child.
-Also, note that per general client constructor guidelines, all clients need to provide at least one public constructor.
-
-{% include requirement/MAY id="dotnet-client-hierarchy-create" %} provide method `<parent>.Create<child>(...)` that creates a child resource.
-
-The method **should** return an instance of a client for the newly created child resource.
-
-{% include requirement/MAY id="dotnet-client-hierarchy-delete" %} provide method `<parent>.Delete<child>(...)` that deletes a child resource.
-
 #### Service Client Constructors {#dotnet-client-ctor}
 
 {% include requirement/MUST id="dotnet-client-constructor-minimal" %} provide a minimal constructor that takes only the parameters required to connect to the service.
