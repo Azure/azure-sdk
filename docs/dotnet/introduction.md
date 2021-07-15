@@ -281,11 +281,37 @@ As discussed above, the [service client](#dotnet-client) is the entry point to t
 {% include requirement/MUST id="dotnet-service-client-entry-point" %} use service clients to indicate the starting point(s) for the most common customer scenarios.
 {% include requirement/SHOULD id="dotnet-use-operation-group-clients" %} use operation group clients to group operations related to a service resource or functional area of a service to improve API usability.
 
+```C#
+public class ContainerRegistryClient {
+    // ...
+    public virtual ContainerRepository GetRepositoryClient(string name);
+}
+ 
+public class ContainerRepository {
+    protected ContainerRepository();
+    public virtual string Name { get; }
+    // ...
+}
+```
+
 {% include requirement/MUST id="dotnet-operation-group-client-factory-methods" %} provide factory methods to create an operation group client. A method that creates an operation group client must have the suffix `Client`, for example, `cosmos.GetDatabaseClient();`.
+{% include requirement/MUST id="dotnet-operation-group-client-factory-methods-parameters" %} take as parameters to the operation group client factory method any state or information needed to uniquely identify a resource the client refers to.
+{% include requirement/MUST id="dotnet-operation-group-client-properties" %} expose parameters passed to operation group client factory methods, or unique identifiers created by the service, as properties on the operation group client.
 {% include requirement/MUST id="dotnet-service-client-entry-point" %} use the `HttpPipeline` that belongs to the type providing the factory method to make network calls to the service from the operation group client.
 {% include requirement/SHOULDNOT id="dotnet-operation-group-client-no-constructor" %} provide a public constructor on an operation group client.
+{% include requirement/MUST id="dotnet-operation-group-client-mocking" %} provide a protected parameterless constructor on operation group clients for mocking.
 
-In the rare instances where an operation group client and a model type might share the same name, choose a different name for one of them following the [.NET Framework Guidelines](https://aka.ms/fxdg3) on naming classes.
+In rare instances where an operation group client and a model type might have the same name, choose a different name for one of them following the [.NET Framework Guidelines](https://aka.ms/fxdg3) on names of classes.
+
+##### Choosing between Service Clients and Operation Group Clients {#dotnet-choosing-client-types}
+
+In general, an Azure SDK API should contain a single service client and zero or more operation group clients.  Both service clients and operation group clients have [service methods](#dotnet-client-methods).  You may consider adding additional service clients to the API in the following cases:
+
+{% include requirement/MAY id="dotnet-service-client-multiple-target-customers" %} consider providing an additional service client when the service has different common scenarios for multiple target users, such as a service administrator and an end-user of the entities the administrator creates.
+{% include requirement/MAY id="dotnet-service-client-advanced-scenarios" %} consider providing an additional service client when a service has advanced scenarios you want to keep separate from the types that support the most common scenarios.  In this case, consider using a .Specialized namespace to contain the additional clients.  For further discussion of designing APIs for advanced scenarios, please see the [.NET Framework Guidelines](https://aka.ms/fxdg3) sections on progressive frameworks and the principle of layered architecture.
+{% include requirement/MAY id="dotnet-service-client-direct-resource-urls" %} providing additional clients if it is common for service users to have endpoints ____
+{MAY} reflect a service hierarchy.
+
 
 #### Service Methods {#dotnet-client-methods}
 
