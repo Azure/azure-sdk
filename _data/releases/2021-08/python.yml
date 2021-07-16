@@ -95,4 +95,15 @@ entries:
     **Fixed bugs**
 
     - Fixed parameters in create_or_update of OutboundFirewallRulesOperations
+- Name: azure-mgmt-sql
+  Version: 3.0.1
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-sql_3.0.1/sdk/sql/azure-mgmt-sql/CHANGELOG.md
+  ChangelogContent: |-
+    **Bugfixes**
+
+    - Fix default setting for blob_auditing_policy_name
 
