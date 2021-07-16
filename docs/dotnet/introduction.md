@@ -305,13 +305,37 @@ In rare instances where an operation group client and a model type might have th
 
 ##### Choosing between Service Clients and Operation Group Clients {#dotnet-choosing-client-types}
 
-In general, an Azure SDK API should contain a single service client and zero or more operation group clients.  Both service clients and operation group clients have [service methods](#dotnet-client-methods).  You may consider adding additional service clients to the API in the following cases:
+In many cases, an Azure SDK API should contain one service client and zero or more operation group clients.  Both service clients and operation group clients have [service methods](#dotnet-client-methods).  There are reasons to consider adding additional service clients to the API in the following cases:
 
 {% include requirement/MAY id="dotnet-service-client-multiple-target-customers" %} consider providing an additional service client when the service has different common scenarios for multiple target users, such as a service administrator and an end-user of the entities the administrator creates.
 {% include requirement/MAY id="dotnet-service-client-advanced-scenarios" %} consider providing an additional service client when a service has advanced scenarios you want to keep separate from the types that support the most common scenarios.  In this case, consider using a .Specialized namespace to contain the additional clients.  For further discussion of designing APIs for advanced scenarios, please see the [.NET Framework Guidelines](https://aka.ms/fxdg3) sections on progressive frameworks and the principle of layered architecture.
-{% include requirement/MAY id="dotnet-service-client-direct-resource-urls" %} providing additional clients if it is common for service users to have endpoints ____
-{MAY} reflect a service hierarchy.
+{% include requirement/MAY id="dotnet-service-client-direct-resource-urls" %} consider providing an additional service client for a service resource that is commonly referenced with a URL that points to it directly.  This will allow users to instantiate a client directly from the resource endpoint, without needing to parse the URL to obtain the root service endpoint.
+{% include requirement/MAY id="dotnet-service-client-resource-hierarchy" %} consider providing additional service clients for each level in a resource hierarchy. For example, the Azure Storage service provides an account that contains zero or more containers, which in turn contain zero or more blobs. The Azure SDK storage library provides service clients for each level: `BlobServiceClient`, `BlobContainerClient`, and `BlobClient`.  For service clients representing resources in a hierarchy, you should provide a `<parent>.Get<child>Client(...)` method to retrieve the client for the named child.  You should also provide a method `<parent>.Create<child>(...)` that creates a child resource, and a method `<parent>.Delete<child>(...)` that deletes a child resource.
 
+For example:
+
+```C#
+public class BlobServiceClient {
+    // ...
+    public virtual BlobContainerClient GetBlobContainerClient(string blobContainerName);
+    public virtual Response<BlobContainerClient> CreateBlobContainer(string blobContainerName, CancellationToken cancellationToken = default);
+    public virtual Response DeleteBlobContainer(string blobContainerName, CancellationToken cancellationToken = default);
+    // ...
+}
+
+public class BlobContainerClient {
+    // ...
+    public virtual BlobClient GetBlobClient(string blobName);
+    public virtual Response CreateBlob(string blobName, CancellationToken cancellationToken = default);
+    public virtual Response DeleteBlob(string blobName, CancellationToken cancellationToken = default);
+    // ...
+}
+
+public class BlobClient {
+    // ...
+}
+
+```
 
 #### Service Methods {#dotnet-client-methods}
 
