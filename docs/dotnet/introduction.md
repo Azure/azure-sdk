@@ -276,10 +276,12 @@ See [Support for Mocking](#dotnet-mocking) for details.
 
 There are two kinds of clients: _service clients_ and _operation group clients_. Service clients can be instantiated. Operation group clients can only be created by calling factory methods on other clients (most commonly on service clients).
 
-As discussed above, the [service client](#dotnet-client) is the entry point to the API for an Azure service -- from it, library users can invoke all functionality the service provides and can easily implement the most common scenarios.  Where it will clarify or simplify an API's design, groups of service calls can be organized around smaller types called _operation group clients_.  For example, an operation group client can group functionality related to a service resource, along with state that identifies a unique resource instance.  Alternatively, an operation group client can group calls related to a functional area of the service, such as the [ServiceBusSender](https://docs.microsoft.com/dotnet/api/azure.messaging.servicebus.servicebussender) and [ServiceBusReceiver](https://docs.microsoft.com/dotnet/api/azure.messaging.servicebus.servicebussessionreceiver) types.
+As discussed above, the [service client](#dotnet-client) is the entry point to the API for an Azure service -- from it, library users can invoke all operations the service provides and can easily implement the most common scenarios.  Where it will simplify an API's design, groups of service calls can be organized around smaller operation group client types.  For example, an operation group client can group methods related to a service resource, along with properties that identify a unique resource instance.  Alternatively, an operation group client can group methods related to a functional area of the service, such as the [ServiceBusSender](https://docs.microsoft.com/dotnet/api/azure.messaging.servicebus.servicebussender) and [ServiceBusReceiver](https://docs.microsoft.com/dotnet/api/azure.messaging.servicebus.servicebussessionreceiver) types.
 
 {% include requirement/MUST id="dotnet-service-client-entry-point" %} use service clients to indicate the starting point(s) for the most common customer scenarios.
 {% include requirement/SHOULD id="dotnet-use-operation-group-clients" %} use operation group clients to group operations related to a service resource or functional area of a service to improve API usability.
+
+For example, in the Azure Container Registry API, a `ContainerRegistryClient` service client provides an entry point for communicating with the service, and a `ContainerRepository` operation group client organizes operations related to a specific repository resource:
 
 ```C#
 public class ContainerRegistryClient {
