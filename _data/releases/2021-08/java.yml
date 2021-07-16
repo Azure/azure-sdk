@@ -241,4 +241,495 @@ entries:
 
     - Update `azure-messaging-eventhubs` dependency to `5.9.0`.
   GroupId: com.azure
+- Name: azure-resourcemanager-mediaservices
+  Version: 1.1.0-beta.2
+  DisplayName: Resource Management - Media Services
+  ServiceName: Media Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-mediaservices_1.1.0-beta.2/sdk/mediaservices/azure-resourcemanager-mediaservices/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    * `models.ManagedIdentityType` was removed
+
+    ##### `models.MediaServiceIdentity` was modified
+
+    * `models.ManagedIdentityType type()` -> `java.lang.String type()`
+    * `java.lang.String tenantId()` -> `java.util.UUID tenantId()`
+    * `withType(models.ManagedIdentityType)` was removed
+    * `java.lang.String principalId()` -> `java.util.UUID principalId()`
+
+    ##### `models.Operation` was modified
+
+    * `java.lang.String origin()` -> `java.lang.String origin()`
+    * `models.OperationDisplay display()` -> `models.OperationDisplay display()`
+    * `java.lang.String name()` -> `java.lang.String name()`
+    * `models.Properties properties()` -> `models.Properties properties()`
+    * `innerModel()` was removed
+
+    ##### `models.OperationCollection` was modified
+
+    * `validate()` was removed
+    * `odataNextLink()` was removed
+    * `withOdataNextLink(java.lang.String)` was removed
+    * `withValue(java.util.List)` was removed
+    * `java.util.List value()` -> `java.util.List value()`
+
+    ##### `models.Mediaservices` was modified
+
+    * `getBySubscription(java.lang.String)` was removed
+    * `getBySubscriptionWithResponse(java.lang.String,com.azure.core.util.Context)` was removed
+
+    ##### `models.Operations` was modified
+
+    * `com.azure.core.http.rest.PagedIterable list()` -> `models.OperationCollection list()`
+    * `list(com.azure.core.util.Context)` was removed
+
+    #### Features Added
+
+    * `models.PublicNetworkAccess` was added
+
+    * `models.AccessControl` was added
+
+    * `models.MediaServiceUpdate` was added
+
+    * `models.Complexity` was added
+
+    * `models.PresetConfigurations` was added
+
+    * `models.InterleaveOutput` was added
+
+    * `models.UserAssignedManagedIdentity` was added
+
+    * `models.ResourceIdentity` was added
+
+    * `models.ActionType` was added
+
+    * `models.DefaultAction` was added
+
+    * `models.KeyDelivery` was added
+
+    ##### `models.MediaService` was modified
+
+    * `keyDelivery()` was added
+    * `publicNetworkAccess()` was added
+
+    ##### `models.MediaServiceIdentity` was modified
+
+    * `userAssignedIdentities()` was added
+    * `withUserAssignedIdentities(java.util.Map)` was added
+    * `withType(java.lang.String)` was added
+
+    ##### `MediaServicesManager$Configurable` was modified
+
+    * `withScope(java.lang.String)` was added
+
+    ##### `models.JobOutput` was modified
+
+    * `withPresetOverride(models.Preset)` was added
+    * `presetOverride()` was added
+
+    ##### `models.Operation` was modified
+
+    * `withDisplay(models.OperationDisplay)` was added
+    * `withName(java.lang.String)` was added
+    * `validate()` was added
+    * `actionType()` was added
+    * `isDataAction()` was added
+    * `withProperties(models.Properties)` was added
+    * `withIsDataAction(java.lang.Boolean)` was added
+    * `withActionType(models.ActionType)` was added
+    * `withOrigin(java.lang.String)` was added
+
+    ##### `models.BuiltInStandardEncoderPreset` was modified
+
+    * `withConfigurations(models.PresetConfigurations)` was added
+    * `configurations()` was added
+
+    ##### `models.JobOutputAsset` was modified
+
+    * `withPresetOverride(models.Preset)` was added
+    * `withPresetOverride(models.Preset)` was added
+
+    ##### `models.MetricSpecification` was modified
+
+    * `sourceMdmNamespace()` was added
+    * `supportedTimeGrainTypes()` was added
+    * `sourceMdmAccount()` was added
+    * `enableRegionalMdmAccount()` was added
+
+    ##### `models.StorageAccount` was modified
+
+    * `identity()` was added
+    * `status()` was added
+    * `withIdentity(models.ResourceIdentity)` was added
+
+    ##### `models.LiveOutput` was modified
+
+    * `systemData()` was added
+
+    ##### `models.MediaService$Definition` was modified
+
+    * `withKeyDelivery(models.KeyDelivery)` was added
+    * `withPublicNetworkAccess(models.PublicNetworkAccess)` was added
+
+    ##### `models.OperationCollection` was modified
+
+    * `innerModel()` was added
+
+    ##### `models.AccountEncryption` was modified
+
+    * `withIdentity(models.ResourceIdentity)` was added
+    * `status()` was added
+    * `identity()` was added
+
+    ##### `models.MediaService$Update` was modified
+
+    * `withPublicNetworkAccess(models.PublicNetworkAccess)` was added
+    * `withKeyDelivery(models.KeyDelivery)` was added
+
+    ##### `models.Operations` was modified
+
+    * `listWithResponse(com.azure.core.util.Context)` was added
+  GroupId: com.azure.resourcemanager
+- Name: azure-spring-boot-bom
+  Version: 3.6.1
+  DisplayName: Azure Spring Boot BOM
+  ServiceName: Spring Boot
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/boms/azure-spring-boot-bom/CHANGELOG.md
+  ChangelogContent: |-
+    This release is compatible with Spring Boot 2.5.
+    #### New Features
+    - Upgrade to [spring-boot-dependencies:2.5.2](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.2/spring-boot-dependencies-2.5.2.pom).
+    - Upgrade to [azure-spring-boot-starter-keyvault-certificates:3.0.1](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot-starter-keyvault-certificates/CHANGELOG.md#301-2021-07-01).
+    - Upgrade to [azure-spring-boot:3.6.1](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot/CHANGELOG.md#361-2021-07-02).
+    - Upgrade to [azure-spring-boot-starter:3.6.1](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot-starter/CHANGELOG.md#361-2021-07-02).
+    - Upgrade to [azure-spring-boot-starter-active-directory:3.6.1](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot-starter-active-directory/CHANGELOG.md#361-2021-07-02).
+    - Upgrade to [azure-spring-boot-starter-active-directory-b2c:3.6.1](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot-starter-active-directory-b2c/CHANGELOG.md#361-2021-07-02).
+  GroupId: com.azure.spring
+- Name: azure-resourcemanager-avs
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - VMware Solution
+  ServiceName: VMware Solution
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-avs_1.0.0-beta.2/sdk/avs/azure-resourcemanager-avs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    * `models.ClusterUpdateProperties` was removed
+
+    ##### `models.ManagementCluster` was modified
+
+    * `models.ClusterUpdateProperties withClusterSize(java.lang.Integer)` -> `models.CommonClusterProperties withClusterSize(java.lang.Integer)`
+    * `provisioningState()` was removed
+    * `hosts()` was removed
+    * `clusterId()` was removed
+
+    ##### `models.ClusterProperties` was modified
+
+    * `models.ManagementCluster withClusterSize(java.lang.Integer)` -> `models.CommonClusterProperties withClusterSize(java.lang.Integer)`
+    * `withClusterSize(java.lang.Integer)` was removed
+
+    #### Features Added
+
+    * `models.WorkloadNetworkPublicIpProvisioningState` was added
+
+    * `models.Addon$DefinitionStages` was added
+
+    * `models.Addon$Definition` was added
+
+    * `models.CloudLink$Definition` was added
+
+    * `models.WorkloadNetworkDhcpProvisioningState` was added
+
+    * `models.NetAppVolume` was added
+
+    * `models.ScriptExecution$DefinitionStages` was added
+
+    * `models.CloudLinks` was added
+
+    * `models.CloudLink` was added
+
+    * `models.CloudLinkStatus` was added
+
+    * `models.MountOptionEnum` was added
+
+    * `models.WorkloadNetworkDnsZone$UpdateStages` was added
+
+    * `models.WorkloadNetworkPortMirroring$DefinitionStages` was added
+
+    * `models.ScriptExecutionsList` was added
+
+    * `models.GlobalReachConnections` was added
+
+    * `models.ScriptExecutions` was added
+
+    * `models.WorkloadNetworkDhcp$Update` was added
+
+    * `models.DatastoreList` was added
+
+    * `models.WorkloadNetworkDnsZone$Definition` was added
+
+    * `models.Addon$UpdateStages` was added
+
+    * `models.ScriptExecution$Update` was added
+
+    * `models.WorkloadNetworkSegmentProvisioningState` was added
+
+    * `models.GlobalReachConnection$DefinitionStages` was added
+
+    * `models.CloudLink$DefinitionStages` was added
+
+    * `models.WorkloadNetworkSegmentPortVif` was added
+
+    * `models.WorkloadNetworkPortMirroringList` was added
+
+    * `models.DhcpTypeEnum` was added
+
+    * `models.PortMirroringStatusEnum` was added
+
+    * `models.ScriptStringExecutionParameter` was added
+
+    * `models.ScriptSecureStringExecutionParameter` was added
+
+    * `models.WorkloadNetworkPortMirroring` was added
+
+    * `models.ScriptExecution` was added
+
+    * `models.WorkloadNetworkDhcpRelay` was added
+
+    * `models.WorkloadNetworkPublicIp` was added
+
+    * `models.ScriptPackages` was added
+
+    * `models.ScriptExecutionProvisioningState` was added
+
+    * `models.ScriptCmdlet` was added
+
+    * `models.WorkloadNetworkVirtualMachinesList` was added
+
+    * `models.GlobalReachConnectionList` was added
+
+    * `models.WorkloadNetworkPortMirroring$Definition` was added
+
+    * `models.ScriptExecutionParameterType` was added
+
+    * `models.WorkloadNetworkSegmentSubnet` was added
+
+    * `models.CloudLink$Update` was added
+
+    * `models.WorkloadNetworkVMGroup` was added
+
+    * `models.GlobalReachConnection` was added
+
+    * `models.DiskPoolVolume` was added
+
+    * `models.WorkloadNetworkDnsZone$DefinitionStages` was added
+
+    * `models.WorkloadNetworkDnsZone$Update` was added
+
+    * `models.GlobalReachConnection$UpdateStages` was added
+
+    * `models.WorkloadNetworkSegment$UpdateStages` was added
+
+    * `models.AddonHcxProperties` was added
+
+    * `models.WorkloadNetworkPortMirroringProvisioningState` was added
+
+    * `models.WorkloadNetworkDhcpEntity` was added
+
+    * `models.WorkloadNetworks` was added
+
+    * `models.WorkloadNetworkDhcp$UpdateStages` was added
+
+    * `models.WorkloadNetworkVMGroup$UpdateStages` was added
+
+    * `models.Datastore$UpdateStages` was added
+
+    * `models.WorkloadNetworkDnsService$Definition` was added
+
+    * `models.WorkloadNetworkDhcp$Definition` was added
+
+    * `models.AddonList` was added
+
+    * `models.SegmentStatusEnum` was added
+
+    * `models.WorkloadNetworkPortMirroring$UpdateStages` was added
+
+    * `models.WorkloadNetworkPublicIp$DefinitionStages` was added
+
+    * `models.PSCredentialExecutionParameter` was added
+
+    * `models.AddonType` was added
+
+    * `models.WorkloadNetworkSegment$Definition` was added
+
+    * `models.WorkloadNetworkDnsServiceProvisioningState` was added
+
+    * `models.WorkloadNetworkDhcpList` was added
+
+    * `models.WorkloadNetworkDnsZoneProvisioningState` was added
+
+    * `models.Datastore$DefinitionStages` was added
+
+    * `models.Datastore$Update` was added
+
+    * `models.VMTypeEnum` was added
+
+    * `models.Datastores` was added
+
+    * `models.WorkloadNetworkPublicIp$Definition` was added
+
+    * `models.OptionalParamEnum` was added
+
+    * `models.PortMirroringDirectionEnum` was added
+
+    * `models.WorkloadNetworkDnsZone` was added
+
+    * `models.VMGroupStatusEnum` was added
+
+    * `models.WorkloadNetworkSegment$DefinitionStages` was added
+
+    * `models.WorkloadNetworkPublicIPsList` was added
+
+    * `models.ScriptPackage` was added
+
+    * `models.Addon` was added
+
+    * `models.GlobalReachConnection$Update` was added
+
+    * `models.ScriptParameterTypes` was added
+
+    * `models.WorkloadNetworkSegment$Update` was added
+
+    * `models.Datastore` was added
+
+    * `models.WorkloadNetworkVMGroupProvisioningState` was added
+
+    * `models.GlobalReachConnectionProvisioningState` was added
+
+    * `models.WorkloadNetworkVMGroup$DefinitionStages` was added
+
+    * `models.Addons` was added
+
+    * `models.WorkloadNetworkDnsService$DefinitionStages` was added
+
+    * `models.WorkloadNetworkDhcp$DefinitionStages` was added
+
+    * `models.ScriptCmdlets` was added
+
+    * `models.WorkloadNetworkSegment` was added
+
+    * `models.Datastore$Definition` was added
+
+    * `models.WorkloadNetworkSegmentsList` was added
+
+    * `models.ScriptExecution$UpdateStages` was added
+
+    * `models.ScriptExecutionParameter` was added
+
+    * `models.WorkloadNetworkGateway` was added
+
+    * `models.WorkloadNetworkDnsService$Update` was added
+
+    * `models.AddonVrProperties` was added
+
+    * `models.AddonProvisioningState` was added
+
+    * `models.ScriptExecution$Definition` was added
+
+    * `models.WorkloadNetworkVMGroup$Update` was added
+
+    * `models.ScriptParameter` was added
+
+    * `models.Addon$Update` was added
+
+    * `models.ScriptCmdletsList` was added
+
+    * `models.WorkloadNetworkDnsService` was added
+
+    * `models.DnsServiceLogLevelEnum` was added
+
+    * `models.WorkloadNetworkVMGroup$Definition` was added
+
+    * `models.WorkloadNetworkDnsService$UpdateStages` was added
+
+    * `models.GlobalReachConnection$Definition` was added
+
+    * `models.DatastoreProvisioningState` was added
+
+    * `models.ScriptOutputStreamType` was added
+
+    * `models.WorkloadNetworkDnsServicesList` was added
+
+    * `models.GlobalReachConnectionStatus` was added
+
+    * `models.DnsServiceStatusEnum` was added
+
+    * `models.VisibilityParameterEnum` was added
+
+    * `models.WorkloadNetworkDnsZonesList` was added
+
+    * `models.WorkloadNetworkVirtualMachine` was added
+
+    * `models.CloudLinkList` was added
+
+    * `models.AddonSrmProperties` was added
+
+    * `models.AddonProperties` was added
+
+    * `models.WorkloadNetworkVMGroupsList` was added
+
+    * `models.WorkloadNetworkGatewayList` was added
+
+    * `models.CloudLink$UpdateStages` was added
+
+    * `models.WorkloadNetworkDhcp` was added
+
+    * `models.ScriptPackagesList` was added
+
+    * `models.WorkloadNetworkPortMirroring$Update` was added
+
+    * `models.WorkloadNetworkDhcpServer` was added
+
+    * `models.CommonClusterProperties` was added
+
+    ##### `AvsManager$Configurable` was modified
+
+    * `withScope(java.lang.String)` was added
+
+    ##### `models.PrivateCloudProperties` was modified
+
+    * `externalCloudLinks()` was added
+
+    ##### `models.PrivateClouds` was modified
+
+    * `rotateNsxtPassword(java.lang.String,java.lang.String,com.azure.core.util.Context)` was added
+    * `rotateNsxtPassword(java.lang.String,java.lang.String)` was added
+    * `rotateVcenterPassword(java.lang.String,java.lang.String,com.azure.core.util.Context)` was added
+    * `rotateVcenterPassword(java.lang.String,java.lang.String)` was added
+
+    ##### `models.PrivateCloud` was modified
+
+    * `rotateNsxtPassword(com.azure.core.util.Context)` was added
+    * `externalCloudLinks()` was added
+    * `rotateNsxtPassword()` was added
+    * `rotateVcenterPassword(com.azure.core.util.Context)` was added
+    * `rotateVcenterPassword()` was added
+
+    ##### `AvsManager` was modified
+
+    * `addons()` was added
+    * `globalReachConnections()` was added
+    * `cloudLinks()` was added
+    * `datastores()` was added
+    * `workloadNetworks()` was added
+    * `scriptCmdlets()` was added
+    * `scriptPackages()` was added
+    * `scriptExecutions()` was added
+  GroupId: com.azure.resourcemanager
 
