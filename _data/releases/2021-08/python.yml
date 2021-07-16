@@ -1,0 +1,109 @@
+entries:
+- Name: azure-mgmt-appplatform
+  Version: 6.1.0
+  DisplayName: Resource Management - App Platform
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-appplatform_6.1.0/sdk/appplatform/azure-mgmt-appplatform/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model UserSourceInfo has a new parameter custom_container
+    - Model MetricDimension has a new parameter to_be_exported_for_shoebox
+    - Model DeploymentSettings has a new parameter resource_requests
+- Name: azure-mgmt-loganalytics
+  Version: 11.0.0
+  DisplayName: Resource Management - Log Analytics
+  ServiceName: Log Analytics
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-loganalytics_11.0.0/sdk/loganalytics/azure-mgmt-loganalytics/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model ClusterPatch has a new parameter billing_type
+    - Model Workspace has a new parameter features
+    - Model WorkspacePatch has a new parameter features
+    - Model WorkspaceFeatures has a new parameter disable_local_auth
+
+    **Breaking changes**
+
+    - Model Workspace no longer has parameter immediate_purge_data_on30_days
+    - Model Workspace no longer has parameter enable_log_access_using_only_resource_permissions
+    - Model Workspace no longer has parameter cluster_resource_id
+    - Model Workspace no longer has parameter enable_data_export
+    - Model WorkspacePatch no longer has parameter immediate_purge_data_on30_days
+    - Model WorkspacePatch no longer has parameter enable_log_access_using_only_resource_permissions
+    - Model WorkspacePatch no longer has parameter cluster_resource_id
+    - Model WorkspacePatch no longer has parameter enable_data_export
+    - Model CapacityReservationProperties no longer has parameter max_capacity
+- Name: azure-mgmt-resource
+  Version: 18.1.0
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource_18.1.0/sdk/resources/azure-mgmt-resource/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Added operation group SubscriptionFeatureRegistrationsOperations
+- Name: azure-mgmt-recoveryservices
+  Version: 2.0.0
+  DisplayName: Resource Management - Recovery Services
+  ServiceName: Site Recovery
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-recoveryservices_2.0.0/sdk/recoveryservices/azure-mgmt-recoveryservices/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model PatchTrackedResource has a new parameter etag
+    - Model Resource has a new parameter etag
+    - Model VaultProperties has a new parameter encryption
+    - Model PatchVault has a new parameter etag
+    - Model Sku has a new parameter tier
+    - Model VaultExtendedInfoResource has a new parameter etag
+    - Model ResourceCertificateAndAadDetails has a new parameter service_resource_id
+    - Model Vault has a new parameter system_data
+    - Model Vault has a new parameter etag
+    - Model IdentityData has a new parameter user_assigned_identities
+    - Model TrackedResource has a new parameter etag
+    - Added operation VaultsOperations.begin_update
+    - Added operation VaultsOperations.begin_create_or_update
+    - Added operation group RecoveryServicesClientOperationsMixin
+
+    **Breaking changes**
+
+    - Model PatchTrackedResource no longer has parameter e_tag
+    - Model Resource no longer has parameter e_tag
+    - Model PatchVault no longer has parameter e_tag
+    - Model VaultExtendedInfoResource no longer has parameter e_tag
+    - Model Vault no longer has parameter e_tag
+    - Model TrackedResource no longer has parameter e_tag
+    - Removed operation VaultsOperations.create_or_update
+    - Removed operation VaultsOperations.update
+- Name: azure-mgmt-sql
+  Version: 0.29.1
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-sql_0.29.1/sdk/sql/azure-mgmt-sql/CHANGELOG.md
+  ChangelogContent: |-
+    **Fixed bugs**
+
+    - Fixed parameters in create_or_update of OutboundFirewallRulesOperations
+- Name: azure-mgmt-sql
+  Version: 3.0.1
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-sql_3.0.1/sdk/sql/azure-mgmt-sql/CHANGELOG.md
+  ChangelogContent: |-
+    **Bugfixes**
+
+    - Fix default setting for blob_auditing_policy_name
+
