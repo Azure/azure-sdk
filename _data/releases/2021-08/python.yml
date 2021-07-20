@@ -117,4 +117,63 @@ entries:
     #### Features Added
 
     - `EventGridPublisherClient` now supports Azure Active Directory (AAD) for authentication.
+- Name: azure-mgmt-resource
+  Version: 19.0.0
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource_19.0.0/sdk/resources/azure-mgmt-resource/CHANGELOG.md
+  ChangelogContent: |-
+    **Breaking changes**
+
+    - Operation SubscriptionFeatureRegistrationsOperations.create_or_update has a new signature
+    - Operation SubscriptionFeatureRegistrationsOperations.delete has a new signature
+    - Operation SubscriptionFeatureRegistrationsOperations.get has a new signature
+    - Operation SubscriptionFeatureRegistrationsOperations.list_by_subscription has a new signature
+- Name: azure-mgmt-containerinstance
+  Version: 8.0.0
+  DisplayName: Resource Management - Container Instances
+  ServiceName: Container Instances
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerinstance_8.0.0/sdk/containerinstance/azure-mgmt-containerinstance/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model LogAnalytics has a new parameter workspace_resource_id
+    - Model ContainerHttpGet has a new parameter http_headers
+    - Added operation ContainersOperations.attach
+
+    **Breaking changes**
+
+    - Operation ContainersOperations.list_logs has a new signature
+- Name: azure-mgmt-containerinstance
+  Version: 3.0.0
+  DisplayName: Resource Management - Container Instances
+  ServiceName: Container Instances
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerinstance_3.0.0/sdk/containerinstance/azure-mgmt-containerinstance/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model ContainerHttpGet has a new parameter http_headers
+    - Model LogAnalytics has a new parameter workspace_resource_id
+    - Added operation ContainersOperations.attach
+
+    **Breaking changes**
+
+    - Operation ContainersOperations.list_logs has a new signature
+- Name: azure-mgmt-rdbms
+  Version: 9.1.0b1
+  DisplayName: Resource Management - Rdbms
+  ServiceName: Database for MySQL/PostgreSQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-rdbms_9.1.0b1/sdk/rdbms/azure-mgmt-rdbms/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Added operation group BackupsOperations
 
