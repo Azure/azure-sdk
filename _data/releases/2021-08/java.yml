@@ -744,4 +744,21 @@ entries:
     - Added `EventGridPublisherClientBuilder#credential(TokenCredential credential)` to support Azure Active Directory authentication.
     - Added field `metadata` to system event classes `AcsChatMessageEditedEventData`, `AcsChatMessageEditedInThreadEventData`, `AcsChatMessageReceivedEventData` and `AcsChatMessageReceivedInThreadEventData`.
   GroupId: com.azure
+- Name: azure-search-documents
+  Version: 11.5.0-beta.1
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.5.0-beta.1/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version `2021-04-30-Preview`. Default version is now `2021-04-30-Preview`.
+    - Added Semantic Search capability to `SearchClient` and `SearchAsyncClient`.
+    - Added the ability to configure AAD authentication in client builders to enable AAD authentication in clients.
+    - Added support for Normalizers in `SearchField` and `SearchIndex` with `CustomNormalizer` and `LexicalNormalizer`.
+    - Added new versions of `EntityRecognitionSkill` and `SentimentSkill`. Added `PiiDetectionSkill`.
+    - Added support for indexer data identity.
+  GroupId: com.azure
 
