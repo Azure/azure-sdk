@@ -690,9 +690,6 @@ If you have a bug or feature request for one of the libraries, please post an is
 ### Java Spring Cloud Stream Binder Test 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-stream-binder-test/CHANGELOG.md#210-2021-01-20)
 - GA release
 
-### Java Spring Cloud Telemetry 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/b1dcfcdec8de264eb5f6bb20813d2a24338fcb72/sdk/spring/azure-spring-cloud-telemetry/CHANGELOG.md#210-2021-01-20)
-- GA release
-
 ### Java Spring Integration Core 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-integration-core/CHANGELOG.md#210-2021-01-20)
 - GA release
 
