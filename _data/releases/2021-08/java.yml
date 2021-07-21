@@ -761,4 +761,415 @@ entries:
     - Added new versions of `EntityRecognitionSkill` and `SentimentSkill`. Added `PiiDetectionSkill`.
     - Added support for indexer data identity.
   GroupId: com.azure
+- Name: azure-spring-boot-starter-active-directory
+  Version: 3.7.0
+  DisplayName: Azure Spring Boot Starter Active Directory
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-boot-starter-active-directory_3.7.0/sdk/spring/azure-spring-boot-starter-active-directory/CHANGELOG.md
+  ChangelogContent: |-
+    #### New Features
+    - Add property `azure.activedirectory.application-type` to configure the application type.
+
+    Here are the 4 valid values:
+    - *web_application*: Web Application.
+    - *resource_server*: Resource Server.
+    - *resource_server_with_obo*: Resource Server with authorization grant type `on_behalf_of`.
+    - *web_application_and_resource_server*: Web Application and Resource Server in one application, it also supports `on_behalf_of`.
+
+    This property is optional, its value can be inferred by dependencies, only `web_application_and_resource_server` must be configured manually: `azure.activedirectory.application-type=web_application_and_resource_server`.
+
+    Here is the table about how the AAD starter infers application type by dependencies:
+
+    | Has dependency: spring-security-oauth2-client | Has dependency: spring-security-oauth2-resource-server |                  Valid values of application type                 | Default value               |
+    |-----------------------------------------------|--------------------------------------------------------|-------------------------------------------------------------------|-----------------------------|
+    |                      Yes                      |                          No                            |                       `web_application`                           |       `web_application`     |
+    |                      No                       |                          Yes                           |                       `resource_server`                           |       `resource_server`     |
+    |                      Yes                      |                          Yes                           | `resource_server_with_obo`, `web_application_and_resource_server` | `resource_server_with_obo`  |
+
+    - Support new value `on_behalf_of` for OBO authorization grant type, originally we only support `on-behalf-of`.
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-autoconfigure
+  Version: 2.7.0
+  DisplayName: Azure Spring Cloud Autoconfigure
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-autoconfigure_2.7.0/sdk/spring/azure-spring-cloud-autoconfigure/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Encode message payload with UTF-8 charset instead of default charset of JVM when the payload is String. ([#23056](https://github.com/Azure/azure-sdk-for-java/pull/23056))
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-starter-eventhubs-kafka
+  Version: 2.7.0
+  DisplayName: Azure Spring Cloud Starter Event Hubs Kafka
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-starter-eventhubs-kafka_2.7.0/sdk/spring/azure-spring-cloud-starter-eventhubs-kafka/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Upgrades
+    - Upgrade to [spring-boot-dependencies:2.5.2](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.2/spring-boot-dependencies-2.5.2.pom).
+    - Upgrade to [spring-cloud-dependencies:2020.0.3](https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.3/spring-cloud-dependencies-2020.0.3.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-integration-core
+  Version: 2.7.0
+  DisplayName: Azure Spring Cloud Integration Core
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-integration-core_2.7.0/sdk/spring/azure-spring-integration-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Upgrades
+    - Upgrade to [Spring Integration 5.5.1](https://mvnrepository.com/artifact/org.springframework.integration/spring-integration-core/5.5.1).
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-context
+  Version: 2.7.0
+  DisplayName: Azure Spring Cloud Context
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-context_2.7.0/sdk/spring/azure-spring-cloud-context/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Upgrades
+    - Upgrade to [spring-boot-dependencies:2.5.2](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.2/spring-boot-dependencies-2.5.2.pom).
+    - Upgrade to [spring-cloud-dependencies:2020.0.3](https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.3/spring-cloud-dependencies-2020.0.3.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-storage
+  Version: 2.7.0
+  DisplayName: Azure Spring Cloud Storage
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-storage_2.7.0/sdk/spring/azure-spring-cloud-storage/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Upgrades
+    - Upgrade to [spring-boot-dependencies:2.5.2](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.2/spring-boot-dependencies-2.5.2.pom).
+    - Upgrade to [spring-cloud-dependencies:2020.0.3](https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.3/spring-cloud-dependencies-2020.0.3.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-stream-binder-test
+  Version: 2.7.0
+  DisplayName: Azure Spring Cloud Stream Binder Test
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-stream-binder-test_2.7.0/sdk/spring/azure-spring-cloud-stream-binder-test/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Upgrades
+    - Upgrade to [spring-boot-dependencies:2.5.2](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.2/spring-boot-dependencies-2.5.2.pom).
+    - Upgrade to [spring-cloud-dependencies:2020.0.3](https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.3/spring-cloud-dependencies-2020.0.3.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-boot-starter
+  Version: 3.7.0
+  DisplayName: Azure Spring Boot Starter
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-boot-starter_3.7.0/sdk/spring/azure-spring-boot-starter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Upgrades
+    - Upgrade to [Azure Spring Boot AutoConfigure 3.7.0](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot/CHANGELOG.md).
+  GroupId: com.azure.spring
+- Name: azure-spring-boot-starter-servicebus-jms
+  Version: 3.7.0
+  DisplayName: Azure Spring Boot Starter Service bus Jms
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-boot-starter-servicebus-jms_3.7.0/sdk/spring/azure-spring-boot-starter-servicebus-jms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Upgrades
+    - Upgrade to [spring-boot-dependencies:2.5.2](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.2/spring-boot-dependencies-2.5.2.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-integration-servicebus
+  Version: 2.7.0
+  DisplayName: Azure Spring Cloud Integration Service Bus
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-integration-servicebus_2.7.0/sdk/spring/azure-spring-integration-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Key Bug Fixes
+    - Fix bug of setting message headers repeatedly with different value types. ([#22939](https://github.com/Azure/azure-sdk-for-java/pull/22939))
+    #### New Features
+    - Support configuration of `AmqpTransportType` for ServiceBusClientBuilder with property of `spring.cloud.azure.servicebus.transportType`, supported values are `AMQP` and `AMQP_WEB_SOCKETS`.
+
+
+    #### Dependency Upgrades
+    - Upgrade to [Spring Integration 5.5.1](https://mvnrepository.com/artifact/org.springframework.integration/spring-integration-core/5.5.1).
+    - Upgrade to [Azure Service Bus 7.3.0](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md#730-2021-07-08).
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-stream-binder-servicebus-core
+  Version: 2.7.0
+  DisplayName: Azure Spring Cloud Stream Binder Service bus Core
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-stream-binder-servicebus-core_2.7.0/sdk/spring/azure-spring-cloud-stream-binder-servicebus-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Key Bug Fixes
+    - Fix bug of setting message headers repeatedly with different value types. ([#22939](https://github.com/Azure/azure-sdk-for-java/pull/22939))
+
+    #### New Features
+    - Support configuration of `AmqpTransportType` for ServiceBusClientBuilder with property of `spring.cloud.azure.servicebus.transportType`, supported values are `AMQP` and `AMQP_WEB_SOCKETS`.
+
+    #### Dependency Upgrades
+    - Upgrade to [spring-boot-dependencies:2.5.2](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.2/spring-boot-dependencies-2.5.2.pom).
+    - Upgrade to [spring-cloud-dependencies:2020.0.3](https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.3/spring-cloud-dependencies-2020.0.3.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-starter-eventhubs
+  Version: 2.7.0
+  DisplayName: Azure Spring Cloud Starter Event Hubs
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-starter-eventhubs_2.7.0/sdk/spring/azure-spring-cloud-starter-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Encode message payload with UTF-8 charset instead of default charset of JVM when the payload is String. ([#23056](https://github.com/Azure/azure-sdk-for-java/pull/23056))
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-stream-binder-servicebus-topic
+  Version: 2.7.0
+  DisplayName: Azure Spring Cloud Stream Binder Service bus Topic
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-stream-binder-servicebus-topic_2.7.0/sdk/spring/azure-spring-cloud-stream-binder-servicebus-topic/CHANGELOG.md
+  ChangelogContent: |-
+    #### Key Bug Fixes
+    - Fix bug of setting message headers repeatedly with different value types. ([#22939](https://github.com/Azure/azure-sdk-for-java/pull/22939))
+
+    #### New Features
+    - Support configuration of `AmqpTransportType` for ServiceBusClientBuilder with property of `spring.cloud.azure.servicebus.transportType`, supported values are `AMQP` and `AMQP_WEB_SOCKETS`.
+
+    #### Dependency Upgrades
+    - Upgrade to [spring-boot-dependencies:2.5.2](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.2/spring-boot-dependencies-2.5.2.pom).
+    - Upgrade to [spring-cloud-dependencies:2020.0.3](https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.3/spring-cloud-dependencies-2020.0.3.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-appconfiguration-config
+  Version: 2.0.0
+  DisplayName: Azure Spring Cloud Appconfiguration Config
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-appconfiguration-config_2.0.0/sdk/appconfiguration/azure-spring-cloud-appconfiguration-config/CHANGELOG.md
+  ChangelogContent: '* GA of 2.0.0 version, no changes from 2.0.0-beta.2 version.'
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-stream-binder-eventhubs
+  Version: 2.7.0
+  DisplayName: Azure Spring Cloud Stream Binder Event Hubs
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-stream-binder-eventhubs_2.7.0/sdk/spring/azure-spring-cloud-stream-binder-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Encode message payload with UTF-8 charset instead of default charset of JVM when the payload is String. ([#23056](https://github.com/Azure/azure-sdk-for-java/pull/23056))
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-starter-servicebus
+  Version: 2.7.0
+  DisplayName: Azure Spring Cloud Starter Service bus
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-starter-servicebus_2.7.0/sdk/spring/azure-spring-cloud-starter-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Key Bug Fixes
+    - Fix bug of setting message headers repeatedly with different value types. ([#22939](https://github.com/Azure/azure-sdk-for-java/pull/22939))
+
+    #### New Features
+    - Support configuration of `AmqpTransportType` for ServiceBusClientBuilder with property of `spring.cloud.azure.servicebus.transportType`, supported values are `AMQP` and `AMQP_WEB_SOCKETS`.
+
+    #### Dependency Upgrades
+    - Upgrade to [spring-boot-dependencies:2.5.2](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.2/spring-boot-dependencies-2.5.2.pom).
+    - Upgrade to [spring-cloud-dependencies:2020.0.3](https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.3/spring-cloud-dependencies-2020.0.3.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-integration-eventhubs
+  Version: 2.7.0
+  DisplayName: Azure Spring Cloud Integration Event Hubs
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-integration-eventhubs_2.7.0/sdk/spring/azure-spring-integration-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Encode message payload with UTF-8 charset instead of default charset of JVM when the payload is String. ([#23056](https://github.com/Azure/azure-sdk-for-java/pull/23056))
+  GroupId: com.azure.spring
+- Name: azure-identity-spring
+  Version: 1.7.0
+  DisplayName: Azure Identity Spring
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity-spring_1.7.0/sdk/spring/azure-identity-spring/CHANGELOG.md
+  ChangelogContent: No changes from 1.6.0.
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-stream-binder-servicebus-queue
+  Version: 2.7.0
+  DisplayName: Azure Spring Cloud Stream Binder Service bus Queue
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-stream-binder-servicebus-queue_2.7.0/sdk/spring/azure-spring-cloud-stream-binder-servicebus-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Key Bug Fixes
+    - Fix bug of setting message headers repeatedly with different value types. ([#22939](https://github.com/Azure/azure-sdk-for-java/pull/22939))
+
+    #### New Features
+    - Support configuration of `AmqpTransportType` for ServiceBusClientBuilder with property of `spring.cloud.azure.servicebus.transportType`, supported values are `AMQP` and `AMQP_WEB_SOCKETS`.
+
+    #### Dependency Upgrades
+    - Upgrade to [spring-boot-dependencies:2.5.2](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.2/spring-boot-dependencies-2.5.2.pom).
+    - Upgrade to [spring-cloud-dependencies:2020.0.3](https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.3/spring-cloud-dependencies-2020.0.3.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-boot-starter-storage
+  Version: 3.7.0
+  DisplayName: Azure Spring Boot Starter Storage
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-boot-starter-storage_3.7.0/sdk/spring/azure-spring-boot-starter-storage/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Upgrades
+    - Upgrade to [spring-boot-dependencies:2.5.2](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.2/spring-boot-dependencies-2.5.2.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-boot-starter-active-directory-b2c
+  Version: 3.7.0
+  DisplayName: Azure Spring Boot Starter Active Directory B2C
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-boot-starter-active-directory-b2c_3.7.0/sdk/spring/azure-spring-boot-starter-active-directory-b2c/CHANGELOG.md
+  ChangelogContent: No changes from 3.6.1.
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-appconfiguration-config-web
+  Version: 2.0.0
+  DisplayName: Azure Spring Cloud Appconfiguration Config Web
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-appconfiguration-config-web_2.0.0/sdk/appconfiguration/azure-spring-cloud-appconfiguration-config-web/CHANGELOG.md
+  ChangelogContent: '* GA of 2.0.0 version, no changes from 2.0.0-beta.2 version.'
+  GroupId: com.azure.spring
+- Name: azure-spring-boot-starter-cosmos
+  Version: 3.7.0
+  DisplayName: Azure Spring Boot Starter Cosmos
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-boot-starter-cosmos_3.7.0/sdk/spring/azure-spring-boot-starter-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Upgrades
+    - Upgrade to [spring-boot-dependencies:2.5.2](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.2/spring-boot-dependencies-2.5.2.pom).
+    - Upgrade to [Azure Spring Data Cosmos 3.9.0](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md#390-2021-07-08).
+  GroupId: com.azure.spring
+- Name: azure-spring-integration-test
+  Version: 2.7.0
+  DisplayName: Azure Spring Cloud Integration Test
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-integration-test_2.7.0/sdk/spring/azure-spring-integration-test/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Upgrades
+    - Upgrade to [Spring Integration 5.5.1](https://mvnrepository.com/artifact/org.springframework.integration/spring-integration-core/5.5.1).
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-starter-cache
+  Version: 2.7.0
+  DisplayName: Azure Spring Cloud Starter Cache
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-starter-cache_2.7.0/sdk/spring/azure-spring-cloud-starter-cache/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Upgrades
+    - Upgrade to [spring-boot-dependencies:2.5.2](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.2/spring-boot-dependencies-2.5.2.pom).
+    - Upgrade to [spring-cloud-dependencies:2020.0.3](https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.3/spring-cloud-dependencies-2020.0.3.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-starter-appconfiguration-config
+  Version: 2.0.0
+  DisplayName: Azure Spring Cloud Starter Appconfiguration Config
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-starter-appconfiguration-config_2.0.0/sdk/appconfiguration/azure-spring-cloud-starter-appconfiguration-config/CHANGELOG.md
+  ChangelogContent: '* GA of 2.0.0 version, no changes from 2.0.0-beta.2 version.'
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-messaging
+  Version: 2.7.0
+  DisplayName: Azure Spring Cloud Messaging
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-messaging_2.7.0/sdk/spring/azure-spring-cloud-messaging/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Upgrades
+    - Upgrade to [spring-boot-dependencies:2.5.2](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.2/spring-boot-dependencies-2.5.2.pom).
+    - Upgrade to [spring-cloud-dependencies:2020.0.3](https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.3/spring-cloud-dependencies-2020.0.3.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-starter-storage-queue
+  Version: 2.7.0
+  DisplayName: Azure Spring Cloud Starter Storage Queue
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-starter-storage-queue_2.7.0/sdk/spring/azure-spring-cloud-starter-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Upgrades
+    - Upgrade to [spring-boot-dependencies:2.5.2](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.2/spring-boot-dependencies-2.5.2.pom).
+    - Upgrade to [spring-cloud-dependencies:2020.0.3](https://repo.maven.apache.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2020.0.3/spring-cloud-dependencies-2020.0.3.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-integration-storage-queue
+  Version: 2.7.0
+  DisplayName: Azure Spring Cloud Integration Storage Queue
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-integration-storage-queue_2.7.0/sdk/spring/azure-spring-integration-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Upgrades
+    - Upgrade to [Spring Integration 5.5.1](https://mvnrepository.com/artifact/org.springframework.integration/spring-integration-core/5.5.1).
+  GroupId: com.azure.spring
+- Name: azure-spring-boot
+  Version: 3.7.0
+  DisplayName: Azure Spring Boot AutoConfigure
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-boot_3.7.0/sdk/spring/azure-spring-boot/CHANGELOG.md
+  ChangelogContent: |-
+    #### New Features
+    - Add property `azure.activedirectory.application-type` to configure the application type.
+
+    Here are the 4 valid values:
+    - *web_application*: Web Application.
+    - *resource_server*: Resource Server.
+    - *resource_server_with_obo*: Resource Server with authorization grant type `on_behalf_of`.
+    - *web_application_and_resource_server*: Web Application and Resource Server in one application, it also supports `on_behalf_of`.
+
+    This property is optional, its value can be inferred by dependencies, only `web_application_and_resource_server` must be configured manually: `azure.activedirectory.application-type=web_application_and_resource_server`.
+
+    Here is the table about how the AAD starter infers application type by dependencies:
+
+    | Has dependency: spring-security-oauth2-client | Has dependency: spring-security-oauth2-resource-server |                  Valid values of application type                 | Default value               |
+    |-----------------------------------------------|--------------------------------------------------------|-------------------------------------------------------------------|-----------------------------|
+    |                      Yes                      |                          No                            |                       `web_application`                           |       `web_application`     |
+    |                      No                       |                          Yes                           |                       `resource_server`                           |       `resource_server`     |
+    |                      Yes                      |                          Yes                           | `resource_server_with_obo`, `web_application_and_resource_server` | `resource_server_with_obo`  |
+
+    - Support new value `on_behalf_of` for OBO authorization grant type, originally we only support `on-behalf-of`.
+  GroupId: com.azure.spring
+- Name: azure-spring-boot-starter-keyvault-secrets
+  Version: 3.7.0
+  DisplayName: Azure Spring Boot Starter Key Vault Secrets
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-boot-starter-keyvault-secrets_3.7.0/sdk/spring/azure-spring-boot-starter-keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Upgrades
+    - Upgrade to [spring-boot-dependencies:2.5.2](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.2/spring-boot-dependencies-2.5.2.pom).
+    - Upgrade to [Azure Key Vault Secret 4.3.1](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md#431-2021-07-08).
+  GroupId: com.azure.spring
 
