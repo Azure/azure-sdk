@@ -304,7 +304,7 @@ public class ContainerRepository {
 `ServiceBusSender` groups operations for sending messages to a specific entity with properties that identify that entity.
 
 ```C#
-    public class ServiceBusSender
+    public class ServiceBusSender {
         protected ServiceBusSender();
         public virtual string EntityPath { get; }
         public virtual Task CancelScheduledMessageAsync(long sequenceNumber, CancellationToken cancellationToken = default);
@@ -316,13 +316,32 @@ public class ContainerRepository {
 ```
 
 {% include requirement/MUST id="dotnet-operation-group-client-factory-methods" %} provide factory methods to create an operation group client. A method that creates an operation group client must have the suffix `Client`, for example, `cosmos.GetDatabaseClient();`.
-{% include requirement/MUST id="dotnet-operation-group-client-factory-methods-parameters" %} take as parameters to the operation group client factory method any state or information needed to uniquely identify a resource the client refers to.
-{% include requirement/MUST id="dotnet-operation-group-client-properties" %} expose parameters passed to operation group client factory methods, or unique identifiers created by the service, as properties on the operation group client.
-{% include requirement/MUST id="dotnet-service-client-entry-point" %} use the `HttpPipeline` that belongs to the type providing the factory method to make network calls to the service from the operation group client.
-{% include requirement/SHOULDNOT id="dotnet-operation-group-client-no-constructor" %} provide a public constructor on an operation group client.
-{% include requirement/MUST id="dotnet-operation-group-client-mocking" %} provide a protected parameterless constructor on operation group clients for mocking.
 
-In rare instances where an operation group client and a model type might have the same name, choose a different name for one of them following the [.NET Framework Guidelines](https://aka.ms/fxdg3) on names of classes.
+Operation group clients commonly store state or information that uniquely identifies the resource it refers to.  If this is the case, this state should be passed to the operation group client factory method, and exposed on the operation group client to assist developers with debugging.
+
+{% include requirement/SHOULD id="dotnet-operation-group-client-factory-methods-parameters" %} take any information needed to uniquely identify a resource as parameters to the operation group client factory method, if such information is available.
+{% include requirement/SHOULD id="dotnet-operation-group-client-properties" %} expose parameters passed to operation group client factory methods, or unique identifiers created by the service, as properties on the operation group client, if such information is available.
+
+For example:
+
+```csharp
+    public class CosmosClient {
+        public virtual CosmosDatabase GetDatabaseClient(string id);
+        // ...
+    }
+
+    public class CosmosDatabase {
+        protected CosmosDatabase();
+        public abstract string Id { get; }
+        // ...
+    }
+```
+
+While API usability is the primary reason for operation group clients, another motivating factor is resource efficiency.  [Clients need to be cached](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/), so if the set of client instances is large or unlimited (in case the client takes a scoping parameter, like a hub, or a container), using operation group clients allows an application to cache the top level client and create instances of operation group clients on demand.  In addition, if there is an expensive shared resource (e.g. AMQP connection), operation groups clients are preferred, as they naturally lead to resource sharing.
+
+{% include requirement/SHOULD id="dotnet-service-client-entry-point" %} use the `HttpPipeline` that belongs to the type providing the factory method to make network calls to the service from the operation group client.  An exception to this might be if an operation group client needs different pipeline policies than the parent client.
+{% include requirement/MUSTNOT id="dotnet-operation-group-client-no-constructor" %} provide a public constructor on an operation group client.  Operation group clients are non-instantiable by design.
+{% include requirement/MUST id="dotnet-operation-group-client-mocking" %} provide a protected parameterless constructor on operation group clients for mocking.
 
 ##### Choosing between Service Clients and Operation Group Clients {#dotnet-choosing-client-types}
 
