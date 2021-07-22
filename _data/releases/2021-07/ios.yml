@@ -1,0 +1,23 @@
+entries:
+- Name: AzureCommunicationCalling
+  Version: 1.1.0
+  DisplayName: Communication Calling
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationCalling_1.1.0/sdk/communication/AzureCommunicationCalling/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - `CallAgent` and `CallClient` now have `dispose` API to explicitly delete objects instead of relying on ARC.
+- Name: AzureCommunicationCommon
+  Version: 1.0.1
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationCommon_1.0.1/sdk/communication/AzureCommunicationCommon/CHANGELOG.md
+  ChangelogContent: |-
+    #### New Features
+    - Removing dependency on AzureCore
+    - `StaticTokenCredential` and `CommunicationTokenCredential` now throw `NSError` instead of an `AzureError`.
+
