@@ -439,7 +439,7 @@ Request logging will be done automatically by the `HttpPipeline`.  If a client l
 
 {% include requirement/MUST id="dotnet-tracing-eventsource-singleton" %} define and use a singleton instance of `EventSource`:
 
-{% include requirement/MUST id="dotnet-tracing-eventsource-traits" %} define `AzureEventSource` trait with value `true` to make the `EventSource` discoverable by listeners (you can use `AzureEventSourceListener.TraitName` `AzureEventSourceListener.TraitValue` constants):
+{% include requirement/MUST id="dotnet-tracing-eventsource-traits" %} use the `AzureEventSource` as the base type.
 
 {% include requirement/MUST id="dotnet-tracing-eventsource-name" %} set `EventSource` name to package name replacing `.` with `-` (i.e. . `Azure-Core` for `Azure.Core` package)
 
