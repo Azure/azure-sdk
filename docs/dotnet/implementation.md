@@ -431,6 +431,8 @@ Request logging will be done automatically by the `HttpPipeline`.  If a client l
 
 {% include requirement/MUST id="dotnet-tracing-eventsource" %} use `EventSource` to produce diagnostic events.
 
+{% include requirement/MUST id="dotnet-tracing-eventsource-base-class" %} use the `AzureEventSource` as the base class.
+
 {% include requirement/MUST id="dotnet-tracing-eventsource-logging-guidelines" %} follow the logging guidelines when implementing an `EventSource`.
 
 {% include requirement/MUST id="dotnet-tracing-eventsource-single" %} have a single `EventSource` type per library.
@@ -438,8 +440,6 @@ Request logging will be done automatically by the `HttpPipeline`.  If a client l
 {% include requirement/MUST id="dotnet-tracing-eventsource-internal" %} define `EventSource` class as `internal sealed`.
 
 {% include requirement/MUST id="dotnet-tracing-eventsource-singleton" %} define and use a singleton instance of `EventSource`:
-
-{% include requirement/MUST id="dotnet-tracing-eventsource-traits" %} use the `AzureEventSource` as the base type.
 
 {% include requirement/MUST id="dotnet-tracing-eventsource-name" %} set `EventSource` name to package name replacing `.` with `-` (i.e. . `Azure-Core` for `Azure.Core` package)
 
@@ -479,7 +479,7 @@ Sample `EventSource` declaration:
 ``` C#
 
 [EventSource(Name = EventSourceName)]
-internal sealed class AzureCoreEventSource : EventSource
+internal sealed class AzureCoreEventSource : AzureEventSource
 {
     private const string EventSourceName = "Azure-Core";
 
@@ -489,7 +489,7 @@ internal sealed class AzureCoreEventSource : EventSource
 
     public static AzureCoreEventSource Shared { get; } = new AzureCoreEventSource();
 
-    private AzureCoreEventSource() : base(EventSourceName, EventSourceSettings.Default, AzureEventSourceListener.TraitName, AzureEventSourceListener.TraitValue) { }
+    private AzureCoreEventSource() : base(EventSourceName) { }
 
     [NonEvent]
     public void MessageSent(Guid clientId, string messageBody)
