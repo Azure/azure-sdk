@@ -429,29 +429,42 @@ Request logging will be done automatically by the `HttpPipeline`.  If a client l
 
 #### EventSource
 
-{% include requirement/MUST id="dotnet-tracing-eventsource" %} use `EventSource` to produce diagnostic events.
+Azure SDKs use EventSource library as a logging mechanism.
+Most Azure SDKs with client methods that make a service request and deserialize the response won't need to define EventSource of their own as `Azure.Core` would provide HTTP request logging, retry logging etc. and the failures would be surfaced to customers as `Exceptions`.
+You should only log information that is not possible to infer from the result returned by the client.
 
-{% include requirement/MUST id="dotnet-tracing-eventsource-logging-guidelines" %} follow the logging guidelines when implementing an `EventSource`.
+For example:
 
-{% include requirement/MUST id="dotnet-tracing-eventsource-single" %} have a single `EventSource` type per library.
+- ✔ **GOOD** `Azure.Identity` logging which credential type was selected when using `DefaultAzureCredential` - it's impossible to determine from the returned `AccessToken` with credential was used to retrieve it.
+- ✔ **GOOD** `Azure.Security.KeyVault` logging whether an encryption operation was performed locally or remotely - the client can decide to run encryption locally or remotely depending on key properties, the decision is invisible to consumer.
+- ❌**BAD** Logging properties of the request or response - `Azure-Core` already does this as part of the pipeline.
+- ❌**BAD** Logging exception details before throwing - customers would be able to decide if they want the exception to be logged or not.
 
-{% include requirement/MUST id="dotnet-tracing-eventsource-internal" %} define `EventSource` class as `internal sealed`.
+{% include requirement/MUST id="dotnet-tracing-eventsource" %} use [EventSource library](https://github.com/microsoft/dotnet-samples/blob/master/Microsoft.Diagnostics.Tracing/EventSource/docs/EventSource.md) to produce diagnostic events.
 
-{% include requirement/MUST id="dotnet-tracing-eventsource-singleton" %} define and use a singleton instance of `EventSource`:
+{% include requirement/MUST id="dotnet-tracing-eventsource-type-name" %} use the package name with `EventSource` suffix for the class name (i.e. . `AzureCoreEventSource` for `Azure.Core` package).
 
-{% include requirement/MUST id="dotnet-tracing-eventsource-traits" %} define `AzureEventSource` trait with value `true` to make the `EventSource` discoverable by listeners (you can use `AzureEventSourceListener.TraitName` `AzureEventSourceListener.TraitValue` constants):
+{% include requirement/MUST id="dotnet-tracing-eventsource-base-class" %} use the `AzureEventSource` as the base class.
 
-{% include requirement/MUST id="dotnet-tracing-eventsource-name" %} set `EventSource` name to package name replacing `.` with `-` (i.e. . `Azure-Core` for `Azure.Core` package)
+{% include requirement/MUST id="dotnet-tracing-eventsource-logging-guidelines" %} follow the logging guidelines when implementing an `[Package]EventSource`.
+
+{% include requirement/MUST id="dotnet-tracing-eventsource-single" %} have a single `[Package]EventSource` type per library.
+
+{% include requirement/MUST id="dotnet-tracing-eventsource-internal" %} define `[Package]EventSource` class as `internal sealed`.
+
+{% include requirement/MUST id="dotnet-tracing-eventsource-singleton" %} define and use a singleton instance of `[Package]EventSource`:
+
+{% include requirement/MUST id="dotnet-tracing-eventsource-name" %} set `[Package]EventSource` name to package name replacing `.` with `-` (i.e. . `Azure-Core` for `Azure.Core` package)
 
 {% include requirement/MUST id="dotnet-tracing-eventsource-event-message" %} have `Message` property of EventAttribute set for all events.
 
-{% include requirement/MUST id="dotnet-tracing-eventsource-public-api" %} treat `EventSource` name, guid, event id and parameters as public API and follow the appropriate versioning rules.
+{% include requirement/MUST id="dotnet-tracing-eventsource-public-api" %} treat `[Package]EventSource` name, guid, event id and parameters as public API and follow the appropriate versioning rules.
 
 {% include requirement/SHOULD id="dotnet-tracing-eventsource-is-enabled" %} check IsEnabled property before doing expensive work (formatting parameters, calling ToString, allocations etc.)
 
 {% include requirement/MUSTNOT id="dotnet-tracing-eventsource-event-param-exception" %} define events with `Exception` parameters as they are not supported by `EventSource`.
 
-{% include requirement/MUST id="dotnet-tracing-eventsource-test" %} have a test that asserts `EventSource` name, guid and generates the manifest to verify that event source is correctly defined.
+{% include requirement/MUST id="dotnet-tracing-eventsource-test" %} have a test that asserts `[Package]EventSource` name, guid and generates the manifest to verify that event source is correctly defined.
 
 {% include requirement/MUST id="dotnet-tracing-eventsource-test-events" %} test that expected events are produced when appropriate. `TestEventListener` class can be used to collect events. Make sure you mark the test as `[NonParallelizable]`.
 
@@ -479,7 +492,7 @@ Sample `EventSource` declaration:
 ``` C#
 
 [EventSource(Name = EventSourceName)]
-internal sealed class AzureCoreEventSource : EventSource
+internal sealed class AzureCoreEventSource : AzureEventSource
 {
     private const string EventSourceName = "Azure-Core";
 
@@ -489,7 +502,7 @@ internal sealed class AzureCoreEventSource : EventSource
 
     public static AzureCoreEventSource Shared { get; } = new AzureCoreEventSource();
 
-    private AzureCoreEventSource() : base(EventSourceName, EventSourceSettings.Default, AzureEventSourceListener.TraitName, AzureEventSourceListener.TraitValue) { }
+    private AzureCoreEventSource() : base(EventSourceName) { }
 
     [NonEvent]
     public void MessageSent(Guid clientId, string messageBody)
