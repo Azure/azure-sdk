@@ -176,4 +176,20 @@ entries:
     **Features**
 
     - Added operation group BackupsOperations
+- Name: azure-mgmt-compute
+  Version: 22.1.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_22.1.0/sdk/compute/azure-mgmt-compute/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model VirtualMachineUpdate has a new parameter capacity_reservation
+    - Model VirtualMachine has a new parameter capacity_reservation
+    - Model VirtualMachineScaleSet has a new parameter spot_restore_policy
+    - Model VirtualMachineScaleSetVMProfile has a new parameter capacity_reservation
+    - Added operation group CapacityReservationsOperations
+    - Added operation group CapacityReservationGroupsOperations
 
