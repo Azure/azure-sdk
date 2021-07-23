@@ -1207,4 +1207,22 @@ entries:
     - Upgrade to [Azure Key Vault Secret 4.3.1](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md#431-2021-07-08).
     - Upgrade to [Azure Spring Data Cosmos 3.9.0](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md#390-2021-07-08).
   GroupId: com.azure.spring
+- Name: azure-storage-blob-cryptography
+  Version: 12.13.0
+  DisplayName: Storage - Blobs Cryptography
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-cryptography_12.13.0/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md
+  ChangelogContent: '- Added support to get a blob client that uses an encryption scope and customer provided key.'
+  GroupId: com.azure
+- Name: azure-storage-blob
+  Version: 12.13.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob_12.13.0/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: '- Added support to get a blob client that uses an encryption scope and customer provided key.'
+  GroupId: com.azure
 
