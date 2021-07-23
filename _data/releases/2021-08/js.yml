@@ -143,4 +143,26 @@ entries:
     #### Features Added
 
     - Adopted target ES2017 to reduce bundle size.
+- Name: '@azure/core-http'
+  Version: 2.1.0
+  DisplayName: Core - HTTP
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_2.1.0/sdk/core/core-http/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `tracingPolicy` will no longer inject invalid traceparent headers if an incorrect tracer implementation is used.
+    - `proxyPolicy` now allows passing in a list of no-proxy patterns to override global ones loaded from NO_PROXY environment variable [PR #16414](https://github.com/Azure/azure-sdk-for-js/pull/16414)
+- Name: '@azure/communication-common'
+  Version: 1.1.0
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-common_1.1.0/sdk/communication/communication-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
 
