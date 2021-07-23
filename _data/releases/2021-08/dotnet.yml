@@ -257,4 +257,60 @@ entries:
   ChangelogContent: |-
     - TenantId can now be discovered through the service challenge response, when using a TokenCredential for authorization.
     - A new property is now available on the ClientOptions called `EnableTenantDiscovery`. If set to true, the client will attempt an initial unauthorized request to the service to prompt a challenge containing the tenantId hint.
+- Name: Azure.Storage.Files.DataLake
+  Version: 12.8.0-beta.2
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.DataLake_12.8.0-beta.2/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Storage.Queues
+  Version: 12.8.0-beta.2
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.8.0-beta.2/sdk/storage/Azure.Storage.Queues/CHANGELOG.md
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Storage.Blobs
+  Version: 12.10.0-beta.2
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.10.0-beta.2/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Storage.Common
+  Version: 12.9.0-beta.2
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.9.0-beta.2/sdk/storage/Azure.Storage.Common/CHANGELOG.md
+  ChangelogContent: '- This release changes the dependency on Azure.Core to v1.16.0'
+- Name: Azure.Storage.Blobs.ChangeFeed
+  Version: 12.0.0-preview.15
+  DisplayName: Storage - Blobs ChangeFeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.15/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.7.0-beta.2
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.7.0-beta.2/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Storage.Files.Shares
+  Version: 12.8.0-beta.2
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.Shares_12.8.0-beta.2/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
 
