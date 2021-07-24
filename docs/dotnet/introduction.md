@@ -357,11 +357,7 @@ For example, the Azure Storage Blobs library provides a `BlockBlobClient` in the
 
 {% include requirement/MAY id="dotnet-service-client-direct-resource-urls" %} consider providing an additional service client for a service resource that is commonly referenced with a URL that points to it directly.  This will allow users to instantiate a client directly from the resource endpoint, without needing to parse the URL to obtain the root service endpoint.
 
-{% include requirement/MAY id="dotnet-service-client-resource-hierarchy" %} consider providing additional service clients for each level in a resource hierarchy.  For service clients representing resources in a hierarchy, you should also provide:
-
-* A `<parent>.Get<child>Client(...)` method to retrieve the client for the named child
-* A method `<parent>.Create<child>(...)` that creates a child resource
-* A method `<parent>.Delete<child>(...)` that deletes a child resource
+{% include requirement/MAY id="dotnet-service-client-resource-hierarchy" %} consider providing additional service clients for each level in a resource hierarchy.  For service clients representing resources in a hierarchy, you should also provide a `<parent>.Get<child>Client(...)` method to retrieve the client for the named child.
 
 For example, the Azure Storage service provides an account that contains zero or more containers, which in turn contain zero or more blobs. The Azure SDK storage library provides service clients for each level: `BlobServiceClient`, `BlobContainerClient`, and `BlobClient`.  
 
@@ -369,16 +365,12 @@ For example, the Azure Storage service provides an account that contains zero or
 public class BlobServiceClient {
     // ...
     public virtual BlobContainerClient GetBlobContainerClient(string blobContainerName);
-    public virtual Response<BlobContainerClient> CreateBlobContainer(string blobContainerName, CancellationToken cancellationToken = default);
-    public virtual Response DeleteBlobContainer(string blobContainerName, CancellationToken cancellationToken = default);
     // ...
 }
 
 public class BlobContainerClient {
     // ...
     public virtual BlobClient GetBlobClient(string blobName);
-    public virtual Response CreateBlob(string blobName, CancellationToken cancellationToken = default);
-    public virtual Response DeleteBlob(string blobName, CancellationToken cancellationToken = default);
     // ...
 }
 
