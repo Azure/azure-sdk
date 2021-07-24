@@ -317,6 +317,8 @@ public class ContainerRepository {
 
 {% include requirement/MUST id="dotnet-operation-group-client-factory-methods" %} provide factory methods to create an operation group client. A method that creates an operation group client must have the suffix `Client`, for example, `cosmos.GetDatabaseClient();`.
 
+[Please note that the above guideline is provisional.]
+
 Operation group clients commonly store state or information that uniquely identifies the resource it refers to.  If this is the case, this state should be passed to the operation group client factory method, and exposed on the operation group client to assist developers with debugging.
 
 {% include requirement/SHOULD id="dotnet-operation-group-client-factory-methods-parameters" %} take any information needed to uniquely identify a resource as parameters to the operation group client factory method, if such information is available.
