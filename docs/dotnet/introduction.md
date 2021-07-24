@@ -274,7 +274,7 @@ See [Support for Mocking](#dotnet-mocking) for details.
 
 #### Operation Group Clients {#dotnet-operation-group-clients}
 
-There are two kinds of clients: _service clients_ and _operation group clients_. Service clients can be instantiated. Operation group clients can only be created by calling factory methods on other clients (most commonly on service clients).
+There are two kinds of clients: _service clients_ and _operation group clients_. Service clients can be instantiated and [have the `Client` suffix](#dotnet-client-naming). Operation group clients can only be created by calling factory methods on other clients (most commonly on service clients) and do not have the client suffix.
 
 As discussed above, the [service client](#dotnet-client) is the entry point to the API for an Azure service -- from it, library users can invoke all operations the service provides and can easily implement the most common scenarios.  Where it will simplify an API's design, groups of service calls can be organized around smaller operation group client types.  
 
