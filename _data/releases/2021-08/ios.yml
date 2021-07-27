@@ -26,4 +26,14 @@ entries:
     - CallKit bug fixes with sometimes call gets disconnected immediately after picking up the call.
     - Intermittent freezing of UI thread issue is fixed when for e.g. reading property `remoteParticipants` in a `Call`.
     - `Hold` and `Resume` support fixed with CallKit enabled `CallAgent`'s.
+- Name: AzureCommunicationChat
+  Version: 1.0.1
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationChat_1.0.1/sdk/communication/AzureCommunicationChat/CHANGELOG.md
+  ChangelogContent: |-
+    #### New Features
+    - ChatClient sets `applicationId` to be empty by default instead of using the bundle identifier
 
