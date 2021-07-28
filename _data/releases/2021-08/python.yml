@@ -271,4 +271,20 @@ entries:
 
     **Notes**
     - Deprecated new_name in for undelete container operation
+- Name: azure-storage-file-datalake
+  Version: 12.5.0b1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.5.0b1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    **New features**
+    - Added support for quick query parquet
+
+    **Fixes**
+    - Fixed PathProperties class init issue (#18490)
+
+    **Notes**
+    - Deprecated new_name in for undelete filesystem operation
 
