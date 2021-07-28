@@ -192,4 +192,63 @@ entries:
     - Model VirtualMachineScaleSetVMProfile has a new parameter capacity_reservation
     - Added operation group CapacityReservationsOperations
     - Added operation group CapacityReservationGroupsOperations
+- Name: azure-storage-file-share
+  Version: 12.6.0b1
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.6.0b1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    **New features**
+    - Added OAuth support for file copy source.
+
+    **Fixes**
+    - Ensured that download fails if file modified mid download
+- Name: azure-mgmt-media
+  Version: 8.0.0
+  DisplayName: Resource Management - Media Services
+  ServiceName: Media Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-media_8.0.0/sdk/media/azure-mgmt-media/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model JobOutput has a new parameter preset_override
+    - Model BuiltInStandardEncoderPreset has a new parameter configurations
+    - Model MediaServiceIdentity has a new parameter user_assigned_identities
+    - Model JobOutputAsset has a new parameter preset_override
+    - Model MediaService has a new parameter public_network_access
+    - Model MediaServiceUpdate has a new parameter public_network_access
+    - Model StorageAccount has a new parameter status
+    - Model StorageAccount has a new parameter identity
+    - Model AccountEncryption has a new parameter status
+    - Model AccountEncryption has a new parameter identity
+    - Model LiveOutput has a new parameter system_data
+
+    **Breaking changes**
+
+    - Model OperationCollection no longer has parameter odata_next_link
+- Name: azure-mgmt-media
+  Version: 4.1.0
+  DisplayName: Resource Management - Media Services
+  ServiceName: Media Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-media_4.1.0/sdk/media/azure-mgmt-media/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model MediaServiceIdentity has a new parameter user_assigned_identities
+    - Model MediaServiceUpdate has a new parameter public_network_access
+    - Model BuiltInStandardEncoderPreset has a new parameter configurations
+    - Model AccountEncryption has a new parameter identity
+    - Model AccountEncryption has a new parameter status
+    - Model JobOutput has a new parameter preset_override
+    - Model JobOutputAsset has a new parameter preset_override
+    - Model LiveOutput has a new parameter system_data
+    - Model StorageAccount has a new parameter identity
+    - Model StorageAccount has a new parameter status
+    - Model MediaService has a new parameter public_network_access
 
