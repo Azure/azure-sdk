@@ -336,4 +336,12 @@ entries:
     - Added new overloads for sendmessage and updatemessage operations with options : SendChatMessageOptions and UpdateChatMessageOptions.
     - Added support for user display name in typing notifications.
     - Added new overloads for sendtypingnotification operation with options : TypingNotificationOptions.
+- Name: Azure.AI.Language.QuestionAnswering
+  Version: 1.0.0-beta.1
+  DisplayName: Question Answering
+  ServiceName: Cognitive Language
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.QuestionAnswering_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering/CHANGELOG.md
+  ChangelogContent: '- Initial release which supports querying of knowledge bases and text records.'
 
