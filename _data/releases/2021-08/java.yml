@@ -1626,4 +1626,16 @@ entries:
 
     * `withTypePropertiesType(models.ReportType)` was added
   GroupId: com.azure.resourcemanager
+- Name: azure-messaging-webpubsub
+  Version: 1.0.0-beta.3
+  DisplayName: Web PubSub
+  ServiceName: Web PubSub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-webpubsub_1.0.0-beta.3/sdk/webpubsub/azure-messaging-webpubsub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Changed sync and async clients to use protocol methods that uses `RequestOptions` and `BinaryData` to create HTTP
+    request.
+  GroupId: com.azure
 
