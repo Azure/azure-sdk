@@ -477,4 +477,73 @@ entries:
     - List operations now return an iterable result that follows the `PagedAsyncIterableIterator` interface as opposed to the previous model where you had to make a new request using the link to the next page.
     - Long running operations i.e. the Lro related object returned by methods whose names started with `begin`, now uses `pollUntilDone` to check whether the request is finished, instead of `pollUntilFinished`. To get the final result, use the corresponding method that will have the suffix `AndWait`.
     - The SDK only supports ECMAScript 2015 (ES6) and beyond, all projects that referenced this SDK should be upgraded to use ES6.
+- Name: '@azure/storage-file-share'
+  Version: 12.7.0
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.7.0/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    - Support for Node.js 8 and IE 11 has been dropped. Please see our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    - Changed TS compilation target to ES2017 in order to produce smaller bundles and use more native platform features
+    - Updated our internal core package dependencies to their latest versions in order to add support for Opentelemetry 1.0.0 which is compatible with the latest versions of our other client libraries.
+- Name: '@azure/web-pubsub-express'
+  Version: 1.0.0-beta.3
+  DisplayName: Web PubSub CloudEvents Handlers for Express
+  ServiceName: Web PubSub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub-express_1.0.0-beta.3/sdk/web-pubsub/web-pubsub-express/CHANGELOG.md
+  ChangelogContent: |-
+    - Support reading and setting connection states, sample usage:
+    ```js
+    const handler = new WebPubSubEventHandler("chat", ["https://xxx.webpubsub.azure.com"], {
+    handleConnect(req, res) {
+    // You can set the state for the connection, it lasts throughout the lifetime of the connection
+    res.setState("calledTime", 1);
+    res.success();
+    },
+    handleUserEvent(req, res) {
+    var calledTime = req.context.states.calledTime++;
+    console.log(calledTime);
+    // You can also set the state here
+    res.setState("calledTime", calledTime);
+    res.success();
+    }
+    });
+    ```
+- Name: '@azure/storage-blob'
+  Version: 12.7.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.7.0/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    - Support for Node.js 8 and IE 11 has been dropped. Please see our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    - Changed TS compilation target to ES2017 in order to produce smaller bundles and use more native platform features
+    - Updated our internal core package dependencies to their latest versions in order to add support for Opentelemetry 1.0.0 which is compatible with the latest versions of our other client libraries.
+- Name: '@azure/storage-file-datalake'
+  Version: 12.6.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.6.0/sdk/storage/storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    - Support for Node.js 8 and IE 11 has been dropped. Please see our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    - Changed TS compilation target to ES2017 in order to produce smaller bundles and use more native platform features
+    - Updated our internal core package dependencies to their latest versions in order to add support for Opentelemetry 1.0.0 which is compatible with the latest versions of our other client libraries.
+- Name: '@azure/storage-queue'
+  Version: 12.6.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.6.0/sdk/storage/storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    - Support for Node.js 8 and IE 11 has been dropped. Please see our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    - Changed TS compilation target to ES2017 in order to produce smaller bundles and use more native platform features
+    - Updated our internal core package dependencies to their latest versions in order to add support for Opentelemetry 1.0.0 which is compatible with the latest versions of our other client libraries.
 
