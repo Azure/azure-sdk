@@ -1734,4 +1734,62 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-batch_12.11.0-beta.1/sdk/storage/azure-storage-blob-batch/CHANGELOG.md
   ChangelogContent: '- Added support for the 2020-10-02 service version.'
   GroupId: com.azure
+- Name: azure-resourcemanager-webpubsub
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Web PubSub
+  ServiceName: Web PubSub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-webpubsub_1.0.0-beta.1/sdk/webpubsub/azure-resourcemanager-webpubsub/CHANGELOG.md
+  ChangelogContent: '- Azure Resource Manager WebPubSub client library for Java. This package contains Microsoft Azure SDK for WebPubSub Management SDK. REST API for Azure WebPubSub Service. Package tag package-2021-06-01-preview. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).'
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-postgresqlflexibleserver
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - PostgreSQL Flexible Server
+  ServiceName: PostgreSQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-postgresqlflexibleserver_1.0.0-beta.2/sdk/postgresqlflexibleserver/azure-resourcemanager-postgresqlflexibleserver/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    * `models.Identity` was removed
+
+    * `models.ResourceIdentityType` was removed
+
+    ##### `models.Server` was modified
+
+    * `identity()` was removed
+
+    ##### `models.Server$Definition` was modified
+
+    * `withIdentity(models.Identity)` was removed
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-postgresqlflexibleserver
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - PostgreSQL Flexible Server
+  ServiceName: PostgreSQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-postgresqlflexibleserver_1.0.0-beta.1/sdk/postgresqlflexibleserver/azure-resourcemanager-postgresqlflexibleserver/CHANGELOG.md
+  ChangelogContent: '- Azure Resource Manager PostgreSql client library for Java. This package contains Microsoft Azure SDK for PostgreSql Management SDK. The Microsoft Azure management API provides create, read, update, and delete functionality for Azure PostgreSQL resources including servers, databases, firewall rules, VNET rules, security alert policies, log files and configurations with new business model. Package tag package-flexibleserver-2021-06. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).'
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-azurearcdata
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Arc Data
+  ServiceName: Arc Data
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-azurearcdata_1.0.0-beta.1/sdk/azurearcdata/azure-resourcemanager-azurearcdata/CHANGELOG.md
+  ChangelogContent: '- Azure Resource Manager AzureArcData client library for Java. This package contains Microsoft Azure SDK for AzureArcData Management SDK. The AzureArcData management API provides a RESTful set of web APIs to manage Azure Data Services on Azure Arc Resources. Package tag package-2021-08-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).'
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-security
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Security Center
+  ServiceName: Security Center
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-security_1.0.0-beta.1/sdk/security/azure-resourcemanager-security/CHANGELOG.md
+  ChangelogContent: '- Azure Resource Manager Security client library for Java. This package contains Microsoft Azure SDK for Security Management SDK. API spec for Microsoft.Security (Azure Security Center) resource provider. Package tag package-composite-v3. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).'
+  GroupId: com.azure.resourcemanager
 
