@@ -651,15 +651,58 @@ Long-running operations are uncommon in a mobile context. If you feel like you n
 
 #### Conditional Request Methods
 
-> TODO
+Conditional requests are normally performed using HTTP headers. The primary usage provides headers that match the ETag to some known value. The ETag is an opaque identifier that represents a single version of a resource. For example, adding the following header will translate to "if the record's version, specified by the ETag, is not the same".
+
+{% highlight text %} If-Not-Match: "etag-value" {% endhighlight %}
+
+With headers, tests are possible for the following:
+
+Unconditionally (no additional headers)
+If (not) modified since a version (If-Match and If-Not-Match)
+If (not) modified since a date (If-Modified-Since and If-Unmodified-Since)
+If (not) present (If-Match and If-Not-Match with a ETag=* value)
+Not all services support all of these semantics and may not support any of them. Developers have varying levels of understanding of the ETag and conditional requests, so it is best to abstract this concept from the API surface. There are two types of conditional requests we need to be concerned with:
+
+Safe conditional requests (e.g. GET)
+
+These are typically used to save bandwidth in an "update cache" scenario, i.e. I have a cached value, only send me the data if what the service has is newer than my copy. These return either a 200 or a 304 status code, indicating the value was not modified, which tells the caller that their cached value is up to date.
+
+Unsafe conditional requests (e.g. POST, PUT, or DELETE)
+
+These are typically used to prevent losing updates in an optimistic concurrency scenario, i.e. I've modified the cached value I'm holding, but don't update the service version unless it has the same copy I've got. These return either a success or a 412 error status code, indicating the value was modified, to indicate to the caller that they'll need to retry their update if they want it to succeed.
+
+These two cases are handled differently in client libraries. However, the form of the call is the same in both cases. The signature of the method should be:
+
+{% highlight text %} client.method(..., withOptions: RequestOptions) {% endhighlight %}
+
+The `withOptions` field provides preconditions to the HTTP request. The Etag value will be retrieved from the item that is passed into the method where possible, and method arguments where not possible. The form of the method will be modified based on idiomatic usage patterns in the language of choice. In cases where the ETag value is not known, the operation cannot be conditional. If the library developer does not need to support advanced usage of precondition headers, they can add a boolean parameter that is set to true to establish the condition. For example, use one of the following boolean names instead of the conditions operator:
+
+`onlyIfChanged`
+`onlyIfUnchanged`
+`onlyIfMissing`
+`onlyIfPresent`
+    
+In all cases, the conditional expression is "opt-in", and the default is to perform the operation unconditionally.
+
+The return value from a conditional operation must be carefully considered. For safe operators (e.g. GET), return a response that will throw if the value is accessed (or follow the same convention used fro a 204 No Content response), since there is no value in the body to reference. For unsafe operators (e.g. PUT, DELETE, or POST), throw a specific error when a Precondition Failed or Conflict result is received. This allows the consumer to do something different in the case of conflicting results.
+
+{% include requirement/SHOULD %} accept a conditions parameter (which takes an enumerated type) on service methods that allow a conditional check on the service.
+
+{% include requirement/SHOULD %} accept an additional boolean or enum parameter on service methods as necessary to enable conditional checks using ETag.
+
+{% include requirement/SHOULD %} include the ETag field as part of the object model when conditional operations are supported.
+
+{% include requirement/SHOULDNOT %} throw an error when a 304 Not Modified response is received from the service, unless such errors are idiomatic to the language.
+
+{% include requirement/SHOULD %} throw a distinct error when a 412 Precondition Failed response or a 409 Conflict response is received from the service due to a conditional check.
 
 ### Supporting Types
 
 #### Model Types
 
-Models are structures that consumers use to provide required information into client library methods. These structures typically represent the domain model or *logical entity*, a protocol neutral representation of a response.
+Models are objects (structs and classes) that consumers use to provide required information into client library methods. These structures typically represent the domain model or *logical entity*, a protocol-neutral representation of a response.
 
-{% include requirement/MUST id="ios-client-model-object" %} express client models as immutable structs rather than classes. Such a struct must express all properties of the model as `let` values, and have an initializer that accepts all properties of the model as parameters, with defaults provided for all optional parameters. For example:
+{% include requirement/SHOULD id="ios-client-model-object" %} express client models as immutable structs rather than classes. Such a struct must express all properties of the model as `let` values, and have an initializer that accepts all properties of the model as parameters, with defaults provided for all optional parameters. For example:
 
 {% highlight swift %}
 public struct FeatureFlagGroup {
@@ -684,11 +727,46 @@ public struct FeatureFlagGroup {
 
 #### Enumerations
 
-> TODO
+{% include requirement/MUST id="ios-enums" %} use an `enum` for parameters, properties, and return types when values are known.
+
+{% include requirement/MUST id="ios-enums-request-string-convertible" %} conform to the `RequestStringConvertible` protocol provided in Azure Core.
+    
+{% include requirement/MUST id="ios-naming-enum-camelcase" %} use camel casing names for enum values. `EnumType.foo` and `EnumType.twoWords` are valid, whereas `EnumType.Foo` and `EnumType.TWO_WORDS` are not.
+
+{% include requirement/MAY id="ios-expandable-enums" %} define an enum-like API that declares well-known fields but which can also contain unknown values returned from the service, or user-defined values passed to the service. An example expandable enum is shown below:
+
+```swift
+public enum ShapeEnum: RequestStringConvertible {
+    case custom(String)
+    case square
+    case circle
+    
+    var requestString: String {
+        switch self {
+        case let .custom(val):
+            return val
+        case .square:
+            return "square"
+        case .circle:
+            return "circle"
+        }
+    }
+}
+```
+
+{% include requirement/MUST id="ios-enums-no-future-growth" %} use an regular `enum` only if the enum values are known to not change like days of a week, months in a year etc. 
+
+{% include requirement/MUST id="ios-enums-future-growth" %} define an expandable enum for enumerations if the values could expand in the future.
 
 #### Using Azure Core Types
 
-> TODO
+{% include requirement/MUST id="ios-core-types" %} make use of packages in Azure Core to provide behavior consistent across all Azure SDK libraries. This includes, but is not limited to:
+
+* `PipelineClient`, `PipelineRequest`, `PipelineResponse`, etc. for http client, pipeline and related functionality.
+* `ClientLogger` for logging.
+* `PagedCollection` and `PagedItemSyncIterator` for returning paged results.
+
+See the [Azure Core README][Azure Core] for more details.
 
 #### Using Primitive Types
 
