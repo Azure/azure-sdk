@@ -344,4 +344,16 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.QuestionAnswering_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering/CHANGELOG.md
   ChangelogContent: '- Initial release which supports querying of knowledge bases and text records.'
+- Name: Azure.Core
+  Version: 1.17.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.17.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ClientOptions.Default` to configure defaults process-wide.
+    - Added `HttpPipelinePosition.BeforeTransport` to be able to add policies at the end of the pipeline before the transport.
 
