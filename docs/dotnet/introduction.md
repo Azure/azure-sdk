@@ -68,7 +68,7 @@ Azure services are exposed to .NET developers as one or more [service client](#d
 
 ### The Service Client {#dotnet-client}
 
-Service clients are the main starting points for developers calling Azure services with the Azure SDK.  Each client library should have at least one client in its main namespace, so it's easy to discover.  A user can dot-into the service’s namespace with Intellisense, search for the suffix “Client”, and quickly find the type they’ll need to get started communicating with the service over the network.  The guidelines in this section describe patterns for the design of a service client.
+Service clients are the main starting points for developers calling Azure services with the Azure SDK.  Each client library should have at least one client in its main namespace, so it's easy to discover.  The guidelines in this section describe patterns for the design of a service client.
 
 A service client should have the same shape as this code snippet:
 
@@ -317,7 +317,7 @@ public class ContainerRepository {
 
 {% include requirement/MUST id="dotnet-operation-group-client-factory-methods" %} provide factory methods to create an operation group client. A method that creates an operation group client must have the suffix `Client`, for example, `cosmos.GetDatabaseClient();`.
 
-[Please note that the above guideline is provisional.]
+{% include note.html content="Please note that this guideline is provisional." %}
 
 Operation group clients commonly store state or information that uniquely identifies the resource it refers to.  If this is the case, this state should be passed to the operation group client factory method, and exposed on the operation group client to assist developers with debugging.
 
