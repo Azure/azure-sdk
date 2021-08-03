@@ -1,5 +1,5 @@
 ---
-title: Azure SDK (July 2021)
+title: Azure SDK (August 2021)
 layout: post
 tags: release
 sidebar: releases_sidebar
@@ -11,7 +11,9 @@ You can find links to packages, code, and docs on our [Azure SDK Releases page](
 
 ## Release Highlights
 
-Welcome to the July release of the Azure SDK. Read more on our [July Release Blog](https://devblogs.microsoft.com/azure-sdk/azure-sdk-release-july-2021/)
+*
+*
+*
 
 ## Release Notes
 
