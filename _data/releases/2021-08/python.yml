@@ -297,4 +297,18 @@ entries:
   ChangelogContent: |-
     #### Features Added
     * Initial release - supports querying from text records and knowledge bases.
+- Name: azure-mgmt-apimanagement
+  Version: 2.1.0
+  DisplayName: Resource Management - API Management
+  ServiceName: API Management
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-apimanagement_2.1.0/sdk/apimanagement/azure-mgmt-apimanagement/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Model OperationResultContract has a new parameter id_properties_id
+    - Model OperationResultContract has a new parameter name
+    - Model OperationResultContract has a new parameter type
+    - Model TenantConfigurationSyncStateContract has a new parameter last_operation_id
 
