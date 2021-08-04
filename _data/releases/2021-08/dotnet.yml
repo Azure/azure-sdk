@@ -356,4 +356,15 @@ entries:
 
     - Added `ClientOptions.Default` to configure defaults process-wide.
     - Added `HttpPipelinePosition.BeforeTransport` to be able to add policies at the end of the pipeline before the transport.
+- Name: Azure.DigitalTwins.Core
+  Version: 1.3.0-beta.1
+  DisplayName: Digital Twins - Core
+  ServiceName: IoT
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.DigitalTwins.Core_1.3.0-beta.1/sdk/digitaltwins/Azure.DigitalTwins.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### New Features
+
+    - Added `DigitalTwinsQueryBuilder` under the  `Azure.DigitalTwins.Core.QueryBuilder.Fluent` and the `Azure.DigitalTwins.Core.QueryBuilder.Linq` namespaces to allow for the creation of ADT queries using fluent-style syntax to abstract the ADT query language from users. As of August 2021, these two query builders are trial features that will be shipped in preview before being potentially released in the future pending user feedback.
 
