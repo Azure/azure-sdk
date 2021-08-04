@@ -652,4 +652,17 @@ entries:
 
     - Class ComputeManagementClient has a new required parameter capacityReservationGroups
     - Class ComputeManagementClient has a new required parameter capacityReservations
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.2.0
+  DisplayName: Core Rest Pipeline
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.2.0/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Updated to use version 1.0.0-preview.13 of `@azure/core-tracing`.
+    - `tracingPolicy` will no longer inject invalid traceparent headers if an incorrect tracer implementation is used.
+    - `proxyPolicy` now allows passing in a list of no-proxy patterns to override global ones loaded from NO_PROXY environment variable [PR #16414](https://github.com/Azure/azure-sdk-for-js/pull/16414)
 
