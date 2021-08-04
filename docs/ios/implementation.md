@@ -48,7 +48,9 @@ The HTTP pipeline consists of a HTTP transport that is wrapped by multiple polic
 The following guidance applies to Swift [attributes](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html) :
 
 {% include requirement/SHOULD id="ios-attr-objc" %} use the `@objc` and `@objMembers` attributes ONLY when a Swift object must be exposed to ObjectiveC.
+
 {% include requirement/MUST id="ios-attr-available" %} use the `@available` attribute when implementation is contingent upon differences in supported OS or Swift versions.
+
 {% include requirement/MUST id="ios-attr-available" %} use the `@available` attribute to manage breaking changes and transition customers away from deprecated APIs. For example:
 ```swift
 // usable but will issue a warning
@@ -64,6 +66,7 @@ func myUnavailableFunc() { ... }
 typealias BadProtocolName = BetterProtocolName
 ```
 {% include requirement/MUST id="ios-attr-escaping" %} use `@escaping` on completion handler closures.
+
 {% include requirement/MUST id="ios-attr-unspecified" %} contact the Azure SDK team if you are using an attribute not specified here.
 
 ## SDK Feature Implementation
