@@ -64,7 +64,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Azure Communication Services Common
 
-#### 1.0.0-beta.7 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/communication/azure-communication-common/CHANGELOG.md#100-beta7-2021-03-09))
+#### 1.0.0-beta.7 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/main/sdk/communication/azure-communication-common/CHANGELOG.md#100-beta7-2021-03-09))
 
 ##### Breaking Changes
 
@@ -86,7 +86,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Azure Communication Services Chat
 
-#### 1.0.0-beta.7 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/communication/azure-communication-chat/CHANGELOG.md#100-beta7-2021-03-09))
+#### 1.0.0-beta.7 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/main/sdk/communication/azure-communication-chat/CHANGELOG.md#100-beta7-2021-03-09))
 
 ##### New Features
 
@@ -109,7 +109,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Renamed `senderId` to `senderCommunicationIdentifier` in `ChatMessage` and `ChatMessageReadReceipt`.
 - Renamed `identifier` to `communicationIdentifier` in `ChatParticipant`.
 - Renamed `createdBy` to `createdByCommunicationIdentifier` in `ChatThread`.
-  
+
 ## Need help
 
 - For reference documentation visit the [Azure SDK for Android documentation](https://azure.github.io/azure-sdk-for-android/).

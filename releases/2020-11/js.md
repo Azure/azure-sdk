@@ -62,14 +62,14 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Service Bus
 
-#### @azure/service-bus [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md)
+#### @azure/service-bus [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/servicebus/service-bus/CHANGELOG.md)
 
 This release marks the general availability of version 7 of the `@azure/service-bus` package.
 
 ##### Breaking Changes on @azure/service-bus@7.0.0
 
-- Please see the [migration guide to move from Service Bus V1 to Service Bus V7](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/migrationguide.md) to understand the major breaking changes.
-- For all the updates in version `7.0.0`(since version `1.1.x`) across multiple previews, check out the [Service Bus changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/CHANGELOG.md#700-2020-11-23)
+- Please see the [migration guide to move from Service Bus V1 to Service Bus V7](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/servicebus/service-bus/migrationguide.md) to understand the major breaking changes.
+- For all the updates in version `7.0.0`(since version `1.1.x`) across multiple previews, check out the [Service Bus changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/servicebus/service-bus/CHANGELOG.md#700-2020-11-23)
 
 ##### New Features on @azure/service-bus@7.0.0
 
@@ -80,7 +80,7 @@ This release marks the general availability of version 7 of the `@azure/service-
 
 ### Identity
 
-#### @azure/identity [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/identity/identity/CHANGELOG.md)
+#### @azure/identity [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity/CHANGELOG.md)
 
 We're glad to announce a new major release of our Identity package. This release includes standardized `ManagedIdentityCredential` support across languages, as well as improvements to `VisualStudioCodeCredential`, `DeviceCodeCredential` and `InteractiveBrowserCredential`.
 
@@ -96,7 +96,7 @@ We're glad to announce a new major release of our Identity package. This release
 
 ### Azure Storage
 
-#### @azure/storage-blob [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/CHANGELOG.md)
+#### @azure/storage-blob [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/CHANGELOG.md)
 
 We are releasing to add support for new service features in Azure Storage Service API version 2020-02-10.
 
@@ -104,19 +104,19 @@ We are releasing to add support for new service features in Azure Storage Servic
 
 - Added `BlockBlobClient.uploadData(data: Buffer | Blob | ArrayBuffer | ArrayBufferView, options)` for parallel uploading. It's available in both Node.js and browsers.
 
-#### @azure/storage-file-datalake [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/CHANGELOG.md)
+#### @azure/storage-file-datalake [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-file-datalake/CHANGELOG.md)
 
 ##### Major Fixes on @azure/storage-file-datalake@12.2.0
 
 - Fixed an issue where `DataLakePathClient.move()` will give an `InvalidSourceUri` error when the copy source name contains characters that need to be URL encoded.
 
-#### @azure/storage-file-share [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/CHANGELOG.md)
+#### @azure/storage-file-share [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-file-share/CHANGELOG.md)
 
 ##### New Features on @azure/storage-file-share@12.3.0
 
 - Added `ShareClient.setProperties()`, which can be used to set both Share Tier and Share Quota.
 
-#### storage-queue [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/CHANGELOG.md)
+#### storage-queue [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-queue/CHANGELOG.md)
 
 ##### New Features on @azure/storage-queue@12.2.0
 
@@ -124,7 +124,7 @@ We are releasing to add support for new service features in Azure Storage Servic
 
 ### Event Hubs
 
-#### @azure/event-hubs [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/CHANGELOG.md).
+#### @azure/event-hubs [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/eventhub/event-hubs/CHANGELOG.md).
 
 We're releasing an Azure Event Hubs client patch update with bug fixes.
 
@@ -134,13 +134,13 @@ We're releasing an Azure Event Hubs client patch update with bug fixes.
 
 ### Azure Tables
 
-#### @azure/data-tables [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/tables/data-tables/CHANGELOG.md).
+#### @azure/data-tables [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/tables/data-tables/CHANGELOG.md).
 
 We're releasing a new preview of our Azure Tables library. System properties `odata.etag` and `Timestamp` are renamed to `etag` and `timestamp` to be more idiomatic with the JavaScript ecosystem.
 
 ### Metrics Advisor
 
-#### @azure/ai-metrics-advisor [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/metricsadvisor/ai-metrics-advisor/CHANGELOG.md)
+#### @azure/ai-metrics-advisor [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/metricsadvisor/ai-metrics-advisor/CHANGELOG.md)
 
 This version 1.0.0-beta.2  incorporates feedback from UX Studies and Architecture Board Review.
 
@@ -151,7 +151,7 @@ This version 1.0.0-beta.2  incorporates feedback from UX Studies and Architectur
 
 ##### Breaking Changes on @azure/ai-metrics-advisor@1.0.0-beta.2
 
-- Various renames of types, methods, and properties to improve the API surface.  Please see the [CHANGELOG](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/metricsadvisor/ai-metrics-advisor/CHANGELOG.md) for more details.
+- Various renames of types, methods, and properties to improve the API surface.  Please see the [CHANGELOG](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/metricsadvisor/ai-metrics-advisor/CHANGELOG.md) for more details.
 
 ### Communication
 
@@ -186,21 +186,21 @@ This version 1.0.0-beta.2  incorporates feedback from UX Studies and Architectur
 - Replaced `purchaseSearch` with `beginPurchaseReservation` which returns a poller for the long-running operation.
 - Replaced `releasePhoneNumbers` with `beginReleasePhoneNumbers` which returns a poller for the long-running operation.
 
-#### @azure/communication-chat [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-chat/CHANGELOG.md#100-beta3-2020-11-16)
+#### @azure/communication-chat [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/communication/communication-chat/CHANGELOG.md#100-beta3-2020-11-16)
 
 This release contains minor fixes.
 
-#### @azure/communication-common [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-common/CHANGELOG.md#100-beta3-2020-11-16)
+#### @azure/communication-common [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/communication/communication-common/CHANGELOG.md#100-beta3-2020-11-16)
 
 This release contains minor fixes.
 
-#### @azure/communication-sms [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-sms/CHANGELOG.md#100-beta3-2020-11-16)
+#### @azure/communication-sms [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/communication/communication-sms/CHANGELOG.md#100-beta3-2020-11-16)
 
 This release contains minor fixes.
 
 ### Form Recognizer
 
-#### @azure/ai-form-recognizer [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
+#### @azure/ai-form-recognizer [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md)
 
 This beta package targets Azure Form Recognizer API version  `2.1-preview.2`, and introduces support for its new form recognition features, including:
 
@@ -214,8 +214,8 @@ This beta package targets Azure Form Recognizer API version  `2.1-preview.2`, an
 - A `pages` option for the content recognition method `beginRecognizeContent` that specifies which pages in a multi-page document (a document with a content type of "application/pdf" or "image/tiff") should be analyzed, allowing for the analysis of only certain pages of a document.
 - Two new response fields:
   - A `boundingBox` property on recognized `FormTable` objects that indicates the extent of the entire table on the page (previously, only individual elements had `boundingBox`).
-  - An `appearance` property of `FormLine` objects that contains information about the line's appearance in the document such as its style (e.g. "handwritten"). 
-  
+  - An `appearance` property of `FormLine` objects that contains information about the line's appearance in the document such as its style (e.g. "handwritten").
+
 In addition to the above form recognition features, there is also a new set of model training features, including:
 
 - Creating composed models from an array of model GUIDs through the `beginCreateComposedModel` method of `FormTrainingClient`. Composed models combine a set of custom labeled models into a single model with a unique model GUID, and when the new composed model is used for recognition, it will insert a classification step that determines the most appropriate of its submodels to use for recognition. This feature also encompasses some new fields, including:
@@ -226,7 +226,7 @@ In addition to the above form recognition features, there is also a new set of m
 
 ### Text Analytics
 
-#### @azure/ai-text-analytics [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/CHANGELOG.md)
+#### @azure/ai-text-analytics [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/textanalytics/ai-text-analytics/CHANGELOG.md)
 
 This beta package targets Azure Text Analytics API version  `3.1-preview.3`, and introduces support for its new text analytics features, including:
 

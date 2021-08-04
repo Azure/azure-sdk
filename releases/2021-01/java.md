@@ -70,7 +70,7 @@ The Azure SDK team is pleased to announce our January 2021 client library releas
 #### Beta
 
 - Microsoft Azure Attestation (coming soon)
-- Microsoft Opentelemetry Exporter Azuremonitor  
+- Microsoft Opentelemetry Exporter Azuremonitor
 - Management Library - Healthbot Management
 - Management Library - Confluent
 - Java Keyvault JCA
@@ -483,32 +483,32 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-### Azure Storage Blob 12.10.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md#12100-2021-01-14)
+### Azure Storage Blob 12.10.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/storage/azure-storage-blob/CHANGELOG.md#12100-2021-01-14)
 - GA release
 
-### Azure Storage Blob Batch 12.8.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-batch/CHANGELOG.md#1280-2021-01-14)
+### Azure Storage Blob Batch 12.8.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/storage/azure-storage-blob-batch/CHANGELOG.md#1280-2021-01-14)
 - GA release
 
-### Azure Storage Blob Cryptography 12.10.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md#12100-2021-01-14)
+### Azure Storage Blob Cryptography 12.10.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md#12100-2021-01-14)
 - GA release
 
-### Azure Storage Common 12.10.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-common/CHANGELOG.md#12100-2021-01-14)
+### Azure Storage Common 12.10.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/storage/azure-storage-common/CHANGELOG.md#12100-2021-01-14)
 - GA release
 
-### Azure Storage File Datalake 12.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md#1240-2021-01-14)
+### Azure Storage File Datalake 12.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/storage/azure-storage-file-datalake/CHANGELOG.md#1240-2021-01-14)
 - GA release
 - Fixed bug where getFileClient and getSubDirectoryClient on DirectoryClient would throw IllegalArgumentException if either resource had special characters.
 
-### Azure Storage File Share 12.8.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/CHANGELOG.md#1280-2021-01-14)
+### Azure Storage File Share 12.8.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/storage/azure-storage-file-share/CHANGELOG.md#1280-2021-01-14)
 - GA release
 
-### Azure Storage Internal Avro 12.0.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-internal-avro/CHANGELOG.md#1202-2021-01-14)
+### Azure Storage Internal Avro 12.0.2 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/storage/azure-storage-internal-avro/CHANGELOG.md#1202-2021-01-14)
 - GA release
 
-### Azure Storage Queue 12.8.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-queue/CHANGELOG.md#1280-2021-01-14)
+### Azure Storage Queue 12.8.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/storage/azure-storage-queue/CHANGELOG.md#1280-2021-01-14)
 - GA release
 
-### Azure Core Http Netty 1.7.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-http-netty/CHANGELOG.md#171-2021-01-11)
+### Azure Core Http Netty 1.7.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core-http-netty/CHANGELOG.md#171-2021-01-11)
 
 #### Bug Fixes
 - Fixed a bug where environment proxy configurations were not sanitizing the non-proxy host string into a valid `Pattern` format. [#18156](https://github.com/Azure/azure-sdk-for-java/issues/18156)
@@ -517,12 +517,12 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Upgraded Netty from `4.1.53.Final` to `4.1.54.Final`.
 - Upgraded `reactor-netty` from `0.9.13.RELEASE` to `0.9.15.RELEASE`.
 
-### Azure Core Http Okhttp 1.4.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-http-okhttp/CHANGELOG.md#141-2021-01-11)
+### Azure Core Http Okhttp 1.4.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core-http-okhttp/CHANGELOG.md#141-2021-01-11)
 
 #### Bug Fixes
 - Fixed a bug where environment proxy configurations were not sanitizing the non-proxy host string into a valid `Pattern` format. [#18156](https://github.com/Azure/azure-sdk-for-java/issues/18156)
 
-### Azure Core Management 1.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-management/CHANGELOG.md#110-2021-01-11)
+### Azure Core Management 1.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core-management/CHANGELOG.md#110-2021-01-11)
 
 #### New Features
 - Added `MICROSOFT_GRAPH` to `AzureEnvironment`.
@@ -530,7 +530,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 #### Bug Fixes
 - Fixed long-running operation, PUT method, response 201 and Location, succeeded without poll.
 
-### Azure Cosmos 4.11.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-cosmos/CHANGELOG.md#4110-2021-01-15)
+### Azure Cosmos 4.11.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos/CHANGELOG.md#4110-2021-01-15)
 
 #### New Features
 - Added Beta API for Patch support.
@@ -542,12 +542,12 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Fixed RntbdServiceEnpoint close issue.
 - Improved the latency and throughput for writes when multiplexing.
 
-### Azure Core Experimental 1.0.0-beta.9 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-experimental/CHANGELOG.md#100-beta9-2021-01-11)
+### Azure Core Experimental 1.0.0-beta.9 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core-experimental/CHANGELOG.md#100-beta9-2021-01-11)
 
 #### Breaking Changes
 - Moved `BinaryData` to `azure-core`.
 
-### Microsoft Azure Batch 9.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/batch/microsoft-azure-batch/CHANGELOG.md#900-2021-01-08)
+### Microsoft Azure Batch 9.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/batch/microsoft-azure-batch/CHANGELOG.md#900-2021-01-08)
 
 #### New Features
 - Adds support for task slots
@@ -563,11 +563,11 @@ If you have a bug or feature request for one of the libraries, please post an is
   - `PoolSpecification.maxTasksPerNode` &rarr; `PoolSpecification.taskSlotsPerNode`
 
 
-### Azure Resourcemanager Confluent 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/confluent/azure-resourcemanager-confluent/CHANGELOG.md#100-beta1-2021-01-14)
+### Azure Resourcemanager Confluent 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/confluent/azure-resourcemanager-confluent/CHANGELOG.md#100-beta1-2021-01-14)
 
 - Azure Resource Manager Confluent client library for Java. This package contains Microsoft Azure SDK for Confluent Management SDK.  Package tag package-2020-03-01. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
-### Azure Core 1.12.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/CHANGELOG.md#1120-2021-01-11)
+### Azure Core 1.12.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core/CHANGELOG.md#1120-2021-01-11)
 
 #### New Features
 - Added `AzureSasCredential` and `AzureSasCredentialPolicy` to standardize the ability to add SAS tokens to HTTP requests.
@@ -579,12 +579,12 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Updated `reactor-core` from `3.3.11.RELEASE` to `3.3.12.RELEASE`.
 - Updated `netty-tcnative-boringssl-static` from `2.0.34.Final` to `2.0.35.Final`.
 
-### Azure Core Amqp 2.0.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-amqp/CHANGELOG.md#201-2021-01-11)
+### Azure Core Amqp 2.0.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core-amqp/CHANGELOG.md#201-2021-01-11)
 
 #### New Features
 - Changed connections from sharing the global `Schedulers.single()` to having a `Scheduler.newSingle()` per connection to improve performance.
 
-### Azure Messaging Eventhubs 5.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md#540-2021-01-14)
+### Azure Messaging Eventhubs 5.4.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md#540-2021-01-14)
 #### New features
 - Add `clientOptions` to `EventProcessorClientBuilder` to support setting user's application id used in user-agent
  property of the amqp connection.
@@ -594,7 +594,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Update `azure-core-amqp` dependency to `2.0.1`.
 - Update `azure-identity` dependency to `1.2.2`.
 
-### Azure Resourcemanager Healthbot 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/healthbot/azure-resourcemanager-healthbot/CHANGELOG.md#100-beta1-2021-01-07)
+### Azure Resourcemanager Healthbot 1.0.0-beta.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/healthbot/azure-resourcemanager-healthbot/CHANGELOG.md#100-beta1-2021-01-07)
 
 - Azure Resource Manager Healthbot client library for Java. This package contains Microsoft Azure SDK for Healthbot Management SDK. Microsoft Healthcare Bot is a cloud platform that empowers developers in Healthcare organizations to build and deploy their compliant, AI-powered virtual health assistants and health bots, that help them improve processes and reduce costs. Package tag package-2020-12-08. For documentation on how to use this package, please see [Azure Management Libraries for Java](https://aka.ms/azsdk/java/mgmt).
 
@@ -603,10 +603,10 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Renamed artifact to `azure-opentelemetry-exporter-azuremonitor`.
 - Replaced `instrumentationKey()` with `connectionString()` in the `AzureMonitorExporterBuilder`.
 
-### Azure Service Bus 7.0.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md#701-2021-01-15)
+### Azure Service Bus 7.0.1 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md#701-2021-01-15)
 - Improve performance because by upgrading azure-core-amqp dependency to 2.0.1.
 
-### Java Keyvault JCA 1.0.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-jca/CHANGELOG.md#100-beta3-2021-01-20)
+### Java Keyvault JCA 1.0.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/keyvault/azure-security-keyvault-jca/CHANGELOG.md#100-beta3-2021-01-20)
 
 ####Key Bug Fixes
 - Fix NullPointerException in KeyVaultKeyManagerFactory.
@@ -614,98 +614,95 @@ If you have a bug or feature request for one of the libraries, please post an is
 ####New Features
 - Support properties named in hyphens style, like "azure.keyvault.tenant-id".
 
-### Java Spring Boot KeyVault Certificates Starter 3.0.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot-starter-keyvault-certificates/CHANGELOG.md#300-beta3-2021-01-20)
+### Java Spring Boot KeyVault Certificates Starter 3.0.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot-starter-keyvault-certificates/CHANGELOG.md#300-beta3-2021-01-20)
 - Beta release
 
-### Azure Identity Spring 1.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-identity-spring/CHANGELOG.md#110-2021-01-20)
+### Azure Identity Spring 1.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-identity-spring/CHANGELOG.md#110-2021-01-20)
 - GA release
 
-### Java Spring Boot 3.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot/CHANGELOG.md#310-2021-01-20)
+### Java Spring Boot 3.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot/CHANGELOG.md#310-2021-01-20)
 - GA release
 
-### Java Spring Boot AAD B2C Starter 3.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot-starter-active-directory-b2c/CHANGELOG.md#310-2021-01-20)
+### Java Spring Boot AAD B2C Starter 3.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot-starter-active-directory-b2c/CHANGELOG.md#310-2021-01-20)
 
 #### Breaking Changes
 - Exposed userNameAttributeName to configure the user's name.
 
-### Java Spring Boot AAD Starter 3.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot-starter-active-directory/CHANGELOG.md#310-2021-01-20)
+### Java Spring Boot AAD Starter 3.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot-starter-active-directory/CHANGELOG.md#310-2021-01-20)
 - GA release
 
-### Java Spring Boot Cosmos db Starter 3.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot-starter-cosmos/CHANGELOG.md#310-2021-01-20)
+### Java Spring Boot Cosmos db Starter 3.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot-starter-cosmos/CHANGELOG.md#310-2021-01-20)
 - GA release
 
-### Java Spring Boot KeyVault Secrets Starter 3.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot-starter-keyvault-secrets/CHANGELOG.md#310-2021-01-20)
+### Java Spring Boot KeyVault Secrets Starter 3.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot-starter-keyvault-secrets/CHANGELOG.md#310-2021-01-20)
 - GA release
 
-### Java Spring Boot ServiceBus Jms Starter 3.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot-starter-servicebus-jms/CHANGELOG.md#310-2021-01-20)
+### Java Spring Boot ServiceBus Jms Starter 3.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot-starter-servicebus-jms/CHANGELOG.md#310-2021-01-20)
 - GA release
 
-### Java Spring Boot Starter 3.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot-starter/CHANGELOG.md#310-2021-01-20)
+### Java Spring Boot Starter 3.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot-starter/CHANGELOG.md#310-2021-01-20)
 
 #### Breaking Changes
 - Exposed userNameAttributeName to configure the user's name.
 
-### Java Spring Boot Storage Starter 3.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot-starter-storage/CHANGELOG.md#310-2021-01-20)
+### Java Spring Boot Storage Starter 3.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot-starter-storage/CHANGELOG.md#310-2021-01-20)
 - GA release
 
-### Java Spring Cloud Autoconfigure 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-cloud-autoconfigure/CHANGELOG.md#210-2021-01-20)
+### Java Spring Cloud Autoconfigure 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-autoconfigure/CHANGELOG.md#210-2021-01-20)
 - GA release
 
-### Java Spring Cloud Context 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-cloud-context/CHANGELOG.md#210-2021-01-20)
+### Java Spring Cloud Context 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-context/CHANGELOG.md#210-2021-01-20)
 - GA release
 
-### Java Spring Cloud Event Hub Binder 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-cloud-stream-binder-eventhubs/CHANGELOG.md#210-2021-01-20)
+### Java Spring Cloud Event Hub Binder 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-stream-binder-eventhubs/CHANGELOG.md#210-2021-01-20)
 - GA release
 
-### Java Spring Cloud Messaging 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-cloud-messaging/CHANGELOG.md#210-2021-01-20)
+### Java Spring Cloud Messaging 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-messaging/CHANGELOG.md#210-2021-01-20)
 - GA release
 
-### Java Spring Cloud Service Bus Queue Stream Binder 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-cloud-stream-binder-servicebus-queue/CHANGELOG.md#210-2021-01-20)
+### Java Spring Cloud Service Bus Queue Stream Binder 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-stream-binder-servicebus-queue/CHANGELOG.md#210-2021-01-20)
 - GA release
 
-### Java Spring Cloud Service Bus Stream Binder Core 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-cloud-stream-binder-servicebus-core/CHANGELOG.md#210-2021-01-20)
+### Java Spring Cloud Service Bus Stream Binder Core 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-stream-binder-servicebus-core/CHANGELOG.md#210-2021-01-20)
 - GA release
 
-### Java Spring Cloud Service Bus Topic Stream Binder 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-cloud-stream-binder-servicebus-topic/CHANGELOG.md#210-2021-01-20)
+### Java Spring Cloud Service Bus Topic Stream Binder 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-stream-binder-servicebus-topic/CHANGELOG.md#210-2021-01-20)
 - GA release
 
-### Java Spring Cloud Starter Cache 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-cloud-starter-cache/CHANGELOG.md#210-2021-01-20)
+### Java Spring Cloud Starter Cache 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-starter-cache/CHANGELOG.md#210-2021-01-20)
 - GA release
 
-### Java Spring Cloud Starter Event Hub Kafka 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-cloud-starter-eventhubs-kafka/CHANGELOG.md#210-2021-01-20)
+### Java Spring Cloud Starter Event Hub Kafka 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-starter-eventhubs-kafka/CHANGELOG.md#210-2021-01-20)
 - GA release
 
-### Java Spring Cloud Starter Event Hubs 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-cloud-starter-eventhubs/CHANGELOG.md#210-2021-01-20)
+### Java Spring Cloud Starter Event Hubs 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-starter-eventhubs/CHANGELOG.md#210-2021-01-20)
 - GA release
 
-### Java Spring Cloud Starter Service Bus 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-cloud-starter-servicebus/CHANGELOG.md#210-2021-01-20)
+### Java Spring Cloud Starter Service Bus 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-starter-servicebus/CHANGELOG.md#210-2021-01-20)
 - GA release
 
-### Java Spring Cloud Storage 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-cloud-storage/CHANGELOG.md#210-2021-01-20)
+### Java Spring Cloud Storage 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-storage/CHANGELOG.md#210-2021-01-20)
 - GA release
 
-### Java Spring Cloud Storage Queue Starter 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-cloud-starter-storage-queue/CHANGELOG.md#210-2021-01-20)
+### Java Spring Cloud Storage Queue Starter 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-starter-storage-queue/CHANGELOG.md#210-2021-01-20)
 - GA release
 
-### Java Spring Cloud Stream Binder Test 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-cloud-stream-binder-test/CHANGELOG.md#210-2021-01-20)
+### Java Spring Cloud Stream Binder Test 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-stream-binder-test/CHANGELOG.md#210-2021-01-20)
 - GA release
 
-### Java Spring Cloud Telemetry 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-cloud-telemetry/CHANGELOG.md#210-2021-01-20)
+### Java Spring Integration Core 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-integration-core/CHANGELOG.md#210-2021-01-20)
 - GA release
 
-### Java Spring Integration Core 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-integration-core/CHANGELOG.md#210-2021-01-20)
+### Java Spring Integration Event Hubs 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-integration-eventhubs/CHANGELOG.md#210-2021-01-20)
 - GA release
 
-### Java Spring Integration Event Hubs 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-integration-eventhubs/CHANGELOG.md#210-2021-01-20)
+### Java Spring Integration Service Bus 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-integration-servicebus/CHANGELOG.md#210-2021-01-20)
 - GA release
 
-### Java Spring Integration Service Bus 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-integration-servicebus/CHANGELOG.md#210-2021-01-20)
+### Java Spring Integration Storage Queue 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-integration-storage-queue/CHANGELOG.md#210-2021-01-20)
 - GA release
 
-### Java Spring Integration Storage Queue 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-integration-storage-queue/CHANGELOG.md#210-2021-01-20)
-- GA release
-
-### Java Spring Integration Test 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-integration-test/CHANGELOG.md#210-2021-01-20)
+### Java Spring Integration Test 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-integration-test/CHANGELOG.md#210-2021-01-20)
 - GA release
 
 ## Need help

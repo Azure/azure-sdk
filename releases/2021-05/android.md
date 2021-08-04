@@ -92,7 +92,7 @@ If you have a bug or feature request for one of the libraries, please post an is
     - `Call` class:
         - Renamed method `getCallDirection()` to `getDirection()`
         - Renamed method `isMicrophoneMuted()` to `isMuted()`
-- Method `startVideo(LocalVideoStream)` now takes an additional context object for permission check and is now `startVideo(Context, LocalVideoStream)`. 
+- Method `startVideo(LocalVideoStream)` now takes an additional context object for permission check and is now `startVideo(Context, LocalVideoStream)`.
 - Method `stopVideo(LocalVideoStream)` now takes an additional context object for permission check and is now `stopVideo(Context, LocalVideoStream)`.
 - Method `mute()` now takes an additional context object for permission check and is now `mute(Context)`.
 - Method `unmute()` now takes an additional context object for permission check and is now `unmute(Context)`.
@@ -103,14 +103,14 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Answering an incoming call with video now properly renders the receiver's video stream.
 - The video stream of remote participants from a web client is now centred/cropped on Android.
 - `OnRemoteParticipantsUpdated` event no longer updates the participant state to `Idle` when the participant is `InLobby`.
-- Speaking Change Listeners are no longer triggered unexpectedly. 
+- Speaking Change Listeners are no longer triggered unexpectedly.
 - `Call.AddParticipant(...)` no longer fails with a `NullPointerException`.
 - Permission checks of SDK APIs have been fixed to respect only the required permission.
 
 ### Azure Communication Services Common
 
-#### 1.0.0 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/master/sdk/communication/azure-communication-common/CHANGELOG.md#100-2021-04-20))
-  
+#### 1.0.0 ([Changelog](https://github.com/Azure/azure-sdk-for-android/blob/main/sdk/communication/azure-communication-common/CHANGELOG.md#100-2021-04-20))
+
 ## Need help
 
 - For reference documentation visit the [Azure SDK for Android documentation](https://azure.github.io/azure-sdk-for-android/).

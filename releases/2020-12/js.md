@@ -56,7 +56,7 @@ The packages released under the Synapse name are as follow:
 
 ### Azure Storage
 
-#### @azure/storage-blob [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/CHANGELOG.md)
+#### @azure/storage-blob [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/CHANGELOG.md)
 
 We are releasing to add support for new service features in Azure Storage Service API version 2020-04-08.
 
@@ -67,14 +67,14 @@ We are releasing to add support for new service features in Azure Storage Servic
 - Added `generateSasUrl` to `BlobClient` and `ContainerClient` to generate a service-level SAS URI for the client.
 - Added `generateAccountSasUrl` to `BlobServiceClient` to generate an account-level SAS URI for the client.
 
-#### @azure/storage-file-datalake [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/CHANGELOG.md)
+#### @azure/storage-file-datalake [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-file-datalake/CHANGELOG.md)
 
 ##### New Features on @azure/storage-blob@12.3.0-beta.1
 
 - Added `generateSasUrl` to `DataLakeFileSystemClient`, `DataLakeDirectoryClient` and `DataLakeFileClient` to generate a service-level SAS URI for the client.
 - Added `generateAccountSasUrl` to `DataLakeServiceClient` to generate an account-level SAS URI for the client.
 
-#### @azure/storage-file-share [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/CHANGELOG.md)
+#### @azure/storage-file-share [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-file-share/CHANGELOG.md)
 
 ##### New Features on @azure/storage-file-share@12.4.0-beta.1
 
@@ -82,7 +82,7 @@ We are releasing to add support for new service features in Azure Storage Servic
 - Added `generateSasUrl` to `ShareClient` and `ShareFileClient` to generate a service-level SAS URI for the client.
 - Added `generateAccountSasUrl` to `ShareServiceClient` to generate an account-level SAS URI for the client.
 
-#### storage-queue [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/CHANGELOG.md)
+#### storage-queue [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-queue/CHANGELOG.md)
 
 ##### New Features on @azure/storage-queue@12.3.0-beta.1
 - Added `generateSasUrl` to `QueueClient` to generate a service-level SAS URI for the client.

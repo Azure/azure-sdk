@@ -10,7 +10,7 @@ sidebar: general_sidebar
 
 The following document describes .NET specific guidelines for designing Azure SDK client libraries. These guidelines complement general [.NET Framework Design Guidelines](https://aka.ms/fxdg3) with design considerations specific to the Azure SDK. These guidelines also expand on and simplify language-independent [General Azure SDK Guidelines][general-guidelines]. More specific guidelines take precedence over more general guidelines.
 
-Throughout this document, we'll use the client library for the [Azure Application Configuration service](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/appconfiguration/Azure.Data.AppConfiguration) to illustrate various design concepts.  
+Throughout this document, we'll use the client library for the [Azure Application Configuration service](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/appconfiguration/Azure.Data.AppConfiguration) to illustrate various design concepts.
 
 ### Design Principles {#dotnet-principles}
 
@@ -68,7 +68,7 @@ Azure services will be exposed to .NET developers as one or more _service client
 
 ### The Service Client {#dotnet-client}
 
-Service clients are the main starting points for developers calling Azure services with the Azure SDK.  Each client library should have at least one client in its main namespace, so it's easy to discover. The guidelines in this section describe patterns for the design of a service client.  
+Service clients are the main starting points for developers calling Azure services with the Azure SDK.  Each client library should have at least one client in its main namespace, so it's easy to discover. The guidelines in this section describe patterns for the design of a service client.
 
 A service client should have the same shape as this code snippet:
 
@@ -128,7 +128,7 @@ namespace Azure.Data.Configuration {
 }
 ```
 
-You can find the full sources of [here](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/appconfiguration/Azure.Data.AppConfiguration/src/ConfigurationClient.cs).
+You can find the full sources of [here](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/appconfiguration/Azure.Data.AppConfiguration/src/ConfigurationClient.cs).
 
 {% include requirement/MUST id="dotnet-client-naming" %} name service client types with the _Client_ suffix.
 
@@ -138,7 +138,7 @@ For example, the service client for the Application Configuration service is cal
 
 {% include requirement/MUST id="dotnet-client-type" %} make service clients classes (reference types), not structs (value types).
 
-{% include requirement/MUST id="dotnet-client-immutable" %} make service clients immutable. 
+{% include requirement/MUST id="dotnet-client-immutable" %} make service clients immutable.
 
 Client instances are often shared between threads (stored in application statics) and it should be difficult, if not impossible, for one of these threads to affect others.
 
@@ -325,7 +325,7 @@ Many developers want to port existing applications to the Cloud. These applicati
 
 Most methods in Azure SDK libraries should be named following the typical .NET method naming conventions. The Azure SDK Design Guidelines add special conventions for methods that access and manipulate server resources.
 
-{% include requirement/SHOULD id="general-client-standardize-verbs" %} use standard verbs for methods that access or manipulate server resources. 
+{% include requirement/SHOULD id="general-client-standardize-verbs" %} use standard verbs for methods that access or manipulate server resources.
 
 <!-- The table data is in yaml format on _data/tables/net_standard_verbs -->
 {% assign data = site.data.tables.net_standard_verbs.entries %}
@@ -405,7 +405,7 @@ public class BlobCreateOptions {
 }
 ```
 
-The _Options_ class is designed similarly to .NET custom attributes, where required service method parameters are modeled as _Options_ class constructor parameters and get-only properties, and optional parameters are get-set properties. 
+The _Options_ class is designed similarly to .NET custom attributes, where required service method parameters are modeled as _Options_ class constructor parameters and get-only properties, and optional parameters are get-set properties.
 
 {% include requirement/MUST id="dotnet-params-complex" %} use the _options_ parameter pattern for complex service methods.
 
@@ -559,7 +559,7 @@ public class CopyFromUriOperation {
 
 ##### Conditional Request Methods
 
-Some services support conditional requests that are used to implement optimistic concurrency control. In Azure, optimistic concurency is typically implemented using If-Match headers and ETags. See [Managing Concurrency in Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/concurrency-manage?tabs=dotnet) as a good example. 
+Some services support conditional requests that are used to implement optimistic concurrency control. In Azure, optimistic concurency is typically implemented using If-Match headers and ETags. See [Managing Concurrency in Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/concurrency-manage?tabs=dotnet) as a good example.
 
 {% include requirement/MUST id="dotnet-conditional-etag" %} use Azure.Core ETag to represent ETags.
 
@@ -697,7 +697,7 @@ See [enumeration-like structure documentation](implementation.md#dotnet-enums) f
 
 #### Using Azure Core Types {#dotnet-commontypes}
 
-The `Azure.Core` package provides common functionality for client libraries.  Documentation and usage examples can be found in the [azure/azure-sdk-for-net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/core/Azure.Core) repository.
+The `Azure.Core` package provides common functionality for client libraries.  Documentation and usage examples can be found in the [azure/azure-sdk-for-net](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/core/Azure.Core) repository.
 
 #### Using Primitive Types
 
@@ -804,7 +804,7 @@ For example, `Azure.Storage.Blobs`.
 - `Azure.Data` for client libraries that handle databases or structured data stores
 - `Azure.DigitalTwins` for DigitalTwins related technologies
 - `Azure.Identity` for authentication and authorization client libraries
-- `Azure.IoT` for client libraries dealing with the Internet of Things. 
+- `Azure.IoT` for client libraries dealing with the Internet of Things.
     - Use `Iot` for Pascal cased compound words, such as `IotClient`, otherwise follow language conventions.
     - Do not use `IoT` more than once in a namespace.
 - `Azure.Media` for client libraries that deal with audio, video, or mixed reality
@@ -846,7 +846,7 @@ ConfigurationSetting setting = client.Get("Key");
 Assert.AreEqual("Value", setting.Value);
 ```
 
-Review the [full sample](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/appconfiguration/Azure.Data.AppConfiguration/samples/Sample7_MockClient.md) in the GitHub repository.
+Review the [full sample](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/appconfiguration/Azure.Data.AppConfiguration/samples/Sample7_MockClient.md) in the GitHub repository.
 
 {% include requirement/MUST id="dotnet-mocking-constructor" %} provide protected parameterless constructor for mocking.
 
@@ -991,7 +991,7 @@ package that is now a part of the .NET platform instead.
 
 ### Native Code
 
-Native dependencies introduce lots of complexities to .NET libraries and so they should be avoided. 
+Native dependencies introduce lots of complexities to .NET libraries and so they should be avoided.
 
 {% include requirement/SHOULDNOT id="dotnet-problems-too-many-types" %} native dependencies.
 
@@ -1017,7 +1017,7 @@ TODO: issue #2338
 
 {% include requirement/MUST id="dotnet-docs-readme" %} have a README.md file in the component root folder.
 
-An example of a good `README.md` file can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/appconfiguration/Azure.Data.AppConfiguration/README.md).
+An example of a good `README.md` file can be found [here](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/appconfiguration/Azure.Data.AppConfiguration/README.md).
 
 {% include requirement/MUST id="dotnet-docs-readme-consumer" %} optimize the `README.md` for the consumer of the client library.
 
@@ -1029,7 +1029,7 @@ Each client library should have a quickstart guide with code samples.  Developer
 
 {% include requirement/MUST id="dotnet-samples-location" %} have usage samples in `samples` subdirectory of main library directory.
 
-For a complete example, see the [Configuration Service samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/appconfiguration/Azure.Data.AppConfiguration/samples).
+For a complete example, see the [Configuration Service samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/appconfiguration/Azure.Data.AppConfiguration/samples).
 
 {% include requirement/MUST id="dotnet-samples-readme" %} have a `README.md` file with the following front matter:
 
@@ -1046,7 +1046,7 @@ description: Samples for the Azure.Data.AppConfiguration client library
 ---
 ```
 
-The `README.md` file should be written as a getting started guide. See [the ServiceBus README](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/README.md) for a good example.
+The `README.md` file should be written as a getting started guide. See [the ServiceBus README](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/README.md) for a good example.
 
 {% include requirement/MUST id="dotnet-samples-readme-links" %} link to each of the samples files using a brief description as the link text.
 

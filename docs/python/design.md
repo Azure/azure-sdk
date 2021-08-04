@@ -66,7 +66,7 @@ Please contact the [Architecture board] for more guidance on non HTTP/REST based
 
 {% include requirement/MUST id="python-general-version-support" %} support Python 2.7 and 3.5.3+.
 
-{% include requirement/SHOULD id="python-general-universal-pkg" %} provide a [universal package] that works on all supported versions of Python, unless there's a compelling reason to have separate Python2 and Python3 packages.  
+{% include requirement/SHOULD id="python-general-universal-pkg" %} provide a [universal package] that works on all supported versions of Python, unless there's a compelling reason to have separate Python2 and Python3 packages.
 
 For example, if you depend on different external packages for Python2 and Python3, and neither external dependency is available for both Python versions.
 
@@ -86,13 +86,13 @@ The service client is the primary entry point for users of the library. A servic
 
 ```python
 # Yes
-class CosmosClient(object) ... 
+class CosmosClient(object) ...
 
 # No
-class CosmosProxy(object) ... 
+class CosmosProxy(object) ...
 
 # No
-class CosmosUrl(object) ... 
+class CosmosUrl(object) ...
 ```
 
 {% include requirement/MUST id="python-client-immutable" %} make the service client immutable. See the [Client Immutability](#client-immutability) section for more information.
@@ -111,8 +111,8 @@ Only the minimal information needed to connect and interact with the service sho
 
 ```python
 # Change default number of retries to 18 and overall timeout to 2s.
-client = ExampleClient('https://contoso.com/xmpl', 
-                       DefaultAzureCredential(), 
+client = ExampleClient('https://contoso.com/xmpl',
+                       DefaultAzureCredential(),
                        max_retries=18,
                        timeout=2)
 ```
@@ -125,7 +125,7 @@ The method **should** parse the connection string and pass the values along with
 
 ```python
 class ExampleClientWithConnectionString(object):
-    
+
     @classmethod
     def _parse_connection_string(cls, connection_string): ...
 
@@ -153,7 +153,7 @@ latest_known_version_client = ExampleClient('https://contoso.com/xmpl',
                                             DefaultAzureCredential())
 
 # ...but allow the caller to specify a specific API version as welll
-specific_api_version_client = ExampleClient('https://contoso.com/xmpl', 
+specific_api_version_client = ExampleClient('https://contoso.com/xmpl',
                                             DefaultAzureCredential(),
                                             api_version='1971-11-01')
 ```
@@ -177,7 +177,7 @@ specific_api_version_client = ExampleClient('https://contoso.com/xmpl',
 
 ##### Client immutability
 
-{% include requirement/MUST id="python-client-immutable-design" %} design the client to be immutable. This does not mean that you need to use read-only properties (attributes are still acceptable), but rather that the there should not be any scenarios that require callers to change properties/attributes of the client.  
+{% include requirement/MUST id="python-client-immutable-design" %} design the client to be immutable. This does not mean that you need to use read-only properties (attributes are still acceptable), but rather that the there should not be any scenarios that require callers to change properties/attributes of the client.
 
 #### Service methods
 
@@ -222,7 +222,7 @@ client = ComputeClient(...)
 try:
     # Please note that there is no status code etc. as part of the response.
     # If the call fails, you will get an exception that will include the status code
-    # (if the request was made) 
+    # (if the request was made)
     virtual_machine  = client.get_virtual_machine('example')
     print(f'Virtual machine instance looks like this: {virtual_machine}')
 except azure.core.exceptions.ServiceRequestError as e:
@@ -277,7 +277,7 @@ except azure.core.errors.ResourceNotFoundException:
 {% include requirement/MUST id="python-client-optional-arguments-keyword-only" %} provide optional operation-specific arguments as keyword only. See [positional and keyword-only arguments] for more information.
 
 {% include requirement/MUST id="python-client-service-per-call-args" %} provide keyword-only arguments that override per-request policy options. The name of the parameters MUST mirror the name of the arguments provided in the client constructor or factory methods.
-For a full list of supported optional arguments used for pipeline policy and transport configuration (both at the client constructor and per service operation), see the [Azure Core developer documentation](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/core/azure-core/CLIENT_LIBRARY_DEVELOPER.md).
+For a full list of supported optional arguments used for pipeline policy and transport configuration (both at the client constructor and per service operation), see the [Azure Core developer documentation](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/core/azure-core/CLIENT_LIBRARY_DEVELOPER.md).
 
 {% include requirement/MUST id="python-client-service-args-conflict" %} qualify a service parameter name if it conflicts with any of the documented pipeline policy or transport configuration options used with all service operations and client constructors.
 
@@ -319,7 +319,7 @@ except ValueError:
     print('We called with some invalid parameters. We should fix that.')
 ```
 
-{% include requirement/MUSTNOT id="python-params-service-validation" %} validate service parameters. Don't do null checks, empty string checks, or other common validating conditions on service parameters. Let the service validate all request parameters. 
+{% include requirement/MUSTNOT id="python-params-service-validation" %} validate service parameters. Don't do null checks, empty string checks, or other common validating conditions on service parameters. Let the service validate all request parameters.
 
 {% include requirement/MUST id="python-params-devex" %} verify that the developer experience when the service parameters are invalid to ensure appropriate error messages are generated by the service. Work with the service team if the developer experience is compromised because of service-side error messages.
 
@@ -376,7 +376,7 @@ client.update_thing(thing=thing, size=4712) # Will send a request to the service
 thing.description = 'Updated'
 thing.size = -1
 # Will send a request to the service to update the model's size to 4713 and description to 'Updated'
-client.update_thing(name='hello', size=4713, thing=thing)  
+client.update_thing(name='hello', size=4713, thing=thing)
 ```
 
 #### Methods returning collections (paging)
@@ -494,7 +494,7 @@ Data within the model type can generally be split into two parts - data used to 
 In order to facilitate round-trip of responses (common in get resource -> conditionally modify resource -> set resource workflows), output model types should use the input model type (e.g. `ConfigurationSetting`) whenever possible. The `ConfigurationSetting` type should include both server generated (read-only) attributes even though they will be ignored when used as input to the set resource method.
 
 - `<model>Item` for each item in an enumeration if the enumeration returns a partial schema for the model. For example, GetBlobs() return an enumeration of BlobItem, which contains the blob name and metadata, but not the content of the blob.
-- `<operation>Result` for the result of an operation. The `<operation>` is tied to a specific service operation. If the same result can be used for multiple operations, use a suitable noun-verb phrase instead. For example, use `UploadBlobResult` for the result from `UploadBlob`, but `ContainerChangeResult` for results from the various methods that change a blob container. 
+- `<operation>Result` for the result of an operation. The `<operation>` is tied to a specific service operation. If the same result can be used for multiple operations, use a suitable noun-verb phrase instead. For example, use `UploadBlobResult` for the result from `UploadBlob`, but `ContainerChangeResult` for results from the various methods that change a blob container.
 
 {% include requirement/MUST id="python-models-dict-result" %} use a simple Mapping (e.g. `dict`) rather than creating a `<operation>Result` class if the `<operation>Result` class is not used as an input parameter for other APIs.
 
@@ -509,10 +509,10 @@ The following table enumerates the various models you might create:
 |<model><verb>Result|SecretChangeResult|A partial or different set of data for multiple operations on a model|
 
 ```python
-# An example of a model type. 
+# An example of a model type.
 class ConfigurationSetting(object):
     """Model type representing a configuration setting
-    
+
     :ivar name: The name of the setting
     :vartype name: str
     :ivar value: The value of the setting
@@ -544,7 +544,7 @@ class MyGoodEnum(str, Enum):
 
 # No
 class MyBadEnum(str, Enum):
-    One = 'one' # No - using PascalCased name. 
+    One = 'one' # No - using PascalCased name.
     two = 'two' # No - using all lower case name.
 ```
 
@@ -636,7 +636,7 @@ class ExampleClient(object):
 # In module azure.example.aio
 class ExampleClient:
     # Same method name as sync, different client
-    async def some_service_operation(self, name, size) ... 
+    async def some_service_operation(self, name, size) ...
 
 # No
 # In module azure.example
@@ -811,11 +811,11 @@ Use the `literalinclude` directive in Python docstrings to instruct Sphinx to [i
 
 There are several documentation deliverables that must be included in or as a companion to your client library. Beyond complete and helpful API documentation within the code itself (docstrings), you need a great README and other supporting documentation.
 
-* `README.md` - Resides in the root of your library's directory within the SDK repository; includes package installation and client library usage information. ([example][https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/appconfiguration/azure-appconfiguration/README.md])
-* `API reference` - Generated from the docstrings in your code; published on docs.microsoft.com. 
-* `Code snippets` - Short code examples that demonstrate single (atomic) operations for the champion scenarios you've identified for your library; included in your README, docstrings, and Quickstart. 
-* `Quickstart` - Article on docs.microsoft.com that is similar to but expands on the README content; typically written by your service's content developer. 
-* `Conceptual` - Long-form documentation like Quickstarts, Tutorials, How-to guides, and other content on docs.microsoft.com; typically written by your service's content developer. 
+* `README.md` - Resides in the root of your library's directory within the SDK repository; includes package installation and client library usage information. ([example][https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/appconfiguration/azure-appconfiguration/README.md])
+* `API reference` - Generated from the docstrings in your code; published on docs.microsoft.com.
+* `Code snippets` - Short code examples that demonstrate single (atomic) operations for the champion scenarios you've identified for your library; included in your README, docstrings, and Quickstart.
+* `Quickstart` - Article on docs.microsoft.com that is similar to but expands on the README content; typically written by your service's content developer.
+* `Conceptual` - Long-form documentation like Quickstarts, Tutorials, How-to guides, and other content on docs.microsoft.com; typically written by your service's content developer.
 
 {% include requirement/MUST id="python-docs-content-dev" %} include your service's content developer in the adparch review for your library. To find the content developer you should work with, check with your team's Program Manager.
 

@@ -270,13 +270,13 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
-### Azure Core ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/CHANGELOG.md#160-2020-07-02))
+### Azure Core ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core/CHANGELOG.md#160-2020-07-02))
 
 #### New Features
 
 - Added utility class `UserAgentUtil` which constructs User-Agent headers following SDK guidelines.
 
-### Azure Core AMQP ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-amqp/CHANGELOG.md#130-2020-07-02))
+### Azure Core AMQP ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core-amqp/CHANGELOG.md#130-2020-07-02))
 
 #### New Features
 
@@ -286,7 +286,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - Fixed `User-Agent` string to follow guidelines.
 
-### Azure Core Experimental ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-experimental/CHANGELOG.md#100-beta1-2020-07-02))
+### Azure Core Experimental ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core-experimental/CHANGELOG.md#100-beta1-2020-07-02))
 
 #### New Features
 
@@ -295,7 +295,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Added `JsonNode`, and subclasses, which are strongly type representations of a JSON tree.
 - Added `GeoJSON` classes and serializers.
 
-### Azure Cosmos ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-cosmos/CHANGELOG.md#420-2020-07-14))
+### Azure Cosmos ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos/CHANGELOG.md#420-2020-07-14))
 
 #### 4.2.0 (2020-07-14)
 
@@ -311,9 +311,9 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Fixed issue in query and change feed when recreating the collection with same name.
 - Fixed issue with top query throwing ClassCastException.
 - Fixed issue with order by query throwing NullPointerException.
-- Fixed issue in handling of cancelled requests in direct mode causing reactor `onErrorDropped` being called. 
+- Fixed issue in handling of cancelled requests in direct mode causing reactor `onErrorDropped` being called.
 
-### Azure Cosmos ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-cosmos/CHANGELOG.md#410-2020-06-25))
+### Azure Cosmos ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos/CHANGELOG.md#410-2020-06-25))
 
 #### 4.1.0 (2020-06-25)
 
@@ -329,14 +329,14 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Fixed issues with value query returning null values for nested object.
 - Fixed null pointer exception on request manager in RntbdClientChannelPool.
 
-### Azure Identity ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/identity/azure-identity/CHANGELOG.md#110-beta6-2020-07-10)
+### Azure Identity ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/identity/azure-identity/CHANGELOG.md#110-beta6-2020-07-10)
 
 #### 1.1.0-beta.6 (2020-07-10)
 
 - Added .getCredentials() method to DefaultAzureCredential and ChainedTokenCredential and added option .addAll(Collection<? extends TokenCredential>) on ChainedtokenCredentialBuilder.
 - Added logging information in credentials and improved error messages in DefaultAzureCredential.
 
-### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md#700-beta4-2020-07-10)
+### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md#700-beta4-2020-07-10)
 
 #### Breaking Changes
 - Add Message/Messages suffix to Peek/Send/Receive/Abandon/Defer/Complete/DeadLetter methods.
@@ -348,7 +348,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Add `ServiceBusDeadLetterReceiverClientBuilder` to receive messages from dead-letter queue.
 - Add support to send message via another entity.
 
-### Azure Search [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/search/azure-search-documents/CHANGELOG.md#1100-2020-07-13)
+### Azure Search [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/search/azure-search-documents/CHANGELOG.md#1100-2020-07-13)
 - Changed to GA version 11.0.0.
 - Removed preview version `SearchClientOptions.ServiceVersion.V2019_05_06_Preview` and added version `SearchClientOptions.ServiceVersion.V2020_06_30`.
 
@@ -366,7 +366,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 #### Bug Fixes
 - Removed `implementation` classes from APIs.
 
-### Azure Schema Registry ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/schemaregistry/azure-data-schemaregistry/CHANGELOG.md#100-beta2-2020-06-19))
+### Azure Schema Registry ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/schemaregistry/azure-data-schemaregistry/CHANGELOG.md#100-beta2-2020-06-19))
 
 ## 1.0.0-beta.2 (2020-06-19)
 
@@ -374,7 +374,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - Fix 4xx HTTP response handling
 
-### Azure Schema Registry Avro ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/schemaregistry/azure-data-schemaregistry-avro/CHANGELOG.md#100-beta2-2020-06-19))
+### Azure Schema Registry Avro ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/schemaregistry/azure-data-schemaregistry-avro/CHANGELOG.md#100-beta2-2020-06-19))
 
 ## 1.0.0-beta.2 (2020-06-19)
 
@@ -384,29 +384,29 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### Storage
 
-#### Blob [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md)
+#### Blob [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/storage/azure-storage-blob/CHANGELOG.md)
 
 ##### New Features
 - Added support for Blob Tags, Blob Versioning, Jumbo Blobs, and more
 
-#### Blob ChangeFeed [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-blob-changefeed/CHANGELOG.md)
+#### Blob ChangeFeed [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/storage/azure-storage-blob-changefeed/CHANGELOG.md)
 
 ##### New Features
 - Added a preview version of this library to support change feed
 
-#### File DataLake [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md)
+#### File DataLake [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/storage/azure-storage-file-datalake/CHANGELOG.md)
 
 ##### New Features
 - Added support to query a file
 - Added support to increase max size of data that can be sent via append
 
-#### File Share [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/storage/azure-storage-file-share/CHANGELOG.md)
+#### File Share [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/storage/azure-storage-file-share/CHANGELOG.md)
 
 ##### New Features
 - Added support for restoring file share
 
 
-### Form Recognizer ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#100-beta4-2020-07-07))
+### Form Recognizer ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#100-beta4-2020-07-07))
 
 ## 1.0.0-beta.4 (2020-07-07)
 ### Breaking changes
@@ -419,7 +419,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 ### New Management Libraries
 
-A new set of management libraries that follow the [Azure SDK Design Guidelines for Java](https://azure.github.io/azure-sdk/java/guidelines/) are now in Public Preview. These new libraries provide a higher-level, object-oriented API for managing Azure resources, that is optimized for ease of use, succinctness and consistency. You can find the list of new packages [on this page](https://azure.github.io/azure-sdk/releases/latest/java.html). Detailed documentation and code samples for these new libraries can be [found here](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/resourcemanager)
+A new set of management libraries that follow the [Azure SDK Design Guidelines for Java](https://azure.github.io/azure-sdk/java/guidelines/) are now in Public Preview. These new libraries provide a higher-level, object-oriented API for managing Azure resources, that is optimized for ease of use, succinctness and consistency. You can find the list of new packages [on this page](https://azure.github.io/azure-sdk/releases/latest/java.html). Detailed documentation and code samples for these new libraries can be [found here](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/resourcemanager)
 
 These new packages share the same groupId ``com.azures.resourcemanager`` and artifactId share the same prefix of ``azure-resourcemanager``
 

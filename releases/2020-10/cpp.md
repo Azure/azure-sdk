@@ -31,22 +31,22 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Changelog
 
-### Azure Core [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/core/azure-core/CHANGELOG.md)
+### Azure Core [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/core/azure-core/CHANGELOG.md)
 
 #### Bug Fixes
 
 - Fixed a case where path was not properly encoded
 - Switched to select() in libcurl for polling operations
 
-### Azure Storage Blobs [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/CHANGELOG.md#100-beta2-2020-09-09)
+### Azure Storage Blobs [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/storage/azure-storage-blobs/CHANGELOG.md#100-beta2-2020-09-09)
 
-### Azure Storage Files DataLake [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/CHANGELOG.md#100-beta2-2020-09-09)
+### Azure Storage Files DataLake [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/storage/azure-storage-files-datalake/CHANGELOG.md#100-beta2-2020-09-09)
 
 #### New Features
 
 - Support for SetExpiry
 
-### Azure Storage Files Shares [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/CHANGELOG.md#100-beta2-2020-09-09)
+### Azure Storage Files Shares [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/storage/azure-storage-files-shares/CHANGELOG.md#100-beta2-2020-09-09)
 
 ## Latest Releases
 

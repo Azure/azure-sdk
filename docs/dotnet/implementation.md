@@ -8,11 +8,11 @@ sidebar: general_sidebar
 
 ## API Implementation
 
-This section describes guidelines for implementing Azure SDK client libraries. Please note that some of these guidelines are automatically enforced by code generation tools. 
+This section describes guidelines for implementing Azure SDK client libraries. Please note that some of these guidelines are automatically enforced by code generation tools.
 
 ### The Service Client
 
-TODO: add a brief mention of the approach to implementing service clients. 
+TODO: add a brief mention of the approach to implementing service clients.
 
 #### Service Methods
 
@@ -64,7 +64,7 @@ public virtual async Task<Response<ConfigurationSetting>> AddAsync(Configuration
 
 TODO: do we still want this code sample now that we're encouraging moving to Code Gen?
 
-For a more complete example, see the [configuration client](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/appconfiguration/Azure.Data.AppConfiguration/src/ConfigurationClient.cs) implementation.
+For a more complete example, see the [configuration client](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/appconfiguration/Azure.Data.AppConfiguration/src/ConfigurationClient.cs) implementation.
 
 ##### Using HttpPipelinePolicy
 
@@ -72,11 +72,11 @@ The HTTP pipeline includes a number of policies that all requests pass through. 
 
 {% include requirement/MUST id="dotnet-http-pipeline-policy-inherit" %} inherit from `HttpPipelinePolicy` if the policy implementation calls asynchronous APIs.
 
-See an example [here](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/src/Pipeline/BearerTokenAuthenticationPolicy.cs).
+See an example [here](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/src/Pipeline/BearerTokenAuthenticationPolicy.cs).
 
 {% include requirement/MUST id="dotnet-sync-http-pipeline-policy-inherit" %} inherit from `HttpPipelineSynchronousPolicy` if the policy implementation calls only synchronous APIs.
 
-See an example [here](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/src/Pipeline/Internal/ClientRequestIdPolicy.cs).
+See an example [here](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/src/Pipeline/Internal/ClientRequestIdPolicy.cs).
 
 {% include requirement/MUST id="dotnet-http-pipeline-thread-safety" %} ensure `ProcessAsync` and `Process` methods are thread safe.
 
@@ -429,29 +429,42 @@ Request logging will be done automatically by the `HttpPipeline`.  If a client l
 
 #### EventSource
 
-{% include requirement/MUST id="dotnet-tracing-eventsource" %} use `EventSource` to produce diagnostic events.
+Azure SDKs use EventSource library as a logging mechanism.
+Most Azure SDKs with client methods that make a service request and deserialize the response won't need to define EventSource of their own as `Azure.Core` would provide HTTP request logging, retry logging etc. and the failures would be surfaced to customers as `Exceptions`.
+You should only log information that is not possible to infer from the result returned by the client.
 
-{% include requirement/MUST id="dotnet-tracing-eventsource-logging-guidelines" %} follow the logging guidelines when implementing an `EventSource`.
+For example:
 
-{% include requirement/MUST id="dotnet-tracing-eventsource-single" %} have a single `EventSource` type per library.
+- ✔ **GOOD** `Azure.Identity` logging which credential type was selected when using `DefaultAzureCredential` - it's impossible to determine from the returned `AccessToken` with credential was used to retrieve it.
+- ✔ **GOOD** `Azure.Security.KeyVault` logging whether an encryption operation was performed locally or remotely - the client can decide to run encryption locally or remotely depending on key properties, the decision is invisible to consumer.
+- ❌**BAD** Logging properties of the request or response - `Azure-Core` already does this as part of the pipeline.
+- ❌**BAD** Logging exception details before throwing - customers would be able to decide if they want the exception to be logged or not.
 
-{% include requirement/MUST id="dotnet-tracing-eventsource-internal" %} define `EventSource` class as `internal sealed`.
+{% include requirement/MUST id="dotnet-tracing-eventsource" %} use [EventSource library](https://github.com/microsoft/dotnet-samples/blob/master/Microsoft.Diagnostics.Tracing/EventSource/docs/EventSource.md) to produce diagnostic events.
 
-{% include requirement/MUST id="dotnet-tracing-eventsource-singleton" %} define and use a singleton instance of `EventSource`:
+{% include requirement/MUST id="dotnet-tracing-eventsource-type-name" %} use the package name with `EventSource` suffix for the class name (i.e. . `AzureCoreEventSource` for `Azure.Core` package).
 
-{% include requirement/MUST id="dotnet-tracing-eventsource-traits" %} define `AzureEventSource` trait with value `true` to make the `EventSource` discoverable by listeners (you can use `AzureEventSourceListener.TraitName` `AzureEventSourceListener.TraitValue` constants):
+{% include requirement/MUST id="dotnet-tracing-eventsource-base-class" %} use the `AzureEventSource` as the base class.
 
-{% include requirement/MUST id="dotnet-tracing-eventsource-name" %} set `EventSource` name to package name replacing `.` with `-` (i.e. . `Azure-Core` for `Azure.Core` package)
+{% include requirement/MUST id="dotnet-tracing-eventsource-logging-guidelines" %} follow the logging guidelines when implementing an `[Package]EventSource`.
+
+{% include requirement/MUST id="dotnet-tracing-eventsource-single" %} have a single `[Package]EventSource` type per library.
+
+{% include requirement/MUST id="dotnet-tracing-eventsource-internal" %} define `[Package]EventSource` class as `internal sealed`.
+
+{% include requirement/MUST id="dotnet-tracing-eventsource-singleton" %} define and use a singleton instance of `[Package]EventSource`:
+
+{% include requirement/MUST id="dotnet-tracing-eventsource-name" %} set `[Package]EventSource` name to package name replacing `.` with `-` (i.e. . `Azure-Core` for `Azure.Core` package)
 
 {% include requirement/MUST id="dotnet-tracing-eventsource-event-message" %} have `Message` property of EventAttribute set for all events.
 
-{% include requirement/MUST id="dotnet-tracing-eventsource-public-api" %} treat `EventSource` name, guid, event id and parameters as public API and follow the appropriate versioning rules.
+{% include requirement/MUST id="dotnet-tracing-eventsource-public-api" %} treat `[Package]EventSource` name, guid, event id and parameters as public API and follow the appropriate versioning rules.
 
 {% include requirement/SHOULD id="dotnet-tracing-eventsource-is-enabled" %} check IsEnabled property before doing expensive work (formatting parameters, calling ToString, allocations etc.)
 
 {% include requirement/MUSTNOT id="dotnet-tracing-eventsource-event-param-exception" %} define events with `Exception` parameters as they are not supported by `EventSource`.
 
-{% include requirement/MUST id="dotnet-tracing-eventsource-test" %} have a test that asserts `EventSource` name, guid and generates the manifest to verify that event source is correctly defined.
+{% include requirement/MUST id="dotnet-tracing-eventsource-test" %} have a test that asserts `[Package]EventSource` name, guid and generates the manifest to verify that event source is correctly defined.
 
 {% include requirement/MUST id="dotnet-tracing-eventsource-test-events" %} test that expected events are produced when appropriate. `TestEventListener` class can be used to collect events. Make sure you mark the test as `[NonParallelizable]`.
 
@@ -479,18 +492,18 @@ Sample `EventSource` declaration:
 ``` C#
 
 [EventSource(Name = EventSourceName)]
-internal sealed class AzureCoreEventSource : EventSource
+internal sealed class AzureCoreEventSource : AzureEventSource
 {
     private const string EventSourceName = "Azure-Core";
-    
+
     // Having event ids defined as const makes it easy to keep track of them
     private const int MessageSentEventId = 0;
     private const int ClientClosingEventId = 1;
-    
+
     public static AzureCoreEventSource Shared { get; } = new AzureCoreEventSource();
-    
-    private AzureCoreEventSource() : base(EventSourceName, EventSourceSettings.Default, AzureEventSourceListener.TraitName, AzureEventSourceListener.TraitValue) { }
-    
+
+    private AzureCoreEventSource() : base(EventSourceName) { }
+
     [NonEvent]
     public void MessageSent(Guid clientId, string messageBody)
     {
@@ -500,20 +513,20 @@ internal sealed class AzureCoreEventSource : EventSource
             MessageSent(clientId.ToString("N"), messageBody);
         }
     }
-    
+
     // In this example we don't do any expensive parameter formatting so we can avoid extra method and IsEnabled check
-    
+
     [Event(ClientClosingEventId, Level = EventLevel.Informational, Message = "Client {0} is closing the connection.")]
     public void ClientClosing(string clientId)
     {
         WriteEvent(ClientClosingEventId, clientId);
     }
-    
+
     [Event(MessageSentEventId, Level = EventLevel.Informational, Message = "Client {0} sent message with body '{1}'")]
     private void MessageSent(string clientId, string messageBody)
     {
         WriteEvent(MessageSentEventId, clientId, messageBody);
-    }    
+    }
 }
 ```
 
@@ -531,7 +544,7 @@ TODO: Add guidance regarding user agent strings
 
 ### Integration with ASP.NET Core
 
-All Azure client libraries ship with a set of extension methods that provide integration with ASP.NET Core applications by registering clients with DependencyInjection container, flowing Azure SDK logs to ASP.NET Core logging subsystem and providing ability to use configuration subsystem for client configuration (for more examples see https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/core/Microsoft.Extensions.Azure)
+All Azure client libraries ship with a set of extension methods that provide integration with ASP.NET Core applications by registering clients with DependencyInjection container, flowing Azure SDK logs to ASP.NET Core logging subsystem and providing ability to use configuration subsystem for client configuration (for more examples see https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/core/Microsoft.Extensions.Azure)
 
 {% include requirement/MUST id="dotnet-builder-class-name" %} provide a single `*ClientBuilderExtensions` class for every Azure SDK client library that contains client types. Name of the type should use the same prefix as the `*ClientOptions` class used across the library. For example: `SecretClientBuilderExtensions`, `BlobClientBuilderExtensions`
 
@@ -555,7 +568,7 @@ public static IAzureClientBuilder<ConfigurationClient, ConfigurationClientOption
 }
 ```
 
-{% include requirement/MUST id="dotnet-client-builder-overload-tokencredential" %} provide extension method for `IAzureClientFactoryBuilderWithCredential` interface for constructors that take `TokenCredentials`. Extension method should take same set of parameters as constructor except the `TokenCredential` and call into `builder.RegisterClientFactory` overload that provides the token credential as part of factory lambda. 
+{% include requirement/MUST id="dotnet-client-builder-overload-tokencredential" %} provide extension method for `IAzureClientFactoryBuilderWithCredential` interface for constructors that take `TokenCredentials`. Extension method should take same set of parameters as constructor except the `TokenCredential` and call into `builder.RegisterClientFactory` overload that provides the token credential as part of factory lambda.
 
 Sample implementation:
 

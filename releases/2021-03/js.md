@@ -152,13 +152,13 @@ Fixes issue [13985](https://github.com/Azure/azure-sdk-for-js/issues/13985) wher
 
 - `PhoneNumberAdministrationClient` is moved into the new package @azure/communication-phone-numbers and replaced by `PhoneNumbersClient`.
 
-### Azure Communication Phone Numbers 1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-phone-numbers/CHANGELOG.md#100-beta4-2021-03-09)
+### Azure Communication Phone Numbers 1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/communication/communication-phone-numbers/CHANGELOG.md#100-beta4-2021-03-09)
 
 #### Breaking Changes
 
--  Removed `dist-browser` from the output folders. To bundle the Azure SDK libraries, please read our [bundling guide.](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md)
+-  Removed `dist-browser` from the output folders. To bundle the Azure SDK libraries, please read our [bundling guide.](https://github.com/Azure/azure-sdk-for-js/blob/main/documentation/Bundling.md)
 
-### Azure Communication Chat 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-chat/CHANGELOG.md#100-beta5-2021-03-09)
+### Azure Communication Chat 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/communication/communication-chat/CHANGELOG.md#100-beta5-2021-03-09)
 
 #### Breaking Changes
 
@@ -167,32 +167,32 @@ Fixes issue [13985](https://github.com/Azure/azure-sdk-for-js/issues/13985) wher
 - Swap the parameter order in `ChatThreadClient` constructor.
 - Generates `repeatabilityRequestId` if not populated in `createChatThread` operation.
 
-### Azure Communication Common 1.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-common/CHANGELOG.md#100-beta6-2021-03-09)
+### Azure Communication Common 1.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/communication/communication-common/CHANGELOG.md#100-beta6-2021-03-09)
 
-##### New Features 
+##### New Features
 
 - Updated @azure/communication-common version.
 
-### Azure Communication Identity 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-identity/CHANGELOG.md#100-beta5-2021-03-09)
+### Azure Communication Identity 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/communication/communication-identity/CHANGELOG.md#100-beta5-2021-03-09)
 
-#### Breaking Changes 
+#### Breaking Changes
 
 - `CommunicationIdentityClient` method `issueToken` renamed to `getToken`.
 - `CommunicationIdentityClient` method `createUserWithToken` renamed to `createUserAndToken`.
 - Renamed `CommunicationIdentityOptions` to `CommunicationIdentityClientOptions`.
 - Removed `_response` from returned models.
-- Removed `dist-browser` from the output folders. To bundle the Azure SDK libraries, please read our [bundling guide.](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md).
+- Removed `dist-browser` from the output folders. To bundle the Azure SDK libraries, please read our [bundling guide.](https://github.com/Azure/azure-sdk-for-js/blob/main/documentation/Bundling.md).
 
-### Azure Communication SMS 1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/communication/communication-sms/CHANGELOG.md#100-beta4-2021-03-09)
+### Azure Communication SMS 1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/communication/communication-sms/CHANGELOG.md#100-beta4-2021-03-09)
 
-##### New Features 
+##### New Features
 
 - `SmsClient` added a constructor that supports `TokenCredential`.
 - Added support for 1:N SMS messaging.
 - Added support for tagging SMS messages.
 - `send` method in `SmsClient` is idempotent under retry policy.
-- 
-#### Breaking Changes 
+-
+#### Breaking Changes
 
 - `SendRequest` renamed to `SmsSendRequest`.
 - `SendOptions` renamed to `SmsSendOptions` and now has an additional field `tag` to add a custom tag to delivery reports (when enabled).
@@ -222,15 +222,15 @@ Fixes issue [13985](https://github.com/Azure/azure-sdk-for-js/issues/13985) wher
 - Exclude browser unsupported headers when building a Batch request in the browser [#13955)](https://github.com/Azure/azure-sdk-for-js/pull/13955)
 - Make connection string keys case-insensitive [#13954](https://github.com/Azure/azure-sdk-for-js/pull/13954)
 
-### Azure Text Analytics 5.1.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/CHANGELOG.md#510-beta5-2021-03-11)
+### Azure Text Analytics 5.1.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/textanalytics/ai-text-analytics/CHANGELOG.md#510-beta5-2021-03-11)
 
-##### New Features 
+##### New Features
 
 - Targets the service's v3.1-preview.4 API as the default instead of v3.1-preview.3.
 - `beginAnalyzeHealthcareEntities` returns a list of relations between healthcare entities.
 - `recognizePiiEntities` takes a new option, categoriesFilter, that specifies a list of Pii categories to return.
 
-#### Breaking Changes 
+#### Breaking Changes
 
 - Aspects in opinions mining are now called targets and each individual opinion is now called an assessment. The new naming simplifies the naming of different parts of the response.
 

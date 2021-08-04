@@ -154,13 +154,13 @@ is this diagnosis conditional on a symptom?
 ### Azure Communication Administration is deprecated
 - Phone number administration is moved into the new package `azure-communication-phonenumbers`.
 
-### Azure Communication Phone Numbers 1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md#100b4-2021-03-09)
+### Azure Communication Phone Numbers 1.0.0-beta.4 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md#100b4-2021-03-09)
 
 ##### New Features
 
 - Added `PhoneNumbersClient` (originally was part of the `azure.communication.administration` package).
 
-### Azure Communication Chat 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-chat/CHANGELOG.md#100b5-2021-03-09)
+### Azure Communication Chat 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/communication/azure-communication-chat/CHANGELOG.md#100b5-2021-03-09)
 
 ##### New Features
 
@@ -173,14 +173,14 @@ is this diagnosis conditional on a symptom?
 - Changed return types `add_participants`: `None -> list[(ChatThreadParticipant, CommunicationError)]`
 - Added check for failure in `add_participant`
 
-### Azure Communication Identity 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-identity/CHANGELOG.md#100b5-2021-03-09)
+### Azure Communication Identity 1.0.0-beta.5 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/communication/azure-communication-identity/CHANGELOG.md#100b5-2021-03-09)
 
 #### Breaking Changes
 
 - CommunicationIdentityClient's (synchronous and asynchronous) `issue_token` function is now renamed to `get_token`.
 - The CommunicationIdentityClient constructor uses type `TokenCredential` and `AsyncTokenCredential` for the credential parameter.
 
-### Azure Communication SMS 1.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-sms/CHANGELOG.md#100b5-2021-03-09)
+### Azure Communication SMS 1.0.0-beta.6 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/communication/azure-communication-sms/CHANGELOG.md#100b5-2021-03-09)
 
 #### New Features
 
@@ -209,13 +209,13 @@ This version will be the last version to officially support Python 3.5, future v
 
 - Disable retry in stream downloading. (thanks to @jochen-ott-by @hoffmann for the contribution)  #16723
 
-### Device Update 1.0.0b1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/deviceupdate/azure-iot-deviceupdate/CHANGELOG.md#100b1-2021-03-03)
+### Device Update 1.0.0b1 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/deviceupdate/azure-iot-deviceupdate/CHANGELOG.md#100b1-2021-03-03)
 
 * Initial Release
 
 ### Event Grid 4.0.0 [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/azure-eventgrid_4.0.0/sdk/eventgrid/azure-eventgrid/CHANGELOG.md#400-2021-03-09)
 **Notes**
-This is the first stable release of our efforts to create a user-friendly and Python client library for Azure EventGrid. Users migrating from `v1.x` are advised to view the [migration guide](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventgrid/azure-eventgrid/migration_guide.md)
+This is the first stable release of our efforts to create a user-friendly and Python client library for Azure EventGrid. Users migrating from `v1.x` are advised to view the [migration guide](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/eventgrid/azure-eventgrid/migration_guide.md)
 
 **New Features**
 - `azure-eventgrid` package now supports `azure.core.messaging.CloudEvent` which honors the CNCF CloudEvent spec.

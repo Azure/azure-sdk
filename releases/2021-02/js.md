@@ -75,7 +75,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 We're releasing a new GA for the Azure Search Documents client.
 
-#### @azure/search-documents [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/search/search-documents/CHANGELOG.md#1110-2021-02-11)
+#### @azure/search-documents [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/search/search-documents/CHANGELOG.md#1110-2021-02-11)
 
 ##### New Features in @azure/search-documents@11.1.0
 
@@ -85,7 +85,7 @@ We're releasing a new GA for the Azure Search Documents client.
 
 We're releasing a new GA for the Azure Event Hubs client with new features and a major fix.
 
-#### @azure/event-hubs [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/CHANGELOG.md#540-2021-02-09)
+#### @azure/event-hubs [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/eventhub/event-hubs/CHANGELOG.md#540-2021-02-09)
 
 ##### New Features in @azure/event-hubs@5.4.0
 
@@ -96,13 +96,13 @@ We're releasing a new GA for the Azure Event Hubs client with new features and a
 
 Identity is releasing a patch with a dependency fix and a bug fix, and a beta that includes MSAL 2.0 with PKCE support.
 
-#### @azure/identity [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/identity/identity/CHANGELOG.md)
+#### @azure/identity [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity/CHANGELOG.md)
 
-##### Major Fixes in @azure/identity@1.2.3 ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/identity/identity/CHANGELOG.md#123-2021-02-09))
+##### Major Fixes in @azure/identity@1.2.3 ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity/CHANGELOG.md#123-2021-02-09))
 
 - Fixed a bug that appeared while using `InteractiveBrowserCredential` to authenticate against Azure Stack from NodeJS (for local apps that would ask for authentication using a browser window). Azure Stack has specific authentication requirements that were missed on our previous `InteractiveBrowserCredential` release.
 
-##### Changes in @azure/identity@1.2.4-beta.1 ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/identity/identity/CHANGELOG.md#124-beta1-2021-02-12))
+##### Changes in @azure/identity@1.2.4-beta.1 ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity/CHANGELOG.md#124-beta1-2021-02-12))
 
 - In this beta we've updated `InteractiveBrowserCredential` to use by default the [Auth Code Flow with PKCE](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow) rather than the [Implicit Grant Flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-implicit-grant-flow) to better support browsers with enhanced security restrictions.
 
@@ -110,7 +110,7 @@ Identity is releasing a patch with a dependency fix and a bug fix, and a beta th
 
 We're releasing some beta updates for the clients of the Key Vault service with small updates and breaking changes only from the last beta updates released.
 
-#### @azure/keyvault-admin [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-admin/CHANGELOG.md#400-beta2-2021-02-09)
+#### @azure/keyvault-admin [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/keyvault/keyvault-admin/CHANGELOG.md#400-beta2-2021-02-09)
 
 ##### Changes on @azure/keyvault-admin@4.0.0-beta.2
 
@@ -125,7 +125,7 @@ We're releasing some beta updates for the clients of the Key Vault service with 
 -  The logging of HTTP requests wasn't properly working - now it has been fixed and tests have been written that verify the fix.
 - Backup / Restore polling will now correctly propagate any errors to the awaited call.
 
-#### @azure/keyvault-keys [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/keyvault/keyvault-keys/CHANGELOG.md#420-beta3-2021-02-09)
+#### @azure/keyvault-keys [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/keyvault/keyvault-keys/CHANGELOG.md#420-beta3-2021-02-09)
 
 ##### New Features on @azure/keyvault-keys@4.2.0-beta.3
 
@@ -137,7 +137,7 @@ We're releasing some beta updates for the clients of the Key Vault service with 
 
 We're releasing a new beta for the Text Analytics service including new features and some renamed properties and methods.
 
-#### @azure/ai-text-analytics [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/textanalytics/ai-text-analytics/CHANGELOG.md#510-beta4-2021-02-10)
+#### @azure/ai-text-analytics [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/textanalytics/ai-text-analytics/CHANGELOG.md#510-beta4-2021-02-10)
 
 ##### New Features in @azure/ai-text-analytics@5.1.0-beta.4
 
@@ -151,7 +151,7 @@ We're releasing a new beta for the Text Analytics service including new features
 
 We are releasing a new  preview version for metrics advisor with AAD support feature
 
-#### @azure/ai-metrics-advisor [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/metricsadvisor/ai-metrics-advisor/CHANGELOG.md#100-beta3-2021-02-09)
+#### @azure/ai-metrics-advisor [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/metricsadvisor/ai-metrics-advisor/CHANGELOG.md#100-beta3-2021-02-09)
 
 ##### New Features in @azure/ai-metrics-advisor@1.0.0@beta.3
 
@@ -167,7 +167,7 @@ We are releasing a new  preview version for metrics advisor with AAD support fea
 
 We're releasing a new beta client for the Azure Form Recognizer service with an upgrade for one TypeScript type.
 
-#### @azure/ai-form-recognizer [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md#310-beta2-2021-02-09)
+#### @azure/ai-form-recognizer [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md#310-beta2-2021-02-09)
 
 ##### Breaking Changes in @azure/ai-form-recognizer@3.1.0-beta.2
 
@@ -177,34 +177,34 @@ We're releasing a new beta client for the Azure Form Recognizer service with an 
 
 We released hot fix versions and also beta versions for new service features in Azure Storage Service API version 2020-06-10.
 
-#### @azure/storage-blob [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/CHANGELOG.md)
+#### @azure/storage-blob [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/CHANGELOG.md)
 
-##### Major Fixes in @azure/storage-blob@12.4.1 ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/CHANGELOG.md#1241-2021-02-03))
+##### Major Fixes in @azure/storage-blob@12.4.1 ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/CHANGELOG.md#1241-2021-02-03))
 
-- Fixed a compile time failure in resolving the crypto module in Angular projects which got introduced in a previous update. 
+- Fixed a compile time failure in resolving the crypto module in Angular projects which got introduced in a previous update.
 - Fixed an issue where the download stream returned by `BlobClient.download` method would not release underlying resources unless it's fully consumed.
 
-##### New Features in @azure/storage-blob@12.5.0-beta.1 ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/CHANGELOG.md#1250-beta1-2021-02-09))
+##### New Features in @azure/storage-blob@12.5.0-beta.1 ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-blob/CHANGELOG.md#1250-beta1-2021-02-09))
 
 - Now support Batch operations scoped to the Container level. You can use `ContainerClient.getBlobBatchClient()` to get such a `BlobBatchClient`.
 
-#### @azure/storage-file-datalake [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/CHANGELOG.md)
+#### @azure/storage-file-datalake [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-file-datalake/CHANGELOG.md)
 
-##### Major Fixes in @azure/storage-file-datalake@12.3.1 ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/CHANGELOG.md#1231-2021-02-03))
+##### Major Fixes in @azure/storage-file-datalake@12.3.1 ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-file-datalake/CHANGELOG.md#1231-2021-02-03))
 
 - Fixed a compile time failure in resolving the crypto module in Angular projects which got introduced in a previous update.
 
-##### New Features in @azure/storage-file-datalake@12.4.0-beta.1 ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-datalake/CHANGELOG.md#1240-beta1-2021-02-09))
+##### New Features in @azure/storage-file-datalake@12.4.0-beta.1 ([Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-file-datalake/CHANGELOG.md#1240-beta1-2021-02-09))
 
 - Added support for Container Soft Delete. You can restore a deleted filesystem via `DataLakeServiceClient.undeleteFileSystem()`. And the `DataLakeServiceClient.listFileSystems()` now support an `includeDeleted` option to include soft deleted filesystems in the response.
 
-#### storage-file-share [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-file-share/CHANGELOG.md#1241-2021-02-03)
+#### storage-file-share [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-file-share/CHANGELOG.md#1241-2021-02-03)
 
 ##### @azure/storage-file-share@12.4.1
 
 This release contains bug fixes to improve quality.
 
-#### storage-queue [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-queue/CHANGELOG.md#1231-2021-02-03)
+#### storage-queue [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/storage/storage-queue/CHANGELOG.md#1231-2021-02-03)
 
 ##### @azure/storage-queue@12.3.1
 
@@ -214,7 +214,7 @@ This release contains bug fixes to improve quality.
 
 We released a new beta package for the Event Grid service.
 
-#### @azure/eventgrid [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventgrid/eventgrid/CHANGELOG.md#300-beta3-2020-10-06)
+#### @azure/eventgrid [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/eventgrid/eventgrid/CHANGELOG.md#300-beta3-2020-10-06)
 
 ##### Breaking changes in @azure/eventgrid@3.0.0-beta.3
 
@@ -231,7 +231,7 @@ We released a new beta package for the Event Grid service.
 
 We released a new beta package for the Data Tables service.
 
-#### @azure/data-tables [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/tables/data-tables/CHANGELOG.md#100-beta5-2021-02-09)
+#### @azure/data-tables [Changelog](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/tables/data-tables/CHANGELOG.md#100-beta5-2021-02-09)
 
 ##### Breaking changes in @azure/data-tables@1.0.0-beta.5
 

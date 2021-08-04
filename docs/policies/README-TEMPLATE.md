@@ -18,9 +18,9 @@ Use the guidelines in each section of this template to ensure consistency and re
   - [Package (PyPi)](https://pypi.org/project/azure-cosmos/)
   - [API reference documentation](https://docs.microsoft.com/python/api/overview/azure/cosmos-readme)
   - [Product documentation](https://docs.microsoft.com/azure/cosmos-db/)
-  - [Source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)
-  - [ChangeLog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/CHANGELOG.md)
-  - [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos/samples)
+  - [Source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cosmos/azure-cosmos)
+  - [ChangeLog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/cosmos/azure-cosmos/CHANGELOG.md)
+  - [Samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cosmos/azure-cosmos/samples)
   - [Versioned API References](https://azure.github.io/azure-sdk-for-python/cosmosdb.html) -- Note this link format may be updated in the future but it is the best we have for now.
 
 > TIP: Your README should be as **brief** as possible but **no more brief** than necessary to get a developer new to Azure, the service, or the package up and running quickly. Keep it brief, but include everything a developer needs to make their first API call successfully.
@@ -126,10 +126,10 @@ If you'd like to contribute to this library, please read the [contributing guide
 
 ## Links to language repos
 
-[Python Readme Template](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/template/azure-template/README.md)
+[Python Readme Template](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/template/azure-template/README.md)
 
-[JavaScript Readme Template](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/template/template/README.md)
+[JavaScript Readme Template](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/template/template/README.md)
 
-[Java Readme Template](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/template/azure-sdk-template/README.md)
+[Java Readme Template](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/template/azure-sdk-template/README.md)
 
-[.NET Readme Template](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/template/Azure.Template/README.md)
+[.NET Readme Template](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/template/Azure.Template/README.md)

@@ -87,7 +87,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Renamed `Request` to `DetectRequest`.
 - Renamed `Point` to `TimeSeriesPoint`.
 
-### Azure.Core [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/CHANGELOG.md#150-2020-09-03)
+### Azure.Core [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/CHANGELOG.md#150-2020-09-03)
 
 #### New Features
 
@@ -97,7 +97,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - `ETag` now supports weak ETags and implements an overload for `ToString` that accepts a format string.
 
-### Azure.Core.Experimental [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core.Experimental/CHANGELOG.md#010-preview5-2020-09-03)
+### Azure.Core.Experimental [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core.Experimental/CHANGELOG.md#010-preview5-2020-09-03)
 
 #### New Features
 
@@ -112,51 +112,51 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - `BinaryData`: Renamed `Deserialize` to `ToObject`.
 - `BinaryData`: Renamed `FromMemory` to `FromBytes`.
 
-### Azure.Data.AppConfiguration [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/appconfiguration/Azure.Data.AppConfiguration/CHANGELOG.md#102-2020-09-10)
+### Azure.Data.AppConfiguration [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/appconfiguration/Azure.Data.AppConfiguration/CHANGELOG.md#102-2020-09-10)
 
 #### New Features
 
 - Provide AddConfigurationClient with support for TokenCredential
 
-### Azure.Data.Tables [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/tables/Azure.Data.Tables/CHANGELOG.md#300-beta1-2020-09-08)
+### Azure.Data.Tables [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/tables/Azure.Data.Tables/CHANGELOG.md#300-beta1-2020-09-08)
 
 - Initial beta release of Azure Data Tables client library
 
-### Azure.Extensions.AspNetCore.DataProtection.Keys [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Keys/CHANGELOG.md#102-2020-09-01)
+### Azure.Extensions.AspNetCore.DataProtection.Keys [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Keys/CHANGELOG.md#102-2020-09-01)
 
 #### Key Bug Fixes
 
 - Support reading keys created by a previous version of Azure KeyVault Keys DataProtection library.
 
-### Azure.Security.KeyVault.Administration [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/keyvault/Azure.Security.KeyVault.Administration/CHANGELOG.md#400-beta1-2020-09-08)
+### Azure.Security.KeyVault.Administration [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/keyvault/Azure.Security.KeyVault.Administration/CHANGELOG.md#400-beta1-2020-09-08)
 
 #### New Features
 
 - Add `KeyVaultAccessControlClient`.
 - Add `KeyVaultBackupClient`.
 
-### Azure.Security.KeyVault.Certificates [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/keyvault/Azure.Security.KeyVault.Certificates/CHANGELOG.md#420-beta1-2020-09-08)
+### Azure.Security.KeyVault.Certificates [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/keyvault/Azure.Security.KeyVault.Certificates/CHANGELOG.md#420-beta1-2020-09-08)
 
 #### New Features
 
 - Added `KeyVaultCertificateIdentifier` to parse certificate URIs.
 - Added link to sample on `KeyVaultCertificate.Cer` to the private key.
 
-### Azure.Security.KeyVault.Keys [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/keyvault/Azure.Security.KeyVault.Keys/CHANGELOG.md#420-beta1-2020-09-08)
+### Azure.Security.KeyVault.Keys [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/keyvault/Azure.Security.KeyVault.Keys/CHANGELOG.md#420-beta1-2020-09-08)
 
 #### New Features
 
 - Added `KeyVaultKeyIdentifier` to parse key URIs.
 - Added `LocalCryptographyClient` to do cryptography operations locally using a `JsonWebKey`.
 
-### Azure.Security.KeyVault.Secrets [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/keyvault/Azure.Security.KeyVault.Secrets/CHANGELOG.md#420-beta1-2020-09-08)
+### Azure.Security.KeyVault.Secrets [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/keyvault/Azure.Security.KeyVault.Secrets/CHANGELOG.md#420-beta1-2020-09-08)
 
 #### New Features
 
 - Added `KeyVaultSecretIdentifier` to parse secret URIs.
 
 
-### Azure Storage Blobs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md)
+### Azure Storage Blobs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md)
 
 #### Key Bug Fixes
 
@@ -164,29 +164,29 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Fixed bug in `BlobBaseClient.OpenRead()` which was causing more downloads than necessary.
 - Fixed bug where `PageBlobWriteStream` would advance Position 2 times the number of written bytes.
 
-### Azure Storage Files DataLake [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md)
+### Azure Storage Files DataLake [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md)
 
 #### Key Bug Fixes
 - `DataLakeFileClient.Upload()` will not deadlock anymore if the content stream's position is not 0.
 - Fixed bug in `DataLakeFileClient.OpenRead()` which was causing more downloads than necessary.
 
-### Azure Storage Files Shares [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md)
+### Azure Storage Files Shares [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md)
 
 #### Key Bug Fixes
 - Fixed bug where `ShareFileClient.Upload()` and `ShareFileClient.UploadRange()` would deadlock if the content stream's position was not set to 0.
 - Fixed bug in `ShareFileClient.OpenRead()` which was causing more downloads than necessary.
 - Fixed bug where `ShareClient.Delete()` could not delete Share Snapshots unless the `includeSnapshots` parameter was set to false.
 
-### Azure Storage Queues [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/storage/Azure.Storage.Queues/CHANGELOG.md)
+### Azure Storage Queues [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Queues/CHANGELOG.md)
 
 #### Key Bug Fixes
 - Fixed a bug where `QueueClient.UpdateMessage` and `QueueClient.UpdateMessageAsync` were erasing message content if only `visibilityTimeout` was provided
 
-### Event Grid [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md)
+### Event Grid [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md)
 
 - Initial beta release of Azure Event Grid client library
 
-### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md)
+### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md)
 
 #### New Features
 
@@ -194,7 +194,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - The `EventHubConsumerClient` now allows for performance tuning by setting the `PrefetchCount` and `CacheEventCount` values in its associated options.
 
-### Event Hubs Processor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md)
+### Event Hubs Processor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md)
 
 #### New Features
 
@@ -206,7 +206,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - The approach used for creation of checkpoints has been updated to interact with Azure Blob storage more efficiently.  This will yield major performance improvements when soft delete was enabled and minor improvements otherwise.
 
-### Identity [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/identity/Azure.Identity/CHANGELOG.md#130-beta1-2020-09-11)
+### Identity [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/CHANGELOG.md#130-beta1-2020-09-11)
 
 #### New Features
 
@@ -225,14 +225,14 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Update `VisualStudioCredential` and `VisualStudioCodeCredential` to throw `CredentialUnavailableException` for ADFS tenant (Issue [#14639](https://github.com/Azure/azure-sdk-for-net/issues/14639))
 
 
-### Identity [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/identity/Azure.Identity/CHANGELOG.md#123-2020-09-11)
+### Identity [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/CHANGELOG.md#123-2020-09-11)
 
 #### Key Bug Fixes
 
 - Fixed issue with `DefaultAzureCredential` incorrectly catching `AuthenticationFailedException` (Issue [#14974](https://github.com/Azure/azure-sdk-for-net/issues/14974))
 - Fixed issue with `DefaultAzureCredential` throwing exceptions during concurrent calls (Issue [#15013](https://github.com/Azure/azure-sdk-for-net/issues/15013))
 
-### Azure.Messaging.ServiceBus [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md#700-preview7-2020-09-10)
+### Azure.Messaging.ServiceBus [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md#700-preview7-2020-09-10)
 
 #### New Features
 
@@ -252,7 +252,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Made settlement methods on `ProcessMessageEventArgs` and `ProcessSessionMessageEventArgs` virtual for mocking.
 - Made all Create methods on `ServiceBusClient` virtual for mocking.
 
-### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#300-2020-08-20)
+### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#300-2020-08-20)
 
 - First stable release of the Azure.AI.FormRecognizer package, targeting Azure Form Recognizer service API version 2.0.
 
@@ -260,7 +260,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - Added `FormRecognizerModelFactory` static class to support mocking model types.
 
-### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#510-beta1-2020-09-17)
+### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#510-beta1-2020-09-17)
 
 #### New Features
 - It defaults to the latest supported API version, which currently is `3.1-preview.2`.

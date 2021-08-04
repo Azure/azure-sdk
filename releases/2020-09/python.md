@@ -61,30 +61,30 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
-### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#300-2020-08-20)
+### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#300-2020-08-20)
 
 - Generally available, stable version 3.0.0 released
 
-### Event Grid [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventgrid/azure-eventgrid/CHANGELOG.md#200b1-2020-09-08)
+### Event Grid [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/eventgrid/azure-eventgrid/CHANGELOG.md#200b1-2020-09-08)
 
 - Azure Event Grid v2 preview SDK (v2.0.0b1) is released with support for CloudEvent
 
-### Identity [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/identity/azure-identity/CHANGELOG.md#150b1-2020-09-08)
+### Identity [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/identity/azure-identity/CHANGELOG.md#150b1-2020-09-08)
 
 - Reintroduced user authentication API from the last beta version (1.4.0b7)
 - Added support for ADFS and Subject Name/Issuer authentication
 
 ### Key Vault
 
-#### Administration [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-administration/CHANGELOG.md#400b1-2020-09-08)
+#### Administration [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/keyvault/azure-keyvault-administration/CHANGELOG.md#400b1-2020-09-08)
 
 - First beta release with support for role-based access control, full-vault backup, and full-vault restore and selective key restore operations
 
-#### Certificates [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/keyvault/azure-keyvault-certificates/CHANGELOG.md#421-2020-09-08)
+#### Certificates [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/keyvault/azure-keyvault-certificates/CHANGELOG.md#421-2020-09-08)
 
 - Fixed incompatibility issues with API version `2016-10-01`
 
-### Search [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/search/azure-search-documents/CHANGELOG.md)
+### Search [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/search/azure-search-documents/CHANGELOG.md)
 
 #### Features
 
@@ -96,31 +96,31 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Removed succeeded_actions & failed_actions from BatchClient
 - Removed get_index_document_batching_client from SearchClient
 
-### Application Configuration [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/appconfiguration/azure-appconfiguration/CHANGELOG.md)
+### Application Configuration [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/appconfiguration/azure-appconfiguration/CHANGELOG.md)
 
 #### Features
 
 - Added match condition support for set_read_only method
 
-### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/CHANGELOG.md)
+### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/eventhub/azure-eventhub/CHANGELOG.md)
 
 #### Features
 
 - Added `SharedAccessSignature` support to connection strings
 
-### Event Hubs CheckpointStoreBlob [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob/CHANGELOG.md)
+### Event Hubs CheckpointStoreBlob [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/eventhub/azure-eventhub-checkpointstoreblob/CHANGELOG.md)
 
 #### Key Bug Fixes
 
 - Fixes a bug that may gradually slow down retrieving checkpoint data if the storage account has "File share soft delete" enabled.
 
-### Azure Data Tables [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/tables/azure-data-tables/CHANGELOG.md)
+### Azure Data Tables [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/tables/azure-data-tables/CHANGELOG.md)
 
 #### Features
 
 - Azure Data Tables v2 preview SDK (v12.0.0b1) is released with support for Storage and CosmosDB
 
-### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/CHANGELOG.md)
+### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/servicebus/azure-servicebus/CHANGELOG.md)
 
 #### New Features
 
@@ -137,7 +137,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Sending a message twice will no longer result in a MessageAlreadySettled exception.
 - No longer export `ServiceBusSharedKeyCredential`.
 
-### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#510b1-2020-09-17)
+### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#510b1-2020-09-17)
 
 #### New Features
 
@@ -145,7 +145,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Added new endpoint `recognize_pii_entities`, which returns entities containing personally identifiable information from a batch of documents
 - Added support for opinion mining, which is more in-depth sentiment analysis
 
-### Azure Storage Blob [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md)
+### Azure Storage Blob [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/storage/azure-storage-blob/CHANGELOG.md)
 
 #### New Features
 - Added `exists` method to check if a blob exists.
@@ -155,18 +155,18 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Fixed SAS credentials URL malformation when using local Azurite container.
 - Fixed issue with permission string causing an authentication failure.
 
-### Azure Storage Blob Changefeed [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob-changefeed/CHANGELOG.md)
+### Azure Storage Blob Changefeed [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/storage/azure-storage-blob-changefeed/CHANGELOG.md)
 
 #### Breaking changes
 - Change the `continuation token` from a dict to a str.
 - `start_time`/`end_time` and `continuation_token` are mutually exclusive now
 
-### Azure Storage File DataLake [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md)
+### Azure Storage File DataLake [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/storage/azure-storage-file-datalake/CHANGELOG.md)
 
 #### Key Bug Fixes
 - Fixed renaming with SAS string
 
-### Azure Storage Queue [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-queue/CHANGELOG.md)
+### Azure Storage Queue [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/storage/azure-storage-queue/CHANGELOG.md)
 
 #### Key Bug Fixes
 - Fixed `QueueClient` type declaration

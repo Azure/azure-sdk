@@ -86,19 +86,19 @@ If you have a bug or feature request for one of the libraries, please post an is
 - `begin_purchase_reservation` now returns `LROPoller[PurchaseReservationPolling]`.
 - `cancel_search` has been renamed to `cancel_reservation`.
 
-### Communication Chat [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-chat/CHANGELOG.md#100b3-2020-11-16)
+### Communication Chat [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/communication/azure-communication-chat/CHANGELOG.md#100b3-2020-11-16)
 
 This release contains minor bug fixes and improvements.
 
-### Communication SMS [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-communication-sms/CHANGELOG.md#100b4-2020-11-16)
+### Communication SMS [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/communication/azure-communication-sms/CHANGELOG.md#100b4-2020-11-16)
 
 This release contains minor bug fixes and improvements.
 
-### Management Library - Communication [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/azure-mgmt-communication/CHANGELOG.md#100b4-2020-11-16)
+### Management Library - Communication [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/communication/azure-mgmt-communication/CHANGELOG.md#100b4-2020-11-16)
 
 This release contains minor bug fixes and improvements.
 
-### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/CHANGELOG.md)
+### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/servicebus/azure-servicebus/CHANGELOG.md)
 
 #### New Features
 
@@ -112,13 +112,13 @@ This release contains minor bug fixes and improvements.
 * `get_*_session_receiver` functions have been incorporated into their `get_*_receiver` counterparts, activated by passing a `session_id` parameter.
 * Continued Exception behavior cleanup, normalization, and documentation, as well as naming polish in line with the broad name prefix alignment.
 
-### Metrics Advisor [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md)
+### Metrics Advisor [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md)
 
 #### Breaking Changes
 
-- Significant renames across parameters and methods. Please go to the [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md) for detail information.
+- Significant renames across parameters and methods. Please go to the [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md) for detail information.
 
-### Azure Storage Blob [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/CHANGELOG.md)
+### Azure Storage Blob [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/storage/azure-storage-blob/CHANGELOG.md)
 
 #### New Features
 - GA the following preview features: ArrowDialect as output format of `query_blob`, `undelete_container` on `BlobServiceClient`, and Last Access Time.
@@ -127,13 +127,13 @@ This release contains minor bug fixes and improvements.
 - Fixed the expired Authorization token problem during retry.
 - Catch exceptions thrown by async download.
 
-### Azure Storage File Share [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-share/CHANGELOG.md)
+### Azure Storage File Share [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/storage/azure-storage-file-share/CHANGELOG.md)
 
 #### New Features
 - GA support for enabling SMB Multichannel for the share service and `get_ranges` on `ShareFileClient`.
 - Added `set_share_properties` which allows setting share tier.
 
-### Azure Storage File DataLake [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/CHANGELOG.md)
+### Azure Storage File DataLake [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/storage/azure-storage-file-datalake/CHANGELOG.md)
 
 #### New Features
 - GA support for set/update/remove access control recursively, `set_file_expiry` on `DataLakeFileClient`. and feature generating directory level SAS.
@@ -141,12 +141,12 @@ This release contains minor bug fixes and improvements.
 #### Key Bug Fixes
 - Fixed session closure of filesystem.
 
-### Azure Storage Queue [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-queue/CHANGELOG.md)
+### Azure Storage Queue [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/storage/azure-storage-queue/CHANGELOG.md)
 
 #### New Features
 - Added `receive_message` on `QueueClient` to support receiving one message from queue.
 
-### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#310b1-2020-11-23)
+### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md#310b1-2020-11-23)
 
 This version of the SDK defaults to the latest supported API version, which currently is v2.1-preview.
 
@@ -170,7 +170,7 @@ language to process the document in.
 in a multi-page document should be analyzed.
 - Additional properties added to response models - see Changelog for detailed information.
 
-### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#510b3-2020-11-19)
+### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md#510b3-2020-11-19)
 
 #### New Features
 - Support for the service's long-running batch analysis `Analyze` API.

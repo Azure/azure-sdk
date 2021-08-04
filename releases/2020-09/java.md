@@ -386,7 +386,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here are some of the highlights:
 
-### Azure Core ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/CHANGELOG.md#181-2020-09-08))
+### Azure Core ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core/CHANGELOG.md#181-2020-09-08))
 
 #### New Features
 
@@ -402,7 +402,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Fixed bug where header logging checked for a log level of not equals `verbose` instead of equals `verbose`.
 
 
-### Azure Core AMQP ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-amqp/CHANGELOG.md#151-2020-09-10))
+### Azure Core AMQP ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core-amqp/CHANGELOG.md#151-2020-09-10))
 
 #### New Features
 
@@ -413,14 +413,14 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - Close children sessions and links when its associated parent is disposed.
 
-### Azure Core Experimental ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-experimental/CHANGELOG.md#100-beta4-2020-09-08))
+### Azure Core Experimental ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core-experimental/CHANGELOG.md#100-beta4-2020-09-08))
 
 #### New Features
 
 - Added `AvroSerializer` interface containing Avro specific serializer APIs.
 - Added `AvroSerializerProvider` interface as a service provider for `AvroSerializer`.
 
-### Azure Core Http Netty ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-http-netty/CHANGELOG.md#161-2020-09-08))
+### Azure Core Http Netty ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core-http-netty/CHANGELOG.md#161-2020-09-08))
 
 #### New Features
 
@@ -432,7 +432,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - Changed default timeouts from infinite to 60 seconds.
 
-### Azure Core Http OkHttp ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-http-okhttp/CHANGELOG.md#131-2020-09-08))
+### Azure Core Http OkHttp ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core-http-okhttp/CHANGELOG.md#131-2020-09-08))
 
 #### New Features
 
@@ -447,22 +447,22 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - Fixed bug where `Configuration` proxy would lead to a `NullPointerException` when set.
 
-### Azure Core Serializer Apache Avro ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-serializer-avro-apache/CHANGELOG.md#100-beta3-2020-09-08))
+### Azure Core Serializer Apache Avro ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core-serializer-avro-apache/CHANGELOG.md#100-beta3-2020-09-08))
 
 #### New Features
 
 - Updated `ApacheAvroSerializer` to implement `AvroSerializer` instead of `ObjectSerializer`.
 - Added implementation for `AvroSerializerProvider`.
 
-### Azure Core Serializer JSON GSON ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-serializer-json-gson/CHANGELOG.md#101-2020-09-08))
+### Azure Core Serializer JSON GSON ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core-serializer-json-gson/CHANGELOG.md#101-2020-09-08))
 
 - General availability.
 
-### Azure Core Serializer JSON Jackson ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core-serializer-json-jackson/CHANGELOG.md#101-2020-09-08))
+### Azure Core Serializer JSON Jackson ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/core/azure-core-serializer-json-jackson/CHANGELOG.md#101-2020-09-08))
 
 - General availability.
 
-### Azure Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md#520-2020-09-11)
+### Azure Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md#520-2020-09-11)
 
 #### New Features
 
@@ -500,18 +500,18 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
     - `authenticationRecord` enables initializing a credential with an `AuthenticationRecord` returned from a prior call to `Authenticate`
     - `disableAutomaticAuthentication` disables automatic user interaction causing the credential to throw an `AuthenticationRequiredException` when interactive authentication is necessary.
 
-### Azure Key Vault Administration 4.0.0-beta.1 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-administration/CHANGELOG.md#400-beta1-2020-09-11))
+### Azure Key Vault Administration 4.0.0-beta.1 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/keyvault/azure-security-keyvault-administration/CHANGELOG.md#400-beta1-2020-09-11))
 
 #### New features
 - Added two new clients for performing Role-based Access Control (RBAC) operations on Key Vault: `KeyVaultAccessControlClient` and `KeyVaultAccessControlAsyncClient`.
 - Added two new clients for performing backup and restore operations on Key Vault: `KeyVaultBackupClient` and `KeyVaultBackupAsyncClient`.
 
-### Azure Key Vault Certificates 4.3.0-beta.1 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md#420-beta1-2020-09-11))
+### Azure Key Vault Certificates 4.3.0-beta.1 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md#420-beta1-2020-09-11))
 
 #### Key Bug Fixes
 - Fixed an issue that prevented using classes from package `com.azure.security.keyvault.certificates` when working on a project using Java 9+.
 
-### Azure Key Vault Keys 4.3.0-beta.1 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md#430-beta1-2020-09-11))
+### Azure Key Vault Keys 4.3.0-beta.1 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md#430-beta1-2020-09-11))
 
 #### Key Bug Fixes
 - Fixed an issue that prevented using classes from package `com.azure.security.keyvault.keys` when working on a project using Java 9+.
@@ -520,7 +520,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - Initial preview release for Anomaly Detector.
 
-### Azure Search Documents 11.1.0 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/search/azure-search-documents/CHANGELOG.md#1110-2020-09-09))
+### Azure Search Documents 11.1.0 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/search/azure-search-documents/CHANGELOG.md#1110-2020-09-09))
 
 #### New Features
 
@@ -538,7 +538,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - Deprecated getter `OcrSkill.setShouldDetectOrientation()` and replaced with correct Javabeans named `isShouldDetectOrientation()`.
 
-### Azure Search Documents 11.2.0-beta.1 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/search/azure-search-documents/CHANGELOG.md#1120-beta1-2020-09-09))
+### Azure Search Documents 11.2.0-beta.1 ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/search/azure-search-documents/CHANGELOG.md#1120-beta1-2020-09-09))
 
 #### New Features
 
@@ -551,7 +551,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - Updated Jackson annotations to include `required = true` when service must receive or return the property.
 
-### Azure Spring Cloud ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-cloud-autoconfigure/CHANGELOG.md#128-2020-09-14))
+### Azure Spring Cloud ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-autoconfigure/CHANGELOG.md#128-2020-09-14))
 
 #### New features
 
@@ -563,11 +563,11 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - Fixed the repeated consumption of Event Hubs messages when the checkpoint mode is BATCH.
 
-### Event Grid ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md#200-beta1-2020-09-09))
+### Event Grid ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md#200-beta1-2020-09-09))
 
 - Initial Preview release for Event Grid
 
-### Azure Service Bus ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md#700-beta6-2020-09-11))
+### Azure Service Bus ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md#700-beta6-2020-09-11))
 
 #### New features
 - Add support for authenticating with a connection string containing a Shared Access Signature.
@@ -583,7 +583,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - Initial preview release for Azure Tables
 
-### Azure Cosmos ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-cosmos/CHANGELOG.md#440-2020-09-12))
+### Azure Cosmos ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos/CHANGELOG.md#440-2020-09-12))
 
 #### 4.4.0 (2020-09-12)
 
@@ -594,7 +594,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Fixed a leak in `CosmosClient` instantiation when endpoint uri is invalid.
 - Improved `CPU History` diagnostics.
 
-### Azure Cosmos ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cosmos/azure-cosmos/CHANGELOG.md#440-beta1-2020-08-27))
+### Azure Cosmos ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-cosmos/CHANGELOG.md#440-beta1-2020-08-27))
 
 #### 4.4.0-beta.1 (2020-08-27)
 
@@ -612,7 +612,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - Changed `Fluent` annotations to `Immutable` when the class is immutable.
 
-### Azure Spring Boot ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot/CHANGELOG.md#235-2020-09-14))
+### Azure Spring Boot ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot/CHANGELOG.md#235-2020-09-14))
 
 #### Key Bug Fixes
 - Exclude disabled secrets when getting Key Vault secrets
@@ -624,8 +624,8 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Updated Text Analytics SDK's default service API version to `v3.1-preview.2` from `v3.0`.
 - Added support for Personally Identifiable Information(PII) entity recognition feature.
   To use this feature, you need to make sure you are using the service's v3.1-preview.1 API.
-- Added support for the Opinion Mining feature. To use this feature, you need to make sure you are using the 
-service's v3.1-preview.1 and above API. To get this support pass `includeOpinionMining` as `true` in 
+- Added support for the Opinion Mining feature. To use this feature, you need to make sure you are using the
+service's v3.1-preview.1 and above API. To get this support pass `includeOpinionMining` as `true` in
 `AnalyzeSentimentOptions` when calling the sentiment analysis endpoints.
 
 ## Need help

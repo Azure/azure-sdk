@@ -196,6 +196,19 @@ function GetPackageLookup($packageList)
         Write-Host "Found more than one package entry for $($pkg.Package) selecting the first non-hidden one."
       }
     }
+
+    if ($pkg.PSObject.Members.Name -contains "GroupId" -and ($pkg.New -eq "true") -and $pkg.Package) {
+      $pkgKey = $pkg.Package
+      if (!$packageLookup.ContainsKey($pkgKey))
+      {
+        $packageLookup[$pkgKey] = $pkg
+      }
+      else
+      {
+        $packageValue = $packageLookup[$pkgKey]
+        Write-Host "Found more than one package entry for $($packageValue.Package) selecting the first one with groupId $($packageValue.GroupId), skipping $($pkg.GroupId)"
+      }
+    }
   }
 
   return $packageLookup

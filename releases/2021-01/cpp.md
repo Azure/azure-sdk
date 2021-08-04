@@ -35,7 +35,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-### azure-core [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/core/azure-core/CHANGELOG.md#100-beta4-2021-01-13)
+### azure-core [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/core/azure-core/CHANGELOG.md#100-beta4-2021-01-13)
 
 #### New Features
 
@@ -76,7 +76,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 - Added support for distributing the C++ SDK as a source package via vcpkg.
 
-### azure-identity [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/identity/azure-identity/CHANGELOG.md#100-beta2-2021-01-13)
+### azure-identity [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/identity/azure-identity/CHANGELOG.md#100-beta2-2021-01-13)
 
 #### Breaking Changes
 
@@ -86,7 +86,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 - Add high-level and simplified identity.hpp file for simpler include experience for customers.
 
-### azure-storage-common [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-common/CHANGELOG.md#1200-beta6-2020-01-14)
+### azure-storage-common [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/storage/azure-storage-common/CHANGELOG.md#1200-beta6-2020-01-14)
 
 #### New Features
 
@@ -110,7 +110,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 - Fixed default EndpointSuffix when parsing a connection string.
 
-### azure-storage-blobs [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/CHANGELOG.md#1200-beta6-2020-01-14)
+### azure-storage-blobs [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/storage/azure-storage-blobs/CHANGELOG.md#1200-beta6-2020-01-14)
 
 #### New Features
 
@@ -187,7 +187,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Renamed member function `GetUri` of client types to `GetUrl`.
 - `BlobClient::GetBlockBlobClient`, `BlobClient::GetAppendBlobClient` and `BlobClient::GetPageBlobClient` are renamed to `BlobClient::AsBlockBlobClient`, `BlobClient::AsAppendBlobClient` and `BlobClient::AsPageBlobClient` respectively.
 
-### azure-storage-files-shares [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/CHANGELOG.md#1200-beta6-2020-01-14)
+### azure-storage-files-shares [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/storage/azure-storage-files-shares/CHANGELOG.md#1200-beta6-2020-01-14)
 
 #### New Features
 
@@ -213,7 +213,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 - Renamed `GetSubDirectoryClient` to `GetSubdirectoryClient`.
 
 
-### azure-storage-files-datalake [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/CHANGELOG.md#1200-beta6-2020-01-14)
+### azure-storage-files-datalake [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/storage/azure-storage-files-datalake/CHANGELOG.md#1200-beta6-2020-01-14)
 
 #### New Features
 
