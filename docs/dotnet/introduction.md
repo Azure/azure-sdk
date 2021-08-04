@@ -332,7 +332,7 @@ For example:
         // ...
     }
 
-    public class CosmosDatabase {
+    public abstract class CosmosDatabase {
         protected CosmosDatabase();
         public abstract string Id { get; }
         // ...
