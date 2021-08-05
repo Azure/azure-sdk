@@ -2,7 +2,11 @@
 
     {% assign trimmedPackage = item.Package | remove: package_trim %}
         
-    {% assign package_url = package_url_template | replace: 'item.Package', item.Package | replace: 'item.TrimmedPackage', trimmedPackage | replace: 'item.GroupId', item.GroupId | replace: 'item.RepoPath', item.RepoPath %}
+    {% if package_url_template contains "item.RepoPath" and item.RepoPath contains "http" %}
+        {% assign package_url = item.RepoPath %}
+    {% else %}
+        {% assign package_url = package_url_template | replace: 'item.Package', item.Package | replace: 'item.TrimmedPackage', trimmedPackage | replace: 'item.GroupId', item.GroupId | replace: 'item.RepoPath', item.RepoPath %}
+    {% endif %}
     
     <tr scope="row">
         <td title="{{ item.Package }}">
