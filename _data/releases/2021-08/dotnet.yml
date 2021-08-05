@@ -367,4 +367,15 @@ entries:
     #### New Features
 
     - Added `DigitalTwinsQueryBuilder` under the  `Azure.DigitalTwins.Core.QueryBuilder.Fluent` and the `Azure.DigitalTwins.Core.QueryBuilder.Linq` namespaces to allow for the creation of ADT queries using fluent-style syntax to abstract the ADT query language from users. As of August 2021, these two query builders are trial features that will be shipped in preview before being potentially released in the future pending user feedback.
+- Name: Azure.Identity
+  Version: 1.4.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.4.1/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Fixes and improvements
+
+    - Fixed issue resulting in duplicate event source names when executing in Azure Functions
 
