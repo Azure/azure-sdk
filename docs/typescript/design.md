@@ -365,6 +365,8 @@ Both iterators and async iterators are built into JavaScript and easy to consume
 
 {% include requirement/SHOULD id="ts-use-interface-parameters" %} prefer interface types to class types. JavaScript is fundamentally a duck-typed language, and so alternative classes that implement the same interface should be allowed. Declare parameters as interface types over class types whenever possible. Overloads with specific class types are fine but there should be an overload present with the generic interface.
 
+{% include requirement/MUST id="ts-avoid-extending-cross-package" %} not extend classes from a different package. Because additive changes to classes are considered non-breaking, it can be non-obvious that a dependent package is broken by a particular addition (such as the base class adding a non-compatible method signature or a conflicting private member.)
+
 <a name="ts-example-iterators"></a>
 
 ```javascript
