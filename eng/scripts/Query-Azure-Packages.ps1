@@ -1,18 +1,33 @@
 [CmdletBinding()]
 param (
-  $language = "all"
+  [string] $language = "all",
+  [string] $github_pat = $env:GITHUB_PAT
 )
 Set-StrictMode -Version 3
 
 . (Join-Path $PSScriptRoot PackageList-Helpers.ps1)
+. (Join-Path $PSScriptRoot PackageVersion-Helpers.ps1)
+
 function CreatePackage(
   [string]$package,
   [string]$version,
   [string]$groupId = ""
 )
 {
+  $semVer = ToSemVer $version
   $versionGA = $versionPreview = ""
-  if ($version -match "^[\d\.]+$") {
+
+  $isGAVersion = $false
+
+  if ($semVer) {
+    $isGAVersion = (!$semVer.IsPrerelease -and $semVer.Major -gt 0)
+  }
+  else {
+    # fallback for non semver compliant versions
+    $isGAVersion = ($version -match "^[\d\.]+$" -and !$version.StartsWith("0"))
+  }
+
+  if ($isGAVersion) {
     $versionGA = $version
   }
   else {
@@ -31,7 +46,11 @@ function CreatePackage(
     GHDocs = "NA"
     Type = ""
     New = "false"
+    PlannedVersions = ""
+    FirstGADate = ""
+    Support = ""
     Hide = ""
+    Replace = ""
     Notes = ""
   };
 }
@@ -83,6 +102,21 @@ function Get-js-Packages
 
   Write-Host "Found $($publishedPackages.Count) npm packages"
   $packages = $publishedPackages | Foreach-Object { CreatePackage $_.name $_.version }
+
+  $repoTags = GetPackageVersions "js"
+
+  foreach ($package in $packages)
+  {
+    # If package starts with arm- and we shipped it recently because it is in the last months repo tags
+    # then treat it as a new mgmt library
+    if ($package.Package.StartsWith("@azure/arm-") -and $repoTags.ContainsKey($package.Package))
+    {
+      $package.Type = "mgmt"
+      $package.New = "true"
+      Write-Host "Marked package $($package.Package) as new mgmt package"
+    }
+  }
+
   return $packages
 }
 
@@ -95,6 +129,35 @@ function Get-python-Packages
 
   Write-Host "Found $($pythonPackages.Count) python packages"
   $packages = $pythonPackages | Foreach-Object { CreatePackage $_.name $_.version }
+  return $packages
+}
+
+function Get-go-Packages
+{
+  $packages = @()
+  $repoTags = GetPackageVersions "go"
+
+  Write-Host "Found $($repoTags.Count) recent tags in go repo"
+
+  foreach ($tag in $repoTags.Keys)
+  {
+    $versions = [AzureEngSemanticVersion]::SortVersions($repoTags[$tag].Versions)
+
+    $package = CreatePackage $tag $versions[0]
+
+    if ($package.Package -match "sdk/(?<service>.*?)/arm(?<pkgName>.*)")
+    {
+      $package.Type = "mgmt"
+      $package.New = "true"
+      $package.DisplayName = "Resource Manager - $((Get-Culture).TextInfo.ToTitleCase($matches["pkgName"]))"
+      $package.ServiceName = (Get-Culture).TextInfo.ToTitleCase($matches["service"])
+      $package.RepoPath = $matches["service"]
+      Write-Host "Marked package $($package.Package) as new mgmt package"
+    }
+
+    $packages += $package
+  }
+
   return $packages
 }
 
@@ -125,6 +188,14 @@ function Write-Latest-Versions($lang)
       # For new packages let the Update-Release-Versions script update the versions
       if ($pkgEntry.New -eq "true") {
         continue
+      }
+
+      if ($pkg.Type -and $pkg.Type -ne $pkgEntry.Type) {
+        $pkgEntry.Type = $pkg.Type
+      }
+
+      if ($pkg.New -ne "false" -and $pkg.New -ne $pkgEntry.New) {
+        $pkgEntry.New = $pkg.New
       }
 
       # Update version of package
@@ -163,6 +234,7 @@ switch($language)
     Write-Latest-Versions "js"
     Write-Latest-Versions "dotnet"
     Write-Latest-Versions "python"
+    Write-Latest-Versions "go"
     break
   }
   "java" {
@@ -178,6 +250,10 @@ switch($language)
     break
   }
   "python" {
+    Write-Latest-Versions $language
+    break
+  }
+  "go" {
     Write-Latest-Versions $language
     break
   }

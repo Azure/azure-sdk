@@ -23,6 +23,8 @@ steps:
   inputs:
     pwsh: true
     filePath: $(AzureSDKClonePath)/eng/scripts/Query-Azure-Packages.ps1
+    arguments: >
+      -github_pat '$(azuresdk-github-pat)'
 
 - task: PowerShell@2
   displayName: Update packages from sdk release data
