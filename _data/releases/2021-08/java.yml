@@ -1875,4 +1875,156 @@ entries:
     * `withSku(models.CacheSku)` was removed
     * `withUpgradeStatus(models.CacheUpgradeStatus)` was removed
   GroupId: com.azure.resourcemanager
+- Name: azure-core
+  Version: 1.19.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core_1.19.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Feature Added
+
+    - Added `HttpRequestLogger`, `HttpResponseLogger`, and correlating context classes to enable support for custom
+    logging in `HttpLoggingPolicy`. ([#16088](https://github.com/Azure/azure-sdk-for-java/pull/16088))
+    - Added new constructor overload to `AzureSasCredential` to enable passing a `Function` which encodes the SAS
+    credential. ([#23033](https://github.com/Azure/azure-sdk-for-java/pull/23033))
+    - Added a new constructor `HttpHeaders(int initialCapacity)` which allows configuration of the initial backing map
+    capacity may allow short-circuiting scenarios where the map would need to be resized and copied in memory.
+    - Added Maven profiles to enable the creation of an uber JAR with OS specific dependencies of
+    `netty-tcnative-boringssl-static` instead of including all OS dependencies. ([#21223](https://github.com/Azure/azure-sdk-for-java/pull/21223))
+    - Added support to `@QueryParam` to support "exploded" query parameters. ([#21203](https://github.com/Azure/azure-sdk-for-java/pull/21203))
+    - Added support to create tracing spans with customizations. ([#23159](https://github.com/Azure/azure-sdk-for-java/pull/23159))
+
+    #### Fixed
+
+    - Fixed a bug where `Tracer.DIAGNOSTIC_ID_KEY`'s value was spelt incorrect.
+    - Fixed a bug where loading system and Java proxies used `java.net.useSystemProxies` incorrectly. ([#23151](https://github.com/Azure/azure-sdk-for-java/pull/23151))
+    - Fixed a bug with context propagation through EventHub and ServiceBus between Java and other languages.
+    - Fixed a bug where classes annotated with `@JsonFlatten` would incorrectly split `Map` keys on `.` and flatten them. ([#22591](https://github.com/Azure/azure-sdk-for-java/pull/22591))
+    - Fixed a bug where creating a `ClientLogger` would throw `InvalidPathException` when constructing a `DefaultLogger`
+    with a name that contained illegal path characters on Windows.
+    - Fixed a bug where `FluxUtil.writeFile` would attempt to write to `ByteBuffer`s to the same location in file.
+
+    #### Dependency Updates
+
+    - Upgraded Jackson from `2.12.3` to `2.12.4`.
+    - Upgraded Reactor from `3.4.6` to `3.4.8`.
+    - Upgraded SLF4J from `1.7.30` to `1.7.32`.
+  GroupId: com.azure
+- Name: azure-core-tracing-opentelemetry
+  Version: 1.0.0-beta.13
+  DisplayName: Tracing OpenTelemetry Plugin
+  ServiceName: Plugin
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-tracing-opentelemetry_1.0.0-beta.13/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support to create tracing spans with customizations. ([#23159](https://github.com/Azure/azure-sdk-for-java/pull/23159))
+  GroupId: com.azure
+- Name: azure-core-test
+  Version: 1.7.0
+  DisplayName: Core - Test
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-test_1.7.0/sdk/core/azure-core-test/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `AzureMethodSource` which enables creating test permutations using `HttpClient`, `ServiceVersion`, and a generic
+    method source supplier function. ([#20484](https://github.com/Azure/azure-sdk-for-java/pull/20484))
+    - Added utility methods to `TestBase` to allow setting playback test polling and setting playback or live test `HttpClient`.
+  GroupId: com.azure
+- Name: azure-core-experimental
+  Version: 1.0.0-beta.16
+  DisplayName: Core Experimental
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-experimental_1.0.0-beta.16/sdk/core/azure-core-experimental/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `TimeInterval` to support ISO8601 time intervals.
+  GroupId: com.azure
+- Name: azure-core-serializer-avro-apache
+  Version: 1.0.0-beta.13
+  DisplayName: Core Serializer Apache Avro
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-serializer-avro-apache_1.0.0-beta.13/sdk/core/azure-core-serializer-avro-apache/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Upgraded `azure-core` from `1.18.0` to `1.19.0`.
+  GroupId: com.azure
+- Name: azure-core-management
+  Version: 1.4.0
+  DisplayName: Management - Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-management_1.4.0/sdk/core/azure-core-management/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure
+- Name: azure-core-http-netty
+  Version: 1.10.2
+  DisplayName: Core - HTTP Netty
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-netty_1.10.2/sdk/core/azure-core-http-netty/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for setting per-call response timeouts by passing `azure-response-timeout` in the request's `Context`. ([#23244](https://github.com/Azure/azure-sdk-for-java/pull/23244))
+  GroupId: com.azure
+- Name: azure-core-serializer-json-gson
+  Version: 1.1.5
+  DisplayName: Core Serializer GSON JSON
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-serializer-json-gson_1.1.5/sdk/core/azure-core-serializer-json-gson/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Upgraded `azure-core` from `1.18.0` to `1.19.0`.
+    - Upgraded `gson` from `2.8.6` to `2.8.7`.
+  GroupId: com.azure
+- Name: azure-core-serializer-json-jackson
+  Version: 1.2.6
+  DisplayName: Core Serializer Jackson JSON
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-serializer-json-jackson_1.2.6/sdk/core/azure-core-serializer-json-jackson/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Updated `azure-core` from `1.18.0` to `1.19.0`.
+    - Updated Jackson from `2.12.3` to `2.12.4`.
+  GroupId: com.azure
+- Name: azure-core-http-okhttp
+  Version: 1.7.2
+  DisplayName: Core - HTTP OkHttp
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-okhttp_1.7.2/sdk/core/azure-core-http-okhttp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Fixed
+
+    - Fixed a bug where OkHttp connections would occasionally deadlock when reading the response. ([#23183](https://github.com/Azure/azure-sdk-for-java/pull/23183))
+    - Fixed a bug where `NullPointerException` would be thrown when `HttpClientOptions` was used in `OkHttpAsyncClientProvider`
+    without a connection pool size configured. ([#23357](https://github.com/Azure/azure-sdk-for-java/pull/23357))
+
+    #### Dependency Updates
+
+    - Upgraded `azure-core` from `1.18.0` to `1.19.0`.
+  GroupId: com.azure
 
