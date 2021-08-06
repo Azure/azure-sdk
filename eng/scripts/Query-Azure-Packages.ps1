@@ -145,17 +145,20 @@ function Get-go-Packages
 
     $package = CreatePackage $tag $versions[0]
 
-    if ($package.Package -match "sdk/(?<service>.*?)/arm(?<pkgName>.*)")
+    if ($package.Package -match "sdk/(?<repopath>(?<service>.*?)/(?<arm>arm)?(?<pkgname>.*))")
     {
-      $package.Type = "mgmt"
-      $package.New = "true"
-      $package.DisplayName = "Resource Manager - $((Get-Culture).TextInfo.ToTitleCase($matches["pkgName"]))"
+      if ($matches["arm"])
+      {
+        $package.Type = "mgmt"
+        $package.New = "true"
+        $package.DisplayName = "Resource Manager - $((Get-Culture).TextInfo.ToTitleCase($matches["pkgname"]))"
+        Write-Host "Marked package $($package.Package) as new mgmt package"
+      }
       $package.ServiceName = (Get-Culture).TextInfo.ToTitleCase($matches["service"])
-      $package.RepoPath = $matches["service"]
-      Write-Host "Marked package $($package.Package) as new mgmt package"
-    }
+      $package.RepoPath = $matches["repopath"]
 
-    $packages += $package
+      $packages += $package
+    }
   }
 
   return $packages
