@@ -680,4 +680,23 @@ entries:
     #### Features Added
 
     - Updated to use version 1.0.0-preview.13 of `@azure/core-tracing`.
+- Name: '@azure/core-lro'
+  Version: 2.2.0
+  DisplayName: Core - LRO
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_2.2.0/sdk/core/core-lro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `LroEngine` supports a new `isDone()` function in its options bag which can be used to provide a custom logic for determining when an LRO finished processing.
+- Name: '@azure/core-xml'
+  Version: 1.0.0
+  DisplayName: Core - XML
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-xml_1.0.0/sdk/core/core-xml/CHANGELOG.md
+  ChangelogContent: GA release of this package.
 
