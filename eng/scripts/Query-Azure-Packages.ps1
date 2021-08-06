@@ -198,6 +198,10 @@ function Write-Latest-Versions($lang)
         $pkgEntry.New = $pkg.New
       }
 
+      if ($pkgEntry.VersionGA.StartsWith("0")) {
+        $pkgEntry.VersionGA = ""
+      }
+
       # Update version of package
       if ($pkg.VersionGA) {
         $pkgEntry.VersionGA = $pkg.VersionGA
