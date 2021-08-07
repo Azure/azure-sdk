@@ -2027,4 +2027,18 @@ entries:
 
     - Upgraded `azure-core` from `1.18.0` to `1.19.0`.
   GroupId: com.azure
+- Name: azure-search-documents
+  Version: 11.4.1
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.4.1/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Updated `azure-core` from `1.17.0` to `1.18.0`.
+    - Updated `azure-core-http-netty` from `1.10.0` to `1.10.1`.
+    - Updated `azure-core-serializer-json-jackson` from `1.2.4` to `1.2.5`.
+  GroupId: com.azure
 
