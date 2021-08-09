@@ -355,4 +355,17 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_16.1.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-textanalytics
+  Version: 5.2.0b1
+  DisplayName: Text Analytics
+  ServiceName: Text Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-textanalytics_5.2.0b1/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for Extractive Summarization actions through the `ExtractSummaryAction` type.
+
+    #### Bugs Fixed
+    - `RecognizePiiEntitiesAction` option `disable_service_logs` now correctly defaults to `True`.
 
