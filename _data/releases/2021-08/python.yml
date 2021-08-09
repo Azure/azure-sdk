@@ -368,4 +368,26 @@ entries:
 
     #### Bugs Fixed
     - `RecognizePiiEntitiesAction` option `disable_service_logs` now correctly defaults to `True`.
+- Name: azure-monitor-query
+  Version: 1.0.0b3
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-query_1.0.0b3/sdk/monitor/azure-monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `aggregation` param in the query API is renamed to `aggregations`
+    - `batch_query` API now returns a list of responses.
+    - `LogsBatchResults` model is now removed.
+    - `LogsQueryRequest` is renamed to `LogsBatchQueryRequest`
+    - `LogsQueryResults` is now renamed to `LogsQueryResult`
+    - `LogsBatchQueryResult` now has 4 additional attributes - `tables`, `error`, `statistics` and `render` instead of `body` attribute.
+
+    #### Features Added
+
+    - Added enum `AggregationType` which can be used to specify aggregations in the query API.
+    - Added `LogsBatchQueryResult` model that is returned for a logs batch query.
+    - Added `error` attribute to `LogsQueryResult`.
 
