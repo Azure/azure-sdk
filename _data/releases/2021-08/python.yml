@@ -441,4 +441,95 @@ entries:
     #### Features Added
 
     - Added new skills: `SentimentSkillV3`, `EntityLinkingSkill`, `EntityRecognitionSkillV3`
+- Name: azure-identity
+  Version: 1.7.0b3
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.7.0b3/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    > These changes do not impact the API of stable versions such as 1.6.0.
+    > Only code written against a beta version such as 1.7.0b1 may be affected.
+    - Renamed `AZURE_POD_IDENTITY_TOKEN_URL` to `AZURE_POD_IDENTITY_AUTHORITY_HOST`.
+    The value should now be a host, for example "http://169.254.169.254" (the
+    default).
+
+    #### Bugs Fixed
+    - Fixed import of `azure.identity.aio.AzureApplicationCredential`
+    ([#19943](https://github.com/Azure/azure-sdk-for-python/issues/19943))
+- Name: azure-keyvault-keys
+  Version: 4.5.0b2
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-keys_4.5.0b2/sdk/keyvault/azure-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    > These changes do not impact the API of stable versions such as 4.4.0.
+    > Only code written against a beta version such as 4.5.0b1 may be affected.
+    - `KeyClient.get_random_bytes` now returns a `RandomBytes` model with bytes in a `value`
+    property, rather than returning the bytes directly
+    ([#19895](https://github.com/Azure/azure-sdk-for-python/issues/19895))
+
+    #### Features Added
+    - Added support for secure key release from a Managed HSM
+    ([#19588](https://github.com/Azure/azure-sdk-for-python/issues/19588))
+    - Added `release_key` method to `KeyClient` for releasing the private component of a key
+    - Added `exportable` and `release_policy` keyword-only arguments to key creation and import
+    methods
+    - Added `KeyExportEncryptionAlgorithm` enum for specifying an encryption algorithm to be used
+    in key release
+- Name: azure-synapse-artifacts
+  Version: 0.8.0
+  DisplayName: Synapse - Artifacts
+  ServiceName: Synapse Analytics
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-synapse-artifacts_0.8.0/sdk/synapse/azure-synapse-artifacts/CHANGELOG.md
+  ChangelogContent: |-
+    - Updated API version to "2020-12-01" which is the default API version
+    - Added `NotebookOperationResultOperations`, `OperationResultOperations`, `OperationStatusOperations`
+    - Added API version "2021-06-01-preview" support
+- Name: azure-synapse-accesscontrol
+  Version: 0.7.0
+  DisplayName: Synapse - AccessControl
+  ServiceName: Synapse Analytics
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-synapse-accesscontrol_0.7.0/sdk/synapse/azure-synapse-accesscontrol/CHANGELOG.md
+  ChangelogContent: '- Updated API version to "2020-12-01"'
+- Name: azure-synapse-managedprivateendpoints
+  Version: 0.4.0
+  DisplayName: Synapse - Managed Private Endpoints
+  ServiceName: Synapse Analytics
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-synapse-managedprivateendpoints_0.4.0/sdk/synapse/azure-synapse-managedprivateendpoints/CHANGELOG.md
+  ChangelogContent: |-
+    - Updated API version to "2020-12-01" which is the default API version
+    - Added API version "2021-06-01-preview" support
+    - `ManagedPrivateEndpointsClient` is renamed to `VnetClient`
+- Name: azure-servicebus
+  Version: 7.3.2
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.3.2/sdk/servicebus/azure-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug that `azure.servicebus.aio.AutoLockRenewer` crashes on disposal if no messages have been registered (#19642).
+    - Fixed a bug that `azure.servicebus.AutoLockRenewer` only supports auto lock renewal for `max_workers` amount of messages/sessions at a time (#19362).
+- Name: azure-synapse-spark
+  Version: 0.6.0
+  DisplayName: Synapse - Spark
+  ServiceName: Synapse Analytics
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-synapse-spark_0.6.0/sdk/synapse/azure-synapse-spark/CHANGELOG.md
+  ChangelogContent: '- Updated API version to "2020-12-01"'
 
