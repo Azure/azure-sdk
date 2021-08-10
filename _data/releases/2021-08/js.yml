@@ -761,4 +761,37 @@ entries:
     - Added an overload to `KeyClient.updateKeyProperties` that allows the version to be omitted, updating the latest key version.
     - Added support for `KeyClient.getRandomBytes` which, when connected to a managed HSM, can be used to generate a byte array of a given length with random values.
     - Updated the service version to 7.3-preview.
+- Name: '@azure/communication-network-traversal'
+  Version: 1.0.0-beta.2
+  DisplayName: Communication Network Traversal
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-network-traversal_1.0.0-beta.2/sdk/communication/communication-network-traversal/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+
+    #### Breaking Changes
+    - Renamed `CommunicationTurnServer` to `CommunicationIceServer`
+    - Renamed `turnServers` to `iceServers`
+    - Renamed `CommunicationNetworkTraversalIssueTurnCredentialsResponse` to `CommunicationNetworkTraversalIssueRelayConfigurationResponse`
+    - Renamed `issueTurnCredentials` to `issueRelayConfiguration`
+- Name: '@azure/communication-chat'
+  Version: 1.1.0-beta.1
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.1.0-beta.1/sdk/communication/communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    - Updated our internal core package dependencies to their latest versions in order to add support for Opentelemetry 1.0.0 which is compatible with the latest versions of our other client libraries.
+    - Changed TS compilation target to ES2017 in order to produce smaller bundles and use more native platform features
+    - Added support to add `metadata` for `message`
+    - Added `senderDisplayName` in `sendTypingNotification` operation.
+    - Updated to @azure/communication-signaling@1.0.0-beta.5.
+    - Enabled real-time notification for React Native.
 
