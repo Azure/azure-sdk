@@ -532,4 +532,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-synapse-spark_0.6.0/sdk/synapse/azure-synapse-spark/CHANGELOG.md
   ChangelogContent: '- Updated API version to "2020-12-01"'
+- Name: azure-ai-formrecognizer
+  Version: 3.1.2
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.1.2/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - A `HttpResponseError` will be immediately raised when the call quota volume is exceeded in a `F0` tier Form Recognizer
+    resource.
 
