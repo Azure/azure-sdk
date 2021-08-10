@@ -485,4 +485,15 @@ entries:
     #### Breaking Changes
 
     - Replaced `AuthenticationScope` property on `ContainerRegistryClientOptions` with `Audience`.  `Audience` is of type `ContainerRegistryAudience`, a statically typed string, which allows customers to select from available audiences or provide their own audience string.  All calls to client constructors now require passing `ContainerRegistryClientOptions` with the `Audience` property set.
+- Name: Azure.AI.MetricsAdvisor
+  Version: 1.1.0
+  DisplayName: Metrics Advisor
+  ServiceName: Metrics Advisor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.MetricsAdvisor_1.1.0/sdk/metricsadvisor/Azure.AI.MetricsAdvisor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added the static class `MetricsAdvisorModelFactory`. It can be used to instantiate Metrics Advisor models for mocking.
 
