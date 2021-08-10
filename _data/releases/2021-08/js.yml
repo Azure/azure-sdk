@@ -727,4 +727,38 @@ entries:
 
     - We are now targeting the service's v3.2-preview.1 API as the default instead of v3.1.
     - `beginAnalyzeActions` now supports extract summary actions.
+- Name: '@azure/keyvault-admin'
+  Version: 4.2.0-beta.1
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-admin_4.2.0-beta.1/sdk/keyvault/keyvault-admin/CHANGELOG.md
+  ChangelogContent: |-
+    - Move generated client to use @azure/core-rest-pipeline. For more information about Core V2, please refer to [the documentation](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/core#core-v1-and-core-v2).
+
+    - With this change, the response types no longer contain the raw response `_response`. To access the raw response, an `onResponse` callback has to be passed in the request options bag.
+
+    ```typescript
+    let rawResponse: FullOperationResponse | undefined;
+    await client.getRoleDefinition(globalScope, "roleDefinitionName", {
+    onResponse: (response) => (rawResponse = response)
+    });
+    ```
+- Name: '@azure/keyvault-keys'
+  Version: 4.4.0-beta.1
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-keys_4.4.0-beta.1/sdk/keyvault/keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for Secure key Release from a Managed HSM.
+    - Added `KeyClient.releaseKey` to release a key from a Managed HSM.
+    - Added `exportable` and `releasePolicy` to `KeyVaultKey.properties`, `createKeyOptions`, and `importKeyOptions` in order to specify whether the key is exportable and the associated release policy.
+    - Added an overload to `KeyClient.updateKeyProperties` that allows the version to be omitted, updating the latest key version.
+    - Added support for `KeyClient.getRandomBytes` which, when connected to a managed HSM, can be used to generate a byte array of a given length with random values.
+    - Updated the service version to 7.3-preview.
 
