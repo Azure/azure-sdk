@@ -47,4 +47,19 @@ entries:
     - [2647](https://github.com/Azure/azure-sdk-for-cpp/issues/2647) Make the curl transport adapter to check the connection close header.
     - [2474](https://github.com/Azure/azure-sdk-for-cpp/issues/2474) Fix compiling with MSVC and `/analyze`.
     - Make WinHTTP transport adapter to NOT use SSL/TLS for unsecured HTTP connections.
+- Name: azure-identity
+  Version: 1.1.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-identity_1.1.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ManagedIdentityCredential`.
+
+    #### Bugs Fixed
+
+    - Fixed minor memory leak when obtaining a token.
 
