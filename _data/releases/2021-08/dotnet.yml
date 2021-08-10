@@ -447,4 +447,42 @@ entries:
     #### Features Added
 
     - Added a `ConfigurationSetting` constructor parameter to set an `ETag`.
+- Name: Azure.AI.Translation.Document
+  Version: 1.0.0-beta.4
+  DisplayName: Document Translation
+  ServiceName: Translator
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Document_1.0.0-beta.4/sdk/translation/Azure.AI.Translation.Document/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added filtering options to methods `GetAllTranslationStatuses`, `GetAllDocumentStatuses` and their async equivalent.
+    - Added `DocumentTranslationModelFactory` static class to support mocking model types.
+
+    #### Breaking Changes
+    - Properties `Suffix` and `Prefix` are now available under `TranslationSource` instead of in type `DocumentFilter`.
+    - Type `DocumentTranslationError` is now a struct.
+    - Type `StorageInputType` is now a regular enum instead of an extensible enum.
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.6.0
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.6.0/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue where partition processing would ignore cancellation when the processor was shutting down or partition ownership changed and continue dispatching events to the handler until the entire batch was complete.  Cancellation will now be properly respected.
+- Name: Azure.Containers.ContainerRegistry
+  Version: 1.0.0-beta.4
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Containers.ContainerRegistry_1.0.0-beta.4/sdk/containerregistry/Azure.Containers.ContainerRegistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Replaced `AuthenticationScope` property on `ContainerRegistryClientOptions` with `Audience`.  `Audience` is of type `ContainerRegistryAudience`, a statically typed string, which allows customers to select from available audiences or provide their own audience string.  All calls to client constructors now require passing `ContainerRegistryClientOptions` with the `Audience` property set.
 
