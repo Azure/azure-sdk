@@ -912,4 +912,22 @@ entries:
     #### Bugs Fixed
 
     - With this release, we've migrated from using `@azure/core-http` to `@azure/core-rest-pipeline` for the handling of HTTP requests. See [Azure Core v1 vs v2](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/core/core-rest-pipeline/documentation/core2.md) for more on the difference and benefits of the move. This removes our dependency on `node-fetch` and along with it issues we have seen in using this dependency in specific environments like Kubernetes pods.
+- Name: '@azure/ai-form-recognizer'
+  Version: 3.2.0
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_3.2.0/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Key Bugs Fixed
+
+    - Fixed an issue in which form recognition would sometimes fail due to encountering an element reference pointing to a selection mark, causing an exception to be thrown. These references are now handled correctly.
+
+    #### Features Added
+
+    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    - Updated our internal core package dependencies to their latest versions in order to add support for Opentelemetry 1.0.0 which is compatible with the latest versions of our other client libraries.
+    - Changed TS compilation target to
+    ES2017 in order to produce smaller bundles and use more native platform features
 
