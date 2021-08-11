@@ -823,4 +823,93 @@ entries:
 
     - Fixed inconsistent return type for number and strings when setting `disableTypeConversion` option. [#16736](https://github.com/Azure/azure-sdk-for-js/pull/16736)
     - Fix [#15854](https://github.com/Azure/azure-sdk-for-js/issues/15701) when submitting transactions by ensuring the `allowInsecureConnection` client option is respected. [#16587](https://github.com/Azure/azure-sdk-for-js/pull/16587)
+- Name: '@azure/search-documents'
+  Version: 11.3.0-beta.2
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_11.3.0-beta.2/sdk/search/search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added a new parameter `ignoreResetRequirements` for the `createOrUpdate` operation of Data Sources.
+    - Added new parameters `ignoreResetRequirements` & `disableCacheReprocessingChangeDetection` for the `createOrUpdate` operation of Indexers and Skillsets.
+
+    #### Bugs Fixed
+
+    - Converted the complex fields correctly within the Search Fields. Please refer [#16489](https://github.com/Azure/azure-sdk-for-js/issues/16489) for more details.
+    - Fixed the typos `anayzerName` to `analyzerName` and `normalizerNames` to `normalizerName` in `convertFieldsToPublic` method of `serviceUtils.ts`.
+- Name: '@azure/synapse-spark'
+  Version: 1.0.0-beta.3
+  DisplayName: Synapse - Spark
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-spark_1.0.0-beta.3/sdk/synapse/synapse-spark/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Migrate to CoreV2
+    - Re-generate with swagger `2020-12-01`
+- Name: '@azure/synapse-access-control'
+  Version: 1.0.0-beta.3
+  DisplayName: Synapse - AccessControl
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-access-control_1.0.0-beta.3/sdk/synapse/synapse-access-control/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Migrate to CoreV2
+    - Re-generate with swagger `2020-12-01`
+- Name: '@azure/synapse-managed-private-endpoints'
+  Version: 1.0.0-beta.3
+  DisplayName: Synapse - Managed Private Endpoints
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-managed-private-endpoints_1.0.0-beta.3/sdk/synapse/synapse-managed-private-endpoints/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Migrate to CoreV2
+    - Re-generate with swagger `2021-06-01-preview`
+- Name: '@azure/synapse-artifacts'
+  Version: 1.0.0-beta.5
+  DisplayName: Synapse - Artifacts
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-artifacts_1.0.0-beta.5/sdk/synapse/synapse-artifacts/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Migrate to CoreV2
+    - Re-generate with swagger `2021-06-01-preview`
+- Name: '@azure/identity'
+  Version: 2.0.0-beta.5
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_2.0.0-beta.5/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    > These changes do not impact the API of stable versions such as 1.6.0.
+    > Only code written against a beta version such as 1.7.0b1 may be affected.
+
+    - Renamed `AZURE_POD_IDENTITY_TOKEN_URL` to `AZURE_POD_IDENTITY_AUTHORITY_HOST`.
+
+    #### Features Added
+
+    - This release adds support by default for CP1 client capabilities, enabling all credentials to respond to claims challenges that occur due to insufficient claims. Claims challenges, for example, can occur due to requirements of [Continuous Access Enforcement (CAE)](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-continuous-access-evaluation) and [Conditional Access authentication context](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/granular-conditional-access-for-sensitive-data-and-actions/ba-p/1751775). You may optionally disable this behavior by setting the environment variable `AZURE_IDENTITY_DISABLE_CP1` (to any value). You can read more about client capabilities, CAE, and Conditional Access on [the Microsoft Documentation](https://docs.microsoft.com/azure/active-directory/develop/claims-challenge).
+    - `ChainedTokenCredential` and `DefaultAzureCredential` now expose a property named `selectedCredential`, which will store the selected credential once any of the available credentials succeeds.
+    - Implementation of `ApplicationCredential` for use by applications which call into Microsoft Graph APIs and which have issues using `DefaultAzureCredential`. This credential is based on `EnvironmentCredential` and `ManagedIdentityCredential`.
+
+    #### Bugs Fixed
+
+    - With this release, we've migrated from using `@azure/core-http` to `@azure/core-rest-pipeline` for the handling of HTTP requests. See [Azure Core v1 vs v2](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/core/core-rest-pipeline/documentation/core2.md) for more on the difference and benefits of the move. This removes our dependency on `node-fetch` and along with it issues we have seen in using this dependency in specific environments like Kubernetes pods.
 
