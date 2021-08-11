@@ -73,4 +73,60 @@ entries:
     #### Other Changes
 
     - Consolidated keyvault and cryptography client options and model files into single headers.
+- Name: azure-storage-files-shares
+  Version: 12.1.0
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-shares_12.1.0/sdk/storage/azure-storage-files-shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where unspecified SMB properties got overwritten rather than preserved by `SetProperties()`.
+- Name: azure-storage-common
+  Version: 12.1.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-common_12.1.0/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Avoid time domain casting exception during request cancellation. (A community contribution, courtesy of _[johnwheffner](https://github.com/johnwheffner)_)
+- Name: azure-storage-blobs
+  Version: 12.1.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-blobs_12.1.0/sdk/storage/azure-storage-blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where lease ID didn't work for `BlobContainerClient::GetAccessPolicy()`.
+    - Fixed a bug where sequence number access conditions didn't work for page blob operations.
+    - Fixed a bug where `BlobItemDetails::EncryptionKeySha256` was always null because it wasn't correctly parsed from xml.
+    - Fixed a bug where `BlockBlobClient::GetBlockList` threw exception if the blob is not committed.
+
+    #### Features Added
+
+    - Added lease ID access condition and tags access condition for `BlobClient::SetAccessTier()`.
+    - Added source ETag access conditions and last-modified access conditions for `PageBlobClient::UploadPagesFromUri()`.
+    - Added three new fields `IsServerEncrypted`, `EncryptionKeySha256` and `EncryptionScope` into `SetBlobMetadataResult`.
+    - Added support for setting blob tags when creating or copying blobs.
+    - Added new fields `AccessTierChangedOn`, `ArchiveStatus`, `RehydratePriority`, `CopyId`, `CopySource`, `CopyStatus`, `CopyStatusDescription`, `IsIncrementalCopy`, `IncrementalCopyDestinationSnapshot`, `CopyProgress`, `CopyCompletedOn`, `Tags`, `DeletedOn` and `RemainingRetentionDays` into `BlobItemDetails`.
+    - Added support for including blob tags when listing blobs.
+- Name: azure-storage-files-datalake
+  Version: 12.1.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-datalake_12.1.0/sdk/storage/azure-storage-files-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ETag` and `LastModified` into `ScheduleFileDeletionResult`.
 
