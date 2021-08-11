@@ -2105,4 +2105,29 @@ entries:
     - Update API version to 2021-06-01-preview
     - Added missing properties for managed private endpoints in stable version
   GroupId: com.azure
+- Name: azure-ai-textanalytics
+  Version: 5.1.1
+  DisplayName: Text Analytics
+  ServiceName: Text Analytics
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.1.1/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed the bug to support the default value `disableServiceLogs = true`, in the option bags, `AnalyzeHealthcareEntitiesOptions`,
+    `RecognizePiiEntitiesOptions` and `RecognizePiiEntitiesAction`,
+    - Using UTF-16 code unit as the default encoding in the `Sentiment Analysis` and `Linked Entities Recognition` actions.
+  GroupId: com.azure
+- Name: azure-search-documents
+  Version: 11.5.0-beta.2
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.5.0-beta.2/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for indexer caching.
+  GroupId: com.azure
 
