@@ -2156,4 +2156,51 @@ entries:
     - We are now targeting the service's v3.2-preview.1 API as the default instead of v3.1.
     - Added support for Extractive Summarization actions through the `ExtractSummaryAction` type.
   GroupId: com.azure
+- Name: azure-messaging-eventgrid
+  Version: 4.6.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventgrid_4.6.0/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added new Container Service system event `ContainerServiceNewKubernetesVersionAvailableEventData`.
+  GroupId: com.azure
+- Name: azure-data-appconfiguration
+  Version: 1.2.1
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-appconfiguration_1.2.1/sdk/appconfiguration/azure-data-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+    - Updated `azure-core` from `1.18.0` to `1.19.0`.
+    - Updated `azure-core-http-netty` from `1.10.1` to `1.10.2`.
+  GroupId: com.azure
+- Name: azure-ai-metricsadvisor
+  Version: 1.0.1
+  DisplayName: Metrics Advisor
+  ServiceName: Metrics Advisor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-metricsadvisor_1.0.1/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+    - Updated `azure-core` to `1.19.0`.
+    - Updated `azure-core-http-netty` to `1.10.2`.
+  GroupId: com.azure
+- Name: azure-ai-formrecognizer
+  Version: 3.1.3
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_3.1.3/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+    - Updated `azure-core` to `1.19.0`.
+    - Updated `azure-core-http-netty` to `1.10.2`.
+  GroupId: com.azure
 
