@@ -594,4 +594,20 @@ entries:
     #### Fixed
 
     - The default service version is now "7.3-preview".
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.3.0-beta.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.3.0-beta.1/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed bug where receiving a message with `AbsoluteExpiryTime` of DateTime.MaxValue would cause an `ArgumentException'. (A community contribution, courtesy of _[tlecomte](https://github.com/tlecomte))_
+
+    #### Features Added
+    - Added the `ReleaseSession` method to `ProcessSessionMessageEventArgs` which allows processing for a session to terminated early.
+    - Added protected constructors to `ServiceBusProcessor`, `ServiceBusReceiver`, `ServiceBusSender`, and `ServiceBusSessionProcessor` to allow these types to be extended.
+    - Added `UpdateConcurrency` methods to `ServiceBusProcessor` and `ServiceBusSessionProcessor` to allow concurrency to be changed for an already created processor.
+    - Allow a TimeSpan of zero to be passed as the `maxWaitTime` for the various receive overloads if Prefetch mode is enabled.
 
