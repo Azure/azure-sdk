@@ -496,4 +496,56 @@ entries:
     #### Features Added
 
     - Added the static class `MetricsAdvisorModelFactory`. It can be used to instantiate Metrics Advisor models for mocking.
+- Name: Azure.Identity
+  Version: 1.5.0-beta.3
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity_1.5.0-beta.3/sdk/identity/Azure.Identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Stopped loading `$PROFILE` and checking for updates when using `AzurePowerShellCredential`.
+    - Fixed unrecognized argument issue in `AzureCliCredential` when specifying the `TenantId` option. [#23158](https://github.com/Azure/azure-sdk-for-net/issues/23158) (A community contribution, courtesy of _[tpajurek-dtml](https://github.com/tpajurek-dtml))_.
+    - Handled an additional error scenario for AzureCliCredential that prompts developers to run `az login` when needed. [#21758](https://github.com/Azure/azure-sdk-for-net/issues/21758)
+    - Fixed an issue in `EnvironmentCredential` where the supplied `options` were not getting properly applied. [#22787](https://github.com/Azure/azure-sdk-for-net/issues/22787)
+    - Fixed DateTime parsing to use the current culture in AzurePowerShellCredential. [#22638](https://github.com/Azure/azure-sdk-for-net/issues/22638)
+
+    #### Features Added
+
+    - A new trace event is now logged when `DefaultAzureCredential` selects a credential during initialization.
+    - Added `AzureApplicationCredential`
+    - Added `IsPIILoggingEnabled` property to `TokenCredentialOptions`, which controls whether MSAL PII logging is enabled, and other sensitive credential related logging content.
+
+    #### Breaking Changes
+
+    - Renamed `AZURE_POD_IDENTITY_TOKEN_URL` to `AZURE_POD_IDENTITY_AUTHORITY_HOST`. The value should now be a host, for example "http://169.254.169.254" (the default).
+- Name: Azure.Data.Tables
+  Version: 12.2.0-beta.1
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.Tables_12.2.0-beta.1/sdk/tables/Azure.Data.Tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed and issue with connection string parsing for Azure Storage Emulator connection strings. (A community contribution, courtesy of _[yifanbian-msft](https://github.com/yifanbian-msft))_.
+
+
+    #### Features Added
+
+    - Added an extension method to the Builder extensions that accepts just the Table Uri. (A community contribution, courtesy of _[flcdrg](https://github.com/flcdrg))_.
+- Name: Azure.Communication.NetworkTraversal
+  Version: 1.0.0-beta.2
+  DisplayName: Communication Network Traversal
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.NetworkTraversal_1.0.0-beta.2/sdk/communication/Azure.Communication.NetworkTraversal/CHANGELOG.md
+  ChangelogContent: |-
+    - Renamed `CommunicationTurnServer` to `CommunicationIceServer`
+    - Renamed field `turnServers` to `iceServers` in `CommunicationRelayConfiguration`
+    - Renamed `IssueCredentials[Async]` to `IssueRelayConfiguration[Async]`
 
