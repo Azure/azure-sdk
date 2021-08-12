@@ -151,7 +151,7 @@ function Get-go-Packages
       {
         $package.Type = "mgmt"
         $package.New = "true"
-        $package.DisplayName = "Resource Manager - $((Get-Culture).TextInfo.ToTitleCase($matches["pkgname"]))"
+        $package.DisplayName = "Resource Management - $((Get-Culture).TextInfo.ToTitleCase($matches["pkgname"]))"
         Write-Host "Marked package $($package.Package) as new mgmt package"
       }
       $package.ServiceName = (Get-Culture).TextInfo.ToTitleCase($matches["service"])
