@@ -543,4 +543,15 @@ entries:
     #### Bugs Fixed
     - A `HttpResponseError` will be immediately raised when the call quota volume is exceeded in a `F0` tier Form Recognizer
     resource.
+- Name: azure-containerregistry
+  Version: 1.0.0b5
+  DisplayName: Container Registry
+  ServiceName: containerregistry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-containerregistry_1.0.0b5/sdk/containerregistry/azure-containerregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Close session of `ChallengePolicyClient` in context manager    #20000
 
