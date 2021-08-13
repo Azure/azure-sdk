@@ -64,7 +64,7 @@ This document contains guidelines developed primarily for typical Azure REST ser
 
 ## Azure SDK API Design {#dotnet-api}
 
-Azure services are exposed to .NET developers as one or more [service client](#dotnet-client) types and a set of [supporting types](#supporting-types).  The supporting types may include [operation group clients](#dotnet-operation-group-clients), which give structure to the API by organizing groups of related service operations, and [model types](#dotnet-model-types), which represent resources on the service.
+Azure services are exposed to .NET developers as one or more [service client](#dotnet-client) types and a set of [supporting types](#supporting-types).  The supporting types may include various [subclients](#dotnet-subclients), which give structure to the API by organizing groups of related service operations, and [model types](#dotnet-model-types), which represent resources on the service.
 
 ### The Service Client {#dotnet-client}
 
@@ -272,23 +272,28 @@ In mocks, using the virtual property instead of the parameter requires the prope
 
 See [Support for Mocking](#dotnet-mocking) for details.
 
-#### Operation Group Clients {#dotnet-operation-group-clients}
+#### Subclients {#dotnet-subclients}
 
-There are two kinds of clients: _service clients_ and _operation group clients_. Service clients can be instantiated and [have the `Client` suffix](#dotnet-client-naming). Operation group clients can only be created by calling factory methods on other clients (most commonly on service clients) and do not have the client suffix.
+There are two categories of clients: _service clients_ and their _subclients_. Service clients can be instantiated and [have the `Client` suffix](#dotnet-client-naming).  Subclients can only be created by calling factory methods on other clients (commonly on service clients) and do not have the client suffix.
 
-As discussed above, the [service client](#dotnet-client) is the entry point to the API for an Azure service -- from it, library users can invoke all operations the service provides and can easily implement the most common scenarios.  Where it will simplify an API's design, groups of service calls can be organized around smaller operation group client types.  
-
-An operation group client can group methods related to a service resource, along with properties that identify a unique resource instance, such as the `ContainerRepository` type. Alternatively, an operation group client can group methods related to a functional area of the service, such as the `ServiceBusSender` type.
+As discussed above, the [service client](#dotnet-client) is the entry point to the API for an Azure service -- from it, library users can invoke all operations the service provides and can easily implement the most common scenarios.  Where it will simplify an API's design, groups of service calls can be organized around smaller subclient types.
 
 {% include requirement/MUST id="dotnet-service-client-entry-point" %} use service clients to indicate the starting point(s) for the most common customer scenarios.
-{% include requirement/SHOULD id="dotnet-use-operation-group-clients" %} use operation group clients to group operations related to a service resource or functional area of a service to improve API usability.
+{% include requirement/SHOULD id="dotnet-use-subclients" %} use subclients to group operations related to a service resource or functional area to improve API usability.
 
-For example, in the Azure Container Registry API, a `ContainerRegistryClient` service client provides an entry point for communicating with the service, and a `ContainerRepository` operation group client organizes operations related to a specific repository resource:
+There are a variety of types of subclients.  These include:
+
+* _Resource Clients_, which group methods bound to a specific resource, along with information about the resource.
+* _Operation Group Clients_, which are not bound to a resource but group related operations.  If referring to a specific resource, these would take a resource identifier as a parameter.
+* Subclasses of ```Operation<T>```, which manage service calls related to [long running operations](#dotnet-longrunning).
+* ```Pageable<T>``` types returned from [paging methods](#dotnet-paging), which manage service calls to retrieve pages of elements in a collection.
+
+For example, in the Azure Container Registry API, a `ContainerRegistryClient` service client provides an entry point for communicating with the service, and a `ContainerRepository` resource client organizes operations related to a specific repository resource:
 
 ```C#
 public class ContainerRegistryClient {
     // ...
-    public virtual ContainerRepository GetRepositoryClient(string name);
+    public virtual ContainerRepository GetRepository(string name);
 }
  
 public class ContainerRepository {
@@ -315,43 +320,34 @@ public class ContainerRepository {
     }
 ```
 
-{% include requirement/MUST id="dotnet-operation-group-client-factory-methods" %} provide factory methods to create an operation group client. A method that creates an operation group client must have the suffix `Client`, for example, `cosmos.GetDatabaseClient();`.
+{% include requirement/MUST id="dotnet-subclient-factory-methods" %} provide factory methods to create a subclient.
+{% include requirement/MAY id="dotnet-subclient-factory-methods-suffix" %} include a suffix the method that creates a subclient, according to the table below:
 
-{% include note.html content="Please note that this guideline is provisional." %}
+| Client Type            | Naming Convention  | Factory Method Naming Convention                 |
+|------------------------|--------------------|--------------------------------------------------|
+| Service Client         | `Client` Suffix    | Get\<client\>Client()                            |
+| Resource Client        | No Suffix          | Get\<resource\>()                                |
+| Operation Group Client | No Suffix          | Get\<group\>Client()                             |
+| [Long Running Operation](#dotnet-longrunning) | `Operation` Suffix | (long LRO) `Start` prefix; (short LRO) no prefix |
+| [Pageable](#dotnet-paging)                    | ```Pageable<T>```  | Get\<resource\>s                                 |
 
-Operation group clients commonly store state or information that uniquely identifies the resource it refers to.  If this is the case, this state should be passed to the operation group client factory method, and exposed on the operation group client to assist developers with debugging.
+{% include requirement/SHOULD id="dotnet-subclient-factory-methods-parameters" %} take a resource identifier as a parameter to the resource client factory method.
+{% include requirement/SHOULD id="dotnet-subclient-properties" %} expose resource identifiers as properties on the resource client.
+{% include requirement/MAY id="dotnet-subclient-collections" %} place operations on collections of resources a separate subclient to avoid cluttering the parent client with too many methods.
 
-{% include requirement/SHOULD id="dotnet-operation-group-client-factory-methods-parameters" %} take any information needed to uniquely identify a resource as parameters to the operation group client factory method, if such information is available.
-{% include requirement/SHOULD id="dotnet-operation-group-client-properties" %} expose parameters passed to operation group client factory methods, or unique identifiers created by the service, as properties on the operation group client, if such information is available.
+While API usability is the primary reason for subclients, another motivating factor is resource efficiency.  [Clients need to be cached](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/), so if the set of client instances is large or unlimited (in case the client takes a scoping parameter, like a hub, or a container), using subclients allows an application to cache the top level client and create instances of subclients on demand.  In addition, if there is an expensive shared resource (e.g. an AMQP connection), subclients are preferred, as they naturally lead to resource sharing.
 
-For example:
+{% include requirement/SHOULD id="dotnet-service-client-entry-point" %} use the `HttpPipeline` that belongs to the type providing the factory method to make network calls to the service from the subclient.  An exception to this might be if subclient needs different pipeline policies than the parent client.
+{% include requirement/MUSTNOT id="dotnet-subclient-no-constructor" %} provide a public constructor on a subclient.  Subclients are non-instantiable by design.
+{% include requirement/MUST id="dotnet-subclient-mocking" %} provide a protected parameterless constructor on subclients for mocking.
 
-```csharp
-    public class CosmosClient {
-        public virtual CosmosDatabase GetDatabaseClient(string id);
-        // ...
-    }
+##### Choosing between Service Clients and Subclients {#dotnet-choosing-client-types}
 
-    public abstract class CosmosDatabase {
-        protected CosmosDatabase();
-        public abstract string Id { get; }
-        // ...
-    }
-```
+In many cases, an Azure SDK API should contain one service client and zero or more subclients.  Both service clients and subclients have [service methods](#dotnet-client-methods).  Consider adding more than one service client to the API in the following cases:
 
-While API usability is the primary reason for operation group clients, another motivating factor is resource efficiency.  [Clients need to be cached](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/), so if the set of client instances is large or unlimited (in case the client takes a scoping parameter, like a hub, or a container), using operation group clients allows an application to cache the top level client and create instances of operation group clients on demand.  In addition, if there is an expensive shared resource (e.g. AMQP connection), operation groups clients are preferred, as they naturally lead to resource sharing.
+{% include requirement/MAY id="dotnet-service-client-multiple-target-customers" %} consider providing an additional service client in an API when the service has different common scenarios for multiple target users, such as a service administrator and an end-user of the entities the administrator creates.
 
-{% include requirement/SHOULD id="dotnet-service-client-entry-point" %} use the `HttpPipeline` that belongs to the type providing the factory method to make network calls to the service from the operation group client.  An exception to this might be if an operation group client needs different pipeline policies than the parent client.
-{% include requirement/MUSTNOT id="dotnet-operation-group-client-no-constructor" %} provide a public constructor on an operation group client.  Operation group clients are non-instantiable by design.
-{% include requirement/MUST id="dotnet-operation-group-client-mocking" %} provide a protected parameterless constructor on operation group clients for mocking.
-
-##### Choosing between Service Clients and Operation Group Clients {#dotnet-choosing-client-types}
-
-In many cases, an Azure SDK API should contain one service client and zero or more operation group clients.  Both service clients and operation group clients have [service methods](#dotnet-client-methods).  There are reasons to consider adding additional service clients to the API in the following cases:
-
-{% include requirement/MAY id="dotnet-service-client-multiple-target-customers" %} consider providing an additional service client when the service has different common scenarios for multiple target users, such as a service administrator and an end-user of the entities the administrator creates.  
-
-For example, the Azure Form Recognizer library provides a `FormRecognizerClient` for application developers to read form fields in their applications, and a `FormTrainingClient` for customers to train the form recognition models.
+For example, the Azure Form Recognizer library provides a `FormRecognizerClient` for application developers to read form fields in their applications, and a `FormTrainingClient` for data scientist customers to train the form recognition models.
 
 {% include requirement/MAY id="dotnet-service-client-advanced-scenarios" %} consider providing an additional service client when a service has advanced scenarios you want to keep separate from the types that support the most common scenarios.  In this case, consider using a `.Specialized` namespace to contain the additional clients.  
 
