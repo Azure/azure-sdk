@@ -64,11 +64,11 @@ This document contains guidelines developed primarily for typical Azure REST ser
 
 ## Azure SDK API Design {#dotnet-api}
 
-Azure services will be exposed to .NET developers as one or more _service client_ types and a set of _supporting types_.
+Azure services are exposed to .NET developers as one or more [service client](#dotnet-client) types and a set of [supporting types](#supporting-types).  The supporting types may include various [subclients](#dotnet-subclients), which give structure to the API by organizing groups of related service operations, and [model types](#dotnet-model-types), which represent resources on the service.
 
 ### The Service Client {#dotnet-client}
 
-Service clients are the main starting points for developers calling Azure services with the Azure SDK.  Each client library should have at least one client in its main namespace, so it's easy to discover. The guidelines in this section describe patterns for the design of a service client.
+Service clients are the main starting points for developers calling Azure services with the Azure SDK.  Each client library should have at least one client in its main namespace, so it's easy to discover.  The guidelines in this section describe patterns for the design of a service client.
 
 A service client should have the same shape as this code snippet:
 
@@ -143,24 +143,6 @@ For example, the service client for the Application Configuration service is cal
 Client instances are often shared between threads (stored in application statics) and it should be difficult, if not impossible, for one of these threads to affect others.
 
 {% include requirement/MUST id="dotnet-client-namespace" %} see [Namespace Naming](#dotnet-namespace-naming) guidelines for how to choose the namespace for the client types.
-
-#### Client Hierarchies {#dotnet-client-hierarchy}
-
-Some Azure services store and manipulate resources organized in a hierarchy. For example, Azure Storage provides an account that contains zero or more containers, which in turn contain zero or more blobs.
-SDK libraries for such services might want to provide more than one client type representing various levels of the hierarchy. For example, the storage library provides `BlobServiceClient`, `BlobContainerClient`, and `BlobClient`.
-
-{% include requirement/MAY id="dotnet-client-hierarchy-clients" %} provide a client type corresponding to each level in a resource hierarchy.
-
-{% include requirement/MUST id="dotnet-client-hierarchy-get" %} provide a `<parent>.Get<child>Client(...)` method to retrieve a client for the named child.
-
-For example, `BlobContainerClient` has a method [`GetBlobClient`](https://docs.microsoft.com/en-us/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobclient?view=azure-dotnet#Azure_Storage_Blobs_BlobContainerClient_GetBlobClient_System_String_) returning an instance of `BlobClient`. The method must not make a network call to verify the existence of the child.
-Also, note that per general client constructor guidelines, all clients need to provide at least one public constructor.
-
-{% include requirement/MAY id="dotnet-client-hierarchy-create" %} provide method `<parent>.Create<child>(...)` that creates a child resource.
-
-The method **should** return an instance of a client for the newly created child resource.
-
-{% include requirement/MAY id="dotnet-client-hierarchy-delete" %} provide method `<parent>.Delete<child>(...)` that deletes a child resource.
 
 #### Service Client Constructors {#dotnet-client-ctor}
 
@@ -289,6 +271,112 @@ public class ConfigurationClient {
 In mocks, using the virtual property instead of the parameter requires the property to be mocked to return the value before the constructor is called when the mock is created. In [Moq] this requires using the delegate parameter to create the mock, which may not be an obvious workaround.
 
 See [Support for Mocking](#dotnet-mocking) for details.
+
+#### Subclients {#dotnet-subclients}
+
+There are two categories of clients: _service clients_ and their _subclients_. Service clients can be instantiated and [have the `Client` suffix](#dotnet-client-naming).  Subclients can only be created by calling factory methods on other clients (commonly on service clients) and do not have the client suffix.
+
+As discussed above, the [service client](#dotnet-client) is the entry point to the API for an Azure service -- from it, library users can invoke all operations the service provides and can easily implement the most common scenarios.  Where it will simplify an API's design, groups of service calls can be organized around smaller subclient types.
+
+{% include requirement/MUST id="dotnet-service-client-entry-point" %} use service clients to indicate the starting point(s) for the most common customer scenarios.
+{% include requirement/SHOULD id="dotnet-use-subclients" %} use subclients to group operations related to a service resource or functional area to improve API usability.
+
+There are a variety of types of subclients.  These include:
+
+* _Resource Clients_, which group methods bound to a specific resource, along with information about the resource.
+* _Operation Group Clients_, which are not bound to a resource but group related operations.  If referring to a specific resource, these would take a resource identifier as a parameter.
+* Subclasses of ```Operation<T>```, which manage service calls related to [long running operations](#dotnet-longrunning).
+* ```Pageable<T>``` types returned from [paging methods](#dotnet-paging), which manage service calls to retrieve pages of elements in a collection.
+
+For example, in the Azure Container Registry API, a `ContainerRegistryClient` service client provides an entry point for communicating with the service, and a `ContainerRepository` resource client organizes operations related to a specific repository resource:
+
+```C#
+public class ContainerRegistryClient {
+    // ...
+    public virtual ContainerRepository GetRepository(string name);
+}
+ 
+public class ContainerRepository {
+    protected ContainerRepository();
+    public virtual string Name { get; }
+    public virtual Response Delete(CancellationToken cancellationToken = default);
+    public virtual Response<ContainerRepositoryProperties> GetProperties(CancellationToken cancellationToken = default);
+    public virtual Response<ContainerRepositoryProperties> UpdateProperties(ContainerRepositoryProperties value, CancellationToken cancellationToken = default);
+    // ...
+}
+```
+
+`ServiceBusSender` groups operations for sending messages to a specific entity with properties that identify that entity.
+
+```C#
+    public class ServiceBusSender {
+        protected ServiceBusSender();
+        public virtual string EntityPath { get; }
+        public virtual Task CancelScheduledMessageAsync(long sequenceNumber, CancellationToken cancellationToken = default);
+        public virtual ValueTask<ServiceBusMessageBatch> CreateMessageBatchAsync(CancellationToken cancellationToken = default);
+        public virtual Task<long> ScheduleMessageAsync(ServiceBusMessage message, DateTimeOffset scheduledEnqueueTime, CancellationToken cancellationToken = default);
+        public virtual Task SendMessageAsync(ServiceBusMessage message, CancellationToken cancellationToken = default);
+        // ...
+    }
+```
+
+{% include requirement/MUST id="dotnet-subclient-factory-methods" %} provide factory methods to create a subclient.
+{% include requirement/MAY id="dotnet-subclient-factory-methods-suffix" %} include a suffix the method that creates a subclient, according to the table below:
+
+| Client Type            | Naming Convention  | Factory Method Naming Convention                 |
+|------------------------|--------------------|--------------------------------------------------|
+| Service Client         | `Client` Suffix    | Get\<client\>Client()                            |
+| Resource Client        | No Suffix          | Get\<resource\>()                                |
+| Operation Group Client | No Suffix          | Get\<group\>Client()                             |
+| [Long Running Operation](#dotnet-longrunning) | `Operation` Suffix | (long LRO) `Start` prefix; (short LRO) no prefix |
+| [Pageable](#dotnet-paging)                    | ```Pageable<T>```  | Get\<resource\>s                                 |
+
+{% include requirement/SHOULD id="dotnet-subclient-factory-methods-parameters" %} take a resource identifier as a parameter to the resource client factory method.
+{% include requirement/SHOULD id="dotnet-subclient-properties" %} expose resource identifiers as properties on the resource client.
+{% include requirement/MAY id="dotnet-subclient-collections" %} place operations on collections of resources a separate subclient to avoid cluttering the parent client with too many methods.
+
+While API usability is the primary reason for subclients, another motivating factor is resource efficiency.  [Clients need to be cached](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/), so if the set of client instances is large or unlimited (in case the client takes a scoping parameter, like a hub, or a container), using subclients allows an application to cache the top level client and create instances of subclients on demand.  In addition, if there is an expensive shared resource (e.g. an AMQP connection), subclients are preferred, as they naturally lead to resource sharing.
+
+{% include requirement/SHOULD id="dotnet-service-client-entry-point" %} use the `HttpPipeline` that belongs to the type providing the factory method to make network calls to the service from the subclient.  An exception to this might be if subclient needs different pipeline policies than the parent client.
+{% include requirement/MUSTNOT id="dotnet-subclient-no-constructor" %} provide a public constructor on a subclient.  Subclients are non-instantiable by design.
+{% include requirement/MUST id="dotnet-subclient-mocking" %} provide a protected parameterless constructor on subclients for mocking.
+
+##### Choosing between Service Clients and Subclients {#dotnet-choosing-client-types}
+
+In many cases, an Azure SDK API should contain one service client and zero or more subclients.  Both service clients and subclients have [service methods](#dotnet-client-methods).  Consider adding more than one service client to the API in the following cases:
+
+{% include requirement/MAY id="dotnet-service-client-multiple-target-customers" %} consider providing an additional service client in an API when the service has different common scenarios for multiple target users, such as a service administrator and an end-user of the entities the administrator creates.
+
+For example, the Azure Form Recognizer library provides a `FormRecognizerClient` for application developers to read form fields in their applications, and a `FormTrainingClient` for data scientist customers to train the form recognition models.
+
+{% include requirement/MAY id="dotnet-service-client-advanced-scenarios" %} consider providing an additional service client when a service has advanced scenarios you want to keep separate from the types that support the most common scenarios.  In this case, consider using a `.Specialized` namespace to contain the additional clients.  
+
+For example, the Azure Storage Blobs library provides a `BlockBlobClient` in the `Azure.Storage.Blobs.Specialized` namespace that gives finer grained control of how blobs are uploaded.  For further discussion of designing APIs for advanced scenarios, please see the [.NET Framework Guidelines](https://aka.ms/fxdg3) sections on progressive frameworks and the principle of layered architecture.
+
+{% include requirement/MAY id="dotnet-service-client-direct-resource-urls" %} consider providing an additional service client for a service resource that is commonly referenced with a URL that points to it directly.  This will allow users to instantiate a client directly from the resource endpoint, without needing to parse the URL to obtain the root service endpoint.
+
+{% include requirement/MAY id="dotnet-service-client-resource-hierarchy" %} consider providing additional service clients for each level in a resource hierarchy.  For service clients representing resources in a hierarchy, you should also provide a `<parent>.Get<child>Client(...)` method to retrieve the client for the named child.
+
+For example, the Azure Storage service provides an account that contains zero or more containers, which in turn contain zero or more blobs. The Azure SDK storage library provides service clients for each level: `BlobServiceClient`, `BlobContainerClient`, and `BlobClient`.  
+
+```C#
+public class BlobServiceClient {
+    // ...
+    public virtual BlobContainerClient GetBlobContainerClient(string blobContainerName);
+    // ...
+}
+
+public class BlobContainerClient {
+    // ...
+    public virtual BlobClient GetBlobClient(string blobName);
+    // ...
+}
+
+public class BlobClient {
+    // ...
+}
+
+```
 
 #### Service Methods {#dotnet-client-methods}
 
