@@ -964,4 +964,19 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault/arm-keyvault/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/cosmos'
+  Version: 3.13.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_3.13.0/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adds TransactionalBatch to items `container.items.batch(operations)`
+
+    #### Bugs Fixed
+
+    - Fixed bulk requests which had operations without partitionKey specified.
 
