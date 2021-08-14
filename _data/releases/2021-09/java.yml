@@ -55,4 +55,32 @@ entries:
     - Upgraded `azure-core` dependency to `1.19.0`
     - Upgraded `azure-core-http-netty` dependency to `1.10.2`
   GroupId: com.azure
+- Name: azure-security-keyvault-keys
+  Version: 4.4.0-beta.2
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-keys_4.4.0-beta.2/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - To support Secure Key Release for Key Vault and Managed HSM, added `Exportable` and `ReleasePolicy` to the following classes:
+    - `CreateKeyOptions` and its children classes: `CreateEcKeyOptions`, `CreateOctKeyOptions` and `CreateRsaKeyOptions`.
+    - `ImportKeyOptions`
+    - `KeyProperties`
+    - Added `releaseKey()` and `releaseKeyWithResponse()` operations to `KeyClient` and `KeyAsyncClient` to securely release a key for Key Vault and Managed HSM.
+  GroupId: com.azure
+- Name: azure-data-tables
+  Version: 12.1.1
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-tables_12.1.1/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue that made getting entities from a Cosmos endpoint fail as it does not return a `Timestamp@odata.type` property in a `TableEntity` alongside the `Timestamp` property, like Storage endpoint do. This is apparently intended behavior, so we now always convert `Timestamp` to `OffsetDateTime` as it is a reserved property name and will always be provided by the service.
+    - Updated clients to properly map an internal HTTP exception to the public type `TableServiceException` in operations such as `getAccessPolicies()`, `getProperties()`, `setProperties()` and `getStatistics()`, including their `withResponse` variants.
+    - Fixed batch operations to properly log exceptions other than `TableTransactionFailedException`.
+  GroupId: com.azure
 
