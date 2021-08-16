@@ -1,0 +1,13 @@
+entries:
+- Name: azure-communication-chat
+  Version: 1.1.0b1
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-chat_1.1.0b1/sdk/communication/azure-communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Added
+    - Added support to add `metadata` for `message`
+    - Added support to add `sender_display_name` for `ChatThreadClient.send_typing_notification`
+
