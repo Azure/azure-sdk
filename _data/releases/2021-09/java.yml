@@ -104,4 +104,23 @@ entries:
 
     - Added `TokenRequestContenxtExperimental` class that allows to configure TenantId Challenges.
   GroupId: com.azure
+- Name: azure-cosmos
+  Version: 4.18.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos_4.18.0/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    ##### New Features
+    * Integrated cosmos diagnostics with open telemetry tracer.
+
+    ##### Key Bug Fixes
+    * Added reactor netty timeline to query plan calls.
+    * Fixed serialization warning on `clientSideRequestDiagnostics`.
+    * Fixed an issue when `IdleEndpointTimeout` is set to 0 in `DirectConnectionConfig`.
+    * Added retry for `PrematureCloseException`.
+    * Fixed an issue where application hangs in bulk executor.
+    * Fixed an issue which preventing recovery from 410/0 after split.
+  GroupId: com.azure
 
