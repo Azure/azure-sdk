@@ -123,4 +123,18 @@ entries:
     * Fixed an issue where application hangs in bulk executor.
     * Fixed an issue which preventing recovery from 410/0 after split.
   GroupId: com.azure
+- Name: azure-cosmos-encryption
+  Version: 1.0.0-beta.7
+  DisplayName: Cosmos DB Encryption
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-encryption_1.0.0-beta.7/sdk/cosmos/azure-cosmos-encryption/CHANGELOG.md
+  ChangelogContent: |-
+    ##### New Features
+    * Redesigned Database and Container encryption cache for staleness when recreating database and containers in encryption.
+
+    ##### Key Bug Fixes
+    * Fixed encryption create with contentResponseOnWriteEnabled false
+  GroupId: com.azure
 
