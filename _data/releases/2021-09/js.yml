@@ -74,4 +74,37 @@ entries:
     The attestation family of APIs no longer requires authentication credentials.
     The attestation family of APIs now accepts Blob objects in addition to Uint8Array
     and Buffer objects as inputs.
+- Name: '@azure/schema-registry'
+  Version: 1.0.0-beta.2
+  DisplayName: Event Hubs - Schema Registry
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/schema-registry_1.0.0-beta.2/sdk/schemaregistry/schema-registry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support caching of registered schemas and send requests to the service only if the cache does not have the looked-up schema/schema ID.
+
+    #### Breaking Changes
+
+    - Change SchemaRegistryClient.getSchemaId and SchemaRegistryClient.getSchemaById to return `undefined` instead of throwing when schema is not found ([Issue #15130](https://github.com/Azure/azure-sdk-for-js/issues/15130))
+    - Move generated client to use @azure/core-rest-pipeline. For more information about Core V2, please refer to [the documentation](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/core#core-v1-and-core-v2).
+    - With this change, the response types no longer contain the raw response `_response`. To access the raw response, an `onResponse` callback has to be passed in the request options bag.
+
+    ```typescript
+    let createResult: FullOperationResponse | undefined;
+    await client.getSchemaById(id, { onResponse: (response) => (createResult = response) });
+    ```
+- Name: '@azure/container-registry'
+  Version: 1.0.0-beta.4
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/container-registry_1.0.0-beta.4/sdk/containerregistry/container-registry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `UpdateManifestPropertiesOptions` is no longer optional.
 
