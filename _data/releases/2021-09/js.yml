@@ -107,4 +107,15 @@ entries:
     #### Breaking Changes
 
     - `UpdateManifestPropertiesOptions` is no longer optional.
+- Name: '@azure/schema-registry-avro'
+  Version: 1.0.0-beta.2
+  DisplayName: Event Hubs - Schema Registry Avro
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/schema-registry-avro_1.0.0-beta.2/sdk/schemaregistry/schema-registry-avro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Depends on @azure/schema-registry@1.0.0-beta.2 which supports client-level caching.
 
