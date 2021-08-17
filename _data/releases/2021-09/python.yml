@@ -30,4 +30,15 @@ entries:
 
     <!-- LINKS -->
     [read_me]: https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/communication/
+- Name: azure-schemaregistry
+  Version: 1.0.0b2
+  DisplayName: Event Hubs - Schema Registry
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-schemaregistry_1.0.0b2/sdk/schemaregistry/azure-schemaregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support caching of registered schemas and send requests to the service only if the cache does not have the looked-up schema/schema ID.
 
