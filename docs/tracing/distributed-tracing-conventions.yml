@@ -9,6 +9,7 @@ groups:
     brief: 'Describes Azure SDK spans.'
     attributes:
       - id: az.namespace
+        required: always
         type: string
         brief: '[Namespace](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-services-resource-providers) of Azure service request is made against.'
         examples: ['Microsoft.Storage', 'Microsoft.KeyVault', 'Microsoft.ServiceBus']
@@ -36,6 +37,7 @@ groups:
         examples: ["GET", "POST", "HEAD"]
       - id: http.url
         type: string
+        required: always
         brief: Full HTTP request URL in the form `scheme://host[:port]/path?query[#fragment]`
         examples: ['https://www.foo.bar/search?q=OpenTelemetry#SemConv']
       - id: http.status_code
@@ -46,14 +48,17 @@ groups:
         examples: [200]
       - id: http.user_agent
         type: string
+        required: always
         brief: 'Value of the [HTTP User-Agent](https://tools.ietf.org/html/rfc7231#section-5.5.3) header sent by the client.'
         examples: ['CERN-LineMode/2.15 libwww/2.17b3']
       - id: requestId
         type: string
+        required: always
         brief: 'Value of the [x-ms-client-request-id] header (or other request-id header, depending on the service) sent by the client.'
         examples: ['eb178587-c05a-418c-a695-ae9466c5303c']
       - id: serviceRequestId
         type: string
+        required: always
         brief: 'Value of the [x-ms-request-id]  header (or other request-id header, depending on the service) sent by the server in response.'
         examples: ['3f828ae5-ecb9-40ab-88d9-db0420af30c6']
 
@@ -64,11 +69,13 @@ groups:
     attributes:
       - id: message_bus.destination
         type: string
+        required: always
         brief: 'Name of the messaging entity within namespace: e.g EventHubs name, ServiceBus queue or topic name.'
         examples: ['myqueue', 'myhub']
       - id: peer.address
         type: string
         brief: 'Fully qualified messaging service name.'
+        required: always
         examples: ['myEventHubNamespace.servicebus.windows.net']
   - id: azure-sdk.messaging.producer
     span_kind: producer
@@ -99,17 +106,21 @@ groups:
     attributes:
       - id: db.url
         type: string
+        required: always
         brief: 'Cosmos DB URI'
         examples: ['https://my-cosmos.documents.azure.com:443/']
       - id: db.statement
         type: string
+        required: always
         brief: 'Database statement'
         examples: ['createContainerIfNotExists.myContainer']
       - id: db.instance
         type: string
+        required: always
         brief: 'Database name'
         examples: ['mydb']
       - id: db.type
         type: string
+        required: always
         brief: 'Database type'
         examples: ['Cosmos']
