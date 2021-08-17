@@ -1,4 +1,4 @@
-# This document describes Azure SDK semantic conventions for tracing in OpenTelemetry format](https://github.com/open-telemetry/build-tools/blob/main/semantic-conventions/syntax.md).
+# This document describes Azure SDK semantic conventions for tracing in [OpenTelemetry format](https://github.com/open-telemetry/build-tools/blob/main/semantic-conventions/syntax.md).
 # DO NOT add new conventions - use [OpenTelemetry conventions](https://github.com/open-telemetry/opentelemetry-specification/tree/main/semantic_conventions), but it's ok to extend existing ones.
 # DO remove conventions when moving to OpenTelemetry one - it's not breaking.
 # Version: 0.0.0
@@ -22,7 +22,6 @@ groups:
 
   # http
   - id: azure-sdk.http
-    prefix: http
     extends: azure-sdk
     span_kind: client
     brief: 'Describes HTTP client spans created per HTTP request (try).'
@@ -30,32 +29,32 @@ groups:
       This conventions follows [OpenTelemetry HTTP](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/semantic_conventions/http.md)
       but omits all optional attributes, providing only `http.url` to describe destination. It adds request-id attributes supported by Azure services.
     attributes:
-      - id: method
+      - id: http.method
         type: string
         required: always
         brief: 'HTTP request method.'
         examples: ["GET", "POST", "HEAD"]
-      - id: url
+      - id: http.url
         type: string
         brief: Full HTTP request URL in the form `scheme://host[:port]/path?query[#fragment]`
         examples: ['https://www.foo.bar/search?q=OpenTelemetry#SemConv']
-      - id: status_code
+      - id: http.status_code
         type: int
         required:
           conditional: If and only if one was received/sent.
         brief: '[HTTP response status code](https://tools.ietf.org/html/rfc7231#section-6).'
         examples: [200]
-      - id: user_agent
+      - id: http.user_agent
         type: string
         brief: 'Value of the [HTTP User-Agent](https://tools.ietf.org/html/rfc7231#section-5.5.3) header sent by the client.'
         examples: ['CERN-LineMode/2.15 libwww/2.17b3']
       - id: requestId
         type: string
-        brief: 'Value of the [x-ms-client-request-id] (or other, depending on the service) header sent by the client.'
+        brief: 'Value of the [x-ms-client-request-id] header (or other request-id header, depending on the service) sent by the client.'
         examples: ['eb178587-c05a-418c-a695-ae9466c5303c']
       - id: serviceRequestId
         type: string
-        brief: 'Value of the [x-ms-request-id] (or other, depending on the service) header sent by the server in response.'
+        brief: 'Value of the [x-ms-request-id]  header (or other request-id header, depending on the service) sent by the server in response.'
         examples: ['3f828ae5-ecb9-40ab-88d9-db0420af30c6']
 
   # messaging
