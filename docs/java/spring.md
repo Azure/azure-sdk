@@ -28,21 +28,21 @@ For Spring cloud starters, the `artifactId` should be of the form `azure-spring-
 
 ## Versioning
 
-Spring integration modules must be versioned in a way that enables the following goals:
+Spring Cloud for Azure modules must be versioned in a way that enables the following goals:
 
-1. Each Spring integration module must be able to release at different release cadences.
-2. Each Spring integration module must have full semantic versioning for major, minor, and patch versions, in all releases. Versioning must not be tied to the Spring dependency version as in earlier iterations of the Azure Spring integration modules.
-3. Allow developers to easily choose Spring integration modules which work together.
+1. Each Spring Cloud for Azure module must be able to release at different release cadences.
+2. Each Spring Cloud for Azure module must have full semantic versioning for major, minor, and patch versions, in all releases. Versioning must not be tied to the Spring dependency version as in earlier iterations of the Azure Spring Cloud for Azure modules.
+3. Allow developers to easily choose Spring Cloud for Azure modules which work together.
 
-{% include requirement/MUST id="java-spring-supported-versions" %} ensure that all releases of a Spring integration module support all active versions (as of the time of release) of the corresponding Spring API.
+{% include requirement/MUST id="java-spring-supported-versions" %} ensure that all releases of a Spring Cloud for Azure module support all active versions (as of the time of release) of the corresponding Spring API.
 
-{% include requirement/MUST id="java-spring-deps" %} add latest release version of Spring API dependencies in the Spring integration module POM files, it is the users responsibility to override the Spring API version via Spring BOM.
+{% include requirement/MUST id="java-spring-deps" %} add latest release version of Spring API dependencies in the Spring Cloud for Azure module POM files, it is the users responsibility to override the Spring API version via Spring BOM.
 
-{% include requirement/MUST id="java-spring-classifiers" %} add Maven classifiers to releases if a Spring integration module cannot support all active versions of the corresponding Spring API. For example, if a Spring integration module needs to support Spring Boot 2.2.x and 2.3.x, but cannot due to technical contraints, two versions of the Spring integration module must be released, with classifiers `springboot_2_2` and `springboot_2_3`.
+{% include requirement/MUST id="java-spring-classifiers" %} add Maven classifiers to releases if a Spring Cloud for Azure module cannot support all active versions of the corresponding Spring API. For example, if a Spring Cloud for Azure module needs to support Spring Boot 2.2.x and 2.3.x, but cannot due to technical contraints, two versions of the Spring Cloud for Azure module must be released, with classifiers `springboot_2_2` and `springboot_2_3`.
 
-{% include requirement/MUST id="java-spring-bom" %} provide a Spring integration modules BOM for users. This BOM must contain versions of all Spring integration modules that are known to work together (and have a single set of dependency versions). It must also include appropriate references to Azure Java SDK.
+{% include requirement/MUST id="java-spring-bom" %} provide a Spring Cloud for Azure modules BOM for users. This BOM must contain versions of all Spring Cloud for Azure modules that are known to work together (and have a single set of dependency versions). It must also include appropriate references to Azure Java SDK.
 
-{% include requirement/MUST id="java-spring-bom-docs" %} encourage users to use the Spring integration modules BOM for their chosen version of Spring rather than specific versions of each Spring integration module, such that they need not worry about Maven classifiers and other versioning issues.
+{% include requirement/MUST id="java-spring-bom-docs" %} encourage users to use the Spring Cloud for Azure modules BOM for their chosen version of Spring rather than specific versions of each Spring Cloud for Azure module, such that they need not worry about Maven classifiers and other versioning issues.
 
 ## Dependencies
 
