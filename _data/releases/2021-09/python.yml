@@ -41,4 +41,15 @@ entries:
     #### Features Added
 
     - Support caching of registered schemas and send requests to the service only if the cache does not have the looked-up schema/schema ID.
+- Name: azure-schemaregistry-avroserializer
+  Version: 1.0.0b2
+  DisplayName: Event Hubs - Schema Registry Avro Serializer
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-schemaregistry-avroserializer_1.0.0b2/sdk/schemaregistry/azure-schemaregistry-avroserializer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Depends on `azure-schemaregistry==1.0.0b2` which supports client-level caching.
 
