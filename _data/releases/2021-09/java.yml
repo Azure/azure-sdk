@@ -137,4 +137,20 @@ entries:
     ##### Key Bug Fixes
     * Fixed encryption create with contentResponseOnWriteEnabled false
   GroupId: com.azure
+- Name: azure-data-schemaregistry
+  Version: 1.0.0-beta.5
+  DisplayName: Event Hubs - Schema Registry
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-schemaregistry_1.0.0-beta.5/sdk/schemaregistry/azure-data-schemaregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking changes
+    - 4xx responses return their respective `HttpResponseException` rather than `IllegalStateException`
+    - Removed `Response<T>` overloads for getSchema and getSchemaId because response could be cached.
+    - `SchemaRegistryClientBuilder.maxCacheSize` is package-private.
+
+    #### Features added
+    - Caching schemas based on schemaId.
+  GroupId: com.azure
 
