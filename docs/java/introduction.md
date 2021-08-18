@@ -453,6 +453,10 @@ For methods that combine multiple requests into a single call:
 
 {% include requirement/MUST id="java-response-errors" %} provide enough information in failure cases for a developer to take appropriate corrective action, including a message describing what went wrong and details on the corrective actions to take.
 
+For methods that may not make a service call each time it is invoked either because the response is cached by the client or the response can be computed locally:
+
+{% include requirement/MUSTNO id="java-no-withresponse" %} offer `WithResponse` service method that returns `Response<T>`. All overloads should return `T` instead.
+
 #### Service Method Parameters
 
 ##### Option Parameters
