@@ -153,4 +153,19 @@ entries:
     #### Features added
     - Caching schemas based on schemaId.
   GroupId: com.azure
+- Name: azure-data-schemaregistry-avro
+  Version: 1.0.0-beta.5
+  DisplayName: Event Hubs - Schema Registry Avro
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-schemaregistry-avro_1.0.0-beta.5/sdk/schemaregistry/azure-data-schemaregistry-avro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Update `azure-data-schemaregistry` dependency to `1.0.0-beta.5`.
+    - Update `azure-core-serializer-avro-apache` dependency to `1.0.0-beta.13`.
+  GroupId: com.azure
 
