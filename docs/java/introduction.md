@@ -455,7 +455,7 @@ For methods that combine multiple requests into a single call:
 
 For methods that may not make a service call each time it is invoked either because the response is cached by the client or the response can be computed locally:
 
-{% include requirement/MUSTNOT id="java-no-withresponse" %} offer `WithResponse` service method that returns `Response<T>`. All overloads should return `T` instead.
+{% include requirement/MUSTNOT id="java-no-withresponse" %} offer `WithResponse` service method which return `Response<T>` when the response is not always returned from a web service (e.g. when it is cached or calculated locally).
 
 #### Service Method Parameters
 
