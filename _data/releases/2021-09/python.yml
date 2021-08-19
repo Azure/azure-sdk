@@ -60,4 +60,17 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-web_4.0.0/sdk/appservice/azure-mgmt-web/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-identity
+  Version: 1.6.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.6.1/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Persistent cache implementations are now loaded on demand, enabling
+    workarounds when importing transitive dependencies such as pywin32
+    fails
+    ([#19989](https://github.com/Azure/azure-sdk-for-python/issues/19989))
 
