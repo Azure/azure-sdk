@@ -215,4 +215,19 @@ entries:
 
     - Add `EventProcessorClientBuilder.prefetchCount(int)` overload.
   GroupId: com.azure
+- Name: azure-messaging-servicebus
+  Version: 7.4.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-servicebus_7.4.0/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Updated ServiceBusAdministrationClientBuilder to Support HttpPipelinePosition.
+
+    ##### Dependency Updates
+    - Update `azure-core` dependency to `1.19.0`.
+    - Update `azure-core-amqp` dependency to `2.3.1`.
+  GroupId: com.azure
 
