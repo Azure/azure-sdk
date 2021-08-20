@@ -168,4 +168,24 @@ entries:
     - Update `azure-data-schemaregistry` dependency to `1.0.0-beta.5`.
     - Update `azure-core-serializer-avro-apache` dependency to `1.0.0-beta.13`.
   GroupId: com.azure
+- Name: azure-core-amqp
+  Version: 2.3.1
+  DisplayName: Core - AMQP
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-amqp_2.3.1/sdk/core/azure-core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bug Fixes
+
+    - Fixed a bug where SendTimeout-timer thread was not being disposed of resulting in lingering
+    threads when a send link was remotely closed.
+    - Fixed a bug where ReactorConnection waited indefinitely for CBS node to complete closing. The underlying problem is
+    that the RequestResponseChannel's sender and receiver links were not active, so they would wait forever for a remote
+    close signal.
+    - Fixed a bug where ReactorReceiver and ReactorSender would not complete their close operation if their close work could
+    not be scheduled on the proton-j Reactor. This happens in the case that the connection is shutdown before the link.
+    - Fixed a bug where RejectedExecutionExceptions and IllegalStateExceptions would not be retried. This happens in the
+    case that an IO pipe is interrupted while signalling the Reactor work queue.
+  GroupId: com.azure
 
