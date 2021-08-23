@@ -138,7 +138,7 @@ Storage could support:
 
 * `AZURE_<ServiceName>_<ConfigurationKey>`
 
-where _ServiceName_ is the canonical shortname without spaces, and _ConfigurationKey_ refers to an unnested configuration key for that client library.
+Where _ServiceName_ is the canonical shortname without spaces, and _ConfigurationKey_ refers to an unnested configuration key for that client library.
 
 {% include requirement/MUSTNOT id="golang-envvars-posix-compliance" %} use non-alpha-numeric characters in your environment variable names with the exception of underscore. This ensures broad interoperability.
 
