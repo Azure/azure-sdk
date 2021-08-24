@@ -1226,7 +1226,7 @@ Native code plugins cause compatibility issues and require additional scrutiny. 
 
 {% include requirement/MUST id="java-javadoc-build" %} ensure that anybody can clone the repo containing the client library and execute `mvn javadoc:javadoc` to generate the full and complete JavaDoc output for the code, without any need for additional processing steps.
 
-{% include requirement/MUST id="java-javadoc-full-docs" %} include descriptive text of the method, as well as all parameters, the returned value (if any), all checked exceptions, as well as all unchecked exceptions. Failing to document unchecked exceptions means that users do not have any indication of how they can handle exceptional circumstnaces.
+{% include requirement/MUST id="java-javadoc-full-docs" %} include descriptive text of the method, as well as all parameters, the returned value (if any), all checked exceptions, as well as all unchecked exceptions. Failing to document unchecked exceptions means that users do not have any indication of how they can handle exceptional circumstances.
 
 {% include requirement/MUST id="java-javadoc-samples" %} include code samples in all class-level JavaDoc, and in relevant method-level JavaDoc.
 
