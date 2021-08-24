@@ -104,7 +104,7 @@ Some services may require custom policies to be implemented. For example, custom
 
 ##### Extensible enumerations
 
-Any Enums defined in the SDK should be interchangable with case-insensitive strings. This is achieved by using the `CaseInsensitiveEnumMeta` class defined in `azure-core`.
+Any Enums defined in the SDK should be interchangeable with case-insensitive strings. This is achieved by using the `CaseInsensitiveEnumMeta` class defined in `azure-core`.
 
 ```python
 from enum import Enum
