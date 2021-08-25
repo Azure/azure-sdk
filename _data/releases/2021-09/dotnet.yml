@@ -57,4 +57,15 @@ entries:
 
     - Fixed a bug where a buffered error responses on .NET Framework were prematurely disposed
     - Fixed relative redirect support.
+- Name: Azure.Analytics.Purview.Account
+  Version: 1.0.0-beta.1
+  DisplayName: Azure.Analytics.Purview.Account
+  ServiceName: Azure.Analytics.Purview.Account
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.Purview.Account_1.0.0-beta.1/sdk/purview/Azure.Analytics.Purview.Account/CHANGELOG.md
+  ChangelogContent: |-
+    #### New Features
+
+    - Initial preview release of the Azure Purview Account client library for .NET
 
