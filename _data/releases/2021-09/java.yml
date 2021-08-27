@@ -632,4 +632,29 @@ entries:
     #### Dependency Upgrades
     - Upgrade to [spring-boot-dependencies:2.5.3](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.3/spring-boot-dependencies-2.5.3.pom).
   GroupId: com.azure.spring
+- Name: azure-security-keyvault-jca
+  Version: 2.0.0
+  DisplayName: Key Vault - JCA
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-jca_2.0.0/sdk/keyvault/azure-security-keyvault-jca/CHANGELOG.md
+  ChangelogContent: |-
+    #### New Features
+    - Support key less certificate. ([#22105](https://github.com/Azure/azure-sdk-for-java/issues/22105))
+  GroupId: com.azure
+- Name: azure-spring-boot-starter-keyvault-certificates
+  Version: 3.1.0
+  DisplayName: Azure Spring Boot Starter Key Vault Certificates
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-boot-starter-keyvault-certificates_3.1.0/sdk/spring/azure-spring-boot-starter-keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    This release is compatible with Spring Boot 2.5.0 - 2.5.3.
+    #### Dependency Upgrades
+    - Upgrade to [spring-boot-dependencies:2.5.3](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.3/spring-boot-dependencies-2.5.3.pom).
+    #### New Features
+    - Support key less certificate. ([#22105](https://github.com/Azure/azure-sdk-for-java/issues/22105))
+  GroupId: com.azure.spring
 
