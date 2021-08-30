@@ -153,4 +153,20 @@ entries:
     #### Bugs Fixed
 
     - Fixed bugs in session token clearing logic. Session Not found (404, substatus 1002) was not being handled correctly by the session retry policy and would mistakenly retry the request with the same session token.
+- Name: '@azure/communication-chat'
+  Version: 1.1.0-beta.2
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.1.0-beta.2/sdk/communication/communication-chat/CHANGELOG.md
+  ChangelogContent: '- Updated to @azure/communication-signaling@1.0.0-beta.8.'
+- Name: '@azure/communication-chat'
+  Version: 1.0.1
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.0.1/sdk/communication/communication-chat/CHANGELOG.md
+  ChangelogContent: '- Updated to @azure/communication-signaling@1.0.0-beta.8.'
 
