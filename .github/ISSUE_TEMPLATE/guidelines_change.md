@@ -2,7 +2,7 @@
 name: Design Guidelines Change
 about: Request to change the client library design guidelines
 title: 'Change Request: <short description> for <target language>'
-labels: architecture
+labels: architecture, board-review
 assignees: kyle-patterson, lilyjma
 ---
 

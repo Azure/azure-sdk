@@ -3,7 +3,7 @@ name: Architecture Board Review Request - Introductory Session
 about: Request for introductory session on an Azure service and client library with the Architecture Board
 title: 'Board Review: Introducing <client library name>'
 labels: architecture, board-review
-assignees: lilyjma
+assignees: kyle-patterson, lilyjma
 ---
 
 Thank you for starting the process for approval of the client library for your Azure service.  Thorough review of your client library ensures that your APIs are consistent with the guidelines and the consumers of your client library have a consistently good experience when using Azure. 

@@ -3,7 +3,7 @@ name: Architecture Board Review Request - API Review/API Sign Off
 about: Request for API review or API sign off for an Azure client library 
 title: 'Board Review: <client library name>'
 labels: architecture, board-review
-assignees: lilyjma
+assignees: kyle-patterson, lilyjma
 ---
 
 Thank you for submitting this review request. Thorough review of your client library ensures that your APIs are consistent with the guidelines and the consumers of your client library have a consistently good experience when using Azure. 
