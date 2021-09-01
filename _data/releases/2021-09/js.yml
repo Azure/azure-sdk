@@ -227,4 +227,12 @@ entries:
     - _PREVIEW_ Adds `container.item(itemId).patch()`. `patch()` is an alternative to `replace()` for item updates. https://github.com/Azure/azure-sdk-for-js/pull/16264/files#diff-7caca690c469e2025576523c0377ac71815f001024fde7c48b20cd24adaa6977R561
     - _PREVIEW_ Adds support for Bulk operation PATCH.
     - _PREVIEW_ Adds support for Batch operation PATCH.
+- Name: '@azure/identity'
+  Version: 1.5.2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_1.5.2/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: '- Fixed a bug introduced on 1.5.0 that caused the `ManagedIdentityCredential` to fail authenticating in Arc environments. Since our new core disables unsafe requests by default, we had to change the security settings for the first request of the Arc MSI, which retrieves the file path where the authentication value is stored since this request generally happens through an HTTP endpoint.'
 
