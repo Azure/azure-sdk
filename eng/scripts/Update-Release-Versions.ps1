@@ -208,7 +208,7 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
     $versions = [AzureEngSemanticVersion]::SortVersions($versions)
 
     $latestPreview = $versions[0].RawVersion
-    $gaVersions = $versions.Where({ !$_.IsPrerelease -and $_.Major -gt 0 })
+    $gaVersions = $versions.Where({ !$_.IsPrerelease })
     if ($gaVersions.Count -ne 0)
     {
       $latestGA = $gaVersions[0].RawVersion

@@ -20,7 +20,7 @@ function CreatePackage(
   $isGAVersion = $false
 
   if ($semVer) {
-    $isGAVersion = (!$semVer.IsPrerelease -and $semVer.Major -gt 0)
+    $isGAVersion = !$semVer.IsPrerelease
   }
   else {
     # fallback for non semver compliant versions
