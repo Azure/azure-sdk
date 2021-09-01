@@ -8,11 +8,17 @@ param(
 Set-StrictMode -Version 3
 
 if (!(Get-Command az -ErrorAction SilentlyContinue)) {
-  Write-Host 'You must have the Azure CLI installed: https://aka.ms/azure-cli'
+  Write-Error 'You must have the Azure CLI installed: https://aka.ms/azure-cli'
   exit 1
 }
 
-az extension show -n azure-devops > $null
+az account show *> $null
+if (!$?) {
+  Write-Host 'Running az login...'
+  az login *> $null
+}
+
+az extension show -n azure-devops *> $null
 if (!$?){
   Write-Host 'Installing azure-devops extension'
   az extension add --name azure-devops
@@ -22,11 +28,15 @@ if (!$?){
 . (Join-Path $PSScriptRoot .. common scripts Helpers DevOps-WorkItem-Helpers.ps1)
 . (Join-Path $PSScriptRoot PackageList-Helpers.ps1)
 
+CheckDevOpsAccess
+
 $unchangedPkgList = Get-CombinedPackageListForPlannedVersions $pkgFilter
 
+$uniqueName = ""
 if (!$CSVPath)
 {
-  $CSVPath = "plannedpackages_$([System.IO.Path]::GetRandomFileName()).csv"
+  $uniqueName = "plannedpackages_$([System.IO.Path]::GetRandomFileName()).csv"
+  $CSVPath = $uniqueName
   $seedString = "Seeded CSV file with existing packages "
   if ($pkgFilter) { $seedString += "that match '$pkgFilter' " }
   $seedString += "and opening it in excel."
@@ -71,6 +81,11 @@ $changedPkgList = Get-Content $CSVPath | ConvertFrom-Csv | Where-Object {
 
 if (!$changedPkgList -or $changedPkgList.Count -eq 0) {
   Write-Host "Didn't find any packages with a planned version and date in [$CSVPath]."
+
+  if ($uniqueName) {
+    Write-Host "In some cases excel is delayed in saving a file so if you made changes try re-running the script passing in the file like:"
+    Write-Host ".\eng\scripts\BulkUpdatePackagePlannedDates.ps1 $CSVPath"
+  }
   exit 0
 }
 
