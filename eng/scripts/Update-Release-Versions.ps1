@@ -87,7 +87,7 @@ function CheckOptionalLinks($linkTemplates, $pkg, $skipIfNA = $false)
   if (!$skipIfNA -or $pkg.MSDocs -eq "")
   {
     $preSuffix = GetLinkTemplateValue $linkTemplates "pre_suffix"
-    $msdocLink = GetLinkTemplateValue $linkTemplates "msdocs_url_template" $pkg.Package
+    $msdocLink = GetLinkTemplateValue $linkTemplates "msdocs_url_template" $pkg.Package $pkg.VersionGA
 
     if (!$pkg.VersionGA -and $pkg.VersionPreview -and $preSuffix) {
       $msdocLink += $preSuffix
