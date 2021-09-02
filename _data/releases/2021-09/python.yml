@@ -137,4 +137,20 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_23.0.0/sdk/compute/azure-mgmt-compute/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-core
+  Version: 1.18.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.18.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `azure.core.serialization.AzureJSONEncoder` (introduced in 1.17.0) serializes `datetime.datetime` objects in ISO 8601 format, conforming to RFC 3339's specification.    #20190
+    - We now use `azure.core.serialization.AzureJSONEncoder` to serialize `json` input to `azure.core.rest.HttpRequest`.
+
+    #### Bugs Fixed
+
+    - The behaviour of the headers returned in `azure.core.rest` responses now aligns across sync and async. Items can now be checked case-insensitively and without raising an error for format.
 
