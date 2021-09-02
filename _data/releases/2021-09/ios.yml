@@ -1,0 +1,12 @@
+entries:
+- Name: AzureCore
+  Version: 1.0.0-beta.13
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCore_1.0.0-beta.13/sdk/core/AzureCore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Changed the format for application ID in `UserAgentPolicy` to remove the square brackets around it.
+
