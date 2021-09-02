@@ -246,4 +246,15 @@ entries:
     #### Bugs Fixed
 
     - Fix @azure/core-rest-pipeline version for AAD auth.
+- Name: '@azure/core-http'
+  Version: 2.2.0
+  DisplayName: Core - HTTP
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_2.2.0/sdk/core/core-http/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - `tracingPolicy` will no longer propagate tracing errors to the caller, and such errors will be logged instead and the operation does not get interrupted. [PR #16916](https://github.com/Azure/azure-sdk-for-js/pull/16916)
 
