@@ -279,6 +279,7 @@ There are two categories of clients: _service clients_ and their _subclients_. S
 As discussed above, the [service client](#dotnet-client) is the entry point to the API for an Azure service -- from it, library users can invoke all operations the service provides and can easily implement the most common scenarios.  Where it will simplify an API's design, groups of service calls can be organized around smaller subclient types.
 
 {% include requirement/MUST id="dotnet-service-client-entry-point" %} use service clients to indicate the starting point(s) for the most common customer scenarios.
+
 {% include requirement/SHOULD id="dotnet-use-subclients" %} use subclients to group operations related to a service resource or functional area to improve API usability.
 
 There are a variety of types of subclients.  These include:
@@ -321,6 +322,7 @@ public class ContainerRepository {
 ```
 
 {% include requirement/MUST id="dotnet-subclient-factory-methods" %} provide factory methods to create a subclient.
+
 {% include requirement/MAY id="dotnet-subclient-factory-methods-suffix" %} include a suffix the method that creates a subclient, according to the table below:
 
 | Client Type            | Naming Convention  | Factory Method Naming Convention                 |
@@ -332,13 +334,17 @@ public class ContainerRepository {
 | [Pageable](#dotnet-paging)                    | ```Pageable<T>```  | Get\<resource\>s                                 |
 
 {% include requirement/SHOULD id="dotnet-subclient-factory-methods-parameters" %} take a resource identifier as a parameter to the resource client factory method.
+
 {% include requirement/SHOULD id="dotnet-subclient-properties" %} expose resource identifiers as properties on the resource client.
+
 {% include requirement/MAY id="dotnet-subclient-collections" %} place operations on collections of resources a separate subclient to avoid cluttering the parent client with too many methods.
 
 While API usability is the primary reason for subclients, another motivating factor is resource efficiency.  [Clients need to be cached](https://devblogs.microsoft.com/azure-sdk/lifetime-management-and-thread-safety-guarantees-of-azure-sdk-net-clients/), so if the set of client instances is large or unlimited (in case the client takes a scoping parameter, like a hub, or a container), using subclients allows an application to cache the top level client and create instances of subclients on demand.  In addition, if there is an expensive shared resource (e.g. an AMQP connection), subclients are preferred, as they naturally lead to resource sharing.
 
 {% include requirement/SHOULD id="dotnet-service-client-entry-point" %} use the `HttpPipeline` that belongs to the type providing the factory method to make network calls to the service from the subclient.  An exception to this might be if subclient needs different pipeline policies than the parent client.
+
 {% include requirement/MUSTNOT id="dotnet-subclient-no-constructor" %} provide a public constructor on a subclient.  Subclients are non-instantiable by design.
+
 {% include requirement/MUST id="dotnet-subclient-mocking" %} provide a protected parameterless constructor on subclients for mocking.
 
 ##### Choosing between Service Clients and Subclients {#dotnet-choosing-client-types}
