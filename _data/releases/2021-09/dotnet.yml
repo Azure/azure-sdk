@@ -165,4 +165,17 @@ entries:
     #### Breaking Changes
     - Renamed `SendCloudEvent` to `SendCloudNativeCloudEvent`
     - Renamed `SendCloudEvents` to `SendCloudNativeCloudEvents`
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.3.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.3.0/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue with refreshing authorization where redundant requests were made to acquire AAD tokens that were due to expire.  Refreshes will now coordinate to ensure a single AAD token acquisition.
+
+    - Fixed an issue with authorization refresh where attempts may have been made to authorize a faulted link.  Links that fail to open are no longer be considered valid for authorization.
 
