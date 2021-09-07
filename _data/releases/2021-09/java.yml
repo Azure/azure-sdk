@@ -760,4 +760,166 @@ entries:
     - Upgrade to [Azure Event Hubs Checkpoint Store Blob 1.9.0](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md#190-2021-08-19).
     - Upgrade to [Spring Cloud Azure App Configuration 2.1.0](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/appconfiguration/azure-spring-cloud-appconfiguration-config/CHANGELOG.md).
   GroupId: com.azure.spring
+- Name: azure-core-serializer-json-gson
+  Version: 1.1.6
+  DisplayName: Core Serializer GSON JSON
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-serializer-json-gson_1.1.6/sdk/core/azure-core-serializer-json-gson/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.19.0` to `1.20.0`.
+  GroupId: com.azure
+- Name: azure-core-serializer-avro-apache
+  Version: 1.0.0-beta.14
+  DisplayName: Core Serializer Apache Avro
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-serializer-avro-apache_1.0.0-beta.14/sdk/core/azure-core-serializer-avro-apache/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.19.0` to `1.20.0`.
+  GroupId: com.azure
+- Name: azure-core-tracing-opentelemetry
+  Version: 1.0.0-beta.14
+  DisplayName: Tracing OpenTelemetry Plugin
+  ServiceName: Plugin
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-tracing-opentelemetry_1.0.0-beta.14/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Fixed
+
+    - Fixed a case where AMQP span context should set remote parent. ([#21667](https://github.com/Azure/azure-sdk-for-java/pull/21667))
+
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.19.0` to `1.20.0`.
+  GroupId: com.azure
+- Name: azure-core-amqp
+  Version: 2.3.2
+  DisplayName: Core - AMQP
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-amqp_2.3.2/sdk/core/azure-core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.19.0` to `1.20.0`.
+    - Upgraded Reactor from `3.4.8` to `3.4.9`.
+  GroupId: com.azure
+- Name: azure-core-serializer-json-jackson
+  Version: 1.2.7
+  DisplayName: Core Serializer Jackson JSON
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-serializer-json-jackson_1.2.7/sdk/core/azure-core-serializer-json-jackson/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.19.0` to `1.20.0`.
+  GroupId: com.azure
+- Name: azure-core-experimental
+  Version: 1.0.0-beta.18
+  DisplayName: Core Experimental
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-experimental_1.0.0-beta.18/sdk/core/azure-core-experimental/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Moved `HttpAuthorization` into `azure-core`.
+
+    #### Features Added
+
+    - Added a common error type `HttpResponseError`.
+  GroupId: com.azure
+- Name: azure-core
+  Version: 1.20.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core_1.20.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new deferred logging APIs to `ClientLogger`. ([#20714](https://github.com/Azure/azure-sdk-for-java/pull/20714)) (Thank you, @tozsvath)
+    - Added `HttpAuthorization` which supports configuring a generic `Authorization` header on a request. ([#23633](https://github.com/Azure/azure-sdk-for-java/pull/23633))
+    - Added `RedirectPolicy` to standardize the ability to redirect HTTP requests. ([#23617](https://github.com/Azure/azure-sdk-for-java/pull/23617))
+    - Added support for additional environment configurations. ([#23435](https://github.com/Azure/azure-sdk-for-java/pull/23435))
+    - Added `RetryStrategy.shouldRetryException(Throwable throwable)` to allow `RetryStrategy`s to determine which exceptions
+    are acceptable to be retried. ([#23472](https://github.com/Azure/azure-sdk-for-java/pull/23472))
+    - Updated `RetryPolicy` to attempt to lookup well-known retry after headers (`Retry-After`, `retry-after-ms`, and `x-ms-retry-after-ms`)
+    when a lookup header isn't supplied. ([#23472](https://github.com/Azure/azure-sdk-for-java/pull/23472))
+  GroupId: com.azure
+- Name: azure-core-test
+  Version: 1.7.1
+  DisplayName: Core - Test
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-test_1.7.1/sdk/core/azure-core-test/CHANGELOG.md
+  ChangelogContent: |-
+    #### Fixed
+
+    - Fixed a `NullPointerException` when loading test `HttpClient`. ([#23559](https://github.com/Azure/azure-sdk-for-java/pull/23559))
+
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.19.0` to `1.20.0`.
+  GroupId: com.azure
+- Name: azure-core-http-okhttp
+  Version: 1.7.3
+  DisplayName: Core - HTTP OkHttp
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-okhttp_1.7.3/sdk/core/azure-core-http-okhttp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for additional environment configurations. ([#23435](https://github.com/Azure/azure-sdk-for-java/pull/23435))
+  GroupId: com.azure
+- Name: azure-core-http-netty
+  Version: 1.11.0
+  DisplayName: Core - HTTP Netty
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-netty_1.11.0/sdk/core/azure-core-http-netty/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added the ability to configure HTTP connect timeout. ([#23435](https://github.com/Azure/azure-sdk-for-java/pull/23435))
+    - Added support for additional environment configurations. ([#23435](https://github.com/Azure/azure-sdk-for-java/pull/23435))
+  GroupId: com.azure
+- Name: azure-core-management
+  Version: 1.4.1
+  DisplayName: Management - Core
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-management_1.4.1/sdk/core/azure-core-management/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure
 
