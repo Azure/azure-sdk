@@ -143,4 +143,26 @@ entries:
     #### Changes
 
     - Dependency versions updated.
+- Name: Azure.Containers.ContainerRegistry
+  Version: 1.1.0-beta.1
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Containers.ContainerRegistry_1.1.0-beta.1/sdk/containerregistry/Azure.Containers.ContainerRegistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ContainerRegistryBlobClient` with methods to upload and download OCI Manifests and artifact blobs, to enable implementation of push/pull for OCI artifacts.
+- Name: Microsoft.Azure.Messaging.EventGrid.CloudNativeCloudEvents
+  Version: 1.0.0
+  DisplayName: 'CloudNative CloudEvents with Event Grid '
+  ServiceName: eventgrid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.Messaging.EventGrid.CloudNativeCloudEvents_1.0.0/sdk/eventgrid/Microsoft.Azure.Messaging.EventGrid.CloudNativeCloudEvents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Renamed `SendCloudEvent` to `SendCloudNativeCloudEvent`
+    - Renamed `SendCloudEvents` to `SendCloudNativeCloudEvents`
 
