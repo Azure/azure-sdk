@@ -933,4 +933,13 @@ entries:
     #### Dependency Updates
     - Upgraded `azure-core` dependency to 1.20.0
   GroupId: com.azure
+- Name: azure-analytics-synapse-managedprivateendpoints
+  Version: 1.0.0-beta.5
+  DisplayName: Synapse - Managed Private Endpoints
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-analytics-synapse-managedprivateendpoints_1.0.0-beta.5/sdk/synapse/azure-analytics-synapse-managedprivateendpoints/CHANGELOG.md
+  ChangelogContent: '- Roll back API version to 2020-12-01'
+  GroupId: com.azure
 
