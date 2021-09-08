@@ -312,4 +312,33 @@ entries:
     - `DefaultAzureCredentialOptions` now has a `InteractiveBrowserClientId` property which allows passing a ClientId value to the InteractiveBrowserCredential` when constructing a `DefaultAzureCredential`.
     - Implement `OnBehalfOfCredential` which enables authentication to Azure Active Directory using an On-Behalf-Of flow.
     - Added support to `ManagedIdentityCredential` for Azure hosts using federated token exchange for managed identity.
+- Name: Azure.Monitor.Query
+  Version: 1.0.0-beta.4
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.Query_1.0.0-beta.4/sdk/monitor/Azure.Monitor.Query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Updated `GetResult()` in `LogsBatchQueryResult` to return a `LogsBatchQueryResult`
+
+    #### Features Added
+    - `Endpoint` is a public property in `LogsQueryClient`
+
+    #### Breaking Changes
+    - `NamespaceCollection` renamed to `MetricNamespaceCollection`
+    - `QueryModelFactory` renamed to `MonitorQueryModelFactory`
+    - `TimeSeriesElement` renamed to `MetricTimeSeriesElement`
+    - `Data` renamed as `Values` in `MetricTimeSeriesElement`
+    - `Top` renamed to `Size` in `MetricsQueryOptions`
+    - Updated `GetObject` methods to be internal in `LogsTableRow`
+- Name: Azure.ResourceManager
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Core
+  ServiceName: Azure Resource Manager
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager_1.0.0-beta.3/sdk/resourcemanager/Azure.ResourceManager/CHANGELOG.md
+  ChangelogContent: ""
 
