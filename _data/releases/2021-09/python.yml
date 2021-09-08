@@ -193,4 +193,44 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource_20.0.0/sdk/resources/azure-mgmt-resource/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-search-documents
+  Version: 11.3.0b3
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.3.0b3/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new models:
+    - `azure.search.documents.models.Captions`
+    - `azure.search.documents.models.CaptionResult`
+    - `azure.search.documents.indexes.models.CustomEntityLookupSkillLanguage`
+    - `azure.search.documents.indexes.models.EntityRecognitionSkillVersion`
+    - `azure.search.documents.indexes.models.LexicalNormalizerName`
+    - `azure.search.documents.indexes.models.PIIDetectionSkill`
+    - `azure.search.documents.indexes.models.PIIDetectionSkillMaskingMode`
+    - `azure.search.documents.indexes.models.SearchIndexerCache`
+    - `azure.search.documents.indexes.models.SearchIndexerDataIdentity`
+    - `azure.search.documents.indexes.models.SearchIndexerDataNoneIdentity`
+    - `azure.search.documents.indexes.models.SearchIndexerDataUserAssignedIdentity`
+    - `azure.search.documents.indexes.models.SentimentSkillVersion`
+    - Added `normalizer_name` property to `AnalyzeTextOptions` model.
+
+    #### Breaking Changes
+
+    - Removed:
+    - `azure.search.documents.indexes.models.SentimentSkillV3`
+    - `azure.search.documents.indexes.models.EntityRecognitionSkillV3`
+    - Renamed:
+    - `SearchField.normalizer` renamed to `SearchField.normalizer_name`.
+- Name: azure-mgmt-web
+  Version: 5.0.0
+  DisplayName: Resource Management - Web
+  ServiceName: App Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-web_5.0.0/sdk/appservice/azure-mgmt-web/CHANGELOG.md
+  ChangelogContent: ""
 
