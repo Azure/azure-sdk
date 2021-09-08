@@ -272,4 +272,27 @@ entries:
     #### Bugs Fixed
     - `GetDocumentStasus` and `GetDocumentStatusesAsync` no longer set CreatedAfter and CreatedBefore if the user doesn't set it.
     - In `GetTranslationStasuses`, `GetDocumentStasuses` and their async counterparts; URL parameters for `Ids`, `Statuses`, and `OrderBy` are no longer included in the request URL if the user does not set them.
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.6.1
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.6.1/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue with refreshing authorization where redundant requests were made to acquire AAD tokens that were due to expire.  Refreshes will now coordinate to ensure a single AAD token acquisition.
+
+    - Fixed an issue with authorization refresh where attempts may have been made to authorize a faulted link.  Links that fail to open are no longer be considered valid for authorization.
+- Name: Azure.Analytics.Synapse.ManagedPrivateEndpoints
+  Version: 1.0.0-beta.5
+  DisplayName: Synapse - Managed Private Endpoints
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.Synapse.ManagedPrivateEndpoints_1.0.0-beta.5/sdk/synapse/Azure.Analytics.Synapse.ManagedPrivateEndpoints/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Removed `V2021_06_01_Preview` value from `ServiceVersion` enum, and set default `api-version` to `2020-12-01`.
 
