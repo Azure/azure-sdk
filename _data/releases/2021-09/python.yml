@@ -245,4 +245,21 @@ entries:
 
     - Improved memory usage of `ServiceBusClient` to automatically discard spawned `ServiceBusSender` or `ServiceBusReceiver` from its handler set when no strong reference to the sender or receiver exists anymore.
     - Reduced CPU load of `azure.servicebus.AutoLockRenewer` during lock renewal.
+- Name: azure-ai-translation-document
+  Version: 1.0.0b5
+  DisplayName: Document Translation
+  ServiceName: Translator
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-document_1.0.0b5/sdk/translation/azure-ai-translation-document/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Changed: `list_all_translation_statuses` has been renamed to `list_translation_statuses`
+    - Changed: `list_all_document_statuses` has been renamed to `list_document_statuses`
+    - Changed: `TranslationStatus` property `documents_cancelled_count` has been renamed to `documents_canceled_count`
+    - Changed: `FileFormat` has been renamed to `DocumentTranslationFileFormat`
+    - Changed: Operation statuses `Cancelled` and `Cancelling` have been renamed to `Canceled` and `Canceling`, respectively.
+
+    #### Bugs Fixed
+    - The operation `id` under `details` of the poller object now populates correctly.
 
