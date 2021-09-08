@@ -10,4 +10,64 @@ entries:
     #### Bugs Fixed
 
     - [2785](https://github.com/Azure/azure-sdk-for-cpp/issues/2785) Fix to build on g++ 5.5.
+- Name: azure-storage-files-shares
+  Version: 12.2.0
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-shares_12.2.0/sdk/storage/azure-storage-files-shares/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where prefix cannot contain `&` when listing files.
+
+    #### Breaking Changes
+
+    - `AccessPolicy::StartsOn` and `AccessPolicy::ExpiresOn` are now nullable values.
+- Name: azure-storage-blobs
+  Version: 12.2.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-blobs_12.2.0/sdk/storage/azure-storage-blobs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where prefix cannot contain `&` when listing blobs.
+
+    #### Breaking Changes
+
+    - `StartsOn` and `ExpiresOn` in `SignedIdentifier` were changed to nullable.
+- Name: azure-storage-common
+  Version: 12.2.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-common_12.2.0/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug that may cause crash when parsing XML.
+
+    #### Features Added
+
+    - Used new xml library on Windows, dropped dependency for libxml2.
+- Name: azure-storage-files-datalake
+  Version: 12.2.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-storage-files-datalake_12.2.0/sdk/storage/azure-storage-files-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where prefix cannot contain `&` when listing files.
+
+    #### Breaking Changes
+
+    - `StartsOn` and `ExpiresOn` in `SignedIdentifier` were changed to nullable.
 
