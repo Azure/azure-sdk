@@ -188,4 +188,88 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - Support binding to `BinaryData` instances.
+- Name: Azure.Messaging.WebPubSub
+  Version: 1.0.0-beta.3
+  DisplayName: Web PubSub
+  ServiceName: Web PubSub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.WebPubSub_1.0.0-beta.3/sdk/webpubsub/Azure.Messaging.WebPubSub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Support for [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/) based authentication. Users can specify a [`TokenCredential`](https://docs.microsoft.com/dotnet/api/azure.core.tokencredential) when creating a `WebPubSubServiceClient`. For example, you can get started with `new WebPubSubServiceClient(endpoint, hub, new DefaultAzureCredential())` to authenticate via AAD using [Azure.Identity](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/README.md).
+- Name: Azure.Data.Tables
+  Version: 12.2.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.Tables_12.2.0/sdk/tables/Azure.Data.Tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Properly handle `GenerateSasUri` when the client is constructed with a connection string ([#23404](https://github.com/Azure/azure-sdk-for-net/issues/23404))
+    - Fixed an exception when constructing the `TableClient` with a connection string where the table name is the same as the account name.
+- Name: Azure.Search.Documents
+  Version: 11.4.0-beta.3
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Search.Documents_11.4.0-beta.3/sdk/search/Azure.Search.Documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Support for [Lexical normalizers](https://docs.microsoft.com/azure/search/search-normalizers#normalizers) in [text analysers](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) via `AnalyzeTextOptions`.
+- Name: Azure.Messaging.EventHubs
+  Version: 5.6.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.6.1/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue with refreshing authorization where redundant requests were made to acquire AAD tokens that were due to expire.  Refreshes will now coordinate to ensure a single AAD token acquisition.
+
+    - Fixed an issue with authorization refresh where attempts may have been made to authorize a faulted link.  Links that fail to open are no longer be considered valid for authorization.
+
+    ### Other Changes
+
+    - A sample demonstrating the use of the `AzureEventSourceListener` from `Azure.Core` for common scenarios with the Event Hubs client library has been created.   _(A community contribution, courtesy of [andreyshihov](https://github.com/andreyshihov))_
+
+    - Serialization of event data from Event Hubs has been tweaked for greater efficiency.  _(A community contribution, courtesy of [johnthcall](https://github.com/johnthcall))_
+
+    - Adjusted the approach used to abandon AMQP sessions when an exception occurs while opening a link to ensure that the transport library does not continue to hold an unnecessary reference.
+
+    - Documentation has been enhanced to provide additional context for client library types, notably detailing non-obvious validations applied to parameters and options members.
+- Name: Azure.AI.Translation.Document
+  Version: 1.0.0-beta.5
+  DisplayName: Document Translation
+  ServiceName: Translator
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Document_1.0.0-beta.5/sdk/translation/Azure.AI.Translation.Document/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - `DocumentFilter.CreatedAfter` and `DocumentFilter.CreatedBefore` are now nullable properties.
+    - Renamed method `GetAllTranslationStatuses` to `GetTranslationStasuses`.
+    - Renamed method `GetAllDocumentStatuses` to `GetDocumentStasuses`.
+    - Renamed type `TranslationFilter` to `GetTranslationStatusesOptions`.
+    - Renamed type `DocumentFilter` to `GetDocumentStatusesOptions`.
+    - Renamed type `DocumentStatus` to `DocumentStatusResult`.
+    - Renamed type `TranslationStatus` to `TranslationStatusResult`.
+    - Renamed type `FileFormat` to `DocumentTranslationFileFormat`.
+    - Renamed property `TranslatedTo` to `TranslatedToLanguageCode` in `DocumentStatusResult`.
+    - Renamed parameter `asc` to `ascending` in `DocumentStatusResult` constructor.
+    - Changed spelling of `cancelled`/`cancelling` to `canceled`/`cancelling`. The following changes have been made:
+    - property `DocumentsCancelled` to `DocumentsCanceled` in `DocumentTranslationOperation`
+    - property `DocumentsCancelled` to `DocumentsCanceled` in `TranslationStatusResult`
+    - value `Cancelled` to `Canceled` in `DocumentTranslationOperation`
+    - value `Cancelling` to `Canceling` in `DocumentTranslationOperation`
+    - parameter `Cancelled` to `Canceled` in function `DocumentTranslationModelFactory.TranslationStatus`
+
+    #### Bugs Fixed
+    - `GetDocumentStasus` and `GetDocumentStatusesAsync` no longer set CreatedAfter and CreatedBefore if the user doesn't set it.
+    - In `GetTranslationStasuses`, `GetDocumentStasuses` and their async counterparts; URL parameters for `Ids`, `Statuses`, and `OrderBy` are no longer included in the request URL if the user does not set them.
 
