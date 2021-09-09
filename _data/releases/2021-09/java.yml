@@ -975,4 +975,15 @@ entries:
     - Added support for `LexicalNormalizerName` in `AnalyzeTextOptions`.
     - Added `queryCaptionHighlight` to `SearchOptions`.
   GroupId: com.azure
+- Name: azure-communication-common
+  Version: 1.0.4
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-common_1.0.4/sdk/communication/azure-communication-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency updates
+    - Added `azure-communication-networktraversal` package
+  GroupId: com.azure
 
