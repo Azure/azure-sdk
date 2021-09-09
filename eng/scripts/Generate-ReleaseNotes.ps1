@@ -13,6 +13,9 @@ param (
 . (Join-Path $PSScriptRoot PackageList-Helpers.ps1)
 . (Join-Path $PSScriptRoot PackageVersion-Helpers.ps1)
 
+# Temporary replacment for the title regex to discover versions starting with v for go on-boarding until we can normalize those.
+$RELEASE_TITLE_REGEX = "(?<releaseNoteTitle>^\#+\s+v?(?<version>$([AzureEngSemanticVersion]::SEMVER_REGEX))(\s+(?<releaseStatus>\(.+\))))"
+
 function GetReleaseNotesData ($packageName, $packageVersion, $packageMetadata)
 {
   $sourceUrl = GetLinkTemplateValue $langLinkTemplates "source_url_template" $packageName $packageVersion $packageMetadata.RepoPath
@@ -37,7 +40,7 @@ function GetReleaseNotesData ($packageName, $packageVersion, $packageMetadata)
   if (!$updatedVersionEntry)
   {
     # Skip if the changelog Url is invalid
-    LogWarning "Failed to get find matching change log entry from from ${changelogRawLink}"
+    LogWarning "Failed to find matching change log entry from from ${changelogRawLink}"
     LogWarning "ReleaseNotes will not be collected for $packageName : $packageVersion. Please add entry manually."
     return $null
   }
