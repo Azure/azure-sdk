@@ -132,6 +132,22 @@ function Get-python-Packages
   return $packages
 }
 
+function Get-cpp-Packages
+{
+  $packages = @()
+  $repoTags = GetPackageVersions "cpp"
+
+  Write-Host "Found $($repoTags.Count) recent tags in cpp repo"
+
+  foreach ($tag in $repoTags.Keys)
+  {
+    $versions = [AzureEngSemanticVersion]::SortVersions($repoTags[$tag].Versions)
+    $packages += CreatePackage $tag $versions[0]
+  }
+
+  return $packages
+}
+
 function Get-go-Packages
 {
   $packages = @()
@@ -241,6 +257,7 @@ switch($language)
     Write-Latest-Versions "js"
     Write-Latest-Versions "dotnet"
     Write-Latest-Versions "python"
+    Write-Latest-Versions "cpp"
     Write-Latest-Versions "go"
     break
   }
@@ -257,6 +274,10 @@ switch($language)
     break
   }
   "python" {
+    Write-Latest-Versions $language
+    break
+  }
+  "cpp" {
     Write-Latest-Versions $language
     break
   }
