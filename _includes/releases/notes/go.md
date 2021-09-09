@@ -2,13 +2,21 @@
 
 To use the latest GA and beta libraries use the `go get` command to add the package to a go.mod file. If your project does not use Go modules, refer to the Go documentation for information about specifying dependencies.
 
-{% assing allPackagesSortedByName = allPackages | sort: 'Name' %}
+{% assign allPackagesSortedByName = allPackages | sort: 'Name' %}
 
+{% assign allPackagesSortedByName = allPackages | sort: 'Name' %}
+{%- capture install_instructions -%}
 {% for package in allPackagesSortedByName %}
-    ```
-    go get -u github.com/Azure/azure-sdk-for-go/sdk/{{ package.GroupId }}/{{ package.Name }}@v{{ package.Version }}
-    ```
+    {%- capture install_instruction -%}
+    go get -u github.com/Azure/azure-sdk-for-go/sdk/{{ package.Name }}@v{{ package.Version }}
+    {%- endcapture -%}
+    {{ install_instruction }}
 {% endfor %}
+{%- endcapture -%}
+
+```
+{{ install_instructions | rstrip }}
+```
 
 ## Feedback
 

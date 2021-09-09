@@ -5,41 +5,5 @@ tags: go
 sidebar: releases_sidebar
 repository: Azure/azure-sdk-for-go
 ---
-
+{% include releases/notes/common.md language="go" date="%%yyyy-MM%%" displayDate="%%MMMM yyyy%%" %}
 The Azure SDK team is pleased to make available the %%MMMM yyyy%% client library release.
-
-#### GA
-
-- _Add packages_
-
-#### Updates
-
-- _Add packages_
-
-#### Beta
-
-- _Add packages_
-
-## Installation Instructions
-
-To install any of our modules, copy and paste the following commands into a terminal:
-
-```bash
-$> go get -u github.com/Azure/azure-sdk-for-go/<desired_package>
-```
-
-## Feedback
-
-If you have a bug or feature request for one of the libraries, please post an issue to [GitHub](https://github.com/Azure/azure-sdk-for-go/issues).
-
-## Release highlights
-
-### _Package name_
-
-- Major changes only!
-
-## Latest Releases
-
-View all the latest versions of Go packages [here][go-latest-releases].
-
-{% include refs.md %}
