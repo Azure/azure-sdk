@@ -274,4 +274,20 @@ entries:
 
     - Removed `credential_scopes` keyword.
     - Added `audience` keyword, which allows customers to select from available audiences or provide their own audience string. This keyword is required when creating a client.
+- Name: azure-identity
+  Version: 1.7.0b4
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.7.0b4/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - `CertificateCredential` accepts certificates in PKCS12 format
+    ([#13540](https://github.com/Azure/azure-sdk-for-python/issues/13540))
+    - `OnBehalfOfCredential` supports the on-behalf-of authentication flow for
+    accessing resources on behalf of users
+    ([#19308](https://github.com/Azure/azure-sdk-for-python/issues/19308))
+    - `DefaultAzureCredential` allows specifying the client ID of interactive browser via keyword argument `interactive_browser_client_id`
+    ([#20487](https://github.com/Azure/azure-sdk-for-python/issues/20487))
 
