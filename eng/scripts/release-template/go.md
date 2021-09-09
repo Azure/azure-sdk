@@ -25,7 +25,7 @@ The Azure SDK team is pleased to make available the %%MMMM yyyy%% client library
 To install any of our modules, copy and paste the following commands into a terminal:
 
 ```bash
-$> 
+$> go get -u github.com/Azure/azure-sdk-for-go/<desired_package>
 ```
 
 ## Feedback
