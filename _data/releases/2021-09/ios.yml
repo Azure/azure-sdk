@@ -24,4 +24,16 @@ entries:
     - Fixed realtime notifications to handle nil `displayName`.
     - Fixed `readOn` property in `readReceiptReceived` events.
     - Fixed recipient id format in events.
+- Name: AzureCommunicationCalling
+  Version: 2.0.1-beta.1
+  DisplayName: Communication Calling
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationCalling_2.0.1-beta.1/sdk/communication/AzureCommunicationCalling/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - `IncomingCall.accept` will now throw errors when trying to accept a terminated call or if already in an active call.
+    - SDK rebuilt with latest available AzureCommunicationCommon `1.0.2` ([#344](https://github.com/Azure/Communication/issues/344)).
+    - Using `CallKit` implementation in SDK when already in an incoming call another incoming call is recieved, accepting the new call operation now completes successfully.
 
