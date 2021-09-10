@@ -384,4 +384,12 @@ entries:
     - The order of params in `LogsBatchQuery` is changed. Also, `headers` is no longer accepted.
     - `timespan` is now a required keyword-only argument in logs APIs.
     - batch api now returns a list of `LogsQueryResult` objects.
+- Name: azure-mgmt-containerservice
+  Version: 16.2.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_16.2.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
 
