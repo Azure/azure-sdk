@@ -1011,4 +1011,32 @@ entries:
     - Added support for API management by configuring `reverseProxyEndpoint` on the client builder.
     https://github.com/Azure/azure-webpubsub/issues/194 describes how to integrate with the API Management service.
   GroupId: com.azure
+- Name: azure-data-appconfiguration
+  Version: 1.2.2
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-appconfiguration_1.2.2/sdk/appconfiguration/azure-data-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Updated `azure-core` from `1.19.0` to `1.20.0`.
+    - Updated `azure-core-http-netty` from `1.10.2` to `1.11.0`.
+  GroupId: com.azure
+- Name: azure-ai-textanalytics
+  Version: 5.1.2
+  DisplayName: Text Analytics
+  ServiceName: Text Analytics
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.1.2/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Updated `azure-core` from `1.19.0` to `1.20.0`.
+    - Updated `azure-core-http-netty` from `1.10.2` to `1.11.0`.
+  GroupId: com.azure
 
