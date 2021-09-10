@@ -1075,4 +1075,17 @@ entries:
     * Added support to switch off IO thread for response processing.
     * Fixed issue for resuming order by queries from continuation token that includes undefined/null.
   GroupId: com.azure
+- Name: azure-ai-formrecognizer
+  Version: 3.1.4
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_3.1.4/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    ##### Dependency Updates
+    - Updated `azure-core` to `1.12.0`.
+    - Updated `azure-core-http-netty` to `1.11.0`.
+  GroupId: com.azure
 
