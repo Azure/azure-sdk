@@ -494,4 +494,101 @@ entries:
     - Renamed `displayDescription` property to `description` in `Metric` and `MetricNames`
     - Flattened the `metricNamespaceName` property for `MetricNamespace`
     - Renamed `innererror` to `innerError` in `ErrorInfo`
+- Name: '@azure/identity-cache-persistence'
+  Version: 1.0.0-beta.2
+  DisplayName: Identity Cache Persistence
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-cache-persistence_1.0.0-beta.2/sdk/identity/identity-cache-persistence/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Updated `@azure/msal-node` and `@azure/msal-node-extensions`, which fixed an issue that caused silent authentication to fail on requests with previously cached (and valid) tokens.
+- Name: '@azure/storage-file-datalake'
+  Version: 12.7.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.7.0/sdk/storage/storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.7.0-beta.1.
+- Name: '@azure/storage-file-share'
+  Version: 12.8.0
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.8.0/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.8.0-beta.1.
+- Name: '@azure/storage-queue'
+  Version: 12.7.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.7.0/sdk/storage/storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2020-10-02.
+    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+- Name: '@azure/identity'
+  Version: 2.0.0-beta.6
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_2.0.0-beta.6/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `ClientCertificateCredential` now evaluates the validity of the PEM certificate path on `getToken` and not on the constructor.
+
+    ##### Breaking Changes from 2.0.0-beta.5
+
+    - The property named `selectedCredential` that was added to `ChainedTokenCredential` and `DefaultAzureCredential` has been removed, since customers reported that logging was enough.
+    - Renamed the `allowUnencryptedStorage` property of `TokenCachePersistenceOptions` to `unsafeAllowUnencryptedStorage` to make it clear that enabling the unencrypted storage feature is not generally safe for production use.
+    - Changed the name of the "extension" API to the "plugin" API to reduce confusion between this package and VS Code extensions. The function `useIdentityExtension` was renamed to `useIdentityPlugin`, and "extension packages" are now known as "plugin packages".
+    - Renamed the `allowUnencryptedStorage` property of `TokenCachePersistenceOptions` to `unsafeAllowUnencryptedStorage` to make it clear that enabling the unencrypted storage feature is not generally safe for production use.
+
+    #### Bugs Fixed
+
+    - `ClientSecretCredential`, `ClientCertificateCredential` and `UsernamePasswordCredential` now throw if the required parameters are not provided (even in JavaScript).
+    - Fixed a bug introduced on 2.0.0-beta.5 that caused the `ManagedIdentityCredential` to fail authenticating in Arc environments. Since our new core disables unsafe requests by default, we had to change the security settings for the first request of the Arc MSI, which retrieves the file path where the authentication value is stored since this request generally happens through an HTTP endpoint.
+    - Fixed bug on the `AggregateAuthenticationError`, which caused an inconsistent error message on the `ChainedTokenCredential`, `DefaultAzureCredential` and `ApplicationCredential`.
+
+    #### Features Added
+
+    - Added the `OnBehalfOfCredential`, which allows users to authenticate through the [On-Behalf-Of authentication flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow).
+    - `ManagedIdentityCredential` now supports token exchange authentication.
+- Name: '@azure/identity-vscode'
+  Version: 1.0.0-beta.2
+  DisplayName: Identity Visual Studio Code Credential
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-vscode_1.0.0-beta.2/sdk/identity/identity-vscode/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Changed the name of the "extension" API to the "plugin" API to reduce confusion between this package and VS Code extensions. This package is now a "plugin package."
+    - Renamed `vsCodeExtension` to `vsCodePlugin`.
+- Name: '@azure/storage-blob'
+  Version: 12.8.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.8.0/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.8.0-beta.1.
 
