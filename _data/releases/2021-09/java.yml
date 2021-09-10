@@ -1101,4 +1101,32 @@ entries:
     - Updated `azure-core` to `1.12.0`.
     - Updated `azure-core-http-netty` to `1.11.0`.
   GroupId: com.azure
+- Name: azure-data-tables
+  Version: 12.1.2
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-tables_12.1.2/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Upgraded `azure-core` dependency to `1.20.0`
+    - Upgraded `azure-core-http-netty` dependency to `1.11.0`
+  GroupId: com.azure
+- Name: azure-messaging-eventgrid
+  Version: 4.6.1
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventgrid_4.6.1/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Update `azure-core` dependency to `1.20.0`.
+    - Update `azure-core-http-netty` dependency to `1.11.0`.
+  GroupId: com.azure
 
