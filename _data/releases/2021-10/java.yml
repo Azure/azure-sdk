@@ -212,4 +212,22 @@ entries:
     - Upgraded `azure-core` dependency to `1.20.0`
     - Upgraded `azure-core-http-netty` dependency to `1.11.0`
   GroupId: com.azure
+- Name: azure-resourcemanager-synapse
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Synapse Analytics
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-synapse_1.0.0-beta.2/sdk/synapse/azure-resourcemanager-synapse/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-kusto
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Kusto
+  ServiceName: Data Explorer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-kusto_1.0.0-beta.3/sdk/kusto/azure-resourcemanager-kusto/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
