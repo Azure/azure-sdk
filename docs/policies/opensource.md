@@ -11,6 +11,9 @@ sidebar: general_sidebar
 * [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java)
 * [Azure SDK for JavaScript](https://github.com/Azure/azure-sdk-for-js)
 * [Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python)
+* [Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go)
+* [Azure SDK for C++](https://github.com/Azure/azure-sdk-for-cpp)
+* [Azure SDK for Embedded C](https://github.com/Azure/azure-sdk-for-c)
 
 {% include requirement/SHOULD %} develop in the open on GitHub. Seek feedback from the community on design choices and be active in conversations with the community.
 
