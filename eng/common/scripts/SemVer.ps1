@@ -56,7 +56,7 @@ class AzureEngSemanticVersion : IComparable {
     $version.SetupPythonConventions()
     return $version
   }
-
+  
   AzureEngSemanticVersion([string] $versionString)
   {
     if ($versionString -match "^$([AzureEngSemanticVersion]::SEMVER_REGEX)$")
@@ -136,7 +136,7 @@ class AzureEngSemanticVersion : IComparable {
   {
     $versionString = "{0}.{1}.{2}" -F $this.Major, $this.Minor, $this.Patch
 
-    if ($this.IsPrerelease)
+    if ($this.IsPrerelease -and $this.PrereleaseLabel -ne "zzz")
     {
       $versionString += $this.PrereleaseLabelSeparator + $this.PrereleaseLabel + `
                         $this.PrereleaseNumberSeparator + $this.PrereleaseNumber
@@ -309,7 +309,7 @@ class AzureEngSemanticVersion : IComparable {
     $sort = [AzureEngSemanticVersion]::SortVersionStrings($versions)
     for ($i = 0; $i -lt $expectedSort.Count; $i++)
     {
-      if ($sort[$i] -ne $expectedSort[$i]) {
+      if ($sort[$i] -ne $expectedSort[$i]) { 
         Write-Host "Error: Incorrect python version sort:"
         Write-Host "Expected: "
         Write-Host $expectedSort
