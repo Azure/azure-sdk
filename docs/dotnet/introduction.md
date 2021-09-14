@@ -635,6 +635,8 @@ BlobBaseClient client = ...
 {% include requirement/MAY id="dotnet-lro-subclass" %} add additional APIs to subclasses of ```Operation<T>```.
 For example, some subclasses add a constructor allowing to create an operation instance from a previously saved operation ID. Also, some subclasses are more granular states besides the IsCompleted and HasValue states that are present on the base class.
 
+{% include requirement/MUST id="dotnet-lro-constructor" %} provide a public constructor on subclasses of ```Operation<T>``` to allow users to access an existing LRO.
+
 {% include requirement/MUST id="dotnet-lro-constructor-for-mocking" %} provide protected parameterless constructor for mocking in subclasses of ```Operation<T>```.
 
 ```csharp
