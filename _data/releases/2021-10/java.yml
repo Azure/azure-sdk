@@ -280,4 +280,15 @@ entries:
     - Added support to consume `TenantId` challenges from `TokenRequestContext`.
     - Added support for AKS Token Exchange support in `ManagedIdentityCredential`
   GroupId: com.azure
+- Name: azure-digitaltwins-core
+  Version: 1.1.2
+  DisplayName: Digital Twins - Core
+  ServiceName: IoT
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-digitaltwins-core_1.1.2/sdk/digitaltwins/azure-digitaltwins-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed the lack of separation between "per-call" and "per-retry" HttpPipeline policies (#22932).
+  GroupId: com.azure
 
