@@ -561,4 +561,25 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-datalake_12.7.0/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
   ChangelogContent: '- GA release'
   GroupId: com.azure
+- Name: azure-communication-chat
+  Version: 1.1.0
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-chat_1.1.0/sdk/communication/azure-communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    - Added javadoc code samples
+    - Removed redundant overload `ChatThreadAsyncClient.sendTypingNotification(TypingNotificationOptions options)`
+    - Upgraded `azure-communication-common` to 1.0.4
+  GroupId: com.azure
+- Name: azure-storage-blob-cryptography
+  Version: 12.14.0
+  DisplayName: Storage - Blobs Cryptography
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-cryptography_12.14.0/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md
+  ChangelogContent: '- GA release'
+  GroupId: com.azure
 
