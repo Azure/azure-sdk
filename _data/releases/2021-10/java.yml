@@ -602,4 +602,26 @@ entries:
     #### Other changes
     - Updated `azure-storage-common` to version `12.13.0`
   GroupId: com.azure
+- Name: azure-storage-blob-changefeed
+  Version: 12.0.0-beta.9
+  DisplayName: Storage - Blobs Changefeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-changefeed_12.0.0-beta.9/sdk/storage/azure-storage-blob-changefeed/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other changes
+    - Updated blob dependency to 12.14.0
+  GroupId: com.azure
+- Name: azure-storage-blob-nio
+  Version: 12.0.0-beta.9
+  DisplayName: Storage - Blobs NIO
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-nio_12.0.0-beta.9/sdk/storage/azure-storage-blob-nio/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other changes
+    - Updated `azure-storage-blob` to version `12.14.0`
+  GroupId: com.azure
 
