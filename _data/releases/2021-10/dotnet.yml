@@ -47,4 +47,12 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.Chat_1.1.0/sdk/communication/Azure.Communication.Chat/CHANGELOG.md
   ChangelogContent: Updated `Azure.Communication.Chat` version.
+- Name: Azure.MixedReality.RemoteRendering
+  Version: 1.1.0
+  DisplayName: Azure Remote Rendering
+  ServiceName: Mixed Reality
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.MixedReality.RemoteRendering_1.1.0/sdk/remoterendering/Azure.MixedReality.RemoteRendering/CHANGELOG.md
+  ChangelogContent: '- Ensure the MS-CV header is not redacted in logs. If you are logging an issue, it can be useful to quote this value.'
 
