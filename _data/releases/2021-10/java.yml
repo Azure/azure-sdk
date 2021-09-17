@@ -624,4 +624,20 @@ entries:
     #### Other changes
     - Updated `azure-storage-blob` to version `12.14.0`
   GroupId: com.azure
+- Name: azure-mixedreality-remoterendering
+  Version: 1.1.0
+  DisplayName: Azure Remote Rendering
+  ServiceName: Mixed Reality
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-mixedreality-remoterendering_1.1.0/sdk/remoterendering/azure-mixedreality-remoterendering/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other changes
+    - Minor logging change to ensure MS-CV values are not redacted from the log by default.
+
+    ##### Dependency updates
+
+    - Updated azure-core to 1.20.0.
+    - Updated azure-core-http-netty to 1.11.0.
+  GroupId: com.azure
 
