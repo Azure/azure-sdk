@@ -31,4 +31,39 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-eventhub_9.1.0/sdk/eventhub/azure-mgmt-eventhub/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-storage-file-datalake
+  Version: 12.5.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.5.0/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    **Stable release of preview features**
+    - Added support for service version 2020-10-02 (STG78)
+    - Added support for quick query parquet
+- Name: azure-storage-file-share
+  Version: 12.6.0
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.6.0/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    **Stable release of preview features**
+    - Added support for service version 2020-10-02 (STG78)
+    - Added OAuth support for file copy source.
+- Name: azure-storage-blob
+  Version: 12.9.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.9.0/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    **Stable release of preview features**
+    - Added support for service version 2020-10-02 (STG78)
+    - Added support for object level immutability policy with versioning (Version Level WORM).
+    - Added support for listing deleted root blobs that have versions.
+    - Added OAuth support for sync copy blob source.
 
