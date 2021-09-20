@@ -398,11 +398,15 @@ A Go release includes a Tag and Release (e.g. [sdk/azcore/v0.13.0](https://githu
 
 Release tags for Go are made up of a `prefix` and a `version`. The `prefix` points to the module in the repository, while the `version` is the semantic import version for release. Read more about Go tags for release [here](https://github.com/golang/go/wiki/Modules#publishing-a-release).
 
+Initial Go package releases will be versioned will use `v0` versioning with `v0.1.0` as the initial version. See [versioning guidelines](https://azure.github.io/azure-sdk/golang_introduction.html#package-versioning) for more details. 
+
 #### Incrementing after release (Go)
 
-**Preview release:** `sdk/<module path>/v0.1.0.` -> `v0.2.0`
+**Beta Release for Initial Release:** `v0.1.0.` -> `v0.2.0`
 
-**GA Release:** `sdk/<module path>/v1.1.0` -> `v1.2.0`
+**Beta Release:** `v2.0.0-beta.1` -> `v2.0.0-beta.2`
+
+**GA Release:** `v1.0.0` -> `v1.1.0`
 
 **GA Hotfix Release:** `v1.0.0` -> `v1.0.1`
 
