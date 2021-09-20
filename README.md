@@ -83,7 +83,7 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 
 [.NET Packages]: https://azure.github.io/azure-sdk/releases/latest/dotnet.html
 [Java Packages]: https://azure.github.io/azure-sdk/releases/latest/java.html
-[Javascript Packages]: https://azure.github.io/azure-sdk/releases/latest/js.html
+[JavaScript Packages]: https://azure.github.io/azure-sdk/releases/latest/js.html
 [Python Packages]: https://azure.github.io/azure-sdk/releases/latest/python.html
 [C Packages]: https://azure.github.io/azure-sdk/releases/latest/c.html
 [C++ Packages]: https://azure.github.io/azure-sdk/releases/latest/cpp.html
