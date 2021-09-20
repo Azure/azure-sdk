@@ -640,4 +640,19 @@ entries:
     - Updated azure-core to 1.20.0.
     - Updated azure-core-http-netty to 1.11.0.
   GroupId: com.azure
+- Name: azure-messaging-eventhubs
+  Version: 5.10.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs_5.10.1/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Update `azure-core` dependency to `1.20.0`.
+    - Update `azure-core-amqp` dependency to `2.3.2`.
+  GroupId: com.azure
 
