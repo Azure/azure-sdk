@@ -402,11 +402,11 @@ Initial Go package releases will be versioned will use `v0` versioning with `v0.
 
 #### Incrementing after release (Go)
 
-**Beta Release for Initial Release:** `v0.1.0` -> `v0.2.0`
+**Beta Release for Initial Release:** `v0.1.0` -> `v0.1.1`
 
 **Beta Release:** `v2.0.0-beta.1` -> `v2.0.0-beta.2`
 
-**GA Release:** `v1.0.0` -> `v1.1.0`
+**GA Release:** `v1.0.0` -> `v1.0.1`
 
 **GA Hotfix Release:** `v1.0.0` -> `v1.0.1`
 
