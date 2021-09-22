@@ -14,11 +14,11 @@ This section describes guidelines for implementing Azure SDK client libraries. P
 
 ### Service Client
 
-> TODO: Add introductory sentence.
+Service clients are the main starting points for developers calling Azure services with the Azure SDK. Each client library should have at least one client, so it’s easy to discover. The guidelines in this section describe patterns for the design of a service client. Because for iOS only asynchronous service clients are required, the sections below are organized into general service client guidance.
 
 #### Service Methods
 
-> TODO: Add introductory sentence.
+Service methods are the methods on the client that invoke operations on the service.
 
 ##### Using the HTTP Pipeline
 
@@ -41,15 +41,35 @@ The HTTP pipeline consists of a HTTP transport that is wrapped by multiple polic
 
 ### Supporting Types
 
-> TODO: Add introductory sentence.
-
 #### Model Types
 
-> TODO
+##### Attributes
+
+The following guidance applies to Swift [attributes](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html) :
+
+{% include requirement/SHOULD id="ios-attr-objc" %} use the `@objc` and `@objMembers` attributes ONLY when a Swift object must be exposed to ObjectiveC.
+
+{% include requirement/MUST id="ios-attr-available" %} use the `@available` attribute when implementation is contingent upon differences in supported OS or Swift versions.
+
+{% include requirement/MUST id="ios-attr-available" %} use the `@available` attribute to manage breaking changes and transition customers away from deprecated APIs. For example:
+```swift
+// usable but will issue a warning
+@available(*, deprecated, message: "Optional message here...")
+func myFunction() { ... }
+
+// unusable -- will issue a compiler error
+@available(*, unavailable, message: "Optional message here...")
+func myUnavailableFunc() { ... }
+
+// usable but will issue a warning
+@available(*, deprecated, renamed: "BetterProtocolName")
+typealias BadProtocolName = BetterProtocolName
+```
+{% include requirement/MUST id="ios-attr-escaping" %} use `@escaping` on completion handler closures.
+
+{% include requirement/MUST id="ios-attr-unspecified" %} contact the Azure SDK team if you are using an attribute not specified here.
 
 ## SDK Feature Implementation
-
-> TODO: Add introductory sentence.
 
 ### Configuration
 
@@ -150,8 +170,10 @@ Distributed tracing is uncommon in a mobile context. If you feel like you need t
 
 ### Testing
 
-> TODO: Document how to write good tests with the existing XCTest framework.
-> TODO: Say something about mocking of the requests and how to design for it.
+{% include requirement/MUST id="ios-testing-unit-xctest" %} use the built-in `XCTest` framework for unit testing.
+{% include requirement/MUST id="ios-testing-e2e-azuretest" %} use the AzureTest static framework for end-to-end testing.
+{% include requirement/SHOULDNOT id="ios-testing-nomocks" %} mock service calls for end-to-end tests due to the inherent complexity. Instead, AzureTest should be used for most end-to-end scenario tests.
+{% include requirement/MAY id="ios-testing-ohhttpstubs" %} use `OHHTTPStubs` to perform mocking for abnormal network conditions such as dropped connectivity.
 
 {% include refs.md %}
 {% include_relative refs.md %}
