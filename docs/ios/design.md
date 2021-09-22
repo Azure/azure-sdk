@@ -684,7 +684,7 @@ The `withOptions` field provides preconditions to the HTTP request. The Etag val
     
 In all cases, the conditional expression is "opt-in", and the default is to perform the operation unconditionally.
 
-The return value from a conditional operation must be carefully considered. For safe operators (e.g. GET), return a response that will throw if the value is accessed (or follow the same convention used fro a 204 No Content response), since there is no value in the body to reference. For unsafe operators (e.g. PUT, DELETE, or POST), throw a specific error when a Precondition Failed or Conflict result is received. This allows the consumer to do something different in the case of conflicting results.
+The return value from a conditional operation must be carefully considered. For safe operators (e.g. GET), return a response that will throw if the value is accessed (or follow the same convention used for a 204 No Content response), since there is no value in the body to reference. For unsafe operators (e.g. PUT, DELETE, or POST), throw a specific error when a Precondition Failed or Conflict result is received. This allows the consumer to do something different in the case of conflicting results.
 
 {% include requirement/SHOULD %} accept a conditions parameter (which takes an enumerated type) on service methods that allow a conditional check on the service.
 
