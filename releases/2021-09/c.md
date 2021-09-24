@@ -10,7 +10,7 @@ The Azure SDK team is pleased to make available the September 2021 client librar
 
 #### GA
 
-- Azure IoT PnP
+- Azure Core and IoT Plug and Play
 
 ## Installation Instructions
 
