@@ -862,4 +862,127 @@ entries:
     * Removed full exception trace from 404 error on open telemetry.
     * Fixed issue with onErrorDropped being called when using concatWith in QuorumReader.
   GroupId: com.azure
+- Name: azure-spring-boot-starter-keyvault-certificates
+  Version: 3.2.0
+  DisplayName: Azure Spring Boot Starter Key Vault Certificates
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-boot-starter-keyvault-certificates_3.2.0/sdk/spring/azure-spring-boot-starter-keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    This release is compatible with Spring Boot 2.5.0 - 2.5.4.
+    #### Dependency Upgrades
+    - Upgrade to [spring-boot-dependencies:2.5.4](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.4/spring-boot-dependencies-2.5.4.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-starter-eventhubs-kafka
+  Version: 2.9.0
+  DisplayName: Azure Spring Cloud Starter Event Hubs Kafka
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-starter-eventhubs-kafka_2.9.0/sdk/spring/azure-spring-cloud-starter-eventhubs-kafka/CHANGELOG.md
+  ChangelogContent: |-
+    This release is compatible with Spring Boot 2.5.0 - 2.5.4 and Spring Cloud 2020.0.3.
+    #### Dependency Upgrades
+    - Upgrade to [spring-boot-dependencies:2.5.4](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.4/spring-boot-dependencies-2.5.4.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-starter-cache
+  Version: 2.9.0
+  DisplayName: Azure Spring Cloud Starter Cache
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-starter-cache_2.9.0/sdk/spring/azure-spring-cloud-starter-cache/CHANGELOG.md
+  ChangelogContent: |-
+    This release is compatible with Spring Boot 2.5.0 - 2.5.4 and Spring Cloud 2020.0.3.
+    #### Dependency Upgrades
+    - Upgrade to [spring-boot-dependencies:2.5.4](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.4/spring-boot-dependencies-2.5.4.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-messaging
+  Version: 2.9.0
+  DisplayName: Azure Spring Cloud Messaging
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-messaging_2.9.0/sdk/spring/azure-spring-cloud-messaging/CHANGELOG.md
+  ChangelogContent: |-
+    This release is compatible with Spring Boot 2.5.0 - 2.5.4 and Spring Cloud 2020.0.3.
+    #### Dependency Upgrades
+    - Upgrade to [spring-boot-dependencies:2.5.4](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.4/spring-boot-dependencies-2.5.4.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-context
+  Version: 2.9.0
+  DisplayName: Azure Spring Cloud Context
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-context_2.9.0/sdk/spring/azure-spring-cloud-context/CHANGELOG.md
+  ChangelogContent: |-
+    This release is compatible with Spring Boot 2.5.0 - 2.5.4 and Spring Cloud 2020.0.3.
+    #### Dependency Upgrades
+    - Upgrade to [spring-boot-dependencies:2.5.4](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.4/spring-boot-dependencies-2.5.4.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-autoconfigure
+  Version: 2.9.0
+  DisplayName: Azure Spring Cloud Autoconfigure
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-autoconfigure_2.9.0/sdk/spring/azure-spring-cloud-autoconfigure/CHANGELOG.md
+  ChangelogContent: |-
+    This release is compatible with Spring Boot 2.5.0 - 2.5.4 and Spring Cloud 2020.0.3.
+    #### Dependency Upgrades
+    - Upgrade to [spring-boot-dependencies:2.5.4](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.4/spring-boot-dependencies-2.5.4.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-boot-starter-keyvault-secrets
+  Version: 3.9.0
+  DisplayName: Azure Spring Boot Starter Key Vault Secrets
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-boot-starter-keyvault-secrets_3.9.0/sdk/spring/azure-spring-boot-starter-keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    This release is compatible with Spring Boot 2.5.0 - 2.5.4.
+    #### Dependency Upgrades
+    - Upgrade to [spring-boot-dependencies:2.5.4](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.4/spring-boot-dependencies-2.5.4.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-starter-eventhubs
+  Version: 2.9.0
+  DisplayName: Azure Spring Cloud Starter Event Hubs
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-starter-eventhubs_2.9.0/sdk/spring/azure-spring-cloud-starter-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    This release is compatible with Spring Boot 2.5.0 - 2.5.4 and Spring Cloud 2020.0.3.
+    #### Dependency Upgrades
+    - Upgrade to [spring-boot-dependencies:2.5.4](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.4/spring-boot-dependencies-2.5.4.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-boot-starter-servicebus-jms
+  Version: 3.9.0
+  DisplayName: Azure Spring Boot Starter Service bus Jms
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-boot-starter-servicebus-jms_3.9.0/sdk/spring/azure-spring-boot-starter-servicebus-jms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix the bug of not supporting Spring Boot autoconfiguration of JMS listener.
+
+
+    #### Features Added
+    - Support configuration of `AbstractJmsListenerContainerFactory` for `JmsListener`. Enabled properties include `replyPubSubDomain`, `replyQosSettings`, `subscriptionDurable`, `subscriptionShared` and `phase` with prefix as `spring.jms.servicebus.listener`.
+  GroupId: com.azure.spring
+- Name: azure-spring-boot-starter-storage
+  Version: 3.9.0
+  DisplayName: Azure Spring Boot Starter Storage
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-boot-starter-storage_3.9.0/sdk/spring/azure-spring-boot-starter-storage/CHANGELOG.md
+  ChangelogContent: |-
+    This release is compatible with Spring Boot 2.5.0 - 2.5.4.
+    #### Dependency Upgrades
+    - Upgrade to [spring-boot-dependencies:2.5.4](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.4/spring-boot-dependencies-2.5.4.pom).
+  GroupId: com.azure.spring
 
