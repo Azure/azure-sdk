@@ -985,4 +985,165 @@ entries:
     #### Dependency Upgrades
     - Upgrade to [spring-boot-dependencies:2.5.4](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.4/spring-boot-dependencies-2.5.4.pom).
   GroupId: com.azure.spring
+- Name: azure-spring-cloud-stream-binder-servicebus-queue
+  Version: 2.9.0
+  DisplayName: Azure Spring Cloud Stream Binder Service bus Queue
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-stream-binder-servicebus-queue_2.9.0/sdk/spring/azure-spring-cloud-stream-binder-servicebus-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Change the value type of ServiceBusMessageHeaders.SCHEDULED_ENQUEUE_TIME from Instant to OffsetDateTime.
+    #### Bugs Fixed
+    - Fix the bug of ClassCastException when forward Service Bus messages with the header of schedule enqueued time.
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-starter-storage-queue
+  Version: 2.9.0
+  DisplayName: Azure Spring Cloud Starter Storage Queue
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-starter-storage-queue_2.9.0/sdk/spring/azure-spring-cloud-starter-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    This release is compatible with Spring Boot 2.5.0 - 2.5.4 and Spring Cloud 2020.0.3.
+    #### Dependency Upgrades
+    - Upgrade to [spring-boot-dependencies:2.5.4](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.4/spring-boot-dependencies-2.5.4.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-stream-binder-eventhubs
+  Version: 2.9.0
+  DisplayName: Azure Spring Cloud Stream Binder Event Hubs
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-stream-binder-eventhubs_2.9.0/sdk/spring/azure-spring-cloud-stream-binder-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    This release is compatible with Spring Boot 2.5.0 - 2.5.4 and Spring Cloud 2020.0.3.
+    #### Dependency Upgrades
+    - Upgrade to [spring-boot-dependencies:2.5.4](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.4/spring-boot-dependencies-2.5.4.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-starter-servicebus
+  Version: 2.9.0
+  DisplayName: Azure Spring Cloud Starter Service bus
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-starter-servicebus_2.9.0/sdk/spring/azure-spring-cloud-starter-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Change the value type of ServiceBusMessageHeaders.SCHEDULED_ENQUEUE_TIME from Instant to OffsetDateTime.
+    #### Bugs Fixed
+    - Fix the bug of ClassCastException when forward Service Bus messages with the header of schedule enqueued time.
+  GroupId: com.azure.spring
+- Name: azure-spring-integration-storage-queue
+  Version: 2.9.0
+  DisplayName: Azure Spring Cloud Integration Storage Queue
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-integration-storage-queue_2.9.0/sdk/spring/azure-spring-integration-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    This release is compatible with Spring Boot 2.5.0 - 2.5.4 and Spring Cloud 2020.0.3.
+    #### Dependency Upgrades
+    - Upgrade to [spring-boot-dependencies:2.5.4](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.4/spring-boot-dependencies-2.5.4.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-integration-eventhubs
+  Version: 2.9.0
+  DisplayName: Azure Spring Cloud Integration Event Hubs
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-integration-eventhubs_2.9.0/sdk/spring/azure-spring-integration-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    This release is compatible with Spring Boot 2.5.0 - 2.5.4 and Spring Cloud 2020.0.3.
+    #### Dependency Upgrades
+    - Upgrade to [spring-boot-dependencies:2.5.4](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.4/spring-boot-dependencies-2.5.4.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-storage
+  Version: 2.9.0
+  DisplayName: Azure Spring Cloud Storage
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-storage_2.9.0/sdk/spring/azure-spring-cloud-storage/CHANGELOG.md
+  ChangelogContent: |-
+    This release is compatible with Spring Boot 2.5.0 - 2.5.4 and Spring Cloud 2020.0.3.
+    #### Dependency Upgrades
+    - Upgrade to [spring-boot-dependencies:2.5.4](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.4/spring-boot-dependencies-2.5.4.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-integration-test
+  Version: 2.9.0
+  DisplayName: Azure Spring Cloud Integration Test
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-integration-test_2.9.0/sdk/spring/azure-spring-integration-test/CHANGELOG.md
+  ChangelogContent: |-
+    This release is compatible with Spring Boot 2.5.0 - 2.5.4 and Spring Cloud 2020.0.3.
+    #### Dependency Upgrades
+    - Upgrade to [spring-boot-dependencies:2.5.4](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.4/spring-boot-dependencies-2.5.4.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-stream-binder-servicebus-topic
+  Version: 2.9.0
+  DisplayName: Azure Spring Cloud Stream Binder Service bus Topic
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-stream-binder-servicebus-topic_2.9.0/sdk/spring/azure-spring-cloud-stream-binder-servicebus-topic/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Change the value type of ServiceBusMessageHeaders.SCHEDULED_ENQUEUE_TIME from Instant to OffsetDateTime.
+    #### Bugs Fixed
+    - Fix the bug of ClassCastException when forward Service Bus messages with the header of schedule enqueued time.
+  GroupId: com.azure.spring
+- Name: azure-spring-integration-servicebus
+  Version: 2.9.0
+  DisplayName: Azure Spring Cloud Integration Service Bus
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-integration-servicebus_2.9.0/sdk/spring/azure-spring-integration-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Change the value type of ServiceBusMessageHeaders.SCHEDULED_ENQUEUE_TIME from Instant to OffsetDateTime.
+    #### Bugs Fixed
+    - Fix the bug of ClassCastException when forward Service Bus messages with the header of schedule enqueued time.
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-stream-binder-servicebus-core
+  Version: 2.9.0
+  DisplayName: Azure Spring Cloud Stream Binder Service bus Core
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-stream-binder-servicebus-core_2.9.0/sdk/spring/azure-spring-cloud-stream-binder-servicebus-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Change the value type of ServiceBusMessageHeaders.SCHEDULED_ENQUEUE_TIME from Instant to OffsetDateTime.
+    #### Bugs Fixed
+    - Fix the bug of ClassCastException when forward Service Bus messages with the header of schedule enqueued time.
+  GroupId: com.azure.spring
+- Name: azure-spring-integration-core
+  Version: 2.9.0
+  DisplayName: Azure Spring Cloud Integration Core
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-integration-core_2.9.0/sdk/spring/azure-spring-integration-core/CHANGELOG.md
+  ChangelogContent: |-
+    This release is compatible with Spring Boot 2.5.0 - 2.5.4 and Spring Cloud 2020.0.3.
+    #### Dependency Upgrades
+    - Upgrade to [spring-boot-dependencies:2.5.4](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.4/spring-boot-dependencies-2.5.4.pom).
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-stream-binder-test
+  Version: 2.9.0
+  DisplayName: Azure Spring Cloud Stream Binder Test
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-stream-binder-test_2.9.0/sdk/spring/azure-spring-cloud-stream-binder-test/CHANGELOG.md
+  ChangelogContent: |-
+    This release is compatible with Spring Boot 2.5.0 - 2.5.4 and Spring Cloud 2020.0.3.
+    #### Dependency Upgrades
+    - Upgrade to [spring-boot-dependencies:2.5.4](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.4/spring-boot-dependencies-2.5.4.pom).
+  GroupId: com.azure.spring
 
