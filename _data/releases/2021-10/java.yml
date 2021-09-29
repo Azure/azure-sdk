@@ -1199,4 +1199,17 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-starter-appconfiguration-config_2.1.1/sdk/appconfiguration/azure-spring-cloud-starter-appconfiguration-config/CHANGELOG.md
   ChangelogContent: '* Updated with latest releases of azure-spring-cloud-appconfiguration-config-web and azure-spring-cloud-feature-management.'
   GroupId: com.azure.spring
+- Name: azure-sdk-bom
+  Version: 1.0.4
+  DisplayName: SDK - Bill of Materials
+  ServiceName: Bill of Materials
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/boms/azure-sdk-bom/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Updated Azure SDK dependency versions to more recent releases.
+    - Updated non-Azure SDK dependency versions to align with the versions Azure SDK uses.
+  GroupId: com.azure
 
