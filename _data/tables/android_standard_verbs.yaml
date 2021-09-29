@@ -1,0 +1,42 @@
+# <noun> needs to be escaped with \ because it's an html tag.
+entries:
+  - Verb: upsert\<noun>
+    Parameters: key, item
+    Returns: Updated or created item
+    Comments: Create new item or update existing item. Verb is primarily used in database-like services.
+  - Verb: set\<noun>
+    Parameters: key, item
+    Returns: Updated or created item.
+    Comments: Create new item or update existing item. Verb is primarily used for dictionary-like properties of a service.
+  - Verb: create\<noun>
+    Parameters: key, item
+    Returns: Created item.
+    Comments: Create new item. Fails if item already exists.
+  - Verb: update\<noun>
+    Parameters: key, partial item
+    Returns: Updated item
+    Comments: Fails if item doesn't exist.
+  - Verb: replace\<noun>
+    Parameters: key, item
+    Returns: Replace existing item
+    Comments: Completely replaces an existing item. Fails if the item doesn't exist.
+  - Verb: delete\<noun>
+    Parameters: key
+    Returns: Deleted item, or `null`
+    Comments: Delete an existing item. Will succeed even if item didn't exist. Deleted item may be returned, if service supports it.
+  - Verb: add\<noun>
+    Parameters: index, item
+    Returns: Added item
+    Comments: Add item to a collection. Item will be added last, or into the index position specified.
+  - Verb: get\<noun>
+    Parameters: key
+    Returns: item
+    Comments: Will return `null` if item doesn't exist.
+  - Verb: list\<noun>
+    Parameters:
+    Returns: Items
+    Comments: Return list of items. Returns empty list if no items exist.
+  - Verb: \<noun>Exists
+    Parameters: key
+    Returns: "`boolean`"
+    Comments: Return `true` if the item exists.

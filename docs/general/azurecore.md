@@ -126,7 +126,7 @@ The response downloader is required for most (but not all) operations to change 
 
 ### Distributed tracing policy
 
-Distributed tracing allows the consumer to trace their code from frontend to backend.  The distributed tracing library creates spans (units of unique work) to facilitate tracing.  Each span is in a parent-child relationship.  As you go deeper into the hierarchy of code, you create more spans.  These spans can then be exported to a suitable receiver as needed.  To keep track of the spans, a _distributed tracing context_ (called a context within the rest of this section) is passed into each successive layer.  For more information on this topic, visit the [OpenTelemetry]topic on tracing.
+Distributed tracing allows the consumer to trace their code from frontend to backend.  The distributed tracing library creates spans (units of unique work) to facilitate tracing.  Each span is in a parent-child relationship.  As you go deeper into the hierarchy of code, you create more spans.  These spans can then be exported to a suitable receiver as needed.  Spans must follow [Tracing Conventions].  To keep track of the spans, a _distributed tracing context_ (called a context within the rest of this section) is passed into each successive layer.  For more information on this topic, visit the [OpenTelemetry] topic on tracing.
 
 The Distributed Tracing policy is responsible for:
 
@@ -267,7 +267,8 @@ OAuth token authentication, obtained via Managed Security Identities (MSI) or Az
 {% include refs.md %}
 
 [User-Agent header]: https://tools.ietf.org/html/rfc7231#section-5.5.3
-[Transient fault handling]: https://docs.microsoft.com/en-us/azure/architecture/best-practices/transient-faults
+[Transient fault handling]: https://docs.microsoft.com/azure/architecture/best-practices/transient-faults
 [OpenTelemetry]: https://opentelemetry.io/
 [Azure Monitor]: https://azure.microsoft.com/services/monitor/
 [CIDR notation]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
+[Tracing Conventions]: {{ site.baseurl }}{% link docs/tracing/distributed-tracing-conventions.md %}

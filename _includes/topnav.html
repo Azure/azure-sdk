@@ -1,5 +1,5 @@
 <!-- Navigation -->
-<nav class="navbar navbar-fixed-top navbar-inverse">
+<nav class="navbar navbar-inverse">
     <div class="container topnavlinks">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ "/" | relative_url }}"/>
+            <a class="navbar-brand" href="{{ "/releases/latest/index.html" | relative_url }}"/>
                 <span class="projectTitle"><img style="margin-top: -8px;" class="d-inline-block align-top" src="{{ "/images/azure-icon.png" | relative_url }}" width="42" height="42" alt=""/> {{site.topnav_title}}</span>
             </a>
         </div>
@@ -20,6 +20,7 @@
 
 {% assign topnav = site.data[page.topnav] %}
 {% assign topnav_dropdowns = site.data[page.topnav].topnav_dropdowns %}
+{% assign topnav_guidelines = site.data.sidebars.general_sidebar.entries[0] %}
 
                 {% for entry in topnav.topnav %}
                 {% for item in entry.items %}
@@ -39,6 +40,11 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ folder.title }}<b class="caret"></b></a>
                     <ul class="dropdown-menu">
+                        {% if folder.guidelines %}
+                        {% for folderitem in topnav_guidelines.folders %}
+                        <li><a href="{{folderitem.folderitems[0].url | relative_url}}" rel="noopener">{{folderitem.title}}</a></li>
+                        {% endfor %}
+                        {% else %}
                         {% for folderitem in folder.folderitems %}
                         {% if folderitem.external_url %}
                         <li><a href="{{folderitem.external_url}}" rel="noopener">{{folderitem.title}}</a></li>
@@ -48,6 +54,7 @@
                         <li><a href="{{folderitem.url | relative_url }}">{{folderitem.title}}</a></li>
                         {% endif %}
                         {% endfor %}
+                        {% endif %}
                     </ul>
                 </li>
                 {% endfor %}

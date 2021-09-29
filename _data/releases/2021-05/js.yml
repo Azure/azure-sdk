@@ -1,0 +1,364 @@
+entries:
+- Name: '@azure/communication-phone-numbers'
+  Version: 1.0.0
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/communication-phone-numbers_1.0.0/sdk/communication/communication-phone-numbers/CHANGELOG.md#100-2021-04-26
+  ChangelogContent: '- Update version to 1.0.0'
+- Name: '@azure/core-amqp'
+  Version: 2.3.0
+  DisplayName: Core - AMQP
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-amqp_2.3.0/sdk/core/core-amqp/CHANGELOG.md#230-2021-04-29
+  ChangelogContent: |-
+    - Updates `AmqpAnnotatedMessage` to identify the AMQP section where body data was decoded from. [PR 14703](https://github.com/Azure/azure-sdk-for-js/pull/14703).
+    - Adds `CancellableAsyncLock` as an alternative to `AsyncLock` that supports cancellation via the abort signal. [PR 14844](https://github.com/Azure/azure-sdk-for-js/pull/14844).
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.1.0-beta.1
+  DisplayName: Core Rest Pipeline
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-rest-pipeline_1.1.0-beta.1/sdk/core/core-rest-pipeline/CHANGELOG.md#110-beta1-2021-05-06
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add a new `bearerTokenChallengeAuthenticationPolicy` that provides a skeleton of handling challenge-based authorization. There are two extensible points: `authorizeRequest` and `authorizeRequestOnChallenge` callbacks.
+      - `authorizeRequest` allows customizing the policy to alter how it authorizes a request before sending it. By default when no callbacks are specified, this policy has the same behavior as `bearerTokenAuthenticationPolicy`. It will retrieve the token from the underlying token credential, and if it gets one, it will cache the token and set it to the outgoing request.
+      - `authorizeRequestOnChallenge`, which gets called only if we've found a challenge in the response. This callback has access to the original request and its response and is expected to handle the challenge. If this callback returns true, the request, usually updated after handling the challenge, will be sent again. If this call back returns false, no further actions will be taken.
+
+    #### Fixed
+
+    - Rewrote `bearerTokenAuthenticationPolicy` to use a new backend that refreshes tokens only when they're about to expire and not multiple times before. This is based on a similar fix implemented on `@azure/core-http@1.2.4` ([PR with the changes](https://github.com/Azure/azure-sdk-for-js/pull/14223)). This fixes the issue: [13369](https://github.com/Azure/azure-sdk-for-js/issues/13369).
+    - Delay loading of NO_PROXY environment variable until when request pipeline is being created. This fixes [issue 14873](https://github.com/Azure/azure-sdk-for-js/issues/14873)
+- Name: '@azure/core-util'
+  Version: 1.0.0-beta.1
+  DisplayName: Azure Core Utils
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-util_1.0.0-beta.1/sdk/core/core-util/CHANGELOG.md#100-beta1-2021-05-06
+  ChangelogContent: |-
+    #### Features Added
+
+    - First release of package. This package is intended to provide various shared utility functions for client SDK packages.
+- Name: '@azure/core-client'
+  Version: 1.1.1
+  DisplayName: Core - Client
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-client_1.1.1/sdk/core/core-client/CHANGELOG.md#111-2021-05-06
+  ChangelogContent: |-
+    #### Features Added
+
+    - Expose `allowInsecureConnection` in `ServiceClientOptions` and `OperationRequestOptions` to allow operation requests to HTTP endpoints
+
+    #### Fixed
+
+    - Consider more mapper types as primitive thus requires wrapping
+- Name: '@azure/cosmos'
+  Version: 3.11.1
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/cosmos_3.11.1/sdk/cosmosdb/cosmos/CHANGELOG.md#3111-2021-05-06
+  ChangelogContent: '- BUGFIX: Import URL from Browser/Node shim rather than built-in module.'
+- Name: '@azure-rest/ai-document-translator'
+  Version: 1.0.0-beta.1
+  DisplayName: '@azure-rest/ai-document-translator'
+  ServiceName: Azure Document Translator
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure-rest/ai-document-translator_1.0.0-beta.1/sdk/documenttranslator/ai-document-translator-rest/CHANGELOG.md#100-beta1-2021-04-22
+  ChangelogContent: '- First release of package, see README.md for details.'
+- Name: '@azure/search-documents'
+  Version: 11.2.0-beta.2
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/search-documents_11.2.0-beta.2/sdk/search/search-documents/CHANGELOG.md#1120-beta2-2021-05-11
+  ChangelogContent: |-
+    - Added Support for Semantic Search and introduced new properties in `SearchOptions`, `SearchRequest`, `SearchResult` and `SearchDocumentsResult` objects.
+    - Added support for Knowledge Store feature through the new `SearchIndexerKnowledgeStore` in the `SearchIndexerSkillset` object.
+    - The `skillsetCounter` property in `ServiceCounters` object has been made optional.
+- Name: '@azure/cosmos'
+  Version: 3.11.2
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/cosmos_3.11.2/sdk/cosmosdb/cosmos/CHANGELOG.md#3112-2021-05-11
+  ChangelogContent: '- BUGFIX: Cache https client between requests.'
+- Name: '@azure/service-bus'
+  Version: 7.1.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/service-bus_7.1.0/sdk/servicebus/service-bus/CHANGELOG.md#710-2021-05-11
+  ChangelogContent: |-
+    #### New Features
+
+    - Adds support for passing `NamedKeyCredential` as the credential type to `ServiceBusClient` and `ServiceBusAdminstrationClient`. Also adds support for passing `SASCredential` to `ServiceBusClient`.
+      These credential types support rotation via their `update` methods and are an alternative to using the `SharedAccessKeyName/SharedAccessKey` or `SharedAccessSignature` properties in a connection string.
+      Resolves [#11891](https://github.com/Azure/azure-sdk-for-js/issues/11891).
+
+    #### Bug fixes
+
+    - [Bug Fix] `expiresAtUtc` is `Invalid Date` in the received message when the ttl is not defined. Has been fixed in [#13543](https://github.com/Azure/azure-sdk-for-js/pull/13543)
+    - Some of the queue properties such as "forwardTo" and "autoDeleteOnIdle" were not being set as requested through the `ServiceBusAdministrationClient.createQueue` method because of a bug w.r.t the ordering of XML properties. The issue has been fixed in [#14692](https://github.com/Azure/azure-sdk-for-js/pull/14692).
+    - Settling messages now use the `retryOptions` passed to `ServiceBusClient`, making it more resilient against network failures.
+      [PR#14867](https://github.com/Azure/azure-sdk-for-js/pull/14867)
+    - Fixes an issue where receiver link recovery/creation could fail, resulting in a receiver that was no longer receiving messages.
+      [PR#15098](https://github.com/Azure/azure-sdk-for-js/pull/15098)
+- Name: '@azure/eventgrid'
+  Version: 4.2.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/eventgrid_4.2.0/sdk/eventgrid/eventgrid/CHANGELOG.md#420-2021-05-11
+  ChangelogContent: |-
+    #### New Features
+
+    - Added new System Events: "Microsoft.PolicyInsights.PolicyStateCreated", "Microsoft.PolicyInsights.PolicyStateChanged", "Microsoft.PolicyInsights.PolicyStateDeleted",
+      "Microsoft.Storage.AsyncOperationInitiated", "Microsoft.Storage.BlobTierChanged".
+- Name: '@azure/event-hubs'
+  Version: 5.5.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/event-hubs_5.5.1/sdk/eventhub/event-hubs/CHANGELOG.md#551-2021-04-29
+  ChangelogContent: |-
+    - Fixes a race condition that would cause connection recovery to sometimes fail if a consumer or producer was closed at the same time a connection was disconnected.
+    - Fixes issue [#14606](https://github.com/Azure/azure-sdk-for-js/issues/14606) where the `EventHubConsumerClient` could call subscribe's `processError` callback with a "Too much pending tasks" error. This could occur if the consumer was unable to connect to the service for an extended period of time.
+    - Fixes issue [#15002](https://github.com/Azure/azure-sdk-for-js/issues/15002) where in rare cases an unexpected `TypeError` could be thrown from `EventHubProducerClient.sendBatch` when the connection was disconnected while sending events was in progress.
+- Name: '@azure/container-registry'
+  Version: 1.0.0-beta.2
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/container-registry_1.0.0-beta.2/sdk/containerregistry/container-registry/CHANGELOG.md#100-beta2-2021-05-11
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new properties to allow easier interaction with other docker tools:
+      - `loginServer` in `ContainerRegistryClient`.
+      - `fullyQualifiedName` in `ContainerRepository`
+    - Added support for anonymous access. See [the service documentation](https://docs.microsoft.com/azure/container-registry/container-registry-faq#how-do-i-enable-anonymous-pull-access) for more information.
+
+    #### Breaking Changes
+
+    The public API surface of this library has been re-designed. Notable changes include
+
+    - Removed: `ContainerRepositoryClient`. Operations on repositories are now grouped in `ContainerRepository` type and operations on artifacts are now in `RegistryArtifact` type. Some `*Options` types are also renamed accordingly.
+    - Renamed: `endpoint` property is renamed to `registryUrl`.
+    - Renamed: `listRepositories()` is renamed to `listRepositoryNames()` in `ContainerRegistryClient`.
+    - Renamed: "RegistryArtifact" in property or function names replaced by "Manifest".
+    - Renamed: `*OrderBy` values is now capitalized as `timeDesc` and `timeAsc`. Previously they are all in lower case.
+- Name: '@azure-rest/purview-scanning'
+  Version: 1.0.0-beta.1
+  DisplayName: Azure Purview Scanning
+  ServiceName: Azure Purview Scanning
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure-rest/purview-scanning_1.0.0-beta.1/sdk/purview/purview-scanning-rest/CHANGELOG.md#100-beta1-2021-05-11
+  ChangelogContent: '- First release of package, see README.md for details.'
+- Name: '@azure-rest/purview-catalog'
+  Version: 1.0.0-beta.1
+  DisplayName: Azure Purview Catalog
+  ServiceName: Azure Purview Catalog
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure-rest/purview-catalog_1.0.0-beta.1/sdk/purview/purview-catalog-rest/CHANGELOG.md#100-beta1-2021-05-11
+  ChangelogContent: '- First release of package, see README.md for details.'
+- Name: '@azure-rest/confidential-ledger'
+  Version: 1.0.0-beta.1
+  DisplayName: Azure Confidential Ledger
+  ServiceName: Azure Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure-rest/confidential-ledger_1.0.0-beta.1/sdk/confidentialledger/confidential-ledger-rest/CHANGELOG.md#100-beta1-2021-05-11
+  ChangelogContent: '- First release of package, see README.md for details.'
+- Name: '@azure-rest/core-client'
+  Version: 1.0.0-beta.1
+  DisplayName: '@azure-rest/core-client'
+  ServiceName: ""
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure-rest/core-client_1.0.0-beta.1/sdk/core-rest/core-client/CHANGELOG.md#100-beta1-2021-04-22
+  ChangelogContent: '- First release of package, see README.md for details.'
+- Name: '@azure-rest/core-client'
+  Version: 1.0.0-beta.2
+  DisplayName: '@azure-rest/core-client'
+  ServiceName: ""
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure-rest/core-client_1.0.0-beta.2/sdk/core-rest/core-client/CHANGELOG.md#100-beta2-2021-05-12
+  ChangelogContent: '- Add CertificateCredential to support client certificate authentication. [#15172](https://github.com/Azure/azure-sdk-for-js/pull/15172)'
+- Name: '@azure-rest/confidential-ledger'
+  Version: 1.0.0-beta.2
+  DisplayName: Azure Confidential Ledger
+  ServiceName: Azure Confidential Ledger
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure-rest/confidential-ledger_1.0.0-beta.2/sdk/confidentialledger/confidential-ledger-rest/CHANGELOG.md#100-beta2-2021-05-12
+  ChangelogContent: '- First release of package, see README.md for details.'
+- Name: '@azure/identity'
+  Version: 2.0.0-beta.3
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/identity_2.0.0-beta.3/sdk/identity/identity/CHANGELOG.md#200-beta3-2021-05-12
+  ChangelogContent: |-
+    #### New features
+
+    - Azure Identity for JavaScript no longer carries any native dependencies (neither ordinary, peer, nor optional dependencies). Previous distributions of `@azure/identity` carried an optional dependency on `keytar`, which caused issues for some users in restrictive environments.
+    - Updated the `@azure/msal-node` dependency to version `^1.0.2`, which allows cancelling of an ongoing `getToken()` operation on `DeviceCodeCredential`.
+    - Fixed issue with the logging of success messages on the `DefaultAzureCredential` and the `ChainedTokenCredential`. These messages will now mention the internal credential that succeeded.
+    - `AuthenticationRequiredError` (introduced in 2.0.0-beta.1) now has the same impact on `ChainedTokenCredential` as the `CredentialUnavailableError` which is to allow the next credential in the chain to be tried.
+    - `ManagedIdentityCredential` now retries with exponential back-off when a request for a token fails with a 404 status code on environments with available IMDS endpoints.
+    - Added an `AzurePowerShellCredential` which will use the authenticated user session from the `Az.Account` PowerShell module. This credential will attempt to use PowerShell Core by calling `pwsh`, and on Windows it will fall back to Windows PowerShell (`powershell`) if PowerShell Core is not available.
+
+    #### Breaking changes from 2.0.0-beta.1
+
+    - Removed `VisualStudioCodeCredential`, as it requires us to list `keytar` as an optional dependency. `keytar` containes machine-code components that are difficult to build in certain environments, so this credential will be offered through a separate extension package in the future.
+    - Removed token persistence through `@azure/msal-node-extensions`, as its machine-code components have the same problems as `keytar`. This functionality will similarly be reintroduced through a separate extension package in the future.
+    - Removed `authenticationRecord`, `disableAutomaticAuthentication` and `authenticate()` from the credential `UsernamePasswordCredential`. While MSAL does support this, allowing `authenticationRecord` arguably could result in users authenticating through an account other than the one they're specifying with the username and the password.
+- Name: '@azure/web-pubsub-express'
+  Version: 1.0.0-beta.1
+  DisplayName: Azure Web Pubsub CloudEvents Handlers for Express
+  ServiceName: Azure Web PubSub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/web-pubsub-express_1.0.0-beta.1/sdk/web-pubsub/web-pubsub-express/CHANGELOG.md#100-beta1-2021-04-23
+  ChangelogContent: This is the first release of the @azure/web-pubsub-express package.
+- Name: '@azure/web-pubsub'
+  Version: 1.0.0-beta.1
+  DisplayName: Azure Web Pubsub
+  ServiceName: Azure Web PubSub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/web-pubsub_1.0.0-beta.1/sdk/web-pubsub/web-pubsub/CHANGELOG.md#100-beta1-2021-04-23
+  ChangelogContent: This is the first release of the @azure/web-pubsub package.
+- Name: '@azure/storage-blob'
+  Version: 12.6.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/storage-blob_12.6.0-beta.1/sdk/storage/storage-blob/CHANGELOG.md#1260-beta1-2021-05-14
+  ChangelogContent: |-
+    - Updated Azure Storage Service API version to 2020-08-04.
+    - Restoring deleted container doesn't support renaming anymore, deprecated `destinationContainerName` in `ServiceUndeleteContainerOptions` for `BlobServiceClient.undeleteContainer()`.
+- Name: '@azure/storage-file-datalake'
+  Version: 12.5.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/storage-file-datalake_12.5.0-beta.1/sdk/storage/storage-file-datalake/CHANGELOG.md#1250-beta1-2021-05-14
+  ChangelogContent: |-
+    - Updated Azure Storage Service API version to 2020-08-04.
+    - Added support for Path Soft Delete. You can list the deleted paths via `DataLakeFileSystemClient.listDeletedPaths()`, and restore a deleted path via `DataLakeFileSystemClient.undeletePath()`.
+    - Restoring deleted FileSystem doesn't support renaming anymore, deprecated `destinationFileSystemName` in `ServiceUndeleteFileSystemOptions` for `DataLakeServiceClient.undeleteFileSystem()`.
+- Name: '@azure/data-tables'
+  Version: 12.0.0-beta.3
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/data-tables_12.0.0-beta.3/sdk/tables/data-tables/CHANGELOG.md#1200-beta3-2021-05-17
+  ChangelogContent: |-
+    - Update and Upsert operations have "merge" as default update mode. [#14956](https://github.com/Azure/azure-sdk-for-js/pull/14956)
+    - Expose Table Service url as a public client property. [#14956](https://github.com/Azure/azure-sdk-for-js/pull/14956)
+    - Make list and get entity methods have a default template type of `Record` for better UX. [#14956](https://github.com/Azure/azure-sdk-for-js/pull/14956)
+
+    #### Breaking Changes
+
+    - Enable Type conversion of `DateTime -> Date` and `Int64 -> bigint` by default. Allow disabling type conversion with `disableTypeConversion` option in the get and list operations. [#15307](https://github.com/Azure/azure-sdk-for-js/pull/15307)
+    - Node.js v8 support is dropped as it has reached end of life [#15307](https://github.com/Azure/azure-sdk-for-js/pull/15307)
+    - Rename Batch to Transaction and redesign submitTransaction to provide a more declarative interface. [#15250](https://github.com/Azure/azure-sdk-for-js/pull/15250)
+    - createTable and deleteTable don't throw on 409 or 404 respectively. Return type becomes `Promise<void>`. [#14956](https://github.com/Azure/azure-sdk-for-js/pull/14956)
+    - Clean up method options. [#14956](https://github.com/Azure/azure-sdk-for-js/pull/14956)
+    - Remove continuation tokens from options on list methods. [#14956](https://github.com/Azure/azure-sdk-for-js/pull/14956)
+- Name: '@azure/service-bus'
+  Version: 7.2.0-beta.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/service-bus_7.2.0-beta.1/sdk/servicebus/service-bus/CHANGELOG.md#720-beta1-2021-05-18
+  ChangelogContent: |-
+    #### New Features
+
+    - Enable encoding the body of a message to the 'value' or 'sequence' sections (via AmqpAnnotatedMessage.bodyType). Using this encoding is not required but does allow you to take advantage of native AMQP serialization for supported primitives or sequences.
+- Name: '@azure/ai-text-analytics'
+  Version: 5.1.0-beta.6
+  DisplayName: Text Analytics
+  ServiceName: Text Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/ai-text-analytics_5.1.0-beta.6/sdk/textanalytics/ai-text-analytics/CHANGELOG.md#510-beta6-2021-05-18
+  ChangelogContent: |-
+    #### New Features
+
+    - We are now targeting the service's v3.1-preview.5 API as the default instead of v3.1-preview.4.
+    - `beginAnalyzeActions` adds support for analyze sentiment actions.
+    - `disableServiceLogs` parameter is added to most actions in `beginAnalyzeActions` that controls service-side logging.
+
+    #### Breaking Changes
+
+    - `beginAnalyzeBatchActions` was renamed to `beginAnalyzeActions`.
+    - `TextElements_v8` is renamed to `TextElement_v8` in model `StringIndexType`.
+
+    #### Key Bug Fixes
+
+    - Results of entity linking actions were not returned correctly by `beginAnalyzeActions` and that is now fixed.
+- Name: '@azure/web-pubsub'
+  Version: 1.0.0-beta.2
+  DisplayName: Web PubSub
+  ServiceName: Web PubSub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/web-pubsub_1.0.0-beta.2/sdk/web-pubsub/web-pubsub/CHANGELOG.md#100-beta2-2021-05-19
+  ChangelogContent: Remove "url" dependency
+- Name: '@azure/core-client'
+  Version: 1.1.2
+  DisplayName: Core - Client
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-client_1.1.2/sdk/core/core-client/CHANGELOG.md#112-2021-05-20
+  ChangelogContent: '- Fixed an issue to check for the mandatory parameter in the header and query values. [PR 15278](https://github.com/Azure/azure-sdk-for-js/pull/15278)'
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.1.0-beta.2
+  DisplayName: Core Rest Pipeline
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/core-rest-pipeline_1.1.0-beta.2/sdk/core/core-rest-pipeline/CHANGELOG.md#110-beta2-2021-05-20
+  ChangelogContent: |-
+    - Fixed an issue to set the `Content-Length` header correctly when using multibyte characters. [PR 15314](https://github.com/Azure/azure-sdk-for-js/pull/15314)
+
+    #### Fixed
+
+    - Fixed an issue where tracing spans were not setting a status correctly (on success or error) which results in the span status being `UNSET`. In addition, we will now capture the HTTP status code when a request fails in the tracing span. [PR 15061](https://github.com/Azure/azure-sdk-for-js/pull/15061)
+- Name: '@azure/cosmos'
+  Version: 3.11.3
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/blob/@azure/cosmos_3.11.3/sdk/cosmosdb/cosmos/CHANGELOG.md#3113-2021-05-21
+  ChangelogContent: '- BUGFIX: Sanitize user endpoint URLs for AAD DataPlane RBAC token generation.'

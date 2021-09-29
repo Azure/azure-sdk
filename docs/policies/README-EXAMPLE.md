@@ -12,10 +12,12 @@ Use the Cosmos DB client library for Python to manage databases and the JSON doc
   - [Package (PyPi)][pypi]
   - [API reference documentation][ref_cosmos_sdk]
   - [Product documentation][cosmos_docs]
-  - [Source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)
-  - [ChangeLog](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/CHANGELOG.md)
-  - [Samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos/samples)
-  - [Versioned API References](https://azure.github.io/azure-sdk-for-python/ref/Cosmos.html)
+  - [Source code](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cosmos/azure-cosmos)
+  - [ChangeLog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/cosmos/azure-cosmos/CHANGELOG.md)
+  - [Samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cosmos/azure-cosmos/samples)
+  - [Versioned API References](https://azure.github.io/azure-sdk-for-python/cosmosdb.html)
+
+* Note, this library supports Cosmos API versions [2018-12-31](https://docs.microsoft.com/en-us/rest/api/cosmos-db/) and below.
 
 ## Getting started
 
@@ -265,7 +267,7 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 [pip]: https://pypi.org/project/pip/
 [pypi]: https://pypi.org/project/azure-cosmos/
 [python]: https://www.python.org/downloads/
-[ref_cosmos_sdk]: http://azure.github.io/azure-sdk-for-python/ref/Cosmos.html#azure-cosmos
+[ref_cosmos_sdk]: https://azure.github.io/azure-sdk-for-python/cosmosdb.html#azure-cosmos
 [sample_database_mgmt]: https://github.com/binderjoe/cosmos-python-prototype/blob/master/examples/databasemanagementsample.py
 [sample_document_mgmt]: https://github.com/binderjoe/cosmos-python-prototype/blob/master/examples/documentmanagementsample.py
 [sample_examples_misc]: https://github.com/binderjoe/cosmos-python-prototype/blob/master/examples/examples.py

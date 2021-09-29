@@ -5,7 +5,7 @@
 {% if include.type == "all" %}
   {% assign packages = site.data.releases.latest.js-packages %}
 {% else %}
-  {% assign packages = site.data.releases.latest.js-packages | where: 'Type', include.type %}
+  {% assign packages = site.data.releases.latest.js-packages | where: 'Type', include.type | where: 'New', 'true' %}
 {% endif %}
 
 {{ description | replace: 'PackageCount', packages.size }}
@@ -14,4 +14,4 @@
 
 {% include releases/variables/js.md %}
 
-{% include releases/pkgtable.md %}
+{% include releases/pkgtable.md type=include.type %}

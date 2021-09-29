@@ -1,25 +1,33 @@
+[CmdletBinding()]
 param (
-  $language = "all",
-  $folder =  "$PSScriptRoot\..\..\_data\releases\latest"
+  [string] $language = "all",
+  [string] $github_pat = $env:GITHUB_PAT
 )
+Set-StrictMode -Version 3
 
-function PackageEqual($pkg1, $pkg2) {
-  if ($pkg1.Package -ne $pkg2.Package) {
-    return $false
-  }
-  if ($pkg1.GroupId -and $pkg2.GroupId -and $pkg1.GroupId -ne $pkg2.GroupId) {
-    return $false
-  }
-  return $true
-}
+. (Join-Path $PSScriptRoot PackageList-Helpers.ps1)
+. (Join-Path $PSScriptRoot PackageVersion-Helpers.ps1)
+
 function CreatePackage(
-  [string]$package, 
+  [string]$package,
   [string]$version,
   [string]$groupId = ""
 )
 {
+  $semVer = ToSemVer $version
   $versionGA = $versionPreview = ""
-  if ($version -match "^[\d\.]+$") {
+
+  $isGAVersion = $false
+
+  if ($semVer) {
+    $isGAVersion = !$semVer.IsPrerelease
+  }
+  else {
+    # fallback for non semver compliant versions
+    $isGAVersion = ($version -match "^[\d\.]+$" -and !$version.StartsWith("0"))
+  }
+
+  if ($isGAVersion) {
     $versionGA = $version
   }
   else {
@@ -37,7 +45,12 @@ function CreatePackage(
     MSDocs = "NA"
     GHDocs = "NA"
     Type = ""
+    New = "false"
+    PlannedVersions = ""
+    FirstGADate = ""
+    Support = ""
     Hide = ""
+    Replace = ""
     Notes = ""
   };
 }
@@ -54,8 +67,8 @@ function Get-java-Packages
 function Get-dotnet-Packages
 {
   # Rest API docs
-  # https://docs.microsoft.com/en-us/nuget/api/search-query-service-resource
-  # https://docs.microsoft.com/en-us/nuget/consume-packages/finding-and-choosing-packages#search-syntax
+  # https://docs.microsoft.com/nuget/api/search-query-service-resource
+  # https://docs.microsoft.com/nuget/consume-packages/finding-and-choosing-packages#search-syntax
   $nugetQuery = Invoke-RestMethod "https://azuresearch-usnc.nuget.org/query?q=owner:azure-sdk&prerelease=true&semVerLevel=2.0.0&take=1000"
 
   Write-Host "Found $($nugetQuery.totalHits) nuget packages"
@@ -80,8 +93,30 @@ function Get-js-Packages
     $from += $npmQuery.objects.Count
   } while ($npmQuery.objects.Count -ne 0);
 
-  Write-Host "Found $($npmPackages.Count) npm packages"
-  $packages = $npmPackages | Foreach-Object { CreatePackage $_.name $_.version }
+  $publishedPackages = $npmPackages | Where-Object { $_.publisher.username -eq "azure-sdk" }
+  $otherPackages = $npmPackages | Where-Object { $_.publisher.username -ne "azure-sdk" }
+
+  foreach ($otherPackage in $otherPackages) {
+    Write-Verbose "Not updating package $($otherPackage.name) because the publisher is $($otherPackage.publisher.username) and not azure-sdk"
+  }
+
+  Write-Host "Found $($publishedPackages.Count) npm packages"
+  $packages = $publishedPackages | Foreach-Object { CreatePackage $_.name $_.version }
+
+  $repoTags = GetPackageVersions "js"
+
+  foreach ($package in $packages)
+  {
+    # If package starts with arm- and we shipped it recently because it is in the last months repo tags
+    # then treat it as a new mgmt library
+    if ($package.Package.StartsWith("@azure/arm-") -and $repoTags.ContainsKey($package.Package))
+    {
+      $package.Type = "mgmt"
+      $package.New = "true"
+      Write-Host "Marked package $($package.Package) as new mgmt package"
+    }
+  }
+
   return $packages
 }
 
@@ -97,37 +132,104 @@ function Get-python-Packages
   return $packages
 }
 
+function Get-cpp-Packages
+{
+  $packages = @()
+  $repoTags = GetPackageVersions "cpp"
+
+  Write-Host "Found $($repoTags.Count) recent tags in cpp repo"
+
+  foreach ($tag in $repoTags.Keys)
+  {
+    $versions = [AzureEngSemanticVersion]::SortVersions($repoTags[$tag].Versions)
+    $packages += CreatePackage $tag $versions[0]
+  }
+
+  return $packages
+}
+
+function Get-go-Packages
+{
+  $packages = @()
+  $repoTags = GetPackageVersions "go"
+
+  Write-Host "Found $($repoTags.Count) recent tags in go repo"
+
+  foreach ($tag in $repoTags.Keys)
+  {
+    $versions = [AzureEngSemanticVersion]::SortVersions($repoTags[$tag].Versions)
+
+    $package = CreatePackage $tag $versions[0]
+
+    if ($package.Package -match "sdk/(?<repopath>(?<service>.*?)/(?<arm>arm)?(?<pkgname>.*))")
+    {
+      if ($matches["arm"])
+      {
+        $package.Type = "mgmt"
+        $package.New = "true"
+        $package.DisplayName = "Resource Management - $((Get-Culture).TextInfo.ToTitleCase($matches["pkgname"]))"
+        Write-Host "Marked package $($package.Package) as new mgmt package"
+      }
+      $package.ServiceName = (Get-Culture).TextInfo.ToTitleCase($matches["service"])
+      $package.RepoPath = $matches["repopath"]
+
+      $packages += $package
+    }
+  }
+
+  return $packages
+}
+
 function Write-Latest-Versions($lang)
 {
-  $packagelistFile = Join-Path $folder "$lang-packages.csv"
-  $packageList = Import-Csv $packagelistFile | Sort-Object Type, DisplayName, Package, GroupId
+  $packageList = Get-PackageListForLanguage $lang
 
   if ($null -eq $packageList) { $packageList = @() }
 
   $LangFunction = "Get-$lang-Packages"
   $packages = &$LangFunction
 
+  $packageLookup = GetPackageLookup $packageList
+
   foreach ($pkg in $packages)
   {
-    $pkgEntries = $packageList | Where-Object { PackageEqual $_ $pkg }
+    $pkgEntry = LookupMatchingPackage $pkg $packageLookup
 
-    if ($pkgEntries.Count -gt 1) {
-      Write-Error "Found $($pkgEntries.Count) package entries for $($pkg.Package + $pkg.GroupId)"
-    }
-    elseif ($pkgEntries.Count -eq 0) {
-      # Add package
-      $packageList += $pkg
+    if (!$pkgEntry) {
+      # alpha packages are not yet fully supported versions so skip adding them to the list yet.
+      if ($pkg.VersionPreview -notmatch "-alpha") {
+        # Add new package
+        $packageList += $pkg
+        Write-Host "Adding new package $($pkg.Package)"
+      }
     }
     else {
+      # For new packages let the Update-Release-Versions script update the versions
+      if ($pkgEntry.New -eq "true") {
+        continue
+      }
+
+      if ($pkg.Type -and $pkg.Type -ne $pkgEntry.Type) {
+        $pkgEntry.Type = $pkg.Type
+      }
+
+      if ($pkg.New -ne "false" -and $pkg.New -ne $pkgEntry.New) {
+        $pkgEntry.New = $pkg.New
+      }
+
+      if ($pkgEntry.VersionGA.StartsWith("0")) {
+        $pkgEntry.VersionGA = ""
+      }
+
       # Update version of package
       if ($pkg.VersionGA) {
-        $pkgEntries[0].VersionGA = $pkg.VersionGA
-        if ($pkgEntries[0].VersionGA -gt $pkgEntries[0].VersionPreview) {
-          $pkgEntries[0].VersionPreview = ""
+        $pkgEntry.VersionGA = $pkg.VersionGA
+        if ($pkgEntry.VersionGA -gt $pkgEntry.VersionPreview) {
+          $pkgEntry.VersionPreview = ""
         }
       }
       else {
-        $pkgEntries[0].VersionPreview = $pkg.VersionPreview
+        $pkgEntry.VersionPreview = $pkg.VersionPreview
       }
     }
   }
@@ -135,18 +237,17 @@ function Write-Latest-Versions($lang)
   # Clean out packages that are no longer in the query we use for the package manager
   foreach ($pkg in $packageList)
   {
-    $pkgEntries = $packages | Where-Object { PackageEqual $_ $pkg }
+    # Skip the package entries that don't have a Package value as they are just placeholders
+    if ($pkg.Package -eq "") { continue }
 
-    if ($pkgEntries -and $pkgEntries.Count -ne 1) {
-      Write-Host "Found package $($pkg.Package) in the CSV which could be removed"
+    $pkgEntry = LookupMatchingPackage $pkg $packageLookup
+
+    if (!$pkgEntry) {
+      Write-Verbose "Found package $($pkg.Package) in the CSV which could be removed"
     }
   }
 
-  Write-Host "Writing $packagelistFile"
-  $clientPackages = $packageList | Where-Object { $_.Type }
-  $otherPackages = $packageList | Where-Object { !$_.Type }
-  $packageList = $clientPackages + $otherPackages
-  $packageList | Export-Csv -NoTypeInformation $packagelistFile -UseQuotes Always
+  Set-PackageListForLanguage $lang $packageList
 }
 
 switch($language)
@@ -156,6 +257,8 @@ switch($language)
     Write-Latest-Versions "js"
     Write-Latest-Versions "dotnet"
     Write-Latest-Versions "python"
+    Write-Latest-Versions "cpp"
+    Write-Latest-Versions "go"
     break
   }
   "java" {
@@ -171,6 +274,14 @@ switch($language)
     break
   }
   "python" {
+    Write-Latest-Versions $language
+    break
+  }
+  "cpp" {
+    Write-Latest-Versions $language
+    break
+  }
+  "go" {
     Write-Latest-Versions $language
     break
   }

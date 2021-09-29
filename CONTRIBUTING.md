@@ -15,7 +15,7 @@ Here's the general contribution process:
 1. Fork this repo
 1. Create a new branch
 1. Commit your changes to that branch
-1. Do a PR from your fork/branch to azure-sdk/master.
+1. Do a PR from your fork/branch to azure-sdk/main.
 
 ## Codespaces
 
@@ -25,9 +25,9 @@ Codespaces is new technology that allows you to use a container as your developm
 
 1. From the Azure SDK GitHub repo, click on the "Code -> Open with Codespaces" button.
 1. Open a Terminal
-1. Execute the following command and CTRL+Click the link generated.  A new window will open with the Azure SDK website.
+1. Execute the following command and `Ctrl+Click` the link generated.  A new window will open with the Azure SDK website.
 
-    ```
+    ```bash
     bundle exec jekyll serve
     ```
 
@@ -36,9 +36,9 @@ Codespaces is new technology that allows you to use a container as your developm
 1. Install the [VS Code Remote Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)
 1. When you open the Azure SDK repo in VS Code, it will prompt you to open the project in the Dev Container. If it does not prompt you, then hit CTRL+P, and select "Remote-Containers: Open Folder in Container..."
 1. Open a Terminal
-1. Execute the following command and CTRL+Click the link generated.  A new window will open with the Azure SDK website.
+1. Press `Ctrl+Shift+T` or execute the following command and `Ctrl+Click` the link generated.  A new window will open with the Azure SDK website.
 
-    ```
+    ```bash
     bundle exec jekyll serve
     ```
 

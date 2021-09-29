@@ -1,17 +1,19 @@
-<table>
-<tr>
-  <th>Display Name</th>
-  <th>Package</th>
-  <th>MS Docs</th>
-  <th>GH Docs</th>
-  <th>Source</th>
-  <th>Notes</th>
-</tr>
-<tbody id="myTable">
-{% for item in packages %}
-
-{% include releases/pkgrow.md %}
-
-{% endfor %}
-</tbody>
-</table>
+<div class="table-responsive">
+  <table class="table table-bordered table-condensed">
+      <tr>
+        <th class="table-display-text-th table-display-name-th" scope="col">Name</th>
+        <th scope="col">Stable</th>
+        <th scope="col">Beta</th>
+        <th scope="col">Next Stable</th>
+      </tr>
+      <tbody id="myTable">
+  
+      {% for item in packages %}
+      
+      {% include releases/pkgrow.md type=include.type %}
+      
+      {% endfor %}
+      
+      </tbody>
+  </table>
+</div>

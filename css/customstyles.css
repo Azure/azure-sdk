@@ -1,21 +1,25 @@
 body {
   font-size: 15px;
-  padding-top: 65px;
 }
 
 #tg-sb-content {
   /* This is the header (50px) + header-bottom-margin (20px) */
-  margin-top: 70px;
+  /* margin-top: 30px; */
 }
 
 .requirement {
   /* margin-left: -34px; */
   margin-right: 8px;
+  position: relative;
 }
 
 .requirement:hover,
 .requirement:active {
   text-decoration: none;
+}
+.requirement:focus {
+  /*avoid showing a border over the icon including the padding*/
+  outline: none !important;
 }
 
 .bs-callout {
@@ -93,13 +97,8 @@ body {
 }
 
 /* make room for the nav bar */
-h1[id],
-h2[id],
-h3[id],
-h4[id],
-h5[id],
-h6[id],
-dt[id] {
+h1[id]
+.requirement {
   padding-top: 60px;
   margin-top: -40px;
 }
@@ -160,6 +159,8 @@ table {
   max-width: 100%;
   margin-bottom: 20px;
   border: 1px solid #dedede;
+  width: 100%;
+  word-break: break-word;
 }
 
 table > thead > tr > th,
@@ -168,7 +169,7 @@ table > tfoot > tr > th,
 table > thead > tr > td,
 table > tbody > tr > td,
 table > tfoot > tr > td {
-  padding: 8px;
+  padding: 7px 0px 7px 0px;
   line-height: 1.42857143;
   vertical-align: top;
   border-top: 1px solid #ddd;
@@ -394,7 +395,7 @@ a.accordion-collapsed {
 
 .nav a:hover,
 .nav li.active > a {
-  background-color: #8d8d8d;
+  background-color: #BBB8B8;
   color: #f5f5f5;
 }
 
@@ -406,7 +407,7 @@ a.accordion-collapsed {
   font-size: 12px;
   line-height: 18px;
   padding: 2px 10px;
-  background-color: #f1f1f1;
+  background-color: #bcc9cf;
 }
 
 .nav > li > a {
@@ -439,7 +440,7 @@ ul#mysidebar {
 }
 
 .nav li a:hover {
-  background-color: #8d8d8d;
+  background-color: #BBB8B8;
 }
 
 .nav ul li a {
@@ -668,6 +669,11 @@ h4 {
   font-size: 120%;
   font-style: italic;
 }
+h5 {
+  font-weight: bold;
+  font-size: 115%;
+}
+
 
 .alert,
 .callout {
@@ -677,7 +683,7 @@ h4 {
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
-  background-color: #248ec2;
+  background-color: #0071c5;
   color: white;
 }
 
@@ -1322,6 +1328,12 @@ h4.panel-title {
 .btn-preview {
   background-color: #a9a9a9;
   border-color: #a9a9a9;
+  /*
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: column;
+  margin-top: 4px;*/
 }
 
 .btn-preview:hover {
@@ -1333,4 +1345,114 @@ h4.panel-title {
   border-radius: 4px;
   margin-left: 3px;
   font-size: 10px;
+}
+
+.badge-preview {
+  margin-left: 0px;
+}
+
+.table-display-name-th {
+  min-width: 20rem;
+}
+
+.table-display-text-th {
+  padding: 7px;
+}
+
+.nav-language-filter {
+  background-color: #F9F9F9;
+  border: 1px solid #dedede;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.nav-language-filter-cell {
+  align-items: center;
+  display: flex;
+  flex:1;
+  justify-content: center;
+  padding: 7px 0 7px 0;
+}
+
+@media (max-width: 600px) {
+  .nav-language-filter {
+    flex-direction: column;
+  }
+}
+
+pre code {
+  white-space: pre;
+}
+
+.standard-verbs-table-container {
+  margin-bottom: 10px;
+}
+
+.standard-verbs-table-row {
+  border: 1px solid #dedede;
+  display: flex;
+}
+
+.standard-verbs-table-cell-container {
+  flex: 1;
+  display: flex;
+}
+
+.standard-verbs-table-cell {
+  flex: 1;
+  padding: 7px 0 7px 3px;
+}
+
+/* Consider n rows in a table, pair is when `n mod 2 == 0`. Then the table would show a different style for each 2 rows */
+.standard-verbs-table-cell-pair {
+  background-color: #F9F9F9;
+}
+
+.standard-verbs-table-cell-verb {
+  color: rgb(221, 73, 110);
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+.standard-verbs-table-cell-header {
+  background-color: #777;
+  border-bottom: 2px solid #ddd;
+  color: white;
+  font-weight: bold;
+}
+
+.standard-verbs-table-cell-verb {
+  flex: 2;
+}
+
+.standard-verbs-table-cell-comments {
+  flex: 3;
+}
+
+.standard-verbs-table-cell-mobile-header {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .standard-verbs-table-cell-header {
+    display: none;
+  }
+  
+  .standard-verbs-table-row {
+    flex-direction: column;
+  }
+  
+  .standard-verbs-table-cell {
+    border: 1px solid #ddd;
+    flex: 3;
+  }
+
+  .standard-verbs-table-cell-mobile-header {
+    display: block;
+    flex: 1;
+  }
+}
+
+.replacement{
+  margin-top: 5px;
 }

@@ -1,0 +1,25 @@
+entries:
+- Name: azure-communication-chat
+  Version: 1.1.0-beta.1
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-communication-chat_1.1.0-beta.1/sdk/communication/azure-communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for metadata in messages.
+    - Added options class `TypingNotificationOptions` for setting `SenderDisplayName` of the notification sender.
+    - Added `SenderDisplayName` to `TypingIndicatorReceivedEvent`.
+  GroupId: com.azure.android
+- Name: azure-communication-chat
+  Version: 1.1.0-beta.2
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-communication-chat_1.1.0-beta.2/sdk/communication/azure-communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    - Version update.
+    - Fix `azure-communication-common` dependency issue.
+  GroupId: com.azure.android
+

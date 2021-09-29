@@ -1,0 +1,49 @@
+entries:
+- Name: AzureCommunicationCalling
+  Version: 2.0.0-beta.1
+  DisplayName: Communication Calling
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationCalling_2.0.0-beta.1/sdk/communication/AzureCommunicationCalling/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - `Recording` and `Transcription` features are decoupled from `Call` object and now can only be used via extensions.
+    Usage example:
+    ```
+    let recordingFeature = self.call!.api(RecordingFeature.self)
+    recordingFeature.delegate = self.callObserver
+    ```
+
+    #### Breaking Changes
+    - Changed: `didChangeRecordingState` and `didChangeTranscriptionState` are moved out of `CallDelegate` into `RecordingFeatureDelegate` and into `TranscriptionFeatureDelegate`.
+
+    **More documentation on extensions and the breaking change can be found [here](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/calling-client-samples?pivots=platform-ios).**
+
+    #### Bugs Fixed
+    - Not triggering calldidChangeState if using createCallAgentWithCallKitOption. And not able to accept the call in App killed state ([#316](https://github.com/Azure/Communication/issues/316)).
+    - Remote participant stream is stretched after hang-up ([#311](https://github.com/Azure/Communication/issues/311)).
+    - CallKit bug fixes with sometimes call gets disconnected immediately after picking up the call.
+    - Intermittent freezing of UI thread issue is fixed when for e.g. reading property `remoteParticipants` in a `Call`.
+    - `Hold` and `Resume` support fixed with CallKit enabled `CallAgent`'s.
+- Name: AzureCommunicationChat
+  Version: 1.0.1
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationChat_1.0.1/sdk/communication/AzureCommunicationChat/CHANGELOG.md
+  ChangelogContent: |-
+    #### New Features
+    - ChatClient sets `applicationId` to be empty by default instead of using the bundle identifier
+- Name: AzureCommunicationCommon
+  Version: 1.0.2
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationCommon_1.0.2/sdk/communication/AzureCommunicationCommon/CHANGELOG.md
+  ChangelogContent: |-
+    #### New Features
+    - Fix dependency in `Package.swift`.
+

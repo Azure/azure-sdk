@@ -10,8 +10,10 @@ The Azure SDK team is pleased to announce our August 2020 client library release
 
 #### GA
 
+- Identity
 - Key Vault (Certificates, Keys, Secrets)
 - Search
+- Storage
 - Text Analytics
 
 #### Updates
@@ -29,19 +31,27 @@ The Azure SDK team is pleased to announce our August 2020 client library release
 To install any of our packages, please search for them via `Manage NuGet Packages...` in Visual Studio (with `Include prerelease` checked) or copy these commands into your terminal:
 
 ```bash
- $> dotnet add package Azure.AI.FormRecognizer --version 3.0.0-preview.1
+ $> dotnet add package Azure.AI.FormRecognizer --version 3.0.0-preview.2
 
  $> dotnet add package Azure.AI.TextAnalytics --version 5.0.0
 
- $> dotnet add package Azure.Core.Experimental --version 0.1.0-preview.3
+ $> dotnet add package Azure.Core.Experimental --version 0.1.0-preview.4
 
  $> dotnet add package Azure.Extensions.AspNetCore.DataProtection.Blobs
  $> dotnet add package Azure.Extensions.AspNetCore.DataProtection.Keys
 
- $> dotnet add package Azure.Messaging.EventHubs --version 5.2.0-preview.2
- $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.2.0-preview.2
+ $> dotnet add package Azure.Identity
 
- $> dotnet add package Azure.Messaging.ServiceBus --version 7.0.0-preview.5
+ $> dotnet add package Azure.Messaging.EventHubs --version 5.2.0-preview.3
+ $> dotnet add package Azure.Messaging.EventHubs.Processor --version 5.2.0-preview.3
+
+ $> dotnet add package Azure.Messaging.ServiceBus --version 7.0.0-preview.6
+
+ $> dotnet add package Azure.Storage.Blobs --version 12.5.1
+ $> dotnet add package Azure.Storage.Blobs.ChangeFeed --version 12.0.0-preview.4
+ $> dotnet add package Azure.Storage.Files.DataLake --version 12.3.1
+ $> dotnet add package Azure.Storage.Files.Shares --version 12.3.1
+ $> dotnet add package Azure.Storage.Queues --version 12.4.1
 
  $> dotnet add package Azure.Search.Documents
 
@@ -58,7 +68,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 ## Changelog
 
-### Azure.Core [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core/CHANGELOG.md#140-2020-08-06)
+### Azure.Core [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/CHANGELOG.md#140-2020-08-06)
 
 #### Added
 - Added `ObjectSerializer` base class for serialization.
@@ -67,36 +77,36 @@ If you have a bug or feature request for one of the libraries, please [file an i
 #### Fixed
 - Connection leak for retried non-buffered requests on .NET Framework.
 
-### Azure.Core.Experimental [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Azure.Core.Experimental/CHANGELOG.md#010-preview3-2020-08-06)
+### Azure.Core.Experimental [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core.Experimental/CHANGELOG.md#010-preview3-2020-08-06)
 
 #### Breaking Changes
 - `ObjectSerializer`: Moved to `Azure.Core`.
 
-### Microsoft.Azure.Core.NewtonsoftJson [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/core/Microsoft.Azure.Core.NewtonsoftJson/CHANGELOG.md#100-preview1-2020-08-07)
+### Microsoft.Azure.Core.NewtonsoftJson [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Microsoft.Azure.Core.NewtonsoftJson/CHANGELOG.md#100-preview1-2020-08-07)
 
 - First release of `Newtonsoft.Json` serialization adapter package.
 
-### Azure.Extensions.AspNetCore.DataProtection.Blobs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Blobs/CHANGELOG.md#101-2020-08-06)
+### Azure.Extensions.AspNetCore.DataProtection.Blobs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Blobs/CHANGELOG.md#101-2020-08-06)
 
 #### Fixed
 
 - Transient error in key refresh (#12415).
 
-### Azure.Extensions.AspNetCore.DataProtection.Keys [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Keys/CHANGELOG.md#101-2020-08-06)
+### Azure.Extensions.AspNetCore.DataProtection.Keys [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/extensions/Azure.Extensions.AspNetCore.DataProtection.Keys/CHANGELOG.md#101-2020-08-06)
 
 #### Fixed
 
 - Deadlock on .NET Framework (#12605)
 
-### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md)
+### Event Hubs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md)
 
 - This release contains several fixes for minor issues as well as a collection of performance enhancements.
 
-### Event Hubs Processor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md)
+### Event Hubs Processor [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md)
 
 - This release contains several fixes for minor issues as well as a collection of performance enhancements.
 
-### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#300-preview1-2020-08-11)
+### Form Recognizer [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md#300-preview1-2020-08-11)
 
 #### Breaking changes
 
@@ -112,6 +122,22 @@ If you have a bug or feature request for one of the libraries, please [file an i
 #### Fixes
 
 - Made the `TrainingFileFilter` constructor public.
+
+### Azure Identity [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/CHANGELOG.md#120-2020-08-10)
+
+#### New Features
+- Includes changes from 1.2.0-preview.1 to 1.2.0-preview.6
+  - Added credential types for authentication in the development environment `VisualStudioCredential`, `VisualStudioCodeCredential`, `AzureCliCredential`
+  - Updated `DefaultAzureCredential` authentication flow to contain new development credential types
+  - Added `AzureAuthorityHosts` to simplify authentication in sovereign clouds
+
+#### Breaking Changes
+- Removing Application Authentication APIs for GA release. These will be reintroduced in 1.3.0-preview.
+
+#### Fixes and improvements
+- Fixed excess errors in `DefaultAzureCredential` tracing (Issue [#10659](https://github.com/Azure/azure-sdk-for-net/issues/10659))
+- Fixed concurrency issue in `DefaultAzureCredential` (Issue [#13044](https://github.com/Azure/azure-sdk-for-net/issues/13044))
+
 
 ### Azure Key Vault
 
@@ -131,13 +157,52 @@ If you have a bug or feature request for one of the libraries, please [file an i
 - Default service version is now 7.1.
 - Added `RecoverableDays` property to `SecretProperties`.
 
-### Search [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/search/Azure.Search.Documents/CHANGELOG.md#1110-2020-08-11)
+### Storage
+
+#### Blobs [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md)
+
+##### New Features
+- GA of v12.5.0
+- Added support for custom local emulator hostname for blob storage endpoints
+
+##### Key Bug Fixes
+- Fixed bug where `BlobContainerClient.SetAccessPolicy()` sends DateTimeOffset.MinValue when StartsOn and ExpiresOn are not set in BlobAccessPolicy
+
+#### Blobs ChangeFeed [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md)
+
+##### New Features
+- GA of this library
+
+#### Files DataLake [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md)
+
+##### New Features
+- GA of v12.3.0, includes features from all preview versions
+- Added `DataLakeFileClient.OpenWrite()`
+
+##### Key Bug Fixes
+- Fixed bug where `DataLakeFileSystemClient.SetAccessPolicy()` sends DateTimeOffset.MinValue when StartsOn and ExpiresOn are not set in DataLakeAccessPolicy
+
+#### Files Shares [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md)
+
+##### New Features
+- GA of v12.3.0, includes features from all preview versions
+- Added `ShareFileClient.OpenWrite()`
+
+##### Key Bug Fixes
+- Fixed bug where `ShareClient.SetAccessPolicy()` sends DateTimeOffset.MinValue when StartsOn and ExpiresOn are not set in ShareAccessPolicy
+
+#### Queues [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/storage/Azure.Storage.Queues/CHANGELOG.md)
+
+##### New Features
+- GA of v12.4.0, includes features from all preview versions
+
+### Search [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/search/Azure.Search.Documents/CHANGELOG.md#1110-2020-08-11)
 
 #### New Features
 - Added `SearchClientOptions.Serializer` to set which `ObjectSerializer` to use for serialization.
 - Added `FieldBuilder` to easily create `SearchIndex` fields from a model type.
 
-### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md#700-preview5-2020-08-11)
+### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md#700-preview5-2020-08-11)
 
 #### Breaking Changes
 - Change MaxConcurrentCalls to MaxConcurrentSessions in ServiceBusSessionProcessor.
@@ -149,7 +214,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 #### New Features
 - Added MaxConcurrentCallsPerSession option to ServiceBusSessionProcessor
 
-### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#500-2020-07-27)
+### Text Analytics [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md#500-2020-07-27)
 
 - Re-released GA version 1.0.1 under new version 5.0.0
 

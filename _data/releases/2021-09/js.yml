@@ -1,0 +1,602 @@
+entries:
+- Name: '@azure/arm-sql'
+  Version: 30.0.0-beta.1
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/sql/arm-sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-keyvault'
+  Version: 30.0.0-beta.1
+  DisplayName: Resource Management - Key Vault
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault/arm-keyvault/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/cosmos'
+  Version: 3.13.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_3.13.0/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adds TransactionalBatch to items `container.items.batch(operations)`
+
+    #### Bugs Fixed
+
+    - Fixed bulk requests which had operations without partitionKey specified.
+- Name: '@azure/arm-appservice'
+  Version: 30.0.0-beta.1
+  DisplayName: Resource Management - App Service
+  ServiceName: App Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appservice/arm-appservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/attestation'
+  Version: 1.0.0
+  DisplayName: Attestation
+  ServiceName: Attestation
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/attestation_1.0.0/sdk/attestation/attestation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    * Reversed the order of `credentials` and `endpoint` in `AttestationAdministrationClient` to be
+    consistent with other SDKs.
+    * Removed `credentials` top level parameter for `AttestationClient` constructor, moved
+    to the `AttestationClientOptions` object.
+    * Renamed the `validateToken` API in the `AttestationToken` class to `getTokenProblems` returning
+    an array of strings.
+    * Attestation Policy APIs (`setPolicy`, `resetPolicy`) have had their `privateKey` and `certificate` parameters moved to options.
+    * Renamed `instanceUrl` to `endpoint` to be consistent with other APIs.
+    * Removed `policyCertificates` from `AttestationAdministrationClient`.
+    * Removed `StoredAttestationPolicy` and replaced it with `AttestationPolicyToken`.
+    * Removed `AttestationData` type. Instead of specifying an `AttestationData` for `initTimeData` and `runTimeData` to the Attest APIs, the attest APIs take an `initTimeJson`, `initTimeData`, `runTimeData` and `runTimeJson` object and determine
+    the `DataType` to send to the server based on that.
+    * Removed the `AttestationSigningKey` model type replaced with two parameters
+    `privateKey` and `certificate` to the APIs which used to accept an `AttestationSigningKey`
+    * Renamed `AttestationResponse.value` to `AttestationResponse.body` to align with
+    API guidelines.
+
+    #### Features Added
+
+    Added hand authored implementation for policy management certificate APIs: `getPolicyManagementCertificates`, `addPolicyManagementCertificate` and `removePolicyManagementCertificate`.
+
+    Simplified the calling pattern for the Attest family of APIs.
+    Simplified some model types to be reflected as either parameters or interfaces.
+    The attestation family of APIs no longer requires authentication credentials.
+    The attestation family of APIs now accepts Blob objects in addition to Uint8Array
+    and Buffer objects as inputs.
+- Name: '@azure/schema-registry'
+  Version: 1.0.0-beta.2
+  DisplayName: Event Hubs - Schema Registry
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/schema-registry_1.0.0-beta.2/sdk/schemaregistry/schema-registry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support caching of registered schemas and send requests to the service only if the cache does not have the looked-up schema/schema ID.
+
+    #### Breaking Changes
+
+    - Change SchemaRegistryClient.getSchemaId and SchemaRegistryClient.getSchemaById to return `undefined` instead of throwing when schema is not found ([Issue #15130](https://github.com/Azure/azure-sdk-for-js/issues/15130))
+    - Move generated client to use @azure/core-rest-pipeline. For more information about Core V2, please refer to [the documentation](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/core#core-v1-and-core-v2).
+    - With this change, the response types no longer contain the raw response `_response`. To access the raw response, an `onResponse` callback has to be passed in the request options bag.
+
+    ```typescript
+    let createResult: FullOperationResponse | undefined;
+    await client.getSchemaById(id, { onResponse: (response) => (createResult = response) });
+    ```
+- Name: '@azure/container-registry'
+  Version: 1.0.0-beta.4
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/container-registry_1.0.0-beta.4/sdk/containerregistry/container-registry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `UpdateManifestPropertiesOptions` is no longer optional.
+- Name: '@azure/schema-registry-avro'
+  Version: 1.0.0-beta.2
+  DisplayName: Event Hubs - Schema Registry Avro
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/schema-registry-avro_1.0.0-beta.2/sdk/schemaregistry/schema-registry-avro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Depends on @azure/schema-registry@1.0.0-beta.2 which supports client-level caching.
+- Name: '@azure/arm-keyvault'
+  Version: 30.0.0-beta.2
+  DisplayName: Resource Management - Key Vault
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault/arm-keyvault/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-appservice'
+  Version: 30.0.0-beta.2
+  DisplayName: Resource Management - App Service
+  ServiceName: App Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appservice/arm-appservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-sql'
+  Version: 30.0.0-beta.2
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/sql/arm-sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/cosmos'
+  Version: 3.13.1
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_3.13.1/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed bugs in session token clearing logic. Session Not found (404, substatus 1002) was not being handled correctly by the session retry policy and would mistakenly retry the request with the same session token.
+- Name: '@azure/communication-chat'
+  Version: 1.1.0-beta.2
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.1.0-beta.2/sdk/communication/communication-chat/CHANGELOG.md
+  ChangelogContent: '- Updated to @azure/communication-signaling@1.0.0-beta.8.'
+- Name: '@azure/communication-chat'
+  Version: 1.0.1
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.0.1/sdk/communication/communication-chat/CHANGELOG.md
+  ChangelogContent: '- Updated to @azure/communication-signaling@1.0.0-beta.8.'
+- Name: '@azure/arm-resources-subscriptions'
+  Version: 1.0.0-beta.1
+  DisplayName: Resouce Management - Resources Subscriptions
+  ServiceName: Resources Subscriptions
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-resources-subscriptions_1.0.0-beta.1/sdk/resources-subscriptions/arm-resources-subscriptions/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-templatespecs'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Template Specs
+  ServiceName: Template Specs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-templatespecs_1.0.0-beta.1/sdk/templatespecs/arm-templatespecs/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-webpubsub'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - WebPubSub
+  ServiceName: WebPubSub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-webpubsub_1.0.0-beta.1/sdk/web-pubsub/arm-webpubsub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-compute'
+  Version: 30.0.0-beta.3
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/compute/arm-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-authorization'
+  Version: 30.0.0-beta.1
+  DisplayName: Resource Management - Authorization
+  ServiceName: Authorization
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/authorization/arm-authorization/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/cosmos'
+  Version: 3.14.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_3.14.0/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixes bug where Batch was passing the wrong header for batch requests with partition keys
+    - Fixes 401s when using AAD auth. AAD credentials should now work and no longer cause 429s from @azure/identity at high throughput.
+
+    #### Features Added
+
+    - _PREVIEW_ Adds `container.item(itemId).patch()`. `patch()` is an alternative to `replace()` for item updates. https://github.com/Azure/azure-sdk-for-js/pull/16264/files#diff-7caca690c469e2025576523c0377ac71815f001024fde7c48b20cd24adaa6977R561
+    - _PREVIEW_ Adds support for Bulk operation PATCH.
+    - _PREVIEW_ Adds support for Batch operation PATCH.
+- Name: '@azure/identity'
+  Version: 1.5.2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_1.5.2/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: '- Fixed a bug introduced on 1.5.0 that caused the `ManagedIdentityCredential` to fail authenticating in Arc environments. Since our new core disables unsafe requests by default, we had to change the security settings for the first request of the Arc MSI, which retrieves the file path where the authentication value is stored since this request generally happens through an HTTP endpoint.'
+- Name: '@azure/cosmos'
+  Version: 3.14.1
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_3.14.1/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix @azure/core-rest-pipeline version for AAD auth.
+- Name: '@azure/core-http'
+  Version: 2.2.0
+  DisplayName: Core - HTTP
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_2.2.0/sdk/core/core-http/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - `tracingPolicy` will no longer propagate tracing errors to the caller, and such errors will be logged instead and the operation does not get interrupted. [PR #16916](https://github.com/Azure/azure-sdk-for-js/pull/16916)
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.3.0
+  DisplayName: Core Rest Pipeline
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.3.0/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - `tracingPolicy` will no longer propagate tracing errors to the caller, and such errors will be logged instead and the operation does not get interrupted. [PR #16916](https://github.com/Azure/azure-sdk-for-js/pull/16916)
+- Name: '@azure/arm-sql'
+  Version: 30.0.0-beta.3
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/sql/arm-sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-policy'
+  Version: 30.0.0-beta.2
+  DisplayName: Resource Management - Policy
+  ServiceName: Policy
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/policy/arm-policy/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-keyvault'
+  Version: 30.0.0-beta.3
+  DisplayName: Resource Management - Key Vault
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/keyvault/arm-keyvault/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-network'
+  Version: 30.0.0-beta.2
+  DisplayName: Resource Management - Network
+  ServiceName: Virtual Network
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/network/arm-network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-locks'
+  Version: 30.0.0-beta.2
+  DisplayName: Resource Management - Locks
+  ServiceName: Locks
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/locks/arm-locks/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-storage'
+  Version: 30.0.0-beta.2
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/arm-storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-links'
+  Version: 30.0.0-beta.2
+  DisplayName: Resource Management - Links
+  ServiceName: Links
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/links/arm-links/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-resources'
+  Version: 30.0.0-beta.2
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/resources/arm-resources/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-managedapplications'
+  Version: 30.0.0-beta.2
+  DisplayName: Resource Management - Managed Applications
+  ServiceName: Managed Applications
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/managedapplications/arm-managedapplications/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-features'
+  Version: 30.0.0-beta.4
+  DisplayName: Resource Management - Features
+  ServiceName: Features
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/features/arm-features/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-eventhub'
+  Version: 30.0.0-beta.1
+  DisplayName: Resource Management - Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventhub/arm-eventhub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/search-documents'
+  Version: 11.3.0-beta.3
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_11.3.0-beta.3/sdk/search/search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added a new property `normalizerName` to the `AnalyzeRequest` object.
+    - Added 2 new properties `captions` & `semanticFields` to the `SearchRequestOptions` object.
+- Name: '@azure/search-documents'
+  Version: 11.2.1
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_11.2.1/sdk/search/search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### New Features
+
+    - Support for Node.js 8 and IE 11 has been dropped. Please see our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    - Changed TS compilation target to ES2017 to produce smaller bundles and use more native platform features.
+    - Updated our internal core package dependencies to their latest versions to add support for Opentelemetry 1.0.0, which is compatible with the latest versions of our other client libraries.
+- Name: '@azure/data-tables'
+  Version: 12.1.2
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/data-tables_12.1.2/sdk/tables/data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix `disableTypeConversion` to also apply for booleans and convert value to string when there is no type metadata. [#17385](https://github.com/Azure/azure-sdk-for-js/pull/17385)
+- Name: '@azure/keyvault-certificates'
+  Version: 4.4.0-beta.1
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-certificates_4.4.0-beta.1/sdk/keyvault/keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated the latest service version to 7.3.
+- Name: '@azure/keyvault-secrets'
+  Version: 4.4.0-beta.1
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-secrets_4.4.0-beta.1/sdk/keyvault/keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated the latest service version to 7.3.
+- Name: '@azure/synapse-managed-private-endpoints'
+  Version: 1.0.0-beta.4
+  DisplayName: Synapse - Managed Private Endpoints
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-managed-private-endpoints_1.0.0-beta.4/sdk/synapse/synapse-managed-private-endpoints/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Re-generate with swagger `2020-12-01`
+- Name: '@azure/arm-network'
+  Version: 30.0.0-beta.3
+  DisplayName: Resource Management - Network
+  ServiceName: Virtual Network
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/network/arm-network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/container-registry'
+  Version: 1.0.0-beta.5
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/container-registry_1.0.0-beta.5/sdk/containerregistry/container-registry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Replace `authenticationScope` with `audience` in `ContainerRegistryClientOptions`. An extensible enum `KnownContainerRegistryAudience` is introduced which has known audience values.
+- Name: '@azure/arm-servicebus'
+  Version: 30.0.0-beta.1
+  DisplayName: Resource Management - Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/servicebus/arm-servicebus/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure-rest/core-client'
+  Version: 1.0.0-beta.7
+  DisplayName: Core - Rest
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_1.0.0-beta.7/sdk/core/core-client-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Create pipeline from scratch excluding tracingPolicy to decrease bundle size. [#17015](https://github.com/Azure/azure-sdk-for-js/pull/17015)
+    - Allow number and boolean as input headers. [#17358](https://github.com/Azure/azure-sdk-for-js/pull/17358)
+- Name: '@azure/monitor-query'
+  Version: 1.0.0-beta.5
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.0.0-beta.5/sdk/monitor/monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added convenience method `getMetricByName` in `MetricsQueryResult` to allow users to fetch results of a particular metric
+    - Added a flag `throwOnAnyFailure` to be set by user for methods `queryLogs` and `queryLogsBatch` to enable error throwing
+    - Defining `AggregateBatchError` class for throwing batch errors
+    - Added status with potential values `("Partial" | "Success" | "Failed")` for responses of `query` and `queryBatch` APIs to indicate whether the status of results of each query.
+
+    #### Breaking Changes
+
+    - Updated methods `getMetricDefinitions` and `getMetricNamespaces` to return paginated list of items and renamed to `listMetricDefinitions` and `listMetricNames` respectively
+    - Renamed methods `queryLogs` and `queryLogsBatch` in `LogsQueryClient` to `query` and `queryBatch`
+    - Updated the constant names inside `Durations` to drop the `last` prefix
+    - Updated method `queryBatch` to take argument of `QueryBatch` model instead of `QueryLogsBatch` model
+    - Renamed `QueryLogsOptions` to `LogsQueryOptions`
+    - Renamed `QueryLogsBatchResult` to `LogsQueryBatchResult`
+    - Renamed `QueryMetricsResult` to `MetricsQueryResult`
+    - Renamed `QueryLogsResult` to `LogsQueryResult`, `QueryLogsBatchOptions` to `LogsQueryBatchOptions`
+    - Updated type for `timespan` property from `string` to `TimeInterval` type in `query` and `queryBatch` methods of `LogsQueryClient` and in `MetricsQueryResult` interface
+    - Renamed `MetricColumn` to `LogsColumn` and `column` to `columnDescriptors` in `LogsTable` model
+    - Renamed `displayDescription` property to `description` in `Metric` and `MetricNames`
+    - Flattened the `metricNamespaceName` property for `MetricNamespace`
+    - Renamed `innererror` to `innerError` in `ErrorInfo`
+- Name: '@azure/identity-cache-persistence'
+  Version: 1.0.0-beta.2
+  DisplayName: Identity Cache Persistence
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-cache-persistence_1.0.0-beta.2/sdk/identity/identity-cache-persistence/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Updated `@azure/msal-node` and `@azure/msal-node-extensions`, which fixed an issue that caused silent authentication to fail on requests with previously cached (and valid) tokens.
+- Name: '@azure/storage-file-datalake'
+  Version: 12.7.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.7.0/sdk/storage/storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.7.0-beta.1.
+- Name: '@azure/storage-file-share'
+  Version: 12.8.0
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.8.0/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.8.0-beta.1.
+- Name: '@azure/storage-queue'
+  Version: 12.7.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.7.0/sdk/storage/storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2020-10-02.
+    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+- Name: '@azure/identity'
+  Version: 2.0.0-beta.6
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_2.0.0-beta.6/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `ClientCertificateCredential` now evaluates the validity of the PEM certificate path on `getToken` and not on the constructor.
+
+    ##### Breaking Changes from 2.0.0-beta.5
+
+    - The property named `selectedCredential` that was added to `ChainedTokenCredential` and `DefaultAzureCredential` has been removed, since customers reported that logging was enough.
+    - Renamed the `allowUnencryptedStorage` property of `TokenCachePersistenceOptions` to `unsafeAllowUnencryptedStorage` to make it clear that enabling the unencrypted storage feature is not generally safe for production use.
+    - Changed the name of the "extension" API to the "plugin" API to reduce confusion between this package and VS Code extensions. The function `useIdentityExtension` was renamed to `useIdentityPlugin`, and "extension packages" are now known as "plugin packages".
+    - Renamed the `allowUnencryptedStorage` property of `TokenCachePersistenceOptions` to `unsafeAllowUnencryptedStorage` to make it clear that enabling the unencrypted storage feature is not generally safe for production use.
+
+    #### Bugs Fixed
+
+    - `ClientSecretCredential`, `ClientCertificateCredential` and `UsernamePasswordCredential` now throw if the required parameters are not provided (even in JavaScript).
+    - Fixed a bug introduced on 2.0.0-beta.5 that caused the `ManagedIdentityCredential` to fail authenticating in Arc environments. Since our new core disables unsafe requests by default, we had to change the security settings for the first request of the Arc MSI, which retrieves the file path where the authentication value is stored since this request generally happens through an HTTP endpoint.
+    - Fixed bug on the `AggregateAuthenticationError`, which caused an inconsistent error message on the `ChainedTokenCredential`, `DefaultAzureCredential` and `ApplicationCredential`.
+
+    #### Features Added
+
+    - Added the `OnBehalfOfCredential`, which allows users to authenticate through the [On-Behalf-Of authentication flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow).
+    - `ManagedIdentityCredential` now supports token exchange authentication.
+- Name: '@azure/identity-vscode'
+  Version: 1.0.0-beta.2
+  DisplayName: Identity Visual Studio Code Credential
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity-vscode_1.0.0-beta.2/sdk/identity/identity-vscode/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Changed the name of the "extension" API to the "plugin" API to reduce confusion between this package and VS Code extensions. This package is now a "plugin package."
+    - Renamed `vsCodeExtension` to `vsCodePlugin`.
+- Name: '@azure/storage-blob'
+  Version: 12.8.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.8.0/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.8.0-beta.1.
+- Name: '@azure/arm-purview'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Purview
+  ServiceName: Purview
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-purview_1.0.0-beta.1/sdk/purview/arm-purview/CHANGELOG.md
+  ChangelogContent: ""
+
