@@ -165,7 +165,7 @@ function Get-go-Packages
     if ($package.Package -match "(?<modPath>sdk[\\/](resourcemanager[\\/])?(?:(?<modGroup>[^\\/]+)[\\/])?(?<modName>[^\\/]+$))")
     {
       $modPath = $matches["modPath"] -replace "\\", "/"
-      $modName = $matches["modName"] # We may need to start readong this from the go.mod file if the path and mod config start to differ
+      $modName = $matches["modName"]
       $modGroup = $matches["modGroup"]
 
       if ($modName.StartsWith("arm"))
