@@ -1212,4 +1212,16 @@ entries:
     - Updated Azure SDK dependency versions to more recent releases.
     - Updated non-Azure SDK dependency versions to align with the versions Azure SDK uses.
   GroupId: com.azure
+- Name: azure-spring-boot-bom
+  Version: 3.9.0
+  DisplayName: Azure Spring Boot BOM
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/boms/azure-spring-boot-bom/CHANGELOG.md
+  ChangelogContent: |-
+    This release is compatible with Spring Boot 2.5.0 - 2.5.4.
+    #### Dependency Upgrades
+    - Upgrade to [spring-boot-dependencies:2.5.4](https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-dependencies/2.5.4/spring-boot-dependencies-2.5.4.pom).
+  GroupId: com.azure.spring
 
