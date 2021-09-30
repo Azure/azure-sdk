@@ -161,17 +161,23 @@ function Get-go-Packages
 
     $package = CreatePackage $tag $versions[0]
 
-    if ($package.Package -match "sdk/(?<repopath>(?<service>.*?)/(?<arm>arm)?(?<pkgname>.*))")
+    # We should keep this regex in sync with what is in the go repo at https://github.com/Azure/azure-sdk-for-go/blob/main/eng/scripts/Language-Settings.ps1#L32
+    if ($package.Package -match "(?<modPath>sdk[\\/](resourcemanager[\\/])?(?:(?<modGroup>[^\\/]+)[\\/])?(?<modName>[^\\/]+$))")
     {
-      if ($matches["arm"])
+      $modPath = $matches["modPath"] -replace "\\", "/"
+      $modName = $matches["modName"] # We may need to start readong this from the go.mod file if the path and mod config start to differ
+      $modGroup = $matches["modGroup"]
+
+      if ($modName.StartsWith("arm"))
       {
         $package.Type = "mgmt"
         $package.New = "true"
-        $package.DisplayName = "Resource Management - $((Get-Culture).TextInfo.ToTitleCase($matches["pkgname"]))"
+        $package.DisplayName = "Resource Management - $((Get-Culture).TextInfo.ToTitleCase($modName))"
         Write-Host "Marked package $($package.Package) as new mgmt package"
       }
-      $package.ServiceName = (Get-Culture).TextInfo.ToTitleCase($matches["service"])
-      $package.RepoPath = $matches["repopath"]
+
+      $package.ServiceName = (Get-Culture).TextInfo.ToTitleCase($modGroup)
+      $package.RepoPath = $modPath
 
       $packages += $package
     }
