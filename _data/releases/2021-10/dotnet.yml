@@ -63,4 +63,21 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager_1.0.0-beta.4/sdk/resourcemanager/Azure.ResourceManager/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Core
+  Version: 1.20.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.20.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an exception during EventSource creation on Xamarin.
+
+    #### Features Added
+
+    - Added the static `DelegatedTokenCredential` type with a `Create` method, which returns an instance of `TokenCredential` that uses the supplied delgates to produce an `AccessToken`. This would most typically be used when an token has previously been obtained from some other source and that token needs to be returned by a `TokenCredential` instance.
+    - Added `ResponseError` type to represent an Azure error type.
+    - Added an experimental `ActivitySource` support.
 
