@@ -7,7 +7,7 @@ sidebar: general_sidebar
 
 ## Introduction
 
-The Azure Developer Platform (ADP) Architecture Review Board is a board of language architects specializing in Java, Python, TS/JS, C#, C, C++, Go, Android, and iOS.
+The Azure SDK Architecture Board is a board of language architects specializing in Java, Python, TS/JS, C#, C, C++, Go, Android, and iOS.
 
 **The Architecture Board reviews Track 2 libraries only**. By definition, a Track 2 library is one that follows our [Track 2 library design guidelines and specific language guidelines](https://azure.github.io/azure-sdk/general_introduction.html). This means that libraries produced solely by a code generator do NOT follow these guidelines; engineers MUST build a layer on top of the generated code in order to produce a library that meets the guidelines. We have developed the SDK Development Training program to help you be successful in building these libraries - find out more [here!](https://dev.azure.com/azure-sdk/internal/_wiki/wikis/internal.wiki/346/Azure-SDK-Development-Training)
 
