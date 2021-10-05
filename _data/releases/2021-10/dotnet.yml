@@ -136,4 +136,17 @@ entries:
     #### Bugs Fixed
 
     - Dependencies have been updated to resolve an error when creating `EventSource` instances when used with Xamarin.
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.4.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.4.0/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Leveraged fix in AMQP library that allows messages to be properly unlocked when shutting down the processor.
+
+    #### Features Added
+    - Added support for cancelling send and receives while in-flight.
 
