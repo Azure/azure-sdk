@@ -183,4 +183,15 @@ entries:
     - Added `KeyClient.rotateKey` to rotate a key on-demand.
     - Added `KeyClient.updateKeyRotationPolicy` to update a key's automated rotation policy.
     - Added `JsonWebKey.key_ops` property to `JsonWebKey` in addition to the existing `JsonWebKey.keyOps` property in order to comply with the JSON Web Key spec.
+- Name: '@azure/service-bus'
+  Version: 7.4.0-beta.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.4.0-beta.1/sdk/servicebus/service-bus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adds new get/set property `maxMessageSizeInKilobytes` to `QueueProperties`, `TopicProperties`, `CreateQueueOptions`, and `CreateTopicOptions`. Only applicable for premium namespaces. Use this when creating or updating queues and topics. Added in [#17953](https://github.com/Azure/azure-sdk-for-js/pull/17953)
 
