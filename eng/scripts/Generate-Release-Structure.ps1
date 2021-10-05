@@ -43,34 +43,38 @@ if ($publishRelease) {
   }
 
   $yml | ConvertTo-Yaml -OutFile $releaseSidebar -Force
+  
+  # If the release folder exists exit otherwise continue on and create the release folder
+  if (Test-Path $releaseFolder) {
+    exit 0
+  }
 }
-else {
-  if (!(Test-Path $releaseFolder)) {
-    New-Item -Type Directory $releaseFolder | Out-Null
+
+if (!(Test-Path $releaseFolder)) {
+  New-Item -Type Directory $releaseFolder | Out-Null
+}
+
+### Copy template files for ones that don't exist
+foreach ($file in (Get-ChildItem $releaseTemplate/$releaseFileName -Exclude $ExcludeFileNames)) {
+  $newFile = Join-Path $releasefolder $file.Name
+  if (Test-Path $newFile) {
+    Write-Host "Skipping $newFile because it already exists"
+  }
+  else {
+    Copy-Item $file $newFile
+  }
+}
+
+### Update template files with date
+foreach ($file in (Get-ChildItem $releaseFolder/$releaseFileName)) {
+  $fileContent = Get-Content $file -Raw
+
+  $dateFormats = [regex]::Matches($fileContent, "%%(?<format>.*?)%%")
+
+  foreach ($dateFormatMatch in $dateFormats)
+  {
+    $fileContent = $fileContent -replace $dateFormatMatch.Groups[0], $releaseDate.ToString($dateFormatMatch.Groups["format"])
   }
 
-  ### Copy template files for ones that don't exist
-  foreach ($file in (Get-ChildItem $releaseTemplate/$releaseFileName -Exclude $ExcludeFileNames)) {
-    $newFile = Join-Path $releasefolder $file.Name
-    if (Test-Path $newFile) {
-      Write-Host "Skipping $newFile because it already exists"
-    }
-    else {
-      Copy-Item $file $newFile
-    }
-  }
-
-  ### Update template files with date
-  foreach ($file in (Get-ChildItem $releaseFolder/$releaseFileName)) {
-    $fileContent = Get-Content $file -Raw
-
-    $dateFormats = [regex]::Matches($fileContent, "%%(?<format>.*?)%%")
-
-    foreach ($dateFormatMatch in $dateFormats)
-    {
-      $fileContent = $fileContent -replace $dateFormatMatch.Groups[0], $releaseDate.ToString($dateFormatMatch.Groups["format"])
-    }
-
-    $fileContent | Set-Content $file -NoNewline
-  }
+  $fileContent | Set-Content $file -NoNewline
 }
