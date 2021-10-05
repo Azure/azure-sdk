@@ -183,4 +183,24 @@ entries:
     #### Features Added
 
     - Added new enum values to `SystemEvents`.
+- Name: azure-schemaregistry
+  Version: 1.0.0b3
+  DisplayName: Schema Registry
+  ServiceName: Schema Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-schemaregistry_1.0.0b3/sdk/schemaregistry/azure-schemaregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `get_schema_id` method on sync and async `SchemaRegistryClient` has been renamed `get_schema_properties`.
+    - `schema_id` parameter in `get_schema` method on sync and async `SchemaRegistryClient` has been renamed `id`.
+    - `register_schema` and `get_schema_properties` methods on sync and async `SchemaRegistryClient` now take in the following parameters in the given order:
+    - `group_name`, which has been renamed from `schema_group`
+    - `name`, which has been renamed from `schema_name`
+    - `schema_definition`, which has been renamed from `schema_content`
+    - `format`, which has been renamed from `serialization_type`
+    - `endpoint` parameter in `SchemaRegistryClient` constructor has been renamed `fully_qualified_namespace`
+    - `location` instance variable in `SchemaProperties` has been removed.
+    - `Schema` and `SchemaProperties` no longer have positional parameters, as they will not be constructed by the user.
 
