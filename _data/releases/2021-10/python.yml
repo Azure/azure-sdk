@@ -172,4 +172,15 @@ entries:
     - Removed keyword arguments from `SearchClient`: `answers` and `captions`.
     - `SentimentSkill`, `EntityRecognitionSkill`: added client-side validation to prevent sending unsupported parameters.
     - Renamed property `ignore_reset_requirements` to `skip_indexer_reset_requirement_for_cache`.
+- Name: azure-eventgrid
+  Version: 4.6.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventgrid_4.6.0/sdk/eventgrid/azure-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new enum values to `SystemEvents`.
 
