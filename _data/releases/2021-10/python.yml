@@ -1,0 +1,186 @@
+entries:
+- Name: azure-mgmt-containerservice
+  Version: 16.2.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_16.2.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-storage
+  Version: 19.0.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storage_19.0.0/sdk/storage/azure-mgmt-storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-communication-chat
+  Version: 1.1.0
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-chat_1.1.0/sdk/communication/azure-communication-chat/CHANGELOG.md
+  ChangelogContent: '- Updated `azure-communication-chat` version.'
+- Name: azure-mgmt-eventhub
+  Version: 9.1.0
+  DisplayName: Resource Management - Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-eventhub_9.1.0/sdk/eventhub/azure-mgmt-eventhub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-storage-file-datalake
+  Version: 12.5.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.5.0/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    **Stable release of preview features**
+    - Added support for service version 2020-10-02 (STG78)
+    - Added support for quick query parquet
+- Name: azure-storage-file-share
+  Version: 12.6.0
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.6.0/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    **Stable release of preview features**
+    - Added support for service version 2020-10-02 (STG78)
+    - Added OAuth support for file copy source.
+- Name: azure-storage-blob
+  Version: 12.9.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.9.0/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    **Stable release of preview features**
+    - Added support for service version 2020-10-02 (STG78)
+    - Added support for object level immutability policy with versioning (Version Level WORM).
+    - Added support for listing deleted root blobs that have versions.
+    - Added OAuth support for sync copy blob source.
+- Name: azure-mgmt-containerinstance
+  Version: 9.0.0
+  DisplayName: Resource Management - Container Instances
+  ServiceName: Container Instances
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerinstance_9.0.0/sdk/containerinstance/azure-mgmt-containerinstance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-kusto
+  Version: 2.1.0
+  DisplayName: Resource Management - Kusto
+  ServiceName: Data Explorer
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-kusto_2.1.0/sdk/kusto/azure-mgmt-kusto/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-servicebus
+  Version: 7.1.0
+  DisplayName: Resource Management - Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-servicebus_7.1.0/sdk/servicebus/azure-mgmt-servicebus/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-cosmosdb
+  Version: 7.0.0b1
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cosmosdb_7.0.0b1/sdk/cosmos/azure-mgmt-cosmosdb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-authorization
+  Version: 2.0.0
+  DisplayName: Resource Management - Authorization
+  ServiceName: Authorization
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-authorization_2.0.0/sdk/authorization/azure-mgmt-authorization/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-netapp
+  Version: 5.1.0
+  DisplayName: Resource Management - NetApp
+  ServiceName: NetApp Files
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-netapp_5.1.0/sdk/netapp/azure-mgmt-netapp/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-core
+  Version: 1.19.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.19.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes in the Provisional `azure.core.rest` package
+
+    - `azure.core.rest.HttpResponse` and `azure.core.rest.AsyncHttpResponse` are now abstract base classes. They should not be initialized directly, instead
+    your transport responses should inherit from them and implement them.
+    - The properties of the `azure.core.rest` responses are now all read-only
+
+    - HttpLoggingPolicy integrates logs into one record #19925
+- Name: azure-synapse-spark
+  Version: 0.7.0
+  DisplayName: Synapse - Spark
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-synapse-spark_0.7.0/sdk/synapse/azure-synapse-spark/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `LivyStatementStates` and `LivyStates`
+- Name: azure-synapse-artifacts
+  Version: 0.9.0
+  DisplayName: Synapse - Artifacts
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-synapse-artifacts_0.9.0/sdk/synapse/azure-synapse-artifacts/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - re-generated based on tag package-artifacts-composite-v1
+- Name: azure-search-documents
+  Version: 11.3.0b4
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.3.0b4/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added properties to `SearchClient`: `query_answer`, `query_answer_count`,
+    `query_caption`, `query_caption_highlight` and `semantic_fields`.
+
+    #### Breaking Changes
+
+    - Renamed `SearchClient.speller` to `SearchClient.query_speller`.
+    - Renamed model `Speller` to `QuerySpellerType`.
+    - Renamed model `Answers` to `QueryAnswerType`.
+    - Removed keyword arguments from `SearchClient`: `answers` and `captions`.
+    - `SentimentSkill`, `EntityRecognitionSkill`: added client-side validation to prevent sending unsupported parameters.
+    - Renamed property `ignore_reset_requirements` to `skip_indexer_reset_requirement_for_cache`.
+- Name: azure-eventgrid
+  Version: 4.6.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventgrid_4.6.0/sdk/eventgrid/azure-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new enum values to `SystemEvents`.
+
