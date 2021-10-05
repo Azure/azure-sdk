@@ -129,4 +129,47 @@ entries:
     - The properties of the `azure.core.rest` responses are now all read-only
 
     - HttpLoggingPolicy integrates logs into one record #19925
+- Name: azure-synapse-spark
+  Version: 0.7.0
+  DisplayName: Synapse - Spark
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-synapse-spark_0.7.0/sdk/synapse/azure-synapse-spark/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `LivyStatementStates` and `LivyStates`
+- Name: azure-synapse-artifacts
+  Version: 0.9.0
+  DisplayName: Synapse - Artifacts
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-synapse-artifacts_0.9.0/sdk/synapse/azure-synapse-artifacts/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - re-generated based on tag package-artifacts-composite-v1
+- Name: azure-search-documents
+  Version: 11.3.0b4
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.3.0b4/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added properties to `SearchClient`: `query_answer`, `query_answer_count`,
+    `query_caption`, `query_caption_highlight` and `semantic_fields`.
+
+    #### Breaking Changes
+
+    - Renamed `SearchClient.speller` to `SearchClient.query_speller`.
+    - Renamed model `Speller` to `QuerySpellerType`.
+    - Renamed model `Answers` to `QueryAnswerType`.
+    - Removed keyword arguments from `SearchClient`: `answers` and `captions`.
+    - `SentimentSkill`, `EntityRecognitionSkill`: added client-side validation to prevent sending unsupported parameters.
+    - Renamed property `ignore_reset_requirements` to `skip_indexer_reset_requirement_for_cache`.
 
