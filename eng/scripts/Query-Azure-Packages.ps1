@@ -162,11 +162,13 @@ function Get-go-Packages
     $package = CreatePackage $tag $versions[0]
 
     # We should keep this regex in sync with what is in the go repo at https://github.com/Azure/azure-sdk-for-go/blob/main/eng/scripts/Language-Settings.ps1#L32
-    if ($package.Package -match "(?<modPath>sdk/(?<serviceDir>(resourcemanager/)?([^/]+/)?(?<modName>[^/]+$)))")
+    if ($package.Package -match "(?<modPath>sdk/(?<serviceDir>(resourcemanager/)?(?<serviceName>[^/]+/)?(?<modName>[^/]+$)))")
     {
       $modPath = $matches["modPath"]
       $modName = $matches["modName"]
       $serviceDir = $matches["serviceDir"]
+      $serviceName = $matches["serviceName"]
+      if (!$serviceName) { $serviceName = $modName }
 
       if ($modName.StartsWith("arm"))
       {
@@ -176,7 +178,7 @@ function Get-go-Packages
         Write-Host "Marked package $($package.Package) as new mgmt package"
       }
 
-      $package.ServiceName = (Get-Culture).TextInfo.ToTitleCase($modGroup)
+      $package.ServiceName = (Get-Culture).TextInfo.ToTitleCase($serviceName)
       $package.RepoPath = $serviceDir
 
       $packages += $package
