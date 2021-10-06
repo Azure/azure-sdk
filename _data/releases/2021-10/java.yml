@@ -1421,4 +1421,17 @@ entries:
     - Updated `azure-core` from `1.20.0` to `1.21.0`.
     - Updated `azure-core-http-netty` from `1.11.0` to `1.11.1`.
   GroupId: com.azure
+- Name: azure-ai-formrecognizer
+  Version: 3.1.5
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_3.1.5/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    ##### Dependency Updates
+    - Updated `azure-core` to `1.21.0`.
+    - Updated `azure-core-http-netty` to `1.11.1`.
+  GroupId: com.azure
 
