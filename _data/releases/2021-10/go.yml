@@ -31,4 +31,20 @@ entries:
     #### Breaking Changes
     * Changed the `ClientOptions.PerCallOptions` field name to `ClientOptions.PerCallPolicies`
     * Changed the `ClientOptions.Transporter` field name to `ClientOptions.Transport`
+- Name: sdk/messaging/azservicebus
+  Version: 0.1.0
+  DisplayName: azservicebus
+  ServiceName: servicebus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azservicebus/v0.1.0/sdk/messaging/azservicebus/CHANGELOG.md
+  ChangelogContent: '- Initial preview for the new version of the Azure Service Bus Go SDK.'
+- Name: sdk/keyvault/azsecrets
+  Version: 0.1.0
+  DisplayName: Go - Keyvault Secrets
+  ServiceName: Keyvault.Secrets
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/keyvault/azsecrets/v0.1.0/sdk/keyvault/azsecrets/CHANGELOG.md
+  ChangelogContent: '* This is the initial release of the `azsecrets` library'
 
