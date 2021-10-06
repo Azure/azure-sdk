@@ -203,4 +203,43 @@ entries:
     - `endpoint` parameter in `SchemaRegistryClient` constructor has been renamed `fully_qualified_namespace`
     - `location` instance variable in `SchemaProperties` has been removed.
     - `Schema` and `SchemaProperties` no longer have positional parameters, as they will not be constructed by the user.
+- Name: azure-ai-language-questionanswering
+  Version: 1.0.0b2
+  DisplayName: Question Answering
+  ServiceName: Cognitive Language
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-language-questionanswering_1.0.0b2/sdk/cognitivelanguage/azure-ai-language-questionanswering/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * The method `QuestionAnsweringClient.query_text` now supports a list of records as strings, where the ID value will be automatically populated.
+    * Added keyword argument `default_language` onto `QuestionAnsweringClient`, which has default value `'en'`. The default language for any operation call will be this default language value.
+
+
+    #### Breaking changes
+
+    * The method `QuestionAnsweringClient.query_knowledgebase` has been renamed to `query_knowledge_base`.
+    * Options bag model `KnowledgeBaseQueryOptions` for `query_knowledge_base` is renamed to `QueryKnowledgeBaseOptions`
+    * Options bag model `TextQueryOptions` for `query_text` is renamed to `QueryTextOptions`
+    * The filters model `StrictFilters` is renamed to `QueryFilters`
+    * Enum `CompoundOperationKind` is renamed to `LogicalOperationKind`
+    * We have removed the `string_index_type` input to all models and operations. We have also removed the `StringIndexType` enum.
+    * The type of input `metadata` to `MetadataFilter` has changed from a dictionary of strings to a list of key-value tuples. For example, the input has changed from `{"key": "value"}` to `[("key", "value")]`.
+    * The input to the `query_knowledge_base` and `query_text` overloads that take in a positional model for the body should be considered positional only.
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0b5
+  DisplayName: Monitor OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-opentelemetry-exporter_1.0.0b5/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Support stamp specific redirect in exporters
+    ([#20489](https://github.com/Azure/azure-sdk-for-python/pull/20489))
+
+    #### Breaking Changes
+    - Change exporter OT to AI mapping fields following common schema
+    ([#20445](https://github.com/Azure/azure-sdk-for-python/pull/20445))
 
