@@ -159,4 +159,49 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - Added support for specifying the maximum message size for entities in Premium namespaces.
+- Name: Azure.Analytics.Synapse.Spark
+  Version: 1.0.0-preview.8
+  DisplayName: Synapse - Spark
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.Synapse.Spark_1.0.0-preview.8/sdk/synapse/Azure.Analytics.Synapse.Spark/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Enhance Long Running Operation (LRO) logic for `SparkBatchClient` to support both scenarios of job submission and job execution.
+    - Update `LivyState` to be an extensible enum.
+- Name: Azure.AI.Language.QuestionAnswering
+  Version: 1.0.0-beta.2
+  DisplayName: Question Answering
+  ServiceName: Cognitive Language
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.QuestionAnswering_1.0.0-beta.2/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Changed `StrictFilters` to `QueryFilters` which now contains a list of `MetadataRecord` - key-value pairs that allow for referencing the same key numerous times in a filter similar to, for example, "food = 'fruit' OR food = 'vegetable'".
+    - Made `projectName` and `deploymentName` parameters required for `QuestionAnsweringClient` methods.
+    - Moved `QueryKnowledgeBaseOptions`, `QueryTextOptions`, and `TextRecord` to `Azure.AI.Language.QuestionAnswering` namespace.
+    - Removed `QueryTextOptions.StringIndexType` property and will always pass `StringIndexType.Utf16CodeUnit` for .NET.
+    - Renamed "CompoundOperation" to "LogicalOperation" in properties and type names.
+    - Renamed `QuestionKnowledgeBaseOptions.StrictFilters` to `Filters` and changed type to `QueryFilters`.
+
+    #### Features Added
+
+    - Added support for API version 2021-07-15-preview.
+    - Added `QuestionAnsweringClientOptions.DefaultLanguage` to specify a client default, and the `language` parameters of `QueryTextOptions` optional.
+- Name: Azure.Analytics.Synapse.Artifacts
+  Version: 1.0.0-preview.11
+  DisplayName: Synapse - Artifacts
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.Synapse.Artifacts_1.0.0-preview.11/sdk/synapse/Azure.Analytics.Synapse.Artifacts/CHANGELOG.md
+  ChangelogContent: |-
+    - Upgrade to [package-artifacts-composite-v1](https://github.com/Azure/azure-rest-api-specs/blob/bee724836ffdeb5458274037dc75f4d43576b5e3/specification/synapse/data-plane/readme.md#tag-package-artifacts-composite-v1)
+    - Added `SparkConfigurationClient`, `KqlScriptsClient` and associated support types.
+    - Update type of many modles from string to object
+    - `SparkJobDefinition`, `Notebook` and `SqlScript` now has a folder property
+    - `SqlScript` now has poolName and databaseName properties
 
