@@ -308,4 +308,15 @@ entries:
 
     - Re-generate with latest release tag `package-spark-2020-12-01`
     - Update `LivyState` to be an extensible enum.
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.5
+  DisplayName: Monitor OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.5/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed issue with SDK version field not being populated correctly.
 
