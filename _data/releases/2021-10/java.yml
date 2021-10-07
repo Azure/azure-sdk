@@ -1592,4 +1592,51 @@ entries:
     #### Bugs Fixed
     - Fixed an issue that made clients send unnecessary unauthorized requests to obtain a bearer challenge from the service even when already possessing a valid bearer token.
   GroupId: com.azure
+- Name: azure-monitor-query
+  Version: 1.0.0
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-query_1.0.0/sdk/monitor/azure-monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Changed `query` API name in `LogsQuery*Client` to `queryWorkspace`
+    - Changed `query` API name in `MetricsQuery*Client` to `queryResource`
+    - Changed `addQuery` API name in `LogsQueryBatch` to `addWorkspaceQuery`
+    - Removed `status` from `LogsBatchQueryResult`
+    - Throws exception if a logs query is partially successful with an option in `LogsQueryOptions` to disable this
+    behavior.
+
+    #### Features Added
+    - Added `getMetricByName` API on `MetricsQueryResult` to get the metric result for a specific metric name.
+    - Added `LogsQueryStatus` enum to specify if the query was successful, partially successful or failed.
+  GroupId: com.azure
+- Name: azure-ai-formrecognizer
+  Version: 4.0.0-beta.1
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_4.0.0-beta.1/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - This package targets Azure Form Recognizer service API version 2021-09-30-preview and newer. It is not compatible with the older Form Recognizer service API versions (2.0 and 2.1).
+    To continue to use Form Recognizer API version 2.1, please use major version 3 of the client package (azure-ai-form-recognizer 3.1.X).
+    - `FormRecognizerClient` and `FormRecognizerAsyncClient` has been replaced by `DocumentAnalysisClient` and `DocumentAnalysisAsyncClient` respectively.
+    - `FormTrainingClient` and `FormTrainingAsyncClient` has been replaced by `DocumentModelAdministrationClient` and `DocumentModelAdministrationAsyncClient` respectively.
+
+    #### Features Added
+    - Added new DocumentAnalysisClient with beginAnalyzeDocument and beginAnalyzeDocumentFromUrl methods.
+    Use these methods with the latest Form Recognizer API version to analyze documents, with prebuilt and custom models.
+    - Added new models to use with the new DocumentAnalysisClient: AnalyzeResult, AnalyzedDocument, BoundingRegion, DocumentElement,
+    DocumentEntity, DocumentField, DocumentKeyValuePair, DocumentKeyValueElement, DocumentLine, DocumentPage, DocumentSelectionMark,
+    DocumentSpan, DocumentStyle, DocumentTable, DocumentTableCell, DocumentWord, DocumentOperationResult.
+    - Added a new model `DocumentAnalysisServiceVersion` that supports Azure Form Recognizer service version "2021-09-30-preview" and onwards.
+    - Added new `DocumentModelAdministrationClient` and `DocumentModelAdministrationAsyncClient` with methods: beginBuildModel, beginCreateComposedModel, getCopyAuthorization,
+    deleteModel, getAccountProperties, beginCopyModel, listModels, getModel, getOperation, listOperations.
+    - Added new models to use with the new `DocumentModelAdministrationClient`: DocumentModel, DocTypeInfo, DocumentFieldSchema,
+    AccountProperties, CopyAuthorization, BuildModelOptions, CopyAuthorizationOptions, CreateComposedModelOptions, DocumentAnalysisException, FormRecognizerError, InnerError,
+    DocumentModelInfo, ModelOperation, ModelOperationInfo, ModelOperationStatus, ModelOperationKind.
+  GroupId: com.azure
 
