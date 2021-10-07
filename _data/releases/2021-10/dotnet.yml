@@ -287,4 +287,35 @@ entries:
     - All other functionality (ServiceConfiguration, Evaluations, Policy, Model, Log) was moved to `PersonalizerAdministrationClient`.
     - All methods are exposed in their top level client. For example `PersonalizerClient.Events.Reward` is now `PersonalizerClient.Reward`.
     - Changed method names and signatures to follow Azure SDK guidelines.
+- Name: Azure.Messaging.EventGrid
+  Version: 4.7.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventGrid_4.7.0/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added API Management events
+    - Added AcsUserDisconnectedEventData event
+- Name: Azure.Monitor.Query
+  Version: 1.0.0
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.Query_1.0.0/sdk/monitor/Azure.Monitor.Query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - `Query` renamed to `QueryWorkspace` in `LogsQueryClient`
+    - `Query` renamed to `QueryResource` in `MetricsQueryClient`
+    - `Interval` renamed to `Granularity` in `MetricsQueryResult`
+    - `DisplayDescription` renamed to `Description` in `MetricResult`
+    - `Type` renamed to `ResourceType` in `MetricResult`
+    - Removed `LogsQueryClientAudience` and `MetricsQueryClientAudience` types and corresponding properties on `MetricsQueryClientOptions` and `LogsQueryClientOptions`.
+
+    #### Features Added
+    - Added `GetMetricByName` to `MetricsQueryResult`
+    - Added `MetricsQueryResult` to `MonitorQueryModelFactory`
+    - Added `LogsQueryResult` to `MonitorQueryModelFactory`
 
