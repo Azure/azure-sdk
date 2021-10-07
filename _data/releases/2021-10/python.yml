@@ -292,4 +292,17 @@ entries:
     - Added support for Python 3.10.
     - Fixed memory leak in win32 socketio and tlsio (issue #19777).
     - Fixed memory leak in the process of converting AMQPValue into string (issue #19777).
+- Name: azure-servicebus
+  Version: 7.4.0b1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.4.0b1/sdk/servicebus/azure-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support to create and update queues and topics of large message size to `ServiceBusAdministrationClient`. This feature is only available for Service Bus of Premium Tier.
+    - Methods`create_queue`, `create_topic`, `update_queue`, `update_topic` on `ServiceBusAdministrationClient` now take a new keyword argument `max_message_size_in_kilobytes`.
+    - `QueueProperties` and `TopicProperties` now have a new instance variable `max_message_size_in_kilobytes`.
 
