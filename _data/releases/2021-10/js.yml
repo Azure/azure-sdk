@@ -350,4 +350,38 @@ entries:
     - The new type `AnalyzedDocument` replaces `RecognizedForm`. It does not contain a `pages` property, as `pages` are now a top-level property of the `AnalyzeResult`.
     - The new type `DocumentPage` replaces `FormPage`. It does not have a `tables` property, as `tables` are now a top-level property of the `AnalyzeResult`.
     - The `DocumentLine` type (replacing `FormLine`) no longer has a `words` property, as `words` is now a property of the `DocumentPage`. The `DocumentLine` instead contains `spans` which can be used to correlate `DocumentWord`s to `DocumentLine`s, as words are no longer required to be part of a line.
+- Name: '@azure/monitor-query'
+  Version: 1.0.0
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.0.0/sdk/monitor/monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed `ErrorInfo` to `LogsErrorInfo`, which now extends the `Error` class and `code` as an additional property. Removed all the other properties.
+    - `query` method in `LogsQueryClient` renamed to `queryWorkspace`
+    - `query` method in `MetricsQueryClient` renamed to `queryResource`
+    - Renamed the status types in `LogsQueryResultStatus`. `Partial` to `PartialFailure` and `Failed` to `Failure`.
+    - Renamed `timeGrain` in `MetricAvailability` to `granularity`
+    - Renamed `TimeInterval` to `QueryTimeInterval`
+    - Updated constants in `Durations` to camel-case.
+    - Removed `credentialOptions.credentialScopes` property in `LogsQueryClientOptions` since scopes other than default are not supported yet.
+    - Removed `throwOnAnyError` flag from `LogsQueryOptions` and `LogsQueryBatchOptions`
+    - Removed the error classes `BatchError` and `AggregateBatchError`
+    - Updated `LogsQueryBatchResult` object to be a list of objects with the following possible types:
+    - `LogsQueryPartialResult`
+    - `LogsQuerySuccessfulResult`
+    - `LogsQueryError`
+    - Updated `LogsQueryResult` object to be of type `LogsQuerySuccessfulResult` or `LogsQueryPartialResult`
+
+    #### Features Added
+
+    - Enabled browser support
+    - Added different result objects `LogsQueryPartialResult`, `LogsQuerySuccessfulResult` or `LogsQueryError` based on the success scenarios for log queries.
+
+    #### Bugs Fixed
+
+    - Updated `listMetricNamespaces` signature to return the list of appropriate `MetricsNamespaces` object type
 
