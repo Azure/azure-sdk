@@ -226,11 +226,6 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
       }
     }
 
-    if ($pkg.VersionGA -and $pkg.Type -eq "client") {
-      if ([bool]($pkg.PSobject.Properties.name -match "FirstGADate") -and !$pkg.FirstGADate) {
-        $pkg.FirstGADate = GetFirstGADate $pkgVersion $pkg $gaVersions
-      }
-    }
     if ($version -eq "") {
       $pkg.VersionGA = ""
     }
@@ -241,6 +236,12 @@ function Update-Packages($lang, $packageList, $langVersions, $langLinkTemplates)
       }
       else {
         Write-Warning "Not updating VersionGA for $($pkg.Package) because at least one associated URL is not valid!"
+      }
+    }
+
+    if ($pkg.VersionGA -and $pkg.Type -eq "client") {
+      if ([bool]($pkg.PSobject.Properties.name -match "FirstGADate") -and !$pkg.FirstGADate) {
+        $pkg.FirstGADate = GetFirstGADate $pkgVersion $pkg $gaVersions
       }
     }
 
