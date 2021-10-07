@@ -267,4 +267,29 @@ entries:
     - `auto_register_schemas` keyword argument has been added to `AvroSerializer`, which will allow for automatically registering schemas passed in to the `serialize`, when set to `True`, otherwise `False` by default.
     - `value` parameter in `serialize` on `AvroSerializer` takes type `Mapping` rather than `Dict`.
     - Depends on `azure-schemaregistry==1.0.0b3`.
+- Name: azure-eventhub
+  Version: 5.6.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.6.1/sdk/eventhub/azure-eventhub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug for checking that `azure.eventhub.amqp.AmqpMessageHeader` and `azure.eventhub.amqp.AmqpMessageProperties` contain specific properties using the `in` keyword.
+- Name: azure-servicebus
+  Version: 7.3.4
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.3.4/sdk/servicebus/azure-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated uAMQP dependency to 1.4.3.
+    - Added support for Python 3.10.
+    - Fixed memory leak in win32 socketio and tlsio (issue #19777).
+    - Fixed memory leak in the process of converting AMQPValue into string (issue #19777).
 
