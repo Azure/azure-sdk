@@ -113,7 +113,7 @@ function Get-js-Packages
     {
       $package.Type = "mgmt"
       $package.New = "true"
-      Write-Host "Marked package $($package.Package) as new mgmt package"
+      Write-Host "Marked package $($package.Package) as new mgmt package with version $($package.VersionGA + $package.VersionPreview)"
     }
   }
 
@@ -175,7 +175,7 @@ function Get-go-Packages
         $package.Type = "mgmt"
         $package.New = "true"
         $package.DisplayName = "Resource Management - $((Get-Culture).TextInfo.ToTitleCase($modName))"
-        Write-Host "Marked package $($package.Package) as new mgmt package"
+        Write-Host "Marked package $($package.Package) as new mgmt package with version $($package.VersionGA + $package.VersionPreview)"
       }
 
       $package.ServiceName = (Get-Culture).TextInfo.ToTitleCase($serviceName)
@@ -212,11 +212,6 @@ function Write-Latest-Versions($lang)
       }
     }
     else {
-      # For new packages let the Update-Release-Versions script update the versions
-      if ($pkgEntry.New -eq "true") {
-        continue
-      }
-
       if ($pkg.Type -and $pkg.Type -ne $pkgEntry.Type) {
         $pkgEntry.Type = $pkg.Type
       }
@@ -232,7 +227,10 @@ function Write-Latest-Versions($lang)
       # Update version of package
       if ($pkg.VersionGA) {
         $pkgEntry.VersionGA = $pkg.VersionGA
-        if ($pkgEntry.VersionGA -gt $pkgEntry.VersionPreview) {
+
+        $gaSemVer = ToSemVer $pkgEntry.VersionGA
+        $previewSemVer = ToSemVer $pkgEntry.VersionPreview
+        if ($gaSemVer -and $previewSemVer -and $gaSemVer -gt $previewSemVer) {
           $pkgEntry.VersionPreview = ""
         }
       }

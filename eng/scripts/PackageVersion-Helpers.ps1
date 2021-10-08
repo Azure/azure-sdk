@@ -145,6 +145,13 @@ function GetPackageVersions($lang, [DateTime]$afterDate = [DateTime]::Now.AddMon
       $version = $tagName
     }
 
+    # Temporary hack to avoid seeing the track 2 mgmt version 30.0.0 packages
+    # we plan to clean-up and deprecate those version at which point this
+    # hack can be removed.
+    if ($lang -eq "js" -and $version.StartsWith("30.0.0-beta")) {
+      continue
+    }
+
     if (!$packageVersions.ContainsKey($package)) {
       $packageVersions.Add($package, [PSCustomObject]@{
         Package = $package
