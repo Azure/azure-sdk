@@ -1693,4 +1693,23 @@ entries:
     - Added `SchemaRegistryVersion`.
     - Added back `Response<T>` overloads for `getSchema`, `getSchemaProperties`.
   GroupId: com.azure
+- Name: azure-core-amqp
+  Version: 2.3.3
+  DisplayName: Core - AMQP
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-amqp_2.3.3/sdk/core/azure-core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed issue where RequestResponseChannel did not complete pending sends on disposal. So, any downstream subscribers would wait forever for a completion or error. This results in dependent senders or receivers not recovering from a disconnect or graceful closure.
+
+    #### Features Added
+
+    - Defer creation of AmqpException in switchIfEmpty to decrease creation of unused exception objects.
+    - Updated tests to run in parallel.
+    - Updated log messages so they are consistent in reporting connectionId.
+    - Updated incorrect log messages in ReactorReceiver.
+  GroupId: com.azure
 
