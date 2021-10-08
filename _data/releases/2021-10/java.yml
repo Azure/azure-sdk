@@ -1712,4 +1712,18 @@ entries:
     - Updated log messages so they are consistent in reporting connectionId.
     - Updated incorrect log messages in ReactorReceiver.
   GroupId: com.azure
+- Name: azure-data-schemaregistry-apacheavro
+  Version: 1.0.0-beta.6
+  DisplayName: Schema Registry - Avro
+  ServiceName: Schema Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-schemaregistry-apacheavro_1.0.0-beta.6/sdk/schemaregistry/azure-data-schemaregistry-apacheavro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed package from `azure-data-schemaregistry-avro` to `azure-data-schemaregistry-apacheavro`.
+    - Renamed serializer to `SchemaRegistryApacheAvroSerializer`.
+    - Renamed builder to `SchemaRegistryApacheAvroSerializerBuilder`.
+  GroupId: com.azure
 
