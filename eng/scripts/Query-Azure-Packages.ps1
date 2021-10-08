@@ -109,10 +109,14 @@ function Get-js-Packages
   {
     # If package starts with arm- and we shipped it recently because it is in the last months repo tags
     # then treat it as a new mgmt library
-    if ($package.Package.StartsWith("@azure/arm-") -and $repoTags.ContainsKey($package.Package))
+    if ($package.Package -match "@azure/arm-(?<serviceName>.*)" -and $repoTags.ContainsKey($package.Package))
     {
+      $serviceName = (Get-Culture).TextInfo.ToTitleCase($matches["serviceName"])
       $package.Type = "mgmt"
       $package.New = "true"
+      $package.RepoPath = $matches["serviceName"]
+      $package.ServiceName = $serviceName
+      $package.DisplayName = "Resource Management - $serviceName"
       Write-Host "Marked package $($package.Package) as new mgmt package with version $($package.VersionGA + $package.VersionPreview)"
     }
   }
@@ -218,6 +222,14 @@ function Write-Latest-Versions($lang)
 
       if ($pkg.New -ne "false" -and $pkg.New -ne $pkgEntry.New) {
         $pkgEntry.New = $pkg.New
+      }
+
+      if (!$pkgEntry.RepoPath -or $pkgEntry.RepoPath -eq "NA" -and $pkg.RepoPath) {
+        $pkgEntry.RepoPath = $pkg.RepoPath
+      }
+
+      if (!$pkgEntry.ServiceName -and $pkg.ServiceName) {
+        $pkgEntry.ServiceName = $pkg.ServiceName
       }
 
       if ($pkgEntry.VersionGA.StartsWith("0")) {
