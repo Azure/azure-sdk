@@ -374,7 +374,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - Fix 4xx HTTP response handling
 
-### Azure Schema Registry Avro ([Changelog]https://github.com/Azure/azure-sdk-for-java/blob/azure-data-schemaregistry-avro_1.0.0-beta.3/sdk/schemaregistry/azure-data-schemaregistry-avro/CHANGELOG.md#100-beta2-2020-06-19))
+### Azure Schema Registry Avro ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/azure-data-schemaregistry-avro_1.0.0-beta.3/sdk/schemaregistry/azure-data-schemaregistry-avro/CHANGELOG.md#100-beta2-2020-06-19))
 
 ## 1.0.0-beta.2 (2020-06-19)
 
