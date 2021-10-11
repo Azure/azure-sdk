@@ -146,4 +146,30 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-postgresqlflexibleserver_1.0.0-beta.4/sdk/postgresqlflexibleserver/azure-resourcemanager-postgresqlflexibleserver/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-communication-sms
+  Version: 1.0.5
+  DisplayName: Communication Sms
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-sms_1.0.5/sdk/communication/azure-communication-sms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency updates
+    - Upgraded `azure-core` to 1.21.0
+  GroupId: com.azure
+- Name: azure-communication-phonenumbers
+  Version: 1.0.5
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-phonenumbers_1.0.5/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency updates
+    - Upgraded `azure-core` to 1.21.0
+  GroupId: com.azure
 
