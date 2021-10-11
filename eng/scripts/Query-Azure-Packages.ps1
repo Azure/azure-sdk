@@ -57,7 +57,7 @@ function CreatePackage(
 function Get-java-Packages
 {
   # Rest API docs https://search.maven.org/classic/#api
-  $mavenQuery = Invoke-RestMethod "https://search.maven.org/solrsearch/select?q=g:com.microsoft.azure*%20OR%20g:com.azure*&rows=1000&wt=json"
+  $mavenQuery = Invoke-RestMethod "https://search.maven.org/solrsearch/select?q=g:com.microsoft.azure*%20OR%20g:com.azure*&rows=2000&wt=json"
 
   Write-Host "Found $($mavenQuery.response.numFound) maven packages"
   $packages = $mavenQuery.response.docs | Foreach-Object { CreatePackage $_.a $_.latestVersion $_.g }
