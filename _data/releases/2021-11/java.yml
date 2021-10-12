@@ -185,4 +185,16 @@ entries:
     - `OperationStatus` clients are replaced with `KqlScripts` clients
     - Removed `OperationResult` clients.
   GroupId: com.azure
+- Name: azure-core
+  Version: 1.22.0-beta.1
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core_1.22.0-beta.1/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added a new way to create a `PollerFlux` from a `PollingStrategy`, including known strategies to poll Azure resources. ([#22795](https://github.com/Azure/azure-sdk-for-java/pull/22795))
+  GroupId: com.azure
 
