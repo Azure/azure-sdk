@@ -87,7 +87,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 - Removed `Azure::Identity::PackageVersion`.
 
-### azure-security-keyvault-common [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/keyvault/azure-security-keyvault-common/CHANGELOG.md#400-beta1-2021-04-07)
+### azure-security-keyvault-common [Changelog](https://github.com/Azure/azure-sdk-for-cpp/blob/azure-security-keyvault-common_4.0.0-beta.1/sdk/keyvault/azure-security-keyvault-common/CHANGELOG.md#400-beta1-2021-04-07)
 
 #### New Features
 
