@@ -10,4 +10,38 @@ entries:
     #### Key Bugs Fixed
 
     - Avoid synchronously waiting for batch trigger execution
+- Name: Microsoft.Azure.Core.Spatial.NewtonsoftJson
+  Version: 1.1.0-beta.1
+  DisplayName: Core Spatial Newtonsoft Json
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.Core.Spatial.NewtonsoftJson_1.1.0-beta.1/sdk/core/Microsoft.Azure.Core.Spatial.NewtonsoftJson/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added converter support for the following types ([#24367](https://github.com/Azure/azure-sdk-for-net/issues/24367)):
+    - GeographyLineString
+    - GeographyPolygon
+    - GeographyMultiPoint
+    - GeographyMultiLineString
+    - GeographyMultiPolygon
+    - GeographyCollection
+- Name: Microsoft.Azure.Core.Spatial
+  Version: 1.2.0-beta.1
+  DisplayName: Core Spatial
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.Core.Spatial_1.2.0-beta.1/sdk/core/Microsoft.Azure.Core.Spatial/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added converter support for the following types ([#24367](https://github.com/Azure/azure-sdk-for-net/issues/24367)):
+    - GeographyLineString
+    - GeographyPolygon
+    - GeographyMultiPoint
+    - GeographyMultiLineString
+    - GeographyMultiPolygon
+    - GeographyCollection
 
