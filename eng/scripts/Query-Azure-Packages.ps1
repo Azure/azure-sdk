@@ -178,6 +178,7 @@ function Get-go-Packages
       {
         $package.Type = "mgmt"
         $package.New = "true"
+        $modName = $modName.Substring(3); # Remove arm from front
         $package.DisplayName = "Resource Management - $((Get-Culture).TextInfo.ToTitleCase($modName))"
         Write-Host "Marked package $($package.Package) as new mgmt package with version $($package.VersionGA + $package.VersionPreview)"
       }
