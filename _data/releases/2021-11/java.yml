@@ -357,4 +357,39 @@ entries:
     - Updated `azure-storage-common` to version `12.14.0`
     - Updated `azure-core` to version `1.21.0`
   GroupId: com.azure
+- Name: azure-search-documents
+  Version: 11.4.4
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.4.4/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` and other dependencies for the library.
+  GroupId: com.azure
+- Name: azure-messaging-eventgrid
+  Version: 4.7.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventgrid_4.7.0/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added new Api Management service system events, `ApiManagementApiCreatedEventData`, `ApiManagementApiDeletedEventData`,
+    `ApiManagementApiReleaseCreatedEventData`, `ApiManagementApiReleaseDeletedEventData`,
+    `ApiManagementApiReleaseUpdatedEventData`, `ApiManagementApiUpdatedEventData`, `ApiManagementProductCreatedEventData`,
+    `ApiManagementProductDeletedEventData`, `ApiManagementProductUpdatedEventData`,
+    `ApiManagementSubscriptionCreatedEventData`, `ApiManagementSubscriptionDeletedEventData`,
+    `ApiManagementSubscriptionUpdatedEventData`,`ApiManagementUserCreatedEventData`, `ApiManagementUserDeletedEventData`,
+    `ApiManagementUserUpdatedEventData`.
+    - Added a new Media service system event, `MediaLiveEventChannelArchiveHeartbeatEventData`.
+    - Added a new Communication service system event, `AcsUserDisconnectedEventData`.
+    - Added fields `transcriptionLanguage`, `transcriptionState`, `ingestDriftValue`, `lastFragmentArrivalTime`
+    to system event classes `MediaLiveEventIngestHeartbeatEventData`.
+  GroupId: com.azure
 
