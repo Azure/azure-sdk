@@ -176,6 +176,8 @@ function Get-go-Packages
 
       if ($modName.StartsWith("arm"))
       {
+        # Skip arm packages that aren't in the resourcemanager service folder
+        if (!$serviceDir.StartsWith("resourcemanager")) { continue }
         $package.Type = "mgmt"
         $package.New = "true"
         $modName = $modName.Substring(3); # Remove arm from front
