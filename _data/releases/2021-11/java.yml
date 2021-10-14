@@ -431,4 +431,50 @@ entries:
     ##### Key Bug Fixes
     * Fixed issue with bulk reads when `contentResponseOnWrite` is not explicitly enabled on the cosmos client.
   GroupId: com.azure
+- Name: azure-messaging-eventhubs
+  Version: 5.10.2
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs_5.10.2/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.20.0` to `1.21.0`.
+    - Upgraded `azure-core-amqp` from `2.3.2` to `2.3.3`.
+  GroupId: com.azure
+- Name: azure-messaging-eventhubs-checkpointstore-blob
+  Version: 1.10.1
+  DisplayName: Event Hubs - Azure Blob Storage Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs-checkpointstore-blob_1.10.1/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Update `azure-messaging-eventhubs` dependency to `5.10.2`.
+    - Update `azure-storage-blob` dependency to `12.14.1`.
+  GroupId: com.azure
+- Name: azure-communication-chat
+  Version: 1.1.1
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-chat_1.1.1/sdk/communication/azure-communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-communication-common` to 1.0.5
+    - Upgraded `azure-communication-identity` to 1.1.3
+    - Upgraded `azure-core` to 1.21.0
+  GroupId: com.azure
 
