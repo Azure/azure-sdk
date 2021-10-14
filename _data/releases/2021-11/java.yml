@@ -392,4 +392,13 @@ entries:
     - Added fields `transcriptionLanguage`, `transcriptionState`, `ingestDriftValue`, `lastFragmentArrivalTime`
     to system event classes `MediaLiveEventIngestHeartbeatEventData`.
   GroupId: com.azure
+- Name: azure-resourcemanager-webpubsub
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Web PubSub
+  ServiceName: Web PubSub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-webpubsub_1.0.0-beta.2/sdk/webpubsub/azure-resourcemanager-webpubsub/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
