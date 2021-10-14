@@ -63,4 +63,24 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerinstance_9.1.0/sdk/containerinstance/azure-mgmt-containerinstance/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-identity
+  Version: 1.7.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.7.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    > These changes do not impact the API of stable versions such as 1.6.0.
+    > Only code written against a beta version such as 1.7.0b1 may be affected.
+
+    - The `allow_multitenant_authentication` argument has been removed and the default behavior is now as if it were true.
+    The multitenant authentication feature can be totally disabled by setting the environment variable
+    `AZURE_IDENTITY_DISABLE_MULTITENANTAUTH` to `True`.
+    - `azure.identity.RegionalAuthority` is removed.
+    - `regional_authority` argument is removed for `CertificateCredential` and `ClientSecretCredential`.
+    - `AzureApplicationCredential` is removed.
+    - `client_credential` in the ctor of `OnBehalfOfCredential` is removed. Please use `client_secret` or `client_certificate` instead.
+    - Make `user_assertion` in the ctor of `OnBehalfOfCredential` a keyword only argument.
 
