@@ -401,4 +401,34 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-webpubsub_1.0.0-beta.2/sdk/webpubsub/azure-resourcemanager-webpubsub/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-cosmos-encryption
+  Version: 1.0.0-beta.9
+  DisplayName: Cosmos DB Encryption
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-encryption_1.0.0-beta.9/sdk/cosmos/azure-cosmos-encryption/CHANGELOG.md
+  ChangelogContent: |-
+    ##### New Features
+    * Added support for transaction batch.
+    * Added support for aggregate query.
+    * Updated `azure-cosmos` to version `4.20.0`.
+
+    ##### Key Bug Fixes
+    * Fixed Json property name of ClientEncryptionKeyProperties.
+  GroupId: com.azure
+- Name: azure-cosmos
+  Version: 4.20.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos_4.20.0/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Features Added
+    * Enabling `queryplan` cache by default
+
+    ##### Key Bug Fixes
+    * Fixed issue with bulk reads when `contentResponseOnWrite` is not explicitly enabled on the cosmos client.
+  GroupId: com.azure
 
