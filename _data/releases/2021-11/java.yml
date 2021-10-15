@@ -492,4 +492,49 @@ entries:
     #### Other Changes
     - Re-generate with latest release tag `package-spark-2020-12-01`
   GroupId: com.azure
+- Name: azure-analytics-purview-catalog
+  Version: 1.0.0-beta.2
+  DisplayName: Purview Catalog
+  ServiceName: Purview
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-analytics-purview-catalog_1.0.0-beta.2/sdk/purview/azure-analytics-purview-catalog/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    This is a new version of LLC SDK. Changes are
+
+    - A sync client and an async client for each operation group.
+    - Add `RequestOptions` and `Context` to client method parameters.
+    - Return type of client method is always `Response` except paging and long-running operations.
+    - Allow users to set `ServiceVersion` in client builder.
+  GroupId: com.azure
+- Name: azure-identity
+  Version: 1.4.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.4.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `tenantId` setter on `AzurePowerShellCredential` and `AzureCliCredential`
+  GroupId: com.azure
+- Name: azure-analytics-purview-scanning
+  Version: 1.0.0-beta.2
+  DisplayName: Purview Scanning
+  ServiceName: Purview
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-analytics-purview-scanning_1.0.0-beta.2/sdk/purview/azure-analytics-purview-scanning/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    This is a new version of LLC SDK. Changes are
+
+    - A sync client and an async client for each operation group.
+    - Add `RequestOptions` and `Context` to client method parameters.
+    - Return type of client method is always `Response` except for paging and long-running operations.
+    - Allow users to set `ServiceVersion` in client builder.
+  GroupId: com.azure
 
