@@ -83,4 +83,50 @@ entries:
     - `AzureApplicationCredential` is removed.
     - `client_credential` in the ctor of `OnBehalfOfCredential` is removed. Please use `client_secret` or `client_certificate` instead.
     - Make `user_assertion` in the ctor of `OnBehalfOfCredential` a keyword only argument.
+- Name: azure-purview-scanning
+  Version: 1.0.0b2
+  DisplayName: Purview Scanning
+  ServiceName: Purview
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-purview-scanning_1.0.0b2/sdk/purview/azure-purview-scanning/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Add convenience operations to client
+
+    **Breaking changes**
+
+    - Remove rest layer and request builders(detailed description is in `README.md`)
+    - The HttpRequest parameter to send_request has changed from `http_request` to `request`
+    - Ordering of endpoint and credential params have changed
+- Name: azure-purview-catalog
+  Version: 1.0.0b2
+  DisplayName: Purview Catalog
+  ServiceName: Purview
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-purview-catalog_1.0.0b2/sdk/purview/azure-purview-catalog/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Add convenience operations to client
+
+    **Breaking changes**
+
+    - Remove rest layer and request builders(detailed description is in `README.md`)
+    - The HttpRequest parameter to send_request has changed from `http_request` to `request`
+    - Ordering of endpoint and credential params have changed
+- Name: azure-messaging-webpubsubservice
+  Version: 1.0.0b2
+  DisplayName: Web PubSub
+  ServiceName: Web PubSub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-messaging-webpubsubservice_1.0.0b2/sdk/webpubsub/azure-messaging-webpubsubservice/CHANGELOG.md
+  ChangelogContent: |-
+    - Change api-version to `2021-10-01`
+    - Add operations to client
+    - Support AAD
+    - Support Api Management Proxy
 
