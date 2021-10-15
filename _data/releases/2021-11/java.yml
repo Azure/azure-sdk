@@ -477,4 +477,19 @@ entries:
     - Upgraded `azure-communication-identity` to 1.1.3
     - Upgraded `azure-core` to 1.21.0
   GroupId: com.azure
+- Name: azure-analytics-synapse-spark
+  Version: 1.0.0-beta.5
+  DisplayName: Synapse - Spark
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-analytics-synapse-spark_1.0.0-beta.5/sdk/synapse/azure-analytics-synapse-spark/CHANGELOG.md
+  ChangelogContent: |-
+    #### New Features
+    - Added `ClientOptions` to `SparkClientBuilder`
+    - Added `LivyStatementStates` and `LivyStates` enum classes.
+
+    #### Other Changes
+    - Re-generate with latest release tag `package-spark-2020-12-01`
+  GroupId: com.azure
 
