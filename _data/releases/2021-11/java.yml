@@ -552,4 +552,16 @@ entries:
     - Upgraded `azure-core` from `1.20.0` to `1.21.0`.
     - Upgraded `azure-core-amqp` from `2.3.2` to `2.3.3`.
   GroupId: com.azure
+- Name: azure-core-test
+  Version: 1.7.3
+  DisplayName: Core - Test
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-test_1.7.3/sdk/core/azure-core-test/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where an exception may be thrown when recording test runs.
+  GroupId: com.azure
 
