@@ -6,3 +6,4 @@
 {% assign msdocs_url_template = "https://docs.microsoft.com/javascript/api/overview/azure/item.TrimmedPackage-readme" %}
 {% assign ghdocs_url_template = "https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-item.TrimmedPackage/item.Version/index.html" %}
 {% assign source_url_template = "https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/item.RepoPath/item.TrimmedPackage/" %}
+{% assign source_rest_url_template = "https://github.com/Azure/azure-sdk-for-js/tree/item.Package_item.Version/sdk/item.RepoPath/purview-catalog-rest/item.TrimmedPackage-rest" %}
