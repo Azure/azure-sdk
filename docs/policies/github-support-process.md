@@ -31,7 +31,7 @@ New issues are automatically labeled with the following:
 | ------------------- | ------------------------------------------------------------------------------------------------------------ |
 | `needs-triage`      | To indicate that the issue needs to be reviewed by triage team                                               |
 | `customer-reported` | To distinguish community-created issues from those created by Azure team members                             |
-| `question`          | To indicate issue type. (The assumption is that the issue is a question.)                                    |
+| `question`          | To indicate issue type. (Every issue starts as a question and is updated as part of triage)                  |
 
 
 
