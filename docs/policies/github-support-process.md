@@ -44,7 +44,6 @@ The triage team will go through the issues and assess who might be the best owne
 | `Service Attention`      | Added if the issue needs to be routed to another team  |
 | `bug`, `feature-request` | These are the other issue types                        |
 
-
 For issues that need to be routed to teams best able to assist, i.e. those tagged `Service Attention`, there will be a comment that says the following: 
 
     Thanks for the feedback! We are routing this to the appropriate team for follow-up. cc @GitHubHandle
