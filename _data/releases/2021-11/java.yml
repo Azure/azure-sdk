@@ -604,4 +604,22 @@ entries:
     - Updated Azure SDK dependency versions to more recent releases.
     - Updated non-Azure SDK dependency versions to align with the versions Azure SDK uses.
   GroupId: com.azure
+- Name: azure-resourcemanager-storagepool
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Storage Pool
+  ServiceName: Storage Pool
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-storagepool_1.0.0-beta.1/sdk/storagepool/azure-resourcemanager-storagepool/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-logz
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Logz
+  ServiceName: Logz
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-logz_1.0.0-beta.1/sdk/logz/azure-resourcemanager-logz/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
