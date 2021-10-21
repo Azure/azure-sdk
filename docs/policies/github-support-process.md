@@ -59,7 +59,7 @@ Depending on the nature of the issue, several rounds of back-and-forth may be ne
 When asking you for more input, we also add the `needs-author-feedback` label to the issue. When tagged as such, our bot will remind either you or us to look at the issue depending on which side has responded: 
 - when you respond, it adds `needs-team-attention` to get our attention (and removes `needs-author-feedback`)
 - when you don’t respond *7 days after* `needs-author-feedback` is added, it'll add `no-recent-activity` and send you a friendly reminder
-    - if there’s no response from you after *another 14 days* (so total 21 days), it'll close the issue
+- if there’s no response from you after *another 14 days* (total 21 days), it'll close the issue
 - if you respond *within 7 days* of issue closure, it'll reopen the issue 
 
 ## Issue types and when they're resolved
