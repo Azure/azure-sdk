@@ -34,7 +34,6 @@ New issues are automatically labeled with the following:
 | `question`          | To indicate issue type. (Every issue starts as a question and is updated as part of triage)                  |
 
 
-
 The triage team will go through the issues and assess who might be the best owner to assign for an issue or whether another team is best suited to assist.  Labels will be added or removed as needed to help categorize and ensure that it is seen by those best able to assist.   Some common tags are:
 
 | Tag                      | Purpose                                               |
