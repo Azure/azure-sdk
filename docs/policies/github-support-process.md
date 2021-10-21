@@ -30,7 +30,7 @@ New issues are automatically labeled with the following:
 | Tag                 | Purpose                                                                                                      |
 | ------------------- | ------------------------------------------------------------------------------------------------------------ |
 | `needs-triage`      | To indicate that the issue needs to be reviewed by triage team                                               |
-| `customer-reported` | To distinguish community created issues from those created by the SDK team for development tracking purposes |
+| `customer-reported` | To distinguish community-created issues from those created by Azure team members                             |
 | `question`          | To indicate issue type. (The assumption is that the issue is a question.)                                    |
 
 
