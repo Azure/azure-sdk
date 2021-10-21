@@ -35,7 +35,7 @@ New issues are automatically labeled with the following:
 
 
 
-The triage team will go through the issues and assess who might be the best owner to assign to an issue and whether an issue needs to be routed to another team to be resolved. More labels will be added as necessary or removed if the issue turns out to be about a bug (for example) rather than a question:   
+The triage team will go through the issues and assess who might be the best owner to assign for an issue or whether another team is best suited to assist.  Labels will be added or removed as needed to help categorize and ensure that it is seen by those best able to assist.   Some common tags are:
 
 | Tag                      | Purpose                                               |
 | ------------------------ | ------------------------------------------------------ |
