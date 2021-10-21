@@ -38,10 +38,11 @@ New issues are automatically labeled with the following:
 The triage team will go through the issues and assess who might be the best owner to assign to an issue and whether an issue needs to be routed to another team to be resolved. More labels will be added as necessary or removed if the issue turns out to be about a bug (for example) rather than a question:   
 
 | Tag                      | Purpose                                               |
-| ------------------------ | ----------------------------------------------------- |
-| `<Service Name>`         | To indicate what service the issue is referring to    |
-| `Service Attention`      | Added if the issue needs to be routed to another team |
-| `bug`, `feature-request` | These are the other issue types                       |
+| ------------------------ | ------------------------------------------------------ |
+| `<Service Name>`         | To indicate what service the issue is referring to     |
+| `CXP Attention`          | Added if the support team should assist with the issue |
+| `Service Attention`      | Added if the issue needs to be routed to another team  |
+| `bug`, `feature-request` | These are the other issue types                        |
 
 
 For issues that need to be routed to teams best able to assist, i.e. those tagged `Service Attention`, there will be a comment that says the following: 
