@@ -21,10 +21,7 @@ We also have plans to add the process to these repositories:
 - [Azure/azure-sdk-for-android](https://github.com/Azure/azure-sdk-for-android)
 - [Azure/azure-sdk-for-ios](https://github.com/Azure/azure-sdk-for-ios)
 
-
-
-
-## A label driven process 
+## A label-driven process 
 
 ### 1. Triage and routing 
 
