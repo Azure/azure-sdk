@@ -33,6 +33,7 @@ groups:
       - id: http.method
         type: string
         required: always
+        sampling_relevant: true
         brief: 'HTTP request method.'
         examples: ["GET", "POST", "HEAD"]
       - id: http.url
@@ -44,6 +45,7 @@ groups:
         type: int
         required:
           conditional: If and only if one was received/sent.
+        sampling_relevant: true
         brief: '[HTTP response status code](https://tools.ietf.org/html/rfc7231#section-6).'
         examples: [200]
       - id: http.user_agent
