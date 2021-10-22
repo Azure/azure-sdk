@@ -463,4 +463,28 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/operationsmanagement/armoperationsmanagement/v0.1.0/sdk/resourcemanager/operationsmanagement/armoperationsmanagement/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/azcore
+  Version: 0.20.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v0.20.0/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Updating Documentation
+    * Added string typdef `arm.Endpoint` to provide a hint toward expected ARM client endpoints
+    * `azcore.ClientOptions` contains common pipeline configuration settings
+    * Added support for multi-tenant authorization in `arm/runtime`
+
+    #### Breaking Changes
+    * Removed `arm.Connection`
+    * Removed `azcore.Credential` and `.NewAnonymousCredential()`
+    * `NewRPRegistrationPolicy` now requires an `azcore.TokenCredential`
+    * `runtime.NewPipeline` has a new signature that simplifies implementing custom authentication
+    * `arm/runtime.RegistrationOptions` embeds `policy.ClientOptions`
+    * Contents in the `log` package have been slightly renamed.
+    * Removed `AuthenticationOptions` in favor of `policy.BearerTokenOptions`
+    * Changed parameters for `NewBearerTokenPolicy()`
+    * Moved policy config options out of `arm/runtime` and into `arm/policy`
 
