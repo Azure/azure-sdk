@@ -39,13 +39,13 @@ groups:
       - id: http.url
         type: string
         required: always
+        sampling_relevant: true        
         brief: Full HTTP request URL in the form `scheme://host[:port]/path?query[#fragment]`
         examples: ['https://www.foo.bar/search?q=OpenTelemetry#SemConv']
       - id: http.status_code
         type: int
         required:
           conditional: If and only if one was received/sent.
-        sampling_relevant: true
         brief: '[HTTP response status code](https://tools.ietf.org/html/rfc7231#section-6).'
         examples: [200]
       - id: http.user_agent
