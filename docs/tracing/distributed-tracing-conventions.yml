@@ -33,11 +33,13 @@ groups:
       - id: http.method
         type: string
         required: always
+        sampling_relevant: true
         brief: 'HTTP request method.'
         examples: ["GET", "POST", "HEAD"]
       - id: http.url
         type: string
         required: always
+        sampling_relevant: true        
         brief: Full HTTP request URL in the form `scheme://host[:port]/path?query[#fragment]`
         examples: ['https://www.foo.bar/search?q=OpenTelemetry#SemConv']
       - id: http.status_code
