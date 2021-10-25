@@ -164,4 +164,22 @@ entries:
 
     - Initial preview release of the Azure Purview Administration client library for .NET
     - Provides operations for Purview Account and MetadataPolicies services
+- Name: Azure.Containers.ContainerRegistry
+  Version: 1.1.0-beta.2
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Containers.ContainerRegistry_1.1.0-beta.2/sdk/containerregistry/Azure.Containers.ContainerRegistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added an overload for `UploadManifest(Async) method that takes the manifest `Stream` as an input.
+    - Added methods in `ContainerRegistryModelFactory` that create instances of `DownloadBlobResult`, `DownloadManifestResult`, `UploadBlobResult` and `UploadManifestResult` for mocking.
+    - Added `DownloadManifestOptions` type to allow callers to  pass-in either a tag or a digest in `DownloadManifest(Async)`.
+    - Added `ManifestStream` as a property in `DownloadManifestResult` that contains the raw manifest stream from the service response.
+
+    #### Breaking Changes
+
+    - Changed `DownloadManifest(Async)` method to take `DownloadManifestOptions` as an input parameter. This allows callers to pass-in either a tag or a digest as the manifest identifier.
 
