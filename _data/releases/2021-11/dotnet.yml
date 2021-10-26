@@ -182,4 +182,26 @@ entries:
     #### Breaking Changes
 
     - Changed `DownloadManifest(Async)` method to take `DownloadManifestOptions` as an input parameter. This allows callers to pass-in either a tag or a digest as the manifest identifier.
+- Name: Microsoft.Azure.WebJobs.Extensions.EventGrid
+  Version: 3.0.0
+  DisplayName: WebJobs Extensions - Event Grid
+  ServiceName: WebJobs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventGrid_3.0.0/sdk/eventgrid/Microsoft.Azure.WebJobs.Extensions.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - General availability of Microsoft.Azure.WebJobs.Extensions.EventGrid 3.0.0.
+- Name: Microsoft.Azure.WebJobs.Extensions.EventHubs
+  Version: 5.0.0
+  DisplayName: WebJobs Extensions - Event Hubs
+  ServiceName: WebJobs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventHubs_5.0.0/sdk/eventhub/Microsoft.Azure.WebJobs.Extensions.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - General availability of Microsoft.Azure.WebJobs.Extensions.EventHubs 5.0.0.
 
