@@ -215,4 +215,15 @@ entries:
     #### Features Added
     - Added DynamicConcurrency support.
     - General availability of Microsoft.Azure.WebJobs.Extensions.ServiceBus 5.0.0.
+- Name: Azure.Media.VideoAnalyzer.Edge
+  Version: 1.0.0-beta.5
+  DisplayName: Azure Video Analyzer Edge
+  ServiceName: Video Analyzer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Media.VideoAnalyzer.Edge_1.0.0-beta.5/sdk/videoanalyzer/Azure.Media.VideoAnalyzer.Edge/CHANGELOG.md
+  ChangelogContent: |-
+    - Added device discovery and device detail request for ONVIF enabled devices.
+    - Added Remote Device Adapter configuration for ingesting video in a private network
+    - Added retention policy to VideoSink
 
