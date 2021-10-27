@@ -169,4 +169,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cosmosdb_7.0.0b2/sdk/cosmos/azure-mgmt-cosmosdb/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-media-videoanalyzer-edge
+  Version: 1.0.0b3
+  DisplayName: Video Analyzer Edge
+  ServiceName: Video Analyzer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-media-videoanalyzer-edge_1.0.0b3/sdk/videoanalyzer/azure-media-videoanalyzer-edge/CHANGELOG.md
+  ChangelogContent: |-
+    - Added device discovery and device detail request for ONVIF enabled devices.
+    - Added Remote Device Adapter configuration for ingesting video in a private network
+    - Added retention policy to VideoSink
 
