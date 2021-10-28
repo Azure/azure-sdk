@@ -457,4 +457,19 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/operationsmanagement/arm-operations/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/identity'
+  Version: 2.0.1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_2.0.1/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug that caused the `AzureCliCredential` to fail on Windows. Issue [18268](https://github.com/Azure/azure-sdk-for-js/issues/18268).
+
+    #### Features Added
+
+    - The `ManagedIdentityCredential` now supports the Service Fabric environment.
 
