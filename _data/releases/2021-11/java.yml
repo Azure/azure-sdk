@@ -887,4 +887,16 @@ entries:
     - Added Remote Device Adapter configuration for ingesting video in a private network
     - Added retention policy to VideoSink
   GroupId: com.azure
+- Name: azure-cosmos
+  Version: 4.20.1
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos_4.20.1/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Key Bug Fixes
+    * Removed `AfterBurner` module for Java version 16+.
+    * Fixed `BadRequestException` issue when using `Distinct` with matched `orderBy` queries via `continuationToken`.
+  GroupId: com.azure
 
