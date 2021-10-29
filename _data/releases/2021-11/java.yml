@@ -899,4 +899,15 @@ entries:
     * Removed `AfterBurner` module for Java version 16+.
     * Fixed `BadRequestException` issue when using `Distinct` with matched `orderBy` queries via `continuationToken`.
   GroupId: com.azure
+- Name: azure-communication-identity
+  Version: 1.2.0-beta.1
+  DisplayName: Communication Identity
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-identity_1.2.0-beta.1/sdk/communication/azure-communication-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for Microsoft 365 Teams identities
+  GroupId: com.azure
 
