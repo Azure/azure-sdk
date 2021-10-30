@@ -495,4 +495,15 @@ entries:
     - Changed TS compilation target to ES2017 in order to produce smaller bundles and use more native platform features
     - Added support to build custom Teams endpoint using M365 Teams identities
     - `CommunicationIdentityClient` added a new method `getTokenForTeamsUser` that provides the ability to exchange an AAD access token of a Teams user for a Communication Identity access token
+- Name: '@azure/video-analyzer-edge'
+  Version: 1.0.0-beta.3
+  DisplayName: Azure Video Analyzer Edge
+  ServiceName: Video Analyzer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/video-analyzer-edge_1.0.0-beta.3/sdk/videoanalyzer/video-analyzer-edge/CHANGELOG.md
+  ChangelogContent: |-
+    - Added device discovery and device detail request for ONVIF enabled devices.
+    - Added Remote Device Adapter configuration for ingesting video in a private network
+    - Added retention policy to VideoSink
 
