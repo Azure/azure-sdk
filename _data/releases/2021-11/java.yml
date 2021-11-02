@@ -910,4 +910,276 @@ entries:
     #### Features Added
     - Added support for Microsoft 365 Teams identities
   GroupId: com.azure
+- Name: azure-spring-boot-starter-storage
+  Version: 3.10.0
+  DisplayName: Azure Spring Boot Starter Storage
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-boot-starter-storage_3.10.0/sdk/spring/azure-spring-boot-starter-storage/CHANGELOG.md
+  ChangelogContent: Regular updates for dependency versions.
+  GroupId: com.azure.spring
+- Name: azure-spring-boot-starter-servicebus-jms
+  Version: 3.10.0
+  DisplayName: Azure Spring Boot Starter Service bus Jms
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-boot-starter-servicebus-jms_3.10.0/sdk/spring/azure-spring-boot-starter-servicebus-jms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    For standard tier in ServiceBus, the default value of prefetch number has been changed from 1000 to 0.
+
+
+    #### Features Added
+    Add property for JmsDefaultPrefetchPolicy.([#24304](https://github.com/Azure/azure-sdk-for-java/issues/24304))
+    - Add property `spring.jms.servicebus.prefetch-policy.all` to configure all prefetchPolicy values.
+    - Add property `spring.jms.servicebus.durable-topic-prefetch` to configure the durable topic prefetch value.
+    - Add property `spring.jms.servicebus.queue-browser-prefetch` to configure the queueBrowserPrefetch value.
+    - Add property `spring.jms.servicebus.queue-prefetch` to configure the queuePrefetch value.
+    - Add property `spring.jms.servicebus.topic-prefetch` to configure the topicPrefetch value.
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-starter-eventhubs-kafka
+  Version: 2.10.0
+  DisplayName: Azure Spring Cloud Starter Event Hubs Kafka
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-starter-eventhubs-kafka_2.10.0/sdk/spring/azure-spring-cloud-starter-eventhubs-kafka/CHANGELOG.md
+  ChangelogContent: Regular updates for dependency versions.
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-stream-binder-servicebus-core
+  Version: 2.10.0
+  DisplayName: Azure Spring Cloud Stream Binder Service bus Core
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-stream-binder-servicebus-core_2.10.0/sdk/spring/azure-spring-cloud-stream-binder-servicebus-core/CHANGELOG.md
+  ChangelogContent: Regular updates for dependency versions.
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-starter-eventhubs
+  Version: 2.10.0
+  DisplayName: Azure Spring Cloud Starter Event Hubs
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-starter-eventhubs_2.10.0/sdk/spring/azure-spring-cloud-starter-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Deprecate RxJava support APIs, which will be dropped from version 4.0.0.
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-stream-binder-eventhubs
+  Version: 2.10.0
+  DisplayName: Azure Spring Cloud Stream Binder Event Hubs
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-stream-binder-eventhubs_2.10.0/sdk/spring/azure-spring-cloud-stream-binder-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Support batch consumers.
+  GroupId: com.azure.spring
+- Name: azure-spring-boot-starter
+  Version: 3.10.0
+  DisplayName: Azure Spring Boot Starter
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-boot-starter_3.10.0/sdk/spring/azure-spring-boot-starter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    For standard tier in ServiceBus, the default value of prefetch number has been changed from 1000 to 0.
+
+
+    #### Features Added
+    Add property for JmsDefaultPrefetchPolicy.([#24304](https://github.com/Azure/azure-sdk-for-java/issues/24304))
+    - Add property `spring.jms.servicebus.prefetch-policy.all` to configure all prefetchPolicy values.
+    - Add property `spring.jms.servicebus.durable-topic-prefetch` to configure the durable topic prefetch value.
+    - Add property `spring.jms.servicebus.queue-browser-prefetch` to configure the queueBrowserPrefetch value.
+    - Add property `spring.jms.servicebus.queue-prefetch` to configure the queuePrefetch value.
+    - Add property `spring.jms.servicebus.topic-prefetch` to configure the topicPrefetch value.
+  GroupId: com.azure.spring
+- Name: azure-spring-boot-starter-active-directory-b2c
+  Version: 3.10.0
+  DisplayName: Azure Spring Boot Starter Active Directory B2C
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-boot-starter-active-directory-b2c_3.10.0/sdk/spring/azure-spring-boot-starter-active-directory-b2c/CHANGELOG.md
+  ChangelogContent: Regular updates for dependency versions.
+  GroupId: com.azure.spring
+- Name: azure-spring-boot-starter-cosmos
+  Version: 3.10.0
+  DisplayName: Azure Spring Boot Starter Cosmos
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-boot-starter-cosmos_3.10.0/sdk/spring/azure-spring-boot-starter-cosmos/CHANGELOG.md
+  ChangelogContent: Regular updates for dependency versions.
+  GroupId: com.azure.spring
+- Name: azure-spring-integration-eventhubs
+  Version: 2.10.0
+  DisplayName: Azure Spring Cloud Integration Event Hubs
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-integration-eventhubs_2.10.0/sdk/spring/azure-spring-integration-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Deprecate RxJava support APIs, which will be dropped from version 4.0.0.
+  GroupId: com.azure.spring
+- Name: azure-spring-boot-starter-active-directory
+  Version: 3.10.0
+  DisplayName: Azure Spring Boot Starter Active Directory
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-boot-starter-active-directory_3.10.0/sdk/spring/azure-spring-boot-starter-active-directory/CHANGELOG.md
+  ChangelogContent: Regular updates for dependency versions.
+  GroupId: com.azure.spring
+- Name: azure-spring-boot
+  Version: 3.10.0
+  DisplayName: Azure Spring Boot AutoConfigure
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-boot_3.10.0/sdk/spring/azure-spring-boot/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    For standard tier in ServiceBus, the default value of prefetch number has been changed from 1000 to 0.
+
+
+    #### Features Added
+    Add property for JmsDefaultPrefetchPolicy.([#24304](https://github.com/Azure/azure-sdk-for-java/issues/24304))
+    - Add property `spring.jms.servicebus.prefetch-policy.all` to configure all prefetchPolicy values.
+    - Add property `spring.jms.servicebus.durable-topic-prefetch` to configure the durable topic prefetch value.
+    - Add property `spring.jms.servicebus.queue-browser-prefetch` to configure the queueBrowserPrefetch value.
+    - Add property `spring.jms.servicebus.queue-prefetch` to configure the queuePrefetch value.
+    - Add property `spring.jms.servicebus.topic-prefetch` to configure the topicPrefetch value.
+  GroupId: com.azure.spring
+- Name: azure-spring-boot-starter-keyvault-certificates
+  Version: 3.10.0
+  DisplayName: Azure Spring Boot Starter Key Vault Certificates
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-boot-starter-keyvault-certificates_3.10.0/sdk/spring/azure-spring-boot-starter-keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    Rename `azure.keyvault.jca.certificates-refresh-interval` to `azure.keyvault.jca.certificates-refresh-interval-in-ms`.
+  GroupId: com.azure.spring
+- Name: azure-security-keyvault-jca
+  Version: 2.2.0
+  DisplayName: Key Vault - JCA
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-jca_2.2.0/sdk/keyvault/azure-security-keyvault-jca/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Support connect to multi keyvault for keyless. ([24718](https://github.com/Azure/azure-sdk-for-java/pull/24718))
+  GroupId: com.azure
+- Name: azure-spring-integration-core
+  Version: 2.10.0
+  DisplayName: Azure Spring Cloud Integration Core
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-integration-core_2.10.0/sdk/spring/azure-spring-integration-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Deprecate RxJava and CompletableFuture support API, which will be dropped from version 4.0.0.
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-context
+  Version: 2.10.0
+  DisplayName: Azure Spring Cloud Context
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-context_2.10.0/sdk/spring/azure-spring-cloud-context/CHANGELOG.md
+  ChangelogContent: Regular updates for dependency versions.
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-starter-servicebus
+  Version: 2.10.0
+  DisplayName: Azure Spring Cloud Starter Service bus
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-starter-servicebus_2.10.0/sdk/spring/azure-spring-cloud-starter-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Deprecate CompletableFuture support API, which will be replaced by Reactor Core from version 4.0.0.
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-storage
+  Version: 2.10.0
+  DisplayName: Azure Spring Cloud Storage
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-storage_2.10.0/sdk/spring/azure-spring-cloud-storage/CHANGELOG.md
+  ChangelogContent: Regular updates for dependency versions.
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-stream-binder-servicebus-queue
+  Version: 2.10.0
+  DisplayName: Azure Spring Cloud Stream Binder Service bus Queue
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-stream-binder-servicebus-queue_2.10.0/sdk/spring/azure-spring-cloud-stream-binder-servicebus-queue/CHANGELOG.md
+  ChangelogContent: Regular updates for dependency versions.
+  GroupId: com.azure.spring
+- Name: azure-spring-boot-starter-keyvault-secrets
+  Version: 3.10.0
+  DisplayName: Azure Spring Boot Starter Key Vault Secrets
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-boot-starter-keyvault-secrets_3.10.0/sdk/spring/azure-spring-boot-starter-keyvault-secrets/CHANGELOG.md
+  ChangelogContent: Regular updates for dependency versions.
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-stream-binder-servicebus-topic
+  Version: 2.10.0
+  DisplayName: Azure Spring Cloud Stream Binder Service bus Topic
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-stream-binder-servicebus-topic_2.10.0/sdk/spring/azure-spring-cloud-stream-binder-servicebus-topic/CHANGELOG.md
+  ChangelogContent: Regular updates for dependency versions.
+  GroupId: com.azure.spring
+- Name: azure-identity-spring
+  Version: 1.10.0
+  DisplayName: Azure Identity Spring
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity-spring_1.10.0/sdk/spring/azure-identity-spring/CHANGELOG.md
+  ChangelogContent: Regular updates for dependency versions.
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-messaging
+  Version: 2.10.0
+  DisplayName: Azure Spring Cloud Messaging
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-messaging_2.10.0/sdk/spring/azure-spring-cloud-messaging/CHANGELOG.md
+  ChangelogContent: Regular updates for dependency versions.
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-autoconfigure
+  Version: 2.10.0
+  DisplayName: Azure Spring Cloud Autoconfigure
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-autoconfigure_2.10.0/sdk/spring/azure-spring-cloud-autoconfigure/CHANGELOG.md
+  ChangelogContent: Regular updates for dependency versions.
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-starter-storage-queue
+  Version: 2.10.0
+  DisplayName: Azure Spring Cloud Starter Storage Queue
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-starter-storage-queue_2.10.0/sdk/spring/azure-spring-cloud-starter-storage-queue/CHANGELOG.md
+  ChangelogContent: Regular updates for dependency versions.
+  GroupId: com.azure.spring
 
