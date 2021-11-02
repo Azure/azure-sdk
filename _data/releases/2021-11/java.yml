@@ -1220,4 +1220,13 @@ entries:
     #### Other Changes
     - Deprecate CompletableFuture support APIs, which will be replaced by Reactor Core from version 4.0.0.
   GroupId: com.azure.spring
+- Name: azure-spring-cloud-stream-binder-test
+  Version: 2.10.0
+  DisplayName: Azure Spring Cloud Stream Binder Test
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-stream-binder-test_2.10.0/sdk/spring/azure-spring-cloud-stream-binder-test/CHANGELOG.md
+  ChangelogContent: Regular updates for dependency versions.
+  GroupId: com.azure.spring
 
