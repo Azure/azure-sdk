@@ -1182,4 +1182,42 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-starter-storage-queue_2.10.0/sdk/spring/azure-spring-cloud-starter-storage-queue/CHANGELOG.md
   ChangelogContent: Regular updates for dependency versions.
   GroupId: com.azure.spring
+- Name: azure-spring-cloud-starter-cache
+  Version: 2.10.0
+  DisplayName: Azure Spring Cloud Starter Cache
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-starter-cache_2.10.0/sdk/spring/azure-spring-cloud-starter-cache/CHANGELOG.md
+  ChangelogContent: Regular updates for dependency versions.
+  GroupId: com.azure.spring
+- Name: azure-spring-integration-storage-queue
+  Version: 2.10.0
+  DisplayName: Azure Spring Cloud Integration Storage Queue
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-integration-storage-queue_2.10.0/sdk/spring/azure-spring-integration-storage-queue/CHANGELOG.md
+  ChangelogContent: Regular updates for dependency versions.
+  GroupId: com.azure.spring
+- Name: azure-spring-integration-test
+  Version: 2.10.0
+  DisplayName: Azure Spring Cloud Integration Test
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-integration-test_2.10.0/sdk/spring/azure-spring-integration-test/CHANGELOG.md
+  ChangelogContent: Regular updates for dependency versions.
+  GroupId: com.azure.spring
+- Name: azure-spring-integration-servicebus
+  Version: 2.10.0
+  DisplayName: Azure Spring Cloud Integration Service Bus
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-integration-servicebus_2.10.0/sdk/spring/azure-spring-integration-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Deprecate CompletableFuture support APIs, which will be replaced by Reactor Core from version 4.0.0.
+  GroupId: com.azure.spring
 
