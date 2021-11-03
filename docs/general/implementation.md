@@ -177,7 +177,7 @@ Distributed tracing mechanisms allow the consumer to trace their code from front
 
 {% include requirement/MUST id="general-tracing-accept-context" %} accept a context from calling code to establish a parent span.
 
-{% include requirement/MUST id="general-tracing-pass-context" %} pass the context to the backend service through the appropriate headers (`traceparent`, `tracestate`, etc.) to support [Azure Monitor].  This is generally done with the HTTP pipeline.
+{% include requirement/MUST id="general-tracing-pass-context" %} pass the context to the backend service through the appropriate headers (`traceparent` and `tracestate` per [W3C Trace-Context](https://www.w3.org/TR/trace-context/) standard)) to support [Azure Monitor].  This is generally done with the HTTP pipeline.
 
 {% include requirement/MUST id="general-tracing-new-span-per-method" %} create a new span for each method that user code calls.  New spans must be children of the context that was passed in.  If no context was passed in, a new root span must be created.
 
