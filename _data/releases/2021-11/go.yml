@@ -1064,4 +1064,17 @@ entries:
     #### Breaking Changes
     * `NewClient` and `NewServiceClient` is now used for authenticating the `Client` and `ServiceClient` with credentials from `azidentity` only.
     * `ClientOptions` embeds `azcore.ClientOptions` and removes all named fields.
+- Name: sdk/synapse/azartifacts
+  Version: 0.1.1
+  DisplayName: Synapse
+  ServiceName: Synapse
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/synapse/azartifacts/v0.1.1/sdk/synapse/azartifacts/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    #### Breaking Changes
+
+    #### Features Added
 
