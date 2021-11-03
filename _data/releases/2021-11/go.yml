@@ -1077,4 +1077,29 @@ entries:
     #### Breaking Changes
 
     #### Features Added
+- Name: sdk/messaging/azservicebus
+  Version: 0.2.0
+  DisplayName: azservicebus
+  ServiceName: servicebus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azservicebus/v0.2.0/sdk/messaging/azservicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Receiver.ReceiveMessages() had a bug where multiple calls could result in the link no longer receiving messages.
+    This was fixed with an update in go-amqp.
+
+    #### Features Added
+
+    - Scheduling messages to be delivered at a later date, via the `Sender.ScheduleMessage(s)` function or
+    setting `Message.ScheduledEnqueueTime`.
+    - Added in the `Sender.SendMessages([slice of sendable messages])` function, which batches messages
+    automatically. Useful when you're sending multiple messages that you are already sure will be small
+    enough to fit into a single batch.
+    - Receiving from sessions using a SessionReceiver, created using Client.AcceptSessionFor(Queue|Subscription)
+    or Client.AcceptNextSessionFor(Queue|Subscription).
+    - Can fully create, update, delete and list queues (and queue runtime properties) using the `AdministrationClient`.
+    - Can now renew a message lock for a ReceivedMessage using Receiver.RenewMessageLock()
+    - Can now renew a session lock for a SessionReceiver using SessionReceiver.RenewSessionLock()
 
