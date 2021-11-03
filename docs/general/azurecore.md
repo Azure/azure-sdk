@@ -139,7 +139,7 @@ The Distributed Tracing policy is responsible for:
 
 {% include requirement/MUST id="azurecore-http-tracing-accept-context" %} accept a context from calling code to establish a parent span.
 
-{% include requirement/MUST id="azurecore-http-tracing-pass-context" %} pass the context to the backend service through the appropriate headers (`traceparent`, `tracestate`, etc.) to support [Azure Monitor].
+{% include requirement/MUST id="azurecore-http-tracing-pass-context" %} pass the context to the backend service through the appropriate headers (`traceparent` and `tracestate` per [W3C Trace-Context](https://www.w3.org/TR/trace-context/) standard) to support [Azure Monitor].
 
 {% include requirement/MUST id="azurecore-http-tracing-create-span" %} create a new span (which must be a child of the per-method span) for each REST call that the client library makes.
 
