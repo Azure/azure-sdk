@@ -1241,4 +1241,34 @@ entries:
     - Renamed methods `setSentencesOrderBy()` to `setOrderBy()` and `getSentencesOrderBy()` to `getOrderBy()`, in the
     option bag, `ExtractSummaryAction`.
   GroupId: com.azure
+- Name: azure-spring-boot-bom
+  Version: 3.10.0
+  DisplayName: Azure Spring Boot BOM
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/boms/azure-spring-boot-bom/CHANGELOG.md
+  ChangelogContent: |-
+    This release is compatible with Spring Boot 2.5.0 - 2.5.4.
+    #### Dependency Upgrades
+    - Upgrade to [Azure Spring Data Cosmos 3.13.1](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md#3131-2021-10-27).
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-dependencies
+  Version: 2.10.0
+  DisplayName: Azure Spring Cloud Dependencies
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-dependencies_2.10.0/sdk/boms/azure-spring-cloud-dependencies/CHANGELOG.md
+  ChangelogContent: This release is compatible with Spring Boot 2.5.0 - 2.5.4 and Spring Cloud 2020.0.3.
+  GroupId: com.azure.spring
+- Name: azure-resourcemanager-notificationhubs
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Notification Hubs
+  ServiceName: Notification Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-notificationhubs_1.0.0-beta.2/sdk/notificationhubs/azure-resourcemanager-notificationhubs/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
