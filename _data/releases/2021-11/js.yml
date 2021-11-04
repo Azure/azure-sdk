@@ -578,4 +578,16 @@ entries:
 
     - Fix the issue of `HttpHeaders.clone()` not preserving raw header names' casing [PR #18348](https://github.com/Azure/azure-sdk-for-js/pull/18348)
     - Fix the issue of network connection not being closed when download stream is closed [PR #14015](https://github.com/Azure/azure-sdk-for-js/pull/14015)
+- Name: '@azure-rest/core-client'
+  Version: 1.0.0-beta.8
+  DisplayName: Core - Rest
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_1.0.0-beta.8/sdk/core/core-client-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Add options skipUrlEncoding to support skip path parameter encoding. [#18381](https://github.com/Azure/azure-sdk-for-js/pull/18381)
+    - Adding more robust handling of request and response body. [#18478](https://github.com/Azure/azure-sdk-for-js/pull/18478)
 
