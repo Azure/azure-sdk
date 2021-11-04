@@ -566,4 +566,16 @@ entries:
 
     - We are now targeting the service's v3.2-preview.2 API as the default instead of v3.2-preview.1.
     - Adding support for a three new actions in `beginAnalyzeActions`: `recognizeCustomEntities`, `singleCategoryClassify`, and `multiCategoryClassify`. The new actions allow you to use custom models to perform entity recognition and classification actions.
+- Name: '@azure/core-http'
+  Version: 2.2.2
+  DisplayName: Core - HTTP
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_2.2.2/sdk/core/core-http/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix the issue of `HttpHeaders.clone()` not preserving raw header names' casing [PR #18348](https://github.com/Azure/azure-sdk-for-js/pull/18348)
+    - Fix the issue of network connection not being closed when download stream is closed [PR #14015](https://github.com/Azure/azure-sdk-for-js/pull/14015)
 
