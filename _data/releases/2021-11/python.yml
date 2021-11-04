@@ -1,0 +1,279 @@
+entries:
+- Name: azure-mgmt-datafactory
+  Version: 2.0.0
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-datafactory_2.0.0/sdk/datafactory/azure-mgmt-datafactory/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-synapse
+  Version: 2.1.0b2
+  DisplayName: Resource Management - Synapse
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-synapse_2.1.0b2/sdk/synapse/azure-mgmt-synapse/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-network
+  Version: 19.1.0
+  DisplayName: Resource Management - Network
+  ServiceName: Virtual Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-network_19.1.0/sdk/network/azure-mgmt-network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-rdbms
+  Version: 10.0.0
+  DisplayName: Resource Management - Rdbms
+  ServiceName: Database for MySQL/PostgreSQL
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-rdbms_10.0.0/sdk/rdbms/azure-mgmt-rdbms/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-hdinsight
+  Version: 9.0.0
+  DisplayName: Resource Management - HDInsight
+  ServiceName: HDInsight
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-hdinsight_9.0.0/sdk/hdinsight/azure-mgmt-hdinsight/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-compute
+  Version: 23.1.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_23.1.0/sdk/compute/azure-mgmt-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-baremetalinfrastructure
+  Version: 1.0.0
+  DisplayName: Resource Management - Bare Metal Infrastructure
+  ServiceName: Bare Metal
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-baremetalinfrastructure_1.0.0/sdk/baremetalinfrastructure/azure-mgmt-baremetalinfrastructure/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-containerinstance
+  Version: 9.1.0
+  DisplayName: Resource Management - Container Instances
+  ServiceName: Container Instances
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerinstance_9.1.0/sdk/containerinstance/azure-mgmt-containerinstance/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-identity
+  Version: 1.7.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.7.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    > These changes do not impact the API of stable versions such as 1.6.0.
+    > Only code written against a beta version such as 1.7.0b1 may be affected.
+
+    - The `allow_multitenant_authentication` argument has been removed and the default behavior is now as if it were true.
+    The multitenant authentication feature can be totally disabled by setting the environment variable
+    `AZURE_IDENTITY_DISABLE_MULTITENANTAUTH` to `True`.
+    - `azure.identity.RegionalAuthority` is removed.
+    - `regional_authority` argument is removed for `CertificateCredential` and `ClientSecretCredential`.
+    - `AzureApplicationCredential` is removed.
+    - `client_credential` in the ctor of `OnBehalfOfCredential` is removed. Please use `client_secret` or `client_certificate` instead.
+    - Make `user_assertion` in the ctor of `OnBehalfOfCredential` a keyword only argument.
+- Name: azure-purview-scanning
+  Version: 1.0.0b2
+  DisplayName: Purview Scanning
+  ServiceName: Purview
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-purview-scanning_1.0.0b2/sdk/purview/azure-purview-scanning/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Add convenience operations to client
+
+    **Breaking changes**
+
+    - Remove rest layer and request builders(detailed description is in `README.md`)
+    - The HttpRequest parameter to send_request has changed from `http_request` to `request`
+    - Ordering of endpoint and credential params have changed
+- Name: azure-purview-catalog
+  Version: 1.0.0b2
+  DisplayName: Purview Catalog
+  ServiceName: Purview
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-purview-catalog_1.0.0b2/sdk/purview/azure-purview-catalog/CHANGELOG.md
+  ChangelogContent: |-
+    **Features**
+
+    - Add convenience operations to client
+
+    **Breaking changes**
+
+    - Remove rest layer and request builders(detailed description is in `README.md`)
+    - The HttpRequest parameter to send_request has changed from `http_request` to `request`
+    - Ordering of endpoint and credential params have changed
+- Name: azure-messaging-webpubsubservice
+  Version: 1.0.0b2
+  DisplayName: Web PubSub
+  ServiceName: Web PubSub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-messaging-webpubsubservice_1.0.0b2/sdk/webpubsub/azure-messaging-webpubsubservice/CHANGELOG.md
+  ChangelogContent: |-
+    - Change api-version to `2021-10-01`
+    - Add operations to client
+    - Support AAD
+    - Support Api Management Proxy
+- Name: azure-mgmt-containerservice
+  Version: 16.3.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_16.3.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-hybridkubernetes
+  Version: 1.1.0
+  DisplayName: Resource Management - Hybrid Kubernetes
+  ServiceName: Hybrid Kubernetes
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-hybridkubernetes_1.1.0/sdk/hybridkubernetes/azure-mgmt-hybridkubernetes/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-keyvault
+  Version: 9.2.0
+  DisplayName: Resource Management - KeyVault
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-keyvault_9.2.0/sdk/keyvault/azure-mgmt-keyvault/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-network
+  Version: 19.2.0
+  DisplayName: Resource Management - Network
+  ServiceName: Virtual Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-network_19.2.0/sdk/network/azure-mgmt-network/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-cosmosdb
+  Version: 7.0.0b2
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cosmosdb_7.0.0b2/sdk/cosmos/azure-mgmt-cosmosdb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-media-videoanalyzer-edge
+  Version: 1.0.0b3
+  DisplayName: Video Analyzer Edge
+  ServiceName: Video Analyzer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-media-videoanalyzer-edge_1.0.0b3/sdk/videoanalyzer/azure-media-videoanalyzer-edge/CHANGELOG.md
+  ChangelogContent: |-
+    - Added device discovery and device detail request for ONVIF enabled devices.
+    - Added Remote Device Adapter configuration for ingesting video in a private network
+    - Added retention policy to VideoSink
+- Name: azure-mgmt-eventhub
+  Version: 10.0.0
+  DisplayName: Resource Management - Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-eventhub_10.0.0/sdk/eventhub/azure-mgmt-eventhub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-core
+  Version: 1.19.1
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.19.1/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - respect text encoding specified in argument (thanks to @ryohji for the contribution)  #20796
+    - Fix "coroutine x.read() was never awaited" warning from `ContentDecodePolicy`  #21318
+    - fix type check for `data` input to `azure.core.rest` for python 2.7 users  #21341
+    - use `charset_normalizer` if `chardet` is not installed to migrate aiohttp 3.8.0 changes.
+- Name: azure-mgmt-signalr
+  Version: 1.0.0
+  DisplayName: Resource Management - SignalR
+  ServiceName: SignalR
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-signalr_1.0.0/sdk/signalr/azure-mgmt-signalr/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-textanalytics
+  Version: 5.2.0b2
+  DisplayName: Text Analytics
+  ServiceName: Text Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-textanalytics_5.2.0b2/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Restarting a long-running operation from a saved state is now supported for the `begin_analyze_actions` and `begin_recognize_healthcare_entities` methods.
+    - In the event of an action level error, available partial results are now returned for any successful actions in `begin_analyze_actions`.
+
+    #### Features Added
+    - Added support for Custom Entities Recognition through the `begin_analyze_actions` API with the `RecognizeCustomEntitiesAction` and `RecognizeCustomEntitiesResult` types.
+    - Added support for Custom Single Classification through the `begin_analyze_actions` API with the `SingleCategoryClassifyAction` and `SingleCategoryClassifyActionResult` types.
+    - Added support for Custom Multi Classification through the `begin_analyze_actions` API with the `MultiCategoryClassifyAction` and `MultiCategoryClassifyActionResult` types.
+    - Multiple of the same action type is now supported with `begin_analyze_actions`.
+- Name: azure-ai-language-conversations
+  Version: 1.0.0b1
+  DisplayName: Conversation Analysis
+  ServiceName: Cognitive Language Understanding
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-language-conversations_1.0.0b1/sdk/cognitivelanguage/azure-ai-language-conversations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Initial release
+- Name: azure-ai-language-questionanswering
+  Version: 1.0.0
+  DisplayName: Question Answering
+  ServiceName: Cognitive Language
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-language-questionanswering_1.0.0/sdk/cognitivelanguage/azure-ai-language-questionanswering/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    * Method `QuestionAnsweringClient.query_knowledge_base` has been renamed to `get_answers`
+    * Method `QuestionAnsweringClient.query_text` has been renamed to `get_answers_from_text`
+    * Model `QueryKnowledgeBaseOptions` has been renamed to `AnswersOptions`
+    * Method kwarg and model property `QueryKnowledgeBaseOptions.confidence_score_threshold` has been renamed to  `AnswersOptions.confidence_threshold`
+    * Method kwarg and model property `QueryKnowledgeBaseOptions.answer_span_request` has been renamed to  `AnswersOptions.short_answer_options`
+    * Method kwarg and model property `QueryKnowledgeBaseOptions.ranker_type` has been renamed to  `AnswersOptions.ranker_kind`
+    * Method kwarg and model property `QueryKnowledgeBaseOptions.context` has been renamed to  `AnswersOptions.answer_context`
+    * Model `QueryTextOptions` has been renamed to `AnswersFromTextOptions`
+    * Method kwarg and model property `QueryTextOptions.records` has been renamed to `AnswersFromTextOptions.text_documents`
+    * Model `AnswerSpanRequest` has been renamed to `ShortAnswerOptions`
+    * Model property `AnswerSpanRequest.confidence_score_threshold` has been renamed to `ShortAnswerOptions.confidence_threshold`
+    * Model property `AnswerSpanRequest.top_answers_with_span` has been renamed to `ShortAnswerOptions.top`
+    * Model `KnowledgeBaseAnswerRequestContext` has been renamed to `KnowledgeBaseAnswerContext`
+    * Model property `KnowledgeBaseAnswerRequestContext.previous_user_query` has been renamed to `KnowledgeBaseAnswerContext.previous_question`
+    * Model `TextRecord` has been renamed to `TextDocument`
+    * Model `KnowledgeBaseAnswers` has been renamed to `AnswersResult`
+    * Model `TextAnswers` has been renamed to `AnswersFromTextResult`
+    * Model property `KnowledgeBaseAnswer.answer_span` has been renamed to `KnowledgeBaseAnswer.short_answer`
+    * Model property `KnowledgeBaseAnswer.id` has been renamed to `KnowledgeBaseAnswer.qna_id`
+    * Model property `KnowledgeBaseAnswer.confidence_score` has been renamed to `KnowledgeBaseAnswer.confidence`
+    * Model property `AnswerSpan.confidence_score` has been renamed to `AnswerSpan.confidence`
+    * Model property `TextAnswer.confidence_score` has been renamed to `TextAnswer.confidence`
+    * Model property `TextAnswer.answer_span` has been renamed to `TextAnswer.short_answer`
+    * Enums `LogicalOperationKind` and `RankerType` have been removed
+    * The `operations` and `aio.operations` namespaces are no longer public
+
+    #### Bugs Fixed
+
+    * Fixed formating of `MetadataFilter.metadata`
+
