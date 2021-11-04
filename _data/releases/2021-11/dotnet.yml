@@ -359,4 +359,87 @@ entries:
     - Renamed property `TextAnswer.ConfidenceScore` has been renamed to `TextAnswer.confidence`.
     - Renamed property `TextAnswer.AnswerSpan` has been renamed to T`extAnswer.ShortAnswer`.
     - Removed class `StringIndexType`. Hard-coded to "Utf16CodeUnit" for .NET.
+- Name: Azure.Storage.Queues
+  Version: 12.9.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.9.0-beta.1/sdk/storage/Azure.Storage.Queues/CHANGELOG.md
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.AI.Language.Conversations
+  Version: 1.0.0-beta.1
+  DisplayName: Conversation Analysis
+  ServiceName: Cognitive Language Understanding
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations_1.0.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.Conversations/CHANGELOG.md
+  ChangelogContent: '- Initial release.'
+- Name: Azure.Storage.Common
+  Version: 12.10.0-beta.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.10.0-beta.1/sdk/storage/Azure.Storage.Common/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for SDK-calculated transactional hash checksums on data transfer.
+    - This release contains bug fixes to improve quality.
+- Name: Azure.Storage.Files.DataLake
+  Version: 12.9.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.DataLake_12.9.0-beta.1/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for service version 2020-12-06.
+    - Added support for SDK-calculated transactional hash checksums on data transfer.
+    - Fixed bug / regression where the ETag values that had quotation marks surrounding it were being removed starting in version 12.7.0.
+    - Fixed bug where DataLakeUriBuilder incorrectly convert "blob" or "dfs" in the account name in the Uri when attempting to convert the URL to a dfs or blob endpoint.
+- Name: Azure.Storage.Blobs.ChangeFeed
+  Version: 12.0.0-preview.17
+  DisplayName: Storage - Blobs ChangeFeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.17/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for service version 2020-12-06.
+    - This release contains bug fixes to improve quality.
+    - Fixed bug where Segment.GetCursor() would throw an ArgumentOutOfRangeException if the Segment has no Shards.
+- Name: Azure.Storage.Files.Shares
+  Version: 12.9.0-beta.1
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.Shares_12.9.0-beta.1/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for service version 2020-12-06.
+    - Added support for SDK-calculated transactional hash checksums on data transfer.
+    - Fixed bug / regression where the ETag values that had quotation marks surrounding it were being removed starting in version 12.7.0.
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.8.0-beta.1
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.8.0-beta.1/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
+  ChangelogContent: '- Added support for service version 2020-12-06.'
+- Name: Azure.Storage.Blobs
+  Version: 12.11.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.11.0-beta.1/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for service version 2020-12-06.
+    - Added support for Encryption Scope SAS.
+    - Added support for Encryption Scopes with BlobBaseClient.SyncCopyFromUriAsync().
+    - Added support for generating SAS URLs with the Permanent Delete ('y') SAS permission.
+    - Added support for SDK-calculated transactional hash checksums on data transfer.
+    - Fixed bug where BlobContainerClient.GetBlobs() and .GetBlobsByHierarchyAsync() was not parsing the Object Replication Metadata correctly
+    - Fixed bug / regression where the ETag values that had quotation marks surrounding it were being removed starting in version 12.9.0.
 
