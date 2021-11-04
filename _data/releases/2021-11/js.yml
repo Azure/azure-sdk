@@ -590,4 +590,15 @@ entries:
 
     - Add options skipUrlEncoding to support skip path parameter encoding. [#18381](https://github.com/Azure/azure-sdk-for-js/pull/18381)
     - Adding more robust handling of request and response body. [#18478](https://github.com/Azure/azure-sdk-for-js/pull/18478)
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.3.2
+  DisplayName: Core Rest Pipeline
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.3.2/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Allow specifying any status response to get a raw stream as response content. [#18492](https://github.com/Azure/azure-sdk-for-js/pull/18492)
 
