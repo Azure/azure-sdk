@@ -1271,4 +1271,30 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-notificationhubs_1.0.0-beta.2/sdk/notificationhubs/azure-resourcemanager-notificationhubs/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-spring-data-cosmos
+  Version: 3.13.1
+  DisplayName: Spring Data Cosmos
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-data-cosmos_3.13.1/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Key Bug Fixes
+    * Fixed support for slice query in annotated `@Query` queries.
+    * Fixed issue with preserving priority for closed queries.
+    * Updated `azure-cosmos` to version `4.20.1`.
+  GroupId: com.azure
+- Name: azure-spring-data-cosmos
+  Version: 3.13.0
+  DisplayName: Spring Data Cosmos
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-data-cosmos_3.13.0/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    ##### New Features
+    * Added support for setting throughput on database creation.
+    * Pagination improvement with slice query API.
+    * Updated `azure-cosmos` to version `4.20.0`.
+  GroupId: com.azure
 
