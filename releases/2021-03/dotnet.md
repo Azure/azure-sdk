@@ -209,7 +209,7 @@ to `Task<Response<SmsSendResult>> SendAsync(string from, string to, string messa
 - Replaced `SendSmsResponse` with `SmsSendResult`
 
 ### Core 1.10.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.10.0/sdk/core/Azure.Core/CHANGELOG.md#1100-2021-03-09)
-- Added `CloudEvent` type based on the [CloudEvent spec](https://github.com/cloudevents/spec/blob/master/spec.md).
+- Added `CloudEvent` type based on the [CloudEvent spec](https://github.com/cloudevents/spec/blob/v1.0.1/spec.md).
 
 ### Core 1.11.0 [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Core_1.11.0/sdk/core/Azure.Core/CHANGELOG.md#1110-2021-03-22)
 #### Added

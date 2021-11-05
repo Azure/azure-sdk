@@ -20,7 +20,7 @@ The main value of the Azure SDK is productivity. Other qualities, such as comple
 
 **Idiomatic**
 
-* The SDK should follow the general design guidelines and conventions for iOS libraries written in Swift, as described in the [Swift API design guidelines](https://swift.org/documentation/api-design-guidelines/). It should feel natural to a Swift developer.
+* The SDK should follow the general design guidelines and conventions for iOS libraries written in Swift, as described in the [Swift API design guidelines](https://swift.org/documentation/). It should feel natural to a Swift developer.
 * We embrace the ecosystem with its strengths and its flaws.
 * We use industry-standard tooling like SwiftLint and SwiftFormat to ensure our code follows a consistent style with the rest of the ecosystem and to avoid bikeshedding about stylistic choices.
 
@@ -361,7 +361,7 @@ public func configurationSetting(
 }
 {% endhighlight %}
 
-{% include requirement/MUST id="ios-network-delegate-name" %} follow the [Swift naming conventions](https://swift.org/documentation/api-design-guidelines/#naming) when providing a delegate protocol.
+{% include requirement/MUST id="ios-network-delegate-name" %} follow the [Swift naming conventions](https://swift.org/documentation/) when providing a delegate protocol.
 
 Protocols that describe what something is should read as nouns (e.g. `Collection`), protocols that describe a capability should be named using the suffixes `able`, `ible`, or `ing` (e.g. `Equatable`, `ProgressReporting`). In most cases, a delegate protocol should be named after the delegating object, with the suffix `Delegate` (e.g. `ConfigurationSettingDelegate`).
 
