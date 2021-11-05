@@ -1308,4 +1308,124 @@ entries:
     #### Features Added
     - Added support for the 2020-12-06 service version.
   GroupId: com.azure
+- Name: azure-storage-blob
+  Version: 12.15.0-beta.1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob_12.15.0-beta.1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for permanent delete permissions in blob and account level SAS.
+
+    - Added support for the 2020-12-06 service version.
+    - Added support for setting an encryption scope on a BlobServiceSas and an AccountSas.
+    - Added support for setting encryption scopes on the destination of a sync copy.
+  GroupId: com.azure
+- Name: azure-storage-file-datalake
+  Version: 12.8.0-beta.1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-datalake_12.8.0-beta.1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for the 2020-12-06 service version.
+  GroupId: com.azure
+- Name: azure-storage-file-share
+  Version: 12.12.0-beta.1
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-share_12.12.0-beta.1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for the 2020-12-06 service version.
+  GroupId: com.azure
+- Name: azure-storage-blob-batch
+  Version: 12.12.0-beta.1
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-batch_12.12.0-beta.1/sdk/storage/azure-storage-blob-batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for the 2020-12-06 service version.
+  GroupId: com.azure
+- Name: azure-core
+  Version: 1.22.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core_1.22.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ReferenceManager` which is capable of performing `Cleaner`-like functionality by allowing a `Runnable` callback
+    to be triggered when an object reference is eligible for garbage collection.
+    - Added `RequestOptions` which allows for a chained set of operations to be applied to an `HttpRequest` before being
+    sent through the `HttpPipeline`.
+    - Added an `ETag` class which represents an HTTP ETag.
+    - Added `getJavaClass` method to retrieve the representing instance of the `TypeReference` created.
+    - Added support for HTTP method OPTIONS by adding an `Options` annotation.
+    - Added a function to `CoreUtils` which merges two `Context`s together.
+    - Added a new feature flag `AZURE_JACKSON_ADAPTER_USE_ACCESS_HELPER` which indicates to `JacksonAdapter` to wrap
+    serialization calls in `AccessController.doPrivileged` to prevent `SecurityManager` exceptions when `JacksonAdapter`
+    has the prerequisite permissions.
+
+    #### Bugs Fixed
+
+    - Fixed a bug where an initial length of 0 wasn't permitted when creating a `ByteBuffer` collector.
+    - Fixed a bug where an exception type would be instantiated and never used in a hot path, reducing memory usage.
+    - Fixed a bug where the content length of a serializable request body may return null when it is known (already serialized).
+  GroupId: com.azure
+- Name: azure-storage-blob-cryptography
+  Version: 12.15.0-beta.1
+  DisplayName: Storage - Blobs Cryptography
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-cryptography_12.15.0-beta.1/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for the 2020-12-06 service version.
+  GroupId: com.azure
+- Name: azure-storage-internal-avro
+  Version: 12.2.0-beta.1
+  DisplayName: Storage - Internal Avro
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-internal-avro_12.2.0-beta.1/sdk/storage/azure-storage-internal-avro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for the 2020-12-06 service version.
+  GroupId: com.azure
+- Name: azure-storage-queue
+  Version: 12.12.0-beta.1
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-queue_12.12.0-beta.1/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for the 2020-12-06 service version.
+  GroupId: com.azure
+- Name: azure-storage-blob-changefeed
+  Version: 12.0.0-beta.11
+  DisplayName: Storage - Blobs Changefeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-changefeed_12.0.0-beta.11/sdk/storage/azure-storage-blob-changefeed/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for the 2020-12-06 service version.
+  GroupId: com.azure
 
