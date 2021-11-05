@@ -361,7 +361,7 @@ public func configurationSetting(
 }
 {% endhighlight %}
 
-{% include requirement/MUST id="ios-network-delegate-name" %} follow the [Swift naming conventions](https://swift.org/documentation/api-design-guidelines/#naming) when providing a delegate protocol.
+{% include requirement/MUST id="ios-network-delegate-name" %} follow the [Swift naming conventions](https://swift.org/documentation/) when providing a delegate protocol.
 
 Protocols that describe what something is should read as nouns (e.g. `Collection`), protocols that describe a capability should be named using the suffixes `able`, `ible`, or `ing` (e.g. `Equatable`, `ProgressReporting`). In most cases, a delegate protocol should be named after the delegating object, with the suffix `Delegate` (e.g. `ConfigurationSettingDelegate`).
 
