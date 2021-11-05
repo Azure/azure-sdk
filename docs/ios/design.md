@@ -20,7 +20,7 @@ The main value of the Azure SDK is productivity. Other qualities, such as comple
 
 **Idiomatic**
 
-* The SDK should follow the general design guidelines and conventions for iOS libraries written in Swift, as described in the [Swift API design guidelines](https://swift.org/documentation/api-design-guidelines/). It should feel natural to a Swift developer.
+* The SDK should follow the general design guidelines and conventions for iOS libraries written in Swift, as described in the [Swift API design guidelines](https://swift.org/documentation/). It should feel natural to a Swift developer.
 * We embrace the ecosystem with its strengths and its flaws.
 * We use industry-standard tooling like SwiftLint and SwiftFormat to ensure our code follows a consistent style with the rest of the ecosystem and to avoid bikeshedding about stylistic choices.
 
