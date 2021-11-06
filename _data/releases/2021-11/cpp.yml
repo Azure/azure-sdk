@@ -15,4 +15,15 @@ entries:
 
     - Add `NoSignal` option to the `CurlTransportAdapter`.
     - Add `ConnectionTimeout` option to the `CurlTransportAdapter`.
+- Name: azure-core
+  Version: 1.3.1
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.3.1/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed linking error when Azure SDK is being built as DLL.
 
