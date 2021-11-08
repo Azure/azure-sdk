@@ -328,3 +328,37 @@ entries:
   Hidden: true
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.20.1/sdk/core/azure-core/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-storage-blob
+  Version: 12.10.0b1
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.10.0b1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    **New Features**
+    - Account level SAS tokens now support two new permissions:
+    - `permanent_delete`
+    - Encryption Scope is now supported for Sync Blob Copy (`copy_from_url()`)
+    - Encryption Scope is now supported as a SAS permission
+
+    **Fixes**
+    - Blob Client Typing annotation issues have been resolved, specifically `invalid type inference` issues (#19906)
+    - Duplicate type signature issue has been resolved (#19739)
+- Name: azure-storage-file-datalake
+  Version: 12.6.0b1
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.6.0b1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    **New features**
+    - Added support for batch deleting files using the `delete_files()` method from a `FileSystemClient`
+    - Account level SAS tokens now support two new permissions:
+    - `permanent_delete`
+    - `set_immutability_policy`
+    **Fixes**
+    - `FileSystemProperties` was not subscriptable. Now it is both subscriptable and attributes can also be accessed directly (#20772)
+    - Datalake Client Typing annotation issues have been resolved (#19906)
+
