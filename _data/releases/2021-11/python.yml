@@ -426,4 +426,18 @@ entries:
     #### Bugs Fixed
 
     - Fix multi-tenant auth using async AadClient ([#21289](https://github.com/Azure/azure-sdk-for-python/issues/21289))
+- Name: azure-ai-formrecognizer
+  Version: 3.2.0b2
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.2.0b2/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `get_words()` on `DocumentLine`.
+    - Added samples showing how to use `get_words()` on a `DocumentLine` under `/samples/v3.2-beta`: `sample_get_words_on_document_line.py` and `sample_get_words_on_document_line_async.py`.
+
+    #### Breaking Changes
+    - Renamed `DocumentElement` to `DocumentContentElement`.
 
