@@ -54,4 +54,18 @@ entries:
     #### Other Changes
 
     - `DefaultEncryptionScope` and `PreventEncryptionScopeOverride` in `BlobContainerProperties` were changed to optional.
+- Name: azure-security-keyvault-certificates
+  Version: 4.0.0-beta.1
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-security-keyvault-certificates_4.0.0-beta.1/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### New Features
+
+    - Initial beta release of Azure Security Key Vault Certificates API for CPP.
+    - Added `Azure::Security::KeyVault::Certificates::CertificateClient` for get, create, list, delete, backup, restore, and import certificate operations.
+    - Added high-level and simplified `keyvault_certificates.hpp` file for simpler include experience for customers.
+    - Added model types which are returned from the `CertificateClient` operations, such as `Azure::Security::KeyVault::Certificates::KeyVaultCertificate`.
 
