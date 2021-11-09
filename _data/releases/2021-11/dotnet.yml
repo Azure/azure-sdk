@@ -487,4 +487,47 @@ entries:
   ChangelogContent: |-
     - Added data flow flowlet
     - `KqlScriptContentCurrentConnection` now has poolName and databaseName properties
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.7.0-beta.1
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.7.0-beta.1/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Added additional heuristics for the `EventProcessorClient` load balancing cycle to help discover issues that can impact processor performance and stability; these validations will produce warnings should potential concerns be found.
+
+    - `EventProcessorClient` will now log a verbose message indicating what event position was chosen to read from when initializing a partition.
+- Name: Azure.AI.FormRecognizer
+  Version: 4.0.0-beta.2
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.FormRecognizer_4.0.0-beta.2/sdk/formrecognizer/Azure.AI.FormRecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - `BuildModelOperation` and `CopyModelOperation` correctly populate the `PercentCompleted` property, instead of always having a value of `0`.
+- Name: Azure.Data.Tables
+  Version: 12.3.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.Tables_12.3.0/sdk/tables/Azure.Data.Tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - The fix to escape`PartitionKey` and `RoKey` property values containing single quote characters are not properly escaped on `GetEntity` calls  may causes a breaking change for deployed applications that work around the previous behavior. For these situations, the new behavior can be overridden by either setting an AppContext switch named "Azure.Data.Tables.DisableEscapeSingleQuotesOnGetEntity" to `true` or by setting the environment variable "AZURE_DATA_TABLES_DISABLE_ESCAPESINGLEQUOTESONGETENTITY" to "true". Note: AppContext switches can also be configured via configuration like below:
+
+    ```xml
+    <ItemGroup>
+    <RuntimeHostConfigurationOption Include="Azure.Data.Tables.DisableEscapeSingleQuotesOnGetEntity" Value="true" />
+    </ItemGroup>
+    ```
+
+    #### Bugs Fixed
+    - Table entities now support UInt64 (ulong) properties. ([#24750](https://github.com/Azure/azure-sdk-for-net/issues/24750))
+    - Fixed an issue where `PartitionKey` and `RoKey` property values containing single quote characters are not properly escaped on `GetEntity` calls. See breaking changes section for more information.
 
