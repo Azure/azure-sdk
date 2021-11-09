@@ -723,4 +723,15 @@ entries:
     #### Features Added
 
     - Support multi-tenant authentication against Key Vault and Managed HSM when using @azure/identity 2.0.0 or newer.
+- Name: '@azure/container-registry'
+  Version: 1.0.0-beta.6
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/container-registry_1.0.0-beta.6/sdk/containerregistry/container-registry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support passing service version via client options [PR #18067](https://github.com/Azure/azure-sdk-for-js/pull/18067).
 
