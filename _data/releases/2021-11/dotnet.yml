@@ -452,4 +452,39 @@ entries:
   ChangelogContent: |-
     - Added `RequestContext` and `ErrorOptions` types to aid in configuring requests.
     - Added `ContentType` strongly-typed string to allow operation callers to specify the content type of a request.
+- Name: Azure.Security.KeyVault.Keys
+  Version: 4.3.0-beta.3
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Keys_4.3.0-beta.3/sdk/keyvault/Azure.Security.KeyVault.Keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Changed return type from `RandomBytes` to `byte[]` on `KeyClient.GetRandomBytes` and `GetRandomBytesAsync`.
+    - Renamed `KeyReleasePolicy.Data` to `KeyReleasePolicy.EncodedPolicy` and changed property type from `byte[]` to `BinaryData`.
+    - Renamed `name` and `version` parameters on `KeyClient.GetCryptographyClient` to `keyName` and `keyVersion`, respectively.
+    - Renamed `target` parameter on `KeyClient.ReleaseKey` and `ReleaseKeyAsync` to `targetAttestationToken`.
+- Name: Azure.Messaging.EventHubs
+  Version: 5.7.0-beta.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.7.0-beta.1/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - The `EventHubBufferedProducerClient` is being introduced, intended to allow for efficient publishing of events without having to explicitly manage batches in the application.  More information can be found in its [design document](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/eventhub/Azure.Messaging.EventHubs/design/proposal-event-hub-buffered-producer.md).
+- Name: Azure.Analytics.Synapse.Artifacts
+  Version: 1.0.0-preview.12
+  DisplayName: Synapse - Artifacts
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.Synapse.Artifacts_1.0.0-preview.12/sdk/synapse/Azure.Analytics.Synapse.Artifacts/CHANGELOG.md
+  ChangelogContent: |-
+    - Added data flow flowlet
+    - `KqlScriptContentCurrentConnection` now has poolName and databaseName properties
 
