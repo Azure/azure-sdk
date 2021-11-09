@@ -1112,4 +1112,15 @@ entries:
   ChangelogContent: |-
     #### Breaking Changes
     * Clients now have one constructor per authentication method
+- Name: sdk/data/aztables
+  Version: 0.4.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/aztables/v0.4.0/sdk/data/aztables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added `NextPagePartitionKey` and `NextPageRowKey` to `ListEntitiesPager` for retrieving continuation tokens.
+    * Added `PartitionKey` and `RowKey` to `ListEntitiesOptions` for using exposed continuation tokens.
 
