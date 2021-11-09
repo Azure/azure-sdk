@@ -734,4 +734,51 @@ entries:
     #### Features Added
 
     - Support passing service version via client options [PR #18067](https://github.com/Azure/azure-sdk-for-js/pull/18067).
+- Name: '@azure/search-documents'
+  Version: 11.3.0-beta.5
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_11.3.0-beta.5/sdk/search/search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed `IndexerCurrentState` property to `IndexerState` property.
+    - Renamed `AllDocsInitialChangeTrackingState` property to `AllDocumentsInitialChangeTrackingState` property.
+    - Renamed `AllDocsFinalChangeTrackingState` property to `AllDocumentsFinalChangeTrackingState` property.
+    - Renamed `ResetDocsInitialChangeTrackingState` property to `ResetDocumentsInitialChangeTrackingState` property.
+    - Renamed `ResetDocsFinalChangeTrackingState` property to `ResetDocumentsFinalChangeTrackingState` property.
+    - Renamed `SkillNames` property to `ResetSkillsOptions` (with a `SkillNames` property)
+    - Renamed `ResetDocs` method to `ResetDocuments` in the SDK client.
+
+    #### Bugs Fixed
+
+    - Fixed the issue with the presence of recursive structure while uploading documents. Please refer [#15656](https://github.com/Azure/azure-sdk-for-js/issues/15656) for further details.
+
+    #### Features Added
+
+    - Added `semanticConfiguration` property to `SearchRequest` object.
+    - Several new languages are added to the `KnownQueryLanguage` object.
+    - Added `semanticSettings` property to `SearchIndex` object.
+- Name: '@azure/ai-form-recognizer'
+  Version: 4.0.0-beta.2
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/ai-form-recognizer_4.0.0-beta.2/sdk/formrecognizer/ai-form-recognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Replaced the `operationId` field of `DocumentAnalysisPollOperationState` with an `operationLocation` field containing the full operation URL, rather than the operation GUID only.
+
+    #### Bugs Fixed
+
+    - Improved the handling of long-running operations (analysis and model creation operations). This fixes a bug ([#18341](https://github.com/Azure/azure-sdk-for-js/issues/18341)) that caused the clients to reject model IDs that contained certain characters with an error: "unable to parse operationLocation". Our improvements to the long-running operation code make this error no longer possible.
+
+    #### Features Added
+
+    - Added a `words` method to `DocumentLine`. This method produces an `IterableIterator` that will yield all of the `DocumentWord`s that are contained by the line's `spans`. This allows accessing the words that are related to the line from the line itself.
+    - Added `createdOn` and `lastUpdatedOn` properties to `DocumentAnalysisPollOperationState` and `TrainingPollOperationState` that contain the date and time that the operation was created and last modified, respectively.
 
