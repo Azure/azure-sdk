@@ -820,4 +820,24 @@ entries:
     - Renamed method `hasUser` to `userExists`
     - Renamed method `hasGroup` to `groupExists`
     - Renamed method `hasConnection` to `connnectionExists`
+- Name: '@azure/arm-desktopvirtualization'
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Desktopvirtualization
+  ServiceName: Desktopvirtualization
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-desktopvirtualization_1.0.0-beta.1/sdk/desktopvirtualization/arm-desktopvirtualization/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/synapse-artifacts'
+  Version: 1.0.0-beta.7
+  DisplayName: Synapse - Artifacts
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-artifacts_1.0.0-beta.7/sdk/synapse/synapse-artifacts/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Added data flow flowlet
+    - `KqlScriptContentCurrentConnection` now has poolName and databaseName properties
 
