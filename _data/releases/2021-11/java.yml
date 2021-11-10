@@ -1623,4 +1623,138 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-synapse_1.0.0-beta.4/sdk/synapse/azure-resourcemanager-synapse/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-storage-internal-avro
+  Version: 12.1.2
+  DisplayName: Storage - Internal Avro
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-internal-avro_12.1.2/sdk/storage/azure-storage-internal-avro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.21.0` to version `1.22.0`.
+    - Upgraded `azure-core-http-netty` from `1.11.1` to version `1.11.2`.
+    - Upgraded `azure-storage-common` from `12.14.0` to version `12.14.1`.
+  GroupId: com.azure
+- Name: azure-storage-blob-cryptography
+  Version: 12.14.2
+  DisplayName: Storage - Blobs Cryptography
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-cryptography_12.14.2/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.21.0` to version `1.22.0`.
+    - Upgraded `azure-core-http-netty` from `1.11.1` to version `1.11.2`.
+    - Upgraded `azure-storage-blob` from `12.14.1` to version `12.14.2`.
+  GroupId: com.azure
+- Name: azure-storage-common
+  Version: 12.14.1
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-common_12.14.1/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.21.0` to version `1.22.0`.
+    - Upgraded `azure-core-http-netty` from `1.11.1` to version `1.11.2`.
+  GroupId: com.azure
+- Name: azure-storage-file-share
+  Version: 12.11.2
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-share_12.11.2/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.21.0` to version `1.22.0`.
+    - Upgraded `azure-core-http-netty` from `1.11.1` to version `1.11.2`.
+    - Upgraded `azure-storage-common` from `12.14.0` to version `12.14.1`.
+  GroupId: com.azure
+- Name: azure-storage-blob-batch
+  Version: 12.11.2
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-batch_12.11.2/sdk/storage/azure-storage-blob-batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    ##### Dependency Updates
+    - Updated to version `12.14.1` of `azure-storage-blob`
+    - Updated to version 1.22.0 of `azure-core`
+  GroupId: com.azure
+- Name: azure-ai-formrecognizer
+  Version: 3.1.6
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_3.1.6/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    ##### Dependency Updates
+    - Updated `azure-core` to `1.22.0`.
+    - Updated `azure-core-http-netty` to `1.11.2`.
+  GroupId: com.azure
+- Name: azure-storage-queue
+  Version: 12.11.2
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-queue_12.11.2/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.21.0` to version `1.22.0`.
+    - Upgraded `azure-core-http-netty` from `1.11.1` to version `1.11.2`.
+    - Upgraded `azure-storage-common` from `12.14.0` to version `12.14.1`.
+  GroupId: com.azure
+- Name: azure-storage-blob
+  Version: 12.14.2
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob_12.14.2/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    ##### Dependency Updates
+    - Updated to version `1.22.0` of `azure-core`
+    - Updated to version `12.14.1` of `azure-storage-common`
+  GroupId: com.azure
+- Name: azure-storage-file-datalake
+  Version: 12.7.2
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-datalake_12.7.2/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.21.0` to version `1.22.0`.
+    - Upgraded `azure-core-http-netty` from `1.11.1` to version `1.11.2`.
+    - Upgraded `azure-storage-blob` from `12.14.1` to version `12.14.2`.
+  GroupId: com.azure
 
