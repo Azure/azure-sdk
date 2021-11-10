@@ -530,4 +530,27 @@ entries:
     #### Bugs Fixed
     - Table entities now support UInt64 (ulong) properties. ([#24750](https://github.com/Azure/azure-sdk-for-net/issues/24750))
     - Fixed an issue where `PartitionKey` and `RoKey` property values containing single quote characters are not properly escaped on `GetEntity` calls. See breaking changes section for more information.
+- Name: Azure.AI.Translation.Document
+  Version: 1.0.0-beta.6
+  DisplayName: Document Translation
+  ServiceName: Translator
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Translation.Document_1.0.0-beta.6/sdk/translation/Azure.AI.Translation.Document/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Removed types `DocumentTranslationError` and `DocumentTranslationErrorCode`. These affected the classes `DocumentStatusResult` and `TranslationStatusResult`. Errors in both classes are now exposed as `ResponseError`.
+    - Renamed method `DocumentStatus` to `DocumentStatusResult` in `DocumentTranslationModelFactory`, which now takes a `BinaryData` type instead of `DocumentTranslationError`.
+    - Renamed method `TranslationStatus` to `TranslationStatusResult` in `DocumentTranslationModelFactory`, which now takes a `BinaryData` type instead of `DocumentTranslationError`.
+- Name: Azure.Containers.ContainerRegistry
+  Version: 1.1.0-beta.3
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Containers.ContainerRegistry_1.1.0-beta.3/sdk/containerregistry/Azure.Containers.ContainerRegistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for [anonymous pull access](https://docs.microsoft.com/azure/container-registry/anonymous-pull-access#configure-anonymous-pull-access) using the `ContainerRegistryBlobClient`
 
