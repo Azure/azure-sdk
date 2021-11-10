@@ -781,4 +781,21 @@ entries:
 
     - Added a `words` method to `DocumentLine`. This method produces an `IterableIterator` that will yield all of the `DocumentWord`s that are contained by the line's `spans`. This allows accessing the words that are related to the line from the line itself.
     - Added `createdOn` and `lastUpdatedOn` properties to `DocumentAnalysisPollOperationState` and `TrainingPollOperationState` that contain the date and time that the operation was created and last modified, respectively.
+- Name: '@azure/service-bus'
+  Version: 7.4.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/service-bus_7.4.0/sdk/servicebus/service-bus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Allowing the service API version to be configurable when using `ServiceBusAdministrationClient` as part of the constructor client options.
+    Supported versions being "2021-05" and "2017-04".
+    [#18254](https://github.com/Azure/azure-sdk-for-js/pull/18254)
+
+    #### Bugs Fixed
+
+    - Resolves an issue ([#17932](https://github.com/Azure/azure-sdk-for-js/issues/17932)) of receivers not being closed correctly when service bus client is closed.
 
