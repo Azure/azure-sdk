@@ -279,22 +279,28 @@ The service client will have several methods that perform requests on the servic
 
 {% include requirement/MUST id="golang-pagination" %} return a value that implements the Pager interface for operations that return pages.  The Pager interface allows consumers to iterate over all pages as defined by the service.
 
-{% include requirement/MUST id="golang-pagination-pagers" %} create Pager interface types with the name `<Resource>Pager` that are to be returned from their respective operations.
+{% include requirement/MUST id="golang-pagination-pagers" %} create Pager interface compatible types with the name `<Resource>Pager` that are to be returned from their respective operations.
 
 {% include requirement/MUST id="golang-pagination-pagers-interface-page" %} expose methods `NextPage()`, `PageResponse()`, and `Err()` on the `<Resource>Pager` type.
 
 ```go
 // WidgetPager provides iteration over ListWidgets pages.
-type WidgetPager interface {
-	// NextPage returns true if the pager advanced to the next page.
-	// Returns false if there are no more pages or an error occurred.
-	NextPage(context.Context) bool
+type WidgetPager struct {}
 
-	// PageResponse returns the current WidgetsPage.
-	PageResponse() ListWidgetsResponse
+// NextPage returns true if the pager advanced to the next page.
+// Returns false if there are no more pages or an error occurred.
+func (p *WidgetPager) NextPage(context.Context) bool {
+	// implementation elided.
+}
 
-	// Err returns the last error encountered while paging.
-	Err() error
+// PageResponse returns the current WidgetsPage.
+func (p *WidgetPager) PageResponse() ListWidgetsResponse {
+	// implementation elided.
+}
+
+// Err returns the last error encountered while paging.
+func (p *WidgetPager) Err() error {
+	// implementation elided.
 }
 
 type ListWidgetsResponse struct {
