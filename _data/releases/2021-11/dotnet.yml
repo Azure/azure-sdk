@@ -589,4 +589,15 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     - NaN, +inf, and -inf double values can now be retrieved from `LogsQueryResult`
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.1.0
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: WebJobs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.1.0/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `EnableCrossEntityTransactions` option
+    - Added ability to bind to `ServiceBusClient`
 
