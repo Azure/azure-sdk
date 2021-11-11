@@ -579,4 +579,14 @@ entries:
     - Fixed memory leak in ServiceBusSessionProcessor.
     - Fixed bug where AMQP sequence/value messages could not be created from a received message.
     - Fixed bug where a named session of empty string could not be accepted.
+- Name: Azure.Monitor.Query
+  Version: 1.0.1
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.Query_1.0.1/sdk/monitor/Azure.Monitor.Query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - NaN, +inf, and -inf double values can now be retrieved from `LogsQueryResult`
 
