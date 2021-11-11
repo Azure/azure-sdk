@@ -840,4 +840,23 @@ entries:
 
     - Added data flow flowlet
     - `KqlScriptContentCurrentConnection` now has poolName and databaseName properties
+- Name: '@azure/schema-registry'
+  Version: 1.0.0
+  DisplayName: Schema Registry
+  ServiceName: Schema Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/schema-registry_1.0.0/sdk/schemaregistry/schema-registry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - an option to customize the API version has been added to `SchemaRegistryClientOptions`.
+
+    #### Breaking Changes
+
+    - The type `Schema` no longer extends `SchemaProperties`, instead, it now has two properties, one for the schema definition and one for its properties.
+    - `Schema.schemaDefinition` has been renamed to `Schema.definition`.
+    - `SchemaDescription.schemaDefinition` has been renamed to `SchemaDescription.definition`.
+    - `getSchema` and `getSchemaProperties` no longer return `undefined`. If a schema is not found, an error will be thrown.
+    - `SchemaProperties` no longer includes the `version`.
 
