@@ -840,4 +840,70 @@ entries:
 
     - Added data flow flowlet
     - `KqlScriptContentCurrentConnection` now has poolName and databaseName properties
+- Name: '@azure/schema-registry'
+  Version: 1.0.0
+  DisplayName: Schema Registry
+  ServiceName: Schema Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/schema-registry_1.0.0/sdk/schemaregistry/schema-registry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - an option to customize the API version has been added to `SchemaRegistryClientOptions`.
+
+    #### Breaking Changes
+
+    - The type `Schema` no longer extends `SchemaProperties`, instead, it now has two properties, one for the schema definition and one for its properties.
+    - `Schema.schemaDefinition` has been renamed to `Schema.definition`.
+    - `SchemaDescription.schemaDefinition` has been renamed to `SchemaDescription.definition`.
+    - `getSchema` and `getSchemaProperties` no longer return `undefined`. If a schema is not found, an error will be thrown.
+    - `SchemaProperties` no longer includes the `version`.
+- Name: '@azure/web-pubsub-express'
+  Version: 1.0.0-beta.4
+  DisplayName: Web PubSub CloudEvents Handlers for Express
+  ServiceName: Web PubSub
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/web-pubsub-express_1.0.0-beta.4/sdk/web-pubsub/web-pubsub-express/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Move `allowedEndpoints` settings into `WebPubSubEventHandlerOptions`. If not set, the default behavior is allowing all the incoming endpoints.
+
+    ```js
+    const handler = new WebPubSubEventHandler("chat", {
+    handleConnect(req, res) {
+    // You can set the state for the connection, it lasts throughout the lifetime of the connection
+    res.setState("calledTime", 1);
+    res.success();
+    },
+    handleUserEvent(req, res) {
+    var calledTime = req.context.states.calledTime++;
+    console.log(calledTime);
+    // You can also set the state here
+    res.setState("calledTime", calledTime);
+    res.success();
+    },
+    allowedEndpoints: ["https://xxx.webpubsub.azure.com"]
+    });
+    ```
+
+    - Remove `dumpRequest` flag and leverage @azure/logger instead.
+- Name: '@azure/arm-cdn'
+  Version: 6.0.0-beta.1
+  DisplayName: Resource Management - Content Delivery Network
+  ServiceName: Content Delivery Network
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cdn/arm-cdn/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-datafactory'
+  Version: 9.0.0-beta.1
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/datafactory/arm-datafactory/CHANGELOG.md
+  ChangelogContent: ""
 
