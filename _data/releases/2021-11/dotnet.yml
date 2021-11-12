@@ -600,4 +600,22 @@ entries:
     #### Features Added
     - Added `EnableCrossEntityTransactions` option
     - Added ability to bind to `ServiceBusClient`
+- Name: Azure.Data.SchemaRegistry
+  Version: 1.0.0
+  DisplayName: Schema Registry
+  ServiceName: Schema Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.SchemaRegistry_1.0.0/sdk/schemaregistry/Azure.Data.SchemaRegistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed preview service versions.
+    - Renamed `Content` property of `SchemaRegistrySchema` to `Definition`.
+    - Renamed `name` parameter of `RegisterSchema` and `GetSchemaProperties` methods to `schemaName`.
+
+    #### Features Added
+
+    - General availability of `Azure.Data.SchemaRegistry`.
+    - Added `SchemaRegistryModelFactory`.
 
