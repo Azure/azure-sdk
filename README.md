@@ -70,7 +70,7 @@ contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additio
 [azure-sdk-for-ios Repository]: https://github.com/Azure/azure-sdk-for-ios
 [azure-sdk-for-java Repository]: https://github.com/Azure/azure-sdk-for-java
 [azure-sdk-for-js Repository]: https://github.com/Azure/azure-sdk-for-js
-[azure-sdk-for-python Repository]: https://github.com/Azure/azure-sdk-for-python
+[azure-sdk-for-python Repository]: https://github.com/Azure/azure-sdk-for-python/dummy
 
 [Official Azure Documentation]: http://aka.ms/azure-sdk-docs
 [.NET Documentation]: http://aka.ms/net-docs

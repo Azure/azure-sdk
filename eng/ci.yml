@@ -19,6 +19,22 @@ steps:
 - checkout: self
 - checkout: azure-sdk-tools
 
+# - pwsh: |
+#     Write-Host "RepoName = https://github.com/Azure/azure-sdk"
+#     Write-Host "RepoName = https://github.com/azure/azure-sdk"
+#     Write-Host "##[group]Beginning of a group"
+#     Write-Host "##[warning]Warning message"
+#     Write-Host "##[error]Error message"
+#     Write-Host "##[section]Start of a section"
+#     Write-Host "##[debug]Debug text"
+#     Write-Host "##[command]Command-line being run"
+#     Write-Host "##[endgroup]"
+
+#     Write-Host "##[error]This should be an error"
+#     Write-Host "##vso[task.logissue type=error]Force a log issue as error"
+#   displayName: Testing some stuff
+#   continueOnError: true
+
 - task: Cache@2
   inputs:
     key: 'gems | "$(Agent.OS)" | $(Build.SourcesDirectory)/azure-sdk/Gemfile | $(Build.SourcesDirectory)/azure-sdk/Gemfile.lock'
@@ -58,9 +74,9 @@ steps:
   inputs:
     pwsh: true
     workingDirectory: azure-sdk
-    filePath: azure-sdk-tools/eng/common/scripts/Verify-Links.ps1
+    filePath: azure-sdk/eng/common/scripts/Verify-Links.ps1
     arguments: >
-      -urls ./_site/azure-sdk/index.html
+      -urls ./README.md
       -ignoreLinksFile ./eng/ignore-links.txt
       -inputCacheFile "https://azuresdkartifacts.blob.core.windows.net/verify-links-cache/verify-links-cache.txt"
       -devOpsLogging:$true
