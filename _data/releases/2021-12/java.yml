@@ -59,4 +59,15 @@ entries:
     - Updated azure-core to 1.22.0.
     - Updated azure-core-http-netty to 1.11.2.
   GroupId: com.azure
+- Name: azure-cosmos
+  Version: 4.21.1
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos_4.21.1/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Key Bug Fixes
+    * Fixed an issue in `ChangeFeedProcessor` where processing stops in some rare cases because of a race condition can occur which prevents work to be promptly assigned to other instances.
+  GroupId: com.azure
 
