@@ -175,4 +175,17 @@ entries:
     - Upgraded `azure-core-http-netty` from `1.11.1` to version `1.11.2`.
     - Upgraded `azure-core-serializer-json-jackson` from `1.2.8` to version `1.2.9`.
   GroupId: com.azure
+- Name: azure-core-amqp
+  Version: 2.3.4
+  DisplayName: Core - AMQP
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-amqp_2.3.4/sdk/core/azure-core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed GC leak where `AmqpChannelProcessor` did not remove subscribers on success. https://github.com/Azure/azure-sdk-for-java/pull/25129
+    - Fixed GC leak where `TokenManager` was not closed if `authorize()` fails. https://github.com/Azure/azure-sdk-for-java/pull/25129
+  GroupId: com.azure
 
