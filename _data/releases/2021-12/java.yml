@@ -188,4 +188,16 @@ entries:
     - Fixed GC leak where `AmqpChannelProcessor` did not remove subscribers on success. https://github.com/Azure/azure-sdk-for-java/pull/25129
     - Fixed GC leak where `TokenManager` was not closed if `authorize()` fails. https://github.com/Azure/azure-sdk-for-java/pull/25129
   GroupId: com.azure
+- Name: azure-monitor-opentelemetry-exporter
+  Version: 1.0.0-beta.5
+  DisplayName: Monitor OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-opentelemetry-exporter_1.0.0-beta.5/sdk/monitor/azure-monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix formatted duration used in setDuration of RequestData and RemoteDependencyData.
+    - Minor Fix to ndJsonSerialization issue.
+  GroupId: com.azure
 
