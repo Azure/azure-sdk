@@ -331,4 +331,34 @@ entries:
     - Added RouteType as optional parameter when getting a Relay Configuration so users can
     choose the routing type protocol of the requested Relay Configuration.
   GroupId: com.azure
+- Name: azure-communication-sms
+  Version: 1.0.6
+  DisplayName: Communication Sms
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-sms_1.0.6/sdk/communication/azure-communication-sms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency updates
+    - Upgraded `azure-communication-common` to 1.0.6
+    - Upgraded `azure-core` to 1.22.0
+    - Upgraded `azure-identity` to 1.4.1
+  GroupId: com.azure
+- Name: azure-communication-phonenumbers
+  Version: 1.0.6
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-phonenumbers_1.0.6/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency updates
+    - Upgraded `azure-communication-common` to 1.0.6
+    - Upgraded `azure-core` to 1.22.0
+    - Upgraded `azure-identity` to 1.4.1
+  GroupId: com.azure
 
