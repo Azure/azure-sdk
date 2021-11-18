@@ -317,4 +317,18 @@ entries:
     - Upgraded `azure-communication-common` to 1.0.6
     - Upgraded `azure-core` to 1.22.0
   GroupId: com.azure
+- Name: azure-communication-networktraversal
+  Version: 1.0.0-beta.2
+  DisplayName: Communication Network Traversal
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-networktraversal_1.0.0-beta.2/sdk/communication/azure-communication-networktraversal/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Made User Identity an optional parameter when getting a Relay Configuration.
+    - Added RouteType as optional parameter when getting a Relay Configuration so users can
+    choose the routing type protocol of the requested Relay Configuration.
+  GroupId: com.azure
 
