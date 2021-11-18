@@ -42,4 +42,14 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-loganalytics_12.0.0/sdk/loganalytics/azure-mgmt-loganalytics/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-storage-blob-changefeed
+  Version: 12.0.0b3
+  DisplayName: Storage - Blobs Changefeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob-changefeed_12.0.0b3/sdk/storage/azure-storage-blob-changefeed/CHANGELOG.md
+  ChangelogContent: |-
+    **Fixes**
+    - `pip install` now supports latest blob version
 
