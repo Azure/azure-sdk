@@ -302,4 +302,19 @@ entries:
 
     - Added support for multi-tenant authentication in clients.
   GroupId: com.azure
+- Name: azure-communication-chat
+  Version: 1.1.2
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-chat_1.1.2/sdk/communication/azure-communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-communication-common` to 1.0.6
+    - Upgraded `azure-core` to 1.22.0
+  GroupId: com.azure
 
