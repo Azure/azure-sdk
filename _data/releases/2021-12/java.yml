@@ -389,4 +389,48 @@ entries:
     - Upgraded `azure-core` from `1.21.0` to `1.22.0`.
     - Upgraded `azure-core-amqp` from `2.3.3` to `2.3.4`.
   GroupId: com.azure
+- Name: azure-spring-boot-bom
+  Version: 3.10.2
+  DisplayName: Azure Spring Boot BOM
+  ServiceName: Spring Boot
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/boms/azure-spring-boot-bom/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    Fix bug: the Spring Cloud Azure related dependencies in `azure-spring-boot-bom:3.10.1` are not released.
+  GroupId: com.azure.spring
+- Name: azure-spring-boot-bom
+  Version: 3.10.1
+  DisplayName: Azure Spring Boot BOM
+  ServiceName: Spring Boot
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/boms/azure-spring-boot-bom/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    Fix azure-sdk-bom's version error: It should be 1.0.5 instead of 1.0.4.
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-dependencies
+  Version: 2.10.2
+  DisplayName: Azure Spring Cloud Dependencies
+  ServiceName: Spring Cloud
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-dependencies_2.10.2/sdk/boms/azure-spring-cloud-dependencies/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    Fix bug: the Spring Cloud Azure related dependencies in `azure-spring-cloud-dependencies:2.10.1` are not released.
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-dependencies
+  Version: 2.10.1
+  DisplayName: Azure Spring Cloud Dependencies
+  ServiceName: Spring Cloud
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-dependencies_2.10.1/sdk/boms/azure-spring-cloud-dependencies/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    Fix azure-sdk-bom's version error: It should be 1.0.5 instead of 1.0.4.
+  GroupId: com.azure.spring
 
