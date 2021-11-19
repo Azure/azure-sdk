@@ -433,4 +433,18 @@ entries:
     #### Bugs Fixed
     Fix azure-sdk-bom's version error: It should be 1.0.5 instead of 1.0.4.
   GroupId: com.azure.spring
+- Name: azure-data-tables
+  Version: 12.1.4
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-tables_12.1.4/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Upgraded `azure-core` dependency to `1.22.0`
+    - Upgraded `azure-core-http-netty` dependency to `1.11.2`
+  GroupId: com.azure
 
