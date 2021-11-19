@@ -90,4 +90,16 @@ entries:
     - Added properties to `SearchIndex`: `semantic_settings`
     - Added models: `PrioritizedFields`, `SemanticConfiguration`, `SemanticField`, `SemanticSettings`
     - Added new values to model `QueryLanguage`
+- Name: azure-containerregistry
+  Version: 1.0.0b7
+  DisplayName: Container Registry
+  ServiceName: containerregistry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-containerregistry_1.0.0b7/sdk/containerregistry/azure-containerregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Updated the supported rest api version to be the stable "2021-07-01".
+    - Removed the property `teleport_enabled` in `RepositoryProperties`.
 
