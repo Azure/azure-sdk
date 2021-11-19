@@ -65,4 +65,24 @@ entries:
     #### Other Changes
 
     - Depends on @azure/schema-registry@1.0.1.
+- Name: '@azure/arm-datalake-analytics'
+  Version: 2.0.0-beta.1
+  DisplayName: '@azure/arm-datalake-analytics'
+  ServiceName: Datalake-Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-datalake-analytics_2.0.0-beta.1/sdk/datalake-analytics/arm-datalake-analytics/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/communication-network-traversal'
+  Version: 1.0.0-beta.3
+  DisplayName: Communication Network Traversal
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-network-traversal_1.0.0-beta.3/sdk/communication/communication-network-traversal/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Making user identity an optional argument when calling GetRelayConfiguration and GetRelayConfigurationAsync
+    - Adding optional parameter to GetRelayConfiguration to choose a RouteType
 
