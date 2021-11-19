@@ -161,4 +161,20 @@ entries:
     #### Bugs Fixed
 
     - Updating go-amqp to v0.16.4 to fix a race condition found when running `go test -race`.  Thanks to @peterzeller for reporting this issue. PR: #16168
+- Name: sdk/resourcemanager/sqlvirtualmachine/armsqlvirtualmachine
+  Version: 0.1.0
+  DisplayName: Resource Management - Sqlvirtualmachine
+  ServiceName: Sqlvirtualmachine
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/sqlvirtualmachine/armsqlvirtualmachine/v0.1.0/sdk/resourcemanager/sqlvirtualmachine/armsqlvirtualmachine/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/hdinsight/armhdinsight
+  Version: 0.1.0
+  DisplayName: Resource Management - Hdinsight
+  ServiceName: Hdinsight
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/hdinsight/armhdinsight/v0.1.0/sdk/resourcemanager/hdinsight/armhdinsight/CHANGELOG.md
+  ChangelogContent: ""
 
