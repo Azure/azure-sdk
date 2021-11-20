@@ -447,4 +447,17 @@ entries:
     - Upgraded `azure-core` dependency to `1.22.0`
     - Upgraded `azure-core-http-netty` dependency to `1.11.2`
   GroupId: com.azure
+- Name: azure-digitaltwins-core
+  Version: 1.1.4
+  DisplayName: Digital Twins - Core
+  ServiceName: IoT
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-digitaltwins-core_1.1.4/sdk/digitaltwins/azure-digitaltwins-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    ##### Dependency updates
+    - Upgraded `azure-core` dependency from `1.21.0` to `1.22.0`.
+    - Upgraded `azure-core-http-netty` dependency from `1.11.1 to `1.11.2`.
+  GroupId: com.azure
 
