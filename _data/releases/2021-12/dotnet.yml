@@ -89,4 +89,14 @@ entries:
     #### Breaking Changes
     - Renamed `IndexerStateHighWaterMark` to `IndexerChangeTrackingState`.
     - Renamed the property `HighWaterMark` to `ChangeTrackingState` in `IndexerState`.
+- Name: Azure.AI.TextAnalytics
+  Version: 5.1.1
+  DisplayName: Text Analytics
+  ServiceName: Text Analytics
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.TextAnalytics_5.1.1/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking changes
+    - Enum `EntityCategory.IPAddress` now uses the underlying string `IPAddress` value instead of `IP` to align with the Text Analytics service behavior.
 
