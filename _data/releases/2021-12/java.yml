@@ -701,4 +701,17 @@ entries:
     - Removed `ErrorOptions`
     - Removed `setErrorOptions()` from `RequestOptions`
   GroupId: com.azure
+- Name: azure-sdk-bom
+  Version: 1.0.6
+  DisplayName: SDK - Bill of Materials
+  ServiceName: Bill of Materials
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-sdk-bom_1.0.6/sdk/boms/azure-sdk-bom/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Updated Azure SDK dependency versions to more recent releases.
+    - Updated non-Azure SDK dependency versions to align with the versions Azure SDK uses.
+  GroupId: com.azure
 
