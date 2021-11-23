@@ -676,4 +676,29 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager_2.10.0/sdk/resourcemanager/azure-resourcemanager/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-core-http-netty
+  Version: 1.11.3
+  DisplayName: Core - HTTP Netty
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-netty_1.11.3/sdk/core/azure-core-http-netty/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Upgraded `azure-core` from `1.22.0` to `1.23.0`.
+  GroupId: com.azure
+- Name: azure-core
+  Version: 1.23.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core_1.23.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Removed `ErrorOptions`
+    - Removed `setErrorOptions()` from `RequestOptions`
+  GroupId: com.azure
 
