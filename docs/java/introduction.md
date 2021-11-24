@@ -406,12 +406,14 @@ getFoo()
 getFoo(x)
 getFoo(x, y)
 getFoo(x, y, z) // maximal overload
-getFoo(a)       // maximal overload
+
+getBar()
+getBar(a)       // maximal overload
 
 // this will result in the following two methods being required
 // (replacing the two maximal overloads above)
 getFoo(x, y, z, Context)
-getFoo(a, Context)
+getBar(a, Context)
 ```
 
 {% include requirement/MUSTNOT id="java-service-client-context-async" %} include overloads that take `Context` in async clients.  Async clients use the [subscriber context built into Reactor Flux and Mono APIs][reactor-context].
@@ -441,10 +443,10 @@ The *logical entity* is a protocol neutral representation of a response. The log
 Return `Response<T>` on the maximal overload for a service method with `WithResponse` appended to the name.  For example:
 
 ```java
-Foo foo = client.getFoo(a);
-Foo foo = client.getFoo(a, b);
-Foo foo = client.getFoo(a, b, c, context); // This is the maximal overload, so it is replaced with the 'withResponse' 'overload' below
-Response<Foo> response = client.getFooWithResponse(a, b, c, context);
+Foo foo = client.getFoo(x);
+Foo foo = client.getFoo(x, y);
+Foo foo = client.getFoo(x, y, z, context); // This is the maximal overload, so it is replaced with the 'withResponse' 'overload' below
+Response<Foo> response = client.getFooWithResponse(x, y, z, context);
 ```
 
 For methods that combine multiple requests into a single call:
