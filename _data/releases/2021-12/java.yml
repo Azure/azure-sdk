@@ -999,4 +999,28 @@ entries:
     #### Dependency Upgrades
     Regular updates for Azure SDK dependency versions.
   GroupId: com.azure.spring
+- Name: azure-spring-cloud-autoconfigure
+  Version: 2.11.0
+  DisplayName: Azure Spring Cloud Autoconfigure
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-autoconfigure_2.11.0/sdk/spring/azure-spring-cloud-autoconfigure/CHANGELOG.md
+  ChangelogContent: |-
+    This release is compatible with Spring Boot 2.5.0 - 2.5.4 and Spring Cloud 2020.0.3.
+    #### Dependency Upgrades
+    Regular updates for Azure SDK dependency versions.
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-storage
+  Version: 2.11.0
+  DisplayName: Azure Spring Cloud Storage
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-storage_2.11.0/sdk/spring/azure-spring-cloud-storage/CHANGELOG.md
+  ChangelogContent: |-
+    This release is compatible with Spring Boot 2.5.0 - 2.5.4 and Spring Cloud 2020.0.3.
+    #### Dependency Upgrades
+    Regular updates for Azure SDK dependency versions.
+  GroupId: com.azure.spring
 
