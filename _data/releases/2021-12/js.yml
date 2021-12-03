@@ -195,4 +195,29 @@ entries:
     #### Bugs Fixed
 
     - Added a check to handle undefined value during the parsing of query parameters. Please refer to [PR #18621](https://github.com/Azure/azure-sdk-for-js/pull/18621) for further details.
+- Name: '@azure/storage-file-share'
+  Version: 12.9.0-beta.2
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.9.0-beta.2/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2021-02-12.
+    - Added support for premium file share `provisionedBandwidthMiBps` property.
+- Name: '@azure/storage-blob'
+  Version: 12.9.0-beta.2
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.9.0-beta.2/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2021-02-12
+    - Added support for listing system containers with `BlobServiceClient.listContainers()`.
+    - Added support for blob names container invalid XML characters.
 
