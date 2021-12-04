@@ -25,4 +25,14 @@ entries:
 
     #### Breaking Changes
     1. `Call.addParticipant` API is now a throwable type when trying to add a participant that is already to the call or when a participant is added to an unconnected call.
+- Name: AzureCommunicationCalling
+  Version: 2.2.0-beta.1
+  DisplayName: Communication Calling
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationCalling_2.2.0-beta.1/sdk/communication/AzureCommunicationCalling/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for specifying emergency country code when creating `CallAgent` by setting the property `emergencyCountryCode` in `CallAgentOptions`.
 
