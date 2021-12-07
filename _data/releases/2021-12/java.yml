@@ -1240,4 +1240,47 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-imagebuilder_1.0.0-beta.2/sdk/imagebuilder/azure-resourcemanager-imagebuilder/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-core-test
+  Version: 1.7.5
+  DisplayName: Core - Test
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-test_1.7.5/sdk/core/azure-core-test/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.22.0` to `1.23.1`.
+  GroupId: com.azure
+- Name: azure-core-amqp
+  Version: 2.3.5
+  DisplayName: Core - AMQP
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-amqp_2.3.5/sdk/core/azure-core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.22.0` to `1.23.1`.
+  GroupId: com.azure
+- Name: azure-core
+  Version: 1.23.1
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core_1.23.1/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded Jackson from `2.12.5` to `2.13.0`.
+    - Upgraded Reactor from `3.4.10` to `3.4.12`.
+  GroupId: com.azure
 
