@@ -277,4 +277,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.CosmosDB_1.0.0-beta.1/sdk/cosmosdb/Azure.ResourceManager.CosmosDB/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.5.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.5.1/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Add a delay when retrying if we are being throttled by the service.
 
