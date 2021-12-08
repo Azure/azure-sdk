@@ -1508,4 +1508,29 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-management_1.4.4/sdk/core/azure-core-management/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure
+- Name: azure-storage-file-datalake
+  Version: 12.8.0-beta.2
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-datalake_12.8.0-beta.2/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed a bug in DataLakeFileClient.flush() in which the logic of the overwrite parameter was reversed.
+    - Fixed a bug that would cause authenticating with a sas token to fail if the timestamps in the token were formatted differently.
+
+    #### Features Added
+    - Added support for 2021-02-12 service version.
+    - Added support for listing system containers.
+  GroupId: com.azure
+- Name: azure-resourcemanager-kubernetesconfiguration
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Kubernetes Configuration
+  ServiceName: Kubernetes Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-kubernetesconfiguration_1.0.0-beta.2/sdk/kubernetesconfiguration/azure-resourcemanager-kubernetesconfiguration/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
