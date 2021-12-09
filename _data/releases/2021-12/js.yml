@@ -316,4 +316,17 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-loadtestservice_1.0.0-beta.1/sdk/loadtestservice/arm-loadtestservice/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/cosmos'
+  Version: 3.15.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/cosmos_3.15.0/sdk/cosmosdb/cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - _GA_ Adds `container.item(itemId).patch()`. `patch()` is an alternative to `replace()` for item updates. https://github.com/Azure/azure-sdk-for-js/pull/16264/files#diff-7caca690c469e2025576523c0377ac71815f001024fde7c48b20cd24adaa6977R561
+    - _GA_ support for Bulk operation PATCH.
+    - _GA_ support for Batch operation PATCH.
+    -  Added the `SasTokenProperties` type and a `createAuthorizationSasToken` function to enable scoped access to Cosmos resources with SAS tokens. For an example that demonstrates creating a SAS token and using it to authenticate a `CosmosClient`, see [the `SasTokenAuth` sample](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/cosmosdb/cosmos/samples/v3/typescript/src/SasTokenAuth.ts).
 
