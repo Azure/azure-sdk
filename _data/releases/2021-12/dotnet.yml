@@ -288,4 +288,33 @@ entries:
     #### Bugs Fixed
 
     - Add a delay when retrying if we are being throttled by the service.
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.2.0
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: WebJobs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.2.0/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add listener details.
+    - Add protected constructors to `ServiceBusMessageActions` and `ServiceBusSessionMessageActions` for mocking.
+
+    #### Bugs Fixed
+
+    - Make `ServiceBusMessageActions` thread-safe.
+- Name: Microsoft.Azure.WebJobs.Extensions.WebPubSub
+  Version: 1.1.0
+  DisplayName: WebJobs Extensions - Web PubSub
+  ServiceName: Web PubSub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.WebPubSub_1.1.0/sdk/webpubsub/Microsoft.Azure.WebJobs.Extensions.WebPubSub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Changed the `ConnectionContext`'s `ConnectionStates` to correctly serialize as proper JSON when used with JavaScript.
+
+    #### Breaking Changes
+    - JavaScript developers using `request.connectionContext.states` no longer need to `JSON.parse(...)` its values.  The values are already valid JSON.
 
