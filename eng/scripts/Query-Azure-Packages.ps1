@@ -54,13 +54,23 @@ function CreatePackage(
     Notes = ""
   };
 }
+function Get-android-Packages
+{
+  # Rest API docs https://search.maven.org/classic/#api
+  $mavenQuery = Invoke-RestMethod "https://search.maven.org/solrsearch/select?q=g:com.azure.android&rows=2000&wt=json"
+
+  Write-Host "Found $($mavenQuery.response.numFound) android packages on maven packages"
+  $packages = $mavenQuery.response.docs | Foreach-Object { CreatePackage $_.a $_.latestVersion $_.g }
+  return $packages
+}
+
 function Get-java-Packages
 {
   # Rest API docs https://search.maven.org/classic/#api
   $mavenQuery = Invoke-RestMethod "https://search.maven.org/solrsearch/select?q=g:com.microsoft.azure*%20OR%20g:com.azure*&rows=2000&wt=json"
 
-  Write-Host "Found $($mavenQuery.response.numFound) maven packages"
-  $packages = $mavenQuery.response.docs | Foreach-Object { CreatePackage $_.a $_.latestVersion $_.g }
+  Write-Host "Found $($mavenQuery.response.numFound) java packages on maven packages"
+  $packages = $mavenQuery.response.docs | Foreach-Object { if ($_.g -ne "com.azure.android") { CreatePackage $_.a $_.latestVersion $_.g } }
   return $packages
 }
 
@@ -280,6 +290,7 @@ switch($language)
     Write-Latest-Versions "python"
     Write-Latest-Versions "cpp"
     Write-Latest-Versions "go"
+    Write-Latest-Versions "android"
     break
   }
   "java" {
@@ -303,6 +314,10 @@ switch($language)
     break
   }
   "go" {
+    Write-Latest-Versions $language
+    break
+  }
+  "android" {
     Write-Latest-Versions $language
     break
   }
