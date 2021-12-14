@@ -56,4 +56,14 @@ entries:
 
     #### Bugs Fixed
     - Connection string SAS now works as expected.
+- Name: azure-cosmos
+  Version: 4.3.0b1
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.3.0b1/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    **New features**
+    - Added language native async i/o client
 
