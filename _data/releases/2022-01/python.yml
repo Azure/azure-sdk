@@ -15,4 +15,45 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-kubernetesconfiguration_1.0.0/sdk/kubernetesconfiguration/azure-mgmt-kubernetesconfiguration/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-storage-file-share
+  Version: 12.7.0b1
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.7.0b1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2021-02-12.
+    - Added support for premium file share provisioned_bandwidth property.
+    - Added support for checking if a directory exists using `exists()`.
+- Name: azure-storage-blob
+  Version: 12.10.0b2
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.10.0b2/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2021-02-12
+    - Added support for blob names container invalid XML characters. Previously \uFFFE and \uFFFF would fail if present in blob name.
+    - Added support for listing system containers with get_blob_containers().
+
+    #### Bugs Fixed
+    - BlobPrefix for aio operations is now exposed to be imported, previously it was private.
+- Name: azure-storage-file-datalake
+  Version: 12.6.0b2
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.6.0b2/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2021-02-12.
+    - Added support for listing system file systems with list_file_systems().
+
+    #### Bugs Fixed
+    - Connection string SAS now works as expected.
 
