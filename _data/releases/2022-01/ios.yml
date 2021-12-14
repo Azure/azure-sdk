@@ -1,0 +1,31 @@
+entries:
+- Name: AzureCommunicationCalling
+  Version: 2.0.0
+  DisplayName: Communication Calling
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationCalling_2.0.0/sdk/communication/AzureCommunicationCalling/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs fixed
+    - Fix for when camera preview is rotating even if the app supports only portrait mode. [GH#338](https://github.com/Azure/Communication/issues/338)
+    - Fix for the event `didUpdateRemoteParticipant` event not firing sometimes when `call.AddParticipant` API is called by the application.
+    - Fix when the camera switch button is pressed several times, the preview of the client's camera can be blocked.
+    - Fix for crash when signing out and signing in repeatedly.
+    - `IncomingCall.accept` will now throw errors when trying to accept a terminated call or if already in an active call.
+
+    #### Breaking Changes
+    - `Call.addParticipant` API is now a throwable type when trying to add a participant that is already to the call or when a participant is added to an unconnected call.
+    - `didChangeRecordingState` and `didChangeTranscriptionState` are moved out of `CallDelegate` into `RecordingFeatureDelegate` and into `TranscriptionFeatureDelegate`.
+    **More documentation on extensions and the breaking change can be found [here](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/calling-client-samples?pivots=platform-ios).**
+
+    #### Features Added
+    - Added support for specifying emergency country code when creating `CallAgent` by setting the property `emergencyCountryCode` in `CallAgentOptions`.
+    - Join Teams calls either using a Teams meeting link or using Teams meeting coordinates.
+    - `Recording` and `Transcription` features are decoupled from `Call` object and now can only be used via extensions.
+    Usage example:
+    ```
+    let recordingFeature = self.call!.feature(RecordingFeature.self)
+    recordingFeature.delegate = self.callObserver
+    ```
+
