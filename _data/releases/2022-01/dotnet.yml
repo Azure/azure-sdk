@@ -1,0 +1,13 @@
+entries:
+- Name: Microsoft.Azure.WebJobs.Extensions.EventGrid
+  Version: 3.0.1
+  DisplayName: WebJobs Extensions - Event Grid
+  ServiceName: WebJobs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventGrid_3.0.1/sdk/eventgrid/Microsoft.Azure.WebJobs.Extensions.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Added output binding for byte array to support integration with other languages
+
