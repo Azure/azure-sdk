@@ -1076,6 +1076,29 @@ All client libraries for Android standardize on the Gradle build tooling for bui
 
 {% include requirement/MUST id="android-gradle-description" %} specify the `description` element to be a slightly longer statement along the lines of `This package contains the Microsoft Azure <service> client library`.
 
+{% include requirement/MUST id="android-gradle-pom" %} ensure that all generated jar files contain a Maven pom.xml file within them. This can be achieved using the following configuration in the build.gradle file:
+
+```groovy
+plugins {
+    id 'maven-publish'
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+}
+
+jar {
+    into("META-INF/maven/$project.group/$project.name") {
+        from { generatePomFileForMavenJavaPublication }
+        rename ".*", "pom.xml"
+    }
+}
+```
+
 #### Service-Specific Common Libraries
 
 There are occasions when common code needs to be shared between several client libraries. For example, a set of cooperating client libraries may wish to share a set of exceptions or models.
