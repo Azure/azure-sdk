@@ -241,8 +241,6 @@ Environment variables are a well-known method for IT administrators to configure
 
 {% include requirement/MUST id="azurecore-config-envvars-azure-prefix" %} prefix Azure-specific environment variables with `AZURE_`.
 
-{% include requirement/MUST id="azurecore-config-envvars-no-proxy-cidr" %} support [CIDR notation] for `NO_PROXY`.
-
 ### Global configuration
 
 Global configuration refers to configuration settings that are applied to all applicable client constructors in some manner.
@@ -270,5 +268,4 @@ OAuth token authentication, obtained via Managed Security Identities (MSI) or Az
 [Transient fault handling]: https://docs.microsoft.com/azure/architecture/best-practices/transient-faults
 [OpenTelemetry]: https://opentelemetry.io/
 [Azure Monitor]: https://azure.microsoft.com/services/monitor/
-[CIDR notation]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 [Tracing Conventions]: {{ site.baseurl }}{% link docs/tracing/distributed-tracing-conventions.md %}
