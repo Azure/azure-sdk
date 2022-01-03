@@ -44,7 +44,7 @@ If you are unsure which path applies to the work you are doing, you should consu
 
 ## Types of Review Meetings and What to Prepare
 
-[Submit an issue](https://github.com/Azure/azure-sdk/issues/new/choose) to the Architecture Board to request for a meeting. If the service is pre-release and not yet publicly disclosed, use the private repository ([azure-sdk-pr](https://github.com/Azure/azure-sdk-pr)). After creating the issue, email the [Architecture Board](mailto:adparch@microsoft.com) to communicate specific requests such as scheduling, invite lists, etc.
+[Submit an issue](https://github.com/Azure/azure-sdk/issues/new/choose) to the Architecture Board to request for a meeting. If the service is pre-release and not yet publicly disclosed, use the private repository ([azure-sdk-pr](https://github.com/Azure/azure-sdk-pr)). After creating the issue, email the [Architecture Board](mailto:azsdkarch@microsoft.com) to communicate specific requests such as scheduling, invite lists, etc.
 
 Depending on the type of review, use the appropriate template to create the issue. Ensure that you included everything the issue template asks for and in the correct format.
 
