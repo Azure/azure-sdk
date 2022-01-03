@@ -109,6 +109,7 @@ function CheckOptionalLinks($linkTemplates, $pkg, $skipIfNA = $false)
   if (!$skipIfNA -or $pkg.GHDocs -eq "")
   {
     $ghdocvalid = ($pkg.VersionGA -or $pkg.VersionPreview)
+    $ghlink = "[No versioned link yet]"
     if ($pkg.VersionGA) {
       $ghlink = GetLinkTemplateValue $linkTemplates "ghdocs_url_template" $pkg.Package $pkg.VersionGA
       $ghdocvalid = $ghdocvalid -and (CheckLink $ghlink $false)
