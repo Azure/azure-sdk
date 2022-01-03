@@ -35,7 +35,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 - Compared to the previous 1.0.0 release, there are **no** breaking changes.
 - Removed `az_iot_pnp_client.h`, which included some beta APIs related to IoT Plug and Play such as `az_iot_pnp_client()`.
-  - These will ship in a future release and will continue to be available as beta from [this feature branch](https://github.com/Azure/azure-sdk-for-c/tree/feature/iot_pnp).
+  - These will ship in a future release.
 
 #### Bug Fixes
 
