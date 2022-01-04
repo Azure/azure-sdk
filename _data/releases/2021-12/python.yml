@@ -57,7 +57,7 @@ entries:
   DisplayName: Event Grid
   ServiceName: Event Grid
   VersionType: Patch
-  Hidden: false
+  Hidden: true
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventgrid_4.7.1/sdk/eventgrid/azure-eventgrid/CHANGELOG.md
   ChangelogContent: |-
     #### Bugs Fixed
@@ -142,10 +142,6 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.21.0/sdk/core/azure-core/CHANGELOG.md
   ChangelogContent: |-
-    #### Bugs Fixed
-
-    - Add response body to string representation of `HttpResponseError` if we're not able to parse out information #21800
-
     #### Breaking Changes
 
     - Sync stream downloading now raises `azure.core.exceptions.DecodeError` rather than `requests.exceptions.ContentDecodingError`
@@ -154,7 +150,7 @@ entries:
   DisplayName: Core
   ServiceName: Core
   VersionType: Patch
-  Hidden: false
+  Hidden: true
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.21.1/sdk/core/azure-core/CHANGELOG.md
   ChangelogContent: |-
     #### Other Changes
