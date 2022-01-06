@@ -459,4 +459,65 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerinstance/arm-containerinstance/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/core-client'
+  Version: 1.4.0
+  DisplayName: Core - Client
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-client_1.4.0/sdk/core/core-client/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added a new function `authorizeRequestOnClaimChallenge`, that can be used with the `@azure/core-rest-pipeline`'s `bearerTokenAuthenticationPolicy` to support [Continuous Access Evaluation (CAE) challenges](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-continuous-access-evaluation).
+    - Call the `bearerTokenAuthenticationPolicy` with the following options: `bearerTokenAuthenticationPolicy({ authorizeRequestOnChallenge: authorizeRequestOnClaimChallenge })`. Once provided, the `bearerTokenAuthenticationPolicy` policy will internally handle Continuous Access Evaluation (CAE) challenges. When it can't complete a challenge it will return the 401 (unauthorized) response from ARM.
+
+    #### Bugs Fixed
+
+    - Fixed a serializer issue with nested polymorphics. [PR #19455](https://github.com/Azure/azure-sdk-for-js/pull/19455)
+- Name: '@azure/core-lro'
+  Version: 2.2.3
+  DisplayName: Core - LRO
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_2.2.3/sdk/core/core-lro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix an issue where we treat Retry-After value as milliseconds. It is actually in seconds. [PR #19479](https://github.com/Azure/azure-sdk-for-js/pull/19479)
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.4.0
+  DisplayName: Core Rest Pipeline
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.4.0/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Changed behavior when sending HTTP headers to preserve the original casing of header names. Iterating over `HttpHeaders` now keeps the original name casing. There is also a new `preserveCase` option for `HttpHeaders.toJSON()`. See [PR #18517](https://github.com/Azure/azure-sdk-for-js/pull/18517)
+    - The count for how many retries in the `throttlingRetryPolicy` policy can now be configured.
+    - The `bearerTokenAuthenticationPolicy` now accepts a logger.
+    - A new `retryPolicy` centralizes the retry logic and allows adding retry strategies to any pipeline. With it, we're exposing some new types:
+    - `RetryStrategy` defines whether to retry and how to retry.
+    - `RetryStrategyState` keeps track of the last retry and controls how to do the subsequent retries.
+    - Previous retry policies have been enhanced with better error handling.
+    - A new `defaultRetryPolicy` is added, which has the same behavior as all the other retry policies combined (`throttlingRetryPolicy`, `systemErrorRetryPolicy` and `exponentialRetryPolicy`).
+    - `createPipelineFromOptions` has been updated to ensure retries are properly traced.
+
+    #### Bugs Fixed
+
+    - Form data of `application/x-www-form-urlencoded` are now sent properly.
+- Name: '@azure/core-xml'
+  Version: 1.1.0
+  DisplayName: Core - XML
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-xml_1.1.0/sdk/core/core-xml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Migrate to depend on `fast-xml-parser` for XML parsing/building [PR# #17792](https://github.com/Azure/azure-sdk-for-js/pull/17792)
 
