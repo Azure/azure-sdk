@@ -708,4 +708,18 @@ entries:
     #### Breaking Changes
     - Remove import of Azure SDK bom.
   GroupId: com.azure.spring
+- Name: azure-core-amqp
+  Version: 2.3.6
+  DisplayName: Core - AMQP
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-amqp_2.3.6/sdk/core/azure-core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.23.1` to `1.24.0`.
+  GroupId: com.azure
 
