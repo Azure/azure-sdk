@@ -531,4 +531,20 @@ entries:
     #### Bugs Fixed
 
     - Fix `HttpHeaders.rawHeaders()` to preserve header name case. As a result HttpClient now sends requests with their original header names. `HttpHeaders.toJson()` now has an option to preserve header key casing.
+- Name: '@azure/arm-confluent'
+  Version: 3.0.0-beta.1
+  DisplayName: '@azure/arm-confluent'
+  ServiceName: Confluent
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-confluent_3.0.0-beta.1/sdk/confluent/arm-confluent/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-imagebuilder'
+  Version: 1.0.0
+  DisplayName: Resource Management - Imagebuilder
+  ServiceName: Imagebuilder
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-imagebuilder_1.0.0/sdk/imagebuilder/arm-imagebuilder/CHANGELOG.md
+  ChangelogContent: ""
 
