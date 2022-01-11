@@ -722,4 +722,31 @@ entries:
 
     - Upgraded `azure-core` from `1.23.1` to `1.24.0`.
   GroupId: com.azure
+- Name: azure-spring-boot-bom
+  Version: 3.12.1
+  DisplayName: Azure Spring Boot BOM
+  ServiceName: Spring Boot
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/boms/azure-spring-boot-bom/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix the bug of no dependency management of Azure SDK libraries.
+
+    #### Breaking Changes
+    - Remove import of Azure SDK bom.
+  GroupId: com.azure.spring
+- Name: azure-spring-boot-bom
+  Version: 3.12.0
+  DisplayName: Azure Spring Boot BOM
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/boms/azure-spring-boot-bom/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    This release is compatible with Spring Boot 2.5.5-2.5.8, 2.6.0-2.6.1.
+    #### Breaking Changes
+    - Remove import of Azure SDK bom.
+  GroupId: com.azure.spring
 
