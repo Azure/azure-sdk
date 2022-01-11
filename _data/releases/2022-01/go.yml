@@ -391,4 +391,39 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/solutions/armmanagedapplications/v0.1.0/sdk/resourcemanager/solutions/armmanagedapplications/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/azcore
+  Version: 0.21.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v0.21.0/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added `AllowedHeaders` and `AllowedQueryParams` to `policy.LogOptions` to control which headers and query parameters are written to the logger.
+    * Added `azcore.ResponseError` type which is returned from APIs when a non-success HTTP status code is received.
+
+    #### Breaking Changes
+    * Moved `[]policy.Policy` parameters of `arm/runtime.NewPipeline` and `runtime.NewPipeline` into a new struct, `runtime.PipelineOptions`
+    * Renamed `arm/ClientOptions.Host` to `.Endpoint`
+    * Moved `Request.SkipBodyDownload` method to function `runtime.SkipBodyDownload`
+    * Removed `azcore.HTTPResponse` interface type
+    * `arm.NewPoller()` and `runtime.NewPoller()` no longer require an `eu` parameter
+    * `runtime.NewResponseError()` no longer requires an `error` parameter
+- Name: sdk/azidentity
+  Version: 0.13.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v0.13.0/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * Replaced `AuthenticationFailedError.RawResponse()` with a field having the same name
+    * Unexported `CredentialUnavailableError`
+    * Instances of `ChainedTokenCredential` will now skip looping through the list of source credentials and re-use the first successful credential on subsequent calls to `GetToken`.
+    * If `ChainedTokenCredentialOptions.RetrySources` is true, `ChainedTokenCredential` will continue to try all of the originally provided credentials each time the `GetToken` method is called.
+    * `ChainedTokenCredential.successfulCredential` will contain a reference to the last successful credential.
+    * `DefaultAzureCredenial` will also re-use the first successful credential on subsequent calls to `GetToken`.
+    * `DefaultAzureCredential.chain.successfulCredential` will also contain a reference to the last successful credential.
 
