@@ -579,4 +579,27 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-azurestackhci_2.0.0/sdk/azurestackhci/arm-azurestackhci/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/eventgrid'
+  Version: 4.6.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_4.6.0/sdk/eventgrid/eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added a new property to `AcsRecordingChunkInfo` (for the `Microsoft.Communication.RecordingFileStatusUpdated` system event):
+    - `deleteLocation`
+
+    - Added new properties to `ContainerRegistryArtifactEventData` and `ContainerRegistryEventData` (for the `Microsoft.ContainerRegistry.{ChartDeleted|ChartPushed|ImagePushed|ImageDeleted}` system events):
+
+    - `connectedRegistry`
+    - `location`
+
+    - Added new properties to `AcsRecordingFileStatusUpdatedEventData` (for the `Microsoft.Communication.RecordingFileStatusUpdated` system event):
+
+    - `recordingChannelType`
+    - `recordingContentType`
+    - `recordingFormatType`
 
