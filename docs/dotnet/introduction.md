@@ -905,6 +905,7 @@ For example, `Azure.Storage.Blobs`.
     - Do not use `IoT` more than once in a namespace.
 - `Azure.Media` for client libraries that deal with audio, video, or mixed reality
 - `Azure.Messaging` for client libraries that provide messaging services, such as push notifications or pub-sub.
+- `Azure.Monitor` for observability and Azure Monitor client libraries.
 - `Azure.ResourceManager.[ResourceProvider]` for management plane client libraries for a given resource provider.
     - For example the compute management plane namespace would be Azure.ResourceManager.Compute.
 - `Azure.Search` for search technologies
