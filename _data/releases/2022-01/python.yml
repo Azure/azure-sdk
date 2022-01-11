@@ -106,4 +106,31 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_24.0.0/sdk/compute/azure-mgmt-compute/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-media-analytics-edge
+  Version: 1.0.0b2
+  DisplayName: Media Analytics Edge
+  ServiceName: Media
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-media-analytics-edge_1.0.0b2/sdk/media/azure-media-analytics-edge/CHANGELOG.md
+  ChangelogContent: '- This package is no longer maintained. Please use https://pypi.org/project/azure-media-videoanalyzer-edge'
+- Name: azure-search-documents
+  Version: 11.2.1
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.2.1/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: Minor updates.
+- Name: azure-synapse-artifacts
+  Version: 0.11.0
+  DisplayName: Synapse - Artifacts
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-synapse-artifacts_0.11.0/sdk/synapse/azure-synapse-artifacts/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `MetastoreOperations`
 
