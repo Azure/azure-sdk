@@ -179,7 +179,7 @@ public class ConfigurationClient {
 }
 ```
 
-If the options type can be shared by multiple client types, name it with a plural or more general name.  For example, the `BlobClientsOptions` class can be used by `BlobClient`, `BlobContainerClient`, and `BlobAccountClient`.
+If the options type can be shared by multiple client types, name it with a more general name, such as `<library_name>ClientOptions`.  For example, the `BlobClientOptions` class can be used by `BlobClient`, `BlobContainerClient`, and `BlobAccountClient`.
 
 {% include requirement/MUSTNOT id="dotnet-options-no-default-constructor" %} have a default constructor on the options type.
 
