@@ -4,5 +4,5 @@
 [Azure.Core]: https://www.nuget.org/packages/Azure.Core/
 [Moq]: https://github.com/moq/moq4
 [adparch]: https://github.com/azure/azure-sdk/issues
-[.NET Standard 2.0]: https://github.com/dotnet/standard/blob/master/docs/versions/netstandard2.0.md
+[.NET Standard 2.0]: https://docs.microsoft.com/dotnet/standard/net-standard
 [azure/azure-sdk-for-net]: https://github.com/azure/azure-sdk-for-net
