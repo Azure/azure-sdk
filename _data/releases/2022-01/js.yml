@@ -637,4 +637,17 @@ entries:
     #### Features Added
 
     Added `MetastoreOperations`
+- Name: '@azure/data-tables'
+  Version: 13.0.1
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/data-tables_13.0.1/sdk/tables/data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix issue where custom HTTP Client passed in client options was being ignored in transactions. [#19470](https://github.com/Azure/azure-sdk-for-js/pull/19470)
+    - Fix issue where optionality of expiresOn and permissions is not respected when signedIdentifier is provided.
+    - Fix `createTable` not calling `onResponse` callback when the service returns `TableAlreadyExists`. [#18914](https://github.com/Azure/azure-sdk-for-js/pull/18914)
 
