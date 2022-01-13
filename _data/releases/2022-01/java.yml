@@ -913,4 +913,17 @@ entries:
     ##### Dependency Updates
     - Upgraded `azure-core` dependency to 1.24.1
   GroupId: com.azure
+- Name: azure-ai-formrecognizer
+  Version: 3.1.7
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_3.1.7/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    ##### Dependency Updates
+    - Updated `azure-core` to `1.24.1`.
+    - Updated `azure-core-http-netty` to `1.11.6`.
+  GroupId: com.azure
 
