@@ -650,4 +650,12 @@ entries:
     - Fix issue where custom HTTP Client passed in client options was being ignored in transactions. [#19470](https://github.com/Azure/azure-sdk-for-js/pull/19470)
     - Fix issue where optionality of expiresOn and permissions is not respected when signedIdentifier is provided.
     - Fix `createTable` not calling `onResponse` callback when the service returns `TableAlreadyExists`. [#18914](https://github.com/Azure/azure-sdk-for-js/pull/18914)
+- Name: '@azure/arm-datafactory'
+  Version: 10.1.0
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/datafactory/arm-datafactory/CHANGELOG.md
+  ChangelogContent: ""
 
