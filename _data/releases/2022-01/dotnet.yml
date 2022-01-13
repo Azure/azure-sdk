@@ -247,4 +247,15 @@ entries:
     #### Other Changes
 
     - Package metadata fixed
+- Name: Microsoft.Azure.WebJobs.Extensions.EventGrid
+  Version: 3.1.0
+  DisplayName: WebJobs Extensions - Event Grid
+  ServiceName: WebJobs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventGrid_3.1.0/sdk/eventgrid/Microsoft.Azure.WebJobs.Extensions.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support end-to-end distributed tracing and correlation for `CloudEvents` schema.
 
