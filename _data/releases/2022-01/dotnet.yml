@@ -320,4 +320,19 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.Synapse.Artifacts_1.0.0-preview.13/sdk/synapse/Azure.Analytics.Synapse.Artifacts/CHANGELOG.md
   ChangelogContent: '- Added `MetastoreOperations`.'
+- Name: Azure.Containers.ContainerRegistry
+  Version: 1.0.0
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Containers.ContainerRegistry_1.0.0/sdk/containerregistry/Azure.Containers.ContainerRegistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Adds stable features and bug fixes from the earlier preview releases.
+    #### Breaking Changes
+
+    - Renamed `ArtifactManifestOrderBy` to `ArtifactManifestOrder`.
+    - Renamed `ArtifactTagOrderBy` to `ArtifactTagOrder`.
 
