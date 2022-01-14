@@ -297,4 +297,27 @@ entries:
     #### Features Added
 
     - Support for cancellation tokens has been improved for AMQP operations, enabling earlier detection of cancellation requests without needing to wait for the configured timeout to elapse.
+- Name: Microsoft.Azure.Data.SchemaRegistry.ApacheAvro
+  Version: 1.0.0-beta.5
+  DisplayName: Schema Registry - Avro
+  ServiceName: Schema Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.Data.SchemaRegistry.ApacheAvro_1.0.0-beta.5/sdk/schemaregistry/Microsoft.Azure.Data.SchemaRegistry.ApacheAvro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Replaced `SchemaRegistryAvroObjectSerializer` with `SchemaRegistryAvroEncoder`. When using the encoder, the schema Id will be stored in the ContentType of `EventData`, rather than in the Body of the `EventData`.
+
+    #### Features Added
+
+    - Updated the caching of schemas to use a 128 LRU cache.
+- Name: Azure.Analytics.Synapse.Artifacts
+  Version: 1.0.0-preview.13
+  DisplayName: Synapse - Artifacts
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.Synapse.Artifacts_1.0.0-preview.13/sdk/synapse/Azure.Analytics.Synapse.Artifacts/CHANGELOG.md
+  ChangelogContent: '- Added `MetastoreOperations`.'
 
