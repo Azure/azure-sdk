@@ -8,4 +8,4 @@ repository: Azure/azure-sdk-for-c
 
 The Azure SDK team is pleased to make available the October 2021 client library release.
 
-No packaged released this month yet.
+No packages released.
