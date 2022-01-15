@@ -331,4 +331,31 @@ entries:
     - Upgraded `azure-core` dependency to `1.24.1`
     - Upgraded `azure-core-http-netty` dependency to `1.11.6`
   GroupId: com.azure
+- Name: azure-spring-data-cosmos
+  Version: 3.17.0
+  DisplayName: Spring Data Cosmos
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-data-cosmos_3.17.0/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Updated `Spring Boot` to version `2.6.2`.
+    * Updated `azure-cosmos` to version `4.25.0`.
+  GroupId: com.azure
+- Name: azure-messaging-servicebus
+  Version: 7.5.2
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-servicebus_7.5.2/sdk/servicebus/azure-messaging-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed lock renewal delay behavior, renewal delay is more relaxed, with it happening at half the remaining time now. Issue [25259](https://github.com/Azure/azure-sdk-for-java/issues/25259).
+
+    ##### Dependency Updates
+    - Upgraded `azure-core` from `1.23.1` to `1.24.1`.
+    - Upgraded `azure-core-amqp` from `2.3.5` to `2.3.7`.
+  GroupId: com.azure
 
