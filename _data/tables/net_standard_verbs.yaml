@@ -23,7 +23,7 @@ entries:
   - Verb: GetAll\<resource_name>
     Parameters: key, item
     Returns: item
-    Comments: Retrieves one or more resources. Returns empty set if no resources found. This verb should be used when <resource_name> is itself plural in nature, like `Properties`.
+    Comments: Retrieves one or more resources. Returns empty set if no resources found. This verb should be used when <resource_name> is itself plural in nature, like `Properties` or when <resource_name> and <resource_name_plural> have the same value, like `Moose`.
   - Verb: Delete
     Parameters: item
     Returns: item
