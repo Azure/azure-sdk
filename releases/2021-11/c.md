@@ -8,24 +8,18 @@ repository: Azure/azure-sdk-for-c
 
 The Azure SDK team is pleased to make available the November 2021 client library release.
 
-#### GA
-
-- _Add packages_
-
-#### Updates
-
-- _Add packages_
-
 #### Beta
 
-- _Add packages_
+- Azure Core and Azure Storage
 
 ## Installation Instructions
 
 To install any of our packages, copy and paste the following commands into a terminal:
 
 ```bash
-$> 
+git clone https://github.com/Azure/azure-sdk-for-c
+
+git checkout <tag_name>
 ```
 
 ## Feedback
@@ -34,9 +28,20 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ## Release highlights
 
-### _Package name_
+### azure-sdk-for-c [Changelog](https://github.com/Azure/azure-sdk-for-c/blob/1.3.0-beta.1/CHANGELOG.md#130-beta1-2021-11-09)
 
-- Major changes only!
+#### New Features
+
+- Added Azure Blob Storage APIs for blob upload and download.
+- Added `az_http_response_get_status_code()` convenience function to get HTTP status code from requests.
+
+#### Bug Fixes
+
+- Fixed `az_curl` CMake dependency propagation on `libcurl`.
+
+#### Other Changes
+
+- Improved HTTP request telemetry.
 
 ## Latest Releases
 
