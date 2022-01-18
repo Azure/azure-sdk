@@ -622,4 +622,16 @@ entries:
     - Upgraded `azure-core` from `1.23.0` to `1.24.1`.
     - Upgraded `azure-core-http-netty` from `1.11.3` to `1.11.6`.
   GroupId: com.azure
+- Name: azure-data-schemaregistry
+  Version: 1.0.1
+  DisplayName: Schema Registry
+  ServiceName: Schema Registry
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-schemaregistry_1.0.1/sdk/schemaregistry/azure-data-schemaregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed double serialization of JSON when publishing/reading schemas. #25789
+  GroupId: com.azure
 
