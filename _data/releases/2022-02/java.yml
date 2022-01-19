@@ -634,4 +634,67 @@ entries:
 
     - Fixed double serialization of JSON when publishing/reading schemas. #25789
   GroupId: com.azure
+- Name: azure-messaging-eventhubs-checkpointstore-blob
+  Version: 1.10.3
+  DisplayName: Event Hubs - Azure Blob Storage Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs-checkpointstore-blob_1.10.3/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Update `azure-messaging-eventhubs` dependency to `5.10.4`.
+    - Update `azure-storage-blob` dependency to `12.14.3`.
+  GroupId: com.azure
+- Name: azure-messaging-eventhubs
+  Version: 5.10.4
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs_5.10.4/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.22.0` to `1.24.1`.
+    - Upgraded `azure-core-amqp` from `2.3.3` to `2.3.7`.
+  GroupId: com.azure
+- Name: azure-iot-deviceupdate
+  Version: 1.0.0-beta.2
+  DisplayName: IoT Device Update
+  ServiceName: IoT Device Update
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-iot-deviceupdate_1.0.0-beta.2/sdk/deviceupdate/azure-iot-deviceupdate/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    This is a new version of client SDK. Changes are:
+
+    - Remove models, use `BinaryData` as request and response payload.
+    - A sync client and an async client for each operation group.
+    - Add `RequestOptions` to client method parameters.
+    - Return type of client method is always `Response` except paging and long-running operations.
+    - Allow users to set `ServiceVersion` in client builder.
+  GroupId: com.azure
+- Name: azure-data-schemaregistry-apacheavro
+  Version: 1.0.0-beta.8
+  DisplayName: Schema Registry - Avro
+  ServiceName: Schema Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-schemaregistry-apacheavro_1.0.0-beta.8/sdk/schemaregistry/azure-data-schemaregistry-apacheavro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Update `azure-data-schemaregistry` dependency to `1.0.1`.
+    - Update `azure-core-serializer-avro-apache` dependency to `1.0.0-beta.17`.
+  GroupId: com.azure
 
