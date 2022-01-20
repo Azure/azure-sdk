@@ -697,4 +697,20 @@ entries:
     - Update `azure-data-schemaregistry` dependency to `1.0.1`.
     - Update `azure-core-serializer-avro-apache` dependency to `1.0.0-beta.17`.
   GroupId: com.azure
+- Name: azure-mixedreality-authentication
+  Version: 1.1.4
+  DisplayName: Azure Mixed Reality Authentication
+  ServiceName: Mixed Reality
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-mixedreality-authentication_1.1.4/sdk/mixedreality/azure-mixedreality-authentication/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency updates
+
+    - Updated azure-core to 1.24.1.
+    - Updated azure-identity to 1.4.3.
+    - Updated azure-core-http-netty to 1.11.6.
+  GroupId: com.azure
 
