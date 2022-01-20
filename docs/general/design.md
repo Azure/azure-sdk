@@ -97,6 +97,8 @@ The purposes of the client library is to communicate with an Azure service.  Azu
 
 {% include requirement/MUST id="general-service-apiversion-6" %} ensure that the values of the `ServiceVersion` enumerated value "match" the version strings in the service Swagger definition.
 
+{% include requirement/MUST id="general-service-apiversion-7" %} replace or add the service version on any URI returned to the service e.g., `Operation-Location`, next page links, etc., with the service version passed to the client. This include both the `api-version` query parameter as well as any versions located within the URI path.
+
 For the purposes of this requirement, semantic changes are allowed.  For instance, many version strings are based on SemVer, which allows dots and dashes.  However, these characters are not allowed in identifiers.  The developer **MUST** be able to clearly understand what service API version will be used when the service version is set to each value in the `ServiceVersion` enumerated value.
 
 ## Model types
