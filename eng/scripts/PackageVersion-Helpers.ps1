@@ -81,6 +81,9 @@ function GetLatestTags($repo, [DateTime]$afterDate = [DateTime]::Now.AddMonths(-
           $tagDate = [DateTime]$tagNode.target.target.committedDate
         }
 
+        # Convert the commit times from UTC to local for comparison
+        $tagDate = $tagDate.ToLocalTime();
+
         if ($tagDate -ge $afterDate) {
           Write-Verbose "Found $($tagNode.name) in repo $repo with date ${tagDate}"
           $tags += [PSCustomObject]@{
