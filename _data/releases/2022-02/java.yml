@@ -713,4 +713,19 @@ entries:
     - Updated azure-identity to 1.4.3.
     - Updated azure-core-http-netty to 1.11.6.
   GroupId: com.azure
+- Name: azure-communication-chat
+  Version: 1.1.3
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-chat_1.1.3/sdk/communication/azure-communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-communication-common` to 1.0.7
+    - Upgraded `azure-core` to 1.24.1
+  GroupId: com.azure
 
