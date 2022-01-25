@@ -40,4 +40,20 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/anomalydetector/Azure.AI.AnomalyDetector/CHANGELOG.md
   ChangelogContent: '- Fix release issues'
+- Name: Azure.Monitor.Query
+  Version: 1.1.0
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Monitor.Query_1.1.0/sdk/monitor/Azure.Monitor.Query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    Added the following methods to `MonitorQueryModelFactory`:
+    - `LogsQueryResult`
+    - `LogsTable`
+    - `LogsTableRow`
+    - `MetricsQueryResult`
+    - `MetricValue`
+    - `MetricTimeSeriesElement`
 
