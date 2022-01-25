@@ -819,4 +819,34 @@ entries:
     - Users can now purchase United Kingdom (GB) toll free and geographic phone numbers for PSTN Calling
     - Users can now purchase Denmark (DK) toll free and geographic phone numbers for PSTN Calling
   GroupId: com.azure
+- Name: azure-communication-phonenumbers
+  Version: 1.0.7
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-phonenumbers_1.0.7/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.22.0` to version `1.24.1`.
+    - Upgraded `azure-communication-common` from `1.0.6` to version `1.0.7`.
+  GroupId: com.azure
+- Name: azure-communication-sms
+  Version: 1.0.7
+  DisplayName: Communication Sms
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-sms_1.0.7/sdk/communication/azure-communication-sms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.22.0` to version `1.24.1`.
+    - Upgraded `azure-communication-common` from `1.0.6` to version `1.0.7`.
+  GroupId: com.azure
 
