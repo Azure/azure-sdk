@@ -57,7 +57,7 @@ where _ServiceName_ is the canonical shortname without spaces, and _Configuratio
 
 ## Parameter validation
 
-The service client will have methods that send requests to the service.  These methods can take two types of parameters: _client parameters_ and _service parameters_.  _Service parameters_ are passed across the wire to an Azure service.  _Client parameters_ are not passed directly to the service, but used within the client library to create the request.  Examples of client parameters include values that are used to construct a URI (e.g. path parameters), or the path to file that needs to be opened by the client to create the upload request to send to storage.
+The service client will have methods that send requests to the service.  These methods can take two types of parameters: _client parameters_ and _service parameters_. _Service parameters_ are passed directly across the wire to an Azure service. _Client parameters_ are used by the client library to create a request that invokes the intended service operation.  Because an error in client parameters can cause the wrong method or endpoint to be called on the service, clients must validate these.  Examples of client parameters include values that are used to construct a URI (e.g. path parameters), or the path to file that needs to be opened by the client to create the upload request to send to storage.  Clients should leave service parameters to be validated by the service.
 
 {% include requirement/MUST id="general-params-client-validation" %} validate client parameters.  This includes checks for null values for required path parameters, and checks for empty string values if a required path parameter declares a `minLength` greater than zero.
 
