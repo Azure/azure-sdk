@@ -540,7 +540,7 @@ If in common scenarios, users are likely to pass just a small subset of what the
 
 ##### Parameter Validation
 
-Service methods take two kinds of parameters: _service parameters_ and _client parameters_. _Service parameters_ are directly passed across the wire to the service.  _Client parameters_ are used within the client library and aren't passed directly to the service.
+Service methods take two kinds of parameters: _service parameters_ and _client parameters_. _Service parameters_ are directly passed across the wire to the service. _Client parameters_ are used by the client library to create a request that invokes the intended service operation. Because an error in client parameters can cause the wrong method or endpoint to be called on the service, clients must validate these.
 
 {% include requirement/MUST id="java-params-client-validation" %} validate client parameters.
 
