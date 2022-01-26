@@ -67,4 +67,20 @@ entries:
     #### Breaking Changes
 
     - Remove unnecessary dependency on Apache Avro.
+- Name: Azure.IoT.DeviceUpdate
+  Version: 1.0.0-beta.3
+  DisplayName: IoT Device Update
+  ServiceName: IoT Device Update
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.IoT.DeviceUpdate_1.0.0-beta.3/sdk/deviceupdate/Azure.IoT.DeviceUpdate/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Removed all models
+
+    #### Features Added
+    - Added DeviceManagementClient
+    - Added DeviceUpdateClient
+    - Added GetDeviceModule Operation
+    - Added device import operations
 
