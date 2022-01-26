@@ -540,7 +540,7 @@ If in common scenarios, users are likely to pass just a small subset of what the
 
 ##### Parameter Validation
 
-Service methods take two kinds of parameters: _service parameters_ and _client parameters_. _Service parameters_ are directly passed across the wire to the service. _Client parameters_ are used by the client library to create a request that invokes the intended service operation. Because an error in client parameters can cause the wrong method or endpoint to be called on the service, clients must validate these.
+The service client will have methods that send requests to the service. These methods can take two types of parameters: _client parameters_ and _service parameters_. _Service parameters_ are passed directly across the wire to an Azure service. _Client parameters_ are used by the client library to create a request that invokes the intended service operation. Because an error in client parameters can cause the wrong method or endpoint to be called on the service, clients must validate these. Examples of client parameters include values that are used to construct a URI (e.g. path parameters), or the path to file that needs to be opened by the client to create the upload request to send to storage. Clients should leave service parameters to be validated by the service.
 
 {% include requirement/MUST id="java-params-client-validation" %} validate client parameters.
 
