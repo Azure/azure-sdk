@@ -56,4 +56,15 @@ entries:
     - `MetricsQueryResult`
     - `MetricValue`
     - `MetricTimeSeriesElement`
+- Name: Azure.Data.SchemaRegistry
+  Version: 1.1.0
+  DisplayName: Schema Registry
+  ServiceName: Schema Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.SchemaRegistry_1.1.0/sdk/schemaregistry/Azure.Data.SchemaRegistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Remove unnecessary dependency on Apache Avro.
 
