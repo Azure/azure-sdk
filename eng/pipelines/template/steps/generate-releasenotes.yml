@@ -48,6 +48,9 @@ steps:
 
       Write-Host "##vso[task.setvariable variable=ReleasePeriod]$($releasePeriod.ToString('yyyy-MM'))"
       Write-Host "##vso[task.setvariable variable=ReleaseStartDate]$($releaseStartDate.ToString('yyyy-MM-dd'))"
+
+      Write-Host "[ReleasePeriod]$($releasePeriod.ToString('yyyy-MM'))"
+      Write-Host "[ReleaseStartDate]$($releaseStartDate.ToString('yyyy-MM-dd'))"
     displayName: Set Release Period Value
 
   - pwsh: |
