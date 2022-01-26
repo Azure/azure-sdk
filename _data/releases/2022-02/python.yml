@@ -118,4 +118,37 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - Added support for split-proof queries for the sync client
+- Name: azure-mgmt-applicationinsights
+  Version: 2.1.0
+  DisplayName: Resource Management - Application Insights
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-applicationinsights_2.1.0/sdk/applicationinsights/azure-mgmt-applicationinsights/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-resource
+  Version: 20.1.0
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource_20.1.0/sdk/resources/azure-mgmt-resource/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-containerregistry
+  Version: 1.0.0
+  DisplayName: Container Registry
+  ServiceName: containerregistry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-containerregistry_1.0.0/sdk/containerregistry/azure-containerregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed the property `size` of `ArtifactManifestProperties` to `size_in_bytes`.
+    - Renamed `TagOrder` to `ArtifactTagOrder`.
+    - Renamed `ManifestOrder` to `ArtifactManifestOrder`.
+
+    #### Features Added
+
+    - Supported passing the rest api version via `ContainerRegistryClient`.
 
