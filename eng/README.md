@@ -17,8 +17,9 @@ given package ecosystem as well as by reading release tags from our mono repos. 
 - `RepoPath` - This contains information to create a link to the github repo for the given package. For our standard services that ship from our mono repos this should just be name of the service directory (e.g. `/sdk/<service directory>/<package>`). It can be a full link if this package is coming from somewhere else. A value of `NA` should be present if their is no go source link.
 - `MSDocs` - This contains information to create a link to the Microsoft Docs site for the given package. For our standard services that ship from our mono repos this should just be empty if the docs are published as the links will be computed from the other data in the CSV file. If the docs are in a non-standard location, then it can contain a full link in this field. A value of `NA` should be present if the docs link is unknown or doesn't exist.
 - `GHDocs` - This contains information to create a link to our Github IO ref docs. For our standard services that ship from our mono repos this should just be empty if the docs are published as the links will be computed from the other data in the CSV file. If the docs are in a non-standard location, then it can contain a full link in this field. A value of `NA` should be present if the docs link is unknown or doesn't exist.
-- `Type` - This field contains a classification type for the given package. If a classification is unknown the field is empty. The current classifications are:
+- `Type` - This field contains a classification type for the given package. If a classification is unknown, the field is empty. The current classifications are:
   - `client` - This is used to represent a data plane library.
+  - `compat` - This is used to represent a compatibility/bridge library.
   - `mgmt` - This is used to represent a management plane library.
   - `spring` - This is a special classification only for Java that represents the spring libraries.
 - `New` - This field is set to true for any of our newer libraries that now following the guidelines outlined in this repo.
