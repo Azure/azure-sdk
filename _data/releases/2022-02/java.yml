@@ -1311,4 +1311,17 @@ entries:
     #### Dependency Upgrades
     - Upgrade to [spring-boot-dependencies:2.6.2](https://repo1.maven.org/maven2/org/springframework/boot/spring-boot-dependencies/2.6.2/spring-boot-dependencies-2.6.2.pom).
   GroupId: com.azure.spring
+- Name: azure-spring-boot-bom
+  Version: 3.13.0
+  DisplayName: Azure Spring Boot BOM
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/boms/azure-spring-boot-bom/CHANGELOG.md
+  ChangelogContent: |-
+    This release is compatible with Spring Boot 2.5.5-2.5.8, 2.6.0-2.6.2.
+
+    #### Dependency Upgrades
+    - Upgrade to [spring-boot-dependencies:2.6.2](https://repo1.maven.org/maven2/org/springframework/boot/spring-boot-dependencies/2.6.2/spring-boot-dependencies-2.6.2.pom).
+  GroupId: com.azure.spring
 
