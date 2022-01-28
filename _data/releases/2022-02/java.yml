@@ -1324,4 +1324,17 @@ entries:
     #### Dependency Upgrades
     - Upgrade to [spring-boot-dependencies:2.6.2](https://repo1.maven.org/maven2/org/springframework/boot/spring-boot-dependencies/2.6.2/spring-boot-dependencies-2.6.2.pom).
   GroupId: com.azure.spring
+- Name: azure-analytics-synapse-artifacts
+  Version: 1.0.0-beta.8
+  DisplayName: Synapse - Artifacts
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-analytics-synapse-artifacts_1.0.0-beta.8/sdk/synapse/azure-analytics-synapse-artifacts/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `MetaStoreClient` and `MetaStoreAsyncClient`
+    - Added `MetastoreRegistrationResponse`, `MetastoreRequestSuccessResponse`, `MetastoreUpdateObject`, `MetastoreUpdationResponse`, `NotebookParameter`, `NotebookParameterType`, `RequestStatus`, `ResourceStatus` model classes.
+  GroupId: com.azure
 
