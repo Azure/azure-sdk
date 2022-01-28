@@ -53,11 +53,22 @@ $(function() {
     });
 });
 
+const doFilterOnTable = filter => {
+    $("#myTable tr").filter(function() {
+        $(this).toggle($(this).find("td:first, td:last").text().toLowerCase().indexOf(filter) > -1)
+    });
+}
+
 $(document).ready(function(){
+    let searchParams = new URLSearchParams(window.location.search);
+    if (searchParams.has('search')) {
+        let param = searchParams.get('search');
+        $("#myInput").val(param);
+        doFilterOnTable(param);
+    }
+
     $("#myInput").on("keyup", function() {
       var value = $(this).val().toLowerCase();
-      $("#myTable tr").filter(function() {
-        $(this).toggle($(this).find("td:first, td:last").text().toLowerCase().indexOf(value) > -1)
-      });
+      doFilterOnTable(value);
     });
   });
