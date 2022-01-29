@@ -57,7 +57,30 @@ const doFilterOnTable = filter => {
     $("#myTable tr").filter(function() {
         $(this).toggle($(this).find("td:first, td:last").text().toLowerCase().indexOf(filter) > -1)
     });
-}
+    if (filter.length == 0) 
+    {
+        $('#searchShare').addClass('search-share-hide');
+    } 
+    else if($('#searchShare').hasClass('search-share-hide'))
+    {
+        $('#searchShare').removeClass('search-share-hide');
+    }
+};
+
+const copyToClipBoard = value => {
+    // Won't work on very old browsers or Internet Explorer
+    // https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API
+    if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
+        var url = window.location.href;
+        // remove query, if any
+        if (window.location.search) {
+            url = url.split('?')[0];
+        }
+
+        navigator.clipboard.writeText(url + "?search=" +value);
+        alert('Link copied to clipboard');
+    }
+};
 
 $(document).ready(function(){
     let searchParams = new URLSearchParams(window.location.search);
@@ -70,5 +93,17 @@ $(document).ready(function(){
     $("#myInput").on("keyup", function() {
       var value = $(this).val().toLowerCase();
       doFilterOnTable(value);
+    });
+
+    $("#searchShare").on("click", function() {
+        copyToClipBoard($("#myInput").val());
+    });
+    $("#searchShare").on("keypress", function(key) {
+        const keyNumber = key.which;
+        if (keyNumber == 13) // Enter
+        {
+            $("#searchShare").click();
+            return false; // prevent Enter going to other components
+        }
     });
   });
