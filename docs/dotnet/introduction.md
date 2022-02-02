@@ -522,9 +522,9 @@ If in common scenarios, users are likely to pass just a small subset of what the
 
 ##### Parameter Validation
 
-Service methods take two kinds of parameters: _service parameters_ and _client parameters_. _Service parameters_ are directly passed across the wire to the service.  _Client parameters_ are used by the client library to create a request that invokes the intended service operation.  Because an error in client parameters can cause the wrong method or endpoint to be called on the service, clients must validate these.
+Service methods take two kinds of parameters: _service parameters_ and _client parameters_. _Service parameters_ are sent across the wire to the service as URL segments, query parameters, request header values, and request bodies (typically JSON or XML).  _Client parameters_ are used solely within the client library and are not sent to the service; examples are path parameters, CancellationTokens or file paths.
 
-{% include requirement/MUST id="dotnet-params-client-validation" %} validate client parameters.
+{% include requirement/MUST id="dotnet-params-client-validation" %} validate client parameters.  
 
 {% include requirement/MUSTNOT id="dotnet-params-service-validation" %} validate service parameters.
 
