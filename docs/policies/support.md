@@ -23,7 +23,7 @@ Here are the stages of a typical package lifecycle (for major versions)
 3. **Maintenance** - Typically, maintenance mode is announced at the same time as the next major version is transitioned to Active,
    after which the releases will only address the most critical bug fixes and security fixes for at least another 12 months. 
 
-4. **Support Retired** - A library no longer conforms to our most up-to-date [Azure SDK Guidelines](https://azure.github.io/azure-sdk/general_introduction.html), and is deprecated in favor of a newer library. Typically, support retirement is announced at the same time as the replacement library is transitioned to Active, after which the releases will only address the most critical bug fixes and security fixes for at least another 12 months. 
+4. **Retired** - A library no longer conforms to our most up-to-date [Azure SDK Guidelines](https://azure.github.io/azure-sdk/general_introduction.html), and is deprecated in favor of a newer library. Typically, support retirement is announced at the same time as the replacement library is transitioned to Active, after which the releases will only address the most critical bug fixes and security fixes for at least another 12 months. 
 
 5. **Community** - SDK will no longer receive updates from Microsoft unless otherwise specified in the separate customer agreement.
    The package will remain available via public package managers and the GitHub repo, which can be maintained by the community.
