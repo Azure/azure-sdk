@@ -1,9 +1,11 @@
-{% include releases/header.md %}
+{% include releases/header.md type=include.type %}
 
 ## Go
 
 {% if include.type == "all" %}
   {% assign packages = site.data.releases.latest.go-packages %}
+{% elsif include.type == "retired" %}
+  {% assign packages = site.data.releases.latest.go-packages | where: 'Support', 'maintenance' %}
 {% else %}
   {% assign packages = site.data.releases.latest.go-packages | where: 'Type', include.type | where: 'New', 'true' %}
 {% endif %}
