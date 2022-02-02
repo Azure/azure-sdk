@@ -23,6 +23,8 @@ There are several documentation deliverables that must be included in or as a co
 * [Microsoft Writing Style Guide].
 * [Microsoft Cloud Style Guide].
 
+{% include requirement/MUST id="general-docs-content-governance" %} use the [Acrolinx VS Code extension] when authoring or editing public-facing Markdown files, such as library READMEs, migration guides, and troubleshooting guides. Changelogs are an exception to this rule. Acrolinx is licensed for use only in the public and private GitHub repos for Tier 1 language SDKs. (MICROSOFT INTERNAL)
+
 {% include requirement/SHOULD id="general-docs-to-silence" %} attempt to document your library into silence. Preempt developers' usage questions and minimize GitHub issues by clearly explaining your API in the docstrings. Include information on service limits and errors they might hit, and how to avoid and recover from those errors.
 
 As you write your code, *doc it so you never hear about it again.* The less questions you have to answer about your client library, the more time you have to build new features for your service.

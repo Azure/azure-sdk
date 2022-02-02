@@ -1,3 +1,4 @@
+{% if include.active != "retired" %}
 <ul class="nav nav-tabs">
   <li class="nav-item {% if include.active == 'client' %}active{% endif %}">
     <a class="nav-link" href="{{ site.baseurl }}/releases/latest/{{ include.lang }}.html">Client Libraries</a>
@@ -9,3 +10,10 @@
     <a class="nav-link" href="{{ site.baseurl }}/releases/latest/all/{{ include.lang }}.html">All</a>
   </li>
 </ul>
+{% else %}
+<ul class="nav nav-tabs">
+  <li class="nav-item active">
+    <a class="nav-link" href="{{ site.baseurl }}/releases/retired/{{ include.lang }}.html">Retired Libraries</a>
+  </li>
+</ul>
+{% endif %}
