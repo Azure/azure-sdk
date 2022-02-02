@@ -6,5 +6,5 @@ permalink: /releases/latest/index.html
 ---
 {% include releases/header.md %}
 {% include releases/nav.md %}
-{% include releases/languages.md %}
+{% include releases/languages.md type=client %}
 {% include refs.md %}

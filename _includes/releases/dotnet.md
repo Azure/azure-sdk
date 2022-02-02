@@ -1,9 +1,11 @@
-{% include releases/header.md %}
+{% include releases/header.md type=include.type %}
 
 ## .NET
 
 {% if include.type == "all" %}
   {% assign packages = site.data.releases.latest.dotnet-packages %}
+{% elsif include.type == "retired" %}
+  {% assign packages = site.data.releases.latest.dotnet-packages | where: 'Support', 'maintenance' %}
 {% else %}
   {% assign packages = site.data.releases.latest.dotnet-packages | where: 'Type', include.type | where: 'New', 'true' %}
 {% endif %}
