@@ -553,4 +553,77 @@ entries:
 
     - Fix root version node handling difference with fxp v3. [#20035](https://github.com/Azure/azure-sdk-for-js/pull/20035)
     - Upgrade to `fast-xml-parser` to v4 [PR# 19898](https://github.com/Azure/azure-sdk-for-js/pull/19898)
+- Name: '@azure/core-client'
+  Version: 1.5.0
+  DisplayName: Core - Client
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-client_1.5.0/sdk/core/core-client/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new `CommonClientOptions` member `additionalPolicies` to allow passing custom pipeline policies to client constructors. [PR #19920](https://github.com/Azure/azure-sdk-for-js/pull/19920)
+
+    #### Bugs Fixed
+
+    - Addressed an issue where the `onResponse` callback wouldn't be called in certain cases where an unexpected response was received from the service. [PR #19702](https://github.com/Azure/azure-sdk-for-js/pull/19702)
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.5.0
+  DisplayName: Core Rest Pipeline
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.5.0/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new phase "Sign" for policies that sign the request for security purposes. [#20129](https://github.com/Azure/azure-sdk-for-js/pull/20129)
+
+    #### Bugs Fixed
+
+    - Updated the HTTP tracing span names to conform to the [OpenTelemetry Specification](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/semantic_conventions/http.md#name). [#19838](https://github.com/Azure/azure-sdk-for-js/pull/19838)
+    - New HTTP spans will use the `HTTP <VERB>` convention instead of using the URL path.
+    - Addressed an issue where policy order might change in cases where there are no policies inside a phase specified by an "afterPhase" constraint. [#20129](https://github.com/Azure/azure-sdk-for-js/pull/20129)
+- Name: '@azure/core-http'
+  Version: 2.2.4
+  DisplayName: Core - HTTP
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_2.2.4/sdk/core/core-http/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Updated the HTTP tracing span names to conform to the [OpenTelemetry Specification](https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/trace/semantic_conventions/http.md#name). [#19838](https://github.com/Azure/azure-sdk-for-js/pull/19838)
+    - New HTTP spans will use the `HTTP <VERB>` convention instead of using the URL path.
+- Name: '@azure/core-amqp'
+  Version: 3.1.0
+  DisplayName: Core - AMQP
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-amqp_3.1.0/sdk/core/core-amqp/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Changed TS compilation target to ES2017 in order to produce smaller bundles and use more native platform features
+    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+    - Updated to use the latest version of the `rhea` package.
+    - Add a constant `messageState` with value of `"x-opt-message-state"` which is the name for the new message state property in the message annotations. [PR 18938](https://github.com/Azure/azure-sdk-for-js/pull/18938)
+- Name: '@azure/core-tracing'
+  Version: 1.0.0-preview.14
+  DisplayName: Core - Tracing
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-tracing_1.0.0-preview.14/sdk/core/core-tracing/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - @azure/core-tracing has been rewritten in order to provide cleaner abstractions for client libraries as well as remove @opentelemetry/api as a direct dependency.
+    - @opentelemetry/api is no longer a direct dependency of @azure/core-tracing providing for smaller bundle sizes and lower incidence of version conflicts
+    - `createSpanFunction` has been removed and replaced with a stateful `TracingClient` which can be created using the `createTracingClient` function.
+    - `TracingClient` introduces a new API for creating tracing spans. Use `TracingClient#withSpan` to wrap an invocation in a span, ensuring the span is ended and exceptions are captured.
+    - `TracingClient` also provides the lower-level APIs necessary to start a span without making it active, create request headers, serialize `traceparent` header, and wrapping a callback with an active context.
 
