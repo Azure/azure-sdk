@@ -626,4 +626,20 @@ entries:
     - `createSpanFunction` has been removed and replaced with a stateful `TracingClient` which can be created using the `createTracingClient` function.
     - `TracingClient` introduces a new API for creating tracing spans. Use `TracingClient#withSpan` to wrap an invocation in a span, ensuring the span is ended and exceptions are captured.
     - `TracingClient` also provides the lower-level APIs necessary to start a span without making it active, create request headers, serialize `traceparent` header, and wrapping a callback with an active context.
+- Name: '@azure/identity'
+  Version: 2.0.2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_2.0.2/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Improved the error message when `InteractiveBrowserCredential` is used with an unavailable port (such as when no `redirectUri` is provided, and the port `80` is busy) and when no browser is available.
+
+    #### Bugs Fixed
+
+    - Challenge claims now are properly being passed through to the outgoing token requests.
+    - The `ManagedIdentityCredential` now properly parses expiration dates from token exchange requests.
 
