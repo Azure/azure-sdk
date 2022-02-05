@@ -234,6 +234,7 @@ function FindPackageWorkItem($lang, $packageName, $version, $outputCommand = $tr
   $fields += "Custom.PackagePatchVersions"
   $fields += "Custom.Generated"
   $fields += "Custom.RoadmapState"
+  $fields += "Microsoft.VSTS.Common.StateChangeDate"
 
   $fieldList = ($fields | ForEach-Object { "[$_]"}) -join ", "
   $query = "SELECT ${fieldList} FROM WorkItems WHERE [Work Item Type] = 'Package'"
@@ -884,6 +885,24 @@ function UpdatePackageVersions($pkgWorkItem, $plannedVersions, $shippedVersions)
   "value": "$shippedPackages"
 }
 "@
+
+  # If we shipped a version after we set "In Release" state then reset the state to "Next Release Unknown"
+  if ($pkgWorkItem.fields["System.State"] -eq "In Release")
+  {
+    $lastShippedDate = [DateTime]$newShippedVersions[0].Date
+    $markedInReleaseDate = ([DateTime]$pkgWorkItem.fields["Microsoft.VSTS.Common.StateChangeDate"])
+
+    # We just shipped so lets set the state to "Next Release Unknown"
+    if ($markedInReleaseDate -le $lastShippedDate)
+    {
+      $fieldUpdates += @'
+{
+"op": "replace",
+"path": "/fields/State",
+"value": "Next Release Unknown"
+}
+'@
+    }
   }
 
   # Full merged version set
