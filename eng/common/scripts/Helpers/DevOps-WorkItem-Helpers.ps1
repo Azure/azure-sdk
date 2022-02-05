@@ -886,22 +886,23 @@ function UpdatePackageVersions($pkgWorkItem, $plannedVersions, $shippedVersions)
 }
 "@
 
-  # If we shipped a version after we set "In Release" state then reset the state to "Next Release Unknown"
-  if ($pkgWorkItem.fields["System.State"] -eq "In Release")
-  {
-    $lastShippedDate = [DateTime]$newShippedVersions[0].Date
-    $markedInReleaseDate = ([DateTime]$pkgWorkItem.fields["Microsoft.VSTS.Common.StateChangeDate"])
-
-    # We just shipped so lets set the state to "Next Release Unknown"
-    if ($markedInReleaseDate -le $lastShippedDate)
+    # If we shipped a version after we set "In Release" state then reset the state to "Next Release Unknown"
+    if ($pkgWorkItem.fields["System.State"] -eq "In Release")
     {
-      $fieldUpdates += @'
+      $lastShippedDate = [DateTime]$newShippedVersions[0].Date
+      $markedInReleaseDate = ([DateTime]$pkgWorkItem.fields["Microsoft.VSTS.Common.StateChangeDate"])
+
+      # We just shipped so lets set the state to "Next Release Unknown"
+      if ($markedInReleaseDate -le $lastShippedDate)
+      {
+        $fieldUpdates += @'
 {
 "op": "replace",
 "path": "/fields/State",
 "value": "Next Release Unknown"
 }
 '@
+      }
     }
   }
 
