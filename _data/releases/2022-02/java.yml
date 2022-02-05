@@ -1470,4 +1470,30 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-management_1.5.2/sdk/core/azure-core-management/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure
+- Name: azure-core-serializer-avro-apache
+  Version: 1.0.0-beta.20
+  DisplayName: Core Serializer Apache Avro
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-serializer-avro-apache_1.0.0-beta.20/sdk/core/azure-core-serializer-avro-apache/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.24.1` to `1.25.0`.
+  GroupId: com.azure
+- Name: azure-core-experimental
+  Version: 1.0.0-beta.24
+  DisplayName: Core Experimental
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-experimental_1.0.0-beta.24/sdk/core/azure-core-experimental/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `com.azure.core.experimental.models.MessageWithMetadata`.
+  GroupId: com.azure
 
