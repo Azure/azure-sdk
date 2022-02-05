@@ -183,4 +183,15 @@ entries:
     #### Features Added
 
     - Add support for `final-state-via` LRO option in core.  #22713
+- Name: azure-communication-networktraversal
+  Version: 1.0.0
+  DisplayName: Communication Network Traversal
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-networktraversal_1.0.0/sdk/communication/azure-communication-networktraversal/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Making parameters for get_relay_configuration keyword only
 
