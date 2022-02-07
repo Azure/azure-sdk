@@ -139,4 +139,68 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.CosmosDB_1.0.0-beta.3/sdk/cosmosdb/Azure.ResourceManager.CosmosDB/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Storage.Files.DataLake
+  Version: 12.9.0-beta.3
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.DataLake_12.9.0-beta.3/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md
+  ChangelogContent: '- Added support for service version 2021-04-10.'
+- Name: Azure.Storage.Common
+  Version: 12.10.0-beta.3
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.10.0-beta.3/sdk/storage/Azure.Storage.Common/CHANGELOG.md
+  ChangelogContent: "- Fixed bug where AccountSasBuilder.SetPermissions(string rawPermissions) was not properly handling the Permanent Delete ('y') and set Immutability Policy ('i') permissions."
+- Name: Azure.Storage.Blobs.ChangeFeed
+  Version: 12.0.0-preview.19
+  DisplayName: Storage - Blobs ChangeFeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.19/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md
+  ChangelogContent: '- Added support for service version 2021-04-10.'
+- Name: Azure.Storage.Queues
+  Version: 12.9.0-beta.3
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.9.0-beta.3/sdk/storage/Azure.Storage.Queues/CHANGELOG.md
+  ChangelogContent: '- This release contains bug fixes to improve quality.'
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.8.0-beta.3
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.8.0-beta.3/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
+  ChangelogContent: '- Added support for service version 2021-04-10.'
+- Name: Azure.Storage.Files.Shares
+  Version: 12.9.0-beta.3
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.Shares_12.9.0-beta.3/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for service version 2021-04-10.
+    - Added support for ShareDirectoryClient.Rename() and ShareFileClient.Rename().
+    - Fixed a memory leak in ShareFileClient.UploadAsync().
+- Name: Azure.Storage.Blobs
+  Version: 12.11.0-beta.3
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.11.0-beta.3/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    - Added support for service version 2021-04-10.
+    - Added support for BlobContainerClient.FilterBlobsByTag().
+    - Added support for BlobContainerClient.OpenWriteAsync().
+    - Fixed bug where BlobSasBuilder.SetPermissions(string rawPermissions) was not properly handling the Permanent Delete ('y') and set Immutability Policy ('i') permissions.
+    - Fixed a bug where BlobClient.Upload() and UploadAsync() would result in a NullReferenceException when trying to overwrite a blob with client-side encryption enabled
 
