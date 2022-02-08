@@ -203,4 +203,12 @@ entries:
     - Added support for BlobContainerClient.OpenWriteAsync().
     - Fixed bug where BlobSasBuilder.SetPermissions(string rawPermissions) was not properly handling the Permanent Delete ('y') and set Immutability Policy ('i') permissions.
     - Fixed a bug where BlobClient.Upload() and UploadAsync() would result in a NullReferenceException when trying to overwrite a blob with client-side encryption enabled
+- Name: Azure.ResourceManager.Cdn
+  Version: 1.0.0-beta.3
+  DisplayName: Azure.ResourceManager.Cdn
+  ServiceName: cdn
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Cdn_1.0.0-beta.3/sdk/cdn/Azure.ResourceManager.Cdn/CHANGELOG.md
+  ChangelogContent: ""
 
