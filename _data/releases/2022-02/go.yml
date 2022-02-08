@@ -698,4 +698,27 @@ entries:
     #### Bugs Fixed
     * Restore response body after reading in `Poller.FinalResponse()`. (#16911)
     * Fixed bug in `NullValue` that could lead to incorrect comparisons for empty maps/slices (#16969)
+- Name: sdk/keyvault/azsecrets
+  Version: 0.5.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/keyvault/azsecrets/v0.5.0/sdk/keyvault/azsecrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * Fixes a bug where `UpdateSecretProperties` will delete properties that are not explicitly set each time. This is only a breaking change at runtime, where the request body will change.
+- Name: sdk/keyvault/azkeys
+  Version: 0.3.0
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/keyvault/azkeys/v0.3.0/sdk/keyvault/azkeys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * Changed the `Tags` properties from `map[string]*string` to `map[string]string`
+
+    #### Bugs Fixed
+    * Fixed a bug in `UpdateKeyProperties` where the `KeyOps` would be deleted if the `UpdateKeyProperties.KeyOps` value was left empty.
 
