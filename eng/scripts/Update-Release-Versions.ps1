@@ -11,7 +11,6 @@ Set-StrictMode -Version 3
 $ProgressPreference = "SilentlyContinue"; # Disable invoke-webrequest progress dialog
 
 . (Join-Path $PSScriptRoot PackageList-Helpers.ps1)
-. (Join-Path $PSScriptRoot PackageVersion-Helpers.ps1)
 
 function GetVersionWebContent($language, $package, $versionType="latest-ga")
 {

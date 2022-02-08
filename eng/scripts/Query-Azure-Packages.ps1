@@ -6,54 +6,7 @@ param (
 Set-StrictMode -Version 3
 
 . (Join-Path $PSScriptRoot PackageList-Helpers.ps1)
-. (Join-Path $PSScriptRoot PackageVersion-Helpers.ps1)
 
-function CreatePackage(
-  [string]$package,
-  [string]$version,
-  [string]$groupId = ""
-)
-{
-  $semVer = ToSemVer $version
-  $versionGA = $versionPreview = ""
-
-  $isGAVersion = $false
-
-  if ($semVer) {
-    $isGAVersion = !$semVer.IsPrerelease
-  }
-  else {
-    # fallback for non semver compliant versions
-    $isGAVersion = ($version -match "^[\d\.]+$" -and !$version.StartsWith("0"))
-  }
-
-  if ($isGAVersion) {
-    $versionGA = $version
-  }
-  else {
-    $versionPreview = $version
-  }
-
-  return [PSCustomObject][ordered]@{
-    Package = $package
-    GroupId = $groupId
-    VersionGA = $versionGA
-    VersionPreview = $versionPreview
-    DisplayName = $package
-    ServiceName = ""
-    RepoPath = "NA"
-    MSDocs = "NA"
-    GHDocs = "NA"
-    Type = ""
-    New = "false"
-    PlannedVersions = ""
-    FirstGADate = ""
-    Support = ""
-    Hide = ""
-    Replace = ""
-    Notes = ""
-  };
-}
 function Get-android-Packages
 {
   # Rest API docs https://search.maven.org/classic/#api

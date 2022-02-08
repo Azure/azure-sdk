@@ -9,9 +9,7 @@ param (
 )
 
 . (Join-Path $commonScriptPath ChangeLog-Operations.ps1)
-. (Join-Path $commonScriptPath SemVer.ps1)
 . (Join-Path $PSScriptRoot PackageList-Helpers.ps1)
-. (Join-Path $PSScriptRoot PackageVersion-Helpers.ps1)
 
 # Temporary replacment for the title regex to discover versions starting with v for go on-boarding until we can normalize those.
 $RELEASE_TITLE_REGEX = "(?<releaseNoteTitle>^\#+\s+v?(?<version>$([AzureEngSemanticVersion]::SEMVER_REGEX))(\s+(?<releaseStatus>\(.+\))))"

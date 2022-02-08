@@ -9,7 +9,6 @@ Set-StrictMode -Version 3
 $ErrorActionPreference = "Continue"
 
 . (Join-Path $PSScriptRoot PackageList-Helpers.ps1)
-. (Join-Path $PSScriptRoot PackageVersion-Helpers.ps1)
 . (Join-Path $PSScriptRoot .. common scripts helpers DevOps-WorkItem-Helpers.ps1)
 
 if (!(Get-Command az -ErrorAction SilentlyContinue)) {
