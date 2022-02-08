@@ -194,4 +194,36 @@ entries:
     #### Breaking Changes
 
     - Making parameters for get_relay_configuration keyword only
+- Name: azure-storage-blob
+  Version: 12.10.0b3
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.10.0b3/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Update `azure-core` dependency to avoid inconsistent dependencies from being installed.
+
+    #### Features Added
+    - Added support for service version 2021-04-10.
+    - Added support for `find_blobs_by_tags()` on a container.
+    - Added support for `Find (f)` container SAS permission.
+- Name: azure-storage-file-share
+  Version: 12.7.0b2
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.7.0b2/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Update `azure-core` dependency to avoid inconsistent dependencies from being installed.
+    - Fixed a bug, that was introuced in the previous beta release, where `generate_account_sas()`
+    was not generating the proper SAS signature.
+
+    #### Features Added
+    - Added support for service version 2021-04-10.
+    - Added support for `rename_directory()` and `rename_file()`.
+    - Added support for `Create (c)` SAS permission for Share SAS.
 
