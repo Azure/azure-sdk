@@ -290,4 +290,28 @@ entries:
     - Added `validate_authority` support for msal client  #22625
     - Added `resource_id` support for user-assigned managed identity  #22329
     - Added `ClientAssertionCredential` support  #22328
+- Name: azure-keyvault-administration
+  Version: 4.1.0b3
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-keyvault-administration_4.1.0b3/sdk/keyvault/azure-keyvault-administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Python 2.7 is no longer supported. Please use Python version 3.6 or later.
+    - Updated minimum `azure-core` version to 1.20.0
+    - (From 4.1.0b2) To support multi-tenant authentication, `get_token` calls during challenge
+    authentication requests now pass in a `tenant_id` keyword argument
+    ([#20698](https://github.com/Azure/azure-sdk-for-python/issues/20698))
+- Name: azure-ai-translation-document
+  Version: 1.0.0b6
+  DisplayName: Document Translation
+  ServiceName: Translator
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-translation-document_1.0.0b6/sdk/translation/azure-ai-translation-document/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - Python 2.7 is no longer supported. Please use Python version 3.6 or later.
 
