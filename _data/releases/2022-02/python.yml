@@ -15,4 +15,226 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_24.0.1/sdk/compute/azure-mgmt-compute/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-communication-phonenumbers
+  Version: 1.1.0b1
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-phonenumbers_1.1.0b1/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Adds support for API verion `2022-01-11-preview2`
+- Name: azure-mgmt-loganalytics
+  Version: 13.0.0b1
+  DisplayName: Resource Management - Log Analytics
+  ServiceName: Log Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-loganalytics_13.0.0b1/sdk/loganalytics/azure-mgmt-loganalytics/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-subscription
+  Version: 3.0.0
+  DisplayName: Resource Management - Subscription
+  ServiceName: Subscriptions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-subscription_3.0.0/sdk/subscription/azure-mgmt-subscription/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-ai-anomalydetector
+  Version: 3.0.0b5
+  DisplayName: Anomaly Detector
+  ServiceName: Anomaly Detector
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-anomalydetector_3.0.0b5/sdk/anomalydetector/azure-ai-anomalydetector/CHANGELOG.md
+  ChangelogContent: '- Fix release issues'
+- Name: azure-iot-deviceupdate
+  Version: 1.0.0b2
+  DisplayName: IoT Device Update
+  ServiceName: IoT Device Update
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-iot-deviceupdate_1.0.0b2/sdk/deviceupdate/azure-iot-deviceupdate/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed all models
+    - Removed DeploymentsOperations
+    - Removed UpdateOperations
+    - Dropped support for Python2.7(https://github.com/Azure/azure-sdk-for-python#disclaimer)
+    - Parameter `account_endpoint` of DeviceUpdateClient is renamed to `endpoint`
+    - Renamed `client.updates` to `client.device_update`
+    - Removed `client.devices`
+    - Removed `client.deployments`
+    - Renamed UpdatesOperations.get_update to DeviceUpdateOperations.get_update
+    - Renamed UpdatesOperations.delete_update to DeviceUpdateOperations.begin_delete_update
+    - Renamed UpdatesOperations.get_providers to DeviceUpdateOperations.list_providers
+    - Renamed UpdatesOperations.get_names to DeviceUpdateOperations.list_names
+    - Renamed UpdatesOperations.get_versions to DeviceUpdateOperations.list_versions
+    - Renamed UpdatesOperations.get_file to DeviceUpdateOperations.get_file
+    - Renamed UpdatesOperations.get_files to DeviceUpdateOperations.list_files
+    - Renamed UpdatesOperations.get_operation to DeviceUpdateOperations.get_operation
+    - Renamed UpdatesOperations.get_operations to DeviceUpdateOperations.list_operations
+    - Renamed DevicesOperations.get_all_device_classes to DeviceManagementOperations.list_device_classes
+    - Renamed DevicesOperations.get_device_class to DeviceManagementOperations.get_device_class
+    - Renamed DevicesOperations.get_device_class_device_ids to DeviceManagementOperations.
+    - Renamed DevicesOperations.list_devices to DeviceManagementOperations.list_devices
+    - Renamed DevicesOperations.list_devices to DeviceManagementOperations.
+    - Renamed DevicesOperations.get_all_device_tags to DeviceManagementOperations.list_device_tags
+    - Renamed DevicesOperations.get_all_groups to DeviceManagementOperations.list_groups
+    - Renamed DevicesOperations.get_group to DeviceManagementOperations.get_group
+    - Renamed DevicesOperations.create_or_update_group to DeviceManagementOperations.create_or_update_group
+    - Renamed DevicesOperations.delete_group to DeviceManagementOperations.delete_group
+    - Renamed DevicesOperations.get_group_update_compliance to DeviceManagementOperations.get_group_update_compliance
+    - Renamed DevicesOperations.get_group_best_updates to DeviceManagementOperations.list_best_updates_for_group
+    - Renamed DeploymentsOperations.get_deployment_status to DeviceManagementOperations.get_deployment_status
+    - Renamed DeploymentsOperations.create_or_update_deployment to DeviceManagementOperations.create_or_update_deployment
+    - Renamed DeploymentsOperations.delete_deployment to DeviceManagementOperations.delete_deployment
+    - Renamed DeploymentsOperations.get_deployment_devices to DeviceManagementOperations.list_deployment_devices
+
+
+    #### Features Added
+
+    - Added DeviceManagementOperations
+    - Added DeviceUpdateOperations
+    - Added operation `send_request` to send customized http request conveniently
+    - Added `client.device_management`
+- Name: azure-mgmt-web
+  Version: 6.1.0
+  DisplayName: Resource Management - Web
+  ServiceName: App Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-web_6.1.0/sdk/appservice/azure-mgmt-web/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-cosmos
+  Version: 4.3.0b2
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.3.0b2/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for split-proof queries for the sync client
+- Name: azure-mgmt-applicationinsights
+  Version: 2.1.0
+  DisplayName: Resource Management - Application Insights
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-applicationinsights_2.1.0/sdk/applicationinsights/azure-mgmt-applicationinsights/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-resource
+  Version: 20.1.0
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-resource_20.1.0/sdk/resources/azure-mgmt-resource/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-containerregistry
+  Version: 1.0.0
+  DisplayName: Container Registry
+  ServiceName: containerregistry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-containerregistry_1.0.0/sdk/containerregistry/azure-containerregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Renamed the property `size` of `ArtifactManifestProperties` to `size_in_bytes`.
+    - Renamed `TagOrder` to `ArtifactTagOrder`.
+    - Renamed `ManifestOrder` to `ArtifactManifestOrder`.
+
+    #### Features Added
+
+    - Supported passing the rest api version via `ContainerRegistryClient`.
+- Name: azure-mgmt-compute
+  Version: 25.0.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_25.0.0/sdk/compute/azure-mgmt-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-iothub
+  Version: 2.2.0
+  DisplayName: Resource Management - IoT Hub
+  ServiceName: IoT Hub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-iothub_2.2.0/sdk/iothub/azure-mgmt-iothub/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-core
+  Version: 1.22.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.22.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Add response body to string representation of `HttpResponseError` if we're not able to parse out information #22302
+    - Raise `AttributeError` when calling azure.core.pipeline.transport.\_\_bases__    #22469
+
+    #### Features Added
+
+    - Add support for `final-state-via` LRO option in core.  #22713
+- Name: azure-communication-networktraversal
+  Version: 1.0.0
+  DisplayName: Communication Network Traversal
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-communication-networktraversal_1.0.0/sdk/communication/azure-communication-networktraversal/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Making parameters for get_relay_configuration keyword only
+- Name: azure-storage-blob
+  Version: 12.10.0b3
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.10.0b3/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Update `azure-core` dependency to avoid inconsistent dependencies from being installed.
+
+    #### Features Added
+    - Added support for service version 2021-04-10.
+    - Added support for `find_blobs_by_tags()` on a container.
+    - Added support for `Find (f)` container SAS permission.
+- Name: azure-storage-file-share
+  Version: 12.7.0b2
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.7.0b2/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Update `azure-core` dependency to avoid inconsistent dependencies from being installed.
+    - Fixed a bug, that was introuced in the previous beta release, where `generate_account_sas()`
+    was not generating the proper SAS signature.
+
+    #### Features Added
+    - Added support for service version 2021-04-10.
+    - Added support for `rename_directory()` and `rename_file()`.
+    - Added support for `Create (c)` SAS permission for Share SAS.
+- Name: azure-search-documents
+  Version: 11.3.0b7
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.3.0b7/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added models: `AzureMachineLearningSkill`
 
