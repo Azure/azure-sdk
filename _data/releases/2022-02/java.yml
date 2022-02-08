@@ -1496,4 +1496,16 @@ entries:
 
     - Added `com.azure.core.experimental.models.MessageWithMetadata`.
   GroupId: com.azure
+- Name: azure-identity
+  Version: 1.4.4
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.4.4/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    ##### Dependency Updates
+    - Upgraded `azure-core` dependency to 1.25.0
+  GroupId: com.azure
 
