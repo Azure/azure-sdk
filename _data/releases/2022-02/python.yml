@@ -226,4 +226,15 @@ entries:
     - Added support for service version 2021-04-10.
     - Added support for `rename_directory()` and `rename_file()`.
     - Added support for `Create (c)` SAS permission for Share SAS.
+- Name: azure-search-documents
+  Version: 11.3.0b7
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.3.0b7/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added models: `AzureMachineLearningSkill`
 
