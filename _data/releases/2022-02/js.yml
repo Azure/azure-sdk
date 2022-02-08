@@ -672,4 +672,17 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/opentelemetry-instrumentation-azure-sdk_1.0.0-beta.1/sdk/instrumentation/opentelemetry-instrumentation-azure-sdk/CHANGELOG.md
   ChangelogContent: This marks the first beta release of the OpenTelemetry Instrumentation library for the Azure SDK which will enable OpenTelemetry instrumentation for Azure SDK client libraries.
+- Name: '@azure/eventgrid'
+  Version: 4.7.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_4.7.0/sdk/eventgrid/eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Key Bug Fixes
+
+    - The TypeScript typings for two events have had small changes to accurately reflect the data sent by Azure.
+    - `Microsoft.EventHub.CaptureFileCreated`'s `fileurl` property is now correctly cased as `fileUrl`
+    - `Microsoft.Storage.DirectoryDeleted`'s `recursive` property has been changed from `boolean` to `string`. The service sets this property to the string `"true"` or `"false"`.
 
