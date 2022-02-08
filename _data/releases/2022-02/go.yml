@@ -740,4 +740,12 @@ entries:
     - Multiple fixes to address connection/link recovery (#16831)
     - Fixing panic() when the links haven't been initialized (early cancellation) (#16941)
     - Handle 500 as a retryable code (no recovery needed) (#16925)
+- Name: sdk/keyvault/azcertificates
+  Version: 0.1.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/keyvault/azcertificates/v0.1.0/sdk/keyvault/azcertificates/CHANGELOG.md
+  ChangelogContent: '* This is the initial release of the `azcertificates` library'
 
