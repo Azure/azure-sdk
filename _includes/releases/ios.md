@@ -5,7 +5,7 @@
 {% if include.type == "all" %}
   {% assign packages = site.data.releases.latest.ios-packages %}
 {% elsif include.type == "retired" %}
-  {% assign packages = site.data.releases.latest.ios-packages | where: 'Support', 'maintenance' %}
+  {% assign packages = site.data.releases.latest.ios-packages | where: 'Support', 'retired' %}
 {% else %}
   {% assign packages = site.data.releases.latest.ios-packages | where: 'Type', include.type | where: 'New', 'true' %}
 {% endif %}
