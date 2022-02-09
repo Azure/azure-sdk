@@ -736,4 +736,15 @@ entries:
     #### Other Changes
 
     - Updated OpenTelemtry dependencies to their latest available versions.
+- Name: '@azure/search-documents'
+  Version: 11.3.0-beta.6
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/search-documents_11.3.0-beta.6/sdk/search/search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new type of SearchIndexer skill - `AzureMachineLearningSkill`. Please refer [#20183](https://github.com/Azure/azure-sdk-for-js/pull/20183) for further details.
 
