@@ -168,12 +168,12 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-iothub_2.2.0/sdk/iothub/azure-mgmt-iothub/CHANGELOG.md
   ChangelogContent: ""
 - Name: azure-core
-  Version: 1.22.0
+  Version: 1.22.1
   DisplayName: Core
   ServiceName: Core
   VersionType: GA
   Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.22.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.22.1/sdk/core/azure-core/CHANGELOG.md
   ChangelogContent: |-
     #### Bugs Fixed
 
@@ -330,4 +330,15 @@ entries:
 
     - The following features have been temporarily pulled out of async `EventHubProducerClient` and `EventHubConsumerClient` which will be added back in future previews as we work towards a stable release:
     - Passing the following keyword arguments to the constructors and `from_connection_string` methods of the `EventHubProducerClient` and `EventHubConsumerClient` is not supported:  `transport_type`, `http_proxy`, `custom_endpoint_address`, and `connection_verify`.
+- Name: azure-core
+  Version: 1.22.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: true
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.22.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Limiting `final-state-via` scope to POST until consuming SDKs has been fixed to use this option properly on PUT.  #22989
 
