@@ -1647,4 +1647,18 @@ entries:
     - Upgraded `azure-core` from `1.24.1` to version `1.25.0`.
     - Upgraded `azure-communication-common` from `1.0.7` to version `1.0.8`.
   GroupId: com.azure
+- Name: azure-ai-textanalytics
+  Version: 5.1.6
+  DisplayName: Text Analytics
+  ServiceName: Text Analytics
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.1.6/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Updated `azure-core` to `1.25.0`.
+    - Updated `azure-core-http-netty` to `1.11.7`.
+  GroupId: com.azure
 
