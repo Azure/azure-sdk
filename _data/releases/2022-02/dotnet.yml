@@ -222,4 +222,36 @@ entries:
     #### Features Added
     - Added `Unk` as an `OcrSkillLanguage` value. The values are used to set the default language code for the [OCR cognitive skill](https://docs.microsoft.com/azure/search/cognitive-search-skill-ocr).
     - Support for [`AzureMachineLearningSkill`](https://docs.microsoft.com/azure/search/cognitive-search-aml-skill). The AML skill allows you to extend AI enrichment with a custom [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-machine-learning) (AML) model. Once an AML model is [trained and deployed](https://docs.microsoft.com/azure/machine-learning/concept-azure-machine-learning-architecture#workspace), an AML skill integrates it into AI enrichment.
+- Name: Azure.AI.Language.Conversations
+  Version: 1.0.0-beta.2
+  DisplayName: Conversation Analysis
+  ServiceName: Cognitive Language Understanding
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.Conversations_1.0.0-beta.2/sdk/cognitivelanguage/Azure.AI.Language.Conversations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `AnalyzeConversation` method now takes instance of `ConversationsProject` instead of `ProjectName` and `DeploymentName`.
+    - Renamed the attribute `ConfidenceScore` to `Confidence` in the following classes:
+    - `AnswerSpan`
+    - `ConversationEntity`
+    - `ConversationIntent`
+    - `KnowledgeBaseAnswer`
+    - `TargetIntentResult`
+
+    #### Bugs Fixed
+
+    - Made following property public `TargetIntentResult.TargetKind` instead of internal.
+- Name: Azure.AI.Language.QuestionAnswering
+  Version: 1.1.0-beta.1
+  DisplayName: Question Answering
+  ServiceName: Cognitive Language
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Language.QuestionAnswering_1.1.0-beta.1/sdk/cognitivelanguage/Azure.AI.Language.QuestionAnswering/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added the `QuestionAnsweringProjectsClient` to manage Question Answering projects.
 
