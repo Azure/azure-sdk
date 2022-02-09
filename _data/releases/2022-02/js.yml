@@ -725,4 +725,15 @@ entries:
     - A new function `createEventDataAdapter` is exported that can convert an `EventData` to a simple message with `body` and `contentType` fields. This adapter can be used with the Avro encoder in `@azure/schema-registry-avro` starting from version 1.0.0-beta.6 to create `EventData` messages with Avro-encoded bodies.
 
     - When publishing events to Event Hubs, timeouts or other transient failures may introduce ambiguity into the understanding of whether a batch of events was received by the service. To assist in this scenario, the option to publish events idempotently has been added to `EventHubBufferedProducerClient`. The functionality can be enabled by setting the `enableIdempotentPartitions` client option to `true`. If enabled, retries during publishing will attempt to avoid duplication with a minor cost to throughput. Duplicates are still possible but the chance of them occurring is much lower when idempotent retries are enabled. [PR #20156](https://github.com/Azure/azure-sdk-for-js/pull/20156)
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.6
+  DisplayName: Monitor OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.6/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated OpenTelemtry dependencies to their latest available versions.
 
