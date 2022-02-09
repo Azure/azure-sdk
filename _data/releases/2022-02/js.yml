@@ -685,4 +685,55 @@ entries:
     - The TypeScript typings for two events have had small changes to accurately reflect the data sent by Azure.
     - `Microsoft.EventHub.CaptureFileCreated`'s `fileurl` property is now correctly cased as `fileUrl`
     - `Microsoft.Storage.DirectoryDeleted`'s `recursive` property has been changed from `boolean` to `string`. The service sets this property to the string `"true"` or `"false"`.
+- Name: '@azure/event-hubs'
+  Version: 5.7.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.7.0/sdk/eventhub/event-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `skipParsingBodyAsJson` optional parameter to `EventHubConsumerClient.subscribe` method. When set to `true` it will disable the client from running `JSON.parse()` on the message body when receiving the message. Not applicable if the message was sent with AMQP body type `value` or `sequence`.
+- Name: '@azure/communication-chat'
+  Version: 1.1.2
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.1.2/sdk/communication/communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Prohibit sending the typing notification request within 8 seconds of the previous request.
+
+    #### Features Added
+
+    - Updated to @azure/communication-signaling@1.0.0-beta.12.
+    - Added two new events realTimeNotificationConnected and realTimeNotificationDisconnected that allow the developer to know when the connection to the call server is active
+- Name: '@azure/event-hubs'
+  Version: 5.8.0-beta.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.8.0-beta.1/sdk/eventhub/event-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - A new function `createEventDataAdapter` is exported that can convert an `EventData` to a simple message with `body` and `contentType` fields. This adapter can be used with the Avro encoder in `@azure/schema-registry-avro` starting from version 1.0.0-beta.6 to create `EventData` messages with Avro-encoded bodies.
+
+    - When publishing events to Event Hubs, timeouts or other transient failures may introduce ambiguity into the understanding of whether a batch of events was received by the service. To assist in this scenario, the option to publish events idempotently has been added to `EventHubBufferedProducerClient`. The functionality can be enabled by setting the `enableIdempotentPartitions` client option to `true`. If enabled, retries during publishing will attempt to avoid duplication with a minor cost to throughput. Duplicates are still possible but the chance of them occurring is much lower when idempotent retries are enabled. [PR #20156](https://github.com/Azure/azure-sdk-for-js/pull/20156)
+- Name: '@azure/monitor-opentelemetry-exporter'
+  Version: 1.0.0-beta.6
+  DisplayName: Monitor OpenTelemetry Exporter
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-opentelemetry-exporter_1.0.0-beta.6/sdk/monitor/monitor-opentelemetry-exporter/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated OpenTelemtry dependencies to their latest available versions.
 
