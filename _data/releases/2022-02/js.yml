@@ -685,4 +685,31 @@ entries:
     - The TypeScript typings for two events have had small changes to accurately reflect the data sent by Azure.
     - `Microsoft.EventHub.CaptureFileCreated`'s `fileurl` property is now correctly cased as `fileUrl`
     - `Microsoft.Storage.DirectoryDeleted`'s `recursive` property has been changed from `boolean` to `string`. The service sets this property to the string `"true"` or `"false"`.
+- Name: '@azure/event-hubs'
+  Version: 5.7.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.7.0/sdk/eventhub/event-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `skipParsingBodyAsJson` optional parameter to `EventHubConsumerClient.subscribe` method. When set to `true` it will disable the client from running `JSON.parse()` on the message body when receiving the message. Not applicable if the message was sent with AMQP body type `value` or `sequence`.
+- Name: '@azure/communication-chat'
+  Version: 1.1.2
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.1.2/sdk/communication/communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Prohibit sending the typing notification request within 8 seconds of the previous request.
+
+    #### Features Added
+
+    - Updated to @azure/communication-signaling@1.0.0-beta.12.
+    - Added two new events realTimeNotificationConnected and realTimeNotificationDisconnected that allow the developer to know when the connection to the call server is active
 
