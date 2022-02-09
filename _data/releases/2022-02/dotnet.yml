@@ -254,4 +254,54 @@ entries:
     #### Features Added
 
     - Added the `QuestionAnsweringProjectsClient` to manage Question Answering projects.
+- Name: Azure.Security.KeyVault.Keys
+  Version: 4.3.0-beta.7
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Keys_4.3.0-beta.7/sdk/keyvault/Azure.Security.KeyVault.Keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `KeyReleasePolicy.Immutable` property.
+
+    #### Breaking Changes
+
+    - `KeyRotationPolicy.ExpiresIn` was changed from a `TimeSpan?` to a `string` to properly round trip. It must be an ISO 8601 duration like "P30D" for 30 days.
+    - `KeyRotationLifetimeAction.TimeAfterCreate` and `TimeBeforeExpiry` were changed from a `TimeSpan?` to a `string` to properly round trip. It must be an ISO 8601 duration like "P30D" for 30 days.
+- Name: Azure.Security.KeyVault.Administration
+  Version: 4.1.0-beta.3
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Security.KeyVault.Administration_4.1.0-beta.3/sdk/keyvault/Azure.Security.KeyVault.Administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated documentation.
+- Name: Azure.Messaging.EventHubs
+  Version: 5.7.0-beta.3
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.7.0-beta.3/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `FullyQualifiedNamespace`, `EventHubName`, and `ConsumerGroup` to the partition context associated with events read by the `EventHubConsumerClient`.
+- Name: Azure.Communication.NetworkTraversal
+  Version: 1.0.0
+  DisplayName: Communication Network Traversal
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.NetworkTraversal_1.0.0/sdk/communication/Azure.Communication.NetworkTraversal/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removing GetRelayConfigurationOptions to call GetRelayConfiguration and GetRelayConfigurationAsync passing
+    RouteType and CommunicationUserIdentifier explicitly.
 
