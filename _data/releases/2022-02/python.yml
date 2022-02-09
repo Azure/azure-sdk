@@ -314,4 +314,20 @@ entries:
   ChangelogContent: |-
     #### Other Changes
     - Python 2.7 is no longer supported. Please use Python version 3.6 or later.
+- Name: azure-eventhub
+  Version: 5.8.0a2
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.8.0a2/sdk/eventhub/azure-eventhub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for async `EventHubProducerClient` and `EventHubConsumerClient`.
+
+    #### Breaking changes
+
+    - The following features have been temporarily pulled out of async `EventHubProducerClient` and `EventHubConsumerClient` which will be added back in future previews as we work towards a stable release:
+    - Passing the following keyword arguments to the constructors and `from_connection_string` methods of the `EventHubProducerClient` and `EventHubConsumerClient` is not supported:  `transport_type`, `http_proxy`, `custom_endpoint_address`, and `connection_verify`.
 
