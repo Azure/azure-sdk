@@ -1,5 +1,10 @@
 {% assign version = item[include.version] %}
 
+<!-- For retired packages we just want whichever version we have it doesn't matter if it is GA or preview -->
+{% if version == "" and item.Support == "retired" %}
+    {% assign version = item.VersionPreview %}
+{% endif %}
+
 {% if version != "" %}
     {% assign url = package_url | replace: 'item.Version', version  %}
     <div>
@@ -12,7 +17,7 @@
     {% else %}
         {% assign source_url = source_url_template | replace: 'item.Package', item.Package | replace: 'item.TrimmedPackage', trimmedPackage | replace: 'item.RepoPath', item.RepoPath %}
     {% endif %}
-    
+
     {% assign code_url = source_url | replace: 'item.Version', version %}
     {% include releases/pkgbadge.md label="Code" url=code_url version=version preview=include.preview %}
 
@@ -28,21 +33,21 @@
         {% if code_url != "" and code_url != "NA" and msdocs_url != "" and msdocs_url != "NA" %}
             &nbsp;|&nbsp;
         {% endif %}
-        {% include releases/pkgbadge.md label="Docs" url=msdocs_url version=version %}  
+        {% include releases/pkgbadge.md label="Docs" url=msdocs_url version=version %}
     {% else %}
         {% assign ghdocs_url = item.GHDocs %}
         {% if item.GHDocs == "" %}
             {% assign ghdocs_url = ghdocs_url_template | replace: 'item.Package', item.Package | replace: 'item.TrimmedPackage', trimmedPackage %}
         {% endif %}
-    
+
         {% assign ghdocs_url = ghdocs_url | replace: 'item.Version', version %}
          {% if code_url != "" and code_url != "NA" and ghdocs_url != "" and ghdocs_url != "NA" %}
             &nbsp;|&nbsp;
         {% endif %}
-        {% include releases/pkgbadge.md label="Docs" url=ghdocs_url version=version preview="true" %}        
+        {% include releases/pkgbadge.md label="Docs" url=ghdocs_url version=version preview="true" %}
     {% endif %}
     </div>
     {% if item.Support != "" and include.version == "VersionGA" %}
         <div>Support: <a href="https://aka.ms/azsdk/policies/support">{{ item.Support | capitalize }}</a></div>
-    {% endif %}    
+    {% endif %}
 {% endif %}

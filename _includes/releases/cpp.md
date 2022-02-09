@@ -5,7 +5,7 @@
 {% if include.type == "all" %}
   {% assign packages = site.data.releases.latest.cpp-packages %}
 {% elsif include.type == "retired" %}
-  {% assign packages = site.data.releases.latest.cpp-packages | where: 'Support', 'maintenance' %}
+  {% assign packages = site.data.releases.latest.cpp-packages | where: 'Support', 'retired' %}
 {% else %}
   {% assign packages = site.data.releases.latest.cpp-packages | where: 'Type', include.type | where: 'New', 'true' %}
 {% endif %}

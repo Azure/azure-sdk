@@ -9,6 +9,10 @@
         <li><a href="{{ package_root_url }}">{{ replaceItemS }}</a></li>
     {% endfor %}
     </ul>
-    </small></div>
+    {% if item.ReplaceGuide != "" %}
+    See <a href="{{ item.ReplaceGuide }}">migration guide</a>.
+    {% endif %}
+    </small>
+    </div>
     {% endif%}
 {% endif %}

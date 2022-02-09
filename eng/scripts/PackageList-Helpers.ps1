@@ -1,3 +1,5 @@
+. (Join-Path $PSScriptRoot PackageVersion-Helpers.ps1)
+
 $releaseFolder = Resolve-Path "$PSScriptRoot\..\..\_data\releases\latest"
 
 $languageNameMapping = @{
@@ -10,6 +12,54 @@ $languageNameMapping = @{
   go = "Go" # -- No csv or tagging info
   ios = "iOS" # -- These don't follow normal tagging rules
   android = "Android" # -- These don't follow normal tagging/githubio rules
+}
+
+function CreatePackage(
+  [string]$package,
+  [string]$version,
+  [string]$groupId = ""
+)
+{
+  $semVer = ToSemVer $version
+  $versionGA = $versionPreview = ""
+
+  $isGAVersion = $false
+
+  if ($semVer) {
+    $isGAVersion = !$semVer.IsPrerelease
+  }
+  else {
+    # fallback for non semver compliant versions
+    $isGAVersion = ($version -match "^[\d\.]+$" -and !$version.StartsWith("0"))
+  }
+
+  if ($isGAVersion) {
+    $versionGA = $version
+  }
+  else {
+    $versionPreview = $version
+  }
+
+  return [PSCustomObject][ordered]@{
+    Package = $package
+    GroupId = $groupId
+    VersionGA = $versionGA
+    VersionPreview = $versionPreview
+    DisplayName = $package
+    ServiceName = ""
+    RepoPath = "NA"
+    MSDocs = "NA"
+    GHDocs = "NA"
+    Type = ""
+    New = "false"
+    PlannedVersions = ""
+    FirstGADate = ""
+    Support = ""
+    Hide = ""
+    Replace = ""
+    ReplaceGuide = ""
+    Notes = ""
+  };
 }
 
 function Get-LanguageName($lang)
@@ -267,6 +317,51 @@ function CopyOverFieldValues($copyFromReleaseFolder, $field)
     }
 
     Set-PackageListForLanguage $lang $pl2
+  }
+}
+
+function ImportDataFromFile($importFile)
+{
+  $importPackageData = Get-Content $importFile | ConvertFrom-Csv
+
+  $allLanguageData = @{}
+
+  foreach ($lang in $languageNameMapping.Keys)
+  {
+    $allLanguageData[$lang] = Get-PackageListForLanguage $lang
+  }
+
+  foreach ($pkgData in $importPackageData)
+  {
+    $releaseData = $allLanguageData[$pkgData.Language]
+
+    if ($pkgData.Language -eq "Java" -or $pkgData.Language -eq "Android") {
+      $gaSplit = $pkgData.Package.Split("/")
+      if ($gaSplit.Count -ne 2) { Write-Error "Unable to split package name into group and artifact for $($pkgData.Package)" }
+
+      $pkgData | Add-Member -NotePropertyName "GroupId" -NotePropertyValue $gaSplit[0]
+      $pkgData.Package = $gaSplit[1]
+    }
+
+    $pkg = FindMatchingPackage $pkgData $releaseData
+
+    if (!$pkg) {
+      Write-Host "Did not find matching package for $($pkgData.Language) $($pkgData.Package) so adding"
+      $pkg = CreatePackage $pkgData.Package "0.0.0"
+      $releaseData += $pkg
+      $allLanguageData[$pkgData.Language] = $releaseData
+    }
+
+    foreach ($prop in $pkgData.PSObject.Properties.Name) {
+      if ($pkg.PSObject.Properties.Name -contains $prop) {
+        $pkg.$prop = $pkgData.$prop
+      }
+    }
+  }
+
+  foreach ($lang in $languageNameMapping.Keys)
+  {
+    Set-PackageListForLanguage $lang $allLanguageData[$lang]
   }
 }
 
