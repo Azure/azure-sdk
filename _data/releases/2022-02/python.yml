@@ -341,4 +341,28 @@ entries:
     #### Bugs Fixed
 
     - Limiting `final-state-via` scope to POST until consuming SDKs has been fixed to use this option properly on PUT.  #22989
+- Name: azure-schemaregistry-avroencoder
+  Version: 1.0.0b1
+  DisplayName: Schema Registry - Avro
+  ServiceName: Schema Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-schemaregistry-avroencoder_1.0.0b1/sdk/schemaregistry/azure-schemaregistry-avroencoder/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - This package is meant to replace the azure-schemaregistry-avroserializer.
+    - APIs have been updated to allow for encoding directly to and decoding from message type objects, where the data value is the Avro encoded payload.
+    - The content type of the message will hold the schema ID and record format indicator.
+- Name: azure-eventhub
+  Version: 5.9.0b1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.9.0b1/sdk/eventhub/azure-eventhub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - The classmethod `from_message_data` has been added to `EventData` for interoperability with the Schema Registry Avro Encoder library, and takes `data` and `content_type` as positional parameters.
 
