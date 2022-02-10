@@ -747,4 +747,15 @@ entries:
     #### Features Added
 
     - Added new type of SearchIndexer skill - `AzureMachineLearningSkill`. Please refer [#20183](https://github.com/Azure/azure-sdk-for-js/pull/20183) for further details.
+- Name: '@azure/monitor-query'
+  Version: 1.0.1
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/monitor-query_1.0.1/sdk/monitor/monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed the `timeInterval` field of `MetricsQueryResult` object to correctly return all the fields of `QueryTimeInterval`.
 
