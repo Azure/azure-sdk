@@ -1661,4 +1661,150 @@ entries:
     - Updated `azure-core` to `1.25.0`.
     - Updated `azure-core-http-netty` to `1.11.7`.
   GroupId: com.azure
+- Name: azure-storage-blob-nio
+  Version: 12.0.0-beta.15
+  DisplayName: Storage - Blobs NIO
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-nio_12.0.0-beta.15/sdk/storage/azure-storage-blob-nio/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed a bug that would prevent deleting an empty directory in the case where one directory name was a prefix of the other.
+
+
+    #### Features Added
+    - Added support for 2021-04-10 service version.
+    - Added `AzurePath.fromBlobUrl` to help convert from a blob url to an AzurePath
+    - Added a configuration option `AZURE_STORAGE_SKIP_INITIAL_CONTAINER_CHECK` to skip the initial container check in cases where the authentication method used will not have necessary permissions.
+  GroupId: com.azure
+- Name: azure-storage-file-share
+  Version: 12.12.0-beta.3
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-share_12.12.0-beta.3/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for the 2021-04-10 service version.
+    - Added support for renaming files and directories.
+  GroupId: com.azure
+- Name: azure-storage-blob
+  Version: 12.15.0-beta.3
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob_12.15.0-beta.3/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed a bug in builders that would cause container or blobName to be erased if specified before the connection string.
+
+    #### Features Added
+    - Added support for 2021-04-10 service version.
+    - Added support for filterBlobs api on container clients.
+  GroupId: com.azure
+- Name: azure-storage-blob-cryptography
+  Version: 12.15.0-beta.3
+  DisplayName: Storage - Blobs Cryptography
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-cryptography_12.15.0-beta.3/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed a bug in builders that would cause container or blobName to be erased if specified before the connection string.
+
+    #### Features Added
+    - Added support for 2021-04-10 service version.
+  GroupId: com.azure
+- Name: azure-storage-blob-batch
+  Version: 12.12.0-beta.3
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-batch_12.12.0-beta.3/sdk/storage/azure-storage-blob-batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for 2021-04-10 service version.
+  GroupId: com.azure
+- Name: azure-storage-queue
+  Version: 12.12.0-beta.3
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-queue_12.12.0-beta.3/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed a bug in builders that would cause queue name to be erased if specified before the connection string.
+
+    #### Features Added
+    - Added support for 2021-04-10 service version.
+  GroupId: com.azure
+- Name: azure-monitor-query
+  Version: 1.0.3
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-monitor-query_1.0.3/sdk/monitor/azure-monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.24.1` to version `1.25.0`.
+    - Upgraded `azure-core-http-netty` from `1.11.6` to version `1.11.7`.
+  GroupId: com.azure
+- Name: azure-storage-blob-changefeed
+  Version: 12.0.0-beta.15
+  DisplayName: Storage - Blobs Changefeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-changefeed_12.0.0-beta.15/sdk/storage/azure-storage-blob-changefeed/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for 2021-04-10 service version.
+  GroupId: com.azure
+- Name: azure-storage-common
+  Version: 12.15.0-beta.3
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-common_12.15.0-beta.3/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for 2021-04-10 service version.
+  GroupId: com.azure
+- Name: azure-storage-file-datalake
+  Version: 12.8.0-beta.3
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-datalake_12.8.0-beta.3/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed a bug in builders that would cause fileSystem or path name to be erased if specified before the connection string.
+
+    #### Features Added
+    - Added support for 2021-04-10 service version.
+  GroupId: com.azure
+- Name: azure-storage-internal-avro
+  Version: 12.2.0-beta.3
+  DisplayName: Storage - Internal Avro
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-internal-avro_12.2.0-beta.3/sdk/storage/azure-storage-internal-avro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for the 2021-04-10 service version.
+    - Added support for renaming files and directories.
+  GroupId: com.azure
 
