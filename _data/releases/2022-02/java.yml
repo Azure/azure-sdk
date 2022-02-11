@@ -1828,4 +1828,40 @@ entries:
     - Added `languages` property on `AnalyzeResult`.
     - Added model `DocumentLanguage` that includes information about the detected languages found in a document.
   GroupId: com.azure
+- Name: azure-data-appconfiguration
+  Version: 1.3.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-appconfiguration_1.3.0/sdk/appconfiguration/azure-data-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added interfaces from `com.azure.core.client.traits` to `ConfigurationClientBuilder`.
+    - Added a new method `retryOptions` to `ConfigurationClientBuilder`.
+  GroupId: com.azure
+- Name: azure-messaging-eventgrid
+  Version: 4.9.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventgrid_4.9.0/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added interfaces from `com.azure.core.client.traits` to `EventGridPublisherClientBuilder`.
+    - Added a new method `retryOptions` to `EventGridPublisherClientBuilder`.
+    - Updated ARM events, `ResourceActionCancelEventData`, `ResourceActionFailureEventData`,
+    `ResourceActionSuccessEventData`, `ResourceDeleteCancelEventData`, `ResourceDeleteFailureEventData`,
+    `ResourceDeleteSuccessEventData`, `ResourceWriteCancelEventData`, `ResourceWriteFailureEventData`,
+    `ResourceWriteSuccessEventData`.
+    - Added new type `ResourceAuthorization` and `ResourceHttpRequest`.
+    - Deprecated
+    `getHttpRequest()` and replaced it with `getResourceAuthorization()`,
+    `setHttpRequest(String httpRequest)` and replaced it with `setResourceAuthorization(ResourceAuthorization authorization)`,
+    `getClaims()` and replaced it with `getResourceClaims()`,
+    `setClaims(String claims)` and replaced it with `setResourceClaims(Map<String, String> claims)`,
+    `getAuthorization()` and replaced it with `getResourceHttpRequest()`,
+    `setAuthorization(String authorization)` and replaced it with `setResourceHttpRequest(ResourceHttpRequest httpRequest)`.
+  GroupId: com.azure
 
