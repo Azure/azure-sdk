@@ -390,4 +390,16 @@ entries:
 
     #### Bugs Fixed
     - Default the `percent_completed` property to 0 when not returned with model operation information.
+- Name: azure-servicebus
+  Version: 7.6.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.6.0/sdk/servicebus/azure-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Introduce `ServiceBusMessageState` enum that can assume the values of `active`, `scheduled` or `deferred`.
+    - Add `state` property in `ServiceBusReceivedMessage`.
 
