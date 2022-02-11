@@ -8,7 +8,7 @@ This page contains links to all of the Azure SDK library packages, code, and doc
 {% else %}
 # Azure SDK Retired Releases
 
-*This page contains the list of packages that have been support retired. Please see [support policy](https://aka.ms/azsdk/policies/support) for more information.*
+*This page contains the list of packages that have been retired. Please see [support policy](https://aka.ms/azsdk/policies/support) for more information.*
 
 
 **On 31 March 2023, we will be retiring support for Azure SDK libraries which do not conform to our [current Azure SDK guidelines](https://azure.github.io/azure-sdk/general_introduction.html).** The new Azure SDK libraries are updated regularly to drive consistent experiences and strengthen your security posture. Please transition to the new Azure SDK libraries to take advantage of the new capabilities and critical security updates before 31 March 2023.
