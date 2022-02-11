@@ -402,4 +402,14 @@ entries:
 
     - Introduce `ServiceBusMessageState` enum that can assume the values of `active`, `scheduled` or `deferred`.
     - Add `state` property in `ServiceBusReceivedMessage`.
+- Name: azure-ai-language-questionanswering
+  Version: 1.1.0b1
+  DisplayName: Question Answering
+  ServiceName: Cognitive Language
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-language-questionanswering_1.1.0b1/sdk/cognitivelanguage/azure-ai-language-questionanswering/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added `QuestionAnsweringProjectsClient` for managing Qna projects. Performing project operations such as create, delete, export, and import project, as well as knowledge sources operations such as adding or listing knowledge sources, Qnas, and synonyms.
 
