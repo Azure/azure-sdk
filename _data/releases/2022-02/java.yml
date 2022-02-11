@@ -1906,4 +1906,15 @@ entries:
     - Updated `azure-core` to `1.25.0`.
     - Updated `azure-core-http-netty` to `1.11.7`.
   GroupId: com.azure
+- Name: azure-spring-data-cosmos
+  Version: 3.18.0
+  DisplayName: Spring Data Cosmos
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-data-cosmos_3.18.0/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Updated `azure-cosmos` to version `4.26.0`.
+  GroupId: com.azure
 
