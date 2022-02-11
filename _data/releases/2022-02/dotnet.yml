@@ -304,4 +304,62 @@ entries:
 
     - Removing GetRelayConfigurationOptions to call GetRelayConfiguration and GetRelayConfigurationAsync passing
     RouteType and CommunicationUserIdentifier explicitly.
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.7.0-beta.3
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.7.0-beta.3/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `FullyQualifiedNamespace`, `EventHubName`, and `ConsumerGroup` to the partition context associated with events dispatched for processing.
+- Name: Azure.Messaging.EventGrid
+  Version: 4.8.2
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventGrid_4.8.2/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed deserialization bugs in `StorageDirectoryDeletedEventData` and `EventHubCaptureFileCreatedEventData` system events.
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.6.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.6.0/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix unnecessary task scheduling in ServiceBusProcessor and ServiceBusSessionProcessor
+    - Remove array allocation when creating linked token sources from the ServiceBusProcessor
+
+    #### Features Added
+
+    - The `State` property has been added to `ServiceBusReceivedMessage` which indicates whether a message is `Active`, `Scheduled`, or `Deferred`. _(A community contribution, courtesy of [danielmarbach](https://github.com/danielmarbach))_
+
+    - Extension methods have been added for registering the `ServiceBusAdministrationClient` via dependency injection for use in ASP.NET Core applications. _(A community contribution, courtesy of [kaylumah](https://github.com/kaylumah))_
+
+    - Support for cancellation tokens has been improved for AMQP operations, enabling earlier detection of cancellation requests without needing to wait for the configured timeout to elapse.
+- Name: Microsoft.Azure.Data.SchemaRegistry.ApacheAvro
+  Version: 1.0.0-beta.6
+  DisplayName: Schema Registry - Avro
+  ServiceName: Schema Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.Data.SchemaRegistry.ApacheAvro_1.0.0-beta.6/sdk/schemaregistry/Microsoft.Azure.Data.SchemaRegistry.ApacheAvro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added dynamic overload for encoding messages.
+    - Added generic overload for decoding messages.
+
+    #### Breaking Changes
+
+    - The generic method signature for encoding has changed.
+    - The dynamic method signature for decoding has changed.
 
