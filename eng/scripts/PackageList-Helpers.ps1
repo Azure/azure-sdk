@@ -62,6 +62,30 @@ function CreatePackage(
   };
 }
 
+function ClonePackage($pkg)
+{
+  return [PSCustomObject][ordered]@{
+    Package = $pkg.Package
+    GroupId = $pkg.GroupId
+    VersionGA = $pkg.VersionGA
+    VersionPreview = $pkg.VersionPreview
+    DisplayName = $pkg.DisplayName
+    ServiceName = $pkg.ServiceName
+    RepoPath = $pkg.RepoPath
+    MSDocs = $pkg.MSDocs
+    GHDocs = $pkg.GHDocs
+    Type = $pkg.Type
+    New = $pkg.New
+    PlannedVersions = $pkg.PlannedVersions
+    FirstGADate = $pkg.FirstGADate
+    Support = $pkg.Support
+    Hide = $pkg.Hide
+    Replace = $pkg.Replace
+    ReplaceGuide = $pkg.ReplaceGuide
+    Notes = $pkg.Notes
+  };
+}
+
 function Get-LanguageName($lang)
 {
   $pkgLang = $languageNameMapping[$lang]
