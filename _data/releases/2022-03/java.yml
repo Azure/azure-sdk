@@ -1,0 +1,389 @@
+entries:
+- Name: azure-messaging-webpubsub
+  Version: 1.0.2
+  DisplayName: Web PubSub
+  ServiceName: Web PubSub
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-webpubsub_1.0.2/sdk/webpubsub/azure-messaging-webpubsub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.24.1` to `1.25.0`.
+    - Upgraded `azure-core-http-netty` from `1.11.6` to `1.11.7`.
+  GroupId: com.azure
+- Name: azure-storage-file-share
+  Version: 12.11.4
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-share_12.11.4/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.24.1` to version `1.25.0`.
+    - Upgraded `azure-core-http-netty` from `1.11.6` to version `1.11.7`.
+    - Upgraded `azure-storage-common` from `12.14.2` to version `12.14.3`.
+  GroupId: com.azure
+- Name: azure-storage-blob-cryptography
+  Version: 12.14.4
+  DisplayName: Storage - Blobs Cryptography
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-cryptography_12.14.4/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.24.1` to version `1.25.0`.
+    - Upgraded `azure-core-http-netty` from `1.11.6` to version `1.11.7`.
+    - Upgraded `azure-storage-blob` from `12.14.3` to version `12.14.4`.
+  GroupId: com.azure
+- Name: azure-messaging-eventgrid
+  Version: 4.9.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventgrid_4.9.0/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added interfaces from `com.azure.core.client.traits` to `EventGridPublisherClientBuilder`.
+    - Added a new method `retryOptions` to `EventGridPublisherClientBuilder`.
+    - Updated ARM events, `ResourceActionCancelEventData`, `ResourceActionFailureEventData`,
+    `ResourceActionSuccessEventData`, `ResourceDeleteCancelEventData`, `ResourceDeleteFailureEventData`,
+    `ResourceDeleteSuccessEventData`, `ResourceWriteCancelEventData`, `ResourceWriteFailureEventData`,
+    `ResourceWriteSuccessEventData`.
+    - Added new type `ResourceAuthorization` and `ResourceHttpRequest`.
+    - Deprecated
+    `getHttpRequest()` and replaced it with `getResourceAuthorization()`,
+    `setHttpRequest(String httpRequest)` and replaced it with `setResourceAuthorization(ResourceAuthorization authorization)`,
+    `getClaims()` and replaced it with `getResourceClaims()`,
+    `setClaims(String claims)` and replaced it with `setResourceClaims(Map<String, String> claims)`,
+    `getAuthorization()` and replaced it with `getResourceHttpRequest()`,
+    `setAuthorization(String authorization)` and replaced it with `setResourceHttpRequest(ResourceHttpRequest httpRequest)`.
+  GroupId: com.azure
+- Name: azure-cosmos
+  Version: 4.26.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos_4.26.0/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added support to resume a "multi order by query" from a continuation token - See [PR 26267](https://github.com/Azure/azure-sdk-for-java/pull/26267)
+    * Added `RNTBD - open connections` information in `ClientTelemetry`.
+    * Added Beta API to set custom `Reactor` scheduler to be used by the `ChangeFeedProcessor` implementation - See [PR 26750](https://github.com/Azure/azure-sdk-for-java/pull/26750)
+    * Added support for correlating queries executed via the Cosmos Spark connector with service-telemetry based on the `correlationActivityId` - See [PR 26908](https://github.com/Azure/azure-sdk-for-java/pull/26908)
+  GroupId: com.azure
+- Name: azure-storage-internal-avro
+  Version: 12.1.4
+  DisplayName: Storage - Internal Avro
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-internal-avro_12.1.4/sdk/storage/azure-storage-internal-avro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.24.1` to version `1.25.0`.
+    - Upgraded `azure-core-http-netty` from `1.11.6` to version `1.11.7`.
+    - Upgraded `azure-storage-common` from `12.14.2` to version `12.14.3`.
+  GroupId: com.azure
+- Name: azure-storage-queue
+  Version: 12.11.4
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-queue_12.11.4/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.24.1` to version `1.25.0`.
+    - Upgraded `azure-core-http-netty` from `1.11.6` to version `1.11.7`.
+    - Upgraded `azure-storage-common` from `12.14.2` to version `12.14.3`.
+  GroupId: com.azure
+- Name: azure-storage-blob-nio
+  Version: 12.0.0-beta.16
+  DisplayName: Storage - Blobs NIO
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-nio_12.0.0-beta.16/sdk/storage/azure-storage-blob-nio/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-storage-blob` from `12.15.0-beta.3` to version `12.14.4`.
+  GroupId: com.azure
+- Name: azure-storage-common
+  Version: 12.14.3
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-common_12.14.3/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.24.1` to version `1.25.0`.
+    - Upgraded `azure-core-http-netty` from `1.11.6` to version `1.11.7`.
+  GroupId: com.azure
+- Name: azure-storage-blob-batch
+  Version: 12.11.4
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-batch_12.11.4/sdk/storage/azure-storage-blob-batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.24.1` to version `1.25.0`.
+    - Upgraded `azure-core-http-netty` from `1.11.6` to version `1.11.7`.
+    - Upgraded `azure-storage-blob` from `12.14.3` to version `12.14.4`.
+  GroupId: com.azure
+- Name: azure-spring-data-cosmos
+  Version: 3.18.0
+  DisplayName: Spring Data Cosmos
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-data-cosmos_3.18.0/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Updated `azure-cosmos` to version `4.26.0`.
+  GroupId: com.azure
+- Name: azure-storage-file-datalake
+  Version: 12.7.4
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-datalake_12.7.4/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.24.1` to version `1.25.0`.
+    - Upgraded `azure-core-http-netty` from `1.11.6` to version `1.11.7`.
+    - Upgraded `azure-storage-blob` from `12.14.3` to version `12.14.4`.
+  GroupId: com.azure
+- Name: azure-data-tables
+  Version: 12.2.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-tables_12.2.0/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features added
+    - Implemented new traits (micro-interfaces) in `TableClientBuiler` and `TableServiceClientBuilder`. This makes the experience of using client builders more consistent across libraries in the Azure SDK for Java.
+  GroupId: com.azure
+- Name: azure-communication-networktraversal
+  Version: 1.0.0
+  DisplayName: Communication Network Traversal
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-networktraversal_1.0.0/sdk/communication/azure-communication-networktraversal/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added GetRelayConfigurationOptions with communicationUser and
+    routeType as parameters when calling getRelayConfiguration and getRelayConfigurationWithResponse
+  GroupId: com.azure
+- Name: azure-storage-blob-changefeed
+  Version: 12.0.0-beta.16
+  DisplayName: Storage - Blobs Changefeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-changefeed_12.0.0-beta.16/sdk/storage/azure-storage-blob-changefeed/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-storage-blob` from `12.15.0-beta.3` to version `12.14.4`.
+  GroupId: com.azure
+- Name: azure-storage-blob
+  Version: 12.14.4
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob_12.14.4/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.24.1` to version `1.25.0`.
+    - Upgraded `azure-core-http-netty` from `1.11.6` to version `1.11.7`.
+    - Upgraded `azure-storage-common` from `12.14.2` to version `12.14.3`.
+    - Upgraded `azure-storage-internal-avro` from `12.1.3` to version `12.1.4`.
+  GroupId: com.azure
+- Name: azure-digitaltwins-core
+  Version: 1.1.6
+  DisplayName: Digital Twins - Core
+  ServiceName: IoT
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-digitaltwins-core_1.1.6/sdk/digitaltwins/azure-digitaltwins-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    ##### Dependency updates
+    - Upgraded `azure-core` dependency from `1.24.1` to `1.25.0`.
+    - Upgraded `azure-core-http-netty` dependency from `1.11.6` to `1.11.7`.
+    - Upgraded `azure-core-serializer-json-jackson` dependency from `1.2.12` to `1.2.13`.
+  GroupId: com.azure
+- Name: azure-security-keyvault-secrets
+  Version: 4.4.0-beta.5
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-secrets_4.4.0-beta.5/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features added
+    - Implemented new traits (micro-interfaces) in `SecretClientBuilder`. This makes the experience of using client builders more consistent across libraries in the Azure SDK for Java.
+  GroupId: com.azure
+- Name: azure-security-keyvault-secrets
+  Version: 4.3.7
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-secrets_4.3.7/sdk/keyvault/azure-security-keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Upgraded `azure-core` dependency to `1.25.0`
+    - Upgraded `azure-core-http-netty` dependency to `1.11.7`
+  GroupId: com.azure
+- Name: azure-security-keyvault-certificates
+  Version: 4.3.0-beta.5
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-certificates_4.3.0-beta.5/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features added
+    - Implemented new traits (micro-interfaces) in `CertificateClientBuilder`. This makes the experience of using client builders more consistent across libraries in the Azure SDK for Java.
+  GroupId: com.azure
+- Name: azure-security-keyvault-certificates
+  Version: 4.2.7
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-certificates_4.2.7/sdk/keyvault/azure-security-keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Upgraded `azure-core` dependency to `1.25.0`
+    - Upgraded `azure-core-http-netty` dependency to `1.11.7`
+  GroupId: com.azure
+- Name: azure-security-keyvault-keys
+  Version: 4.4.0-beta.7
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-keys_4.4.0-beta.7/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features added
+    - Implemented new traits (micro-interfaces) in `KeyClientBuilder`, `CryptographyClientBuilder` and `KeyEncryptionKeyClientBuilder`. This makes the experience of using client builders more consistent across libraries in the Azure SDK for Java.
+    - Added the `immutable` property to `KeyReleasePolicy`.
+
+    #### Breaking Changes
+    - Removed the `exports` statement for `com.azure.security.keyvault.keys.implementation` in `module-info.java`.
+    - `KeyReleasePolicy`
+    - Renamed `data` to `encodedPolicy` and changed its type from `byte[]` to `BinaryData`.
+    - Flattened `KeyRotationPolicyProperties` into `KeyRotationPolicy`.
+    - Renamed `expiryTime` to `expiresIn`.
+    - Renamed `target` to `targetAttestationToken` in `releaseKey` APIs.
+    - Removed `KeyExportRequestParameters` as the `export` operations will be pushed to a future release.
+    - Renamed `KeyRotationLifetimeAction`'s `type` to `action`, to align with existing similar APIs in Key Vault Certificates.
+  GroupId: com.azure
+- Name: azure-security-keyvault-keys
+  Version: 4.3.7
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-keys_4.3.7/sdk/keyvault/azure-security-keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Upgraded `azure-core` dependency to `1.25.0`
+    - Upgraded `azure-core-http-netty` dependency to `1.11.7`
+  GroupId: com.azure
+- Name: azure-security-keyvault-administration
+  Version: 4.1.0-beta.5
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-administration_4.1.0-beta.5/sdk/keyvault/azure-security-keyvault-administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features added
+    - Implemented new traits (micro-interfaces) in `KeyVaultAccessControlClientBuilder` and `KeyVaultBackupClientBuilder`. This makes the experience of using client builders more consistent across libraries in the Azure SDK for Java.
+  GroupId: com.azure
+- Name: azure-security-keyvault-administration
+  Version: 4.0.7
+  DisplayName: Key Vault - Administration
+  ServiceName: Key Vault
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-administration_4.0.7/sdk/keyvault/azure-security-keyvault-administration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Upgraded `azure-core` dependency to `1.25.0`
+    - Upgraded `azure-core-http-netty` dependency to `1.11.7`
+  GroupId: com.azure
+- Name: azure-resourcemanager-datafactory
+  Version: 1.0.0-beta.11
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-datafactory_1.0.0-beta.11/sdk/datafactory/azure-resourcemanager-datafactory/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-resources
+  Version: 2.12.0
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-resources_2.12.0/sdk/resourcemanager/azure-resourcemanager-resources/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+
