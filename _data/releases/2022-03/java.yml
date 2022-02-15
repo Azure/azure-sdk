@@ -727,4 +727,19 @@ entries:
     - Update `azure-messaging-eventhubs` dependency to `5.11.0`.
     - Update `azure-storage-blob` dependency to `12.14.3`.
   GroupId: com.azure
+- Name: azure-mixedreality-remoterendering
+  Version: 1.1.4
+  DisplayName: Azure Remote Rendering
+  ServiceName: Mixed Reality
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-mixedreality-remoterendering_1.1.4/sdk/remoterendering/azure-mixedreality-remoterendering/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-mixedreality-authentication` from `1.1.4` to version `1.1.5`.
+    - Upgraded `azure-core` from `1.24.1` to version `1.25.0`.
+  GroupId: com.azure
 
