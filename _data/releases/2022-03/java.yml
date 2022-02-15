@@ -412,4 +412,18 @@ entries:
 
     - Update `azure-core` dependency to `1.25.0`.
   GroupId: com.azure
+- Name: azure-communication-chat
+  Version: 1.1.4
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-chat_1.1.4/sdk/communication/azure-communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-communication-common` to 1.0.8
+  GroupId: com.azure
 
