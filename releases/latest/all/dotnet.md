@@ -6,7 +6,7 @@ sidebar: releases_sidebar
 header: true
 ---
 {% capture description %}
-There are PackageCount total Azure library packages published to nuget from the [azure-sdk account](https://www.nuget.org/profiles/azure-sdk).
+There are PackageCount total Azure library packages published to NuGet from the [azure-sdk account](https://www.nuget.org/profiles/azure-sdk).
 {% endcapture %}
 
 {% include releases/dotnet.md type="all" %}
