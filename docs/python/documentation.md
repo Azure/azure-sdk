@@ -50,6 +50,20 @@ def get(*args, **kwargs):
     return request("GET", *args, **kwargs)
 ```
 
+{% include requirement/MUST id="python-docstrings-defaults" %} document any default values as part of your docstrings using the format recommended
+by sphinx.
+
+Example:
+```python
+def get(*args, **kwargs):
+    """Calls `request` with the method "GET" and forwards all other arguments.
+
+    :keyword str value_param: A value param, defaults to "cat".
+    :keyword class type_param: A type param, defaults to :py:class:`namespace.TypeName`
+    """
+    return request("GET", *args, **kwargs)
+```
+
 {% include requirement/MUST id="python-docstrings-exceptions" %} document exceptions that may be raised explicitly in the method and any exceptions raised by the called method.
 
 ### Code snippets
