@@ -255,16 +255,15 @@ In rare cases where a customer cannot take all the latest patch versions with al
 #### JavaScript
 
 The JavaScript community generally follows [SemVer](https://semver.org/).
-When publishing an npm package, [npm distribution tags](https://docs.npmjs.com/cli/dist-tag) can be specified.
-If none is provided, the `latest` tag gets used by default by the `npm publish` command.
+When publishing an npm package, [npm distribution tags](https://docs.npmjs.com/cli/dist-tag) are automatically set based on the version being published and current versions present on npm and there is no need to set tag manually when running a release pipeline.
 
-Below are the guidelines for versions and tags to use:
+Below are the guidelines for versions to use:
 
-- GA releases will follow [SemVer](https://semver.org/) and the published package should have the tag `latest`.
-  - If a hotfix is being shipped for a version older than the current GA version, then ensure that the hotfix gets no tags.  One way to do this is to use a dummy tag when publishing and deleting the tag afterwards.
-  - If a package has moved from beta to GA, ensure that the `next` tag is deleted.
-- Beta releases will use the format `X.Y.Z-beta.N` for version and the published package should have the tag `next`.
-  - Additionally, use the `latest` tag **only** if the package has never had a GA release.
+- GA releases will follow [SemVer](https://semver.org/) and the published package will get the tag `latest`.
+  - If a hotfix is being shipped for a version older than the current GA version, then the hotfix version does not get any tags.
+  - If a package has moved from beta to GA, then `next` tag is deleted  from beta and latest tag will be set for GA version.
+- Beta releases will use the format `X.Y.Z-beta.N` for version and the published package will get the tag `next`.
+  - Package version will also get `latest` tag **only** if the package has never had a GA release.
 - Daily alpha releases will use the format `X.Y.Z-alpha.YYYYMMDD.r` (`r` is based on the number of builds performed on the given day) and the latest published package will have the `dev` tag and published to npm. To consume a alpha package either pin to a specific version or use the `dev` tag as the version.
 
 ##### Incrementing after release (JS)
