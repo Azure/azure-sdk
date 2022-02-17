@@ -129,4 +129,21 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/arm-storage/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/identity'
+  Version: 2.0.3
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_2.0.3/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed bug that duplicated the tenant Id on the URI of outgoing requests when passing an `authorityHost` ending with a tenant Id.
+    - `ManagedIdentityCredential` now won't retry when it tries to ping the IMDS endpoint.
+    - Now we are specifying the maximum number of retries to 3 to ensure that maximum retries won't change without notice.
+
+    #### Features Added
+
+    - Added log warning for non-support of user assigned identity in Managed Identity credentials in Cloud Shell environments.
 
