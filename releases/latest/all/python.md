@@ -6,7 +6,7 @@ sidebar: releases_sidebar
 header: true
 ---
 {% capture description %}
-There are PackageCount total Azure library packages published to PyPI from the [azure-sdk account](https://pypi.org/user/azure-sdk/).
+There are PackageCount total Azure SDK library packages published to PyPI from the [azure-sdk account](https://pypi.org/user/azure-sdk/).
 {% endcapture %}
 
 {% include releases/python.md type="all" %}
