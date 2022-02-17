@@ -808,4 +808,16 @@ entries:
     - Added `resourceId` to Managed Identity for Virtual Machines, App Service, and Service Bus.
     - Added `ClientAssertionCredential` for client assertion based authentication flows.
   GroupId: com.azure
+- Name: azure-ai-metricsadvisor
+  Version: 1.1.0
+  DisplayName: Metrics Advisor
+  ServiceName: Metrics Advisor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-metricsadvisor_1.1.0/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added interfaces from `com.azure.core.client.traits` to `MetricsAdvisorClientBuilder`
+    and `MetricsAdvisorAdministrationClientBuilder`
+  GroupId: com.azure
 
