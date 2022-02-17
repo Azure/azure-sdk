@@ -3,7 +3,7 @@
 {% if include.type != "retired" %}
 # Azure SDK Releases
 
-This page contains links to all of the Azure SDK library packages, code, and documentation.  The "Client and Management Libraries" tabs contain libraries that follow the new [Azure SDK Guidelines](https://aka.ms/azsdk/guide).  The "All" tab also contains libraries that do not yet follow the new guidelines.
+This page provides an inventory of all Azure SDK library packages, code, and documentation. The **Client Libraries** and **Management Libraries** tabs contain libraries that follow the new [Azure SDK guidelines](https://aka.ms/azsdk/guide). The **All** tab contains the aforementioned libraries and those that don't follow the new guidelines.
 
 {% else %}
 # Azure SDK Retired Releases

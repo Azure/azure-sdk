@@ -6,7 +6,7 @@ sidebar: releases_sidebar
 header: true
 ---
 {% capture description %}
-There are PackageCount total Azure library packages published to npm from the [azure-sdk account](https://www.npmjs.com/~azure-sdk).
+There are PackageCount total Azure SDK library packages published to npm from the [azure-sdk account](https://www.npmjs.com/~azure-sdk).
 {% endcapture %}
 
 {% include releases/js.md type="all" %}
