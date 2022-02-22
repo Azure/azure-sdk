@@ -146,4 +146,15 @@ entries:
     #### Features Added
 
     - Added log warning for non-support of user assigned identity in Managed Identity credentials in Cloud Shell environments.
+- Name: '@azure/identity'
+  Version: 2.0.4
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/identity_2.0.4/sdk/identity/identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a regression in version 2.0.3 in which providing an options bag, but _not_ a client ID, to the `ManagedIdentityCredential` constructor would discard the `options` parameter.
 
