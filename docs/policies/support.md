@@ -49,7 +49,7 @@ For Mobile development, please check the [IOS supported platforms](https://azure
 
 **Runtime:**
 
-- Any supported .NET versions that have implement .NET Standard 2.0.
+- Any [supported .NET versions](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core) that implement .NET Standard 2.0.
 - Java: Java 8 , Java 11
 - Node.js: [LTS versions of Node.js](https://nodejs.org/about/releases/) including not just the ones in Active status, but also the ones in Maintainence status.
 - Python 3.5+, 2.7
