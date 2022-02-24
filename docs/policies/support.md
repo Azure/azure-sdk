@@ -53,8 +53,9 @@ For Mobile development, please check the [IOS supported platforms](https://azure
 - Java: Java 8 , Java 11
 - Node.js: [LTS versions of Node.js](https://nodejs.org/about/releases/) including not just the ones in Active status, but also the ones in Maintainence status.
 - Python 3.5+, 2.7
-- Go runtime– we support 2 latest major Go releases, refer to https://golang.org/doc/devel/release.html for more details.”
-- For C, refer to the list of supported platforms and compilers [here](https://azure.github.io/azure-sdk/clang_design.html)
+- Go: Latest 2 major Go releases, refer to [Go releases](https://golang.org/doc/devel/release.html) for more details.
+- C++: Refer to the list of supported platforms and compilers [here](https://azure.github.io/azure-sdk/cpp_implementation.html#supported-platforms)
+- Embedded C: Refer to the list of supported platforms and compilers [here](https://azure.github.io/azure-sdk/clang_design.html)
 
 **Test configurations:**
 
@@ -64,6 +65,8 @@ Below are the test configurations covering different operating systems and runti
 - [Java test configuration](https://github.com/Azure/azure-sdk-for-java/blob/main/eng/pipelines/templates/stages/platform-matrix.json)
 - [JavaScript test configuration](https://github.com/Azure/azure-sdk-for-js/blob/main/eng/pipelines/templates/stages/platform-matrix.json)
 - [Python test configuration](https://github.com/Azure/azure-sdk-for-python/blob/main/eng/pipelines/templates/stages/platform-matrix.json)
+- [Go test configuration](https://github.com/Azure/azure-sdk-for-go/blob/main/eng/pipelines/templates/stages/platform-matrix.json)
+- [C++ test configuration](https://github.com/Azure/azure-sdk-for-cpp/blob/main/eng/pipelines/templates/stages/platform-matrix.json)
 
 ### **Support**:
 
