@@ -692,7 +692,7 @@ The return value from a conditional operation must be carefully considered. For 
 
 {% include requirement/SHOULD %} include the ETag field as part of the object model when conditional operations are supported.
 
-{% include requirement/SHOULDNOT %} throw an error when a 304 Not Modified response is received from the service, unless such errors are idiomatic to the language.
+{% include requirement/SHOULDNOT %} throw an error when a 304 Not Modified response is received from the service.
 
 {% include requirement/SHOULD %} throw a distinct error when a 412 Precondition Failed response or a 409 Conflict response is received from the service due to a conditional check.
 
@@ -733,7 +733,7 @@ public struct FeatureFlagGroup {
     
 {% include requirement/MUST id="ios-naming-enum-camelcase" %} use camel casing names for enum values. `EnumType.foo` and `EnumType.twoWords` are valid, whereas `EnumType.Foo` and `EnumType.TWO_WORDS` are not.
 
-{% include requirement/MAY id="ios-expandable-enums" %} define an enum-like API that declares well-known fields but which can also contain unknown values returned from the service, or user-defined values passed to the service. An example expandable enum is shown below:
+{% include requirement/MAY id="ios-expandable-enums" %} define an enum-like API that declares well-known fields but which can also contain unknown values returned from the service, or user-defined values passed to the service. The customized value that accepts a string SHOULD be called `custom`. An example expandable enum is shown below:
 
 ```swift
 public enum ShapeEnum: RequestStringConvertible {
