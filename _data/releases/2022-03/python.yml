@@ -104,4 +104,18 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-kusto_2.2.0/sdk/kusto/azure-mgmt-kusto/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-storage-blob
+  Version: 12.10.0b4
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.10.0b4/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Addressed a few `mypy` typing hint errors.
+
+    #### Features Added
+    - Updated clients to support both SAS and OAuth together.
+    - Updated OAuth implementation to use the AAD scope returned in a Bearer challenge.
 
