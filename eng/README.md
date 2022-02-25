@@ -10,8 +10,8 @@ given package ecosystem as well as by reading release tags from our mono repos. 
 
 - `Package` - This is the full name for the package as it appears on the package manager.
 - `GroupId` - This is only for Java and it contains the GroupId of the package. The Package field in Java's case only contains the ArtifactId.
-- `VersionGA` - This contains the latest GA version for the given package. If one does not exist, the field is empty.
-- `VersionPreview` - This contains the latest preview/beta/prerelease version for the given package. The field will be empty if there isn't a preview, or the preview is older than the latest GA.
+- `VersionGA` - This contains the latest stable version for the given package. If one does not exist, the field is empty.
+- `VersionPreview` - This contains the latest preview/beta/prerelease version for the given package. The field will be empty if there isn't a preview, or the preview is older than the latest stable.
 - `DisplayName` - This is a friendly name for the package that is used in the package index and other contexts to display a nicer name for the package.
 - `ServiceName` - This is the name of the service that this package is related to and is used in documentation contexts to group a set of packages for a given service together.
 - `RepoPath` - This contains information to create a link to the github repo for the given package. For our standard services that ship from our mono repos this should just be name of the service directory (e.g. `/sdk/<service directory>/<package>`). It can be a full link if this package is coming from somewhere else. A value of `NA` should be present if their is no go source link.
@@ -24,7 +24,7 @@ given package ecosystem as well as by reading release tags from our mono repos. 
   - `spring` - This is a special classification only for Java that represents the spring libraries.
 - `New` - This field is set to true for any of our newer libraries that now following the guidelines outlined in this repo.
 - `PlannedVersions` - This field will list a set of versions combined with estimated dates in the format of `[version1],[date1]|[version2],[date2]|[version3],[date3]` with version in the format of `X.Y.Z[bN|-beta.N]` and date in the format of `MM/dd/yyyy`. These dates are intended to be displayed on a roadmap page.
-- `FirstGADate` - This field is used to identify the date of when a new package shipped its first GA.
+- `FirstGADate` - This field is used to identify the date of when a new package shipped its first stable release.
 - `Support` - This field is used to identify the level of support for the given package. See the [support guidelines](https://azure.github.io/azure-sdk/policies_support.html#package-lifecycle) for more details but this field should contain `active`, `maintenance`, `retired` or `community`, if the value is empty it generally implies unknown or `beta` support level.
 - `Hide` - This field will determine whether we hide this package from various places like the package index, docs, as well as automated updates. The value is either true to hide or empty to not hide. This is useful to filter older packages that are still on the package managers, but we don't want to promote or display anywhere.
 - `Replace` - This field is used the store the package name for the related older (replaces) or newer (replaced by) package. The value should be the exact name of the package (for java it should be `groupdid\artifactid`). If there are multiple then they should be separated by a comma (`,`).

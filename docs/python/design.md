@@ -746,7 +746,7 @@ Don't use pre-release segments other than the ones defined in [PEP440](https://w
 
 {% include requirement/MUST id="python-versioning-major-cross-languages" %} select a version number greater than the highest version number of any other released Track 1 package for the service in any other scope or language.
 
-The bar to make a breaking change is extremely high for GA client libraries.  We may create a new package with a different name to avoid diamond dependency issues.
+The bar to make a breaking change is extremely high for stable client libraries.  We may create a new package with a different name to avoid diamond dependency issues.
 
 ### Dependencies
 

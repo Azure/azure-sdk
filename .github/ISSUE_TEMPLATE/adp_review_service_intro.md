@@ -20,7 +20,7 @@ Please reference our [review process guidelines](https://azure.github.io/azure-s
 
 * Service team responsible for the client library:
 * Main contacts:
-* Expected GA date for this library:
+* Expected stable release date for this library:
 
 ## About the Service 
 

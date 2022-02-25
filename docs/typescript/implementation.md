@@ -279,7 +279,7 @@ A particular (major.minor) version of a library can choose what service APIs it 
 
 {% include requirement/MUST id="ts-versioning-semver" %} version with [semver](https://semver.org/). Deprecated features and flags must offer an alternate stable or beta path for developers.
 
-{% include requirement/MUSTNOT id="ts-versioning-no-ga-prerelease" %} have a pre-release version or any additional build metadata for GA packages.
+{% include requirement/MUSTNOT id="ts-versioning-no-ga-prerelease" %} have a pre-release version or any additional build metadata for stable packages.
 
 {% include requirement/MUST id="ts-versioning-beta" %} give beta packages a pre-release version of the format `1.0.0-beta.X` where X is an integer. Pre-release package versions shouldn't have additional build metadata.
 
