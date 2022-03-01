@@ -906,4 +906,30 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-appconfiguration_1.0.0-beta.5/sdk/appconfiguration/azure-resourcemanager-appconfiguration/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-spring-boot
+  Version: 3.14.0
+  DisplayName: Azure Spring Boot AutoConfigure
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-boot_3.14.0/sdk/spring/azure-spring-boot/CHANGELOG.md
+  ChangelogContent: |-
+    This release is compatible with Spring Boot 2.5.5-2.5.8, 2.6.0-2.6.2.
+
+    #### Dependency Upgrades
+    Regular updates for Azure SDK dependency versions.
+  GroupId: com.azure.spring
+- Name: azure-spring-boot-starter
+  Version: 3.14.0
+  DisplayName: Azure Spring Boot Starter
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-boot-starter_3.14.0/sdk/spring/azure-spring-boot-starter/CHANGELOG.md
+  ChangelogContent: |-
+    This release is compatible with Spring Boot 2.5.5-2.5.8, 2.6.0-2.6.2.
+
+    #### Dependency Upgrades
+    Regular updates for Azure SDK dependency versions.
+  GroupId: com.azure.spring
 
