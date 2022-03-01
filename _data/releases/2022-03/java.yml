@@ -199,19 +199,6 @@ entries:
     #### Features added
     - Implemented new traits (micro-interfaces) in `TableClientBuiler` and `TableServiceClientBuilder`. This makes the experience of using client builders more consistent across libraries in the Azure SDK for Java.
   GroupId: com.azure
-- Name: azure-communication-networktraversal
-  Version: 1.0.0
-  DisplayName: Communication Network Traversal
-  ServiceName: Communication
-  VersionType: GA
-  Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-networktraversal_1.0.0/sdk/communication/azure-communication-networktraversal/CHANGELOG.md
-  ChangelogContent: |-
-    #### Features Added
-
-    - Added GetRelayConfigurationOptions with communicationUser and
-    routeType as parameters when calling getRelayConfiguration and getRelayConfigurationWithResponse
-  GroupId: com.azure
 - Name: azure-storage-blob-changefeed
   Version: 12.0.0-beta.16
   DisplayName: Storage - Blobs Changefeed
