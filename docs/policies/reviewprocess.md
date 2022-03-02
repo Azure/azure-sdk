@@ -95,7 +95,7 @@ Depending on the situation and service, more than one API review may be needed (
 
 The goal of the API sign-off meeting is to resolve any controversial/unsettled questions about the API. These questions can come from language architects or service teams.
 
-**All languages must be signed off before any are released as GA.** When there have been limited changes made to the API since the second review, *architects may choose to sign off over email* without the need for a full meeting.
+**All languages must be signed off before any are released as stable.** When there have been limited changes made to the API since the second review, *architects may choose to sign off over email* without the need for a full meeting.
 
 **What to bring (include the following in GitHub issue requesting for review):**
 * Links to API Listings for each language
@@ -160,7 +160,7 @@ If after an API Sign Off session the Architecture Board approves the release, th
 
 ## Previewing API Changes
 
-It is expected that API changes are released in beta for a period of time before they are released as GA. This gives customers time to provide feedback which could result in adjustments to the API before it GAs. API changes that go straight to GA do not benefit from this feedback which can result in them being difficult for customers to use and for us to support. In most circumstances, API changes going through either the full or abbreviated review process should be released as beta before GA.
+It is expected that API changes are released in beta for a period of time before they are released as stable. This gives customers time to provide feedback which could result in adjustments to the API before it moves to stable. API changes that go straight to stable do not benefit from this feedback which can result in them being difficult for customers to use and for us to support. In most circumstances, API changes going through either the full or abbreviated review process should be released as beta before a stable release.
 
 ## Getting Approval for Small, Targeted Changes and Bug Fixes
 
@@ -169,8 +169,8 @@ For small or targeted changes and bug fixes which modify APIs, the architect in 
 Remember that **all** changes to an API must be approved by the language architect before release.
 
 ## Tracking API Changes That Need to be Reviewed
-While an API is in preview or after it is in GA, changes to APIs are not always obvious (to the developer or the reviewer) when they’re being made so it’s important that we identify them and review them to ensure the best SDK library experience for our customers. Long-term we will have tooling in place to detect API additions, changes, and breaks. Until then, we will use the “APIChange” label on PRs to identify code changes that included a modification to an already released API. This signals to that a language architect needs to review the change. Once they’ve approved the change they would add the “ArchApproved” label. Before release, a review of all changes merged into the library should be done to ensure that all “APIChange” labels are paired with an “ArchApproved” label. Here is an [example query](https://github.com/Azure/azure-sdk-for-java/pulls?utf8=%E2%9C%93&q=is%3Apr+label%3AAPIChange+) for the Java libraries.
+While an API is in preview or after a stable release, changes to APIs are not always obvious (to the developer or the reviewer) when they’re being made so it’s important that we identify them and review them to ensure the best SDK library experience for our customers. Long-term we will have tooling in place to detect API additions, changes, and breaks. Until then, we will use the “APIChange” label on PRs to identify code changes that included a modification to an already released API. This signals to that a language architect needs to review the change. Once they’ve approved the change they would add the “ArchApproved” label. Before release, a review of all changes merged into the library should be done to ensure that all “APIChange” labels are paired with an “ArchApproved” label. Here is an [example query](https://github.com/Azure/azure-sdk-for-java/pulls?utf8=%E2%9C%93&q=is%3Apr+label%3AAPIChange+) for the Java libraries.
 
-When the library developers indicate they’re ready to release, these should be reviewed by the architect as part of final signoff before GA. Libraries should not be released as GA (or updated to GA) if there are unresolved “APIChange” labels without a corresponding “ArchApproved” label. Once final review is requested, all “APIChange” labels will be responded to within 5 working days.
+When the library developers indicate they’re ready to release, these should be reviewed by the architect as part of final signoff before the release. Libraries should not be released as stable (or updated to stable) if there are unresolved “APIChange” labels without a corresponding “ArchApproved” label. Once final review is requested, all “APIChange” labels will be responded to within 5 working days.
 
 {% include refs.md %}

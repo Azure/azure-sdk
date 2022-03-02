@@ -57,7 +57,7 @@ The following are examples that do not meet the guidelines:
 * `@microsoft/cosmos` (not in `@azure` scope).
 * `@azure/digitaltwins` (not kebab-cased).
 
-{% include requirement/SHOULD id="ts-npm-package-name-follow-conventions" %} you should follow the casing conventions of any existing GA packages released in the `@azure` npm scope. It's not worth renaming a package just to align on naming conventions.
+{% include requirement/SHOULD id="ts-npm-package-name-follow-conventions" %} you should follow the casing conventions of any existing stable packages released in the `@azure` npm scope. It's not worth renaming a package just to align on naming conventions.
 
 ## The Client API {#ts-apisurface-serviceclient}
 

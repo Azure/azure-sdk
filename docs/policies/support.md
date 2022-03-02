@@ -14,7 +14,7 @@ Azure SDK Lifecycle and support are governed by the latest [Microsoft Modern Lif
 Here are the stages of a typical package lifecycle (for major versions)
 
 1. **Beta** – A new SDK that is available for early access and feedback purposes and is not recommended for use in production.
-   The beta version support is limited to GitHub issues and response time is not guaranteed. Beta releases live typically for less than 1 year, after which they are either retired or released to GA.
+   The beta version support is limited to GitHub issues and response time is not guaranteed. Beta releases live typically for less than 1 year, after which they are either retired or released as stable.
 
 2. **Active** - The SDKs are generally available and fully supported, will receive new feature updates, as well as bug and security fixes.
    The major version will remain active for at least 12 months from the release date. Compatible updates for the major release are provided through minor versions, or patch versions.

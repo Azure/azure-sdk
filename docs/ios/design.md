@@ -1007,7 +1007,7 @@ Consistent version number scheme allows consumers to determine what to expect fr
 
 {% include requirement/MUST id="ios-versioning-major" %} increment the major version if there are breaking changes in the Azure SDK. Breaking changes require prior approval from the [Architecture Board].
 
-The bar to make a breaking change is extremely high for GA client libraries. We may create a new package with a different name to avoid diamond dependency issues.
+The bar to make a breaking change is extremely high for stable client libraries. We may create a new package with a different name to avoid diamond dependency issues.
 
 ### Dependencies
 

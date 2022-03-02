@@ -8,7 +8,7 @@ repository: Azure/azure-sdk-for-c
 
 The Azure SDK team is pleased to make available the %%MMMM yyyy%% client library release.
 
-#### GA
+#### Stable
 
 - _Add packages_
 
