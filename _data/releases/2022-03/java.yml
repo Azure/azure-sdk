@@ -1346,4 +1346,44 @@ entries:
     - Regular updates for Azure SDK dependency versions.
     - Upgrade external dependencies' version according to [spring-boot-dependencies:2.6.2](https://repo1.maven.org/maven2/org/springframework/boot/spring-boot-dependencies/2.6.2/spring-boot-dependencies-2.6.2.pom).
   GroupId: com.azure.spring
+- Name: azure-spring-boot-bom
+  Version: 3.14.0
+  DisplayName: Azure Spring Boot BOM
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/boms/azure-spring-boot-bom/CHANGELOG.md
+  ChangelogContent: |-
+    This release is compatible with Spring Boot 2.5.5-2.5.8, 2.6.0-2.6.2.
+
+    #### Dependency Upgrades
+    - Upgrade azure-core to 1.25.0.
+    - Upgrade azure-identity to 1.4.4.
+    - Upgrade azure-security-keyvault-jca to 2.6.0.
+    - Upgrade azure-security-keyvault-secrets to 4.3.7.
+    - Upgrade azure-spring-data-cosmos to 3.18.0.
+    - Upgrade azure-storage-blob to 12.14.4.
+    - Upgrade azure-storage-file-share to 12.11.4.
+    - Upgrade AzureSpringBoot artifacts to 3.14.0.
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-dependencies
+  Version: 2.14.0
+  DisplayName: Azure Spring Cloud Dependencies
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-dependencies_2.14.0/sdk/boms/azure-spring-cloud-dependencies/CHANGELOG.md
+  ChangelogContent: |-
+    This release is compatible with Spring Boot 2.5.5-2.5.8, 2.6.0-2.6.2.
+
+    #### Dependency Upgrades
+    - Upgrade azure-core to 1.25.0.
+    - Upgrade azure-identity to 1.4.4.
+    - Upgrade azure-messaging-eventhubs-checkpointstore-blob to 1.11.0.
+    - Upgrade azure-messaging-eventhubs to 5.11.0.
+    - Upgrade azure-messaging-servicebus to 7.6.0.
+    - Upgrade azure-storage-queue to 12.11.4.
+    - Upgrade azure-resourcemanager to 2.12.0.
+    - Upgrade AzureSpringCloud artifacts to 2.14.0.
+  GroupId: com.azure.spring
 
