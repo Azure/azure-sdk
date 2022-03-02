@@ -292,18 +292,6 @@ entries:
     #### Features Added
 
     - Added `FullyQualifiedNamespace`, `EventHubName`, and `ConsumerGroup` to the partition context associated with events read by the `EventHubConsumerClient`.
-- Name: Azure.Communication.NetworkTraversal
-  Version: 1.0.0
-  DisplayName: Communication Network Traversal
-  ServiceName: Communication
-  VersionType: GA
-  Hidden: false
-  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Communication.NetworkTraversal_1.0.0/sdk/communication/Azure.Communication.NetworkTraversal/CHANGELOG.md
-  ChangelogContent: |-
-    #### Breaking Changes
-
-    - Removing GetRelayConfigurationOptions to call GetRelayConfiguration and GetRelayConfigurationAsync passing
-    RouteType and CommunicationUserIdentifier explicitly.
 - Name: Azure.Messaging.EventHubs.Processor
   Version: 5.7.0-beta.3
   DisplayName: Event Hubs - Event Processor
