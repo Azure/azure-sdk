@@ -173,4 +173,21 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-datafactory_2.3.0/sdk/datafactory/azure-mgmt-datafactory/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-core
+  Version: 1.23.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.23.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Use "\n" rather than "/n" for new line in log.     #23261
+
+    #### Features Added
+
+    - Improve intellisense type hinting for service client methods. #22891
+
+    - Add a case insensitive dict `case_insensitive_dict` in `azure.core.utils`.  #23206
 
