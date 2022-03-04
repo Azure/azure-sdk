@@ -263,4 +263,17 @@ entries:
     - If `resourceId` is provided, the managed identity providers for Azure App Service (2017), Azure Arc, Azure Cloud Shell, Azure Service Fabric and Token Exchange authentication will log a warning since this parameter is not supported by the identity endpoints in those services. The authentication attempts will be sent, but the parameter will be ignored by the service.
     - Added `clientId` to the optional parameters of the `ManagedIdentityCredential`.
     - Updated the Troubleshoot guide to have error codes and error messages for the Identity Customer Service Support.
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.6.0
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.6.0/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Add "WWW-Authenticate" to the allowed logged header list. [#20288](https://github.com/Azure/azure-sdk-for-js/pull/20288)
+
+    - Switch browser transport to fetch. [#20201](https://github.com/Azure/azure-sdk-for-js/pull/20201)
 
