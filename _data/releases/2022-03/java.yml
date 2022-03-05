@@ -1502,4 +1502,64 @@ entries:
     under `SecurityManager`. ([#27182](https://github.com/Azure/azure-sdk-for-java/pull/27182), thank you @reta!)
     - Fixed an issue where converting Azure `Context` to Reactor `Context` could result in an `IndexOutOfBoundsException`. ([#27197](https://github.com/Azure/azure-sdk-for-java/pull/27197))
   GroupId: com.azure
+- Name: azure-core-serializer-json-gson
+  Version: 1.1.13
+  DisplayName: Core Serializer GSON JSON
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-serializer-json-gson_1.1.13/sdk/core/azure-core-serializer-json-gson/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated all `ClientLogger`s to be static constants instead of instance variables. ([#27339](https://github.com/Azure/azure-sdk-for-java/pull/27339))
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.25.0` to `1.26.0`.
+  GroupId: com.azure
+- Name: azure-core-management
+  Version: 1.5.3
+  DisplayName: Management - Core
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-management_1.5.3/sdk/core/azure-core-management/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure
+- Name: azure-core-tracing-opentelemetry
+  Version: 1.0.0-beta.21
+  DisplayName: Tracing OpenTelemetry Plugin
+  ServiceName: Plugin
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-tracing-opentelemetry_1.0.0-beta.21/sdk/core/azure-core-tracing-opentelemetry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated all `ClientLogger`s to be static constants instead of instance variables. ([#27339](https://github.com/Azure/azure-sdk-for-java/pull/27339))
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.25.0` to `1.26.0`.
+    - Upgraded OpenTelemetry from `1.0.0` to `1.11.0`.
+  GroupId: com.azure
+- Name: azure-core-http-netty
+  Version: 1.11.8
+  DisplayName: Core - HTTP Netty
+  ServiceName: Core
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core-http-netty_1.11.8/sdk/core/azure-core-http-netty/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated all `ClientLogger`s to be static constants instead of instance variables. ([#27339](https://github.com/Azure/azure-sdk-for-java/pull/27339))
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.25.0` to `1.26.0`.
+    - Upgraded Netty from `4.1.72.Final` to `4.1.73.Final`.
+    - Upgraded Reactor Netty from `1.0.14` to `1.0.15`.
+  GroupId: com.azure
 
