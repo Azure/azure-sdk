@@ -1529,4 +1529,12 @@ entries:
     * Added header `WWW-Authenticate` to the default allow-list of headers for logging.
     * Added a pipeline policy that enables the retrieval of HTTP responses from API calls.
     * Added `runtime.WithCaptureResponse` to enable the policy at the API level (off by default).
+- Name: sdk/resourcemanager/compute/armcompute
+  Version: 0.5.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/compute/armcompute/v0.5.0/sdk/resourcemanager/compute/armcompute/CHANGELOG.md
+  ChangelogContent: ""
 
