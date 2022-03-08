@@ -241,4 +241,16 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - Added support to create, update and delete aliases via the `SearchIndexClient`.
+- Name: azure-ai-textanalytics
+  Version: 5.2.0b3
+  DisplayName: Text Analytics
+  ServiceName: Text Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-textanalytics_5.2.0b3/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - `string_index_type` now correctly defaults to the Python default `UnicodeCodePoint` for `AnalyzeSentimentAction` and `RecognizeCustomEntitiesAction`.
+    - Fixed a bug in `begin_analyze_actions` where incorrect action types were being sent in the request if targeting the older API version `v3.1` in the beta version of the client library.
+    - `string_index_type` option `Utf16CodePoint` is corrected to `Utf16CodeUnit`.
 
