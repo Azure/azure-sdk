@@ -1537,4 +1537,25 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/compute/armcompute/v0.5.0/sdk/resourcemanager/compute/armcompute/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/keyvault/azsecrets
+  Version: 0.6.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/keyvault/azsecrets/v0.6.0/sdk/keyvault/azsecrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * Changes `Attributes` to `Properties`
+    * Changes `Secret.KID` to `Secret.KeyID`
+    * Changes `DeletedSecretBundle` to `DeletedSecret`
+    * Changes `DeletedDate` to `DeletedOn`, `Created` to `CreatedOn`, and `Updated` to `UpdatedOn`
+    * Changes the signature of `Client.UpdateSecretProperties` to have all alterable properties in the `UpdateSecretPropertiesOptions` parameter, removing the `parameters Properties` parameter.
+    * Changes `Item` to `SecretItem`
+    * Pollers and pagers are structs instead of interfaces
+    * Prefixed all `DeletionRecoveryLevel` constants with "DeletionRecoveryLevel"
+    * Changed pager APIs for `ListSecretVersionsPager`, `ListDeletedSecretsPager`, and `ListSecretsPager`
+    * Use the `More()` method to determine if there are more pages to fetch
+    * Use the `NextPage(context.Context)` to fetch the next page of results
+    * Removed all `RawResponse *http.Response` fields from response structs.
 
