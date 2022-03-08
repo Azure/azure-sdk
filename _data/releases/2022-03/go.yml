@@ -1594,4 +1594,57 @@ entries:
     #### Bugs Fixed
     * Prevented a data race in `DefaultAzureCredential` and `ChainedTokenCredential`
     ([#17144](https://github.com/Azure/azure-sdk-for-go/issues/17144))
+- Name: sdk/messaging/azservicebus
+  Version: 0.3.6
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azservicebus/v0.3.6/sdk/messaging/azservicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - The following 'Get' APIs have been changed to return a nil result when an item is not found: (#17229)
+    - GetQueue, GetQueueRuntimeProperties
+    - GetTopic, GetTopicRuntimeProperties
+    - GetSubscription, GetSubscriptionRuntimeProperties
+
+    #### Bugs Fixed
+
+    - Fix connection recovery in situations where network errors bubble up from go-amqp. (#17048)
+    - Quicker reattach for idle links. (#17205)
+    - Quick exit on receiver reconnects to avoid potentially returning duplicate messages. (#17157)
+- Name: sdk/data/aztables
+  Version: 0.6.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/aztables/v0.6.0/sdk/data/aztables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * Prefixed all `TransactionType` constants with `TransactionType`.
+    * Prefixed all `EntityUpdateMode` constants with `EntityUpdateMode`.
+    * Changed the `SharedKeyCredential.ComputeHMACSHA256` method to a private method.
+    * Changed the `ListTablesPager` and `ListEntitiesPager` to structs.
+    * Renamed the `ResponseProperties` type to `TableProperties`.
+    * Removing `ContentType` from the `TransactionResponse` struct.
+    * Update `ListEntitiesPager` and `ListTablesPager`.
+    * The `More` method checks whether there are more pages to retrieve.
+    * The `NextPage(context.Context)` method gets the next page and returns a response and an `error`.
+    * Removed `RawResponse` from all Response structs
+    * `TransactionResponse` is an empty struct
+- Name: sdk/keyvault/azcertificates
+  Version: 0.2.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/keyvault/azcertificates/v0.2.0/sdk/keyvault/azcertificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * Changed pager APIs for `ListCertificatesPager`, `ListDeletedCertificatesPager`, `ListPropertiesOfIssuersPager`, and `ListCertificateVersionsPager`
+    * Use the `More()` method to determine if there are more pages to fetch
+    * Use the `NextPage(context.Context)` to fetch the next page of results
+    * Removed all `RawResponse *http.Response` fields from response structs.
 
