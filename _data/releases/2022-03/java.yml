@@ -1606,4 +1606,87 @@ entries:
     - Upgraded `azure-core` from `1.25.0` to version `1.26.0`.
     - Upgraded `azure-core-http-netty` from `1.11.7` to version `1.11.8`.
   GroupId: com.azure
+- Name: azure-storage-common
+  Version: 12.15.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-common_12.15.0/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - GA release for STG 79, 80, 81
+  GroupId: com.azure
+- Name: azure-storage-blob
+  Version: 12.15.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob_12.15.0/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed a bug where a timeout parameter was being ignored on an uploadFromFileWithResponse.
+  GroupId: com.azure
+- Name: azure-containers-containerregistry
+  Version: 1.0.2
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-containers-containerregistry_1.0.2/sdk/containerregistry/azure-containers-containerregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core-http-netty` from `1.11.7` to version `1.11.8`.
+    - Upgraded `azure-core` from `1.25.0` to version `1.26.0`.
+  GroupId: com.azure
+- Name: azure-mixedreality-authentication
+  Version: 1.2.0
+  DisplayName: Azure Mixed Reality Authentication
+  ServiceName: Mixed Reality
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-mixedreality-authentication_1.2.0/sdk/mixedreality/azure-mixedreality-authentication/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added interfaces from `com.azure.core.client.traits` to `MixedRealityStsClientBuilder`.
+    - Added `retryOptions` to `MixedRealityStsClientBuilder`.
+  GroupId: com.azure
+- Name: azure-storage-internal-avro
+  Version: 12.2.0
+  DisplayName: Storage - Internal Avro
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-internal-avro_12.2.0/sdk/storage/azure-storage-internal-avro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - GA release for STG 79, 80, 81
+  GroupId: com.azure
+- Name: azure-storage-file-share
+  Version: 12.12.0
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-share_12.12.0/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - GA release for STG 79, 80, 81
+  GroupId: com.azure
+- Name: azure-storage-queue
+  Version: 12.12.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-queue_12.12.0/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - GA release for STG 79, 80, 81
+  GroupId: com.azure
 
