@@ -253,4 +253,15 @@ entries:
     - `string_index_type` now correctly defaults to the Python default `UnicodeCodePoint` for `AnalyzeSentimentAction` and `RecognizeCustomEntitiesAction`.
     - Fixed a bug in `begin_analyze_actions` where incorrect action types were being sent in the request if targeting the older API version `v3.1` in the beta version of the client library.
     - `string_index_type` option `Utf16CodePoint` is corrected to `Utf16CodeUnit`.
+- Name: azure-eventhub
+  Version: 5.8.0a3
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.8.0a3/sdk/eventhub/azure-eventhub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Improved the performance of async sending and receiving.
 
