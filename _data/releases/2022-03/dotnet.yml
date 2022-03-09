@@ -82,4 +82,31 @@ entries:
     #### Bugs Fixed
 
     - Removed support for the `gltf` file format in the SDK as it is not supported by the service.
+- Name: Azure.Search.Documents
+  Version: 11.4.0-beta.7
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Search.Documents_11.4.0-beta.7/sdk/search/Azure.Search.Documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support to create, update and delete aliases via the `SearchIndexClient`.
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.7.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.7.0/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed name of ServiceBusAdministrationClient extension method.
+    - Fixed entity name validation when passing in a subscription entity path into the
+    CreateReceiver method.
+
+    #### Features Added
+
+    - Add the ability to manually renew message and session locks when using the processor.
 
