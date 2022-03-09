@@ -296,4 +296,35 @@ entries:
   ChangelogContent: |-
     #### Bugs Fixed
     - Update `azure-core` dependency to avoid inconsistent dependencies from being installed.
+- Name: azure-schemaregistry-avroencoder
+  Version: 1.0.0b2
+  DisplayName: Schema Registry - Avro
+  ServiceName: Schema Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-schemaregistry-avroencoder_1.0.0b2/sdk/schemaregistry/azure-schemaregistry-avroencoder/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `MessageMetadataDict` has been renamed `MessageContent`.
+    - `data` in `MessageContent` has been renamed `content`.
+    - The `data` parameter in `encode` and `decode` on the sync and async `AvroEncoder` has been renamed `content`.
+    - The `from_message_data` method in the `MessageType` protocol has been renamed `from_message_content`. The `data` parameter in `from_message_content` has been renamed `content`.
+    - The `__message_data__` method in the `MessageType` protocol has been renamed `__message_content__`.
+
+    #### Features Added
+
+    - `request_options` has been added to `encode` and `decode` on `AvroEncoder` as an optional parameter to be passed into client requests.
+    - The size of the current schema/schema ID caches will be logged at an info level when a new entry has been added.
+- Name: azure-eventhub
+  Version: 5.9.0b2
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.9.0b2/sdk/eventhub/azure-eventhub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `from_message_data` on `EventData` has been renamed `from_message_content` for interoperability with the Schema Registry Avro Encoder library. The `data` parameter has been renamed to `content`.
 
