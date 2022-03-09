@@ -1647,4 +1647,14 @@ entries:
     * Use the `More()` method to determine if there are more pages to fetch
     * Use the `NextPage(context.Context)` to fetch the next page of results
     * Removed all `RawResponse *http.Response` fields from response structs.
+- Name: sdk/appconfig/azappconfig
+  Version: 0.1.0
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/appconfig/azappconfig/v0.1.0/sdk/appconfig/azappconfig/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Initial release
 
