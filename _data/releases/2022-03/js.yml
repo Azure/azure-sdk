@@ -384,4 +384,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-locks-profile-2020-09-01-hybrid_2.0.0/sdk/locks/arm-locks-profile-2020-09-01-hybrid/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/eventgrid'
+  Version: 4.8.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_4.8.0/sdk/eventgrid/eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new value `IdentityUnsupported` to `MediaJobErrorCode` and `Account` to `MediaJobErrorCategory` for `Microsoft.Media` events.
 
