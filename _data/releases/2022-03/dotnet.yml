@@ -109,4 +109,15 @@ entries:
     #### Features Added
 
     - Add the ability to manually renew message and session locks when using the processor.
+- Name: Azure.Messaging.EventGrid
+  Version: 4.9.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventGrid_4.9.0/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new enum values for `MediaJobErrorCategory` and `MediaJobErrorCode`.
 
