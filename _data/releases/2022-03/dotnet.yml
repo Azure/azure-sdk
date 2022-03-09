@@ -120,4 +120,19 @@ entries:
     #### Features Added
 
     - Added new enum values for `MediaJobErrorCategory` and `MediaJobErrorCode`.
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.3.0
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: WebJobs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.3.0/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Ignore scheduled/deferred messages when computing scale monitor metrics. _(A community contribution, courtesy of [danielmarbach](https://github.com/danielmarbach))_
+
+    #### Features Added
+
+    - Added the ability to renew message and session locks using the `ServiceBusMessageActions` and `ServiceBusSessionActions`.
 
