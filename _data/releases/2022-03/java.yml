@@ -1587,4 +1587,23 @@ entries:
     - Added interfaces from `com.azure.core.client.traits` to `WebPubSubServiceClientBuilder`.
     - Added `retryOptions` to `WebPubSubServiceClientBuilder`.
   GroupId: com.azure
+- Name: azure-communication-common
+  Version: 1.1.1
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-common_1.1.1/sdk/communication/azure-communication-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bug Fixes
+
+    - Added validation for `tokenRefresher` in `CommunicationTokenRefreshOptions` constructors
+
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.25.0` to version `1.26.0`.
+    - Upgraded `azure-core-http-netty` from `1.11.7` to version `1.11.8`.
+  GroupId: com.azure
 
