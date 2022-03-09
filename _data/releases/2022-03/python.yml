@@ -264,4 +264,36 @@ entries:
     #### Other Changes
 
     - Improved the performance of async sending and receiving.
+- Name: azure-storage-file-share
+  Version: 12.7.0
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.7.0/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed a bug where `start_copy_from_url()` was not sending the `ignore_read_only` parameter correctly.
+- Name: azure-storage-blob
+  Version: 12.10.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.10.0/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Added all missing Service SAS permissions.
+    - Fixed a bug that prevented `upload_blob()` from working with an OS pipe
+    reader stream on Linux. (#23131)
+- Name: azure-storage-queue
+  Version: 12.2.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.2.0/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Update `azure-core` dependency to avoid inconsistent dependencies from being installed.
 
