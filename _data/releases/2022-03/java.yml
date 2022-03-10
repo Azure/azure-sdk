@@ -1807,4 +1807,17 @@ entries:
     - Updated `azure-core` to `1.26.0`.
     - Updated `azure-mixedreality-authentication` to `1.2.0`.
   GroupId: com.azure
+- Name: azure-storage-blob-changefeed
+  Version: 12.0.0-beta.17
+  DisplayName: Storage - Blobs Changefeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-changefeed_12.0.0-beta.17/sdk/storage/azure-storage-blob-changefeed/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Updated blob dependency to 12.15.0
+  GroupId: com.azure
 
