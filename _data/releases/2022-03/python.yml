@@ -327,4 +327,15 @@ entries:
     #### Breaking Changes
 
     - `from_message_data` on `EventData` has been renamed `from_message_content` for interoperability with the Schema Registry Avro Encoder library. The `data` parameter has been renamed to `content`.
+- Name: azure-storage-file-datalake
+  Version: 12.6.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.6.0/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Update `azure-core` dependency to avoid inconsistent dependencies from being installed.
+    - Added all missing Service SAS permissions.
 
