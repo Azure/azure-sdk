@@ -1820,4 +1820,16 @@ entries:
     ##### Dependency Updates
     - Updated blob dependency to 12.15.0
   GroupId: com.azure
+- Name: azure-search-documents
+  Version: 11.5.0-beta.7
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.5.0-beta.7/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support to create, update and delete aliases via the `SearchIndexClient`.
+  GroupId: com.azure
 
