@@ -135,4 +135,20 @@ entries:
     #### Features Added
 
     - Added the ability to renew message and session locks using the `ServiceBusMessageActions` and `ServiceBusSessionActions`.
+- Name: Microsoft.Azure.WebJobs.Extensions.EventHubs
+  Version: 5.0.1
+  DisplayName: WebJobs Extensions - Event Hubs
+  ServiceName: WebJobs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventHubs_5.0.1/sdk/eventhub/Microsoft.Azure.WebJobs.Extensions.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Cancel function execution after partition ownership is lost.
+    - Stop the processor when disposing the listener to avoid having functions execute after the host has already been disposed.
+
+    #### Features Added
+
+    - Add listener details
 
