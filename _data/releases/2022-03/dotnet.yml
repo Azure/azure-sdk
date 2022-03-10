@@ -109,4 +109,46 @@ entries:
     #### Features Added
 
     - Add the ability to manually renew message and session locks when using the processor.
+- Name: Azure.Messaging.EventGrid
+  Version: 4.9.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventGrid_4.9.0/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added new enum values for `MediaJobErrorCategory` and `MediaJobErrorCode`.
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.3.0
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: WebJobs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.3.0/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Ignore scheduled/deferred messages when computing scale monitor metrics. _(A community contribution, courtesy of [danielmarbach](https://github.com/danielmarbach))_
+
+    #### Features Added
+
+    - Added the ability to renew message and session locks using the `ServiceBusMessageActions` and `ServiceBusSessionActions`.
+- Name: Microsoft.Azure.WebJobs.Extensions.EventHubs
+  Version: 5.0.1
+  DisplayName: WebJobs Extensions - Event Hubs
+  ServiceName: WebJobs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.EventHubs_5.0.1/sdk/eventhub/Microsoft.Azure.WebJobs.Extensions.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Cancel function execution after partition ownership is lost.
+    - Stop the processor when disposing the listener to avoid having functions execute after the host has already been disposed.
+
+    #### Features Added
+
+    - Add listener details
 
