@@ -1793,4 +1793,18 @@ entries:
     - Upgraded `azure-core` from `1.25.0` to version `1.26.0`.
     - Upgraded `azure-communication-common` from `1.0.8` to version `1.1.1`.
   GroupId: com.azure
+- Name: azure-mixedreality-remoterendering
+  Version: 1.1.5
+  DisplayName: Azure Remote Rendering
+  ServiceName: Mixed Reality
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-mixedreality-remoterendering_1.1.5/sdk/remoterendering/azure-mixedreality-remoterendering/CHANGELOG.md
+  ChangelogContent: |-
+    ####Other Changes
+
+    ##### Dependency updates
+    - Updated `azure-core` to `1.26.0`.
+    - Updated `azure-mixedreality-authentication` to `1.2.0`.
+  GroupId: com.azure
 
