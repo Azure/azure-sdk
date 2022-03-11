@@ -1874,4 +1874,53 @@ entries:
     #### Breaking Changes
     - Added new enum values for `MediaJobErrorCategory` and `MediaJobErrorCode`.
   GroupId: com.azure
+- Name: azure-search-documents
+  Version: 11.4.8
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-search-documents_11.4.8/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Updated all `ClientLogger`s to be static constants instead of instance variables.
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.25.0` to version `1.26.0`.
+    - Upgraded `azure-core-http-netty` from `1.11.7` to version `1.11.8`.
+    - Upgraded `azure-core-serializer-json-jackson` from `1.2.13` to version `1.2.14`.
+  GroupId: com.azure
+- Name: azure-cosmos-encryption
+  Version: 1.0.0-beta.10
+  DisplayName: Cosmos DB Encryption
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-encryption_1.0.0-beta.10/sdk/cosmos/azure-cosmos-encryption/CHANGELOG.md
+  ChangelogContent: |-
+    ##### New Features
+    * Added `Patch API` for encryption - See [PR 26672](https://github.com/Azure/azure-sdk-for-java/pull/26672)
+    * Added `Bulk API` for encryption - See [PR 25195](https://github.com/Azure/azure-sdk-for-java/pull/25195)
+    * Added `CosmosEncryptionClientBuilder` for creating `CosmosEncryptionAsyncClient` and `CosmosEncryptionClient` - See [PR 27158](https://github.com/Azure/azure-sdk-for-java/pull/27158)
+    * Renamed source package to `com.azure.cosmos.encryption` inline with artifact id.
+    * Updated `azure-cosmos` to version `4.27.0`.
+
+    ##### Key Bug Fixes
+    * Fixed issue with collection/pkrange cache on collection recreate scenario for gateway mode - See [PR 25811](https://github.com/Azure/azure-sdk-for-java/pull/25811)
+  GroupId: com.azure
+- Name: azure-spring-data-cosmos
+  Version: 3.19.0
+  DisplayName: Spring Data Cosmos
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-data-cosmos_3.19.0/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Updated `Spring Boot` to version `2.6.3`.
+    * Updated `azure-cosmos` to version `4.27.0`.
+    * Added support for container `UniqueKey` policies - See [PR 27270](https://github.com/Azure/azure-sdk-for-java/pull/27270)
+  GroupId: com.azure
 
