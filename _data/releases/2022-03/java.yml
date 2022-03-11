@@ -1832,4 +1832,46 @@ entries:
 
     - Added support to create, update and delete aliases via the `SearchIndexClient`.
   GroupId: com.azure
+- Name: azure-ai-formrecognizer
+  Version: 3.1.9
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_3.1.9/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bug Fixes
+    - Fixed referencing selection mark form element from FormField element.
+
+    #### Other Changes
+    ##### Dependency Updates
+    - Upgraded `azure-core-http-netty` from `1.11.7` to version `1.11.8`.
+    - Upgraded `azure-core` from `1.25.0` to version `1.26.0`.
+  GroupId: com.azure
+- Name: azure-cosmos
+  Version: 4.27.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos_4.27.0/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Key Bugs Fixes
+    * Fixed an issue in `CosmosPagedIterable` resulting in excessive memory consumption due to unbounded prefetch of pages when converting the `CosmosPagedIterable` into an `Iterator<FeedResponse<T>>`. - See [PR 27237](https://github.com/Azure/azure-sdk-for-java/pull/27237) and [PR 27299](https://github.com/Azure/azure-sdk-for-java/pull/27299)
+    * Fixed a `NullPointerException` in `CosmosDiagnostics isDiagnosticsCapturedInPagedFlux` - See [PR 27261](https://github.com/Azure/azure-sdk-for-java/pull/27261)
+    * Fixed an issue with allowing null values for add, set and replace operations in Patch API - See [PR 27501](https://github.com/Azure/azure-sdk-for-java/pull/27501)
+    * Fixed an issue with top query when top x is greater than the total number of items in the database - See [PR 27377](https://github.com/Azure/azure-sdk-for-java/pull/27377)
+    * Fixed synchronized lists and maps for order by query race condition - See [PR 27142](https://github.com/Azure/azure-sdk-for-java/pull/27142)
+  GroupId: com.azure
+- Name: azure-messaging-eventgrid
+  Version: 4.10.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventgrid_4.10.0/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Added new enum values for `MediaJobErrorCategory` and `MediaJobErrorCode`.
+  GroupId: com.azure
 
