@@ -467,4 +467,32 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-commerce-profile-2020-09-01-hybrid_2.0.0-beta.1/sdk/commerce/arm-commerce-profile-2020-09-01-hybrid/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/communication-network-traversal'
+  Version: 1.1.0-beta.1
+  DisplayName: Communication Network Traversal
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-network-traversal_1.1.0-beta.1/sdk/communication/communication-network-traversal/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Making User, RouteType and Ttl part of the options parameter
+    - getRelayConfiguration can be called without parameters or passing the GetRelayConfigurationOptions parameter
+
+    #### Features Added
+
+    - Adding optional parameter to GetRelayConfiguration to choose credential Time-To-Live in seconds of max 48 hours.
+    The default value will be used if given value exceeds it.
+- Name: '@azure/communication-phone-numbers'
+  Version: 1.2.0-beta.2
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-phone-numbers_1.2.0-beta.2/sdk/communication/communication-phone-numbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Upgraded the package to use the Azure Core V2, bringing several improvements to the package's HTTP pipeline architecture.
 
