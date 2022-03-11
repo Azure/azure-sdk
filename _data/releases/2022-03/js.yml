@@ -495,4 +495,105 @@ entries:
     #### Features Added
 
     - Upgraded the package to use the Azure Core V2, bringing several improvements to the package's HTTP pipeline architecture.
+- Name: '@azure/storage-file-datalake'
+  Version: 12.8.0
+  DisplayName: Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.8.0/sdk/storage/storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where customized `ProxyOptions` is overwrited by a default one when initializing `DataLakeServiceClient` with connection string.
+    - Set correct content length in requests for uploading operations to avoid unexpected failure if customized content length is incorrect.
+
+    #### Features Added
+
+    - Includes all features released in 12.8.0-beta.1.
+- Name: '@azure/storage-file-share'
+  Version: 12.9.0
+  DisplayName: Files Shares
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.9.0/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.9.0-beta.1, 12.9.0-beta.2, 12.9.0-beta.3 and 12.9.0-beta.4.
+- Name: '@azure/arm-dns-profile-2020-09-01-hybrid'
+  Version: 2.0.0
+  DisplayName: '@azure/arm-dns-profile-2020-09-01-hybrid'
+  ServiceName: Dns
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dns-profile-2020-09-01-hybrid_2.0.0/sdk/dns/arm-dns-profile-2020-09-01-hybrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/schema-registry-avro'
+  Version: 1.0.0-beta.7
+  DisplayName: Avro
+  ServiceName: Schema Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/schema-registry-avro_1.0.0-beta.7/sdk/schemaregistry/schema-registry-avro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - `AvroEncoder` has been renamed to `AvroSerializer`
+    - The `encodeMessageData` method has been renamed to `serializeMessageData`
+    - The `decodeMessageData` method has been renamed to `deserializeMessageData`
+- Name: '@azure/arm-keyvault-profile-2020-09-01-hybrid'
+  Version: 2.0.0
+  DisplayName: '@azure/arm-keyvault-profile-2020-09-01-hybrid'
+  ServiceName: Keyvault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-keyvault-profile-2020-09-01-hybrid_2.0.0/sdk/keyvault/arm-keyvault-profile-2020-09-01-hybrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-monitor-profile-2020-09-01-hybrid'
+  Version: 2.0.0
+  DisplayName: '@azure/arm-monitor-profile-2020-09-01-hybrid'
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-monitor-profile-2020-09-01-hybrid_2.0.0/sdk/monitor/arm-monitor-profile-2020-09-01-hybrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-databoxedge-profile-2020-09-01-hybrid'
+  Version: 2.0.0
+  DisplayName: '@azure/arm-databoxedge-profile-2020-09-01-hybrid'
+  ServiceName: Databoxedge
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-databoxedge-profile-2020-09-01-hybrid_2.0.0/sdk/databoxedge/arm-databoxedge-profile-2020-09-01-hybrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/storage-queue'
+  Version: 12.8.0
+  DisplayName: Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.8.0/sdk/storage/storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where customized `ProxyOptions` is overwrited by a default one when initializing `QueueServiceClient` or `QueueClient` with connection string.
+
+    #### Features Added
+
+    - Added support for service version 2021-04-10.
+- Name: '@azure/storage-blob'
+  Version: 12.9.0
+  DisplayName: Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.9.0/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed an issue of always sending x-ms-encryption-algorithm header in request.
+
+    #### Features Added
+
+    - Includes all features released in 12.9.0-beta.1, 12.9.0-beta.2, 12.9.0-beta.3 and 12.9.0-beta.4.
 
