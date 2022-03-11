@@ -108,4 +108,21 @@ entries:
     - Updated `azure-core-http` dependency version to `1.0.0-beta.10`.
     - Updated `azure-core-logging` dependency version to `1.0.0-beta.10`.
   GroupId: com.azure.android
+- Name: azure-core-test
+  Version: 1.0.0-beta.10
+  DisplayName: Core Test
+  ServiceName: Core Test
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-android/tree/azure-core-test_1.0.0-beta.10/sdk/core/azure-core-test/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other changes
+
+    ##### Dependency updates
+    - Updated `azure-core` dependency version to `1.0.0-beta.10`
+    - Updated `azure-core-jackson` dependency version to `1.0.0-beta.10`
+    - Updated `azure-core-rest` dependency version to `1.0.0-beta.10`
+    - Updated `jackson-databind` dependency to `2.12.6`
+    - Updated `jackson-dataformat-xml` dependency to `2.12.6`
+  GroupId: com.azure.android
 
