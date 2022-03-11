@@ -63,5 +63,6 @@ steps:
       -urls ./_site/azure-sdk/index.html
       -ignoreLinksFile ./eng/ignore-links.txt
       -inputCacheFile "https://azuresdkartifacts.blob.core.windows.net/verify-links-cache/verify-links-cache.txt"
+      -checkLinkGuidance: true
       -devOpsLogging:$true
       -baseUrl "file://$PWD/_site/azure-sdk"
