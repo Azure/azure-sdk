@@ -288,4 +288,18 @@ entries:
     - Added interfaces from `com.azure.core.client.traits` to `DigitalTwinsClientBuilder`.
     - Added `retryOptions` to `DigitalTwinsClientBuilder`.
   GroupId: com.azure
+- Name: azure-communication-chat
+  Version: 1.2.0
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-chat_1.2.0/sdk/communication/azure-communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added interfaces from `com.azure.core.client.traits` to `ChatClientBuilder` and `ChatThreadClientBuilder`
+    - Added `retryOptions` to `ChatClientBuilder` and `ChatThreadClientBuilder`
+
+    #### Other Changes
+  GroupId: com.azure
 
