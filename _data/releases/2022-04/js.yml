@@ -43,4 +43,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dns-profile-2020-09-01-hybrid_2.0.0/sdk/dns/arm-dns-profile-2020-09-01-hybrid/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/event-hubs'
+  Version: 5.8.0-beta.2
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.8.0-beta.2/sdk/eventhub/event-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - `createEventDataAdapter` is updated so that `consumeMessage` returns the original binary payload instead of the Buffer representation of it.
 
