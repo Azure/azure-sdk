@@ -249,4 +249,43 @@ entries:
     - Upgraded `azure-core` dependency to `1.26.0`
     - Upgraded `azure-core-http-netty` dependency to `1.11.8`
   GroupId: com.azure
+- Name: azure-communication-sms
+  Version: 1.1.0
+  DisplayName: Communication Sms
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-sms_1.1.0/sdk/communication/azure-communication-sms/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added interfaces from `com.azure.core.client.traits` to `SmsClientBuilder`
+    - Added `retryOptions` to `SmsClientBuilder`
+    - Upgraded `azure-communication-common` to 1.1.1
+    - Upgraded `azure-core` to 1.26.0
+    - Upgraded `azure-identity` to 1.4.6
+  GroupId: com.azure
+- Name: azure-security-attestation
+  Version: 1.1.0
+  DisplayName: Attestation
+  ServiceName: Attestation
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-attestation_1.1.0/sdk/attestation/azure-security-attestation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added interfaces from `com.azure.core.client.traits` to `AttestationClientBuilder` and `AttestationAdministrationClientBuilder`.
+    - Added `retryOptions()` to `AttestationClientBuilder` and `AttestationAdministrationClientBuilder`.
+  GroupId: com.azure
+- Name: azure-digitaltwins-core
+  Version: 1.2.0
+  DisplayName: Digital Twins - Core
+  ServiceName: IoT
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-digitaltwins-core_1.2.0/sdk/digitaltwins/azure-digitaltwins-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added interfaces from `com.azure.core.client.traits` to `DigitalTwinsClientBuilder`.
+    - Added `retryOptions` to `DigitalTwinsClientBuilder`.
+  GroupId: com.azure
 
