@@ -302,4 +302,23 @@ entries:
 
     #### Other Changes
   GroupId: com.azure
+- Name: azure-analytics-synapse-artifacts
+  Version: 1.0.0-beta.9
+  DisplayName: Synapse - Artifacts
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-analytics-synapse-artifacts_1.0.0-beta.9/sdk/synapse/azure-analytics-synapse-artifacts/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Changed type of `referenceName` field in `SynapseNotebookReference` from `String` to `Object`.
+
+    #### Features Added
+
+    - Added class `ScriptActivity` as subclass of `ExecutionActivity`.
+    - Added class `TeamDeskLinkedService`, `QuickbaseLinkedService`, `SmartsheetLinkedService`, `ZendeskLinkedService` as subclass of `LinkedService`.
+    - Added field `sparkPool` to `SynapseNotebookActivity`.
+    - Added fields to `SynapseSparkJobDefinitionActivity`.
+  GroupId: com.azure
 
