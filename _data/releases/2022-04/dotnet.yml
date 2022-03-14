@@ -76,4 +76,15 @@ entries:
 
     - Added logging of cache size.
     - Non-generic overloads are available for serializing and deserializing.
+- Name: Azure.Analytics.Synapse.Artifacts
+  Version: 1.0.0-preview.14
+  DisplayName: Synapse - Artifacts
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Analytics.Synapse.Artifacts_1.0.0-preview.14/sdk/synapse/Azure.Analytics.Synapse.Artifacts/CHANGELOG.md
+  ChangelogContent: |-
+    - Added ScriptActivity.
+    - Added missing properties in SynapseNotebookActivity and SparkJobActivity.
+    - Added TeamDeskLinkedService/QuickbaseLinkedService/SmartsheetLinkedService/ZendeskLinkedService.
 
