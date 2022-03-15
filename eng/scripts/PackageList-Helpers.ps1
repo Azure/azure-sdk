@@ -142,8 +142,8 @@ function Set-PackageListForLanguage([string]$lang, [Array]$packageList)
 
   $new, $other = Get-PackageListSplit $packageList
 
-  $new = $new | Sort-Object Type, DisplayName, Package, GroupId, ServiceName
-  $other = $other | Sort-Object Type, DisplayName, Package, GroupId, ServiceName
+  $new = $new | Sort-Object Type, DisplayName, Package, GroupId, ServiceName, Support
+  $other = $other | Sort-Object Type, DisplayName, Package, GroupId, ServiceName, Support
 
   $sortedPackages = $new + $other
   $sortedPackages | ConvertTo-CSV -NoTypeInformation -UseQuotes Always | Out-File $packagelistFile -encoding ascii
