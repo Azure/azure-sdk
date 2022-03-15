@@ -43,4 +43,58 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-dns-profile-2020-09-01-hybrid_2.0.0/sdk/dns/arm-dns-profile-2020-09-01-hybrid/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/event-hubs'
+  Version: 5.8.0-beta.2
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.8.0-beta.2/sdk/eventhub/event-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - `createEventDataAdapter` is updated so that `consumeMessage` returns the original binary payload instead of the Buffer representation of it.
+- Name: '@azure/synapse-artifacts'
+  Version: 1.0.0-beta.9
+  DisplayName: Artifacts
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-artifacts_1.0.0-beta.9/sdk/synapse/synapse-artifacts/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    Added more supported types in `LinkedServiceOperations`
+- Name: '@azure/arm-appservice-profile-2020-09-01-hybrid'
+  Version: 2.0.0
+  DisplayName: '@azure/arm-appservice-profile-2020-09-01-hybrid'
+  ServiceName: '@azure/arm-appservice-profile-2020-09-01-hybrid'
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-appservice-profile-2020-09-01-hybrid_2.0.0/sdk/appservice/arm-appservice-profile-2020-09-01-hybrid/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-appplatform'
+  Version: 2.0.0-beta.4
+  DisplayName: Resource Management - App Platform
+  ServiceName: App Platform
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appplatform/arm-appplatform/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-appconfiguration'
+  Version: 3.0.0-beta.2
+  DisplayName: Resource Management - App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration/arm-appconfiguration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-rediscache'
+  Version: 6.1.0
+  DisplayName: Resource Management - Redis Cache
+  ServiceName: Redis Cache
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/redis/arm-rediscache/CHANGELOG.md
+  ChangelogContent: ""
 
