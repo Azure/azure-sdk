@@ -367,4 +367,31 @@ entries:
     - Upgraded `azure-communication-common` to 1.1.1
     - Upgraded `azure-identity` to 1.4.6
   GroupId: com.azure
+- Name: azure-data-schemaregistry-apacheavro
+  Version: 1.0.0-beta.10
+  DisplayName: Schema Registry - Avro
+  ServiceName: Schema Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-schemaregistry-apacheavro_1.0.0-beta.10/sdk/schemaregistry/azure-data-schemaregistry-apacheavro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Changed `SchemaRegistryApacheAvroEncoder` to `SchemaRegistryApacheAvroSerializer`.
+    - Changed `decodeMessageData` and `decodeMessageDataAsync` to `deserializeMessageData` and `deserializeMessageDataAsync`.
+    - Changed `encodeMessageData` and `encodeMessageDataAsync` to `serializeMessageData` and `serializeMessageDataAsync`.
+  GroupId: com.azure
+- Name: azure-analytics-purview-catalog
+  Version: 1.0.0-beta.3
+  DisplayName: Purview Catalog
+  ServiceName: Purview
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-analytics-purview-catalog_1.0.0-beta.3/sdk/purview/azure-analytics-purview-catalog/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed class `PurviewCatalogClientBuilder`. It was replaced by `CollectionClientBuilder`, `DiscoveryClientBuilder`, `EntityClientBuilder`, `GlossaryClientBuilder`, `LineageClientBuilder`, `RelationshipClientBuilder`, `TypesClientBuilder`.
+    - Merged the `Context` parameter into the `RequestOptions` parameter in methods of clients.
+  GroupId: com.azure
 
