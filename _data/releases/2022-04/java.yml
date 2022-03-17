@@ -418,4 +418,19 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-containerservice_2.12.2/sdk/resourcemanager/azure-resourcemanager-containerservice/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-communication-phonenumbers
+  Version: 1.0.9
+  DisplayName: Communication Phone Numbers
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-phonenumbers_1.0.9/sdk/communication/azure-communication-phonenumbers/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.25.0` to version `1.26.0`.
+    - Upgraded `azure-communication-common` from `1.0.8` to version `1.1.1`.
+  GroupId: com.azure
 
