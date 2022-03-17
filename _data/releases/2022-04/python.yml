@@ -28,4 +28,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-monitor_3.1.0/sdk/monitor/azure-mgmt-monitor/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-purview-catalog
+  Version: 1.0.0b3
+  DisplayName: Purview Catalog
+  ServiceName: Purview
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-purview-catalog_1.0.0b3/sdk/purview/azure-purview-catalog/CHANGELOG.md
+  ChangelogContent: |-
+    **Bugs Fixed**
+
+    - Fix `delete_by_guids` to get rid of bad request error #22487
 
