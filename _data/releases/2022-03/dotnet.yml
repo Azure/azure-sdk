@@ -151,4 +151,185 @@ entries:
     #### Features Added
 
     - Add listener details
+- Name: Microsoft.Azure.WebJobs.Extensions.WebPubSub
+  Version: 1.2.0
+  DisplayName: WebJobs Extensions - Web PubSub
+  ServiceName: Web PubSub
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.WebPubSub_1.2.0/sdk/webpubsub/Microsoft.Azure.WebJobs.Extensions.WebPubSub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fix `CancellationToken` in output binding.(#26704)
+- Name: Azure.Data.Tables
+  Version: 12.5.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.Tables_12.5.0/sdk/tables/Azure.Data.Tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed an issue that caused authenticate failures when using a SAS token with a table name that contains upper-case characters. ([#26791](https://github.com/Azure/azure-sdk-for-net/issues/26791))
+- Name: Azure.Storage.Files.DataLake
+  Version: 12.9.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.DataLake_12.9.0/sdk/storage/Azure.Storage.Files.DataLake/CHANGELOG.md
+  ChangelogContent: |-
+    - Includes all features from 12.9.0-beta.1, 12.9.0-beta.2, and 12.9.0-beta.3 except SDK-calculated transactional checksums on data transfer.
+    - Removed preview support for SDK-calculated transactional checksums on data transfer.
+- Name: Azure.Storage.Queues
+  Version: 12.9.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.9.0/sdk/storage/Azure.Storage.Queues/CHANGELOG.md
+  ChangelogContent: '- Includes all features from 12.9.0-beta.1, 12.9.0-beta.2, and 12.9.0-beta.3.'
+- Name: Azure.Storage.Blobs
+  Version: 12.11.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.11.0/sdk/storage/Azure.Storage.Blobs/CHANGELOG.md
+  ChangelogContent: |-
+    - Includes all features from 12.11.0-beta.1, 12.11.0-beta.2, and 12.11.0-beta.3 except SDK-calculated transactional checksums on data transfer.
+    - Added support for progress reporting with DownloadToAsync().
+    - Fixed a bug where BlobBaseClient.DownloadTo() would result in an ObjectDisposedException on .NET Framework in certain network conditions.
+    - Added nullable version of `BlobProperties.CopyStatus` called `BlobCopyStatus`, allowing a null value when Storage doesn't return a value.
+    - Fixed a bug where BlobContainerClient.GetProperties() would throw an ArgumentNullException when the AccessPolicy was null
+    - Removed preview support for SDK-calculated transactional checksums on data transfer.
+    - Fixed a bug where BlobUriBuilder was case sensitive for parameter names.
+- Name: Azure.Storage.Common
+  Version: 12.10.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.10.0/sdk/storage/Azure.Storage.Common/CHANGELOG.md
+  ChangelogContent: |-
+    - Includes all features from 12.10.0-beta.1, 12.10.0-beta.2, and 12.10.0-beta.3 except SDK-calculated transactional checksums on data transfer.
+    - Updated StorageBearerTokenChallengeAuthorizationPolicy to use the AAD scope returned by a bearer challenges.
+    - Removed preview support for SDK-calculated transactional checksums on data transfer.
+    - Fixed bug where Storage Uri Builder was case sensitive for parameter names.
+- Name: Azure.Storage.Blobs.Batch
+  Version: 12.8.0
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.Batch_12.8.0/sdk/storage/Azure.Storage.Blobs.Batch/CHANGELOG.md
+  ChangelogContent: '- Includes all features from 12.8.0-beta.1, 12.8.0-beta.2, and 12.8.0-beta.3'
+- Name: Azure.Storage.Blobs.ChangeFeed
+  Version: 12.0.0-preview.20
+  DisplayName: Storage - Blobs ChangeFeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.20/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md
+  ChangelogContent: '- Added support for event schema V3, V4, and V5.'
+- Name: Azure.Storage.Files.Shares
+  Version: 12.9.0
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Files.Shares_12.9.0/sdk/storage/Azure.Storage.Files.Shares/CHANGELOG.md
+  ChangelogContent: |-
+    - Includes all features from 12.9.0-beta.1, 12.9.0-beta.2, and 12.9.0-beta.3 except SDK-calculated transactional checksums on data transfer.
+    - Fixed bug where ShareFileClient.StartCopy() and .StartCopyAsync() were not sending the ignoreReadonly parameter correctly.
+    - Added new overload of ShareFileClient.StartCopy() and .StartCopyAsync(), added new parameters allowing the copying of the source file's CreatedOn, LastWrittenOn, and FileAttributes properties.
+    - Removed preview support for SDK-calculated transactional checksums on data transfer.
+    - Fixed bug where ShareUriBuilder was case sensitive for parameter names.
+- Name: Microsoft.Azure.WebJobs.Extensions.Tables
+  Version: 1.0.0-beta.2
+  DisplayName: Azure Functions extension for Azure Table service
+  ServiceName: tables
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.Tables_1.0.0-beta.2/sdk/tables/Microsoft.Azure.WebJobs.Extensions.Tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Use value comparison for byte arrays when upserting.
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.8.0-beta.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.8.0-beta.1/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added the `ServiceBusRuleManager` which allows managing rules for subscriptions.
+- Name: Microsoft.Azure.Data.SchemaRegistry.ApacheAvro
+  Version: 1.0.0-beta.7
+  DisplayName: Schema Registry - Avro
+  ServiceName: Schema Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.Data.SchemaRegistry.ApacheAvro_1.0.0-beta.7/sdk/schemaregistry/Microsoft.Azure.Data.SchemaRegistry.ApacheAvro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added logging of cache size.
+    - Non-generic overloads are available for serializing and deserializing.
+
+    #### Breaking Changes
+
+    - `SchemaRegistryAvroEncoder` has been renamed to `SchemaRegistryAvroSerializer`
+    - The `DecodeMessageData` method has been renamed to `Deserialize`.
+    - The `EncodeMessageData` method has been renamed to `Serialize`.
+    - The type `MessageWithMetadata` has been renamed to `BinaryContent`.
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.7.0-beta.4
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.7.0-beta.4/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Acknowledgments
+
+    Thank you to our developer community members who helped to make the Event Hubs client libraries better with their contributions to this release:
+
+    - Daniel Marbach _([GitHub](https://github.com/danielmarbach))_
+
+    #### Other Changes
+
+    - Removed allocations from Event Source logging by introducing `WriteEvent` overloads to handle cases that would otherwise result in boxing to `object[]` via params array.  _(A community contribution, courtesy of [danielmarbach](https://github.com/danielmarbach))_
+
+    - Enhanced README documentation to call attention to the need for the Azure Storage container used with the processor to exist, and highlight that it will not be implicitly created.
+- Name: Azure.Messaging.EventHubs
+  Version: 5.7.0-beta.4
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.7.0-beta.4/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Acknowledgments
+
+    Thank you to our developer community members who helped to make the Event Hubs client libraries better with their contributions to this release:
+
+    - Daniel Marbach _([GitHub](https://github.com/danielmarbach))_
+
+    #### Other Changes
+
+    - The `EventHubBufferedProducer` will now invoke the handlers for success or failure when publishing a batch in a deterministic manner, as part of the publishing flow.  Handlers will now be awaited, causing the publishing operation to be considered incomplete until the handler returns.  Previously, handlers were invoked in the background non-deterministically and without a guaranteed ordering.  This ensured they could not interfere with publishing throughput but caused difficulty for reliably checkpointing with the source of events.
+
+    - Attempts to retrieve AMQP objects will first try synchronously before calling `GetOrCreateAsync`, to avoid an asynchronous call unless necessary.
+
+    - Removed allocations from Event Source logging by introducing `WriteEvent` overloads to handle cases that would otherwise result in boxing to `object[]` via params array.  _(A community contribution, courtesy of [danielmarbach](https://github.com/danielmarbach))_
+
+    - Removed LINQ from the `AmqpMessageConverter` in favor of direct looping.  _(Based on a community contribution, courtesy of [danielmarbach](https://github.com/danielmarbach))_
+
+    - Changed the internal batch `AsEnumerable<T>` to `AsList<T>` in order to avoid casting costs and have `Count` available to right-size transform collections. _(Based on a community contribution, courtesy of [danielmarbach](https://github.com/danielmarbach))_
+
+    - Moved to using the two item overload when creating a linked token source to avoid allocating an unnecessary array.  _(Based on a community contribution, courtesy of [danielmarbach](https://github.com/danielmarbach))_
 
