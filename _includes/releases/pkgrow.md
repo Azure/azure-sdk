@@ -18,7 +18,7 @@
             <div><small class="text-muted">{{item.Package}}</small></div>
             <div>{% include releases/replace.md %}</div>
         </td>
-    {% if include.type != "retired" %}
+    {% if include.type != "deprecated" %}
         <td>{% include releases/links.md version="VersionGA" %}</td>
         <td>{% include releases/links.md version="VersionPreview" preview="true" %}</td>
         <td class="text-nowrap">{% include releases/roadmap.md %}</td>

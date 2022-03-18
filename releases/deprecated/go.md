@@ -5,5 +5,5 @@ tags: go
 sidebar: releases_sidebar
 header: true
 ---
-{% include releases/go.md type="retired" %}
+{% include releases/go.md type="deprecated" %}
 {% include refs.md %}
