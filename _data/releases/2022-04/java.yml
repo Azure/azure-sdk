@@ -508,4 +508,35 @@ entries:
     - Upgraded `azure-core` dependency to `1.26.0`
     - Upgraded `azure-core-http-netty` dependency to `1.11.8`
   GroupId: com.azure
+- Name: azure-messaging-eventhubs-checkpointstore-blob
+  Version: 1.12.0
+  DisplayName: Event Hubs - Azure Blob Storage Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs-checkpointstore-blob_1.12.0/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Update `azure-messaging-eventhubs` dependency to `5.11.1`.
+    - Update `azure-storage-blob` dependency to `12.15.0`.
+  GroupId: com.azure
+- Name: azure-messaging-eventhubs
+  Version: 5.11.1
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs_5.11.1/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Removed the incorrect lock from `EventDataBatch.tryAdd()` implementation and documented that this API is not thread-safe. ([#25910](https://github.com/Azure/azure-sdk-for-java/issues/25910))
+    - Fixed a bug where users get a NullPointerException when getting `LastEnqueuedEventProperties` for an empty window. ([#27121](https://github.com/Azure/azure-sdk-for-java/issues/27121))
+
+    #### Features Added
+    - Updated the receiver to retry to obtain a new connection if the RequestResponseChannel in the current connection is disposed.
+  GroupId: com.azure
 
