@@ -574,4 +574,19 @@ entries:
     - Added ability to configure `IdentityLogOptions` on Credential Builders to make account Identifier logging configurable.
     - Added the option `disableAuthoriyValidaionSafetyCheck` on Credential Builders.
   GroupId: com.azure
+- Name: azure-sdk-bom
+  Version: 1.2.0
+  DisplayName: SDK - Bill of Materials
+  ServiceName: Bill of Materials
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-sdk-bom_1.2.0/sdk/boms/azure-sdk-bom/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Updates
+
+    - Updated Azure SDK dependency versions to the latest releases.
+
+    ##### Breaking Changes
+    Removed `azure-communication-networktraversal` from the BOM. If you depend on this library please take a direct dependency on it.
+  GroupId: com.azure
 
