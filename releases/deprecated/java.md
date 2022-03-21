@@ -1,5 +1,5 @@
 ---
-title: Azure SDK for Java (Retired)
+title: Azure SDK for Java (Deprecated)
 layout: default
 tags: java
 sidebar: releases_sidebar

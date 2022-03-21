@@ -1,5 +1,5 @@
 ---
-title: Azure SDK for Python (Retired)
+title: Azure SDK for Python (Deprecated)
 layout: default
 tags: python
 sidebar: releases_sidebar

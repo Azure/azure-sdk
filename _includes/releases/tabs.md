@@ -14,7 +14,7 @@
 {% else %}
 <ul class="nav nav-tabs">
   <li class="nav-item active">
-    <a class="nav-link" href="{{ site.baseurl }}/releases/deprecated/{{ include.lang }}.html">Retired Libraries</a>
+    <a class="nav-link" href="{{ site.baseurl }}/releases/deprecated/{{ include.lang }}.html">Deprecated Libraries</a>
   </li>
 </ul>
 {% endif %}
