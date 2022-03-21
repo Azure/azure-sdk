@@ -1,5 +1,5 @@
 ---
-title: Azure SDK Releases (Retired)
+title: Azure SDK Releases (Deprecated)
 layout: default
 sidebar: releases_sidebar
 ---

@@ -1,5 +1,5 @@
 ---
-title: Azure SDK for Go (Retired)
+title: Azure SDK for Go (Deprecated)
 layout: default
 tags: go
 sidebar: releases_sidebar

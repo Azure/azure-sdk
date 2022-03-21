@@ -1,6 +1,6 @@
 {% if header_included != 'true' %}
 
-{% if include.type != "retired" %}
+{% if include.type != "deprecated" %}
 # Azure SDK Releases
 
 This page provides an inventory of all Azure SDK library packages, code, and documentation. The **Client Libraries** and **Management Libraries** tabs contain libraries that follow the new [Azure SDK guidelines](https://aka.ms/azsdk/guide). The **All** tab contains the aforementioned libraries and those that don't follow the new guidelines.

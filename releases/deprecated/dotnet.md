@@ -1,5 +1,5 @@
 ---
-title: Azure SDK for .NET (Retired)
+title: Azure SDK for .NET (Deprecated)
 layout: default
 tags: dotnet
 sidebar: releases_sidebar

@@ -1,5 +1,5 @@
 ---
-title: Azure SDK for JavaScript (Retired)
+title: Azure SDK for JavaScript (Deprecated)
 layout: default
 tags: javascript typescript
 sidebar: releases_sidebar
