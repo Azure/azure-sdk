@@ -5,5 +5,5 @@ tags: dotnet
 sidebar: releases_sidebar
 header: true
 ---
-{% include releases/dotnet.md type="retired" %}
+{% include releases/dotnet.md type="deprecated" %}
 {% include refs.md %}
