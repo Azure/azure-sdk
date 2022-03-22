@@ -207,6 +207,10 @@ public struct ConfigurationClientOptions: ClientOptions {
 
 {% include requirement/MUST id="ios-versioning-latest-service-api" %} call the highest supported service API version by default, and ensure this is clearly documented.
 
+{% include requirement/MUSTNOT id="ios-versioning-no-previews-in-stable" %} include preview API versions in a stable SDK release's API version enum.
+
+{% include requirement/MUST id="ios-versioning-no-previews-in-stable" %} expose preview API versions only in beta SDKs.
+
 {% include requirement/MUST id="ios-versioning-select-service-api" %} provide an enum of supported service API versions that can be supplied via the [options struct](#option-parameters) when initializing the service client, as shown below:
 
 {% highlight swift %}
@@ -236,7 +240,7 @@ public struct ConfigurationClientOptions: ClientOptions {
 }
 {% endhighlight %}
 
-{% include requirement/MUST id="ios-versioning-latest-service-property" %} return the latest stable API version for the service that is supported by the client from the enum's `latest` property.
+{% include requirement/MUST id="ios-versioning-latest-service-property" %} include a `latest` property from the client's API version enum which returns the latest preview API version for beta SDKs and the latest GA API version for stable SDKs.
 
 #### Service Methods
 
