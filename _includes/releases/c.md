@@ -4,8 +4,8 @@
 
 {% if include.type == "all" %}
   {% assign packages = site.data.releases.latest.c-packages %}
-{% elsif include.type == "retired" %}
-  {% assign packages = site.data.releases.latest.c-packages | where: 'Support', 'retired' %}
+{% elsif include.type == "deprecated" %}
+  {% assign packages = site.data.releases.latest.c-packages | where: 'Support', 'deprecated' %}
 {% else %}
   {% assign packages = site.data.releases.latest.c-packages | where: 'Type', include.type | where: 'New', 'true' %}
 {% endif %}
