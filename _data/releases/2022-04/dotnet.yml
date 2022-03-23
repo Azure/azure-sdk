@@ -123,4 +123,20 @@ entries:
     #### Bugs Fixed
 
     - Fix bug for listing entities by guids
+- Name: Azure.AI.Personalizer
+  Version: 2.0.0-beta.2
+  DisplayName: Personalizer
+  ServiceName: Personalizer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.Personalizer_2.0.0-beta.2/sdk/personalizer/Azure.AI.Personalizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - In `PersonalizerAdministrationClient`, `GetPersonalizerModel` and `GetPersonalizerModelAsync` are replaced with `ExportPersonalizerModel` and `ExportPersonalizerModelAsync`.
+    - In `PersonalizerClientOptions`, `ServiceVersion` is changed from V1_1_preview_1 to V1_1_preview_3.
+
+    #### Features Added
+    - Provide customers with much lower latency and more transactions per second than the current service limits.
+    - Provide subsampling for customers so that only subsampled data are processed.
+    - Provide a model import API to allow customers to warm start the Personalizer service.
 
