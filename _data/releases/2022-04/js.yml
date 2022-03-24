@@ -205,4 +205,56 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cdn/arm-cdn/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/keyvault-keys'
+  Version: 4.4.0
+  DisplayName: Keys
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-keys_4.4.0/sdk/keyvault/keyvault-keys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for `KeyClient.getRandomBytes` which, when connected to a managed HSM, can be used to generate a byte array of a given length with random values.
+    - Added support for Secure key Release from a Managed HSM.
+    - Added `KeyClient.releaseKey` to release a key from a Managed HSM.
+    - Added `exportable` and `releasePolicy` to `KeyVaultKey.properties`, `createKeyOptions`, and `importKeyOptions` in order to specify whether the key is exportable and to associate a release policy to a given key.
+    - Added support for automated key rotation in Azure Key Vault and Managed HSM.
+    - Added `KeyClient.rotateKey` to rotate a key on-demand.
+    - Added `KeyClient.updateKeyRotationPolicy` to update a key's automated rotation policy.
+    - Added support for `KeyClient.getCryptographyClient(keyName, options)` which provides a simple way to create a `CryptographyClient` for a given key (identified by its name).
+    - An optional `keyVersion` property may be used in the `options` parameter to create a cryptography client targeting a specific key version. The latest version is used by default.
+- Name: '@azure/keyvault-secrets'
+  Version: 4.4.0
+  DisplayName: Secrets
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-secrets_4.4.0/sdk/keyvault/keyvault-secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - This release updates `SecretClient` to support service version 7.3 by default.
+- Name: '@azure/keyvault-admin'
+  Version: 4.2.0
+  DisplayName: Administration
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-admin_4.2.0/sdk/keyvault/keyvault-admin/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - This release updates `BackupClient` and `AccessControlClient` to support service version 7.3 by default.
+- Name: '@azure/keyvault-certificates'
+  Version: 4.4.0
+  DisplayName: Certificates
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/keyvault-certificates_4.4.0/sdk/keyvault/keyvault-certificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - This release updates `CertificateClient` to support service version 7.3 by default.
 
