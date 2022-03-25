@@ -69,7 +69,63 @@ A manual migration test should be developed to ensure that payloads and data fed
 
 ### 5) Updating package manager references
 
-When releasing any new version of an SDK follow best practices of the language specific package managers to ensure that this new version's visibility is elevated and recommended by default to the users.
+Follow the best practices below to ensure that the visibility of the new release is elevated.
+
+Identify supported legacy libraries for the SDK you are releasing as early as possible <br>
+-	Note, we cannot deprecate GA libraries which were released less than 1 year ago per the [current Azure SLA](https://www.microsoft.com/LICENSING/PRODUCT-LICENSING/PRODUCTS)
+- Note,  We should direct users to the new library only if it is covering the legacy library specs. Make sure you confirm feature and performance parity at your arch board reviews.
+-	Once a library has been identified as suitable for replacement, initiate a request to have NuGet search popularity for the legacy library forwarded to the new library. The SDK team engineering team will know how to do this or who to talk to.
+
+For each legacy package you plan to deprecate
+-	Update the legacy library package README with a link to the new package.
+```markdown
+Please note, this package has been deprecated. A replacement package is available [package name](https://dummylinktopackage.com/) as of [date-MM/YY]. We strongly encourage you to upgrade.
+See [Migration Guide](https://dummylink.com/) for more details.
+```
+-	Update the legacy Samples README with link to the new samples.
+Note, you can search for sample repositories under https://docs.microsoft.com/en-us/samples/browse/?products=azure
+```markdown
+Samples in this repository use deprecated packages [list legacy package here]. We recommend that you get started using the new package here instead: [package name](https://dummylinktopackage.com/.
+```
+-	Update the new package README with a link to the migration guides.
+```markdown
+This document covers [library name] [package name](https://dummylinktopackage.com/).
+If you're using an older package, we recommend that you upgrade your code.
+See [Migration Guide](https://dummylink.com/) for more details.
+```
+-	Update package index files to identify legacy packages replacement
+```markdown
+Go to https://github.com/Azure/azure-sdk/blob/master/_data/releases/latest/ and update [language]-packages.csv.
+Use Notes column to clarify what is being replaced by the new package.
+```
+-	Make updates to the legacy packages in the package manager. Use the following message and follow programming language instructions
+```markdown
+Please note, this package has been deprecated. A replacement package  is available [package name](https://dummylinktopackage.com/) as of [date-MM/YY].
+We strongly encourage you to upgrade. See [Migration Guide](https://dummylink.com/) for more details.
+```
+-	If you are deprecating a package version, but staying within the same package name, update the wording above to mention a specific version
+```markdown
+Please note, a newer version of this package is available [package name / package version](https://dummylinktopackage.com/) as of [date-MM/YY].
+While this package will continue to receive critical bug fixes through [date-MM/YY], we strongly encourage you to upgrade.
+See [Migration Guide](https://dummylink.com/) for more details.
+```
+Language|Instructions
+----------|---------
+.Net|Follow instructions at [deprecating NuGet packages](https://docs.microsoft.com/en-us/nuget/nuget-org/deprecate-packages) to deprecate the package with the message above.<br>Select all versions of the package you are deprecating.<br>Choose deprecation reason as "Other" because "Legacy" is for packages that are no longer maintained.
+Java | Update the project description in the POM file to include the deprecation message. Publish Update.
+TS/JS | Run the command `npm deprecate` which takes the package name and the deprecation message.
+Python | Publish an update to the package after updating the README.
+Go | Add a deprecation comment in the go.mod so that users see a warning when downloading the deprecated package. <br>See example [here](https://github.com/Azure/azure-sdk-for-go/blob/857695b0e8158bdf9b19bed23c33cf8a5333921d/sdk/to/go.mod#L1)
+  |
+
+#### Legacy packages support after the update
+
+-	Ensure you have the infrastructure in place to build and ship fixes for the legacy libraries for the next 3 years.<br> You will need to ship security and critical bug fixes for the first year.<br> You don’t have to proactively fix anything else, but a customer calling for support should be able to get it.
+-	Encourage customers to migrate to the new library when possible from this point on.
+-	After one year, customers will need to provide a strong business need to justify and receive legacy library updates. Most of the customers are expected to migrate to the latest library at this point.
+-	Monitor the deprecated library usage. If the number of customers is small, consider working with them individually to migrate to the latest version.<br> At the point when there are no customers left, you can retire the library following the [Azure Global Retirement Policy process](https://dev.azure.com/msazure/AzureWiki/_wiki/wikis/AzureWiki.wiki/37673/Retirements-and-Breaking-Changes).
+
+
 
 ## Terms
 
