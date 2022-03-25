@@ -139,4 +139,15 @@ entries:
     - Provide customers with much lower latency and more transactions per second than the current service limits.
     - Provide subsampling for customers so that only subsampled data are processed.
     - Provide a model import API to allow customers to warm start the Personalizer service.
+- Name: Azure.DigitalTwins.Core
+  Version: 1.4.0-beta.1
+  DisplayName: Digital Twins - Core
+  ServiceName: IoT
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.DigitalTwins.Core_1.4.0-beta.1/sdk/digitaltwins/Azure.DigitalTwins.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### New Features
+
+    - Added support for `SourceTime` to `DigitalTwinPropertyMetadata`.
 
