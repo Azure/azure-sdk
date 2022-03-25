@@ -24,7 +24,6 @@
         <td class="text-nowrap">{% include releases/roadmap.md %}</td>
     {% else %}
         <td>{% include releases/links.md version="VersionGA" %}</td>
-        <td>{{ item.DeprecatedDate }}
     {% endif %}
     </tr>
 
