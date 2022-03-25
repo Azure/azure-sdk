@@ -80,4 +80,12 @@ entries:
 
     - Adding optional parameter to GetRelayConfiguration to choose credential Time-To-Live in seconds of max 48 hours.
     The default value will be used if given value exceeds it.
+- Name: azure-mgmt-containerservice
+  Version: 18.0.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_18.0.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
 
