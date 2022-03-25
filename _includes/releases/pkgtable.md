@@ -8,6 +8,7 @@
         <th scope="col">Next Stable</th>
 {% else %}
         <th scope="col">Version</th>
+        <th scope="col">Deprecation Date</th>
 {% endif %}
       </tr>
       <tbody id="myTable">
