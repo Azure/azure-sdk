@@ -195,4 +195,15 @@ entries:
     - Key Vault API version 7.3 is now the default
     - Added support for multi-tenant authentication when using `azure-identity`
     1.8.0 or newer ([#20698](https://github.com/Azure/azure-sdk-for-python/issues/20698))
+- Name: azure-storage-blob
+  Version: 12.11.0
+  DisplayName: Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.11.0/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed a bug in `BlobSasPermissions` where the `tag` permission had a default value of `True` and
+    therefore was being added to the SAS token by default.
 
