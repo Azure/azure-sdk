@@ -297,6 +297,10 @@ public final class ConfigurationClientBuilder {
 
 {% include requirement/MUST id="android-versioning-latest-service-api" %} call the highest supported service API version by default, and ensure this is clearly documented.
 
+{% include requirement/MUSTNOT id="android-versioning-no-previews-in-stable" %} include preview API versions in a stable SDK release's API version enum.
+
+{% include requirement/MUST id="android-versioning-no-previews-in-stable" %} expose preview API versions only in beta SDKs.
+
 {% include requirement/MUST id="android-versioning-select-service-api" %} provide an enum of supported service API versions that can be supplied via the [options class](#option-parameters) when initializing the service client, as shown below:
 
 ```java
@@ -338,7 +342,7 @@ ConfigurationClient client = new ConfigurationClientBuilder()
 ConfigurationSetting setting = client.getConfigurationSetting("name", "label");
 ```
 
-{% include requirement/MUST id="android-versioning-latest-service-property" %} return the latest stable API version for the service that is supported by the client using the enum's `getLatest()` method.
+{% include requirement/MUST id="android-versioning-latest-service-property" %} include a `getLatest()` method on the client's API version enum which returns the latest preview API version for beta SDKs and the latest GA API version for stable SDKs.
 
 #### Service Methods
 
