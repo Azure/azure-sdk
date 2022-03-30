@@ -82,10 +82,13 @@ For each legacy package you plan to deprecate
 Please note, this package has been deprecated. A replacement package is available [package name](https://dummylinktopackage.com/) as of [date-MM/YY]. We strongly encourage you to upgrade.
 See [Migration Guide](https://dummylink.com/) for more details.
 ```
+<<<<<<< HEAD
 For packages with the same name (e.g. Python, Java), use the following wording.
 ```markdown
 Please note, versions of this package with version numbers [version number] and below have been deprecated as of [date-MM-YY]. We strongly encourage you to upgrade to version [version number] or above to continue receiving updates. Refer to our [deprecation policy](https://azure.github.io/azure-sdk/policies_support.html) for more details.
 ```
+=======
+>>>>>>> cee8fc32e9e1c68eaf5a38d5529c3f7d5b538b7a
 -	Update the legacy Samples README with link to the new samples.
 Note, you can search for sample repositories under https://docs.microsoft.com/en-us/samples/browse/?products=azure
 ```markdown
