@@ -755,4 +755,13 @@ entries:
     - Regular updates for Azure SDK dependency versions.
     - Upgrade external dependencies' version according to [spring-boot-dependencies:2.6.3](https://repo1.maven.org/maven2/org/springframework/boot/spring-boot-dependencies/2.6.3/spring-boot-dependencies-2.6.3.pom) and [spring-cloud-dependencies:2021.0.1](https://repo1.maven.org/maven2/org/springframework/cloud/spring-cloud-dependencies/2021.0.1/).
   GroupId: com.azure.spring
+- Name: azure-resourcemanager-mediaservices
+  Version: 2.0.0
+  DisplayName: Resource Management - Media Services
+  ServiceName: Media Services
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-mediaservices_2.0.0/sdk/mediaservices/azure-resourcemanager-mediaservices/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
