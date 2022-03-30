@@ -79,8 +79,7 @@ Identify supported legacy libraries for the SDK you are releasing as early as po
 For each legacy package you plan to deprecate
 -	Update the legacy library package README with a link to the new package.
 ```markdown
-Please note, this package has been deprecated. A replacement package is available [package name](https://dummylinktopackage.com/) as of [date-MM/YY]. We strongly encourage you to upgrade.
-See [Migration Guide](https://dummylink.com/) for more details.
+Please note, this package has been deprecated. A replacement package is available [package name](https://dummylinktopackage.com/) as of [date-MM/YY]. We strongly encourage you to upgrade to continue receiving updates. See [Migration Guide](https://dummylink.com/) for guidance on upgrading. Refer to our [deprecation policy](https://azure.github.io/azure-sdk/policies_support.html) for more details.
 ```
 For packages with the same name (e.g. Python, Java), use the following wording.
 ```markdown
