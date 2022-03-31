@@ -103,8 +103,7 @@ Use Notes column to clarify what is being replaced by the new package.
 ```
 -	Make updates to the legacy packages in the package manager. Use the following message and follow programming language instructions
 ```markdown
-Please note, this package has been deprecated. A replacement package  is available [package name](https://dummylinktopackage.com/) as of [date-MM/YY].
-We strongly encourage you to upgrade. See [Migration Guide](https://dummylink.com/) for more details.
+Please note, this package has been deprecated. A replacement package is available [package name](https://dummylinktopackage.com/) as of [date-MM/YY]. We strongly encourage you to upgrade to continue receiving updates. See [Migration Guide](https://dummylink.com/) for guidance on upgrading. Refer to our [deprecation policy](https://azure.github.io/azure-sdk/policies_support.html) for more details.
 ```
 -	If you are deprecating a package version, but staying within the same package name, update the wording above to mention a specific version
 ```markdown
