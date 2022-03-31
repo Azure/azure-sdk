@@ -238,4 +238,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-healthcareapis_1.1.0/sdk/healthcareapis/azure-mgmt-healthcareapis/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-digitaltwins-core
+  Version: 1.2.0b1
+  DisplayName: Digital Twins Core
+  ServiceName: IoT
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-digitaltwins-core_1.2.0b1/sdk/digitaltwins/azure-digitaltwins-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Update `azure-core` dependency to avoid inconsistent dependencies from being installed.
 
