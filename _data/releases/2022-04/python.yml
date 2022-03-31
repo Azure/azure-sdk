@@ -249,4 +249,15 @@ entries:
     #### Bugs Fixed
 
     - Update `azure-core` dependency to avoid inconsistent dependencies from being installed.
+- Name: azure-core
+  Version: 1.23.1
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.23.1/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Allow stream inputs to the `content` kwarg of `azure.core.rest.HttpRequest` from objects with a `read` method  #23578
 
