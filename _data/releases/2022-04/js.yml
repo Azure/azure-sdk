@@ -306,4 +306,44 @@ entries:
 
     - Support resettable streams in the form of `() => NodeJS.ReadableStream` for NodeJS and `() => ReadableStream` for browser. [#21013](https://github.com/Azure/azure-sdk-for-js/pull/21013)
     - Add a React-Native mapping for default HTTP Client to the old `XhrHttpClient` because the Fetch API implementation in React-Native runtime is missing streaming support.
+- Name: '@azure/arm-advisor'
+  Version: 3.0.1
+  DisplayName: Resource Management - Advisor
+  ServiceName: Advisor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/advisor/arm-advisor/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-storage'
+  Version: 17.2.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/arm-storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-hardwaresecuritymodules'
+  Version: 1.0.0
+  DisplayName: Resource Management - Hardwaresecuritymodules
+  ServiceName: Hardwaresecuritymodules
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-hardwaresecuritymodules_1.0.0/sdk/hardwaresecuritymodules/arm-hardwaresecuritymodules/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-signalr'
+  Version: 5.1.0
+  DisplayName: Resource Management - SignalR
+  ServiceName: SignalR
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/signalr/arm-signalr/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-security'
+  Version: 5.0.0
+  DisplayName: Resource Management - Security
+  ServiceName: Security
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/security/arm-security/CHANGELOG.md
+  ChangelogContent: ""
 
