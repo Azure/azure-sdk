@@ -848,4 +848,18 @@ entries:
     - Added support for service version `7.3`.
     - Implemented new traits (micro-interfaces) in `CertificateClientBuilder`. This makes the experience of using client builders more consistent across libraries in the Azure SDK for Java.
   GroupId: com.azure
+- Name: azure-core
+  Version: 1.27.0
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-core_1.27.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for strongly-typed HTTP header objects to be deserialized lazily on a per-field basis rather than all
+    at once during construction.
+    - Added `Context` support for `DefaultPollingStrategy`, `OperationResourcPollingStrategy` and `LocationPollingStrategy`.
+  GroupId: com.azure
 
