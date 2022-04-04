@@ -31,4 +31,28 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/mobilenetwork/armmobilenetwork/v0.2.0/sdk/resourcemanager/mobilenetwork/armmobilenetwork/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/azcore
+  Version: 0.23.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v0.23.0/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added `runtime.Pager[T any]` and `runtime.Poller[T any]` supporting types for central, generic, implementations.
+    * Added `cloud` package with a new API for cloud configuration
+    * Added `FinalStateVia` field to `runtime.NewPollerOptions[T any]` type.
+
+    #### Breaking Changes
+    * Removed the `Poller` type-alias to the internal poller implementation.
+    * Added `Ptr[T any]` and `SliceOfPtrs[T any]` in the `to` package and removed all non-generic implementations.
+    * `NullValue` and `IsNullValue` now take a generic type parameter instead of an interface func parameter.
+    * Replaced `arm.Endpoint` with `cloud` API
+    * Removed the `endpoint` parameter from `NewRPRegistrationPolicy()`
+    * `arm/runtime.NewPipeline()` and `.NewRPRegistrationPolicy()` now return an `error`
+    * Refactored `NewPoller` and `NewPollerFromResumeToken` funcs in `arm/runtime` and `runtime` packages.
+    * Removed the `pollerID` parameter as it's no longer required.
+    * Created optional parameter structs and moved optional parameters into them.
+    * Changed `FinalStateVia` field to a `const` type.
 
