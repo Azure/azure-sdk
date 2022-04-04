@@ -718,7 +718,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 * Fixed issue with `resourceToken` usage in `Gateway` connection mode.
 * Fixed issues with point operations with permissions in `Gateway` connection mode.
 
-### Azure Spring Data Cosmos 3.5.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md#350-2021-03-11)
+### Azure Spring Data Cosmos 3.5.0
 
 #### New Features
 * Added support for `org.springframework.data.domain.Persistable` entity type.
@@ -988,18 +988,18 @@ This is the initial release of Azure Device Update for IoT Hub library.
 - `beginAnalyzeHealthcareEntities` is currently in gated preview and can not be used with AAD credentials.
   For more information, see [the Text Analytics for Health documentation](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-for-health?tabs=ner#request-access-to-the-public-preview).
 
-### Azure Spring Boot [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot/CHANGELOG.md#330-2021-03-22)
+### Azure Spring Boot
 
 #### New features
 - Upgraded to Spring Boot [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
 - Upgraded to Spring Security [5.4.5](https://github.com/spring-projects/spring-security/releases/tag/5.4.5).
-- Upgraded to `azure-spring-data-cosmos` [3.5.0](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md#350-2021-03-11).
+- Upgraded to `azure-spring-data-cosmos`
 - Supported creating `GrantedAuthority` by "roles" claim of id-token for web application in `azure-spring-boot-starter-active-directory`.
 
 #### Bug fixes
 - Fix bug of using closed `MessageProducer` and `MessageConsumer` when a link is force detached in `azure-spring-boot-starter-servicebus-jms`.
 
-### Azure Spring Cloud [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-autoconfigure/CHANGELOG.md#230-2021-03-22)
+### Azure Spring Cloud
 
 #### New features
 - Upgraded to Spring Boot [2.4.3](https://github.com/spring-projects/spring-boot/releases/tag/v2.4.3).
