@@ -79,4 +79,35 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/signalr/armsignalr/v0.3.0/sdk/resourcemanager/signalr/armsignalr/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/data/aztables
+  Version: 0.7.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/aztables/v0.7.0/sdk/data/aztables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * This module now requires Go 1.18
+    * Removed the `ODataID`, `ODataEditLink`, and `ODataType` on `TableProperties`
+    * Removed `ODataMetadata` on `ListTablesPageResponse`
+    * Removed `ResponsePreference` on `AddEntityOptions`
+    * Renamed `ListEntitiesOptions.PartitionKey` to `ListEntitiesOptions.NextPartitionKey`.
+    * Renamed `ListEntitiesOptionsRowKey` to `ListEntitiesOptions.NextRowKey`
+    * Renamed `Client.Create` to `Client.CreateTable`
+    * Renamed `ListEntitiesPageResponse` to `ListEntitiesResponse`
+    * Removed the `Entity` prefix on `EntityUpdateModeMerge` and `EntityUpdateModeReplace`
+    * Renamed `Client.InsertEntity` to `Client.UpsertEntity`
+    * Removed the `Continuation` prefix from `ContinuationNextPartitionKey`, `ContinuationNextRowKey`, and `ContinuationNextTable`
+    * Removed the `ResponseFormat` type
+    * Renamed `Client.List` to `Client.ListEntities`
+    * Renamed `Client.GetTableSASToken` to `Client.GetTableSASURL` and `ServiceClient.GetAccountSASToken` to `ServiceClient.GetAccountSASURL`
+    * `ServiceClient.GetProperties` returns a `ServiceProperties` struct which can be used on the `ServiceClient.SetProperties`
+    * Removed the `Type` suffix from `GeoReplicationStatusType`
+    * `ServiceClient.CreateTable` returns a response struct with the name of the table created, not a `Client`
+    * `SASSignatureValues.NewSASQueryParameters` is now `SASSignatureValues.Sign` and returns an encoded SAS
+
+    #### Features Added
+    * Added the `NextTableName` continuation token option to `ListTablesOptions`
+    * Added the `TableName` property to `CreateTableResponse`
 
