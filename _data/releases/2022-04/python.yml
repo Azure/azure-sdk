@@ -260,4 +260,24 @@ entries:
     #### Bugs Fixed
 
     - Allow stream inputs to the `content` kwarg of `azure.core.rest.HttpRequest` from objects with a `read` method  #23578
+- Name: azure-identity
+  Version: 1.9.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.9.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Added check on `content` from msal response.    ([#23483](https://github.com/Azure/azure-sdk-for-python/issues/23483))
+    - Fixed the issue that async OBO credential does not refresh correctly.    ([#21981](https://github.com/Azure/azure-sdk-for-python/issues/21981))
+
+    #### Features Added
+
+    - Added PII logging if logging.DEBUG is enabled.    ([#23203](https://github.com/Azure/azure-sdk-for-python/issues/23203))
+
+    #### Breaking Changes
+
+    - `validate_authority` support is not available in 1.9.0.
 
