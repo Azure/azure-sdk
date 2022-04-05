@@ -393,4 +393,16 @@ entries:
   ChangelogContent: |-
     #### Features Added
     - Added environment variable `AZURE_USERAGENT_OVERRIDE`, that overrides the HTTP header `x-ms-useragent` on the tests
+- Name: Azure.Core
+  Version: 1.24.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Core_1.24.0/sdk/core/Azure.Core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added the `MessageContent` type which represents a message containing a content type and data.
+    - Sub classes of `ClientOptions` are now able to create sub class implementations of `DiagnosticsOptions` and set it as the implementation for the `Diagnostics` property of `ClientOptions` via a new constructor overload.
 
