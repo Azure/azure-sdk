@@ -768,12 +768,12 @@ Initial release of azure-quantum-jobs. See [Getting Started](https://github.com/
 
 - Fixed issue where cryptographic operations would be attempted locally for symmetric keys that were missing their key material ('k' component).
 
-### Azure Spring Cloud ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-autoconfigure/CHANGELOG.md#220-2021-03-03))
+### Azure Spring Cloud
 
 ### New Features
  - Support `ServiceBusMessageConverter` as a bean to support customize `ObjectMapper`.
 
-### Azure Spring Boot ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot/CHANGELOG.md#320-2021-03-03))
+### Azure Spring Boot
 
 ### Breaking Changes
 - Remove `azure.activedirectory.b2c.oidc-enabled` property.
