@@ -371,4 +371,27 @@ entries:
     #### Features Added
 
     - Migrated from using `@azure/core-http` to `@azure/core-rest-pipeline` for the handling of HTTP requests. See [Azure Core v1 vs v2](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/core/core-rest-pipeline/documentation/core2.md) for more on the difference and benefits of the move.
+- Name: '@azure/communication-chat'
+  Version: 1.2.0
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/communication-chat_1.2.0/sdk/communication/communication-chat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Updated to @azure/communication-signaling@1.0.0-beta.13.
+    - Updated to @azure/communication-common@2.0.0.
+- Name: '@azure/container-registry'
+  Version: 1.1.0-beta.1
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/container-registry_1.1.0-beta.1/sdk/containerregistry/container-registry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add a new `ContainerRegistryBlobClient` to allow upload and download of OCI blobs and manifests. [PR #20529](https://github.com/Azure/azure-sdk-for-js/pull/20529)
 
