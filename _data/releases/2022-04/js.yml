@@ -394,4 +394,21 @@ entries:
     #### Features Added
 
     - Add a new `ContainerRegistryBlobClient` to allow upload and download of OCI blobs and manifests. [PR #20529](https://github.com/Azure/azure-sdk-for-js/pull/20529)
+- Name: '@azure/schema-registry-avro'
+  Version: 1.0.0-beta.8
+  DisplayName: Avro
+  ServiceName: Schema Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/schema-registry-avro_1.0.0-beta.8/sdk/schemaregistry/schema-registry-avro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - The `encodeMessageData` method has been renamed to `serialize`.
+    - The `decodeMessageData` method has been renamed to `deserialize`.
+    - The `MessageWithMetadata` interface has been renamed to `MessageContent`.
+    - `MessageContent`'s `body` has been renamed to `data`.
+    - `MessageAdapter`'s `consumeMessage` and `produceMessage` have been renamed to `consume` and `produce`.
+
+    #### Features Added
+    - A new error type, `AvroError`, is added and is thrown in all error cases except for service calls.
 
