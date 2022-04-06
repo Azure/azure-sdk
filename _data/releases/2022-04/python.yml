@@ -260,4 +260,62 @@ entries:
     #### Bugs Fixed
 
     - Allow stream inputs to the `content` kwarg of `azure.core.rest.HttpRequest` from objects with a `read` method  #23578
+- Name: azure-identity
+  Version: 1.9.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.9.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Added check on `content` from msal response.    ([#23483](https://github.com/Azure/azure-sdk-for-python/issues/23483))
+    - Fixed the issue that async OBO credential does not refresh correctly.    ([#21981](https://github.com/Azure/azure-sdk-for-python/issues/21981))
+
+    #### Features Added
+
+    - Added PII logging if logging.DEBUG is enabled.    ([#23203](https://github.com/Azure/azure-sdk-for-python/issues/23203))
+
+    #### Breaking Changes
+
+    - `validate_authority` support is not available in 1.9.0.
+- Name: azure-ai-formrecognizer
+  Version: 3.2.0b4
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-formrecognizer_3.2.0b4/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed `to_dict()` and `from_dict()` methods on `DocumentField` to support converting lists, dictionaries, and CurrenyValue field types to and from a dictionary.
+
+    #### Breaking Changes
+    - Renamed `begin_copy_model()` to `begin_copy_model_to()`.
+    - In `begin_create_composed_model()`, renamed required parameter `model_ids` to `component_model_ids`.
+    - Renamed `model_count` and `model_limit` on `AccountInfo` to `document_model_count` and `document_model_limit`.
+- Name: azure-schemaregistry-avroencoder
+  Version: 1.0.0b3
+  DisplayName: Avro Encoder
+  ServiceName: Schema Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-schemaregistry-avroencoder_1.0.0b3/sdk/schemaregistry/azure-schemaregistry-avroencoder/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `auto_register_schemas` keyword in the sync and async `AvroEncoder` constructors has been renamed `auto_register`.
+    - `SchemaParseError`, `SchemaEncodeError`, and `SchemaDecodeError` have been replaced with `InvalidContentError` and `InvalidSchemaError`. The errors have been added under the `azure.schemaregistry.encoder.avroencoder` namespace.
+    - The `exceptions` module in `azure.schemaregistry.encoder.avroencoder` has been removed.
+    - The `encode` method on the sync and async `AvroEncoder` only allows subtypes of the `MessageType` protocol as values to the `message_type` optional parameter, rather than any callable that has the method signature `(content: bytes, content_type: str, **kwargs: Any)`.
+    - The number of hits/misses, in addition to number of entries, for the schema/schema ID caches will be logged at an info level when a new entry is added.
+- Name: azure-mgmt-storage
+  Version: 20.0.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storage_20.0.0/sdk/storage/azure-mgmt-storage/CHANGELOG.md
+  ChangelogContent: ""
 
