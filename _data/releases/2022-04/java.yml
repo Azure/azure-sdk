@@ -1006,4 +1006,19 @@ entries:
 
     - Upgraded `azure-core` from `1.26.0` to `1.27.0`.
   GroupId: com.azure
+- Name: azure-identity
+  Version: 1.5.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.5.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Removed `disableAuthorityValidationSafetyCheck` for GA, will reintroduce in next beta. This is not a breaking change from last GA.
+    - Replaced `identityLogOptions` setter with the `enableAccountIdentifierLogging` setter on the credential builders. This is not a breaking change from last GA.
+
+    #### Bugs Fixed
+    Correctly use an `AppServiceMsiCredential` in the case both `IDENTITY_ENDPOINT` and `IDENTITY_HEADER` are set.
+  GroupId: com.azure
 
