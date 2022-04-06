@@ -310,4 +310,12 @@ entries:
     - The `exceptions` module in `azure.schemaregistry.encoder.avroencoder` has been removed.
     - The `encode` method on the sync and async `AvroEncoder` only allows subtypes of the `MessageType` protocol as values to the `message_type` optional parameter, rather than any callable that has the method signature `(content: bytes, content_type: str, **kwargs: Any)`.
     - The number of hits/misses, in addition to number of entries, for the schema/schema ID caches will be logged at an info level when a new entry is added.
+- Name: azure-mgmt-storage
+  Version: 20.0.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storage_20.0.0/sdk/storage/azure-mgmt-storage/CHANGELOG.md
+  ChangelogContent: ""
 
