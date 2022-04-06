@@ -508,4 +508,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ConnectedVMwarevSphere_1.0.0-beta.3/sdk/connectedvmwarevsphere/Azure.ResourceManager.ConnectedVMwarevSphere/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Extensions.AspNetCore.Configuration.Secrets
+  Version: 1.2.2
+  DisplayName: ASP.NET Extension - Configuration Secrets
+  ServiceName: Extensions
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Extensions.AspNetCore.Configuration.Secrets_1.2.2/sdk/extensions/Azure.Extensions.AspNetCore.Configuration.Secrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Prevent ObjectDisposedException when Key Vault config provider is disposed twice. _(A community contribution, courtesy of [martincostello](https://github.com/martincostello))_
 
