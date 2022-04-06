@@ -458,4 +458,54 @@ entries:
     #### Features Added
 
     - Unifies features from the earlier preview releases with the latest stable release.
+- Name: Azure.ResourceManager.EdgeOrder
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Edge Order
+  ServiceName: Edge Order
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.EdgeOrder_1.0.0-beta.2/sdk/edgeorder/Azure.ResourceManager.EdgeOrder/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.Identity.BrokeredAuthentication
+  Version: 1.0.0-beta.2
+  DisplayName: Azure.Identity.BrokeredAuthentication
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Identity.BrokeredAuthentication_1.0.0-beta.2/sdk/identity/Azure.Identity.BrokeredAuthentication/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added `SharedTokenCacheCredentialBrokerOptions` to enable `SharedTokenCacheCredential` to use the authentication broker for silent authentication calls when this specicialized options type is used to construct the credential.
+- Name: Azure.ResourceManager.AppService
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - App Service
+  ServiceName: App Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.AppService_1.0.0-beta.1/sdk/websites/Azure.ResourceManager.AppService/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ExtendedLocation
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Extended Location
+  ServiceName: Extended Location
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ExtendedLocation_1.0.0-beta.1/sdk/extendedlocation/Azure.ResourceManager.ExtendedLocation/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.Monitor
+  Version: 1.0.0-beta.1
+  DisplayName: Resource Management - Monitor
+  ServiceName: Monitor
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Monitor_1.0.0-beta.1/sdk/monitor/Azure.ResourceManager.Monitor/CHANGELOG.md
+  ChangelogContent: ""
+- Name: Azure.ResourceManager.ConnectedVMwarevSphere
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Connected VMware vSphere
+  ServiceName: Connected VMware vSphere
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.ConnectedVMwarevSphere_1.0.0-beta.3/sdk/connectedvmwarevsphere/Azure.ResourceManager.ConnectedVMwarevSphere/CHANGELOG.md
+  ChangelogContent: ""
 
