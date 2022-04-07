@@ -14,8 +14,8 @@
 
     <tr scope="row">
         <td title="{{ item.Package }}">
-            <div>{{ item.DisplayName }} {% if include.type == "all" and item.New == "true" %}<i>(New)</i>{%endif%}</div>
-            <div><small class="text-muted">{{item.Package}}</small></div>
+            <div><strong>{{ item.DisplayName }} {% if include.type == "all" and item.New == "true" %}<i>(New)</i>{%endif%}</strong></div>
+            <div><small>{{item.Package}}</small></div>
             <div>{% include releases/replace.md %}</div>
         </td>
     {% if include.type != "deprecated" %}
