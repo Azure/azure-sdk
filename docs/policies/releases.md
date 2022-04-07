@@ -105,7 +105,7 @@ Use Notes column to clarify what is being replaced by the new package.
 ```markdown
 Please note, this package has been deprecated. A replacement package is available [package name](https://dummylinktopackage.com/) as of [date-MM/YY]. We strongly encourage you to upgrade to continue receiving updates. See [Migration Guide](https://dummylink.com/) for guidance on upgrading. Refer to our [deprecation policy](https://azure.github.io/azure-sdk/policies_support.html) for more details.
 ```
--	If you are deprecating a package version, but staying within the same package name, update the wording above to mention a specific version
+-	If you are deprecating a package version, but staying within the same package name, update the wording above to mention a specific version.
 ```markdown
 Please note, versions of this package with version numbers [version number] and below have been deprecated as of [date-MM-YY]. We strongly encourage you to upgrade to version [version number] or above to continue receiving updates. Refer to our [deprecation policy](https://azure.github.io/azure-sdk/policies_support.html) for more details.
 ```
