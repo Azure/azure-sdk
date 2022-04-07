@@ -96,7 +96,7 @@ This document covers [library name] [package name](https://dummylinktopackage.co
 If you're using an older package, we recommend that you upgrade your code.
 See [Migration Guide](https://dummylink.com/) for more details.
 ```
--	Update package index files to identify legacy packages replacement
+-	Update package index files to identify legacy packages replacement.
 ```markdown
 Go to https://github.com/Azure/azure-sdk/blob/master/_data/releases/latest/ and update [language]-packages.csv.
 Use Notes column to clarify what is being replaced by the new package.
