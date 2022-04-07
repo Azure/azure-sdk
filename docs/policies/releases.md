@@ -101,7 +101,7 @@ See [Migration Guide](https://dummylink.com/) for more details.
 Go to https://github.com/Azure/azure-sdk/blob/master/_data/releases/latest/ and update [language]-packages.csv.
 Use Notes column to clarify what is being replaced by the new package.
 ```
--	Make updates to the legacy packages in the package manager. Use the following message and follow programming language instructions
+-	Make updates to the legacy packages in the package manager. Use the following message and follow programming language instructions.
 ```markdown
 Please note, this package has been deprecated. A replacement package is available [package name](https://dummylinktopackage.com/) as of [date-MM/YY]. We strongly encourage you to upgrade to continue receiving updates. See [Migration Guide](https://dummylink.com/) for guidance on upgrading. Refer to our [deprecation policy](https://azure.github.io/azure-sdk/policies_support.html) for more details.
 ```
