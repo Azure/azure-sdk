@@ -122,7 +122,7 @@ Go | Add a deprecation comment in the go.mod so that users see a warning when do
 
 - Ensure you have the infrastructure in place to build and ship fixes for the legacy libraries for the next 3 years.<br> You will need to ship security and critical bug fixes for the first year.<br> You don’t have to proactively fix anything else, but a customer calling for support should be able to get it.
 - Encourage customers to migrate to the new library when possible, from this point on.
--	After one year, customers will need to provide a strong business need to justify and receive legacy library updates. Most of the customers are expected to migrate to the latest library at this point.
+- After one year, customers will need to provide a strong business need to justify and receive legacy library updates. Most of the customers are expected to migrate to the latest library at this point.
 -	Monitor the deprecated library usage. If the number of customers is small, consider working with them individually to migrate to the latest version.<br> At the point when there are no customers left, you can retire the library following the [Azure Global Retirement Policy process](https://dev.azure.com/msazure/AzureWiki/_wiki/wikis/AzureWiki.wiki/37673/Retirements-and-Breaking-Changes).
 
 
