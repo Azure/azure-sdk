@@ -1060,4 +1060,43 @@ entries:
     - Upgraded `azure-core` from `1.26.0` to version `1.27.0`.
     - Upgraded `azure-core-http-netty` from `1.11.8` to version `1.11.9`.
   GroupId: com.azure
+- Name: azure-security-attestation
+  Version: 1.1.1
+  DisplayName: Attestation
+  ServiceName: Attestation
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-attestation_1.1.1/sdk/attestation/azure-security-attestation/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Upgraded `azure-core` from `1.26.0` to version `1.27.0`.
+  GroupId: com.azure
+- Name: azure-ai-textanalytics
+  Version: 5.1.8
+  DisplayName: Text Analytics
+  ServiceName: Text Analytics
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.1.8/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Updated `azure-core` to `1.27.0`.
+    - Updated `azure-core-http-netty` to `1.11.9`.
+  GroupId: com.azure
+- Name: azure-containers-containerregistry
+  Version: 1.1.0-beta.1
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-containers-containerregistry_1.1.0-beta.1/sdk/containerregistry/azure-containers-containerregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added interfaces from `com.azure.core.client.traits` to `ContainerRegistryClientBuilder`.
+    - Added support for `ContainerRegistryBlobAsyncClient`.
+  GroupId: com.azure
 
