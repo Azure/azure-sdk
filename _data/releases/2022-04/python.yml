@@ -329,4 +329,26 @@ entries:
     #### Features Added
 
     - Added new enum values to `SystemEventNames` related to health care APIs.
+- Name: azure-cosmos
+  Version: 4.3.0b4
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.3.0b4/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for AAD authentication for the async client.
+    - Added support for AAD authentication for the sync client.
+- Name: azure-identity
+  Version: 1.10.0b1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.10.0b1/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `validate_authority` support for msal client  ([#22625](https://github.com/Azure/azure-sdk-for-python/issues/22625))
 
