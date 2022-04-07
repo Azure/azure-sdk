@@ -519,4 +519,15 @@ entries:
     #### Bugs Fixed
 
     - Prevent ObjectDisposedException when Key Vault config provider is disposed twice. _(A community contribution, courtesy of [martincostello](https://github.com/martincostello))_
+- Name: Microsoft.Azure.Data.SchemaRegistry.ApacheAvro
+  Version: 1.0.0-beta.8
+  DisplayName: Schema Registry - Avro
+  ServiceName: Schema Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.Data.SchemaRegistry.ApacheAvro_1.0.0-beta.8/sdk/schemaregistry/Microsoft.Azure.Data.SchemaRegistry.ApacheAvro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Wrap Apache Avro exceptions with new exception type, `SchemaRegistryAvroException`.
 
