@@ -1099,4 +1099,32 @@ entries:
     - Added interfaces from `com.azure.core.client.traits` to `ContainerRegistryClientBuilder`.
     - Added support for `ContainerRegistryBlobAsyncClient`.
   GroupId: com.azure
+- Name: azure-ai-metricsadvisor
+  Version: 1.1.2
+  DisplayName: Metrics Advisor
+  ServiceName: Metrics Advisor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-metricsadvisor_1.1.2/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    ##### Dependency Updates
+    - Updated `azure-core` to `1.27.0`.
+    - Updated `azure-core-http-netty` to `1.11.9`.
+  GroupId: com.azure
+- Name: azure-data-tables
+  Version: 12.2.2
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-tables_12.2.2/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.26.0` to version `1.27.0`.
+    - Upgraded `azure-core-http-netty` from `1.11.8` to version `1.11.9`.
+  GroupId: com.azure
 
