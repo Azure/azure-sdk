@@ -111,7 +111,7 @@ Please note, versions of this package with version numbers [version number] and 
 ```
 Language|Instructions
 ----------|---------
-.Net|Follow instructions at [deprecating NuGet packages](https://docs.microsoft.com/en-us/nuget/nuget-org/deprecate-packages) to deprecate the package with the message above.<br>Select all versions of the package you are deprecating.<br>Choose deprecation reason as "Other" because "Legacy" is for packages that are no longer maintained.
+.Net|Follow instructions at [deprecating NuGet packages](https://docs.microsoft.com/nuget/nuget-org/deprecate-packages) to deprecate the package with the message above.<br>Select all versions of the package you are deprecating.<br>Choose deprecation reason as "Other" because "Legacy" is for packages that are no longer maintained.
 Java | Update the project description in the POM file to include the deprecation message. Publish Update.
 TS/JS | Run the command `npm deprecate` which takes the package name and the deprecation message.
 Python | Publish an update to the package after updating the README.
