@@ -530,4 +530,15 @@ entries:
     #### Breaking Changes
 
     - Wrap Apache Avro exceptions with new exception type, `SchemaRegistryAvroException`.
+- Name: Azure.Messaging.EventGrid
+  Version: 4.10.0
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventGrid_4.10.0/sdk/eventgrid/Azure.Messaging.EventGrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added Healthcare events
 
