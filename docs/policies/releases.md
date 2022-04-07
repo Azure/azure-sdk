@@ -86,7 +86,7 @@ For packages with the same name (e.g. Python, Java), use the following wording.
 Please note, versions of this package with version numbers [version number] and below have been deprecated as of [date-MM-YY]. We strongly encourage you to upgrade to version [version number] or above to continue receiving updates. Refer to our [deprecation policy](https://azure.github.io/azure-sdk/policies_support.html) for more details.
 ```
 -	Update the legacy Samples README with link to the new samples.
-Note, you can search for sample repositories under https://docs.microsoft.com/en-us/samples/browse/?products=azure
+Note, you can search for sample repositories under https://docs.microsoft.com/samples/browse/?products=azure.
 ```markdown
 Samples in this repository use deprecated packages [list legacy package here]. We recommend that you get started using the new package here instead: [package name](https://dummylinktopackage.com/.
 ```
