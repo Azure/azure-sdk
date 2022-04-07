@@ -116,7 +116,6 @@ Java | Update the project description in the POM file to include the deprecation
 TS/JS | Run the command `npm deprecate` which takes the package name and the deprecation message.
 Python | Publish an update to the package after updating the README.
 Go | Add a deprecation comment in the go.mod so that users see a warning when downloading the deprecated package. <br>See example [here](https://github.com/Azure/azure-sdk-for-go/blob/857695b0e8158bdf9b19bed23c33cf8a5333921d/sdk/to/go.mod#L1)
-  |
 
 #### Legacy packages support after the update
 
