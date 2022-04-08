@@ -1172,4 +1172,33 @@ entries:
     - Upgraded `azure-core` from `1.26.0` to version `1.27.0`.
     - Upgraded `azure-communication-common` from `1.1.1` to version `1.1.2`.
   GroupId: com.azure
+- Name: azure-data-schemaregistry
+  Version: 1.1.1
+  DisplayName: Schema Registry
+  ServiceName: Schema Registry
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-schemaregistry_1.1.1/sdk/schemaregistry/azure-data-schemaregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Update `azure-core` dependency to `1.27.0`.
+    - Update `azure-core-http-netty` dependency to `1.11.9`.
+  GroupId: com.azure
+- Name: azure-data-schemaregistry-apacheavro
+  Version: 1.0.0-beta.11
+  DisplayName: Schema Registry - Avro
+  ServiceName: Schema Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-schemaregistry-apacheavro_1.0.0-beta.11/sdk/schemaregistry/azure-data-schemaregistry-apacheavro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug that caused deserialize operation to throw `SchemaParseException` when multiple messages with same schema
+    were deserialized (https://github.com/Azure/azure-sdk-for-java/issues/27602).
+    - Wrap Apache Avro exceptions with new exception type, `SchemaRegistryApacheAvroException`.
+  GroupId: com.azure
 
