@@ -277,4 +277,12 @@ entries:
     * `ListPropertiesOfDeletedKeysPager` has `More() bool` and `NextPage(context.Context) (ListPropertiesOfDeletedKeysPage, error)` for paging over deleted keys.
     * `ListPropertiesOfKeyVersionsPager` has `More() bool` and `NextPage(context.Context) (ListPropertiesOfKeyVersionsPage, error)` for paging over deleted keys.
     * Removing `RawResponse *http.Response` from `crypto` response types
+- Name: sdk/resourcemanager/resources/armresources
+  Version: 0.4.0
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/resources/armresources/v0.4.0/sdk/resourcemanager/resources/armresources/CHANGELOG.md
+  ChangelogContent: ""
 
