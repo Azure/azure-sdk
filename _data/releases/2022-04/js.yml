@@ -573,4 +573,15 @@ entries:
     - `Microsoft.HealthcareApis.FhirResourceCreated`
     - `Microsoft.HealthcareApis.FhirUpdatedCreated`
     - `Microsoft.HealthcareApis.FhirDeletedCreated`
+- Name: '@azure/core-http-compat'
+  Version: 1.2.0
+  DisplayName: Azure Core Http Compat
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http-compat_1.2.0/sdk/core/core-http-compat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Updated response object to have a custom `_response` property. Please refer [#21004](https://github.com/Azure/azure-sdk-for-js/pull/21004) for further details.
 
