@@ -107,7 +107,7 @@ Please note, this package has been deprecated. A replacement package is availabl
 ```
 -	If you are deprecating a package version, but staying within the same package name, update the wording above to mention a specific version.
 ```markdown
-Please note, versions of this package with version numbers [version number] and below have been deprecated as of [date-MM-YY]. We strongly encourage you to upgrade to version [version number] or above to continue receiving updates. Refer to our [deprecation policy](https://azure.github.io/azure-sdk/policies_support.html) for more details.
+Please note, versions of this package with version numbers [version number] and below have been deprecated as of [date-MM-YY]. We strongly encourage you to upgrade to the latest version to continue receiving updates. Refer to our [deprecation policy](https://azure.github.io/azure-sdk/policies_support.html) for more details.
 ```
 Language|Instructions
 ----------|---------
