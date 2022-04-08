@@ -113,7 +113,7 @@ Language|Instructions
 ----------|---------
 .Net|Follow instructions at [deprecating NuGet packages](https://docs.microsoft.com/nuget/nuget-org/deprecate-packages) to deprecate the package with the message above.<br>Select all versions of the package you are deprecating.<br>Choose deprecation reason as "Other" because "Legacy" is for packages that are no longer maintained.
 Java | Update the project description in the POM file to include the deprecation message. Publish Update.
-TS/JS | Run the command `npm deprecate` which takes the package name and the deprecation message.
+TS/JS | Run the relevant build pipeline.
 Python | Publish an update to the package after updating the README.
 Go | Add a deprecation comment in the go.mod so that users see a warning when downloading the deprecated package. <br>See example [here](https://github.com/Azure/azure-sdk-for-go/blob/857695b0e8158bdf9b19bed23c33cf8a5333921d/sdk/to/go.mod#L1)
 
