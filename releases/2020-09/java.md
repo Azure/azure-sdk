@@ -551,7 +551,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - Updated Jackson annotations to include `required = true` when service must receive or return the property.
 
-### Azure Spring Cloud ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-autoconfigure/CHANGELOG.md#128-2020-09-14))
+### Azure Spring Cloud
 
 #### New features
 
@@ -612,7 +612,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 
 - Changed `Fluent` annotations to `Immutable` when the class is immutable.
 
-### Azure Spring Boot ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot/CHANGELOG.md#235-2020-09-14))
+### Azure Spring Boot
 
 #### Key Bug Fixes
 - Exclude disabled secrets when getting Key Vault secrets
