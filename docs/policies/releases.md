@@ -72,7 +72,7 @@ A manual migration test should be developed to ensure that payloads and data fed
 Follow the best practices below to ensure that the visibility of the new release is elevated.
 
 Identify supported legacy libraries for the SDK you are releasing as early as possible <br>
--	Note, we cannot deprecate GA libraries which were released less than 1 year ago per the [current Azure SLA](https://www.microsoft.com/LICENSING/PRODUCT-LICENSING/PRODUCTS)
+-	**Note:** we cannot deprecate GA libraries which were released less than 1 year ago per the [current Azure SLA](https://www.microsoft.com/LICENSING/PRODUCT-LICENSING/PRODUCTS)
 - Note,  We should direct users to the new library only if it is covering the legacy library specs. Make sure you confirm feature and performance parity at your arch board reviews.
 -	Once a library has been identified as suitable for replacement, initiate a request to have NuGet search popularity for the legacy library forwarded to the new library. The SDK team engineering team will know how to do this or who to talk to.
 
