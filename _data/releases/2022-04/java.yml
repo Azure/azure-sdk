@@ -1157,4 +1157,19 @@ entries:
     - Upgraded `azure-core` from `1.26.0` to version `1.27.0`.
     - Upgraded `azure-core-http-netty` from `1.11.8` to version `1.11.9`.
   GroupId: com.azure
+- Name: azure-communication-identity
+  Version: 1.1.8
+  DisplayName: Communication Identity
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-identity_1.1.8/sdk/communication/azure-communication-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.26.0` to version `1.27.0`.
+    - Upgraded `azure-communication-common` from `1.1.1` to version `1.1.2`.
+  GroupId: com.azure
 
