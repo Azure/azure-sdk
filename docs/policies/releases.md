@@ -94,7 +94,8 @@ Refer to our [deprecation policy](https://azure.github.io/azure-sdk/policies_sup
 -	Update the legacy Samples README with link to the new samples.
 Note, you can search for sample repositories under https://docs.microsoft.com/samples/browse/?products=azure.
 ```markdown
-Samples in this repository use deprecated packages [list legacy package here]. We recommend that you get started using the new package here instead: [package name](https://dummylinktopackage.com/.
+Samples in this repository use deprecated packages [list legacy package here]. We recommend
+that you get started using the new package here instead: [package name](https://dummylinktopackage.com/.
 ```
 -	Update the new package README with a link to the migration guides.
 ```markdown
@@ -109,11 +110,18 @@ Use Notes column to clarify what is being replaced by the new package.
 ```
 -	Make updates to the legacy packages in the package manager. Use the following message and follow programming language instructions.
 ```markdown
-Please note, this package has been deprecated. A replacement package is available [package name](https://dummylinktopackage.com/) as of [date-MM/YY]. We strongly encourage you to upgrade to continue receiving updates. See [Migration Guide](https://dummylink.com/) for guidance on upgrading. Refer to our [deprecation policy](https://azure.github.io/azure-sdk/policies_support.html) for more details.
+Please note, this package has been deprecated. A replacement package is available
+[package name](https://dummylinktopackage.com/) as of [date-MM/YY]. We strongly
+encourage you to upgrade to continue receiving updates. 
+See the [Migration Guide](https://dummylink.com/) for guidance on upgrading.
+Refer to our [deprecation policy](https://azure.github.io/azure-sdk/policies_support.html) for more details.
 ```
 -	If you are deprecating a package version, but staying within the same package name, update the wording above to mention a specific version.
 ```markdown
-Please note, versions of this package with version numbers [version number] and below have been deprecated as of [date-MM-YY]. We strongly encourage you to upgrade to the latest version to continue receiving updates. Refer to our [deprecation policy](https://azure.github.io/azure-sdk/policies_support.html) for more details.
+Please note, versions of this package with version numbers [version number] and below have been 
+deprecated as of [date-MM-YY]. We strongly encourage you to upgrade to the latest version to 
+continue receiving updates. 
+Refer to our [deprecation policy](https://azure.github.io/azure-sdk/policies_support.html) for more details.
 ```
 Language|Instructions
 ----------|---------
