@@ -80,9 +80,9 @@ For each legacy package you plan to deprecate
 -	Update the legacy library package README with a link to the new package.
 ```markdown
 Please note, this package has been deprecated. A replacement package is available
-[package name](https://dummylinktopackage.com/) as of [date-MM/YY]. We strongly
+[package name](https://aka.ms/azsdk) as of [date-MM/YY]. We strongly
 encourage you to upgrade to continue receiving updates. 
-See the [Migration Guide](https://dummylink.com/) for guidance on upgrading. 
+See the [Migration Guide](https://aka.ms/azsdk) for guidance on upgrading. 
 Refer to our [deprecation policy](https://azure.github.io/azure-sdk/policies_support.html) for more details.
 ```
 For packages with the same name (e.g. Python, Java), use the following wording.
@@ -95,13 +95,13 @@ Refer to our [deprecation policy](https://azure.github.io/azure-sdk/policies_sup
 Note, you can search for sample repositories under https://docs.microsoft.com/samples/browse/?products=azure.
 ```markdown
 Samples in this repository use deprecated packages [list legacy package here]. We recommend
-that you get started using the new package here instead: [package name](https://dummylinktopackage.com/.
+that you get started using the new package here instead: [package name](https://aka.ms/azsdk).
 ```
 -	Update the new package README with a link to the migration guides.
 ```markdown
-This document covers [library name] [package name](https://dummylinktopackage.com/).
+This document covers [library name] [package name](https://aka.ms/azsdk).
 If you're using an older package, we recommend that you upgrade your code.
-See [Migration Guide](https://dummylink.com/) for more details.
+See [Migration Guide](https://aka.ms/azsdk) for more details.
 ```
 -	Update package index files to identify legacy packages replacement.
 ```markdown
@@ -111,7 +111,7 @@ Use Notes column to clarify what is being replaced by the new package.
 -	In the package managers that support updates to existing packages, update the legacy packages in the package manager to include a deprecation notice. Use the following message and follow programming language instructions.
 ```markdown
 Please note, this package has been deprecated. A replacement package is available
-[package name](https://dummylinktopackage.com/) as of [date-MM/YY]. We strongly
+[package name](https://aka.ms/azsdk) as of [date-MM/YY]. We strongly
 encourage you to upgrade to continue receiving updates. 
 See the [Migration Guide](https://dummylink.com/) for guidance on upgrading.
 Refer to our [deprecation policy](https://azure.github.io/azure-sdk/policies_support.html) for more details.
