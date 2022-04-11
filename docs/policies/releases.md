@@ -108,7 +108,7 @@ See [Migration Guide](https://dummylink.com/) for more details.
 Go to https://github.com/Azure/azure-sdk/blob/master/_data/releases/latest/ and update [language]-packages.csv.
 Use Notes column to clarify what is being replaced by the new package.
 ```
--	Make updates to the legacy packages in the package manager. Use the following message and follow programming language instructions.
+-	In the package managers that support updates to existing packages, update the legacy packages in the package manager to include a deprecation notice. Use the following message and follow programming language instructions.
 ```markdown
 Please note, this package has been deprecated. A replacement package is available
 [package name](https://dummylinktopackage.com/) as of [date-MM/YY]. We strongly
@@ -128,7 +128,7 @@ Language|Instructions
 .Net|Follow instructions at [deprecating NuGet packages](https://docs.microsoft.com/nuget/nuget-org/deprecate-packages) to deprecate the package with the message above.<br>Select all versions of the package you are deprecating.<br>Choose deprecation reason as "Other" because "Legacy" is for packages that are no longer maintained.
 Java | Update the project description in the POM file to include the deprecation message. Publish Update.
 TS/JS | Run the relevant build pipeline.
-Python | Publish an update to the package after updating the README.
+Python | If the deprecated package is no longer in use (new version has a different name), publish an update to the deprecated package after updating the README
 Go | Add a deprecation comment in the go.mod so that users see a warning when downloading the deprecated package. <br>See example [here](https://github.com/Azure/azure-sdk-for-go/blob/857695b0e8158bdf9b19bed23c33cf8a5333921d/sdk/to/go.mod#L1)
 
 #### Legacy packages support after the update
