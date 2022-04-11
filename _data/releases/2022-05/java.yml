@@ -473,4 +473,77 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-healthcareapis_1.0.0-beta.2/sdk/healthcareapis/azure-resourcemanager-healthcareapis/CHANGELOG.md
   ChangelogContent: ""
   GroupId: com.azure.resourcemanager
+- Name: azure-storage-blob-cryptography
+  Version: 12.15.1
+  DisplayName: Storage - Blobs Cryptography
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-cryptography_12.15.1/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.26.0` to version `1.27.0`.
+    - Upgraded `azure-core-http-netty` from `1.11.8` to version `1.11.9`.
+    - Upgraded `azure-storage-blob` from `12.15.0` to version `12.16.0`.
+  GroupId: com.azure
+- Name: azure-storage-blob-nio
+  Version: 12.0.0-beta.18
+  DisplayName: Storage - Blobs NIO
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-nio_12.0.0-beta.18/sdk/storage/azure-storage-blob-nio/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Updated blob dependency to 12.16.0
+  GroupId: com.azure
+- Name: azure-storage-blob
+  Version: 12.16.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob_12.16.0/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where `uploadFromFile(String, boolean)` used a different size to determine whether blob existence should
+    be checked before using chunked upload than the size used to triggered chunked upload.
+  GroupId: com.azure
+- Name: azure-storage-file-datalake
+  Version: 12.9.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage Gen2
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-datalake_12.9.0/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed a bug that would cause auth failures when trying to rename a path object while authenticating with a sas.
+
+    - Fixed a bug where `uploadFromFile(String, boolean)` used a different size to determine whether file existence should
+    be checked before using chunked upload than the size used to triggered chunked upload.
+  GroupId: com.azure
+- Name: azure-storage-blob-batch
+  Version: 12.12.1
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-batch_12.12.1/sdk/storage/azure-storage-blob-batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.26.0` to version `1.27.0`.
+    - Upgraded `azure-core-http-netty` from `1.11.8` to version `1.11.9`.
+    - Upgraded `azure-storage-blob` from `12.15.0` to version `12.16.0`.
+  GroupId: com.azure
 
