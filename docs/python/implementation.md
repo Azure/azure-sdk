@@ -155,6 +155,8 @@ The `DEBUG` logging level is intended for developers or system administrators to
 
 {% include requirement/MUSTNOT id="python-logging-sensitive-info" %} send sensitive information in log levels other than `DEBUG`.  For example, redact or remove account keys when logging headers.
 
+Only If along with `DEBUG`, `is_enabled` is `True` then sensitive information such as account keys can be logged.
+
 {% include requirement/MUST id="python-logging-request" %} log the request line, response line, and headers for an outgoing request as an `INFO` message.
 
 {% include requirement/MUST id="python-logging-cancellation" %} log an `INFO` message, if a service call is canceled.
