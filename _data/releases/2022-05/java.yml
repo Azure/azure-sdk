@@ -557,4 +557,15 @@ entries:
     ##### Other Changes
     * Updated `jackson` dependency to 2.13.2 and `jackson-databind` dependency to 2.13.2.1 - CVE-2020-36518. - See [PR 27847](https://github.com/Azure/azure-sdk-for-java/pull/27847)
   GroupId: com.azure
+- Name: azure-spring-data-cosmos
+  Version: 3.19.1
+  DisplayName: Spring Data Cosmos
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-data-cosmos_3.19.1/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Other Changes
+    * Updated `azure-cosmos` to version `4.28.1`.
+  GroupId: com.azure
 
