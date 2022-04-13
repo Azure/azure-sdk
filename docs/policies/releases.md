@@ -126,7 +126,7 @@ Refer to our [deprecation policy](https://azure.github.io/azure-sdk/policies_sup
 Language|Instructions
 ----------|---------
 .Net|Follow instructions at [deprecating NuGet packages](https://docs.microsoft.com/nuget/nuget-org/deprecate-packages) to deprecate the package with the message above.<br>Select all versions of the package you are deprecating.<br>Choose deprecation reason as "Other" because "Legacy" is for packages that are no longer maintained.
-Java | Update the project description in the POM file to include the deprecation message. Publish Update.
+Java | If the deprecated package is no longer in use (new version has a different name), publish an update to the deprecated package after updating the README
 TS/JS | Run the relevant build pipeline.
 Python | If the deprecated package is no longer in use (new version has a different name), publish an update to the deprecated package after updating the README
 Go | Add a deprecation comment in the go.mod so that users see a warning when downloading the deprecated package. <br>See example [here](https://github.com/Azure/azure-sdk-for-go/blob/857695b0e8158bdf9b19bed23c33cf8a5333921d/sdk/to/go.mod#L1)
