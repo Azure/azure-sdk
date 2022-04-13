@@ -34,4 +34,12 @@ entries:
     #### Other Changes
 
     - Improved receiving by releasing messages from internal buffer when the `prefetch_count` of `ServiceBusReceiver`  is set 0 and there is no active receive call, this helps avoid receiving expired messages and incrementing delivery count of a message.
+- Name: azure-mgmt-dashboard
+  Version: 1.0.0b1
+  DisplayName: Resource Management - Dashboard
+  ServiceName: Dashboard
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-dashboard_1.0.0b1/sdk/dashboard/azure-mgmt-dashboard/CHANGELOG.md
+  ChangelogContent: '* Initial Release'
 
