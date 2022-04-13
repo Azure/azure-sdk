@@ -648,4 +648,15 @@ entries:
     - Update `azure-messaging-eventhubs` dependency to `5.11.2`.
     - Update `azure-storage-blob` dependency to `12.16.0`.
   GroupId: com.azure
+- Name: azure-messaging-eventgrid
+  Version: 4.12.0-beta.1
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventgrid_4.12.0-beta.1/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support to publish CloudEvents to partner topics by setting the channel name in `SendEventsOptions`.
+  GroupId: com.azure
 
