@@ -63,4 +63,56 @@ entries:
     **Features**
 
     - Add a default value to base_url in DashboardManagementClient
+- Name: azure-storage-blob
+  Version: 12.12.0b1
+  DisplayName: Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.12.0b1/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2021-06-08.
+    - Added a new paginated method for listing page ranges, `list_page_ranges()`. This replaces `get_page_ranges()` which has been deprecated.
+    - Added support for copying source blob tags with `start_copy_from_url()` by specifying `"COPY"` for the `tags` keyword.
+- Name: azure-storage-queue
+  Version: 12.3.0b1
+  DisplayName: Queues
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.3.0b1/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for `max_messages` in `receive_messages()` to specify the maximum number of messages to receive from the queue.
+- Name: azure-search-documents
+  Version: 11.2.2
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.2.2/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixes a bug allowing users to set keys for cognitive service skills using the API. Exposes `DefaultCognitiveServicesAccount` and `CognitiveServicesAccountKey`
+- Name: azure-storage-file-share
+  Version: 12.8.0b1
+  DisplayName: Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.8.0b1/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2021-06-08.
+    - Added support for missing parameters on `create_directory()` including `file_attributes`, `file_creation_time`,
+    `file_last_write_time`, `file_permission` and `file_permission_key`.
+    - Added support for setting `content_type` on `rename_file()`.
+    - Added support for setting `file_change_time` on `create_directory()`, `set_http_headers()` (directory)
+    `rename_directory()`, `create_file()`, `set_http_headers()` (file) and `rename_file()`.
+    - Added support for setting `file_last_written_mode` on `upload_range()` and `upload_range_from_url()`
+    with possible values of `Now` or `Preserve`.
+
+    #### Bugs Fixed
+    - Updated `create_share()` docstring to have the correct return-type of `None`
 
