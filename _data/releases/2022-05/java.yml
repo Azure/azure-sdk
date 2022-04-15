@@ -751,4 +751,18 @@ entries:
     - Upgraded `azure-core` to 1.27.0
     - Upgraded `azure-identity` to 1.5.0
   GroupId: com.azure
+- Name: azure-cosmos-encryption
+  Version: 1.0.1
+  DisplayName: Cosmos DB Encryption
+  ServiceName: Cosmos DB
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-cosmos-encryption_1.0.1/sdk/cosmos/azure-cosmos-encryption/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-cosmos` from `4.28.0` to version `4.28.1`.
+  GroupId: com.azure
 
