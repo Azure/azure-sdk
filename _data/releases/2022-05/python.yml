@@ -115,4 +115,21 @@ entries:
 
     #### Bugs Fixed
     - Updated `create_share()` docstring to have the correct return-type of `None`
+- Name: azure-storage-file-datalake
+  Version: 12.7.0b1
+  DisplayName: Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.7.0b1/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support for service version 2021-06-08 as well as previous versions.
+    - Added support for Customer-Provided Keys (cpk) to all required APIs.
+    - The `get_paths()` API now returns `creation_time` and `expiry_time` for each path.
+
+    #### Bugs Fixed
+    - Updated `create_file_system()` docstring to have the correct return-type of `None`
+    - Fixed parsing of extra `/` symbols not being stripped properly in `async` clients
+    - Fixed a bug where `get_paths()` would fail if a path did not contain `last_modified` from the service.
 
