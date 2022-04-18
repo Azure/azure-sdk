@@ -31,4 +31,164 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appservice/arm-appservice/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/arm-containerregistry'
+  Version: 10.1.0-beta.2
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/containerregistry/arm-containerregistry/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-confluent'
+  Version: 3.0.0-beta.2
+  DisplayName: '@azure/arm-confluent'
+  ServiceName: Confluent
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/confluent/arm-confluent/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-communication'
+  Version: 3.0.1
+  DisplayName: Resource Management - Communication
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-communication_3.0.1/sdk/communication/arm-communication/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-azurestack'
+  Version: 3.0.0-beta.2
+  DisplayName: Resource Management - Azure Stack
+  ServiceName: Azure Stack
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/azurestack/arm-azurestack/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-appconfiguration'
+  Version: 3.0.0-beta.4
+  DisplayName: Resource Management - App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appconfiguration/arm-appconfiguration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/data-tables'
+  Version: 13.1.1
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/data-tables_13.1.1/sdk/tables/data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed issue where `deleteTable()` doesn't throw any errors [21408](https://github.com/Azure/azure-sdk-for-js/pull/21408).
+- Name: '@azure/arm-consumption'
+  Version: 9.0.1
+  DisplayName: Resource Management - Consumption
+  ServiceName: Consumption
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/consumption/arm-consumption/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-changeanalysis'
+  Version: 2.0.1
+  DisplayName: '@azure/arm-changeanalysis'
+  ServiceName: Changeanalysis
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-changeanalysis_2.0.1/sdk/changeanalysis/arm-changeanalysis/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-batch'
+  Version: 7.1.1
+  DisplayName: Resource Management - Batch
+  ServiceName: Batch
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/batch/arm-batch/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-commerce'
+  Version: 4.0.0-beta.2
+  DisplayName: Resource Management - Commerce
+  ServiceName: Commerce
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/commerce/arm-commerce/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-botservice'
+  Version: 4.0.0-beta.3
+  DisplayName: Resource Management - Bot Service
+  ServiceName: Bot Service
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/botservice/arm-botservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-billing'
+  Version: 4.0.1
+  DisplayName: Resource Management - Billing
+  ServiceName: Cost Management + Billing
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/billing/arm-billing/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/eventgrid'
+  Version: 4.10.0-beta.1
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/eventgrid_4.10.0-beta.1/sdk/eventgrid/eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add support for specifiying a channel to send to in a specific Partner Topic via the `channelName` property of `SendOptions`.
+- Name: '@azure/synapse-artifacts'
+  Version: 1.0.0-beta.10
+  DisplayName: Artifacts
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/synapse-artifacts_1.0.0-beta.10/sdk/synapse/synapse-artifacts/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    Added `LinkConnectionOperations`
+- Name: '@azure/arm-databox'
+  Version: 5.0.0-beta.2
+  DisplayName: Resource Management - Data Box
+  ServiceName: Data Box
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/databox/arm-databox/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-databoxedge'
+  Version: 2.0.1
+  DisplayName: Resource Management - Data Box Edge
+  ServiceName: Stack Edge
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-databoxedge_2.0.1/sdk/databoxedge/arm-databoxedge/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-databricks'
+  Version: 3.0.0-beta.3
+  DisplayName: Resource Management - Databricks
+  ServiceName: Data Bricks
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/databricks/arm-databricks/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-customerinsights'
+  Version: 4.0.1
+  DisplayName: Resource Management - Customer Insights
+  ServiceName: Customer Insights
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/customer-insights/arm-customerinsights/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/arm-cosmosdb'
+  Version: 16.0.0-beta.2
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb/CHANGELOG.md
+  ChangelogContent: ""
 
