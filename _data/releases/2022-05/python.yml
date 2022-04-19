@@ -199,4 +199,20 @@ entries:
     #### Bugs Fixed
     - Fixed error that could occur when fetching a key rotation policy that has no defined
     `lifetime_actions`.
+- Name: azure-ai-language-conversations
+  Version: 1.0.0b3
+  DisplayName: Conversation Analysis
+  ServiceName: Cognitive Language Understanding
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-language-conversations_1.0.0b3/sdk/cognitivelanguage/azure-ai-language-conversations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Entity resolutions
+    * Extra features
+
+    #### Breaking Changes
+    * The `ConversationAnalysisOptions` model used as input to the `analyze_conversation` operation is now wrapped in a `CustomConversationalTask` which combines the analysis options with the project parameters into a single model.
+    * The `query` within the `ConversationAnalysisOptions` is now further qualified as a `TextConversationItem` with additional properties.
+    * The output `AnalyzeConversationResult` is now wrapped in a `CustomConversationalTaskResult` according to the input model.
 
