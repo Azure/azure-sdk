@@ -40,6 +40,7 @@ For Tier-2 languages (C, C++, Go, Android, iOS), the review will be on an as-nee
 
 * Name of the client library:
 * Languages for this review:
+* Library uses [Data Plane Code Generation](https://aka.ms/azsdk/dpcodegen): [ ]
 
 ## Artifacts required (per language)
 
