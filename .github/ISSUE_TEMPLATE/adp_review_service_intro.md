@@ -34,7 +34,7 @@ Please reference our [review process guidelines](https://azure.github.io/azure-s
 * Name of client library:
 * Link to library reference documentation:
 * Is there an existing SDK library? If yes, provide link:
-* Library uses [Data Plane Code Generation](https://aka.ms/azsdk/dpcodegen): **Yes** / No
+* Library uses [Data Plane Code Generation](https://aka.ms/azsdk/dpcodegen): **Yes**
 
 
 ## Step 1: Champion Scenarios 
