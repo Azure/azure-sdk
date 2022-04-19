@@ -2803,4 +2803,26 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/mixedreality/armmixedreality/v0.4.0/sdk/resourcemanager/mixedreality/armmixedreality/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/storage/azblob
+  Version: 0.4.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/storage/azblob/v0.4.0/sdk/storage/azblob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Fixed Issue #17515 : SetTags options bag missing leaseID.
+    * Fixed Issue #17423 : Drop "Type" suffix from `GeoReplicationStatusType`.
+    * Fixed Issue #17335 : Nil pointer exception when passing nil options bag in `ListBlobsFlat` API call.
+    * Fixed Issue #17188 : `BlobURLParts` not supporting VersionID
+    * Fixed Issue #17152 , Issue #17131 , Issue #17061 : `UploadStreamToBlockBlob` / `UploadStreamToBlockBlob` methods ignoring the options bag.
+    * Fixed Issue #16920 : Fixing error handling example.
+    * Fixed Issue #16786 : Refactoring of autorest code generation definition and adding necessary transformations.
+    * Fixed Issue #16679 : Response parsing issue in List blobs API.
+
+    #### Breaking Changes
+    * Fixed Issue #17150 : Renaming/refactoring high level methods.
+    * Fixed Issue #16972 : Constructors should return clients by reference.
+    * Renaming the options bags to match the naming convention same as that of response. The behaviour of options bags remains the same.
 
