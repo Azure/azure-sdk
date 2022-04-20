@@ -191,4 +191,77 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/cosmosdb/arm-cosmosdb/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/storage-file-datalake'
+  Version: 12.9.0-beta.1
+  DisplayName: Files Data Lake
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.9.0-beta.1/sdk/storage/storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2021-06-08.
+    - Added support for Customer Provided Key server-side encryption of files.
+    - Added ability to retrieve path createdOn and expiresOn times with DataLakeFileSystemClient.listPaths().
+
+    #### Bugs Fixed
+
+    - Add missing browser mapping for `./dist-esm/storage-common/src/BufferScheduler.js`
+    - Add `react-native` mapping to ESM entry point
+- Name: '@azure/arm-datacatalog'
+  Version: 4.0.0
+  DisplayName: Resource Management - Data Catalog
+  ServiceName: Data Catalog
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/datacatalog/arm-datacatalog/CHANGELOG.md
+  ChangelogContent: ""
+- Name: '@azure/storage-file-share'
+  Version: 12.10.0-beta.1
+  DisplayName: Files Shares
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.10.0-beta.1/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2021-06-08.
+    - Added ability to maintain a file's current last write time when calling ShareFileClient.uploadRange() and ShareFileClient.uploadRangeFromURL().
+    - Added ability to specify a file or directory's change time when calling ShareFileClient.create(), ShareDirectoryClient.create(), ShareFileClient.setProperties(), ShareDirectoryClient.setProperties(), ShareFileClient.resize(), ShareFileClient.rename() and ShareDirectoryClient.rename().
+    - Added ability to specify content-type on a file when calling ShareFileClient.rename().
+
+    #### Bugs Fixed
+
+    - Add `react-native` mapping to ESM entry point
+- Name: '@azure/storage-blob'
+  Version: 12.10.0-beta.1
+  DisplayName: Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.10.0-beta.1/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2021-06-08.
+    - Added pageable output of PageBlobClient.listPageRanges() and PageBlobClient.listPageRangesDiff().
+    - Added ability to copy source blob tags for BlobClient.syncCopyFromURL().
+
+    #### Bugs Fixed
+
+    - Fix incorrect browser mapping path for BufferScheduler.js
+    - Add `react-native` mapping to ESM entrypoint
+- Name: '@azure/storage-blob-changefeed'
+  Version: 12.0.0-preview.3
+  DisplayName: Blobs ChangeFeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob-changefeed_12.0.0-preview.3/sdk/storage/storage-blob-changefeed/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    -Added support for event schema V3, V4, and V5.
 
