@@ -273,4 +273,12 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Grafana_1.0.0-beta.1/sdk/grafana/Azure.ResourceManager.Grafana/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Storage.Blobs.ChangeFeed
+  Version: 12.0.0-preview.24
+  DisplayName: Storage - Blobs ChangeFeed
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.24/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md
+  ChangelogContent: '- Added ability to specify chunk download size with BlobChangeFeedClientOptions.MaximumTransferSize.'
 
