@@ -239,4 +239,31 @@ entries:
     - Introduced new method `EventHubProducerClient.get_buffered_event_count` which returns the number of events that are buffered and waiting to be published for a given partition.
     - Introduced new property `EventHubProducerClient.total_buffered_event_count` which returns the total number of events that are currently buffered and waiting to be published, across all partitions.
     - Introduced new boolean keyword argument `flush` to `EventHubProducerClient.close` which indicates whether to flush the buffer or not while closing.
+- Name: azure-mgmt-reservations
+  Version: 2.0.0
+  DisplayName: Resource Management - Reservations
+  ServiceName: Reservations
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-reservations_2.0.0/sdk/reservations/azure-mgmt-reservations/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-synapse-artifacts
+  Version: 0.13.0
+  DisplayName: Synapse - Artifacts
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-synapse-artifacts_0.13.0/sdk/synapse/azure-synapse-artifacts/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features
+
+    - Added operation group LinkConnectionOperations
+- Name: azure-mgmt-servicelinker
+  Version: 1.0.0
+  DisplayName: Resource Management - Service Linker
+  ServiceName: Service Linker
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-servicelinker_1.0.0/sdk/servicelinker/azure-mgmt-servicelinker/CHANGELOG.md
+  ChangelogContent: ""
 
