@@ -1,6 +1,6 @@
 <!-- Navigation -->
-<nav class="navbar navbar-inverse">
-    <div class="container topnavlinks">
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="{{ "/releases/latest/index.html" | relative_url }}"/>
-                <span class="projectTitle"><img style="margin-top: -8px;" class="d-inline-block align-top" src="{{ "/images/azure-sdk-glyph.svg" | relative_url }}" width="42" height="42" alt=""/> {{site.topnav_title}}</span>
+                <span class="projectTitle"><img style="margin-top: -8px;" class="d-inline-block align-top" src="{{ "/images/azure-sdk-glyph.svg" | relative_url }}" width="35" height="35" alt=""/> {{site.topnav_title}}</span>
             </a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -64,13 +64,13 @@
                 {% endif %}
                 <li>
                     {% if page.repository %}
-                        <a style="font-size: 1.666em !important" class="fa fa-github fa-2x" href="https://github.com/{{ page.repository }}"></a>
+                        <a style="font-size: 1.666em !important" class="fa fa-github fa-2x" title="GitHub Link" href="https://github.com/{{ page.repository }}"></a>
                     {% elsif site.repository %}
-                        <a style="font-size: 1.666em !important" class="fa fa-github fa-2x" href="https://github.com/{{ site.repository }}"></a>
+                        <a style="font-size: 1.666em !important" class="fa fa-github fa-2x" title="GitHub Link" href="https://github.com/{{ site.repository }}"></a>
                     {% endif %}
                 </li>
                 <li>
-                    <a style="font-size: 1.666em !important" class="fa fa-twitter fa-2x" href="https://twitter.com/AzureSDK"></a>
+                    <a style="font-size: 1.666em !important" class="fa fa-twitter fa-2x" title="Twitter Link" href="https://twitter.com/AzureSDK"></a>
                 </li>
             </ul>
         </div>

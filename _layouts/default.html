@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     {% include head.html %}
@@ -90,17 +90,17 @@
 <body>
     {% include topnav.html %}
     <!-- Page Content -->
-    <div class="container">
+    <div class="container-fluid" style="margin-top: 60px; min-height: calc(100vh - 50px);">
         <div id="main">
             <!-- Content Row -->
             <div class="row">
                 {% assign content_col_size = "col-md-12" %}
                 {% unless page.hide_sidebar %}
                 <!-- Sidebar Column -->
-                <div class="col-md-3" id="tg-sb-sidebar">
+                <div class="col-md-2 col-xs-12" id="tg-sb-sidebar">
                     {% include sidebar.html %}
                 </div>
-                {% assign content_col_size = "col-md-9" %}
+                {% assign content_col_size = "col-md-10 col-xs-12" %}
                 {% endunless %}
 
                 <!-- Content Column -->
@@ -108,6 +108,7 @@
                     {{content}}
                 </div>
                 <!-- /.row -->
+
             </div>
             <!-- /.container -->
         </div>
@@ -120,5 +121,6 @@
     {% include app_insights.html %}
     {% endif %}
 </body>
-
+{{site.data.alerts.hr_shaded}}
+{% include footer.html %}
 </html>

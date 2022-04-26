@@ -614,95 +614,95 @@ If you have a bug or feature request for one of the libraries, please post an is
 ####New Features
 - Support properties named in hyphens style, like "azure.keyvault.tenant-id".
 
-### Java Spring Boot KeyVault Certificates Starter 3.0.0-beta.3 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot-starter-keyvault-certificates/CHANGELOG.md#300-beta3-2021-01-20)
+### Java Spring Boot KeyVault Certificates Starter 3.0.0-beta.3
 - Beta release
 
-### Azure Identity Spring 1.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-identity-spring/CHANGELOG.md#110-2021-01-20)
+### Azure Identity Spring 1.1.0
 - GA release
 
-### Java Spring Boot 3.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot/CHANGELOG.md#310-2021-01-20)
+### Java Spring Boot 3.1.0
 - GA release
 
-### Java Spring Boot AAD B2C Starter 3.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot-starter-active-directory-b2c/CHANGELOG.md#310-2021-01-20)
+### Java Spring Boot AAD B2C Starter 3.1.0md#310-2021-01-20)
 
 #### Breaking Changes
 - Exposed userNameAttributeName to configure the user's name.
 
-### Java Spring Boot AAD Starter 3.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot-starter-active-directory/CHANGELOG.md#310-2021-01-20)
+### Java Spring Boot AAD Starter 3.1.0
 - GA release
 
-### Java Spring Boot Cosmos db Starter 3.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot-starter-cosmos/CHANGELOG.md#310-2021-01-20)
+### Java Spring Boot Cosmos db Starter 3.1.0
 - GA release
 
-### Java Spring Boot KeyVault Secrets Starter 3.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot-starter-keyvault-secrets/CHANGELOG.md#310-2021-01-20)
+### Java Spring Boot KeyVault Secrets Starter 3.1.0
 - GA release
 
-### Java Spring Boot ServiceBus Jms Starter 3.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot-starter-servicebus-jms/CHANGELOG.md#310-2021-01-20)
+### Java Spring Boot ServiceBus Jms Starter 3.1.0
 - GA release
 
-### Java Spring Boot Starter 3.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot-starter/CHANGELOG.md#310-2021-01-20)
+### Java Spring Boot Starter 3.1.0
 
 #### Breaking Changes
 - Exposed userNameAttributeName to configure the user's name.
 
-### Java Spring Boot Storage Starter 3.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot-starter-storage/CHANGELOG.md#310-2021-01-20)
+### Java Spring Boot Storage Starter 3.1.0
 - GA release
 
-### Java Spring Cloud Autoconfigure 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-autoconfigure/CHANGELOG.md#210-2021-01-20)
+### Java Spring Cloud Autoconfigure 2.1.0
 - GA release
 
-### Java Spring Cloud Context 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-context/CHANGELOG.md#210-2021-01-20)
+### Java Spring Cloud Context 2.1.0
 - GA release
 
-### Java Spring Cloud Event Hub Binder 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-stream-binder-eventhubs/CHANGELOG.md#210-2021-01-20)
+### Java Spring Cloud Event Hub Binder 2.1.0
 - GA release
 
-### Java Spring Cloud Messaging 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-messaging/CHANGELOG.md#210-2021-01-20)
+### Java Spring Cloud Messaging 2.1.0
 - GA release
 
-### Java Spring Cloud Service Bus Queue Stream Binder 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-stream-binder-servicebus-queue/CHANGELOG.md#210-2021-01-20)
+### Java Spring Cloud Service Bus Queue Stream Binder 2.1.0
 - GA release
 
-### Java Spring Cloud Service Bus Stream Binder Core 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-stream-binder-servicebus-core/CHANGELOG.md#210-2021-01-20)
+### Java Spring Cloud Service Bus Stream Binder Core 2.1.0
 - GA release
 
-### Java Spring Cloud Service Bus Topic Stream Binder 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-stream-binder-servicebus-topic/CHANGELOG.md#210-2021-01-20)
+### Java Spring Cloud Service Bus Topic Stream Binder 2.1.0
 - GA release
 
-### Java Spring Cloud Starter Cache 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-starter-cache/CHANGELOG.md#210-2021-01-20)
+### Java Spring Cloud Starter Cache 2.1.0
 - GA release
 
-### Java Spring Cloud Starter Event Hub Kafka 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-starter-eventhubs-kafka/CHANGELOG.md#210-2021-01-20)
+### Java Spring Cloud Starter Event Hub Kafka 2.1.0
 - GA release
 
-### Java Spring Cloud Starter Event Hubs 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-starter-eventhubs/CHANGELOG.md#210-2021-01-20)
+### Java Spring Cloud Starter Event Hubs 2.1.0
 - GA release
 
-### Java Spring Cloud Starter Service Bus 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-starter-servicebus/CHANGELOG.md#210-2021-01-20)
+### Java Spring Cloud Starter Service Bus 2.1.0
 - GA release
 
-### Java Spring Cloud Storage 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-storage/CHANGELOG.md#210-2021-01-20)
+### Java Spring Cloud Storage 2.1.0
 - GA release
 
-### Java Spring Cloud Storage Queue Starter 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-starter-storage-queue/CHANGELOG.md#210-2021-01-20)
+### Java Spring Cloud Storage Queue Starter 2.1.0
 - GA release
 
-### Java Spring Cloud Stream Binder Test 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-stream-binder-test/CHANGELOG.md#210-2021-01-20)
+### Java Spring Cloud Stream Binder Test 2.1.0
 - GA release
 
-### Java Spring Integration Core 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-integration-core/CHANGELOG.md#210-2021-01-20)
+### Java Spring Integration Core 2.1.0
 - GA release
 
-### Java Spring Integration Event Hubs 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-integration-eventhubs/CHANGELOG.md#210-2021-01-20)
+### Java Spring Integration Event Hubs 2.1.0
 - GA release
 
-### Java Spring Integration Service Bus 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-integration-servicebus/CHANGELOG.md#210-2021-01-20)
+### Java Spring Integration Service Bus 2.1.0
 - GA release
 
-### Java Spring Integration Storage Queue 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-integration-storage-queue/CHANGELOG.md#210-2021-01-20)
+### Java Spring Integration Storage Queue 2.1.0
 - GA release
 
-### Java Spring Integration Test 2.1.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-integration-test/CHANGELOG.md#210-2021-01-20)
+### Java Spring Integration Test 2.1.0
 - GA release
 
 ## Need help
