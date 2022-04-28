@@ -266,4 +266,17 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-servicelinker_1.0.0/sdk/servicelinker/azure-mgmt-servicelinker/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-identity
+  Version: 1.10.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.10.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    > These changes do not impact the API of stable versions such as 1.9.0.
+    > Only code written against a beta version such as 1.10.0b1 may be affected.
+    - `validate_authority` support is not available in 1.10.0.
 
