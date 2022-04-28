@@ -292,7 +292,7 @@ Providing a method that accepts multiple closure leads to unnecessarily cluttere
 
 {% include requirement/SHOULD id="ios-network-closure-type" %} use `HTTPResultHandler` as the type of the closure to expose both the result (or error) and the raw response data.
 
-#### Events
+#### Event Handling
 
 iOS applications commonly need to react to events from the UI or service. The following guidelines apply to SDKs that expose events to the customer.
 
@@ -315,24 +315,33 @@ public struct CatClientEvents {
 }
 {% endhighlight %}
 
+{% include requirement/MAY id="ios-event-mutable" %} mutate individual event handlers after client instantiation, unlike most client configuration which is required to be immutable.
+
 {% include requirement/SHOULDNOT id="ios-closure-unicast" %} use event properties for multicast event scenarios. This approach is intended only for unicast scenarios.
 
-{% include requirement/MUST id="ios-closure-naming-convention" %} name event properties using the Swift UI naming convention. For example, a delegate method called "cat(didMeow:)" would translate to an event named "onCatMeow".
+{% include requirement/MUST id="ios-closure-naming-convention" %} name event properties using the Swift UI naming convention. For example, a delegate method called "cat(didMeow:)" would translate to an closure-based event named "onCatMeow".
 
-{% include requirement/MAY id="ios-event-methods %} expose event handlers using `register` and `unregister` methods on the client object. This pattern MAY be used for unicast scenarios and SHOULD be used for multicast scenarios. For example:
+{% include requirement/MAY id="ios-event-methods" %} expose event handlers using `register` and `unregister` methods on the client object. This pattern MAY be used for unicast scenarios and SHOULD be used for multicast scenarios. In the multicast scenario, registering an event MUST return an identifier (such as an integer) to allow the customer to unregister an event handler without having to provide the same event handler. For example:
 
 {% highlight swift %}
 public class CatClient: PipelineClient {
 
+    public enum CatEvent:
+        case meow
+        case eat(String, Int)
+        case sleep(Int)
+
     // unicast scenario
-    public func register(_ eventId: CatEventId, _ handler: ((String) -> Void)) -> Void
-    public func unregister(_ eventId: CatEventId) -> Void
+    public func register(_ eventId: CatEvent, _ handler: ((CatEvent) -> Void)) -> Void
+    public func unregister(_ eventId: CatEvent) -> Void
 
     // multicast scenario
-    public func register(_ eventId: CatEventId, _ handler: ((String) -> Void)) -> Int
+    public func register(_ eventId: CatEvent, _ handler: ((CatEvent) -> Void)) -> Int
     public func unregister(identifier: Int)
 }
 {% endhighlight %}
+
+{% include requirement/MUST id="ios-event-id-enum" %} expose an enum which exposes the various event types. This will allow customers to easily know which events can be registered using IDE completions.
 
 ##### Delegates
 
