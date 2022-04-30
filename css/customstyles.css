@@ -499,8 +499,11 @@ div#mysidebar {
 
 .nav ul li a {
   margin-left: 15px;
-  border-left: solid 2px #0071c5;
   border-radius: 0px;
+}
+
+ol ul li.active a {
+  border-left: solid 2px #0071c5;
 }
 /* end sidebar */
 
