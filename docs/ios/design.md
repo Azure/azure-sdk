@@ -300,48 +300,55 @@ iOS applications commonly need to react to events from the UI or service. The fo
 
 {% include requirement/MUST id="ios-event-closures-required" %} expose event handlers as closures.
 
-{% include requirement/MAY id="ios-event-properties %} expose event handlers as optional variables on an event collection object. This object MUST end with the `Events` suffix and must be exposed on the client object. The object MAY be a class or struct. For example:
+{% include requirement/SHOULD id="ios-event-properties %} group related events together in a `struct` whose definition is enclosed within the client. This struct should be named `Events` (if there is only one collection) or end with the `Events` suffix and should contain no other properties or methods besides the event handlers themselves. Event collections must be exposed directly on the client as a property that is either named `events` (if there is only one collection) or ends with the `Events` suffix. For example:
 
 {% highlight swift %}
 public class CatClient: PipelineClient {
-    public var events: CatClientEvents?
-    ...
-}
 
-public struct CatClientEvents {
-    public var onCatMeow: ((String) -> Void)? = nil
-    public var onCatSleep: ((String) -> Void)? = nil
+    public struct UnicastEvents {
+        public var onCatMeow: ((String) -> Void)? = nil
+        public var onCatSleep: ((String) -> Void)? = nil
+        ...
+    }
+    
+    public struct MulticastEvents {
+        public var onCatMeow: MulticastEventsCollection<((String) -> Void)>
+        public var onCatSleep: MulticastEventsCollection<((String) -> Void)>
+        ...
+    }
+
+    public var unicastEvents = Events()
+    public var multicastEvents = MulticastEvents()
     ...
 }
 {% endhighlight %}
-
+    
 {% include requirement/MAY id="ios-event-mutable" %} mutate individual event handlers after client instantiation, unlike most client configuration which is required to be immutable.
 
-{% include requirement/SHOULDNOT id="ios-closure-unicast" %} use event properties for multicast event scenarios. This approach is intended only for unicast scenarios.
+{% include requirement/SHOULD id="ios-closure-typealias" %} provide a public typealias for each event signature (??? or maybe not?)
 
 {% include requirement/MUST id="ios-closure-naming-convention" %} name event properties using the Swift UI naming convention. For example, a delegate method called "cat(didMeow:)" would translate to an closure-based event named "onCatMeow".
 
-{% include requirement/MAY id="ios-event-methods" %} expose event handlers using `register` and `unregister` methods on the client object. This pattern MAY be used for unicast scenarios and SHOULD be used for multicast scenarios. In the multicast scenario, registering an event MUST return an identifier (such as an integer) to allow the customer to unregister an event handler without having to provide the same event handler. For example:
+{% include requirement/MUST id="ios-event-multicast" %} expose multicast event handlers using the `MulticastEventCollection` generic type from `Azure.Core`. This type contains a `register` method which accepts the event as a trailing closure and returns a UUID string identifier which can be used to unregister the handler. SDKs which cannot use `Azure.Core` (for example, ObjC-based SDKs) should work with the Azure SDK team to ensure their multicast solution projects to the same Swift interface.
 
 {% highlight swift %}
+// SDK code
 public class CatClient: PipelineClient {
-
-    public enum CatEvent:
-        case meow
-        case eat(String, Int)
-        case sleep(Int)
-
-    // unicast scenario
-    public func register(_ eventId: CatEvent, _ handler: ((CatEvent) -> Void)) -> Void
-    public func unregister(_ eventId: CatEvent) -> Void
-
-    // multicast scenario
-    public func register(_ eventId: CatEvent, _ handler: ((CatEvent) -> Void)) -> Int
-    public func unregister(identifier: Int)
+    public struct Events {
+        public var onCatMeow: MulticastEventsCollection<((String) -> Void)>
+        public var onCatSleep: MulticastEventsCollection<((String) -> Void)>
+        ...
+    }
+    public var events = MulticastEvents()
+    ...
 }
-{% endhighlight %}
 
-{% include requirement/MUST id="ios-event-id-enum" %} expose an enum which exposes the various event types. This will allow customers to easily know which events can be registered using IDE completions.
+// Customer Code
+let client = CatClient(...)
+let event1 = client.events.onCatMeow.register { ... }
+let event 2 = client.events.onCatMeow.register { ... }
+client.events.unregister(event1)
+{% endhighlight %}
 
 ##### Delegates
 
