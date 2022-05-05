@@ -900,4 +900,28 @@ entries:
     #### Other Changes
 
     - Minor improvements to the typing of `updatedOptions` when calling startSpan.
+- Name: '@azure/core-xml'
+  Version: 1.2.1
+  DisplayName: Core - Client - XML
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-xml_1.2.1/sdk/core/core-xml/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Add a `react-native` mapping to use `fast-xml-parser` for xml building/parsing as it is already in our dependency list.  With this customers don't need to polyfill the DOM api for XML processing.
+- Name: '@azure/core-client'
+  Version: 1.6.0
+  DisplayName: Core - Client - Client
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-client_1.6.0/sdk/core/core-client/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added a new property endpoint in ServiceClientOptions and mark the baseUri as deprecated to encourage people to use endpoint. See issue link [here](https://github.com/Azure/autorest.typescript/issues/1337)
+    - Upgraded our `@azure/core-tracing` dependency to version 1.0
+    - Add callbacks to support Storage challenge authentication [PR#21678](https://github.com/Azure/azure-sdk-for-js/pull/21678)
 
