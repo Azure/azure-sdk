@@ -827,4 +827,77 @@ entries:
     #### Other Changes
 
     Deprecated. We’re retiring the Azure Video Analyzer preview service, you're advised to transition your applications off of Video Analyzer by 01 December 2022. This SDK is not longer maintained.
+- Name: '@azure/core-util'
+  Version: 1.0.0
+  DisplayName: Core - Client - Core Utils
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-util_1.0.0/sdk/core/core-util/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add helpers `isObject`, `isError`, `getErrorMessage` for handling unknown Error objects.
+    - Add helper `getRandomIntegerInclusive` for randomly selecting a whole integer value from a given range.
+- Name: '@azure/core-http-compat'
+  Version: 1.3.0
+  DisplayName: Azure Core Http Compat
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http-compat_1.3.0/sdk/core/core-http-compat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Introduces `CompatResponse` type for the `_response` property that is compatible with the response in `@azure/core-http`. Please refer [#20766](https://github.com/Azure/azure-sdk-for-js/pull/20766) for further details.
+- Name: '@azure/abort-controller'
+  Version: 1.1.0
+  DisplayName: Core - Client - Abort Controller
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/abort-controller_1.1.0/sdk/core/abort-controller/CHANGELOG.md
+  ChangelogContent: |-
+    - Changed TS compilation target to ES2017 in order to produce smaller bundles and use more native platform features
+    - With the dropping of support for Node.js versions that are no longer in LTS, the dependency on `@types/node` has been updated to version 12. Read our [support policy](https://github.com/Azure/azure-sdk-for-js/blob/main/SUPPORT.md) for more details.
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.8.1
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.8.1/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Support TLS Settings for client certificate authentication. [#21172](https://github.com/Azure/azure-sdk-for-js/pull/21172)
+
+    - Exposed type guard for RestError called `isRestError` for typesafe exception handling.
+
+    - Improve user agent information for React-Native.
+- Name: '@azure/core-http'
+  Version: 2.2.5
+  DisplayName: Core - Client - HTTP
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-http_2.2.5/sdk/core/core-http/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fix an issue where React-Native is loading the wrong file. Adding a `react-native` mapping to point to the ESM entrypoint file. [PR #21118](https://github.com/Azure/azure-sdk-for-js/pull/21118)
+    - delay creating XML parser/builder objects so that packages not requiring XML functionality but running on platforms lacking XML support can still load this package. [PR #21118](https://github.com/Azure/azure-sdk-for-js/pull/21118)
+    - Add a `react-native` mapping to use `xml2js` as it is already in our dependency list. Customer can get it to work after installing `stream` and `timers` packages in their React-Native project.
+    - Fix a run-time error in user agent policy when running in React-Native.
+- Name: '@azure/core-tracing'
+  Version: 1.0.1
+  DisplayName: Core - Client - Tracing
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-tracing_1.0.1/sdk/core/core-tracing/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Minor improvements to the typing of `updatedOptions` when calling startSpan.
 
