@@ -320,4 +320,15 @@ entries:
     #### Features Added
 
     - Add `SerializationError` and `DeserializationError` in `azure.core.exceptions` for errors raised during serialization / deserialization  #24312
+- Name: azure-monitor-query
+  Version: 1.0.2
+  DisplayName: Monitor Query
+  ServiceName: Monitor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-monitor-query_1.0.2/sdk/monitor/azure-monitor-query/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed a bug where having a None value in datetime throws
 
