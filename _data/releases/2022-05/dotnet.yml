@@ -400,4 +400,35 @@ entries:
     - TenantId can now be discovered through the service OAuth challenge response, when using a TokenCredential for authorization against a Storage Table Service.
     - A new property is now available on the `TableClientOptions` called `EnableTenantDiscovery`. If set to true, the client will attempt an initial unauthorized request to the service to prompt an OAuth challenge containing the tenantId of the resource. This tenantId will then be used by the TokenCredential.
     - Diagnostics logging no longer redacts the following query parameters: '$format', '$filter', '$top', '$select'
+- Name: Microsoft.Extensions.Azure
+  Version: 1.2.0
+  DisplayName: Extensions - Azure
+  ServiceName: Extensions
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Extensions.Azure_1.2.0/sdk/extensions/Microsoft.Extensions.Azure/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Added support for GUID constructor parameters to be parsed directly from configuration.
+- Name: Azure.Messaging.EventHubs
+  Version: 5.7.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs_5.7.0/sdk/eventhub/Azure.Messaging.EventHubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - The `EventHubBufferedProducerClient` is being introduced, intended to allow for efficient publishing of events without having to explicitly manage batches in the application.  More information can be found in its [design document](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/eventhub/Azure.Messaging.EventHubs/design/proposal-event-hub-buffered-producer.md).
+    _(Thanks to [danielmarbach](https://github.com/danielmarbach) for his contributions to the implementation)_
+
+    - An additional base class for event processors, `PluggableCheckpointStoreEventProcessor<T>`, has been added to simplify creating customized event processors and integrate with concrete `CheckpointStore` implementations.
+
+    - An abstract `CheckpointStore` is now available for use with the `PluggableCheckpointStoreEventProcessor<T>` to simplify creating customized event processors and allow reusing existing checkpoint store implementations.
+
+    - Support for cancellation tokens has been improved for AMQP operations, enabling earlier detection of cancellation requests without needing to wait for the configured timeout to elapse.
+
+    - Added `FullyQualifiedNamespace`, `EventHubName`, and `ConsumerGroup` to the partition context associated with events read by the `EventHubConsumerClient`.
 
