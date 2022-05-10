@@ -1158,4 +1158,15 @@ entries:
 
     - Compatability for old payload format has been removed.
     - Errors may include a `cause` field that stores inner errors if any.
+- Name: '@azure/event-hubs'
+  Version: 5.8.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/event-hubs_5.8.0/sdk/eventhub/event-hubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - The `enableIdempotentPartitions` flag has been renamed to `enableIdempotentRetries`
 
