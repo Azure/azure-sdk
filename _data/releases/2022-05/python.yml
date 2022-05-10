@@ -366,4 +366,106 @@ entries:
     #### Features Added
 
     - Added `validate_authority` support for msal client  ([#22625](https://github.com/Azure/azure-sdk-for-python/issues/22625))
+- Name: azure-storage-queue
+  Version: 12.3.0
+  DisplayName: Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.3.0/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed a bug, introduced in the previous beta release, that caused Authentication errors when attempting to use
+    an Account SAS with certain service level operations.
+
+    #### Features Added
+    - Stable release of features from 12.3.0b1.
+- Name: azure-storage-file-share
+  Version: 12.8.0
+  DisplayName: Files Shares
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.8.0/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed a bug, introduced in the previous beta release, that caused Authentication errors when attempting to use
+    an Account SAS with certain service level operations.
+
+    #### Features Added
+    - Stable release of features from 12.8.0b1.
+- Name: azure-schemaregistry
+  Version: 1.1.0
+  DisplayName: Schema Registry
+  ServiceName: Schema Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-schemaregistry_1.1.0/sdk/schemaregistry/azure-schemaregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `group_name` and `name` have been added as instance variables to `SchemaProperties`.
+- Name: azure-storage-file-datalake
+  Version: 12.7.0
+  DisplayName: Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.7.0/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed a bug, introduced in the previous beta release, that caused Authentication errors when attempting to use
+    an Account SAS with certain service level operations.
+
+    #### Features Added
+    - Stable release of features from 12.7.0b1.
+- Name: azure-schemaregistry-avroencoder
+  Version: 1.0.0
+  DisplayName: Avro Encoder
+  ServiceName: Schema Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-schemaregistry-avroencoder_1.0.0/sdk/schemaregistry/azure-schemaregistry-avroencoder/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `AvroEncoder` sync and async classes provide the functionality to encode and decode content which follows a schema with the RecordSchema format, as defined by the Apache Avro specification. The Apache Avro library is used as the implementation for encoding and decoding.
+    The encoder will automatically register and retrieve schemas from Azure Schema Registry Service. It provides the following methods:
+    - constructor: If `auto_register=True` keyword is passed in, will automatically register schemas passed in to the `encode` method. Otherwise, and by default, will require pre-registering of schemas passed to `encode`. Takes a `group_name` argument that is optional when decoding, but required for encoding.
+    - `encode`: Encodes dict content into bytes according to the given schema and registers schema if needed. Returns either a dict of encoded content and corresponding content type or a `MessageType` subtype object, depending on arguments provided.
+    - `decode`: Decodes bytes content into dict content by automatically retrieving schema from the service.
+    - `MessageContent` TypedDict has been introduced with the following required keys:
+    - `content`: The bytes content.
+    - `content_type`: The string content type, which holds the schema ID and the record format indicator.
+    - `MessageType` has been introduced with the following methods:
+    - `from_message_content`: Class method that creates an object with given bytes content and string content type.
+    - `__message_content__`: Returns a `MessageContent` object with content and content type values set to their respective properties on the object.
+    - Schemas and Schema IDs are cached locally, so that multiple calls with the same schema/schema ID will not trigger multiple service calls.
+    - The number of hits, misses, and total entries for the schema/schema ID caches will be logged at an info level when a new entry is added.
+    - `InvalidContentError` has been introduced for errors related to invalid content and content types, where `__cause__` will contain the underlying exception raised by the Avro library.
+    - `InvalidSchemaError` has been introduced for errors related to invalid schemas, where `__cause__` will contain the underlying exception raised by the Apache Avro library.
+    - The `encode` and `decode` methods on `AvroEncoder` support the following message models:
+    - `azure.eventhub.EventData` in `azure-eventhub>=5.9.0`
+- Name: azure-storage-blob
+  Version: 12.12.0
+  DisplayName: Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.12.0/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Stable release of features from 12.12.0b1.
+    - Added support for progress tracking to `upload_blob()` and `download_blob()` via a new optional callback,`progress_hook`.
+- Name: azure-eventhub
+  Version: 5.9.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.9.0/sdk/eventhub/azure-eventhub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - The classmethod `from_message_content` has been added to `EventData` for interoperability with the Schema Registry Avro Encoder library, and takes `content` and `content_type` as positional parameters.
 
