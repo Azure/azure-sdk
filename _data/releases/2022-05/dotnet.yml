@@ -388,4 +388,16 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs.ChangeFeed_12.0.0-preview.25/sdk/storage/Azure.Storage.Blobs.ChangeFeed/CHANGELOG.md
   ChangelogContent: "- Updated Change Feed to return 0 events when meta/segments.json file hasn't been created yet."
+- Name: Azure.Data.Tables
+  Version: 12.6.0-beta.1
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.Tables_12.6.0-beta.1/sdk/tables/Azure.Data.Tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - TenantId can now be discovered through the service OAuth challenge response, when using a TokenCredential for authorization against a Storage Table Service.
+    - A new property is now available on the `TableClientOptions` called `EnableTenantDiscovery`. If set to true, the client will attempt an initial unauthorized request to the service to prompt an OAuth challenge containing the tenantId of the resource. This tenantId will then be used by the TokenCredential.
+    - Diagnostics logging no longer redacts the following query parameters: '$format', '$filter', '$top', '$select'
 
