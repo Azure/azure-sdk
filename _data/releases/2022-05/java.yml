@@ -1505,4 +1505,37 @@ entries:
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/spring-cloud-azure-service_4.1.0/sdk/spring/spring-cloud-azure-service/CHANGELOG.md
   ChangelogContent: Please refer to [CHANGELOG.md](https://github.com/Azure/azure-sdk-for-java/blob/05a1dcfea12e99293180931d53cbd0d0964fb297/sdk/spring/CHANGELOG.md#410-2022-05-05) for more details.
   GroupId: com.azure.spring
+- Name: azure-communication-common
+  Version: 1.1.3
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-common_1.1.3/sdk/communication/azure-communication-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.27.0` to version `1.28.0`.
+    - Upgraded `azure-core-http-netty` from `1.11.9` to version `1.12.0`.
+  GroupId: com.azure
+- Name: azure-resourcemanager-datafactory
+  Version: 1.0.0-beta.15
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-datafactory_1.0.0-beta.15/sdk/datafactory/azure-resourcemanager-datafactory/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-appcontainers
+  Version: 1.0.0-beta.2
+  DisplayName: Resource Management - Container Apps
+  ServiceName: Container Apps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-appcontainers_1.0.0-beta.2/sdk/appcontainers/azure-resourcemanager-appcontainers/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
