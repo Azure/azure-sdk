@@ -431,4 +431,35 @@ entries:
     - Support for cancellation tokens has been improved for AMQP operations, enabling earlier detection of cancellation requests without needing to wait for the configured timeout to elapse.
 
     - Added `FullyQualifiedNamespace`, `EventHubName`, and `ConsumerGroup` to the partition context associated with events read by the `EventHubConsumerClient`.
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.8.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.8.0/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added the `GetReceiveActions` method to `ProcessMessageEventArgs` and `ProcessSessionMessageEventArgs` to allow for receiving additional messages from the processor callback.
+
+    #### Bugs Fixed
+
+    - Prevent exception when stopping processor that can occur if custom registrations were added to the `CancellationToken` that is exposed via the event args.
+    - Don't close entire AMQP session when closing individual AMQP links when `EnableCrossEntityTransactions` is set to `true`, since with this configuration, all links will share the same session.
+
+    #### Breaking Changes
+
+    - `ServiceBusTransportMetrics` and `ServiceBusRuleManager` have been removed from the prior beta versions. These will be evaluated for inclusion in a future GA release.
+- Name: Azure.Messaging.EventHubs.Processor
+  Version: 5.7.0
+  DisplayName: Event Hubs - Event Processor
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.EventHubs.Processor_5.7.0/sdk/eventhub/Azure.Messaging.EventHubs.Processor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - The `BlobCheckpointStore` implementation used internally by the processor has been made public and now conforms to the `CheckpointStore` contract, allowing it to be used with custom processor implementations.
 
