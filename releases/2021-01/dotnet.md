@@ -112,7 +112,7 @@ If you have a bug or feature request for one of the libraries, please [file an i
 
 ### Live Video Analytics on IoT Edge [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Media.Analytics.Edge_1.0.0-beta.1/sdk/mediaservices/Azure.Media.Analytics.Edge/CHANGELOG.md#100-beta1-2020-12-11)
 
-- Initial release of [Live Video Analytics on IoT Edge](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/overview).
+- Initial release of Live Video Analytics on IoT Edge.
 
 ### Microsoft.Azure.ServiceBus [Changelog](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Microsoft.Azure.ServiceBus/CHANGELOG.md#511-2021-01-12)
 

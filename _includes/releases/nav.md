@@ -4,7 +4,7 @@
   <div class="nav-language-filter-cell"><a href="#javascript">JavaScript/TypeScript</a></div>
   <div class="nav-language-filter-cell"><a href="#python">Python</a></div>
 
-{% if include.type != "retired" %}
+{% if include.type != "deprecated" %}
   <div class="nav-language-filter-cell"><a href="#c">C++</a></div>
   <div class="nav-language-filter-cell"><a href="#embedded-c">Embedded C</a></div>
   <div class="nav-language-filter-cell"><a href="#android">Android</a></div>

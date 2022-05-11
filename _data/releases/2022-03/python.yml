@@ -1,0 +1,377 @@
+entries:
+- Name: azure-ai-language-questionanswering
+  Version: 1.1.0b1
+  DisplayName: Question Answering
+  ServiceName: Cognitive Language
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-language-questionanswering_1.1.0b1/sdk/cognitivelanguage/azure-ai-language-questionanswering/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added `QuestionAnsweringProjectsClient` for managing Qna projects. Performing project operations such as create, delete, export, and import project, as well as knowledge sources operations such as adding or listing knowledge sources, Qnas, and synonyms.
+- Name: azure-servicebus
+  Version: 7.6.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.6.0/sdk/servicebus/azure-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Introduce `ServiceBusMessageState` enum that can assume the values of `active`, `scheduled` or `deferred`.
+    - Add `state` property in `ServiceBusReceivedMessage`.
+- Name: azure-messaging-webpubsubservice
+  Version: 1.0.1
+  DisplayName: Web PubSub
+  ServiceName: Web PubSub
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-messaging-webpubsubservice_1.0.1/sdk/webpubsub/azure-messaging-webpubsubservice/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - fix authentication who use a `reverse_proxy_endpoint` with either `WebPubSubServiceClient.from_connection_string` or pass in an `AzureKeyCredential` for authentication #22587
+- Name: azure-mgmt-datafactory
+  Version: 2.2.1
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-datafactory_2.2.1/sdk/datafactory/azure-mgmt-datafactory/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-storage
+  Version: 19.1.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-storage_19.1.0/sdk/storage/azure-mgmt-storage/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-compute
+  Version: 26.0.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_26.0.0/sdk/compute/azure-mgmt-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-appconfiguration
+  Version: 2.1.0b1
+  DisplayName: Resource Management - App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-appconfiguration_2.1.0b1/sdk/appconfiguration/azure-mgmt-appconfiguration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-loganalytics
+  Version: 13.0.0b2
+  DisplayName: Resource Management - Log Analytics
+  ServiceName: Log Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-loganalytics_13.0.0b2/sdk/loganalytics/azure-mgmt-loganalytics/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-containerservice
+  Version: 17.0.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-containerservice_17.0.0/sdk/containerservice/azure-mgmt-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-cosmosdb
+  Version: 7.0.0b3
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cosmosdb_7.0.0b3/sdk/cosmos/azure-mgmt-cosmosdb/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-appplatform
+  Version: 7.0.0
+  DisplayName: Resource Management - App Platform
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-appplatform_7.0.0/sdk/appplatform/azure-mgmt-appplatform/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-kusto
+  Version: 2.2.0
+  DisplayName: Resource Management - Kusto
+  ServiceName: Data Explorer
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-kusto_2.2.0/sdk/kusto/azure-mgmt-kusto/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-storage-blob
+  Version: 12.10.0b4
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.10.0b4/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Addressed a few `mypy` typing hint errors.
+
+    #### Features Added
+    - Updated clients to support both SAS and OAuth together.
+    - Updated OAuth implementation to use the AAD scope returned in a Bearer challenge.
+- Name: azure-mgmt-servicelinker
+  Version: 1.0.0b2
+  DisplayName: Resource Management - Service Linker
+  ServiceName: Service Linker
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-servicelinker_1.0.0b2/sdk/servicelinker/azure-mgmt-servicelinker/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-identity
+  Version: 1.8.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.8.0/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Handle injected "tenant_id" and "claims" ([#23138](https://github.com/Azure/azure-sdk-for-python/issues/23138))
+
+    "tenant_id" argument in get_token() method is only supported by:
+
+    - `AuthorizationCodeCredential`
+    - `AzureCliCredential`
+    - `AzurePowerShellCredential`
+    - `InteractiveBrowserCredential`
+    - `DeviceCodeCredential`
+    - `EnvironmentCredential`
+    - `UsernamePasswordCredential`
+
+    it is ignored by other types of credentials.
+- Name: azure-mgmt-appconfiguration
+  Version: 2.1.0b2
+  DisplayName: Resource Management - App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-appconfiguration_2.1.0b2/sdk/appconfiguration/azure-mgmt-appconfiguration/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-compute
+  Version: 26.1.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-compute_26.1.0/sdk/compute/azure-mgmt-compute/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-datafactory
+  Version: 2.3.0
+  DisplayName: Resource Management - Data Factory
+  ServiceName: Data Factory
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-datafactory_2.3.0/sdk/datafactory/azure-mgmt-datafactory/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-core
+  Version: 1.23.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.23.0/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Use "\n" rather than "/n" for new line in log.     #23261
+
+    #### Features Added
+
+    - Improve intellisense type hinting for service client methods. #22891
+
+    - Add a case insensitive dict `case_insensitive_dict` in `azure.core.utils`.  #23206
+- Name: azure-mgmt-rdbms
+  Version: 10.1.0
+  DisplayName: Resource Management - Rdbms
+  ServiceName: Database for MySQL/PostgreSQL
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-rdbms_10.1.0/sdk/rdbms/azure-mgmt-rdbms/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-mgmt-sql
+  Version: 4.0.0b2
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-sql_4.0.0b2/sdk/sql/azure-mgmt-sql/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-synapse-artifacts
+  Version: 0.12.0
+  DisplayName: Synapse - Artifacts
+  ServiceName: Synapse Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-synapse-artifacts_0.12.0/sdk/synapse/azure-synapse-artifacts/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - re-generated based on tag package-artifacts-composite-v3
+- Name: azure-identity
+  Version: 1.9.0b1
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-identity_1.9.0b1/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `validate_authority` support for msal client  ([#22625](https://github.com/Azure/azure-sdk-for-python/issues/22625))
+    - Added `resource_id` support for user-assigned managed identity  ([#22329](https://github.com/Azure/azure-sdk-for-python/issues/22329))
+    - Added `ClientAssertionCredential` support  ([#22328](https://github.com/Azure/azure-sdk-for-python/issues/22328))
+    - Updated App service API version to "2019-08-01" ([#23034](https://github.com/Azure/azure-sdk-for-python/issues/23034))
+- Name: azure-search-documents
+  Version: 11.3.0b8
+  DisplayName: Cognitive Search
+  ServiceName: Search
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-search-documents_11.3.0b8/sdk/search/azure-search-documents/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added support to create, update and delete aliases via the `SearchIndexClient`.
+- Name: azure-ai-textanalytics
+  Version: 5.2.0b3
+  DisplayName: Text Analytics
+  ServiceName: Text Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-textanalytics_5.2.0b3/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - `string_index_type` now correctly defaults to the Python default `UnicodeCodePoint` for `AnalyzeSentimentAction` and `RecognizeCustomEntitiesAction`.
+    - Fixed a bug in `begin_analyze_actions` where incorrect action types were being sent in the request if targeting the older API version `v3.1` in the beta version of the client library.
+    - `string_index_type` option `Utf16CodePoint` is corrected to `Utf16CodeUnit`.
+- Name: azure-eventhub
+  Version: 5.8.0a3
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.8.0a3/sdk/eventhub/azure-eventhub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Improved the performance of async sending and receiving.
+- Name: azure-storage-file-share
+  Version: 12.7.0
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-share_12.7.0/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Fixed a bug where `start_copy_from_url()` was not sending the `ignore_read_only` parameter correctly.
+- Name: azure-storage-blob
+  Version: 12.10.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.10.0/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Added all missing Service SAS permissions.
+    - Fixed a bug that prevented `upload_blob()` from working with an OS pipe
+    reader stream on Linux. (#23131)
+- Name: azure-storage-queue
+  Version: 12.2.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-queue_12.2.0/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Update `azure-core` dependency to avoid inconsistent dependencies from being installed.
+- Name: azure-schemaregistry-avroencoder
+  Version: 1.0.0b2
+  DisplayName: Schema Registry - Avro
+  ServiceName: Schema Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-schemaregistry-avroencoder_1.0.0b2/sdk/schemaregistry/azure-schemaregistry-avroencoder/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `MessageMetadataDict` has been renamed `MessageContent`.
+    - `data` in `MessageContent` has been renamed `content`.
+    - The `data` parameter in `encode` and `decode` on the sync and async `AvroEncoder` has been renamed `content`.
+    - The `from_message_data` method in the `MessageType` protocol has been renamed `from_message_content`. The `data` parameter in `from_message_content` has been renamed `content`.
+    - The `__message_data__` method in the `MessageType` protocol has been renamed `__message_content__`.
+
+    #### Features Added
+
+    - `request_options` has been added to `encode` and `decode` on `AvroEncoder` as an optional parameter to be passed into client requests.
+    - The size of the current schema/schema ID caches will be logged at an info level when a new entry has been added.
+- Name: azure-eventhub
+  Version: 5.9.0b2
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.9.0b2/sdk/eventhub/azure-eventhub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - `from_message_data` on `EventData` has been renamed `from_message_content` for interoperability with the Schema Registry Avro Encoder library. The `data` parameter has been renamed to `content`.
+- Name: azure-storage-file-datalake
+  Version: 12.6.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage (Gen 2)
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-file-datalake_12.6.0/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    - Update `azure-core` dependency to avoid inconsistent dependencies from being installed.
+    - Added all missing Service SAS permissions.
+- Name: azure-cosmos
+  Version: 4.3.0b3
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.3.0b3/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added new **provisional** `max_integrated_cache_staleness_in_ms` parameter to read item and query items APIs in order
+    to make use of the **preview** CosmosDB integrated cache functionality.
+    Please see [Azure Cosmos DB integrated cache](https://docs.microsoft.com/azure/cosmos-db/integrated-cache) for more details.
+    - Added support for split-proof queries for the async client
+
+    #### Bugs fixed
+    - Default consistency level for the sync and async clients is no longer `Session` and will instead be set to the
+    consistency level of the user's cosmos account setting on initialization if not passed during client initialization.
+    This change will impact client application in terms of RUs and latency. Users relying on default `Session` consistency
+    will need to pass it explicitly if their account consistency is different than `Session`.
+    Please see [Consistency Levels in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/consistency-levels) for more details.
+    - Fixed invalid request body being sent when passing in `serverScript` body parameter to replace operations for trigger, sproc and udf resources.
+    - Moved `is_system_key` logic in async client.
+    - Fixed TypeErrors not being thrown when passing in invalid connection retry policies to the client.
+- Name: azure-data-tables
+  Version: 12.3.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-data-tables_12.3.0/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * Validation of the table name has been removed from the constructor of the TableClient. Instead individual APIs will validate the table name and raise a ValueError only if the service rejects the request due to the table name not being valid (#23106)
+    * Fixed hard-coded URL scheme in batch requests (#21953)
+    * Improved documentation for query formatting in `query_entities` APIs (#23235)
+    * Removed unsecure debug logging
+

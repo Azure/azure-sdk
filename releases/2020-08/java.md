@@ -406,7 +406,7 @@ Detailed changelogs are linked from the [Quick Links](#quick-links) below. Here 
 - Only updateable properties on QueueProperties, TopicProperties, and SubscriptionProperties are exposed
 - MessageDetailCount is flattened and removed in QueueRuntimeInfo, TopicRuntimeInfo, and SubscriptionRuntimeInfo.
 
-### Azure Spring Boot ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot/CHANGELOG.md#233-2020-08-13))
+### Azure Spring Boot
 
 #### New Features
 - Support connection to multiple Key Vault from a single application configuration file

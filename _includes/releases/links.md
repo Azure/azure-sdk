@@ -1,7 +1,7 @@
 {% assign version = item[include.version] %}
 
-<!-- For retired packages we just want whichever version we have it doesn't matter if it is GA or preview -->
-{% if version == "" and item.Support == "retired" %}
+<!-- For deprecated packages we just want whichever version we have it doesn't matter if it is GA or preview -->
+{% if version == "" and item.Support == "deprecated" %}
     {% assign version = item.VersionPreview %}
 {% endif %}
 
@@ -49,5 +49,8 @@
     </div>
     {% if item.Support != "" and include.version == "VersionGA" %}
         <div>Support: <a href="https://aka.ms/azsdk/policies/support">{{ item.Support | capitalize }}</a></div>
+        {% if item.Support == "deprecated" and item.DeprecatedDate != "" %}
+        <div>Deprecated on {{ item.DeprecatedDate }}</div>
+        {% endif %}
     {% endif %}
 {% endif %}

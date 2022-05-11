@@ -66,7 +66,7 @@ If you have a bug or feature request for one of the libraries, please post an is
 
 ### Live Video Analytics on IoT Edge [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/media/azure-media-analytics-edge/CHANGELOG.md#100b1)
 
-- Initial release of [Live Video Analytics on IoT Edge](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/overview).
+- Initial release of Live Video Analytics on IoT Edge.
 
 ### Service Bus [Changelog](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/servicebus/azure-servicebus/CHANGELOG.md#701-2021-01-12)
 - `forward_to` and `forward_dead_lettered_messages_to` will no longer cause authorization errors when used in `ServiceBusAdministrationClient` for queues and subscriptions (#15543).

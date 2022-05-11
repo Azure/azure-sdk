@@ -69,7 +69,76 @@ A manual migration test should be developed to ensure that payloads and data fed
 
 ### 5) Updating package manager references
 
-When releasing any new version of an SDK follow best practices of the language specific package managers to ensure that this new version's visibility is elevated and recommended by default to the users.
+Follow the best practices below to ensure that the visibility of the new release is elevated.
+
+Identify supported legacy libraries for the SDK you are releasing as early as possible <br>
+-	**Note:** we cannot deprecate GA libraries which were released less than 1 year ago per the [current Azure SLA](https://www.microsoft.com/LICENSING/PRODUCT-LICENSING/PRODUCTS)
+- Note,  We should direct users to the new library only if it is covering the legacy library specs. Make sure you confirm feature and performance parity at your arch board reviews.
+-	For .NET, once a library has been identified as suitable for replacement, initiate a request to have NuGet search popularity for the legacy library forwarded to the new library. The SDK team engineering team will know how to do this or who to talk to.
+
+For each legacy package you plan to deprecate
+-	Update the legacy library package README with a link to the new package.
+```markdown
+Please note, this package has been deprecated. A replacement package is available
+[package name](https://aka.ms/azsdk) as of [date-MM/YY]. We strongly
+encourage you to upgrade to continue receiving updates. 
+See the [Migration Guide](https://aka.ms/azsdk) for guidance on upgrading. 
+Refer to our [deprecation policy](https://azure.github.io/azure-sdk/policies_support.html) for more details.
+```
+For packages with the same name (e.g. Python, Java), use the following wording.
+```markdown
+Please note, versions of this package with version numbers [version number] and below have been deprecated
+as of [date-MM-YY]. We strongly encourage you to upgrade to the latest version to continue receiving updates.
+Refer to our [deprecation policy](https://azure.github.io/azure-sdk/policies_support.html) for more details.
+```
+-	Update the legacy Samples README with link to the new samples.
+Note, you can search for sample repositories under https://docs.microsoft.com/samples/browse/?products=azure.
+```markdown
+Samples in this repository use deprecated packages [list legacy package here]. We recommend
+that you get started using the new package here instead: [package name](https://aka.ms/azsdk).
+```
+-	Update the new package README with a link to the migration guides.
+```markdown
+This document covers [library name] [package name](https://aka.ms/azsdk).
+If you're using an older package, we recommend that you upgrade your code.
+See [Migration Guide](https://aka.ms/azsdk) for more details.
+```
+-	Update package index files to identify legacy packages replacement.
+```markdown
+Go to https://github.com/Azure/azure-sdk/blob/master/_data/releases/latest/ and update [language]-packages.csv.
+Use Notes column to clarify what is being replaced by the new package.
+```
+-	In the package managers that support updates to existing packages, update the legacy packages in the package manager to include a deprecation notice. Use the following message and follow programming language instructions.
+```markdown
+Please note, this package has been deprecated. A replacement package is available
+[package name](https://aka.ms/azsdk) as of [date-MM/YY]. We strongly
+encourage you to upgrade to continue receiving updates. 
+See the [Migration Guide](https://aka.ms/azsdk) for guidance on upgrading.
+Refer to our [deprecation policy](https://azure.github.io/azure-sdk/policies_support.html) for more details.
+```
+-	If you are deprecating a package version, but staying within the same package name, update the wording above to mention a specific version.
+```markdown
+Please note, versions of this package with version numbers [version number] and below have been 
+deprecated as of [date-MM-YY]. We strongly encourage you to upgrade to the latest version to 
+continue receiving updates. 
+Refer to our [deprecation policy](https://azure.github.io/azure-sdk/policies_support.html) for more details.
+```
+Language|Instructions
+----------|---------
+.Net|Follow instructions at [deprecating NuGet packages](https://docs.microsoft.com/nuget/nuget-org/deprecate-packages) to deprecate the package with the message above.<br>Select all versions of the package you are deprecating.<br>Choose deprecation reason as "Other" because "Legacy" is for packages that are no longer maintained.
+Java | If the deprecated package is no longer in use (new version has a different name), publish an update to the deprecated package after updating the README
+TS/JS | Run the relevant build pipeline.
+Python | If the deprecated package is no longer in use (new version has a different name), publish an update to the deprecated package after updating the README
+Go | Add a deprecation comment in the go.mod so that users see a warning when downloading the deprecated package. <br>See example [here](https://github.com/Azure/azure-sdk-for-go/blob/857695b0e8158bdf9b19bed23c33cf8a5333921d/sdk/to/go.mod#L1)
+
+#### Legacy packages support after the update
+
+- Ensure you have the infrastructure in place to build and ship fixes for the legacy libraries for the next 3 years.<br> You will need to ship security and critical bug fixes for the first year.<br> You don’t have to proactively fix anything else, but a customer calling for support should be able to get it. Refer to our [deprecation policy](https://azure.github.io/azure-sdk/policies_support.html) for more details.
+- Encourage customers to migrate to the new library when possible, from this point on.
+- After one year, customers will need to provide a strong business need to justify and receive legacy library updates. Most of the customers are expected to migrate to the latest library at this point.
+- Monitor the deprecated library usage. If the number of customers is small, consider working with them individually to migrate to the latest version.<br> At the point when there are no customers left, you can retire the library following the [Azure Global Retirement Policy process](https://dev.azure.com/msazure/AzureWiki/_wiki/wikis/AzureWiki.wiki/37673/Retirements-and-Breaking-Changes).
+
+
 
 ## Terms
 
@@ -162,9 +231,9 @@ Example change log:
 
 For clarity, a `change log entry` is simply the header + content up to the next release header OR EOF. During release, if there exists a changelog entry with a version specifier _matching_ that of the currently releasing package, that changelog entry will be added as the body of the GitHub release.
 
-### Changelog Entries for GA releases
+### Changelog Entries for Stable releases
 
-When doing a switch from a beta to a GA release there are often very few changes which can be misleading to customers, as they might not think there are many changes. Instead when doing a GA release it is recommended that we either squash all the beta notes into the GA changelog entry or add a comment similar to `Includes all changes from X.Y.Z-beta.A to X.Y.Z.beta.B` so that it is clear that all those changes are included.
+When doing a switch from a beta to a stable release there are often very few changes which can be misleading to customers, as they might not think there are many changes. Instead when doing a stable release it is recommended that we either squash all the beta notes into the stable changelog entry or add a comment similar to `Includes all changes from X.Y.Z-beta.A to X.Y.Z.beta.B` so that it is clear that all those changes are included.
 
 ## Release Cycle
 
@@ -183,10 +252,10 @@ The team makes every effort to follow [SemVer](https://semver.org/) for versioni
 - Increments to the minor digit (1.1.X to 1.2.X) indicate the addition of new apis or features.
 - Increments to the patch number (1.1.1 to 1.1.2) indicate a set of new compatible fixes.
 
-In addition to the stable GA releases the team also has prereleases of a package to allow the community to try new features early and give feedback.
+In addition to the stable releases the team also has Alpha and Beta releases of a package to allow the community to try new features early and give feedback.
 
 - Alpha releases are sometimes referred to as dev releases and use a prerelease label that contains a date stamp similar to `-alpha-YYYYMMDD.r`. This ensures the versions are unique as they will often be published daily. These are often published to an isolated registry depending on the language ecosystem. These releases are based on the latest committed code changes and should not be used for production dependencies. They are very volatile and change from version-to-version. These are mostly useful for temporarily working around an issue or testing out the latest library changes.
-- Beta releases use a prerelease label like `-beta.X` and are published to the most common public registry for each language ecosystem. These releases are less volatile and released less often then alpha releases.  These are usually used before releasing a new minor or major GA release. Beta releases may have breaking changes from the previous beta but should not have breaking changes from the last GA release. Once a package has released to GA, any breaking changes require an exception and approval from the architecture board.
+- Beta releases use a prerelease label like `-beta.X` and are published to the most common public registry for each language ecosystem. These releases are less volatile and released less often then alpha releases.  These are usually used before releasing a new minor or major stable release. Beta releases may have breaking changes from the previous beta but should not have breaking changes from the last stable release. Once a package has released to stable, any breaking changes require an exception and approval from the architecture board.
 
 While all the languages follow the general versioning scheme, they each have slight differences based on their ecosystem, for those differences see the individual language sections below.
 
@@ -198,9 +267,9 @@ Immediately after a package ships the source definition of the package version s
 
 **Beta Release:** Increment the beta number on the package (e.g. `1.0.0-beta.1` -> `1.0.0-beta.2`) appropriate to the versioning scheme for the language (see below for language-specific version formatting). Breaking changes are allowed between beta versions.
 
-**GA Release:** Some languages bump the minor and others bump the patch version please see specific guidelines below based on your language. Breaking changes (which might increment the major version number) are *not* allowed after a GA release without an exception and review by the architecture board.
+**Stable Release:** Some languages bump the minor and others bump the patch version please see specific guidelines below based on your language. Breaking changes (which might increment the major version number) are *not* allowed after a stable release without an exception and review by the architecture board.
 
-**GA Hotfix Release:** Some languages bump the patch version and others have specific conventions see guidelines below based on your language. See [Hotfix Branches](repobranching.md#hotfix-branches) for branching strategy of hotfixes.
+**Stable Hotfix Release:** Some languages bump the patch version and others have specific conventions see guidelines below based on your language. See [Hotfix Branches](repobranching.md#hotfix-branches) for branching strategy of hotfixes.
 
 ### Consistent Dependency Versions
 
@@ -244,11 +313,11 @@ Beta packages will be published PyPi. Alpha packages will be published to the is
 
 **Beta Release:**  `1.0.0b1` -> `1.0.0b2`
 
-**GA Release:** `1.1.0` ->  `1.1.1`
+**Stable Release:** `1.1.0` ->  `1.1.1`
 
-**GA Hotfix Release:** `1.1.0` ->  `1.1.0.1`
+**Stable Hotfix Release:** `1.1.0` ->  `1.1.0.1`
 
-**Floating GA dependencies:** Use `<X+1.0.0,>=X.0.0` to float dependencies where `X` is the major release upon which the package depends and `X+1` is the next major version.
+**Floating Stable dependencies:** Use `<X+1.0.0,>=X.0.0` to float dependencies where `X` is the major release upon which the package depends and `X+1` is the next major version.
 
 In rare cases where a customer cannot take all the latest patch versions with all the bug fixes for a particular major/minor release, but there is a critical fix necessary, we will publish a hotfix package in the format X.Y.Z.N where N increments with each successive hotfix. In this case it is expected that the customer will pin the particular hotfix version they wish to use.
 
@@ -259,28 +328,28 @@ When publishing an npm package, [npm distribution tags](https://docs.npmjs.com/c
 
 Below are the guidelines for versions to use:
 
-- GA releases will follow [SemVer](https://semver.org/) and the published package will get the tag `latest`.
+- Stable releases will follow [SemVer](https://semver.org/) and the published package will get the tag `latest`.
   - If a hotfix is being shipped for a version older than the current GA version, then the hotfix version does not get any tags.
-  - If a package has moved from beta to GA, then `next` tag is deleted  from beta and latest tag will be set for GA version.
+  - If a package has moved from beta to stable, then `next` tag is deleted from beta and latest tag will be set for stable version.
 - Beta releases will use the format `X.Y.Z-beta.N` for version and the published package will get the tag `next`.
-  - Package version will also get `latest` tag **only** if the package has never had a GA release.
+  - Package version will also get `latest` tag **only** if the package has never had a stable release.
 - Daily alpha releases will use the format `X.Y.Z-alpha.YYYYMMDD.r` (`r` is based on the number of builds performed on the given day) and the latest published package will have the `dev` tag and published to npm. To consume a alpha package either pin to a specific version or use the `dev` tag as the version.
 
 ##### Incrementing after release (JS)
 
 **Beta Release:** `1.0.0-beta.1` -> `1.0.0-beta.2`
 
-**GA Release:** `1.1.0` -> `1.1.1`
+**Stable Release:** `1.1.0` -> `1.1.1`
 
-**GA Hotfix Release:** `1.0.0` -> `1.0.0-hotfix.1`
+**Stable Hotfix Release:** `1.0.0` -> `1.0.0-hotfix.1`
 
-**Floating GA dependencies:** Use `^X.0.0` to float dependencies where `X` is the major release upon which the package depends.
+**Floating Stable dependencies:** Use `^X.0.0` to float dependencies where `X` is the major release upon which the package depends.
 
 Generally, customers are expected to use caret or tilde ranges. Caret ranges (e.g. `^1.0.0`) allow them to take all non-breaking changes for a package and tilde ranges (`~1.0.0`) allow them to take all minor bugfixes for a particular major/minor release.
 
 In rare cases where a customer does not wish to take all bugfixes for a particular major/minor release (i.e. the tilde range `~X.Y.0` is not sufficient), but there is a critical fix necessary, we will publish a hotfix package in the format `X.Y.0-hotfix.N` where `N` increments with each successive hotfix. In this case it is expected that the customer will pin the particular hotfix version they wish to use in their `package.json`.
 
-In general, packages that have GA'd are not expected to have additional beta releases unless the underlying service releases preview functionality or the package undergoes significant churn as part of a major version change.
+In general, packages that have a stable release are not expected to have additional beta releases unless the underlying service releases preview functionality or the package undergoes significant churn as part of a major version change.
 
 Packages which depend on a released package should float to the latest compatible major version (e.g. `^1.0.0`). Because we're using SemVer only breaking changes alter the major version number and all minor and patch changes should be compatible. The version number should only be updated for a major version change.
 
@@ -305,11 +374,11 @@ Beta packages will be published to NuGet with the pre-release designation. Alpha
 
 **Beta Release:** `1.0.0-beta.1` -> `1.0.0-beta.2`
 
-**GA Release:** `1.1.0` -> `1.2.0-beta.1`
+**Stable Release:** `1.1.0` -> `1.2.0-beta.1`
 
-**GA Hotfix Release:** `1.0.0` -> `1.0.1`
+**Stable Hotfix Release:** `1.0.0` -> `1.0.1`
 
-**Floating GA dependencies:** Use the exact version number to specify the lowest version of the package which contains the features upon which you depend.
+**Floating Stable dependencies:** Use the exact version number to specify the lowest version of the package which contains the features upon which you depend.
 
 #### Java
 
@@ -324,11 +393,11 @@ Beta packages are published directly to the Maven central registry. Alpha packag
 
 **Beta Release:** `1.0.0-beta.1` -> `1.0.0-beta.2`
 
-**GA Release:** `1.1.0` -> `1.2.0-beta.1`
+**Stable Release:** `1.1.0` -> `1.2.0-beta.1`
 
-**GA Hotfix Release:** `1.0.0` -> `1.0.1`
+**Stable Hotfix Release:** `1.0.0` -> `1.0.1`
 
-**Floating GA dependencies:** Use the exact version number to specify the lowest version of the package which contains the features upon which you depend.
+**Floating Stable dependencies:** Use the exact version number to specify the lowest version of the package which contains the features upon which you depend.
 
 #### C++
 
@@ -340,9 +409,9 @@ A C++ release includes a Tag and Release (e.g. [azure-core_1.0.0-beta.1](https:/
 
 **Preview release:** `1.0.0-beta.1` -> `1.0.0-beta.2`
 
-**GA Release:** `1.1.0` -> `1.2.0-beta.1`
+**Stable Release:** `1.1.0` -> `1.2.0-beta.1`
 
-**GA Hotfix Release:** `1.0.0` -> `1.0.1`
+**Stable Hotfix Release:** `1.0.0` -> `1.0.1`
 
 #### Embedded C
 
@@ -354,9 +423,9 @@ An Embedded C release includes a Tag and Release (e.g. [1.0.0-preview.5](https:/
 
 **Preview release:** `1.0.0-beta.1` -> `1.0.0-beta.2`
 
-**GA Release:** `1.1.0` -> `1.2.0-beta.1`
+**Stable Release:** `1.1.0` -> `1.2.0-beta.1`
 
-**GA Hotfix Release:** `1.0.0` -> `1.0.1`
+**Stable Hotfix Release:** `1.0.0` -> `1.0.1`
 
 #### Android
 
@@ -371,9 +440,9 @@ Beta packages are published directly to the Maven central registry. Alpha packag
 
 **Beta Release:** `1.0.0-beta.1` -> `1.0.0-beta.2`
 
-**GA Release:** `1.1.0` -> `1.2.0-beta.1`
+**Stable Release:** `1.1.0` -> `1.2.0-beta.1`
 
-**GA Hotfix Release:** `1.0.0` -> `1.0.1`
+**Stable Hotfix Release:** `1.0.0` -> `1.0.1`
 
 #### iOS
 
@@ -385,9 +454,9 @@ An iOS release includes a Tag and Release (e.g. [1.0.0-beta.2](https://github.co
 
 **Preview release:** `1.0.0-beta.1` -> `1.0.0-beta.2`
 
-**GA Release:** `1.1.0` -> `1.2.0-beta.1`
+**Stable Release:** `1.1.0` -> `1.2.0-beta.1`
 
-**GA Hotfix Release:** `1.0.0` -> `1.0.1`
+**Stable Hotfix Release:** `1.0.0` -> `1.0.1`
 
 #### Go
 
@@ -405,11 +474,11 @@ Initial Go package releases will be versioned will use `v0` versioning with `v0.
 
 **Beta Release:** `v2.0.0-beta.1` -> `v2.0.0-beta.2`
 
-**GA Release:** `v1.0.0` -> `v1.0.1`
+**Stable Release:** `v1.0.0` -> `v1.0.1`
 
-**GA Hotfix Release:** `v1.0.0` -> `v1.0.1`
+**Stable Hotfix Release:** `v1.0.0` -> `v1.0.1`
 
-## Beta Releases and GA Graduation
+## Beta Releases and Stable Graduation
 
 The Azure SDK team may choose to create a beta release for several reasons:
 
@@ -440,7 +509,7 @@ To create a beta, the release must:
 
 - Support for at least 2 languages.  Preferably, support one statically typed language (such as C# or Java) and one dynamically typed language (such as TypeScript or Python).
 
-To graduate to GA, a beta release must:
+To graduate to stable, a beta release must:
 
 - Support all four tier-1 languages (.NET, Java, Python, TypeScript) unless there is a good (and documented) reason to not include support for one of the languages.
 

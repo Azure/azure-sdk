@@ -85,9 +85,9 @@ The following are standard verb prefixes.  You should have a good (articulated) 
 
 The purposes of the client library is to communicate with an Azure service.  Azure services support multiple API versions.  To understand the capabilities of the service, the client library must be able to support multiple service API versions.
 
-{% include requirement/MUST id="general-service-apiversion-1" %} only target generally available service API versions when releasing a GA version of the client library.
+{% include requirement/MUST id="general-service-apiversion-1" %} only target generally available service API versions when releasing a stable version of the client library.
 
-{% include requirement/MUST id="general-service-apiversion-2" %} target the latest generally available service API version by default in GA versions of the client library.
+{% include requirement/MUST id="general-service-apiversion-2" %} target the latest generally available service API version by default in stable versions of the client library.
 
 {% include requirement/MUST id="general-service-apiversion-5" %} document the service API version that is used by default.
 
@@ -96,6 +96,8 @@ The purposes of the client library is to communicate with an Azure service.  Azu
 {% include requirement/MUST id="general-service-apiversion-4" %} include all service API versions that are supported by the client library in a `ServiceVersion` enumerated value.
 
 {% include requirement/MUST id="general-service-apiversion-6" %} ensure that the values of the `ServiceVersion` enumerated value "match" the version strings in the service Swagger definition.
+
+{% include requirement/MUST id="general-service-apiversion-7" %} add or replace the `api-version` query parameter on any URI returned by the service e.g., `Operation-Location`, next page links, etc., with the service version passed configured on the client.
 
 For the purposes of this requirement, semantic changes are allowed.  For instance, many version strings are based on SemVer, which allows dots and dashes.  However, these characters are not allowed in identifiers.  The developer **MUST** be able to clearly understand what service API version will be used when the service version is set to each value in the `ServiceVersion` enumerated value.
 

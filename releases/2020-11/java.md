@@ -703,13 +703,13 @@ and key phrases extraction) simultaneously in a list of document.
 - Renamed artifact to `microsoft-opentelemetry-exporter-azuremonitor`.
 - Replaced `instrumentationKey()` with `connectionString()` in the `AzureMonitorExporterBuilder`.
 
-### Azure Spring Cloud ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-autoconfigure/CHANGELOG.md#200-beta1-2020-11-18))
+### Azure Spring Cloud
 
 #### Breaking Changes
 - Change group id from com.microsoft.azure to com.azure.spring.
 - Change artifact id from spring-cloud-azure-autoconfigure to azure-spring-cloud-autoconfigure.
 
-### Azure Spring Boot ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot/CHANGELOG.md#300-beta1-2020-11-18))
+### Azure Spring Boot
 
 #### Breaking Changes
 

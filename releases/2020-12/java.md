@@ -343,7 +343,7 @@ These new packages share the same groupId ``com.azures.resourcemanager`` and art
 - Fixed a bug where the sharesnapshot query parameter would be ignored in share and share file client builders.
 - Fixed a bug where the error message would not be displayed the exception message of a HEAD request.
 
-### Azure Spring Data Cosmos 3.2.0 [Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md#320-2020-12-11)
+### Azure Spring Data Cosmos 3.2.0
 #### New Features
 - Updated Spring Data Commons version to 2.3.5.RELEASE.
 - Updated Spring Core version to 5.2.10.RELEASE.
@@ -392,12 +392,12 @@ These new packages share the same groupId ``com.azures.resourcemanager`` and art
 
 - Initial release.
 
-### Azure Spring Cloud ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-cloud-autoconfigure/CHANGELOG.md#200-2020-12-30))
+### Azure Spring Cloud
 #### Breaking Changes
 - Deprecated the `spring.cloud.azure.managed-identity.client-id` property,
   use `spring.cloud.azure.client-id` to set the managed identity id when using Managed Identity.
 
-### Azure Spring Boot ([Changelog](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/spring/azure-spring-boot/CHANGELOG.md#300-2020-12-30))
+### Azure Spring Boot
 #### Breaking Changes
 - Deprecated `AADAppRoleStatelessAuthenticationFilter` and `AADAuthenticationFilter`.
 - Changed artifact id from `azure-active-directory-spring-boot-starter` to `azure-spring-boot-starter-active-directory`.

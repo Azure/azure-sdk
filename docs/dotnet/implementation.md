@@ -48,7 +48,7 @@ public virtual async Task<Response<ConfigurationSetting>> AddAsync(Configuration
         request.Content = HttpPipelineRequestContent.Create(content);
 
         // send the request
-        var response = await Pipeline.SendRequestAsync(request).ConfigureAwait(false);
+        Response response = await Pipeline.SendRequestAsync(request).ConfigureAwait(false);
 
         if (response.Status == 200) {
             // deserialize content
@@ -136,7 +136,7 @@ using (JsonDocument json = await JsonDocument.ParseAsync(content, default, cance
     setting.Key = root.GetProperty("key").GetString();
 
     // optional property
-    if (root.TryGetProperty("last_modified", out var lastModified)) {
+    if (root.TryGetProperty("last_modified", out JsonElement lastModified)) {
         if(lastModified.Type == JsonValueType.Null) {
             setting.LastModified = null;
         }
@@ -477,7 +477,7 @@ For example:
 public void MatchesNameAndGuid()
 {
     // Arrange & Act
-    var eventSourceType = typeof(AzureCoreEventSource);
+    Type eventSourceType = typeof(AzureCoreEventSource);
 
     // Assert
     Assert.NotNull(eventSourceType);

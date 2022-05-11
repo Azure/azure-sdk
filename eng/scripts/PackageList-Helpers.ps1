@@ -55,9 +55,11 @@ function CreatePackage(
     PlannedVersions = ""
     FirstGADate = ""
     Support = ""
+    DeprecatedDate = ""
     Hide = ""
     Replace = ""
     ReplaceGuide = ""
+    MSDocService = ""
     Notes = ""
   };
 }
@@ -79,9 +81,11 @@ function ClonePackage($pkg)
     PlannedVersions = $pkg.PlannedVersions
     FirstGADate = $pkg.FirstGADate
     Support = $pkg.Support
+    DeprecatedDate = $pkg.DeprecatedDate
     Hide = $pkg.Hide
     Replace = $pkg.Replace
     ReplaceGuide = $pkg.ReplaceGuide
+    MSDocService = $pkg.MSDocService
     Notes = $pkg.Notes
   };
 }
@@ -142,8 +146,8 @@ function Set-PackageListForLanguage([string]$lang, [Array]$packageList)
 
   $new, $other = Get-PackageListSplit $packageList
 
-  $new = $new | Sort-Object Type, DisplayName, Package, GroupId, ServiceName
-  $other = $other | Sort-Object Type, DisplayName, Package, GroupId, ServiceName
+  $new = $new | Sort-Object Type, DisplayName, Package, GroupId, ServiceName, Support
+  $other = $other | Sort-Object Type, DisplayName, Package, GroupId, ServiceName, Support
 
   $sortedPackages = $new + $other
   $sortedPackages | ConvertTo-CSV -NoTypeInformation -UseQuotes Always | Out-File $packagelistFile -encoding ascii

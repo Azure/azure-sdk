@@ -1,0 +1,288 @@
+entries:
+- Name: sdk/resourcemanager/mysql/armmysqlflexibleservers
+  Version: 0.4.0
+  DisplayName: Resource Management - MySQL Flexible Servers
+  ServiceName: MySQL
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/mysql/armmysqlflexibleservers/v0.4.0/sdk/resourcemanager/mysql/armmysqlflexibleservers/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/datafactory/armdatafactory
+  Version: 0.3.0
+  DisplayName: Resource Management - Datafactory
+  ServiceName: Datafactory
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/datafactory/armdatafactory/v0.3.0/sdk/resourcemanager/datafactory/armdatafactory/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/messaging/internal
+  Version: 0.1.0
+  DisplayName: Messaging Internal
+  ServiceName: messaging-internal
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/internal/v0.1.0/sdk/messaging/internal/CHANGELOG.md
+  ChangelogContent: '- Internal package, only for support of azservicebus.'
+- Name: sdk/resourcemanager/mobilenetwork/armmobilenetwork
+  Version: 0.2.0
+  DisplayName: Resource Management - Mobilenetwork
+  ServiceName: Mobilenetwork
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/mobilenetwork/armmobilenetwork/v0.2.0/sdk/resourcemanager/mobilenetwork/armmobilenetwork/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/azcore
+  Version: 0.23.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v0.23.0/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added `runtime.Pager[T any]` and `runtime.Poller[T any]` supporting types for central, generic, implementations.
+    * Added `cloud` package with a new API for cloud configuration
+    * Added `FinalStateVia` field to `runtime.NewPollerOptions[T any]` type.
+
+    #### Breaking Changes
+    * Removed the `Poller` type-alias to the internal poller implementation.
+    * Added `Ptr[T any]` and `SliceOfPtrs[T any]` in the `to` package and removed all non-generic implementations.
+    * `NullValue` and `IsNullValue` now take a generic type parameter instead of an interface func parameter.
+    * Replaced `arm.Endpoint` with `cloud` API
+    * Removed the `endpoint` parameter from `NewRPRegistrationPolicy()`
+    * `arm/runtime.NewPipeline()` and `.NewRPRegistrationPolicy()` now return an `error`
+    * Refactored `NewPoller` and `NewPollerFromResumeToken` funcs in `arm/runtime` and `runtime` packages.
+    * Removed the `pollerID` parameter as it's no longer required.
+    * Created optional parameter structs and moved optional parameters into them.
+    * Changed `FinalStateVia` field to a `const` type.
+- Name: sdk/resourcemanager/mediaservices/armmediaservices
+  Version: 0.4.0
+  DisplayName: Resource Management - Media Services
+  ServiceName: Media Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/mediaservices/armmediaservices/v0.4.0/sdk/resourcemanager/mediaservices/armmediaservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/cognitiveservices/armcognitiveservices
+  Version: 0.4.0
+  DisplayName: Resource Management - Cognitive Services
+  ServiceName: Cognitive Services
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/cognitiveservices/armcognitiveservices/v0.4.0/sdk/resourcemanager/cognitiveservices/armcognitiveservices/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/resourcemanager/signalr/armsignalr
+  Version: 0.3.0
+  DisplayName: Resource Management - Signalr
+  ServiceName: Signalr
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/signalr/armsignalr/v0.3.0/sdk/resourcemanager/signalr/armsignalr/CHANGELOG.md
+  ChangelogContent: ""
+- Name: sdk/data/aztables
+  Version: 0.7.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/aztables/v0.7.0/sdk/data/aztables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * This module now requires Go 1.18
+    * Removed the `ODataID`, `ODataEditLink`, and `ODataType` on `TableProperties`
+    * Removed `ODataMetadata` on `ListTablesPageResponse`
+    * Removed `ResponsePreference` on `AddEntityOptions`
+    * Renamed `ListEntitiesOptions.PartitionKey` to `ListEntitiesOptions.NextPartitionKey`.
+    * Renamed `ListEntitiesOptionsRowKey` to `ListEntitiesOptions.NextRowKey`
+    * Renamed `Client.Create` to `Client.CreateTable`
+    * Renamed `ListEntitiesPageResponse` to `ListEntitiesResponse`
+    * Removed the `Entity` prefix on `EntityUpdateModeMerge` and `EntityUpdateModeReplace`
+    * Renamed `Client.InsertEntity` to `Client.UpsertEntity`
+    * Removed the `Continuation` prefix from `ContinuationNextPartitionKey`, `ContinuationNextRowKey`, and `ContinuationNextTable`
+    * Removed the `ResponseFormat` type
+    * Renamed `Client.List` to `Client.ListEntities`
+    * Renamed `Client.GetTableSASToken` to `Client.GetTableSASURL` and `ServiceClient.GetAccountSASToken` to `ServiceClient.GetAccountSASURL`
+    * `ServiceClient.GetProperties` returns a `ServiceProperties` struct which can be used on the `ServiceClient.SetProperties`
+    * Removed the `Type` suffix from `GeoReplicationStatusType`
+    * `ServiceClient.CreateTable` returns a response struct with the name of the table created, not a `Client`
+    * `SASSignatureValues.NewSASQueryParameters` is now `SASSignatureValues.Sign` and returns an encoded SAS
+
+    #### Features Added
+    * Added the `NextTableName` continuation token option to `ListTablesOptions`
+    * Added the `TableName` property to `CreateTableResponse`
+- Name: sdk/azidentity
+  Version: 0.14.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v0.14.0/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * This module now requires Go 1.18
+    * Removed `AuthorityHost`. Credentials are now configured for sovereign or private
+    clouds with the API in `azcore/cloud`, for example:
+    ```go
+    // before
+    opts := azidentity.ClientSecretCredentialOptions{AuthorityHost: azidentity.AzureGovernment}
+    cred, err := azidentity.NewClientSecretCredential(tenantID, clientID, secret, &opts)
+
+    // after
+    import "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
+
+    opts := azidentity.ClientSecretCredentialOptions{}
+    opts.Cloud = cloud.AzureGovernment
+    cred, err := azidentity.NewClientSecretCredential(tenantID, clientID, secret, &opts)
+    ```
+- Name: sdk/keyvault/azsecrets
+  Version: 0.7.0
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/keyvault/azsecrets/v0.7.0/sdk/keyvault/azsecrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added `PossibleDeletionRecoveryLevelValues` to iterate over all valid `DeletionRecoveryLevel` values
+    * Implemented generic pagers from `runtime.Pager` for all List operations
+    * Added `Name *string` to `DeletedSecret`, `Properties`, `Secret`, `SecretItem`, and `SecretItem`
+    * Added `Client.VaultURL` to determine the vault URL for debugging
+    * Adding `ResumeToken` method to pollers for resuming polling at a later date by using the added `ResumeToken` optional parameter on client polling methods
+
+    #### Breaking Changes
+    * Requires a minimum version of go 1.18
+    * Removed `RawResponse` from pollers
+    * Removed `DeletionRecoveryLevel`
+    * Polling operations return a Poller struct directly instead of a Response envelope
+    * Removed `ToPtr` methods
+    * `Client.UpdateSecretProperties` takes a `Secret`
+    * Renamed `Client.ListSecrets` to `Client.ListPropertiesOfSecrets`
+    * Renamed `Client.ListSecretVersions` to `Client.ListPropertiesOfSecretVersions`
+    * Renamed `DeletedDate` to `DeletedOn` and `Managed` to `IsManaged`
+    * Moved `ContentType`, `Tags`, `KeyID`, and `IsManaged` to `Properties`
+- Name: sdk/messaging/azservicebus
+  Version: 0.4.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azservicebus/v0.4.0/sdk/messaging/azservicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed bug where message batch size calculation was inaccurate, resulting in batches that were too large to be sent. (#17318)
+    - Fixing an issue with an entity not being found leading to a longer timeout than needed. (#17279)
+    - Fixed the RPCLink so it does better handling of connection/link failures. (#17389)
+    - Fixed issue where a message lock expiring would cause unnecessary retries. These retries could cause message settlement calls (ex: Receiver.CompleteMessage)
+    to appear to hang. (#17382)
+    - Fixed issue where a cancellation on ReceiveMessages() would work, but wouldn't return the proper cancellation error. (#17422)
+
+    #### Features Added
+
+    - Support for using a SharedAccessSignature in a connection string. Ex: `Endpoint=sb://<sb>.servicebus.windows.net;SharedAccessSignature=SharedAccessSignature sr=<sb>.servicebus.windows.net&sig=<base64-sig>&se=<expiry>&skn=<keyname>` (#17314)
+
+    #### Breaking Changes
+
+    - This module now requires Go 1.18
+    - Multiple functions have had `options` parameters added.
+    - `SessionReceiver.RenewMessageLock` has been removed - it isn't used for sessions. SessionReceivers should use `SessionReceiver.RenewSessionLock`.
+    - The `admin.Client` type has been changed to conform with the latest Azure Go SDK guidelines. As part of this:
+    - Embedded `*Result` structs in `admin.Client`'s APIs have been removed. Inner *Properties values have been hoisted up to the `*Response` instead.
+    - `.Response` fields have been removed for successful results. These will be added back using a     different pattern in the next release.
+    - Fields that were of type `time.Duration` have been changed to `*string`, where the value of the string is an ISO8601 timestamp.
+    Affected fields from Queues, Topics and Subscriptions: AutoDeleteOnIdle, DefaultMessageTimeToLive, DuplicateDetectionHistoryTimeWindow, LockDuration.
+    - Properties that were passed as a parameter to CreateQueue, CreateTopic or CreateSubscription are now in the `options` parameter (as they were optional):
+    Previously:
+    ```go
+    // older code
+    adminClient.CreateQueue(context.Background(), queueName, &queueProperties, nil)
+    ```
+
+    And now:
+    ```go
+    // new code
+    adminClient.CreateQueue(context.Background(), queueName, &admin.CreateQueueOptions{
+    Properties: queueProperties,
+    })
+    ```
+    - Pagers have been changed to use the new generics-based `runtime.Pager`:
+
+    Previously:
+    ```go
+    // older code
+    for queuePager.NextPage(context.TODO()) {
+    for _, queue := range queuePager.PageResponse().Items {
+    fmt.Printf("Queue name: %s, max size in MB: %d\n", queue.QueueName, *queue.MaxSizeInMegabytes)
+    }
+    }
+
+    if err := queuePager.Err(); err != nil {
+    panic(err)
+    }
+    ```
+    And now:
+
+    ```go
+    // new code
+    for queuePager.More() {
+    page, err := queuePager.NextPage(context.TODO())
+
+    if err != nil {
+    panic(err)
+    }
+
+    for _, queue := range page.Queues {
+    fmt.Printf("Queue name: %s, max size in MB: %d\n", queue.QueueName, *queue.MaxSizeInMegabytes)
+    }
+    }
+    ```
+- Name: sdk/keyvault/azcertificates
+  Version: 0.3.0
+  DisplayName: Key Vault - Certificates
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/keyvault/azcertificates/v0.3.0/sdk/keyvault/azcertificates/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added PossibleValues functions for `CertificateKeyUsage`, `CertificateKeyType`, `CertificateKeyCurveName`, and `CertificatePolicyAction` constants.
+    * Added the `ResumeToken` method on pollers for resuming operations later
+    * Added the `ResumeToken` field to the options structs of `Begin` methods for resuming operations
+    * Added the `Name *string` field to `Certificate`, `CertificateItem`, `DeletedCertificate`, `DeletedCertificateItem`
+
+    #### Breaking Changes
+    * Requires Go 1.18
+    * Fixed a misspelling of `CerificateKeyUsage`, changed to `CertificateKeyUsage`
+    * Removed all `ToPtr` methods from constants
+    * Renamed `CertificateOperation` to `Operation`
+    * Renamed `Operation.Csr` to `Operation.CSR`
+    * Renamed `KeyVaultCertificateWithPolicy` to `CertificateWithPolicy`
+    * Abbreviated `EmailAddress` to `Email`
+    * Changed `Upns` to `UserPrincipalNames`
+    * Removed the `Trigger` struct and elevated it to the `LifetimeAction`
+    * Renamed `DeletedDate` to `DeletedOn` and `Expires` to `ExpiresOn`
+- Name: sdk/keyvault/azkeys
+  Version: 0.5.0
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/keyvault/azkeys/v0.5.0/sdk/keyvault/azkeys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Added the Name property on `Key`
+
+    #### Breaking Changes
+    * Requires go 1.18
+    * `ListPropertiesOfDeletedKeysPager` has `More() bool` and `NextPage(context.Context) (ListPropertiesOfDeletedKeysPage, error)` for paging over deleted keys.
+    * `ListPropertiesOfKeyVersionsPager` has `More() bool` and `NextPage(context.Context) (ListPropertiesOfKeyVersionsPage, error)` for paging over deleted keys.
+    * Removing `RawResponse *http.Response` from `crypto` response types
+- Name: sdk/resourcemanager/resources/armresources
+  Version: 0.4.0
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/resources/armresources/v0.4.0/sdk/resourcemanager/resources/armresources/CHANGELOG.md
+  ChangelogContent: ""
+

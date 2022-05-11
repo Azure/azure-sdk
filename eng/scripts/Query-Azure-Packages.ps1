@@ -10,20 +10,42 @@ Set-StrictMode -Version 3
 function Get-android-Packages
 {
   # Rest API docs https://search.maven.org/classic/#api
+  $baseMavenQueryUrl = "https://search.maven.org/solrsearch/select?q=g:com.azure.android&rows=100&wt=json"
   $mavenQuery = Invoke-RestMethod "https://search.maven.org/solrsearch/select?q=g:com.azure.android&rows=2000&wt=json"
 
   Write-Host "Found $($mavenQuery.response.numFound) android packages on maven packages"
-  $packages = $mavenQuery.response.docs | Foreach-Object { CreatePackage $_.a $_.latestVersion $_.g }
+
+  $packages = @()
+  $count = 0
+  while ($count -lt $mavenQuery.response.numFound)
+  {
+    $packages += $mavenQuery.response.docs | Foreach-Object { CreatePackage $_.a $_.latestVersion $_.g }
+    $count += $mavenQuery.response.docs.count
+
+    $mavenQuery = Invoke-RestMethod ($baseMavenQueryUrl + "&start=$count")
+  }
+
   return $packages
 }
 
 function Get-java-Packages
 {
   # Rest API docs https://search.maven.org/classic/#api
-  $mavenQuery = Invoke-RestMethod "https://search.maven.org/solrsearch/select?q=g:com.microsoft.azure*%20OR%20g:com.azure*&rows=2000&wt=json"
+  $baseMavenQueryUrl = "https://search.maven.org/solrsearch/select?q=g:com.microsoft.azure*%20OR%20g:com.azure*&rows=100&wt=json"
+  $mavenQuery = Invoke-RestMethod $baseMavenQueryUrl
 
   Write-Host "Found $($mavenQuery.response.numFound) java packages on maven packages"
-  $packages = $mavenQuery.response.docs | Foreach-Object { if ($_.g -ne "com.azure.android") { CreatePackage $_.a $_.latestVersion $_.g } }
+
+  $packages = @()
+  $count = 0
+  while ($count -lt $mavenQuery.response.numFound)
+  {
+    $packages += $mavenQuery.response.docs | Foreach-Object { if ($_.g -ne "com.azure.android") { CreatePackage $_.a $_.latestVersion $_.g } }
+    $count += $mavenQuery.response.docs.count
+
+    $mavenQuery = Invoke-RestMethod ($baseMavenQueryUrl + "&start=$count")
+  }
+
   return $packages
 }
 
@@ -72,7 +94,7 @@ function Get-js-Packages
   {
     # If package starts with arm- and we shipped it recently because it is in the last months repo tags
     # then treat it as a new mgmt library
-    if ($package.Package -match "@azure/arm-(?<serviceName>.*)" -and $repoTags.ContainsKey($package.Package))
+    if ($package.Package -match "^@azure/arm-(?<serviceName>.*?)(-profile.*)?$" -and $repoTags.ContainsKey($package.Package))
     {
       $serviceName = (Get-Culture).TextInfo.ToTitleCase($matches["serviceName"])
       $package.Type = "mgmt"
