@@ -54,8 +54,8 @@ For Mobile development, please check the [IOS supported platforms](https://azure
 - Node.js: [LTS versions of Node.js](https://nodejs.org/about/releases/) including not just the ones in Active status, but also the ones in Maintainence status.
 - Python 3.5+, 2.7
 - Go: Latest 2 major Go releases, refer to [Go releases](https://golang.org/doc/devel/release.html) for more details.
-- C++: Refer to the list of supported platforms and compilers [here](https://azure.github.io/azure-sdk/cpp_implementation.html#supported-platforms)
-- Embedded C: Refer to the list of supported platforms and compilers [here](https://azure.github.io/azure-sdk/clang_design.html)
+- C++: Refer to the list of supported platforms and compilers [here](https://azure.github.io/azure-sdk/cpp_implementation.html#supported-platforms).
+- Embedded C: Refer to the list of supported platforms and compilers [here](https://azure.github.io/azure-sdk/clang_design.html#supported-platforms).
 
 **Test configurations:**
 
