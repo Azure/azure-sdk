@@ -1690,4 +1690,32 @@ entries:
     - spring-cloud-azure-starter-integration-storage-queue
     - spring-cloud-azure-starter-integration-eventhubs
   GroupId: com.azure.spring
+- Name: azure-data-appconfiguration
+  Version: 1.3.3
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-appconfiguration_1.3.3/sdk/appconfiguration/azure-data-appconfiguration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Updated `azure-core` to `1.28.0`.
+    - Updated `azure-core-http-netty` to `1.12.0`.
+  GroupId: com.azure
+- Name: azure-ai-textanalytics
+  Version: 5.1.9
+  DisplayName: Text Analytics
+  ServiceName: Text Analytics
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-textanalytics_5.1.9/sdk/textanalytics/azure-ai-textanalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Updated `azure-core` to `1.28.0`.
+    - Updated `azure-core-http-netty` to `1.12.0`.
+  GroupId: com.azure
 
