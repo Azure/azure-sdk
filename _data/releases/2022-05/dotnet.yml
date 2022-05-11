@@ -485,4 +485,24 @@ entries:
 
     - Added the `ServiceBusReceiveActions` type to support receiving additional messages from a function invocation.
     - Added the ability to bind to the `SessionId` property.
+- Name: Azure.MixedReality.ObjectAnchors.Conversion
+  Version: 0.3.0-beta.3
+  DisplayName: Azure Object Anchors Conversion
+  ServiceName: Mixed Reality
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.MixedReality.ObjectAnchors.Conversion_0.3.0-beta.3/sdk/objectanchors/Azure.MixedReality.ObjectAnchors.Conversion/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `ScaledAssetDimensions` to `AssetConversionProperties`.
+
+    #### Bugs Fixed
+
+    - Fixed a regression from `0.2.0-beta.1` to validate file extensions case insensitively.
+
+    #### Breaking Changes
+
+    - `OutputModelUri` now returns a `Uri` to a `.zip` file containing the `.ou` file instead of the `.ou` file itself when using the new default service version: `V0_3_preview_0`.
+    - The value specified when creating an `AssetFileType` is now validated and must begin with a '.' character.
 
