@@ -468,4 +468,35 @@ entries:
     #### Features Added
 
     - The classmethod `from_message_content` has been added to `EventData` for interoperability with the Schema Registry Avro Encoder library, and takes `content` and `content_type` as positional parameters.
+- Name: azure-mgmt-app
+  Version: 1.0.0b2
+  DisplayName: Resource Management - App
+  ServiceName: App
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-app_1.0.0b2/sdk/app/azure-mgmt-app/CHANGELOG.md
+  ChangelogContent: ""
+- Name: azure-containerregistry
+  Version: 1.1.0b1
+  DisplayName: Container Registry
+  ServiceName: Container Registry
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-containerregistry_1.1.0b1/sdk/containerregistry/azure-containerregistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Support uploading and downloading OCI manifests and artifact blobs in synchronous `ContainerRegistryClient`. ([#24004](https://github.com/Azure/azure-sdk-for-python/pull/24004))
+- Name: azure-data-tables
+  Version: 12.4.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-data-tables_12.4.0/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Support for multitenant authentication ([#24278](https://github.com/Azure/azure-sdk-for-python/pull/24278))
+
+    #### Bugs Fixed
+    * Fixed bug where odmtype tag was not being included for boolean and int32 types even when a full EdmProperty tuple was passed in. This is needed for CLI compatibility.
 
