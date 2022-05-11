@@ -1625,4 +1625,69 @@ entries:
     - Upgraded `azure-core` dependency to `1.28.0`.
     - Upgraded `azure-core-http-netty` dependency to `1.12.0`.
   GroupId: com.azure
+- Name: azure-ai-formrecognizer
+  Version: 3.1.11
+  DisplayName: Form Recognizer
+  ServiceName: Form Recognizer
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-formrecognizer_3.1.11/sdk/formrecognizer/azure-ai-formrecognizer/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.27.0` to version `1.28.0`.
+    - Upgraded `azure-core-http-netty` from `1.11.9` to version `1.12.0`.
+  GroupId: com.azure
+- Name: azure-ai-metricsadvisor
+  Version: 1.1.3
+  DisplayName: Metrics Advisor
+  ServiceName: Metrics Advisor
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-ai-metricsadvisor_1.1.3/sdk/metricsadvisor/azure-ai-metricsadvisor/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    ##### Dependency Updates
+    - Updated `azure-core` to `1.28.0`.
+    - Updated `azure-core-http-netty` to `1.12.0`.
+  GroupId: com.azure
+- Name: azure-messaging-webpubsub
+  Version: 1.1.2
+  DisplayName: Web PubSub
+  ServiceName: Web PubSub
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-webpubsub_1.1.2/sdk/webpubsub/azure-messaging-webpubsub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.27.0` to version `1.28.0`.
+    - Upgraded `azure-core-http-netty` from `1.11.9` to version `1.12.0`.
+    - Upgraded `nimbus-jose-jwt` from `9.10.1` to version `9.22`.
+  GroupId: com.azure
+- Name: spring-cloud-azure-native-configuration
+  Version: 4.0.0-beta.1
+  DisplayName: Spring
+  ServiceName: Spring Native
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/spring-cloud-azure-native-configuration_4.0.0-beta.1/sdk/spring-experimental/spring-cloud-azure-native-configuration/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add library `spring-cloud-azure-native-configuration` to support `Spring Native` for compiling Spring Cloud Azure applications to native executables [#28053](https://github.com/Azure/azure-sdk-for-java/issues/28053), [#28158](https://github.com/Azure/azure-sdk-for-java/pull/28158).
+    - spring-cloud-azure-starter-storage-blob
+    - spring-cloud-azure-starter-storage-file-share
+    - spring-cloud-azure-starter-storage-queue
+    - spring-cloud-azure-starter-keyvault-secrets
+    - spring-cloud-azure-starter-keyvault-certificates
+    - spring-cloud-azure-starter-appconfiguration
+    - spring-cloud-azure-starter-eventhubs
+    - spring-cloud-azure-starter-integration-storage-queue
+    - spring-cloud-azure-starter-integration-eventhubs
+  GroupId: com.azure.spring
 
