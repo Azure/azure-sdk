@@ -473,4 +473,16 @@ entries:
     #### Breaking Changes
 
     - Removed `SendCloudEventsOptions` type in favor of a string parameter that can be used to specify the channel name.
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.4.0
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: WebJobs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.4.0/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added the `ServiceBusReceiveActions` type to support receiving additional messages from a function invocation.
+    - Added the ability to bind to the `SessionId` property.
 
