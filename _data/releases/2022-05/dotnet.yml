@@ -505,4 +505,15 @@ entries:
 
     - `OutputModelUri` now returns a `Uri` to a `.zip` file containing the `.ou` file instead of the `.ou` file itself when using the new default service version: `V0_3_preview_0`.
     - The value specified when creating an `AssetFileType` is now validated and must begin with a '.' character.
+- Name: Azure.Data.SchemaRegistry
+  Version: 1.2.0
+  DisplayName: Schema Registry
+  ServiceName: Schema Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Data.SchemaRegistry_1.2.0/sdk/schemaregistry/Azure.Data.SchemaRegistry/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added `GroupName` and `Name` properties to `SchemaProperties`.
 
