@@ -2900,4 +2900,57 @@ entries:
   ChangelogContent: |-
     #### Breaking Changes
     * Changed argument semantics of `AddSetting`, `DeleteSetting`, `GetSetting`, `SetSetting`, and `SetReadOnly`.
+- Name: sdk/azidentity
+  Version: 1.0.0
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azidentity/v1.0.0/sdk/azidentity/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * `AzureCLICredential` panics after receiving an unexpected error type
+    ([#17490](https://github.com/Azure/azure-sdk-for-go/issues/17490))
+
+    #### Features Added
+    * `DefaultAzureCredential` reads environment variable `AZURE_CLIENT_ID` for the
+    client ID of a user-assigned managed identity
+    ([#17293](https://github.com/Azure/azure-sdk-for-go/pull/17293))
+
+    #### Breaking Changes
+    * Removed `AuthorizationCodeCredential`. Use `InteractiveBrowserCredential` instead
+    to authenticate a user with the authorization code flow.
+    * Instances of `AuthenticationFailedError` are now returned by pointer.
+    * `GetToken()` returns `azcore.AccessToken` by value
+- Name: sdk/azcore
+  Version: 1.0.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.0.0/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+    * When per-try timeouts are enabled, only cancel the context after the body has been read and closed.
+    * The `Operation-Location` poller now properly handles `final-state-via` values.
+    * Improvements in `runtime.Poller[T]`
+    * `Poll()` shouldn't cache errors, allowing for additional retries when in a non-terminal state.
+    * `Result()` will cache the terminal result or error but not transient errors, allowing for additional retries.
+
+    #### Features Added
+    * Added interface `runtime.PollingHandler` to support custom poller implementations.
+    * Added field `PollingHandler` of this type to `runtime.NewPollerOptions[T]` and `runtime.NewPollerFromResumeTokenOptions[T]`.
+
+    #### Breaking Changes
+    * Renamed `cloud.Configuration.LoginEndpoint` to `.ActiveDirectoryAuthorityHost`
+    * Renamed `cloud.AzurePublicCloud` to `cloud.AzurePublic`
+    * Removed `AuxiliaryTenants` field from `arm/ClientOptions` and `arm/policy/BearerTokenOptions`
+    * Removed `TokenRequestOptions.TenantID`
+    * `Poller[T].PollUntilDone()` now takes an `options *PollUntilDoneOptions` param instead of `freq time.Duration`
+    * Removed `arm/runtime.Poller[T]`, `arm/runtime.NewPoller[T]()` and `arm/runtime.NewPollerFromResumeToken[T]()`
+    * Removed `arm/runtime.FinalStateVia` and related `const` values
+    * Renamed `runtime.PageProcessor` to `runtime.PagingHandler`
+    * The `arm/runtime.ProviderRepsonse` and `arm/runtime.Provider` types are no longer exported.
+    * Renamed `NewRequestIdPolicy()` to `NewRequestIDPolicy()`
+    * `TokenCredential.GetToken` now returns `AccessToken` by value.
 
