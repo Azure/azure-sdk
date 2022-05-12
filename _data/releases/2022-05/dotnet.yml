@@ -516,4 +516,15 @@ entries:
     #### Features Added
 
     - Added `GroupName` and `Name` properties to `SchemaProperties`.
+- Name: Microsoft.Azure.Data.SchemaRegistry.ApacheAvro
+  Version: 1.0.0
+  DisplayName: Schema Registry - Avro
+  ServiceName: Schema Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.Data.SchemaRegistry.ApacheAvro_1.0.0/sdk/schemaregistry/Microsoft.Azure.Data.SchemaRegistry.ApacheAvro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Remove custom exception type `SchemaRegistryAvroException`.
 
