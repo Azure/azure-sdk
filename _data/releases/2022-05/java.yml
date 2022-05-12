@@ -1788,4 +1788,31 @@ entries:
     - Upgraded `azure-core` to version `1.28.0`.
     - Upgraded `azure-core-http-netty` to version `1.12.0`.
   GroupId: com.azure
+- Name: azure-data-tables
+  Version: 12.3.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-tables_12.3.0/sdk/tables/azure-data-tables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - TenantId can now be discovered through the service OAuth challenge response, when using a `TokenCredential` for authorization against Storage Table Service endpoints with version `2020_12_06`.
+    - Added method `enableTenantDiscovery()` to `TableClientBuilder` and `TableServiceClientBuilder`. If enabled, the resulting client will attempt an initial unauthorized request to the service to prompt an OAuth challenge containing the tenantId of the resource. This tenantId will then be used by the `TokenCredential`.
+  GroupId: com.azure
+- Name: azure-digitaltwins-core
+  Version: 1.2.2
+  DisplayName: Digital Twins - Core
+  ServiceName: IoT
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-digitaltwins-core_1.2.2/sdk/digitaltwins/azure-digitaltwins-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    ##### Dependency Updates
+    - Upgraded `azure-core` dependency from `1.27.0` to `1.28.0`
+    - Upgraded `azure-core-http-netty` dependency from `1.11.9` to `1.20.0`.
+    - Upgraded `azure-core-identity` dependency from `1.5.0` to `1.5.1`.
+    - Upgraded `azure-core-serializer-json-jackson` dependency from `1.2.15` to `1.2.16`.
+  GroupId: com.azure
 
