@@ -1718,4 +1718,30 @@ entries:
     - Updated `azure-core` to `1.28.0`.
     - Updated `azure-core-http-netty` to `1.12.0`.
   GroupId: com.azure
+- Name: azure-mixedreality-authentication
+  Version: 1.2.2
+  DisplayName: Azure Mixed Reality Authentication
+  ServiceName: Mixed Reality
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-mixedreality-authentication_1.2.2/sdk/mixedreality/azure-mixedreality-authentication/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.27.0` to version `1.28.0`.
+    - Upgraded `azure-core-http-netty` from `1.11.9` to version `1.12.0`.
+  GroupId: com.azure
+- Name: azure-security-attestation
+  Version: 1.1.2
+  DisplayName: Attestation
+  ServiceName: Attestation
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-attestation_1.1.2/sdk/attestation/azure-security-attestation/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Dependency Updates
+    - Updated `azure-core` dependency to `1.28.0`.
+  GroupId: com.azure
 
