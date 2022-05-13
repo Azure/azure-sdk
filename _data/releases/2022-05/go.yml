@@ -2953,4 +2953,101 @@ entries:
     * The `arm/runtime.ProviderRepsonse` and `arm/runtime.Provider` types are no longer exported.
     * Renamed `NewRequestIdPolicy()` to `NewRequestIDPolicy()`
     * `TokenCredential.GetToken` now returns `AccessToken` by value.
+- Name: sdk/messaging/internal
+  Version: 0.1.1
+  DisplayName: Messaging Internal
+  ServiceName: messaging-internal
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/internal/v0.1.1/sdk/messaging/internal/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    - Update to v1 of azcore.
+- Name: sdk/data/azcosmos
+  Version: 0.3.1
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/azcosmos/v0.3.1/sdk/data/azcosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    * Added Transactional Batch support
+- Name: sdk/keyvault/azsecrets
+  Version: 0.7.1
+  DisplayName: Key Vault - Secrets
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/keyvault/azsecrets/v0.7.1/sdk/keyvault/azsecrets/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Updated to latest `azcore` and `internal` modules.
+- Name: sdk/keyvault/azkeys
+  Version: 0.5.1
+  DisplayName: Key Vault - Keys
+  ServiceName: Key Vault
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/keyvault/azkeys/v0.5.1/sdk/keyvault/azkeys/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Update to latest `azcore` and `internal` modules.
+- Name: sdk/messaging/azservicebus
+  Version: 0.4.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azservicebus/v0.4.1/sdk/messaging/azservicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixing issue where the AcceptNextSessionForQueue and AcceptNextSessionForSubscription
+    couldn't be cancelled, forcing the user to wait for the service to timeout. (#17598)
+    - Fixing bug where there was a chance that internally cached messages would not be returned when
+    the receiver was draining. (#17893)
+
+    #### Features Added
+
+    - Exported log.Event constants for azservicebus. This will make them easier to
+    discover and they are also documented. NOTE: The log messages themselves
+    are not guaranteed to be stable. (#17596)
+    - `admin.Client` can now manage authorization rules and subscription filters and
+    actions. (#17616)
+    - Exported an official `*azservicebus.Error` type that gets returned if the failure is
+    actionable. This can indicate if the connection was lost and could not be
+    recovered with the configured retries or if a message lock was lost, which would cause
+    message settlement to fail.
+
+    See the `ExampleReceiver_ReceiveMessages` in example_receiver_test.go for an example
+    on how to use it. (#17786)
+
+    #### Breaking Changes
+
+    - `admin.Client` can now be configured using `azcore.Options`. (#17796)
+    - `ReceivedMessage.TransactionPartitionKey` has been removed as this library doesn't support transactions.
+    - `ReceivedMessage.Body()` is now a field. `Body` will be nil in the cases where it would have returned an error (where the underlying AMQP message had a payload in .Value, .Sequence or had multiple byte slices in .Data). (#17888)
+- Name: sdk/data/aztables
+  Version: 0.8.1
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/aztables/v0.8.1/sdk/data/aztables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Update to latest `azcore` and `internal` modules
+- Name: sdk/appconfig/azappconfig
+  Version: 0.3.1
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/appconfig/azappconfig/v0.3.1/sdk/appconfig/azappconfig/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Update to latest `azcore`
 
