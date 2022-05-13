@@ -1202,4 +1202,67 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/vmwarecloudsimple/arm-vmwarecloudsimple/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/storage-blob'
+  Version: 12.10.0
+  DisplayName: Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-blob_12.10.0/sdk/storage/storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.10.0-beta.1.
+
+    #### Bugs Fixed
+
+    - Refined user-agent value to avoid failure when os information is not available on some platforms.
+    - Fix an issue of not returning raw blob properties in ContainerClient.listBlobsFlat() and ContainerClient.listBlobsByHierarchy().
+- Name: '@azure/storage-file-datalake'
+  Version: 12.9.0
+  DisplayName: Files Data Lake
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-datalake_12.9.0/sdk/storage/storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.9.0-beta.1.
+
+    #### Bugs Fixed
+
+    - Refined user-agent value to avoid failure when os information is not available on some platforms.
+- Name: '@azure/storage-queue'
+  Version: 12.9.0
+  DisplayName: Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-queue_12.9.0/sdk/storage/storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for service version 2021-06-08.
+
+    #### Bugs Fixed
+
+    - Add `react-native` mapping to ESM entry point
+    - Fixed a bug where customized `ProxyOptions` is overwrited by a default one when initializing `QueueServiceClient` or `QueueClient` with connection string.
+    - Refined user-agent value to avoid failure when os information is not available on some platforms.
+- Name: '@azure/storage-file-share'
+  Version: 12.10.0
+  DisplayName: Files Shares
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/storage-file-share_12.10.0/sdk/storage/storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Includes all features released in 12.10.0-beta.1.
+
+    #### Bugs Fixed
+
+    - Refined user-agent value to avoid failure when os information is not available on some platforms.
 
