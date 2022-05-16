@@ -7,4 +7,16 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.ResourceManager.Storage_1.0.0-beta.9/sdk/storage/Azure.ResourceManager.Storage/CHANGELOG.md
   ChangelogContent: ""
+- Name: Azure.Messaging.ServiceBus
+  Version: 7.8.1
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.Messaging.ServiceBus_7.8.1/sdk/servicebus/Azure.Messaging.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed issue that could result in the message lock renewal not being cancelled if the user message handler threw an exception.
+    - Abandon messages that are received from the `ProcessorReceiveActions` in the event of the user message handler throwing an exception.
 
