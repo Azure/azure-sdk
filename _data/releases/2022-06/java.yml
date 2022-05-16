@@ -189,4 +189,49 @@ entries:
     - Added `SchemaProperties.getGroupName()`.
     - Added `SchemaProperties.getName()`.
   GroupId: com.azure
+- Name: azure-messaging-eventgrid
+  Version: 4.11.1
+  DisplayName: Event Grid
+  ServiceName: Event Grid
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventgrid_4.11.1/sdk/eventgrid/azure-messaging-eventgrid/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+    - Updated `azure-core` to `1.28.0`.
+    - Updated `azure-core-http-netty` to `1.12.0`.
+  GroupId: com.azure
+- Name: azure-messaging-eventhubs-checkpointstore-blob
+  Version: 1.12.2
+  DisplayName: Event Hubs - Azure Blob Storage Checkpoint Store
+  ServiceName: Event Hubs
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs-checkpointstore-blob_1.12.2/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Update `azure-messaging-eventhubs` dependency to `5.12.0`.
+    - Update `azure-storage-blob` dependency to `12.16.1`.
+  GroupId: com.azure
+- Name: azure-messaging-eventhubs
+  Version: 5.12.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-messaging-eventhubs_5.12.0/sdk/eventhubs/azure-messaging-eventhubs/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `EventData.setBodyAsBinaryData` is exposed.
+
+    #### Breaking Changes
+
+    - `EventData` extends from `MessageContent`.
+  GroupId: com.azure
 
