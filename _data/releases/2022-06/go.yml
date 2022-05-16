@@ -185,4 +185,14 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/resources/armsubscriptions/v1.0.0/sdk/resourcemanager/resources/armsubscriptions/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/data/aztables
+  Version: 1.0.0
+  DisplayName: Tables
+  ServiceName: Tables
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/data/aztables/v1.0.0/sdk/data/aztables/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    * For type `EDMEntity` renamed field `Id` to `ID`, `Etag` to `ETag`
 
