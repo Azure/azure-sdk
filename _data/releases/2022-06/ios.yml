@@ -1,0 +1,12 @@
+entries:
+- Name: AzureCommunicationChat
+  Version: 1.2.0
+  DisplayName: Communication Chat
+  ServiceName: Communication
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-ios/tree/AzureCommunicationChat_1.2.0/sdk/communication/AzureCommunicationChat/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - Added two new events `realTimeNotificationConnected` and `realTimeNotificationDisconnected` that allow the developer to know when the connection to the real time notification server is active.
+
