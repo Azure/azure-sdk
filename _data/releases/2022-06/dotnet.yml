@@ -19,4 +19,16 @@ entries:
 
     - Fixed issue that could result in the message lock renewal not being cancelled if the user message handler threw an exception.
     - Abandon messages that are received from the `ProcessorReceiveActions` in the event of the user message handler throwing an exception.
+- Name: Microsoft.Azure.WebJobs.Extensions.ServiceBus
+  Version: 5.5.0
+  DisplayName: WebJobs Extensions - Service Bus
+  ServiceName: WebJobs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Microsoft.Azure.WebJobs.Extensions.ServiceBus_5.5.0/sdk/servicebus/Microsoft.Azure.WebJobs.Extensions.ServiceBus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Updated dependency on `Azure.Messaging.ServiceBus` to benefit from bug fix.
+    - Messages will now be abandoned if the function invocation throws for multiple dispatch functions. This was already the behavior for single dispatch functions.
 
