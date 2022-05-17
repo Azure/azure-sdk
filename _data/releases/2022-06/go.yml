@@ -195,4 +195,15 @@ entries:
   ChangelogContent: |-
     #### Breaking Changes
     * For type `EDMEntity` renamed field `Id` to `ID`, `Etag` to `ETag`
+- Name: sdk/messaging/azservicebus
+  Version: 1.0.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/messaging/azservicebus/v1.0.0/sdk/messaging/azservicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - First stable release of the azservicebus package.
 
