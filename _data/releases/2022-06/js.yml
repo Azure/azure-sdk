@@ -15,4 +15,15 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/arm-changes_1.0.0/sdk/changes/arm-changes/CHANGELOG.md
   ChangelogContent: ""
+- Name: '@azure/core-lro'
+  Version: 2.3.0-beta.1
+  DisplayName: Core - Client - LRO
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-lro_2.3.0-beta.1/sdk/core/core-lro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - `lroEngine` now supports cancellation of the long-running operation.
 
