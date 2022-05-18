@@ -245,4 +245,22 @@ entries:
     #### Breaking Changes
     - Removed class `SendEventsOptions` and replaced it by the String `channelName`.
   GroupId: com.azure
+- Name: azure-data-schemaregistry-apacheavro
+  Version: 1.0.0
+  DisplayName: Schema Registry - Avro
+  ServiceName: Schema Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-data-schemaregistry-apacheavro_1.0.0/sdk/schemaregistry/azure-data-schemaregistry-apacheavro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Cache parsed and fetched schemas.
+
+    #### Breaking Changes
+
+    - Renamed `autoRegisterSchema` to `autoRegisterSchemas` in `SchemaRegistryApacheAvroSerializerBuilder`.
+    - Removed "MessageData" from `serializeMessageData`, `deserializeMessageData`, `serializeMessageDataAsync`, `deserializeMessageDataAsync`.
+    - Removed old support for preamble deserialization.
+  GroupId: com.azure
 
