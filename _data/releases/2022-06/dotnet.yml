@@ -31,4 +31,23 @@ entries:
 
     - Updated dependency on `Azure.Messaging.ServiceBus` to benefit from bug fix.
     - Messages will now be abandoned if the function invocation throws for multiple dispatch functions. This was already the behavior for single dispatch functions.
+- Name: Azure.AI.TextAnalytics
+  Version: 5.2.0-beta.3
+  DisplayName: Text Analytics
+  ServiceName: Text Analytics
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-net/tree/Azure.AI.TextAnalytics_5.2.0-beta.3/sdk/textanalytics/Azure.AI.TextAnalytics/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+    - Enum `EntityCategory.IPAddress` now uses the underlying string `IPAddress` value instead of `IP` to align with the Text Analytics service behavior.
+
+    #### Bugs Fixed
+    - Long-Running operation rehydration has been patched to stop throwing a `NullReferenceException`. Issue [24692](https://github.com/Azure/azure-sdk-for-net/issues/24692).
+    - TextAnalyticsAudience has been added to allow the user to select the Azure cloud where the resource is located. Issue [18520](https://github.com/Azure/azure-sdk-for-net/issues/18520).
+    - In `AnalyzeHealthcareEntitiesOperation`, `Cancel` calls won't overwrite the response from `GetRawResponse` anymore. PR [28375](https://github.com/Azure/azure-sdk-for-net/pull/28375)
+
+    #### Features Added
+    - Added keyword argument `FhirVersion` to `AnalyzeHealthcareEntitiesOptions`. Use the keyword to indicate the version for the property `AnalyzeHealthcareEntitiesResult.FhirBundle`  that represents a FHIR compatible object for consumption in other Healthcare tools.
+    - Added property `FhirBundle` to `AnalyzeHealthcareEntitiesResult`.
 
