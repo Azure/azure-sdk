@@ -1494,4 +1494,14 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/quantum/armquantum/v0.5.0/sdk/resourcemanager/quantum/armquantum/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/appconfig/azappconfig
+  Version: 0.3.2
+  DisplayName: App Configuration
+  ServiceName: App Configuration
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/appconfig/azappconfig/v0.3.2/sdk/appconfig/azappconfig/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * Deprecate this module in favor of `github.com/Azure/azure-sdk-for-go/sdk/data/azappconfig`
 
