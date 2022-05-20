@@ -95,4 +95,12 @@ entries:
     - In many output types, properties are now marked as read-only.
     - `SingleCategoryClassifyActionSuccessResult` is renamed to `CustomSingleLabelClassificationSuccessResult` and the `classification` property has been renamed to `classifications` and is now an array.
     - `statistics` and `modelVersion` has been removed from result arrays, e.g. `RecognizeEntitiesResultArray` has been replaced by `EntityRecognitionResult[]`.
+- Name: '@azure/arm-appplatform'
+  Version: 2.0.0
+  DisplayName: Resource Management - App Platform
+  ServiceName: App Platform
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/appplatform/arm-appplatform/CHANGELOG.md
+  ChangelogContent: ""
 
