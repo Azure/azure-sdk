@@ -61,4 +61,27 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-cosmosdb_7.0.0b6/sdk/cosmos/azure-mgmt-cosmosdb/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-cosmos
+  Version: 4.3.0
+  DisplayName: Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-cosmos_4.3.0/sdk/cosmos/azure-cosmos/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    - GA release of Async I/O APIs, including all changes from 4.3.0b1 to 4.3.0b4.
+
+    #### Breaking Changes
+    - Method signatures have been updated to use keyword arguments instead of positional arguments for most method options in the async client.
+    - Bugfix: Automatic Id generation for items was turned on for `upsert_items()` method when no 'id' value was present in document body.
+    Method call will now require an 'id' field to be present in the document body.
+- Name: azure-mgmt-keyvault
+  Version: 10.0.0
+  DisplayName: Resource Management - KeyVault
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-keyvault_10.0.0/sdk/keyvault/azure-mgmt-keyvault/CHANGELOG.md
+  ChangelogContent: ""
 
