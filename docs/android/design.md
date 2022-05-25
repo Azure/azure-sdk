@@ -593,6 +593,82 @@ The `PagedAsyncCollection.forEachPage()` offers an overload to accept a `continu
 
 {% include requirement/MUSTNOT id="android-pagination-large-get-iterator" %} expose an iterator over each individual item if getting each item requires a corresponding GET request to the service. One GET per item is often too expensive and so not an action we want to take on behalf of users.
 
+#### Event handling
+
+Android applications commonly need to react to events from the UI or service. The following guidelines apply to SDKs that expose events to the customer.
+
+##### Handlers
+
+{% include requirement/MUST id="android-event-unicast-handler" %} declare unicast event handlers as functional interfaces that use the `@FunctionalInterface` annotation.
+
+{% include requirement/MUST id="android-event-unicast-handler-naming" %} name event handler interfaces using the suffix `Handler`.
+> NOTE: The name `EventHandler` is reserved for use in the `azure-core` library.
+
+{% include requirement/MUST id="android-event-unicast-method-naming" %} name event handler methods in unicast handlers using the `on` prefix.
+
+```java
+@FunctionalInterface
+interface MessageHandler<E extends MessagingEvent> {
+    void onMessageReceived(E event);
+}
+```
+
+{% include requirement/MUST id="android-event-without-properties %} group related types of events together in an enumeration (see [Enumerations](#Enumerations)) based on `azure-core`'s `ExpandableStringEnum`. Said enumeration should end with the `EventType` suffix.
+
+If you need to provide additional details about an event to a handler, {% include requirement/MUST id="android-event-with-properties %} do so by declaring a class that extends from `Event` in `azure-core` and passing an instance of said class to the handler in question. The name for the aforementioned class should end with the `Event` suffix. For example:
+
+```java
+class MessagingEvent extends Event<MessagingEventType> {
+    private final String threadId;
+
+    MessagingEvent(MessagingEventType eventType, String threadId) {
+        super(eventType);
+        this.threadId = threadId;
+    }
+
+    public MessagingEventType getEventType() {
+        return this.eventType;
+    }
+
+    public String getThreadId() {
+        return threadId;
+    }
+}
+```
+
+{% include requirement/MAY id="android-event-mutable" %} mutate individual event handlers after client instantiation, unlike most client configuration which is required to be immutable.
+
+{% include requirement/MUST id="android-event-multicast" %} expose multicast event handlers using the `MulticastEventCollection` type from `azure-core`. This type contains an `addEventHandler` method which accepts the event alongside an implementation of the `EventHandler` interface to handle it and returns a UUID string identifier which can be used to remove the handler via the `removeEventHandler` method. Here's an example:
+
+```java
+public class MessagingEventHandler implements EventHandler<MessagingEvent> {
+    @Override
+    public void handle(MessagingEvent messagingEvent) {
+        // Code that handles the event.
+    }
+}
+
+public class MessagingClient {
+    MulticastEventCollection<MessagingEventType, MessagingEvent> messagingEventCollection;
+            
+    MessagingClient() {
+        messagingEventCollection = new MulticastEventCollection<>();
+    }
+    
+    public String addMessagingEventHandler(MessagingEventType eventType, EventHandler<MessagingEvent> handler) {
+        return multicastEventCollection.addEventHandler(eventType, handler);
+    }
+
+    public void removeMessagingEventHandler(String handlerId) {
+      multicastEventCollection.removeEventHandler(handlerId);
+    }
+
+    public void handleMessagingEvent(MessagingEvent event) {
+        multicastEventCollection.handle(event);
+    }
+}
+```
+
 #### Methods Invoking Long Running Operations
 
 Long-running operations are uncommon in a mobile context. If you feel like you need long running operations, contact the [Azure SDK mobile team](mailto:azuresdkmobileteam@microsoft.com) for advice.
