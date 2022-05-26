@@ -402,4 +402,591 @@ entries:
 
     - Updated Azure SDK dependency versions to the latest releases.
   GroupId: com.azure
+- Name: azure-spring-cloud-appconfiguration-config
+  Version: 2.7.0
+  DisplayName: Azure Spring Cloud Appconfiguration Config
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-appconfiguration-config_2.7.0/sdk/appconfiguration/azure-spring-cloud-appconfiguration-config/CHANGELOG.md
+  ChangelogContent: |-
+    - This release is compatible with Spring Boot 2.5.0-2.5.13, 2.6.0-2.6.7. (Note: 2.5.x (x>13) and 2.6.y (y>7) should be supported, but they aren't tested with this release.)
+    - This release is compatible with Spring Cloud 2020.0.3-2020.0.5, 2021.0.0-2021.0.2. (Note: 2020.0.x (x>5) and 2021.0.y (y>2) should be supported, but they aren't tested with this release.)
+
+    #### Dependency Upgrades
+    - Upgrade azure-sdk's version to latest released version.
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-starter-appconfiguration-config
+  Version: 2.7.0
+  DisplayName: Azure Spring Cloud Starter Appconfiguration Config
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-starter-appconfiguration-config_2.7.0/sdk/appconfiguration/azure-spring-cloud-starter-appconfiguration-config/CHANGELOG.md
+  ChangelogContent: |-
+    - This release is compatible with Spring Boot 2.5.0-2.5.13, 2.6.0-2.6.7. (Note: 2.5.x (x>13) and 2.6.y (y>7) should be supported, but they aren't tested with this release.)
+    - This release is compatible with Spring Cloud 2020.0.3-2020.0.5, 2021.0.0-2021.0.2. (Note: 2020.0.x (x>5) and 2021.0.y (y>2) should be supported, but they aren't tested with this release.)
+
+    #### Dependency Upgrades
+    - Upgrade azure-sdk's version to latest released version.
+  GroupId: com.azure.spring
+- Name: azure-resourcemanager-azurestackhci
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Azure Stack HCI
+  ServiceName: Azure Stack HCI
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-azurestackhci_1.0.0-beta.3/sdk/azurestackhci/azure-resourcemanager-azurestackhci/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-security-keyvault-jca
+  Version: 2.7.0
+  DisplayName: Key Vault - JCA
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-security-keyvault-jca_2.7.0/sdk/keyvault/azure-security-keyvault-jca/CHANGELOG.md
+  ChangelogContent: |-
+    #### Dependency Upgrades
+    Regular updates for dependency versions.
+  GroupId: com.azure
+- Name: azure-spring-cloud-appconfiguration-config-web
+  Version: 2.7.0
+  DisplayName: Azure Spring Cloud Appconfiguration Config Web
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-appconfiguration-config-web_2.7.0/sdk/appconfiguration/azure-spring-cloud-appconfiguration-config-web/CHANGELOG.md
+  ChangelogContent: |-
+    - This release is compatible with Spring Boot 2.5.0-2.5.13, 2.6.0-2.6.7. (Note: 2.5.x (x>13) and 2.6.y (y>7) should be supported, but they aren't tested with this release.)
+    - This release is compatible with Spring Cloud 2020.0.3-2020.0.5, 2021.0.0-2021.0.2. (Note: 2020.0.x (x>5) and 2021.0.y (y>2) should be supported, but they aren't tested with this release.)
+
+    #### Dependency Upgrades
+    - Upgrade azure-sdk's version to latest released version.
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-feature-management
+  Version: 2.6.0
+  DisplayName: Azure Spring Cloud Feature Management
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-feature-management_2.6.0/sdk/appconfiguration/azure-spring-cloud-feature-management/CHANGELOG.md
+  ChangelogContent: |-
+    - This release is compatible with Spring Boot 2.5.0-2.5.13, 2.6.0-2.6.7. (Note: 2.5.x (x>13) and 2.6.y (y>7) should be supported, but they aren't tested with this release.)
+    - This release is compatible with Spring Cloud 2020.0.3-2020.0.5, 2021.0.0-2021.0.2. (Note: 2020.0.x (x>5) and 2021.0.y (y>2) should be supported, but they aren't tested with this release.)
+
+    #### Dependency Upgrades
+    - Upgrade azure-sdk's version to latest released version.
+  GroupId: com.azure.spring
+- Name: azure-spring-cloud-feature-management-web
+  Version: 2.6.0
+  DisplayName: Azure Spring Cloud Feature Management Web
+  ServiceName: Spring Boot
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-spring-cloud-feature-management-web_2.6.0/sdk/appconfiguration/azure-spring-cloud-feature-management-web/CHANGELOG.md
+  ChangelogContent: |-
+    - This release is compatible with Spring Boot 2.5.0-2.5.13, 2.6.0-2.6.7. (Note: 2.5.x (x>13) and 2.6.y (y>7) should be supported, but they aren't tested with this release.)
+    - This release is compatible with Spring Cloud 2020.0.3-2020.0.5, 2021.0.0-2021.0.2. (Note: 2020.0.x (x>5) and 2021.0.y (y>2) should be supported, but they aren't tested with this release.)
+
+    #### Dependency Upgrades
+    - Upgrade azure-sdk's version to latest released version.
+  GroupId: com.azure.spring
+- Name: azure-resourcemanager-appcontainers
+  Version: 1.0.0-beta.3
+  DisplayName: Resource Management - Container Apps
+  ServiceName: Container Apps
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-appcontainers_1.0.0-beta.3/sdk/appcontainers/azure-resourcemanager-appcontainers/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-storage-file-share
+  Version: 12.13.0
+  DisplayName: Storage - Files Shares
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-share_12.13.0/sdk/storage/azure-storage-file-share/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - GA release for STG 82
+  GroupId: com.azure
+- Name: azure-storage-blob
+  Version: 12.17.0
+  DisplayName: Storage - Blobs
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob_12.17.0/sdk/storage/azure-storage-blob/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - GA release for STG 82
+
+    #### Other Changes
+    - Deprecated BlobClientBase.download and BlobClientBase.downloadWithResponse that downloads entire blob into an output
+    stream. Use BlobClientBase.downloadStream and BlobClientBase.downloadStreamWithResponse instead.
+  GroupId: com.azure
+- Name: azure-storage-common
+  Version: 12.16.0
+  DisplayName: Storage - Common
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-common_12.16.0/sdk/storage/azure-storage-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - GA release for STG 82
+  GroupId: com.azure
+- Name: azure-storage-blob-cryptography
+  Version: 12.16.0
+  DisplayName: Storage - Blobs Cryptography
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-cryptography_12.16.0/sdk/storage/azure-storage-blob-cryptography/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - GA release for STG 82
+  GroupId: com.azure
+- Name: azure-storage-queue
+  Version: 12.13.0
+  DisplayName: Storage - Queues
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-queue_12.13.0/sdk/storage/azure-storage-queue/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - GA release for STG 82
+  GroupId: com.azure
+- Name: azure-storage-blob-batch
+  Version: 12.13.0
+  DisplayName: Storage - Blobs Batch
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-blob-batch_12.13.0/sdk/storage/azure-storage-blob-batch/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - GA release for STG 82
+  GroupId: com.azure
+- Name: azure-storage-internal-avro
+  Version: 12.3.0
+  DisplayName: Storage - Internal Avro
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-internal-avro_12.3.0/sdk/storage/azure-storage-internal-avro/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - GA release for STG 82
+  GroupId: com.azure
+- Name: azure-storage-file-datalake
+  Version: 12.10.0
+  DisplayName: Storage - Files Data Lake
+  ServiceName: Data Lake Storage Gen2
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-file-datalake_12.10.0/sdk/storage/azure-storage-file-datalake/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    - GA release for STG 82
+  GroupId: com.azure
+- Name: azure-resourcemanager-dns
+  Version: 2.15.0
+  DisplayName: Resource Management - DNS
+  ServiceName: DNS
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-dns_2.15.0/sdk/resourcemanager/azure-resourcemanager-dns/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-communication
+  Version: 1.1.0-beta.2
+  DisplayName: Resource Management - Communication
+  ServiceName: Communication
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-communication_1.1.0-beta.2/sdk/communication/azure-resourcemanager-communication/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-storage
+  Version: 2.15.0
+  DisplayName: Resource Management - Storage
+  ServiceName: Storage
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-storage_2.15.0/sdk/resourcemanager/azure-resourcemanager-storage/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: spring-cloud-azure-stream-binder-servicebus
+  Version: 4.2.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/spring-cloud-azure-stream-binder-servicebus_4.2.0/sdk/spring/spring-cloud-azure-stream-binder-servicebus/CHANGELOG.md
+  ChangelogContent: Please refer to [CHANGELOG.md](https://github.com/Azure/azure-sdk-for-java/blob/661f96907492dde46c4939bed587999d4d6979f2/sdk/spring/CHANGELOG.md#420-2022-05-26) for more details.
+  GroupId: com.azure.spring
+- Name: azure-resourcemanager-servicebus
+  Version: 2.15.0
+  DisplayName: Resource Management - Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-servicebus_2.15.0/sdk/resourcemanager/azure-resourcemanager-servicebus/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: spring-cloud-azure-stream-binder-servicebus-core
+  Version: 4.2.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/spring-cloud-azure-stream-binder-servicebus-core_4.2.0/sdk/spring/spring-cloud-azure-stream-binder-servicebus-core/CHANGELOG.md
+  ChangelogContent: Please refer to [CHANGELOG.md](https://github.com/Azure/azure-sdk-for-java/blob/661f96907492dde46c4939bed587999d4d6979f2/sdk/spring/CHANGELOG.md#420-2022-05-26) for more details.
+  GroupId: com.azure.spring
+- Name: spring-cloud-azure-core
+  Version: 4.2.0
+  DisplayName: Spring
+  ServiceName: Spring
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/spring-cloud-azure-core_4.2.0/sdk/spring/spring-cloud-azure-core/CHANGELOG.md
+  ChangelogContent: Please refer to [CHANGELOG.md](https://github.com/Azure/azure-sdk-for-java/blob/661f96907492dde46c4939bed587999d4d6979f2/sdk/spring/CHANGELOG.md#420-2022-05-26) for more details.
+  GroupId: com.azure.spring
+- Name: azure-resourcemanager-msi
+  Version: 2.15.0
+  DisplayName: Resource Management - Managed Service Identity
+  ServiceName: Managed Service Identity
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-msi_2.15.0/sdk/resourcemanager/azure-resourcemanager-msi/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: spring-cloud-azure-actuator-autoconfigure
+  Version: 4.2.0
+  DisplayName: Spring
+  ServiceName: Spring
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/spring-cloud-azure-actuator-autoconfigure_4.2.0/sdk/spring/spring-cloud-azure-actuator-autoconfigure/CHANGELOG.md
+  ChangelogContent: Please refer to [CHANGELOG.md](https://github.com/Azure/azure-sdk-for-java/blob/661f96907492dde46c4939bed587999d4d6979f2/sdk/spring/CHANGELOG.md#420-2022-05-26) for more details.
+  GroupId: com.azure.spring
+- Name: azure-resourcemanager-authorization
+  Version: 2.15.0
+  DisplayName: Resource Management - Authorization
+  ServiceName: Authorization
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-authorization_2.15.0/sdk/resourcemanager/azure-resourcemanager-authorization/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-redis
+  Version: 2.15.0
+  DisplayName: Resource Management - Redis
+  ServiceName: Redis Cache
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-redis_2.15.0/sdk/resourcemanager/azure-resourcemanager-redis/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-eventhubs
+  Version: 2.15.0
+  DisplayName: Resource Management - Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-eventhubs_2.15.0/sdk/resourcemanager/azure-resourcemanager-eventhubs/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: spring-messaging-azure-storage-queue
+  Version: 4.2.0
+  DisplayName: Storage
+  ServiceName: Storage - Queues
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/spring-messaging-azure-storage-queue_4.2.0/sdk/spring/spring-messaging-azure-storage-queue/CHANGELOG.md
+  ChangelogContent: Please refer to [CHANGELOG.md](https://github.com/Azure/azure-sdk-for-java/blob/661f96907492dde46c4939bed587999d4d6979f2/sdk/spring/CHANGELOG.md#420-2022-05-26) for more details.
+  GroupId: com.azure.spring
+- Name: spring-cloud-azure-actuator
+  Version: 4.2.0
+  DisplayName: Spring
+  ServiceName: Spring
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/spring-cloud-azure-actuator_4.2.0/sdk/spring/spring-cloud-azure-actuator/CHANGELOG.md
+  ChangelogContent: Please refer to [CHANGELOG.md](https://github.com/Azure/azure-sdk-for-java/blob/661f96907492dde46c4939bed587999d4d6979f2/sdk/spring/CHANGELOG.md#420-2022-05-26) for more details.
+  GroupId: com.azure.spring
+- Name: azure-resourcemanager-appplatform
+  Version: 2.15.0
+  DisplayName: Resource Management - Spring Cloud
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-appplatform_2.15.0/sdk/resourcemanager/azure-resourcemanager-appplatform/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-search
+  Version: 2.15.0
+  DisplayName: Resource Management - Cognitive Search
+  ServiceName: Search
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-search_2.15.0/sdk/resourcemanager/azure-resourcemanager-search/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-cosmos
+  Version: 2.15.0
+  DisplayName: Resource Management - Cosmos DB
+  ServiceName: Cosmos DB
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-cosmos_2.15.0/sdk/resourcemanager/azure-resourcemanager-cosmos/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-compute
+  Version: 2.15.0
+  DisplayName: Resource Management - Compute
+  ServiceName: Compute
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-compute_2.15.0/sdk/resourcemanager/azure-resourcemanager-compute/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: spring-cloud-azure-trace-sleuth
+  Version: 4.2.0
+  DisplayName: Spring
+  ServiceName: Spring
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/spring-cloud-azure-trace-sleuth_4.2.0/sdk/spring/spring-cloud-azure-trace-sleuth/CHANGELOG.md
+  ChangelogContent: Please refer to [CHANGELOG.md](https://github.com/Azure/azure-sdk-for-java/blob/661f96907492dde46c4939bed587999d4d6979f2/sdk/spring/CHANGELOG.md#420-2022-05-26) for more details.
+  GroupId: com.azure.spring
+- Name: azure-resourcemanager-privatedns
+  Version: 2.15.0
+  DisplayName: Resource Management - Private DNS
+  ServiceName: Private DNS
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-privatedns_2.15.0/sdk/resourcemanager/azure-resourcemanager-privatedns/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: spring-cloud-azure-resourcemanager
+  Version: 4.2.0
+  DisplayName: Spring
+  ServiceName: Spring
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/spring-cloud-azure-resourcemanager_4.2.0/sdk/spring/spring-cloud-azure-resourcemanager/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.spring
+- Name: spring-cloud-azure-autoconfigure
+  Version: 4.2.0
+  DisplayName: Spring Cloud Azure Autoconfigure
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/spring-cloud-azure-autoconfigure_4.2.0/sdk/spring/spring-cloud-azure-autoconfigure/CHANGELOG.md
+  ChangelogContent: Please refer to [CHANGELOG.md](https://github.com/Azure/azure-sdk-for-java/blob/661f96907492dde46c4939bed587999d4d6979f2/sdk/spring/CHANGELOG.md#420-2022-05-26) for more details.
+  GroupId: com.azure.spring
+- Name: azure-resourcemanager
+  Version: 2.15.0
+  DisplayName: Resource Management
+  ServiceName: Resources
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager_2.15.0/sdk/resourcemanager/azure-resourcemanager/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: spring-integration-azure-storage-queue
+  Version: 4.2.0
+  DisplayName: Storage
+  ServiceName: Storage - Queues
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/spring-integration-azure-storage-queue_4.2.0/sdk/spring/spring-integration-azure-storage-queue/CHANGELOG.md
+  ChangelogContent: Please refer to [CHANGELOG.md](https://github.com/Azure/azure-sdk-for-java/blob/661f96907492dde46c4939bed587999d4d6979f2/sdk/spring/CHANGELOG.md#420-2022-05-26) for more details.
+  GroupId: com.azure.spring
+- Name: spring-cloud-azure-stream-binder-eventhubs-core
+  Version: 4.2.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/spring-cloud-azure-stream-binder-eventhubs-core_4.2.0/sdk/spring/spring-cloud-azure-stream-binder-eventhubs-core/CHANGELOG.md
+  ChangelogContent: Please refer to [CHANGELOG.md](https://github.com/Azure/azure-sdk-for-java/blob/661f96907492dde46c4939bed587999d4d6979f2/sdk/spring/CHANGELOG.md#420-2022-05-26) for more details.
+  GroupId: com.azure.spring
+- Name: spring-integration-azure-core
+  Version: 4.2.0
+  DisplayName: Spring Cloud Integration Azure Core
+  ServiceName: Spring Cloud
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/spring-integration-azure-core_4.2.0/sdk/spring/spring-integration-azure-core/CHANGELOG.md
+  ChangelogContent: Please refer to [CHANGELOG.md](https://github.com/Azure/azure-sdk-for-java/blob/661f96907492dde46c4939bed587999d4d6979f2/sdk/spring/CHANGELOG.md#420-2022-05-26) for more details.
+  GroupId: com.azure.spring
+- Name: spring-cloud-azure-service
+  Version: 4.2.0
+  DisplayName: Spring
+  ServiceName: Spring
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/spring-cloud-azure-service_4.2.0/sdk/spring/spring-cloud-azure-service/CHANGELOG.md
+  ChangelogContent: Please refer to [CHANGELOG.md](https://github.com/Azure/azure-sdk-for-java/blob/661f96907492dde46c4939bed587999d4d6979f2/sdk/spring/CHANGELOG.md#420-2022-05-26) for more details.
+  GroupId: com.azure.spring
+- Name: azure-resourcemanager-monitor
+  Version: 2.15.0
+  DisplayName: Resource Management - Monitor
+  ServiceName: Monitor
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-monitor_2.15.0/sdk/resourcemanager/azure-resourcemanager-monitor/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-trafficmanager
+  Version: 2.15.0
+  DisplayName: Resource Management - Traffic Manager
+  ServiceName: Traffic Manager
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-trafficmanager_2.15.0/sdk/resourcemanager/azure-resourcemanager-trafficmanager/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: spring-integration-azure-eventhubs
+  Version: 4.2.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/spring-integration-azure-eventhubs_4.2.0/sdk/spring/spring-integration-azure-eventhubs/CHANGELOG.md
+  ChangelogContent: Please refer to [CHANGELOG.md](https://github.com/Azure/azure-sdk-for-java/blob/661f96907492dde46c4939bed587999d4d6979f2/sdk/spring/CHANGELOG.md#420-2022-05-26) for more details.
+  GroupId: com.azure.spring
+- Name: spring-messaging-azure-eventhubs
+  Version: 4.2.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/spring-messaging-azure-eventhubs_4.2.0/sdk/spring/spring-messaging-azure-eventhubs/CHANGELOG.md
+  ChangelogContent: Please refer to [CHANGELOG.md](https://github.com/Azure/azure-sdk-for-java/blob/661f96907492dde46c4939bed587999d4d6979f2/sdk/spring/CHANGELOG.md#420-2022-05-26) for more details.
+  GroupId: com.azure.spring
+- Name: azure-resourcemanager-sql
+  Version: 2.15.0
+  DisplayName: Resource Management - SQL
+  ServiceName: SQL
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-sql_2.15.0/sdk/resourcemanager/azure-resourcemanager-sql/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-containerregistry
+  Version: 2.15.0
+  DisplayName: Resource Management - Container Registry
+  ServiceName: Container Registry
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-containerregistry_2.15.0/sdk/resourcemanager/azure-resourcemanager-containerregistry/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: spring-messaging-azure-servicebus
+  Version: 4.2.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/spring-messaging-azure-servicebus_4.2.0/sdk/spring/spring-messaging-azure-servicebus/CHANGELOG.md
+  ChangelogContent: Please refer to [CHANGELOG.md](https://github.com/Azure/azure-sdk-for-java/blob/661f96907492dde46c4939bed587999d4d6979f2/sdk/spring/CHANGELOG.md#420-2022-05-26) for more details.
+  GroupId: com.azure.spring
+- Name: spring-integration-azure-servicebus
+  Version: 4.2.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/spring-integration-azure-servicebus_4.2.0/sdk/spring/spring-integration-azure-servicebus/CHANGELOG.md
+  ChangelogContent: Please refer to [CHANGELOG.md](https://github.com/Azure/azure-sdk-for-java/blob/661f96907492dde46c4939bed587999d4d6979f2/sdk/spring/CHANGELOG.md#420-2022-05-26) for more details.
+  GroupId: com.azure.spring
+- Name: azure-resourcemanager-appservice
+  Version: 2.15.0
+  DisplayName: Resource Management - App Service
+  ServiceName: App Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-appservice_2.15.0/sdk/resourcemanager/azure-resourcemanager-appservice/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-containerservice
+  Version: 2.15.0
+  DisplayName: Resource Management - Container Service
+  ServiceName: Container Service
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-containerservice_2.15.0/sdk/resourcemanager/azure-resourcemanager-containerservice/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-resources
+  Version: 2.15.0
+  DisplayName: Resource Management - Resources
+  ServiceName: Resources
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-resources_2.15.0/sdk/resourcemanager/azure-resourcemanager-resources/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: spring-cloud-azure-stream-binder-eventhubs
+  Version: 4.2.0
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/spring-cloud-azure-stream-binder-eventhubs_4.2.0/sdk/spring/spring-cloud-azure-stream-binder-eventhubs/CHANGELOG.md
+  ChangelogContent: Please refer to [CHANGELOG.md](https://github.com/Azure/azure-sdk-for-java/blob/661f96907492dde46c4939bed587999d4d6979f2/sdk/spring/CHANGELOG.md#420-2022-05-26) for more details.
+  GroupId: com.azure.spring
+- Name: spring-messaging-azure
+  Version: 4.2.0
+  DisplayName: Spring
+  ServiceName: Messaging
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/spring-messaging-azure_4.2.0/sdk/spring/spring-messaging-azure/CHANGELOG.md
+  ChangelogContent: Please refer to [CHANGELOG.md](https://github.com/Azure/azure-sdk-for-java/blob/661f96907492dde46c4939bed587999d4d6979f2/sdk/spring/CHANGELOG.md#420-2022-05-26) for more details.
+  GroupId: com.azure.spring
+- Name: azure-resourcemanager-cdn
+  Version: 2.15.0
+  DisplayName: Resource Management - Content Delivery Network
+  ServiceName: Content Delivery Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-cdn_2.15.0/sdk/resourcemanager/azure-resourcemanager-cdn/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-containerinstance
+  Version: 2.15.0
+  DisplayName: Resource Management - Container Instances
+  ServiceName: Container Instances
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-containerinstance_2.15.0/sdk/resourcemanager/azure-resourcemanager-containerinstance/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-network
+  Version: 2.15.0
+  DisplayName: Resource Management - Network
+  ServiceName: Virtual Network
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-network_2.15.0/sdk/resourcemanager/azure-resourcemanager-network/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
+- Name: azure-resourcemanager-keyvault
+  Version: 2.15.0
+  DisplayName: Resource Management - Key Vault
+  ServiceName: Key Vault
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-resourcemanager-keyvault_2.15.0/sdk/resourcemanager/azure-resourcemanager-keyvault/CHANGELOG.md
+  ChangelogContent: ""
+  GroupId: com.azure.resourcemanager
 
