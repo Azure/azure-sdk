@@ -92,4 +92,19 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-azurestackhci_7.0.0/sdk/azurestackhci/azure-mgmt-azurestackhci/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-ai-language-conversations
+  Version: 1.1.0b1
+  DisplayName: Conversation Analysis
+  ServiceName: Cognitive Language Understanding
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-ai-language-conversations_1.1.0b1/sdk/cognitivelanguage/azure-ai-language-conversations/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+    * Conversation summarization task (Long-running operation)
+    * Conversation PII extraction task (Long-running operation)
+
+    #### Breaking Changes
+    * Client now uses python dictionaries for method parameters and results instead of classes.
+    * Many input and result parameter name changes in `analyze_conversation()` method
 
