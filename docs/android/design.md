@@ -595,9 +595,9 @@ The `PagedAsyncCollection.forEachPage()` offers an overload to accept a `continu
 
 #### Event handling
 
-Android applications commonly need to react to events from the UI or service. The following guidelines apply to SDKs that expose events to the customer.
+Android applications commonly need to react to events from the UI or service. The following guidelines apply to client libraries that provide APIs to handle events.
 
-##### Handlers
+##### Event Handlers
 
 {% include requirement/MUST id="android-event-unicast-handler" %} declare unicast event handlers as functional interfaces that use the `@FunctionalInterface` annotation.
 
@@ -613,9 +613,9 @@ interface MessageHandler<E extends MessagingEvent> {
 }
 ```
 
-{% include requirement/MUST id="android-event-without-properties %} group related types of events together in an enumeration (see [Enumerations](#Enumerations)) based on `azure-core`'s `ExpandableStringEnum`. Said enumeration should end with the `EventType` suffix.
+{% include requirement/MUST id="android-event-type %} group related types of events together in an enumeration (see [Enumerations](#Enumerations)) based on `azure-core`'s `ExpandableStringEnum`. Said enumeration should end with the `EventType` suffix.
 
-If you need to provide additional details about an event to a handler, {% include requirement/MUST id="android-event-with-properties %} do so by declaring a class that extends from `Event` in `azure-core` and passing an instance of said class to the handler in question. The name for the aforementioned class should end with the `Event` suffix. For example:
+{% include requirement/MUST id="android-event-properties %} provide additional details about an event to a handler do by using a class that extends from `Event` in `azure-core` and passing an instance of said class to the handler in question. The name for the aforementioned class should end with the `Event` suffix. For example:
 
 ```java
 class MessagingEvent extends Event<MessagingEventType> {
@@ -641,13 +641,6 @@ class MessagingEvent extends Event<MessagingEventType> {
 {% include requirement/MUST id="android-event-multicast" %} expose multicast event handlers using the `MulticastEventCollection` type from `azure-core`. This type contains an `addEventHandler` method which accepts the event alongside an implementation of the `EventHandler` interface to handle it and returns a UUID string identifier which can be used to remove the handler via the `removeEventHandler` method. Here's an example:
 
 ```java
-public class MessagingEventHandler implements EventHandler<MessagingEvent> {
-    @Override
-    public void handle(MessagingEvent messagingEvent) {
-        // Code that handles the event.
-    }
-}
-
 public class MessagingClient {
     MulticastEventCollection<MessagingEventType, MessagingEvent> messagingEventCollection;
             
