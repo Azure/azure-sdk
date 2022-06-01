@@ -181,7 +181,7 @@ Distributed tracing mechanisms allow the consumer to trace their code from front
 
 {% include requirement/MUST id="general-tracing-new-span-per-method" %} create only one span for client method that user code calls.  New spans must be children of the context that was passed in.  If no context was passed in, a new root span must be created.
 
-{% include requirement/MUST id="general-tracing-suppress-client-spans-for-inner-methods" %} When client method creates a new span and internally calls into other public client methods, spans created for inner client methods MUST be suppressed, their attributes and events ignored.  Nested spans created for REST calls MUST be the children of the outer client call span.  Suppression is generally done by Azure Core.
+{% include requirement/MUST id="general-tracing-suppress-client-spans-for-inner-methods" %} When client method creates a new span and internally calls into other public client methods of the same or different Azure SDK, spans created for inner client methods MUST be suppressed, their attributes and events ignored.  Nested spans created for REST calls MUST be the children of the outer client call span.  Suppression is generally done by Azure Core.
 
 {% include requirement/MUST id="general-tracing-new-span-per-method-conventions" %} populate span properties according to [Tracing Conventions].
 
