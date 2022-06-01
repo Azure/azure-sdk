@@ -123,4 +123,16 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-mgmt-datafactory_2.6.0/sdk/datafactory/azure-mgmt-datafactory/CHANGELOG.md
   ChangelogContent: ""
+- Name: azure-core
+  Version: 1.24.1
+  DisplayName: Core - Client - Core
+  ServiceName: Other
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-core_1.24.1/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Declare method level span as INTERNAL by default  #24492
+    - Fixed type hints for `azure.core.paging.ItemPaged` #24548
 
