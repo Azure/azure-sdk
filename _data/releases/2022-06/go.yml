@@ -1656,4 +1656,14 @@ entries:
   Hidden: false
   ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/resourcemanager/applicationinsights/armapplicationinsights/v1.0.0/sdk/resourcemanager/applicationinsights/armapplicationinsights/CHANGELOG.md
   ChangelogContent: ""
+- Name: sdk/azcore
+  Version: 1.1.0
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-go/tree/sdk/azcore/v1.1.0/sdk/azcore/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+    * The one-second floor for `Frequency` when calling `PollUntilDone()` has been removed when running tests.
 
