@@ -1,0 +1,17 @@
+entries:
+- Name: azure-core
+  Version: 1.7.0-beta.1
+  DisplayName: Core
+  ServiceName: Core
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-cpp/tree/azure-core_1.7.0-beta.1/sdk/core/azure-core/CHANGELOG.md
+  ChangelogContent: |-
+    #### Breaking Changes
+
+    - Removed `noexcept` specification from `Azure::Core::Context::IsCancelled()`.
+
+    #### Features Added
+
+    - Added prototypes and initial service support for Distributed Tracing.
+
