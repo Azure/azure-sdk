@@ -248,4 +248,15 @@ entries:
 
     - send emails to multiple recipients with attachments
     - get the status of a sent message
+- Name: '@azure/core-rest-pipeline'
+  Version: 1.9.0
+  DisplayName: Core - Client - Core Rest Pipeline
+  ServiceName: Other
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure/core-rest-pipeline_1.9.0/sdk/core/core-rest-pipeline/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Add TLS policy in `createPipelineFromOptions`. [#21949](https://github.com/Azure/azure-sdk-for-js/pull/21949)
 
