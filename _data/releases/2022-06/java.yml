@@ -1318,4 +1318,15 @@ entries:
 
     - Upgraded `azure-core` from `1.29.0` to `1.29.1`.
   GroupId: com.azure
+- Name: azure-identity
+  Version: 1.5.2
+  DisplayName: Identity
+  ServiceName: Identity
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-identity_1.5.2/sdk/identity/azure-identity/CHANGELOG.md
+  ChangelogContent: |-
+    ##### Dependency Updates
+    - Upgraded `azure-core` dependency to 1.29.1
+  GroupId: com.azure
 
