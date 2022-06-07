@@ -536,7 +536,7 @@ Distributed tracing allows customers to observe public API methods that are call
 
 Distributed traces for network calls are sent automatically by the `HttpPipeline` in Azure.Core.  Library authors must trace public service methods using `ClientDiagnostics.CreateScope`.  The .NET `Activity` types are used for this internally by the `ClientDiagnostics` via .NET [`DiagnosticSource`](https://github.com/dotnet/runtime/blob/main/src/libraries/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) or [`ActivitySource`](https://docs.microsoft.com/dotnet/core/diagnostics/distributed-tracing-instrumentation-walkthroughs).
 
-{% include requirement/MUST id="dotnet-tracing" %} follow [general distributed tracing guidance](https://azure.github.io/azure-sdk/general_implementation.html#distributed-tracing)
+{% include requirement/MUST id="dotnet-tracing" %} follow [General Distributed Tracing Guidance]({{ site.baseurl }}/general_implementation.html#distributed-tracing).
 
 {% include requirement/MUST id="dotnet-tracing-opentelemetry" %} support distributed tracing by using `ClientDiagnostics` and `DiagnosticScope`
 
