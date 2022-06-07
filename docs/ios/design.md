@@ -325,7 +325,7 @@ public class CatClient: PipelineClient {
     
 {% include requirement/MAY id="ios-event-mutable" %} mutate individual event handlers after client instantiation, unlike most client configuration which is required to be immutable.
 
-{% include requirement/SHOULD id="ios-closure-typealias" %} provide a public typealias for each event signature (??? or maybe not?)
+{% include requirement/SHOULDNOT id="ios-closure-typealias" %} provide a public typealias event signatures because they do not aid in Intellisense and pollute the public API surface area. If you feel you need to expose a public typealias, contact the SDK team. 
 
 {% include requirement/MUST id="ios-closure-naming-convention" %} name event properties using the Swift UI naming convention. For example, a delegate method called "cat(didMeow:)" would translate to an closure-based event named "onCatMeow".
 
