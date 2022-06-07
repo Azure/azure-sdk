@@ -185,6 +185,12 @@ Distributed tracing mechanisms allow the consumer to trace their code from front
 
 {% include requirement/MUST id="general-tracing-new-span-per-method-conventions" %} populate span properties according to [Tracing Conventions].
 
+{% include requirement/MUST id="general-tracing-new-span-per-method-naming" %} name per-method spans following `<client>.<method>` pattern without namespace or async suffix if applicable. Follow language-specific conventions for casing.
+
+{% include requirement/MUST id="general-tracing-new-span-per-method-duration" %} start per-method spans before sending the request or calling any significantly time consuming code that might fail. End the span only after all network, IO or other unreliable and time consuming operations are complete.
+
+{% include requirement/MUST id="general-tracing-new-span-per-method-failure" %} If method throws exception, record exception on span. Do not record exception if exception is handled within service method.
+
 {% include requirement/MUST id="general-tracing-new-span-per-rest-call" %} create a new span (which must be a child of the per-method span) for each REST call that the client library makes.  This is generally done with the HTTP pipeline.
 
 Some of these requirements will be handled by the HTTP pipeline.  However, as a client library writer, you must handle the incoming context appropriately.
