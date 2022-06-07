@@ -210,4 +210,36 @@ entries:
     #### Bugs Fixed
     - Port numbers are now preserved in the `vault_url` property of a `KeyVaultSecretIdentifier`
     ([#24446](https://github.com/Azure/azure-sdk-for-python/issues/24446))
+- Name: azure-eventhub
+  Version: 5.8.0a4
+  DisplayName: Event Hubs
+  ServiceName: Event Hubs
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-eventhub_5.8.0a4/sdk/eventhub/azure-eventhub/CHANGELOG.md
+  ChangelogContent: |-
+    #### Features Added
+
+    - Added support for connection using websocket and http proxy.
+    - Added support for custom endpoint connection over websocket.
+- Name: azure-servicebus
+  Version: 7.7.0
+  DisplayName: Service Bus
+  ServiceName: Service Bus
+  VersionType: GA
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-python/tree/azure-servicebus_7.7.0/sdk/servicebus/azure-servicebus/CHANGELOG.md
+  ChangelogContent: |-
+    #### Bugs Fixed
+
+    - Fixed bug to make AMQP exceptions retryable by default, if condition is not non-retryable, to ensure that InternalServerErrors are retried.
+
+    #### Features Added
+
+    - The `ServiceBusClient` constructor now accepts optional `custom_endpoint_address` argument
+    which allows for specifying a custom endpoint to use when communicating with the Service Bus service,
+    and is useful when your network does not allow communicating to the standard Service Bus endpoint.
+    - The `ServiceBusClient`constructor now accepts optional `connection_verify` argument
+    which allows for specifying the path to the custom CA_BUNDLE file of the SSL certificate which is used to authenticate
+    the identity of the connection endpoint.
 
