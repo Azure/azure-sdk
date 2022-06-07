@@ -259,4 +259,20 @@ entries:
     #### Features Added
 
     - Add TLS policy in `createPipelineFromOptions`. [#21949](https://github.com/Azure/azure-sdk-for-js/pull/21949)
+- Name: '@azure-rest/core-client'
+  Version: 1.0.0-beta.10
+  DisplayName: Core - Client - Rest
+  ServiceName: Other
+  VersionType: Beta
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-js/tree/@azure-rest/core-client_1.0.0-beta.10/sdk/core/core-client-rest/CHANGELOG.md
+  ChangelogContent: |-
+    #### Fixes
+
+    - Fix to avoid skip `JSON.stringify` when the body is already a string. [20753](https://github.com/Azure/azure-sdk-for-js/pull/20753)
+
+    #### Other Changes
+
+    - Create new pipeline using @azure/core-rest-pipeline's `createPipelineFromOptions`, instead of a custom pipeline. [#21949](https://github.com/Azure/azure-sdk-for-js/pull/21949)
+    - Fix URL encoding for query parameters. [#20972](https://github.com/Azure/azure-sdk-for-js/pull/20972)
 
