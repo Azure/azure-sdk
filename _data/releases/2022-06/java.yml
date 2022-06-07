@@ -1329,4 +1329,19 @@ entries:
     ##### Dependency Updates
     - Upgraded `azure-core` dependency to 1.29.1
   GroupId: com.azure
+- Name: azure-communication-common
+  Version: 1.1.4
+  DisplayName: Communication Common
+  ServiceName: Communication
+  VersionType: Patch
+  Hidden: false
+  ChangelogUrl: https://github.com/Azure/azure-sdk-for-java/tree/azure-communication-common_1.1.4/sdk/communication/azure-communication-common/CHANGELOG.md
+  ChangelogContent: |-
+    #### Other Changes
+
+    ##### Dependency Updates
+
+    - Upgraded `azure-core` from `1.28.0` to version `1.29.1`.
+    - Upgraded `azure-core-http-netty` from `1.12.0` to version `1.12.2`.
+  GroupId: com.azure
 
